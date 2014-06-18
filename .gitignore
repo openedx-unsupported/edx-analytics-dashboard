@@ -1,54 +1,41 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
+# Python bytecode:
+*.py[co]
 
-# C extensions
-*.so
+# Packaging files:
+*.egg*
 
-# Distribution / packaging
-.Python
-env/
-bin/
-build/
-develop-eggs/
-dist/
-eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-*.egg-info/
-.installed.cfg
-*.egg
+# Sphinx docs:
+build
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+# SQLite3 database files:
+*.db
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.coverage
-.cache
-nosetests.xml
-coverage.xml
+# Logs:
+*.log
 
-# Translations
-*.mo
-
-# Mr Developer
-.mr.developer.cfg
+# Eclipse
 .project
 .pydevproject
+.settings
 
-# Rope
-.ropeproject
+# Linux Editors
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+.elc
+auto-save-list
+tramp
+.\#*
+*.swp
+*.swo
 
-# Django stuff:
-*.log
-*.pot
+# Mac
+.DS_Store
+._*
 
-# Sphinx documentation
-docs/_build/
+# Windows
+Thumbs.db
+Desktop.ini
 
+.idea
