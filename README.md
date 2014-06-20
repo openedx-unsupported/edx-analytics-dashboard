@@ -11,11 +11,19 @@ Getting Started
 
         $ pip install -r requirements/local.txt
 
-3. Change to the Django project directory.
+3. Install node.js packages:
+
+        $ npm install
+
+4. Run default gulp tasks:
+
+        $ gulp
+
+5. Change to the Django project directory.
 
         $ cd analytics_dashboard
 
-4. Run the server:
+6. Run the server:
 
         ./manage.py runserver
 
@@ -34,7 +42,11 @@ Please read [How To Contribute](https://github.com/edx/edx-platform/blob/master/
 Testing
 -------
 
+* Python Tests
     $ ./manage.py test
+
+* JavaScript Tests
+    $ gulp test
 
 Reporting Security Issues
 -------------------------
