@@ -34,7 +34,27 @@ Please read [How To Contribute](https://github.com/edx/edx-platform/blob/master/
 Testing
 -------
 
+### Python Tests
     $ ./manage.py test
+
+### JavaScript Tests
+
+1. Install node.js packages (if you haven't run this already):
+
+        $ npm install
+
+2. Run default gulp tasks:
+
+        $ gulp
+
+3. Run the JavaScript tests alone:
+
+        $ gulp test
+
+4. Run the JavaScript linting alone:
+
+        $ gulp lint
+
 
 Reporting Security Issues
 -------------------------

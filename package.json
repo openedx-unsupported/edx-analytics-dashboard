@@ -1,9 +1,13 @@
 {
-    "name": "edx-analytics-dashboard",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/edx/edx-analytics-dashboard"
-    },
-    "dependencies": {
-    }
+  "name": "edx-analytics-dashboard",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/edx/edx-analytics-dashboard"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.8.1",
+    "gulp-jasmine": "^0.2.0",
+    "gulp-jshint": "^1.6.3"
+  }
 }
