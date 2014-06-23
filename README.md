@@ -15,9 +15,13 @@ Getting Started
 
         $ cd analytics_dashboard
 
-4. Run the server:
+4. Setup your database:
 
-        ./manage.py runserver
+        $ ./manage.py syncdb --migrate
+
+5. Run the server:
+
+        $ ./manage.py runserver
 
 License
 -------
