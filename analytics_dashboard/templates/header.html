@@ -1,0 +1,38 @@
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <small>edX</small> Insights <i class="fa fa-tachometer fa-lg"></i>
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse">
+            <div class="row">
+                <div class="col-xs-12 col-md-8">
+                    <div class="navbar-text">
+                        <div>
+                            {{ course_number }}
+                        </div>
+                        <div>
+                            {{ course_title }}
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-right navbar-text">
+                    <i class="fa fa-user"></i> {{ user_name }}
+                </div>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
