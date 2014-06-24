@@ -1,8 +1,22 @@
+// This is where our stylesheets are aggregated.
+// ====================
+
+@import '../vendor/bourbon/bourbon'; // lib - bourbon 3.2.3 (bourbon 4 isn't compatible with libsass currently)
+
+// VENDOR + REBASE *referenced/used vendor presentation and reset*
+// ====================
+@import 'reset';
+
+// BASE  *default edX offerings*
+// ====================
+// base - utilities
+@import 'variables';
+
 @import "../vendor/bootstrap/stylesheets/bootstrap";
 
 // When upgrading Font Awesome, remember to set $fa-font-path to "../../vendor/font-awesome/fonts".
 @import "../vendor/font-awesome/scss/font-awesome";
 
-body {
-  padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-}
+// base - starter
+@import 'base';
+
