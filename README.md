@@ -9,15 +9,19 @@ Getting Started
 1. Get the code (e.g. clone the repository).
 2. Install the Python requirements:
 
-        $ pip install -r requirements/local.txt
+        $ pip install -r requirements/devtest.txt
 
 3. Change to the Django project directory.
 
         $ cd analytics_dashboard
 
-4. Run the server:
+4. Setup your database:
 
-        ./manage.py runserver
+        $ ./manage.py syncdb --migrate
+
+5. Run the server:
+
+        $ ./manage.py runserver
 
 License
 -------
@@ -35,6 +39,7 @@ Testing
 -------
 
 ### Python Tests
+    $ cd analytics-dashboard
     $ ./manage.py test
 
 ### JavaScript Tests

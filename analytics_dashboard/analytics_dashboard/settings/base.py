@@ -156,6 +156,11 @@ TEMPLATE_LOADERS = (
 TEMPLATE_DIRS = (
     normpath(join(SITE_ROOT, 'templates')),
 )
+
+ALLOWED_INCLUDE_ROOTS = (
+    normpath(join(SITE_ROOT, 'templates')),
+)
+
 ########## END TEMPLATE CONFIGURATION
 
 
@@ -199,6 +204,7 @@ DJANGO_APPS = (
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
+    'courses',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
