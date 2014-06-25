@@ -24,21 +24,86 @@ $white-t3: rgba($white,0.75);
 
 $gray: rgb(139, 133, 127);
 $gray-l1: lighten($gray,20%);
-$gray-l2: lighten($gray,40%);
-$gray-l3: lighten($gray,60%);
-$gray-l4: lighten($gray,80%);
-$gray-l5: lighten($gray,90%);
-$gray-l6: lighten($gray,95%);
+$gray-l2: lighten($gray,30%);
 $gray-d1: darken($gray,20%);
-$gray-d2: darken($gray,40%);
-$gray-d3: darken($gray,60%);
-$gray-d4: darken($gray,80%);
-$gray-d5: darken($gray,90%);
-$gray-d6: darken($gray,95%);
+$gray-d2: darken($gray,30%);
 $gray-t0: rgba($gray,0.125);
 $gray-t1: rgba($gray,0.25);
 $gray-t2: rgba($gray,0.50);
 $gray-t3: rgba($gray,0.75);
+
+// colors - default
+$blue: rgb(58, 162, 224);
+$blue-l1: tint($blue,20%);
+$blue-l2: tint($blue,30%);
+$blue-d1: shade($blue,20%);
+$blue-d2: shade($blue,30%);
+$blue-s1: saturate($blue,15%);
+$blue-s2: saturate($blue,30%);
+$blue-s3: saturate($blue,45%);
+$blue-u1: desaturate($blue,15%);
+$blue-u2: desaturate($blue,30%);
+$blue-u3: desaturate($blue,45%);
+$blue-t0: rgba($blue,0.125);
+$blue-t1: rgba($blue,0.25);
+$blue-t2: rgba($blue,0.50);
+$blue-t3: rgba($blue,0.75);
+
+$green: rgb(95, 187, 121);
+$green-l1: tint($green,20%);
+$green-l2: tint($green,30%);
+$green-d1: shade($green,20%);
+$green-d2: shade($green,30%);
+$green-s1: saturate($green,15%);
+$green-s2: saturate($green,30%);
+$green-u1: desaturate($green,15%);
+$green-u2: desaturate($green,30%);
+$green-t0: rgba($green,0.125);
+$green-t1: rgba($green,0.25);
+$green-t2: rgba($green,0.50);
+$green-t3: rgba($green,0.75);
+
+$yellow: rgb(242, 212, 142);
+$yellow-l1: tint($yellow,20%);
+$yellow-l2: tint($yellow,30%);
+$yellow-d1: shade($yellow,20%);
+$yellow-d2: shade($yellow,30%);
+$yellow-s1: saturate($yellow,15%);
+$yellow-s2: saturate($yellow,30%);
+$yellow-u1: desaturate($yellow,15%);
+$yellow-u2: desaturate($yellow,30%);
+$yellow-t0: rgba($yellow,0.125);
+$yellow-t1: rgba($yellow,0.25);
+$yellow-t2: rgba($yellow,0.50);
+$yellow-t3: rgba($yellow,0.75);
+
+$orange: rgb(247, 168, 86);
+$orange-l1: tint($orange,20%);
+$orange-l2: tint($orange,30%);
+$orange-d1: shade($orange,20%);
+$orange-d2: shade($orange,30%);
+$orange-s1: saturate($orange,15%);
+$orange-s2: saturate($orange,30%);
+$orange-u1: desaturate($orange,15%);
+$orange-u2: desaturate($orange,30%);
+$orange-t0: rgba($orange,0.125);
+$orange-t1: rgba($orange,0.25);
+$orange-t2: rgba($orange,0.50);
+$orange-t3: rgba($orange,0.75);
+
+$red: rgb(226, 94, 100);
+$red-l1: tint($red,20%);
+$red-l2: tint($red,30%);
+$red-d1: shade($red,20%);
+$red-d2: shade($red,30%);
+$red-s1: saturate($red,15%);
+$red-s2: saturate($red,30%);
+$red-u1: desaturate($red,15%);
+$red-u2: desaturate($red,30%);
+$red-t0: rgba($red,0.125);
+$red-t1: rgba($red,0.25);
+$red-t2: rgba($red,0.50);
+$red-t3: rgba($red,0.75);
 
 // shadows
 $shadow: rgba($black-t,0.2);
@@ -50,15 +115,9 @@ $shadow-d2: rgba($black-t,0.6);
 // edx-centric colors
 $edx-blue: rgb(58, 162, 224);
 $edx-blue-l1: lighten($edx-blue,20%);
-$edx-blue-l2: lighten($edx-blue,40%);
-$edx-blue-l3: lighten($edx-blue,60%);
-$edx-blue-l4: lighten($edx-blue,80%);
-$edx-blue-l5: lighten($edx-blue,90%);
+$edx-blue-l2: lighten($edx-blue,30%);
 $edx-blue-d1: darken($edx-blue,20%);
-$edx-blue-d2: darken($edx-blue,40%);
-$edx-blue-d3: darken($edx-blue,60%);
-$edx-blue-d4: darken($edx-blue,80%);
-$edx-blue-d5: darken($edx-blue,90%);
+$edx-blue-d2: darken($edx-blue,30%);
 $edx-blue-s1: saturate($edx-blue,15%);
 $edx-blue-s2: saturate($edx-blue,30%);
 $edx-blue-s3: saturate($edx-blue,45%);
@@ -72,15 +131,9 @@ $edx-blue-t3: rgba($edx-blue,0.75);
 
 $edx-pink: rgb(182,37,104);
 $edx-pink-l1: lighten($edx-pink,20%);
-$edx-pink-l2: lighten($edx-pink,40%);
-$edx-pink-l3: lighten($edx-pink,60%);
-$edx-pink-l4: lighten($edx-pink,80%);
-$edx-pink-l5: lighten($edx-pink,90%);
+$edx-pink-l2: lighten($edx-pink,30%);
 $edx-pink-d1: darken($edx-pink,20%);
-$edx-pink-d2: darken($edx-pink,40%);
-$edx-pink-d3: darken($edx-pink,60%);
-$edx-pink-d4: darken($edx-pink,80%);
-$edx-pink-d5: darken($edx-pink,90%);
+$edx-pink-d2: darken($edx-pink,30%);
 $edx-pink-s1: saturate($edx-pink,15%);
 $edx-pink-s2: saturate($edx-pink,30%);
 $edx-pink-s3: saturate($edx-pink,45%);
@@ -94,15 +147,9 @@ $edx-pink-t3: rgba($edx-pink,0.75);
 
 $edx-gray: rgb(164, 165, 168);
 $edx-gray-l1: lighten($edx-gray,20%);
-$edx-gray-l2: lighten($edx-gray,40%);
-$edx-gray-l3: lighten($edx-gray,60%);
-$edx-gray-l4: lighten($edx-gray,80%);
-$edx-gray-l5: lighten($edx-gray,90%);
+$edx-gray-l2: lighten($edx-gray,30%);
 $edx-gray-d1: darken($edx-gray,20%);
 $edx-gray-d2: darken($edx-gray,40%);
-$edx-gray-d3: darken($edx-gray,60%);
-$edx-gray-d4: darken($edx-gray,80%);
-$edx-gray-d5: darken($edx-gray,90%);
 $edx-gray-s1: saturate($edx-gray,15%);
 $edx-gray-s2: saturate($edx-gray,30%);
 $edx-gray-s3: saturate($edx-gray,45%);
@@ -114,15 +161,71 @@ $edx-gray-t1: rgba($edx-gray,0.25);
 $edx-gray-t2: rgba($edx-gray,0.50);
 $edx-gray-t3: rgba($edx-gray,0.75);
 
-// general actions
+// general color application
 $color-primary: $edx-blue;
 $color-secondary: $edx-blue-l1;
-$color-tertiary: $edx-blue-l3;
+$color-tertiary: $edx-blue-l2;
+$color-success: $green;
+$color-warning: $yellow;
+$color-error: $red;
+$color-status: $blue;
+$color-input: $blue-s1;
+$color-create: $green;
+$color-delete: $red;
+$color-support: $orange;
 
 // fonts
 $f-sans-serif: 'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif;
 $f-sans-serif-alt: 'Montserrat','Avenir Next', Helvetica, Arial, sans-serif;
 
 
-// application - bootstrap overrides
+// application - bootstrap overrides (from http://getbootstrap.com/customize/#less-variables)
 // --------------------
+// colors
+$gray-lighter: $gray-l2;
+$gray-light: $gray-l1;
+$gray: $gray;
+$gray-dark: $gray-d1;
+$gray-darker: $gray-d2;
+$brand-primary: $color-primary;
+$brand-success: $color-success;
+$brand-info: $color-status;
+$brand-warning: $color-warning;
+$brand-danger: $color-error;
+
+// scaffoling
+$body-bg: $edx-gray-l2;
+$text-color: $gray-d2;
+// $link-color: ;
+// $link-hover-color: ;
+
+// grid
+$grid-gutter-width: 40px;
+
+// typography
+$font-family-base: $f-sans-serif;
+$font-family-sans-serif: $f-sans-serif;
+$headings-font-weight: 500;
+// $font-size-small: ;
+// $font-size-base: ;
+// $font-size-large: ;
+// $headings-font-family: $f-sans-serif-alt;
+
+// components
+$border-radius-base: 2px;
+$border-radius-large: 4px;
+// $component-active-color: ;
+// $component-active-bg: ;
+
+// navbar
+$navbar-height: 80px;
+$navbar-default-color: black;
+$navbar-default-bg: $white-t;
+$navbar-default-link-color: $edx-gray-d2;
+$navbar-default-link-hover-color: $edx-blue-s1;
+$navbar-default-link-hover-bg: transparent;
+$navbar-default-link-active-color: $edx-blue-d1;
+$navbar-default-border: $gray-lighter;
+// $navbar-padding-horizontal: ;
+// $navbar-padding-vertical: ;
+// $navbar-default-border: ;

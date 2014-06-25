@@ -1,9 +1,47 @@
 {% extends "base.html" %}
 
-{% block title %}Page Not found{% endblock %}
+{% load staticfiles %}
 
-{% block page_title %}Page Not found{% endblock page_title %}
+{% comment %}
+System 404 Error View
+{% endcomment %}
+
+{% block view-name %}view-404 view-system{% endblock view-name %}
+{% block title %}Page Not Found | edX Analytics{% endblock title %}
+
+{% block header %}
+{% endblock header %}
 
 {% block content %}
-<p>This is not the page you were looking for.</p>
+<div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+            <div class="masthead clearfix">
+                <div class="inner">
+                    <img class="masthead-brand-logo" src="{% static 'images/logo-edx.svg' %}" alt="edX" />
+                    <span class="masthead-brand-app">Analytics</span>
+                </div>
+            </div>
+
+            <div class="inner cover">
+                <h1 class="cover-heading">
+                    <span class="error-code">404</span>
+                    <span class="error-title">Those Numbers (and Letters) Can't Be Crunched.</span>
+                </h1>
+
+                <p class="lead error-copy">We can't find the view you're looking for. Please make sure the URL you've entered or arrived at is correct and if not try again. If you continue to have trouble, please let us know.</p>
+
+                <p class="lead">
+                    <a href="#" class="btn btn-lg btn-primary">
+                        <i class="ico fa fa-life-ring"></i>
+                        Contact edX Support
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
