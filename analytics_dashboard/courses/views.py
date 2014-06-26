@@ -5,9 +5,14 @@ from django.core.urlresolvers import reverse
 from models import Course
 
 def analytics(request, course_id):
+    page_data = {
+        'name': 'Dennis',
+        'courseId': str(course_id),
+    }
     # we would ideally get this from the DB, but for now lets stub some data
     context = {'user_name': 'Ed Xavier',
                'course_number': 'MITx 7.3423',
-               'course_title': 'Introduction to Awesomeness'
+               'course_title': 'Introduction to Awesomeness',
+               'page_data': page_data
     }
     return render(request, 'courses/analytics.html', context)
