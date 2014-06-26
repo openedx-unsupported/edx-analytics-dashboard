@@ -1,82 +1,36 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
-{% comment %}
-Individual course centric overview view
-{% endcomment %}
-
-{% block view-name %}view-course-overview view-dashboard{% endblock view-name %}
-{% block title %}{{ course_number }} {{ course_title }}| edX Analytics{% endblock title %}
-
-{% block nav-skip %}
-<div class="sr-only">
-    <h2>Skip to Parts of this Page</h2>
-    <ul>
-        <li><a href="#nav">Main Navigation</a></li>
-        <li><a href="#content">Main Content</a></li>
-        <li><a href="#sidebar">Side Content + Navigation</a></li>
-    </ul>
-</div>
-{% endblock nav-skip %}
+{% block view-name %}view-placeholder{% endblock view-name %}
 
 {% block content %}
-<div class="row">
-    <aside id="sidebar" class="col-sm-3 col-md-2 sidebar">
-        <div class="sidebar-group">
-            <!-- TODO: abstract this out into one view with .active logic -->
-            <ul class="nav nav-stacked">
-                <li class="active">
-                    <a href="#">
-                        <span class="link-label"><i class="ico fa fa-tachometer"></i> Overview</span>
-                        <i class="link-ico fa fa-angle-right hidden-xs"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="link-label"><i class="ico fa fa-child"></i> Enrollment</span>
-                        <i class="link-ico fa fa-angle-right hidden-xs"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="link-label"><i class="ico fa fa-tasks"></i> Engagement</span>
-                        <i class="link-ico fa fa-angle-right hidden-xs"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="link-label"><i class="ico fa fa-bar-chart-o"></i> Performance</span>
-                        <i class="link-ico fa fa-angle-right hidden-xs"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="link-label"><i class="ico fa fa-life-ring"></i> Help &amp; Support</span>
-                        <i class="link-ico fa fa-angle-right hidden-xs"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="link-label"><i class="ico fa fa-comments-o"></i> Contact</span>
-                        <i class="link-ico fa fa-angle-right hidden-xs"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </aside>
-    <!-- / col -->
+<div id="analytics-init-data" class="container" analytics-initial-data='{{ page_data | safe }}'>
+    <div class="row">
+    <div class="col-xs-12 col-md-8">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nisi vestibulum, interdum elit in, pellentesque velit. Curabitur lacinia sollicitudin commodo. Nam enim velit, semper et lacinia at, imperdiet sit amet arcu. Praesent dictum porta tortor, sed congue massa euismod id. Mauris dignissim turpis eu risus volutpat, vel imperdiet nunc aliquet. Morbi est ipsum, mollis eleifend condimentum quis, porttitor ut ligula. Aliquam diam risus, bibendum in justo eget, lobortis ullamcorper lorem. Vivamus elit turpis, fringilla nec magna in, condimentum lobortis nunc. Maecenas nec arcu consequat, auctor ipsum ac, malesuada orci. Sed bibendum nulla enim, quis scelerisque quam mattis vitae. In eleifend, sem eu pulvinar dictum, dui ante faucibus eros, placerat dictum orci nibh eget justo. Morbi quis adipiscing arcu. Vestibulum semper metus ac aliquam dapibus. Sed feugiat vulputate massa, ac ultricies arcu congue vel. Ut eget egestas erat. Donec molestie sem eu leo consequat, nec posuere mauris lobortis.</p>
+    </div>
 
-    <main class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="content">
-        <div class="view-head">
-            <h1>Overview</h1>
-        </div>
+    <div class="col-xs-6 col-md-4">
+        <p>
+            Nunc in eleifend dolor, vel ornare orci. Nullam venenatis iaculis urna, vel feugiat est rutrum at. Nullam lacinia elementum nibh at condimentum. In adipiscing vel neque a mattis. Aliquam lobortis at odio et eleifend. Etiam suscipit vitae ante nec aliquet. Donec egestas velit at commodo sagittis. Ut imperdiet, turpis mattis rutrum accumsan, libero justo euismod tellus, at pulvinar orci felis sed lectus. Nullam ut sapien nec velit faucibus gravida ac ac orci. Nam feugiat massa nec bibendum tincidunt. In lobortis feugiat leo, ut laoreet lorem rutrum sit amet.
+        </p>
+    </div>
 
-        <div class="view-intro">
-            <p class="lead text-muted">
-                [Intro summary area for Overview if needed] Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
-            </p>
-        </div>
-    </main>
-    <!-- / col -->
+    <div class="col-xs-6 col-md-4">
+        <p>Aliquam lacinia, felis at cursus dictum, justo augue placerat erat, sed lacinia leo quam id mauris. Maecenas venenatis ligula facilisis, vulputate purus sed, condimentum odio. Maecenas nisi nulla, pellentesque ac mollis non, aliquam in sem. Integer euismod, ipsum id cursus posuere, risus libero tristique nulla, sit amet blandit leo diam in arcu. Sed a libero interdum, suscipit dui eget, tincidunt orci. Vestibulum cursus tellus eget enim tempus, in commodo tortor fermentum. Phasellus ut dapibus eros, non condimentum purus. Proin tincidunt sem sit amet felis accumsan, sed vehicula ligula consectetur. Cras in odio urna. Aliquam ut leo aliquet, sollicitudin sem eget, pellentesque risus. Mauris at rhoncus arcu, vitae imperdiet dolor. In hac habitasse platea dictumst. Curabitur id magna leo. Maecenas aliquet vel augue et aliquam. In vitae est quis quam suscipit tempus eget sit amet lectus. Curabitur a porta lacus.</p>
+    </div>
+
+    <div class="col-xs-6 col-md-4">
+        <p>Duis quis sodales ipsum, laoreet auctor ipsum. Pellentesque consequat volutpat felis ac dictum. Maecenas sodales malesuada magna, ac laoreet urna consequat ut. Nunc eget ligula eleifend, ornare diam non, vulputate nunc. In sit amet commodo mauris. Vivamus pharetra arcu gravida tincidunt interdum. Suspendisse potenti. Fusce non tellus a metus interdum bibendum. Quisque id molestie ante, vel pellentesque magna. Sed gravida eleifend erat pharetra consectetur. Suspendisse cursus justo et faucibus porttitor. Nam feugiat purus in neque sodales, sed volutpat nunc hendrerit. Etiam venenatis pretium lectus in lacinia. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam viverra turpis eu ligula condimentum placerat.</p>
+    </div>
+
+    <div class="col-xs-6 col-md-4">
+        <p>Praesent sed augue et urna bibendum fringilla. Nam nisi risus, ornare in pellentesque non, volutpat eu lacus. Etiam et ultricies magna, non facilisis augue. Aliquam eleifend eget sem in pretium. Praesent enim purus, posuere at orci ac, bibendum laoreet diam. Phasellus pharetra ullamcorper aliquet. Phasellus pellentesque, purus sit amet sollicitudin semper, turpis risus viverra dui, ut consectetur dolor neque in lectus. Etiam at mi turpis.</p>
+    </div>
+    </div>
 </div>
-<!-- / row -->
 {% endblock content %}
+
+{% block javascript %}
+<script data-main="{% static 'js/course-analytics.js' %}"  src="{% static 'vendor/require.js' %}"></script>
+{% endblock javascript %}
