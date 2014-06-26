@@ -1,0 +1,128 @@
+// config: variables
+// ====================
+// NOTE: these variables override Bootstrap-centric variables.
+
+// + colors
+// + application - bootstrap overrides
+
+// colors
+// --------------------
+// basic
+$black: rgb(10,10,10);                                                                              // system black
+$black-t: rgb(0,0,0);
+$black-t0: rgba($black,0.125);
+$black-t1: rgba($black,0.25);
+$black-t2: rgba($black,0.50);
+$black-t3: rgba($black,0.75);
+
+$white: rgb(250,250,250);                                                                           // system white
+$white-t: rgb(255,255,255);
+$white-t0: rgba($white,0.125);
+$white-t1: rgba($white,0.25);
+$white-t2: rgba($white,0.50);
+$white-t3: rgba($white,0.75);
+
+$gray: rgb(139, 133, 127);
+$gray-l1: lighten($gray,20%);
+$gray-l2: lighten($gray,40%);
+$gray-l3: lighten($gray,60%);
+$gray-l4: lighten($gray,80%);
+$gray-l5: lighten($gray,90%);
+$gray-l6: lighten($gray,95%);
+$gray-d1: darken($gray,20%);
+$gray-d2: darken($gray,40%);
+$gray-d3: darken($gray,60%);
+$gray-d4: darken($gray,80%);
+$gray-d5: darken($gray,90%);
+$gray-d6: darken($gray,95%);
+$gray-t0: rgba($gray,0.125);
+$gray-t1: rgba($gray,0.25);
+$gray-t2: rgba($gray,0.50);
+$gray-t3: rgba($gray,0.75);
+
+// shadows
+$shadow: rgba($black-t,0.2);
+$shadow-l1: rgba($black-t,0.1);
+$shadow-l2: rgba($black-t,0.05);
+$shadow-d1: rgba($black-t,0.4);
+$shadow-d2: rgba($black-t,0.6);
+
+// edx-centric colors
+$edx-blue: rgb(58, 162, 224);
+$edx-blue-l1: lighten($edx-blue,20%);
+$edx-blue-l2: lighten($edx-blue,40%);
+$edx-blue-l3: lighten($edx-blue,60%);
+$edx-blue-l4: lighten($edx-blue,80%);
+$edx-blue-l5: lighten($edx-blue,90%);
+$edx-blue-d1: darken($edx-blue,20%);
+$edx-blue-d2: darken($edx-blue,40%);
+$edx-blue-d3: darken($edx-blue,60%);
+$edx-blue-d4: darken($edx-blue,80%);
+$edx-blue-d5: darken($edx-blue,90%);
+$edx-blue-s1: saturate($edx-blue,15%);
+$edx-blue-s2: saturate($edx-blue,30%);
+$edx-blue-s3: saturate($edx-blue,45%);
+$edx-blue-u1: desaturate($edx-blue,15%);
+$edx-blue-u2: desaturate($edx-blue,30%);
+$edx-blue-u3: desaturate($edx-blue,45%);
+$edx-blue-t0: rgba($edx-blue,0.125);
+$edx-blue-t1: rgba($edx-blue,0.25);
+$edx-blue-t2: rgba($edx-blue,0.50);
+$edx-blue-t3: rgba($edx-blue,0.75);
+
+$edx-pink: rgb(182,37,104);
+$edx-pink-l1: lighten($edx-pink,20%);
+$edx-pink-l2: lighten($edx-pink,40%);
+$edx-pink-l3: lighten($edx-pink,60%);
+$edx-pink-l4: lighten($edx-pink,80%);
+$edx-pink-l5: lighten($edx-pink,90%);
+$edx-pink-d1: darken($edx-pink,20%);
+$edx-pink-d2: darken($edx-pink,40%);
+$edx-pink-d3: darken($edx-pink,60%);
+$edx-pink-d4: darken($edx-pink,80%);
+$edx-pink-d5: darken($edx-pink,90%);
+$edx-pink-s1: saturate($edx-pink,15%);
+$edx-pink-s2: saturate($edx-pink,30%);
+$edx-pink-s3: saturate($edx-pink,45%);
+$edx-pink-u1: desaturate($edx-pink,15%);
+$edx-pink-u2: desaturate($edx-pink,30%);
+$edx-pink-u3: desaturate($edx-pink,45%);
+$edx-pink-t0: rgba($edx-pink,0.125);
+$edx-pink-t1: rgba($edx-pink,0.25);
+$edx-pink-t2: rgba($edx-pink,0.50);
+$edx-pink-t3: rgba($edx-pink,0.75);
+
+$edx-gray: rgb(164, 165, 168);
+$edx-gray-l1: lighten($edx-gray,20%);
+$edx-gray-l2: lighten($edx-gray,40%);
+$edx-gray-l3: lighten($edx-gray,60%);
+$edx-gray-l4: lighten($edx-gray,80%);
+$edx-gray-l5: lighten($edx-gray,90%);
+$edx-gray-d1: darken($edx-gray,20%);
+$edx-gray-d2: darken($edx-gray,40%);
+$edx-gray-d3: darken($edx-gray,60%);
+$edx-gray-d4: darken($edx-gray,80%);
+$edx-gray-d5: darken($edx-gray,90%);
+$edx-gray-s1: saturate($edx-gray,15%);
+$edx-gray-s2: saturate($edx-gray,30%);
+$edx-gray-s3: saturate($edx-gray,45%);
+$edx-gray-u1: desaturate($edx-gray,15%);
+$edx-gray-u2: desaturate($edx-gray,30%);
+$edx-gray-u3: desaturate($edx-gray,45%);
+$edx-gray-t0: rgba($edx-gray,0.125);
+$edx-gray-t1: rgba($edx-gray,0.25);
+$edx-gray-t2: rgba($edx-gray,0.50);
+$edx-gray-t3: rgba($edx-gray,0.75);
+
+// general actions
+$color-primary: $edx-blue;
+$color-secondary: $edx-blue-l1;
+$color-tertiary: $edx-blue-l3;
+
+// fonts
+$f-sans-serif: 'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif;
+$f-sans-serif-alt: 'Montserrat','Avenir Next', Helvetica, Arial, sans-serif;
+
+
+// application - bootstrap overrides
+// --------------------

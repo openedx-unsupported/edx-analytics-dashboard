@@ -1,0 +1,19 @@
+// edX Analytics Prototype: style compile
+// ====================
+// NOTE: this Sass compiles into the static CSS needed for the edX Analytics Prototype to render. This styling heavily reilies upon Bootstrap UI (getbootstrap.com) and Font Awesome iconography (http://fontawesome.io/)
+
+
+// config
+// --------------------
+@import "config-assets";                                                                            // config: assets
+@import "config-variables";                                                                         // config: variables to override
+
+// vendor
+// --------------------
+@import "../vendor/bootstrap/stylesheets/bootstrap";                                                // vendor: bootstrap
+@import "../vendor/font-awesome/scss/font-awesome";                                                 // vendor: font awesome
+
+// utility/misc.
+// --------------------
+@import 'developer';                                                                                // developer-friendly file: add rough/WIP styling that needs UI triage
+@import 'shame';                                                                                    // shame file - used for any bad-form/orphaned css

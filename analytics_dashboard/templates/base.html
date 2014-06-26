@@ -2,22 +2,26 @@
 {% load compress %}
 
 <!DOCTYPE html>
-<html lang="en">
+<!--[if lte IE 9]><html class="no-js lt-ie10" lang="en"><![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <title>{% block title %}analytics_dashboard{% endblock title %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>{% block title %}edX Analytics Dashboard{% endblock title %}</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
 
     {% comment %}
-        The stylesheets can be either overriden or augmented here.  Make sure to use the block.super if you're
-        adding additional stylesheets in your page when extending the base.
+    The stylesheets can be either overriden or augmented here.  Make sure to use the block.super if you're
+    adding additional stylesheets in your page when extending the base.
     {% endcomment %}
+
     {% block stylesheets %}
     {% compress css %}
-    <link rel="stylesheet" href="{% static 'sass/analytics_dashboard.scss' %}" type="text/x-scss">
+    <link rel="stylesheet" href="{% static 'sass/style-application.scss' %}" type="text/x-scss">
     {% endcompress %}
     {% endblock %}
 
@@ -27,33 +31,29 @@
     <![endif]-->
 </head>
 
-<body>
-
-{% include "header.html" %}
-
-<div class="container">
-    <h1>{% block page_title %}Example Base Template{% endblock page_title %}</h1>
+<body class="{% block view-name %}{% endblock view-name %}">
+    {% block header %}
+    {% include "header.html" %}
+    {% endblock header %}
 
     {% block content %}
-    <p>Use this document as a way to quick start any new project.</p>
     {% endblock content %}
 
-</div>
-<!-- /container -->
+    {% block footer %}
+    {% include "footer.html" %}
+    {% endblock footer %}
 
-{% include "footer.html" %}
-
-<!-- Placed at the end of the document so the pages load faster -->
-{% comment %}
+    <!-- Placed at the end of the document so the pages load faster -->
+    {% comment %}
     Make sure to add your JS files here.  You'll probably want to use block.super to add to the comment includes rather
     than override them.
-{% endcomment %}
-{% block javascript %}
-{% compress js %}
-<script type="text/javascript" src="{% static 'vendor/jquery-1.11.1.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'vendor/bootstrap/javascripts/bootstrap.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/analytics_dashboard.js' %}"></script>
-{% endcompress %}
-{% endblock %}
+    {% endcomment %}
+    {% block javascript %}
+    {% compress js %}
+    <script type="text/javascript" src="{% static 'vendor/jquery-1.11.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/bootstrap/javascripts/bootstrap.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/analytics_dashboard.js' %}"></script>
+    {% endcompress %}
+    {% endblock %}
 </body>
 </html>
