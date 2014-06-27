@@ -1,3 +1,19 @@
 // utilities: shame
 // ====================
 // NOTE: to be used for any poorly architected Sass/CSS or needed overrides to be resolved later
+
+// needed to override table striping by Bootstrap
+.section-data-table tbody tr {
+
+    // STATE: hover
+    &:hover, &:active {
+
+      &:nth-child(even) {
+        background: $edx-blue-t0 !important;
+      }
+
+      &:nth-child(odd) > td {
+        background: $edx-blue-t0 !important;
+      }
+    }
+}

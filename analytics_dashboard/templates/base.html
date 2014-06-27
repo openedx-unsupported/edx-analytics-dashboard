@@ -32,16 +32,30 @@
 </head>
 
 <body class="{% block view-name %}{% endblock view-name %}">
+
+    {% block nav-skip %}
+    <div class="sr-only">
+        <h2>Skip to Parts of this Page</h2>
+        <ul>
+            <li><a href="#nav">Main Navigation</a></li>
+            <li><a href="#content">Main Content</a></li>
+        </ul>
+    </div>
+    {% endblock nav-skip %}
+
     {% block header %}
     {% include "header.html" %}
     {% endblock header %}
 
+    <div class="container-fluid">
     {% block content %}
     {% endblock content %}
 
     {% block footer %}
     {% include "footer.html" %}
     {% endblock footer %}
+    </div>
+    <!-- / container -->
 
     <!-- Placed at the end of the document so the pages load faster -->
     {% comment %}
@@ -51,6 +65,7 @@
     {% block javascript %}
     {% compress js %}
     <script type="text/javascript" src="{% static 'vendor/jquery-1.11.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/holder.js' %}"></script>
     <script type="text/javascript" src="{% static 'vendor/bootstrap/javascripts/bootstrap.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/analytics_dashboard.js' %}"></script>
     {% endcompress %}
