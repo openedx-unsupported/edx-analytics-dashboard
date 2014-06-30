@@ -8,16 +8,14 @@ require.config({
         jquery: 'vendor/jquery-1.11.1.min',
         underscore: 'vendor/underscore-min',
         backbone: 'vendor/backbone-min',
-        bootstrap: 'vendor/bootstrap/javascripts/bootstrap',
+        bootstrap: 'vendor/bootstrap/javascripts/bootstrap.min',
         models: 'js/models',
-        views: 'js/views'
+        views: 'js/views',
+        holder: 'vendor/holder'
     },
     shim: {
         bootstrap: {
-            deps: ['jquery'],
-            // http://stackoverflow.com/questions/13377373/shim-twitter-bootstrap-for-requirejs
-            // for making sure that bootstrap is loaded correctly
-            exports: '$.fn.popover'
+            deps: ['jquery']
         },
         underscore: {
             exports: '_'
@@ -32,8 +30,8 @@ require.config({
 });
 
 require(['jquery', 'underscore', 'backbone',
-        'models/course-model', 'views/lens-navigation-view', 'bootstrap'],
-    function ($, _, Backbone, CourseModel, LensNavigationView) {
+        'models/course-model', 'views/lens-navigation-view', 'bootstrap', 'holder'],
+    function ($, _, Backbone, CourseModel, LensNavigationView, bootstrap, holder) {
         'use strict';
         $(document).ready(function () {
             // ok, we've loaded all the libraries and the page is loaded, so
@@ -43,8 +41,10 @@ require(['jquery', 'underscore', 'backbone',
                 onLoad: function() {
                     var model,
                         view,
-                        jsonData = JSON.parse( $('#analytics-init-data')
+                        jsonData = JSON.parse( $('#content')
                             .attr('data-analytics-init') );
+
+                    holder.run();
 
                     // this data will be set by something else eventually
                     model = new CourseModel();
@@ -53,6 +53,7 @@ require(['jquery', 'underscore', 'backbone',
 
                     view = new LensNavigationView({model: model});
                     view.render();
+
                 }
 
             };
