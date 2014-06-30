@@ -1,49 +1,48 @@
-{% extends "base.html" %}
-
 {% comment %}
-Individual course centric overview view
+Partial: App-wide header element
 {% endcomment %}
 
-{% block view-name %}view-course-overview view-dashboard{% endblock view-name %}
-{% block title %}{{ course_number }} {{ course_title }}| edX Analytics{% endblock title %}
-
-{% block nav-skip %}
-<div class="sr-only">
-    <h2>Skip to Parts of this Page</h2>
-    <ul>
-        <li><a href="#nav">Main Navigation</a></li>
-        <li><a href="#content">Main Content</a></li>
-        <li><a href="#sidebar">Side Content + Navigation</a></li>
-    </ul>
-</div>
-{% endblock nav-skip %}
-
-{% block content %}
 <div class="row">
     <aside id="sidebar" class="col-sm-3 col-md-2 sidebar">
         <div class="sidebar-group">
             <!-- TODO: abstract this out into one view with .active logic -->
             <ul class="nav nav-stacked">
-                <li class="active">
-                    <a href="#">
+                <li
+                    {% if page_title == "Overview" %}
+                    class = "active">
+                    {% endif %}
+                 >
+                    <a href="../overview">
                         <span class="link-label"><i class="ico fa fa-tachometer"></i> Overview</span>
                         <i class="link-ico fa fa-angle-right hidden-xs"></i>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
+                <li
+                    {% if page_title == "Enrollment" %}
+                    class = "active">
+                    {% endif %}
+                 >
+                    <a href="../enrollment">
                         <span class="link-label"><i class="ico fa fa-child"></i> Enrollment</span>
                         <i class="link-ico fa fa-angle-right hidden-xs"></i>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
+                <li
+                    {% if page_title == "Engagement" %}
+                    class = "active">
+                    {% endif %}
+                 >
+                    <a href="../engagement">
                         <span class="link-label"><i class="ico fa fa-tasks"></i> Engagement</span>
                         <i class="link-ico fa fa-angle-right hidden-xs"></i>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
+                <li
+                    {% if page_title == "Performance" %}
+                    class = "active">
+                    {% endif %}
+                 >
+                    <a href="../performance">
                         <span class="link-label"><i class="ico fa fa-bar-chart-o"></i> Performance</span>
                         <i class="link-ico fa fa-angle-right hidden-xs"></i>
                     </a>
@@ -63,20 +62,4 @@ Individual course centric overview view
             </ul>
         </div>
     </aside>
-    <!-- / col -->
-
-    <main class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="content">
-        <div class="view-head">
-            <h1>Overview</h1>
-        </div>
-
-        <div class="view-intro">
-            <p class="lead text-muted">
-                [Intro summary area for Overview if needed] Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
-            </p>
-        </div>
-    </main>
-    <!-- / col -->
 </div>
-<!-- / row -->
-{% endblock content %}
