@@ -4,8 +4,8 @@ define(['backbone', 'jquery'], function(Backbone, $) {
     var CourseModel = Backbone.Model.extend({
 
         /**
-         * This doesn't do much currently.  I want to test out getting this model working
-         * with requireJS, gulp, and jasmine.
+         * This doesn't do much currently.  I want to test out getting
+         * this model working with requireJS, gulp, and jasmine.
          *
          * @returns {*}
          */

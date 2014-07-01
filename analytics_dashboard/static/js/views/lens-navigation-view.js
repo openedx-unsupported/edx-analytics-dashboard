@@ -8,7 +8,6 @@ define(['jquery', 'backbone', 'models/course-model'],
 
             // Renders the view's template to the UI
             render: function() {
-                var self = this;
                 // Maintains chainability
                 return this;
             }

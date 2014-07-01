@@ -23,15 +23,19 @@ require.config({
         backbone: {
             deps: ['underscore', 'jquery'],
             exports: 'Backbone',
-            init: function (_, $) { Backbone.$ = $; return Backbone; }
+            init: function (_, $) {
+                'use strict';
+                Backbone.$ = $; return Backbone; }
         }    },
      // load jquery and gettext automatically
     deps: ['jquery']
 });
 
 require(['jquery', 'underscore', 'backbone',
-        'models/course-model', 'views/lens-navigation-view', 'bootstrap', 'holder'],
-    function ($, _, Backbone, CourseModel, LensNavigationView, bootstrap, holder) {
+        'models/course-model', 'views/lens-navigation-view', 'bootstrap',
+        'holder'],
+    function ($, _, Backbone, CourseModel, LensNavigationView, bootstrap,
+              holder) {
         'use strict';
         $(document).ready(function () {
             // ok, we've loaded all the libraries and the page is loaded, so
@@ -50,7 +54,8 @@ require(['jquery', 'underscore', 'backbone',
 
                     // this data will be set by something else eventually
                     model = new CourseModel();
-                    // lets assume that django is passing us the data in the correct format for now
+                    // lets assume that django is passing us the data in the
+                    // correct format for now
                     model.set(jsonData);
 
                     view = new LensNavigationView({model: model});

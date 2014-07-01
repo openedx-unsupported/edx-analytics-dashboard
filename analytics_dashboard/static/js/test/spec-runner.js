@@ -1,6 +1,6 @@
 /**
-* This is where your tests go.  It should happen automatically when you add files
-* to the karma configuration.
+* This is where your tests go.  It should happen automatically when you
+ * add files to the karma configuration.
 */
 
 var isBrowser = window.__karma__ === undefined;
@@ -47,8 +47,8 @@ var config = {
 // there are two paths -- one for running this in browser and one for running
 // via gulp
 if(isBrowser) {
-    // unfortunately, we can't read directories in the browser, so we need to list them
-    // here -- sorry!
+    // unfortunately, we can't read directories in the browser, so we need to
+    // list them here -- sorry!
     specs = [
         config.baseUrl + 'js/spec/specs/course-model-spec.js'
     ];
@@ -71,8 +71,9 @@ require.config(config);
 // the browser needs to kick off jasmine.  The gulp task does it through
 // node
 if(isBrowser) {
-    //jasmine 2.0 needs boot.js to run, which loads on a window load, so this is a hack
-    //  -- http://stackoverflow.com/questions/19240302/does-jasmine-2-0-really-not-work-with-require-js
+    //jasmine 2.0 needs boot.js to run, which loads on a window load, so this is
+    // a hack
+    // http://stackoverflow.com/questions/19240302/does-jasmine-2-0-really-not-work-with-require-js
     require(['boot'], function () {
         'use strict';
         require(specs,
