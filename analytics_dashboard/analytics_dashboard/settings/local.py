@@ -2,9 +2,10 @@
 
 from __future__ import absolute_import
 
+import os
 from os.path import join, normpath
 
-from .base import *
+from analytics_dashboard.settings.base import *
 
 
 ########## DEBUG CONFIGURATION
@@ -49,15 +50,17 @@ CACHES = {
 
 ########## TOOLBAR CONFIGURATION
 # See: http://django-debug-toolbar.readthedocs.org/en/latest/installation.html#explicit-setup
-INSTALLED_APPS += (
-    'debug_toolbar',
-)
 
-MIDDLEWARE_CLASSES += (
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
-)
+if os.environ.get('ENABLE_DJANGO_TOOLBAR', False):
+    INSTALLED_APPS += (
+        'debug_toolbar',
+    )
 
-DEBUG_TOOLBAR_PATCH_SETTINGS = False
+    MIDDLEWARE_CLASSES += (
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
+    )
+
+    DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
 # http://django-debug-toolbar.readthedocs.org/en/latest/installation.html
 INTERNAL_IPS = ('127.0.0.1',)

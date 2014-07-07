@@ -9,7 +9,8 @@ Getting Started
 1. Get the code (e.g. clone the repository).
 2. Install the Python requirements:
 
-        $ pip install -r requirements/devtest.txt
+        $ pip install -r requirements/local.txt
+        $ pip install -r requirements/test.txt
 
 3. Change to the Django project directory.
 
@@ -22,6 +23,12 @@ Getting Started
 5. Run the server:
 
         $ ./manage.py runserver
+
+By default the Django Default Toolbar is disabled. To enable it set the environmental variable ENABLE_DJANGO_TOOLBAR.
+
+Alternatively, you can launch the server using:
+
+        $ ENABLE_DJANGO_TOOLBAR=1 ./manage.py runserver
 
 License
 -------
