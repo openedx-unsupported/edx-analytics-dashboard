@@ -244,7 +244,8 @@ hr.has-emphasis {
   padding-top: $navbar-height;                                                                      // move down content because we have a fixed navbar
 
   .main {
-    padding-bottom: ($padding-large-vertical*4);
+    padding: ($padding-large-vertical*2) ($padding-large-horizontal*3);
+
   }
 
   // custom styling for p-type sidebar
