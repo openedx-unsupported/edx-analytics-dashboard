@@ -1,15 +1,17 @@
 """Production settings and globals."""
 
-from __future__ import absolute_import
-
 from os import environ
-
-from .base import *
 
 # Normally you should not import ANYTHING from Django directly
 # into your settings, but ImproperlyConfigured is an exception.
 from django.core.exceptions import ImproperlyConfigured
 
+import yaml
+
+from analytics_dashboard.settings.base import *
+from analyticsdataserver.settings.logger import get_logger_config
+
+LOGGING = get_logger_config()
 
 def get_env_setting(setting):
     """ Get the environment setting or return exception """
@@ -21,47 +23,24 @@ def get_env_setting(setting):
 
 ########## HOST CONFIGURATION
 # See: https://docs.djangoproject.com/en/1.5/releases/1.5/#allowed-hosts-required-in-production
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 ########## END HOST CONFIGURATION
 
-########## EMAIL CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+CONFIG_FILE=get_env_setting('ANALYTICS_API_CFG')
 
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#email-host
-EMAIL_HOST = environ.get('EMAIL_HOST', 'smtp.gmail.com')
+with open(CONFIG_FILE) as f:
+    config_from_yaml = yaml.load(f)
 
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#email-host-password
-EMAIL_HOST_PASSWORD = environ.get('EMAIL_HOST_PASSWORD', '')
+vars().update(config_from_yaml)
 
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#email-host-user
-EMAIL_HOST_USER = environ.get('EMAIL_HOST_USER', 'your_email@example.com')
+DB_OVERRIDES = dict(
+    PASSWORD=environ.get('DB_MIGRATION_PASS', DATABASES['default']['PASSWORD']),
+    ENGINE=environ.get('DB_MIGRATION_ENGINE', DATABASES['default']['ENGINE']),
+    USER=environ.get('DB_MIGRATION_USER', DATABASES['default']['USER']),
+    NAME=environ.get('DB_MIGRATION_NAME', DATABASES['default']['NAME']),
+    HOST=environ.get('DB_MIGRATION_HOST', DATABASES['default']['HOST']),
+    PORT=environ.get('DB_MIGRATION_PORT', DATABASES['default']['PORT']),
+)
 
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#email-port
-EMAIL_PORT = environ.get('EMAIL_PORT', 587)
-
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#email-subject-prefix
-EMAIL_SUBJECT_PREFIX = '[%s] ' % SITE_NAME
-
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#email-use-tls
-EMAIL_USE_TLS = True
-
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#server-email
-SERVER_EMAIL = EMAIL_HOST_USER
-########## END EMAIL CONFIGURATION
-
-########## DATABASE CONFIGURATION
-DATABASES = {}
-########## END DATABASE CONFIGURATION
-
-
-########## CACHE CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#caches
-CACHES = {}
-########## END CACHE CONFIGURATION
-
-
-########## SECRET CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-SECRET_KEY = get_env_setting('SECRET_KEY')
-########## END SECRET CONFIGURATION
+for override, value in DB_OVERRIDES.iteritems():
+    DATABASES['default'][override] = value
