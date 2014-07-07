@@ -84,6 +84,33 @@ hr.has-emphasis {
   }
 }
 
+// OVERRIDE: dropdown positioning
+.navbar .dropdown .dropdown-menu {
+  top: 80%;
+  width: 100%;
+
+  a {
+    padding: 10px 15px;
+  }
+}
+
+// OVERRIDE: adding animations to open dropdowns
+.dropdown, .btn-group {
+
+  .ico-indicator {
+    @include transition(all ease-in-out 0.25s);
+    vertical-align: middle;
+  }
+
+  &.open {
+
+    .ico-indicator {
+      @include rotate(-180deg);
+      transform-origin: 50% 50%;
+    }
+  }
+}
+
 // ui: views
 // --------------------
 .view-head {
@@ -244,12 +271,13 @@ hr.has-emphasis {
   padding-top: $navbar-height;                                                                      // move down content because we have a fixed navbar
 
   .main {
-    padding-bottom: ($padding-large-vertical*4);
+    padding: ($padding-large-vertical*2) ($padding-large-horizontal*3);
+
   }
 
   // custom styling for p-type sidebar
   .sidebar {
-    padding: 0;
+    padding: 0 0 0 20px;
     background: $gray-darker;
   }
 
@@ -325,6 +353,7 @@ hr.has-emphasis {
       overflow-x: hidden;
       overflow-y: auto;                                                                           // scrollable contents if viewport is shorter than content.
       border-right: 2px solid $black-t0;
+      padding: 0;
     }
   }
 }
