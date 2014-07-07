@@ -34,6 +34,12 @@ module.exports = function (config) {
 
         },
 
+        // plugins required for running the karma tests
+        plugins:[
+            'karma-jasmine',
+            'karma-requirejs',
+            'karma-phantomjs-launcher',
+            ],
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
