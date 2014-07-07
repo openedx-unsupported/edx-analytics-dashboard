@@ -9,7 +9,8 @@ Getting Started
 1. Get the code (e.g. clone the repository).
 2. Install the Python requirements:
 
-        $ pip install -r requirements/devtest.txt
+        $ pip install -r requirements/local.txt
+        $ pip install -r requirements/test.txt
 
 3. Change to the Django project directory.
 
