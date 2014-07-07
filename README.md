@@ -39,8 +39,21 @@ Testing
 -------
 
 ### Python Tests
-    $ cd analytics-dashboard
-    $ ./manage.py test
+
+1. Change to project directory if you haven't already:
+
+        $ cd analytics_dashboard
+
+2. Run unit tests:
+
+        $ ./manage.py test
+
+3. Update address and port in ACCEPTANCE_TEST_SERVER in analytics_dashboard/settings/local.py if you're not using the defaults.
+
+4. Start your server and run acceptance tests:
+
+        $ ./manage.py runserver
+        $ ./manage.py test
 
 ### JavaScript Tests
 

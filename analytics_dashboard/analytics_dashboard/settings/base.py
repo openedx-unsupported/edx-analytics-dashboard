@@ -261,3 +261,10 @@ INSTALLED_APPS += (
 # Don't need to use South when setting up a test database.
 SOUTH_TESTS_MIGRATE = False
 ########## END SOUTH CONFIGURATION
+
+########## ACCEPTANCE TEST CONFIGURATION
+ACCEPTANCE_TEST_SERVER = {
+    'address': '127.0.0.1',
+    'port': 8000
+}
+########## END ACCEPTANCE TEST CONFIGURATION
