@@ -2,6 +2,15 @@
 // ====================
 // NOTE: to be used for any poorly architected Sass/CSS or needed overrides to be resolved later
 
+// Bootstrap's fixed + fluid navbar styling is not respecting $navbar-padding-horizontal values properly, so we need to manually override them (https://github.com/twbs/bootstrap/issues/11783 solves it, but its still an issue here)
+.navbar-fixed-top {
+
+  .container-fluid {
+    padding-left: ($padding-large-horizontal*2);
+    padding-right: ($padding-large-horizontal*2);
+  }
+}
+
 // needed to override table striping by Bootstrap
 .section-data-table tbody tr {
 
