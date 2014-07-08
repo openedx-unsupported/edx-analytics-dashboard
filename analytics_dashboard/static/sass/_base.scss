@@ -94,6 +94,23 @@ hr.has-emphasis {
   }
 }
 
+// OVERRIDE: adding animations to open dropdowns
+.dropdown, .btn-group {
+
+  .ico-indicator {
+    @include transition(all ease-in-out 0.25s);
+    vertical-align: middle;
+  }
+
+  &.open {
+
+    .ico-indicator {
+      @include rotate(-180deg);
+      transform-origin: 50% 50%;
+    }
+  }
+}
+
 // ui: views
 // --------------------
 .view-head {
