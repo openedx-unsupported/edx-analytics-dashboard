@@ -19,6 +19,33 @@ Individual course centric engagement view
 
     <hr class="has-emphasis" />
 
+    <div class="section-content section-data-summary">
+        <div class="row">
+            <div class="col-sm-12">
+                <span class="section-title-value small"><strong>Activity for the week of {{summary.week_of_activity}}</strong></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-3">
+                {% include "summary_point.html" with count=summary.any label="Engaged Students" subheading="since last week" tooltip=tooltips.all_activity_summary only %}
+            </div>
+
+            <div class="col-xs-12 col-sm-3">
+                {% include "summary_point.html" with count=summary.posted_forum label="Posted in Forum" subheading="since last week" tooltip=tooltips.posted_forum_summary only %}
+            </div>
+
+            <div class="col-xs-12 col-sm-3">
+                {% include "summary_point.html" with count=summary.attempted_problem label="Tried a Problem" subheading="since last week" tooltip=tooltips.attempted_problem_summary only %}
+            </div>
+
+            <div class="col-xs-12 col-sm-3">
+                {% include "summary_point.html" with count=summary.played_video label="Watched a Video" subheading="since last week" tooltip=tooltips.played_video_summary only %}
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
     <div class="section-nav">
         <div class="btn-group nav-filters">
             <div class="btn-group filter filter-1">
@@ -100,44 +127,20 @@ Individual course centric engagement view
 
     <div class="section-content section-data-summary">
         <div class="row">
-            <div class="col-xs-6 col-sm-3">
-                <div class="summary-point text-center">
-                    <div class="summary-point-wrapper">
-                        <h2 class="summary-point-number">23,437</h2>
-                        <h4 class="summary-point-label">Viewed this subsection</h4>
-                        <span class="summary-point-note text-muted">+2,478 since last week</span>
-                    </div>
-                </div>
+            <div class="col-xs-12 col-sm-3">
+                {% include "summary_point.html" with count="23,437" label="Viewed this subsection" subheading="since last week" only %}
             </div>
 
-            <div class="col-xs-6 col-sm-3">
-                <div class="summary-point text-center">
-                    <div class="summary-point-wrapper">
-                        <h2 class="summary-point-number">23,437</h2>
-                        <h4 class="summary-point-label">Began this subsection</h4>
-                        <span class="summary-point-note text-muted">-2,478 since last week</span>
-                    </div>
-                </div>
+            <div class="col-xs-12 col-sm-3">
+                {% include "summary_point.html" with count="23,437" label="Began this subsection" subheading="since last week" only %}
             </div>
 
-            <div class="col-xs-6 col-sm-3">
-                <div class="summary-point text-center">
-                    <div class="summary-point-wrapper">
-                        <h2 class="summary-point-number">23,437</h2>
-                        <h4 class="summary-point-label">Attempted assignments in this subsection</h4>
-                        <span class="summary-point-note text-muted">-2,478 since last week</span>
-                    </div>
-                </div>
+            <div class="col-xs-12 col-sm-3">
+                {% include "summary_point.html" with count="23,437" label="Attempted assignments in this subsection" subheading="since last week" only %}
             </div>
 
-            <div class="col-xs-6 col-sm-3">
-                <div class="summary-point text-center">
-                    <div class="summary-point-wrapper">
-                        <h2 class="summary-point-number">23,437</h2>
-                        <h4 class="summary-point-label">Completed this subsection</h4>
-                        <span class="summary-point-note text-muted">+2,478 since last week</span>
-                    </div>
-                </div>
+            <div class="col-xs-12 col-sm-3">
+                {% include "summary_point.html" with count="23,437" label="Completed this subsection" subheading="since last week" only %}
             </div>
         </div>
     </div>
@@ -151,40 +154,20 @@ Individual course centric engagement view
 
     <div class="section-content section-data-summary">
         <div class="row">
-            <div class="col-xs-6 col-sm-3">
-                <div class="summary-point text-center">
-                    <div class="summary-point-wrapper">
-                        <h2 class="summary-point-number">2:05:39</h2>
-                        <h4 class="summary-point-label">Average Time Spent</h4>
-                    </div>
-                </div>
+            <div class="col-xs-12 col-sm-3">
+                {% include "summary_point.html" with count="2:05:39" label="Average Time Spent" only %}
             </div>
 
-            <div class="col-xs-6 col-sm-3">
-                <div class="summary-point text-center">
-                    <div class="summary-point-wrapper">
-                        <h2 class="summary-point-number">50%</h2>
-                        <h4 class="summary-point-label">Overall Section Progress</h4>
-                    </div>
-                </div>
+            <div class="col-xs-12 col-sm-3">
+                {% include "summary_point.html" with count="50%" label="Overall Section Progress" only %}
             </div>
 
-            <div class="col-xs-6 col-sm-3">
-                <div class="summary-point text-center">
-                    <div class="summary-point-wrapper">
-                        <h2 class="summary-point-number">45:28</h2>
-                        <h4 class="summary-point-label">Longest Unit Time Spent</h4>
-                    </div>
-                </div>
+            <div class="col-xs-12 col-sm-3">
+                {% include "summary_point.html" with count="45:28" label="Longest Unit Time Spent" only %}
             </div>
 
-            <div class="col-xs-6 col-sm-3">
-                <div class="summary-point text-center">
-                    <div class="summary-point-wrapper">
-                        <h2 class="summary-point-number">20%</h2>
-                        <h4 class="summary-point-label">Lowest Unit Progression</h4>
-                    </div>
-                </div>
+            <div class="col-xs-12 col-sm-3">
+                {% include "summary_point.html" with count="20%" label="Lowest Unit Progression" only %}
             </div>
         </div>
     </div>

@@ -3,7 +3,8 @@ from django.conf.urls import patterns, include, url
 from courses import views
 
 urlpatterns = [
-    url(r'^(?P<course_id>\d+)/',
+    # ex. courses/edX/DemoX/Demo_Course/
+    url(r'^(?P<course_id>(\w+/){2}\w+)/',
         include([
             url(r'^enrollment/$', views.enrollment),
             url(r'^engagement/$', views.engagement),
@@ -11,11 +12,4 @@ urlpatterns = [
             url(r'^overview/$', views.overview),
         ])
     )
-
-    # , views.analytics, name='analytics'),
-    # url(r'^(?P<course_id>\d+\[^/]+)(/)?enrollment/$', views.enrollment, name='enrollment'),
-    # ex: /courses/5/
-    # url(r'^(?P<course_id>\d+)/$', views.analytics, name='analytics'),
-    # url(r'^(?P<course_id>\d+\[^/]+)(/)?enrollment/$', views.enrollment, name='enrollment'),
-
 ]

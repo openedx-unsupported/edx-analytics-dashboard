@@ -169,6 +169,29 @@ hr.has-emphasis {
   }
 }
 
+// ui: tooltips
+// --------------------
+.tooltip {
+  border-radius: 2px;
+}
+
+.tooltip-inner {
+  min-width: ($tooltip-max-width/2);
+  padding: $padding-base-horizontal;
+}
+
+.ico-tooltip {
+  @include transition(color ease-in-out .50s);
+  color: $gray-lighter;
+  font-size: $font-size-large;
+
+  // STATE: hover
+  &:hover {
+    cursor: pointer;
+    color: $brand-primary;
+  }
+}
+
 // ui: filter nav
 // --------------------
 .nav-filters {
@@ -199,6 +222,7 @@ hr.has-emphasis {
       display: table-cell;
       text-align: center;
       vertical-align: middle;
+      position: relative;
     }
 
     .summary-point-note {
@@ -215,6 +239,12 @@ hr.has-emphasis {
       .summary-point-number {
         color: $brand-primary;
       }
+    }
+
+    .summary-point-help {
+      position: absolute;
+      top: 0;
+      right: 0;
     }
   }
 
