@@ -22,24 +22,27 @@ Individual course centric engagement view
     <div class="section-content section-data-summary" data-role="student-activity">
         <div class="row">
             <div class="col-sm-12">
-                <span class="section-title-value small"><strong>Activity for the week of <span data-role="activity-week">{{summary.week_of_activity}}</span></strong></span>
+                <span class="section-title-value small"><strong>Activity for the week ending
+                    <span data-role="activity-week">{{summary.week_of_activity}}
+                    </span></strong>
+                </span>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-3" data-activity-type="any">
-                {% include "summary_point.html" with count=summary.any label="Engaged Students" subheading="since last week" tooltip=tooltips.all_activity_summary only %}
+                {% include "summary_point.html" with count=summary.any label="Active Students" subheading="last week" tooltip=tooltips.all_activity_summary only %}
             </div>
 
-            <div class="col-xs-12 col-sm-3" data-activity-type="posted_forum">
-                {% include "summary_point.html" with count=summary.posted_forum label="Posted in Forum" subheading="since last week" tooltip=tooltips.posted_forum_summary only %}
+            <div class="col-xs-12 col-sm-3" data-activity-type="posted_forum">>
+                {% include "summary_point.html" with count=summary.posted_forum label="Posted in Forum" subheading="last week" tooltip=tooltips.posted_forum_summary only %}
             </div>
 
             <div class="col-xs-12 col-sm-3" data-activity-type="attempted_problem">
-                {% include "summary_point.html" with count=summary.attempted_problem label="Tried a Problem" subheading="since last week" tooltip=tooltips.attempted_problem_summary only %}
+                {% include "summary_point.html" with count=summary.attempted_problem label="Tried a Problem" subheading="last week" tooltip=tooltips.attempted_problem_summary only %}
             </div>
 
             <div class="col-xs-12 col-sm-3" data-activity-type="played_video">
-                {% include "summary_point.html" with count=summary.played_video label="Watched a Video" subheading="since last week" tooltip=tooltips.played_video_summary only %}
+                {% include "summary_point.html" with count=summary.played_video label="Watched a Video" subheading="last week" tooltip=tooltips.played_video_summary only %}
             </div>
         </div>
     </div>
