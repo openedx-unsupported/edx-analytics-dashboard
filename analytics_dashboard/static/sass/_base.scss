@@ -84,6 +84,16 @@ hr.has-emphasis {
   }
 }
 
+// OVERRIDE: dropdown positioning
+.navbar .dropdown .dropdown-menu {
+  top: 80%;
+  width: 100%;
+
+  a {
+    padding: 10px 15px;
+  }
+}
+
 // ui: views
 // --------------------
 .view-head {
