@@ -27,7 +27,7 @@ require.config({
                 'use strict';
                 Backbone.$ = $; return Backbone; }
         }    },
-     // load jquery and gettext automatically
+     // load jquery automatically
     deps: ['jquery']
 });
 
@@ -61,6 +61,10 @@ require(['jquery', 'underscore', 'backbone',
                     view = new LensNavigationView({model: model});
                     view.render();
 
+                    // enable tooltips.  If individual tooltips need
+                    // customization, we can have the specific views
+                    // take care of them
+                    $('.has-tooltip').tooltip();
                 }
 
             };
@@ -69,4 +73,3 @@ require(['jquery', 'underscore', 'backbone',
         });
     }
 );
-

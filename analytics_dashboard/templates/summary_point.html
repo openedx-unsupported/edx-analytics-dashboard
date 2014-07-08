@@ -1,0 +1,14 @@
+<div class="summary-point text-center">
+    <div class="summary-point-wrapper">
+        <h2 class="summary-point-number">{{count|default:"N/A"}}</h2>
+        <h4 class="summary-point-label">{{label}}</h4>
+        {% if subheading %}
+        <span class="summary-point-note text-muted">{{subheading}}</span>
+        {% endif %}
+        {% if tooltip %}
+        <div class="summary-point-help">
+            <i data-toggle="tooltip" data-placement="top" title="{{tooltip}}" class="ico ico-tooltip fa fa-info-circle has-tooltip"></i>
+        </div>
+        {% endif %}
+    </div>
+</div>

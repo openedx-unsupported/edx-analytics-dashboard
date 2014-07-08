@@ -95,40 +95,20 @@ Individual course centric performance view
 
     <div class="section-content section-data-summary">
         <div class="row">
-            <div class="col-xs-6 col-sm-3">
-                <div class="summary-point text-center">
-                    <div class="summary-point-wrapper">
-                        <h2 class="summary-point-number">63%</h2>
-                        <h4 class="summary-point-label">Overall Grade Average</h4>
-                    </div>
-                </div>
+            <div class="col-xs-12 col-sm-3">
+                {% include "summary_point.html" with count="63%" label="Overall Grade Average" only %}
             </div>
 
-            <div class="col-xs-6 col-sm-3">
-                <div class="summary-point text-center">
-                    <div class="summary-point-wrapper">
-                        <h2 class="summary-point-number">80%</h2>
-                        <h4 class="summary-point-label">Active Student Average Grade</h4>
-                    </div>
-                </div>
+            <div class="col-xs-12 col-sm-3">
+                {% include "summary_point.html" with count="80%" label="Active Student Average Grade" only %}
             </div>
 
-            <div class="col-xs-6 col-sm-3">
-                <div class="summary-point text-center">
-                    <div class="summary-point-wrapper">
-                        <h2 class="summary-point-number">2</h2>
-                        <h4 class="summary-point-label">Assignment(s) under Certificate Average</h4>
-                    </div>
-                </div>
+            <div class="col-xs-12 col-sm-3">
+                {% include "summary_point.html" with count="2" label="Assignment(s) under Certificate Average" only %}
             </div>
 
-            <div class="col-xs-6 col-sm-3">
-                <div class="summary-point text-center">
-                    <div class="summary-point-wrapper">
-                        <h2 class="summary-point-number">Homework 1</h2>
-                        <h4 class="summary-point-label">Homework with Lowest Average Score</h4>
-                    </div>
-                </div>
+            <div class="col-xs-12 col-sm-3">
+                {% include "summary_point.html" with count="Homework 1" label="Homework with Lowest Average Score" only %}
             </div>
         </div>
     </div>
@@ -142,40 +122,21 @@ Individual course centric performance view
 
     <div class="section-content section-data-summary">
         <div class="row">
-            <div class="col-xs-6 col-sm-3">
-                <div class="summary-point text-center">
-                    <div class="summary-point-wrapper">
-                        <h2 class="summary-point-number">15:29</h2>
-                        <h4 class="summary-point-label">Average Time Spent</h4>
-                    </div>
-                </div>
+
+            <div class="col-xs-12 col-sm-3">
+                {% include "summary_point.html" with count="15:29" label="Average Time Spent" only %}
             </div>
 
-            <div class="col-xs-6 col-sm-3">
-                <div class="summary-point text-center">
-                    <div class="summary-point-wrapper">
-                        <h2 class="summary-point-number">23:19</h2>
-                        <h4 class="summary-point-label">Longest Assigment Time</h4>
-                    </div>
-                </div>
+            <div class="col-xs-12 col-sm-3">
+                {% include "summary_point.html" with count="23:19" label="Longest Assignment Time" only %}
             </div>
 
-            <div class="col-xs-6 col-sm-3">
-                <div class="summary-point text-center">
-                    <div class="summary-point-wrapper">
-                        <h2 class="summary-point-number">Homework 5</h2>
-                        <h4 class="summary-point-label">Most Discussion Threads</h4>
-                    </div>
-                </div>
+            <div class="col-xs-12 col-sm-3">
+                {% include "summary_point.html" with count="Homework 5" label="Most Discussion Threads" only %}
             </div>
 
-            <div class="col-xs-6 col-sm-3">
-                <div class="summary-point text-center">
-                    <div class="summary-point-wrapper">
-                        <h2 class="summary-point-number">20%</h2>
-                        <h4 class="summary-point-label">Other Effort Metric Here</h4>
-                    </div>
-                </div>
+            <div class="col-xs-12 col-sm-3">
+                {% include "summary_point.html" with count="20%" label="Other Effort Metric Here" only %}
             </div>
         </div>
     </div>
