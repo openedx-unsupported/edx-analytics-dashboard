@@ -57,10 +57,9 @@ Testing
 
 3. Update address and port in ACCEPTANCE_TEST_SERVER in analytics_dashboard/settings/local.py if you're not using the defaults.
 
-4. Start your server and run acceptance tests:
+4. Run acceptance tests:
 
-        $ ./manage.py runserver
-        $ ./manage.py test
+        $ ./runAcceptance.sh
 
 ### JavaScript Tests
 
