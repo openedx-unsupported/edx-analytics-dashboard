@@ -260,7 +260,7 @@ hr.has-emphasis {
 
   // custom styling for p-type sidebar
   .sidebar {
-    padding: 0;
+    padding: 0 0 0 20px;
     background: $gray-darker;
   }
 
@@ -336,6 +336,7 @@ hr.has-emphasis {
       overflow-x: hidden;
       overflow-y: auto;                                                                           // scrollable contents if viewport is shorter than content.
       border-right: 2px solid $black-t0;
+      padding: 0;
     }
   }
 }
