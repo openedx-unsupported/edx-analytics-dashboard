@@ -17,6 +17,7 @@ module.exports = function (config) {
         files: [
             {pattern: 'analytics_dashboard/static/vendor/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/js/models/**/*.js', included: false},
+            {pattern: 'analytics_dashboard/static/js/views/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/js/test/specs/*.js', included: false},
             'analytics_dashboard/static/js/test/spec-runner.js'
         ],
@@ -31,7 +32,8 @@ module.exports = function (config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-
+            'analytics_dashboard/static/js/models/**/*.js': ['coverage'],
+            'analytics_dashboard/static/js/views/**/*.js': ['coverage'],
         },
 
         // plugins required for running the karma tests
@@ -39,13 +41,20 @@ module.exports = function (config) {
             'karma-jasmine',
             'karma-requirejs',
             'karma-phantomjs-launcher',
+            'karma-coverage',
             ],
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress'],
+        reporters: ['progress', 'coverage'],
 
+        coverageReporter: {
+         reporters:[
+            {type: 'html', dir:'coverage/'},
+            {type: 'cobertura', dir:'reports/'}
+            ],
+        },
 
         // web server port
         port: 9876,
