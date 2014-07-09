@@ -9,6 +9,7 @@ define(['jquery', 'backbone', 'models/course-model'],
             // Renders the view's template to the UI
             render: function() {
                 // Maintains chainability
+                var hi = 'hello'
                 return this;
             }
 
