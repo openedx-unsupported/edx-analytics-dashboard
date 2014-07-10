@@ -45,19 +45,16 @@ Please read [How To Contribute](https://github.com/edx/edx-platform/blob/master/
 Testing
 -------
 
-### Python Tests
+### Unit Tests
+This project uses `nose` to find and run tests. Execute the command below from the root of the repository to run tests.
 
-1. Change to project directory if you haven't already:
+    $ make test
 
-        $ cd analytics_dashboard
+### Acceptance Tests
 
-2. Run unit tests:
+1. Update address and port in ACCEPTANCE_TEST_SERVER in analytics_dashboard/settings/local.py if you're not using the defaults.
 
-        $ ./manage.py test
-
-3. Update address and port in ACCEPTANCE_TEST_SERVER in analytics_dashboard/settings/local.py if you're not using the defaults.
-
-4. Run acceptance tests:
+2. Run acceptance tests:
 
         $ ./runAcceptance.sh
 

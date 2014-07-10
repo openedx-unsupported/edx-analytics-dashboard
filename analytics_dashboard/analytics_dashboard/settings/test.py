@@ -3,10 +3,10 @@ from __future__ import absolute_import
 from analytics_dashboard.settings.base import *
 
 ########## TEST SETTINGS
-TEST_RUNNER = 'discover_runner.DiscoverRunner'
-TEST_DISCOVER_TOP_LEVEL = SITE_ROOT
-TEST_DISCOVER_ROOT = SITE_ROOT
-TEST_DISCOVER_PATTERN = "test_*.py"
+INSTALLED_APPS += (
+    'django_nose',
+)
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 ########## IN-MEMORY TEST DATABASE
 DATABASES = {
     "default": {

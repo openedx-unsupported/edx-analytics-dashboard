@@ -65,3 +65,8 @@ if os.environ.get('ENABLE_DJANGO_TOOLBAR', False):
 # http://django-debug-toolbar.readthedocs.org/en/latest/installation.html
 INTERNAL_IPS = ('127.0.0.1',)
 ########## END TOOLBAR CONFIGURATION
+
+INSTALLED_APPS += (
+    'django_nose',
+)
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
