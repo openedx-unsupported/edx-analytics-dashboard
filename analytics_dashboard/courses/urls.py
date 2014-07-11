@@ -1,15 +1,16 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import url, patterns
 
 from courses import views
+import re
 
-urlpatterns = [
-    # ex. courses/edX/DemoX/Demo_Course/
-    url(r'^(?P<course_id>(\w+/){2}\w+)/',
-        include([
-            url(r'^enrollment/$', views.enrollment),
-            url(r'^engagement/$', views.engagement),
-            url(r'^performance/$', views.performance),
-            url(r'^overview/$', views.overview),
-        ])
-    )
+COURSE_URLS = [
+    ('enrollment', views.enrollment),
+    ('engagement', views.engagement),
+    ('performance', views.performance),
+    ('overview', views.overview),
 ]
+
+urlpatterns = []
+
+for name, view in COURSE_URLS:
+    urlpatterns += patterns('', url(r'^(?P<course_id>.+)/' + re.escape(name) + r'/$', view, name=name))

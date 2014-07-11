@@ -1,12 +1,11 @@
-from django.shortcuts import get_object_or_404, render
-from django.http import Http404
-from django.http import HttpResponseRedirect, HttpResponse
-from django.core.urlresolvers import reverse
-
 import time
 import json
 
+from django.shortcuts import render
+from django.http import Http404
+
 from models import StudentEngagement
+
 
 # TODO: we would ideally get this from the DB, but for now lets stub some data
 def get_default_data(course_id):
@@ -22,16 +21,19 @@ def get_default_data(course_id):
         'page_data': json.dumps(page_data)
     }
 
+
 def enrollment(request, course_id):
     context = get_default_data(course_id)
     context['page_title'] = 'Enrollment'
     context['total_enrollment_tooltip'] = "And here's some amazing content. It's very engaging. Right?"
     return render(request, 'courses/enrollment.html', context)
 
+
 def overview(request, course_id):
     context = get_default_data(course_id)
     context['page_title'] = 'Overview'
     return render(request, 'courses/overview.html', context)
+
 
 def engagement(request, course_id):
     # these are the tooltips displayed in the page
@@ -49,12 +51,12 @@ def engagement(request, course_id):
         'played_video_summary': '''
             The number of unique users who started watching any video in the course.
             ''',
-        }
+    }
 
     # get the student engagement summary information or throw a 404
     studentEngagement = StudentEngagement()
     try:
-    # get the summary information
+        # get the summary information
         summary = studentEngagement.get_summary(course_id)
 
         # make the date human readable
@@ -68,6 +70,7 @@ def engagement(request, course_id):
     context['tooltips'] = tooltips
     context['summary'] = summary
     return render(request, 'courses/engagement.html', context)
+
 
 def performance(request, course_id):
     context = get_default_data(course_id)

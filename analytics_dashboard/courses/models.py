@@ -1,11 +1,10 @@
-from django.db import models
 from django.conf import settings
 
 from analyticsclient.client import Client
 import analyticsclient.activity_type as at
 
-class StudentEngagement(object):
 
+class StudentEngagement(object):
     DATA_API_BASE_URL = settings.DATA_API_URL
     DATA_API_AUTH_TOKEN = settings.DATA_API_AUTH_TOKEN
 
@@ -22,7 +21,7 @@ class StudentEngagement(object):
         any_activity = course.recent_activity(at.ANY)
 
         # store our activity data from the API
-        activities = [any_activity,]
+        activities = [any_activity, ]
 
         # lets assume that the interval starts are the same across
         # API calls and save it so that we can display this on

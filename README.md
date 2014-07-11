@@ -51,12 +51,31 @@ This project uses `nose` to find and run tests. Execute the command below from t
     $ make test
 
 ### Acceptance Tests
+The acceptance tests are designed to test the application as whole (contrasted with unit tests that test individual
+components). These tests load the application in a browser and verify that data and elements appear as expected.
 
-1. Update address and port in ACCEPTANCE_TEST_SERVER in analytics_dashboard/settings/local.py if you're not using the defaults.
-
-2. Run acceptance tests:
+The Bash script `runAcceptance.sh` will start the Django server and run the tests against the server. After the tests 
+are run the server will be shutdown. Simply run the command below:
 
         $ ./runAcceptance.sh
+
+If you already have a server running, there is also a make task you can run instead of the script above.
+ 
+        $ make accept
+
+The tests make a few assumptions about URLs and authentication. These can be overridden by setting environment variables
+when executing either of the commands above.
+
+| Variable             | Purpose                               | Default Value                |
+|----------------------|---------------------------------------|------------------------------|
+| DASHBOARD_SERVER_URL | URL where the dashboard is served     | http://127.0.0.1:8000        |
+| API_SERVER_URL       | URL where the analytics API is served | http://127.0.0.1:8001/api/v0 |
+| API_AUTH_TOKEN       | Analytics API authentication token    | analytics                    |
+
+
+Override example:
+
+        $ DASHBOARD_SERVER_URL="http://example.com" API_SERVER_URL="http://api.example.com" API_AUTH_TOKEN="example" make accept
 
 ### JavaScript Tests
 

@@ -9,7 +9,7 @@ admin.autodiscover()
 urlpatterns = patterns(
     '',
     url(r'^status/$', views.status, name='status'),
-    url(r'^courses/', include('courses.urls', namespace="courses")),
+    url(r'^courses/', include('courses.urls', namespace='courses')),
     url(r'^admin/', include(admin.site.urls)),
 )
 

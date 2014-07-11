@@ -70,10 +70,3 @@ INSTALLED_APPS += (
     'django_nose',
 )
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-
-########## DATA API CONFIGURATION
-
-DATA_API_URL = 'http://127.0.0.1:8001/api/v0'
-DATA_API_AUTH_TOKEN = 'analytics'
-
-########## END DATA API CONFIGURATION

@@ -1,6 +1,6 @@
 ROOT = $(shell echo "$$PWD")
 COVERAGE = $(ROOT)/build/coverage
-PACKAGES = analytics_dashboard
+PACKAGES = analytics_dashboard courses
 
 clean:
 	find . -name '*.pyc' -delete
@@ -11,5 +11,8 @@ test: clean
 		--exclude-dir=analytics_dashboard/settings --with-coverage --cover-inclusive --cover-branches \
 		--cover-html --cover-html-dir=$(COVERAGE)/html/ \
 		--cover-xml --cover-xml-file=$(COVERAGE)/coverage.xml \
-		--cover-package=$(PACKAGES) \
+		$(foreach package,$(PACKAGES),--cover-package=$(package)) \
 		$(PACKAGES)
+
+accept:
+	cd acceptance_tests && nosetests

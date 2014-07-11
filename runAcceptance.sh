@@ -2,7 +2,7 @@
 
 # this is the command that runs our server
 # --noreload is only runs one processes (which we can then kill)
-RUN_SERVER_CMD="./manage.py runserver --noreload"
+RUN_SERVER_CMD="cd analytics_dashboard && ./manage.py runserver --noreload"
 
 # this stops the django servers
 function stopServers {
@@ -16,7 +16,7 @@ echo "Starting server..."
 eval "$RUN_SERVER_CMD &"
 
 echo "Running acceptance tests..."
-./manage.py test courses/test/acceptance/tests/
+cd acceptance_tests && nosetests
 
 # capture the exit code from the test.  Anything more than 0 indicates failed cases.
 EXIT_CODE=$?
