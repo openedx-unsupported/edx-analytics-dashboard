@@ -2,11 +2,12 @@
 
 # this is the command that runs our server
 # --noreload is only runs one processes (which we can then kill)
-RUN_SERVER_CMD="cd analytics_dashboard && ./manage.py runserver --noreload"
+RUN_SERVER_SUBCMD="./manage.py runserver --noreload"
+RUN_SERVER_CMD="cd analytics_dashboard && ${RUN_SERVER_SUBCMD}"
 
 # this stops the django servers
 function stopServers {
-    kill $(ps aux | grep "[p]ython $RUN_SERVER_CMD" | awk '{print $2}')
+    kill $(ps aux | grep "[p]ython $RUN_SERVER_SUBCMD" | awk '{print $2}')
 }
 
 echo "Stop any running servers..."
