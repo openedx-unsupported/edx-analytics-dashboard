@@ -25,6 +25,12 @@ def get_default_data(course_id):
         'page_data': json.dumps(page_data)
     }
 
+def get_formatted_date(time_interval):
+    """
+    Make the date human readable
+    """
+    struct_time = time.strptime(time_interval, "%Y-%m-%dT%H:%M:%SZ")
+    return time.strftime('%B %d, %Y', struct_time)
 
 def enrollment(request, course_id):
     """
@@ -78,10 +84,7 @@ def engagement(request, course_id):
         # to put a 500 if there is a server error (not an invalid course ID).
         raise Http404
 
-
-    # make the date human readable
-    struct_time = time.strptime(summary['interval_end'], "%Y-%m-%dT%H:%M:%SZ")
-    summary['week_of_activity'] = time.strftime('%B %d, %Y', struct_time)
+    summary['week_of_activity'] = get_formatted_date(summary['interval_end'])
 
     context = get_default_data(course_id)
     context['page_title'] = 'Engagement'
