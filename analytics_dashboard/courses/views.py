@@ -1,4 +1,3 @@
-import time
 import json
 
 from django.shortcuts import render
@@ -6,7 +5,8 @@ from django.http import Http404
 
 from analyticsclient.exceptions import ClientError
 
-from models import StudentEngagement
+from courses.models import StudentEngagement
+from courses.utils import get_formatted_date
 
 def get_default_data(course_id):
     """
@@ -24,7 +24,6 @@ def get_default_data(course_id):
         'course_id': course_id,
         'page_data': json.dumps(page_data)
     }
-
 
 def enrollment(request, course_id):
     """
@@ -55,17 +54,16 @@ def engagement(request, course_id):
     tooltips = {
         'all_activity_summary': '''
             Students who initiated an action.
-            ''',
+            '''.strip(),
         'posted_forum_summary': '''
-            Students who created a post, responded to a post, or made a
-            comment in any discussion..
-            ''',
+            Students who created a post, responded to a post, or made a comment in any discussion.
+            '''.strip(),
         'attempted_problem_summary': '''
             Students who answered any question.
-            ''',
+            '''.strip(),
         'played_video_summary': '''
             Students who started watching any video.
-            ''',
+            '''.strip(),
     }
 
     # get the student engagement summary information or throw a 404
@@ -78,10 +76,7 @@ def engagement(request, course_id):
         # to put a 500 if there is a server error (not an invalid course ID).
         raise Http404
 
-
-    # make the date human readable
-    struct_time = time.strptime(summary['interval_end'], "%Y-%m-%dT%H:%M:%SZ")
-    summary['week_of_activity'] = time.strftime('%B %d, %Y', struct_time)
+    summary['week_of_activity'] = get_formatted_date(summary['interval_end'])
 
     context = get_default_data(course_id)
     context['page_title'] = 'Engagement'
