@@ -195,7 +195,7 @@ DJANGO_APPS = (
     'django.contrib.staticfiles',
 
     # Useful template tags:
-    # 'django.contrib.humanize',
+    'django.contrib.humanize',
 
     # Admin panel and documentation:
     'django.contrib.admin',
