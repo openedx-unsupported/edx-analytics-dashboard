@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load staticfiles %}
+
 {% comment %}
 Individual course centric enrollment view
 {% endcomment %}
@@ -7,335 +9,184 @@ Individual course centric enrollment view
 {% block view-name %}view-course-enrollment view-dashboard{% endblock view-name %}
 
 {% block intro-text %}
-    [Intro summary area for enrollment view if needed] Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+  [Intro summary area for enrollment view if needed] Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna
+  mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
 {% endblock intro-text %}
 
+{% block javascript %}
+  <script data-main="{% static 'js/enrollment-main.js' %}" src="{% static 'vendor/require.js' %}"></script>
+{% endblock javascript %}
+
+
 {% block content %}
-<section class="view-section">
+  <section class="view-section">
     <h4 class="section-title">
-        <span class="section-title-value">Enrollment Basics</span>
-        <span class="section-title-note small">How many students are in my course?</span>
+      <span class="section-title-value">Enrollment Basics</span>
+      <span class="section-title-note small">How many students are in my course?</span>
     </h4>
 
-    <hr class="has-emphasis" />
+    <hr class="has-emphasis"/>
+
+    <div class="row">
+      <div class="col-sm-12">
+            <span class="section-title-value small">Last updated
+                <span data-role="activity-week">{{ summary.date|date }}
+                </span>
+            </span>
+      </div>
+    </div>
+
 
     <div class="section-content section-data-summary">
-        <div class="row">
-            <div class="col-xs-12 col-sm-3">
-                {% include "summary_point.html" with count="23,437" label="Total Current Enrollment" subheading="since last week" only %}
-            </div>
-
-            <div class="col-xs-12 col-sm-3">
-                {% include "summary_point.html" with count="23,437" label="Total Current Enrollment" subheading="since last week" only %}
-            </div>
-
-            <div class="col-xs-12 col-sm-3">
-                {% include "summary_point.html" with count="23,437" label="Total Current Enrollment" subheading="since last week" only %}
-            </div>
-
-            <div class="col-xs-12 col-sm-3">
-                {% include "summary_point.html" with count="23,437" label="Total Current Enrollment" subheading="since last week" only %}
-            </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-3" data-stat-type="total_enrollment">
+          {% include "summary_point.html" with count=summary.current_enrollment label="Current Enrollment" subheading="current" tooltip=tooltips.current_enrollment only %}
         </div>
-    </div>
-</section>
 
-<section class="view-section">
-    <h4 class="section-title">
-        <span class="section-title-value">Geographic Distribution</span>
-        <span class="section-title-note small">Where are my students learning from?</span>
-    </h4>
-
-    <hr class="has-emphasis" />
-
-    <div class="section-content section-data-viz">
-        <div class="placeholder">
-          <img data-src="holder.js/100%x400/auto/sky/text:geographic distribution map" class="img-responsive img-rounded" alt="Generic placeholder thumbnail">
+        <div class="col-xs-12 col-sm-3" data-stat-type="enrollment_change_yesterday">
+          {% include "summary_point.html" with count=summary.enrollment_change_last_1_days label="Trend" subheading="last full day" tooltip=tooltips.enrollment_change_last_1_days only %}
         </div>
-    </div>
 
-    <hr />
-
-    <h5 class="section-subtitle">
-        <span class="subsection-title-value"><strong>Country Enrollment Breakdown</strong></span>
-        <span class="subsection-title-note small">Which countries are represented by my students?</span>
-    </h5>
-
-    <div class="section-content section-data-table">
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Country</th>
-                        <th>Total Enrolls</th>
-                        <th>New Enrolls This Week</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Country Name</td>
-                        <td>1,456,765</td>
-                        <td>23,456</td>
-                    </tr>
-                    <tr>
-                        <td>Country Name</td>
-                        <td>1,456,765</td>
-                        <td>23,456</td>
-                    <tr>
-                        <td>Country Name</td>
-                        <td>1,456,765</td>
-                        <td>23,456</td>
-                    </tr>
-                    <tr>
-                        <td>Country Name</td>
-                        <td>1,456,765</td>
-                        <td>23,456</td>
-                    </tr>
-                    <tr>
-                        <td>Country Name</td>
-                        <td>1,456,765</td>
-                        <td>23,456</td>
-                    </tr>
-                    <tr>
-                        <td>Country Name</td>
-                        <td>1,456,765</td>
-                        <td>23,456</td>
-                    </tr>
-                    <tr>
-                        <td>Country Name</td>
-                        <td>1,456,765</td>
-                        <td>23,456</td>
-                    </tr>
-                    <tr>
-                        <td>Country Name</td>
-                        <td>1,456,765</td>
-                        <td>23,456</td>
-                    </tr>
-                    <tr>
-                        <td>Country Name</td>
-                        <td>1,456,765</td>
-                        <td>23,456</td>
-                    </tr>
-                    <tr>
-                        <td>Country Name</td>
-                        <td>1,456,765</td>
-                        <td>23,456</td>
-                    </tr>
-                    <tr>
-                        <td>Country Name</td>
-                        <td>1,456,765</td>
-                        <td>23,456</td>
-                    </tr>
-                    <tr>
-                        <td>Country Name</td>
-                        <td>1,456,765</td>
-                        <td>23,456</td>
-                    </tr>
-                    <tr>
-                        <td>Country Name</td>
-                        <td>1,456,765</td>
-                        <td>23,456</td>
-                    </tr>
-                    <tr>
-                        <td>Country Name</td>
-                        <td>1,456,765</td>
-                        <td>23,456</td>
-                    </tr>
-                    <tr>
-                        <td>Country Name</td>
-                        <td>1,456,765</td>
-                        <td>23,456</td>
-                    </tr>
-                    <tr>
-                        <td>Country Name</td>
-                        <td>1,456,765</td>
-                        <td>23,456</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="col-xs-12 col-sm-3" data-stat-type="enrollment_change_last_7_days">
+          {% include "summary_point.html" with count=summary.enrollment_change_last_7_days label="Trend" subheading="over 7 days" tooltip=tooltips.enrollment_change_last_7_days only %}
         </div>
-    </div>
 
-    <div class="section-actions">
-        <a href="#" class="btn btn-primary">
-            <i class="ico fa fa-download"></i>
-            Download a CSV file of this Data
-        </a>
-    </div>
-</section>
-
-<section class="view-section">
-    <h4 class="section-title">
-        <span class="section-title-value">Learner Demographics</span>
-        <span class="section-title-note small">Who are my students?</span>
-    </h4>
-
-    <hr class="has-emphasis" />
-
-    <div class="section-nav">
-        <div class="btn-group nav-filters">
-                <div class="btn-group filter filter-1">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                        Year of Birth
-                        <i class="ico ico-indicator fa fa-caret-down"></i>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li class="divider"></li>
-                        <li><a href="#">Year of HS Graduation</a></li>
-                        <li><a href="#">Year of the Dragon</a></li>
-                        <li><a href="#">Year of the Monkey</a></li>
-                    </ul>
-                </div>
-
-                <div class="btn-group filter filter-2">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                        Favorite Color
-                        <i class="ico ico-indicator fa fa-caret-down"></i>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li class="divider"></li>
-                        <li><a href="#">Favorite Food</a></li>
-                        <li><a href="#">Favorite TV Show</a></li>
-                        <li><a href="#">Favorite Super Hero</a></li>
-                    </ul>
-                </div>
+        <div class="col-xs-12 col-sm-3" data-stat-type="enrollment_change_last_30_days">
+          {% include "summary_point.html" with count=summary.enrollment_change_last_30_days label="Trend" subheading="over 30 days" tooltip=tooltips.enrollment_change_last_30_days only %}
         </div>
+      </div>
     </div>
 
     <div class="section-content section-data-graph">
-        <div class="section-content section-data-viz">
-            <div class="placeholder">
-              <img data-src="holder.js/100%x400/auto/sky/text:learner demographics bar chart" class="img-responsive img-rounded" alt="Generic placeholder thumbnail">
-            </div>
-        </div>
+      <div class="section-content section-data-viz">
+        <div id="enrollment-trend-view"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="view-section">
+    <h4 class="section-title">
+      <span class="section-title-value">Geographic Distribution</span>
+      <span class="section-title-note small">Where are my students learning from?</span>
+    </h4>
+
+    <hr class="has-emphasis"/>
+
+    <div class="section-content section-data-viz">
+      <div class="placeholder">
+        <img data-src="holder.js/100%x400/auto/sky/text:geographic distribution map" class="img-responsive img-rounded"
+             alt="Generic placeholder thumbnail">
+      </div>
     </div>
 
-    <hr />
+    <hr/>
 
     <h5 class="section-subtitle">
-        <span class="section-title-value"><strong>Demographic Details</strong></span>
+      <span class="subsection-title-value"><strong>Country Enrollment Breakdown</strong></span>
+      <span class="subsection-title-note small">Which countries are represented by my students?</span>
     </h5>
 
     <div class="section-content section-data-table">
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Year of Birth</th>
-                        <th>Total Students</th>
-                        <th>Male</th>
-                        <th>Female</th>
-                        <th>Other</th>
-                        <th>Bachelor's Degree Holders</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1980</td>
-                        <td>54,289</td>
-                        <td>54,000</td>
-                        <td>289</td>
-                        <td>0</td>
-                        <td>50,000</td>
-                    </tr>
-                    <tr>
-                        <td>1980</td>
-                        <td>54,289</td>
-                        <td>54,000</td>
-                        <td>289</td>
-                        <td>0</td>
-                        <td>50,000</td>
-                    </tr>
-                    <tr>
-                        <td>1980</td>
-                        <td>54,289</td>
-                        <td>54,000</td>
-                        <td>289</td>
-                        <td>0</td>
-                        <td>50,000</td>
-                    </tr>
-                    <tr>
-                        <td>1980</td>
-                        <td>54,289</td>
-                        <td>54,000</td>
-                        <td>289</td>
-                        <td>0</td>
-                        <td>50,000</td>
-                    </tr>
-                    <tr>
-                        <td>1980</td>
-                        <td>54,289</td>
-                        <td>54,000</td>
-                        <td>289</td>
-                        <td>0</td>
-                        <td>50,000</td>
-                    </tr>
-                    <tr>
-                        <td>1980</td>
-                        <td>54,289</td>
-                        <td>54,000</td>
-                        <td>289</td>
-                        <td>0</td>
-                        <td>50,000</td>
-                    </tr>
-                    <tr>
-                        <td>1980</td>
-                        <td>54,289</td>
-                        <td>54,000</td>
-                        <td>289</td>
-                        <td>0</td>
-                        <td>50,000</td>
-                    </tr>
-                    <tr>
-                        <td>1980</td>
-                        <td>54,289</td>
-                        <td>54,000</td>
-                        <td>289</td>
-                        <td>0</td>
-                        <td>50,000</td>
-                    </tr>
-                    <tr>
-                        <td>1980</td>
-                        <td>54,289</td>
-                        <td>54,000</td>
-                        <td>289</td>
-                        <td>0</td>
-                        <td>50,000</td>
-                    </tr>
-                    <tr>
-                        <td>1980</td>
-                        <td>54,289</td>
-                        <td>54,000</td>
-                        <td>289</td>
-                        <td>0</td>
-                        <td>50,000</td>
-                    </tr>
-                    <tr>
-                        <td>1980</td>
-                        <td>54,289</td>
-                        <td>54,000</td>
-                        <td>289</td>
-                        <td>0</td>
-                        <td>50,000</td>
-                    </tr>
-                    <tr>
-                        <td>1980</td>
-                        <td>54,289</td>
-                        <td>54,000</td>
-                        <td>289</td>
-                        <td>0</td>
-                        <td>50,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Country</th>
+            <th>Total Enrolls</th>
+            <th>New Enrolls This Week</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>Country Name</td>
+            <td>1,456,765</td>
+            <td>23,456</td>
+          </tr>
+          <tr>
+            <td>Country Name</td>
+            <td>1,456,765</td>
+            <td>23,456</td>
+          <tr>
+            <td>Country Name</td>
+            <td>1,456,765</td>
+            <td>23,456</td>
+          </tr>
+          <tr>
+            <td>Country Name</td>
+            <td>1,456,765</td>
+            <td>23,456</td>
+          </tr>
+          <tr>
+            <td>Country Name</td>
+            <td>1,456,765</td>
+            <td>23,456</td>
+          </tr>
+          <tr>
+            <td>Country Name</td>
+            <td>1,456,765</td>
+            <td>23,456</td>
+          </tr>
+          <tr>
+            <td>Country Name</td>
+            <td>1,456,765</td>
+            <td>23,456</td>
+          </tr>
+          <tr>
+            <td>Country Name</td>
+            <td>1,456,765</td>
+            <td>23,456</td>
+          </tr>
+          <tr>
+            <td>Country Name</td>
+            <td>1,456,765</td>
+            <td>23,456</td>
+          </tr>
+          <tr>
+            <td>Country Name</td>
+            <td>1,456,765</td>
+            <td>23,456</td>
+          </tr>
+          <tr>
+            <td>Country Name</td>
+            <td>1,456,765</td>
+            <td>23,456</td>
+          </tr>
+          <tr>
+            <td>Country Name</td>
+            <td>1,456,765</td>
+            <td>23,456</td>
+          </tr>
+          <tr>
+            <td>Country Name</td>
+            <td>1,456,765</td>
+            <td>23,456</td>
+          </tr>
+          <tr>
+            <td>Country Name</td>
+            <td>1,456,765</td>
+            <td>23,456</td>
+          </tr>
+          <tr>
+            <td>Country Name</td>
+            <td>1,456,765</td>
+            <td>23,456</td>
+          </tr>
+          <tr>
+            <td>Country Name</td>
+            <td>1,456,765</td>
+            <td>23,456</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <div class="section-actions">
-        <a href="#" class="btn btn-primary">
-            <i class="ico fa fa-download"></i>
-            Download a CSV file of this Data
-        </a>
+      <a href="#" class="btn btn-primary">
+        <i class="ico fa fa-download"></i>
+        Download a CSV file of this Data
+      </a>
     </div>
-</section>
+  </section>
+
 {% endblock content %}

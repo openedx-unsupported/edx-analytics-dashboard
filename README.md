@@ -45,10 +45,11 @@ Please read [How To Contribute](https://github.com/edx/edx-platform/blob/master/
 Testing
 -------
 
-### Unit Tests
-This project uses `nose` to find and run tests. Execute the command below from the root of the repository to run tests.
+### Unit Tests & Code Quality
+This project uses `nose` to find and run tests. `pep8` and `pylint` are used to verify code quality. All three can be
+run with the command below:
 
-    $ make test
+    $ make validate
 
 ### Acceptance Tests
 The acceptance tests are designed to test the application as whole (contrasted with unit tests that test individual
