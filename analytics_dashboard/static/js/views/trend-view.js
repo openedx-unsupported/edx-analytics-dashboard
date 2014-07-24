@@ -1,17 +1,17 @@
-define(['jquery', 'backbone', 'highcharts', 'models/course-model'],
-    function($, Backbone, highcharts, CourseModel){
+define(['jquery', 'backbone', 'highcharts'],
+    function ($, Backbone, highcharts) {
         'use strict';
 
         var TrendView = Backbone.View.extend({
 
             // Renders the view's template to the UI
-            render: function() {
+            render: function () {
                 var self = this,
                     series;
 
                 series = self.model.getEnrollmentSeries();
 
-                $(self.el).highcharts({
+                self.$el.highcharts({
                     credits: {
                         enabled: false
                     },
@@ -19,44 +19,33 @@ define(['jquery', 'backbone', 'highcharts', 'models/course-model'],
                         zoomType: 'x'
                     },
                     title: {
-                        text: 'Total Daily Student Enrollment',
-                        x: -20 //center
-                    },
-                    subtitle: {
-                        text: ' ',
-                        x: -20
+                        text: 'Daily Student Enrollment',
                     },
                     xAxis: {
                         type: 'datetime',
                         labels: {
-                            formatter: function() {
-                                return highcharts.dateFormat('%b %e, %Y',
-                                    this.value);
+                            formatter: function () {
+                                return highcharts.dateFormat('%b %e, %Y', this.value);
                             }
                         }
                     },
                     yAxis: {
                         min: 0,
                         title: {
-                            text: 'Student Enrollment'
-                        },
-                        plotLines: [{
-                            value: 0,
-                            width: 1,
-                            color: '#808080'
-                        }]
+                            text: 'Students'
+                        }
                     },
                     legend: {
-                        layout: 'vertical',
-                        align: 'right',
-                        verticalAlign: 'middle',
-                        borderWidth: 0
+                        enabled: false
                     },
-                    series: [{
-                        name: 'Enrolled Students',
-                        data: series
-                    }]
+                    series: [
+                        {
+                            name: 'Students',
+                            data: series
+                        }
+                    ]
                 });
+
                 return self;
             }
 

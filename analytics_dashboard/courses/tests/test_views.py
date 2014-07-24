@@ -1,28 +1,16 @@
-import mock
+import datetime
 import json
 
+import mock
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 
 import analyticsclient.activity_type as AT
 from analyticsclient.exceptions import NotFoundError
+from courses.tests.utils import get_mock_enrollment_summary, get_mock_enrollment_data
 
-def mock_enrollment_summary_data(self):
-    return {
-        'date_end': '2013-01-01',
-        'total_enrollment': 100,
-        'enrollment_change_yesterday': 31301,
-        'enrollment_change_last_7_days': -1000,
-        'enrollment_change_last_30_days': None,
-    }
 
-def mock_enrollment_trend(self, course_id, end_date=None, days_past=1):
-    return [
-        {'count': 10, 'date': '2013-01-01'},
-        {'count': 9823, 'date': '2013-01-02'}
-    ]
-
-def mock_engagement_summary_data(self):
+def mock_engagement_summary_data():
     return {
         'interval_end': '2013-01-01T12:12:12Z',
         AT.ANY: 100,
@@ -31,9 +19,9 @@ def mock_engagement_summary_data(self):
         AT.POSTED_FORUM: 0,
     }
 
-class StudentEngagementTestView(TestCase):
 
-    @mock.patch('courses.presenters.StudentEngagement.get_summary', mock.Mock(side_effect=mock_engagement_summary_data, autospec=True))
+class StudentEngagementTestView(TestCase):
+    @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary', mock.Mock(return_value=mock_engagement_summary_data()))
     def test_engagement_page_success(self):
         response = self.client.get(reverse('courses:engagement', kwargs={'course_id': 'this/is/course'}))
 
@@ -44,14 +32,10 @@ class StudentEngagementTestView(TestCase):
         self.assertEqual(response.context['summary']['week_of_activity'], 'January 01, 2013')
 
         # check to make sure that we have tooltips
-        self.assertEqual(response.context['tooltips']['all_activity_summary'],
-                         'Students who initiated an action.')
-        self.assertEqual(response.context['tooltips']['posted_forum_summary'],
-                         'Students who created a post, responded to a post, or made a comment in any discussion.')
-        self.assertEqual(response.context['tooltips']['attempted_problem_summary'],
-                         'Students who answered any question.')
-        self.assertEqual(response.context['tooltips']['played_video_summary'],
-                         'Students who started watching any video.')
+        self.assertEqual(response.context['tooltips']['all_activity_summary'], 'Students who initiated an action.')
+        self.assertEqual(response.context['tooltips']['posted_forum_summary'], 'Students who created a post, responded to a post, or made a comment in any discussion.')
+        self.assertEqual(response.context['tooltips']['attempted_problem_summary'], 'Students who answered any question.')
+        self.assertEqual(response.context['tooltips']['played_video_summary'], 'Students who started watching any video.')
 
         # check page title
         self.assertEqual(response.context['page_title'], 'Engagement')
@@ -62,7 +46,7 @@ class StudentEngagementTestView(TestCase):
         self.assertEqual(response.context['summary'][AT.PLAYED_VIDEO], 1000)
         self.assertEqual(response.context['summary'][AT.POSTED_FORUM], 0)
 
-    @mock.patch('courses.presenters.StudentEngagement.get_summary', mock.Mock(side_effect=NotFoundError, autospec=True))
+    @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary', mock.Mock(side_effect=NotFoundError, autospec=True))
     def test_engagement_page_fail(self):
         """
         The course engagement page should raise a 404 when there is an error accessing API data.
@@ -70,53 +54,49 @@ class StudentEngagementTestView(TestCase):
         response = self.client.get(reverse('courses:engagement', kwargs={'course_id': 'this/is/course'}))
         self.assertEqual(response.status_code, 404)
 
-class StudentEnrollmentTestView(TestCase):
 
-    @mock.patch('courses.presenters.StudentEnrollment.get_summary', mock.Mock(side_effect=mock_enrollment_summary_data, autospec=True))
-    @mock.patch('courses.presenters.StudentEnrollment.get_enrollment_trend', mock.Mock(side_effect=mock_enrollment_trend, autospec=True))
-    def test_enrollment_page_success(self):
-        response = self.client.get(reverse('courses:enrollment', kwargs={'course_id': 'this/is/course'}))
+class CourseEnrollmentViewTests(TestCase):
+    def setUp(self):
+        self.course_id = 'edX/DemoX/Demo_Course'
+        self.path = reverse('courses:enrollment', kwargs={'course_id': self.course_id})
 
-        # make sure that we get a 200
+    @mock.patch('courses.presenters.CourseEnrollmentPresenter.get_summary', mock.Mock(side_effect=NotFoundError))
+    def test_invalid_course(self):
+        """ Return a 404 if the course is not found. """
+        response = self.client.get(self.path)
+        self.assertEqual(response.status_code, 404)
+
+    @mock.patch('courses.presenters.CourseEnrollmentPresenter.get_data')
+    def test_valid_course(self, mock_get_data):
+        enrollment_data = get_mock_enrollment_data(self.course_id)
+        mock_get_data.side_effect = [[enrollment_data[-1]], enrollment_data, enrollment_data]
+
+        response = self.client.get(self.path)
+        context = response.context
+
+        # Ensure we get a valid HTTP status
         self.assertEqual(response.status_code, 200)
 
-        # make sure the date is formatted correctly
-        self.assertEqual(response.context['summary']['last_update'], 'January 01, 2013')
-
         # check to make sure that we have tooltips
-        self.assertEqual(response.context['tooltips']['total_enrollment'],
-                         'Students enrolled in course.')
-        self.assertEqual(response.context['tooltips']['enrollment_change_yesterday'],
-                         'Change in enrollment for the past day (through yesterday).')
-        self.assertEqual(response.context['tooltips']['enrollment_change_last_7_days'],
-                         'Change in enrollment during the past week (7 days ending yesterday).')
-        self.assertEqual(response.context['tooltips']['enrollment_change_last_30_days'],
-                         'Change in enrollment over the past month (30 days ending yesterday).')
+        tooltips = context['tooltips']
+        self.assertEqual(tooltips['current_enrollment'], 'Students enrolled in course.')
+        self.assertEqual(tooltips['enrollment_change_last_1_days'], 'Change in enrollment for the past day (through yesterday).')
+        self.assertEqual(tooltips['enrollment_change_last_7_days'], 'Change in enrollment during the past week (7 days ending yesterday).')
+        self.assertEqual(tooltips['enrollment_change_last_30_days'], 'Change in enrollment over the past month (30 days ending yesterday).')
 
         # check page title
-        self.assertEqual(response.context['page_title'], 'Enrollment')
+        self.assertEqual(context['page_title'], 'Enrollment')
 
         # make sure the summary numbers are correct
-        self.assertEqual(response.context['summary']['total_enrollment'], '100')
-        self.assertEqual(response.context['summary']['enrollment_change_yesterday'], '+31,301')
-        self.assertEqual(response.context['summary']['enrollment_change_last_7_days'], '-1,000')
-        self.assertEqual(response.context['summary']['enrollment_change_last_30_days'], 'n/a')
+        summary = context['summary']
+        self.assertEqual(summary['date'], datetime.date(year=2014, month=1, day=31))
+        self.assertEqual(summary['current_enrollment'], 30)
+        self.assertEqual(summary['enrollment_change_last_1_days'], 1)
+        self.assertEqual(summary['enrollment_change_last_7_days'], 7)
+        self.assertEqual(summary['enrollment_change_last_30_days'], 30)
 
         # make sure the trend is correct
-        page_data = json.loads(response.context['page_data'])
+        page_data = json.loads(context['page_data'])
         trend_data = page_data['enrollmentTrends']
-        self.assertEqual(len(trend_data), 2)
-        self.assertEqual(trend_data[0]['date'], '2013-01-01')
-        self.assertEqual(trend_data[1]['date'], '2013-01-02')
-
-        # check the counts
-        self.assertEqual(trend_data[0]['count'], 10)
-        self.assertEqual(trend_data[1]['count'], 9823)
-
-    @mock.patch('courses.presenters.StudentEnrollment.get_summary', mock.Mock(side_effect=NotFoundError, autospec=True))
-    def test_enrollment_not_found_error_page_fail(self):
-        """
-        The course engagement page should raise a 404 when there is an error accessing API data.
-        """
-        response = self.client.get(reverse('courses:enrollment', kwargs={'course_id': 'this/is/course'}))
-        self.assertEqual(response.status_code, 404)
+        expected = enrollment_data
+        self.assertListEqual(trend_data, expected)

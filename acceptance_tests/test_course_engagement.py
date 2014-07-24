@@ -34,7 +34,7 @@ class CourseEngagementTests(AnalyticsApiClientMixin, WebAppTest):
         # Verify the week displayed
         week = self.page.q(css=section_selector + ' span[data-role=activity-week]')
         self.assertTrue(week.present)
-        expected = self.course.recent_activity(at.ANY)['interval_start']
+        expected = self.course.recent_activity(at.ANY)['interval_end']
         expected = datetime.datetime.strptime(expected, "%Y-%m-%dT%H:%M:%SZ")
         expected = expected.strftime('%B %d, %Y')
         self.assertEqual(week.text[0], expected)

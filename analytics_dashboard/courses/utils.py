@@ -1,11 +1,13 @@
 import time
 
+
 def get_formatted_date_time(time_interval):
     """
     Make the date human readable
     """
     struct_time = time.strptime(time_interval, "%Y-%m-%dT%H:%M:%SZ")
     return time.strftime('%B %d, %Y', struct_time)
+
 
 def get_formatted_date(date):
     """
@@ -16,6 +18,7 @@ def get_formatted_date(date):
     """
     struct_time = time.strptime(date, "%Y-%m-%d")
     return time.strftime('%B %d, %Y', struct_time)
+
 
 def get_formatted_summary_number(maybe_number):
     """
@@ -30,16 +33,3 @@ def get_formatted_summary_number(maybe_number):
         label = "{:,}".format(maybe_number)
 
     return label
-
-def strip_tooltips(tooltips):
-    """
-    Remove new lines and strips extra white spaces from dictionary of tooltips.
-
-    Arguments:
-        tooltips: Dictionary of tooltips.
-    """
-    stripped = {}
-    for key, value in tooltips.items():
-        stripped[key] = ' '.join(value.split())
-
-    return stripped

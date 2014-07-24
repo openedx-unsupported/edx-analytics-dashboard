@@ -267,3 +267,6 @@ SOUTH_TESTS_MIGRATE = False
 DATA_API_URL = 'http://127.0.0.1:8001/api/v0'
 DATA_API_AUTH_TOKEN = 'edx'
 ########## END DATA API CONFIGURATION
+
+# Used to determine how dates are displayed in templates
+DATE_FORMAT = 'F d, Y'
