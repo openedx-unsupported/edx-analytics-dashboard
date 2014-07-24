@@ -20,14 +20,14 @@ class BasePresenter(object):
                              auth_token=settings.DATA_API_AUTH_TOKEN,
                              timeout=timeout)
 
-    def parse_date(self, string):
+    def parse_date(self, date_string):
         """
         Parse a date string to a Date object using the API date format.
 
         Arguments:
-            s (str): Date string to parse
+            date_string (str): Date string to parse
         """
-        return datetime.datetime.strptime(string, self.API_DATE_FORMAT).date()
+        return datetime.datetime.strptime(date_string, self.API_DATE_FORMAT).date()
 
     def format_date(self, date):
         """
@@ -67,8 +67,7 @@ class CourseEngagementPresenter(BasePresenter):
 
         # Create a list of data types and pass them into the recent_activity
         # call to get all the summary data that I need.
-        activity_types = [AT.ATTEMPTED_PROBLEM, AT.PLAYED_VIDEO,
-                          AT.POSTED_FORUM]
+        activity_types = [AT.ATTEMPTED_PROBLEM, AT.PLAYED_VIDEO, AT.POSTED_FORUM]
         for activity_type in activity_types:
             activity = course.recent_activity(activity_type)
             activities.append(activity)

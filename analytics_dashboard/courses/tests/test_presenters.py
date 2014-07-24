@@ -10,8 +10,7 @@ from courses.tests.utils import get_mock_enrollment_data, get_mock_enrollment_su
 
 
 def mock_activity_data(activity_type):
-    activity_types = [AT.ANY, AT.ATTEMPTED_PROBLEM, AT.PLAYED_VIDEO,
-                      AT.POSTED_FORUM]
+    activity_types = [AT.ANY, AT.ATTEMPTED_PROBLEM, AT.PLAYED_VIDEO, AT.POSTED_FORUM]
 
     summaries = {}
     count = 0
