@@ -20,14 +20,14 @@ class BasePresenter(object):
                              auth_token=settings.DATA_API_AUTH_TOKEN,
                              timeout=timeout)
 
-    def parse_date(self, s):
+    def parse_date(self, string):
         """
         Parse a date string to a Date object using the API date format.
 
         Arguments:
             s (str): Date string to parse
         """
-        return datetime.datetime.strptime(s, self.API_DATE_FORMAT).date()
+        return datetime.datetime.strptime(string, self.API_DATE_FORMAT).date()
 
     def format_date(self, date):
         """

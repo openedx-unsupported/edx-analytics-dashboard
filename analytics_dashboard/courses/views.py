@@ -70,6 +70,7 @@ def overview(request, course_id):
     return render(request, 'courses/overview.html', context)
 
 
+# pylint: disable=line-too-long
 def engagement(request, course_id):
     """
     Renders the Engagement page.

@@ -2,6 +2,12 @@ ROOT = $(shell echo "$$PWD")
 COVERAGE = $(ROOT)/build/coverage
 PACKAGES = analytics_dashboard courses
 
+requirements:
+	pip install -q -r requirements/base.txt
+
+test.requirements: requirements
+	pip install -q -r requirements/test.txt
+
 clean:
 	find . -name '*.pyc' -delete
 	coverage erase
@@ -16,3 +22,13 @@ test: clean
 
 accept:
 	cd acceptance_tests && nosetests
+
+
+quality:
+	pep8 --config=.pep8 analytics_dashboard
+	cd analytics_dashboard && pylint --rcfile=../.pylintrc $(PACKAGES)
+
+	# Ignore module level docstrings and all test files
+	#cd analytics_dashboard && pep257 --ignore=D100,D203 --match='(?!test).*py' $(PACKAGES)
+
+validate: test.requirements test quality

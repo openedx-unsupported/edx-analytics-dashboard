@@ -7,7 +7,7 @@ from django.core.urlresolvers import reverse
 
 import analyticsclient.activity_type as AT
 from analyticsclient.exceptions import NotFoundError
-from courses.tests.utils import get_mock_enrollment_summary, get_mock_enrollment_data
+from courses.tests.utils import get_mock_enrollment_data
 
 
 def mock_engagement_summary_data():
@@ -21,7 +21,8 @@ def mock_engagement_summary_data():
 
 
 class StudentEngagementTestView(TestCase):
-    @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary', mock.Mock(return_value=mock_engagement_summary_data()))
+    @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary',
+                mock.Mock(return_value=mock_engagement_summary_data()))
     def test_engagement_page_success(self):
         response = self.client.get(reverse('courses:engagement', kwargs={'course_id': 'this/is/course'}))
 
@@ -33,9 +34,12 @@ class StudentEngagementTestView(TestCase):
 
         # check to make sure that we have tooltips
         self.assertEqual(response.context['tooltips']['all_activity_summary'], 'Students who initiated an action.')
-        self.assertEqual(response.context['tooltips']['posted_forum_summary'], 'Students who created a post, responded to a post, or made a comment in any discussion.')
-        self.assertEqual(response.context['tooltips']['attempted_problem_summary'], 'Students who answered any question.')
-        self.assertEqual(response.context['tooltips']['played_video_summary'], 'Students who started watching any video.')
+        self.assertEqual(response.context['tooltips']['posted_forum_summary'],
+                         'Students who created a post, responded to a post, or made a comment in any discussion.')
+        self.assertEqual(response.context['tooltips']['attempted_problem_summary'],
+                         'Students who answered any question.')
+        self.assertEqual(response.context['tooltips']['played_video_summary'],
+                         'Students who started watching any video.')
 
         # check page title
         self.assertEqual(response.context['page_title'], 'Engagement')
@@ -46,7 +50,8 @@ class StudentEngagementTestView(TestCase):
         self.assertEqual(response.context['summary'][AT.PLAYED_VIDEO], 1000)
         self.assertEqual(response.context['summary'][AT.POSTED_FORUM], 0)
 
-    @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary', mock.Mock(side_effect=NotFoundError, autospec=True))
+    @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary',
+                mock.Mock(side_effect=NotFoundError, autospec=True))
     def test_engagement_page_fail(self):
         """
         The course engagement page should raise a 404 when there is an error accessing API data.
@@ -80,9 +85,12 @@ class CourseEnrollmentViewTests(TestCase):
         # check to make sure that we have tooltips
         tooltips = context['tooltips']
         self.assertEqual(tooltips['current_enrollment'], 'Students enrolled in course.')
-        self.assertEqual(tooltips['enrollment_change_last_1_days'], 'Change in enrollment for the past day (through yesterday).')
-        self.assertEqual(tooltips['enrollment_change_last_7_days'], 'Change in enrollment during the past week (7 days ending yesterday).')
-        self.assertEqual(tooltips['enrollment_change_last_30_days'], 'Change in enrollment over the past month (30 days ending yesterday).')
+        self.assertEqual(tooltips['enrollment_change_last_1_days'],
+                         'Change in enrollment for the past day (through yesterday).')
+        self.assertEqual(tooltips['enrollment_change_last_7_days'],
+                         'Change in enrollment during the past week (7 days ending yesterday).')
+        self.assertEqual(tooltips['enrollment_change_last_30_days'],
+                         'Change in enrollment over the past month (30 days ending yesterday).')
 
         # check page title
         self.assertEqual(context['page_title'], 'Enrollment')

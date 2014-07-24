@@ -5,14 +5,14 @@
 
 # Python code to execute, usually for sys.path manipulation such as
 # pygtk.require().
-#init-hook=
+#init-hook=''
 
 # Profiled execution.
 profile=no
 
 # Add files or directories to the blacklist. They should be base names, not
 # paths.
-ignore=CVS, migrations
+ignore=CVS, migrations, settings, wsgi.py
 
 # Pickle collected data for later comparisons.
 persistent=yes
@@ -20,7 +20,6 @@ persistent=yes
 # List of plugins (as comma separated values of python modules names) to load,
 # usually to register additional checkers.
 load-plugins=
-
 
 [MESSAGES CONTROL]
 
@@ -36,12 +35,11 @@ load-plugins=
 disable=
 # Never going to use these
 # I0011: Locally disabling W0232
-# C0301: Line too long
 # W0141: Used builtin function 'map'
 # W0142: Used * or ** magic
 # R0921: Abstract class not referenced
 # R0922: Abstract class is only referenced 1 times
-    I0011,C0301,W0141,W0142,R0921,R0922,
+    I0011,W0141,W0142,R0921,R0922,
 
 # Django makes classes that trigger these
 # W0232: Class has no __init__ method
@@ -58,8 +56,15 @@ disable=
 # R0912: Too many branches
 # R0913: Too many arguments
 # R0914: Too many local variables
-    C0302,R0201,R0901,R0902,R0903,R0904,R0911,R0912,R0913,R0914
+    C0302,R0201,R0901,R0902,R0903,R0904,R0911,R0912,R0913,R0914,
+# W0511: TODOs etc
+    W0511,
+# E1103: maybe no member
+    E1103,
+# C0111: missing docstring (handled by pep257)
+    C0111,
 
+    duplicate-code
 
 [REPORTS]
 
@@ -88,9 +93,6 @@ evaluation=10.0 - ((float(5 * error + warning + refactor + convention) / stateme
 # Add a comment according to your evaluation note. This is used by the global
 # evaluation report (RP0004).
 comment=no
-
-# Display symbolic names of messages in reports
-symbols=yes
 
 
 [TYPECHECK]
@@ -123,17 +125,8 @@ generated-members=
     content,
     status_code,
 # For factory_boy factories
-    create,
-    build,
-# For xblocks
-    fields,
-# For locations
-    tag,
-    org,
-    course,
-    category,
-    name,
-    revision,
+    create
+
 
 [BASIC]
 
@@ -153,10 +146,10 @@ const-rgx=(([A-Z_][A-Z0-9_]*)|(__.*__)|log|urlpatterns)$
 class-rgx=[A-Z_][a-zA-Z0-9]+$
 
 # Regular expression which should only match correct function names
-function-rgx=([a-z_][a-z0-9_]{2,30}|test_[a-z0-9_]+)$
+function-rgx=[a-z_][a-z0-9_]{2,30}$
 
 # Regular expression which should only match correct method names
-method-rgx=([a-z_][a-z0-9_]{2,60}|setUp|set[Uu]pClass|tearDown|tear[Dd]ownClass|assert[A-Z]\w*|maxDiff|test_[a-z0-9_]+)$
+method-rgx=([a-z_][a-z0-9_]{2,60}|setUp|set[Uu]pClass|tearDown|tear[Dd]ownClass|assert[A-Z]\w*)$
 
 # Regular expression which should only match correct instance attribute names
 attr-rgx=[a-z_][a-z0-9_]{2,30}$
@@ -172,7 +165,7 @@ variable-rgx=[a-z_][a-z0-9_]{2,30}$
 inlinevar-rgx=[A-Za-z_][A-Za-z0-9_]*$
 
 # Good variable names which should always be accepted, separated by a comma
-good-names=f,i,j,k,db,ex,Run,_,__
+good-names=i,j,k,ex,Run,_
 
 # Bad variable names which should always be refused, separated by a comma
 bad-names=foo,bar,baz,toto,tutu,tata
