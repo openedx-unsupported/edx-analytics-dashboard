@@ -10,4 +10,4 @@ class AnalyticsApiClientMixin(object):
 
         api_url = os.environ.get('API_SERVER_URL', 'http://127.0.0.1:8001/api/v0')
         auth_token = os.environ.get('API_AUTH_TOKEN', 'analytics')
-        self.api_client = Client(api_url, auth_token=auth_token)
+        self.api_client = Client(api_url, auth_token=auth_token, timeout=5)
