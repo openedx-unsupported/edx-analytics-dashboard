@@ -8,7 +8,7 @@
 require(['./common'], function () {
     'use strict';
     require(['jquery', 'models/course-model', 'views/lens-navigation-view', 'bootstrap', 'holder'],
-        function ($, CourseModel, LensNavigationView, bootstrap, holder, DataTableView) {
+        function ($, CourseModel, LensNavigationView, bootstrap, holder) {
             $(document).ready(function () {
                 // ok, we've loaded all the libraries and the page is loaded, so
                 // lets kick off our application
@@ -16,9 +16,7 @@ require(['./common'], function () {
 
                     onLoad: function() {
                         var model,
-                            view,
-                            jsonData = JSON.parse( $('#content')
-                                .attr('data-analytics-init') );
+                            jsonData = JSON.parse( $('#content').attr('data-analytics-init') );
 
                         // this data will be set by something else eventually
                         model = new CourseModel();
@@ -26,8 +24,7 @@ require(['./common'], function () {
                         // correct format for now
                         model.set(jsonData);
 
-                        view = new LensNavigationView({model: model});
-                        view.render();
+                        new LensNavigationView({model: model}).render();
 
                         // enable tooltips.  If individual tooltips need
                         // customization, we can have the specific views

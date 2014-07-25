@@ -1,12 +1,50 @@
 import json
 import datetime
 
-from django.shortcuts import render
-from django.http import Http404
+from django.conf import settings
 
+from django.shortcuts import render
+from django.http import Http404, HttpResponse
+
+from analyticsclient import data_format, demographic
+from analyticsclient.client import Client
 from analyticsclient.exceptions import NotFoundError
+from django.views.generic import View
+from django.views.generic.base import ContextMixin
+
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter
-from courses.utils import get_formatted_date_time
+from courses.utils import get_formatted_date, get_formatted_date_time
+
+
+class CourseView(ContextMixin, View):
+    client = Client(base_url=settings.DATA_API_URL, auth_token=settings.DATA_API_AUTH_TOKEN, timeout=5)
+    course = None
+    course_id = None
+
+    def render_to_response(self, context, **response_kwargs):
+        raise NotImplementedError
+
+    def get(self, _request, *_args, **kwargs):
+        self.course_id = kwargs['course_id']
+        self.course = self.client.courses(self.course_id)
+
+        try:
+            return self.render_to_response(context=self.get_context_data())
+        except NotFoundError:
+            raise Http404
+
+
+class CSVResponseMixin(object):
+    def render_to_response(self, context, **response_kwargs):
+        response = HttpResponse(context['data'], content_type='text/csv', **response_kwargs)
+        response['Content-Disposition'] = 'attachment; filename="{0}"'.format(context['filename'])
+        return response
+
+
+class JSONResponseMixin(object):
+    def render_to_response(self, context, **response_kwargs):
+        content = json.dumps(context['data'])
+        return HttpResponse(content, content_type='application/json', **response_kwargs)
 
 
 def get_default_data(course_id):
@@ -110,3 +148,48 @@ def performance(request, course_id):
     context = get_default_data(course_id)
     context['page_title'] = 'Performance'
     return render(request, 'courses/performance.html', context)
+
+
+class CourseEnrollmentByCountryJSON(JSONResponseMixin, CourseView):
+    def get_context_data(self, **kwargs):
+        context = super(CourseEnrollmentByCountryJSON, self).get_context_data(**kwargs)
+
+        api_response = self.course.enrollment(demographic.LOCATION)
+        data = {'date': None, 'data': []}
+
+        if api_response:
+            start_date = api_response[0]['date']
+            api_data = [{'country_code': datum['country']['code'],
+                         'country_name': datum['country']['name'],
+                         'value': datum['count']} for datum in api_response]
+
+            data.update({'date': get_formatted_date(start_date), 'data': api_data})
+
+        context['data'] = data
+
+        return context
+
+
+class CourseEnrollmentByCountryCSV(CSVResponseMixin, CourseView):
+    def get_context_data(self, **kwargs):
+        context = super(CourseEnrollmentByCountryCSV, self).get_context_data(**kwargs)
+
+        context.update({
+            'data': self.course.enrollment(demographic.LOCATION, data_format=data_format.CSV),
+            'filename': '{0}_enrollment_by_country.csv'.format(self.course_id)
+        })
+
+        return context
+
+
+class CourseEnrollmentCSV(CSVResponseMixin, CourseView):
+    def get_context_data(self, **kwargs):
+        context = super(CourseEnrollmentCSV, self).get_context_data(**kwargs)
+        end_date = datetime.date.today().strftime(Client.DATE_FORMAT)
+
+        context.update({
+            'data': self.course.enrollment(data_format=data_format.CSV, end_date=end_date),
+            'filename': '{0}_enrollment.csv'.format(self.course_id)
+        })
+
+        return context

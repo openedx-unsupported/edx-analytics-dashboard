@@ -12,11 +12,12 @@ require.config({
         bootstrap: 'vendor/bootstrap/javascripts/bootstrap.min',
         models: 'js/models',
         views: 'js/views',
-        highcharts: 'vendor/highcharts.min',
+        highcharts: 'vendor/highcharts/highcharts.min',
+        highchartsMap: 'vendor/highcharts/map',
+        highchartsMapWorld: 'vendor/highcharts/world',
         holder: 'vendor/holder',
         dataTables: 'vendor/dataTables/jquery.dataTables.min',
-        dataTablesBootstrap: 'vendor/dataTables/dataTables.bootstrap',
-        string: 'js/string'
+        dataTablesBootstrap: 'vendor/dataTables/dataTables.bootstrap'
     },
     shim: {
         bootstrap: {
@@ -30,15 +31,23 @@ require.config({
             exports: 'Backbone',
             init: function (_, $) {
                 'use strict';
-                Backbone.$ = $; return Backbone; }
+                Backbone.$ = $;
+                return Backbone;
+            }
         },
         highcharts: {
             exports: 'Highcharts'
+        },
+        highchartsMap: {
+            deps: ['highcharts']
+        },
+        highchartsMapWorld: {
+            deps: ['highcharts', 'highchartsMap']
         },
         dataTablesBootstrap: {
             deps: ['jquery', 'dataTables']
         }
     },
-     // load jquery automatically
+    // load jquery automatically
     deps: ['jquery']
 });

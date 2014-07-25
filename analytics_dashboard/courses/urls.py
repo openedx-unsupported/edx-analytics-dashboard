@@ -1,3 +1,5 @@
+# pylint: disable=no-value-for-parameter
+
 from django.conf.urls import url, patterns
 
 from courses import views
@@ -8,9 +10,21 @@ COURSE_URLS = [
     ('engagement', views.engagement),
     ('performance', views.performance),
     ('overview', views.overview),
+    ('json/enrollment_by_country', views.CourseEnrollmentByCountryJSON.as_view()),
+    ('csv/enrollment', views.CourseEnrollmentCSV.as_view()),
+    ('csv/enrollment_by_country', views.CourseEnrollmentByCountryCSV.as_view()),
 ]
 
+COURSE_ID_REGEX = r'^(?P<course_id>(\w+/){2}\w+)/'
+TRAILING_SLASH_REGEX = r'/$'
 urlpatterns = []
 
+
+def generate_regex(path):
+    return COURSE_ID_REGEX + re.escape(path) + TRAILING_SLASH_REGEX
+
+
 for name, view in COURSE_URLS:
-    urlpatterns += patterns('', url(r'^(?P<course_id>(\w+/){2}\w+)/' + re.escape(name) + r'/$', view, name=name))
+    # Create a new URL pattern. Slashes are valid for paths, but not names. Replace any forward slashes
+    # with an underscore.
+    urlpatterns += patterns('', url(generate_regex(name), view, name=name.replace('/', '_')))

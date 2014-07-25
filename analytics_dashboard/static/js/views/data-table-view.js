@@ -1,28 +1,32 @@
-define(['jquery', 'backbone', 'dataTablesBootstrap', 'string'],
-    function ($, Backbone) {
+define(['jquery', 'views/simple-model-attribute-view', 'underscore', 'dataTablesBootstrap'],
+    function ($, SimpleModelAttributeView, _) {
         'use strict';
 
-        var DataTableView = Backbone.View.extend({
+        var DataTableView = SimpleModelAttributeView.extend({
 
             initialize: function (options) {
+                SimpleModelAttributeView.prototype.initialize.call(this, options);
+
                 this.data = options.data;
                 this.columns = options.columns;
                 this.sorting = options.sorting || [];
             },
 
             _buildColumns: function ($row, dtColumns) {
-                this.columns.forEach(function (column) {
-                    $row.append('<th>' + column.capitalize() + '</th>');
-                    dtColumns.push({data: column});
+                _.each(this.columns, function (column) {
+                    $row.append('<th>' + column.title + '</th>');
+                    dtColumns.push({data: column.key});
                 });
             },
 
             _buildSorting: function () {
                 var dtSorting = [];
                 var sortRegexp = /^(-?)(.*)/g;
-                var columns = this.columns;
+                var columns = _.map(this.columns, function (column) {
+                    return column.key;
+                });
 
-                this.sorting.forEach(function (sorting) {
+                _.each(this.sorting, function (sorting) {
                     var match = sortRegexp.exec(sorting),
                         direction = match[1] === '-' ? 'desc' : 'asc',
                         index = columns.indexOf(match[2]);
@@ -32,21 +36,24 @@ define(['jquery', 'backbone', 'dataTablesBootstrap', 'string'],
                 return dtSorting;
             },
             render: function () {
-                var $table = $('<table/>', {class: 'table table-striped'}).appendTo(this.$el),
-                    $thead = $('<thead/>').appendTo($table),
-                    $row = $('<tr/>').appendTo($thead),
-                    dtColumns = [];
+                var $parent = $('<div/>', {class:'table-responsive'}).appendTo(this.$el);
+                var $table = $('<table/>', {class: 'table table-striped'}).appendTo($parent);
+                var $thead = $('<thead/>').appendTo($table);
+                var $row = $('<tr/>').appendTo($thead);
+                var dtColumns = [];
+                var dtConfig, dtSorting;
 
                 this._buildColumns($row, dtColumns);
 
-                var dtConfig = {
+                dtConfig = {
                         paging: false,
                         info: false,
                         filter: false,
-                        data: this.data,
+                        data: this.model.get(this.modelAttribute),
                         columns: dtColumns
-                    },
-                    dtSorting = this._buildSorting();
+                    };
+
+                dtSorting = this._buildSorting();
 
                 if (dtSorting.length) {
                     dtConfig.order = dtSorting;

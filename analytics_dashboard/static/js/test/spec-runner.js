@@ -17,7 +17,8 @@ var config = {
         views: 'js/views',
         jasmine: 'vendor/jasmine/lib/jasmine-2.0.0/jasmine',
         'jasmine-html': 'vendor/jasmine/lib/jasmine-2.0.0/jasmine-html',
-        boot: 'vendor/jasmine/lib/jasmine-2.0.0/boot'
+        boot: 'vendor/jasmine/lib/jasmine-2.0.0/boot',
+        highcharts: 'vendor/highcharts/highcharts.min'
     },
     shim: {
         bootstrap: {

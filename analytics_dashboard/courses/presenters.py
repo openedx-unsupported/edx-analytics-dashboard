@@ -12,13 +12,12 @@ class BasePresenter(object):
     for the presenters to use to access the data API.
     """
 
-    API_DATE_FORMAT = '%Y-%m-%d'
-
     def __init__(self, timeout=5):
         # API client
         self.client = Client(base_url=settings.DATA_API_URL,
                              auth_token=settings.DATA_API_AUTH_TOKEN,
                              timeout=timeout)
+        self.date_format = Client.DATE_FORMAT
 
     def parse_date(self, date_string):
         """
@@ -27,7 +26,7 @@ class BasePresenter(object):
         Arguments:
             date_string (str): Date string to parse
         """
-        return datetime.datetime.strptime(date_string, self.API_DATE_FORMAT).date()
+        return datetime.datetime.strptime(date_string, self.date_format).date()
 
     def format_date(self, date):
         """
@@ -36,7 +35,7 @@ class BasePresenter(object):
         Arguments:
             date (Date): Date to format
         """
-        return date.strftime(self.API_DATE_FORMAT)
+        return date.strftime(self.date_format)
 
 
 class CourseEngagementPresenter(BasePresenter):
