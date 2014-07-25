@@ -7,22 +7,18 @@
 // between pages.
 require(['./common'], function () {
     'use strict';
-    require(['jquery', 'models/course-model', 'views/lens-navigation-view',
-            'views/trend-view', 'bootstrap',
-            'holder'],
-        function ($, CourseModel, LensNavigationView, TrendView,
-                  bootstrap, holder) {
+    require(['jquery', 'models/course-model', 'views/lens-navigation-view', 'views/trend-view', 'bootstrap', 'holder', 'views/data-table-view'],
+        function ($, CourseModel, LensNavigationView, TrendView, bootstrap, holder, DataTableView) {
             $(document).ready(function () {
                 // ok, we've loaded all the libraries and the page is loaded, so
                 // lets kick off our application
                 var application = {
 
-                    onLoad: function() {
+                    onLoad: function () {
                         var model,
                             view,
                             trendView,
-                            jsonData = JSON.parse( $('#content')
-                                .attr('data-analytics-init') );
+                            jsonData = JSON.parse($('#content').attr('data-analytics-init'));
 
                         // this data will be set by something else eventually
                         model = new CourseModel();
@@ -39,12 +35,17 @@ require(['./common'], function () {
                         });
                         trendView.render();
 
-                        // enable tooltips.  If individual tooltips need
-                        // customization, we can have the specific views
-                        // take care of them
+                        // enable tooltips.  If individual tooltips need customization, we can have the specific views
+                        // take care of them.
                         $('.has-tooltip').tooltip();
-                    }
 
+                        new DataTableView({
+                            el: '[data-role=enrollment-table]',
+                            columns: ['date', 'count'],
+                            sorting: ['-date'],
+                            data: jsonData.enrollmentTrends
+                        }).render();
+                    }
                 };
 
                 application.onLoad();
