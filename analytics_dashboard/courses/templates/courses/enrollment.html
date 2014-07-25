@@ -19,7 +19,7 @@ Individual course centric enrollment view
 
 
 {% block content %}
-  <section class="view-section">
+  <section class="view-section" data-section="enrollment-basics">
     <h4 class="section-title">
       <span class="section-title-value">Enrollment Basics</span>
       <span class="section-title-note small">How many students are in my course?</span>
@@ -30,8 +30,7 @@ Individual course centric enrollment view
     <div class="row">
       <div class="col-sm-12">
             <span class="section-title-value small">Last updated
-                <span data-role="activity-week">{{ summary.date|date }}
-                </span>
+                <span data-role="enrollment-last-updated">{{ summary.date|date }}</span>
             </span>
       </div>
     </div>
@@ -39,11 +38,11 @@ Individual course centric enrollment view
 
     <div class="section-content section-data-summary">
       <div class="row">
-        <div class="col-xs-12 col-sm-3" data-stat-type="total_enrollment">
+        <div class="col-xs-12 col-sm-3" data-stat-type="current_enrollment">
           {% include "summary_point.html" with count=summary.current_enrollment label="Current Enrollment" subheading="current" tooltip=tooltips.current_enrollment only %}
         </div>
 
-        <div class="col-xs-12 col-sm-3" data-stat-type="enrollment_change_yesterday">
+        <div class="col-xs-12 col-sm-3" data-stat-type="enrollment_change_last_1_days">
           {% include "summary_point.html" with count=summary.enrollment_change_last_1_days label="Trend" subheading="last full day" tooltip=tooltips.enrollment_change_last_1_days only %}
         </div>
 
