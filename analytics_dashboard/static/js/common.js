@@ -13,7 +13,10 @@ require.config({
         models: 'js/models',
         views: 'js/views',
         highcharts: 'vendor/highcharts.min',
-        holder: 'vendor/holder'
+        holder: 'vendor/holder',
+        dataTables: 'vendor/dataTables/jquery.dataTables.min',
+        dataTablesBootstrap: 'vendor/dataTables/dataTables.bootstrap',
+        string: 'js/string'
     },
     shim: {
         bootstrap: {
@@ -31,9 +34,11 @@ require.config({
         },
         highcharts: {
             exports: 'Highcharts'
+        },
+        dataTablesBootstrap: {
+            deps: ['jquery', 'dataTables']
         }
     },
      // load jquery automatically
     deps: ['jquery']
 });
-

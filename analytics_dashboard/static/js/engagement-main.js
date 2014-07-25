@@ -7,9 +7,8 @@
 // between pages.
 require(['./common'], function () {
     'use strict';
-    require(['jquery', 'models/course-model', 'views/lens-navigation-view',
-            'bootstrap', 'holder'],
-        function ($, CourseModel, LensNavigationView, bootstrap, holder) {
+    require(['jquery', 'models/course-model', 'views/lens-navigation-view', 'bootstrap', 'holder'],
+        function ($, CourseModel, LensNavigationView, bootstrap, holder, DataTableView) {
             $(document).ready(function () {
                 // ok, we've loaded all the libraries and the page is loaded, so
                 // lets kick off our application
