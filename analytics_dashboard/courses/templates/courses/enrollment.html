@@ -39,19 +39,19 @@ Individual course centric enrollment view
     <div class="section-content section-data-summary">
       <div class="row">
         <div class="col-xs-12 col-sm-3" data-stat-type="current_enrollment">
-          {% include "summary_point.html" with count=summary.current_enrollment label="Current Enrollment" subheading="current" tooltip=tooltips.current_enrollment only %}
+          {% include "summary_point.html" with count=summary.current_enrollment label="Current Enrollment" tooltip=tooltips.current_enrollment only %}
         </div>
 
         <div class="col-xs-12 col-sm-3" data-stat-type="enrollment_change_last_1_days">
-          {% include "summary_point.html" with count=summary.enrollment_change_last_1_days label="Trend" subheading="last full day" tooltip=tooltips.enrollment_change_last_1_days only %}
+          {% include "summary_point.html" with count=summary.enrollment_change_last_1_days label="&#916; Previous Day" tooltip=tooltips.enrollment_change_last_1_days only %}
         </div>
 
         <div class="col-xs-12 col-sm-3" data-stat-type="enrollment_change_last_7_days">
-          {% include "summary_point.html" with count=summary.enrollment_change_last_7_days label="Trend" subheading="over 7 days" tooltip=tooltips.enrollment_change_last_7_days only %}
+          {% include "summary_point.html" with count=summary.enrollment_change_last_7_days label="&#916; Previous Week" tooltip=tooltips.enrollment_change_last_7_days only %}
         </div>
 
         <div class="col-xs-12 col-sm-3" data-stat-type="enrollment_change_last_30_days">
-          {% include "summary_point.html" with count=summary.enrollment_change_last_30_days label="Trend" subheading="over 30 days" tooltip=tooltips.enrollment_change_last_30_days only %}
+          {% include "summary_point.html" with count=summary.enrollment_change_last_30_days label="&#916; Previous Month" tooltip=tooltips.enrollment_change_last_30_days only %}
         </div>
       </div>
     </div>
