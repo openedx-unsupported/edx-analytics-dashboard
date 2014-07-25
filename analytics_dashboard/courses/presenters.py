@@ -130,10 +130,11 @@ class CourseEnrollmentPresenter(BasePresenter):
 
             # Get enrollment differentials between today for yesterday, a week ago, and a month ago
             for interval in [1, 7, 30]:
-                count = None
+                value = None
                 if num_days_of_data > interval:
                     index = -interval - 1
                     count = current_enrollment - last_month_enrollment[index]['count']
-                data['enrollment_change_last_%s_days' % interval] = count
+                    value = "{0:.2f}%".format(100.0 * count / current_enrollment)
+                data['enrollment_change_last_%s_days' % interval] = value
 
         return data

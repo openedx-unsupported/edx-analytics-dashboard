@@ -25,7 +25,7 @@ class CourseEnrollmentTests(AnalyticsApiClientMixin, WebAppTest):
     def assertSummaryPointValueEquals(self, stat_type, value):
         element = self.page.q(css="[data-stat-type=%s] .summary-point-number" % stat_type)
         self.assertTrue(element.present)
-        self.assertEqual(int(element.text[0]), value)
+        self.assertEqual(element.text[0], value)
 
     def get_enrollment_data(self):
         """
@@ -51,11 +51,12 @@ class CourseEnrollmentTests(AnalyticsApiClientMixin, WebAppTest):
 
         # Check values of summary boxes
         current_enrollment_count = current_enrollment['count']
-        self.assertSummaryPointValueEquals('current_enrollment', current_enrollment_count)
+        self.assertSummaryPointValueEquals('current_enrollment', unicode(current_enrollment_count))
 
         for i in [1, 7, 30]:
             stat_type = 'enrollment_change_last_%s_days' % i
-            value = current_enrollment_count - enrollment_data[-(i + 1)]['count']
+            count = current_enrollment_count - enrollment_data[-(i + 1)]['count']
+            value = "{0:.2f}%".format(100.0 * count / current_enrollment_count)
             self.assertSummaryPointValueEquals(stat_type, value)
 
         # Verify *something* rendered. We cannot easily verify what rendered

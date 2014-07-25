@@ -1,4 +1,3 @@
-import datetime
 import json
 
 import mock
@@ -7,7 +6,7 @@ from django.core.urlresolvers import reverse
 
 import analyticsclient.activity_type as AT
 from analyticsclient.exceptions import NotFoundError
-from courses.tests.utils import get_mock_enrollment_data
+from courses.tests.utils import get_mock_enrollment_data, get_mock_enrollment_summary
 
 
 def mock_engagement_summary_data():
@@ -95,14 +94,7 @@ class CourseEnrollmentViewTests(TestCase):
         self.assertEqual(context['page_title'], 'Enrollment')
 
         # make sure the summary numbers are correct
-        expected = {
-            'date': datetime.date(year=2014, month=1, day=31),
-            'current_enrollment': 30,
-            'enrollment_change_last_1_days': 1,
-            'enrollment_change_last_7_days': 7,
-            'enrollment_change_last_30_days': 30
-        }
-        self.assertDictEqual(context['summary'], expected)
+        self.assertDictEqual(context['summary'], get_mock_enrollment_summary())
 
         # make sure the trend is correct
         page_data = json.loads(context['page_data'])
