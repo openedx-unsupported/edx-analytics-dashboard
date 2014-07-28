@@ -28,9 +28,9 @@ def enrollment(request, course_id):
 
     tooltips = {
         'current_enrollment': 'Students enrolled in course.',
-        'enrollment_change_last_1_days': 'Change in enrollment for the past day (through yesterday).',
-        'enrollment_change_last_7_days': 'Change in enrollment during the past week (7 days ending yesterday).',
-        'enrollment_change_last_30_days': 'Change in enrollment over the past month (30 days ending yesterday).'
+        'enrollment_change_last_1_days': 'Change in enrollment for the last full day (00:00-23:59 UTC).',
+        'enrollment_change_last_7_days': 'Change in enrollment during the last 7 days (through 23:59 UTC).',
+        'enrollment_change_last_30_days': 'Change in enrollment during the last 30 days (through 23:59 UTC).'
     }
 
     presenter = CourseEnrollmentPresenter(course_id)
