@@ -15,36 +15,16 @@ define(['backbone', 'jquery'], function(Backbone, $) {
         },
 
         /**
-         * Get the enrollment trends with dates as UTC as an array of
-         * arrays.
-         *
-         * @returns {*}
+         * Retrieve course enrollment data grouped by country
          */
-        getEnrollmentSeries: function() {
-            var self = this,
-                enrollmentData = self.get('enrollmentTrends'),
-                series;
+        fetchEnrollmentByCountry: function() {
+            var self = this;
+            var countryDataUrl = '/courses/' + this.get('courseId') + '/json/enrollment_by_country/';
 
-            series = _.map(enrollmentData, function(enrollment){
-                return [self.convertDate(enrollment.date), enrollment.count];
+            $.getJSON(countryDataUrl, function (data) {
+                self.set('enrollmentByCountryUpdateDate', data.date);
+                self.set('enrollmentByCountry', data.data);
             });
-
-            return series;
-        },
-
-        /**
-         * Convert the yyyy-mm-dd date to UTC.
-         *
-         * @param dates
-         * @returns {Array}
-         */
-        convertDate: function(date) {
-            var self = this,
-                tokens;
-
-            tokens = date.split('-');
-            // JS months start at 0
-            return Date.UTC(tokens[0], tokens[1]-1, tokens[2]);
         }
     });
 

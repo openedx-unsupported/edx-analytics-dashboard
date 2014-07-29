@@ -7,7 +7,8 @@ from django.core.urlresolvers import reverse
 
 import analyticsclient.activity_type as AT
 from analyticsclient.exceptions import NotFoundError
-from courses.tests.utils import get_mock_enrollment_data
+from courses.tests.utils import get_mock_enrollment_data, get_mock_enrollment_location_data, \
+    convert_list_of_dicts_to_csv
 
 
 def mock_engagement_summary_data():
@@ -109,3 +110,154 @@ class CourseEnrollmentViewTests(TestCase):
         trend_data = page_data['enrollmentTrends']
         expected = enrollment_data
         self.assertListEqual(trend_data, expected)
+
+
+class CourseViewTestMixin(object):
+    viewname = None
+
+    def setUp(self):
+        self.course_id = 'edX/DemoX/Demo_Course'
+        self.path = reverse(self.viewname, kwargs={'course_id': self.course_id})
+
+    def assertResponseContentType(self, response, content_type):
+        self.assertEqual(response['Content-Type'], content_type)
+
+    def assertResponseFilename(self, response, filename):
+        self.assertEqual(response['Content-Disposition'], 'attachment; filename="{0}"'.format(filename))
+
+    def test_not_found(self):
+        path = reverse(self.viewname, kwargs={'course_id': 'fakeOrg/soFake/Fake_Course'})
+        response = self.client.get(path)
+        self.assertEqual(response.status_code, 404)
+
+
+class CourseEnrollmentByCountryJSONViewTests(CourseViewTestMixin, TestCase):
+    viewname = 'courses:json_enrollment_by_country'
+
+    def convert_datum(self, datum):
+        datum['date'] = '2014-01-01'
+        datum['course_id'] = self.course_id
+        datum['count'] = datum['value']
+        datum['country'] = {
+            'code': datum['country_code'],
+            'name': datum['country_name']
+        }
+
+        del datum['country_code']
+        del datum['country_name']
+        del datum['value']
+
+        return datum
+
+    @mock.patch('analyticsclient.course.Course.enrollment')
+    def test_response(self, mock_enrollment):
+        data = get_mock_enrollment_location_data(self.course_id)
+        mock_enrollment.return_value = data
+
+        response = self.client.get(self.path)
+
+        # Check content type
+        self.assertResponseContentType(response, 'application/json')
+
+        content = json.loads(response.content)
+
+        # Check date
+        expected = 'January 01, 2014'
+        self.assertEqual(content['date'], expected)
+
+        # Check data
+        actual = [self.convert_datum(datum) for datum in content['data']]
+        self.assertListEqual(actual, data)
+
+    @mock.patch('analyticsclient.course.Course.enrollment', mock.Mock(return_value=[]))
+    def test_response_no_data(self):
+        response = self.client.get(self.path)
+
+        # Check content type
+        self.assertResponseContentType(response, 'application/json')
+
+        content = json.loads(response.content)
+
+        # Check date
+        self.assertIsNone(content['date'])
+
+        # Check data
+        self.assertListEqual(content['data'], [])
+
+
+class CourseEnrollmentByCountryCSVViewTests(CourseViewTestMixin, TestCase):
+    viewname = 'courses:csv_enrollment_by_country'
+
+    @mock.patch('analyticsclient.course.Course.enrollment')
+    def test_response(self, mock_enrollment):
+        data = convert_list_of_dicts_to_csv(get_mock_enrollment_location_data(self.course_id))
+        mock_enrollment.return_value = data
+
+        response = self.client.get(self.path)
+
+        # Check content type
+        self.assertResponseContentType(response, 'text/csv')
+
+        # Check filename
+        filename = '{0}_enrollment_by_country.csv'.format(self.course_id)
+        self.assertResponseFilename(response, filename)
+
+        # Check data
+        self.assertEqual(response.content, data)
+
+    @mock.patch('analyticsclient.course.Course.enrollment')
+    def test_response_no_data(self, mock_enrollment):
+        # Create an "empty" CSV that only has headers
+        data = convert_list_of_dicts_to_csv([], ['count', 'country', 'course_id', 'date'])
+        mock_enrollment.return_value = data
+
+        response = self.client.get(self.path)
+
+        # Check content type
+        self.assertResponseContentType(response, 'text/csv')
+
+        # Check filename
+        filename = '{0}_enrollment_by_country.csv'.format(self.course_id)
+        self.assertResponseFilename(response, filename)
+
+        # Check data
+        self.assertEqual(response.content, data)
+
+
+class CourseEnrollmentCSVViewTests(CourseViewTestMixin, TestCase):
+    viewname = 'courses:csv_enrollment'
+
+    @mock.patch('analyticsclient.course.Course.enrollment')
+    def test_response(self, mock_enrollment):
+        data = convert_list_of_dicts_to_csv(get_mock_enrollment_data(self.course_id))
+        mock_enrollment.return_value = data
+
+        response = self.client.get(self.path)
+
+        # Check content type
+        self.assertResponseContentType(response, 'text/csv')
+
+        # Check filename
+        filename = '{0}_enrollment.csv'.format(self.course_id)
+        self.assertResponseFilename(response, filename)
+
+        # Check data
+        self.assertEqual(response.content, data)
+
+    @mock.patch('analyticsclient.course.Course.enrollment')
+    def test_response_no_data(self, mock_enrollment):
+        # Create an "empty" CSV that only has headers
+        data = convert_list_of_dicts_to_csv([], ['count', 'course_id', 'date'])
+        mock_enrollment.return_value = data
+
+        response = self.client.get(self.path)
+
+        # Check content type
+        self.assertResponseContentType(response, 'text/csv')
+
+        # Check filename
+        filename = '{0}_enrollment.csv'.format(self.course_id)
+        self.assertResponseFilename(response, filename)
+
+        # Check data
+        self.assertEqual(response.content, data)

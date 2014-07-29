@@ -45,4 +45,4 @@ class CourseEngagementTests(AnalyticsApiClientMixin, WebAppTest):
             selector = section_selector + ' div[data-activity-type=%s] .summary-point-number' % activity_type
             element = self.page.q(css=selector)
             self.assertTrue(element.present)
-            self.assertEqual(int(element.text[0]), self.course.recent_activity(activity_type)['count'])
+            self.assertEqual(int(element.text[0].replace(',', '')), self.course.recent_activity(activity_type)['count'])

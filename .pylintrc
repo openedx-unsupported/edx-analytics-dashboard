@@ -64,7 +64,10 @@ disable=
 # C0111: missing docstring (handled by pep257)
     C0111,
 
-    duplicate-code
+    duplicate-code,
+
+# We can decide if names are invalid on our own
+    invalid-name,
 
 [REPORTS]
 

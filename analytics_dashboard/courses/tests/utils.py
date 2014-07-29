@@ -1,3 +1,5 @@
+import StringIO
+import csv
 import datetime
 
 
@@ -25,3 +27,22 @@ def get_mock_enrollment_summary():
         'enrollment_change_last_7_days': 7,
         'enrollment_change_last_30_days': 30,
     }
+
+
+def get_mock_enrollment_location_data(course_id):
+    data = []
+    for item in ((u'US', u'United States', 500), (u'DE', u'Germany', 100), (u'CA', u'Canada', 300)):
+        data.append({'date': '2014-01-01', 'course_id': course_id, 'count': item[2],
+                     'country': {'code': item[0], 'name': item[1]}})
+    return data
+
+
+def convert_list_of_dicts_to_csv(data, fieldnames=None):
+    output = StringIO.StringIO()
+    fieldnames = fieldnames or sorted(data[0].keys())
+
+    writer = csv.DictWriter(output, fieldnames)
+    writer.writeheader()
+    writer.writerows(data)
+
+    return output.getvalue()
