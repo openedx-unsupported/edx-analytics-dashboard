@@ -127,11 +127,17 @@ class CourseViewTestMixin(object):
 
     def test_not_found(self):
         path = reverse(self.viewname, kwargs={'course_id': 'fakeOrg/soFake/Fake_Course'})
-        response = self.client.get(path)
+        response = self.client.get(path, follow=True)
         self.assertEqual(response.status_code, 404)
 
 
-class CourseEnrollmentByCountryJSONViewTests(CourseViewTestMixin, TestCase):
+class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
+    @mock.patch('analyticsclient.course.Course.enrollment', mock.Mock(side_effect=NotFoundError))
+    def test_not_found(self):
+        super(CourseEnrollmentViewTestMixin, self).test_not_found()
+
+
+class CourseEnrollmentByCountryJSONViewTests(CourseEnrollmentViewTestMixin, TestCase):
     viewname = 'courses:json_enrollment_by_country'
 
     def convert_datum(self, datum):
@@ -185,7 +191,7 @@ class CourseEnrollmentByCountryJSONViewTests(CourseViewTestMixin, TestCase):
         self.assertListEqual(content['data'], [])
 
 
-class CourseEnrollmentByCountryCSVViewTests(CourseViewTestMixin, TestCase):
+class CourseEnrollmentByCountryCSVViewTests(CourseEnrollmentViewTestMixin, TestCase):
     viewname = 'courses:csv_enrollment_by_country'
 
     @mock.patch('analyticsclient.course.Course.enrollment')
@@ -224,7 +230,7 @@ class CourseEnrollmentByCountryCSVViewTests(CourseViewTestMixin, TestCase):
         self.assertEqual(response.content, data)
 
 
-class CourseEnrollmentCSVViewTests(CourseViewTestMixin, TestCase):
+class CourseEnrollmentCSVViewTests(CourseEnrollmentViewTestMixin, TestCase):
     viewname = 'courses:csv_enrollment'
 
     @mock.patch('analyticsclient.course.Course.enrollment')
@@ -261,3 +267,20 @@ class CourseEnrollmentCSVViewTests(CourseViewTestMixin, TestCase):
 
         # Check data
         self.assertEqual(response.content, data)
+
+
+class CourseHomeViewTests(CourseEnrollmentViewTestMixin, TestCase):
+    """
+    Course homepage
+
+    We do not actually have a course homepage, so redirect to the enrollment page.
+    """
+    viewname = 'courses:home'
+
+    @mock.patch('analyticsclient.course.Course.enrollment')
+    def test_redirect(self, mock_enrollment):
+        mock_enrollment.return_value = get_mock_enrollment_data(self.course_id)
+
+        response = self.client.get(self.path)
+        expected_url = reverse('courses:enrollment', kwargs={'course_id': self.course_id})
+        self.assertRedirects(response, expected_url)
