@@ -17,7 +17,7 @@ from courses.utils import get_formatted_date, get_formatted_date_time
 
 
 class CourseView(ContextMixin, View):
-    client = Client(base_url=settings.DATA_API_URL, auth_token=settings.DATA_API_AUTH_TOKEN, timeout=5)
+    client = None
     course = None
     course_id = None
 
@@ -26,6 +26,7 @@ class CourseView(ContextMixin, View):
 
     def get(self, _request, *_args, **kwargs):
         self.course_id = kwargs['course_id']
+        self.client = Client(base_url=settings.DATA_API_URL, auth_token=settings.DATA_API_AUTH_TOKEN, timeout=5)
         self.course = self.client.courses(self.course_id)
 
         try:
