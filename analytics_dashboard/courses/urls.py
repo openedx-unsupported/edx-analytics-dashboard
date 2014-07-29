@@ -15,13 +15,18 @@ COURSE_URLS = [
     ('csv/enrollment_by_country', views.CourseEnrollmentByCountryCSV.as_view()),
 ]
 
-COURSE_ID_REGEX = r'^(?P<course_id>(\w+/){2}\w+)/'
+COURSE_ID_REGEX = r'^(?P<course_id>(\w+/){2}\w+)'
 TRAILING_SLASH_REGEX = r'/$'
-urlpatterns = []
+
+urlpatterns = patterns(
+    '',
+    # Course homepage. This should be the entry point for other applications linking to the course.
+    url(COURSE_ID_REGEX + TRAILING_SLASH_REGEX, views.CourseHome.as_view(), name='home')
+)
 
 
 def generate_regex(path):
-    return COURSE_ID_REGEX + re.escape(path) + TRAILING_SLASH_REGEX
+    return COURSE_ID_REGEX + re.escape('/' + path) + TRAILING_SLASH_REGEX
 
 
 for name, view in COURSE_URLS:

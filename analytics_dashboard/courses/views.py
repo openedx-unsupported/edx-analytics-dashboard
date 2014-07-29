@@ -2,6 +2,7 @@ import json
 import datetime
 
 from django.conf import settings
+from django.core.urlresolvers import reverse
 
 from django.shortcuts import render
 from django.http import Http404, HttpResponse
@@ -10,7 +11,7 @@ from analyticsclient import data_format, demographic
 from analyticsclient.client import Client
 from analyticsclient.exceptions import NotFoundError
 from django.views.generic import View
-from django.views.generic.base import ContextMixin
+from django.views.generic.base import ContextMixin, RedirectView
 
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter
 from courses.utils import get_formatted_date, get_formatted_date_time
@@ -194,3 +195,11 @@ class CourseEnrollmentCSV(CSVResponseMixin, CourseView):
         })
 
         return context
+
+
+class CourseHome(RedirectView):
+    permanent = False
+
+    def get_redirect_url(self, *args, **kwargs):
+        course_id = kwargs['course_id']
+        return reverse('courses:enrollment', kwargs={'course_id': course_id})
