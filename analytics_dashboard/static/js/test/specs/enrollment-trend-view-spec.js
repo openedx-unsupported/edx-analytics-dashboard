@@ -6,7 +6,7 @@ define(['views/enrollment-trend-view', 'models/course-model'], function (Enrollm
 
         beforeEach(function () {
             model = new CourseModel({courseId: 'edX/DemoX/Demo_Course'});
-            view = new EnrollmentTrendView({model: model, modelAttribute: 'enrollmentTrends'})
+            view = new EnrollmentTrendView({model: model, modelAttribute: 'enrollmentTrends'});
         });
 
         describe('_convertDate', function () {

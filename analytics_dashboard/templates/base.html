@@ -68,6 +68,7 @@
     than override them.
     {% endcomment %}
     {% compress js %}
+    <script src="{% static 'js/common.js' %}"></script>
     {% block javascript %}
     {% endblock javascript %}
     {% endcompress %}

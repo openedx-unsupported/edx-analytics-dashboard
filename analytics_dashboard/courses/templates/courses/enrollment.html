@@ -14,6 +14,7 @@ Individual course-centric enrollment view
 {% endblock intro-text %}
 
 {% block javascript %}
+  {{ block.super }}
   <script data-main="{% static 'js/enrollment-main.js' %}" src="{% static 'vendor/require.js' %}"></script>
 {% endblock javascript %}
 
@@ -66,7 +67,8 @@ Individual course-centric enrollment view
 
     <div class="section-actions">
       <a href="{% url 'courses:csv_enrollment' course_id=course_id %}" class="btn btn-primary"
-         data-role="enrollment-csv">
+         data-role="enrollment-trend-csv" data-track-type="click"
+         data-track-event="edx.bi.csv.downloaded" data-track-category="trend">
         <i class="ico fa fa-download"></i> Download CSV
       </a>
     </div>
@@ -102,7 +104,8 @@ Individual course-centric enrollment view
 
     <div class="section-actions">
       <a href="{% url 'courses:csv_enrollment_by_country' course_id=course_id %}" class="btn btn-primary"
-         data-role="enrollment-location-csv">
+         data-role="enrollment-location-csv" data-track-type="click"
+         data-track-event="edx.bi.csv.downloaded" data-track-category="geographic">
         <i class="ico fa fa-download"></i> Download CSV
       </a>
     </div>

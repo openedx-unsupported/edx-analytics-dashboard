@@ -1,5 +1,5 @@
-define(['jquery', 'views/simple-model-attribute-view', 'highchartsMapWorld'],
-    function ($, SimpleModelAttributeView) {
+define(['highchartsMapWorld', 'jquery', 'views/simple-model-attribute-view'],
+    function (maps, $, SimpleModelAttributeView) {
         'use strict';
 
         var WorldMapView = SimpleModelAttributeView.extend({

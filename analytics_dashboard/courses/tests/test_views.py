@@ -151,7 +151,7 @@ class CourseEnrollmentViewTests(CourseEnrollmentViewTestMixin, TestCase):
 
         # make sure the trend is correct
         page_data = json.loads(context['page_data'])
-        trend_data = page_data['enrollmentTrends']
+        trend_data = page_data['course']['enrollmentTrends']
         expected = enrollment_data
         self.assertListEqual(trend_data, expected)
 

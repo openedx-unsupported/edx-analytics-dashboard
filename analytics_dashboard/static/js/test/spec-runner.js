@@ -15,6 +15,7 @@ var config = {
         backbone: 'vendor/backbone-min',
         models: 'js/models',
         views: 'js/views',
+        utils: 'js/utils',
         jasmine: 'vendor/jasmine/lib/jasmine-2.0.0/jasmine',
         'jasmine-html': 'vendor/jasmine/lib/jasmine-2.0.0/jasmine-html',
         boot: 'vendor/jasmine/lib/jasmine-2.0.0/boot',
@@ -51,7 +52,11 @@ if(isBrowser) {
     // unfortunately, we can't read directories in the browser, so we need to
     // list them here -- sorry!
     specs = [
-        config.baseUrl + 'js/spec/specs/course-model-spec.js'
+        config.baseUrl + 'js/spec/specs/course-model-spec.js',
+        config.baseUrl + 'js/spec/specs/tracking-model-spec.js',
+        config.baseUrl + 'js/spec/specs/enrollment-trend-view-spec.js',
+        config.baseUrl + 'js/spec/specs/tracking-view-spec.js',
+        config.baseUrl + 'js/spec/specs/utils-spec.js'
     ];
 } else {
     // you can automatically get the test files using karma's configs

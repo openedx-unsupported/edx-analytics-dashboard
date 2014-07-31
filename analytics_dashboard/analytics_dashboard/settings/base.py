@@ -254,6 +254,10 @@ LOGGING = {
 WSGI_APPLICATION = '%s.wsgi.application' % SITE_NAME
 ########## END WSGI CONFIGURATION
 
+########## SEGMENT.IO
+# 'None' disables tracking.  This will be turned on for test and production.
+SEGMENT_IO_KEY = None
+########## END SEGMENT.IO
 
 ########## SOUTH CONFIGURATION
 # See: http://south.readthedocs.org/en/latest/installation.html#configuring-your-django-installation

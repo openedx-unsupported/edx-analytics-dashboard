@@ -1,5 +1,5 @@
-define(['jquery', 'views/simple-model-attribute-view', 'highcharts'],
-    function ($, SimpleModelAttributeView, highcharts) {
+define(['highcharts', 'jquery', 'views/simple-model-attribute-view'],
+    function (highcharts, $, SimpleModelAttributeView) {
         'use strict';
 
         var EnrollmentTrendView = SimpleModelAttributeView.extend({

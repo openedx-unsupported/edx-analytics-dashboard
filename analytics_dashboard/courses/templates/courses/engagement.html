@@ -16,7 +16,8 @@ Individual course centric engagement view
 {% endblock intro-text %}
 
 {% block javascript %}
-  <script data-main="{% static 'js/engagement-main.js' %}" src="{% static 'vendor/require.js' %}"></script>
+  {{ block.super }}
+  <script data-main="{% static 'js/engagement-main.js' %}"  src="{% static 'vendor/require.js' %}"></script>
 {% endblock javascript %}
 
 {% block content %}
