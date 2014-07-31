@@ -1,12 +1,12 @@
 import json
 import datetime
 
+from braces.views import LoginRequiredMixin
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
-
 from django.shortcuts import render
 from django.http import Http404, HttpResponse
-
 from analyticsclient import data_format, demographic
 from analyticsclient.client import Client
 from analyticsclient.exceptions import NotFoundError
@@ -17,7 +17,7 @@ from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresen
 from courses.utils import get_formatted_date, get_formatted_date_time
 
 
-class CourseView(ContextMixin, View):
+class CourseView(LoginRequiredMixin, ContextMixin, View):
     client = None
     course = None
     course_id = None
@@ -63,6 +63,7 @@ def get_default_data(course_id):
     }
 
 
+@login_required()
 def enrollment(request, course_id):
     """ Renders the Enrollment page. """
 
@@ -101,6 +102,7 @@ def enrollment(request, course_id):
     return render(request, 'courses/enrollment.html', context)
 
 
+@login_required()
 def overview(request, course_id):
     """
     Renders the Overview page.
@@ -111,6 +113,7 @@ def overview(request, course_id):
 
 
 # pylint: disable=line-too-long
+@login_required()
 def engagement(request, course_id):
     """
     Renders the Engagement page.
@@ -143,6 +146,7 @@ def engagement(request, course_id):
     return render(request, 'courses/engagement.html', context)
 
 
+@login_required()
 def performance(request, course_id):
     """
     Renders the Performance page.
@@ -197,7 +201,7 @@ class CourseEnrollmentCSV(CSVResponseMixin, CourseView):
         return context
 
 
-class CourseHome(RedirectView):
+class CourseHome(LoginRequiredMixin, RedirectView):
     permanent = False
 
     def get_redirect_url(self, *args, **kwargs):

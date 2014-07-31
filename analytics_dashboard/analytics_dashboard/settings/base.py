@@ -177,6 +177,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'waffle.middleware.WaffleMiddleware',
     'courses.middleware.CourseMiddleware',
+    'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
 )
 ########## END MIDDLEWARE CONFIGURATION
 
@@ -267,9 +268,50 @@ SOUTH_TESTS_MIGRATE = False
 
 
 ########## DATA API CONFIGURATION
-DATA_API_URL = 'http://127.0.0.1:8001/api/v0'
+DATA_API_URL = 'http://127.0.0.1:9001/api/v0'
 DATA_API_AUTH_TOKEN = 'edx'
 ########## END DATA API CONFIGURATION
 
 # Used to determine how dates are displayed in templates
 DATE_FORMAT = 'F d, Y'
+
+########## AUTHENTICATION
+INSTALLED_APPS += ('social.apps.django_app.default',)
+
+# Allow authentication via edX OAuth
+AUTHENTICATION_BACKENDS = (
+    'analytics_dashboard.backends.EdXOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'email']
+
+SOCIAL_AUTH_PIPELINE = (
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+
+    # By default python-social-auth will simply create a new user/username if the username
+    # from the provider conflicts with an existing username in this system. This custom pipeline function
+    # loads existing users instead of creating new ones.
+    'analytics_dashboard.pipeline.get_user_if_exists',
+    'social.pipeline.user.get_username',
+    'social.pipeline.user.create_user',
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details'
+)
+
+SOCIAL_AUTH_USER_FIELDS = ['username', 'email', 'first_name', 'last_name']
+
+SOCIAL_AUTH_EDX_OAUTH2_LOGIN_ERROR_URL = '/auth/error/'
+
+# Set these to the correct values for your OAuth2 provider
+SOCIAL_AUTH_EDX_OAUTH2_KEY = None
+SOCIAL_AUTH_EDX_OAUTH2_SECRET = None
+SOCIAL_AUTH_EDX_OAUTH2_URL_ROOT = None
+
+# Enable the auto_auth view. This should NOT be enabled for production deployments!
+ENABLE_AUTO_AUTH = False
+########## END AUTHENTICATION

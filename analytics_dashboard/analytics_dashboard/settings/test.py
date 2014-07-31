@@ -18,3 +18,5 @@ DATABASES = {
         "PORT": "",
     },
 }
+
+ENABLE_AUTO_AUTH = True

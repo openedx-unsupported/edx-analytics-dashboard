@@ -1,13 +1,15 @@
 import datetime
 import json
-
+import analyticsclient
 import mock
+
+from django.conf import settings
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 import analyticsclient.activity_type as AT
 from analyticsclient.exceptions import NotFoundError
 
-from analytics_dashboard.tests.mixins import FeatureTestCaseMixin
+from analytics_dashboard.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin
 from courses.tests.utils import get_mock_enrollment_data, get_mock_enrollment_location_data, \
     convert_list_of_dicts_to_csv
 
@@ -22,12 +24,14 @@ def mock_engagement_summary_data():
     }
 
 
-class CourseViewTestMixin(object):
+class CourseViewTestMixin(RedirectTestCaseMixin, UserTestCaseMixin):
     viewname = None
 
     def setUp(self):
+        super(CourseViewTestMixin, self).setUp()
         self.course_id = 'edX/DemoX/Demo_Course'
         self.path = reverse(self.viewname, kwargs={'course_id': self.course_id})
+        self.login()
 
     def assertResponseContentType(self, response, content_type):
         self.assertEqual(response['Content-Type'], content_type)
@@ -40,8 +44,33 @@ class CourseViewTestMixin(object):
         response = self.client.get(path, follow=True)
         self.assertEqual(response.status_code, 404)
 
+    def test_authentication(self):
+        """
+        Users must be logged in to view course data.
+        """
 
-class CourseEngagementViewTests(FeatureTestCaseMixin, CourseViewTestMixin, TestCase):
+        # Authenticated users should go to the course page
+        response = self.client.get(self.path, follow=True)
+        self.assertEqual(response.status_code, 200)
+
+        # Unauthenticated users should be redirected to the login page
+        self.client.logout()
+        response = self.client.get(self.path)
+        self.assertRedirectsNoFollow(response, settings.LOGIN_URL, next=self.path)
+
+
+class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
+    @mock.patch('analyticsclient.course.Course.enrollment', mock.Mock(side_effect=NotFoundError))
+    def test_not_found(self):
+        super(CourseEnrollmentViewTestMixin, self).test_not_found()
+
+    def test_authentication(self):
+        with mock.patch.object(analyticsclient.course.Course, 'enrollment',
+                               return_value=get_mock_enrollment_data(self.course_id)):
+            super(CourseEnrollmentViewTestMixin, self).test_authentication()
+
+
+class CourseEngagementViewTests(CourseViewTestMixin, TestCase):
     viewname = 'courses:engagement'
 
     @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary',
@@ -51,51 +80,41 @@ class CourseEngagementViewTests(FeatureTestCaseMixin, CourseViewTestMixin, TestC
 
         # make sure that we get a 200
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.context['page_title'], 'Engagement')
 
-        expected = {
-            'week_of_activity': 'January 01, 2013',
-            'interval_end': '2013-01-01T12:12:12Z',
-            AT.ANY: 100,
-            AT.ATTEMPTED_PROBLEM: 301,
-            AT.PLAYED_VIDEO: 1000,
-            AT.POSTED_FORUM: 0
-
-        }
-        self.assertDictEqual(response.context['summary'], expected)
+        # make sure the date is formatted correctly
+        self.assertEqual(response.context['summary']['week_of_activity'], 'January 01, 2013')
 
         # check to make sure that we have tooltips
-        expected = {
-            'all_activity_summary': 'Students who initiated an action.',
-            'posted_forum_summary': 'Students who created a post, responded to a post, or made a comment in any discussion.',   # pylint: disable=line-too-long
-            'attempted_problem_summary': 'Students who answered any question.',
-            'played_video_summary': 'Students who started watching any video.',
-        }
-        self.assertDictEqual(response.context['tooltips'], expected)
+        self.assertEqual(response.context['tooltips']['all_activity_summary'], 'Students who initiated an action.')
+        self.assertEqual(response.context['tooltips']['posted_forum_summary'],
+                         'Students who created a post, responded to a post, or made a comment in any discussion.')
+        self.assertEqual(response.context['tooltips']['attempted_problem_summary'],
+                         'Students who answered any question.')
+        self.assertEqual(response.context['tooltips']['played_video_summary'],
+                         'Students who started watching any video.')
 
-    @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary', mock.Mock(side_effect=NotFoundError))
+        # check page title
+        self.assertEqual(response.context['page_title'], 'Engagement')
+
+        # make sure the summary numbers are correct
+        self.assertEqual(response.context['summary'][AT.ANY], 100)
+        self.assertEqual(response.context['summary'][AT.ATTEMPTED_PROBLEM], 301)
+        self.assertEqual(response.context['summary'][AT.PLAYED_VIDEO], 1000)
+        self.assertEqual(response.context['summary'][AT.POSTED_FORUM], 0)
+
+    @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary',
+                mock.Mock(side_effect=NotFoundError, autospec=True))
     def test_not_found(self):
         super(CourseEngagementViewTests, self).test_not_found()
 
     @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary',
                 mock.Mock(return_value=mock_engagement_summary_data()))
-    def test_display_demo_interface(self):
-        """
-        Verify the feature gate works to hide the demo interface.
-        """
-        self.assertElementBehindFeature(self.path, 'data-role="demo-interface"', 'show_engagement_demo_interface')
+    def test_authentication(self):
+        super(CourseEngagementViewTests, self).test_authentication()
 
 
-class CourseEnrollmentViewTests(TestCase):
-    def setUp(self):
-        self.course_id = 'edX/DemoX/Demo_Course'
-        self.path = reverse('courses:enrollment', kwargs={'course_id': self.course_id})
-
-    @mock.patch('courses.presenters.CourseEnrollmentPresenter.get_summary', mock.Mock(side_effect=NotFoundError))
-    def test_invalid_course(self):
-        """ Return a 404 if the course is not found. """
-        response = self.client.get(self.path)
-        self.assertEqual(response.status_code, 404)
+class CourseEnrollmentViewTests(CourseEnrollmentViewTestMixin, TestCase):
+    viewname = 'courses:enrollment'
 
     @mock.patch('courses.presenters.CourseEnrollmentPresenter.get_data')
     def test_valid_course(self, mock_get_data):
@@ -135,12 +154,6 @@ class CourseEnrollmentViewTests(TestCase):
         trend_data = page_data['enrollmentTrends']
         expected = enrollment_data
         self.assertListEqual(trend_data, expected)
-
-
-class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
-    @mock.patch('analyticsclient.course.Course.enrollment', mock.Mock(side_effect=NotFoundError))
-    def test_not_found(self):
-        super(CourseEnrollmentViewTestMixin, self).test_not_found()
 
 
 class CourseEnrollmentByCountryJSONViewTests(CourseEnrollmentViewTestMixin, TestCase):
@@ -195,6 +208,13 @@ class CourseEnrollmentByCountryJSONViewTests(CourseEnrollmentViewTestMixin, Test
 
         # Check data
         self.assertListEqual(content['data'], [])
+
+    def test_authentication(self):
+        with mock.patch.object(analyticsclient.course.Course, 'enrollment',
+                               return_value=get_mock_enrollment_location_data(self.course_id)):
+            # Call CourseEnrollmentViewTestMixin.test_authentication in order
+            # to bypass the Mock in CourseEnrollmentViewTestMixin.test_authentication.
+            super(CourseEnrollmentViewTestMixin, self).test_authentication()  # pylint: disable=bad-super-call
 
 
 class CourseEnrollmentByCountryCSVViewTests(CourseEnrollmentViewTestMixin, TestCase):
@@ -262,6 +282,7 @@ class CourseEnrollmentCSVViewTests(CourseEnrollmentViewTestMixin, TestCase):
         data = convert_list_of_dicts_to_csv([], ['count', 'course_id', 'date'])
         mock_enrollment.return_value = data
 
+        self.client.login(username=self.user.username, password=self.PASSWORD)
         response = self.client.get(self.path)
 
         # Check content type
@@ -289,4 +310,4 @@ class CourseHomeViewTests(CourseEnrollmentViewTestMixin, TestCase):
 
         response = self.client.get(self.path)
         expected_url = reverse('courses:enrollment', kwargs={'course_id': self.course_id})
-        self.assertRedirects(response, expected_url)
+        self.assertRedirectsNoFollow(response, expected_url)

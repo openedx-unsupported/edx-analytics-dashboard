@@ -4,7 +4,7 @@ Tests for course analytics pages
 
 from bok_choy.page_object import PageObject
 
-from acceptance_tests import DASHBOARD_SERVER_URL
+from acceptance_tests import DASHBOARD_SERVER_URL, auto_auth
 
 
 class CoursePage(PageObject):
@@ -18,6 +18,8 @@ class CoursePage(PageObject):
         server_url = server_url or DASHBOARD_SERVER_URL
         self.course_id = course_id or 'edX/DemoX/Demo_Course'
         self.page_url = '{0}/courses/{1}'.format(server_url, self.course_id)
+
+        auto_auth(browser, server_url)
 
     def is_browser_on_page(self):
         return self.browser.current_url == self.page_url

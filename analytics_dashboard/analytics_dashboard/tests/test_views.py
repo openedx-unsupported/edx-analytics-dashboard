@@ -1,10 +1,58 @@
 import json
-
-from django.db import DatabaseError
+from django.test.utils import override_settings
 import mock
-from analyticsclient.exceptions import ClientError
+
+from django.conf import settings
+from django.contrib.auth import get_user_model
+from django.db import DatabaseError
+from django_dynamic_fixture import G
 from django.core.urlresolvers import reverse
 from django.test import TestCase
+
+from analyticsclient.exceptions import ClientError
+
+from analytics_dashboard.backends import EdXOAuth2
+
+
+User = get_user_model()
+
+
+class UserTestCaseMixin(object):
+    PASSWORD = 'password'
+
+    def get_user(self):
+        user = G(User)
+        user.set_password('password')
+        user.save()
+        return user
+
+    def login(self):
+        assert self.client.login(username=self.user.username, password=self.PASSWORD), 'Login failed!'
+
+    def get_latest_user(self):
+        """
+        Returns the most-recently created User.
+        """
+
+        return User.objects.latest('date_joined')
+
+    def assertUserLoggedIn(self, user):
+        """ Verifies that the specified user is logged in with the test client. """
+
+        self.assertEqual(self.client.session['_auth_user_id'], user.pk)
+
+    def setUp(self):
+        super(UserTestCaseMixin, self).setUp()
+        self.user = self.get_user()
+
+
+class RedirectTestCaseMixin(object):
+    def assertRedirectsNoFollow(self, response, expected_url, status_code=302, **querystringkwargs):
+        if querystringkwargs:
+            expected_url += '?{}'.format('&'.join('%s=%s' % (key, value) for (key, value) in querystringkwargs.items()))
+
+        self.assertEqual(response['Location'], 'http://testserver{}'.format(expected_url))
+        self.assertEqual(response.status_code, status_code)
 
 
 class ViewTests(TestCase):
@@ -63,3 +111,110 @@ class ViewTests(TestCase):
     @mock.patch('analyticsclient.status.Status.healthy', mock.PropertyMock(side_effect=ClientError))
     def test_health_analytics_api_unreachable(self):
         self.assertUnhealthyAPI()
+
+
+class OAuthTests(UserTestCaseMixin, RedirectTestCaseMixin, TestCase):
+    DEFAULT_USERNAME = 'edx'
+
+    def setUp(self):
+        super(OAuthTests, self).setUp()
+        self.oauth_init_path = reverse('social:begin', args=['edx-oauth2'])
+
+    def test_login_redirect(self):
+        """
+        The login page should redirect users to the OAuth provider's login page.
+        """
+        response = self.client.get(settings.LOGIN_URL)
+        self.assertRedirectsNoFollow(response, self.oauth_init_path, status_code=301)
+
+    def _check_oauth_handshake(self, username=DEFAULT_USERNAME, failure=False):
+        """ Performs an OAuth handshake to login a user.
+
+        Arguments:
+            username -- Username of the user to login (or create if one does not exist)
+            failure  -- Determines if handshake should fail
+        """
+
+        # Generate an OAuth request
+        response = self.client.get(self.oauth_init_path)
+        self.assertEqual(response.status_code, 302)
+        state = self.client.session['edx-oauth2_state']
+
+        # Generate an OAuth response
+        token_response = {
+            'access_token': '12345',
+            'refresh_token': 'abcde',
+            'expires_in': 900,
+            'username': username
+        }
+
+        with mock.patch.object(EdXOAuth2, 'request_access_token', return_value=token_response):
+            # Send the response to this application's OAuth consumer URL
+            oauth_complete_path = '{0}?state={1}'.format(reverse('social:complete', args=['edx-oauth2']), state)
+
+            if failure:
+                oauth_complete_path += '&error=access_denied'
+
+            response = self.client.get(oauth_complete_path)
+            self.assertEqual(response.status_code, 302)
+
+            redirect_path = settings.SOCIAL_AUTH_EDX_OAUTH2_LOGIN_ERROR_URL if failure else settings.LOGIN_REDIRECT_URL
+            self.assertEqual(response['Location'], 'http://testserver{}'.format(redirect_path))
+
+    def test_oauth_new_user(self):
+        """
+        A new user should be created if the username from the OAuth provider is not linked to an existing account.
+        """
+
+        original_user_count = User.objects.count()
+
+        self._check_oauth_handshake()
+
+        # Verify new user created
+        self.assertEqual(User.objects.count(), original_user_count + 1)
+        user = self.get_latest_user()
+        self.assertEqual(user.username, self.DEFAULT_USERNAME)
+
+        self.assertUserLoggedIn(user)
+
+    def test_oauth_existing_user(self):
+        """
+        Verify system logs in a user (and does not create a new account) when the username from the OAuth provider
+        matches an existing account in the system.
+        """
+        user = self.user
+
+        original_user_count = User.objects.count()
+
+        self._check_oauth_handshake(user.username)
+
+        # Verify no new users created
+        self.assertEqual(User.objects.count(), original_user_count)
+
+        self.assertUserLoggedIn(user)
+
+    def test_oauth_access_denied(self):
+        self._check_oauth_handshake(failure=True)
+
+
+class AutoAuthTests(UserTestCaseMixin, TestCase):
+    @override_settings(ENABLE_AUTO_AUTH=False)
+    def test_setting_disabled(self):
+        """
+        When the ENABLE_AUTO_AUTH setting is set to False, the view should raise a 404.
+        """
+        response = self.client.get(reverse('auto_auth'))
+        self.assertEqual(response.status_code, 404)
+
+    @override_settings(ENABLE_AUTO_AUTH=True)
+    def test_setting_enabled(self):
+        """
+        When ENABLE_AUTO_AUTH is set to True, the view should create and authenticate a new User.
+        """
+
+        original_user_count = User.objects.count()
+        response = self.client.get(reverse('auto_auth'))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(User.objects.count(), original_user_count + 1)
+        self.assertUserLoggedIn(self.get_latest_user())

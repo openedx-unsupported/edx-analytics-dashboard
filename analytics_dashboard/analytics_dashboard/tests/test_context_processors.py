@@ -36,3 +36,8 @@ class NavbarContextProcessorTests(TestCase):
         G(Switch, name='navbar_display_engagement', active=True)
         context = navbar(request)
         self.assertListEqual(context['navbar_items'], complete)
+
+    def test_without_course_id(self):
+        request = RequestFactory().get('/')
+        context = navbar(request)
+        self.assertDictEqual(context, {})

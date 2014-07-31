@@ -2,12 +2,8 @@
 
 {% load staticfiles %}
 
-{% comment %}
-System 500 Error View
-{% endcomment %}
-
-{% block view-name %}view-500 view-system{% endblock view-name %}
-{% block title %}An Error Occurred | edX Analytics{% endblock title %}
+{% block view-name %}view-auth-failed view-system{% endblock view-name %}
+{% block title %}Authentication Failed | edX Analytics{% endblock title %}
 
 {% block header %}
 {% endblock header %}
@@ -28,11 +24,10 @@ System 500 Error View
 
             <div class="inner cover">
                 <h1 class="cover-heading">
-                    <span class="error-code">500</span>
-                    <span class="error-title">Something Went Wrong on Our End</span>
+                    <span class="error-title">Authentication Failed</span>
                 </h1>
 
-                <p class="lead error-copy">Our servers weren't able to complete your request. Please try again by refreshing this page or retracing your steps. If you consistently run into a problem, please let us know.</p>
+                <p class="lead error-copy">There was a problem accessing your account. Please go back and try again. If you continue to experience issues, please let us know.</p>
 
                 <p class="lead">
                     <a href="#" class="btn btn-lg btn-primary">

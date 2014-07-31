@@ -1,12 +1,18 @@
 import json
 import logging
+import uuid
+
 from analyticsclient.client import Client
 from analyticsclient.exceptions import ClientError
 from django.conf import settings
+from django.contrib.auth import get_user_model, login, authenticate
 from django.db import connection, DatabaseError
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
+from django.views.generic import View, TemplateView
+
 
 logger = logging.getLogger(__name__)
+User = get_user_model()
 
 
 def status(_request):
@@ -25,7 +31,7 @@ def health(_request):
         cursor.fetchone()
         cursor.close()
         database_status = OK
-    except DatabaseError:   # pylint: disable=catching-non-exception
+    except DatabaseError:  # pylint: disable=catching-non-exception
         database_status = UNAVAILABLE
 
     try:
@@ -47,3 +53,26 @@ def health(_request):
     }
 
     return HttpResponse(json.dumps(data), content_type='application/json')
+
+
+class AutoAuth(View):
+    """
+    Creates and authenticates a new User.
+
+    If the setting ENABLE_AUTO_AUTH is not set to True, returns a 404.
+    """
+
+    def get(self, request, *_args, **_kwargs):
+        if not settings.ENABLE_AUTO_AUTH:
+            raise Http404
+
+        username = password = uuid.uuid4().hex[0:30]
+        User.objects.create_user(username, password=password)
+        user = authenticate(username=username, password=password)
+        login(request, user)
+
+        return HttpResponse()
+
+
+class AuthError(TemplateView):
+    template_name = 'auth_error.html'
