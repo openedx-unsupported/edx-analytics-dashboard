@@ -7,6 +7,7 @@ from django.core.urlresolvers import reverse
 
 import analyticsclient.activity_type as AT
 from analyticsclient.exceptions import NotFoundError
+from waffle import Switch
 from courses.tests.utils import get_mock_enrollment_data, get_mock_enrollment_location_data, \
     convert_list_of_dicts_to_csv
 
@@ -21,44 +22,83 @@ def mock_engagement_summary_data():
     }
 
 
-class StudentEngagementTestView(TestCase):
+class CourseViewTestMixin(object):
+    viewname = None
+
+    def setUp(self):
+        self.course_id = 'edX/DemoX/Demo_Course'
+        self.path = reverse(self.viewname, kwargs={'course_id': self.course_id})
+
+    def assertResponseContentType(self, response, content_type):
+        self.assertEqual(response['Content-Type'], content_type)
+
+    def assertResponseFilename(self, response, filename):
+        self.assertEqual(response['Content-Disposition'], 'attachment; filename="{0}"'.format(filename))
+
+    def test_not_found(self):
+        path = reverse(self.viewname, kwargs={'course_id': 'fakeOrg/soFake/Fake_Course'})
+        response = self.client.get(path, follow=True)
+        self.assertEqual(response.status_code, 404)
+
+
+class CourseEngagementViewTests(CourseViewTestMixin, TestCase):
+    viewname = 'courses:engagement'
+
     @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary',
                 mock.Mock(return_value=mock_engagement_summary_data()))
     def test_engagement_page_success(self):
-        response = self.client.get(reverse('courses:engagement', kwargs={'course_id': 'this/is/course'}))
+        response = self.client.get(self.path)
 
         # make sure that we get a 200
         self.assertEqual(response.status_code, 200)
-
-        # make sure the date is formatted correctly
-        self.assertEqual(response.context['summary']['week_of_activity'], 'January 01, 2013')
-
-        # check to make sure that we have tooltips
-        self.assertEqual(response.context['tooltips']['all_activity_summary'], 'Students who initiated an action.')
-        self.assertEqual(response.context['tooltips']['posted_forum_summary'],
-                         'Students who created a post, responded to a post, or made a comment in any discussion.')
-        self.assertEqual(response.context['tooltips']['attempted_problem_summary'],
-                         'Students who answered any question.')
-        self.assertEqual(response.context['tooltips']['played_video_summary'],
-                         'Students who started watching any video.')
-
-        # check page title
         self.assertEqual(response.context['page_title'], 'Engagement')
 
-        # make sure the summary numbers are correct
-        self.assertEqual(response.context['summary'][AT.ANY], 100)
-        self.assertEqual(response.context['summary'][AT.ATTEMPTED_PROBLEM], 301)
-        self.assertEqual(response.context['summary'][AT.PLAYED_VIDEO], 1000)
-        self.assertEqual(response.context['summary'][AT.POSTED_FORUM], 0)
+        expected = {
+            'week_of_activity': 'January 01, 2013',
+            'interval_end': '2013-01-01T12:12:12Z',
+            AT.ANY: 100,
+            AT.ATTEMPTED_PROBLEM: 301,
+            AT.PLAYED_VIDEO: 1000,
+            AT.POSTED_FORUM: 0
 
-    @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary',
-                mock.Mock(side_effect=NotFoundError, autospec=True))
-    def test_engagement_page_fail(self):
+        }
+        self.assertDictEqual(response.context['summary'], expected)
+
+        # check to make sure that we have tooltips
+        expected = {
+            'all_activity_summary': 'Students who initiated an action.',
+            'posted_forum_summary': 'Students who created a post, responded to a post, or made a comment in any discussion.',
+            'attempted_problem_summary': 'Students who answered any question.',
+            'played_video_summary': 'Students who started watching any video.',
+        }
+        self.assertDictEqual(response.context['tooltips'], expected)
+
+
+    @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary', mock.Mock(side_effect=NotFoundError))
+    def test_not_found(self):
+        super(CourseEngagementViewTests, self).test_not_found()
+
+    def test_display_demo_interface(self):
         """
-        The course engagement page should raise a 404 when there is an error accessing API data.
+        Verify the feature gate works to hide the demo interface.
         """
-        response = self.client.get(reverse('courses:engagement', kwargs={'course_id': 'this/is/course'}))
-        self.assertEqual(response.status_code, 404)
+
+        # No interface with feature not created
+        response = self.client.get(self.path)
+        self.assertNotIn('data-role="demo-interface"', response.content)
+
+        # Create the feature
+        switch = Switch.objects.create(name='show_engagement_demo_interface', active=False)
+
+        # No interface with feature disabled
+        response = self.client.get(self.path)
+        self.assertNotIn('data-role="demo-interface"', response.content)
+
+        # Interface should be present with feature enabled
+        switch.active = True
+        switch.save()
+        response = self.client.get(self.path)
+        self.assertIn('data-role="demo-interface"', response.content)
 
 
 class CourseEnrollmentViewTests(TestCase):
@@ -110,25 +150,6 @@ class CourseEnrollmentViewTests(TestCase):
         trend_data = page_data['enrollmentTrends']
         expected = enrollment_data
         self.assertListEqual(trend_data, expected)
-
-
-class CourseViewTestMixin(object):
-    viewname = None
-
-    def setUp(self):
-        self.course_id = 'edX/DemoX/Demo_Course'
-        self.path = reverse(self.viewname, kwargs={'course_id': self.course_id})
-
-    def assertResponseContentType(self, response, content_type):
-        self.assertEqual(response['Content-Type'], content_type)
-
-    def assertResponseFilename(self, response, filename):
-        self.assertEqual(response['Content-Disposition'], 'attachment; filename="{0}"'.format(filename))
-
-    def test_not_found(self):
-        path = reverse(self.viewname, kwargs={'course_id': 'fakeOrg/soFake/Fake_Course'})
-        response = self.client.get(path, follow=True)
-        self.assertEqual(response.status_code, 404)
 
 
 class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
