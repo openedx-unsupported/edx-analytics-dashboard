@@ -4,10 +4,10 @@ import json
 import mock
 from django.test import TestCase
 from django.core.urlresolvers import reverse
-
 import analyticsclient.activity_type as AT
 from analyticsclient.exceptions import NotFoundError
-from waffle import Switch
+
+from analytics_dashboard.tests.mixins import FeatureTestCaseMixin
 from courses.tests.utils import get_mock_enrollment_data, get_mock_enrollment_location_data, \
     convert_list_of_dicts_to_csv
 
@@ -41,7 +41,7 @@ class CourseViewTestMixin(object):
         self.assertEqual(response.status_code, 404)
 
 
-class CourseEngagementViewTests(CourseViewTestMixin, TestCase):
+class CourseEngagementViewTests(FeatureTestCaseMixin, CourseViewTestMixin, TestCase):
     viewname = 'courses:engagement'
 
     @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary',
@@ -67,38 +67,23 @@ class CourseEngagementViewTests(CourseViewTestMixin, TestCase):
         # check to make sure that we have tooltips
         expected = {
             'all_activity_summary': 'Students who initiated an action.',
-            'posted_forum_summary': 'Students who created a post, responded to a post, or made a comment in any discussion.',
+            'posted_forum_summary': 'Students who created a post, responded to a post, or made a comment in any discussion.',   # pylint: disable=line-too-long
             'attempted_problem_summary': 'Students who answered any question.',
             'played_video_summary': 'Students who started watching any video.',
         }
         self.assertDictEqual(response.context['tooltips'], expected)
 
-
     @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary', mock.Mock(side_effect=NotFoundError))
     def test_not_found(self):
         super(CourseEngagementViewTests, self).test_not_found()
 
+    @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary',
+                mock.Mock(return_value=mock_engagement_summary_data()))
     def test_display_demo_interface(self):
         """
         Verify the feature gate works to hide the demo interface.
         """
-
-        # No interface with feature not created
-        response = self.client.get(self.path)
-        self.assertNotIn('data-role="demo-interface"', response.content)
-
-        # Create the feature
-        switch = Switch.objects.create(name='show_engagement_demo_interface', active=False)
-
-        # No interface with feature disabled
-        response = self.client.get(self.path)
-        self.assertNotIn('data-role="demo-interface"', response.content)
-
-        # Interface should be present with feature enabled
-        switch.active = True
-        switch.save()
-        response = self.client.get(self.path)
-        self.assertIn('data-role="demo-interface"', response.content)
+        self.assertElementBehindFeature(self.path, 'data-role="demo-interface"', 'show_engagement_demo_interface')
 
 
 class CourseEnrollmentViewTests(TestCase):

@@ -3,63 +3,19 @@ Partial: App-wide header element
 {% endcomment %}
 
 <div class="row">
-    <aside id="sidebar" class="col-sm-3 col-md-2 sidebar">
-        <div class="sidebar-group">
-            <!-- TODO: abstract this out into one view with .active logic -->
-            <ul class="nav nav-stacked">
-                <li
-                    {% if page_title == "Overview" %}
-                    class = "active"
-                    {% endif %}
-                 >
-                    <a href="../overview">
-                        <span class="link-label"><i class="ico fa fa-tachometer"></i> Overview</span>
-                        <i class="link-ico fa fa-angle-right hidden-xs"></i>
-                    </a>
-                </li>
-                <li
-                    {% if page_title == "Enrollment" %}
-                    class = "active"
-                    {% endif %}
-                 >
-                    <a href="../enrollment">
-                        <span class="link-label"><i class="ico fa fa-child"></i> Enrollment</span>
-                        <i class="link-ico fa fa-angle-right hidden-xs"></i>
-                    </a>
-                </li>
-                <li
-                    {% if page_title == "Engagement" %}
-                    class = "active"
-                    {% endif %}
-                 >
-                    <a href="../engagement">
-                        <span class="link-label"><i class="ico fa fa-tasks"></i> Engagement</span>
-                        <i class="link-ico fa fa-angle-right hidden-xs"></i>
-                    </a>
-                </li>
-                <li
-                    {% if page_title == "Performance" %}
-                    class = "active"
-                    {% endif %}
-                 >
-                    <a href="../performance">
-                        <span class="link-label"><i class="ico fa fa-bar-chart-o"></i> Performance</span>
-                        <i class="link-ico fa fa-angle-right hidden-xs"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="link-label"><i class="ico fa fa-life-ring"></i> Help &amp; Support</span>
-                        <i class="link-ico fa fa-angle-right hidden-xs"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="link-label"><i class="ico fa fa-comments-o"></i> Contact</span>
-                        <i class="link-ico fa fa-angle-right hidden-xs"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </aside>
+  <aside id="sidebar" class="col-sm-3 col-md-2 sidebar">
+    <div class="sidebar-group">
+      <ul class="nav nav-stacked">
+
+        {% for item in navbar_items %}
+          <li class="{% if page_title == item.title %}active{% endif %}">
+            <a href="{{ item.href }}">
+              <span class="link-label"><i class="ico fa {{ item.icon }}"></i> {{ item.label }}</span>
+              <i class="link-ico fa fa-angle-right hidden-xs"></i>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </aside>
 </div>
