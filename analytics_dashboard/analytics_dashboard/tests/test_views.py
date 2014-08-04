@@ -1,7 +1,7 @@
 import json
+
 from django.db import DatabaseError
 import mock
-
 from analyticsclient.exceptions import ClientError
 from django.core.urlresolvers import reverse
 from django.test import TestCase

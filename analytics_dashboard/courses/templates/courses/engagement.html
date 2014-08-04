@@ -2,6 +2,7 @@
 
 {% load humanize %}
 {% load staticfiles %}
+{% load waffle_tags %}
 
 {% comment %}
 Individual course centric engagement view
@@ -10,245 +11,252 @@ Individual course centric engagement view
 {% block view-name %}view-course-engagement view-dashboard{% endblock view-name %}
 
 {% block intro-text %}
-    [Intro summary area for engagement view if needed] Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+  [Intro summary area for engagement view if needed] Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna
+  mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
 {% endblock intro-text %}
 
 {% block javascript %}
-<script data-main="{% static 'js/engagement-main.js' %}"  src="{% static 'vendor/require.js' %}"></script>
+  <script data-main="{% static 'js/engagement-main.js' %}" src="{% static 'vendor/require.js' %}"></script>
 {% endblock javascript %}
 
 {% block content %}
-<section class="view-section">
-    <h4 class="section-title">
-        <span class="section-title-value">Student Activity</span>
-        <span class="section-title-note small">What are my students interacting with?</span>
-    </h4>
+  <section class="view-section">
+  <h4 class="section-title">
+    <span class="section-title-value">Student Activity</span>
+    <span class="section-title-note small">What are my students interacting with?</span>
+  </h4>
 
-    <hr class="has-emphasis" />
+  <hr class="has-emphasis"/>
 
-    <div class="section-content section-data-summary" data-role="student-activity">
-        <div class="row">
-            <div class="col-sm-12">
+  <div class="section-content section-data-summary" data-role="student-activity">
+    <div class="row">
+      <div class="col-sm-12">
                 <span class="section-title-value small">Activity for the week ending
-                    <span data-role="activity-week">{{summary.week_of_activity}}</span>
+                    <span data-role="activity-week">{{ summary.week_of_activity }}</span>
                 </span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-3" data-activity-type="any">
-                {% include "summary_point.html" with count=summary.any|intcomma label="Active Students" subheading="last week" tooltip=tooltips.all_activity_summary only %}
-            </div>
-
-            <div class="col-xs-12 col-sm-3" data-activity-type="posted_forum">
-                {% include "summary_point.html" with count=summary.posted_forum|intcomma label="Posted in Forum" subheading="last week" tooltip=tooltips.posted_forum_summary only %}
-            </div>
-
-            <div class="col-xs-12 col-sm-3" data-activity-type="attempted_problem">
-                {% include "summary_point.html" with count=summary.attempted_problem|intcomma label="Tried a Problem" subheading="last week" tooltip=tooltips.attempted_problem_summary only %}
-            </div>
-
-            <div class="col-xs-12 col-sm-3" data-activity-type="played_video">
-                {% include "summary_point.html" with count=summary.played_video label="Watched a Video" subheading="last week" tooltip=tooltips.played_video_summary only %}
-            </div>
-        </div>
+      </div>
     </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-3" data-activity-type="any">
+        {% include "summary_point.html" with count=summary.any|intcomma label="Active Students" subheading="last week" tooltip=tooltips.all_activity_summary only %}
+      </div>
 
-    <hr />
+      <div class="col-xs-12 col-sm-3" data-activity-type="posted_forum">
+        {% include "summary_point.html" with count=summary.posted_forum|intcomma label="Posted in Forum" subheading="last week" tooltip=tooltips.posted_forum_summary only %}
+      </div>
 
-    <div class="section-nav">
+      <div class="col-xs-12 col-sm-3" data-activity-type="attempted_problem">
+        {% include "summary_point.html" with count=summary.attempted_problem|intcomma label="Tried a Problem" subheading="last week" tooltip=tooltips.attempted_problem_summary only %}
+      </div>
+
+      <div class="col-xs-12 col-sm-3" data-activity-type="played_video">
+        {% include "summary_point.html" with count=summary.played_video label="Watched a Video" subheading="last week" tooltip=tooltips.played_video_summary only %}
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+
+  {% switch show_engagement_demo_interface %}
+    <div data-role="demo-interface">
+      <div class="section-nav">
         <div class="btn-group nav-filters">
-            <div class="btn-group filter filter-1">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    Course Content
-                    <i class="ico ico-indicator fa fa-caret-down"></i>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Discussions</a></li>
-                    <li><a href="#">Static Pages</a></li>
-                    <li><a href="#">Problems &amp; Exams</a></li>
-                    <li><a href="#">Videos</a></li>
-                </ul>
-            </div>
+          <div class="btn-group filter filter-1">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              Course Content
+              <i class="ico ico-indicator fa fa-caret-down"></i>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Discussions</a></li>
+              <li><a href="#">Static Pages</a></li>
+              <li><a href="#">Problems &amp; Exams</a></li>
+              <li><a href="#">Videos</a></li>
+            </ul>
+          </div>
 
-            <div class="btn-group filter filter-2 filter-course-content">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    Course Section 1
-                    <i class="ico ico-indicator fa fa-caret-down"></i>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Course Section 1</a></li>
-                    <li><a href="#">Course Section 2</a></li>
-                    <li><a href="#">Course Section 3</a></li>
-                    <li><a href="#">Course Section 4</a></li>
-                    <li><a href="#">Course Section 5</a></li>
-                    <li><a href="#">Course Section 6</a></li>
-                </ul>
-            </div>
+          <div class="btn-group filter filter-2 filter-course-content">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              Course Section 1
+              <i class="ico ico-indicator fa fa-caret-down"></i>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Course Section 1</a></li>
+              <li><a href="#">Course Section 2</a></li>
+              <li><a href="#">Course Section 3</a></li>
+              <li><a href="#">Course Section 4</a></li>
+              <li><a href="#">Course Section 5</a></li>
+              <li><a href="#">Course Section 6</a></li>
+            </ul>
+          </div>
 
-            <div class="btn-group filter filter-3 filter-course-section1">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    Course Subsection 1
-                    <i class="ico ico-indicator fa fa-caret-down"></i>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Course Subsection 1</a></li>
-                    <li><a href="#">Course Subsection 2</a></li>
-                    <li><a href="#">Course Subsection 3</a></li>
-                    <li><a href="#">Course Subsection 4</a></li>
-                    <li><a href="#">Course Subsection 5</a></li>
-                    <li><a href="#">Course Subsection 6</a></li>
-                </ul>
-            </div>
+          <div class="btn-group filter filter-3 filter-course-section1">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              Course Subsection 1
+              <i class="ico ico-indicator fa fa-caret-down"></i>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Course Subsection 1</a></li>
+              <li><a href="#">Course Subsection 2</a></li>
+              <li><a href="#">Course Subsection 3</a></li>
+              <li><a href="#">Course Subsection 4</a></li>
+              <li><a href="#">Course Subsection 5</a></li>
+              <li><a href="#">Course Subsection 6</a></li>
+            </ul>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <hr />
+      <hr/>
 
-    <div class="section-content section-data-viz">
+      <div class="section-content section-data-viz">
         <div class="viz-filter">
-            <h5 class="viz-filter-label">Counting:</h5>
+          <h5 class="viz-filter-label">Counting:</h5>
 
-            <div class="btn-group filter">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    Course Content
-                    <i class="ico ico-indicator fa fa-caret-down"></i>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Discussions</a></li>
-                    <li><a href="#">Static Pages</a></li>
-                    <li><a href="#">Problems &amp; Exams</a></li>
-                    <li><a href="#">Videos</a></li>
-                </ul>
-            </div>
+          <div class="btn-group filter">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              Course Content
+              <i class="ico ico-indicator fa fa-caret-down"></i>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Discussions</a></li>
+              <li><a href="#">Static Pages</a></li>
+              <li><a href="#">Problems &amp; Exams</a></li>
+              <li><a href="#">Videos</a></li>
+            </ul>
+          </div>
         </div>
 
         <div class="placeholder">
-          <img data-src="holder.js/100%x400/auto/sky/text:student interaction chart" class="img-responsive img-rounded" alt="Generic placeholder thumbnail">
+          <img data-src="holder.js/100%x400/auto/sky/text:student interaction chart" class="img-responsive img-rounded"
+               alt="Generic placeholder thumbnail">
         </div>
-    </div>
+      </div>
 
-    <hr />
+      <hr/>
 
-    <h5 class="section-subtitle">
+      <h5 class="section-subtitle">
         <span class="section-title-value">Usage: <strong>Course Subsection 1</strong></span>
         <span class="section-title-note small">How many students are engaging with this content?</span>
-    </h5>
+      </h5>
 
-    <div class="section-content section-data-summary">
+      <div class="section-content section-data-summary">
         <div class="row">
-            <div class="col-xs-12 col-sm-3">
-                {% include "summary_point.html" with count="23,437" label="Viewed this subsection" subheading="since last week" only %}
-            </div>
+          <div class="col-xs-12 col-sm-3">
+            {% include "summary_point.html" with count="23,437" label="Viewed this subsection" subheading="since last week" only %}
+          </div>
 
-            <div class="col-xs-12 col-sm-3">
-                {% include "summary_point.html" with count="23,437" label="Began this subsection" subheading="since last week" only %}
-            </div>
+          <div class="col-xs-12 col-sm-3">
+            {% include "summary_point.html" with count="23,437" label="Began this subsection" subheading="since last week" only %}
+          </div>
 
-            <div class="col-xs-12 col-sm-3">
-                {% include "summary_point.html" with count="23,437" label="Attempted assignments in this subsection" subheading="since last week" only %}
-            </div>
+          <div class="col-xs-12 col-sm-3">
+            {% include "summary_point.html" with count="23,437" label="Attempted assignments in this subsection" subheading="since last week" only %}
+          </div>
 
-            <div class="col-xs-12 col-sm-3">
-                {% include "summary_point.html" with count="23,437" label="Completed this subsection" subheading="since last week" only %}
-            </div>
+          <div class="col-xs-12 col-sm-3">
+            {% include "summary_point.html" with count="23,437" label="Completed this subsection" subheading="since last week" only %}
+          </div>
         </div>
-    </div>
+      </div>
 
-    <hr />
+      <hr/>
 
-    <h5 class="section-subtitle">
+      <h5 class="section-subtitle">
         <span class="section-title-value">Interaction: <strong>Course Subsection 1</strong></span>
         <span class="section-title-note small">How are students interacting with this content?</span>
-    </h5>
+      </h5>
 
-    <div class="section-content section-data-summary">
+      <div class="section-content section-data-summary">
         <div class="row">
-            <div class="col-xs-12 col-sm-3">
-                {% include "summary_point.html" with count="2:05:39" label="Average Time Spent" only %}
-            </div>
+          <div class="col-xs-12 col-sm-3">
+            {% include "summary_point.html" with count="2:05:39" label="Average Time Spent" only %}
+          </div>
 
-            <div class="col-xs-12 col-sm-3">
-                {% include "summary_point.html" with count="50%" label="Overall Section Progress" only %}
-            </div>
+          <div class="col-xs-12 col-sm-3">
+            {% include "summary_point.html" with count="50%" label="Overall Section Progress" only %}
+          </div>
 
-            <div class="col-xs-12 col-sm-3">
-                {% include "summary_point.html" with count="45:28" label="Longest Unit Time Spent" only %}
-            </div>
+          <div class="col-xs-12 col-sm-3">
+            {% include "summary_point.html" with count="45:28" label="Longest Unit Time Spent" only %}
+          </div>
 
-            <div class="col-xs-12 col-sm-3">
-                {% include "summary_point.html" with count="20%" label="Lowest Unit Progression" only %}
-            </div>
+          <div class="col-xs-12 col-sm-3">
+            {% include "summary_point.html" with count="20%" label="Lowest Unit Progression" only %}
+          </div>
         </div>
-    </div>
+      </div>
 
-    <hr />
+      <hr/>
 
-    <h5 class="section-subtitle">
+      <h5 class="section-subtitle">
         <span class="section-title-value">Completion Details: <strong>Course Subsection 1</strong></span>
-        <span class="section-title-note small">How much time are students taking to progress through this content?</span>
-    </h5>
+        <span
+            class="section-title-note small">How much time are students taking to progress through this content?</span>
+      </h5>
 
-    <div class="section-content section-data-table">
+      <div class="section-content section-data-table">
         <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Unit Name</th>
-                        <th>Average Time Spent</th>
-                        <th>Progression Percentage</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Unit Samoflange</td>
-                        <td>12:54</td>
-                        <td>74.6%</td>
-                    </tr>
-                    <tr>
-                        <td>Unit Samoflange</td>
-                        <td>12:54</td>
-                        <td>74.6%</td>
-                    </tr>
-                    <tr>
-                        <td>Unit Samoflange</td>
-                        <td>12:54</td>
-                        <td>74.6%</td>
-                    </tr>
-                    <tr>
-                        <td>Unit Samoflange</td>
-                        <td>12:54</td>
-                        <td>74.6%</td>
-                    </tr>
-                    <tr>
-                        <td>Unit Samoflange</td>
-                        <td>12:54</td>
-                        <td>74.6%</td>
-                    </tr>
-                    <tr>
-                        <td>Unit Samoflange</td>
-                        <td>12:54</td>
-                        <td>74.6%</td>
-                    </tr>
-                    <tr>
-                        <td>Unit Samoflange</td>
-                        <td>12:54</td>
-                        <td>74.6%</td>
-                    </tr>
-                    <tr>
-                        <td>Unit Samoflange</td>
-                        <td>12:54</td>
-                        <td>74.6%</td>
-                    </tr>
-                </tbody>
-            </table>
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Unit Name</th>
+              <th>Average Time Spent</th>
+              <th>Progression Percentage</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Unit Samoflange</td>
+              <td>12:54</td>
+              <td>74.6%</td>
+            </tr>
+            <tr>
+              <td>Unit Samoflange</td>
+              <td>12:54</td>
+              <td>74.6%</td>
+            </tr>
+            <tr>
+              <td>Unit Samoflange</td>
+              <td>12:54</td>
+              <td>74.6%</td>
+            </tr>
+            <tr>
+              <td>Unit Samoflange</td>
+              <td>12:54</td>
+              <td>74.6%</td>
+            </tr>
+            <tr>
+              <td>Unit Samoflange</td>
+              <td>12:54</td>
+              <td>74.6%</td>
+            </tr>
+            <tr>
+              <td>Unit Samoflange</td>
+              <td>12:54</td>
+              <td>74.6%</td>
+            </tr>
+            <tr>
+              <td>Unit Samoflange</td>
+              <td>12:54</td>
+              <td>74.6%</td>
+            </tr>
+            <tr>
+              <td>Unit Samoflange</td>
+              <td>12:54</td>
+              <td>74.6%</td>
+            </tr>
+            </tbody>
+          </table>
         </div>
-    </div>
+      </div>
 
-    <div class="section-actions">
+      <div class="section-actions">
         <a href="#" class="btn btn-primary">
-            <i class="ico fa fa-download"></i>
-            Download a CSV file of this Data
+          <i class="ico fa fa-download"></i>
+          Download a CSV file of this Data
         </a>
+      </div>
     </div>
-</section>
+  {% endswitch %}
+  </section>
 {% endblock content %}

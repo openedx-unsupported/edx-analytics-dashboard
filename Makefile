@@ -32,3 +32,8 @@ quality:
 	#cd analytics_dashboard && pep257 --ignore=D100,D203 --match='(?!test).*py' $(PACKAGES)
 
 validate: test.requirements test quality
+
+demo:
+	cd analytics_dashboard && ./manage.py switch show_engagement_demo_interface on --create
+	cd analytics_dashboard && ./manage.py switch navbar_display_overview on --create
+	cd analytics_dashboard && ./manage.py switch navbar_display_engagement on --create

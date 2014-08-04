@@ -30,6 +30,17 @@ Alternatively, you can launch the server using:
 
         $ ENABLE_DJANGO_TOOLBAR=1 ./manage.py runserver
 
+
+Feature Gating
+--------------
+Need a fallback to disable a feature? Create a [Waffle](http://waffle.readthedocs.org/en/latest/)
+(switch)[http://waffle.readthedocs.org/en/latest/types.html#switches]:
+
+        $ ./manage.py switch feature_name [on/off] --create
+        
+See the [Waffle documentation](http://waffle.readthedocs.org/en/latest/) for details on utilizing features in code and templates.
+
+
 License
 -------
 The code in this repository is licensed under version 3 of the AGPL unless otherwise noted.
