@@ -7,3 +7,22 @@
 // .crazy-new-feature {
 //   background: transparent;
 // }
+
+.line-chart-container {
+  background-color: white;
+  padding-top: 10px; // Give the title some breathing room.
+
+  .line-chart {
+    height: 300px;
+  }
+
+  .chart-title {
+    text-align: center;
+  }
+}
+
+.world-map {
+  position: relative;
+  margin: 0 auto;
+  height: 500px;
+}

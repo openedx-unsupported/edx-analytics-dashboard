@@ -19,7 +19,10 @@ var config = {
         jasmine: 'vendor/jasmine/lib/jasmine-2.0.0/jasmine',
         'jasmine-html': 'vendor/jasmine/lib/jasmine-2.0.0/jasmine-html',
         boot: 'vendor/jasmine/lib/jasmine-2.0.0/boot',
-        highcharts: 'vendor/highcharts/highcharts.min'
+        d3: 'vendor/d3/d3',
+        nvd3: 'vendor/nvd3/nv.d3',
+        topojson: 'vendor/topojson/topojson',
+        datamaps: 'vendor/datamaps/datamaps.world.min'
     },
     shim: {
         bootstrap: {
@@ -42,6 +45,14 @@ var config = {
         boot: {
             deps: ['jasmine', 'jasmine-html'],
             exports: 'window.jasmineRequire'
+        },
+        nvd3: {
+            deps: ['d3'],
+            exports: 'nv'
+        },
+        datamaps: {
+            deps: ['topojson', 'd3'],
+            exports: 'datamap'
         }
     }
 };
@@ -54,7 +65,7 @@ if(isBrowser) {
     specs = [
         config.baseUrl + 'js/spec/specs/course-model-spec.js',
         config.baseUrl + 'js/spec/specs/tracking-model-spec.js',
-        config.baseUrl + 'js/spec/specs/enrollment-trend-view-spec.js',
+        config.baseUrl + 'js/spec/specs/world-map-view-spec.js',
         config.baseUrl + 'js/spec/specs/tracking-view-spec.js',
         config.baseUrl + 'js/spec/specs/utils-spec.js'
     ];

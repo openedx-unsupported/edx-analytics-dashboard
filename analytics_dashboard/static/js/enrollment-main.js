@@ -9,12 +9,13 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page){
     'use strict';
 
     // this is your page specific code
-    require(['views/data-table-view',
+    require(['views/attribute-listener-view',
+            'views/attribute-view',
+            'views/data-table-view',
             'views/enrollment-trend-view',
-            'views/simple-model-attribute-view',
             'views/world-map-view'],
-        function (DataTableView, EnrollmentTrendView,
-                  SimpleModelAttributeView, WorldMapView) {
+        function (AttributeListenerView, AttributeView, DataTableView,
+                  EnrollmentTrendView, WorldMapView) {
 
         // Daily enrollment graph
         new EnrollmentTrendView({
@@ -36,7 +37,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page){
         });
 
         // Enrollment by country last updated label
-        new SimpleModelAttributeView({
+        new AttributeView({
             el: '[data-view=enrollment-by-country-update-date]',
             model: page.models.courseModel,
             modelAttribute: 'enrollmentByCountryUpdateDate'
@@ -55,10 +56,10 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page){
             model: page.models.courseModel,
             modelAttribute: 'enrollmentByCountry',
             columns: [
-                {key: 'country_name', title: 'Country'},
-                {key: 'value', title: 'Count'}
+                {key: 'countryName', title: 'Country'},
+                {key: 'count', title: 'Count'}
             ],
-            sorting: ['-value']
+            sorting: ['-count']
         });
         page.models.courseModel.fetchEnrollmentByCountry();
     });

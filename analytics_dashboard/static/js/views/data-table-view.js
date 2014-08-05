@@ -1,11 +1,11 @@
-define(['dataTablesBootstrap', 'jquery', 'underscore', 'views/simple-model-attribute-view'],
-    function (dt, $, _, SimpleModelAttributeView) {
+define(['dataTablesBootstrap', 'jquery', 'underscore', 'views/attribute-listener-view'],
+    function (dt, $, _, AttributeListenerView) {
         'use strict';
 
-        var DataTableView = SimpleModelAttributeView.extend({
+        var DataTableView = AttributeListenerView.extend({
 
             initialize: function (options) {
-                SimpleModelAttributeView.prototype.initialize.call(this, options);
+                AttributeListenerView.prototype.initialize.call(this, options);
                 var self = this;
 
                 self.options = options || {};
@@ -43,25 +43,29 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'views/simple-model-attri
 
                 return dtSorting;
             },
-            render: function () {
-                var $parent = $('<div/>', {class:'table-responsive'}).appendTo(this.$el);
-                var $table = $('<table/>', {class: 'table table-striped'}).appendTo($parent);
-                var $thead = $('<thead/>').appendTo($table);
-                var $row = $('<tr/>').appendTo($thead);
-                var dtColumns = [];
-                var dtConfig, dtSorting;
 
-                dtColumns = this._buildColumns($row);
+            render: function () {
+                AttributeListenerView.prototype.render.call(this);
+                var self = this,
+                    $parent = $('<div/>', {class:'table-responsive'}).appendTo(this.$el),
+                    $table = $('<table/>', {class: 'table table-striped'}).appendTo($parent),
+                    $thead = $('<thead/>').appendTo($table),
+                    $row = $('<tr/>').appendTo($thead),
+                    dtColumns,
+                    dtConfig,
+                    dtSorting;
+
+                dtColumns = self._buildColumns($row);
 
                 dtConfig = {
                         paging: false,
                         info: false,
                         filter: false,
-                        data: this.model.get(this.options.modelAttribute),
+                        data: this.model.get(self.options.modelAttribute),
                         columns: dtColumns
                     };
 
-                dtSorting = this._buildSorting();
+                dtSorting = self._buildSorting();
 
                 if (dtSorting.length) {
                     dtConfig.order = dtSorting;
@@ -69,7 +73,7 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'views/simple-model-attri
 
                 $table.dataTable(dtConfig);
 
-                return this;
+                return self;
             }
 
         });

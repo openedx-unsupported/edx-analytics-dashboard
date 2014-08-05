@@ -160,17 +160,19 @@ class CourseEnrollmentByCountryJSONViewTests(CourseEnrollmentViewTestMixin, Test
     viewname = 'courses:json_enrollment_by_country'
 
     def convert_datum(self, datum):
+        '''
+        Converts the country data returned from the JSON endpoint to the format
+        returned by the client API.  This is used to compare the two outputs.
+        '''
         datum['date'] = '2014-01-01'
         datum['course_id'] = self.course_id
-        datum['count'] = datum['value']
         datum['country'] = {
-            'code': datum['country_code'],
-            'name': datum['country_name']
+            'alpha3': datum['countryCode'],
+            'name': datum['countryName']
         }
 
-        del datum['country_code']
-        del datum['country_name']
-        del datum['value']
+        del datum['countryCode']
+        del datum['countryName']
 
         return datum
 

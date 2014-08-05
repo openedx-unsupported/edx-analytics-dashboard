@@ -1,7 +1,8 @@
 import datetime
+from bok_choy.web_app_test import WebAppTest
+from bok_choy.promise import EmptyPromise
 
 from analyticsclient import demographic
-from bok_choy.web_app_test import WebAppTest
 
 from acceptance_tests import AnalyticsApiClientMixin
 from acceptance_tests.pages import CourseEnrollmentPage
@@ -75,7 +76,60 @@ class CourseEnrollmentTests(AnalyticsApiClientMixin, WebAppTest):
         # Verify *something* rendered where the graph should be. We cannot easily verify what rendered
         self.assertElementHasContent("[data-section=enrollment-basics] #enrollment-trend-view")
 
-    def test_enrollment_table(self):
+    def test_enrollment_country_map(self):
+        self.page.visit()
+
+        map_selector = "div[data-view=world-map]"
+
+        # ensure that the map data has been loaded (via ajax); otherwise this
+        # will timeout
+        EmptyPromise(
+            lambda: 'Loading Map...' not in self.page.q(css=map_selector + ' p').text,
+            "Map finished loading"
+        ).fulfill()
+
+        # make sure the map section is present
+        element = self.page.q(css=map_selector)
+        self.assertTrue(element.present)
+
+        # make sure that the map is present
+        element = self.page.q(css=map_selector + " svg[class=datamap]")
+        self.assertTrue(element.present)
+
+        # make sure the legend is present
+        element = self.page.q(css=map_selector + " svg[class=datamaps-legend]")
+        self.assertTrue(element.present)
+
+    def test_enrollment_country_table(self):
+        self.page.visit()
+
+        table_section_selector = "div[data-role=enrollment-location-table]"
+
+        # ensure that the map data has been loaded (via ajax); otherwise this
+        # will timeout
+        EmptyPromise(
+            lambda: 'Loading Table...' not in self.page.q(css=table_section_selector + ' p').text,
+            "Table finished loading"
+        ).fulfill()
+
+        # make sure the map section is present
+        element = self.page.q(css=table_section_selector)
+        self.assertTrue(element.present)
+
+        # make sure the table is present
+        table_selector = table_section_selector + " table"
+        element = self.page.q(css=table_selector)
+        self.assertTrue(element.present)
+
+        # check the headings
+        self.assertTableColumnHeadingsEqual(table_selector, ['Country', 'Count'])
+
+        # Verify CSV button has an href attribute
+        selector = "a[data-role=enrollment-location-csv]"
+        self.assertValidHref(selector)
+
+
+    def test_enrollment_trend_table(self):
         self.page.visit()
         enrollment_data = sorted(self.get_enrollment_data(), reverse=True, key=lambda item: item['date'])
 

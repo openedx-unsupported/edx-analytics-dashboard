@@ -1,71 +1,63 @@
-define(['highcharts', 'jquery', 'views/simple-model-attribute-view'],
-    function (highcharts, $, SimpleModelAttributeView) {
+define(['d3', 'nvd3', 'views/attribute-listener-view'],
+    function (d3, nvd3, AttributeListenerView) {
         'use strict';
 
-        var EnrollmentTrendView = SimpleModelAttributeView.extend({
-            /**
-             * Convert string to UTC timestamp
-             *
-             * @param date
-             * @returns {number}
-             * @private
-             */
-            _convertDate: function (date) {
-                var tokens = date.split('-');
-                // JS months start at 0
-                return Date.UTC(tokens[0], tokens[1] - 1, tokens[2]);
-            },
-
-            /**
-             * Convert the array of Objects received from the server to a Array<Array<date, int>>
-             *
-             * @param data
-             * @returns {*}
-             * @private
-             */
-            _formatData: function (data) {
-                return _.map(data, function (datum) {
-                    return [this._convertDate(datum.date), datum.count];
-                }, this);
-            },
+        var EnrollmentTrendView = AttributeListenerView.extend({
 
             render: function () {
-                var series = this._formatData(this.model.get(this.modelAttribute));
+                var self = this,
+                    canvas = d3.select(self.el),
+                    chart;
 
-                this.$el.highcharts({
-                    credits: {
-                        enabled: false
-                    },
-                    chart: {
-                        zoomType: 'x'
-                    },
-                    title: {
-                        text: 'Daily Student Enrollment',
-                    },
-                    xAxis: {
-                        type: 'datetime',
-                        labels: {
-                            formatter: function () {
-                                return highcharts.dateFormat('%b %e, %Y', this.value);
-                            }
-                        }
-                    },
-                    yAxis: {
-                        min: 0,
-                        title: {
-                            text: 'Students'
-                        }
-                    },
-                    legend: {
-                        enabled: false
-                    },
-                    series: [
-                        {
-                            name: 'Students',
-                            data: series
-                        }
-                    ]
-                });
+                chart = nvd3.models.lineChart()
+                    .margin({left: 80, right: 40})  // margins so text fits
+                    .showLegend(true)
+                    .useInteractiveGuideline(true)
+                    .forceY(0)
+                    .x(function(d) {
+                       // Parse dates to integers
+                        return Date.parse(d.date);
+                    })
+                    .y(function(d) {
+                        // Simply return the count
+                        return d.count;
+                    })
+                    .tooltipContent(function (key, y, e, graph) {
+                        return '<h3>' + key + '</h3>';
+                    });
+
+                chart.xAxis
+                    .axisLabel('Date')
+                    .tickFormat(function (d) {
+                        return d3.time.format.utc('%x')(new Date(d));
+                    });
+
+                chart.yAxis
+                    .axisLabel('Students')
+                    .tickFormat(function(value){
+                        // display formatted number
+                        return value.toLocaleString();
+                    });
+
+                // Add the title
+                canvas.attr('class', 'line-chart-container')
+                    .append('div')
+                    .attr('class', 'chart-title')
+                    .text('Daily Student Enrollment');
+
+                // Append the svg to an inner container so that it adapts to
+                // the height of the inner container instead of the outer
+                // container which needs to create height for the title.
+                canvas.append('div')
+                    .attr('class', 'line-chart')
+                    .append('svg')
+                    .datum([{
+                        values: self.model.get(self.modelAttribute),
+                        key: 'Students'
+                    }])
+                    .call(chart);
+
+                nv.utils.windowResize(chart.update);
 
                 return this;
             }
