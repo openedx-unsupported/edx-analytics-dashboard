@@ -70,3 +70,9 @@ INSTALLED_APPS += (
     'django_nose',
 )
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+SOCIAL_AUTH_EDX_OAUTH2_KEY = 'ee475a43f7881908fbb2'
+SOCIAL_AUTH_EDX_OAUTH2_SECRET = '14bf591f6ae1ee3b065f947b124da48af1062be4'
+SOCIAL_AUTH_EDX_OAUTH2_URL_ROOT = 'http://localhost:9002/oauth2'
+
+ENABLE_AUTO_AUTH = True

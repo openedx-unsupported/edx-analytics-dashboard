@@ -33,7 +33,7 @@ Partial: App-wide header element
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle active-user navbar-link" data-toggle="dropdown">
                         <i class="ico-user fa fa-graduation-cap"></i>
-                        <span class="active-user-name">{{ user_name }}</span>
+                        <span class="active-user-name">{{ request.user.username }}</span>
                         <i class="ico ico-indicator fa fa-caret-down"></i>
                     </a>
 
@@ -42,7 +42,7 @@ Partial: App-wide header element
                             <a class="active-iser-nav-help" href="#">Help</a>
                         </li>
                         <li>
-                            <a class="active-iser-nav-logout" href="#">Logout</a>
+                            <a class="active-iser-nav-logout" href="{% url 'logout' %}">Logout</a>
                         </li>
                     </ul>
                 </li>

@@ -1,3 +1,9 @@
+"""
+This file contains Django middleware. For more information visit
+https://docs.djangoproject.com/en/dev/topics/http/middleware/.
+"""
+
+
 class CourseMiddleware(object):
     """
     Adds course info to the request object.

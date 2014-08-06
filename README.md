@@ -82,7 +82,7 @@ when executing either of the commands above.
 |----------------------|---------------------------------------|------------------------------|
 | DASHBOARD_SERVER_URL | URL where the dashboard is served     | http://127.0.0.1:8000        |
 | API_SERVER_URL       | URL where the analytics API is served | http://127.0.0.1:8001/api/v0 |
-| API_AUTH_TOKEN       | Analytics API authentication token    | analytics                    |
+| API_AUTH_TOKEN       | Analytics API authentication token    | edx                          |
 
 
 Override example:
