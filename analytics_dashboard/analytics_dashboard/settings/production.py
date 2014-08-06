@@ -26,7 +26,7 @@ def get_env_setting(setting):
 ALLOWED_HOSTS = ['*']
 ########## END HOST CONFIGURATION
 
-CONFIG_FILE=get_env_setting('ANALYTICS_API_CFG')
+CONFIG_FILE=get_env_setting('ANALYTICS_DASHBOARD_CFG')
 
 with open(CONFIG_FILE) as f:
     config_from_yaml = yaml.load(f)
