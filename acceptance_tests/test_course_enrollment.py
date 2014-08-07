@@ -93,7 +93,7 @@ class CourseEnrollmentTests(AnalyticsApiClientMixin, WebAppTest):
             self.assertListEqual(actual, expected)
 
         # Verify CSV button has an href attribute
-        selector = "a[data-role=enrollment-csv]"
+        selector = "a[data-role=enrollment-trend-csv]"
         self.assertValidHref(selector)
 
     def assertValidHref(self, selector):

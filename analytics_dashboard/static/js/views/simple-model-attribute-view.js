@@ -1,5 +1,5 @@
-define(['jquery', 'backbone'],
-    function ($, Backbone) {
+define(['backbone', 'jquery'],
+    function (Backbone, $) {
         'use strict';
 
         /**

@@ -1,41 +1,12 @@
 /**
- * This is the first script called by the engagement page.  It loads the libraries
- * and kicks off the application.
+ * This is the first script called by the engagement page.  It loads
+ * the libraries and kicks off the application.
  */
 
 // Load common.js first, which defines all of the models.  This is shared
 // between pages.
-require(['./common'], function () {
+require(['vendor/domReady!', 'load/init-page'], function(doc, page){
     'use strict';
-    require(['jquery', 'models/course-model', 'views/lens-navigation-view', 'bootstrap', 'holder'],
-        function ($, CourseModel, LensNavigationView, bootstrap, holder) {
-            $(document).ready(function () {
-                // ok, we've loaded all the libraries and the page is loaded, so
-                // lets kick off our application
-                var application = {
 
-                    onLoad: function() {
-                        var model,
-                            jsonData = JSON.parse( $('#content').attr('data-analytics-init') );
-
-                        // this data will be set by something else eventually
-                        model = new CourseModel();
-                        // lets assume that django is passing us the data in the
-                        // correct format for now
-                        model.set(jsonData);
-
-                        new LensNavigationView({model: model}).render();
-
-                        // enable tooltips.  If individual tooltips need
-                        // customization, we can have the specific views
-                        // take care of them
-                        $('.has-tooltip').tooltip();
-                    }
-
-                };
-
-                application.onLoad();
-            });
-        }
-    );
+    // page specific code goes here...
 });

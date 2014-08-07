@@ -18,12 +18,14 @@ define(['backbone', 'jquery'], function(Backbone, $) {
          * Retrieve course enrollment data grouped by country
          */
         fetchEnrollmentByCountry: function() {
-            var self = this;
-            var countryDataUrl = '/courses/' + this.get('courseId') + '/json/enrollment_by_country/';
+            var self = this,
+                countryDataUrl = ['/courses', this.get('courseId'), 'json/enrollment_by_country/'].join('/');
 
             $.getJSON(countryDataUrl, function (data) {
-                self.set('enrollmentByCountryUpdateDate', data.date);
-                self.set('enrollmentByCountry', data.data);
+                self.set({
+                    enrollmentByCountryUpdateDate: data.date,
+                    enrollmentByCountry: data.data
+                });
             });
         }
     });

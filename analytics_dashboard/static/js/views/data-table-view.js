@@ -1,32 +1,40 @@
-define(['jquery', 'views/simple-model-attribute-view', 'underscore', 'dataTablesBootstrap'],
-    function ($, SimpleModelAttributeView, _) {
+define(['dataTablesBootstrap', 'jquery', 'underscore', 'views/simple-model-attribute-view'],
+    function (dt, $, _, SimpleModelAttributeView) {
         'use strict';
 
         var DataTableView = SimpleModelAttributeView.extend({
 
             initialize: function (options) {
                 SimpleModelAttributeView.prototype.initialize.call(this, options);
+                var self = this;
 
-                this.data = options.data;
-                this.columns = options.columns;
-                this.sorting = options.sorting || [];
+                self.options = options || {};
+                self.options.sorting = options.sorting || [];
+
+                // go ahead and render if the data exists
+                if(self.model.has(self.modelAttribute)) {
+                    self.render();
+                }
             },
 
-            _buildColumns: function ($row, dtColumns) {
-                _.each(this.columns, function (column) {
+            _buildColumns: function ($row) {
+                var self = this,
+                    columns = [];
+                _.each(self.options.columns, function (column) {
                     $row.append('<th>' + column.title + '</th>');
-                    dtColumns.push({data: column.key});
+                    columns.push({data: column.key});
                 });
+                return columns;
             },
 
             _buildSorting: function () {
                 var dtSorting = [];
                 var sortRegexp = /^(-?)(.*)/g;
-                var columns = _.map(this.columns, function (column) {
+                var columns = _.map(this.options.columns, function (column) {
                     return column.key;
                 });
 
-                _.each(this.sorting, function (sorting) {
+                _.each(this.options.sorting, function (sorting) {
                     var match = sortRegexp.exec(sorting),
                         direction = match[1] === '-' ? 'desc' : 'asc',
                         index = columns.indexOf(match[2]);
@@ -43,13 +51,13 @@ define(['jquery', 'views/simple-model-attribute-view', 'underscore', 'dataTables
                 var dtColumns = [];
                 var dtConfig, dtSorting;
 
-                this._buildColumns($row, dtColumns);
+                dtColumns = this._buildColumns($row);
 
                 dtConfig = {
                         paging: false,
                         info: false,
                         filter: false,
-                        data: this.model.get(this.modelAttribute),
+                        data: this.model.get(this.options.modelAttribute),
                         columns: dtColumns
                     };
 

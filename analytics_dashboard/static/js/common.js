@@ -1,8 +1,8 @@
 /**
  * This defines our libraries across the application.  Each page
- * should load this file using require.
+ * should load this file.
  */
-require.config({
+var require = {
     baseUrl: '/static/',
     waitSeconds: 60,
     paths: {
@@ -12,12 +12,14 @@ require.config({
         bootstrap: 'vendor/bootstrap/javascripts/bootstrap.min',
         models: 'js/models',
         views: 'js/views',
+        utils: 'js/utils',
+        load: 'js/load',
         highcharts: 'vendor/highcharts/highcharts.min',
         highchartsMap: 'vendor/highcharts/map',
         highchartsMapWorld: 'vendor/highcharts/world',
         holder: 'vendor/holder',
         dataTables: 'vendor/dataTables/jquery.dataTables.min',
-        dataTablesBootstrap: 'vendor/dataTables/dataTables.bootstrap'
+        dataTablesBootstrap: 'vendor/dataTables/dataTables.bootstrap',
     },
     shim: {
         bootstrap: {
@@ -50,4 +52,4 @@ require.config({
     },
     // load jquery automatically
     deps: ['jquery']
-});
+};
