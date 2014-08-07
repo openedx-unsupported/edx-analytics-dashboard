@@ -2,8 +2,8 @@
 
 {% load staticfiles %}
 
-{% block view-name %}view-auth-failed view-system{% endblock view-name %}
-{% block title %}Authentication Failed | edX Analytics{% endblock title %}
+{% block view-name %}view-logged-out view-system{% endblock view-name %}
+{% block title %}Logged Out | edX Analytics{% endblock title %}
 
 {% block header %}
 {% endblock header %}
@@ -24,19 +24,15 @@
 
             <div class="inner cover">
                 <h1 class="cover-heading">
-                    <span class="error-title">Authentication Failed</span>
+                    <span class="error-title">Logged Out</span>
                 </h1>
 
-                <p class="lead error-copy">There was a problem accessing your account. Please try again. If you continue to experience issues, please let us know.</p>
+                <p class="lead error-copy">You have been logged out. Click the button below to login again.</p>
 
                 <p class="lead">
-                  <a href="{% url 'login' %}" class="btn btn-lg btn-primary">
+                    <a href="{% url 'login' %}" class="btn btn-lg btn-primary">
                         <i class="ico fa fa-sign-in"></i>
-                        Try Again
-                    </a>
-                    <a href="#" class="btn btn-lg btn-primary">
-                        <i class="ico fa fa-life-ring"></i>
-                        Contact edX Support
+                        Login
                     </a>
                 </p>
             </div>
