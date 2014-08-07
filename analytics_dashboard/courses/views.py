@@ -61,6 +61,7 @@ class CourseTemplateView(LoginRequiredMixin, CourseMixin, TemplateView):
             'course_title': 'Introduction to Awesomeness',
             'course_id': self.course_id,
             'page_title': self.page_title,
+            'feedback_email': settings.FEEDBACK_EMAIL,
             'js_data': {
                 'course': {
                     'courseId': self.course_id
