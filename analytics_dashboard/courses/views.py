@@ -165,11 +165,7 @@ class CourseEnrollmentByCountryJSON(JSONResponseMixin, CourseView):
 
         if api_response:
             start_date = api_response[0]['date']
-            api_data = [{'country_code': datum['country']['code'],
-                         'country_name': datum['country']['name'],
-                         'value': datum['count']} for datum in api_response]
-
-            data.update({'date': get_formatted_date(start_date), 'data': api_data})
+            data.update({'date': get_formatted_date(start_date), 'data': api_response})
 
         context['data'] = data
 

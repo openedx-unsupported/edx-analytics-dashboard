@@ -159,21 +159,6 @@ class CourseEnrollmentViewTests(CourseEnrollmentViewTestMixin, TestCase):
 class CourseEnrollmentByCountryJSONViewTests(CourseEnrollmentViewTestMixin, TestCase):
     viewname = 'courses:json_enrollment_by_country'
 
-    def convert_datum(self, datum):
-        datum['date'] = '2014-01-01'
-        datum['course_id'] = self.course_id
-        datum['count'] = datum['value']
-        datum['country'] = {
-            'code': datum['country_code'],
-            'name': datum['country_name']
-        }
-
-        del datum['country_code']
-        del datum['country_name']
-        del datum['value']
-
-        return datum
-
     @mock.patch('analyticsclient.course.Course.enrollment')
     def test_response(self, mock_enrollment):
         data = get_mock_enrollment_location_data(self.course_id)
@@ -191,7 +176,7 @@ class CourseEnrollmentByCountryJSONViewTests(CourseEnrollmentViewTestMixin, Test
         self.assertEqual(content['date'], expected)
 
         # Check data
-        actual = [self.convert_datum(datum) for datum in content['data']]
+        actual = content['data']
         self.assertListEqual(actual, data)
 
     @mock.patch('analyticsclient.course.Course.enrollment', mock.Mock(return_value=[]))

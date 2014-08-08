@@ -31,9 +31,10 @@ def get_mock_enrollment_summary():
 
 def get_mock_enrollment_location_data(course_id):
     data = []
-    for item in ((u'US', u'United States', 500), (u'DE', u'Germany', 100), (u'CA', u'Canada', 300)):
-        data.append({'date': '2014-01-01', 'course_id': course_id, 'count': item[2],
-                     'country': {'code': item[0], 'name': item[1]}})
+    for item in (
+    (u'US', u'USA', u'United States', 500), (u'DE', u'GER', u'Germany', 100), (u'CA', u'CAN', u'Canada', 300)):
+        data.append({'date': '2014-01-01', 'course_id': course_id, 'count': item[3],
+                     'country': {'alpha2': item[0], 'alpha3': item[1], 'name': item[2]}})
     return data
 
 
