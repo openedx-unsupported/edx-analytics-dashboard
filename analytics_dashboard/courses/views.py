@@ -165,7 +165,7 @@ class CourseEnrollmentByCountryJSON(JSONResponseMixin, CourseView):
 
         if api_response:
             start_date = api_response[0]['date']
-            api_data = [{'country_code': datum['country']['code'],
+            api_data = [{'country_code': datum['country']['alpha2'],
                          'country_name': datum['country']['name'],
                          'value': datum['count']} for datum in api_response]
 
