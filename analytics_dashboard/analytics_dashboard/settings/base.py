@@ -177,7 +177,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'waffle.middleware.WaffleMiddleware',
     'courses.middleware.CourseMiddleware',
-    'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
+    'analytics_dashboard.middleware.PatchedSocialAuthExceptionMiddleware',
 )
 ########## END MIDDLEWARE CONFIGURATION
 
@@ -280,6 +280,7 @@ INSTALLED_APPS += ('social.apps.django_app.default',)
 
 # Allow authentication via edX OAuth
 AUTHENTICATION_BACKENDS = (
+    'analytics_dashboard.backends.EdXOpenIdConnect',
     'analytics_dashboard.backends.EdXOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
@@ -305,12 +306,19 @@ SOCIAL_AUTH_PIPELINE = (
 
 SOCIAL_AUTH_USER_FIELDS = ['username', 'email', 'first_name', 'last_name']
 
-SOCIAL_AUTH_EDX_OAUTH2_LOGIN_ERROR_URL = '/auth/error/'
+SOCIAL_AUTH_LOGIN_ERROR_URL = '/auth/error/'
 
-# Set these to the correct values for your OAuth2 provider
+# Set these to the correct values for your OAuth2/OpenID Connect provider
 SOCIAL_AUTH_EDX_OAUTH2_KEY = None
 SOCIAL_AUTH_EDX_OAUTH2_SECRET = None
 SOCIAL_AUTH_EDX_OAUTH2_URL_ROOT = None
+
+SOCIAL_AUTH_EDX_OIDC_KEY = None
+SOCIAL_AUTH_EDX_OIDC_SECRET = None
+SOCIAL_AUTH_EDX_OIDC_URL_ROOT = None
+
+# This value should be the same as SOCIAL_AUTH_EDX_OIDC_SECRET
+SOCIAL_AUTH_EDX_OIDC_ID_TOKEN_DECRYPTION_KEY = None
 
 # Enable the auto_auth view. This should NOT be enabled for production deployments!
 ENABLE_AUTO_AUTH = False

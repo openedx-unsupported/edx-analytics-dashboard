@@ -17,7 +17,9 @@ urlpatterns = patterns(
     url(r'^courses/', include('courses.urls', namespace='courses')),
     url(r'^admin/', include(admin.site.urls)),
     url('', include('social.apps.django_app.urls', namespace='social')),
-    url(r'^accounts/login/$', RedirectView.as_view(url=reverse_lazy('social:begin', args=['edx-oauth2']), query_string=True), name='login'),
+    url(r'^accounts/login/$',
+        RedirectView.as_view(url=reverse_lazy('social:begin', args=['edx-oidc']), permanent=False, query_string=True),
+        name='login'),
     url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', name='logout'),
 
     url(r'^test/auto_auth/$', views.AutoAuth.as_view(), name='auto_auth'),

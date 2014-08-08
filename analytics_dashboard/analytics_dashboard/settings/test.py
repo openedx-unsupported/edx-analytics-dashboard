@@ -20,3 +20,7 @@ DATABASES = {
 }
 
 ENABLE_AUTO_AUTH = True
+SOCIAL_AUTH_EDX_OAUTH2_URL_ROOT = 'http://example.com'
+SOCIAL_AUTH_EDX_OIDC_URL_ROOT = 'http://example.com'
+
+AUTHENTICATION_BACKENDS += ('analytics_dashboard.backends.EdXOAuth2',)
