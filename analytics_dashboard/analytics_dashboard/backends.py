@@ -4,21 +4,25 @@ https://docs.djangoproject.com/en/dev/topics/auth/customizing/.
 """
 
 from django.conf import settings
+
 from social.backends.oauth import BaseOAuth2
+from social.backends.open_id import OpenIdConnectAuth
 
 
-# pylint: disable=abstract-method
-class EdXOAuth2(BaseOAuth2):
-    name = 'edx-oauth2'
-    AUTHORIZATION_URL = '{0}/authorize/'.format(settings.SOCIAL_AUTH_EDX_OAUTH2_URL_ROOT)
-    ACCESS_TOKEN_URL = '{0}/access_token/'.format(settings.SOCIAL_AUTH_EDX_OAUTH2_URL_ROOT)
+class EdXOAuth2Mixin(object):
     ACCESS_TOKEN_METHOD = 'POST'
     REDIRECT_STATE = False
     ID_KEY = 'username'
 
+
+# pylint: disable=abstract-method
+class EdXOAuth2(EdXOAuth2Mixin, BaseOAuth2):
+    name = 'edx-oauth2'
+    AUTHORIZATION_URL = '{0}/authorize/'.format(settings.SOCIAL_AUTH_EDX_OAUTH2_URL_ROOT)
+    ACCESS_TOKEN_URL = '{0}/access_token/'.format(settings.SOCIAL_AUTH_EDX_OAUTH2_URL_ROOT)
+
     EXTRA_DATA = [
         ('username', 'id'),
-        ('access_type', 'access_type', True),
         ('code', 'code'),
         ('expires_in', 'expires'),
         ('refresh_token', 'refresh_token', True),
@@ -33,4 +37,25 @@ class EdXOAuth2(BaseOAuth2):
             'fullname': '',
             'first_name': '',
             'last_name': ''
+        }
+
+
+# pylint: disable=abstract-method
+class EdXOpenIdConnect(EdXOAuth2Mixin, OpenIdConnectAuth):
+    name = 'edx-oidc'
+    DEFAULT_SCOPE = ['openid', 'profile']
+    ID_TOKEN_ISSUER = settings.SOCIAL_AUTH_EDX_OIDC_URL_ROOT
+    AUTHORIZATION_URL = '{0}/authorize/'.format(settings.SOCIAL_AUTH_EDX_OIDC_URL_ROOT)
+    ACCESS_TOKEN_URL = '{0}/access_token/'.format(settings.SOCIAL_AUTH_EDX_OIDC_URL_ROOT)
+
+    def user_data(self, _access_token, *_args, **_kwargs):
+        return self.id_token
+
+    def get_user_details(self, response):
+        return {
+            u'username': response['preferred_username'],
+            u'email': response['email'],
+            u'full_name': response['name'],
+            u'first_name': response['given_name'],
+            u'last_name': response['family_name']
         }

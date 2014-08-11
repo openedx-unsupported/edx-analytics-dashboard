@@ -113,19 +113,23 @@ class ViewTests(TestCase):
         self.assertUnhealthyAPI()
 
 
-class OAuthTests(UserTestCaseMixin, RedirectTestCaseMixin, TestCase):
-    DEFAULT_USERNAME = 'edx'
-
-    def setUp(self):
-        super(OAuthTests, self).setUp()
-        self.oauth_init_path = reverse('social:begin', args=['edx-oauth2'])
-
+class LoginViewTests(RedirectTestCaseMixin, TestCase):
     def test_login_redirect(self):
         """
         The login page should redirect users to the OAuth provider's login page.
         """
         response = self.client.get(settings.LOGIN_URL)
-        self.assertRedirectsNoFollow(response, self.oauth_init_path, status_code=301)
+        path = reverse('social:begin', args=['edx-oidc'])
+        self.assertRedirectsNoFollow(response, path, status_code=302)
+
+
+class OAuthTests(UserTestCaseMixin, RedirectTestCaseMixin, TestCase):
+    DEFAULT_USERNAME = 'edx'
+    backend_name = 'edx-oauth2'
+
+    def setUp(self):
+        super(OAuthTests, self).setUp()
+        self.oauth_init_path = reverse('social:begin', args=[self.backend_name])
 
     def _check_oauth_handshake(self, username=DEFAULT_USERNAME, failure=False):
         """ Performs an OAuth handshake to login a user.
@@ -138,7 +142,7 @@ class OAuthTests(UserTestCaseMixin, RedirectTestCaseMixin, TestCase):
         # Generate an OAuth request
         response = self.client.get(self.oauth_init_path)
         self.assertEqual(response.status_code, 302)
-        state = self.client.session['edx-oauth2_state']
+        state = self.client.session['{}_state'.format(self.backend_name)]
 
         # Generate an OAuth response
         token_response = {
@@ -150,7 +154,7 @@ class OAuthTests(UserTestCaseMixin, RedirectTestCaseMixin, TestCase):
 
         with mock.patch.object(EdXOAuth2, 'request_access_token', return_value=token_response):
             # Send the response to this application's OAuth consumer URL
-            oauth_complete_path = '{0}?state={1}'.format(reverse('social:complete', args=['edx-oauth2']), state)
+            oauth_complete_path = '{0}?state={1}'.format(reverse('social:complete', args=[self.backend_name]), state)
 
             if failure:
                 oauth_complete_path += '&error=access_denied'
@@ -158,7 +162,7 @@ class OAuthTests(UserTestCaseMixin, RedirectTestCaseMixin, TestCase):
             response = self.client.get(oauth_complete_path)
             self.assertEqual(response.status_code, 302)
 
-            redirect_path = settings.SOCIAL_AUTH_EDX_OAUTH2_LOGIN_ERROR_URL if failure else settings.LOGIN_REDIRECT_URL
+            redirect_path = settings.SOCIAL_AUTH_LOGIN_ERROR_URL if failure else settings.LOGIN_REDIRECT_URL
             self.assertEqual(response['Location'], 'http://testserver{}'.format(redirect_path))
 
     def test_oauth_new_user(self):
