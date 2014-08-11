@@ -259,6 +259,11 @@ WSGI_APPLICATION = '%s.wsgi.application' % SITE_NAME
 SEGMENT_IO_KEY = None
 ########## END SEGMENT.IO
 
+########## FEEDBACK -- override this email in production
+FEEDBACK_EMAIL = 'override.this.email@edx.org'
+########## END FEEDBACK
+
+
 ########## SOUTH CONFIGURATION
 # See: http://south.readthedocs.org/en/latest/installation.html#configuring-your-django-installation
 INSTALLED_APPS += (

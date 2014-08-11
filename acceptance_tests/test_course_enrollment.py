@@ -3,11 +3,11 @@ import datetime
 from analyticsclient import demographic
 from bok_choy.web_app_test import WebAppTest
 
-from acceptance_tests import AnalyticsApiClientMixin
+from acceptance_tests import AnalyticsApiClientMixin, CourseFooterTestMixin
 from acceptance_tests.pages import CourseEnrollmentPage
 
 
-class CourseEnrollmentTests(AnalyticsApiClientMixin, WebAppTest):
+class CourseEnrollmentTests(AnalyticsApiClientMixin, CourseFooterTestMixin, WebAppTest):
     """
     Tests for the Enrollment page.
     """
