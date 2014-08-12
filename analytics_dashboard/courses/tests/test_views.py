@@ -164,7 +164,7 @@ class CourseEnrollmentByCountryJSONViewTests(CourseEnrollmentViewTestMixin, Test
         datum['course_id'] = self.course_id
         datum['count'] = datum['value']
         datum['country'] = {
-            'code': datum['country_code'],
+            'alpha2': datum['country_code'],
             'name': datum['country_name']
         }
 
