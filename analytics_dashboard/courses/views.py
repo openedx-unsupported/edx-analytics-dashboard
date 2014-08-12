@@ -4,46 +4,31 @@ import json
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.http import Http404, HttpResponse
-from braces.views import LoginRequiredMixin
-from django.views.generic import View, TemplateView
-from django.views.generic.base import ContextMixin, RedirectView
-
+from django.views.generic import TemplateView
+from django.views.generic.base import RedirectView
 from analyticsclient import data_format, demographic
 from analyticsclient.client import Client
 from analyticsclient.exceptions import NotFoundError
+from braces.views import LoginRequiredMixin
 
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter
 from courses.utils import get_formatted_date, get_formatted_date_time
 
 
-class CourseMixin(object):
-    course_id = None
-
-    # TODO (cblackburn): We tried calling super.get, but that failed. Need to
-    # figure out why and fix this method.
-    def get(self, _request, *_args, **kwargs):
-        self.course_id = kwargs['course_id']
-
-        try:
-            return self.render_to_response(context=self.get_context_data())
-        except NotFoundError:
-            raise Http404
-
-
-class CourseTemplateView(LoginRequiredMixin, CourseMixin, TemplateView):
+class CourseContextMixin(object):
     """
-    This class should be extended by pages and populated with default data
-    initially.  Extend get_context_data to add page specific data.
-    """
+    Adds default course context data.
 
-    # displayed on the page
+    Use primarily with templated views where data needs to be passed to Javascript.
+    """
+    # Title displayed on the page
     page_title = None
-    # page returned for tracking
+
+    # Page name used for usage tracking/analytics
     page_name = None
 
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
-        context = super(CourseTemplateView, self).get_context_data(**kwargs)
+        context = super(CourseContextMixin, self).get_context_data(**kwargs)
         context.update(self.get_default_data())
         return context
 
@@ -51,7 +36,7 @@ class CourseTemplateView(LoginRequiredMixin, CourseMixin, TemplateView):
         """
         Returns default data for the pages (context and javascript data).
         """
-        # TODO: we are stubbing some information here until we have real data
+        # TODO: Use real course data
         user = self.request.user
         context = {
             'user_name': user.get_full_name(),
@@ -81,12 +66,23 @@ class CourseTemplateView(LoginRequiredMixin, CourseMixin, TemplateView):
         return context
 
 
-class CourseView(LoginRequiredMixin, CourseMixin, ContextMixin, View):
+class CourseView(LoginRequiredMixin, TemplateView):
+    """
+    Base course view.
+
+    Adds conveniences such as course_id attribute, and handles 404s when retrieving data from the API.
+    """
     client = None
     course = None
+    course_id = None
 
-    def render_to_response(self, context, **response_kwargs):
-        raise NotImplementedError
+    def dispatch(self, request, *args, **kwargs):
+        self.course_id = kwargs['course_id']
+
+        try:
+            return super(CourseView, self).dispatch(request, *args, **kwargs)
+        except NotFoundError:
+            raise Http404
 
     def get_context_data(self, **kwargs):
         context = super(CourseView, self).get_context_data(**kwargs)
@@ -94,6 +90,10 @@ class CourseView(LoginRequiredMixin, CourseMixin, ContextMixin, View):
                              auth_token=settings.DATA_API_AUTH_TOKEN, timeout=5)
         self.course = self.client.courses(self.course_id)
         return context
+
+
+class CourseTemplateView(CourseContextMixin, CourseView):
+    pass
 
 
 class CSVResponseMixin(object):
