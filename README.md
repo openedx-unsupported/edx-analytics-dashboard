@@ -37,7 +37,7 @@ Need a fallback to disable a feature? Create a [Waffle](http://waffle.readthedoc
 (switch)[http://waffle.readthedocs.org/en/latest/types.html#switches]:
 
         $ ./manage.py switch feature_name [on/off] --create
-        
+
 See the [Waffle documentation](http://waffle.readthedocs.org/en/latest/) for details on utilizing features in code and templates.
 
 
@@ -47,12 +47,15 @@ The code in this repository is licensed under version 3 of the AGPL unless other
 
 Please see `LICENSE.txt` for details.
 
-How To Contribute
+How to Contribute
 -----------------
-Contributions are very welcome.
 
-Please read [How To Contribute](https://github.com/edx/edx-platform/blob/master/CONTRIBUTING.rst) for details.
-
+Contributions are very welcome, but for legal reasons, you must submit a signed
+[individual contributor's agreement](http://code.edx.org/individual-contributor-agreement.pdf)
+before we can accept your contribution. See our
+[CONTRIBUTING](https://github.com/edx/edx-platform/blob/master/CONTRIBUTING.rst)
+file for more information -- it also contains guidelines for how to maintain
+high code quality, which will make your contribution more likely to be accepted.
 Testing
 -------
 
@@ -66,13 +69,13 @@ run with the command below:
 The acceptance tests are designed to test the application as whole (contrasted with unit tests that test individual
 components). These tests load the application in a browser and verify that data and elements appear as expected.
 
-The Bash script `runAcceptance.sh` will start the Django server and run the tests against the server. After the tests 
+The Bash script `runAcceptance.sh` will start the Django server and run the tests against the server. After the tests
 are run the server will be shutdown. Simply run the command below:
 
         $ ./runAcceptance.sh
 
 If you already have a server running, there is also a make task you can run instead of the script above.
- 
+
         $ make accept
 
 The tests make a few assumptions about URLs and authentication. These can be overridden by setting environment variables
