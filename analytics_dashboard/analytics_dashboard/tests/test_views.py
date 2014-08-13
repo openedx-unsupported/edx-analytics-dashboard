@@ -255,6 +255,6 @@ class AutoAuthTests(UserTestCaseMixin, TestCase):
         original_user_count = User.objects.count()
         response = self.client.get(reverse('auto_auth'))
 
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
         self.assertEqual(User.objects.count(), original_user_count + 1)
         self.assertUserLoggedIn(self.get_latest_user())

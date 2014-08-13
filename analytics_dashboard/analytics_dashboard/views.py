@@ -7,9 +7,12 @@ from analyticsclient.exceptions import ClientError
 import django
 from django.conf import settings
 from django.contrib.auth import get_user_model, login, authenticate, REDIRECT_FIELD_NAME
+from django.core.urlresolvers import reverse
 from django.db import connection, DatabaseError
 from django.http import HttpResponse, Http404
+from django.shortcuts import redirect
 from django.views.generic import View, TemplateView
+
 from courses.permissions import revoke_user_course_permissions
 
 
@@ -68,12 +71,15 @@ class AutoAuth(View):
         if not settings.ENABLE_AUTO_AUTH:
             raise Http404
 
+        # Create a new user
         username = password = uuid.uuid4().hex[0:30]
         User.objects.create_user(username, password=password)
+
+        # Login the new user
         user = authenticate(username=username, password=password)
         login(request, user)
 
-        return HttpResponse()
+        return redirect(reverse('courses:home', kwargs={'course_id': 'edX/DemoX/Demo_Course'}))
 
 
 class AuthError(TemplateView):
