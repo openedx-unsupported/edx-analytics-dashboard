@@ -14,12 +14,13 @@ var require = {
         views: 'js/views',
         utils: 'js/utils',
         load: 'js/load',
-        highcharts: 'vendor/highcharts/highcharts.min',
-        highchartsMap: 'vendor/highcharts/map',
-        highchartsMapWorld: 'vendor/highcharts/world',
         holder: 'vendor/holder',
         dataTables: 'vendor/dataTables/jquery.dataTables.min',
         dataTablesBootstrap: 'vendor/dataTables/dataTables.bootstrap',
+        d3: 'vendor/d3/d3',
+        nvd3: 'vendor/nvd3/nv.d3',
+        topojson: 'vendor/topojson/topojson',
+        datamaps: 'vendor/datamaps/datamaps.world.min'
     },
     shim: {
         bootstrap: {
@@ -37,17 +38,16 @@ var require = {
                 return Backbone;
             }
         },
-        highcharts: {
-            exports: 'Highcharts'
-        },
-        highchartsMap: {
-            deps: ['highcharts']
-        },
-        highchartsMapWorld: {
-            deps: ['highcharts', 'highchartsMap']
-        },
         dataTablesBootstrap: {
             deps: ['jquery', 'dataTables']
+        },
+        nvd3: {
+            deps: ['d3'],
+            exports: 'nv'
+        },
+        datamaps: {
+            deps: ['topojson', 'd3'],
+            exports: 'datamap'
         }
     },
     // load jquery automatically

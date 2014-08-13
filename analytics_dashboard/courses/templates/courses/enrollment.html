@@ -20,6 +20,7 @@ Individual course-centric enrollment view
 
 
 {% block content %}
+
   <section class="view-section" data-section="enrollment-basics">
     <h4 class="section-title">
       <span class="section-title-value">Enrollment Basics</span>
@@ -90,7 +91,13 @@ Individual course-centric enrollment view
     </div>
 
     <div class="section-content section-data-viz">
-      <div data-view="world-map" data-title="Enrollment by Country" data-series-name="Enrollment"></div>
+      <div class="world-map" data-view="world-map" data-title="Enrollment by Country" data-series-name="Enrollment">
+        {% comment %}
+        The map is loaded via ajax, so display a loading message.  Everything inside of this div will be
+        cleared when the map data loads.
+        {% endcomment %}
+        {% include "loading.html" with message="Loading Map..." %}
+      </div>
     </div>
 
     <hr/>
@@ -100,7 +107,9 @@ Individual course-centric enrollment view
       <span class="subsection-title-note small">Which countries are represented by my students?</span>
     </h5>
 
-    <div class="section-content section-data-table" data-role="enrollment-location-table"></div>
+    <div class="section-content section-data-table" data-role="enrollment-location-table">
+        {% include "loading.html" with message="Loading Table..." %}
+    </div>
 
     <div class="section-actions">
       <a href="{% url 'courses:csv_enrollment_by_country' course_id=course_id %}" class="btn btn-primary"
