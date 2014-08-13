@@ -1,46 +1,14 @@
-{% extends "base.html" %}
+{% extends "base-error.html" %}
 
-{% load staticfiles %}
+{% block title %}Authentication Failed {{ block.super }}{% endblock title %}
 
-{% block view-name %}view-auth-failed view-system{% endblock view-name %}
-{% block title %}Authentication Failed | edX Analytics{% endblock title %}
+{% block error-title %}Authentication Failed{% endblock %}
+{% block error-copy %}
+  There was a problem accessing your account. Please try again. If you continue to experience issues, please let us
+  know.
+{% endblock %}
 
-{% block header %}
-{% endblock header %}
-
-{% block content %}
-<div class="site-wrapper">
-
-    <div class="site-wrapper-inner">
-
-        <div class="cover-container">
-
-            <div class="masthead clearfix">
-                <div class="inner">
-                    <img class="masthead-brand-logo" src="{% static 'images/logo-edx.svg' %}" alt="edX" />
-                    <span class="masthead-brand-app">Analytics</span>
-                </div>
-            </div>
-
-            <div class="inner cover">
-                <h1 class="cover-heading">
-                    <span class="error-title">Authentication Failed</span>
-                </h1>
-
-                <p class="lead error-copy">There was a problem accessing your account. Please try again. If you continue to experience issues, please let us know.</p>
-
-                <p class="lead">
-                  <a href="{% url 'login' %}" class="btn btn-lg btn-primary">
-                        <i class="ico fa fa-sign-in"></i>
-                        Try Again
-                    </a>
-                    <a href="#" class="btn btn-lg btn-primary">
-                        <i class="ico fa fa-life-ring"></i>
-                        Contact edX Support
-                    </a>
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-{% endblock content %}
+{% block buttons %}
+  <a href="{% url 'login' %}" class="btn btn-lg btn-primary"> <i class="ico fa fa-sign-in"></i> Try Again </a>
+  {{ block.super }}
+{% endblock %}

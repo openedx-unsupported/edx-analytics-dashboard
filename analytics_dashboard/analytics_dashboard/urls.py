@@ -4,7 +4,7 @@ from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.contrib import admin
 from django.core.urlresolvers import reverse_lazy
-from django.views.generic import RedirectView
+from django.views.generic import RedirectView, TemplateView
 
 from analytics_dashboard import views
 
@@ -31,5 +31,8 @@ if settings.DEBUG:  # pragma: no cover
 
     urlpatterns += patterns(
         '',
-        url(r'^__debug__/', include(debug_toolbar.urls))
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+        url(r'^403/$', TemplateView.as_view(template_name='403.html')),
+        url(r'^404/$', TemplateView.as_view(template_name='404.html')),
+        url(r'^500/$', TemplateView.as_view(template_name='500.html')),
     )
