@@ -2,6 +2,7 @@ import datetime
 import json
 
 from django.conf import settings
+from django.core.exceptions import PermissionDenied
 from django.core.urlresolvers import reverse
 from django.http import Http404, HttpResponse
 from django.views.generic import TemplateView
@@ -10,6 +11,7 @@ from analyticsclient import data_format, demographic
 from analyticsclient.client import Client
 from analyticsclient.exceptions import NotFoundError
 from braces.views import LoginRequiredMixin
+from courses.permissions import user_can_view_course
 
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter
 from courses.utils import get_formatted_date, get_formatted_date_time
@@ -66,7 +68,21 @@ class CourseContextMixin(object):
         return context
 
 
-class CourseView(LoginRequiredMixin, TemplateView):
+class CoursePermissionMixin(object):
+    course_id = None
+    user = None
+
+    def can_view(self):
+        return user_can_view_course(self.user, self.course_id)
+
+    def dispatch(self, request, *args, **kwargs):
+        if settings.ENABLE_COURSE_PERMISSIONS and not self.can_view():
+            raise PermissionDenied
+
+        return super(CoursePermissionMixin, self).dispatch(request, *args, **kwargs)
+
+
+class CourseView(LoginRequiredMixin, CoursePermissionMixin, TemplateView):
     """
     Base course view.
 
@@ -75,8 +91,10 @@ class CourseView(LoginRequiredMixin, TemplateView):
     client = None
     course = None
     course_id = None
+    user = None
 
     def dispatch(self, request, *args, **kwargs):
+        self.user = request.user
         self.course_id = kwargs['course_id']
 
         try:

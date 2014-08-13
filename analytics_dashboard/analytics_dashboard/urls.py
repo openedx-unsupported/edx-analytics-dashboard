@@ -20,7 +20,7 @@ urlpatterns = patterns(
     url(r'^accounts/login/$',
         RedirectView.as_view(url=reverse_lazy('social:begin', args=['edx-oidc']), permanent=False, query_string=True),
         name='login'),
-    url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', name='logout'),
+    url(r'^accounts/logout/$', views.logout, name='logout'),
 
     url(r'^test/auto_auth/$', views.AutoAuth.as_view(), name='auto_auth'),
     url(r'^auth/error/$', views.AuthError.as_view(), name='auth_error'),
