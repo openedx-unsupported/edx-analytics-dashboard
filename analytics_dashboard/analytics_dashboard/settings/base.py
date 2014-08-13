@@ -331,4 +331,10 @@ SOCIAL_AUTH_EDX_OIDC_ID_TOKEN_DECRYPTION_KEY = None
 
 # Enable the auto_auth view. This should NOT be enabled for production deployments!
 ENABLE_AUTO_AUTH = False
+
+# Maximum time (in seconds) before course permissions expire and need to be refreshed
+COURSE_PERMISSIONS_TIMEOUT = 900
+
+# Determines if course permissions should be checked before rendering course views.
+ENABLE_COURSE_PERMISSIONS = True
 ########## END AUTHENTICATION

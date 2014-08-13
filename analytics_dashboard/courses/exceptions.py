@@ -1,0 +1,19 @@
+class PermissionsError(Exception):
+    """
+    Base class for permissions errors.
+    """
+    pass
+
+
+class UserNotAssociatedWithBackendError(PermissionsError):
+    """
+    Raise when a user is not associated with a given backend.
+    """
+    pass
+
+
+class InvalidAccessToken(PermissionsError):
+    """
+    Raise if user has an empty or otherwise invalid access token.
+    """
+    pass

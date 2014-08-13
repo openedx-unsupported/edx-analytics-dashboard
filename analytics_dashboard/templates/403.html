@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{# TODO DRY - Refactor error templates. #}
+
+{% block view-name %}view-403 view-system{% endblock view-name %}
+{% block title %}Access Denied | edX Analytics{% endblock title %}
+
+{% block header %}
+{% endblock header %}
+
+{% block content %}
+  <div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+      <div class="cover-container">
+
+        <div class="masthead clearfix">
+          <div class="inner">
+            <img class="masthead-brand-logo" src="{% static 'images/logo-edx.svg' %}" alt="edX"/>
+            <span class="masthead-brand-app">Analytics</span>
+          </div>
+        </div>
+
+        <div class="inner cover">
+          <h1 class="cover-heading">
+            <span class="error-code">403</span>
+            <span class="error-title">Access Denied</span>
+          </h1>
+
+          <p class="lead error-copy">You do not have permission to view {{ request.course_id }}. If you believe you
+            should have access to this course, try logging out and logging in again to refresh your permissions. If you
+            continue seeing this error, use the link below to contact our support team.</p>
+
+          <p class="lead">
+            <a href="#" class="btn btn-lg btn-primary">
+              <i class="ico fa fa-life-ring"></i>
+              Contact edX Support
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

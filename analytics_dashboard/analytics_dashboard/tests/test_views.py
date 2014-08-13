@@ -1,4 +1,5 @@
 import json
+from django.core.cache import cache
 from django.test.utils import override_settings
 import mock
 
@@ -12,6 +13,7 @@ from django.test import TestCase
 from analyticsclient.exceptions import ClientError
 
 from analytics_dashboard.backends import EdXOAuth2
+from courses.permissions import set_user_course_permissions, user_can_view_course
 
 
 User = get_user_model()
@@ -121,6 +123,40 @@ class LoginViewTests(RedirectTestCaseMixin, TestCase):
         response = self.client.get(settings.LOGIN_URL)
         path = reverse('social:begin', args=['edx-oidc'])
         self.assertRedirectsNoFollow(response, path, status_code=302)
+
+
+class LogoutViewTests(UserTestCaseMixin, TestCase):
+    def test_logut_without_user(self):
+        """
+        Logging out without having been previously logged in should not raise an error
+        """
+        self.client.logout()
+
+    def test_logout_clear_course_permissions(self):
+        """
+        Logging out should clear course permissions
+        """
+
+        self.login()
+
+        user = self.user
+        course_id = 'edX/DemoX/Demo_Course'
+        courses = [course_id]
+        permissions_key = 'course_permissions_{}'.format(user.pk)
+        update_key = 'course_permissions_updated_at_{}'.format(user.pk)
+
+        # Set permissions and verify cache is updated
+        set_user_course_permissions(user, courses)
+        self.assertListEqual(cache.get(permissions_key), courses)
+        self.assertIsNotNone(cache.get(update_key))
+        self.assertTrue(user_can_view_course(user, course_id))
+
+        # Logout by GETing the URL. self.client.logout() doesn't actually call this view.
+        self.client.get(reverse('logout'))
+
+        # Verify cache cleared
+        self.assertIsNone(cache.get(permissions_key))
+        self.assertIsNone(cache.get(update_key))
 
 
 class OAuthTests(UserTestCaseMixin, RedirectTestCaseMixin, TestCase):

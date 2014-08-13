@@ -1,6 +1,7 @@
 import datetime
 import json
 import analyticsclient
+from django.core.cache import cache
 import mock
 
 from django.conf import settings
@@ -10,8 +11,9 @@ import analyticsclient.activity_type as AT
 from analyticsclient.exceptions import NotFoundError
 
 from analytics_dashboard.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin
+from courses.permissions import set_user_course_permissions, revoke_user_course_permissions
 from courses.tests.utils import get_mock_enrollment_data, get_mock_enrollment_location_data, \
-    convert_list_of_dicts_to_csv
+    convert_list_of_dicts_to_csv, set_empty_permissions
 
 
 def mock_engagement_summary_data():
@@ -24,13 +26,26 @@ def mock_engagement_summary_data():
     }
 
 
-class CourseViewTestMixin(RedirectTestCaseMixin, UserTestCaseMixin):
+class PermissionsTestMixin(object):
+    def tearDown(self):
+        super(PermissionsTestMixin, self).tearDown()
+        cache.clear()
+
+    def grant_permission(self, user, *courses):
+        set_user_course_permissions(user, courses)
+
+    def revoke_permissions(self, user):
+        revoke_user_course_permissions(user)
+
+
+class CourseViewTestMixin(PermissionsTestMixin, RedirectTestCaseMixin, UserTestCaseMixin):
     viewname = None
 
     def setUp(self):
         super(CourseViewTestMixin, self).setUp()
         self.course_id = 'edX/DemoX/Demo_Course'
         self.path = reverse(self.viewname, kwargs={'course_id': self.course_id})
+        self.grant_permission(self.user, self.course_id)
         self.login()
 
     def assertResponseContentType(self, response, content_type):
@@ -40,7 +55,9 @@ class CourseViewTestMixin(RedirectTestCaseMixin, UserTestCaseMixin):
         self.assertEqual(response['Content-Disposition'], 'attachment; filename="{0}"'.format(filename))
 
     def test_not_found(self):
-        path = reverse(self.viewname, kwargs={'course_id': 'fakeOrg/soFake/Fake_Course'})
+        course_id = 'fakeOrg/soFake/Fake_Course'
+        self.grant_permission(self.user, course_id)
+        path = reverse(self.viewname, kwargs={'course_id': course_id})
         response = self.client.get(path, follow=True)
         self.assertEqual(response.status_code, 404)
 
@@ -58,6 +75,22 @@ class CourseViewTestMixin(RedirectTestCaseMixin, UserTestCaseMixin):
         response = self.client.get(self.path)
         self.assertRedirectsNoFollow(response, settings.LOGIN_URL, next=self.path)
 
+    @mock.patch('courses.permissions.refresh_user_course_permissions', mock.Mock(side_effect=set_empty_permissions))
+    def test_authorization(self):
+        """
+        Users must be authorized to view a course in order to view the course pages.
+        """
+
+        # Authorized users should be able to view the page
+        self.grant_permission(self.user, self.course_id)
+        response = self.client.get(self.path, follow=True)
+        self.assertEqual(response.status_code, 200)
+
+        # Unauthorized users should be redirected to the 403 page
+        self.revoke_permissions(self.user)
+        response = self.client.get(self.path, follow=True)
+        self.assertEqual(response.status_code, 403)
+
 
 class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
     @mock.patch('analyticsclient.course.Course.enrollment', mock.Mock(side_effect=NotFoundError))
@@ -68,6 +101,11 @@ class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
         with mock.patch.object(analyticsclient.course.Course, 'enrollment',
                                return_value=get_mock_enrollment_data(self.course_id)):
             super(CourseEnrollmentViewTestMixin, self).test_authentication()
+
+    def test_authorization(self):
+        with mock.patch.object(analyticsclient.course.Course, 'enrollment',
+                               return_value=get_mock_enrollment_data(self.course_id)):
+            super(CourseEnrollmentViewTestMixin, self).test_authorization()
 
 
 class CourseEngagementViewTests(CourseViewTestMixin, TestCase):
@@ -111,6 +149,11 @@ class CourseEngagementViewTests(CourseViewTestMixin, TestCase):
                 mock.Mock(return_value=mock_engagement_summary_data()))
     def test_authentication(self):
         super(CourseEngagementViewTests, self).test_authentication()
+
+    @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary',
+                mock.Mock(return_value=mock_engagement_summary_data()))
+    def test_authorization(self):
+        super(CourseEngagementViewTests, self).test_authorization()
 
 
 class CourseEnrollmentViewTests(CourseEnrollmentViewTestMixin, TestCase):
@@ -160,10 +203,10 @@ class CourseEnrollmentByCountryJSONViewTests(CourseEnrollmentViewTestMixin, Test
     viewname = 'courses:json_enrollment_by_country'
 
     def convert_datum(self, datum):
-        '''
+        """
         Converts the country data returned from the JSON endpoint to the format
         returned by the client API.  This is used to compare the two outputs.
-        '''
+        """
         datum['date'] = '2014-01-01'
         datum['course_id'] = self.course_id
         datum['country'] = {
@@ -217,6 +260,13 @@ class CourseEnrollmentByCountryJSONViewTests(CourseEnrollmentViewTestMixin, Test
             # Call CourseEnrollmentViewTestMixin.test_authentication in order
             # to bypass the Mock in CourseEnrollmentViewTestMixin.test_authentication.
             super(CourseEnrollmentViewTestMixin, self).test_authentication()  # pylint: disable=bad-super-call
+
+    def test_authorization(self):
+        with mock.patch.object(analyticsclient.course.Course, 'enrollment',
+                               return_value=get_mock_enrollment_location_data(self.course_id)):
+            # Call CourseEnrollmentViewTestMixin.test_authentication in order
+            # to bypass the Mock in CourseEnrollmentViewTestMixin.test_authentication.
+            super(CourseEnrollmentViewTestMixin, self).test_authorization()  # pylint: disable=bad-super-call
 
 
 class CourseEnrollmentByCountryCSVViewTests(CourseEnrollmentViewTestMixin, TestCase):

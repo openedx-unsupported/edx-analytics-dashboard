@@ -4,11 +4,13 @@ import uuid
 
 from analyticsclient.client import Client
 from analyticsclient.exceptions import ClientError
+import django
 from django.conf import settings
-from django.contrib.auth import get_user_model, login, authenticate
+from django.contrib.auth import get_user_model, login, authenticate, REDIRECT_FIELD_NAME
 from django.db import connection, DatabaseError
 from django.http import HttpResponse, Http404
 from django.views.generic import View, TemplateView
+from courses.permissions import revoke_user_course_permissions
 
 
 logger = logging.getLogger(__name__)
@@ -76,3 +78,17 @@ class AutoAuth(View):
 
 class AuthError(TemplateView):
     template_name = 'auth_error.html'
+
+
+def logout(request, next_page=None, template_name='registration/logged_out.html',
+           redirect_field_name=REDIRECT_FIELD_NAME, current_app=None, extra_context=None):
+    """
+    Revoke user permissions and logout
+    """
+
+    # Revoke permissions
+    revoke_user_course_permissions(request.user)
+
+    # Back to the standard logout flow
+    return django.contrib.auth.views.logout(request, next_page, template_name, redirect_field_name, current_app,
+                                            extra_context)

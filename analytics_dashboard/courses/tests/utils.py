@@ -1,6 +1,7 @@
 import StringIO
 import csv
 import datetime
+from courses.permissions import set_user_course_permissions
 
 
 def get_mock_enrollment_data(course_id):
@@ -31,8 +32,8 @@ def get_mock_enrollment_summary():
 
 def get_mock_enrollment_location_data(course_id):
     data = []
-    for item in (
-    (u'USA', u'United States', 500), (u'GER', u'Germany', 100), (u'CAN', u'Canada', 300)):
+    items = ((u'USA', u'United States', 500), (u'GER', u'Germany', 100), (u'CAN', u'Canada', 300))
+    for item in items:
         data.append({'date': '2014-01-01', 'course_id': course_id, 'count': item[2],
                      'country': {'alpha3': item[0], 'name': item[1]}})
     return data
@@ -47,3 +48,8 @@ def convert_list_of_dicts_to_csv(data, fieldnames=None):
     writer.writerows(data)
 
     return output.getvalue()
+
+
+def set_empty_permissions(user):
+    set_user_course_permissions(user, [])
+    return []
