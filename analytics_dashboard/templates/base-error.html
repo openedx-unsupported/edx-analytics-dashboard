@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load staticfiles %}
+{% load dashboard_extras %}
 
 {% block view-name %}view-system{% endblock view-name %}
 {% block title %}| edX Analytics{% endblock title %}
@@ -34,7 +35,8 @@
 
           <p class="lead">
             {% block buttons %}
-              <a href="#" class="btn btn-lg btn-primary">
+              <a href="{% settings_value "SUPPORT_URL" %}" class="btn btn-lg btn-primary"
+                 title="Use our support tool to ask questions or share feedback.">
                 <i class="ico fa fa-life-ring"></i> Contact edX Support
               </a>
             {% endblock %}

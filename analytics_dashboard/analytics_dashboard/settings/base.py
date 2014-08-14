@@ -208,6 +208,7 @@ DJANGO_APPS = (
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
+    'analytics_dashboard',
     'courses',
 )
 
@@ -259,8 +260,9 @@ WSGI_APPLICATION = '%s.wsgi.application' % SITE_NAME
 SEGMENT_IO_KEY = None
 ########## END SEGMENT.IO
 
-########## FEEDBACK -- override this email in production
-FEEDBACK_EMAIL = 'override.this.email@edx.org'
+########## FEEDBACK AND SUPPORT -- These values should be overridden for production deployments.
+FEEDBACK_EMAIL = 'override.this.email@example.com'
+SUPPORT_URL = 'http://example.com/'
 ########## END FEEDBACK
 
 
