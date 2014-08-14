@@ -66,10 +66,25 @@ Testing
 -------
 
 ### Unit Tests & Code Quality
-This project uses `nose` to find and run tests. `pep8` and `pylint` are used to verify code quality. All three can be
-run with the command below:
+The complete unit test and quality suite can be run with:
 
-    $ make validate
+        $ make validate
+
+The Python portion of this project uses `nose` to find and run tests. `pep8` and `pylint` are used to verify code 
+quality. All three can be run with the command below:
+
+        $ make validate_python
+
+
+JavaScript tests and linting can be run with the following command:
+
+        $ make validate_js
+        
+#### Continuous Integration (CI) Reports
+The commands above will generate coverage reports the `build` directory. Python reports are located in `build/coverage`. 
+ JavaScript reports are in `build/coverage-js`. Both should have a [Cobertura](http://cobertura.github.io/cobertura/) 
+ `coverage.xml` file and an `html` directory with a human-readable HTML site.
+
 
 ### Acceptance Tests
 The acceptance tests are designed to test the application as whole (contrasted with unit tests that test individual
@@ -98,24 +113,6 @@ when executing either of the commands above.
 Override example:
 
         $ DASHBOARD_SERVER_URL="http://example.com" API_SERVER_URL="http://api.example.com" API_AUTH_TOKEN="example" make accept
-
-### JavaScript Tests
-
-1. Install node.js packages (if you haven't run this already):
-
-        $ npm install
-
-2. Run default gulp tasks:
-
-        $ gulp
-
-3. Run the JavaScript tests alone:
-
-        $ gulp test
-
-4. Run the JavaScript linting alone:
-
-        $ gulp lint
 
 
 Reporting Security Issues
