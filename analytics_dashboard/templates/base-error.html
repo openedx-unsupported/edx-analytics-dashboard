@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block view-name %}view-system{% endblock view-name %}
+{% block title %}| edX Analytics{% endblock title %}
+
+{# These are intentionally left blank. #}
+{% block header %}{% endblock header %}
+{% block lens_navigation %}{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block content-outer %}
+  <div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+      <div class="cover-container">
+
+        <div class="masthead clearfix">
+          <div class="inner">
+            <img class="masthead-brand-logo" src="{% static 'images/logo-edx.svg' %}" alt="edX"/>
+            <span class="masthead-brand-app">Analytics</span>
+          </div>
+        </div>
+
+        <div class="inner cover">
+          <h1 class="cover-heading">
+            <span class="error-code">{% block error-code %}{% endblock %}</span>
+            <span class="error-title">{% block error-title %}{% endblock %}</span>
+          </h1>
+
+          <p class="lead error-copy">{% block error-copy %}{% endblock %}</p>
+
+          <p class="lead">
+            {% block buttons %}
+              <a href="#" class="btn btn-lg btn-primary">
+                <i class="ico fa fa-life-ring"></i> Contact edX Support
+              </a>
+            {% endblock %}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
