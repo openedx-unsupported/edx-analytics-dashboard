@@ -329,7 +329,8 @@ SOCIAL_AUTH_EDX_OIDC_URL_ROOT = None
 # This value should be the same as SOCIAL_AUTH_EDX_OIDC_SECRET
 SOCIAL_AUTH_EDX_OIDC_ID_TOKEN_DECRYPTION_KEY = None
 
-# Enable the auto_auth view. This should NOT be enabled for production deployments!
+# Enables a special view that, when accessed, creates and logs in a new user.
+# This should NOT be enabled for production deployments!
 ENABLE_AUTO_AUTH = False
 
 # Maximum time (in seconds) before course permissions expire and need to be refreshed

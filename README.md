@@ -41,6 +41,16 @@ Need a fallback to disable a feature? Create a [Waffle](http://waffle.readthedoc
 See the [Waffle documentation](http://waffle.readthedocs.org/en/latest/) for details on utilizing features in code and templates.
 
 
+Authentication & Authorization
+------------------------------
+By default, this application relies on an external OAuth2/Open ID Connect provider 
+(contained within the [LMS](https://github.com/edx/edx-platform)) for authentication and authorization. If you are a 
+developer, and do not want to setup edx-platform, you can get around this requirement by doing the following:
+
+1. Set `ENABLE_AUTO_AUTH` to `True` in your settings file. (This is the default value in `settings/local.py`).
+2. Set `ENABLE_COURSE_PERMISSIONS` to `False` in your settings file.
+3. Visit `http://localhost:9000/test/auto_auth/` to create and login as a new user. 
+
 License
 -------
 The code in this repository is licensed under version 3 of the AGPL unless otherwise noted.
