@@ -177,7 +177,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'waffle.middleware.WaffleMiddleware',
     'courses.middleware.CourseMiddleware',
-    'analytics_dashboard.middleware.PatchedSocialAuthExceptionMiddleware',
+    'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
 )
 ########## END MIDDLEWARE CONFIGURATION
 
