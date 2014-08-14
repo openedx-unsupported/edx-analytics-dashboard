@@ -8,6 +8,12 @@ requirements:
 test.requirements: requirements
 	pip install -q -r requirements/test.txt
 
+develop: test.requirements
+	pip install -q -r requirements/local.txt
+
+syncdb:
+	cd analytics_dashboard && ./manage.py syncdb --migrate
+
 clean:
 	find . -name '*.pyc' -delete
 	coverage erase
