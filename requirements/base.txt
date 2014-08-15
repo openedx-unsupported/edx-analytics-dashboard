@@ -1,11 +1,11 @@
 Django==1.6.2
-South==0.8.2
+South==1.0
 bpython==0.12
 django-braces==1.2.2
 django-libsass==0.2
 django-model-utils==1.5.0
 django_compressor==1.4
 logutils==0.3.3
--e git+git@github.com:omab/python-social-auth.git@38bdfe28fc897ac1677d36f8b539752448fc19f9#egg=python-social-auth
+-e git+git@github.com:edx/python-social-auth.git@edx#egg=python-social-auth
 -e git+git@github.com:edx/edx-analytics-api-client.git@0.2.5#egg=edx-analytics-api-client
 django-waffle==0.10

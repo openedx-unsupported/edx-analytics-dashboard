@@ -3,13 +3,13 @@ COVERAGE = $(ROOT)/build/coverage
 PACKAGES = analytics_dashboard courses
 
 requirements:
-	pip install -q -r requirements/base.txt
+	pip install -q -r requirements/base.txt --exists-action w
 
 test.requirements: requirements
-	pip install -q -r requirements/test.txt
+	pip install -q -r requirements/test.txt --exists-action w
 
 develop: test.requirements
-	pip install -q -r requirements/local.txt
+	pip install -q -r requirements/local.txt --exists-action w
 
 syncdb:
 	cd analytics_dashboard && ./manage.py syncdb --migrate
