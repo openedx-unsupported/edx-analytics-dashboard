@@ -9,20 +9,16 @@ Getting Started
 1. Get the code (e.g. clone the repository).
 2. Install the Python requirements:
 
-        $ pip install -r requirements/local.txt
-        $ pip install -r requirements/test.txt
+        $ make develop
 
-3. Change to the Django project directory.
+3. Setup your database:
+
+        $ make syncdb
+
+4. Run the server:
 
         $ cd analytics_dashboard
-
-4. Setup your database:
-
-        $ ./manage.py syncdb --migrate
-
-5. Run the server:
-
-        $ ./manage.py runserver
+        $ ./manage.py runserver 0.0.0.0:9000
 
 By default the Django Default Toolbar is disabled. To enable it set the environmental variable ENABLE_DJANGO_TOOLBAR.
 
