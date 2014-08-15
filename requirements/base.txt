@@ -1,11 +1,11 @@
-Django==1.6.2
-South==1.0
-bpython==0.12
-django-braces==1.2.2
-django-libsass==0.2
-django-model-utils==1.5.0
-django_compressor==1.4
-logutils==0.3.3
--e git+git@github.com:edx/python-social-auth.git@edx#egg=python-social-auth
--e git+git@github.com:edx/edx-analytics-api-client.git@0.2.5#egg=edx-analytics-api-client
-django-waffle==0.10
+Django==1.6.2				# BSD License
+South==1.0					# Apache LIcense
+bpython==0.12				# MIT License
+django-braces==1.2.2		# BSD
+django-libsass==0.2			# BSD
+django-model-utils==1.5.0 	# BSD
+django_compressor==1.4		# MIT
+logutils==0.3.3				# BSD
+-e git+git@github.com:edx/python-social-auth.git@edx#egg=python-social-auth 	# BSD
+-e git+git@github.com:edx/edx-analytics-api-client.git@0.2.5#egg=edx-analytics-api-client # edX
+django-waffle==0.10			# BSD
