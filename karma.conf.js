@@ -52,9 +52,11 @@ module.exports = function (config) {
         reporters: ['progress', 'coverage'],
 
         coverageReporter: {
+            dir:'build', subdir: 'coverage-js',
             reporters:[
-                {type: 'html', dir:'coverage/'},
-                {type: 'cobertura', dir:'reports/'}
+                {type: 'html', subdir: 'coverage-js/html'},
+                {type: 'cobertura', file: 'coverage.xml'},
+                {type: 'text-summary'}
             ]
         },
 

@@ -18,7 +18,7 @@ clean:
 	find . -name '*.pyc' -delete
 	coverage erase
 
-test: clean
+test_python: clean
 	cd analytics_dashboard && ./manage.py test --settings=analytics_dashboard.settings.test \
 		--exclude-dir=analytics_dashboard/settings --with-coverage --cover-inclusive --cover-branches \
 		--cover-html --cover-html-dir=$(COVERAGE)/html/ \
@@ -37,7 +37,13 @@ quality:
 	# Ignore module level docstrings and all test files
 	#cd analytics_dashboard && pep257 --ignore=D100,D203 --match='(?!test).*py' $(PACKAGES)
 
-validate: test.requirements test quality
+validate_python: test.requirements test_python quality
+
+validate_js:
+	npm install
+	gulp
+
+validate: validate_python validate_js
 
 demo:
 	cd analytics_dashboard && ./manage.py switch show_engagement_demo_interface on --create
