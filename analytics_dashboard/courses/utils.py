@@ -1,4 +1,5 @@
 import time
+from waffle import switch_is_active
 
 
 def get_formatted_date_time(time_interval):
@@ -33,3 +34,10 @@ def get_formatted_summary_number(maybe_number):
         label = "{:,}".format(maybe_number)
 
     return label
+
+
+def is_feature_enabled(item):
+    switch_name = item.get('switch', None)
+    if switch_name:
+        return switch_is_active(switch_name)
+    return True

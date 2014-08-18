@@ -41,27 +41,29 @@
     {% include "lens-navigation.html" %}
     {% endblock lens_navigation %}
 
-    <div class="row">
-      {% block content-outer %}
-        <main class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="content" data-analytics-init='{{ page_data | safe }}'>
-            <div class="view-head">
-                <h1>{{ page_title }}</h1>
-            </div>
+    <div class="container">
+        <div class="row">
+          {% block content-outer %}
+            <main class="col-xs-12 main" id="content" data-analytics-init='{{ page_data | safe }}'>
+                <div class="view-head">
+                    <h1>{{ page_title }}</h1>
+                </div>
 
-            <div class="view-intro">
-                <p class="lead text-muted">
-                    {% block intro-text %}{% endblock intro-text %}
-                </p>
-            </div>
+                <div class="view-intro">
+                    <p class="lead text-muted">
+                        {% block intro-text %}{% endblock intro-text %}
+                    </p>
+                </div>
 
-            {% block content %}
-            {% endblock content %}
-        </main>
-      {% endblock %}
+                {% block content %}
+                {% endblock content %}
+            </main>
+          {% endblock %}
+        </div>
     </div>
 
     <div class="row">
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
+        <div class="col-xs-12">
             {% block footer %}
             {% include "footer.html" %}
             {% endblock footer %}

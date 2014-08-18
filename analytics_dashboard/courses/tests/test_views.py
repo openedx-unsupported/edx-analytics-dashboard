@@ -12,8 +12,8 @@ from analyticsclient.exceptions import NotFoundError
 
 from analytics_dashboard.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin
 from courses.permissions import set_user_course_permissions, revoke_user_course_permissions
-from courses.tests.utils import get_mock_enrollment_data, get_mock_enrollment_location_data, \
-    convert_list_of_dicts_to_csv, set_empty_permissions
+from courses.tests.utils import get_mock_enrollment_data, get_mock_api_enrollment_geography_data, \
+    get_mock_presenter_enrollment_geography_data, convert_list_of_dicts_to_csv, set_empty_permissions
 
 
 def mock_engagement_summary_data():
@@ -53,6 +53,12 @@ class CourseViewTestMixin(PermissionsTestMixin, RedirectTestCaseMixin, UserTestC
 
     def assertResponseFilename(self, response, filename):
         self.assertEqual(response['Content-Disposition'], 'attachment; filename="{0}"'.format(filename))
+
+    def assertPrimaryNav(self, nav):
+        raise NotImplementedError
+
+    def assertSecondaryNavs(self, nav):
+        raise NotImplementedError
 
     def test_not_found(self):
         course_id = 'fakeOrg/soFake/Fake_Course'
@@ -97,19 +103,28 @@ class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
     def test_not_found(self):
         super(CourseEnrollmentViewTestMixin, self).test_not_found()
 
-    def test_authentication(self):
-        with mock.patch.object(analyticsclient.course.Course, 'enrollment',
-                               return_value=get_mock_enrollment_data(self.course_id)):
-            super(CourseEnrollmentViewTestMixin, self).test_authentication()
+    def assertPrimaryNav(self, nav):
+        expected = {
+            'view': 'courses:enrollment_activity',
+            'icon': 'fa-child',
+            'switch': None,
+            'href': reverse('courses:enrollment_activity', kwargs={'course_id': self.course_id}),
+            'label': 'Enrollment'
+        }
+        self.assertEqual(nav, expected)
 
-    def test_authorization(self):
-        with mock.patch.object(analyticsclient.course.Course, 'enrollment',
-                               return_value=get_mock_enrollment_data(self.course_id)):
-            super(CourseEnrollmentViewTestMixin, self).test_authorization()
+    def assertSecondaryNavs(self, nav):
+        expected = [{'label': 'Activity', 'view': 'courses:enrollment_activity',
+                     'href': reverse('courses:enrollment_activity', kwargs={'course_id': self.course_id}),
+                     'is_feature': False, 'title': 'Enrollment Activity'},
+                    {'label': 'Geography', 'view': 'courses:enrollment_geography',
+                     'href': reverse('courses:enrollment_geography', kwargs={'course_id': self.course_id}),
+                     'is_feature': False, 'title': 'Enrollment Geography'}]
+        self.assertEqual(nav, expected)
 
 
-class CourseEngagementViewTests(CourseViewTestMixin, TestCase):
-    viewname = 'courses:engagement'
+class CourseEngagementContentViewTests(CourseViewTestMixin, TestCase):
+    viewname = 'courses:engagement_content'
 
     @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary',
                 mock.Mock(return_value=mock_engagement_summary_data()))
@@ -132,7 +147,7 @@ class CourseEngagementViewTests(CourseViewTestMixin, TestCase):
                          'Students who started watching any video.')
 
         # check page title
-        self.assertEqual(response.context['page_title'], 'Engagement')
+        self.assertEqual(response.context['page_title'], 'Engagement Content')
 
         # make sure the summary numbers are correct
         self.assertEqual(response.context['summary'][AT.ANY], 100)
@@ -140,29 +155,51 @@ class CourseEngagementViewTests(CourseViewTestMixin, TestCase):
         self.assertEqual(response.context['summary'][AT.PLAYED_VIDEO], 1000)
         self.assertEqual(response.context['summary'][AT.POSTED_FORUM], 0)
 
+        self.assertPrimaryNav(response.context['primary_nav_item'])
+        self.assertSecondaryNavs(response.context['secondary_nav_items'])
+
+    def assertPrimaryNav(self, nav):
+        expected = {
+            'view': 'courses:engagement_content',
+            'icon': 'fa-tasks',
+            'switch': 'navbar_display_engagement',
+            'href': reverse('courses:engagement_content', kwargs={'course_id': self.course_id}),
+            'label': 'Engagement'
+        }
+        self.assertEqual(nav, expected)
+
+    def assertSecondaryNavs(self, nav):
+        complete = [{'label': 'Activity', 'view': 'courses:enrollment_activity',
+                     'href': reverse('courses:enrollment_activity', kwargs={'course_id': self.course_id}),
+                     'title': 'Enrollment Activity', 'switch': 'navbar_display_engagement_content_'}]
+        # this filters it all out for now, but you'll eventually remove the
+        # feature flag
+        expected = [item for item in complete if not item['switch']]
+        self.assertEqual(nav, expected)
+
     @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary',
                 mock.Mock(side_effect=NotFoundError, autospec=True))
     def test_not_found(self):
-        super(CourseEngagementViewTests, self).test_not_found()
+        super(CourseEngagementContentViewTests, self).test_not_found()
 
     @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary',
                 mock.Mock(return_value=mock_engagement_summary_data()))
     def test_authentication(self):
-        super(CourseEngagementViewTests, self).test_authentication()
+        super(CourseEngagementContentViewTests, self).test_authentication()
 
     @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary',
                 mock.Mock(return_value=mock_engagement_summary_data()))
     def test_authorization(self):
-        super(CourseEngagementViewTests, self).test_authorization()
+        super(CourseEngagementContentViewTests, self).test_authorization()
 
 
-class CourseEnrollmentViewTests(CourseEnrollmentViewTestMixin, TestCase):
-    viewname = 'courses:enrollment'
+class CourseEnrollmentActivityViewTests(CourseEnrollmentViewTestMixin, TestCase):
+    viewname = 'courses:enrollment_activity'
 
-    @mock.patch('courses.presenters.CourseEnrollmentPresenter.get_data')
-    def test_valid_course(self, mock_get_data):
+    @mock.patch('courses.presenters.CourseEnrollmentPresenter.get_trend_data')
+    def test_valid_course(self, get_trend_data):
         enrollment_data = get_mock_enrollment_data(self.course_id)
-        mock_get_data.side_effect = [[enrollment_data[-1]], enrollment_data, enrollment_data]
+        get_trend_data.side_effect = [[enrollment_data[-1]], enrollment_data, enrollment_data]
 
         response = self.client.get(self.path)
         context = response.context
@@ -180,7 +217,7 @@ class CourseEnrollmentViewTests(CourseEnrollmentViewTestMixin, TestCase):
         self.assertDictEqual(context['tooltips'], expected)
 
         # check page title
-        self.assertEqual(context['page_title'], 'Enrollment')
+        self.assertEqual(context['page_title'], 'Enrollment Activity')
 
         # make sure the summary numbers are correct
         expected = {
@@ -198,75 +235,52 @@ class CourseEnrollmentViewTests(CourseEnrollmentViewTestMixin, TestCase):
         expected = enrollment_data
         self.assertListEqual(trend_data, expected)
 
-
-class CourseEnrollmentByCountryJSONViewTests(CourseEnrollmentViewTestMixin, TestCase):
-    viewname = 'courses:json_enrollment_by_country'
-
-    def convert_datum(self, datum):
-        """
-        Converts the country data returned from the JSON endpoint to the format
-        returned by the client API.  This is used to compare the two outputs.
-        """
-        datum['date'] = '2014-01-01'
-        datum['course_id'] = self.course_id
-        datum['country'] = {
-            'alpha3': datum['countryCode'],
-            'name': datum['countryName']
-        }
-
-        del datum['countryCode']
-        del datum['countryName']
-
-        return datum
-
-    @mock.patch('analyticsclient.course.Course.enrollment')
-    def test_response(self, mock_enrollment):
-        data = get_mock_enrollment_location_data(self.course_id)
-        mock_enrollment.return_value = data
-
-        response = self.client.get(self.path)
-
-        # Check content type
-        self.assertResponseContentType(response, 'application/json')
-
-        content = json.loads(response.content)
-
-        # Check date
-        expected = 'January 01, 2014'
-        self.assertEqual(content['date'], expected)
-
-        # Check data
-        actual = [self.convert_datum(datum) for datum in content['data']]
-        self.assertListEqual(actual, data)
-
-    @mock.patch('analyticsclient.course.Course.enrollment', mock.Mock(return_value=[]))
-    def test_response_no_data(self):
-        response = self.client.get(self.path)
-
-        # Check content type
-        self.assertResponseContentType(response, 'application/json')
-
-        content = json.loads(response.content)
-
-        # Check date
-        self.assertIsNone(content['date'])
-
-        # Check data
-        self.assertListEqual(content['data'], [])
+        self.assertPrimaryNav(context['primary_nav_item'])
+        self.assertSecondaryNavs(context['secondary_nav_items'])
 
     def test_authentication(self):
         with mock.patch.object(analyticsclient.course.Course, 'enrollment',
-                               return_value=get_mock_enrollment_location_data(self.course_id)):
-            # Call CourseEnrollmentViewTestMixin.test_authentication in order
-            # to bypass the Mock in CourseEnrollmentViewTestMixin.test_authentication.
-            super(CourseEnrollmentViewTestMixin, self).test_authentication()  # pylint: disable=bad-super-call
+                               return_value=get_mock_enrollment_data(self.course_id)):
+            super(CourseEnrollmentActivityViewTests, self).test_authentication()
 
     def test_authorization(self):
         with mock.patch.object(analyticsclient.course.Course, 'enrollment',
-                               return_value=get_mock_enrollment_location_data(self.course_id)):
-            # Call CourseEnrollmentViewTestMixin.test_authentication in order
-            # to bypass the Mock in CourseEnrollmentViewTestMixin.test_authentication.
-            super(CourseEnrollmentViewTestMixin, self).test_authorization()  # pylint: disable=bad-super-call
+                               return_value=get_mock_enrollment_data(self.course_id)):
+            super(CourseEnrollmentActivityViewTests, self).test_authorization()
+
+
+class CourseEnrollmentGeographyViewTests(CourseEnrollmentViewTestMixin, TestCase):
+    viewname = 'courses:enrollment_geography'
+
+    def test_authentication(self):
+        with mock.patch.object(analyticsclient.course.Course, 'enrollment',
+                               return_value=get_mock_api_enrollment_geography_data(self.course_id)):
+            super(CourseEnrollmentGeographyViewTests, self).test_authentication()
+
+    def test_authorization(self):
+        with mock.patch.object(analyticsclient.course.Course, 'enrollment',
+                               return_value=get_mock_api_enrollment_geography_data(self.course_id)):
+            super(CourseEnrollmentGeographyViewTests, self).test_authorization()
+
+    @mock.patch('courses.presenters.CourseEnrollmentPresenter.get_geography_data')
+    def test_valid_course(self, get_geography_data):
+        get_geography_data.side_effect = get_mock_presenter_enrollment_geography_data
+
+        response = self.client.get(self.path)
+        context = response.context
+
+        # make sure that we get a 200
+        self.assertEqual(response.status_code, 200)
+
+        # check page title
+        self.assertEqual(context['page_title'], 'Enrollment Geography')
+
+        page_data = json.loads(context['page_data'])
+        expected_date = 'January 01, 2014'
+        self.assertEqual(page_data['course']['enrollmentByCountryUpdateDate'], expected_date)
+
+        expected_data, _date = get_mock_presenter_enrollment_geography_data()
+        self.assertEqual(page_data['course']['enrollmentByCountry'], expected_data)
 
 
 class CourseEnrollmentByCountryCSVViewTests(CourseEnrollmentViewTestMixin, TestCase):
@@ -274,7 +288,7 @@ class CourseEnrollmentByCountryCSVViewTests(CourseEnrollmentViewTestMixin, TestC
 
     @mock.patch('analyticsclient.course.Course.enrollment')
     def test_response(self, mock_enrollment):
-        data = convert_list_of_dicts_to_csv(get_mock_enrollment_location_data(self.course_id))
+        data = convert_list_of_dicts_to_csv(get_mock_api_enrollment_geography_data(self.course_id))
         mock_enrollment.return_value = data
 
         response = self.client.get(self.path)
@@ -361,5 +375,5 @@ class CourseHomeViewTests(CourseEnrollmentViewTestMixin, TestCase):
         mock_enrollment.return_value = get_mock_enrollment_data(self.course_id)
 
         response = self.client.get(self.path)
-        expected_url = reverse('courses:enrollment', kwargs={'course_id': self.course_id})
+        expected_url = reverse('courses:enrollment_activity', kwargs={'course_id': self.course_id})
         self.assertRedirectsNoFollow(response, expected_url)

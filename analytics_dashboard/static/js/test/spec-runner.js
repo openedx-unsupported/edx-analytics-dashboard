@@ -63,6 +63,7 @@ if(isBrowser) {
     // unfortunately, we can't read directories in the browser, so we need to
     // list them here -- sorry!
     specs = [
+        config.baseUrl + 'js/spec/specs/attribute-view-spec.js',
         config.baseUrl + 'js/spec/specs/course-model-spec.js',
         config.baseUrl + 'js/spec/specs/tracking-model-spec.js',
         config.baseUrl + 'js/spec/specs/world-map-view-spec.js',

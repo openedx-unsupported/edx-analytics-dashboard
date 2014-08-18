@@ -4,7 +4,14 @@ define(['d3', 'nvd3', 'views/attribute-listener-view'],
 
         var EnrollmentTrendView = AttributeListenerView.extend({
 
+            initialize: function (options) {
+                AttributeListenerView.prototype.initialize.call(this, options);
+                var self = this;
+                self.renderIfDataAvailable();
+            },
+
             render: function () {
+                AttributeListenerView.prototype.render.call(this);
                 var self = this,
                     canvas = d3.select(self.el),
                     chart;

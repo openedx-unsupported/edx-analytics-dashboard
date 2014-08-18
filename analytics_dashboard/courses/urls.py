@@ -6,11 +6,11 @@ from courses import views
 import re
 
 COURSE_URLS = [
-    ('enrollment', views.EnrollmentView.as_view()),
-    ('engagement', views.EngagementView.as_view()),
+    ('enrollment/activity', views.EnrollmentActivityView.as_view()),
+    ('enrollment/geography', views.EnrollmentGeographyView.as_view()),
+    ('engagement/content', views.EngagementContentView.as_view()),
     ('performance', views.PerformanceView.as_view()),
     ('overview', views.OverviewView.as_view()),
-    ('json/enrollment_by_country', views.CourseEnrollmentByCountryJSON.as_view()),
     ('csv/enrollment', views.CourseEnrollmentCSV.as_view()),
     ('csv/enrollment_by_country', views.CourseEnrollmentByCountryCSV.as_view()),
 ]

@@ -21,6 +21,10 @@
   }
 }
 
+.loading-container {
+  padding-top: $padding-large-vertical * 2;
+}
+
 .world-map {
   position: relative;
   margin: 0 auto;
@@ -29,4 +33,74 @@
 
 .footer {
   padding: 0 ($padding-large-horizontal*2);
+}
+
+// lens navigation consists of a drop down and the lens sections in a navigation
+$lens-background-color: $gray-d2;
+$lens-nav-text-color: $gray-l1;
+$lens-nav-height: 55px;
+$lens-box-model: border-box;
+.lens-nav {
+  background-color: $lens-background-color;
+  min-height: $lens-nav-height;
+  border: 0px;
+  margin-bottom: 0px;
+  -moz-box-sizing: $lens-box-model;
+  -webkit-box-sizing: $lens-box-model;
+  box-sizing: $lens-box-model;
+
+  // aligns the navbar with the logo
+  ul.navbar-nav{
+    margin-left: 15px;
+  }
+
+  .navbar-nav {
+
+    .dropdown {
+      padding-right: 10px;
+
+      a {
+        text-transform: uppercase;
+        color: $navbar-default-link-active-color;
+      }
+
+      // this prevents the drop down from overlapping with the menu
+      .dropdown-menu {
+        top: 100%;
+
+        li > a {
+          // the default size is a big large
+          min-height: 20px;
+        }
+      }
+    }
+
+    // style the nav secondary items
+    li > a {
+      padding-top: 18px;
+      padding-bottom: 0px;
+      color: $lens-nav-text-color;
+      min-height: $lens-nav-height;
+    }
+
+    .nav-section.active {
+        color: $navbar-default-link-active-color;
+        border-bottom: 4px solid $navbar-default-link-active-color;
+    }
+
+    .nav-section {
+
+      a {
+        // override the default behaviour (change background, which looks weird in the navbar)
+        background: transparent;
+
+        &:active,&:hover {
+          background: transparent;
+        }
+
+      }
+
+    }
+
+  }
 }
