@@ -22,7 +22,7 @@ class EdXOAuth2Mixin(object):
             headers={'Authorization': 'Bearer {0}'.format(access_token)}
         )
 
-        return data['permissions']
+        return data.get('permissions', {})
 
 
 # pylint: disable=abstract-method
