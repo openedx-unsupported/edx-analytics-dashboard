@@ -102,12 +102,14 @@ If you already have a server running, there is also a make task you can run inst
 The tests make a few assumptions about URLs and authentication. These can be overridden by setting environment variables
 when executing either of the commands above.
 
-| Variable                 | Purpose                               | Default Value                |
-|--------------------------|---------------------------------------|------------------------------|
-| DASHBOARD_SERVER_URL     | URL where the dashboard is served     | http://127.0.0.1:9000        |
-| API_SERVER_URL           | URL where the analytics API is served | http://127.0.0.1:9001/api/v0 |
-| API_AUTH_TOKEN           | Analytics API authentication token    | edx                          |
-| DASHBOARD_FEEDBACK_EMAIL | Feedback email in the footer          | override.this.email@edx.org  |
+| Variable                 | Purpose                               | Default Value                    |
+|--------------------------|---------------------------------------|----------------------------------|
+| DASHBOARD_SERVER_URL     | URL where the dashboard is served     | http://127.0.0.1:9000            |
+| API_SERVER_URL           | URL where the analytics API is served | http://127.0.0.1:9001/api/v0     |
+| API_AUTH_TOKEN           | Analytics API authentication token    | edx                              |
+| DASHBOARD_FEEDBACK_EMAIL | Feedback email in the footer          | override.this.email@example.com  |
+| TEST_USERNAME            | Username used to login to the app     | edx                              |
+| TEST_PASSWORD            | password used to login to the app     | edx                              |
 
 
 Override example:

@@ -72,7 +72,7 @@ class AutoAuth(View):
             raise Http404
 
         # Create a new user
-        username = password = uuid.uuid4().hex[0:30]
+        username = password = 'AUTO_AUTH_' + uuid.uuid4().hex[0:20]
         User.objects.create_user(username, password=password)
 
         # Login the new user

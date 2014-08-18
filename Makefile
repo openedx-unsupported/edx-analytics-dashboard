@@ -27,7 +27,7 @@ test_python: clean
 		$(PACKAGES)
 
 accept:
-	python -m unittest discover acceptance_tests
+	nosetests acceptance_tests
 
 
 quality:

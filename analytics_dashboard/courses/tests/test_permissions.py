@@ -2,7 +2,9 @@ import logging
 
 from django.contrib.auth import get_user_model
 from django.core.cache import cache
+from django.core.urlresolvers import reverse
 from django.test import TestCase
+from django.test.utils import override_settings
 from django_dynamic_fixture import G
 import mock
 from testfixtures import LogCapture
@@ -76,6 +78,18 @@ class PermissionsTests(TestCase):
         self.assertFalse(user_can_view_course(user, course_id))
         mock_refresh.assert_called_with(user)
         self.assertFalse(user_can_view_course(user, course_id))
+
+    @override_settings(ENABLE_AUTO_AUTH=True)
+    def test_user_can_view_course_auto_auth(self):
+        """
+        When auto_auth is enabled, fake users can view all courses
+        """
+
+        response = self.client.get(reverse('auto_auth'))
+        self.assertEqual(response.status_code, 302)
+
+        user = User.objects.latest('date_joined')
+        self.assertTrue(user_can_view_course(user, 'xxx'))
 
     @mock.patch('analytics_dashboard.backends.EdXOpenIdConnect.get_user_permissions',
                 mock.Mock(return_value={'courses': ['edX/DemoX/Demo_Course']}))
