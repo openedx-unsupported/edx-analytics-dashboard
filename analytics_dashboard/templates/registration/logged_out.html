@@ -1,42 +1,14 @@
-{% extends "base.html" %}
+{% extends "base-error.html" %}
 
-{% load staticfiles %}
+{% block title %}Logged Out {{ block.super }}{% endblock title %}
 
-{% block view-name %}view-logged-out view-system{% endblock view-name %}
-{% block title %}Logged Out | edX Analytics{% endblock title %}
-
-{% block header %}
-{% endblock header %}
-
-{% block content %}
-<div class="site-wrapper">
-
-    <div class="site-wrapper-inner">
-
-        <div class="cover-container">
-
-            <div class="masthead clearfix">
-                <div class="inner">
-                    <img class="masthead-brand-logo" src="{% static 'images/logo-edx.svg' %}" alt="edX" />
-                    <span class="masthead-brand-app">Analytics</span>
-                </div>
-            </div>
-
-            <div class="inner cover">
-                <h1 class="cover-heading">
-                    <span class="error-title">Logged Out</span>
-                </h1>
-
-                <p class="lead error-copy">You have been logged out. Click the button below to login again.</p>
-
-                <p class="lead">
-                    <a href="{% url 'login' %}" class="btn btn-lg btn-primary">
-                        <i class="ico fa fa-sign-in"></i>
-                        Login
-                    </a>
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-{% endblock content %}
+{% block error-title %}Logged Out{% endblock %}
+{% block error-copy %}
+  You have been logged out. Click the button below to login again.
+{% endblock %}
+{% block buttons %}
+  <a href="{% url 'login' %}" class="btn btn-lg btn-primary">
+    <i class="ico fa fa-sign-in"></i>
+    Login
+  </a>
+{% endblock %}
