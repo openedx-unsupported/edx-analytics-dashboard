@@ -2,6 +2,7 @@ import datetime
 import logging
 from django.conf import settings
 from django.core.cache import cache
+from social.apps.django_app import load_strategy
 from analytics_dashboard.backends import EdXOpenIdConnect
 from courses.exceptions import UserNotAssociatedWithBackendError, InvalidAccessToken
 
@@ -54,7 +55,7 @@ def refresh_user_course_permissions(user):
     Arguments
         user (User) --  User whose permissions should be refreshed
     """
-    backend = EdXOpenIdConnect()
+    backend = EdXOpenIdConnect(strategy=load_strategy())
     user_social_auth = user.social_auth.filter(provider=backend.name).first()
 
     if not user_social_auth:
