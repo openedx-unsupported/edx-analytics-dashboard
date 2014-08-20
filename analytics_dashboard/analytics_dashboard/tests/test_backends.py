@@ -12,7 +12,7 @@ class EdXOAuth2Tests(OAuth2Test):
     access_token_body = json.dumps({
         'access_token': 'foobar',
         'token_type': 'bearer',
-        'username': 'edx'
+        'preferred_username': 'edx'
     })
 
     def test_login(self):

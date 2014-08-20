@@ -185,7 +185,7 @@ class OAuthTests(UserTestCaseMixin, RedirectTestCaseMixin, TestCase):
             'access_token': '12345',
             'refresh_token': 'abcde',
             'expires_in': 900,
-            'username': username
+            'preferred_username': username
         }
 
         with mock.patch.object(EdXOAuth2, 'request_access_token', return_value=token_response):
