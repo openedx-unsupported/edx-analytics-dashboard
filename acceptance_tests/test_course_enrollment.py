@@ -4,11 +4,11 @@ from bok_choy.promise import EmptyPromise
 
 from analyticsclient import demographic
 
-from acceptance_tests import AnalyticsApiClientMixin, CourseFooterTestMixin
+from acceptance_tests import AnalyticsApiClientMixin, FooterMixin
 from acceptance_tests.pages import CourseEnrollmentPage
 
 
-class CourseEnrollmentTests(AnalyticsApiClientMixin, CourseFooterTestMixin, WebAppTest):
+class CourseEnrollmentTests(AnalyticsApiClientMixin, FooterMixin, WebAppTest):
     """
     Tests for the Enrollment page.
     """

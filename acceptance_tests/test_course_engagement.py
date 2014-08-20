@@ -4,11 +4,11 @@ from bok_choy.web_app_test import WebAppTest
 
 from analyticsclient import activity_type as at
 
-from acceptance_tests import AnalyticsApiClientMixin, CourseFooterTestMixin
+from acceptance_tests import AnalyticsApiClientMixin, FooterMixin
 from acceptance_tests.pages import CourseEngagementPage
 
 
-class CourseEngagementTests(AnalyticsApiClientMixin, CourseFooterTestMixin, WebAppTest):
+class CourseEngagementTests(AnalyticsApiClientMixin, FooterMixin, WebAppTest):
     """
     Tests for the Engagement page.
     """
