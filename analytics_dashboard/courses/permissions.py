@@ -88,6 +88,9 @@ def user_can_view_course(user, course_id):
         user (User)     --  User whose permissions are being checked
         course_id (str) --  Course to check
     """
+    if settings.ENABLE_AUTO_AUTH and user.username.startswith('AUTO_AUTH_'):
+        return True
+
     key_courses, key_last_updated = _get_course_permission_cache_keys(user)
     keys = [key_courses, key_last_updated]
 

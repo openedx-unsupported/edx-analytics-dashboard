@@ -2,7 +2,13 @@ import os
 from analyticsclient.client import Client
 
 DASHBOARD_SERVER_URL = os.environ.get('DASHBOARD_SERVER_URL', 'http://127.0.0.1:9000')
-DASHBOARD_FEEDBACK_EMAIL = os.environ.get('DASHBOARD_FEEDBACK_EMAIL', 'override.this.email@edx.org')
+DASHBOARD_FEEDBACK_EMAIL = os.environ.get('DASHBOARD_FEEDBACK_EMAIL', 'override.this.email@example.com')
+USERNAME = os.environ.get('TEST_USERNAME', 'edx')
+PASSWORD = os.environ.get('TEST_PASSWORD', 'edx')
+
+# Determines if a second, scope authorization, page needs to be submitted/acknowledged
+# after logging in at the OAuth provider.
+ENABLE_OAUTH_AUTHORIZE = True
 
 
 class AnalyticsApiClientMixin(object):
@@ -29,14 +35,16 @@ class FooterMixin(object):
         self.assertEqual(element.text[0], DASHBOARD_FEEDBACK_EMAIL)
 
         # Verify the terms of service link is present
-        selector = footer_selector + " a[role=tos]"
+        selector = footer_selector + " a[data-role=tos]"
         element = self.page.q(css=selector)
-        self.assertEqual(element.text, 'Terms of Service')
+        self.assertTrue(element.present)
+        self.assertEqual(element.text[0], u'Terms of Service')
 
         # Verify the privacy policy link is present
-        selector = footer_selector + " a[role=privacy-policy]"
+        selector = footer_selector + " a[data-role=privacy-policy]"
         element = self.page.q(css=selector)
-        self.assertEqual(element.text, 'Privacy Policy')
+        self.assertTrue(element.present)
+        self.assertEqual(element.text[0], u'Privacy Policy')
 
 
 def auto_auth(browser, server_url):
