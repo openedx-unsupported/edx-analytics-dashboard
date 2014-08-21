@@ -37,22 +37,13 @@ class CoursePage(DashboardPage):
         return self.browser.current_url == self.page_url
 
 
-class CourseEnrollmentPage(CoursePage):
+class CourseEnrollmentActivityPage(CoursePage):
     def __init__(self, browser, course_id=None):
-        super(CourseEnrollmentPage, self).__init__(browser, course_id)
-        self.page_url += '/enrollment/'
+        super(CourseEnrollmentActivityPage, self).__init__(browser, course_id)
+        self.page_url += '/enrollment/activity/'
 
     def is_browser_on_page(self):
-        return super(CourseEnrollmentPage, self).is_browser_on_page() and 'Enrollment' in self.browser.title
-
-
-class CourseEngagementPage(CoursePage):
-    def __init__(self, browser, course_id=None):
-        super(CourseEngagementPage, self).__init__(browser, course_id)
-        self.page_url += '/engagement/'
-
-    def is_browser_on_page(self):
-        return super(CourseEngagementPage, self).is_browser_on_page() and 'Engagement' in self.browser.title
+        return super(CourseEnrollmentActivityPage, self).is_browser_on_page() and 'Enrollment Activity' in self.browser.title
 
 
 class LoginPage(DashboardPage):
@@ -67,3 +58,21 @@ class LogoutPage(DashboardPage):
 
     def is_browser_on_page(self):
         return self.browser.title.startswith('Logged Out')
+
+
+class CourseEnrollmentGeographyPage(CoursePage):
+    def __init__(self, browser, course_id=None):
+        super(CourseEnrollmentGeographyPage, self).__init__(browser, course_id)
+        self.page_url += '/enrollment/geography/'
+
+    def is_browser_on_page(self):
+        return super(CourseEnrollmentGeographyPage, self).is_browser_on_page() and 'Enrollment Geography' in self.browser.title
+
+
+class CourseEngagementContentPage(CoursePage):
+    def __init__(self, browser, course_id=None):
+        super(CourseEngagementContentPage, self).__init__(browser, course_id)
+        self.page_url += '/engagement/content/'
+
+    def is_browser_on_page(self):
+        return super(CourseEngagementContentPage, self).is_browser_on_page() and 'Engagement Content' in self.browser.title

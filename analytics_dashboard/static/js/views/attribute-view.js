@@ -7,6 +7,12 @@ define(['views/attribute-listener-view'],
          */
         var AttributeView = AttributeListenerView.extend({
 
+            initialize: function (options) {
+                AttributeListenerView.prototype.initialize.call(this, options);
+                var self = this;
+                self.renderIfDataAvailable();
+            },
+
             render: function () {
                 AttributeListenerView.prototype.render.call(this);
                 var self = this;

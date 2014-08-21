@@ -11,10 +11,7 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'views/attribute-listener
                 self.options = options || {};
                 self.options.sorting = options.sorting || [];
 
-                // go ahead and render if the data exists
-                if(self.model.has(self.modelAttribute)) {
-                    self.render();
-                }
+                self.renderIfDataAvailable();
             },
 
             _buildColumns: function ($row) {

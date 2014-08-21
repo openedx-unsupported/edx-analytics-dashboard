@@ -5,7 +5,7 @@ from bok_choy.web_app_test import WebAppTest
 from analyticsclient import activity_type as at
 
 from acceptance_tests import AnalyticsApiClientMixin, FooterMixin
-from acceptance_tests.pages import CourseEngagementPage
+from acceptance_tests.pages import CourseEngagementContentPage
 
 
 class CourseEngagementTests(AnalyticsApiClientMixin, FooterMixin, WebAppTest):
@@ -19,7 +19,7 @@ class CourseEngagementTests(AnalyticsApiClientMixin, FooterMixin, WebAppTest):
         """
         super(CourseEngagementTests, self).setUp()
 
-        self.page = CourseEngagementPage(self.browser)
+        self.page = CourseEngagementContentPage(self.browser)
         self.course = self.api_client.courses(self.page.course_id)
 
     def test_page_exists(self):

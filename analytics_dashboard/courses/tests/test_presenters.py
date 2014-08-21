@@ -6,7 +6,8 @@ from django.test import TestCase
 import analyticsclient.activity_type as AT
 
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter, BasePresenter
-from courses.tests.utils import get_mock_enrollment_data, get_mock_enrollment_summary
+from courses.tests.utils import get_mock_enrollment_data, get_mock_enrollment_summary, \
+    get_mock_api_enrollment_geography_data, get_mock_presenter_enrollment_geography_data
 
 
 def mock_activity_data(activity_type):
@@ -89,8 +90,17 @@ class CourseEnrollmentPresenterTests(TestCase):
         self.assertDictEqual(actual, expected)
 
     @mock.patch('analyticsclient.course.Course.enrollment')
-    def test_get_data(self, mock_enrollment):
+    def test_get_trend_data(self, mock_enrollment):
         expected = get_mock_enrollment_data(self.course_id)
         mock_enrollment.return_value = expected
-        actual = self.presenter.get_data(self.course_id)
+        actual = self.presenter.get_trend_data(self.course_id)
         self.assertEqual(actual, expected)
+
+    @mock.patch('analyticsclient.course.Course.enrollment')
+    def test_get_geography_data(self, mock_enrollment):
+        mock_data = get_mock_api_enrollment_geography_data(self.course_id)
+        mock_enrollment.return_value = mock_data
+        expected_data, expected_update = get_mock_presenter_enrollment_geography_data()
+        actual_data, last_updated = self.presenter.get_geography_data()
+        self.assertEqual(actual_data, expected_data)
+        self.assertEqual(last_updated, expected_update)

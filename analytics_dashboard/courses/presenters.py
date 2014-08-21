@@ -4,6 +4,7 @@ from django.conf import settings
 
 from analyticsclient.client import Client
 import analyticsclient.activity_type as AT
+from analyticsclient import demographic
 
 
 class BasePresenter(object):
@@ -85,8 +86,25 @@ class CourseEnrollmentPresenter(BasePresenter):
         super(CourseEnrollmentPresenter, self).__init__(timeout)
         self.course_id = course_id
 
-    def get_data(self, start_date=None, end_date=None):
+    def get_trend_data(self, start_date=None, end_date=None):
         return self.client.courses(self.course_id).enrollment(start_date=start_date, end_date=end_date)
+
+    def get_geography_data(self):
+        """
+        Returns a list of course geography data and the updated date (ex. 2014-1-31).
+        """
+        api_response = self.client.courses(self.course_id).enrollment(demographic.LOCATION)
+        data = []
+        update_date = None
+
+        if api_response:
+            update_date = api_response[0]['date']
+            # formatting this data for easy access in the table UI
+            data = [{'countryCode': datum['country']['alpha3'],
+                     'countryName': datum['country']['name'],
+                     'count': datum['count']} for datum in api_response]
+
+        return data, update_date
 
     def get_summary(self):
         """
@@ -106,7 +124,7 @@ class CourseEnrollmentPresenter(BasePresenter):
         }
 
         # Get most-recent enrollment
-        recent_enrollment = self.get_data()
+        recent_enrollment = self.get_trend_data()
 
         if recent_enrollment:
             # Get data for a month prior to most-recent data
@@ -114,7 +132,7 @@ class CourseEnrollmentPresenter(BasePresenter):
             month_before = last_enrollment_date - datetime.timedelta(days=31)
             start_date = month_before
             end_date = last_enrollment_date + datetime.timedelta(days=1)
-            last_month_enrollment = self.get_data(start_date=start_date, end_date=end_date)
+            last_month_enrollment = self.get_trend_data(start_date=start_date, end_date=end_date)
 
             # Add the first values to the returned data dictionary using the most-recent enrollment data
             current_enrollment = recent_enrollment[0]['count']

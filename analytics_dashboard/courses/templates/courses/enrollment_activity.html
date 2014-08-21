@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% comment %}
+Individual course-centric enrollment activity view.
+{% endcomment %}
+
+{% block view-name %}view-course-enrollment view-dashboard{% endblock view-name %}
+
+{% block javascript %}
+  {{ block.super }}
+  <script data-main="{% static 'js/enrollment-activity-main.js' %}" src="{% static 'vendor/require.js' %}"></script>
+{% endblock javascript %}
+
+
+{% block content %}
+
+  <section class="view-section" data-section="enrollment-basics">
+
+    <div class="section-content section-data-graph">
+      <div class="section-content section-data-viz">
+        <div id="enrollment-trend-view">
+            <div class="line-chart-container"><div class="line-chart ">
+                {% include "loading.html" with message="Loading Trend..." %}
+            </div></div>
+        </div>
+      </div>
+    </div>
+
+
+    <h4 class="section-title">
+      <span class="section-title-value">Enrollment Statistics</span>
+      <span class="section-title-note small">How many students are in my course?</span>
+    </h4>
+
+    <hr/>
+
+    <div class="row">
+      <div class="col-sm-12">
+            <span class="section-title-value small">Last updated
+                <span data-role="enrollment-last-updated">{{ summary.date|date }}</span>
+            </span>
+      </div>
+    </div>
+
+    <div class="section-content section-data-summary">
+      <div class="row">
+        <div class="col-xs-12 col-sm-3" data-stat-type="current_enrollment">
+          {% include "summary_point.html" with count=summary.current_enrollment label="Current Enrollment" tooltip=tooltips.current_enrollment only %}
+        </div>
+
+        <div class="col-xs-12 col-sm-3" data-stat-type="enrollment_change_last_1_days">
+          {% include "summary_point.html" with count=summary.enrollment_change_last_1_days label="&#916; Previous Day" tooltip=tooltips.enrollment_change_last_1_days only %}
+        </div>
+
+        <div class="col-xs-12 col-sm-3" data-stat-type="enrollment_change_last_7_days">
+          {% include "summary_point.html" with count=summary.enrollment_change_last_7_days label="&#916; Previous Week" tooltip=tooltips.enrollment_change_last_7_days only %}
+        </div>
+
+        <div class="col-xs-12 col-sm-3" data-stat-type="enrollment_change_last_30_days">
+          {% include "summary_point.html" with count=summary.enrollment_change_last_30_days label="&#916; Previous Month" tooltip=tooltips.enrollment_change_last_30_days only %}
+        </div>
+      </div>
+    </div>
+
+    <h4 class="section-title">
+      <span class="section-title-value">Enrollment Breakdown</span>
+      <span class="section-title-note small">How many students are in my course?</span>
+    </h4>
+
+    <div class="section-content section-data-table" data-role="enrollment-table">
+        {% include "loading.html" with message="Loading Table..." %}
+    </div>
+
+    <div class="section-actions">
+      <a href="{% url 'courses:csv_enrollment' course_id=course_id %}" class="btn btn-primary"
+         data-role="enrollment-trend-csv" data-track-type="click"
+         data-track-event="edx.bi.csv.downloaded" data-track-category="trend">
+        <i class="ico fa fa-download"></i> Download CSV
+      </a>
+    </div>
+  </section>
+
+{% endblock content %}

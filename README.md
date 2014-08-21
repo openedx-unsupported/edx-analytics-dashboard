@@ -36,6 +36,13 @@ Need a fallback to disable a feature? Create a [Waffle](http://waffle.readthedoc
 
 See the [Waffle documentation](http://waffle.readthedocs.org/en/latest/) for details on utilizing features in code and templates.
 
+The following switches are available:
+
+| Switch                            | Purpose                                                  |
+|-----------------------------------|----------------------------------------------------------|
+| show_engagement_demo_interface    | Show experimental content below the engagement summary   |
+| navbar_display_engagement         | Show the engagement item in the lens drop down           |
+| navbar_display_engagement_content | Show the "Content" sub-section in the engagement nav bar |
 
 Authentication & Authorization
 ------------------------------

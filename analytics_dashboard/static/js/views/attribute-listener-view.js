@@ -9,8 +9,16 @@ define(['backbone', 'jquery'],
          */
         var AttributeListenerView = Backbone.View.extend({
             initialize: function (options) {
-                this.modelAttribute = options.modelAttribute;
-                this.listenTo(this.model, 'change:' + this.modelAttribute, this.render);
+                var self = this;
+                self.modelAttribute = options.modelAttribute;
+                self.listenTo(this.model, 'change:' + self.modelAttribute, self.render);
+            },
+
+            renderIfDataAvailable: function() {
+                var self = this;
+                if(self.model.has(self.modelAttribute)) {
+                    self.render();
+                }
             },
 
             /**

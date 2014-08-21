@@ -47,5 +47,5 @@ validate: validate_python validate_js
 
 demo:
 	cd analytics_dashboard && ./manage.py switch show_engagement_demo_interface on --create
-	cd analytics_dashboard && ./manage.py switch navbar_display_overview on --create
 	cd analytics_dashboard && ./manage.py switch navbar_display_engagement on --create
+	cd analytics_dashboard && ./manage.py switch navbar_display_engagement_content on --create
