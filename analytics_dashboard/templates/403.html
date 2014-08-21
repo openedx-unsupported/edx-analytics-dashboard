@@ -1,11 +1,11 @@
 {% extends "base-error.html" %}
 
-{% block title %}Access Denied {{ block.super }}{% endblock title %}
+{% load i18n %}
+
+{% block title %}{% trans "Access Denied" %} {{ block.super }}{% endblock title %}
 
 {% block error-code %}403{% endblock %}
-{% block error-title %}Access Denied{% endblock %}
+{% block error-title %}{% trans "Access Denied" %}{% endblock %}
 {% block error-copy %}
-  You do not have permission to view {{ request.course_id }}. If you believe you should have access to this course, try
-  logging out and logging in again to refresh your permissions. If you continue seeing this error, use the link below to
-  contact our support team.
+  {% trans "You do not have permission to view this page. If you believe you should have access to this page, try logging out and logging in again to refresh your permissions. If you continue seeing this error, use the link below to contact our support team." %}
 {% endblock %}

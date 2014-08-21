@@ -1,0 +1,7 @@
+{% load staticfiles %}
+{% load i18n %}
+
+<a class="{{ class_prefix }}-brand" href="/">
+  <img class="{{ class_prefix }}-brand-logo" src="{% static 'images/logo-edx.svg' %}" alt="{% trans 'edX' %}"/>
+  <span class="{{ class_prefix }}-brand-app">{% trans 'Analytics' %}</span>
+</a>

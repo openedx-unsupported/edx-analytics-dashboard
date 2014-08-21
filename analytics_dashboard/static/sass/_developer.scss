@@ -50,7 +50,7 @@ $lens-box-model: border-box;
   box-sizing: $lens-box-model;
 
   // aligns the navbar with the logo
-  ul.navbar-nav{
+  ul.navbar-nav {
     margin-left: 15px;
   }
 
@@ -84,8 +84,8 @@ $lens-box-model: border-box;
     }
 
     .nav-section.active {
-        color: $navbar-default-link-active-color;
-        border-bottom: 4px solid $navbar-default-link-active-color;
+      color: $navbar-default-link-active-color;
+      border-bottom: 4px solid $navbar-default-link-active-color;
     }
 
     .nav-section {
@@ -94,7 +94,7 @@ $lens-box-model: border-box;
         // override the default behaviour (change background, which looks weird in the navbar)
         background: transparent;
 
-        &:active,&:hover {
+        &:active, &:hover {
           background: transparent;
         }
 
@@ -102,5 +102,45 @@ $lens-box-model: border-box;
 
     }
 
+  }
+}
+
+.course-list {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  background: white;
+  border: 1px solid $edx-gray;
+  border-width: 0 0 1px 1px;
+
+  .course {
+    padding: 15px;
+    border: 1px solid $edx-gray;
+    border-width: 1px 1px 0 0;
+  }
+}
+
+body.view-course-list {
+  #content {
+    margin-top: 25px;
+
+    .view-head {
+      color: $edx-gray-d1;
+      margin-bottom: 0;
+    }
+
+    .view-intro {
+      .lead {
+        font-size: $font-size-base;
+      }
+    }
+
+    .info-text {
+      color: $edx-gray;
+      font-size: $font-size-small;
+    }
+
+    .help-msg {
+      font-size: $font-size-small;
+    }
   }
 }

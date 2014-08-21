@@ -76,3 +76,16 @@ class CourseEngagementContentPage(CoursePage):
 
     def is_browser_on_page(self):
         return super(CourseEngagementContentPage, self).is_browser_on_page() and 'Engagement Content' in self.browser.title
+
+
+class CourseIndexPage(DashboardPage):
+    path = 'courses/'
+
+    def __init__(self, browser):
+        super(CourseIndexPage, self).__init__(browser)
+
+        # Automatically create and login a new user
+        auto_auth(browser, self.server_url)
+
+    def is_browser_on_page(self):
+        return 'Courses' in self.browser.title

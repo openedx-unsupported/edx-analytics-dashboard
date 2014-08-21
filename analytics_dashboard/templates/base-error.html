@@ -1,10 +1,9 @@
 {% extends "base.html" %}
 
-{% load staticfiles %}
+{% load i18n %}
 {% load dashboard_extras %}
 
 {% block view-name %}view-system{% endblock view-name %}
-{% block title %}| edX Analytics{% endblock title %}
 
 {# These are intentionally left blank. #}
 {% block header %}{% endblock header %}
@@ -20,8 +19,7 @@
 
         <div class="masthead clearfix">
           <div class="inner">
-            <img class="masthead-brand-logo" src="{% static 'images/logo-edx.svg' %}" alt="edX"/>
-            <span class="masthead-brand-app">Analytics</span>
+            {% include 'brand.html' with class_prefix='masthead' %}
           </div>
         </div>
 
@@ -36,8 +34,8 @@
           <p class="lead">
             {% block buttons %}
               <a href="{% settings_value "SUPPORT_URL" %}" class="btn btn-lg btn-primary"
-                 title="Use our support tool to ask questions or share feedback.">
-                <i class="ico fa fa-life-ring"></i> Contact edX Support
+                 title="{% trans 'Use our support tool to ask questions or share feedback.' %}">
+                <i class="ico fa fa-life-ring"></i> {% trans 'Contact edX Support' %}
               </a>
             {% endblock %}
           </p>

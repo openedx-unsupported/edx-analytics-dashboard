@@ -13,7 +13,7 @@ from django.test import TestCase
 from analyticsclient.exceptions import ClientError
 
 from analytics_dashboard.backends import EdXOAuth2
-from courses.permissions import set_user_course_permissions, user_can_view_course
+from courses.permissions import set_user_course_permissions, user_can_view_course, get_user_course_permissions
 
 
 User = get_user_model()
@@ -260,3 +260,5 @@ class AutoAuthTests(UserTestCaseMixin, TestCase):
         user = self.get_latest_user()
         self.assertUserLoggedIn(user)
         self.assertTrue(user.username.startswith('AUTO_AUTH_'))
+
+        self.assertListEqual(get_user_course_permissions(user), ['edX/DemoX/Demo_Course'])

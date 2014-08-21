@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>{% block title %}{{ page_title }} - {{ course_number }} {{ course_title }}| edX Analytics{% endblock title %}</title>
+    <title>{% block title %}| edX Analytics{% endblock title %}</title>
 
     <meta name="description" content="">
     <meta name="author" content="">
@@ -46,7 +46,7 @@
           {% block content-outer %}
             <main class="col-xs-12 main" id="content" data-analytics-init='{{ page_data | safe }}'>
                 <div class="view-head">
-                    <h1>{{ page_title }}</h1>
+                    {% block header-text %}<h1>{{ page_title }}</h1>{% endblock %}
                 </div>
 
                 <div class="view-intro">

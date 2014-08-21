@@ -176,6 +176,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.locale.LocaleMiddleware',
     'waffle.middleware.WaffleMiddleware',
     'courses.middleware.CourseMiddleware',
+    'courses.middleware.CoursePermissionsExceptionMiddleware',
     'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
 )
 ########## END MIDDLEWARE CONFIGURATION
@@ -341,4 +342,6 @@ COURSE_PERMISSIONS_TIMEOUT = 900
 
 # Determines if course permissions should be checked before rendering course views.
 ENABLE_COURSE_PERMISSIONS = True
+
+LOGIN_REDIRECT_URL = '/courses/'
 ########## END AUTHENTICATION

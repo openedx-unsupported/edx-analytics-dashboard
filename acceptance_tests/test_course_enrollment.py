@@ -40,8 +40,8 @@ class CourseEnrollmentTests(AnalyticsApiClientMixin, FooterMixin):
     def test_page_exists(self):
         self.page.visit()
 
-class CourseEnrollmentActivityTests(CourseEnrollmentTests, WebAppTest):
 
+class CourseEnrollmentActivityTests(CourseEnrollmentTests, WebAppTest):
     def setUp(self):
         super(CourseEnrollmentActivityTests, self).setUp()
         self.page = CourseEnrollmentActivityPage(self.browser)
@@ -109,7 +109,6 @@ class CourseEnrollmentActivityTests(CourseEnrollmentTests, WebAppTest):
 
 
 class CourseEnrollmentGeographyTests(CourseEnrollmentTests, WebAppTest):
-
     def setUp(self):
         super(CourseEnrollmentGeographyTests, self).setUp()
         self.page = CourseEnrollmentGeographyPage(self.browser)
