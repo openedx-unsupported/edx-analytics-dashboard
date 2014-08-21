@@ -19,7 +19,7 @@ clean:
 	coverage erase
 
 test_python: clean
-	cd analytics_dashboard && ./manage.py test --settings=analytics_dashboard.settings.test \
+	cd analytics_dashboard && ./manage.py test --settings=analytics_dashboard.settings.test --with-ignore-docstrings \
 		--exclude-dir=analytics_dashboard/settings --with-coverage --cover-inclusive --cover-branches \
 		--cover-html --cover-html-dir=$(COVERAGE)/html/ \
 		--cover-xml --cover-xml-file=$(COVERAGE)/coverage.xml \

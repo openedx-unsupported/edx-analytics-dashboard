@@ -122,6 +122,19 @@ class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
                      'is_feature': False, 'title': 'Enrollment Geography'}]
         self.assertEqual(nav, expected)
 
+    def get_mock_enrollment_data(self):
+        return get_mock_enrollment_data(self.course_id)
+
+    def test_authentication(self):
+        with mock.patch.object(analyticsclient.course.Course, 'enrollment',
+                               return_value=self.get_mock_enrollment_data()):
+            super(CourseEnrollmentViewTestMixin, self).test_authentication()
+
+    def test_authorization(self):
+        with mock.patch.object(analyticsclient.course.Course, 'enrollment',
+                               return_value=self.get_mock_enrollment_data()):
+            super(CourseEnrollmentViewTestMixin, self).test_authorization()
+
 
 class CourseEngagementContentViewTests(CourseViewTestMixin, TestCase):
     viewname = 'courses:engagement_content'
@@ -238,29 +251,12 @@ class CourseEnrollmentActivityViewTests(CourseEnrollmentViewTestMixin, TestCase)
         self.assertPrimaryNav(context['primary_nav_item'])
         self.assertSecondaryNavs(context['secondary_nav_items'])
 
-    def test_authentication(self):
-        with mock.patch.object(analyticsclient.course.Course, 'enrollment',
-                               return_value=get_mock_enrollment_data(self.course_id)):
-            super(CourseEnrollmentActivityViewTests, self).test_authentication()
-
-    def test_authorization(self):
-        with mock.patch.object(analyticsclient.course.Course, 'enrollment',
-                               return_value=get_mock_enrollment_data(self.course_id)):
-            super(CourseEnrollmentActivityViewTests, self).test_authorization()
-
 
 class CourseEnrollmentGeographyViewTests(CourseEnrollmentViewTestMixin, TestCase):
     viewname = 'courses:enrollment_geography'
 
-    def test_authentication(self):
-        with mock.patch.object(analyticsclient.course.Course, 'enrollment',
-                               return_value=get_mock_api_enrollment_geography_data(self.course_id)):
-            super(CourseEnrollmentGeographyViewTests, self).test_authentication()
-
-    def test_authorization(self):
-        with mock.patch.object(analyticsclient.course.Course, 'enrollment',
-                               return_value=get_mock_api_enrollment_geography_data(self.course_id)):
-            super(CourseEnrollmentGeographyViewTests, self).test_authorization()
+    def get_mock_enrollment_data(self):
+        return get_mock_api_enrollment_geography_data(self.course_id)
 
     @mock.patch('courses.presenters.CourseEnrollmentPresenter.get_geography_data')
     def test_valid_course(self, get_geography_data):
@@ -370,10 +366,10 @@ class CourseHomeViewTests(CourseEnrollmentViewTestMixin, TestCase):
     """
     viewname = 'courses:home'
 
-    @mock.patch('analyticsclient.course.Course.enrollment')
-    def test_redirect(self, mock_enrollment):
-        mock_enrollment.return_value = get_mock_enrollment_data(self.course_id)
+    def test_redirect(self):
+        with mock.patch.object(analyticsclient.course.Course, 'enrollment',
+                               return_value=self.get_mock_enrollment_data()):
+            response = self.client.get(self.path)
 
-        response = self.client.get(self.path)
         expected_url = reverse('courses:enrollment_activity', kwargs={'course_id': self.course_id})
         self.assertRedirectsNoFollow(response, expected_url)

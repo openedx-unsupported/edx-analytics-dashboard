@@ -27,7 +27,7 @@ urlpatterns = patterns(
 )
 
 if settings.DEBUG:  # pragma: no cover
-    import debug_toolbar
+    import debug_toolbar    # pylint: disable=import-error
 
     urlpatterns += patterns(
         '',
