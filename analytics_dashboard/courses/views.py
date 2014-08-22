@@ -1,3 +1,4 @@
+import copy
 import datetime
 import json
 
@@ -7,9 +8,8 @@ from django.core.urlresolvers import reverse
 from django.http import Http404, HttpResponse
 from django.views.generic import TemplateView
 from django.views.generic.base import RedirectView
-from django.template.defaultfilters import slugify
-from braces.views import LoginRequiredMixin
 
+from braces.views import LoginRequiredMixin
 from analyticsclient import data_format, demographic
 from analyticsclient.client import Client
 from analyticsclient.exceptions import NotFoundError
@@ -84,64 +84,104 @@ class CoursePermissionMixin(object):
         return super(CoursePermissionMixin, self).dispatch(request, *args, **kwargs)
 
 
-class NavBarMixin(object):
+class CourseNavBarMixin(object):
     """
-    Adds in data for the page navigation.
+    Mixin to add navbar items to context.
+
+    This mixin is intended for course views that have a course_id property.
     """
-    primary_nav_items = {
-        'Overview': {
-            'view': 'courses:overview',
-            'icon': 'fa-tachometer',
-            'switch': 'navbar_display_overview'},
-        'Enrollment': {
-            'view': 'courses:enrollment_activity',
-            'icon': 'fa-child',
-            'switch': None},
-        'Engagement': {
-            'view': 'courses:engagement_content',
-            'icon': 'fa-tasks',
-            'switch': 'navbar_display_engagement'}
-    }
-    # the order that the drop down should be displayed
-    primary_nav_order = ['Overview', 'Enrollment', 'Engagement']
-    # filtered and ordered primary navigation items populated by construct_primary_nav()
-    primary_nav_items_ordered = []
-    # displayed in the lens drop down
-    primary_nav_item = None
-    # displayed in the nav bar after lens selected
+
+    # Primary nav item that should be displayed as active. This value MUST be overwritten by the child class.
+    active_primary_nav_item = None
+
+    # Secondary nav item that should be displayed as active. This value is optional.
+    active_secondary_nav_item = None
+
+    # Items that will populate the secondary nav list. This value is optional.
     secondary_nav_items = []
 
-    def construct_secondary_nav(self):
-        # update the sections to include the page title and feature switch
-        for section in self.secondary_nav_items:
-            section['title'] = '{0} {1}'.format(self.primary_nav_item, section['label'])
-            # only add a feature switch if is_feature isn't set or is set to True
-            if 'is_feature' not in section or section['is_feature']:
-                section['switch'] = 'navbar_display_{0}_{1}'.format(slugify(self.primary_nav_item),
-                                                                    slugify(section['label']))
+    def get_primary_nav_items(self):
+        """
+        Return the primary nav items.
+        """
 
-        # we only want to display the lens sections that are feature enabled
-        self.secondary_nav_items = filter(is_feature_enabled, self.secondary_nav_items)
+        items = [
+            {
+                'label': 'Overview',
+                'view': 'courses:overview',
+                'icon': 'fa-tachometer',
+                'switch': 'navbar_display_overview'
+            },
+            {
+                'label': 'Enrollment',
+                'view': 'courses:enrollment_activity',
+                'icon': 'fa-child'
+            },
+            {
+                'label': 'Engagement',
+                'view': 'courses:engagement_content',
+                'icon': 'fa-tasks',
+                'switch': 'navbar_display_engagement'
+            }
+        ]
 
-    def construct_primary_nav(self):
-        ordered_nav = []
-        for label in self.primary_nav_order:
-            item = self.primary_nav_items[label]
-            # label is the text displayed in the drop down
-            item['label'] = label
-            ordered_nav.append(item)
+        # Remove disabled items
+        items = filter(is_feature_enabled, items)
 
-        self.primary_nav_items_ordered = filter(is_feature_enabled, ordered_nav)
+        # Clean each item
+        map(self.clean_item, items)
+
+        return items
+
+    def get_secondary_nav_items(self):
+        """
+        Return the secondary nav items.
+        """
+
+        # Deep copy the list since it is a list of dictionaries
+        items = copy.deepcopy(self.secondary_nav_items)
+
+        # Process only the nav items that are enabled
+        items = filter(is_feature_enabled, items)
+
+        for item in items:
+            item['active'] = self.active_secondary_nav_item == item['label']
+            self.clean_item(item)
+
+        return items
+
+    def clean_item(self, item):
+        """
+        Remove extraneous keys from item and set the href value.
+        """
+        # Prevent page reload if user clicks on the active navbar item, otherwise navigate to the new page.
+        if item.get('active', False):
+            href = '#'
+        else:
+            href = reverse(item['view'], kwargs={'course_id': self.course_id})
+
+        item['href'] = href
+
+        # Delete entries that are no longer needed
+        item.pop('view', None)
+        item.pop('switch', None)
 
     def get_context_data(self, **kwargs):
-        context = super(NavBarMixin, self).get_context_data(**kwargs)
-        self.construct_secondary_nav()
-        self.construct_primary_nav()
+        context = super(CourseNavBarMixin, self).get_context_data(**kwargs)
+
+        primary_nav_items = self.get_primary_nav_items()
+        secondary_nav_items = self.get_secondary_nav_items()
+
+        # Get the active primary item and remove it from the list
+        primary_nav_item = [i for i in primary_nav_items if i['label'] == self.active_primary_nav_item][0]
+        primary_nav_items.remove(primary_nav_item)
+
         context.update({
-            'primary_nav_item': self.primary_nav_items[self.primary_nav_item],
-            'primary_nav_items': self.primary_nav_items_ordered,
-            'secondary_nav_items': self.secondary_nav_items
+            'primary_nav_item': primary_nav_item,
+            'primary_nav_items': primary_nav_items,
+            'secondary_nav_items': secondary_nav_items
         })
+
         return context
 
 
@@ -173,43 +213,29 @@ class CourseView(LoginRequiredMixin, CoursePermissionMixin, TemplateView):
         return context
 
 
-class CourseTemplateView(CourseContextMixin, NavBarMixin, CourseView):
-
-    def add_href_helper(self, items):
-        """
-        Add a href given a view path.
-        """
-        for item in items:
-            item['href'] = reverse(item['view'], kwargs={'course_id': self.course_id})
-
-    def construct_secondary_nav(self):
-        super(CourseTemplateView, self).construct_secondary_nav()
-        self.add_href_helper(self.secondary_nav_items)
-
-    def construct_primary_nav(self):
-        super(CourseTemplateView, self).construct_primary_nav()
-        self.add_href_helper(self.primary_nav_items.itervalues())
+class CourseTemplateView(CourseContextMixin, CourseNavBarMixin, CourseView):
+    pass
 
 
 class EnrollmentTemplateView(CourseTemplateView):
     """
-    All enrollment pages should extend this.
+    Base view for course enrollment pages.
     """
     secondary_nav_items = [
-        {'label': 'Activity', 'view': 'courses:enrollment_activity', 'is_feature': False},
-        {'label': 'Geography', 'view': 'courses:enrollment_geography', 'is_feature': False},
+        {'label': 'Activity', 'view': 'courses:enrollment_activity'},
+        {'label': 'Geography', 'view': 'courses:enrollment_geography'},
     ]
-    primary_nav_item = 'Enrollment'
+    active_primary_nav_item = 'Enrollment'
 
 
 class EngagementTemplateView(CourseTemplateView):
     """
-    All engagement pages should extend this.
+    Base view for course engagement pages.
     """
     secondary_nav_items = [
-        {'label': 'Content', 'view': 'courses:engagement_content'},
+        {'label': 'Content', 'view': 'courses:engagement_content', 'switch': 'navbar_display_engagement_content'},
     ]
-    primary_nav_item = 'Engagement'
+    active_primary_nav_item = 'Engagement'
 
 
 class CSVResponseMixin(object):
@@ -232,6 +258,7 @@ class EnrollmentActivityView(EnrollmentTemplateView):
     template_name = 'courses/enrollment_activity.html'
     page_title = 'Enrollment Activity'
     page_name = 'enrollment_activity'
+    active_secondary_nav_item = 'Activity'
 
     # pylint: disable=line-too-long
     def get_context_data(self, **kwargs):
@@ -270,6 +297,7 @@ class EnrollmentGeographyView(EnrollmentTemplateView):
     template_name = 'courses/enrollment_geography.html'
     page_title = 'Enrollment Geography'
     page_name = 'enrollment_geography'
+    active_secondary_nav_item = 'Geography'
 
     def get_context_data(self, **kwargs):
         context = super(EnrollmentGeographyView, self).get_context_data(**kwargs)
@@ -294,10 +322,12 @@ class EngagementContentView(EngagementTemplateView):
     template_name = 'courses/engagement_content.html'
     page_title = 'Engagement Content'
     page_name = 'engagement_content'
+    active_secondary_nav_item = 'Content'
 
     # pylint: disable=line-too-long
     def get_context_data(self, **kwargs):
         context = super(EngagementContentView, self).get_context_data(**kwargs)
+
         tooltips = {
             'all_activity_summary': 'Students who initiated an action.',
             'posted_forum_summary': 'Students who created a post, responded to a post, or made a comment in any discussion.',
@@ -305,21 +335,17 @@ class EngagementContentView(EngagementTemplateView):
             'played_video_summary': 'Students who started watching any video.',
         }
 
-        try:
-            presenter = CourseEngagementPresenter()
-            summary = presenter.get_summary(self.course_id)
-        except NotFoundError:
-            # Raise a 404 if the course is not found by the API
-            raise Http404
+        presenter = CourseEngagementPresenter()
+        summary = presenter.get_summary(self.course_id)
 
-        summary['week_of_activity'] = get_formatted_date_time(
-            summary['interval_end'])
+        summary['week_of_activity'] = get_formatted_date_time(summary['interval_end'])
 
         context.update({
             'tooltips': tooltips,
             'summary': summary,
             'page_data': json.dumps(context['js_data']),
         })
+
         return context
 
 
@@ -327,12 +353,14 @@ class OverviewView(CourseTemplateView):
     template_name = 'courses/overview.html'
     page_title = 'Overview'
     page_name = 'overview'
+    active_primary_nav_item = 'Overview'
 
 
 class PerformanceView(CourseTemplateView):
     template_name = 'courses/performance.html'
     page_title = 'Performance'
     page_name = 'performance'
+    active_primary_nav_item = 'Performance'
 
 
 class CourseEnrollmentByCountryCSV(CSVResponseMixin, CourseView):

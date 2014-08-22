@@ -43,6 +43,7 @@ The following switches are available:
 | show_engagement_demo_interface    | Show experimental content below the engagement summary   |
 | navbar_display_engagement         | Show the engagement item in the lens drop down           |
 | navbar_display_engagement_content | Show the "Content" sub-section in the engagement nav bar |
+| navbar_display_overview           | Show the overview item in the lens drop down             |
 
 Authentication & Authorization
 ------------------------------

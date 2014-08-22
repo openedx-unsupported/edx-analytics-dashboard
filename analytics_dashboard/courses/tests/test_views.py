@@ -1,29 +1,21 @@
 import datetime
 import json
+
 import analyticsclient
 from django.core.cache import cache
 import mock
-
 from django.conf import settings
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 import analyticsclient.activity_type as AT
 from analyticsclient.exceptions import NotFoundError
+from waffle import Switch
 
 from analytics_dashboard.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin
 from courses.permissions import set_user_course_permissions, revoke_user_course_permissions
 from courses.tests.utils import get_mock_enrollment_data, get_mock_api_enrollment_geography_data, \
-    get_mock_presenter_enrollment_geography_data, convert_list_of_dicts_to_csv, set_empty_permissions
-
-
-def mock_engagement_summary_data():
-    return {
-        'interval_end': '2013-01-01T12:12:12Z',
-        AT.ANY: 100,
-        AT.ATTEMPTED_PROBLEM: 301,
-        AT.PLAYED_VIDEO: 1000,
-        AT.POSTED_FORUM: 0,
-    }
+    get_mock_presenter_enrollment_geography_data, convert_list_of_dicts_to_csv, set_empty_permissions, \
+    mock_engagement_summary_data
 
 
 class PermissionsTestMixin(object):
@@ -99,28 +91,35 @@ class CourseViewTestMixin(PermissionsTestMixin, RedirectTestCaseMixin, UserTestC
 
 
 class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
+    active_secondary_nav_label = None
+
     @mock.patch('analyticsclient.course.Course.enrollment', mock.Mock(side_effect=NotFoundError))
     def test_not_found(self):
         super(CourseEnrollmentViewTestMixin, self).test_not_found()
 
     def assertPrimaryNav(self, nav):
         expected = {
-            'view': 'courses:enrollment_activity',
             'icon': 'fa-child',
-            'switch': None,
             'href': reverse('courses:enrollment_activity', kwargs={'course_id': self.course_id}),
             'label': 'Enrollment'
         }
-        self.assertEqual(nav, expected)
+        self.assertDictEqual(nav, expected)
 
     def assertSecondaryNavs(self, nav):
-        expected = [{'label': 'Activity', 'view': 'courses:enrollment_activity',
-                     'href': reverse('courses:enrollment_activity', kwargs={'course_id': self.course_id}),
-                     'is_feature': False, 'title': 'Enrollment Activity'},
-                    {'label': 'Geography', 'view': 'courses:enrollment_geography',
-                     'href': reverse('courses:enrollment_geography', kwargs={'course_id': self.course_id}),
-                     'is_feature': False, 'title': 'Enrollment Geography'}]
-        self.assertEqual(nav, expected)
+        reverse_kwargs = {'course_id': self.course_id}
+        expected = [
+            {'label': 'Activity', 'href': reverse('courses:enrollment_activity', kwargs=reverse_kwargs)},
+            {'label': 'Geography', 'href': reverse('courses:enrollment_geography', kwargs=reverse_kwargs)}
+        ]
+
+        for item in expected:
+            if item['label'] == self.active_secondary_nav_label:
+                item['active'] = True
+                item['href'] = '#'
+            else:
+                item['active'] = False
+
+        self.assertListEqual(nav, expected)
 
     def get_mock_enrollment_data(self):
         return get_mock_enrollment_data(self.course_id)
@@ -139,6 +138,11 @@ class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
 class CourseEngagementContentViewTests(CourseViewTestMixin, TestCase):
     viewname = 'courses:engagement_content'
 
+    def setUp(self):
+        super(CourseEngagementContentViewTests, self).setUp()
+        Switch.objects.create(name='navbar_display_engagement', active=True)
+        Switch.objects.create(name='navbar_display_engagement_content', active=True)
+
     @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary',
                 mock.Mock(return_value=mock_engagement_summary_data()))
     def test_engagement_page_success(self):
@@ -151,13 +155,12 @@ class CourseEngagementContentViewTests(CourseViewTestMixin, TestCase):
         self.assertEqual(response.context['summary']['week_of_activity'], 'January 01, 2013')
 
         # check to make sure that we have tooltips
-        self.assertEqual(response.context['tooltips']['all_activity_summary'], 'Students who initiated an action.')
-        self.assertEqual(response.context['tooltips']['posted_forum_summary'],
-                         'Students who created a post, responded to a post, or made a comment in any discussion.')
-        self.assertEqual(response.context['tooltips']['attempted_problem_summary'],
-                         'Students who answered any question.')
-        self.assertEqual(response.context['tooltips']['played_video_summary'],
-                         'Students who started watching any video.')
+        self.assertDictEqual(response.context['tooltips'], {
+            'all_activity_summary': 'Students who initiated an action.',
+            'posted_forum_summary': 'Students who created a post, responded to a post, or made a comment in any discussion.',   # pylint: disable=line-too-long
+            'attempted_problem_summary': 'Students who answered any question.',
+            'played_video_summary': 'Students who started watching any video.'
+        })
 
         # check page title
         self.assertEqual(response.context['page_title'], 'Engagement Content')
@@ -173,25 +176,17 @@ class CourseEngagementContentViewTests(CourseViewTestMixin, TestCase):
 
     def assertPrimaryNav(self, nav):
         expected = {
-            'view': 'courses:engagement_content',
             'icon': 'fa-tasks',
-            'switch': 'navbar_display_engagement',
             'href': reverse('courses:engagement_content', kwargs={'course_id': self.course_id}),
             'label': 'Engagement'
         }
-        self.assertEqual(nav, expected)
+        self.assertDictEqual(nav, expected)
 
     def assertSecondaryNavs(self, nav):
-        complete = [{'label': 'Activity', 'view': 'courses:enrollment_activity',
-                     'href': reverse('courses:enrollment_activity', kwargs={'course_id': self.course_id}),
-                     'title': 'Enrollment Activity', 'switch': 'navbar_display_engagement_content_'}]
-        # this filters it all out for now, but you'll eventually remove the
-        # feature flag
-        expected = [item for item in complete if not item['switch']]
-        self.assertEqual(nav, expected)
+        expected = [{'active': True, 'label': 'Content', 'href': '#'}]
+        self.assertListEqual(nav, expected)
 
-    @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary',
-                mock.Mock(side_effect=NotFoundError, autospec=True))
+    @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary', mock.Mock(side_effect=NotFoundError))
     def test_not_found(self):
         super(CourseEngagementContentViewTests, self).test_not_found()
 
@@ -208,6 +203,7 @@ class CourseEngagementContentViewTests(CourseViewTestMixin, TestCase):
 
 class CourseEnrollmentActivityViewTests(CourseEnrollmentViewTestMixin, TestCase):
     viewname = 'courses:enrollment_activity'
+    active_secondary_nav_label = 'Activity'
 
     @mock.patch('courses.presenters.CourseEnrollmentPresenter.get_trend_data')
     def test_valid_course(self, get_trend_data):
@@ -254,6 +250,7 @@ class CourseEnrollmentActivityViewTests(CourseEnrollmentViewTestMixin, TestCase)
 
 class CourseEnrollmentGeographyViewTests(CourseEnrollmentViewTestMixin, TestCase):
     viewname = 'courses:enrollment_geography'
+    active_secondary_nav_label = 'Geography'
 
     def get_mock_enrollment_data(self):
         return get_mock_api_enrollment_geography_data(self.course_id)

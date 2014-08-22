@@ -1,6 +1,9 @@
 import StringIO
 import csv
 import datetime
+
+import analyticsclient.activity_type as AT
+
 from courses.permissions import set_user_course_permissions
 
 
@@ -64,3 +67,13 @@ def convert_list_of_dicts_to_csv(data, fieldnames=None):
 def set_empty_permissions(user):
     set_user_course_permissions(user, [])
     return []
+
+
+def mock_engagement_summary_data():
+    return {
+        'interval_end': '2013-01-01T12:12:12Z',
+        AT.ANY: 100,
+        AT.ATTEMPTED_PROBLEM: 301,
+        AT.PLAYED_VIDEO: 1000,
+        AT.POSTED_FORUM: 0,
+    }
