@@ -1,11 +1,12 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block view-name %}view-course-list{% endblock view-name %}
 
-{% block title %}Courses {{ block.super }}{% endblock title %}
+{% block title %}{% trans "Courses" %} {{ block.super }}{% endblock title %}
 
-{% block header-text %}<h3>Welcome, {{ user.username }}!</h3>{% endblock %}
-{% block intro-text %}Here are the courses you currently have access to in Insights:{% endblock intro-text %}
+{% block header-text %}<h3>{% blocktrans with username=request.user.username %}Welcome, {{ username }}!{% endblocktrans %}</h3>{% endblock %}
+{% block intro-text %}{% blocktrans %}Here are the courses you currently have access to in Insights:{% endblocktrans %}{% endblock intro-text %}
 
 {% block content %}
   <div class="row">
@@ -23,11 +24,10 @@
 
     <div class="col-md-4">
       <div class="help-msg">
-        <strong>New to edX Insights?</strong>
+        <h4>{% blocktrans %}New to edX Insights?{% endblocktrans %}</h4>
 
-        <p class="info-text">Click Help in the upper-right corner to get more information about the Insights page you
-          are viewing. You can also provide feedback about the product through the feedback from at the bottom of this
-          page.</p>
+        <p class="info-text">{% blocktrans %}Click Help in the upper-right corner to get more information about the Insights page you
+          are viewing. You can also use the links at the bottom of the page to provide feedback and access other resources.{% endblocktrans %}</p>
       </div>
     </div>
   </div>
