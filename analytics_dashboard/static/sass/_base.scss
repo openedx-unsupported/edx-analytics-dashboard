@@ -52,7 +52,8 @@ hr.has-emphasis {
   .navbar-brand-logo {
     display: inline-block;
     vertical-align: middle;
-    height: 30px;
+    // setting the width keeps IE from computing the width too large (and sizing the brand section oddly)
+    width: 64px;
     margin-right: 10px;
   }
 
