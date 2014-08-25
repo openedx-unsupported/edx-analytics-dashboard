@@ -13,6 +13,7 @@ class EdXOAuth2Mixin(object):
     ACCESS_TOKEN_METHOD = 'POST'
     REDIRECT_STATE = False
     USER_INFO_URL = None
+    ID_KEY = 'preferred_username'
 
     def get_user_permissions(self, access_token):
         # TODO: Do we need to worry about refreshing the token?
@@ -27,7 +28,6 @@ class EdXOAuth2Mixin(object):
 # pylint: disable=abstract-method
 class EdXOAuth2(EdXOAuth2Mixin, BaseOAuth2):
     name = 'edx-oauth2'
-    ID_KEY = 'preferred_username'
     DEFAULT_SCOPE = ['preferred_username']
     AUTHORIZATION_URL = '{0}/authorize/'.format(settings.SOCIAL_AUTH_EDX_OAUTH2_URL_ROOT)
     ACCESS_TOKEN_URL = '{0}/access_token/'.format(settings.SOCIAL_AUTH_EDX_OAUTH2_URL_ROOT)

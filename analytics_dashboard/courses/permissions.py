@@ -4,7 +4,8 @@ from django.conf import settings
 from django.core.cache import cache
 from social.apps.django_app import load_strategy
 from analytics_dashboard.backends import EdXOpenIdConnect
-from courses.exceptions import UserNotAssociatedWithBackendError, InvalidAccessToken
+from courses.exceptions import UserNotAssociatedWithBackendError, InvalidAccessTokenError, \
+    PermissionsRetrievalFailedError
 
 logger = logging.getLogger(__name__)
 
@@ -24,13 +25,16 @@ def set_user_course_permissions(user, courses):
 
     Arguments
         user (User)     --  User for which permissions should be set
-        courses (list)  --  Array of course ID strings
+        courses (list)  --  List of course ID strings
     """
     if not user:
         raise ValueError('User not specified!')
 
     if courses is None:
         raise ValueError('Courses not specified!')
+
+    # Ensure courses are stored as a list.
+    courses = list(courses)
 
     key_courses, key_last_updated = _get_course_permission_cache_keys(user)
 
@@ -64,10 +68,13 @@ def refresh_user_course_permissions(user):
     access_token = user_social_auth.extra_data.get('access_token')
 
     if not access_token:
-        raise InvalidAccessToken
+        raise InvalidAccessTokenError
 
-    permissions = backend.get_user_permissions(access_token)
-    courses = permissions.get('courses')
+    try:
+        permissions = backend.get_user_permissions(access_token)
+        courses = permissions.get('courses')
+    except Exception as e:
+        raise PermissionsRetrievalFailedError(e)
 
     # If the backend does not provide course permissions, assign no permissions and log a warning as there may be an
     # issue with the backend provider.
@@ -80,16 +87,13 @@ def refresh_user_course_permissions(user):
     return courses
 
 
-def user_can_view_course(user, course_id):
+def get_user_course_permissions(user):
     """
-    Returns boolean indicating if specified user can view specified course.
+    Return list of courses accessible by user.
 
     Arguments
-        user (User)     --  User whose permissions are being checked
-        course_id (str) --  Course to check
+        user (User) --  User for which course permissions should be returned
     """
-    if settings.ENABLE_AUTO_AUTH and user.username.startswith('AUTO_AUTH_'):
-        return True
 
     key_courses, key_last_updated = _get_course_permission_cache_keys(user)
     keys = [key_courses, key_last_updated]
@@ -101,5 +105,18 @@ def user_can_view_course(user, course_id):
     # If data is not in the cache, refresh the permissions and validate against the new data.
     if not values.get(key_last_updated):
         courses = refresh_user_course_permissions(user)
+
+    return courses
+
+
+def user_can_view_course(user, course_id):
+    """
+    Returns boolean indicating if specified user can view specified course.
+
+    Arguments
+        user (User)     --  User whose permissions are being checked
+        course_id (str) --  Course to check
+    """
+    courses = get_user_course_permissions(user)
 
     return course_id in courses

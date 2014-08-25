@@ -12,7 +12,9 @@ from analyticsclient.exceptions import NotFoundError
 from waffle import Switch
 
 from analytics_dashboard.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin
+from courses.exceptions import PermissionsRetrievalFailedError
 from courses.permissions import set_user_course_permissions, revoke_user_course_permissions
+from courses.tests.test_middleware import MiddlewareAssertionMixin
 from courses.tests.utils import get_mock_enrollment_data, get_mock_api_enrollment_geography_data, \
     get_mock_presenter_enrollment_geography_data, convert_list_of_dicts_to_csv, set_empty_permissions, \
     mock_engagement_summary_data
@@ -30,7 +32,24 @@ class PermissionsTestMixin(object):
         revoke_user_course_permissions(user)
 
 
-class CourseViewTestMixin(PermissionsTestMixin, RedirectTestCaseMixin, UserTestCaseMixin):
+class AuthenticationMixin(RedirectTestCaseMixin, UserTestCaseMixin):
+    def test_authentication(self):
+        """
+        Users must be logged in to view the page.
+        """
+
+        # Authenticated users should go to the course page
+        self.login()
+        response = self.client.get(self.path, follow=True)
+        self.assertEqual(response.status_code, 200)
+
+        # Unauthenticated users should be redirected to the login page
+        self.client.logout()
+        response = self.client.get(self.path)
+        self.assertRedirectsNoFollow(response, settings.LOGIN_URL, next=self.path)
+
+
+class CourseViewTestMixin(PermissionsTestMixin, AuthenticationMixin):
     viewname = None
 
     def setUp(self):
@@ -58,20 +77,6 @@ class CourseViewTestMixin(PermissionsTestMixin, RedirectTestCaseMixin, UserTestC
         path = reverse(self.viewname, kwargs={'course_id': course_id})
         response = self.client.get(path, follow=True)
         self.assertEqual(response.status_code, 404)
-
-    def test_authentication(self):
-        """
-        Users must be logged in to view course data.
-        """
-
-        # Authenticated users should go to the course page
-        response = self.client.get(self.path, follow=True)
-        self.assertEqual(response.status_code, 200)
-
-        # Unauthenticated users should be redirected to the login page
-        self.client.logout()
-        response = self.client.get(self.path)
-        self.assertRedirectsNoFollow(response, settings.LOGIN_URL, next=self.path)
 
     @mock.patch('courses.permissions.refresh_user_course_permissions', mock.Mock(side_effect=set_empty_permissions))
     def test_authorization(self):
@@ -157,7 +162,8 @@ class CourseEngagementContentViewTests(CourseViewTestMixin, TestCase):
         # check to make sure that we have tooltips
         self.assertDictEqual(response.context['tooltips'], {
             'all_activity_summary': 'Students who initiated an action.',
-            'posted_forum_summary': 'Students who created a post, responded to a post, or made a comment in any discussion.',   # pylint: disable=line-too-long
+            # pylint: disable=line-too-long
+            'posted_forum_summary': 'Students who created a post, responded to a post, or made a comment in any discussion.',
             'attempted_problem_summary': 'Students who answered any question.',
             'played_video_summary': 'Students who started watching any video.'
         })
@@ -359,14 +365,42 @@ class CourseHomeViewTests(CourseEnrollmentViewTestMixin, TestCase):
     """
     Course homepage
 
-    We do not actually have a course homepage, so redirect to the enrollment page.
+    We do not actually have a course homepage, so redirect to the enrollment activity page.
     """
     viewname = 'courses:home'
 
     def test_redirect(self):
-        with mock.patch.object(analyticsclient.course.Course, 'enrollment',
-                               return_value=self.get_mock_enrollment_data()):
-            response = self.client.get(self.path)
+        response = self.client.get(self.path)
 
         expected_url = reverse('courses:enrollment_activity', kwargs={'course_id': self.course_id})
         self.assertRedirectsNoFollow(response, expected_url)
+
+
+class CourseIndexViewTests(MiddlewareAssertionMixin, PermissionsTestMixin, AuthenticationMixin, TestCase):
+    def setUp(self):
+        super(CourseIndexViewTests, self).setUp()
+        self.path = reverse('courses:index')
+        self.course_id = 'edX/DemoX/Demo_Course'
+        self.login()
+
+    def test_authentication(self):
+        self.grant_permission(self.user, self.course_id)
+        super(CourseIndexViewTests, self).test_authentication()
+
+    def test_get(self):
+        # If no course permissions, raise an error.
+        self.grant_permission(self.user)
+        response = self.client.get(self.path)
+        self.assertEqual(response.status_code, 403)
+
+        # With permissions, the course list should include the accessible course(s)
+        self.grant_permission(self.user, self.course_id)
+        response = self.client.get(self.path)
+        self.assertEqual(response.status_code, 200)
+        self.assertListEqual(response.context['courses'], [self.course_id])
+
+    @mock.patch('courses.permissions.get_user_course_permissions',
+                mock.Mock(side_effect=PermissionsRetrievalFailedError))
+    def test_get_with_permissions_error(self):
+        response = self.client.get(self.path)
+        self.assertIsPermissionsRetrievalFailedResponse(response)

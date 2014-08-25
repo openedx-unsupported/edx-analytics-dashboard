@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block view-name %}view-course-list{% endblock view-name %}
+
+{% block title %}Courses {{ block.super }}{% endblock title %}
+
+{% block header-text %}<h3>Welcome, {{ user.username }}!</h3>{% endblock %}
+{% block intro-text %}Here are the courses you currently have access to in Insights:{% endblock intro-text %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-8">
+      <div class="course-list">
+        {% for course in courses %}
+          <a href="{% url 'courses:home' course_id=course %}">
+            <div class="course">
+              <span class="course-title">{{ course }}</span>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="help-msg">
+        <strong>New to edX Insights?</strong>
+
+        <p class="info-text">Click Help in the upper-right corner to get more information about the Insights page you
+          are viewing. You can also provide feedback about the product through the feedback from at the bottom of this
+          page.</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}

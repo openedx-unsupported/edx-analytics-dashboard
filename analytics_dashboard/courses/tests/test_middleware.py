@@ -1,13 +1,30 @@
+import logging
+from django.template.response import TemplateResponse
 from django.test import RequestFactory
 from django.utils.unittest.case import TestCase
-from courses.middleware import CourseMiddleware
+from testfixtures import LogCapture
+from courses.exceptions import PermissionsRetrievalFailedError
+from courses.middleware import CourseMiddleware, CoursePermissionsExceptionMiddleware
 
 
-class CourseMiddlewareTests(TestCase):
+class MiddlewareTestCase(TestCase):
+    middleware_class = None
+
     def setUp(self):
-        super(CourseMiddlewareTests, self).setUp()
+        super(MiddlewareTestCase, self).setUp()
         self.factory = RequestFactory()
-        self.middleware = CourseMiddleware()
+        self.middleware = self.middleware_class()   # pylint: disable=not-callable
+
+
+class MiddlewareAssertionMixin(object):
+    def assertIsPermissionsRetrievalFailedResponse(self, response):
+        self.assertEqual(response.status_code, 500)
+        self.assertIs(type(response), TemplateResponse)
+        self.assertEqual(response.template_name, 'courses/permissions-retrieval-failed.html')
+
+
+class CourseMiddlewareTests(MiddlewareTestCase):
+    middleware_class = CourseMiddleware
 
     # pylint: disable=no-member
     def test_course_id(self):
@@ -25,3 +42,24 @@ class CourseMiddlewareTests(TestCase):
         course_id = 'edX/DemoX/Demo_Course'
         self.middleware.process_view(request, '', None, {'course_id': course_id})
         self.assertEqual(request.course_id, course_id)
+
+
+class CoursePermissionsExceptionMiddlewareTests(MiddlewareAssertionMixin, MiddlewareTestCase):
+    middleware_class = CoursePermissionsExceptionMiddleware
+
+    def test_process_exception(self):
+        request = self.factory.get('/')
+
+        # Method should return None if exception argument is NOT PermissionsRetrievalFailedError.
+        self.assertIsNone(self.middleware.process_exception(request, None))
+        self.assertIsNone(self.middleware.process_exception(request, Exception))
+        self.assertIsNone(self.middleware.process_exception(request, ArithmeticError))
+
+        with LogCapture(level=logging.WARN) as l:
+            # Method should only return a response for PermissionsRetrievalFailedError.
+            exception = PermissionsRetrievalFailedError()
+            response = self.middleware.process_exception(request, exception)
+            self.assertIsPermissionsRetrievalFailedResponse(response)
+
+            # Verify the exception was logged
+            l.check(('courses.middleware', 'ERROR', str(exception)),)

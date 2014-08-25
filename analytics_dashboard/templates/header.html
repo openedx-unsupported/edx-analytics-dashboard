@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load i18n %}
 
 {% comment %}
 Partial: App-wide header element
@@ -8,16 +8,13 @@ Partial: App-wide header element
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
+                <span class="sr-only">{% trans 'Toggle navigation' %}</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="#">
-                <img class="navbar-brand-logo" src="{% static 'images/logo-edx.svg' %}" alt="edX" />
-                <span class="navbar-brand-app">Analytics</span>
-            </a>
+            {% include 'brand.html' with class_prefix='navbar' %}
         </div>
 
         <div class="collapse navbar-collapse">
@@ -39,10 +36,10 @@ Partial: App-wide header element
 
                     <ul class="dropdown-menu active-iser-nav">
                         <li>
-                            <a class="active-iser-nav-help" href="#">Help</a>
+                            <a class="active-iser-nav-help" href="#">{% trans 'Help' %}</a>
                         </li>
                         <li>
-                            <a class="active-iser-nav-logout" href="{% url 'logout' %}">Logout</a>
+                            <a class="active-iser-nav-logout" href="{% url 'logout' %}">{% trans 'Logout' %}</a>
                         </li>
                     </ul>
                 </li>
@@ -53,4 +50,3 @@ Partial: App-wide header element
      <!-- / container -->
 </nav>
  <!-- / navbar -->
-

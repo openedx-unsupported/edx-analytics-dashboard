@@ -1,0 +1,14 @@
+{% extends "base-error.html" %}
+
+{% block title %}Permissions Retrieval Failed {{ block.super }}{% endblock title %}
+
+{% block error-title %}Permissions Retrieval Failed{% endblock %}
+{% block error-copy %}
+  There was a problem retrieving course permssions for your account. Please try again. If you continue to experience
+  issues, please let us know.
+{% endblock %}
+
+{% block buttons %}
+  <a onclick="location.reload(true);" class="btn btn-lg btn-primary"> <i class="ico fa fa-refresh"></i> Try Again </a>
+  {{ block.super }}
+{% endblock %}

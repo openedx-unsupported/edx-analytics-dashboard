@@ -8,13 +8,12 @@ from django.core.urlresolvers import reverse
 from django.http import Http404, HttpResponse
 from django.views.generic import TemplateView
 from django.views.generic.base import RedirectView
-
 from braces.views import LoginRequiredMixin
 from analyticsclient import data_format, demographic
 from analyticsclient.client import Client
 from analyticsclient.exceptions import NotFoundError
 
-from courses.permissions import user_can_view_course
+from courses import permissions
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter
 from courses.utils import get_formatted_date, get_formatted_date_time, is_feature_enabled
 
@@ -50,7 +49,6 @@ class CourseContextMixin(object):
             'course_title': 'Introduction to Awesomeness',
             'course_id': self.course_id,
             'page_title': self.page_title,
-            'feedback_email': settings.FEEDBACK_EMAIL,
             'js_data': {
                 'course': {
                     'courseId': self.course_id
@@ -75,7 +73,7 @@ class CoursePermissionMixin(object):
     user = None
 
     def can_view(self):
-        return user_can_view_course(self.user, self.course_id)
+        return permissions.user_can_view_course(self.user, self.course_id)
 
     def dispatch(self, request, *args, **kwargs):
         if settings.ENABLE_COURSE_PERMISSIONS and not self.can_view():
@@ -397,3 +395,21 @@ class CourseHome(LoginRequiredMixin, RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         course_id = kwargs['course_id']
         return reverse('courses:enrollment_activity', kwargs={'course_id': course_id})
+
+
+class CourseIndex(LoginRequiredMixin, TemplateView):
+    template_name = 'courses/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(CourseIndex, self).get_context_data(**kwargs)
+
+        courses = permissions.get_user_course_permissions(self.request.user)
+
+        if not courses:
+            # The user is probably not a course administrator and should
+            # not be using this application.
+            raise PermissionDenied
+
+        context['courses'] = courses
+
+        return context

@@ -7,13 +7,12 @@ from analyticsclient.exceptions import ClientError
 import django
 from django.conf import settings
 from django.contrib.auth import get_user_model, login, authenticate, REDIRECT_FIELD_NAME
-from django.core.urlresolvers import reverse
 from django.db import connection, DatabaseError
 from django.http import HttpResponse, Http404
 from django.shortcuts import redirect
 from django.views.generic import View, TemplateView
 
-from courses.permissions import revoke_user_course_permissions
+from courses import permissions
 
 
 logger = logging.getLogger(__name__)
@@ -73,13 +72,16 @@ class AutoAuth(View):
 
         # Create a new user
         username = password = 'AUTO_AUTH_' + uuid.uuid4().hex[0:20]
-        User.objects.create_user(username, password=password)
+        user = User.objects.create_user(username, password=password)
+
+        # Grant user access to demo course
+        permissions.set_user_course_permissions(user, ['edX/DemoX/Demo_Course'])
 
         # Login the new user
         user = authenticate(username=username, password=password)
         login(request, user)
 
-        return redirect(reverse('courses:home', kwargs={'course_id': 'edX/DemoX/Demo_Course'}))
+        return redirect('/')
 
 
 class AuthError(TemplateView):
@@ -93,7 +95,7 @@ def logout(request, next_page=None, template_name='registration/logged_out.html'
     """
 
     # Revoke permissions
-    revoke_user_course_permissions(request.user)
+    permissions.revoke_user_course_permissions(request.user)
 
     # Back to the standard logout flow
     return django.contrib.auth.views.logout(request, next_page, template_name, redirect_field_name, current_app,

@@ -1,5 +1,5 @@
 from bok_choy.web_app_test import WebAppTest
-from acceptance_tests import USERNAME, PASSWORD, ENABLE_OAUTH_AUTHORIZE
+from acceptance_tests import USERNAME, PASSWORD, ENABLE_OAUTH_AUTHORIZE, auto_auth
 from pages import LoginPage, LogoutPage
 
 
@@ -28,5 +28,8 @@ class OAuthFlowTests(WebAppTest):
         if ENABLE_OAUTH_AUTHORIZE:
             self.login_page.q(css='input[name=authorize]').click()
 
-        # TODO Eventually user should end up on the course index page
-        self.assertTrue(self.browser.title.startswith('Page not found'))
+        # User should arrive at course index page (or access denied page, if no permissions)
+        # Splitting this out into two separate tests would require two separate sets of credentials. That is
+        # feasible, but somewhat time-consuming. For now, we will rely on unit tests to validate the permissions and
+        # ensure both cases below are met.
+        self.assertTrue(self.browser.title.startswith('Courses') or self.browser.title.startswith('Access Denied'))

@@ -12,8 +12,15 @@ class UserNotAssociatedWithBackendError(PermissionsError):
     pass
 
 
-class InvalidAccessToken(PermissionsError):
+class InvalidAccessTokenError(PermissionsError):
     """
     Raise if user has an empty or otherwise invalid access token.
+    """
+    pass
+
+
+class PermissionsRetrievalFailedError(PermissionsError):
+    """
+    Raise if permissions retrieval fails (e.g. the backend is unreachable).
     """
     pass

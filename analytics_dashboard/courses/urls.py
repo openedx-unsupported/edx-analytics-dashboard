@@ -20,6 +20,8 @@ TRAILING_SLASH_REGEX = r'/$'
 
 urlpatterns = patterns(
     '',
+    url('^$', views.CourseIndex.as_view(), name='index'),
+
     # Course homepage. This should be the entry point for other applications linking to the course.
     url(COURSE_ID_REGEX + TRAILING_SLASH_REGEX, views.CourseHome.as_view(), name='home')
 )

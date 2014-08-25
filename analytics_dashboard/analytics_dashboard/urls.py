@@ -12,6 +12,7 @@ admin.autodiscover()
 
 urlpatterns = patterns(
     '',
+    url(r'^$', RedirectView.as_view(url=reverse_lazy('courses:index')), name='home'),
     url(r'^status/$', views.status, name='status'),
     url(r'^health/$', views.health, name='health'),
     url(r'^courses/', include('courses.urls', namespace='courses')),

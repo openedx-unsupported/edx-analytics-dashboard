@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-xs-6 col-md-6">
       We want this dashboard to work for you! Please send suggestions, comments, and critiques to <a
-        class="feedback-email" href="mailto:{{ feedback_email }}?Subject=Feedback">{{ feedback_email }}</a>.
+        class="feedback-email" href="mailto:{% settings_value 'FEEDBACK_EMAIL' %}?Subject=Feedback">{% settings_value 'FEEDBACK_EMAIL' %}</a>.
     </div>
     <div class="col-xs-6 col-md-6 text-right">
       <a href="{% settings_value 'TERMS_OF_SERVICE_URL' %}" target="_blank" data-role="tos">Terms of Service</a><br>
