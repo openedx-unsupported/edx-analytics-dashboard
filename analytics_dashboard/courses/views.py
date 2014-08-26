@@ -39,14 +39,8 @@ class CourseContextMixin(object):
         """
         Returns default data for the pages (context and javascript data).
         """
-        # TODO: Use real course data
         user = self.request.user
         context = {
-            'user_name': user.get_full_name(),
-            'user_id': user.get_username(),
-            'user_email': user.email,
-            'course_number': 'MITx 7.3423',
-            'course_title': 'Introduction to Awesomeness',
             'course_id': self.course_id,
             'page_title': self.page_title,
             'js_data': {
