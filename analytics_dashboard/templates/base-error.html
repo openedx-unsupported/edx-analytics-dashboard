@@ -29,7 +29,11 @@
             <span class="error-title">{% block error-title %}{% endblock %}</span>
           </h1>
 
-          <p class="lead error-copy">{% block error-copy %}{% endblock %}</p>
+          <p class="lead error-copy">
+              {% block error-copy %}
+              If you continue to see this error, use the link below to contact our support team.
+              {% endblock error-copy %}
+          </p>
 
           <p class="lead">
             {% block buttons %}
