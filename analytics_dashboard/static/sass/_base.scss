@@ -214,16 +214,15 @@ hr.has-emphasis {
     @extend %ui-box;
     @include scale(0.95);
     @include transition(all ease-in-out .50s);
-    display: table;
     width: 100%;
-    min-height: 150px;
     margin-bottom: $padding-large-vertical;
 
     .summary-point-wrapper {
-      display: table-cell;
       text-align: center;
-      vertical-align: middle;
+      vertical-align: inherit;
       position: relative;
+      padding-top: $padding-large-vertical * 2;
+      padding-bottom: $padding-large-vertical * 2;
     }
 
     .summary-point-note {
