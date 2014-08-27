@@ -50,3 +50,8 @@ demo:
 	cd analytics_dashboard && ./manage.py switch navbar_display_engagement on --create
 	cd analytics_dashboard && ./manage.py switch navbar_display_engagement_content on --create
 	cd analytics_dashboard && ./manage.py switch navbar_display_overview on --create
+
+generate_fake_translations:
+	cd analytics_dashboard && i18n_tool extract
+	cd analytics_dashboard && i18n_tool dummy
+	cd analytics_dashboard && i18n_tool generate

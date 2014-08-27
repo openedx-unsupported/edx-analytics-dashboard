@@ -34,7 +34,8 @@ Need a fallback to disable a feature? Create a [Waffle](http://waffle.readthedoc
 
         $ ./manage.py switch feature_name [on/off] --create
 
-See the [Waffle documentation](http://waffle.readthedocs.org/en/latest/) for details on utilizing features in code and templates.
+See the [Waffle documentation](http://waffle.readthedocs.org/en/latest/) for
+details on utilizing features in code and templates.
 
 The following switches are available:
 
@@ -55,6 +56,36 @@ developer, and do not want to setup edx-platform, you can get around this requir
 2. Set `ENABLE_COURSE_PERMISSIONS` to `False` in your settings file.
 3. Visit `http://localhost:9000/test/auto_auth/` to create and login as a new user. 
 
+Internationalization (i18n)
+---------------------------
+In order to generate translation files, you must have [gettext](http://www.gnu.org/software/gettext/) installed. gettext
+ should be available via `yum` or `apt-get`. If you are using Homebrew on Mac OS X, execute the commands below:
+
+        $ brew install gettext
+        $ brew link gettext --force
+        
+Once gettext is installed, translation files can be generated with:
+
+        $ cd analytics_dashboard && i18n_tool extract
+        
+The generated files located in `analytics_dashboard/conf/locale/en/LC_MESSAGES` should be uploaded to 
+the [analytics-dashboard](https://www.transifex.com/projects/p/edx-platform/resource/analytics-dashboard/) and
+[analytics-dashboard-js](https://www.transifex.com/projects/p/edx-platform/resource/analytics-dashboard-js/) resources 
+at Transifex where translators will begin the translation process. Once translations are complete, run the command 
+below to compile the translations:
+
+        $ cd analytics_dashboard && i18n_tool generate
+
+When adding or updating code, you should ensure all necessary strings are marked for translation. We have provided a
+command that will generate dummy translations to help with this. This will create an "Esperanto" translation that is 
+actually over-accented English.
+
+        $ make generate_fake_translations
+
+Restart your server after running the command above and update your browser's language preference to Esperanto (eo). 
+Navigate to a page and verify that you see fake translations. If you see plain English instead, your code is not being 
+properly translated.
+
 License
 -------
 The code in this repository is licensed under version 3 of the AGPL unless otherwise noted.
@@ -70,6 +101,7 @@ before we can accept your contribution. See our
 [CONTRIBUTING](https://github.com/edx/edx-platform/blob/master/CONTRIBUTING.rst)
 file for more information -- it also contains guidelines for how to maintain
 high code quality, which will make your contribution more likely to be accepted.
+
 Testing
 -------
 
@@ -132,4 +164,5 @@ Please do not report security issues in public. Please email security@edx.org.
 
 Mailing List and IRC Channel
 ----------------------------
-You can discuss this code on the [edx-code Google Group](https://groups.google.com/forum/#!forum/edx-code) or in the `edx-code` IRC channel on Freenode.
+You can discuss this code on the [edx-code Google Group](https://groups.google.com/forum/#!forum/edx-code) or in the 
+`edx-code` IRC channel on Freenode.
