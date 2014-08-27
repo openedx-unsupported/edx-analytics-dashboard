@@ -6,7 +6,8 @@
 
 {% block error-title %}{% trans "Authentication Failed" %}{% endblock %}
 {% block error-copy %}
-  {% trans "There was a problem accessing your account. Please try again. If you continue to experience issues, please let us know." %}
+  {% trans "There was a problem accessing your account. Please try again." %}
+  {{ block.super }}
 {% endblock %}
 
 {% block buttons %}
