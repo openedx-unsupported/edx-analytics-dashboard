@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load staticfiles %}
 {% load compress %}
 
@@ -9,10 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>{% block title %}| edX Analytics{% endblock title %}</title>
-
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <title>{% block title %}| {% blocktrans %}edX Analytics{% endblocktrans %}{% endblock title %}</title>
 
     {% comment %}
     The stylesheets can be either overriden or augmented here.  Make sure to use the block.super if you're
@@ -75,9 +73,14 @@
     Make sure to add your JS files here.  You'll probably want to use block.super to add to the comment includes rather
     than override them.
     {% endcomment %}
+
+    {# Translation support for JavaScript strings. #}
+    <script type="text/javascript" src="{% url 'django.views.i18n.javascript_catalog' %}"></script>
+
     {% compress js %}
       <script src="{% static 'js/common.js' %}"></script>
       <script data-main="{% static 'js/application-main.js' %}"  src="{% static 'vendor/require.js' %}"></script>
+
       {% block javascript %}
       {% endblock javascript %}
     {% endcompress %}

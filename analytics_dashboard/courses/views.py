@@ -8,6 +8,8 @@ from django.core.urlresolvers import reverse
 from django.http import Http404, HttpResponse
 from django.views.generic import TemplateView
 from django.views.generic.base import RedirectView
+from django.utils.translation import ugettext_lazy as _
+
 from braces.views import LoginRequiredMixin
 from analyticsclient import data_format, demographic
 from analyticsclient.client import Client
@@ -99,18 +101,21 @@ class CourseNavBarMixin(object):
 
         items = [
             {
-                'label': 'Overview',
+                'name': 'overview',
+                'label': _('Overview'),
                 'view': 'courses:overview',
                 'icon': 'fa-tachometer',
                 'switch': 'navbar_display_overview'
             },
             {
-                'label': 'Enrollment',
+                'name': 'enrollment',
+                'label': _('Enrollment'),
                 'view': 'courses:enrollment_activity',
                 'icon': 'fa-child'
             },
             {
-                'label': 'Engagement',
+                'name': 'engagement',
+                'label': _('Engagement'),
                 'view': 'courses:engagement_content',
                 'icon': 'fa-tasks',
                 'switch': 'navbar_display_engagement'
@@ -137,7 +142,7 @@ class CourseNavBarMixin(object):
         items = filter(is_feature_enabled, items)
 
         for item in items:
-            item['active'] = self.active_secondary_nav_item == item['label']
+            item['active'] = self.active_secondary_nav_item == item['name']
             self.clean_item(item)
 
         return items
@@ -165,7 +170,7 @@ class CourseNavBarMixin(object):
         secondary_nav_items = self.get_secondary_nav_items()
 
         # Get the active primary item and remove it from the list
-        primary_nav_item = [i for i in primary_nav_items if i['label'] == self.active_primary_nav_item][0]
+        primary_nav_item = [i for i in primary_nav_items if i['name'] == self.active_primary_nav_item][0]
         primary_nav_items.remove(primary_nav_item)
 
         context.update({
@@ -214,10 +219,10 @@ class EnrollmentTemplateView(CourseTemplateView):
     Base view for course enrollment pages.
     """
     secondary_nav_items = [
-        {'label': 'Activity', 'view': 'courses:enrollment_activity'},
-        {'label': 'Geography', 'view': 'courses:enrollment_geography'},
+        {'name': 'activity', 'label': _('Activity'), 'view': 'courses:enrollment_activity'},
+        {'name': 'geography', 'label': _('Geography'), 'view': 'courses:enrollment_geography'},
     ]
-    active_primary_nav_item = 'Enrollment'
+    active_primary_nav_item = 'enrollment'
 
 
 class EngagementTemplateView(CourseTemplateView):
@@ -225,9 +230,11 @@ class EngagementTemplateView(CourseTemplateView):
     Base view for course engagement pages.
     """
     secondary_nav_items = [
-        {'label': 'Content', 'view': 'courses:engagement_content', 'switch': 'navbar_display_engagement_content'},
+        # Translators: Content as in course content (e.g. things, not the feeling)
+        {'name': 'content', 'label': _('Content'), 'view': 'courses:engagement_content',
+         'switch': 'navbar_display_engagement_content'},
     ]
-    active_primary_nav_item = 'Engagement'
+    active_primary_nav_item = 'engagement'
 
 
 class CSVResponseMixin(object):
@@ -248,19 +255,25 @@ class JSONResponseMixin(object):
 
 class EnrollmentActivityView(EnrollmentTemplateView):
     template_name = 'courses/enrollment_activity.html'
-    page_title = 'Enrollment Activity'
+    page_title = _('Enrollment Activity')
     page_name = 'enrollment_activity'
-    active_secondary_nav_item = 'Activity'
+    active_secondary_nav_item = 'activity'
 
     # pylint: disable=line-too-long
     def get_context_data(self, **kwargs):
         context = super(EnrollmentActivityView, self).get_context_data(**kwargs)
 
         tooltips = {
-            'current_enrollment': 'Students enrolled in course.',
-            'enrollment_change_last_1_days': 'Change in enrollment for the last full day (00:00-23:59 UTC).',
-            'enrollment_change_last_7_days': 'Change in enrollment during the last 7 days (through 23:59 UTC).',
-            'enrollment_change_last_30_days': 'Change in enrollment during the last 30 days (through 23:59 UTC).'
+            'current_enrollment': _('Students enrolled in course.'),
+
+            # Translators: Please keep this time in UTC. Do not translate it into another timezone.
+            'enrollment_change_last_1_days': _('Change in enrollment for the last full day (00:00-23:59 UTC).'),
+
+            # Translators: Please keep this time in UTC. Do not translate it into another timezone.
+            'enrollment_change_last_7_days': _('Change in enrollment during the last 7 days (through 23:59 UTC).'),
+
+            # Translators: Please keep this time in UTC. Do not translate it into another timezone.
+            'enrollment_change_last_30_days': _('Change in enrollment during the last 30 days (through 23:59 UTC).')
         }
 
         presenter = CourseEnrollmentPresenter(self.course_id)
@@ -287,9 +300,9 @@ class EnrollmentActivityView(EnrollmentTemplateView):
 
 class EnrollmentGeographyView(EnrollmentTemplateView):
     template_name = 'courses/enrollment_geography.html'
-    page_title = 'Enrollment Geography'
+    page_title = _('Enrollment Geography')
     page_name = 'enrollment_geography'
-    active_secondary_nav_item = 'Geography'
+    active_secondary_nav_item = 'geography'
 
     def get_context_data(self, **kwargs):
         context = super(EnrollmentGeographyView, self).get_context_data(**kwargs)
@@ -312,19 +325,20 @@ class EnrollmentGeographyView(EnrollmentTemplateView):
 
 class EngagementContentView(EngagementTemplateView):
     template_name = 'courses/engagement_content.html'
-    page_title = 'Engagement Content'
+    page_title = _('Engagement Content')
     page_name = 'engagement_content'
-    active_secondary_nav_item = 'Content'
+    active_secondary_nav_item = 'content'
 
     # pylint: disable=line-too-long
     def get_context_data(self, **kwargs):
         context = super(EngagementContentView, self).get_context_data(**kwargs)
 
         tooltips = {
-            'all_activity_summary': 'Students who initiated an action.',
-            'posted_forum_summary': 'Students who created a post, responded to a post, or made a comment in any discussion.',
-            'attempted_problem_summary': 'Students who answered any question.',
-            'played_video_summary': 'Students who started watching any video.',
+            'all_activity_summary': _('Students who initiated an action.'),
+            'posted_forum_summary': _(
+                'Students who created a post, responded to a post, or made a comment in any discussion.'),
+            'attempted_problem_summary': _('Students who answered any question.'),
+            'played_video_summary': _('Students who started watching any video.'),
         }
 
         presenter = CourseEngagementPresenter()
@@ -343,16 +357,16 @@ class EngagementContentView(EngagementTemplateView):
 
 class OverviewView(CourseTemplateView):
     template_name = 'courses/overview.html'
-    page_title = 'Overview'
+    page_title = _('Overview')
     page_name = 'overview'
-    active_primary_nav_item = 'Overview'
+    active_primary_nav_item = 'overview'
 
 
 class PerformanceView(CourseTemplateView):
     template_name = 'courses/performance.html'
-    page_title = 'Performance'
+    page_title = _('Performance')
     page_name = 'performance'
-    active_primary_nav_item = 'Performance'
+    active_primary_nav_item = 'performance'
 
 
 class CourseEnrollmentByCountryCSV(CSVResponseMixin, CourseView):

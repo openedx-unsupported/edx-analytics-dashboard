@@ -45,7 +45,7 @@ define(['d3', 'nvd3', 'views/attribute-listener-view'],
                 canvas.attr('class', 'line-chart-container')
                     .append('div')
                     .attr('class', 'chart-title')
-                    .text('Daily Student Enrollment');
+                    .text(gettext('Daily Student Enrollment'));
 
                 // Append the svg to an inner container so that it adapts to
                 // the height of the inner container instead of the outer
@@ -55,7 +55,7 @@ define(['d3', 'nvd3', 'views/attribute-listener-view'],
                     .append('svg')
                     .datum([{
                         values: self.model.get(self.modelAttribute),
-                        key: 'Students'
+                        key: gettext('Students')
                     }])
                     .call(chart);
 

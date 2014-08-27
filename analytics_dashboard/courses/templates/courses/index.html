@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load dashboard_extras %}
 
 {% block view-name %}view-course-list{% endblock view-name %}
 
@@ -24,7 +25,8 @@
 
     <div class="col-md-4">
       <div class="help-msg">
-        <h4>{% blocktrans %}New to edX Insights?{% endblocktrans %}</h4>
+        {% captureas platform_name %}{% settings_value 'PLATFORM_NAME' %}{% endcaptureas %}
+        <h4>{% blocktrans %}New to {{ platform_name }} Insights?{% endblocktrans %}</h4>
 
         <p class="info-text">{% blocktrans %}Click Help in the upper-right corner to get more information about the Insights page you
           are viewing. You can also use the links at the bottom of the page to provide feedback and access other resources.{% endblocktrans %}</p>
