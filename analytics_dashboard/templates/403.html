@@ -7,11 +7,18 @@
 {% block error-code %}403{% endblock %}
 {% block error-title %}{% trans "Access Denied" %}{% endblock %}
 {% block error-copy %}
-  {% url 'logout_then_login' as logout_then_login_url %}
   {% blocktrans %}
     You do not have permission to view this page. If you believe you should have access
-    to this page, try <a href="{{logout_then_login_url}}">logging out and logging in</a>
-    again to refresh your permissions.
+    to this page, try logging out and logging in again to refresh your permissions.
   {% endblocktrans %}
   {{ block.super }}
 {% endblock %}
+
+{% block buttons %}
+  <a href="{% url 'logout_then_login' %}" class="btn btn-lg btn-primary">
+    <i class="ico fa fa-sign-in"></i>
+    {% trans "Logout then Login" %}
+  </a>
+  {{ block.super }}
+{% endblock buttons %}
+
