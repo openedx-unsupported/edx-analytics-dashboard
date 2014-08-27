@@ -63,6 +63,10 @@ TIME_ZONE = 'America/New_York'
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
 LANGUAGE_CODE = 'en-us'
 
+LOCALE_PATHS = (
+    join(SITE_ROOT, 'conf', 'locale'),
+)
+
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
 
@@ -167,13 +171,13 @@ ALLOWED_INCLUDE_ROOTS = (
 ########## MIDDLEWARE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#middleware-classes
 MIDDLEWARE_CLASSES = (
-    'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
     'waffle.middleware.WaffleMiddleware',
     'courses.middleware.CourseMiddleware',
     'courses.middleware.CoursePermissionsExceptionMiddleware',
