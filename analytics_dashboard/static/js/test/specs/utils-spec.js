@@ -36,5 +36,10 @@ define(['utils/utils'], function(Utils) {
             });
         });
 
+        it('should return node attributes', function () {
+            expect(Utils.formatDate('2014-01-31')).toEqual('January 31, 2014');
+            expect(Utils.formatDate('2014-01-01')).toEqual('January 1, 2014');
+        });
+
     });
 });

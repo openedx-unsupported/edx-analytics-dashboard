@@ -1,4 +1,4 @@
-define(['underscore'], function (_) {
+define(['moment', 'underscore'], function (moment, _) {
     'use strict';
     var utils = {
         /**
@@ -30,6 +30,15 @@ define(['underscore'], function (_) {
                 }
             });
             return properties;
+        },
+
+        /**
+         * Takes a standard string date and returns a formatted date.
+         * @param String date (ex. 2014-01-31)
+         * @returns Returns a formatted date (ex. January 31, 2014)
+         */
+        formatDate: function(date) {
+            return moment(date).format('MMMM D, YYYY');
         }
     };
 

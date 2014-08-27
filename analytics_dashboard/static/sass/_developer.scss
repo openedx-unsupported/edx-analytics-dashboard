@@ -35,6 +35,17 @@
   padding: 0 ($padding-large-horizontal*2);
 }
 
+.section-title-button {
+  float: right;
+}
+
+.dataTables_length {
+  label {
+    // this gives the length selection component of the data table some breathing room
+    padding-top: $padding-large-vertical;
+  }
+}
+
 // lens navigation consists of a drop down and the lens sections in a navigation
 $lens-background-color: $gray-d2;
 $lens-nav-text-color: $gray-l1;

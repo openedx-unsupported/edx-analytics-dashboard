@@ -24,9 +24,9 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page){
             model: page.models.courseModel,
             modelAttribute: 'enrollmentTrends',
             columns: [
-                {key: 'date', title: gettext('Date')},
+                {key: 'date', title: gettext('Date'), type: 'date'},
                 // Translators: The noun count (e.g. number of students)
-                {key: 'count', title: gettext('Count')}
+                {key: 'count', title: gettext('Total Enrollment'), className: 'text-right'}
             ],
             sorting: ['-date']
         });
