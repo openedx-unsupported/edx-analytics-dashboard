@@ -86,4 +86,4 @@ SOCIAL_AUTH_EDX_OIDC_ID_TOKEN_DECRYPTION_KEY = None
 ENABLE_AUTO_AUTH = True
 
 # Uncomment the line below to avoid having to worry about course permissions
-# ENABLE_COURSE_PERMISSIONS = False
+ENABLE_COURSE_PERMISSIONS = False

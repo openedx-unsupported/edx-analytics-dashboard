@@ -11,6 +11,7 @@ from django.db import connection, DatabaseError
 from django.http import HttpResponse, Http404
 from django.shortcuts import redirect
 from django.views.generic import View, TemplateView
+from django.core.urlresolvers import reverse_lazy
 
 from courses import permissions
 
@@ -100,3 +101,11 @@ def logout(request, next_page=None, template_name='registration/logged_out.html'
     # Back to the standard logout flow
     return django.contrib.auth.views.logout(request, next_page, template_name, redirect_field_name, current_app,
                                             extra_context)
+
+
+def logout_then_login(request, login_url=reverse_lazy('login'), current_app=None, extra_context=None):
+    """
+    Logout then login
+    """
+    permissions.revoke_user_course_permissions(request.user)
+    return django.contrib.auth.views.logout_then_login(request, login_url, current_app, extra_context)
