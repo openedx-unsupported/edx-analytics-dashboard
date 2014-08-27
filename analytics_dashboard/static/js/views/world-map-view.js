@@ -181,7 +181,7 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'views/attribute-listener-view
                         popupTemplate: function (geography, data) {
                             return self.popupTemplate({
                                 name: geography.properties.name,
-                                value: data ? data.value.toLocaleString() : 0
+                                value: data ? data.value : 0
                             });
                         }
                     },

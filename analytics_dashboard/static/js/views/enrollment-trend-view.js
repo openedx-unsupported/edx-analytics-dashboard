@@ -39,12 +39,7 @@ define(['d3', 'nvd3', 'views/attribute-listener-view'],
                         return d3.time.format.utc('%x')(new Date(d));
                     });
 
-                chart.yAxis
-                    .axisLabel('Students')
-                    .tickFormat(function(value){
-                        // display formatted number
-                        return value.toLocaleString();
-                    });
+                chart.yAxis.axisLabel('Students');
 
                 // Add the title
                 canvas.attr('class', 'line-chart-container')
