@@ -1,10 +1,12 @@
 {% extends "base-error.html" %}
 
-{% block title %}Page Not Found {{ block.super }}{% endblock title %}
+{% load i18n %}
+
+{% block title %}{% trans "Page Not Found" %} {{ block.super }}{% endblock title %}
 
 {% block error-code %}404{% endblock %}
-{% block error-title %}Page Not Found{% endblock %}
+{% block error-title %}{% trans "Page Not Found" %}{% endblock %}
 {% block error-copy %}
-  We can't find the view you're looking for. Please make sure the URL you've entered or arrived at is correct and if not
-  try again. If you continue to have trouble, please let us know.
+  {% blocktrans %}We can't find the view you're looking for. Please make sure the URL you've entered or arrived at is
+    correct and, if not, try again. If you continue to have trouble, please let us know.{% endblocktrans %}
 {% endblock %}

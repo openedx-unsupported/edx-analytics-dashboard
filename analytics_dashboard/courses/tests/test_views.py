@@ -7,6 +7,8 @@ import mock
 from django.conf import settings
 from django.test import TestCase
 from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext_lazy as _
+
 import analyticsclient.activity_type as AT
 from analyticsclient.exceptions import NotFoundError
 from waffle import Switch
@@ -106,15 +108,18 @@ class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
         expected = {
             'icon': 'fa-child',
             'href': reverse('courses:enrollment_activity', kwargs={'course_id': self.course_id}),
-            'label': 'Enrollment'
+            'label': _('Enrollment'),
+            'name': 'enrollment'
         }
         self.assertDictEqual(nav, expected)
 
     def assertSecondaryNavs(self, nav):
         reverse_kwargs = {'course_id': self.course_id}
         expected = [
-            {'label': 'Activity', 'href': reverse('courses:enrollment_activity', kwargs=reverse_kwargs)},
-            {'label': 'Geography', 'href': reverse('courses:enrollment_geography', kwargs=reverse_kwargs)}
+            {'name': 'activity', 'label': _('Activity'),
+             'href': reverse('courses:enrollment_activity', kwargs=reverse_kwargs)},
+            {'name': 'geography', 'label': _('Geography'),
+             'href': reverse('courses:enrollment_geography', kwargs=reverse_kwargs)}
         ]
 
         for item in expected:
@@ -184,12 +189,13 @@ class CourseEngagementContentViewTests(CourseViewTestMixin, TestCase):
         expected = {
             'icon': 'fa-tasks',
             'href': reverse('courses:engagement_content', kwargs={'course_id': self.course_id}),
-            'label': 'Engagement'
+            'label': _('Engagement'),
+            'name': 'engagement'
         }
         self.assertDictEqual(nav, expected)
 
     def assertSecondaryNavs(self, nav):
-        expected = [{'active': True, 'label': 'Content', 'href': '#'}]
+        expected = [{'active': True, 'name': 'content', 'label': _('Content'), 'href': '#'}]
         self.assertListEqual(nav, expected)
 
     @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary', mock.Mock(side_effect=NotFoundError))

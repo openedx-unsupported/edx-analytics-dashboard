@@ -33,11 +33,11 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page){
             model: page.models.courseModel,
             modelAttribute: 'enrollmentByCountry',
             columns: [
-                {key: 'countryName', title: 'Country'},
-                {key: 'count', title: 'Count'}
+                {key: 'countryName', title: gettext('Country')},
+                // Translators: The noun count (e.g. number of students)
+                {key: 'count', title: gettext('Count')}
             ],
             sorting: ['-count']
         });
     });
-
 });

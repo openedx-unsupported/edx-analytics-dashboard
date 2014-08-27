@@ -1,14 +1,17 @@
 {% extends "base-error.html" %}
+{% load i18n %}
 
-{% block title %}Permissions Retrieval Failed {{ block.super }}{% endblock title %}
+{% comment %}Translators: This message is displayed when the website is unable to get the credentials for the user{% endcomment %}
+{% block title %}{% blocktrans %}Permissions Retrieval Failed{% endblocktrans %} {{ block.super }}{% endblock title %}
 
-{% block error-title %}Permissions Retrieval Failed{% endblock %}
+{% block error-title %}{% blocktrans %}Permissions Retrieval Failed{% endblocktrans %}{% endblock %}
 {% block error-copy %}
-  There was a problem retrieving course permssions for your account. Please try again. If you continue to experience
-  issues, please let us know.
+  {% blocktrans %}There was a problem retrieving course permissions for your account. Please try again. If you continue
+    to experience issues, please let us know.{% endblocktrans %}
 {% endblock %}
 
 {% block buttons %}
-  <a onclick="location.reload(true);" class="btn btn-lg btn-primary"> <i class="ico fa fa-refresh"></i> Try Again </a>
+  <a onclick="location.reload(true);" class="btn btn-lg btn-primary"> <i class="ico fa fa-refresh"></i>
+    {% trans "Try Again" %}</a>
   {{ block.super }}
 {% endblock %}

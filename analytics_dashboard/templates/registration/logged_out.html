@@ -1,14 +1,15 @@
 {% extends "base-error.html" %}
+{% load i18n %}
 
-{% block title %}Logged Out {{ block.super }}{% endblock title %}
+{% block title %}{% trans "Logged Out" %} {{ block.super }}{% endblock title %}
 
-{% block error-title %}Logged Out{% endblock %}
+{% block error-title %}{% trans "Logged Out" %}{% endblock %}
 {% block error-copy %}
-  You have been logged out. Click the button below to login again.
+  {% blocktrans %}You have been logged out. Click the button below to login again.{% endblocktrans %}
 {% endblock %}
 {% block buttons %}
   <a href="{% url 'login' %}" class="btn btn-lg btn-primary">
     <i class="ico fa fa-sign-in"></i>
-    Login
+    {% trans "Login" %}
   </a>
 {% endblock %}
