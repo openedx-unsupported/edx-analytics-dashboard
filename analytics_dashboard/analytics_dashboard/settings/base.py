@@ -351,4 +351,4 @@ LOGIN_REDIRECT_URL = '/courses/'
 ########## END AUTHENTICATION
 
 # The display name of the platform to be used in templates/emails/etc.
-PLATFORM_NAME = 'edX'
+PLATFORM_NAME = 'Your Platform Name Here'
