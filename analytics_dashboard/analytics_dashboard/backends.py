@@ -70,5 +70,6 @@ class EdXOpenIdConnect(EdXOAuth2Mixin, OpenIdConnectAuth):
             u'email': response['email'],
             u'full_name': response['name'],
             u'first_name': response['given_name'],
-            u'last_name': response['family_name']
+            u'last_name': response['family_name'],
+            u'language': response['language']
         }

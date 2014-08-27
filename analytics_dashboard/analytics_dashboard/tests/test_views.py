@@ -1,6 +1,10 @@
+from calendar import timegm
 import json
+import datetime
 from django.core.cache import cache
 from django.test.utils import override_settings
+import httpretty
+import jwt
 import mock
 
 from django.conf import settings
@@ -11,8 +15,9 @@ from django.core.urlresolvers import reverse
 from django.test import TestCase
 
 from analyticsclient.exceptions import ClientError
+from social.utils import parse_qs
 
-from analytics_dashboard.backends import EdXOAuth2
+from analytics_dashboard.backends import EdXOAuth2, EdXOpenIdConnect
 from courses.permissions import set_user_course_permissions, user_can_view_course, get_user_course_permissions
 
 
@@ -162,11 +167,28 @@ class LogoutViewTests(UserTestCaseMixin, TestCase):
 class OAuthTests(UserTestCaseMixin, RedirectTestCaseMixin, TestCase):
     DEFAULT_USERNAME = 'edx'
     backend_name = 'edx-oauth2'
+    backend_class = EdXOAuth2
 
     def setUp(self):
         super(OAuthTests, self).setUp()
         self.oauth_init_path = reverse('social:begin', args=[self.backend_name])
 
+    def _access_token_body(self, request, _url, headers, username):
+        nonce = parse_qs(request.body).get('nonce')
+        body = json.dumps(self.get_access_token_response(nonce, username))
+        return 200, headers, body
+
+    # pylint: disable=unused-argument
+    def get_access_token_response(self, nonce, username):
+        token_response = {
+            'access_token': '12345',
+            'refresh_token': 'abcde',
+            'expires_in': 900,
+            'preferred_username': username
+        }
+        return token_response
+
+    @httpretty.activate
     def _check_oauth_handshake(self, username=DEFAULT_USERNAME, failure=False):
         """ Performs an OAuth handshake to login a user.
 
@@ -180,28 +202,24 @@ class OAuthTests(UserTestCaseMixin, RedirectTestCaseMixin, TestCase):
         self.assertEqual(response.status_code, 302)
         state = self.client.session['{}_state'.format(self.backend_name)]
 
-        # Generate an OAuth response
-        token_response = {
-            'access_token': '12345',
-            'refresh_token': 'abcde',
-            'expires_in': 900,
-            'preferred_username': username
-        }
+        # Mock the access token POST body
+        httpretty.register_uri(httpretty.POST, self.backend_class.ACCESS_TOKEN_URL,
+                               body=lambda request, url, headers: self._access_token_body(request, url, headers,
+                                                                                          username))
 
-        with mock.patch.object(EdXOAuth2, 'request_access_token', return_value=token_response):
-            # Send the response to this application's OAuth consumer URL
-            oauth_complete_path = '{0}?state={1}'.format(reverse('social:complete', args=[self.backend_name]), state)
+        # Send the response to this application's OAuth consumer URL
+        oauth_complete_path = '{0}?state={1}'.format(reverse('social:complete', args=[self.backend_name]), state)
 
-            if failure:
-                oauth_complete_path += '&error=access_denied'
+        if failure:
+            oauth_complete_path += '&error=access_denied'
 
-            response = self.client.get(oauth_complete_path)
-            self.assertEqual(response.status_code, 302)
+        response = self.client.get(oauth_complete_path)
+        self.assertEqual(response.status_code, 302)
 
-            redirect_path = settings.SOCIAL_AUTH_LOGIN_ERROR_URL if failure else settings.LOGIN_REDIRECT_URL
-            self.assertEqual(response['Location'], 'http://testserver{}'.format(redirect_path))
+        redirect_path = settings.SOCIAL_AUTH_LOGIN_ERROR_URL if failure else settings.LOGIN_REDIRECT_URL
+        self.assertEqual(response['Location'], 'http://testserver{}'.format(redirect_path))
 
-    def test_oauth_new_user(self):
+    def test_new_user(self):
         """
         A new user should be created if the username from the OAuth provider is not linked to an existing account.
         """
@@ -217,7 +235,7 @@ class OAuthTests(UserTestCaseMixin, RedirectTestCaseMixin, TestCase):
 
         self.assertUserLoggedIn(user)
 
-    def test_oauth_existing_user(self):
+    def test_existing_user(self):
         """
         Verify system logs in a user (and does not create a new account) when the username from the OAuth provider
         matches an existing account in the system.
@@ -233,8 +251,60 @@ class OAuthTests(UserTestCaseMixin, RedirectTestCaseMixin, TestCase):
 
         self.assertUserLoggedIn(user)
 
-    def test_oauth_access_denied(self):
+    def test_access_denied(self):
         self._check_oauth_handshake(failure=True)
+
+
+@override_settings(SOCIAL_AUTH_EDX_OIDC_KEY='123',
+                   SOCIAL_AUTH_EDX_OIDC_SECRET='abc',
+                   SOCIAL_AUTH_EDX_OIDC_ID_TOKEN_DECRYPTION_KEY='abc')
+class OpenIdConnectTests(OAuthTests):
+    backend_name = 'edx-oidc'
+    backend_class = EdXOpenIdConnect
+
+    def get_id_token(self, nonce, username):
+        client_key = settings.SOCIAL_AUTH_EDX_OIDC_KEY
+        now = datetime.datetime.utcnow()
+        expiration_datetime = now + datetime.timedelta(seconds=30)
+        issue_datetime = now
+
+        id_token = {
+            'iss': EdXOpenIdConnect.ID_TOKEN_ISSUER,
+            'nonce': nonce,
+            'aud': client_key,
+            'azp': client_key,
+            'exp': timegm(expiration_datetime.utctimetuple()),
+            'iat': timegm(issue_datetime.utctimetuple()),
+            'sub': '1234',
+            'preferred_username': username,
+            'email': 'edx@example.org',
+            'name': 'Ed Xavier',
+            'given_name': 'Ed',
+            'family_name': 'Xavier',
+            'language': 'en_us'
+        }
+
+        return id_token
+
+    def get_access_token_response(self, nonce, username):
+        client_secret = settings.SOCIAL_AUTH_EDX_OIDC_SECRET
+        access_token = super(OpenIdConnectTests, self).get_access_token_response(nonce, username)
+        access_token.update({
+            'id_token': jwt.encode(self.get_id_token(nonce, username), client_secret).decode('utf-8')
+        })
+        return access_token
+
+    def test_user_details(self):
+        # Create a new user
+        self.test_new_user()
+        user = self.get_latest_user()
+
+        # Validate the user's details
+        self.assertEqual(user.username, 'edx')
+        self.assertEqual(user.email, 'edx@example.org')
+        self.assertEqual(user.first_name, 'Ed')
+        self.assertEqual(user.last_name, 'Xavier')
+        self.assertEqual(user.language, 'en_us')
 
 
 class AutoAuthTests(UserTestCaseMixin, TestCase):
