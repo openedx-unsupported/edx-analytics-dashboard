@@ -293,6 +293,8 @@ DATA_API_AUTH_TOKEN = 'edx'
 DATE_FORMAT = 'F d, Y'
 
 ########## AUTHENTICATION
+AUTH_USER_MODEL = 'analytics_dashboard.User'
+
 INSTALLED_APPS += ('social.apps.django_app.default',)
 
 # Allow authentication via edX OAuth

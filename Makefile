@@ -20,8 +20,8 @@ clean:
 
 test_python: clean
 	cd analytics_dashboard && ./manage.py test --settings=analytics_dashboard.settings.test --with-ignore-docstrings \
-		--exclude-dir=analytics_dashboard/settings --with-coverage --cover-inclusive --cover-branches \
-		--cover-html --cover-html-dir=$(COVERAGE)/html/ \
+		--exclude-dir=analytics_dashboard/settings --exclude-dir=analytics_dashboard/migrations --with-coverage \
+		--cover-inclusive --cover-branches --cover-html --cover-html-dir=$(COVERAGE)/html/ \
 		--cover-xml --cover-xml-file=$(COVERAGE)/coverage.xml \
 		$(foreach package,$(PACKAGES),--cover-package=$(package)) \
 		$(PACKAGES)
