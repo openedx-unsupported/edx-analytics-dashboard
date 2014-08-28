@@ -6,14 +6,14 @@
 define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-model'],
         function ($, CourseModel, TrackingModel, UserModel) {
     'use strict';
-    var jsonData = JSON.parse($('#content').attr('data-analytics-init')),
-        courseModel = new CourseModel(),
+    var courseModel = new CourseModel(),
         trackingModel = new TrackingModel(),
         userModel = new UserModel();
 
-    courseModel.set(jsonData.course);
-    trackingModel.set(jsonData.tracking);
-    userModel.set(jsonData.user);
+    // initModelData is set by the Django template at render time.
+    courseModel.set(initModelData.course);
+    trackingModel.set(initModelData.tracking);
+    userModel.set(initModelData.user);
 
     return {
         courseModel: courseModel,

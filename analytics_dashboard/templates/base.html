@@ -42,7 +42,7 @@
     <div class="container">
         <div class="row">
           {% block content-outer %}
-            <main class="col-xs-12 main" id="content" data-analytics-init='{{ page_data | safe }}'>
+            <main class="col-xs-12 main" id="content">
                 <div class="view-head">
                     {% block header-text %}<h1>{{ page_title }}</h1>{% endblock %}
                 </div>
@@ -76,6 +76,11 @@
 
     {# Translation support for JavaScript strings. #}
     <script type="text/javascript" src="{% url 'django.views.i18n.javascript_catalog' %}"></script>
+
+    {# Initial page data passed from view to JS initializer #}
+    <script type="text/javascript">
+      var initModelData = {{ page_data|safe }};
+    </script>
 
     {% compress js %}
       <script src="{% static 'js/common.js' %}"></script>
