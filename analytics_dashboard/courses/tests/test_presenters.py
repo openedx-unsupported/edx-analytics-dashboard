@@ -4,6 +4,7 @@ import datetime
 from django.test import TestCase
 
 import analyticsclient.activity_type as AT
+from analyticsclient.exceptions import NotFoundError
 
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter, BasePresenter
 from courses.tests.utils import get_mock_enrollment_data, get_mock_enrollment_summary, \
@@ -11,6 +12,9 @@ from courses.tests.utils import get_mock_enrollment_data, get_mock_enrollment_su
 
 
 def mock_activity_data(activity_type):
+    if activity_type == AT.POSTED_FORUM:
+        raise NotFoundError
+
     activity_types = [AT.ANY, AT.ATTEMPTED_PROBLEM, AT.PLAYED_VIDEO, AT.POSTED_FORUM]
 
     summaries = {}
@@ -27,11 +31,13 @@ def mock_activity_data(activity_type):
 
 
 class CourseEngagementPresenterTests(TestCase):
-    @mock.patch('analyticsclient.course.Course.recent_activity',
-                mock.Mock(side_effect=mock_activity_data, autospec=True))
+    def setUp(self):
+        super(CourseEngagementPresenterTests, self).setUp()
+        self.presenter = CourseEngagementPresenter()
+
+    @mock.patch('analyticsclient.course.Course.recent_activity', mock.Mock(side_effect=mock_activity_data))
     def test_get_summary(self):
-        student_engagement = CourseEngagementPresenter()
-        summary = student_engagement.get_summary('this/course/id')
+        summary = self.presenter.get_summary('this/course/id')
 
         # make sure that we get the time from "ANY"
         self.assertEqual(summary['interval_end'], 'this is a time 0')
@@ -40,7 +46,10 @@ class CourseEngagementPresenterTests(TestCase):
         self.assertEqual(summary[AT.ANY], 0)
         self.assertEqual(summary[AT.ATTEMPTED_PROBLEM], 500)
         self.assertEqual(summary[AT.PLAYED_VIDEO], 1000)
-        self.assertEqual(summary[AT.POSTED_FORUM], 1500)
+
+        # If an API query for a non-default activity type returns a 404, the presenter should return none for
+        # that particular activity type.
+        self.assertIsNone(summary[AT.POSTED_FORUM], None)
 
 
 class BasePresenterTests(TestCase):
