@@ -1,6 +1,7 @@
 {% load i18n %}
 {% load staticfiles %}
 {% load compress %}
+{% load dashboard_extras %}
 
 <!DOCTYPE html>
 <!--[if lte IE 9]><html class="no-js lt-ie10" lang="en"><![endif]-->
@@ -10,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>{% block title %}| {% blocktrans %}edX Analytics{% endblocktrans %}{% endblock title %}</title>
+    <title>{% block title %}| {% settings_value 'FULL_APPLICATION_NAME' %}{% endblock title %}</title>
 
     {% comment %}
     The stylesheets can be either overriden or augmented here.  Make sure to use the block.super if you're

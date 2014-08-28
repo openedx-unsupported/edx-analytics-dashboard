@@ -71,6 +71,15 @@ INSTALLED_APPS += (
 )
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
+
+########## BRANDING
+PLATFORM_NAME = 'edX'
+APPLICATION_NAME = 'Insights'
+FULL_APPLICATION_NAME = '{0} {1}'.format(PLATFORM_NAME, APPLICATION_NAME)
+########## END BRANDING
+
+
+########## AUTHENTICATION/AUTHORIZATION
 # Set these to the correct values for your OAuth2/OpenID Connect provider
 SOCIAL_AUTH_EDX_OAUTH2_KEY = None
 SOCIAL_AUTH_EDX_OAUTH2_SECRET = None
@@ -87,3 +96,4 @@ ENABLE_AUTO_AUTH = True
 
 # Uncomment the line below to avoid having to worry about course permissions
 # ENABLE_COURSE_PERMISSIONS = False
+########## END AUTHENTICATION/AUTHORIZATION
