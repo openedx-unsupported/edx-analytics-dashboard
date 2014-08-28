@@ -4,6 +4,7 @@ from django.conf import settings
 
 from analyticsclient.client import Client
 import analyticsclient.activity_type as AT
+from analyticsclient.exceptions import NotFoundError
 from analyticsclient import demographic
 
 
@@ -69,7 +70,13 @@ class CourseEngagementPresenter(BasePresenter):
         # call to get all the summary data that I need.
         activity_types = [AT.ATTEMPTED_PROBLEM, AT.PLAYED_VIDEO, AT.POSTED_FORUM]
         for activity_type in activity_types:
-            activity = course.recent_activity(activity_type)
+            try:
+                activity = course.recent_activity(activity_type)
+            except NotFoundError:
+                # We know the course exists, since we have gotten this far in the code, but
+                # there is no data for the specified activity type. Report it as null.
+                activity = {'activity_type': activity_type, 'count': None}
+
             activities.append(activity)
 
         # format the data for the page
