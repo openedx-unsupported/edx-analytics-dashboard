@@ -353,5 +353,7 @@ ENABLE_COURSE_PERMISSIONS = True
 LOGIN_REDIRECT_URL = '/courses/'
 ########## END AUTHENTICATION
 
-# The display name of the platform to be used in templates/emails/etc.
+# The application and platform display names to be used in templates, emails, etc.
 PLATFORM_NAME = 'Your Platform Name Here'
+APPLICATION_NAME = 'Insights'
+FULL_APPLICATION_NAME = '{0} {1}'.format(PLATFORM_NAME, APPLICATION_NAME)

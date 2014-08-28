@@ -4,5 +4,5 @@
 
 <a class="{{ class_prefix }}-brand" href="/">
   <img class="{{ class_prefix }}-brand-logo" src="{% static 'images/logo-edx.svg' %}" alt="{% settings_value 'PLATFORM_NAME' %}"/>
-  <span class="{{ class_prefix }}-brand-app">{% trans 'Analytics' %}</span>
+  <span class="{{ class_prefix }}-brand-app">{% settings_value 'APPLICATION_NAME' %}</span>
 </a>
