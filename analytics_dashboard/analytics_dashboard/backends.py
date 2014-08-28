@@ -71,5 +71,7 @@ class EdXOpenIdConnect(EdXOAuth2Mixin, OpenIdConnectAuth):
             u'full_name': response['name'],
             u'first_name': response['given_name'],
             u'last_name': response['family_name'],
-            u'language': response['language']
+
+            # Optional, scope-specific, data
+            u'language': response.get('language')
         }
