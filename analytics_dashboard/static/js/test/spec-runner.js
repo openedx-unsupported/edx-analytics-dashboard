@@ -22,7 +22,8 @@ var config = {
         d3: 'vendor/d3/d3',
         nvd3: 'vendor/nvd3/nv.d3',
         topojson: 'vendor/topojson/topojson',
-        datamaps: 'vendor/datamaps/datamaps.world.min'
+        datamaps: 'vendor/datamaps/datamaps.world.min',
+        moment: 'vendor/moment/moment-with-locales'
     },
     shim: {
         bootstrap: {

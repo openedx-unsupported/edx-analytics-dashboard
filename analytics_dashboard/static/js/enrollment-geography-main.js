@@ -35,7 +35,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page){
             columns: [
                 {key: 'countryName', title: gettext('Country')},
                 // Translators: The noun count (e.g. number of students)
-                {key: 'count', title: gettext('Count')}
+                {key: 'count', title: gettext('Total Enrollment'), className: 'text-right'}
             ],
             sorting: ['-count']
         });

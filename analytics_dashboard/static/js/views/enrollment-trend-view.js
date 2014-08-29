@@ -1,5 +1,5 @@
-define(['d3', 'nvd3', 'views/attribute-listener-view'],
-    function (d3, nvd3, AttributeListenerView) {
+define(['d3', 'nvd3', 'utils/utils', 'views/attribute-listener-view'],
+    function (d3, nvd3, Utils, AttributeListenerView) {
         'use strict';
 
         var EnrollmentTrendView = AttributeListenerView.extend({
@@ -17,7 +17,7 @@ define(['d3', 'nvd3', 'views/attribute-listener-view'],
                     chart;
 
                 chart = nvd3.models.lineChart()
-                    .margin({left: 80, right: 40})  // margins so text fits
+                    .margin({left: 80, right: 45})  // margins so text fits
                     .showLegend(true)
                     .useInteractiveGuideline(true)
                     .forceY(0)
@@ -36,7 +36,7 @@ define(['d3', 'nvd3', 'views/attribute-listener-view'],
                 chart.xAxis
                     .axisLabel('Date')
                     .tickFormat(function (d) {
-                        return d3.time.format.utc('%x')(new Date(d));
+                        return Utils.formatDate(d);
                     });
 
                 chart.yAxis.axisLabel('Students');

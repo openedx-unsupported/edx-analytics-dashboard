@@ -20,7 +20,8 @@ var require = {
         d3: 'vendor/d3/d3',
         nvd3: 'vendor/nvd3/nv.d3',
         topojson: 'vendor/topojson/topojson',
-        datamaps: 'vendor/datamaps/datamaps.world.min'
+        datamaps: 'vendor/datamaps/datamaps.world.min',
+        moment: 'vendor/moment/moment-with-locales'
     },
     shim: {
         bootstrap: {
@@ -48,6 +49,9 @@ var require = {
         datamaps: {
             deps: ['topojson', 'd3'],
             exports: 'datamap'
+        },
+        moment: {
+            noGlobal: true
         }
     },
     // load jquery automatically

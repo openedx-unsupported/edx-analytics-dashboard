@@ -91,7 +91,7 @@ class CourseEnrollmentActivityTests(CourseEnrollmentTests, WebAppTest):
         enrollment_data = sorted(self.get_enrollment_data(), reverse=True, key=lambda item: item['date'])
 
         table_selector = 'div[data-role=enrollment-table] table'
-        self.assertTableColumnHeadingsEqual(table_selector, ['Date', 'Count'])
+        self.assertTableColumnHeadingsEqual(table_selector, ['Date', 'Total Enrollment'])
 
         rows = self.page.browser.find_elements_by_css_selector('%s tbody tr' % table_selector)
         self.assertGreater(len(rows), 0)
@@ -99,9 +99,11 @@ class CourseEnrollmentActivityTests(CourseEnrollmentTests, WebAppTest):
         for i, row in enumerate(rows):
             columns = row.find_elements_by_css_selector('td')
             enrollment = enrollment_data[i]
-            expected = [enrollment['date'], enrollment['count']]
+            expected_date = datetime.datetime.strptime(enrollment['date'], self.api_date_format).strftime("%B %d, %Y").replace(' 0', ' ')
+            expected = [expected_date, enrollment['count']]
             actual = [columns[0].text, int(columns[1].text)]
             self.assertListEqual(actual, expected)
+            self.assertIn('text-right', columns[1].get_attribute('class'))
 
         # Verify CSV button has an href attribute
         selector = "a[data-role=enrollment-trend-csv]"
@@ -160,7 +162,7 @@ class CourseEnrollmentGeographyTests(CourseEnrollmentTests, WebAppTest):
         self.assertTrue(element.present)
 
         # check the headings
-        self.assertTableColumnHeadingsEqual(table_selector, ['Country', 'Count'])
+        self.assertTableColumnHeadingsEqual(table_selector, ['Country', 'Total Enrollment'])
 
         # Verify CSV button has an href attribute
         selector = "a[data-role=enrollment-location-csv]"
@@ -184,3 +186,4 @@ class CourseEnrollmentGeographyTests(CourseEnrollmentTests, WebAppTest):
             expected = [enrollment['country']['name'], enrollment['count']]
             actual = [columns[0].text, int(columns[1].text)]
             self.assertListEqual(actual, expected)
+            self.assertIn('text-right', columns[1].get_attribute('class'))
