@@ -7,10 +7,7 @@
 {% block error-code %}403{% endblock %}
 {% block error-title %}{% trans "Access Denied" %}{% endblock %}
 {% block error-copy %}
-  {% blocktrans %}
-    You do not have permission to view this page. If you believe you should have access
-    to this page, try logging out and logging in again to refresh your permissions.
-  {% endblocktrans %}
+  {% trans "You do not have permission to view this page. If you believe you should have access to this page, try logging out and logging in again to refresh your permissions." %}
   {{ block.super }}
 {% endblock %}
 

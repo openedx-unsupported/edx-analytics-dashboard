@@ -1,6 +1,7 @@
 {% extends "courses/base-course.html" %}
 {% load i18n %}
 {% load staticfiles %}
+{% load dashboard_extras %}
 
 {% comment %}
 Individual course-centric enrollment geography view.
@@ -17,17 +18,16 @@ Individual course-centric enrollment geography view.
 
   <section class="view-section" data-section="enrollment-location">
     <h4 class="section-title">
-      <span class="section-title-value">{% blocktrans %}Geographic Distribution{% endblocktrans %}</span>
-      <span class="section-title-note small">{% blocktrans %}Where are my students learning?{% endblocktrans %}</span>
+      <span class="section-title-value">{% trans "Geographic Distribution" %}</span>
+      <span class="section-title-note small">{% trans "Where are my students learning?" %}</span>
     </h4>
 
     <hr class="has-emphasis"/>
     <div class="row">
       <div class="col-sm-12">
              <span class="section-title-value small">
-               {% blocktrans with update_date='<span data-view="enrollment-by-country-update-date"></span>' %}
-                 Last Updated: {{ update_date }}
-               {% endblocktrans %}
+             {% captureas update_date %}<span data-view="enrollment-by-country-update-date"></span>{% endcaptureas %}
+              {% blocktrans %}Last updated: {{ update_date }}{% endblocktrans %}
              </span>
       </div>
     </div>
@@ -48,13 +48,14 @@ Individual course-centric enrollment geography view.
 
     <h4 class="section-title">
       <span class="subsection-title-value">
-        {% blocktrans %}Country Enrollment Breakdown{% endblocktrans %}
+        {% trans "Country Enrollment Breakdown" %}
       </span>
+
       <div class="section-actions section-title-button">
         <a href="{% url 'courses:csv_enrollment_by_country' course_id=course_id %}" class="btn btn-default"
            data-role="enrollment-location-csv" data-track-type="click"
            data-track-event="edx.bi.csv.downloaded" data-track-category="geographic">
-          <i class="ico fa fa-download"></i> {% blocktrans %}Download CSV{% endblocktrans %}
+          <i class="ico fa fa-download"></i> {% trans "Download CSV" %}
         </a>
       </div>
     </h4>
