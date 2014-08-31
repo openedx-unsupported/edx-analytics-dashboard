@@ -2,8 +2,9 @@
 Read Me
 *******
 
-The *edX Insights* guide is created using RST_ files and Sphinx_. You, the user
-community, can help update and revise this documentation project on GitHub.
+The *Using edX Insights* guide is created using RST_ files and Sphinx_. You,
+the user community, can help update and revise this documentation project on
+GitHub.
 
 ::
 

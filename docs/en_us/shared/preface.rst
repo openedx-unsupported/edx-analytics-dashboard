@@ -54,6 +54,12 @@ Documentation for course teams is available on the docs.edx.org web page.
   When you are working in edX Studio, you can access relevant sections of this
   guide by clicking **Help** on any page.
 
+* `Using edX Insights`_ describes the metrics, visualizations, and downloadable
+  .csv files that course teams can use to gain information about student
+  background and activity.
+
+.. about student background, activity, and progress.
+
 * `edX Course Staff Release Notes`_ summarize the changes in each new version
   of the edX Studio and LMS software.
 
@@ -70,9 +76,9 @@ Email
 
 To receive and share information by email, course team members can:
 
-* Sign up to receive monthly newsletters_. 
+* Sign up to receive monthly newsletters_.
 
-* Sign up to receive release_ notes for every release. 
+* Sign up to receive release_ notes for every release.
 
 * Join the `openedx-studio`_ Google group to ask questions and participate in
   discussions with peers at other edX partner organizations and edX staffers.
@@ -99,14 +105,14 @@ educational investigators, and others for educational research.
 Documentation
 -------------
 
-The `edX Research Guide`_ is available on the docs.edx.org web page. 
+The `edX Research Guide`_ is available on the docs.edx.org web page.
 
 This guide opens in your web browser, with a **Search docs** field and links to
 that guide's contents on the left side of each page. To open or save a PDF
 version, click **v: latest** at the lower left of the page, and then click
 **PDF**.
 
-Email 
+Email
 -------
 
 To receive and share information by email, researchers can join the 
@@ -149,9 +155,11 @@ Documentation for developers is available on the docs.edx.org web page.
 GitHub
 -------
 
-There are two main edX repositories on GitHub.
+These are the main edX repositories on GitHub.
 
-* The `edx/edx-platform`_ repo contains the code for the edX platform. 
+* The `edx/edx-platform`_ repo contains the code for the edX platform.
+
+* The `edx/edx-analytics-dashboard`_ repo contains the code for edX Insights.
 
 * The `edx/configuration`_ repo contains scripts to set up and operate the edX
   platform.
@@ -232,6 +240,7 @@ edX Global Community meetup_ group.
 
 
 .. _Building and Running an edX Course: http://edx.readthedocs.org/projects/edx-partner-course-staff/en/latest/
+.. _Using edX Insights: http://edx.readthedocs.org/projects/edx-insights/en/latest/
 .. _edX Course Staff Release Notes: http://edx.readthedocs.org/projects/edx-release-notes/en/latest/
 .. _Creating a Peer Assessment: http://edx.readthedocs.org/projects/edx-open-response-assessments/en/latest/
 .. _edX Research Guide: http://edx.readthedocs.org/projects/devdata/en/latest/
@@ -253,6 +262,7 @@ edX Global Community meetup_ group.
 .. _edx/configuration: http://github.com/edx/configuration/wiki
 .. _site: http://code.edx.org/
 .. _edx/edx-platform: https://github.com/edx/edx-platform
+.. _edx/edx-analytics-dashboard: https://github.com/edx/edx-analytics-dashboard
 .. _dashboard: http://dash.openedx.org/age.html
 .. _Demo: http://www.edx.org/course/edx/edx-edxdemo101-edx-demo-1038
 .. _frequently: http://www.edx.org/student-faq
