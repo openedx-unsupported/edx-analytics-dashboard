@@ -25,11 +25,30 @@
   padding-top: $padding-large-vertical * 2;
 }
 
+
+// Ensure that the map fits for different screens sizes
+// --------------------
 .world-map {
   position: relative;
   margin: 0 auto;
+  // this is the ratio of width:height to keep the map from being cut off
+  width: 750px;
   height: 500px;
 }
+
+@media (max-width: $screen-md) {
+  .world-map {
+    width: 450px;
+    height: 300px;}
+}
+
+@media (max-width: $screen-sm) {
+  .world-map {
+    width: 100%;
+    height: 300px;}
+}
+// --------------------
+
 
 .footer {
   padding: 0 ($padding-large-horizontal*2);
