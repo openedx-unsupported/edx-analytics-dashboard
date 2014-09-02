@@ -14,22 +14,6 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
                 self.renderIfDataAvailable();
             },
 
-            _buildColumns: function ($row) {
-                var self = this,
-                    columns = [];
-                _.each(self.options.columns, function (column) {
-                    var columnOptions = {data: column.key};
-                    $row.append('<th>' + column.title + '</th>');
-                    _(['className', 'type']).each(function(option){
-                        if(_(column).has(option)) {
-                            columnOptions[option] = column[option];
-                        }
-                    });
-                    columns.push(columnOptions);
-                });
-                return columns;
-            },
-
             _buildSorting: function () {
                 var dtSorting = [];
                 var sortRegexp = /^(-?)(.*)/g;
@@ -49,26 +33,72 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
 
             /**
              * Builds rendering for different cells in the table.  This is
-             * desirable for rendering dates.
+             * desirable for rendering dates, percentages, etc. while keeping
+             * the table sortable by the underlying data (rather than what's
+             * necessarily displayed).
              */
             _buildColumnDefs: function() {
                 var self = this,
                     defs = [],
                     iColumn = 0;
                 _(self.options.columns).each(function(column){
-                    // currently, we only alter rendering of columns with type 'date'
+                    // default column definitions
+                    var def = {
+                        targets: iColumn,
+                        data: function (row) {
+                            // by default, display the value
+                            return row[column.key];
+                        },
+                        // this text is displayed in the header
+                        title: column.title,
+                        className: column.className || undefined
+                    };
+
+                    // extend definitions to render different types of data
                     if (column.type === 'date') {
-                        defs.push({
-                            render: function(data, type, row) {
-                                // long month name, day, full year
-                                return Utils.formatDate(data);
-                            },
-                            targets: iColumn
-                        });
-                        iColumn++;
+                        def.data = self.createFormatDateFunc(column.key);
+                    } else if (column.type === 'percent') {
+                        def.data = self.createFormatPercentFunc(column.key);
                     }
+
+                    defs.push(def);
+                    iColumn++;
                 });
                 return defs;
+            },
+
+            /**
+             * Returns a function used by datatables to format the cell for
+             * dates.
+             */
+            createFormatDateFunc: function(columnKey) {
+                return function(row, type) {
+                    var value = row[columnKey],
+                        display = value;
+                    if (type === 'display') {
+                        // long month name, day, full year
+                        display = Utils.formatDate(value);
+                    }
+                    return display;
+                };
+            },
+
+            /**
+             * Returns a function used by datatables to format the cell for
+             * percentages.
+             */
+            createFormatPercentFunc: function(columnKey) {
+                return function(row, type) {
+                    var value = row[columnKey],
+                        display = value;
+                    if (type === 'display') {
+                        display = ' < 1%';
+                        if (value >= 0.01) {
+                            display = (value * 100).toFixed(1) + '%';
+                        }
+                    }
+                    return display;
+                };
             },
 
             render: function () {
@@ -76,8 +106,6 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
                 var self = this,
                     $parent = $('<div/>', {class:'table-responsive'}).appendTo(self.$el),
                     $table = $('<table/>', {class: 'table table-striped'}).appendTo($parent),
-                    $thead = $('<thead/>').appendTo($table),
-                    $row = $('<tr/>').appendTo($thead),
                     dtConfig,
                     dtSorting;
 
@@ -86,7 +114,7 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
                     info: false,
                     filter: false,
                     data: self.model.get(self.options.modelAttribute),
-                    columns: self._buildColumns($row),
+                    // providing 'columns' will override columnDefs
                     columnDefs: self._buildColumnDefs(),
                     // this positions the "length changing" control to the bottom
                     // using bootstrap styling

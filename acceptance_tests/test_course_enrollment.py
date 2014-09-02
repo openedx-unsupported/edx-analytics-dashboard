@@ -162,7 +162,7 @@ class CourseEnrollmentGeographyTests(CourseEnrollmentTests, WebAppTest):
         self.assertTrue(element.present)
 
         # check the headings
-        self.assertTableColumnHeadingsEqual(table_selector, ['Country', 'Total Enrollment'])
+        self.assertTableColumnHeadingsEqual(table_selector, ['Country', 'Percent', 'Total Enrollment'])
 
         # Verify CSV button has an href attribute
         selector = "a[data-role=enrollment-location-csv]"
@@ -180,10 +180,14 @@ class CourseEnrollmentGeographyTests(CourseEnrollmentTests, WebAppTest):
         # check the results of the table
         self.assertGreater(len(rows), 0)
 
+        sum_count = float(sum([datum['count'] for datum in enrollment_data]))
+
         for i, row in enumerate(rows):
             columns = row.find_elements_by_css_selector('td')
             enrollment = enrollment_data[i]
-            expected = [enrollment['country']['name'], enrollment['count']]
-            actual = [columns[0].text, int(columns[1].text)]
+            expected_percent = enrollment['count'] / sum_count * 100
+            expected_percent_display = '{:.1f}%'.format(expected_percent) if expected_percent >= 0.01 else '< 1%'
+            expected = [enrollment['country']['name'], expected_percent_display, enrollment['count']]
+            actual = [columns[0].text, columns[1].text, int(columns[2].text)]
             self.assertListEqual(actual, expected)
             self.assertIn('text-right', columns[1].get_attribute('class'))
