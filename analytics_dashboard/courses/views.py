@@ -17,7 +17,7 @@ from analyticsclient.exceptions import NotFoundError
 
 from courses import permissions
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter
-from courses.utils import get_formatted_date, get_formatted_date_time, is_feature_enabled
+from courses.utils import get_formatted_date, is_feature_enabled
 
 
 class CourseContextMixin(object):
@@ -275,14 +275,8 @@ class EnrollmentActivityView(EnrollmentTemplateView):
 
         presenter = CourseEnrollmentPresenter(self.course_id)
 
-        try:
-            summary = presenter.get_summary()
-            end_date = summary['date']
-            start_date = end_date - datetime.timedelta(days=60)
-            end_date = end_date + datetime.timedelta(days=1)
-            data = presenter.get_trend_data(start_date=start_date, end_date=end_date)
-        except NotFoundError:
-            raise Http404
+        summary = presenter.get_summary()
+        data = presenter.get_trend_data(end_date=summary['date'])
 
         # add the enrollment data for the page
         context['js_data']['course']['enrollmentTrends'] = data
@@ -306,11 +300,7 @@ class EnrollmentGeographyView(EnrollmentTemplateView):
         context = super(EnrollmentGeographyView, self).get_context_data(**kwargs)
 
         presenter = CourseEnrollmentPresenter(self.course_id)
-
-        try:
-            data, last_update = presenter.get_geography_data()
-        except NotFoundError:
-            raise Http404
+        data, last_update = presenter.get_geography_data()
 
         context['js_data']['course']['enrollmentByCountry'] = data
         context['js_data']['course']['enrollmentByCountryUpdateDate'] = get_formatted_date(last_update)
@@ -339,10 +329,13 @@ class EngagementContentView(EngagementTemplateView):
             'played_video_summary': _('Students who played one or more videos'),
         }
 
-        presenter = CourseEngagementPresenter()
-        summary = presenter.get_summary(self.course_id)
+        presenter = CourseEngagementPresenter(self.course_id)
+        summary = presenter.get_summary()
+        end_date = summary['interval_end']
+        trends = presenter.get_trend_data(end_date=end_date)
 
-        summary['week_of_activity'] = get_formatted_date_time(summary['interval_end'])
+        context['js_data']['course']['engagementTrends'] = trends
+        summary['week_of_activity'] = end_date
 
         context.update({
             'tooltips': tooltips,
@@ -390,6 +383,18 @@ class CourseEnrollmentCSV(CSVResponseMixin, CourseView):
             'data': self.course.enrollment(data_format=data_format.CSV,
                                            end_date=end_date),
             'filename': '{0}_enrollment.csv'.format(self.course_id)
+        })
+
+        return context
+
+
+class CourseEngagementActivityTrendCSV(CSVResponseMixin, CourseView):
+    def get_context_data(self, **kwargs):
+        context = super(CourseEngagementActivityTrendCSV, self).get_context_data(**kwargs)
+        end_date = datetime.date.today().strftime(Client.DATE_FORMAT)
+        context.update({
+            'data': self.course.activity(data_format=data_format.CSV, end_date=end_date),
+            'filename': '{0}_engagement_activity_trend.csv'.format(self.course_id)
         })
 
         return context

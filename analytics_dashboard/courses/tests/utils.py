@@ -69,9 +69,47 @@ def set_empty_permissions(user):
 
 def mock_engagement_summary_data():
     return {
-        'interval_end': '2013-01-01T12:12:12Z',
+        'interval_end': datetime.date(year=2013, month=1, day=1),
         AT.ANY: 100,
         AT.ATTEMPTED_PROBLEM: 301,
         AT.PLAYED_VIDEO: 1000,
         AT.POSTED_FORUM: 0,
     }
+
+
+def mock_engagement_activity_trend_data():
+    return [
+        {
+            'weekEnding': '2013-01-08',
+            AT.ANY: 100,
+            AT.ATTEMPTED_PROBLEM: 301,
+            AT.PLAYED_VIDEO: 1000,
+            AT.POSTED_FORUM: 0,
+        },
+        {
+            'weekEnding': '2013-01-01',
+            AT.ANY: 1000,
+            AT.ATTEMPTED_PROBLEM: 0,
+            AT.PLAYED_VIDEO: 10000,
+            AT.POSTED_FORUM: 45,
+        }
+    ]
+
+
+def mock_api_engagement_activity_trend_data():
+    return [
+        {
+            'interval_end': '2014-09-01T000000',
+            AT.ANY: 1000,
+            AT.ATTEMPTED_PROBLEM: 0,
+            AT.PLAYED_VIDEO: 10000,
+            AT.POSTED_FORUM: 45,
+        },
+        {
+            'interval_end': '2014-09-08T000000',
+            AT.ANY: 100,
+            AT.ATTEMPTED_PROBLEM: 301,
+            AT.PLAYED_VIDEO: 1000,
+            AT.POSTED_FORUM: 0,
+        },
+    ]

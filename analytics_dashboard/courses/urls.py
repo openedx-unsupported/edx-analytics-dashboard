@@ -13,6 +13,7 @@ COURSE_URLS = [
     ('overview', views.OverviewView.as_view()),
     ('csv/enrollment', views.CourseEnrollmentCSV.as_view()),
     ('csv/enrollment_by_country', views.CourseEnrollmentByCountryCSV.as_view()),
+    ('csv/engagement_activity_trend', views.CourseEngagementActivityTrendCSV.as_view()),
 ]
 
 COURSE_ID_REGEX = r'^(?P<course_id>(\w+/){2}\w+)'

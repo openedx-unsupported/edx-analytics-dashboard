@@ -19,7 +19,7 @@ from courses.permissions import set_user_course_permissions, revoke_user_course_
 from courses.tests.test_middleware import MiddlewareAssertionMixin
 from courses.tests.utils import get_mock_enrollment_data, get_mock_api_enrollment_geography_data, \
     get_mock_presenter_enrollment_geography_data, convert_list_of_dicts_to_csv, set_empty_permissions, \
-    mock_engagement_summary_data
+    mock_engagement_summary_data, mock_engagement_activity_trend_data, mock_api_engagement_activity_trend_data
 
 
 class PermissionsTestMixin(object):
@@ -97,6 +97,46 @@ class CourseViewTestMixin(PermissionsTestMixin, AuthenticationMixin):
         self.assertEqual(response.status_code, 403)
 
 
+class CourseCSVTestMixin(object):
+    client = None
+    column_headings = None
+    base_file_name = None
+
+    def test_response_no_data(self, mock_call):
+        # Create an "empty" CSV that only has headers
+        data = convert_list_of_dicts_to_csv([], self.column_headings)
+        mock_call.return_value = data
+
+        self.client.login(username=self.user.username, password=self.PASSWORD)
+        response = self.client.get(self.path)
+
+        # Check content type
+        self.assertResponseContentType(response, 'text/csv')
+
+        # Check filename
+        filename = '{0}_{1}.csv'.format(self.course_id, self.base_file_name)
+        self.assertResponseFilename(response, filename)
+
+        # Check data
+        self.assertEqual(response.content, data)
+
+    def test_response(self, mock_call):
+        data = convert_list_of_dicts_to_csv(mock_call(self.course_id))
+        mock_call.return_value = data
+
+        response = self.client.get(self.path)
+
+        # Check content type
+        self.assertResponseContentType(response, 'text/csv')
+
+        # Check filename
+        filename = '{0}_{1}.csv'.format(self.course_id, self.base_file_name)
+        self.assertResponseFilename(response, filename)
+
+        # Check data
+        self.assertEqual(response.content, data)
+
+
 class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
     active_secondary_nav_label = None
 
@@ -145,7 +185,40 @@ class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
             super(CourseEnrollmentViewTestMixin, self).test_authorization()
 
 
-class CourseEngagementContentViewTests(CourseViewTestMixin, TestCase):
+class CourseEngagementViewTestMixin(CourseViewTestMixin):
+
+    def assertPrimaryNav(self, nav):
+        expected = {
+            'icon': 'fa-tasks',
+            'href': reverse('courses:engagement_content', kwargs={'course_id': self.course_id}),
+            'label': _('Engagement'),
+            'name': 'engagement'
+        }
+        self.assertDictEqual(nav, expected)
+
+    def mock_api_engagement_activity_trend_data(self):
+        return mock_api_engagement_activity_trend_data()
+
+    def assertSecondaryNavs(self, nav):
+        expected = [{'active': True, 'name': 'content', 'label': _('Content'), 'href': '#'}]
+        self.assertListEqual(nav, expected)
+
+    @mock.patch('analyticsclient.course.Course.activity', mock.Mock(side_effect=NotFoundError))
+    def test_not_found(self):
+        super(CourseEngagementViewTestMixin, self).test_not_found()
+
+    def test_authentication(self):
+        with mock.patch.object(analyticsclient.course.Course, 'activity',
+                               return_value=self.mock_api_engagement_activity_trend_data()):
+            super(CourseEngagementViewTestMixin, self).test_authentication()
+
+    def test_authorization(self):
+        with mock.patch.object(analyticsclient.course.Course, 'activity',
+                               return_value=self.mock_api_engagement_activity_trend_data()):
+            super(CourseEngagementViewTestMixin, self).test_authorization()
+
+
+class CourseEngagementContentViewTests(CourseEngagementViewTestMixin, TestCase):
     viewname = 'courses:engagement_content'
 
     def setUp(self):
@@ -155,6 +228,8 @@ class CourseEngagementContentViewTests(CourseViewTestMixin, TestCase):
 
     @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary',
                 mock.Mock(return_value=mock_engagement_summary_data()))
+    @mock.patch('courses.presenters.CourseEngagementPresenter.get_trend_data',
+                mock.Mock(return_value=mock_engagement_activity_trend_data()))
     def test_engagement_page_success(self):
         response = self.client.get(self.path)
 
@@ -162,7 +237,7 @@ class CourseEngagementContentViewTests(CourseViewTestMixin, TestCase):
         self.assertEqual(response.status_code, 200)
 
         # make sure the date is formatted correctly
-        self.assertEqual(response.context['summary']['week_of_activity'], 'January 01, 2013')
+        self.assertEqual(response.context['summary']['week_of_activity'], datetime.date(2013, 1, 1))
 
         # check to make sure that we have tooltips
         self.assertDictEqual(response.context['tooltips'], {
@@ -181,35 +256,29 @@ class CourseEngagementContentViewTests(CourseViewTestMixin, TestCase):
         self.assertEqual(response.context['summary'][AT.PLAYED_VIDEO], 1000)
         self.assertEqual(response.context['summary'][AT.POSTED_FORUM], 0)
 
+        # check to make sure the activity trends are correct
+        trends = response.context['js_data']['course']['engagementTrends']
+        self.assertEqual(len(trends), 2)
+        expected = {
+            'weekEnding': '2013-01-08',
+            AT.ANY: 100,
+            AT.ATTEMPTED_PROBLEM: 301,
+            AT.PLAYED_VIDEO: 1000,
+            AT.POSTED_FORUM: 0
+        }
+        self.assertDictEqual(trends[0], expected)
+
+        expected = {
+            'weekEnding': '2013-01-01',
+            AT.ANY: 1000,
+            AT.ATTEMPTED_PROBLEM: 0,
+            AT.PLAYED_VIDEO: 10000,
+            AT.POSTED_FORUM: 45
+        }
+        self.assertDictEqual(trends[1], expected)
+
         self.assertPrimaryNav(response.context['primary_nav_item'])
         self.assertSecondaryNavs(response.context['secondary_nav_items'])
-
-    def assertPrimaryNav(self, nav):
-        expected = {
-            'icon': 'fa-tasks',
-            'href': reverse('courses:engagement_content', kwargs={'course_id': self.course_id}),
-            'label': _('Engagement'),
-            'name': 'engagement'
-        }
-        self.assertDictEqual(nav, expected)
-
-    def assertSecondaryNavs(self, nav):
-        expected = [{'active': True, 'name': 'content', 'label': _('Content'), 'href': '#'}]
-        self.assertListEqual(nav, expected)
-
-    @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary', mock.Mock(side_effect=NotFoundError))
-    def test_not_found(self):
-        super(CourseEngagementContentViewTests, self).test_not_found()
-
-    @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary',
-                mock.Mock(return_value=mock_engagement_summary_data()))
-    def test_authentication(self):
-        super(CourseEngagementContentViewTests, self).test_authentication()
-
-    @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary',
-                mock.Mock(return_value=mock_engagement_summary_data()))
-    def test_authorization(self):
-        super(CourseEngagementContentViewTests, self).test_authorization()
 
 
 class CourseEnrollmentActivityViewTests(CourseEnrollmentViewTestMixin, TestCase):
@@ -283,83 +352,47 @@ class CourseEnrollmentGeographyViewTests(CourseEnrollmentViewTestMixin, TestCase
         self.assertEqual(page_data['course']['enrollmentByCountry'], expected_data)
 
 
-class CourseEnrollmentByCountryCSVViewTests(CourseEnrollmentViewTestMixin, TestCase):
+class CourseEnrollmentByCountryCSVViewTests(CourseCSVTestMixin, CourseEnrollmentViewTestMixin, TestCase):
     viewname = 'courses:csv_enrollment_by_country'
+    column_headings = ['count', 'country', 'course_id', 'date']
+    base_file_name = 'enrollment_by_country'
 
     @mock.patch('analyticsclient.course.Course.enrollment')
     def test_response(self, mock_enrollment):
-        data = convert_list_of_dicts_to_csv(get_mock_api_enrollment_geography_data(self.course_id))
-        mock_enrollment.return_value = data
-
-        response = self.client.get(self.path)
-
-        # Check content type
-        self.assertResponseContentType(response, 'text/csv')
-
-        # Check filename
-        filename = '{0}_enrollment_by_country.csv'.format(self.course_id)
-        self.assertResponseFilename(response, filename)
-
-        # Check data
-        self.assertEqual(response.content, data)
+        super(CourseEnrollmentByCountryCSVViewTests, self).test_response(mock_enrollment)
 
     @mock.patch('analyticsclient.course.Course.enrollment')
-    def test_response_no_data(self, mock_enrollment):
-        # Create an "empty" CSV that only has headers
-        data = convert_list_of_dicts_to_csv([], ['count', 'country', 'course_id', 'date'])
-        mock_enrollment.return_value = data
-
-        response = self.client.get(self.path)
-
-        # Check content type
-        self.assertResponseContentType(response, 'text/csv')
-
-        # Check filename
-        filename = '{0}_enrollment_by_country.csv'.format(self.course_id)
-        self.assertResponseFilename(response, filename)
-
-        # Check data
-        self.assertEqual(response.content, data)
+    def test_response_no_data(self, mock_call):
+        super(CourseEnrollmentByCountryCSVViewTests, self).test_response_no_data(mock_call)
 
 
-class CourseEnrollmentCSVViewTests(CourseEnrollmentViewTestMixin, TestCase):
+class CourseEnrollmentCSVViewTests(CourseCSVTestMixin, CourseEnrollmentViewTestMixin, TestCase):
     viewname = 'courses:csv_enrollment'
+    column_headings = ['count', 'course_id', 'date']
+    base_file_name = 'enrollment'
 
     @mock.patch('analyticsclient.course.Course.enrollment')
     def test_response(self, mock_enrollment):
-        data = convert_list_of_dicts_to_csv(get_mock_enrollment_data(self.course_id))
-        mock_enrollment.return_value = data
-
-        response = self.client.get(self.path)
-
-        # Check content type
-        self.assertResponseContentType(response, 'text/csv')
-
-        # Check filename
-        filename = '{0}_enrollment.csv'.format(self.course_id)
-        self.assertResponseFilename(response, filename)
-
-        # Check data
-        self.assertEqual(response.content, data)
+        super(CourseEnrollmentCSVViewTests, self).test_response(mock_enrollment)
 
     @mock.patch('analyticsclient.course.Course.enrollment')
-    def test_response_no_data(self, mock_enrollment):
-        # Create an "empty" CSV that only has headers
-        data = convert_list_of_dicts_to_csv([], ['count', 'course_id', 'date'])
-        mock_enrollment.return_value = data
+    def test_response_no_data(self, mock_call):
+        super(CourseEnrollmentCSVViewTests, self).test_response_no_data(mock_call)
 
-        self.client.login(username=self.user.username, password=self.PASSWORD)
-        response = self.client.get(self.path)
 
-        # Check content type
-        self.assertResponseContentType(response, 'text/csv')
+class CourseEngagementActivityTrendCSVViewTests(CourseCSVTestMixin, CourseEngagementViewTestMixin, TestCase):
+    viewname = 'courses:csv_engagement_activity_trend'
+    column_headings = ['any', 'attempted_problem', 'course_id', 'interval_end', 'interval_start',
+                       'played_video', 'posted_forum']
+    base_file_name = 'engagement_activity_trend'
 
-        # Check filename
-        filename = '{0}_enrollment.csv'.format(self.course_id)
-        self.assertResponseFilename(response, filename)
+    @mock.patch('analyticsclient.course.Course.activity')
+    def test_response(self, mock_engagement_activity):
+        super(CourseEngagementActivityTrendCSVViewTests, self).test_response(mock_engagement_activity)
 
-        # Check data
-        self.assertEqual(response.content, data)
+    @mock.patch('analyticsclient.course.Course.activity')
+    def test_response_no_data(self, mock_call):
+        super(CourseEngagementActivityTrendCSVViewTests, self).test_response_no_data(mock_call)
 
 
 class CourseHomeViewTests(CourseEnrollmentViewTestMixin, TestCase):

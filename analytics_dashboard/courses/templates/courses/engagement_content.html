@@ -1,5 +1,6 @@
 {% extends "courses/base-course.html" %}
 
+{% load i18n %}
 {% load humanize %}
 {% load staticfiles %}
 {% load waffle_tags %}
@@ -17,21 +18,34 @@ Individual course-centric engagement content view.
 
 {% block content %}
   <section class="view-section">
-  <h4 class="section-title">
-    <span class="section-title-value">Student Activity</span>
-    <span class="section-title-note small">What are my students interacting with?</span>
-  </h4>
-
-  <hr class="has-emphasis"/>
 
   <div class="section-content section-data-summary" data-role="student-activity">
     <div class="row">
       <div class="col-sm-12">
-        <span class="section-title-value small">Activity for the week ending
-            <span data-role="activity-week">{{ summary.week_of_activity }}</span>
+        <span class="section-title-value small">{% trans "Activity for the week ending" %}
+            <span data-role="activity-week">{{ summary.week_of_activity|date}}</span>
         </span>
       </div>
     </div>
+
+    <div class="section-content section-data-graph">
+      <div class="section-content section-data-viz">
+        <div id="engagement-trend-view">
+            <div class="line-chart-container"><div class="line-chart ">
+                {% comment %}Translators: "Trend" is a graph of weekly student activity. Please translate accordingly.{% endcomment %}
+                {% trans "Loading Trend..." as loading_msg %}
+                {% include "loading.html" with message=loading_msg %}
+            </div></div>
+        </div>
+      </div>
+    </div>
+
+  <h4 class="section-title">
+    <span class="section-title-value">{% trans "Student Activity" %}</span>
+    <span class="section-title-note small">{% trans "What are my students interacting with?" %}</span>
+  </h4>
+
+  <hr/>
     <div class="row">
       <div class="col-xs-12 col-sm-3" data-activity-type="any">
         {% include "summary_point.html" with count=summary.any|intcomma label="Active Students" subheading="last week" tooltip=tooltips.all_activity_summary only %}
@@ -51,6 +65,22 @@ Individual course-centric engagement content view.
       </div>
       {% endswitch %}
     </div>
+  </div>
+
+  <h4 class="section-title">
+    <span class="section-title-value">{% blocktrans %}Engagement Breakdown{% endblocktrans %}</span>
+    <div class="section-actions section-title-button">
+        <a href="{% url 'courses:csv_engagement_activity_trend' course_id=course_id %}" class="btn btn-default"
+           data-role="engagement-trend-csv" data-track-type="click"
+           data-track-event="edx.bi.csv.downloaded" data-track-category="trend">
+          <i class="ico fa fa-download"></i> {% trans "Download CSV" %}
+      </a>
+    </div>
+  </h4>
+
+  <div class="section-content section-data-table" data-role="engagement-table">
+    {% trans "Loading Table..." as loading_msg %}
+    {% include "loading.html" with message=loading_msg %}
   </div>
 
   {% switch show_engagement_demo_interface %}
