@@ -1,7 +1,7 @@
 import logging
 from django.template.response import TemplateResponse
 from django.test import RequestFactory
-from django.utils.unittest.case import TestCase
+from django.test import TestCase
 from testfixtures import LogCapture
 from courses.exceptions import PermissionsRetrievalFailedError
 from courses.middleware import CourseMiddleware, CoursePermissionsExceptionMiddleware
