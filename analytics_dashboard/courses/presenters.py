@@ -106,10 +106,16 @@ class CourseEnrollmentPresenter(BasePresenter):
 
         if api_response:
             update_date = api_response[0]['date']
+
+            # get the sum as a float so we can divide by it to get a percent
+            total_enrollment = float(sum([datum['count'] for datum in api_response]))
+
             # formatting this data for easy access in the table UI
             data = [{'countryCode': datum['country']['alpha3'],
                      'countryName': datum['country']['name'],
-                     'count': datum['count']} for datum in api_response]
+                     'count': datum['count'],
+                     'percent': datum['count'] / total_enrollment if total_enrollment > 0 else 0.0}
+                    for datum in api_response]
 
         return data, update_date
 
