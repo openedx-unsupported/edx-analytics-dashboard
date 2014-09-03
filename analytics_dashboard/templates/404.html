@@ -7,7 +7,6 @@
 {% block error-code %}404{% endblock %}
 {% block error-title %}{% trans "Page Not Found" %}{% endblock %}
 {% block error-copy %}
-  {% blocktrans %}We can't find the page you're looking for. Please make sure the URL is correct and if not
-  try again.{% endblocktrans %}
+  {% trans "We can't find the page you're looking for. Please make sure the URL is correct and if not try again." %}
   {{ block.super }}
 {% endblock %}

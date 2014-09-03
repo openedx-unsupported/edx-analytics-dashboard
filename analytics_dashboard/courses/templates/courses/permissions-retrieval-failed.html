@@ -2,12 +2,11 @@
 {% load i18n %}
 
 {% comment %}Translators: This message is displayed when the website is unable to get the credentials for the user{% endcomment %}
-{% block title %}{% blocktrans %}Permissions Retrieval Failed{% endblocktrans %} {{ block.super }}{% endblock title %}
+{% block title %}{% trans "Permissions Retrieval Failed" %} {{ block.super }}{% endblock title %}
 
-{% block error-title %}{% blocktrans %}Permissions Retrieval Failed{% endblocktrans %}{% endblock %}
+{% block error-title %}{% trans "Permissions Retrieval Failed" %}{% endblock %}
 {% block error-copy %}
-  {% blocktrans %}There was a problem retrieving course permissions for your account. Please try again. If you continue
-    to experience issues, please let us know.{% endblocktrans %}
+  {% trans "There was a problem retrieving course permissions for your account. Please try again. If you continue to experience issues, please let us know." %}
 {% endblock %}
 
 {% block buttons %}
