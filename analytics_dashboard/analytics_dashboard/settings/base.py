@@ -208,8 +208,7 @@ DJANGO_APPS = (
 
     # Admin panel and documentation:
     'django.contrib.admin',
-    'waffle',
-    'compressor',
+    'waffle'
 )
 
 # Apps specific for this project go here.
@@ -272,6 +271,18 @@ SUPPORT_URL = 'http://example.com/'
 PRIVACY_POLICY_URL = 'http://example.com/'
 TERMS_OF_SERVICE_URL = 'http://example.com/'
 ########## END FEEDBACK
+
+
+########## SOUTH CONFIGURATION
+# See: http://south.readthedocs.org/en/latest/installation.html#configuring-your-django-installation
+INSTALLED_APPS += (
+    # Database migration helpers:
+    'south',
+    'compressor',
+)
+# Don't need to use South when setting up a test database.
+SOUTH_TESTS_MIGRATE = False
+########## END SOUTH CONFIGURATION
 
 
 ########## DATA API CONFIGURATION

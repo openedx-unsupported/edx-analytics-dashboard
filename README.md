@@ -13,7 +13,7 @@ Getting Started
 
 3. Setup your database:
 
-        $ make migrate
+        $ make syncdb
 
 4. Run the server:
 
