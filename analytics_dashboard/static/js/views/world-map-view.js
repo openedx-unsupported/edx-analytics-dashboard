@@ -164,7 +164,7 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'views/attribute-listener-view
 
                 map = new Datamap({
                     element: self.el,
-                    projection: 'mercator',
+                    projection: 'equirectangular',
                     geographyConfig: {
                         hideAntarctica: true,
                         borderWidth: 1,
