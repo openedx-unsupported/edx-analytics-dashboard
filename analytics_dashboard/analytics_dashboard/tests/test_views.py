@@ -130,18 +130,14 @@ class LoginViewTests(RedirectTestCaseMixin, TestCase):
         self.assertRedirectsNoFollow(response, path, status_code=302)
 
 
-class LogoutViewTests(UserTestCaseMixin, TestCase):
+class LogoutViewTests(RedirectTestCaseMixin, UserTestCaseMixin, TestCase):
     def test_logut_without_user(self):
         """
         Logging out without having been previously logged in should not raise an error
         """
         self.client.logout()
 
-    def test_logout_clear_course_permissions(self):
-        """
-        Logging out should clear course permissions
-        """
-
+    def assertViewClearsPermissions(self, view_name):
         self.login()
 
         user = self.user
@@ -157,11 +153,23 @@ class LogoutViewTests(UserTestCaseMixin, TestCase):
         self.assertTrue(user_can_view_course(user, course_id))
 
         # Logout by GETing the URL. self.client.logout() doesn't actually call this view.
-        self.client.get(reverse('logout'))
+        response = self.client.get(reverse(view_name))
 
         # Verify cache cleared
         self.assertIsNone(cache.get(permissions_key))
         self.assertIsNone(cache.get(update_key))
+
+        return response
+
+    def test_logout_clear_course_permissions(self):
+        """
+        Logging out should clear course permissions
+        """
+        self.assertViewClearsPermissions('logout')
+
+    def test_logout_then_login(self):
+        response = self.assertViewClearsPermissions('logout_then_login')
+        self.assertRedirectsNoFollow(response, reverse('login'))
 
 
 class OAuthTests(UserTestCaseMixin, RedirectTestCaseMixin, TestCase):
