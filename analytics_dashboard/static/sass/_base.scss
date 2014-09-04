@@ -312,10 +312,21 @@ hr.has-emphasis {
   }
 
   .footer {
-    padding-top: ($padding-large-vertical);
-    padding-bottom: ($padding-large-vertical*3);
+    padding-bottom: ($padding-large-vertical);
     font-size: $font-size-small;
     color: $gray;
+    background-color: $gray-d2;
+
+    .legal {
+      padding-top: ($padding-large-vertical*2);
+    }
+
+    .feedback {
+      border-top: solid 2px $edx-blue;
+      background-color: white;
+      text-align: center;
+      padding: ($padding-large-vertical*2) 0;
+    }
   }
 
   // CASE: larger than small screen breakpoint
