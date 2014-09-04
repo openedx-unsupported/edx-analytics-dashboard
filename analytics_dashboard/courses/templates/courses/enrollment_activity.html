@@ -33,8 +33,8 @@ Individual course-centric enrollment activity view.
 
 
     <h4 class="section-title">
-      <span class="section-title-value">{% blocktrans %}Enrollment Statistics{% endblocktrans %}</span>
-      <span class="section-title-note small">{% blocktrans %}How many students are in my course?{% endblocktrans %}</span>
+      <span class="section-title-value">{% trans "Enrollment Statistics" %}</span>
+      <span class="section-title-note small">{% trans "How many students are in my course?" %}</span>
     </h4>
 
     <hr/>
@@ -43,7 +43,7 @@ Individual course-centric enrollment activity view.
       <div class="col-sm-12">
             <span class="section-title-value small">
               {% captureas update_date %}<span data-role="enrollment-last-updated">{{ summary.date|date }}</span>{% endcaptureas %}
-              {% blocktrans %}Last updated: {{ update_date }}{% endblocktrans %}
+              {% blocktrans trimmed %}Last updated: {{ update_date }}{% endblocktrans %}
             </span>
       </div>
     </div>
@@ -76,7 +76,7 @@ Individual course-centric enrollment activity view.
     </div>
 
     <h4 class="section-title">
-      <span class="section-title-value">{% blocktrans %}Enrollment Breakdown{% endblocktrans %}</span>
+      <span class="section-title-value">{% trans "Enrollment Breakdown" %}</span>
       <div class="section-actions section-title-button">
           <a href="{% url 'courses:csv_enrollment' course_id=course_id %}" class="btn btn-default"
              data-role="enrollment-trend-csv" data-track-type="click"
