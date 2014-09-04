@@ -71,11 +71,14 @@ hr.has-emphasis {
   }
 }
 
-.navbar-link {
+.navbar-link,
+.dropdown-menu .link-label {
   font-weight: 600;
   font-size: 16px;
   font-family: $f-sans-serif;
+}
 
+.navbar-link {
   .fa-caret-down {
     margin-left: 5px;
   }
