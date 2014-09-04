@@ -42,6 +42,15 @@ hr.has-emphasis {
   background: $white-t;
 }
 
+%brand-app {
+  @extend %hd-titlecased;
+  display: inline-block;
+  vertical-align: middle;
+  color: $edx-blue-s3;
+  font-weight: 600;
+  font-family: 'Avenir Next', Helvetica, Arial, sans-serif;
+}
+
 
 
 // nav + header
@@ -60,9 +69,7 @@ hr.has-emphasis {
   .navbar-brand-app {
     @include transition(color ease-in-out .25s);
     @extend %hd-titlecased;
-    display: inline-block;
-    vertical-align: middle;
-    color: $edx-blue;
+    @extend %brand-app;
 
     // STATE: hover
     &:hover, &:active {
@@ -383,10 +390,8 @@ hr.has-emphasis {
 
   .masthead-brand-app {
     @extend %hd-titlecased;
-    display: inline-block;
-    vertical-align: middle;
+    @extend %brand-app;
     font-size: $font-size-large;
-    color: $edx-blue;
   }
 
 
