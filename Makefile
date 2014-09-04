@@ -11,8 +11,8 @@ test.requirements: requirements
 develop: test.requirements
 	pip install -q -r requirements/local.txt --exists-action w
 
-migrate:
-	cd analytics_dashboard && ./manage.py migrate
+syncdb:
+	cd analytics_dashboard && ./manage.py syncdb --migrate
 
 clean:
 	find . -name '*.pyc' -delete
