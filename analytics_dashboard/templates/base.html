@@ -32,6 +32,7 @@
 </head>
 
 <body class="{% block view-name %}{% endblock view-name %}" >
+<div id="wrap">
     {% block header %}
     {% include "header.html" %}
     {% endblock header %}
@@ -45,7 +46,7 @@
           {% block content-outer %}
             <main class="col-xs-12 main" id="content">
                 <div class="view-head">
-                    {% block header-text %}<h1>{{ page_title }}</h1>{% endblock %}
+                    {% block header-text %}<h1 class="clearfix">{{ page_title }} <small>{{ page_subtitle }}</small></h1>{% endblock %}
                 </div>
 
                 <div class="view-intro">
@@ -58,14 +59,6 @@
                 {% endblock content %}
             </main>
           {% endblock %}
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-12">
-            {% block footer %}
-            {% include "footer.html" %}
-            {% endblock footer %}
         </div>
     </div>
 
@@ -90,5 +83,13 @@
       {% block javascript %}
       {% endblock javascript %}
     {% endcompress %}
+
+  <div id="push"></div>
+</div>
+{% block footer %}
+  <div id="footer">
+  {% include "footer.html" %}
+  </div>
+{% endblock footer %}
 </body>
 </html>
