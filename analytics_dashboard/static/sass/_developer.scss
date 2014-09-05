@@ -25,7 +25,6 @@
   padding-top: $padding-large-vertical * 2;
 }
 
-
 // Ensure that the map fits for different screens sizes
 // --------------------
 .world-map {
@@ -39,14 +38,17 @@
 @media (max-width: $screen-md) {
   .world-map {
     width: 450px;
-    height: 200px;}
+    height: 200px;
+  }
 }
 
 @media (max-width: $screen-sm) {
   .world-map {
     width: 100%;
-    height: 300px;}
+    height: 300px;
+  }
 }
+
 // --------------------
 
 
@@ -169,4 +171,18 @@ body.view-course-list {
       font-size: $font-size-small;
     }
   }
+}
+
+// DataTables
+// Icon spacing
+table.dataTable thead th.sorting:after,
+table.dataTable thead th.sorting_asc:after,
+table.dataTable thead th.sorting_desc:after {
+  right: 3px;
+}
+
+//Sort Icon Color
+table.dataTable thead th.sorting_asc:after,
+table.dataTable thead th.sorting_desc:after {
+  color: $edx-blue;
 }
