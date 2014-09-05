@@ -18,6 +18,11 @@
 
   .chart-title {
     text-align: center;
+
+    .chart-tooltip {
+      @extend .pull-right;
+      padding-right: $padding-large-horizontal;
+    }
   }
 }
 
