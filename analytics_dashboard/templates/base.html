@@ -79,9 +79,11 @@
     <script type="text/javascript" src="{% url 'django.views.i18n.javascript_catalog' %}"></script>
 
     {# Initial page data passed from view to JS initializer #}
+    {% if page_data %}
     <script type="text/javascript">
       var initModelData = {{ page_data|safe }};
     </script>
+    {% endif %}
 
     {% compress js %}
       <script src="{% static 'js/common.js' %}"></script>
