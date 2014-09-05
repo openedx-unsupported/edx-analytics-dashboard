@@ -152,8 +152,12 @@ body.view-course-list {
     margin-top: 25px;
 
     .view-head {
-      color: $edx-gray-d1;
+      color: $edx-gray-d2;
       margin-bottom: 0;
+    }
+
+    .intro-text {
+      color: $edx-gray-d1;
     }
 
     .view-intro {
@@ -169,6 +173,7 @@ body.view-course-list {
 
     .help-msg {
       font-size: $font-size-small;
+      margin-bottom: 50px;
     }
   }
 }
