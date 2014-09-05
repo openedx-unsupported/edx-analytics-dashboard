@@ -55,6 +55,11 @@ hr.has-emphasis {
 
 // nav + header
 // --------------------
+.navbar {
+  margin-bottom: 0;     // Get rid of Bootstrap's default margin. Many of our pages have a secondary navbar
+                        // that needs to sit right below the main navbar.
+}
+
 .navbar-brand {
   padding: 25px 50px;    // needed for edX logo to render properly
 
@@ -308,8 +313,6 @@ hr.has-emphasis {
 // view: dashboard
 // --------------------
 .view-dashboard {
-  padding-top: $navbar-height;                                                                      // move down content because we have a fixed navbar
-
   .main {
     padding: ($padding-large-vertical*2) ($padding-large-horizontal*3);
   }
