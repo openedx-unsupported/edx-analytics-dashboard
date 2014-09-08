@@ -40,7 +40,7 @@ class CourseEngagementTests(AnalyticsApiClientMixin, FooterMixin, WebAppTest):
         self.assertEqual(week.text[0], expected)
 
         # Verify the activity values
-        activity_types = [at.ANY, at.ATTEMPTED_PROBLEM, at.PLAYED_VIDEO, at.POSTED_FORUM]
+        activity_types = [at.ANY, at.ATTEMPTED_PROBLEM, at.PLAYED_VIDEO]
         for activity_type in activity_types:
             selector = section_selector + ' div[data-activity-type=%s] .summary-point-number' % activity_type
             element = self.page.q(css=selector)
