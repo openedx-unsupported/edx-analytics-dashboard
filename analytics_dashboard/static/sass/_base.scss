@@ -305,6 +305,26 @@ hr.has-emphasis {
 }
 
 
+// Footer
+// --------
+.footer {
+  padding-bottom: ($padding-large-vertical);
+  font-size: $font-size-small;
+  color: $gray;
+  background-color: $gray-d2;
+
+  .legal {
+    padding-top: ($padding-large-vertical*2);
+  }
+
+  .feedback {
+    border-top: solid 2px $edx-blue;
+    background-color: white;
+    text-align: center;
+    padding: ($padding-large-vertical*2) 0;
+  }
+}
+
 // view: dashboard
 // --------------------
 .view-dashboard {
@@ -312,24 +332,6 @@ hr.has-emphasis {
 
   .main {
     padding: ($padding-large-vertical*2) ($padding-large-horizontal*3);
-  }
-
-  .footer {
-    padding-bottom: ($padding-large-vertical);
-    font-size: $font-size-small;
-    color: $gray;
-    background-color: $gray-d2;
-
-    .legal {
-      padding-top: ($padding-large-vertical*2);
-    }
-
-    .feedback {
-      border-top: solid 2px $edx-blue;
-      background-color: white;
-      text-align: center;
-      padding: ($padding-large-vertical*2) 0;
-    }
   }
 
   // CASE: larger than small screen breakpoint
