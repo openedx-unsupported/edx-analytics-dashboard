@@ -37,19 +37,19 @@ Individual course-centric engagement content view.
         {% include "summary_point.html" with count=summary.any|intcomma label="Active Students" subheading="last week" tooltip=tooltips.all_activity_summary only %}
       </div>
 
-      {% switch show_engagement_forum_activity %}
-      <div class="col-xs-12 col-sm-3" data-activity-type="posted_forum">
-        {% include "summary_point.html" with count=summary.posted_forum|intcomma label="Posted in Forum" subheading="last week" tooltip=tooltips.posted_forum_summary only %}
+      <div class="col-xs-12 col-sm-3" data-activity-type="played_video">
+        {% include "summary_point.html" with count=summary.played_video label="Watched a Video" subheading="last week" tooltip=tooltips.played_video_summary only %}
       </div>
-      {% endswitch %}
 
       <div class="col-xs-12 col-sm-3" data-activity-type="attempted_problem">
         {% include "summary_point.html" with count=summary.attempted_problem|intcomma label="Tried a Problem" subheading="last week" tooltip=tooltips.attempted_problem_summary only %}
       </div>
 
-      <div class="col-xs-12 col-sm-3" data-activity-type="played_video">
-        {% include "summary_point.html" with count=summary.played_video label="Watched a Video" subheading="last week" tooltip=tooltips.played_video_summary only %}
+      {% switch show_engagement_forum_activity %}
+      <div class="col-xs-12 col-sm-3" data-activity-type="posted_forum">
+        {% include "summary_point.html" with count=summary.posted_forum|intcomma label="Posted in Forum" subheading="last week" tooltip=tooltips.posted_forum_summary only %}
       </div>
+      {% endswitch %}
     </div>
   </div>
 
