@@ -46,7 +46,14 @@
           {% block content-outer %}
             <main class="col-xs-12 main" id="content">
                 <div class="view-head">
-                    {% block header-text %}<h1 class="clearfix">{{ page_title }} <small>{{ page_subtitle }}</small></h1>{% endblock %}
+                    {% block header-text %}
+                      <div class="row page-title-outer">
+                        <div class="col-md-6 col-xs-12">
+                          <h1>{{ page_title }}</h1>
+                        </div>
+                      <div class="col-md-6 col-xs-12"><div class="page-subtitle">{{ page_subtitle|default_if_none:'' }}</div></div>
+                      </div>
+                    {% endblock %}
                 </div>
 
                 <div class="view-intro">

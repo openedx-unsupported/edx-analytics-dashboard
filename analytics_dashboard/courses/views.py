@@ -28,6 +28,7 @@ class CourseContextMixin(object):
     """
     # Title displayed on the page
     page_title = None
+    page_subtitle = None
 
     # Page name used for usage tracking/analytics
     page_name = None
@@ -45,6 +46,7 @@ class CourseContextMixin(object):
         context = {
             'course_id': self.course_id,
             'page_title': self.page_title,
+            'page_subtitle': self.page_subtitle,
             'js_data': {
                 'course': {
                     'courseId': self.course_id
@@ -256,6 +258,7 @@ class JSONResponseMixin(object):
 class EnrollmentActivityView(EnrollmentTemplateView):
     template_name = 'courses/enrollment_activity.html'
     page_title = _('Enrollment Activity')
+    page_subtitle = _('How many students are in my course?')
     page_name = 'enrollment_activity'
     active_secondary_nav_item = 'activity'
 
@@ -300,7 +303,8 @@ class EnrollmentActivityView(EnrollmentTemplateView):
 
 class EnrollmentGeographyView(EnrollmentTemplateView):
     template_name = 'courses/enrollment_geography.html'
-    page_title = _('Enrollment Geography')
+    page_title = _('Geographic Distribution')
+    page_subtitle = _('Where are my students learning?')
     page_name = 'enrollment_geography'
     active_secondary_nav_item = 'geography'
 
