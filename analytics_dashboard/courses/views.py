@@ -334,11 +334,11 @@ class EngagementContentView(EngagementTemplateView):
         context = super(EngagementContentView, self).get_context_data(**kwargs)
 
         tooltips = {
-            'all_activity_summary': _('Students who initiated an action.'),
+            'all_activity_summary': _('Students who interacted with at least one page, video, problem, or discussion'),
             'posted_forum_summary': _(
-                'Students who created a post, responded to a post, or made a comment in any discussion.'),
-            'attempted_problem_summary': _('Students who answered any question.'),
-            'played_video_summary': _('Students who started watching any video.'),
+                'Students who contributed to any discussion topic'),
+            'attempted_problem_summary': _('Students who submitted a standard problem'),
+            'played_video_summary': _('Students who played one or more videos'),
         }
 
         presenter = CourseEngagementPresenter()
