@@ -25,7 +25,7 @@ class FooterMixin(object):
         self.page.visit()
 
         # make sure we have the footer
-        footer_selector = "div[class=footer]"
+        footer_selector = "footer[class=footer]"
         element = self.page.q(css=footer_selector)
         self.assertTrue(element.present)
 
