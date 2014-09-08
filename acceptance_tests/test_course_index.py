@@ -1,6 +1,8 @@
 from bok_choy.web_app_test import WebAppTest
 from pages import CourseIndexPage
 
+_multiprocess_can_split_ = True
+
 
 class CourseIndexTests(WebAppTest):
     def setUp(self):
