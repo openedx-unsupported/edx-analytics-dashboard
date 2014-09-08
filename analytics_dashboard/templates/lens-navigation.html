@@ -2,6 +2,7 @@
 Partial for displaying the lens navigation and the sections within the lenses.
 {% endcomment %}
 
+{% if primary_nav_items %}
 <nav class="navbar navbar-default lens-nav" role="navigation">
     <div class="container ">
         <ul class="nav navbar-nav">
@@ -34,3 +35,4 @@ Partial for displaying the lens navigation and the sections within the lenses.
         </ul>
     </div>
 </nav>
+{% endif %}
