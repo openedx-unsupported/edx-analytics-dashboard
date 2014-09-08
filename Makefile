@@ -27,7 +27,7 @@ test_python: clean
 		$(PACKAGES)
 
 accept:
-	nosetests acceptance_tests
+	nosetests acceptance_tests --processes=3
 
 
 quality:

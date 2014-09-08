@@ -7,6 +7,8 @@ from analyticsclient import demographic
 from acceptance_tests import AnalyticsApiClientMixin, FooterMixin
 from acceptance_tests.pages import CourseEnrollmentActivityPage, CourseEnrollmentGeographyPage
 
+_multiprocess_can_split_ = True
+
 
 class CourseEnrollmentTests(AnalyticsApiClientMixin, FooterMixin):
     """
