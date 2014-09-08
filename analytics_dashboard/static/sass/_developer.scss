@@ -51,7 +51,6 @@
 
 // --------------------
 
-
 .section-title-button {
   float: right;
 }
@@ -190,4 +189,16 @@ table.dataTable thead th.sorting_desc:after {
 table.dataTable thead th.sorting_asc:after,
 table.dataTable thead th.sorting_desc:after {
   color: $edx-blue;
+}
+
+.page-title-outer {
+  .page-subtitle {
+    @extend .text-muted;
+    font-size: ($font-size-h1 * 0.5);
+
+    @media (min-width: $screen-md-min) {
+      text-align: right;
+      margin-top: ($line-height-computed * 1.5);
+    }
+  }
 }

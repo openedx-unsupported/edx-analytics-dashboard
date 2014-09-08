@@ -66,7 +66,7 @@ class CourseEnrollmentGeographyPage(CoursePage):
         self.page_url += '/enrollment/geography/'
 
     def is_browser_on_page(self):
-        return super(CourseEnrollmentGeographyPage, self).is_browser_on_page() and 'Enrollment Geography' in self.browser.title
+        return super(CourseEnrollmentGeographyPage, self).is_browser_on_page() and 'Geographic Distribution' in self.browser.title
 
 
 class CourseEngagementContentPage(CoursePage):

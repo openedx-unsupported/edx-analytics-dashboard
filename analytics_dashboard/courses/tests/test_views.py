@@ -278,7 +278,7 @@ class CourseEnrollmentGeographyViewTests(CourseEnrollmentViewTestMixin, TestCase
         self.assertEqual(response.status_code, 200)
 
         # check page title
-        self.assertEqual(context['page_title'], 'Enrollment Geography')
+        self.assertEqual(context['page_title'], _('Geographic Distribution'))
 
         page_data = json.loads(context['page_data'])
         expected_date = 'January 01, 2014'
