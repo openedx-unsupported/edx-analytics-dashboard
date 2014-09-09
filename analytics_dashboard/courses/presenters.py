@@ -131,9 +131,7 @@ class CourseEnrollmentPresenter(BasePresenter):
         data = {
             'date': None,
             'current_enrollment': None,
-            'enrollment_change_last_1_days': None,
             'enrollment_change_last_7_days': None,
-            'enrollment_change_last_30_days': None,
         }
 
         # Get most-recent enrollment
@@ -158,12 +156,12 @@ class CourseEnrollmentPresenter(BasePresenter):
             # the loop below.
             num_days_of_data = len(last_month_enrollment)
 
-            # Get enrollment differentials between today for yesterday, a week ago, and a month ago
-            for interval in [1, 7, 30]:
-                count = None
-                if num_days_of_data > interval:
-                    index = -interval - 1
-                    count = current_enrollment - last_month_enrollment[index]['count']
-                data['enrollment_change_last_%s_days' % interval] = count
+            # Get difference in enrollment for last week
+            interval = 7
+            count = None
+            if num_days_of_data > interval:
+                index = -interval - 1
+                count = current_enrollment - last_month_enrollment[index]['count']
+            data['enrollment_change_last_%s_days' % interval] = count
 
         return data

@@ -54,22 +54,10 @@ Individual course-centric enrollment activity view.
           {% include "summary_point.html" with count=summary.current_enrollment label=label tooltip=tooltips.current_enrollment only %}
         </div>
 
-        <div class="col-xs-12 col-sm-3" data-stat-type="enrollment_change_last_1_days">
-          {% comment %}Translators: This is a sub-heading used to specify the change in student enrollment compared to the previous day.{% endcomment %}
-          {% captureas label %}&#916; {% trans "Previous Day" %}{% endcaptureas %}
-          {% include "summary_point.html" with count=summary.enrollment_change_last_1_days label=label tooltip=tooltips.enrollment_change_last_1_days only %}
-        </div>
-
         <div class="col-xs-12 col-sm-3" data-stat-type="enrollment_change_last_7_days">
           {% comment %}Translators: This is a sub-heading used to specify the change in student enrollment compared to the previous week.{% endcomment %}
           {% captureas label %}&#916; {% trans "Previous Week" %}{% endcaptureas %}
           {% include "summary_point.html" with count=summary.enrollment_change_last_7_days label=label tooltip=tooltips.enrollment_change_last_7_days only %}
-        </div>
-
-        <div class="col-xs-12 col-sm-3" data-stat-type="enrollment_change_last_30_days">
-          {% comment %}Translators: This is a sub-heading used to specify the change in student enrollment compared to the previous month.{% endcomment %}
-          {% captureas label %}&#916; {% trans "Previous Month" %}{% endcaptureas %}
-          {% include "summary_point.html" with count=summary.enrollment_change_last_30_days label=label tooltip=tooltips.enrollment_change_last_30_days only %}
         </div>
       </div>
     </div>

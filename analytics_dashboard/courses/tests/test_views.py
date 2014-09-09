@@ -231,9 +231,7 @@ class CourseEnrollmentActivityViewTests(CourseEnrollmentViewTestMixin, TestCase)
         # check to make sure that we have tooltips
         expected = {
             'current_enrollment': 'Students enrolled in course.',
-            'enrollment_change_last_1_days': 'Change in enrollment for the last full day (00:00-23:59 UTC).',
             'enrollment_change_last_7_days': 'Change in enrollment during the last 7 days (through 23:59 UTC).',
-            'enrollment_change_last_30_days': 'Change in enrollment during the last 30 days (through 23:59 UTC).'
         }
         self.assertDictEqual(context['tooltips'], expected)
 
@@ -244,9 +242,7 @@ class CourseEnrollmentActivityViewTests(CourseEnrollmentViewTestMixin, TestCase)
         expected = {
             'date': datetime.date(year=2014, month=1, day=31),
             'current_enrollment': 30,
-            'enrollment_change_last_1_days': 1,
             'enrollment_change_last_7_days': 7,
-            'enrollment_change_last_30_days': 30
         }
         self.assertDictEqual(context['summary'], expected)
 
