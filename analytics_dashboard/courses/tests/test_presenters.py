@@ -81,9 +81,7 @@ class CourseEnrollmentPresenterTests(TestCase):
         expected = {
             'date': None,
             'current_enrollment': None,
-            'enrollment_change_last_1_days': None,
             'enrollment_change_last_7_days': None,
-            'enrollment_change_last_30_days': None,
         }
 
         self.assertDictEqual(actual, expected)

@@ -270,13 +270,7 @@ class EnrollmentActivityView(EnrollmentTemplateView):
             'current_enrollment': _('Students enrolled in course.'),
 
             # Translators: Please keep this time in UTC. Do not translate it into another timezone.
-            'enrollment_change_last_1_days': _('Change in enrollment for the last full day (00:00-23:59 UTC).'),
-
-            # Translators: Please keep this time in UTC. Do not translate it into another timezone.
-            'enrollment_change_last_7_days': _('Change in enrollment during the last 7 days (through 23:59 UTC).'),
-
-            # Translators: Please keep this time in UTC. Do not translate it into another timezone.
-            'enrollment_change_last_30_days': _('Change in enrollment during the last 30 days (through 23:59 UTC).')
+            'enrollment_change_last_7_days': _('Change in enrollment during the last 7 days (through 23:59 UTC).')
         }
 
         presenter = CourseEnrollmentPresenter(self.course_id)

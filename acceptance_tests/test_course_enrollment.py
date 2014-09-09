@@ -80,10 +80,11 @@ class CourseEnrollmentActivityTests(CourseEnrollmentTests, WebAppTest):
         current_enrollment_count = current_enrollment['count']
         self.assertSummaryPointValueEquals('current_enrollment', current_enrollment_count)
 
-        for i in [1, 7, 30]:
-            stat_type = 'enrollment_change_last_%s_days' % i
-            value = current_enrollment_count - enrollment_data[-(i + 1)]['count']
-            self.assertSummaryPointValueEquals(stat_type, value)
+        # Check value of summary box for last week
+        i = 7
+        stat_type = 'enrollment_change_last_%s_days' % i
+        value = current_enrollment_count - enrollment_data[-(i + 1)]['count']
+        self.assertSummaryPointValueEquals(stat_type, value)
 
         # Verify *something* rendered where the graph should be. We cannot easily verify what rendered
         self.assertElementHasContent("[data-section=enrollment-basics] #enrollment-trend-view")
