@@ -1,5 +1,5 @@
-define(['d3', 'nvd3', 'utils/utils', 'views/attribute-listener-view'],
-    function (d3, nvd3, Utils, AttributeListenerView) {
+define(['bootstrap', 'd3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-listener-view'],
+    function (bootstrap, d3, $, nvd3, _, Utils, AttributeListenerView) {
         'use strict';
 
         var EnrollmentTrendView = AttributeListenerView.extend({
@@ -14,18 +14,22 @@ define(['d3', 'nvd3', 'utils/utils', 'views/attribute-listener-view'],
                 AttributeListenerView.prototype.render.call(this);
                 var self = this,
                     canvas = d3.select(self.el),
-                    chart;
+                    tooltipText = gettext('This graph displays total enrollment for the course calculated at the end of each day. Total enrollment includes new enrollments as well as un-enrollments.'),
+                    tooltipTemplate = _.template('<i class="ico ico-tooltip fa fa-info-circle chart-tooltip" data-toggle="tooltip" data-placement="top" title="<%=text%>"></i>'),
+                    chart,
+                    title,
+                    $tooltip;
 
                 chart = nvd3.models.lineChart()
                     .margin({left: 80, right: 45})  // margins so text fits
                     .showLegend(true)
                     .useInteractiveGuideline(true)
                     .forceY(0)
-                    .x(function(d) {
-                       // Parse dates to integers
+                    .x(function (d) {
+                        // Parse dates to integers
                         return Date.parse(d.date);
                     })
-                    .y(function(d) {
+                    .y(function (d) {
                         // Simply return the count
                         return d.count;
                     })
@@ -42,10 +46,13 @@ define(['d3', 'nvd3', 'utils/utils', 'views/attribute-listener-view'],
                 chart.yAxis.axisLabel('Students');
 
                 // Add the title
-                canvas.attr('class', 'line-chart-container')
-                    .append('div')
-                    .attr('class', 'chart-title')
-                    .text(gettext('Daily Student Enrollment'));
+                title = canvas.attr('class', 'line-chart-container').append('div');
+                title.attr('class', 'chart-title').text(gettext('Daily Student Enrollment'));
+
+                // Add the tooltip
+                $tooltip = $(tooltipTemplate({text: tooltipText}));
+                $(title[0]).append($tooltip);
+                $tooltip.tooltip();
 
                 // Append the svg to an inner container so that it adapts to
                 // the height of the inner container instead of the outer
