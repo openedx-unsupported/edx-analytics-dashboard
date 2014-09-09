@@ -55,7 +55,7 @@ class EdXOAuth2(EdXOAuth2Mixin, BaseOAuth2):
 # pylint: disable=abstract-method
 class EdXOpenIdConnect(EdXOAuth2Mixin, OpenIdConnectAuth):
     name = 'edx-oidc'
-    DEFAULT_SCOPE = ['openid', 'profile']
+    DEFAULT_SCOPE = ['openid', 'profile', 'email']
     ID_TOKEN_ISSUER = settings.SOCIAL_AUTH_EDX_OIDC_URL_ROOT
     AUTHORIZATION_URL = '{0}/authorize/'.format(settings.SOCIAL_AUTH_EDX_OIDC_URL_ROOT)
     ACCESS_TOKEN_URL = '{0}/access_token/'.format(settings.SOCIAL_AUTH_EDX_OIDC_URL_ROOT)
