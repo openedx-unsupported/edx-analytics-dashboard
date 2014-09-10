@@ -166,11 +166,10 @@ class CourseEngagementContentViewTests(CourseViewTestMixin, TestCase):
 
         # check to make sure that we have tooltips
         self.assertDictEqual(response.context['tooltips'], {
-            'all_activity_summary': 'Students who initiated an action.',
-            # pylint: disable=line-too-long
-            'posted_forum_summary': 'Students who created a post, responded to a post, or made a comment in any discussion.',
-            'attempted_problem_summary': 'Students who answered any question.',
-            'played_video_summary': 'Students who started watching any video.'
+            'all_activity_summary': 'Students who interacted with at least one page, video, problem, or discussion',
+            'posted_forum_summary': 'Students who contributed to any discussion topic',
+            'attempted_problem_summary': 'Students who submitted a standard problem',
+            'played_video_summary': 'Students who played one or more videos'
         })
 
         # check page title
