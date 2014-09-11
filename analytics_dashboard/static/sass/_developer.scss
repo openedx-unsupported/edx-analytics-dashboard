@@ -60,6 +60,38 @@
   @extend %vertical-align;
 }
 
+.error-section-container {
+
+  padding: $padding-large-horizontal $padding-large-vertical;
+  padding-bottom: $padding-large-horizontal * 2;
+  margin-bottom: $padding-large-horizontal * 2;
+  background-color: $error-background-color;
+  border-top: 4px solid $error-section-highlight-color;
+
+  i.error {
+    color: $error-section-highlight-color;
+    font-size: $font-size-large * 2;
+  }
+
+  .short-message {
+    font-size: $font-size-large;
+    font-weight: 700;
+    padding-bottom: $padding-small-horizontal;
+  }
+}
+
+// this keeps the gray borders from touching the top band at a 45 degree angle
+.error-section-container:before {
+  border: $error-border;
+  border-top: none;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
 // Ensure that the map fits for different screens sizes
 // --------------------
 .world-map {

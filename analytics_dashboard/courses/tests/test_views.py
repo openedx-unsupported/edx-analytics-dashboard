@@ -5,6 +5,7 @@ from django.core.cache import cache
 import mock
 from django.conf import settings
 from django.test import TestCase
+from django.test.utils import override_settings
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
@@ -72,13 +73,6 @@ class CourseViewTestMixin(PermissionsTestMixin, AuthenticationMixin):
     def assertSecondaryNavs(self, nav):
         raise NotImplementedError
 
-    def test_not_found(self):
-        course_id = 'fakeOrg/soFake/Fake_Course'
-        self.grant_permission(self.user, course_id)
-        path = reverse(self.viewname, kwargs={'course_id': course_id})
-        response = self.client.get(path, follow=True)
-        self.assertEqual(response.status_code, 404)
-
     @mock.patch('courses.permissions.refresh_user_course_permissions', mock.Mock(side_effect=set_empty_permissions))
     def test_authorization(self):
         """
@@ -94,6 +88,17 @@ class CourseViewTestMixin(PermissionsTestMixin, AuthenticationMixin):
         self.revoke_permissions(self.user)
         response = self.client.get(self.path, follow=True)
         self.assertEqual(response.status_code, 403)
+
+    @override_settings(LMS_COURSE_VALIDATION_BASE_URL='a/url')
+    @mock.patch('requests.get')
+    def test_invalid_course(self, mock_lms_request):
+        course_id = 'fakeOrg/soFake/Fake_Course'
+        self.grant_permission(self.user, course_id)
+        path = reverse(self.viewname, kwargs={'course_id': course_id})
+
+        mock_lms_request.get.return_value.status_code = 404
+        response = self.client.get(path, follow=True)
+        self.assertEqual(response.status_code, 404)
 
 
 class CourseCSVTestMixin(object):
@@ -135,13 +140,16 @@ class CourseCSVTestMixin(object):
         # Check data
         self.assertEqual(response.content, data)
 
+    def test_not_found(self):
+        course_id = 'fakeOrg/soFake/Fake_Course'
+        self.grant_permission(self.user, course_id)
+        path = reverse(self.viewname, kwargs={'course_id': course_id})
+        response = self.client.get(path, follow=True)
+        self.assertEqual(response.status_code, 404)
+
 
 class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
     active_secondary_nav_label = None
-
-    @mock.patch('analyticsclient.course.Course.enrollment', mock.Mock(side_effect=NotFoundError))
-    def test_not_found(self):
-        super(CourseEnrollmentViewTestMixin, self).test_not_found()
 
     def assertPrimaryNav(self, nav):
         expected = {
@@ -198,10 +206,6 @@ class CourseEngagementViewTestMixin(CourseViewTestMixin):
     def assertSecondaryNavs(self, nav):
         expected = [{'active': True, 'name': 'content', 'label': _('Content'), 'href': '#'}]
         self.assertListEqual(nav, expected)
-
-    @mock.patch('analyticsclient.course.Course.activity', mock.Mock(side_effect=NotFoundError))
-    def test_not_found(self):
-        super(CourseEngagementViewTestMixin, self).test_not_found()
 
     def test_authentication(self):
         with mock.patch.object(analyticsclient.course.Course, 'activity', return_value=mock_course_activity()):
@@ -261,6 +265,18 @@ class CourseEngagementContentViewTests(CourseEngagementViewTestMixin, TestCase):
         self.assertPrimaryNav(response.context['primary_nav_item'])
         self.assertSecondaryNavs(response.context['secondary_nav_items'])
 
+    @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary_and_trend_data')
+    def test_not_found(self, get_summary_and_trend_data):
+        get_summary_and_trend_data.side_effect = NotFoundError
+
+        response = self.client.get(self.path)
+        context = response.context
+
+        # summary and engagementTrends should evaluate to falsy values, which the
+        # template evaluates to render error messages
+        self.assertIsNone(context['summary'])
+        self.assertIsNone(context['js_data']['course']['engagementTrends'])
+
 
 class CourseEnrollmentActivityViewTests(CourseEnrollmentViewTestMixin, TestCase):
     viewname = 'courses:enrollment_activity'
@@ -292,6 +308,18 @@ class CourseEnrollmentActivityViewTests(CourseEnrollmentViewTestMixin, TestCase)
         self.assertPrimaryNav(context['primary_nav_item'])
         self.assertSecondaryNavs(context['secondary_nav_items'])
 
+    @mock.patch('courses.presenters.CourseEnrollmentPresenter.get_summary_and_trend_data')
+    def test_not_found(self, get_summary_and_trend):
+        get_summary_and_trend.side_effect = NotFoundError
+
+        response = self.client.get(self.path)
+        context = response.context
+
+        # summary and enrollmentTrends should evaluate to falsy values, which the
+        # template evaluates to render error messages
+        self.assertIsNone(context['summary'])
+        self.assertIsNone(context['js_data']['course']['enrollmentTrends'])
+
 
 class CourseEnrollmentGeographyViewTests(CourseEnrollmentViewTestMixin, TestCase):
     viewname = 'courses:enrollment_geography'
@@ -317,6 +345,16 @@ class CourseEnrollmentGeographyViewTests(CourseEnrollmentViewTestMixin, TestCase
         _summary, expected_data = get_mock_presenter_enrollment_geography_data()
         self.assertEqual(page_data['course']['enrollmentByCountry'], expected_data)
 
+    @mock.patch('courses.presenters.CourseEnrollmentPresenter.get_geography_data')
+    def test_not_found(self, get_geography_data):
+        get_geography_data.side_effect = NotFoundError
+
+        response = self.client.get(self.path)
+        context = response.context
+
+        self.assertIsNone(context['update_message'])
+        self.assertIsNone(context['js_data']['course']['enrollmentByCountry'])
+
 
 class CourseEnrollmentByCountryCSVViewTests(CourseCSVTestMixin, CourseEnrollmentViewTestMixin, TestCase):
     viewname = 'courses:csv_enrollment_by_country'
@@ -330,6 +368,10 @@ class CourseEnrollmentByCountryCSVViewTests(CourseCSVTestMixin, CourseEnrollment
     @mock.patch('analyticsclient.course.Course.enrollment')
     def test_response_no_data(self, mock_call):
         super(CourseEnrollmentByCountryCSVViewTests, self).test_response_no_data(mock_call)
+
+    @mock.patch('analyticsclient.course.Course.enrollment', mock.Mock(side_effect=NotFoundError))
+    def test_not_found(self):
+        super(CourseEnrollmentByCountryCSVViewTests, self).test_not_found()
 
 
 class CourseEnrollmentCSVViewTests(CourseCSVTestMixin, CourseEnrollmentViewTestMixin, TestCase):
@@ -345,6 +387,10 @@ class CourseEnrollmentCSVViewTests(CourseCSVTestMixin, CourseEnrollmentViewTestM
     def test_response_no_data(self, mock_call):
         super(CourseEnrollmentCSVViewTests, self).test_response_no_data(mock_call)
 
+    @mock.patch('analyticsclient.course.Course.enrollment', mock.Mock(side_effect=NotFoundError))
+    def test_not_found(self):
+        super(CourseEnrollmentCSVViewTests, self).test_not_found()
+
 
 class CourseEngagementActivityTrendCSVViewTests(CourseCSVTestMixin, CourseEngagementViewTestMixin, TestCase):
     viewname = 'courses:csv_engagement_activity_trend'
@@ -359,6 +405,10 @@ class CourseEngagementActivityTrendCSVViewTests(CourseCSVTestMixin, CourseEngage
     @mock.patch('analyticsclient.course.Course.activity')
     def test_response_no_data(self, mock_call):
         super(CourseEngagementActivityTrendCSVViewTests, self).test_response_no_data(mock_call)
+
+    @mock.patch('analyticsclient.course.Course.activity', mock.Mock(side_effect=NotFoundError))
+    def test_not_found(self):
+        super(CourseEngagementActivityTrendCSVViewTests, self).test_not_found()
 
 
 class CourseHomeViewTests(CourseEngagementViewTestMixin, TestCase):

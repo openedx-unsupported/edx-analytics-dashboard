@@ -21,7 +21,7 @@ Individual course-centric enrollment geography view.
       <span class="section-heading-note small">{% trans "Where are my students?" %}</span>
     </div>
 
-
+    {% if js_data.course.enrollmentByCountry %}
     <div class="section-content section-data-viz">
       <div class="world-map" data-view="world-map" data-title="{% trans "Enrollment by Country" %}"
            data-series-name="{% trans "Enrollment" %}">
@@ -32,6 +32,9 @@ Individual course-centric enrollment geography view.
         {% include "loading.html" %}
       </div>
     </div>
+    {% else %}
+        {% show_chart_error %}
+    {% endif %}
   </section>
 
   <section class="view-section">
@@ -39,60 +42,69 @@ Individual course-centric enrollment geography view.
       <h4 class="section-title">{% trans "Geography Metrics" %}</h4>
     </div>
 
-    <div class="section-content">
-      <div class="row">
-        <div class="col-xs-12 col-sm-3" data-stat-type="num-countries">
-          {# Translators: This string represents the number of countries where students are enrolled. #}
-          {% trans "Total Countries Represented" as label %}
-          {% trans "Countries with at least one student." as tooltip %}
-          {% summary_point num_countries label '&nbsp;' tooltip %}
-        </div>
+    {% if top_countries %}
+        <div class="section-content">
+          <div class="row">
+            <div class="col-xs-12 col-sm-3" data-stat-type="num-countries">
+              {# Translators: This string represents the number of countries where students are enrolled. #}
+              {% trans "Total Countries Represented" as label %}
+              {% trans "Countries with at least one student." as tooltip %}
+              {% summary_point num_countries label '&nbsp;' tooltip %}
+            </div>
 
-        {% for datum in top_countries %}
-          <div class="col-xs-12 col-sm-3" data-stat-type="top-country-{{ forloop.counter }}">
-            {% if forloop.first %}
-              {# Translators: This string represents the country with the greatest number of enrolled students. #}
-              {% trans "Most Prevalent Country" as label %}
-              {% trans "Country with the largest number of students." as tooltip %}
-            {% elif forloop.counter == 2 %}
-              {# Translators: This string represents the country with the second-greatest number of enrolled students. #}
-              {% trans "2nd Most Prevalent Country" as label %}
-              {% trans "Country with the second largest number of students." as tooltip %}
-            {% elif forloop.counter == 3 %}
-              {# Translators: This string represents the country with the third-greatest number of enrolled students. #}
-              {% trans "3rd Most Prevalent Country" as label %}
-              {% trans "Country with the third largest number of students." as tooltip %}
-            {% endif %}
+            {% for datum in top_countries %}
+              <div class="col-xs-12 col-sm-3" data-stat-type="top-country-{{ forloop.counter }}">
+                {% if forloop.first %}
+                  {# Translators: This string represents the country with the greatest number of enrolled students. #}
+                  {% trans "Most Prevalent Country" as label %}
+                  {% trans "Country with the largest number of students." as tooltip %}
+                {% elif forloop.counter == 2 %}
+                  {# Translators: This string represents the country with the second-greatest number of enrolled students. #}
+                  {% trans "2nd Most Prevalent Country" as label %}
+                  {% trans "Country with the second largest number of students." as tooltip %}
+                {% elif forloop.counter == 3 %}
+                  {# Translators: This string represents the country with the third-greatest number of enrolled students. #}
+                  {% trans "3rd Most Prevalent Country" as label %}
+                  {% trans "Country with the third largest number of students." as tooltip %}
+                {% endif %}
 
-            {% captureas subheading %}
-              {% captureas percent %}{% widthratio datum.percent 1 100 %}{% endcaptureas %}
-              {# Translators: This string represents the percentage of students in a course. Move the % symbol, if necessary, but keep the percent variable/placeholder. #}
-              {% blocktrans %}{{ percent }}% of students{% endblocktrans %}
-            {% endcaptureas %}
-            {% summary_point datum.countryName label subheading tooltip %}
+                {% captureas subheading %}
+                  {% captureas percent %}{% widthratio datum.percent 1 100 %}{% endcaptureas %}
+                  {# Translators: This string represents the percentage of students in a course. Move the % symbol, if necessary, but keep the percent variable/placeholder. #}
+                  {% blocktrans %}{{ percent }}% of students{% endblocktrans %}
+                {% endcaptureas %}
+                {% summary_point datum.countryName label subheading tooltip %}
+              </div>
+            {% endfor %}
           </div>
-        {% endfor %}
-      </div>
-    </div>
+        </div>
+    {% else %}
+        {% show_metrics_error %}
+    {% endif %}
   </section>
 
   <section class="view-section">
     <div class="section-heading">
       <h4 class="section-title">{% trans "Geographic Breakdown" %}</h4>
+      {% if js_data.course.enrollmentByCountry %}
+        <div class="section-actions">
+            <a href="{% url 'courses:csv_enrollment_by_country' course_id=course_id %}" class="btn btn-default"
+               data-role="enrollment-location-csv" data-track-type="click"
+               data-track-event="edx.bi.csv.downloaded" data-track-category="geographic">
+              <i class="ico fa fa-download" aria-hidden="true"></i> {% trans "Download CSV" %}
+               <span class="sr-only">{% trans "Geographic Breakdown" %}</span>
+            </a>
+        </div>
+      {% endif %}
+    </div>
 
-      <div class="section-actions">
-        <a href="{% url 'courses:csv_enrollment_by_country' course_id=course_id %}" class="btn btn-default"
-           data-role="enrollment-location-csv" data-track-type="click"
-           data-track-event="edx.bi.csv.downloaded" data-track-category="geographic">
-          <i class="ico fa fa-download" aria-hidden="true"></i> {% trans "Download CSV" %}
-           <span class="sr-only">{% trans "Geographic Breakdown" %}</span>
-        </a>
+    {% if js_data.course.enrollmentByCountry %}
+      <div class="section-content section-data-table" data-role="enrollment-location-table">
+        {% include "loading.html" %}
       </div>
-    </div>
-
-    <div class="section-content section-data-table" data-role="enrollment-location-table">
-      {% include "loading.html" %}
-    </div>
+    {% else %}
+        {% show_table_error %}
+    {% endif %}
   </section>
 
 {% endblock %}

@@ -1,6 +1,8 @@
 import copy
 import datetime
 import json
+import logging
+import requests
 
 from django.conf import settings
 from django.core.exceptions import PermissionDenied
@@ -18,6 +20,9 @@ from analyticsclient.exceptions import NotFoundError
 from courses import permissions
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter
 from courses.utils import is_feature_enabled
+
+
+logger = logging.getLogger(__name__)
 
 
 class CourseContextMixin(object):
@@ -64,6 +69,38 @@ class CourseContextMixin(object):
         }
 
         return context
+
+
+class CourseValidMixin(object):
+    """
+    Mixin that checks the validity of a course ID against the LMS.
+    """
+
+    course_id = None
+
+    def is_valid_course(self):
+
+        if settings.LMS_COURSE_VALIDATION_BASE_URL:
+            uri = '{0}/{1}/info'.format(settings.LMS_COURSE_VALIDATION_BASE_URL, self.course_id)
+
+            try:
+                response = requests.get(uri, timeout=5)
+            except requests.exceptions.Timeout:
+                logger.error('Course validation timed out: {}'.format(uri))
+                # consider the course valid if the LMS times out
+                return True
+
+            # pylint: disable=no-member
+            return response.status_code == requests.codes.ok
+        else:
+            # all courses valid if LMS url isn't specified
+            return True
+
+    def dispatch(self, request, *args, **kwargs):
+        if self.is_valid_course():
+            return super(CourseValidMixin, self).dispatch(request, *args, **kwargs)
+        else:
+            raise Http404
 
 
 class CoursePermissionMixin(object):
@@ -176,7 +213,7 @@ class CourseNavBarMixin(object):
         return context
 
 
-class CourseView(LoginRequiredMixin, CoursePermissionMixin, TemplateView):
+class CourseView(LoginRequiredMixin, CourseValidMixin, CoursePermissionMixin, TemplateView):
     """
     Base course view.
 
@@ -191,6 +228,8 @@ class CourseView(LoginRequiredMixin, CoursePermissionMixin, TemplateView):
         self.user = request.user
         self.course_id = kwargs['course_id']
 
+        # some views will catch the NotFoundError to set data to a state that
+        # the template can rendering a loading error message for the section
         try:
             return super(CourseView, self).dispatch(request, *args, **kwargs)
         except NotFoundError:
@@ -205,6 +244,14 @@ class CourseView(LoginRequiredMixin, CoursePermissionMixin, TemplateView):
 
 
 class CourseTemplateView(CourseContextMixin, CourseNavBarMixin, CourseView):
+    update_message = None
+
+    def get_last_updated_message(self, last_updated):
+        if last_updated:
+            return self.update_message % self.format_last_updated_date_and_time(last_updated)
+        else:
+            return None
+
     @staticmethod
     def format_last_updated_date_and_time(d):
         return {'update_date': dateformat.format(d, settings.DATE_FORMAT), 'update_time': dateformat.format(d, 'g:i A')}
@@ -254,24 +301,30 @@ class EnrollmentActivityView(EnrollmentTemplateView):
     page_name = 'enrollment_activity'
     active_secondary_nav_item = 'activity'
 
+    # Translators: Do not translate UTC.
+    update_message = _('Enrollment activity data was last updated %(update_date)s at %(update_time)s UTC.')
+
     # pylint: disable=line-too-long
     def get_context_data(self, **kwargs):
         context = super(EnrollmentActivityView, self).get_context_data(**kwargs)
 
         presenter = CourseEnrollmentPresenter(self.course_id)
-        summary, trend = presenter.get_summary_and_trend_data()
-        last_updated = summary['last_updated']
+
+        try:
+            summary, trend = presenter.get_summary_and_trend_data()
+            last_updated = summary['last_updated']
+        except NotFoundError:
+            summary = None
+            trend = None
+            last_updated = None
 
         # add the enrollment data for the page
         context['js_data']['course']['enrollmentTrends'] = trend
-        # Translators: Do not translate UTC.
-        update_message = _('Enrollment activity data was last updated %(update_date)s at %(update_time)s UTC.')
 
         context.update({
             'page_data': json.dumps(context['js_data']),
             'summary': summary,
-            'update_message': update_message % self.format_last_updated_date_and_time(last_updated)
-
+            'update_message': self.get_last_updated_message(last_updated)
         })
 
         return context
@@ -283,24 +336,29 @@ class EnrollmentGeographyView(EnrollmentTemplateView):
     page_name = 'enrollment_geography'
     active_secondary_nav_item = 'geography'
 
+    # Translators: Do not translate UTC.
+    update_message = _('Geographic student data was last updated %(update_date)s at %(update_time)s UTC.')
+
     def get_context_data(self, **kwargs):
         context = super(EnrollmentGeographyView, self).get_context_data(**kwargs)
 
         presenter = CourseEnrollmentPresenter(self.course_id)
-        summary, data = presenter.get_geography_data()
-        last_updated = summary['last_updated']
 
-        # Add summary data (e.g. num countries, top 3 countries) directly to the context
-        context.update(summary)
+        try:
+            summary, data = presenter.get_geography_data()
+            last_updated = summary['last_updated']
+
+            # Add summary data (e.g. num countries, top 3 countries) directly to the context
+            context.update(summary)
+        except NotFoundError:
+            data = None
+            last_updated = None
 
         context['js_data']['course']['enrollmentByCountry'] = data
 
-        # Translators: Do not translate UTC.
-        update_message = _('Geographic student data was last updated %(update_date)s at %(update_time)s UTC.')
-
         context.update({
             'page_data': json.dumps(context['js_data']),
-            'update_message': update_message % self.format_last_updated_date_and_time(last_updated)
+            'update_message': self.get_last_updated_message(last_updated)
         })
 
         return context
@@ -312,23 +370,27 @@ class EngagementContentView(EngagementTemplateView):
     page_name = 'engagement_content'
     active_secondary_nav_item = 'content'
 
+    # Translators: Do not translate UTC.
+    update_message = _('Course engagement data was last updated %(update_date)s at %(update_time)s UTC.')
+
     def get_context_data(self, **kwargs):
         context = super(EngagementContentView, self).get_context_data(**kwargs)
 
         presenter = CourseEngagementPresenter(self.course_id)
 
-        summary, trends = presenter.get_summary_and_trend_data()
-        last_updated = summary['last_updated']
+        try:
+            summary, trends = presenter.get_summary_and_trend_data()
+            last_updated = summary['last_updated']
+        except NotFoundError:
+            summary = None
+            trends = None
+            last_updated = None
 
         context['js_data']['course']['engagementTrends'] = trends
-
-        # Translators: Do not translate UTC.
-        update_message = _('Course engagement data was last updated %(update_date)s at %(update_time)s UTC.')
-
         context.update({
             'summary': summary,
             'page_data': json.dumps(context['js_data']),
-            'update_message': update_message % self.format_last_updated_date_and_time(last_updated)
+            'update_message': self.get_last_updated_message(last_updated)
         })
 
         return context
