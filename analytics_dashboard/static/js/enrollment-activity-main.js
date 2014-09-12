@@ -8,14 +8,27 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page){
 
     // this is your page specific code
     require(['views/data-table-view',
-            'views/enrollment-trend-view'],
-        function (DataTableView, EnrollmentTrendView) {
+            'views/trends-view'],
+        function (DataTableView, TrendsView) {
 
         // Daily enrollment graph
-        new EnrollmentTrendView({
+        new TrendsView({
             el: '#enrollment-trend-view',
             model: page.models.courseModel,
-            modelAttribute: 'enrollmentTrends'
+            modelAttribute: 'enrollmentTrends',
+            trends: [{label: 'Students'}],
+            title: gettext('Daily Student Enrollment'),
+            x: {
+                // displayed on the axis
+                title: 'Date',
+                // key in the data
+                key: 'date'
+            },
+            y: {
+                title: 'Students',
+                key: 'count'
+            },
+            tooltip: gettext('This graph displays total enrollment for the course calculated at the end of each day. Total enrollment includes new enrollments as well as un-enrollments.')
         });
 
         // Daily enrollment table

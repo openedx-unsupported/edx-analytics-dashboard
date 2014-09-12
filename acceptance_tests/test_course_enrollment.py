@@ -4,13 +4,13 @@ from bok_choy.promise import EmptyPromise
 
 from analyticsclient import demographic
 
-from acceptance_tests import AnalyticsApiClientMixin, FooterMixin
+from acceptance_tests import AnalyticsApiClientMixin, CoursePageTestsMixin, FooterMixin
 from acceptance_tests.pages import CourseEnrollmentActivityPage, CourseEnrollmentGeographyPage
 
 _multiprocess_can_split_ = True
 
 
-class CourseEnrollmentTests(AnalyticsApiClientMixin, FooterMixin):
+class CourseEnrollmentTests(AnalyticsApiClientMixin, FooterMixin, CoursePageTestsMixin):
     """
     Tests for the Enrollment page.
     """
@@ -21,23 +21,6 @@ class CourseEnrollmentTests(AnalyticsApiClientMixin, FooterMixin):
     def setUp(self):
         super(CourseEnrollmentTests, self).setUp()
         self.api_date_format = self.api_client.DATE_FORMAT
-
-    def assertValidHref(self, selector):
-        element = self.page.q(css=selector)
-        self.assertTrue(element.present)
-        self.assertNotEqual(element.attrs('href')[0], '#')
-
-    def assertTableColumnHeadingsEqual(self, table_selector, headings):
-        rows = self.page.q(css=('%s thead th' % table_selector))
-        self.assertTrue(rows.present)
-        self.assertListEqual(rows.text, headings)
-
-    def assertElementHasContent(self, css):
-        element = self.page.q(css=css)
-        self.assertTrue(element.present)
-        graph_html = element.html[0]
-        self.assertIsNotNone(graph_html)
-        self.assertNotEqual(graph_html, '')
 
     def test_page_exists(self):
         self.page.visit()

@@ -4,8 +4,9 @@ from django.conf import settings
 
 from analyticsclient.client import Client
 import analyticsclient.activity_type as AT
-from analyticsclient.exceptions import NotFoundError
 from analyticsclient import demographic
+
+from waffle import switch_is_active
 
 
 class BasePresenter(object):
@@ -13,13 +14,17 @@ class BasePresenter(object):
     This is the base class for the pages and sets up the analytics client
     for the presenters to use to access the data API.
     """
+    default_date_interval = 60
 
-    def __init__(self, timeout=5):
+    def __init__(self, course_id, timeout=5):
         # API client
         self.client = Client(base_url=settings.DATA_API_URL,
                              auth_token=settings.DATA_API_AUTH_TOKEN,
                              timeout=timeout)
+        self.course_id = course_id
+        self.course = self.client.courses(self.course_id)
         self.date_format = Client.DATE_FORMAT
+        self.date_time_format = Client.DATETIME_FORMAT
 
     def parse_date(self, date_string):
         """
@@ -39,49 +44,74 @@ class BasePresenter(object):
         """
         return date.strftime(self.date_format)
 
+    def parse_date_time_as_date(self, date_time_string):
+        """
+        Parse a date time string to a Date object.
+
+        Arguments:
+            date_time_string (str): Date time string to parse
+        """
+        return datetime.datetime.strptime(date_time_string, self.date_time_format).date()
+
+    def get_date_range(self, interval_end=None, num_days=None):
+        """
+        Returns a start and end date that span the interval specified.  If
+        interval_end is None, both start_date and end_date are returned as None.
+        """
+        start_date = None
+        end_date = None
+        if interval_end is not None:
+            if num_days is None:
+                num_days = self.default_date_interval
+            start_date = interval_end - datetime.timedelta(days=num_days)
+            end_date = interval_end + datetime.timedelta(days=1)
+        return start_date, end_date
+
 
 class CourseEngagementPresenter(BasePresenter):
     """
     Presenter for the engagement page.
     """
 
-    def get_summary(self, course_id):
+    def get_trend_data(self, end_date=None, num_days=None):
         """
-        Retrieve all summary numbers and time.
-
-        Arguments:
-            course_id (str): ID of the course to retrieve summary information of.
+        Retrieve engagement activity trends for specified date range and return
+        results with zeros filled in for all activities.
         """
-        course = self.client.courses(course_id)
+        start_date, end_date = self.get_date_range(end_date, num_days)
+        api_trends = self.course.activity(start_date=start_date, end_date=end_date)
 
-        any_activity = course.recent_activity(AT.ANY)
+        # feature gate posted_forum.  If enabled, the forum will be rendered in the engagement page
+        trend_types = [AT.ANY, AT.PLAYED_VIDEO, AT.ATTEMPTED_PROBLEM]
+        if switch_is_active('show_engagement_forum_activity'):
+            trend_types.append(AT.POSTED_FORUM)
 
+        # fill in gaps in activity with zero for display (api doesn't return
+        # the field if no data exists for it, so we fill in the zeros here)
+        trends = []
+        for datum in api_trends:
+            trend_week = {'weekEnding': self.format_date(self.parse_date_time_as_date(datum['interval_end']))}
+            for trend_type in trend_types:
+                trend_week[trend_type] = datum[trend_type] if trend_type in datum else 0
+            trends.append(trend_week)
+
+        return trends
+
+    def get_summary(self):
+        """
+        Retrieve all summary numbers and week ending time.
+        """
         # store our activity data from the API
-        activities = [any_activity, ]
+        api_activity = self.course.activity()[0]
+        summary = {'interval_end': self.parse_date_time_as_date(api_activity['interval_end'])}
 
-        # let's assume that the interval starts are the same across
-        # API calls and save it so that we can display this on
-        # the page
-        summary = {
-            'interval_end': any_activity['interval_end'],
-        }
-
-        # Create a list of data types and pass them into the recent_activity
-        # call to get all the summary data that I need.
-        activity_types = [AT.ATTEMPTED_PROBLEM, AT.PLAYED_VIDEO, AT.POSTED_FORUM]
+        # fill in gaps in the summary if no data found so we can display a proper message
+        activity_types = [AT.ANY, AT.ATTEMPTED_PROBLEM, AT.PLAYED_VIDEO, AT.POSTED_FORUM]
         for activity_type in activity_types:
-            try:
-                activity = course.recent_activity(activity_type)
-            except NotFoundError:
-                # We know the course exists, since we have gotten this far in the code, but
-                # there is no data for the specified activity type. Report it as null.
-                activity = {'activity_type': activity_type, 'count': None}
-
-            activities.append(activity)
-
-        # format the data for the page
-        for activity in activities:
-            summary[activity['activity_type']] = activity['count']
+            if activity_type in api_activity:
+                summary[activity_type] = api_activity[activity_type]
+            else:
+                summary[activity_type] = None
 
         return summary
 
@@ -89,18 +119,15 @@ class CourseEngagementPresenter(BasePresenter):
 class CourseEnrollmentPresenter(BasePresenter):
     """ Presenter for the course enrollment data. """
 
-    def __init__(self, course_id, timeout=5):
-        super(CourseEnrollmentPresenter, self).__init__(timeout)
-        self.course_id = course_id
-
-    def get_trend_data(self, start_date=None, end_date=None):
-        return self.client.courses(self.course_id).enrollment(start_date=start_date, end_date=end_date)
+    def get_trend_data(self, end_date=None, num_days=None):
+        start_date, end_date = self.get_date_range(end_date, num_days)
+        return self.course.enrollment(start_date=start_date, end_date=end_date)
 
     def get_geography_data(self):
         """
         Returns a list of course geography data and the updated date (ex. 2014-1-31).
         """
-        api_response = self.client.courses(self.course_id).enrollment(demographic.LOCATION)
+        api_response = self.course.enrollment(demographic.LOCATION)
         data = []
         update_date = None
 
@@ -122,9 +149,6 @@ class CourseEnrollmentPresenter(BasePresenter):
     def get_summary(self):
         """
         Returns the summary information for enrollments.
-
-        Arguments:
-            course_id (str): ID of the course to retrieve summary information of.
         """
 
         # Establish default return values
@@ -139,11 +163,9 @@ class CourseEnrollmentPresenter(BasePresenter):
 
         if recent_enrollment:
             # Get data for a month prior to most-recent data
+            days_in_week = 7
             last_enrollment_date = self.parse_date(recent_enrollment[0]['date'])
-            month_before = last_enrollment_date - datetime.timedelta(days=31)
-            start_date = month_before
-            end_date = last_enrollment_date + datetime.timedelta(days=1)
-            last_month_enrollment = self.get_trend_data(start_date=start_date, end_date=end_date)
+            last_week_enrollment = self.get_trend_data(end_date=last_enrollment_date, num_days=days_in_week)
 
             # Add the first values to the returned data dictionary using the most-recent enrollment data
             current_enrollment = recent_enrollment[0]['count']
@@ -152,16 +174,14 @@ class CourseEnrollmentPresenter(BasePresenter):
                 'current_enrollment': current_enrollment
             }
 
-            # Keep track of the number of days of enrollment data, so we don't have to calculate it multiple times in
-            # the loop below.
-            num_days_of_data = len(last_month_enrollment)
+            # we could get fewer days of data than desired
+            num_days_of_data = len(last_week_enrollment)
 
             # Get difference in enrollment for last week
-            interval = 7
             count = None
-            if num_days_of_data > interval:
-                index = -interval - 1
-                count = current_enrollment - last_month_enrollment[index]['count']
-            data['enrollment_change_last_%s_days' % interval] = count
+            if num_days_of_data > days_in_week:
+                index = -days_in_week - 1
+                count = current_enrollment - last_week_enrollment[index]['count']
+            data['enrollment_change_last_%s_days' % days_in_week] = count
 
         return data

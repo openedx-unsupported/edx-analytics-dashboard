@@ -47,6 +47,28 @@ class FooterMixin(object):
         self.assertEqual(element.text[0], u'Privacy Policy')
 
 
+class CoursePageTestsMixin(object):
+    """
+    Convenience methods for testing.
+    """
+    def assertValidHref(self, selector):
+        element = self.page.q(css=selector)
+        self.assertTrue(element.present)
+        self.assertNotEqual(element.attrs('href')[0], '#')
+
+    def assertTableColumnHeadingsEqual(self, table_selector, headings):
+        rows = self.page.q(css=('%s thead th' % table_selector))
+        self.assertTrue(rows.present)
+        self.assertListEqual(rows.text, headings)
+
+    def assertElementHasContent(self, css):
+        element = self.page.q(css=css)
+        self.assertTrue(element.present)
+        html = element.html[0]
+        self.assertIsNotNone(html)
+        self.assertNotEqual(html, '')
+
+
 def auto_auth(browser, server_url):
     url = '{}/test/auto_auth/'.format(server_url)
     return browser.get(url)
