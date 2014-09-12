@@ -11,15 +11,16 @@ define(['models/course-model', 'views/world-map-view'], function(CourseModel, Wo
 
             actual = view.popupTemplate({
                 name: 'My Map',
-                value: 100
+                value: 100,
+                percent: '100%'
             });
-            expect(actual).toBe('<div class="hoverinfo">My Map: 100</div>');
+            expect(actual).toBe('<div class="hoverinfo">My Map: 100 (100%)</div>');
         });
 
         it('should format data for Datamaps', function () {
             var rawData = [
-                    {countryCode: 'USA', count: 100},
-                    {countryCode: 'ARG', count: 200}],
+                    {countryCode: 'USA', count: 100, percent: 0.3333},
+                    {countryCode: 'ARG', count: 200, percent: 0.6666}],
                 model = new CourseModel({mapData: rawData}),
                 view = new WorldMapView({
                     model: model,
@@ -30,30 +31,35 @@ define(['models/course-model', 'views/world-map-view'], function(CourseModel, Wo
 
             actual = view.formatData();
             expected = {
-                USA: { value: 100, fillKey: 'USA' },
-                ARG: { value: 200, fillKey: 'ARG' }
+                USA: { value: 100, fillKey: 'USA', percent: 0.3333 },
+                ARG: { value: 200, fillKey: 'ARG', percent: 0.6666 }
             };
             expect(actual).toEqual(expected);
         });
 
         it('should fill in colors for countries', function () {
-            var countryData = {
+            var lowColor = '#000000',
+                highColor = '#ffffff',
+                countryData = {
                     USA: { value: 0, fillKey: 'USA' },
                     BLV: { value: 100, fillKey: 'BLV' },
                     ARG: { value: 200, fillKey: 'ARG' }},
                 view = new WorldMapView({
                     model: new CourseModel(),
-                    lowColor: '#000000',
-                    highColor: '#ffffff'
+                    lowColor: lowColor,
+                    highColor: highColor
                 }),
                 actual,
-                expected;
+                expected,
+                colorMap = d3.scale.sqrt()
+                    .domain([0, 200])
+                    .range([lowColor, highColor]);
 
             actual = view.getFills(countryData, 200);
             expected = {
                 defaultFill: '#000000',
                 USA: '#000000',
-                BLV: '#808080',
+                BLV: colorMap(100),
                 ARG: '#ffffff'
             };
             expect(actual).toEqual(expected);
