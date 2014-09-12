@@ -16,7 +16,7 @@ COURSE_URLS = [
     ('csv/engagement_activity_trend', views.CourseEngagementActivityTrendCSV.as_view()),
 ]
 
-COURSE_ID_REGEX = r'^(?P<course_id>(\w+/){2}\w+)'
+COURSE_ID_REGEX = r'^(?P<course_id>([^/]+/){2}[^/]+)'
 TRAILING_SLASH_REGEX = r'/$'
 
 urlpatterns = patterns(
