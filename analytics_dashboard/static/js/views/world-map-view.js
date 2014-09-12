@@ -15,9 +15,9 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'views/attribute-listener-view
 
                 // colors can be supplied
                 self.options = _.defaults(options, {
-                    lowColor: '#f8f8f8',
-                    highColor: '#e6550d',
-                    borderColor: '#c0c0c0'
+                    lowColor: '#bee1f5',
+                    highColor: '#124d6f',
+                    borderColor: '#ffffff'
                 });
 
                 self.renderIfDataAvailable();
@@ -57,7 +57,7 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'views/attribute-listener-view
                     colorMap;
 
                 // single hue linear scaled
-                colorMap = d3.scale.linear()
+                colorMap = d3.scale.sqrt()
                     .domain([0, max])
                     .range([self.options.lowColor, self.options.highColor]);
 
