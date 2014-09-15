@@ -45,3 +45,13 @@ class CaptureasNode(template.Node):
         output = self.nodelist.render(context)
         context[self.varname] = output
         return ''
+
+
+@register.inclusion_tag('summary_point.html')
+def summary_point(value, label, subheading=None, tooltip=None):
+    return {
+        'value': value,
+        'label': label,
+        'subheading': subheading,
+        'tooltip': tooltip
+    }

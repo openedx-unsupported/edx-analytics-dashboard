@@ -1,5 +1,7 @@
 {% extends "courses/base-course.html" %}
 
+{% load dashboard_extras %}
+
 {% comment %}
 Individual course centric performance view
 {% endcomment %}
@@ -95,19 +97,19 @@ Individual course centric performance view
     <div class="section-content section-data-summary">
         <div class="row">
             <div class="col-xs-12 col-sm-3">
-                {% include "summary_point.html" with count="63%" label="Overall Grade Average" only %}
+              {% summary_point "63%" "Overall Grade Average" %}
             </div>
 
             <div class="col-xs-12 col-sm-3">
-                {% include "summary_point.html" with count="80%" label="Active Student Average Grade" only %}
+              {% summary_point "80%" "Active Student Average Grade" %}
             </div>
 
             <div class="col-xs-12 col-sm-3">
-                {% include "summary_point.html" with count="2" label="Assignment(s) under Certificate Average" only %}
+              {% summary_point 2 "Assignment(s) under Certificate Average" %}
             </div>
 
             <div class="col-xs-12 col-sm-3">
-                {% include "summary_point.html" with count="Homework 1" label="Homework with Lowest Average Score" only %}
+              {% summary_point "Homework 1" "Homework with Lowest Average Score" %}
             </div>
         </div>
     </div>
