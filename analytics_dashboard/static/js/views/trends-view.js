@@ -1,5 +1,5 @@
-define(['bootstrap', 'd3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-listener-view'],
-    function (bootstrap, d3, $, nvd3, _, Utils, AttributeListenerView) {
+define(['bootstrap', 'd3', 'jquery', 'moment', 'nvd3', 'underscore', 'views/attribute-listener-view'],
+    function (bootstrap, d3, $, moment, nvd3, _, AttributeListenerView) {
         'use strict';
 
         var TrendsView = AttributeListenerView.extend({
@@ -16,14 +16,14 @@ define(['bootstrap', 'd3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views
              * rendering.  The map consists of the trend data as 'values' and
              * the trend title as 'key'.
              */
-            assembleTrendData: function() {
+            assembleTrendData: function () {
                 var self = this,
                     combinedTrends,
                     data = self.model.get(self.options.modelAttribute),
                     trendOptions = self.options.trends;
 
                 // parse and format the data for nvd3
-                combinedTrends = _(trendOptions).map( function (trendOption) {
+                combinedTrends = _(trendOptions).map(function (trendOption) {
                     var values = _(data).map(function (datum) {
                         var keyedValue = {},
                             yKey = trendOption.key || self.options.y.key;
@@ -44,18 +44,51 @@ define(['bootstrap', 'd3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views
                 return combinedTrends;
             },
 
+            styleChart: function () {
+                var canvas = d3.select(this.el),
+                    translateRegex = /translate\((\d+),\s*(\d+)\)/g,
+                    xAxisMargin = 6,
+                    axisEl,
+                    matches;
+
+                // Add background to X-axis
+                canvas.select('.nv-x.nv-axis')
+                    .insert('rect', 'g')
+                    .attr('transform', 'translate(-60, 0)')
+                    .attr('class', 'x-axis-background')
+                    // TODO Fix height/overflow issue. If height set to 100%, rect overflows. Height should
+                    // not be hardcoded.
+                    .attr('height', '21px')
+                    .attr('width', '100%');
+
+                // Remove the border on the Y-axis
+                canvas.select('.nv-y path.domain').remove();
+
+                // Remove the grid lines
+                canvas.selectAll('.nvd3 .nv-axis line').remove();
+
+                // Remove max value from the X-axis
+                canvas.select('.nvd3 .nv-axis.nv-x .nv-axisMaxMin:nth-child(3)').remove();
+
+                // Get the existing X-axis translation and shift it down a few more pixels.
+                axisEl = canvas.select('.nvd3 .nv-axis.nv-x');
+                matches = translateRegex.exec(axisEl.attr('transform'));
+                axisEl.attr('transform', 'translate(' + matches[1] + ',' + (parseInt(matches[2], 10) + xAxisMargin) + ')')
+
+            },
+
             render: function () {
                 AttributeListenerView.prototype.render.call(this);
                 var self = this,
                     canvas = d3.select(self.el),
                     tooltipTemplate = _.template('<i class="ico ico-tooltip fa fa-info-circle chart-tooltip" data-toggle="tooltip" data-placement="top" title="<%=text%>"></i>'),
                     chart,
-                    title,
                     $tooltip;
 
                 chart = nvd3.models.lineChart()
-                    .margin({left: 80, right: 65})  // margins so text fits
-                    .showLegend(true)
+                    .margin({top: 1})
+                    .height(300)    // This should be the same as the height set on the chart container in CSS.
+                    .showLegend(false)
                     .useInteractiveGuideline(true)
                     .forceY(0)
                     .x(function (d) {
@@ -65,41 +98,38 @@ define(['bootstrap', 'd3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views
                     .y(function (d) {
                         // Simply return the count
                         return d[self.options.y.key];
-                    })
-                    .tooltipContent(function (key, y, e, graph) {
-                        return '<h3>' + key + '</h3>';
                     });
 
                 chart.xAxis
-                    .axisLabel(self.options.x.title)
                     .tickFormat(function (d) {
-                        return Utils.formatDate(d);
+                        return moment(d).format('M/D');
                     });
 
-                chart.yAxis.axisLabel(self.options.y.title);
-
-                title = canvas.attr('class', 'line-chart-container')
-                    .append('div')
-                    .attr('class', 'chart-title')
-                    .text(self.options.title);
+                chart.yAxis.showMaxMin(false);
 
                 // Add the tooltip
-                if(_(self.options).has('tooltip')) {
+                if (_(self.options).has('tooltip')) {
                     $tooltip = $(tooltipTemplate({text: self.options.tooltip}));
-                    $(title[0]).append($tooltip);
+                    $(canvas[0]).append($tooltip);
                     $tooltip.tooltip();
                 }
 
                 // Append the svg to an inner container so that it adapts to
                 // the height of the inner container instead of the outer
                 // container which needs to create height for the title.
-                canvas.append('div')
+                canvas.attr('class', 'line-chart-container')
+                    .append('div')
                     .attr('class', 'line-chart')
                     .append('svg')
                     .datum(self.assembleTrendData())
                     .call(chart);
 
+                self.styleChart();
+
                 nvd3.utils.windowResize(chart.update);
+                nv.utils.windowResize(function () {
+                    self.styleChart();
+                });
 
                 return this;
             }

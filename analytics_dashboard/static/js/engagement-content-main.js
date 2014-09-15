@@ -53,7 +53,6 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page){
             model: page.models.courseModel,
             modelAttribute: 'engagementTrends',
             trends: trendSettings,
-            title: gettext('Weekly Student Engagement'),
             x: {
                 // displayed on the axis
                 title: 'Date',
@@ -63,9 +62,10 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page){
             y: {
                 title: 'Students',
                 key: 'count'
-            }
+            },
+
             // TODO: add a tooltip for this graph (AN-3362)
-            // ,tooltip: gettext('TBD')
+            tooltip: gettext('This graph displays weekly course activity.')
         });
 
         // weekly engagement activities table

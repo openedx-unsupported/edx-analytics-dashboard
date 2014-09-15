@@ -16,18 +16,9 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page){
             el: '#enrollment-trend-view',
             model: page.models.courseModel,
             modelAttribute: 'enrollmentTrends',
-            trends: [{label: 'Students'}],
-            title: gettext('Daily Student Enrollment'),
-            x: {
-                // displayed on the axis
-                title: 'Date',
-                // key in the data
-                key: 'date'
-            },
-            y: {
-                title: 'Students',
-                key: 'count'
-            },
+            trends: [{title: 'Students'}],
+            x: { key: 'date' },
+            y: { key: 'count' },
             tooltip: gettext('This graph displays total enrollment for the course calculated at the end of each day. Total enrollment includes new enrollments as well as un-enrollments.')
         });
 
@@ -44,5 +35,4 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page){
             sorting: ['-date']
         });
     });
-
 });

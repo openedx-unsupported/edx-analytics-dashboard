@@ -10,18 +10,40 @@
 
 .line-chart-container {
   background-color: white;
-  padding-top: 10px; // Give the title some breathing room.
+  border: $edx-gray 1px solid;
+
 
   .line-chart {
-    height: 300px;
+    height: 305px;  // Update the height of the graph in trends-view.js to be this height minus 5px.
   }
 
-  .chart-title {
-    text-align: center;
+  .chart-tooltip {
+    @extend .pull-right;
+    padding-right: $padding-small-horizontal;
+    padding-top: $padding-small-horizontal;
+  }
 
-    .chart-tooltip {
-      @extend .pull-right;
-      padding-right: $padding-large-horizontal;
+  .nvd3 {
+    .nv-axis {
+
+      &.nv-y {
+        fill: $edx-gray;
+
+        .nv-axislabel {
+          fill: $edx-blue;
+        }
+      }
+
+      &.nv-x {
+        text {
+          fill: $edx-gray-l1;
+          font-size: $font-size-small;
+        }
+
+        .x-axis-background {
+          fill: $gray-d2;
+        }
+      }
     }
   }
 }
