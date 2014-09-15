@@ -15,12 +15,13 @@
 
   .line-chart {
     height: 305px;  // Update the height of the graph in trends-view.js to be this height minus 5px.
+    padding-top: $padding-large-vertical;
   }
 
   .chart-tooltip {
     @extend .pull-right;
     padding-right: $padding-small-horizontal;
-    padding-top: $padding-small-horizontal;
+    padding-top: $padding-large-vertical;
   }
 
   .nvd3 {
