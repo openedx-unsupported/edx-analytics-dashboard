@@ -165,7 +165,7 @@ hr.has-emphasis {
         float: right;
       }
 
-      .section-title,.section-heading-note {
+      .section-title, .section-heading-note {
         margin-bottom: 0;
         margin-top: $font-size-base;
       }
@@ -222,44 +222,41 @@ hr.has-emphasis {
 
 // ui: data-summary
 // --------------------
-.section-data-summary {
+.summary-point {
+  @extend %ui-box;
+  @include scale(0.95);
+  @include transition(all ease-in-out .50s);
+  width: 100%;
+  margin-bottom: $padding-large-vertical;
 
-  .summary-point {
-    @extend %ui-box;
-    @include scale(0.95);
-    @include transition(all ease-in-out .50s);
+  .summary-point-wrapper {
+    text-align: center;
+    vertical-align: inherit;
+    position: relative;
+    padding-top: $padding-large-vertical * 2;
+    padding-bottom: $padding-large-vertical * 2;
+  }
+
+  .summary-point-note {
+    display: inline-block;
+    vertical-align: bottom;
     width: 100%;
-    margin-bottom: $padding-large-vertical;
+  }
 
-    .summary-point-wrapper {
-      text-align: center;
-      vertical-align: inherit;
-      position: relative;
-      padding-top: $padding-large-vertical * 2;
-      padding-bottom: $padding-large-vertical * 2;
+  // STATE: hover + active
+  &:hover, &:active {
+    box-shadow: 0 1px 1px $edx-blue-t2;
+    @include scale(1.0);
+
+    .summary-point-number {
+      color: $brand-primary;
     }
+  }
 
-    .summary-point-note {
-      display: inline-block;
-      vertical-align: bottom;
-      width: 100%;
-    }
-
-    // STATE: hover + active
-    &:hover, &:active {
-      box-shadow: 0 1px 1px $edx-blue-t2;
-      @include scale(1.0);
-
-      .summary-point-number {
-        color: $brand-primary;
-      }
-    }
-
-    .summary-point-help {
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
+  .summary-point-help {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 
   .summary-point-number {

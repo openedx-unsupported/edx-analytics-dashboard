@@ -20,7 +20,7 @@ Individual course-centric engagement content view.
 {% block content %}
   <section class="view-section">
 
-  <div class="section-content section-data-summary" data-role="student-activity">
+  <div class="section-content" data-role="student-activity">
     <div class="row">
       <div class="col-sm-12">
         <span class="section-title-value small">{% trans "Activity for the week ending" %}
@@ -166,7 +166,7 @@ Individual course-centric engagement content view.
         <span class="section-title-note small">How many students are engaging with this content?</span>
       </h5>
 
-      <div class="section-content section-data-summary">
+      <div class="section-content">
         <div class="row">
           <div class="col-xs-12 col-sm-3">
             {% include "summary_point.html" with count="23,437" label="Viewed this subsection" subheading="since last week" only %}
@@ -193,7 +193,7 @@ Individual course-centric engagement content view.
         <span class="section-title-note small">How are students interacting with this content?</span>
       </h5>
 
-      <div class="section-content section-data-summary">
+      <div class="section-content">
         <div class="row">
           <div class="col-xs-12 col-sm-3">
             {% include "summary_point.html" with count="2:05:39" label="Average Time Spent" only %}
