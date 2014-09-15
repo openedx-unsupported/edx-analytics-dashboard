@@ -348,7 +348,7 @@ class CourseEnrollmentGeographyViewTests(CourseEnrollmentViewTestMixin, TestCase
         expected_date = 'January 01, 2014'
         self.assertEqual(page_data['course']['enrollmentByCountryUpdateDate'], expected_date)
 
-        expected_data, _date = get_mock_presenter_enrollment_geography_data()
+        expected_data, _date, _summary = get_mock_presenter_enrollment_geography_data()
         self.assertEqual(page_data['course']['enrollmentByCountry'], expected_data)
 
 
