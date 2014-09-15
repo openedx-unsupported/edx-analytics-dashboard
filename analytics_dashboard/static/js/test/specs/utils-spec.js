@@ -1,4 +1,4 @@
-define(['utils/utils'], function(Utils) {
+define(['utils/utils'], function (Utils) {
     'use strict';
 
     describe('Utils', function () {
@@ -15,10 +15,10 @@ define(['utils/utils'], function(Utils) {
 
             actualAttributes = Utils.getNodeProperties(element.attributes);
             expect(actualAttributes).toEqual({
-                    attribute: 'myAttribute',
-                    'data-type': 'my-data-type',
-                    'data-category': 'my-data-category',
-                    'data-event': 'my-data-event'
+                attribute: 'myAttribute',
+                'data-type': 'my-data-type',
+                'data-category': 'my-data-category',
+                'data-event': 'my-data-event'
             });
 
             actualAttributes = Utils.getNodeProperties(element.attributes,
@@ -41,5 +41,18 @@ define(['utils/utils'], function(Utils) {
             expect(Utils.formatDate('2014-01-01')).toEqual('January 1, 2014');
         });
 
+    });
+
+    describe('formatDisplayPercentage', function () {
+        it('should return < 1% if the parameter is < 0.01', function () {
+            expect(Utils.formatDisplayPercentage(0)).toEqual('< 1%');
+            expect(Utils.formatDisplayPercentage(0.002)).toEqual('< 1%');
+        });
+
+        it('should return a percentage formatted to a single decimal place if the parameter is >= 0.01', function () {
+            expect(Utils.formatDisplayPercentage(0.01)).toEqual('1.0%');
+            expect(Utils.formatDisplayPercentage(0.396)).toEqual('39.6%');
+            expect(Utils.formatDisplayPercentage(1)).toEqual('100.0%');
+        });
     });
 });

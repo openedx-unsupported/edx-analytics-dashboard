@@ -35,21 +35,22 @@
 .world-map {
   position: relative;
   margin: 0 auto;
-  // this is the ratio of width:height to keep the map from being cut off
-  width: 900px;
-  height: 400px;
+
+  width: 100%;
+  height: 450px;
+
+  background-color: white;
+  border: $edx-gray 1px solid;
 }
 
 @media (max-width: $screen-md) {
   .world-map {
-    width: 450px;
-    height: 200px;
+    height: 250px;
   }
 }
 
 @media (max-width: $screen-sm) {
   .world-map {
-    width: 100%;
     height: 300px;
   }
 }

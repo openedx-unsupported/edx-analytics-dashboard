@@ -1,5 +1,5 @@
-define(['jquery', 'd3', 'datamaps', 'underscore', 'views/attribute-listener-view'],
-    function ($, d3, Datamap, _, AttributeListenerView) {
+define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribute-listener-view'],
+    function ($, d3, Datamap, _, Utils, AttributeListenerView) {
         'use strict';
 
         /**
@@ -15,9 +15,9 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'views/attribute-listener-view
 
                 // colors can be supplied
                 self.options = _.defaults(options, {
-                    lowColor: '#f8f8f8',
-                    highColor: '#e6550d',
-                    borderColor: '#c0c0c0'
+                    lowColor: '#bee1f5',
+                    highColor: '#124d6f',
+                    borderColor: '#ffffff'
                 });
 
                 self.renderIfDataAvailable();
@@ -40,6 +40,7 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'views/attribute-listener-view
                     var key = country.countryCode;
                     formattedData[key] = {
                         value: country.count,
+                        percent: country.percent,
                         fillKey: key
                     };
                 });
@@ -56,8 +57,7 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'views/attribute-listener-view
                     fills = {},
                     colorMap;
 
-                // single hue linear scaled
-                colorMap = d3.scale.linear()
+                colorMap = d3.scale.sqrt()
                     .domain([0, max])
                     .range([self.options.lowColor, self.options.highColor]);
 
@@ -151,7 +151,7 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'views/attribute-listener-view
              * Underscore style template for the hover popup that displays a
              * label/name and value.
              */
-            popupTemplate: _.template('<div class="hoverinfo"><%=name%>: <%=value%></div>'),
+            popupTemplate: _.template('<div class="hoverinfo"><%=name%>: <%=value%> (<%=percent%>)</div>'),
 
             render: function () {
                 AttributeListenerView.prototype.render.call(this);
@@ -181,7 +181,8 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'views/attribute-listener-view
                         popupTemplate: function (geography, data) {
                             return self.popupTemplate({
                                 name: geography.properties.name,
-                                value: data ? data.value : 0
+                                value: data ? data.value : 0,
+                                percent: data ? Utils.formatDisplayPercentage(data.percent) : 0
                             });
                         }
                     },

@@ -92,10 +92,7 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
                     var value = row[columnKey],
                         display = value;
                     if (type === 'display') {
-                        display = ' < 1%';
-                        if (value >= 0.01) {
-                            display = (value * 100).toFixed(1) + '%';
-                        }
+                        display = ' ' + Utils.formatDisplayPercentage(value);
                     }
                     return display;
                 };
