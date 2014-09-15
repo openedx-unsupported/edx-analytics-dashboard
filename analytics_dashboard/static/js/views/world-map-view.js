@@ -151,7 +151,7 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
              * Underscore style template for the hover popup that displays a
              * label/name and value.
              */
-            popupTemplate: _.template('<div class="hoverinfo"><%=name%>: <%=value%> (<%=percent%>)</div>'),
+            popupTemplate: _.template('<div class="hoverinfo"><%=name%>: <%=value%><% if(percent) { %> (<%=percent%>)<% } %></div>'),
 
             render: function () {
                 AttributeListenerView.prototype.render.call(this);
