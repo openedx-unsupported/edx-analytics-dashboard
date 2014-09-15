@@ -28,13 +28,13 @@ hr.has-emphasis {
 
 // extends
 // --------------------
-%hd-titlecased {                                                                                    // titlecased heading
+%hd-titlecased {  // titlecased heading
   font-family: $f-sans-serif-alt;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
 }
 
-%ui-box {                                                                                           // visual emphasis/grouping box
+%ui-box { // visual emphasis/grouping box
   border-radius: 3px;
   box-shadow: 0 1px 1px $shadow-l1;
   padding: $padding-large-vertical $padding-large-horizontal;
@@ -51,17 +51,14 @@ hr.has-emphasis {
   font-family: 'Avenir Next', Helvetica, Arial, sans-serif;
 }
 
-
-
 // nav + header
 // --------------------
 .navbar {
-  margin-bottom: 0;     // Get rid of Bootstrap's default margin. Many of our pages have a secondary navbar
-                        // that needs to sit right below the main navbar.
+  margin-bottom: 0; // Get rid of Bootstrap's default margin. Many of our pages have a secondary navbar that needs to sit right below the main navbar.
 }
 
 .navbar-brand {
-  padding: 25px 50px;    // needed for edX logo to render properly
+  padding: 25px 50px; // needed for edX logo to render properly
 
   .navbar-brand-logo {
     display: inline-block;
@@ -143,32 +140,39 @@ hr.has-emphasis {
     margin-bottom: 0;
   }
 
-  .section-title, .section-subtitle {
+  .section-heading {
+    margin-top: $padding-large-vertical;
     margin-bottom: $padding-base-vertical;
-  }
 
-  .section-title-value, .subsection-title-value {
-    display: block;
-    margin-bottom: $padding-base-vertical;
-  }
-
-  .section-title-note, .subsection-title-note {
-    display: block;
+    &.bordered {
+      border-bottom: $edx-gray-l1 1px solid;
+      padding-bottom: $padding-base-vertical;
+      margin-bottom: $padding-large-vertical;
+    }
   }
 
   // CASE: larger than small screen breakpoint
   @media (min-width: $screen-sm-min) {
 
-    .section-title, .section-subtitle {
+    .section-heading {
       @include clearfix();
-    }
 
-    .section-title-value, .subsection-title-value {
-      float: left;
-    }
+      .section-title {
+        float: left;
+      }
 
-    .section-title-note, .subsection-title-note {
-      float: right;
+      .section-heading-note, .section-actions {
+        float: right;
+      }
+
+      .section-title,.section-heading-note {
+        margin-bottom: 0;
+        margin-top: $font-size-base;
+      }
+
+      .section-heading-note {
+        color: $edx-gray;
+      }
     }
   }
 
@@ -178,10 +182,6 @@ hr.has-emphasis {
 
   .section-content {
     margin-bottom: $padding-large-vertical*2;
-  }
-
-  .section-actions {
-    margin-top: $padding-base-vertical;
   }
 }
 
@@ -219,7 +219,6 @@ hr.has-emphasis {
     }
   }
 }
-
 
 // ui: data-summary
 // --------------------
@@ -293,7 +292,6 @@ hr.has-emphasis {
   }
 }
 
-
 // ui: data-table
 // --------------------
 .section-data-table {
@@ -308,7 +306,6 @@ hr.has-emphasis {
     }
   }
 }
-
 
 // Footer
 // --------
@@ -348,7 +345,7 @@ hr.has-emphasis {
       z-index: 1000;
       display: block;
       overflow-x: hidden;
-      overflow-y: auto;                                                                           // scrollable contents if viewport is shorter than content.
+      overflow-y: auto; // scrollable contents if viewport is shorter than content.
       border-right: 2px solid $black-t0;
       padding: 0;
     }
@@ -413,7 +410,6 @@ hr.has-emphasis {
     font-size: $font-size-large;
   }
 
-
   // cover
   .cover {
     padding: 0 $padding-large-horizontal;
@@ -435,7 +431,6 @@ hr.has-emphasis {
   .error-copy {
     color: $gray;
   }
-
 
   // affix and center
   @media (min-width: 768px) {
