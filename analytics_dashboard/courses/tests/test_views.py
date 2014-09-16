@@ -189,7 +189,7 @@ class CourseEngagementViewTestMixin(CourseViewTestMixin):
 
     def assertPrimaryNav(self, nav):
         expected = {
-            'icon': 'fa-tasks',
+            'icon': 'fa-bar-chart',
             'href': reverse('courses:engagement_content', kwargs={'course_id': self.course_id}),
             'label': _('Engagement'),
             'name': 'engagement'

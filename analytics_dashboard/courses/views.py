@@ -119,7 +119,7 @@ class CourseNavBarMixin(object):
                 'name': 'engagement',
                 'label': _('Engagement'),
                 'view': 'courses:engagement_content',
-                'icon': 'fa-tasks',
+                'icon': 'fa-bar-chart',
                 'switch': 'navbar_display_engagement'
             }
         ]
