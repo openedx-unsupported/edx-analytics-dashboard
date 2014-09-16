@@ -27,7 +27,7 @@ test_python: clean
 		$(PACKAGES)
 
 accept:
-	nosetests acceptance_tests --processes=2
+	nosetests acceptance_tests --processes=2 --process-timeout=120
 
 
 quality:
