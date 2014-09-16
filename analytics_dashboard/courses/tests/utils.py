@@ -2,7 +2,7 @@ import StringIO
 import csv
 import datetime
 
-import analyticsclient.activity_type as AT
+import analyticsclient.constants.activity_type as AT
 
 from courses.permissions import set_user_course_permissions
 

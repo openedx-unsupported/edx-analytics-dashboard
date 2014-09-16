@@ -3,8 +3,8 @@ import datetime
 from django.conf import settings
 
 from analyticsclient.client import Client
-import analyticsclient.activity_type as AT
-from analyticsclient import demographic
+import analyticsclient.constants.activity_type as AT
+from analyticsclient.constants import demographic
 
 from waffle import switch_is_active
 

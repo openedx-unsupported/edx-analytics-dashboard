@@ -9,7 +9,7 @@ from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
-import analyticsclient.activity_type as AT
+import analyticsclient.constants.activity_type as AT
 from analyticsclient.exceptions import NotFoundError
 from waffle import Switch
 

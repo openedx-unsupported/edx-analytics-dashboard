@@ -11,7 +11,7 @@ from django.views.generic.base import RedirectView
 from django.utils.translation import ugettext_lazy as _
 
 from braces.views import LoginRequiredMixin
-from analyticsclient import data_format, demographic
+from analyticsclient.constants import data_format, demographic
 from analyticsclient.client import Client
 from analyticsclient.exceptions import NotFoundError
 

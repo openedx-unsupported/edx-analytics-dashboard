@@ -4,7 +4,7 @@ from waffle import Switch
 
 from django.test import TestCase
 
-import analyticsclient.activity_type as AT
+import analyticsclient.constants.activity_type as AT
 
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter, BasePresenter
 from courses.tests.utils import get_mock_enrollment_data, get_mock_enrollment_summary, \
