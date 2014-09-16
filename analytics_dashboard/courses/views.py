@@ -300,7 +300,10 @@ class EnrollmentGeographyView(EnrollmentTemplateView):
         context = super(EnrollmentGeographyView, self).get_context_data(**kwargs)
 
         presenter = CourseEnrollmentPresenter(self.course_id)
-        data, last_update = presenter.get_geography_data()
+        data, last_update, summary = presenter.get_geography_data()
+
+        # Add summary data (e.g. num countries, top 3 countries) directly to the context
+        context.update(summary)
 
         context['js_data']['course']['enrollmentByCountry'] = data
         context['js_data']['course']['enrollmentByCountryUpdateDate'] = get_formatted_date(last_update)

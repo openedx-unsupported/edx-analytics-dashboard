@@ -1,5 +1,6 @@
 from bok_choy.web_app_test import WebAppTest
-from acceptance_tests import USERNAME, PASSWORD, ENABLE_OAUTH_AUTHORIZE, auto_auth
+
+from acceptance_tests import USERNAME, PASSWORD, ENABLE_OAUTH_AUTHORIZE
 from pages import LoginPage, LogoutPage
 
 

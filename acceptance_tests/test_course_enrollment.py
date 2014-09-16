@@ -8,6 +8,7 @@ from acceptance_tests import AnalyticsApiClientMixin, CoursePageTestsMixin, Foot
 from acceptance_tests.pages import CourseEnrollmentActivityPage, CourseEnrollmentGeographyPage
 
 _multiprocess_can_split_ = True
+MAX_SUMMARY_POINT_VALUE_LENGTH = 13
 
 
 class CourseEnrollmentTests(AnalyticsApiClientMixin, FooterMixin, CoursePageTestsMixin):
@@ -25,17 +26,21 @@ class CourseEnrollmentTests(AnalyticsApiClientMixin, FooterMixin, CoursePageTest
     def test_page_exists(self):
         self.page.visit()
 
+    def assertSummaryPointValueEquals(self, stat_type, value):
+        # Account for Django truncation
+        value = (value[:(MAX_SUMMARY_POINT_VALUE_LENGTH - 3)] + '...') if len(
+            value) > MAX_SUMMARY_POINT_VALUE_LENGTH else value
+
+        element = self.page.q(css="[data-stat-type=%s] .summary-point-number" % stat_type)
+        self.assertTrue(element.present)
+        self.assertEqual(element.text[0], value)
+
 
 class CourseEnrollmentActivityTests(CourseEnrollmentTests, WebAppTest):
     def setUp(self):
         super(CourseEnrollmentActivityTests, self).setUp()
         self.page = CourseEnrollmentActivityPage(self.browser)
         self.course = self.api_client.courses(self.page.course_id)
-
-    def assertSummaryPointValueEquals(self, stat_type, value):
-        element = self.page.q(css="[data-stat-type=%s] .summary-point-number" % stat_type)
-        self.assertTrue(element.present)
-        self.assertEqual(int(element.text[0]), value)
 
     def get_enrollment_data(self):
         """
@@ -61,13 +66,13 @@ class CourseEnrollmentActivityTests(CourseEnrollmentTests, WebAppTest):
 
         # Check values of summary boxes
         current_enrollment_count = current_enrollment['count']
-        self.assertSummaryPointValueEquals('current_enrollment', current_enrollment_count)
+        self.assertSummaryPointValueEquals('current_enrollment', unicode(current_enrollment_count))
 
         # Check value of summary box for last week
         i = 7
         stat_type = 'enrollment_change_last_%s_days' % i
         value = current_enrollment_count - enrollment_data[-(i + 1)]['count']
-        self.assertSummaryPointValueEquals(stat_type, value)
+        self.assertSummaryPointValueEquals(stat_type, unicode(value))
 
         # Verify *something* rendered where the graph should be. We cannot easily verify what rendered
         self.assertElementHasContent("[data-section=enrollment-basics] #enrollment-trend-view")
@@ -85,7 +90,8 @@ class CourseEnrollmentActivityTests(CourseEnrollmentTests, WebAppTest):
         for i, row in enumerate(rows):
             columns = row.find_elements_by_css_selector('td')
             enrollment = enrollment_data[i]
-            expected_date = datetime.datetime.strptime(enrollment['date'], self.api_date_format).strftime("%B %d, %Y").replace(' 0', ' ')
+            expected_date = datetime.datetime.strptime(enrollment['date'], self.api_date_format).strftime(
+                "%B %d, %Y").replace(' 0', ' ')
             expected = [expected_date, enrollment['count']]
             actual = [columns[0].text, int(columns[1].text)]
             self.assertListEqual(actual, expected)
@@ -101,6 +107,8 @@ class CourseEnrollmentGeographyTests(CourseEnrollmentTests, WebAppTest):
         super(CourseEnrollmentGeographyTests, self).setUp()
         self.page = CourseEnrollmentGeographyPage(self.browser)
         self.course = self.api_client.courses(self.page.course_id)
+        self.enrollment_data = sorted(self.course.enrollment(demographic.LOCATION),
+                                      key=lambda item: item['count'], reverse=True)
 
     def test_enrollment_country_map(self):
         self.page.visit()
@@ -155,10 +163,8 @@ class CourseEnrollmentGeographyTests(CourseEnrollmentTests, WebAppTest):
         self.assertValidHref(selector)
 
         # Check last updated
-        enrollment_data = sorted(self.course.enrollment(demographic.LOCATION),
-                                 key=lambda item: item['count'], reverse=True)
         rows = self.page.browser.find_elements_by_css_selector('%s tbody tr' % table_selector)
-        last_updated = datetime.datetime.strptime(enrollment_data[0]['date'], self.api_date_format)
+        last_updated = datetime.datetime.strptime(self.enrollment_data[0]['date'], self.api_date_format)
         element = self.page.q(css="span[data-view=enrollment-by-country-update-date]")
         self.assertTrue(element.present)
         self.assertEqual(element.text[0], last_updated.strftime(self.DASHBOARD_DATE_FORMAT))
@@ -166,14 +172,24 @@ class CourseEnrollmentGeographyTests(CourseEnrollmentTests, WebAppTest):
         # check the results of the table
         self.assertGreater(len(rows), 0)
 
-        sum_count = float(sum([datum['count'] for datum in enrollment_data]))
+        sum_count = float(sum([datum['count'] for datum in self.enrollment_data]))
 
         for i, row in enumerate(rows):
             columns = row.find_elements_by_css_selector('td')
-            enrollment = enrollment_data[i]
+            enrollment = self.enrollment_data[i]
             expected_percent = enrollment['count'] / sum_count * 100
             expected_percent_display = '{:.1f}%'.format(expected_percent) if expected_percent >= 0.01 else '< 1%'
             expected = [enrollment['country']['name'], expected_percent_display, enrollment['count']]
             actual = [columns[0].text, columns[1].text, int(columns[2].text)]
             self.assertListEqual(actual, expected)
             self.assertIn('text-right', columns[1].get_attribute('class'))
+
+    def test_metrics(self):
+        self.page.visit()
+
+        enrollment_data = [datum for datum in self.enrollment_data if datum['country']['name'] != 'UNKNOWN']
+        self.assertSummaryPointValueEquals('num-countries', unicode(len(enrollment_data)))
+
+        for i in range(0, 3):
+            country = enrollment_data[i]['country']['name']
+            self.assertSummaryPointValueEquals('top-country-%d' % (i + 1), country)

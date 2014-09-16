@@ -147,7 +147,8 @@ class CourseEnrollmentPresenterTests(TestCase):
     def test_get_geography_data(self, mock_enrollment):
         mock_data = get_mock_api_enrollment_geography_data(self.course_id)
         mock_enrollment.return_value = mock_data
-        expected_data, expected_update = get_mock_presenter_enrollment_geography_data()
-        actual_data, last_updated = self.presenter.get_geography_data()
+        expected_data, expected_update, expected_summary = get_mock_presenter_enrollment_geography_data()
+        actual_data, last_updated, summary = self.presenter.get_geography_data()
         self.assertEqual(actual_data, expected_data)
         self.assertEqual(last_updated, expected_update)
+        self.assertEqual(summary, expected_summary)

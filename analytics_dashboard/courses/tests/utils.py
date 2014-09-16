@@ -33,7 +33,8 @@ def get_mock_enrollment_summary():
 
 def get_mock_api_enrollment_geography_data(course_id):
     data = []
-    items = ((u'USA', u'United States', 500), (u'GER', u'Germany', 100), (u'CAN', u'Canada', 400))
+    items = ((u'USA', u'United States', 500), (u'GER', u'Germany', 100), (u'CAN', u'Canada', 300),
+             (None, u'UNKNOWN', 100))
     for item in items:
         data.append({'date': '2014-01-01', 'course_id': course_id, 'count': item[2],
                      'country': {'alpha3': item[0], 'name': item[1]}})
@@ -44,11 +45,15 @@ def get_mock_api_enrollment_geography_data(course_id):
 def get_mock_presenter_enrollment_geography_data():
     data = [
         {'countryCode': 'USA', 'countryName': 'United States', 'count': 500, 'percent': 0.5},
+        {'countryCode': 'CAN', 'countryName': 'Canada', 'count': 300, 'percent': 0.3},
         {'countryCode': 'GER', 'countryName': 'Germany', 'count': 100, 'percent': 0.1},
-        {'countryCode': 'CAN', 'countryName': 'Canada', 'count': 400, 'percent': 0.4},
     ]
     last_update = '2014-01-01'
-    return (data, last_update)
+    summary = {
+        'num_countries': 3,
+        'top_countries': data
+    }
+    return data, last_update, summary
 
 
 def convert_list_of_dicts_to_csv(data, fieldnames=None):

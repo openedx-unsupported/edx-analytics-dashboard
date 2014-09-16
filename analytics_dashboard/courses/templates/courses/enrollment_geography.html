@@ -19,10 +19,10 @@ Individual course-centric enrollment geography view.
   <section class="view-section" data-section="enrollment-location">
     <div class="row">
       <div class="col-sm-12">
-             <span class="section-title-value small">
-             {% captureas update_date %}<span data-view="enrollment-by-country-update-date"></span>{% endcaptureas %}
-              {% blocktrans %}Last updated: {{ update_date }}{% endblocktrans %}
-             </span>
+        <span class="section-title-value small">
+          {% captureas update_date %}<span data-view="enrollment-by-country-update-date"></span>{% endcaptureas %}
+          {% blocktrans %}Last updated: {{ update_date }}{% endblocktrans %}
+        </span>
       </div>
     </div>
 
@@ -37,9 +37,46 @@ Individual course-centric enrollment geography view.
         {% include "loading.html" with message=loading_msg %}
       </div>
     </div>
+  </section>
 
-    <hr/>
+  <section class="view-section">
+    <div class="section-heading bordered">
+      <h4 class="section-title">{% trans "Geography Metrics" %}</h4>
+    </div>
 
+    <div class="section-content">
+      <div class="row">
+        <div class="col-xs-12 col-sm-3" data-stat-type="num-countries">
+          {# Translators: This string represents the number of countries where students are enrolled. #}
+          {% trans "Countries Represented" as label %}
+          {% summary_point num_countries label '&nbsp;' %}
+        </div>
+
+        {% for datum in top_countries %}
+          <div class="col-xs-12 col-sm-3" data-stat-type="top-country-{{ forloop.counter }}">
+            {% if forloop.first %}
+              {# Translators: This string represents the country with the greatest number students. #}
+              {% trans "Top Country" as label %}
+            {% elif forloop.counter == 2 %}
+              {# Translators: This string represents the country with the second-greatest number students. #}
+              {% trans "Second Country" as label %}
+            {% elif forloop.counter == 3 %}
+              {# Translators: This string represents the country with the third-greatest number students. #}
+              {% trans "Third Country" as label %}
+            {% endif %}
+            {% captureas subheading %}
+              {% captureas percent %}{% widthratio datum.percent 1 100 %}{% endcaptureas %}
+              {# Translators: This string represents the percentage of students in a course. Move the % symbol, if necessary, but keep the percent variable/placeholder. #}
+              {% blocktrans %}{{ percent }}% of students{% endblocktrans %}
+            {% endcaptureas %}
+            {% summary_point datum.countryName label subheading %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="view-section">
     <div class="section-heading">
       <h4 class="section-title">{% trans "Country Enrollment Breakdown" %}</h4>
 
@@ -56,7 +93,6 @@ Individual course-centric enrollment geography view.
       {% trans "Loading Table..." as loading_msg %}
       {% include "loading.html" with message=loading_msg %}
     </div>
-
   </section>
 
 {% endblock content %}

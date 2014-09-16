@@ -130,9 +130,13 @@ class CourseEnrollmentPresenter(BasePresenter):
         api_response = self.course.enrollment(demographic.LOCATION)
         data = []
         update_date = None
+        summary = {}
 
         if api_response:
             update_date = api_response[0]['date']
+
+            # Sort data by descending enrollment count
+            api_response = sorted(api_response, key=lambda i: i['count'], reverse=True)
 
             # get the sum as a float so we can divide by it to get a percent
             total_enrollment = float(sum([datum['count'] for datum in api_response]))
@@ -142,9 +146,17 @@ class CourseEnrollmentPresenter(BasePresenter):
                      'countryName': datum['country']['name'],
                      'count': datum['count'],
                      'percent': datum['count'] / total_enrollment if total_enrollment > 0 else 0.0}
-                    for datum in api_response]
+                    for datum in api_response if datum['country']['name'] != 'UNKNOWN']
 
-        return data, update_date
+            # Include a summary of the number of countries and the top 3 countries.
+            summary = {
+                'num_countries': len(data),
+                'top_countries': []
+            }
+            for i in range(0, 3):
+                summary['top_countries'].append(data[i])
+
+        return data, update_date, summary
 
     def get_summary(self):
         """

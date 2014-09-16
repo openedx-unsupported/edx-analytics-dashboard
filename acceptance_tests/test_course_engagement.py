@@ -11,6 +11,7 @@ from acceptance_tests.pages import CourseEngagementContentPage
 
 _multiprocess_can_split_ = True
 
+
 class CourseEngagementTests(AnalyticsApiClientMixin, FooterMixin, CoursePageTestsMixin, WebAppTest):
     """
     Tests for the Engagement page.
