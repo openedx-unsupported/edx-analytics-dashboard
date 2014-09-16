@@ -1,5 +1,6 @@
 import datetime
 import json
+from waffle import Switch
 
 from django.core.cache import cache
 import mock
@@ -17,7 +18,8 @@ from courses.permissions import set_user_course_permissions, revoke_user_course_
 from courses.tests.test_middleware import MiddlewareAssertionMixin
 from courses.tests.utils import get_mock_enrollment_data, get_mock_api_enrollment_geography_data, \
     get_mock_presenter_enrollment_geography_data, convert_list_of_dicts_to_csv, set_empty_permissions, \
-    mock_engagement_summary_data, mock_engagement_activity_trend_data, mock_api_engagement_activity_trend_data
+    mock_engagement_activity_summary_and_trend_data, mock_api_engagement_activity_trend_data, \
+    get_mock_enrollment_summary_and_trend
 
 
 class PermissionsTestMixin(object):
@@ -219,10 +221,13 @@ class CourseEngagementViewTestMixin(CourseViewTestMixin):
 class CourseEngagementContentViewTests(CourseEngagementViewTestMixin, TestCase):
     viewname = 'courses:engagement_content'
 
-    @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary',
-                mock.Mock(return_value=mock_engagement_summary_data()))
-    @mock.patch('courses.presenters.CourseEngagementPresenter.get_trend_data',
-                mock.Mock(return_value=mock_engagement_activity_trend_data()))
+    def setUp(self):
+        super(CourseEngagementContentViewTests, self).setUp()
+        Switch.objects.create(name='navbar_display_engagement', active=True)
+        Switch.objects.create(name='navbar_display_engagement_content', active=True)
+
+    @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary_and_trend_data',
+                mock.Mock(return_value=mock_engagement_activity_summary_and_trend_data()))
     def test_engagement_page_success(self):
         response = self.client.get(self.path)
 
@@ -230,7 +235,7 @@ class CourseEngagementContentViewTests(CourseEngagementViewTestMixin, TestCase):
         self.assertEqual(response.status_code, 200)
 
         # make sure the date is formatted correctly
-        self.assertEqual(response.context['summary']['week_of_activity'], datetime.date(2013, 1, 1))
+        self.assertEqual(response.context['summary']['week_of_activity'], datetime.date(2013, 1, 8))
 
         # check page title
         self.assertEqual(response.context['page_title'], 'Engagement Content')
@@ -270,10 +275,10 @@ class CourseEnrollmentActivityViewTests(CourseEnrollmentViewTestMixin, TestCase)
     viewname = 'courses:enrollment_activity'
     active_secondary_nav_label = 'Activity'
 
-    @mock.patch('courses.presenters.CourseEnrollmentPresenter.get_trend_data')
-    def test_valid_course(self, get_trend_data):
-        enrollment_data = get_mock_enrollment_data(self.course_id)
-        get_trend_data.side_effect = [[enrollment_data[-1]], enrollment_data, enrollment_data]
+    @mock.patch('courses.presenters.CourseEnrollmentPresenter.get_summary_and_trend_data')
+    def test_valid_course(self, get_summary_and_trend_data):
+        summary, enrollment_data = get_mock_enrollment_summary_and_trend(self.course_id)
+        get_summary_and_trend_data.return_value = (summary, enrollment_data)
 
         response = self.client.get(self.path)
         context = response.context
@@ -285,12 +290,7 @@ class CourseEnrollmentActivityViewTests(CourseEnrollmentViewTestMixin, TestCase)
         self.assertEqual(context['page_title'], 'Enrollment Activity')
 
         # make sure the summary numbers are correct
-        expected = {
-            'date': datetime.date(year=2014, month=1, day=31),
-            'current_enrollment': 30,
-            'enrollment_change_last_7_days': 7,
-        }
-        self.assertDictEqual(context['summary'], expected)
+        self.assertDictEqual(context['summary'], summary)
 
         # make sure the trend is correct
         page_data = json.loads(context['page_data'])

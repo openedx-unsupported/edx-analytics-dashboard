@@ -14,7 +14,6 @@ class BasePresenter(object):
     This is the base class for the pages and sets up the analytics client
     for the presenters to use to access the data API.
     """
-    default_date_interval = 60
 
     def __init__(self, course_id, timeout=5):
         # API client
@@ -53,38 +52,25 @@ class BasePresenter(object):
         """
         return datetime.datetime.strptime(date_time_string, self.date_time_format).date()
 
-    def get_date_range(self, interval_end=None, num_days=None):
-        """
-        Returns a start and end date that span the interval specified.  If
-        interval_end is None, both start_date and end_date are returned as None.
-        """
-        start_date = None
-        end_date = None
-        if interval_end is not None:
-            if num_days is None:
-                num_days = self.default_date_interval
-            start_date = interval_end - datetime.timedelta(days=num_days)
-            end_date = interval_end + datetime.timedelta(days=1)
-        return start_date, end_date
-
 
 class CourseEngagementPresenter(BasePresenter):
     """
     Presenter for the engagement page.
     """
 
-    def get_trend_data(self, end_date=None, num_days=None):
-        """
-        Retrieve engagement activity trends for specified date range and return
-        results with zeros filled in for all activities.
-        """
-        start_date, end_date = self.get_date_range(end_date, num_days)
-        api_trends = self.course.activity(start_date=start_date, end_date=end_date)
-
+    def get_activity_types(self):
         # feature gate posted_forum.  If enabled, the forum will be rendered in the engagement page
-        trend_types = [AT.ANY, AT.PLAYED_VIDEO, AT.ATTEMPTED_PROBLEM]
+        activities = [AT.ANY, AT.PLAYED_VIDEO, AT.ATTEMPTED_PROBLEM]
         if switch_is_active('show_engagement_forum_activity'):
-            trend_types.append(AT.POSTED_FORUM)
+            activities.append(AT.POSTED_FORUM)
+        return activities
+
+    def _build_trend(self, api_trends):
+        """
+        Format activity trends for specified date range and return results with
+        zeros filled in for all activities.
+        """
+        trend_types = self.get_activity_types()
 
         # fill in gaps in activity with zero for display (api doesn't return
         # the field if no data exists for it, so we fill in the zeros here)
@@ -97,31 +83,46 @@ class CourseEngagementPresenter(BasePresenter):
 
         return trends
 
-    def get_summary(self):
+    def _build_summary(self, api_trends):
         """
-        Retrieve all summary numbers and week ending time.
+        Format all summary numbers and week ending time.
         """
         # store our activity data from the API
-        api_activity = self.course.activity()[0]
-        summary = {'interval_end': self.parse_date_time_as_date(api_activity['interval_end'])}
+        most_recent = api_trends[-1]
+        summary = {'interval_end': self.parse_date_time_as_date(most_recent['interval_end'])}
 
         # fill in gaps in the summary if no data found so we can display a proper message
-        activity_types = [AT.ANY, AT.ATTEMPTED_PROBLEM, AT.PLAYED_VIDEO, AT.POSTED_FORUM]
+        activity_types = self.get_activity_types()
         for activity_type in activity_types:
-            if activity_type in api_activity:
-                summary[activity_type] = api_activity[activity_type]
+            if activity_type in most_recent:
+                summary[activity_type] = most_recent[activity_type]
             else:
                 summary[activity_type] = None
 
         return summary
 
+    def get_summary_and_trend_data(self):
+        """
+        Retrieve recent summary and all historical trend data.
+        """
+        now = datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
+        api_trends = self.course.activity(start_date=None, end_date=now)
+        summary = self._build_summary(api_trends)
+        trends = self._build_trend(api_trends)
+        return summary, trends
+
 
 class CourseEnrollmentPresenter(BasePresenter):
     """ Presenter for the course enrollment data. """
 
-    def get_trend_data(self, end_date=None, num_days=None):
-        start_date, end_date = self.get_date_range(end_date, num_days)
-        return self.course.enrollment(start_date=start_date, end_date=end_date)
+    def get_summary_and_trend_data(self):
+        """
+        Retrieve recent summary and all historical trend data.
+        """
+        now = datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
+        trends = self.course.enrollment(start_date=None, end_date=now)
+        summary = self._build_summary(trends)
+        return summary, trends
 
     def get_geography_data(self):
         """
@@ -158,9 +159,9 @@ class CourseEnrollmentPresenter(BasePresenter):
 
         return data, update_date, summary
 
-    def get_summary(self):
+    def _build_summary(self, api_trends):
         """
-        Returns the summary information for enrollments.
+        Build summary information for enrollments from trends.
         """
 
         # Establish default return values
@@ -170,30 +171,26 @@ class CourseEnrollmentPresenter(BasePresenter):
             'enrollment_change_last_7_days': None,
         }
 
-        # Get most-recent enrollment
-        recent_enrollment = self.get_trend_data()
+        if api_trends:
+            # Get most-recent enrollment
+            recent_enrollment = api_trends[-1]
 
-        if recent_enrollment:
             # Get data for a month prior to most-recent data
             days_in_week = 7
-            last_enrollment_date = self.parse_date(recent_enrollment[0]['date'])
-            last_week_enrollment = self.get_trend_data(end_date=last_enrollment_date, num_days=days_in_week)
+            last_enrollment_date = self.parse_date(recent_enrollment['date'])
 
             # Add the first values to the returned data dictionary using the most-recent enrollment data
-            current_enrollment = recent_enrollment[0]['count']
+            current_enrollment = recent_enrollment['count']
             data = {
                 'date': last_enrollment_date,
                 'current_enrollment': current_enrollment
             }
 
-            # we could get fewer days of data than desired
-            num_days_of_data = len(last_week_enrollment)
-
             # Get difference in enrollment for last week
             count = None
-            if num_days_of_data > days_in_week:
+            if len(api_trends) > days_in_week:
                 index = -days_in_week - 1
-                count = current_enrollment - last_week_enrollment[index]['count']
+                count = current_enrollment - api_trends[index]['count']
             data['enrollment_change_last_%s_days' % days_in_week] = count
 
         return data

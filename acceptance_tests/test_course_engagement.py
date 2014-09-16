@@ -35,7 +35,10 @@ class CourseEngagementTests(AnalyticsApiClientMixin, FooterMixin, CoursePageTest
         # Verify the week displayed
         week = self.page.q(css='span[data-role=activity-week]')
         self.assertTrue(week.present)
-        recent_activity = self.course.activity()[0]
+
+        end_date = datetime.datetime.utcnow()
+        end_date_string = end_date.strftime(self.api_client.DATE_FORMAT)
+        recent_activity = self.course.activity(end_date=end_date_string)[-1]
         expected = recent_activity['interval_end']
         expected = datetime.datetime.strptime(expected, self.api_client.DATETIME_FORMAT)
         expected = u"Activity through the week ending {}.".format(expected.strftime('%B %d, %Y'))
@@ -50,7 +53,7 @@ class CourseEngagementTests(AnalyticsApiClientMixin, FooterMixin, CoursePageTest
         }
         for activity_type in activity_types:
             data_selector = 'data-activity-type={0}'.format(activity_type)
-            self.assertSummaryPointValueEquals(data_selector, unicode(self.course.recent_activity(activity_type)['count']))
+            self.assertSummaryPointValueEquals(data_selector, unicode(recent_activity[activity_type]))
             self.assertSummaryTooltipEquals(data_selector, expected_tooltips[activity_type])
 
     def test_engagement_graph(self):
@@ -67,13 +70,10 @@ class CourseEngagementTests(AnalyticsApiClientMixin, FooterMixin, CoursePageTest
         self.page.visit()
         date_time_format = self.api_client.DATETIME_FORMAT
 
-        recent_activity = self.course.activity()[0]
-
-        end_date = datetime.datetime.strptime(recent_activity['interval_end'], date_time_format) + datetime.timedelta(days=1)
-        start_date_string = (end_date - datetime.timedelta(days=60)).strftime(self.api_client.DATE_FORMAT)
+        end_date = datetime.datetime.utcnow()
         end_date_string = end_date.strftime(self.api_client.DATE_FORMAT)
 
-        trend_activity = self.course.activity(start_date=start_date_string, end_date=end_date_string)
+        trend_activity = self.course.activity(start_date=None, end_date=end_date_string)
         trend_activity = sorted(trend_activity, reverse=True, key=lambda item: item['interval_end'])
 
         table_selector = 'div[data-role=engagement-table] table'

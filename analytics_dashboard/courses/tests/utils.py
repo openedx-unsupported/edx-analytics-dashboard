@@ -31,6 +31,10 @@ def get_mock_enrollment_summary():
     }
 
 
+def get_mock_enrollment_summary_and_trend(course_id):
+    return get_mock_enrollment_summary(), get_mock_enrollment_data(course_id)
+
+
 def get_mock_api_enrollment_geography_data(course_id):
     data = []
     items = ((u'USA', u'United States', 500), (u'GER', u'Germany', 100), (u'CAN', u'Canada', 300),
@@ -72,18 +76,8 @@ def set_empty_permissions(user):
     return []
 
 
-def mock_engagement_summary_data():
-    return {
-        'interval_end': datetime.date(year=2013, month=1, day=1),
-        AT.ANY: 100,
-        AT.ATTEMPTED_PROBLEM: 301,
-        AT.PLAYED_VIDEO: 1000,
-        AT.POSTED_FORUM: 0,
-    }
-
-
-def mock_engagement_activity_trend_data():
-    return [
+def mock_engagement_activity_summary_and_trend_data():
+    trend = [
         {
             'weekEnding': '2013-01-08',
             AT.ANY: 100,
@@ -99,6 +93,16 @@ def mock_engagement_activity_trend_data():
             AT.POSTED_FORUM: 45,
         }
     ]
+
+    summary = {
+        'interval_end': datetime.date(year=2013, month=1, day=8),
+        AT.ANY: 100,
+        AT.ATTEMPTED_PROBLEM: 301,
+        AT.PLAYED_VIDEO: 1000,
+        AT.POSTED_FORUM: 0,
+    }
+
+    return summary, trend
 
 
 def mock_api_engagement_activity_trend_data():
