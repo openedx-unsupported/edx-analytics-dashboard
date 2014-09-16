@@ -102,7 +102,9 @@ define(['bootstrap', 'd3', 'jquery', 'moment', 'nvd3', 'underscore', 'views/attr
 
                 chart.xAxis
                     .tickFormat(function (d) {
-                        return moment(d).format('M/D');
+                        // date is converted to unix timestamp from our original mm-dd-yyyy format
+                        // and setting the timezone to gmt displays the correct date
+                        return moment(d).zone('+0000').format('M/D');
                     });
 
                 chart.yAxis.showMaxMin(false);
