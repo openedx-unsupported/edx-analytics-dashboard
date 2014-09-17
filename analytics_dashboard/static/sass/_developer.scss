@@ -48,8 +48,16 @@
   }
 }
 
+%vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 .loading-container {
-  padding-top: $padding-large-vertical * 2;
+  @extend %vertical-align;
 }
 
 // Ensure that the map fits for different screens sizes

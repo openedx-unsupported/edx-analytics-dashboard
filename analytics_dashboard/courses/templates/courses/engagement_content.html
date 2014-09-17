@@ -28,9 +28,7 @@ Individual course-centric engagement content view.
         <div id="engagement-trend-view">
           <div class="line-chart-container">
             <div class="line-chart ">
-              {% comment %}Translators: "Trend" is a graph of weekly student activity. Please translate accordingly.{% endcomment %}
-              {% trans "Loading Trend..." as loading_msg %}
-              {% include "loading.html" with message=loading_msg %}
+              {% include "loading.html" %}
             </div>
           </div>
         </div>
@@ -91,8 +89,7 @@ Individual course-centric engagement content view.
     </div>
 
     <div class="section-content section-data-table" data-role="engagement-table">
-      {% trans "Loading Table..." as loading_msg %}
-      {% include "loading.html" with message=loading_msg %}
+      {% include "loading.html" %}
     </div>
   </section>
 {% endblock content %}

@@ -30,8 +30,7 @@ Individual course-centric enrollment geography view.
         The map is loaded via ajax, so display a loading message.  Everything inside of this div will be
         cleared when the map data loads.
         {% endcomment %}
-        {% trans "Loading Map..." as loading_msg %}
-        {% include "loading.html" with message=loading_msg %}
+        {% include "loading.html" %}
       </div>
       <span class="small">
         {% captureas update_date %}<span data-view="enrollment-by-country-update-date"></span>{% endcaptureas %}
@@ -96,8 +95,7 @@ Individual course-centric enrollment geography view.
     </div>
 
     <div class="section-content section-data-table" data-role="enrollment-location-table">
-      {% trans "Loading Table..." as loading_msg %}
-      {% include "loading.html" with message=loading_msg %}
+      {% include "loading.html" %}
     </div>
   </section>
 
