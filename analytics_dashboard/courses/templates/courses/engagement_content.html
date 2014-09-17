@@ -48,40 +48,51 @@ Individual course-centric engagement content view.
 
     <div class="row">
       <div class="col-xs-12 col-sm-3" data-activity-type="any">
-        {% summary_point summary.any "Active Students" "last week" tooltips.all_activity_summary %}
+        {% trans "Active Students Last Week" as label %}
+        {% trans "Students who visited at least one page in the course content." as tooltip %}
+        {% summary_point summary.any label tooltip=tooltip %}
       </div>
 
       <div class="col-xs-12 col-sm-3" data-activity-type="played_video">
-        {% summary_point summary.played_video "Watched a Video" "last week" tooltips.played_video_summary %}
+        {# Translators: This is a label indicating the number of students who watched a video. #}
+        {% trans "Watched a Video Last Week" as label %}
+        {% trans "Students who played one or more videos." as tooltip %}
+        {% summary_point summary.played_video label tooltip=tooltip %}
       </div>
 
       <div class="col-xs-12 col-sm-3" data-activity-type="attempted_problem">
-        {% summary_point summary.attempted_problem "Tried a Problem" "last week" tooltips.attempted_problem_summary %}
+        {# Translators: This is a label indicating the number of students who tried a problem. #}
+        {% trans "Tried a Problem Last Week" as label %}
+        {% trans "Students who submitted an answer for a standard problem. Not all problem types are included." as tooltip %}
+        {% summary_point summary.attempted_problem label tooltip=tooltip %}
       </div>
 
       {% switch show_engagement_forum_activity %}
         <div class="col-xs-12 col-sm-3" data-activity-type="posted_forum">
-          {% summary_point summary.posted_forum "Posted in Forum" "last week" tooltips.posted_forum_summary %}
+          {# Translators: This is a label indicating the number of students who posted in a forum discussion. #}
+          {% trans "Posted in a Discussion Last Week" as label %}
+          {% trans "Students who contributed to any discussion topic." as tooltip %}
+          {% summary_point summary.posted_forum label tooltip=tooltip %}
         </div>
       {% endswitch %}
     </div>
   </section>
   <section class="view-section">
-  <div class="section-heading">
-    <h4 class="section-title">{% trans "Content Engagement Breakdown" %}</h4>
+    <div class="section-heading">
+      <h4 class="section-title">{% trans "Content Engagement Breakdown" %}</h4>
 
-    <div class="section-actions">
-      <a href="{% url 'courses:csv_engagement_activity_trend' course_id=course_id %}" class="btn btn-default"
-         data-role="engagement-trend-csv" data-track-type="click"
-         data-track-event="edx.bi.csv.downloaded" data-track-category="trend">
-        <i class="ico fa fa-download"></i> {% trans "Download CSV" %}
-      </a>
+      <div class="section-actions">
+        <a href="{% url 'courses:csv_engagement_activity_trend' course_id=course_id %}" class="btn btn-default"
+           data-role="engagement-trend-csv" data-track-type="click"
+           data-track-event="edx.bi.csv.downloaded" data-track-category="trend">
+          <i class="ico fa fa-download"></i> {% trans "Download CSV" %}
+        </a>
+      </div>
     </div>
-  </div>
 
-  <div class="section-content section-data-table" data-role="engagement-table">
-    {% trans "Loading Table..." as loading_msg %}
-    {% include "loading.html" with message=loading_msg %}
-  </div>
+    <div class="section-content section-data-table" data-role="engagement-table">
+      {% trans "Loading Table..." as loading_msg %}
+      {% include "loading.html" with message=loading_msg %}
+    </div>
   </section>
 {% endblock content %}

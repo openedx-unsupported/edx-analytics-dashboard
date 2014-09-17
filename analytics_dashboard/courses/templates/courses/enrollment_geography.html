@@ -49,28 +49,33 @@ Individual course-centric enrollment geography view.
       <div class="row">
         <div class="col-xs-12 col-sm-3" data-stat-type="num-countries">
           {# Translators: This string represents the number of countries where students are enrolled. #}
-          {% trans "Countries Represented" as label %}
-          {% summary_point num_countries label '&nbsp;' %}
+          {% trans "Total Countries Represented" as label %}
+          {% trans "Countries with at least one student." as tooltip %}
+          {% summary_point num_countries label '&nbsp;' tooltip %}
         </div>
 
         {% for datum in top_countries %}
           <div class="col-xs-12 col-sm-3" data-stat-type="top-country-{{ forloop.counter }}">
             {% if forloop.first %}
-              {# Translators: This string represents the country with the greatest number students. #}
-              {% trans "Top Country" as label %}
+              {# Translators: This string represents the country with the greatest number of enrolled students. #}
+              {% trans "Most Prevalent Country" as label %}
+              {% trans "Country with the largest number of students." as tooltip %}
             {% elif forloop.counter == 2 %}
-              {# Translators: This string represents the country with the second-greatest number students. #}
-              {% trans "Second Country" as label %}
+              {# Translators: This string represents the country with the second-greatest number of enrolled students. #}
+              {% trans "2nd Most Prevalent Country" as label %}
+              {% trans "Country with the second largest number of students." as tooltip %}
             {% elif forloop.counter == 3 %}
-              {# Translators: This string represents the country with the third-greatest number students. #}
-              {% trans "Third Country" as label %}
+              {# Translators: This string represents the country with the third-greatest number of enrolled students. #}
+              {% trans "3rd Most Prevalent Country" as label %}
+              {% trans "Country with the third largest number of students." as tooltip %}
             {% endif %}
+
             {% captureas subheading %}
               {% captureas percent %}{% widthratio datum.percent 1 100 %}{% endcaptureas %}
               {# Translators: This string represents the percentage of students in a course. Move the % symbol, if necessary, but keep the percent variable/placeholder. #}
               {% blocktrans %}{{ percent }}% of students{% endblocktrans %}
             {% endcaptureas %}
-            {% summary_point datum.countryName label subheading %}
+            {% summary_point datum.countryName label subheading tooltip %}
           </div>
         {% endfor %}
       </div>

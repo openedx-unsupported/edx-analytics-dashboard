@@ -238,14 +238,6 @@ class CourseEngagementContentViewTests(CourseEngagementViewTestMixin, TestCase):
         # make sure the date is formatted correctly
         self.assertEqual(response.context['summary']['week_of_activity'], datetime.date(2013, 1, 1))
 
-        # check to make sure that we have tooltips
-        self.assertDictEqual(response.context['tooltips'], {
-            'all_activity_summary': 'Students who interacted with at least one page, video, problem, or discussion',
-            'posted_forum_summary': 'Students who contributed to any discussion topic',
-            'attempted_problem_summary': 'Students who submitted a standard problem',
-            'played_video_summary': 'Students who played one or more videos'
-        })
-
         # check page title
         self.assertEqual(response.context['page_title'], 'Engagement Content')
 
@@ -294,13 +286,6 @@ class CourseEnrollmentActivityViewTests(CourseEnrollmentViewTestMixin, TestCase)
 
         # Ensure we get a valid HTTP status
         self.assertEqual(response.status_code, 200)
-
-        # check to make sure that we have tooltips
-        expected = {
-            'current_enrollment': 'Students enrolled in course.',
-            'enrollment_change_last_7_days': 'Change in enrollment during the last 7 days (through 23:59 UTC).',
-        }
-        self.assertDictEqual(context['tooltips'], expected)
 
         # check page title
         self.assertEqual(context['page_title'], 'Enrollment Activity')

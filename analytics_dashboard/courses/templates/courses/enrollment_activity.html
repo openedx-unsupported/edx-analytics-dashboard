@@ -56,13 +56,16 @@ Individual course-centric enrollment activity view.
       <div class="row">
         <div class="col-xs-12 col-sm-3" data-stat-type="current_enrollment">
           {% trans "Current Enrollment" as label %}
-          {% summary_point summary.current_enrollment label tooltip=tooltips.current_enrollment %}
+          {# Translators: This is a label indicating the number of students enrolled in a course. #}
+          {% trans "Students enrolled in the course." as tooltip %}
+          {% summary_point summary.current_enrollment label tooltip=tooltip %}
         </div>
 
         <div class="col-xs-12 col-sm-3" data-stat-type="enrollment_change_last_7_days">
-          {% comment %}Translators: This is a sub-heading used to specify the change in student enrollment compared to the previous week.{% endcomment %}
-          {% captureas label %}&#916; {% trans "Previous Week" %}{% endcaptureas %}
-          {% summary_point summary.enrollment_change_last_7_days label tooltip=tooltips.enrollment_change_last_7_days %}
+          {# Translators: This is a label indicating the change in the number of students enrolled in a course since the previous week. #}
+          {% trans "Change in Last Week" as label %}
+          {% trans "The difference between the number of students enrolled at the end of the day yesterday and one week before." as tooltip %}
+          {% summary_point summary.enrollment_change_last_7_days label tooltip=tooltip %}
         </div>
       </div>
     </div>

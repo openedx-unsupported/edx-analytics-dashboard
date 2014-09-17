@@ -264,13 +264,6 @@ class EnrollmentActivityView(EnrollmentTemplateView):
     def get_context_data(self, **kwargs):
         context = super(EnrollmentActivityView, self).get_context_data(**kwargs)
 
-        tooltips = {
-            'current_enrollment': _('Students enrolled in course.'),
-
-            # Translators: Please keep this time in UTC. Do not translate it into another timezone.
-            'enrollment_change_last_7_days': _('Change in enrollment during the last 7 days (through 23:59 UTC).')
-        }
-
         presenter = CourseEnrollmentPresenter(self.course_id)
 
         summary = presenter.get_summary()
@@ -281,7 +274,6 @@ class EnrollmentActivityView(EnrollmentTemplateView):
         context.update({
             'page_data': json.dumps(context['js_data']),
             'summary': summary,
-            'tooltips': tooltips,
         })
 
         return context
@@ -317,17 +309,8 @@ class EngagementContentView(EngagementTemplateView):
     page_name = 'engagement_content'
     active_secondary_nav_item = 'content'
 
-    # pylint: disable=line-too-long
     def get_context_data(self, **kwargs):
         context = super(EngagementContentView, self).get_context_data(**kwargs)
-
-        tooltips = {
-            'all_activity_summary': _('Students who interacted with at least one page, video, problem, or discussion'),
-            'posted_forum_summary': _(
-                'Students who contributed to any discussion topic'),
-            'attempted_problem_summary': _('Students who submitted a standard problem'),
-            'played_video_summary': _('Students who played one or more videos'),
-        }
 
         presenter = CourseEngagementPresenter(self.course_id)
         summary = presenter.get_summary()
@@ -338,7 +321,6 @@ class EngagementContentView(EngagementTemplateView):
         summary['week_of_activity'] = end_date
 
         context.update({
-            'tooltips': tooltips,
             'summary': summary,
             'page_data': json.dumps(context['js_data']),
         })
