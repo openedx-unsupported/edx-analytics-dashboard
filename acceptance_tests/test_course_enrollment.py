@@ -8,7 +8,6 @@ from acceptance_tests import AnalyticsApiClientMixin, CoursePageTestsMixin, Foot
 from acceptance_tests.pages import CourseEnrollmentActivityPage, CourseEnrollmentGeographyPage
 
 _multiprocess_can_split_ = True
-MAX_SUMMARY_POINT_VALUE_LENGTH = 13
 
 
 class CourseEnrollmentTests(AnalyticsApiClientMixin, FooterMixin, CoursePageTestsMixin):
@@ -25,15 +24,6 @@ class CourseEnrollmentTests(AnalyticsApiClientMixin, FooterMixin, CoursePageTest
 
     def test_page_exists(self):
         self.page.visit()
-
-    def assertSummaryPointValueEquals(self, stat_type, value):
-        # Account for Django truncation
-        value = (value[:(MAX_SUMMARY_POINT_VALUE_LENGTH - 3)] + '...') if len(
-            value) > MAX_SUMMARY_POINT_VALUE_LENGTH else value
-
-        element = self.page.q(css="[data-stat-type=%s] .summary-point-number" % stat_type)
-        self.assertTrue(element.present)
-        self.assertEqual(element.text[0], value)
 
 
 class CourseEnrollmentActivityTests(CourseEnrollmentTests, WebAppTest):
@@ -66,13 +56,16 @@ class CourseEnrollmentActivityTests(CourseEnrollmentTests, WebAppTest):
 
         # Check values of summary boxes
         current_enrollment_count = current_enrollment['count']
-        self.assertSummaryPointValueEquals('current_enrollment', unicode(current_enrollment_count))
+        data_selector = 'data-stat-type=current_enrollment'
+        self.assertSummaryPointValueEquals(data_selector, unicode(current_enrollment_count))
+        self.assertSummaryTooltipEquals(data_selector, 'Students enrolled in course.')
 
         # Check value of summary box for last week
         i = 7
-        stat_type = 'enrollment_change_last_%s_days' % i
         value = current_enrollment_count - enrollment_data[-(i + 1)]['count']
-        self.assertSummaryPointValueEquals(stat_type, unicode(value))
+        data_selector = 'data-stat-type=enrollment_change_last_%s_days' % i
+        self.assertSummaryPointValueEquals(data_selector, unicode(value))
+        self.assertSummaryTooltipEquals(data_selector, 'Change in enrollment during the last 7 days (through 23:59 UTC).')
 
         # Verify *something* rendered where the graph should be. We cannot easily verify what rendered
         self.assertElementHasContent("[data-section=enrollment-basics] #enrollment-trend-view")
@@ -188,8 +181,8 @@ class CourseEnrollmentGeographyTests(CourseEnrollmentTests, WebAppTest):
         self.page.visit()
 
         enrollment_data = [datum for datum in self.enrollment_data if datum['country']['name'] != 'UNKNOWN']
-        self.assertSummaryPointValueEquals('num-countries', unicode(len(enrollment_data)))
+        self.assertSummaryPointValueEquals('data-stat-type=num-countries', unicode(len(enrollment_data)))
 
         for i in range(0, 3):
             country = enrollment_data[i]['country']['name']
-            self.assertSummaryPointValueEquals('top-country-%d' % (i + 1), country)
+            self.assertSummaryPointValueEquals('data-stat-type=top-country-{0}'.format((i + 1)), country)

@@ -47,11 +47,15 @@ class CourseEngagementTests(AnalyticsApiClientMixin, FooterMixin, CoursePageTest
 
         # Verify the activity values
         activity_types = [at.ANY, at.ATTEMPTED_PROBLEM, at.PLAYED_VIDEO]
+        expected_tooltips = {
+            at.ANY: 'Students who interacted with at least one page, video, problem, or discussion',
+            at.ATTEMPTED_PROBLEM: 'Students who submitted a standard problem',
+            at.PLAYED_VIDEO: 'Students who played one or more videos'
+        }
         for activity_type in activity_types:
-            selector = section_selector + ' div[data-activity-type=%s] .summary-point-number' % activity_type
-            element = self.page.q(css=selector)
-            self.assertTrue(element.present)
-            self.assertEqual(int(element.text[0].replace(',', '')), self.course.recent_activity(activity_type)['count'])
+            data_selector = 'data-activity-type={0}'.format(activity_type)
+            self.assertSummaryPointValueEquals(data_selector, unicode(self.course.recent_activity(activity_type)['count']))
+            self.assertSummaryTooltipEquals(data_selector, expected_tooltips[activity_type])
 
     def test_engagement_graph(self):
         self.page.visit()
