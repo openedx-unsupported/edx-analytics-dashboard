@@ -223,7 +223,6 @@ class CourseEngagementContentViewTests(CourseEngagementViewTestMixin, TestCase):
 
     def setUp(self):
         super(CourseEngagementContentViewTests, self).setUp()
-        Switch.objects.create(name='navbar_display_engagement', active=True)
         Switch.objects.create(name='navbar_display_engagement_content', active=True)
 
     @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary',
@@ -342,7 +341,7 @@ class CourseEnrollmentGeographyViewTests(CourseEnrollmentViewTestMixin, TestCase
         self.assertEqual(response.status_code, 200)
 
         # check page title
-        self.assertEqual(context['page_title'], _('Geographic Distribution'))
+        self.assertEqual(context['page_title'], 'Enrollment Geography')
 
         page_data = json.loads(context['page_data'])
         expected_date = 'January 01, 2014'

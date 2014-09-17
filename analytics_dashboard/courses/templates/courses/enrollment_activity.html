@@ -18,28 +18,35 @@ Individual course-centric enrollment activity view.
 {% block content %}
 
   <section class="view-section" data-section="enrollment-basics">
+    <div class="section-heading">
+      <h4 class="section-title">{% trans "Enrollment Activity" %}</h4>
+      <span class="section-heading-note small">{% trans "How many students are in my course?" %}</span>
+    </div>
 
     <div class="section-content section-data-graph">
       <div class="section-content section-data-viz">
         <div id="enrollment-trend-view">
-            <div class="line-chart-container"><div class="line-chart ">
-                {% comment %}Translators: "Trend" is a graph of daily student enrollment. Please translate accordingly.{% endcomment %}
-                {% trans "Loading Trend..." as loading_msg %}
-                {% include "loading.html" with message=loading_msg %}
-            </div></div>
+          <div class="line-chart-container">
+            <div class="line-chart ">
+              {% comment %}Translators: "Trend" is a graph of daily student enrollment. Please translate accordingly.{% endcomment %}
+              {% trans "Loading Trend..." as loading_msg %}
+              {% include "loading.html" with message=loading_msg %}
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
-
+  </section>
+  <section class="view-section">
     <div class="section-heading bordered">
-      <h4 class="section-title">{% blocktrans %}Enrollment Statistics{% endblocktrans %}</h4>
+      <h4 class="section-title">{% trans "Enrollment Metrics" %}</h4>
     </div>
 
     <div class="row">
       <div class="col-sm-12">
             <span class="section-title-value small">
-              {% captureas update_date %}<span data-role="enrollment-last-updated">{{ summary.date|date }}</span>{% endcaptureas %}
+              {% captureas update_date %}<span data-role="enrollment-last-updated">{{ summary.date|date }}
+                </span>{% endcaptureas %}
               {% blocktrans %}Last updated: {{ update_date }}{% endblocktrans %}
             </span>
       </div>
@@ -59,21 +66,23 @@ Individual course-centric enrollment activity view.
         </div>
       </div>
     </div>
-
+  </section>
+  <section class="view-section">
     <div class="section-heading">
-      <h4 class="section-title">{% blocktrans %}Enrollment Breakdown{% endblocktrans %}</h4>
+      <h4 class="section-title">{% trans "Enrollment Over Time" %}</h4>
+
       <div class="section-actions">
-          <a href="{% url 'courses:csv_enrollment' course_id=course_id %}" class="btn btn-default"
-             data-role="enrollment-trend-csv" data-track-type="click"
-             data-track-event="edx.bi.csv.downloaded" data-track-category="trend">
-            <i class="ico fa fa-download"></i> {% trans "Download CSV" %}
+        <a href="{% url 'courses:csv_enrollment' course_id=course_id %}" class="btn btn-default"
+           data-role="enrollment-trend-csv" data-track-type="click"
+           data-track-event="edx.bi.csv.downloaded" data-track-category="trend">
+          <i class="ico fa fa-download"></i> {% trans "Download CSV" %}
         </a>
       </div>
     </div>
 
     <div class="section-content section-data-table" data-role="enrollment-table">
-        {% trans "Loading Table..." as loading_msg %}
-        {% include "loading.html" with message=loading_msg %}
+      {% trans "Loading Table..." as loading_msg %}
+      {% include "loading.html" with message=loading_msg %}
     </div>
 
   </section>

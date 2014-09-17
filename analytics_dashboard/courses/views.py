@@ -120,7 +120,6 @@ class CourseNavBarMixin(object):
                 'label': _('Engagement'),
                 'view': 'courses:engagement_content',
                 'icon': 'fa-bar-chart',
-                'switch': 'navbar_display_engagement'
             }
         ]
 
@@ -258,7 +257,6 @@ class JSONResponseMixin(object):
 class EnrollmentActivityView(EnrollmentTemplateView):
     template_name = 'courses/enrollment_activity.html'
     page_title = _('Enrollment Activity')
-    page_subtitle = _('How many students are in my course?')
     page_name = 'enrollment_activity'
     active_secondary_nav_item = 'activity'
 
@@ -291,8 +289,7 @@ class EnrollmentActivityView(EnrollmentTemplateView):
 
 class EnrollmentGeographyView(EnrollmentTemplateView):
     template_name = 'courses/enrollment_geography.html'
-    page_title = _('Geographic Distribution')
-    page_subtitle = _('Where are my students learning?')
+    page_title = _('Enrollment Geography')
     page_name = 'enrollment_geography'
     active_secondary_nav_item = 'geography'
 

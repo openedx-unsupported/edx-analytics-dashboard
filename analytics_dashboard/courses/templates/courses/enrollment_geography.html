@@ -17,14 +17,11 @@ Individual course-centric enrollment geography view.
 {% block content %}
 
   <section class="view-section" data-section="enrollment-location">
-    <div class="row">
-      <div class="col-sm-12">
-        <span class="section-title-value small">
-          {% captureas update_date %}<span data-view="enrollment-by-country-update-date"></span>{% endcaptureas %}
-          {% blocktrans %}Last updated: {{ update_date }}{% endblocktrans %}
-        </span>
-      </div>
+    <div class="section-heading">
+      <h4 class="section-title">{% trans "Geographic Distribution" %}</h4>
+      <span class="section-heading-note small">{% trans "Where are my students?" %}</span>
     </div>
+
 
     <div class="section-content section-data-viz">
       <div class="world-map" data-view="world-map" data-title="{% trans "Enrollment by Country" %}"
@@ -36,6 +33,10 @@ Individual course-centric enrollment geography view.
         {% trans "Loading Map..." as loading_msg %}
         {% include "loading.html" with message=loading_msg %}
       </div>
+      <span class="small">
+        {% captureas update_date %}<span data-view="enrollment-by-country-update-date"></span>{% endcaptureas %}
+        {% blocktrans %}Last updated: {{ update_date }}{% endblocktrans %}
+      </span>
     </div>
   </section>
 
@@ -78,7 +79,7 @@ Individual course-centric enrollment geography view.
 
   <section class="view-section">
     <div class="section-heading">
-      <h4 class="section-title">{% trans "Country Enrollment Breakdown" %}</h4>
+      <h4 class="section-title">{% trans "Geographic Breakdown" %}</h4>
 
       <div class="section-actions">
         <a href="{% url 'courses:csv_enrollment_by_country' course_id=course_id %}" class="btn btn-default"

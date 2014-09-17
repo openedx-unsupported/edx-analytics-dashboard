@@ -1,3 +1,6 @@
 {% extends "base.html" %}
 
 {% block title %}{{ page_title }} - {{ course_id }} {{ block.super }}{% endblock title %}
+
+{# This is intentionally left blank. Course pages do not need a title block. #}
+{% block header-text %}{% endblock %}
