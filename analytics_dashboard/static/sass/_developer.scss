@@ -8,19 +8,18 @@
 //   background: transparent;
 // }
 
+.chart-tooltip {
+  @extend .pull-right;
+  padding-right: $padding-small-horizontal;
+  padding-top: $padding-large-vertical;
+}
+
 .line-chart-container {
   background-color: white;
   border: $edx-gray 1px solid;
 
-
   .line-chart {
-    height: 305px;  // Update the height of the graph in trends-view.js to be this height minus 5px.
-    padding-top: $padding-large-vertical;
-  }
-
-  .chart-tooltip {
-    @extend .pull-right;
-    padding-right: $padding-small-horizontal;
+    height: 305px; // Update the height of the graph in trends-view.js to be this height minus 5px.
     padding-top: $padding-large-vertical;
   }
 
@@ -64,6 +63,11 @@
 
   background-color: white;
   border: $edx-gray 1px solid;
+
+  .chart-tooltip {
+    position: absolute;
+    right: 0;
+  }
 }
 
 @media (max-width: $screen-md) {
