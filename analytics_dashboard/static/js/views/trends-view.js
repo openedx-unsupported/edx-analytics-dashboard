@@ -77,11 +77,17 @@ define(['bootstrap', 'd3', 'jquery', 'moment', 'nvd3', 'underscore', 'views/attr
 
             },
 
+            /**
+             * Underscore style template for displaying the tooltip for screen
+             * readers and in the tooltip icon.
+             */
+            tooltipTemplate: _.template('<span class="sr-only"><%=text%></span>' +
+                '<i class="ico ico-tooltip fa fa-info-circle chart-tooltip" data-toggle="tooltip" data-placement="top" title="<%=text%>"></i>'),
+
             render: function () {
                 AttributeListenerView.prototype.render.call(this);
                 var self = this,
                     canvas = d3.select(self.el),
-                    tooltipTemplate = _.template('<i class="ico ico-tooltip fa fa-info-circle chart-tooltip" data-toggle="tooltip" data-placement="top" title="<%=text%>"></i>'),
                     chart,
                     $tooltip;
 
@@ -111,7 +117,7 @@ define(['bootstrap', 'd3', 'jquery', 'moment', 'nvd3', 'underscore', 'views/attr
 
                 // Add the tooltip
                 if (_(self.options).has('tooltip')) {
-                    $tooltip = $(tooltipTemplate({text: self.options.tooltip}));
+                    $tooltip = $(self.tooltipTemplate({text: self.options.tooltip}));
                     $(canvas[0]).append($tooltip);
                     $tooltip.tooltip();
                 }

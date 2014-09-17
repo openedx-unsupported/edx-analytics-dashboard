@@ -73,5 +73,16 @@ define(['models/course-model', 'views/trends-view'], function(CourseModel, Trend
             expect(actualTrend.values).toContain({date: '2014-01-02', yData: 1000});
             expect(actualTrend.color).toBeUndefined();
         });
+
+        it('generate a tooltip accessible text for screen readers', function () {
+            var view = new TrendsView({
+                    model: new CourseModel(),
+                    modelAttribute: 'trends'
+                }),
+                tooltip = view.tooltipTemplate({text: 'This is tooltip text.'});
+
+            expect(tooltip).toBe('<span class="sr-only">This is tooltip text.</span>' +
+                '<i class="ico ico-tooltip fa fa-info-circle chart-tooltip" data-toggle="tooltip" data-placement="top" title="This is tooltip text."></i>');
+        });
     });
 });
