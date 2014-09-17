@@ -1,7 +1,6 @@
 import datetime
 import json
 
-import analyticsclient
 from django.core.cache import cache
 import mock
 from django.conf import settings
@@ -9,10 +8,9 @@ from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
+import analyticsclient
 import analyticsclient.constants.activity_type as AT
 from analyticsclient.exceptions import NotFoundError
-from waffle import Switch
-
 from analytics_dashboard.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin
 from courses.exceptions import PermissionsRetrievalFailedError
 from courses.permissions import set_user_course_permissions, revoke_user_course_permissions
@@ -220,10 +218,6 @@ class CourseEngagementViewTestMixin(CourseViewTestMixin):
 
 class CourseEngagementContentViewTests(CourseEngagementViewTestMixin, TestCase):
     viewname = 'courses:engagement_content'
-
-    def setUp(self):
-        super(CourseEngagementContentViewTests, self).setUp()
-        Switch.objects.create(name='navbar_display_engagement_content', active=True)
 
     @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary',
                 mock.Mock(return_value=mock_engagement_summary_data()))

@@ -103,13 +103,6 @@ class CourseNavBarMixin(object):
 
         items = [
             {
-                'name': 'overview',
-                'label': _('Overview'),
-                'view': 'courses:overview',
-                'icon': 'fa-tachometer',
-                'switch': 'navbar_display_overview'
-            },
-            {
                 'name': 'enrollment',
                 'label': _('Enrollment'),
                 'view': 'courses:enrollment_activity',
@@ -232,8 +225,7 @@ class EngagementTemplateView(CourseTemplateView):
     """
     secondary_nav_items = [
         # Translators: Content as in course content (e.g. things, not the feeling)
-        {'name': 'content', 'label': _('Content'), 'view': 'courses:engagement_content',
-         'switch': 'navbar_display_engagement_content'},
+        {'name': 'content', 'label': _('Content'), 'view': 'courses:engagement_content'},
     ]
     active_primary_nav_item = 'engagement'
 
@@ -326,20 +318,6 @@ class EngagementContentView(EngagementTemplateView):
         })
 
         return context
-
-
-class OverviewView(CourseTemplateView):
-    template_name = 'courses/overview.html'
-    page_title = _('Overview')
-    page_name = 'overview'
-    active_primary_nav_item = 'overview'
-
-
-class PerformanceView(CourseTemplateView):
-    template_name = 'courses/performance.html'
-    page_title = _('Performance')
-    page_name = 'performance'
-    active_primary_nav_item = 'performance'
 
 
 class CourseEnrollmentByCountryCSV(CSVResponseMixin, CourseView):
