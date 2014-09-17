@@ -9,8 +9,6 @@ COURSE_URLS = [
     ('enrollment/activity', views.EnrollmentActivityView.as_view()),
     ('enrollment/geography', views.EnrollmentGeographyView.as_view()),
     ('engagement/content', views.EngagementContentView.as_view()),
-    ('performance', views.PerformanceView.as_view()),
-    ('overview', views.OverviewView.as_view()),
     ('csv/enrollment', views.CourseEnrollmentCSV.as_view()),
     ('csv/enrollment_by_country', views.CourseEnrollmentByCountryCSV.as_view()),
     ('csv/engagement_activity_trend', views.CourseEngagementActivityTrendCSV.as_view()),

@@ -6,8 +6,10 @@
 
 {% block title %}{% trans "Courses" %} {{ block.super }}{% endblock title %}
 
-{% block header-text %}<h3>{% blocktrans with username=request.user.username %}Welcome, {{ username }}!{% endblocktrans %}</h3>{% endblock %}
-{% block intro-text %}{% blocktrans %}Here are the courses you currently have access to in Insights:{% endblocktrans %}{% endblock intro-text %}
+{% block header-text %}<h3>
+  {% blocktrans with username=request.user.username %}Welcome, {{ username }}!{% endblocktrans %}</h3>{% endblock %}
+{% block intro-text %}{% blocktrans %}Here are the courses you currently have access to in Insights:
+{% endblocktrans %}{% endblock intro-text %}
 
 {% block content %}
   <div class="row">
@@ -25,10 +27,10 @@
 
     <div class="col-md-4">
       <div class="help-msg">
-        {% captureas platform_name %}{% settings_value 'PLATFORM_NAME' %}{% endcaptureas %}
-        <h4>{% blocktrans %}New to {{ platform_name }} Insights?{% endblocktrans %}</h4>
+        {% captureas application_name %}{% settings_value 'FULL_APPLICATION_NAME' %}{% endcaptureas %}
+        <h4>{% blocktrans %}New to {{ application_name }}?{% endblocktrans %}</h4>
 
-        <p class="info-text">{% blocktrans %}Click Help in the upper-right corner to get more information about the Insights page you are viewing. You can also use the links at the bottom of the page to provide feedback and access other resources.{% endblocktrans %}</p>
+        <p class="info-text">{% trans "Click Help in the upper-right corner to get more information about the Insights page you are viewing. You can also provide feedback about the product through the feedback form at the bottom of this page." %}</p>
       </div>
     </div>
   </div>

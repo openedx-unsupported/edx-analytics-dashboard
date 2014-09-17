@@ -1,7 +1,6 @@
 import datetime
 import json
 
-import analyticsclient
 from django.core.cache import cache
 import mock
 from django.conf import settings
@@ -9,10 +8,9 @@ from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
+import analyticsclient
 import analyticsclient.constants.activity_type as AT
 from analyticsclient.exceptions import NotFoundError
-from waffle import Switch
-
 from analytics_dashboard.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin
 from courses.exceptions import PermissionsRetrievalFailedError
 from courses.permissions import set_user_course_permissions, revoke_user_course_permissions
@@ -221,11 +219,6 @@ class CourseEngagementViewTestMixin(CourseViewTestMixin):
 class CourseEngagementContentViewTests(CourseEngagementViewTestMixin, TestCase):
     viewname = 'courses:engagement_content'
 
-    def setUp(self):
-        super(CourseEngagementContentViewTests, self).setUp()
-        Switch.objects.create(name='navbar_display_engagement', active=True)
-        Switch.objects.create(name='navbar_display_engagement_content', active=True)
-
     @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary',
                 mock.Mock(return_value=mock_engagement_summary_data()))
     @mock.patch('courses.presenters.CourseEngagementPresenter.get_trend_data',
@@ -238,14 +231,6 @@ class CourseEngagementContentViewTests(CourseEngagementViewTestMixin, TestCase):
 
         # make sure the date is formatted correctly
         self.assertEqual(response.context['summary']['week_of_activity'], datetime.date(2013, 1, 1))
-
-        # check to make sure that we have tooltips
-        self.assertDictEqual(response.context['tooltips'], {
-            'all_activity_summary': 'Students who interacted with at least one page, video, problem, or discussion',
-            'posted_forum_summary': 'Students who contributed to any discussion topic',
-            'attempted_problem_summary': 'Students who submitted a standard problem',
-            'played_video_summary': 'Students who played one or more videos'
-        })
 
         # check page title
         self.assertEqual(response.context['page_title'], 'Engagement Content')
@@ -296,13 +281,6 @@ class CourseEnrollmentActivityViewTests(CourseEnrollmentViewTestMixin, TestCase)
         # Ensure we get a valid HTTP status
         self.assertEqual(response.status_code, 200)
 
-        # check to make sure that we have tooltips
-        expected = {
-            'current_enrollment': 'Students enrolled in course.',
-            'enrollment_change_last_7_days': 'Change in enrollment during the last 7 days (through 23:59 UTC).',
-        }
-        self.assertDictEqual(context['tooltips'], expected)
-
         # check page title
         self.assertEqual(context['page_title'], 'Enrollment Activity')
 
@@ -342,7 +320,7 @@ class CourseEnrollmentGeographyViewTests(CourseEnrollmentViewTestMixin, TestCase
         self.assertEqual(response.status_code, 200)
 
         # check page title
-        self.assertEqual(context['page_title'], _('Geographic Distribution'))
+        self.assertEqual(context['page_title'], 'Enrollment Geography')
 
         page_data = json.loads(context['page_data'])
         expected_date = 'January 01, 2014'

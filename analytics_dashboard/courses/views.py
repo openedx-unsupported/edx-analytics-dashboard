@@ -103,13 +103,6 @@ class CourseNavBarMixin(object):
 
         items = [
             {
-                'name': 'overview',
-                'label': _('Overview'),
-                'view': 'courses:overview',
-                'icon': 'fa-tachometer',
-                'switch': 'navbar_display_overview'
-            },
-            {
                 'name': 'enrollment',
                 'label': _('Enrollment'),
                 'view': 'courses:enrollment_activity',
@@ -120,7 +113,6 @@ class CourseNavBarMixin(object):
                 'label': _('Engagement'),
                 'view': 'courses:engagement_content',
                 'icon': 'fa-bar-chart',
-                'switch': 'navbar_display_engagement'
             }
         ]
 
@@ -233,8 +225,7 @@ class EngagementTemplateView(CourseTemplateView):
     """
     secondary_nav_items = [
         # Translators: Content as in course content (e.g. things, not the feeling)
-        {'name': 'content', 'label': _('Content'), 'view': 'courses:engagement_content',
-         'switch': 'navbar_display_engagement_content'},
+        {'name': 'content', 'label': _('Content'), 'view': 'courses:engagement_content'},
     ]
     active_primary_nav_item = 'engagement'
 
@@ -258,20 +249,12 @@ class JSONResponseMixin(object):
 class EnrollmentActivityView(EnrollmentTemplateView):
     template_name = 'courses/enrollment_activity.html'
     page_title = _('Enrollment Activity')
-    page_subtitle = _('How many students are in my course?')
     page_name = 'enrollment_activity'
     active_secondary_nav_item = 'activity'
 
     # pylint: disable=line-too-long
     def get_context_data(self, **kwargs):
         context = super(EnrollmentActivityView, self).get_context_data(**kwargs)
-
-        tooltips = {
-            'current_enrollment': _('Students enrolled in course.'),
-
-            # Translators: Please keep this time in UTC. Do not translate it into another timezone.
-            'enrollment_change_last_7_days': _('Change in enrollment during the last 7 days (through 23:59 UTC).')
-        }
 
         presenter = CourseEnrollmentPresenter(self.course_id)
 
@@ -283,7 +266,6 @@ class EnrollmentActivityView(EnrollmentTemplateView):
         context.update({
             'page_data': json.dumps(context['js_data']),
             'summary': summary,
-            'tooltips': tooltips,
         })
 
         return context
@@ -291,8 +273,7 @@ class EnrollmentActivityView(EnrollmentTemplateView):
 
 class EnrollmentGeographyView(EnrollmentTemplateView):
     template_name = 'courses/enrollment_geography.html'
-    page_title = _('Geographic Distribution')
-    page_subtitle = _('Where are my students learning?')
+    page_title = _('Enrollment Geography')
     page_name = 'enrollment_geography'
     active_secondary_nav_item = 'geography'
 
@@ -320,17 +301,8 @@ class EngagementContentView(EngagementTemplateView):
     page_name = 'engagement_content'
     active_secondary_nav_item = 'content'
 
-    # pylint: disable=line-too-long
     def get_context_data(self, **kwargs):
         context = super(EngagementContentView, self).get_context_data(**kwargs)
-
-        tooltips = {
-            'all_activity_summary': _('Students who interacted with at least one page, video, problem, or discussion'),
-            'posted_forum_summary': _(
-                'Students who contributed to any discussion topic'),
-            'attempted_problem_summary': _('Students who submitted a standard problem'),
-            'played_video_summary': _('Students who played one or more videos'),
-        }
 
         presenter = CourseEngagementPresenter(self.course_id)
         summary = presenter.get_summary()
@@ -341,26 +313,11 @@ class EngagementContentView(EngagementTemplateView):
         summary['week_of_activity'] = end_date
 
         context.update({
-            'tooltips': tooltips,
             'summary': summary,
             'page_data': json.dumps(context['js_data']),
         })
 
         return context
-
-
-class OverviewView(CourseTemplateView):
-    template_name = 'courses/overview.html'
-    page_title = _('Overview')
-    page_name = 'overview'
-    active_primary_nav_item = 'overview'
-
-
-class PerformanceView(CourseTemplateView):
-    template_name = 'courses/performance.html'
-    page_title = _('Performance')
-    page_name = 'performance'
-    active_primary_nav_item = 'performance'
 
 
 class CourseEnrollmentByCountryCSV(CSVResponseMixin, CourseView):

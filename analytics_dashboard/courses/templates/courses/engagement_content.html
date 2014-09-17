@@ -1,7 +1,6 @@
 {% extends "courses/base-course.html" %}
 
 {% load i18n %}
-{% load humanize %}
 {% load staticfiles %}
 {% load waffle_tags %}
 {% load dashboard_extras %}
@@ -19,271 +18,78 @@ Individual course-centric engagement content view.
 
 {% block content %}
   <section class="view-section">
-
-  <div class="section-content" data-role="student-activity">
-    <div class="row">
-      <div class="col-sm-12">
-        <span class="section-title-value small">{% trans "Activity for the week ending" %}
-            <span data-role="activity-week">{{ summary.week_of_activity|date}}</span>
-        </span>
-      </div>
+    <div class="section-heading">
+      <h4 class="section-title">{% trans "Weekly Student Engagement" %}</h4>
+      <span class="section-heading-note small">{% trans "How many students are interacting with my course?" %}</span>
     </div>
 
     <div class="section-content section-data-graph">
       <div class="section-content section-data-viz">
         <div id="engagement-trend-view">
-            <div class="line-chart-container"><div class="line-chart ">
-                {% comment %}Translators: "Trend" is a graph of weekly student activity. Please translate accordingly.{% endcomment %}
-                {% trans "Loading Trend..." as loading_msg %}
-                {% include "loading.html" with message=loading_msg %}
-            </div></div>
+          <div class="line-chart-container">
+            <div class="line-chart ">
+              {% include "loading.html" %}
+            </div>
+          </div>
         </div>
+        <span class="small" data-role="activity-week">
+          {% captureas date %}{{ summary.week_of_activity|date }}{% endcaptureas %}
+          {% blocktrans %}Activity through the week ending {{ date }}.{% endblocktrans %}
+        </span>
       </div>
     </div>
-
-  <div class="section-heading bordered">
-    <h4 class="section-title">{% trans "Student Activity" %}</h4>
-    <span class="section-heading-note small">{% trans "What are my students interacting with?" %}</span>
-  </div>
+  </section>
+  <section class="view-section">
+    <div class="section-heading bordered">
+      <h4 class="section-title">{% trans "Student Activity Metrics" %}</h4>
+    </div>
 
     <div class="row">
       <div class="col-xs-12 col-sm-3" data-activity-type="any">
-        {% summary_point summary.any "Active Students" "last week" tooltips.all_activity_summary %}
+        {% trans "Active Students Last Week" as label %}
+        {% trans "Students who visited at least one page in the course content." as tooltip %}
+        {% summary_point summary.any label tooltip=tooltip %}
       </div>
 
       <div class="col-xs-12 col-sm-3" data-activity-type="played_video">
-        {% summary_point summary.played_video "Watched a Video" "last week" tooltips.played_video_summary %}
+        {# Translators: This is a label indicating the number of students who watched a video. #}
+        {% trans "Watched a Video Last Week" as label %}
+        {% trans "Students who played one or more videos." as tooltip %}
+        {% summary_point summary.played_video label tooltip=tooltip %}
       </div>
 
       <div class="col-xs-12 col-sm-3" data-activity-type="attempted_problem">
-        {% summary_point summary.attempted_problem "Tried a Problem" "last week" tooltips.attempted_problem_summary %}
+        {# Translators: This is a label indicating the number of students who tried a problem. #}
+        {% trans "Tried a Problem Last Week" as label %}
+        {% trans "Students who submitted an answer for a standard problem. Not all problem types are included." as tooltip %}
+        {% summary_point summary.attempted_problem label tooltip=tooltip %}
       </div>
 
       {% switch show_engagement_forum_activity %}
-      <div class="col-xs-12 col-sm-3" data-activity-type="posted_forum">
-        {% summary_point summary.posted_forum "Posted in Forum" "last week" tooltips.posted_forum_summary %}
-      </div>
+        <div class="col-xs-12 col-sm-3" data-activity-type="posted_forum">
+          {# Translators: This is a label indicating the number of students who posted in a forum discussion. #}
+          {% trans "Posted in a Discussion Last Week" as label %}
+          {% trans "Students who contributed to any discussion topic." as tooltip %}
+          {% summary_point summary.posted_forum label tooltip=tooltip %}
+        </div>
       {% endswitch %}
     </div>
-  </div>
+  </section>
+  <section class="view-section">
+    <div class="section-heading">
+      <h4 class="section-title">{% trans "Content Engagement Breakdown" %}</h4>
 
-  <div class="section-heading">
-    <h4 class="section-title">{% blocktrans %}Engagement Breakdown{% endblocktrans %}</h4>
-    <div class="section-actions">
+      <div class="section-actions">
         <a href="{% url 'courses:csv_engagement_activity_trend' course_id=course_id %}" class="btn btn-default"
            data-role="engagement-trend-csv" data-track-type="click"
            data-track-event="edx.bi.csv.downloaded" data-track-category="trend">
           <i class="ico fa fa-download"></i> {% trans "Download CSV" %}
-      </a>
-    </div>
-  </div>
-
-  <div class="section-content section-data-table" data-role="engagement-table">
-    {% trans "Loading Table..." as loading_msg %}
-    {% include "loading.html" with message=loading_msg %}
-  </div>
-
-  {% switch show_engagement_demo_interface %}
-    <hr/>
-    <div data-role="demo-interface">
-      <div class="section-nav">
-        <div class="btn-group nav-filters">
-          <div class="btn-group filter filter-1">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-              Course Content
-              <i class="ico ico-indicator fa fa-caret-down"></i>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Discussions</a></li>
-              <li><a href="#">Static Pages</a></li>
-              <li><a href="#">Problems &amp; Exams</a></li>
-              <li><a href="#">Videos</a></li>
-            </ul>
-          </div>
-
-          <div class="btn-group filter filter-2 filter-course-content">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-              Course Section 1
-              <i class="ico ico-indicator fa fa-caret-down"></i>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Course Section 1</a></li>
-              <li><a href="#">Course Section 2</a></li>
-              <li><a href="#">Course Section 3</a></li>
-              <li><a href="#">Course Section 4</a></li>
-              <li><a href="#">Course Section 5</a></li>
-              <li><a href="#">Course Section 6</a></li>
-            </ul>
-          </div>
-
-          <div class="btn-group filter filter-3 filter-course-section1">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-              Course Subsection 1
-              <i class="ico ico-indicator fa fa-caret-down"></i>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Course Subsection 1</a></li>
-              <li><a href="#">Course Subsection 2</a></li>
-              <li><a href="#">Course Subsection 3</a></li>
-              <li><a href="#">Course Subsection 4</a></li>
-              <li><a href="#">Course Subsection 5</a></li>
-              <li><a href="#">Course Subsection 6</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <hr/>
-
-      <div class="section-content section-data-viz">
-        <div class="viz-filter">
-          <h5 class="viz-filter-label">Counting:</h5>
-
-          <div class="btn-group filter">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-              Course Content
-              <i class="ico ico-indicator fa fa-caret-down"></i>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Discussions</a></li>
-              <li><a href="#">Static Pages</a></li>
-              <li><a href="#">Problems &amp; Exams</a></li>
-              <li><a href="#">Videos</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="placeholder">
-          <img data-src="holder.js/100%x400/auto/sky/text:student interaction chart" class="img-responsive img-rounded"
-               alt="Generic placeholder thumbnail">
-        </div>
-      </div>
-
-      <hr/>
-
-      <h5 class="section-heading">
-        <span class="section-title-value">Usage: <strong>Course Subsection 1</strong></span>
-        <span class="section-title-note small">How many students are engaging with this content?</span>
-      </h5>
-
-      <div class="section-content">
-        <div class="row">
-          <div class="col-xs-12 col-sm-3">
-            {% include "summary_point.html" with count="23,437" label="Viewed this subsection" subheading="since last week" only %}
-          </div>
-
-          <div class="col-xs-12 col-sm-3">
-            {% include "summary_point.html" with count="23,437" label="Began this subsection" subheading="since last week" only %}
-          </div>
-
-          <div class="col-xs-12 col-sm-3">
-            {% include "summary_point.html" with count="23,437" label="Attempted assignments in this subsection" subheading="since last week" only %}
-          </div>
-
-          <div class="col-xs-12 col-sm-3">
-            {% include "summary_point.html" with count="23,437" label="Completed this subsection" subheading="since last week" only %}
-          </div>
-        </div>
-      </div>
-
-      <hr/>
-
-      <h5 class="section-heading">
-        <span class="section-title-value">Interaction: <strong>Course Subsection 1</strong></span>
-        <span class="section-title-note small">How are students interacting with this content?</span>
-      </h5>
-
-      <div class="section-content">
-        <div class="row">
-          <div class="col-xs-12 col-sm-3">
-            {% include "summary_point.html" with count="2:05:39" label="Average Time Spent" only %}
-          </div>
-
-          <div class="col-xs-12 col-sm-3">
-            {% include "summary_point.html" with count="50%" label="Overall Section Progress" only %}
-          </div>
-
-          <div class="col-xs-12 col-sm-3">
-            {% include "summary_point.html" with count="45:28" label="Longest Unit Time Spent" only %}
-          </div>
-
-          <div class="col-xs-12 col-sm-3">
-            {% include "summary_point.html" with count="20%" label="Lowest Unit Progression" only %}
-          </div>
-        </div>
-      </div>
-
-      <hr/>
-
-      <h5 class="section-heading">
-        <span class="section-title-value">Completion Details: <strong>Course Subsection 1</strong></span>
-        <span
-            class="section-title-note small">How much time are students taking to progress through this content?</span>
-      </h5>
-
-      <div class="section-content section-data-table">
-        <div class="table-responsive">
-          <table class="table table-striped">
-            <thead>
-            <tr>
-              <th>Unit Name</th>
-              <th>Average Time Spent</th>
-              <th>Progression Percentage</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td>Unit Samoflange</td>
-              <td>12:54</td>
-              <td>74.6%</td>
-            </tr>
-            <tr>
-              <td>Unit Samoflange</td>
-              <td>12:54</td>
-              <td>74.6%</td>
-            </tr>
-            <tr>
-              <td>Unit Samoflange</td>
-              <td>12:54</td>
-              <td>74.6%</td>
-            </tr>
-            <tr>
-              <td>Unit Samoflange</td>
-              <td>12:54</td>
-              <td>74.6%</td>
-            </tr>
-            <tr>
-              <td>Unit Samoflange</td>
-              <td>12:54</td>
-              <td>74.6%</td>
-            </tr>
-            <tr>
-              <td>Unit Samoflange</td>
-              <td>12:54</td>
-              <td>74.6%</td>
-            </tr>
-            <tr>
-              <td>Unit Samoflange</td>
-              <td>12:54</td>
-              <td>74.6%</td>
-            </tr>
-            <tr>
-              <td>Unit Samoflange</td>
-              <td>12:54</td>
-              <td>74.6%</td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="section-actions">
-        <a href="#" class="btn btn-primary">
-          <i class="ico fa fa-download"></i>
-          Download a CSV file of this Data
         </a>
       </div>
     </div>
-  {% endswitch %}
+
+    <div class="section-content section-data-table" data-role="engagement-table">
+      {% include "loading.html" %}
+    </div>
   </section>
 {% endblock content %}

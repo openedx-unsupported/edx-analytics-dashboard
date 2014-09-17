@@ -31,18 +31,14 @@ class CourseEngagementTests(AnalyticsApiClientMixin, FooterMixin, CoursePageTest
 
     def test_engagement_summary(self):
         self.page.visit()
-        section_selector = "div[data-role=student-activity]"
-
-        section = self.page.q(css=section_selector)
-        self.assertTrue(section.present)
 
         # Verify the week displayed
-        week = self.page.q(css=section_selector + ' span[data-role=activity-week]')
+        week = self.page.q(css='span[data-role=activity-week]')
         self.assertTrue(week.present)
         recent_activity = self.course.activity()[0]
         expected = recent_activity['interval_end']
         expected = datetime.datetime.strptime(expected, self.api_client.DATETIME_FORMAT)
-        expected = expected.strftime('%B %d, %Y')
+        expected = u"Activity through the week ending {}.".format(expected.strftime('%B %d, %Y'))
         self.assertEqual(week.text[0], expected)
 
         # Verify the activity values

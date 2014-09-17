@@ -41,10 +41,6 @@ The following switches are available:
 
 | Switch                            | Purpose                                                  |
 |-----------------------------------|----------------------------------------------------------|
-| show_engagement_demo_interface    | Show experimental content below the engagement summary   |
-| navbar_display_engagement         | Show the engagement item in the lens drop down           |
-| navbar_display_engagement_content | Show the "Content" sub-section in the engagement nav bar |
-| navbar_display_overview           | Show the overview item in the lens drop down             |
 | show_engagement_forum_activity    | Show the forum activity on the course engagement page    |
 
 Authentication & Authorization

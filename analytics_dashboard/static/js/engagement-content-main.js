@@ -20,9 +20,9 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page){
                 color: '#8DA0CB',
                 className: 'text-right'
             },{
-                key: 'posted_forum',
-                title: gettext('Posted in Forum'),
-                color: '#E78AC3',
+                key: 'played_video',
+                title: gettext('Watched a Video'),
+                color: '#66C2A5',
                 className: 'text-right'
             },{
                 key: 'attempted_problem',
@@ -30,9 +30,9 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page){
                 color: '#FC8D62',
                 className: 'text-right'
             },{
-                key: 'played_video',
-                title: gettext('Watched a Video'),
-                color: '#66C2A5',
+                key: 'posted_forum',
+                title: gettext('Posted in Forum'),
+                color: '#E78AC3',
                 className: 'text-right'
             }],
             trendSettings;
@@ -63,9 +63,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page){
                 title: 'Students',
                 key: 'count'
             },
-
-            // TODO: add a tooltip for this graph (AN-3362)
-            tooltip: gettext('This graph displays weekly course activity.')
+            tooltip: gettext('The number of active students, and the number of students who engaged in specific activities, over time.')
         });
 
         // weekly engagement activities table
