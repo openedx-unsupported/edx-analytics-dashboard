@@ -9,7 +9,7 @@ Partial for displaying the lens navigation and the sections within the lenses.
     <div class="container ">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle navbar-link" data-toggle="dropdown">
+          <a href="#" class="dropdown-toggle navbar-link" data-toggle="dropdown" role="button" id="lensPrimaryMenu">
             <span class="link-label">
             <i class="ico fa {{ primary_nav_item.icon }}" aria-hidden="true"></i>
             {{ primary_nav_item.label }}
@@ -18,7 +18,7 @@ Partial for displaying the lens navigation and the sections within the lenses.
             <i class="ico ico-indicator fa fa-caret-down"></i></span>
           </a>
 
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu" role="menu" aria-labelledby="lensPrimaryMenu">
             {% for item in primary_nav_items %}
               <li>
                 <a href="{{ item.href }}">
