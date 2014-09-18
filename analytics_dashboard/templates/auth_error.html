@@ -12,7 +12,7 @@
 
 {% block buttons %}
   <a href="{% url 'login' %}" class="btn btn-lg btn-primary">
-    <i class="ico fa fa-sign-in"></i> {% trans "Try Again" %}
+    <i class="ico fa fa-sign-in" aria-hidden="true"></i> {% trans "Try Again" %}
   </a>
   {{ block.super }}
 {% endblock %}
