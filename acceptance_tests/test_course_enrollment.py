@@ -58,14 +58,15 @@ class CourseEnrollmentActivityTests(CourseEnrollmentTests, WebAppTest):
         current_enrollment_count = current_enrollment['count']
         data_selector = 'data-stat-type=current_enrollment'
         self.assertSummaryPointValueEquals(data_selector, unicode(current_enrollment_count))
-        self.assertSummaryTooltipEquals(data_selector, 'Students enrolled in course.')
+        self.assertSummaryTooltipEquals(data_selector, u'Students enrolled in the course.')
 
         # Check value of summary box for last week
         i = 7
         value = current_enrollment_count - enrollment_data[-(i + 1)]['count']
         data_selector = 'data-stat-type=enrollment_change_last_%s_days' % i
         self.assertSummaryPointValueEquals(data_selector, unicode(value))
-        self.assertSummaryTooltipEquals(data_selector, 'Change in enrollment during the last 7 days (through 23:59 UTC).')
+        self.assertSummaryTooltipEquals(data_selector,
+                                        u'The difference between the number of students enrolled at the end of the day yesterday and one week before.')
 
         # Verify *something* rendered where the graph should be. We cannot easily verify what rendered
         self.assertElementHasContent("[data-section=enrollment-basics] #enrollment-trend-view")

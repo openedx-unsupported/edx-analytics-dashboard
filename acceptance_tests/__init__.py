@@ -53,6 +53,7 @@ class CoursePageTestsMixin(object):
     """
     Convenience methods for testing.
     """
+
     def assertValidHref(self, selector):
         element = self.page.q(css=selector)
         self.assertTrue(element.present)
