@@ -257,12 +257,10 @@ class EnrollmentActivityView(EnrollmentTemplateView):
         context = super(EnrollmentActivityView, self).get_context_data(**kwargs)
 
         presenter = CourseEnrollmentPresenter(self.course_id)
-
-        summary = presenter.get_summary()
-        data = presenter.get_trend_data(end_date=summary['date'])
+        summary, trend = presenter.get_summary_and_trend_data()
 
         # add the enrollment data for the page
-        context['js_data']['course']['enrollmentTrends'] = data
+        context['js_data']['course']['enrollmentTrends'] = trend
         context.update({
             'page_data': json.dumps(context['js_data']),
             'summary': summary,
@@ -305,9 +303,9 @@ class EngagementContentView(EngagementTemplateView):
         context = super(EngagementContentView, self).get_context_data(**kwargs)
 
         presenter = CourseEngagementPresenter(self.course_id)
-        summary = presenter.get_summary()
+
+        summary, trends = presenter.get_summary_and_trend_data()
         end_date = summary['interval_end']
-        trends = presenter.get_trend_data(end_date=end_date)
 
         context['js_data']['course']['engagementTrends'] = trends
         summary['week_of_activity'] = end_date
@@ -337,7 +335,7 @@ class CourseEnrollmentByCountryCSV(CSVResponseMixin, CourseView):
 class CourseEnrollmentCSV(CSVResponseMixin, CourseView):
     def get_context_data(self, **kwargs):
         context = super(CourseEnrollmentCSV, self).get_context_data(**kwargs)
-        end_date = datetime.date.today().strftime(Client.DATE_FORMAT)
+        end_date = datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
 
         context.update({
             'data': self.course.enrollment(data_format=data_format.CSV,
@@ -351,7 +349,7 @@ class CourseEnrollmentCSV(CSVResponseMixin, CourseView):
 class CourseEngagementActivityTrendCSV(CSVResponseMixin, CourseView):
     def get_context_data(self, **kwargs):
         context = super(CourseEngagementActivityTrendCSV, self).get_context_data(**kwargs)
-        end_date = datetime.date.today().strftime(Client.DATE_FORMAT)
+        end_date = datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
         context.update({
             'data': self.course.activity(data_format=data_format.CSV, end_date=end_date),
             'filename': '{0}_engagement_activity_trend.csv'.format(self.course_id)

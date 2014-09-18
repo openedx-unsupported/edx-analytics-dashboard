@@ -34,14 +34,11 @@ class CourseEnrollmentActivityTests(CourseEnrollmentTests, WebAppTest):
 
     def get_enrollment_data(self):
         """
-        Returns enrollment data for 60 days prior to (and including) the most-recent enrollment count collection.
+        Returns all historical enrollment data for enrollment count collection.
         """
-
-        current_enrollment = self.course.enrollment()[0]
-        last_updated = datetime.datetime.strptime(current_enrollment['date'], self.api_date_format)
-        start_date = (last_updated - datetime.timedelta(days=60)).strftime(self.api_date_format)
-        end_date = (last_updated + datetime.timedelta(days=1)).strftime(self.api_date_format)
-        return self.course.enrollment(start_date=start_date, end_date=end_date)
+        end_date = datetime.datetime.utcnow()
+        end_date_string = end_date.strftime(self.api_client.DATE_FORMAT)
+        return self.course.enrollment(start_date=None, end_date=end_date_string)
 
     def test_enrollment_summary_and_graph(self):
         self.page.visit()
@@ -172,7 +169,7 @@ class CourseEnrollmentGeographyTests(CourseEnrollmentTests, WebAppTest):
             columns = row.find_elements_by_css_selector('td')
             enrollment = self.enrollment_data[i]
             expected_percent = enrollment['count'] / sum_count * 100
-            expected_percent_display = '{:.1f}%'.format(expected_percent) if expected_percent >= 0.01 else '< 1%'
+            expected_percent_display = '{:.1f}%'.format(expected_percent) if expected_percent >= 1.0 else '< 1%'
             expected = [enrollment['country']['name'], expected_percent_display, enrollment['count']]
             actual = [columns[0].text, columns[1].text, int(columns[2].text)]
             self.assertListEqual(actual, expected)
