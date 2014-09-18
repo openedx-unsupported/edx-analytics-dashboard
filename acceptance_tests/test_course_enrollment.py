@@ -39,7 +39,7 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         last_updated = datetime.datetime.strptime(current_enrollment['date'], self.api_date_format)
         element = self.page.q(css="span[data-role=enrollment-last-updated]")
         self.assertTrue(element.present)
-        self.assertEqual(element.text[0], last_updated.strftime(self.DASHBOARD_DATE_FORMAT))
+        self.assertEqual(element.text[0], self.format_time_as_dashboard(last_updated))
 
         # Check values of summary boxes
         current_enrollment_count = current_enrollment['count']
@@ -147,7 +147,7 @@ class CourseEnrollmentGeographyTests(CoursePageTestsMixin, WebAppTest):
         last_updated = datetime.datetime.strptime(self.enrollment_data[0]['date'], self.api_date_format)
         element = self.page.q(css="span[data-view=enrollment-by-country-update-date]")
         self.assertTrue(element.present)
-        self.assertEqual(element.text[0], last_updated.strftime(self.DASHBOARD_DATE_FORMAT))
+        self.assertEqual(element.text[0], self.format_time_as_dashboard(last_updated))
 
         # check the results of the table
         self.assertGreater(len(rows), 0)
