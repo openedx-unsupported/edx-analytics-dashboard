@@ -53,13 +53,6 @@ class LoginPage(DashboardPage):
         return True
 
 
-class LogoutPage(DashboardPage):
-    path = 'accounts/logout'
-
-    def is_browser_on_page(self):
-        return self.browser.title.startswith('Logged Out')
-
-
 class CourseEnrollmentGeographyPage(CoursePage):
     def __init__(self, browser, course_id=None):
         super(CourseEnrollmentGeographyPage, self).__init__(browser, course_id)

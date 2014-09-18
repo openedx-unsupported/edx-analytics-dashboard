@@ -1,18 +1,16 @@
 import datetime
 
 from bok_choy.web_app_test import WebAppTest
-from bok_choy.promise import EmptyPromise
 
 from analyticsclient import activity_type as at
-
-from acceptance_tests import AnalyticsApiClientMixin, CoursePageTestsMixin, FooterMixin
+from acceptance_tests import CoursePageTestsMixin
 from acceptance_tests.pages import CourseEngagementContentPage
 
 
 _multiprocess_can_split_ = True
 
 
-class CourseEngagementTests(AnalyticsApiClientMixin, FooterMixin, CoursePageTestsMixin, WebAppTest):
+class CourseEngagementTests(CoursePageTestsMixin, WebAppTest):
     """
     Tests for the Engagement page.
     """
@@ -26,11 +24,14 @@ class CourseEngagementTests(AnalyticsApiClientMixin, FooterMixin, CoursePageTest
         self.page = CourseEngagementContentPage(self.browser)
         self.course = self.api_client.courses(self.page.course_id)
 
-    def test_page_exists(self):
-        self.page.visit()
+    def test_page(self):
+        super(CourseEngagementTests, self).test_page()
+        self._test_engagement_metrics()
+        self._test_engagement_graph()
+        self._test_engagement_table()
 
-    def test_engagement_summary(self):
-        self.page.visit()
+    def _test_engagement_metrics(self):
+        """ Verify the metrics tiles display the correct information. """
 
         # Verify the week displayed
         week = self.page.q(css='span[data-role=activity-week]')
@@ -56,18 +57,19 @@ class CourseEngagementTests(AnalyticsApiClientMixin, FooterMixin, CoursePageTest
             self.assertSummaryPointValueEquals(data_selector, unicode(recent_activity[activity_type]))
             self.assertSummaryTooltipEquals(data_selector, expected_tooltips[activity_type])
 
-    def test_engagement_graph(self):
-        self.page.visit()
-        # ensure that the trend data has finished loading
+    def _test_engagement_graph(self):
+        """ Verify the graph is rendered. """
+
         graph_selector = '#engagement-trend-view'
-        EmptyPromise(
-            lambda: 'Loading Trend...' not in self.page.q(css=graph_selector + ' p').text,
-            "Trend finished loading"
-        ).fulfill()
+
+        # Ensure the graph is loaded via AJAX
+        self.fulfill_loading_promise(graph_selector)
+
         self.assertElementHasContent(graph_selector)
 
-    def test_engagement_table(self):
-        self.page.visit()
+    def _test_engagement_table(self):
+        """ Verify the activity table is rendered with the correct information. """
+
         date_time_format = self.api_client.DATETIME_FORMAT
 
         end_date = datetime.datetime.utcnow()

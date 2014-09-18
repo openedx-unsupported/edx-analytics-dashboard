@@ -1,5 +1,6 @@
 import os
 from analyticsclient.client import Client
+from bok_choy.promise import EmptyPromise
 
 DASHBOARD_SERVER_URL = os.environ.get('DASHBOARD_SERVER_URL', 'http://127.0.0.1:9000')
 DASHBOARD_FEEDBACK_EMAIL = os.environ.get('DASHBOARD_FEEDBACK_EMAIL', 'override.this.email@example.com')
@@ -14,6 +15,8 @@ MAX_SUMMARY_POINT_VALUE_LENGTH = 13
 
 
 class AnalyticsApiClientMixin(object):
+    api_client = None
+
     def setUp(self):
         super(AnalyticsApiClientMixin, self).setUp()
 
@@ -23,9 +26,7 @@ class AnalyticsApiClientMixin(object):
 
 
 class FooterMixin(object):
-    def test_footer(self):
-        self.page.visit()
-
+    def _test_footer(self):
         # make sure we have the footer
         footer_selector = "footer[class=footer]"
         element = self.page.q(css=footer_selector)
@@ -49,10 +50,15 @@ class FooterMixin(object):
         self.assertEqual(element.text[0], u'Privacy Policy')
 
 
-class CoursePageTestsMixin(object):
-    """
-    Convenience methods for testing.
-    """
+class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterMixin):
+    """ Mixin for common course page assertions and tests. """
+
+    DASHBOARD_DATE_FORMAT = '%B %d, %Y'
+    page = None
+
+    def setUp(self):
+        super(CoursePageTestsMixin, self).setUp()
+        self.api_date_format = self.api_client.DATE_FORMAT
 
     def assertValidHref(self, selector):
         element = self.page.q(css=selector)
@@ -108,6 +114,33 @@ class CoursePageTestsMixin(object):
         self.assertTrue(tooltip_element.present)
         # the context of title gets move to "data-original-title"
         self.assertEqual(tooltip_element[0].get_attribute('data-original-title'), tip_text)
+
+    def format_time_as_dashboard(self, value):
+        return value.strftime(self.DASHBOARD_DATE_FORMAT)
+
+    def fulfill_loading_promise(self, css_selector):
+        """
+        Ensure the info contained by `css_selector` is loaded via AJAX.
+
+        Arguments
+            css_selector (string)   --  CSS selector of the parent element that will contain the loading message.
+        """
+
+        EmptyPromise(
+            lambda: 'Loading...' not in self.page.q(css=css_selector + ' .loading-container').text,
+            "Loading finished."
+        ).fulfill()
+
+    def test_page(self):
+        """
+        Primary test method.
+
+        Sub-classes should override this method and add additional tests. Sub-classes can safely assume that, if tests
+        pass, execution of this parent method will leave the browser on the page being tested.
+        :return:
+        """
+        self.page.visit()
+        self._test_footer()
 
 
 def auto_auth(browser, server_url):

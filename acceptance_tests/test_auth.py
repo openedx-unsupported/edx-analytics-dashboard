@@ -1,7 +1,7 @@
 from bok_choy.web_app_test import WebAppTest
 
 from acceptance_tests import USERNAME, PASSWORD, ENABLE_OAUTH_AUTHORIZE
-from pages import LoginPage, LogoutPage
+from pages import LoginPage
 
 
 class OAuthFlowTests(WebAppTest):
@@ -12,7 +12,6 @@ class OAuthFlowTests(WebAppTest):
         super(OAuthFlowTests, self).setUp()
 
         self.login_page = LoginPage(self.browser)
-        self.logout_page = LogoutPage(self.browser)
 
         self.username = USERNAME
         self.password = PASSWORD
