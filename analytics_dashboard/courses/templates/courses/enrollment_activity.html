@@ -17,7 +17,7 @@ Individual course-centric enrollment activity view.
 
 {% block content %}
 
-  <section class="view-section" data-section="enrollment-basics">
+  <section class="view-section" data-section="enrollment-basics" aria-hidden="true">
     <div class="section-heading">
       <h4 class="section-title">{% trans "Enrollment Activity" %}</h4>
       <span class="section-heading-note small">{% trans "How many students are in my course?" %}</span>
@@ -35,6 +35,7 @@ Individual course-centric enrollment activity view.
       </div>
     </div>
   </section>
+
   <section class="view-section">
     <div class="section-heading bordered">
       <h4 class="section-title">{% trans "Enrollment Metrics" %}</h4>
