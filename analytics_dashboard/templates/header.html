@@ -14,18 +14,11 @@ Partial: App-wide header element
         <span class="icon-bar"></span>
       </button>
 
-            {% include 'brand.html' with class_prefix='navbar' %}
-        </div>
+      {% include 'brand.html' with class_prefix='navbar' %}
+      <span class="active-course-number navbar-link navbar-brand">{{ course_id }}</span>
+    </div>
 
     <div class="collapse navbar-collapse" id="main-nav">
-      <ul class="nav nav-pills navbar-nav">
-        <li>
-          <a href="#" class="active-course navbar-link">
-            <span class="active-course-number">{{ course_id }}</span>
-          </a>
-        </li>
-      </ul>
-
       <ul class="nav navbar-nav navbar-right">
         <li>
           <a class="navbar-link " href="#">{% trans "Help" %}</a>
