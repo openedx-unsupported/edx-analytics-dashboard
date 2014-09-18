@@ -4,37 +4,44 @@ Partial for displaying the lens navigation and the sections within the lenses.
 {% endcomment %}
 
 {% if primary_nav_items %}
-{#  Translators: Application here refers to the web site/application being used (e.g. the dashboard). #}
-<nav class="navbar navbar-default lens-nav" role="navigation" aria-label="{% trans "Application" %}">
+  {#  Translators: Application here refers to the web site/application being used (e.g. the dashboard). #}
+  <nav class="navbar navbar-default lens-nav" role="navigation" aria-label="{% trans "Application" %}">
     <div class="container ">
-        <ul class="nav navbar-nav">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle navbar-link" data-toggle="dropdown">
-                    <span class="link-label">
-                    <i class="ico fa {{ primary_nav_item.icon }}" aria-hidden="true"></i>
-                    {{ primary_nav_item.label }}
-                    <i class="ico ico-indicator fa fa-caret-down"></i></span>
-                </a>
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle navbar-link" data-toggle="dropdown">
+            <span class="link-label">
+            <i class="ico fa {{ primary_nav_item.icon }}" aria-hidden="true"></i>
+            {{ primary_nav_item.label }}
+            {# Translators: This refers to the active tab/navigation item. #}
+            <span class="sr-only">({% trans "Active" %})</span>
+            <i class="ico ico-indicator fa fa-caret-down"></i></span>
+          </a>
 
-                <ul class="dropdown-menu">
-                    {% for item in primary_nav_items %}
-                      <li>
-                          <a href="{{ item.href }}">
-                              <span class="link-label"><i class="ico fa {{ item.icon }}" aria-hidden="true"></i> {{ item.label }}</span>
-                          </a>
-                      </li>
-                    {% endfor %}
-                </ul>
-            </li>
-
-            {% for item in secondary_nav_items %}
-            <li class="{% if item.active %}active{% endif %} nav-section">
+          <ul class="dropdown-menu">
+            {% for item in primary_nav_items %}
+              <li>
                 <a href="{{ item.href }}">
-                    <span class="link-label">{{ item.label }}</span>
+                  <span class="link-label">
+                    <i class="ico fa {{ item.icon }}" aria-hidden="true"></i> {{ item.label }}
+                  </span>
                 </a>
-            </li>
+              </li>
             {% endfor %}
-        </ul>
+          </ul>
+        </li>
+
+        {% for item in secondary_nav_items %}
+          <li class="{% if item.active %}active{% endif %} nav-section">
+            <a href="{{ item.href }}">
+              <span class="link-label">{{ item.label }}
+                {# Translators: This refers to the active tab/navigation item. #}
+                {% if item.active %}<span class="sr-only">({% trans "Active" %})</span>{% endif %}
+              </span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
     </div>
-</nav>
+  </nav>
 {% endif %}
