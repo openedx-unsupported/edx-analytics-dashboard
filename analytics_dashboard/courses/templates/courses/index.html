@@ -6,10 +6,15 @@
 
 {% block title %}{% trans "Courses" %} {{ block.super }}{% endblock title %}
 
-{% block header-text %}<h3>
-  {% blocktrans with username=request.user.username %}Welcome, {{ username }}!{% endblocktrans %}</h3>{% endblock %}
-{% block intro-text %}{% blocktrans %}Here are the courses you currently have access to in Insights:
-{% endblocktrans %}{% endblock intro-text %}
+{% block header-text %}
+  <h3>
+    {% blocktrans with username=request.user.username %}Welcome, {{ username }}!{% endblocktrans %}
+  </h3>
+{% endblock %}
+
+{% block intro-text %}
+  {% blocktrans %}Here are the courses you currently have access to in Insights:{% endblocktrans %}
+{% endblock intro-text %}
 
 {% block content %}
   <div class="row">
