@@ -11,7 +11,12 @@ import yaml
 from analytics_dashboard.settings.base import *
 from analytics_dashboard.settings.logger import get_logger_config
 
+# Enable offline compression of CSS/JS
+COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = True
+
 LOGGING = get_logger_config()
+
 
 def get_env_setting(setting):
     """ Get the environment setting or return exception """
@@ -21,12 +26,12 @@ def get_env_setting(setting):
         error_msg = "Set the %s env variable" % setting
         raise ImproperlyConfigured(error_msg)
 
-########## HOST CONFIGURATION
+# ######### HOST CONFIGURATION
 # See: https://docs.djangoproject.com/en/1.5/releases/1.5/#allowed-hosts-required-in-production
 ALLOWED_HOSTS = ['*']
 ########## END HOST CONFIGURATION
 
-CONFIG_FILE=get_env_setting('ANALYTICS_DASHBOARD_CFG')
+CONFIG_FILE = get_env_setting('ANALYTICS_DASHBOARD_CFG')
 
 with open(CONFIG_FILE) as f:
     config_from_yaml = yaml.load(f)
