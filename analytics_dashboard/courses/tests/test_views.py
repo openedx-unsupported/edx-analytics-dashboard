@@ -1,7 +1,6 @@
-import datetime
 import json
-from waffle import Switch
 
+from waffle import Switch
 from django.core.cache import cache
 import mock
 from django.conf import settings
@@ -18,7 +17,7 @@ from courses.permissions import set_user_course_permissions, revoke_user_course_
 from courses.tests.test_middleware import MiddlewareAssertionMixin
 from courses.tests.utils import get_mock_enrollment_data, get_mock_api_enrollment_geography_data, \
     get_mock_presenter_enrollment_geography_data, convert_list_of_dicts_to_csv, set_empty_permissions, \
-    mock_engagement_activity_summary_and_trend_data, mock_api_engagement_activity_trend_data, \
+    mock_engagement_activity_summary_and_trend_data, mock_course_activity, \
     get_mock_enrollment_summary_and_trend
 
 
@@ -196,9 +195,6 @@ class CourseEngagementViewTestMixin(CourseViewTestMixin):
         }
         self.assertDictEqual(nav, expected)
 
-    def mock_api_engagement_activity_trend_data(self):
-        return mock_api_engagement_activity_trend_data()
-
     def assertSecondaryNavs(self, nav):
         expected = [{'active': True, 'name': 'content', 'label': _('Content'), 'href': '#'}]
         self.assertListEqual(nav, expected)
@@ -208,13 +204,11 @@ class CourseEngagementViewTestMixin(CourseViewTestMixin):
         super(CourseEngagementViewTestMixin, self).test_not_found()
 
     def test_authentication(self):
-        with mock.patch.object(analyticsclient.course.Course, 'activity',
-                               return_value=self.mock_api_engagement_activity_trend_data()):
+        with mock.patch.object(analyticsclient.course.Course, 'activity', return_value=mock_course_activity()):
             super(CourseEngagementViewTestMixin, self).test_authentication()
 
     def test_authorization(self):
-        with mock.patch.object(analyticsclient.course.Course, 'activity',
-                               return_value=self.mock_api_engagement_activity_trend_data()):
+        with mock.patch.object(analyticsclient.course.Course, 'activity', return_value=mock_course_activity()):
             super(CourseEngagementViewTestMixin, self).test_authorization()
 
 
@@ -233,9 +227,6 @@ class CourseEngagementContentViewTests(CourseEngagementViewTestMixin, TestCase):
 
         # make sure that we get a 200
         self.assertEqual(response.status_code, 200)
-
-        # make sure the date is formatted correctly
-        self.assertEqual(response.context['summary']['week_of_activity'], datetime.date(2013, 1, 8))
 
         # check page title
         self.assertEqual(response.context['page_title'], 'Engagement Content')
@@ -323,10 +314,7 @@ class CourseEnrollmentGeographyViewTests(CourseEnrollmentViewTestMixin, TestCase
         self.assertEqual(context['page_title'], 'Enrollment Geography')
 
         page_data = json.loads(context['page_data'])
-        expected_date = 'January 01, 2014'
-        self.assertEqual(page_data['course']['enrollmentByCountryUpdateDate'], expected_date)
-
-        expected_data, _date, _summary = get_mock_presenter_enrollment_geography_data()
+        _summary, expected_data = get_mock_presenter_enrollment_geography_data()
         self.assertEqual(page_data['course']['enrollmentByCountry'], expected_data)
 
 

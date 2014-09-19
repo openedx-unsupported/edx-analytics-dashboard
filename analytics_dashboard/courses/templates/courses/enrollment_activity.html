@@ -15,7 +15,7 @@ Individual course-centric enrollment activity view.
 {% endblock javascript %}
 
 
-{% block content %}
+{% block child_content %}
 
   <section class="view-section" data-section="enrollment-basics" aria-hidden="true">
     <div class="section-heading">
@@ -39,16 +39,6 @@ Individual course-centric enrollment activity view.
   <section class="view-section">
     <div class="section-heading bordered">
       <h4 class="section-title">{% trans "Enrollment Metrics" %}</h4>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-12">
-            <span class="section-title-value small">
-              {% captureas update_date %}<span data-role="enrollment-last-updated">{{ summary.date|date }}
-                </span>{% endcaptureas %}
-              {% blocktrans %}Last updated: {{ update_date }}{% endblocktrans %}
-            </span>
-      </div>
     </div>
 
     <div class="section-content">
@@ -89,4 +79,4 @@ Individual course-centric enrollment activity view.
 
   </section>
 
-{% endblock content %}
+{% endblock %}

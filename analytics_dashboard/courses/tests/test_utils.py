@@ -1,23 +1,22 @@
 from django.test import TestCase
+from waffle import Switch
 
 import courses.utils as utils
 
 
 class UtilsTest(TestCase):
-    def test_get_formatted_date_time(self):
-        actual = utils.get_formatted_date_time('2013-01-01T12:12:12Z')
-        self.assertEqual(actual, 'January 01, 2013')
+    def test_is_feature_enabled(self):
+        name = 'test-switch'
+        item = {'switch': name}
 
-    def test_get_formatted_date(self):
-        actual = utils.get_formatted_date('2013-01-01')
-        self.assertEqual(actual, 'January 01, 2013')
+        # Return True if no switch provided
+        self.assertTrue(utils.is_feature_enabled({'switch': None}))
 
-    def test_get_formatted_summary_number(self):
-        actual = utils.get_formatted_summary_number(None)
-        self.assertEqual(actual, 'n/a')
+        # Return False if switch inactive
+        switch = Switch.objects.create(name=name, active=False)
+        self.assertFalse(utils.is_feature_enabled(item))
 
-        actual = utils.get_formatted_summary_number(1000)
-        self.assertEqual(actual, '1,000')
-
-        actual = utils.get_formatted_summary_number(-9433312)
-        self.assertEqual(actual, '-9,433,312')
+        # Return True if switch active
+        switch.active = True
+        switch.save()
+        self.assertTrue(utils.is_feature_enabled(item))

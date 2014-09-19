@@ -16,7 +16,7 @@ Individual course-centric engagement content view.
   <script src="{% static 'js/engagement-content-main.js' %}"></script>
 {% endblock javascript %}
 
-{% block content %}
+{% block child_content %}
   <section class="view-section" aria-hidden="true">
     <div class="section-heading">
       <h4 class="section-title">{% trans "Weekly Student Engagement" %}</h4>
@@ -32,10 +32,6 @@ Individual course-centric engagement content view.
             </div>
           </div>
         </div>
-        <span class="small" data-role="activity-week">
-          {% captureas date %}{{ summary.week_of_activity|date }}{% endcaptureas %}
-          {% blocktrans %}Activity through the week ending {{ date }}.{% endblocktrans %}
-        </span>
       </div>
     </div>
   </section>
@@ -93,4 +89,4 @@ Individual course-centric engagement content view.
       {% include "loading.html" %}
     </div>
   </section>
-{% endblock content %}
+{% endblock %}

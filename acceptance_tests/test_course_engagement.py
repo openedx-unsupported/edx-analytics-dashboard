@@ -2,7 +2,7 @@ import datetime
 
 from bok_choy.web_app_test import WebAppTest
 
-from analyticsclient import activity_type as at
+from analyticsclient.constants import activity_type as at
 from acceptance_tests import CoursePageTestsMixin
 from acceptance_tests.pages import CourseEngagementContentPage
 
@@ -30,20 +30,17 @@ class CourseEngagementTests(CoursePageTestsMixin, WebAppTest):
         self._test_engagement_graph()
         self._test_engagement_table()
 
+    def _get_data_update_message(self):
+        recent_activity = self.course.activity()[0]
+        last_updated = datetime.datetime.strptime(recent_activity['created'], self.api_datetime_format)
+        return 'Course engagement data was last updated %(update_date)s at %(update_time)s UTC.' % \
+               self.format_last_updated_date_and_time(last_updated)
+
     def _test_engagement_metrics(self):
         """ Verify the metrics tiles display the correct information. """
 
-        # Verify the week displayed
-        week = self.page.q(css='span[data-role=activity-week]')
-        self.assertTrue(week.present)
-
-        end_date = datetime.datetime.utcnow()
-        end_date_string = end_date.strftime(self.api_client.DATE_FORMAT)
-        recent_activity = self.course.activity(end_date=end_date_string)[-1]
-        expected = recent_activity['interval_end']
-        expected = datetime.datetime.strptime(expected, self.api_client.DATETIME_FORMAT)
-        expected = u"Activity through the week ending {}.".format(self.format_time_as_dashboard(expected))
-        self.assertEqual(week.text[0], expected)
+        end_date = datetime.datetime.utcnow().strftime(self.api_client.DATE_FORMAT)
+        recent_activity = self.course.activity(end_date=end_date)[-1]
 
         # Verify the activity values
         activity_types = [at.ANY, at.ATTEMPTED_PROBLEM, at.PLAYED_VIDEO]
@@ -79,7 +76,8 @@ class CourseEngagementTests(CoursePageTestsMixin, WebAppTest):
         trend_activity = sorted(trend_activity, reverse=True, key=lambda item: item['interval_end'])
 
         table_selector = 'div[data-role=engagement-table] table'
-        self.assertTableColumnHeadingsEqual(table_selector, [u'Week Ending', u'Active Students', u'Watched a Video', u'Tried a Problem'])
+        self.assertTableColumnHeadingsEqual(table_selector, [u'Week Ending', u'Active Students', u'Watched a Video',
+                                                             u'Tried a Problem'])
 
         rows = self.page.browser.find_elements_by_css_selector('%s tbody tr' % table_selector)
         self.assertGreater(len(rows), 0)
@@ -87,11 +85,14 @@ class CourseEngagementTests(CoursePageTestsMixin, WebAppTest):
         for i, row in enumerate(rows):
             columns = row.find_elements_by_css_selector('td')
             weekly_activity = trend_activity[i]
-            expected_date = self.format_time_as_dashboard(datetime.datetime.strptime(weekly_activity['interval_end'], date_time_format)).replace(' 0', ' ')
-            expected = [expected_date, weekly_activity[at.ANY], weekly_activity[at.PLAYED_VIDEO], weekly_activity[at.ATTEMPTED_PROBLEM]]
+            expected_date = self.format_time_as_dashboard(
+                datetime.datetime.strptime(weekly_activity['interval_end'], date_time_format)).replace(' 0', ' ')
+            expected = [expected_date, weekly_activity[at.ANY], weekly_activity[at.PLAYED_VIDEO],
+                        weekly_activity[at.ATTEMPTED_PROBLEM]]
             actual = [columns[0].text, int(columns[1].text), int(columns[2].text), int(columns[3].text)]
             self.assertListEqual(actual, expected)
-            for j in range(1,4):
+
+            for j in range(1, 4):
                 self.assertIn('text-right', columns[j].get_attribute('class'))
 
         # Verify CSV button has an href attribute

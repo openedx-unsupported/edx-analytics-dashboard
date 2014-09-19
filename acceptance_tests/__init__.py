@@ -1,6 +1,8 @@
 import os
-from analyticsclient.client import Client
+
 from bok_choy.promise import EmptyPromise
+from analyticsclient.client import Client
+
 
 DASHBOARD_SERVER_URL = os.environ.get('DASHBOARD_SERVER_URL', 'http://127.0.0.1:9000')
 DASHBOARD_FEEDBACK_EMAIL = os.environ.get('DASHBOARD_FEEDBACK_EMAIL', 'override.this.email@example.com')
@@ -59,6 +61,7 @@ class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterMixin):
     def setUp(self):
         super(CoursePageTestsMixin, self).setUp()
         self.api_date_format = self.api_client.DATE_FORMAT
+        self.api_datetime_format = self.api_client.DATETIME_FORMAT
 
     def assertValidHref(self, selector):
         element = self.page.q(css=selector)
@@ -115,8 +118,18 @@ class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterMixin):
         # the context of title gets move to "data-original-title"
         self.assertEqual(tooltip_element[0].get_attribute('data-original-title'), tip_text)
 
+    def assertDataUpdateMessageEquals(self, value):
+        element = self.page.q(css='div.data-update-message')
+        self.assertEqual(element.text[0], value)
+
     def format_time_as_dashboard(self, value):
         return value.strftime(self.DASHBOARD_DATE_FORMAT)
+
+    def _format_last_updated_time(self, d):
+        return d.strftime('%I:%M %p').lstrip('0')
+
+    def format_last_updated_date_and_time(self, d):
+        return {'update_date': d.strftime(self.DASHBOARD_DATE_FORMAT), 'update_time': self._format_last_updated_time(d)}
 
     def fulfill_loading_promise(self, css_selector):
         """
@@ -131,6 +144,15 @@ class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterMixin):
             "Loading finished."
         ).fulfill()
 
+    def _get_data_update_message(self):
+        raise NotImplementedError
+
+    def _test_data_update_message(self):
+        """ Validate the content in the data update message container. """
+
+        message = self._get_data_update_message()
+        self.assertDataUpdateMessageEquals(message)
+
     def test_page(self):
         """
         Primary test method.
@@ -141,6 +163,7 @@ class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterMixin):
         """
         self.page.visit()
         self._test_footer()
+        self._test_data_update_message()
 
 
 def auto_auth(browser, server_url):

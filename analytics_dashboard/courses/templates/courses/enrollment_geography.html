@@ -14,8 +14,7 @@ Individual course-centric enrollment geography view.
   <script src="{% static 'js/enrollment-geography-main.js' %}"></script>
 {% endblock javascript %}
 
-{% block content %}
-
+{% block child_content %}
   <section class="view-section" data-section="enrollment-location" aria-hidden="true">
     <div class="section-heading">
       <h4 class="section-title">{% trans "Geographic Distribution" %}</h4>
@@ -32,10 +31,6 @@ Individual course-centric enrollment geography view.
         {% endcomment %}
         {% include "loading.html" %}
       </div>
-      <span class="small">
-        {% captureas update_date %}<span data-view="enrollment-by-country-update-date"></span>{% endcaptureas %}
-        {% blocktrans %}Last updated: {{ update_date }}{% endblocktrans %}
-      </span>
     </div>
   </section>
 
@@ -100,4 +95,4 @@ Individual course-centric enrollment geography view.
     </div>
   </section>
 
-{% endblock content %}
+{% endblock %}

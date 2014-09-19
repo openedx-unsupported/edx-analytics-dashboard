@@ -4,3 +4,13 @@
 
 {# This is intentionally left blank. Course pages do not need a title block. #}
 {% block header-text %}{% endblock %}
+
+{% block content %}
+  {% block child_content %}
+  {% endblock %}
+  {% block data_messaging %}
+    {% if update_message %}
+      <div class="data-update-message">{{ update_message }}</div>
+    {% endif %}
+  {% endblock %}
+{% endblock %}

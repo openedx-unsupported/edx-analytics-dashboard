@@ -241,6 +241,13 @@ table.dataTable thead th.sorting_desc:after {
   }
 }
 
+.data-update-message {
+  @extend .small;
+  border-top: $edx-gray-l1 1px solid;
+  padding-top: $padding-base-vertical;
+  margin-top: $padding-large-vertical;
+}
+
 .active-course-number {
   padding: $navbar-padding-vertical $navbar-padding-horizontal;
 }
