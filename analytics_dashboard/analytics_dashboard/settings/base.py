@@ -298,10 +298,9 @@ AUTH_USER_MODEL = 'analytics_dashboard.User'
 
 INSTALLED_APPS += ('social.apps.django_app.default',)
 
-# Allow authentication via edX OAuth
+# Allow authentication via edX OAuth2/OpenID Connect
 AUTHENTICATION_BACKENDS = (
     'analytics_dashboard.backends.EdXOpenIdConnect',
-    'analytics_dashboard.backends.EdXOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -329,10 +328,6 @@ SOCIAL_AUTH_USER_FIELDS = ['username', 'email', 'first_name', 'last_name']
 SOCIAL_AUTH_LOGIN_ERROR_URL = '/auth/error/'
 
 # Set these to the correct values for your OAuth2/OpenID Connect provider
-SOCIAL_AUTH_EDX_OAUTH2_KEY = None
-SOCIAL_AUTH_EDX_OAUTH2_SECRET = None
-SOCIAL_AUTH_EDX_OAUTH2_URL_ROOT = None
-
 SOCIAL_AUTH_EDX_OIDC_KEY = None
 SOCIAL_AUTH_EDX_OIDC_SECRET = None
 SOCIAL_AUTH_EDX_OIDC_URL_ROOT = None

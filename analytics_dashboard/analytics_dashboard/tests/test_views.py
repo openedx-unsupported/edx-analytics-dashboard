@@ -17,7 +17,7 @@ from django.test import TestCase
 from analyticsclient.exceptions import ClientError
 from social.utils import parse_qs
 
-from analytics_dashboard.backends import EdXOAuth2, EdXOpenIdConnect
+from analytics_dashboard.backends import EdXOpenIdConnect
 from courses.permissions import set_user_course_permissions, user_can_view_course, get_user_course_permissions
 
 
@@ -123,7 +123,7 @@ class ViewTests(TestCase):
 class LoginViewTests(RedirectTestCaseMixin, TestCase):
     def test_login_redirect(self):
         """
-        The login page should redirect users to the OAuth provider's login page.
+        The login page should redirect users to the OAuth2 provider's login page.
         """
         response = self.client.get(settings.LOGIN_URL)
         path = reverse('social:begin', args=['edx-oidc'])
@@ -172,14 +172,17 @@ class LogoutViewTests(RedirectTestCaseMixin, UserTestCaseMixin, TestCase):
         self.assertRedirectsNoFollow(response, reverse('login'))
 
 
-class OAuthTests(UserTestCaseMixin, RedirectTestCaseMixin, TestCase):
+@override_settings(SOCIAL_AUTH_EDX_OIDC_KEY='123',
+                   SOCIAL_AUTH_EDX_OIDC_SECRET='abc',
+                   SOCIAL_AUTH_EDX_OIDC_ID_TOKEN_DECRYPTION_KEY='abc')
+class OpenIdConnectTests(UserTestCaseMixin, RedirectTestCaseMixin, TestCase):
     DEFAULT_USERNAME = 'edx'
-    backend_name = 'edx-oauth2'
-    backend_class = EdXOAuth2
+    backend_name = 'edx-oidc'
+    backend_class = EdXOpenIdConnect
 
     def setUp(self):
-        super(OAuthTests, self).setUp()
-        self.oauth_init_path = reverse('social:begin', args=[self.backend_name])
+        super(OpenIdConnectTests, self).setUp()
+        self.oauth2_init_path = reverse('social:begin', args=[self.backend_name])
 
     def _access_token_body(self, request, _url, headers, username):
         nonce = parse_qs(request.body).get('nonce')
@@ -188,87 +191,15 @@ class OAuthTests(UserTestCaseMixin, RedirectTestCaseMixin, TestCase):
 
     # pylint: disable=unused-argument
     def get_access_token_response(self, nonce, username):
-        token_response = {
+        client_secret = settings.SOCIAL_AUTH_EDX_OIDC_SECRET
+        access_token = {
             'access_token': '12345',
             'refresh_token': 'abcde',
             'expires_in': 900,
-            'preferred_username': username
+            'preferred_username': username,
+            'id_token': jwt.encode(self.get_id_token(nonce, username), client_secret).decode('utf-8')
         }
-        return token_response
-
-    @httpretty.activate
-    def _check_oauth_handshake(self, username=DEFAULT_USERNAME, failure=False):
-        """ Performs an OAuth handshake to login a user.
-
-        Arguments:
-            username -- Username of the user to login (or create if one does not exist)
-            failure  -- Determines if handshake should fail
-        """
-
-        # Generate an OAuth request
-        response = self.client.get(self.oauth_init_path)
-        self.assertEqual(response.status_code, 302)
-        state = self.client.session['{}_state'.format(self.backend_name)]
-
-        # Mock the access token POST body
-        httpretty.register_uri(httpretty.POST, self.backend_class.ACCESS_TOKEN_URL,
-                               body=lambda request, url, headers: self._access_token_body(request, url, headers,
-                                                                                          username))
-
-        # Send the response to this application's OAuth consumer URL
-        oauth_complete_path = '{0}?state={1}'.format(reverse('social:complete', args=[self.backend_name]), state)
-
-        if failure:
-            oauth_complete_path += '&error=access_denied'
-
-        response = self.client.get(oauth_complete_path)
-        self.assertEqual(response.status_code, 302)
-
-        redirect_path = settings.SOCIAL_AUTH_LOGIN_ERROR_URL if failure else settings.LOGIN_REDIRECT_URL
-        self.assertEqual(response['Location'], 'http://testserver{}'.format(redirect_path))
-
-    def test_new_user(self):
-        """
-        A new user should be created if the username from the OAuth provider is not linked to an existing account.
-        """
-
-        original_user_count = User.objects.count()
-
-        self._check_oauth_handshake()
-
-        # Verify new user created
-        self.assertEqual(User.objects.count(), original_user_count + 1)
-        user = self.get_latest_user()
-        self.assertEqual(user.username, self.DEFAULT_USERNAME)
-
-        self.assertUserLoggedIn(user)
-
-    def test_existing_user(self):
-        """
-        Verify system logs in a user (and does not create a new account) when the username from the OAuth provider
-        matches an existing account in the system.
-        """
-        user = self.user
-
-        original_user_count = User.objects.count()
-
-        self._check_oauth_handshake(user.username)
-
-        # Verify no new users created
-        self.assertEqual(User.objects.count(), original_user_count)
-
-        self.assertUserLoggedIn(user)
-
-    def test_access_denied(self):
-        self._check_oauth_handshake(failure=True)
-
-
-@override_settings(SOCIAL_AUTH_EDX_OIDC_KEY='123',
-                   SOCIAL_AUTH_EDX_OIDC_SECRET='abc',
-                   SOCIAL_AUTH_EDX_OIDC_ID_TOKEN_DECRYPTION_KEY='abc')
-class OpenIdConnectTests(OAuthTests):
-    backend_name = 'edx-oidc'
-    backend_class = EdXOpenIdConnect
+        return access_token
 
     def get_id_token(self, nonce, username):
         client_key = settings.SOCIAL_AUTH_EDX_OIDC_KEY
@@ -294,13 +225,71 @@ class OpenIdConnectTests(OAuthTests):
 
         return id_token
 
-    def get_access_token_response(self, nonce, username):
-        client_secret = settings.SOCIAL_AUTH_EDX_OIDC_SECRET
-        access_token = super(OpenIdConnectTests, self).get_access_token_response(nonce, username)
-        access_token.update({
-            'id_token': jwt.encode(self.get_id_token(nonce, username), client_secret).decode('utf-8')
-        })
-        return access_token
+    @httpretty.activate
+    def _check_oauth2_handshake(self, username=DEFAULT_USERNAME, failure=False):
+        """ Performs an OAuth2 handshake to login a user.
+
+        Arguments:
+            username -- Username of the user to login (or create if one does not exist)
+            failure  -- Determines if handshake should fail
+        """
+
+        # Generate an OAuth2 request
+        response = self.client.get(self.oauth2_init_path)
+        self.assertEqual(response.status_code, 302)
+        state = self.client.session['{}_state'.format(self.backend_name)]
+
+        # Mock the access token POST body
+        httpretty.register_uri(httpretty.POST, self.backend_class.ACCESS_TOKEN_URL,
+                               body=lambda request, url, headers: self._access_token_body(request, url, headers,
+                                                                                          username))
+
+        # Send the response to this application's OAuth2 consumer URL
+        oauth2_complete_path = '{0}?state={1}'.format(reverse('social:complete', args=[self.backend_name]), state)
+
+        if failure:
+            oauth2_complete_path += '&error=access_denied'
+
+        response = self.client.get(oauth2_complete_path)
+        self.assertEqual(response.status_code, 302)
+
+        redirect_path = settings.SOCIAL_AUTH_LOGIN_ERROR_URL if failure else settings.LOGIN_REDIRECT_URL
+        self.assertEqual(response['Location'], 'http://testserver{}'.format(redirect_path))
+
+    def test_new_user(self):
+        """
+        A new user should be created if the username from the OAuth2 provider is not linked to an existing account.
+        """
+
+        original_user_count = User.objects.count()
+
+        self._check_oauth2_handshake()
+
+        # Verify new user created
+        self.assertEqual(User.objects.count(), original_user_count + 1)
+        user = self.get_latest_user()
+        self.assertEqual(user.username, self.DEFAULT_USERNAME)
+
+        self.assertUserLoggedIn(user)
+
+    def test_existing_user(self):
+        """
+        Verify system logs in a user (and does not create a new account) when the username from the OAuth2 provider
+        matches an existing account in the system.
+        """
+        user = self.user
+
+        original_user_count = User.objects.count()
+
+        self._check_oauth2_handshake(user.username)
+
+        # Verify no new users created
+        self.assertEqual(User.objects.count(), original_user_count)
+
+        self.assertUserLoggedIn(user)
+
+    def test_access_denied(self):
+        self._check_oauth2_handshake(failure=True)
 
     def test_user_details(self):
         # Create a new user
