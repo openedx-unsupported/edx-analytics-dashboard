@@ -4,7 +4,7 @@
 Partial: App-wide header element
 {% endcomment %}
 
-<nav class="navbar navbar-default" role="navigation" id="nav">
+<header class="navbar navbar-default" role="banner" aria-label="main" id="nav">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
@@ -14,30 +14,23 @@ Partial: App-wide header element
         <span class="icon-bar"></span>
       </button>
 
-            {% include 'brand.html' with class_prefix='navbar' %}
-        </div>
+      {% include 'brand.html' with class_prefix='navbar' %}
+      <span class="active-course-number navbar-link navbar-brand">{{ course_id }}</span>
+    </div>
 
     <div class="collapse navbar-collapse" id="main-nav">
-      <ul class="nav nav-pills navbar-nav">
-        <li>
-          <a href="#" class="active-course navbar-link">
-            <span class="active-course-number">{{ course_id }}</span>
-          </a>
-        </li>
-      </ul>
-
       <ul class="nav navbar-nav navbar-right">
         <li>
           <a class="navbar-link " href="#">{% trans "Help" %}</a>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle active-user navbar-link" data-toggle="dropdown">
-            <i class="ico-user fa fa-graduation-cap"></i>
+          <a href="#" class="dropdown-toggle active-user navbar-link" data-toggle="dropdown" role="button" id="userMenu">
+            <i class="ico-user fa fa-graduation-cap" aria-hidden="true"></i>
             <span class="active-user-name">{{ request.user.username }}</span>
             <i class="ico ico-indicator fa fa-caret-down"></i>
           </a>
 
-          <ul class="dropdown-menu active-user-nav">
+          <ul class="dropdown-menu active-user-nav" role="menu" aria-labelledby="userMenu">
             <li>
               <a class="active-user-nav-logout" href="{% url 'logout' %}">{% trans "Logout" %}</a>
             </li>
@@ -48,5 +41,5 @@ Partial: App-wide header element
     <!-- / navbar-collapse -->
   </div>
   <!-- / container -->
-</nav>
+</header>
 <!-- / navbar -->

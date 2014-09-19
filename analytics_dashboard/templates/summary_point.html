@@ -1,9 +1,9 @@
 <div class="summary-point text-center">
   <div class="summary-point-wrapper">
     {% with value=value|default_if_none:0 %}
-      <h2 class="summary-point-number" title="{{ value }}">{{ value|truncatechars:13 }}</h2>
+      <div class="summary-point-number" title="{{ value }}">{{ value|truncatechars:13 }}</div>
     {% endwith %}
-    <h4 class="summary-point-label">{{ label }}</h4>
+    <div class="summary-point-label">{{ label }}</div>
     {% if subheading %}
       <span class="summary-point-note text-muted">{{ subheading }}</span>
     {% endif %}

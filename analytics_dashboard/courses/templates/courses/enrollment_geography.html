@@ -16,7 +16,7 @@ Individual course-centric enrollment geography view.
 
 {% block content %}
 
-  <section class="view-section" data-section="enrollment-location">
+  <section class="view-section" data-section="enrollment-location" aria-hidden="true">
     <div class="section-heading">
       <h4 class="section-title">{% trans "Geographic Distribution" %}</h4>
       <span class="section-heading-note small">{% trans "Where are my students?" %}</span>
@@ -89,7 +89,8 @@ Individual course-centric enrollment geography view.
         <a href="{% url 'courses:csv_enrollment_by_country' course_id=course_id %}" class="btn btn-default"
            data-role="enrollment-location-csv" data-track-type="click"
            data-track-event="edx.bi.csv.downloaded" data-track-category="geographic">
-          <i class="ico fa fa-download"></i> {% trans "Download CSV" %}
+          <i class="ico fa fa-download" aria-hidden="true"></i> {% trans "Download CSV" %}
+           <span class="sr-only">{% trans "Geographic Breakdown" %}</span>
         </a>
       </div>
     </div>

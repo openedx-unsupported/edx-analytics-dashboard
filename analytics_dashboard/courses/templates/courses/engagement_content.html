@@ -17,7 +17,7 @@ Individual course-centric engagement content view.
 {% endblock javascript %}
 
 {% block content %}
-  <section class="view-section">
+  <section class="view-section" aria-hidden="true">
     <div class="section-heading">
       <h4 class="section-title">{% trans "Weekly Student Engagement" %}</h4>
       <span class="section-heading-note small">{% trans "How many students are interacting with my course?" %}</span>
@@ -83,7 +83,8 @@ Individual course-centric engagement content view.
         <a href="{% url 'courses:csv_engagement_activity_trend' course_id=course_id %}" class="btn btn-default"
            data-role="engagement-trend-csv" data-track-type="click"
            data-track-event="edx.bi.csv.downloaded" data-track-category="trend">
-          <i class="ico fa fa-download"></i> {% trans "Download CSV" %}
+          <i class="ico fa fa-download" aria-hidden="true"></i> {% trans "Download CSV" %}
+          <span class="sr-only">{% trans "Content Engagement Breakdown" %}</span>
         </a>
       </div>
     </div>

@@ -1,27 +1,29 @@
-// edX Analytics Prototype: style compile
+// edX Insights
 // ====================
-// NOTE: this Sass compiles into the static CSS needed for the edX Analytics Prototype to render. This styling heavily reilies upon Bootstrap UI (getbootstrap.com) and Font Awesome iconography (http://fontawesome.io/)
+// NOTE: this Sass compiles into the static CSS needed for the edX Analytics Prototype to render. This styling relies
+// heavily upon Bootstrap UI (getbootstrap.com) and Font Awesome iconography (http://fontawesome.io/)
 
 
 // config
 // --------------------
-@import "config-assets";                                                                            // config: assets
-@import "config-variables";                                                                         // config: variables to override
+@import "config-assets";
+@import "config-variables";
 
 // vendor
 // --------------------
-@import "../vendor/bootstrap/stylesheets/bootstrap";                                                // vendor: bootstrap
-@import "../vendor/font-awesome/scss/font-awesome";                                                 // vendor: font awesome
+@import "../vendor/bootstrap/stylesheets/bootstrap";
+@import "../vendor/bootstrap-accessibility-plugin/css/bootstrap-accessibility.css";
+@import "../vendor/font-awesome/scss/font-awesome";
 @import "../vendor/dataTables/dataTables.bootstrap";
 @import "../vendor/dataTables/dataTables.fontAwesome";
 @import "../vendor/nvd3/nv.d3";
 
 // app styling
 // --------------------
-@import 'base';                                                                                     // base styling and customization
+@import 'base';
 @import 'sticky-footer';
 
 // utility/misc.
 // --------------------
-@import 'developer';                                                                                // developer-friendly file: add rough/WIP styling that needs UI triage
-@import 'shame';                                                                                    // shame file - used for any bad-form/orphaned css
+@import 'developer';    // developer-friendly file: add rough/WIP styling that needs UI triage
+@import 'shame';        // shame file - used for any bad-form/orphaned css

@@ -44,7 +44,8 @@
     <div class="container">
         <div class="row">
           {% block content-outer %}
-            <main class="col-xs-12 main" id="content">
+            {#  Translators: Application here refers to the web site/application being used (e.g. the dashboard). #}
+            <main class="col-xs-12 main" id="content" aria-label="{% trans "Application" %}">
                 <div class="view-head">
                   {% block header-text %}
                     {% if page_title %}

@@ -261,7 +261,12 @@ hr.has-emphasis {
 
   .summary-point-number {
     @include transition(color ease-in-out .50s);
+    @extend h2;
     margin-top: 0;
+  }
+
+  .summary-point-label {
+    @extend h4;
   }
 }
 

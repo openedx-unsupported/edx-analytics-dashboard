@@ -10,6 +10,7 @@ var require = {
         underscore: 'vendor/underscore-min',
         backbone: 'vendor/backbone-min',
         bootstrap: 'vendor/bootstrap/javascripts/bootstrap.min',
+        bootstrap_accessibility: 'vendor/bootstrap-accessibility-plugin/js/bootstrap-accessibility.min',
         models: 'js/models',
         views: 'js/views',
         utils: 'js/utils',
@@ -26,6 +27,9 @@ var require = {
     shim: {
         bootstrap: {
             deps: ['jquery']
+        },
+        bootstrap_accessibility: {
+            deps: ['bootstrap']
         },
         underscore: {
             exports: '_'
