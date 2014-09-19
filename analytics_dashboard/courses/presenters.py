@@ -16,41 +16,25 @@ class BasePresenter(object):
     """
 
     def __init__(self, course_id, timeout=5):
-        # API client
         self.client = Client(base_url=settings.DATA_API_URL,
                              auth_token=settings.DATA_API_AUTH_TOKEN,
                              timeout=timeout)
         self.course_id = course_id
         self.course = self.client.courses(self.course_id)
-        self.date_format = Client.DATE_FORMAT
-        self.date_time_format = Client.DATETIME_FORMAT
 
-    def parse_date(self, date_string):
-        """
-        Parse a date string to a Date object using the API date format.
+    @staticmethod
+    def parse_api_date(s):
+        """ Parse a string according to the API date format. """
+        return datetime.datetime.strptime(s, Client.DATE_FORMAT).date()
 
-        Arguments:
-            date_string (str): Date string to parse
-        """
-        return datetime.datetime.strptime(date_string, self.date_format).date()
+    @staticmethod
+    def parse_api_datetime(s):
+        """ Parse a string according to the API datetime format. """
+        return datetime.datetime.strptime(s, Client.DATETIME_FORMAT)
 
-    def format_date(self, date):
-        """
-        Converts a Date object to a string using the API date format.
-
-        Arguments:
-            date (Date): Date to format
-        """
-        return date.strftime(self.date_format)
-
-    def parse_date_time_as_date(self, date_time_string):
-        """
-        Parse a date time string to a Date object.
-
-        Arguments:
-            date_time_string (str): Date time string to parse
-        """
-        return datetime.datetime.strptime(date_time_string, self.date_time_format).date()
+    @staticmethod
+    def strip_time(s):
+        return s[:-7]
 
 
 class CourseEngagementPresenter(BasePresenter):
@@ -59,10 +43,12 @@ class CourseEngagementPresenter(BasePresenter):
     """
 
     def get_activity_types(self):
-        # feature gate posted_forum.  If enabled, the forum will be rendered in the engagement page
         activities = [AT.ANY, AT.PLAYED_VIDEO, AT.ATTEMPTED_PROBLEM]
+
+        # Include forum activity only if feature is enabled.
         if switch_is_active('show_engagement_forum_activity'):
             activities.append(AT.POSTED_FORUM)
+
         return activities
 
     def _build_trend(self, api_trends):
@@ -76,7 +62,7 @@ class CourseEngagementPresenter(BasePresenter):
         # the field if no data exists for it, so we fill in the zeros here)
         trends = []
         for datum in api_trends:
-            trend_week = {'weekEnding': self.format_date(self.parse_date_time_as_date(datum['interval_end']))}
+            trend_week = {'weekEnding': self.strip_time(datum['interval_end'])}
             for trend_type in trend_types:
                 trend_week[trend_type] = datum[trend_type] if trend_type in datum else 0
             trends.append(trend_week)
@@ -87,11 +73,13 @@ class CourseEngagementPresenter(BasePresenter):
         """
         Format all summary numbers and week ending time.
         """
-        # store our activity data from the API
-        most_recent = api_trends[-1]
-        summary = {'interval_end': self.parse_date_time_as_date(most_recent['interval_end'])}
 
-        # fill in gaps in the summary if no data found so we can display a proper message
+        most_recent = api_trends[-1]
+        summary = {
+            'last_updated': self.parse_api_datetime(most_recent['created'])
+        }
+
+        # Fill in gaps in the summary if no data found so we can display a proper message
         activity_types = self.get_activity_types()
         for activity_type in activity_types:
             if activity_type in most_recent:
@@ -130,11 +118,10 @@ class CourseEnrollmentPresenter(BasePresenter):
         """
         api_response = self.course.enrollment(demographic.LOCATION)
         data = []
-        update_date = None
         summary = {}
 
         if api_response:
-            update_date = api_response[0]['date']
+            last_updated = self.parse_api_datetime(api_response[0]['created'])
 
             # Sort data by descending enrollment count
             api_response = sorted(api_response, key=lambda i: i['count'], reverse=True)
@@ -151,13 +138,14 @@ class CourseEnrollmentPresenter(BasePresenter):
 
             # Include a summary of the number of countries and the top 3 countries.
             summary = {
+                'last_updated': last_updated,
                 'num_countries': len(data),
                 'top_countries': []
             }
             for i in range(0, 3):
                 summary['top_countries'].append(data[i])
 
-        return data, update_date, summary
+        return summary, data
 
     def _build_summary(self, api_trends):
         """
@@ -166,7 +154,7 @@ class CourseEnrollmentPresenter(BasePresenter):
 
         # Establish default return values
         data = {
-            'date': None,
+            'last_updated': None,
             'current_enrollment': None,
             'enrollment_change_last_7_days': None,
         }
@@ -177,12 +165,12 @@ class CourseEnrollmentPresenter(BasePresenter):
 
             # Get data for a month prior to most-recent data
             days_in_week = 7
-            last_enrollment_date = self.parse_date(recent_enrollment['date'])
+            last_enrollment_date = self.parse_api_datetime(recent_enrollment['created'])
 
             # Add the first values to the returned data dictionary using the most-recent enrollment data
             current_enrollment = recent_enrollment['count']
             data = {
-                'date': last_enrollment_date,
+                'last_updated': last_enrollment_date,
                 'current_enrollment': current_enrollment
             }
 

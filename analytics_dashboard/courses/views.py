@@ -6,18 +6,18 @@ from django.conf import settings
 from django.core.exceptions import PermissionDenied
 from django.core.urlresolvers import reverse
 from django.http import Http404, HttpResponse
+from django.utils import dateformat
 from django.views.generic import TemplateView
 from django.views.generic.base import RedirectView
 from django.utils.translation import ugettext_lazy as _
-
 from braces.views import LoginRequiredMixin
+
 from analyticsclient.constants import data_format, demographic
 from analyticsclient.client import Client
 from analyticsclient.exceptions import NotFoundError
-
 from courses import permissions
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter
-from courses.utils import get_formatted_date, is_feature_enabled
+from courses.utils import is_feature_enabled
 
 
 class CourseContextMixin(object):
@@ -205,7 +205,9 @@ class CourseView(LoginRequiredMixin, CoursePermissionMixin, TemplateView):
 
 
 class CourseTemplateView(CourseContextMixin, CourseNavBarMixin, CourseView):
-    pass
+    @staticmethod
+    def format_last_updated_date_and_time(d):
+        return {'update_date': dateformat.format(d, settings.DATE_FORMAT), 'update_time': dateformat.format(d, 'g:i A')}
 
 
 class EnrollmentTemplateView(CourseTemplateView):
@@ -258,12 +260,18 @@ class EnrollmentActivityView(EnrollmentTemplateView):
 
         presenter = CourseEnrollmentPresenter(self.course_id)
         summary, trend = presenter.get_summary_and_trend_data()
+        last_updated = summary['last_updated']
 
         # add the enrollment data for the page
         context['js_data']['course']['enrollmentTrends'] = trend
+        # Translators: Do not translate UTC.
+        update_message = _('Enrollment activity data was last updated %(update_date)s at %(update_time)s UTC.')
+
         context.update({
             'page_data': json.dumps(context['js_data']),
             'summary': summary,
+            'update_message': update_message % self.format_last_updated_date_and_time(last_updated)
+
         })
 
         return context
@@ -279,15 +287,20 @@ class EnrollmentGeographyView(EnrollmentTemplateView):
         context = super(EnrollmentGeographyView, self).get_context_data(**kwargs)
 
         presenter = CourseEnrollmentPresenter(self.course_id)
-        data, last_update, summary = presenter.get_geography_data()
+        summary, data = presenter.get_geography_data()
+        last_updated = summary['last_updated']
 
         # Add summary data (e.g. num countries, top 3 countries) directly to the context
         context.update(summary)
 
         context['js_data']['course']['enrollmentByCountry'] = data
-        context['js_data']['course']['enrollmentByCountryUpdateDate'] = get_formatted_date(last_update)
+
+        # Translators: Do not translate UTC.
+        update_message = _('Geographic student data was last updated %(update_date)s at %(update_time)s UTC.')
+
         context.update({
             'page_data': json.dumps(context['js_data']),
+            'update_message': update_message % self.format_last_updated_date_and_time(last_updated)
         })
 
         return context
@@ -305,14 +318,17 @@ class EngagementContentView(EngagementTemplateView):
         presenter = CourseEngagementPresenter(self.course_id)
 
         summary, trends = presenter.get_summary_and_trend_data()
-        end_date = summary['interval_end']
+        last_updated = summary['last_updated']
 
         context['js_data']['course']['engagementTrends'] = trends
-        summary['week_of_activity'] = end_date
+
+        # Translators: Do not translate UTC.
+        update_message = _('Course engagement data was last updated %(update_date)s at %(update_time)s UTC.')
 
         context.update({
             'summary': summary,
             'page_data': json.dumps(context['js_data']),
+            'update_message': update_message % self.format_last_updated_date_and_time(last_updated)
         })
 
         return context
@@ -320,12 +336,10 @@ class EngagementContentView(EngagementTemplateView):
 
 class CourseEnrollmentByCountryCSV(CSVResponseMixin, CourseView):
     def get_context_data(self, **kwargs):
-        context = super(CourseEnrollmentByCountryCSV, self).get_context_data(
-            **kwargs)
+        context = super(CourseEnrollmentByCountryCSV, self).get_context_data(**kwargs)
 
         context.update({
-            'data': self.course.enrollment(demographic.LOCATION,
-                                           data_format=data_format.CSV),
+            'data': self.course.enrollment(demographic.LOCATION, data_format=data_format.CSV),
             'filename': '{0}_enrollment_by_country.csv'.format(self.course_id)
         })
 
@@ -338,8 +352,7 @@ class CourseEnrollmentCSV(CSVResponseMixin, CourseView):
         end_date = datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
 
         context.update({
-            'data': self.course.enrollment(data_format=data_format.CSV,
-                                           end_date=end_date),
+            'data': self.course.enrollment(data_format=data_format.CSV, end_date=end_date),
             'filename': '{0}_enrollment.csv'.format(self.course_id)
         })
 
@@ -350,6 +363,7 @@ class CourseEngagementActivityTrendCSV(CSVResponseMixin, CourseView):
     def get_context_data(self, **kwargs):
         context = super(CourseEngagementActivityTrendCSV, self).get_context_data(**kwargs)
         end_date = datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
+
         context.update({
             'data': self.course.activity(data_format=data_format.CSV, end_date=end_date),
             'filename': '{0}_engagement_activity_trend.csv'.format(self.course_id)
@@ -375,8 +389,7 @@ class CourseIndex(LoginRequiredMixin, TemplateView):
         courses = permissions.get_user_course_permissions(self.request.user)
 
         if not courses:
-            # The user is probably not a course administrator and should
-            # not be using this application.
+            # The user is probably not a course administrator and should not be using this application.
             raise PermissionDenied
 
         context['courses'] = courses

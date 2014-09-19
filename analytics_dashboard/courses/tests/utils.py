@@ -2,9 +2,14 @@ import StringIO
 import csv
 import datetime
 
+from analyticsclient.client import Client
 import analyticsclient.constants.activity_type as AT
 
 from courses.permissions import set_user_course_permissions
+
+
+CREATED_DATETIME = datetime.datetime(year=2014, month=2, day=2)
+CREATED_DATETIME_STRING = CREATED_DATETIME.strftime(Client.DATETIME_FORMAT)
 
 
 def get_mock_enrollment_data(course_id):
@@ -17,7 +22,8 @@ def get_mock_enrollment_data(course_id):
         data.append({
             'date': date.strftime('%Y-%m-%d'),
             'course_id': course_id,
-            'count': i
+            'count': i,
+            'created': CREATED_DATETIME_STRING
         })
 
     return data
@@ -25,7 +31,7 @@ def get_mock_enrollment_data(course_id):
 
 def get_mock_enrollment_summary():
     return {
-        'date': datetime.date(year=2014, month=1, day=31),
+        'last_updated': CREATED_DATETIME,
         'current_enrollment': 30,
         'enrollment_change_last_7_days': 7,
     }
@@ -41,7 +47,7 @@ def get_mock_api_enrollment_geography_data(course_id):
              (None, u'UNKNOWN', 100))
     for item in items:
         data.append({'date': '2014-01-01', 'course_id': course_id, 'count': item[2],
-                     'country': {'alpha3': item[0], 'name': item[1]}})
+                     'country': {'alpha3': item[0], 'name': item[1]}, 'created': CREATED_DATETIME_STRING})
 
     return data
 
@@ -52,12 +58,14 @@ def get_mock_presenter_enrollment_geography_data():
         {'countryCode': 'CAN', 'countryName': 'Canada', 'count': 300, 'percent': 0.3},
         {'countryCode': 'GER', 'countryName': 'Germany', 'count': 100, 'percent': 0.1},
     ]
-    last_update = '2014-01-01'
+
     summary = {
+        'last_updated': CREATED_DATETIME,
         'num_countries': 3,
         'top_countries': data
     }
-    return data, last_update, summary
+
+    return summary, data
 
 
 def convert_list_of_dicts_to_csv(data, fieldnames=None):
@@ -95,7 +103,7 @@ def mock_engagement_activity_summary_and_trend_data():
     ]
 
     summary = {
-        'interval_end': datetime.date(year=2013, month=1, day=8),
+        'last_updated': CREATED_DATETIME,
         AT.ANY: 100,
         AT.ATTEMPTED_PROBLEM: 301,
         AT.PLAYED_VIDEO: 1000,
@@ -105,7 +113,8 @@ def mock_engagement_activity_summary_and_trend_data():
     return summary, trend
 
 
-def mock_api_engagement_activity_trend_data():
+# pylint: disable=unused-argument
+def mock_course_activity(start_date=None, end_date=None):
     return [
         {
             'interval_end': '2014-09-01T000000',
@@ -113,6 +122,7 @@ def mock_api_engagement_activity_trend_data():
             AT.ATTEMPTED_PROBLEM: 0,
             AT.PLAYED_VIDEO: 10000,
             AT.POSTED_FORUM: 45,
+            'created': CREATED_DATETIME_STRING
         },
         {
             'interval_end': '2014-09-08T000000',
@@ -120,5 +130,6 @@ def mock_api_engagement_activity_trend_data():
             AT.ATTEMPTED_PROBLEM: 301,
             AT.PLAYED_VIDEO: 1000,
             AT.POSTED_FORUM: 0,
+            'created': CREATED_DATETIME_STRING
         },
     ]

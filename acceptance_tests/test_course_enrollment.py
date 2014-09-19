@@ -2,7 +2,7 @@ import datetime
 
 from bok_choy.web_app_test import WebAppTest
 
-from analyticsclient import demographic
+from analyticsclient.constants import demographic
 from acceptance_tests import CoursePageTestsMixin
 from acceptance_tests.pages import CourseEnrollmentActivityPage, CourseEnrollmentGeographyPage
 
@@ -29,17 +29,17 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         self._test_enrollment_metrics_and_graph()
         self._test_enrollment_trend_table()
 
+    def _get_data_update_message(self):
+        current_enrollment = self.course.enrollment()[0]
+        last_updated = datetime.datetime.strptime(current_enrollment['created'], self.api_datetime_format)
+        return 'Enrollment activity data was last updated %(update_date)s at %(update_time)s UTC.' % \
+               self.format_last_updated_date_and_time(last_updated)
+
     def _test_enrollment_metrics_and_graph(self):
         """ Verify the graph loads and that the metric tiles display the correct information. """
 
         enrollment_data = self.get_enrollment_data()
         current_enrollment = enrollment_data[-1]
-
-        # Check last updated
-        last_updated = datetime.datetime.strptime(current_enrollment['date'], self.api_date_format)
-        element = self.page.q(css="span[data-role=enrollment-last-updated]")
-        self.assertTrue(element.present)
-        self.assertEqual(element.text[0], self.format_time_as_dashboard(last_updated))
 
         # Check values of summary boxes
         current_enrollment_count = current_enrollment['count']
@@ -98,6 +98,12 @@ class CourseEnrollmentGeographyTests(CoursePageTestsMixin, WebAppTest):
         self._test_enrollment_country_table()
         self._test_metrics()
 
+    def _get_data_update_message(self):
+        current_enrollment = self.course.enrollment(demographic.LOCATION)[0]
+        last_updated = datetime.datetime.strptime(current_enrollment['created'], self.api_datetime_format)
+        return 'Geographic student data was last updated %(update_date)s at %(update_time)s UTC.' % \
+               self.format_last_updated_date_and_time(last_updated)
+
     def _test_enrollment_country_map(self):
         """ Verify the geolocation map is loaded. """
 
@@ -142,14 +148,8 @@ class CourseEnrollmentGeographyTests(CoursePageTestsMixin, WebAppTest):
         selector = "a[data-role=enrollment-location-csv]"
         self.assertValidHref(selector)
 
-        # Check last updated
+        # Check the results of the table
         rows = self.page.browser.find_elements_by_css_selector('%s tbody tr' % table_selector)
-        last_updated = datetime.datetime.strptime(self.enrollment_data[0]['date'], self.api_date_format)
-        element = self.page.q(css="span[data-view=enrollment-by-country-update-date]")
-        self.assertTrue(element.present)
-        self.assertEqual(element.text[0], self.format_time_as_dashboard(last_updated))
-
-        # check the results of the table
         self.assertGreater(len(rows), 0)
 
         sum_count = float(sum([datum['count'] for datum in self.enrollment_data]))
