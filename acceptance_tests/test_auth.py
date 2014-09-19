@@ -4,7 +4,7 @@ from acceptance_tests import USERNAME, PASSWORD, ENABLE_OAUTH_AUTHORIZE
 from pages import LoginPage
 
 
-class OAuthFlowTests(WebAppTest):
+class OAuth2FlowTests(WebAppTest):
     def setUp(self):
         """
         Instantiate the page objects.
