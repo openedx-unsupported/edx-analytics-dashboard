@@ -75,8 +75,8 @@ class PermissionsTests(TestCase):
         mock_refresh.assert_called_with(self.user)
         self.assertFalse(permissions.user_can_view_course(self.user, self.course_id))
 
-    @mock.patch('analytics_dashboard.backends.EdXOpenIdConnect.get_user_permissions',
-                mock.Mock(return_value={'courses': ['edX/DemoX/Demo_Course']}))
+    @mock.patch('analytics_dashboard.backends.EdXOpenIdConnect.get_json',
+                mock.Mock(return_value={'staff_courses': ['edX/DemoX/Demo_Course']}))
     def test_refresh_user_course_permissions(self):
         """
         Verify course permissions are refreshed from the auth server.
@@ -101,7 +101,7 @@ class PermissionsTests(TestCase):
 
         # Refreshing the permissions should populate the cache and return the updated permissions
         actual = permissions.refresh_user_course_permissions(self.user)
-        self.assertListEqual(actual, courses)
+        self.assertListEqual(list(actual), courses)
 
         # Verify the courses are stored in the cache
         permissions_key = 'course_permissions_{}'.format(self.user.pk)
@@ -114,7 +114,7 @@ class PermissionsTests(TestCase):
         # Sanity check: verify the user can view the course
         self.assertTrue(permissions.user_can_view_course(self.user, self.course_id))
 
-    @mock.patch('analytics_dashboard.backends.EdXOpenIdConnect.get_user_permissions', mock.Mock(return_value={}))
+    @mock.patch('analytics_dashboard.backends.EdXOpenIdConnect.get_json', mock.Mock(return_value={}))
     def test_refresh_user_course_permissions_with_missing_permissions(self):
         """
         If the authorization backend fails to return course permission data, a warning should be logged and the users
@@ -160,5 +160,5 @@ class PermissionsTests(TestCase):
 
         # Raise a PermissionsError if the backend is unavailable.
         G(UserSocialAuth, user=self.user, provider='edx-oidc', extra_data={'access_token': '1234'})
-        with mock.patch('analytics_dashboard.backends.EdXOpenIdConnect.get_user_permissions', side_effect=Exception):
+        with mock.patch('analytics_dashboard.backends.EdXOpenIdConnect.get_json', side_effect=Exception):
             self.assertRaises(PermissionsRetrievalFailedError, permissions.get_user_course_permissions, self.user)

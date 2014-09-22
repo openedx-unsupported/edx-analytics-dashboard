@@ -1,3 +1,4 @@
+
 import datetime
 import logging
 from django.conf import settings
@@ -70,11 +71,7 @@ def refresh_user_course_permissions(user):
     if not access_token:
         raise InvalidAccessTokenError
 
-    try:
-        permissions = backend.get_user_permissions(access_token)
-        courses = permissions.get('courses')
-    except Exception as e:
-        raise PermissionsRetrievalFailedError(e)
+    courses = _get_user_courses(access_token, backend)
 
     # If the backend does not provide course permissions, assign no permissions and log a warning as there may be an
     # issue with the backend provider.
@@ -83,6 +80,24 @@ def refresh_user_course_permissions(user):
         courses = []
 
     set_user_course_permissions(user, courses)
+
+    return courses
+
+
+def _get_user_courses(access_token, backend):
+    """ Return a list of courses that the user has access to."""
+    # The authorized courses can come form different claims according to the user role. For example there could be a
+    # list of courses the user has access as staff and another that the user has access as instructor. The variable
+    # `settings.COURSE_PERMISSIONS_CLAIMS` is a list of the claims that contain the courses.
+    try:
+        claims = settings.COURSE_PERMISSIONS_CLAIMS
+        data = backend.get_user_claims(access_token, claims)
+    except Exception as e:
+        raise PermissionsRetrievalFailedError(e)
+
+    courses = set()
+    for claim in claims:
+        courses.update(data.get(claim, []))
 
     return courses
 

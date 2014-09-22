@@ -392,6 +392,6 @@ class CourseIndex(LoginRequiredMixin, TemplateView):
             # The user is probably not a course administrator and should not be using this application.
             raise PermissionDenied
 
-        context['courses'] = courses
+        context['courses'] = sorted(courses)
 
         return context
