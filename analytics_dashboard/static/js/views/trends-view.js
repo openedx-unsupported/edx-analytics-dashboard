@@ -46,7 +46,8 @@ define(['bootstrap', 'd3', 'jquery', 'moment', 'nvd3', 'underscore', 'views/attr
 
             styleChart: function () {
                 var canvas = d3.select(this.el),
-                    translateRegex = /translate\((\d+),\s*(\d+)\)/g,
+                    // ex. translate(200, 200) or translate(200 200)
+                    translateRegex = /translate\((\d+)[,\s]\s*(\d+)\)/g,
                     xAxisMargin = 6,
                     axisEl,
                     matches;
@@ -73,8 +74,7 @@ define(['bootstrap', 'd3', 'jquery', 'moment', 'nvd3', 'underscore', 'views/attr
                 // Get the existing X-axis translation and shift it down a few more pixels.
                 axisEl = canvas.select('.nvd3 .nv-axis.nv-x');
                 matches = translateRegex.exec(axisEl.attr('transform'));
-                axisEl.attr('transform', 'translate(' + matches[1] + ',' + (parseInt(matches[2], 10) + xAxisMargin) + ')')
-
+                axisEl.attr('transform', 'translate(' + matches[1] + ',' + (parseInt(matches[2], 10) + xAxisMargin) + ')');
             },
 
             /**
