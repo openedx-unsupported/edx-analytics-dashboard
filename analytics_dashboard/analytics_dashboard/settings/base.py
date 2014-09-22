@@ -306,6 +306,9 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
+# Set to true if using SSL and running behind a proxy
+SOCIAL_AUTH_REDIRECT_IS_HTTPS = False
+
 SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'email']
 
 SOCIAL_AUTH_PIPELINE = (
