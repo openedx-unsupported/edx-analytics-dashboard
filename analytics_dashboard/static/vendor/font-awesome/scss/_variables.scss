@@ -1,7 +1,9 @@
 // Variables
 // --------------------------
 
-$fa-font-path:        "../../vendor/font-awesome/fonts" !default;
+// Prepend this path with the value of STATIC_URL.
+$fa-font-path:        "/static/vendor/font-awesome/fonts" !default;
+
 //$fa-font-path:        "//netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts" !default; // for referencing Bootstrap CDN font files directly
 $fa-css-prefix:       fa !default;
 $fa-version:          "4.2.0" !default;
