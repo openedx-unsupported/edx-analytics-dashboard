@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load waffle_tags %}
 
 {% comment %}
 Partial: App-wide header element
@@ -20,9 +21,11 @@ Partial: App-wide header element
 
     <div class="collapse navbar-collapse" id="main-nav">
       <ul class="nav navbar-nav navbar-right">
+        {% switch enable_navbar_help_link %}
         <li>
           <a class="navbar-link " href="#">{% trans "Help" %}</a>
         </li>
+        {% endswitch %}
         <li class="dropdown">
           <a href="#" class="dropdown-toggle active-user navbar-link" data-toggle="dropdown" role="button" id="userMenu">
             <i class="ico-user fa fa-graduation-cap" aria-hidden="true"></i>

@@ -47,6 +47,7 @@ validate: validate_python validate_js
 
 demo:
 	cd analytics_dashboard && ./manage.py switch show_engagement_forum_activity on --create
+	cd analytics_dashboard && ./manage.py switch enable_navbar_help_link on --create
 
 
 generate_fake_translations:
