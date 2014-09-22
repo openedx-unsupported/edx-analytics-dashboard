@@ -342,10 +342,15 @@ ENABLE_AUTO_AUTH = False
 # Maximum time (in seconds) before course permissions expire and need to be refreshed
 COURSE_PERMISSIONS_TIMEOUT = 900
 
+LOGIN_REDIRECT_URL = '/courses/'
+
 # Determines if course permissions should be checked before rendering course views.
 ENABLE_COURSE_PERMISSIONS = True
 
-LOGIN_REDIRECT_URL = '/courses/'
+# What scopes and claims should be used to get courses
+COURSE_PERMISSIONS_SCOPE = ['course_staff']
+COURSE_PERMISSIONS_CLAIMS = ['staff_courses']
+
 ########## END AUTHENTICATION
 
 # The application and platform display names to be used in templates, emails, etc.
