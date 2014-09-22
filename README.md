@@ -42,6 +42,7 @@ The following switches are available:
 | Switch                            | Purpose                                                  |
 |-----------------------------------|----------------------------------------------------------|
 | show_engagement_forum_activity    | Show the forum activity on the course engagement page    |
+| enable_navbar_help_link           | Show help link in main navbar.                           |
 
 Authentication & Authorization
 ------------------------------
