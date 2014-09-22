@@ -15,6 +15,11 @@ from analytics_dashboard.settings.logger import get_logger_config
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True
 
+# Minify CSS
+COMPRESS_CSS_FILTERS += [
+    'compressor.filters.cssmin.CSSMinFilter',
+]
+
 LOGGING = get_logger_config()
 
 
