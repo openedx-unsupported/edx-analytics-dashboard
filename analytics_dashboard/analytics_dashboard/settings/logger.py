@@ -94,7 +94,8 @@ def get_logger_config(log_dir='/var/tmp',
             'local': {
                 'level': local_loglevel,
                 'class': 'logging.handlers.SysLogHandler',
-                'address': '/dev/log',
+                # Use a different address for Mac OS X
+                'address': '/var/run/syslog' if sys.platform == "darwin" else '/dev/log',
                 'formatter': 'syslog_format',
                 'facility': SysLogHandler.LOG_LOCAL0,
             },
