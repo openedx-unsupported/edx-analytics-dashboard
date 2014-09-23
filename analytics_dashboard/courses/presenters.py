@@ -103,6 +103,8 @@ class CourseEngagementPresenter(BasePresenter):
 class CourseEnrollmentPresenter(BasePresenter):
     """ Presenter for the course enrollment data. """
 
+    NUMBER_TOP_COUNTRIES = 3
+
     def get_summary_and_trend_data(self):
         """
         Retrieve recent summary and all historical trend data.
@@ -140,10 +142,8 @@ class CourseEnrollmentPresenter(BasePresenter):
             summary = {
                 'last_updated': last_updated,
                 'num_countries': len(data),
-                'top_countries': []
+                'top_countries': data[:self.NUMBER_TOP_COUNTRIES]
             }
-            for i in range(0, 3):
-                summary['top_countries'].append(data[i])
 
         return summary, data
 

@@ -7,8 +7,9 @@ from django.test import TestCase
 import analyticsclient.constants.activity_type as AT
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter, BasePresenter
 from courses.tests.utils import get_mock_enrollment_data, get_mock_enrollment_summary, \
-    get_mock_api_enrollment_geography_data, get_mock_presenter_enrollment_geography_data, mock_course_activity, \
-    CREATED_DATETIME
+    get_mock_api_enrollment_geography_data, get_mock_presenter_enrollment_geography_data, \
+    get_mock_api_enrollment_geography_data_limited, get_mock_presenter_enrollment_geography_data_limited, \
+    mock_course_activity, CREATED_DATETIME
 
 
 class CourseEngagementPresenterTests(TestCase):
@@ -119,10 +120,21 @@ class CourseEnrollmentPresenterTests(TestCase):
 
     @mock.patch('analyticsclient.course.Course.enrollment')
     def test_get_geography_data(self, mock_enrollment):
+        # test with a full set of countries
         mock_data = get_mock_api_enrollment_geography_data(self.course_id)
         mock_enrollment.return_value = mock_data
 
         expected_summary, expected_data = get_mock_presenter_enrollment_geography_data()
+        summary, actual_data = self.presenter.get_geography_data()
+
+        self.assertDictEqual(summary, expected_summary)
+        self.assertListEqual(actual_data, expected_data)
+
+        # test with a small set of countries
+        mock_data = get_mock_api_enrollment_geography_data_limited(self.course_id)
+        mock_enrollment.return_value = mock_data
+
+        expected_summary, expected_data = get_mock_presenter_enrollment_geography_data_limited()
         summary, actual_data = self.presenter.get_geography_data()
 
         self.assertDictEqual(summary, expected_summary)
