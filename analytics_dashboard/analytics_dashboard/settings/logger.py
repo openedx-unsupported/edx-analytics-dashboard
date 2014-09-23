@@ -12,7 +12,7 @@ def get_logger_config(log_dir='/var/tmp',
                       dev_env=False,
                       debug=False,
                       local_loglevel='INFO',
-                      service_variant='analytics-dashboard'):
+                      service_variant='insights'):
 
     """
 
