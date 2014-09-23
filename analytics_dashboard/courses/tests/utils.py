@@ -52,6 +52,11 @@ def get_mock_api_enrollment_geography_data(course_id):
     return data
 
 
+def get_mock_api_enrollment_geography_data_limited(course_id):
+    data = get_mock_api_enrollment_geography_data(course_id)
+    return data[0:1]
+
+
 def get_mock_presenter_enrollment_geography_data():
     data = [
         {'countryCode': 'USA', 'countryName': 'United States', 'count': 500, 'percent': 0.5},
@@ -65,6 +70,20 @@ def get_mock_presenter_enrollment_geography_data():
         'top_countries': data
     }
 
+    return summary, data
+
+
+def get_mock_presenter_enrollment_geography_data_limited():
+    '''
+    Returns a smaller set of countries.
+    '''
+    summary, data = get_mock_presenter_enrollment_geography_data()
+    data = data[0:1]
+    data[0]['percent'] = 1.0
+    summary.update({
+        'num_countries': 1,
+        'top_countries': data
+    })
     return summary, data
 
 
