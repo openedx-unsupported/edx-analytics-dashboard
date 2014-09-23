@@ -1,7 +1,9 @@
+{% load humanize %}
+
 <div class="summary-point text-center">
   <div class="summary-point-wrapper">
     {% with value=value|default_if_none:0 %}
-      <div class="summary-point-number" title="{{ value }}">{{ value|truncatechars:13 }}</div>
+      <div class="summary-point-number" title="{{ value|intcomma }}">{{ value|intcomma|truncatechars:13 }}</div>
     {% endwith %}
     <div class="summary-point-label">{{ label }}</div>
     {% if subheading %}

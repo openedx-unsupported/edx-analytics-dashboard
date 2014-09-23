@@ -30,7 +30,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page){
             columns: [
                 {key: 'date', title: gettext('Date'), type: 'date'},
                 // Translators: The noun count (e.g. number of students)
-                {key: 'count', title: gettext('Total Enrollment'), className: 'text-right'}
+                {key: 'count', title: gettext('Total Enrollment'), className: 'text-right', type: 'number'}
             ],
             sorting: ['-date']
         });
