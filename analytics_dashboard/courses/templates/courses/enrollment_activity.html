@@ -44,7 +44,8 @@ Individual course-centric enrollment activity view.
     <div class="section-content">
       <div class="row">
         <div class="col-xs-12 col-sm-3" data-stat-type="current_enrollment">
-          {% trans "Current Enrollment" as label %}
+          {# Translators: This is a label to identify current student enrollment. #}
+          {% trans "Enrollment" as label %}
           {# Translators: This is a label indicating the number of students enrolled in a course. #}
           {% trans "Students enrolled in the course." as tooltip %}
           {% summary_point summary.current_enrollment label tooltip=tooltip %}
