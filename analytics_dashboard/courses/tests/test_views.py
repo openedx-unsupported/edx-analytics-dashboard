@@ -361,7 +361,7 @@ class CourseEngagementActivityTrendCSVViewTests(CourseCSVTestMixin, CourseEngage
         super(CourseEngagementActivityTrendCSVViewTests, self).test_response_no_data(mock_call)
 
 
-class CourseHomeViewTests(CourseEnrollmentViewTestMixin, TestCase):
+class CourseHomeViewTests(CourseEngagementViewTestMixin, TestCase):
     """
     Course homepage
 
