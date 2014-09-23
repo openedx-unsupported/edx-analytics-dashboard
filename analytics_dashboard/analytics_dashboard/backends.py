@@ -28,7 +28,7 @@ class EdXOpenIdConnect(OpenIdConnectAuth):
         'name': u'full_name',
         'given_name': u'first_name',
         'family_name': u'last_name',
-        'language': u'language',
+        'locale': u'language',
     }
 
     def user_data(self, _access_token, *_args, **_kwargs):
@@ -49,6 +49,11 @@ class EdXOpenIdConnect(OpenIdConnectAuth):
 
     def get_user_details(self, response):
         details = self._map_user_details(response)
+
+        locale = response.get('locale')
+        if locale:
+            details[u'language'] = _to_language(response['locale'])
+
         return details
 
     def _map_user_details(self, response):
@@ -65,3 +70,21 @@ class EdXOpenIdConnect(OpenIdConnectAuth):
                 dest[dest_key] = value
 
         return dest
+
+
+def _to_language(locale):
+    """
+    Convert locale name to language code if necessary.
+
+    OpenID Connect locale needs to be converted to Django's language
+    code. In general however, the differences between the locale names
+    and language code are not very clear among different systems.
+
+    See:
+
+      http://openid.net/specs/openid-connect-basic-1_0.html#StandardClaims
+      https://docs.djangoproject.com/en/1.6/topics/i18n/#term-translation-string
+
+    """
+
+    return locale.replace('_', '-').lower()
