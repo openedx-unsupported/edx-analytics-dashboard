@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% load i18n %}
-{% load dashboard_extras %}
 
 {% block view-name %}view-system{% endblock view-name %}
 
@@ -37,7 +36,7 @@
 
           <p class="lead">
             {% block buttons %}
-              <a href="{% settings_value "SUPPORT_URL" %}" class="btn btn-lg btn-primary"
+              <a href="{{ support_url }}" class="btn btn-lg btn-primary"
                  title="{% trans 'Use our support tool to ask questions or share feedback.' %}">
                 <i class="ico fa fa-life-ring" aria-hidden="true"></i> {% trans 'Contact edX Support' %}
               </a>

@@ -1,8 +1,7 @@
 {% load staticfiles %}
 {% load i18n %}
-{% load dashboard_extras %}
 
 <a class="{{ class_prefix }}-brand" href="/">
-  <img class="{{ class_prefix }}-brand-logo" src="{% static 'images/edx-logo-header.png' %}" alt="{% settings_value 'PLATFORM_NAME' %}"/>
-  <span class="{{ class_prefix }}-brand-app">{% settings_value 'APPLICATION_NAME' %}</span>
+  <img class="{{ class_prefix }}-brand-logo" src="{% static 'images/edx-logo-header.png' %}" alt="{{ platform_name }}"/>
+  <span class="{{ class_prefix }}-brand-app">{{ application_name }}</span>
 </a>
