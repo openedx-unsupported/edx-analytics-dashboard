@@ -150,6 +150,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
+    'analytics_dashboard.context_processors.common',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders
@@ -272,6 +273,7 @@ FEEDBACK_EMAIL = 'override.this.email@example.com'
 SUPPORT_URL = 'http://example.com/'
 PRIVACY_POLICY_URL = 'http://example.com/'
 TERMS_OF_SERVICE_URL = 'http://example.com/'
+HELP_URL = None
 ########## END FEEDBACK
 
 
