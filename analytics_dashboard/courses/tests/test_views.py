@@ -372,7 +372,7 @@ class CourseHomeViewTests(CourseEnrollmentViewTestMixin, TestCase):
     def test_redirect(self):
         response = self.client.get(self.path)
 
-        expected_url = reverse('courses:enrollment_activity', kwargs={'course_id': self.course_id})
+        expected_url = reverse('courses:engagement_content', kwargs={'course_id': self.course_id})
         self.assertRedirectsNoFollow(response, expected_url)
 
 

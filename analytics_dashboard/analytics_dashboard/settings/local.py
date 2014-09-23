@@ -6,6 +6,7 @@ import os
 from os.path import join, normpath
 
 from analytics_dashboard.settings.base import *
+from analytics_dashboard.settings.logger import get_logger_config
 
 
 ########## DEBUG CONFIGURATION
@@ -93,3 +94,5 @@ ENABLE_AUTO_AUTH = True
 # Uncomment the line below to avoid having to worry about course permissions
 # ENABLE_COURSE_PERMISSIONS = False
 ########## END AUTHENTICATION/AUTHORIZATION
+
+LOGGING = get_logger_config(debug=DEBUG, dev_env=True, local_loglevel='DEBUG')
