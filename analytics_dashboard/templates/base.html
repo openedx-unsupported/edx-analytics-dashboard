@@ -82,6 +82,9 @@
 
     {# Translation support for JavaScript strings. #}
     <script type="text/javascript" src="{% url 'django.views.i18n.javascript_catalog' %}"></script>
+    <script type="text/javascript">
+      window.language = "{{ LANGUAGE_CODE }}";
+    </script>
 
     {# Initial page data passed from view to JS initializer #}
     {% if page_data %}

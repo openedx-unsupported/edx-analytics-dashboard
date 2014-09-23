@@ -1,13 +1,17 @@
 import datetime
+import logging
 
+from django.utils.translation import ugettext as _
 from django.conf import settings
-
+from django_countries import countries
+from waffle import switch_is_active
 from analyticsclient.client import Client
 import analyticsclient.constants.activity_type as AT
-from analyticsclient.constants import demographic
-from analyticsclient.constants import UNKNOWN_COUNTRY_CODE
+from analyticsclient.constants import demographic, UNKNOWN_COUNTRY_CODE
 
-from waffle import switch_is_active
+
+logger = logging.getLogger(__name__)
+COUNTRIES = dict(countries)
 
 
 class BasePresenter(object):
@@ -140,6 +144,23 @@ class CourseEnrollmentPresenter(BasePresenter):
         trend = {'date': day.isoformat(), 'count': 0}
         return trend
 
+    def _translate_country_names(self, data):
+        """ Translate full country name from English to the language of the logged in user. """
+
+        for datum in data:
+            if datum['country']['name'] == UNKNOWN_COUNTRY_CODE:
+                # Translators: This is a placeholder for enrollment data collected without a known geolocation.
+                datum['country']['name'] = _('Unknown Country')
+            else:
+                country_code = datum['country']['alpha3']
+
+                try:
+                    datum['country']['name'] = unicode(COUNTRIES[datum['country']['alpha2']])
+                except KeyError:
+                    logger.warning('Unable to locate %s in django_countries.', country_code)
+
+        return data
+
     def get_geography_data(self):
         """
         Returns a list of course geography data and the updated date (ex. 2014-1-31).
@@ -154,6 +175,9 @@ class CourseEnrollmentPresenter(BasePresenter):
             # Sort data by descending enrollment count
             api_response = sorted(api_response, key=lambda i: i['count'], reverse=True)
 
+            # Translate the country names
+            api_response = self._translate_country_names(api_response)
+
             # get the sum as a float so we can divide by it to get a percent
             total_enrollment = float(sum([datum['count'] for datum in api_response]))
 
@@ -164,8 +188,8 @@ class CourseEnrollmentPresenter(BasePresenter):
                      'percent': datum['count'] / total_enrollment if total_enrollment > 0 else 0.0}
                     for datum in api_response]
 
-            # do not include unknown country metrics in summary information
-            data_without_unknown = [datum for datum in data if datum['countryName'] != UNKNOWN_COUNTRY_CODE]
+            # Filter out the unknown entry for the summary data
+            data_without_unknown = [datum for datum in data if datum['countryCode'] is not None]
 
             # Include a summary of the number of countries and the top 3 countries, excluding unknown.
             summary = {

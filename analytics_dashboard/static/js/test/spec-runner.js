@@ -23,7 +23,13 @@ var config = {
         nvd3: 'vendor/nvd3/nv.d3',
         topojson: 'vendor/topojson/topojson',
         datamaps: 'vendor/datamaps/datamaps.world.min',
-        moment: 'vendor/moment/moment-with-locales'
+        moment: 'vendor/moment/moment-with-locales',
+        text: 'bower_components/requirejs-plugins/lib/text',
+        json: 'bower_components/requirejs-plugins/src/json',
+        cldr: 'bower_components/cldrjs/dist/cldr',
+        'cldr-data': 'bower_components/cldr-data',
+        globalize: 'bower_components/globalize/dist/globalize',
+        globalization: 'js/utils/globalization'
     },
     shim: {
         bootstrap: {
@@ -54,15 +60,24 @@ var config = {
         datamaps: {
             deps: ['topojson', 'd3'],
             exports: 'datamap'
+        },
+        json: {
+            deps: ['text']
+        },
+        globalize: {
+            deps: ['jquery', 'cldr'],
+            exports: 'Globalize'
+        },
+        globalization: {
+            deps: ['globalize'],
+            exports: 'Globalize'
         }
     }
 };
 
-// there are two paths -- one for running this in browser and one for running
-// via gulp
+// Two execution paths: browser or gulp
 if(isBrowser) {
-    // unfortunately, we can't read directories in the browser, so we need to
-    // list them here -- sorry!
+    // The browser cannot read directories, so all files must be enumerated below.
     specs = [
         config.baseUrl + 'js/spec/specs/attribute-view-spec.js',
         config.baseUrl + 'js/spec/specs/course-model-spec.js',
@@ -70,7 +85,8 @@ if(isBrowser) {
         config.baseUrl + 'js/spec/specs/trends-view-spec.js',
         config.baseUrl + 'js/spec/specs/world-map-view-spec.js',
         config.baseUrl + 'js/spec/specs/tracking-view-spec.js',
-        config.baseUrl + 'js/spec/specs/utils-spec.js'
+        config.baseUrl + 'js/spec/specs/utils-spec.js',
+        config.baseUrl + 'js/spec/specs/globalization-spec.js'
     ];
 } else {
     // you can automatically get the test files using karma's configs
@@ -79,9 +95,10 @@ if(isBrowser) {
             specs.push(file);
         }
     }
-    // this is where karma puts the files
+    // This is where karma puts the files
     config.baseUrl = '/base/analytics_dashboard/static/';
-    // karam lets you list the test files here
+
+    // Karma lets you list the test files here
     config.deps = specs;
     config.callback = window.__karma__.start;
 }

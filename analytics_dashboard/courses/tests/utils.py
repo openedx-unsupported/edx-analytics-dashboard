@@ -77,20 +77,19 @@ def get_mock_api_enrollment_geography_data_limited(course_id):
 
 
 def get_mock_presenter_enrollment_geography_data():
-    # top three are used in the summary (unknown is excluded)
     data = [
         {'countryCode': 'USA', 'countryName': 'United States', 'count': 500, 'percent': 0.5},
         {'countryCode': 'GER', 'countryName': 'Germany', 'count': 100, 'percent': 0.1},
         {'countryCode': 'CAN', 'countryName': 'Canada', 'count': 100, 'percent': 0.1},
-        {'countryCode': None, 'countryName': UNKNOWN_COUNTRY_CODE, 'count': 300, 'percent': 0.3},
+        {'countryCode': None, 'countryName': 'Unknown Country', 'count': 300, 'percent': 0.3},
     ]
     summary = {
         'last_updated': CREATED_DATETIME,
         'num_countries': 3,
-        'top_countries': data[:3]  # unknown countries are excluded in the top 3
+        'top_countries': data[:3]  # The unknown entry is excluded from the list of top countries.
     }
 
-    # sort so unknown is corrected placed in the returned data
+    # Sort so that the unknown entry is in the correct location within the list.
     data = sorted(data, key=lambda i: i['count'], reverse=True)
 
     return summary, data

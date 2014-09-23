@@ -1,0 +1,6 @@
+{
+    "directory": "analytics_dashboard/static/bower_components",
+    "scripts": {
+        "postinstall": "./node_modules/cldr-data-downloader/bin/download.js -i analytics_dashboard/static/bower_components/cldr-data/index.json -o analytics_dashboard/static/bower_components/cldr-data/"
+    }
+}

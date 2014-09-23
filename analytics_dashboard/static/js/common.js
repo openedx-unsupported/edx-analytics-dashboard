@@ -22,7 +22,13 @@ var require = {
         nvd3: 'vendor/nvd3/nv.d3',
         topojson: 'vendor/topojson/topojson',
         datamaps: 'vendor/datamaps/datamaps.world.min',
-        moment: 'vendor/moment/moment-with-locales'
+        moment: 'vendor/moment/moment-with-locales',
+        text: 'bower_components/requirejs-plugins/lib/text',
+        json: 'bower_components/requirejs-plugins/src/json',
+        cldr: 'bower_components/cldrjs/dist/cldr',
+        'cldr-data': 'bower_components/cldr-data',
+        globalize: 'bower_components/globalize/dist/globalize',
+        globalization: 'js/utils/globalization'
     },
     shim: {
         bootstrap: {
@@ -56,6 +62,17 @@ var require = {
         },
         moment: {
             noGlobal: true
+        },
+        json: {
+            deps: ['text']
+        },
+        globalize: {
+            deps: ['jquery', 'cldr'],
+            exports: 'Globalize'
+        },
+        globalization: {
+            deps: ['globalize'],
+            exports: 'Globalize'
         }
     },
     // load jquery automatically
