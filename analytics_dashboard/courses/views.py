@@ -377,7 +377,7 @@ class CourseHome(LoginRequiredMixin, RedirectView):
 
     def get_redirect_url(self, *args, **kwargs):
         course_id = kwargs['course_id']
-        return reverse('courses:enrollment_activity', kwargs={'course_id': course_id})
+        return reverse('courses:engagement_content', kwargs={'course_id': course_id})
 
 
 class CourseIndex(LoginRequiredMixin, TemplateView):
