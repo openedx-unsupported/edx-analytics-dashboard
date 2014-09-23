@@ -22,6 +22,15 @@ class EdXOpenIdConnect(OpenIdConnectAuth):
     ACCESS_TOKEN_URL = '{0}/access_token/'.format(settings.SOCIAL_AUTH_EDX_OIDC_URL_ROOT)
     USER_INFO_URL = '{0}/user_info/'.format(settings.SOCIAL_AUTH_EDX_OIDC_URL_ROOT)
 
+    PROFILE_TO_DETAILS_KEY_MAP = {
+        'preferred_username': u'username',
+        'email': u'email',
+        'name': u'full_name',
+        'given_name': u'first_name',
+        'family_name': u'last_name',
+        'locale': u'language',
+    }
+
     def user_data(self, _access_token, *_args, **_kwargs):
         return self.id_token
 
@@ -39,14 +48,43 @@ class EdXOpenIdConnect(OpenIdConnectAuth):
         return data
 
     def get_user_details(self, response):
-        return {
-            # TODO change to get
-            u'username': response['preferred_username'],
-            u'email': response['email'],
-            u'full_name': response['name'],
-            u'first_name': response['given_name'],
-            u'last_name': response['family_name'],
+        details = self._map_user_details(response)
 
-            # Optional, scope-specific, data
-            u'language': response.get('language')
-        }
+        locale = response.get('locale')
+        if locale:
+            details[u'language'] = _to_language(response['locale'])
+
+        return details
+
+    def _map_user_details(self, response):
+        """
+        Maps key/values from the response to key/values in the user model.
+
+        Does not transfer any key/value that is empty or not present in the reponse.
+
+        """
+        dest = {}
+        for source_key, dest_key in self.PROFILE_TO_DETAILS_KEY_MAP.items():
+            value = response.get(source_key)
+            if value:
+                dest[dest_key] = value
+
+        return dest
+
+
+def _to_language(locale):
+    """
+    Convert locale name to language code if necessary.
+
+    OpenID Connect locale needs to be converted to Django's language
+    code. In general however, the differences between the locale names
+    and language code are not very clear among different systems.
+
+    See:
+
+      http://openid.net/specs/openid-connect-basic-1_0.html#StandardClaims
+      https://docs.djangoproject.com/en/1.6/topics/i18n/#term-translation-string
+
+    """
+
+    return locale.replace('_', '-').lower()

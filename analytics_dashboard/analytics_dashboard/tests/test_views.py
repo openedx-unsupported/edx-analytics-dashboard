@@ -220,7 +220,7 @@ class OpenIdConnectTests(UserTestCaseMixin, RedirectTestCaseMixin, TestCase):
             'name': 'Ed Xavier',
             'given_name': 'Ed',
             'family_name': 'Xavier',
-            'language': 'en_us'
+            'locale': 'en_US'
         }
 
         return id_token
@@ -301,7 +301,7 @@ class OpenIdConnectTests(UserTestCaseMixin, RedirectTestCaseMixin, TestCase):
         self.assertEqual(user.email, 'edx@example.org')
         self.assertEqual(user.first_name, 'Ed')
         self.assertEqual(user.last_name, 'Xavier')
-        self.assertEqual(user.language, 'en_us')
+        self.assertEqual(user.language, 'en-us')
 
 
 class AutoAuthTests(UserTestCaseMixin, TestCase):
