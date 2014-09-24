@@ -248,6 +248,15 @@ table.dataTable thead th.sorting_desc:after {
   margin-top: $padding-large-vertical;
 }
 
-.active-course-number {
-  padding: $navbar-padding-vertical $navbar-padding-horizontal;
+.navbar-default {
+  .navbar-link {
+    &.active-course-number {
+      padding: $navbar-padding-vertical $navbar-padding-horizontal;
+
+      &:hover {
+        color: inherit;
+      }
+
+    }
+  }
 }
