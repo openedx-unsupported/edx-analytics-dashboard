@@ -8,6 +8,9 @@ DASHBOARD_SERVER_URL = os.environ.get('DASHBOARD_SERVER_URL', 'http://127.0.0.1:
 DASHBOARD_FEEDBACK_EMAIL = os.environ.get('DASHBOARD_FEEDBACK_EMAIL', 'override.this.email@example.com')
 USERNAME = os.environ.get('TEST_USERNAME', 'edx')
 PASSWORD = os.environ.get('TEST_PASSWORD', 'edx')
+PLATFORM_NAME = os.environ.get('PLATFORM_NAME', 'edX')
+APPLICATION_NAME = os.environ.get('APPLICATION_NAME', 'Insights')
+SUPPORT_URL = os.environ.get('SUPPORT_URL', 'http://example.com/')
 
 # Determines if a second, scope authorization, page needs to be submitted/acknowledged
 # after logging in at the OAuth provider.

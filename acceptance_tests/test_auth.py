@@ -9,7 +9,7 @@ class OAuth2FlowTests(WebAppTest):
         """
         Instantiate the page objects.
         """
-        super(OAuthFlowTests, self).setUp()
+        super(OAuth2FlowTests, self).setUp()
 
         self.login_page = LoginPage(self.browser)
 

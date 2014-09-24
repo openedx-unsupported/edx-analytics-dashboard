@@ -2,17 +2,17 @@ import json
 import logging
 import uuid
 
-from analyticsclient.client import Client
-from analyticsclient.exceptions import ClientError
 import django
 from django.conf import settings
 from django.contrib.auth import get_user_model, login, authenticate, REDIRECT_FIELD_NAME
 from django.db import connection, DatabaseError
 from django.http import HttpResponse, Http404
 from django.shortcuts import redirect
-from django.views.generic import View, TemplateView
+from django.views.generic import View
 from django.core.urlresolvers import reverse_lazy
 
+from analyticsclient.client import Client
+from analyticsclient.exceptions import ClientError
 from courses import permissions
 
 
@@ -83,10 +83,6 @@ class AutoAuth(View):
         login(request, user)
 
         return redirect('/')
-
-
-class AuthError(TemplateView):
-    template_name = 'auth_error.html'
 
 
 def logout(request, next_page=None, template_name='registration/logged_out.html',
