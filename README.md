@@ -146,7 +146,10 @@ when executing either of the commands above.
 | API_AUTH_TOKEN           | Analytics API authentication token    | edx                              |
 | DASHBOARD_FEEDBACK_EMAIL | Feedback email in the footer          | override.this.email@example.com  |
 | TEST_USERNAME            | Username used to login to the app     | edx                              |
-| TEST_PASSWORD            | password used to login to the app     | edx                              |
+| TEST_PASSWORD            | Password used to login to the app     | edx                              |
+| PLATFORM_NAME            | Platform/organization name            | edX                              |
+| APPLICATION_NAME         | Name of this application              | Insights                         |
+| SUPPORT_URL              | URL where error pages should link     | http://example.com/              |
 
 
 Override example:

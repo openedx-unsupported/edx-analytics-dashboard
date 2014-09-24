@@ -43,7 +43,8 @@ class CourseEnrollmentActivityPage(CoursePage):
         self.page_url += '/enrollment/activity/'
 
     def is_browser_on_page(self):
-        return super(CourseEnrollmentActivityPage, self).is_browser_on_page() and 'Enrollment Activity' in self.browser.title
+        return super(CourseEnrollmentActivityPage, self).is_browser_on_page() and \
+               'Enrollment Activity' in self.browser.title
 
 
 class LoginPage(DashboardPage):
@@ -59,7 +60,8 @@ class CourseEnrollmentGeographyPage(CoursePage):
         self.page_url += '/enrollment/geography/'
 
     def is_browser_on_page(self):
-        return super(CourseEnrollmentGeographyPage, self).is_browser_on_page() and 'Enrollment Geography' in self.browser.title
+        return super(CourseEnrollmentGeographyPage, self).is_browser_on_page() and \
+               'Enrollment Geography' in self.browser.title
 
 
 class CourseEngagementContentPage(CoursePage):
@@ -68,7 +70,8 @@ class CourseEngagementContentPage(CoursePage):
         self.page_url += '/engagement/content/'
 
     def is_browser_on_page(self):
-        return super(CourseEngagementContentPage, self).is_browser_on_page() and 'Engagement Content' in self.browser.title
+        return super(CourseEngagementContentPage, self).is_browser_on_page() and \
+               'Engagement Content' in self.browser.title
 
 
 class CourseIndexPage(DashboardPage):
@@ -82,3 +85,36 @@ class CourseIndexPage(DashboardPage):
 
     def is_browser_on_page(self):
         return 'Courses' in self.browser.title
+
+
+class ErrorPage(DashboardPage):
+    error_code = None
+    error_title = None
+
+    def __init__(self, browser):
+        self.path = self.path or '{}/'.format(self.error_code)
+        super(ErrorPage, self).__init__(browser)
+
+    def is_browser_on_page(self):
+        element = self.q(css='.error-title')
+        return element.present and element.text[0] == self.error_title
+
+
+class ServerErrorPage(ErrorPage):
+    error_code = 500
+    error_title = u'An Error Occurred'
+
+
+class NotFoundErrorPage(ErrorPage):
+    error_code = 404
+    error_title = u'Page Not Found'
+
+
+class AccessDeniedErrorPage(ErrorPage):
+    error_code = 403
+    error_title = u'Access Denied'
+
+
+class AuthErrorPage(ErrorPage):
+    error_title = u'Authentication Failed'
+    path = u'auth/error/'

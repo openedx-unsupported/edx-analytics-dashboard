@@ -4,9 +4,10 @@ from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.contrib import admin
 from django.core.urlresolvers import reverse_lazy
-from django.views.generic import RedirectView, TemplateView
+from django.views.generic import RedirectView
 
 from analytics_dashboard import views
+
 
 admin.autodiscover()
 
@@ -29,7 +30,7 @@ urlpatterns = patterns(
     url(r'^accounts/logout/$', views.logout, name='logout'),
     url(r'^accounts/logout_then_login/$', views.logout_then_login, name='logout_then_login'),
     url(r'^test/auto_auth/$', views.AutoAuth.as_view(), name='auto_auth'),
-    url(r'^auth/error/$', views.AuthError.as_view(), name='auth_error'),
+    url(r'^auth/error/$', 'django.views.defaults.server_error', {'template_name': 'auth_error.html'}, name='auth_error'),
 )
 
 if settings.DEBUG:  # pragma: no cover
@@ -38,7 +39,7 @@ if settings.DEBUG:  # pragma: no cover
     urlpatterns += patterns(
         '',
         url(r'^__debug__/', include(debug_toolbar.urls)),
-        url(r'^403/$', TemplateView.as_view(template_name='403.html')),
-        url(r'^404/$', TemplateView.as_view(template_name='404.html')),
-        url(r'^500/$', TemplateView.as_view(template_name='500.html')),
+        url(r'^403/$', 'django.views.defaults.permission_denied'),
+        url(r'^404/$', 'django.views.defaults.page_not_found'),
+        url(r'^500/$', 'django.views.defaults.server_error'),
     )

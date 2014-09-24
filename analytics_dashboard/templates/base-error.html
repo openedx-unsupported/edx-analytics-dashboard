@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load i18n %}
+{% load dashboard_extras %}
 
 {% block view-name %}view-system{% endblock view-name %}
 
@@ -36,9 +37,13 @@
 
           <p class="lead">
             {% block buttons %}
-              <a href="{{ support_url }}" class="btn btn-lg btn-primary"
+              <a href="{% settings_value "SUPPORT_URL" %}" class="btn btn-lg btn-primary" data-role="support-link"
                  title="{% trans 'Use our support tool to ask questions or share feedback.' %}">
-                <i class="ico fa fa-life-ring" aria-hidden="true"></i> {% trans 'Contact edX Support' %}
+                <i class="ico fa fa-life-ring" aria-hidden="true"></i>
+                {% captureas platform_name %}{% settings_value "PLATFORM_NAME" %}{% endcaptureas %}
+
+                {# Translators: This intention here is that a user clicks a button to contact a support group (e.g. edX Support, or MITx Support). Reorder the placeholder as you see fit. #}
+                {% blocktrans %}Contact {{ platform_name }} Support{% endblocktrans %}
               </a>
             {% endblock %}
           </p>
