@@ -29,6 +29,8 @@ test_python: clean
 accept:
 	nosetests acceptance_tests --processes=2 --process-timeout=120
 
+course_validation:
+	python -m acceptance_tests.course_validation.generate_report
 
 quality:
 	pep8 --config=.pep8 analytics_dashboard
