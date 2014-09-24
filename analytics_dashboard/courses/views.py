@@ -310,13 +310,14 @@ class EnrollmentActivityView(EnrollmentTemplateView):
 
         presenter = CourseEnrollmentPresenter(self.course_id)
 
+        summary = None
+        trend = None
+        last_updated = None
         try:
             summary, trend = presenter.get_summary_and_trend_data()
             last_updated = summary['last_updated']
         except NotFoundError:
-            summary = None
-            trend = None
-            last_updated = None
+            logger.error("Failed to retrieve enrollment activity data for %s.", self.course_id)
 
         # add the enrollment data for the page
         context['js_data']['course']['enrollmentTrends'] = trend
@@ -344,6 +345,8 @@ class EnrollmentGeographyView(EnrollmentTemplateView):
 
         presenter = CourseEnrollmentPresenter(self.course_id)
 
+        data = None
+        last_updated = None
         try:
             summary, data = presenter.get_geography_data()
             last_updated = summary['last_updated']
@@ -351,8 +354,7 @@ class EnrollmentGeographyView(EnrollmentTemplateView):
             # Add summary data (e.g. num countries, top 3 countries) directly to the context
             context.update(summary)
         except NotFoundError:
-            data = None
-            last_updated = None
+            logger.error("Failed to retrieve enrollment geography data for %s.", self.course_id)
 
         context['js_data']['course']['enrollmentByCountry'] = data
 
@@ -378,13 +380,14 @@ class EngagementContentView(EngagementTemplateView):
 
         presenter = CourseEngagementPresenter(self.course_id)
 
+        summary = None
+        trends = None
+        last_updated = None
         try:
             summary, trends = presenter.get_summary_and_trend_data()
             last_updated = summary['last_updated']
         except NotFoundError:
-            summary = None
-            trends = None
-            last_updated = None
+            logger.error("Failed to retrieve engagement content data for %s.", self.course_id)
 
         context['js_data']['course']['engagementTrends'] = trends
         context.update({

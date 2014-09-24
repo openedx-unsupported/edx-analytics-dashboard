@@ -140,7 +140,7 @@ class CourseCSVTestMixin(object):
         # Check data
         self.assertEqual(response.content, data)
 
-    def test_not_found(self):
+    def test_404(self):
         course_id = 'fakeOrg/soFake/Fake_Course'
         self.grant_permission(self.user, course_id)
         path = reverse(self.viewname, kwargs={'course_id': course_id})
@@ -266,7 +266,7 @@ class CourseEngagementContentViewTests(CourseEngagementViewTestMixin, TestCase):
         self.assertSecondaryNavs(response.context['secondary_nav_items'])
 
     @mock.patch('courses.presenters.CourseEngagementPresenter.get_summary_and_trend_data')
-    def test_not_found(self, get_summary_and_trend_data):
+    def test_missing_data(self, get_summary_and_trend_data):
         get_summary_and_trend_data.side_effect = NotFoundError
 
         response = self.client.get(self.path)
@@ -309,7 +309,7 @@ class CourseEnrollmentActivityViewTests(CourseEnrollmentViewTestMixin, TestCase)
         self.assertSecondaryNavs(context['secondary_nav_items'])
 
     @mock.patch('courses.presenters.CourseEnrollmentPresenter.get_summary_and_trend_data')
-    def test_not_found(self, get_summary_and_trend):
+    def test_missing_data(self, get_summary_and_trend):
         get_summary_and_trend.side_effect = NotFoundError
 
         response = self.client.get(self.path)
@@ -346,7 +346,7 @@ class CourseEnrollmentGeographyViewTests(CourseEnrollmentViewTestMixin, TestCase
         self.assertEqual(page_data['course']['enrollmentByCountry'], expected_data)
 
     @mock.patch('courses.presenters.CourseEnrollmentPresenter.get_geography_data')
-    def test_not_found(self, get_geography_data):
+    def test_missing_data(self, get_geography_data):
         get_geography_data.side_effect = NotFoundError
 
         response = self.client.get(self.path)
@@ -370,8 +370,8 @@ class CourseEnrollmentByCountryCSVViewTests(CourseCSVTestMixin, CourseEnrollment
         super(CourseEnrollmentByCountryCSVViewTests, self).test_response_no_data(mock_call)
 
     @mock.patch('analyticsclient.course.Course.enrollment', mock.Mock(side_effect=NotFoundError))
-    def test_not_found(self):
-        super(CourseEnrollmentByCountryCSVViewTests, self).test_not_found()
+    def test_missing_data(self):
+        super(CourseEnrollmentByCountryCSVViewTests, self).test_404()
 
 
 class CourseEnrollmentCSVViewTests(CourseCSVTestMixin, CourseEnrollmentViewTestMixin, TestCase):
@@ -388,8 +388,8 @@ class CourseEnrollmentCSVViewTests(CourseCSVTestMixin, CourseEnrollmentViewTestM
         super(CourseEnrollmentCSVViewTests, self).test_response_no_data(mock_call)
 
     @mock.patch('analyticsclient.course.Course.enrollment', mock.Mock(side_effect=NotFoundError))
-    def test_not_found(self):
-        super(CourseEnrollmentCSVViewTests, self).test_not_found()
+    def test_404(self):
+        super(CourseEnrollmentCSVViewTests, self).test_404()
 
 
 class CourseEngagementActivityTrendCSVViewTests(CourseCSVTestMixin, CourseEngagementViewTestMixin, TestCase):
@@ -407,8 +407,8 @@ class CourseEngagementActivityTrendCSVViewTests(CourseCSVTestMixin, CourseEngage
         super(CourseEngagementActivityTrendCSVViewTests, self).test_response_no_data(mock_call)
 
     @mock.patch('analyticsclient.course.Course.activity', mock.Mock(side_effect=NotFoundError))
-    def test_not_found(self):
-        super(CourseEngagementActivityTrendCSVViewTests, self).test_not_found()
+    def test_404(self):
+        super(CourseEngagementActivityTrendCSVViewTests, self).test_404()
 
 
 class CourseHomeViewTests(CourseEngagementViewTestMixin, TestCase):
