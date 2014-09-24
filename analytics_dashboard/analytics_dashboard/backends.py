@@ -66,7 +66,7 @@ class EdXOpenIdConnect(OpenIdConnectAuth):
         dest = {}
         for source_key, dest_key in self.PROFILE_TO_DETAILS_KEY_MAP.items():
             value = response.get(source_key)
-            if value:
+            if value is not None:
                 dest[dest_key] = value
 
         return dest
