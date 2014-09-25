@@ -12,6 +12,8 @@ from django.utils.translation import ugettext_lazy as _
 import analyticsclient
 import analyticsclient.constants.activity_type as AT
 from analyticsclient.exceptions import NotFoundError
+
+from courses.views import CourseValidMixin
 from analytics_dashboard.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin
 from courses.exceptions import PermissionsRetrievalFailedError
 from courses.permissions import set_user_course_permissions, revoke_user_course_permissions
@@ -89,16 +91,33 @@ class CourseViewTestMixin(PermissionsTestMixin, AuthenticationMixin):
         response = self.client.get(self.path, follow=True)
         self.assertEqual(response.status_code, 403)
 
-    @override_settings(LMS_COURSE_VALIDATION_BASE_URL='a/url')
-    @mock.patch('requests.get')
-    def test_invalid_course(self, mock_lms_request):
+    @mock.patch('courses.views.CourseValidMixin.is_valid_course', mock.Mock(return_value=False))
+    def test_invalid_course(self):
         course_id = 'fakeOrg/soFake/Fake_Course'
         self.grant_permission(self.user, course_id)
         path = reverse(self.viewname, kwargs={'course_id': course_id})
 
-        mock_lms_request.get.return_value.status_code = 404
         response = self.client.get(path, follow=True)
         self.assertEqual(response.status_code, 404)
+
+
+class CourseValidMixinTests(TestCase):
+    def setUp(self):
+        self.mixin = CourseValidMixin()
+        self.mixin.course_id = 'edX/DemoX/Demo_Course'
+
+    @override_settings(LMS_COURSE_VALIDATION_BASE_URL=None)
+    def test_no_validation_url(self):
+        self.assertTrue(self.mixin.is_valid_course())
+
+    @override_settings(LMS_COURSE_VALIDATION_BASE_URL='a/url')
+    @mock.patch('courses.views.requests.get')
+    def test_valid_url(self, mock_lms_request):
+        mock_lms_request.return_value.status_code = 404
+        self.assertFalse(self.mixin.is_valid_course())
+
+        mock_lms_request.return_value.status_code = 200
+        self.assertTrue(self.mixin.is_valid_course())
 
 
 class CourseCSVTestMixin(object):
