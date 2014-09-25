@@ -370,7 +370,7 @@ class CourseEnrollmentByCountryCSVViewTests(CourseCSVTestMixin, CourseEnrollment
         super(CourseEnrollmentByCountryCSVViewTests, self).test_response_no_data(mock_call)
 
     @mock.patch('analyticsclient.course.Course.enrollment', mock.Mock(side_effect=NotFoundError))
-    def test_missing_data(self):
+    def test_404(self):
         super(CourseEnrollmentByCountryCSVViewTests, self).test_404()
 
 
