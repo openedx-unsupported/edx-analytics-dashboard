@@ -156,7 +156,104 @@ define(['models/course-model', 'models/tracking-model', 'models/user-model', 'vi
                     courseId: 'my/course/id',
                     param: 'my-param'
                 });
+        });
 
+    });
+
+    describe('Tracking element events', function () {
+        beforeEach(function(){
+          $('<div id="sandbox"></div>').appendTo('body');
+        });
+
+        afterEach(function(){
+          $('#sandbox').remove();
+        });
+
+        function setupTest() {
+            var view,
+                courseModel = new CourseModel({
+                    courseId: 'my/course/id'
+                }),
+                trackingModel = new TrackingModel({
+                    page: 'mypage',
+                    segmentApplicationId: 'some ID'
+                }),
+                userModel = new TrackingModel(),
+                sandbox = $('#sandbox');
+
+            view = new TrackingView({
+                el: document,
+                model: trackingModel,
+                courseModel: courseModel,
+                userModel: userModel
+            });
+
+            // mock segment
+            view.segment = {
+                track: jasmine.createSpy('track'),
+                load: jasmine.createSpy('load'),
+                page: jasmine.createSpy('page'),
+                identify: jasmine.createSpy('identify')
+            };
+
+            sandbox.attr('data-track-event', 'trackingEvent');
+            sandbox.attr('data-track-param', 'my-param');
+            sandbox.attr('data-track-foo', 'bar');
+
+            return {
+                trackingModel: trackingModel,
+                view: view,
+                sandbox: sandbox,
+                showTooltip: function() {
+                    sandbox.trigger('shown.bs.tooltip');
+                },
+                expectNoEventToHaveBeenEmitted: function() {
+                    expect(view.segment.track).not.toHaveBeenCalled();
+                },
+                expectEventEmitted: function(eventType, properties) {
+                    expect(view.segment.track).toHaveBeenCalledWith(eventType, properties);
+                }
+            };
+        }
+
+        it('should emit an event when tooltips are shown', function () {
+            var test = setupTest();
+
+            test.showTooltip();
+
+            test.expectEventEmitted(
+                'trackingEvent', {
+                    label: 'mypage',
+                    courseId: 'my/course/id',
+                    param: 'my-param',
+                    foo: 'bar'
+                }
+            );
+        });
+
+        it('should not emit an event when tooltips are shown when tracking is not enabled', function () {
+            var test = setupTest();
+
+            test.trackingModel.unset('segmentApplicationId');
+
+            test.showTooltip();
+            test.expectNoEventToHaveBeenEmitted();
+        });
+
+        it('should not emit an event when tooltips are shown when event type is empty', function () {
+            var test = setupTest();
+
+            test.sandbox.attr('data-track-event', '');
+            test.showTooltip();
+            test.expectNoEventToHaveBeenEmitted();
+        });
+
+        it('should not emit an event when tooltips are shown when event type is undefined', function () {
+            var test = setupTest();
+
+            test.sandbox.removeAttr('data-track-event');
+            test.showTooltip();
+            test.expectNoEventToHaveBeenEmitted();
         });
     });
 });

@@ -25,7 +25,27 @@ from courses.utils import is_feature_enabled
 logger = logging.getLogger(__name__)
 
 
-class CourseContextMixin(object):
+class TrackedViewMixin(object):
+    """
+    Adds tracking variables to the context passed to Javascript.
+    """
+
+    # Page name used for usage tracking/analytics
+    page_name = None
+
+    def get_context_data(self, **kwargs):
+        context = super(TrackedViewMixin, self).get_context_data(**kwargs)
+        context['js_data'] = context.get('js_data', {})
+        context['js_data'].update({
+            'tracking': {
+                'segmentApplicationId': settings.SEGMENT_IO_KEY,  # None will translate to 'null'
+                'page': self.page_name
+            }
+        })
+        return context
+
+
+class CourseContextMixin(TrackedViewMixin):
     """
     Adds default course context data.
 
@@ -35,37 +55,33 @@ class CourseContextMixin(object):
     page_title = None
     page_subtitle = None
 
-    # Page name used for usage tracking/analytics
-    page_name = None
-
     def get_context_data(self, **kwargs):
         context = super(CourseContextMixin, self).get_context_data(**kwargs)
         context.update(self.get_default_data())
+
+        context['js_data'] = context.get('js_data', {})
+        user = self.request.user
+        context['js_data'].update({
+            'course': {
+                'courseId': self.course_id
+            },
+            'user': {
+                'userId': user.get_username(),
+                'userName': user.get_full_name(),
+                'userEmail': user.email,
+            },
+        })
+
         return context
 
     def get_default_data(self):
         """
         Returns default data for the pages (context and javascript data).
         """
-        user = self.request.user
         context = {
             'course_id': self.course_id,
             'page_title': self.page_title,
-            'page_subtitle': self.page_subtitle,
-            'js_data': {
-                'course': {
-                    'courseId': self.course_id
-                },
-                'tracking': {
-                    'segmentApplicationId': settings.SEGMENT_IO_KEY,  # None will translate to 'null'
-                    'page': self.page_name
-                },
-                'user': {
-                    'userId': user.get_username(),
-                    'userName': user.get_full_name(),
-                    'userEmail': user.email,
-                },
-            }
+            'page_subtitle': self.page_subtitle
         }
 
         return context
@@ -445,8 +461,9 @@ class CourseHome(LoginRequiredMixin, RedirectView):
         return reverse('courses:enrollment_activity', kwargs={'course_id': course_id})
 
 
-class CourseIndex(LoginRequiredMixin, TemplateView):
+class CourseIndex(LoginRequiredMixin, TrackedViewMixin, TemplateView):
     template_name = 'courses/index.html'
+    page_name = 'course_index'
 
     def get_context_data(self, **kwargs):
         context = super(CourseIndex, self).get_context_data(**kwargs)
@@ -458,5 +475,9 @@ class CourseIndex(LoginRequiredMixin, TemplateView):
             raise PermissionDenied
 
         context['courses'] = sorted(courses)
+
+        context.update({
+            'page_data': json.dumps(context['js_data']),
+        })
 
         return context

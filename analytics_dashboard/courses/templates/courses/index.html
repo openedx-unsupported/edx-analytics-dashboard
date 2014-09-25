@@ -1,9 +1,15 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load staticfiles %}
 
 {% block view-name %}view-course-list{% endblock view-name %}
 
 {% block title %}{% trans "Courses" %} {{ block.super }}{% endblock title %}
+
+{% block javascript %}
+  {{ block.super }}
+  <script src="{% static 'js/index-main.js' %}"></script>
+{% endblock javascript %}
 
 {% block header-text %}
   <h3>

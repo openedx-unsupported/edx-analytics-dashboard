@@ -12,6 +12,7 @@ define(['jquery', 'underscore', 'views/clickable-view', 'views/tracking-view','u
             if(models.trackingModel.isTracking()) {
                 // this is only activated when tracking ID is set
                 new TrackingView({
+                    el: document,
                     model: models.trackingModel,
                     userModel: models.userModel,
                     courseModel: models.courseModel
@@ -29,7 +30,7 @@ define(['jquery', 'underscore', 'views/clickable-view', 'views/tracking-view','u
                         trackEventType: $(track).attr('data-track-event'),
                         trackProperties: properties,
                         el: track
-                    }).render();
+                    });
                 });
 
             }

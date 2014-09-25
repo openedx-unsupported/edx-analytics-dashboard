@@ -82,7 +82,7 @@ define(['models/course-model', 'views/trends-view'], function(CourseModel, Trend
                 tooltip = view.tooltipTemplate({text: 'This is tooltip text.'});
 
             expect(tooltip).toBe('<span class="sr-only">This is tooltip text.</span>' +
-                '<i class="ico ico-tooltip fa fa-info-circle chart-tooltip" data-toggle="tooltip" data-placement="top" title="This is tooltip text."></i>');
+                '<i class="ico ico-tooltip fa fa-info-circle chart-tooltip" data-toggle="tooltip" data-placement="top" data-track-event="edx.bi.tooltip.displayed" data-track-category="trend" title="This is tooltip text."></i>');
         });
     });
 });

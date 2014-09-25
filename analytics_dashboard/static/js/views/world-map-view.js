@@ -153,7 +153,16 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
              */
             popupTemplate: _.template('<div class="hoverinfo"><%=name%>: <%=value%><% if(percent) { %> (<%=percent%>)<% } %></div>'),
 
-            tooltipTemplate: _.template('<span class="sr-only"><%=text%></span><i class="ico ico-tooltip fa fa-info-circle chart-tooltip" data-toggle="tooltip" data-placement="top" title="<%=text%>"></i>'),
+            /**
+             * Underscore style template for displaying the tooltip for screen
+             * readers and in the tooltip icon.
+             */
+            tooltipTemplate: _.template('<span class="sr-only"><%=text%></span>' +
+                '<i class="ico ico-tooltip fa fa-info-circle chart-tooltip" ' +
+                'data-toggle="tooltip" data-placement="top" ' +
+                'data-track-event="edx.bi.tooltip.displayed" data-track-category="map" ' +
+                'title="<%=text%>"></i>'
+            ),
 
             render: function () {
                 AttributeListenerView.prototype.render.call(this);
