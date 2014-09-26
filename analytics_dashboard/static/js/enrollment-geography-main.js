@@ -30,5 +30,6 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                 ],
                 sorting: ['-count']
             });
-        });
+        }
+    );
 });

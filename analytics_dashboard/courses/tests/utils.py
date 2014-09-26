@@ -63,7 +63,6 @@ def get_mock_presenter_enrollment_geography_data():
         {'countryCode': 'CAN', 'countryName': 'Canada', 'count': 300, 'percent': 0.3},
         {'countryCode': 'GER', 'countryName': 'Germany', 'count': 100, 'percent': 0.1},
     ]
-
     summary = {
         'last_updated': CREATED_DATETIME,
         'num_countries': 3,

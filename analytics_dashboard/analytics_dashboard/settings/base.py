@@ -276,6 +276,9 @@ TERMS_OF_SERVICE_URL = 'http://example.com/'
 HELP_URL = None
 ########## END FEEDBACK
 
+########## DOCUMENTATION LINKS -- These values should be overridden for production deployments.
+DOCUMENTATION_LOAD_ERROR_URL = 'http://example.com/'
+########## END FEEDBACK
 
 ########## SOUTH CONFIGURATION
 # See: http://south.readthedocs.org/en/latest/installation.html#configuring-your-django-installation
@@ -293,6 +296,9 @@ SOUTH_TESTS_MIGRATE = False
 DATA_API_URL = 'http://127.0.0.1:9001/api/v0'
 DATA_API_AUTH_TOKEN = 'edx'
 ########## END DATA API CONFIGURATION
+
+# used to determine if a course ID is valid
+LMS_COURSE_VALIDATION_BASE_URL = None
 
 # Used to determine how dates are displayed in templates
 DATE_FORMAT = 'F d, Y'
