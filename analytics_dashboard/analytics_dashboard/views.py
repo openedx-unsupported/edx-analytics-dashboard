@@ -71,8 +71,11 @@ class AutoAuth(View):
         if not settings.ENABLE_AUTO_AUTH:
             raise Http404
 
+        if not settings.AUTO_AUTH_USERNAME_PREFIX:
+            raise ValueError('AUTO_AUTH_USERNAME_PREFIX must be set!')
+
         # Create a new user
-        username = password = 'AUTO_AUTH_' + uuid.uuid4().hex[0:20]
+        username = password = settings.AUTO_AUTH_USERNAME_PREFIX + uuid.uuid4().hex[0:20]
         user = User.objects.create_user(username, password=password)
 
         # Grant user access to demo course

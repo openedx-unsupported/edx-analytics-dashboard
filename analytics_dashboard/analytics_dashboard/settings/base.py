@@ -352,6 +352,10 @@ SOCIAL_AUTH_EDX_OIDC_ID_TOKEN_DECRYPTION_KEY = None
 # This should NOT be enabled for production deployments!
 ENABLE_AUTO_AUTH = False
 
+# Prefix for auto auth usernames. This value MUST be set in order for auto-auth to function. If it were not set
+# we would be unable to automatically remove all auto-auth users.
+AUTO_AUTH_USERNAME_PREFIX = 'AUTO_AUTH_'
+
 # Maximum time (in seconds) before course permissions expire and need to be refreshed
 COURSE_PERMISSIONS_TIMEOUT = 900
 
