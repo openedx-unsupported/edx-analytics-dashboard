@@ -156,6 +156,12 @@ Override example:
 
         $ DASHBOARD_SERVER_URL="http://example.com" API_SERVER_URL="http://api.example.com" API_AUTH_TOKEN="example" make accept
 
+#### Course Validation
+In addition to the standard acceptance tests, there is also a script to validate all course pages and report their
+HTTP status codes. Use the command below to execute this script.
+
+        $ make course_validation
+
 
 Reporting Security Issues
 -------------------------
