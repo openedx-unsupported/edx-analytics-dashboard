@@ -430,7 +430,7 @@ class CourseEngagementActivityTrendCSVViewTests(CourseCSVTestMixin, CourseEngage
         super(CourseEngagementActivityTrendCSVViewTests, self).test_404()
 
 
-class CourseHomeViewTests(CourseEngagementViewTestMixin, TestCase):
+class CourseHomeViewTests(CourseEnrollmentViewTestMixin, TestCase):
     """
     Course homepage
 
