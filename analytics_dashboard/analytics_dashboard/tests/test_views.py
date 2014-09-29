@@ -1,19 +1,18 @@
 from calendar import timegm
 import json
 import datetime
+
 from django.core.cache import cache
 from django.test.utils import override_settings
 import httpretty
 import jwt
 import mock
-
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import DatabaseError
 from django_dynamic_fixture import G
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.test import TestCase
-
 from analyticsclient.exceptions import ClientError
 from social.utils import parse_qs
 
@@ -305,12 +304,14 @@ class OpenIdConnectTests(UserTestCaseMixin, RedirectTestCaseMixin, TestCase):
 
 
 class AutoAuthTests(UserTestCaseMixin, TestCase):
+    auto_auth_path = reverse_lazy('auto_auth')
+
     @override_settings(ENABLE_AUTO_AUTH=False)
     def test_setting_disabled(self):
         """
         When the ENABLE_AUTO_AUTH setting is set to False, the view should raise a 404.
         """
-        response = self.client.get(reverse('auto_auth'))
+        response = self.client.get(self.auto_auth_path)
         self.assertEqual(response.status_code, 404)
 
     @override_settings(ENABLE_AUTO_AUTH=True)
@@ -320,12 +321,18 @@ class AutoAuthTests(UserTestCaseMixin, TestCase):
         """
 
         original_user_count = User.objects.count()
-        response = self.client.get(reverse('auto_auth'))
+        response = self.client.get(self.auto_auth_path)
 
         self.assertEqual(response.status_code, 302)
         self.assertEqual(User.objects.count(), original_user_count + 1)
         user = self.get_latest_user()
         self.assertUserLoggedIn(user)
-        self.assertTrue(user.username.startswith('AUTO_AUTH_'))
+        self.assertTrue(user.username.startswith(settings.AUTO_AUTH_USERNAME_PREFIX))
 
         self.assertListEqual(get_user_course_permissions(user), ['edX/DemoX/Demo_Course'])
+
+    @override_settings(ENABLE_AUTO_AUTH=True, AUTO_AUTH_USERNAME_PREFIX=None)
+    def test_prefix_invalid(self):
+        original_user_count = User.objects.count()
+        self.assertRaises(ValueError, self.client.get, self.auto_auth_path)
+        self.assertEqual(User.objects.count(), original_user_count)
