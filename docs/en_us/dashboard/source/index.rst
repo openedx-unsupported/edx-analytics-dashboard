@@ -3,7 +3,7 @@
    contain the root `toctree` directive.
 
 
-edX Insights
+Using edX Insights
 ========================================
 
 .. toctree::
@@ -12,5 +12,9 @@ edX Insights
 
    read_me
    preface
+   browsers
    change_log
    Overview
+   enrollment/index
+   engagement/index
+   Reference

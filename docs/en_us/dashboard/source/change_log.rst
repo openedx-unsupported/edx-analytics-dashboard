@@ -2,9 +2,9 @@
 Change Log
 ############
 
-**************
-August, 2014
-**************
+*****************
+September, 2014
+*****************
 
 .. list-table::
    :widths: 10 70
@@ -12,6 +12,6 @@ August, 2014
 
    * - Date
      - Change
-   * - 08/31/14
+   * - 09/30/14
      - Initial release.
 
