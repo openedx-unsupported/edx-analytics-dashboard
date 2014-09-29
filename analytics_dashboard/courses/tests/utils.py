@@ -3,6 +3,7 @@ import csv
 import datetime
 
 from analyticsclient.client import Client
+from analyticsclient.constants import UNKNOWN_COUNTRY_CODE
 import analyticsclient.constants.activity_type as AT
 
 from courses.permissions import set_user_course_permissions
@@ -43,8 +44,8 @@ def get_mock_enrollment_summary_and_trend(course_id):
 
 def get_mock_api_enrollment_geography_data(course_id):
     data = []
-    items = ((u'USA', u'United States', 500), (u'GER', u'Germany', 100), (u'CAN', u'Canada', 300),
-             (None, u'UNKNOWN', 100))
+    items = ((u'USA', u'United States', 500), (None, UNKNOWN_COUNTRY_CODE, 300),
+             (u'GER', u'Germany', 100), (u'CAN', u'Canada', 100))
     for item in items:
         data.append({'date': '2014-01-01', 'course_id': course_id, 'count': item[2],
                      'country': {'alpha3': item[0], 'name': item[1]}, 'created': CREATED_DATETIME_STRING})
@@ -58,16 +59,21 @@ def get_mock_api_enrollment_geography_data_limited(course_id):
 
 
 def get_mock_presenter_enrollment_geography_data():
+    # top three are used in the summary (unknown is excluded)
     data = [
         {'countryCode': 'USA', 'countryName': 'United States', 'count': 500, 'percent': 0.5},
-        {'countryCode': 'CAN', 'countryName': 'Canada', 'count': 300, 'percent': 0.3},
         {'countryCode': 'GER', 'countryName': 'Germany', 'count': 100, 'percent': 0.1},
+        {'countryCode': 'CAN', 'countryName': 'Canada', 'count': 100, 'percent': 0.1},
+        {'countryCode': None, 'countryName': UNKNOWN_COUNTRY_CODE, 'count': 300, 'percent': 0.3},
     ]
     summary = {
         'last_updated': CREATED_DATETIME,
         'num_countries': 3,
-        'top_countries': data
+        'top_countries': data[:3]  # unknown countries are excluded in the top 3
     }
+
+    # sort so unknown is corrected placed in the returned data
+    data = sorted(data, key=lambda i: i['count'], reverse=True)
 
     return summary, data
 
