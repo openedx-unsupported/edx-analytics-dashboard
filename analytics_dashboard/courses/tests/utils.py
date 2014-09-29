@@ -137,7 +137,7 @@ def mock_course_activity(start_date=None, end_date=None):
         {
             'interval_end': '2014-09-01T000000',
             AT.ANY: 1000,
-            AT.ATTEMPTED_PROBLEM: 0,
+            AT.ATTEMPTED_PROBLEM: None,
             AT.PLAYED_VIDEO: 10000,
             AT.POSTED_FORUM: 45,
             'created': CREATED_DATETIME_STRING
@@ -147,7 +147,7 @@ def mock_course_activity(start_date=None, end_date=None):
             AT.ANY: 100,
             AT.ATTEMPTED_PROBLEM: 301,
             AT.PLAYED_VIDEO: 1000,
-            AT.POSTED_FORUM: 0,
+            AT.POSTED_FORUM: None,
             'created': CREATED_DATETIME_STRING
         },
     ]

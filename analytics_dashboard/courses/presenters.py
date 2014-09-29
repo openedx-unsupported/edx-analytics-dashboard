@@ -64,7 +64,7 @@ class CourseEngagementPresenter(BasePresenter):
         for datum in api_trends:
             trend_week = {'weekEnding': self.strip_time(datum['interval_end'])}
             for trend_type in trend_types:
-                trend_week[trend_type] = datum[trend_type] if trend_type in datum else 0
+                trend_week[trend_type] = datum[trend_type] or 0
             trends.append(trend_week)
 
         return trends
