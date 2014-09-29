@@ -136,7 +136,7 @@ class CourseEnrollmentPresenter(BasePresenter):
                      'countryName': datum['country']['name'],
                      'count': datum['count'],
                      'percent': datum['count'] / total_enrollment if total_enrollment > 0 else 0.0}
-                    for datum in api_response if datum['country']['name'] != 'UNKNOWN']
+                    for datum in api_response]
 
             # Include a summary of the number of countries and the top 3 countries.
             summary = {
