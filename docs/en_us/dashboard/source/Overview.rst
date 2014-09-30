@@ -34,16 +34,14 @@ top right of each chart or metric.
  :alt: The Active Students Last Week metric with the tip "Students who visited 
        at least one page in the course content" showing
 
-This guide is intended to offer more complete information to those who are
-interested.
+This guide is intended to offer more complete information.
 
-* For information about the computation of the values that are reported, the
-  :ref:`Reference` chapter provides detail. For a reference to the data that
-  edX collects and stores, see the `edX Research Guide`_.
+* For information about the computation of the values that are reported, see 
+  the :ref:`Reference` chapter. For a reference to the data that edX collects 
+  and stores, see the `edX Research Guide`_.
 
-* For those who want cues for putting the data provided by edX Insights to
-  work, this guide contains chapters that introduce the graphs, metrics, and
-  reports that you access in edX Insights.
+* For an introduction to the graphs, metrics, and reports that you can access 
+  in edX Insights, see the following chapters.
 
  * :ref:`Enrollment_Activity` 
 

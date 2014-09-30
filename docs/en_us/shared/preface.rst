@@ -240,7 +240,7 @@ edX Global Community meetup_ group.
 
 
 .. _Building and Running an edX Course: http://edx.readthedocs.org/projects/edx-partner-course-staff/en/latest/
-.. _Using edX Insights: http://edx.readthedocs.org/projects/edx-insights/en/latest/
+.. _Using edX Insights: http://edx-insights.readthedocs.org/en/latest/
 .. _edX Course Staff Release Notes: http://edx.readthedocs.org/projects/edx-release-notes/en/latest/
 .. _Creating a Peer Assessment: http://edx.readthedocs.org/projects/edx-open-response-assessments/en/latest/
 .. _edX Research Guide: http://edx.readthedocs.org/projects/devdata/en/latest/
