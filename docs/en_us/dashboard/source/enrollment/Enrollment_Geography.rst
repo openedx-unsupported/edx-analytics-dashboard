@@ -29,8 +29,8 @@ enrollment percentage. You can view the enrollment total for each country: move
 your mouse over the map.
 
 In this example, the country with the highest number of enrolled students is
-the United States. The cursor is pointing to Brazil, and the tip that displays
-shows the percentage of students enrolled in the course from that country.
+the United States. The cursor is pointing to Brazil, and a tip  shows the
+percentage of students enrolled in the course from that country.
 
 .. image:: ../images/geography_chart.png
  :alt: The Geographic Distribution map with the tip for the country of Brazil
@@ -148,7 +148,7 @@ Fostering Community
 When students enroll in a course and click through from the edX dashboard, they
 see the Course Info page first. One professor welcomed students into the course
 community by including enrollment data from previous iterations of his course.
-By showcasing the size and geograhic reach of the course in this way, the
+By showcasing the size and geographic reach of the course in this way, the
 professor used the "wow" factor of his MOOC to capture interest and escalate
 enthusiasm.
 

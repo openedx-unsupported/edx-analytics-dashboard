@@ -75,7 +75,7 @@ Change in Last Week Metric
 ======================================
   
 This metric reports the difference between the enrollment total at the
-end of the day yesterday and at the end of the previous day.
+end of the day yesterday and at the end of the day one week ago.
 
 ======================================
 Enrollment Over Time Report 

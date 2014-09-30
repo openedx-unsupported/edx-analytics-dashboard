@@ -88,10 +88,10 @@ For information about viewing enrollment activity data in edX Insights, see
 * The markers on the chart represent the number of users enrolled in the
   course each day.
 
-* The x-axis shows computations made from course creation through the end of
+* The x-axis shows dates from course creation through the end of
   the last update period.
 
-* The y-axis shows the total number of enrolled users.
+* The y-axis shows the number of enrolled users.
 
 .. _Location Computations:
 
@@ -211,7 +211,7 @@ For information about viewing engagement metrics in edX Insights, see
 
 * Computations are updated weekly.
 
-* The y-axis shows the total number of unique users.
+* The y-axis shows the number of unique users.
 
 .. _Error Conditions:
 
