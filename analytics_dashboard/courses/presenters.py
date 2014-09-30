@@ -5,6 +5,7 @@ from django.conf import settings
 from analyticsclient.client import Client
 import analyticsclient.constants.activity_type as AT
 from analyticsclient.constants import demographic
+from analyticsclient.constants import UNKNOWN_COUNTRY_CODE
 
 from waffle import switch_is_active
 
@@ -136,13 +137,16 @@ class CourseEnrollmentPresenter(BasePresenter):
                      'countryName': datum['country']['name'],
                      'count': datum['count'],
                      'percent': datum['count'] / total_enrollment if total_enrollment > 0 else 0.0}
-                    for datum in api_response if datum['country']['name'] != 'UNKNOWN']
+                    for datum in api_response]
 
-            # Include a summary of the number of countries and the top 3 countries.
+            # do not include unknown country metrics in summary information
+            data_without_unknown = [datum for datum in data if datum['countryName'] != UNKNOWN_COUNTRY_CODE]
+
+            # Include a summary of the number of countries and the top 3 countries, excluding unknown.
             summary = {
                 'last_updated': last_updated,
-                'num_countries': len(data),
-                'top_countries': data[:self.NUMBER_TOP_COUNTRIES]
+                'num_countries': len(data_without_unknown),
+                'top_countries': data_without_unknown[:self.NUMBER_TOP_COUNTRIES]
             }
 
         return summary, data
