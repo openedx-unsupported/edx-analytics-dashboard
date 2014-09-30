@@ -20,12 +20,12 @@ class CourseEngagementPresenterTests(TestCase):
     def get_expected_trends(self, include_forum_data):
         trends = [
             {
-                'weekEnding': '2014-09-01',
+                'weekEnding': '2014-08-31',
                 AT.ANY: 1000,
                 AT.ATTEMPTED_PROBLEM: 0,
                 AT.PLAYED_VIDEO: 10000
             }, {
-                'weekEnding': '2014-09-08',
+                'weekEnding': '2014-09-07',
                 AT.ANY: 100,
                 AT.ATTEMPTED_PROBLEM: 301,
                 AT.PLAYED_VIDEO: 1000,
