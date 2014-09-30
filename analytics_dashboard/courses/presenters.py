@@ -62,7 +62,10 @@ class CourseEngagementPresenter(BasePresenter):
         # the field if no data exists for it, so we fill in the zeros here)
         trends = []
         for datum in api_trends:
-            trend_week = {'weekEnding': self.strip_time(datum['interval_end'])}
+            # convert end of interval to ending day of week
+            interval_end = self.parse_api_datetime(datum['interval_end'])
+            week_ending = interval_end.date() - datetime.timedelta(days=1)
+            trend_week = {'weekEnding': week_ending.isoformat()}
             for trend_type in trend_types:
                 trend_week[trend_type] = datum[trend_type] or 0
             trends.append(trend_week)
