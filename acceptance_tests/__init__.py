@@ -42,6 +42,11 @@ class FooterMixin(object):
         element = self.page.q(css=selector)
         self.assertEqual(element.text[0], DASHBOARD_FEEDBACK_EMAIL)
 
+        # check that we have the support link
+        selector = footer_selector + " a[class=support-link]"
+        element = self.page.q(css=selector)
+        self.assertEqual(element.attrs('href')[0], SUPPORT_URL)
+
         # Verify the terms of service link is present
         selector = footer_selector + " a[data-role=tos]"
         element = self.page.q(css=selector)

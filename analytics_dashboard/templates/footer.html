@@ -6,13 +6,18 @@
   <div class="feedback">
     <div class="container">
       <div class="row">
+
+        {% captureas support_link_start %}<a class="support-link" href="{% settings_value 'SUPPORT_URL' %}">{% endcaptureas %}
+        {% captureas support_link_end %}</a>{% endcaptureas %}
+
         {% captureas email_link %}
           <a class="feedback-email" href="mailto:{{ feedback_email }}?Subject=Feedback">
             {{ feedback_email }}
           </a>
         {% endcaptureas %}
-        {% blocktrans %}We want this dashboard to work for you! Please send suggestions, comments, and critiques to
-          {{ email_link }}.{% endblocktrans %}
+        {% blocktrans %}We want this dashboard to work for you! Need help?
+          {{ support_link_start }}Visit our support forum{{ support_link_end }}.
+          Comments or suggestions? Email {{ email_link }}.{% endblocktrans %}
       </div>
     </div>
   </div>
