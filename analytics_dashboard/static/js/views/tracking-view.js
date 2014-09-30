@@ -1,5 +1,5 @@
-define(['backbone', 'underscore'],
-    function (Backbone, _) {
+define(['backbone', 'underscore', 'utils/utils'],
+    function (Backbone, _, Utils) {
         'use strict';
 
         /**
@@ -17,6 +17,10 @@ define(['backbone', 'underscore'],
              * loading.
              */
             segment: undefined,
+
+            events: {
+                'shown.bs.tooltip': 'trackElementEvent'
+            },
 
             initialize: function (options) {
                 var self = this;
@@ -46,6 +50,24 @@ define(['backbone', 'underscore'],
                     // now segment has been loaded, we can track events
                     self.listenTo(self.model, 'segment:track', self.track);
                 }
+            },
+
+            /**
+             * This emits an event to our external tracking systems when an
+             * event bubbles up from a DOM element.
+             */
+            trackElementEvent: function(ev) {
+                var self = this,
+                    trackedElement = ev.target,
+                    properties = Utils.getNodeProperties(
+                        trackedElement.attributes, 'data-track-', ['data-track-event']),
+                    eventType = $(trackedElement).attr('data-track-event');
+
+                if(!self.model.isTracking() || _.isEmpty(eventType) || !_.isString(eventType)) {
+                    return;
+                }
+
+                self.track(eventType, properties);
             },
 
             /**

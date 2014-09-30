@@ -93,7 +93,16 @@ SOCIAL_AUTH_EDX_OIDC_ID_TOKEN_DECRYPTION_KEY = None
 ENABLE_AUTO_AUTH = True
 
 # Uncomment the line below to avoid having to worry about course permissions
-# ENABLE_COURSE_PERMISSIONS = False
+ENABLE_COURSE_PERMISSIONS = False
 ########## END AUTHENTICATION/AUTHORIZATION
+
+########## FEEDBACK AND SUPPORT
+HELP_URL = '#'
+########## END FEEDBACK
+
+########## SEGMENT.IO
+# 'None' disables tracking.  This will be turned on for test and production.
+SEGMENT_IO_KEY = os.getenv('SEGMENT_WRITE_KEY')
+########## END SEGMENT.IO
 
 LOGGING = get_logger_config(debug=DEBUG, dev_env=True, local_loglevel='DEBUG')

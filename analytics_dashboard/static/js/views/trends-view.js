@@ -82,7 +82,11 @@ define(['bootstrap', 'd3', 'jquery', 'moment', 'nvd3', 'underscore', 'views/attr
              * readers and in the tooltip icon.
              */
             tooltipTemplate: _.template('<span class="sr-only"><%=text%></span>' +
-                '<i class="ico ico-tooltip fa fa-info-circle chart-tooltip" data-toggle="tooltip" data-placement="top" title="<%=text%>"></i>'),
+                '<i class="ico ico-tooltip fa fa-info-circle chart-tooltip" ' +
+                'data-toggle="tooltip" data-placement="top" ' +
+                'data-track-event="edx.bi.tooltip.displayed" data-track-category="trend" ' +
+                'title="<%=text%>"></i>'
+            ),
 
             render: function () {
                 AttributeListenerView.prototype.render.call(this);

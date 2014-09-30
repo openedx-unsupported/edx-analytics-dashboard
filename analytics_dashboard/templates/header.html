@@ -22,7 +22,7 @@ Partial: App-wide header element
       <ul class="nav navbar-nav navbar-right">
         {% if help_url %}
         <li>
-          <a class="navbar-link " href="{{ help_url }}">{% trans "Help" %}</a>
+          <a class="navbar-link " data-track-type="click" data-track-event="edx.bi.help.clicked" href="{{ help_url }}">{% trans "Help" %}</a>
         </li>
       {% endif %}
         <li class="dropdown">
