@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load staticfiles %}
+{% load dashboard_extras %}
 
 {% block view-name %}view-course-list{% endblock view-name %}
 
@@ -39,7 +40,12 @@
       <div class="help-msg">
         <h4>{% blocktrans %}New to {{ application_name }}?{% endblocktrans %}</h4>
 
-        <p class="info-text">{% trans "Click Help in the upper-right corner to get more information about the Insights page you are viewing. You can also provide feedback about the product through the feedback form at the bottom of this page." %}</p>
+        {% captureas email_link %}
+          <a class="feedback-email" href="mailto:{{ feedback_email }}?Subject=Feedback">
+            {{ feedback_email }}</a>{% endcaptureas %}
+
+        <p class="info-text">{% blocktrans %} Click Help in the upper-right corner to get more information
+            about {{ application_name }}. Send us feedback at {{email_link}}.{% endblocktrans %}</p>
       </div>
     </div>
   </div>

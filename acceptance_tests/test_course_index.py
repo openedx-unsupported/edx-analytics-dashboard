@@ -1,6 +1,9 @@
 from bok_choy.web_app_test import WebAppTest
 from pages import CourseIndexPage
 
+from acceptance_tests import DASHBOARD_FEEDBACK_EMAIL
+
+
 _multiprocess_can_split_ = True
 
 
@@ -25,3 +28,7 @@ class CourseIndexTests(WebAppTest):
         # The element should link to the course landing page.
         href = element.attrs('href')[0]
         self.assertTrue(href.endswith('/courses/{}/'.format(course_id)))
+
+        # check that we have an email
+        element = self.page.q(css='div[class=help-msg] a[class=feedback-email]')
+        self.assertEqual(element.text[0], DASHBOARD_FEEDBACK_EMAIL)
