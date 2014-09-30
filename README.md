@@ -30,7 +30,7 @@ Alternatively, you can launch the server using:
 Feature Gating
 --------------
 Need a fallback to disable a feature? Create a [Waffle](http://waffle.readthedocs.org/en/latest/)
-(switch)[http://waffle.readthedocs.org/en/latest/types.html#switches]:
+[switch](http://waffle.readthedocs.org/en/latest/types.html#switches):
 
         $ ./manage.py switch feature_name [on/off] --create
 
