@@ -56,15 +56,15 @@ Individual course-centric enrollment geography view.
               <div class="col-xs-12 col-sm-3" data-stat-type="top-country-{{ forloop.counter }}">
                 {% if forloop.first %}
                   {# Translators: This string represents the country with the greatest number of enrolled students. #}
-                  {% trans "Most Prevalent Country" as label %}
+                  {% trans "Top Country by Enrollment" as label %}
                   {% trans "Country with the largest number of students." as tooltip %}
                 {% elif forloop.counter == 2 %}
                   {# Translators: This string represents the country with the second-greatest number of enrolled students. #}
-                  {% trans "2nd Most Prevalent Country" as label %}
+                  {% trans "Second Country by Enrollment" as label %}
                   {% trans "Country with the second largest number of students." as tooltip %}
                 {% elif forloop.counter == 3 %}
                   {# Translators: This string represents the country with the third-greatest number of enrolled students. #}
-                  {% trans "3rd Most Prevalent Country" as label %}
+                  {% trans "Third Country by Enrollment" as label %}
                   {% trans "Country with the third largest number of students." as tooltip %}
                 {% endif %}
 
