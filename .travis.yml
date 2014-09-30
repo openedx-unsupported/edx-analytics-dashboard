@@ -1,0 +1,12 @@
+language: python
+python: "2.7"
+before_install:
+  - export PATH=./node_modules/.bin:$PATH
+  - sudo apt-get update -qq
+  - sudo apt-get install -y npm
+install:
+    - pip install coveralls
+script: 
+    - make validate
+after_success:
+    - coveralls
