@@ -59,14 +59,14 @@ def summary_point(value, label, subheading=None, tooltip=None):
 
 @register.inclusion_tag('section_error.html')
 def show_chart_error():
-    return {'content_type': 'chart', 'documentation_url': settings.DOCUMENTATION_LOAD_ERROR_URL}
+    return {'content_type': 'chart', 'documentation_load_error_url': settings.DOCUMENTATION_LOAD_ERROR_URL}
 
 
 @register.inclusion_tag('section_error.html')
 def show_table_error():
-    return {'content_type': 'table', 'documentation_url': settings.DOCUMENTATION_LOAD_ERROR_URL}
+    return {'content_type': 'table', 'documentation_load_error_url': settings.DOCUMENTATION_LOAD_ERROR_URL}
 
 
 @register.inclusion_tag('section_error.html')
 def show_metrics_error():
-    return {'content_type': 'metrics', 'documentation_url': settings.DOCUMENTATION_LOAD_ERROR_URL}
+    return {'content_type': 'metrics', 'documentation_load_error_url': settings.DOCUMENTATION_LOAD_ERROR_URL}
