@@ -50,8 +50,10 @@ validate: validate_python validate_js
 demo:
 	cd analytics_dashboard && ./manage.py switch show_engagement_forum_activity on --create
 
+compile_translations:
+	cd analytics_dashboard && i18n_tool generate
 
 generate_fake_translations:
 	cd analytics_dashboard && i18n_tool extract
 	cd analytics_dashboard && i18n_tool dummy
-	cd analytics_dashboard && i18n_tool generate
+	compile_translations

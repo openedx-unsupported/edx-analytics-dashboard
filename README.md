@@ -4,6 +4,11 @@ edX Analytics Dashboard [![BuildStatus](https://travis-ci.org/edx/edx-analytics-
 =======================
 Dashboard to display course analytics to course teams
 
+Prerequisites
+-------------
+* Python 2.7.x (not tested with Python 3.x)
+* [gettext](http://www.gnu.org/software/gettext/) 
+
 Getting Started
 ---------------
 1. Get the code (e.g. clone the repository).
@@ -55,24 +60,9 @@ developer, and do not want to setup edx-platform, you can get around this requir
 
 Internationalization (i18n)
 ---------------------------
-In order to generate translation files, you must have [gettext](http://www.gnu.org/software/gettext/) installed. gettext
- should be available via `yum` or `apt-get`. If you are using Homebrew on Mac OS X, execute the commands below:
-
-        $ brew install gettext
-        $ brew link gettext --force
-        
-Once gettext is installed, translation files can be generated with:
-
-        $ cd analytics_dashboard && i18n_tool extract
-        
-The generated files located in `analytics_dashboard/conf/locale/en/LC_MESSAGES` should be uploaded to 
-the [analytics-dashboard](https://www.transifex.com/projects/p/edx-platform/resource/analytics-dashboard/) and
-[analytics-dashboard-js](https://www.transifex.com/projects/p/edx-platform/resource/analytics-dashboard-js/) resources 
-at Transifex where translators will begin the translation process. Once translations are complete, run the command 
-below to compile the translations:
-
-        $ cd analytics_dashboard && i18n_tool generate
-
+In order to work with translations you must have you must have [gettext](http://www.gnu.org/software/gettext/) installed. gettext
+ should be available via your preferred package manager (e.g. `yum`, `apt-get`, 'brew`, or `ports`).
+###Development###
 When adding or updating code, you should ensure all necessary strings are marked for translation. We have provided a
 command that will generate dummy translations to help with this. This will create an "Esperanto" translation that is 
 actually over-accented English.
@@ -82,6 +72,32 @@ actually over-accented English.
 Restart your server after running the command above and update your browser's language preference to Esperanto (eo). 
 Navigate to a page and verify that you see fake translations. If you see plain English instead, your code is not being 
 properly translated.
+
+###Updating Translations###
+Once development is complete, translation source files (.po) must be generated. The command below handle this.
+
+        $ cd analytics_dashboard && i18n_tool extract
+        
+The generated files located in `analytics_dashboard/conf/locale/en/LC_MESSAGES` should be uploaded to 
+the [analytics-dashboard](https://www.transifex.com/projects/p/edx-platform/resource/analytics-dashboard/) and
+[analytics-dashboard-js](https://www.transifex.com/projects/p/edx-platform/resource/analytics-dashboard-js/) resources 
+at Transifex where translators will begin the translation process. This task can be completed using the [Transifex
+Client](http://docs.transifex.com/developer/client/):
+
+        $ tx push -s
+
+Once translations are completed, run the commands below to download and compile the translations:
+
+        $ tx pull -a
+        $ cd analytics_dashboard && i18n_tool generate
+
+Note that only the following files (for each language) should be committed to this repository:
+
+* django.mo
+* django.po
+* djangojs.mo
+* djangojs.po
+
 
 License
 -------
