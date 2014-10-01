@@ -119,6 +119,12 @@ define(['bootstrap', 'd3', 'jquery', 'moment', 'nvd3', 'underscore', 'views/attr
 
                 chart.yAxis.showMaxMin(false);
 
+                if(_(self.options).has('interactiveTooltipHeader')) {
+                    chart.interactiveLayer.tooltip.headerFormatter(function (d) {
+                        return interpolate(self.options.interactiveTooltipHeader, {value: d}, true);
+                    });
+                }
+
                 // Add the tooltip
                 if (_(self.options).has('tooltip')) {
                     $tooltip = $(self.tooltipTemplate({text: self.options.tooltip}));
