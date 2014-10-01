@@ -7,11 +7,6 @@
 
 {% block title %}{% trans "Courses" %} {{ block.super }}{% endblock title %}
 
-{% block javascript %}
-  {{ block.super }}
-  <script src="{% static 'js/index-main.js' %}"></script>
-{% endblock javascript %}
-
 {% block header-text %}
   <h3>
     {% blocktrans with username=request.user.username %}Welcome, {{ username }}!{% endblocktrans %}

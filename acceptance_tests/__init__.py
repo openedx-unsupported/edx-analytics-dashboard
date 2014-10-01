@@ -83,7 +83,26 @@ class FooterMixin(AssertMixin):
         self.assertEqual(element.text[0], u'Privacy Policy')
 
 
-class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterMixin):
+class PrimaryNavMixin(object):
+    def _test_user_menu(self):
+        """
+        Verify the user menu functions properly.
+        """
+        element = self.page.q(css='a.active-user.dropdown-toggle')
+        self.assertTrue(element.present)
+        self.assertEqual(element.attrs('aria-expanded')[0], 'false')
+
+        element.click()
+
+        # Check that the ARIA status was updated
+        self.assertEqual(element.attrs('aria-expanded')[0], 'true')
+
+        # Ensure the menu is actually visible onscreen
+        element = self.page.q(css='ul.dropdown-menu.active-user-nav')
+        self.assertTrue(element.visible)
+
+
+class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterMixin, PrimaryNavMixin):
     """ Mixin for common course page assertions and tests. """
 
     DASHBOARD_DATE_FORMAT = '%B %d, %Y'
@@ -176,6 +195,7 @@ class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterMixin):
         :return:
         """
         self.page.visit()
+        self._test_user_menu()
         self._test_footer()
         self._test_data_update_message()
 
