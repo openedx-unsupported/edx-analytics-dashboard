@@ -1,5 +1,6 @@
 from django import template
 from django.conf import settings
+from django.utils.safestring import mark_safe
 
 register = template.Library()
 
@@ -42,7 +43,7 @@ class CaptureasNode(template.Node):
         self.varname = varname
 
     def render(self, context):
-        output = self.nodelist.render(context)
+        output = mark_safe(self.nodelist.render(context).strip())
         context[self.varname] = output
         return ''
 
