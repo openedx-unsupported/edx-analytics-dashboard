@@ -4,7 +4,6 @@
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
 
-
 ########## PATH CONFIGURATION
 # Absolute filesystem path to the Django project directory:
 DJANGO_ROOT = dirname(dirname(abspath(__file__)))
@@ -278,6 +277,10 @@ HELP_URL = None
 
 ########## DOCUMENTATION LINKS -- These values should be overridden for production deployments.
 DOCUMENTATION_LOAD_ERROR_URL = 'http://example.com/'
+DOCUMENTATION_LOAD_ERROR_MESSAGE = 'This data may not be available for your course. For example, student ' \
+                                   'enrollment data is not computed for courses created prior to December 4, 2014. ' \
+                                   '<a href="{error_documentation_link}">Read more</a>.'.format(error_documentation_link=DOCUMENTATION_LOAD_ERROR_URL)
+
 ########## END FEEDBACK
 
 ########## SOUTH CONFIGURATION
