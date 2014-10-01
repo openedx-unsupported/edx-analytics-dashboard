@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load dashboard_extras %}
+
 <div class="row">
     <div class="col-xs-12">
         <div class="col-xs-12 error-section-container">
@@ -19,12 +20,7 @@
                 </div>
 
                 <div>
-                    {{ privacy_policy_url }}
-                    {% captureas link_start %}<a href="{{ documentation_load_error_url }}">{% endcaptureas %}
-                    {% captureas link_end %}</a>{% endcaptureas %}
-                    {% blocktrans %}This data may not be available for your course.  You
-                    can {{ link_start }}view the full list{{ link_end }} of potential causes for these
-                    errors in the documentation.{% endblocktrans %}
+                    {{load_error_message|safe}}
                 </div>
             </div>
         </div>
