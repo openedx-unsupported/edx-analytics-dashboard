@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # this is the command that runs our server
 # --noreload is only runs one processes (which we can then kill)
