@@ -1,5 +1,6 @@
 from analyticsclient.constants import demographic
 from analyticsclient.exceptions import ClientError
+import requests
 
 from acceptance_tests.course_validation import DASHBOARD_SERVER_URL
 
@@ -12,10 +13,11 @@ class CourseReporter(object):
     course = None
     course_id = None
 
-    def __init__(self, course, http_client):
+    def __init__(self, course, cookies=None):
         self.course = course
         self.course_id = course.course_id
-        self.http_client = http_client
+        self.http_client = requests.Session()
+        self.http_client.cookies = cookies
 
     def _http_status(self, url):
         r = self.http_client.get(url)
