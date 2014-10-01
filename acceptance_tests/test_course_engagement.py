@@ -83,8 +83,8 @@ class CourseEngagementTests(CoursePageTestsMixin, WebAppTest):
         for i, row in enumerate(rows):
             columns = row.find_elements_by_css_selector('td')
             weekly_activity = trend_activity[i]
-            expected_date = self.format_time_as_dashboard(
-                datetime.datetime.strptime(weekly_activity['interval_end'], date_time_format)).replace(' 0', ' ')
+            expected_date = self.format_time_as_dashboard((
+                datetime.datetime.strptime(weekly_activity['interval_end'], date_time_format)) - datetime.timedelta(days=1)).replace(' 0', ' ')
             expected = [expected_date, weekly_activity[at.ANY], weekly_activity[at.PLAYED_VIDEO],
                         weekly_activity[at.ATTEMPTED_PROBLEM]]
             actual = [columns[0].text, int(columns[1].text), int(columns[2].text), int(columns[3].text)]
