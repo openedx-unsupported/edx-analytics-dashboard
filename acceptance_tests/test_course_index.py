@@ -1,10 +1,13 @@
 from bok_choy.web_app_test import WebAppTest
 from pages import CourseIndexPage
 
+from acceptance_tests import AssertMixin
+
+
 _multiprocess_can_split_ = True
 
 
-class CourseIndexTests(WebAppTest):
+class CourseIndexTests(AssertMixin, WebAppTest):
     def setUp(self):
         super(CourseIndexTests, self).setUp()
         self.page = CourseIndexPage(self.browser)
@@ -25,3 +28,6 @@ class CourseIndexTests(WebAppTest):
         # The element should link to the course landing page.
         href = element.attrs('href')[0]
         self.assertTrue(href.endswith('/courses/{}/'.format(course_id)))
+
+        # check that we have an email
+        self.assertValidFeedbackLink('div[class=help-msg] a[class=feedback-email]')
