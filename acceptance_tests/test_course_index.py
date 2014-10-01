@@ -1,24 +1,26 @@
 from bok_choy.web_app_test import WebAppTest
+from acceptance_tests import AssertMixin, PrimaryNavMixin
 from pages import CourseIndexPage
-
-from acceptance_tests import AssertMixin
-
 
 _multiprocess_can_split_ = True
 
 
-class CourseIndexTests(AssertMixin, WebAppTest):
+class CourseIndexTests(WebAppTest, AssertMixin, PrimaryNavMixin):
     def setUp(self):
         super(CourseIndexTests, self).setUp()
         self.page = CourseIndexPage(self.browser)
 
-    def test_course_list(self):
+    def test_page(self):
+        self.page.visit()
+        self._test_course_list()
+        self._test_user_menu()
+
+    def _test_course_list(self):
         """
         Course list should contain a link to the demo course.
         """
         course_id = 'edX/DemoX/Demo_Course'
 
-        self.page.visit()
         element = self.page.q(css='.course-list a')
         self.assertTrue(element.present)
 
