@@ -7,7 +7,8 @@
     <div class="container">
       <div class="row">
 
-        {% captureas support_link_start %}<a class="support-link" href="{% settings_value 'SUPPORT_URL' %}">{% endcaptureas %}
+        {% captureas support_link_start %}
+          <a class="support-link" href="{% settings_value 'SUPPORT_URL' %}" target="_blank">{% endcaptureas %}
         {% captureas support_link_end %}</a>{% endcaptureas %}
 
         {% captureas email_link %}
