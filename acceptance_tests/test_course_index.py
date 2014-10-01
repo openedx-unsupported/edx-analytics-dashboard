@@ -1,13 +1,13 @@
 from bok_choy.web_app_test import WebAppTest
 from pages import CourseIndexPage
 
-from acceptance_tests import DASHBOARD_FEEDBACK_EMAIL
+from acceptance_tests import AssertMixin
 
 
 _multiprocess_can_split_ = True
 
 
-class CourseIndexTests(WebAppTest):
+class CourseIndexTests(AssertMixin, WebAppTest):
     def setUp(self):
         super(CourseIndexTests, self).setUp()
         self.page = CourseIndexPage(self.browser)
@@ -30,5 +30,4 @@ class CourseIndexTests(WebAppTest):
         self.assertTrue(href.endswith('/courses/{}/'.format(course_id)))
 
         # check that we have an email
-        element = self.page.q(css='div[class=help-msg] a[class=feedback-email]')
-        self.assertEqual(element.text[0], DASHBOARD_FEEDBACK_EMAIL)
+        self.assertValidFeedbackLink('div[class=help-msg] a[class=feedback-email]')
