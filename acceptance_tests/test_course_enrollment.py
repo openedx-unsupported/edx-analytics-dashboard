@@ -3,7 +3,7 @@ import datetime
 from bok_choy.web_app_test import WebAppTest
 
 from analyticsclient.constants import demographic
-from acceptance_tests import CoursePageTestsMixin
+from acceptance_tests.mixins import CoursePageTestsMixin
 from acceptance_tests.pages import CourseEnrollmentActivityPage, CourseEnrollmentGeographyPage
 
 
