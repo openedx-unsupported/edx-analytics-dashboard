@@ -278,7 +278,7 @@ HELP_URL = None
 ########## DOCUMENTATION LINKS -- These values should be overridden for production deployments.
 DOCUMENTATION_LOAD_ERROR_URL = 'http://example.com/'
 # evaluated again at the end of production setting after DOCUMENTATION_LOAD_ERROR_URL has been set
-DOCUMENTATION_LOAD_ERROR_MESSAGE = '<a href="{error_documentation_link}">Read more</a>.'.format(error_documentation_link=DOCUMENTATION_LOAD_ERROR_URL)
+DOCUMENTATION_LOAD_ERROR_MESSAGE = '<a href="{error_documentation_link}" target="_blank">Read more</a>.'.format(error_documentation_link=DOCUMENTATION_LOAD_ERROR_URL)
 
 ########## END FEEDBACK
 
