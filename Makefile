@@ -54,6 +54,7 @@ validate_python: test.requirements test_python quality
 
 validate_js:
 	npm install
+	bower install
 	gulp test
 	gulp lint
 
