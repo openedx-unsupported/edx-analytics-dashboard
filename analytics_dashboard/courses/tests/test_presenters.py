@@ -6,7 +6,8 @@ from django.test import TestCase
 
 import analyticsclient.constants.activity_type as AT
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter, BasePresenter
-from courses.tests.utils import get_mock_enrollment_data, get_mock_enrollment_summary, \
+from courses.tests.utils import get_mock_enrollment_data, get_mock_presenter_enrollment_data_small, \
+    get_mock_enrollment_summary, get_mock_presenter_enrollment_summary_small, \
     get_mock_api_enrollment_geography_data, get_mock_presenter_enrollment_geography_data, \
     get_mock_api_enrollment_geography_data_limited, get_mock_presenter_enrollment_geography_data_limited, \
     mock_course_activity, CREATED_DATETIME
@@ -39,12 +40,24 @@ class CourseEngagementPresenterTests(TestCase):
 
         return trends
 
-    def assertSummaryAndTrendsValid(self, include_forum_activity):
+    def get_expected_trends_small(self, include_forum_data):
+        trends = self.get_expected_trends(include_forum_data)
+        trends[0].update({
+            AT.ANY: 0,
+            AT.ATTEMPTED_PROBLEM: 0,
+            AT.PLAYED_VIDEO: 0
+        })
+
+        if include_forum_data:
+            trends[0][AT.POSTED_FORUM] = 0
+
+        return trends
+
+    def assertSummaryAndTrendsValid(self, include_forum_activity, expected_trends):
         switch, _created = Switch.objects.get_or_create(name='show_engagement_forum_activity')
         switch.active = include_forum_activity
         switch.save()
 
-        expected_trends = self.get_expected_trends(include_forum_activity)
         summary, trends = self.presenter.get_summary_and_trend_data()
 
         # Validate the trends
@@ -66,8 +79,16 @@ class CourseEngagementPresenterTests(TestCase):
 
     @mock.patch('analyticsclient.course.Course.activity', mock.Mock(side_effect=mock_course_activity))
     def test_get_summary_and_trend_data(self):
-        self.assertSummaryAndTrendsValid(False)
-        self.assertSummaryAndTrendsValid(True)
+        self.assertSummaryAndTrendsValid(False, self.get_expected_trends(False))
+        self.assertSummaryAndTrendsValid(True, self.get_expected_trends(True))
+
+    @mock.patch('analyticsclient.course.Course.activity')
+    def test_get_summary_and_trend_data_small(self, mock_activity):
+        api_trend = [mock_course_activity()[-1]]
+        mock_activity.return_value = api_trend
+
+        self.assertSummaryAndTrendsValid(False, self.get_expected_trends_small(False))
+        self.assertSummaryAndTrendsValid(True, self.get_expected_trends_small(True))
 
 
 class BasePresenterTests(TestCase):
@@ -117,6 +138,15 @@ class CourseEnrollmentPresenterTests(TestCase):
         actual_summary, actual_trend = self.presenter.get_summary_and_trend_data()
         self.assertDictEqual(actual_summary, get_mock_enrollment_summary())
         self.assertListEqual(actual_trend, expected_trend)
+
+    @mock.patch('analyticsclient.course.Course.enrollment')
+    def test_get_summary_and_trend_data_small(self, mock_enrollment):
+        api_trend = [get_mock_enrollment_data(self.course_id)[-1]]
+        mock_enrollment.return_value = api_trend
+
+        actual_summary, actual_trend = self.presenter.get_summary_and_trend_data()
+        self.assertDictEqual(actual_summary, get_mock_presenter_enrollment_summary_small())
+        self.assertListEqual(actual_trend, get_mock_presenter_enrollment_data_small(self.course_id))
 
     @mock.patch('analyticsclient.course.Course.enrollment')
     def test_get_geography_data(self, mock_enrollment):

@@ -52,24 +52,36 @@ class CourseEngagementPresenter(BasePresenter):
 
         return activities
 
+    def _build_trend_week(self, trend_types, week_ending, api_trend):
+        trend_week = {'weekEnding': week_ending.isoformat()}
+        for trend_type in trend_types:
+            if trend_type in api_trend:
+                trend_week[trend_type] = api_trend[trend_type] or 0
+            else:
+                trend_week[trend_type] = 0
+        return trend_week
+
     def _build_trend(self, api_trends):
         """
         Format activity trends for specified date range and return results with
         zeros filled in for all activities.
         """
         trend_types = self.get_activity_types()
+        trends = []
+
+        # add zeros for the week prior if we only have a single point (prevents just a single point in the chart)
+        if len(api_trends) == 1:
+            interval_end = self.parse_api_datetime(api_trends[0]['interval_end'])
+            week_ending = interval_end.date() - datetime.timedelta(days=8)
+            trends.append(self._build_trend_week(trend_types, week_ending, {}))
 
         # fill in gaps in activity with zero for display (api doesn't return
         # the field if no data exists for it, so we fill in the zeros here)
-        trends = []
         for datum in api_trends:
             # convert end of interval to ending day of week
             interval_end = self.parse_api_datetime(datum['interval_end'])
             week_ending = interval_end.date() - datetime.timedelta(days=1)
-            trend_week = {'weekEnding': week_ending.isoformat()}
-            for trend_type in trend_types:
-                trend_week[trend_type] = datum[trend_type] or 0
-            trends.append(trend_week)
+            trends.append(self._build_trend_week(trend_types, week_ending, datum))
 
         return trends
 
@@ -116,7 +128,17 @@ class CourseEnrollmentPresenter(BasePresenter):
         now = datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
         trends = self.course.enrollment(start_date=None, end_date=now)
         summary = self._build_summary(trends)
+
+        # add zero for the day prior (prevents just a single point in the chart)
+        if len(trends) == 1:
+            trends.insert(0, self._build_empty_trend(self.parse_api_date(trends[0]['date'])))
+
         return summary, trends
+
+    def _build_empty_trend(self, day):
+        day = day - datetime.timedelta(days=1)
+        trend = {'date': day.isoformat(), 'count': 0}
+        return trend
 
     def get_geography_data(self):
         """
