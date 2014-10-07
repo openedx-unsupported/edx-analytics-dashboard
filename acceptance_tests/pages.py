@@ -3,12 +3,16 @@ Tests for course analytics pages
 """
 
 from bok_choy.page_object import PageObject
+from bok_choy.promise import EmptyPromise
 
-from acceptance_tests import DASHBOARD_SERVER_URL, auto_auth
+from acceptance_tests import DASHBOARD_SERVER_URL, BASIC_AUTH_PASSWORD, BASIC_AUTH_USERNAME, LMS_HOSTNAME, \
+    TEST_COURSE_ID
 
 
 class DashboardPage(PageObject):
     path = None
+    basic_auth_username = None
+    basic_auth_password = None
 
     @property
     def url(self):
@@ -24,14 +28,11 @@ class DashboardPage(PageObject):
 class CoursePage(DashboardPage):
     def __init__(self, browser, course_id=None):
         # Create the path
-        self.course_id = course_id or 'edX/DemoX/Demo_Course'
+        self.course_id = course_id or TEST_COURSE_ID
         path = 'courses/{}'.format(self.course_id)
 
         # Call the constructor and setup the URL
         super(CoursePage, self).__init__(browser, path)
-
-        # Automatically create and login a new user
-        auto_auth(browser, self.server_url)
 
     def is_browser_on_page(self):
         return self.browser.current_url == self.page_url
@@ -45,6 +46,29 @@ class CourseEnrollmentActivityPage(CoursePage):
     def is_browser_on_page(self):
         return super(CourseEnrollmentActivityPage, self).is_browser_on_page() and \
                'Enrollment Activity' in self.browser.title
+
+
+class LMSLoginPage(PageObject):
+    @property
+    def url(self):
+        if BASIC_AUTH_USERNAME and BASIC_AUTH_PASSWORD:
+            return 'https://{0}:{1}@{2}/login'.format(BASIC_AUTH_USERNAME, BASIC_AUTH_PASSWORD, LMS_HOSTNAME)
+
+        return 'https://{0}/login'.format(LMS_HOSTNAME)
+
+    def is_browser_on_page(self):
+        return self.browser.title.startswith('Log into')
+
+    def _is_browser_on_lms_dashboard(self):
+        return lambda: self.browser.title.startswith('Dashboard')
+
+    def login(self, username, password):
+        self.q(css='input#email').fill(username)
+        self.q(css='input#password').fill(password)
+        self.q(css='button#submit').click()
+
+        # Wait for LMS to redirect to the dashboard
+        EmptyPromise(self._is_browser_on_lms_dashboard(), "LMS login redirected to dashboard").fulfill()
 
 
 class LoginPage(DashboardPage):
@@ -80,11 +104,8 @@ class CourseIndexPage(DashboardPage):
     def __init__(self, browser):
         super(CourseIndexPage, self).__init__(browser)
 
-        # Automatically create and login a new user
-        auto_auth(browser, self.server_url)
-
     def is_browser_on_page(self):
-        return 'Courses' in self.browser.title
+        return self.browser.title.startswith('Courses')
 
 
 class ErrorPage(DashboardPage):

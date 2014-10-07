@@ -1,6 +1,7 @@
 ROOT = $(shell echo "$$PWD")
 COVERAGE = $(ROOT)/build/coverage
 PACKAGES = analytics_dashboard courses
+NUM_PROCESSES = 2
 
 requirements:
 	pip install -q -r requirements/base.txt --exists-action w
@@ -27,7 +28,7 @@ test_python: clean
 		$(PACKAGES)
 
 accept:
-	nosetests acceptance_tests --processes=2 --process-timeout=120 --exclude-dir=acceptance_tests/course_validation
+	nosetests -v acceptance_tests --processes=$(NUM_PROCESSES) --process-timeout=120 --exclude-dir=acceptance_tests/course_validation
 
 course_validation:
 	python -m acceptance_tests.course_validation.generate_report
