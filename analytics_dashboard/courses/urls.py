@@ -3,7 +3,6 @@
 from django.conf.urls import url, patterns
 
 from courses import views
-import re
 
 COURSE_URLS = [
     ('enrollment/activity', views.EnrollmentActivityView.as_view()),
@@ -14,20 +13,19 @@ COURSE_URLS = [
     ('csv/engagement_activity_trend', views.CourseEngagementActivityTrendCSV.as_view()),
 ]
 
-COURSE_ID_REGEX = r'^(?P<course_id>([^/]+/){2}[^/]+)'
-TRAILING_SLASH_REGEX = r'/$'
+COURSE_ID_PATTERN = r'(?P<course_id>[^/+]+[/+][^/+]+[/+][^/]+)'
 
 urlpatterns = patterns(
     '',
     url('^$', views.CourseIndex.as_view(), name='index'),
 
     # Course homepage. This should be the entry point for other applications linking to the course.
-    url(COURSE_ID_REGEX + TRAILING_SLASH_REGEX, views.CourseHome.as_view(), name='home')
+    url(r'^{0}/$'.format(COURSE_ID_PATTERN), views.CourseHome.as_view(), name='home')
 )
 
 
 def generate_regex(path):
-    return COURSE_ID_REGEX + re.escape('/' + path) + TRAILING_SLASH_REGEX
+    return r'^{0}/{1}/$'.format(COURSE_ID_PATTERN, path)
 
 
 for name, view in COURSE_URLS:

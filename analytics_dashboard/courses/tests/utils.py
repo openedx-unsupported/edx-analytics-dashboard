@@ -13,7 +13,7 @@ CREATED_DATETIME = datetime.datetime(year=2014, month=2, day=2)
 CREATED_DATETIME_STRING = CREATED_DATETIME.strftime(Client.DATETIME_FORMAT)
 
 
-def get_mock_enrollment_data(course_id):
+def get_mock_api_enrollment_data(course_id):
     data = []
     start_date = datetime.date(year=2014, month=1, day=1)
 
@@ -22,7 +22,7 @@ def get_mock_enrollment_data(course_id):
 
         data.append({
             'date': date.strftime('%Y-%m-%d'),
-            'course_id': course_id,
+            'course_id': unicode(course_id),
             'count': i,
             'created': CREATED_DATETIME_STRING
         })
@@ -39,11 +39,11 @@ def get_mock_enrollment_summary():
 
 
 def get_mock_enrollment_summary_and_trend(course_id):
-    return get_mock_enrollment_summary(), get_mock_enrollment_data(course_id)
+    return get_mock_enrollment_summary(), get_mock_api_enrollment_data(course_id)
 
 
 def get_mock_presenter_enrollment_data_small(course_id):
-    single_enrollment = get_mock_enrollment_data(course_id)[-1]
+    single_enrollment = get_mock_api_enrollment_data(course_id)[-1]
     empty_enrollment = {
         'count': 0,
         'date': '2014-01-30'
@@ -65,7 +65,7 @@ def get_mock_api_enrollment_geography_data(course_id):
     items = ((u'USA', u'United States', 500), (None, UNKNOWN_COUNTRY_CODE, 300),
              (u'GER', u'Germany', 100), (u'CAN', u'Canada', 100))
     for item in items:
-        data.append({'date': '2014-01-01', 'course_id': course_id, 'count': item[2],
+        data.append({'date': '2014-01-01', 'course_id': unicode(course_id), 'count': item[2],
                      'country': {'alpha3': item[0], 'name': item[1]}, 'created': CREATED_DATETIME_STRING})
 
     return data
@@ -97,9 +97,8 @@ def get_mock_presenter_enrollment_geography_data():
 
 
 def get_mock_presenter_enrollment_geography_data_limited():
-    '''
-    Returns a smaller set of countries.
-    '''
+    """ Returns a smaller set of countries. """
+
     summary, data = get_mock_presenter_enrollment_geography_data()
     data = data[0:1]
     data[0]['percent'] = 1.0
@@ -155,10 +154,10 @@ def mock_engagement_activity_summary_and_trend_data():
     return summary, trend
 
 
-# pylint: disable=unused-argument
-def mock_course_activity(start_date=None, end_date=None):
+def get_mock_api_course_activity(course_id):
     return [
         {
+            'course_id': unicode(course_id),
             'interval_end': '2014-09-01T000000',
             AT.ANY: 1000,
             AT.ATTEMPTED_PROBLEM: None,
@@ -167,6 +166,7 @@ def mock_course_activity(start_date=None, end_date=None):
             'created': CREATED_DATETIME_STRING
         },
         {
+            'course_id': unicode(course_id),
             'interval_end': '2014-09-08T000000',
             AT.ANY: 100,
             AT.ATTEMPTED_PROBLEM: 301,
@@ -175,3 +175,8 @@ def mock_course_activity(start_date=None, end_date=None):
             'created': CREATED_DATETIME_STRING
         },
     ]
+
+
+# pylint: disable=unused-argument
+def mock_course_activity(start_date=None, end_date=None):
+    return get_mock_api_course_activity(u'edX/DemoX/Demo_Course')

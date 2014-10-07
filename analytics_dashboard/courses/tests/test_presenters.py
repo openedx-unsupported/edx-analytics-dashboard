@@ -6,7 +6,7 @@ from django.test import TestCase
 
 import analyticsclient.constants.activity_type as AT
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter, BasePresenter
-from courses.tests.utils import get_mock_enrollment_data, get_mock_presenter_enrollment_data_small, \
+from courses.tests.utils import get_mock_api_enrollment_data, get_mock_presenter_enrollment_data_small, \
     get_mock_enrollment_summary, get_mock_presenter_enrollment_summary_small, \
     get_mock_api_enrollment_geography_data, get_mock_presenter_enrollment_geography_data, \
     get_mock_api_enrollment_geography_data_limited, get_mock_presenter_enrollment_geography_data_limited, \
@@ -69,6 +69,7 @@ class CourseEngagementPresenterTests(TestCase):
         expected_summary = mock_course_activity()[1]
         del expected_summary['created']
         del expected_summary['interval_end']
+        del expected_summary['course_id']
 
         if not include_forum_activity:
             del expected_summary[AT.POSTED_FORUM]
@@ -132,7 +133,7 @@ class CourseEnrollmentPresenterTests(TestCase):
 
     @mock.patch('analyticsclient.course.Course.enrollment')
     def test_get_summary_and_trend_data(self, mock_enrollment):
-        expected_trend = get_mock_enrollment_data(self.course_id)
+        expected_trend = get_mock_api_enrollment_data(self.course_id)
         mock_enrollment.return_value = expected_trend
 
         actual_summary, actual_trend = self.presenter.get_summary_and_trend_data()
@@ -141,7 +142,7 @@ class CourseEnrollmentPresenterTests(TestCase):
 
     @mock.patch('analyticsclient.course.Course.enrollment')
     def test_get_summary_and_trend_data_small(self, mock_enrollment):
-        api_trend = [get_mock_enrollment_data(self.course_id)[-1]]
+        api_trend = [get_mock_api_enrollment_data(self.course_id)[-1]]
         mock_enrollment.return_value = api_trend
 
         actual_summary, actual_trend = self.presenter.get_summary_and_trend_data()
