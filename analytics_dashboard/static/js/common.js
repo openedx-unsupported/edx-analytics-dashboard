@@ -2,31 +2,32 @@
  * This defines our libraries across the application.  Each page
  * should load this file.
  */
-var require = {
+
+var require_config = {
     baseUrl: '/static/',
     waitSeconds: 60,
     paths: {
-        jquery: 'bower_components/jquery/dist/jquery',
-        underscore: 'bower_components/underscore/underscore',
+        jquery: 'bower_components/jquery/dist/jquery.min',
+        underscore: 'bower_components/underscore/underscore-min',
         backbone: 'bower_components/backbone/backbone',
         bootstrap: 'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap',
-        bootstrap_accessibility: 'bower_components/bootstrapaccessibilityplugin/plugins/js/bootstrap-accessibility',
+        bootstrap_accessibility: 'bower_components/bootstrapaccessibilityplugin/plugins/js/bootstrap-accessibility.min',
         models: 'js/models',
         views: 'js/views',
         utils: 'js/utils',
         load: 'js/load',
-        dataTables: 'bower_components/datatables/media/js/jquery.dataTables',
+        dataTables: 'bower_components/datatables/media/js/jquery.dataTables.min',
         dataTablesBootstrap: 'vendor/dataTables/dataTables.bootstrap',
-        d3: 'bower_components/d3/d3',
-        nvd3: 'bower_components/nvd3/nv.d3',
+        d3: 'bower_components/d3/d3.min',
+        nvd3: 'bower_components/nvd3/nv.d3.min',
         topojson: 'bower_components/topojson/topojson',
         datamaps: 'bower_components/dist/datamaps.world.min',
-        moment: 'bower_components/moment/min/moment-with-locales',
+        moment: 'bower_components/moment/min/moment-with-locales.min',
         text: 'bower_components/requirejs-plugins/lib/text',
         json: 'bower_components/requirejs-plugins/src/json',
-        cldr: 'bower_components/cldrjs/dist/cldr',
+        cldr: 'bower_components/cldrjs/dist/cldr.min',
         'cldr-data': 'bower_components/cldr-data',
-        globalize: 'bower_components/globalize/dist/globalize',
+        globalize: 'bower_components/globalize/dist/globalize.min',
         globalization: 'js/utils/globalization'
     },
     shim: {
@@ -80,3 +81,5 @@ var require = {
     // load jquery automatically
     deps: ['jquery']
 };
+
+requirejs.config(require_config);
