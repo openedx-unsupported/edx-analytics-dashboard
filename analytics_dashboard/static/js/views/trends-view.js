@@ -18,9 +18,9 @@ define(['bootstrap', 'd3', 'jquery', 'moment', 'nvd3', 'underscore', 'views/attr
              */
             assembleTrendData: function () {
                 var self = this,
-                    combinedTrends,
                     data = self.model.get(self.options.modelAttribute),
-                    trendOptions = self.options.trends;
+                    trendOptions = self.options.trends,
+                    combinedTrends;
 
                 // parse and format the data for nvd3
                 combinedTrends = _(trendOptions).map(function (trendOption) {
@@ -68,9 +68,6 @@ define(['bootstrap', 'd3', 'jquery', 'moment', 'nvd3', 'underscore', 'views/attr
                 // Remove the grid lines
                 canvas.selectAll('.nvd3 .nv-axis line').remove();
 
-                // Remove max value from the X-axis
-                canvas.select('.nvd3 .nv-axis.nv-x .nv-axisMaxMin:nth-child(3)').remove();
-
                 // Get the existing X-axis translation and shift it down a few more pixels.
                 axisEl = canvas.select('.nvd3 .nv-axis.nv-x');
                 matches = translateRegex.exec(axisEl.attr('transform'));
@@ -92,11 +89,14 @@ define(['bootstrap', 'd3', 'jquery', 'moment', 'nvd3', 'underscore', 'views/attr
                 AttributeListenerView.prototype.render.call(this);
                 var self = this,
                     canvas = d3.select(self.el),
+                    assembledData = self.assembleTrendData(),
+                    displayExplicitTicksThreshold = 11,
                     chart,
-                    $tooltip;
+                    $tooltip,
+                    xTicks;
 
                 chart = nvd3.models.lineChart()
-                    .margin({top: 1})
+                    .margin({top: 6})// minimize the spacing, but leave enough for point at the top to be shown w/o being clipped
                     .height(300)    // This should be the same as the height set on the chart container in CSS.
                     .showLegend(false)
                     .useInteractiveGuideline(true)
@@ -109,6 +109,16 @@ define(['bootstrap', 'd3', 'jquery', 'moment', 'nvd3', 'underscore', 'views/attr
                         // Simply return the count
                         return d[self.options.y.key];
                     });
+
+                // explicitly display tick marks for small numbers of points, otherwise
+                // ticks will be interpolated and dates look to be repeated on the x-axis
+                if(self.model.get(self.options.modelAttribute).length < displayExplicitTicksThreshold) {
+                    // get dates for the explicit ticks -- assuming data isn't sparse
+                    xTicks = _(self.assembleTrendData()[0].values).map(function (data) {
+                        return Date.parse(data[self.options.x.key]);
+                    });
+                    chart.xAxis.tickValues(xTicks);
+                }
 
                 chart.xAxis
                     .tickFormat(function (d) {
@@ -139,13 +149,13 @@ define(['bootstrap', 'd3', 'jquery', 'moment', 'nvd3', 'underscore', 'views/attr
                     .append('div')
                     .attr('class', 'line-chart')
                     .append('svg')
-                    .datum(self.assembleTrendData())
+                    .datum(assembledData)
                     .call(chart);
 
                 self.styleChart();
 
                 nvd3.utils.windowResize(chart.update);
-                nv.utils.windowResize(function () {
+                nvd3.utils.windowResize(function () {
                     self.styleChart();
                 });
 

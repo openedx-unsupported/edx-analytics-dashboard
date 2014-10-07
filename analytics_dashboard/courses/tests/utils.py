@@ -42,6 +42,24 @@ def get_mock_enrollment_summary_and_trend(course_id):
     return get_mock_enrollment_summary(), get_mock_enrollment_data(course_id)
 
 
+def get_mock_presenter_enrollment_data_small(course_id):
+    single_enrollment = get_mock_enrollment_data(course_id)[-1]
+    empty_enrollment = {
+        'count': 0,
+        'date': '2014-01-30'
+    }
+
+    return [empty_enrollment, single_enrollment]
+
+
+def get_mock_presenter_enrollment_summary_small():
+    return {
+        'last_updated': CREATED_DATETIME,
+        'current_enrollment': 30,
+        'enrollment_change_last_7_days': None,
+    }
+
+
 def get_mock_api_enrollment_geography_data(course_id):
     data = []
     items = ((u'USA', u'United States', 500), (None, UNKNOWN_COUNTRY_CODE, 300),
