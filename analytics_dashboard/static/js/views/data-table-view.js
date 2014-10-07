@@ -37,11 +37,11 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
              * the table sortable by the underlying data (rather than what's
              * necessarily displayed).
              */
-            _buildColumnDefs: function() {
+            _buildColumnDefs: function () {
                 var self = this,
                     defs = [],
                     iColumn = 0;
-                _(self.options.columns).each(function(column){
+                _(self.options.columns).each(function (column) {
                     // default column definitions
                     var def = {
                         targets: iColumn,
@@ -59,6 +59,8 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
                         def.data = self.createFormatDateFunc(column.key);
                     } else if (column.type === 'percent') {
                         def.data = self.createFormatPercentFunc(column.key);
+                    } else if (column.type ==='number') {
+                        def.data = self.createFormatNumberFunc(column.key);
                     }
 
                     defs.push(def);
@@ -69,10 +71,25 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
 
             /**
              * Returns a function used by datatables to format the cell for
+             * numbers.
+             */
+            createFormatNumberFunc: function (columnKey) {
+                return function (row, type) {
+                    var value = row[columnKey],
+                        display = value;
+                    if (type === 'display') {
+                        display = Utils.localizeNumber(value);
+                    }
+                    return display;
+                };
+            },
+
+            /**
+             * Returns a function used by datatables to format the cell for
              * dates.
              */
-            createFormatDateFunc: function(columnKey) {
-                return function(row, type) {
+            createFormatDateFunc: function (columnKey) {
+                return function (row, type) {
                     var value = row[columnKey],
                         display = value;
                     if (type === 'display') {
@@ -87,8 +104,8 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
              * Returns a function used by datatables to format the cell for
              * percentages.
              */
-            createFormatPercentFunc: function(columnKey) {
-                return function(row, type) {
+            createFormatPercentFunc: function (columnKey) {
+                return function (row, type) {
                     var value = row[columnKey],
                         display = value;
                     if (type === 'display') {
@@ -101,7 +118,7 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
             render: function () {
                 AttributeListenerView.prototype.render.call(this);
                 var self = this,
-                    $parent = $('<div/>', {class:'table-responsive'}).appendTo(self.$el),
+                    $parent = $('<div/>', {class: 'table-responsive'}).appendTo(self.$el),
                     $table = $('<table/>', {class: 'table table-striped'}).appendTo($parent),
                     dtConfig,
                     dtSorting;

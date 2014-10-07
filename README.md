@@ -7,12 +7,13 @@ Dashboard to display course analytics to course teams
 Prerequisites
 -------------
 * Python 2.7.x (not tested with Python 3.x)
-* [gettext](http://www.gnu.org/software/gettext/) 
+* [gettext](http://www.gnu.org/software/gettext/)
+* [npm](https://www.npmjs.org/) 
 
 Getting Started
 ---------------
 1. Get the code (e.g. clone the repository).
-2. Install the Python requirements:
+2. Install the Python/Node/Bower requirements:
 
         $ make develop
 

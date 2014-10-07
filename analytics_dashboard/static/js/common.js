@@ -2,27 +2,33 @@
  * This defines our libraries across the application.  Each page
  * should load this file.
  */
-var require = {
+
+var require_config = {
     baseUrl: '/static/',
     waitSeconds: 60,
     paths: {
-        jquery: 'vendor/jquery-1.11.1.min',
-        underscore: 'vendor/underscore-min',
-        backbone: 'vendor/backbone-min',
-        bootstrap: 'vendor/bootstrap/javascripts/bootstrap.min',
-        bootstrap_accessibility: 'vendor/bootstrap-accessibility-plugin/js/bootstrap-accessibility.min',
+        jquery: 'bower_components/jquery/dist/jquery.min',
+        underscore: 'bower_components/underscore/underscore-min',
+        backbone: 'bower_components/backbone/backbone',
+        bootstrap: 'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap',
+        bootstrap_accessibility: 'bower_components/bootstrapaccessibilityplugin/plugins/js/bootstrap-accessibility.min',
         models: 'js/models',
         views: 'js/views',
         utils: 'js/utils',
         load: 'js/load',
-        holder: 'vendor/holder',
-        dataTables: 'vendor/dataTables/jquery.dataTables.min',
+        dataTables: 'bower_components/datatables/media/js/jquery.dataTables.min',
         dataTablesBootstrap: 'vendor/dataTables/dataTables.bootstrap',
-        d3: 'vendor/d3/d3',
-        nvd3: 'vendor/nvd3/nv.d3',
-        topojson: 'vendor/topojson/topojson',
-        datamaps: 'vendor/datamaps/datamaps.world.min',
-        moment: 'vendor/moment/moment-with-locales'
+        d3: 'bower_components/d3/d3.min',
+        nvd3: 'bower_components/nvd3/nv.d3.min',
+        topojson: 'bower_components/topojson/topojson',
+        datamaps: 'bower_components/dist/datamaps.world.min',
+        moment: 'bower_components/moment/min/moment-with-locales.min',
+        text: 'bower_components/requirejs-plugins/lib/text',
+        json: 'bower_components/requirejs-plugins/src/json',
+        cldr: 'bower_components/cldrjs/dist/cldr.min',
+        'cldr-data': 'bower_components/cldr-data',
+        globalize: 'bower_components/globalize/dist/globalize.min',
+        globalization: 'js/utils/globalization'
     },
     shim: {
         bootstrap: {
@@ -46,6 +52,9 @@ var require = {
         dataTablesBootstrap: {
             deps: ['jquery', 'dataTables']
         },
+        d3: {
+            exports: 'd3'
+        },
         nvd3: {
             deps: ['d3'],
             exports: 'nv'
@@ -56,8 +65,21 @@ var require = {
         },
         moment: {
             noGlobal: true
+        },
+        json: {
+            deps: ['text']
+        },
+        globalize: {
+            deps: ['jquery', 'cldr'],
+            exports: 'Globalize'
+        },
+        globalization: {
+            deps: ['globalize'],
+            exports: 'Globalize'
         }
     },
     // load jquery automatically
     deps: ['jquery']
 };
+
+requirejs.config(require_config);

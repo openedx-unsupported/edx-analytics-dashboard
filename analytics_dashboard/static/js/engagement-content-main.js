@@ -18,22 +18,26 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page){
                 key: 'any',
                 title: gettext('Active Students'),
                 color: '#8DA0CB',
-                className: 'text-right'
+                className: 'text-right',
+                type: 'number'
             },{
                 key: 'played_video',
                 title: gettext('Watched a Video'),
                 color: '#66C2A5',
-                className: 'text-right'
+                className: 'text-right',
+                type: 'number'
             },{
                 key: 'attempted_problem',
                 title: gettext('Tried a Problem'),
                 color: '#FC8D62',
-                className: 'text-right'
+                className: 'text-right',
+                type: 'number'
             },{
                 key: 'posted_forum',
                 title: gettext('Posted in Forum'),
                 color: '#E78AC3',
-                className: 'text-right'
+                className: 'text-right',
+                type: 'number'
             }],
             trendSettings;
 
