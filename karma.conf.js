@@ -22,13 +22,8 @@ module.exports = function (config) {
             {pattern: 'analytics_dashboard/static/js/views/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/js/utils/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/js/test/specs/*.js', included: false},
+            'analytics_dashboard/static/js/common.js',
             'analytics_dashboard/static/js/test/spec-runner.js'
-        ],
-
-
-        // list of files to exclude
-        exclude: [
-
         ],
 
 
