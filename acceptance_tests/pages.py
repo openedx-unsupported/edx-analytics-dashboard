@@ -78,6 +78,30 @@ class LoginPage(DashboardPage):
         return True
 
 
+class CourseEnrollmentDemographicsPage(CoursePage):
+    demographic = None
+
+    def __init__(self, browser, course_id=None):
+        super(CourseEnrollmentDemographicsPage, self).__init__(browser, course_id)
+        self.page_url += '/enrollment/demographics/{0}/'.format(self.demographic)
+
+    def is_browser_on_page(self):
+        return super(CourseEnrollmentDemographicsPage, self).is_browser_on_page() and \
+               'Enrollment Demographics by {0}'.format(self.demographic.title()) in self.browser.title
+
+
+class CourseEnrollmentDemographicsAgePage(CourseEnrollmentDemographicsPage):
+    demographic = 'age'
+
+
+class CourseEnrollmentDemographicsGenderPage(CourseEnrollmentDemographicsPage):
+    demographic = 'gender'
+
+
+class CourseEnrollmentDemographicsEducationPage(CourseEnrollmentDemographicsPage):
+    demographic = 'education'
+
+
 class CourseEnrollmentGeographyPage(CoursePage):
     def __init__(self, browser, course_id=None):
         super(CourseEnrollmentGeographyPage, self).__init__(browser, course_id)

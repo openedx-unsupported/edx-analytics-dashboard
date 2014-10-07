@@ -1,10 +1,10 @@
-define(['models/course-model', 'views/trends-view'], function (CourseModel, TrendsView) {
+define(['models/course-model', 'views/chart-view'], function(CourseModel, ChartView) {
     'use strict';
 
-    describe('Trends view', function () {
+    describe('Chart view', function () {
         it('should assemble data for nvd3', function () {
             var model = new CourseModel(),
-                view = new TrendsView({
+                view = new ChartView({
                     model: model,
                     el: document.createElement('div'),
                     modelAttribute: 'trends',
@@ -35,6 +35,9 @@ define(['models/course-model', 'views/trends-view'], function (CourseModel, Tren
 
             view.render = jasmine.createSpy('render');
             expect(view.render).not.toHaveBeenCalled();
+
+            // mock getChart (otherwise, an error is thrown)
+            view.getChart = jasmine.createSpy('getChart');
 
             // phantomjs doesn't have the bind method on function object
             // (see https://github.com/novus/nvd3/issues/367) and nvd3 will
@@ -78,14 +81,5 @@ define(['models/course-model', 'views/trends-view'], function (CourseModel, Tren
             expect(actualTrend.color).toBeUndefined();
         });
 
-        it('generate a tooltip accessible text for screen readers', function () {
-            var view = new TrendsView({
-                    model: new CourseModel(),
-                    modelAttribute: 'trends'
-                }),
-                tooltip = view.tooltipTemplate({text: 'This is tooltip text.'}),
-                expected = '<span class="sr-only">This is tooltip text.</span><i class="ico ico-tooltip fa fa-info-circle chart-tooltip" data-toggle="tooltip" data-placement="top" data-track-event="edx.bi.tooltip.displayed" data-track-category="trend" title="This is tooltip text."></i>'; // jshint ignore:line
-            expect(tooltip).toBe(expected);
-        });
     });
 });

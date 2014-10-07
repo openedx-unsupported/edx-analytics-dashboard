@@ -1,0 +1,8 @@
+@mixin a-background($background) {
+  a {
+    background: $background;
+    &:active, &:hover {
+      background: $background;
+    }
+  }
+}

@@ -1,6 +1,7 @@
 from django import template
 from django.conf import settings
 from django.utils.safestring import mark_safe
+from django.utils.translation import ugettext_lazy as _
 from opaque_keys.edx.keys import CourseKey
 
 register = template.Library()
@@ -14,6 +15,22 @@ def settings_value(name):
     If setting is not found, None is returned.
     """
     return getattr(settings, name)
+
+
+@register.filter
+def metric_percentage(value):
+    # Translators: This will represent some statistic about learners (e.g., "52% Female" or "18% High School Students").
+    percent_stat = _('{statistic}%')
+    percent = '0'
+
+    if value:
+        if value < 0.01:
+            percent = '< 1'
+        else:
+            percent = '{0}'.format(round(value, 3) * 100)
+
+    # pylint: disable=no-member
+    return percent_stat.format(statistic=percent)
 
 
 @register.tag(name='captureas')

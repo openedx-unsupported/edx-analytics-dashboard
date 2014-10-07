@@ -45,7 +45,7 @@ define(['utils/utils'], function (Utils) {
 
     describe('formatDisplayPercentage', function () {
         it('should return < 1% if the parameter is < 0.01', function () {
-            expect(Utils.formatDisplayPercentage(0)).toEqual('< 1%');
+            expect(Utils.formatDisplayPercentage(0)).toEqual('0.0%');
             expect(Utils.formatDisplayPercentage(0.002)).toEqual('< 1%');
         });
 

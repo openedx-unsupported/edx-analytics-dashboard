@@ -1,5 +1,8 @@
 import locale
+import datetime
+
 from bok_choy.promise import EmptyPromise
+
 from analyticsclient.client import Client
 from acceptance_tests import API_SERVER_URL, API_AUTH_TOKEN, DASHBOARD_FEEDBACK_EMAIL, SUPPORT_URL, LMS_USERNAME, \
     LMS_PASSWORD, DASHBOARD_SERVER_URL, ENABLE_AUTO_AUTH
@@ -44,6 +47,27 @@ class AssertMixin(object):
         # check that we have an email
         element = self.page.q(css=selector)
         self.assertEqual(element.text[0], DASHBOARD_FEEDBACK_EMAIL)
+
+    def assertTable(self, table_selector, columns, download_selector):
+        # Ensure the table is loaded via AJAX
+        self.fulfill_loading_promise(table_selector)
+
+        # make sure the map section is present
+        element = self.page.q(css=table_selector)
+        self.assertTrue(element.present)
+
+        # make sure the table is present
+        table_selector = table_selector + " table"
+        element = self.page.q(css=table_selector)
+        self.assertTrue(element.present)
+
+        # check the headings
+        self.assertTableColumnHeadingsEqual(table_selector, columns)
+
+        rows = self.page.browser.find_elements_by_css_selector('{} tbody tr'.format(table_selector))
+        self.assertGreater(len(rows), 0)
+
+        self.assertValidHref(download_selector)
 
 
 class FooterMixin(AssertMixin):
@@ -188,6 +212,10 @@ class CoursePageTestsMixin(LoginMixin, AnalyticsApiClientMixin, FooterMixin, Pri
             "Loading finished."
         ).fulfill()
 
+    def build_display_percentage(self, count, total):
+        percent = count / total * 100
+        return '{:.1f}%'.format(percent) if percent >= 1.0 else '< 1%'
+
     def _get_data_update_message(self):
         raise NotImplementedError
 
@@ -215,3 +243,55 @@ class CoursePageTestsMixin(LoginMixin, AnalyticsApiClientMixin, FooterMixin, Pri
     def format_number(value):
         """ Format the given value for the current locale (e.g. include decimal separator). """
         return locale.format("%d", value, grouping=True)
+
+
+class CourseDemographicsPageTestsMixin(CoursePageTestsMixin):
+    demographic_type = None
+    data_information_message = 'All above demographic data was self-reported at the time of registration.'
+    chart_selector = '#enrollment-chart-view'
+    table_section_selector = 'div[data-role=enrollment-table]'
+    table_download_selector = 'a[data-role=enrollment-csv]'
+    table_columns = None
+    demographic_data = None
+
+    def test_page(self):
+        super(CourseDemographicsPageTestsMixin, self).test_page()
+        self._test_data_information_message()
+        self._test_chart()
+        self._test_table()
+
+    def _test_chart(self):
+        self.fulfill_loading_promise(self.chart_selector)
+        self.assertElementHasContent(self.chart_selector)
+
+    def _test_table(self):
+        self.assertTable(self.table_section_selector, self.table_columns, self.table_download_selector)
+
+        rows = self.page.browser.find_elements_by_css_selector('{} tbody tr'.format(self.table_section_selector))
+        self.assertGreater(len(rows), 0)
+        sum_count = 0
+        if self.demographic_data and 'count' in self.demographic_data[0]:
+            sum_count = float(sum([datum['count'] for datum in self.demographic_data]))
+
+        for i, row in enumerate(rows):
+            columns = row.find_elements_by_css_selector('td')
+            self._test_table_row(self.demographic_data[i], columns, sum_count)
+
+    def _test_table_row(self, datum, column, sum_count):
+        return NotImplementedError
+
+    def _test_data_information_message(self):
+        element = self.page.q(css='div.data-information-message')
+        self.assertEqual(element.text[0], self.data_information_message)
+
+    def _get_data_update_message(self):
+       return self._build_data_update_message(self.course.enrollment(self.demographic_type))
+
+    def _build_data_update_message(self, api_response):
+        current_data = api_response[0]
+        last_updated = datetime.datetime.strptime(current_data['created'], self.api_datetime_format)
+        return 'Demographic student data was last updated %(update_date)s at %(update_time)s UTC.' % \
+               self.format_last_updated_date_and_time(last_updated)
+
+    def _get_total_demographics(self):
+        return float(sum([datum['count'] for datum in self.demographic_data]))

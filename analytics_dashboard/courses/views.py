@@ -148,8 +148,14 @@ class CourseNavBarMixin(object):
     # Secondary nav item that should be displayed as active. This value is optional.
     active_secondary_nav_item = None
 
+    # Tertiary nav item that should be displayed as active. This value is optional.
+    active_tertiary_nav_item = None
+
     # Items that will populate the secondary nav list. This value is optional.
     secondary_nav_items = []
+
+    # Items that will populate the tertiary nav list. This value is optional.
+    tertiary_nav_items = []
 
     def get_primary_nav_items(self):
         """
@@ -179,22 +185,30 @@ class CourseNavBarMixin(object):
 
         return items
 
-    def get_secondary_nav_items(self):
-        """
-        Return the secondary nav items.
-        """
-
+    def _build_nav_items(self, nav_items, active_item):
         # Deep copy the list since it is a list of dictionaries
-        items = copy.deepcopy(self.secondary_nav_items)
+        items = copy.deepcopy(nav_items)
 
         # Process only the nav items that are enabled
         items = filter(is_feature_enabled, items)
 
         for item in items:
-            item['active'] = self.active_secondary_nav_item == item['name']
+            item['active'] = active_item == item['name']
             self.clean_item(item)
 
         return items
+
+    def get_secondary_nav_items(self):
+        """
+        Return the secondary nav items.
+        """
+        return self._build_nav_items(self.secondary_nav_items, self.active_secondary_nav_item)
+
+    def get_tertiary_nav_items(self):
+        """
+        Return the tertiary nav items.
+        """
+        return self._build_nav_items(self.tertiary_nav_items, self.active_tertiary_nav_item)
 
     def clean_item(self, item):
         """
@@ -217,6 +231,7 @@ class CourseNavBarMixin(object):
 
         primary_nav_items = self.get_primary_nav_items()
         secondary_nav_items = self.get_secondary_nav_items()
+        tertiary_nav_items = self.get_tertiary_nav_items()
 
         # Get the active primary item and remove it from the list
         primary_nav_item = [i for i in primary_nav_items if i['name'] == self.active_primary_nav_item][0]
@@ -225,7 +240,8 @@ class CourseNavBarMixin(object):
         context.update({
             'primary_nav_item': primary_nav_item,
             'primary_nav_items': primary_nav_items,
-            'secondary_nav_items': secondary_nav_items
+            'secondary_nav_items': secondary_nav_items,
+            'tertiary_nav_items': tertiary_nav_items
         })
 
         return context
@@ -283,9 +299,37 @@ class EnrollmentTemplateView(CourseTemplateView):
     """
     secondary_nav_items = [
         {'name': 'activity', 'label': _('Activity'), 'view': 'courses:enrollment_activity'},
+        {'name': 'demographics', 'label': _('Demographics'), 'view': 'courses:enrollment_demographics_age'},
         {'name': 'geography', 'label': _('Geography'), 'view': 'courses:enrollment_geography'},
     ]
     active_primary_nav_item = 'enrollment'
+
+
+class EnrollmentDemographicsTemplateView(EnrollmentTemplateView):
+    """
+    Base view for course enrollment demographics pages.
+    """
+    active_secondary_nav_item = 'demographics'
+    tertiary_nav_items = [
+        {'name': 'age', 'label': _('Age'), 'view': 'courses:enrollment_demographics_age'},
+        {'name': 'education', 'label': _('Education'), 'view': 'courses:enrollment_demographics_education'},
+        {'name': 'gender', 'label': _('Gender'), 'view': 'courses:enrollment_demographics_gender'}
+    ]
+    chart_tooltip_template = None
+
+    # Translators: Do not translate UTC.
+    update_message = _('Demographic student data was last updated %(update_date)s at %(update_time)s UTC.')
+
+    # pylint: disable=line-too-long
+    # Translators: This sentence is displayed at the bottom of the page and describe the demographics data displayed.
+    data_information_message = _('All above demographic data was self-reported at the time of registration.')
+
+    def _build_chart_tooltip(self, percent):
+        if percent is None:
+            formatted_percent = '0'
+        else:
+            formatted_percent = round(percent, 3) * 100
+        return self.chart_tooltip_template.format(percent=formatted_percent)
 
 
 class EngagementTemplateView(CourseTemplateView):
@@ -361,6 +405,111 @@ class EnrollmentActivityView(EnrollmentTemplateView):
         return context
 
 
+class EnrollmentDemographicsAgeView(EnrollmentDemographicsTemplateView):
+    template_name = 'courses/enrollment_demographics_age.html'
+    page_title = _('Enrollment Demographics by Age')
+    page_name = 'enrollment_demographics_age'
+    active_tertiary_nav_item = 'age'
+    # pylint: disable=line-too-long
+    chart_tooltip_template = _('This age histogram presents data computed for the {percent}% of enrolled students who provided a year of birth.')
+
+    def get_context_data(self, **kwargs):
+        context = super(EnrollmentDemographicsAgeView, self).get_context_data(**kwargs)
+        presenter = CourseEnrollmentPresenter(self.course_id)
+        binned_ages = None
+        summary = None
+        known_enrollment_percent = None
+        last_updated = None
+
+        try:
+            last_updated, summary, binned_ages, known_enrollment_percent = presenter.get_ages()
+        except NotFoundError:
+            logger.error("Failed to retrieve enrollment demographic age data for %s.", self.course_id)
+
+        # add the enrollment data for the page
+        context['js_data']['course']['ages'] = binned_ages
+
+        context.update({
+            'page_data': json.dumps(context['js_data']),
+            'summary': summary,
+            'chart_tip': self._build_chart_tooltip(known_enrollment_percent),
+            'update_message': self.get_last_updated_message(last_updated),
+            'data_information_message': self.data_information_message
+        })
+
+        return context
+
+
+class EnrollmentDemographicsEducationView(EnrollmentDemographicsTemplateView):
+    template_name = 'courses/enrollment_demographics_education.html'
+    page_title = _('Enrollment Demographics by Education')
+    page_name = 'enrollment_demographics_education'
+    active_tertiary_nav_item = 'education'
+    # pylint: disable=line-too-long
+    chart_tooltip_template = _('This graph presents data for the {percent}% of enrolled students who provided a highest level of education completed.')
+
+    def get_context_data(self, **kwargs):
+        context = super(EnrollmentDemographicsEducationView, self).get_context_data(**kwargs)
+        presenter = CourseEnrollmentPresenter(self.course_id)
+        binned_education = None
+        summary = None
+        known_enrollment_percent = None
+        last_updated = None
+
+        try:
+            last_updated, summary, binned_education, known_enrollment_percent = presenter.get_education()
+        except NotFoundError:
+            logger.error("Failed to retrieve enrollment demographic education data for %s.", self.course_id)
+
+        # add the enrollment data for the page
+        context['js_data']['course']['education'] = binned_education
+
+        context.update({
+            'page_data': json.dumps(context['js_data']),
+            'summary': summary,
+            'chart_tip': self._build_chart_tooltip(known_enrollment_percent),
+            'update_message': self.get_last_updated_message(last_updated),
+            'data_information_message': self.data_information_message
+        })
+
+        return context
+
+
+class EnrollmentDemographicsGenderView(EnrollmentDemographicsTemplateView):
+    template_name = 'courses/enrollment_demographics_gender.html'
+    page_title = _('Enrollment Demographics by Gender')
+    page_name = 'enrollment_demographics_gender'
+    active_tertiary_nav_item = 'gender'
+    # pylint: disable=line-too-long
+    chart_tooltip_template = _('This graph presents data for the {percent}% of enrolled students who specified their gender.')
+
+    def get_context_data(self, **kwargs):
+        context = super(EnrollmentDemographicsGenderView, self).get_context_data(**kwargs)
+        presenter = CourseEnrollmentPresenter(self.course_id)
+        gender_data = None
+        trend = None
+        known_enrollment_percent = None
+        last_updated = None
+
+        try:
+            last_updated, gender_data, trend, known_enrollment_percent = presenter.get_gender()
+        except NotFoundError:
+            logger.error("Failed to retrieve enrollment demographic gender data for %s.", self.course_id)
+
+        # add the enrollment data for the page
+        context['js_data']['course']['genders'] = gender_data
+        context['js_data']['course']['genderTrend'] = trend
+
+        context.update({
+            'page_data': json.dumps(context['js_data']),
+            'update_message': self.get_last_updated_message(last_updated),
+            'chart_tip': self._build_chart_tooltip(known_enrollment_percent),
+            'data_information_message': self.data_information_message
+        })
+
+        return context
+
+
 class EnrollmentGeographyView(EnrollmentTemplateView):
     template_name = 'courses/enrollment_geography.html'
     page_title = _('Enrollment Geography')
@@ -427,6 +576,29 @@ class EngagementContentView(EngagementTemplateView):
         })
 
         return context
+
+
+class CourseEnrollmentDemographicsAgeCSV(CSVResponseMixin, CourseView):
+    csv_filename_suffix = u'enrollment-by-birth-year'
+
+    def get_data(self):
+        end_date = datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
+        return self.course.enrollment(demographic.BIRTH_YEAR, end_date=end_date, data_format=data_format.CSV),
+
+
+class CourseEnrollmentDemographicsEducationCSV(CSVResponseMixin, CourseView):
+    csv_filename_suffix = u'enrollment-by-education'
+
+    def get_data(self):
+        return self.course.enrollment(demographic.EDUCATION, data_format=data_format.CSV),
+
+
+class CourseEnrollmentDemographicsGenderCSV(CSVResponseMixin, CourseView):
+    csv_filename_suffix = u'enrollment-by-gender'
+
+    def get_data(self):
+        end_date = datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
+        return self.course.enrollment(demographic.GENDER, end_date=end_date, data_format=data_format.CSV),
 
 
 class CourseEnrollmentByCountryCSV(CSVResponseMixin, CourseView):

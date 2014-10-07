@@ -26,13 +26,13 @@ Individual course-centric enrollment activity view.
     {% if js_data.course.enrollmentTrends %}
         <div class="section-content section-data-graph">
           <div class="section-content section-data-viz">
-            <div id="enrollment-trend-view">
-              <div class="line-chart-container">
-                <div class="line-chart ">
-                  {% include "loading.html" %}
+                <div class="analytics-chart-container">
+                    {% trans "This graph displays total enrollment for the course calculated at the end of each day. Total enrollment includes new enrollments as well as unenrollments." as tip_text %}
+                    {% include "chart_tooltip.html" with tip_text=tip_text track_category="trend"%}
+                    <div id="enrollment-trend-view" class="analytics-chart">
+                        {% include "loading.html" %}
+                    </div>
                 </div>
-              </div>
-            </div>
           </div>
         </div>
     {% else %}

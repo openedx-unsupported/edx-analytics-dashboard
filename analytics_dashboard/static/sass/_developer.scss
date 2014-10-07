@@ -8,17 +8,27 @@
 //   background: transparent;
 // }
 
+@import "mixins";
+
+.chart-info {
+  @extend .pull-left;
+  padding-left: $padding-small-horizontal;
+  padding-top: $padding-large-vertical;
+  color: $edx-blue;
+  font-size: $font-size-small;
+}
+
 .chart-tooltip {
   @extend .pull-right;
   padding-right: $padding-small-horizontal;
   padding-top: $padding-large-vertical;
 }
 
-.line-chart-container {
+.analytics-chart-container {
   background-color: white;
   border: $edx-gray 1px solid;
 
-  .line-chart {
+  .analytics-chart {
     height: 305px; // Update the height of the graph in trends-view.js to be this height minus 5px.
     padding-top: $padding-large-vertical;
   }
@@ -131,6 +141,18 @@
   }
 }
 
+.navbar-nav {
+
+  .nav-section.active {
+    color: $navbar-default-link-active-color;
+    border-bottom: 6px solid $navbar-default-link-active-color;
+  }
+
+  .nav-section {
+    @include a-background(transparent);
+  }
+}
+
 // lens navigation consists of a drop down and the lens sections in a navigation
 $lens-background-color: $gray-d2;
 $lens-nav-text-color: $gray-l1;
@@ -174,31 +196,40 @@ $lens-box-model: border-box;
 
     // style the nav secondary items
     li > a {
-      padding-top: 18px;
-      padding-bottom: 0px;
       color: $lens-nav-text-color;
       min-height: $lens-nav-height;
-    }
-
-    .nav-section.active {
-      color: $navbar-default-link-active-color;
-      border-bottom: 4px solid $navbar-default-link-active-color;
+      padding-top: 18px;
+      padding-bottom: 0px;
     }
 
     .nav-section {
-
-      a {
-        // override the default behaviour (change background, which looks weird in the navbar)
-        background: transparent;
-
-        &:active, &:hover {
-          background: transparent;
-        }
-
-      }
-
+      @include a-background(transparent);
     }
 
+  }
+}
+
+.tertiary-nav {
+
+  padding-left: $padding-large-horizontal;
+
+  li > a {
+    color: $lens-nav-text-color;
+    padding-top: 0px;
+    padding-bottom: $padding-small-vertical;
+  }
+
+  li.active > a {
+    color: $navbar-default-link-active-color;
+  }
+
+  .section-heading {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    .section-heading-note {
+      margin-top: 0;
+    }
   }
 }
 
@@ -285,11 +316,15 @@ table.dataTable thead th.sorting_desc:after {
   }
 }
 
-.data-update-message {
+.data-information-message {
   @extend .small;
-  border-top: $edx-gray-l1 1px solid;
   padding-top: $padding-base-vertical;
   margin-top: $padding-large-vertical;
+}
+
+.data-update-message {
+  @extend .data-information-message;
+  border-top: $edx-gray-l1 1px solid;
 }
 
 .navbar-default {
