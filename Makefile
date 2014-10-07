@@ -7,8 +7,10 @@ NUM_PROCESSES = 2
 
 .PHONY: requirements clean
 
-requirements:
+requirements: requirements.js
 	pip install -q -r requirements/base.txt --exists-action w
+
+requirements.js:
 	npm install
 	bower install
 
@@ -52,9 +54,7 @@ quality:
 
 validate_python: test.requirements test_python quality
 
-validate_js:
-	npm install
-	bower install
+validate_js: requirements.js
 	gulp test
 	gulp lint
 
