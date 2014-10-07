@@ -2,7 +2,8 @@
  * This defines our libraries across the application.  Each page
  * should load this file.
  */
-var require = {
+
+var require_config = {
     baseUrl: '/static/',
     waitSeconds: 60,
     paths: {
@@ -80,3 +81,5 @@ var require = {
     // load jquery automatically
     deps: ['jquery']
 };
+
+requirejs.config(require_config);
