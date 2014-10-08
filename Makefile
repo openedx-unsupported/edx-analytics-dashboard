@@ -3,6 +3,8 @@ COVERAGE = $(ROOT)/build/coverage
 PACKAGES = analytics_dashboard courses
 NUM_PROCESSES = 2
 
+.PHONY: requirements clean
+
 requirements:
 	pip install -q -r requirements/base.txt --exists-action w
 
