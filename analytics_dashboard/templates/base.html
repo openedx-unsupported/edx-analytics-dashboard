@@ -95,11 +95,15 @@
 
     {% compress js %}
       <script src="{% static 'bower_components/requirejs/require.js' %}"></script>
-      <script src="{% static 'js/common.js' %}"></script>
+      <script src="{% static 'dist/js/config.js' %}"></script>
 
       {# Note: django-compressor does not recognize the data-main attribute. Load the main script separately. #}
-      <script src="{% static 'js/application-main.js' %}"></script>
+      <script src="{% static 'dist/js/common.js' %}"></script>
+    {% endcompress %}
 
+
+    {% compress js %}
+      {# Note: This block is purposely separated from the one above so that browsers cache the common JS instead of downloading a single, large file for each page. #}
       {% block javascript %}
       {% endblock javascript %}
     {% endcompress %}
