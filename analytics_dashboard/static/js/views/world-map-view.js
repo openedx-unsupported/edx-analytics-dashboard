@@ -1,5 +1,5 @@
-define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribute-listener-view'],
-    function ($, d3, Datamap, _, Utils, AttributeListenerView) {
+define(['jquery', 'topojson', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribute-listener-view'],
+    function ($, topojson, d3, Datamap, _, Utils, AttributeListenerView) {
         'use strict';
 
         /**
