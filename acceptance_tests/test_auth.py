@@ -5,7 +5,7 @@ from acceptance_tests import ENABLE_OAUTH_TESTS
 
 from mixins import LoginMixin
 from pages import LoginPage
-
+from unittest import skip
 
 @skipUnless(ENABLE_OAUTH_TESTS, 'OAuth tests are not enabled.')
 class OAuth2FlowTests(LoginMixin, WebAppTest):
@@ -17,6 +17,7 @@ class OAuth2FlowTests(LoginMixin, WebAppTest):
 
         self.insights_login_page = LoginPage(self.browser)
 
+    @skip("Skipping: LMS is not Available")
     def test_login(self):
         self.login_with_lms()
 
