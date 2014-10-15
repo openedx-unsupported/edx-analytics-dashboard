@@ -24,9 +24,9 @@ ENABLE_ERROR_PAGE_TESTS = str2bool(os.environ.get('ENABLE_ERROR_PAGE_TESTS', Tru
 # LMS settings
 BASIC_AUTH_USERNAME = os.environ.get('BASIC_AUTH_USERNAME')
 BASIC_AUTH_PASSWORD = os.environ.get('BASIC_AUTH_PASSWORD')
-LMS_HOSTNAME = os.environ['LMS_HOSTNAME']
-LMS_USERNAME = os.environ['LMS_USERNAME']
-LMS_PASSWORD = os.environ['LMS_PASSWORD']
+LMS_HOSTNAME = os.environ.get('LMS_HOSTNAME')
+LMS_USERNAME = os.environ.get('LMS_USERNAME')
+LMS_PASSWORD = os.environ.get('LMS_PASSWORD')
 
 if ENABLE_OAUTH_TESTS and not(LMS_HOSTNAME and LMS_USERNAME and LMS_PASSWORD):
     raise Exception('LMS settings must be set in order to test OAuth.')
