@@ -32,7 +32,7 @@ class CourseIndexTests(AssertMixin, PrimaryNavMixin, LoginMixin, WebAppTest):
         # The element should link to the course landing page.
         index = element.text.index(course_id)
         href = element.attrs('href')[index]
-        self.assertTrue(href.endswith('/courses/{}/'.format(course_id)))
+        self.assertTrue(href.endswith(u'/courses/{}/'.format(course_id)))
 
         # check that we have an email
         self.assertValidFeedbackLink('div[class=help-msg] a[class=feedback-email]')

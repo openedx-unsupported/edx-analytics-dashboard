@@ -2,6 +2,7 @@ import logging
 from django.template.response import TemplateResponse
 from django.test import RequestFactory
 from django.utils.unittest.case import TestCase
+from opaque_keys.edx.keys import CourseKey
 from testfixtures import LogCapture
 from courses.exceptions import PermissionsRetrievalFailedError
 from courses.middleware import CourseMiddleware, CoursePermissionsExceptionMiddleware
@@ -36,12 +37,15 @@ class CourseMiddlewareTests(MiddlewareTestCase):
         request = self.factory.get('/')
         self.middleware.process_view(request, '', None, {})
         self.assertIsNone(request.course_id)
+        self.assertIsNone(request.course_key)
 
-        # Course-related URLs should set a course_id on the request
+        # Course-related URLs should set a course_id and course_key on the request
         request = self.factory.get('/')
         course_id = 'edX/DemoX/Demo_Course'
+        course_key = CourseKey.from_string(course_id)
         self.middleware.process_view(request, '', None, {'course_id': course_id})
         self.assertEqual(request.course_id, course_id)
+        self.assertEqual(request.course_key, course_key)
 
 
 class CoursePermissionsExceptionMiddlewareTests(MiddlewareAssertionMixin, MiddlewareTestCase):

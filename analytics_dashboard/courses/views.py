@@ -3,9 +3,8 @@ import datetime
 import json
 import logging
 import urllib
-from opaque_keys.edx.keys import CourseKey
-import requests
 
+import requests
 from django.conf import settings
 from django.core.exceptions import PermissionDenied
 from django.core.urlresolvers import reverse
@@ -15,10 +14,10 @@ from django.views.generic import TemplateView
 from django.views.generic.base import RedirectView
 from django.utils.translation import ugettext_lazy as _
 from braces.views import LoginRequiredMixin
-
 from analyticsclient.constants import data_format, demographic
 from analyticsclient.client import Client
 from analyticsclient.exceptions import NotFoundError
+
 from courses import permissions
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter
 from courses.utils import is_feature_enabled
@@ -82,6 +81,7 @@ class CourseContextMixin(TrackedViewMixin):
         """
         context = {
             'course_id': self.course_id,
+            'course_key': self.course_key,
             'page_title': self.page_title,
             'page_subtitle': self.page_subtitle
         }
@@ -240,11 +240,13 @@ class CourseView(LoginRequiredMixin, CourseValidMixin, CoursePermissionMixin, Te
     client = None
     course = None
     course_id = None
+    course_key = None
     user = None
 
     def dispatch(self, request, *args, **kwargs):
         self.user = request.user
-        self.course_id = kwargs['course_id']
+        self.course_id = request.course_id
+        self.course_key = request.course_key
 
         # some views will catch the NotFoundError to set data to a state that
         # the template can rendering a loading error message for the section
@@ -310,7 +312,7 @@ class CSVResponseMixin(object):
         raise NotImplementedError
 
     def _get_filename(self):
-        course_key = CourseKey.from_string(self.course_id)
+        course_key = self.course_key
         course_id = '-'.join([course_key.org, course_key.course, course_key.run])
         filename = '{0}--{1}.csv'.format(course_id, self.csv_filename_suffix)
         return urllib.quote(filename)

@@ -1,6 +1,7 @@
 from django import template
 from django.conf import settings
 from django.utils.safestring import mark_safe
+from opaque_keys.edx.keys import CourseKey
 
 register = template.Library()
 
@@ -78,3 +79,11 @@ def _get_base_error_context(content_type):
         'content_type': content_type,
         'load_error_message': settings.DOCUMENTATION_LOAD_ERROR_MESSAGE
     }
+
+
+@register.filter
+def format_course_key(course_key):
+    if isinstance(course_key, basestring):
+        course_key = CourseKey.from_string(course_key)
+
+    return u'/'.join([course_key.org, course_key.course, course_key.run])
