@@ -24,7 +24,7 @@
         {% for course in courses %}
           <a href="{% url 'courses:home' course_id=course %}">
             <div class="course">
-              <span class="course-title">{{ course }}</span>
+              <span class="course-title">{{ course|format_course_key }}</span>
             </div>
           </a>
         {% endfor %}

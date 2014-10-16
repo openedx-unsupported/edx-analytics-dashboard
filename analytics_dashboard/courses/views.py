@@ -2,8 +2,9 @@ import copy
 import datetime
 import json
 import logging
-import requests
+import urllib
 
+import requests
 from django.conf import settings
 from django.core.exceptions import PermissionDenied
 from django.core.urlresolvers import reverse
@@ -13,10 +14,10 @@ from django.views.generic import TemplateView
 from django.views.generic.base import RedirectView
 from django.utils.translation import ugettext_lazy as _
 from braces.views import LoginRequiredMixin
-
 from analyticsclient.constants import data_format, demographic
 from analyticsclient.client import Client
 from analyticsclient.exceptions import NotFoundError
+
 from courses import permissions
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter
 from courses.utils import is_feature_enabled
@@ -80,6 +81,7 @@ class CourseContextMixin(TrackedViewMixin):
         """
         context = {
             'course_id': self.course_id,
+            'course_key': self.course_key,
             'page_title': self.page_title,
             'page_subtitle': self.page_subtitle
         }
@@ -238,11 +240,13 @@ class CourseView(LoginRequiredMixin, CourseValidMixin, CoursePermissionMixin, Te
     client = None
     course = None
     course_id = None
+    course_key = None
     user = None
 
     def dispatch(self, request, *args, **kwargs):
         self.user = request.user
-        self.course_id = kwargs['course_id']
+        self.course_id = request.course_id
+        self.course_key = request.course_key
 
         # some views will catch the NotFoundError to set data to a state that
         # the template can rendering a loading error message for the section
@@ -296,12 +300,22 @@ class EngagementTemplateView(CourseTemplateView):
 
 
 class CSVResponseMixin(object):
+    csv_filename_suffix = None
+
+    # pylint: disable=unused-argument
     def render_to_response(self, context, **response_kwargs):
-        response = HttpResponse(context['data'], content_type='text/csv',
-                                **response_kwargs)
-        response['Content-Disposition'] = 'attachment; filename="{0}"'.format(
-            context['filename'])
+        response = HttpResponse(self.get_data(), content_type='text/csv', **response_kwargs)
+        response['Content-Disposition'] = 'attachment; filename="{0}"'.format(self._get_filename())
         return response
+
+    def get_data(self):
+        raise NotImplementedError
+
+    def _get_filename(self):
+        course_key = self.course_key
+        course_id = '-'.join([course_key.org, course_key.course, course_key.run])
+        filename = '{0}--{1}.csv'.format(course_id, self.csv_filename_suffix)
+        return urllib.quote(filename)
 
 
 class JSONResponseMixin(object):
@@ -416,41 +430,26 @@ class EngagementContentView(EngagementTemplateView):
 
 
 class CourseEnrollmentByCountryCSV(CSVResponseMixin, CourseView):
-    def get_context_data(self, **kwargs):
-        context = super(CourseEnrollmentByCountryCSV, self).get_context_data(**kwargs)
+    csv_filename_suffix = u'enrollment-location'
 
-        context.update({
-            'data': self.course.enrollment(demographic.LOCATION, data_format=data_format.CSV),
-            'filename': '{0}_enrollment_by_country.csv'.format(self.course_id)
-        })
-
-        return context
+    def get_data(self):
+        return self.course.enrollment(demographic.LOCATION, data_format=data_format.CSV)
 
 
 class CourseEnrollmentCSV(CSVResponseMixin, CourseView):
-    def get_context_data(self, **kwargs):
-        context = super(CourseEnrollmentCSV, self).get_context_data(**kwargs)
+    csv_filename_suffix = u'enrollment'
+
+    def get_data(self):
         end_date = datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
-
-        context.update({
-            'data': self.course.enrollment(data_format=data_format.CSV, end_date=end_date),
-            'filename': '{0}_enrollment.csv'.format(self.course_id)
-        })
-
-        return context
+        return self.course.enrollment(data_format=data_format.CSV, end_date=end_date)
 
 
 class CourseEngagementActivityTrendCSV(CSVResponseMixin, CourseView):
-    def get_context_data(self, **kwargs):
-        context = super(CourseEngagementActivityTrendCSV, self).get_context_data(**kwargs)
+    csv_filename_suffix = u'engagement-activity'
+
+    def get_data(self):
         end_date = datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
-
-        context.update({
-            'data': self.course.activity(data_format=data_format.CSV, end_date=end_date),
-            'filename': '{0}_engagement_activity_trend.csv'.format(self.course_id)
-        })
-
-        return context
+        return self.course.activity(data_format=data_format.CSV, end_date=end_date)
 
 
 class CourseHome(LoginRequiredMixin, RedirectView):

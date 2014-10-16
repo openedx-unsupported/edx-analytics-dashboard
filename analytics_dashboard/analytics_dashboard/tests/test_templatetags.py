@@ -3,6 +3,8 @@
 
 from django.template import Template, Context, TemplateSyntaxError
 from django.test import TestCase
+from opaque_keys.edx.keys import CourseKey
+from analytics_dashboard.templatetags.dashboard_extras import format_course_key
 
 
 class DashboardExtraTests(TestCase):
@@ -37,3 +39,14 @@ class DashboardExtraTests(TestCase):
 
     def test_captureas_unicode(self):
         self.assertTextCaptured(u'★❤')
+
+    def test_format_course_key(self):
+        values = [('edX/DemoX/Demo_Course', 'edX/DemoX/Demo_Course'),
+                  ('course-v1:edX+DemoX+Demo_2014', 'edX/DemoX/Demo_2014')]
+        for course_id, expected in values:
+            # Test with CourseKey
+            course_key = CourseKey.from_string(course_id)
+            self.assertEqual(format_course_key(course_key), expected)
+
+            # Test with string
+            self.assertEqual(format_course_key(course_id), expected)
