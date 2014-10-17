@@ -20,7 +20,8 @@ if(isBrowser) {
         config.baseUrl + 'js/spec/specs/world-map-view-spec.js',
         config.baseUrl + 'js/spec/specs/tracking-view-spec.js',
         config.baseUrl + 'js/spec/specs/utils-spec.js',
-        config.baseUrl + 'js/spec/specs/globalization-spec.js'
+        config.baseUrl + 'js/spec/specs/globalization-spec.js',
+        config.baseUrl + 'js/spec/specs/announcement-view-spec.js'
     ];
 } else {
     // you can automatically get the test files using karma's configs

@@ -311,6 +311,12 @@ table.dataTable thead th.sorting_desc:after {
   padding-bottom: $padding-large-vertical * 1.5;
   padding-top: $padding-large-vertical;
 
+  .dismiss {
+    float: right;
+    margin-right: $padding-small-horizontal;
+    cursor: pointer;
+    font-size: $font-size-large;
+  }
 
   .icon {
     color: $edx-blue;

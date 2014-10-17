@@ -31,6 +31,7 @@ urlpatterns = patterns(
     url(r'^accounts/logout_then_login/$', views.logout_then_login, name='logout_then_login'),
     url(r'^test/auto_auth/$', views.AutoAuth.as_view(), name='auto_auth'),
     url(r'^auth/error/$', 'django.views.defaults.server_error', {'template_name': 'auth_error.html'}, name='auth_error'),
+    url(r'^announcements/', include('announcements.urls')),
 )
 
 if settings.DEBUG:  # pragma: no cover
