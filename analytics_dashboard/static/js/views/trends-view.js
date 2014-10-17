@@ -1,5 +1,5 @@
-define(['bootstrap', 'd3', 'jquery', 'moment', 'nvd3', 'underscore', 'views/attribute-listener-view'],
-    function (bootstrap, d3, $, moment, nvd3, _, AttributeListenerView) {
+define(['bootstrap', 'd3', 'jquery', 'moment', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-listener-view'],
+    function (bootstrap, d3, $, moment, nvd3, _, Utils, AttributeListenerView) {
         'use strict';
 
         var TrendsView = AttributeListenerView.extend({
@@ -127,7 +127,9 @@ define(['bootstrap', 'd3', 'jquery', 'moment', 'nvd3', 'underscore', 'views/attr
                         return moment(d).zone('+0000').format('M/D');
                     });
 
-                chart.yAxis.showMaxMin(false);
+                chart.yAxis
+                    .showMaxMin(false)
+                    .tickFormat(Utils.localizeNumber);
 
                 if(_(self.options).has('interactiveTooltipHeader')) {
                     chart.interactiveLayer.tooltip.headerFormatter(function (d) {

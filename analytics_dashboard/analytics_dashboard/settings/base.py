@@ -77,6 +77,8 @@ USE_L10N = True
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
 USE_TZ = True
+
+FORMAT_MODULE_PATH = 'analytics_dashboard.formats'
 ########## END GENERAL CONFIGURATION
 
 
@@ -210,7 +212,8 @@ DJANGO_APPS = (
 
     # Admin panel and documentation:
     'django.contrib.admin',
-    'waffle'
+    'waffle',
+    'django_countries',
 )
 
 # Apps specific for this project go here.

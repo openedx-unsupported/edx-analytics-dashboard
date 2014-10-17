@@ -151,9 +151,7 @@ class CourseEnrollmentPresenterTests(TestCase):
 
     @mock.patch('analyticsclient.course.Course.enrollment')
     def test_get_geography_data(self, mock_enrollment):
-        # test with a full set of countries
-        mock_data = get_mock_api_enrollment_geography_data(self.course_id)
-        mock_enrollment.return_value = mock_data
+        mock_enrollment.return_value = get_mock_api_enrollment_geography_data(self.course_id)
 
         expected_summary, expected_data = get_mock_presenter_enrollment_geography_data()
         summary, actual_data = self.presenter.get_geography_data()

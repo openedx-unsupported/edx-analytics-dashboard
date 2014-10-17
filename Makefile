@@ -1,3 +1,5 @@
+.PHONY: requirements
+
 ROOT = $(shell echo "$$PWD")
 COVERAGE = $(ROOT)/build/coverage
 PACKAGES = analytics_dashboard courses
@@ -5,8 +7,12 @@ NUM_PROCESSES = 2
 
 .PHONY: requirements clean
 
-requirements:
+requirements: requirements.js
 	pip install -q -r requirements/base.txt --exists-action w
+
+requirements.js:
+	npm install
+	bower install
 
 test.requirements: requirements
 	pip install -q -r requirements/test.txt --exists-action w
@@ -48,9 +54,9 @@ quality:
 
 validate_python: test.requirements test_python quality
 
-validate_js:
-	npm install
-	gulp
+validate_js: requirements.js
+	gulp test
+	gulp lint
 
 validate: validate_python validate_js
 

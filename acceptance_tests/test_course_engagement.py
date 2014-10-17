@@ -1,8 +1,8 @@
 import datetime
 
 from bok_choy.web_app_test import WebAppTest
-
 from analyticsclient.constants import activity_type as at
+
 from acceptance_tests.mixins import CoursePageTestsMixin
 from acceptance_tests.pages import CourseEngagementContentPage
 
@@ -50,7 +50,7 @@ class CourseEngagementTests(CoursePageTestsMixin, WebAppTest):
         }
         for activity_type in activity_types:
             data_selector = 'data-activity-type={0}'.format(activity_type)
-            self.assertSummaryPointValueEquals(data_selector, unicode(recent_activity[activity_type]))
+            self.assertSummaryPointValueEquals(data_selector, self.format_number(recent_activity[activity_type]))
             self.assertSummaryTooltipEquals(data_selector, expected_tooltips[activity_type])
 
     def _test_engagement_graph(self):
@@ -85,9 +85,11 @@ class CourseEngagementTests(CoursePageTestsMixin, WebAppTest):
             weekly_activity = trend_activity[i]
             expected_date = self.format_time_as_dashboard((
                 datetime.datetime.strptime(weekly_activity['interval_end'], date_time_format)) - datetime.timedelta(days=1)).replace(' 0', ' ')
-            expected = [expected_date, weekly_activity[at.ANY], weekly_activity[at.PLAYED_VIDEO],
-                        weekly_activity[at.ATTEMPTED_PROBLEM]]
-            actual = [columns[0].text, int(columns[1].text), int(columns[2].text), int(columns[3].text)]
+            expected = [expected_date,
+                        self.format_number(weekly_activity[at.ANY]),
+                        self.format_number(weekly_activity[at.PLAYED_VIDEO]),
+                        self.format_number(weekly_activity[at.ATTEMPTED_PROBLEM])]
+            actual = [columns[0].text, columns[1].text, columns[2].text, columns[3].text]
             self.assertListEqual(actual, expected)
 
             for j in range(1, 4):

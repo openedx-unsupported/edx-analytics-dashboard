@@ -1,8 +1,8 @@
 import datetime
 
 from bok_choy.web_app_test import WebAppTest
+from analyticsclient.constants import demographic, UNKNOWN_COUNTRY_CODE
 
-from analyticsclient.constants import demographic
 from acceptance_tests.mixins import CoursePageTestsMixin
 from acceptance_tests.pages import CourseEnrollmentActivityPage, CourseEnrollmentGeographyPage
 
@@ -44,7 +44,7 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         # Check values of summary boxes
         current_enrollment_count = current_enrollment['count']
         data_selector = 'data-stat-type=current_enrollment'
-        self.assertSummaryPointValueEquals(data_selector, unicode(current_enrollment_count))
+        self.assertSummaryPointValueEquals(data_selector, self.format_number(current_enrollment_count))
         self.assertSummaryTooltipEquals(data_selector, u'Students enrolled in the course.')
 
         # Check value of summary box for last week
@@ -74,8 +74,8 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
             enrollment = enrollment_data[i]
             expected_date = datetime.datetime.strptime(enrollment['date'], self.api_date_format).strftime(
                 "%B %d, %Y").replace(' 0', ' ')
-            expected = [expected_date, enrollment['count']]
-            actual = [columns[0].text, int(columns[1].text)]
+            expected = [expected_date, self.format_number(enrollment['count'])]
+            actual = [columns[0].text, columns[1].text]
             self.assertListEqual(actual, expected)
             self.assertIn('text-right', columns[1].get_attribute('class'))
 
@@ -159,7 +159,12 @@ class CourseEnrollmentGeographyTests(CoursePageTestsMixin, WebAppTest):
             enrollment = self.enrollment_data[i]
             expected_percent = enrollment['count'] / sum_count * 100
             expected_percent_display = '{:.1f}%'.format(expected_percent) if expected_percent >= 1.0 else '< 1%'
-            expected = [enrollment['country']['name'], expected_percent_display, enrollment['count']]
+
+            country_name = enrollment['country']['name']
+            if country_name == UNKNOWN_COUNTRY_CODE:
+                country_name = u'Unknown Country'
+
+            expected = [country_name, expected_percent_display, enrollment['count']]
             actual = [columns[0].text, columns[1].text, int(columns[2].text)]
             self.assertListEqual(actual, expected)
             self.assertIn('text-right', columns[1].get_attribute('class'))
