@@ -1,0 +1,18 @@
+{% if announcement %}
+  <div class="announcement-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-1 col-md-1">
+          <div class="icon"><i class="fa fa-bullhorn"></i></div>
+        </div>
+
+        <div class="col-xs-9 col-md-9">
+          <div class="message">
+            <div class="title">{{ announcement.title }}</div>
+            <div class="body">{{ announcement.body }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
