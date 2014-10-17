@@ -1,3 +1,4 @@
+import locale
 from bok_choy.promise import EmptyPromise
 from analyticsclient.client import Client
 from acceptance_tests import API_SERVER_URL, API_AUTH_TOKEN, DASHBOARD_FEEDBACK_EMAIL, SUPPORT_URL, LMS_USERNAME, \
@@ -209,3 +210,8 @@ class CoursePageTestsMixin(LoginMixin, AnalyticsApiClientMixin, FooterMixin, Pri
         self._test_user_menu()
         self._test_footer()
         self._test_data_update_message()
+
+    @staticmethod
+    def format_number(value):
+        """ Format the given value for the current locale (e.g. include decimal separator). """
+        return locale.format("%d", value, grouping=True)

@@ -1,4 +1,7 @@
+import locale
 import os
+
+locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 
 
 def str2bool(s):
@@ -28,7 +31,7 @@ LMS_HOSTNAME = os.environ.get('LMS_HOSTNAME')
 LMS_USERNAME = os.environ.get('LMS_USERNAME')
 LMS_PASSWORD = os.environ.get('LMS_PASSWORD')
 
-if ENABLE_OAUTH_TESTS and not(LMS_HOSTNAME and LMS_USERNAME and LMS_PASSWORD):
+if ENABLE_OAUTH_TESTS and not (LMS_HOSTNAME and LMS_USERNAME and LMS_PASSWORD):
     raise Exception('LMS settings must be set in order to test OAuth.')
 
 TEST_COURSE_ID = os.environ.get('TEST_COURSE_ID', u'edX/DemoX/Demo_Course')
