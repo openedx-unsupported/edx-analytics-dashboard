@@ -51,7 +51,7 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         i = 7
         value = current_enrollment_count - enrollment_data[-(i + 1)]['count']
         data_selector = 'data-stat-type=enrollment_change_last_%s_days' % i
-        self.assertSummaryPointValueEquals(data_selector, unicode(value))
+        self.assertSummaryPointValueEquals(data_selector, self.format_number(value))
         self.assertSummaryTooltipEquals(data_selector,
                                         u'The difference between the number of students enrolled at the end of the day yesterday and one week before.')
 
@@ -164,8 +164,8 @@ class CourseEnrollmentGeographyTests(CoursePageTestsMixin, WebAppTest):
             if country_name == UNKNOWN_COUNTRY_CODE:
                 country_name = u'Unknown Country'
 
-            expected = [country_name, expected_percent_display, enrollment['count']]
-            actual = [columns[0].text, columns[1].text, int(columns[2].text)]
+            expected = [country_name, expected_percent_display, self.format_number(enrollment['count'])]
+            actual = [columns[0].text, columns[1].text, columns[2].text]
             self.assertListEqual(actual, expected)
             self.assertIn('text-right', columns[1].get_attribute('class'))
 
