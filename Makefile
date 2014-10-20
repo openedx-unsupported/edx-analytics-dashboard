@@ -70,3 +70,7 @@ generate_fake_translations:
 	cd analytics_dashboard && i18n_tool extract
 	cd analytics_dashboard && i18n_tool dummy
 	compile_translations
+
+# TODO: Call collectstatic and compress
+static:
+	r.js -o build.js
