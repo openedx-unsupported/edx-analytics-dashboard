@@ -67,7 +67,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page){
                 title: 'Students',
                 key: 'count'
             },
-            tooltip: gettext('The number of active students, and the number of students who engaged in specific activities, over time.'),
+            tooltip: gettext('The number of active students, and the number of students who engaged in specific activities, over time.'),   // jshint ignore:line
 
             // Translators: %(value)s will be replaced with a date.
             interactiveTooltipHeader: gettext('Week Ending %(value)s')

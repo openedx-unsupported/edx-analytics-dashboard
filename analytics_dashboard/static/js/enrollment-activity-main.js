@@ -19,7 +19,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page){
             trends: [{title: 'Students'}],
             x: { key: 'date' },
             y: { key: 'count' },
-            tooltip: gettext('This graph displays total enrollment for the course calculated at the end of each day. Total enrollment includes new enrollments as well as unenrollments.')
+            tooltip: gettext('This graph displays total enrollment for the course calculated at the end of each day. Total enrollment includes new enrollments as well as unenrollments.')  // jshint ignore:line
         });
 
         // Daily enrollment table

@@ -71,7 +71,8 @@ define(['bootstrap', 'd3', 'jquery', 'moment', 'nvd3', 'underscore', 'utils/util
                 // Get the existing X-axis translation and shift it down a few more pixels.
                 axisEl = canvas.select('.nvd3 .nv-axis.nv-x');
                 matches = translateRegex.exec(axisEl.attr('transform'));
-                axisEl.attr('transform', 'translate(' + matches[1] + ',' + (parseInt(matches[2], 10) + xAxisMargin) + ')');
+                axisEl.attr('transform',
+                        'translate(' + matches[1] + ',' + (parseInt(matches[2], 10) + xAxisMargin) + ')');
             },
 
             /**
@@ -96,7 +97,8 @@ define(['bootstrap', 'd3', 'jquery', 'moment', 'nvd3', 'underscore', 'utils/util
                     xTicks;
 
                 chart = nvd3.models.lineChart()
-                    .margin({top: 6})// minimize the spacing, but leave enough for point at the top to be shown w/o being clipped
+                    // minimize the spacing, but leave enough for point at the top to be shown w/o being clipped
+                    .margin({top: 6})
                     .height(300)    // This should be the same as the height set on the chart container in CSS.
                     .showLegend(false)
                     .useInteractiveGuideline(true)
@@ -112,7 +114,7 @@ define(['bootstrap', 'd3', 'jquery', 'moment', 'nvd3', 'underscore', 'utils/util
 
                 // explicitly display tick marks for small numbers of points, otherwise
                 // ticks will be interpolated and dates look to be repeated on the x-axis
-                if(self.model.get(self.options.modelAttribute).length < displayExplicitTicksThreshold) {
+                if (self.model.get(self.options.modelAttribute).length < displayExplicitTicksThreshold) {
                     // get dates for the explicit ticks -- assuming data isn't sparse
                     xTicks = _(self.assembleTrendData()[0].values).map(function (data) {
                         return Date.parse(data[self.options.x.key]);
@@ -131,9 +133,9 @@ define(['bootstrap', 'd3', 'jquery', 'moment', 'nvd3', 'underscore', 'utils/util
                     .showMaxMin(false)
                     .tickFormat(Utils.localizeNumber);
 
-                if(_(self.options).has('interactiveTooltipHeader')) {
+                if (_(self.options).has('interactiveTooltipHeader')) {
                     chart.interactiveLayer.tooltip.headerFormatter(function (d) {
-                        return interpolate(self.options.interactiveTooltipHeader, {value: d}, true);
+                        return interpolate(self.options.interactiveTooltipHeader, {value: d}, true);    // jshint ignore:line
                     });
                 }
 

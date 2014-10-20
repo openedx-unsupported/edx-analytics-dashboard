@@ -152,7 +152,7 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
              * Underscore style template for the hover popup that displays a
              * label/name and value.
              */
-            popupTemplate: _.template('<div class="hoverinfo"><%=name%>: <%=value%><% if(percent) { %> (<%=percent%>)<% } %></div>'),
+            popupTemplate: _.template('<div class="hoverinfo"><%=name%>: <%=value%><% if(percent) { %> (<%=percent%>)<% } %></div>'),   // jshint ignore:line
 
             /**
              * Underscore style template for displaying the tooltip for screen

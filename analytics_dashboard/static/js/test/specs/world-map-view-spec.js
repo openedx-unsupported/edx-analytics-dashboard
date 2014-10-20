@@ -1,4 +1,4 @@
-define(['models/course-model', 'views/world-map-view'], function(CourseModel, WorldMapView) {
+define(['d3', 'models/course-model', 'views/world-map-view'], function(d3, CourseModel, WorldMapView) {
     'use strict';
 
     describe('World map view', function () {

@@ -14,7 +14,7 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                 el: '[data-view=world-map]',
                 model: page.models.courseModel,
                 modelAttribute: 'enrollmentByCountry',
-                tooltip: gettext('Student location is determined from IP address. This map shows where students most recently connected.')
+                tooltip: gettext('Student location is determined from IP address. This map shows where students most recently connected.')  // jshint ignore:line
             });
 
             // Enrollment by country table

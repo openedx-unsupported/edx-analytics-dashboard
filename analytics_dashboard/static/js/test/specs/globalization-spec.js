@@ -1,4 +1,5 @@
-define(['utils/globalization'], function (Globalization) {
+/* jshint ignore:start */
+define(['utils/globalization'], function () {
   'use strict';
 
   describe('fixLanguageCode', function () {
@@ -18,3 +19,4 @@ define(['utils/globalization'], function (Globalization) {
     });
   });
 });
+/* jshint ignore:end */

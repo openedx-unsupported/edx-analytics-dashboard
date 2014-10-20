@@ -7,7 +7,7 @@ var isBrowser = window.__karma__ === undefined;
 var specs = [];
 
 // Loaded from js/common.js
-var config = require_config;
+var config = require_config;    // jshint ignore:line
 
 // Two execution paths: browser or gulp
 if(isBrowser) {

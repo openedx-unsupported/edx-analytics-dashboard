@@ -1,4 +1,4 @@
-define(['models/course-model', 'views/trends-view'], function(CourseModel, TrendsView) {
+define(['models/course-model', 'views/trends-view'], function (CourseModel, TrendsView) {
     'use strict';
 
     describe('Trends view', function () {
@@ -13,7 +13,8 @@ define(['models/course-model', 'views/trends-view'], function(CourseModel, Trend
                             key: 'trendA',
                             title: 'A Label',
                             color: '#8DA0CB'
-                        },{
+                        },
+                        {
                             key: 'trendB',
                             title: 'B Label'
                         }
@@ -39,15 +40,18 @@ define(['models/course-model', 'views/trends-view'], function(CourseModel, Trend
             // (see https://github.com/novus/nvd3/issues/367) and nvd3 will
             // throw an error when it tries to render (when trend data is set).
             try {
-                model.set('trends', [{
-                    date: '2014-01-01',
-                    trendA: 10,
-                    trendB: 0
-                }, {
-                    date: '2014-01-02',
-                    trendA: 20,
-                    trendB: 1000
-                }]);
+                model.set('trends', [
+                    {
+                        date: '2014-01-01',
+                        trendA: 10,
+                        trendB: 0
+                    },
+                    {
+                        date: '2014-01-02',
+                        trendA: 20,
+                        trendB: 1000
+                    }
+                ]);
             } catch (e) {
                 if (e.name !== 'TypeError') {
                     throw e;
@@ -81,8 +85,9 @@ define(['models/course-model', 'views/trends-view'], function(CourseModel, Trend
                 }),
                 tooltip = view.tooltipTemplate({text: 'This is tooltip text.'});
 
-            expect(tooltip).toBe('<span class="sr-only">This is tooltip text.</span>' +
-                '<i class="ico ico-tooltip fa fa-info-circle chart-tooltip" data-toggle="tooltip" data-placement="top" data-track-event="edx.bi.tooltip.displayed" data-track-category="trend" title="This is tooltip text."></i>');
+            var expected = '<span class="sr-only">This is tooltip text.</span>' +
+                '<i class="ico ico-tooltip fa fa-info-circle chart-tooltip" data-toggle="tooltip" data-placement="top" data-track-event="edx.bi.tooltip.displayed" data-track-category="trend" title="This is tooltip text."></i>'; // jshint ignore:line
+            expect(tooltip).toBe(expected);
         });
     });
 });

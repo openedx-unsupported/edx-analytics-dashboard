@@ -130,10 +130,9 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
                     data: self.model.get(self.options.modelAttribute),
                     // providing 'columns' will override columnDefs
                     columnDefs: self._buildColumnDefs(),
-                    // this positions the "length changing" control to the bottom
-                    // using bootstrap styling
+                    // this positions the "length changing" control to the bottom using bootstrap styling
                     // more information at http://datatables.net/examples/basic_init/dom.html
-                    dom: "<'row'<'col-xs-12't>><'row'<'col-xs-6'l><'col-xs-6'p>>"
+                    dom: '<"row"<"col-xs-12"t>><"row"<"col-xs-6"l><"col-xs-6"p>>'
                 };
 
                 dtSorting = self._buildSorting();
