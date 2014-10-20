@@ -36,7 +36,8 @@
     gulp.task('lint', function () {
         return gulp.src(paths.lint)
             .pipe(jshint())
-            .pipe(jshint.reporter('default'));
+            .pipe(jshint.reporter('default'))
+            .pipe(jshint.reporter('fail'));
     });
 
     // this task runs the tests.  It doesn't give you very detailed results,
