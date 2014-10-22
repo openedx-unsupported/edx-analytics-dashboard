@@ -2,7 +2,7 @@
 
 ROOT = $(shell echo "$$PWD")
 COVERAGE = $(ROOT)/build/coverage
-PACKAGES = analytics_dashboard courses django_rjs
+PACKAGES = analytics_dashboard courses django_rjs help
 NUM_PROCESSES = 2
 
 .PHONY: requirements clean

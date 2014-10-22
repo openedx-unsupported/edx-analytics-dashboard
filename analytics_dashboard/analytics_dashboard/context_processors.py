@@ -3,7 +3,6 @@ from django.conf import settings
 
 def common(_request):
     return {
-        'help_url': settings.HELP_URL,
         'feedback_email': settings.FEEDBACK_EMAIL,
         'support_url': settings.SUPPORT_URL,
         'terms_of_service_url': settings.TERMS_OF_SERVICE_URL,

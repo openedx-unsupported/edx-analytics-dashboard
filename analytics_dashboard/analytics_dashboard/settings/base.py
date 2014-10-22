@@ -1,5 +1,5 @@
 """Common settings and globals."""
-
+import ConfigParser
 
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
@@ -187,6 +187,7 @@ MIDDLEWARE_CLASSES = (
     'courses.middleware.CourseMiddleware',
     'courses.middleware.CoursePermissionsExceptionMiddleware',
     'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
+    'help.middleware.HelpURLMiddleware',
 )
 ########## END MIDDLEWARE CONFIGURATION
 
@@ -222,6 +223,7 @@ LOCAL_APPS = (
     'analytics_dashboard',
     'courses',
     'django_rjs',
+    'help',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -384,3 +386,13 @@ FULL_APPLICATION_NAME = '{0} {1}'.format(PLATFORM_NAME, APPLICATION_NAME)
 
 RJS_OUTPUT_DIR = 'dist'
 RJS_OPTIMIZATION_ENABLED = False
+
+
+########## DOCS/HELP CONFIGURATION
+DOCS_ROOT = join(dirname(SITE_ROOT), 'docs')
+
+# Load the docs config into memory when the server starts
+with open(join(DOCS_ROOT, "config.ini")) as config_file:
+    DOCS_CONFIG = ConfigParser.ConfigParser()
+    DOCS_CONFIG.readfp(config_file)
+########## END DOCS/HELP CONFIGURATION

@@ -1,12 +1,14 @@
 from bok_choy.web_app_test import WebAppTest
+
 from acceptance_tests import TEST_COURSE_ID
-from acceptance_tests.mixins import AssertMixin, PrimaryNavMixin, LoginMixin
+from acceptance_tests.mixins import AnalyticsDashboardWebAppTestMixin
 from pages import CourseIndexPage
+
 
 _multiprocess_can_split_ = True
 
 
-class CourseIndexTests(AssertMixin, PrimaryNavMixin, LoginMixin, WebAppTest):
+class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
     def setUp(self):
         super(CourseIndexTests, self).setUp()
         self.page = CourseIndexPage(self.browser)

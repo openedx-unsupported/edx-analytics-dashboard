@@ -2,10 +2,10 @@ import locale
 import datetime
 
 from bok_choy.promise import EmptyPromise
-
 from analyticsclient.client import Client
+
 from acceptance_tests import API_SERVER_URL, API_AUTH_TOKEN, DASHBOARD_FEEDBACK_EMAIL, SUPPORT_URL, LMS_USERNAME, \
-    LMS_PASSWORD, DASHBOARD_SERVER_URL, ENABLE_AUTO_AUTH
+    LMS_PASSWORD, DASHBOARD_SERVER_URL, ENABLE_AUTO_AUTH, DOC_BASE_URL
 from pages import LMSLoginPage
 
 
@@ -30,6 +30,11 @@ class AssertMixin(object):
         element = self.page.q(css=selector)
         self.assertTrue(element.present)
         self.assertNotEqual(element.attrs('href')[0], '#')
+
+    def assertHrefEqual(self, selector, href):
+        element = self.page.q(css=selector)
+        self.assertTrue(element.present)
+        self.assertEqual(element.attrs('href')[0], href)
 
     def assertTableColumnHeadingsEqual(self, table_selector, headings):
         rows = self.page.q(css=('%s thead th' % table_selector))
@@ -82,8 +87,7 @@ class FooterMixin(AssertMixin):
 
         # check that we have the support link
         selector = footer_selector + " a[class=support-link]"
-        element = self.page.q(css=selector)
-        self.assertEqual(element.attrs('href')[0], SUPPORT_URL)
+        self.assertHrefEqual(selector, SUPPORT_URL)
 
         # Verify the terms of service link is present
         selector = footer_selector + " a[data-role=tos]"
@@ -96,6 +100,10 @@ class FooterMixin(AssertMixin):
         element = self.page.q(css=selector)
         self.assertTrue(element.present)
         self.assertEqual(element.text[0], u'Privacy Policy')
+
+    def test_page(self):
+        super(FooterMixin, self).test_page()
+        self._test_footer()
 
 
 class PrimaryNavMixin(object):
@@ -112,6 +120,9 @@ class PrimaryNavMixin(object):
         # Ensure the menu is actually visible onscreen
         element = self.page.q(css='ul.dropdown-menu.active-user-nav')
         self.assertTrue(element.visible)
+
+    def test_page(self):
+        self._test_user_menu()
 
 
 class LoginMixin(object):
@@ -137,7 +148,27 @@ class LoginMixin(object):
         self.lms_login_page.login(LMS_USERNAME, LMS_PASSWORD)
 
 
-class CoursePageTestsMixin(LoginMixin, AnalyticsApiClientMixin, FooterMixin, PrimaryNavMixin):
+class ContextSensitiveHelpMixin(object):
+    help_path = 'index.html'
+
+    @property
+    def help_url(self):
+        return '{0}/{1}'.format(DOC_BASE_URL, self.help_path)
+
+    def test_page(self):
+        # Validate the help link
+        self.assertHrefEqual('#help', self.help_url)
+
+
+class AnalyticsDashboardWebAppTestMixin(PrimaryNavMixin, ContextSensitiveHelpMixin, AssertMixin, LoginMixin):
+    def test_page(self):
+        self.login()
+        self.page.visit()
+        PrimaryNavMixin.test_page(self)
+        ContextSensitiveHelpMixin.test_page(self)
+
+
+class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterMixin, AnalyticsDashboardWebAppTestMixin):
     """ Mixin for common course page assertions and tests. """
 
     DASHBOARD_DATE_FORMAT = '%B %d, %Y'
@@ -233,10 +264,7 @@ class CoursePageTestsMixin(LoginMixin, AnalyticsApiClientMixin, FooterMixin, Pri
         pass, execution of this parent method will leave the browser on the page being tested.
         :return:
         """
-        self.login()
-        self.page.visit()
-        self._test_user_menu()
-        self._test_footer()
+        super(CoursePageTestsMixin, self).test_page()
         self._test_data_update_message()
 
     @staticmethod
@@ -285,7 +313,7 @@ class CourseDemographicsPageTestsMixin(CoursePageTestsMixin):
         self.assertEqual(element.text[0], self.data_information_message)
 
     def _get_data_update_message(self):
-       return self._build_data_update_message(self.course.enrollment(self.demographic_type))
+        return self._build_data_update_message(self.course.enrollment(self.demographic_type))
 
     def _build_data_update_message(self, api_response):
         current_data = api_response[0]

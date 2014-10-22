@@ -15,6 +15,8 @@ class CourseEngagementTests(CoursePageTestsMixin, WebAppTest):
     Tests for the Engagement page.
     """
 
+    help_path = 'engagement/Engagement_Content.html'
+
     def setUp(self):
         """
         Instantiate the page object.

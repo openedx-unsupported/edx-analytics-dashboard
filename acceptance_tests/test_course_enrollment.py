@@ -11,6 +11,8 @@ _multiprocess_can_split_ = True
 
 
 class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
+    help_path = 'enrollment/Enrollment_Activity.html'
+
     def setUp(self):
         super(CourseEnrollmentActivityTests, self).setUp()
         self.page = CourseEnrollmentActivityPage(self.browser)
@@ -85,6 +87,8 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
 
 
 class CourseEnrollmentGeographyTests(CoursePageTestsMixin, WebAppTest):
+    help_path = 'enrollment/Enrollment_Geography.html'
+
     def setUp(self):
         super(CourseEnrollmentGeographyTests, self).setUp()
         self.page = CourseEnrollmentGeographyPage(self.browser)

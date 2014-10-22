@@ -22,6 +22,7 @@ from courses import permissions
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter, \
     CourseEnrollmentDemographicsPresenter
 from courses.utils import is_feature_enabled
+from help.views import ContextSensitiveHelpMixin
 
 
 logger = logging.getLogger(__name__)
@@ -280,8 +281,13 @@ class CourseView(LoginRequiredMixin, CourseValidMixin, CoursePermissionMixin, Te
         return context
 
 
-class CourseTemplateView(CourseContextMixin, CourseNavBarMixin, CourseView):
+class CourseTemplateView(ContextSensitiveHelpMixin, CourseContextMixin, CourseNavBarMixin, CourseView):
     update_message = None
+
+    @property
+    def help_token(self):
+        # Rather than duplicate the definition, simply return the page name.
+        return self.page_name
 
     def get_last_updated_message(self, last_updated):
         if last_updated:
