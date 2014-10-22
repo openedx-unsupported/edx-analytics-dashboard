@@ -33,6 +33,11 @@ Alternatively, you can launch the server using:
         $ ENABLE_DJANGO_TOOLBAR=1 ./manage.py runserver
 
 
+Site-Wide Announcements
+-----------------------
+Site-wide announcements are facilitated by [django-announcements](http://django-announcements.readthedocs.org/en/latest/).
+Use the admin site to manage announcements and dismissals.
+
 Feature Gating
 --------------
 Need a fallback to disable a feature? Create a [Waffle](http://waffle.readthedocs.org/en/latest/)
