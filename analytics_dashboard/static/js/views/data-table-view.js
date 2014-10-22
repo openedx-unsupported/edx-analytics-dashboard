@@ -15,11 +15,11 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
             },
 
             _buildSorting: function () {
-                var dtSorting = [];
-                var sortRegexp = /^(-?)(.*)/g;
-                var columns = _.map(this.options.columns, function (column) {
-                    return column.key;
-                });
+                var dtSorting = [],
+                    sortRegexp = /^(-?)(.*)/g,
+                    columns = _.map(this.options.columns, function (column) {
+                        return column.key;
+                    });
 
                 _.each(this.options.sorting, function (sorting) {
                     var match = sortRegexp.exec(sorting),
@@ -59,7 +59,7 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
                         def.data = self.createFormatDateFunc(column.key);
                     } else if (column.type === 'percent') {
                         def.data = self.createFormatPercentFunc(column.key);
-                    } else if (column.type ==='number') {
+                    } else if (column.type === 'number') {
                         def.data = self.createFormatNumberFunc(column.key);
                     }
 

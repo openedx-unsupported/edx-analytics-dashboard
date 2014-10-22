@@ -1,16 +1,15 @@
 /**
-* This is where your tests go.  It should happen automatically when you
+ * This is where your tests go.  It should happen automatically when you
  * add files to the karma configuration.
-*/
+ */
 
-var isBrowser = window.__karma__ === undefined;
-var specs = [];
-
-// Loaded from js/common.js
-var config = require_config;    // jshint ignore:line
+var isBrowser = window.__karma__ === undefined,
+    specs = [],
+    // Loaded from js/common.js
+    config = require_config;    // jshint ignore:line
 
 // Two execution paths: browser or gulp
-if(isBrowser) {
+if (isBrowser) {
     // The browser cannot read directories, so all files must be enumerated below.
     specs = [
         config.baseUrl + 'js/spec/specs/attribute-view-spec.js',
@@ -42,7 +41,7 @@ requirejs.config(config);
 
 // the browser needs to kick off jasmine.  The gulp task does it through
 // node
-if(isBrowser) {
+if (isBrowser) {
     //jasmine 2.0 needs boot.js to run, which loads on a window load, so this is
     // a hack
     // http://stackoverflow.com/questions/19240302/does-jasmine-2-0-really-not-work-with-require-js

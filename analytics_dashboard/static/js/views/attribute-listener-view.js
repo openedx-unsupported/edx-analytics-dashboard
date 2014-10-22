@@ -14,9 +14,9 @@ define(['backbone'],
                 self.listenTo(this.model, 'change:' + self.modelAttribute, self.render);
             },
 
-            renderIfDataAvailable: function() {
+            renderIfDataAvailable: function () {
                 var self = this;
-                if(self.model.has(self.modelAttribute)) {
+                if (self.model.has(self.modelAttribute)) {
                     self.render();
                 }
             },

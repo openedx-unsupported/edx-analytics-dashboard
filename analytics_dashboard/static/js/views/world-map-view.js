@@ -77,10 +77,9 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
              * from formatData().
              */
             getCountryMax: function (countryData) {
-                var max = _(countryData).max(function (countryData) {
+                return _(countryData).max(function (countryData) {
                     return countryData.value;
                 }).value;
-                return max;
             },
 
             /**
@@ -222,8 +221,6 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
             }
         });
 
-
         return WorldMapView;
     }
-)
-;
+);
