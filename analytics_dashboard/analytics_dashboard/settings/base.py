@@ -214,6 +214,7 @@ DJANGO_APPS = (
     'django.contrib.admin',
     'waffle',
     'django_countries',
+    'announcements',
 )
 
 # Apps specific for this project go here.

@@ -34,11 +34,15 @@
 <body class="{% block view-name %}{% endblock view-name %}" >
 <div id="wrap">
     {% block header %}
-    {% include "header.html" %}
+      {% include "header.html" %}
     {% endblock header %}
 
+    {% block announcements %}
+      {% include "announcements.html" %}
+    {% endblock %}
+
     {% block lens_navigation %}
-    {% include "lens-navigation.html" %}
+      {% include "lens-navigation.html" %}
     {% endblock lens_navigation %}
 
     <div class="container">
