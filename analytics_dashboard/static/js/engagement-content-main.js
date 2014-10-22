@@ -3,42 +3,47 @@
  * the libraries and kicks off the application.
  */
 
-require(['vendor/domReady!', 'load/init-page'], function(doc, page){
+require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
     'use strict';
 
     require(['views/data-table-view', 'views/trends-view'], function (DataTableView, TrendsView) {
         // shared settings between the chart and table
         // colors are chosen to be color-blind accessible
-        var settings =  [
-            {
-                key: 'weekEnding',
-                title: gettext('Week Ending'),
-                type: 'date'
-            },{
-                key: 'any',
-                title: gettext('Active Students'),
-                color: '#8DA0CB',
-                className: 'text-right',
-                type: 'number'
-            },{
-                key: 'played_video',
-                title: gettext('Watched a Video'),
-                color: '#66C2A5',
-                className: 'text-right',
-                type: 'number'
-            },{
-                key: 'attempted_problem',
-                title: gettext('Tried a Problem'),
-                color: '#FC8D62',
-                className: 'text-right',
-                type: 'number'
-            },{
-                key: 'posted_forum',
-                title: gettext('Posted in Forum'),
-                color: '#E78AC3',
-                className: 'text-right',
-                type: 'number'
-            }],
+        var settings = [
+                {
+                    key: 'weekEnding',
+                    title: gettext('Week Ending'),
+                    type: 'date'
+                },
+                {
+                    key: 'any',
+                    title: gettext('Active Students'),
+                    color: '#8DA0CB',
+                    className: 'text-right',
+                    type: 'number'
+                },
+                {
+                    key: 'played_video',
+                    title: gettext('Watched a Video'),
+                    color: '#66C2A5',
+                    className: 'text-right',
+                    type: 'number'
+                },
+                {
+                    key: 'attempted_problem',
+                    title: gettext('Tried a Problem'),
+                    color: '#FC8D62',
+                    className: 'text-right',
+                    type: 'number'
+                },
+                {
+                    key: 'posted_forum',
+                    title: gettext('Posted in Forum'),
+                    color: '#E78AC3',
+                    className: 'text-right',
+                    type: 'number'
+                }
+            ],
             trendSettings;
 
         // remove settings for data that doesn't exist (ex. forums)
@@ -67,7 +72,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page){
                 title: 'Students',
                 key: 'count'
             },
-            tooltip: gettext('The number of active students, and the number of students who engaged in specific activities, over time.'),
+            tooltip: gettext('The number of active students, and the number of students who engaged in specific activities, over time.'),   // jshint ignore:line
 
             // Translators: %(value)s will be replaced with a date.
             interactiveTooltipHeader: gettext('Week Ending %(value)s')

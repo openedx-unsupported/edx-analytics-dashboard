@@ -4,7 +4,7 @@ define(['views/announcement-view', 'jquery', 'underscore'], function (Announceme
     var view, $el,
         csrftoken = '1234',
         url = 'http://example.com',
-        template = _.template('<div id="announcement" data-dismiss-url="<%=url%>"><input type="hidden" name="csrfmiddlewaretoken" value="<%=csrftoken%>"</div>');
+        template = _.template('<div id="announcement" data-dismiss-url="<%=url%>"><input type="hidden" name="csrfmiddlewaretoken" value="<%=csrftoken%>"</div>');   // jshint ignore:line
 
     describe('AnnouncementView', function () {
         beforeEach(function () {
@@ -35,7 +35,7 @@ define(['views/announcement-view', 'jquery', 'underscore'], function (Announceme
             var server;
 
             beforeEach(function () {
-                server = sinon.fakeServer.create();
+                server = sinon.fakeServer.create(); // jshint ignore:line
                 view.dismiss();
             });
 

@@ -5,11 +5,11 @@
  * be defined by the element's data-track-event and all other data-track-*
  * attribute values will be returns as properties to be tracked.
  */
-define(['jquery', 'underscore', 'views/clickable-view', 'views/tracking-view','utils/utils'],
-    function($, _, ClickableView, TrackingView, Utils) {
+define(['jquery', 'underscore', 'views/clickable-view', 'views/tracking-view', 'utils/utils'],
+    function ($, _, ClickableView, TrackingView, Utils) {
         'use strict';
-        return function(models) {
-            if(models.trackingModel.isTracking()) {
+        return function (models) {
+            if (models.trackingModel.isTracking()) {
                 // this is only activated when tracking ID is set
                 new TrackingView({
                     el: document,
@@ -19,7 +19,7 @@ define(['jquery', 'underscore', 'views/clickable-view', 'views/tracking-view','u
                 });
 
                 // instrument the click events
-                _($('[data-track-type="click"]')).each(function(track){
+                _($('[data-track-type="click"]')).each(function (track) {
                     // get the properties that we want to send back for with
                     // the tracking events
                     var properties = Utils.getNodeProperties(track.attributes,
@@ -35,4 +35,4 @@ define(['jquery', 'underscore', 'views/clickable-view', 'views/tracking-view','u
 
             }
         };
-});
+    });

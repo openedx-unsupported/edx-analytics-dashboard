@@ -24,15 +24,15 @@ define(['utils/utils'], function (Utils) {
             actualAttributes = Utils.getNodeProperties(element.attributes,
                 'data-');
             expect(actualAttributes).toEqual({
-                'type': 'my-data-type',
-                'category': 'my-data-category',
-                'event': 'my-data-event'
+                type: 'my-data-type',
+                category: 'my-data-category',
+                event: 'my-data-event'
             });
 
             actualAttributes = Utils.getNodeProperties(element.attributes,
                 'data-', ['data-type', 'data-category']);
             expect(actualAttributes).toEqual({
-                'event': 'my-data-event'
+                event: 'my-data-event'
             });
         });
 

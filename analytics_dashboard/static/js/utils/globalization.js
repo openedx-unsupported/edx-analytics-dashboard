@@ -1,4 +1,6 @@
 function fixLanguageCode(languageCode) {
+    'use strict';
+
     if (!languageCode || typeof languageCode !== 'string') {
         return 'en';
     }
@@ -28,11 +30,11 @@ define([
     'json!cldr-data/supplemental/likelySubtags.json',
     'json!cldr-data/main/' + window.language + '/numbers.json',
     'globalize/number'
-], function (Globalize, likelySubtags, numbers, _number) {
+], function (Globalize, likelySubtags, numbers) {
     'use strict';
 
     Globalize.load(likelySubtags);
     Globalize.load(numbers);
 
-    return Globalize(window.language);
+    return Globalize(window.language);  // jshint ignore:line
 });

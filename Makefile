@@ -57,6 +57,7 @@ validate_python: test.requirements test_python quality
 validate_js: requirements.js
 	gulp test
 	gulp lint
+	gulp jscs
 
 validate: validate_python validate_js
 

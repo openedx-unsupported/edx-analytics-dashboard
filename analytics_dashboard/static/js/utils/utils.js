@@ -59,7 +59,8 @@ define(['moment', 'underscore', 'utils/globalization'], function (moment, _, Glo
          */
         formatDisplayPercentage: function (value) {
             if (value >= 0.01) {
-              return Globalize.formatNumber(value, {style: 'percent', minimumFractionDigits: 1, maximumFractionDigits: 1});
+                return Globalize.formatNumber(value,
+                    {style: 'percent', minimumFractionDigits: 1, maximumFractionDigits: 1});
             }
 
             return '< 1%';
