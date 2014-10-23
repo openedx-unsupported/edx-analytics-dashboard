@@ -1,0 +1,15 @@
+{% load i18n %}
+
+{% for item in nav_items %}
+<li class="{% if item.active %}active{% endif %} nav-section">
+    <a href="{{ item.href }}">
+        <span class="link-label">
+            {{ item.label }}
+            {% if item.active %}
+                {# Translators: This refers to the active tab/navigation item. #}
+                <span class="sr-only">({% trans "Active" %})</span>
+            {% endif %}
+        </span>
+    </a>
+</li>
+{% endfor %}

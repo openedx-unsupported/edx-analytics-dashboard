@@ -6,7 +6,8 @@ import mock
 
 from courses.tests.test_views import ViewTestMixin, DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID
 from courses.tests.utils import convert_list_of_dicts_to_csv, get_mock_api_enrollment_geography_data, \
-    get_mock_api_enrollment_data, get_mock_api_course_activity
+    get_mock_api_enrollment_data, get_mock_api_course_activity, get_mock_api_enrollment_age_data, \
+    get_mock_api_enrollment_education_data, get_mock_api_enrollment_gender_data
 
 
 @ddt
@@ -80,6 +81,36 @@ class CourseEnrollmentCSVViewTests(CourseCSVTestMixin, TestCase):
 
     def get_mock_data(self, course_id):
         return get_mock_api_enrollment_data(course_id)
+
+
+class CourseEnrollmentDemographicsByAgeCSVViewTests(CourseCSVTestMixin, TestCase):
+    viewname = 'courses:csv_enrollment_demographics_age'
+    column_headings = ['birth_year', 'count', 'course_id', 'created', 'date']
+    base_file_name = 'enrollment-by-birth-year'
+    api_method = 'analyticsclient.course.Course.enrollment'
+
+    def get_mock_data(self, course_id):
+        return get_mock_api_enrollment_age_data(course_id)
+
+
+class CourseEnrollmentDemographicsByEducationCSVViewTests(CourseCSVTestMixin, TestCase):
+    viewname = 'courses:csv_enrollment_demographics_education'
+    column_headings = ['count', 'course_id', 'created', 'date', 'education_level.name', 'education_level.short_name']
+    base_file_name = 'enrollment-by-education'
+    api_method = 'analyticsclient.course.Course.enrollment'
+
+    def get_mock_data(self, course_id):
+        return get_mock_api_enrollment_education_data(course_id)
+
+
+class CourseEnrollmentByDemographicsGenderCSVViewTests(CourseCSVTestMixin, TestCase):
+    viewname = 'courses:csv_enrollment_demographics_gender'
+    column_headings = ['count', 'course_id', 'created', 'date', 'gender']
+    base_file_name = 'enrollment-by-gender'
+    api_method = 'analyticsclient.course.Course.enrollment'
+
+    def get_mock_data(self, course_id):
+        return get_mock_api_enrollment_gender_data(course_id)
 
 
 class CourseEngagementActivityTrendCSVViewTests(CourseCSVTestMixin, TestCase):

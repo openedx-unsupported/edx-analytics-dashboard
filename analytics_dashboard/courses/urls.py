@@ -7,9 +7,15 @@ from courses import views
 COURSE_URLS = [
     ('enrollment/activity', views.EnrollmentActivityView.as_view()),
     ('enrollment/geography', views.EnrollmentGeographyView.as_view()),
+    ('enrollment/demographics/age', views.EnrollmentDemographicsAgeView.as_view()),
+    ('enrollment/demographics/education', views.EnrollmentDemographicsEducationView.as_view()),
+    ('enrollment/demographics/gender', views.EnrollmentDemographicsGenderView.as_view()),
     ('engagement/content', views.EngagementContentView.as_view()),
     ('csv/enrollment', views.CourseEnrollmentCSV.as_view()),
     ('csv/enrollment_by_country', views.CourseEnrollmentByCountryCSV.as_view()),
+    ('csv/enrollment_demographics_age', views.CourseEnrollmentDemographicsAgeCSV.as_view()),
+    ('csv/enrollment_demographics_education', views.CourseEnrollmentDemographicsEducationCSV.as_view()),
+    ('csv/enrollment_demographics_gender', views.CourseEnrollmentDemographicsGenderCSV.as_view()),
     ('csv/engagement_activity_trend', views.CourseEngagementActivityTrendCSV.as_view()),
 ]
 

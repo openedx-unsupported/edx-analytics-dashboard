@@ -128,37 +128,17 @@ class CourseEnrollmentGeographyTests(CoursePageTestsMixin, WebAppTest):
         """ Verify the geolocation enrollment table is loaded. """
 
         table_section_selector = "div[data-role=enrollment-location-table]"
+        self.assertTable(table_section_selector, ['Country', 'Percent', 'Total Enrollment'],
+                         'a[data-role=enrollment-location-csv]')
 
-        # Ensure the table is loaded via AJAX
-        self.fulfill_loading_promise(table_section_selector)
-
-        # make sure the map section is present
-        element = self.page.q(css=table_section_selector)
-        self.assertTrue(element.present)
-
-        # make sure the table is present
-        table_selector = table_section_selector + " table"
-        element = self.page.q(css=table_selector)
-        self.assertTrue(element.present)
-
-        # check the headings
-        self.assertTableColumnHeadingsEqual(table_selector, ['Country', 'Percent', 'Total Enrollment'])
-
-        # Verify CSV button has an href attribute
-        selector = "a[data-role=enrollment-location-csv]"
-        self.assertValidHref(selector)
-
-        # Check the results of the table
-        rows = self.page.browser.find_elements_by_css_selector('%s tbody tr' % table_selector)
-        self.assertGreater(len(rows), 0)
-
+        rows = self.page.browser.find_elements_by_css_selector('{} tbody tr'.format(table_section_selector))
         sum_count = float(sum([datum['count'] for datum in self.enrollment_data]))
 
         for i, row in enumerate(rows):
             columns = row.find_elements_by_css_selector('td')
             enrollment = self.enrollment_data[i]
-            expected_percent = enrollment['count'] / sum_count * 100
-            expected_percent_display = '{:.1f}%'.format(expected_percent) if expected_percent >= 1.0 else '< 1%'
+
+            expected_percent_display = self.build_display_percentage(enrollment['count'], sum_count)
 
             country_name = enrollment['country']['name']
             if country_name == UNKNOWN_COUNTRY_CODE:

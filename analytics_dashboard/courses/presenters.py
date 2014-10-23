@@ -7,6 +7,8 @@ from django_countries import countries
 from waffle import switch_is_active
 from analyticsclient.client import Client
 import analyticsclient.constants.activity_type as AT
+import analyticsclient.constants.education_level as EDUCATION_LEVEL
+import analyticsclient.constants.gender as GENDER
 from analyticsclient.constants import demographic, UNKNOWN_COUNTRY_CODE
 
 
@@ -26,6 +28,9 @@ class BasePresenter(object):
                              timeout=timeout)
         self.course_id = course_id
         self.course = self.client.courses(self.course_id)
+
+    def get_current_date(self):
+        return datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
 
     @staticmethod
     def parse_api_date(s):
@@ -113,8 +118,7 @@ class CourseEngagementPresenter(BasePresenter):
         """
         Retrieve recent summary and all historical trend data.
         """
-        now = datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
-        api_trends = self.course.activity(start_date=None, end_date=now)
+        api_trends = self.course.activity(start_date=None, end_date=self.get_current_date())
         summary = self._build_summary(api_trends)
         trends = self._build_trend(api_trends)
         return summary, trends
@@ -125,12 +129,322 @@ class CourseEnrollmentPresenter(BasePresenter):
 
     NUMBER_TOP_COUNTRIES = 3
 
+    # ages at this and above will be binned
+    MAX_AGE = 100
+
+    # for display
+    GENDER_FULL_NAMES = {
+        GENDER.FEMALE: 'Female',
+        GENDER.MALE: 'Male',
+        GENDER.OTHER: 'Other',
+        GENDER.UNKNOWN: 'Unknown'
+    }
+    GENDER_ORDER = {
+        GENDER.FEMALE: 0,
+        GENDER.MALE: 1,
+        GENDER.OTHER: 2
+    }
+
+    # for display
+    EDUCATION_SHORT_NAMES = {
+        EDUCATION_LEVEL.NONE: 'None',
+        EDUCATION_LEVEL.OTHER: 'Other',
+        EDUCATION_LEVEL.PRIMARY: 'Elementary',
+        EDUCATION_LEVEL.JUNIOR_SECONDARY: 'Middle',
+        EDUCATION_LEVEL.SECONDARY: 'High',
+        EDUCATION_LEVEL.ASSOCIATES: 'Associates',
+        EDUCATION_LEVEL.BACHELORS: 'Bachelors',
+        EDUCATION_LEVEL.MASTERS: 'Masters',
+        EDUCATION_LEVEL.DOCTORATE: 'Doctorate'
+    }
+
+    # order for displaying in the chart
+    EDUCATION_ORDER = {
+        EDUCATION_LEVEL.NONE: 0,
+        EDUCATION_LEVEL.PRIMARY: 1,
+        EDUCATION_LEVEL.JUNIOR_SECONDARY: 2,
+        EDUCATION_LEVEL.SECONDARY: 3,
+        EDUCATION_LEVEL.ASSOCIATES: 4,
+        EDUCATION_LEVEL.BACHELORS: 5,
+        EDUCATION_LEVEL.MASTERS: 6,
+        EDUCATION_LEVEL.DOCTORATE: 7,
+        EDUCATION_LEVEL.OTHER: 8,
+    }
+
+    def get_gender(self):
+        """
+        Returns the updated time, most recent gender counts, and breakdown of daily
+        gender trends.
+        """
+        api_response = self.course.enrollment(demographic.GENDER, end_date=self.get_current_date())
+        recent_genders = None
+        trend = None
+        last_updated = None
+        known_enrollment_percent = None
+
+        if api_response:
+            last_updated = self.parse_api_datetime(api_response[-1]['created'])
+            recent_genders = self._build_recent_genders(api_response)
+            trend = self._build_gender_trend(api_response)
+            known_enrollment_percent = self._build_gender_known_percent(api_response)
+
+        return last_updated, recent_genders, trend, known_enrollment_percent
+
+    def get_known_genders(self):
+        return [gender for gender in self.GENDER_FULL_NAMES if gender is not 'unknown']
+
+    def get_all_genders(self):
+        return self.GENDER_FULL_NAMES.keys()
+
+    def _build_gender_trend(self, api_response):
+        """ Adds the 'total' enrollment to the trend, including unknown (not reported) genders. """
+        genders = self.get_all_genders()
+
+        for enrollment in api_response:
+            enrollment['total'] = self._calculate_sum(enrollment, genders)
+            # fill in null/None genders so 0 is displayed
+            for gender in genders:
+                if not enrollment[gender]:
+                    enrollment[gender] = 0
+        return api_response
+
+    def _build_recent_genders(self, api_response):
+        """ Returns the most recent gender percentages (does not include unknown (not reported). """
+        genders = self.get_known_genders()
+        recent_genders = []
+        most_recent_data = api_response[-1]
+        total_enrollment = self._calculate_sum(most_recent_data, genders)
+        for gender in genders:
+            recent_genders.append({
+                'gender': self.GENDER_FULL_NAMES[gender],
+                'percent': self._calculate_percent(most_recent_data[gender], total_enrollment),
+                'order': self.GENDER_ORDER[gender]
+            })
+
+        print recent_genders
+
+        return sorted(recent_genders, key=lambda i: i['order'], reverse=False)
+
+    def _build_gender_known_percent(self, api_response):
+        most_recent_data = api_response[-1]
+        known_enrollment = self._calculate_sum(most_recent_data, self.get_known_genders())
+        all_enrollment = self._calculate_sum(most_recent_data, self.get_all_genders())
+        return self._calculate_percent(known_enrollment, all_enrollment)
+
+    def get_ages(self):
+        """
+        Returns the updated time, summary of age ranges displayed in metrics, and
+        ages with counts and percentages and ages greater than MAX_AGE aggregated
+        within MAX_AGE.
+        """
+        api_response = self.course.enrollment(demographic.BIRTH_YEAR)
+        last_updated = None
+        binned_ages = None
+        summary = None
+        known_enrollment_percent = None
+
+        if api_response:
+            last_updated = self.parse_api_datetime(api_response[0]['created'])
+            api_response = sorted(api_response, key=lambda i: i['birth_year'], reverse=True)
+            summary = self._build_ages_summary(api_response)
+            binned_ages = self._build_binned_ages(api_response)
+            known_enrollment_percent = self._calculate_known_total_percent(api_response, 'birth_year')
+
+        return last_updated, summary, binned_ages, known_enrollment_percent
+
+    def _count_ages(self, api_response, min_age, max_age):
+        """
+        Returns the number of enrollments between min_age (exclusive) and
+        max_age (inclusive).
+        """
+        current_year = datetime.date.today().year
+        filtered_ages = api_response
+
+        if min_age:
+            filtered_ages = ([datum for datum in filtered_ages
+                              if datum['birth_year'] and (current_year - datum['birth_year']) > min_age])
+        if max_age:
+            filtered_ages = ([datum for datum in filtered_ages
+                              if datum['birth_year'] and (current_year - datum['birth_year']) <= max_age])
+        return self._calculate_total_enrollment(filtered_ages)
+
+    def _calculate_median_age(self, api_response):
+        current_year = datetime.date.today().year
+        total_enrollment = self._calculate_total_enrollment(api_response)
+        half_enrollments = total_enrollment * 0.5
+        count_enrollments = 0
+        for index, datum in enumerate(api_response):
+            age = current_year - datum['birth_year']
+            count_enrollments += datum['count']
+
+            if count_enrollments > half_enrollments:
+                return age
+            elif count_enrollments == half_enrollments:
+                if total_enrollment % 2 == 0:
+                    # When no single median value, calculate the mean between the flanking ages.  It will always
+                    # be the case that at the loop can be advanced
+                    next_age = current_year - api_response[index + 1]['birth_year']
+                    return (next_age + age) * 0.5
+                else:
+                    return age
+
+        return None
+
+    def _build_ages_summary(self, api_response):
+        """ Returns age metrics, excluding unknown ages. """
+        known_ages = [i for i in api_response if i['birth_year']]
+        summary = {'median': self._calculate_median_age(known_ages)}
+
+        summary_params = [
+            {
+                'field': 'under_25',
+                'ages': [None, 25]
+            },
+            {
+                'field': 'between_26_40',
+                'ages': [26, 40]
+            },
+            {
+                'field': 'over_40',
+                'ages': [40, None]
+            }
+        ]
+
+        # calculate the percentages for each age range
+        known_enrollment_total = self._calculate_known_total_enrollment(api_response, 'birth_year')
+        for params in summary_params:
+            age_range = params['ages']
+            count = self._count_ages(api_response, age_range[0], age_range[1])
+            summary[params['field']] = self._calculate_percent(count, known_enrollment_total)
+
+        return summary
+
+    def _build_binned_ages(self, api_response):
+        current_year = datetime.date.today().year
+        known_ages = [i for i in api_response if i['birth_year']]
+        known_enrollment_total = self._calculate_total_enrollment(known_ages)
+
+        binned_ages = [{'age': current_year - int(datum['birth_year']),
+                        'count': datum['count'],
+                        'percent': self._calculate_percent(datum['count'], known_enrollment_total)}
+                       for datum in known_ages]
+
+        # fill in ages with no counts for display
+        for age in range(self.MAX_AGE + 1):
+            try:
+                binned = next(binned for binned in binned_ages if binned['age'] is age)
+            except StopIteration:
+                binned = None
+            if not binned:
+                binned = {'age': age, 'count': 0, 'percent': 0}
+                binned_ages.append(binned)
+
+        # fill in gaps may have altered the ordering
+        binned_ages = sorted(binned_ages, key=lambda i: i['age'], reverse=False)
+
+        # bin all the ages above MAX_AGE (e.g. 100) and remove them from the dataset
+        elderly = [datum for datum in binned_ages if datum['age'] > self.MAX_AGE]
+        elderly_bin = next(binned for binned in binned_ages if binned['age'] is self.MAX_AGE)
+        for datum in elderly:
+            elderly_bin['count'] = elderly_bin['count'] + datum['count']
+            binned_ages.remove(datum)
+        elderly_bin['percent'] = self._calculate_percent(elderly_bin['count'], known_enrollment_total)
+
+        # tack enrollment counts for students with unknown ages
+        unknown = [i for i in api_response if not i['birth_year']]
+        if unknown:
+            unknown_count = unknown[0]['count']
+            binned_ages.append({
+                'age': 'Unknown',
+                'count': unknown_count
+            })
+
+        return binned_ages
+
+    def _calculate_sum(self, dictionary, keys):
+        """ Returns the sum of the values from the keys specified. """
+        return sum([value for key, value in dictionary.iteritems() if value and key in keys])
+
+    def _calculate_known_total_enrollment(self, api_response, enrollment_key):
+        known = [i for i in api_response if i[enrollment_key]]
+        return self._calculate_total_enrollment(known)
+
+    def _calculate_total_enrollment(self, api_response):
+        return sum([datum['count'] for datum in api_response])
+
+    def _calculate_known_total_percent(self, api_response, enrollment_key):
+        known_count = self._calculate_known_total_enrollment(api_response, enrollment_key)
+        total_count = self._calculate_total_enrollment(api_response)
+        return self._calculate_percent(known_count, total_count)
+
+    def _calculate_percent(self, count, total):
+        return count / float(total) if total > 0 else 0.0
+
+    def _calculate_education_percent(self, api_response, levels):
+        """ Aggregates levels of education and returns the percent of the total. """
+        filtered_levels = ([education for education in api_response
+                            if education['education_level']['short_name'] in levels])
+        subset_enrollment = self._calculate_total_enrollment(filtered_levels)
+        return self._calculate_percent(subset_enrollment, self._calculate_total_enrollment(api_response))
+
+    def _build_education_summary(self, api_response):
+        known_education = [i for i in api_response if i['education_level']]
+
+        high_school_or_less = [EDUCATION_LEVEL.PRIMARY, EDUCATION_LEVEL.JUNIOR_SECONDARY,
+                               EDUCATION_LEVEL.SECONDARY]
+        college_levels = [EDUCATION_LEVEL.ASSOCIATES, EDUCATION_LEVEL.BACHELORS]
+        advanced_levels = [EDUCATION_LEVEL.MASTERS, EDUCATION_LEVEL.DOCTORATE]
+        return {
+            'high_school_or_less': self._calculate_education_percent(known_education,
+                                                                     high_school_or_less),
+            'college': self._calculate_education_percent(known_education, college_levels),
+            'advanced': self._calculate_education_percent(known_education, advanced_levels),
+        }
+
+    def _build_education_levels(self, api_response):
+        known_education = [i for i in api_response if i['education_level']]
+        known_enrollment_total = self._calculate_total_enrollment(known_education)
+        levels = [{'educationLevelShort': self.EDUCATION_SHORT_NAMES[datum['education_level']['short_name']],
+                   'educationLevelLong': datum['education_level']['name'],
+                   'count': datum['count'],
+                   'percent': self._calculate_percent(datum['count'], known_enrollment_total),
+                   'order': self.EDUCATION_ORDER[datum['education_level']['short_name']]}
+                  for datum in known_education]
+
+        levels = sorted(levels, key=lambda i: i['order'], reverse=False)
+
+        # add unknown (not reported) education levels if available
+        unknown = [i for i in api_response if not i['education_level']]
+        if unknown:
+            unknown_count = unknown[0]['count']
+            levels.append({
+                'educationLevelShort': 'Unknown',
+                'educationLevelLong': 'Unknown',
+                'count': unknown_count
+            })
+
+        return levels
+
+    def get_education(self):
+        api_response = self.course.enrollment(demographic.EDUCATION)
+        education_levels = None
+        education_summary = None
+        last_updated = None
+        known_enrollment_percent = None
+
+        if api_response:
+            last_updated = self.parse_api_datetime(api_response[0]['created'])
+            education_levels = self._build_education_levels(api_response)
+            education_summary = self._build_education_summary(api_response)
+            known_enrollment_percent = self._calculate_known_total_percent(api_response, 'education_level')
+
+        return last_updated, education_summary, education_levels, known_enrollment_percent
+
     def get_summary_and_trend_data(self):
         """
         Retrieve recent summary and all historical trend data.
         """
-        now = datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
-        trends = self.course.enrollment(start_date=None, end_date=now)
+        trends = self.course.enrollment(start_date=None, end_date=self.get_current_date())
         summary = self._build_summary(trends)
 
         # add zero for the day prior (prevents just a single point in the chart)
@@ -179,13 +493,13 @@ class CourseEnrollmentPresenter(BasePresenter):
             api_response = self._translate_country_names(api_response)
 
             # get the sum as a float so we can divide by it to get a percent
-            total_enrollment = float(sum([datum['count'] for datum in api_response]))
+            total_enrollment = self._calculate_total_enrollment(api_response)
 
             # formatting this data for easy access in the table UI
             data = [{'countryCode': datum['country']['alpha3'],
                      'countryName': datum['country']['name'],
                      'count': datum['count'],
-                     'percent': datum['count'] / total_enrollment if total_enrollment > 0 else 0.0}
+                     'percent': self._calculate_percent(datum['count'], total_enrollment)}
                     for datum in api_response]
 
             # Filter out the unknown entry for the summary data

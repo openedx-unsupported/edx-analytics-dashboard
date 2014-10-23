@@ -6,86 +6,12 @@ from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 import analyticsclient.constants.activity_type as AT
-from analyticsclient.exceptions import NotFoundError
 
-from courses.tests.test_views import ViewTestMixin, DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID
+from courses.tests.test_views import ViewTestMixin, CourseViewTestMixin, \
+    CourseEnrollmentViewTestMixin, DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID
 from courses.exceptions import PermissionsRetrievalFailedError
 from courses.tests.test_middleware import MiddlewareAssertionMixin
 from courses.tests import utils
-
-
-@ddt
-class CourseViewTestMixin(ViewTestMixin):
-    presenter_method = None
-
-    def assertPrimaryNav(self, nav, course_id):
-        raise NotImplementedError
-
-    def assertSecondaryNavs(self, nav, course_id):
-        raise NotImplementedError
-
-    @mock.patch('courses.views.CourseValidMixin.is_valid_course', mock.Mock(return_value=False))
-    def test_invalid_course(self):
-        course_id = 'fakeOrg/soFake/Fake_Course'
-        self.grant_permission(self.user, course_id)
-        path = reverse(self.viewname, kwargs={'course_id': course_id})
-
-        response = self.client.get(path, follow=True)
-        self.assertEqual(response.status_code, 404)
-
-    def assertViewIsValid(self, course_id):
-        raise NotImplementedError
-
-    @data(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
-    def test_valid_course(self, course_id):
-        self.assertViewIsValid(course_id)
-
-    def assertValidMissingDataContext(self, context):
-        raise NotImplementedError
-
-    @data(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
-    def test_missing_data(self, course_id):
-        with mock.patch(self.presenter_method, mock.Mock(side_effect=NotFoundError)):
-            response = self.client.get(self.path(course_id))
-            context = response.context
-
-        self.assertValidMissingDataContext(context)
-
-
-# pylint: disable=abstract-method
-class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
-    active_secondary_nav_label = None
-    api_method = 'analyticsclient.course.Course.enrollment'
-
-    def assertPrimaryNav(self, nav, course_id):
-        expected = {
-            'icon': 'fa-child',
-            'href': reverse('courses:enrollment_activity', kwargs={'course_id': course_id}),
-            'label': _('Enrollment'),
-            'name': 'enrollment'
-        }
-        self.assertDictEqual(nav, expected)
-
-    def assertSecondaryNavs(self, nav, course_id):
-        reverse_kwargs = {'course_id': course_id}
-        expected = [
-            {'name': 'activity', 'label': _('Activity'),
-             'href': reverse('courses:enrollment_activity', kwargs=reverse_kwargs)},
-            {'name': 'geography', 'label': _('Geography'),
-             'href': reverse('courses:enrollment_geography', kwargs=reverse_kwargs)}
-        ]
-
-        for item in expected:
-            if item['label'] == self.active_secondary_nav_label:
-                item['active'] = True
-                item['href'] = '#'
-            else:
-                item['active'] = False
-
-        self.assertListEqual(nav, expected)
-
-    def get_mock_data(self, course_id):
-        return utils.get_mock_api_enrollment_data(course_id)
 
 
 # pylint: disable=abstract-method

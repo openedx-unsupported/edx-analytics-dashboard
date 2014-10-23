@@ -10,6 +10,12 @@ from courses.tests.utils import get_mock_api_enrollment_data, get_mock_presenter
     get_mock_enrollment_summary, get_mock_presenter_enrollment_summary_small, \
     get_mock_api_enrollment_geography_data, get_mock_presenter_enrollment_geography_data, \
     get_mock_api_enrollment_geography_data_limited, get_mock_presenter_enrollment_geography_data_limited, \
+    get_mock_api_enrollment_gender_data, get_presenter_enrollment_gender_data, \
+    get_presenter_enrollment_gender_trend, \
+    get_mock_api_enrollment_age_data, get_presenter_enrollment_binned_ages, \
+    get_presenter_enrollment_ages_summary, \
+    get_mock_api_enrollment_education_data, get_mock_presenter_enrollment_education_data, \
+    get_mock_presenter_enrollment_education_summary, \
     mock_course_activity, CREATED_DATETIME
 
 
@@ -168,3 +174,38 @@ class CourseEnrollmentPresenterTests(TestCase):
 
         self.assertDictEqual(summary, expected_summary)
         self.assertListEqual(actual_data, expected_data)
+
+    @mock.patch('analyticsclient.course.Course.enrollment')
+    def test_get_gender(self, mock_gender):
+        mock_data = get_mock_api_enrollment_gender_data(self.course_id)
+        mock_gender.return_value = mock_data
+
+        last_updated, gender_data, trend, known_percent = self.presenter.get_gender()
+        self.assertEqual(last_updated, CREATED_DATETIME)
+        self.assertListEqual(gender_data, get_presenter_enrollment_gender_data())
+        self.assertListEqual(trend, get_presenter_enrollment_gender_trend(self.course_id))
+        self.assertEqual(known_percent, 0.5)
+
+    @mock.patch('analyticsclient.course.Course.enrollment')
+    def test_get_ages(self, mock_age):
+        mock_data = get_mock_api_enrollment_age_data(self.course_id)
+        mock_age.return_value = mock_data
+
+        last_updated, summary, binned_ages, known_percent = self.presenter.get_ages()
+
+        self.assertEqual(last_updated, CREATED_DATETIME)
+        self.assertDictEqual(summary, get_presenter_enrollment_ages_summary())
+        self.assertListEqual(binned_ages, get_presenter_enrollment_binned_ages())
+        self.assertEqual(known_percent, 0.5)
+
+    @mock.patch('analyticsclient.course.Course.enrollment')
+    def test_get_education(self, mock_education):
+        mock_data = get_mock_api_enrollment_education_data(self.course_id)
+        mock_education.return_value = mock_data
+
+        last_updated, education_summary, education_levels, known_percent = self.presenter.get_education()
+
+        self.assertEqual(last_updated, CREATED_DATETIME)
+        self.assertDictEqual(education_summary, get_mock_presenter_enrollment_education_summary())
+        self.assertListEqual(education_levels, get_mock_presenter_enrollment_education_data())
+        self.assertEqual(known_percent, 0.5)

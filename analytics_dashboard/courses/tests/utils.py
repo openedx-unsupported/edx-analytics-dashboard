@@ -5,6 +5,8 @@ import datetime
 from analyticsclient.client import Client
 from analyticsclient.constants import UNKNOWN_COUNTRY_CODE
 import analyticsclient.constants.activity_type as AT
+import analyticsclient.constants.education_level as EDUCATION_LEVEL
+import analyticsclient.constants.gender as GENDER
 
 from courses.permissions import set_user_course_permissions
 
@@ -106,6 +108,300 @@ def get_mock_presenter_enrollment_geography_data_limited():
         'top_countries': data
     })
     return summary, data
+
+
+def get_mock_api_enrollment_gender_data(course_id):
+    # top three are used in the summary (unknown is excluded)
+    data = [
+        {
+            'course_id': course_id,
+            'other': 123,
+            GENDER.FEMALE: 456,
+            GENDER.MALE: 789,
+            GENDER.UNKNOWN: 1000,
+            'date': '2014-09-21',
+            'created': CREATED_DATETIME_STRING
+        },
+        {
+            'course_id': course_id,
+            'other': 500,
+            GENDER.FEMALE: 100,
+            GENDER.MALE: 400,
+            GENDER.UNKNOWN: 1000,
+            'date': '2014-09-22',
+            'created': CREATED_DATETIME_STRING
+        }
+    ]
+
+    return data
+
+
+def get_presenter_enrollment_gender_data():
+    return [
+        {'gender': 'Female', 'percent': 0.1, 'order': 0},
+        {'gender': 'Male', 'percent': 0.4, 'order': 1},
+        {'gender': 'Other', 'percent': 0.5, 'order': 2}
+    ]
+
+
+def get_presenter_enrollment_gender_trend(course_id):
+    return [
+        {'course_id': course_id, GENDER.OTHER: 123, GENDER.FEMALE: 456, GENDER.MALE: 789, GENDER.UNKNOWN: 1000,
+         'date': '2014-09-21', 'total': 2368,
+         'created': CREATED_DATETIME_STRING},
+        {'course_id': course_id, GENDER.OTHER: 500, GENDER.FEMALE: 100, GENDER.MALE: 400, GENDER.UNKNOWN: 1000,
+         'date': '2014-09-22', 'total': 2000,
+         'created': CREATED_DATETIME_STRING}
+    ]
+
+
+def get_presenter_gender(course_id):
+    return CREATED_DATETIME, get_presenter_enrollment_gender_data(), \
+        get_presenter_enrollment_gender_trend(course_id), 0.5
+
+
+def get_mock_api_enrollment_age_data(course_id):
+    data = [
+        {'course_id': course_id, 'birth_year': 1900, 'count': 100, 'created': CREATED_DATETIME_STRING},
+        {'course_id': course_id, 'birth_year': 2000, 'count': 400, 'created': CREATED_DATETIME_STRING},
+        {'course_id': course_id, 'birth_year': 2014, 'count': 500, 'created': CREATED_DATETIME_STRING},
+        {'course_id': course_id, 'birth_year': None, 'count': 1000, 'created': CREATED_DATETIME_STRING}
+    ]
+
+    return data
+
+
+def get_presenter_enrollment_binned_ages():
+    current_year = datetime.date.today().year
+    oldest = current_year - 100
+    binned = []
+
+    for year in range(oldest, 2015):
+        binned.append({'age': current_year - year, 'count': 0, 'percent': 0})
+
+    # adjust 100+
+    binned[0]['count'] = 100
+    binned[0]['percent'] = 0.1
+
+    # adjust year 2014
+    index_2014 = 2014 - current_year - 1
+    binned[index_2014]['count'] = 500
+    binned[index_2014]['percent'] = 0.5
+
+    # adjust year 2000
+    index_2000 = 2000 - current_year - 1
+    binned[index_2000]['count'] = 400
+    binned[index_2000]['percent'] = 0.4
+
+    binned.insert(0, {'age': 'Unknown', 'count': 1000})
+
+    return binned[::-1]
+
+
+def get_presenter_enrollment_ages_summary():
+    current_year = datetime.date.today().year
+    return {
+        'median': (current_year * 2 - 2000 - 2014) * 0.5,
+        'under_25': 0.9,
+        'between_26_40': 0.0,
+        'over_40': 0.1
+    }
+
+
+def get_presenter_ages():
+    return CREATED_DATETIME, get_presenter_enrollment_ages_summary(), get_presenter_enrollment_binned_ages(), 0.5
+
+
+def get_mock_api_enrollment_education_data(course_id):
+    data = [
+        {
+            'course_id': course_id,
+            'date': '2014-09-22',
+            'education_level': {
+                'name': 'None',
+                'short_name': EDUCATION_LEVEL.NONE
+            },
+            'count': 100,
+            'created': CREATED_DATETIME_STRING
+        },
+        {
+            'course_id': course_id,
+            'date': '2014-09-22',
+            'education_level': {
+                'name': 'Other',
+                'short_name': EDUCATION_LEVEL.OTHER
+            },
+            'count': 200,
+            'created': CREATED_DATETIME_STRING
+        },
+        {
+            'course_id': course_id,
+            'date': '2014-09-22',
+            'education_level': {
+                'name': 'Elementary/Primary School',
+                'short_name': EDUCATION_LEVEL.PRIMARY
+            },
+            'count': 100,
+            'created': CREATED_DATETIME_STRING
+        },
+        {
+            'course_id': course_id,
+            'date': '2014-09-22',
+            'education_level': {
+                'name': 'Junior Secondary/Junior High/Middle School',
+                'short_name': EDUCATION_LEVEL.JUNIOR_SECONDARY
+            },
+            'count': 100,
+            'created': CREATED_DATETIME_STRING
+        },
+        {
+            'course_id': course_id,
+            'date': '2014-09-22',
+            'education_level': {
+                'name': 'Secondary/High School',
+                'short_name': EDUCATION_LEVEL.SECONDARY
+            },
+            'count': 100,
+            'created': CREATED_DATETIME_STRING
+        },
+        {
+            'course_id': course_id,
+            'date': '2014-09-22',
+            'education_level': {
+                'name': "Associate's Degree",
+                'short_name': EDUCATION_LEVEL.ASSOCIATES
+            },
+            'count': 100,
+            'created': CREATED_DATETIME_STRING
+        },
+        {
+            'course_id': course_id,
+            'date': '2014-09-22',
+            'education_level': {
+                'name': "Bachelor's Degree",
+                'short_name': EDUCATION_LEVEL.BACHELORS
+            },
+            'count': 100,
+            'created': CREATED_DATETIME_STRING
+        },
+        {
+            'course_id': course_id,
+            'date': '2014-09-22',
+            'education_level': {
+                'name': "Master's or Professional Degree",
+                'short_name': EDUCATION_LEVEL.MASTERS
+            },
+            'count': 100,
+            'created': CREATED_DATETIME_STRING
+        },
+        {
+            'course_id': course_id,
+            'date': '2014-09-22',
+            'education_level': {
+                'name': 'Doctorate',
+                'short_name': EDUCATION_LEVEL.DOCTORATE
+            },
+            'count': 100,
+            'created': CREATED_DATETIME_STRING
+        },
+        {
+            'course_id': course_id,
+            'date': '2014-09-22',
+            'education_level': None,
+            'count': 1000,
+            'created': CREATED_DATETIME_STRING
+        },
+    ]
+
+    return data
+
+
+def get_mock_presenter_enrollment_education_data():
+    data = [
+        {
+            'educationLevelShort': 'None',
+            'educationLevelLong': 'None',
+            'count': 100,
+            'percent': 0.1,
+            'order': 0
+        },
+        {
+            'educationLevelShort': 'Elementary',
+            'educationLevelLong': 'Elementary/Primary School',
+            'count': 100,
+            'percent': 0.1,
+            'order': 1
+        },
+        {
+            'educationLevelShort': 'Middle',
+            'educationLevelLong': 'Junior Secondary/Junior High/Middle School',
+            'count': 100,
+            'percent': 0.1,
+            'order': 2
+        },
+        {
+            'educationLevelShort': 'High',
+            'educationLevelLong': 'Secondary/High School',
+            'count': 100,
+            'percent': 0.1,
+            'order': 3
+        },
+        {
+            'educationLevelShort': 'Associates',
+            'educationLevelLong': "Associate's Degree",
+            'count': 100,
+            'percent': 0.1,
+            'order': 4
+        },
+        {
+            'educationLevelShort': 'Bachelors',
+            'educationLevelLong': "Bachelor's Degree",
+            'count': 100,
+            'percent': 0.1,
+            'order': 5
+        },
+        {
+            'educationLevelShort': 'Masters',
+            'educationLevelLong': "Master's or Professional Degree",
+            'count': 100,
+            'percent': 0.1,
+            'order': 6
+        },
+        {
+            'educationLevelShort': 'Doctorate',
+            'educationLevelLong': 'Doctorate',
+            'count': 100,
+            'percent': 0.1,
+            'order': 7
+        },
+        {
+            'educationLevelShort': 'Other',
+            'educationLevelLong': 'Other',
+            'count': 200,
+            'percent': 0.2,
+            'order': 8
+        },
+        {
+            'educationLevelShort': 'Unknown',
+            'educationLevelLong': 'Unknown',
+            'count': 1000
+        }
+    ]
+
+    return data
+
+
+def get_mock_presenter_enrollment_education_summary():
+    return {
+        'high_school_or_less': 0.3,
+        'college': 0.2,
+        'advanced': 0.2,
+    }
+
+
+def get_presenter_education():
+    return CREATED_DATETIME, get_mock_presenter_enrollment_education_summary(), \
+        get_mock_presenter_enrollment_education_data(), 0.5
 
 
 def convert_list_of_dicts_to_csv(data, fieldnames=None):

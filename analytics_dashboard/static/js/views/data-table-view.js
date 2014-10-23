@@ -15,13 +15,14 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
             },
 
             _buildSorting: function () {
-                var dtSorting = [],
+                var self = this,
+                    dtSorting = [],
                     sortRegexp = /^(-?)(.*)/g,
-                    columns = _.map(this.options.columns, function (column) {
+                    columns = _.map(self.options.columns, function (column) {
                         return column.key;
                     });
 
-                _.each(this.options.sorting, function (sorting) {
+                _.each(self.options.sorting, function (sorting) {
                     var match = sortRegexp.exec(sorting),
                         direction = match[1] === '-' ? 'desc' : 'asc',
                         index = columns.indexOf(match[2]);
@@ -61,6 +62,10 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
                         def.data = self.createFormatPercentFunc(column.key);
                     } else if (column.type === 'number') {
                         def.data = self.createFormatNumberFunc(column.key);
+                    } else if (column.type === 'maxNumber') {
+                        // this is useful so that sorting is number based, but
+                        // '+' can be displayed after the maximum
+                        def.data = self.createFormatMaxNumberFunc(column.key, column.maxNumber);
                     }
 
                     defs.push(def);
@@ -95,6 +100,24 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
                     if (type === 'display') {
                         // long month name, day, full year
                         display = Utils.formatDate(value);
+                    }
+                    return display;
+                };
+            },
+
+            /**
+             * Returns a function used by datatables to format the cell for
+             * to display a '+' after the maximum number.
+             */
+            createFormatMaxNumberFunc: function(columnKey, maxNumber) {
+                return function(row, type) {
+                    var value = row[columnKey],
+                        display = value;
+                    if (type === 'display') {
+                        display = Utils.localizeNumber(value);
+                        if (value >= maxNumber) {
+                            display = display + '+';
+                        }
                     }
                     return display;
                 };

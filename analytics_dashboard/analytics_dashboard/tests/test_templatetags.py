@@ -6,6 +6,8 @@ from django.test import TestCase
 from opaque_keys.edx.keys import CourseKey
 from analytics_dashboard.templatetags.dashboard_extras import format_course_key
 
+from analytics_dashboard.templatetags import dashboard_extras
+
 
 class DashboardExtraTests(TestCase):
     def test_settings_value(self):
@@ -50,3 +52,9 @@ class DashboardExtraTests(TestCase):
 
             # Test with string
             self.assertEqual(format_course_key(course_id), expected)
+
+    def test_metric_percentage(self):
+        self.assertEqual(dashboard_extras.metric_percentage(0), '0%')
+        self.assertEqual(dashboard_extras.metric_percentage(0.009), '< 1%')
+        self.assertEqual(dashboard_extras.metric_percentage(0.5066), '50.7%')
+        self.assertEqual(dashboard_extras.metric_percentage(0.5044), '50.4%')
