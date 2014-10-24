@@ -1,16 +1,15 @@
 import datetime
 
 import mock
-from waffle import Switch
 from django.test import TestCase
 
 import analyticsclient.constants.activity_type as AT
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter, BasePresenter, \
     CourseEnrollmentDemographicsPresenter
-from courses.tests import utils
+from courses.tests import utils, SwitchMixin
 
 
-class CourseEngagementPresenterTests(TestCase):
+class CourseEngagementPresenterTests(SwitchMixin, TestCase):
     def setUp(self):
         super(CourseEngagementPresenterTests, self).setUp()
         self.presenter = CourseEngagementPresenter('this/course/id')
@@ -51,9 +50,7 @@ class CourseEngagementPresenterTests(TestCase):
         return trends
 
     def assertSummaryAndTrendsValid(self, include_forum_activity, expected_trends):
-        switch, _created = Switch.objects.get_or_create(name='show_engagement_forum_activity')
-        switch.active = include_forum_activity
-        switch.save()
+        self.toggle_switch('show_engagement_forum_activity', include_forum_activity)
 
         summary, trends = self.presenter.get_summary_and_trend_data()
 
@@ -111,7 +108,11 @@ class BasePresenterTests(TestCase):
         self.assertEqual(self.presenter.strip_time('2014-01-01T000000'), '2014-01-01')
 
 
-class CourseEnrollmentPresenterTests(TestCase):
+class CourseEnrollmentPresenterTests(SwitchMixin, TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.toggle_switch('display_verified_enrollment', True)
+
     def setUp(self):
         self.course_id = 'edX/DemoX/Demo_Course'
         self.presenter = CourseEnrollmentPresenter(self.course_id)
@@ -123,6 +124,8 @@ class CourseEnrollmentPresenterTests(TestCase):
             'last_updated': None,
             'current_enrollment': None,
             'enrollment_change_last_7_days': None,
+            'verified_enrollment': None,
+            'verified_change_last_7_days': None,
         }
 
         self.assertDictEqual(actual_summary, expected_summary)
@@ -155,8 +158,10 @@ class CourseEnrollmentPresenterTests(TestCase):
 
     @mock.patch('analyticsclient.course.Course.enrollment')
     def test_get_summary_and_trend_data_small(self, mock_enrollment):
-        api_trend = [utils.get_mock_api_enrollment_data(self.course_id)[-1]]
-        mock_enrollment.return_value = api_trend
+        """
+        Verify the presenter responds appropriately when the course has a limited amount of data (e.g. one data point).
+        """
+        mock_enrollment.return_value = utils.get_mock_api_enrollment_data(self.course_id)[-1:]
 
         actual_summary, actual_trend = self.presenter.get_summary_and_trend_data()
         self.assertDictEqual(actual_summary, utils.get_mock_presenter_enrollment_summary_small())

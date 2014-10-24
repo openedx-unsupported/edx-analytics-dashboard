@@ -3,6 +3,7 @@
 {% load dashboard_extras %}
 {% load staticfiles %}
 {% load rjs %}
+{% load waffle_tags %}
 
 {% comment %}
 Individual course-centric enrollment activity view.
@@ -64,6 +65,23 @@ Individual course-centric enrollment activity view.
           {% trans "The difference between the number of students enrolled at the end of the day yesterday and one week before." as tooltip %}
           {% summary_point summary.enrollment_change_last_7_days label tooltip=tooltip %}
         </div>
+
+      {% switch display_verified_enrollment %}
+        <div class="col-xs-12 col-sm-3" data-stat-type="verified_enrollment">
+          {# Translators: This is a label to identify enrollment of students on the verified track. #}
+          {% trans "Verified Certificate Track" as label %}
+          {# Translators: This is a label indicating the number of students enrolled in a course on the verified track. #}
+          {% trans "Number of enrolled students who are pursuing a verified certificate of achievement." as tooltip %}
+          {% summary_point summary.verified_enrollment label tooltip=tooltip %}
+        </div>
+
+        <div class="col-xs-12 col-sm-3" data-stat-type="verified_change_last_7_days">
+          {# Translators: This is a label indicating the change in the number of students enrolled in the verified track of a course since the previous week. #}
+          {% trans "Change in Verified Enrollments Last Week" as label %}
+          {% trans "The difference between the number of students pursuing verified certificates at the end of the day yesterday and one week before." as tooltip %}
+          {% summary_point summary.verified_change_last_7_days label tooltip=tooltip %}
+        </div>
+      {% endswitch %}
       </div>
     </div>
   {% else %}

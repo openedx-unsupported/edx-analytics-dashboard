@@ -8,15 +8,61 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
 
     // this is your page specific code
     require(['views/data-table-view',
-            'views/trends-view'],
-        function (DataTableView, TrendsView) {
+            'views/stacked-trends-view'],
+        function (DataTableView, StackedTrendsView) {
+
+            var settings = [
+                    {
+                        key: 'date',
+                        title: gettext('Date'),
+                        type: 'date'
+                    },
+                    {
+                        key: 'count',
+                        title: gettext('Total Enrollment'),
+                        className: 'text-right',
+                        type: 'number',
+                        color: '#4BB4FB'
+                    },
+                    {
+                        key: 'honor',
+                        title: gettext('Honor Code'),
+                        className: 'text-right',
+                        type: 'number',
+                        color: '#4BB4FB'
+                    },
+                    {
+                        key: 'verified',
+                        title: gettext('Verified'),
+                        className: 'text-right',
+                        type: 'number',
+                        color: '#CA0061'
+                    },
+                    {
+                        key: 'professional',
+                        title: gettext('Professional'),
+                        className: 'text-right',
+                        type: 'number',
+                        color: '#CCCCCC'
+                    }
+                ],
+                trendSettings;
+
+            // Remove settings for which there is no data (e.g. don't attempt to display verified if there is no data).
+            settings = _(settings).filter(function (setting) {
+                return page.models.courseModel.hasTrend('enrollmentTrends', setting.key);
+            });
+
+            trendSettings = _(settings).filter(function (setting) {
+                return setting.key !== 'date';
+            });
 
             // Daily enrollment graph
-            new TrendsView({
+            new StackedTrendsView({
                 el: '#enrollment-trend-view',
                 model: page.models.courseModel,
                 modelAttribute: 'enrollmentTrends',
-                trends: [{title: 'Students'}],
+                trends: trendSettings,
                 x: { key: 'date' },
                 y: { key: 'count' }
             });
@@ -26,11 +72,7 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                 el: '[data-role=enrollment-table]',
                 model: page.models.courseModel,
                 modelAttribute: 'enrollmentTrends',
-                columns: [
-                    {key: 'date', title: gettext('Date'), type: 'date'},
-                    // Translators: The noun count (e.g. number of students)
-                    {key: 'count', title: gettext('Total Enrollment'), className: 'text-right', type: 'number'}
-                ],
+                columns: settings,
                 sorting: ['-date']
             });
         });

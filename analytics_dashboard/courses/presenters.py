@@ -10,7 +10,7 @@ from analyticsclient.client import Client
 import analyticsclient.constants.activity_type as AT
 import analyticsclient.constants.education_level as EDUCATION_LEVEL
 import analyticsclient.constants.gender as GENDER
-from analyticsclient.constants import demographic, UNKNOWN_COUNTRY_CODE
+from analyticsclient.constants import demographic, UNKNOWN_COUNTRY_CODE, enrollment_modes
 
 
 logger = logging.getLogger(__name__)
@@ -182,11 +182,18 @@ class CourseEnrollmentPresenter(BaseCourseEnrollmentPresenter):
 
     NUMBER_TOP_COUNTRIES = 3
 
+    @property
+    def display_verified_enrollment(self):
+        return switch_is_active('display_verified_enrollment')
+
     def get_summary_and_trend_data(self):
         """
         Retrieve recent summary and all historical trend data.
         """
-        trends = self._fill_trend(self.course.enrollment(start_date=None, end_date=self.get_current_date()))
+        _demographic = 'mode' if self.display_verified_enrollment else None
+        trends = self.course.enrollment(_demographic, start_date=None, end_date=self.get_current_date())
+        trends = self._fill_trend(trends)
+
         summary = self._build_summary(trends)
 
         # add zero for the day prior (prevents just a single point in the chart)
@@ -194,7 +201,19 @@ class CourseEnrollmentPresenter(BaseCourseEnrollmentPresenter):
             day_before = self.parse_api_date(trends[0]['date']) - datetime.timedelta(days=1)
             trends.insert(0, self._create_empty_enrollment_datapoint(day_before))
 
+        # Merge the audit and honor tracks into a single "honor" track
+        if self.display_verified_enrollment:
+            trends = self._clean_modes(trends)
+
         return summary, trends
+
+    def _clean_modes(self, data):
+        for datum in data:
+            datum[enrollment_modes.HONOR] = datum[enrollment_modes.AUDIT] + datum[enrollment_modes.HONOR]
+            datum.pop(enrollment_modes.AUDIT)
+            datum.pop('count')
+
+        return data
 
     def _fill_trend(self, api_response):
         """ Fills in enrollment counts for missing days in the trend data for display. """
@@ -221,7 +240,14 @@ class CourseEnrollmentPresenter(BaseCourseEnrollmentPresenter):
         return datapoint
 
     def _create_empty_enrollment_datapoint(self, day):
+        """
+        Create an enrollment datapoint with all counts set to zero.
+        """
         trend = {'date': day.isoformat(), 'count': 0}
+
+        if self.display_verified_enrollment:
+            for mode in enrollment_modes.ALL:
+                trend[mode] = 0
 
         return trend
 
@@ -291,6 +317,8 @@ class CourseEnrollmentPresenter(BaseCourseEnrollmentPresenter):
             'last_updated': None,
             'current_enrollment': None,
             'enrollment_change_last_7_days': None,
+            'verified_enrollment': None,
+            'verified_change_last_7_days': None,
         }
 
         if api_trends:
@@ -303,17 +331,29 @@ class CourseEnrollmentPresenter(BaseCourseEnrollmentPresenter):
 
             # Add the first values to the returned data dictionary using the most-recent enrollment data
             current_enrollment = recent_enrollment['count']
+            verified_enrollment = recent_enrollment.get(enrollment_modes.VERIFIED,
+                                                        0) if self.display_verified_enrollment else None
+
             data = {
                 'last_updated': last_enrollment_date,
-                'current_enrollment': current_enrollment
+                'current_enrollment': current_enrollment,
+                'verified_enrollment': verified_enrollment
             }
 
             # Get difference in enrollment for last week
             count = None
+            verified_count = None
+
             if len(api_trends) > days_in_week:
                 index = -days_in_week - 1
                 count = current_enrollment - api_trends[index]['count']
+                if self.display_verified_enrollment:
+                    verified_count = verified_enrollment - api_trends[index].get(enrollment_modes.VERIFIED, 0)
+
             data['enrollment_change_last_%s_days' % days_in_week] = count
+
+            if self.display_verified_enrollment:
+                data['verified_change_last_%s_days' % days_in_week] = verified_count
 
         return data
 

@@ -8,6 +8,7 @@ from analyticsclient.constants import UNKNOWN_COUNTRY_CODE
 import analyticsclient.constants.activity_type as AT
 import analyticsclient.constants.education_level as EDUCATION_LEVEL
 import analyticsclient.constants.gender as GENDER
+from analyticsclient.constants import enrollment_modes
 
 from courses.permissions import set_user_course_permissions
 
@@ -28,9 +29,12 @@ def get_mock_api_enrollment_data(course_id):
         datum = {
             'date': date.strftime(Client.DATE_FORMAT),
             'course_id': unicode(course_id),
-            'count': index,
+            'count': index * len(enrollment_modes.ALL),
             'created': CREATED_DATETIME_STRING
         }
+
+        for mode in enrollment_modes.ALL:
+            datum[mode] = index
 
         data.append(datum)
 
@@ -46,8 +50,10 @@ def get_mock_api_enrollment_data_with_gaps(course_id):
 def get_mock_enrollment_summary():
     return {
         'last_updated': CREATED_DATETIME,
-        'current_enrollment': 30,
-        'enrollment_change_last_7_days': 7,
+        'current_enrollment': 120,
+        'enrollment_change_last_7_days': 28,
+        'verified_enrollment': 30,
+        'verified_change_last_7_days': 7,
     }
 
 
@@ -55,8 +61,28 @@ def get_mock_enrollment_summary_and_trend(course_id):
     return get_mock_enrollment_summary(), get_mock_presenter_enrollment_trend(course_id)
 
 
+def _get_empty_enrollment(date):
+    enrollment = {'count': 0, 'date': date}
+
+    for mode in enrollment_modes.ALL:
+        enrollment[mode] = 0
+
+    return enrollment
+
+
+def _clean_modes(data):
+    for datum in data:
+        datum[enrollment_modes.HONOR] = datum[enrollment_modes.AUDIT] + datum[enrollment_modes.HONOR]
+        datum.pop(enrollment_modes.AUDIT)
+        del datum['count']
+
+    return data
+
+
 def get_mock_presenter_enrollment_trend(course_id):
-    return get_mock_api_enrollment_data(course_id)
+    trend = get_mock_api_enrollment_data(course_id)
+    trend = _clean_modes(trend)
+    return trend
 
 
 def parse_date(s):
@@ -79,20 +105,19 @@ def get_mock_presenter_enrollment_trend_with_gaps_filled(course_id):
 
 
 def get_mock_presenter_enrollment_data_small(course_id):
-    single_enrollment = get_mock_api_enrollment_data(course_id)[-1]
-    empty_enrollment = {
-        'count': 0,
-        'date': '2014-01-30'
-    }
+    data = [_get_empty_enrollment('2014-01-30'), get_mock_api_enrollment_data(course_id)[-1]]
+    data = _clean_modes(data)
 
-    return [empty_enrollment, single_enrollment]
+    return data
 
 
 def get_mock_presenter_enrollment_summary_small():
     return {
         'last_updated': CREATED_DATETIME,
-        'current_enrollment': 30,
+        'current_enrollment': 120,
         'enrollment_change_last_7_days': None,
+        'verified_enrollment': 30,
+        'verified_change_last_7_days': None,
     }
 
 
@@ -190,8 +215,8 @@ def get_presenter_enrollment_gender_trend(course_id):
 
 
 def get_presenter_gender(course_id):
-    return CREATED_DATETIME, get_presenter_enrollment_gender_data(), \
-        get_presenter_enrollment_gender_trend(course_id), 0.5
+    return CREATED_DATETIME, get_presenter_enrollment_gender_data(), get_presenter_enrollment_gender_trend(
+        course_id), 0.5
 
 
 def get_mock_api_enrollment_age_data(course_id):
@@ -434,8 +459,12 @@ def get_mock_presenter_enrollment_education_summary():
 
 
 def get_presenter_education():
-    return CREATED_DATETIME, get_mock_presenter_enrollment_education_summary(), \
-        get_mock_presenter_enrollment_education_data(), 0.5
+    return (
+        CREATED_DATETIME,
+        get_mock_presenter_enrollment_education_summary(),
+        get_mock_presenter_enrollment_education_data(),
+        0.5
+    )
 
 
 def convert_list_of_dicts_to_csv(data, fieldnames=None):

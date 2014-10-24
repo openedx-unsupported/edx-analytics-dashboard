@@ -3,6 +3,10 @@ define(['nvd3', 'underscore', 'views/chart-view'],
         'use strict';
 
         var HistogramView = ChartView.extend({
+            defaults: _.extend({}, ChartView.prototype.defaults, {
+                    graphShiftSelector: '.nv-barsWrap'
+                }
+            ),
 
             getChart: function() {
                 return nvd3.models.multiBarChart();
