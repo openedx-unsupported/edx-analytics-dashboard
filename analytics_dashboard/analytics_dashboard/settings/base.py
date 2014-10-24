@@ -221,6 +221,7 @@ DJANGO_APPS = (
 LOCAL_APPS = (
     'analytics_dashboard',
     'courses',
+    'django_rjs',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -380,3 +381,6 @@ COURSE_PERMISSIONS_CLAIMS = ['staff_courses']
 PLATFORM_NAME = 'Your Platform Name Here'
 APPLICATION_NAME = 'Insights'
 FULL_APPLICATION_NAME = '{0} {1}'.format(PLATFORM_NAME, APPLICATION_NAME)
+
+RJS_OUTPUT_DIR = 'dist'
+RJS_OPTIMIZATION_ENABLED = False

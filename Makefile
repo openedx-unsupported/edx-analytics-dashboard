@@ -2,7 +2,7 @@
 
 ROOT = $(shell echo "$$PWD")
 COVERAGE = $(ROOT)/build/coverage
-PACKAGES = analytics_dashboard courses
+PACKAGES = analytics_dashboard courses django_rjs
 NUM_PROCESSES = 2
 
 .PHONY: requirements clean
@@ -71,3 +71,8 @@ generate_fake_translations:
 	cd analytics_dashboard && i18n_tool extract
 	cd analytics_dashboard && i18n_tool dummy
 	compile_translations
+
+static:
+	r.js -o build.js
+	cd analytics_dashboard && ./manage.py collectstatic --noinput
+	cd analytics_dashboard && ./manage.py compress

@@ -15,6 +15,9 @@ from analytics_dashboard.settings.logger import get_logger_config
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True
 
+# Use r.js to combine RequireJS files
+RJS_OPTIMIZATION_ENABLED = True
+
 # Minify CSS
 COMPRESS_CSS_FILTERS += [
     'compressor.filters.cssmin.CSSMinFilter',

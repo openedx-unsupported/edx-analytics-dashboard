@@ -2,12 +2,13 @@
 {% load i18n %}
 {% load dashboard_extras %}
 {% load staticfiles %}
+{% load rjs %}
 
 {% block view-name %}view-course-enrollment view-dashboard{% endblock view-name %}
 
 {% block javascript %}
 {{ block.super }}
-<script src="{% static 'js/enrollment-demographics-age-main.js' %}"></script>
+<script src="{% static_rjs 'js/enrollment-demographics-age-main.js' %}"></script>
 {% endblock javascript %}
 
 
