@@ -185,17 +185,31 @@ class CourseEnrollmentPresenter(BaseCourseEnrollmentPrsenter):
         """
         Retrieve recent summary and all historical trend data.
         """
-        trends = self.course.enrollment(start_date=None, end_date=self.get_current_date())
+        trends = self._fill_trend(self.course.enrollment(start_date=None, end_date=self.get_current_date()))
         summary = self._build_summary(trends)
 
         # add zero for the day prior (prevents just a single point in the chart)
         if len(trends) == 1:
-            trends.insert(0, self._build_empty_trend(self.parse_api_date(trends[0]['date'])))
+            day_before = self.parse_api_date(trends[0]['date']) - datetime.timedelta(days=1)
+            trends.insert(0, self._build_empty_trend(day_before))
 
         return summary, trends
 
+    def _fill_trend(self, api_response):
+        """ Fills in enrollment counts for missing days in the trend data for display. """
+        if api_response:
+            start_date = self.parse_api_date(api_response[0]['date'])
+            end_date = self.parse_api_date(api_response[-1]['date'])
+            days_apart = (end_date - start_date).days
+            for day_change in range(days_apart):
+                expected_date = start_date + datetime.timedelta(days=day_change)
+                current_date = self.parse_api_date(api_response[day_change]['date'])
+                if current_date > expected_date:
+                    api_response.insert(day_change, self._build_empty_trend(expected_date))
+
+        return api_response
+
     def _build_empty_trend(self, day):
-        day = day - datetime.timedelta(days=1)
         trend = {'date': day.isoformat(), 'count': 0}
         return trend
 
