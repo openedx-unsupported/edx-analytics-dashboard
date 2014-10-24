@@ -17,7 +17,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             excludeData: ['Unknown'],
             dataType: 'percent',
             trends: [{
-                title: 'Education',
+                title: gettext('Education'),
                 color: 'rgb(58, 162, 224)'
             }],
             x: { key: 'educationLevelShort' },

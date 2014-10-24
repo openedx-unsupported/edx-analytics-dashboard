@@ -16,7 +16,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             modelAttribute: 'genders',
             dataType: 'percent',
             trends: [{
-                title: 'Gender',
+                title: gettext('Gender'),
                 color: 'rgb(58, 162, 224)'
             }],
             x: { key: 'gender' },

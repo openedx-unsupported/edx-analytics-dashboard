@@ -18,7 +18,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             modelAttribute: 'ages',
             excludeData: ['Unknown'],
             trends: [{
-                title: 'Students',
+                title: gettext('Students'),
                 color: 'rgb(58, 162, 224)',
                 maxNumber: maxNumber
             }],
