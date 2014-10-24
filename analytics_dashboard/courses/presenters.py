@@ -15,6 +15,50 @@ from analyticsclient.constants import demographic, UNKNOWN_COUNTRY_CODE
 logger = logging.getLogger(__name__)
 COUNTRIES = dict(countries)
 
+KNOWN_GENDERS = [GENDER.FEMALE, GENDER.MALE, GENDER.OTHER]
+GENDERS = KNOWN_GENDERS + [GENDER.UNKNOWN]
+
+
+# for display
+GENDER_FULL_NAMES = {
+    GENDER.FEMALE: 'Female',
+    GENDER.MALE: 'Male',
+    GENDER.OTHER: 'Other',
+    GENDER.UNKNOWN: 'Unknown'
+}
+
+GENDER_ORDER = {
+    GENDER.FEMALE: 0,
+    GENDER.MALE: 1,
+    GENDER.OTHER: 2
+}
+
+# for display
+EDUCATION_SHORT_NAMES = {
+    EDUCATION_LEVEL.NONE: 'None',
+    EDUCATION_LEVEL.OTHER: 'Other',
+    EDUCATION_LEVEL.PRIMARY: 'Elementary',
+    EDUCATION_LEVEL.JUNIOR_SECONDARY: 'Middle',
+    EDUCATION_LEVEL.SECONDARY: 'High',
+    EDUCATION_LEVEL.ASSOCIATES: 'Associates',
+    EDUCATION_LEVEL.BACHELORS: 'Bachelors',
+    EDUCATION_LEVEL.MASTERS: 'Masters',
+    EDUCATION_LEVEL.DOCTORATE: 'Doctorate'
+}
+
+# order for displaying in the chart
+EDUCATION_ORDER = {
+    EDUCATION_LEVEL.NONE: 0,
+    EDUCATION_LEVEL.PRIMARY: 1,
+    EDUCATION_LEVEL.JUNIOR_SECONDARY: 2,
+    EDUCATION_LEVEL.SECONDARY: 3,
+    EDUCATION_LEVEL.ASSOCIATES: 4,
+    EDUCATION_LEVEL.BACHELORS: 5,
+    EDUCATION_LEVEL.MASTERS: 6,
+    EDUCATION_LEVEL.DOCTORATE: 7,
+    EDUCATION_LEVEL.OTHER: 8,
+}
+
 
 class BasePresenter(object):
     """
@@ -124,52 +168,135 @@ class CourseEngagementPresenter(BasePresenter):
         return summary, trends
 
 
-class CourseEnrollmentPresenter(BasePresenter):
+class BaseCourseEnrollmentPrsenter(BasePresenter):
+    def _calculate_total_enrollment(self, data):
+        return sum([datum['count'] for datum in data])
+
+    def _calculate_percent(self, count, total):
+        return count / float(total) if total > 0 else 0.0
+
+
+class CourseEnrollmentPresenter(BaseCourseEnrollmentPrsenter):
     """ Presenter for the course enrollment data. """
 
     NUMBER_TOP_COUNTRIES = 3
 
+    def get_summary_and_trend_data(self):
+        """
+        Retrieve recent summary and all historical trend data.
+        """
+        trends = self.course.enrollment(start_date=None, end_date=self.get_current_date())
+        summary = self._build_summary(trends)
+
+        # add zero for the day prior (prevents just a single point in the chart)
+        if len(trends) == 1:
+            trends.insert(0, self._build_empty_trend(self.parse_api_date(trends[0]['date'])))
+
+        return summary, trends
+
+    def _build_empty_trend(self, day):
+        day = day - datetime.timedelta(days=1)
+        trend = {'date': day.isoformat(), 'count': 0}
+        return trend
+
+    def _translate_country_names(self, data):
+        """ Translate full country name from English to the language of the logged in user. """
+
+        for datum in data:
+            if datum['country']['name'] == UNKNOWN_COUNTRY_CODE:
+                # Translators: This is a placeholder for enrollment data collected without a known geolocation.
+                datum['country']['name'] = _('Unknown Country')
+            else:
+                country_code = datum['country']['alpha3']
+
+                try:
+                    datum['country']['name'] = unicode(COUNTRIES[datum['country']['alpha2']])
+                except KeyError:
+                    logger.warning('Unable to locate %s in django_countries.', country_code)
+
+        return data
+
+    def get_geography_data(self):
+        """
+        Returns a list of course geography data and the updated date (ex. 2014-1-31).
+        """
+        api_response = self.course.enrollment(demographic.LOCATION)
+        data = []
+        summary = {}
+
+        if api_response:
+            last_updated = self.parse_api_datetime(api_response[0]['created'])
+
+            # Sort data by descending enrollment count
+            api_response = sorted(api_response, key=lambda i: i['count'], reverse=True)
+
+            # Translate the country names
+            api_response = self._translate_country_names(api_response)
+
+            # get the sum as a float so we can divide by it to get a percent
+            total_enrollment = self._calculate_total_enrollment(api_response)
+
+            # formatting this data for easy access in the table UI
+            data = [{'countryCode': datum['country']['alpha3'],
+                     'countryName': datum['country']['name'],
+                     'count': datum['count'],
+                     'percent': self._calculate_percent(datum['count'], total_enrollment)}
+                    for datum in api_response]
+
+            # Filter out the unknown entry for the summary data
+            data_without_unknown = [datum for datum in data if datum['countryCode'] is not None]
+
+            # Include a summary of the number of countries and the top 3 countries, excluding unknown.
+            summary = {
+                'last_updated': last_updated,
+                'num_countries': len(data_without_unknown),
+                'top_countries': data_without_unknown[:self.NUMBER_TOP_COUNTRIES]
+            }
+
+        return summary, data
+
+    def _build_summary(self, api_trends):
+        """
+        Build summary information for enrollments from trends.
+        """
+
+        # Establish default return values
+        data = {
+            'last_updated': None,
+            'current_enrollment': None,
+            'enrollment_change_last_7_days': None,
+        }
+
+        if api_trends:
+            # Get most-recent enrollment
+            recent_enrollment = api_trends[-1]
+
+            # Get data for a month prior to most-recent data
+            days_in_week = 7
+            last_enrollment_date = self.parse_api_datetime(recent_enrollment['created'])
+
+            # Add the first values to the returned data dictionary using the most-recent enrollment data
+            current_enrollment = recent_enrollment['count']
+            data = {
+                'last_updated': last_enrollment_date,
+                'current_enrollment': current_enrollment
+            }
+
+            # Get difference in enrollment for last week
+            count = None
+            if len(api_trends) > days_in_week:
+                index = -days_in_week - 1
+                count = current_enrollment - api_trends[index]['count']
+            data['enrollment_change_last_%s_days' % days_in_week] = count
+
+        return data
+
+
+class CourseEnrollmentDemographicsPresenter(BaseCourseEnrollmentPrsenter):
+    """ Presenter for course enrollment demographic data. """
+
     # ages at this and above will be binned
     MAX_AGE = 100
-
-    # for display
-    GENDER_FULL_NAMES = {
-        GENDER.FEMALE: 'Female',
-        GENDER.MALE: 'Male',
-        GENDER.OTHER: 'Other',
-        GENDER.UNKNOWN: 'Unknown'
-    }
-    GENDER_ORDER = {
-        GENDER.FEMALE: 0,
-        GENDER.MALE: 1,
-        GENDER.OTHER: 2
-    }
-
-    # for display
-    EDUCATION_SHORT_NAMES = {
-        EDUCATION_LEVEL.NONE: 'None',
-        EDUCATION_LEVEL.OTHER: 'Other',
-        EDUCATION_LEVEL.PRIMARY: 'Elementary',
-        EDUCATION_LEVEL.JUNIOR_SECONDARY: 'Middle',
-        EDUCATION_LEVEL.SECONDARY: 'High',
-        EDUCATION_LEVEL.ASSOCIATES: 'Associates',
-        EDUCATION_LEVEL.BACHELORS: 'Bachelors',
-        EDUCATION_LEVEL.MASTERS: 'Masters',
-        EDUCATION_LEVEL.DOCTORATE: 'Doctorate'
-    }
-
-    # order for displaying in the chart
-    EDUCATION_ORDER = {
-        EDUCATION_LEVEL.NONE: 0,
-        EDUCATION_LEVEL.PRIMARY: 1,
-        EDUCATION_LEVEL.JUNIOR_SECONDARY: 2,
-        EDUCATION_LEVEL.SECONDARY: 3,
-        EDUCATION_LEVEL.ASSOCIATES: 4,
-        EDUCATION_LEVEL.BACHELORS: 5,
-        EDUCATION_LEVEL.MASTERS: 6,
-        EDUCATION_LEVEL.DOCTORATE: 7,
-        EDUCATION_LEVEL.OTHER: 8,
-    }
 
     def get_gender(self):
         """
@@ -190,15 +317,9 @@ class CourseEnrollmentPresenter(BasePresenter):
 
         return last_updated, recent_genders, trend, known_enrollment_percent
 
-    def get_known_genders(self):
-        return [gender for gender in self.GENDER_FULL_NAMES if gender is not 'unknown']
-
-    def get_all_genders(self):
-        return self.GENDER_FULL_NAMES.keys()
-
     def _build_gender_trend(self, api_response):
         """ Adds the 'total' enrollment to the trend, including unknown (not reported) genders. """
-        genders = self.get_all_genders()
+        genders = GENDERS
 
         for enrollment in api_response:
             enrollment['total'] = self._calculate_sum(enrollment, genders)
@@ -210,15 +331,15 @@ class CourseEnrollmentPresenter(BasePresenter):
 
     def _build_recent_genders(self, api_response):
         """ Returns the most recent gender percentages (does not include unknown (not reported). """
-        genders = self.get_known_genders()
+        genders = KNOWN_GENDERS
         recent_genders = []
         most_recent_data = api_response[-1]
         total_enrollment = self._calculate_sum(most_recent_data, genders)
         for gender in genders:
             recent_genders.append({
-                'gender': self.GENDER_FULL_NAMES[gender],
+                'gender': GENDER_FULL_NAMES[gender],
                 'percent': self._calculate_percent(most_recent_data[gender], total_enrollment),
-                'order': self.GENDER_ORDER[gender]
+                'order': GENDER_ORDER[gender]
             })
 
         print recent_genders
@@ -227,8 +348,8 @@ class CourseEnrollmentPresenter(BasePresenter):
 
     def _build_gender_known_percent(self, api_response):
         most_recent_data = api_response[-1]
-        known_enrollment = self._calculate_sum(most_recent_data, self.get_known_genders())
-        all_enrollment = self._calculate_sum(most_recent_data, self.get_all_genders())
+        known_enrollment = self._calculate_sum(most_recent_data, KNOWN_GENDERS)
+        all_enrollment = self._calculate_sum(most_recent_data, GENDERS)
         return self._calculate_percent(known_enrollment, all_enrollment)
 
     def get_ages(self):
@@ -369,16 +490,10 @@ class CourseEnrollmentPresenter(BasePresenter):
         known = [i for i in api_response if i[enrollment_key]]
         return self._calculate_total_enrollment(known)
 
-    def _calculate_total_enrollment(self, api_response):
-        return sum([datum['count'] for datum in api_response])
-
     def _calculate_known_total_percent(self, api_response, enrollment_key):
         known_count = self._calculate_known_total_enrollment(api_response, enrollment_key)
         total_count = self._calculate_total_enrollment(api_response)
         return self._calculate_percent(known_count, total_count)
-
-    def _calculate_percent(self, count, total):
-        return count / float(total) if total > 0 else 0.0
 
     def _calculate_education_percent(self, api_response, levels):
         """ Aggregates levels of education and returns the percent of the total. """
@@ -404,11 +519,11 @@ class CourseEnrollmentPresenter(BasePresenter):
     def _build_education_levels(self, api_response):
         known_education = [i for i in api_response if i['education_level']]
         known_enrollment_total = self._calculate_total_enrollment(known_education)
-        levels = [{'educationLevelShort': self.EDUCATION_SHORT_NAMES[datum['education_level']['short_name']],
+        levels = [{'educationLevelShort': EDUCATION_SHORT_NAMES[datum['education_level']['short_name']],
                    'educationLevelLong': datum['education_level']['name'],
                    'count': datum['count'],
                    'percent': self._calculate_percent(datum['count'], known_enrollment_total),
-                   'order': self.EDUCATION_ORDER[datum['education_level']['short_name']]}
+                   'order': EDUCATION_ORDER[datum['education_level']['short_name']]}
                   for datum in known_education]
 
         levels = sorted(levels, key=lambda i: i['order'], reverse=False)
@@ -439,113 +554,3 @@ class CourseEnrollmentPresenter(BasePresenter):
             known_enrollment_percent = self._calculate_known_total_percent(api_response, 'education_level')
 
         return last_updated, education_summary, education_levels, known_enrollment_percent
-
-    def get_summary_and_trend_data(self):
-        """
-        Retrieve recent summary and all historical trend data.
-        """
-        trends = self.course.enrollment(start_date=None, end_date=self.get_current_date())
-        summary = self._build_summary(trends)
-
-        # add zero for the day prior (prevents just a single point in the chart)
-        if len(trends) == 1:
-            trends.insert(0, self._build_empty_trend(self.parse_api_date(trends[0]['date'])))
-
-        return summary, trends
-
-    def _build_empty_trend(self, day):
-        day = day - datetime.timedelta(days=1)
-        trend = {'date': day.isoformat(), 'count': 0}
-        return trend
-
-    def _translate_country_names(self, data):
-        """ Translate full country name from English to the language of the logged in user. """
-
-        for datum in data:
-            if datum['country']['name'] == UNKNOWN_COUNTRY_CODE:
-                # Translators: This is a placeholder for enrollment data collected without a known geolocation.
-                datum['country']['name'] = _('Unknown Country')
-            else:
-                country_code = datum['country']['alpha3']
-
-                try:
-                    datum['country']['name'] = unicode(COUNTRIES[datum['country']['alpha2']])
-                except KeyError:
-                    logger.warning('Unable to locate %s in django_countries.', country_code)
-
-        return data
-
-    def get_geography_data(self):
-        """
-        Returns a list of course geography data and the updated date (ex. 2014-1-31).
-        """
-        api_response = self.course.enrollment(demographic.LOCATION)
-        data = []
-        summary = {}
-
-        if api_response:
-            last_updated = self.parse_api_datetime(api_response[0]['created'])
-
-            # Sort data by descending enrollment count
-            api_response = sorted(api_response, key=lambda i: i['count'], reverse=True)
-
-            # Translate the country names
-            api_response = self._translate_country_names(api_response)
-
-            # get the sum as a float so we can divide by it to get a percent
-            total_enrollment = self._calculate_total_enrollment(api_response)
-
-            # formatting this data for easy access in the table UI
-            data = [{'countryCode': datum['country']['alpha3'],
-                     'countryName': datum['country']['name'],
-                     'count': datum['count'],
-                     'percent': self._calculate_percent(datum['count'], total_enrollment)}
-                    for datum in api_response]
-
-            # Filter out the unknown entry for the summary data
-            data_without_unknown = [datum for datum in data if datum['countryCode'] is not None]
-
-            # Include a summary of the number of countries and the top 3 countries, excluding unknown.
-            summary = {
-                'last_updated': last_updated,
-                'num_countries': len(data_without_unknown),
-                'top_countries': data_without_unknown[:self.NUMBER_TOP_COUNTRIES]
-            }
-
-        return summary, data
-
-    def _build_summary(self, api_trends):
-        """
-        Build summary information for enrollments from trends.
-        """
-
-        # Establish default return values
-        data = {
-            'last_updated': None,
-            'current_enrollment': None,
-            'enrollment_change_last_7_days': None,
-        }
-
-        if api_trends:
-            # Get most-recent enrollment
-            recent_enrollment = api_trends[-1]
-
-            # Get data for a month prior to most-recent data
-            days_in_week = 7
-            last_enrollment_date = self.parse_api_datetime(recent_enrollment['created'])
-
-            # Add the first values to the returned data dictionary using the most-recent enrollment data
-            current_enrollment = recent_enrollment['count']
-            data = {
-                'last_updated': last_enrollment_date,
-                'current_enrollment': current_enrollment
-            }
-
-            # Get difference in enrollment for last week
-            count = None
-            if len(api_trends) > days_in_week:
-                index = -days_in_week - 1
-                count = current_enrollment - api_trends[index]['count']
-            data['enrollment_change_last_%s_days' % days_in_week] = count
-
-        return data

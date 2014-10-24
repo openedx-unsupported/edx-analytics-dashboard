@@ -19,7 +19,8 @@ from analyticsclient.client import Client
 from analyticsclient.exceptions import NotFoundError
 
 from courses import permissions
-from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter
+from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter, \
+    CourseEnrollmentDemographicsPresenter
 from courses.utils import is_feature_enabled
 
 
@@ -415,7 +416,7 @@ class EnrollmentDemographicsAgeView(EnrollmentDemographicsTemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(EnrollmentDemographicsAgeView, self).get_context_data(**kwargs)
-        presenter = CourseEnrollmentPresenter(self.course_id)
+        presenter = CourseEnrollmentDemographicsPresenter(self.course_id)
         binned_ages = None
         summary = None
         known_enrollment_percent = None
@@ -450,7 +451,7 @@ class EnrollmentDemographicsEducationView(EnrollmentDemographicsTemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(EnrollmentDemographicsEducationView, self).get_context_data(**kwargs)
-        presenter = CourseEnrollmentPresenter(self.course_id)
+        presenter = CourseEnrollmentDemographicsPresenter(self.course_id)
         binned_education = None
         summary = None
         known_enrollment_percent = None
@@ -485,7 +486,7 @@ class EnrollmentDemographicsGenderView(EnrollmentDemographicsTemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(EnrollmentDemographicsGenderView, self).get_context_data(**kwargs)
-        presenter = CourseEnrollmentPresenter(self.course_id)
+        presenter = CourseEnrollmentDemographicsPresenter(self.course_id)
         gender_data = None
         trend = None
         known_enrollment_percent = None

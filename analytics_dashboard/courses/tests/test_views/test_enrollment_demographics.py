@@ -5,19 +5,17 @@ from ddt import ddt
 from django.test import TestCase
 
 from courses.tests.test_views import CourseEnrollmentDemographicsMixin
-from courses.tests.utils import get_presenter_gender, get_mock_api_enrollment_gender_data, \
-    get_presenter_ages, get_mock_api_enrollment_age_data, \
-    get_presenter_education, get_mock_api_enrollment_education_data
+from courses.tests import utils
 
 
 @ddt
 class CourseEnrollmentDemographicsAge(CourseEnrollmentDemographicsMixin, TestCase):
     viewname = 'courses:enrollment_demographics_age'
     active_tertiary_nav_label = 'Age'
-    presenter_method = 'courses.presenters.CourseEnrollmentPresenter.get_ages'
+    presenter_method = 'courses.presenters.CourseEnrollmentDemographicsPresenter.get_ages'
 
     def assertViewIsValid(self, course_id):
-        last_updated, summary, binned_ages, known_percent = get_presenter_ages()
+        last_updated, summary, binned_ages, known_percent = utils.get_presenter_ages()
         rv = last_updated, summary, binned_ages, known_percent
         with mock.patch(self.presenter_method, return_value=rv):
             response = self.client.get(self.path(course_id))
@@ -41,7 +39,7 @@ class CourseEnrollmentDemographicsAge(CourseEnrollmentDemographicsMixin, TestCas
         self.assertAllNavs(context, course_id)
 
     def get_mock_data(self, course_id):
-        return get_mock_api_enrollment_age_data(course_id)
+        return utils.get_mock_api_enrollment_age_data(course_id)
 
     def assertValidMissingDataContext(self, context):
         self.assertIsNone(context['js_data']['course']['ages'])
@@ -52,10 +50,10 @@ class CourseEnrollmentDemographicsAge(CourseEnrollmentDemographicsMixin, TestCas
 class CourseEnrollmentDemographicsEducation(CourseEnrollmentDemographicsMixin, TestCase):
     viewname = 'courses:enrollment_demographics_education'
     active_tertiary_nav_label = 'Education'
-    presenter_method = 'courses.presenters.CourseEnrollmentPresenter.get_education'
+    presenter_method = 'courses.presenters.CourseEnrollmentDemographicsPresenter.get_education'
 
     def assertViewIsValid(self, course_id):
-        last_updated, summary, education_data, known_percent = get_presenter_education()
+        last_updated, summary, education_data, known_percent = utils.get_presenter_education()
         rv = last_updated, summary, education_data, known_percent
         with mock.patch(self.presenter_method, return_value=rv):
             response = self.client.get(self.path(course_id))
@@ -79,7 +77,7 @@ class CourseEnrollmentDemographicsEducation(CourseEnrollmentDemographicsMixin, T
         self.assertAllNavs(context, course_id)
 
     def get_mock_data(self, course_id):
-        return get_mock_api_enrollment_education_data(course_id)
+        return utils.get_mock_api_enrollment_education_data(course_id)
 
     def assertValidMissingDataContext(self, context):
         self.assertIsNone(context['js_data']['course']['education'])
@@ -90,10 +88,10 @@ class CourseEnrollmentDemographicsEducation(CourseEnrollmentDemographicsMixin, T
 class CourseEnrollmentDemographicsGender(CourseEnrollmentDemographicsMixin, TestCase):
     viewname = 'courses:enrollment_demographics_gender'
     active_tertiary_nav_label = 'Gender'
-    presenter_method = 'courses.presenters.CourseEnrollmentPresenter.get_gender'
+    presenter_method = 'courses.presenters.CourseEnrollmentDemographicsPresenter.get_gender'
 
     def assertViewIsValid(self, course_id):
-        last_updated, gender_data, trend, known_percent = get_presenter_gender(course_id)
+        last_updated, gender_data, trend, known_percent = utils.get_presenter_gender(course_id)
         rv = last_updated, gender_data, trend, known_percent
         with mock.patch(self.presenter_method, return_value=rv):
             response = self.client.get(self.path(course_id))
@@ -120,7 +118,7 @@ class CourseEnrollmentDemographicsGender(CourseEnrollmentDemographicsMixin, Test
         self.assertAllNavs(context, course_id)
 
     def get_mock_data(self, course_id):
-        return get_mock_api_enrollment_gender_data(course_id)
+        return utils.get_mock_api_enrollment_gender_data(course_id)
 
     def assertValidMissingDataContext(self, context):
         self.assertIsNone(context['js_data']['course']['genders'])
