@@ -168,7 +168,7 @@ class CourseEngagementPresenter(BasePresenter):
         return summary, trends
 
 
-class BaseCourseEnrollmentPrsenter(BasePresenter):
+class BaseCourseEnrollmentPresenter(BasePresenter):
     def _calculate_total_enrollment(self, data):
         return sum([datum['count'] for datum in data])
 
@@ -176,7 +176,7 @@ class BaseCourseEnrollmentPrsenter(BasePresenter):
         return count / float(total) if total > 0 else 0.0
 
 
-class CourseEnrollmentPresenter(BaseCourseEnrollmentPrsenter):
+class CourseEnrollmentPresenter(BaseCourseEnrollmentPresenter):
     """ Presenter for the course enrollment data. """
 
     NUMBER_TOP_COUNTRIES = 3
@@ -306,7 +306,7 @@ class CourseEnrollmentPresenter(BaseCourseEnrollmentPrsenter):
         return data
 
 
-class CourseEnrollmentDemographicsPresenter(BaseCourseEnrollmentPrsenter):
+class CourseEnrollmentDemographicsPresenter(BaseCourseEnrollmentPresenter):
     """ Presenter for course enrollment demographic data. """
 
     # ages at this and above will be binned
