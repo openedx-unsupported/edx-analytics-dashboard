@@ -13,6 +13,7 @@
                 'analytics_dashboard/static/js/test/**/*.js'
             ],
             lint: [
+                'build.js',
                 'gulpfile.js',
                 'analytics_dashboard/static/js/**/*.js',
                 'analytics_dashboard/static/js/test/**/*.js'
