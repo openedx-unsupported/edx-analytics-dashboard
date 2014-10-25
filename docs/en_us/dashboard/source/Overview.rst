@@ -13,7 +13,7 @@ inform efforts to improve your course and the experience of your learners.
 
 .. ...data about student activity, background, and performance throughout the course.
 
-.. be sure to cast this as firstly a tool to provide the "how are my students doing" info that teams want when performance gets added (Mark Rudnick comment)
+.. be sure to cast this as firstly as a tool to provide the "how are my students doing" info that teams want when performance gets added (Mark Rudnick comment)
 
 Putting the data provided by edX Insights to work involves:
 
@@ -34,7 +34,8 @@ top right of each chart or metric.
  :alt: The Active Students Last Week metric with the tip "Students who visited 
        at least one page in the course content" showing
 
-This guide is intended to offer more complete information.
+This guide is intended to offer more complete information about the data that
+edX Insights presents.
 
 * For information about the computation of the values that are reported, see 
   the :ref:`Reference` chapter. For a reference to the data that edX collects 
