@@ -15,6 +15,7 @@ one of the links at the top of the page to access data in these categories.
    Enrollment_Activity
    Enrollment_Demographics
    Demographics_Age
+   Demographics_Gender
    Enrollment_Geography
 
 .. .. image:: ../images/enroll_activity.png
