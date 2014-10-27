@@ -300,7 +300,8 @@ class EnrollmentTemplateView(CourseTemplateView):
     """
     secondary_nav_items = [
         {'name': 'activity', 'label': _('Activity'), 'view': 'courses:enrollment_activity'},
-        {'name': 'demographics', 'label': _('Demographics'), 'view': 'courses:enrollment_demographics_age'},
+        {'name': 'demographics', 'label': _('Demographics'), 'view': 'courses:enrollment_demographics_age',
+         'switch': 'show_navbar_demographics'},
         {'name': 'geography', 'label': _('Geography'), 'view': 'courses:enrollment_geography'},
     ]
     active_primary_nav_item = 'enrollment'
@@ -412,7 +413,8 @@ class EnrollmentDemographicsAgeView(EnrollmentDemographicsTemplateView):
     page_name = 'enrollment_demographics_age'
     active_tertiary_nav_item = 'age'
     # pylint: disable=line-too-long
-    chart_tooltip_template = _('This age histogram presents data computed for the {percent}% of enrolled students who provided a year of birth.')
+    chart_tooltip_template = _(
+        'This age histogram presents data computed for the {percent}% of enrolled students who provided a year of birth.')
 
     def get_context_data(self, **kwargs):
         context = super(EnrollmentDemographicsAgeView, self).get_context_data(**kwargs)
@@ -447,7 +449,8 @@ class EnrollmentDemographicsEducationView(EnrollmentDemographicsTemplateView):
     page_name = 'enrollment_demographics_education'
     active_tertiary_nav_item = 'education'
     # pylint: disable=line-too-long
-    chart_tooltip_template = _('This graph presents data for the {percent}% of enrolled students who provided a highest level of education completed.')
+    chart_tooltip_template = _(
+        'This graph presents data for the {percent}% of enrolled students who provided a highest level of education completed.')
 
     def get_context_data(self, **kwargs):
         context = super(EnrollmentDemographicsEducationView, self).get_context_data(**kwargs)
@@ -482,7 +485,8 @@ class EnrollmentDemographicsGenderView(EnrollmentDemographicsTemplateView):
     page_name = 'enrollment_demographics_gender'
     active_tertiary_nav_item = 'gender'
     # pylint: disable=line-too-long
-    chart_tooltip_template = _('This graph presents data for the {percent}% of enrolled students who specified their gender.')
+    chart_tooltip_template = _(
+        'This graph presents data for the {percent}% of enrolled students who specified their gender.')
 
     def get_context_data(self, **kwargs):
         context = super(EnrollmentDemographicsGenderView, self).get_context_data(**kwargs)

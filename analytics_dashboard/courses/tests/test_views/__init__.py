@@ -7,6 +7,7 @@ from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from analyticsclient.exceptions import NotFoundError
+from waffle import Switch
 
 from analytics_dashboard.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin
 from courses.permissions import set_user_course_permissions, revoke_user_course_permissions
@@ -146,6 +147,13 @@ class CourseViewTestMixin(ViewTestMixin):
 class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
     active_secondary_nav_label = None
     api_method = 'analyticsclient.course.Course.enrollment'
+
+    def setUp(self):
+        super(CourseEnrollmentViewTestMixin, self).setUp()
+
+        switch, _created = Switch.objects.get_or_create(name='show_navbar_demographics')
+        switch.active = True
+        switch.save()
 
     def assertPrimaryNav(self, nav, course_id):
         expected = {
