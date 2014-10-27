@@ -12,6 +12,7 @@ _multiprocess_can_split_ = True
 
 
 class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, WebAppTest):
+    help_path = 'enrollment/Demographics_Age.html'
 
     demographic_type = demographic.BIRTH_YEAR
     table_columns = ['Age', 'Total Enrollment', 'Percent of Total']
@@ -21,7 +22,7 @@ class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, Web
         self.page = CourseEnrollmentDemographicsAgePage(self.browser)
         self.course = self.api_client.courses(self.page.course_id)
         self.demographic_data = sorted(self.course.enrollment(self.demographic_type),
-                                      key=lambda item: item['count'], reverse=True)
+                                       key=lambda item: item['count'], reverse=True)
 
     def test_page(self):
         super(CourseEnrollmentDemographicsAgeTests, self).test_page()
@@ -101,7 +102,9 @@ class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, Web
         self.assertIn('text-right', column[1].get_attribute('class'))
         self.assertIn('text-right', column[2].get_attribute('class'))
 
+
 class CourseEnrollmentDemographicsGenderTests(CourseDemographicsPageTestsMixin, WebAppTest):
+    help_path = 'enrollment/Demographics_Gender.html'
 
     demographic_type = demographic.GENDER
     table_columns = ['Date', 'Total Enrollment', 'Female', 'Male', 'Other', 'Not Reported']
@@ -114,7 +117,8 @@ class CourseEnrollmentDemographicsGenderTests(CourseDemographicsPageTestsMixin, 
         end_date = datetime.datetime.utcnow()
         end_date_string = end_date.strftime(self.api_client.DATE_FORMAT)
         response = self.course.enrollment(self.demographic_type, end_date=end_date_string)
-        self.demographic_data = sorted(response, key=lambda x: datetime.datetime.strptime(x['date'], '%Y-%m-%d'), reverse=True)
+        self.demographic_data = sorted(response, key=lambda x: datetime.datetime.strptime(x['date'], '%Y-%m-%d'),
+                                       reverse=True)
 
     def _test_table_row(self, datum, column, sum_count):
         expected_date = datetime.datetime.strptime(datum['date'], self.api_date_format).strftime(
@@ -125,11 +129,12 @@ class CourseEnrollmentDemographicsGenderTests(CourseDemographicsPageTestsMixin, 
                     unicode(datum.get('male', 0)), unicode(datum.get('other', 0)), unicode(datum.get('u', 0))]
         actual = [column[0].text, column[1].text, column[2].text, column[3].text, column[4].text, column[5].text]
         self.assertListEqual(actual, expected)
-        for i in range(1,6):
+        for i in range(1, 6):
             self.assertIn('text-right', column[i].get_attribute('class'))
 
 
 class CourseEnrollmentDemographicsEducationTests(CourseDemographicsPageTestsMixin, WebAppTest):
+    help_path = 'enrollment/Demographics_Education.html'
 
     demographic_type = demographic.EDUCATION
     table_columns = ['Educational Background', 'Total Enrollment']
@@ -139,7 +144,7 @@ class CourseEnrollmentDemographicsEducationTests(CourseDemographicsPageTestsMixi
         self.page = CourseEnrollmentDemographicsEducationPage(self.browser)
         self.course = self.api_client.courses(self.page.course_id)
         self.demographic_data = sorted(self.course.enrollment(self.demographic_type),
-                                      key=lambda item: item['count'], reverse=True)
+                                       key=lambda item: item['count'], reverse=True)
 
     def test_page(self):
         super(CourseEnrollmentDemographicsEducationTests, self).test_page()
