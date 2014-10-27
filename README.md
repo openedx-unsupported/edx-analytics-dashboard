@@ -53,6 +53,8 @@ The following switches are available:
 | Switch                            | Purpose                                                  |
 |-----------------------------------|----------------------------------------------------------|
 | show_engagement_forum_activity    | Show the forum activity on the course engagement page    |
+| show_navbar_demographics          | Show the enrollment demographics navbar item             |
+
 
 Authentication & Authorization
 ------------------------------
