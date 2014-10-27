@@ -1,0 +1,418 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Anna Hu <dejilibaobao@163.com>, 2014
+# shuchuanchen <am15501@163.com>, 2014
+# 张逸涵 <jeanzhang970128@gmail.com>, 2014
+# 竹轩 <fmyzjs@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: edx-platform\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-10-01 15:22-0400\n"
+"PO-Revision-Date: 2014-10-27 15:11+0000\n"
+"Last-Translator: shuchuanchen <am15501@163.com>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/edx-platform/language/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. Translators: This is a label to identify current student enrollment.
+#: courses/views.py courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_geography.html
+#: courses/tests/test_views.py
+msgid "Enrollment"
+msgstr "注册"
+
+#: courses/views.py courses/tests/test_views.py
+msgid "Engagement"
+msgstr "  从事"
+
+#: courses/views.py courses/tests/test_views.py
+msgid "Activity"
+msgstr "活动"
+
+#: courses/views.py courses/tests/test_views.py
+msgid "Geography"
+msgstr "地理"
+
+#. Translators: Content as in course content (e.g. things, not the feeling)
+#: courses/views.py courses/tests/test_views.py
+msgid "Content"
+msgstr "内容"
+
+#: courses/views.py
+msgid "Enrollment Activity"
+msgstr "开启注册"
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Enrollment activity data was last updated %(update_date)s at %(update_time)s"
+" UTC."
+msgstr ""
+
+#: courses/views.py
+msgid "Enrollment Geography"
+msgstr "注册位置"
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Geographic student data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr ""
+
+#: courses/views.py
+msgid "Engagement Content"
+msgstr "从事内容"
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Course engagement data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr ""
+
+#: courses/templates/courses/engagement_content.html
+msgid "Weekly Student Engagement"
+msgstr "学生每周的参与"
+
+#: courses/templates/courses/engagement_content.html
+msgid "How many students are interacting with my course?"
+msgstr "多少学生在我的课程中进行互动？"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Student Activity Metrics"
+msgstr "学生活跃性图表"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Active Students Last Week"
+msgstr "上周的活跃学生"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Students who visited at least one page in the course content."
+msgstr "至少访问了一页课程内容的学生"
+
+#. Translators: This is a label indicating the number of students who watched
+#. a video.
+#: courses/templates/courses/engagement_content.html
+msgid "Watched a Video Last Week"
+msgstr "上周看了一段视频的"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Students who played one or more videos."
+msgstr "播放了一段或多段视频的学生"
+
+#. Translators: This is a label indicating the number of students who tried a
+#. problem.
+#: courses/templates/courses/engagement_content.html
+msgid "Tried a Problem Last Week"
+msgstr "上周尝试解决了一个问题的"
+
+#: courses/templates/courses/engagement_content.html
+msgid ""
+"Students who submitted an answer for a standard problem. Not all problem "
+"types are included."
+msgstr "上传了一份针对一个标准问题的答案的学生。不包含全部问题类型。"
+
+#. Translators: This is a label indicating the number of students who posted
+#. in a forum discussion.
+#: courses/templates/courses/engagement_content.html
+msgid "Posted in a Discussion Last Week"
+msgstr "上周在某一讨论中发言了的"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Students who contributed to any discussion topic."
+msgstr "对任意的讨论话题做出了贡献的学生"
+
+#: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/engagement_content.html
+msgid "Content Engagement Breakdown"
+msgstr "注册失败"
+
+#: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_geography.html
+msgid "Download CSV"
+msgstr "下载CSV文档"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid "Daily Student Enrollment"
+msgstr "每日的学生注册"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid "How many students are in my course?"
+msgstr "在我的课程里有多少个学生呢？"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid "Enrollment Metrics"
+msgstr "注册统计图表"
+
+#. Translators: This is a label indicating the number of students enrolled in
+#. a course.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Students enrolled in the course."
+msgstr "注册本课程的学生"
+
+#. Translators: This is a label indicating the change in the number of
+#. students enrolled in a course since the previous week.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Change in Last Week"
+msgstr "过去一星期的变化"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid ""
+"The difference between the number of students enrolled at the end of the day"
+" yesterday and one week before."
+msgstr ""
+
+#: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_activity.html
+msgid "Enrollment Over Time"
+msgstr "注册时间"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Geographic Distribution"
+msgstr "地理分布"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Where are my students?"
+msgstr "我的学生们在哪？"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Enrollment by Country"
+msgstr "以国家注册"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Geography Metrics"
+msgstr "地理图表"
+
+#. Translators: This string represents the number of countries where students
+#. are enrolled.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Total Countries Represented"
+msgstr "来自的国家数量总计"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Countries with at least one student."
+msgstr "拥有至少一个学生的国家"
+
+#. Translators: This string represents the country with the greatest number of
+#. enrolled students.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Top Country by Enrollment"
+msgstr "注册量最多的国家"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country with the largest number of students."
+msgstr "学生数目最多的国家"
+
+#. Translators: This string represents the country with the second-greatest
+#. number of enrolled students.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Second Country by Enrollment"
+msgstr "注册量第二的国家"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country with the second largest number of students."
+msgstr "学生数量第二高的国家"
+
+#. Translators: This string represents the country with the third-greatest
+#. number of enrolled students.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Third Country by Enrollment"
+msgstr "注册量第三高的国家"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country with the third largest number of students."
+msgstr "学生数量第三高的国家"
+
+#. Translators: This string represents the percentage of students in a course.
+#. Move the % symbol, if necessary, but keep the percent variable/placeholder.
+#: courses/templates/courses/enrollment_geography.html
+msgid "%(percent)s%% of students"
+msgstr "%(percent)s%%的学生"
+
+#: courses/templates/courses/enrollment_geography.html
+#: courses/templates/courses/enrollment_geography.html
+msgid "Geographic Breakdown"
+msgstr "地理划分"
+
+#: courses/templates/courses/index.html
+msgid "Courses"
+msgstr "课程"
+
+#: courses/templates/courses/index.html
+msgid "Welcome, %(username)s!"
+msgstr "欢迎，%(username)s！"
+
+#: courses/templates/courses/index.html
+msgid "Here are the courses you currently have access to in Insights:"
+msgstr "这里是您当前在Insights中已经拥有的课程："
+
+#: courses/templates/courses/index.html
+msgid "New to %(application_name)s?"
+msgstr "新加入%(application_name)s的学生？"
+
+#: courses/templates/courses/index.html
+msgid ""
+" Click Help in the upper-right corner to get more information\n"
+"            about %(application_name)s. Send us feedback at %(email_link)s."
+msgstr ""
+
+#. Translators: This message is displayed when the website is unable to get
+#. the credentials for the user
+#: courses/templates/courses/permissions-retrieval-failed.html
+#: courses/templates/courses/permissions-retrieval-failed.html
+msgid "Permissions Retrieval Failed"
+msgstr "权限检索失败"
+
+#: courses/templates/courses/permissions-retrieval-failed.html
+msgid ""
+"There was a problem retrieving course permissions for your account. Please "
+"try again. If you continue to experience issues, please let us know."
+msgstr "在检查您的账号权限的时候发生错误，请再试一次。若仍然出现相同的错误，请反馈给我们。"
+
+#: courses/templates/courses/permissions-retrieval-failed.html
+#: templates/auth_error.html
+msgid "Try Again"
+msgstr "重试"
+
+#: templates/403.html templates/403.html.py
+msgid "Access Denied"
+msgstr "禁止访问"
+
+#: templates/403.html
+msgid ""
+"You do not have permission to view this page. If you believe you should have"
+" access to this page, try logging out and logging in again to refresh your "
+"permissions."
+msgstr "您没有权限观看此页面。如果您认为自己应该能存取此页面，请重新登出再登入来更新您的权限。"
+
+#: templates/403.html
+msgid "Logout then Login"
+msgstr "先登出再登入"
+
+#: templates/404.html templates/404.html.py
+msgid "Page Not Found"
+msgstr "页面无法找到"
+
+#: templates/404.html
+msgid ""
+"We can't find the page you're looking for. Please make sure the URL is "
+"correct and if not try again."
+msgstr "您要寻找的页面不存在。请确认网址是正确的并再试一次。"
+
+#: templates/500.html templates/500.html.py
+msgid "An Error Occurred"
+msgstr "发生一个错误"
+
+#: templates/500.html
+msgid ""
+"Our servers weren't able to complete your request. Please try again by "
+"refreshing this page or retracing your steps."
+msgstr "我们的服务器无法完成您的请求。请重新整理此页面或重复您的步骤。"
+
+#: templates/auth_error.html templates/auth_error.html.py
+msgid "Authentication Failed"
+msgstr "认证失败"
+
+#: templates/auth_error.html
+msgid "There was a problem accessing your account. Please try again."
+msgstr "存取您的帐户时发生问题，请重新再试。"
+
+#: templates/base-error.html
+msgid "Use our support tool to ask questions or share feedback."
+msgstr "请使用我们所支持的工具来提问或是分享您的回馈。"
+
+#. Translators: This intention here is that a user clicks a button to contact
+#. a support group (e.g. edX Support, or MITx Support). Reorder the
+#. placeholder as you see fit.
+#: templates/base-error.html
+msgid "Contact %(platform_name)s Support"
+msgstr "联系%(platform_name)s 支持"
+
+#. Translators: Application here refers to the web site/application being used
+#. (e.g. the dashboard).
+#: templates/base.html templates/footer.html templates/lens-navigation.html
+msgid "Application"
+msgstr "工具"
+
+#: templates/footer.html
+msgid ""
+"We want this dashboard to work for you! Need help? %(support_link_start)sVisit our support\n"
+"          forum%(support_link_end)s. Comments or suggestions? Email %(email_link)s."
+msgstr ""
+
+#: templates/footer.html
+msgid "Terms of Service"
+msgstr "服务条款"
+
+#: templates/footer.html
+msgid "Privacy Policy"
+msgstr "隐私政策"
+
+#. Translators: The © symbol appears directly before this line.
+#: templates/footer.html
+msgid ""
+" %(current_year)s %(platform_name)s, except where noted, all rights\n"
+"            reserved. "
+msgstr ""
+
+#: templates/header.html
+msgid "Toggle navigation"
+msgstr "切换导航"
+
+#: templates/header.html
+msgid "Help"
+msgstr "帮助"
+
+#: templates/header.html
+msgid "Logout"
+msgstr "退出"
+
+#. Translators: This refers to the active tab/navigation item.
+#: templates/lens-navigation.html templates/lens-navigation.html.py
+msgid "Active"
+msgstr "活动"
+
+#: templates/loading.html
+msgid "LOADING..."
+msgstr "加载中......"
+
+#: templates/section_error.html
+msgid "We are unable to load this chart."
+msgstr "我们无法加载本图表。"
+
+#: templates/section_error.html
+msgid "We are unable to load this table."
+msgstr "我们无法加载本表格。"
+
+#: templates/section_error.html
+msgid "We are unable to load these metrics."
+msgstr "我们无法加载这些图表。"
+
+#: templates/section_error.html
+msgid ""
+"This data may not be available for your course.  You\n"
+"                    can %(link_start)sview the full list%(link_end)s of potential causes for these\n"
+"                    errors in the documentation."
+msgstr ""
+
+#: templates/registration/logged_out.html
+#: templates/registration/logged_out.html
+msgid "Logged Out"
+msgstr "登出"
+
+#: templates/registration/logged_out.html
+msgid "You have been logged out. Click the button below to login again."
+msgstr "您已登出，点击下方按钮以重新登陆"
+
+#: templates/registration/logged_out.html
+msgid "Login"
+msgstr "登陆"

@@ -1,0 +1,445 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Marijana Z. <marijana.zrncevic@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: edx-platform\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-10-01 15:22-0400\n"
+"PO-Revision-Date: 2014-10-27 15:11+0000\n"
+"Last-Translator: Marijana Z. <marijana.zrncevic@gmail.com>\n"
+"Language-Team: Croatian (http://www.transifex.com/projects/p/edx-platform/language/hr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hr\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#. Translators: This is a label to identify current student enrollment.
+#: courses/views.py courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_geography.html
+#: courses/tests/test_views.py
+msgid "Enrollment"
+msgstr "Broj upisanih"
+
+#: courses/views.py courses/tests/test_views.py
+msgid "Engagement"
+msgstr "Broj aktivnih"
+
+#: courses/views.py courses/tests/test_views.py
+msgid "Activity"
+msgstr "Aktivnost"
+
+#: courses/views.py courses/tests/test_views.py
+msgid "Geography"
+msgstr "Geografija"
+
+#. Translators: Content as in course content (e.g. things, not the feeling)
+#: courses/views.py courses/tests/test_views.py
+msgid "Content"
+msgstr "Sadržaj"
+
+#: courses/views.py
+msgid "Enrollment Activity"
+msgstr "Upisna aktivnost"
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Enrollment activity data was last updated %(update_date)s at %(update_time)s"
+" UTC."
+msgstr ""
+"Podaci o upisnoj aktivnosti posljednji su put ažurirani %(update_date)s u "
+"%(update_time)s UTC."
+
+#: courses/views.py
+msgid "Enrollment Geography"
+msgstr "Lokacije upisanih"
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Geographic student data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr ""
+"Geografski podaci o studentima posljednji su put ažurirani %(update_date)s u"
+" %(update_time)s UTC."
+
+#: courses/views.py
+msgid "Engagement Content"
+msgstr "Sadržaj aktivnosti"
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Course engagement data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr ""
+"Podaci o aktivnosti u kolegiju posljednji su put ažurirani %(update_date)s u"
+" %(update_time)s UTC."
+
+#: courses/templates/courses/engagement_content.html
+msgid "Weekly Student Engagement"
+msgstr "Tjedna aktivnost studenata"
+
+#: courses/templates/courses/engagement_content.html
+msgid "How many students are interacting with my course?"
+msgstr "Koliko studenata aktivno sudjeluje u mom kolegiju?"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Student Activity Metrics"
+msgstr "Mjere studentske aktivnosti"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Active Students Last Week"
+msgstr "Aktivni studenti u proteklom tjednu"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Students who visited at least one page in the course content."
+msgstr "Studenti koji su posjetili barem jednu stranicu sadržaja kolegija"
+
+#. Translators: This is a label indicating the number of students who watched
+#. a video.
+#: courses/templates/courses/engagement_content.html
+msgid "Watched a Video Last Week"
+msgstr "Pogledali barem jedan video u proteklom tjednu"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Students who played one or more videos."
+msgstr "Studenti koji su pusti jedan ili više videa"
+
+#. Translators: This is a label indicating the number of students who tried a
+#. problem.
+#: courses/templates/courses/engagement_content.html
+msgid "Tried a Problem Last Week"
+msgstr "Pokušali riješiti barem jedan problem u proteklom tjednu"
+
+#: courses/templates/courses/engagement_content.html
+msgid ""
+"Students who submitted an answer for a standard problem. Not all problem "
+"types are included."
+msgstr ""
+"Studenti koji su predali rješenje za standardni problem. Nisu uključene sve "
+"vrste problema."
+
+#. Translators: This is a label indicating the number of students who posted
+#. in a forum discussion.
+#: courses/templates/courses/engagement_content.html
+msgid "Posted in a Discussion Last Week"
+msgstr "Broj studenta koji su sudjelovali u forumu u proteklom tjednu"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Students who contributed to any discussion topic."
+msgstr "Studenti koji su pridonijeli bilo kojoj temi rasprave"
+
+#: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/engagement_content.html
+msgid "Content Engagement Breakdown"
+msgstr "Podaci o sadržajnoj aktivnosti"
+
+#: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_geography.html
+msgid "Download CSV"
+msgstr "Preuzmi CSV"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid "Daily Student Enrollment"
+msgstr "Dnevna aktivnost studenata"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid "How many students are in my course?"
+msgstr "Koliko je studenata upisano u moj kolegij?"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid "Enrollment Metrics"
+msgstr "Podaci o upisanosti"
+
+#. Translators: This is a label indicating the number of students enrolled in
+#. a course.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Students enrolled in the course."
+msgstr "Studenti upisani u kolegij"
+
+#. Translators: This is a label indicating the change in the number of
+#. students enrolled in a course since the previous week.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Change in Last Week"
+msgstr "Promjene u proteklom tjednu"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid ""
+"The difference between the number of students enrolled at the end of the day"
+" yesterday and one week before."
+msgstr ""
+"Razlika između broja upisanih studenata na kraju jučerašnjeg dana i tjedna "
+"prije."
+
+#: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_activity.html
+msgid "Enrollment Over Time"
+msgstr "Ukupna upisanost"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Geographic Distribution"
+msgstr "Geografska distribucija"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Where are my students?"
+msgstr "Gdje su moji studenti?"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Enrollment by Country"
+msgstr "Upisanost po državama"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Geography Metrics"
+msgstr "Geografski podaci"
+
+#. Translators: This string represents the number of countries where students
+#. are enrolled.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Total Countries Represented"
+msgstr "Ukupan broj država"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Countries with at least one student."
+msgstr "Države s barem jednim studentom"
+
+#. Translators: This string represents the country with the greatest number of
+#. enrolled students.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Top Country by Enrollment"
+msgstr "Država s najviše upisanih"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country with the largest number of students."
+msgstr "Država s najvećim brojem studenata"
+
+#. Translators: This string represents the country with the second-greatest
+#. number of enrolled students.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Second Country by Enrollment"
+msgstr "Druga po redu država s najviše upisanih"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country with the second largest number of students."
+msgstr "Druga po redu država s najvećim brojem studenata"
+
+#. Translators: This string represents the country with the third-greatest
+#. number of enrolled students.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Third Country by Enrollment"
+msgstr "Treća po redu država s najviše upisanih"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country with the third largest number of students."
+msgstr "Treća po redu država s najvećim brojem studenata"
+
+#. Translators: This string represents the percentage of students in a course.
+#. Move the % symbol, if necessary, but keep the percent variable/placeholder.
+#: courses/templates/courses/enrollment_geography.html
+msgid "%(percent)s%% of students"
+msgstr "%(percent)s%% studenata"
+
+#: courses/templates/courses/enrollment_geography.html
+#: courses/templates/courses/enrollment_geography.html
+msgid "Geographic Breakdown"
+msgstr "Geografski podaci"
+
+#: courses/templates/courses/index.html
+msgid "Courses"
+msgstr "Kolegiji"
+
+#: courses/templates/courses/index.html
+msgid "Welcome, %(username)s!"
+msgstr "Dobrodošao/la, %(username)s!"
+
+#: courses/templates/courses/index.html
+msgid "Here are the courses you currently have access to in Insights:"
+msgstr "Ovo su kolegiji kojima imaš pristup u Uvidima:"
+
+#: courses/templates/courses/index.html
+msgid "New to %(application_name)s?"
+msgstr " Nov/a na %(application_name)s?"
+
+#: courses/templates/courses/index.html
+msgid ""
+" Click Help in the upper-right corner to get more information\n"
+"            about %(application_name)s. Send us feedback at %(email_link)s."
+msgstr ""
+"Za više informacija o %(application_name)s klikni Pomoć\n"
+"u gornjem desnom kutu. Povratne informacije pošalji nam na %(email_link)s."
+
+#. Translators: This message is displayed when the website is unable to get
+#. the credentials for the user
+#: courses/templates/courses/permissions-retrieval-failed.html
+#: courses/templates/courses/permissions-retrieval-failed.html
+msgid "Permissions Retrieval Failed"
+msgstr "Dobivanje informacija o odobrenjima nije uspjelo"
+
+#: courses/templates/courses/permissions-retrieval-failed.html
+msgid ""
+"There was a problem retrieving course permissions for your account. Please "
+"try again. If you continue to experience issues, please let us know."
+msgstr ""
+"Pojavio se problem s dobivanje informacija o odobrenjima za tvoj račun. "
+"Pokušaj ponovno. Javi nam ako se problemi nastave."
+
+#: courses/templates/courses/permissions-retrieval-failed.html
+#: templates/auth_error.html
+msgid "Try Again"
+msgstr "Pokušaj ponovno"
+
+#: templates/403.html templates/403.html.py
+msgid "Access Denied"
+msgstr "Pristup nije dozvoljen"
+
+#: templates/403.html
+msgid ""
+"You do not have permission to view this page. If you believe you should have"
+" access to this page, try logging out and logging in again to refresh your "
+"permissions."
+msgstr ""
+"Nemaš odobrenje za otvaranje ove stranice. Ako misliš da bi trebao/la imati "
+"pristup ovoj stranici, pokušaj se odjaviti i prijaviti kako bi se tvoja "
+"odobrenja ponovno učitala."
+
+#: templates/403.html
+msgid "Logout then Login"
+msgstr "Odjavi se i ponovno prijavi"
+
+#: templates/404.html templates/404.html.py
+msgid "Page Not Found"
+msgstr "Stranica nije pronađena"
+
+#: templates/404.html
+msgid ""
+"We can't find the page you're looking for. Please make sure the URL is "
+"correct and if not try again."
+msgstr ""
+"Ne možemo pronaći stranicu koju tražiš. Provjeri je li URL točan. Ako nije, "
+"pokušaj ponovno."
+
+#: templates/500.html templates/500.html.py
+msgid "An Error Occurred"
+msgstr "Pojavila se greška"
+
+#: templates/500.html
+msgid ""
+"Our servers weren't able to complete your request. Please try again by "
+"refreshing this page or retracing your steps."
+msgstr ""
+"Naši serveri nisu uspjeli ispuniti tvoj zahtjev. Pokušaj ponovno učitati ovu"
+" stranicu ili se vratiti nekoliko koraka unatrag."
+
+#: templates/auth_error.html templates/auth_error.html.py
+msgid "Authentication Failed"
+msgstr "Provjera autentičnosti nije uspjela"
+
+#: templates/auth_error.html
+msgid "There was a problem accessing your account. Please try again."
+msgstr "Pojavio se problem s pristupanjem tvom računu. Pokušaj ponovno."
+
+#: templates/base-error.html
+msgid "Use our support tool to ask questions or share feedback."
+msgstr ""
+"Za postavljanje pitanja ili slanje povratnih informacija, upotrijebi naš "
+"alat za podršku."
+
+#. Translators: This intention here is that a user clicks a button to contact
+#. a support group (e.g. edX Support, or MITx Support). Reorder the
+#. placeholder as you see fit.
+#: templates/base-error.html
+msgid "Contact %(platform_name)s Support"
+msgstr "Kontaktiraj %(platform_name)s podršku"
+
+#. Translators: Application here refers to the web site/application being used
+#. (e.g. the dashboard).
+#: templates/base.html templates/footer.html templates/lens-navigation.html
+msgid "Application"
+msgstr "Aplikacija"
+
+#: templates/footer.html
+msgid ""
+"We want this dashboard to work for you! Need help? %(support_link_start)sVisit our support\n"
+"          forum%(support_link_end)s. Comments or suggestions? Email %(email_link)s."
+msgstr ""
+"Želimo ta tvoja kontrolna ploča radi za tebe! Trebaš pomoć? %(support_link_start)s Posjeti naš forum\n"
+"za podršku %(support_link_end)s. Imaš komentare ili prijedloge? Pošalji e-mail na %(email_link)s."
+
+#: templates/footer.html
+msgid "Terms of Service"
+msgstr "Uvjeti uporabe"
+
+#: templates/footer.html
+msgid "Privacy Policy"
+msgstr "Pravila o zaštiti privatnosti"
+
+#. Translators: The © symbol appears directly before this line.
+#: templates/footer.html
+msgid ""
+" %(current_year)s %(platform_name)s, except where noted, all rights\n"
+"            reserved. "
+msgstr ""
+"%(current_year)s %(platform_name)s, sva prava pridržano, osim ako je "
+"drugačije naznačeno."
+
+#: templates/header.html
+msgid "Toggle navigation"
+msgstr "Uključi/isključi navigaciju"
+
+#: templates/header.html
+msgid "Help"
+msgstr "Pomoć"
+
+#: templates/header.html
+msgid "Logout"
+msgstr "Odjavi se"
+
+#. Translators: This refers to the active tab/navigation item.
+#: templates/lens-navigation.html templates/lens-navigation.html.py
+msgid "Active"
+msgstr "Aktivno"
+
+#: templates/loading.html
+msgid "LOADING..."
+msgstr "UČITAVANJE..."
+
+#: templates/section_error.html
+msgid "We are unable to load this chart."
+msgstr "Ne možemo učitati ovaj grafikon."
+
+#: templates/section_error.html
+msgid "We are unable to load this table."
+msgstr "Ne možemo učitati ovu tablicu."
+
+#: templates/section_error.html
+msgid "We are unable to load these metrics."
+msgstr "Ne možemo učitati ove mjere."
+
+#: templates/section_error.html
+msgid ""
+"This data may not be available for your course.  You\n"
+"                    can %(link_start)sview the full list%(link_end)s of potential causes for these\n"
+"                    errors in the documentation."
+msgstr ""
+"Ovi podaci možda nisu dostupni za tvoj kolegij. Možeš\n"
+"%(link_start)s vidjeti cijeli popis%(link_end)s potencijalnih uzroka\n"
+"ovih grešaka u dokumentaciji."
+
+#: templates/registration/logged_out.html
+#: templates/registration/logged_out.html
+msgid "Logged Out"
+msgstr "Odjavljen/a si"
+
+#: templates/registration/logged_out.html
+msgid "You have been logged out. Click the button below to login again."
+msgstr "Odjavljen/a si. Klikni dolje za ponovnu prijavu."
+
+#: templates/registration/logged_out.html
+msgid "Login"
+msgstr "Prijavi se"

@@ -1,0 +1,434 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# huynt <huynt57@gmail.com>, 2014
+# NGUYEN HOANG AN <neyugn2909@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: edx-platform\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-10-01 15:22-0400\n"
+"PO-Revision-Date: 2014-10-27 15:11+0000\n"
+"Last-Translator: huynt <huynt57@gmail.com>\n"
+"Language-Team: Vietnamese (http://www.transifex.com/projects/p/edx-platform/language/vi/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: vi\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. Translators: This is a label to identify current student enrollment.
+#: courses/views.py courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_geography.html
+#: courses/tests/test_views.py
+msgid "Enrollment"
+msgstr "Ghi danh"
+
+#: courses/views.py courses/tests/test_views.py
+msgid "Engagement"
+msgstr "Tham gia"
+
+#: courses/views.py courses/tests/test_views.py
+msgid "Activity"
+msgstr "Hoạt động"
+
+#: courses/views.py courses/tests/test_views.py
+msgid "Geography"
+msgstr "Vị trí"
+
+#. Translators: Content as in course content (e.g. things, not the feeling)
+#: courses/views.py courses/tests/test_views.py
+msgid "Content"
+msgstr "Nội dung"
+
+#: courses/views.py
+msgid "Enrollment Activity"
+msgstr "Hoạt Động Ghi Danh"
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Enrollment activity data was last updated %(update_date)s at %(update_time)s"
+" UTC."
+msgstr ""
+"Dữ liệu về hoạt động ghi danh được cập nhật lần cuối vào lúc %(update_date)s"
+" at %(update_time)s UTC."
+
+#: courses/views.py
+msgid "Enrollment Geography"
+msgstr "Vị Trí Địa Lý của Học Viên"
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Geographic student data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr ""
+"Dữ liệu về phân bổ địa lý của các học viên được cập nhật lần cuối vào lúc "
+"%(update_date)s at %(update_time)s UTC."
+
+#: courses/views.py
+msgid "Engagement Content"
+msgstr "Nội Dung Tham Gia"
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Course engagement data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr ""
+"Dữ liệu về mức độ tham gia khóa học được cập nhật lần cuối vào "
+"%(update_date)s at %(update_time)s UTC."
+
+#: courses/templates/courses/engagement_content.html
+msgid "Weekly Student Engagement"
+msgstr "Công việc hàng tuần của sinh viên"
+
+#: courses/templates/courses/engagement_content.html
+msgid "How many students are interacting with my course?"
+msgstr "Có bao nhiêu sinh viên đang tương tác với khóa học của tôi?"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Student Activity Metrics"
+msgstr "Số liệu hoạt động sinh viên"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Active Students Last Week"
+msgstr "Các sinh viên hoạt động tuần vừa qua"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Students who visited at least one page in the course content."
+msgstr "Những sinh viên ghé thăm ít nhất một trang trong nội dung khóa học"
+
+#. Translators: This is a label indicating the number of students who watched
+#. a video.
+#: courses/templates/courses/engagement_content.html
+msgid "Watched a Video Last Week"
+msgstr "Đã xem một viewo tuần trước"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Students who played one or more videos."
+msgstr "Những sinh viên xem một hoặc nhiều videos"
+
+#. Translators: This is a label indicating the number of students who tried a
+#. problem.
+#: courses/templates/courses/engagement_content.html
+msgid "Tried a Problem Last Week"
+msgstr "Gặp vấn đề tuần trước"
+
+#: courses/templates/courses/engagement_content.html
+msgid ""
+"Students who submitted an answer for a standard problem. Not all problem "
+"types are included."
+msgstr ""
+"Các sinh viên gửi câu trả lời cho một vấn đề cơ bản. Không phải tất cả các "
+"loại vấn đề được bao hàm"
+
+#. Translators: This is a label indicating the number of students who posted
+#. in a forum discussion.
+#: courses/templates/courses/engagement_content.html
+msgid "Posted in a Discussion Last Week"
+msgstr "Đã đăng trong một cuộc thảo luận tuần vừa rồi"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Students who contributed to any discussion topic."
+msgstr "Sinh viên đã tham gia vào bất cứ chủ đề nào"
+
+#: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/engagement_content.html
+msgid "Content Engagement Breakdown"
+msgstr ""
+
+#: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_geography.html
+msgid "Download CSV"
+msgstr "Tải tệp CSV"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid "Daily Student Enrollment"
+msgstr "Học Viên Ghi Danh Mỗi Ngày"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid "How many students are in my course?"
+msgstr "Có bao nhiêu  học viên trong khóa học của tôi?"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid "Enrollment Metrics"
+msgstr ""
+
+#. Translators: This is a label indicating the number of students enrolled in
+#. a course.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Students enrolled in the course."
+msgstr "Các sinh viên đã tham gia vào khóa học"
+
+#. Translators: This is a label indicating the change in the number of
+#. students enrolled in a course since the previous week.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Change in Last Week"
+msgstr "Thay đổi tuần vừa rồi"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid ""
+"The difference between the number of students enrolled at the end of the day"
+" yesterday and one week before."
+msgstr ""
+
+#: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_activity.html
+msgid "Enrollment Over Time"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Geographic Distribution"
+msgstr "Phân Bố Địa Lý"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Where are my students?"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Enrollment by Country"
+msgstr "Ghi Danh theo các Quốc Gia"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Geography Metrics"
+msgstr ""
+
+#. Translators: This string represents the number of countries where students
+#. are enrolled.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Total Countries Represented"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Countries with at least one student."
+msgstr ""
+
+#. Translators: This string represents the country with the greatest number of
+#. enrolled students.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Top Country by Enrollment"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country with the largest number of students."
+msgstr ""
+
+#. Translators: This string represents the country with the second-greatest
+#. number of enrolled students.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Second Country by Enrollment"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country with the second largest number of students."
+msgstr ""
+
+#. Translators: This string represents the country with the third-greatest
+#. number of enrolled students.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Third Country by Enrollment"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country with the third largest number of students."
+msgstr ""
+
+#. Translators: This string represents the percentage of students in a course.
+#. Move the % symbol, if necessary, but keep the percent variable/placeholder.
+#: courses/templates/courses/enrollment_geography.html
+msgid "%(percent)s%% of students"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+#: courses/templates/courses/enrollment_geography.html
+msgid "Geographic Breakdown"
+msgstr ""
+
+#: courses/templates/courses/index.html
+msgid "Courses"
+msgstr "Khóa học"
+
+#: courses/templates/courses/index.html
+msgid "Welcome, %(username)s!"
+msgstr "Chào mừng, %(username)s!"
+
+#: courses/templates/courses/index.html
+msgid "Here are the courses you currently have access to in Insights:"
+msgstr "Đây là những khóa học bạn hiện đang truy cập vào qua Insights:"
+
+#: courses/templates/courses/index.html
+msgid "New to %(application_name)s?"
+msgstr ""
+
+#: courses/templates/courses/index.html
+msgid ""
+" Click Help in the upper-right corner to get more information\n"
+"            about %(application_name)s. Send us feedback at %(email_link)s."
+msgstr ""
+
+#. Translators: This message is displayed when the website is unable to get
+#. the credentials for the user
+#: courses/templates/courses/permissions-retrieval-failed.html
+#: courses/templates/courses/permissions-retrieval-failed.html
+msgid "Permissions Retrieval Failed"
+msgstr "Không Thể Mở Thông Tin Xác Thực"
+
+#: courses/templates/courses/permissions-retrieval-failed.html
+msgid ""
+"There was a problem retrieving course permissions for your account. Please "
+"try again. If you continue to experience issues, please let us know."
+msgstr ""
+"Lỗi khi tạo quyền trên khóa học cho tài khoản của bạn. Xin vui lòng thử lại."
+" Nếu bạn vẫn tiếp tục gặp phải sự cố này, xin báo cho chúng tôi biết."
+
+#: courses/templates/courses/permissions-retrieval-failed.html
+#: templates/auth_error.html
+msgid "Try Again"
+msgstr "Vui Lòng Thử Lại"
+
+#: templates/403.html templates/403.html.py
+msgid "Access Denied"
+msgstr "Không Thể Truy Cập"
+
+#: templates/403.html
+msgid ""
+"You do not have permission to view this page. If you believe you should have"
+" access to this page, try logging out and logging in again to refresh your "
+"permissions."
+msgstr ""
+"Bạn không có quyền xem trang này. Nếu thấy mình vốn có quyền truy cập vào "
+"trang này, xin bạn vui lòng đăng xuất rồi đăng nhập lại để làm mới lại quyền"
+" của mình."
+
+#: templates/403.html
+msgid "Logout then Login"
+msgstr "Đăng Xuất rồi Đăng Nhập"
+
+#: templates/404.html templates/404.html.py
+msgid "Page Not Found"
+msgstr "Không Tìm Thấy Trang"
+
+#: templates/404.html
+msgid ""
+"We can't find the page you're looking for. Please make sure the URL is "
+"correct and if not try again."
+msgstr ""
+"Chúng tôi không thể tìm thấy trang bạn đang tìm kiếm. Xin kiểm tra xem đường"
+" dẫn đã chính xác chưa và nếu chưa, xin vui lòng thử lại."
+
+#: templates/500.html templates/500.html.py
+msgid "An Error Occurred"
+msgstr "Có Lỗi"
+
+#: templates/500.html
+msgid ""
+"Our servers weren't able to complete your request. Please try again by "
+"refreshing this page or retracing your steps."
+msgstr ""
+"Các máy chủ của chúng tôi không thể hoàn thành yêu cầu của bạn. Xin vui lòng"
+" thử lại bằng cách làm mới lại trang này hoặc lặp lại các bước."
+
+#: templates/auth_error.html templates/auth_error.html.py
+msgid "Authentication Failed"
+msgstr "Xác Thực Thất Bại"
+
+#: templates/auth_error.html
+msgid "There was a problem accessing your account. Please try again."
+msgstr "Lỗi khi truy cập vào tài khoản của bạn. Xin vui lòng thử lại."
+
+#: templates/base-error.html
+msgid "Use our support tool to ask questions or share feedback."
+msgstr ""
+"Xin dùng công cụ hỗ trợ của chúng tôi để đặt câu hỏi hoặc chia sẻ phản hồi."
+
+#. Translators: This intention here is that a user clicks a button to contact
+#. a support group (e.g. edX Support, or MITx Support). Reorder the
+#. placeholder as you see fit.
+#: templates/base-error.html
+msgid "Contact %(platform_name)s Support"
+msgstr ""
+
+#. Translators: Application here refers to the web site/application being used
+#. (e.g. the dashboard).
+#: templates/base.html templates/footer.html templates/lens-navigation.html
+msgid "Application"
+msgstr ""
+
+#: templates/footer.html
+msgid ""
+"We want this dashboard to work for you! Need help? %(support_link_start)sVisit our support\n"
+"          forum%(support_link_end)s. Comments or suggestions? Email %(email_link)s."
+msgstr ""
+
+#: templates/footer.html
+msgid "Terms of Service"
+msgstr "Điều Khoản Sử Dụng Dịch Vụ"
+
+#: templates/footer.html
+msgid "Privacy Policy"
+msgstr "Chính Sách Bảo Mật"
+
+#. Translators: The © symbol appears directly before this line.
+#: templates/footer.html
+msgid ""
+" %(current_year)s %(platform_name)s, except where noted, all rights\n"
+"            reserved. "
+msgstr ""
+
+#: templates/header.html
+msgid "Toggle navigation"
+msgstr "Chuyển đổi điều hướng"
+
+#: templates/header.html
+msgid "Help"
+msgstr "Trợ Giúp"
+
+#: templates/header.html
+msgid "Logout"
+msgstr "Đăng xuất"
+
+#. Translators: This refers to the active tab/navigation item.
+#: templates/lens-navigation.html templates/lens-navigation.html.py
+msgid "Active"
+msgstr ""
+
+#: templates/loading.html
+msgid "LOADING..."
+msgstr ""
+
+#: templates/section_error.html
+msgid "We are unable to load this chart."
+msgstr ""
+
+#: templates/section_error.html
+msgid "We are unable to load this table."
+msgstr ""
+
+#: templates/section_error.html
+msgid "We are unable to load these metrics."
+msgstr ""
+
+#: templates/section_error.html
+msgid ""
+"This data may not be available for your course.  You\n"
+"                    can %(link_start)sview the full list%(link_end)s of potential causes for these\n"
+"                    errors in the documentation."
+msgstr ""
+
+#: templates/registration/logged_out.html
+#: templates/registration/logged_out.html
+msgid "Logged Out"
+msgstr "Đã Đăng Xuất"
+
+#: templates/registration/logged_out.html
+msgid "You have been logged out. Click the button below to login again."
+msgstr "Bạn đã đăng xuất. Nhập chọn nút dưới đây để đăng nhập lại."
+
+#: templates/registration/logged_out.html
+msgid "Login"
+msgstr "Đăng nhập"

@@ -1,0 +1,414 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: edx-platform\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-10-01 15:22-0400\n"
+"PO-Revision-Date: 2014-10-01 18:57+0000\n"
+"Last-Translator: cblackburn <cblackburn@edx.org>\n"
+"Language-Team: Oriya (http://www.transifex.com/projects/p/edx-platform/language/or/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: or\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Translators: This is a label to identify current student enrollment.
+#: courses/views.py courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_geography.html
+#: courses/tests/test_views.py
+msgid "Enrollment"
+msgstr ""
+
+#: courses/views.py courses/tests/test_views.py
+msgid "Engagement"
+msgstr ""
+
+#: courses/views.py courses/tests/test_views.py
+msgid "Activity"
+msgstr ""
+
+#: courses/views.py courses/tests/test_views.py
+msgid "Geography"
+msgstr ""
+
+#. Translators: Content as in course content (e.g. things, not the feeling)
+#: courses/views.py courses/tests/test_views.py
+msgid "Content"
+msgstr ""
+
+#: courses/views.py
+msgid "Enrollment Activity"
+msgstr ""
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Enrollment activity data was last updated %(update_date)s at %(update_time)s"
+" UTC."
+msgstr ""
+
+#: courses/views.py
+msgid "Enrollment Geography"
+msgstr ""
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Geographic student data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr ""
+
+#: courses/views.py
+msgid "Engagement Content"
+msgstr ""
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Course engagement data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr ""
+
+#: courses/templates/courses/engagement_content.html
+msgid "Weekly Student Engagement"
+msgstr ""
+
+#: courses/templates/courses/engagement_content.html
+msgid "How many students are interacting with my course?"
+msgstr ""
+
+#: courses/templates/courses/engagement_content.html
+msgid "Student Activity Metrics"
+msgstr ""
+
+#: courses/templates/courses/engagement_content.html
+msgid "Active Students Last Week"
+msgstr ""
+
+#: courses/templates/courses/engagement_content.html
+msgid "Students who visited at least one page in the course content."
+msgstr ""
+
+#. Translators: This is a label indicating the number of students who watched
+#. a video.
+#: courses/templates/courses/engagement_content.html
+msgid "Watched a Video Last Week"
+msgstr ""
+
+#: courses/templates/courses/engagement_content.html
+msgid "Students who played one or more videos."
+msgstr ""
+
+#. Translators: This is a label indicating the number of students who tried a
+#. problem.
+#: courses/templates/courses/engagement_content.html
+msgid "Tried a Problem Last Week"
+msgstr ""
+
+#: courses/templates/courses/engagement_content.html
+msgid ""
+"Students who submitted an answer for a standard problem. Not all problem "
+"types are included."
+msgstr ""
+
+#. Translators: This is a label indicating the number of students who posted
+#. in a forum discussion.
+#: courses/templates/courses/engagement_content.html
+msgid "Posted in a Discussion Last Week"
+msgstr ""
+
+#: courses/templates/courses/engagement_content.html
+msgid "Students who contributed to any discussion topic."
+msgstr ""
+
+#: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/engagement_content.html
+msgid "Content Engagement Breakdown"
+msgstr ""
+
+#: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_geography.html
+msgid "Download CSV"
+msgstr ""
+
+#: courses/templates/courses/enrollment_activity.html
+msgid "Daily Student Enrollment"
+msgstr ""
+
+#: courses/templates/courses/enrollment_activity.html
+msgid "How many students are in my course?"
+msgstr ""
+
+#: courses/templates/courses/enrollment_activity.html
+msgid "Enrollment Metrics"
+msgstr ""
+
+#. Translators: This is a label indicating the number of students enrolled in
+#. a course.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Students enrolled in the course."
+msgstr ""
+
+#. Translators: This is a label indicating the change in the number of
+#. students enrolled in a course since the previous week.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Change in Last Week"
+msgstr ""
+
+#: courses/templates/courses/enrollment_activity.html
+msgid ""
+"The difference between the number of students enrolled at the end of the day"
+" yesterday and one week before."
+msgstr ""
+
+#: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_activity.html
+msgid "Enrollment Over Time"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Geographic Distribution"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Where are my students?"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Enrollment by Country"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Geography Metrics"
+msgstr ""
+
+#. Translators: This string represents the number of countries where students
+#. are enrolled.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Total Countries Represented"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Countries with at least one student."
+msgstr ""
+
+#. Translators: This string represents the country with the greatest number of
+#. enrolled students.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Top Country by Enrollment"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country with the largest number of students."
+msgstr ""
+
+#. Translators: This string represents the country with the second-greatest
+#. number of enrolled students.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Second Country by Enrollment"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country with the second largest number of students."
+msgstr ""
+
+#. Translators: This string represents the country with the third-greatest
+#. number of enrolled students.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Third Country by Enrollment"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country with the third largest number of students."
+msgstr ""
+
+#. Translators: This string represents the percentage of students in a course.
+#. Move the % symbol, if necessary, but keep the percent variable/placeholder.
+#: courses/templates/courses/enrollment_geography.html
+msgid "%(percent)s%% of students"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+#: courses/templates/courses/enrollment_geography.html
+msgid "Geographic Breakdown"
+msgstr ""
+
+#: courses/templates/courses/index.html
+msgid "Courses"
+msgstr ""
+
+#: courses/templates/courses/index.html
+msgid "Welcome, %(username)s!"
+msgstr ""
+
+#: courses/templates/courses/index.html
+msgid "Here are the courses you currently have access to in Insights:"
+msgstr ""
+
+#: courses/templates/courses/index.html
+msgid "New to %(application_name)s?"
+msgstr ""
+
+#: courses/templates/courses/index.html
+msgid ""
+" Click Help in the upper-right corner to get more information\n"
+"            about %(application_name)s. Send us feedback at %(email_link)s."
+msgstr ""
+
+#. Translators: This message is displayed when the website is unable to get
+#. the credentials for the user
+#: courses/templates/courses/permissions-retrieval-failed.html
+#: courses/templates/courses/permissions-retrieval-failed.html
+msgid "Permissions Retrieval Failed"
+msgstr ""
+
+#: courses/templates/courses/permissions-retrieval-failed.html
+msgid ""
+"There was a problem retrieving course permissions for your account. Please "
+"try again. If you continue to experience issues, please let us know."
+msgstr ""
+
+#: courses/templates/courses/permissions-retrieval-failed.html
+#: templates/auth_error.html
+msgid "Try Again"
+msgstr ""
+
+#: templates/403.html templates/403.html.py
+msgid "Access Denied"
+msgstr ""
+
+#: templates/403.html
+msgid ""
+"You do not have permission to view this page. If you believe you should have"
+" access to this page, try logging out and logging in again to refresh your "
+"permissions."
+msgstr ""
+
+#: templates/403.html
+msgid "Logout then Login"
+msgstr ""
+
+#: templates/404.html templates/404.html.py
+msgid "Page Not Found"
+msgstr ""
+
+#: templates/404.html
+msgid ""
+"We can't find the page you're looking for. Please make sure the URL is "
+"correct and if not try again."
+msgstr ""
+
+#: templates/500.html templates/500.html.py
+msgid "An Error Occurred"
+msgstr ""
+
+#: templates/500.html
+msgid ""
+"Our servers weren't able to complete your request. Please try again by "
+"refreshing this page or retracing your steps."
+msgstr ""
+
+#: templates/auth_error.html templates/auth_error.html.py
+msgid "Authentication Failed"
+msgstr ""
+
+#: templates/auth_error.html
+msgid "There was a problem accessing your account. Please try again."
+msgstr ""
+
+#: templates/base-error.html
+msgid "Use our support tool to ask questions or share feedback."
+msgstr ""
+
+#. Translators: This intention here is that a user clicks a button to contact
+#. a support group (e.g. edX Support, or MITx Support). Reorder the
+#. placeholder as you see fit.
+#: templates/base-error.html
+msgid "Contact %(platform_name)s Support"
+msgstr ""
+
+#. Translators: Application here refers to the web site/application being used
+#. (e.g. the dashboard).
+#: templates/base.html templates/footer.html templates/lens-navigation.html
+msgid "Application"
+msgstr ""
+
+#: templates/footer.html
+msgid ""
+"We want this dashboard to work for you! Need help? %(support_link_start)sVisit our support\n"
+"          forum%(support_link_end)s. Comments or suggestions? Email %(email_link)s."
+msgstr ""
+
+#: templates/footer.html
+msgid "Terms of Service"
+msgstr ""
+
+#: templates/footer.html
+msgid "Privacy Policy"
+msgstr ""
+
+#. Translators: The © symbol appears directly before this line.
+#: templates/footer.html
+msgid ""
+" %(current_year)s %(platform_name)s, except where noted, all rights\n"
+"            reserved. "
+msgstr ""
+
+#: templates/header.html
+msgid "Toggle navigation"
+msgstr ""
+
+#: templates/header.html
+msgid "Help"
+msgstr ""
+
+#: templates/header.html
+msgid "Logout"
+msgstr ""
+
+#. Translators: This refers to the active tab/navigation item.
+#: templates/lens-navigation.html templates/lens-navigation.html.py
+msgid "Active"
+msgstr ""
+
+#: templates/loading.html
+msgid "LOADING..."
+msgstr ""
+
+#: templates/section_error.html
+msgid "We are unable to load this chart."
+msgstr ""
+
+#: templates/section_error.html
+msgid "We are unable to load this table."
+msgstr ""
+
+#: templates/section_error.html
+msgid "We are unable to load these metrics."
+msgstr ""
+
+#: templates/section_error.html
+msgid ""
+"This data may not be available for your course.  You\n"
+"                    can %(link_start)sview the full list%(link_end)s of potential causes for these\n"
+"                    errors in the documentation."
+msgstr ""
+
+#: templates/registration/logged_out.html
+#: templates/registration/logged_out.html
+msgid "Logged Out"
+msgstr ""
+
+#: templates/registration/logged_out.html
+msgid "You have been logged out. Click the button below to login again."
+msgstr ""
+
+#: templates/registration/logged_out.html
+msgid "Login"
+msgstr ""

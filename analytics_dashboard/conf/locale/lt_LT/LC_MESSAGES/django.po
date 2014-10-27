@@ -1,0 +1,449 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Riina <ciairdabar@yahoo.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: edx-platform\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-10-01 15:22-0400\n"
+"PO-Revision-Date: 2014-10-27 15:11+0000\n"
+"Last-Translator: Riina <ciairdabar@yahoo.com>\n"
+"Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/projects/p/edx-platform/language/lt_LT/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: lt_LT\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. Translators: This is a label to identify current student enrollment.
+#: courses/views.py courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_geography.html
+#: courses/tests/test_views.py
+msgid "Enrollment"
+msgstr "Registracija"
+
+#: courses/views.py courses/tests/test_views.py
+msgid "Engagement"
+msgstr "Dalyvavimas"
+
+#: courses/views.py courses/tests/test_views.py
+msgid "Activity"
+msgstr "Aktyvumas"
+
+#: courses/views.py courses/tests/test_views.py
+msgid "Geography"
+msgstr "Geografija"
+
+#. Translators: Content as in course content (e.g. things, not the feeling)
+#: courses/views.py courses/tests/test_views.py
+msgid "Content"
+msgstr "Turinys"
+
+#: courses/views.py
+msgid "Enrollment Activity"
+msgstr "Registravimosi aktyvumas"
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Enrollment activity data was last updated %(update_date)s at %(update_time)s"
+" UTC."
+msgstr ""
+"Registravimosi aktyvumo duomenys paskutinį kartą atnaujinti %(update_date)s "
+"%(update_time)s UTC."
+
+#: courses/views.py
+msgid "Enrollment Geography"
+msgstr "Registracijos geografija"
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Geographic student data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr ""
+"Geografiniai kurso dalyvių duomenys paskutinį kartą atnaujinti "
+"%(update_date)s %(update_time)s UTC."
+
+#: courses/views.py
+msgid "Engagement Content"
+msgstr "Dalyvavimo turinys"
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Course engagement data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr ""
+"Dalyvavimo kurse duomenys paskutinį kartą atnaujinti %(update_date)s "
+"%(update_time)s UTC."
+
+#: courses/templates/courses/engagement_content.html
+msgid "Weekly Student Engagement"
+msgstr "Kurso dalyvių dalyvavimas per savaitę"
+
+#: courses/templates/courses/engagement_content.html
+msgid "How many students are interacting with my course?"
+msgstr "Kiek dalyvių yra mano kurse?"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Student Activity Metrics"
+msgstr "Kurso dalyvių aktyvumo metrika"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Active Students Last Week"
+msgstr "Aktyvūs kurso dalyviai praėjusią savaitę"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Students who visited at least one page in the course content."
+msgstr "Kurso dalyviai, aplankę bent vieną kurso turinio puslapį "
+
+#. Translators: This is a label indicating the number of students who watched
+#. a video.
+#: courses/templates/courses/engagement_content.html
+msgid "Watched a Video Last Week"
+msgstr "Žiūrėjo vaizdo įrašą praėjusią savaitę"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Students who played one or more videos."
+msgstr "Kurso dalyviai, peržiūrėję vieną ar daugiau vaizdo įrašų"
+
+#. Translators: This is a label indicating the number of students who tried a
+#. problem.
+#: courses/templates/courses/engagement_content.html
+msgid "Tried a Problem Last Week"
+msgstr "Bandė spręsti uždavinį praėjusią savaitę"
+
+#: courses/templates/courses/engagement_content.html
+msgid ""
+"Students who submitted an answer for a standard problem. Not all problem "
+"types are included."
+msgstr ""
+"Kurso dalyviai, pateikę standartinio uždavinio atsakymą. Ne visi uždavinių "
+"tipai įtraukti."
+
+#. Translators: This is a label indicating the number of students who posted
+#. in a forum discussion.
+#: courses/templates/courses/engagement_content.html
+msgid "Posted in a Discussion Last Week"
+msgstr "Parašė diskusijoje praėjusią savaitę"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Students who contributed to any discussion topic."
+msgstr "Kurso dalyviai, prisidėję prie kurios nors diskusijos temos"
+
+#: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/engagement_content.html
+msgid "Content Engagement Breakdown"
+msgstr "Turinio veiklos analizė"
+
+#: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_geography.html
+msgid "Download CSV"
+msgstr "Atsiųsti CSV "
+
+#: courses/templates/courses/enrollment_activity.html
+msgid "Daily Student Enrollment"
+msgstr "Kurso dalyvių registracija kas dieną"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid "How many students are in my course?"
+msgstr "Kiek dalyvių yra mano kurse?"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid "Enrollment Metrics"
+msgstr "Registracijos metrika"
+
+#. Translators: This is a label indicating the number of students enrolled in
+#. a course.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Students enrolled in the course."
+msgstr "Į kursą užregistravę dalyviai"
+
+#. Translators: This is a label indicating the change in the number of
+#. students enrolled in a course since the previous week.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Change in Last Week"
+msgstr "Pokytis praėjusią savaitę"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid ""
+"The difference between the number of students enrolled at the end of the day"
+" yesterday and one week before."
+msgstr ""
+"Kurso dalyvių, užsiregistravusių iki vakar dienos pabaigos ir prieš vieną "
+"savaitę, skaičiaus skirtumas"
+
+#: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_activity.html
+msgid "Enrollment Over Time"
+msgstr "Registracija per tam tikrą laiką"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Geographic Distribution"
+msgstr "Geografinis pasiskirstymas"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Where are my students?"
+msgstr "Kur yra mano kurso dalyviai?"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Enrollment by Country"
+msgstr "Registracija pagal šalis"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Geography Metrics"
+msgstr "Geografijos metrika"
+
+#. Translators: This string represents the number of countries where students
+#. are enrolled.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Total Countries Represented"
+msgstr "Iš viso atstovaujama šalių"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Countries with at least one student."
+msgstr "Šalys, kuriose yra bent vienas kurso dalyvis"
+
+#. Translators: This string represents the country with the greatest number of
+#. enrolled students.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Top Country by Enrollment"
+msgstr "Gausiausios registracijos šalis"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country with the largest number of students."
+msgstr "Šalis, kurioje yra daugiausia kurso dalyvių"
+
+#. Translators: This string represents the country with the second-greatest
+#. number of enrolled students.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Second Country by Enrollment"
+msgstr "Antra pagal gausumą registracijos šalis"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country with the second largest number of students."
+msgstr "Šalis, kurioje yra antras pagal dydį kurso dalyvių skaičius"
+
+#. Translators: This string represents the country with the third-greatest
+#. number of enrolled students.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Third Country by Enrollment"
+msgstr "Trečia pagal gausumą registracijos šalis"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country with the third largest number of students."
+msgstr "Šalis, kurioje yra trečias pagal dydį kurso dalyvių skaičius"
+
+#. Translators: This string represents the percentage of students in a course.
+#. Move the % symbol, if necessary, but keep the percent variable/placeholder.
+#: courses/templates/courses/enrollment_geography.html
+msgid "%(percent)s%% of students"
+msgstr "%(percent)s%% kurso dalyvių"
+
+#: courses/templates/courses/enrollment_geography.html
+#: courses/templates/courses/enrollment_geography.html
+msgid "Geographic Breakdown"
+msgstr "Geografinė analizė"
+
+#: courses/templates/courses/index.html
+msgid "Courses"
+msgstr "Kursai"
+
+#: courses/templates/courses/index.html
+msgid "Welcome, %(username)s!"
+msgstr "Sveiki prisijungę, %(username)s!"
+
+#: courses/templates/courses/index.html
+msgid "Here are the courses you currently have access to in Insights:"
+msgstr "Šiuo metu turite prieigą prie šių \"Insights\" kursų:"
+
+#: courses/templates/courses/index.html
+msgid "New to %(application_name)s?"
+msgstr "Esate naujas %(application_name)s?"
+
+#: courses/templates/courses/index.html
+msgid ""
+" Click Help in the upper-right corner to get more information\n"
+"            about %(application_name)s. Send us feedback at %(email_link)s."
+msgstr ""
+"Norėdami gauti daugiau informacijos apie %(application_name)s, spauskite "
+"\"Pagalba\" dešiniajame viršutiniame kampe. Atsiųskite mums atsiliepimą el. "
+"paštu %(email_link)s."
+
+#. Translators: This message is displayed when the website is unable to get
+#. the credentials for the user
+#: courses/templates/courses/permissions-retrieval-failed.html
+#: courses/templates/courses/permissions-retrieval-failed.html
+msgid "Permissions Retrieval Failed"
+msgstr "Nepavyko rasti leidimų"
+
+#: courses/templates/courses/permissions-retrieval-failed.html
+msgid ""
+"There was a problem retrieving course permissions for your account. Please "
+"try again. If you continue to experience issues, please let us know."
+msgstr ""
+"Kilo problema gaunant kurso leidimus jūsų paskyrai. Prašome bandyti dar "
+"kartą. Jeigu problema lieka, prašome mums pranešti."
+
+#: courses/templates/courses/permissions-retrieval-failed.html
+#: templates/auth_error.html
+msgid "Try Again"
+msgstr "Bandykite dar kartą"
+
+#: templates/403.html templates/403.html.py
+msgid "Access Denied"
+msgstr "Prieiga draudžiama"
+
+#: templates/403.html
+msgid ""
+"You do not have permission to view this page. If you believe you should have"
+" access to this page, try logging out and logging in again to refresh your "
+"permissions."
+msgstr ""
+"Jūs neturite teisės peržiūrėti šį puslapį. Jeigu manote, kad turėtumėte "
+"turėti galimybę skaityti šį puslapį, pabandykite atnaujinti savo leidimus "
+"atsijungdami ir vėl prisijungdami. "
+
+#: templates/403.html
+msgid "Logout then Login"
+msgstr "Atsijunkite ir tada prisijunkite"
+
+#: templates/404.html templates/404.html.py
+msgid "Page Not Found"
+msgstr "Puslapis nerastas"
+
+#: templates/404.html
+msgid ""
+"We can't find the page you're looking for. Please make sure the URL is "
+"correct and if not try again."
+msgstr ""
+"Nepavyko rasti jūsų ieškomo puslapio. Įsitikinkite, kad URL nuoroda yra "
+"teisinga, o jeigu ne, bandykite iš naujo. "
+
+#: templates/500.html templates/500.html.py
+msgid "An Error Occurred"
+msgstr "Įvyko klaida"
+
+#: templates/500.html
+msgid ""
+"Our servers weren't able to complete your request. Please try again by "
+"refreshing this page or retracing your steps."
+msgstr ""
+"Mūsų serveriams nepavyko įvykdyti jūsų užklausos. Prašom bandyti dar kartą "
+"atnaujinant šį puslapį arba pakartojant savo žingsnius."
+
+#: templates/auth_error.html templates/auth_error.html.py
+msgid "Authentication Failed"
+msgstr "Nepavyko nustatyti tapatybės"
+
+#: templates/auth_error.html
+msgid "There was a problem accessing your account. Please try again."
+msgstr ""
+"Iškilo problema kreipiantis į jūsų paskyrą. Prašome bandyti dar kartą."
+
+#: templates/base-error.html
+msgid "Use our support tool to ask questions or share feedback."
+msgstr ""
+"Norėdami užduoti klausimų arba pateikti atsiliepimą naudokitės mūsų "
+"priežiūros priemone."
+
+#. Translators: This intention here is that a user clicks a button to contact
+#. a support group (e.g. edX Support, or MITx Support). Reorder the
+#. placeholder as you see fit.
+#: templates/base-error.html
+msgid "Contact %(platform_name)s Support"
+msgstr "Susisiekti su %(platform_name)s techninės priežiūros tarnyba"
+
+#. Translators: Application here refers to the web site/application being used
+#. (e.g. the dashboard).
+#: templates/base.html templates/footer.html templates/lens-navigation.html
+msgid "Application"
+msgstr "Taikomoji programa"
+
+#: templates/footer.html
+msgid ""
+"We want this dashboard to work for you! Need help? %(support_link_start)sVisit our support\n"
+"          forum%(support_link_end)s. Comments or suggestions? Email %(email_link)s."
+msgstr ""
+"Mes norime, kad šis informacinis puslapis būtų jums naudingas! Reikia "
+"pagalbos? %(support_link_start)sApsilankykite mūsų techninės priežiūros "
+"forume%(support_link_end)s. Turite pastabų ar pasiūlymų? Parašykite mums el."
+" paštu %(email_link)s."
+
+#: templates/footer.html
+msgid "Terms of Service"
+msgstr "Naudojimosi sąlygos "
+
+#: templates/footer.html
+msgid "Privacy Policy"
+msgstr "Privatumo politika"
+
+#. Translators: The © symbol appears directly before this line.
+#: templates/footer.html
+msgid ""
+" %(current_year)s %(platform_name)s, except where noted, all rights\n"
+"            reserved. "
+msgstr ""
+" %(current_year)s %(platform_name)s, išskyrus kur pažymėta, visos teisės "
+"saugomos. "
+
+#: templates/header.html
+msgid "Toggle navigation"
+msgstr "Įjungti/išjungti naršymą"
+
+#: templates/header.html
+msgid "Help"
+msgstr "Pagalba"
+
+#: templates/header.html
+msgid "Logout"
+msgstr "Atsijungti"
+
+#. Translators: This refers to the active tab/navigation item.
+#: templates/lens-navigation.html templates/lens-navigation.html.py
+msgid "Active"
+msgstr "Aktyvus"
+
+#: templates/loading.html
+msgid "LOADING..."
+msgstr "ĮKELIAMA..."
+
+#: templates/section_error.html
+msgid "We are unable to load this chart."
+msgstr "Nepavyko įkelti šios diagramos."
+
+#: templates/section_error.html
+msgid "We are unable to load this table."
+msgstr "Nepavyko įkelti šios lentelės."
+
+#: templates/section_error.html
+msgid "We are unable to load these metrics."
+msgstr "Nepavyko įkelti šios metrikos."
+
+#: templates/section_error.html
+msgid ""
+"This data may not be available for your course.  You\n"
+"                    can %(link_start)sview the full list%(link_end)s of potential causes for these\n"
+"                    errors in the documentation."
+msgstr ""
+"Šie duomenys jūsų kursui neprieinami. Galite %(link_start)speržiūrėti visą "
+"sąrašą%(link_end)s, kokios gali būti šių dokumentacijos klaidų priežastys."
+
+#: templates/registration/logged_out.html
+#: templates/registration/logged_out.html
+msgid "Logged Out"
+msgstr "Atsijungta"
+
+#: templates/registration/logged_out.html
+msgid "You have been logged out. Click the button below to login again."
+msgstr ""
+"Jūs atsijungėte. Norėdami prisijungti paspauskite žemiau esantį mygtuką."
+
+#: templates/registration/logged_out.html
+msgid "Login"
+msgstr "Prisijungti"

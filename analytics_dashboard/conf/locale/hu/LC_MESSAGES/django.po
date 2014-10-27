@@ -1,0 +1,446 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Keleti László <lkeleti@wininvestor.hu>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: edx-platform\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-10-01 15:22-0400\n"
+"PO-Revision-Date: 2014-10-27 15:11+0000\n"
+"Last-Translator: Keleti László <lkeleti@wininvestor.hu>\n"
+"Language-Team: Hungarian (http://www.transifex.com/projects/p/edx-platform/language/hu/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Translators: This is a label to identify current student enrollment.
+#: courses/views.py courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_geography.html
+#: courses/tests/test_views.py
+msgid "Enrollment"
+msgstr "Feliratkozás"
+
+#: courses/views.py courses/tests/test_views.py
+msgid "Engagement"
+msgstr "Terheltség"
+
+#: courses/views.py courses/tests/test_views.py
+msgid "Activity"
+msgstr "Aktivitás"
+
+#: courses/views.py courses/tests/test_views.py
+msgid "Geography"
+msgstr "Földrajzi hely szerint"
+
+#. Translators: Content as in course content (e.g. things, not the feeling)
+#: courses/views.py courses/tests/test_views.py
+msgid "Content"
+msgstr "Tartalom"
+
+#: courses/views.py
+msgid "Enrollment Activity"
+msgstr "Beiratkozási aktivitás"
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Enrollment activity data was last updated %(update_date)s at %(update_time)s"
+" UTC."
+msgstr ""
+"A feliratkozási adatok frissítése utoljára %(update_date)s,  %(update_time)s"
+" UTC -kor történt meg."
+
+#: courses/views.py
+msgid "Enrollment Geography"
+msgstr "Beiratkozás földrajzi hely szerint"
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Geographic student data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr ""
+"A tanulók földrajzi adatai frissítésre kerültek %(update_date)s "
+"%(update_time)s UTC -kor."
+
+#: courses/views.py
+msgid "Engagement Content"
+msgstr "Tartalom terheltsége"
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Course engagement data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr ""
+"A kurzus terheltségi adatai  %(update_date)s, %(update_time)s UTC-kor "
+"kerültek frissítésre."
+
+#: courses/templates/courses/engagement_content.html
+msgid "Weekly Student Engagement"
+msgstr "Tanulók heti terheltsége"
+
+#: courses/templates/courses/engagement_content.html
+msgid "How many students are interacting with my course?"
+msgstr "Hány tanuló került kapcsolatba a kurzussal?"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Student Activity Metrics"
+msgstr "Tanulók aktivitási mértéke"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Active Students Last Week"
+msgstr "Aktív tanulók az elmúlt héten"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Students who visited at least one page in the course content."
+msgstr "Tanulók akik legalább egy oldalt megnéztek a kurzus tartalmából."
+
+#. Translators: This is a label indicating the number of students who watched
+#. a video.
+#: courses/templates/courses/engagement_content.html
+msgid "Watched a Video Last Week"
+msgstr "Múlt héten nézett videók"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Students who played one or more videos."
+msgstr "Tanulók, akik legalább egy videót megnéztek."
+
+#. Translators: This is a label indicating the number of students who tried a
+#. problem.
+#: courses/templates/courses/engagement_content.html
+msgid "Tried a Problem Last Week"
+msgstr "Múlt héten próbált feladat"
+
+#: courses/templates/courses/engagement_content.html
+msgid ""
+"Students who submitted an answer for a standard problem. Not all problem "
+"types are included."
+msgstr ""
+"Tanulók, akik válaszoltak egy szabványos feladatra. Nem tartalmazza az "
+"összes feladat típust."
+
+#. Translators: This is a label indicating the number of students who posted
+#. in a forum discussion.
+#: courses/templates/courses/engagement_content.html
+msgid "Posted in a Discussion Last Week"
+msgstr "Múlt héten küldött Viták"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Students who contributed to any discussion topic."
+msgstr "Tanulók akik részt vettek vitában."
+
+#: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/engagement_content.html
+msgid "Content Engagement Breakdown"
+msgstr "Tartalom terheltség letörése"
+
+#: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_geography.html
+msgid "Download CSV"
+msgstr "CSV letöltése"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid "Daily Student Enrollment"
+msgstr "Napi tanuló-hozzárendelés"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid "How many students are in my course?"
+msgstr "Hány diák iratkozott be a kurzusomba?"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid "Enrollment Metrics"
+msgstr "Beiratkozás mértéke"
+
+#. Translators: This is a label indicating the number of students enrolled in
+#. a course.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Students enrolled in the course."
+msgstr "Tanulók iratkoztak fel a kurzusra."
+
+#. Translators: This is a label indicating the change in the number of
+#. students enrolled in a course since the previous week.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Change in Last Week"
+msgstr "Az elmúlt heti változások"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid ""
+"The difference between the number of students enrolled at the end of the day"
+" yesterday and one week before."
+msgstr ""
+"Különbség a beiratkozott tanulók számában a nap végén, tegnap és egy héttel "
+"ezelőtti állapot szerint."
+
+#: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_activity.html
+msgid "Enrollment Over Time"
+msgstr "Időn túli beiratkozás"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Geographic Distribution"
+msgstr "Földrajzi eloszlás"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Where are my students?"
+msgstr "Hol vannak a tanulóim?"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Enrollment by Country"
+msgstr "Beiratkozás ország szerint"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Geography Metrics"
+msgstr "Földrajzi mérték"
+
+#. Translators: This string represents the number of countries where students
+#. are enrolled.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Total Countries Represented"
+msgstr "Az összes képviselt ország"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Countries with at least one student."
+msgstr "Országok, melyekből legalább egy tanuló beiratkozott."
+
+#. Translators: This string represents the country with the greatest number of
+#. enrolled students.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Top Country by Enrollment"
+msgstr "Ország, ahonnan a legtöbben iratkoztak be"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country with the largest number of students."
+msgstr "Ország a legnagyobb tanulói számmal"
+
+#. Translators: This string represents the country with the second-greatest
+#. number of enrolled students.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Second Country by Enrollment"
+msgstr "Beiratkozás szerinti második ország"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country with the second largest number of students."
+msgstr "Ország a második legnagyobb számú tanulóval"
+
+#. Translators: This string represents the country with the third-greatest
+#. number of enrolled students.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Third Country by Enrollment"
+msgstr "Beiratkozás szerinti harmadik ország"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country with the third largest number of students."
+msgstr "Ország a harmadik legnagyobb tanulói számmal"
+
+#. Translators: This string represents the percentage of students in a course.
+#. Move the % symbol, if necessary, but keep the percent variable/placeholder.
+#: courses/templates/courses/enrollment_geography.html
+msgid "%(percent)s%% of students"
+msgstr "tanulók %(percent)s%%-a"
+
+#: courses/templates/courses/enrollment_geography.html
+#: courses/templates/courses/enrollment_geography.html
+msgid "Geographic Breakdown"
+msgstr "Földrajzi lemorzsolódás"
+
+#: courses/templates/courses/index.html
+msgid "Courses"
+msgstr "Kurzusok"
+
+#: courses/templates/courses/index.html
+msgid "Welcome, %(username)s!"
+msgstr "Üdvözlünk, %(username)s!"
+
+#: courses/templates/courses/index.html
+msgid "Here are the courses you currently have access to in Insights:"
+msgstr "Ezekhez a kurzusokhoz van betekintési hozzáférésed:"
+
+#: courses/templates/courses/index.html
+msgid "New to %(application_name)s?"
+msgstr "Új vagy a  %(application_name)s programban?"
+
+#: courses/templates/courses/index.html
+msgid ""
+" Click Help in the upper-right corner to get more information\n"
+"            about %(application_name)s. Send us feedback at %(email_link)s."
+msgstr ""
+"%(application_name)s -val kapcsolatos további információkhoz kattints a jobb"
+" felső sarokban található Segítség gombra. Küldj visszajelzést a "
+"%(email_link)s címre."
+
+#. Translators: This message is displayed when the website is unable to get
+#. the credentials for the user
+#: courses/templates/courses/permissions-retrieval-failed.html
+#: courses/templates/courses/permissions-retrieval-failed.html
+msgid "Permissions Retrieval Failed"
+msgstr "Jogosultság lekérése sikertelen"
+
+#: courses/templates/courses/permissions-retrieval-failed.html
+msgid ""
+"There was a problem retrieving course permissions for your account. Please "
+"try again. If you continue to experience issues, please let us know."
+msgstr ""
+"Hiba történt a fiókodhoz rendelt kurzus jogok lekérése közben. Kérlek "
+"próbáld meg újra. Ha sikerül folytatnod, akkor oszd meg velünk a "
+"tapasztalataid."
+
+#: courses/templates/courses/permissions-retrieval-failed.html
+#: templates/auth_error.html
+msgid "Try Again"
+msgstr "Próbáld meg újra"
+
+#: templates/403.html templates/403.html.py
+msgid "Access Denied"
+msgstr "Hozzáférés megtagadva"
+
+#: templates/403.html
+msgid ""
+"You do not have permission to view this page. If you believe you should have"
+" access to this page, try logging out and logging in again to refresh your "
+"permissions."
+msgstr ""
+"Nincs jogod megnézni ezt az oldalt. Ha úgy gondolod, hogy van jogod hozzá, "
+"akkor jelentkezz ki és vissza, hogy a jogosultságok frissítésre kerüljenek."
+
+#: templates/403.html
+msgid "Logout then Login"
+msgstr "Jelentkezz ki, majd vissza"
+
+#: templates/404.html templates/404.html.py
+msgid "Page Not Found"
+msgstr "Az oldal nem található"
+
+#: templates/404.html
+msgid ""
+"We can't find the page you're looking for. Please make sure the URL is "
+"correct and if not try again."
+msgstr ""
+"Nem találjuk az általad keresett oldalt. Győződj meg róla, hogy a beírt URL "
+"helyes, ha nem, akkor ne próbálkozz újra."
+
+#: templates/500.html templates/500.html.py
+msgid "An Error Occurred"
+msgstr "Hiba történt"
+
+#: templates/500.html
+msgid ""
+"Our servers weren't able to complete your request. Please try again by "
+"refreshing this page or retracing your steps."
+msgstr ""
+"A szervereink nem tudták feldolgozni a kérésed. Kérlek frissítsd az oldalt, "
+"vagy ismételd meg a legutóbbi lépéseket."
+
+#: templates/auth_error.html templates/auth_error.html.py
+msgid "Authentication Failed"
+msgstr "Azonosítás sikertelen"
+
+#: templates/auth_error.html
+msgid "There was a problem accessing your account. Please try again."
+msgstr "Hiba történt a fiókod elérése közben. Kérlek próbáld meg újra."
+
+#: templates/base-error.html
+msgid "Use our support tool to ask questions or share feedback."
+msgstr ""
+"Használd a támogató eszközöket kérdés feltevéshez, vagy oszd meg a "
+"visszajelzésed."
+
+#. Translators: This intention here is that a user clicks a button to contact
+#. a support group (e.g. edX Support, or MITx Support). Reorder the
+#. placeholder as you see fit.
+#: templates/base-error.html
+msgid "Contact %(platform_name)s Support"
+msgstr "Vedd fel a kapcsolatot a %(platform_name)s támogató csoporttal"
+
+#. Translators: Application here refers to the web site/application being used
+#. (e.g. the dashboard).
+#: templates/base.html templates/footer.html templates/lens-navigation.html
+msgid "Application"
+msgstr "Applikáció"
+
+#: templates/footer.html
+msgid ""
+"We want this dashboard to work for you! Need help? %(support_link_start)sVisit our support\n"
+"          forum%(support_link_end)s. Comments or suggestions? Email %(email_link)s."
+msgstr ""
+"Azt szeretnénk, ha ez a műszerfal érted dolgozna! Segítségre van szükséged? %(support_link_start)sNézd meg a támogatói fórumunkat%(support_link_end)s. \n"
+"Hozzászólnál, javasolnál? Küldj e-mailt %(email_link)s."
+
+#: templates/footer.html
+msgid "Terms of Service"
+msgstr "Szolgáltatási feltételek"
+
+#: templates/footer.html
+msgid "Privacy Policy"
+msgstr "Adatvédelem"
+
+#. Translators: The © symbol appears directly before this line.
+#: templates/footer.html
+msgid ""
+" %(current_year)s %(platform_name)s, except where noted, all rights\n"
+"            reserved. "
+msgstr ""
+"%(current_year)s %(platform_name)s, minden jog fenntartva\n"
+" kivéve, ahol mást írunk."
+
+#: templates/header.html
+msgid "Toggle navigation"
+msgstr "Navigáció bekapcsolása"
+
+#: templates/header.html
+msgid "Help"
+msgstr "Segítség"
+
+#: templates/header.html
+msgid "Logout"
+msgstr "Kijelentkezés"
+
+#. Translators: This refers to the active tab/navigation item.
+#: templates/lens-navigation.html templates/lens-navigation.html.py
+msgid "Active"
+msgstr "Aktív"
+
+#: templates/loading.html
+msgid "LOADING..."
+msgstr "BETÖLTÉS..."
+
+#: templates/section_error.html
+msgid "We are unable to load this chart."
+msgstr "Diagram betöltése sikertelen."
+
+#: templates/section_error.html
+msgid "We are unable to load this table."
+msgstr "Táblázat betöltése sikertelen."
+
+#: templates/section_error.html
+msgid "We are unable to load these metrics."
+msgstr "Mértékegység betöltése sikertelen."
+
+#: templates/section_error.html
+msgid ""
+"This data may not be available for your course.  You\n"
+"                    can %(link_start)sview the full list%(link_end)s of potential causes for these\n"
+"                    errors in the documentation."
+msgstr ""
+"Ezek az adatok nem érhetőek el a kurzushoz.\n"
+" %(link_start)sMegnézheted a lehetséges hibák%(link_end)s teljes listáját a hibalisták dokumentációjában."
+
+#: templates/registration/logged_out.html
+#: templates/registration/logged_out.html
+msgid "Logged Out"
+msgstr "Kijelentkezett"
+
+#: templates/registration/logged_out.html
+msgid "You have been logged out. Click the button below to login again."
+msgstr ""
+"Kijelentkeztél. Kattints lentebb a gombra az ismételt bejelentkezéshez."
+
+#: templates/registration/logged_out.html
+msgid "Login"
+msgstr "Bejelentkezés"
