@@ -50,12 +50,12 @@ def get_mock_enrollment_summary_and_trend(course_id):
 
 def get_mock_presenter_enrollment_trend(course_id):
     trend = get_mock_api_enrollment_data(course_id)
-    # presenter data has gaps filled in
-    empty_enrollment = {
-        'count': 0,
+    # presenter data has gaps filled in with previous day's count
+    filled_enrollment = {
+        'count': 1,
         'date': '2013-12-31'
     }
-    trend.insert(1, empty_enrollment)
+    trend.insert(1, filled_enrollment)
     return trend
 
 
