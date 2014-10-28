@@ -191,7 +191,7 @@ class CourseEnrollmentPresenter(BaseCourseEnrollmentPresenter):
         # add zero for the day prior (prevents just a single point in the chart)
         if len(trends) == 1:
             day_before = self.parse_api_date(trends[0]['date']) - datetime.timedelta(days=1)
-            trends.insert(0, self._build_empty_trend(day_before))
+            trends.insert(0, self._create_enrollment_datapoint(day_before, 0))
 
         return summary, trends
 
@@ -205,12 +205,13 @@ class CourseEnrollmentPresenter(BaseCourseEnrollmentPresenter):
                 expected_date = start_date + datetime.timedelta(days=day_change)
                 current_date = self.parse_api_date(api_response[day_change]['date'])
                 if current_date > expected_date:
-                    api_response.insert(day_change, self._build_empty_trend(expected_date))
+                    api_response.insert(day_change, self._create_enrollment_datapoint(
+                        expected_date, api_response[day_change]['count']))
 
         return api_response
 
-    def _build_empty_trend(self, day):
-        trend = {'date': day.isoformat(), 'count': 0}
+    def _create_enrollment_datapoint(self, day, count):
+        trend = {'date': day.isoformat(), 'count': count}
         return trend
 
     def _translate_country_names(self, data):
