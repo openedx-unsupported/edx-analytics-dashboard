@@ -140,7 +140,7 @@ Documentation
 
 Documentation for developers is available on the docs.edx.org web page.
 
-* `edX Developer Documentation`_ collects information directly from edX
+* `edX Platform Developer's Guide`_ collects information directly from edX
   platform python docstrings. The topics in this guide include guidelines for
   contributing to Open edX, options for extending the Open edX platform, using
   the edX public sandboxes, instrumenting analytics, and testing.
@@ -271,7 +271,7 @@ edX Global Community meetup_ group.
 .. _Open Source Home: http://edx-wiki.atlassian.net/wiki/display/OS/Open+Source+Home
 .. _XBlock: http://edx.readthedocs.org/projects/xblock/en/latest/
 .. _Installing, Configuring, and Running the edX Platform: http://edx.readthedocs.org/projects/edx-installing-configuring-and-running/en/latest/
-.. _edX Developer Documentation: http://edx-developer-guide.readthedocs.org/en/latest/
+.. _edX Platform Developer's Guide: http://edx.readthedocs.org/projects/edx-developer-guide/en/latest/
 .. _edx/configuration: http://github.com/edx/configuration/wiki
 .. _site: http://code.edx.org/
 .. _edx/edx-platform: https://github.com/edx/edx-platform
