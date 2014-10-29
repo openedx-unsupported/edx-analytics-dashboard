@@ -196,19 +196,19 @@ def get_presenter_enrollment_binned_ages():
 
     # adjust 100+
     binned[0]['count'] = 100
-    binned[0]['percent'] = 0.1
+    binned[0]['percent'] = 0.05
 
     # adjust year 2014
     index_2014 = 2014 - current_year - 1
     binned[index_2014]['count'] = 500
-    binned[index_2014]['percent'] = 0.5
+    binned[index_2014]['percent'] = 0.25
 
     # adjust year 2000
     index_2000 = 2000 - current_year - 1
     binned[index_2000]['count'] = 400
-    binned[index_2000]['percent'] = 0.4
+    binned[index_2000]['percent'] = 0.2
 
-    binned.insert(0, {'age': 'Unknown', 'count': 1000})
+    binned.insert(0, {'age': 'Unknown', 'count': 1000, 'percent': 0.5})
 
     return binned[::-1]
 

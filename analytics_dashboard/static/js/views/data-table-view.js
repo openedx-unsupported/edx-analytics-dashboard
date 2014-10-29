@@ -11,7 +11,20 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
                 self.options = options || {};
                 self.options.sorting = options.sorting || [];
 
+                self.addNaturalSort();
                 self.renderIfDataAvailable();
+            },
+
+            /**
+             * Adds natural sort to the data table sorting.
+             */
+            addNaturalSort: function() {
+                $.fn.dataTableExt.oSort['natural-asc'] = function (a, b) {
+                    return Utils.naturalSort(a,b);
+                };
+                $.fn.dataTableExt.oSort['natural-desc'] = function (a, b) {
+                    return -Utils.naturalSort(a,b);
+                };
             },
 
             _buildSorting: function () {
@@ -66,6 +79,8 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
                         // this is useful so that sorting is number based, but
                         // '+' can be displayed after the maximum
                         def.data = self.createFormatMaxNumberFunc(column.key, column.maxNumber);
+                        // this column has a mix of numbers and strings
+                        def.type = 'natural';
                     }
 
                     defs.push(def);
@@ -113,7 +128,8 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
                 return function(row, type) {
                     var value = row[columnKey],
                         display = value;
-                    if (type === 'display') {
+                    // isNaN() return true for strings -- e.g. 'Unknown'
+                    if (type === 'display' && !isNaN(value)) {
                         display = Utils.localizeNumber(value);
                         if (value >= maxNumber) {
                             display = display + '+';
@@ -132,7 +148,7 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
                     var value = row[columnKey],
                         display = value;
                     if (type === 'display') {
-                        display = ' ' + Utils.formatDisplayPercentage(value);
+                        display = Utils.formatDisplayPercentage(value);
                     }
                     return display;
                 };
