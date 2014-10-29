@@ -35,22 +35,23 @@ enrollment of the course creator when the course was created in Studio. This
 data is also available for review in tabular format and can be downloaded.
 
 A couple of examples of this chart follow for different courses. In the first
-example, you see the enrollment climb fairly steadily over a period of nearly
-six months for a MOOC. The markers begin with 2 "student" enrollments (almost
+example, you see the enrollment climb fairly steadily over a period of five months for a MOOC. The markers begin with 2 "student" enrollments (almost
 certainly the course creator and another staff member) on the day the course
 was created in Studio. 
 
 .. image:: ../images/enrollment_chart.png
  :alt: The Daily Student Enrollment chart for nearly six months. The periods
        when the rate of enrollment was greater are circled, and the tip for the
-       course start date on September 1st is shown.
+       course start date on October 24th is shown.
+
+.. ColumbiaX/HIST1.1x/3T2014/enrollment/activity/
 
 The chart does reveal several periods when the rate of new enrollments
-increased, or "spiked" (circled). The team for this course might have the
-contextual knowledge to correlate those periods with marketing efforts or
+increased rapidly, or "spiked" (circled). The team for this course might have
+the contextual knowledge to correlate those periods with marketing efforts or
 automated enrollment events, or might want to research possible explanations.
-After the course start date, on September 1, 2014, enrollment continued to
-increase. You can then begin to see a slight decline.
+After the course start date, on September 17, 2014, enrollment continued to
+increase. 
 
 The second example shows the Daily Student Enrollment chart for a small,
 private online course. In this course, the course team used the Instructor
@@ -59,6 +60,8 @@ Dashboard to autoenroll all of the students.
 .. image:: ../images/enrollment_chart_SPOC.png
  :alt: The Daily Student Enrollment chart with a nearly vertical line showing
        an increase from just over 0 to over 700 students in a two week period.
+
+.. IMFx/OL14.01/2T2014/enrollment/activity/
 
 See the :ref:`Reference` for a detailed description of how enrollment values
 are determined.

@@ -34,14 +34,22 @@ place.
 Student gender data is also available for review in tabular format and can be
 downloaded.
 
-.. An example of this chart follows. 
+Examples of this chart for two different courses follow. 
 
-.. .. image:: ../images/gender_chart.png
-..  :alt: 
+.. image:: ../images/gender_chart_even.png
+   :alt: A bar chart showing 46% female and 53% male
 
-.. The chart reveals %%. The team for this course might %%.
+.. RiceX/AdvBIOx/2014T3/enrollment/demographics/gender/
 
-.. any suggestions for an interesting-looking chart, and how it moght be interpreted as shopwing the success or failure of a marketing effort, would be much appreciated.
+.. image:: ../images/gender_chart_disparate.png
+   :alt: A bar chart showing 16% female and 82% male
+
+.. MITx/8.MReVx/2T2014/enrollment/demographics/gender/
+
+These charts are both for science courses. In both courses, the median
+student age is 25. Each of these course teams might use this information as a
+starting point for an investigation into how students learn about their course
+offering and make the decision to enroll in the course.
 
 See the :ref:`Reference` for a detailed description of how student gender
 values are computed.
@@ -76,10 +84,10 @@ Analytics in Action: Interpreting Gender Distribution
 Researching an Unanticipated Disparity
 ===============================================
 
-Not long before launch, the team for a programming MOOC checked the
-demographics for the students who had enrolled. They were completely surprised
-by the extent of the gender imbalance, which was far more acute than they had
-ever seen in their on-campus version of the class.
+Not long before launch, the team for a math MOOC checked the demographics for
+the students who had enrolled. They were surprised to observe a gender
+imbalance that was far more acute than they had ever seen in their on-campus
+version of the class.
 
 The team looked into possible contributing factors, and realized that the
 audiences of the journal articles and blog posts that had been written about
@@ -87,7 +95,10 @@ the course skewed heavily male. They also reread the course About page to see
 if it represented the course differently than they had intended.
 
 Even more important to the team than finding potential causes was to make an
-effort to enroll more women in the course. To do so, they reached out to
-professional women’s organizations for guidance on ways to market the course to
-their members. (With edX Insights, the team could monitor the success of this
-effort by checking the enrollment trend for women in the CSV file.)
+effort to enroll more women in the course. To do so, the team subsequently
+partnered with professional women’s organizations for guidance on ways to
+market the course to their members. 
+
+Today, teams can use edX Insights to monitor the success of such outreach
+efforts by checking the Gender Breakdown Over Time report and CSV file for
+enrollment trends.

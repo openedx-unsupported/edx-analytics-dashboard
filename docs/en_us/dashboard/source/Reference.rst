@@ -142,6 +142,76 @@ For information about viewing student demographic data in edX Insights, see
   enrolled students who provided a year of birth. Students who did not provide
   a year of birth at registration are not included.
 
+**Educational Background chart**
+
+* Students can select a highest level of education completed. 
+  
+* Each bar in the histogram represents the percentage of enrolled users
+  (y-axis) who selected a completion level (x-axis).
+
+* Percentages are calculated for the total number of students who reported an
+  educational level, not from the total number of students enrolled in the
+  course.
+
+*  The table that follows shows each edX Insights label, the option that
+   students can select at registration, and a brief description.
+  
+  .. list-table::
+     :widths: 10 20 70
+     :header-rows: 1
+
+     * - edX Insights Label
+       - Student Response
+       - Description
+     * - None
+       - None
+       - No formal education.
+     * - Primary
+       - Elementary/primary school
+       - Initial schooling lasting approximately six years.
+     * - Middle
+       - Junior secondary/junior high/middle school
+       - Continuing basic education lasting two to three years.
+     * - Secondary
+       - Secondary/high school
+       - More specialized preparation for continuing education or employment
+         lasting three to four years.
+     * - Associate
+       - Associate's degree
+       - Completion of two years of post-secondary education.
+     * - Bachelor's
+       - Bachelor's degree
+       - Completion of four years of post-secondary education.
+     * - Master's
+       - Master's or professional degree
+       - Certification for advanced academic or occupationally specific
+         education.
+     * - Doctorate
+       - Doctorate
+       - Advanced qualification for original research.
+
+**Educational Background band metrics**
+
+* Student educational backgrounds are grouped into three bands, as follows.
+  
+  .. list-table::
+     :widths: 10 70
+     :header-rows: 1
+
+     * - Band
+       - Student Response
+     * - High school diploma or less
+       - None, Elementary/primary school, Junior secondary/junior high/middle
+         school, Secondary/high school
+     * - College Degree
+       - Associate's degree, Bachelor's degree
+     * - Advanced Degree
+       - Master's or professional degree, Doctorate
+
+* The percentage of students in each band is computed from the number of
+  enrolled students who provided an educational level completed. Students who
+  did not provide this information at registration are not included.
+
 **Gender chart and report**
 
 * Students can select a gender. The chart depicts the percentage of students

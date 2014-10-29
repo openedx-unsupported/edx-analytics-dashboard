@@ -10,11 +10,12 @@ is categorized into Enrollment Activity, Demographics, and Geography: select
 one of the links at the top of the page to access data in these categories.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    Enrollment_Activity
    Enrollment_Demographics
    Demographics_Age
+   Demographics_Education
    Demographics_Gender
    Enrollment_Geography
 
