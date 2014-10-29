@@ -20,7 +20,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                 title: gettext('Education'),
                 color: 'rgb(58, 162, 224)'
             }],
-            x: { key: 'educationLevelShort' },
+            x: { key: 'educationLevel' },
             y: { key: 'percent' }
         });
 
@@ -29,7 +29,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             model: page.models.courseModel,
             modelAttribute: 'education',
             columns: [
-                {key: 'educationLevelLong', title: gettext('Educational Background')},
+                {key: 'educationLevel', title: gettext('Educational Background')},
                 {key: 'count', title: gettext('Number of Students'), className: 'text-right'}
             ],
             sorting: ['-count']

@@ -2,7 +2,7 @@ import copy
 import datetime
 import logging
 
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 from django_countries import countries
 from waffle import switch_is_active
@@ -34,18 +34,34 @@ GENDER_ORDER = {
     GENDER.OTHER: 2
 }
 
+
+KNOWN_EDUCATION_LEVELS = [EDUCATION_LEVEL.NONE, EDUCATION_LEVEL.OTHER, EDUCATION_LEVEL.PRIMARY,
+                          EDUCATION_LEVEL.JUNIOR_SECONDARY, EDUCATION_LEVEL.SECONDARY, EDUCATION_LEVEL.ASSOCIATES,
+                          EDUCATION_LEVEL.BACHELORS, EDUCATION_LEVEL.MASTERS, EDUCATION_LEVEL.DOCTORATE]
 # for display
-EDUCATION_SHORT_NAMES = {
-    EDUCATION_LEVEL.NONE: 'None',
-    EDUCATION_LEVEL.OTHER: 'Other',
-    EDUCATION_LEVEL.PRIMARY: 'Elementary',
-    EDUCATION_LEVEL.JUNIOR_SECONDARY: 'Middle',
-    EDUCATION_LEVEL.SECONDARY: 'High',
-    EDUCATION_LEVEL.ASSOCIATES: 'Associates',
-    EDUCATION_LEVEL.BACHELORS: 'Bachelors',
-    EDUCATION_LEVEL.MASTERS: 'Masters',
-    EDUCATION_LEVEL.DOCTORATE: 'Doctorate'
+EDUCATION_NAMES = {
+    # Translators: This describes the learner's education level.
+    EDUCATION_LEVEL.NONE: _('None'),
+    # Translators: This describes the learner's education level.
+    EDUCATION_LEVEL.OTHER: _('Other'),
+    # Translators: This describes the learner's education level (e.g. Elementary School Degree).
+    EDUCATION_LEVEL.PRIMARY: _('Primary'),
+    # Translators: This describes the learner's education level  (e.g. Middle School Degree).
+    EDUCATION_LEVEL.JUNIOR_SECONDARY: _('Middle'),
+    # Translators: This describes the learner's education level.
+    EDUCATION_LEVEL.SECONDARY: _('Secondary'),
+    # Translators: This describes the learner's education level (e.g. Associate's Degree).
+    EDUCATION_LEVEL.ASSOCIATES: _("Associate"),
+    # Translators: This describes the learner's education level (e.g. Bachelor's Degree).
+    EDUCATION_LEVEL.BACHELORS: _("Bachelor's"),
+    # Translators: This describes the learner's education level (e.g. Master's Degree).
+    EDUCATION_LEVEL.MASTERS: _("Master's"),
+    # Translators: This describes the learner's education level (e.g. Doctorate Degree).
+    EDUCATION_LEVEL.DOCTORATE: _('Doctorate')
 }
+
+# Translators: This describes the learner's education level.
+UNKNOWN_EDUCATION_LEVEL_NAME = _('Unknown')
 
 # order for displaying in the chart
 EDUCATION_ORDER = {
@@ -564,7 +580,7 @@ class CourseEnrollmentDemographicsPresenter(BaseCourseEnrollmentPresenter):
     def _calculate_education_percent(self, api_response, levels):
         """ Aggregates levels of education and returns the percent of the total. """
         filtered_levels = ([education for education in api_response
-                            if education['education_level']['short_name'] in levels])
+                            if education['education_level'] in levels])
         subset_enrollment = self._calculate_total_enrollment(filtered_levels)
         return self._calculate_percent(subset_enrollment, self._calculate_total_enrollment(api_response))
 
@@ -585,11 +601,10 @@ class CourseEnrollmentDemographicsPresenter(BaseCourseEnrollmentPresenter):
     def _build_education_levels(self, api_response):
         known_education = [i for i in api_response if i['education_level']]
         known_enrollment_total = self._calculate_total_enrollment(known_education)
-        levels = [{'educationLevelShort': EDUCATION_SHORT_NAMES[datum['education_level']['short_name']],
-                   'educationLevelLong': datum['education_level']['name'],
+        levels = [{'educationLevel': EDUCATION_NAMES[datum['education_level']],
                    'count': datum['count'],
                    'percent': self._calculate_percent(datum['count'], known_enrollment_total),
-                   'order': EDUCATION_ORDER[datum['education_level']['short_name']]}
+                   'order': EDUCATION_ORDER[datum['education_level']]}
                   for datum in known_education]
 
         levels = sorted(levels, key=lambda i: i['order'], reverse=False)
@@ -599,12 +614,24 @@ class CourseEnrollmentDemographicsPresenter(BaseCourseEnrollmentPresenter):
         if unknown:
             unknown_count = unknown[0]['count']
             levels.append({
-                'educationLevelShort': 'Unknown',
-                'educationLevelLong': 'Unknown',
+                'educationLevel': UNKNOWN_EDUCATION_LEVEL_NAME,
                 'count': unknown_count
             })
 
         return levels
+
+    def _fill_empty_education_levels(self, api_response):
+        found_levels = [level['education_level'] for level in api_response]
+        # get the symmetric difference
+        missed_levels = list(set(found_levels) ^ set(KNOWN_EDUCATION_LEVELS))
+
+        for level in missed_levels:
+            api_response.append({
+                'education_level': level,
+                'count': 0
+            })
+
+        return api_response
 
     def get_education(self):
         api_response = self.course.enrollment(demographic.EDUCATION)
@@ -615,6 +642,7 @@ class CourseEnrollmentDemographicsPresenter(BaseCourseEnrollmentPresenter):
 
         if api_response:
             last_updated = self.parse_api_datetime(api_response[0]['created'])
+            api_response = self._fill_empty_education_levels(api_response)
             education_levels = self._build_education_levels(api_response)
             education_summary = self._build_education_summary(api_response)
             known_enrollment_percent = self._calculate_known_total_percent(api_response, 'education_level')

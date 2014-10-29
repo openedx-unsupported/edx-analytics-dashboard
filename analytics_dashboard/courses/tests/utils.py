@@ -275,90 +275,63 @@ def get_mock_api_enrollment_education_data(course_id):
         {
             'course_id': course_id,
             'date': '2014-09-22',
-            'education_level': {
-                'name': 'None',
-                'short_name': EDUCATION_LEVEL.NONE
-            },
+            'education_level': EDUCATION_LEVEL.NONE,
             'count': 100,
             'created': CREATED_DATETIME_STRING
         },
         {
             'course_id': course_id,
             'date': '2014-09-22',
-            'education_level': {
-                'name': 'Other',
-                'short_name': EDUCATION_LEVEL.OTHER
-            },
+            'education_level': EDUCATION_LEVEL.OTHER,
             'count': 200,
             'created': CREATED_DATETIME_STRING
         },
         {
             'course_id': course_id,
             'date': '2014-09-22',
-            'education_level': {
-                'name': 'Elementary/Primary School',
-                'short_name': EDUCATION_LEVEL.PRIMARY
-            },
+            'education_level': EDUCATION_LEVEL.PRIMARY,
             'count': 100,
             'created': CREATED_DATETIME_STRING
         },
         {
             'course_id': course_id,
             'date': '2014-09-22',
-            'education_level': {
-                'name': 'Junior Secondary/Junior High/Middle School',
-                'short_name': EDUCATION_LEVEL.JUNIOR_SECONDARY
-            },
+            'education_level': EDUCATION_LEVEL.JUNIOR_SECONDARY,
             'count': 100,
             'created': CREATED_DATETIME_STRING
         },
         {
             'course_id': course_id,
             'date': '2014-09-22',
-            'education_level': {
-                'name': 'Secondary/High School',
-                'short_name': EDUCATION_LEVEL.SECONDARY
-            },
+            'education_level': EDUCATION_LEVEL.SECONDARY,
             'count': 100,
             'created': CREATED_DATETIME_STRING
         },
         {
             'course_id': course_id,
             'date': '2014-09-22',
-            'education_level': {
-                'name': "Associate's Degree",
-                'short_name': EDUCATION_LEVEL.ASSOCIATES
-            },
+            'education_level': EDUCATION_LEVEL.ASSOCIATES,
             'count': 100,
             'created': CREATED_DATETIME_STRING
         },
         {
             'course_id': course_id,
             'date': '2014-09-22',
-            'education_level': {
-                'name': "Bachelor's Degree",
-                'short_name': EDUCATION_LEVEL.BACHELORS
-            },
+            'education_level': EDUCATION_LEVEL.BACHELORS,
             'count': 100,
             'created': CREATED_DATETIME_STRING
         },
         {
             'course_id': course_id,
             'date': '2014-09-22',
-            'education_level': {
-                'name': "Master's or Professional Degree",
-                'short_name': EDUCATION_LEVEL.MASTERS
-            },
+            'education_level': EDUCATION_LEVEL.MASTERS,
             'count': 100,
             'created': CREATED_DATETIME_STRING
         },
         {
             'course_id': course_id,
             'date': '2014-09-22',
-            'education_level': {
-                'name': 'Doctorate',
-                'short_name': EDUCATION_LEVEL.DOCTORATE
-            },
+            'education_level': EDUCATION_LEVEL.DOCTORATE,
             'count': 100,
             'created': CREATED_DATETIME_STRING
         },
@@ -377,71 +350,61 @@ def get_mock_api_enrollment_education_data(course_id):
 def get_mock_presenter_enrollment_education_data():
     data = [
         {
-            'educationLevelShort': 'None',
-            'educationLevelLong': 'None',
+            'educationLevel': 'None',
             'count': 100,
             'percent': 0.1,
             'order': 0
         },
         {
-            'educationLevelShort': 'Elementary',
-            'educationLevelLong': 'Elementary/Primary School',
+            'educationLevel': 'Primary',
             'count': 100,
             'percent': 0.1,
             'order': 1
         },
         {
-            'educationLevelShort': 'Middle',
-            'educationLevelLong': 'Junior Secondary/Junior High/Middle School',
+            'educationLevel': 'Middle',
             'count': 100,
             'percent': 0.1,
             'order': 2
         },
         {
-            'educationLevelShort': 'High',
-            'educationLevelLong': 'Secondary/High School',
+            'educationLevel': 'Secondary',
             'count': 100,
             'percent': 0.1,
             'order': 3
         },
         {
-            'educationLevelShort': 'Associates',
-            'educationLevelLong': "Associate's Degree",
+            'educationLevel': "Associate",
             'count': 100,
             'percent': 0.1,
             'order': 4
         },
         {
-            'educationLevelShort': 'Bachelors',
-            'educationLevelLong': "Bachelor's Degree",
+            'educationLevel': "Bachelor's",
             'count': 100,
             'percent': 0.1,
             'order': 5
         },
         {
-            'educationLevelShort': 'Masters',
-            'educationLevelLong': "Master's or Professional Degree",
+            'educationLevel': "Master's",
             'count': 100,
             'percent': 0.1,
             'order': 6
         },
         {
-            'educationLevelShort': 'Doctorate',
-            'educationLevelLong': 'Doctorate',
+            'educationLevel': 'Doctorate',
             'count': 100,
             'percent': 0.1,
             'order': 7
         },
         {
-            'educationLevelShort': 'Other',
-            'educationLevelLong': 'Other',
+            'educationLevel': 'Other',
             'count': 200,
             'percent': 0.2,
             'order': 8
         },
         {
-            'educationLevelShort': 'Unknown',
-            'educationLevelLong': 'Unknown',
+            'educationLevel': 'Unknown',
             'count': 1000
         }
     ]
