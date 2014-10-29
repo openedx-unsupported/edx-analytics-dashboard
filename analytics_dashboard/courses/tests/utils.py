@@ -1,4 +1,5 @@
 import StringIO
+import copy
 import csv
 import datetime
 
@@ -13,33 +14,39 @@ from courses.permissions import set_user_course_permissions
 
 CREATED_DATETIME = datetime.datetime(year=2014, month=2, day=2)
 CREATED_DATETIME_STRING = CREATED_DATETIME.strftime(Client.DATETIME_FORMAT)
+GAP_START = 2
+GAP_END = 4
 
 
 def get_mock_api_enrollment_data(course_id):
     data = []
     start_date = datetime.date(year=2014, month=1, day=1)
 
-    comparative_days = range(31)
-    # create a gap to test that it's filled
-    comparative_days.insert(0, -2)
+    for index in range(31):
+        date = start_date + datetime.timedelta(days=index)
 
-    for index, day_change in enumerate(comparative_days):
-        date = start_date + datetime.timedelta(days=day_change)
-
-        data.append({
-            'date': date.strftime('%Y-%m-%d'),
+        datum = {
+            'date': date.strftime(Client.DATE_FORMAT),
             'course_id': unicode(course_id),
             'count': index,
             'created': CREATED_DATETIME_STRING
-        })
+        }
 
+        data.append(datum)
+
+    return data
+
+
+def get_mock_api_enrollment_data_with_gaps(course_id):
+    data = get_mock_api_enrollment_data(course_id)
+    data[GAP_START:GAP_END] = []
     return data
 
 
 def get_mock_enrollment_summary():
     return {
         'last_updated': CREATED_DATETIME,
-        'current_enrollment': 31,
+        'current_enrollment': 30,
         'enrollment_change_last_7_days': 7,
     }
 
@@ -49,14 +56,26 @@ def get_mock_enrollment_summary_and_trend(course_id):
 
 
 def get_mock_presenter_enrollment_trend(course_id):
-    trend = get_mock_api_enrollment_data(course_id)
-    # presenter data has gaps filled in with previous day's count
-    filled_enrollment = {
-        'count': 1,
-        'date': '2013-12-31'
-    }
-    trend.insert(1, filled_enrollment)
-    return trend
+    return get_mock_api_enrollment_data(course_id)
+
+
+def parse_date(s):
+    return datetime.datetime.strptime(s, Client.DATE_FORMAT).date()
+
+
+def get_mock_presenter_enrollment_trend_with_gaps_filled(course_id):
+    data = get_mock_presenter_enrollment_trend(course_id)
+    data[GAP_START:GAP_END] = []
+
+    datum = data[GAP_START - 1]
+
+    for i in range(GAP_START, GAP_END):
+        days = 1 + (i - GAP_START)
+        item = copy.copy(datum)
+        item['date'] = (parse_date(datum['date']) + datetime.timedelta(days=days)).strftime(Client.DATE_FORMAT)
+        data.insert(i, item)
+
+    return data
 
 
 def get_mock_presenter_enrollment_data_small(course_id):
@@ -72,7 +91,7 @@ def get_mock_presenter_enrollment_data_small(course_id):
 def get_mock_presenter_enrollment_summary_small():
     return {
         'last_updated': CREATED_DATETIME,
-        'current_enrollment': 31,
+        'current_enrollment': 30,
         'enrollment_change_last_7_days': None,
     }
 

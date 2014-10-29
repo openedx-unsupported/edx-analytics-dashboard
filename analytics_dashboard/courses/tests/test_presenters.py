@@ -139,6 +139,21 @@ class CourseEnrollmentPresenterTests(TestCase):
         self.assertListEqual(actual_trend, expected_trend)
 
     @mock.patch('analyticsclient.course.Course.enrollment')
+    def test_get_summary_and_trend_data_with_gaps(self, mock_enrollment):
+        """
+        If the API returns data with gaps, get_summary_and_trend_data should fill in those gaps with data from the
+        previous day.
+        """
+        gaps = utils.get_mock_api_enrollment_data_with_gaps(self.course_id)
+        mock_enrollment.return_value = gaps
+
+        actual_summary, actual_trend = self.presenter.get_summary_and_trend_data()
+        self.assertDictEqual(actual_summary, utils.get_mock_enrollment_summary())
+
+        expected_trend = utils.get_mock_presenter_enrollment_trend_with_gaps_filled(self.course_id)
+        self.assertListEqual(actual_trend, expected_trend)
+
+    @mock.patch('analyticsclient.course.Course.enrollment')
     def test_get_summary_and_trend_data_small(self, mock_enrollment):
         api_trend = [utils.get_mock_api_enrollment_data(self.course_id)[-1]]
         mock_enrollment.return_value = api_trend

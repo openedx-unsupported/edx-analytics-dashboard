@@ -1,3 +1,4 @@
+import copy
 import datetime
 import logging
 
@@ -191,7 +192,7 @@ class CourseEnrollmentPresenter(BaseCourseEnrollmentPresenter):
         # add zero for the day prior (prevents just a single point in the chart)
         if len(trends) == 1:
             day_before = self.parse_api_date(trends[0]['date']) - datetime.timedelta(days=1)
-            trends.insert(0, self._create_enrollment_datapoint(day_before, 0))
+            trends.insert(0, self._create_empty_enrollment_datapoint(day_before))
 
         return summary, trends
 
@@ -201,17 +202,27 @@ class CourseEnrollmentPresenter(BaseCourseEnrollmentPresenter):
             start_date = self.parse_api_date(api_response[0]['date'])
             end_date = self.parse_api_date(api_response[-1]['date'])
             days_apart = (end_date - start_date).days
+
             for day_change in range(days_apart):
                 expected_date = start_date + datetime.timedelta(days=day_change)
                 current_date = self.parse_api_date(api_response[day_change]['date'])
+
                 if current_date > expected_date:
-                    api_response.insert(day_change, self._create_enrollment_datapoint(
-                        expected_date, api_response[day_change]['count']))
+                    api_response.insert(day_change, self._clone_datapoint(api_response[day_change - 1], expected_date))
 
         return api_response
 
-    def _create_enrollment_datapoint(self, day, count):
-        trend = {'date': day.isoformat(), 'count': count}
+    def _clone_datapoint(self, datapoint, new_date):
+        """
+        Clones a datapoint, replacing the date with the date specified
+        """
+        datapoint = copy.copy(datapoint)
+        datapoint['date'] = new_date.isoformat()
+        return datapoint
+
+    def _create_empty_enrollment_datapoint(self, day):
+        trend = {'date': day.isoformat(), 'count': 0}
+
         return trend
 
     def _translate_country_names(self, data):
