@@ -41,14 +41,6 @@ define(['utils/utils'], function (Utils) {
             expect(Utils.formatDate('2014-01-01')).toEqual('January 1, 2014');
         });
 
-        it('should naturally sort', function () {
-            expect(Utils.naturalSort('a', 'b')).toEqual(-1);
-            expect(Utils.naturalSort('a', 'A')).toEqual(1);
-            expect(Utils.naturalSort('a', 0)).toEqual(1);
-            expect(Utils.naturalSort(9, 0)).toEqual(1);
-            expect(Utils.naturalSort(0, 0)).toEqual(0);
-        });
-
     });
 
     describe('formatDisplayPercentage', function () {

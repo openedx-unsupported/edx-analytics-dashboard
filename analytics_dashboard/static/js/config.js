@@ -18,6 +18,7 @@ require.config({
         load: 'js/load',
         dataTables: 'bower_components/datatables/media/js/jquery.dataTables',
         dataTablesBootstrap: 'vendor/dataTables/dataTables.bootstrap',
+        naturalSort: 'bower_components/natural-sort/naturalSort',
         d3: 'bower_components/d3/d3',
         nvd3: 'bower_components/nvd3/nv.d3',
         topojson: 'bower_components/topojson/topojson',
@@ -30,6 +31,7 @@ require.config({
         globalize: 'bower_components/globalize/dist/globalize',
         globalization: 'js/utils/globalization'
     },
+    wrapShim: true,
     shim: {
         bootstrap: {
             deps: ['jquery']
@@ -51,6 +53,9 @@ require.config({
         },
         dataTablesBootstrap: {
             deps: ['jquery', 'dataTables']
+        },
+        naturalSort: {
+            exports: 'naturalSort'
         },
         d3: {
             exports: 'd3'

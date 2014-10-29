@@ -1,5 +1,5 @@
-define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/attribute-listener-view'],
-    function (dt, $, _, Utils, AttributeListenerView) {
+define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/utils', 'views/attribute-listener-view'],
+    function (dt, $, naturalSort, _, Utils, AttributeListenerView) {
         'use strict';
 
         var DataTableView = AttributeListenerView.extend({
@@ -20,10 +20,10 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
              */
             addNaturalSort: function() {
                 $.fn.dataTableExt.oSort['natural-asc'] = function (a, b) {
-                    return Utils.naturalSort(a,b);
+                    return naturalSort(a,b);
                 };
                 $.fn.dataTableExt.oSort['natural-desc'] = function (a, b) {
-                    return -Utils.naturalSort(a,b);
+                    return -naturalSort(a,b);
                 };
             },
 
