@@ -458,11 +458,11 @@ class CourseEnrollmentDemographicsPresenter(BaseCourseEnrollmentPresenter):
     def _build_binned_ages(self, api_response):
         current_year = datetime.date.today().year
         known_ages = [i for i in api_response if i['birth_year']]
-        known_enrollment_total = self._calculate_total_enrollment(known_ages)
+        enrollment_total = self._calculate_total_enrollment(api_response)
 
         binned_ages = [{'age': current_year - int(datum['birth_year']),
                         'count': datum['count'],
-                        'percent': self._calculate_percent(datum['count'], known_enrollment_total)}
+                        'percent': self._calculate_percent(datum['count'], enrollment_total)}
                        for datum in known_ages]
 
         # fill in ages with no counts for display
@@ -484,7 +484,7 @@ class CourseEnrollmentDemographicsPresenter(BaseCourseEnrollmentPresenter):
         for datum in elderly:
             elderly_bin['count'] = elderly_bin['count'] + datum['count']
             binned_ages.remove(datum)
-        elderly_bin['percent'] = self._calculate_percent(elderly_bin['count'], known_enrollment_total)
+        elderly_bin['percent'] = self._calculate_percent(elderly_bin['count'], enrollment_total)
 
         # tack enrollment counts for students with unknown ages
         unknown = [i for i in api_response if not i['birth_year']]
@@ -492,7 +492,8 @@ class CourseEnrollmentDemographicsPresenter(BaseCourseEnrollmentPresenter):
             unknown_count = unknown[0]['count']
             binned_ages.append({
                 'age': 'Unknown',
-                'count': unknown_count
+                'count': unknown_count,
+                'percent': self._calculate_percent(unknown_count, enrollment_total)
             })
 
         return binned_ages

@@ -13,6 +13,7 @@ if (isBrowser) {
     specs = [
         config.baseUrl + 'js/spec/specs/attribute-view-spec.js',
         config.baseUrl + 'js/spec/specs/course-model-spec.js',
+        config.baseUrl + 'js/spec/specs/data-table-spec.js',
         config.baseUrl + 'js/spec/specs/tracking-model-spec.js',
         config.baseUrl + 'js/spec/specs/trends-view-spec.js',
         config.baseUrl + 'js/spec/specs/world-map-view-spec.js',
