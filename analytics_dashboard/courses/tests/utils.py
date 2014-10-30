@@ -74,7 +74,6 @@ def _clean_modes(data):
     for datum in data:
         datum[enrollment_modes.HONOR] = datum[enrollment_modes.AUDIT] + datum[enrollment_modes.HONOR]
         datum.pop(enrollment_modes.AUDIT)
-        del datum['count']
 
     return data
 

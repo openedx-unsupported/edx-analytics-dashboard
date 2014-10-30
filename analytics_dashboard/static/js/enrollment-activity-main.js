@@ -46,7 +46,8 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                         color: '#CCCCCC'
                     }
                 ],
-                trendSettings;
+                trendSettings,
+                enrollmentTrackTrendSettings;
 
             // Remove settings for which there is no data (e.g. don't attempt to display verified if there is no data).
             settings = _(settings).filter(function (setting) {
@@ -56,6 +57,15 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
             trendSettings = _(settings).filter(function (setting) {
                 return setting.key !== 'date';
             });
+
+            // Do not display total enrollment on the chart if track data exists
+            enrollmentTrackTrendSettings = _(trendSettings).filter(function (setting) {
+                return setting.key !== 'count';
+            });
+
+            if (enrollmentTrackTrendSettings.length) {
+                trendSettings = enrollmentTrackTrendSettings;
+            }
 
             // Daily enrollment graph
             new StackedTrendsView({

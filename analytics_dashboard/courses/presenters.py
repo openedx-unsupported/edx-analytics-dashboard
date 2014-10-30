@@ -211,7 +211,6 @@ class CourseEnrollmentPresenter(BaseCourseEnrollmentPresenter):
         for datum in data:
             datum[enrollment_modes.HONOR] = datum[enrollment_modes.AUDIT] + datum[enrollment_modes.HONOR]
             datum.pop(enrollment_modes.AUDIT)
-            datum.pop('count')
 
         return data
 
