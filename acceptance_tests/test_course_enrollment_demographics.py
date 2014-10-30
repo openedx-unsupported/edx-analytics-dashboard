@@ -1,7 +1,9 @@
 import datetime
+from unittest import skipUnless
 from bok_choy.web_app_test import WebAppTest
 
 from analyticsclient.constants import demographic
+from acceptance_tests import ENABLE_DEMOGRAPHICS_TESTS
 from acceptance_tests.mixins import CourseDemographicsPageTestsMixin
 
 from acceptance_tests.pages import CourseEnrollmentDemographicsAgePage, CourseEnrollmentDemographicsEducationPage, \
@@ -11,6 +13,7 @@ from acceptance_tests.pages import CourseEnrollmentDemographicsAgePage, CourseEn
 _multiprocess_can_split_ = True
 
 
+@skipUnless(ENABLE_DEMOGRAPHICS_TESTS, 'Demographics tests are not enabled.')
 class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, WebAppTest):
     help_path = 'enrollment/Demographics_Age.html'
 
@@ -103,6 +106,7 @@ class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, Web
         self.assertIn('text-right', column[2].get_attribute('class'))
 
 
+@skipUnless(ENABLE_DEMOGRAPHICS_TESTS, 'Demographics tests are not enabled.')
 class CourseEnrollmentDemographicsGenderTests(CourseDemographicsPageTestsMixin, WebAppTest):
     help_path = 'enrollment/Demographics_Gender.html'
 
@@ -133,6 +137,7 @@ class CourseEnrollmentDemographicsGenderTests(CourseDemographicsPageTestsMixin, 
             self.assertIn('text-right', column[i].get_attribute('class'))
 
 
+@skipUnless(ENABLE_DEMOGRAPHICS_TESTS, 'Demographics tests are not enabled.')
 class CourseEnrollmentDemographicsEducationTests(CourseDemographicsPageTestsMixin, WebAppTest):
     help_path = 'enrollment/Demographics_Education.html'
 
