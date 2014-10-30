@@ -15,7 +15,7 @@ class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, Web
     help_path = 'enrollment/Demographics_Age.html'
 
     demographic_type = demographic.BIRTH_YEAR
-    table_columns = ['Age', 'Total Enrollment', 'Percent of Total']
+    table_columns = ['Age', 'Number of Students', 'Percent of Total']
 
     def setUp(self):
         super(CourseEnrollmentDemographicsAgeTests, self).setUp()
@@ -137,7 +137,7 @@ class CourseEnrollmentDemographicsEducationTests(CourseDemographicsPageTestsMixi
     help_path = 'enrollment/Demographics_Education.html'
 
     demographic_type = demographic.EDUCATION
-    table_columns = ['Educational Background', 'Total Enrollment']
+    table_columns = ['Educational Background', 'Number of Students']
 
     def setUp(self):
         super(CourseEnrollmentDemographicsEducationTests, self).setUp()
