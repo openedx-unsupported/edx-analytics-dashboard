@@ -2,6 +2,7 @@ import datetime
 
 from bok_choy.web_app_test import WebAppTest
 from analyticsclient.constants import activity_type as at
+from acceptance_tests import ENABLE_FORUM_POSTS
 
 from acceptance_tests.mixins import CoursePageTestsMixin
 from acceptance_tests.pages import CourseEngagementContentPage
@@ -76,8 +77,12 @@ class CourseEngagementTests(CoursePageTestsMixin, WebAppTest):
         trend_activity = sorted(trend_activity, reverse=True, key=lambda item: item['interval_end'])
 
         table_selector = 'div[data-role=engagement-table] table'
-        self.assertTableColumnHeadingsEqual(table_selector, [u'Week Ending', u'Active Students', u'Watched a Video',
-                                                             u'Tried a Problem'])
+
+        headings = [u'Week Ending', u'Active Students', u'Watched a Video', u'Tried a Problem']
+        if ENABLE_FORUM_POSTS:
+            headings.append(u'Posted in Forum')
+
+        self.assertTableColumnHeadingsEqual(table_selector, headings)
 
         rows = self.page.browser.find_elements_by_css_selector('%s tbody tr' % table_selector)
         self.assertGreater(len(rows), 0)

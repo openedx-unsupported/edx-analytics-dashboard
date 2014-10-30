@@ -10,13 +10,16 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
             defaults: _.extend({}, AttributeListenerView.prototype.defaults, {
                     displayExplicitTicksThreshold: 11,
                     excludeData: [],  // e.g. excludes data rows from chart (e.g. 'Unknown')
-                    dataType: 'int'  // e.g. int, percent
+                    dataType: 'int',  // e.g. int, percent
+                    xAxisMargin: 6,
+                    graphShiftSelector: null // Selector used for shifting chart position
                 }
             ),
 
             initialize: function (options) {
                 AttributeListenerView.prototype.initialize.call(this, options);
                 var self = this;
+                self.chart = null;
                 self.options = _.extend({}, self.defaults, options);
                 self.renderIfDataAvailable();
             },
@@ -34,7 +37,7 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
 
                 if (self.options.excludeData.length > 0) {
                     // exclude specific rows of data (e.g. 'Unknown') from display
-                    data = _(data).reject(function(datum) {
+                    data = _(data).reject(function (datum) {
                         return _(self.options.excludeData).contains(datum[self.options.x.key]);
                     });
                 }
@@ -63,9 +66,9 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
 
             styleChart: function () {
                 var canvas = d3.select(this.el),
-                    // ex. translate(200, 200) or translate(200 200)
+                // ex. translate(200, 200) or translate(200 200)
                     translateRegex = /translate\((\d+)[,\s]\s*(\d+)\)/g,
-                    xAxisMargin = 6,
+                    xAxisMargin = this.options.xAxisMargin,
                     axisEl,
                     matches;
 
@@ -91,16 +94,18 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
                 axisEl.attr('transform', 'translate(' + matches[1] + ',' +
                     (parseInt(matches[2], 10) + xAxisMargin) + ')');
 
-                // Shift bars down so that it sit flush with the x axis -- lines not affected
-                canvas.select('.nv-barsWrap')
-                    .attr('transform', 'translate(' + [0, xAxisMargin].join(',') + ')');
+                if (this.options.graphShiftSelector) {
+                    // Shift the graph down so that it sits flush with the X-axis
+                    canvas.select(this.options.graphShiftSelector)
+                        .attr('transform', 'translate(' + [0, xAxisMargin].join(',') + ')');
+                }
             },
 
             /**
              * Return the NVD3 chart that will be displayed
              * (e.g. nvd3.models.lineChart).
              */
-            getChart: function() {
+            getChart: function () {
                 throw 'Not implemented';
             },
 
@@ -109,16 +114,16 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
              *
              * @param d Data along the x-axis to format.
              */
-            formatXTick: function(d) {
+            formatXTick: function (d) {
                 return d;
             },
 
-            parseXData: function(d) {
+            parseXData: function (d) {
                 var self = this;
                 return d[self.options.x.key];
             },
 
-            getExplicitXTicks: function(assembledData) {
+            getExplicitXTicks: function (assembledData) {
                 var self = this,
                     xTicks;
 
@@ -130,11 +135,11 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
                 return xTicks;
             },
 
-            initChart: function(chart) {
+            initChart: function (chart) {
                 var self = this;
 
                 // minimize the spacing, but leave enough for point at the top to be shown w/o being clipped
-                chart.margin({top: 6})
+                chart.margin({top: self.options.xAxisMargin})
                     .height(300)    // This should be the same as the height set on the chart container in CSS.
                     .forceY(0)
                     .x(function (d) {
@@ -147,7 +152,7 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
                     });
             },
 
-            getYAxisFormat: function() {
+            getYAxisFormat: function () {
                 var self = this,
                     format = d3.format('f');  // defaults to integer
 
@@ -164,57 +169,56 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
              * the style at least.  Views should attach it using its interface.
              */
             hoverTooltipTemplate: _.template(
-                '<table class="nv-pointer-events-none">' +
+                    '<table class="nv-pointer-events-none">' +
                     '<thead>' +
-                        '<tr class="nv-pointer-events-none">' +
-                            '<td class="nv-pointer-events-none" colspan="3"><strong class="x-value">' +
-                                '<%=xValue%></strong>' +
-                            '</td>' +
-                        '</tr>' +
+                    '<tr class="nv-pointer-events-none">' +
+                    '<td class="nv-pointer-events-none" colspan="3"><strong class="x-value">' +
+                    '<%=xValue%></strong>' +
+                    '</td>' +
+                    '</tr>' +
                     '</thead>' +
                     '<tbody>' +
-                        '<tr class="nv-pointer-events-none">' +
-                            '<td class="legend-color-guide nv-pointer-events-none">' +
-                                '<div class="nv-pointer-events-none" style="background-color: <%=swatchColor%>;">' +
-                                '</div>' +
-                            '</td>' +
-                            '<td class="key nv-pointer-events-none"><%=label%></td>' +
-                            '<td class="value nv-pointer-events-none"><%=yValue%></td>' +
-                        '</tr>' +
+                    '<tr class="nv-pointer-events-none">' +
+                    '<td class="legend-color-guide nv-pointer-events-none">' +
+                    '<div class="nv-pointer-events-none" style="background-color: <%=swatchColor%>;">' +
+                    '</div>' +
+                    '</td>' +
+                    '<td class="key nv-pointer-events-none"><%=label%></td>' +
+                    '<td class="value nv-pointer-events-none"><%=yValue%></td>' +
+                    '</tr>' +
                     '</tbody>' +
-                '</table>'
+                    '</table>'
             ),
 
             render: function () {
                 AttributeListenerView.prototype.render.call(this);
                 var self = this,
                     canvas = d3.select(self.el),
-                    assembledData = self.assembleTrendData(),
-                    chart;
+                    assembledData = self.assembleTrendData();
 
-                chart = self.getChart();
-                self.initChart(chart);
+                self.chart = self.getChart();
+                self.initChart(self.chart);
 
                 // explicitly display tick marks for small numbers of points,
                 // otherwise ticks will be interpolated and labels look to be
                 // repeated on the x-axis
                 if (!_(self.options).isUndefined('displayExplicitTicksThreshold')) {
                     if (self.model.get(
-                            self.options.modelAttribute).length < self.options.displayExplicitTicksThreshold) {
+                        self.options.modelAttribute).length < self.options.displayExplicitTicksThreshold) {
                         // get dates for the explicit ticks -- assuming data isn't sparse
-                        chart.xAxis.tickValues(self.getExplicitXTicks(assembledData));
+                        self.chart.xAxis.tickValues(self.getExplicitXTicks(assembledData));
                     }
                 }
 
-                chart.xAxis.tickFormat(self.formatXTick);
+                self.chart.xAxis.tickFormat(self.formatXTick);
 
-                chart.yAxis
+                self.chart.yAxis
                     .showMaxMin(false)
                     .tickFormat(Utils.localizeNumber);
-                chart.yAxis.tickFormat(self.getYAxisFormat());
+                self.chart.yAxis.tickFormat(self.getYAxisFormat());
 
                 if (_(self.options).has('interactiveTooltipHeader')) {
-                    chart.interactiveLayer.tooltip.headerFormatter(function (d) {
+                    self.chart.interactiveLayer.tooltip.headerFormatter(function (d) {
                         // interpolate is a global django function
                         return interpolate(self.options.interactiveTooltipHeader, {value: d}, true);  // jshint ignore:line
                     });
@@ -225,12 +229,12 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
                 // container which needs to create height for the title.
                 canvas.append('svg')
                     .datum(assembledData)
-                    .call(chart);
+                    .call(self.chart);
 
                 self.styleChart();
 
                 nvd3.utils.windowResize(function () {
-                    chart.update();
+                    self.chart.update();
                     self.styleChart();
                 });
 

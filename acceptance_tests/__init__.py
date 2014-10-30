@@ -36,3 +36,6 @@ if ENABLE_OAUTH_TESTS and not (LMS_HOSTNAME and LMS_USERNAME and LMS_PASSWORD):
 
 TEST_COURSE_ID = os.environ.get('TEST_COURSE_ID', u'edX/DemoX/Demo_Course')
 DOC_BASE_URL = os.environ.get('DOC_BASE_URL', 'http://edx-insights.readthedocs.org/en/latest')
+
+ENABLE_ENROLLMENT_MODES = str2bool(os.environ.get('ENABLE_ENROLLMENT_MODES', False))
+ENABLE_FORUM_POSTS = str2bool(os.environ.get('ENABLE_FORUM_POSTS', False))

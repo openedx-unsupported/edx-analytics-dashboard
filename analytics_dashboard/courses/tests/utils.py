@@ -1,4 +1,5 @@
 import StringIO
+import copy
 import csv
 import datetime
 
@@ -7,40 +8,52 @@ from analyticsclient.constants import UNKNOWN_COUNTRY_CODE
 import analyticsclient.constants.activity_type as AT
 import analyticsclient.constants.education_level as EDUCATION_LEVEL
 import analyticsclient.constants.gender as GENDER
+from analyticsclient.constants import enrollment_modes
 
 from courses.permissions import set_user_course_permissions
 
 
 CREATED_DATETIME = datetime.datetime(year=2014, month=2, day=2)
 CREATED_DATETIME_STRING = CREATED_DATETIME.strftime(Client.DATETIME_FORMAT)
+GAP_START = 2
+GAP_END = 4
 
 
 def get_mock_api_enrollment_data(course_id):
     data = []
     start_date = datetime.date(year=2014, month=1, day=1)
 
-    comparative_days = range(31)
-    # create a gap to test that it's filled
-    comparative_days.insert(0, -2)
+    for index in range(31):
+        date = start_date + datetime.timedelta(days=index)
 
-    for index, day_change in enumerate(comparative_days):
-        date = start_date + datetime.timedelta(days=day_change)
-
-        data.append({
-            'date': date.strftime('%Y-%m-%d'),
+        datum = {
+            'date': date.strftime(Client.DATE_FORMAT),
             'course_id': unicode(course_id),
-            'count': index,
+            'count': index * len(enrollment_modes.ALL),
             'created': CREATED_DATETIME_STRING
-        })
+        }
 
+        for mode in enrollment_modes.ALL:
+            datum[mode] = index
+
+        data.append(datum)
+
+    return data
+
+
+def get_mock_api_enrollment_data_with_gaps(course_id):
+    data = get_mock_api_enrollment_data(course_id)
+    data[GAP_START:GAP_END] = []
     return data
 
 
 def get_mock_enrollment_summary():
     return {
         'last_updated': CREATED_DATETIME,
-        'current_enrollment': 31,
-        'enrollment_change_last_7_days': 7,
+        'current_enrollment': 120,
+        'enrollment_change_last_7_days': 28,
+        'verified_enrollment': 30,
+        'verified_change_last_7_days': 7,
     }
 
 
@@ -48,32 +61,63 @@ def get_mock_enrollment_summary_and_trend(course_id):
     return get_mock_enrollment_summary(), get_mock_presenter_enrollment_trend(course_id)
 
 
+def _get_empty_enrollment(date):
+    enrollment = {'count': 0, 'date': date}
+
+    for mode in enrollment_modes.ALL:
+        enrollment[mode] = 0
+
+    return enrollment
+
+
+def _clean_modes(data):
+    for datum in data:
+        datum[enrollment_modes.HONOR] = datum[enrollment_modes.AUDIT] + datum[enrollment_modes.HONOR]
+        datum.pop(enrollment_modes.AUDIT)
+        del datum['count']
+
+    return data
+
+
 def get_mock_presenter_enrollment_trend(course_id):
     trend = get_mock_api_enrollment_data(course_id)
-    # presenter data has gaps filled in with previous day's count
-    filled_enrollment = {
-        'count': 1,
-        'date': '2013-12-31'
-    }
-    trend.insert(1, filled_enrollment)
+    trend = _clean_modes(trend)
     return trend
 
 
-def get_mock_presenter_enrollment_data_small(course_id):
-    single_enrollment = get_mock_api_enrollment_data(course_id)[-1]
-    empty_enrollment = {
-        'count': 0,
-        'date': '2014-01-30'
-    }
+def parse_date(s):
+    return datetime.datetime.strptime(s, Client.DATE_FORMAT).date()
 
-    return [empty_enrollment, single_enrollment]
+
+def get_mock_presenter_enrollment_trend_with_gaps_filled(course_id):
+    data = get_mock_presenter_enrollment_trend(course_id)
+    data[GAP_START:GAP_END] = []
+
+    datum = data[GAP_START - 1]
+
+    for i in range(GAP_START, GAP_END):
+        days = 1 + (i - GAP_START)
+        item = copy.copy(datum)
+        item['date'] = (parse_date(datum['date']) + datetime.timedelta(days=days)).strftime(Client.DATE_FORMAT)
+        data.insert(i, item)
+
+    return data
+
+
+def get_mock_presenter_enrollment_data_small(course_id):
+    data = [_get_empty_enrollment('2014-01-30'), get_mock_api_enrollment_data(course_id)[-1]]
+    data = _clean_modes(data)
+
+    return data
 
 
 def get_mock_presenter_enrollment_summary_small():
     return {
         'last_updated': CREATED_DATETIME,
-        'current_enrollment': 31,
+        'current_enrollment': 120,
         'enrollment_change_last_7_days': None,
+        'verified_enrollment': 30,
+        'verified_change_last_7_days': None,
     }
 
 
@@ -171,8 +215,8 @@ def get_presenter_enrollment_gender_trend(course_id):
 
 
 def get_presenter_gender(course_id):
-    return CREATED_DATETIME, get_presenter_enrollment_gender_data(), \
-        get_presenter_enrollment_gender_trend(course_id), 0.5
+    return CREATED_DATETIME, get_presenter_enrollment_gender_data(), get_presenter_enrollment_gender_trend(
+        course_id), 0.5
 
 
 def get_mock_api_enrollment_age_data(course_id):
@@ -415,8 +459,12 @@ def get_mock_presenter_enrollment_education_summary():
 
 
 def get_presenter_education():
-    return CREATED_DATETIME, get_mock_presenter_enrollment_education_summary(), \
-        get_mock_presenter_enrollment_education_data(), 0.5
+    return (
+        CREATED_DATETIME,
+        get_mock_presenter_enrollment_education_summary(),
+        get_mock_presenter_enrollment_education_data(),
+        0.5
+    )
 
 
 def convert_list_of_dicts_to_csv(data, fieldnames=None):
