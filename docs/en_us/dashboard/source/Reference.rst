@@ -70,7 +70,7 @@ For information about viewing enrollment activity data in edX Insights, see
   unenroll.
 
 * The daily computations use the enrollment status of each user as of 23:59 UTC
-  of the previous day.
+  on the previous day.
 
 * Course staff can enroll students from the **Membership** page in the
   Instructor Dashboard by supplying a list of email addresses or usernames.
@@ -127,7 +127,7 @@ For information about viewing student demographic data in edX Insights, see
 * Students can select a year of birth. Student age is computed as the
   difference between the current year and the selected year of birth.
 
-* Each bar in the histogram represents the number of enrolled users (y-axis)
+* Each bar in the histogram represents the number of enrolled users (y-axis) 
   of that age (x-axis).
 
 * Students who did not provide a year of birth at registration are not
@@ -141,6 +141,19 @@ For information about viewing student demographic data in edX Insights, see
 * The percentage of students in each age band is computed from the number of
   enrolled students who provided a year of birth. Students who did not provide
   a year of birth at registration are not included.
+
+**Gender chart and report**
+
+* Students can select a gender. The chart depicts the percentage of students
+  who selected each choice (Female, Male, Other).
+
+* The chart only includes students who reported their genders. The percentages
+  shown in the chart are computed for the total number of students who did
+  select a gender.
+
+* The report includes all enrolled students. For each day, the report includes
+  the daily total enrollment count followed by columns that break down the
+  total by Female, Male, Other or Not Reported.
 
 .. _Location Computations:
 
