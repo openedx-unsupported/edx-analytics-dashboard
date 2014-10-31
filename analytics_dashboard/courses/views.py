@@ -594,8 +594,7 @@ class CourseEnrollmentDemographicsAgeCSV(CSVResponseMixin, CourseView):
     csv_filename_suffix = u'enrollment-by-birth-year'
 
     def get_data(self):
-        end_date = datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
-        return self.course.enrollment(demographic.BIRTH_YEAR, end_date=end_date, data_format=data_format.CSV),
+        return self.course.enrollment(demographic.BIRTH_YEAR, data_format=data_format.CSV),
 
 
 class CourseEnrollmentDemographicsEducationCSV(CSVResponseMixin, CourseView):
