@@ -11,6 +11,8 @@ edX Insights are computed. It contains sections for:
 
 * :ref:`Enrollment Computations`
 
+* :ref:`Demographic Computations`
+
 * :ref:`Location Computations`
 
 * :ref:`Engagement Computations`
@@ -67,6 +69,9 @@ For information about viewing enrollment activity data in edX Insights, see
 * Users who unenroll are excluded from the count as of the date and time they
   unenroll.
 
+* The daily computations use the enrollment status of each user as of 23:59 UTC
+  of the previous day.
+
 * Course staff can enroll students from the **Membership** page in the
   Instructor Dashboard by supplying a list of email addresses or usernames.
   Actual resulting enrollments can occur on different dates, as follows.
@@ -92,6 +97,50 @@ For information about viewing enrollment activity data in edX Insights, see
   the last update period.
 
 * The y-axis shows the number of enrolled users.
+  
+.. _Demographic Computations:
+
+*********************************
+Demographic Computations
+*********************************
+
+During edX user account registration, students can provide demographic data
+about themselves. Demographic distributions are computed every day to reflect
+changes in course enrollment.
+
+Currently, students make selections from dropdown lists on the edx.org and
+edge.edx.org registration pages to provide demographic data.
+
+* Students cannot change the selections that they make after registration is
+  complete.
+
+* Past versions of the registration pages used different options to collect
+  demographic information. For example, the choices available to characterize
+  educational background have been relabeled. EdX makes a best effort to
+  normalize student responses to the labels that are currently being presented.
+
+For information about viewing student demographic data in edX Insights, see
+:ref:`Enrollment_Demographics`.
+
+**Age chart**
+
+* Students can select a year of birth. Student age is computed as the
+  difference between the current year and the selected year of birth.
+
+* Each bar in the histogram represents the number of enrolled users (y-axis)
+  of that age (x-axis).
+
+* Students who did not provide a year of birth at registration are not
+  represented in the histogram.
+
+**Age band metrics**
+
+* Computed student ages are grouped into three age bands: 0-25 years old, 26-40
+  years old, and 41 years old and above.
+
+* The percentage of students in each age band is computed from the number of
+  enrolled students who provided a year of birth. Students who did not provide
+  a year of birth at registration are not included.
 
 .. _Location Computations:
 
@@ -116,8 +165,8 @@ For information about viewing geographic data in edX Insights, see
 
 **Geographic Distribution map**
 
-* The number of users and the percentage of the total enrollmentis provided for
-  each country.
+* The number of users and the percentage of the total enrollment is provided
+  for each country.
 
 * Users with IP addresses that cannot be geolocated, or that result in a "non-
   country" code such as A1 (Anonymous Proxy), A2 (Satellite Provider), or O1
