@@ -2,6 +2,7 @@ import datetime
 from unittest import skipUnless
 from bok_choy.web_app_test import WebAppTest
 
+import analyticsclient.constants.education_level as EDUCATION_LEVEL
 from analyticsclient.constants import demographic
 from acceptance_tests import ENABLE_DEMOGRAPHICS_TESTS
 from acceptance_tests.mixins import CourseDemographicsPageTestsMixin
@@ -139,6 +140,20 @@ class CourseEnrollmentDemographicsGenderTests(CourseDemographicsPageTestsMixin, 
 
 @skipUnless(ENABLE_DEMOGRAPHICS_TESTS, 'Demographics tests are not enabled.')
 class CourseEnrollmentDemographicsEducationTests(CourseDemographicsPageTestsMixin, WebAppTest):
+
+    EDUCATION_NAMES = {
+        EDUCATION_LEVEL.NONE: 'None',
+        EDUCATION_LEVEL.OTHER: 'Other',
+        EDUCATION_LEVEL.PRIMARY: 'Primary',
+        EDUCATION_LEVEL.JUNIOR_SECONDARY: 'Middle',
+        EDUCATION_LEVEL.SECONDARY: 'Secondary',
+        EDUCATION_LEVEL.ASSOCIATES: 'Associate',
+        EDUCATION_LEVEL.BACHELORS: "Bachelor's",
+        EDUCATION_LEVEL.MASTERS: "Master's",
+        EDUCATION_LEVEL.DOCTORATE: 'Doctorate',
+        None: 'Unknown'
+    }
+
     help_path = 'enrollment/Demographics_Education.html'
 
     demographic_type = demographic.EDUCATION
@@ -175,13 +190,13 @@ class CourseEnrollmentDemographicsEducationTests(CourseDemographicsPageTestsMixi
         for group in education_groups:
             selector = 'data-stat-type={}'.format(group['stat_type'])
             filtered_group = ([education for education in self.demographic_data
-                               if education['education_level']['short_name'] in group['levels']])
+                               if education['education_level'] in group['levels']])
             group_total = float(sum([datum['count'] for datum in filtered_group]))
             expected_percent_display = self.build_display_percentage(group_total, total)
             self.assertSummaryPointValueEquals(selector, expected_percent_display)
 
     def _test_table_row(self, datum, column, sum_count):
-        expected = [datum['education_level']['name'],
+        expected = [self.EDUCATION_NAMES[datum['education_level']],
                     unicode(datum['count'])]
         actual = [column[0].text, column[1].text]
         self.assertListEqual(actual, expected)

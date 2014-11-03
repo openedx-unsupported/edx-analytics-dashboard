@@ -22,6 +22,7 @@ from waffle import switch_is_active
 from courses import permissions
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter, \
     CourseEnrollmentDemographicsPresenter
+from courses.serializers import LazyEncoder
 from courses.utils import is_feature_enabled
 from help.views import ContextSensitiveHelpMixin
 
@@ -49,7 +50,17 @@ class TrackedViewMixin(object):
         return context
 
 
-class CourseContextMixin(TrackedViewMixin):
+class LazyEncoderMixin(object):
+
+    def get_page_data(self, context):
+        """ Returns JSON serialized data with lazy translations converted. """
+        if 'js_data' in context:
+            return json.dumps(context['js_data'], cls=LazyEncoder)
+        else:
+            return None
+
+
+class CourseContextMixin(TrackedViewMixin, LazyEncoderMixin):
     """
     Adds default course context data.
 
@@ -371,13 +382,6 @@ class CSVResponseMixin(object):
         return urllib.quote(filename)
 
 
-class JSONResponseMixin(object):
-    def render_to_response(self, context, **response_kwargs):
-        content = json.dumps(context['data'])
-        return HttpResponse(content, content_type='application/json',
-                            **response_kwargs)
-
-
 class EnrollmentActivityView(EnrollmentTemplateView):
     template_name = 'courses/enrollment_activity.html'
     page_title = _('Enrollment Activity')
@@ -406,10 +410,10 @@ class EnrollmentActivityView(EnrollmentTemplateView):
         context['js_data']['course']['enrollmentTrends'] = trend
 
         context.update({
-            'page_data': json.dumps(context['js_data']),
             'summary': summary,
             'update_message': self.get_last_updated_message(last_updated)
         })
+        context['page_data'] = self.get_page_data(context)
 
         return context
 
@@ -440,12 +444,12 @@ class EnrollmentDemographicsAgeView(EnrollmentDemographicsTemplateView):
         context['js_data']['course']['ages'] = binned_ages
 
         context.update({
-            'page_data': json.dumps(context['js_data']),
             'summary': summary,
             'chart_tip': self._build_chart_tooltip(known_enrollment_percent),
             'update_message': self.get_last_updated_message(last_updated),
             'data_information_message': self.data_information_message
         })
+        context['page_data'] = self.get_page_data(context)
 
         return context
 
@@ -476,12 +480,12 @@ class EnrollmentDemographicsEducationView(EnrollmentDemographicsTemplateView):
         context['js_data']['course']['education'] = binned_education
 
         context.update({
-            'page_data': json.dumps(context['js_data']),
             'summary': summary,
             'chart_tip': self._build_chart_tooltip(known_enrollment_percent),
             'update_message': self.get_last_updated_message(last_updated),
             'data_information_message': self.data_information_message
         })
+        context['page_data'] = self.get_page_data(context)
 
         return context
 
@@ -513,11 +517,11 @@ class EnrollmentDemographicsGenderView(EnrollmentDemographicsTemplateView):
         context['js_data']['course']['genderTrend'] = trend
 
         context.update({
-            'page_data': json.dumps(context['js_data']),
             'update_message': self.get_last_updated_message(last_updated),
             'chart_tip': self._build_chart_tooltip(known_enrollment_percent),
             'data_information_message': self.data_information_message
         })
+        context['page_data'] = self.get_page_data(context)
 
         return context
 
@@ -550,9 +554,9 @@ class EnrollmentGeographyView(EnrollmentTemplateView):
         context['js_data']['course']['enrollmentByCountry'] = data
 
         context.update({
-            'page_data': json.dumps(context['js_data']),
             'update_message': self.get_last_updated_message(last_updated)
         })
+        context['page_data'] = self.get_page_data(context)
 
         return context
 
@@ -583,9 +587,9 @@ class EngagementContentView(EngagementTemplateView):
         context['js_data']['course']['engagementTrends'] = trends
         context.update({
             'summary': summary,
-            'page_data': json.dumps(context['js_data']),
             'update_message': self.get_last_updated_message(last_updated)
         })
+        context['page_data'] = self.get_page_data(context)
 
         return context
 
@@ -644,7 +648,7 @@ class CourseHome(LoginRequiredMixin, RedirectView):
         return reverse('courses:enrollment_activity', kwargs={'course_id': course_id})
 
 
-class CourseIndex(LoginRequiredMixin, TrackedViewMixin, TemplateView):
+class CourseIndex(LoginRequiredMixin, TrackedViewMixin, LazyEncoderMixin, TemplateView):
     template_name = 'courses/index.html'
     page_name = 'course_index'
 
@@ -658,9 +662,6 @@ class CourseIndex(LoginRequiredMixin, TrackedViewMixin, TemplateView):
             raise PermissionDenied
 
         context['courses'] = sorted(courses)
-
-        context.update({
-            'page_data': json.dumps(context['js_data']),
-        })
+        context['page_data'] = self.get_page_data(context)
 
         return context
