@@ -96,7 +96,7 @@ define(['backbone', 'underscore', 'utils/utils'],
                 self.segment.load(applicationKey);
 
                 // this needs to be called once
-                self.segment.page();
+                self.segment.page(self.buildCourseProperties());
             },
 
             /**
@@ -111,6 +111,21 @@ define(['backbone', 'underscore', 'utils/utils'],
                 });
             },
 
+            buildCourseProperties: function() {
+                var self = this,
+                    course = {};
+
+                if (self.options.courseModel) {
+                    course.courseId = self.options.courseModel.get('courseId');
+                }
+
+                if (self.model.has('page')) {
+                    course.label = self.model.get('page');
+                }
+
+                return course;
+            },
+
             /**
              * Catch 'segment:track' events and create events and send
              * to segment.io.
@@ -119,13 +134,7 @@ define(['backbone', 'underscore', 'utils/utils'],
              */
             track: function (eventType, properties) {
                 var self = this,
-                    course = {
-                        courseId: self.options.courseModel.get('courseId')
-                    };
-
-                if (self.model.has('page')) {
-                    course.label = self.model.get('page');
-                }
+                    course = self.buildCourseProperties();
 
                 // send event to segment including the course ID
                 self.segment.track(eventType, _.extend(course, properties));
