@@ -175,15 +175,18 @@ class CourseEnrollmentDemographicsEducationTests(CourseDemographicsPageTestsMixi
         education_groups = [
             {
                 'levels': ['primary', 'junior_secondary', 'secondary'],
-                'stat_type': 'education_high_school_or_less_enrollment'
+                'stat_type': 'education_high_school_or_less_enrollment',
+                'tooltip': 'The percentage of students who selected Secondary/high school, Junior secondary/junior high/middle school, or Elementary/primary school as their highest level of education completed.'
             },
             {
                 'levels': ['associates', 'bachelors'],
-                'stat_type': 'education_college_enrollment'
+                'stat_type': 'education_college_enrollment',
+                'tooltip': "The percentage of students who selected Bachelor's degree or Associate degree as their highest level of education completed."
             },
             {
                 'levels': ['masters', 'doctorate'],
-                'stat_type': 'education_advanced_enrollment'
+                'stat_type': 'education_advanced_enrollment',
+                'tooltip': "The percentage of students who selected Doctorate or Master's or professional degree as their highest level of education completed."
             }
         ]
 
@@ -194,6 +197,7 @@ class CourseEnrollmentDemographicsEducationTests(CourseDemographicsPageTestsMixi
             group_total = float(sum([datum['count'] for datum in filtered_group]))
             expected_percent_display = self.build_display_percentage(group_total, total)
             self.assertSummaryPointValueEquals(selector, expected_percent_display)
+            self.assertSummaryTooltipEquals(selector, group['tooltip'])
 
     def _test_table_row(self, datum, column, sum_count):
         expected = [self.EDUCATION_NAMES[datum['education_level']],
