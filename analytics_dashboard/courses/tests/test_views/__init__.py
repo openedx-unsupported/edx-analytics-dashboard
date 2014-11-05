@@ -1,4 +1,5 @@
 from ddt import ddt, data
+from django.contrib.humanize.templatetags.humanize import intcomma
 import mock
 
 from django.core.urlresolvers import reverse
@@ -178,11 +179,12 @@ class CourseEnrollmentDemographicsMixin(CourseEnrollmentViewTestMixin):
     active_secondary_nav_label = 'Demographics'
     active_tertiary_nav_label = None
 
-    def format_tip_percent(self, percent):
-        if percent is None:
-            formatted_percent = '0'
+    def format_tip_percent(self, value):
+        if value is None:
+            formatted_percent = u'0'
         else:
-            formatted_percent = round(percent, 3) * 100
+            formatted_percent = intcomma(round(value, 3) * 100)
+
         return formatted_percent
 
     def assertAllNavs(self, context, course_id):

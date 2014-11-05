@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-01 15:22-0400\n"
+"POT-Creation-Date: 2014-11-14 15:15-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,38 +37,90 @@ msgstr "Trïéd ä Prößlém Ⱡ'#"
 msgid "Posted in Forum"
 msgstr "Pöstéd ïn Förüm Ⱡ'#"
 
+#. Translators: <%=value%> will be replaced with a date.
 #: static/js/engagement-content-main.js
-msgid ""
-"The number of active students, and the number of students who engaged in "
-"specific activities, over time."
-msgstr ""
-"Thé nümßér öf äçtïvé stüdénts, änd thé nümßér öf stüdénts whö éngägéd ïn "
-"spéçïfïç äçtïvïtïés, övér tïmé. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢ση#"
-
-#. Translators: %(value)s will be replaced with a date.
-#: static/js/engagement-content-main.js
-msgid "Week Ending %(value)s"
-msgstr "Wéék Éndïng %(value)s Ⱡ'#"
+msgid "Week Ending <%=value%>"
+msgstr "Wéék Éndïng <%=value%> Ⱡ'#"
 
 #: static/js/enrollment-activity-main.js
-msgid ""
-"This graph displays total enrollment for the course calculated at the end of"
-" each day. Total enrollment includes new enrollments as well as "
-"unenrollments."
-msgstr ""
-"Thïs gräph dïspläýs tötäl énröllmént för thé çöürsé çälçülätéd ät thé énd öf"
-" éäçh däý. Tötäl énröllmént ïnçlüdés néw énröllménts äs wéll äs "
-"ünénröllménts. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕє¢тєтυя α∂ιριѕι#"
-
-#: static/js/enrollment-activity-main.js
+#: static/js/enrollment-demographics-gender-main.js
 msgid "Date"
 msgstr "Däté Ⱡ'σяєм#"
 
 #. Translators: The noun count (e.g. number of students)
 #: static/js/enrollment-activity-main.js
+#: static/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-geography-main.js
 msgid "Total Enrollment"
 msgstr "Tötäl Énröllmént Ⱡ'σ#"
+
+#: static/js/enrollment-activity-main.js
+msgid "Honor Code"
+msgstr "Hönör Çödé Ⱡ#"
+
+#: static/js/enrollment-activity-main.js
+msgid "Verified"
+msgstr "Vérïfïéd #"
+
+#: static/js/enrollment-activity-main.js
+msgid "Professional"
+msgstr "Pröféssïönäl Ⱡ#"
+
+#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-education-main.js
+msgid "Number of Students"
+msgstr "Nümßér öf Stüdénts Ⱡ'σ#"
+
+#. Translators: <%=value%> will be replaced with an age.
+#: static/js/enrollment-demographics-age-main.js
+msgid "Age: <%=value%>"
+msgstr "Àgé: <%=value%> #"
+
+#: static/js/enrollment-demographics-age-main.js
+msgid "Age"
+msgstr "Àgé Ⱡ'σя#"
+
+#: static/js/enrollment-demographics-age-main.js
+msgid "Percent of Total"
+msgstr "Pérçént öf Tötäl Ⱡ'σ#"
+
+#: static/js/enrollment-demographics-education-main.js
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Percentage"
+msgstr "Pérçéntägé Ⱡ#"
+
+#. Translators: <%=value%> will be replaced with a level of education (e.g.
+#. Doctorate).
+#: static/js/enrollment-demographics-education-main.js
+msgid "Education: <%=value%>"
+msgstr "Édüçätïön: <%=value%> Ⱡ'#"
+
+#: static/js/enrollment-demographics-education-main.js
+msgid "Educational Background"
+msgstr "Édüçätïönäl Bäçkgröünd Ⱡ'σяє#"
+
+#. Translators: <%=value%> will be replaced with a level of gender (e.g.
+#. Female).
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Gender: <%=value%>"
+msgstr "Géndér: <%=value%> Ⱡ#"
+
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Female"
+msgstr "Fémälé Ⱡ'σяєм ιρѕ#"
+
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Male"
+msgstr "Mälé Ⱡ'σяєм#"
+
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Other"
+msgstr "Öthér Ⱡ'σяєм ι#"
+
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Not Reported"
+msgstr "Nöt Répörtéd Ⱡ#"
 
 #: static/js/enrollment-geography-main.js
 msgid ""

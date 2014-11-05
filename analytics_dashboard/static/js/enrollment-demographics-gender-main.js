@@ -31,11 +31,11 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             modelAttribute: 'genderTrend',
             columns: [
                 {key: 'date', title: gettext('Date'), type: 'date'},
-                {key: 'total', title: gettext('Total Enrollment'), className: 'text-right'},
-                {key: 'female', title: gettext('Female'), className: 'text-right'},
-                {key: 'male', title: gettext('Male'), className: 'text-right'},
-                {key: 'other', title: gettext('Other'), className: 'text-right'},
-                {key: 'unknown', title: gettext('Not Reported'), className: 'text-right'}
+                {key: 'total', title: gettext('Total Enrollment'), type: 'number', className: 'text-right'},
+                {key: 'female', title: gettext('Female'), type: 'number', className: 'text-right'},
+                {key: 'male', title: gettext('Male'), type: 'number', className: 'text-right'},
+                {key: 'other', title: gettext('Other'), type: 'number', className: 'text-right'},
+                {key: 'unknown', title: gettext('Not Reported'), type: 'number', className: 'text-right'}
             ],
             sorting: ['-date']
         });

@@ -28,9 +28,7 @@ class CourseEnrollmentDemographicsAge(CourseEnrollmentDemographicsMixin, TestCas
         # check page title
         self.assertEqual(context['page_title'], 'Enrollment Demographics by Age')
 
-        expected_tip = 'This age histogram presents data computed for the {0}% of enrolled students who provided a ' \
-            'year of birth.'.format(self.format_tip_percent(known_percent))
-        self.assertEqual(context['chart_tip'], expected_tip)
+        self.assertEqual(context['chart_tooltip_value'], self.format_tip_percent(known_percent))
 
         page_data = json.loads(context['page_data'])
         actual_ages = page_data['course']['ages']
@@ -66,9 +64,7 @@ class CourseEnrollmentDemographicsEducation(CourseEnrollmentDemographicsMixin, T
         # check page title
         self.assertEqual(context['page_title'], 'Enrollment Demographics by Education')
 
-        expected_tip = 'This graph presents data for the {0}% of enrolled students who provided a ' \
-            'highest level of education completed.'.format(self.format_tip_percent(known_percent))
-        self.assertEqual(context['chart_tip'], expected_tip)
+        self.assertEqual(context['chart_tooltip_value'], self.format_tip_percent(known_percent))
 
         page_data = json.loads(context['page_data'])
         actual_education = page_data['course']['education']
@@ -104,9 +100,7 @@ class CourseEnrollmentDemographicsGender(CourseEnrollmentDemographicsMixin, Test
         # check page title
         self.assertEqual(context['page_title'], 'Enrollment Demographics by Gender')
 
-        expected_tip = 'This graph presents data for the {0}% of enrolled students who specified their gender.'.format(
-            self.format_tip_percent(known_percent))
-        self.assertEqual(context['chart_tip'], expected_tip)
+        self.assertEqual(context['chart_tooltip_value'], self.format_tip_percent(known_percent))
 
         page_data = json.loads(context['page_data'])
         actual_genders = page_data['course']['genders']

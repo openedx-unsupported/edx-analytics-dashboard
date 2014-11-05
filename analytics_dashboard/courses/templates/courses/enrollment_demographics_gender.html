@@ -33,7 +33,11 @@
             <div class="section-content section-data-viz">
                 <div class="analytics-chart-container">
                     {% include "courses/demographics_chart_info.html"%}
-                    {% include "chart_tooltip.html" with tip_text=chart_tip track_category="bar"%}
+                    {% captureas tip_text %}
+                      {# Translators: Maintain the double percentage symbols (%%) but move them to the appropriate location (before/after the value placeholder) for your language. #}
+                      {% blocktrans with value=chart_tooltip_value %}This graph presents data for the {{ value }}% of enrolled students who specified their gender.{% endblocktrans %}
+                    {% endcaptureas %}
+                    {% include "chart_tooltip.html" with tip_text=tip_text track_category="bar"%}
                     <div id="enrollment-chart-view" class="analytics-chart">
                         {% include "loading.html" %}
                     </div>

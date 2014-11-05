@@ -5,6 +5,7 @@ import logging
 import re
 import urllib
 
+from django.contrib.humanize.templatetags.humanize import intcomma
 import requests
 from django.conf import settings
 from django.core.exceptions import PermissionDenied
@@ -15,11 +16,11 @@ from django.views.generic import TemplateView
 from django.views.generic.base import RedirectView
 from django.utils.translation import ugettext_lazy as _
 from braces.views import LoginRequiredMixin
+from waffle import switch_is_active
+
 from analyticsclient.constants import data_format, demographic
 from analyticsclient.client import Client
 from analyticsclient.exceptions import NotFoundError
-from waffle import switch_is_active
-
 from courses import permissions
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter, \
     CourseEnrollmentDemographicsPresenter
@@ -52,7 +53,6 @@ class TrackedViewMixin(object):
 
 
 class LazyEncoderMixin(object):
-
     def get_page_data(self, context):
         """ Returns JSON serialized data with lazy translations converted. """
         if 'js_data' in context:
@@ -342,7 +342,6 @@ class EnrollmentDemographicsTemplateView(EnrollmentTemplateView):
         {'name': 'education', 'label': _('Education'), 'view': 'courses:enrollment_demographics_education'},
         {'name': 'gender', 'label': _('Gender'), 'view': 'courses:enrollment_demographics_gender'}
     ]
-    chart_tooltip_template = None
 
     # Translators: Do not translate UTC.
     update_message = _('Demographic student data was last updated %(update_date)s at %(update_time)s UTC.')
@@ -351,12 +350,13 @@ class EnrollmentDemographicsTemplateView(EnrollmentTemplateView):
     # Translators: This sentence is displayed at the bottom of the page and describe the demographics data displayed.
     data_information_message = _('All above demographic data was self-reported at the time of registration.')
 
-    def _build_chart_tooltip(self, percent):
-        if percent is None:
-            formatted_percent = '0'
+    def format_percentage(self, value):
+        if value is None:
+            formatted_percent = u'0'
         else:
-            formatted_percent = round(percent, 3) * 100
-        return self.chart_tooltip_template.format(percent=formatted_percent)
+            formatted_percent = intcomma(round(value, 3) * 100)
+
+        return formatted_percent
 
 
 class EngagementTemplateView(CourseTemplateView):
@@ -430,9 +430,6 @@ class EnrollmentDemographicsAgeView(EnrollmentDemographicsTemplateView):
     page_title = _('Enrollment Demographics by Age')
     page_name = 'enrollment_demographics_age'
     active_tertiary_nav_item = 'age'
-    # pylint: disable=line-too-long
-    chart_tooltip_template = _(
-        'This age histogram presents data computed for the {percent}% of enrolled students who provided a year of birth.')
 
     def get_context_data(self, **kwargs):
         context = super(EnrollmentDemographicsAgeView, self).get_context_data(**kwargs)
@@ -452,7 +449,7 @@ class EnrollmentDemographicsAgeView(EnrollmentDemographicsTemplateView):
 
         context.update({
             'summary': summary,
-            'chart_tip': self._build_chart_tooltip(known_enrollment_percent),
+            'chart_tooltip_value': self.format_percentage(known_enrollment_percent),
             'update_message': self.get_last_updated_message(last_updated),
             'data_information_message': self.data_information_message
         })
@@ -466,9 +463,6 @@ class EnrollmentDemographicsEducationView(EnrollmentDemographicsTemplateView):
     page_title = _('Enrollment Demographics by Education')
     page_name = 'enrollment_demographics_education'
     active_tertiary_nav_item = 'education'
-    # pylint: disable=line-too-long
-    chart_tooltip_template = _(
-        'This graph presents data for the {percent}% of enrolled students who provided a highest level of education completed.')
 
     def get_context_data(self, **kwargs):
         context = super(EnrollmentDemographicsEducationView, self).get_context_data(**kwargs)
@@ -488,7 +482,7 @@ class EnrollmentDemographicsEducationView(EnrollmentDemographicsTemplateView):
 
         context.update({
             'summary': summary,
-            'chart_tip': self._build_chart_tooltip(known_enrollment_percent),
+            'chart_tooltip_value': self.format_percentage(known_enrollment_percent),
             'update_message': self.get_last_updated_message(last_updated),
             'data_information_message': self.data_information_message
         })
@@ -502,9 +496,6 @@ class EnrollmentDemographicsGenderView(EnrollmentDemographicsTemplateView):
     page_title = _('Enrollment Demographics by Gender')
     page_name = 'enrollment_demographics_gender'
     active_tertiary_nav_item = 'gender'
-    # pylint: disable=line-too-long
-    chart_tooltip_template = _(
-        'This graph presents data for the {percent}% of enrolled students who specified their gender.')
 
     def get_context_data(self, **kwargs):
         context = super(EnrollmentDemographicsGenderView, self).get_context_data(**kwargs)
@@ -525,7 +516,7 @@ class EnrollmentDemographicsGenderView(EnrollmentDemographicsTemplateView):
 
         context.update({
             'update_message': self.get_last_updated_message(last_updated),
-            'chart_tip': self._build_chart_tooltip(known_enrollment_percent),
+            'chart_tooltip_value': self.format_percentage(known_enrollment_percent),
             'data_information_message': self.data_information_message
         })
         context['page_data'] = self.get_page_data(context)
