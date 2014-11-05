@@ -5,6 +5,7 @@ require([
     'bootstrap',
     'bootstrap_accessibility',
     'vendor/domReady!',
-    'load/init-page'
+    'load/init-page',
+    'js/application-main'
 ], function () {
 });
