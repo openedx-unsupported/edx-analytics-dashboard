@@ -3,7 +3,7 @@ define(['backbone', 'jquery'], function (Backbone, $) {
 
     var AnnouncementView = Backbone.View.extend({
         events: {
-            'closed.bs.alert': 'dismiss'
+            'click .dismiss': 'dismiss'
         },
 
         initialize: function () {
@@ -26,9 +26,15 @@ define(['backbone', 'jquery'], function (Backbone, $) {
                 }
             });
 
+            // Record the dismissal on the server.
             if (url) {
                 $.post(url);
             }
+
+            // Remove the DOM elements
+            self.remove();
+
+            return true;
         }
     });
 

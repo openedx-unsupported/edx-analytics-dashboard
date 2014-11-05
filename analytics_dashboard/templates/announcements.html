@@ -3,30 +3,30 @@
 {% announcements as announcements_list %}
 
 {% with announcements_list|first as announcement %}
-    {% if announcement %}
-        <div class="announcement-container" role="alert" data-dismiss-url="{{ announcement.dismiss_url }}"
-             data-view="announcement">
-            <div class="container"
-            {% csrf_token %}
-            <a class="dismiss" data-dismiss="alert">
-                <span aria-hidden="true"><i class="fa fa-times"></i></span><span class="sr-only">Close</span>
-            </a>
+  {% if announcement %}
+    <div class="announcement-container" data-dismiss-url="{{ announcement.dismiss_url }}"
+         data-view="announcement">
+      <div class="container">
+        {% csrf_token %}
+        <a class="dismiss">
+          <span aria-hidden="true"><i class="fa fa-times"></i></span><span class="sr-only">Close</span>
+        </a>
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-1 col-md-1">
-                        <div class="icon"><i class="fa fa-bullhorn"></i></div>
-                    </div>
-
-                    <div class="col-xs-9 col-md-9">
-                        <div class="message">
-                            <div class="title">{{ announcement.title }}</div>
-                            <div class="body">{{ announcement.content|safe }}</div>
-                        </div>
-                    </div>
-                </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-1 col-md-1">
+              <div class="icon"><i class="fa fa-bullhorn"></i></div>
             </div>
+
+            <div class="col-xs-9 col-md-9">
+              <div class="message">
+                <div class="title">{{ announcement.title }}</div>
+                <div class="body">{{ announcement.content|safe }}</div>
+              </div>
+            </div>
+          </div>
         </div>
-        </div>
-    {% endif %}
+      </div>
+    </div>
+  {% endif %}
 {% endwith %}

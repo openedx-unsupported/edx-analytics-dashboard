@@ -4,7 +4,9 @@ define(['views/announcement-view', 'jquery', 'underscore'], function (Announceme
     var view, $el,
         csrftoken = '1234',
         url = 'http://example.com',
-        template = _.template('<div id="announcement" data-dismiss-url="<%=url%>"><input type="hidden" name="csrfmiddlewaretoken" value="<%=csrftoken%>"</div>');   // jshint ignore:line
+        template = _.template('<div id="announcement" data-dismiss-url="<%=url%>">' +
+            '<input type="hidden" name="csrfmiddlewaretoken" value="<%=csrftoken%>">' +
+            '<a class="dismiss">Close</a></div>');
 
     describe('AnnouncementView', function () {
         beforeEach(function () {
@@ -22,11 +24,11 @@ define(['views/announcement-view', 'jquery', 'underscore'], function (Announceme
             });
         });
 
-        it('should call dismiss when the closed.bs.alert event is fired', function () {
+        it('should call dismiss when the dismiss element is clicked', function () {
             spyOn(view, 'dismiss');
 
             view.delegateEvents();
-            $el.trigger('closed.bs.alert');
+            $('.dismiss', $el).click();
 
             expect(view.dismiss).toHaveBeenCalled();
         });
