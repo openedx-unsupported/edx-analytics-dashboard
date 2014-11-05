@@ -83,7 +83,10 @@ define(['models/course-model', 'models/tracking-model', 'models/user-model', 'vi
 
                 // check to see if the methods were called
                 expect(view.segment.identify).toHaveBeenCalled();
-                expect(view.segment.page).toHaveBeenCalled();
+                expect(view.segment.page).toHaveBeenCalledWith({
+                    courseId: 'this/is/a/course',
+                    label: 'mypage'
+                });
                 expect(view.segment.load).toHaveBeenCalled();
             });
 
