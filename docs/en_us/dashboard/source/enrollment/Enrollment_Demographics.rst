@@ -33,4 +33,5 @@ The following chapters provide information about the demographic data that edX
 Insights presents.
 
 * :ref:`Demographics_Age`
-
+* :ref:`Demographics_Education`
+* :ref:`Demographics_Gender`

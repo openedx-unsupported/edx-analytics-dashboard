@@ -8,7 +8,7 @@ How old are my students? Awareness of the ages reported by your students can
 help you understand whether a target audience is enrolled in your course.
 
 Student demographic data is updated every day to include changes in enrollment
-through the end of the previous day (23:59 UTC).
+through 23:59 UTC the previous day.
 
 ********************************************
 Gaining Insight into Student Age
@@ -25,25 +25,38 @@ Self-Reported Student Age Chart
 ======================================
 
 Each bar on this chart represents the total number of enrolled learners who are
-a given age, based on reported year of birth. Moving your cursor over the chart
-shows a tool tip with the %%% for each day.
+a given age, based on reported year of birth. Moving your cursor over a bar in
+the chart shows a tip with the number of students of that age.
 
 The chart includes every reported age. This data is also available for review
 in tabular format and can be downloaded.
 
-.. A couple of examples of this chart follow for different courses. The first example shows the age distribution for an Advanced Placement (AP) course. 
+A couple of examples of this chart follow for different courses. The first
+example shows the age distribution for an Advanced Placement (AP) course.
 
-.. .. image:: ../images/age_chart_AP.png
-.. :alt: 
+.. image:: ../images/age_chart_AP.png
+   :alt: An age histogram with the longest bars for students aged 17, 16, 15, 
+         and 18
 
-.. AP courses are designed to be taken by students of high school age. The chart reveals a wider distribution of reported ages, but confirms that most students are teenagers.
+.. RiceX/AdvBIOx/2014T3/enrollment/demographics/age/
 
-.. The second example shows the Self-Reported Student Age chart for a MOOC.
+AP courses typically are designed to be taken by students of high school age.
+The chart confirms that most students are teenagers and young adults, but
+reveals that the enrollment also includes students who reported other ages.
 
-.. .. image:: ../images/age_chart_MOOC.png
-.. :alt: 
+The second example shows the Self-Reported Student Age chart for a MOOC.
 
-.. This chart shows a wider age distribution, including reports of age 0 and 100+. To gain a more accurate understanding of the ages of the students in the course, the course team might add a survey to the first week of the course.
+.. image:: ../images/age_chart_MOOC.png
+   :alt: An age histogram with the longest bar for students aged 24, and 
+         fairly comparable numbers of students for ages 38 through68 
+
+.. ColumbiaX/HIST1.1x/3T2014/enrollment/demographics/age/
+
+This chart shows a more evenly distributed range of adult ages. 
+
+In both charts, note that students report ages of 0 and 100+. To gain a more
+accurate understanding of the ages of the students in any course, its course
+team might add a survey.
 
 See the :ref:`Reference` chapter for a detailed description of how edX computes
 student age values.
@@ -67,7 +80,7 @@ each band is shown.
 Age Breakdown Report 
 ======================================
 
-The number of students reporting each age, through the date of the last update,
+The number of students reporting each age, as of the date of the last update,
 is available for review or download. The report includes a row for each age,
 with columns for **Number of Students** and **Percentage**. The report also
 includes a row for enrolled students who did not supply this data.
@@ -92,12 +105,15 @@ Learning for the Fun of It
 ===========================
 
 For the professor of a computer science MOOC, students in the 41+ age band were
-a target audience from the inception of the course. This professor used this
-age band to represent the group of people who take online courses for the
-pleasure of learning something new, rather than to pass exams or gain
-credentials. The professor designed the course as self-paced, believing it made
-more sense for those students than a schedule of regular deadlines.
+a target audience from the inception of the course. This professor used the 41+
+age band to represent people who take online courses for the pleasure of
+learning something new, rather than to pass exams or gain credentials. The
+professor designed the course to be self-paced, a structure that he believed
+made more sense for those students than a schedule of regular deadlines.
 
-To find out whether they had successfully attracted the audience that they
-wanted to, the course team checked the age distribution of the students who
+To find out whether the course had successfully attracted the expected
+audience, the professor checked the age distribution of the students who
 enrolled in the course.
+
+In edX Insights, the chart, age band metrics, and breakdown report provide
+different ways to learn about the students who are enrolled in a course.
