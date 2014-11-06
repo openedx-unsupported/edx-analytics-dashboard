@@ -217,13 +217,6 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
                     .tickFormat(Utils.localizeNumber);
                 self.chart.yAxis.tickFormat(self.getYAxisFormat());
 
-                if (_(self.options).has('interactiveTooltipHeader')) {
-                    self.chart.interactiveLayer.tooltip.headerFormatter(function (d) {
-                        // interpolate is a global django function
-                        return interpolate(self.options.interactiveTooltipHeader, {value: d}, true);  // jshint ignore:line
-                    });
-                }
-
                 // Append the svg to an inner container so that it adapts to
                 // the height of the inner container instead of the outer
                 // container which needs to create height for the title.

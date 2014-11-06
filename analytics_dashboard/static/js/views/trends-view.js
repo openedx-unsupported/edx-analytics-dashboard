@@ -10,8 +10,16 @@ define(['moment', 'nvd3', 'underscore', 'views/chart-view'],
 
             initChart: function (chart) {
                 ChartView.prototype.initChart.call(this, chart);
+                var self = this;
+
                 chart.showLegend(false)
                     .useInteractiveGuideline(true);
+
+                if (_(self.options).has('interactiveTooltipHeaderTemplate')) {
+                    self.chart.interactiveLayer.tooltip.headerFormatter(function (d) {
+                        return self.options.interactiveTooltipHeaderTemplate({value: d});
+                    });
+                }
             },
 
             formatXTick: function (d) {
