@@ -2,6 +2,7 @@ import copy
 import datetime
 import json
 import logging
+import re
 import urllib
 
 import requests
@@ -70,12 +71,18 @@ class CourseContextMixin(TrackedViewMixin, LazyEncoderMixin):
     page_title = None
     page_subtitle = None
 
+    def _ignore_in_reporting(self, user):
+        if settings.SEGMENT_IGNORE_EMAIL_REGEX:
+            return re.match(settings.SEGMENT_IGNORE_EMAIL_REGEX, user.email, re.IGNORECASE)
+
+        return False
+
     def get_context_data(self, **kwargs):
         context = super(CourseContextMixin, self).get_context_data(**kwargs)
         context.update(self.get_default_data())
 
-        context['js_data'] = context.get('js_data', {})
         user = self.request.user
+        context['js_data'] = context.get('js_data', {})
         context['js_data'].update({
             'course': {
                 'courseId': self.course_id
@@ -84,6 +91,7 @@ class CourseContextMixin(TrackedViewMixin, LazyEncoderMixin):
                 'userId': user.get_username(),
                 'userName': user.get_full_name(),
                 'userEmail': user.email,
+                'ignoreInReporting': self._ignore_in_reporting(user)
             },
         })
 

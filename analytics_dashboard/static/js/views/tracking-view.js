@@ -107,7 +107,8 @@ define(['backbone', 'underscore', 'utils/utils'],
                     userModel = self.options.userModel;
                 self.segment.identify(userModel.get('userId'), {
                     username: userModel.get('userName'),
-                    email: userModel.get('userEmail')
+                    email: userModel.get('userEmail'),
+                    ignoreInReporting: userModel.get('ignoreInReporting')
                 });
             },
 

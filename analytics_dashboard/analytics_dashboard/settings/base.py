@@ -272,6 +272,9 @@ WSGI_APPLICATION = '%s.wsgi.application' % SITE_NAME
 ########## SEGMENT.IO
 # 'None' disables tracking.  This will be turned on for test and production.
 SEGMENT_IO_KEY = None
+
+# Regular expression used to identify users that should be ignored in reporting
+SEGMENT_IGNORE_EMAIL_REGEX = None
 ########## END SEGMENT.IO
 
 ########## FEEDBACK AND SUPPORT -- These values should be overridden for production deployments.
