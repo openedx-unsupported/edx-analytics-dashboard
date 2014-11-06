@@ -85,14 +85,45 @@ For information about viewing enrollment activity data in edX Insights, see
 
 **Enrollment Over Time chart**
   
-* The markers on the chart represent the number of users enrolled in the
-  course each day.
+* The filled area of this stacked area chart represents the total
+  number of users enrolled in the course each day.
 
-* The x-axis shows dates from course creation through the end of
-  the last update period.
+* The x-axis shows dates from course creation through the end of the last
+  update period.
 
-* The y-axis shows the number of enrolled users.
+* The y-axis shows the total number of enrolled users. 
+
+* For courses that offer more than one enrollment option or certification
+  track, different colors in the filled area represent the contribution of each
+  option and track to the enrollment total.
+
+  In addition to honor code certificates, courses can offer a verified
+  certificate option or enroll students through a professional education
+  program.
+
+* Each enrolled student is included in one, and only one, of the possible
+  enrollment tracks on a given date. The student's enrollment track as of 23:59
+  UTC is used each day.
+
+**Enrollment Over Time report**
+
+* If a course offers students the option to pursue a verified certificate, the
+  report includes columns for **Verified Enrollment** and **Honor Code
+  Enrollment**.
   
+* If a course enrolls students through a professional education program, the
+  report includes columns for **Professional Enrollment** and **Honor Code
+  Enrollment**.
+
+* The **Honor Code Enrollment** column reports the count of students who opted
+  to receive an honor code certificate for the course.
+
+  At one time, the edx.org site offered students options to "audit" the course
+  only, or to audit the course and then receive an "honor" certificate when a
+  passing grade was achieved. For courses that ran at that time, the **Honor
+  Code Enrollment** column reports the sum of the students with these
+  enrollment options.
+
 .. _Demographic Computations:
 
 *********************************
