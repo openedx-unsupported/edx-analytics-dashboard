@@ -4,6 +4,7 @@ ROOT = $(shell echo "$$PWD")
 COVERAGE = $(ROOT)/build/coverage
 PACKAGES = analytics_dashboard courses django_rjs help
 NUM_PROCESSES = 2
+NODE_BIN=./node_modules/.bin
 
 .PHONY: requirements clean
 
@@ -12,7 +13,7 @@ requirements: requirements.js
 
 requirements.js:
 	npm install
-	bower install
+	$(NODE_BIN)/bower install
 
 test.requirements: requirements
 	pip install -q -r requirements/test.txt --exists-action w
@@ -55,9 +56,9 @@ quality:
 validate_python: test.requirements test_python quality
 
 validate_js: requirements.js
-	gulp test
-	gulp lint
-	gulp jscs
+	$(NODE_BIN)/gulp test
+	$(NODE_BIN)/gulp lint
+	$(NODE_BIN)/gulp jscs
 
 validate: validate_python validate_js
 
@@ -75,6 +76,6 @@ generate_fake_translations:
 	compile_translations
 
 static:
-	r.js -o build.js
+	$(NODE_BIN)/r.js -o build.js
 	cd analytics_dashboard && ./manage.py collectstatic --noinput
 	cd analytics_dashboard && ./manage.py compress
