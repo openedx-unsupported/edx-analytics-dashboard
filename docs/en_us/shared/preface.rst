@@ -150,7 +150,7 @@ Documentation
 
 Documentation for developers is available on the docs.edx.org web page.
 
-* `edX Platform Developer's Guide`_ collects information directly from edX
+* The `edX Platform Developer's Guide`_ collects information directly from edX
   platform python docstrings. The topics in this guide include guidelines for
   contributing to Open edX, options for extending the Open edX platform, using
   the edX public sandboxes, instrumenting analytics, and testing.

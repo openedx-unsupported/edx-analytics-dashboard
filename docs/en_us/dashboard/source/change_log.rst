@@ -8,7 +8,9 @@ Change Log
 
    * - Date
      - Change
-   * - 11/25/14
+   * - 12/9/14
+     - Updated :ref:`Enrollment_Activity` to include enrollment tracks.
+   * -
      - Expanded the section on possible :ref:`error conditions<Error
        Conditions>`.
    * - 11/24/14
