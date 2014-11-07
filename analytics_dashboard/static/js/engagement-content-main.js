@@ -6,7 +6,7 @@
 require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
     'use strict';
 
-    require(['views/data-table-view', 'views/trends-view'], function (DataTableView, TrendsView) {
+    require(['underscore', 'views/data-table-view', 'views/trends-view'], function (_, DataTableView, TrendsView) {
         // shared settings between the chart and table
         // colors are chosen to be color-blind accessible
         var settings = [
@@ -72,9 +72,8 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                 title: 'Students',
                 key: 'count'
             },
-            tooltip: gettext('The number of active students, and the number of students who engaged in specific activities, over time.'),   // jshint ignore:line
-            // Translators: %(value)s will be replaced with a date.
-            interactiveTooltipHeader: gettext('Week Ending %(value)s')
+            // Translators: <%=value%> will be replaced with a date.
+            interactiveTooltipHeaderTemplate: _.template(gettext('Week Ending <%=value%>'))
         });
 
         // weekly engagement activities table

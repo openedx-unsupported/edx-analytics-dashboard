@@ -6,8 +6,8 @@
 require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
     'use strict';
 
-    require(['views/data-table-view', 'views/histogram-view'],
-        function (DataTableView, HistogramView) {
+    require(['underscore', 'views/data-table-view', 'views/histogram-view'],
+        function (_, DataTableView, HistogramView) {
 
         // used in the table to show ages above this are binned--displayed as "100+"
         var maxNumber = 100;
@@ -18,12 +18,14 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             modelAttribute: 'ages',
             excludeData: ['Unknown'],
             trends: [{
-                title: gettext('Students'),
+                title: gettext('Number of Students'),
                 color: 'rgb(58, 162, 224)',
                 maxNumber: maxNumber
             }],
             x: { key: 'age' },
-            y: { key: 'count' }
+            y: { key: 'count' },
+            // Translators: <%=value%> will be replaced with an age.
+            interactiveTooltipHeaderTemplate: _.template(gettext('Age: <%=value%>'))
         });
 
         new DataTableView({

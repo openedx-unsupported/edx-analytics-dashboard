@@ -6,9 +6,8 @@
 require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
     'use strict';
 
-    require(['views/data-table-view',
-            'views/discrete-bar-view'],
-        function (DataTableView, DiscreteBarView) {
+    require(['underscore', 'views/data-table-view', 'views/discrete-bar-view'],
+        function (_, DataTableView, DiscreteBarView) {
 
         new DiscreteBarView({
             el: '#enrollment-chart-view',
@@ -17,11 +16,13 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             excludeData: ['Unknown'],
             dataType: 'percent',
             trends: [{
-                title: gettext('Education'),
+                title: gettext('Percentage'),
                 color: 'rgb(58, 162, 224)'
             }],
             x: { key: 'educationLevel' },
-            y: { key: 'percent' }
+            y: { key: 'percent' },
+            // Translators: <%=value%> will be replaced with a level of education (e.g. Doctorate).
+            interactiveTooltipHeaderTemplate: _.template(gettext('Education: <%=value%>'))
         });
 
         new DataTableView({

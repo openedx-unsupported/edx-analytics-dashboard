@@ -6,9 +6,8 @@
 require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
     'use strict';
 
-    require(['views/data-table-view',
-            'views/discrete-bar-view'],
-        function (DataTableView, DiscreteBarView) {
+    require(['underscore', 'views/data-table-view', 'views/discrete-bar-view'],
+        function (_, DataTableView, DiscreteBarView) {
 
         new DiscreteBarView({
             el: '#enrollment-chart-view',
@@ -16,11 +15,13 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             modelAttribute: 'genders',
             dataType: 'percent',
             trends: [{
-                title: gettext('Gender'),
+                title: gettext('Percentage'),
                 color: 'rgb(58, 162, 224)'
             }],
             x: { key: 'gender' },
-            y: { key: 'percent' }
+            y: { key: 'percent' },
+            // Translators: <%=value%> will be replaced with a level of gender (e.g. Female).
+            interactiveTooltipHeaderTemplate: _.template(gettext('Gender: <%=value%>'))
         });
 
         // Daily enrollment table
