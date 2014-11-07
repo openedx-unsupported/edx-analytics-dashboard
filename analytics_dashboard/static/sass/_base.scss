@@ -21,6 +21,19 @@ a {
   @include transition(color ease-in-out .25s);
 }
 
+
+// removes the outline around links when hovering
+a {
+  &:active, &:hover {
+    outline: none;
+  }
+}
+
+// removes the outline around nav links when hovering
+.nav > li > a {
+  @extend a;
+}
+
 hr.has-emphasis {
   margin-top: $padding-base-vertical;
   border-color: $gray-dark;

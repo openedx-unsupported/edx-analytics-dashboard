@@ -217,6 +217,11 @@ $lens-box-model: border-box;
     color: $lens-nav-text-color;
     padding-top: 0px;
     padding-bottom: $padding-small-vertical;
+
+    // use darkest gray when hovering over sub-lens nav (e.g. age, education, gender)
+    &:hover {
+      color: $edx-gray-d2
+    }
   }
 
   li.active > a {
