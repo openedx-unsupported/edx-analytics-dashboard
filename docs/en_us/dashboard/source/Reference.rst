@@ -53,11 +53,6 @@ Enrollment Computations
 The number of enrolled students is computed every day, and the values reported
 on the Enrollment Activity page in edX Insights are updated every day.
 
-.. important:: EdX changed the method used to track student enrollments on 
- 3 December 2013. As a result, enrollment activity data is not computed for
- courses created in Studio prior to December 4, 2013. Geographic data relating
- to enrollment is available for those courses.
-
 For information about viewing enrollment activity data in edX Insights, see
 :ref:`Enrollment_Activity`.
 
@@ -353,10 +348,6 @@ Error Conditions
 
 The data that edX collects from student interactions has expanded over time to
 capture increasingly specific information, and continues to expand as we add
-new features to the platform. As a result, more data is available for more
-courses that ran recently. Not all data for every value reported by edX
-Insights is available for every course run.
-
-EdX changed the method used to track student enrollments on 3 December 2013. As
-a result, enrollment activity data is not computed for courses created in
-Studio prior to 4 December 2013. Other data is available for those courses.
+new features to the platform. As a result, more data is available for courses
+that are running now, or that ran recently. Not all data for every value
+reported by edX Insights is available for every course run.
