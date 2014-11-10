@@ -20,7 +20,7 @@ class AnalyticsApiClientMixin(object):
 
         api_url = API_SERVER_URL
         auth_token = API_AUTH_TOKEN
-        self.api_client = Client(api_url, auth_token=auth_token, timeout=5)
+        self.api_client = Client(api_url, auth_token=auth_token, timeout=10)
 
 
 class AssertMixin(object):
@@ -166,6 +166,13 @@ class AnalyticsDashboardWebAppTestMixin(PrimaryNavMixin, ContextSensitiveHelpMix
         self.page.visit()
         PrimaryNavMixin.test_page(self)
         ContextSensitiveHelpMixin.test_page(self)
+
+    def date_strip_leading_zeroes(self, s):
+        """
+        Remove the leading 0 on formatted date strings.
+        :param s: Date formatted as string
+        """
+        return s.replace(' 0', ' ')
 
 
 class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterMixin, AnalyticsDashboardWebAppTestMixin):
@@ -320,6 +327,3 @@ class CourseDemographicsPageTestsMixin(CoursePageTestsMixin):
         last_updated = datetime.datetime.strptime(current_data['created'], self.api_datetime_format)
         return 'Demographic student data was last updated %(update_date)s at %(update_time)s UTC.' % \
                self.format_last_updated_date_and_time(last_updated)
-
-    def _get_total_demographics(self):
-        return float(sum([datum['count'] for datum in self.demographic_data]))

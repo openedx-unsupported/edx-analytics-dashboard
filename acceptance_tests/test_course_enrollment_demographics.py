@@ -1,12 +1,11 @@
 import datetime
-from unittest import skipUnless
+
 from bok_choy.web_app_test import WebAppTest
 
 import analyticsclient.constants.education_level as EDUCATION_LEVEL
 from analyticsclient.constants import demographic
-from acceptance_tests import ENABLE_DEMOGRAPHICS_TESTS
+import analyticsclient.constants.gender as GENDER
 from acceptance_tests.mixins import CourseDemographicsPageTestsMixin
-
 from acceptance_tests.pages import CourseEnrollmentDemographicsAgePage, CourseEnrollmentDemographicsEducationPage, \
     CourseEnrollmentDemographicsGenderPage
 
@@ -14,7 +13,6 @@ from acceptance_tests.pages import CourseEnrollmentDemographicsAgePage, CourseEn
 _multiprocess_can_split_ = True
 
 
-@skipUnless(ENABLE_DEMOGRAPHICS_TESTS, 'Demographics tests are not enabled.')
 class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, WebAppTest):
     help_path = 'enrollment/Demographics_Age.html'
 
@@ -25,22 +23,27 @@ class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, Web
         super(CourseEnrollmentDemographicsAgeTests, self).setUp()
         self.page = CourseEnrollmentDemographicsAgePage(self.browser)
         self.course = self.api_client.courses(self.page.course_id)
+
         self.demographic_data = sorted(self.course.enrollment(self.demographic_type),
                                        key=lambda item: item['count'], reverse=True)
+
+        # Remove items with no birth year
+        self.demographic_data_without_none = [datum for datum in self.demographic_data if datum['birth_year']]
 
     def test_page(self):
         super(CourseEnrollmentDemographicsAgeTests, self).test_page()
         self._test_metrics()
 
     def _calculate_median_age(self, current_year):
-        total_enrollment = sum([datum['count'] for datum in self.demographic_data])
+        demographic_data = self.demographic_data_without_none
+
+        total_enrollment = sum([datum['count'] for datum in demographic_data])
         half_enrollments = total_enrollment * 0.5
         count_enrollments = 0
 
-        sorted_by_year = sorted(self.course.enrollment(self.demographic_type),
-                                key=lambda item: item['birth_year'], reverse=False)
+        data = sorted(demographic_data, key=lambda item: item['birth_year'], reverse=False)
 
-        for index, datum in enumerate(sorted_by_year):
+        for index, datum in enumerate(data):
             age = current_year - datum['birth_year']
             count_enrollments += datum['count']
 
@@ -48,7 +51,7 @@ class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, Web
                 return age
             elif count_enrollments == half_enrollments:
                 if total_enrollment % 2 == 0:
-                    next_age = current_year - sorted_by_year[index + 1]['birth_year']
+                    next_age = current_year - data[index + 1]['birth_year']
                     return (next_age + age) * 0.5
                 else:
                     return age
@@ -60,7 +63,7 @@ class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, Web
         Returns the number of enrollments between min_age (exclusive) and
         max_age (inclusive).
         """
-        filtered_ages = self.demographic_data
+        filtered_ages = self.demographic_data_without_none
 
         if min_age:
             filtered_ages = ([datum for datum in filtered_ages
@@ -73,7 +76,7 @@ class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, Web
 
     def _test_metrics(self):
         current_year = datetime.date.today().year
-        total = float(sum([datum['count'] for datum in self.demographic_data]))
+        total = float(sum([datum['count'] for datum in self.demographic_data_without_none]))
         age_metrics = [
             {
                 'stat_type': 'median_age',
@@ -107,7 +110,6 @@ class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, Web
         self.assertIn('text-right', column[2].get_attribute('class'))
 
 
-@skipUnless(ENABLE_DEMOGRAPHICS_TESTS, 'Demographics tests are not enabled.')
 class CourseEnrollmentDemographicsGenderTests(CourseDemographicsPageTestsMixin, WebAppTest):
     help_path = 'enrollment/Demographics_Gender.html'
 
@@ -126,19 +128,26 @@ class CourseEnrollmentDemographicsGenderTests(CourseDemographicsPageTestsMixin, 
                                        reverse=True)
 
     def _test_table_row(self, datum, column, sum_count):
-        expected_date = datetime.datetime.strptime(datum['date'], self.api_date_format).strftime(
-            "%B %d, %Y").replace(' 0', ' ')
-        gender_total = sum([value for key, value in datum.iteritems() if
-                            value and key in ['female', 'male', 'other', 'unknown']])
-        expected = [unicode(expected_date), unicode(gender_total), unicode(datum.get('female', 0)),
-                    unicode(datum.get('male', 0)), unicode(datum.get('other', 0)), unicode(datum.get('u', 0))]
-        actual = [column[0].text, column[1].text, column[2].text, column[3].text, column[4].text, column[5].text]
+        genders = [GENDER.FEMALE, GENDER.MALE, GENDER.OTHER, GENDER.UNKNOWN]
+        expected_date = datetime.datetime.strptime(datum['date'], self.api_date_format).strftime("%B %d, %Y")
+        expected_date = self.date_strip_leading_zeroes(expected_date)
+        gender_total = sum([value for key, value in datum.iteritems() if value and key in genders])
+
+        expected = [unicode(expected_date), unicode(gender_total)]
+
+        for gender in genders:
+            expected.append(unicode(datum.get(gender, 0)))
+
+        actual = []
+        for i in range(6):
+            actual.append(column[i].text)
+
         self.assertListEqual(actual, expected)
+
         for i in range(1, 6):
             self.assertIn('text-right', column[i].get_attribute('class'))
 
 
-@skipUnless(ENABLE_DEMOGRAPHICS_TESTS, 'Demographics tests are not enabled.')
 class CourseEnrollmentDemographicsEducationTests(CourseDemographicsPageTestsMixin, WebAppTest):
 
     EDUCATION_NAMES = {
@@ -171,7 +180,9 @@ class CourseEnrollmentDemographicsEducationTests(CourseDemographicsPageTestsMixi
         self._test_metrics()
 
     def _test_metrics(self):
-        total = self._get_total_demographics()
+        # The total should not include users who did not provide an education level
+        total = sum([datum['count'] for datum in self.demographic_data if datum['education_level']])
+
         education_groups = [
             {
                 'levels': ['primary', 'junior_secondary', 'secondary'],
