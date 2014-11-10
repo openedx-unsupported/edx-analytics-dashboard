@@ -10,7 +10,7 @@ before_install:
 install:
     - make test.acceptance
     - pip install coveralls
-script: 
+script:
     - make validate
     - make generate_fake_translations
     - bash ./runAcceptance.sh

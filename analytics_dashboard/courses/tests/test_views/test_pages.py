@@ -184,7 +184,7 @@ class CourseIndexViewTests(ViewTestMixin, MiddlewareAssertionMixin, TestCase):
         self.grant_permission(self.user, course_id)
         response = self.client.get(self.path())
         self.assertEqual(response.status_code, 200)
-        self.assertListEqual(response.context['courses'], [course_id])
+        self.assertListEqual(response.context['courses'], [{'id': course_id}])
 
     @mock.patch('courses.permissions.get_user_course_permissions',
                 mock.Mock(side_effect=PermissionsRetrievalFailedError))
