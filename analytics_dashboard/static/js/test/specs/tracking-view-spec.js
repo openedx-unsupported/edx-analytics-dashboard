@@ -31,7 +31,8 @@ define(['models/course-model', 'models/tracking-model', 'models/user-model', 'vi
                     userModel: new UserModel({
                         userId: 'myId',
                         userName: 'MyName',
-                        userEmail: 'myemail@edx.org'
+                        userEmail: 'myemail@edx.org',
+                        ignoreInReporting: true
                     })
                 });
 
@@ -44,7 +45,8 @@ define(['models/course-model', 'models/tracking-model', 'models/user-model', 'vi
 
                 expect(view.segment.identify).toHaveBeenCalledWith('myId', {
                     username: 'MyName',
-                    email: 'myemail@edx.org'
+                    email: 'myemail@edx.org',
+                    ignoreInReporting: true
                 });
             });
 
