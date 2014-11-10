@@ -36,6 +36,8 @@ class CourseEnrollmentDemographicsAge(CourseEnrollmentDemographicsMixin, TestCas
         self.assertDictEqual(context['summary'], summary)
         self.assertAllNavs(context, course_id)
 
+        self.assertValidCourseName(course_id, response.context)
+
     def get_mock_data(self, course_id):
         return utils.get_mock_api_enrollment_age_data(course_id)
 
@@ -71,6 +73,8 @@ class CourseEnrollmentDemographicsEducation(CourseEnrollmentDemographicsMixin, T
         self.assertListEqual(actual_education, education_data)
         self.assertDictEqual(context['summary'], summary)
         self.assertAllNavs(context, course_id)
+
+        self.assertValidCourseName(course_id, response.context)
 
     def get_mock_data(self, course_id):
         return utils.get_mock_api_enrollment_education_data(course_id)
@@ -110,6 +114,7 @@ class CourseEnrollmentDemographicsGender(CourseEnrollmentDemographicsMixin, Test
         self.assertListEqual(actual_trends, trend)
 
         self.assertAllNavs(context, course_id)
+        self.assertValidCourseName(course_id, response.context)
 
     def get_mock_data(self, course_id):
         return utils.get_mock_api_enrollment_gender_data(course_id)

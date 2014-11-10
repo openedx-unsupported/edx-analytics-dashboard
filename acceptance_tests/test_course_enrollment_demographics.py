@@ -22,7 +22,7 @@ class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, Web
     def setUp(self):
         super(CourseEnrollmentDemographicsAgeTests, self).setUp()
         self.page = CourseEnrollmentDemographicsAgePage(self.browser)
-        self.course = self.api_client.courses(self.page.course_id)
+        self.course = self.analytics_api_client.courses(self.page.course_id)
 
         self.demographic_data = sorted(self.course.enrollment(self.demographic_type),
                                        key=lambda item: item['count'], reverse=True)
@@ -119,10 +119,10 @@ class CourseEnrollmentDemographicsGenderTests(CourseDemographicsPageTestsMixin, 
     def setUp(self):
         super(CourseEnrollmentDemographicsGenderTests, self).setUp()
         self.page = CourseEnrollmentDemographicsGenderPage(self.browser)
-        self.course = self.api_client.courses(self.page.course_id)
+        self.course = self.analytics_api_client.courses(self.page.course_id)
 
         end_date = datetime.datetime.utcnow()
-        end_date_string = end_date.strftime(self.api_client.DATE_FORMAT)
+        end_date_string = end_date.strftime(self.analytics_api_client.DATE_FORMAT)
         response = self.course.enrollment(self.demographic_type, end_date=end_date_string)
         self.demographic_data = sorted(response, key=lambda x: datetime.datetime.strptime(x['date'], '%Y-%m-%d'),
                                        reverse=True)
@@ -170,7 +170,7 @@ class CourseEnrollmentDemographicsEducationTests(CourseDemographicsPageTestsMixi
     def setUp(self):
         super(CourseEnrollmentDemographicsEducationTests, self).setUp()
         self.page = CourseEnrollmentDemographicsEducationPage(self.browser)
-        self.course = self.api_client.courses(self.page.course_id)
+        self.course = self.analytics_api_client.courses(self.page.course_id)
         self.demographic_data = sorted(self.course.enrollment(self.demographic_type),
                                        key=lambda item: item['count'], reverse=True)
 

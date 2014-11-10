@@ -1,22 +1,25 @@
+import json
+
 from ddt import ddt, data
 from django.contrib.humanize.templatetags.humanize import intcomma
+from django.test import override_settings
+import httpretty
 import mock
-
 from django.core.urlresolvers import reverse
 from django.core.cache import cache
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
-
 from analyticsclient.exceptions import NotFoundError
-from waffle import Switch
 
 from analytics_dashboard.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin
 from courses.permissions import set_user_course_permissions, revoke_user_course_permissions
+from courses.tests import SwitchMixin
 from courses.tests.utils import set_empty_permissions, get_mock_api_enrollment_data
 
 
 DEMO_COURSE_ID = 'course-v1:edX+DemoX+Demo_2014'
 DEPRECATED_DEMO_COURSE_ID = 'edX/DemoX/Demo_Course'
+COURSE_API_URL = 'http://example.com/api/server/'
 
 
 class PermissionsTestMixin(object):
@@ -97,8 +100,11 @@ class ViewTestMixin(AuthTestMixin):
 
 
 @ddt
-class CourseViewTestMixin(ViewTestMixin):
+class CourseViewTestMixin(SwitchMixin, ViewTestMixin):
     presenter_method = None
+
+    def generate_course_name(self, course_id):
+        return 'Test ' + course_id
 
     def assertPrimaryNav(self, nav, course_id):
         raise NotImplementedError
@@ -128,8 +134,18 @@ class CourseViewTestMixin(ViewTestMixin):
     def assertViewIsValid(self, course_id):
         raise NotImplementedError
 
+    @httpretty.activate
+    @override_settings(COURSE_API_URL=COURSE_API_URL, COURSE_API_KEY='edx')
     @data(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
     def test_valid_course(self, course_id):
+        self.toggle_switch('enable_course_api', True)
+        url = '{}courses/{}/'.format(COURSE_API_URL, course_id)
+        body = json.dumps({
+            'id': course_id,
+            'name': self.generate_course_name(course_id)
+        })
+
+        httpretty.register_uri(httpretty.GET, url, body=body, content_type="application/json")
         self.assertViewIsValid(course_id)
 
     def assertValidMissingDataContext(self, context):
@@ -142,6 +158,10 @@ class CourseViewTestMixin(ViewTestMixin):
             context = response.context
 
         self.assertValidMissingDataContext(context)
+
+    def assertValidCourseName(self, course_id, context):
+        course_name = self.generate_course_name(course_id)
+        self.assertEqual(context['course_name'], course_name)
 
 
 # pylint: disable=abstract-method

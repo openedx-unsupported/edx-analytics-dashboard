@@ -1,11 +1,14 @@
 import locale
 import datetime
+from unittest import skip
 
 from bok_choy.promise import EmptyPromise
 from analyticsclient.client import Client
+import edx_api_client
 
 from acceptance_tests import API_SERVER_URL, API_AUTH_TOKEN, DASHBOARD_FEEDBACK_EMAIL, SUPPORT_URL, LMS_USERNAME, \
-    LMS_PASSWORD, DASHBOARD_SERVER_URL, ENABLE_AUTO_AUTH, DOC_BASE_URL
+    LMS_PASSWORD, DASHBOARD_SERVER_URL, ENABLE_AUTO_AUTH, DOC_BASE_URL, COURSE_API_URL, COURSE_API_KEY, \
+    ENABLE_COURSE_API
 from pages import LMSLoginPage
 
 
@@ -13,14 +16,32 @@ MAX_SUMMARY_POINT_VALUE_LENGTH = 13
 
 
 class AnalyticsApiClientMixin(object):
-    api_client = None
+    analytics_api_client = None
 
     def setUp(self):
         super(AnalyticsApiClientMixin, self).setUp()
 
         api_url = API_SERVER_URL
         auth_token = API_AUTH_TOKEN
-        self.api_client = Client(api_url, auth_token=auth_token, timeout=10)
+        self.analytics_api_client = Client(api_url, auth_token=auth_token, timeout=10)
+
+
+class CourseApiMixin(object):
+    course_api_client = None
+
+    def setUp(self):
+        super(CourseApiMixin, self).setUp()
+
+        if ENABLE_COURSE_API:
+            self.course_api_client = edx_api_client.Client(COURSE_API_URL, COURSE_API_KEY)
+
+    def get_course_name_or_id(self, course_id):
+        """ Returns the course name if the course API is enabled; otherwise, the course ID. """
+        course_name = course_id
+        if ENABLE_COURSE_API:
+            course_name = self.course_api_client.courses(course_id).get()['name']
+
+        return course_name
 
 
 class AssertMixin(object):
@@ -121,7 +142,7 @@ class FooterFeedbackMixin(FooterMixin):
         self.assertHrefEqual(selector, SUPPORT_URL)
 
 
-class PrimaryNavMixin(object):
+class PrimaryNavMixin(CourseApiMixin):
     def _test_user_menu(self):
         """
         Verify the user menu functions properly.
@@ -136,8 +157,22 @@ class PrimaryNavMixin(object):
         element = self.page.q(css='ul.dropdown-menu.active-user-nav')
         self.assertTrue(element.visible)
 
+    def _test_active_course(self):
+        """ Ensure the active course item contains either the course name or ID. """
+        course_id = getattr(self.page, 'course_id', None)
+
+        if not course_id:
+            return skip('Page has no course_id attribute set.')
+
+        element = self.page.q(css='.navbar-header .active-course-name')
+        self.assertTrue(element.visible)
+
+        course_name = self.get_course_name_or_id(course_id)
+        self.assertEqual(element.text[0], course_name)
+
     def test_page(self):
         self._test_user_menu()
+        self._test_active_course()
 
 
 class LoginMixin(object):
@@ -164,7 +199,6 @@ class LoginMixin(object):
 
 
 class LogoutMixin(object):
-
     def logout(self):
         url = '{}/accounts/logout/'.format(DASHBOARD_SERVER_URL)
         self.browser.get(url)
@@ -182,7 +216,8 @@ class ContextSensitiveHelpMixin(object):
         self.assertHrefEqual('#help', self.help_url)
 
 
-class AnalyticsDashboardWebAppTestMixin(PrimaryNavMixin, ContextSensitiveHelpMixin, AssertMixin, LoginMixin):
+class AnalyticsDashboardWebAppTestMixin(FooterMixin, PrimaryNavMixin, ContextSensitiveHelpMixin, AssertMixin,
+                                        LoginMixin):
     def test_page(self):
         self.login()
         self.page.visit()
@@ -206,8 +241,8 @@ class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterLegalMixin, FooterFeed
 
     def setUp(self):
         super(CoursePageTestsMixin, self).setUp()
-        self.api_date_format = self.api_client.DATE_FORMAT
-        self.api_datetime_format = self.api_client.DATETIME_FORMAT
+        self.api_date_format = self.analytics_api_client.DATE_FORMAT
+        self.api_datetime_format = self.analytics_api_client.DATETIME_FORMAT
 
     def assertSummaryPointValueEquals(self, data_selector, value):
         """
