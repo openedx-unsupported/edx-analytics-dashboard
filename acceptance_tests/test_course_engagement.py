@@ -25,7 +25,7 @@ class CourseEngagementTests(CoursePageTestsMixin, WebAppTest):
         super(CourseEngagementTests, self).setUp()
 
         self.page = CourseEngagementContentPage(self.browser)
-        self.course = self.api_client.courses(self.page.course_id)
+        self.course = self.analytics_api_client.courses(self.page.course_id)
 
     def test_page(self):
         super(CourseEngagementTests, self).test_page()
@@ -41,7 +41,7 @@ class CourseEngagementTests(CoursePageTestsMixin, WebAppTest):
 
     def _test_engagement_metrics(self):
         """ Verify the metrics tiles display the correct information. """
-        end_date = datetime.datetime.utcnow().strftime(self.api_client.DATE_FORMAT)
+        end_date = datetime.datetime.utcnow().strftime(self.analytics_api_client.DATE_FORMAT)
         recent_activity = self.course.activity(end_date=end_date)[-1]
 
         # Verify the activity values
@@ -68,10 +68,10 @@ class CourseEngagementTests(CoursePageTestsMixin, WebAppTest):
 
     def _test_engagement_table(self):
         """ Verify the activity table is rendered with the correct information. """
-        date_time_format = self.api_client.DATETIME_FORMAT
+        date_time_format = self.analytics_api_client.DATETIME_FORMAT
 
         end_date = datetime.datetime.utcnow()
-        end_date_string = end_date.strftime(self.api_client.DATE_FORMAT)
+        end_date_string = end_date.strftime(self.analytics_api_client.DATE_FORMAT)
 
         trend_activity = self.course.activity(start_date=None, end_date=end_date_string)
         trend_activity = sorted(trend_activity, reverse=True, key=lambda item: item['interval_end'])

@@ -14,27 +14,25 @@ class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
         self.page = CourseIndexPage(self.browser)
 
     def test_page(self):
-        self.login()
-        self.page.visit()
+        super(CourseIndexTests, self).test_page()
         self._test_course_list()
-        self._test_user_menu()
 
     def _test_course_list(self):
         """
-        Course list should contain a link to the demo course.
+        Course list should contain a link to the test course.
         """
         course_id = TEST_COURSE_ID
+        course_name = self.get_course_name_or_id(course_id)
 
-        element = self.page.q(css='.course-list a')
-        self.assertTrue(element.present)
+        # Validate that we have a list of course names
+        course_names = self.page.q(css='.course-list .course a .course-name')
+        self.assertTrue(course_names.present)
 
-        # The element should list the test course ID.
-        self.assertIn(course_id, element.text)
+        # The element should list the test course name.
+        self.assertIn(course_name, course_names.text)
 
-        # The element should link to the course landing page.
-        index = element.text.index(course_id)
-        href = element.attrs('href')[index]
+        # Validate the course link
+        index = course_names.text.index(course_name)
+        course_links = self.page.q(css='.course-list .course a')
+        href = course_links.attrs('href')[index]
         self.assertTrue(href.endswith(u'/courses/{}/'.format(course_id)))
-
-        # check that we have an email
-        self.assertValidFeedbackLink('div[class=help-msg] a[class=feedback-email]')

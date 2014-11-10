@@ -11,7 +11,7 @@ class CourseHomeTests(CoursePageTestsMixin, WebAppTest):
     def setUp(self):
         super(CourseHomeTests, self).setUp()
         self.page = CourseHomePage(self.browser)
-        self.course = self.api_client.courses(self.page.course_id)
+        self.course = self.analytics_api_client.courses(self.page.course_id)
 
     def test_page(self):
         super(CourseHomeTests, self).test_page()

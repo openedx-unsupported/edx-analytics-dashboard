@@ -1,17 +1,18 @@
 import json
 
 from ddt import data, ddt
+import httpretty
 import mock
-from django.test import TestCase
+from django.test import TestCase, override_settings
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 import analyticsclient.constants.activity_type as AT
 
 from courses.tests.test_views import ViewTestMixin, CourseViewTestMixin, \
-    CourseEnrollmentViewTestMixin, DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID
+    CourseEnrollmentViewTestMixin, DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID, COURSE_API_URL
 from courses.exceptions import PermissionsRetrievalFailedError
 from courses.tests.test_middleware import MiddlewareAssertionMixin
-from courses.tests import utils
+from courses.tests import utils, SwitchMixin
 
 
 # pylint: disable=abstract-method
@@ -81,6 +82,8 @@ class CourseEngagementContentViewTests(CourseEngagementViewTestMixin, TestCase):
             self.assertPrimaryNav(response.context['primary_nav_item'], course_id)
             self.assertSecondaryNavs(response.context['secondary_nav_items'], course_id)
 
+            self.assertValidCourseName(course_id, response.context)
+
     def assertValidMissingDataContext(self, context):
         # summary and engagementTrends should evaluate to falsy values, which the
         # template evaluates to render error messages
@@ -119,6 +122,7 @@ class CourseEnrollmentActivityViewTests(CourseEnrollmentViewTestMixin, TestCase)
 
         self.assertPrimaryNav(context['primary_nav_item'], course_id)
         self.assertSecondaryNavs(context['secondary_nav_items'], course_id)
+        self.assertValidCourseName(course_id, response.context)
 
     def assertValidMissingDataContext(self, context):
         self.assertIsNone(context['summary'])
@@ -149,6 +153,8 @@ class CourseEnrollmentGeographyViewTests(CourseEnrollmentViewTestMixin, TestCase
             _summary, expected_data = utils.get_mock_presenter_enrollment_geography_data()
             self.assertEqual(page_data['course']['enrollmentByCountry'], expected_data)
 
+            self.assertValidCourseName(course_id, response.context)
+
     def assertValidMissingDataContext(self, context):
         self.assertIsNone(context['update_message'])
         self.assertIsNone(context['js_data']['course']['enrollmentByCountry'])
@@ -163,28 +169,68 @@ class CourseHomeViewTests(CourseViewTestMixin, TestCase):
         self.assertEqual(response.status_code, 200)
 
         self.assertEqual(response.context['page_title'], 'Course Home')
+        self.assertValidCourseName(course_id, response.context)
 
     @data(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
     def test_missing_data(self, course_id):
         self.skipTest('The course homepage does not check for the existence of a course.')
 
 
-@ddt
-class CourseIndexViewTests(ViewTestMixin, MiddlewareAssertionMixin, TestCase):
+COURSE_API_COURSE_LIST = {'results': [
+    {'id': course_key, 'name': 'Test ' + course_key} for course_key in [DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID]
+]}
+
+
+class CourseIndexViewTests(SwitchMixin, ViewTestMixin, MiddlewareAssertionMixin, TestCase):
     viewname = 'courses:index'
 
-    @data(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
-    def test_get(self, course_id):
-        # If no course permissions, raise an error.
+    def setUp(self):
+        super(CourseIndexViewTests, self).setUp()
+        self.grant_permission(self.user, DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
+        self.courses = self._create_course_list(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
+
+    def assertCourseListEquals(self, courses):
+        response = self.client.get(self.path())
+        self.assertEqual(response.status_code, 200)
+        self.assertListEqual(response.context['courses'], courses)
+
+    def _create_course_list(self, *course_keys, **kwargs):
+        with_name = kwargs.get('with_name', False)
+        return [{'key': key, 'name': 'Test ' + key if with_name else None} for key in course_keys]
+
+    def test_get(self):
+        """ If the user is authorized, the view should return a list of all accessible courses. """
+        self.assertCourseListEquals(self.courses)
+
+    def test_get_with_mixed_permissions(self):
+        """ If user only has permission to one course, course list should only display the one course. """
+        self.revoke_permissions(self.user)
+        self.grant_permission(self.user, DEMO_COURSE_ID)
+        courses = self._create_course_list(DEMO_COURSE_ID)
+        self.assertCourseListEquals(courses)
+
+    def test_get_unauthorized(self):
+        """ The view should raise an error if the user has no course permissions. """
         self.grant_permission(self.user)
         response = self.client.get(self.path())
         self.assertEqual(response.status_code, 403)
 
-        # With permissions, the course list should include the accessible course(s)
-        self.grant_permission(self.user, course_id)
-        response = self.client.get(self.path())
-        self.assertEqual(response.status_code, 200)
-        self.assertListEqual(response.context['courses'], [course_id])
+    @httpretty.activate
+    @override_settings(COURSE_API_URL=COURSE_API_URL, COURSE_API_KEY='edx')
+    def test_get_with_course_api(self):
+        """ Verify that the view properly retrieves data from the course API. """
+        self.toggle_switch('enable_course_api', True)
+        httpretty.register_uri(httpretty.GET, COURSE_API_URL + 'courses/', body=json.dumps(COURSE_API_COURSE_LIST),
+                               content_type="application/json")
+
+        courses = self._create_course_list(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID, with_name=True)
+        self.assertCourseListEquals(courses)
+
+        # Test with mixed permissions
+        self.revoke_permissions(self.user)
+        self.grant_permission(self.user, DEMO_COURSE_ID)
+        courses = self._create_course_list(DEMO_COURSE_ID, with_name=True)
+        self.assertCourseListEquals(courses)
 
     @mock.patch('courses.permissions.get_user_course_permissions',
                 mock.Mock(side_effect=PermissionsRetrievalFailedError))

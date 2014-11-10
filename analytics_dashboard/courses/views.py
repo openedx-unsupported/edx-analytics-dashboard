@@ -6,6 +6,10 @@ import re
 import urllib
 
 from django.contrib.humanize.templatetags.humanize import intcomma
+from django.core.cache import cache
+from django.utils.functional import cached_property
+import edx_api_client
+import requests
 from django.conf import settings
 from django.core.exceptions import PermissionDenied
 from django.core.urlresolvers import reverse
@@ -14,7 +18,7 @@ from django.utils import dateformat
 from django.views.generic import TemplateView
 from django.utils.translation import ugettext_lazy as _
 from braces.views import LoginRequiredMixin
-import requests
+from slumber.exceptions import HttpClientError
 from waffle import switch_is_active
 from analyticsclient.constants import data_format, demographic
 from analyticsclient.client import Client
@@ -29,6 +33,69 @@ from help.views import ContextSensitiveHelpMixin
 
 
 logger = logging.getLogger(__name__)
+
+
+class CourseAPIMixin(object):
+    course_api_enabled = False
+    course_api = None
+    course_id = None
+
+    @cached_property
+    def course_info(self):
+        """
+        Returns course info.
+
+        All requests for course info should be made against this property to take advantage of caching.
+        """
+        return self.get_course_info(self.course_id)
+
+    def dispatch(self, request, *args, **kwargs):
+        self.course_api_enabled = switch_is_active('enable_course_api')
+
+        if self.course_api_enabled:
+            self.course_api = edx_api_client.Client(settings.COURSE_API_URL, settings.COURSE_API_KEY).courses
+
+        return super(CourseAPIMixin, self).dispatch(request, *args, **kwargs)
+
+    def get_course_info(self, course_id, depth=0, extra_fields=None):
+        """
+        Retrieve course info from the Course API.
+
+        Retrieved data is cached.
+
+        Arguments
+            course_id       -- ID of the course for which data should be retrieved
+            depth           -- Number of (tree) levels worth of data to retrieve
+            extra_fields    -- Additional course fields to retrieve
+        """
+        if extra_fields:
+            extra_fields = u','.join(extra_fields)
+        else:
+            extra_fields = u''
+
+        key = u'_'.join([unicode(course_id), unicode(depth), extra_fields])
+        info = cache.get(key)
+
+        if not info:
+            try:
+                extra_fields = extra_fields or ''
+                info = self.course_api(course_id).get(depth=depth, include_fields=extra_fields)
+                cache.set(key, info)
+            except HttpClientError as e:
+                logger.error("Unable to retrieve course info for {}: {}".format(course_id, e))
+                info = {}
+
+        return info
+
+    def get_courses(self, course_ids=None):
+        if course_ids:
+            ','.join(course_ids)
+
+        try:
+            return self.course_api.get(course_id=course_ids)['results']
+        except HttpClientError as e:
+            logger.error("Unable to retrieve course data: {}".format(e))
+            return []
 
 
 class TrackedViewMixin(object):
@@ -60,7 +127,7 @@ class LazyEncoderMixin(object):
             return None
 
 
-class CourseContextMixin(TrackedViewMixin, LazyEncoderMixin):
+class CourseContextMixin(CourseAPIMixin, TrackedViewMixin, LazyEncoderMixin):
     """
     Adds default course context data.
 
@@ -104,8 +171,11 @@ class CourseContextMixin(TrackedViewMixin, LazyEncoderMixin):
             'course_id': self.course_id,
             'course_key': self.course_key,
             'page_title': self.page_title,
-            'page_subtitle': self.page_subtitle
+            'page_subtitle': self.page_subtitle,
         }
+
+        if self.course_api_enabled:
+            context['course_name'] = self.course_info.get('name')
 
         return context
 
@@ -721,7 +791,7 @@ class CourseHome(CourseTemplateView):
         return context
 
 
-class CourseIndex(LoginRequiredMixin, TrackedViewMixin, LazyEncoderMixin, TemplateView):
+class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LazyEncoderMixin, TemplateView):
     template_name = 'courses/index.html'
     page_name = 'course_index'
 
@@ -734,7 +804,27 @@ class CourseIndex(LoginRequiredMixin, TrackedViewMixin, LazyEncoderMixin, Templa
             # The user is probably not a course administrator and should not be using this application.
             raise PermissionDenied
 
-        context['courses'] = sorted(courses)
+        courses = self._create_course_list(courses)
+        courses = sorted(courses, key=lambda course: course.get('name', course.get('key')))
+        context['courses'] = courses
         context['page_data'] = self.get_page_data(context)
 
         return context
+
+    def _create_course_list(self, course_ids):
+        info = []
+        course_data = {}
+
+        if self.course_api_enabled:
+
+            # Get data for all courses in a single API call.
+            _api_courses = self.get_courses(course_ids)
+
+            # Create a lookup table from the data.
+            for course in _api_courses:
+                course_data[course['id']] = course['name']
+
+        for course_id in course_ids:
+            info.append({'key': course_id, 'name': course_data.get(course_id)})
+
+        return info
