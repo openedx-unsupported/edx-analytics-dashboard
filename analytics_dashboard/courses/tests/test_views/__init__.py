@@ -148,13 +148,6 @@ class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
     active_secondary_nav_label = None
     api_method = 'analyticsclient.course.Course.enrollment'
 
-    def setUp(self):
-        super(CourseEnrollmentViewTestMixin, self).setUp()
-
-        switch, _created = Switch.objects.get_or_create(name='show_navbar_demographics')
-        switch.active = True
-        switch.save()
-
     def assertPrimaryNav(self, nav, course_id):
         expected = {
             'icon': 'fa-child',

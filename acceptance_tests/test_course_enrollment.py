@@ -93,8 +93,9 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         for i, row in enumerate(rows):
             columns = row.find_elements_by_css_selector('td')
             enrollment = enrollment_data[i]
-            expected_date = datetime.datetime.strptime(enrollment['date'], self.api_date_format).strftime(
-                "%B %d, %Y").replace(' 0', ' ')
+            expected_date = datetime.datetime.strptime(enrollment['date'], self.api_date_format).strftime("%B %d, %Y")
+            expected_date = self.date_strip_leading_zeroes(expected_date)
+
             expected = [expected_date, self.format_number(enrollment['count'])]
             actual = [columns[0].text, columns[1].text]
             self.assertListEqual(actual, expected)

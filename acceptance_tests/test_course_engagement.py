@@ -90,8 +90,10 @@ class CourseEngagementTests(CoursePageTestsMixin, WebAppTest):
         for i, row in enumerate(rows):
             columns = row.find_elements_by_css_selector('td')
             weekly_activity = trend_activity[i]
-            expected_date = self.format_time_as_dashboard((
-                datetime.datetime.strptime(weekly_activity['interval_end'], date_time_format)) - datetime.timedelta(days=1)).replace(' 0', ' ')
+            expected_date = self.format_time_as_dashboard(
+                (datetime.datetime.strptime(weekly_activity['interval_end'], date_time_format)) - datetime.timedelta(
+                    days=1))
+            expected_date = self.date_strip_leading_zeroes(expected_date)
             expected = [expected_date,
                         self.format_number(weekly_activity[at.ANY]),
                         self.format_number(weekly_activity[at.PLAYED_VIDEO]),

@@ -326,8 +326,7 @@ class EnrollmentTemplateView(CourseTemplateView):
     """
     secondary_nav_items = [
         {'name': 'activity', 'label': _('Activity'), 'view': 'courses:enrollment_activity'},
-        {'name': 'demographics', 'label': _('Demographics'), 'view': 'courses:enrollment_demographics_age',
-         'switch': 'show_navbar_demographics'},
+        {'name': 'demographics', 'label': _('Demographics'), 'view': 'courses:enrollment_demographics_age'},
         {'name': 'geography', 'label': _('Geography'), 'view': 'courses:enrollment_geography'},
     ]
     active_primary_nav_item = 'enrollment'

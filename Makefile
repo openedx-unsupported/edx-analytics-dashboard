@@ -64,7 +64,6 @@ validate: validate_python validate_js
 
 demo:
 	cd analytics_dashboard && ./manage.py switch show_engagement_forum_activity on --create
-	cd analytics_dashboard && ./manage.py switch show_navbar_demographics on --create
 	cd analytics_dashboard && ./manage.py switch display_verified_enrollment on --create
 
 compile_translations:
