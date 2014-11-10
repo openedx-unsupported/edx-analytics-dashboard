@@ -2,8 +2,10 @@
 This file contains Django authentication backends. For more information visit
 https://docs.djangoproject.com/en/dev/topics/auth/customizing/.
 """
+import json
 
 from django.conf import settings
+import django.dispatch
 
 from social.backends.open_id import OpenIdConnectAuth
 
@@ -31,11 +33,36 @@ class EdXOpenIdConnect(OpenIdConnectAuth):
         'locale': u'language',
     }
 
+    auth_complete_signal = django.dispatch.Signal(providing_args=["user", "id_token"])
+
     def user_data(self, _access_token, *_args, **_kwargs):
+        # Include decoded id_token fields in user data.
         return self.id_token
+
+    def auth_complete_params(self, state=None):
+        params = super(EdXOpenIdConnect, self).auth_complete_params(state)
+
+        # TODO: Due a limitation in the oidc provider in the LMS, the list of all course permissions
+        # is computed during the authentication process. As an optimization, we explicitly request
+        # the list here, avoiding further roundtrips. This is no longer necessary once the limitation
+        # is resolved and instead the course permissions can be requested on a need to have basis,
+        # reducing overhead significantly.
+        claim_names = settings.COURSE_PERMISSIONS_CLAIMS
+        courses_claims_request = {name: {'essential': True} for name in claim_names}
+        params['claims'] = json.dumps({'id_token': courses_claims_request})
+
+        return params
+
+    def auth_complete(self, *args, **kwargs):
+        # WARNING: during testing, the user model class is `social.tests.models` and not the one
+        # specified for the application.
+        user = super(EdXOpenIdConnect, self).auth_complete(*args, **kwargs)
+        self.auth_complete_signal.send(sender=self.__class__, user=user, id_token=self.id_token)
+        return user
 
     def get_user_claims(self, access_token, claims=None):
         """ Returns a dictionary with the values for each claim requested. """
+
         data = self.get_json(
             self.USER_INFO_URL,
             headers={'Authorization': 'Bearer {0}'.format(access_token)}
