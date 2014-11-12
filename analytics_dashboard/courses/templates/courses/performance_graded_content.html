@@ -1,0 +1,18 @@
+{% extends "courses/base-course.html" %}
+
+
+{% block child_content %}
+  <h1>Homework</h1>
+  <ul>
+    {% for homework in homeworks %}
+      <li>{{ homework.name }}</li>
+    {% endfor %}
+  </ul>
+
+  <h1>Exams</h1>
+  <ul>
+    {% for exam in exams %}
+      <li>{{ exam.name }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

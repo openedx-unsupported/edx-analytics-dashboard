@@ -217,6 +217,13 @@ class CourseNavBarMixin(object):
                 'label': _('Engagement'),
                 'view': 'courses:engagement_content',
                 'icon': 'fa-bar-chart',
+            },
+            {
+                'name': 'performance',
+                'label': _('Performance'),
+                'view': 'courses:performance_graded_content',
+                'icon': 'fa-check-square-o',
+                'switch': 'enable_course_api',
             }
         ]
 
@@ -277,8 +284,12 @@ class CourseNavBarMixin(object):
         tertiary_nav_items = self.get_tertiary_nav_items()
 
         # Get the active primary item and remove it from the list
-        primary_nav_item = [i for i in primary_nav_items if i['name'] == self.active_primary_nav_item][0]
-        primary_nav_items.remove(primary_nav_item)
+        primary_nav_item = None
+        try:
+            primary_nav_item = [i for i in primary_nav_items if i['name'] == self.active_primary_nav_item][0]
+            primary_nav_items.remove(primary_nav_item)
+        except IndexError:
+            logger.error('An error occurred while determining the primary nav item.')
 
         context.update({
             'primary_nav_item': primary_nav_item,
@@ -776,3 +787,26 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LazyEnco
             info.append(d)
 
         return info
+
+
+class PerformanceGradedContent(CourseTemplateView):
+    template_name = 'courses/performance_graded_content.html'
+    page_title = _('Graded Content')
+    page_name = 'performance_graded_content'
+    active_primary_nav_item = 'performance'
+    active_secondary_nav_item = 'graded_content'
+
+    secondary_nav_items = [
+        {'name': 'graded_content', 'label': _('Graded Content'), 'view': 'courses:performance_graded_content'},
+    ]
+
+    def get_context_data(self, **kwargs):
+        context = super(PerformanceGradedContent, self).get_context_data(**kwargs)
+
+        context.update({
+            'homeworks': self.course_api.homeworks(self.course_id),
+            'exams': self.course_api.exams(self.course_id),
+            'page_data': self.get_page_data(context)
+        })
+
+        return context
