@@ -1,4 +1,5 @@
 # pylint: disable=line-too-long,no-value-for-parameter
+import os
 
 from django.conf.urls import patterns, include, url
 from django.conf import settings
@@ -30,17 +31,23 @@ urlpatterns = patterns(
     url(r'^accounts/logout/$', views.logout, name='logout'),
     url(r'^accounts/logout_then_login/$', views.logout_then_login, name='logout_then_login'),
     url(r'^test/auto_auth/$', views.AutoAuth.as_view(), name='auto_auth'),
-    url(r'^auth/error/$', 'django.views.defaults.server_error', {'template_name': 'auth_error.html'}, name='auth_error'),
+    url(r'^auth/error/$', 'django.views.defaults.server_error', {'template_name': 'auth_error.html'},
+        name='auth_error'),
     url(r'^announcements/', include('announcements.urls')),
 )
 
 if settings.DEBUG:  # pragma: no cover
-    import debug_toolbar    # pylint: disable=import-error
-
     urlpatterns += patterns(
         '',
-        url(r'^__debug__/', include(debug_toolbar.urls)),
         url(r'^403/$', 'django.views.defaults.permission_denied'),
         url(r'^404/$', 'django.views.defaults.page_not_found'),
         url(r'^500/$', 'django.views.defaults.server_error'),
     )
+
+    if os.environ.get('ENABLE_DJANGO_TOOLBAR', False):
+        import debug_toolbar  # pylint: disable=import-error
+
+        urlpatterns += patterns(
+            '',
+            url(r'^__debug__/', include(debug_toolbar.urls)),
+        )

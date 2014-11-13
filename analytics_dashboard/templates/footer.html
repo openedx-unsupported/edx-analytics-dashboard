@@ -14,7 +14,7 @@
         {% captureas email_link %}
           <a class="feedback-email" href="mailto:{{ feedback_email }}?Subject=Feedback">{{ feedback_email }}</a>
         {% endcaptureas %}
-        {% blocktrans %}We want this dashboard to work for you! Need help? {{ support_link_start }}Visit our support
+        {% blocktrans trimmed %}We want this dashboard to work for you! Need help? {{ support_link_start }}Visit our support
           forum{{ support_link_end }}. Comments or suggestions? Email {{ email_link }}.{% endblocktrans %}
       </div>
     </div>

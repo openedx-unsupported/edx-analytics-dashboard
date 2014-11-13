@@ -3,7 +3,7 @@ import uuid
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.test.utils import override_settings
-from django.utils.unittest.case import TestCase
+from django.test import TestCase
 
 from analytics_dashboard.utils import delete_auto_auth_users
 
