@@ -217,16 +217,19 @@ class CourseEnrollmentPresenter(BaseCourseEnrollmentPresenter):
             day_before = self.parse_api_date(trends[0]['date']) - datetime.timedelta(days=1)
             trends.insert(0, self._create_empty_enrollment_datapoint(day_before))
 
-        # Merge the audit and honor tracks into a single "honor" track
         if self.display_verified_enrollment:
-            trends = self._clean_modes(trends)
+            trends = self._merge_audit_and_honor(trends)
 
         return summary, trends
 
-    def _clean_modes(self, data):
+    def _merge_audit_and_honor(self, data):
+        """
+        Merge the audit and honor tracks into a single "honor" track
+
+        Note: This can be removed once the API has been deployed, as it will be updated to handle this for us.
+        """
         for datum in data:
-            datum[enrollment_modes.HONOR] = datum[enrollment_modes.AUDIT] + datum[enrollment_modes.HONOR]
-            datum.pop(enrollment_modes.AUDIT)
+            datum[enrollment_modes.HONOR] = datum.get(enrollment_modes.HONOR, 0) + datum.pop(enrollment_modes.AUDIT, 0)
 
         return data
 
