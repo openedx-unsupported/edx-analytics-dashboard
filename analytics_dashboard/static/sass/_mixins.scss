@@ -6,3 +6,20 @@
     }
   }
 }
+
+@mixin brand-logo($brand-logo-path, $width, $height, $scaled-height:"") {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  background: url($brand-logo-path) no-repeat;
+  background-size: contain;
+
+  @if $scaled-height != "" {
+    $scale: $scaled-height / $height;
+    $width: $width * $scale;
+    $height: $scaled-height;
+  }
+
+  width: $width;
+  height: $height;
+}

@@ -71,15 +71,7 @@ hr.has-emphasis {
 }
 
 .navbar-brand {
-  padding: 25px 50px; // needed for edX logo to render properly
-
-  .navbar-brand-logo {
-    display: inline-block;
-    vertical-align: middle;
-    // setting the width keeps IE from computing the width too large (and sizing the brand section oddly)
-    width: 64px;
-    margin-right: 10px;
-  }
+  padding: 25px 50px; // needed for logo to render properly
 
   .navbar-brand-app {
     @include transition(color ease-in-out .25s);
@@ -410,13 +402,6 @@ hr.has-emphasis {
   .masthead-brand {
     margin-top: $padding-large-vertical;
     margin-bottom: $padding-large-vertical;
-  }
-
-  .masthead-brand-logo {
-    display: inline-block;
-    vertical-align: middle;
-    height: 60px;
-    margin-right: 10px;
   }
 
   .masthead-brand-app {
