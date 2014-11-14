@@ -22,10 +22,12 @@ GENDERS = KNOWN_GENDERS + [GENDER.UNKNOWN]
 
 # for display
 GENDER_FULL_NAMES = {
-    GENDER.FEMALE: 'Female',
-    GENDER.MALE: 'Male',
-    GENDER.OTHER: 'Other',
-    GENDER.UNKNOWN: 'Unknown'
+    GENDER.FEMALE: _('Female'),
+    GENDER.MALE: _('Male'),
+    # Translators: Other gender
+    GENDER.OTHER: _('Other'),
+    # Translators: Unknown gender
+    GENDER.UNKNOWN: _('Unknown')
 }
 
 GENDER_ORDER = {
@@ -560,7 +562,7 @@ class CourseEnrollmentDemographicsPresenter(BaseCourseEnrollmentPresenter):
         if unknown:
             unknown_count = unknown[0]['count']
             binned_ages.append({
-                'age': 'Unknown',
+                'age': _('Unknown'),
                 'count': unknown_count,
                 'percent': self._calculate_percent(unknown_count, enrollment_total)
             })

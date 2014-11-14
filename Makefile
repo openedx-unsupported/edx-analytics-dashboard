@@ -67,12 +67,15 @@ demo:
 	cd analytics_dashboard && ./manage.py switch display_verified_enrollment on --create
 
 compile_translations:
-	cd analytics_dashboard && i18n_tool generate
+	cd analytics_dashboard && i18n_tool generate -v
 
-generate_fake_translations:
+extract_translations:
 	cd analytics_dashboard && i18n_tool extract
+
+dummy_translations:
 	cd analytics_dashboard && i18n_tool dummy
-	compile_translations
+
+generate_fake_translations: extract_translations dummy_translations compile_translations
 
 static:
 	$(NODE_BIN)/r.js -o build.js

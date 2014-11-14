@@ -98,12 +98,12 @@ class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, Web
 
         for metric in age_metrics:
             selector = 'data-stat-type={}'.format(metric['stat_type'])
-            self.assertSummaryPointValueEquals(selector, unicode(str(metric['value'])))
+            self.assertSummaryPointValueEquals(selector, unicode(metric['value']))
 
     def _test_table_row(self, datum, column, sum_count):
         expected_percent_display = self.build_display_percentage(datum['count'], sum_count)
         # it's difficult to test the actual age in the case of a tie, so leave out (unit tests should catch this)
-        expected = [unicode(datum['count']), unicode(expected_percent_display)]
+        expected = [self.format_number(datum['count']), expected_percent_display]
         actual = [column[1].text, column[2].text]
         self.assertListEqual(actual, expected)
         self.assertIn('text-right', column[1].get_attribute('class'))
@@ -133,10 +133,9 @@ class CourseEnrollmentDemographicsGenderTests(CourseDemographicsPageTestsMixin, 
         expected_date = self.date_strip_leading_zeroes(expected_date)
         gender_total = sum([value for key, value in datum.iteritems() if value and key in genders])
 
-        expected = [unicode(expected_date), unicode(gender_total)]
-
+        expected = [expected_date, self.format_number(gender_total)]
         for gender in genders:
-            expected.append(unicode(datum.get(gender, 0)))
+            expected.append(self.format_number(datum.get(gender, 0)))
 
         actual = []
         for i in range(6):
@@ -211,8 +210,7 @@ class CourseEnrollmentDemographicsEducationTests(CourseDemographicsPageTestsMixi
             self.assertSummaryTooltipEquals(selector, group['tooltip'])
 
     def _test_table_row(self, datum, column, sum_count):
-        expected = [self.EDUCATION_NAMES[datum['education_level']],
-                    unicode(datum['count'])]
+        expected = [self.EDUCATION_NAMES[datum['education_level']], self.format_number(datum['count'])]
         actual = [column[0].text, column[1].text]
         self.assertListEqual(actual, expected)
         self.assertIn('text-right', column[1].get_attribute('class'))

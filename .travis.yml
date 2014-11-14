@@ -12,6 +12,7 @@ install:
     - pip install coveralls
 script: 
     - make validate
+    - make generate_fake_translations
     - bash ./runAcceptance.sh
 after_success:
     - coveralls

@@ -34,8 +34,8 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             modelAttribute: 'ages',
             columns: [
                 {key: 'age', title: gettext('Age'), type: 'maxNumber', maxNumber: maxNumber},
-                {key: 'count', title: gettext('Number of Students'), className: 'text-right'},
-                {key: 'percent', title: gettext('Percent of Total'), className: 'text-right', type: 'percent'}
+                {key: 'count', title: gettext('Number of Students'), type: 'number', className: 'text-right'},
+                {key: 'percent', title: gettext('Percent of Total'), type: 'percent', className: 'text-right'}
             ],
             sorting: ['-percent']
         });
