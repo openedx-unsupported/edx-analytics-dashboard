@@ -118,6 +118,21 @@ Both tools should operate seamlessly in a local development environment. When de
 When creating new pages that utilize RequireJS dependencies, remember to use the `static_rjs` templatetag to load
 the script, and to add a new module to `build.js`.
 
+Theming and Branding
+--------------------
+We presently have support for basic branding of the logo displayed in the header and on error pages. This is facilitated
+by including an additional SCSS file specifying the path and dimensions of the logo. The default Open edX theme located
+at `static/sass/themes/open-edx.scss` is a good starting point for those interested in changing the logo. Once your
+customizations are complete, update the value of the setting `THEME_SCSS` with the path to your new SCSS file.
+
+Developers may also choose to further customize the site by changing the variables loaded by SCSS. This is most easily
+accomplished via the steps below. This will allow for easily changing basic colors and spacing.
+
+        1. Copy `static/sass/_config-variables.scss` to a new file (e.g. static/sass/_config-variables-awesome-theme).
+        2. Modify your variable values, but not the names, to correspond with your theme.
+        3. Update `static/sass/style-application.scss` to load your file immediately after loading `config-variables`.
+
+We welcome contributions from those interested in further expanding theming support!
 
 License
 -------
