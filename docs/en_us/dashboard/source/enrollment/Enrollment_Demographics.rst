@@ -35,3 +35,11 @@ Insights presents.
 * :ref:`Demographics_Age`
 * :ref:`Demographics_Education`
 * :ref:`Demographics_Gender`
+
+To review detailed data about individual enrolled students, you can download
+student profile information from the Instructor Dashboard. For more
+information, see `Student Data`_ in *Building & Running an edX Course*.
+
+
+
+.. _Student Data: http://edx.readthedocs.org/projects/edx-partner-course-staff/en/latest/running_course/course_student.html
