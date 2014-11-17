@@ -17,4 +17,4 @@ CSS2SCSS ${BOWER_COMPONENTS_PATH}/nvd3/nv.d3
 
 # Download the CLDR data for all locales
 CLDR_DATA_PATH=${BOWER_COMPONENTS_PATH}/cldr-data
-./node_modules/cldr-data-downloader/bin/download.js -i ${CLDR_DATA_PATH}/index.json -o ${CLDR_DATA_PATH}
+node ./node_modules/cldr-data-downloader/bin/download.js -i ${CLDR_DATA_PATH}/index.json -o ${CLDR_DATA_PATH}
