@@ -25,8 +25,8 @@ test.acceptance: develop
 	git clone https://github.com/edx/edx-analytics-data-api.git
 	pip install -q -r edx-analytics-data-api/requirements/base.txt
 
-syncdb:
-	cd analytics_dashboard && ./manage.py syncdb --migrate
+migrate:
+	cd analytics_dashboard && ./manage.py migrate
 
 clean:
 	find . -name '*.pyc' -delete

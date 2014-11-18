@@ -18,8 +18,8 @@ export ENABLE_AUTO_AUTH=True
 export ENABLE_AUTH_TESTS=False
 export ENABLE_ERROR_PAGE_TESTS=False
 
-echo "Syncing Analytics Dashboard DB..."
-make syncdb
+echo "Migrating Analytics Dashboard DB..."
+make migrate
 
 echo "Preparing Analytics Data API..."
 cd edx-analytics-data-api/

@@ -1,9 +1,10 @@
 import logging
+
 from django.template.response import TemplateResponse
-from django.test import RequestFactory
-from django.utils.unittest.case import TestCase
+from django.test import RequestFactory, TestCase
 from opaque_keys.edx.keys import CourseKey
 from testfixtures import LogCapture
+
 from courses.exceptions import PermissionsRetrievalFailedError
 from courses.middleware import CourseMiddleware, CoursePermissionsExceptionMiddleware
 

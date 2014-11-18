@@ -216,6 +216,7 @@ DJANGO_APPS = (
     'waffle',
     'django_countries',
     'announcements',
+    'compressor',
 )
 
 # Apps specific for this project go here.
@@ -291,17 +292,6 @@ DOCUMENTATION_LOAD_ERROR_URL = 'http://example.com/'
 DOCUMENTATION_LOAD_ERROR_MESSAGE = '<a href="{error_documentation_link}" target="_blank">Read more</a>.'.format(error_documentation_link=DOCUMENTATION_LOAD_ERROR_URL)
 
 ########## END FEEDBACK
-
-########## SOUTH CONFIGURATION
-# See: http://south.readthedocs.org/en/latest/installation.html#configuring-your-django-installation
-INSTALLED_APPS += (
-    # Database migration helpers:
-    'south',
-    'compressor',
-)
-# Don't need to use South when setting up a test database.
-SOUTH_TESTS_MIGRATE = False
-########## END SOUTH CONFIGURATION
 
 
 ########## DATA API CONFIGURATION
