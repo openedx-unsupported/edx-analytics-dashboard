@@ -6,6 +6,8 @@ PACKAGES = analytics_dashboard courses django_rjs help
 NUM_PROCESSES = 2
 NODE_BIN=./node_modules/.bin
 
+DJANGO_SETTINGS_MODULE := "analytics_dashboard.settings.local"
+
 .PHONY: requirements clean
 
 requirements: requirements.js
@@ -70,10 +72,10 @@ compile_translations:
 	cd analytics_dashboard && i18n_tool generate -v
 
 extract_translations:
-	cd analytics_dashboard && i18n_tool extract
+	cd analytics_dashboard && DJANGO_SETTINGS_MODULE=${DJANGO_SETTINGS_MODULE} PYTHONPATH=".:$PYTHONPATH" i18n_tool extract -v
 
 dummy_translations:
-	cd analytics_dashboard && i18n_tool dummy
+	cd analytics_dashboard && i18n_tool dummy -v
 
 generate_fake_translations: extract_translations dummy_translations compile_translations
 

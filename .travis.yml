@@ -12,7 +12,7 @@ install:
     - pip install coveralls
 script: 
     - make validate
-    - DJANGO_SETTINGS_MODULE="analytics_dashboard.settings.local" PYTHONPATH="$(pwd)/analytics_dashboard:$PYTHONPATH" make generate_fake_translations
+    - make generate_fake_translations
     - bash ./runAcceptance.sh
 after_success:
     - coveralls
