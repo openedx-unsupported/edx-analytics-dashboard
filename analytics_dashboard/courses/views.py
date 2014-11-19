@@ -6,21 +6,21 @@ import re
 import urllib
 
 from django.contrib.humanize.templatetags.humanize import intcomma
-import requests
+from django.shortcuts import redirect
 from django.conf import settings
 from django.core.exceptions import PermissionDenied
 from django.core.urlresolvers import reverse
 from django.http import Http404, HttpResponse
 from django.utils import dateformat
 from django.views.generic import TemplateView
-from django.views.generic.base import RedirectView
 from django.utils.translation import ugettext_lazy as _
 from braces.views import LoginRequiredMixin
+import requests
 from waffle import switch_is_active
-
 from analyticsclient.constants import data_format, demographic
 from analyticsclient.client import Client
 from analyticsclient.exceptions import NotFoundError
+
 from courses import permissions
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter, \
     CourseEnrollmentDemographicsPresenter
@@ -301,7 +301,7 @@ class CourseView(LoginRequiredMixin, CourseValidMixin, CoursePermissionMixin, Te
         return context
 
 
-class CourseTemplateView(ContextSensitiveHelpMixin, CourseContextMixin, CourseNavBarMixin, CourseView):
+class CourseTemplateView(ContextSensitiveHelpMixin, CourseContextMixin, CourseView):
     update_message = None
 
     @property
@@ -320,7 +320,11 @@ class CourseTemplateView(ContextSensitiveHelpMixin, CourseContextMixin, CourseNa
         return {'update_date': dateformat.format(d, settings.DATE_FORMAT), 'update_time': dateformat.format(d, 'g:i A')}
 
 
-class EnrollmentTemplateView(CourseTemplateView):
+class CourseTemplateWithNavView(CourseNavBarMixin, CourseTemplateView):
+    pass
+
+
+class EnrollmentTemplateView(CourseTemplateWithNavView):
     """
     Base view for course enrollment pages.
     """
@@ -359,7 +363,7 @@ class EnrollmentDemographicsTemplateView(EnrollmentTemplateView):
         return formatted_percent
 
 
-class EngagementTemplateView(CourseTemplateView):
+class EngagementTemplateView(CourseTemplateWithNavView):
     """
     Base view for course engagement pages.
     """
@@ -638,12 +642,91 @@ class CourseEngagementActivityTrendCSV(CSVResponseMixin, CourseView):
         return self.course.activity(data_format=data_format.CSV, end_date=end_date)
 
 
-class CourseHome(LoginRequiredMixin, RedirectView):
-    permanent = False
+class CourseHome(CourseTemplateView):
+    template_name = 'courses/home.html'
+    page_name = 'course_home'
+    page_title = _('Course Home')
 
-    def get_redirect_url(self, *args, **kwargs):
-        course_id = kwargs['course_id']
-        return reverse('courses:enrollment_activity', kwargs={'course_id': course_id})
+    def get(self, request, *args, **kwargs):
+        if switch_is_active('course_homepage'):
+            return super(CourseHome, self).get(request, *args, **kwargs)
+
+        return redirect('courses:enrollment_activity', course_id=kwargs['course_id'])
+
+    def get_navbar_items(self):
+        return [
+            {
+                'name': 'enrollment',
+                'label': _('Enrollment'),
+                'view': 'courses:enrollment_activity',
+                'icon': 'fa-child'
+            },
+            {
+                'name': 'engagement',
+                'label': _('Engagement'),
+                'view': 'courses:engagement_content',
+                'icon': 'fa-bar-chart',
+            }
+        ]
+
+    def get_table_items(self):
+        table_items = [
+            {
+                'name': _('Enrollment'),
+                'icon': 'fa-child',
+                'heading': _('Who are my students?'),
+                'items': [
+                    {
+                        'title': _('How many students are in my course?'),
+                        'view': 'courses:enrollment_activity',
+                        'breadcrumbs': [_('Activity')]
+                    },
+                    {
+                        'title': _('What age are my students?'),
+                        'view': 'courses:enrollment_demographics_age',
+                        'breadcrumbs': [_('Demographics'), _('Age')]
+                    },
+                    {
+                        'title': _('What is the educational background of my students?'),
+                        'view': 'courses:enrollment_demographics_education',
+                        'breadcrumbs': [_('Demographics'), _('Education')]
+                    },
+                    {
+                        'title': _('What is the gender breakdown of my students?'),
+                        'view': 'courses:enrollment_demographics_gender',
+                        'breadcrumbs': [_('Demographics'), _('Gender')]
+                    },
+                    {
+                        'title': _('Where are my students from?'),
+                        'view': 'courses:enrollment_geography',
+                        'breadcrumbs': [_('Geography')]
+                    },
+                ],
+            },
+            {
+                'name': _('Engagement'),
+                'icon': 'fa-bar-chart',
+                'heading': _('What are my students engaging with in my course?'),
+                'items': [
+                    {
+                        'title': _('How many students are engaged in my course?'),
+                        'view': 'courses:engagement_content',
+                        'breadcrumbs': [_('Content')]
+                    }
+                ]
+            }
+        ]
+        return table_items
+
+    def get_context_data(self, **kwargs):
+        context = super(CourseHome, self).get_context_data(**kwargs)
+        context.update({
+            'navbar_items': self.get_navbar_items(),
+            'table_items': self.get_table_items()
+        })
+
+        context['page_data'] = self.get_page_data(context)
+        return context
 
 
 class CourseIndex(LoginRequiredMixin, TrackedViewMixin, LazyEncoderMixin, TemplateView):

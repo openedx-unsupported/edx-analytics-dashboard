@@ -38,6 +38,15 @@ class CoursePage(DashboardPage):
         return self.browser.current_url == self.page_url
 
 
+class CourseHomePage(CoursePage):
+    def __init__(self, browser, course_id=None):
+        super(CourseHomePage, self).__init__(browser, course_id)
+        self.page_url += '/'
+
+    def is_browser_on_page(self):
+        return super(CourseHomePage, self).is_browser_on_page() and self.browser.title.startswith('Course Home')
+
+
 class CourseEnrollmentActivityPage(CoursePage):
     def __init__(self, browser, course_id=None):
         super(CourseEnrollmentActivityPage, self).__init__(browser, course_id)

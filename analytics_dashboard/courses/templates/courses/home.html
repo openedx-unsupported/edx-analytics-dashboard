@@ -1,0 +1,70 @@
+{% extends "courses/base-course.html" %}
+{% load i18n %}
+
+{% block view-name %}view-course-home view-dashboard{% endblock view-name %}
+
+{% block lens_navigation %}
+  {#  This is a simplified version of lens-navigation.html. #}
+
+  {#  Translators: Application here refers to the web site/application being used (e.g. the dashboard). #}
+  <nav class="navbar navbar-default lens-nav" role="navigation" aria-label="{% trans "Application" %}">
+    <div class="container ">
+      <ul class="nav navbar-nav">
+        <li class="active nav-section">
+          <a href="#"><span class="link-label">{% trans "Course Home" %}</span></a>
+          <span class="sr-only">({% trans "Active" %})</span>
+        </li>
+
+        {% for item in navbar_items %}
+          <li>
+            <a href="{% url item.view course_id=course_id %}"><span class="link-label">
+                {% if item.icon %}<i class="ico fa {{ item.icon }}" aria-hidden="true"></i>{% endif %}
+                {{ item.label }}
+            </span></a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </nav>
+{% endblock %}
+
+{% block child_content %}
+  <div class="container course-home-table-outer">
+    <div class="row">
+      {% for column in table_items %}
+        <div class="col-sm-4">
+          <header><div class="heading">{{ column.heading }}</div></header>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="row">
+      {% for column in table_items %}
+        <div class="col-sm-4">
+          <div class="row course-home-table">
+            <div class="col-sm-12 item name">
+              <i class="ico fa {{ column.icon }}" aria-hidden="true"></i> {{ column.name }}
+            </div>
+
+            {% for item in column.items %}
+              <div class="col-sm-12 item">
+                <div class="title"><a href="{% url item.view course_id=course_id %}">{{ item.title }}</a></div>
+                <div class="breadcrumbs">
+                  <i class="ico fa {{ column.icon }}" aria-hidden="true"></i>
+                  <i class="ico fa fa-caret-right" aria-hidden="true"></i>
+                  {% for breadcrumb in item.breadcrumbs %}
+                    {{ breadcrumb }}
+                    {% if not forloop.last %}
+                      <i class="ico fa fa-caret-right" aria-hidden="true"></i>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+
+
+    </div>
+  </div>
+{% endblock %}
