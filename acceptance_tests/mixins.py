@@ -75,35 +75,50 @@ class AssertMixin(object):
         self.assertValidHref(download_selector)
 
 
+class PageTestMixin(object):
+    def test_page(self):
+        pass
+
+
 class FooterMixin(AssertMixin):
+    footer_selector = "footer[class=footer]"
+
     def _test_footer(self):
         # make sure we have the footer
-        footer_selector = "footer[class=footer]"
-        element = self.page.q(css=footer_selector)
+        element = self.page.q(css=self.footer_selector)
         self.assertTrue(element.present)
 
-        # check that we have an email
-        self.assertValidFeedbackLink(footer_selector + " a[class=feedback-email]")
+    def test_page(self):
+        super(FooterMixin, self).test_page()
+        self._test_footer()
 
-        # check that we have the support link
-        selector = footer_selector + " a[class=support-link]"
-        self.assertHrefEqual(selector, SUPPORT_URL)
+
+class FooterLegalMixin(FooterMixin):
+    def _test_footer(self):
+        super(FooterLegalMixin, self)._test_footer()
 
         # Verify the terms of service link is present
-        selector = footer_selector + " a[data-role=tos]"
+        selector = self.footer_selector + " a[data-role=tos]"
         element = self.page.q(css=selector)
         self.assertTrue(element.present)
         self.assertEqual(element.text[0], u'Terms of Service')
 
         # Verify the privacy policy link is present
-        selector = footer_selector + " a[data-role=privacy-policy]"
+        selector = self.footer_selector + " a[data-role=privacy-policy]"
         element = self.page.q(css=selector)
         self.assertTrue(element.present)
         self.assertEqual(element.text[0], u'Privacy Policy')
 
-    def test_page(self):
-        super(FooterMixin, self).test_page()
-        self._test_footer()
+
+class FooterFeedbackMixin(FooterMixin):
+    def _test_footer(self):
+        super(FooterFeedbackMixin, self)._test_footer()
+        # check that we have an email
+        self.assertValidFeedbackLink(self.footer_selector + " a[class=feedback-email]")
+
+        # check that we have the support link
+        selector = self.footer_selector + " a[class=support-link]"
+        self.assertHrefEqual(selector, SUPPORT_URL)
 
 
 class PrimaryNavMixin(object):
@@ -148,6 +163,13 @@ class LoginMixin(object):
         self.lms_login_page.login(LMS_USERNAME, LMS_PASSWORD)
 
 
+class LogoutMixin(object):
+
+    def logout(self):
+        url = '{}/accounts/logout/'.format(DASHBOARD_SERVER_URL)
+        self.browser.get(url)
+
+
 class ContextSensitiveHelpMixin(object):
     help_path = 'index.html'
 
@@ -175,7 +197,8 @@ class AnalyticsDashboardWebAppTestMixin(PrimaryNavMixin, ContextSensitiveHelpMix
         return s.replace(' 0', ' ')
 
 
-class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterMixin, AnalyticsDashboardWebAppTestMixin):
+class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterLegalMixin, FooterFeedbackMixin,
+                           AnalyticsDashboardWebAppTestMixin):
     """ Mixin for common course page assertions and tests. """
 
     DASHBOARD_DATE_FORMAT = '%B %d, %Y'

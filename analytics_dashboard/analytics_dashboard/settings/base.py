@@ -288,6 +288,12 @@ TERMS_OF_SERVICE_URL = 'http://example.com/'
 HELP_URL = None
 ########## END FEEDBACK
 
+########## LANDING PAGE -- URLs should be overridden for production deployments.
+SHOW_LANDING_RESEARCH = True
+RESEARCH_URL = 'http://example.com/'
+OPEN_SOURCE_URL = 'http://example.com/'
+########## END FEEDBACK
+
 ########## DOCUMENTATION LINKS -- These values should be overridden for production deployments.
 DOCUMENTATION_LOAD_ERROR_URL = 'http://example.com/'
 # evaluated again at the end of production setting after DOCUMENTATION_LOAD_ERROR_URL has been set
