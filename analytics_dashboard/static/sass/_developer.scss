@@ -398,3 +398,127 @@ table.dataTable thead th.sorting_desc:after {
     }
   }
 }
+
+.masthead {
+
+  .cover-container {
+    width: 100%;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-top: 4px solid $edx-blue-s1;
+    height: 100%;
+
+    .cover {
+      // center cover image
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      height: 400px;
+
+      // cover image will be smaller on smaller displays
+      @media (max-width: $screen-md-min) {
+        height: 200px;
+      }
+
+    }
+  }
+
+  .masthead-heading {
+    @include dark-background;
+    text-align: center;
+    font-size: $font-size-large * 1.25;
+    font-weight: 300;
+    padding-top: $padding-large-vertical + 9px;
+    padding-bottom: $padding-large-vertical;
+  }
+
+  // default margins cause the masthead to be vertically scrollable
+  &.row {
+    margin-left: -1px;
+    margin-right: -1px;
+  }
+
+}
+
+.landing {
+
+  p {
+    color: $gray-l2;
+  }
+
+  // match the login button style to that of the LMS
+  button {
+    text-transform: uppercase;
+    color: $navbar-default-link-active-color;
+    padding: 4px 45px;
+    font-weight: 600;
+    font-size: $font-size-large;
+    border-radius: 5px;
+    border: 3px solid #e6e6e6;
+
+    &:hover {
+      border-color: $navbar-default-link-active-color;
+      color: $gray-d2;
+      background: white;
+      @include transition(color 0.25s 0 ease);
+    }
+  }
+
+  .login-button-container {
+    padding-top: 25px;
+  }
+
+  // into tagline section directly below the cover image
+  .intro-block {
+    padding-top: $padding-large-horizontal * 3;
+    margin-bottom: $padding-large-horizontal * 2 + 5px;
+  }
+
+  .lens-question {
+    font-size: $font-size-large;
+    color: $edx-blue-s1;
+    min-height: 60px;
+    text-align: center;
+    vertical-align: bottom;
+
+    // adjust the display when the screen is small so that the lens questions are
+    // displayed stacked
+    @media (max-width: $screen-md-min) {
+      min-height: inherit;
+      padding-top: $padding-large-horizontal * 1.5;
+      padding-bottom: $padding-large-horizontal;
+    }
+  }
+
+  .lens-summary {
+    @extend %ui-box;
+    h1 {
+      font-size: $font-size-large;
+      text-align: center;
+      font-weight: 300;
+      color: $edx-gray;
+    }
+
+    p {
+      color: $edx-gray;
+    }
+  }
+
+  .audience-message {
+    margin-bottom: $padding-large-horizontal * 2;
+
+    p {
+      color: $gray;
+    }
+  }
+
+  .audience-message-module {
+    h1 {
+      font-size: $font-size-base;
+      font-weight: bold;
+    }
+
+  }
+
+}

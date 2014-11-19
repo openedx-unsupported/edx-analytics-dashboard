@@ -23,3 +23,8 @@
   width: $width;
   height: $height;
 }
+
+@mixin dark-background {
+  color: $gray;
+  background-color: $gray-d2;
+}

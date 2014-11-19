@@ -25,6 +25,15 @@ class DashboardPage(PageObject):
         self.page_url = '{0}/{1}'.format(self.server_url, path)
 
 
+class LandingPage(DashboardPage):
+    path = ''
+    def __init__(self, browser):
+        super(LandingPage, self).__init__(browser)
+
+    def is_browser_on_page(self):
+        return self.browser.current_url == self.page_url
+
+
 class CoursePage(DashboardPage):
     def __init__(self, browser, course_id=None):
         # Create the path
