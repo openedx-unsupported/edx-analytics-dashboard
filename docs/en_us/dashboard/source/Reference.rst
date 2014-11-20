@@ -349,5 +349,22 @@ Error Conditions
 The data that edX collects from student interactions has expanded over time to
 capture increasingly specific information, and continues to expand as we add
 new features to the platform. As a result, more data is available for courses
-that are running now, or that ran recently. Not all data for every value
-reported by edX Insights is available for every course run.
+that are running now, or that ran recently, than for courses that ran in the
+past. Not all data for every value reported by edX Insights is available for
+every course run.
+
+In the following situations, data may not be available in edX Insights. 
+
+* EdX changed the method used to track student enrollments on 3 December 2013.
+  For courses created in Studio prior to 4 December 2013, edX Insights reports
+  enrollment activity beginning with the enrollment count on 3 December 2013.
+
+* For courses with a very small number of enrolled users, such as newly created
+  courses, data for enrollment activity, enrollment geography, or both may not
+  be available.
+
+* For courses that do not have any recorded student interactions, such as test
+  courses and courses that finished running early in the history of the edX
+  platform, data for enrollment activity and student engagement may not be
+  available.
+>>>>>>> Additional error conditions. Fixes DOC-1063
