@@ -11,9 +11,6 @@ changes over time.
 Enrollment activity data is updated every day to include changes in enrollment
 through the end of the previous day (23:59 UTC).
 
-.. note:: Enrollment activity data is not available for courses created in
- Studio before December 4, 2013.
-
 ********************************************
 Gaining Insight into Course Enrollment
 ********************************************
