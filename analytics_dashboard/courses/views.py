@@ -73,7 +73,7 @@ class CourseContextMixin(TrackedViewMixin, LazyEncoderMixin):
 
     def _ignore_in_reporting(self, user):
         if settings.SEGMENT_IGNORE_EMAIL_REGEX:
-            return re.match(settings.SEGMENT_IGNORE_EMAIL_REGEX, user.email, re.IGNORECASE)
+            return bool(re.match(settings.SEGMENT_IGNORE_EMAIL_REGEX, user.email))
 
         return False
 
