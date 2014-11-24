@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-01 15:22-0400\n"
-"PO-Revision-Date: 2014-10-27 11:31+0000\n"
-"Last-Translator: Keleti László <lkeleti@wininvestor.hu>\n"
+"POT-Creation-Date: 2014-11-24 16:24-0500\n"
+"PO-Revision-Date: 2014-11-24 21:27+0000\n"
+"Last-Translator: cblackburn <cblackburn@edx.org>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/edx-platform/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,38 +39,90 @@ msgstr "A feladattal már próbálkoztás"
 msgid "Posted in Forum"
 msgstr "Fórumban közétett"
 
+#. Translators: <%=value%> will be replaced with a date.
 #: static/js/engagement-content-main.js
-msgid ""
-"The number of active students, and the number of students who engaged in "
-"specific activities, over time."
+msgid "Week Ending <%=value%>"
 msgstr ""
-"Az aktív tanulók száma és azon tanulók száma, akik valamilyen aktivitást "
-"mutattak."
-
-#. Translators: %(value)s will be replaced with a date.
-#: static/js/engagement-content-main.js
-msgid "Week Ending %(value)s"
-msgstr "A hét véget fog érni  %(value)s"
 
 #: static/js/enrollment-activity-main.js
-msgid ""
-"This graph displays total enrollment for the course calculated at the end of"
-" each day. Total enrollment includes new enrollments as well as "
-"unenrollments."
-msgstr ""
-"A grafikon az összes beiratkozott tanulót mutatja, az érték minden nap végén"
-" kerül kiszámításra. Az összes beiratkozottak száma tartalmazza az új "
-"tanulókat is, csakúgy, mint a leiratkozottakat."
-
-#: static/js/enrollment-activity-main.js
+#: static/js/enrollment-demographics-gender-main.js
 msgid "Date"
 msgstr "Dátum"
 
 #. Translators: The noun count (e.g. number of students)
 #: static/js/enrollment-activity-main.js
+#: static/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-geography-main.js
 msgid "Total Enrollment"
 msgstr "Jelentkezők összesen"
+
+#: static/js/enrollment-activity-main.js
+msgid "Honor Code"
+msgstr ""
+
+#: static/js/enrollment-activity-main.js
+msgid "Verified"
+msgstr "Ellenőrzött"
+
+#: static/js/enrollment-activity-main.js
+msgid "Professional"
+msgstr ""
+
+#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-education-main.js
+msgid "Number of Students"
+msgstr "Tanulók száma"
+
+#. Translators: <%=value%> will be replaced with an age.
+#: static/js/enrollment-demographics-age-main.js
+msgid "Age: <%=value%>"
+msgstr ""
+
+#: static/js/enrollment-demographics-age-main.js
+msgid "Age"
+msgstr "Életkor"
+
+#: static/js/enrollment-demographics-age-main.js
+msgid "Percent of Total"
+msgstr "Az összes százaléka"
+
+#: static/js/enrollment-demographics-education-main.js
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Percentage"
+msgstr ""
+
+#. Translators: <%=value%> will be replaced with a level of education (e.g.
+#. Doctorate).
+#: static/js/enrollment-demographics-education-main.js
+msgid "Education: <%=value%>"
+msgstr ""
+
+#: static/js/enrollment-demographics-education-main.js
+msgid "Educational Background"
+msgstr "Oktatási háttér"
+
+#. Translators: <%=value%> will be replaced with a level of gender (e.g.
+#. Female).
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Gender: <%=value%>"
+msgstr ""
+
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Female"
+msgstr "Nő"
+
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Male"
+msgstr "Férfi"
+
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Other"
+msgstr "Egyéb"
+
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Not Reported"
+msgstr "Nem jelentett"
 
 #: static/js/enrollment-geography-main.js
 msgid ""

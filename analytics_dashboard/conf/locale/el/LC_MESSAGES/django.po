@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Angelos Sfakianakis <giasas@gmail.com>, 2014
 # Nick Gikopoulos <ngick1@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-01 15:22-0400\n"
-"PO-Revision-Date: 2014-10-01 18:57+0000\n"
+"POT-Creation-Date: 2014-11-24 16:23-0500\n"
+"PO-Revision-Date: 2014-11-24 21:26+0000\n"
 "Last-Translator: cblackburn <cblackburn@edx.org>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/edx-platform/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -18,159 +19,397 @@ msgstr ""
 "Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#. Translators: This is a label to identify current student enrollment.
-#: courses/views.py courses/templates/courses/enrollment_activity.html
-#: courses/templates/courses/enrollment_geography.html
-#: courses/tests/test_views.py
-msgid "Enrollment"
+#. Translators: Simply move the percent symbol (%) to the correct location. Do
+#. NOT translate the word statistic.
+#: analytics_dashboard/templatetags/dashboard_extras.py
+msgid "{statistic}%"
 msgstr ""
 
-#: courses/views.py courses/tests/test_views.py
-msgid "Engagement"
+#: courses/presenters.py
+msgid "Female"
+msgstr "Θήλυ"
+
+#: courses/presenters.py
+msgid "Male"
+msgstr "Άρρεν"
+
+#. Translators: Other gender
+#. Translators: This describes the learner's education level.
+#: courses/presenters.py courses/presenters.py
+msgid "Other"
+msgstr "Άλλο"
+
+#. Translators: Unknown gender
+#. Translators: This describes the learner's education level.
+#: courses/presenters.py courses/presenters.py courses/presenters.py
+msgid "Unknown"
+msgstr "Άγνωστο"
+
+#. Translators: This describes the learner's education level.
+#: courses/presenters.py
+msgid "None"
+msgstr "Ουδέν"
+
+#. Translators: This describes the learner's education level (e.g. Elementary
+#. School Degree).
+#: courses/presenters.py
+msgid "Primary"
+msgstr "Βασική"
+
+#. Translators: This describes the learner's education level  (e.g. Middle
+#. School Degree).
+#: courses/presenters.py
+msgid "Middle"
+msgstr "Μεσαία"
+
+#. Translators: This describes the learner's education level.
+#: courses/presenters.py
+msgid "Secondary"
+msgstr "Δευτεροβάθμια"
+
+#. Translators: This describes the learner's education level (e.g. Associate's
+#. Degree).
+#: courses/presenters.py
+msgid "Associate"
+msgstr "Συνεργάτης"
+
+#. Translators: This describes the learner's education level (e.g. Bachelor's
+#. Degree).
+#: courses/presenters.py
+msgid "Bachelor's"
+msgstr "Απόφοιτος"
+
+#. Translators: This describes the learner's education level (e.g. Master's
+#. Degree).
+#: courses/presenters.py
+msgid "Master's"
 msgstr ""
 
-#: courses/views.py courses/tests/test_views.py
-msgid "Activity"
-msgstr ""
+#. Translators: This describes the learner's education level (e.g. Doctorate
+#. Degree).
+#: courses/presenters.py
+msgid "Doctorate"
+msgstr "Διδακτορικό Δίπλωμα"
 
-#: courses/views.py courses/tests/test_views.py
-msgid "Geography"
-msgstr ""
+#. Translators: This is a placeholder for enrollment data collected without a
+#. known geolocation.
+#: courses/presenters.py
+msgid "Unknown Country"
+msgstr "Άγνωστη Χώρα"
 
-#. Translators: Content as in course content (e.g. things, not the feeling)
-#: courses/views.py courses/tests/test_views.py
-msgid "Content"
-msgstr ""
-
-#: courses/views.py
-msgid "Enrollment Activity"
-msgstr ""
-
-#. Translators: Do not translate UTC.
-#: courses/views.py
-msgid ""
-"Enrollment activity data was last updated %(update_date)s at %(update_time)s"
-" UTC."
-msgstr ""
-
-#: courses/views.py
-msgid "Enrollment Geography"
-msgstr ""
-
-#. Translators: Do not translate UTC.
-#: courses/views.py
-msgid ""
-"Geographic student data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr ""
-
-#: courses/views.py
-msgid "Engagement Content"
-msgstr ""
-
-#. Translators: Do not translate UTC.
-#: courses/views.py
-msgid ""
-"Course engagement data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr ""
+#. Translators: This describes the data displayed in the chart below.
+#: courses/templates/courses/demographics_chart_info.html
+msgid "Students (Self-Reported)"
+msgstr "Φοιτητές (αυτο-αναφερώμενοι)"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Weekly Student Engagement"
-msgstr ""
+msgstr "Εβδομαδιαίος χρόνος απασχόλησης"
 
 #: courses/templates/courses/engagement_content.html
 msgid "How many students are interacting with my course?"
+msgstr "Πόσοι φοιτητές αλληλεπιδρούν στο μάθημα μου?"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Students"
+msgstr "Μαθητές"
+
+#: courses/templates/courses/engagement_content.html
+msgid ""
+"The number of active students, and the number of students who engaged in "
+"specific activities, over time."
 msgstr ""
+"Ο αριθμός των ενεργών φοιτητών και ο αριθμός αυτών που εμπλέκονται σε "
+"συγκεκριμένες δραστηριότητες διαχρονικά."
 
 #: courses/templates/courses/engagement_content.html
 msgid "Student Activity Metrics"
-msgstr ""
+msgstr "Μέτρηση Φοιτητικής Δραστηριότητας"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Active Students Last Week"
-msgstr ""
+msgstr "Ενεργοί Φοιτητές κατα την τελευταία εβδομάδα"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who visited at least one page in the course content."
 msgstr ""
+"Φοιτητές που επισκεύθηκαν τουλάχιστον μία σελλίδα με περιεχόμενο του "
+"μαθήματος"
 
 #. Translators: This is a label indicating the number of students who watched
 #. a video.
 #: courses/templates/courses/engagement_content.html
 msgid "Watched a Video Last Week"
-msgstr ""
+msgstr "Πόσσοι παρακολούθησαν Παρουσίαση την τελευταία εβδομάδα"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who played one or more videos."
-msgstr ""
+msgstr "Φοιτητές που παρακολούθησαν μία η περισσότερες παρουσιάσεις."
 
 #. Translators: This is a label indicating the number of students who tried a
 #. problem.
 #: courses/templates/courses/engagement_content.html
 msgid "Tried a Problem Last Week"
-msgstr ""
+msgstr "Πόσσοι προσπάθησαν να λύσουν ενα Πρόβλημα την τελευταία εβδομάδα"
 
 #: courses/templates/courses/engagement_content.html
 msgid ""
 "Students who submitted an answer for a standard problem. Not all problem "
 "types are included."
 msgstr ""
+"Φοιτητές που καταχώρισαν μια απάντηση για ένα βασικό πρόβλημα. Δεν "
+"περιλαμβάνονται όλων των ειδών τα προβλήματα."
 
 #. Translators: This is a label indicating the number of students who posted
 #. in a forum discussion.
 #: courses/templates/courses/engagement_content.html
 msgid "Posted in a Discussion Last Week"
-msgstr ""
+msgstr "Δημοσιεύσεις σε Συζήτηση την τελευταία εβδομάδα"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who contributed to any discussion topic."
-msgstr ""
+msgstr "Φοιτητές που συνεισέφεραν σε οποιαδήποτε θέμα συζήτησης"
 
 #: courses/templates/courses/engagement_content.html
 #: courses/templates/courses/engagement_content.html
 msgid "Content Engagement Breakdown"
-msgstr ""
+msgstr "Ανάλυση Διδακτικής Υλης"
 
 #: courses/templates/courses/engagement_content.html
 #: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_demographics_age.html
+#: courses/templates/courses/enrollment_demographics_education.html
+#: courses/templates/courses/enrollment_demographics_gender.html
 #: courses/templates/courses/enrollment_geography.html
 msgid "Download CSV"
-msgstr ""
+msgstr "Λήψη CSV"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
-msgstr ""
+msgstr "Καθημερινές Εγγραφές Φοιτητών"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "How many students are in my course?"
+msgstr "Πόσσοι Φοιτητές είναι στο μάθημα μου?"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid "Enrollments"
+msgstr "Εγγραφές"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid ""
+"This graph displays total enrollment for the course calculated at the end of"
+" each day. Total enrollment includes new enrollments as well as "
+"unenrollments."
 msgstr ""
+"Αυτό το γράφημα παρουσιάζει το σύνολο των εγγραφών για το μάθημα στο τέλος "
+"κάθε ημέρας. Το σύνολο των εγγραφών περιέχει και τις νέες εγγραφές καθώς και"
+" τις διαγραφές."
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollment Metrics"
-msgstr ""
+msgstr "Μετρήσεις Εγγραφών"
+
+#. Translators: This is a label to identify current student enrollment.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Total Enrollment"
+msgstr "Σύνολο Εγγραφών"
 
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Students enrolled in the course."
-msgstr ""
+msgstr "Εγγεγραμμένοι Φοιτητές στο μάθημα."
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Change in Last Week"
-msgstr ""
+msgstr "Αλλαγές την τελευταία εβδομάδα"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
 "The difference between the number of students enrolled at the end of the day"
 " yesterday and one week before."
 msgstr ""
+"Η διαφορά μεταξύ του αριθμού των εγγεγραμμένων φοιτητών στο τέλος της "
+"ημέρας, εχθές και μία εβδομάδα πρίν."
+
+#. Translators: This is a label to identify enrollment of students on the
+#. verified track.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Verified Enrollment"
+msgstr "Επαληθευμένη Εγγραφή"
+
+#. Translators: This is a label indicating the number of students enrolled in
+#. a course on the verified track.
+#: courses/templates/courses/enrollment_activity.html
+msgid ""
+"Number of enrolled students who are pursuing a verified certificate of "
+"achievement."
+msgstr ""
+"Αριθμός εγγεγραμένων φοιτητών που επιδιώκουν ενα πιστοποιημένο αποδεικτικό "
+"του επιτεύγματος."
+
+#. Translators: This is a label indicating the change in the number of
+#. students enrolled in the verified track of a course since the previous
+#. week.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Change in Verified Enrollments Last Week"
+msgstr "Αλλαγές στις Πιστοποιημένες Εγγραφές την τελευταία εβδομάδα"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid ""
+"The difference between the number of students pursuing verified certificates"
+" at the end of the day yesterday and one week before."
+msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_demographics_age.html
+#: courses/templates/courses/enrollment_demographics_education.html
+#: courses/templates/courses/enrollment_demographics_gender.html
 msgid "Enrollment Over Time"
+msgstr ""
+
+#: courses/templates/courses/enrollment_demographics_age.html
+msgid "How old are my students?"
+msgstr ""
+
+#. Translators: Maintain the double percentage symbols (%%) but move them to
+#. the appropriate location (before/after the value placeholder) for your
+#. language.
+#: courses/templates/courses/enrollment_demographics_age.html
+msgid ""
+"This age histogram presents data computed for the %(value)s%% of enrolled "
+"students who provided a year of birth."
+msgstr ""
+
+#: courses/templates/courses/enrollment_demographics_age.html
+msgid "Age Metrics"
+msgstr ""
+
+#. Translators: This is a label to identify the median age of enrolled
+#. students.
+#: courses/templates/courses/enrollment_demographics_age.html
+msgid "Median Student Age"
+msgstr ""
+
+#: courses/templates/courses/enrollment_demographics_age.html
+msgid ""
+"The midpoint of the student ages, computed from the provided year of birth."
+msgstr ""
+
+#. Translators: This is a label to identify the number of students in the age
+#. range.
+#: courses/templates/courses/enrollment_demographics_age.html
+msgid "Students 25 and Under"
+msgstr ""
+
+#: courses/templates/courses/enrollment_demographics_age.html
+msgid ""
+"The percentage of students aged 25 years or younger (of those who provided a"
+" year of birth)."
+msgstr ""
+
+#. Translators: This is a label to identify the number of students in the age
+#. range.
+#: courses/templates/courses/enrollment_demographics_age.html
+msgid "Students 26 to 40"
+msgstr ""
+
+#: courses/templates/courses/enrollment_demographics_age.html
+msgid ""
+"The percentage of students aged from 26 to 40 years (of those who provided a"
+" year of birth)."
+msgstr ""
+
+#. Translators: This is a label to identify the number of students in the age
+#. range.
+#: courses/templates/courses/enrollment_demographics_age.html
+msgid "Students 41 and Over"
+msgstr ""
+
+#: courses/templates/courses/enrollment_demographics_age.html
+msgid ""
+"The percentage of students aged 41 years or older (of those who provided a "
+"year of birth)."
+msgstr ""
+
+#: courses/templates/courses/enrollment_demographics_age.html
+msgid "Age Breakdown"
+msgstr ""
+
+#: courses/templates/courses/enrollment_demographics_education.html
+msgid "What level of education do my students have?"
+msgstr ""
+
+#. Translators: Maintain the double percentage symbols (%%) but move them to
+#. the appropriate location (before/after the value placeholder) for your
+#. language.
+#: courses/templates/courses/enrollment_demographics_education.html
+msgid ""
+"This graph presents data for the %(value)s%% of enrolled students who "
+"provided a highest level of education completed."
+msgstr ""
+
+#: courses/templates/courses/enrollment_demographics_education.html
+msgid "Education Metrics"
+msgstr ""
+
+#. Translators: This is a label to identify student educational background.
+#: courses/templates/courses/enrollment_demographics_education.html
+msgid "High School Diploma or Less"
+msgstr ""
+
+#: courses/templates/courses/enrollment_demographics_education.html
+msgid ""
+"The percentage of students who selected Secondary/high school, Junior "
+"secondary/junior high/middle school, or Elementary/primary school as their "
+"highest level of education completed."
+msgstr ""
+
+#. Translators: This is a label to identify student educational background.
+#: courses/templates/courses/enrollment_demographics_education.html
+msgid "College Degree"
+msgstr ""
+
+#: courses/templates/courses/enrollment_demographics_education.html
+msgid ""
+"The percentage of students who selected Bachelor's degree or Associate "
+"degree as their highest level of education completed."
+msgstr ""
+
+#. Translators: This is a label to identify student educational background.
+#: courses/templates/courses/enrollment_demographics_education.html
+msgid "Advanced Degree"
+msgstr ""
+
+#: courses/templates/courses/enrollment_demographics_education.html
+msgid ""
+"The percentage of students who selected Doctorate or Master's or "
+"professional degree as their highest level of education completed."
+msgstr ""
+
+#: courses/templates/courses/enrollment_demographics_education.html
+msgid "Educational Breakdown"
+msgstr ""
+
+#: courses/templates/courses/enrollment_demographics_gender.html
+msgid "What is the student gender breakdown?"
+msgstr ""
+
+#. Translators: Maintain the double percentage symbols (%%) but move them to
+#. the appropriate location (before/after the value placeholder) for your
+#. language.
+#: courses/templates/courses/enrollment_demographics_gender.html
+msgid ""
+"This graph presents data for the %(value)s%% of enrolled students who "
+"specified their gender."
+msgstr ""
+
+#: courses/templates/courses/enrollment_demographics_gender.html
+msgid "Gender Breakdown Over Time"
 msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
@@ -184,6 +423,11 @@ msgstr ""
 #: courses/templates/courses/enrollment_geography.html
 msgid "Enrollment by Country"
 msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+#: courses/tests/test_views/__init__.py courses/views.py
+msgid "Enrollment"
+msgstr "Εγγραφή"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geography Metrics"
@@ -258,8 +502,8 @@ msgstr ""
 
 #: courses/templates/courses/index.html
 msgid ""
-" Click Help in the upper-right corner to get more information\n"
-"            about %(application_name)s. Send us feedback at %(email_link)s."
+"Click Help in the upper-right corner to get more information about "
+"%(application_name)s. Send us feedback at %(email_link)s."
 msgstr ""
 
 #. Translators: This message is displayed when the website is unable to get
@@ -280,6 +524,109 @@ msgstr ""
 msgid "Try Again"
 msgstr ""
 
+#: courses/tests/test_serializers.py
+msgid "primary"
+msgstr ""
+
+#: courses/tests/test_views/__init__.py courses/views.py
+msgid "Activity"
+msgstr "Απασχόληση"
+
+#: courses/tests/test_views/__init__.py courses/views.py
+msgid "Demographics"
+msgstr "Δημογραφικά στοιχεία"
+
+#: courses/tests/test_views/__init__.py courses/views.py
+msgid "Geography"
+msgstr "Τόπος"
+
+#: courses/tests/test_views/__init__.py courses/views.py
+msgid "Age"
+msgstr "Ηλικία"
+
+#: courses/tests/test_views/__init__.py courses/views.py
+msgid "Education"
+msgstr "Εκπαίδευση"
+
+#: courses/tests/test_views/__init__.py courses/views.py
+msgid "Gender"
+msgstr "Φύλο"
+
+#: courses/tests/test_views/test_pages.py courses/views.py
+msgid "Engagement"
+msgstr "Δέσμευση"
+
+#. Translators: Content as in course content (e.g. things, not the feeling)
+#: courses/tests/test_views/test_pages.py courses/views.py
+msgid "Content"
+msgstr "Περιεχόμενο"
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Demographic student data was last updated %(update_date)s at %(update_time)s"
+" UTC."
+msgstr ""
+"Τελευταία ενημέρωση των δημογραφικών στοιχείων %(update_date)s at "
+"%(update_time)s UTC."
+
+#. Translators: This sentence is displayed at the bottom of the page and
+#. describe the demographics data displayed.
+#: courses/views.py
+msgid ""
+"All above demographic data was self-reported at the time of registration."
+msgstr ""
+"Τα ανωτέρω δημογραφικά στοιχεία καταχωρήθηκαν την ημερομηνία της εγγραφής"
+
+#: courses/views.py
+msgid "Enrollment Activity"
+msgstr "Δραστηριότητα Εγγραφής"
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Enrollment activity data was last updated %(update_date)s at %(update_time)s"
+" UTC."
+msgstr ""
+"Τελευταία ενημέρωση δημογραφικών στοιχείων εγγραφής %(update_date)s στις "
+"%(update_time)s UTC."
+
+#: courses/views.py
+msgid "Enrollment Demographics by Age"
+msgstr "Δημογραφικά στοιχεία εγγραφών ανα ηλικία"
+
+#: courses/views.py
+msgid "Enrollment Demographics by Education"
+msgstr "Δημογραφικά Στοιχεία ανα Εκπαίδευση"
+
+#: courses/views.py
+msgid "Enrollment Demographics by Gender"
+msgstr "Δημογραφικά Στοιχεία ανα Φύλλο"
+
+#: courses/views.py
+msgid "Enrollment Geography"
+msgstr "Δημογραφικά Στοιχεία ανα Χώρα"
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Geographic student data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr ""
+"Τελευταία ενημέρωση Γεωγρφικών στοιχείων των φοιτητών  %(update_date)s στις "
+"%(update_time)s UTC."
+
+#: courses/views.py
+msgid "Engagement Content"
+msgstr "Διδακτική Υλη"
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Course engagement data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr ""
+
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
 msgstr ""
@@ -297,7 +644,7 @@ msgstr ""
 
 #: templates/404.html templates/404.html.py
 msgid "Page Not Found"
-msgstr ""
+msgstr "Η σελίδα δεν βρέθηκε"
 
 #: templates/404.html
 msgid ""
@@ -342,8 +689,9 @@ msgstr ""
 
 #: templates/footer.html
 msgid ""
-"We want this dashboard to work for you! Need help? %(support_link_start)sVisit our support\n"
-"          forum%(support_link_end)s. Comments or suggestions? Email %(email_link)s."
+"We want this dashboard to work for you! Need help? "
+"%(support_link_start)sVisit our support forum%(support_link_end)s. Comments "
+"or suggestions? Email %(email_link)s."
 msgstr ""
 
 #: templates/footer.html
@@ -352,7 +700,7 @@ msgstr "Όροι χρήσης"
 
 #: templates/footer.html
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Πολιτική προστασίας δεδομένων"
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html
@@ -374,31 +722,12 @@ msgid "Logout"
 msgstr ""
 
 #. Translators: This refers to the active tab/navigation item.
-#: templates/lens-navigation.html templates/lens-navigation.html.py
+#: templates/lens-navigation.html templates/submenu_navigation.html
 msgid "Active"
 msgstr ""
 
 #: templates/loading.html
 msgid "LOADING..."
-msgstr ""
-
-#: templates/section_error.html
-msgid "We are unable to load this chart."
-msgstr ""
-
-#: templates/section_error.html
-msgid "We are unable to load this table."
-msgstr ""
-
-#: templates/section_error.html
-msgid "We are unable to load these metrics."
-msgstr ""
-
-#: templates/section_error.html
-msgid ""
-"This data may not be available for your course.  You\n"
-"                    can %(link_start)sview the full list%(link_end)s of potential causes for these\n"
-"                    errors in the documentation."
 msgstr ""
 
 #: templates/registration/logged_out.html
@@ -412,4 +741,16 @@ msgstr ""
 
 #: templates/registration/logged_out.html
 msgid "Login"
+msgstr ""
+
+#: templates/section_error.html
+msgid "We are unable to load this chart."
+msgstr ""
+
+#: templates/section_error.html
+msgid "We are unable to load this table."
+msgstr ""
+
+#: templates/section_error.html
+msgid "We are unable to load these metrics."
 msgstr ""

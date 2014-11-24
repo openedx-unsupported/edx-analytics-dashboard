@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Riina <ciairdabar@yahoo.com>, 2014
+# Edukometrija <jolitad@mruni.eu>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-01 15:22-0400\n"
-"PO-Revision-Date: 2014-10-06 09:30+0000\n"
-"Last-Translator: Riina <ciairdabar@yahoo.com>\n"
+"POT-Creation-Date: 2014-11-24 16:24-0500\n"
+"PO-Revision-Date: 2014-11-24 21:27+0000\n"
+"Last-Translator: cblackburn <cblackburn@edx.org>\n"
 "Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/projects/p/edx-platform/language/lt_LT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,39 +39,90 @@ msgstr "Bandė spręsti uždavinį"
 msgid "Posted in Forum"
 msgstr "Parašė forume"
 
+#. Translators: <%=value%> will be replaced with a date.
 #: static/js/engagement-content-main.js
-msgid ""
-"The number of active students, and the number of students who engaged in "
-"specific activities, over time."
+msgid "Week Ending <%=value%>"
 msgstr ""
-"Aktyvių kurso dalyvių ir kurso dalyvių, atlikusių tam tikrą veiklą per tam "
-"tikrą laiką, skaičius"
-
-#. Translators: %(value)s will be replaced with a date.
-#: static/js/engagement-content-main.js
-msgid "Week Ending %(value)s"
-msgstr "Savaitė, kuri baigiasi %(value)s"
 
 #: static/js/enrollment-activity-main.js
-msgid ""
-"This graph displays total enrollment for the course calculated at the end of"
-" each day. Total enrollment includes new enrollments as well as "
-"unenrollments."
-msgstr ""
-"Šioje diagramoje rodoma, kiek dalyvių yra užsiregistravę į kursą kiekvienos "
-"dienos pabaigoje. Į visą užsiregistravusių kurso dalyvių skaičių įeina "
-"naujai užsiregistravę dalyviai, iš jo išskaičiuojami išsiregistravę "
-"dalyviai."
-
-#: static/js/enrollment-activity-main.js
+#: static/js/enrollment-demographics-gender-main.js
 msgid "Date"
 msgstr "Data"
 
 #. Translators: The noun count (e.g. number of students)
 #: static/js/enrollment-activity-main.js
+#: static/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-geography-main.js
 msgid "Total Enrollment"
 msgstr "Iš viso užregistruota"
+
+#: static/js/enrollment-activity-main.js
+msgid "Honor Code"
+msgstr "Sąžiningumo deklaracija"
+
+#: static/js/enrollment-activity-main.js
+msgid "Verified"
+msgstr "Patvirtinta"
+
+#: static/js/enrollment-activity-main.js
+msgid "Professional"
+msgstr "Profesinis"
+
+#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-education-main.js
+msgid "Number of Students"
+msgstr "Kurso dalyvių skaičius"
+
+#. Translators: <%=value%> will be replaced with an age.
+#: static/js/enrollment-demographics-age-main.js
+msgid "Age: <%=value%>"
+msgstr ""
+
+#: static/js/enrollment-demographics-age-main.js
+msgid "Age"
+msgstr "Amžius"
+
+#: static/js/enrollment-demographics-age-main.js
+msgid "Percent of Total"
+msgstr "Iš viso procentų"
+
+#: static/js/enrollment-demographics-education-main.js
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Percentage"
+msgstr ""
+
+#. Translators: <%=value%> will be replaced with a level of education (e.g.
+#. Doctorate).
+#: static/js/enrollment-demographics-education-main.js
+msgid "Education: <%=value%>"
+msgstr ""
+
+#: static/js/enrollment-demographics-education-main.js
+msgid "Educational Background"
+msgstr "Išsilavinimas"
+
+#. Translators: <%=value%> will be replaced with a level of gender (e.g.
+#. Female).
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Gender: <%=value%>"
+msgstr ""
+
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Female"
+msgstr "Moteris"
+
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Male"
+msgstr "Vyras"
+
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Other"
+msgstr "Kitas"
+
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Not Reported"
+msgstr "Neatsakė"
 
 #: static/js/enrollment-geography-main.js
 msgid ""
@@ -86,4 +138,4 @@ msgstr "Šalis"
 
 #: static/js/enrollment-geography-main.js
 msgid "Percent"
-msgstr "Procentas"
+msgstr "Procentai"

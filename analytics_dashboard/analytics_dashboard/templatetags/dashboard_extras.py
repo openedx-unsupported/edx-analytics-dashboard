@@ -19,7 +19,7 @@ def settings_value(name):
 
 @register.filter
 def metric_percentage(value):
-    # Translators: This will represent some statistic about learners (e.g., "52% Female" or "18% High School Students").
+    # Translators: Simply move the percent symbol (%) to the correct location. Do NOT translate the word statistic.
     percent_stat = _('{statistic}%')
     percent = '0'
 

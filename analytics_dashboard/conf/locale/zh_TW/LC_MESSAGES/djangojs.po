@@ -5,13 +5,14 @@
 # Translators:
 # LIU,SHU-HAO <jeremy55662004@gmail.com>, 2014
 # LIU,SHU-HAO <jeremy55662004@gmail.com>, 2014
+# Zhen-Rong Chen <zhenrcaaron@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-01 15:22-0400\n"
-"PO-Revision-Date: 2014-10-12 07:40+0000\n"
-"Last-Translator: LIU,SHU-HAO <jeremy55662004@gmail.com>\n"
+"POT-Creation-Date: 2014-11-24 16:24-0500\n"
+"PO-Revision-Date: 2014-11-24 21:27+0000\n"
+"Last-Translator: cblackburn <cblackburn@edx.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/edx-platform/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,33 +40,90 @@ msgstr "試試這問題"
 msgid "Posted in Forum"
 msgstr "張貼在論壇"
 
+#. Translators: <%=value%> will be replaced with a date.
 #: static/js/engagement-content-main.js
-msgid ""
-"The number of active students, and the number of students who engaged in "
-"specific activities, over time."
-msgstr "活動學生的數量，和學生從事特定活動，經過一段時間的數量。"
-
-#. Translators: %(value)s will be replaced with a date.
-#: static/js/engagement-content-main.js
-msgid "Week Ending %(value)s"
-msgstr "本週結束%(value)s"
+msgid "Week Ending <%=value%>"
+msgstr ""
 
 #: static/js/enrollment-activity-main.js
-msgid ""
-"This graph displays total enrollment for the course calculated at the end of"
-" each day. Total enrollment includes new enrollments as well as "
-"unenrollments."
-msgstr "此圖顯示了在每天結束時課程的總註冊量。總註冊包含新註冊和未註冊的。"
-
-#: static/js/enrollment-activity-main.js
+#: static/js/enrollment-demographics-gender-main.js
 msgid "Date"
 msgstr "日期"
 
 #. Translators: The noun count (e.g. number of students)
 #: static/js/enrollment-activity-main.js
+#: static/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-geography-main.js
 msgid "Total Enrollment"
 msgstr "總註冊"
+
+#: static/js/enrollment-activity-main.js
+msgid "Honor Code"
+msgstr "榮譽守則"
+
+#: static/js/enrollment-activity-main.js
+msgid "Verified"
+msgstr "已驗證"
+
+#: static/js/enrollment-activity-main.js
+msgid "Professional"
+msgstr "專業的"
+
+#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-education-main.js
+msgid "Number of Students"
+msgstr "學生數量"
+
+#. Translators: <%=value%> will be replaced with an age.
+#: static/js/enrollment-demographics-age-main.js
+msgid "Age: <%=value%>"
+msgstr ""
+
+#: static/js/enrollment-demographics-age-main.js
+msgid "Age"
+msgstr "年齡"
+
+#: static/js/enrollment-demographics-age-main.js
+msgid "Percent of Total"
+msgstr "總共的百分比"
+
+#: static/js/enrollment-demographics-education-main.js
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Percentage"
+msgstr ""
+
+#. Translators: <%=value%> will be replaced with a level of education (e.g.
+#. Doctorate).
+#: static/js/enrollment-demographics-education-main.js
+msgid "Education: <%=value%>"
+msgstr ""
+
+#: static/js/enrollment-demographics-education-main.js
+msgid "Educational Background"
+msgstr "學歷"
+
+#. Translators: <%=value%> will be replaced with a level of gender (e.g.
+#. Female).
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Gender: <%=value%>"
+msgstr ""
+
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Female"
+msgstr "女性"
+
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Male"
+msgstr "男性"
+
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Other"
+msgstr "其他"
+
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Not Reported"
+msgstr "無報告"
 
 #: static/js/enrollment-geography-main.js
 msgid ""

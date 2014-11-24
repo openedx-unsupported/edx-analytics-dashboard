@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Anne <a.vangulick@hotmail.com>, 2014
+# devette <herman@de-vette.nl>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-01 15:22-0400\n"
-"PO-Revision-Date: 2014-10-25 12:11+0000\n"
-"Last-Translator: Anne <a.vangulick@hotmail.com>\n"
+"POT-Creation-Date: 2014-11-24 16:24-0500\n"
+"PO-Revision-Date: 2014-11-24 21:27+0000\n"
+"Last-Translator: cblackburn <cblackburn@edx.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/edx-platform/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 
 #: static/js/engagement-content-main.js
 msgid "Week Ending"
-msgstr ""
+msgstr "Week Eindigt"
 
 #: static/js/engagement-content-main.js
 msgid "Active Students"
@@ -38,38 +39,90 @@ msgstr "Een opgave geprobeerd"
 msgid "Posted in Forum"
 msgstr "Een bericht op forum geplaatst"
 
+#. Translators: <%=value%> will be replaced with a date.
 #: static/js/engagement-content-main.js
-msgid ""
-"The number of active students, and the number of students who engaged in "
-"specific activities, over time."
-msgstr ""
-"De hoeveelheid actieve studenten, en de hoeveelheid studenten die zich bezig"
-" hebben gehouden met specifieke activiteiten, in de loop der tijd."
-
-#. Translators: %(value)s will be replaced with a date.
-#: static/js/engagement-content-main.js
-msgid "Week Ending %(value)s"
+msgid "Week Ending <%=value%>"
 msgstr ""
 
 #: static/js/enrollment-activity-main.js
-msgid ""
-"This graph displays total enrollment for the course calculated at the end of"
-" each day. Total enrollment includes new enrollments as well as "
-"unenrollments."
-msgstr ""
-"Deze grafiek laat de totale hoeveelheid inschrijvingen voor de cursus zien "
-"die berekend wordt aan het einde van elke dag. Het totaal aan inschrijvingen"
-" is inclusief nieuwe inschrijvingen en uitschrijvingen."
-
-#: static/js/enrollment-activity-main.js
+#: static/js/enrollment-demographics-gender-main.js
 msgid "Date"
 msgstr "Datum"
 
 #. Translators: The noun count (e.g. number of students)
 #: static/js/enrollment-activity-main.js
+#: static/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-geography-main.js
 msgid "Total Enrollment"
 msgstr "Totaal inschrijvingen"
+
+#: static/js/enrollment-activity-main.js
+msgid "Honor Code"
+msgstr "Ere Code"
+
+#: static/js/enrollment-activity-main.js
+msgid "Verified"
+msgstr "Gecontroleerd"
+
+#: static/js/enrollment-activity-main.js
+msgid "Professional"
+msgstr "Professional"
+
+#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-education-main.js
+msgid "Number of Students"
+msgstr "Aantal Studenten"
+
+#. Translators: <%=value%> will be replaced with an age.
+#: static/js/enrollment-demographics-age-main.js
+msgid "Age: <%=value%>"
+msgstr ""
+
+#: static/js/enrollment-demographics-age-main.js
+msgid "Age"
+msgstr "Leeftijd"
+
+#: static/js/enrollment-demographics-age-main.js
+msgid "Percent of Total"
+msgstr "Percentage van Totaal"
+
+#: static/js/enrollment-demographics-education-main.js
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Percentage"
+msgstr ""
+
+#. Translators: <%=value%> will be replaced with a level of education (e.g.
+#. Doctorate).
+#: static/js/enrollment-demographics-education-main.js
+msgid "Education: <%=value%>"
+msgstr ""
+
+#: static/js/enrollment-demographics-education-main.js
+msgid "Educational Background"
+msgstr "Opleidingsachtergrond"
+
+#. Translators: <%=value%> will be replaced with a level of gender (e.g.
+#. Female).
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Gender: <%=value%>"
+msgstr ""
+
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Female"
+msgstr "Vrouw"
+
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Male"
+msgstr "Man"
+
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Other"
+msgstr "Anders"
+
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Not Reported"
+msgstr "Niet Gemeld"
 
 #: static/js/enrollment-geography-main.js
 msgid ""

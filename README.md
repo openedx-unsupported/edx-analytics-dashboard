@@ -95,8 +95,7 @@ Client](http://docs.transifex.com/developer/client/):
 
 Once translations are completed, run the commands below to download and compile the translations:
 
-        $ tx pull -a
-        $ cd analytics_dashboard && i18n_tool generate
+        $ make pull_translations
 
 Note that only the following files (for each language) should be committed to this repository:
 

@@ -3,15 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Edgar Aparecido Pereira de Melo <edgarapmelo@gmail.com>, 2014
 # Francisco Cantarutti <francisco.cantarutti@sisqualis.com.br>, 2014
+# Leonardo Flores Zambaldi <fzleonardo@gmail.com>, 2014
 # Marco Túlio Pires <mtrpires@outlook.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-01 15:22-0400\n"
-"PO-Revision-Date: 2014-10-07 20:41+0000\n"
-"Last-Translator: Francisco Cantarutti <francisco.cantarutti@sisqualis.com.br>\n"
+"POT-Creation-Date: 2014-11-24 16:24-0500\n"
+"PO-Revision-Date: 2014-11-24 21:27+0000\n"
+"Last-Translator: cblackburn <cblackburn@edx.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/edx-platform/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,45 +41,97 @@ msgstr "Tentou Resolver"
 msgid "Posted in Forum"
 msgstr "Postaram no Forum"
 
+#. Translators: <%=value%> will be replaced with a date.
 #: static/js/engagement-content-main.js
-msgid ""
-"The number of active students, and the number of students who engaged in "
-"specific activities, over time."
+msgid "Week Ending <%=value%>"
 msgstr ""
-"O número de alunos ativos, e do número de alunos que se envolveram em "
-"atividades específicas, ao longo do tempo."
-
-#. Translators: %(value)s will be replaced with a date.
-#: static/js/engagement-content-main.js
-msgid "Week Ending %(value)s"
-msgstr "Semana Final %(value)s"
 
 #: static/js/enrollment-activity-main.js
-msgid ""
-"This graph displays total enrollment for the course calculated at the end of"
-" each day. Total enrollment includes new enrollments as well as "
-"unenrollments."
-msgstr ""
-"Este gráfico mostra total da matrícula para o curso calculado no final de "
-"cada dia. Total de matrículas inclui novas inscrições, bem como matrícula "
-"canceladas."
-
-#: static/js/enrollment-activity-main.js
+#: static/js/enrollment-demographics-gender-main.js
 msgid "Date"
 msgstr "Data"
 
 #. Translators: The noun count (e.g. number of students)
 #: static/js/enrollment-activity-main.js
+#: static/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-geography-main.js
 msgid "Total Enrollment"
 msgstr "Total de Matrículas"
+
+#: static/js/enrollment-activity-main.js
+msgid "Honor Code"
+msgstr "Código de Honra"
+
+#: static/js/enrollment-activity-main.js
+msgid "Verified"
+msgstr "Verificado"
+
+#: static/js/enrollment-activity-main.js
+msgid "Professional"
+msgstr "Profissional"
+
+#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-education-main.js
+msgid "Number of Students"
+msgstr "Número de Alunos"
+
+#. Translators: <%=value%> will be replaced with an age.
+#: static/js/enrollment-demographics-age-main.js
+msgid "Age: <%=value%>"
+msgstr ""
+
+#: static/js/enrollment-demographics-age-main.js
+msgid "Age"
+msgstr "Idade"
+
+#: static/js/enrollment-demographics-age-main.js
+msgid "Percent of Total"
+msgstr "Porcentagem do Total"
+
+#: static/js/enrollment-demographics-education-main.js
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Percentage"
+msgstr ""
+
+#. Translators: <%=value%> will be replaced with a level of education (e.g.
+#. Doctorate).
+#: static/js/enrollment-demographics-education-main.js
+msgid "Education: <%=value%>"
+msgstr ""
+
+#: static/js/enrollment-demographics-education-main.js
+msgid "Educational Background"
+msgstr "Histórico Escolar"
+
+#. Translators: <%=value%> will be replaced with a level of gender (e.g.
+#. Female).
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Gender: <%=value%>"
+msgstr ""
+
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Female"
+msgstr "Feminino"
+
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Male"
+msgstr "Masculino"
+
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Other"
+msgstr "Outro"
+
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Not Reported"
+msgstr "Não Relatado"
 
 #: static/js/enrollment-geography-main.js
 msgid ""
 "Student location is determined from IP address. This map shows where "
 "students most recently connected."
 msgstr ""
-"A localização do Estudante é determinado a partir do endereço IP. Este mapa "
+"A localização do aluno é determinado a partir do endereço IP. Este mapa "
 "mostra onde os alunos conectaram recentemente."
 
 #: static/js/enrollment-geography-main.js
@@ -86,4 +140,4 @@ msgstr "País"
 
 #: static/js/enrollment-geography-main.js
 msgid "Percent"
-msgstr "Por cento"
+msgstr "Percentual"

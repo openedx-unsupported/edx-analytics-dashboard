@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-14 15:15-0500\n"
+"POT-Creation-Date: 2014-11-24 16:28-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,8 @@ msgstr ""
 "Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#. Translators: This will represent some statistic about learners (e.g., "52%
-#. Female" or "18% High School Students").
+#. Translators: Simply move the percent symbol (%) to the correct location. Do
+#. NOT translate the word statistic.
 #: analytics_dashboard/templatetags/dashboard_extras.py
 msgid "{statistic}%"
 msgstr "{statistic}% Ⱡ'σяєм#"
@@ -94,113 +94,6 @@ msgstr "Döçtöräté #"
 #: courses/presenters.py
 msgid "Unknown Country"
 msgstr "Ûnknöwn Çöüntrý Ⱡ'#"
-
-#: courses/views.py courses/templates/courses/enrollment_geography.html
-#: courses/tests/test_views/__init__.py
-msgid "Enrollment"
-msgstr "Énröllmént Ⱡ#"
-
-#: courses/views.py courses/tests/test_views/test_pages.py
-msgid "Engagement"
-msgstr "Éngägémént Ⱡ#"
-
-#: courses/views.py courses/tests/test_views/__init__.py
-msgid "Activity"
-msgstr "Àçtïvïtý #"
-
-#: courses/views.py courses/tests/test_views/__init__.py
-msgid "Demographics"
-msgstr "Démögräphïçs Ⱡ#"
-
-#: courses/views.py courses/tests/test_views/__init__.py
-msgid "Geography"
-msgstr "Géögräphý #"
-
-#: courses/views.py courses/tests/test_views/__init__.py
-msgid "Age"
-msgstr "Àgé Ⱡ'σя#"
-
-#: courses/views.py courses/tests/test_views/__init__.py
-msgid "Education"
-msgstr "Édüçätïön #"
-
-#: courses/views.py courses/tests/test_views/__init__.py
-msgid "Gender"
-msgstr "Géndér Ⱡ'σяєм ιρѕ#"
-
-#. Translators: Do not translate UTC.
-#: courses/views.py
-msgid ""
-"Demographic student data was last updated %(update_date)s at %(update_time)s"
-" UTC."
-msgstr ""
-"Démögräphïç stüdént dätä wäs läst üpdätéd %(update_date)s ät %(update_time)s"
-" ÛTÇ. Ⱡ'σяєм ιρѕυм ∂σł#"
-
-#. Translators: This sentence is displayed at the bottom of the page and
-#. describe the demographics data displayed.
-#: courses/views.py
-msgid ""
-"All above demographic data was self-reported at the time of registration."
-msgstr ""
-"Àll äßövé démögräphïç dätä wäs sélf-répörtéd ät thé tïmé öf régïsträtïön. "
-"Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт#"
-
-#. Translators: Content as in course content (e.g. things, not the feeling)
-#: courses/views.py courses/tests/test_views/test_pages.py
-msgid "Content"
-msgstr "Çöntént #"
-
-#: courses/views.py
-msgid "Enrollment Activity"
-msgstr "Énröllmént Àçtïvïtý Ⱡ'σя#"
-
-#. Translators: Do not translate UTC.
-#: courses/views.py
-msgid ""
-"Enrollment activity data was last updated %(update_date)s at %(update_time)s"
-" UTC."
-msgstr ""
-"Énröllmént äçtïvïtý dätä wäs läst üpdätéd %(update_date)s ät %(update_time)s"
-" ÛTÇ. Ⱡ'σяєм ιρѕυм ∂σł#"
-
-#: courses/views.py
-msgid "Enrollment Demographics by Age"
-msgstr "Énröllmént Démögräphïçs ßý Àgé Ⱡ'σяєм #"
-
-#: courses/views.py
-msgid "Enrollment Demographics by Education"
-msgstr "Énröllmént Démögräphïçs ßý Édüçätïön Ⱡ'σяєм ιρ#"
-
-#: courses/views.py
-msgid "Enrollment Demographics by Gender"
-msgstr "Énröllmént Démögräphïçs ßý Géndér Ⱡ'σяєм ι#"
-
-#: courses/views.py
-msgid "Enrollment Geography"
-msgstr "Énröllmént Géögräphý Ⱡ'σя#"
-
-#. Translators: Do not translate UTC.
-#: courses/views.py
-msgid ""
-"Geographic student data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr ""
-"Géögräphïç stüdént dätä wäs läst üpdätéd %(update_date)s ät %(update_time)s "
-"ÛTÇ. Ⱡ'σяєм ιρѕυм ∂σł#"
-
-#: courses/views.py
-msgid "Engagement Content"
-msgstr "Éngägémént Çöntént Ⱡ'σ#"
-
-#. Translators: Do not translate UTC.
-#: courses/views.py
-msgid ""
-"Course engagement data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr ""
-"Çöürsé éngägémént dätä wäs läst üpdätéd %(update_date)s ät %(update_time)s "
-"ÛTÇ. Ⱡ'σяєм ιρѕυм ∂σł#"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
@@ -558,6 +451,11 @@ msgid "Enrollment by Country"
 msgstr "Énröllmént ßý Çöüntrý Ⱡ'σя#"
 
 #: courses/templates/courses/enrollment_geography.html
+#: courses/tests/test_views/__init__.py courses/views.py
+msgid "Enrollment"
+msgstr "Énröllmént Ⱡ#"
+
+#: courses/templates/courses/enrollment_geography.html
 msgid "Geography Metrics"
 msgstr "Géögräphý Métrïçs Ⱡ'σ#"
 
@@ -632,11 +530,12 @@ msgstr "Néw tö %(application_name)s? Ⱡ#"
 
 #: courses/templates/courses/index.html
 msgid ""
-" Click Help in the upper-right corner to get more information\n"
-"            about %(application_name)s. Send us feedback at %(email_link)s."
+"Click Help in the upper-right corner to get more information about "
+"%(application_name)s. Send us feedback at %(email_link)s."
 msgstr ""
-" Çlïçk Hélp ïn thé üppér-rïght çörnér tö gét möré ïnförmätïön\n"
-"            äßöüt %(application_name)s. Sénd üs féédßäçk ät %(email_link)s. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕ#"
+"Çlïçk Hélp ïn thé üppér-rïght çörnér tö gét möré ïnförmätïön äßöüt "
+"%(application_name)s. Sénd üs féédßäçk ät %(email_link)s. Ⱡ'σяєм ιρѕυм ∂σłσя"
+" ѕιт αмєт, #"
 
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
@@ -662,6 +561,108 @@ msgstr "Trý Àgäïn #"
 #: courses/tests/test_serializers.py
 msgid "primary"
 msgstr "prïmärý #"
+
+#: courses/tests/test_views/__init__.py courses/views.py
+msgid "Activity"
+msgstr "Àçtïvïtý #"
+
+#: courses/tests/test_views/__init__.py courses/views.py
+msgid "Demographics"
+msgstr "Démögräphïçs Ⱡ#"
+
+#: courses/tests/test_views/__init__.py courses/views.py
+msgid "Geography"
+msgstr "Géögräphý #"
+
+#: courses/tests/test_views/__init__.py courses/views.py
+msgid "Age"
+msgstr "Àgé Ⱡ'σя#"
+
+#: courses/tests/test_views/__init__.py courses/views.py
+msgid "Education"
+msgstr "Édüçätïön #"
+
+#: courses/tests/test_views/__init__.py courses/views.py
+msgid "Gender"
+msgstr "Géndér Ⱡ'σяєм ιρѕ#"
+
+#: courses/tests/test_views/test_pages.py courses/views.py
+msgid "Engagement"
+msgstr "Éngägémént Ⱡ#"
+
+#. Translators: Content as in course content (e.g. things, not the feeling)
+#: courses/tests/test_views/test_pages.py courses/views.py
+msgid "Content"
+msgstr "Çöntént #"
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Demographic student data was last updated %(update_date)s at %(update_time)s"
+" UTC."
+msgstr ""
+"Démögräphïç stüdént dätä wäs läst üpdätéd %(update_date)s ät %(update_time)s"
+" ÛTÇ. Ⱡ'σяєм ιρѕυм ∂σł#"
+
+#. Translators: This sentence is displayed at the bottom of the page and
+#. describe the demographics data displayed.
+#: courses/views.py
+msgid ""
+"All above demographic data was self-reported at the time of registration."
+msgstr ""
+"Àll äßövé démögräphïç dätä wäs sélf-répörtéd ät thé tïmé öf régïsträtïön. "
+"Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт#"
+
+#: courses/views.py
+msgid "Enrollment Activity"
+msgstr "Énröllmént Àçtïvïtý Ⱡ'σя#"
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Enrollment activity data was last updated %(update_date)s at %(update_time)s"
+" UTC."
+msgstr ""
+"Énröllmént äçtïvïtý dätä wäs läst üpdätéd %(update_date)s ät %(update_time)s"
+" ÛTÇ. Ⱡ'σяєм ιρѕυм ∂σł#"
+
+#: courses/views.py
+msgid "Enrollment Demographics by Age"
+msgstr "Énröllmént Démögräphïçs ßý Àgé Ⱡ'σяєм #"
+
+#: courses/views.py
+msgid "Enrollment Demographics by Education"
+msgstr "Énröllmént Démögräphïçs ßý Édüçätïön Ⱡ'σяєм ιρ#"
+
+#: courses/views.py
+msgid "Enrollment Demographics by Gender"
+msgstr "Énröllmént Démögräphïçs ßý Géndér Ⱡ'σяєм ι#"
+
+#: courses/views.py
+msgid "Enrollment Geography"
+msgstr "Énröllmént Géögräphý Ⱡ'σя#"
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Geographic student data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr ""
+"Géögräphïç stüdént dätä wäs läst üpdätéd %(update_date)s ät %(update_time)s "
+"ÛTÇ. Ⱡ'σяєм ιρѕυм ∂σł#"
+
+#: courses/views.py
+msgid "Engagement Content"
+msgstr "Éngägémént Çöntént Ⱡ'σ#"
+
+#. Translators: Do not translate UTC.
+#: courses/views.py
+msgid ""
+"Course engagement data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr ""
+"Çöürsé éngägémént dätä wäs läst üpdätéd %(update_date)s ät %(update_time)s "
+"ÛTÇ. Ⱡ'σяєм ιρѕυм ∂σł#"
 
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
@@ -736,11 +737,13 @@ msgstr "Àpplïçätïön Ⱡ#"
 
 #: templates/footer.html
 msgid ""
-"We want this dashboard to work for you! Need help? %(support_link_start)sVisit our support\n"
-"          forum%(support_link_end)s. Comments or suggestions? Email %(email_link)s."
+"We want this dashboard to work for you! Need help? "
+"%(support_link_start)sVisit our support forum%(support_link_end)s. Comments "
+"or suggestions? Email %(email_link)s."
 msgstr ""
-"Wé wänt thïs däshßöärd tö wörk för ýöü! Nééd hélp? %(support_link_start)sVïsït öür süppört\n"
-"          förüm%(support_link_end)s. Çömménts ör süggéstïöns? Émäïl %(email_link)s. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕє¢тєтυ#"
+"Wé wänt thïs däshßöärd tö wörk för ýöü! Nééd hélp? "
+"%(support_link_start)sVïsït öür süppört förüm%(support_link_end)s. Çömménts "
+"ör süggéstïöns? Émäïl %(email_link)s. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕє¢т#"
 
 #: templates/footer.html
 msgid "Terms of Service"
@@ -780,18 +783,6 @@ msgstr "Àçtïvé Ⱡ'σяєм ιρѕ#"
 msgid "LOADING..."
 msgstr "LÖÀDÌNG... Ⱡ#"
 
-#: templates/section_error.html
-msgid "We are unable to load this chart."
-msgstr "Wé äré ünäßlé tö löäd thïs çhärt. Ⱡ'σяєм ι#"
-
-#: templates/section_error.html
-msgid "We are unable to load this table."
-msgstr "Wé äré ünäßlé tö löäd thïs täßlé. Ⱡ'σяєм ι#"
-
-#: templates/section_error.html
-msgid "We are unable to load these metrics."
-msgstr "Wé äré ünäßlé tö löäd thésé métrïçs. Ⱡ'σяєм ιρ#"
-
 #: templates/registration/logged_out.html
 #: templates/registration/logged_out.html
 msgid "Logged Out"
@@ -806,3 +797,15 @@ msgstr ""
 #: templates/registration/logged_out.html
 msgid "Login"
 msgstr "Lögïn Ⱡ'σяєм ι#"
+
+#: templates/section_error.html
+msgid "We are unable to load this chart."
+msgstr "Wé äré ünäßlé tö löäd thïs çhärt. Ⱡ'σяєм ι#"
+
+#: templates/section_error.html
+msgid "We are unable to load this table."
+msgstr "Wé äré ünäßlé tö löäd thïs täßlé. Ⱡ'σяєм ι#"
+
+#: templates/section_error.html
+msgid "We are unable to load these metrics."
+msgstr "Wé äré ünäßlé tö löäd thésé métrïçs. Ⱡ'σяєм ιρ#"
