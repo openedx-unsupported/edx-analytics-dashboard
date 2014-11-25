@@ -67,7 +67,6 @@ validate: validate_python validate_js
 demo:
 	cd analytics_dashboard && ./manage.py switch show_engagement_forum_activity on --create
 	cd analytics_dashboard && ./manage.py switch display_verified_enrollment on --create
-	cd analytics_dashboard && ./manage.py switch course_homepage on --create
 
 compile_translations:
 	cd analytics_dashboard && i18n_tool generate -v

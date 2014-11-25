@@ -6,7 +6,6 @@ import re
 import urllib
 
 from django.contrib.humanize.templatetags.humanize import intcomma
-from django.shortcuts import redirect
 from django.conf import settings
 from django.core.exceptions import PermissionDenied
 from django.core.urlresolvers import reverse
@@ -646,12 +645,6 @@ class CourseHome(CourseTemplateView):
     template_name = 'courses/home.html'
     page_name = 'course_home'
     page_title = _('Course Home')
-
-    def get(self, request, *args, **kwargs):
-        if switch_is_active('course_homepage'):
-            return super(CourseHome, self).get(request, *args, **kwargs)
-
-        return redirect('courses:enrollment_activity', course_id=kwargs['course_id'])
 
     def get_navbar_items(self):
         return [
