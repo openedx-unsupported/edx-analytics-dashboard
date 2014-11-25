@@ -8,6 +8,9 @@ Change Log
 
    * - Date
      - Change
+   * - 11/25/14
+     - Expanded the section on possible :ref:`error conditions<Error
+       Conditions>`.
    * - 11/24/14
      - Enrollment history is now available for all courses. See
        :ref:`Enrollment_Activity` and :ref:`Reference`.
