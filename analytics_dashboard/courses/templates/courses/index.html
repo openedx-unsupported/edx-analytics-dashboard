@@ -22,11 +22,19 @@
     <div class="col-md-8">
       <div class="course-list">
         {% for course in courses %}
-          <a href="{% url 'courses:home' course_id=course %}">
-            <div class="course">
-              <span class="course-title">{{ course|format_course_key }}</span>
-            </div>
-          </a>
+          <div class="course">
+            <a href="{% url 'courses:home' course_id=course.id %}">
+              <span class="course-name">{% if course_api_enabled %}
+                {{ course.name }}
+              {% else %}
+                {{ course.id|format_course_key }}
+              {% endif %}</span>
+            </a>
+
+            {% if course_api_enabled %}
+              <div class="course-id">{{ course.id|format_course_key:" / " }}</div>
+            {% endif %}
+          </div>
         {% endfor %}
       </div>
     </div>
@@ -40,7 +48,7 @@
             {{ feedback_email }}</a>{% endcaptureas %}
 
         <p class="info-text">{% blocktrans trimmed %} Click Help in the upper-right corner to get more information
-            about {{ application_name }}. Send us feedback at {{email_link}}.{% endblocktrans %}</p>
+          about {{ application_name }}. Send us feedback at {{ email_link }}.{% endblocktrans %}</p>
       </div>
     </div>
   </div>

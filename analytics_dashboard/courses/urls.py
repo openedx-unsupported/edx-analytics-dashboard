@@ -17,6 +17,7 @@ COURSE_URLS = [
     ('csv/enrollment_demographics_education', views.CourseEnrollmentDemographicsEducationCSV.as_view()),
     ('csv/enrollment_demographics_gender', views.CourseEnrollmentDemographicsGenderCSV.as_view()),
     ('csv/engagement_activity_trend', views.CourseEngagementActivityTrendCSV.as_view()),
+    ('performance/graded_content', views.PerformanceGradedContent.as_view()),
 ]
 
 COURSE_ID_PATTERN = r'(?P<course_id>[^/+]+[/+][^/+]+[/+][^/]+)'

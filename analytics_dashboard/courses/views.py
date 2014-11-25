@@ -6,6 +6,7 @@ import re
 import urllib
 
 from django.contrib.humanize.templatetags.humanize import intcomma
+import requests
 from django.conf import settings
 from django.core.exceptions import PermissionDenied
 from django.core.urlresolvers import reverse
@@ -14,11 +15,11 @@ from django.utils import dateformat
 from django.views.generic import TemplateView
 from django.utils.translation import ugettext_lazy as _
 from braces.views import LoginRequiredMixin
-import requests
 from waffle import switch_is_active
 from analyticsclient.constants import data_format, demographic
 from analyticsclient.client import Client
 from analyticsclient.exceptions import NotFoundError
+from course_api.api import Course
 
 from courses import permissions
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter, \
@@ -29,6 +30,24 @@ from help.views import ContextSensitiveHelpMixin
 
 
 logger = logging.getLogger(__name__)
+
+
+class CourseAPIMixin(object):
+    course_api = None
+    course_api_enabled = False
+
+    def dispatch(self, request, *args, **kwargs):
+        self.course_api_enabled = switch_is_active('enable_course_api')
+
+        if self.course_api_enabled:
+            self.course_api = Course(url=settings.COURSE_API_URL, key=settings.COURSE_API_KEY)
+
+        return super(CourseAPIMixin, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(CourseAPIMixin, self).get_context_data(**kwargs)
+        context['course_api_enabled'] = self.course_api_enabled
+        return context
 
 
 class TrackedViewMixin(object):
@@ -60,7 +79,7 @@ class LazyEncoderMixin(object):
             return None
 
 
-class CourseContextMixin(TrackedViewMixin, LazyEncoderMixin):
+class CourseContextMixin(CourseAPIMixin, TrackedViewMixin, LazyEncoderMixin):
     """
     Adds default course context data.
 
@@ -104,8 +123,11 @@ class CourseContextMixin(TrackedViewMixin, LazyEncoderMixin):
             'course_id': self.course_id,
             'course_key': self.course_key,
             'page_title': self.page_title,
-            'page_subtitle': self.page_subtitle
+            'page_subtitle': self.page_subtitle,
         }
+
+        if self.course_api_enabled:
+            context['course_name'] = self.course_api.course_detail(self.course_id)['name']
 
         return context
 
@@ -195,6 +217,13 @@ class CourseNavBarMixin(object):
                 'label': _('Engagement'),
                 'view': 'courses:engagement_content',
                 'icon': 'fa-bar-chart',
+            },
+            {
+                'name': 'performance',
+                'label': _('Performance'),
+                'view': 'courses:performance_graded_content',
+                'icon': 'fa-check-square-o',
+                'switch': 'enable_course_api',
             }
         ]
 
@@ -255,8 +284,12 @@ class CourseNavBarMixin(object):
         tertiary_nav_items = self.get_tertiary_nav_items()
 
         # Get the active primary item and remove it from the list
-        primary_nav_item = [i for i in primary_nav_items if i['name'] == self.active_primary_nav_item][0]
-        primary_nav_items.remove(primary_nav_item)
+        primary_nav_item = None
+        try:
+            primary_nav_item = [i for i in primary_nav_items if i['name'] == self.active_primary_nav_item][0]
+            primary_nav_items.remove(primary_nav_item)
+        except IndexError:
+            logger.error('An error occurred while determining the primary nav item.')
 
         context.update({
             'primary_nav_item': primary_nav_item,
@@ -721,7 +754,7 @@ class CourseHome(CourseTemplateView):
         return context
 
 
-class CourseIndex(LoginRequiredMixin, TrackedViewMixin, LazyEncoderMixin, TemplateView):
+class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LazyEncoderMixin, TemplateView):
     template_name = 'courses/index.html'
     page_name = 'course_index'
 
@@ -734,7 +767,45 @@ class CourseIndex(LoginRequiredMixin, TrackedViewMixin, LazyEncoderMixin, Templa
             # The user is probably not a course administrator and should not be using this application.
             raise PermissionDenied
 
-        context['courses'] = sorted(courses)
+        courses = sorted(courses)
+        context['courses'] = self.get_course_info(courses)
         context['page_data'] = self.get_page_data(context)
+
+        return context
+
+    def get_course_info(self, course_ids):
+        info = []
+        api = self.course_api
+
+        for course_id in course_ids:
+            d = {'id': course_id}
+
+            if self.course_api_enabled:
+                d['name'] = api.course_detail(course_id)['name']
+
+            info.append(d)
+
+        return info
+
+
+class PerformanceGradedContent(CourseTemplateView):
+    template_name = 'courses/performance_graded_content.html'
+    page_title = _('Graded Content')
+    page_name = 'performance_graded_content'
+    active_primary_nav_item = 'performance'
+    active_secondary_nav_item = 'graded_content'
+
+    secondary_nav_items = [
+        {'name': 'graded_content', 'label': _('Graded Content'), 'view': 'courses:performance_graded_content'},
+    ]
+
+    def get_context_data(self, **kwargs):
+        context = super(PerformanceGradedContent, self).get_context_data(**kwargs)
+
+        context.update({
+            'homeworks': self.course_api.homeworks(self.course_id),
+            'exams': self.course_api.exams(self.course_id),
+            'page_data': self.get_page_data(context)
+        })
 
         return context
