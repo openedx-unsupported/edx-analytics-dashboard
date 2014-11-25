@@ -135,7 +135,7 @@ class CourseEnrollmentDemographicsGenderTests(CourseDemographicsPageTestsMixin, 
 
         expected = [expected_date, self.format_number(gender_total)]
         for gender in genders:
-            expected.append(self.format_number(datum.get(gender, 0)))
+            expected.append(self.format_number(datum.get(gender, 0) or 0))
 
         actual = []
         for i in range(6):
