@@ -663,7 +663,7 @@ class CourseHome(CourseTemplateView):
         ]
 
     def get_table_items(self):
-        table_items = [
+        return [
             {
                 'name': _('Enrollment'),
                 'icon': 'fa-child',
@@ -675,22 +675,22 @@ class CourseHome(CourseTemplateView):
                         'breadcrumbs': [_('Activity')]
                     },
                     {
-                        'title': _('What age are my students?'),
+                        'title': _('How old are my students?'),
                         'view': 'courses:enrollment_demographics_age',
                         'breadcrumbs': [_('Demographics'), _('Age')]
                     },
                     {
-                        'title': _('What is the educational background of my students?'),
+                        'title': _('What level of education do my students have?'),
                         'view': 'courses:enrollment_demographics_education',
                         'breadcrumbs': [_('Demographics'), _('Education')]
                     },
                     {
-                        'title': _('What is the gender breakdown of my students?'),
+                        'title': _('What is the student gender breakdown?'),
                         'view': 'courses:enrollment_demographics_gender',
                         'breadcrumbs': [_('Demographics'), _('Gender')]
                     },
                     {
-                        'title': _('Where are my students from?'),
+                        'title': _('Where are my students?'),
                         'view': 'courses:enrollment_geography',
                         'breadcrumbs': [_('Geography')]
                     },
@@ -699,17 +699,16 @@ class CourseHome(CourseTemplateView):
             {
                 'name': _('Engagement'),
                 'icon': 'fa-bar-chart',
-                'heading': _('What are my students engaging with in my course?'),
+                'heading': _('What are students doing in my course?'),
                 'items': [
                     {
-                        'title': _('How many students are engaged in my course?'),
+                        'title': _('How many students are interacting with my course?'),
                         'view': 'courses:engagement_content',
                         'breadcrumbs': [_('Content')]
                     }
                 ]
             }
         ]
-        return table_items
 
     def get_context_data(self, **kwargs):
         context = super(CourseHome, self).get_context_data(**kwargs)

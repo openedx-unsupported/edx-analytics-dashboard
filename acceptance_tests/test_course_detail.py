@@ -37,22 +37,22 @@ class CourseHomeTests(CoursePageTestsMixin, WebAppTest):
                         'breadcrumbs': ['Activity']
                     },
                     {
-                        'title': 'What age are my students?',
+                        'title': 'How old are my students?',
                         'view': 'courses:enrollment_demographics_age',
                         'breadcrumbs': ['Demographics', 'Age']
                     },
                     {
-                        'title': 'What is the educational background of my students?',
+                        'title': 'What level of education do my students have?',
                         'view': 'courses:enrollment_demographics_education',
                         'breadcrumbs': ['Demographics', 'Education']
                     },
                     {
-                        'title': 'What is the gender breakdown of my students?',
+                        'title': 'What is the student gender breakdown?',
                         'view': 'courses:enrollment_demographics_gender',
                         'breadcrumbs': ['Demographics', 'Gender']
                     },
                     {
-                        'title': 'Where are my students from?',
+                        'title': 'Where are my students?',
                         'view': 'courses:enrollment_geography',
                         'breadcrumbs': ['Geography']
                     },
@@ -61,10 +61,10 @@ class CourseHomeTests(CoursePageTestsMixin, WebAppTest):
             {
                 'name': 'Engagement',
                 'icon': 'fa-bar-chart',
-                'heading': 'What are my students engaging with in my course?',
+                'heading': 'What are students doing in my course?',
                 'items': [
                     {
-                        'title': 'How many students are engaged in my course?',
+                        'title': 'How many students are interacting with my course?',
                         'view': 'courses:engagement_content',
                         'breadcrumbs': ['Content']
                     }
