@@ -50,9 +50,10 @@ details on utilizing features in code and templates.
 
 The following switches are available:
 
-| Switch                            | Purpose                                                  |
-|-----------------------------------|----------------------------------------------------------|
-| show_engagement_forum_activity    | Show the forum activity on the course engagement page    |
+| Switch                            | Purpose                                                               |
+|-----------------------------------|-----------------------------------------------------------------------|
+| show_engagement_forum_activity    | Show the forum activity on the course engagement page                 |
+| course_homepage                   | Enable course homepage (instead of redirecting to enrollment page)    |
 
 
 Authentication & Authorization

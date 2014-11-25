@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load waffle_tags %}
 
 {% comment %}
 Partial: App-wide header element
@@ -15,7 +16,13 @@ Partial: App-wide header element
       </button>
 
       {% include 'brand.html' with class_prefix='navbar' %}
-      <span class="active-course-number navbar-link navbar-brand">{{ course_id }}</span>
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="{% switch course_homepage %}{% url 'courses:home' course_id=course_id %}{% else %}#{% endswitch %}"
+             class="navbar-link">{{ course_id }}</a>
+        </li>
+      </ul>
+
     </div>
 
     <div class="collapse navbar-collapse" id="main-nav">

@@ -1,6 +1,6 @@
 import json
-from ddt import data, ddt
 
+from ddt import data, ddt
 import mock
 from django.test import TestCase
 from django.core.urlresolvers import reverse
@@ -11,7 +11,7 @@ from courses.tests.test_views import ViewTestMixin, CourseViewTestMixin, \
     CourseEnrollmentViewTestMixin, DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID
 from courses.exceptions import PermissionsRetrievalFailedError
 from courses.tests.test_middleware import MiddlewareAssertionMixin
-from courses.tests import utils
+from courses.tests import utils, SwitchMixin
 
 
 # pylint: disable=abstract-method
@@ -155,17 +155,36 @@ class CourseEnrollmentGeographyViewTests(CourseEnrollmentViewTestMixin, TestCase
 
 
 @ddt
-class CourseHomeViewTests(CourseEnrollmentViewTestMixin, TestCase):
-    """
-    Course homepage
-
-    We do not actually have a course homepage, so redirect to the enrollment activity page.
-    """
+class CourseHomeViewTests(SwitchMixin, CourseViewTestMixin, TestCase):
     viewname = 'courses:home'
+    SWITCH_NAME = 'course_homepage'
+    SWITCH_ENABLED = True
+
+    def setUp(self):
+        super(CourseHomeViewTests, self).setUp()
+        self.toggle_switch(self.SWITCH_NAME, self.SWITCH_ENABLED)
 
     def assertViewIsValid(self, course_id):
         response = self.client.get(self.path(course_id))
+        self.assertEqual(response.status_code, 200)
 
+        self.assertEqual(response.context['page_title'], 'Course Home')
+
+    @data(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
+    def test_missing_data(self, course_id):
+        self.skipTest('The course homepage does not check for the existence of a course.')
+
+
+@ddt
+class CourseHomeViewRedirectTests(CourseEnrollmentViewTestMixin, CourseHomeViewTests):
+    """
+    Validate that the course homepage redirects to the enrollment activity view if the homepage is not enabled.
+    """
+    SWITCH_ENABLED = False
+
+    def assertViewIsValid(self, course_id):
+        # If the switch is disabled, the homepage should redirect to the enrollment activity page.
+        response = self.client.get(self.path(course_id))
         expected_url = reverse('courses:enrollment_activity', kwargs={'course_id': course_id})
         self.assertRedirectsNoFollow(response, expected_url)
 

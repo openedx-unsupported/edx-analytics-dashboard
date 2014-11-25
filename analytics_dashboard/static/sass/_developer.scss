@@ -1,13 +1,11 @@
 // utilities: developer
 // ====================
 // NOTE: use this area for any developer-needed or created styling that needs to be refactored into patterns or visually polished. Please list any template/view that your styles reference when definining them (example below):
-
 // Views: New Prototype View
 // --------------------
 // .crazy-new-feature {
 //   background: transparent;
 // }
-
 @import "mixins";
 
 .chart-info {
@@ -332,19 +330,6 @@ table.dataTable thead th.sorting_desc:after {
   border-top: $edx-gray-l1 1px solid;
 }
 
-.navbar-default {
-  .navbar-link {
-    &.active-course-number {
-      padding: $navbar-padding-vertical $navbar-padding-horizontal;
-
-      &:hover {
-        color: inherit;
-      }
-
-    }
-  }
-}
-
 .announcement-container {
   background-color: $gray-d2;
   border-bottom: solid 3px $edx-blue;
@@ -374,6 +359,42 @@ table.dataTable thead th.sorting_desc:after {
     .body {
       color: $gray;
       font-size: $font-size-small;
+    }
+  }
+}
+
+.course-home-table-outer {
+  header .heading {
+    font-size: $font-size-large;
+    color: $edx-blue;
+    padding-bottom: $padding-large-vertical;
+    @extend .text-center;
+  }
+
+  .course-home-table {
+    border: 1px solid $edx-gray-l1;
+    border-width: 0 0 1px 1px;
+    padding-right: $padding-small-horizontal;
+
+    .item {
+      background: white;
+      padding: $padding-large-vertical;
+      border: 1px solid $edx-gray-l1;
+      border-width: 1px 1px 0 0;
+
+      &.name {
+        color: $edx-gray;
+        font-size: $font-size-large;
+      }
+
+      .title {
+        margin-bottom: $padding-base-vertical;
+      }
+
+      .breadcrumbs {
+        color: $edx-gray;
+        font-size: $font-size-small;
+      }
     }
   }
 }
