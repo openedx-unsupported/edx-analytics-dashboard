@@ -360,11 +360,10 @@ In the following situations, data may not be available in edX Insights.
   enrollment activity beginning with the enrollment count on 3 December 2013.
 
 * For courses with a very small number of enrolled users, such as newly created
-  courses, data for enrollment activity, enrollment geography, or both may not
+  courses, data for enrollment activity, enrollment geography, or both, may not
   be available.
 
 * For courses that do not have any recorded student interactions, such as test
   courses and courses that finished running early in the history of the edX
   platform, data for enrollment activity and student engagement may not be
   available.
->>>>>>> Additional error conditions. Fixes DOC-1063
