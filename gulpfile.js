@@ -19,6 +19,7 @@
                 'analytics_dashboard/static/js/test/**/*.js'
             ],
             templates: [
+                'analytics_dashboard/analytics_dashboard/templates/analytics_dashboard/*.html',
                 'analytics_dashboard/courses/templates/courses/*.html',
                 'analytics_dashboard/templates/*.html'
             ],

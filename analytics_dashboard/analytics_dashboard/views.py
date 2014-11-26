@@ -8,7 +8,7 @@ from django.contrib.auth import get_user_model, login, authenticate, REDIRECT_FI
 from django.db import connection, DatabaseError
 from django.http import HttpResponse, Http404
 from django.shortcuts import redirect
-from django.views.generic import View
+from django.views.generic import View, TemplateView
 from django.core.urlresolvers import reverse_lazy
 
 from analyticsclient.client import Client
@@ -88,7 +88,7 @@ class AutoAuth(View):
         return redirect('/')
 
 
-def logout(request, next_page=None, template_name='registration/logged_out.html',
+def logout(request, next_page='/', template_name=None,
            redirect_field_name=REDIRECT_FIELD_NAME, current_app=None, extra_context=None):
     """
     Revoke user permissions and logout
@@ -108,3 +108,29 @@ def logout_then_login(request, login_url=reverse_lazy('login'), current_app=None
     """
     permissions.revoke_user_course_permissions(request.user)
     return django.contrib.auth.views.logout_then_login(request, login_url, current_app, extra_context)
+
+
+class LandingView(TemplateView):
+    """
+    Displays a public landing page when users first come to the site.
+    """
+    template_name = "analytics_dashboard/landing.html"
+
+    def dispatch(self, request, *args, **kwargs):
+        """ Non logged in users will be directed to the landing page. """
+        if request.user.is_anonymous():
+            return super(LandingView, self).dispatch(request, *args, **kwargs)
+        else:
+            return redirect('courses:index')
+
+    def get_context_data(self, **kwargs):
+        context = super(LandingView, self).get_context_data(**kwargs)
+        context['research_url'] = settings.RESEARCH_URL
+        context['open_source_url'] = settings.OPEN_SOURCE_URL
+        context['show_research'] = settings.SHOW_LANDING_RESEARCH and settings.RESEARCH_URL
+        audience_message_column_width = 6
+        if context['show_research']:
+            audience_message_column_width = 4
+        context['audience_message_column_width'] = audience_message_column_width
+
+        return context

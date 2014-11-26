@@ -3,6 +3,7 @@
 
 {#  Translators: Application here refers to the web site/application being used (e.g. the dashboard). #}
 <footer class="footer" aria-label="{% trans "Application" %}">
+  {% if show_feedback %}
   <div class="feedback">
     <div class="container">
       <div class="row">
@@ -19,6 +20,7 @@
       </div>
     </div>
   </div>
+  {% endif %}
   <div class="legal">
     <div class="container">
       <div class="row">

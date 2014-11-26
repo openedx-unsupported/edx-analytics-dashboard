@@ -18,7 +18,7 @@ js_info_dict = {
 
 urlpatterns = patterns(
     '',
-    url(r'^$', RedirectView.as_view(url=reverse_lazy('courses:index')), name='home'),
+    url(r'^$', views.LandingView.as_view(), name='landing'),
     url(r'^jsi18n/$', 'django.views.i18n.javascript_catalog', js_info_dict),
     url(r'^status/$', views.status, name='status'),
     url(r'^health/$', views.health, name='health'),

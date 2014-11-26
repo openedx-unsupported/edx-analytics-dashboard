@@ -5,15 +5,26 @@ body {
 }
 
 /* Wrapper for page content to push down footer */
-#wrap {
+#wrap-content-push-footer {
   min-height: 100%;
   height: auto !important;
   height: 100%;
   margin: 0 auto (-$footer-height);
 }
 
+#wrap-content-push-footer-sock {
+  @extend #wrap-content-push-footer;
+  margin-bottom: -($footer-sock-height);
+}
+
 /* Set the fixed height of the footer here */
-#push,
+#footer-push,
 #footer {
   height: $footer-height;
+}
+
+/* Set the fixed height of the footer with sock/feedback section. */
+#footer-sock-push,
+#footer-sock {
+  height: $footer-sock-height;
 }

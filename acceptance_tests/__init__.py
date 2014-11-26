@@ -14,6 +14,9 @@ DASHBOARD_FEEDBACK_EMAIL = os.environ.get('DASHBOARD_FEEDBACK_EMAIL', 'override.
 PLATFORM_NAME = os.environ.get('PLATFORM_NAME', 'edX')
 APPLICATION_NAME = os.environ.get('APPLICATION_NAME', 'Insights')
 SUPPORT_URL = os.environ.get('SUPPORT_URL', 'http://example.com/')
+OPEN_SOURCE_URL = os.environ.get('OPEN_SOURCE_URL', 'http://example.com/')
+RESEARCH_URL = os.environ.get('RESEARCH_URL', 'http://example.com/')
+SHOW_LANDING_RESEARCH = str2bool(os.environ.get('SHOW_LANDING_RESEARCH', True))
 
 # Analytics data API settings
 API_SERVER_URL = os.environ['API_SERVER_URL']
