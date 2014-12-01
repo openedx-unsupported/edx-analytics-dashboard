@@ -178,6 +178,7 @@ class OpenIdConnectTests(UserTestCaseMixin, RedirectTestCaseMixin, TestCase):
     DEFAULT_USERNAME = 'edx'
     backend_name = 'edx-oidc'
     backend_class = EdXOpenIdConnect
+    user_is_administrator = False
 
     def setUp(self):
         super(OpenIdConnectTests, self).setUp()
@@ -219,7 +220,8 @@ class OpenIdConnectTests(UserTestCaseMixin, RedirectTestCaseMixin, TestCase):
             'name': 'Ed Xavier',
             'given_name': 'Ed',
             'family_name': 'Xavier',
-            'locale': 'en_US'
+            'locale': 'en_US',
+            'administrator': self.user_is_administrator
         }
 
         return id_token
@@ -301,6 +303,15 @@ class OpenIdConnectTests(UserTestCaseMixin, RedirectTestCaseMixin, TestCase):
         self.assertEqual(user.first_name, 'Ed')
         self.assertEqual(user.last_name, 'Xavier')
         self.assertEqual(user.language, 'en-us')
+
+    def test_administrator(self):
+        # Create an administrator via OAuth2
+        self.user_is_administrator = True
+        self._check_oauth2_handshake()
+
+        user = self.get_latest_user()
+        self.assertTrue(user.is_superuser)
+        self.assertTrue(user.is_staff)
 
 
 class AutoAuthTests(UserTestCaseMixin, TestCase):

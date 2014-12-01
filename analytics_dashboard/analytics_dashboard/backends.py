@@ -18,7 +18,7 @@ class EdXOpenIdConnect(OpenIdConnectAuth):
     REDIRECT_STATE = False
     ID_KEY = 'preferred_username'
 
-    DEFAULT_SCOPE = ['openid', 'profile', 'email'] + settings.COURSE_PERMISSIONS_SCOPE
+    DEFAULT_SCOPE = ['openid', 'profile', 'email', 'permissions'] + settings.COURSE_PERMISSIONS_SCOPE
     ID_TOKEN_ISSUER = settings.SOCIAL_AUTH_EDX_OIDC_URL_ROOT
     AUTHORIZATION_URL = '{0}/authorize/'.format(settings.SOCIAL_AUTH_EDX_OIDC_URL_ROOT)
     ACCESS_TOKEN_URL = '{0}/access_token/'.format(settings.SOCIAL_AUTH_EDX_OIDC_URL_ROOT)
@@ -80,6 +80,9 @@ class EdXOpenIdConnect(OpenIdConnectAuth):
         locale = response.get('locale')
         if locale:
             details[u'language'] = _to_language(response['locale'])
+
+        # Set superuser bit if the provider determines the user is an administrator
+        details[u'is_superuser'] = details[u'is_staff'] = response.get('administrator', False)
 
         return details
 
