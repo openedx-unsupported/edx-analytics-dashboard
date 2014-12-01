@@ -1,4 +1,3 @@
-
 import datetime
 import logging
 
@@ -137,6 +136,10 @@ def user_can_view_course(user, course_id):
         user (User)     --  User whose permissions are being checked
         course_id (str) --  Course to check
     """
+
+    if user.is_superuser:
+        return True
+
     courses = get_user_course_permissions(user)
 
     return course_id in courses

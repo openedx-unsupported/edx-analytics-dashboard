@@ -64,6 +64,21 @@ class PermissionsTests(TestCase):
         permissions.set_user_course_permissions(self.user, [self.course_id])
         self.assertTrue(permissions.user_can_view_course(self.user, self.course_id))
 
+    def test_superuser_can_view_course(self):
+        """ Verify that superusers can view everything. """
+        user = self.user
+        user.is_superuser = True
+        user.save()
+
+        # With no permissions set, a superuser should still be able to view a course.
+        permissions.set_user_course_permissions(user, [])
+        self.assertTrue(permissions.user_can_view_course(user, self.course_id))
+
+        # With permissions set, a superuser should be able to view a course
+        # (although the individual permissions don't matter).
+        permissions.set_user_course_permissions(user, [self.course_id])
+        self.assertTrue(permissions.user_can_view_course(user, self.course_id))
+
     @mock.patch('courses.permissions.refresh_user_course_permissions', side_effect=set_empty_permissions)
     def test_user_can_view_course_refresh(self, mock_refresh):
         """
