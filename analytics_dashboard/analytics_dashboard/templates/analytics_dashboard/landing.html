@@ -60,11 +60,11 @@
 
                     {% trans "Join the Open Source Community" as heading %}
                     {% captureas link_start %}
-                        <a href="{{research_url}}" target="_blank">
+                        <a href="{{open_source_url}}" target="_blank">
                     {% endcaptureas %}
                     {% captureas description %}
                         {% blocktrans trimmed %}
-                            The edX analytics data pipeline and edX Insights are open source. {{link_start}}Learn More.{{link_end}}
+                            The edX analytics data pipeline and edX Insights are open source. {{link_start}}Learn more{{link_end}}.
                         {% endblocktrans %}
                     {% endcaptureas %}
                     {% include "audience_message.html" with heading=heading description=description num_columns=audience_message_column_width %}
@@ -72,11 +72,11 @@
                     {% if show_research %}
                         {% trans "Research at edX" as heading %}
                         {% captureas link_start %}
-                            <a href="{{open_source_url}}" target="_blank">
+                            <a href="{{research_url}}" target="_blank">
                         {% endcaptureas %}
                         {% captureas description %}
                             {% blocktrans trimmed %}
-                                We are committed to advancing teaching and learning through research. {{link_start}}Learn more.{{link_end}}
+                                We are committed to advancing teaching and learning through research. {{link_start}}Learn more{{link_end}}.
                             {% endblocktrans %}
                         {% endcaptureas %}
                         {% include "audience_message.html" with heading=heading description=description num_columns=audience_message_column_width %}
