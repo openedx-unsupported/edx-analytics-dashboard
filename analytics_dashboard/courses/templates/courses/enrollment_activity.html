@@ -26,20 +26,20 @@ Individual course-centric enrollment activity view.
     </div>
 
     {% if js_data.course.enrollmentTrends %}
-        <div class="section-content section-data-graph">
-          <div class="section-content section-data-viz">
-                <div class="analytics-chart-container">
-                    <div class="chart-info">{% trans "Enrollments" %}</div>
-                    {% trans "This graph displays total enrollment for the course calculated at the end of each day. Total enrollment includes new enrollments as well as unenrollments." as tip_text %}
-                    {% include "chart_tooltip.html" with tip_text=tip_text track_category="trend"%}
-                    <div id="enrollment-trend-view" class="analytics-chart">
-                        {% include "loading.html" %}
-                    </div>
-                </div>
+      <div class="section-content section-data-graph">
+        <div class="section-content section-data-viz">
+          <div class="analytics-chart-container">
+            <div class="chart-info">{% trans "Enrollments" %}</div>
+            {% trans "This graph displays total enrollment for the course calculated at the end of each day. Total enrollment includes new enrollments as well as unenrollments." as tip_text %}
+            {% include "chart_tooltip.html" with tip_text=tip_text track_category="trend" %}
+            <div id="enrollment-trend-view" class="analytics-chart">
+              {% include "loading.html" %}
+            </div>
           </div>
         </div>
+      </div>
     {% else %}
-        {% show_chart_error %}
+      {% show_chart_error %}
     {% endif %}
   </section>
 
@@ -48,45 +48,49 @@ Individual course-centric enrollment activity view.
       <h4 class="section-title">{% trans "Enrollment Metrics" %}</h4>
     </div>
 
-  {% if summary %}
-    <div class="section-content">
-      <div class="row">
-        <div class="col-xs-12 col-sm-3" data-stat-type="current_enrollment">
-          {# Translators: This is a label to identify current student enrollment. #}
-          {% trans "Total Enrollment" as label %}
-          {# Translators: This is a label indicating the number of students enrolled in a course. #}
-          {% trans "Students enrolled in the course." as tooltip %}
-          {% summary_point summary.current_enrollment label tooltip=tooltip %}
-        </div>
+    {% if summary %}
+      <div class="section-content">
+        <div class="row">
+          <div class="col-xs-12 col-sm-3" data-stat-type="current_enrollment">
+            {# Translators: This is a label to identify current student enrollment. #}
+            {% trans "Total Enrollment" as label %}
+            {# Translators: This is a label indicating the number of students enrolled in a course. #}
+            {% trans "Students enrolled in the course." as tooltip %}
+            {% summary_point summary.current_enrollment label tooltip=tooltip %}
+          </div>
 
-        <div class="col-xs-12 col-sm-3" data-stat-type="enrollment_change_last_7_days">
-          {# Translators: This is a label indicating the change in the number of students enrolled in a course since the previous week. #}
-          {% trans "Change in Last Week" as label %}
-          {% trans "The difference between the number of students enrolled at the end of the day yesterday and one week before." as tooltip %}
-          {% summary_point summary.enrollment_change_last_7_days label tooltip=tooltip %}
-        </div>
+          <div class="col-xs-12 col-sm-3" data-stat-type="enrollment_change_last_7_days">
+            {# Translators: This is a label indicating the change in the number of students enrolled in a course since the previous week. #}
+            {% trans "Change in Last Week" as label %}
+            {% trans "The difference between the number of students enrolled at the end of the day yesterday and one week before." as tooltip %}
+            {% summary_point summary.enrollment_change_last_7_days label tooltip=tooltip %}
+          </div>
 
-      {% switch display_verified_enrollment %}
-        <div class="col-xs-12 col-sm-3" data-stat-type="verified_enrollment">
-          {# Translators: This is a label to identify enrollment of students on the verified track. #}
-          {% trans "Verified Enrollment" as label %}
-          {# Translators: This is a label indicating the number of students enrolled in a course on the verified track. #}
-          {% trans "Number of enrolled students who are pursuing a verified certificate of achievement." as tooltip %}
-          {% summary_point summary.verified_enrollment label tooltip=tooltip %}
-        </div>
+          {% switch display_verified_enrollment %}
+            {% if summary.verified_enrollment %}
+              <div class="col-xs-12 col-sm-3" data-stat-type="verified_enrollment">
+                {# Translators: This is a label to identify enrollment of students on the verified track. #}
+                {% trans "Verified Enrollment" as label %}
+                {# Translators: This is a label indicating the number of students enrolled in a course on the verified track. #}
+                {% trans "Number of enrolled students who are pursuing a verified certificate of achievement." as tooltip %}
+                {% summary_point summary.verified_enrollment label tooltip=tooltip %}
+              </div>
+            {% endif %}
 
-        <div class="col-xs-12 col-sm-3" data-stat-type="verified_change_last_7_days">
-          {# Translators: This is a label indicating the change in the number of students enrolled in the verified track of a course since the previous week. #}
-          {% trans "Change in Verified Enrollments Last Week" as label %}
-          {% trans "The difference between the number of students pursuing verified certificates at the end of the day yesterday and one week before." as tooltip %}
-          {% summary_point summary.verified_change_last_7_days label tooltip=tooltip %}
+            {% if summary.verified_change_last_7_days %}
+              <div class="col-xs-12 col-sm-3" data-stat-type="verified_change_last_7_days">
+                {# Translators: This is a label indicating the change in the number of students enrolled in the verified track of a course since the previous week. #}
+                {% trans "Change in Verified Enrollments Last Week" as label %}
+                {% trans "The difference between the number of students pursuing verified certificates at the end of the day yesterday and one week before." as tooltip %}
+                {% summary_point summary.verified_change_last_7_days label tooltip=tooltip %}
+              </div>
+            {% endif %}
+          {% endswitch %}
         </div>
-      {% endswitch %}
       </div>
-    </div>
-  {% else %}
-    {% show_metrics_error %}
-  {% endif %}
+    {% else %}
+      {% show_metrics_error %}
+    {% endif %}
   </section>
 
   <section class="view-section">
@@ -95,22 +99,22 @@ Individual course-centric enrollment activity view.
 
       <div class="section-actions">
         {% if js_data.course.enrollmentTrends %}
-            <a href="{% url 'courses:csv_enrollment' course_id=course_id %}" class="btn btn-default"
-               data-role="enrollment-trend-csv" data-track-type="click"
-               data-track-event="edx.bi.csv.downloaded" data-track-category="trend">
-              <i class="ico fa fa-download" aria-hidden="true"></i> {% trans "Download CSV" %}
-              <span class="sr-only">{% trans "Enrollment Over Time" %}</span>
-            </a>
+          <a href="{% url 'courses:csv_enrollment' course_id=course_id %}" class="btn btn-default"
+             data-role="enrollment-trend-csv" data-track-type="click"
+             data-track-event="edx.bi.csv.downloaded" data-track-category="trend">
+            <i class="ico fa fa-download" aria-hidden="true"></i> {% trans "Download CSV" %}
+            <span class="sr-only">{% trans "Enrollment Over Time" %}</span>
+          </a>
         {% endif %}
       </div>
     </div>
 
     {% if js_data.course.enrollmentTrends %}
-        <div class="section-content section-data-table" data-role="enrollment-table">
-          {% include "loading.html" %}
-        </div>
+      <div class="section-content section-data-table" data-role="enrollment-table">
+        {% include "loading.html" %}
+      </div>
     {% else %}
-        {% show_table_error %}
+      {% show_table_error %}
     {% endif %}
 
   </section>
