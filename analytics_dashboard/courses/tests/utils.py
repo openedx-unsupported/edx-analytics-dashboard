@@ -19,9 +19,10 @@ GAP_START = 2
 GAP_END = 4
 
 
-def get_mock_api_enrollment_data(course_id):
+def get_mock_api_enrollment_data(course_id, include_verified=True):
     data = []
     start_date = datetime.date(year=2014, month=1, day=1)
+    modes = enrollment_modes.ALL if include_verified else [enrollment_modes.AUDIT, enrollment_modes.HONOR]
 
     for index in range(31):
         date = start_date + datetime.timedelta(days=index)
@@ -29,11 +30,11 @@ def get_mock_api_enrollment_data(course_id):
         datum = {
             'date': date.strftime(Client.DATE_FORMAT),
             'course_id': unicode(course_id),
-            'count': index * len(enrollment_modes.ALL),
+            'count': index * len(modes),
             'created': CREATED_DATETIME_STRING
         }
 
-        for mode in enrollment_modes.ALL:
+        for mode in modes:
             datum[mode] = index
 
         data.append(datum)
@@ -47,14 +48,22 @@ def get_mock_api_enrollment_data_with_gaps(course_id):
     return data
 
 
-def get_mock_enrollment_summary():
-    return {
+def get_mock_enrollment_summary(include_verified=True):
+    summary = {
         'last_updated': CREATED_DATETIME,
-        'current_enrollment': 120,
-        'enrollment_change_last_7_days': 28,
-        'verified_enrollment': 30,
-        'verified_change_last_7_days': 7,
+        'current_enrollment': 60,
+        'enrollment_change_last_7_days': 14,
     }
+
+    if include_verified:
+        summary.update({
+            'current_enrollment': 120,
+            'enrollment_change_last_7_days': 28,
+            'verified_enrollment': 30,
+            'verified_change_last_7_days': 7,
+        })
+
+    return summary
 
 
 def get_mock_enrollment_summary_and_trend(course_id):
@@ -78,8 +87,8 @@ def _clean_modes(data):
     return data
 
 
-def get_mock_presenter_enrollment_trend(course_id):
-    trend = get_mock_api_enrollment_data(course_id)
+def get_mock_presenter_enrollment_trend(course_id, include_verified=True):
+    trend = get_mock_api_enrollment_data(course_id, include_verified=include_verified)
     trend = _clean_modes(trend)
     return trend
 

@@ -36,7 +36,6 @@ GENDER_ORDER = {
     GENDER.OTHER: 2
 }
 
-
 KNOWN_EDUCATION_LEVELS = [EDUCATION_LEVEL.NONE, EDUCATION_LEVEL.OTHER, EDUCATION_LEVEL.PRIMARY,
                           EDUCATION_LEVEL.JUNIOR_SECONDARY, EDUCATION_LEVEL.SECONDARY, EDUCATION_LEVEL.ASSOCIATES,
                           EDUCATION_LEVEL.BACHELORS, EDUCATION_LEVEL.MASTERS, EDUCATION_LEVEL.DOCTORATE]
@@ -221,6 +220,42 @@ class CourseEnrollmentPresenter(BaseCourseEnrollmentPresenter):
 
         if self.display_verified_enrollment:
             trends = self._merge_audit_and_honor(trends)
+            summary, trends = self._remove_empty_enrollment_modes(summary, trends)
+
+        return summary, trends
+
+    def _get_valid_enrollment_modes(self, trends):
+        """
+        Return enrollment modes for which there is currently, or have been in the past, at least one enrolled student.
+        """
+        valid_modes = {enrollment_modes.AUDIT, enrollment_modes.HONOR}
+        invalid_modes = set(enrollment_modes.ALL) - valid_modes
+
+        for datum in trends:
+            for candidate in invalid_modes.copy():
+                if datum.get(candidate, 0) > 0:
+                    invalid_modes.remove(candidate)
+                    valid_modes.add(candidate)
+
+            if len(invalid_modes) == 0:
+                break
+
+        return valid_modes
+
+    def _remove_empty_enrollment_modes(self, summary, trends):
+        """
+        Based on the trend data, identify enrollment modes with no enrollments and remove them from display.
+        """
+        valid_modes = self._get_valid_enrollment_modes(trends)
+        invalid_modes = set(enrollment_modes.ALL) - valid_modes
+
+        for trend in trends:
+            for mode in invalid_modes:
+                trend.pop(mode, None)
+
+        if enrollment_modes.VERIFIED not in valid_modes:
+            summary.pop('verified_enrollment')
+            summary.pop('verified_change_last_7_days')
 
         return summary, trends
 
