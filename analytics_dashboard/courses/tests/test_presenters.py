@@ -124,8 +124,6 @@ class CourseEnrollmentPresenterTests(SwitchMixin, TestCase):
             'last_updated': None,
             'current_enrollment': None,
             'enrollment_change_last_7_days': None,
-            'verified_enrollment': None,
-            'verified_change_last_7_days': None,
         }
 
         self.assertDictEqual(actual_summary, expected_summary)
@@ -186,6 +184,17 @@ class CourseEnrollmentPresenterTests(SwitchMixin, TestCase):
 
         self.assertDictEqual(summary, expected_summary)
         self.assertListEqual(actual_data, expected_data)
+
+    @mock.patch('analyticsclient.course.Course.enrollment')
+    def test_hide_empty_enrollment_modes(self, mock_enrollment):
+        """ Enrollment modes with no enrolled students should not be returned. """
+        mock_enrollment.return_value = utils.get_mock_api_enrollment_data(self.course_id, include_verified=False)
+
+        actual_summary, actual_trend = self.presenter.get_summary_and_trend_data()
+        self.assertDictEqual(actual_summary, utils.get_mock_enrollment_summary(include_verified=False))
+
+        expected_trend = utils.get_mock_presenter_enrollment_trend(self.course_id, include_verified=False)
+        self.assertListEqual(actual_trend, expected_trend)
 
 
 class CourseEnrollmentDemographicsPresenterTests(TestCase):

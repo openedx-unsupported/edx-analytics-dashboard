@@ -45,6 +45,21 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         self.assertSummaryPointValueEquals(selector, self.format_number(value))
         self.assertSummaryTooltipEquals(selector, tooltip)
 
+    def _get_valid_enrollment_modes(self, trends):
+        valid_modes = {enrollment_modes.AUDIT, enrollment_modes.HONOR}
+        invalid_modes = set(enrollment_modes.ALL) - valid_modes
+
+        for datum in trends:
+            for candidate in list(invalid_modes):
+                if datum.get(candidate, 0) > 0:
+                    invalid_modes.remove(candidate)
+                    valid_modes.add(candidate)
+
+            if len(invalid_modes) <= 0:
+                break
+
+        return valid_modes
+
     def _test_enrollment_metrics_and_graph(self):
         """ Verify the graph loads and that the metric tiles display the correct information. """
 
@@ -62,14 +77,17 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         self.assertMetricTileValid('enrollment_change_last_%s_days' % i, enrollment, tooltip)
 
         if ENABLE_ENROLLMENT_MODES:
-            # Verify the verified enrollment metric tile.
-            verified_enrollment = enrollment_data[-1][enrollment_modes.VERIFIED]
-            tooltip = u'Number of enrolled students who are pursuing a verified certificate of achievement.'
-            self.assertMetricTileValid('verified_enrollment', verified_enrollment, tooltip)
+            valid_modes = self._get_valid_enrollment_modes(enrollment_data)
 
-            verified_enrollment = verified_enrollment - enrollment_data[-(i + 1)][enrollment_modes.VERIFIED]
-            tooltip = u'The difference between the number of students pursuing verified certificates at the end of the day yesterday and one week before.'
-            self.assertMetricTileValid('verified_change_last_%s_days' % i, verified_enrollment, tooltip)
+            if enrollment_modes.VERIFIED in valid_modes:
+                # Verify the verified enrollment metric tile.
+                verified_enrollment = enrollment_data[-1][enrollment_modes.VERIFIED]
+                tooltip = u'Number of enrolled students who are pursuing a verified certificate of achievement.'
+                self.assertMetricTileValid('verified_enrollment', verified_enrollment, tooltip)
+
+                verified_enrollment = verified_enrollment - enrollment_data[-(i + 1)][enrollment_modes.VERIFIED]
+                tooltip = u'The difference between the number of students pursuing verified certificates at the end of the day yesterday and one week before.'
+                self.assertMetricTileValid('verified_change_last_%s_days' % i, verified_enrollment, tooltip)
 
         # Verify *something* rendered where the graph should be. We cannot easily verify what rendered
         self.assertElementHasContent("[data-section=enrollment-basics] #enrollment-trend-view")
@@ -83,7 +101,15 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         headings = ['Date', 'Total Enrollment']
 
         if ENABLE_ENROLLMENT_MODES:
-            headings.append('Verified Track')
+            headings.append('Honor Code')
+
+            valid_modes = self._get_valid_enrollment_modes(enrollment_data)
+
+            if enrollment_modes.VERIFIED in valid_modes:
+                headings.append('Verified')
+
+            if enrollment_modes.PROFESSIONAL in valid_modes:
+                headings.append('Professional')
 
         self.assertTableColumnHeadingsEqual(table_selector, headings)
 
