@@ -374,7 +374,8 @@ table.dataTable thead th.sorting_desc:after {
   .course-home-table {
     border: 1px solid $edx-gray-l1;
     border-width: 0 0 1px 1px;
-    padding-right: $padding-small-horizontal;
+    margin-right: $padding-small-horizontal;
+    margin-bottom: $padding-large-vertical;
 
     .item {
       background: white;
