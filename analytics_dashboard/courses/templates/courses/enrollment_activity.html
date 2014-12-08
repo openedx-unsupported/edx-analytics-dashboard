@@ -67,7 +67,7 @@ Individual course-centric enrollment activity view.
           </div>
 
           {% switch display_verified_enrollment %}
-            {% if summary.verified_enrollment %}
+            {% if not summary.verified_enrollment == None %}
               <div class="col-xs-12 col-sm-3" data-stat-type="verified_enrollment">
                 {# Translators: This is a label to identify enrollment of students on the verified track. #}
                 {% trans "Verified Enrollment" as label %}
@@ -77,7 +77,7 @@ Individual course-centric enrollment activity view.
               </div>
             {% endif %}
 
-            {% if summary.verified_change_last_7_days %}
+            {% if not summary.verified_change_last_7_days == None %}
               <div class="col-xs-12 col-sm-3" data-stat-type="verified_change_last_7_days">
                 {# Translators: This is a label indicating the change in the number of students enrolled in the verified track of a course since the previous week. #}
                 {% trans "Change in Verified Enrollments Last Week" as label %}
