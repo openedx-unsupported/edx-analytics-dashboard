@@ -1,6 +1,6 @@
 .. _Preface:
 
-.. Doc team! Be sure that when you make any changes to this file that you also make them to the mirrored file in the edx-platform/docs repository. - Alison 19 Aug 14
+.. Doc team! Be sure that when you make any changes to this file that you also make them to the mirrored file in the edx-documentation repository. - Alison 19 Aug 14
 
 ############
 Preface
@@ -42,6 +42,14 @@ Course teams include faculty, instructional designers, course staff, discussion
 moderators, and others who contribute to the creation and delivery of courses
 on edx.org or edX Edge.
 
+edX101: Overview of Creating a Course
+-------------------------------------
+
+The `edX101`_ course was built in Studio and is available for enrollment on
+edx.org. This course takes one to two hours to complete, and is designed to
+provide a high-level overview of the course creation and delivery process. It
+also highlights the extensive capabilities of the edX platform.
+
 Documentation
 -------------
 
@@ -65,7 +73,9 @@ Documentation for course teams is available on the docs.edx.org web page.
   peer- and self- evaluations of responses to a question. Note that this new
   feature is in limited release.
 
-* `edX Open Learning XML Guide`_ provides guidelines for building edX courses with Open Learning XML (OLX). Note that this guide is currently an Alpha version.
+* `edX Open Learning XML Guide`_ provides guidelines for building edX courses
+  with Open Learning XML (OLX). Note that this guide is currently an alpha
+  version.
 
 These guides open in your web browser. The left side of each page includes a
 **Search docs** field and links to that guide's contents. To open or save a PDF
@@ -147,12 +157,14 @@ Documentation for developers is available on the docs.edx.org web page.
 
 * `Installing, Configuring, and Running the edX Platform`_ provides procedures
   for getting an edX developer stack (Devstack) and production stack
-  (Fullstack) oprerational.
+  (Fullstack) operational.
 
 * XBlock_: Open edX courseware components provides preliminary documentation
   on the XBlock component architecture for building courses.
 
-* `edX Open Learning XML Guide`_ provides guidelines for building edX courses with Open Learning XML (OLX). Note that this guide is currently an Alpha version.
+* `edX Open Learning XML Guide`_ provides guidelines for building edX courses
+  with Open Learning XML (OLX). Note that this guide is currently an alpha
+  version.
 
 GitHub
 -------
@@ -209,11 +221,10 @@ Resources for Students
 Documentation
 -------------
 
-The `edX Guide for Students`_ is available on the docs.edx.org web page. As
-students are not currently guided to this resource through the coursware, we
-encourage course staff to provide links to students as needed in course updates
-or discussions. Note that this guide is currently an Alpha version.
-
+The `edX Guide for Students`_ is available on the docs.edx.org web page.
+Because students are not currently guided to this resource through the
+courseware, we encourage course staff to provide links to students as needed
+in course updates or discussions.
 
 In a Course
 ------------
@@ -223,13 +234,13 @@ interact with other students and with the course team: click **Discussion**.
 Many courses also offer a wiki for additional resources and materials: click
 **Wiki**.
 
-Other resources may also be available, such as a course-specific facebook page
-or twitter feed or opportunites for Google hangouts. Be sure to check the
-**Course Info** page for your course as well as the **Discussion** and **Wiki**
-pages.
+Other resources might also be available, such as a course-specific Facebook
+page or Twitter feed, or opportunities for Google Hangouts. Be sure to check
+the **Course Info** page for your course as well as the **Discussion** and
+**Wiki** pages.
 
-From time to time, the course team may send email messages to all students.
-While you can opt out of these messages, doing so means that you may miss
+From time to time, the course team might send email messages to all students.
+While you can opt out of these messages, doing so means that you can miss
 important or time-sensitive information. To change your preferences for course
 email, click **edX** or **edX edge** at the top of any page. On your dashboard
 of current courses, locate the course and then click **Email Settings**.
@@ -283,3 +294,4 @@ edX Global Community meetup_ group.
 .. _openedx-ops: http://groups.google.com/forum/#!forum/openedx-ops
 .. _openedx-translation: http://groups.google.com/forum/#!forum/openedx-translation
 .. _edx-code: http://groups.google.com/forum/#!forum/edx-code
+.. _edx101: https://www.edx.org/course/overview-creating-edx-course-edx-edx101#.VIIJbWTF_yM

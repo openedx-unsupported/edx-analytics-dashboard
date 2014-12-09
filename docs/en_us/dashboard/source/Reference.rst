@@ -79,9 +79,9 @@ For information about viewing enrollment activity data in edX Insights, see
    account is enrolled in the course and included in the count as of the date
    and time the initiating staff member clicks **Enroll**.
 
-   Students who are autoenrolled in a course but have not yet registered a user
-   account are included as of the date and time that they do register their
-   user accounts.
+   Students who are automatically enrolled in a course but have not yet
+   registered a user account are included as of the date and time that they do
+   register their user accounts.
 
 **Enrollment Over Time chart**
   
@@ -246,7 +246,7 @@ For information about viewing geographic data in edX Insights, see
 * The number of users and the percentage of the total enrollment is provided
   for each country.
 
-* Users with IP addresses that cannot be geolocated, or that result in a "non-
+* Users with IP addresses that cannot be located, or that result in a "non-
   country" code such as A1 (Anonymous Proxy), A2 (Satellite Provider), or O1
   (Other Country), are reported in an "Unknown" category.
 
@@ -357,7 +357,7 @@ In the following situations, data may not be available in edX Insights.
 
 * EdX changed the method used to track student enrollments on 3 December 2013.
   For courses created in Studio prior to 4 December 2013, edX Insights reports
-  enrollment activity beginning with the enrollment count on 3 December 2013.
+  enrollment activity beginning with the enrollment count on 11 November 2013.
 
 * For courses with a very small number of enrolled users, such as newly created
   courses, data for enrollment activity, enrollment geography, or both, may not
