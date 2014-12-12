@@ -4,8 +4,10 @@
 # 
 # Translators:
 # Anna Hu <dejilibaobao@163.com>, 2014
+# jsgang <jsgang9@gmail.com>, 2014
 # peipeixiang <peipei0903@gmail.com>, 2014
 # shuchuanchen <am15501@163.com>, 2014
+# wanghe <1636807295@qq.com>, 2014
 # Wu fangyuan <wufangyuan@gmail.com>, 2014
 # 张逸涵 <jeanzhang970128@gmail.com>, 2014
 # 竹轩 <fmyzjs@gmail.com>, 2014
@@ -14,8 +16,8 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-24 16:23-0500\n"
-"PO-Revision-Date: 2014-11-24 21:26+0000\n"
-"Last-Translator: cblackburn <cblackburn@edx.org>\n"
+"PO-Revision-Date: 2014-12-04 15:11+0000\n"
+"Last-Translator: 张逸涵 <jeanzhang970128@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/edx-platform/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -192,7 +194,7 @@ msgstr "在我的课程里有多少个学生呢？"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollments"
-msgstr ""
+msgstr "已注册"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
@@ -226,7 +228,7 @@ msgstr "过去一星期的变化"
 msgid ""
 "The difference between the number of students enrolled at the end of the day"
 " yesterday and one week before."
-msgstr ""
+msgstr "一个礼拜前和截止昨天注册学生的数量差别"
 
 #. Translators: This is a label to identify enrollment of students on the
 #. verified track.
@@ -240,20 +242,20 @@ msgstr "已确认的注册"
 msgid ""
 "Number of enrolled students who are pursuing a verified certificate of "
 "achievement."
-msgstr ""
+msgstr "请求获取认证证书的学生数量"
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in the verified track of a course since the previous
 #. week.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Change in Verified Enrollments Last Week"
-msgstr ""
+msgstr "上周已经核实的在学人员的变化"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
 "The difference between the number of students pursuing verified certificates"
 " at the end of the day yesterday and one week before."
-msgstr ""
+msgstr "一个礼拜前和截止昨天取得证书的学生的数量差别"
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html
@@ -274,66 +276,66 @@ msgstr "我的学生多大年纪？"
 msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
 "students who provided a year of birth."
-msgstr ""
+msgstr "年龄段的柱状图的数据 %(value)s%%来自于哪些提供的生日的注册学生"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Metrics"
-msgstr ""
+msgstr "年龄统计图表"
 
 #. Translators: This is a label to identify the median age of enrolled
 #. students.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Median Student Age"
-msgstr ""
+msgstr "学生平均年龄"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The midpoint of the student ages, computed from the provided year of birth."
-msgstr ""
+msgstr "根据提供的生日年份，计算学生年龄的中点。"
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 25 and Under"
-msgstr ""
+msgstr "25岁及以下的学生"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The percentage of students aged 25 years or younger (of those who provided a"
 " year of birth)."
-msgstr ""
+msgstr "25岁以下的学生所占的百分比(根据学生提供的生日年份)"
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 26 to 40"
-msgstr ""
+msgstr "介于26-40岁之间的学生"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The percentage of students aged from 26 to 40 years (of those who provided a"
 " year of birth)."
-msgstr ""
+msgstr "26岁至40岁的学生所占的百分比(根据学生提供的生日年份)"
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 41 and Over"
-msgstr ""
+msgstr "41岁及以上的学生"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The percentage of students aged 41 years or older (of those who provided a "
 "year of birth)."
-msgstr ""
+msgstr "41岁及以上的学生比例 (数据来自提供生日的学生)"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Breakdown"
-msgstr ""
+msgstr "年龄划分"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "What level of education do my students have?"
-msgstr ""
+msgstr "我的学生的教育程度是？"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -342,53 +344,53 @@ msgstr ""
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled students who "
 "provided a highest level of education completed."
-msgstr ""
+msgstr "这个图形表示了指定受教育程度的学生占已注册学生的%(value)s%%"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Education Metrics"
-msgstr ""
+msgstr "教育程度"
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "High School Diploma or Less"
-msgstr ""
+msgstr "高中及以下"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
 "The percentage of students who selected Secondary/high school, Junior "
 "secondary/junior high/middle school, or Elementary/primary school as their "
 "highest level of education completed."
-msgstr ""
+msgstr "选择中学或者同等学历的作为最高学历的学生所占的百分比"
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "College Degree"
-msgstr ""
+msgstr "大学生级别"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
 "The percentage of students who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
-msgstr ""
+msgstr "选择学士或者相关学位作为最高学历的学生的百分比"
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Advanced Degree"
-msgstr ""
+msgstr "高级学者级别"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
 "The percentage of students who selected Doctorate or Master's or "
 "professional degree as their highest level of education completed."
-msgstr ""
+msgstr "选择博士、硕士或者同等专业程度作为最高学历的学生所占的百分比"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Educational Breakdown"
-msgstr ""
+msgstr "教育故障"
 
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "What is the student gender breakdown?"
-msgstr ""
+msgstr "学生的性别故障是什么？"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -397,11 +399,11 @@ msgstr ""
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled students who "
 "specified their gender."
-msgstr ""
+msgstr "这个图形表示了指定性别的学生占已注册学生的%(value)s%%"
 
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "Gender Breakdown Over Time"
-msgstr ""
+msgstr "性别故障超时"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geographic Distribution"
@@ -495,7 +497,7 @@ msgstr "新加入%(application_name)s的学生？"
 msgid ""
 "Click Help in the upper-right corner to get more information about "
 "%(application_name)s. Send us feedback at %(email_link)s."
-msgstr ""
+msgstr "单击右上角的帮助可以得到更多的关于%(application_name)s的信息。发送%(email_link)s反馈给我们。"
 
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
@@ -517,7 +519,7 @@ msgstr "重试"
 
 #: courses/tests/test_serializers.py
 msgid "primary"
-msgstr ""
+msgstr "主要的"
 
 #: courses/tests/test_views/__init__.py courses/views.py
 msgid "Activity"
@@ -557,7 +559,7 @@ msgstr "内容"
 msgid ""
 "Demographic student data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "学生的统计数据最迟在UTC时间 %(update_date)s  %(update_time)s 更新"
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
@@ -575,19 +577,19 @@ msgstr "开启注册"
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "注册学生的活动数据最近于%(update_date)s  %(update_time)s UTC 更新。"
 
 #: courses/views.py
 msgid "Enrollment Demographics by Age"
-msgstr ""
+msgstr "按注册人的年龄"
 
 #: courses/views.py
 msgid "Enrollment Demographics by Education"
-msgstr ""
+msgstr "按注册人的学历"
 
 #: courses/views.py
 msgid "Enrollment Demographics by Gender"
-msgstr ""
+msgstr "按注册人的性别"
 
 #: courses/views.py
 msgid "Enrollment Geography"
@@ -598,7 +600,7 @@ msgstr "注册位置"
 msgid ""
 "Geographic student data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "全球的学生数据最迟在UTC时间%(update_date)s  %(update_time)s 更新。"
 
 #: courses/views.py
 msgid "Engagement Content"
@@ -609,7 +611,7 @@ msgstr "从事内容"
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "参与课程的数据最近于%(update_date)s %(update_time)s UTC更新。"
 
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
@@ -677,6 +679,8 @@ msgid ""
 "%(support_link_start)sVisit our support forum%(support_link_end)s. Comments "
 "or suggestions? Email %(email_link)s."
 msgstr ""
+"我们希望此控制面板能为您效劳！需要帮助？ "
+"%(support_link_start)s访问我们的技术支持论坛%(support_link_end)s，评论或者建议？发Email至%(email_link)s。"
 
 #: templates/footer.html
 msgid "Terms of Service"

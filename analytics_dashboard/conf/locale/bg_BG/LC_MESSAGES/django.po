@@ -3,12 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# cblackburn <cblackburn@edx.org>, 2014
+# ddd <desislavdkv@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-24 16:23-0500\n"
-"PO-Revision-Date: 2014-11-24 21:26+0000\n"
+"PO-Revision-Date: 2014-12-12 18:56+0000\n"
 "Last-Translator: cblackburn <cblackburn@edx.org>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/edx-platform/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +23,7 @@ msgstr ""
 #. NOT translate the word statistic.
 #: analytics_dashboard/templatetags/dashboard_extras.py
 msgid "{statistic}%"
-msgstr ""
+msgstr "{statistic}%"
 
 #: courses/presenters.py
 msgid "Female"
@@ -52,18 +54,18 @@ msgstr "Няма"
 #. School Degree).
 #: courses/presenters.py
 msgid "Primary"
-msgstr ""
+msgstr "Начално образование"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: courses/presenters.py
 msgid "Middle"
-msgstr ""
+msgstr "Средно образование"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters.py
 msgid "Secondary"
-msgstr ""
+msgstr "Професионално образование"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
@@ -75,13 +77,13 @@ msgstr ""
 #. Degree).
 #: courses/presenters.py
 msgid "Bachelor's"
-msgstr ""
+msgstr "Бакалавърска степен"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters.py
 msgid "Master's"
-msgstr ""
+msgstr "Магистърска степен"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
@@ -93,79 +95,83 @@ msgstr "Докторска степен"
 #. known geolocation.
 #: courses/presenters.py
 msgid "Unknown Country"
-msgstr ""
+msgstr "Няма посочена"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
 msgid "Students (Self-Reported)"
-msgstr ""
+msgstr "Студенти (Самозаписан)"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Weekly Student Engagement"
-msgstr ""
+msgstr "Седмичен студенски ангажимент"
 
 #: courses/templates/courses/engagement_content.html
 msgid "How many students are interacting with my course?"
-msgstr ""
+msgstr "Колко студента са записание в моя курс"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students"
-msgstr ""
+msgstr "Студенти"
 
 #: courses/templates/courses/engagement_content.html
 msgid ""
 "The number of active students, and the number of students who engaged in "
 "specific activities, over time."
 msgstr ""
+"Броя на активните студенти, и броя на студентите които са ангажирани по "
+"специфични дейности."
 
 #: courses/templates/courses/engagement_content.html
 msgid "Student Activity Metrics"
-msgstr ""
+msgstr "Студентски дейности, измерване"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Active Students Last Week"
-msgstr ""
+msgstr "Активни студенти за миналата седмица"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who visited at least one page in the course content."
-msgstr ""
+msgstr "Студенти които са посетили поне една страница от този курс"
 
 #. Translators: This is a label indicating the number of students who watched
 #. a video.
 #: courses/templates/courses/engagement_content.html
 msgid "Watched a Video Last Week"
-msgstr ""
+msgstr "Гледали видео миналата седмица"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who played one or more videos."
-msgstr ""
+msgstr "Студенти посетили едно или повече видеа."
 
 #. Translators: This is a label indicating the number of students who tried a
 #. problem.
 #: courses/templates/courses/engagement_content.html
 msgid "Tried a Problem Last Week"
-msgstr ""
+msgstr "Опитали да решат задача миналата седмица"
 
 #: courses/templates/courses/engagement_content.html
 msgid ""
 "Students who submitted an answer for a standard problem. Not all problem "
 "types are included."
 msgstr ""
+"Студенти посочили отговор за стандартен проблем. Не всички видове студенти "
+"са включени."
 
 #. Translators: This is a label indicating the number of students who posted
 #. in a forum discussion.
 #: courses/templates/courses/engagement_content.html
 msgid "Posted in a Discussion Last Week"
-msgstr ""
+msgstr "Постнато в Дискусия миналата седмица"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who contributed to any discussion topic."
-msgstr ""
+msgstr "Студенти които допринасят за някоя от дискутираните теми."
 
 #: courses/templates/courses/engagement_content.html
 #: courses/templates/courses/engagement_content.html
 msgid "Content Engagement Breakdown"
-msgstr ""
+msgstr "Разбивка на съдържанието"
 
 #: courses/templates/courses/engagement_content.html
 #: courses/templates/courses/enrollment_activity.html
@@ -174,19 +180,19 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_gender.html
 #: courses/templates/courses/enrollment_geography.html
 msgid "Download CSV"
-msgstr ""
+msgstr "Изтегли CSV"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
-msgstr ""
+msgstr "Дневно записани студенти"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "How many students are in my course?"
-msgstr ""
+msgstr "Колко човека има в моя курс?"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollments"
-msgstr ""
+msgstr "Записани курсове"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
@@ -194,6 +200,9 @@ msgid ""
 " each day. Total enrollment includes new enrollments as well as "
 "unenrollments."
 msgstr ""
+"Тази графика показва общо записаните за курса, изчислява се в края на всеки "
+"ден. Тези записвания включват както записалите се, така и отписалите се от "
+"курса."
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollment Metrics"
@@ -202,25 +211,27 @@ msgstr ""
 #. Translators: This is a label to identify current student enrollment.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Total Enrollment"
-msgstr ""
+msgstr "Брой записвания"
 
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Students enrolled in the course."
-msgstr ""
+msgstr "Студенти записани в този курс."
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Change in Last Week"
-msgstr ""
+msgstr "Промени от миналата седмица."
 
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
 "The difference between the number of students enrolled at the end of the day"
 " yesterday and one week before."
 msgstr ""
+"Разликата между броя на записаниете студенти на края на деня, от вчера и от "
+"миналата седмица."
 
 #. Translators: This is a label to identify enrollment of students on the
 #. verified track.
@@ -234,7 +245,7 @@ msgstr ""
 msgid ""
 "Number of enrolled students who are pursuing a verified certificate of "
 "achievement."
-msgstr ""
+msgstr "Брой записани студенти, целяшти получаване на сертификат"
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in the verified track of a course since the previous
@@ -255,11 +266,11 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_education.html
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "Enrollment Over Time"
-msgstr ""
+msgstr "Записвания през времето"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "How old are my students?"
-msgstr ""
+msgstr "Колко годишни са студентите ми?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -272,13 +283,13 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Metrics"
-msgstr ""
+msgstr "Възраст"
 
 #. Translators: This is a label to identify the median age of enrolled
 #. students.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Median Student Age"
-msgstr ""
+msgstr "Средна възраст на обучаващите се"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
@@ -289,7 +300,7 @@ msgstr ""
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 25 and Under"
-msgstr ""
+msgstr "Студенти до 25 и по-малко"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
@@ -301,7 +312,7 @@ msgstr ""
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 26 to 40"
-msgstr ""
+msgstr "Студенти от 26 до 40г"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
@@ -313,7 +324,7 @@ msgstr ""
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 41 and Over"
-msgstr ""
+msgstr "Студенти 41 и по-стари"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
@@ -323,11 +334,11 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Breakdown"
-msgstr ""
+msgstr "Разбивка по възраст"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "What level of education do my students have?"
-msgstr ""
+msgstr "Нивото на образование което имат обучаващите се?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -340,7 +351,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Education Metrics"
-msgstr ""
+msgstr "Образование"
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -471,43 +482,47 @@ msgstr ""
 
 #: courses/templates/courses/index.html
 msgid "Courses"
-msgstr ""
+msgstr "Курсове"
 
 #: courses/templates/courses/index.html
 msgid "Welcome, %(username)s!"
-msgstr ""
+msgstr "Добре дошъл %(username)s!"
 
 #: courses/templates/courses/index.html
 msgid "Here are the courses you currently have access to in Insights:"
-msgstr ""
+msgstr "Това са курсовете до които имаш достъп в момента:"
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
-msgstr ""
+msgstr "Нов в %(application_name)s?"
 
 #: courses/templates/courses/index.html
 msgid ""
 "Click Help in the upper-right corner to get more information about "
 "%(application_name)s. Send us feedback at %(email_link)s."
 msgstr ""
+"Натисни ПОМОЩ в горния-десен ъгъл, за да получиш повече информация относно "
+"%(application_name)s. Може да ни изпратите feedback на адрес %(email_link)s."
 
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
 #: courses/templates/courses/permissions-retrieval-failed.html
 #: courses/templates/courses/permissions-retrieval-failed.html
 msgid "Permissions Retrieval Failed"
-msgstr ""
+msgstr "Нямате права"
 
 #: courses/templates/courses/permissions-retrieval-failed.html
 msgid ""
 "There was a problem retrieving course permissions for your account. Please "
 "try again. If you continue to experience issues, please let us know."
 msgstr ""
+"Имаше проблем с зададените ви права за курса. Моля опитайте отново. Ако "
+"проблемът продължава да съществува, моля да ни уведомите."
 
 #: courses/templates/courses/permissions-retrieval-failed.html
 #: templates/auth_error.html
 msgid "Try Again"
-msgstr ""
+msgstr "Опитай отново"
 
 #: courses/tests/test_serializers.py
 msgid "primary"
@@ -515,36 +530,36 @@ msgstr ""
 
 #: courses/tests/test_views/__init__.py courses/views.py
 msgid "Activity"
-msgstr ""
+msgstr "Дейност"
 
 #: courses/tests/test_views/__init__.py courses/views.py
 msgid "Demographics"
-msgstr ""
+msgstr "Демография"
 
 #: courses/tests/test_views/__init__.py courses/views.py
 msgid "Geography"
-msgstr ""
+msgstr "География"
 
 #: courses/tests/test_views/__init__.py courses/views.py
 msgid "Age"
-msgstr ""
+msgstr "Възраст"
 
 #: courses/tests/test_views/__init__.py courses/views.py
 msgid "Education"
-msgstr ""
+msgstr "Образование"
 
 #: courses/tests/test_views/__init__.py courses/views.py
 msgid "Gender"
-msgstr ""
+msgstr "Пол"
 
 #: courses/tests/test_views/test_pages.py courses/views.py
 msgid "Engagement"
-msgstr ""
+msgstr "Ангажимент"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: courses/tests/test_views/test_pages.py courses/views.py
 msgid "Content"
-msgstr ""
+msgstr "Съдържание"
 
 #. Translators: Do not translate UTC.
 #: courses/views.py
@@ -559,10 +574,12 @@ msgstr ""
 msgid ""
 "All above demographic data was self-reported at the time of registration."
 msgstr ""
+"По-горните демографски данни се предоставени от записаните по време на "
+"регистрацията."
 
 #: courses/views.py
 msgid "Enrollment Activity"
-msgstr ""
+msgstr "Записвания"
 
 #. Translators: Do not translate UTC.
 #: courses/views.py
@@ -607,7 +624,7 @@ msgstr ""
 
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
-msgstr ""
+msgstr "Достъпът отказан"
 
 #: templates/403.html
 msgid ""
@@ -615,10 +632,13 @@ msgid ""
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
 msgstr ""
+"Нямате права за да видите тази страница. Ако мислите че трябва да имате "
+"достъп до тази страница, опитайте да влезете и излезете от профила си или се"
+" опитайте да презаредите страницата."
 
 #: templates/403.html
 msgid "Logout then Login"
-msgstr ""
+msgstr "Излез и влез отново"
 
 #: templates/404.html templates/404.html.py
 msgid "Page Not Found"
@@ -629,24 +649,28 @@ msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
 msgstr ""
+"Съжаляваме, но в момента страницата която искате да достъпите е неактивна. "
+"Проверете въведения URL или се опитайте да презаредите страницата."
 
 #: templates/500.html templates/500.html.py
 msgid "An Error Occurred"
-msgstr ""
+msgstr "Възникна грешка"
 
 #: templates/500.html
 msgid ""
 "Our servers weren't able to complete your request. Please try again by "
 "refreshing this page or retracing your steps."
 msgstr ""
+"Сървърите ни не можаха да обработят заявката. Моля опитайте отново да "
+"презаредите страницата."
 
 #: templates/auth_error.html templates/auth_error.html.py
 msgid "Authentication Failed"
-msgstr ""
+msgstr "Оторизацията е невъзможна"
 
 #: templates/auth_error.html
 msgid "There was a problem accessing your account. Please try again."
-msgstr ""
+msgstr "Имаше проблем с вашият профил. Моля опитайте отново."
 
 #: templates/base-error.html
 msgid "Use our support tool to ask questions or share feedback."
@@ -657,13 +681,13 @@ msgstr ""
 #. placeholder as you see fit.
 #: templates/base-error.html
 msgid "Contact %(platform_name)s Support"
-msgstr ""
+msgstr "Свържете се с %(platform_name)s Help Desk"
 
 #. Translators: Application here refers to the web site/application being used
 #. (e.g. the dashboard).
 #: templates/base.html templates/footer.html templates/lens-navigation.html
 msgid "Application"
-msgstr ""
+msgstr "Приложение"
 
 #: templates/footer.html
 msgid ""
@@ -689,7 +713,7 @@ msgstr ""
 
 #: templates/header.html
 msgid "Toggle navigation"
-msgstr ""
+msgstr "Включи меню"
 
 #: templates/header.html
 msgid "Help"
@@ -697,38 +721,40 @@ msgstr "Помощ"
 
 #: templates/header.html
 msgid "Logout"
-msgstr ""
+msgstr "Излез от профила"
 
 #. Translators: This refers to the active tab/navigation item.
 #: templates/lens-navigation.html templates/submenu_navigation.html
 msgid "Active"
-msgstr ""
+msgstr "Активен"
 
 #: templates/loading.html
 msgid "LOADING..."
-msgstr ""
+msgstr "ЗАРЕЖДАНЕ"
 
 #: templates/registration/logged_out.html
 #: templates/registration/logged_out.html
 msgid "Logged Out"
-msgstr ""
+msgstr "Излязохте успешно"
 
 #: templates/registration/logged_out.html
 msgid "You have been logged out. Click the button below to login again."
 msgstr ""
+"Вие успешно излязохте от системата. Изберете по-долу бутонът за да влезете "
+"отново."
 
 #: templates/registration/logged_out.html
 msgid "Login"
-msgstr ""
+msgstr "Влез"
 
 #: templates/section_error.html
 msgid "We are unable to load this chart."
-msgstr ""
+msgstr "Не можем да заредим графиката."
 
 #: templates/section_error.html
 msgid "We are unable to load this table."
-msgstr ""
+msgstr "Не можем да заредим таблицата."
 
 #: templates/section_error.html
 msgid "We are unable to load these metrics."
-msgstr ""
+msgstr "Не мможем да заредим метричната система"
