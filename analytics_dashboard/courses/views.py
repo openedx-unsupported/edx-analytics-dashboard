@@ -87,9 +87,9 @@ class CourseContextMixin(TrackedViewMixin, LazyEncoderMixin):
                 'courseId': self.course_id
             },
             'user': {
-                'userId': user.get_username(),
-                'userName': user.get_full_name(),
-                'userEmail': user.email,
+                'username': user.get_username(),
+                'name': user.get_full_name(),
+                'email': user.email,
                 'ignoreInReporting': self._ignore_in_reporting(user)
             },
         })
