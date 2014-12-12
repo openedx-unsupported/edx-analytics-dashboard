@@ -9,14 +9,15 @@
 # Nacho Díaz <nachotheix@gmail.com>, 2014
 # Óscar Arce Ruiz <oscararceruiz@hotmail.com>, 2014
 # UAMx <uamx.dev@gmail.com>, 2014
+# Valeria Freire <valtodopds@hotmail.com>, 2014
 # Verónica López Fernández <veronicalopezfernandez@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-24 16:23-0500\n"
-"PO-Revision-Date: 2014-11-24 21:26+0000\n"
-"Last-Translator: cblackburn <cblackburn@edx.org>\n"
+"PO-Revision-Date: 2014-12-08 17:17+0000\n"
+"Last-Translator: Valeria Freire <valtodopds@hotmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/edx-platform/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -76,13 +77,13 @@ msgstr "Secundario"
 #. Degree).
 #: courses/presenters.py
 msgid "Associate"
-msgstr ""
+msgstr "Asociado"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
 #: courses/presenters.py
 msgid "Bachelor's"
-msgstr ""
+msgstr "Licenciatura"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
@@ -288,6 +289,8 @@ msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
 "students who provided a year of birth."
 msgstr ""
+"Este histograma edad presenta datos calculados por los  %(value)s%% de "
+"estudiantes matriculados, quienes proporcionaron el año de nacimiento."
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Metrics"
@@ -364,6 +367,8 @@ msgid ""
 "This graph presents data for the %(value)s%% of enrolled students who "
 "provided a highest level of education completed."
 msgstr ""
+"Este gráfico presenta los datos para el %(value)s%%  de alumnos matriculados"
+" que proporcionaron un nivel más alto de educación alcanzado."
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Education Metrics"
@@ -394,6 +399,8 @@ msgid ""
 "The percentage of students who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
 msgstr ""
+"El porcentaje de estudiantes quienes seleccionaron un titulo de Licenciatura"
+" or asociado como su nivel más alto de educación completado."
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -424,6 +431,8 @@ msgid ""
 "This graph presents data for the %(value)s%% of enrolled students who "
 "specified their gender."
 msgstr ""
+"El grafico presenta datos para el %(value)s%%  de estudiantes matriculados "
+"quienes especificaron su genero."
 
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "Gender Breakdown Over Time"
@@ -522,6 +531,9 @@ msgid ""
 "Click Help in the upper-right corner to get more information about "
 "%(application_name)s. Send us feedback at %(email_link)s."
 msgstr ""
+"Haga click en Ayuda en la esquina superior derecha para obtener más "
+"información acerca de %(application_name)s. Envíenos sus comentarios en "
+"%(email_link)s."
 
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
@@ -725,6 +737,9 @@ msgid ""
 "%(support_link_start)sVisit our support forum%(support_link_end)s. Comments "
 "or suggestions? Email %(email_link)s."
 msgstr ""
+"Queremos que este cuadro de mandos trabaje para usted! ¿Necesita ayuda? "
+"%(support_link_start)s Visite nuestro foro de soporte %(support_link_end)s. "
+"Comentarios o sugerencias? Correo electrónico %(email_link)s."
 
 #: templates/footer.html
 msgid "Terms of Service"

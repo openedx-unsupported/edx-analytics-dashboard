@@ -3,14 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Kamthorn Krairaksa <kamthorn@gmail.com>, 2014
 # neelawat <neelawat@gmail.com>, 2014
+# Sira Nokyoongtong <gumaraa@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-24 16:23-0500\n"
-"PO-Revision-Date: 2014-11-24 21:26+0000\n"
-"Last-Translator: cblackburn <cblackburn@edx.org>\n"
+"PO-Revision-Date: 2014-12-08 17:16+0000\n"
+"Last-Translator: Kamthorn Krairaksa <kamthorn@gmail.com>\n"
 "Language-Team: Thai (http://www.transifex.com/projects/p/edx-platform/language/th/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,38 +24,38 @@ msgstr ""
 #. NOT translate the word statistic.
 #: analytics_dashboard/templatetags/dashboard_extras.py
 msgid "{statistic}%"
-msgstr ""
+msgstr "{statistic}%"
 
 #: courses/presenters.py
 msgid "Female"
-msgstr ""
+msgstr "ผู้หญิง"
 
 #: courses/presenters.py
 msgid "Male"
-msgstr ""
+msgstr "ผู้ชาย"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters.py courses/presenters.py
 msgid "Other"
-msgstr ""
+msgstr "อื่นๆ"
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters.py courses/presenters.py courses/presenters.py
 msgid "Unknown"
-msgstr ""
+msgstr "ไม่ทราบ"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters.py
 msgid "None"
-msgstr ""
+msgstr "ไม่ระบุ"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
 #: courses/presenters.py
 msgid "Primary"
-msgstr ""
+msgstr "ประถมศึกษา"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
@@ -76,30 +78,30 @@ msgstr ""
 #. Degree).
 #: courses/presenters.py
 msgid "Bachelor's"
-msgstr ""
+msgstr "ปริญญาตรี"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters.py
 msgid "Master's"
-msgstr ""
+msgstr "ปริญญาโท"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
 #: courses/presenters.py
 msgid "Doctorate"
-msgstr ""
+msgstr "ปริญญาเอก"
 
 #. Translators: This is a placeholder for enrollment data collected without a
 #. known geolocation.
 #: courses/presenters.py
 msgid "Unknown Country"
-msgstr ""
+msgstr "ไม่ทราบประเทศ"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
 msgid "Students (Self-Reported)"
-msgstr ""
+msgstr "จำนวนนักเรียน (รายงานด้วยตัวเอง)"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Weekly Student Engagement"
@@ -107,7 +109,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_content.html
 msgid "How many students are interacting with my course?"
-msgstr ""
+msgstr "มีนักเรียนจำนวนเท่าไหร่ที่มีปฏิสัมพันธ์กับคอร์สของฉัน?"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students"
@@ -118,34 +120,36 @@ msgid ""
 "The number of active students, and the number of students who engaged in "
 "specific activities, over time."
 msgstr ""
+"จำนวนของนักเรียนที่มีความเคลื่อนไหว และจำนวนของนักเรียนที่ร่วมกิจกรรมพิเศษ "
+"ต่อหน่วยเวลา"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Student Activity Metrics"
-msgstr ""
+msgstr "ความเคลื่อนไหวของนักเรียน"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Active Students Last Week"
-msgstr ""
+msgstr "นักเรียนที่มีความเคลื่อนไหวในสัปดาห์ที่ผ่านมา"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who visited at least one page in the course content."
-msgstr ""
+msgstr "นักเรียนที่เข้าชมเนื้อหาบทเรียนอย่างน้อยหนึ่งหน้า"
 
 #. Translators: This is a label indicating the number of students who watched
 #. a video.
 #: courses/templates/courses/engagement_content.html
 msgid "Watched a Video Last Week"
-msgstr ""
+msgstr "วิดีโอที่ชมในสัปดาห์ที่ผ่านมา"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who played one or more videos."
-msgstr ""
+msgstr "นักเรียนที่เล่นวิดีโอสักเรื่อง หรือมากกว่า"
 
 #. Translators: This is a label indicating the number of students who tried a
 #. problem.
 #: courses/templates/courses/engagement_content.html
 msgid "Tried a Problem Last Week"
-msgstr ""
+msgstr "คนที่ได้ลองทำโจทย์ในสัปดาห์ที่ผ่านมา"
 
 #: courses/templates/courses/engagement_content.html
 msgid ""
@@ -157,7 +161,7 @@ msgstr ""
 #. in a forum discussion.
 #: courses/templates/courses/engagement_content.html
 msgid "Posted in a Discussion Last Week"
-msgstr ""
+msgstr "การสนทนาที่โพสในสัปดาห์ที่ผ่านมา"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who contributed to any discussion topic."
@@ -175,19 +179,19 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_gender.html
 #: courses/templates/courses/enrollment_geography.html
 msgid "Download CSV"
-msgstr ""
+msgstr "ดาวน์โหลด CSV"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
-msgstr ""
+msgstr "นักเรียนที่ลงทะเบียนวิชาในแต่ละวัน"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "How many students are in my course?"
-msgstr ""
+msgstr "มีนักเรียนกี่คนในวิชาของฉัน?"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollments"
-msgstr ""
+msgstr "ลงทะเบียนเรียน"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
@@ -198,24 +202,24 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollment Metrics"
-msgstr ""
+msgstr "การลงทะเบียนเรียน"
 
 #. Translators: This is a label to identify current student enrollment.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Total Enrollment"
-msgstr ""
+msgstr "ลงทะเบียนเรียนทั้งหมด"
 
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Students enrolled in the course."
-msgstr ""
+msgstr "นักเรียนที่ลงทะเบียนเรียนในวิชา"
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Change in Last Week"
-msgstr ""
+msgstr "เปลี่ยนแปลงในช่วงสัปดาห์ที่ผ่านมา"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
@@ -227,7 +231,7 @@ msgstr ""
 #. verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Verified Enrollment"
-msgstr ""
+msgstr "ยืนยันการลงทะเบียนแล้ว"
 
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course on the verified track.
@@ -260,7 +264,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "How old are my students?"
-msgstr ""
+msgstr "นักเรียนของฉันมีอายุเท่าไหร่?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -273,7 +277,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Metrics"
-msgstr ""
+msgstr "อายุ"
 
 #. Translators: This is a label to identify the median age of enrolled
 #. students.
@@ -290,37 +294,40 @@ msgstr ""
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 25 and Under"
-msgstr ""
+msgstr "นักเรียนที่มีอายุ 25 ปี และที่อ่อนกว่า"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The percentage of students aged 25 years or younger (of those who provided a"
 " year of birth)."
 msgstr ""
+"ร้อยละของนักเรียนที่มีอายุ 25 ปี หรืออ่อนกว่า (จากนักเรียนที่แจ้งปีเกิด)"
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 26 to 40"
-msgstr ""
+msgstr "นักเรียนที่มีอายุ 26 ถึง 40 ปี"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The percentage of students aged from 26 to 40 years (of those who provided a"
 " year of birth)."
 msgstr ""
+"ร้อยละของนักเรียนที่มีอายุตั้งแต่ 26 ถึง 40 ปี (จากนักเรียนที่แจ้งปีเกิด)"
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 41 and Over"
-msgstr ""
+msgstr "นักเรียนที่มีอายุ 41 ปี และที่แก่กว่า"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The percentage of students aged 41 years or older (of those who provided a "
 "year of birth)."
 msgstr ""
+"ร้อยละของนักเรียนที่มีอายุ 41 ปี หรือแก่กว่า (จากนักเรียนที่แจ้งปีเกิด)"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Breakdown"
@@ -328,7 +335,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "What level of education do my students have?"
-msgstr ""
+msgstr "นักเรียนของฉันมีระดับการศึกษาเท่าไหร่?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -341,7 +348,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Education Metrics"
-msgstr ""
+msgstr "การศึกษา"
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -400,15 +407,15 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geographic Distribution"
-msgstr ""
+msgstr "สถิติการกระจายตัวของประชากร"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Where are my students?"
-msgstr ""
+msgstr "นักเรียนของฉันอยู่ที่ไหน?"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Enrollment by Country"
-msgstr ""
+msgstr "การละทะเบียนเรียนแบ่งตามประเทศ"
 
 #: courses/templates/courses/enrollment_geography.html
 #: courses/tests/test_views/__init__.py courses/views.py
@@ -508,7 +515,7 @@ msgstr ""
 #: courses/templates/courses/permissions-retrieval-failed.html
 #: templates/auth_error.html
 msgid "Try Again"
-msgstr ""
+msgstr "ลองใหม่"
 
 #: courses/tests/test_serializers.py
 msgid "primary"
@@ -520,7 +527,7 @@ msgstr "กิจกรรม"
 
 #: courses/tests/test_views/__init__.py courses/views.py
 msgid "Demographics"
-msgstr ""
+msgstr "สถิติประชากร"
 
 #: courses/tests/test_views/__init__.py courses/views.py
 msgid "Geography"
@@ -528,11 +535,11 @@ msgstr "ภูมิศาสตร์"
 
 #: courses/tests/test_views/__init__.py courses/views.py
 msgid "Age"
-msgstr ""
+msgstr "อายุ"
 
 #: courses/tests/test_views/__init__.py courses/views.py
 msgid "Education"
-msgstr ""
+msgstr "การศึกษา"
 
 #: courses/tests/test_views/__init__.py courses/views.py
 msgid "Gender"
@@ -553,6 +560,8 @@ msgid ""
 "Demographic student data was last updated %(update_date)s at %(update_time)s"
 " UTC."
 msgstr ""
+"ปรับปรุงข้อมูลสถิติประชากรของนักเรียนล่าสุดวันที่ %(update_date)s เวลา "
+"%(update_time)s UTC."
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
@@ -571,7 +580,7 @@ msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
 msgstr ""
-"ปรับปรุงข้อมูลกิจกรรมการลงทะเบียนล่าสุด วันที่ %(update_date)s ที่ "
+"ปรับปรุงข้อมูลกิจกรรมการลงทะเบียนล่าสุด วันที่ %(update_date)s เวลา "
 "%(update_time)s UTC."
 
 #: courses/views.py
@@ -610,7 +619,7 @@ msgstr ""
 
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
-msgstr ""
+msgstr "ไม่อนุญาตให้เข้าถึง"
 
 #: templates/403.html
 msgid ""
@@ -621,7 +630,7 @@ msgstr ""
 
 #: templates/403.html
 msgid "Logout then Login"
-msgstr ""
+msgstr "ออกจากระบบ แล้วเข้าระบบ"
 
 #: templates/404.html templates/404.html.py
 msgid "Page Not Found"
@@ -645,11 +654,11 @@ msgstr ""
 
 #: templates/auth_error.html templates/auth_error.html.py
 msgid "Authentication Failed"
-msgstr ""
+msgstr "การยืนยันตัวตนล้มเหลว"
 
 #: templates/auth_error.html
 msgid "There was a problem accessing your account. Please try again."
-msgstr ""
+msgstr "มีปัญหาในการเข้าถึงบัญชีผู้ใช้ของคุณ โปรดลองใหม่"
 
 #: templates/base-error.html
 msgid "Use our support tool to ask questions or share feedback."
@@ -700,7 +709,7 @@ msgstr "ช่วยเหลือ"
 
 #: templates/header.html
 msgid "Logout"
-msgstr ""
+msgstr "ลงชื่อออก"
 
 #. Translators: This refers to the active tab/navigation item.
 #: templates/lens-navigation.html templates/submenu_navigation.html
@@ -709,29 +718,29 @@ msgstr ""
 
 #: templates/loading.html
 msgid "LOADING..."
-msgstr ""
+msgstr "กำลังโหลด..."
 
 #: templates/registration/logged_out.html
 #: templates/registration/logged_out.html
 msgid "Logged Out"
-msgstr ""
+msgstr "ลงชื่อออกแล้ว"
 
 #: templates/registration/logged_out.html
 msgid "You have been logged out. Click the button below to login again."
-msgstr ""
+msgstr "คุณได้ลงชื่อออกแล้ว คลิกที่ปุ่มด้านล่างนี้เพื่อลงชื่อเข้าใช้อีกครั้ง"
 
 #: templates/registration/logged_out.html
 msgid "Login"
-msgstr ""
+msgstr "ลงชื่อเข้าใช้"
 
 #: templates/section_error.html
 msgid "We are unable to load this chart."
-msgstr ""
+msgstr "เราไม่สามารถโหลดแผนภูมินี้ได้"
 
 #: templates/section_error.html
 msgid "We are unable to load this table."
-msgstr ""
+msgstr "เราไม่สามารถโหลดตารางนี้ได้"
 
 #: templates/section_error.html
 msgid "We are unable to load these metrics."
-msgstr ""
+msgstr "เราไม่สามารถโหลดเมตริกซ์นี้ได้"
