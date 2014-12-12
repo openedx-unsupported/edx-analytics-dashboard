@@ -19,7 +19,7 @@ class CourseCSVTestMixin(ViewTestMixin):
     base_file_name = None
 
     def assertIsValidCSV(self, course_id, csv_data):
-        response = self.client.get(self.path(course_id))
+        response = self.client.get(self.path({'course_id': course_id}))
 
         # Check content type
         self.assertResponseContentType(response, 'text/csv')

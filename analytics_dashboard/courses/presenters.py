@@ -1,6 +1,7 @@
 import copy
 import datetime
 import logging
+import re
 
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
@@ -108,6 +109,149 @@ class BasePresenter(object):
     def strip_time(s):
         return s[:-7]
 
+    @staticmethod
+    def _sum_counts(data):
+        return sum([datum['count'] for datum in data])
+
+    @staticmethod
+    def _calculate_percent(count, total):
+        return count / float(total) if total > 0 else 0.0
+
+    @staticmethod
+    def _tryint(s):
+        try:
+            return int(s)
+        except ValueError:
+            return s
+
+    @staticmethod
+    def _alphanum_key(s):
+        """
+        Turn a string into a list of string and number chunks.
+        "z23a" -> ["z", 23, "a"]
+        """
+        return [BasePresenter._tryint(c) for c in re.split('([0-9]+)', s)]
+
+    @staticmethod
+    def _natural_sort(l, field):
+        """ Natural sort from Ned Batchelor - http://nedbatchelder.com/blog/200712.html#e20071211T054956 """
+        l.sort(key=lambda x: BasePresenter._alphanum_key(x[field]))
+
+
+class CoursePerformancePresenter(BasePresenter):
+    """
+    Presenter for the performance page.
+    """
+
+    # answer field for numeric values returned from API
+    NUMERIC_ANSWER_FIELD = 'answer_value_numeric'
+    # answer field for text values returned from API
+    TEXT_ANSWER_FIELD = 'answer_value_text'
+    # limit for the number of bars to display in the answer distribution chart
+    CHART_LIMIT = 12
+
+    def get_answer_distribution(self, module_id, problem_part_id):
+        """
+        Retrieve answer distributions for a particular module/problem and problem part.
+        """
+
+        modules = self.client.modules(self.course_id, module_id)
+
+        api_response = modules.answer_distribution()
+        questions = self._build_questions(api_response)
+        active_question = [i for i in questions if i['part_id'] == problem_part_id][0]['question']
+
+        answer_distributions = self._build_answer_distribution(api_response, problem_part_id)
+        problem_part_description = self._build_problem_description(problem_part_id, questions)
+
+        # check for randomness
+        is_random = self._is_answer_distribution_random(answer_distributions)
+        answer_distribution_limited = None
+        if not is_random:
+            # only display the top in the chart
+            answer_distribution_limited = answer_distributions[:self.CHART_LIMIT]
+
+        answer_type = self._get_answer_type(answer_distributions)
+        last_updated = self.parse_api_datetime(answer_distributions[0]['created'])
+
+        return last_updated, questions, active_question, answer_distributions, answer_distribution_limited, is_random, \
+            answer_type, problem_part_description
+
+    def _build_problem_description(self, problem_part_id, questions):
+        """ Returns the displayable problem name. """
+        problem = [i for i in questions if i['part_id'] == problem_part_id][0]
+        if problem['problem_name']:
+            return u'{0} - {1}'.format(problem['problem_name'], problem['question'])
+        return problem['question']
+
+    def _get_answer_type(self, answer_distributions):
+        """ Returns either answer_value_text or answer_value_numeric. """
+
+        # returns the first field found to be filled
+        for ad in answer_distributions:
+            if ad[self.NUMERIC_ANSWER_FIELD] is not None:
+                return self.NUMERIC_ANSWER_FIELD
+            elif ad[self.TEXT_ANSWER_FIELD] is not None:
+                return self.TEXT_ANSWER_FIELD
+
+        # default to text answer if both fields were null/none
+        return self.TEXT_ANSWER_FIELD
+
+    def _is_answer_distribution_random(self, answer_distributions):
+        """
+        Problems are considered randomized if variant is populated with values
+        greater than 1.
+        """
+        for ad in answer_distributions:
+            variant = ad['variant']
+            if variant is not None and variant is not 1:
+                return True
+        return False
+
+    def _build_questions(self, answer_distributions):
+        """
+        Builds the questions and part_id from the answer distribution. Displayed
+        drop down.
+        """
+        questions = []
+        part_id_to_problem = {}
+
+        # Collect unique questions from the answer distribution
+        for question_answer in answer_distributions:
+            question = question_answer.get('question_text', None)
+            problem_name = question_answer.get('problem_display_name', None)
+            part_id_to_problem[question_answer['part_id']] = {
+                'question': question,
+                'problem_name': problem_name
+            }
+
+        for part_id, problem in part_id_to_problem.iteritems():
+            questions.append({
+                'part_id': part_id,
+                'question': problem['question'],
+                'problem_name': problem['problem_name']
+            })
+
+        self._natural_sort(questions, 'part_id')
+
+        # add an enumerated label
+        for i, question in enumerate(questions):
+            text = question['question']
+            question_num = i + 1
+            if text:
+                text = u'Submissions for Part {0}: {1}'.format(question_num, text)
+            else:
+                text = u'Submissions for Part {0}'.format(question_num)
+            question['question'] = text
+
+        return questions
+
+    def _build_answer_distribution(self, api_response, problem_part_id):
+        """ Filter for this problem part and sort descending order. """
+        answer_distributions = [i for i in api_response if i['part_id'] == problem_part_id]
+        answer_distributions = sorted(answer_distributions, key=lambda a: -a['count'])
+        return answer_distributions
+
 
 class CourseEngagementPresenter(BasePresenter):
     """
@@ -186,15 +330,7 @@ class CourseEngagementPresenter(BasePresenter):
         return summary, trends
 
 
-class BaseCourseEnrollmentPresenter(BasePresenter):
-    def _sum_counts(self, data):
-        return sum([datum['count'] for datum in data])
-
-    def _calculate_percent(self, count, total):
-        return count / float(total) if total > 0 else 0.0
-
-
-class CourseEnrollmentPresenter(BaseCourseEnrollmentPresenter):
+class CourseEnrollmentPresenter(BasePresenter):
     """ Presenter for the course enrollment data. """
 
     NUMBER_TOP_COUNTRIES = 3
@@ -413,7 +549,7 @@ class CourseEnrollmentPresenter(BaseCourseEnrollmentPresenter):
         return data
 
 
-class CourseEnrollmentDemographicsPresenter(BaseCourseEnrollmentPresenter):
+class CourseEnrollmentDemographicsPresenter(BasePresenter):
     """ Presenter for course enrollment demographic data. """
 
     # ages at this and above will be binned

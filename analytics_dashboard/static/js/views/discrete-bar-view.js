@@ -1,5 +1,5 @@
-define(['nvd3', 'underscore', 'views/bar-view'],
-    function (nvd3, _, BarView) {
+define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/bar-view'],
+    function (d3, nvd3, _, Utils, BarView) {
         'use strict';
 
         var DiscreteBarView = BarView.extend({
@@ -10,16 +10,50 @@ define(['nvd3', 'underscore', 'views/bar-view'],
                 }
             ),
 
-            getChart: function() {
+            /**
+             * Add ellipses for long labels.
+             */
+            formatXTick: function (d) {
+                var barWidth = d3.select('.discreteBar').attr('width'),
+                    // this is a rough estimate of how wide a character is
+                    chartWidth = 5,
+                    characterLimit = Math.floor(barWidth / chartWidth),
+                    formattedLabel = d;
+
+                if (_(formattedLabel).size() > characterLimit) {
+                    formattedLabel = Utils.truncateText(d, characterLimit);
+                }
+
+                return formattedLabel;
+            },
+
+            formatXValue: function (xValue) {
+                var self = this;
+                xValue = BarView.prototype.formatXValue.call(self, xValue);
+                // Translators: (empty) is displayed as a label in a chart and indicates that no label was provided.
+                return _(xValue).isNull() ? gettext('(empty)') : xValue;
+            },
+
+            parseXData: function (d) {
+                var self = this,
+                    value = BarView.prototype.parseXData.call(self, d);
+                return self.formatXValue(value);
+            },
+
+            getChart: function () {
                 return nvd3.models.discreteBarChart();
             },
 
-            initChart: function(chart) {
+            initChart: function (chart) {
                 var self = this;
                 BarView.prototype.initChart.call(self, chart);
 
                 if (_(self.options.trends[0]).has('color')) {
-                    chart.color([self.options.trends[0].color]);
+                    if (_(self.options.trends[0].color).isFunction()) {
+                        chart.color(self.options.trends[0].color);
+                    } else {
+                        chart.color([self.options.trends[0].color]);
+                    }
                 }
             }
 

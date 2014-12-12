@@ -44,7 +44,7 @@ class CourseEngagementContentViewTests(CourseEngagementViewTestMixin, TestCase):
     def assertViewIsValid(self, course_id):
         rv = utils.mock_engagement_activity_summary_and_trend_data()
         with mock.patch(self.presenter_method, mock.Mock(return_value=rv)):
-            response = self.client.get(self.path(course_id))
+            response = self.client.get(self.path({'course_id': course_id}))
 
             # make sure that we get a 200
             self.assertEqual(response.status_code, 200)
@@ -101,7 +101,7 @@ class CourseEnrollmentActivityViewTests(CourseEnrollmentViewTestMixin, TestCase)
         summary, enrollment_data = utils.get_mock_enrollment_summary_and_trend(course_id)
         rv = summary, enrollment_data
         with mock.patch(self.presenter_method, return_value=rv):
-            response = self.client.get(self.path(course_id))
+            response = self.client.get(self.path({'course_id': course_id}))
 
         context = response.context
 
@@ -140,7 +140,7 @@ class CourseEnrollmentGeographyViewTests(CourseEnrollmentViewTestMixin, TestCase
 
     def assertViewIsValid(self, course_id):
         with mock.patch(self.presenter_method, return_value=utils.get_mock_presenter_enrollment_geography_data()):
-            response = self.client.get(self.path(course_id))
+            response = self.client.get(self.path({'course_id': course_id}))
             context = response.context
 
             # make sure that we get a 200
@@ -165,7 +165,7 @@ class CourseHomeViewTests(CourseViewTestMixin, TestCase):
     viewname = 'courses:home'
 
     def assertViewIsValid(self, course_id):
-        response = self.client.get(self.path(course_id))
+        response = self.client.get(self.path({'course_id': course_id}))
         self.assertEqual(response.status_code, 200)
 
         self.assertEqual(response.context['page_title'], 'Course Home')

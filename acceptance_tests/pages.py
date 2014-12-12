@@ -6,7 +6,7 @@ from bok_choy.page_object import PageObject
 from bok_choy.promise import EmptyPromise
 
 from acceptance_tests import DASHBOARD_SERVER_URL, BASIC_AUTH_PASSWORD, BASIC_AUTH_USERNAME, LMS_HOSTNAME, \
-    TEST_COURSE_ID
+    TEST_COURSE_ID, TEST_PROBLEM_ID, TEST_PROBLEM_PART_ID
 
 
 class DashboardPage(PageObject):
@@ -139,6 +139,17 @@ class CourseEngagementContentPage(CoursePage):
         return super(CourseEngagementContentPage, self).is_browser_on_page() and \
                'Engagement Content' in self.browser.title
 
+
+class CoursePerformanceAnswerDistributionPage(CoursePage):
+    def __init__(self, browser, course_id=None, problem_id=None, part_id=None):
+        super(CoursePerformanceAnswerDistributionPage, self).__init__(browser, course_id)
+        self.problem_id = problem_id or TEST_PROBLEM_ID
+        self.part_id = part_id or TEST_PROBLEM_PART_ID
+        self.page_url += '/performance/graded_content/problems/{}/answerdistribution/{}/'.format(self.problem_id, self.part_id)
+
+    def is_browser_on_page(self):
+        return super(CoursePerformanceAnswerDistributionPage, self).is_browser_on_page() and \
+            'Performance Answer Distribution' in self.browser.title
 
 class CourseIndexPage(DashboardPage):
     path = 'courses/'

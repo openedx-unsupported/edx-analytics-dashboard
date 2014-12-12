@@ -18,7 +18,7 @@ class CourseEnrollmentDemographicsAge(CourseEnrollmentDemographicsMixin, TestCas
         last_updated, summary, binned_ages, known_percent = utils.get_presenter_ages()
         rv = last_updated, summary, binned_ages, known_percent
         with mock.patch(self.presenter_method, return_value=rv):
-            response = self.client.get(self.path(course_id))
+            response = self.client.get(self.path({'course_id': course_id}))
 
         context = response.context
 
@@ -56,7 +56,7 @@ class CourseEnrollmentDemographicsEducation(CourseEnrollmentDemographicsMixin, T
         last_updated, summary, education_data, known_percent = utils.get_presenter_education()
         rv = last_updated, summary, education_data, known_percent
         with mock.patch(self.presenter_method, return_value=rv):
-            response = self.client.get(self.path(course_id))
+            response = self.client.get(self.path({'course_id': course_id}))
 
         context = response.context
 
@@ -94,7 +94,7 @@ class CourseEnrollmentDemographicsGender(CourseEnrollmentDemographicsMixin, Test
         last_updated, gender_data, trend, known_percent = utils.get_presenter_gender(course_id)
         rv = last_updated, gender_data, trend, known_percent
         with mock.patch(self.presenter_method, return_value=rv):
-            response = self.client.get(self.path(course_id))
+            response = self.client.get(self.path({'course_id': course_id}))
 
         context = response.context
 

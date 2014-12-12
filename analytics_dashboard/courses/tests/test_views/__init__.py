@@ -1,6 +1,6 @@
 import json
 
-from ddt import ddt, data
+from ddt import ddt, data, unpack
 from django.contrib.humanize.templatetags.humanize import intcomma
 from django.test import override_settings
 import httpretty
@@ -59,13 +59,13 @@ class AuthTestMixin(MockApiTestMixin, PermissionsTestMixin, RedirectTestCaseMixi
             with mock.patch(self.api_method, return_value=self.get_mock_data(course_id)):
                 # Authenticated users should go to the course page
                 self.login()
-                response = self.client.get(self.path(course_id), follow=True)
+                response = self.client.get(self.path({'course_id': course_id}), follow=True)
                 self.assertEqual(response.status_code, 200)
 
                 # Unauthenticated users should be redirected to the login page
                 self.client.logout()
-                response = self.client.get(self.path(course_id))
-                self.assertRedirectsNoFollow(response, settings.LOGIN_URL, next=self.path(course_id))
+                response = self.client.get(self.path({'course_id': course_id}))
+                self.assertRedirectsNoFollow(response, settings.LOGIN_URL, next=self.path({'course_id': course_id}))
 
     @data(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
     @mock.patch('courses.permissions.refresh_user_course_permissions', mock.Mock(side_effect=set_empty_permissions))
@@ -78,30 +78,27 @@ class AuthTestMixin(MockApiTestMixin, PermissionsTestMixin, RedirectTestCaseMixi
             with mock.patch(self.api_method, return_value=self.get_mock_data(course_id)):
                 # Authorized users should be able to view the page
                 self.grant_permission(self.user, course_id)
-                response = self.client.get(self.path(course_id), follow=True)
+                response = self.client.get(self.path({'course_id': course_id}), follow=True)
                 self.assertEqual(response.status_code, 200)
 
                 # Unauthorized users should be redirected to the 403 page
                 self.revoke_permissions(self.user)
-                response = self.client.get(self.path(course_id), follow=True)
+                response = self.client.get(self.path({'course_id': course_id}), follow=True)
                 self.assertEqual(response.status_code, 403)
 
 
 # pylint: disable=abstract-method
 class ViewTestMixin(AuthTestMixin):
     viewname = None
+    presenter_method = None
 
-    def path(self, course_id=None):
-        kwargs = {}
-        if course_id:
-            kwargs['course_id'] = course_id
-
+    def path(self, kwargs=None):
+        if kwargs is None:
+            kwargs = {}
         return reverse(self.viewname, kwargs=kwargs)
 
 
-@ddt
-class CourseViewTestMixin(SwitchMixin, ViewTestMixin):
-    presenter_method = None
+class NavAssertMixin(object):
 
     def generate_course_name(self, course_id):
         return 'Test ' + course_id
@@ -121,6 +118,10 @@ class CourseViewTestMixin(SwitchMixin, ViewTestMixin):
                 item['active'] = False
 
         self.assertListEqual(actual_navs, expected_navs)
+
+
+@ddt
+class CourseViewTestMixin(SwitchMixin, NavAssertMixin, ViewTestMixin):
 
     @mock.patch('courses.views.CourseValidMixin.is_valid_course', mock.Mock(return_value=False))
     def test_invalid_course(self):
@@ -154,7 +155,7 @@ class CourseViewTestMixin(SwitchMixin, ViewTestMixin):
     @data(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
     def test_missing_data(self, course_id):
         with mock.patch(self.presenter_method, mock.Mock(side_effect=NotFoundError)):
-            response = self.client.get(self.path(course_id))
+            response = self.client.get(self.path({'course_id': course_id}))
             context = response.context
 
         self.assertValidMissingDataContext(context)
@@ -162,6 +163,22 @@ class CourseViewTestMixin(SwitchMixin, ViewTestMixin):
     def assertValidCourseName(self, course_id, context):
         course_name = self.generate_course_name(course_id)
         self.assertEqual(context['course_name'], course_name)
+
+
+@ddt
+class ProblemViewTestMixin(NavAssertMixin, ViewTestMixin):
+    presenter_method = None
+
+    PROBLEM_ID = 'i4x://edX/DemoX.1/problem/05d289c5ad3d47d48a77622c4a81ec36'
+    TEXT_PROBLEM_PART_ID = 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_2_1'
+    NUMERIC_PROBLEM_PART_ID = 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_3_1'
+    RANDOMIZED_PROBLEM_PART_ID = 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_3_1'
+
+    @data((DEMO_COURSE_ID, PROBLEM_ID, TEXT_PROBLEM_PART_ID), (DEMO_COURSE_ID, PROBLEM_ID, NUMERIC_PROBLEM_PART_ID),
+          (DEMO_COURSE_ID, PROBLEM_ID, RANDOMIZED_PROBLEM_PART_ID))
+    @unpack
+    def test_valid_course(self, course_id, problem_id, problem_part_id):
+        self.assertViewIsValid(course_id, problem_id, problem_part_id)
 
 
 # pylint: disable=abstract-method

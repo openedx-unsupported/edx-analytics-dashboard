@@ -5,7 +5,7 @@ from django.test import TestCase
 
 import analyticsclient.constants.activity_type as AT
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter, BasePresenter, \
-    CourseEnrollmentDemographicsPresenter
+    CourseEnrollmentDemographicsPresenter, CoursePerformancePresenter
 from courses.tests import utils, SwitchMixin
 
 
@@ -236,3 +236,66 @@ class CourseEnrollmentDemographicsPresenterTests(TestCase):
         self.assertDictEqual(education_summary, utils.get_mock_presenter_enrollment_education_summary())
         self.assertListEqual(education_levels, utils.get_mock_presenter_enrollment_education_data())
         self.assertEqual(known_percent, 0.5)
+
+
+class CoursePerformanceAnswerDistributionPresenterTests(TestCase):
+    def setUp(self):
+        self.course_id = 'edX/DemoX/Demo_Course'
+        self.problem_id = 'i4x://edX/DemoX.1/problem/05d289c5ad3d47d48a77622c4a81ec36'
+        self.presenter = CoursePerformancePresenter(self.course_id)
+
+    @mock.patch('analyticsclient.module.Module.answer_distribution')
+    def test_get_answer_distribution(self, mock_answer_distribution):
+
+        mock_data = utils.get_mock_api_answer_distribution_data(self.course_id)
+        mock_answer_distribution.return_value = mock_data
+
+        problem_parts = [
+            {
+                'part_id': 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_2_1',
+                'expected': {
+                    'active_question': 'Submissions for Part 1: Is this a text problem?',
+                    'problem_part_description': 'Example problem - Submissions for Part 1: Is this a text problem?',
+                    'is_random': False,
+                    'answer_type': 'answer_value_text'
+                }
+            },
+            {
+                'part_id': 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_3_1',
+                'expected': {
+                    'active_question': 'Submissions for Part 2: Is this a numeric problem?',
+                    'problem_part_description': 'Example problem - Submissions for Part 2: Is this a numeric problem?',
+                    'is_random': False,
+                    'answer_type': 'answer_value_numeric'
+                }
+            },
+            {
+                'part_id': 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_4_1',
+                'expected': {
+                    'active_question': 'Submissions for Part 3: Is this a randomized problem?',
+                    'problem_part_description': 'Example problem - Submissions for Part 3: Is this a '
+                                                'randomized problem?',
+                    'is_random': True,
+                    'answer_type': 'answer_value_numeric'
+                }
+            }
+        ]
+
+        for part in problem_parts:
+            expected = part['expected']
+            last_updated, questions, active_question, answer_distributions, answer_distribution_limited, \
+                is_random, answer_type, \
+                problem_part_description = self.presenter.get_answer_distribution(self.problem_id, part['part_id'])
+            self.assertEqual(last_updated, utils.CREATED_DATETIME)
+            self.assertListEqual(questions, utils.get_presenter_performance_answer_distribution_questions())
+            self.assertEqual(problem_part_description, expected['problem_part_description'])
+            self.assertEqual(active_question, expected['active_question'])
+            self.assertEqual(answer_type, expected['answer_type'])
+            self.assertEqual(is_random, expected['is_random'])
+
+            expected_answer_distribution = utils.get_filtered_answer_distribution(self.course_id, part['part_id'])
+            self.assertListEqual(answer_distributions, expected_answer_distribution)
+            if is_random:
+                self.assertIsNone(answer_distribution_limited)
+            else:
+                self.assertListEqual(answer_distribution_limited, expected_answer_distribution[:12])

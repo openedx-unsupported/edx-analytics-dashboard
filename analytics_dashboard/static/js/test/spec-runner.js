@@ -23,6 +23,16 @@ if (isBrowser) {
         config.baseUrl + 'js/spec/specs/announcement-view-spec.js'
     ];
 } else {
+    // the Insights application loads gettext identity library via django, thus
+    // components reference gettext globally so a shim is added here to reflects
+    // the text so tests can be run if modules reference gettext
+    if (!window.gettext) {
+        window.gettext = function(text) {
+            'use strict';
+            return text;
+        };
+    }
+
     // you can automatically get the test files using karma's configs
     for (var file in window.__karma__.files) {
         if (/spec\.js$/.test(file)) {
