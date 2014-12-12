@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# watcafe, 2014
+# cblackburn <cblackburn@edx.org>, 2014
+# Hideki Mori <mori.h.aq@m.titech.ac.jp>, 2014
 # mieko furuhashi, 2014
 # Takashi Nagai <ngi644@gmail.com>, 2014
 msgid ""
@@ -10,7 +13,7 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-24 16:23-0500\n"
-"PO-Revision-Date: 2014-11-24 21:26+0000\n"
+"PO-Revision-Date: 2014-12-12 18:58+0000\n"
 "Last-Translator: cblackburn <cblackburn@edx.org>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/edx-platform/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +26,7 @@ msgstr ""
 #. NOT translate the word statistic.
 #: analytics_dashboard/templatetags/dashboard_extras.py
 msgid "{statistic}%"
-msgstr ""
+msgstr "{statistic}%"
 
 #: courses/presenters.py
 msgid "Female"
@@ -43,7 +46,7 @@ msgstr "その他"
 #. Translators: This describes the learner's education level.
 #: courses/presenters.py courses/presenters.py courses/presenters.py
 msgid "Unknown"
-msgstr ""
+msgstr "不明"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters.py
@@ -54,7 +57,7 @@ msgstr "なし"
 #. School Degree).
 #: courses/presenters.py
 msgid "Primary"
-msgstr ""
+msgstr "小学校"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
@@ -65,7 +68,7 @@ msgstr "中学校卒"
 #. Translators: This describes the learner's education level.
 #: courses/presenters.py
 msgid "Secondary"
-msgstr ""
+msgstr "高校"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
@@ -77,13 +80,13 @@ msgstr "短大・専門学校卒"
 #. Degree).
 #: courses/presenters.py
 msgid "Bachelor's"
-msgstr ""
+msgstr "大学学部卒"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters.py
 msgid "Master's"
-msgstr ""
+msgstr "大学修士"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
@@ -95,20 +98,20 @@ msgstr "大学院卒（博士課程修了）"
 #. known geolocation.
 #: courses/presenters.py
 msgid "Unknown Country"
-msgstr ""
+msgstr "現在地不明"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
 msgid "Students (Self-Reported)"
-msgstr ""
+msgstr "受講者(自己報告)"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Weekly Student Engagement"
-msgstr ""
+msgstr "週次の受講生稼働状況"
 
 #: courses/templates/courses/engagement_content.html
 msgid "How many students are interacting with my course?"
-msgstr ""
+msgstr "このコースにどれくらいの受講者が取り組んでいるか？"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students"
@@ -118,56 +121,56 @@ msgstr "受講者"
 msgid ""
 "The number of active students, and the number of students who engaged in "
 "specific activities, over time."
-msgstr ""
+msgstr "アクティブな受講者の数、そして、特定の活動に取り組んだ受講者の数、超過時間。"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Student Activity Metrics"
-msgstr ""
+msgstr "受講者の活動指標"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Active Students Last Week"
-msgstr ""
+msgstr "先週の受講者の活動"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who visited at least one page in the course content."
-msgstr ""
+msgstr "最低１回は学習コンテンツに訪問した受講者"
 
 #. Translators: This is a label indicating the number of students who watched
 #. a video.
 #: courses/templates/courses/engagement_content.html
 msgid "Watched a Video Last Week"
-msgstr ""
+msgstr "先週の動画視聴数"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who played one or more videos."
-msgstr ""
+msgstr "一つ以上の動画を再生した受講者"
 
 #. Translators: This is a label indicating the number of students who tried a
 #. problem.
 #: courses/templates/courses/engagement_content.html
 msgid "Tried a Problem Last Week"
-msgstr ""
+msgstr "先週、回答された問題数"
 
 #: courses/templates/courses/engagement_content.html
 msgid ""
 "Students who submitted an answer for a standard problem. Not all problem "
 "types are included."
-msgstr ""
+msgstr "標準型の問題に回答送信をした受講者数。ただし、全ての形式の問題への回答が含まれるものではありません。"
 
 #. Translators: This is a label indicating the number of students who posted
 #. in a forum discussion.
 #: courses/templates/courses/engagement_content.html
 msgid "Posted in a Discussion Last Week"
-msgstr ""
+msgstr "先週のディスカッション投稿数"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who contributed to any discussion topic."
-msgstr ""
+msgstr "何らかのディスカッショントピックへ貢献した受講者数"
 
 #: courses/templates/courses/engagement_content.html
 #: courses/templates/courses/engagement_content.html
 msgid "Content Engagement Breakdown"
-msgstr ""
+msgstr "コンテンツへの取組度合いの分解"
 
 #: courses/templates/courses/engagement_content.html
 #: courses/templates/courses/enrollment_activity.html
@@ -176,19 +179,19 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_gender.html
 #: courses/templates/courses/enrollment_geography.html
 msgid "Download CSV"
-msgstr ""
+msgstr "CSVダウンロード"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
-msgstr ""
+msgstr "日別の受講登録数"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "How many students are in my course?"
-msgstr ""
+msgstr "この講座にどれだけの受講者が登録しているか？"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollments"
-msgstr ""
+msgstr "受講登録"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
@@ -196,10 +199,11 @@ msgid ""
 " each day. Total enrollment includes new enrollments as well as "
 "unenrollments."
 msgstr ""
+"このグラフはこの講座の各日締めで計算された総受講登録数を示しています。総受講登録数には、新規に受講登録されたものと、受講取り消しをした数が含まれています。"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollment Metrics"
-msgstr ""
+msgstr "受講登録指標"
 
 #. Translators: This is a label to identify current student enrollment.
 #: courses/templates/courses/enrollment_activity.html
@@ -210,19 +214,19 @@ msgstr "合計履修"
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Students enrolled in the course."
-msgstr ""
+msgstr "この講座の受講登録者数"
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Change in Last Week"
-msgstr ""
+msgstr "先週の変動数"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
 "The difference between the number of students enrolled at the end of the day"
 " yesterday and one week before."
-msgstr ""
+msgstr "昨日時点と、先週時点での受講登録者数の差分です。"
 
 #. Translators: This is a label to identify enrollment of students on the
 #. verified track.
@@ -236,20 +240,20 @@ msgstr "認証された履修"
 msgid ""
 "Number of enrolled students who are pursuing a verified certificate of "
 "achievement."
-msgstr ""
+msgstr "本人認証付きコースを選択した受講者数"
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in the verified track of a course since the previous
 #. week.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Change in Verified Enrollments Last Week"
-msgstr ""
+msgstr "先週の本人認証付きコースへの変更数"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
 "The difference between the number of students pursuing verified certificates"
 " at the end of the day yesterday and one week before."
-msgstr ""
+msgstr "昨日時点と、先週時点での本人認証付きコースの受講者数の差分です。"
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html
@@ -257,11 +261,11 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_education.html
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "Enrollment Over Time"
-msgstr ""
+msgstr "受講登録期限切れ"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "How old are my students?"
-msgstr ""
+msgstr "受講生の年齢層は？"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -270,66 +274,66 @@ msgstr ""
 msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
 "students who provided a year of birth."
-msgstr ""
+msgstr "この年令分布図は、生まれ年を入力した%(value)s%%の受講登録者から計算されたものを示しています。"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Metrics"
-msgstr ""
+msgstr "年齢指標"
 
 #. Translators: This is a label to identify the median age of enrolled
 #. students.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Median Student Age"
-msgstr ""
+msgstr "受講者の年齢の中央値"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The midpoint of the student ages, computed from the provided year of birth."
-msgstr ""
+msgstr "受講者の年齢における中間値、これは入力いただいた生まれ年から計算されています。"
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 25 and Under"
-msgstr ""
+msgstr "25歳以下の受講者数"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The percentage of students aged 25 years or younger (of those who provided a"
 " year of birth)."
-msgstr ""
+msgstr "25歳以下の受講者の割合(生まれ年を入力したユーザーのみが対象)"
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 26 to 40"
-msgstr ""
+msgstr "26歳から40歳までの受講者"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The percentage of students aged from 26 to 40 years (of those who provided a"
 " year of birth)."
-msgstr ""
+msgstr "26歳から40歳までの受講者の割合(生まれ年を入力したユーザーのみが対象)"
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 41 and Over"
-msgstr ""
+msgstr "41歳以上の受講者"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The percentage of students aged 41 years or older (of those who provided a "
 "year of birth)."
-msgstr ""
+msgstr "41歳以上の受講者の割合(生まれ年を入力したユーザーのみが対象)"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Breakdown"
-msgstr ""
+msgstr "年齢構成"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "What level of education do my students have?"
-msgstr ""
+msgstr "受講者の学歴について"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -338,53 +342,53 @@ msgstr ""
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled students who "
 "provided a highest level of education completed."
-msgstr ""
+msgstr "このグラフは、学歴を入力した%(value)s%%の受講登録者から計算されたものを示しています。"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Education Metrics"
-msgstr ""
+msgstr "教育指標"
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "High School Diploma or Less"
-msgstr ""
+msgstr "高卒もしくはそれ以下"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
 "The percentage of students who selected Secondary/high school, Junior "
 "secondary/junior high/middle school, or Elementary/primary school as their "
 "highest level of education completed."
-msgstr ""
+msgstr "高校卒、中学卒、小学校卒を最終学歴として選択した受講者の割合"
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "College Degree"
-msgstr ""
+msgstr "学歴"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
 "The percentage of students who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
-msgstr ""
+msgstr "大学学部卒、短大卒を最終学歴として選択した受講者の割合"
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Advanced Degree"
-msgstr ""
+msgstr "高学歴"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
 "The percentage of students who selected Doctorate or Master's or "
 "professional degree as their highest level of education completed."
-msgstr ""
+msgstr "大学院卒（修士、博士）を最終学歴として選択した受講者の割合"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Educational Breakdown"
-msgstr ""
+msgstr "学歴"
 
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "What is the student gender breakdown?"
-msgstr ""
+msgstr "受講生の性別分析とは何か？"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -393,15 +397,15 @@ msgstr ""
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled students who "
 "specified their gender."
-msgstr ""
+msgstr "このグラフは、性別を入力した%(value)s%%の受講登録者から計算されたものを示しています。"
 
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "Gender Breakdown Over Time"
-msgstr ""
+msgstr "全期間における性別分析"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geographic Distribution"
-msgstr ""
+msgstr "地域分布"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Where are my students?"
@@ -509,7 +513,7 @@ msgstr ""
 #: courses/templates/courses/permissions-retrieval-failed.html
 #: templates/auth_error.html
 msgid "Try Again"
-msgstr ""
+msgstr "もう一度お試しください"
 
 #: courses/tests/test_serializers.py
 msgid "primary"
@@ -699,7 +703,7 @@ msgstr "ヘルプ"
 
 #: templates/header.html
 msgid "Logout"
-msgstr ""
+msgstr "ログアウト"
 
 #. Translators: This refers to the active tab/navigation item.
 #: templates/lens-navigation.html templates/submenu_navigation.html
@@ -708,7 +712,7 @@ msgstr ""
 
 #: templates/loading.html
 msgid "LOADING..."
-msgstr ""
+msgstr "読み込み中"
 
 #: templates/registration/logged_out.html
 #: templates/registration/logged_out.html
@@ -717,11 +721,11 @@ msgstr ""
 
 #: templates/registration/logged_out.html
 msgid "You have been logged out. Click the button below to login again."
-msgstr ""
+msgstr "ログアウトしました。下のボタンをクリックして再度ログインしてください。"
 
 #: templates/registration/logged_out.html
 msgid "Login"
-msgstr ""
+msgstr "ログイン"
 
 #: templates/section_error.html
 msgid "We are unable to load this chart."
