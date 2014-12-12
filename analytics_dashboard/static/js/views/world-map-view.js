@@ -199,7 +199,7 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
                         popupOnHover: true,
                         popupTemplate: function (geography, data) {
                             return self.popupTemplate({
-                                name: data.name,
+                                name: data ? data.name : geography.properties.name,
                                 value: data ? Utils.localizeNumber(data.value) : 0,
                                 percent: data ? Utils.formatDisplayPercentage(data.percent) : 0
                             });
