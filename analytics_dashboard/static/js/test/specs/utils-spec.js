@@ -55,4 +55,19 @@ define(['utils/utils'], function (Utils) {
             expect(Utils.formatDisplayPercentage(1)).toEqual('100.0%');
         });
     });
+
+    describe('truncateText', function () {
+        it('should truncate long text', function () {
+            expect(Utils.truncateText('this is a long text', 14)).toEqual('this is a l...');
+        });
+
+        it('should return short text unmodified', function () {
+            expect(Utils.truncateText('short text', 100)).toEqual('short text');
+        });
+
+        it('should return short truncations without ellipse', function () {
+            expect(Utils.truncateText('yes', 2)).toEqual('ye');
+        });
+    });
+
 });

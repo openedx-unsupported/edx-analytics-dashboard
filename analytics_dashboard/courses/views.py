@@ -26,7 +26,7 @@ from analyticsclient.exceptions import NotFoundError
 
 from courses import permissions
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter, \
-    CourseEnrollmentDemographicsPresenter
+    CourseEnrollmentDemographicsPresenter, CoursePerformancePresenter
 from courses.serializers import LazyEncoder
 from courses.utils import is_feature_enabled
 from help.views import ContextSensitiveHelpMixin
@@ -325,8 +325,10 @@ class CourseNavBarMixin(object):
         tertiary_nav_items = self.get_tertiary_nav_items()
 
         # Get the active primary item and remove it from the list
-        primary_nav_item = [i for i in primary_nav_items if i['name'] == self.active_primary_nav_item][0]
-        primary_nav_items.remove(primary_nav_item)
+        primary_nav_item = None
+        if self.active_primary_nav_item:
+            primary_nav_item = [i for i in primary_nav_items if i['name'] == self.active_primary_nav_item][0]
+            primary_nav_items.remove(primary_nav_item)
 
         context.update({
             'primary_nav_item': primary_nav_item,
@@ -665,6 +667,58 @@ class EngagementContentView(EngagementTemplateView):
         return context
 
 
+class PerformanceTemplateView(CourseTemplateWithNavView):
+    # Translators: Do not translate UTC.
+    update_message = _('Answer distribution data was last updated %(update_date)s at %(update_time)s UTC.')
+
+
+class PerformanceAnswerDistributionView(PerformanceTemplateView):
+    template_name = 'courses/performance_answer_distribution.html'
+    page_title = _('Performance Answer Distribution')
+    page_name = 'performance_answer_distribution'
+
+    def get_context_data(self, **kwargs):
+        context = super(PerformanceAnswerDistributionView, self).get_context_data(**kwargs)
+        presenter = CoursePerformancePresenter(self.course_id)
+
+        problem_id = self.kwargs['content_id']
+        part_id = self.kwargs['problem_part_id']
+        view_live_url = None
+
+        if settings.LMS_COURSE_SHORTCUT_BASE_URL:
+            view_live_url = '{0}/{1}/jump_to/{2}'.format(settings.LMS_COURSE_SHORTCUT_BASE_URL,
+                                                         self.course_id, problem_id)
+
+        try:
+            answer_distribution_entry = presenter.get_answer_distribution(problem_id, part_id)
+        except NotFoundError:
+            logger.error("Failed to retrieve performance answer distribution data for %s.", part_id)
+            # if the problem_part_id isn't found, a NotFoundError is thrown and a 404 should be displayed
+            raise NotFoundError
+
+        context['js_data']['course'].update({
+            'answerDistribution': answer_distribution_entry.answer_distribution,
+            'answerDistributionLimited': answer_distribution_entry.answer_distribution_limited,
+            'isRandom': answer_distribution_entry.is_random,
+            'answerType': answer_distribution_entry.answer_type
+        })
+
+        context.update({
+            'course_id': self.course_id,
+            'chart_maximum_answers': CoursePerformancePresenter.CHART_LIMIT,
+            'questions': answer_distribution_entry.questions,
+            'active_question': answer_distribution_entry.active_question,
+            'problem_id': problem_id,
+            'problem_part_id': part_id,
+            'problem_part_description': answer_distribution_entry.problem_part_description,
+            'view_live_url': view_live_url,
+            'update_message': self.get_last_updated_message(answer_distribution_entry.last_updated)
+        })
+        context['page_data'] = self.get_page_data(context)
+
+        return context
+
+
 class CourseEnrollmentDemographicsAgeCSV(CSVResponseMixin, CourseView):
     csv_filename_suffix = u'enrollment-by-birth-year'
 
@@ -709,6 +763,14 @@ class CourseEngagementActivityTrendCSV(CSVResponseMixin, CourseView):
     def get_data(self):
         end_date = datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
         return self.course.activity(data_format=data_format.CSV, end_date=end_date)
+
+
+class PerformanceAnswerDistributionCSV(CSVResponseMixin, CourseView):
+    csv_filename_suffix = u'performance-answer-distribution'
+
+    def get_data(self):
+        modules = self.client.modules(self.course_id, self.kwargs['content_id'])
+        return modules.answer_distribution(data_format=data_format.CSV)
 
 
 class CourseHome(CourseTemplateView):
@@ -778,6 +840,7 @@ class CourseHome(CourseTemplateView):
                     }
                 ]
             }
+
         ]
 
     def get_context_data(self, **kwargs):

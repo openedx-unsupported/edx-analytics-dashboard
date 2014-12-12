@@ -63,6 +63,43 @@ define(['models/course-model', 'views/data-table-view'], function(CourseModel, D
             expect(dateFunc(row, renderType)).toBe('January 1, 2014');
         });
 
+        it('should format display of a boolean', function() {
+            var dataType = 'myData',
+                renderType = 'display',
+                model = new CourseModel(),
+                view = new DataTableView({
+                    el: document.createElement('div'),
+                    model: model,
+                    modelAttribute: 'ages'
+                }),
+                func = view.createFormatBoolFunc(dataType),
+                row = {};
+
+            row[dataType] = true;
+            expect(func(row, renderType)).toBe('Correct');
+
+            row[dataType] = false;
+            expect(func(row, renderType)).toBe('-');
+        });
+
+        it('should format display of a date', function() {
+            var dataType = 'myData',
+                renderType = 'display',
+                model = new CourseModel(),
+                view = new DataTableView({
+                    el: document.createElement('div'),
+                    model: model,
+                    modelAttribute: 'ages'
+                }),
+                func = view.createFormatHasNullFunc(dataType),
+                row = {};
+
+            row[dataType] = 'Not Null';
+            expect(func(row, renderType)).toBe('Not Null');
+
+            row[dataType] = null;
+            expect(func(row, renderType)).toBe('(empty)');
+        });
     });
 
 });

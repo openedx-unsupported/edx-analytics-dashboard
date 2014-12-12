@@ -81,6 +81,10 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
                         def.data = self.createFormatMaxNumberFunc(column.key, column.maxNumber);
                         // this column has a mix of numbers and strings
                         def.type = 'natural';
+                    } else if (column.type === 'bool') {
+                        def.data = self.createFormatBoolFunc(column.key);
+                    } else if (column.type === 'hasNull') {
+                        def.data = self.createFormatHasNullFunc(column.key);
                     }
 
                     defs.push(def);
@@ -98,7 +102,9 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
                     var value = row[columnKey],
                         display = value;
                     if (type === 'display') {
-                        display = Utils.localizeNumber(value);
+                        if (!_(value).isUndefined() && !_(value).isNull()){
+                            display = Utils.localizeNumber(value);
+                        }
                     }
                     return display;
                 };
@@ -149,6 +155,45 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
                         display = value;
                     if (type === 'display') {
                         display = Utils.formatDisplayPercentage(value);
+                    }
+                    return display;
+                };
+            },
+
+            /**
+             * Returns a function used by datatables to display null values as
+             * "(empty)".
+             */
+            createFormatHasNullFunc: function(columnKey) {
+                return function (row, type) {
+                    var value = row[columnKey],
+                        display = value;
+                    if (type === 'display' && _(display).isNull()) {
+                        /**
+                         * Translators: (empty) is displayed in a table and indicates no label/value.
+                         * Keep text in the parenthesis or an equivalent symbol.
+                         */
+                        display = gettext('(empty)');
+                    }
+                    return display;
+                };
+            },
+
+            /**
+             * Returns a function used by datatables to format the cell for
+             * booleans (Correct vs -).
+             */
+            createFormatBoolFunc: function (columnKey) {
+                return function (row, type) {
+                    var value = row[columnKey],
+                        display = value;
+                    if (type === 'display') {
+                        if (value) {
+                            // Translators: "Correct" is displayed in a table..
+                            display = gettext('Correct');
+                        } else {
+                            display = '-';
+                        }
                     }
                     return display;
                 };

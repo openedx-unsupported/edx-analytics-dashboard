@@ -11,7 +11,7 @@ import analyticsclient.constants.gender as GENDER
 from analyticsclient.constants import enrollment_modes
 
 from courses.permissions import set_user_course_permissions
-
+from courses.presenters import AnswerDistributionEntry
 
 CREATED_DATETIME = datetime.datetime(year=2014, month=2, day=2)
 CREATED_DATETIME_STRING = CREATED_DATETIME.strftime(Client.DATETIME_FORMAT)
@@ -509,3 +509,103 @@ def get_mock_api_course_activity(course_id):
 # pylint: disable=unused-argument
 def mock_course_activity(start_date=None, end_date=None):
     return get_mock_api_course_activity(u'edX/DemoX/Demo_Course')
+
+
+def get_mock_api_answer_distribution_data(course_id):
+    answers = []
+    total_count = 100
+
+    for text_response in ['Asia', 'Europe', 'Africa']:
+        answers.append({
+            'answer_value_numeric': None,
+            'answer_value_text': text_response,
+            'correct': False,
+            'count': total_count,
+            'course_id': course_id,
+            'created': CREATED_DATETIME_STRING,
+            'module_id': 'i4x://edX/DemoX.1/problem/05d289c5ad3d47d48a77622c4a81ec36',
+            'part_id': 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_2_1',
+            'value_id': 'choice_0',
+            'variant': None,
+            'problem_display_name': 'Example problem',
+            'question_text': 'Is this a text problem?'
+        })
+        total_count = total_count - 1
+    answers[0]['correct'] = True
+
+    for numeric_value in range(20):
+        answers.append({
+            'answer_value_numeric': numeric_value,
+            'answer_value_text': None,
+            'correct': False,
+            'count': total_count,
+            'course_id': course_id,
+            'created': CREATED_DATETIME_STRING,
+            'module_id': 'i4x://edX/DemoX.1/problem/05d289c5ad3d47d48a77622c4a81ec36',
+            'part_id': 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_3_1',
+            'value_id': None,
+            'variant': None,
+            'problem_display_name': 'Example problem',
+            'question_text': 'Is this a numeric problem?'
+        })
+        total_count = total_count - 1
+    answers[-1]['correct'] = True
+
+    for randomized in range(5):
+        answers.append({
+            'answer_value_numeric': 0,
+            'answer_value_text': None,
+            'correct': True,
+            'count': total_count,
+            'course_id': course_id,
+            'created': CREATED_DATETIME_STRING,
+            'module_id': 'i4x://edX/DemoX.1/problem/05d289c5ad3d47d48a77622c4a81ec36',
+            'part_id': 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_4_1',
+            'value_id': None,
+            'variant': randomized,
+            'problem_display_name': 'Example problem',
+            'question_text': 'Is this a randomized problem?'
+        })
+        total_count = total_count - 1
+
+    return answers
+
+
+def get_presenter_performance_answer_distribution_questions():
+    return [
+        {
+            'part_id': 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_2_1',
+            'question': u'Submissions for Part 1: Is this a text problem?',
+            'problem_name': 'Example problem'
+        },
+        {
+            'part_id': 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_3_1',
+            'question': u'Submissions for Part 2: Is this a numeric problem?',
+            'problem_name': 'Example problem'
+        },
+        {
+            'part_id': 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_4_1',
+            'question': u'Submissions for Part 3: Is this a randomized problem?',
+            'problem_name': 'Example problem'
+        }
+    ]
+
+
+def get_filtered_answer_distribution(course_id, problem_part_id):
+    data = get_mock_api_answer_distribution_data(course_id)
+    return [d for d in data if d['part_id'] == problem_part_id]
+
+
+def get_presenter_answer_distribution(course_id, problem_part_id):
+    questions = get_presenter_performance_answer_distribution_questions()
+    active_question = [i for i in questions if i['part_id'] == problem_part_id][0]['question']
+    answer_distributions = get_filtered_answer_distribution(course_id, problem_part_id)
+    answer_distribution_limited = answer_distributions[:12]
+    is_random = answer_distribution_limited[0]['variant'] is not None
+    answer_type = 'answer_value_text'
+    if answer_distribution_limited[0]['answer_value_text'] is None:
+        answer_type = 'answer_value_numeric'
+    problem_part_description = 'Example problem - Submissions for Part 1: Is this a text problem?'
+
+    return AnswerDistributionEntry(CREATED_DATETIME, questions, active_question, answer_distributions,
+                                   answer_distribution_limited, is_random, answer_type, problem_part_description)

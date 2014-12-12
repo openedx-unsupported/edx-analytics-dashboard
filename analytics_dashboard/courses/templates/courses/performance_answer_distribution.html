@@ -1,0 +1,128 @@
+{% extends "courses/base-course.html" %}
+{% load i18n %}
+{% load dashboard_extras %}
+{% load staticfiles %}
+{% load rjs %}
+
+{% block view-name %}view-course-enrollment view-dashboard{% endblock view-name %}
+
+{% block javascript %}
+{{ block.super }}
+<script src="{% static_rjs 'js/performance-answer-distribution-main.js' %}"></script>
+{% endblock javascript %}
+
+
+{% block child_content %}
+
+<section class="view-section" data-section="performance-answer-distribution" aria-hidden="true">
+
+    <div class="section-heading">
+      <span class="section-heading-note small">{% trans "How did students answer this part of the problem?" %}</span>
+    </div>
+
+    {% if problem_part_description %}
+        <div class="col-xs-12 problem-description">
+
+            <div class="col-sm-10 col-xs-12">
+                <p>{{problem_part_description}}</p>
+            </div>
+
+            <div class="col-sm-2 col-xs-12">
+                {% if view_live_url%}
+                    <a href="{{view_live_url}}" class="btn btn-default pull-right" role="button" target="_blank">
+                        {# Translators: This text will be a direct link to the a specific module/problem. #}
+                        {% trans "View Live" %}
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    {% endif %}
+
+    <div class="section-content section-data-graph">
+        <div class="section-content section-data-viz">
+            <div class="analytics-chart-container">
+                <div class="chart-info">
+                    {% if questions %}
+                        {% captureas chart_label %}
+                            {{active_question|truncatechars:50}}
+                        {% endcaptureas %}
+                        {% if questions|length == 1 %}
+                            <div class="chart-info">{{chart_label}}</div>
+                        {% else %}
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle chart-info" type="button" id="distQuestionsMenu" data-toggle="dropdown" aria-expanded="true">
+                                    {{chart_label}}
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="distQuestionsMenu">
+                                    {% for question in questions %}
+                                        <li role="presentation">
+                                            <a role="menuitem"tabindex="-1" class="truncate"
+                                               href="{% url 'courses:performance_answerdistribution' course_id=course_id content_id=problem_id problem_part_id=question.part_id %}">
+                                                {{question.question}}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                </div>
+                {% captureas tip_text %}
+                    {# Translators: This text describes a bar chart displayed.  chart_maximum_answers is the maximum number of bars and answers shown. #}
+                    {% blocktrans trimmed %}
+                        This graph includes every answer submitted by a student for this problem, and shows the number of students
+                        who submitted each answer.  A maximum of {{chart_maximum_answers}} answers are shown.
+                    {% endblocktrans %}
+                {% endcaptureas %}
+                {% include "chart_tooltip.html" with tip_text=tip_text track_category="bar"%}
+
+                <div id="performance-chart-view" class="analytics-chart {% if not js_data.course.answerDistribution %}message-only-chart{% endif %}">
+                    {% if js_data.course.isRandom %}
+                        <!-- sets the message on a new row; otherwise, it won't be centered properly. -->
+                        <div class="clearfix"></div>
+                        <div class="chart-message-container">
+                            <p class="text-center">{% trans "We are unable to load charts for randomized problem sets." %}</p>
+                        </div>
+                    {% elif js_data.course.answerDistribution %}
+                        {% include "loading.html" %}
+                    {% endif %}
+                </div>
+            </div>
+            {% if not js_data.course.answerDistribution %}
+                {% show_chart_error 'white-background' %}
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="view-section">
+    <div class="section-heading">
+
+        <h4 class="section-title">{% trans "Answer Distribution" %}</h4>
+        <div class="section-actions">
+            {% if js_data.course.answerDistribution %}
+                <a href="{% url 'courses:csv_performance_answerdistribution' course_id=course_id content_id=problem_id problem_part_id=problem_part_id %}"
+                   class="btn btn-default"
+                   data-role="performance-csv" data-track-type="click"
+                   data-track-event="edx.bi.csv.downloaded"
+                   data-track-category="answer-distribution">
+                    <i class="ico fa fa-download" aria-hidden="true"></i> {% trans "Download CSV" %}
+                    <span class="sr-only">{% trans "Student Answer Distribution" %}</span>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if js_data.course.answerDistribution %}
+        <div class="section-content section-data-table" data-role="performance-table">
+            {% include "loading.html" %}
+        </div>
+    {% else %}
+        {% show_table_error %}
+    {% endif %}
+
+</section>
+
+{% endblock %}
