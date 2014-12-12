@@ -5,6 +5,13 @@ define(['models/course-model', 'models/tracking-model', 'models/user-model', 'vi
 
         describe('Tracking View', function () {
 
+            var USER_DETAILS = {
+                username: 'edX',
+                name: 'Ed Xavier',
+                email: 'edx@example.com',
+                ignoreInReporting: true
+            };
+
             it('should call segment with application key and page', function () {
                 var view;
 
@@ -24,16 +31,9 @@ define(['models/course-model', 'models/tracking-model', 'models/user-model', 'vi
             });
 
             it('should call segment with user information', function () {
-                var view;
-
-                view = new TrackingView({
+                var view = new TrackingView({
                     model: new TrackingModel(),
-                    userModel: new UserModel({
-                        userId: 'myId',
-                        userName: 'MyName',
-                        userEmail: 'myemail@edx.org',
-                        ignoreInReporting: true
-                    })
+                    userModel: new UserModel(USER_DETAILS)
                 });
 
                 // mock segment
@@ -43,9 +43,9 @@ define(['models/course-model', 'models/tracking-model', 'models/user-model', 'vi
 
                 view.logUser();
 
-                expect(view.segment.identify).toHaveBeenCalledWith('myId', {
-                    username: 'MyName',
-                    email: 'myemail@edx.org',
+                expect(view.segment.identify).toHaveBeenCalledWith(USER_DETAILS.username, {
+                    name: USER_DETAILS.name,
+                    email: USER_DETAILS.email,
                     ignoreInReporting: true
                 });
             });
@@ -77,11 +77,7 @@ define(['models/course-model', 'models/tracking-model', 'models/user-model', 'vi
                     segmentApplicationId: 'applicationId',
                     page: 'mypage'
                 });
-                userModel.set({
-                    userId: 'myId',
-                    userName: 'My Name',
-                    userEmail: 'myemail@edx.org'
-                });
+                userModel.set(USER_DETAILS);
 
                 // check to see if the methods were called
                 expect(view.segment.identify).toHaveBeenCalled();
