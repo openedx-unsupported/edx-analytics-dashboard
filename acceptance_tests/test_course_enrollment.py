@@ -17,14 +17,14 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
     def setUp(self):
         super(CourseEnrollmentActivityTests, self).setUp()
         self.page = CourseEnrollmentActivityPage(self.browser)
-        self.course = self.api_client.courses(self.page.course_id)
+        self.course = self.analytics_api_client.courses(self.page.course_id)
 
     def get_enrollment_data(self):
         """
         Returns all historical enrollment data for enrollment count collection.
         """
         end_date = datetime.datetime.utcnow()
-        end_date_string = end_date.strftime(self.api_client.DATE_FORMAT)
+        end_date_string = end_date.strftime(self.analytics_api_client.DATE_FORMAT)
         demographic = 'mode' if ENABLE_ENROLLMENT_MODES else None
 
         return self.course.enrollment(demographic, start_date=None, end_date=end_date_string)
@@ -138,7 +138,7 @@ class CourseEnrollmentGeographyTests(CoursePageTestsMixin, WebAppTest):
     def setUp(self):
         super(CourseEnrollmentGeographyTests, self).setUp()
         self.page = CourseEnrollmentGeographyPage(self.browser)
-        self.course = self.api_client.courses(self.page.course_id)
+        self.course = self.analytics_api_client.courses(self.page.course_id)
         self.enrollment_data = sorted(self.course.enrollment(demographic.LOCATION),
                                       key=lambda item: item['count'], reverse=True)
 

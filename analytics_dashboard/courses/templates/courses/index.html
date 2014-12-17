@@ -2,6 +2,7 @@
 {% load i18n %}
 {% load staticfiles %}
 {% load dashboard_extras %}
+{% load firstof from future %}
 
 {% block view-name %}view-course-list{% endblock view-name %}
 
@@ -22,11 +23,15 @@
     <div class="col-md-8">
       <div class="course-list">
         {% for course in courses %}
-          <a href="{% url 'courses:home' course_id=course %}">
-            <div class="course">
-              <span class="course-title">{{ course|format_course_key }}</span>
-            </div>
-          </a>
+          <div class="course">
+            <a href="{% url 'courses:home' course_id=course.key %}">
+              <span class="course-name">{% firstof course.name course.key|format_course_key %}</span>
+            </a>
+
+            {% if course.name %}
+              <div class="course-key">{{ course.key|format_course_key:" / " }}</div>
+            {% endif %}
+          </div>
         {% endfor %}
       </div>
     </div>
@@ -40,7 +45,7 @@
             {{ feedback_email }}</a>{% endcaptureas %}
 
         <p class="info-text">{% blocktrans trimmed %} Click Help in the upper-right corner to get more information
-            about {{ application_name }}. Send us feedback at {{email_link}}.{% endblocktrans %}</p>
+          about {{ application_name }}. Send us feedback at {{ email_link }}.{% endblocktrans %}</p>
       </div>
     </div>
   </div>

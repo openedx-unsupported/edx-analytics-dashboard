@@ -403,3 +403,8 @@ with open(join(DOCS_ROOT, "config.ini")) as config_file:
 # Path of the SCSS file to use for the site's theme
 THEME_SCSS = 'sass/themes/open-edx.scss'
 ########## END THEME CONFIGURATION
+
+########## COURSE API
+COURSE_API_URL = None
+COURSE_API_KEY = None
+########## END COURSE API

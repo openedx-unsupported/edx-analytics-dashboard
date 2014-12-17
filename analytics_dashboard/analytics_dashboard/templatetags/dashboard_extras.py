@@ -99,8 +99,8 @@ def _get_base_error_context(content_type):
 
 
 @register.filter
-def format_course_key(course_key):
+def format_course_key(course_key, separator=u'/'):
     if isinstance(course_key, basestring):
         course_key = CourseKey.from_string(course_key)
 
-    return u'/'.join([course_key.org, course_key.course, course_key.run])
+    return separator.join([course_key.org, course_key.course, course_key.run])

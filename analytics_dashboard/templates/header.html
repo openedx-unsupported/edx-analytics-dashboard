@@ -18,7 +18,7 @@ Partial: App-wide header element
       {% if course_id %}
       <ul class="nav navbar-nav">
         <li>
-          <a href="{% url 'courses:home' course_id=course_id %}" class="navbar-link">{{ course_id }}</a>
+          <a href="{% url 'courses:home' course_id=course_id %}" class="navbar-link active-course-name">{% firstof course_name course_id %}</a>
         </li>
       </ul>
       {% endif %}

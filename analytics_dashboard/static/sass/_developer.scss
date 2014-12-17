@@ -247,6 +247,14 @@ $lens-box-model: border-box;
     padding: 15px;
     border: 1px solid $edx-gray;
     border-width: 1px 1px 0 0;
+
+    .course-name {
+      font-size: $font-size-large;
+    }
+
+    .course-key {
+      color: $edx-gray;
+    }
   }
 }
 
