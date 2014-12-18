@@ -1,0 +1,9 @@
+<li role="presentation" {% if not enabled %}class="disabled"{% endif %}>
+  <a role="menuitem"
+      {% if enabled %}
+        href="{% url "courses:performance_answer_distribution" course_id=course_id assignment_id=assignment_id problem_id=problem_id problem_part_id=part_id %}"
+      {% endif %}
+      >
+    {{ name }}
+  </a>
+</li>

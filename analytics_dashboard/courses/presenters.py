@@ -1,12 +1,15 @@
 import copy
 import datetime
 import logging
-
 from collections import namedtuple
+
+from django.core.cache import cache
 
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 from django_countries import countries
+from edx_api_client.auth import TokenAuth
+import slumber
 from waffle import switch_is_active
 from analyticsclient.client import Client
 import analyticsclient.constants.activity_type as AT
@@ -89,7 +92,7 @@ class BasePresenter(object):
     for the presenters to use to access the data API.
     """
 
-    def __init__(self, course_id, timeout=5):
+    def __init__(self, course_id, timeout=15):
         self.client = Client(base_url=settings.DATA_API_URL,
                              auth_token=settings.DATA_API_AUTH_TOKEN,
                              timeout=timeout)
@@ -131,6 +134,11 @@ class CoursePerformancePresenter(BasePresenter):
 
     # limit for the number of bars to display in the answer distribution chart
     CHART_LIMIT = 12
+
+    def __init__(self, course_id, timeout=15):
+        super(CoursePerformancePresenter, self).__init__(course_id, timeout)
+        self.course_api_client = slumber.API(settings.COURSE_API_URL,
+                                             auth=TokenAuth(settings.COURSE_API_KEY)).courses.v0
 
     def get_answer_distribution(self, problem_id, problem_part_id):
         """
@@ -242,6 +250,98 @@ class CoursePerformancePresenter(BasePresenter):
         answer_distributions = [i for i in api_response if i['part_id'] == problem_part_id]
         answer_distributions = sorted(answer_distributions, key=lambda a: -a['count'])
         return answer_distributions
+
+    def grading_policy(self):
+        """ Returns the grading policy for the represented course."""
+        key = '{}_grading_policy'.format(self.course_id)
+        grading_policy = cache.get(key)
+
+        if not grading_policy:
+            grading_policy = self.course_api_client(self.course_id).grading_policy.get()
+            cache.set(key, grading_policy)
+
+        return grading_policy
+
+    @property
+    def assignment_types(self):
+        """ Returns the assignment types for the represented course."""
+        grading_policy = self.grading_policy()
+        return [gp['assignment_type'] for gp in grading_policy]
+
+    def _add_submissions_and_part_ids(self, assignment):
+        key = '{}_problems'.format(assignment['id'])
+        problems = cache.get(key)
+
+        if not problems:
+            problems = assignment['problems']
+            problem_ids = [problem['id'] for problem in problems]
+            submission_data = {}
+            DEFAULT_DATA = {
+                'total_submissions': 0,
+                'correct_submissions': 100,
+                'part_ids': []
+            }
+
+            try:
+                _api_counts = self.client.modules(self.course_id, None).submission_counts(problem_ids)
+
+                for count in _api_counts:
+                    submission_data[count['module_id']] = {
+                        'total_submissions': count['total'],
+                        'correct_submissions': count['correct']
+                    }
+
+                _part_ids = self.client.modules(self.course_id, None).part_ids(problem_ids)
+
+                for item in _part_ids:
+                    module_id = item['module_id']
+                    submission_data[module_id]['part_ids'] = item['part_ids']
+            except NotFoundError:
+                pass
+
+            for problem in problems:
+                data = submission_data.get(problem['id'], DEFAULT_DATA)
+                problem.update(data)
+
+            cache.set(key, problems)
+
+        assignment['problems'] = problems
+
+    def assignments(self, assignment_type=None):
+        """ Returns the assignments (and problems) for the represented course. """
+        key = '{}_assignments_{}'.format(self.course_id, assignment_type)
+        assignments = cache.get(key)
+
+        if not assignments:
+            assignments = self.course_api_client(self.course_id).assignments.get()
+            cache.set(key, assignments)
+
+        if assignment_type:
+            assignment_type = assignment_type.lower()
+            assignments = [assignment for assignment in assignments if
+                           assignment['assignment_type'].lower() == assignment_type]
+
+        # Add metadata and submissions
+        order = 1
+        for assignment in assignments:
+            self._add_submissions_and_part_ids(assignment)
+            problems = assignment['problems']
+            assignment['num_problems'] = len(problems)
+            assignment['total_submissions'] = sum(problem.get('total_submissions', 0) for problem in problems)
+            assignment['correct_submissions'] = sum(problem.get('correct_submissions', 0) for problem in problems)
+
+            assignment['order'] = order
+            order += 1
+
+        return assignments
+
+    def assignment(self, assignment_id):
+        """ Retrieve a specific assignment. """
+        filtered = [assignment for assignment in self.assignments() if assignment['id'] == assignment_id]
+        if filtered:
+            return filtered[0]
+        else:
+            return None
 
 
 class CourseEngagementPresenter(BasePresenter):

@@ -9,6 +9,7 @@ from analytics_dashboard.settings.base import *
 from analytics_dashboard.settings.logger import get_logger_config
 
 
+
 ########## DEBUG CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = True
@@ -105,5 +106,8 @@ HELP_URL = '#'
 # 'None' disables tracking.  This will be turned on for test and production.
 SEGMENT_IO_KEY = os.getenv('SEGMENT_WRITE_KEY')
 ########## END SEGMENT.IO
+
+COURSE_API_URL = 'http://127.0.0.1:8000/api'
+COURSE_API_KEY = 'edx'
 
 LOGGING = get_logger_config(debug=DEBUG, dev_env=True, local_loglevel='DEBUG')

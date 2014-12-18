@@ -43,6 +43,14 @@
         {
             name: 'js/enrollment-demographics-gender-main',
             exclude: ['js/common']
+        },
+        {
+            name: 'js/performance-graded-content-assignment-types-main',
+            exclude: ['js/common']
+        },
+        {
+            name: 'js/performance-graded-content-assignment-main',
+            exclude: ['js/common']
         }
     ]
 })

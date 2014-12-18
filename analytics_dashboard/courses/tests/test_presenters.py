@@ -1,12 +1,17 @@
+import copy
 import datetime
 
-import mock
-from django.test import TestCase
+from django.core.cache import cache
 
+import mock
+from django.test import TestCase, override_settings
 import analyticsclient.constants.activity_type as AT
+
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter, BasePresenter, \
     CourseEnrollmentDemographicsPresenter, CoursePerformancePresenter
 from courses.tests import utils, SwitchMixin
+from test_views import COURSE_API_URL
+from utils import CoursePerformanceMockData
 
 
 class CourseEngagementPresenterTests(SwitchMixin, TestCase):
@@ -92,7 +97,7 @@ class BasePresenterTests(TestCase):
 
     def test_init(self):
         presenter = BasePresenter('edX/DemoX/Demo_Course')
-        self.assertEqual(presenter.client.timeout, 5)
+        self.assertEqual(presenter.client.timeout, 15)
 
         presenter = BasePresenter('edX/DemoX/Demo_Course', timeout=15)
         self.assertEqual(presenter.client.timeout, 15)
@@ -238,8 +243,10 @@ class CourseEnrollmentDemographicsPresenterTests(TestCase):
         self.assertEqual(known_percent, 0.5)
 
 
-class CoursePerformanceAnswerDistributionPresenterTests(TestCase):
+@override_settings(COURSE_API_URL=COURSE_API_URL)
+class CoursePerformancePresenterTests(TestCase):
     def setUp(self):
+        cache.clear()
         self.course_id = 'edX/DemoX/Demo_Course'
         self.problem_id = 'i4x://edX/DemoX.1/problem/05d289c5ad3d47d48a77622c4a81ec36'
         self.presenter = CoursePerformancePresenter(self.course_id)
@@ -284,8 +291,8 @@ class CoursePerformanceAnswerDistributionPresenterTests(TestCase):
         for part in problem_parts:
             expected = part['expected']
             last_updated, questions, active_question, answer_distributions, answer_distribution_limited, \
-                is_random, answer_type, \
-                problem_part_description = self.presenter.get_answer_distribution(self.problem_id, part['part_id'])
+            is_random, answer_type, \
+            problem_part_description = self.presenter.get_answer_distribution(self.problem_id, part['part_id'])
             self.assertEqual(last_updated, utils.CREATED_DATETIME)
             self.assertListEqual(questions, utils.get_presenter_performance_answer_distribution_questions())
             self.assertEqual(problem_part_description, expected['problem_part_description'])
@@ -299,3 +306,71 @@ class CoursePerformanceAnswerDistributionPresenterTests(TestCase):
                 self.assertIsNone(answer_distribution_limited)
             else:
                 self.assertListEqual(answer_distribution_limited, expected_answer_distribution[:12])
+
+    @mock.patch('slumber.Resource.get', mock.Mock(return_value=CoursePerformanceMockData.MOCK_GRADING_POLICY))
+    def test_grading_policy(self):
+        """ Verify the presenter returns the correct grading policy. """
+        self.assertListEqual(self.presenter.grading_policy(), CoursePerformanceMockData.MOCK_GRADING_POLICY)
+
+    @mock.patch('courses.presenters.CoursePerformancePresenter.grading_policy',
+                CoursePerformanceMockData.MOCK_GRADING_POLICY)
+    def test_assignment_types(self):
+        """ Verify the presenter returns the correct assignment types. """
+        self.assertListEqual(self.presenter.assignment_types, CoursePerformanceMockData.MOCK_ASSIGNMENT_TYPES)
+
+    def _get_expected_assignments(self, assignment_type=None):
+        assignments = CoursePerformanceMockData.MOCK_ASSIGNMENTS()
+
+        # Filter by assignment type
+        if assignment_type:
+            assignment_type = assignment_type.lower()
+            assignments = [assignment for assignment in assignments if
+                           assignment['assignment_type'].lower() == assignment_type]
+
+        # Add metadata and submission counts
+        order = 1
+        for assignment in assignments:
+            problems = assignment['problems']
+            num_problems = len(problems)
+            for problem in problems:
+                problem.update({
+                    'total_submissions': 1,
+                    'correct_submissions': 1,
+                    'part_ids': []
+                })
+            assignment['num_problems'] = num_problems
+            assignment['total_submissions'] = num_problems
+            assignment['correct_submissions'] = num_problems
+            assignment['order'] = order
+            order += 1
+
+        return assignments
+
+    @mock.patch('slumber.Resource.get', mock.Mock(return_value=CoursePerformanceMockData.MOCK_ASSIGNMENTS()))
+    def test_assignments(self):
+        """ Verify the presenter returns the correct assignments. """
+
+
+
+        with mock.patch('analyticsclient.module.Module.submission_counts', CoursePerformanceMockData.submission_counts):
+            with mock.patch('analyticsclient.module.Module.part_ids', CoursePerformanceMockData.part_ids):
+                # With not assignment type set, the method should return all assignment types.
+                self.assertListEqual(self.presenter.assignments(), self._get_expected_assignments())
+
+                # With an assignment type set, the presenter should return only the assignments of the specified type.
+                for assignment_type in CoursePerformanceMockData.MOCK_ASSIGNMENT_TYPES:
+                    self.assertListEqual(self.presenter.assignments(assignment_type),
+                                         self._get_expected_assignments(assignment_type))
+
+    @mock.patch('courses.presenters.CoursePerformancePresenter.assignments',
+                mock.Mock(return_value=CoursePerformanceMockData.MOCK_ASSIGNMENTS()))
+    def test_assignment(self):
+        """ Verify the presenter returns a specific assignment. """
+
+        # The method should return None if the assignment does not exist.
+        self.assertIsNone(self.presenter.assignment(None))
+        self.assertIsNone(self.presenter.assignment('non-existent-id'))
+
+        # The method should return an individual assignment if the ID exists.
+        homework = CoursePerformanceMockData.HOMEWORK
+        self.assertDictEqual(self.presenter.assignment(homework['id']), homework)

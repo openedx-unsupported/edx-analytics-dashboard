@@ -1,0 +1,86 @@
+{% load i18n %}
+{% load dashboard_extras %}
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="graded-content-nav">
+      <ul class="nav navbar-nav">
+        <li class="{% if active == "assignment_type" %}active{% endif %} nav-section">
+          <div class="dropdown">
+              <span class="link-label dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                {% trans "Assignment Types" %}
+                <span class="caret"></span>
+              </span>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+              {% for assignment_type in assignment_types %}
+                <li role="presentation">
+                  <a role="menuitem"
+                     href="{% url "courses:performance_graded_content_by_type" course_id=course_id assignment_type=assignment_type %}">
+                    {{ assignment_type }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </li>
+        {% if assignments %}
+          <li class="nav-section separator">
+            <i class="fa fa-caret-right"></i>
+          </li>
+          <li class="{% if active == "assignments" %}active{% endif %} nav-section">
+            <div class="dropdown">
+              <span class="link-label dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                {% trans "Assignments" %}
+                <span class="caret"></span>
+              </span>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                {% for assignment in assignments %}
+                  <li role="presentation">
+                    <a role="menuitem"
+                       href="{% url "courses:performance_assignment" course_id=course_id assignment_id=assignment.id %}">
+                      {{ assignment.name }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </li>
+        {% endif %}
+        {% if problems %}
+          <li class="nav-section separator">
+            <i class="fa fa-caret-right"></i>
+          </li>
+          <li class="{% if active == "problems" %}active{% endif %} nav-section">
+            <div class="dropdown">
+              <span class="link-label dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                {% trans "Problems" %}
+                <span class="caret"></span>
+              </span>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                {% for problem in problems %}
+                  {% if problem.part_ids|length > 1 %}
+                    {% for part_id in problem.part_ids %}
+                      {% captureas name %}
+                        {{ problem.name }} {% blocktrans with value=forloop.counter %}Part
+                        {{ value }}{% endblocktrans %}
+                      {% endcaptureas %}
+                      {% include 'courses/_graded_content_nav_problem.html' with course_id=course_id assignment_id=assignment.id problem_id=problem.id part_id=part_id enabled=True name=name %}
+                    {% endfor %}
+                  {% elif problem.part_ids|length == 1 %}
+                    {% include 'courses/_graded_content_nav_problem.html' with course_id=course_id assignment_id=assignment.id problem_id=problem.id part_id=problem.part_ids.0 enabled=True name=problem.name %}
+                  {% else %}
+                    {% include 'courses/_graded_content_nav_problem.html' with course_id=course_id assignment_id=assignment.id problem_id=problem.id part_id=None enabled=False name=problem.name %}
+                  {% endif %}
+
+                {% endfor %}
+              </ul>
+            </div>
+          </li>
+        {% endif %}
+      </ul>
+      <div class="section-heading">
+        <span class="section-heading-note small">{{ heading_note }}</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,7 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 import analyticsclient.constants.activity_type as AT
 
 from courses.tests.test_views import ViewTestMixin, CourseViewTestMixin, \
-    CourseEnrollmentViewTestMixin, DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID, COURSE_API_URL
+    CourseEnrollmentViewTestMixin, DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID, COURSE_API_URL, COURSE_API_VERSION
 from courses.exceptions import PermissionsRetrievalFailedError
 from courses.tests.test_middleware import MiddlewareAssertionMixin
 from courses.tests import utils, SwitchMixin
@@ -216,14 +216,15 @@ class CourseIndexViewTests(SwitchMixin, ViewTestMixin, MiddlewareAssertionMixin,
         self.assertEqual(response.status_code, 403)
 
     @httpretty.activate
-    @override_settings(COURSE_API_URL=COURSE_API_URL, COURSE_API_KEY='edx')
+    @override_settings(COURSE_API_URL=COURSE_API_URL)
     def test_get_with_course_api(self):
         """ Verify that the view properly retrieves data from the course API. """
         self.toggle_switch('enable_course_api', True)
-        httpretty.register_uri(httpretty.GET, COURSE_API_URL + 'courses/', body=json.dumps(COURSE_API_COURSE_LIST),
-                               content_type="application/json")
+        httpretty.register_uri(httpretty.GET, '{}/courses/{}/'.format(COURSE_API_URL, COURSE_API_VERSION),
+                               body=json.dumps(COURSE_API_COURSE_LIST), content_type="application/json")
 
         courses = self._create_course_list(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID, with_name=True)
+        self.assertIsNotNone(httpretty.last_request())
         self.assertCourseListEquals(courses)
 
         # Test with mixed permissions

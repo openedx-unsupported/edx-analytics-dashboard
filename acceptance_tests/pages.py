@@ -27,6 +27,7 @@ class DashboardPage(PageObject):
 
 class LandingPage(DashboardPage):
     path = ''
+
     def __init__(self, browser):
         super(LandingPage, self).__init__(browser)
 
@@ -159,6 +160,16 @@ class CourseIndexPage(DashboardPage):
 
     def is_browser_on_page(self):
         return self.browser.title.startswith('Courses')
+
+
+class CoursePerformanceGradedContentPage(CoursePage):
+    def __init__(self, browser, course_id=None):
+        super(CoursePerformanceGradedContentPage, self).__init__(browser, course_id)
+        self.page_url += '/performance/graded_content/'
+
+    def is_browser_on_page(self):
+        return super(CoursePerformanceGradedContentPage, self).is_browser_on_page() and \
+               'Graded Content' in self.browser.title
 
 
 class ErrorPage(DashboardPage):

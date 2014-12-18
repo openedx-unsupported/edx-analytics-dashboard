@@ -1,0 +1,56 @@
+{% extends "courses/base-course.html" %}
+{% load i18n %}
+
+
+{% block child_content %}
+  <section class="view-section">
+    {% trans "How are students doing on course assignments?" as heading_note %}
+    {% include "courses/_graded_content_nav.html" with active="assignment_type" assignment_types=assignment_types heading_note=heading_note %}
+    <div class="section-content section-data-table grading-policy">
+      <div class="tooltip-container">
+        {% trans "Click an assignment type to view more detail information about the assignments." as tip_text %}
+        {% include "chart_tooltip.html" with tip_text=tip_text track_category="grading_policy" %}
+      </div>
+      <div class="row">
+        {% for item in grading_policy %}
+          <a href="{% url "courses:performance_graded_content_by_type" course_id=course_id assignment_type=item.type %}">
+            <div class="col-md-{% widthratio item.weight 1 12 %} policy-item">
+              <div class="policy-item-box">
+                <div class="weight">{% widthratio item.weight 1 100 %}%</div>
+              </div>
+              <div class="type">{{ item.type }}</div>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="view-section">
+    <div class="section-heading">
+      <h4 class="section-title">{% trans "Grading Configuration" %}</h4>
+    </div>
+    <div class="section-content section-data-table grading-configuration">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>{% trans "Assignment Type" %}</th>
+          <th>{% trans "Grade Percentage" %}</th>
+          <th>{% trans "Number of Assignments" %}</th>
+          <th>{% trans "Dropped Scores" %}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in grading_policy %}
+          <tr>
+            <td>{{ item.type }}</td>
+            <td>{% widthratio item.weight 1 100 %}%</td>
+            <td>{{ item.count }}</td>
+            <td>{{ item.dropped }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+{% endblock %}

@@ -579,5 +579,95 @@ table.dataTable thead th.sorting_desc:after {
     // shifts it down so that it's even with the adjacent button
     padding-top: 8px;
   }
+}
 
+.grading-policy {
+  a {
+    color: inherit;
+  }
+
+  .tooltip-container {
+    text-align: right;
+
+    .chart-tooltip {
+      float: none !important;
+      padding: 0 0 $padding-large-vertical;
+    }
+  }
+
+  .policy-item {
+    @extend .text-center;
+
+    .policy-item-box {
+      background-color: $edx-blue-l1;
+      margin-bottom: $padding-base-vertical;
+      height: 50px;
+      line-height: 50px;
+
+      .weight {
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.static-legend {
+  .nvd3 .nv-legend .nv-series {
+    cursor: default;
+  }
+}
+
+.graded-content-nav {
+  @extend .tertiary-nav;
+
+  margin-bottom: -$padding-base-vertical;
+
+  .navbar-nav {
+    .active .dropdown {
+      color: $navbar-default-link-active-color;
+
+      &:hover {
+        color: inherit;
+      }
+    }
+
+    .dropdown, .separator {
+      padding: $nav-link-padding;
+      color: $lens-nav-text-color;
+    }
+
+    .dropdown {
+      cursor: pointer;
+
+      &:hover {
+        color: $edx-gray-d2
+      }
+
+      .dropdown-menu {
+        margin-top: -1px;
+        margin-left: -1px;
+
+        li > a {
+          color: $dropdown-link-color;
+          padding-bottom: $padding-small-vertical;
+
+          &:hover {
+            // Override the transparent background set by the .navbar-nav selector.
+            background: $dropdown-link-hover-bg;
+          }
+        }
+
+        > .disabled > a {
+          &,
+          &:hover,
+          &:focus {
+            color: $navbar-default-link-disabled-color;
+            background-color: $navbar-default-link-disabled-bg;
+          }
+        }
+      }
+    }
+  }
 }

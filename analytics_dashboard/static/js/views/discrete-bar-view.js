@@ -10,22 +10,22 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/bar-view'],
                 }
             ),
 
-            /**
-             * Add ellipses for long labels shown beneath the bar.
-             */
-            formatXTick: function (d) {
-                var barWidth = d3.select('.discreteBar').attr('width'),
-                    // this is a rough estimate of how wide a character is
-                    chartWidth = 5,
-                    characterLimit = Math.floor(barWidth / chartWidth),
-                    formattedLabel = d;
-
-                if (_(formattedLabel).size() > characterLimit) {
-                    formattedLabel = Utils.truncateText(d, characterLimit);
-                }
-
-                return formattedLabel;
-            },
+            ///**
+            // * Add ellipses for long labels shown beneath the bar.
+            // */
+            //formatXTick: function (d) {
+            //    var barWidth = d3.select('.discreteBar').attr('width'),
+            //        // this is a rough estimate of how wide a character is
+            //        chartWidth = 5,
+            //        characterLimit = Math.floor(barWidth / chartWidth),
+            //        formattedLabel = d;
+            //
+            //    if (_(formattedLabel).size() > characterLimit) {
+            //        formattedLabel = Utils.truncateText(d, characterLimit);
+            //    }
+            //
+            //    return formattedLabel;
+            //},
 
             /**
              * Returns the original bar label or "(empty)" if no label provided.

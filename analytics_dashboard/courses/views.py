@@ -18,11 +18,14 @@ from django.utils import dateformat
 from django.views.generic import TemplateView
 from django.utils.translation import ugettext_lazy as _
 from braces.views import LoginRequiredMixin
+from edx_api_client.auth import TokenAuth
+import slumber
 from slumber.exceptions import HttpClientError
 from waffle import switch_is_active
 from analyticsclient.constants import data_format, demographic
 from analyticsclient.client import Client
 from analyticsclient.exceptions import NotFoundError
+import requests
 
 from courses import permissions
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter, \
@@ -53,7 +56,7 @@ class CourseAPIMixin(object):
         self.course_api_enabled = switch_is_active('enable_course_api')
 
         if self.course_api_enabled:
-            self.course_api = edx_api_client.Client(settings.COURSE_API_URL, settings.COURSE_API_KEY).courses
+            self.course_api = slumber.API(settings.COURSE_API_URL, auth=TokenAuth(settings.COURSE_API_KEY)).courses.v0
 
         return super(CourseAPIMixin, self).dispatch(request, *args, **kwargs)
 
@@ -78,6 +81,7 @@ class CourseAPIMixin(object):
 
         if not info:
             try:
+                logger.debug('Retrieving course details: %s', course_id)
                 extra_fields = extra_fields or ''
                 info = self.course_api(course_id).get(depth=depth, include_fields=extra_fields)
                 cache.set(key, info)
@@ -265,6 +269,13 @@ class CourseNavBarMixin(object):
                 'label': _('Engagement'),
                 'view': 'courses:engagement_content',
                 'icon': 'fa-bar-chart',
+            },
+            {
+                'name': 'performance',
+                'label': _('Performance'),
+                'view': 'courses:performance_graded_content',
+                'icon': 'fa-check-square-o',
+                'switch': 'enable_course_api',
             }
         ]
 
@@ -360,14 +371,13 @@ class CourseView(LoginRequiredMixin, CourseValidMixin, CoursePermissionMixin, Te
         # some views will catch the NotFoundError to set data to a state that
         # the template can rendering a loading error message for the section
         try:
+            self.client = Client(base_url=settings.DATA_API_URL, auth_token=settings.DATA_API_AUTH_TOKEN, timeout=30)
             return super(CourseView, self).dispatch(request, *args, **kwargs)
         except NotFoundError:
             raise Http404
 
     def get_context_data(self, **kwargs):
         context = super(CourseView, self).get_context_data(**kwargs)
-        self.client = Client(base_url=settings.DATA_API_URL,
-                             auth_token=settings.DATA_API_AUTH_TOKEN, timeout=5)
         self.course = self.client.courses(self.course_id)
         return context
 
@@ -683,11 +693,10 @@ class PerformanceAnswerDistributionView(PerformanceTemplateView):
 
         problem_id = self.kwargs['content_id']
         part_id = self.kwargs['problem_part_id']
-        view_live_url = None
+        jump_to_url = None
 
-        if settings.LMS_COURSE_SHORTCUT_BASE_URL:
-            view_live_url = '{0}/{1}/jump_to/{2}'.format(settings.LMS_COURSE_SHORTCUT_BASE_URL,
-                                                         self.course_id, problem_id)
+        if settings.LMS_COURSE_JUMP_TO_BASE_URL:
+            jump_to_url = '{0}/{1}/jump_to/{2}'.format(settings.LMS_COURSE_JUMP_TO_BASE_URL, self.course_id, problem_id)
 
         try:
             answer_distribution_entry = presenter.get_answer_distribution(problem_id, part_id)
@@ -710,7 +719,7 @@ class PerformanceAnswerDistributionView(PerformanceTemplateView):
             'problem_id': problem_id,
             'problem_part_id': part_id,
             'problem_part_description': answer_distribution_entry.problem_part_description,
-            'view_live_url': view_live_url,
+            'jump_to_url': jump_to_url,
             'update_message': self.get_last_updated_message(answer_distribution_entry.last_updated)
         })
         context['page_data'] = self.get_page_data(context)
@@ -890,3 +899,162 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LazyEnco
             info.append({'key': course_id, 'name': course_data.get(course_id)})
 
         return info
+
+
+class PerformanceTemplateView(CourseTemplateWithNavView, CourseAPIMixin):
+    """
+    Base view for course performance pages.
+    """
+    assignment_type = None
+    assignment_id = None
+    assignment = None
+    presenter = None
+
+    # Translators: Do not translate UTC.
+    update_message = _('Answer distribution data was last updated %(update_date)s at %(update_time)s UTC.')
+
+    secondary_nav_items = [
+        {'name': 'graded_content', 'label': _('Graded Content'), 'view': 'courses:performance_graded_content'},
+    ]
+    active_primary_nav_item = 'performance'
+    page_title = _('Graded Content')
+    page_name = 'performance_graded_content'
+    active_secondary_nav_item = 'graded_content'
+
+    def dispatch(self, request, *args, **kwargs):
+        self.assignment_id = kwargs.get('assignment_id')
+        return super(PerformanceTemplateView, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(PerformanceTemplateView, self).get_context_data(**kwargs)
+        self.presenter = CoursePerformancePresenter(self.course_id)
+
+        context['assignment_types'] = self.presenter.assignment_types
+
+        if self.assignment_id:
+            assignment = self.presenter.assignment(self.assignment_id)
+            if assignment:
+                context['assignment'] = assignment
+                self.assignment = assignment
+            else:
+                logger.info('Assignment %s not found.', self.assignment_id)
+                raise Http404
+
+        if self.assignment_type:
+            context.update({
+                'assignment_type': self.assignment_type,
+                'assignments': self.presenter.assignments(self.assignment_type)
+            })
+
+        return context
+
+
+class PerformanceAnswerDistributionView(PerformanceTemplateView):
+    template_name = 'courses/performance_answer_distribution.html'
+    page_title = _('Performance Answer Distribution')
+    page_name = 'performance_answer_distribution'
+
+    def get_context_data(self, **kwargs):
+        context = super(PerformanceAnswerDistributionView, self).get_context_data(**kwargs)
+        presenter = CoursePerformancePresenter(self.course_id)
+
+        problem_id = self.kwargs['problem_id']
+        part_id = self.kwargs['problem_part_id']
+        jump_to_url = None
+        assignment = self._get_assignment()
+
+        if settings.LMS_COURSE_JUMP_TO_BASE_URL:
+            jump_to_url = '{0}/{1}/jump_to/{2}'.format(settings.LMS_COURSE_SHORTCUT_BASE_URL, self.course_id, problem_id)
+
+        try:
+            answer_distribution_entry = presenter.get_answer_distribution(problem_id, part_id)
+        except NotFoundError:
+            logger.error("Failed to retrieve performance answer distribution data for %s.", part_id)
+            # if the problem_part_id isn't found, a NotFoundError is thrown and a 404 should be displayed
+            raise NotFoundError
+
+        context['js_data']['course'].update({
+            'answerDistribution': answer_distribution_entry.answer_distribution,
+            'answerDistributionLimited': answer_distribution_entry.answer_distribution_limited,
+            'isRandom': answer_distribution_entry.is_random,
+            'answerType': answer_distribution_entry.answer_type
+        })
+
+        context.update({
+            'course_id': self.course_id,
+            'assignment': assignment,
+            'questions': answer_distribution_entry.questions,
+            'active_question': answer_distribution_entry.active_question,
+            'problem_id': problem_id,
+            'problem_part_id': part_id,
+            'problem_part_description': answer_distribution_entry.problem_part_description,
+            'jump_to_url': jump_to_url,
+            'update_message': self.get_last_updated_message(answer_distribution_entry.last_updated)
+        })
+        context['page_data'] = self.get_page_data(context)
+
+        return context
+
+
+class PerformanceGradedContent(PerformanceTemplateView):
+    template_name = 'courses/performance_graded_content.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(PerformanceGradedContent, self).get_context_data(**kwargs)
+
+        context.update({
+            'grading_policy': self.grading_policy(),
+            'page_data': self.get_page_data(context)
+        })
+
+        return context
+
+
+class PerformanceGradedContentByType(PerformanceTemplateView):
+    template_name = 'courses/performance_graded_content_by_type.html'
+    page_title = _('Graded Content')
+    page_name = 'performance_graded_content'
+    active_secondary_nav_item = 'graded_content'
+
+    def dispatch(self, request, *args, **kwargs):
+        self.assignment_type = kwargs['assignment_type']
+        return super(PerformanceGradedContentByType, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(PerformanceGradedContentByType, self).get_context_data(**kwargs)
+
+        assignment_type = self.assignment_type
+        assignments = self.presenter.assignments(assignment_type)
+
+        if not assignments:
+            # If there are no assignments, either the course is incomplete or the assignment type is invalid.
+            # It is more likely that the assignment type is invalid, so return a 404.
+            raise Http404
+
+        context['js_data']['course']['assignments'] = assignments
+        context['js_data']['course']['assignmentType'] = assignment_type
+
+        context.update({
+            'page_data': self.get_page_data(context)
+        })
+
+        return context
+
+
+class PerformanceAssignment(PerformanceTemplateView):
+    # TODO Correct these properties
+    template_name = 'courses/performance_assignment.html'
+    page_title = _('Graded Content')
+    page_name = 'performance_graded_content'
+    active_secondary_nav_item = 'graded_content'
+
+    def get_context_data(self, **kwargs):
+        context = super(PerformanceAssignment, self).get_context_data(**kwargs)
+
+        context['js_data']['course']['problems'] = self.assignment['problems']
+
+        context.update({
+            'page_data': self.get_page_data(context)
+        })
+
+        return context

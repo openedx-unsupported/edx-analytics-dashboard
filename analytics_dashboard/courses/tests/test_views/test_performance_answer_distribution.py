@@ -1,25 +1,27 @@
 import json
+
 import mock
 from ddt import ddt
-
 from django.test import TestCase
 from django.test.utils import override_settings
 
-from courses.tests.test_views import ProblemViewTestMixin
+from courses.tests.test_views import ProblemViewTestMixin, COURSE_API_URL
 from courses.tests import utils
 
 
 @ddt
+@override_settings(COURSE_API_URL=COURSE_API_URL)
 class CoursePerformanceAnswerDistribution(ProblemViewTestMixin, TestCase):
-    viewname = 'courses:performance_answerdistribution'
+    viewname = 'courses:performance_answer_distribution'
     presenter_method = 'courses.presenters.CoursePerformancePresenter.get_answer_distribution'
 
     @override_settings(LMS_COURSE_SHORTCUT_BASE_URL='a/url')
     def assertViewIsValid(self, course_id, problem_id, problem_part_id):
         rv = utils.get_presenter_answer_distribution(course_id, problem_part_id)
         with mock.patch(self.presenter_method, return_value=rv):
-            response = self.client.get(self.path(course_id=course_id, content_id=problem_id,
-                                                 problem_part_id=problem_part_id))
+            assignment_id = 'i4x://edX/DemoX.1/sequential/1234'
+            response = self.client.get(self.path(course_id=course_id, assignment_id=assignment_id,
+                                                 problem_id=problem_id, problem_part_id=problem_part_id))
 
         context = response.context
 

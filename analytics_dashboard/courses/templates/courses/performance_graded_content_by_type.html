@@ -1,0 +1,41 @@
+{% extends "courses/base-course.html" %}
+{% load i18n %}
+{% load rjs %}
+{% load dashboard_extras %}
+
+{% block javascript %}
+  {{ block.super }}
+  <script src="{% static_rjs 'js/performance-graded-content-assignment-types-main.js' %}"></script>
+{% endblock javascript %}
+
+{% block child_content %}
+  <section class="view-section">
+    {% include "courses/_graded_content_nav.html" with active="assignment_type" assignment_types=assignment_types assignments=assignments %}
+
+    <div class="section-content section-data-graph">
+      <div class="section-content section-data-viz">
+        <div class="analytics-chart-container">
+          {% include "chart_tooltip.html" with tip_text="TODO: Add tooltip text." track_category="bar" %}
+          <div id="chart-view" class="analytics-chart static-legend">
+            {% include "loading.html" %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="view-section">
+    <div class="section-heading">
+      <h4 class="section-title">{% trans "Assignment Breakdown" %}</h4>
+    </div>
+
+    {% if js_data.course.assignments %}
+      <div class="section-content section-data-table" data-role="assignment-table">
+        {% include "loading.html" %}
+      </div>
+    {% else %}
+      {% show_table_error %}
+    {% endif %}
+
+  </section>
+{% endblock %}

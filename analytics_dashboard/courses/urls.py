@@ -4,10 +4,11 @@ from django.conf.urls import url, patterns, include
 
 from courses import views
 
-COURSE_ID_PATTERN = r'(?P<course_id>[^/+]+[/+][^/+]+[/+][^/]+)'
 CONTENT_ID_PATTERN = r'(?P<content_id>[\.a-zA-Z0-9_+\/:-]+)'
+COURSE_ID_PATTERN = r'(?P<course_id>[^/+]+[/+][^/+]+[/+][^/]+)'
 PROBLEM_PART_ID_PATTERN = r'(?P<problem_part_id>[^/]+)'
-
+ASSIGNMENT_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'assignment_id')
+PROBLEM_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'problem_id')
 
 COURSE_URLS = patterns(
     '',
@@ -22,9 +23,7 @@ COURSE_URLS = patterns(
     url(r'^enrollment/demographics/gender/$', views.EnrollmentDemographicsGenderView.as_view(),
         name='enrollment_demographics_gender'),
     url(r'^engagement/content/$', views.EngagementContentView.as_view(), name='engagement_content'),
-    url(r'^performance/graded_content/problems/{}/answerdistribution/{}/$'.format(
-        CONTENT_ID_PATTERN, PROBLEM_PART_ID_PATTERN),
-        views.PerformanceAnswerDistributionView.as_view(), name='performance_answerdistribution'),
+
     url(r'^csv/enrollment/$', views.CourseEnrollmentCSV.as_view(), name='csv_enrollment'),
     url(r'^csv/enrollment_by_country/$', views.CourseEnrollmentByCountryCSV.as_view(),
         name='csv_enrollment_by_country'),
@@ -36,9 +35,19 @@ COURSE_URLS = patterns(
         name='csv_enrollment_demographics_gender'),
     url(r'^csv/engagement_activity_trend/$', views.CourseEngagementActivityTrendCSV.as_view(),
         name='csv_engagement_activity_trend'),
-    url(r'^csv/performance/graded_content/problems/{}/answerdistribution/{}/$'.format(
-        CONTENT_ID_PATTERN, PROBLEM_PART_ID_PATTERN),
-        views.PerformanceAnswerDistributionCSV.as_view(), name='csv_performance_answerdistribution'),
+    url(r'^csv/performance/graded_content/problems/{}/answer_distribution/(?P<problem_part_id>[^/]+)/$'.format(
+        CONTENT_ID_PATTERN),
+        views.PerformanceAnswerDistributionCSV.as_view(), name='csv_performance_answer_distribution'),
+    url(r'^performance/graded_content/$', views.PerformanceGradedContent.as_view(), name='performance_graded_content'),
+    url(r'^performance/graded_content/(?P<assignment_type>\w+)/$', views.PerformanceGradedContentByType.as_view(),
+        name='performance_graded_content_by_type'),
+    url(
+        r'^performance/graded_content/assignments/{assignment_id}/problems/{problem_id}/parts/{part_id}/answer_distribution/$'.format(
+            assignment_id=ASSIGNMENT_ID_PATTERN, problem_id=PROBLEM_ID_PATTERN, part_id=PROBLEM_PART_ID_PATTERN),
+        views.PerformanceAnswerDistributionView.as_view(),
+        name='performance_answer_distribution'),
+    url(r'^performance/graded_content/assignments/{}/$'.format(ASSIGNMENT_ID_PATTERN),
+        views.PerformanceAssignment.as_view(), name='performance_assignment'),
 )
 
 urlpatterns = patterns(

@@ -13,6 +13,7 @@ from analyticsclient.constants import enrollment_modes
 from courses.permissions import set_user_course_permissions
 from courses.presenters import AnswerDistributionEntry
 
+
 CREATED_DATETIME = datetime.datetime(year=2014, month=2, day=2)
 CREATED_DATETIME_STRING = CREATED_DATETIME.strftime(Client.DATETIME_FORMAT)
 GAP_START = 2
@@ -609,3 +610,164 @@ def get_presenter_answer_distribution(course_id, problem_part_id):
 
     return AnswerDistributionEntry(CREATED_DATETIME, questions, active_question, answer_distributions,
                                    answer_distribution_limited, is_random, answer_type, problem_part_description)
+
+
+class CoursePerformanceMockData(object):
+    MOCK_ASSIGNMENT_TYPES = ['Homework', 'Exam']
+
+    MOCK_GRADING_POLICY = [
+        {
+            "assignment_type": "Homework",
+            "count": 24,
+            "dropped": 0,
+            "weight": 0.2
+        },
+        {
+            "assignment_type": "Exam",
+            "count": 4,
+            "dropped": 0,
+            "weight": 0.8
+        }
+    ]
+
+    HOMEWORK = {
+        "id": "i4x://MITx/4.605x_2/sequential/8084d006f7b54d79a5144c27cd672fae",
+        "name": "Lecture 1: First Societies",
+        "assignment_type": "Homework",
+        "problems": [
+            {"id": "i4x://MITx/4.605x_2/problem/86366abbadfc47f59f62540df86f6986", "name": "Review Question 1.1"},
+            {"id": "i4x://MITx/4.605x_2/problem/640ae07b291242788ec47d8a464a4e58", "name": "Review Question 1.2.1"},
+            {"id": "i4x://MITx/4.605x_2/problem/71f03afd87dc4598bae692236579df13", "name": "Review Question 1.2.2"},
+            {"id": "i4x://MITx/4.605x_2/problem/d0fe991c052045298ed62392aa6d3a49", "name": "Review Question 1.3.1"},
+            {"id": "i4x://MITx/4.605x_2/problem/172a1d98df9b4e2f9e392bb09d347999", "name": "Review Question 1.3.2"},
+            {"id": "i4x://MITx/4.605x_2/problem/fefc5371c8cb4946adefc8e56722e943", "name": "Review Question 1.4.1"}
+        ]
+    }
+
+    MOCK_ASSIGNMENTS = [
+        HOMEWORK,
+        {
+            "id": "i4x://MITx/4.605x_2/sequential/b920b1a3cd7a4d468c2fcc9ba5c068ad",
+            "name": "Exam 1",
+            "assignment_type": "Exam",
+            "problems": [
+                {
+                    "id": "i4x://MITx/4.605x_2/problem/fe34b590f0ad440482d32476e192d9ba",
+                    "name": "Exam 1 Problem 1"
+                },
+                {
+                    "id": "i4x://MITx/4.605x_2/problem/6c311f0af1144955aa423b3b7d2d6c25",
+                    "name": "Exam 1 Problem 2"
+                },
+                {
+                    "id": "i4x://MITx/4.605x_2/problem/bf2903fef26a4b87befe07447f22798c",
+                    "name": "Exam 1 Problem 3"
+                },
+                {
+                    "id": "i4x://MITx/4.605x_2/problem/349af94a84af4fe2ab6f6a9daf2f9628",
+                    "name": "Exam 1 Problem 4"
+                },
+                {
+                    "id": "i4x://MITx/4.605x_2/problem/9e85e7396e6442089e1e8f433b117f21",
+                    "name": "Exam 1 Problem 5"
+                },
+                {
+                    "id": "i4x://MITx/4.605x_2/problem/0f0f71acf3634aaa88aa10a626294c82",
+                    "name": "Exam 1 Problem 6"
+                },
+                {
+                    "id": "i4x://MITx/4.605x_2/problem/ce09b229369c40b8b2b35069faa1eaf8",
+                    "name": "Exam 1 Question 7"
+                },
+                {
+                    "id": "i4x://MITx/4.605x_2/problem/8adc0416021b423aa56809f49bd7f973",
+                    "name": "Exam 1 Question 8"
+                },
+                {
+                    "id": "i4x://MITx/4.605x_2/problem/ef3f0d62a9aa4351b01b4c041d15c939",
+                    "name": "Exam 1 Question 9"
+                },
+                {
+                    "id": "i4x://MITx/4.605x_2/problem/00e92457ba484c24b8b1dd35d098ef40",
+                    "name": "Exam 1 Question 10"
+                },
+                {
+                    "id": "i4x://MITx/4.605x_2/problem/959082a899db480fb90ae70756e88fff",
+                    "name": "Exam 1 Question 11"
+                },
+                {
+                    "id": "i4x://MITx/4.605x_2/problem/013da6ded6d6458dbba07215857d7ce4",
+                    "name": "Exam 1 Question 12"
+                }
+            ]
+        }
+    ]
+
+    @classmethod
+    def MOCK_ASSIGNMENTS(cls):
+        return [
+            copy.deepcopy(cls.HOMEWORK),
+            {
+                "id": "i4x://MITx/4.605x_2/sequential/b920b1a3cd7a4d468c2fcc9ba5c068ad",
+                "name": "Exam 1",
+                "assignment_type": "Exam",
+                "problems": [
+                    {
+                        "id": "i4x://MITx/4.605x_2/problem/fe34b590f0ad440482d32476e192d9ba",
+                        "name": "Exam 1 Problem 1"
+                    },
+                    {
+                        "id": "i4x://MITx/4.605x_2/problem/6c311f0af1144955aa423b3b7d2d6c25",
+                        "name": "Exam 1 Problem 2"
+                    },
+                    {
+                        "id": "i4x://MITx/4.605x_2/problem/bf2903fef26a4b87befe07447f22798c",
+                        "name": "Exam 1 Problem 3"
+                    },
+                    {
+                        "id": "i4x://MITx/4.605x_2/problem/349af94a84af4fe2ab6f6a9daf2f9628",
+                        "name": "Exam 1 Problem 4"
+                    },
+                    {
+                        "id": "i4x://MITx/4.605x_2/problem/9e85e7396e6442089e1e8f433b117f21",
+                        "name": "Exam 1 Problem 5"
+                    },
+                    {
+                        "id": "i4x://MITx/4.605x_2/problem/0f0f71acf3634aaa88aa10a626294c82",
+                        "name": "Exam 1 Problem 6"
+                    },
+                    {
+                        "id": "i4x://MITx/4.605x_2/problem/ce09b229369c40b8b2b35069faa1eaf8",
+                        "name": "Exam 1 Question 7"
+                    },
+                    {
+                        "id": "i4x://MITx/4.605x_2/problem/8adc0416021b423aa56809f49bd7f973",
+                        "name": "Exam 1 Question 8"
+                    },
+                    {
+                        "id": "i4x://MITx/4.605x_2/problem/ef3f0d62a9aa4351b01b4c041d15c939",
+                        "name": "Exam 1 Question 9"
+                    },
+                    {
+                        "id": "i4x://MITx/4.605x_2/problem/00e92457ba484c24b8b1dd35d098ef40",
+                        "name": "Exam 1 Question 10"
+                    },
+                    {
+                        "id": "i4x://MITx/4.605x_2/problem/959082a899db480fb90ae70756e88fff",
+                        "name": "Exam 1 Question 11"
+                    },
+                    {
+                        "id": "i4x://MITx/4.605x_2/problem/013da6ded6d6458dbba07215857d7ce4",
+                        "name": "Exam 1 Question 12"
+                    }
+                ]
+            }
+        ]
+
+    @classmethod
+    def submission_counts(cls, problem_ids):
+        return [{'module_id': problem_id, 'correct': 1, 'total': 1} for problem_id in problem_ids]
+
+    @classmethod
+    def part_ids(cls, problem_ids):
+        return [{'module_id': problem_id, 'part_ids': []} for problem_id in problem_ids]

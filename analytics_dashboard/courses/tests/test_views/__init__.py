@@ -14,12 +14,13 @@ from analyticsclient.exceptions import NotFoundError
 from analytics_dashboard.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin
 from courses.permissions import set_user_course_permissions, revoke_user_course_permissions
 from courses.tests import SwitchMixin
-from courses.tests.utils import set_empty_permissions, get_mock_api_enrollment_data
+from courses.tests.utils import set_empty_permissions, get_mock_api_enrollment_data, CoursePerformanceMockData
 
 
 DEMO_COURSE_ID = 'course-v1:edX+DemoX+Demo_2014'
 DEPRECATED_DEMO_COURSE_ID = 'edX/DemoX/Demo_Course'
-COURSE_API_URL = 'http://example.com/api/server/'
+COURSE_API_URL = 'http://course-api-host'
+COURSE_API_VERSION = 'v0'
 
 
 class PermissionsTestMixin(object):
@@ -93,13 +94,10 @@ class ViewTestMixin(AuthTestMixin):
     presenter_method = None
 
     def path(self, **kwargs):
-        # if kwargs is None:
-        #     kwargs = {}
         return reverse(self.viewname, kwargs=kwargs)
 
 
 class NavAssertMixin(object):
-
     def generate_course_name(self, course_id):
         return 'Test ' + course_id
 
@@ -122,7 +120,6 @@ class NavAssertMixin(object):
 
 @ddt
 class CourseViewTestMixin(SwitchMixin, NavAssertMixin, ViewTestMixin):
-
     @mock.patch('courses.views.CourseValidMixin.is_valid_course', mock.Mock(return_value=False))
     def test_invalid_course(self):
         course_id = 'fakeOrg/soFake/Fake_Course'
@@ -136,11 +133,11 @@ class CourseViewTestMixin(SwitchMixin, NavAssertMixin, ViewTestMixin):
         raise NotImplementedError
 
     @httpretty.activate
-    @override_settings(COURSE_API_URL=COURSE_API_URL, COURSE_API_KEY='edx')
+    @override_settings(COURSE_API_URL=COURSE_API_URL)
     @data(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
     def test_valid_course(self, course_id):
         self.toggle_switch('enable_course_api', True)
-        url = '{}courses/{}/'.format(COURSE_API_URL, course_id)
+        url = '{}/courses/{}/{}/'.format(COURSE_API_URL, COURSE_API_VERSION, course_id)
         body = json.dumps({
             'id': course_id,
             'name': self.generate_course_name(course_id)
@@ -165,8 +162,12 @@ class CourseViewTestMixin(SwitchMixin, NavAssertMixin, ViewTestMixin):
         self.assertEqual(context['course_name'], course_name)
 
 
+@mock.patch('courses.presenters.CoursePerformancePresenter.assignments',
+            mock.Mock(return_value=CoursePerformanceMockData.MOCK_ASSIGNMENTS()))
+@mock.patch('courses.presenters.CoursePerformancePresenter.grading_policy',
+            mock.Mock(return_value=CoursePerformanceMockData.MOCK_GRADING_POLICY))
 @ddt
-class ProblemViewTestMixin(NavAssertMixin, ViewTestMixin):
+class ProblemViewTestMixin(SwitchMixin, NavAssertMixin, ViewTestMixin):
     presenter_method = None
 
     PROBLEM_ID = 'i4x://edX/DemoX.1/problem/05d289c5ad3d47d48a77622c4a81ec36'
@@ -176,10 +177,24 @@ class ProblemViewTestMixin(NavAssertMixin, ViewTestMixin):
 
     # API returns different data (e.g. text answers, numeric answers, and randomized answers), resulting in
     # different renderings for these problem part IDs.
+    @httpretty.activate
     @data((DEMO_COURSE_ID, PROBLEM_ID, TEXT_PROBLEM_PART_ID), (DEMO_COURSE_ID, PROBLEM_ID, NUMERIC_PROBLEM_PART_ID),
           (DEMO_COURSE_ID, PROBLEM_ID, RANDOMIZED_PROBLEM_PART_ID))
     @unpack
     def test_valid_course(self, course_id, problem_id, problem_part_id):
+        self.toggle_switch('enable_course_api', True)
+
+        # MOck the course details
+        url = '{}/courses/{}/{}/'.format(COURSE_API_URL, COURSE_API_VERSION, course_id)
+        body = json.dumps({
+            'id': course_id,
+            'name': self.generate_course_name(course_id)
+        })
+        httpretty.register_uri(httpretty.GET, url, body=body, content_type="application/json")
+
+        # Mock the graded content
+        url = '{}/courses/{}/{}/content/'.format(COURSE_API_URL, COURSE_API_VERSION, course_id)
+        httpretty.register_uri(httpretty.GET, url, body='{}', content_type="application/json")
         self.assertViewIsValid(course_id, problem_id, problem_part_id)
 
 
