@@ -13,13 +13,14 @@ define(['nvd3', 'views/trends-view'],
             },
 
             render: function () {
-                TrendsView.prototype.render.call(this);
+                var self = this;
+                TrendsView.prototype.render.call(self);
 
                 // Disable expansion of stacked chart datasets
-                this.chart.stacked.dispatch.on('areaClick', null);
-                this.chart.stacked.dispatch.on('areaClick.toggle', null);
+                self.chart.stacked.dispatch.on('areaClick', null);
+                self.chart.stacked.dispatch.on('areaClick.toggle', null);
 
-                return this;
+                return self;
             }
         });
 

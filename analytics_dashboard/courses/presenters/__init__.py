@@ -14,7 +14,7 @@ class BasePresenter(object):
     for the presenters to use to access the data API.
     """
 
-    def __init__(self, course_id, timeout=5):
+    def __init__(self, course_id, timeout=10):
         self.client = Client(base_url=settings.DATA_API_URL,
                              auth_token=settings.DATA_API_AUTH_TOKEN,
                              timeout=timeout)

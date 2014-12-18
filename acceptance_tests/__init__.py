@@ -9,7 +9,7 @@ def str2bool(s):
     return s.lower() in (u"yes", u"true", u"t", u"1")
 
 # Dashboard settings
-DASHBOARD_SERVER_URL = os.environ.get('DASHBOARD_SERVER_URL', 'http://127.0.0.1:9000')
+DASHBOARD_SERVER_URL = os.environ.get('DASHBOARD_SERVER_URL', 'http://localhost:9000')
 DASHBOARD_FEEDBACK_EMAIL = os.environ.get('DASHBOARD_FEEDBACK_EMAIL', 'override.this.email@example.com')
 PLATFORM_NAME = os.environ.get('PLATFORM_NAME', 'edX')
 APPLICATION_NAME = os.environ.get('APPLICATION_NAME', 'Insights')
@@ -33,14 +33,17 @@ BASIC_AUTH_PASSWORD = os.environ.get('BASIC_AUTH_PASSWORD')
 LMS_HOSTNAME = os.environ.get('LMS_HOSTNAME')
 LMS_USERNAME = os.environ.get('LMS_USERNAME')
 LMS_PASSWORD = os.environ.get('LMS_PASSWORD')
+LMS_SSL_ENABLED = str2bool(os.environ.get('LMS_SSL_ENABLED', True))
 
 if ENABLE_OAUTH_TESTS and not (LMS_HOSTNAME and LMS_USERNAME and LMS_PASSWORD):
     raise Exception('LMS settings must be set in order to test OAuth.')
 
 TEST_COURSE_ID = os.environ.get('TEST_COURSE_ID', u'edX/DemoX/Demo_Course')
-TEST_PROBLEM_ID = os.environ.get('TEST_PROBLEM_ID', u'i4x://edX/DemoX.1/problem/05d289c5ad3d47d48a77622c4a81ec36')
+TEST_ASSIGNMENT_TYPE = os.environ.get('TEST_ASSIGNMENT_TYPE', 'Homework')
+TEST_ASSIGNMENT_ID = os.environ.get('TEST_ASSIGNMENT_ID', u'i4x://edX/DemoX/sequential/basic_questions')
+TEST_PROBLEM_ID = os.environ.get('TEST_PROBLEM_ID', u'i4x://edX/DemoX/problem/a0effb954cca4759994f1ac9e9434bf4')
 TEST_PROBLEM_PART_ID = os.environ.get('TEST_PROBLEM_PART_ID',
-                                      u'i4x-edX-DemoX_1-problem-05c289c5ad3d47d48a77622c4a81ec33_2_1')
+                                      u'i4x-edX-DemoX-problem-a0effb954cca4759994f1ac9e9434bf4_2_1')
 
 DOC_BASE_URL = os.environ.get('DOC_BASE_URL', 'http://edx-insights.readthedocs.org/en/latest')
 

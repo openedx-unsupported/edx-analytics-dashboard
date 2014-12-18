@@ -36,7 +36,7 @@ define(['utils/utils'], function (Utils) {
             });
         });
 
-        it('should return node attributes', function () {
+        it('should format dates', function () {
             expect(Utils.formatDate('2014-01-31')).toEqual('January 31, 2014');
             expect(Utils.formatDate('2014-01-01')).toEqual('January 1, 2014');
         });
@@ -67,6 +67,13 @@ define(['utils/utils'], function (Utils) {
 
         it('should return short truncations without ellipse', function () {
             expect(Utils.truncateText('yes', 2)).toEqual('ye');
+        });
+    });
+
+    describe('localizeNumber', function () {
+        it('should format values', function () {
+            expect(Utils.localizeNumber(14)).toEqual('14');
+            expect(Utils.localizeNumber(12345)).toEqual('12,345');
         });
     });
 

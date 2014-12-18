@@ -68,6 +68,7 @@ class CourseIndexViewTests(CourseAPIMixin, ViewTestMixin, MiddlewareAssertionMix
         self.toggle_switch('enable_course_api', True)
         self.mock_course_list()
         courses = self._create_course_list(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID, with_name=True)
+        self.assertIsNotNone(httpretty.last_request())
         self.assertCourseListEquals(courses)
 
         # Test with mixed permissions

@@ -14,7 +14,8 @@ define(['models/course-model', 'views/discrete-bar-view'], function(CourseModel,
                         }
                     }],
                     x: { key: 'category' },
-                    y: { key: 'count' }
+                    y: { key: 'count' },
+                    dataType: 'percent'
                 }),
                 data = [
                     {
@@ -45,10 +46,16 @@ define(['models/course-model', 'views/discrete-bar-view'], function(CourseModel,
                 }
             }
 
+            expect(view.options.barSelector).toBe('.discreteBar');
             expect(view.getChart).toHaveBeenCalled();
 
             expect(view.parseXData(data[0])).toBe('Cloudy');
-            expect(view.parseXData(data[1])).toBe('(empty)');
+            expect(view.formatXValue(data[0].category)).toBe('Cloudy');
+
+            expect(view.parseXData(data[1])).toBe(null);
+            expect(view.formatXValue(data[1].category)).toBe('(empty)');
+
+            expect(view.getYAxisFormat()(0.5)).toBe('50.0%');
 
             assembledData = view.assembleTrendData();
             expect(assembledData.length).toBe(1);

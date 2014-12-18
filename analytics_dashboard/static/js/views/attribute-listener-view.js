@@ -11,7 +11,7 @@ define(['backbone'],
             initialize: function (options) {
                 var self = this;
                 self.modelAttribute = options.modelAttribute;
-                self.listenTo(this.model, 'change:' + self.modelAttribute, self.render);
+                self.listenTo(self.model, 'change:' + self.modelAttribute, self.render);
             },
 
             renderIfDataAvailable: function () {

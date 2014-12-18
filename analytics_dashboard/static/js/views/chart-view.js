@@ -12,7 +12,8 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
                     excludeData: [],  // e.g. excludes data rows from chart (e.g. 'Unknown')
                     dataType: 'int',  // e.g. int, percent
                     xAxisMargin: 6,
-                    graphShiftSelector: null // Selector used for shifting chart position
+                    graphShiftSelector: null, // Selector used for shifting chart position
+                    truncateXTicks: false     // Determines if x axis ticks should be truncated
                 }
             ),
 
@@ -45,7 +46,7 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
                 // parse and format the data for nvd3
                 combinedTrends = _(trendOptions).map(function (trendOption) {
                     var values = _(data).map(function (datum) {
-                        var keyedValue = {},
+                        var keyedValue = _(datum).clone(),
                             yKey = trendOption.key || self.options.y.key;
                         keyedValue[self.options.y.key] = datum[yKey];
                         keyedValue[self.options.x.key] = datum[self.options.x.key];
@@ -64,11 +65,30 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
                 return combinedTrends;
             },
 
+            /**
+             * If option x.displayKey is provided, build a mapping from the key
+             * to the display name.  E.g.: x: {key: 'id', displayKey: 'name'}.
+             * This can be useful if the dataset has unique identifiers that
+             * aren't display friendly.
+             */
+            buildXLabelMapping: function () {
+                var self = this,
+                    data = self.model.get(self.options.modelAttribute),
+                    mapping;
+
+                if (_(self.options.x).has('displayKey')) {
+                    mapping = _.object(_(data).pluck(self.options.x.key), _(data).pluck(self.options.x.displayKey));
+                }
+
+                return mapping;
+            },
+
             styleChart: function () {
-                var canvas = d3.select(this.el),
+                var self = this,
+                    canvas = d3.select(self.el),
                 // ex. translate(200, 200) or translate(200 200)
                     translateRegex = /translate\((\d+)[,\s]\s*(\d+)\)/g,
-                    xAxisMargin = this.options.xAxisMargin,
+                    xAxisMargin = self.options.xAxisMargin,
                     axisEl,
                     matches;
 
@@ -94,9 +114,9 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
                 axisEl.attr('transform', 'translate(' + matches[1] + ',' +
                     (parseInt(matches[2], 10) + xAxisMargin) + ')');
 
-                if (this.options.graphShiftSelector) {
+                if (self.options.graphShiftSelector) {
                     // Shift the graph down so that it sits flush with the X-axis
-                    canvas.select(this.options.graphShiftSelector)
+                    canvas.select(self.options.graphShiftSelector)
                         .attr('transform', 'translate(' + [0, xAxisMargin].join(',') + ')');
                 }
             },
@@ -115,7 +135,19 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
              * @param d Data along the x-axis to format.
              */
             formatXTick: function (d) {
-                return d;
+                var self = this,
+                    label = d;
+                if (_(self).has('xLabelMapping') && _(self.xLabelMapping).has(d)) {
+                    label = self.xLabelMapping[d];
+                }
+                return label;
+            },
+
+            /**
+            * Truncate (e.g. add ellipses) long labels shown beneath the bar.
+            */
+            truncateXTick: function (d) {   // jshint ignore:line
+                throw 'Not implemented';
             },
 
             parseXData: function (d) {
@@ -178,24 +210,36 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
                     '</tr>' +
                     '</thead>' +
                     '<tbody>' +
+                    '<% _.each(tips, function(tip) { %>' +
                     '<tr class="nv-pointer-events-none">' +
                     '<td class="legend-color-guide nv-pointer-events-none">' +
-                    '<div class="nv-pointer-events-none" style="background-color: <%=swatchColor%>;">' +
+                    '<div class="nv-pointer-events-none" style="background-color: <%=tip.color%>;">' +
                     '</div>' +
                     '</td>' +
-                    '<td class="key nv-pointer-events-none"><%=label%></td>' +
-                    '<td class="value nv-pointer-events-none"><%=yValue%></td>' +
+                    '<td class="key nv-pointer-events-none"><%=tip.label%></td>' +
+                    '<td class="value nv-pointer-events-none"><%=tip.value%></td>' +
                     '</tr>' +
+                    '<% }); %>' +
                     '</tbody>' +
                     '</table>'
             ),
+
+            /**
+             * Implement this to enable users to click on chart elements.  This
+             * is called when render is complete and the click option is specified.
+             */
+            addChartClick: function (d) {   // jshint ignore:line
+                throw 'Not implemented';
+            },
 
             render: function () {
                 AttributeListenerView.prototype.render.call(this);
                 var self = this,
                     canvas = d3.select(self.el),
-                    assembledData = self.assembleTrendData();
+                    assembledData = self.assembleTrendData(),
+                    xLabelMapping = self.buildXLabelMapping();
 
+                self.xLabelMapping = xLabelMapping;
                 self.chart = self.getChart();
                 self.initChart(self.chart);
 
@@ -210,7 +254,7 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
                     }
                 }
 
-                self.chart.xAxis.tickFormat(self.formatXTick);
+                self.chart.xAxis.tickFormat(self.options.truncateXTicks ? self.truncateXTickFunc() : self.formatXTick);
 
                 self.chart.yAxis
                     .showMaxMin(false)
@@ -231,7 +275,11 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
                     self.styleChart();
                 });
 
-                return this;
+                if (_(self.options.click).isFunction()) {
+                    self.addChartClick();
+                }
+
+                return self;
             }
 
         });

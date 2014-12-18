@@ -35,6 +35,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                     model: courseModel,
                     modelAttribute: 'answerDistributionLimited',
                     dataType: 'count',
+                    truncateXTicks: true,
                     trends: [{
                         title: function(index) {
                             if (courseModel.get('answerDistributionLimited')[index].correct) {

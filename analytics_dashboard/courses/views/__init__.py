@@ -18,9 +18,10 @@ import slumber
 from slumber.exceptions import HttpClientError
 from waffle import switch_is_active
 from analyticsclient.client import Client
-from analyticsclient.exceptions import NotFoundError
-from edx_api_client.auth import TokenAuth
+from analyticsclient.exceptions import NotFoundError, ClientError
 
+from common import BearerAuth
+from core.utils import sanitize_cache_key
 from courses import permissions
 from courses.serializers import LazyEncoder
 from courses.utils import is_feature_enabled
@@ -31,6 +32,7 @@ logger = logging.getLogger(__name__)
 
 
 class CourseAPIMixin(object):
+    access_token = None
     course_api_enabled = False
     course_api = None
     course_id = None
@@ -47,13 +49,16 @@ class CourseAPIMixin(object):
     def dispatch(self, request, *args, **kwargs):
         self.course_api_enabled = switch_is_active('enable_course_api')
 
-        if self.course_api_enabled:
-            logger.debug('Instantiating Course API with URL: %s', settings.COURSE_API_URL)
-            self.course_api = slumber.API(settings.COURSE_API_URL, auth=TokenAuth(settings.COURSE_API_KEY)).v0.courses
+        if self.course_api_enabled and request.user.is_authenticated():
+            self.access_token = request.user.access_token
+            self.course_api = slumber.API(settings.COURSE_API_URL, auth=BearerAuth(self.access_token)).courses
 
         return super(CourseAPIMixin, self).dispatch(request, *args, **kwargs)
 
-    def get_course_info(self, course_id, depth=0):
+    def _course_detail_cache_key(self, course_id):
+        return sanitize_cache_key('course_{}_details'.format(course_id))
+
+    def get_course_info(self, course_id):
         """
         Retrieve course info from the Course API.
 
@@ -61,15 +66,14 @@ class CourseAPIMixin(object):
 
         Arguments
             course_id       -- ID of the course for which data should be retrieved
-            depth           -- Number of (tree) levels worth of data to retrieve
-            extra_fields    -- Additional course fields to retrieve
         """
-        key = u'_'.join([unicode(course_id), unicode(depth)])
+        key = self._course_detail_cache_key(course_id)
         info = cache.get(key)
 
         if not info:
             try:
-                info = self.course_api(course_id).get(depth=depth)
+                logger.debug("Retrieving detail for course: %s", course_id)
+                info = self.course_api(course_id).get()
                 cache.set(key, info)
             except HttpClientError as e:
                 logger.error("Unable to retrieve course info for %s: %s", course_id, e)
@@ -82,7 +86,15 @@ class CourseAPIMixin(object):
             course_ids = ','.join(course_ids)
 
         try:
-            return self.course_api.get(course_id=course_ids)['results']
+            course_details = self.course_api.get(course_id=course_ids)['results']
+
+            # Cache the information so that it doesn't need to be retrieved later.
+            for course in course_details:
+                course_id = course['id']
+                key = self._course_detail_cache_key(course_id)
+                cache.set(key, course)
+
+            return course_details
         except HttpClientError as e:
             logger.error("Unable to retrieve course data: %s", e)
             return []
@@ -255,7 +267,15 @@ class CourseNavBarMixin(object):
                 'label': _('Engagement'),
                 'view': 'courses:engagement:content',
                 'icon': 'fa-bar-chart',
+            },
+            {
+                'name': 'performance',
+                'label': _('Performance'),
+                'view': 'courses:performance:graded_content',
+                'icon': 'fa-check-square-o',
+                'switch': 'enable_course_api',
             }
+
         ]
 
         # Remove disabled items
@@ -351,8 +371,12 @@ class CourseView(LoginRequiredMixin, CourseValidMixin, CoursePermissionMixin, Te
         # the template can rendering a loading error message for the section
         try:
             return super(CourseView, self).dispatch(request, *args, **kwargs)
-        except NotFoundError:
+        except NotFoundError as e:
+            logger.error('The requested data from the Analytics Data API was not found: %s', e)
             raise Http404
+        except ClientError as e:
+            logger.error('An error occurred while retrieving data from the Analytics Data API: %s', e)
+            raise
 
     def get_context_data(self, **kwargs):
         context = super(CourseView, self).get_context_data(**kwargs)
@@ -391,7 +415,7 @@ class CourseHome(CourseTemplateWithNavView):
     page_title = _('Course Home')
 
     def get_table_items(self):
-        return [
+        items = [
             {
                 'name': _('Enrollment'),
                 'icon': 'fa-child',
@@ -438,6 +462,22 @@ class CourseHome(CourseTemplateWithNavView):
             }
 
         ]
+
+        if switch_is_active('enable_course_api'):
+            items.append({
+                'name': _('Performance'),
+                'icon': 'fa-check-square-o',
+                'heading': _('How are students doing on course assignments?'),
+                'items': [
+                    {
+                        'title': _('How are students doing on graded course assignments?'),
+                        'view': 'courses:performance:graded_content',
+                        'breadcrumbs': [_('Graded Content')]
+                    }
+                ]
+            })
+
+        return items
 
     def get_context_data(self, **kwargs):
         context = super(CourseHome, self).get_context_data(**kwargs)

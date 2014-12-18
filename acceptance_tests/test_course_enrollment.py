@@ -1,7 +1,7 @@
 import datetime
 
-from bok_choy.web_app_test import WebAppTest
 from analyticsclient.constants import demographic, UNKNOWN_COUNTRY_CODE, enrollment_modes
+from bok_choy.web_app_test import WebAppTest
 
 from acceptance_tests import ENABLE_ENROLLMENT_MODES
 from acceptance_tests.mixins import CoursePageTestsMixin
@@ -35,7 +35,7 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         self._test_enrollment_trend_table()
 
     def _get_data_update_message(self):
-        current_enrollment = self.course.enrollment()[0]
+        current_enrollment = self.get_enrollment_data()[-1]
         last_updated = datetime.datetime.strptime(current_enrollment['created'], self.api_datetime_format)
         return 'Enrollment activity data was last updated %(update_date)s at %(update_time)s UTC.' % \
                self.format_last_updated_date_and_time(last_updated)

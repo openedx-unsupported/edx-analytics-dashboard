@@ -1,14 +1,15 @@
 import json
+import logging
 
-from ddt import ddt, data, unpack
+from analyticsclient.exceptions import NotFoundError
+from ddt import ddt, data
+from django.core.cache import cache
+from django.core.urlresolvers import reverse
+from django.conf import settings
 from django.contrib.humanize.templatetags.humanize import intcomma
+from django.utils.translation import ugettext_lazy as _
 import httpretty
 import mock
-from django.core.urlresolvers import reverse
-from django.core.cache import cache
-from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
-from analyticsclient.exceptions import NotFoundError
 
 from core.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin
 from courses.permissions import set_user_course_permissions, revoke_user_course_permissions
@@ -18,6 +19,8 @@ from courses.tests.utils import set_empty_permissions, get_mock_api_enrollment_d
 
 DEMO_COURSE_ID = 'course-v1:edX+DemoX+Demo_2014'
 DEPRECATED_DEMO_COURSE_ID = 'edX/DemoX/Demo_Course'
+
+logger = logging.getLogger(__name__)
 
 
 class CourseAPIMixin(SwitchMixin):
@@ -29,15 +32,35 @@ class CourseAPIMixin(SwitchMixin):
         {'id': course_key, 'name': 'Test ' + course_key} for course_key in [DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID]
     ]}
 
-    def mock_course_api(self, path, body):
+    def mock_course_api(self, path, body=None, **kwargs):
         """
         Registers an HTTP mock for the specified course API path. The mock returns the specified data.
 
         The calling test function MUST activate httpretty.
+
+        Arguments
+            body    --  Data returned by the mocked API
+            kwargs  --  Additional arguments passed to httpretty.register_uri()
         """
-        url = '{}/{}/{}/'.format(settings.COURSE_API_URL, settings.COURSE_API_VERSION, path)
-        body = json.dumps(body)
-        httpretty.register_uri(httpretty.GET, url, body=body, content_type="application/json")
+
+        # Avoid developer confusion when httpretty is not active and fail the test now.
+        if not httpretty.is_enabled():
+            self.fail('httpretty is not enabled. The mock will not be used!')
+
+        body = body or {}
+
+        # Remove trailing slashes from the path. They will be added back later.
+        path = path.strip(u'/')
+        url = '{}/{}/'.format(settings.COURSE_API_URL, path)
+
+        default_kwargs = {
+            'body': kwargs.get('body', json.dumps(body)),
+            'content_type': 'application/json'
+        }
+        default_kwargs.update(kwargs)
+
+        httpretty.register_uri(httpretty.GET, url, **default_kwargs)
+        logger.debug('Mocking Course API URL: %s', url)
 
     def mock_course_detail(self, course_id):
         path = 'courses/{}'.format(course_id)
@@ -178,24 +201,6 @@ class CourseViewTestMixin(CourseAPIMixin, NavAssertMixin, ViewTestMixin):
     def assertValidCourseName(self, course_id, context):
         course_name = self.generate_course_name(course_id)
         self.assertEqual(context['course_name'], course_name)
-
-
-@ddt
-class ProblemViewTestMixin(NavAssertMixin, ViewTestMixin):
-    presenter_method = None
-
-    PROBLEM_ID = 'i4x://edX/DemoX.1/problem/05d289c5ad3d47d48a77622c4a81ec36'
-    TEXT_PROBLEM_PART_ID = 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_2_1'
-    NUMERIC_PROBLEM_PART_ID = 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_3_1'
-    RANDOMIZED_PROBLEM_PART_ID = 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_3_1'
-
-    # API returns different data (e.g. text answers, numeric answers, and randomized answers), resulting in
-    # different renderings for these problem part IDs.
-    @data((DEMO_COURSE_ID, PROBLEM_ID, TEXT_PROBLEM_PART_ID), (DEMO_COURSE_ID, PROBLEM_ID, NUMERIC_PROBLEM_PART_ID),
-          (DEMO_COURSE_ID, PROBLEM_ID, RANDOMIZED_PROBLEM_PART_ID))
-    @unpack
-    def test_valid_course(self, course_id, problem_id, problem_part_id):
-        self.assertViewIsValid(course_id, problem_id, problem_part_id)
 
 
 # pylint: disable=abstract-method
