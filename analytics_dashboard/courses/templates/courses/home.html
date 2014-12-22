@@ -32,21 +32,19 @@
   <div class="container course-home-table-outer">
     <div class="row">
       {% for column in table_items %}
+
         <div class="col-sm-4">
-          <header><div class="heading">{{ column.heading }}</div></header>
-        </div>
-      {% endfor %}
-    </div>
-    <div class="row">
-      {% for column in table_items %}
-        <div class="col-sm-4">
+          <header>
+            <div class="heading">{{ column.heading }}</div>
+          </header>
+
           <div class="row course-home-table">
-            <div class="col-sm-12 item name">
+            <div class="item name">
               <i class="ico fa {{ column.icon }}" aria-hidden="true"></i> {{ column.name }}
             </div>
 
             {% for item in column.items %}
-              <div class="col-sm-12 item">
+              <div class="item">
                 <div class="title"><a href="{% url item.view course_id=course_id %}">{{ item.title }}</a></div>
                 <div class="breadcrumbs">
                   <i class="ico fa {{ column.icon }}" aria-hidden="true"></i>
@@ -61,6 +59,7 @@
               </div>
             {% endfor %}
           </div>
+
         </div>
       {% endfor %}
 
