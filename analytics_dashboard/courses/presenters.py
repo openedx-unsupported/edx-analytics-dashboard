@@ -111,7 +111,7 @@ class BasePresenter(object):
 
     @staticmethod
     def _sum_counts(data):
-        return sum([datum['count'] for datum in data])
+        return sum(datum['count'] for datum in data)
 
     @staticmethod
     def _calculate_percent(count, total):
