@@ -155,9 +155,9 @@ class CoursePerformancePresenter(BasePresenter):
         Retrieve answer distributions for a particular module/problem and problem part.
         """
 
-        modules = self.client.modules(self.course_id, module_id)
+        module = self.client.modules(self.course_id, module_id)
 
-        api_response = modules.answer_distribution()
+        api_response = module.answer_distribution()
         questions = self._build_questions(api_response)
         active_question = [i for i in questions if i['part_id'] == problem_part_id][0]['question']
 
