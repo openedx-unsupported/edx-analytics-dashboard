@@ -137,7 +137,6 @@ class CoursePerformancePresenter(BasePresenter):
         answer_distributions = self._build_answer_distribution(api_response, problem_part_id)
         problem_part_description = self._build_problem_description(problem_part_id, questions)
 
-        # check for randomness
         is_random = self._is_answer_distribution_random(answer_distributions)
         answer_distribution_limited = None
         if not is_random:
@@ -152,7 +151,7 @@ class CoursePerformancePresenter(BasePresenter):
 
     def _build_problem_description(self, problem_part_id, questions):
         """ Returns the displayable problem name. """
-        problem = [i for i in questions if i['part_id'] == problem_part_id][0]
+        problem = [q for q in questions if q['part_id'] == problem_part_id][0]
         if problem['problem_name']:
             return u'{0} - {1}'.format(problem['problem_name'], problem['question'])
         return problem['question']
