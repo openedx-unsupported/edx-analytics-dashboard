@@ -1,7 +1,6 @@
 import copy
 import datetime
 import logging
-import re
 
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
@@ -12,6 +11,8 @@ import analyticsclient.constants.activity_type as AT
 import analyticsclient.constants.education_level as EDUCATION_LEVEL
 import analyticsclient.constants.gender as GENDER
 from analyticsclient.constants import demographic, UNKNOWN_COUNTRY_CODE, enrollment_modes
+
+import utils
 
 
 logger = logging.getLogger(__name__)
@@ -109,34 +110,6 @@ class BasePresenter(object):
     def strip_time(s):
         return s[:-7]
 
-    @staticmethod
-    def _sum_counts(data):
-        return sum(datum['count'] for datum in data)
-
-    @staticmethod
-    def _calculate_percent(count, total):
-        return count / float(total) if total > 0 else 0.0
-
-    @staticmethod
-    def _tryint(s):
-        try:
-            return int(s)
-        except ValueError:
-            return s
-
-    @staticmethod
-    def _alphanum_key(s):
-        """
-        Turn a string into a list of string and number chunks.
-        "z23a" -> ["z", 23, "a"]
-        """
-        return [BasePresenter._tryint(c) for c in re.split('([0-9]+)', s)]
-
-    @staticmethod
-    def _natural_sort(l, field):
-        """ Natural sort from Ned Batchelor - http://nedbatchelder.com/blog/200712.html#e20071211T054956 """
-        l.sort(key=lambda x: BasePresenter._alphanum_key(x[field]))
-
 
 class CoursePerformancePresenter(BasePresenter):
     """
@@ -232,7 +205,7 @@ class CoursePerformancePresenter(BasePresenter):
                 'problem_name': problem['problem_name']
             })
 
-        self._natural_sort(questions, 'part_id')
+        utils.sort.natural_sort(questions, 'part_id')
 
         # add an enumerated label
         for i, question in enumerate(questions):
@@ -477,13 +450,13 @@ class CourseEnrollmentPresenter(BasePresenter):
             api_response = self._translate_country_names(api_response)
 
             # get the sum as a float so we can divide by it to get a percent
-            total_enrollment = self._sum_counts(api_response)
+            total_enrollment = utils.math.sum_counts(api_response)
 
             # formatting this data for easy access in the table UI
             data = [{'countryCode': datum['country']['alpha3'],
                      'countryName': datum['country']['name'],
                      'count': datum['count'],
-                     'percent': self._calculate_percent(datum['count'], total_enrollment)}
+                     'percent': utils.math.calculate_percent(datum['count'], total_enrollment)}
                     for datum in api_response]
 
             # Filter out the unknown entry for the summary data
@@ -595,7 +568,7 @@ class CourseEnrollmentDemographicsPresenter(BasePresenter):
         for gender in genders:
             recent_genders.append({
                 'gender': GENDER_FULL_NAMES[gender],
-                'percent': self._calculate_percent(most_recent_data[gender], total_enrollment),
+                'percent': utils.math.calculate_percent(most_recent_data[gender], total_enrollment),
                 'order': GENDER_ORDER[gender]
             })
 
@@ -607,7 +580,7 @@ class CourseEnrollmentDemographicsPresenter(BasePresenter):
         most_recent_data = api_response[-1]
         known_enrollment = self._calculate_sum(most_recent_data, KNOWN_GENDERS)
         all_enrollment = self._calculate_sum(most_recent_data, GENDERS)
-        return self._calculate_percent(known_enrollment, all_enrollment)
+        return utils.math.calculate_percent(known_enrollment, all_enrollment)
 
     def get_ages(self):
         """
@@ -644,11 +617,11 @@ class CourseEnrollmentDemographicsPresenter(BasePresenter):
         if max_age:
             filtered_ages = ([datum for datum in filtered_ages
                               if datum['birth_year'] and (current_year - datum['birth_year']) <= max_age])
-        return self._sum_counts(filtered_ages)
+        return utils.math.sum_counts(filtered_ages)
 
     def _calculate_median_age(self, api_response):
         current_year = datetime.date.today().year
-        total_enrollment = self._sum_counts(api_response)
+        total_enrollment = utils.math.sum_counts(api_response)
         half_enrollments = total_enrollment * 0.5
         count_enrollments = 0
         for index, datum in enumerate(api_response):
@@ -693,18 +666,18 @@ class CourseEnrollmentDemographicsPresenter(BasePresenter):
         for params in summary_params:
             age_range = params['ages']
             count = self._count_ages(api_response, age_range[0], age_range[1])
-            summary[params['field']] = self._calculate_percent(count, known_enrollment_total)
+            summary[params['field']] = utils.math.calculate_percent(count, known_enrollment_total)
 
         return summary
 
     def _build_binned_ages(self, api_response):
         current_year = datetime.date.today().year
         known_ages = [i for i in api_response if i['birth_year']]
-        enrollment_total = self._sum_counts(api_response)
+        enrollment_total = utils.math.sum_counts(api_response)
 
         binned_ages = [{'age': current_year - int(datum['birth_year']),
                         'count': datum['count'],
-                        'percent': self._calculate_percent(datum['count'], enrollment_total)}
+                        'percent': utils.math.calculate_percent(datum['count'], enrollment_total)}
                        for datum in known_ages]
 
         # fill in ages with no counts for display
@@ -726,7 +699,7 @@ class CourseEnrollmentDemographicsPresenter(BasePresenter):
         for datum in elderly:
             elderly_bin['count'] = elderly_bin['count'] + datum['count']
             binned_ages.remove(datum)
-        elderly_bin['percent'] = self._calculate_percent(elderly_bin['count'], enrollment_total)
+        elderly_bin['percent'] = utils.math.calculate_percent(elderly_bin['count'], enrollment_total)
 
         # tack enrollment counts for students with unknown ages
         unknown = [i for i in api_response if not i['birth_year']]
@@ -735,7 +708,7 @@ class CourseEnrollmentDemographicsPresenter(BasePresenter):
             binned_ages.append({
                 'age': _('Unknown'),
                 'count': unknown_count,
-                'percent': self._calculate_percent(unknown_count, enrollment_total)
+                'percent': utils.math.calculate_percent(unknown_count, enrollment_total)
             })
 
         return binned_ages
@@ -746,19 +719,19 @@ class CourseEnrollmentDemographicsPresenter(BasePresenter):
 
     def _calculate_known_total_enrollment(self, api_response, enrollment_key):
         known = [i for i in api_response if i[enrollment_key]]
-        return self._sum_counts(known)
+        return utils.math.sum_counts(known)
 
     def _calculate_known_total_percent(self, api_response, enrollment_key):
         known_count = self._calculate_known_total_enrollment(api_response, enrollment_key)
-        total_count = self._sum_counts(api_response)
-        return self._calculate_percent(known_count, total_count)
+        total_count = utils.math.sum_counts(api_response)
+        return utils.math.calculate_percent(known_count, total_count)
 
     def _calculate_education_percent(self, api_response, levels):
         """ Aggregates levels of education and returns the percent of the total. """
         filtered_levels = ([education for education in api_response
                             if education['education_level'] in levels])
-        subset_enrollment = self._sum_counts(filtered_levels)
-        return self._calculate_percent(subset_enrollment, self._sum_counts(api_response))
+        subset_enrollment = utils.math.sum_counts(filtered_levels)
+        return utils.math.calculate_percent(subset_enrollment, utils.math.sum_counts(api_response))
 
     def _build_education_summary(self, api_response):
         known_education = [i for i in api_response if i['education_level']]
@@ -776,10 +749,10 @@ class CourseEnrollmentDemographicsPresenter(BasePresenter):
 
     def _build_education_levels(self, api_response):
         known_education = [i for i in api_response if i['education_level']]
-        known_enrollment_total = self._sum_counts(known_education)
+        known_enrollment_total = utils.math.sum_counts(known_education)
         levels = [{'educationLevel': EDUCATION_NAMES[datum['education_level']],
                    'count': datum['count'],
-                   'percent': self._calculate_percent(datum['count'], known_enrollment_total),
+                   'percent': utils.math.calculate_percent(datum['count'], known_enrollment_total),
                    'order': EDUCATION_ORDER[datum['education_level']]}
                   for datum in known_education]
 
