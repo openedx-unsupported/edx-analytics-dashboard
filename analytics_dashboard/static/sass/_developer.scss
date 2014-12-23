@@ -377,6 +377,11 @@ table.dataTable thead th.sorting_desc:after {
     color: $edx-blue;
     padding-bottom: $padding-large-vertical;
     @extend .text-center;
+
+    // increase line height for med-small screens so headers are same level for long lines
+    @media (max-width: $screen-md-max) and (min-width: $screen-sm-min) {
+      min-height: $font-size-large * 3.5;
+    }
   }
 
   .course-home-table {
