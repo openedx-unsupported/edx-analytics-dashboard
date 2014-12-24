@@ -11,7 +11,7 @@ import analyticsclient.constants.gender as GENDER
 from analyticsclient.constants import enrollment_modes
 
 from courses.permissions import set_user_course_permissions
-
+from courses.presenters import AnswerDistributionEntry
 
 CREATED_DATETIME = datetime.datetime(year=2014, month=2, day=2)
 CREATED_DATETIME_STRING = CREATED_DATETIME.strftime(Client.DATETIME_FORMAT)
@@ -607,5 +607,5 @@ def get_presenter_answer_distribution(course_id, problem_part_id):
         answer_type = 'answer_value_numeric'
     problem_part_description = 'Example problem - Submissions for Part 1: Is this a text problem?'
 
-    return CREATED_DATETIME, questions, active_question, answer_distributions, answer_distribution_limited, is_random, \
-        answer_type, problem_part_description
+    return AnswerDistributionEntry(CREATED_DATETIME, questions, active_question, answer_distributions,
+                                   answer_distribution_limited, is_random, answer_type, problem_part_description)

@@ -2,6 +2,8 @@ import copy
 import datetime
 import logging
 
+from collections import namedtuple
+
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 from django_countries import countries
@@ -116,6 +118,12 @@ class BasePresenter(object):
         return sum(datum['count'] for datum in data)
 
 
+# stores the answer distribution return from CoursePerformancePresenter
+AnswerDistributionEntry = namedtuple('AnswerDistributionEntry',
+                                     'last_updated, questions, active_question, answer_distribution, '
+                                     'answer_distribution_limited, is_random, answer_type, problem_part_description')
+
+
 class CoursePerformancePresenter(BasePresenter):
     """
     Presenter for the performance page.
@@ -156,8 +164,8 @@ class CoursePerformancePresenter(BasePresenter):
         answer_type = self._get_answer_type(answer_distributions)
         last_updated = self.parse_api_datetime(answer_distributions[0]['created'])
 
-        return last_updated, questions, active_question, answer_distributions, answer_distribution_limited, is_random, \
-            answer_type, problem_part_description
+        return AnswerDistributionEntry(last_updated, questions, active_question, answer_distributions,
+                                       answer_distribution_limited, is_random, answer_type, problem_part_description)
 
     def _build_problem_description(self, problem_part_id, questions):
         """ Returns the displayable problem name. """

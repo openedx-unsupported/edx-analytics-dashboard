@@ -683,44 +683,34 @@ class PerformanceAnswerDistributionView(PerformanceTemplateView):
 
         problem_id = self.kwargs['content_id']
         part_id = self.kwargs['problem_part_id']
-
-        answer_distribution = None
-        answer_distribution_limited = None
-        is_random = False
-        questions = None
-        active_question = None
-        answer_type = None
-        last_updated = None
         jump_to_url = None
 
         if settings.LMS_COURSE_JUMP_TO_BASE_URL:
             jump_to_url = '{0}/{1}/jump_to/{2}'.format(settings.LMS_COURSE_JUMP_TO_BASE_URL, self.course_id, problem_id)
 
         try:
-            last_updated, questions, active_question, answer_distribution, answer_distribution_limited, \
-                is_random, answer_type, problem_part_description = presenter.get_answer_distribution(problem_id,
-                                                                                                     part_id)
+            answer_distribution_entry = presenter.get_answer_distribution(problem_id, part_id)
         except NotFoundError:
             logger.error("Failed to retrieve performance answer distribution data for %s.", part_id)
             # if the problem_part_id isn't found, a NotFoundError is thrown and a 404 should be displayed
             raise NotFoundError
 
         context['js_data']['course'].update({
-            'answerDistribution': answer_distribution,
-            'answerDistributionLimited': answer_distribution_limited,
-            'isRandom': is_random,
-            'answerType': answer_type
+            'answerDistribution': answer_distribution_entry.answer_distribution,
+            'answerDistributionLimited': answer_distribution_entry.answer_distribution_limited,
+            'isRandom': answer_distribution_entry.is_random,
+            'answerType': answer_distribution_entry.answer_type
         })
 
         context.update({
             'course_id': self.course_id,
-            'questions': questions,
-            'active_question': active_question,
+            'questions': answer_distribution_entry.questions,
+            'active_question': answer_distribution_entry.active_question,
             'problem_id': problem_id,
             'problem_part_id': part_id,
-            'problem_part_description': problem_part_description,
+            'problem_part_description': answer_distribution_entry.problem_part_description,
             'jump_to_url': jump_to_url,
-            'update_message': self.get_last_updated_message(last_updated)
+            'update_message': self.get_last_updated_message(answer_distribution_entry.last_updated)
         })
         context['page_data'] = self.get_page_data(context)
 
