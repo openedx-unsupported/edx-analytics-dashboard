@@ -11,6 +11,7 @@ import analyticsclient.constants.activity_type as AT
 import analyticsclient.constants.education_level as EDUCATION_LEVEL
 import analyticsclient.constants.gender as GENDER
 from analyticsclient.constants import demographic, UNKNOWN_COUNTRY_CODE, enrollment_modes
+from analyticsclient.exceptions import NotFoundError
 
 import courses.utils as utils
 
@@ -136,7 +137,12 @@ class CoursePerformancePresenter(BasePresenter):
 
         api_response = module.answer_distribution()
         questions = self._build_questions(api_response)
-        active_question = [i for i in questions if i['part_id'] == problem_part_id][0]['question']
+
+        filtered_active_question = [i for i in questions if i['part_id'] == problem_part_id]
+        if len(filtered_active_question) is 0:
+            raise NotFoundError
+        else:
+            active_question = filtered_active_question[0]['question']
 
         answer_distributions = self._build_answer_distribution(api_response, problem_part_id)
         problem_part_description = self._build_problem_description(problem_part_id, questions)
@@ -574,8 +580,6 @@ class CourseEnrollmentDemographicsPresenter(BasePresenter):
                 'percent': utils.math.calculate_percent(most_recent_data[gender], total_enrollment),
                 'order': GENDER_ORDER[gender]
             })
-
-        print recent_genders
 
         return sorted(recent_genders, key=lambda i: i['order'], reverse=False)
 

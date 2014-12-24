@@ -702,6 +702,8 @@ class PerformanceAnswerDistributionView(PerformanceTemplateView):
                                                                                                      part_id)
         except NotFoundError:
             logger.error("Failed to retrieve performance answer distribution data for %s.", part_id)
+            # if the problem_part_id isn't found, a NotFoundError is thrown and a 404 should be displayed
+            raise NotFoundError
 
         context['js_data']['course'].update({
             'answerDistribution': answer_distribution,
