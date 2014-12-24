@@ -11,7 +11,7 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/bar-view'],
             ),
 
             /**
-             * Add ellipses for long labels.
+             * Add ellipses for long labels shown beneath the bar.
              */
             formatXTick: function (d) {
                 var barWidth = d3.select('.discreteBar').attr('width'),
@@ -27,6 +27,9 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/bar-view'],
                 return formattedLabel;
             },
 
+            /**
+             * Returns the original bar label or "(empty)" if no label provided.
+             */
             formatXValue: function (xValue) {
                 var self = this;
                 xValue = BarView.prototype.formatXValue.call(self, xValue);

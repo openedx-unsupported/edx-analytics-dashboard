@@ -12,7 +12,7 @@ import analyticsclient.constants.education_level as EDUCATION_LEVEL
 import analyticsclient.constants.gender as GENDER
 from analyticsclient.constants import demographic, UNKNOWN_COUNTRY_CODE, enrollment_modes
 
-import utils
+import courses.utils as utils
 
 
 logger = logging.getLogger(__name__)
