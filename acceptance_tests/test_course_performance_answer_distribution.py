@@ -11,16 +11,13 @@ _multiprocess_can_split_ = True
 
 class CoursePerformanceAnswerDistributionTests(CoursePageTestsMixin, WebAppTest):
 
-    help_path = 'index.html'
-
-
     def setUp(self):
         super(CoursePerformanceAnswerDistributionTests, self).setUp()
         self.page = CoursePerformanceAnswerDistributionPage(self.browser)
         self.module = self.analytics_api_client.modules(self.page.course_id, self.page.problem_id)
         api_response = self.module.answer_distribution()
         data = [i for i in api_response if i['part_id'] == self.page.part_id]
-        self.answer_distribution = sorted(data, key=lambda a: -a['count'])
+        self.answer_distribution = sorted(data, key=lambda a: a['count'], reverse=True)
 
 
     def _get_data_update_message(self):
