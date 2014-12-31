@@ -18,11 +18,8 @@ class CoursePerformanceAnswerDistribution(ProblemViewTestMixin, TestCase):
     def assertViewIsValid(self, course_id, problem_id, problem_part_id):
         rv = utils.get_presenter_answer_distribution(course_id, problem_part_id)
         with mock.patch(self.presenter_method, return_value=rv):
-            response = self.client.get(self.path({
-                'course_id': course_id,
-                'content_id': problem_id,
-                'problem_part_id': problem_part_id
-            }))
+            response = self.client.get(self.path(course_id=course_id, content_id=problem_id,
+                                                 problem_part_id=problem_part_id))
 
         context = response.context
 

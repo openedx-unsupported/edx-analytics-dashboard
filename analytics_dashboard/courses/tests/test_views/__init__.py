@@ -59,13 +59,13 @@ class AuthTestMixin(MockApiTestMixin, PermissionsTestMixin, RedirectTestCaseMixi
             with mock.patch(self.api_method, return_value=self.get_mock_data(course_id)):
                 # Authenticated users should go to the course page
                 self.login()
-                response = self.client.get(self.path({'course_id': course_id}), follow=True)
+                response = self.client.get(self.path(course_id=course_id), follow=True)
                 self.assertEqual(response.status_code, 200)
 
                 # Unauthenticated users should be redirected to the login page
                 self.client.logout()
-                response = self.client.get(self.path({'course_id': course_id}))
-                self.assertRedirectsNoFollow(response, settings.LOGIN_URL, next=self.path({'course_id': course_id}))
+                response = self.client.get(self.path(course_id=course_id))
+                self.assertRedirectsNoFollow(response, settings.LOGIN_URL, next=self.path(course_id=course_id))
 
     @data(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
     @mock.patch('courses.permissions.refresh_user_course_permissions', mock.Mock(side_effect=set_empty_permissions))
@@ -78,12 +78,12 @@ class AuthTestMixin(MockApiTestMixin, PermissionsTestMixin, RedirectTestCaseMixi
             with mock.patch(self.api_method, return_value=self.get_mock_data(course_id)):
                 # Authorized users should be able to view the page
                 self.grant_permission(self.user, course_id)
-                response = self.client.get(self.path({'course_id': course_id}), follow=True)
+                response = self.client.get(self.path(course_id=course_id), follow=True)
                 self.assertEqual(response.status_code, 200)
 
                 # Unauthorized users should be redirected to the 403 page
                 self.revoke_permissions(self.user)
-                response = self.client.get(self.path({'course_id': course_id}), follow=True)
+                response = self.client.get(self.path(course_id=course_id), follow=True)
                 self.assertEqual(response.status_code, 403)
 
 
@@ -92,9 +92,9 @@ class ViewTestMixin(AuthTestMixin):
     viewname = None
     presenter_method = None
 
-    def path(self, kwargs=None):
-        if kwargs is None:
-            kwargs = {}
+    def path(self, **kwargs):
+        # if kwargs is None:
+        #     kwargs = {}
         return reverse(self.viewname, kwargs=kwargs)
 
 
@@ -155,7 +155,7 @@ class CourseViewTestMixin(SwitchMixin, NavAssertMixin, ViewTestMixin):
     @data(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
     def test_missing_data(self, course_id):
         with mock.patch(self.presenter_method, mock.Mock(side_effect=NotFoundError)):
-            response = self.client.get(self.path({'course_id': course_id}))
+            response = self.client.get(self.path(course_id=course_id))
             context = response.context
 
         self.assertValidMissingDataContext(context)
