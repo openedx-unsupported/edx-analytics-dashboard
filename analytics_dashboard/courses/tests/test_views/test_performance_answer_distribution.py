@@ -14,7 +14,7 @@ class CoursePerformanceAnswerDistribution(ProblemViewTestMixin, TestCase):
     viewname = 'courses:performance_answerdistribution'
     presenter_method = 'courses.presenters.CoursePerformancePresenter.get_answer_distribution'
 
-    @override_settings(LMS_COURSE_JUMP_TO_BASE_URL='a/url')
+    @override_settings(LMS_COURSE_SHORTCUT_BASE_URL='a/url')
     def assertViewIsValid(self, course_id, problem_id, problem_part_id):
         rv = utils.get_presenter_answer_distribution(course_id, problem_part_id)
         with mock.patch(self.presenter_method, return_value=rv):
@@ -29,18 +29,21 @@ class CoursePerformanceAnswerDistribution(ProblemViewTestMixin, TestCase):
         # Ensure we get a valid HTTP status
         self.assertEqual(response.status_code, 200)
 
-        self.assertEqual(context['page_title'], 'Performance Answer Distribution')
-        self.assertEqual(context['problem_id'], problem_id)
-        self.assertEqual(context['problem_part_id'], problem_part_id)
-        self.assertEqual(context['jump_to_url'], 'a/url/{}/jump_to/{}'.format(course_id, problem_id))
         self.assertListEqual(context['questions'], rv.questions)
-        self.assertEqual(context['active_question'], rv.active_question)
+        self.assertDictContainsSubset({
+            'page_title': 'Performance Answer Distribution',
+            'problem_id': problem_id,
+            'problem_part_id': problem_part_id,
+            'view_live_url': 'a/url/{}/jump_to/{}'.format(course_id, problem_id),
+            'active_question': rv.active_question,
+        }, context)
 
-        js_data = json.loads(context['page_data'])['course']
-        self.assertEqual(js_data['isRandom'], rv.is_random)
-        self.assertEqual(js_data['answerType'], rv.answer_type)
-        self.assertEqual(js_data['answerDistribution'], rv.answer_distribution)
-        self.assertEqual(js_data['answerDistributionLimited'], rv.answer_distribution_limited)
+        self.assertDictContainsSubset({
+            'isRandom': rv.is_random,
+            'answerType': rv.answer_type,
+            'answerDistribution': rv.answer_distribution,
+            'answerDistributionLimited': rv.answer_distribution_limited,
+        }, json.loads(context['page_data'])['course'])
 
     def assertPrimaryNav(self, nav, course_id):
         # to be completed when course structure incorporated

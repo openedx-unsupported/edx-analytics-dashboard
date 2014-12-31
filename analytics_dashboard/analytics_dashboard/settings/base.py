@@ -311,7 +311,7 @@ DATA_API_AUTH_TOKEN = 'edx'
 LMS_COURSE_VALIDATION_BASE_URL = None
 
 # used to construct the shortcut link to course modules
-LMS_COURSE_JUMP_TO_BASE_URL = None
+LMS_COURSE_SHORTCUT_BASE_URL = None
 
 # Used to determine how dates are displayed in templates
 DATE_FORMAT = 'F d, Y'

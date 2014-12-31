@@ -24,7 +24,7 @@ if (isBrowser) {
     ];
 } else {
     // the Insights application loads gettext identity library via django, thus
-    // components reference gettext globally so a shim is added here to reflects
+    // components reference gettext globally so a shim is added here to reflect
     // the text so tests can be run if modules reference gettext
     if (!window.gettext) {
         window.gettext = function(text) {

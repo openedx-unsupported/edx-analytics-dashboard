@@ -35,5 +35,5 @@ class sorting(object):
 
     @staticmethod
     def natural_sort(l, field):
-        """ Natural sort from Ned Batchelor - http://nedbatchelder.com/blog/200712.html#e20071211T054956 """
+        """ Natural sort from Ned Batchelder - http://nedbatchelder.com/blog/200712.html#e20071211T054956 """
         l.sort(key=lambda x: sorting._alphanum_key(x[field]))

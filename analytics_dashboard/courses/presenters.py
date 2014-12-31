@@ -129,19 +129,15 @@ class CoursePerformancePresenter(BasePresenter):
     Presenter for the performance page.
     """
 
-    # answer field for numeric values returned from API
-    NUMERIC_ANSWER_FIELD = 'answer_value_numeric'
-    # answer field for text values returned from API
-    TEXT_ANSWER_FIELD = 'answer_value_text'
     # limit for the number of bars to display in the answer distribution chart
     CHART_LIMIT = 12
 
-    def get_answer_distribution(self, module_id, problem_part_id):
+    def get_answer_distribution(self, problem_id, problem_part_id):
         """
         Retrieve answer distributions for a particular module/problem and problem part.
         """
 
-        module = self.client.modules(self.course_id, module_id)
+        module = self.client.modules(self.course_id, problem_id)
 
         api_response = module.answer_distribution()
         questions = self._build_questions(api_response)
@@ -177,15 +173,20 @@ class CoursePerformancePresenter(BasePresenter):
     def _get_answer_type(self, answer_distributions):
         """ Returns either answer_value_text or answer_value_numeric. """
 
+        # answer field for numeric values returned from API
+        numeric_field = 'answer_value_numeric'
+        # answer field for text values returned from API
+        text_field = 'answer_value_text'
+
         # returns the first field found to be filled
         for ad in answer_distributions:
-            if ad[self.NUMERIC_ANSWER_FIELD] is not None:
-                return self.NUMERIC_ANSWER_FIELD
-            elif ad[self.TEXT_ANSWER_FIELD] is not None:
-                return self.TEXT_ANSWER_FIELD
+            if ad[numeric_field] is not None:
+                return numeric_field
+            elif ad[text_field] is not None:
+                return text_field
 
         # default to text answer if both fields were null/none
-        return self.TEXT_ANSWER_FIELD
+        return text_field
 
     def _is_answer_distribution_random(self, answer_distributions):
         """

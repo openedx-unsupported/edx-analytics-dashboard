@@ -32,12 +32,11 @@
             </div>
 
             <div class="col-sm-2 col-xs-12">
-                {% if jump_to_url%}
-                    <a href="{{jump_to_url}}" class="btn btn-default pull-right" role="button" target="_blank">
+                {% if view_live_url%}
+                    <a href="{{view_live_url}}" class="btn btn-default pull-right" role="button" target="_blank">
                         {# Translators: This text will be a direct link to the a specific module/problem. #}
-                        {% blocktrans %}View Live{% endblocktrans %}
+                        {% trans "View Live" %}
                     </a>
-
                 {% endif %}
             </div>
         </div>
