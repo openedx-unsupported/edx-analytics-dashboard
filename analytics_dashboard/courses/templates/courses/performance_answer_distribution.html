@@ -74,7 +74,7 @@
                 {% endcaptureas %}
                 {% include "chart_tooltip.html" with tip_text=tip_text track_category="bar"%}
 
-                <div id="performance-chart-view" class="analytics-chart {% if not js_data.course.answerDistribution %}shorten{% endif %}">
+                <div id="performance-chart-view" class="analytics-chart {% if not js_data.course.answerDistribution %}message-only-chart{% endif %}">
                     {% if js_data.course.isRandom %}
                         <!-- sets the message on a new row; otherwise, it won't be centered properly. -->
                         <div class="clearfix"></div>

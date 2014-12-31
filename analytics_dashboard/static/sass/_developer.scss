@@ -43,8 +43,9 @@ button.chart-info {
     padding-top: $padding-large-vertical;
   }
 
-  .shorten {
-    height: 38px; // Update the height of the graph in trends-view.js to be this height minus 5px.
+  // shorten the chart so just a message (e.g. error message) is displayed
+  .message-only-chart {
+    height: 38px;
   }
 
   .nvd3 {

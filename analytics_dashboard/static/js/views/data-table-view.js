@@ -187,7 +187,7 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
                     if (type === 'display') {
                         if (value) {
                             // Translators: "Correct" is displayed in a table..
-                            display = 'Correct';
+                            display = gettext('Correct');
                         } else {
                             display = '-';
                         }
