@@ -174,6 +174,8 @@ class ProblemViewTestMixin(NavAssertMixin, ViewTestMixin):
     NUMERIC_PROBLEM_PART_ID = 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_3_1'
     RANDOMIZED_PROBLEM_PART_ID = 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_3_1'
 
+    # API returns different data (e.g. text answers, numeric answers, and randomized answers), resulting in
+    # different renderings for these problem part IDs.
     @data((DEMO_COURSE_ID, PROBLEM_ID, TEXT_PROBLEM_PART_ID), (DEMO_COURSE_ID, PROBLEM_ID, NUMERIC_PROBLEM_PART_ID),
           (DEMO_COURSE_ID, PROBLEM_ID, RANDOMIZED_PROBLEM_PART_ID))
     @unpack
