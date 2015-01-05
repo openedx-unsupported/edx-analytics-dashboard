@@ -169,7 +169,10 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
                     var value = row[columnKey],
                         display = value;
                     if (type === 'display' && _(display).isNull()) {
-                        // Translators: (empty) is displayed in a table and indicates that no label/value was provided.
+                        /**
+                         * Translators: (empty) is displayed in a table and indicates no label/value.
+                         * Keep text in the parenthesis or an equivalent symbol.
+                         */
                         display = gettext('(empty)');
                     }
                     return display;
