@@ -10,6 +10,10 @@ PROBLEM_PART_ID_PATTERN = r'(?P<problem_part_id>[^/]+)'
 ASSIGNMENT_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'assignment_id')
 PROBLEM_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'problem_id')
 
+# pylint: disable=line-too-long
+answer_distribution_regex = r'^performance/graded_content/assignments/{assignment_id}/problems/{problem_id}/parts/{part_id}/answer_distribution/$'.format(
+    assignment_id=ASSIGNMENT_ID_PATTERN, problem_id=PROBLEM_ID_PATTERN, part_id=PROBLEM_PART_ID_PATTERN)
+
 COURSE_URLS = patterns(
     '',
     # Course homepage. This should be the entry point for other applications linking to the course.
@@ -41,9 +45,7 @@ COURSE_URLS = patterns(
     url(r'^performance/graded_content/$', views.PerformanceGradedContent.as_view(), name='performance_graded_content'),
     url(r'^performance/graded_content/(?P<assignment_type>\w+)/$', views.PerformanceGradedContentByType.as_view(),
         name='performance_graded_content_by_type'),
-    url(
-        r'^performance/graded_content/assignments/{assignment_id}/problems/{problem_id}/parts/{part_id}/answer_distribution/$'.format(
-            assignment_id=ASSIGNMENT_ID_PATTERN, problem_id=PROBLEM_ID_PATTERN, part_id=PROBLEM_PART_ID_PATTERN),
+    url(answer_distribution_regex,
         views.PerformanceAnswerDistributionView.as_view(),
         name='performance_answer_distribution'),
     url(r'^performance/graded_content/assignments/{}/$'.format(ASSIGNMENT_ID_PATTERN),

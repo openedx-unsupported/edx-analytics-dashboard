@@ -4,7 +4,6 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
     require(['underscore', 'views/data-table-view', 'views/stacked-bar-view'],
         function (_, DataTableView, StackedBarView) {
             var model = page.models.courseModel,
-                assignmentType = model.get('assignmentType'),
                 submissionColumns = [
                     {
                         key: 'total_submissions',

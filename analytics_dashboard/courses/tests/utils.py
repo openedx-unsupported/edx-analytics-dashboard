@@ -232,7 +232,7 @@ def get_mock_api_enrollment_age_data(course_id):
     data = [
         {'course_id': course_id, 'birth_year': 1900, 'count': 100, 'created': CREATED_DATETIME_STRING},
         {'course_id': course_id, 'birth_year': 2000, 'count': 400, 'created': CREATED_DATETIME_STRING},
-        {'course_id': course_id, 'birth_year': 2014, 'count': 500, 'created': CREATED_DATETIME_STRING},
+        {'course_id': course_id, 'birth_year': 2015, 'count': 500, 'created': CREATED_DATETIME_STRING},
         {'course_id': course_id, 'birth_year': None, 'count': 1000, 'created': CREATED_DATETIME_STRING}
     ]
 
@@ -240,21 +240,22 @@ def get_mock_api_enrollment_age_data(course_id):
 
 
 def get_presenter_enrollment_binned_ages():
+    # TODO Make this code less brittle. It currently relies on the current year being 2015.
     current_year = datetime.date.today().year
     oldest = current_year - 100
     binned = []
 
-    for year in range(oldest, 2015):
+    for year in range(oldest, current_year + 1):
         binned.append({'age': current_year - year, 'count': 0, 'percent': 0})
 
     # adjust 100+
     binned[0]['count'] = 100
     binned[0]['percent'] = 0.05
 
-    # adjust year 2014
-    index_2014 = 2014 - current_year - 1
-    binned[index_2014]['count'] = 500
-    binned[index_2014]['percent'] = 0.25
+    # adjust year 2015
+    index_2015 = 2015 - current_year - 1
+    binned[index_2015]['count'] = 500
+    binned[index_2015]['percent'] = 0.25
 
     # adjust year 2000
     index_2000 = 2000 - current_year - 1
@@ -269,7 +270,7 @@ def get_presenter_enrollment_binned_ages():
 def get_presenter_enrollment_ages_summary():
     current_year = datetime.date.today().year
     return {
-        'median': (current_year * 2 - 2000 - 2014) * 0.5,
+        'median': (current_year * 2 - 2000 - 2015) * 0.5,
         'under_25': 0.9,
         'between_26_40': 0.0,
         'over_40': 0.1
@@ -633,7 +634,7 @@ class CoursePerformanceMockData(object):
     HOMEWORK = {
         "id": "i4x://MITx/4.605x_2/sequential/8084d006f7b54d79a5144c27cd672fae",
         "name": "Lecture 1: First Societies",
-        "assignment_type": "Homework",
+        "format": "Homework",
         "problems": [
             {"id": "i4x://MITx/4.605x_2/problem/86366abbadfc47f59f62540df86f6986", "name": "Review Question 1.1"},
             {"id": "i4x://MITx/4.605x_2/problem/640ae07b291242788ec47d8a464a4e58", "name": "Review Question 1.2.1"},
@@ -644,73 +645,14 @@ class CoursePerformanceMockData(object):
         ]
     }
 
-    MOCK_ASSIGNMENTS = [
-        HOMEWORK,
-        {
-            "id": "i4x://MITx/4.605x_2/sequential/b920b1a3cd7a4d468c2fcc9ba5c068ad",
-            "name": "Exam 1",
-            "assignment_type": "Exam",
-            "problems": [
-                {
-                    "id": "i4x://MITx/4.605x_2/problem/fe34b590f0ad440482d32476e192d9ba",
-                    "name": "Exam 1 Problem 1"
-                },
-                {
-                    "id": "i4x://MITx/4.605x_2/problem/6c311f0af1144955aa423b3b7d2d6c25",
-                    "name": "Exam 1 Problem 2"
-                },
-                {
-                    "id": "i4x://MITx/4.605x_2/problem/bf2903fef26a4b87befe07447f22798c",
-                    "name": "Exam 1 Problem 3"
-                },
-                {
-                    "id": "i4x://MITx/4.605x_2/problem/349af94a84af4fe2ab6f6a9daf2f9628",
-                    "name": "Exam 1 Problem 4"
-                },
-                {
-                    "id": "i4x://MITx/4.605x_2/problem/9e85e7396e6442089e1e8f433b117f21",
-                    "name": "Exam 1 Problem 5"
-                },
-                {
-                    "id": "i4x://MITx/4.605x_2/problem/0f0f71acf3634aaa88aa10a626294c82",
-                    "name": "Exam 1 Problem 6"
-                },
-                {
-                    "id": "i4x://MITx/4.605x_2/problem/ce09b229369c40b8b2b35069faa1eaf8",
-                    "name": "Exam 1 Question 7"
-                },
-                {
-                    "id": "i4x://MITx/4.605x_2/problem/8adc0416021b423aa56809f49bd7f973",
-                    "name": "Exam 1 Question 8"
-                },
-                {
-                    "id": "i4x://MITx/4.605x_2/problem/ef3f0d62a9aa4351b01b4c041d15c939",
-                    "name": "Exam 1 Question 9"
-                },
-                {
-                    "id": "i4x://MITx/4.605x_2/problem/00e92457ba484c24b8b1dd35d098ef40",
-                    "name": "Exam 1 Question 10"
-                },
-                {
-                    "id": "i4x://MITx/4.605x_2/problem/959082a899db480fb90ae70756e88fff",
-                    "name": "Exam 1 Question 11"
-                },
-                {
-                    "id": "i4x://MITx/4.605x_2/problem/013da6ded6d6458dbba07215857d7ce4",
-                    "name": "Exam 1 Question 12"
-                }
-            ]
-        }
-    ]
-
     @classmethod
     def MOCK_ASSIGNMENTS(cls):
-        return [
-            copy.deepcopy(cls.HOMEWORK),
+        return copy.deepcopy([
+            cls.HOMEWORK,
             {
                 "id": "i4x://MITx/4.605x_2/sequential/b920b1a3cd7a4d468c2fcc9ba5c068ad",
                 "name": "Exam 1",
-                "assignment_type": "Exam",
+                "format": "Exam",
                 "problems": [
                     {
                         "id": "i4x://MITx/4.605x_2/problem/fe34b590f0ad440482d32476e192d9ba",
@@ -762,7 +704,7 @@ class CoursePerformanceMockData(object):
                     }
                 ]
             }
-        ]
+        ])
 
     @classmethod
     def submission_counts(cls, problem_ids):

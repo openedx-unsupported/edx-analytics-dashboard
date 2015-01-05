@@ -13,12 +13,12 @@
       </div>
       <div class="row">
         {% for item in grading_policy %}
-          <a href="{% url "courses:performance_graded_content_by_type" course_id=course_id assignment_type=item.type %}">
+          <a href="{% url "courses:performance_graded_content_by_type" course_id=course_id assignment_type=item.assignment_type %}">
             <div class="col-md-{% widthratio item.weight 1 12 %} policy-item">
               <div class="policy-item-box">
                 <div class="weight">{% widthratio item.weight 1 100 %}%</div>
               </div>
-              <div class="type">{{ item.type }}</div>
+              <div class="type">{{ item.assignment_type }}</div>
             </div>
           </a>
         {% endfor %}
@@ -43,7 +43,7 @@
         <tbody>
         {% for item in grading_policy %}
           <tr>
-            <td>{{ item.type }}</td>
+            <td>{{ item.assignment_type }}</td>
             <td>{% widthratio item.weight 1 100 %}%</td>
             <td>{{ item.count }}</td>
             <td>{{ item.dropped }}</td>

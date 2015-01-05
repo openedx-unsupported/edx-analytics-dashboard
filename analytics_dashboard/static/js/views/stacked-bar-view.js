@@ -35,7 +35,9 @@ define(['nvd3', 'underscore', 'views/discrete-bar-view'],
                 };
 
                 for (var property in self.chart.legend.dispatch) {
-                    self.chart.legend.dispatch[property] = emptyEventHandler;
+                    if (self.chart.legend.dispatch.hasOwnProperty(property)) {
+                        self.chart.legend.dispatch[property] = emptyEventHandler;
+                    }
                 }
             }
 

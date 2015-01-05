@@ -257,12 +257,12 @@ class CoursePerformancePresenter(BasePresenter):
         grading_policy = cache.get(key)
 
         if not grading_policy:
+            logger.debug('Retrieving grading policy for course: %s', self.course_id)
             grading_policy = self.course_api_client(self.course_id).grading_policy.get()
             cache.set(key, grading_policy)
 
         return grading_policy
 
-    @property
     def assignment_types(self):
         """ Returns the assignment types for the represented course."""
         grading_policy = self.grading_policy()
@@ -309,11 +309,17 @@ class CoursePerformancePresenter(BasePresenter):
 
     def assignments(self, assignment_type=None):
         """ Returns the assignments (and problems) for the represented course. """
-        key = '{}_assignments_{}'.format(self.course_id, assignment_type)
+        key = '{}_assignments'.format(self.course_id)
         assignments = cache.get(key)
 
         if not assignments:
-            assignments = self.course_api_client(self.course_id).assignments.get()
+            logger.debug('Retrieving assignments for course: %s', self.course_id)
+            assignments = self.course_api_client(self.course_id).graded_content.get()
+
+            # Change the key name from format (less-specific to our use case) to assignment_type (more accurate).
+            for assignment in assignments:
+                assignment['assignment_type'] = assignment.pop('format')
+
             cache.set(key, assignments)
 
         if assignment_type:
@@ -321,6 +327,7 @@ class CoursePerformancePresenter(BasePresenter):
             assignments = [assignment for assignment in assignments if
                            assignment['assignment_type'].lower() == assignment_type]
 
+        # TODO Cache this info.
         # Add metadata and submissions
         order = 1
         for assignment in assignments:

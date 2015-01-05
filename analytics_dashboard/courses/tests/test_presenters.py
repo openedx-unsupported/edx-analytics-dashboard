@@ -1,8 +1,6 @@
-import copy
 import datetime
 
 from django.core.cache import cache
-
 import mock
 from django.test import TestCase, override_settings
 import analyticsclient.constants.activity_type as AT
@@ -10,8 +8,8 @@ import analyticsclient.constants.activity_type as AT
 from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter, BasePresenter, \
     CourseEnrollmentDemographicsPresenter, CoursePerformancePresenter
 from courses.tests import utils, SwitchMixin
-from test_views import COURSE_API_URL
-from utils import CoursePerformanceMockData
+from courses.tests.test_views import COURSE_API_URL
+from courses.tests.utils import CoursePerformanceMockData
 
 
 class CourseEngagementPresenterTests(SwitchMixin, TestCase):
@@ -227,6 +225,8 @@ class CourseEnrollmentDemographicsPresenterTests(TestCase):
 
         self.assertEqual(last_updated, utils.CREATED_DATETIME)
         self.assertDictEqual(summary, utils.get_presenter_enrollment_ages_summary())
+        print binned_ages
+        print utils.get_presenter_enrollment_binned_ages()
         self.assertListEqual(binned_ages, utils.get_presenter_enrollment_binned_ages())
         self.assertEqual(known_percent, 0.5)
 
@@ -290,9 +290,11 @@ class CoursePerformancePresenterTests(TestCase):
 
         for part in problem_parts:
             expected = part['expected']
-            last_updated, questions, active_question, answer_distributions, answer_distribution_limited, \
-            is_random, answer_type, \
-            problem_part_description = self.presenter.get_answer_distribution(self.problem_id, part['part_id'])
+
+            # pylint: disable=line-too-long
+            last_updated, questions, active_question, answer_distributions, answer_distribution_limited, is_random, answer_type, problem_part_description = self.presenter.get_answer_distribution(
+                self.problem_id, part['part_id'])
+
             self.assertEqual(last_updated, utils.CREATED_DATETIME)
             self.assertListEqual(questions, utils.get_presenter_performance_answer_distribution_questions())
             self.assertEqual(problem_part_description, expected['problem_part_description'])
@@ -313,10 +315,10 @@ class CoursePerformancePresenterTests(TestCase):
         self.assertListEqual(self.presenter.grading_policy(), CoursePerformanceMockData.MOCK_GRADING_POLICY)
 
     @mock.patch('courses.presenters.CoursePerformancePresenter.grading_policy',
-                CoursePerformanceMockData.MOCK_GRADING_POLICY)
+                mock.Mock(return_value=CoursePerformanceMockData.MOCK_GRADING_POLICY))
     def test_assignment_types(self):
         """ Verify the presenter returns the correct assignment types. """
-        self.assertListEqual(self.presenter.assignment_types, CoursePerformanceMockData.MOCK_ASSIGNMENT_TYPES)
+        self.assertListEqual(self.presenter.assignment_types(), CoursePerformanceMockData.MOCK_ASSIGNMENT_TYPES)
 
     def _get_expected_assignments(self, assignment_type=None):
         assignments = CoursePerformanceMockData.MOCK_ASSIGNMENTS()
@@ -325,11 +327,14 @@ class CoursePerformancePresenterTests(TestCase):
         if assignment_type:
             assignment_type = assignment_type.lower()
             assignments = [assignment for assignment in assignments if
-                           assignment['assignment_type'].lower() == assignment_type]
+                           assignment['format'].lower() == assignment_type]
 
         # Add metadata and submission counts
         order = 1
         for assignment in assignments:
+            # Use a more descriptive key name
+            assignment['assignment_type'] = assignment.pop('format')
+
             problems = assignment['problems']
             num_problems = len(problems)
             for problem in problems:
@@ -346,19 +351,18 @@ class CoursePerformancePresenterTests(TestCase):
 
         return assignments
 
-    @mock.patch('slumber.Resource.get', mock.Mock(return_value=CoursePerformanceMockData.MOCK_ASSIGNMENTS()))
+    @mock.patch('slumber.Resource.get', mock.Mock(side_effect=CoursePerformanceMockData.MOCK_ASSIGNMENTS))
     def test_assignments(self):
         """ Verify the presenter returns the correct assignments. """
 
-
-
         with mock.patch('analyticsclient.module.Module.submission_counts', CoursePerformanceMockData.submission_counts):
             with mock.patch('analyticsclient.module.Module.part_ids', CoursePerformanceMockData.part_ids):
-                # With not assignment type set, the method should return all assignment types.
+                # With no assignment type set, the method should return all assignment types.
                 self.assertListEqual(self.presenter.assignments(), self._get_expected_assignments())
 
                 # With an assignment type set, the presenter should return only the assignments of the specified type.
                 for assignment_type in CoursePerformanceMockData.MOCK_ASSIGNMENT_TYPES:
+                    cache.clear()
                     self.assertListEqual(self.presenter.assignments(assignment_type),
                                          self._get_expected_assignments(assignment_type))
 
