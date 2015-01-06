@@ -867,7 +867,6 @@ class PerformanceTemplateView(CourseTemplateWithNavView, CourseAPIMixin):
     ]
     active_primary_nav_item = 'performance'
     page_title = _('Graded Content')
-    page_name = 'performance_graded_content'
     active_secondary_nav_item = 'graded_content'
 
     def dispatch(self, request, *args, **kwargs):
@@ -946,6 +945,7 @@ class PerformanceAnswerDistributionView(PerformanceTemplateView):
 
 class PerformanceGradedContent(PerformanceTemplateView):
     template_name = 'courses/performance_graded_content.html'
+    page_name = 'performance_graded_content'
 
     def get_context_data(self, **kwargs):
         context = super(PerformanceGradedContent, self).get_context_data(**kwargs)
@@ -961,8 +961,7 @@ class PerformanceGradedContent(PerformanceTemplateView):
 class PerformanceGradedContentByType(PerformanceTemplateView):
     template_name = 'courses/performance_graded_content_by_type.html'
     page_title = _('Graded Content')
-    page_name = 'performance_graded_content'
-    active_secondary_nav_item = 'graded_content'
+    page_name = 'performance_graded_content_by_type'
 
     def dispatch(self, request, *args, **kwargs):
         self.assignment_type = kwargs['assignment_type']
@@ -990,11 +989,8 @@ class PerformanceGradedContentByType(PerformanceTemplateView):
 
 
 class PerformanceAssignment(PerformanceTemplateView):
-    # TODO Correct these properties
     template_name = 'courses/performance_assignment.html'
-    page_title = _('Graded Content')
-    page_name = 'performance_graded_content'
-    active_secondary_nav_item = 'graded_content'
+    page_name = 'performance_assignment'
 
     def get_context_data(self, **kwargs):
         context = super(PerformanceAssignment, self).get_context_data(**kwargs)
