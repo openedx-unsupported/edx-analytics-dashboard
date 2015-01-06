@@ -16,6 +16,8 @@ edX Insights are computed. It contains sections for:
 * :ref:`Location Computations`
 
 * :ref:`Engagement Computations`
+
+* :ref:`Performance Computations`
   
 * :ref:`Error Conditions`
 
@@ -39,10 +41,10 @@ All Computations
 
 .. spacer
 
-* Metrics for enrollment and engagement do not rely on account activation. A
-  user who registers an account and enrolls in a course, but does not activate
-  the user account, is included in all computations as of the date and time of
-  enrollment.
+* Account activation is not considered by the edX Insights computations. EdX
+  Insights includes a learner who registers a user account and enrolls in a
+  course, but does not activate the user account, in all computations as of
+  the date and time of enrollment.
 
 .. _Enrollment Computations:
 
@@ -134,7 +136,7 @@ During edX user account registration, students can provide demographic data
 about themselves. Demographic distributions are computed every day to reflect
 changes in course enrollment.
 
-Currently, students make selections from dropdown lists on the edx.org and
+Currently, students make selections from drop-down lists on the edx.org and
 edge.edx.org registration pages to provide demographic data.
 
 * Students cannot change the selections that they make after registration is
@@ -371,6 +373,125 @@ For information about viewing engagement metrics in edX Insights, see
 
 * The y-axis shows the number of unique users.
 
+
+.. _Performance Computations:
+
+*****************************
+Performance Computations
+*****************************
+
+* Student answer submission data is available only for problems of these
+  types.
+
+  * Checkboxes (``<choiceresponse>``)
+  * Dropdown (``<optionresponse>``)
+  * Multiple choice (``<multiplechoiceresponse>``)
+  * Numerical input (``<numericalresponse>``)
+  * Text input (``<stringresponse>``)
+  * Math expression input (``<formularesponse>``)
+  
+  For information about the problem types that can be included in courses and
+  their settings, see `Creating Exercises and Tools`_.
+
+* For data to be available for a problem, at least one student must
+  have submitted an answer for that problem after 6 Mar 2014.
+
+* Computations are updated daily. 
+
+* Only a student's last submission is included in the computation. Any
+  attempts prior to the last submission are not included.
+
+* Computations for graded content include only problems for which students can
+  click **Check** to submit their responses. If students can only save their
+  responses without submitting them (that is, if the **Maximum Attempts** for
+  the problem is set to 0), data is not available for student submission
+  computations.
+
+* Only problem activity that occurred after 23 Oct 2013 is included. 
+
+**Graded Content Submissions .csv file**
+
+The .csv file contains a superset of the data that is included in the
+Submission Counts chart and report. The .csv file contains the following columns.
+
+.. list-table::
+   :widths: 20 60
+   :header-rows: 1
+
+   * - Column
+     - Description
+   * - ``answer_value``
+     - The text label of the answer choice for checkboxes, dropdown, and
+       multiple choice problems. The value entered by the student for text
+       input, numerical input, and math expression input problems. 
+
+       Answer choices selected by at least one student after 23 Oct 2013, but
+       not selected after 6 Mar 2014, do not include an ``answer_value`` for
+       checkboxes and multiple choice problems. The ``value_id`` is available
+       for these problems.
+
+   * - ``consolidated_variant``
+     - TRUE if the problem uses the randomization setting in Studio, but there
+       is a problem with the Python script that randomizes the values. FALSE
+       if the Python script is randomizing values or if the problem does not
+       use the randomization setting.
+   * - ``correct``
+     - TRUE if this answer value is correct. FALSE if this answer value is
+       incorrect.
+   * - ``count``
+     - The number of times that students entered or selected this answer as
+       their most recent submission for the problem or problem variant. 
+
+       The count reflects the entire problem history. If you change a 
+       problem after it is released, it might not be possible for you to 
+       determine which answers were given before and after you made the change.
+
+   * - ``course_id``
+     - The identifier for the course run.
+   * - ``created``
+     - The date and time of the computation.
+   * - ``module_id``
+     - The internal identifier for the problem component.
+   * - ``part_id``
+     - For a problem component that contains multiple questions, the internal
+       identifier for each question. For a problem component that contains a
+       single question, the internal identifier of that problem.
+   * - ``problem_display_name``
+     - The display name defined for the problem.
+   * - ``question_text``
+     - The accessible label that appears above the answer choices or
+       the value entry field for the problem. In the Studio Simple Editor, this
+       text is surrounded by two pairs of angle brackets (>>Question<<). Blank
+       for questions that do not have an accessible label.
+
+       For problems that use the randomization setting in Studio, if a
+       particular answer has not been selected since 6 Mar 2014, the
+       ``question_text`` is blank for that answer.
+
+   * - ``value_id``
+     - The internal identifier for the answer choice provided for checkboxes
+       and multiple choice problems. Blank for dropdown, numerical input, text
+       input, and math expression input problems.
+   * - ``variant``
+     - For problems that use the randomization setting in Studio, the unique
+       identifier for a variant of the problem. Blank for problems that have
+       this setting defined as **Never** (the default).
+
+
+After you download the .csv file, be aware that different spreadsheet
+applications can display the same data in different ways.
+
+* Not all spreadsheet applications interpret and render UTF-8 encoded
+  characters correctly.
+
+* Some spreadsheet applications alter data for display purposes, such as
+  inserting zeroes into numbers expressed as decimals. For example, the
+  student answer ".5" can be appear in a spreadsheet as "0.5".
+
+If you notice characters that do not display as expected, or multiple lines
+that have the same ``answer_value`` but different counts, try opening the file
+in a different spreadsheet application or a text editor.
+
 .. _Error Conditions:
 
 *****************
@@ -386,9 +507,9 @@ every course run.
 
 In the following situations, data may not be available in edX Insights. 
 
-* EdX changed the method used to track student enrollments on 3 December 2013.
-  For courses created in Studio prior to 4 December 2013, edX Insights reports
-  enrollment activity beginning with the enrollment count on 11 November 2013.
+* EdX changed the method used to track student enrollments on 3 Dec 2013.
+  For courses created in Studio prior to 4 Dec 2013, edX Insights reports
+  enrollment activity beginning with the enrollment count on 11 Nov 2013.
 
 * For courses with a very small number of enrolled users, such as newly created
   courses, data for enrollment activity, enrollment geography, or both, may not
@@ -398,3 +519,13 @@ In the following situations, data may not be available in edX Insights.
   courses and courses that finished running early in the history of the edX
   platform, data for enrollment activity and student engagement may not be
   available.
+
+* Charts are not available for problems that use the randomization setting in
+  Studio. Because such problems can result in numerous possible submission
+  variants, both correct and incorrect, edX Insights does not attempt to graph
+  them. The Submissions report and downloadable .csv file are available for
+  such problems, and include one row for each problem-variant-answer
+  combination selected by your students.
+
+
+.. _Creating Exercises and Tools: http://edx.readthedocs.org/projects/edx-partner-course-staff/en/latest/exercises_tools/index.html

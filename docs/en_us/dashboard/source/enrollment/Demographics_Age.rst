@@ -1,7 +1,7 @@
 .. _Demographics_Age:
 
 #############################
-Enrollment Demographics: Age
+Age Demographics
 #############################
 
 How old are my students? Awareness of the ages reported by your students can

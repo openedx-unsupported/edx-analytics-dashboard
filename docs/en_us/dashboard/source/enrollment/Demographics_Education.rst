@@ -1,7 +1,7 @@
 .. _Demographics_Education:
 
 ###################################
-Enrollment Demographics: Education
+Education Demographics
 ###################################
 
 What educational background do my students have? Evaluating the stages of
