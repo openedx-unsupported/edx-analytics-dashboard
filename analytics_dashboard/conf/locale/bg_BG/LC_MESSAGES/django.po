@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-24 16:23-0500\n"
-"PO-Revision-Date: 2014-12-12 18:56+0000\n"
+"POT-Creation-Date: 2015-01-06 15:02-0500\n"
+"PO-Revision-Date: 2015-01-06 20:05+0000\n"
 "Last-Translator: cblackburn <cblackburn@edx.org>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/edx-platform/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,87 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg_BG\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Login"
+msgstr "Влез"
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "%(application_name)s to help course teams improve courses."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: courses/views.py
+msgid "Who are my students?"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Target your course to fit the backgrounds of your students."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: courses/templates/courses/enrollment_geography.html
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/views.py
+msgid "Enrollment"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "What are students engaging with in my course?"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid ""
+"Improve frequently accessed content, or point students at underused "
+"resources."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: courses/tests/test_views/test_pages.py courses/views.py courses/views.py
+#: courses/views.py
+msgid "Engagement"
+msgstr "Ангажимент"
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "How well is my content supporting student learning?"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Adjust your course based on where students are struggling."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Performance"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Join the Open Source Community"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid ""
+"The edX analytics data pipeline and edX Insights are open source. "
+"%(link_start)sLearn more%(link_end)s."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Research at edX"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid ""
+"We are committed to advancing teaching and learning through research. "
+"%(link_start)sLearn more%(link_end)s."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Need Help?"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid ""
+"%(link_start)sOur support center%(link_end)s can help you find solutions."
+msgstr ""
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
@@ -106,7 +187,7 @@ msgstr "Студенти (Самозаписан)"
 msgid "Weekly Student Engagement"
 msgstr "Седмичен студенски ангажимент"
 
-#: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/engagement_content.html courses/views.py
 msgid "How many students are interacting with my course?"
 msgstr "Колко студента са записание в моя курс"
 
@@ -186,7 +267,7 @@ msgstr "Изтегли CSV"
 msgid "Daily Student Enrollment"
 msgstr "Дневно записани студенти"
 
-#: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_activity.html courses/views.py
 msgid "How many students are in my course?"
 msgstr "Колко човека има в моя курс?"
 
@@ -268,7 +349,7 @@ msgstr ""
 msgid "Enrollment Over Time"
 msgstr "Записвания през времето"
 
-#: courses/templates/courses/enrollment_demographics_age.html
+#: courses/templates/courses/enrollment_demographics_age.html courses/views.py
 msgid "How old are my students?"
 msgstr "Колко годишни са студентите ми?"
 
@@ -337,6 +418,7 @@ msgid "Age Breakdown"
 msgstr "Разбивка по възраст"
 
 #: courses/templates/courses/enrollment_demographics_education.html
+#: courses/views.py
 msgid "What level of education do my students have?"
 msgstr "Нивото на образование което имат обучаващите се?"
 
@@ -392,6 +474,7 @@ msgid "Educational Breakdown"
 msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_gender.html
+#: courses/views.py
 msgid "What is the student gender breakdown?"
 msgstr ""
 
@@ -412,17 +495,12 @@ msgstr ""
 msgid "Geographic Distribution"
 msgstr ""
 
-#: courses/templates/courses/enrollment_geography.html
+#: courses/templates/courses/enrollment_geography.html courses/views.py
 msgid "Where are my students?"
 msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Enrollment by Country"
-msgstr ""
-
-#: courses/templates/courses/enrollment_geography.html
-#: courses/tests/test_views/__init__.py courses/views.py
-msgid "Enrollment"
 msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
@@ -480,6 +558,24 @@ msgstr ""
 msgid "Geographic Breakdown"
 msgstr ""
 
+#. Translators: Application here refers to the web site/application being used
+#. (e.g. the dashboard).
+#: courses/templates/courses/home.html templates/base_dashboard.html
+#: templates/footer.html templates/lens-navigation.html
+msgid "Application"
+msgstr "Приложение"
+
+#: courses/templates/courses/home.html courses/views.py
+msgid "Course Home"
+msgstr ""
+
+#. Translators: This refers to the active tab/navigation item.
+#. Translators: This refers to the active tab/navigation item.
+#: courses/templates/courses/home.html templates/lens-navigation.html
+#: templates/submenu_navigation.html
+msgid "Active"
+msgstr "Активен"
+
 #: courses/templates/courses/index.html
 msgid "Courses"
 msgstr "Курсове"
@@ -528,36 +624,33 @@ msgstr "Опитай отново"
 msgid "primary"
 msgstr ""
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Activity"
 msgstr "Дейност"
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/views.py courses/views.py
 msgid "Demographics"
 msgstr "Демография"
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Geography"
 msgstr "География"
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Age"
 msgstr "Възраст"
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Education"
 msgstr "Образование"
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Gender"
 msgstr "Пол"
 
-#: courses/tests/test_views/test_pages.py courses/views.py
-msgid "Engagement"
-msgstr "Ангажимент"
-
 #. Translators: Content as in course content (e.g. things, not the feeling)
-#: courses/tests/test_views/test_pages.py courses/views.py
+#: courses/tests/test_views/test_pages.py courses/views.py courses/views.py
 msgid "Content"
 msgstr "Съдържание"
 
@@ -622,6 +715,10 @@ msgid ""
 "UTC."
 msgstr ""
 
+#: courses/views.py
+msgid "What are students doing in my course?"
+msgstr ""
+
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
 msgstr "Достъпът отказан"
@@ -683,12 +780,6 @@ msgstr ""
 msgid "Contact %(platform_name)s Support"
 msgstr "Свържете се с %(platform_name)s Help Desk"
 
-#. Translators: Application here refers to the web site/application being used
-#. (e.g. the dashboard).
-#: templates/base.html templates/footer.html templates/lens-navigation.html
-msgid "Application"
-msgstr "Приложение"
-
 #: templates/footer.html
 msgid ""
 "We want this dashboard to work for you! Need help? "
@@ -723,29 +814,9 @@ msgstr "Помощ"
 msgid "Logout"
 msgstr "Излез от профила"
 
-#. Translators: This refers to the active tab/navigation item.
-#: templates/lens-navigation.html templates/submenu_navigation.html
-msgid "Active"
-msgstr "Активен"
-
 #: templates/loading.html
 msgid "LOADING..."
 msgstr "ЗАРЕЖДАНЕ"
-
-#: templates/registration/logged_out.html
-#: templates/registration/logged_out.html
-msgid "Logged Out"
-msgstr "Излязохте успешно"
-
-#: templates/registration/logged_out.html
-msgid "You have been logged out. Click the button below to login again."
-msgstr ""
-"Вие успешно излязохте от системата. Изберете по-долу бутонът за да влезете "
-"отново."
-
-#: templates/registration/logged_out.html
-msgid "Login"
-msgstr "Влез"
 
 #: templates/section_error.html
 msgid "We are unable to load this chart."

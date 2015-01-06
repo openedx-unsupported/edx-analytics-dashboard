@@ -8,15 +8,96 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-24 16:23-0500\n"
-"PO-Revision-Date: 2014-12-08 17:16+0000\n"
-"Last-Translator: Keleti László <lkeleti@wininvestor.hu>\n"
+"POT-Creation-Date: 2015-01-06 15:02-0500\n"
+"PO-Revision-Date: 2015-01-06 20:05+0000\n"
+"Last-Translator: cblackburn <cblackburn@edx.org>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/edx-platform/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Login"
+msgstr "Bejelentkezés"
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "%(application_name)s to help course teams improve courses."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: courses/views.py
+msgid "Who are my students?"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Target your course to fit the backgrounds of your students."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: courses/templates/courses/enrollment_geography.html
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/views.py
+msgid "Enrollment"
+msgstr "Feliratkozás"
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "What are students engaging with in my course?"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid ""
+"Improve frequently accessed content, or point students at underused "
+"resources."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: courses/tests/test_views/test_pages.py courses/views.py courses/views.py
+#: courses/views.py
+msgid "Engagement"
+msgstr "Terheltség"
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "How well is my content supporting student learning?"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Adjust your course based on where students are struggling."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Performance"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Join the Open Source Community"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid ""
+"The edX analytics data pipeline and edX Insights are open source. "
+"%(link_start)sLearn more%(link_end)s."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Research at edX"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid ""
+"We are committed to advancing teaching and learning through research. "
+"%(link_start)sLearn more%(link_end)s."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Need Help?"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid ""
+"%(link_start)sOur support center%(link_end)s can help you find solutions."
+msgstr ""
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
@@ -105,7 +186,7 @@ msgstr "Tanulók (bevallott adatok)"
 msgid "Weekly Student Engagement"
 msgstr "Tanulók heti terheltsége"
 
-#: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/engagement_content.html courses/views.py
 msgid "How many students are interacting with my course?"
 msgstr "Hány tanuló került kapcsolatba a kurzussal?"
 
@@ -185,7 +266,7 @@ msgstr "CSV letöltése"
 msgid "Daily Student Enrollment"
 msgstr "Napi tanuló-hozzárendelés"
 
-#: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_activity.html courses/views.py
 msgid "How many students are in my course?"
 msgstr "Hány diák iratkozott be a kurzusomba?"
 
@@ -267,7 +348,7 @@ msgstr ""
 msgid "Enrollment Over Time"
 msgstr "Időn túli beiratkozás"
 
-#: courses/templates/courses/enrollment_demographics_age.html
+#: courses/templates/courses/enrollment_demographics_age.html courses/views.py
 msgid "How old are my students?"
 msgstr "Milyen idősek a tanulóim?"
 
@@ -343,6 +424,7 @@ msgid "Age Breakdown"
 msgstr "Életkor szerinti eloszlás"
 
 #: courses/templates/courses/enrollment_demographics_education.html
+#: courses/views.py
 msgid "What level of education do my students have?"
 msgstr "Milyen legmagasabb iskolai végzettséggel rendelkeznek a tanulóim?"
 
@@ -402,6 +484,7 @@ msgid "Educational Breakdown"
 msgstr "Végzettség szerinti eloszlás"
 
 #: courses/templates/courses/enrollment_demographics_gender.html
+#: courses/views.py
 msgid "What is the student gender breakdown?"
 msgstr "Mi a tanulók nem szerinti eloszlása?"
 
@@ -422,18 +505,13 @@ msgstr "Nem szerinti eloszlás az idő múlásával"
 msgid "Geographic Distribution"
 msgstr "Földrajzi eloszlás"
 
-#: courses/templates/courses/enrollment_geography.html
+#: courses/templates/courses/enrollment_geography.html courses/views.py
 msgid "Where are my students?"
 msgstr "Hol vannak a tanulóim?"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Enrollment by Country"
 msgstr "Beiratkozás ország szerint"
-
-#: courses/templates/courses/enrollment_geography.html
-#: courses/tests/test_views/__init__.py courses/views.py
-msgid "Enrollment"
-msgstr "Feliratkozás"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geography Metrics"
@@ -490,6 +568,24 @@ msgstr "tanulók %(percent)s%%-a"
 msgid "Geographic Breakdown"
 msgstr "Földrajzi eloszlás"
 
+#. Translators: Application here refers to the web site/application being used
+#. (e.g. the dashboard).
+#: courses/templates/courses/home.html templates/base_dashboard.html
+#: templates/footer.html templates/lens-navigation.html
+msgid "Application"
+msgstr "Applikáció"
+
+#: courses/templates/courses/home.html courses/views.py
+msgid "Course Home"
+msgstr ""
+
+#. Translators: This refers to the active tab/navigation item.
+#. Translators: This refers to the active tab/navigation item.
+#: courses/templates/courses/home.html templates/lens-navigation.html
+#: templates/submenu_navigation.html
+msgid "Active"
+msgstr "Aktív"
+
 #: courses/templates/courses/index.html
 msgid "Courses"
 msgstr "Kurzusok"
@@ -537,36 +633,33 @@ msgstr "Próbáld meg újra"
 msgid "primary"
 msgstr "elsődleges"
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Activity"
 msgstr "Aktivitás"
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/views.py courses/views.py
 msgid "Demographics"
 msgstr "Demográfiai"
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Geography"
 msgstr "Földrajzi hely szerint"
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Age"
 msgstr "Életkor"
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Education"
 msgstr "Oktatás"
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Gender"
 msgstr "Nem"
 
-#: courses/tests/test_views/test_pages.py courses/views.py
-msgid "Engagement"
-msgstr "Terheltség"
-
 #. Translators: Content as in course content (e.g. things, not the feeling)
-#: courses/tests/test_views/test_pages.py courses/views.py
+#: courses/tests/test_views/test_pages.py courses/views.py courses/views.py
 msgid "Content"
 msgstr "Tartalom"
 
@@ -638,6 +731,10 @@ msgstr ""
 "A kurzus terheltségi adatai  %(update_date)s, %(update_time)s UTC-kor "
 "kerültek frissítésre."
 
+#: courses/views.py
+msgid "What are students doing in my course?"
+msgstr ""
+
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
 msgstr "Hozzáférés megtagadva"
@@ -700,12 +797,6 @@ msgstr ""
 msgid "Contact %(platform_name)s Support"
 msgstr "Vedd fel a kapcsolatot a %(platform_name)s támogató csoporttal"
 
-#. Translators: Application here refers to the web site/application being used
-#. (e.g. the dashboard).
-#: templates/base.html templates/footer.html templates/lens-navigation.html
-msgid "Application"
-msgstr "Applikáció"
-
 #: templates/footer.html
 msgid ""
 "We want this dashboard to work for you! Need help? "
@@ -742,28 +833,9 @@ msgstr "Segítség"
 msgid "Logout"
 msgstr "Kijelentkezés"
 
-#. Translators: This refers to the active tab/navigation item.
-#: templates/lens-navigation.html templates/submenu_navigation.html
-msgid "Active"
-msgstr "Aktív"
-
 #: templates/loading.html
 msgid "LOADING..."
 msgstr "BETÖLTÉS..."
-
-#: templates/registration/logged_out.html
-#: templates/registration/logged_out.html
-msgid "Logged Out"
-msgstr "Kijelentkezett"
-
-#: templates/registration/logged_out.html
-msgid "You have been logged out. Click the button below to login again."
-msgstr ""
-"Kijelentkeztél. Kattints lentebb a gombra az ismételt bejelentkezéshez."
-
-#: templates/registration/logged_out.html
-msgid "Login"
-msgstr "Bejelentkezés"
 
 #: templates/section_error.html
 msgid "We are unable to load this chart."

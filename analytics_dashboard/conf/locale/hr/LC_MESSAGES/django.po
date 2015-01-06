@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-24 16:23-0500\n"
-"PO-Revision-Date: 2014-12-08 17:17+0000\n"
+"POT-Creation-Date: 2015-01-06 15:02-0500\n"
+"PO-Revision-Date: 2015-01-06 20:05+0000\n"
 "Last-Translator: cblackburn <cblackburn@edx.org>\n"
 "Language-Team: Croatian (http://www.transifex.com/projects/p/edx-platform/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,87 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hr\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Login"
+msgstr "Prijavi se"
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "%(application_name)s to help course teams improve courses."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: courses/views.py
+msgid "Who are my students?"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Target your course to fit the backgrounds of your students."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: courses/templates/courses/enrollment_geography.html
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/views.py
+msgid "Enrollment"
+msgstr "Broj upisanih"
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "What are students engaging with in my course?"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid ""
+"Improve frequently accessed content, or point students at underused "
+"resources."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: courses/tests/test_views/test_pages.py courses/views.py courses/views.py
+#: courses/views.py
+msgid "Engagement"
+msgstr "Broj aktivnih"
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "How well is my content supporting student learning?"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Adjust your course based on where students are struggling."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Performance"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Join the Open Source Community"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid ""
+"The edX analytics data pipeline and edX Insights are open source. "
+"%(link_start)sLearn more%(link_end)s."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Research at edX"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid ""
+"We are committed to advancing teaching and learning through research. "
+"%(link_start)sLearn more%(link_end)s."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Need Help?"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid ""
+"%(link_start)sOur support center%(link_end)s can help you find solutions."
+msgstr ""
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
@@ -105,7 +186,7 @@ msgstr ""
 msgid "Weekly Student Engagement"
 msgstr "Tjedna aktivnost studenata"
 
-#: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/engagement_content.html courses/views.py
 msgid "How many students are interacting with my course?"
 msgstr "Koliko studenata aktivno sudjeluje u mom kolegiju?"
 
@@ -185,7 +266,7 @@ msgstr "Preuzmi CSV"
 msgid "Daily Student Enrollment"
 msgstr "Dnevna aktivnost studenata"
 
-#: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_activity.html courses/views.py
 msgid "How many students are in my course?"
 msgstr "Koliko je studenata upisano u moj kolegij?"
 
@@ -266,7 +347,7 @@ msgstr ""
 msgid "Enrollment Over Time"
 msgstr "Ukupna upisanost"
 
-#: courses/templates/courses/enrollment_demographics_age.html
+#: courses/templates/courses/enrollment_demographics_age.html courses/views.py
 msgid "How old are my students?"
 msgstr ""
 
@@ -335,6 +416,7 @@ msgid "Age Breakdown"
 msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_education.html
+#: courses/views.py
 msgid "What level of education do my students have?"
 msgstr ""
 
@@ -390,6 +472,7 @@ msgid "Educational Breakdown"
 msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_gender.html
+#: courses/views.py
 msgid "What is the student gender breakdown?"
 msgstr ""
 
@@ -410,18 +493,13 @@ msgstr ""
 msgid "Geographic Distribution"
 msgstr "Geografska distribucija"
 
-#: courses/templates/courses/enrollment_geography.html
+#: courses/templates/courses/enrollment_geography.html courses/views.py
 msgid "Where are my students?"
 msgstr "Gdje su moji studenti?"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Enrollment by Country"
 msgstr "Upisanost po državama"
-
-#: courses/templates/courses/enrollment_geography.html
-#: courses/tests/test_views/__init__.py courses/views.py
-msgid "Enrollment"
-msgstr "Broj upisanih"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geography Metrics"
@@ -478,6 +556,24 @@ msgstr "%(percent)s%% studenata"
 msgid "Geographic Breakdown"
 msgstr "Geografski podaci"
 
+#. Translators: Application here refers to the web site/application being used
+#. (e.g. the dashboard).
+#: courses/templates/courses/home.html templates/base_dashboard.html
+#: templates/footer.html templates/lens-navigation.html
+msgid "Application"
+msgstr "Aplikacija"
+
+#: courses/templates/courses/home.html courses/views.py
+msgid "Course Home"
+msgstr ""
+
+#. Translators: This refers to the active tab/navigation item.
+#. Translators: This refers to the active tab/navigation item.
+#: courses/templates/courses/home.html templates/lens-navigation.html
+#: templates/submenu_navigation.html
+msgid "Active"
+msgstr "Aktivno"
+
 #: courses/templates/courses/index.html
 msgid "Courses"
 msgstr "Kolegiji"
@@ -524,36 +620,33 @@ msgstr "Pokušaj ponovno"
 msgid "primary"
 msgstr ""
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Activity"
 msgstr "Aktivnost"
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/views.py courses/views.py
 msgid "Demographics"
 msgstr ""
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Geography"
 msgstr "Geografija"
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Age"
 msgstr ""
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Education"
 msgstr ""
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Gender"
 msgstr ""
 
-#: courses/tests/test_views/test_pages.py courses/views.py
-msgid "Engagement"
-msgstr "Broj aktivnih"
-
 #. Translators: Content as in course content (e.g. things, not the feeling)
-#: courses/tests/test_views/test_pages.py courses/views.py
+#: courses/tests/test_views/test_pages.py courses/views.py courses/views.py
 msgid "Content"
 msgstr "Sadržaj"
 
@@ -622,6 +715,10 @@ msgstr ""
 "Podaci o aktivnosti u kolegiju posljednji su put ažurirani %(update_date)s u"
 " %(update_time)s UTC."
 
+#: courses/views.py
+msgid "What are students doing in my course?"
+msgstr ""
+
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
 msgstr "Pristup nije dozvoljen"
@@ -685,12 +782,6 @@ msgstr ""
 msgid "Contact %(platform_name)s Support"
 msgstr "Kontaktiraj %(platform_name)s podršku"
 
-#. Translators: Application here refers to the web site/application being used
-#. (e.g. the dashboard).
-#: templates/base.html templates/footer.html templates/lens-navigation.html
-msgid "Application"
-msgstr "Aplikacija"
-
 #: templates/footer.html
 msgid ""
 "We want this dashboard to work for you! Need help? "
@@ -727,27 +818,9 @@ msgstr "Pomoć"
 msgid "Logout"
 msgstr "Odjavi se"
 
-#. Translators: This refers to the active tab/navigation item.
-#: templates/lens-navigation.html templates/submenu_navigation.html
-msgid "Active"
-msgstr "Aktivno"
-
 #: templates/loading.html
 msgid "LOADING..."
 msgstr "UČITAVANJE..."
-
-#: templates/registration/logged_out.html
-#: templates/registration/logged_out.html
-msgid "Logged Out"
-msgstr "Odjavljen/a si"
-
-#: templates/registration/logged_out.html
-msgid "You have been logged out. Click the button below to login again."
-msgstr "Odjavljen/a si. Klikni dolje za ponovnu prijavu."
-
-#: templates/registration/logged_out.html
-msgid "Login"
-msgstr "Prijavi se"
 
 #: templates/section_error.html
 msgid "We are unable to load this chart."
