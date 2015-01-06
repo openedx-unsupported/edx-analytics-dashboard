@@ -163,7 +163,7 @@ class CourseViewTestMixin(SwitchMixin, NavAssertMixin, ViewTestMixin):
 
 
 @mock.patch('courses.presenters.CoursePerformancePresenter.assignments',
-            mock.Mock(return_value=CoursePerformanceMockData.MOCK_ASSIGNMENTS()))
+            mock.Mock(return_value=CoursePerformanceMockData.MOCK_PRESENTER_ASSIGNMENTS()))
 @mock.patch('courses.presenters.CoursePerformancePresenter.grading_policy',
             mock.Mock(return_value=CoursePerformanceMockData.MOCK_GRADING_POLICY))
 @ddt

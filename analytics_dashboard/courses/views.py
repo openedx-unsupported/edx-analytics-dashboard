@@ -910,12 +910,12 @@ class PerformanceAnswerDistributionView(PerformanceTemplateView):
 
         problem_id = self.kwargs['problem_id']
         part_id = self.kwargs['problem_part_id']
-        jump_to_url = None
+        view_live_url = None
         assignment = self.assignment
 
-        if settings.LMS_COURSE_JUMP_TO_BASE_URL:
-            jump_to_url = '{0}/{1}/jump_to/{2}'.format(settings.LMS_COURSE_SHORTCUT_BASE_URL, self.course_id,
-                                                       problem_id)
+        if settings.LMS_COURSE_SHORTCUT_BASE_URL:
+            view_live_url = '{0}/{1}/jump_to/{2}'.format(settings.LMS_COURSE_SHORTCUT_BASE_URL, self.course_id,
+                                                         problem_id)
 
         try:
             answer_distribution_entry = presenter.get_answer_distribution(problem_id, part_id)
@@ -932,14 +932,12 @@ class PerformanceAnswerDistributionView(PerformanceTemplateView):
         })
 
         context.update({
-            'course_id': self.course_id,
-            'assignment': assignment,
             'questions': answer_distribution_entry.questions,
             'active_question': answer_distribution_entry.active_question,
             'problem_id': problem_id,
             'problem_part_id': part_id,
             'problem_part_description': answer_distribution_entry.problem_part_description,
-            'jump_to_url': jump_to_url,
+            'view_live_url': view_live_url,
             'update_message': self.get_last_updated_message(answer_distribution_entry.last_updated)
         })
         context['page_data'] = self.get_page_data(context)
