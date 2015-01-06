@@ -885,6 +885,7 @@ class PerformanceTemplateView(CourseTemplateWithNavView, CourseAPIMixin):
             if assignment:
                 context['assignment'] = assignment
                 self.assignment = assignment
+                self.assignment_type = assignment['assignment_type']
             else:
                 logger.info('Assignment %s not found.', self.assignment_id)
                 raise Http404

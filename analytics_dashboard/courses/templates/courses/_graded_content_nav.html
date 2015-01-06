@@ -35,9 +35,9 @@
               </span>
               <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                 {% for assignment in assignments %}
-                  <li role="presentation">
+                  <li role="presentation" {% if not assignment.total_submissions > 0 %}class="disabled"{% endif %}>
                     <a role="menuitem"
-                       href="{% url "courses:performance_assignment" course_id=course_id assignment_id=assignment.id %}">
+                       {% if assignment.total_submissions > 0 %}href="{% url "courses:performance_assignment" course_id=course_id assignment_id=assignment.id %}"{% endif %}>
                       {{ assignment.name }}
                     </a>
                   </li>

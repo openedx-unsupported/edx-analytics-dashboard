@@ -51,6 +51,10 @@
         {
             name: 'js/performance-graded-content-assignment-main',
             exclude: ['js/common']
+        },
+        {
+            name: 'js/performance-answer-distribution-main',
+            exclude: ['js/common']
         }
     ]
 })

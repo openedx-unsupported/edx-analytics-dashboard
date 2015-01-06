@@ -225,8 +225,6 @@ class CourseEnrollmentDemographicsPresenterTests(TestCase):
 
         self.assertEqual(last_updated, utils.CREATED_DATETIME)
         self.assertDictEqual(summary, utils.get_presenter_enrollment_ages_summary())
-        print binned_ages
-        print utils.get_presenter_enrollment_binned_ages()
         self.assertListEqual(binned_ages, utils.get_presenter_enrollment_binned_ages())
         self.assertEqual(known_percent, 0.5)
 
@@ -330,24 +328,23 @@ class CoursePerformancePresenterTests(TestCase):
                            assignment['format'].lower() == assignment_type]
 
         # Add metadata and submission counts
-        order = 1
-        for assignment in assignments:
+        for index, assignment in enumerate(assignments):
             # Use a more descriptive key name
             assignment['assignment_type'] = assignment.pop('format')
 
             problems = assignment['problems']
             num_problems = len(problems)
-            for problem in problems:
+            for i, problem in enumerate(problems):
                 problem.update({
-                    'total_submissions': 1,
-                    'correct_submissions': 1,
-                    'part_ids': []
+                    'index': i + 1,
+                    'total_submissions': i,
+                    'correct_submissions': i,
+                    'part_ids': ["{}_1_2".format(problem["id"])]
                 })
             assignment['num_problems'] = num_problems
-            assignment['total_submissions'] = num_problems
-            assignment['correct_submissions'] = num_problems
-            assignment['order'] = order
-            order += 1
+            assignment['total_submissions'] = sum(problem.get('total_submissions', 0) for problem in problems)
+            assignment['correct_submissions'] = sum(problem.get('correct_submissions', 0) for problem in problems)
+            assignment['index'] = index + 1
 
         return assignments
 
@@ -355,19 +352,20 @@ class CoursePerformancePresenterTests(TestCase):
     def test_assignments(self):
         """ Verify the presenter returns the correct assignments. """
 
-        with mock.patch('analyticsclient.module.Module.submission_counts', CoursePerformanceMockData.submission_counts):
-            with mock.patch('analyticsclient.module.Module.part_ids', CoursePerformanceMockData.part_ids):
-                # With no assignment type set, the method should return all assignment types.
-                self.assertListEqual(self.presenter.assignments(), self._get_expected_assignments())
+        with mock.patch('analyticsclient.course.Course.problems', CoursePerformanceMockData.problems):
+            # With no assignment type set, the method should return all assignment types.
+            assignments = self.presenter.assignments()
+            expected_assignments = self._get_expected_assignments()
+            self.assertListEqual(assignments, expected_assignments)
 
-                # With an assignment type set, the presenter should return only the assignments of the specified type.
-                for assignment_type in CoursePerformanceMockData.MOCK_ASSIGNMENT_TYPES:
-                    cache.clear()
-                    self.assertListEqual(self.presenter.assignments(assignment_type),
-                                         self._get_expected_assignments(assignment_type))
+            # With an assignment type set, the presenter should return only the assignments of the specified type.
+            for assignment_type in CoursePerformanceMockData.MOCK_ASSIGNMENT_TYPES:
+                cache.clear()
+                self.assertListEqual(self.presenter.assignments(assignment_type),
+                                     self._get_expected_assignments(assignment_type))
 
     @mock.patch('courses.presenters.CoursePerformancePresenter.assignments',
-                mock.Mock(return_value=CoursePerformanceMockData.MOCK_ASSIGNMENTS()))
+                mock.Mock(return_value=CoursePerformanceMockData.MOCK_PRESENTER_ASSIGNMENTS()))
     def test_assignment(self):
         """ Verify the presenter returns a specific assignment. """
 
@@ -376,5 +374,6 @@ class CoursePerformancePresenterTests(TestCase):
         self.assertIsNone(self.presenter.assignment('non-existent-id'))
 
         # The method should return an individual assignment if the ID exists.
-        homework = CoursePerformanceMockData.HOMEWORK
+        homework = CoursePerformanceMockData.HOMEWORK()
+        homework['assignment_type'] = homework.pop('format')
         self.assertDictEqual(self.presenter.assignment(homework['id']), homework)

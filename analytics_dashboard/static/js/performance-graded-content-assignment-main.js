@@ -26,13 +26,13 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                 model: model,
                 modelAttribute: 'problems',
                 trends: submissionColumns,
-                x: {key: 'order'},
+                x: {key: 'index'},
                 y: {key: 'count'},
                 interactiveTooltipHeaderTitleKey: 'name'
             });
 
             var tableColumns = [
-                    {key: 'order', title: gettext('Order'), type: 'number', className: 'text-right'},
+                    {key: 'index', title: gettext('Order'), type: 'number', className: 'text-right'},
                     {key: 'name', title: gettext('Problem Name')}
             ].concat(submissionColumns);
 
@@ -41,7 +41,7 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                 model: model,
                 modelAttribute: 'problems',
                 columns: tableColumns,
-                sorting: ['order']
+                sorting: ['index']
             });
         });
 });

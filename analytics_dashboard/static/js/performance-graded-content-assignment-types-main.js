@@ -27,13 +27,13 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                 model: model,
                 modelAttribute: 'assignments',
                 trends: submissionColumns,
-                x: {key: 'order'},
+                x: {key: 'index'},
                 y: {key: 'count'},
                 interactiveTooltipHeaderTemplate: _.template(assignmentType + ' #<%=value%>')
             });
 
             var tableColumns = [
-                    {key: 'order', title: gettext('Order'), type: 'number', className: 'text-right'},
+                    {key: 'index', title: gettext('Order'), type: 'number', className: 'text-right'},
                     {key: 'name', title: gettext('Assignment Name')},
                     {key: 'num_problems', title: gettext('Problems'), type: 'number', className: 'text-right'}
             ].concat(submissionColumns);
@@ -43,7 +43,7 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                 model: model,
                 modelAttribute: 'assignments',
                 columns: tableColumns,
-                sorting: ['order']
+                sorting: ['index']
             });
         });
 });

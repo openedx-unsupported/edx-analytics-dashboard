@@ -268,39 +268,43 @@ class CoursePerformancePresenter(BasePresenter):
         grading_policy = self.grading_policy()
         return [gp['assignment_type'] for gp in grading_policy]
 
-    def _add_submissions_and_part_ids(self, assignment):
-        key = '{}_problems'.format(assignment['id'])
+    def _course_problems(self):
+        key = 'course_{}_problems'.format(self.course_id)
         problems = cache.get(key)
 
         if not problems:
-            problems = assignment['problems']
-            problem_ids = [problem['id'] for problem in problems]
-            submission_data = {}
+            # Get the problems from the API
+            problems = self.client.courses(self.course_id).problems()
+
+            # Create a lookup table
+            table = {}
+            for problem in problems:
+                _id = problem.pop('module_id')
+                problem['id'] = _id
+                table[_id] = problem
+
+            problems = table
+            cache.set(key, problems)
+
+        return problems
+
+    def _add_submissions_and_part_ids(self, assignment):
+        key = 'assignment_{}_problems'.format(assignment['id'])
+        problems = cache.get(key)
+
+        if not problems:
             DEFAULT_DATA = {
                 'total_submissions': 0,
-                'correct_submissions': 100,
+                'correct_submissions': 0,
                 'part_ids': []
             }
 
-            try:
-                _api_counts = self.client.modules(self.course_id, None).submission_counts(problem_ids)
+            problems = assignment['problems']
+            _course_problems = self._course_problems()
 
-                for count in _api_counts:
-                    submission_data[count['module_id']] = {
-                        'total_submissions': count['total'],
-                        'correct_submissions': count['correct']
-                    }
-
-                _part_ids = self.client.modules(self.course_id, None).part_ids(problem_ids)
-
-                for item in _part_ids:
-                    module_id = item['module_id']
-                    submission_data[module_id]['part_ids'] = item['part_ids']
-            except NotFoundError:
-                pass
-
-            for problem in problems:
-                data = submission_data.get(problem['id'], DEFAULT_DATA)
+            for index, problem in enumerate(problems):
+                data = _course_problems.get(problem['id'], DEFAULT_DATA)
+                data['index'] = index + 1
                 problem.update(data)
 
             cache.set(key, problems)
@@ -309,36 +313,40 @@ class CoursePerformancePresenter(BasePresenter):
 
     def assignments(self, assignment_type=None):
         """ Returns the assignments (and problems) for the represented course. """
-        key = '{}_assignments'.format(self.course_id)
-        assignments = cache.get(key)
+
+        # Check for cached assignments for the given assignment type
+        assignment_type_key = '{}_assignments_{}'.format(self.course_id, assignment_type)
+        assignments = cache.get(assignment_type_key)
 
         if not assignments:
-            logger.debug('Retrieving assignments for course: %s', self.course_id)
-            assignments = self.course_api_client(self.course_id).graded_content.get()
+            all_assignments_key = '{}_assignments'.format(self.course_id)
+            assignments = cache.get(all_assignments_key)
 
-            # Change the key name from format (less-specific to our use case) to assignment_type (more accurate).
-            for assignment in assignments:
-                assignment['assignment_type'] = assignment.pop('format')
+            if not assignments:
+                logger.debug('Retrieving assignments for course: %s', self.course_id)
+                assignments = self.course_api_client(self.course_id).graded_content.get()
 
-            cache.set(key, assignments)
+                # Change the key name from format (less-specific to our use case) to assignment_type (more accurate).
+                for assignment in assignments:
+                    assignment['assignment_type'] = assignment.pop('format')
 
-        if assignment_type:
-            assignment_type = assignment_type.lower()
-            assignments = [assignment for assignment in assignments if
-                           assignment['assignment_type'].lower() == assignment_type]
+                cache.set(all_assignments_key, assignments)
 
-        # TODO Cache this info.
-        # Add metadata and submissions
-        order = 1
-        for assignment in assignments:
-            self._add_submissions_and_part_ids(assignment)
-            problems = assignment['problems']
-            assignment['num_problems'] = len(problems)
-            assignment['total_submissions'] = sum(problem.get('total_submissions', 0) for problem in problems)
-            assignment['correct_submissions'] = sum(problem.get('correct_submissions', 0) for problem in problems)
+            if assignment_type:
+                assignment_type = assignment_type.lower()
+                assignments = [assignment for assignment in assignments if
+                               assignment['assignment_type'].lower() == assignment_type]
 
-            assignment['order'] = order
-            order += 1
+            for index, assignment in enumerate(assignments):
+                self._add_submissions_and_part_ids(assignment)
+                problems = assignment['problems']
+                assignment['num_problems'] = len(problems)
+                assignment['total_submissions'] = sum(problem.get('total_submissions', 0) for problem in problems)
+                assignment['correct_submissions'] = sum(problem.get('correct_submissions', 0) for problem in problems)
+                assignment['index'] = index + 1
+
+            # Cache the data for the course-assignment_type combination.
+            cache.set(assignment_type_key, assignments)
 
         return assignments
 

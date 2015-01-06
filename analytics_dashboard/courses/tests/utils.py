@@ -613,6 +613,84 @@ def get_presenter_answer_distribution(course_id, problem_part_id):
                                    answer_distribution_limited, is_random, answer_type, problem_part_description)
 
 
+# TODO Adopt the generator below as a model for generating mock data. The numerous functions are becoming unwieldy.
+# # http://stackoverflow.com/a/3590105
+# def constrained_sum_sample_pos(num_values, total):
+# """Return a randomly chosen list of n positive integers summing to total.
+#     Each such list is equally likely to occur."""
+#
+#     dividers = sorted(random.sample(xrange(1, total), num_values - 1))
+#     return [a - b for a, b in zip(dividers + [total], [0] + dividers)]
+#
+#
+# class CoursePerformanceDataGenerator(object):
+#     _grading_policy = None
+#     _assignments = None
+#
+#     def __init__(self, course_id):
+#         self.course_id = course_id
+#         self.course_key = CourseKey.from_string(course_id)
+#         self._generate_grading_policy()
+#         self._generate_assignments()
+#
+#     def assignment_types(self):
+#         return ['Homework', 'Exam']
+#
+#     def _generate_grading_policy(self):
+#         self._grading_policy = []
+#         assigment_types = self.assignment_types()
+#         weights = constrained_sum_sample_pos(len(assigment_types), 100)
+#
+#         for assignment_type, weight in zip(assigment_types, weights):
+#             self._grading_policy.append({
+#                 'assignment_type': assignment_type,
+#                 'weight': weight / 100.0,
+#                 'dropped': 0,
+#                 'count': random.randint(1, 25)
+#             })
+#
+#     def _generate_problems(self, name_prefix):
+#         id_prefix = 'i4x://{}/{}/problem/'.format(self.course_key.org, self.course_key.course)
+#         problems = []
+#
+#         for i in range(1, random.randint(1, 6)):
+#             problems.append({
+#                 'id': '{}{}'.format(id_prefix, uuid.uuid1().hex),
+#                 'name': '{} Problem {}'.format(name_prefix, i)
+#             })
+#
+#         return problems
+#
+#     def _generate_assignments(self):
+#         self._assignments = {}
+#         id_prefix = 'i4x://{}/{}/'.format(self.course_key.org, self.course_key.course)
+#
+#         for gp in self.grading_policy():
+#             assignment_type = gp['assignment_type']
+#             count = gp['count']
+#             assignments = []
+#
+#             for i in range(1, count + 1):
+#                 name = '{} {}'.format(assignment_type, i)
+#                 assignment = {
+#                     'id': '{}sequential/{}'.format(id_prefix, uuid.uuid1().hex),
+#                     'name': name,
+#                     'format': assignment_type,
+#                     'problems': self._generate_problems(name)
+#                 }
+#                 assignments.append(assignment)
+#
+#             self._assignments[assignment_type] = assignments
+#
+#     def grading_policy(self):
+#         return self._grading_policy
+#
+#     def assignments(self, assignment_type=None):
+#         if assignment_type:
+#             return self._assignments[assignment_type]
+#         return self._assignments.values()
+
+
 class CoursePerformanceMockData(object):
     MOCK_ASSIGNMENT_TYPES = ['Homework', 'Exam']
 
@@ -631,24 +709,26 @@ class CoursePerformanceMockData(object):
         }
     ]
 
-    HOMEWORK = {
-        "id": "i4x://MITx/4.605x_2/sequential/8084d006f7b54d79a5144c27cd672fae",
-        "name": "Lecture 1: First Societies",
-        "format": "Homework",
-        "problems": [
-            {"id": "i4x://MITx/4.605x_2/problem/86366abbadfc47f59f62540df86f6986", "name": "Review Question 1.1"},
-            {"id": "i4x://MITx/4.605x_2/problem/640ae07b291242788ec47d8a464a4e58", "name": "Review Question 1.2.1"},
-            {"id": "i4x://MITx/4.605x_2/problem/71f03afd87dc4598bae692236579df13", "name": "Review Question 1.2.2"},
-            {"id": "i4x://MITx/4.605x_2/problem/d0fe991c052045298ed62392aa6d3a49", "name": "Review Question 1.3.1"},
-            {"id": "i4x://MITx/4.605x_2/problem/172a1d98df9b4e2f9e392bb09d347999", "name": "Review Question 1.3.2"},
-            {"id": "i4x://MITx/4.605x_2/problem/fefc5371c8cb4946adefc8e56722e943", "name": "Review Question 1.4.1"}
-        ]
-    }
+    @classmethod
+    def HOMEWORK(cls):
+        return {
+            "id": "i4x://MITx/4.605x_2/sequential/8084d006f7b54d79a5144c27cd672fae",
+            "name": "Lecture 1: First Societies",
+            "format": "Homework",
+            "problems": [
+                {"id": "i4x://MITx/4.605x_2/problem/86366abbadfc47f59f62540df86f6986", "name": "Review Question 1.1"},
+                {"id": "i4x://MITx/4.605x_2/problem/640ae07b291242788ec47d8a464a4e58", "name": "Review Question 1.2.1"},
+                {"id": "i4x://MITx/4.605x_2/problem/71f03afd87dc4598bae692236579df13", "name": "Review Question 1.2.2"},
+                {"id": "i4x://MITx/4.605x_2/problem/d0fe991c052045298ed62392aa6d3a49", "name": "Review Question 1.3.1"},
+                {"id": "i4x://MITx/4.605x_2/problem/172a1d98df9b4e2f9e392bb09d347999", "name": "Review Question 1.3.2"},
+                {"id": "i4x://MITx/4.605x_2/problem/fefc5371c8cb4946adefc8e56722e943", "name": "Review Question 1.4.1"}
+            ]
+        }
 
     @classmethod
     def MOCK_ASSIGNMENTS(cls):
-        return copy.deepcopy([
-            cls.HOMEWORK,
+        return [
+            cls.HOMEWORK(),
             {
                 "id": "i4x://MITx/4.605x_2/sequential/b920b1a3cd7a4d468c2fcc9ba5c068ad",
                 "name": "Exam 1",
@@ -704,12 +784,32 @@ class CoursePerformanceMockData(object):
                     }
                 ]
             }
-        ])
+        ]
+
+    @classmethod
+    def MOCK_PRESENTER_ASSIGNMENTS(cls):
+        assignments = cls.MOCK_ASSIGNMENTS()
+
+        for assignment in assignments:
+            assignment['assignment_type'] = assignment.pop('format')
+
+        return assignments
+
+    @classmethod
+    def problems(cls):
+        problems = []
+
+        for assignment in cls.MOCK_ASSIGNMENTS():
+            for index, problem in enumerate(assignment['problems']):
+                problems.append({
+                    "module_id": problem["id"],
+                    "total_submissions": index,
+                    "correct_submissions": index,
+                    "part_ids": ["{}_1_2".format(problem["id"])]
+                })
+
+        return problems
 
     @classmethod
     def submission_counts(cls, problem_ids):
         return [{'module_id': problem_id, 'correct': 1, 'total': 1} for problem_id in problem_ids]
-
-    @classmethod
-    def part_ids(cls, problem_ids):
-        return [{'module_id': problem_id, 'part_ids': []} for problem_id in problem_ids]
