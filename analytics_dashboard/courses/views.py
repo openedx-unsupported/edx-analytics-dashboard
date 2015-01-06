@@ -911,7 +911,6 @@ class PerformanceAnswerDistributionView(PerformanceTemplateView):
         problem_id = self.kwargs['problem_id']
         part_id = self.kwargs['problem_part_id']
         view_live_url = None
-        assignment = self.assignment
 
         if settings.LMS_COURSE_SHORTCUT_BASE_URL:
             view_live_url = '{0}/{1}/jump_to/{2}'.format(settings.LMS_COURSE_SHORTCUT_BASE_URL, self.course_id,
