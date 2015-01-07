@@ -14,7 +14,6 @@ from analyticsclient.constants import demographic, UNKNOWN_COUNTRY_CODE, enrollm
 
 
 logger = logging.getLogger(__name__)
-COUNTRIES = dict(countries)
 
 KNOWN_GENDERS = [GENDER.FEMALE, GENDER.MALE, GENDER.OTHER]
 GENDERS = KNOWN_GENDERS + [GENDER.UNKNOWN]
@@ -309,6 +308,10 @@ class CourseEnrollmentPresenter(BaseCourseEnrollmentPresenter):
     def _translate_country_names(self, data):
         """ Translate full country name from English to the language of the logged in user. """
 
+        # Instantiate this variable here, instead of at the top of the file,
+        # to ensure the user's language has been set.
+        _countries = dict(countries.countries)
+
         for datum in data:
             if datum['country']['name'] == UNKNOWN_COUNTRY_CODE:
                 # Translators: This is a placeholder for enrollment data collected without a known geolocation.
@@ -317,7 +320,7 @@ class CourseEnrollmentPresenter(BaseCourseEnrollmentPresenter):
                 country_code = datum['country']['alpha3']
 
                 try:
-                    datum['country']['name'] = unicode(COUNTRIES[datum['country']['alpha2']])
+                    datum['country']['name'] = unicode(_countries[datum['country']['alpha2']])
                 except KeyError:
                     logger.warning('Unable to locate %s in django_countries.', country_code)
 
