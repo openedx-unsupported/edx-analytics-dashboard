@@ -93,8 +93,6 @@ class ViewTestMixin(AuthTestMixin):
     presenter_method = None
 
     def path(self, **kwargs):
-        # if kwargs is None:
-        #     kwargs = {}
         return reverse(self.viewname, kwargs=kwargs)
 
 
