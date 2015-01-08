@@ -43,6 +43,10 @@
         {
             name: 'js/enrollment-demographics-gender-main',
             exclude: ['js/common']
+        },
+        {
+            name: 'js/performance-answer-distribution-main',
+            exclude: ['js/common']
         }
     ]
 })
