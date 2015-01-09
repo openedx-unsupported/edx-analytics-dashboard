@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-06 15:02-0500\n"
-"PO-Revision-Date: 2015-01-06 20:05+0000\n"
+"POT-Creation-Date: 2015-01-09 16:38-0500\n"
+"PO-Revision-Date: 2015-01-09 21:41+0000\n"
 "Last-Translator: cblackburn <cblackburn@edx.org>\n"
 "Language-Team: Albanian (http://www.transifex.com/projects/p/edx-platform/language/sq/)\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgid "Login"
 msgstr "Kyçu"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
-msgid "%(application_name)s to help course teams improve courses."
+msgid "Insights to help course teams improve courses."
 msgstr ""
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
@@ -68,7 +68,7 @@ msgstr ""
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "Performance"
-msgstr ""
+msgstr "Performanca"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "Join the Open Source Community"
@@ -92,7 +92,7 @@ msgstr ""
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "Need Help?"
-msgstr ""
+msgstr "Ju nevojitet ndihmë?"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid ""
@@ -132,7 +132,7 @@ msgstr "Asgjë"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
-#: courses/presenters.py
+#: courses/presenters.py courses/tests/test_serializers.py
 msgid "Primary"
 msgstr ""
 
@@ -607,10 +607,6 @@ msgstr ""
 #: templates/auth_error.html
 msgid "Try Again"
 msgstr "Provo përsëri"
-
-#: courses/tests/test_serializers.py
-msgid "primary"
-msgstr ""
 
 #: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Activity"

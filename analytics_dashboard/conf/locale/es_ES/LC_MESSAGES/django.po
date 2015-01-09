@@ -10,15 +10,16 @@
 # Mariangeles Fernandez <mariangelesfm@gmail.com>, 2015
 # Nacho Díaz <nachotheix@gmail.com>, 2014
 # Óscar Arce Ruiz <oscararceruiz@hotmail.com>, 2014
-# UAMx <uamx.dev@gmail.com>, 2014
+# UAMx <uamx.dev@gmail.com>, 2014-2015
 # Valeria Freire <valtodopds@hotmail.com>, 2014
 # Verónica López Fernández <veronicalopezfernandez@gmail.com>, 2014
+# Walter Ronald Perez Estrada <wrpereze@unc.edu.pe>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-06 15:02-0500\n"
-"PO-Revision-Date: 2015-01-06 20:05+0000\n"
+"POT-Creation-Date: 2015-01-09 16:38-0500\n"
+"PO-Revision-Date: 2015-01-09 21:41+0000\n"
 "Last-Translator: cblackburn <cblackburn@edx.org>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/edx-platform/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -32,17 +33,17 @@ msgid "Login"
 msgstr "Iniciar sesión"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
-msgid "%(application_name)s to help course teams improve courses."
+msgid "Insights to help course teams improve courses."
 msgstr ""
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 #: courses/views.py
 msgid "Who are my students?"
-msgstr ""
+msgstr "¿Quiénes son mis alumnos?"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "Target your course to fit the backgrounds of your students."
-msgstr ""
+msgstr "Dirija su curso para adaptarlo a los antecedentes de sus alumnos."
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 #: courses/templates/courses/enrollment_geography.html
@@ -53,13 +54,15 @@ msgstr "Inscripciones"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "What are students engaging with in my course?"
-msgstr ""
+msgstr "¿Quiénes son los alumnos que están interesados en mi curso?"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid ""
 "Improve frequently accessed content, or point students at underused "
 "resources."
 msgstr ""
+"Mejora frecuentemente el contenido accedido, o los recursos no usados por "
+"los alumnos."
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 #: courses/tests/test_views/test_pages.py courses/views.py courses/views.py
@@ -69,44 +72,52 @@ msgstr "Compromiso"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "How well is my content supporting student learning?"
-msgstr ""
+msgstr "¿Cómo está ayudando mi contenido al aprendizaje de los alumnos?"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "Adjust your course based on where students are struggling."
 msgstr ""
+"Ajusta tu curso basándote en los sitios donde los alumnos están teniendo "
+"problemas."
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "Performance"
-msgstr ""
+msgstr "Rendimiento"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "Join the Open Source Community"
-msgstr ""
+msgstr "Unirse a la comunidad de Código Libre"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
 msgstr ""
+"El sistema de análisis de datos de edX y edX Insights son de código abierto."
+" %(link_start)s Más información %(link_end)s."
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "Research at edX"
-msgstr ""
+msgstr "Investigación en edX"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid ""
 "We are committed to advancing teaching and learning through research. "
 "%(link_start)sLearn more%(link_end)s."
 msgstr ""
+"Estamos comprometidos con la enseñanza avanzada y el aprendizaje a través de"
+" la investigación. %(link_start)sMás información.%(link_end)s."
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "Need Help?"
-msgstr ""
+msgstr "¿Necesitas ayuda?"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
 msgstr ""
+"%(link_start)sNuestro centro de soporte%(link_end)s puede ayudarte a "
+"encontrar soluciones."
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
@@ -141,7 +152,7 @@ msgstr "Nada"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
-#: courses/presenters.py
+#: courses/presenters.py courses/tests/test_serializers.py
 msgid "Primary"
 msgstr "Primaria"
 
@@ -598,7 +609,7 @@ msgstr "Aplicación"
 
 #: courses/templates/courses/home.html courses/views.py
 msgid "Course Home"
-msgstr ""
+msgstr "Inicio del curso"
 
 #. Translators: This refers to the active tab/navigation item.
 #. Translators: This refers to the active tab/navigation item.
@@ -652,10 +663,6 @@ msgstr ""
 #: templates/auth_error.html
 msgid "Try Again"
 msgstr "Inténtalo otra vez"
-
-#: courses/tests/test_serializers.py
-msgid "primary"
-msgstr "primaria"
 
 #: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Activity"
@@ -758,7 +765,7 @@ msgstr ""
 
 #: courses/views.py
 msgid "What are students doing in my course?"
-msgstr ""
+msgstr "¿Qué están haciendo los estudiantes en mi curso?"
 
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
