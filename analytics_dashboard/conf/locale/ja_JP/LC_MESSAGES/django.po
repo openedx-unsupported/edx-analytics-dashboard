@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# watcafe, 2014
+# watcafe, 2014-2015
 # cblackburn <cblackburn@edx.org>, 2014
 # Hideki Mori <mori.h.aq@m.titech.ac.jp>, 2014
 # mieko furuhashi, 2014
@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-06 15:02-0500\n"
-"PO-Revision-Date: 2015-01-06 20:05+0000\n"
+"POT-Creation-Date: 2015-01-09 16:38-0500\n"
+"PO-Revision-Date: 2015-01-09 21:41+0000\n"
 "Last-Translator: cblackburn <cblackburn@edx.org>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/edx-platform/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgid "Login"
 msgstr "ログイン"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
-msgid "%(application_name)s to help course teams improve courses."
+msgid "Insights to help course teams improve courses."
 msgstr ""
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
@@ -96,7 +96,7 @@ msgstr ""
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "Need Help?"
-msgstr ""
+msgstr "うまくいかない場合"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid ""
@@ -136,7 +136,7 @@ msgstr "なし"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
-#: courses/presenters.py
+#: courses/presenters.py courses/tests/test_serializers.py
 msgid "Primary"
 msgstr "小学校"
 
@@ -355,7 +355,7 @@ msgstr "受講生の年齢層は？"
 msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
 "students who provided a year of birth."
-msgstr "この年令分布図は、生まれ年を入力した%(value)s%%の受講登録者から計算されたものを示しています。"
+msgstr "この年令分布図は、誕生年を入力した%(value)s%%の受講登録者から計算されたものを示しています。"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Metrics"
@@ -370,7 +370,7 @@ msgstr "受講者の年齢の中央値"
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The midpoint of the student ages, computed from the provided year of birth."
-msgstr "受講者の年齢における中間値、これは入力いただいた生まれ年から計算されています。"
+msgstr "受講者の年齢における中間値、これは入力いただいた誕生年から計算されています。"
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
@@ -382,7 +382,7 @@ msgstr "25歳以下の受講者数"
 msgid ""
 "The percentage of students aged 25 years or younger (of those who provided a"
 " year of birth)."
-msgstr "25歳以下の受講者の割合(生まれ年を入力したユーザーのみが対象)"
+msgstr "25歳以下の受講者の割合(誕生年を入力したユーザーのみが対象)"
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
@@ -394,7 +394,7 @@ msgstr "26歳から40歳までの受講者"
 msgid ""
 "The percentage of students aged from 26 to 40 years (of those who provided a"
 " year of birth)."
-msgstr "26歳から40歳までの受講者の割合(生まれ年を入力したユーザーのみが対象)"
+msgstr "26歳から40歳までの受講者の割合(誕生年を入力したユーザーのみが対象)"
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
@@ -406,7 +406,7 @@ msgstr "41歳以上の受講者"
 msgid ""
 "The percentage of students aged 41 years or older (of those who provided a "
 "year of birth)."
-msgstr "41歳以上の受講者の割合(生まれ年を入力したユーザーのみが対象)"
+msgstr "41歳以上の受講者の割合(誕生年を入力したユーザーのみが対象)"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Breakdown"
@@ -610,10 +610,6 @@ msgstr ""
 #: templates/auth_error.html
 msgid "Try Again"
 msgstr "もう一度お試しください"
-
-#: courses/tests/test_serializers.py
-msgid "primary"
-msgstr ""
 
 #: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Activity"

@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Riina <ciairdabar@yahoo.com>, 2014
+# Riina <ciairdabar@yahoo.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-06 15:02-0500\n"
-"PO-Revision-Date: 2015-01-06 20:05+0000\n"
+"POT-Creation-Date: 2015-01-09 16:38-0500\n"
+"PO-Revision-Date: 2015-01-09 21:41+0000\n"
 "Last-Translator: cblackburn <cblackburn@edx.org>\n"
 "Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/projects/p/edx-platform/language/lt_LT/)\n"
 "MIME-Version: 1.0\n"
@@ -23,17 +23,18 @@ msgid "Login"
 msgstr "Prisijungti"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
-msgid "%(application_name)s to help course teams improve courses."
+msgid "Insights to help course teams improve courses."
 msgstr ""
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 #: courses/views.py
 msgid "Who are my students?"
-msgstr ""
+msgstr "Kas yra mano kurso dalyviai?"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "Target your course to fit the backgrounds of your students."
 msgstr ""
+"Pritaikykite savo kursą, kad jis atitiktų kurso dalyvių išsilavinimą. "
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 #: courses/templates/courses/enrollment_geography.html
@@ -44,13 +45,15 @@ msgstr "Registracija"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "What are students engaging with in my course?"
-msgstr ""
+msgstr "Su kokia mano kurso medžiaga dirba kurso dalyviai?"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid ""
 "Improve frequently accessed content, or point students at underused "
 "resources."
 msgstr ""
+"Patobulinti dažnai naudojamą turinį arba parodyti kurso dalyviams "
+"nepakankamai naudojamus išteklius."
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 #: courses/tests/test_views/test_pages.py courses/views.py courses/views.py
@@ -60,15 +63,16 @@ msgstr "Dalyvavimas"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "How well is my content supporting student learning?"
-msgstr ""
+msgstr "Kiek mano turinys padeda kurso dalyviams mokytis?"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "Adjust your course based on where students are struggling."
 msgstr ""
+"Pakoreguokite kursą atsižvelgdami į tai, kas kurso dalyviams kelia sunkumų."
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "Performance"
-msgstr ""
+msgstr "Produktyvumas"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "Join the Open Source Community"
@@ -82,22 +86,26 @@ msgstr ""
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "Research at edX"
-msgstr ""
+msgstr "Tyrimai \"edX\""
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid ""
 "We are committed to advancing teaching and learning through research. "
 "%(link_start)sLearn more%(link_end)s."
 msgstr ""
+"Mes siekiame skatinti mokymo ir mokymosi pažangą atliekant tyrimus. "
+"%(link_start)sSužinoti daugiau%(link_end)s."
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "Need Help?"
-msgstr ""
+msgstr "Reikia pagalbos?"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
 msgstr ""
+"%(link_start)sMūsų paramos centras%(link_end)s gali jums padėti rasti "
+"sprendimus."
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
@@ -132,7 +140,7 @@ msgstr "Neturiu jokio išsilavinimo"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
-#: courses/presenters.py
+#: courses/presenters.py courses/tests/test_serializers.py
 msgid "Primary"
 msgstr "Pradinis"
 
@@ -591,7 +599,7 @@ msgstr "Taikomoji programa"
 
 #: courses/templates/courses/home.html courses/views.py
 msgid "Course Home"
-msgstr ""
+msgstr "Kurso pagrindinis puslapis"
 
 #. Translators: This refers to the active tab/navigation item.
 #. Translators: This refers to the active tab/navigation item.
@@ -644,10 +652,6 @@ msgstr ""
 #: templates/auth_error.html
 msgid "Try Again"
 msgstr "Bandykite dar kartą"
-
-#: courses/tests/test_serializers.py
-msgid "primary"
-msgstr "pradinis"
 
 #: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Activity"
@@ -750,7 +754,7 @@ msgstr ""
 
 #: courses/views.py
 msgid "What are students doing in my course?"
-msgstr ""
+msgstr "Ką kurso dalyviai daro mano kurse? "
 
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"

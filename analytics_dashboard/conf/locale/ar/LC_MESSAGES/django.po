@@ -7,13 +7,13 @@
 # Ashraf Alsinglawi <alsinglawi@hotmail.com>, 2014
 # Manal Ahmed Aljahdali <manal.ahmed.m.j@gmail.com>, 2014
 # may <may@qordoba.com>, 2014
-# Nabeel El-Dughailib <nabeel@qordoba.com>, 2014
+# Nabeel El-Dughailib <nabeel@qordoba.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-06 15:02-0500\n"
-"PO-Revision-Date: 2015-01-06 20:05+0000\n"
+"POT-Creation-Date: 2015-01-09 16:38-0500\n"
+"PO-Revision-Date: 2015-01-09 21:41+0000\n"
 "Last-Translator: cblackburn <cblackburn@edx.org>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/edx-platform/language/ar/)\n"
 "MIME-Version: 1.0\n"
@@ -27,17 +27,18 @@ msgid "Login"
 msgstr "تسجيل الدخول"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
-msgid "%(application_name)s to help course teams improve courses."
+msgid "Insights to help course teams improve courses."
 msgstr ""
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 #: courses/views.py
 msgid "Who are my students?"
-msgstr ""
+msgstr "من هم طلّابي؟"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "Target your course to fit the backgrounds of your students."
 msgstr ""
+"يُرجى منك أن توجّه مساقك بحيث يتناسب مع الخلفيّات التي يأتي منها طلّابك. "
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 #: courses/templates/courses/enrollment_geography.html
@@ -48,13 +49,15 @@ msgstr "التسجيل "
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "What are students engaging with in my course?"
-msgstr ""
+msgstr "ما الذي يستحوذ على اهتمام الطلّاب في مساقي؟"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid ""
 "Improve frequently accessed content, or point students at underused "
 "resources."
 msgstr ""
+"تحسين المحتوى الذي يكثر استخدامه، أو لفت انتباه الطلّاب إلى المصادر قليلة "
+"الاستخدام. "
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 #: courses/tests/test_views/test_pages.py courses/views.py courses/views.py
@@ -64,44 +67,50 @@ msgstr "المشاركة"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "How well is my content supporting student learning?"
-msgstr ""
+msgstr "ما مدى الدعم الذي يسهم به محتوى مساقي في تعلّم الطلّاب؟"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "Adjust your course based on where students are struggling."
-msgstr ""
+msgstr "يُرجى منك تعديل مساقك بناءً على الصعوبات التي يواجهها الطلّاب. "
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "Performance"
-msgstr ""
+msgstr "الأداء"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "Join the Open Source Community"
-msgstr ""
+msgstr "يسعدنا انضمامك إلى \"مجتمع المصادر المفتوحة\""
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
 msgstr ""
+"تميِّز المصادر المفتوحة رؤى edX ومجرى البيانات الخاص بتحليلات هذه المنصّة. "
+"%(link_start)sاعرف المزيد%(link_end)s. "
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "Research at edX"
-msgstr ""
+msgstr "البحث في edX"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid ""
 "We are committed to advancing teaching and learning through research. "
 "%(link_start)sLearn more%(link_end)s."
 msgstr ""
+"نعرب عن التزامنا بتطوير التعليم والتعلّم من خلال البحث. %(link_start)sاعرف "
+"أكثر%(link_end)s."
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid "Need Help?"
-msgstr ""
+msgstr "هل تحتاج إلى المساعدة؟"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
 msgstr ""
+"يسرّ %(link_start)sمركز الدعم الخاص بنا%(link_end)s أن يساعدك على إيجاد "
+"الحلول. "
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
@@ -136,7 +145,7 @@ msgstr "غير مذكور"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
-#: courses/presenters.py
+#: courses/presenters.py courses/tests/test_serializers.py
 msgid "Primary"
 msgstr "ابتدائي"
 
@@ -590,7 +599,7 @@ msgstr "التطبيق المستخدم"
 
 #: courses/templates/courses/home.html courses/views.py
 msgid "Course Home"
-msgstr ""
+msgstr "صفحة المساق الرئيسية"
 
 #. Translators: This refers to the active tab/navigation item.
 #. Translators: This refers to the active tab/navigation item.
@@ -645,10 +654,6 @@ msgstr ""
 #: templates/auth_error.html
 msgid "Try Again"
 msgstr "الرجاء إعادة المحاولة."
-
-#: courses/tests/test_serializers.py
-msgid "primary"
-msgstr "ابتدائي"
 
 #: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Activity"
@@ -750,7 +755,7 @@ msgstr ""
 
 #: courses/views.py
 msgid "What are students doing in my course?"
-msgstr ""
+msgstr "ماذا يفعل الطلّاب في مساقي؟"
 
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
