@@ -48,22 +48,29 @@
             <div class="analytics-chart-container">
                 <div class="chart-info">
                     {% if questions %}
-                        <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle chart-info" type="button" id="distQuestionsMenu" data-toggle="dropdown" aria-expanded="true">
-                                {{active_question|truncatechars:50}}
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="distQuestionsMenu">
-                                {% for question in questions %}
-                                    <li role="presentation">
-                                        <a role="menuitem"tabindex="-1" class="truncate"
-                                           href="{% url 'courses:performance_answerdistribution' course_id=course_id content_id=problem_id problem_part_id=question.part_id %}">
-                                            {{question.question}}
-                                        </a>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
+                        {% captureas chart_label %}
+                            {{active_question|truncatechars:50}}
+                        {% endcaptureas %}
+                        {% if questions|length == 1 %}
+                            <div class="chart-info">{{chart_label}}</div>
+                        {% else %}
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle chart-info" type="button" id="distQuestionsMenu" data-toggle="dropdown" aria-expanded="true">
+                                    {{chart_label}}
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="distQuestionsMenu">
+                                    {% for question in questions %}
+                                        <li role="presentation">
+                                            <a role="menuitem"tabindex="-1" class="truncate"
+                                               href="{% url 'courses:performance_answerdistribution' course_id=course_id content_id=problem_id problem_part_id=question.part_id %}">
+                                                {{question.question}}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
                     {% endif %}
                 </div>
                 {% captureas tip_text %}
