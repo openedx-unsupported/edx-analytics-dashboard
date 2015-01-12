@@ -243,7 +243,7 @@ def get_presenter_enrollment_binned_ages():
     oldest = current_year - 100
     binned = []
 
-    for year in range(oldest, 2015):
+    for year in range(oldest, current_year + 1):
         binned.append({'age': current_year - year, 'count': 0, 'percent': 0})
 
     # adjust 100+
