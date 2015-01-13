@@ -6,12 +6,13 @@
 # Claudia Bedin <bedin.claudia1@gmail.com>, 2014
 # Giorgio Att <attorresi.giorgio@gmail.com>, 2014
 # Pietro Lombardo <pietrolombardo1979@gmail.com>, 2014
+# Thimoty Barbieri <thimoty@thimoty.it>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-24 16:23-0500\n"
-"PO-Revision-Date: 2014-12-08 17:17+0000\n"
+"POT-Creation-Date: 2015-01-09 16:38-0500\n"
+"PO-Revision-Date: 2015-01-09 21:41+0000\n"
 "Last-Translator: cblackburn <cblackburn@edx.org>\n"
 "Language-Team: Italian (Italy) (http://www.transifex.com/projects/p/edx-platform/language/it_IT/)\n"
 "MIME-Version: 1.0\n"
@@ -19,6 +20,87 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it_IT\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Login"
+msgstr "Login"
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Insights to help course teams improve courses."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: courses/views.py
+msgid "Who are my students?"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Target your course to fit the backgrounds of your students."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: courses/templates/courses/enrollment_geography.html
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/views.py
+msgid "Enrollment"
+msgstr "Iscrizione"
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "What are students engaging with in my course?"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid ""
+"Improve frequently accessed content, or point students at underused "
+"resources."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: courses/tests/test_views/test_pages.py courses/views.py courses/views.py
+#: courses/views.py
+msgid "Engagement"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "How well is my content supporting student learning?"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Adjust your course based on where students are struggling."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Performance"
+msgstr "Performance"
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Join the Open Source Community"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid ""
+"The edX analytics data pipeline and edX Insights are open source. "
+"%(link_start)sLearn more%(link_end)s."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Research at edX"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid ""
+"We are committed to advancing teaching and learning through research. "
+"%(link_start)sLearn more%(link_end)s."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Need Help?"
+msgstr "Serve Aiuto?"
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid ""
+"%(link_start)sOur support center%(link_end)s can help you find solutions."
+msgstr ""
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
@@ -53,7 +135,7 @@ msgstr "Nessuno"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
-#: courses/presenters.py
+#: courses/presenters.py courses/tests/test_serializers.py
 msgid "Primary"
 msgstr ""
 
@@ -66,7 +148,7 @@ msgstr "Al centro"
 #. Translators: This describes the learner's education level.
 #: courses/presenters.py
 msgid "Secondary"
-msgstr ""
+msgstr "Superiori"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
@@ -107,7 +189,7 @@ msgstr ""
 msgid "Weekly Student Engagement"
 msgstr ""
 
-#: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/engagement_content.html courses/views.py
 msgid "How many students are interacting with my course?"
 msgstr ""
 
@@ -183,7 +265,7 @@ msgstr "Scarica CSV"
 msgid "Daily Student Enrollment"
 msgstr ""
 
-#: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_activity.html courses/views.py
 msgid "How many students are in my course?"
 msgstr "Quanti studenti ci sono nel mio corso?"
 
@@ -260,7 +342,7 @@ msgstr ""
 msgid "Enrollment Over Time"
 msgstr ""
 
-#: courses/templates/courses/enrollment_demographics_age.html
+#: courses/templates/courses/enrollment_demographics_age.html courses/views.py
 msgid "How old are my students?"
 msgstr ""
 
@@ -292,13 +374,15 @@ msgstr ""
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 25 and Under"
-msgstr ""
+msgstr "Studenti 25 o Meno"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The percentage of students aged 25 years or younger (of those who provided a"
 " year of birth)."
 msgstr ""
+"La percentuale di studenti di 25 anni o più giovani (tra quelli che hanno "
+"inserito l'anno di nascita)"
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
@@ -329,6 +413,7 @@ msgid "Age Breakdown"
 msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_education.html
+#: courses/views.py
 msgid "What level of education do my students have?"
 msgstr ""
 
@@ -356,6 +441,8 @@ msgid ""
 "secondary/junior high/middle school, or Elementary/primary school as their "
 "highest level of education completed."
 msgstr ""
+"La percentuale di studenti che ha selezionato Scuole Medie, o Scuole "
+"Elementari come livello più alto di istruzione conseguito."
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -384,6 +471,7 @@ msgid "Educational Breakdown"
 msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_gender.html
+#: courses/views.py
 msgid "What is the student gender breakdown?"
 msgstr ""
 
@@ -404,18 +492,13 @@ msgstr ""
 msgid "Geographic Distribution"
 msgstr "Distribuzione Geografica"
 
-#: courses/templates/courses/enrollment_geography.html
+#: courses/templates/courses/enrollment_geography.html courses/views.py
 msgid "Where are my students?"
 msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Enrollment by Country"
 msgstr "Iscrizione per Paese"
-
-#: courses/templates/courses/enrollment_geography.html
-#: courses/tests/test_views/__init__.py courses/views.py
-msgid "Enrollment"
-msgstr "Iscrizione"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geography Metrics"
@@ -429,7 +512,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Countries with at least one student."
-msgstr ""
+msgstr "Nazioni con almeno uno studente."
 
 #. Translators: This string represents the country with the greatest number of
 #. enrolled students.
@@ -472,6 +555,24 @@ msgstr "%(percent)s%% degli studenti"
 msgid "Geographic Breakdown"
 msgstr ""
 
+#. Translators: Application here refers to the web site/application being used
+#. (e.g. the dashboard).
+#: courses/templates/courses/home.html templates/base_dashboard.html
+#: templates/footer.html templates/lens-navigation.html
+msgid "Application"
+msgstr ""
+
+#: courses/templates/courses/home.html courses/views.py
+msgid "Course Home"
+msgstr ""
+
+#. Translators: This refers to the active tab/navigation item.
+#. Translators: This refers to the active tab/navigation item.
+#: courses/templates/courses/home.html templates/lens-navigation.html
+#: templates/submenu_navigation.html
+msgid "Active"
+msgstr ""
+
 #: courses/templates/courses/index.html
 msgid "Courses"
 msgstr "Corsi"
@@ -512,40 +613,33 @@ msgstr ""
 msgid "Try Again"
 msgstr "Prova ancora"
 
-#: courses/tests/test_serializers.py
-msgid "primary"
-msgstr ""
-
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Activity"
 msgstr "Attività"
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/views.py courses/views.py
 msgid "Demographics"
 msgstr ""
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Geography"
 msgstr "Geografia"
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Age"
 msgstr "Età"
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Education"
 msgstr "Educazione"
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Gender"
 msgstr "Sesso"
 
-#: courses/tests/test_views/test_pages.py courses/views.py
-msgid "Engagement"
-msgstr ""
-
 #. Translators: Content as in course content (e.g. things, not the feeling)
-#: courses/tests/test_views/test_pages.py courses/views.py
+#: courses/tests/test_views/test_pages.py courses/views.py courses/views.py
 msgid "Content"
 msgstr "Contenuto"
 
@@ -608,6 +702,10 @@ msgid ""
 "UTC."
 msgstr ""
 
+#: courses/views.py
+msgid "What are students doing in my course?"
+msgstr ""
+
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
 msgstr "Accesso Negato"
@@ -662,12 +760,6 @@ msgstr ""
 msgid "Contact %(platform_name)s Support"
 msgstr ""
 
-#. Translators: Application here refers to the web site/application being used
-#. (e.g. the dashboard).
-#: templates/base.html templates/footer.html templates/lens-navigation.html
-msgid "Application"
-msgstr ""
-
 #: templates/footer.html
 msgid ""
 "We want this dashboard to work for you! Need help? "
@@ -702,27 +794,9 @@ msgstr "Aiuto"
 msgid "Logout"
 msgstr "Logout"
 
-#. Translators: This refers to the active tab/navigation item.
-#: templates/lens-navigation.html templates/submenu_navigation.html
-msgid "Active"
-msgstr ""
-
 #: templates/loading.html
 msgid "LOADING..."
 msgstr ""
-
-#: templates/registration/logged_out.html
-#: templates/registration/logged_out.html
-msgid "Logged Out"
-msgstr ""
-
-#: templates/registration/logged_out.html
-msgid "You have been logged out. Click the button below to login again."
-msgstr ""
-
-#: templates/registration/logged_out.html
-msgid "Login"
-msgstr "Login"
 
 #: templates/section_error.html
 msgid "We are unable to load this chart."

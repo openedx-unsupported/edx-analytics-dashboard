@@ -9,7 +9,7 @@ from courses.serializers import LazyEncoder
 class CourseEngagementPresenterTests(TestCase):
 
     def test_lazy_encode(self):
-        primary = _('primary')
+        primary = _('Primary')
         expected = '{{"education_level": "{0}"}}'.format(unicode(primary))
         actual = json.dumps({'education_level': primary}, cls=LazyEncoder)
         self.assertEqual(actual, expected)

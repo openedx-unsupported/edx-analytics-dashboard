@@ -3,14 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Kevin Min <candyson1@naver.com>, 2015
+# Kunwoo Kim <crazyabtmath@naver.com>, 2015
 # Nicole <dlruddk1112@gmail.com>, 2014
 # Sujin Lee <sujinlee.me@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-24 16:23-0500\n"
-"PO-Revision-Date: 2014-12-08 17:17+0000\n"
+"POT-Creation-Date: 2015-01-09 16:38-0500\n"
+"PO-Revision-Date: 2015-01-09 21:41+0000\n"
 "Last-Translator: cblackburn <cblackburn@edx.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/edx-platform/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -19,11 +21,93 @@ msgstr ""
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Login"
+msgstr "로그인"
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Insights to help course teams improve courses."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: courses/views.py
+msgid "Who are my students?"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Target your course to fit the backgrounds of your students."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: courses/templates/courses/enrollment_geography.html
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/views.py
+msgid "Enrollment"
+msgstr "등록"
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "What are students engaging with in my course?"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid ""
+"Improve frequently accessed content, or point students at underused "
+"resources."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: courses/tests/test_views/test_pages.py courses/views.py courses/views.py
+#: courses/views.py
+msgid "Engagement"
+msgstr "계약"
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "How well is my content supporting student learning?"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Adjust your course based on where students are struggling."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Performance"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Join the Open Source Community"
+msgstr "오픈 소스 커뮤니티에 참여하세요."
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid ""
+"The edX analytics data pipeline and edX Insights are open source. "
+"%(link_start)sLearn more%(link_end)s."
+msgstr ""
+"edX의 데이터 분석 파이프라인과 edX 인사이트는 오픈소스입니다. %(link_start)s자세히 알아보기%(link_end)s."
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Research at edX"
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid ""
+"We are committed to advancing teaching and learning through research. "
+"%(link_start)sLearn more%(link_end)s."
+msgstr ""
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid "Need Help?"
+msgstr "도움이 필요하십니까?"
+
+#: analytics_dashboard/templates/analytics_dashboard/landing.html
+msgid ""
+"%(link_start)sOur support center%(link_end)s can help you find solutions."
+msgstr ""
+
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
 #: analytics_dashboard/templatetags/dashboard_extras.py
 msgid "{statistic}%"
-msgstr ""
+msgstr "{statistic}%"
 
 #: courses/presenters.py
 msgid "Female"
@@ -43,7 +127,7 @@ msgstr "기타"
 #. Translators: This describes the learner's education level.
 #: courses/presenters.py courses/presenters.py courses/presenters.py
 msgid "Unknown"
-msgstr ""
+msgstr "알수없음"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters.py
@@ -52,38 +136,38 @@ msgstr "없음"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
-#: courses/presenters.py
+#: courses/presenters.py courses/tests/test_serializers.py
 msgid "Primary"
-msgstr ""
+msgstr "초등학생"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: courses/presenters.py
 msgid "Middle"
-msgstr ""
+msgstr "중학생"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters.py
 msgid "Secondary"
-msgstr ""
+msgstr "고등학생"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
 #: courses/presenters.py
 msgid "Associate"
-msgstr ""
+msgstr "준학사 "
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
 #: courses/presenters.py
 msgid "Bachelor's"
-msgstr ""
+msgstr "학사생"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters.py
 msgid "Master's"
-msgstr ""
+msgstr "석사"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
@@ -95,20 +179,20 @@ msgstr "박사"
 #. known geolocation.
 #: courses/presenters.py
 msgid "Unknown Country"
-msgstr ""
+msgstr "알수 없는 국가"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
 msgid "Students (Self-Reported)"
-msgstr ""
+msgstr "학생수 (자가보고)"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Weekly Student Engagement"
-msgstr ""
+msgstr "주간 학생 참여도"
 
-#: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/engagement_content.html courses/views.py
 msgid "How many students are interacting with my course?"
-msgstr ""
+msgstr "몇명의 학생이 제 강의에 참여하고 있나요?"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students"
@@ -118,56 +202,56 @@ msgstr "학생"
 msgid ""
 "The number of active students, and the number of students who engaged in "
 "specific activities, over time."
-msgstr ""
+msgstr "수업에 참여하고 있는 학생수 및 어떤 특정한 활동에 참여하고 있는 학생수 "
 
 #: courses/templates/courses/engagement_content.html
 msgid "Student Activity Metrics"
-msgstr ""
+msgstr "학생 활동 지표"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Active Students Last Week"
-msgstr ""
+msgstr "지난주 수업에 참여한 학생수"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who visited at least one page in the course content."
-msgstr ""
+msgstr "강의내용을 한 페이지라도 본 학생수 "
 
 #. Translators: This is a label indicating the number of students who watched
 #. a video.
 #: courses/templates/courses/engagement_content.html
 msgid "Watched a Video Last Week"
-msgstr ""
+msgstr "지난주에 비디오를 본 학생수 "
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who played one or more videos."
-msgstr ""
+msgstr "비디오강좌를 하나 이상 본 학생들"
 
 #. Translators: This is a label indicating the number of students who tried a
 #. problem.
 #: courses/templates/courses/engagement_content.html
 msgid "Tried a Problem Last Week"
-msgstr ""
+msgstr "지난주에 한문제라도 풀어본 학생수 "
 
 #: courses/templates/courses/engagement_content.html
 msgid ""
 "Students who submitted an answer for a standard problem. Not all problem "
 "types are included."
-msgstr ""
+msgstr "표준적인 문제를 완료한 학생들. 모든 문제 종류가 포함되어있지는 않습니다. "
 
 #. Translators: This is a label indicating the number of students who posted
 #. in a forum discussion.
 #: courses/templates/courses/engagement_content.html
 msgid "Posted in a Discussion Last Week"
-msgstr ""
+msgstr "지난주 토론방에 글을 쓴 학생수"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who contributed to any discussion topic."
-msgstr ""
+msgstr "토론방에 한번이라도 참여한 학생수 "
 
 #: courses/templates/courses/engagement_content.html
 #: courses/templates/courses/engagement_content.html
 msgid "Content Engagement Breakdown"
-msgstr ""
+msgstr "콘텐츠 이용 내역"
 
 #: courses/templates/courses/engagement_content.html
 #: courses/templates/courses/enrollment_activity.html
@@ -176,15 +260,15 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_gender.html
 #: courses/templates/courses/enrollment_geography.html
 msgid "Download CSV"
-msgstr ""
+msgstr "CSV 다운로드 "
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
 msgstr "일일 학생 등록생"
 
-#: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_activity.html courses/views.py
 msgid "How many students are in my course?"
-msgstr "제 강의 몇 명의 학생들이 듣나요?"
+msgstr "제 강의에 몇 명의 학생들이 듣나요?"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollments"
@@ -196,10 +280,11 @@ msgid ""
 " each day. Total enrollment includes new enrollments as well as "
 "unenrollments."
 msgstr ""
+"이 그래프는 하루 끝에 계산이 된 총 등록생수를 보여줍니다.  총 등록생수는 새로운 등록생들과 강좌에서 탈퇴한 등록생수가 포함이 됩니다 "
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollment Metrics"
-msgstr ""
+msgstr "등록 현황 통계"
 
 #. Translators: This is a label to identify current student enrollment.
 #: courses/templates/courses/enrollment_activity.html
@@ -210,25 +295,25 @@ msgstr "전체 등록생"
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Students enrolled in the course."
-msgstr ""
+msgstr "강의에 등록되어 있는 학생수 "
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Change in Last Week"
-msgstr ""
+msgstr "지난주에 있었던 학생수 변화 "
 
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
 "The difference between the number of students enrolled at the end of the day"
 " yesterday and one week before."
-msgstr ""
+msgstr "오늘 있었던 새로운 등록생 수와 지난주에 있었던 새로운 등록생 수의 차이 "
 
 #. Translators: This is a label to identify enrollment of students on the
 #. verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Verified Enrollment"
-msgstr "등록 확인"
+msgstr "검증된 등록 학위 "
 
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course on the verified track.
@@ -236,20 +321,20 @@ msgstr "등록 확인"
 msgid ""
 "Number of enrolled students who are pursuing a verified certificate of "
 "achievement."
-msgstr ""
+msgstr "검증된 등록 학위를 추구하는 등록생 수 "
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in the verified track of a course since the previous
 #. week.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Change in Verified Enrollments Last Week"
-msgstr ""
+msgstr "지난중에 있었던 검증된 등록 학위의 변화 "
 
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
 "The difference between the number of students pursuing verified certificates"
 " at the end of the day yesterday and one week before."
-msgstr ""
+msgstr "오늘 있었던 검증된 등록 학위를 추구하는 등록생 수와 지난주에 있었던 검증된 등록 학위를 추구하는 등록생 수의 차이"
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html
@@ -257,9 +342,9 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_education.html
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "Enrollment Over Time"
-msgstr ""
+msgstr "시간 경과에 따른 등록 현황"
 
-#: courses/templates/courses/enrollment_demographics_age.html
+#: courses/templates/courses/enrollment_demographics_age.html courses/views.py
 msgid "How old are my students?"
 msgstr "학생들의 나이가 어떻게 되나요?"
 
@@ -270,22 +355,22 @@ msgstr "학생들의 나이가 어떻게 되나요?"
 msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
 "students who provided a year of birth."
-msgstr ""
+msgstr "생년월일을 제공한 학생들 %(value)s%% 의 나이 히스토그램 "
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Metrics"
-msgstr ""
+msgstr "나이 지표"
 
 #. Translators: This is a label to identify the median age of enrolled
 #. students.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Median Student Age"
-msgstr ""
+msgstr "학생들 나이의 중앙값"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The midpoint of the student ages, computed from the provided year of birth."
-msgstr ""
+msgstr "컴퓨터가 출생월일에 따라 측정을 한 학생들 나이의 중간값 "
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
@@ -297,7 +382,7 @@ msgstr "25세 이하"
 msgid ""
 "The percentage of students aged 25 years or younger (of those who provided a"
 " year of birth)."
-msgstr ""
+msgstr "(생년월일을 제공한 학생들 중) 25세 이하 학생의 총 비율 "
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
@@ -309,7 +394,7 @@ msgstr "26세~40세"
 msgid ""
 "The percentage of students aged from 26 to 40 years (of those who provided a"
 " year of birth)."
-msgstr ""
+msgstr "(생년월일을 제공한 학생들 중) 26에서 40세 학생의 총 비율 "
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
@@ -321,15 +406,16 @@ msgstr "41세 이상"
 msgid ""
 "The percentage of students aged 41 years or older (of those who provided a "
 "year of birth)."
-msgstr ""
+msgstr "(생년월일을 제공한 학생들 중) 41세 이상 학생의 총 비율 "
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Breakdown"
-msgstr ""
+msgstr "나이 분포도 "
 
 #: courses/templates/courses/enrollment_demographics_education.html
+#: courses/views.py
 msgid "What level of education do my students have?"
-msgstr ""
+msgstr "제 학생들은 어떤 교육 수준을 갖고 있습니까?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -338,53 +424,56 @@ msgstr ""
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled students who "
 "provided a highest level of education completed."
-msgstr ""
+msgstr "이 그래프는 자기의 최고교육과정을 밝힌 %(value)s%%의 등록생 데이터를 나타내고 있습니다."
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Education Metrics"
-msgstr ""
+msgstr "가장 높았던 교육과정 지표 "
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "High School Diploma or Less"
-msgstr ""
+msgstr "고졸 이하 "
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
 "The percentage of students who selected Secondary/high school, Junior "
 "secondary/junior high/middle school, or Elementary/primary school as their "
 "highest level of education completed."
-msgstr ""
+msgstr "등록생들중 고졸, 중졸 및 초졸이 자기가 이수한 최고 교육 과정이라고 얘기한 학생들의 퍼센트 분포"
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "College Degree"
-msgstr ""
+msgstr "학사"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
 "The percentage of students who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
-msgstr ""
+msgstr "등록생들중 대졸및 학사학위가 자기가 이수한 최고 교육 과정이라고 얘기한 학생들의 퍼센트 분포"
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Advanced Degree"
-msgstr ""
+msgstr "대졸"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
 "The percentage of students who selected Doctorate or Master's or "
 "professional degree as their highest level of education completed."
 msgstr ""
+"등록생들중 석사학위 및 박사학위가 자기가 이수한 최고 교육 과정이라고 얘기한 학생들의 퍼센트 분포\n"
+" "
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Educational Breakdown"
-msgstr ""
+msgstr "학생들의 최고 교육 분포도 "
 
 #: courses/templates/courses/enrollment_demographics_gender.html
+#: courses/views.py
 msgid "What is the student gender breakdown?"
-msgstr ""
+msgstr "학생들의 성별 비율이 어떻게 됩니까? "
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -393,83 +482,96 @@ msgstr ""
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled students who "
 "specified their gender."
-msgstr ""
+msgstr "이 그래프는 자기의 성별을 밝힌 %(value)s%%의 등록생 데이터를 나타내고 있습니다. "
 
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "Gender Breakdown Over Time"
-msgstr ""
+msgstr "시간 경과에 따른 성별 지표"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geographic Distribution"
-msgstr ""
+msgstr "지리 분포도 "
 
-#: courses/templates/courses/enrollment_geography.html
+#: courses/templates/courses/enrollment_geography.html courses/views.py
 msgid "Where are my students?"
-msgstr ""
+msgstr "제 학생들은 어디서 왔나요? "
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Enrollment by Country"
-msgstr ""
-
-#: courses/templates/courses/enrollment_geography.html
-#: courses/tests/test_views/__init__.py courses/views.py
-msgid "Enrollment"
-msgstr "등록"
+msgstr "국가별 등록 학생수 "
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geography Metrics"
-msgstr ""
+msgstr "지역 지표 "
 
 #. Translators: This string represents the number of countries where students
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Total Countries Represented"
-msgstr ""
+msgstr "총 참여하는 국가수 "
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Countries with at least one student."
-msgstr ""
+msgstr "적어도 하나의 학생이 이 강좌에 등록을 한 국가"
 
 #. Translators: This string represents the country with the greatest number of
 #. enrolled students.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Top Country by Enrollment"
-msgstr ""
+msgstr "가장 많은 학생이 등록되어 있는 국가순 "
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the largest number of students."
-msgstr ""
+msgstr "가장 많은 학생이 등록되어 있는 국가"
 
 #. Translators: This string represents the country with the second-greatest
 #. number of enrolled students.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Second Country by Enrollment"
-msgstr ""
+msgstr "두번째로 많은 학생이 등록되어 있는 국가"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the second largest number of students."
-msgstr ""
+msgstr "두번째로 많은 학생이 등록되어 있는 국가"
 
 #. Translators: This string represents the country with the third-greatest
 #. number of enrolled students.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Third Country by Enrollment"
-msgstr ""
+msgstr "세번째로 많은 학생이 등록되어 있는 국가"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the third largest number of students."
-msgstr ""
+msgstr "세번째로 많은 학생이 등록되어 있는 국가"
 
 #. Translators: This string represents the percentage of students in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
 #: courses/templates/courses/enrollment_geography.html
 msgid "%(percent)s%% of students"
-msgstr ""
+msgstr "%(percent)s%% 의 학생들"
 
 #: courses/templates/courses/enrollment_geography.html
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geographic Breakdown"
+msgstr "지역 분포도"
+
+#. Translators: Application here refers to the web site/application being used
+#. (e.g. the dashboard).
+#: courses/templates/courses/home.html templates/base_dashboard.html
+#: templates/footer.html templates/lens-navigation.html
+msgid "Application"
+msgstr "앱"
+
+#: courses/templates/courses/home.html courses/views.py
+msgid "Course Home"
 msgstr ""
+
+#. Translators: This refers to the active tab/navigation item.
+#. Translators: This refers to the active tab/navigation item.
+#: courses/templates/courses/home.html templates/lens-navigation.html
+#: templates/submenu_navigation.html
+msgid "Active"
+msgstr "활성"
 
 #: courses/templates/courses/index.html
 msgid "Courses"
@@ -477,74 +579,71 @@ msgstr "강좌"
 
 #: courses/templates/courses/index.html
 msgid "Welcome, %(username)s!"
-msgstr ""
+msgstr "환영합니다 %(username)s님!"
 
 #: courses/templates/courses/index.html
 msgid "Here are the courses you currently have access to in Insights:"
-msgstr ""
+msgstr "당신이 인사이트에서 접근권한이 있는 모든 강좌들 입니다."
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
-msgstr ""
+msgstr "%(application_name)s에 처음이십니까?"
 
 #: courses/templates/courses/index.html
 msgid ""
 "Click Help in the upper-right corner to get more information about "
 "%(application_name)s. Send us feedback at %(email_link)s."
 msgstr ""
+"오른쪽 위 모서리에 있는 도움말 버튼을 클릭해서 %(application_name)s에 대한 더 많은 내용을 얻으십시요. 그리고 "
+"%(email_link)s으로 피드백을 보내주시기를 바랍니다. "
 
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
 #: courses/templates/courses/permissions-retrieval-failed.html
 #: courses/templates/courses/permissions-retrieval-failed.html
 msgid "Permissions Retrieval Failed"
-msgstr ""
+msgstr "인증서를 가져오는 것을 실패했습니다. "
 
 #: courses/templates/courses/permissions-retrieval-failed.html
 msgid ""
 "There was a problem retrieving course permissions for your account. Please "
 "try again. If you continue to experience issues, please let us know."
 msgstr ""
+"당신의 계정에서 강좌 권한을 찾는데 문제가 발생했습니다. 다시 시도해 주시기를 바랍니다. 만약 이 문제가 계속해서 일어날 때 저희한테 "
+"알려 주십시오."
 
 #: courses/templates/courses/permissions-retrieval-failed.html
 #: templates/auth_error.html
 msgid "Try Again"
 msgstr "다시 시도"
 
-#: courses/tests/test_serializers.py
-msgid "primary"
-msgstr ""
-
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Activity"
 msgstr "활동"
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/views.py courses/views.py
 msgid "Demographics"
-msgstr ""
+msgstr "인구 통계"
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Geography"
 msgstr "위치"
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Age"
 msgstr "나이"
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Education"
 msgstr "교육"
 
-#: courses/tests/test_views/__init__.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Gender"
 msgstr "성(생물학적)"
 
-#: courses/tests/test_views/test_pages.py courses/views.py
-msgid "Engagement"
-msgstr "계약"
-
 #. Translators: Content as in course content (e.g. things, not the feeling)
-#: courses/tests/test_views/test_pages.py courses/views.py
+#: courses/tests/test_views/test_pages.py courses/views.py courses/views.py
 msgid "Content"
 msgstr "콘텐츠"
 
@@ -554,13 +653,14 @@ msgid ""
 "Demographic student data was last updated %(update_date)s at %(update_time)s"
 " UTC."
 msgstr ""
+"학생들의 인구 통계 데이터는 %(update_date)s %(update_time)s UTC에 마지막으로 업데이트가 되었습니다."
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
 #: courses/views.py
 msgid ""
 "All above demographic data was self-reported at the time of registration."
-msgstr ""
+msgstr "학생들의 인구 통계 데이터는 등록과정에서 학생들이 자기보고를 하였습니다. "
 
 #: courses/views.py
 msgid "Enrollment Activity"
@@ -571,34 +671,34 @@ msgstr "등록 활동"
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "등록 활동 데이터는 %(update_date)s %(update_time)s UTC에 마지막으로 업데이트가 되었습니다."
 
 #: courses/views.py
 msgid "Enrollment Demographics by Age"
-msgstr ""
+msgstr "등록생들의 나이 통계 데이터"
 
 #: courses/views.py
 msgid "Enrollment Demographics by Education"
-msgstr ""
+msgstr "등록생들의 최고교육과정 통계 데이터"
 
 #: courses/views.py
 msgid "Enrollment Demographics by Gender"
-msgstr ""
+msgstr "등록생들의 성별 통계 데이터 "
 
 #: courses/views.py
 msgid "Enrollment Geography"
-msgstr ""
+msgstr "등록생들의 지리적 위치 "
 
 #. Translators: Do not translate UTC.
 #: courses/views.py
 msgid ""
 "Geographic student data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "지리적 학생 데이터는 %(update_date)s %(update_time)s UTC에 마지막으로 업데이트가 되었습니다. "
 
 #: courses/views.py
 msgid "Engagement Content"
-msgstr ""
+msgstr "참여 내용"
 
 #. Translators: Do not translate UTC.
 #: courses/views.py
@@ -606,10 +706,15 @@ msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr ""
+"학생들의 참여 내용 데이터는 %(update_date)s %(update_time)s UTC에 마지막으로 업데이트가 되었습니다."
+
+#: courses/views.py
+msgid "What are students doing in my course?"
+msgstr "학생들이 제 강의에서 무엇을 하나요?"
 
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
-msgstr ""
+msgstr "엑세스가 거부되었습니다"
 
 #: templates/403.html
 msgid ""
@@ -617,10 +722,12 @@ msgid ""
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
 msgstr ""
+"당신은 이 페이지를 볼 수 있는 권한이 없습니다. 만약 당신이 이 페이지를 접속할 수 있는 권한이 있어야 한다고 생각을 한다면 로그아웃을"
+" 한뒤 다시 로그인을 하셔서 권한을 새로고침하십시요. "
 
 #: templates/403.html
 msgid "Logout then Login"
-msgstr ""
+msgstr "로그아웃을 한후 로그인을 해주십시오 "
 
 #: templates/404.html templates/404.html.py
 msgid "Page Not Found"
@@ -630,7 +737,7 @@ msgstr "페이지가 없습니다."
 msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
-msgstr ""
+msgstr "당신이 찾고 싶은 페이지를 저희가 찾지 못했습니다. 부디 요청하신 URL이 맞는지 확인해보시고 다시 시도해주시길 바랍니다."
 
 #: templates/500.html templates/500.html.py
 msgid "An Error Occurred"
@@ -640,11 +747,11 @@ msgstr "오류 발생"
 msgid ""
 "Our servers weren't able to complete your request. Please try again by "
 "refreshing this page or retracing your steps."
-msgstr ""
+msgstr "저희 서버가 당신의 요청을 완료할수 없었습니다. 부디 새로 고침을 하시거나 뒤로가기를 눌러주시길 바랍니다. "
 
 #: templates/auth_error.html templates/auth_error.html.py
 msgid "Authentication Failed"
-msgstr ""
+msgstr "인증이 실패되었습니다 "
 
 #: templates/auth_error.html
 msgid "There was a problem accessing your account. Please try again."
@@ -652,20 +759,14 @@ msgstr "액세스 도중 오류가 발생하였습니다. 다시 시도해 주�
 
 #: templates/base-error.html
 msgid "Use our support tool to ask questions or share feedback."
-msgstr ""
+msgstr "부디 저희 EDx의 서포트 도구를 이용해서 질문을 하시거나 피드백을 나눠주십시요"
 
 #. Translators: This intention here is that a user clicks a button to contact
 #. a support group (e.g. edX Support, or MITx Support). Reorder the
 #. placeholder as you see fit.
 #: templates/base-error.html
 msgid "Contact %(platform_name)s Support"
-msgstr ""
-
-#. Translators: Application here refers to the web site/application being used
-#. (e.g. the dashboard).
-#: templates/base.html templates/footer.html templates/lens-navigation.html
-msgid "Application"
-msgstr ""
+msgstr "%(platform_name)s에 도움 요청 "
 
 #: templates/footer.html
 msgid ""
@@ -673,6 +774,9 @@ msgid ""
 "%(support_link_start)sVisit our support forum%(support_link_end)s. Comments "
 "or suggestions? Email %(email_link)s."
 msgstr ""
+"저희 EDx팀은 이 대쉬보드가 당신에게 도움을 주기를 바랍니다! 도움이 필요하십니까? %(support_link_start)s저희의 지원"
+" 포럼을 방문해 주십시요%(support_link_end)s. 만약 저희 EDx팀에게 의견이나 제안을 하시려면 "
+"%(email_link)s으로 이메일을 보내주십시요.  "
 
 #: templates/footer.html
 msgid "Terms of Service"
@@ -687,7 +791,7 @@ msgstr "개인정보 보호 정책"
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
 "            reserved. "
-msgstr ""
+msgstr "%(current_year)s %(platform_name)s에 공지가 되어있지 않으면 모든 권힌이 보호됩니다 "
 
 #: templates/header.html
 msgid "Toggle navigation"
@@ -701,27 +805,9 @@ msgstr "도움말"
 msgid "Logout"
 msgstr "로그아웃"
 
-#. Translators: This refers to the active tab/navigation item.
-#: templates/lens-navigation.html templates/submenu_navigation.html
-msgid "Active"
-msgstr "활성"
-
 #: templates/loading.html
 msgid "LOADING..."
-msgstr ""
-
-#: templates/registration/logged_out.html
-#: templates/registration/logged_out.html
-msgid "Logged Out"
-msgstr "로그아웃 하였습니다."
-
-#: templates/registration/logged_out.html
-msgid "You have been logged out. Click the button below to login again."
-msgstr "로그아웃되었습니다. 다시 로그인 하려면 아래 버튼을 클릭하세요. "
-
-#: templates/registration/logged_out.html
-msgid "Login"
-msgstr "로그인"
+msgstr "로딩중..."
 
 #: templates/section_error.html
 msgid "We are unable to load this chart."
@@ -733,4 +819,4 @@ msgstr "이 표를 불러올 수 없습니다."
 
 #: templates/section_error.html
 msgid "We are unable to load these metrics."
-msgstr ""
+msgstr "이 지표를 불러올 수 없습니다. "

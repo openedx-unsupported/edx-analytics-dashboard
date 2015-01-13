@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-12 14:00-0500\n"
+"POT-Creation-Date: 2015-01-09 16:45-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,9 +22,8 @@ msgid "Login"
 msgstr "Lögïn Ⱡ'σяєм ι#"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
-msgid "%(application_name)s to help course teams improve courses."
-msgstr ""
-"%(application_name)s tö hélp çöürsé téäms ïmprövé çöürsés. Ⱡ'σяєм ιρѕυ#"
+msgid "Insights to help course teams improve courses."
+msgstr "Ìnsïghts tö hélp çöürsé téäms ïmprövé çöürsés. Ⱡ'σяєм ιρѕυм #"
 
 #: analytics_dashboard/templates/analytics_dashboard/landing.html
 #: courses/views.py
@@ -144,7 +143,7 @@ msgstr "Nöné Ⱡ'σяєм#"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
-#: courses/presenters.py
+#: courses/presenters.py courses/tests/test_serializers.py
 msgid "Primary"
 msgstr "Prïmärý #"
 
@@ -666,10 +665,6 @@ msgstr ""
 #: templates/auth_error.html
 msgid "Try Again"
 msgstr "Trý Àgäïn #"
-
-#: courses/tests/test_serializers.py
-msgid "primary"
-msgstr "prïmärý #"
 
 #: courses/tests/test_views/__init__.py courses/views.py courses/views.py
 msgid "Activity"

@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# KUN-MIN SYU <qwer20108@gmail.com>, 2014
 # LIU,SHU-HAO <jeremy55662004@gmail.com>, 2014
 # LIU,SHU-HAO <jeremy55662004@gmail.com>, 2014
 # Zhen-Rong Chen <zhenrcaaron@gmail.com>, 2014
@@ -10,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-24 16:24-0500\n"
-"PO-Revision-Date: 2014-12-07 04:50+0000\n"
+"POT-Creation-Date: 2015-01-09 16:38-0500\n"
+"PO-Revision-Date: 2015-01-06 20:21+0000\n"
 "Last-Translator: cblackburn <cblackburn@edx.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/edx-platform/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -20,55 +21,122 @@ msgstr ""
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: static/dist/js/common.js
+msgid "..."
+msgstr ""
+
+#. Translators: (empty) is displayed in a table and indicates that no
+#. label/value was provided.
+#. Translators: (empty) is displayed in a table and indicates that no
+#. label/value was provided.
+#. Translators: (empty) is displayed in a table and indicates that no
+#. label/value was provided.
+#. Translators: (empty) is displayed in a table and indicates that no
+#. label/value was provided.
+#. Translators: (empty) is displayed as a label in a chart and indicates that
+#. no label was provided.
+#. Translators: (empty) is displayed in a table and indicates that no
+#. label/value was provided.
+#. Translators: (empty) is displayed as a label in a chart and indicates that
+#. no label was provided.
+#. Translators: (empty) is displayed in a table and indicates that no
+#. label/value was provided.
+#. Translators: (empty) is displayed in a table and indicates that no
+#. label/value was provided.
+#. Translators: (empty) is displayed as a label in a chart and indicates that
+#. no label was provided.
+#. Translators: (empty) is displayed in a table and indicates that no
+#. label/value was provided.
+#. Translators: (empty) is displayed as a label in a chart and indicates that
+#. no label was provided.
+#. Translators: (empty) is displayed in a table and indicates that no
+#. label/value was provided.
+#. Translators: (empty) is displayed as a label in a chart and indicates that
+#. no label was provided.
+#: static/dist/js/engagement-content-main.js
+#: static/dist/js/enrollment-activity-main.js
+#: static/dist/js/enrollment-demographics-age-main.js
+#: static/dist/js/enrollment-demographics-education-main.js
+#: static/dist/js/enrollment-demographics-education-main.js
+#: static/dist/js/enrollment-demographics-gender-main.js
+#: static/dist/js/enrollment-demographics-gender-main.js
+#: static/dist/js/enrollment-geography-main.js
+#: static/dist/js/performance-answer-distribution-main.js
+#: static/dist/js/performance-answer-distribution-main.js
+#: static/dist/js/performance-graded-content-assignment-main.js
+#: static/dist/js/performance-graded-content-assignment-main.js
+#: static/dist/js/performance-graded-content-assignment-types-main.js
+#: static/dist/js/performance-graded-content-assignment-types-main.js
+msgid "(empty)"
+msgstr ""
+
+#: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Week Ending"
 msgstr "本週結束"
 
+#: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Active Students"
 msgstr "活動中的學生"
 
+#: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Watched a Video"
 msgstr "觀看影片"
 
+#: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Tried a Problem"
 msgstr "試試這問題"
 
+#: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Posted in Forum"
 msgstr "張貼在論壇"
 
 #. Translators: <%=value%> will be replaced with a date.
+#: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Week Ending <%=value%>"
 msgstr ""
 
+#: static/dist/js/enrollment-activity-main.js
+#: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-activity-main.js
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Date"
 msgstr "日期"
 
 #. Translators: The noun count (e.g. number of students)
+#. Translators: The noun count (e.g. number of students)
+#: static/dist/js/enrollment-activity-main.js
+#: static/dist/js/enrollment-demographics-gender-main.js
+#: static/dist/js/enrollment-geography-main.js
 #: static/js/enrollment-activity-main.js
 #: static/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-geography-main.js
 msgid "Total Enrollment"
 msgstr "總註冊"
 
+#: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Honor Code"
 msgstr "榮譽守則"
 
+#: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Verified"
 msgstr "已驗證"
 
+#: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Professional"
 msgstr "專業的"
 
+#: static/dist/js/enrollment-demographics-age-main.js
+#: static/dist/js/enrollment-demographics-age-main.js
+#: static/dist/js/enrollment-demographics-education-main.js
 #: static/js/enrollment-demographics-age-main.js
 #: static/js/enrollment-demographics-age-main.js
 #: static/js/enrollment-demographics-education-main.js
@@ -76,65 +144,129 @@ msgid "Number of Students"
 msgstr "學生數量"
 
 #. Translators: <%=value%> will be replaced with an age.
+#: static/dist/js/enrollment-demographics-age-main.js
 #: static/js/enrollment-demographics-age-main.js
 msgid "Age: <%=value%>"
 msgstr ""
 
+#: static/dist/js/enrollment-demographics-age-main.js
 #: static/js/enrollment-demographics-age-main.js
 msgid "Age"
 msgstr "年齡"
 
+#: static/dist/js/enrollment-demographics-age-main.js
 #: static/js/enrollment-demographics-age-main.js
 msgid "Percent of Total"
 msgstr "總共的百分比"
 
+#: static/dist/js/enrollment-demographics-education-main.js
+#: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-education-main.js
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Percentage"
-msgstr ""
+msgstr "百分比"
 
 #. Translators: <%=value%> will be replaced with a level of education (e.g.
 #. Doctorate).
+#: static/dist/js/enrollment-demographics-education-main.js
 #: static/js/enrollment-demographics-education-main.js
 msgid "Education: <%=value%>"
-msgstr ""
+msgstr "教育程度: <%=value%>"
 
+#: static/dist/js/enrollment-demographics-education-main.js
 #: static/js/enrollment-demographics-education-main.js
 msgid "Educational Background"
 msgstr "學歷"
 
 #. Translators: <%=value%> will be replaced with a level of gender (e.g.
 #. Female).
+#: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Gender: <%=value%>"
-msgstr ""
+msgstr "性別: <%=value%>"
 
+#: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Female"
 msgstr "女性"
 
+#: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Male"
 msgstr "男性"
 
+#: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Other"
 msgstr "其他"
 
+#: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Not Reported"
 msgstr "無報告"
 
+#: static/dist/js/enrollment-geography-main.js
 #: static/js/enrollment-geography-main.js
 msgid ""
 "Student location is determined from IP address. This map shows where "
 "students most recently connected."
 msgstr "學生的位置由IP位址來決定。此地圖說明了哪個地方是學生最常連線的。"
 
+#: static/dist/js/enrollment-geography-main.js
 #: static/js/enrollment-geography-main.js
 msgid "Country"
 msgstr "國家"
 
+#: static/dist/js/enrollment-geography-main.js
 #: static/js/enrollment-geography-main.js
 msgid "Percent"
 msgstr "百分比"
+
+#: static/dist/js/performance-answer-distribution-main.js
+msgid "Answer"
+msgstr ""
+
+#: static/dist/js/performance-answer-distribution-main.js
+msgid "Correct"
+msgstr "正確"
+
+#: static/dist/js/performance-answer-distribution-main.js
+msgid "Submission Count"
+msgstr ""
+
+#: static/dist/js/performance-answer-distribution-main.js
+msgid "Variant"
+msgstr ""
+
+#. Translators: <%=value%> will be replaced by a student response to a
+#. question asked in a course.
+#: static/dist/js/performance-answer-distribution-main.js
+msgid "Answer: <%=value%>"
+msgstr ""
+
+#: static/dist/js/performance-graded-content-assignment-main.js
+#: static/dist/js/performance-graded-content-assignment-types-main.js
+msgid "Total Submissions"
+msgstr ""
+
+#: static/dist/js/performance-graded-content-assignment-main.js
+#: static/dist/js/performance-graded-content-assignment-types-main.js
+msgid "Correct Submissions"
+msgstr ""
+
+#: static/dist/js/performance-graded-content-assignment-main.js
+#: static/dist/js/performance-graded-content-assignment-types-main.js
+msgid "Order"
+msgstr ""
+
+#: static/dist/js/performance-graded-content-assignment-main.js
+msgid "Problem Name"
+msgstr "問題名稱"
+
+#: static/dist/js/performance-graded-content-assignment-types-main.js
+msgid "Assignment Name"
+msgstr "作業名稱"
+
+#: static/dist/js/performance-graded-content-assignment-types-main.js
+msgid "Problems"
+msgstr "問題"

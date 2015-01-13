@@ -8,10 +8,14 @@ django-appconf==0.6
 logutils==0.3.3				# BSD
 python-social-auth==0.2.0   # BSD
 django-waffle==0.10			# BSD
-django-countries==3.0.1     # MIT
--e git+https://github.com/clintonb/django-announcements.git@e5c4ef825111befdc2dd2b206fbb322367ae5a3e#egg=django-announcements # MIT
+
+# TODO Use PyPi once package has been updated
+# django-countries==3.0.1     # MIT
+git+https://github.com/SmileyChris/django-countries.git@ece149d706aaf812afd6b39872cf01fd294b2038#egg=django-countries
+
+# TODO Use the PyPi package once it is updated.
+-e git+https://github.com/edx/django-announcements.git@django-1.7#egg=django-announcements # MIT
 -e git+https://github.com/edx/edx-analytics-data-api-client.git@0.4.0#egg=edx-analytics-data-api-client # edX
 -e git+https://github.com/edx/django-lang-pref-middleware.git@0.1.0#egg=django-lang-pref-middleware
 -e git+https://github.com/edx/i18n-tools.git@0d7847f9dfa2281640527b4dc51f5854f950f9b7#egg=i18n_tools
 -e git+https://github.com/edx/opaque-keys.git@d45d0bd8d64c69531be69178b9505b5d38806ce0#egg=opaque-keys
-git+https://github.com/edx/edx-server-api-client.git@0.1.0#egg=edx-server-api-client

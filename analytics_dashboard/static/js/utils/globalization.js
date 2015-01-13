@@ -28,12 +28,14 @@ window.language = fixLanguageCode(window.language);
 define([
     'globalize',
     'json!cldr-data/supplemental/likelySubtags.json',
+    'json!cldr-data/supplemental/numberingSystems.json',
     'json!cldr-data/main/' + window.language + '/numbers.json',
     'globalize/number'
-], function (Globalize, likelySubtags, numbers) {
+], function (Globalize, likelySubtags, numberingSystems, numbers) {
     'use strict';
 
     Globalize.load(likelySubtags);
+    Globalize.load(numberingSystems);
     Globalize.load(numbers);
 
     return Globalize(window.language);  // jshint ignore:line
