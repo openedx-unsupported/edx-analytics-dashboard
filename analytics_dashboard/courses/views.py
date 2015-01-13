@@ -59,7 +59,7 @@ class CourseAPIMixin(object):
 
         return super(CourseAPIMixin, self).dispatch(request, *args, **kwargs)
 
-    def get_course_info(self, course_id, depth=0, extra_fields=None):
+    def get_course_info(self, course_id, depth=0):
         """
         Retrieve course info from the Course API.
 
@@ -70,19 +70,14 @@ class CourseAPIMixin(object):
             depth           -- Number of (tree) levels worth of data to retrieve
             extra_fields    -- Additional course fields to retrieve
         """
-        if extra_fields:
-            extra_fields = u','.join(extra_fields)
-        else:
-            extra_fields = u''
 
-        key = u'_'.join([unicode(course_id), unicode(depth), extra_fields])
+        key = u'_'.join([unicode(course_id), unicode(depth)])
         info = cache.get(key)
 
         if not info:
             try:
                 logger.debug('Retrieving course details: %s', course_id)
-                extra_fields = extra_fields or ''
-                info = self.course_api(course_id).get(depth=depth, include_fields=extra_fields)
+                info = self.course_api(course_id).get(depth=depth)
                 cache.set(key, info)
             except HttpClientError as e:
                 logger.error("Unable to retrieve course info for {}: {}".format(course_id, e))
