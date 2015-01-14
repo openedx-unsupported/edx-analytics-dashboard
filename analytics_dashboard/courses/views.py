@@ -705,6 +705,7 @@ class PerformanceAnswerDistributionView(PerformanceTemplateView):
 
         context.update({
             'course_id': self.course_id,
+            'chart_maximum_answers': CoursePerformancePresenter.CHART_LIMIT,
             'questions': answer_distribution_entry.questions,
             'active_question': answer_distribution_entry.active_question,
             'problem_id': problem_id,

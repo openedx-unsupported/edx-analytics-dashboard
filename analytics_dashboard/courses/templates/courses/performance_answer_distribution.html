@@ -70,9 +70,10 @@
                     {% endif %}
                 </div>
                 {% captureas tip_text %}
+                    {# Translators: This text describes a bar chart displayed.  chart_maximum_answers is the maximum number of bars and answers shown. #}
                     {% blocktrans trimmed %}
                         This graph includes every answer submitted by a student for this problem, and shows the number of students
-                        who submitted each answer.  A maximum of 12 answers are shown.
+                        who submitted each answer.  A maximum of {{chart_maximum_answers}} answers are shown.
                     {% endblocktrans %}
                 {% endcaptureas %}
                 {% include "chart_tooltip.html" with tip_text=tip_text track_category="bar"%}
