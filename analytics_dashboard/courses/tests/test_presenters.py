@@ -283,19 +283,19 @@ class CoursePerformanceAnswerDistributionPresenterTests(TestCase):
 
         for part in problem_parts:
             expected = part['expected']
-            last_updated, questions, active_question, answer_distributions, answer_distribution_limited, \
-                is_random, answer_type, \
-                problem_part_description = self.presenter.get_answer_distribution(self.problem_id, part['part_id'])
-            self.assertEqual(last_updated, utils.CREATED_DATETIME)
-            self.assertListEqual(questions, utils.get_presenter_performance_answer_distribution_questions())
-            self.assertEqual(problem_part_description, expected['problem_part_description'])
-            self.assertEqual(active_question, expected['active_question'])
-            self.assertEqual(answer_type, expected['answer_type'])
-            self.assertEqual(is_random, expected['is_random'])
+            answer_distribution_entry = self.presenter.get_answer_distribution(self.problem_id, part['part_id'])
+            self.assertEqual(answer_distribution_entry.last_updated, utils.CREATED_DATETIME)
+            self.assertListEqual(answer_distribution_entry.questions,
+                                 utils.get_presenter_performance_answer_distribution_questions())
+            self.assertEqual(answer_distribution_entry.problem_part_description, expected['problem_part_description'])
+            self.assertEqual(answer_distribution_entry.active_question, expected['active_question'])
+            self.assertEqual(answer_distribution_entry.answer_type, expected['answer_type'])
+            self.assertEqual(answer_distribution_entry.is_random, expected['is_random'])
 
             expected_answer_distribution = utils.get_filtered_answer_distribution(self.course_id, part['part_id'])
-            self.assertListEqual(answer_distributions, expected_answer_distribution)
-            if is_random:
-                self.assertIsNone(answer_distribution_limited)
+            self.assertListEqual(answer_distribution_entry.answer_distribution, expected_answer_distribution)
+            if answer_distribution_entry.is_random:
+                self.assertIsNone(answer_distribution_entry.answer_distribution_limited)
             else:
-                self.assertListEqual(answer_distribution_limited, expected_answer_distribution[:12])
+                self.assertListEqual(answer_distribution_entry.answer_distribution_limited,
+                                     expected_answer_distribution[:12])
