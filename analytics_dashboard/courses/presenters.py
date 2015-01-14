@@ -118,9 +118,16 @@ class BasePresenter(object):
 
 
 # stores the answer distribution return from CoursePerformancePresenter
-AnswerDistributionEntry = namedtuple('AnswerDistributionEntry',
-                                     'last_updated, questions, active_question, answer_distribution, '
-                                     'answer_distribution_limited, is_random, answer_type, problem_part_description')
+AnswerDistributionEntry = namedtuple('AnswerDistributionEntry', [
+    'last_updated',
+    'questions',
+    'active_question',
+    'answer_distribution',
+    'answer_distribution_limited',
+    'is_random',
+    'answer_type',
+    'problem_part_description'
+])
 
 
 class CoursePerformancePresenter(BasePresenter):
@@ -142,7 +149,7 @@ class CoursePerformancePresenter(BasePresenter):
         questions = self._build_questions(api_response)
 
         filtered_active_question = [i for i in questions if i['part_id'] == problem_part_id]
-        if len(filtered_active_question) is 0:
+        if len(filtered_active_question) == 0:
             raise NotFoundError
         else:
             active_question = filtered_active_question[0]['question']
