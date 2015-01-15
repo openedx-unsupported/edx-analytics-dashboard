@@ -1,10 +1,11 @@
-Django==1.7.1				# BSD License
 bpython==0.12				# MIT License
+Django==1.7.1				# BSD License
+django-appconf==0.6
 django-braces==1.2.2		# BSD
+django_compressor==1.4		# MIT
 django-libsass==0.2			# BSD
 django-model-utils==1.5.0 	# BSD
-django_compressor==1.4		# MIT
-django-appconf==0.6
+django-waffle==0.10			# BSD
 logutils==0.3.3				# BSD
 
 # Needed to subclass the OIDC test in python-social-auth
@@ -14,8 +15,6 @@ unittest2==0.8.0            # BSD
 #python-social-auth==0.2.0   # BSD
 git+https://github.com/edx/python-social-auth.git@freeze-pyjwt#egg=python-social-auth
 
-django-waffle==0.10			# BSD
-
 # TODO Use PyPi once package has been updated
 # django-countries==3.0.1     # MIT
 git+https://github.com/SmileyChris/django-countries.git@ece149d706aaf812afd6b39872cf01fd294b2038#egg=django-countries
@@ -23,8 +22,8 @@ git+https://github.com/SmileyChris/django-countries.git@ece149d706aaf812afd6b398
 # TODO Use the PyPi package once it is updated.
 -e git+https://github.com/edx/django-announcements.git@django-1.7#egg=django-announcements # MIT
 
--e git+https://github.com/edx/edx-analytics-data-api-client.git@0.3.0#egg=edx-analytics-data-api-client # edX
 -e git+https://github.com/edx/django-lang-pref-middleware.git@0.1.0#egg=django-lang-pref-middleware
+-e git+https://github.com/edx/edx-analytics-data-api-client.git@0.4.0#egg=edx-analytics-data-api-client # edX
+git+https://github.com/edx/edx-server-api-client.git@0.1.0#egg=edx-server-api-client
 -e git+https://github.com/edx/i18n-tools.git@0d7847f9dfa2281640527b4dc51f5854f950f9b7#egg=i18n_tools
 -e git+https://github.com/edx/opaque-keys.git@d45d0bd8d64c69531be69178b9505b5d38806ce0#egg=opaque-keys
-git+https://github.com/edx/edx-server-api-client.git@0.1.0#egg=edx-server-api-client

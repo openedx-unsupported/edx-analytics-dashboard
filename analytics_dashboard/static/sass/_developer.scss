@@ -14,6 +14,18 @@
   padding-top: $padding-large-vertical;
   color: $edx-blue;
   font-size: $font-size-small;
+
+  // controls in the chart info section are floated left, so push the menu
+  // down a bit so it doesn't appear on top of the control
+  .dropdown-menu {
+    top: 20px;
+  }
+}
+
+button.chart-info {
+  padding-left: 0;
+  padding-top: 0;
+  border: none;
 }
 
 .chart-tooltip {
@@ -24,11 +36,16 @@
 
 .analytics-chart-container {
   background-color: white;
-  border: $edx-gray 1px solid;
+  border: $description-border-color 1px solid;
 
   .analytics-chart {
     height: 305px; // Update the height of the graph in trends-view.js to be this height minus 5px.
     padding-top: $padding-large-vertical;
+  }
+
+  // shorten the chart so just a message (e.g. error message) is displayed
+  .message-only-chart {
+    height: 38px;
   }
 
   .nvd3 {
@@ -64,12 +81,11 @@
   transform: translateY(-50%);
 }
 
-.loading-container {
+.chart-message-container {
   @extend %vertical-align;
 }
 
 .error-section-container {
-
   padding: $padding-large-horizontal $padding-large-vertical;
   padding-bottom: $padding-large-horizontal * 2;
   margin-bottom: $padding-large-horizontal * 2;
@@ -88,9 +104,13 @@
   }
 }
 
+.white-background {
+  background-color: white;
+}
+
 // this keeps the gray borders from touching the top band at a 45 degree angle
 .error-section-container:before {
-  border: $error-border;
+  border: $description-border;
   border-top: none;
   content: "";
   position: absolute;
@@ -533,6 +553,36 @@ table.dataTable thead th.sorting_desc:after {
       font-weight: bold;
     }
 
+  }
+
+}
+
+// cap the size of the dropdown menus (useful for long question/problem names)
+.dropdown-menu {
+  .truncate {
+    max-width: 450px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+// ensures tooltips won't span the width of the screen and wraps tooltip title
+.nv-pointer-events-none {
+  max-width: 500px;
+  text-align: left;
+  white-space: normal;
+}
+
+.problem-description {
+  border: $description-border;
+  border-bottom: none;
+  padding: $padding-small-horizontal 0;
+  background-color: $white;
+
+  p {
+    // shifts it down so that it's even with the adjacent button
+    padding-top: 8px;
   }
 
 }

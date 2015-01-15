@@ -310,6 +310,9 @@ DATA_API_AUTH_TOKEN = 'edx'
 # used to determine if a course ID is valid
 LMS_COURSE_VALIDATION_BASE_URL = None
 
+# used to construct the shortcut link to course modules
+LMS_COURSE_SHORTCUT_BASE_URL = None
+
 # Used to determine how dates are displayed in templates
 DATE_FORMAT = 'F d, Y'
 

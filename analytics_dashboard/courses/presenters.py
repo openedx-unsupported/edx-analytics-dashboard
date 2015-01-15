@@ -2,6 +2,8 @@ import copy
 import datetime
 import logging
 
+from collections import namedtuple
+
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 from django_countries import countries
@@ -11,6 +13,9 @@ import analyticsclient.constants.activity_type as AT
 import analyticsclient.constants.education_level as EDUCATION_LEVEL
 import analyticsclient.constants.gender as GENDER
 from analyticsclient.constants import demographic, UNKNOWN_COUNTRY_CODE, enrollment_modes
+from analyticsclient.exceptions import NotFoundError
+
+import courses.utils as utils
 
 
 logger = logging.getLogger(__name__)
@@ -107,6 +112,143 @@ class BasePresenter(object):
     def strip_time(s):
         return s[:-7]
 
+    @staticmethod
+    def sum_counts(data):
+        return sum(datum['count'] for datum in data)
+
+
+# stores the answer distribution return from CoursePerformancePresenter
+AnswerDistributionEntry = namedtuple('AnswerDistributionEntry', [
+    'last_updated',
+    'questions',
+    'active_question',
+    'answer_distribution',
+    'answer_distribution_limited',
+    'is_random',
+    'answer_type',
+    'problem_part_description'
+])
+
+
+class CoursePerformancePresenter(BasePresenter):
+    """
+    Presenter for the performance page.
+    """
+
+    # limit for the number of bars to display in the answer distribution chart
+    CHART_LIMIT = 12
+
+    def get_answer_distribution(self, problem_id, problem_part_id):
+        """
+        Retrieve answer distributions for a particular module/problem and problem part.
+        """
+
+        module = self.client.modules(self.course_id, problem_id)
+
+        api_response = module.answer_distribution()
+        questions = self._build_questions(api_response)
+
+        filtered_active_question = [i for i in questions if i['part_id'] == problem_part_id]
+        if len(filtered_active_question) == 0:
+            raise NotFoundError
+        else:
+            active_question = filtered_active_question[0]['question']
+
+        answer_distributions = self._build_answer_distribution(api_response, problem_part_id)
+        problem_part_description = self._build_problem_description(problem_part_id, questions)
+
+        is_random = self._is_answer_distribution_random(answer_distributions)
+        answer_distribution_limited = None
+        if not is_random:
+            # only display the top in the chart
+            answer_distribution_limited = answer_distributions[:self.CHART_LIMIT]
+
+        answer_type = self._get_answer_type(answer_distributions)
+        last_updated = self.parse_api_datetime(answer_distributions[0]['created'])
+
+        return AnswerDistributionEntry(last_updated, questions, active_question, answer_distributions,
+                                       answer_distribution_limited, is_random, answer_type, problem_part_description)
+
+    def _build_problem_description(self, problem_part_id, questions):
+        """ Returns the displayable problem name. """
+        problem = [q for q in questions if q['part_id'] == problem_part_id][0]
+        if problem['problem_name']:
+            return u'{0} - {1}'.format(problem['problem_name'], problem['question'])
+        return problem['question']
+
+    def _get_answer_type(self, answer_distributions):
+        """ Returns either answer_value_text or answer_value_numeric. """
+
+        # answer field for numeric values returned from API
+        numeric_field = 'answer_value_numeric'
+        # answer field for text values returned from API
+        text_field = 'answer_value_text'
+
+        # returns the first field found to be filled
+        for ad in answer_distributions:
+            if ad[numeric_field] is not None:
+                return numeric_field
+            elif ad[text_field] is not None:
+                return text_field
+
+        # default to text answer if both fields were null/none
+        return text_field
+
+    def _is_answer_distribution_random(self, answer_distributions):
+        """
+        Problems are considered randomized if variant is populated with values
+        greater than 1.
+        """
+        for ad in answer_distributions:
+            variant = ad['variant']
+            if variant is not None and variant is not 1:
+                return True
+        return False
+
+    def _build_questions(self, answer_distributions):
+        """
+        Builds the questions and part_id from the answer distribution. Displayed
+        drop down.
+        """
+        questions = []
+        part_id_to_problem = {}
+
+        # Collect unique questions from the answer distribution
+        for question_answer in answer_distributions:
+            question = question_answer.get('question_text', None)
+            problem_name = question_answer.get('problem_display_name', None)
+            part_id_to_problem[question_answer['part_id']] = {
+                'question': question,
+                'problem_name': problem_name
+            }
+
+        for part_id, problem in part_id_to_problem.iteritems():
+            questions.append({
+                'part_id': part_id,
+                'question': problem['question'],
+                'problem_name': problem['problem_name']
+            })
+
+        utils.sorting.natural_sort(questions, 'part_id')
+
+        # add an enumerated label
+        for i, question in enumerate(questions):
+            text = question['question']
+            question_num = i + 1
+            if text:
+                text = u'Submissions for Part {0}: {1}'.format(question_num, text)
+            else:
+                text = u'Submissions for Part {0}'.format(question_num)
+            question['question'] = text
+
+        return questions
+
+    def _build_answer_distribution(self, api_response, problem_part_id):
+        """ Filter for this problem part and sort descending order. """
+        answer_distributions = [i for i in api_response if i['part_id'] == problem_part_id]
+        answer_distributions = sorted(answer_distributions, key=lambda a: -a['count'])
+        return answer_distributions
+
 
 class CourseEngagementPresenter(BasePresenter):
     """
@@ -187,15 +329,7 @@ class CourseEngagementPresenter(BasePresenter):
         return summary, trends
 
 
-class BaseCourseEnrollmentPresenter(BasePresenter):
-    def _sum_counts(self, data):
-        return sum([datum['count'] for datum in data])
-
-    def _calculate_percent(self, count, total):
-        return count / float(total) if total > 0 else 0.0
-
-
-class CourseEnrollmentPresenter(BaseCourseEnrollmentPresenter):
+class CourseEnrollmentPresenter(BasePresenter):
     """ Presenter for the course enrollment data. """
 
     NUMBER_TOP_COUNTRIES = 3
@@ -346,13 +480,13 @@ class CourseEnrollmentPresenter(BaseCourseEnrollmentPresenter):
             api_response = self._translate_country_names(api_response)
 
             # get the sum as a float so we can divide by it to get a percent
-            total_enrollment = self._sum_counts(api_response)
+            total_enrollment = self.sum_counts(api_response)
 
             # formatting this data for easy access in the table UI
             data = [{'countryCode': datum['country']['alpha3'],
                      'countryName': datum['country']['name'],
                      'count': datum['count'],
-                     'percent': self._calculate_percent(datum['count'], total_enrollment)}
+                     'percent': utils.math.calculate_percent(datum['count'], total_enrollment)}
                     for datum in api_response]
 
             # Filter out the unknown entry for the summary data
@@ -418,7 +552,7 @@ class CourseEnrollmentPresenter(BaseCourseEnrollmentPresenter):
         return data
 
 
-class CourseEnrollmentDemographicsPresenter(BaseCourseEnrollmentPresenter):
+class CourseEnrollmentDemographicsPresenter(BasePresenter):
     """ Presenter for course enrollment demographic data. """
 
     # ages at this and above will be binned
@@ -464,11 +598,9 @@ class CourseEnrollmentDemographicsPresenter(BaseCourseEnrollmentPresenter):
         for gender in genders:
             recent_genders.append({
                 'gender': GENDER_FULL_NAMES[gender],
-                'percent': self._calculate_percent(most_recent_data[gender], total_enrollment),
+                'percent': utils.math.calculate_percent(most_recent_data[gender], total_enrollment),
                 'order': GENDER_ORDER[gender]
             })
-
-        print recent_genders
 
         return sorted(recent_genders, key=lambda i: i['order'], reverse=False)
 
@@ -476,7 +608,7 @@ class CourseEnrollmentDemographicsPresenter(BaseCourseEnrollmentPresenter):
         most_recent_data = api_response[-1]
         known_enrollment = self._calculate_sum(most_recent_data, KNOWN_GENDERS)
         all_enrollment = self._calculate_sum(most_recent_data, GENDERS)
-        return self._calculate_percent(known_enrollment, all_enrollment)
+        return utils.math.calculate_percent(known_enrollment, all_enrollment)
 
     def get_ages(self):
         """
@@ -513,11 +645,11 @@ class CourseEnrollmentDemographicsPresenter(BaseCourseEnrollmentPresenter):
         if max_age:
             filtered_ages = ([datum for datum in filtered_ages
                               if datum['birth_year'] and (current_year - datum['birth_year']) <= max_age])
-        return self._sum_counts(filtered_ages)
+        return self.sum_counts(filtered_ages)
 
     def _calculate_median_age(self, api_response):
         current_year = datetime.date.today().year
-        total_enrollment = self._sum_counts(api_response)
+        total_enrollment = self.sum_counts(api_response)
         half_enrollments = total_enrollment * 0.5
         count_enrollments = 0
         for index, datum in enumerate(api_response):
@@ -562,18 +694,18 @@ class CourseEnrollmentDemographicsPresenter(BaseCourseEnrollmentPresenter):
         for params in summary_params:
             age_range = params['ages']
             count = self._count_ages(api_response, age_range[0], age_range[1])
-            summary[params['field']] = self._calculate_percent(count, known_enrollment_total)
+            summary[params['field']] = utils.math.calculate_percent(count, known_enrollment_total)
 
         return summary
 
     def _build_binned_ages(self, api_response):
         current_year = datetime.date.today().year
         known_ages = [i for i in api_response if i['birth_year']]
-        enrollment_total = self._sum_counts(api_response)
+        enrollment_total = self.sum_counts(api_response)
 
         binned_ages = [{'age': current_year - int(datum['birth_year']),
                         'count': datum['count'],
-                        'percent': self._calculate_percent(datum['count'], enrollment_total)}
+                        'percent': utils.math.calculate_percent(datum['count'], enrollment_total)}
                        for datum in known_ages]
 
         # fill in ages with no counts for display
@@ -595,7 +727,7 @@ class CourseEnrollmentDemographicsPresenter(BaseCourseEnrollmentPresenter):
         for datum in elderly:
             elderly_bin['count'] = elderly_bin['count'] + datum['count']
             binned_ages.remove(datum)
-        elderly_bin['percent'] = self._calculate_percent(elderly_bin['count'], enrollment_total)
+        elderly_bin['percent'] = utils.math.calculate_percent(elderly_bin['count'], enrollment_total)
 
         # tack enrollment counts for students with unknown ages
         unknown = [i for i in api_response if not i['birth_year']]
@@ -604,7 +736,7 @@ class CourseEnrollmentDemographicsPresenter(BaseCourseEnrollmentPresenter):
             binned_ages.append({
                 'age': _('Unknown'),
                 'count': unknown_count,
-                'percent': self._calculate_percent(unknown_count, enrollment_total)
+                'percent': utils.math.calculate_percent(unknown_count, enrollment_total)
             })
 
         return binned_ages
@@ -615,19 +747,19 @@ class CourseEnrollmentDemographicsPresenter(BaseCourseEnrollmentPresenter):
 
     def _calculate_known_total_enrollment(self, api_response, enrollment_key):
         known = [i for i in api_response if i[enrollment_key]]
-        return self._sum_counts(known)
+        return self.sum_counts(known)
 
     def _calculate_known_total_percent(self, api_response, enrollment_key):
         known_count = self._calculate_known_total_enrollment(api_response, enrollment_key)
-        total_count = self._sum_counts(api_response)
-        return self._calculate_percent(known_count, total_count)
+        total_count = self.sum_counts(api_response)
+        return utils.math.calculate_percent(known_count, total_count)
 
     def _calculate_education_percent(self, api_response, levels):
         """ Aggregates levels of education and returns the percent of the total. """
         filtered_levels = ([education for education in api_response
                             if education['education_level'] in levels])
-        subset_enrollment = self._sum_counts(filtered_levels)
-        return self._calculate_percent(subset_enrollment, self._sum_counts(api_response))
+        subset_enrollment = self.sum_counts(filtered_levels)
+        return utils.math.calculate_percent(subset_enrollment, self.sum_counts(api_response))
 
     def _build_education_summary(self, api_response):
         known_education = [i for i in api_response if i['education_level']]
@@ -645,10 +777,10 @@ class CourseEnrollmentDemographicsPresenter(BaseCourseEnrollmentPresenter):
 
     def _build_education_levels(self, api_response):
         known_education = [i for i in api_response if i['education_level']]
-        known_enrollment_total = self._sum_counts(known_education)
+        known_enrollment_total = self.sum_counts(known_education)
         levels = [{'educationLevel': EDUCATION_NAMES[datum['education_level']],
                    'count': datum['count'],
-                   'percent': self._calculate_percent(datum['count'], known_enrollment_total),
+                   'percent': utils.math.calculate_percent(datum['count'], known_enrollment_total),
                    'order': EDUCATION_ORDER[datum['education_level']]}
                   for datum in known_education]
 

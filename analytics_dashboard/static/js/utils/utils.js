@@ -67,6 +67,17 @@ define(['moment', 'underscore', 'utils/globalization'], function (moment, _, Glo
                 });
             }
             return display;
+        },
+
+        /**
+         * Truncates text and adds ellipse at the end.
+         */
+        truncateText: function(text, characterLimit) {
+            var formattedLabel = text.slice(0, characterLimit);
+            if (characterLimit > 3 && _(text).size() > characterLimit) {
+                formattedLabel = text.slice(0, characterLimit - 3) + gettext('...');
+            }
+            return formattedLabel;
         }
     };
 
