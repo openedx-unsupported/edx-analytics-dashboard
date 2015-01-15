@@ -8,7 +8,6 @@ COURSE_ID_PATTERN = r'(?P<course_id>[^/+]+[/+][^/+]+[/+][^/]+)'
 CONTENT_ID_PATTERN = r'(?P<content_id>[\.a-zA-Z0-9_+\/:-]+)'
 PROBLEM_PART_ID_PATTERN = r'(?P<problem_part_id>[^/]+)'
 
-
 COURSE_URLS = patterns(
     '',
     # Course homepage. This should be the entry point for other applications linking to the course.

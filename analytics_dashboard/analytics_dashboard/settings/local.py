@@ -72,7 +72,6 @@ INSTALLED_APPS += (
 )
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
-
 LMS_COURSE_SHORTCUT_BASE_URL = 'https://courses.edx.org/courses'
 
 ########## BRANDING
