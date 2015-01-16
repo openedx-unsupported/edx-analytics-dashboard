@@ -51,4 +51,4 @@ class CoursePerformanceAnswerDistribution(ProblemViewTestMixin, TestCase):
         pass
 
     def get_mock_data(self, course_id):
-        return utils.get_mock_api_answer_distribution_data(course_id)
+        return utils.get_presenter_performance_answer_distribution_multiple_questions()

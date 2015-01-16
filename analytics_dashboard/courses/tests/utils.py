@@ -511,7 +511,7 @@ def mock_course_activity(start_date=None, end_date=None):
     return get_mock_api_course_activity(u'edX/DemoX/Demo_Course')
 
 
-def get_mock_api_answer_distribution_data(course_id):
+def get_mock_api_answer_distribution_multiple_questions_data(course_id):
     answers = []
     total_count = 100
 
@@ -571,7 +571,12 @@ def get_mock_api_answer_distribution_data(course_id):
     return answers
 
 
-def get_presenter_performance_answer_distribution_questions():
+def get_mock_api_answer_distribution_single_question_data(course_id):
+    # get answers for one problem part
+    return get_mock_api_answer_distribution_multiple_questions_data(course_id)[:3]
+
+
+def get_presenter_performance_answer_distribution_multiple_questions():
     return [
         {
             'part_id': 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_2_1',
@@ -591,13 +596,23 @@ def get_presenter_performance_answer_distribution_questions():
     ]
 
 
+def get_presenter_performance_answer_distribution_single_question():
+    return [
+        {
+            'part_id': 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_2_1',
+            'question': u'Submissions: Is this a text problem?',
+            'problem_name': 'Example problem'
+        }
+    ]
+
+
 def get_filtered_answer_distribution(course_id, problem_part_id):
-    data = get_mock_api_answer_distribution_data(course_id)
+    data = get_mock_api_answer_distribution_multiple_questions_data(course_id)
     return [d for d in data if d['part_id'] == problem_part_id]
 
 
 def get_presenter_answer_distribution(course_id, problem_part_id):
-    questions = get_presenter_performance_answer_distribution_questions()
+    questions = get_presenter_performance_answer_distribution_multiple_questions()
     active_question = [i for i in questions if i['part_id'] == problem_part_id][0]['question']
     answer_distributions = get_filtered_answer_distribution(course_id, problem_part_id)
     answer_distribution_limited = answer_distributions[:12]

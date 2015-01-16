@@ -35,7 +35,7 @@ class CoursePerformanceAnswerDistributionTests(CoursePageTestsMixin, WebAppTest)
 
     def _test_heading_question(self):
         element = self.page.q(css='.section-heading')
-        self.assertEqual(element.text[0], 'How did students answer this part of the problem?')
+        self.assertEqual(element.text[0], 'How did students answer this problem?')
 
     def _test_problem_description(self):
         section_selector = '.problem-description'
@@ -55,8 +55,9 @@ class CoursePerformanceAnswerDistributionTests(CoursePageTestsMixin, WebAppTest)
 
         container_selector = '.analytics-chart-container'
         element = self.page.q(css=container_selector + ' i')
-        expected_tooltip = 'This graph includes every answer submitted by a student for this problem, and shows ' \
-                           'the number of students who submitted each answer.  A maximum of 12 answers are shown.'
+        expected_tooltip = 'This graph shows answers submitted by at least one student, ' \
+                           'and the number of students who submitted each answer. The most frequently submitted answers, ' \
+                           'up to 12, are included.'
         self.assertEqual(element[0].get_attribute('data-original-title'), expected_tooltip)
 
     def _test_table(self):
