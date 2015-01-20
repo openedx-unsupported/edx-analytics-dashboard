@@ -11,6 +11,8 @@ _multiprocess_can_split_ = True
 
 class CoursePerformanceAnswerDistributionTests(CoursePageTestsMixin, WebAppTest):
 
+    help_path = 'performance/index.html'
+
     def setUp(self):
         super(CoursePerformanceAnswerDistributionTests, self).setUp()
         self.page = CoursePerformanceAnswerDistributionPage(self.browser)
