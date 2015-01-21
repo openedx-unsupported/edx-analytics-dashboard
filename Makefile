@@ -6,26 +6,32 @@ PACKAGES = analytics_dashboard courses django_rjs help
 NUM_PROCESSES = 2
 NODE_BIN=./node_modules/.bin
 
+ifdef TRAVIS
+  retry = travis_retry
+else
+  retry =
+endif
+
 DJANGO_SETTINGS_MODULE := "analytics_dashboard.settings.local"
 
 .PHONY: requirements clean
 
 requirements: requirements.js
-	pip install -q -r requirements/base.txt --exists-action w
+	$(retry) pip install -q -r requirements/base.txt --exists-action w
 
 requirements.js:
-	npm install
-	$(NODE_BIN)/bower install
+	$(retry) npm install
+	$(retry) $(NODE_BIN)/bower install
 
 test.requirements: requirements
-	pip install -q -r requirements/test.txt --exists-action w
+	$(retry) pip install -q -r requirements/test.txt --exists-action w
 
 develop: test.requirements
-	pip install -q -r requirements/local.txt --exists-action w
+	$(retry) pip install -q -r requirements/local.txt --exists-action w
 
 test.acceptance: develop
-	git clone https://github.com/edx/edx-analytics-data-api.git
-	pip install -q -r edx-analytics-data-api/requirements/base.txt
+	$(retry) git clone https://github.com/edx/edx-analytics-data-api.git
+	$(retry) pip install -q -r edx-analytics-data-api/requirements/base.txt
 
 migrate:
 	cd analytics_dashboard && ./manage.py migrate
