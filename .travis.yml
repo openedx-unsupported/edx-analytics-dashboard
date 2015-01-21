@@ -8,8 +8,14 @@ before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
 install:
-    - make test.acceptance
-    - pip install coveralls
+    - travis_retry pip install -q -r requirements/base.txt --exists-action w
+    - travis_retry pip install -q -r requirements/local.txt --exists-action w
+    - travis_retry pip install -q -r requirements/test.txt --exists-action w
+    - travis_retry npm install
+    - travis_retry ./node_modules/.bin/bower install
+    - travis_retry git clone https://github.com/edx/edx-analytics-data-api.git
+    - travis_retry pip install -q -r edx-analytics-data-api/requirements/base.txt
+    - travis_retry pip install coveralls
 script:
     - make validate
     - make generate_fake_translations
