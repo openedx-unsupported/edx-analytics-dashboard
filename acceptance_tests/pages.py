@@ -27,6 +27,7 @@ class DashboardPage(PageObject):
 
 class LandingPage(DashboardPage):
     path = ''
+
     def __init__(self, browser):
         super(LandingPage, self).__init__(browser)
 
@@ -145,11 +146,13 @@ class CoursePerformanceAnswerDistributionPage(CoursePage):
         super(CoursePerformanceAnswerDistributionPage, self).__init__(browser, course_id)
         self.problem_id = problem_id or TEST_PROBLEM_ID
         self.part_id = part_id or TEST_PROBLEM_PART_ID
-        self.page_url += '/performance/graded_content/problems/{}/answerdistribution/{}/'.format(self.problem_id, self.part_id)
+        self.page_url += '/performance/graded_content/problems/{}/answer_distribution/{}/'.format(self.problem_id,
+                                                                                                  self.part_id)
 
     def is_browser_on_page(self):
         return super(CoursePerformanceAnswerDistributionPage, self).is_browser_on_page() and \
-            'Performance Answer Distribution' in self.browser.title
+               'Performance Answer Distribution' in self.browser.title
+
 
 class CourseIndexPage(DashboardPage):
     path = 'courses/'

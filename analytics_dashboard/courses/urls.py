@@ -3,41 +3,64 @@
 from django.conf.urls import url, patterns, include
 
 from courses import views
+from courses.views import enrollment, engagement, performance, csv
 
 COURSE_ID_PATTERN = r'(?P<course_id>[^/+]+[/+][^/+]+[/+][^/]+)'
 CONTENT_ID_PATTERN = r'(?P<content_id>[\.a-zA-Z0-9_+\/:-]+)'
 PROBLEM_PART_ID_PATTERN = r'(?P<problem_part_id>[^/]+)'
 
+ENROLLMENT_URLS = patterns(
+    '',
+    url(r'^activity/$', enrollment.EnrollmentActivityView.as_view(), name='activity'),
+    url(r'^geography/$', enrollment.EnrollmentGeographyView.as_view(), name='geography'),
+    url(r'^demographics/age/$', enrollment.EnrollmentDemographicsAgeView.as_view(), name='demographics_age'),
+    url(r'^demographics/education/$', enrollment.EnrollmentDemographicsEducationView.as_view(),
+        name='demographics_education'),
+    url(r'^demographics/gender/$', enrollment.EnrollmentDemographicsGenderView.as_view(), name='demographics_gender'),
+)
+
+ENGAGEMENT_URLS = patterns(
+    '',
+    url(r'^content/$', engagement.EngagementContentView.as_view(), name='content'),
+)
+
+PERFORMANCE_URLS = patterns(
+    '',
+    url(r'^graded_content/problems/{}/answer_distribution/{}/$'.format(CONTENT_ID_PATTERN, PROBLEM_PART_ID_PATTERN),
+        performance.PerformanceAnswerDistributionView.as_view(),
+        name='answer_distribution'),
+)
+
+CSV_URLS = patterns(
+    '',
+    url(r'^enrollment/$', csv.CourseEnrollmentCSV.as_view(), name='enrollment'),
+    url(r'^enrollment/geography/$', csv.CourseEnrollmentByCountryCSV.as_view(), name='enrollment_geography'),
+    url(r'^enrollment/demographics/age/$',
+        csv.CourseEnrollmentDemographicsAgeCSV.as_view(),
+        name='enrollment_demographics_age'),
+    url(r'^enrollment/demographics/education/$',
+        csv.CourseEnrollmentDemographicsEducationCSV.as_view(),
+        name='enrollment_demographics_education'),
+    url(r'^enrollment/demographics/gender/$',
+        csv.CourseEnrollmentDemographicsGenderCSV.as_view(),
+        name='enrollment_demographics_gender'),
+    url(r'^engagement/activity_trend/$',
+        csv.CourseEngagementActivityTrendCSV.as_view(),
+        name='engagement_activity_trend'),
+    url(r'^performance/graded_content/problems/{}/answer_distribution/{}/$'.format(CONTENT_ID_PATTERN,
+                                                                                   PROBLEM_PART_ID_PATTERN),
+        csv.PerformanceAnswerDistributionCSV.as_view(),
+        name='performance_answer_distribution'),
+)
+
 COURSE_URLS = patterns(
     '',
     # Course homepage. This should be the entry point for other applications linking to the course.
     url(r'^$', views.CourseHome.as_view(), name='home'),
-    url(r'^enrollment/activity/$', views.EnrollmentActivityView.as_view(), name='enrollment_activity'),
-    url(r'^enrollment/geography/$', views.EnrollmentGeographyView.as_view(), name='enrollment_geography'),
-    url(r'^enrollment/demographics/age/$', views.EnrollmentDemographicsAgeView.as_view(),
-        name='enrollment_demographics_age'),
-    url(r'^enrollment/demographics/education/$', views.EnrollmentDemographicsEducationView.as_view(),
-        name='enrollment_demographics_education'),
-    url(r'^enrollment/demographics/gender/$', views.EnrollmentDemographicsGenderView.as_view(),
-        name='enrollment_demographics_gender'),
-    url(r'^engagement/content/$', views.EngagementContentView.as_view(), name='engagement_content'),
-    url(r'^performance/graded_content/problems/{}/answerdistribution/{}/$'.format(
-        CONTENT_ID_PATTERN, PROBLEM_PART_ID_PATTERN),
-        views.PerformanceAnswerDistributionView.as_view(), name='performance_answerdistribution'),
-    url(r'^csv/enrollment/$', views.CourseEnrollmentCSV.as_view(), name='csv_enrollment'),
-    url(r'^csv/enrollment_by_country/$', views.CourseEnrollmentByCountryCSV.as_view(),
-        name='csv_enrollment_by_country'),
-    url(r'^csv/enrollment_demographics_age/$', views.CourseEnrollmentDemographicsAgeCSV.as_view(),
-        name='csv_enrollment_demographics_age'),
-    url(r'^csv/enrollment_demographics_education/$', views.CourseEnrollmentDemographicsEducationCSV.as_view(),
-        name='csv_enrollment_demographics_education'),
-    url(r'^csv/enrollment_demographics_gender/$', views.CourseEnrollmentDemographicsGenderCSV.as_view(),
-        name='csv_enrollment_demographics_gender'),
-    url(r'^csv/engagement_activity_trend/$', views.CourseEngagementActivityTrendCSV.as_view(),
-        name='csv_engagement_activity_trend'),
-    url(r'^csv/performance/graded_content/problems/{}/answerdistribution/{}/$'.format(
-        CONTENT_ID_PATTERN, PROBLEM_PART_ID_PATTERN),
-        views.PerformanceAnswerDistributionCSV.as_view(), name='csv_performance_answerdistribution'),
+    url(r'^enrollment/', include(ENROLLMENT_URLS, namespace='enrollment')),
+    url(r'^engagement/', include(ENGAGEMENT_URLS, namespace='engagement')),
+    url(r'^performance/', include(PERFORMANCE_URLS, namespace='performance')),
+    url(r'^csv/', include(CSV_URLS, namespace='csv')),
 )
 
 urlpatterns = patterns(

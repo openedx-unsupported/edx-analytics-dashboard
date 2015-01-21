@@ -15,9 +15,9 @@
           <span class="sr-only">({% trans "Active" %})</span>
         </li>
 
-        {% for item in navbar_items %}
+        {% for item in primary_nav_items %}
           <li>
-            <a href="{% url item.view course_id=course_id %}"><span class="link-label">
+            <a href="{{ item.href }}"><span class="link-label">
                 {% if item.icon %}<i class="ico fa {{ item.icon }}" aria-hidden="true"></i>{% endif %}
                 {{ item.label }}
             </span></a>

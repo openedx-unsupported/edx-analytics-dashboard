@@ -99,7 +99,7 @@
         <h4 class="section-title">{% trans "Age Breakdown" %}</h4>
         <div class="section-actions">
             {% if js_data.course.ages %}
-                <a href="{% url 'courses:csv_enrollment_demographics_age' course_id=course_id %}"
+                <a href="{% url 'courses:csv:enrollment_demographics_age' course_id=course_id %}"
                    class="btn btn-default"
                    data-role="enrollment-csv" data-track-type="click"
                    data-track-event="edx.bi.csv.downloaded"

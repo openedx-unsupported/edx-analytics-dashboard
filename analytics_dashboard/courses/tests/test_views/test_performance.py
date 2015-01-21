@@ -11,8 +11,8 @@ from courses.tests import utils
 
 @ddt
 class CoursePerformanceAnswerDistribution(ProblemViewTestMixin, TestCase):
-    viewname = 'courses:performance_answerdistribution'
-    presenter_method = 'courses.presenters.CoursePerformancePresenter.get_answer_distribution'
+    viewname = 'courses:performance:answer_distribution'
+    presenter_method = 'courses.presenters.performance.CoursePerformancePresenter.get_answer_distribution'
 
     @override_settings(LMS_COURSE_SHORTCUT_BASE_URL='a/url')
     def assertViewIsValid(self, course_id, problem_id, problem_part_id):

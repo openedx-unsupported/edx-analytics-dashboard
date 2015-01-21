@@ -22,7 +22,12 @@ class CourseHomeTests(CoursePageTestsMixin, WebAppTest):
         pass
 
     def _view_to_href(self, view):
-        return '/' + view.replace('_', '/').replace(':', '/%s/' % self.page.course_id) + '/'
+        """
+        Generates a URL path from the specified view name.
+        """
+        return '/' + view.replace('_', '/')\
+            .replace('courses:', 'courses/{}/'.format(self.page.course_id)) \
+            .replace(':', '/') + '/'
 
     def _test_table(self):
         table_items = [
@@ -33,27 +38,27 @@ class CourseHomeTests(CoursePageTestsMixin, WebAppTest):
                 'items': [
                     {
                         'title': 'How many students are in my course?',
-                        'view': 'courses:enrollment_activity',
+                        'view': 'courses:enrollment:activity',
                         'breadcrumbs': ['Activity']
                     },
                     {
                         'title': 'How old are my students?',
-                        'view': 'courses:enrollment_demographics_age',
+                        'view': 'courses:enrollment:demographics_age',
                         'breadcrumbs': ['Demographics', 'Age']
                     },
                     {
                         'title': 'What level of education do my students have?',
-                        'view': 'courses:enrollment_demographics_education',
+                        'view': 'courses:enrollment:demographics_education',
                         'breadcrumbs': ['Demographics', 'Education']
                     },
                     {
                         'title': 'What is the student gender breakdown?',
-                        'view': 'courses:enrollment_demographics_gender',
+                        'view': 'courses:enrollment:demographics_gender',
                         'breadcrumbs': ['Demographics', 'Gender']
                     },
                     {
                         'title': 'Where are my students?',
-                        'view': 'courses:enrollment_geography',
+                        'view': 'courses:enrollment:geography',
                         'breadcrumbs': ['Geography']
                     },
                 ],
@@ -65,7 +70,7 @@ class CourseHomeTests(CoursePageTestsMixin, WebAppTest):
                 'items': [
                     {
                         'title': 'How many students are interacting with my course?',
-                        'view': 'courses:engagement_content',
+                        'view': 'courses:engagement:content',
                         'breadcrumbs': ['Content']
                     }
                 ]
@@ -104,7 +109,7 @@ class CourseHomeTests(CoursePageTestsMixin, WebAppTest):
                 self.assertEqual(title.text, row['title'])
                 expected = self._view_to_href(row['view'])
                 actual = title.find_element_by_css_selector('a').get_attribute('href')
-                self.assertTrue(actual.endswith(expected))
+                self.assertTrue(actual.endswith(expected), '{} should end with {}'.format(actual, expected))
 
                 # Check the breadcrumbs
                 breadcrumbs = element.find_element_by_css_selector('.breadcrumbs')

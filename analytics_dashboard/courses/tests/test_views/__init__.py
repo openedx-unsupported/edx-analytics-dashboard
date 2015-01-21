@@ -2,7 +2,6 @@ import json
 
 from ddt import ddt, data, unpack
 from django.contrib.humanize.templatetags.humanize import intcomma
-from django.test import override_settings
 import httpretty
 import mock
 from django.core.urlresolvers import reverse
@@ -14,12 +13,39 @@ from analyticsclient.exceptions import NotFoundError
 from analytics_dashboard.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin
 from courses.permissions import set_user_course_permissions, revoke_user_course_permissions
 from courses.tests import SwitchMixin
-from courses.tests.utils import set_empty_permissions, get_mock_api_enrollment_data
+from courses.tests.utils import set_empty_permissions, get_mock_api_enrollment_data, mock_course_name
 
 
 DEMO_COURSE_ID = 'course-v1:edX+DemoX+Demo_2014'
 DEPRECATED_DEMO_COURSE_ID = 'edX/DemoX/Demo_Course'
-COURSE_API_URL = 'http://example.com/api/server/'
+
+
+class CourseAPIMixin(SwitchMixin):
+    """
+    Mixin with methods to help mock the course API.
+    """
+
+    COURSE_API_COURSE_LIST = {'results': [
+        {'id': course_key, 'name': 'Test ' + course_key} for course_key in [DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID]
+    ]}
+
+    def mock_course_api(self, path, body):
+        """
+        Registers an HTTP mock for the specified course API path. The mock returns the specified data.
+
+        The calling test function MUST activate httpretty.
+        """
+        url = '{}/{}/{}/'.format(settings.COURSE_API_URL, settings.COURSE_API_VERSION, path)
+        body = json.dumps(body)
+        httpretty.register_uri(httpretty.GET, url, body=body, content_type="application/json")
+
+    def mock_course_detail(self, course_id):
+        path = 'courses/{}'.format(course_id)
+        body = {'id': course_id, 'name': mock_course_name(course_id)}
+        self.mock_course_api(path, body)
+
+    def mock_course_list(self):
+        self.mock_course_api('courses', self.COURSE_API_COURSE_LIST)
 
 
 class PermissionsTestMixin(object):
@@ -97,7 +123,6 @@ class ViewTestMixin(AuthTestMixin):
 
 
 class NavAssertMixin(object):
-
     def generate_course_name(self, course_id):
         return 'Test ' + course_id
 
@@ -119,8 +144,7 @@ class NavAssertMixin(object):
 
 
 @ddt
-class CourseViewTestMixin(SwitchMixin, NavAssertMixin, ViewTestMixin):
-
+class CourseViewTestMixin(CourseAPIMixin, NavAssertMixin, ViewTestMixin):
     @mock.patch('courses.views.CourseValidMixin.is_valid_course', mock.Mock(return_value=False))
     def test_invalid_course(self):
         course_id = 'fakeOrg/soFake/Fake_Course'
@@ -134,17 +158,10 @@ class CourseViewTestMixin(SwitchMixin, NavAssertMixin, ViewTestMixin):
         raise NotImplementedError
 
     @httpretty.activate
-    @override_settings(COURSE_API_URL=COURSE_API_URL, COURSE_API_KEY='edx')
     @data(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
     def test_valid_course(self, course_id):
         self.toggle_switch('enable_course_api', True)
-        url = '{}courses/{}/'.format(COURSE_API_URL, course_id)
-        body = json.dumps({
-            'id': course_id,
-            'name': self.generate_course_name(course_id)
-        })
-
-        httpretty.register_uri(httpretty.GET, url, body=body, content_type="application/json")
+        self.mock_course_detail(course_id)
         self.assertViewIsValid(course_id)
 
     def assertValidMissingDataContext(self, context):
@@ -189,7 +206,7 @@ class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
     def assertPrimaryNav(self, nav, course_id):
         expected = {
             'icon': 'fa-child',
-            'href': reverse('courses:enrollment_activity', kwargs={'course_id': course_id}),
+            'href': reverse('courses:enrollment:activity', kwargs={'course_id': course_id}),
             'label': _('Enrollment'),
             'name': 'enrollment'
         }
@@ -199,11 +216,11 @@ class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
         reverse_kwargs = {'course_id': course_id}
         expected = [
             {'name': 'activity', 'label': _('Activity'),
-             'href': reverse('courses:enrollment_activity', kwargs=reverse_kwargs)},
+             'href': reverse('courses:enrollment:activity', kwargs=reverse_kwargs)},
             {'name': 'demographics', 'label': _('Demographics'),
-             'href': reverse('courses:enrollment_demographics_age', kwargs=reverse_kwargs)},
+             'href': reverse('courses:enrollment:demographics_age', kwargs=reverse_kwargs)},
             {'name': 'geography', 'label': _('Geography'),
-             'href': reverse('courses:enrollment_geography', kwargs=reverse_kwargs)}
+             'href': reverse('courses:enrollment:geography', kwargs=reverse_kwargs)}
         ]
 
         self.assertNavs(nav, expected, self.active_secondary_nav_label)
@@ -233,10 +250,10 @@ class CourseEnrollmentDemographicsMixin(CourseEnrollmentViewTestMixin):
         reverse_kwargs = {'course_id': course_id}
         expected = [
             {'name': 'age', 'label': _('Age'),
-             'href': reverse('courses:enrollment_demographics_age', kwargs=reverse_kwargs)},
+             'href': reverse('courses:enrollment:demographics_age', kwargs=reverse_kwargs)},
             {'name': 'education', 'label': _('Education'),
-             'href': reverse('courses:enrollment_demographics_education', kwargs=reverse_kwargs)},
+             'href': reverse('courses:enrollment:demographics_education', kwargs=reverse_kwargs)},
             {'name': 'gender', 'label': _('Gender'),
-             'href': reverse('courses:enrollment_demographics_gender', kwargs=reverse_kwargs)}
+             'href': reverse('courses:enrollment:demographics_gender', kwargs=reverse_kwargs)}
         ]
         self.assertNavs(nav, expected, self.active_tertiary_nav_label)

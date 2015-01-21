@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.test.utils import override_settings
 import mock
+
 from courses.tests.test_views import DEPRECATED_DEMO_COURSE_ID
 from courses.views import CourseValidMixin
 
