@@ -69,9 +69,7 @@ class CoursePerformanceAnswerDistributionTests(CoursePageTestsMixin, WebAppTest)
 
         rows = self.page.browser.find_elements_by_css_selector('{} tbody tr'.format(table_section_selector))
 
-        value_field = 'answer_value_text'
-        if self.answer_distribution[0]['answer_value_text'] is None:
-            value_field = 'answer_value_numeric'
+        value_field = 'answer_value'
 
         for i, row in enumerate(rows):
             answer = self.answer_distribution[i]
@@ -81,10 +79,7 @@ class CoursePerformanceAnswerDistributionTests(CoursePageTestsMixin, WebAppTest)
             for col in columns:
                 actual.append(col.text)
 
-            answer_value = answer[value_field]
-            if value_field == 'answer_value_numeric':
-                answer_value = str(('%f' % answer_value).rstrip('0').rstrip('.'))
-            expected = [answer_value]
+            expected = [answer[value_field]]
             correct = '-'
             if answer['correct']:
                 correct = 'Correct'

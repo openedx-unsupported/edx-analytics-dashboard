@@ -67,22 +67,15 @@ class CoursePerformancePresenter(BasePresenter):
         return problem['question']
 
     def _get_answer_type(self, answer_distributions):
-        """ Returns either answer_value_text or answer_value_numeric. """
-
-        # answer field for numeric values returned from API
-        numeric_field = 'answer_value_numeric'
-        # answer field for text values returned from API
-        text_field = 'answer_value_text'
-
-        # returns the first field found to be filled
+        """
+        Returns either 'text' or 'numeric' to describe the answer and used in the JS table to format
+        and sort the dataset.
+        """
+        field = 'answer_value'
         for ad in answer_distributions:
-            if ad[numeric_field] is not None:
-                return numeric_field
-            elif ad[text_field] is not None:
-                return text_field
-
-        # default to text answer if both fields were null/none
-        return text_field
+            if ad[field] is not None and not utils.number.is_number(ad[field]):
+                return 'text'
+        return 'numeric'
 
     def _is_answer_distribution_random(self, answer_distributions):
         """

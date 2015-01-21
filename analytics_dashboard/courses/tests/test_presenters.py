@@ -263,7 +263,7 @@ class CoursePerformanceAnswerDistributionPresenterTests(TestCase):
                     'active_question': 'Submissions for Part 1: Is this a text problem?',
                     'problem_part_description': 'Example problem - Submissions for Part 1: Is this a text problem?',
                     'is_random': False,
-                    'answer_type': 'answer_value_text'
+                    'answer_type': 'text'
                 }
             },
             {
@@ -272,7 +272,7 @@ class CoursePerformanceAnswerDistributionPresenterTests(TestCase):
                     'active_question': 'Submissions for Part 2: Is this a numeric problem?',
                     'problem_part_description': 'Example problem - Submissions for Part 2: Is this a numeric problem?',
                     'is_random': False,
-                    'answer_type': 'answer_value_numeric'
+                    'answer_type': 'numeric'
                 }
             },
             {
@@ -282,7 +282,7 @@ class CoursePerformanceAnswerDistributionPresenterTests(TestCase):
                     'problem_part_description': 'Example problem - Submissions for Part 3: Is this a '
                                                 'randomized problem?',
                     'is_random': True,
-                    'answer_type': 'answer_value_numeric'
+                    'answer_type': 'numeric'
                 }
             }
         ]
@@ -302,7 +302,7 @@ class CoursePerformanceAnswerDistributionPresenterTests(TestCase):
                     'active_question': 'Submissions: Is this a text problem?',
                     'problem_part_description': 'Example problem - Submissions: Is this a text problem?',
                     'is_random': False,
-                    'answer_type': 'answer_value_text'
+                    'answer_type': 'text'
                 }
             }
         ]

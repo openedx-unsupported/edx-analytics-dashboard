@@ -518,8 +518,7 @@ def get_mock_api_answer_distribution_multiple_questions_data(course_id):
 
     for text_response in ['Asia', 'Europe', 'Africa']:
         answers.append({
-            'answer_value_numeric': None,
-            'answer_value_text': text_response,
+            'answer_value': text_response,
             'correct': False,
             'count': total_count,
             'course_id': course_id,
@@ -536,8 +535,7 @@ def get_mock_api_answer_distribution_multiple_questions_data(course_id):
 
     for numeric_value in range(20):
         answers.append({
-            'answer_value_numeric': numeric_value,
-            'answer_value_text': None,
+            'answer_value': numeric_value,
             'correct': False,
             'count': total_count,
             'course_id': course_id,
@@ -554,8 +552,7 @@ def get_mock_api_answer_distribution_multiple_questions_data(course_id):
 
     for randomized in range(5):
         answers.append({
-            'answer_value_numeric': 0,
-            'answer_value_text': None,
+            'answer_value': 0,
             'correct': True,
             'count': total_count,
             'course_id': course_id,
@@ -618,9 +615,11 @@ def get_presenter_answer_distribution(course_id, problem_part_id):
     answer_distributions = get_filtered_answer_distribution(course_id, problem_part_id)
     answer_distribution_limited = answer_distributions[:12]
     is_random = answer_distribution_limited[0]['variant'] is not None
-    answer_type = 'answer_value_text'
-    if answer_distribution_limited[0]['answer_value_text'] is None:
-        answer_type = 'answer_value_numeric'
+    try:
+        float(answer_distribution_limited[0]['answer_value'])
+        answer_type = 'numeric'
+    except ValueError:
+        answer_type = 'text'
     problem_part_description = 'Example problem - Submissions for Part 1: Is this a text problem?'
 
     return AnswerDistributionEntry(CREATED_DATETIME, questions, active_question, answer_distributions,

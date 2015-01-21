@@ -9,7 +9,8 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             function (_, DataTableView, DiscreteBarView) {
 
         var courseModel = page.models.courseModel,
-            answerColumn = {key: courseModel.get('answerType'), title: gettext('Answer'), type:'hasNull'},
+            answerField = 'answer_value',
+            answerColumn = {key: answerField, title: gettext('Answer'), type:'hasNull'},
             tableColumns = [
                 answerColumn,
                 {key: 'correct', title: gettext('Correct'), type: 'bool'},
@@ -17,7 +18,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             ];
 
         // answers are stored either the numeric or string fields
-        if (courseModel.get('answerType') === 'answer_value_numeric') {
+        if (courseModel.get('answerType') === 'numeric') {
             answerColumn.type = 'number';
         }
 
@@ -51,7 +52,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                     }
                 }
             }],
-            x: { key: courseModel.get('answerType') },
+            x: { key: answerField },
             y: { key: 'count' },
             // Translators: <%=value%> will be replaced by a student response to a question asked in a course.
             interactiveTooltipHeaderTemplate: _.template(gettext('Answer: <%=value%>'))
