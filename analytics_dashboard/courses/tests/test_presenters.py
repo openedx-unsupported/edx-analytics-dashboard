@@ -249,9 +249,9 @@ class CoursePerformanceAnswerDistributionPresenterTests(TestCase):
         self.presenter = CoursePerformancePresenter(self.course_id)
 
     @mock.patch('analyticsclient.module.Module.answer_distribution')
-    def test_get_answer_distribution(self, mock_answer_distribution):
+    def test_multiple_answer_distribution(self, mock_answer_distribution):
 
-        mock_data = utils.get_mock_api_answer_distribution_data(self.course_id)
+        mock_data = utils.get_mock_api_answer_distribution_multiple_questions_data(self.course_id)
         mock_answer_distribution.return_value = mock_data
 
         problem_parts = [
@@ -284,13 +284,35 @@ class CoursePerformanceAnswerDistributionPresenterTests(TestCase):
                 }
             }
         ]
+        questions = utils.get_presenter_performance_answer_distribution_multiple_questions()
+        self.assertAnswerDistribution(problem_parts, questions)
 
-        for part in problem_parts:
+    @mock.patch('analyticsclient.module.Module.answer_distribution')
+    def test_single_answer_distribution(self, mock_answer_distribution):
+
+        mock_data = utils.get_mock_api_answer_distribution_single_question_data(self.course_id)
+        mock_answer_distribution.return_value = mock_data
+
+        problem_parts = [
+            {
+                'part_id': 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_2_1',
+                'expected': {
+                    'active_question': 'Submissions: Is this a text problem?',
+                    'problem_part_description': 'Example problem - Submissions: Is this a text problem?',
+                    'is_random': False,
+                    'answer_type': 'answer_value_text'
+                }
+            }
+        ]
+        questions = utils.get_presenter_performance_answer_distribution_single_question()
+        self.assertAnswerDistribution(problem_parts, questions)
+
+    def assertAnswerDistribution(self, expected_problem_parts, expected_questions):
+        for part in expected_problem_parts:
             expected = part['expected']
             answer_distribution_entry = self.presenter.get_answer_distribution(self.problem_id, part['part_id'])
             self.assertEqual(answer_distribution_entry.last_updated, utils.CREATED_DATETIME)
-            self.assertListEqual(answer_distribution_entry.questions,
-                                 utils.get_presenter_performance_answer_distribution_questions())
+            self.assertListEqual(answer_distribution_entry.questions, expected_questions)
             self.assertEqual(answer_distribution_entry.problem_part_description, expected['problem_part_description'])
             self.assertEqual(answer_distribution_entry.active_question, expected['active_question'])
             self.assertEqual(answer_distribution_entry.answer_type, expected['answer_type'])

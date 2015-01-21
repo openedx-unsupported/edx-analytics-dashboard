@@ -232,14 +232,22 @@ class CoursePerformancePresenter(BasePresenter):
         utils.sorting.natural_sort(questions, 'part_id')
 
         # add an enumerated label
+        has_parts = len(questions) > 1
         for i, question in enumerate(questions):
             text = question['question']
             question_num = i + 1
+            template = _('Submissions')
             if text:
-                text = u'Submissions for Part {0}: {1}'.format(question_num, text)
+                if has_parts:
+                    template = _('Submissions for Part {part_number}: {part_description}')
+                else:
+                    template = _('Submissions: {part_description}')
             else:
-                text = u'Submissions for Part {0}'.format(question_num)
-            question['question'] = text
+                if has_parts:
+                    template = _('Submissions for Part {part_number}')
+
+            # pylint: disable=no-member
+            question['question'] = template.format(part_number=question_num, part_description=text)
 
         return questions
 

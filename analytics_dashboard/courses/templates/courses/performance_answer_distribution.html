@@ -17,7 +17,7 @@
 <section class="view-section" data-section="performance-answer-distribution" aria-hidden="true">
 
     <div class="section-heading">
-      <span class="section-heading-note small">{% trans "How did students answer this part of the problem?" %}</span>
+      <span class="section-heading-note small">{% trans "How did students answer this problem?" %}</span>
     </div>
 
     {% if problem_part_description %}
@@ -72,8 +72,9 @@
                 {% captureas tip_text %}
                     {# Translators: This text describes a bar chart displayed.  chart_maximum_answers is the maximum number of bars and answers shown. #}
                     {% blocktrans trimmed %}
-                        This graph includes every answer submitted by a student for this problem, and shows the number of students
-                        who submitted each answer.  A maximum of {{chart_maximum_answers}} answers are shown.
+                        This graph shows answers submitted by at least one student, and the number of students who
+                        submitted each answer. The most frequently submitted answers, up to {{chart_maximum_answers}},
+                        are included.
                     {% endblocktrans %}
                 {% endcaptureas %}
                 {% include "chart_tooltip.html" with tip_text=tip_text track_category="bar"%}
@@ -83,7 +84,14 @@
                         <!-- sets the message on a new row; otherwise, it won't be centered properly. -->
                         <div class="clearfix"></div>
                         <div class="chart-message-container">
-                            <p class="text-center">{% trans "We are unable to load charts for randomized problem sets." %}</p>
+                            <p class="text-center">
+                                {% captureas read_more_link_start %}
+                                    <a href="{% settings_value 'DOCUMENTATION_LOAD_ERROR_URL' %}" target="_blank">{% endcaptureas %}
+                                {% captureas read_more_link_end %}</a>{% endcaptureas %}
+                                {% blocktrans trimmed %}
+                                    This chart is not available for randomized questions. {{read_more_link_start}}Read more{{read_more_link_end}}.
+                                {% endblocktrans %}
+                            </p>
                         </div>
                     {% elif js_data.course.answerDistribution %}
                         {% include "loading.html" %}
@@ -100,7 +108,7 @@
 <section class="view-section">
     <div class="section-heading">
 
-        <h4 class="section-title">{% trans "Answer Distribution" %}</h4>
+        <h4 class="section-title">{% trans "Submission Counts" %}</h4>
         <div class="section-actions">
             {% if js_data.course.answerDistribution %}
                 <a href="{% url 'courses:csv_performance_answerdistribution' course_id=course_id content_id=problem_id problem_part_id=problem_part_id %}"
@@ -109,7 +117,7 @@
                    data-track-event="edx.bi.csv.downloaded"
                    data-track-category="answer-distribution">
                     <i class="ico fa fa-download" aria-hidden="true"></i> {% trans "Download CSV" %}
-                    <span class="sr-only">{% trans "Student Answer Distribution" %}</span>
+                    <span class="sr-only">{% trans "Student Submission Counts" %}</span>
                 </a>
             {% endif %}
         </div>
