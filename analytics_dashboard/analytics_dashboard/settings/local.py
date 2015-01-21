@@ -83,12 +83,12 @@ FULL_APPLICATION_NAME = '{0} {1}'.format(PLATFORM_NAME, APPLICATION_NAME)
 
 ########## AUTHENTICATION/AUTHORIZATION
 # Set these to the correct values for your OAuth2/OpenID Connect provider
-SOCIAL_AUTH_EDX_OIDC_KEY = '6d1b2137b18f54640639'
-SOCIAL_AUTH_EDX_OIDC_SECRET = '0143b8ce0f40271c6bf97224a486d3b4b3c65e80'
+SOCIAL_AUTH_EDX_OIDC_KEY = 'dummy-key'
+SOCIAL_AUTH_EDX_OIDC_SECRET = 'dummy-secret'
 SOCIAL_AUTH_EDX_OIDC_URL_ROOT = 'http://0.0.0.0:8000/oauth2'
 
 # This value should be the same as SOCIAL_AUTH_EDX_OIDC_SECRET
-SOCIAL_AUTH_EDX_OIDC_ID_TOKEN_DECRYPTION_KEY = '0143b8ce0f40271c6bf97224a486d3b4b3c65e80'
+SOCIAL_AUTH_EDX_OIDC_ID_TOKEN_DECRYPTION_KEY = 'dummy-decryption-key'
 
 ENABLE_AUTO_AUTH = True
 
@@ -102,7 +102,7 @@ HELP_URL = '#'
 
 ########## SEGMENT.IO
 # 'None' disables tracking.  This will be turned on for test and production.
-SEGMENT_IO_KEY = os.getenv('SEGMENT_WRITE_KEY')
+SEGMENT_IO_KEY = os.environ.get('SEGMENT_WRITE_KEY')
 ########## END SEGMENT.IO
 
 LOGGING = get_logger_config(debug=DEBUG, dev_env=True, local_loglevel='DEBUG')

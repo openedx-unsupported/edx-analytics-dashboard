@@ -1,6 +1,7 @@
 """Common settings and globals."""
 import ConfigParser
 
+import os
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
 
@@ -121,7 +122,7 @@ COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter']
 ########## SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 # Note: This key should only be used for development and testing.
-SECRET_KEY = r"u(laqk57)q-n7f#uwwk0rzonw&tba3-e3+h_+%+exp3b69zz(5"
+SECRET_KEY = os.environ.get("ANALYTICS_SECRET_KEY", "insecure-secret-key")
 ########## END SECRET CONFIGURATION
 
 
