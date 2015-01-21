@@ -99,7 +99,7 @@ Individual course-centric enrollment activity view.
 
       <div class="section-actions">
         {% if js_data.course.enrollmentTrends %}
-          <a href="{% url 'courses:csv_enrollment' course_id=course_id %}" class="btn btn-default"
+          <a href="{% url 'courses:csv:enrollment' course_id=course_id %}" class="btn btn-default"
              data-role="enrollment-trend-csv" data-track-type="click"
              data-track-event="edx.bi.csv.downloaded" data-track-category="trend">
             <i class="ico fa fa-download" aria-hidden="true"></i> {% trans "Download CSV" %}

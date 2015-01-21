@@ -65,7 +65,7 @@ class CourseCSVTestMixin(ViewTestMixin):
 
 
 class CourseEnrollmentByCountryCSVViewTests(CourseCSVTestMixin, TestCase):
-    viewname = 'courses:csv_enrollment_by_country'
+    viewname = 'courses:csv:enrollment_geography'
     column_headings = ['count', 'country', 'course_id', 'date']
     base_file_name = 'enrollment-location'
     api_method = 'analyticsclient.course.Course.enrollment'
@@ -75,7 +75,7 @@ class CourseEnrollmentByCountryCSVViewTests(CourseCSVTestMixin, TestCase):
 
 
 class CourseEnrollmentCSVViewTests(CourseCSVTestMixin, TestCase):
-    viewname = 'courses:csv_enrollment'
+    viewname = 'courses:csv:enrollment'
     column_headings = ['count', 'course_id', 'date']
     base_file_name = 'enrollment'
     api_method = 'analyticsclient.course.Course.enrollment'
@@ -85,7 +85,7 @@ class CourseEnrollmentCSVViewTests(CourseCSVTestMixin, TestCase):
 
 
 class CourseEnrollmentModeCSVViewTests(SwitchMixin, CourseCSVTestMixin, TestCase):
-    viewname = 'courses:csv_enrollment'
+    viewname = 'courses:csv:enrollment'
     column_headings = ['count', 'course_id', 'date', 'audit', 'honor', 'professional', 'verified']
     base_file_name = 'enrollment'
     api_method = 'analyticsclient.course.Course.enrollment'
@@ -99,7 +99,7 @@ class CourseEnrollmentModeCSVViewTests(SwitchMixin, CourseCSVTestMixin, TestCase
 
 
 class CourseEnrollmentDemographicsByAgeCSVViewTests(CourseCSVTestMixin, TestCase):
-    viewname = 'courses:csv_enrollment_demographics_age'
+    viewname = 'courses:csv:enrollment_demographics_age'
     column_headings = ['birth_year', 'count', 'course_id', 'created', 'date']
     base_file_name = 'enrollment-by-birth-year'
     api_method = 'analyticsclient.course.Course.enrollment'
@@ -109,7 +109,7 @@ class CourseEnrollmentDemographicsByAgeCSVViewTests(CourseCSVTestMixin, TestCase
 
 
 class CourseEnrollmentDemographicsByEducationCSVViewTests(CourseCSVTestMixin, TestCase):
-    viewname = 'courses:csv_enrollment_demographics_education'
+    viewname = 'courses:csv:enrollment_demographics_education'
     column_headings = ['count', 'course_id', 'created', 'date', 'education_level.name', 'education_level.short_name']
     base_file_name = 'enrollment-by-education'
     api_method = 'analyticsclient.course.Course.enrollment'
@@ -119,7 +119,7 @@ class CourseEnrollmentDemographicsByEducationCSVViewTests(CourseCSVTestMixin, Te
 
 
 class CourseEnrollmentByDemographicsGenderCSVViewTests(CourseCSVTestMixin, TestCase):
-    viewname = 'courses:csv_enrollment_demographics_gender'
+    viewname = 'courses:csv:enrollment_demographics_gender'
     column_headings = ['count', 'course_id', 'created', 'date', 'gender']
     base_file_name = 'enrollment-by-gender'
     api_method = 'analyticsclient.course.Course.enrollment'
@@ -129,7 +129,7 @@ class CourseEnrollmentByDemographicsGenderCSVViewTests(CourseCSVTestMixin, TestC
 
 
 class CourseEngagementActivityTrendCSVViewTests(CourseCSVTestMixin, TestCase):
-    viewname = 'courses:csv_engagement_activity_trend'
+    viewname = 'courses:csv:engagement_activity_trend'
     column_headings = ['any', 'attempted_problem', 'course_id', 'interval_end', 'interval_start',
                        'played_video', 'posted_forum']
     base_file_name = 'engagement-activity'

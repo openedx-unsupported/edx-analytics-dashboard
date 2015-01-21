@@ -11,7 +11,8 @@ import analyticsclient.constants.gender as GENDER
 from analyticsclient.constants import enrollment_modes
 
 from courses.permissions import set_user_course_permissions
-from courses.presenters import AnswerDistributionEntry
+from courses.presenters.performance import AnswerDistributionEntry
+
 
 CREATED_DATETIME = datetime.datetime(year=2014, month=2, day=2)
 CREATED_DATETIME_STRING = CREATED_DATETIME.strftime(Client.DATETIME_FORMAT)
@@ -624,3 +625,7 @@ def get_presenter_answer_distribution(course_id, problem_part_id):
 
     return AnswerDistributionEntry(CREATED_DATETIME, questions, active_question, answer_distributions,
                                    answer_distribution_limited, is_random, answer_type, problem_part_description)
+
+
+def mock_course_name(course_id):
+    return 'Test ' + course_id

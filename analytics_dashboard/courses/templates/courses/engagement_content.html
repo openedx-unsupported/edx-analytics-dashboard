@@ -89,7 +89,7 @@ Individual course-centric engagement content view.
 
       <div class="section-actions">
         {% if js_data.course.engagementTrends %}
-            <a href="{% url 'courses:csv_engagement_activity_trend' course_id=course_id %}" class="btn btn-default"
+            <a href="{% url 'courses:csv:engagement_activity_trend' course_id=course_id %}" class="btn btn-default"
                data-role="engagement-trend-csv" data-track-type="click"
                data-track-event="edx.bi.csv.downloaded" data-track-category="trend">
               <i class="ico fa fa-download" aria-hidden="true"></i> {% trans "Download CSV" %}

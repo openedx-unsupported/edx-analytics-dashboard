@@ -2,10 +2,12 @@ import datetime
 
 import mock
 from django.test import TestCase
-
 import analyticsclient.constants.activity_type as AT
-from courses.presenters import CourseEngagementPresenter, CourseEnrollmentPresenter, BasePresenter, \
-    CourseEnrollmentDemographicsPresenter, CoursePerformancePresenter
+
+from courses.presenters import BasePresenter
+from courses.presenters.engagement import CourseEngagementPresenter
+from courses.presenters.enrollment import CourseEnrollmentPresenter, CourseEnrollmentDemographicsPresenter
+from courses.presenters.performance import CoursePerformancePresenter
 from courses.tests import utils, SwitchMixin
 
 
