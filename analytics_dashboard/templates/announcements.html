@@ -1,4 +1,4 @@
-{% load announcements_tags %}
+{% load announcements_tags i18n %}
 
 {% announcements as announcements_list %}
 
@@ -9,7 +9,7 @@
       <div class="container">
         {% csrf_token %}
         <a class="dismiss">
-          <span aria-hidden="true"><i class="fa fa-times"></i></span><span class="sr-only">Close</span>
+          <span aria-hidden="true"><i class="fa fa-times"></i></span><span class="sr-only">{% trans "Close" %}</span>
         </a>
 
         <div class="container">
