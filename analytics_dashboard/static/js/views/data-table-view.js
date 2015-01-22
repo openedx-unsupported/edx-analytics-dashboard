@@ -103,7 +103,7 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
                         display = value;
                     if (type === 'display') {
                         if (!_(value).isUndefined() && !_(value).isNull()){
-                            display = Utils.localizeNumber(value);
+                            display = Utils.localizeNumber(Number(value));
                         }
                     }
                     return display;

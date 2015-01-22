@@ -11,6 +11,16 @@ def is_feature_enabled(item):
     return True
 
 
+class number(object):
+    @staticmethod
+    def is_number(word):
+        try:
+            float(word)
+            return True
+        except ValueError:
+            return False
+
+
 class math(object):
     @staticmethod
     def calculate_percent(count, total):
