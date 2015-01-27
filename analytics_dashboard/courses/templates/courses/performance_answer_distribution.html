@@ -20,24 +20,22 @@
       <span class="section-heading-note small">{% trans "How did students answer this problem?" %}</span>
     </div>
 
-    {% if problem_part_description %}
-        <div class="col-xs-12 problem-description">
+    <div class="col-xs-12 problem-description">
 
-            <div class="col-sm-10 col-xs-12">
-                <p>{{problem_part_description}}</p>
-            </div>
-
-            <div class="col-sm-2 col-xs-12">
-                {% if view_live_url%}
-                    <a href="{{view_live_url}}" class="btn btn-default pull-right" role="button" target="_blank">
-                        {# Translators: This text will be a direct link to the a specific module/problem. #}
-                        {% trans "View Live" %}
-                    </a>
-                {% endif %}
-            </div>
+        <div class="col-sm-10 col-xs-12">
+            <p>{{problem_part_description}}</p>
         </div>
-        <div class="clearfix"></div>
-    {% endif %}
+
+        <div class="col-sm-2 col-xs-12">
+            {% if view_live_url%}
+                <a href="{{view_live_url}}" class="btn btn-default pull-right" role="button" target="_blank">
+                    {# Translators: This text will be a direct link to the a specific module/problem. #}
+                    {% trans "View Live" %}
+                </a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="clearfix"></div>
 
     <div class="section-content section-data-graph">
         <div class="section-content section-data-viz">
@@ -70,16 +68,15 @@
                     {% endif %}
                 </div>
                 {% captureas tip_text %}
-                    {# Translators: This text describes a bar chart displayed.  chart_maximum_answers is the maximum number of bars and answers shown. #}
+                    {# Translators: This text describes a bar chart displayed. #}
                     {% blocktrans trimmed %}
-                        This graph shows answers submitted by at least one student, and the number of students who
-                        submitted each answer. The most frequently submitted answers, up to {{chart_maximum_answers}},
-                        are included.
+                        This chart shows the most common answers submitted by students, ordered by frequency.
                     {% endblocktrans %}
                 {% endcaptureas %}
                 {% include "chart_tooltip.html" with tip_text=tip_text track_category="bar"%}
 
-                <div id="performance-chart-view" class="analytics-chart {% if not js_data.course.answerDistribution %}message-only-chart{% endif %}">
+                <div id="performance-chart-view" class="analytics-chart
+                        {% if not js_data.course.answerDistribution or js_data.course.isRandom %}message-only-chart{% endif %}">
                     {% if js_data.course.isRandom %}
                         <!-- sets the message on a new row; otherwise, it won't be centered properly. -->
                         <div class="clearfix"></div>
@@ -88,8 +85,14 @@
                                 {% captureas read_more_link_start %}
                                     <a href="{% settings_value 'DOCUMENTATION_LOAD_ERROR_URL' %}" target="_blank">{% endcaptureas %}
                                 {% captureas read_more_link_end %}</a>{% endcaptureas %}
+                                {# Translators: Variants refers to versions of a problem/assignment. #}
                                 {% blocktrans trimmed %}
-                                    This chart is not available for randomized questions. {{read_more_link_start}}Read more{{read_more_link_end}}.
+                                    Due to the number of possible variants for randomized problems, charts are not available. {{read_more_link_start}}Read more{{read_more_link_end}}.
+                                {% endblocktrans %}
+                                <br>
+                                {# Translators: Variants refers to versions of a problem/assignment. #}
+                                {% blocktrans trimmed %}
+                                    Review all submission variants below, or click Download CSV to review them offline.
                                 {% endblocktrans %}
                             </p>
                         </div>

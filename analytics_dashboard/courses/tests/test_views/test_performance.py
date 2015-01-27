@@ -28,7 +28,7 @@ class CoursePerformanceAnswerDistribution(ProblemViewTestMixin, TestCase):
 
         self.assertListEqual(context['questions'], rv.questions)
         self.assertDictContainsSubset({
-            'page_title': 'Performance Answer Distribution',
+            'page_title': 'Performance: Problem Submissions',
             'problem_id': problem_id,
             'problem_part_id': problem_part_id,
             'view_live_url': 'a/url/{}/jump_to/{}'.format(course_id, problem_id),

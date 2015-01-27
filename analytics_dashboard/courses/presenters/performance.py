@@ -62,9 +62,7 @@ class CoursePerformancePresenter(BasePresenter):
     def _build_problem_description(self, problem_part_id, questions):
         """ Returns the displayable problem name. """
         problem = [q for q in questions if q['part_id'] == problem_part_id][0]
-        if problem['problem_name']:
-            return u'{0} - {1}'.format(problem['problem_name'], problem['question'])
-        return problem['question']
+        return problem['short_description']
 
     def _get_answer_type(self, answer_distributions):
         """
@@ -119,18 +117,24 @@ class CoursePerformancePresenter(BasePresenter):
         for i, question in enumerate(questions):
             text = question['question']
             question_num = i + 1
-            template = _('Submissions')
+            question_template = _('Submissions')
+            short_description_template = ''
             if text:
                 if has_parts:
-                    template = _('Submissions for Part {part_number}: {part_description}')
+                    question_template = _('Submissions for Part {part_number}: {part_description}')
+                    short_description_template = _('Part {part_number}: {part_description}')
                 else:
-                    template = _('Submissions: {part_description}')
+                    question_template = _('Submissions: {part_description}')
+                    short_description_template = _('{part_description}')
             else:
                 if has_parts:
-                    template = _('Submissions for Part {part_number}')
+                    question_template = _('Submissions for Part {part_number}')
+                    short_description_template = _('Part {part_number}')
 
             # pylint: disable=no-member
-            question['question'] = template.format(part_number=question_num, part_description=text)
+            question['question'] = question_template.format(part_number=question_num, part_description=text)
+            question['short_description'] = short_description_template.format(
+                part_number=question_num, part_description=text)
 
         return questions
 

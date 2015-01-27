@@ -261,7 +261,7 @@ class CoursePerformanceAnswerDistributionPresenterTests(TestCase):
                 'part_id': 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_2_1',
                 'expected': {
                     'active_question': 'Submissions for Part 1: Is this a text problem?',
-                    'problem_part_description': 'Example problem - Submissions for Part 1: Is this a text problem?',
+                    'problem_part_description': 'Part 1: Is this a text problem?',
                     'is_random': False,
                     'answer_type': 'text'
                 }
@@ -270,7 +270,7 @@ class CoursePerformanceAnswerDistributionPresenterTests(TestCase):
                 'part_id': 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_3_1',
                 'expected': {
                     'active_question': 'Submissions for Part 2: Is this a numeric problem?',
-                    'problem_part_description': 'Example problem - Submissions for Part 2: Is this a numeric problem?',
+                    'problem_part_description': 'Part 2: Is this a numeric problem?',
                     'is_random': False,
                     'answer_type': 'numeric'
                 }
@@ -279,7 +279,7 @@ class CoursePerformanceAnswerDistributionPresenterTests(TestCase):
                 'part_id': 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_4_1',
                 'expected': {
                     'active_question': 'Submissions for Part 3: Is this a randomized problem?',
-                    'problem_part_description': 'Example problem - Submissions for Part 3: Is this a '
+                    'problem_part_description': 'Part 3: Is this a '
                                                 'randomized problem?',
                     'is_random': True,
                     'answer_type': 'numeric'
@@ -300,7 +300,7 @@ class CoursePerformanceAnswerDistributionPresenterTests(TestCase):
                 'part_id': 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_2_1',
                 'expected': {
                     'active_question': 'Submissions: Is this a text problem?',
-                    'problem_part_description': 'Example problem - Submissions: Is this a text problem?',
+                    'problem_part_description': 'Is this a text problem?',
                     'is_random': False,
                     'answer_type': 'text'
                 }

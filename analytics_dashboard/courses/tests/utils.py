@@ -579,16 +579,19 @@ def get_presenter_performance_answer_distribution_multiple_questions():
         {
             'part_id': 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_2_1',
             'question': u'Submissions for Part 1: Is this a text problem?',
+            'short_description': u'Part 1: Is this a text problem?',
             'problem_name': 'Example problem'
         },
         {
             'part_id': 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_3_1',
             'question': u'Submissions for Part 2: Is this a numeric problem?',
+            'short_description': u'Part 2: Is this a numeric problem?',
             'problem_name': 'Example problem'
         },
         {
             'part_id': 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_4_1',
             'question': u'Submissions for Part 3: Is this a randomized problem?',
+            'short_description': u'Part 3: Is this a randomized problem?',
             'problem_name': 'Example problem'
         }
     ]
@@ -599,6 +602,7 @@ def get_presenter_performance_answer_distribution_single_question():
         {
             'part_id': 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_2_1',
             'question': u'Submissions: Is this a text problem?',
+            'short_description': u'Is this a text problem?',
             'problem_name': 'Example problem'
         }
     ]
@@ -620,7 +624,7 @@ def get_presenter_answer_distribution(course_id, problem_part_id):
         answer_type = 'numeric'
     except ValueError:
         answer_type = 'text'
-    problem_part_description = 'Example problem - Submissions for Part 1: Is this a text problem?'
+    problem_part_description = 'Submissions for Part 1: Is this a text problem?'
 
     return AnswerDistributionEntry(CREATED_DATETIME, questions, active_question, answer_distributions,
                                    answer_distribution_limited, is_random, answer_type, problem_part_description)
