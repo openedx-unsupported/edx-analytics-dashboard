@@ -151,7 +151,7 @@ class CoursePerformanceAnswerDistributionPage(CoursePage):
 
     def is_browser_on_page(self):
         return super(CoursePerformanceAnswerDistributionPage, self).is_browser_on_page() and \
-               'Performance Answer Distribution' in self.browser.title
+               'Performance: Problem Submissions' in self.browser.title
 
 
 class CourseIndexPage(DashboardPage):

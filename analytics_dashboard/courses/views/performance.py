@@ -14,12 +14,12 @@ logger = logging.getLogger(__name__)
 
 class PerformanceTemplateView(CourseTemplateWithNavView):
     # Translators: Do not translate UTC.
-    update_message = _('Answer distribution data was last updated %(update_date)s at %(update_time)s UTC.')
+    update_message = _('Problem submission data was last updated %(update_date)s at %(update_time)s UTC.')
 
 
 class PerformanceAnswerDistributionView(PerformanceTemplateView):
     template_name = 'courses/performance_answer_distribution.html'
-    page_title = _('Performance Answer Distribution')
+    page_title = _('Performance: Problem Submissions')
     page_name = 'performance_answer_distribution'
 
     def get_context_data(self, **kwargs):
@@ -50,7 +50,6 @@ class PerformanceAnswerDistributionView(PerformanceTemplateView):
 
         context.update({
             'course_id': self.course_id,
-            'chart_maximum_answers': CoursePerformancePresenter.CHART_LIMIT,
             'questions': answer_distribution_entry.questions,
             'active_question': answer_distribution_entry.active_question,
             'problem_id': problem_id,

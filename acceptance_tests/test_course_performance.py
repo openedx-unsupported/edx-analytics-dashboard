@@ -25,7 +25,7 @@ class CoursePerformanceAnswerDistributionTests(CoursePageTestsMixin, WebAppTest)
     def _get_data_update_message(self):
         current_data = self.answer_distribution[0]
         last_updated = datetime.datetime.strptime(current_data['created'], self.api_datetime_format)
-        return 'Answer distribution data was last updated %(update_date)s at %(update_time)s UTC.' % \
+        return 'Problem submission data was last updated %(update_date)s at %(update_time)s UTC.' % \
                self.format_last_updated_date_and_time(last_updated)
 
     def test_page(self):
@@ -57,9 +57,7 @@ class CoursePerformanceAnswerDistributionTests(CoursePageTestsMixin, WebAppTest)
 
         container_selector = '.analytics-chart-container'
         element = self.page.q(css=container_selector + ' i')
-        expected_tooltip = 'This graph shows answers submitted by at least one student, ' \
-                           'and the number of students who submitted each answer. The most frequently submitted answers, ' \
-                           'up to 12, are included.'
+        expected_tooltip = 'This chart shows the most common answers submitted by students, ordered by frequency.'
         self.assertEqual(element[0].get_attribute('data-original-title'), expected_tooltip)
 
     def _test_table(self):

@@ -45,7 +45,8 @@ button.chart-info {
 
   // shorten the chart so just a message (e.g. error message) is displayed
   .message-only-chart {
-    height: 38px;
+    height: inherit;  // allows container height to adjust for long messages
+    min-height: 38px;
   }
 
   .nvd3 {
@@ -81,8 +82,16 @@ button.chart-info {
   transform: translateY(-50%);
 }
 
-.chart-message-container {
+.loading-container {
   @extend %vertical-align;
+}
+
+.chart-message-container {
+  top: $padding-large-horizontal * 2;
+
+  p {
+    padding-bottom: $padding-large-horizontal;
+  }
 }
 
 .error-section-container {
