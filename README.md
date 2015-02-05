@@ -64,7 +64,10 @@ developer, and do not want to setup edx-platform, you can get around this requir
 
 1. Set `ENABLE_AUTO_AUTH` to `True` in your settings file. (This is the default value in `settings/local.py`).
 2. Set `ENABLE_COURSE_PERMISSIONS` to `False` in your settings file.
-3. Visit `http://localhost:9000/test/auto_auth/` to create and login as a new user. 
+3. Visit `http://localhost:9000/test/auto_auth/` to create and login as a new user.
+
+Note: When using Open ID Connect, the dashboard and provider must be accessed via different host names 
+(e.g. dashboard.example.org and provider.example.org) in order to avoid issues with session cookies being overwritten.
 
 Internationalization (i18n)
 ---------------------------
