@@ -352,7 +352,10 @@ SOCIAL_AUTH_PIPELINE = (
 
 SOCIAL_AUTH_USER_FIELDS = ['username', 'email', 'first_name', 'last_name']
 
-SOCIAL_AUTH_LOGIN_ERROR_URL = '/auth/error/'
+# Always raise auth exceptions so that they are properly logged. Otherwise, the PSA middleware will redirect to an
+# auth error page and attempt to display the error message to the user (via Django's message framework). We do not
+# want the uer to see the message; but, we do want our downstream exception handlers to log the message.
+SOCIAL_AUTH_RAISE_EXCEPTIONS = True
 
 # Set these to the correct values for your OAuth2/OpenID Connect provider
 SOCIAL_AUTH_EDX_OIDC_KEY = None

@@ -14,6 +14,7 @@ from django_dynamic_fixture import G
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.test import TestCase
 from analyticsclient.exceptions import ClientError
+from social.exceptions import AuthException
 from social.utils import parse_qs
 
 from analytics_dashboard.backends import EdXOpenIdConnect
@@ -250,12 +251,11 @@ class OpenIdConnectTests(UserTestCaseMixin, RedirectTestCaseMixin, TestCase):
 
         if failure:
             oauth2_complete_path += '&error=access_denied'
-
-        response = self.client.get(oauth2_complete_path)
-        self.assertEqual(response.status_code, 302)
-
-        redirect_path = settings.SOCIAL_AUTH_LOGIN_ERROR_URL if failure else settings.LOGIN_REDIRECT_URL
-        self.assertEqual(response['Location'], 'http://testserver{}'.format(redirect_path))
+            self.assertRaises(AuthException, self.client.get, oauth2_complete_path)
+        else:
+            response = self.client.get(oauth2_complete_path)
+            self.assertEqual(response.status_code, 302)
+            self.assertEqual(response['Location'], 'http://testserver{}'.format(settings.LOGIN_REDIRECT_URL))
 
     def test_new_user(self):
         """
