@@ -2,6 +2,7 @@
 
 ROOT = $(shell echo "$$PWD")
 COVERAGE = $(ROOT)/build/coverage
+ACCEPTANCE_COVERAGE = $(ROOT)/acceptance_tests/build/coverage
 PACKAGES = analytics_dashboard courses django_rjs help
 NUM_PROCESSES = 2
 NODE_BIN=./node_modules/.bin
@@ -43,7 +44,11 @@ test_python: clean
 		$(PACKAGES)
 
 accept:
-	nosetests -v acceptance_tests --processes=$(NUM_PROCESSES) --process-timeout=120 --exclude-dir=acceptance_tests/course_validation
+	nosetests -v acceptance_tests --exclude-dir=acceptance_tests/course_validation \
+	--with-coverage --cover-inclusive --cover-branches --cover-html --cover-html-dir=$(ACCEPTANCE_COVERAGE)/html/ --cover-xml \
+	--cover-xml-file=$(ACCEPTANCE_COVERAGE)/coverage.xml \
+	$(foreach package,$(PACKAGES),--cover-package=$(package)) \
+	$(PACKAGES)
 
 course_validation:
 	python -m acceptance_tests.course_validation.generate_report
