@@ -5,7 +5,7 @@
 #
 #
 
-if [ "$TRAVIS_BRANCH" = "master" ] && [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ -n $DATADOG_API_KEY ]
+if [ "$TRAVIS_BRANCH" = "master" ] && [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ -n "${DATADOG_API_KEY}" ]
 
     then
     echo "Reporting coverage stats to datadog"
