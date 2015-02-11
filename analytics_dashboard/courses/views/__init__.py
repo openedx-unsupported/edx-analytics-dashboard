@@ -72,7 +72,7 @@ class CourseAPIMixin(object):
                 info = self.course_api(course_id).get(depth=depth)
                 cache.set(key, info)
             except HttpClientError as e:
-                logger.error("Unable to retrieve course info for {}: {}".format(course_id, e))
+                logger.error("Unable to retrieve course info for %s: %s", course_id, e)
                 info = {}
 
         return info
@@ -84,7 +84,7 @@ class CourseAPIMixin(object):
         try:
             return self.course_api.get(course_id=course_ids)['results']
         except HttpClientError as e:
-            logger.error("Unable to retrieve course data: {}".format(e))
+            logger.error("Unable to retrieve course data: %s", e)
             return []
 
 
@@ -185,7 +185,7 @@ class CourseValidMixin(object):
             try:
                 response = requests.get(uri, timeout=5)
             except requests.exceptions.Timeout:
-                logger.error('Course validation timed out: {}'.format(uri))
+                logger.error('Course validation timed out: %s', uri)
                 # consider the course valid if the LMS times out
                 return True
 
