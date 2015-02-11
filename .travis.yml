@@ -16,4 +16,4 @@ script:
     - bash ./runAcceptance.sh
 after_success:
     - coveralls
-    - bash ./report-coverage-to-datadog.sh
+    - bash ./scripts/build-stats-to-datadog.sh
