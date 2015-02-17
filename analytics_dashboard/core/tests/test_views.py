@@ -65,7 +65,7 @@ class RedirectTestCaseMixin(object):
 class ViewTests(TestCase):
     def assertUnhealthyAPI(self):
         response = self.client.get(reverse('health'))
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 503)
         self.assertEqual(response['content-type'], 'application/json')
         expected = {
             u'overall_status': u'UNAVAILABLE',
@@ -99,7 +99,7 @@ class ViewTests(TestCase):
     @mock.patch('django.db.backends.BaseDatabaseWrapper.cursor', mock.Mock(side_effect=DatabaseError))
     def test_health_database_outage(self):
         response = self.client.get(reverse('health'))
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 503)
         self.assertEqual(response['content-type'], 'application/json')
 
         expected = {
