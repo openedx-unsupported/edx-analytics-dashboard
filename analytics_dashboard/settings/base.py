@@ -64,7 +64,7 @@ TIME_ZONE = 'America/New_York'
 LANGUAGE_CODE = 'en-us'
 
 LOCALE_PATHS = (
-    join(SITE_ROOT, 'conf', 'locale'),
+    join(DJANGO_ROOT, 'conf', 'locale'),
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#site-id
@@ -79,13 +79,13 @@ USE_L10N = True
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
 USE_TZ = True
 
-FORMAT_MODULE_PATH = 'analytics_dashboard.formats'
+FORMAT_MODULE_PATH = 'core.formats'
 ########## END GENERAL CONFIGURATION
 
 
 ########## MEDIA CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-root
-MEDIA_ROOT = normpath(join(SITE_ROOT, 'media'))
+MEDIA_ROOT = normpath(join(DJANGO_ROOT, 'media'))
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-url
 MEDIA_URL = '/media/'
@@ -101,7 +101,7 @@ STATIC_URL = '/static/'
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = (
-    normpath(join(SITE_ROOT, 'static')),
+    normpath(join(DJANGO_ROOT, 'static')),
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
@@ -136,7 +136,7 @@ ALLOWED_HOSTS = []
 ########## FIXTURE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-FIXTURE_DIRS
 FIXTURE_DIRS = (
-    normpath(join(SITE_ROOT, 'fixtures')),
+    normpath(join(DJANGO_ROOT, 'fixtures')),
 )
 ########## END FIXTURE CONFIGURATION
 
@@ -152,7 +152,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
-    'analytics_dashboard.context_processors.common',
+    'core.context_processors.common',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders
@@ -163,11 +163,11 @@ TEMPLATE_LOADERS = (
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
 TEMPLATE_DIRS = (
-    normpath(join(SITE_ROOT, 'templates')),
+    normpath(join(DJANGO_ROOT, 'templates')),
 )
 
 ALLOWED_INCLUDE_ROOTS = (
-    normpath(join(SITE_ROOT, 'templates')),
+    normpath(join(DJANGO_ROOT, 'templates')),
 )
 
 ########## END TEMPLATE CONFIGURATION
@@ -184,7 +184,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'waffle.middleware.WaffleMiddleware',
-    'analytics_dashboard.middleware.LanguagePreferenceMiddleware',
+    'core.middleware.LanguagePreferenceMiddleware',
     'courses.middleware.CourseMiddleware',
     'courses.middleware.CoursePermissionsExceptionMiddleware',
     'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
@@ -222,7 +222,7 @@ DJANGO_APPS = (
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
-    'analytics_dashboard',
+    'core',
     'courses',
     'django_rjs',
     'help',
@@ -318,13 +318,13 @@ LMS_COURSE_SHORTCUT_BASE_URL = None
 DATE_FORMAT = 'F d, Y'
 
 ########## AUTHENTICATION
-AUTH_USER_MODEL = 'analytics_dashboard.User'
+AUTH_USER_MODEL = 'core.User'
 
 INSTALLED_APPS += ('social.apps.django_app.default',)
 
 # Allow authentication via edX OAuth2/OpenID Connect
 AUTHENTICATION_BACKENDS = (
-    'analytics_dashboard.backends.EdXOpenIdConnect',
+    'core.backends.EdXOpenIdConnect',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -342,7 +342,7 @@ SOCIAL_AUTH_PIPELINE = (
     # By default python-social-auth will simply create a new user/username if the username
     # from the provider conflicts with an existing username in this system. This custom pipeline function
     # loads existing users instead of creating new ones.
-    'analytics_dashboard.pipeline.get_user_if_exists',
+    'core.pipeline.get_user_if_exists',
     'social.pipeline.user.get_username',
     'social.pipeline.user.create_user',
     'social.pipeline.social_auth.associate_user',
@@ -397,7 +397,7 @@ RJS_OPTIMIZATION_ENABLED = False
 
 
 ########## DOCS/HELP CONFIGURATION
-DOCS_ROOT = join(dirname(SITE_ROOT), 'docs')
+DOCS_ROOT = join(SITE_ROOT, 'docs')
 
 # Load the docs config into memory when the server starts
 with open(join(DOCS_ROOT, "config.ini")) as config_file:

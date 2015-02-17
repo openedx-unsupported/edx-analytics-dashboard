@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-09 16:45-0500\n"
+"POT-Creation-Date: 2015-02-16 20:03-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,176 +17,106 @@ msgstr ""
 "Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
-msgid "Login"
-msgstr "Lögïn Ⱡ'σяєм ι#"
-
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
-msgid "Insights to help course teams improve courses."
-msgstr "Ìnsïghts tö hélp çöürsé téäms ïmprövé çöürsés. Ⱡ'σяєм ιρѕυм #"
-
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
-#: courses/views.py
-msgid "Who are my students?"
-msgstr "Whö äré mý stüdénts? Ⱡ'σя#"
-
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
-msgid "Target your course to fit the backgrounds of your students."
-msgstr ""
-"Tärgét ýöür çöürsé tö fït thé ßäçkgröünds öf ýöür stüdénts. Ⱡ'σяєм ιρѕυм "
-"∂σłσ#"
-
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
-#: courses/templates/courses/enrollment_geography.html
-#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
-#: courses/views.py
-msgid "Enrollment"
-msgstr "Énröllmént Ⱡ#"
-
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
-msgid "What are students engaging with in my course?"
-msgstr "Whät äré stüdénts éngägïng wïth ïn mý çöürsé? Ⱡ'σяєм ιρѕυм#"
-
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
-msgid ""
-"Improve frequently accessed content, or point students at underused "
-"resources."
-msgstr ""
-"Ìmprövé fréqüéntlý äççésséd çöntént, ör pöïnt stüdénts ät ündérüséd "
-"résöürçés. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт #"
-
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
-#: courses/tests/test_views/test_pages.py courses/views.py courses/views.py
-#: courses/views.py
-msgid "Engagement"
-msgstr "Éngägémént Ⱡ#"
-
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
-msgid "How well is my content supporting student learning?"
-msgstr "Höw wéll ïs mý çöntént süppörtïng stüdént léärnïng? Ⱡ'σяєм ιρѕυм ∂#"
-
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
-msgid "Adjust your course based on where students are struggling."
-msgstr ""
-"Àdjüst ýöür çöürsé ßäséd ön whéré stüdénts äré strügglïng. Ⱡ'σяєм ιρѕυм "
-"∂σłσ#"
-
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
-msgid "Performance"
-msgstr "Pérförmänçé Ⱡ#"
-
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
-msgid "Join the Open Source Community"
-msgstr "Jöïn thé Öpén Söürçé Çömmünïtý Ⱡ'σяєм #"
-
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
-msgid ""
-"The edX analytics data pipeline and edX Insights are open source. "
-"%(link_start)sLearn more%(link_end)s."
-msgstr ""
-"Thé édX änälýtïçs dätä pïpélïné änd édX Ìnsïghts äré öpén söürçé. "
-"%(link_start)sLéärn möré%(link_end)s. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αм#"
-
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
-msgid "Research at edX"
-msgstr "Réséärçh ät édX Ⱡ'#"
-
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
-msgid ""
-"We are committed to advancing teaching and learning through research. "
-"%(link_start)sLearn more%(link_end)s."
-msgstr ""
-"Wé äré çömmïttéd tö ädvänçïng téäçhïng änd léärnïng thröügh réséärçh. "
-"%(link_start)sLéärn möré%(link_end)s. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмє#"
-
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
-msgid "Need Help?"
-msgstr "Nééd Hélp? Ⱡ#"
-
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
-msgid ""
-"%(link_start)sOur support center%(link_end)s can help you find solutions."
-msgstr ""
-"%(link_start)sÖür süppört çéntér%(link_end)s çän hélp ýöü fïnd sölütïöns. "
-"Ⱡ'σяєм ιρѕυм ∂σ#"
-
-#. Translators: Simply move the percent symbol (%) to the correct location. Do
-#. NOT translate the word statistic.
-#: analytics_dashboard/templatetags/dashboard_extras.py
-msgid "{statistic}%"
-msgstr "{statistic}% Ⱡ'σяєм#"
-
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Female"
 msgstr "Fémälé Ⱡ'σяєм ιρѕ#"
 
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Male"
 msgstr "Mälé Ⱡ'σяєм#"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
-#: courses/presenters.py courses/presenters.py
+#: courses/presenters/enrollment.py courses/presenters/enrollment.py
 msgid "Other"
 msgstr "Öthér Ⱡ'σяєм ι#"
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
-#: courses/presenters.py courses/presenters.py courses/presenters.py
+#: courses/presenters/enrollment.py courses/presenters/enrollment.py
+#: courses/presenters/enrollment.py
 msgid "Unknown"
 msgstr "Ûnknöwn #"
 
 #. Translators: This describes the learner's education level.
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "None"
 msgstr "Nöné Ⱡ'σяєм#"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
-#: courses/presenters.py courses/tests/test_serializers.py
+#: courses/presenters/enrollment.py courses/tests/test_serializers.py
 msgid "Primary"
 msgstr "Prïmärý #"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Middle"
 msgstr "Mïddlé Ⱡ'σяєм ιρѕ#"
 
 #. Translators: This describes the learner's education level.
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Secondary"
 msgstr "Séçöndärý #"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Associate"
 msgstr "Àssöçïäté #"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Bachelor's"
 msgstr "Bäçhélör's Ⱡ#"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Master's"
 msgstr "Mästér's #"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Doctorate"
 msgstr "Döçtöräté #"
 
 #. Translators: This is a placeholder for enrollment data collected without a
 #. known geolocation.
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Unknown Country"
 msgstr "Ûnknöwn Çöüntrý Ⱡ'#"
+
+#: courses/presenters/performance.py
+msgid "Submissions"
+msgstr "Süßmïssïöns Ⱡ#"
+
+#: courses/presenters/performance.py
+msgid "Submissions for Part {part_number}: {part_description}"
+msgstr "Süßmïssïöns för Pärt {part_number}: {part_description} Ⱡ'σяєм #"
+
+#: courses/presenters/performance.py
+msgid "Part {part_number}: {part_description}"
+msgstr "Pärt {part_number}: {part_description} Ⱡ'#"
+
+#: courses/presenters/performance.py
+msgid "Submissions: {part_description}"
+msgstr "Süßmïssïöns: {part_description} Ⱡ'σ#"
+
+#: courses/presenters/performance.py
+msgid "{part_description}"
+msgstr "{part_description} Ⱡ'σя#"
+
+#: courses/presenters/performance.py
+msgid "Submissions for Part {part_number}"
+msgstr "Süßmïssïöns för Pärt {part_number} Ⱡ'σяє#"
+
+#: courses/presenters/performance.py
+msgid "Part {part_number}"
+msgstr "Pärt {part_number} #"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
@@ -197,7 +127,7 @@ msgstr "Stüdénts (Sélf-Répörtéd) Ⱡ'σяє#"
 msgid "Weekly Student Engagement"
 msgstr "Wééklý Stüdént Éngägémént Ⱡ'σяєм#"
 
-#: courses/templates/courses/engagement_content.html courses/views.py
+#: courses/templates/courses/engagement_content.html courses/views/__init__.py
 msgid "How many students are interacting with my course?"
 msgstr "Höw mäný stüdénts äré ïntéräçtïng wïth mý çöürsé? Ⱡ'σяєм ιρѕυм ∂#"
 
@@ -272,6 +202,7 @@ msgstr "Çöntént Éngägémént Bréäkdöwn Ⱡ'σяєм #"
 #: courses/templates/courses/enrollment_demographics_education.html
 #: courses/templates/courses/enrollment_demographics_gender.html
 #: courses/templates/courses/enrollment_geography.html
+#: courses/templates/courses/performance_answer_distribution.html
 msgid "Download CSV"
 msgstr "Döwnlöäd ÇSV Ⱡ#"
 
@@ -279,7 +210,8 @@ msgstr "Döwnlöäd ÇSV Ⱡ#"
 msgid "Daily Student Enrollment"
 msgstr "Däïlý Stüdént Énröllmént Ⱡ'σяє#"
 
-#: courses/templates/courses/enrollment_activity.html courses/views.py
+#: courses/templates/courses/enrollment_activity.html
+#: courses/views/__init__.py
 msgid "How many students are in my course?"
 msgstr "Höw mäný stüdénts äré ïn mý çöürsé? Ⱡ'σяєм ιρ#"
 
@@ -366,7 +298,8 @@ msgstr ""
 msgid "Enrollment Over Time"
 msgstr "Énröllmént Övér Tïmé Ⱡ'σя#"
 
-#: courses/templates/courses/enrollment_demographics_age.html courses/views.py
+#: courses/templates/courses/enrollment_demographics_age.html
+#: courses/views/__init__.py
 msgid "How old are my students?"
 msgstr "Höw öld äré mý stüdénts? Ⱡ'σяє#"
 
@@ -445,7 +378,7 @@ msgid "Age Breakdown"
 msgstr "Àgé Bréäkdöwn Ⱡ'#"
 
 #: courses/templates/courses/enrollment_demographics_education.html
-#: courses/views.py
+#: courses/views/__init__.py
 msgid "What level of education do my students have?"
 msgstr "Whät lévél öf édüçätïön dö mý stüdénts hävé? Ⱡ'σяєм ιρѕυм#"
 
@@ -514,7 +447,7 @@ msgid "Educational Breakdown"
 msgstr "Édüçätïönäl Bréäkdöwn Ⱡ'σя#"
 
 #: courses/templates/courses/enrollment_demographics_gender.html
-#: courses/views.py
+#: courses/views/__init__.py
 msgid "What is the student gender breakdown?"
 msgstr "Whät ïs thé stüdént géndér ßréäkdöwn? Ⱡ'σяєм ιρѕ#"
 
@@ -537,13 +470,20 @@ msgstr "Géndér Bréäkdöwn Övér Tïmé Ⱡ'σяєм#"
 msgid "Geographic Distribution"
 msgstr "Géögräphïç Dïstrïßütïön Ⱡ'σяє#"
 
-#: courses/templates/courses/enrollment_geography.html courses/views.py
+#: courses/templates/courses/enrollment_geography.html
+#: courses/views/__init__.py
 msgid "Where are my students?"
 msgstr "Whéré äré mý stüdénts? Ⱡ'σяє#"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Enrollment by Country"
 msgstr "Énröllmént ßý Çöüntrý Ⱡ'σя#"
+
+#: courses/templates/courses/enrollment_geography.html
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/__init__.py templates/analytics_dashboard/landing.html
+msgid "Enrollment"
+msgstr "Énröllmént Ⱡ#"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geography Metrics"
@@ -607,7 +547,7 @@ msgstr "Géögräphïç Bréäkdöwn Ⱡ'σя#"
 msgid "Application"
 msgstr "Àpplïçätïön Ⱡ#"
 
-#: courses/templates/courses/home.html courses/views.py
+#: courses/templates/courses/home.html courses/views/__init__.py
 msgid "Course Home"
 msgstr "Çöürsé Hömé Ⱡ#"
 
@@ -645,6 +585,52 @@ msgstr ""
 "%(application_name)s. Sénd üs féédßäçk ät %(email_link)s. Ⱡ'σяєм ιρѕυм ∂σłσя"
 " ѕιт αмєт, #"
 
+#: courses/templates/courses/performance_answer_distribution.html
+msgid "How did students answer this problem?"
+msgstr "Höw dïd stüdénts änswér thïs prößlém? Ⱡ'σяєм ιρѕ#"
+
+#. Translators: This text will be a direct link to the a specific
+#. module/problem.
+#: courses/templates/courses/performance_answer_distribution.html
+msgid "View Live"
+msgstr "Vïéw Lïvé #"
+
+#. Translators: This text describes a bar chart displayed.
+#: courses/templates/courses/performance_answer_distribution.html
+msgid ""
+"This chart shows the most common answers submitted by students, ordered by "
+"frequency."
+msgstr ""
+"Thïs çhärt shöws thé möst çömmön änswérs süßmïttéd ßý stüdénts, ördéréd ßý "
+"fréqüénçý. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмє#"
+
+#. Translators: Variants refers to versions of a problem/assignment.
+#: courses/templates/courses/performance_answer_distribution.html
+msgid ""
+"Due to the number of possible variants for randomized problems, charts are "
+"not available. %(read_more_link_start)sRead more%(read_more_link_end)s."
+msgstr ""
+"Düé tö thé nümßér öf pössïßlé värïänts för rändömïzéd prößléms, çhärts äré "
+"nöt äväïläßlé. %(read_more_link_start)sRéäd möré%(read_more_link_end)s. "
+"Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢ση#"
+
+#. Translators: Variants refers to versions of a problem/assignment.
+#: courses/templates/courses/performance_answer_distribution.html
+msgid ""
+"Review all submission variants below, or click Download CSV to review them "
+"offline."
+msgstr ""
+"Révïéw äll süßmïssïön värïänts ßélöw, ör çlïçk Döwnlöäd ÇSV tö révïéw thém "
+"öfflïné. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αм#"
+
+#: courses/templates/courses/performance_answer_distribution.html
+msgid "Submission Counts"
+msgstr "Süßmïssïön Çöünts Ⱡ'σ#"
+
+#: courses/templates/courses/performance_answer_distribution.html
+msgid "Student Submission Counts"
+msgstr "Stüdént Süßmïssïön Çöünts Ⱡ'σяєм#"
+
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
 #: courses/templates/courses/permissions-retrieval-failed.html
@@ -662,42 +648,74 @@ msgstr ""
 "ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕє¢тєтυя α∂ιρ#"
 
 #: courses/templates/courses/permissions-retrieval-failed.html
-#: templates/auth_error.html
 msgid "Try Again"
 msgstr "Trý Àgäïn #"
 
-#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/enrollment.py
 msgid "Activity"
 msgstr "Àçtïvïtý #"
 
-#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
-#: courses/views.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/__init__.py courses/views/__init__.py
+#: courses/views/enrollment.py
 msgid "Demographics"
 msgstr "Démögräphïçs Ⱡ#"
 
-#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/enrollment.py
 msgid "Geography"
 msgstr "Géögräphý #"
 
-#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/enrollment.py
 msgid "Age"
 msgstr "Àgé Ⱡ'σя#"
 
-#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/enrollment.py
 msgid "Education"
 msgstr "Édüçätïön #"
 
-#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/enrollment.py
 msgid "Gender"
 msgstr "Géndér Ⱡ'σяєм ιρѕ#"
 
+#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
+#: courses/views/__init__.py templates/analytics_dashboard/landing.html
+msgid "Engagement"
+msgstr "Éngägémént Ⱡ#"
+
 #. Translators: Content as in course content (e.g. things, not the feeling)
-#: courses/tests/test_views/test_pages.py courses/views.py courses/views.py
+#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
+#: courses/views/engagement.py
 msgid "Content"
 msgstr "Çöntént #"
 
+#: courses/views/__init__.py templates/analytics_dashboard/landing.html
+msgid "Who are my students?"
+msgstr "Whö äré mý stüdénts? Ⱡ'σя#"
+
+#: courses/views/__init__.py
+msgid "What are students doing in my course?"
+msgstr "Whät äré stüdénts döïng ïn mý çöürsé? Ⱡ'σяєм ιρѕ#"
+
+#: courses/views/engagement.py
+msgid "Engagement Content"
+msgstr "Éngägémént Çöntént Ⱡ'σ#"
+
 #. Translators: Do not translate UTC.
-#: courses/views.py
+#: courses/views/engagement.py
+msgid ""
+"Course engagement data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr ""
+"Çöürsé éngägémént dätä wäs läst üpdätéd %(update_date)s ät %(update_time)s "
+"ÛTÇ. Ⱡ'σяєм ιρѕυм ∂σł#"
+
+#. Translators: Do not translate UTC.
+#: courses/views/enrollment.py
 msgid ""
 "Demographic student data was last updated %(update_date)s at %(update_time)s"
 " UTC."
@@ -707,19 +725,19 @@ msgstr ""
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
-#: courses/views.py
+#: courses/views/enrollment.py
 msgid ""
 "All above demographic data was self-reported at the time of registration."
 msgstr ""
 "Àll äßövé démögräphïç dätä wäs sélf-répörtéd ät thé tïmé öf régïsträtïön. "
 "Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт#"
 
-#: courses/views.py
+#: courses/views/enrollment.py
 msgid "Enrollment Activity"
 msgstr "Énröllmént Àçtïvïtý Ⱡ'σя#"
 
 #. Translators: Do not translate UTC.
-#: courses/views.py
+#: courses/views/enrollment.py
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
@@ -727,24 +745,24 @@ msgstr ""
 "Énröllmént äçtïvïtý dätä wäs läst üpdätéd %(update_date)s ät %(update_time)s"
 " ÛTÇ. Ⱡ'σяєм ιρѕυм ∂σł#"
 
-#: courses/views.py
+#: courses/views/enrollment.py
 msgid "Enrollment Demographics by Age"
 msgstr "Énröllmént Démögräphïçs ßý Àgé Ⱡ'σяєм #"
 
-#: courses/views.py
+#: courses/views/enrollment.py
 msgid "Enrollment Demographics by Education"
 msgstr "Énröllmént Démögräphïçs ßý Édüçätïön Ⱡ'σяєм ιρ#"
 
-#: courses/views.py
+#: courses/views/enrollment.py
 msgid "Enrollment Demographics by Gender"
 msgstr "Énröllmént Démögräphïçs ßý Géndér Ⱡ'σяєм ι#"
 
-#: courses/views.py
+#: courses/views/enrollment.py
 msgid "Enrollment Geography"
 msgstr "Énröllmént Géögräphý Ⱡ'σя#"
 
 #. Translators: Do not translate UTC.
-#: courses/views.py
+#: courses/views/enrollment.py
 msgid ""
 "Geographic student data was last updated %(update_date)s at %(update_time)s "
 "UTC."
@@ -752,22 +770,18 @@ msgstr ""
 "Géögräphïç stüdént dätä wäs läst üpdätéd %(update_date)s ät %(update_time)s "
 "ÛTÇ. Ⱡ'σяєм ιρѕυм ∂σł#"
 
-#: courses/views.py
-msgid "Engagement Content"
-msgstr "Éngägémént Çöntént Ⱡ'σ#"
-
 #. Translators: Do not translate UTC.
-#: courses/views.py
+#: courses/views/performance.py
 msgid ""
-"Course engagement data was last updated %(update_date)s at %(update_time)s "
+"Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr ""
-"Çöürsé éngägémént dätä wäs läst üpdätéd %(update_date)s ät %(update_time)s "
+"Prößlém süßmïssïön dätä wäs läst üpdätéd %(update_date)s ät %(update_time)s "
 "ÛTÇ. Ⱡ'σяєм ιρѕυм ∂σł#"
 
-#: courses/views.py
-msgid "What are students doing in my course?"
-msgstr "Whät äré stüdénts döïng ïn mý çöürsé? Ⱡ'σяєм ιρѕ#"
+#: courses/views/performance.py
+msgid "Performance: Problem Submissions"
+msgstr "Pérförmänçé: Prößlém Süßmïssïöns Ⱡ'σяєм ι#"
 
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
@@ -812,15 +826,84 @@ msgstr ""
 "réfréshïng thïs pägé ör réträçïng ýöür stéps. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, "
 "¢σηѕє¢т#"
 
-#: templates/auth_error.html templates/auth_error.html.py
-msgid "Authentication Failed"
-msgstr "Àüthéntïçätïön Fäïléd Ⱡ'σя#"
+#: templates/analytics_dashboard/landing.html
+msgid "Login"
+msgstr "Lögïn Ⱡ'σяєм ι#"
 
-#: templates/auth_error.html
-msgid "There was a problem accessing your account. Please try again."
+#: templates/analytics_dashboard/landing.html
+msgid "Insights to help course teams improve courses."
+msgstr "Ìnsïghts tö hélp çöürsé téäms ïmprövé çöürsés. Ⱡ'σяєм ιρѕυм #"
+
+#: templates/analytics_dashboard/landing.html
+msgid "Target your course to fit the backgrounds of your students."
 msgstr ""
-"Théré wäs ä prößlém äççéssïng ýöür äççöünt. Pléäsé trý ägäïn. Ⱡ'σяєм ιρѕυм "
-"∂σłσя#"
+"Tärgét ýöür çöürsé tö fït thé ßäçkgröünds öf ýöür stüdénts. Ⱡ'σяєм ιρѕυм "
+"∂σłσ#"
+
+#: templates/analytics_dashboard/landing.html
+msgid "What are students engaging with in my course?"
+msgstr "Whät äré stüdénts éngägïng wïth ïn mý çöürsé? Ⱡ'σяєм ιρѕυм#"
+
+#: templates/analytics_dashboard/landing.html
+msgid ""
+"Improve frequently accessed content, or point students at underused "
+"resources."
+msgstr ""
+"Ìmprövé fréqüéntlý äççésséd çöntént, ör pöïnt stüdénts ät ündérüséd "
+"résöürçés. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт #"
+
+#: templates/analytics_dashboard/landing.html
+msgid "How well is my content supporting student learning?"
+msgstr "Höw wéll ïs mý çöntént süppörtïng stüdént léärnïng? Ⱡ'σяєм ιρѕυм ∂#"
+
+#: templates/analytics_dashboard/landing.html
+msgid "Adjust your course based on where students are struggling."
+msgstr ""
+"Àdjüst ýöür çöürsé ßäséd ön whéré stüdénts äré strügglïng. Ⱡ'σяєм ιρѕυм "
+"∂σłσ#"
+
+#: templates/analytics_dashboard/landing.html
+msgid "Performance"
+msgstr "Pérförmänçé Ⱡ#"
+
+#: templates/analytics_dashboard/landing.html
+msgid "Join the Open Source Community"
+msgstr "Jöïn thé Öpén Söürçé Çömmünïtý Ⱡ'σяєм #"
+
+#: templates/analytics_dashboard/landing.html
+msgid ""
+"The edX analytics data pipeline and edX Insights are open source. "
+"%(link_start)sLearn more%(link_end)s."
+msgstr ""
+"Thé édX änälýtïçs dätä pïpélïné änd édX Ìnsïghts äré öpén söürçé. "
+"%(link_start)sLéärn möré%(link_end)s. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αм#"
+
+#: templates/analytics_dashboard/landing.html
+msgid "Research at edX"
+msgstr "Réséärçh ät édX Ⱡ'#"
+
+#: templates/analytics_dashboard/landing.html
+msgid ""
+"We are committed to advancing teaching and learning through research. "
+"%(link_start)sLearn more%(link_end)s."
+msgstr ""
+"Wé äré çömmïttéd tö ädvänçïng téäçhïng änd léärnïng thröügh réséärçh. "
+"%(link_start)sLéärn möré%(link_end)s. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмє#"
+
+#: templates/analytics_dashboard/landing.html
+msgid "Need Help?"
+msgstr "Nééd Hélp? Ⱡ#"
+
+#: templates/analytics_dashboard/landing.html
+msgid ""
+"%(link_start)sOur support center%(link_end)s can help you find solutions."
+msgstr ""
+"%(link_start)sÖür süppört çéntér%(link_end)s çän hélp ýöü fïnd sölütïöns. "
+"Ⱡ'σяєм ιρѕυм ∂σ#"
+
+#: templates/announcements.html
+msgid "Close"
+msgstr "Çlösé Ⱡ'σяєм ι#"
 
 #: templates/base-error.html
 msgid "Use our support tool to ask questions or share feedback."
@@ -833,6 +916,10 @@ msgstr ""
 #: templates/base-error.html
 msgid "Contact %(platform_name)s Support"
 msgstr "Çöntäçt %(platform_name)s Süppört Ⱡ'σя#"
+
+#: templates/footer.html
+msgid "Feedback"
+msgstr "Féédßäçk #"
 
 #: templates/footer.html
 msgid ""
@@ -874,8 +961,8 @@ msgid "Logout"
 msgstr "Lögöüt Ⱡ'σяєм ιρѕ#"
 
 #: templates/loading.html
-msgid "LOADING..."
-msgstr "LÖÀDÌNG... Ⱡ#"
+msgid "Loading"
+msgstr "Löädïng #"
 
 #: templates/section_error.html
 msgid "We are unable to load this chart."
@@ -888,3 +975,9 @@ msgstr "Wé äré ünäßlé tö löäd thïs täßlé. Ⱡ'σяєм ι#"
 #: templates/section_error.html
 msgid "We are unable to load these metrics."
 msgstr "Wé äré ünäßlé tö löäd thésé métrïçs. Ⱡ'σяєм ιρ#"
+
+#. Translators: Simply move the percent symbol (%) to the correct location. Do
+#. NOT translate the word statistic.
+#: templatetags/dashboard_extras.py
+msgid "{statistic}%"
+msgstr "{statistic}% Ⱡ'σяєм#"

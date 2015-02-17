@@ -2,8 +2,8 @@ import datetime
 
 from bok_choy.web_app_test import WebAppTest
 from analyticsclient.constants import activity_type as at
-from acceptance_tests import ENABLE_FORUM_POSTS
 
+from acceptance_tests import ENABLE_FORUM_POSTS
 from acceptance_tests.mixins import CoursePageTestsMixin
 from acceptance_tests.pages import CourseEngagementContentPage
 
@@ -48,7 +48,8 @@ class CourseEngagementTests(CoursePageTestsMixin, WebAppTest):
         activity_types = [at.ANY, at.ATTEMPTED_PROBLEM, at.PLAYED_VIDEO]
         expected_tooltips = {
             at.ANY: u'Students who visited at least one page in the course content.',
-            at.ATTEMPTED_PROBLEM: u'Students who submitted an answer for a standard problem. Not all problem types are included.',
+            at.ATTEMPTED_PROBLEM: u'Students who submitted an answer for a standard problem. '
+                                  u'Not all problem types are included.',
             at.PLAYED_VIDEO: u'Students who played one or more videos.'
         }
         for activity_type in activity_types:

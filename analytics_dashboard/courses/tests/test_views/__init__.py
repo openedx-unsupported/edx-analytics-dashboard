@@ -10,7 +10,7 @@ from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 from analyticsclient.exceptions import NotFoundError
 
-from analytics_dashboard.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin
+from core.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin
 from courses.permissions import set_user_course_permissions, revoke_user_course_permissions
 from courses.tests import SwitchMixin
 from courses.tests.utils import set_empty_permissions, get_mock_api_enrollment_data, mock_course_name

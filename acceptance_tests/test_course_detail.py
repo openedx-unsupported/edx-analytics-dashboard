@@ -7,6 +7,7 @@ from acceptance_tests.pages import CourseHomePage
 _multiprocess_can_split_ = True
 
 
+# pylint: disable=abstract-method
 class CourseHomeTests(CoursePageTestsMixin, WebAppTest):
     def setUp(self):
         super(CourseHomeTests, self).setUp()
@@ -25,7 +26,7 @@ class CourseHomeTests(CoursePageTestsMixin, WebAppTest):
         """
         Generates a URL path from the specified view name.
         """
-        return '/' + view.replace('_', '/')\
+        return '/' + view.replace('_', '/') \
             .replace('courses:', 'courses/{}/'.format(self.page.course_id)) \
             .replace(':', '/') + '/'
 

@@ -39,7 +39,8 @@ if ENABLE_OAUTH_TESTS and not (LMS_HOSTNAME and LMS_USERNAME and LMS_PASSWORD):
 
 TEST_COURSE_ID = os.environ.get('TEST_COURSE_ID', u'edX/DemoX/Demo_Course')
 TEST_PROBLEM_ID = os.environ.get('TEST_PROBLEM_ID', u'i4x://edX/DemoX.1/problem/05d289c5ad3d47d48a77622c4a81ec36')
-TEST_PROBLEM_PART_ID = os.environ.get('TEST_PROBLEM_PART_ID', u'i4x-edX-DemoX_1-problem-05c289c5ad3d47d48a77622c4a81ec33_2_1')
+TEST_PROBLEM_PART_ID = os.environ.get('TEST_PROBLEM_PART_ID',
+                                      u'i4x-edX-DemoX_1-problem-05c289c5ad3d47d48a77622c4a81ec33_2_1')
 
 DOC_BASE_URL = os.environ.get('DOC_BASE_URL', 'http://edx-insights.readthedocs.org/en/latest')
 

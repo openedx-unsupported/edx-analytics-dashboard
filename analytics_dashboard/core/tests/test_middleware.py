@@ -1,8 +1,9 @@
 from django.test import TestCase
 from django_dynamic_fixture import G
 from lang_pref_middleware.tests import LangPrefMiddlewareTestCaseMixin
-from analytics_dashboard.middleware import LanguagePreferenceMiddleware
-from analytics_dashboard.models import User
+
+from core.middleware import LanguagePreferenceMiddleware
+from core.models import User
 
 
 class TestUserLanguagePreferenceMiddleware(LangPrefMiddlewareTestCaseMixin, TestCase):

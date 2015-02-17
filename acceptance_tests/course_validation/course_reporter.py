@@ -30,7 +30,7 @@ class CourseReporter(object):
         try:
             self.course.enrollment()
             return True
-        except ClientError as e:
+        except ClientError:
             return False
 
     def has_enrollment_geography(self):

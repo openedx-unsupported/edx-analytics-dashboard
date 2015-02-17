@@ -1,7 +1,9 @@
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django_dynamic_fixture import G
-from analytics_dashboard.pipeline import get_user_if_exists
+
+from core.pipeline import get_user_if_exists
+
 
 User = get_user_model()
 

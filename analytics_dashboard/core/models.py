@@ -15,3 +15,4 @@ class User(AbstractUser):
 
     class Meta(object):
         get_latest_by = 'date_joined'
+        db_table = 'analytics_dashboard_user'   # Legacy table name

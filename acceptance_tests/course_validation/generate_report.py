@@ -30,11 +30,10 @@ from acceptance_tests.course_validation.course_reporter import CourseReporter, A
 
 NUM_PROCESSES = 8
 TIMESTAMP = datetime.datetime.utcnow().strftime('%Y-%m-%d-%H-%M-%S')
+logger = logging.getLogger(__name__)
 
 
 def _setup_logging():
-    global logger, fh, ch, formatter
-    logger = logging.getLogger(__name__)
     logger.setLevel(logging.DEBUG)
 
     # Log all debug and higher to files
@@ -171,14 +170,14 @@ def main():
     try:
         p = Pool(NUM_PROCESSES, pool_init, [reports, api_client, http_client.cookies])
         p.map(check_course, courses)
-    except Exception as e:
+    except Exception as e:  # pylint: disable=broad-except
         logger.error('Validation failed to finish: %s', e)
 
     # Write the data to an external file
     write_csv(reports)
     end = time.time()
 
-    logger.info('Finished in {} seconds.'.format(end - start))
+    logger.info('Finished in %d seconds.', end - start)
 
 
 if __name__ == "__main__":

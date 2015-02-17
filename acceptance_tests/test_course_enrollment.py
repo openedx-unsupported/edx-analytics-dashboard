@@ -1,8 +1,8 @@
 import datetime
 
 from bok_choy.web_app_test import WebAppTest
-
 from analyticsclient.constants import demographic, UNKNOWN_COUNTRY_CODE, enrollment_modes
+
 from acceptance_tests import ENABLE_ENROLLMENT_MODES
 from acceptance_tests.mixins import CoursePageTestsMixin
 from acceptance_tests.pages import CourseEnrollmentActivityPage, CourseEnrollmentGeographyPage
@@ -25,9 +25,9 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         """
         end_date = datetime.datetime.utcnow()
         end_date_string = end_date.strftime(self.analytics_api_client.DATE_FORMAT)
-        demographic = 'mode' if ENABLE_ENROLLMENT_MODES else None
+        _demographic = 'mode' if ENABLE_ENROLLMENT_MODES else None
 
-        return self.course.enrollment(demographic, start_date=None, end_date=end_date_string)
+        return self.course.enrollment(_demographic, start_date=None, end_date=end_date_string)
 
     def test_page(self):
         super(CourseEnrollmentActivityTests, self).test_page()
@@ -73,7 +73,8 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         # Verify the total enrollment change metric tile.
         i = 7
         enrollment = enrollment - enrollment_data[-(i + 1)]['count']
-        tooltip = u'The difference between the number of students enrolled at the end of the day yesterday and one week before.'
+        tooltip = u'The difference between the number of students enrolled at the end of the day ' \
+                  u'yesterday and one week before.'
         self.assertMetricTileValid('enrollment_change_last_%s_days' % i, enrollment, tooltip)
 
         if ENABLE_ENROLLMENT_MODES:
@@ -86,7 +87,8 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
                 self.assertMetricTileValid('verified_enrollment', verified_enrollment, tooltip)
 
                 verified_enrollment = verified_enrollment - enrollment_data[-(i + 1)][enrollment_modes.VERIFIED]
-                tooltip = u'The difference between the number of students pursuing verified certificates at the end of the day yesterday and one week before.'
+                tooltip = u'The difference between the number of students pursuing verified certificates at the ' \
+                          u'end of the day yesterday and one week before.'
                 self.assertMetricTileValid('verified_change_last_%s_days' % i, verified_enrollment, tooltip)
 
         # Verify *something* rendered where the graph should be. We cannot easily verify what rendered

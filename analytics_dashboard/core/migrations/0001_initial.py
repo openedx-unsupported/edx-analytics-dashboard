@@ -32,6 +32,7 @@ class Migration(migrations.Migration):
                 ('user_permissions', models.ManyToManyField(related_query_name='user', related_name='user_set', to='auth.Permission', blank=True, help_text='Specific permissions for this user.', verbose_name='user permissions')),
             ],
             options={
+                'db_table': 'analytics_dashboard_user',
                 'get_latest_by': 'date_joined',
             },
             bases=(models.Model,),
