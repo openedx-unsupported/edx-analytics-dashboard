@@ -30,7 +30,7 @@ echo "Starting Analytics Data API Server..."
 ./edx-analytics-data-api/manage.py runserver 9001 --noreload &
 
 echo "Starting Analytics Dashboard Server..."
-./analytics_dashboard/manage.py runserver 9000 --noreload &
+./manage.py runserver 9000 --noreload &
 
 echo "Running acceptance tests..."
 make accept -e NUM_PROCESSES=1

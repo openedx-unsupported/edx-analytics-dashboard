@@ -2,7 +2,7 @@ from bok_choy.web_app_test import WebAppTest
 
 from acceptance_tests import TEST_COURSE_ID
 from acceptance_tests.mixins import AnalyticsDashboardWebAppTestMixin
-from pages import CourseIndexPage
+from acceptance_tests.pages import CourseIndexPage
 
 
 _multiprocess_can_split_ = True

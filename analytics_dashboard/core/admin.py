@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from analytics_dashboard.models import User
+
+from core.models import User
 
 
 class AnalyticsDashboardUserAdmin(UserAdmin):

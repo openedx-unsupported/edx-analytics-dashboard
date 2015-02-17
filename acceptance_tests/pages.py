@@ -9,6 +9,7 @@ from acceptance_tests import DASHBOARD_SERVER_URL, BASIC_AUTH_PASSWORD, BASIC_AU
     TEST_COURSE_ID, TEST_PROBLEM_ID, TEST_PROBLEM_PART_ID
 
 
+# pylint: disable=abstract-method
 class DashboardPage(PageObject):
     path = None
     basic_auth_username = None

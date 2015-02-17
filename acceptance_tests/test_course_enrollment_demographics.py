@@ -1,10 +1,10 @@
 import datetime
 
 from bok_choy.web_app_test import WebAppTest
-
 import analyticsclient.constants.education_level as EDUCATION_LEVEL
 from analyticsclient.constants import demographic
 import analyticsclient.constants.gender as GENDER
+
 from acceptance_tests.mixins import CourseDemographicsPageTestsMixin
 from acceptance_tests.pages import CourseEnrollmentDemographicsAgePage, CourseEnrollmentDemographicsEducationPage, \
     CourseEnrollmentDemographicsGenderPage
@@ -148,7 +148,6 @@ class CourseEnrollmentDemographicsGenderTests(CourseDemographicsPageTestsMixin, 
 
 
 class CourseEnrollmentDemographicsEducationTests(CourseDemographicsPageTestsMixin, WebAppTest):
-
     EDUCATION_NAMES = {
         EDUCATION_LEVEL.NONE: 'None',
         EDUCATION_LEVEL.OTHER: 'Other',
@@ -186,17 +185,21 @@ class CourseEnrollmentDemographicsEducationTests(CourseDemographicsPageTestsMixi
             {
                 'levels': ['primary', 'junior_secondary', 'secondary'],
                 'stat_type': 'education_high_school_or_less_enrollment',
-                'tooltip': 'The percentage of students who selected Secondary/high school, Junior secondary/junior high/middle school, or Elementary/primary school as their highest level of education completed.'
+                'tooltip': 'The percentage of students who selected Secondary/high school, Junior secondary/junior '
+                           'high/middle school, or Elementary/primary school as their highest level of '
+                           'education completed.'
             },
             {
                 'levels': ['associates', 'bachelors'],
                 'stat_type': 'education_college_enrollment',
-                'tooltip': "The percentage of students who selected Bachelor's degree or Associate degree as their highest level of education completed."
+                'tooltip': "The percentage of students who selected Bachelor's degree or Associate degree as their "
+                           "highest level of education completed."
             },
             {
                 'levels': ['masters', 'doctorate'],
                 'stat_type': 'education_advanced_enrollment',
-                'tooltip': "The percentage of students who selected Doctorate or Master's or professional degree as their highest level of education completed."
+                'tooltip': "The percentage of students who selected Doctorate or Master's or professional degree as "
+                           "their highest level of education completed."
             }
         ]
 

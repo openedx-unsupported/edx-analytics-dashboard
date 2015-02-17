@@ -17,7 +17,7 @@ import os
 from os.path import abspath, dirname
 from sys import path
 
-SITE_ROOT = dirname(dirname(abspath(__file__)))
+SITE_ROOT = dirname(abspath(__file__))
 path.append(SITE_ROOT)
 
 # We defer to a DJANGO_SETTINGS_MODULE already in the environment. This breaks

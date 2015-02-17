@@ -10,7 +10,7 @@ DUMMY_AUTHORIZED_COURSE = 'dummy/course/id'
 
 
 class EdXOpenIdConnectTests(OpenIdConnectTestMixin, OAuth2Test):
-    backend_path = 'analytics_dashboard.backends.EdXOpenIdConnect'
+    backend_path = 'core.backends.EdXOpenIdConnect'
     issuer = settings.SOCIAL_AUTH_EDX_OIDC_URL_ROOT
     expected_username = 'test_user'
 

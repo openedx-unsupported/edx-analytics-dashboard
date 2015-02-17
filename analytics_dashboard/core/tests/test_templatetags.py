@@ -4,9 +4,9 @@
 from django.template import Template, Context, TemplateSyntaxError
 from django.test import TestCase
 from opaque_keys.edx.keys import CourseKey
-from analytics_dashboard.templatetags.dashboard_extras import format_course_key
 
-from analytics_dashboard.templatetags import dashboard_extras
+from core.templatetags.dashboard_extras import format_course_key
+from core.templatetags import dashboard_extras
 
 
 class DashboardExtraTests(TestCase):

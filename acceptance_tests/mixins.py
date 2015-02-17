@@ -9,7 +9,7 @@ import edx_api_client
 from acceptance_tests import API_SERVER_URL, API_AUTH_TOKEN, DASHBOARD_FEEDBACK_EMAIL, SUPPORT_URL, LMS_USERNAME, \
     LMS_PASSWORD, DASHBOARD_SERVER_URL, ENABLE_AUTO_AUTH, DOC_BASE_URL, COURSE_API_URL, COURSE_API_KEY, \
     ENABLE_COURSE_API
-from pages import LMSLoginPage
+from acceptance_tests.pages import LMSLoginPage
 
 
 MAX_SUMMARY_POINT_VALUE_LENGTH = 13
@@ -371,7 +371,7 @@ class CourseDemographicsPageTestsMixin(CoursePageTestsMixin):
             self._test_table_row(self.demographic_data[i], columns, sum_count)
 
     def _test_table_row(self, datum, column, sum_count):
-        return NotImplementedError
+        raise NotImplementedError
 
     def _test_data_information_message(self):
         element = self.page.q(css='div.data-information-message')

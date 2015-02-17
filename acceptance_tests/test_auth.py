@@ -1,11 +1,12 @@
 from unittest import skipUnless
+from unittest import skip
 
 from bok_choy.web_app_test import WebAppTest
-from acceptance_tests import ENABLE_OAUTH_TESTS
 
-from mixins import LoginMixin
-from pages import LoginPage
-from unittest import skip
+from acceptance_tests import ENABLE_OAUTH_TESTS
+from acceptance_tests.mixins import LoginMixin
+from acceptance_tests.pages import LoginPage
+
 
 @skipUnless(ENABLE_OAUTH_TESTS, 'OAuth tests are not enabled.')
 class OAuth2FlowTests(LoginMixin, WebAppTest):

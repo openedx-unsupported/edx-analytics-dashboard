@@ -10,10 +10,10 @@ from django.http import HttpResponse, Http404
 from django.shortcuts import redirect
 from django.views.generic import View, TemplateView
 from django.core.urlresolvers import reverse_lazy
-
 from analyticsclient.client import Client
 from analyticsclient.exceptions import ClientError
-from courses import permissions
+
+from analytics_dashboard.courses import permissions
 
 
 logger = logging.getLogger(__name__)
@@ -114,7 +114,7 @@ class LandingView(TemplateView):
     """
     Displays a public landing page when users first come to the site.
     """
-    template_name = "analytics_dashboard/landing.html"
+    template_name = "core/landing.html"
 
     def dispatch(self, request, *args, **kwargs):
         """ Non logged in users will be directed to the landing page. """

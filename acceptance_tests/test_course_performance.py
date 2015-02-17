@@ -10,7 +10,6 @@ _multiprocess_can_split_ = True
 
 
 class CoursePerformanceAnswerDistributionTests(CoursePageTestsMixin, WebAppTest):
-
     help_path = 'performance/index.html'
 
     def setUp(self):
@@ -20,7 +19,6 @@ class CoursePerformanceAnswerDistributionTests(CoursePageTestsMixin, WebAppTest)
         api_response = self.module.answer_distribution()
         data = [i for i in api_response if i['part_id'] == self.page.part_id]
         self.answer_distribution = sorted(data, key=lambda a: a['count'], reverse=True)
-
 
     def _get_data_update_message(self):
         current_data = self.answer_distribution[0]
