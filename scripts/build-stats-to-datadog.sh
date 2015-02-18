@@ -9,7 +9,7 @@ if [ "$TRAVIS_BRANCH" = "master" ] && [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ 
 
     then
     echo "Reporting coverage stats to datadog"
-    git clone https://github.com/wedaly/test-metrics
+    git clone https://github.com/edx/test-metrics
 
     cd test-metrics
     virtualenv venv
