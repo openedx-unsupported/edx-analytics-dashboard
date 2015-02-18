@@ -57,7 +57,7 @@ def health(_request):
         }
     }
 
-    return HttpResponse(json.dumps(data), content_type='application/json')
+    return HttpResponse(json.dumps(data), content_type='application/json', status=200 if overall_status == OK else 503)
 
 
 class AutoAuth(View):
