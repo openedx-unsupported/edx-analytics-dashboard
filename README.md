@@ -23,7 +23,6 @@ Getting Started
 
 4. Run the server:
 
-        $ cd analytics_dashboard
         $ ./manage.py runserver 0.0.0.0:9000
 
 By default the Django Default Toolbar is disabled. To enable it set the environmental variable ENABLE_DJANGO_TOOLBAR.
