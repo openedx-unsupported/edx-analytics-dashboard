@@ -2,7 +2,6 @@
 
 ROOT = $(shell echo "$$PWD")
 COVERAGE = $(ROOT)/build/coverage
-NUM_PROCESSES = 2
 NODE_BIN=./node_modules/.bin
 
 DJANGO_SETTINGS_MODULE := "analytics_dashboard.settings.local"
@@ -40,14 +39,14 @@ test_python: clean
 		--cover-xml --cover-xml-file=$(COVERAGE)/coverage.xml --exclude=core/admin
 
 accept:
-	nosetests -v acceptance_tests --processes=$(NUM_PROCESSES) --process-timeout=120 --exclude-dir=acceptance_tests/course_validation
+	nosetests -v acceptance_tests --exclude-dir=acceptance_tests/course_validation
 
 course_validation:
 	python -m acceptance_tests.course_validation.generate_report
 
 quality:
-	pep8 acceptance_tests analytics_dashboard
-	PYTHONPATH=".:./analytics_dashboard:$PYTHONPATH" pylint --rcfile=pylintrc acceptance_tests analytics_dashboard
+	pep8 acceptance_tests analytics_dashboard common
+	PYTHONPATH=".:./analytics_dashboard:$PYTHONPATH" pylint --rcfile=pylintrc acceptance_tests analytics_dashboard common
 
 validate_python: test.requirements test_python quality
 

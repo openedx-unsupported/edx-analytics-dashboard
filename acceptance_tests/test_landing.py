@@ -1,7 +1,7 @@
 from bok_choy.web_app_test import WebAppTest
 
-from acceptance_tests.mixins import LoginMixin, LogoutMixin, FooterLegalMixin, PageTestMixin
 from acceptance_tests import OPEN_SOURCE_URL, RESEARCH_URL, SUPPORT_URL, SHOW_LANDING_RESEARCH
+from acceptance_tests.mixins import LoginMixin, LogoutMixin, FooterLegalMixin, PageTestMixin
 from acceptance_tests.pages import LandingPage
 
 

@@ -5,9 +5,15 @@ from django.conf.urls import url, patterns, include
 from courses import views
 from courses.views import enrollment, engagement, performance, csv
 
-COURSE_ID_PATTERN = r'(?P<course_id>[^/+]+[/+][^/+]+[/+][^/]+)'
 CONTENT_ID_PATTERN = r'(?P<content_id>[\.a-zA-Z0-9_+\/:-]+)'
-PROBLEM_PART_ID_PATTERN = r'(?P<problem_part_id>[^/]+)'
+COURSE_ID_PATTERN = r'(?P<course_id>[^/+]+[/+][^/+]+[/+][^/]+)'
+PROBLEM_PART_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'problem_part_id')
+ASSIGNMENT_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'assignment_id')
+PROBLEM_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'problem_id')
+
+answer_distribution_regex = \
+    r'^graded_content/assignments/{assignment_id}/problems/{problem_id}/parts/{part_id}/answer_distribution/$'.format(
+        assignment_id=ASSIGNMENT_ID_PATTERN, problem_id=PROBLEM_ID_PATTERN, part_id=PROBLEM_PART_ID_PATTERN)
 
 ENROLLMENT_URLS = patterns(
     '',
@@ -26,9 +32,17 @@ ENGAGEMENT_URLS = patterns(
 
 PERFORMANCE_URLS = patterns(
     '',
-    url(r'^graded_content/problems/{}/answer_distribution/{}/$'.format(CONTENT_ID_PATTERN, PROBLEM_PART_ID_PATTERN),
-        performance.PerformanceAnswerDistributionView.as_view(),
-        name='answer_distribution'),
+    url(r'^graded_content/$', performance.PerformanceGradedContent.as_view(), name='graded_content'),
+    url(r'^graded_content/(?P<assignment_type>[\w ]+)/$',
+        performance.PerformanceGradedContentByType.as_view(),
+        name='graded_content_by_type'),
+    url(answer_distribution_regex, performance.PerformanceAnswerDistributionView.as_view(), name='answer_distribution'),
+
+    # This MUST come AFTER the answer distribution pattern; otherwise, the answer distribution pattern
+    # will be interpreted as an assignment pattern.
+    url(r'^graded_content/assignments/{}/$'.format(ASSIGNMENT_ID_PATTERN),
+        performance.PerformanceAssignment.as_view(),
+        name='assignment'),
 )
 
 CSV_URLS = patterns(

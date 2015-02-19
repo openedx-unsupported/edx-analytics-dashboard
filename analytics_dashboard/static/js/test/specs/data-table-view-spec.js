@@ -100,6 +100,26 @@ define(['models/course-model', 'views/data-table-view'], function(CourseModel, D
             row[dataType] = null;
             expect(func(row, renderType)).toBe('(empty)');
         });
+
+        it('should format display of a formatted number', function() {
+            var dataType = 'myData',
+                renderType = 'display',
+                model = new CourseModel(),
+                view = new DataTableView({
+                    el: document.createElement('div'),
+                    model: model,
+                    modelAttribute: 'ages'
+                }),
+                func = view.createFormatNumberFunc(dataType),
+                row = {};
+
+            row[dataType] = 3;
+            expect(func(row, renderType)).toBe('3');
+
+            row[dataType] = 1234567;
+            expect(func(row, renderType)).toBe('1,234,567');
+        });
+
     });
 
 });

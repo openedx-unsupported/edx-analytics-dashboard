@@ -44,6 +44,9 @@ class sorting(object):
         return [sorting._tryint(c) for c in re.split('([0-9]+)', s)]
 
     @staticmethod
-    def natural_sort(l, field):
+    def natural_sort(l, field=None):
         """ Natural sort from Ned Batchelder - http://nedbatchelder.com/blog/200712.html#e20071211T054956 """
-        l.sort(key=lambda x: sorting._alphanum_key(x[field]))
+        if field:
+            l.sort(key=lambda x: sorting._alphanum_key(x[field]))
+        else:
+            l.sort(key=sorting._alphanum_key)

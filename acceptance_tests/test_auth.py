@@ -1,5 +1,4 @@
 from unittest import skipUnless
-from unittest import skip
 
 from bok_choy.web_app_test import WebAppTest
 
@@ -18,7 +17,6 @@ class OAuth2FlowTests(LoginMixin, WebAppTest):
 
         self.insights_login_page = LoginPage(self.browser)
 
-    @skip("Skipping: LMS is not Available")
     def test_login(self):
         self.login_with_lms()
 

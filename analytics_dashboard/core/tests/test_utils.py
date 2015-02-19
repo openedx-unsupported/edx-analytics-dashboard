@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 from django.test.utils import override_settings
 from django.test import TestCase
 
-from core.utils import delete_auto_auth_users
+from core.utils import delete_auto_auth_users, sanitize_cache_key
 
 
 User = get_user_model()
@@ -36,3 +36,13 @@ class UtilsTests(TestCase):
 
         # No users should have been deleted
         self.assertEqual(User.objects.count(), user_count)
+
+    def test_sanitize_cache_key(self):
+        keys = ['', ' ', 'I am a key. AMA!']
+
+        for key in keys:
+            sanitized = sanitize_cache_key(key)
+            self.assertLess(len(sanitized), 250)
+
+            # TODO Add a proper assertion to ensure all control characters are removed.
+            self.assertNotIn(' ', sanitized)

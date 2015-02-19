@@ -1,9 +1,9 @@
 import datetime
 
-from bok_choy.web_app_test import WebAppTest
-import analyticsclient.constants.education_level as EDUCATION_LEVEL
 from analyticsclient.constants import demographic
+import analyticsclient.constants.education_level as EDUCATION_LEVEL
 import analyticsclient.constants.gender as GENDER
+from bok_choy.web_app_test import WebAppTest
 
 from acceptance_tests.mixins import CourseDemographicsPageTestsMixin
 from acceptance_tests.pages import CourseEnrollmentDemographicsAgePage, CourseEnrollmentDemographicsEducationPage, \

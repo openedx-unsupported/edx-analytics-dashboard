@@ -1,5 +1,7 @@
 from unittest import TestCase
+
 import requests
+
 from acceptance_tests import DASHBOARD_SERVER_URL
 
 

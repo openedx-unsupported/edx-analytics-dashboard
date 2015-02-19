@@ -1,7 +1,7 @@
 import datetime
 
-from bok_choy.web_app_test import WebAppTest
 from analyticsclient.constants import activity_type as at
+from bok_choy.web_app_test import WebAppTest
 
 from acceptance_tests import ENABLE_FORUM_POSTS
 from acceptance_tests.mixins import CoursePageTestsMixin

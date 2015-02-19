@@ -1,14 +1,42 @@
 import datetime
 
-import mock
-from django.test import TestCase
 import analyticsclient.constants.activity_type as AT
+from django.core.cache import cache
+from django.test import TestCase
+import mock
 
 from courses.presenters import BasePresenter
 from courses.presenters.engagement import CourseEngagementPresenter
 from courses.presenters.enrollment import CourseEnrollmentPresenter, CourseEnrollmentDemographicsPresenter
 from courses.presenters.performance import CoursePerformancePresenter
 from courses.tests import utils, SwitchMixin
+from courses.tests.factories import CoursePerformanceDataFactory
+
+
+class BasePresenterTests(TestCase):
+    def setUp(self):
+        self.presenter = BasePresenter('edX/DemoX/Demo_Course')
+
+    def test_init(self):
+        presenter = BasePresenter('edX/DemoX/Demo_Course')
+        self.assertEqual(presenter.client.timeout, 10)
+
+        presenter = BasePresenter('edX/DemoX/Demo_Course', timeout=15)
+        self.assertEqual(presenter.client.timeout, 15)
+
+    def test_parse_api_date(self):
+        self.assertEqual(self.presenter.parse_api_date('2014-01-01'), datetime.date(year=2014, month=1, day=1))
+
+    def test_parse_api_datetime(self):
+        self.assertEqual(self.presenter.parse_api_datetime(u'2014-09-18T145957'),
+                         datetime.datetime(year=2014, month=9, day=18, hour=14, minute=59, second=57))
+
+    def test_strip_time(self):
+        self.assertEqual(self.presenter.strip_time('2014-01-01T000000'), '2014-01-01')
+
+    def test_get_current_date(self):
+        dt_format = '%Y-%m-%d'
+        self.assertEqual(self.presenter.get_current_date(), datetime.datetime.utcnow().strftime(dt_format))
 
 
 class CourseEngagementPresenterTests(SwitchMixin, TestCase):
@@ -86,32 +114,6 @@ class CourseEngagementPresenterTests(SwitchMixin, TestCase):
 
         self.assertSummaryAndTrendsValid(False, self.get_expected_trends_small(False))
         self.assertSummaryAndTrendsValid(True, self.get_expected_trends_small(True))
-
-
-class BasePresenterTests(TestCase):
-    def setUp(self):
-        self.presenter = BasePresenter('edX/DemoX/Demo_Course')
-
-    def test_init(self):
-        presenter = BasePresenter('edX/DemoX/Demo_Course')
-        self.assertEqual(presenter.client.timeout, 5)
-
-        presenter = BasePresenter('edX/DemoX/Demo_Course', timeout=15)
-        self.assertEqual(presenter.client.timeout, 15)
-
-    def test_parse_api_date(self):
-        self.assertEqual(self.presenter.parse_api_date('2014-01-01'), datetime.date(year=2014, month=1, day=1))
-
-    def test_parse_api_datetime(self):
-        self.assertEqual(self.presenter.parse_api_datetime(u'2014-09-18T145957'),
-                         datetime.datetime(year=2014, month=9, day=18, hour=14, minute=59, second=57))
-
-    def test_strip_time(self):
-        self.assertEqual(self.presenter.strip_time('2014-01-01T000000'), '2014-01-01')
-
-    def test_get_current_date(self):
-        dt_format = '%Y-%m-%d'
-        self.assertEqual(self.presenter.get_current_date(), datetime.datetime.utcnow().strftime(dt_format))
 
 
 class CourseEnrollmentPresenterTests(SwitchMixin, TestCase):
@@ -244,11 +246,13 @@ class CourseEnrollmentDemographicsPresenterTests(TestCase):
         self.assertEqual(known_percent, 0.5)
 
 
-class CoursePerformanceAnswerDistributionPresenterTests(TestCase):
+class CoursePerformancePresenterTests(TestCase):
     def setUp(self):
+        cache.clear()
         self.course_id = 'edX/DemoX/Demo_Course'
         self.problem_id = 'i4x://edX/DemoX.1/problem/05d289c5ad3d47d48a77622c4a81ec36'
-        self.presenter = CoursePerformancePresenter(self.course_id)
+        self.presenter = CoursePerformancePresenter(None, self.course_id)
+        self.factory = CoursePerformanceDataFactory()
 
     @mock.patch('analyticsclient.module.Module.answer_distribution')
     def test_multiple_answer_distribution(self, mock_answer_distribution):
@@ -327,3 +331,59 @@ class CoursePerformanceAnswerDistributionPresenterTests(TestCase):
             else:
                 self.assertListEqual(answer_distribution_entry.answer_distribution_limited,
                                      expected_answer_distribution[:12])
+
+    @mock.patch('slumber.Resource.get', mock.Mock(return_value=CoursePerformanceDataFactory.grading_policy))
+    def test_grading_policy(self):
+        """ Verify the presenter returns the correct grading policy. """
+        grading_policy = self.presenter.grading_policy()
+        self.assertListEqual(grading_policy, CoursePerformanceDataFactory.grading_policy)
+
+        percent = self.presenter.get_max_policy_display_percent(grading_policy)
+        self.assertEqual(100, percent)
+
+        percent = self.presenter.get_max_policy_display_percent([{'weight': 0.0}, {'weight': 1.0}, {'weight': 0.04}])
+        self.assertEqual(90, percent)
+
+    @mock.patch('courses.presenters.performance.CoursePerformancePresenter.grading_policy',
+                mock.Mock(return_value=CoursePerformanceDataFactory.grading_policy))
+    def test_assignment_types(self):
+        """ Verify the presenter returns the correct assignment types. """
+        self.assertListEqual(self.presenter.assignment_types(), CoursePerformanceDataFactory.assignment_types)
+
+    def test_assignments(self):
+        """ Verify the presenter returns the correct assignments and sets the last updated date. """
+
+        self.assertIsNone(self.presenter.last_updated)
+
+        with mock.patch('slumber.Resource.get', mock.Mock(return_value=self.factory.structure)):
+            with mock.patch('analyticsclient.course.Course.problems', self.factory.problems):
+                # With no assignment type set, the method should return all assignment types.
+                assignments = self.presenter.assignments()
+                expected_assignments = self.factory.present_assignments()
+
+                self.assertListEqual(assignments, expected_assignments)
+                self.assertEqual(self.presenter.last_updated, utils.CREATED_DATETIME)
+
+                # With an assignment type set, the presenter should return only the assignments of the specified type.
+                self.maxDiff = None
+                for assignment_type in self.factory.assignment_types:
+                    cache.clear()
+                    expected = [assignment for assignment in expected_assignments if
+                                assignment[u'assignment_type'] == assignment_type]
+
+                    for index, assignment in enumerate(expected):
+                        assignment[u'index'] = index + 1
+
+                    self.assertListEqual(self.presenter.assignments(assignment_type), expected)
+
+    def test_assignment(self):
+        """ Verify the presenter returns a specific assignment. """
+        with mock.patch('courses.presenters.performance.CoursePerformancePresenter.assignments',
+                        mock.Mock(return_value=self.factory.present_assignments())):
+            # The method should return None if the assignment does not exist.
+            self.assertIsNone(self.presenter.assignment(None))
+            self.assertIsNone(self.presenter.assignment('non-existent-id'))
+
+            # The method should return an individual assignment if the ID exists.
+            assignment = self.factory.present_assignments()[0]
+            self.assertDictEqual(self.presenter.assignment(assignment[u'id']), assignment)
