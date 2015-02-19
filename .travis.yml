@@ -17,3 +17,14 @@ script:
 after_success:
     - coveralls
     - bash ./scripts/build-stats-to-datadog.sh
+deploy:
+    - provider: s3
+      access_key_id: $S3_ACCESS_KEY_ID
+      secret_access_key: $S3_SECRET_ACCESS_KEY
+      bucket: $S3_BUCKET
+      skip_cleanup: true
+      local_dir: $TRAVIS_BUILD_DIR/build-metrics
+      upload_dir: edx-analytics-dashboard/master
+      acl: public_read
+      on:
+        branch: master
