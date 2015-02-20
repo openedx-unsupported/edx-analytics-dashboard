@@ -7,7 +7,9 @@ from django.contrib import admin
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import RedirectView
 
-from analytics_dashboard.core import views
+# pylint suggests importing analytics_dashboard.core, which causes errors in our AMI
+# pylint: disable=relative-import
+from core import views
 
 
 admin.autodiscover()
