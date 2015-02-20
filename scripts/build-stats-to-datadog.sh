@@ -27,6 +27,11 @@ END
 
     deactivate
 
+    # Create build-metrics directory and move stats files into it.
+    mkdir -p ../build-metrics
+    cp test_eng.unit.analtyics.dashboard ../build-metrics/
+    cp test_eng.javascript.analytics_dashboard ../build-metrics/
+
 else
     echo "Note: Not reporting stats to datadog. Those are only reported for builds on master, \
 and when the datadog api key is available."
