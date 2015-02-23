@@ -17,7 +17,7 @@ from analyticsclient.exceptions import ClientError
 from social.exceptions import AuthException
 from social.utils import parse_qs
 
-from core.backends import EdXOpenIdConnect
+from auth_backends.backends import EdXOpenIdConnect
 from courses.permissions import set_user_course_permissions, user_can_view_course, get_user_course_permissions
 
 
