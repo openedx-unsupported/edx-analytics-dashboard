@@ -53,6 +53,8 @@ The following switches are available:
 |-----------------------------------|----------------------------------------------------------|
 | show_engagement_forum_activity    | Show the forum activity on the course engagement page    |
 | enable_course_api                 | Retrieve course details from the course API              |
+| display_names_for_course_index    | Display course names on course index page.               |
+| display_course_name_in_nav        | Display course name in navigation bar.                   |
 
 Authentication & Authorization
 ------------------------------

@@ -28,7 +28,7 @@ class CourseAPIMixin(SwitchMixin):
     Mixin with methods to help mock the course API.
     """
 
-    COURSE_API_COURSE_LIST = {'results': [
+    COURSE_API_COURSE_LIST = {'next': None, 'results': [
         {'id': course_key, 'name': 'Test ' + course_key} for course_key in [DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID]
     ]}
 
@@ -184,6 +184,7 @@ class CourseViewTestMixin(CourseAPIMixin, NavAssertMixin, ViewTestMixin):
     @data(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
     def test_valid_course(self, course_id):
         self.toggle_switch('enable_course_api', True)
+        self.toggle_switch('display_course_name_in_nav', True)
         self.mock_course_detail(course_id)
         self.assertViewIsValid(course_id)
 
