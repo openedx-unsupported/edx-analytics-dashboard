@@ -52,7 +52,6 @@ The following switches are available:
 | Switch                            | Purpose                                                  |
 |-----------------------------------|----------------------------------------------------------|
 | show_engagement_forum_activity    | Show the forum activity on the course engagement page    |
-| enable_oidc_permissions_scope     | Retrieve general permissions from the OIDC provider.     |
 | enable_course_api                 | Retrieve course details from the course API              |
 
 Authentication & Authorization

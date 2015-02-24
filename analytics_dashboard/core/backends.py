@@ -7,7 +7,6 @@ import json
 from django.conf import settings
 import django.dispatch
 from social.backends.open_id import OpenIdConnectAuth
-from waffle import switch_is_active
 
 
 # pylint: disable=abstract-method
@@ -18,7 +17,7 @@ class EdXOpenIdConnect(OpenIdConnectAuth):
     REDIRECT_STATE = False
     ID_KEY = 'preferred_username'
 
-    DEFAULT_SCOPE = ['openid', 'profile', 'email'] + settings.COURSE_PERMISSIONS_SCOPE
+    DEFAULT_SCOPE = ['openid', 'profile', 'email', 'permissions'] + settings.COURSE_PERMISSIONS_SCOPE
     ID_TOKEN_ISSUER = settings.SOCIAL_AUTH_EDX_OIDC_URL_ROOT
     AUTHORIZATION_URL = '{0}/authorize/'.format(settings.SOCIAL_AUTH_EDX_OIDC_URL_ROOT)
     ACCESS_TOKEN_URL = '{0}/access_token/'.format(settings.SOCIAL_AUTH_EDX_OIDC_URL_ROOT)
@@ -100,14 +99,6 @@ class EdXOpenIdConnect(OpenIdConnectAuth):
                 dest[dest_key] = value
 
         return dest
-
-    def get_scope(self):
-        scope = super(EdXOpenIdConnect, self).get_scope()
-
-        if switch_is_active('enable_oidc_permissions_scope'):
-            scope.append('permissions')
-
-        return scope
 
 
 def _to_language(locale):
