@@ -81,23 +81,42 @@ class CourseAPIMixin(object):
 
         return info
 
-    def get_courses(self, course_ids=None):
-        if course_ids:
-            course_ids = ','.join(course_ids)
+    def get_courses(self):
+        # Check the cache for the user's courses
+        key = sanitize_cache_key('user_{}_courses'.format(self.request.user.pk))
+        courses = cache.get(key)
 
-        try:
-            course_details = self.course_api.get(course_id=course_ids)['results']
+        # If no cached courses, iterate over the data from the course API.
+        if not courses:
+            courses = []
+            page = 1
 
-            # Cache the information so that it doesn't need to be retrieved later.
-            for course in course_details:
-                course_id = course['id']
-                key = self._course_detail_cache_key(course_id)
-                cache.set(key, course)
+            while page:
+                try:
+                    logger.debug('Retrieving page %d of course info...', page)
+                    response = self.course_api.get(page=page, page_size=100)
+                    course_details = response['results']
 
-            return course_details
-        except HttpClientError as e:
-            logger.error("Unable to retrieve course data: %s", e)
-            return []
+                    # Cache the information so that it doesn't need to be retrieved later.
+                    for course in course_details:
+                        course_id = course['id']
+                        key = self._course_detail_cache_key(course_id)
+                        cache.set(key, course)
+
+                    courses += course_details
+
+                    if response['next']:
+                        page += 1
+                    else:
+                        page = None
+                        logger.debug('Completed retrieval of course info. Retrieved info for %d courses.', len(courses))
+                except HttpClientError as e:
+                    logger.error("Unable to retrieve course data: %s", e)
+                    page = None
+                    break
+
+        cache.set(key, courses)
+        return courses
 
 
 class TrackedViewMixin(object):
@@ -176,7 +195,7 @@ class CourseContextMixin(CourseAPIMixin, TrackedViewMixin, LazyEncoderMixin):
             'page_subtitle': self.page_subtitle,
         }
 
-        if self.course_api_enabled:
+        if self.course_api_enabled and switch_is_active('display_course_name_in_nav'):
             context['course_name'] = self.course_info.get('name')
 
         return context
@@ -513,10 +532,10 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LazyEnco
         info = []
         course_data = {}
 
-        if self.course_api_enabled:
+        if self.course_api_enabled and switch_is_active('display_names_for_course_index'):
 
             # Get data for all courses in a single API call.
-            _api_courses = self.get_courses(course_ids)
+            _api_courses = self.get_courses()
 
             # Create a lookup table from the data.
             for course in _api_courses:

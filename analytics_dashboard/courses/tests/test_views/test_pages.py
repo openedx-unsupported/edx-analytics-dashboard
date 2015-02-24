@@ -66,6 +66,7 @@ class CourseIndexViewTests(CourseAPIMixin, ViewTestMixin, MiddlewareAssertionMix
     def test_get_with_course_api(self):
         """ Verify that the view properly retrieves data from the course API. """
         self.toggle_switch('enable_course_api', True)
+        self.toggle_switch('display_names_for_course_index', True)
         self.mock_course_list()
         courses = self._create_course_list(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID, with_name=True)
         self.assertIsNotNone(httpretty.last_request())
