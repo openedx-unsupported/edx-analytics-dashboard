@@ -33,7 +33,7 @@ ENGAGEMENT_URLS = patterns(
 PERFORMANCE_URLS = patterns(
     '',
     url(r'^graded_content/$', performance.PerformanceGradedContent.as_view(), name='graded_content'),
-    url(r'^graded_content/(?P<assignment_type>[\w ]+)/$',
+    url(r'^graded_content/(?P<assignment_type>[\w-]+)/$',
         performance.PerformanceGradedContentByType.as_view(),
         name='graded_content_by_type'),
     url(answer_distribution_regex, performance.PerformanceAnswerDistributionView.as_view(), name='answer_distribution'),

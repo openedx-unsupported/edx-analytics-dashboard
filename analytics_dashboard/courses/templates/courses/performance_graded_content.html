@@ -24,7 +24,7 @@
 
           {% widthratio item.weight 1 max_policy_display_percent as bar_ratio %}
           <div style="width: {{bar_ratio}}%; min-width: {{min_policy_display_percent}}%" class="policy-item has-tooltip" title="{{policy_description}}">
-            <a href="{% url 'courses:performance:graded_content_by_type' course_id=course_id assignment_type=item.assignment_type %}">
+            <a href="{% url 'courses:performance:graded_content_by_type' course_id=course_id assignment_type=item.assignment_type|unicode_slugify %}">
               <div class="policy-item-box">
                 {% captureas policy_percent %}
                   {# Translators: This describes the percent of a learner's grade (e.g. 60%). #}
