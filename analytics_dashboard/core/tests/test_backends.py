@@ -3,14 +3,14 @@ from django.conf import settings
 from social.tests.backends.oauth import OAuth2Test
 from social.tests.backends.open_id import OpenIdConnectTestMixin
 
-import courses
+from courses.permissions import get_user_course_permissions
 
 
 DUMMY_AUTHORIZED_COURSE = 'dummy/course/id'
 
 
 class EdXOpenIdConnectTests(OpenIdConnectTestMixin, OAuth2Test):
-    backend_path = 'core.backends.EdXOpenIdConnect'
+    backend_path = 'auth_backends.backends.EdXOpenIdConnect'
     issuer = settings.SOCIAL_AUTH_EDX_OIDC_URL_ROOT
     expected_username = 'test_user'
 
@@ -26,13 +26,9 @@ class EdXOpenIdConnectTests(OpenIdConnectTestMixin, OAuth2Test):
 
         return data
 
-    def test_login(self):
-        user = self.do_login()
-        self.assertIsNotNone(user)
-
     def test_course_permissions(self):
         user = self.do_login()
-        authorized_courses = courses.permissions.get_user_course_permissions(user)
+        authorized_courses = get_user_course_permissions(user)
 
         self.assertEqual(len(authorized_courses), 1)
         self.assertIn(DUMMY_AUTHORIZED_COURSE, authorized_courses)

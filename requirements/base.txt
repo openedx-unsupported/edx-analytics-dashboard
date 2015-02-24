@@ -10,12 +10,7 @@ django-model-utils==1.5.0 	# BSD
 django-waffle==0.10			# BSD
 logutils==0.3.3				# BSD
 
-# Needed to subclass the OIDC test in python-social-auth
-unittest2==0.8.0            # BSD
-
-# TODO Use PyPi once package has been updated
-#python-social-auth==0.2.0   # BSD
-git+https://github.com/edx/python-social-auth.git@pyjwt-fix#egg=python-social-auth
+edx-auth-backends==0.1.2    # AGPL
 
 # TODO Use the PyPi package once it is updated.
 git+https://github.com/pinax/django-announcements.git@bda39727f2c9158c0bb5eba1604b44f14deae5b0#egg=django-announcements # MIT

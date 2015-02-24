@@ -7,7 +7,7 @@ from django.dispatch import receiver
 
 from social.apps.django_app import load_strategy
 
-from core.backends import EdXOpenIdConnect
+from auth_backends.backends import EdXOpenIdConnect
 
 from courses.exceptions import UserNotAssociatedWithBackendError, InvalidAccessTokenError, \
     PermissionsRetrievalFailedError

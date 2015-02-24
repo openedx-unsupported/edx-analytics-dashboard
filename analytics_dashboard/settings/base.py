@@ -293,14 +293,13 @@ HELP_URL = None
 SHOW_LANDING_RESEARCH = True
 RESEARCH_URL = 'http://example.com/'
 OPEN_SOURCE_URL = 'http://example.com/'
-########## END FEEDBACK
+########## END LANDING PAGE
 
 ########## DOCUMENTATION LINKS -- These values should be overridden for production deployments.
 DOCUMENTATION_LOAD_ERROR_URL = 'http://example.com/'
 # evaluated again at the end of production setting after DOCUMENTATION_LOAD_ERROR_URL has been set
 DOCUMENTATION_LOAD_ERROR_MESSAGE = '<a href="{error_documentation_link}" target="_blank">Read more</a>.'.format(error_documentation_link=DOCUMENTATION_LOAD_ERROR_URL)
-
-########## END FEEDBACK
+########## END DOCUMENTATION LINKS
 
 
 ########## DATA API CONFIGURATION
@@ -324,7 +323,7 @@ INSTALLED_APPS += ('social.apps.django_app.default',)
 
 # Allow authentication via edX OAuth2/OpenID Connect
 AUTHENTICATION_BACKENDS = (
-    'core.backends.EdXOpenIdConnect',
+    'auth_backends.backends.EdXOpenIdConnect',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -342,7 +341,7 @@ SOCIAL_AUTH_PIPELINE = (
     # By default python-social-auth will simply create a new user/username if the username
     # from the provider conflicts with an existing username in this system. This custom pipeline function
     # loads existing users instead of creating new ones.
-    'core.pipeline.get_user_if_exists',
+    'auth_backends.pipeline.get_user_if_exists',
     'social.pipeline.user.get_username',
     'social.pipeline.user.create_user',
     'social.pipeline.social_auth.associate_user',
@@ -382,9 +381,8 @@ LOGIN_REDIRECT_URL = '/courses/'
 ENABLE_COURSE_PERMISSIONS = True
 
 # What scopes and claims should be used to get courses
-COURSE_PERMISSIONS_SCOPE = ['course_staff']
+EXTRA_SCOPE = ['permissions', 'course_staff']
 COURSE_PERMISSIONS_CLAIMS = ['staff_courses']
-
 ########## END AUTHENTICATION
 
 # The application and platform display names to be used in templates, emails, etc.
