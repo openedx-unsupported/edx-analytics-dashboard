@@ -68,6 +68,10 @@ developer, and do not want to setup edx-platform, you can get around this requir
 Note: When using Open ID Connect, the dashboard and provider must be accessed via different host names 
 (e.g. dashboard.example.org and provider.example.org) in order to avoid issues with session cookies being overwritten.
 
+Note 2: Seeing signature expired errors upon login? Make sure the clocks of your dashboard and OAuth servers are synced
+with a centralized time server. If you are using a VM, the VM's clock may skew when the host is suspended. Restarting
+the NTP service usually resolves this issue.
+
 Internationalization (i18n)
 ---------------------------
 In order to work with translations you must have you must have [gettext](http://www.gnu.org/software/gettext/) installed. gettext
