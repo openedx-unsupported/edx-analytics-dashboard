@@ -1,8 +1,10 @@
 from django import template
 from django.conf import settings
+from django.template.defaultfilters import stringfilter
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 from opaque_keys.edx.keys import CourseKey
+from slugify import slugify
 
 register = template.Library()
 
@@ -112,3 +114,9 @@ def format_course_key(course_key, separator=u'/'):
         course_key = CourseKey.from_string(course_key)
 
     return separator.join([course_key.org, course_key.course, course_key.run])
+
+
+@register.filter(is_safe=True)
+@stringfilter
+def unicode_slugify(value):
+    return slugify(value)

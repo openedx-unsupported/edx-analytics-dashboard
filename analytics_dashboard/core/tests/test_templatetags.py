@@ -58,3 +58,7 @@ class DashboardExtraTests(TestCase):
         self.assertEqual(dashboard_extras.metric_percentage(0.009), '< 1%')
         self.assertEqual(dashboard_extras.metric_percentage(0.5066), '50.7%')
         self.assertEqual(dashboard_extras.metric_percentage(0.5044), '50.4%')
+
+    def test_unicode_slugify(self):
+        self.assertEqual(dashboard_extras.unicode_slugify('hello world'), 'hello-world')
+        self.assertEqual(dashboard_extras.unicode_slugify(u'straße road'), u'strasse-road')

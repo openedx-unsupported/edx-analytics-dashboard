@@ -3,6 +3,7 @@ import logging
 from django.conf import settings
 from django.http import Http404
 from django.utils.translation import ugettext_lazy as _
+from slugify import slugify
 from slumber.exceptions import SlumberBaseException
 
 from courses.presenters.performance import CoursePerformancePresenter
@@ -47,6 +48,17 @@ class PerformanceTemplateView(CourseTemplateWithNavView, CourseAPIMixin):
             logger.error('An error occurred while using Slumber to communicate with an API: %s', e)
             raise
 
+    def _deslugify_assignment_type(self):
+        """
+        Assignment type is slugified in the templates to avoid issues with our URL regex failing to match unknown
+        assignment types. This method changes the assignment type to the human-friendly version. If no match is found,
+        the assignment type is unchanged.
+        """
+        for assignment_type in self.presenter.assignment_types():
+            if self.assignment_type == slugify(assignment_type):
+                self.assignment_type = assignment_type
+                break
+
     def get_context_data(self, **kwargs):
         context = super(PerformanceTemplateView, self).get_context_data(**kwargs)
         self.presenter = CoursePerformancePresenter(self.access_token, self.course_id)
@@ -65,6 +77,7 @@ class PerformanceTemplateView(CourseTemplateWithNavView, CourseAPIMixin):
                 raise Http404
 
         if self.assignment_type:
+            self._deslugify_assignment_type()
             assignments = self.presenter.assignments(self.assignment_type)
 
             context['js_data']['course']['assignments'] = assignments

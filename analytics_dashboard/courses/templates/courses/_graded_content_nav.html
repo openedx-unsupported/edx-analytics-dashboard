@@ -25,7 +25,7 @@
               {% for assignment_type in assignment_types %}
                 <li role="presentation">
                   <a role="menuitem"
-                     href="{% url "courses:performance:graded_content_by_type" course_id=course_id assignment_type=assignment_type %}">
+                     href="{% url "courses:performance:graded_content_by_type" course_id=course_id assignment_type=assignment_type|unicode_slugify %}">
                     {{ assignment_type }}
                   </a>
                 </li>
