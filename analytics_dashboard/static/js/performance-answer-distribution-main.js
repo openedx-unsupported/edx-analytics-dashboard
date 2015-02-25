@@ -47,9 +47,9 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                         color: function (bar, index) {
                             // green bars represent bars with the correct answer
                             if (courseModel.get('answerDistributionLimited')[index].correct) {
-                                return 'rgb(0, 137, 0)';
+                                return '#4BB4FB';
                             } else {
-                                return 'rgb(58, 162, 224)';
+                                return '#CA0061';
                             }
                         }
                     }],
