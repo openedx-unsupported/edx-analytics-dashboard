@@ -100,8 +100,8 @@ class CourseAPIMixin(object):
                     # Cache the information so that it doesn't need to be retrieved later.
                     for course in course_details:
                         course_id = course['id']
-                        key = self._course_detail_cache_key(course_id)
-                        cache.set(key, course)
+                        _key = self._course_detail_cache_key(course_id)
+                        cache.set(_key, course)
 
                     courses += course_details
 
