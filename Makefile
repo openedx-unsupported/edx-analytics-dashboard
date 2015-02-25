@@ -34,9 +34,8 @@ clean:
 
 test_python: clean
 	python manage.py test analytics_dashboard --settings=analytics_dashboard.settings.test --with-coverage \
-	--cover-package=analytics_dashboard --exclude-dir=analytics_dashboard/settings --exclude-dir=analytics_dashboard/migrations \
-		--cover-branches --cover-html --cover-html-dir=$(COVERAGE)/html/ --with-ignore-docstrings \
-		--cover-xml --cover-xml-file=$(COVERAGE)/coverage.xml --exclude=core/admin
+	--cover-package=analytics_dashboard --cover-branches --cover-html --cover-html-dir=$(COVERAGE)/html/ \
+	--with-ignore-docstrings --cover-xml --cover-xml-file=$(COVERAGE)/coverage.xml
 
 accept:
 	nosetests -v acceptance_tests --exclude-dir=acceptance_tests/course_validation
