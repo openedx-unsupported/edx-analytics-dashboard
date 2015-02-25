@@ -23,7 +23,7 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                     }
                 ],
                 tableColumns = [
-                    {key: 'index', title: gettext('Sequence'), type: 'number', className: 'text-right'},
+                    {key: 'index', title: gettext('Order'), type: 'number', className: 'text-right'},
                     {key: 'name', title: gettext('Problem Name'), type: 'hasNull'}
                 ].concat(graphSubmissionColumns);
 

@@ -171,7 +171,7 @@ class CoursePerformanceGradedContentByTypeTests(CoursePerformancePageTestsMixin,
 
         # Check the column headings
         cols = table.find_elements_by_css_selector('thead tr th')
-        expected = [u'Sequence', u'Assignment Name', u'Problems in Assignment', u'Correct', u'Incorrect', u'Total']
+        expected = [u'Order', u'Assignment Name', u'Problems', u'Correct', u'Incorrect', u'Total']
         self.assertRowTextEquals(cols, expected)
 
         # Check the row texts
@@ -218,7 +218,7 @@ class CoursePerformanceAssignmentTests(CoursePerformancePageTestsMixin, WebAppTe
 
         # Check the column headings
         cols = table.find_elements_by_css_selector('thead tr th')
-        expected = [u'Sequence', u'Problem Name', u'Correct', u'Incorrect', u'Total']
+        expected = [u'Order', u'Problem Name', u'Correct', u'Incorrect', u'Total']
         self.assertRowTextEquals(cols, expected)
 
         # Check the row texts
