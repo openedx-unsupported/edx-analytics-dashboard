@@ -414,8 +414,6 @@ table.dataTable thead th.sorting_desc:after {
       font-size: $font-size-large;
       color: $edx-blue;
 
-
-
       // increase line height for med-small screens so headers are same level for long lines
       @media (max-width: $screen-md-max) and (min-width: $screen-sm-min) {
         min-height: $font-size-large * 3.5;
@@ -637,6 +635,12 @@ table.dataTable thead th.sorting_desc:after {
         vertical-align: middle;
         font-weight: bold;
       }
+    }
+
+    .type {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
     }
   }
 }
