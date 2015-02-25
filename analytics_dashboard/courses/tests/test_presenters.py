@@ -387,3 +387,16 @@ class CoursePerformancePresenterTests(TestCase):
             # The method should return an individual assignment if the ID exists.
             assignment = self.factory.present_assignments()[0]
             self.assertDictEqual(self.presenter.assignment(assignment[u'id']), assignment)
+
+    def test_problem(self):
+        """ Verify the presenter returns a specific problem. """
+        problem = self.factory.present_assignments()[0]['problems'][0]
+        _id = problem['id']
+
+        with mock.patch('slumber.Resource.get', mock.Mock(return_value=self.factory.structure)):
+            actual = self.presenter.problem(_id)
+            expected = {
+                'id': _id,
+                'name': problem['name']
+            }
+            self.assertDictContainsSubset(expected, actual)

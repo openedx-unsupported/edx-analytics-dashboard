@@ -9,7 +9,7 @@
           <div class="dropdown">
               <span class="link-label dropdown-toggle" id="assignmentTypeMenu" data-toggle="dropdown">
                 {% if assignment_type %}
-                  {{assignment_type}}
+                  {{ assignment_type }}
                 {% else %}
                   {% trans "Select Assignment Type" %}
                 {% endif %}
@@ -37,11 +37,11 @@
           <li class="{% if active == "assignments" %}active{% endif %} nav-section">
             <div class="dropdown">
               <span class="link-label dropdown-toggle" id="assignmentMenu" data-toggle="dropdown">
-                {% if assignment_name %}
-                  {{assignment_name}}
+                {% if assignment and assignment.name %}
+                  {{ assignment.name }}
                 {% else %}
                   {% blocktrans %}
-                    Select {{assignment_type}}
+                    Select {{ assignment_type }}
                   {% endblocktrans %}
                 {% endif %}
                 <span class="caret"></span>
@@ -63,7 +63,11 @@
           <li class="{% if active == "problems" %}active{% endif %} nav-section">
             <div class="dropdown">
               <span class="link-label dropdown-toggle" id="problemMenu" data-toggle="dropdown">
-                {% trans "Problems" %}
+                {% if problem and problem.name %}
+                  {{ problem.name }}
+                {% else %}
+                  {% trans "Select Problem" %}
+                {% endif %}
                 <span class="caret"></span>
               </span>
               <ul class="dropdown-menu" role="menu" aria-labelledby="problemMenu">

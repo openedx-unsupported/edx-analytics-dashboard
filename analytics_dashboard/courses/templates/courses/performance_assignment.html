@@ -11,7 +11,7 @@
 {% block child_content %}
   <section class="view-section">
     {% trans "How are students doing on this assignment?" as heading_note %}
-    {% include "courses/_graded_content_nav.html" with active="assignments" heading_note=heading_note assignment_name=assignment_name assignment_types=assignment_types heading_note=heading_note assignments=assignments problems=assignment.problems %}
+    {% include "courses/_graded_content_nav.html" with active="assignments" heading_note=heading_note assignment=assignment assignment_types=assignment_types heading_note=heading_note assignments=assignments problems=assignment.problems %}
 
     <div class="section-content section-data-graph">
       <div class="section-content section-data-viz">

@@ -352,3 +352,9 @@ class CoursePerformancePresenter(BasePresenter):
             return filtered[0]
         else:
             return None
+
+    def problem(self, problem_id):
+        """ Retrieve a specific problem. """
+        problem = self._structure()['blocks'][problem_id]
+        problem['name'] = problem.pop('display_name')
+        return problem

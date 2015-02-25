@@ -69,7 +69,6 @@ class PerformanceTemplateView(CourseTemplateWithNavView, CourseAPIMixin):
             assignment = self.presenter.assignment(self.assignment_id)
             if assignment:
                 context['assignment'] = assignment
-                context['assignment_name'] = assignment['name']
                 self.assignment = assignment
                 self.assignment_type = assignment['assignment_type']
             else:
@@ -120,6 +119,7 @@ class PerformanceAnswerDistributionView(PerformanceTemplateView):
         })
 
         context.update({
+            'problem': presenter.problem(problem_id),
             'questions': answer_distribution_entry.questions,
             'active_question': answer_distribution_entry.active_question,
             'problem_id': problem_id,
