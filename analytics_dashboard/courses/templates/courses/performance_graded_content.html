@@ -13,29 +13,30 @@
       </div>
       <div class="row">
         <div class="col-xs-12">
-        {% for item in grading_policy %}
-          {% widthratio item.weight 1 100 as policy_ratio %}
-          {% captureas policy_description %}
-            {# Translators: This describes the percent an assignment contributes to that of a learner's grade (e.g. Exam 60%). #}
-            {% blocktrans with item.assignment_type as assignment_type %}
-              {{assignment_type}} {{policy_ratio}}%
-            {% endblocktrans %}
-          {% endcaptureas %}
+          {% for item in grading_policy %}
+            {% widthratio item.weight 1 100 as policy_ratio %}
+            {% captureas policy_description %}
+              {# Translators: This describes the percent an assignment contributes to that of a learner's grade (e.g. Exam: 60% of the grading policy.). #}
+              {% blocktrans with item.assignment_type as assignment_type %}
+                {{ assignment_type }}: {{ policy_ratio }}% of the grading policy
+              {% endblocktrans %}
+            {% endcaptureas %}
 
-          {% widthratio item.weight 1 max_policy_display_percent as bar_ratio %}
-          <div style="width: {{bar_ratio}}%; min-width: {{min_policy_display_percent}}%" class="policy-item has-tooltip" title="{{policy_description}}">
-            <a href="{% url 'courses:performance:graded_content_by_type' course_id=course_id assignment_type=item.assignment_type|unicode_slugify %}">
-              <div class="policy-item-box">
-                {% captureas policy_percent %}
-                  {# Translators: This describes the percent of a learner's grade (e.g. 60%). #}
-                  {% blocktrans %}{{policy_ratio}}%{% endblocktrans %}
-                {% endcaptureas %}
-                <div class="weight">{{policy_percent}}</div>
-              </div>
-              <div class="type">{{item.assignment_type}}</div>
-            </a>
-          </div>
-        {% endfor %}
+            {% widthratio item.weight 1 max_policy_display_percent as bar_ratio %}
+            <div style="width: {{ bar_ratio }}%; min-width: {{ min_policy_display_percent }}%"
+                 class="policy-item has-tooltip" title="{{ policy_description }}">
+              <a href="{% url 'courses:performance:graded_content_by_type' course_id=course_id assignment_type=item.assignment_type|unicode_slugify %}">
+                <div class="policy-item-box">
+                  {% captureas policy_percent %}
+                    {# Translators: This describes the percent of a learner's grade (e.g. 60%). #}
+                    {% blocktrans %}{{ policy_ratio }}%{% endblocktrans %}
+                  {% endcaptureas %}
+                  <div class="weight">{{ policy_percent }}</div>
+                </div>
+                <div class="type">{{ item.assignment_type }}</div>
+              </a>
+            </div>
+          {% endfor %}
         </div>
       </div>
     </div>
