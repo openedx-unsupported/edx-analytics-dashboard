@@ -196,12 +196,15 @@ class CoursePerformanceAnswerDistributionViewTests(CoursePerformanceViewTestMixi
         # Mock the course details
         self.mock_course_detail(course_id)
 
-        # API returns different data (e.g. text answers, numeric answers, and randomized answers), resulting in
-        # different renderings for these problem part IDs.
-        for problem_part_id in [self.TEXT_PROBLEM_PART_ID, self.NUMERIC_PROBLEM_PART_ID,
-                                self.RANDOMIZED_PROBLEM_PART_ID]:
-            logger.info('Testing answer distribution view with problem_part_id: %s', problem_part_id)
-            self.assertViewIsValid(course_id, self.PROBLEM_ID, problem_part_id)
+        # Mock the problem response used to populate the navbar.
+        with patch('courses.presenters.performance.CoursePerformancePresenter.problem',
+                   return_value=self.factory.present_assignments()[0]['problems'][0]):
+            # API returns different data (e.g. text answers, numeric answers, and randomized answers), resulting in
+            # different renderings for these problem part IDs.
+            for problem_part_id in [self.TEXT_PROBLEM_PART_ID, self.NUMERIC_PROBLEM_PART_ID,
+                                    self.RANDOMIZED_PROBLEM_PART_ID]:
+                logger.info('Testing answer distribution view with problem_part_id: %s', problem_part_id)
+                self.assertViewIsValid(course_id, self.PROBLEM_ID, problem_part_id)
 
     def assertViewIsValid(self, course_id, problem_id, problem_part_id):
         # Retrieve a mock assignment ID
