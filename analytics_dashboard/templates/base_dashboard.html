@@ -9,8 +9,8 @@
 
 
 {% block body %}
-<body class="{% block view-name %}{% endblock view-name %}" >
-<div id="wrap-content-push-footer-sock">
+  <body class="{% block view-name %}{% endblock view-name %}">
+  <div id="wrap-content-push-footer-sock">
     {% block header %}
       {% include "header.html" %}
     {% endblock header %}
@@ -24,36 +24,36 @@
     {% endblock lens_navigation %}
 
     <div class="container">
-        <div class="row">
-          {% block content-outer %}
-            {#  Translators: Application here refers to the web site/application being used (e.g. the dashboard). #}
-            <main class="col-xs-12 main" id="content" aria-label="{% trans "Application" %}">
-                <div class="view-head">
-                  {% block header-text %}
-                    {% if page_title %}
-                      <div class="row page-title-outer">
-                        <div class="col-md-6 col-xs-12">
-                          <h1>{{ page_title }}</h1>
-                        </div>
-                        <div class="col-md-6 col-xs-12">
-                          <div class="page-subtitle">{{ page_subtitle|default_if_none:'' }}</div>
-                        </div>
-                      </div>
-                    {% endif %}
-                  {% endblock %}
-                </div>
+      <div class="row">
+        {% block content-outer %}
+          {#  Translators: Application here refers to the web site/application being used (e.g. the dashboard). #}
+          <main class="col-xs-12 main" id="content" aria-label="{% trans "Application" %}">
+            <div class="view-head">
+              {% block header-text %}
+                {% if page_title %}
+                  <div class="row page-title-outer">
+                    <div class="col-md-6 col-xs-12">
+                      <h1>{{ page_title }}</h1>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                      <div class="page-subtitle">{{ page_subtitle|default_if_none:'' }}</div>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endblock %}
+            </div>
 
-                <div class="view-intro">
-                    <p class="lead text-muted intro-text">
-                        {% block intro-text %}{% endblock intro-text %}
-                    </p>
-                </div>
+            <div class="view-intro">
+              <p class="lead text-muted intro-text">
+                {% block intro-text %}{% endblock intro-text %}
+              </p>
+            </div>
 
-                {% block content %}
-                {% endblock content %}
-            </main>
-          {% endblock %}
-        </div>
+            {% block content %}
+            {% endblock content %}
+          </main>
+        {% endblock %}
+      </div>
     </div>
 
     <!-- Placed at the end of the document so the pages load faster -->
@@ -70,9 +70,9 @@
 
     {# Initial page data passed from view to JS initializer #}
     {% if page_data %}
-    <script type="text/javascript">
-      var initModelData = {{ page_data|safe }};
-    </script>
+      <script type="text/javascript">
+        var initModelData = {{ page_data|safe }};
+      </script>
     {% endif %}
 
     {% compress js %}
@@ -90,12 +90,12 @@
       {% endblock javascript %}
     {% endcompress %}
 
-  <div id="footer-sock-push"></div>
-</div>
-{% block footer %}
-  <div id="footer-sock">
-    {% include "footer.html" with show_feedback=True %}
+    <div id="footer-sock-push"></div>
   </div>
-{% endblock footer %}
-</body>
+  {% block footer %}
+    <div id="footer-sock">
+      {% include "footer.html" with show_feedback=True %}
+    </div>
+  {% endblock footer %}
+  </body>
 {% endblock body %}

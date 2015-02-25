@@ -45,7 +45,7 @@ button.chart-info {
 
   // shorten the chart so just a message (e.g. error message) is displayed
   .message-only-chart {
-    height: inherit;  // allows container height to adjust for long messages
+    height: inherit; // allows container height to adjust for long messages
     min-height: 38px;
   }
 
@@ -401,22 +401,31 @@ table.dataTable thead th.sorting_desc:after {
 }
 
 .course-home-table-outer {
-  header .heading {
-    font-size: $font-size-large;
-    color: $edx-blue;
+  header.heading-outer {
+    display: table;
+    height: $font-size-large * 4;
     padding-bottom: $padding-large-vertical;
+    width: 100%;
     @extend .text-center;
 
-    // increase line height for med-small screens so headers are same level for long lines
-    @media (max-width: $screen-md-max) and (min-width: $screen-sm-min) {
-      min-height: $font-size-large * 3.5;
+    .heading {
+      display: table-cell;
+      vertical-align: bottom;
+      font-size: $font-size-large;
+      color: $edx-blue;
+
+
+
+      // increase line height for med-small screens so headers are same level for long lines
+      @media (max-width: $screen-md-max) and (min-width: $screen-sm-min) {
+        min-height: $font-size-large * 3.5;
+      }
     }
   }
 
   .course-home-table {
     border: 1px solid $edx-gray-l1;
     border-width: 0 0 1px 1px;
-    margin-right: $padding-small-horizontal;
     margin-bottom: $padding-large-vertical;
 
     .item {
