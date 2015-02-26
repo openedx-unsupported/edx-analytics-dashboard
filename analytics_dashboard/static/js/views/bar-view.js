@@ -20,7 +20,7 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
              *
              * This is called for both display labels beneath the bars and in tooltips.
              */
-            formatXValue: function(xValue) {
+            formatXValue: function (xValue) {
                 var self = this,
                     trend = self.options.trends[0],
                     maxNumber = trend.maxNumber;
@@ -38,37 +38,33 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
             /**
              * Returns function for displaying a truncated label.
              */
-            truncateXTickFunc: function () {
+            truncateXTick: function (d) {
                 var self = this;
+                d = self.formatXValue(d);
 
-                return function (d) {
+                var barWidth = d3.select(self.options.barSelector).attr('width'),  // jshint ignore:line
+                // this is a rough estimate of how wide a character is
+                    chartWidth = 5,
+                    characterLimit = Math.floor(barWidth / chartWidth),
+                    formattedLabel = d;
 
-                    d = self.formatXValue(d);
+                if (_(formattedLabel).size() > characterLimit) {
+                    formattedLabel = Utils.truncateText(d, characterLimit);
+                }
 
-                    var barWidth = d3.select(self.options.barSelector).attr('width'),  // jshint ignore:line
-                    // this is a rough estimate of how wide a character is
-                        chartWidth = 5,
-                        characterLimit = Math.floor(barWidth / chartWidth),
-                        formattedLabel = d;
-
-                    if (_(formattedLabel).size() > characterLimit) {
-                        formattedLabel = Utils.truncateText(d, characterLimit);
-                    }
-
-                    return formattedLabel;
-                };
+                return formattedLabel;
             },
 
-            addChartClick: function() {
+            addChartClick: function () {
                 var self = this;
                 d3.selectAll('rect.nv-bar')
                     .style('cursor', 'pointer')
-                    .on('click', function(d) {
+                    .on('click', function (d) {
                         self.options.click(d);
                     });
             },
 
-            buildTrendTip: function(trend, x, y, e) {
+            buildTrendTip: function (trend, x, y, e) {
                 var self = this,
                     swatchColor = trend.color,  // e.g #ff9988 or a function
                     label = trend.title;  // e.g. 'my title' or a function
@@ -101,7 +97,7 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
             /**
              * Builds the header for the interactive tooltip.
              */
-            buildTipHeading: function(point) {
+            buildTipHeading: function (point) {
                 var self = this,
                     heading = self.formatXValue(point[self.options.x.key]),
                     charLimit = self.options.tipCharLimit;
@@ -120,14 +116,14 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
                 return heading;
             },
 
-            initChart: function(chart) {
+            initChart: function (chart) {
                 var self = this;
                 ChartView.prototype.initChart.call(self, chart);
 
                 // NVD3's bar views display tooltips differently than for graphs
-                chart.tooltipContent(function(key, x, y, e) {
+                chart.tooltipContent(function (key, x, y, e) {
                     var trend = self.options.trends[e.seriesIndex],
-                        // 'e' contains the raw x-value and 'x' could be formatted (e.g. truncated, ellipse, etc.)
+                    // 'e' contains the raw x-value and 'x' could be formatted (e.g. truncated, ellipse, etc.)
                         tips = [self.buildTrendTip(trend, x, y, e)];
 
                     return self.hoverTooltipTemplate({

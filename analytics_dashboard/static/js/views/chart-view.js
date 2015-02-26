@@ -22,6 +22,7 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
                 var self = this;
                 self.chart = null;
                 self.options = _.extend({}, self.defaults, options);
+                _.bindAll(this, 'truncateXTick', 'formatXTick');
                 self.renderIfDataAvailable();
             },
 
@@ -254,7 +255,7 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
                     }
                 }
 
-                self.chart.xAxis.tickFormat(self.options.truncateXTicks ? self.truncateXTickFunc() : self.formatXTick);
+                self.chart.xAxis.tickFormat(self.options.truncateXTicks ? self.truncateXTick : self.formatXTick);
 
                 self.chart.yAxis
                     .showMaxMin(false)
