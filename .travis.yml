@@ -11,6 +11,7 @@ install:
     - make test.acceptance
     - pip install coveralls
 script:
+    - make static -e DJANGO_SETTINGS_MODULE="analytics_dashboard.settings.test"
     - make validate
     - make generate_fake_translations
     - bash ./runAcceptance.sh

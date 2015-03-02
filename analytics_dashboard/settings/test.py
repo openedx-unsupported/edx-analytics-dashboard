@@ -27,5 +27,7 @@ COURSE_API_URL = 'http://course-api-host'
 
 LOGGING = get_logger_config(debug=DEBUG, dev_env=True, local_loglevel='DEBUG')
 
-# Compressing assets slows down view rendering. Since we don't actually need assets, don't bother compressing them.
-COMPRESS_ENABLED = False
+# Use production settings for asset compression so that asset compilation can be tested on the CI server.
+COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = True
+RJS_OPTIMIZATION_ENABLED = True

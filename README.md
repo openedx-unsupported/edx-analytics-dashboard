@@ -9,6 +9,7 @@ Prerequisites
 * Python 2.7.x (not tested with Python 3.x)
 * [gettext](http://www.gnu.org/software/gettext/)
 * [npm](https://www.npmjs.org/) 
+* [JDK 7+](http://openjdk.java.net/)
 
 Getting Started
 ---------------
@@ -116,8 +117,9 @@ Note that only the following files (for each language) should be committed to th
 Asset Pipeline
 --------------
 Static files are managed via [django-compressor](http://django-compressor.readthedocs.org/) and [RequireJS](http://requirejs.org/).
-RequireJS (and r.js) are used to manage JavaScript dependencies. django-compressor compiles SASS, minifies JavaScript,
-and handles naming files to facilitate cache busting during deployment.
+RequireJS (and r.js) are used to manage JavaScript dependencies. django-compressor compiles SASS, minifies JavaScript (
+using [Closure Compiler](https://developers.google.com/closure/compiler/)), and handles naming files to facilitate 
+cache busting during deployment.
 
 Both tools should operate seamlessly in a local development environment. When deploying to production, call
 `make static` to compile all static assets and move them to the proper location to be served.
