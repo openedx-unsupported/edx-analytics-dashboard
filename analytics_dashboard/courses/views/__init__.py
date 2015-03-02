@@ -522,7 +522,6 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LazyEnco
             raise PermissionDenied
 
         courses = self._create_course_list(courses)
-        courses = sorted(courses, key=lambda course: course.get('name', course.get('key')))
         context['courses'] = courses
         context['page_data'] = self.get_page_data(context)
 
@@ -543,5 +542,7 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LazyEnco
 
         for course_id in course_ids:
             info.append({'key': course_id, 'name': course_data.get(course_id)})
+
+        info.sort(key=lambda course: (course.get('name', '') or course.get('key', '') or '').lower())
 
         return info
