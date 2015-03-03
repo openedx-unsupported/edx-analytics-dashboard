@@ -70,7 +70,8 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                 model: model,
                 modelAttribute: 'assignments',
                 columns: tableColumns,
-                sorting: ['index']
+                sorting: ['index'],
+                replaceZero: '-'
             });
         });
 });

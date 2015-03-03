@@ -98,11 +98,14 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
              * numbers.
              */
             createFormatNumberFunc: function (columnKey) {
+                var self = this;
                 return function (row, type) {
                     var value = row[columnKey],
                         display = value;
                     if (type === 'display') {
-                        if (!_(value).isUndefined() && !_(value).isNull()){
+                        if (_(self.options).has('replaceZero') && value === 0) {
+                            display = self.options.replaceZero;
+                        } else if (!_(value).isUndefined() && !_(value).isNull()){
                             display = Utils.localizeNumber(Number(value));
                         }
                     }
