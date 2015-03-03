@@ -365,7 +365,6 @@ class CoursePerformancePresenterTests(TestCase):
                 self.assertEqual(self.presenter.last_updated, utils.CREATED_DATETIME)
 
                 # With an assignment type set, the presenter should return only the assignments of the specified type.
-                self.maxDiff = None
                 for assignment_type in self.factory.assignment_types:
                     cache.clear()
                     expected = [assignment for assignment in expected_assignments if

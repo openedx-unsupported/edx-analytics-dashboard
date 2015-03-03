@@ -24,3 +24,18 @@ class PermissionsRetrievalFailedError(PermissionsError):
     Raise if permissions retrieval fails (e.g. the backend is unreachable).
     """
     pass
+
+
+class NoAnswerSubmissionsError(Exception):
+    """
+    Raise if the course has no answer submissions.
+    """
+    course_id = None
+
+    def __init__(self, *args, **kwargs):
+        self.course_id = kwargs.pop('course_id')
+        super(NoAnswerSubmissionsError, self).__init__(*args, **kwargs)
+        self.message = 'No answers have been submitted for course {}.'.format(self.course_id)
+
+    def __str__(self):
+        return self.message

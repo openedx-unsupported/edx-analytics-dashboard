@@ -299,7 +299,8 @@ class CoursePerformanceGradedContentByTypeViewTests(CoursePerformanceViewTestMix
     @patch('courses.presenters.performance.CoursePerformancePresenter.assignments', Mock(return_value=[]))
     def test_missing_assignments(self):
         """
-        The view should return HTTP 404 if there are no assignments.
+        The view should return HTTP 200 if there are no assignments. The template will adjust to inform the user
+        of the issue.
 
         Assignments might be missing if the assignment type is invalid or the course is incomplete.
         """
@@ -310,7 +311,7 @@ class CoursePerformanceGradedContentByTypeViewTests(CoursePerformanceViewTestMix
         self.mock_course_detail(course_id)
 
         response = self.client.get(self.path(course_id=course_id, assignment_type='Invalid'))
-        self.assertEqual(response.status_code, 404)
+        self.assertEqual(response.status_code, 200)
 
 
 class CoursePerformanceAssignmentViewTests(CoursePerformanceViewTestMixin, TestCase):

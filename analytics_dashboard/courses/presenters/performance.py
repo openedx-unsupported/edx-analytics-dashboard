@@ -11,6 +11,7 @@ import slumber
 
 import common
 from courses import utils
+from courses.exceptions import NoAnswerSubmissionsError
 from courses.presenters import BasePresenter
 from core.utils import sanitize_cache_key
 
@@ -212,7 +213,11 @@ class CoursePerformancePresenter(BasePresenter):
         if not problems:
             # Get the problems from the API
             logger.debug('Retrieving problem submissions for course: %s', self.course_id)
-            problems = self.client.courses(self.course_id).problems()
+
+            try:
+                problems = self.client.courses(self.course_id).problems()
+            except NotFoundError:
+                raise NoAnswerSubmissionsError(course_id=self.course_id)
 
             # Create a lookup table so that submission data can be quickly retrieved by downstream consumers.
             table = {}
@@ -258,17 +263,23 @@ class CoursePerformancePresenter(BasePresenter):
             'part_ids': []
         }
 
-        course_problems = self._course_problems()
+        try:
+            course_problems = self._course_problems()
+        except NoAnswerSubmissionsError as e:
+            logger.warning(e)
+            course_problems = {}
 
         for assignment in assignments:
             problems = assignment['problems']
 
             for index, problem in enumerate(problems):
                 data = course_problems.get(problem['id'], DEFAULT_DATA)
+
                 # map empty names to None so that the UI catches them and displays as '(empty)'
                 if len(problem['name']) < 1:
                     problem['name'] = None
                 data['index'] = index + 1
+
                 # not all problems have submissions
                 if len(data['part_ids']) > 0:
                     utils.sorting.natural_sort(data['part_ids'])
@@ -317,6 +328,7 @@ class CoursePerformancePresenter(BasePresenter):
                                assignment['assignment_type'].lower() == assignment_type]
 
             self._add_submissions_and_part_ids(assignments)
+
             for index, assignment in enumerate(assignments):
                 problems = assignment['problems']
                 total_submissions = sum(problem.get('total_submissions', 0) for problem in problems)
