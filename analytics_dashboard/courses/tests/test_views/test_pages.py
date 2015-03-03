@@ -34,7 +34,7 @@ class CourseIndexViewTests(CourseAPIMixin, ViewTestMixin, MiddlewareAssertionMix
     def setUp(self):
         super(CourseIndexViewTests, self).setUp()
         self.grant_permission(self.user, DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
-        self.courses = self._create_course_list(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
+        self.courses = self._create_course_list(DEPRECATED_DEMO_COURSE_ID, DEMO_COURSE_ID)
 
     def assertCourseListEquals(self, courses):
         response = self.client.get(self.path())
@@ -47,6 +47,7 @@ class CourseIndexViewTests(CourseAPIMixin, ViewTestMixin, MiddlewareAssertionMix
 
     def test_get(self):
         """ If the user is authorized, the view should return a list of all accessible courses. """
+        self.courses.sort(key=lambda course: (course['name'] or course['key'] or '').lower())
         self.assertCourseListEquals(self.courses)
 
     def test_get_with_mixed_permissions(self):
