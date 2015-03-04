@@ -33,6 +33,7 @@ clean:
 	coverage erase
 
 test_python: clean
+	python manage.py compress --settings=analytics_dashboard.settings.test
 	python manage.py test analytics_dashboard --settings=analytics_dashboard.settings.test --with-coverage \
 	--cover-package=analytics_dashboard --cover-branches --cover-html --cover-html-dir=$(COVERAGE)/html/ \
 	--with-ignore-docstrings --cover-xml --cover-xml-file=$(COVERAGE)/coverage.xml
