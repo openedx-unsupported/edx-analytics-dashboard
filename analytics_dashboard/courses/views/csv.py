@@ -20,7 +20,7 @@ class CSVResponseMixin(object):
     # pylint: disable=unused-argument
     def render_to_response(self, context, **response_kwargs):
         response = HttpResponse(self.get_data(), content_type='text/csv', **response_kwargs)
-        response['Content-Disposition'] = 'attachment; filename="{0}"'.format(self._get_filename())
+        response['Content-Disposition'] = u'attachment; filename="{0}"'.format(self._get_filename())
         return response
 
     def get_data(self):
@@ -29,7 +29,7 @@ class CSVResponseMixin(object):
     def _get_filename(self):
         course_key = self.course_key
         course_id = '-'.join([course_key.org, course_key.course, course_key.run])
-        filename = '{0}--{1}.csv'.format(course_id, self.csv_filename_suffix)
+        filename = u'{0}--{1}.csv'.format(course_id, self.csv_filename_suffix)
         return urllib.quote(filename)
 
 
