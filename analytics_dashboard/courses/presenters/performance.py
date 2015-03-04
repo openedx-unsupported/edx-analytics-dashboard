@@ -7,9 +7,9 @@ from django.conf import settings
 from django.core.cache import cache
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
-import slumber
 
 import common
+from common.clients import CourseStructureApiClient
 from courses import utils
 from courses.exceptions import NoAnswerSubmissionsError
 from courses.presenters import BasePresenter
@@ -45,8 +45,7 @@ class CoursePerformancePresenter(BasePresenter):
 
     def __init__(self, access_token, course_id, timeout=10):
         super(CoursePerformancePresenter, self).__init__(course_id, timeout)
-        self.course_api_client = slumber.API(settings.COURSE_API_URL,
-                                             auth=common.BearerAuth(access_token))
+        self.course_api_client = CourseStructureApiClient(settings.COURSE_API_URL, access_token)
 
     def get_answer_distribution(self, problem_id, problem_part_id):
         """

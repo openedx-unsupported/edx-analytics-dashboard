@@ -14,13 +14,12 @@ from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import TemplateView
 import requests
-import slumber
 from slumber.exceptions import HttpClientError
 from waffle import switch_is_active
 from analyticsclient.client import Client
 from analyticsclient.exceptions import NotFoundError, ClientError
 
-from common import BearerAuth
+from common.clients import CourseStructureApiClient
 from core.utils import sanitize_cache_key
 from courses import permissions
 from courses.serializers import LazyEncoder
@@ -50,8 +49,8 @@ class CourseAPIMixin(object):
         self.course_api_enabled = switch_is_active('enable_course_api')
 
         if self.course_api_enabled and request.user.is_authenticated():
-            self.access_token = request.user.access_token
-            self.course_api = slumber.API(settings.COURSE_API_URL, auth=BearerAuth(self.access_token)).courses
+            self.access_token = settings.COURSE_API_KEY or request.user.access_token
+            self.course_api = CourseStructureApiClient(settings.COURSE_API_URL, self.access_token).courses
 
         return super(CourseAPIMixin, self).dispatch(request, *args, **kwargs)
 
