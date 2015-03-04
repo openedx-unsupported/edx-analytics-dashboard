@@ -7,7 +7,7 @@ from acceptance_tests import ENABLE_COURSE_API
 from acceptance_tests.mixins import CoursePageTestsMixin
 from acceptance_tests.pages import CoursePerformanceGradedContentPage, CoursePerformanceAnswerDistributionPage, \
     CoursePerformanceGradedContentByTypePage, CoursePerformanceAssignmentPage
-from common import CourseStructure
+from common.course_structure import CourseStructure
 
 
 _multiprocess_can_split_ = True
