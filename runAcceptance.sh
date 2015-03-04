@@ -15,7 +15,7 @@ export LMS_HOSTNAME=lms
 export LMS_PASSWORD=pass
 export LMS_USERNAME=user
 export ENABLE_AUTO_AUTH=True
-export ENABLE_AUTH_TESTS=False
+export ENABLE_OAUTH_TESTS=False
 export ENABLE_ERROR_PAGE_TESTS=False
 
 echo "Migrating Analytics Dashboard DB..."

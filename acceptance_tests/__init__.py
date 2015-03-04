@@ -24,7 +24,7 @@ API_AUTH_TOKEN = os.environ['API_AUTH_TOKEN']
 
 # Test configuration
 ENABLE_AUTO_AUTH = str2bool(os.environ.get('ENABLE_AUTO_AUTH', False))
-ENABLE_OAUTH_TESTS = str2bool(os.environ.get('ENABLE_AUTH_TESTS', True))
+ENABLE_OAUTH_TESTS = str2bool(os.environ.get('ENABLE_OAUTH_TESTS', True))
 ENABLE_ERROR_PAGE_TESTS = str2bool(os.environ.get('ENABLE_ERROR_PAGE_TESTS', True))
 
 # LMS settings
