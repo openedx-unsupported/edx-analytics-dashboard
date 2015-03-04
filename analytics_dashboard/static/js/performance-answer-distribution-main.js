@@ -64,7 +64,8 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                     model: courseModel,
                     modelAttribute: 'answerDistribution',
                     columns: tableColumns,
-                    sorting: ['-count']
+                    sorting: ['-count'],
+                    replaceZero: '-'
                 });
 
             });

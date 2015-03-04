@@ -59,7 +59,8 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                 model: model,
                 modelAttribute: 'problems',
                 columns: tableColumns,
-                sorting: ['index']
+                sorting: ['index'],
+                replaceZero: '-'
             });
         });
 });

@@ -108,10 +108,14 @@ define(['models/course-model', 'views/data-table-view'], function(CourseModel, D
                 view = new DataTableView({
                     el: document.createElement('div'),
                     model: model,
-                    modelAttribute: 'ages'
+                    modelAttribute: 'ages',
+                    replaceZero: '-'
                 }),
                 func = view.createFormatNumberFunc(dataType),
                 row = {};
+
+            row[dataType] = 0;
+            expect(func(row, renderType)).toBe('-');
 
             row[dataType] = 3;
             expect(func(row, renderType)).toBe('3');
