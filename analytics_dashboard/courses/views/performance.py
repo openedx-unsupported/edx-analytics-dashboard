@@ -169,7 +169,6 @@ class PerformanceGradedContentByType(PerformanceTemplateView):
             # If there are no assignments, either the course is incomplete or the assignment type is invalid.
             # It is more likely that the assignment type is invalid, so return a 404.
             logger.info('No assignments of type %s were found for course %s', assignment_type, self.course_id)
-            raise Http404
 
         context.update({
             'page_data': self.get_page_data(context),

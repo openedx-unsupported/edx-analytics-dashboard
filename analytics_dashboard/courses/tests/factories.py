@@ -80,7 +80,7 @@ class CoursePerformanceDataFactory(object):
 
                 self._assignments.append(assignment)
 
-    def present_assignments(self):
+    def present_assignments(self, include_submissions=True):
         presented = []
 
         for assignment_index, assignment in enumerate(self._assignments):
@@ -95,22 +95,36 @@ class CoursePerformanceDataFactory(object):
                     correct_percent = 0
                 url_template = '/courses/{}/performance/graded_content/assignments/{}/problems/' \
                                '{}/parts/{}/answer_distribution/'
-                problems.append({
+
+                problem = {
                     'index': problem_index + 1,
-                    'total_submissions': problem_index,
-                    'correct_submissions': problem_index,
-                    'correct_percent': correct_percent,
-                    'incorrect_submissions': 0.0,
-                    'incorrect_percent': 0,
                     'id': _id,
                     'name': block['display_name'],
-                    'part_ids': [part_id],
-                    'url': urllib.quote(url_template.format(
-                        CoursePerformanceDataFactory.course_id, assignment['id'], _id, part_id))
-                })
+                    'total_submissions': 0,
+                    'correct_submissions': 0,
+                    'correct_percent': 0,
+                    'incorrect_submissions': 0,
+                    'incorrect_percent': 0,
+                    'part_ids': []
+                }
+
+                if include_submissions:
+                    problem.update({
+                        'part_ids': [part_id],
+                        'total_submissions': problem_index,
+                        'correct_submissions': problem_index,
+                        'correct_percent': correct_percent,
+                        'incorrect_submissions': 0,
+                        'incorrect_percent': 0,
+                        'url': urllib.quote(url_template.format(self.course_id, assignment['id'], _id, part_id)),
+                    })
+
+                problems.append(problem)
 
             num_problems = len(problems)
             url_template = '/courses/{}/performance/graded_content/assignments/{}/'
+            total_submissions = sum([problem['total_submissions'] for problem in problems])
+            correct_submissions = sum([problem['correct_submissions'] for problem in problems])
             presented_assignment = {
                 'index': assignment_index + 1,
                 'id': assignment['id'],
@@ -118,14 +132,15 @@ class CoursePerformanceDataFactory(object):
                 'assignment_type': assignment['format'],
                 'problems': problems,
                 'num_problems': num_problems,
-                'total_submissions': num_problems,
-                'correct_submissions': num_problems,
-                'correct_percent': 1.0,
+                'total_submissions': total_submissions,
+                'correct_submissions': correct_submissions,
+                'correct_percent': 0.0 if not total_submissions else correct_submissions / total_submissions,
                 'incorrect_submissions': 0,
-                'incorrect_percent': 0.0,
-                'url': urllib.quote(url_template.format(
-                    CoursePerformanceDataFactory.course_id, assignment['id']))
+                'incorrect_percent': 0.0
             }
+
+            if total_submissions > 0:
+                presented_assignment['url'] = urllib.quote(url_template.format(self.course_id, assignment['id']))
 
             presented.append(presented_assignment)
 
