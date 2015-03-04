@@ -18,4 +18,4 @@ def sanitize_cache_key(key):
     """
     Returns a memcached-safe (no spaces or control characters) key.
     """
-    return md5(key).hexdigest()
+    return md5(key.encode("utf-8")).hexdigest()

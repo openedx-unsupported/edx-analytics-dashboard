@@ -106,8 +106,8 @@ class PerformanceAnswerDistributionView(PerformanceTemplateView):
         view_live_url = None
 
         if settings.LMS_COURSE_SHORTCUT_BASE_URL:
-            view_live_url = '{0}/{1}/jump_to/{2}'.format(settings.LMS_COURSE_SHORTCUT_BASE_URL, self.course_id,
-                                                         problem_id)
+            view_live_url = u'{0}/{1}/jump_to/{2}'.format(settings.LMS_COURSE_SHORTCUT_BASE_URL, self.course_id,
+                                                          problem_id)
 
         answer_distribution_entry = presenter.get_answer_distribution(problem_id, part_id)
 

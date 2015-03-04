@@ -165,7 +165,7 @@ class CoursePerformancePresenter(BasePresenter):
         return answer_distributions
 
     def get_cache_key(self, name):
-        return sanitize_cache_key('{}_{}'.format(self.course_id, name))
+        return sanitize_cache_key(u'{}_{}'.format(self.course_id, name))
 
     @property
     def last_updated(self):
@@ -298,11 +298,11 @@ class CoursePerformancePresenter(BasePresenter):
     def assignments(self, assignment_type=None):
         """ Returns the assignments (and problems) for the represented course. """
 
-        assignment_type_key = self.get_cache_key('assignments_{}'.format(assignment_type))
+        assignment_type_key = self.get_cache_key(u'assignments_{}'.format(assignment_type))
         assignments = cache.get(assignment_type_key)
 
         if not assignments:
-            all_assignments_key = '{}_assignments'.format(self.course_id)
+            all_assignments_key = self.get_cache_key(u'assignments')
             assignments = cache.get(all_assignments_key)
 
             if not assignments:

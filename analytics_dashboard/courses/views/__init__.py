@@ -56,7 +56,7 @@ class CourseAPIMixin(object):
         return super(CourseAPIMixin, self).dispatch(request, *args, **kwargs)
 
     def _course_detail_cache_key(self, course_id):
-        return sanitize_cache_key('course_{}_details'.format(course_id))
+        return sanitize_cache_key(u'course_{}_details'.format(course_id))
 
     def get_course_info(self, course_id):
         """
@@ -83,7 +83,7 @@ class CourseAPIMixin(object):
 
     def get_courses(self):
         # Check the cache for the user's courses
-        key = sanitize_cache_key('user_{}_courses'.format(self.request.user.pk))
+        key = sanitize_cache_key(u'user_{}_courses'.format(self.request.user.pk))
         courses = cache.get(key)
 
         # If no cached courses, iterate over the data from the course API.
