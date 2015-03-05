@@ -42,7 +42,9 @@
     </div>
   </section>
 
-  <section class="view-section">
+  {% if js_data.course.assignmentsHaveSubmissions %}
+    <section class="view-section">
+
     <div class="section-heading">
       <h4 class="section-title">{% trans "Assignment Submissions" %}</h4>
     </div>
@@ -54,6 +56,7 @@
     {% else %}
       {% show_table_error %}
     {% endif %}
+  {% endif %}
 
   </section>
 {% endblock %}
