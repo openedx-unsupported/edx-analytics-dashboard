@@ -44,11 +44,14 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
 
                 var barWidth = d3.select(self.options.barSelector).attr('width'),  // jshint ignore:line
                 // this is a rough estimate of how wide a character is
-                    chartWidth = 5,
-                    characterLimit = Math.floor(barWidth / chartWidth),
+                    charWidth = 6,
+                    characterLimit = Math.floor(barWidth / charWidth),
                     formattedLabel = d;
 
-                if (_(formattedLabel).size() > characterLimit) {
+                if (characterLimit < 3) {
+                    // no labels will be displayed if label space is limited
+                    formattedLabel = '';
+                } else if (_(formattedLabel).size() > characterLimit) {
                     formattedLabel = Utils.truncateText(d, characterLimit);
                 }
 
