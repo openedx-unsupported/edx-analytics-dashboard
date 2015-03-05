@@ -31,13 +31,13 @@ The edX Partner Portal
 ***********************
 
 The `edX Partner Portal`_ is the destination for partners to learn, connect,
-and collaborate with one another. Partners can explore rich resources and share
-success stories and best practices while staying up-to-date with important news
-and updates.
+and collaborate with one another. Users from edX partner institutions can
+explore rich resources and share success stories and best practices while
+staying up-to-date with important news and updates.
 
 To use the edX Partner Portal, you must register and request verification as an
 edX partner. If you are an edX partner and have not used the edX Partner
-Portal, follow these steps.
+Portal yet, follow these steps.
 
 #. Visit `partners.edx.org`_, and select **Create New Account**.
 #. Select **Request Partner Access**, then fill in your personal details.
