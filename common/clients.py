@@ -1,6 +1,6 @@
 import slumber
 
-from common import BearerAuth
+from common.auth import BearerAuth
 
 
 class CourseStructureApiClient(slumber.API):

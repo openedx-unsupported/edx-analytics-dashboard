@@ -7,7 +7,7 @@ from acceptance_tests import ENABLE_COURSE_API
 from acceptance_tests.mixins import CoursePageTestsMixin
 from acceptance_tests.pages import CoursePerformanceGradedContentPage, CoursePerformanceAnswerDistributionPage, \
     CoursePerformanceGradedContentByTypePage, CoursePerformanceAssignmentPage
-from common import CourseStructure
+from common.course_structure import CourseStructure
 
 
 _multiprocess_can_split_ = True
@@ -70,6 +70,12 @@ class CoursePerformancePageTestsMixin(CoursePageTestsMixin):
 
             for problem in assignment['problems']:
                 submission_entry = problems.get(problem['id'], None)
+
+                problem.update({
+                    'total_submissions': 0,
+                    'correct_submissions': 0
+                })
+
                 if submission_entry:
                     total += submission_entry['total_submissions']
                     correct += submission_entry['correct_submissions']
@@ -304,7 +310,7 @@ class CoursePerformanceAnswerDistributionTests(CoursePerformancePageTestsMixin, 
             for col in columns:
                 actual.append(col.text)
 
-            expected = [answer[value_field]]
+            expected = [answer[value_field] if answer[value_field] else u'(empty)']
             correct = '-'
             if answer['correct']:
                 correct = u'Correct'

@@ -8,8 +8,8 @@ from django.core.cache import cache
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
-import common
 from common.clients import CourseStructureApiClient
+from common.course_structure import CourseStructure
 from courses import utils
 from courses.exceptions import NoAnswerSubmissionsError
 from courses.presenters import BasePresenter
@@ -317,7 +317,7 @@ class CoursePerformancePresenter(BasePresenter):
 
             if not assignments:
                 structure = self._structure()
-                assignments = common.CourseStructure.course_structure_to_assignments(
+                assignments = CourseStructure.course_structure_to_assignments(
                     structure, graded=True, assignment_type=None)
                 cache.set(all_assignments_key, assignments)
 
