@@ -19,7 +19,8 @@ define(['nvd3', 'underscore', 'views/discrete-bar-view'],
 
                 chart.stacked(true)
                     .showControls(false)
-                    .showLegend(false);
+                    .showLegend(false)
+                    .reduceXTicks(false);  // shows all ticks
 
                 chart.tooltipContent(function(key, x, y, e) {
                     var tips = [];
