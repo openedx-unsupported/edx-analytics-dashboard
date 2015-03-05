@@ -9,7 +9,7 @@ class HelpURLMiddleware(object):
 
     def process_template_response(self, _request, response):
         # Error responses do not have context.
-        if response.status_code == 500:
+        if response.status_code in [500, 502]:
             return response
 
         page_token = response.context_data.get(HELP_CONTEXT_TOKEN_NAME)

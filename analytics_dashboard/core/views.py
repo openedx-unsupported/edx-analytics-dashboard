@@ -110,6 +110,13 @@ def logout_then_login(request, login_url=reverse_lazy('login'), current_app=None
     return django.contrib.auth.views.logout_then_login(request, login_url, current_app, extra_context)
 
 
+class BadGatewayView(TemplateView):
+    """
+    Bad gateway error page requesting users to wait and reload the page.
+    """
+    template_name = "502.html"
+
+
 class LandingView(TemplateView):
     """
     Displays a public landing page when users first come to the site.

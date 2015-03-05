@@ -1,24 +1,15 @@
 import logging
 
 from django.template.response import TemplateResponse
-from django.test import RequestFactory, TestCase
 from opaque_keys.edx.keys import CourseKey
 from testfixtures import LogCapture
 
+from core.tests.test_middleware import MiddlewareTestCase, MiddlewareAssertionMixin
 from courses.exceptions import PermissionsRetrievalFailedError
 from courses.middleware import CourseMiddleware, CoursePermissionsExceptionMiddleware
 
 
-class MiddlewareTestCase(TestCase):
-    middleware_class = None
-
-    def setUp(self):
-        super(MiddlewareTestCase, self).setUp()
-        self.factory = RequestFactory()
-        self.middleware = self.middleware_class()   # pylint: disable=not-callable
-
-
-class MiddlewareAssertionMixin(object):
+class CoursePermissionsExceptionMixin(MiddlewareAssertionMixin):
     def assertIsPermissionsRetrievalFailedResponse(self, response):
         self.assertEqual(response.status_code, 500)
         self.assertIs(type(response), TemplateResponse)
@@ -49,16 +40,14 @@ class CourseMiddlewareTests(MiddlewareTestCase):
         self.assertEqual(request.course_key, course_key)
 
 
-class CoursePermissionsExceptionMiddlewareTests(MiddlewareAssertionMixin, MiddlewareTestCase):
+class CoursePermissionsExceptionMiddlewareTests(CoursePermissionsExceptionMixin, MiddlewareTestCase):
     middleware_class = CoursePermissionsExceptionMiddleware
 
     def test_process_exception(self):
         request = self.factory.get('/')
 
         # Method should return None if exception argument is NOT PermissionsRetrievalFailedError.
-        self.assertIsNone(self.middleware.process_exception(request, None))
-        self.assertIsNone(self.middleware.process_exception(request, Exception))
-        self.assertIsNone(self.middleware.process_exception(request, ArithmeticError))
+        self.assertStandardExceptions(request)
 
         with LogCapture(level=logging.WARN) as l:
             # Method should only return a response for PermissionsRetrievalFailedError.

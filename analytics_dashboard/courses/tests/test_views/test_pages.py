@@ -9,7 +9,7 @@ from courses.tests.test_views import ViewTestMixin, CourseViewTestMixin, DEMO_CO
     CourseAPIMixin
 
 from courses.exceptions import PermissionsRetrievalFailedError
-from courses.tests.test_middleware import MiddlewareAssertionMixin
+from courses.tests.test_middleware import CoursePermissionsExceptionMixin
 
 
 @ddt
@@ -28,7 +28,7 @@ class CourseHomeViewTests(CourseViewTestMixin, TestCase):
         self.skipTest('The course homepage does not check for the existence of a course.')
 
 
-class CourseIndexViewTests(CourseAPIMixin, ViewTestMixin, MiddlewareAssertionMixin, TestCase):
+class CourseIndexViewTests(CourseAPIMixin, ViewTestMixin, CoursePermissionsExceptionMixin, TestCase):
     viewname = 'courses:index'
 
     def setUp(self):
