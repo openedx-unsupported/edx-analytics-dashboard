@@ -76,3 +76,7 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                 })
 
         return problems
+
+    @property
+    def present_grading_policy(self):
+        return self._cleaned_grading_policy

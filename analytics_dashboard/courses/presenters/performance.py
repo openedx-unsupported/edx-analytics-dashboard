@@ -183,6 +183,10 @@ class CoursePerformancePresenter(BasePresenter):
         if not grading_policy:
             logger.debug('Retrieving grading policy for course: %s', self.course_id)
             grading_policy = self.course_api_client.grading_policies(self.course_id).get()
+
+            # Remove empty assignment types as they are not useful and will cause issues downstream.
+            grading_policy = [item for item in grading_policy if item['assignment_type']]
+
             cache.set(key, grading_policy)
 
         return grading_policy

@@ -334,9 +334,14 @@ class CoursePerformancePresenterTests(TestCase):
 
     @mock.patch('slumber.Resource.get', mock.Mock(return_value=CoursePerformanceDataFactory.grading_policy))
     def test_grading_policy(self):
-        """ Verify the presenter returns the correct grading policy. """
+        """
+        Verify the presenter returns the correct grading policy.
+
+        Empty (non-truthy) assignment types should be dropped.
+        """
+
         grading_policy = self.presenter.grading_policy()
-        self.assertListEqual(grading_policy, CoursePerformanceDataFactory.grading_policy)
+        self.assertListEqual(grading_policy, self.factory.present_grading_policy)
 
         percent = self.presenter.get_max_policy_display_percent(grading_policy)
         self.assertEqual(100, percent)
@@ -344,11 +349,11 @@ class CoursePerformancePresenterTests(TestCase):
         percent = self.presenter.get_max_policy_display_percent([{'weight': 0.0}, {'weight': 1.0}, {'weight': 0.04}])
         self.assertEqual(90, percent)
 
-    @mock.patch('courses.presenters.performance.CoursePerformancePresenter.grading_policy',
-                mock.Mock(return_value=CoursePerformanceDataFactory.grading_policy))
     def test_assignment_types(self):
         """ Verify the presenter returns the correct assignment types. """
-        self.assertListEqual(self.presenter.assignment_types(), CoursePerformanceDataFactory.assignment_types)
+        with mock.patch('courses.presenters.performance.CoursePerformancePresenter.grading_policy',
+                        mock.Mock(return_value=self.factory.present_grading_policy)):
+            self.assertListEqual(self.presenter.assignment_types(), CoursePerformanceDataFactory.assignment_types)
 
     def test_assignments(self):
         """ Verify the presenter returns the correct assignments and sets the last updated date. """
