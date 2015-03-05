@@ -50,7 +50,7 @@ class CoursePerformanceViewTestMixin(CourseAPIMixin, NavAssertMixin, ViewTestMix
         self._patch('courses.presenters.performance.CoursePerformancePresenter.assignments',
                     return_value=self.factory.present_assignments())
         self._patch('courses.presenters.performance.CoursePerformancePresenter.grading_policy',
-                    return_value=self.factory.grading_policy)
+                    return_value=self.factory.present_grading_policy)
         self.start_patching()
 
     def tearDown(self):
@@ -269,7 +269,7 @@ class CoursePerformanceGradedContentViewTests(CoursePerformanceViewTestMixin, Te
 
         expected = {
             'assignment_types': self.factory.assignment_types,
-            'grading_policy': self.factory.grading_policy,
+            'grading_policy': self.factory.present_grading_policy,
         }
         self.assertDictContainsSubset(expected, context)
 

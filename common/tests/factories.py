@@ -19,6 +19,18 @@ class CourseStructureFactory(object):
             "count": 4,
             "dropped": 0,
             "weight": 0.8
+        },
+        {
+            "assignment_type": "",
+            "count": 4,
+            "dropped": 0,
+            "weight": 0
+        },
+        {
+            "assignment_type": None,
+            "count": 1,
+            "dropped": 0,
+            "weight": 0
         }
     ]
 
@@ -54,9 +66,10 @@ class CourseStructureFactory(object):
         }
 
         self._assignments = []
-        for gp in self.grading_policy:
+        for gp in self._cleaned_grading_policy:
             count = gp['count']
             assignment_type = gp['assignment_type']
+
             for assignment_index in range(1, count + 1):
                 display_name = '{} {}'.format(assignment_type, assignment_index)
                 children = []
@@ -88,3 +101,7 @@ class CourseStructureFactory(object):
     @property
     def assignments(self):
         return copy.deepcopy(self._assignments)
+
+    @property
+    def _cleaned_grading_policy(self):
+        return [item for item in self.grading_policy if item['assignment_type']]
