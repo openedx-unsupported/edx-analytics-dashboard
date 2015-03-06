@@ -16,7 +16,7 @@
 
 <section class="view-section" data-section="performance-answer-distribution" aria-hidden="true">
     {% trans "How did students answer this problem?" as heading_note %}
-    {% include "courses/_graded_content_nav.html" with active="problems" problem=problem assignment_type=assignment_type assignment_types=assignment_types assignments=assignments assignment=assignment problems=assignment.problems heading_note=heading_note %}
+    {% include "courses/_graded_content_nav.html" with problem=problem assignment_type=assignment_type assignment_types=assignment_types assignments=assignments assignment=assignment problems=assignment.problems heading_note=heading_note %}
 
     <div class="col-xs-12 problem-description">
 

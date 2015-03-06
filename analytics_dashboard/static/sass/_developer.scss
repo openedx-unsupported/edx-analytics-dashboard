@@ -657,6 +657,11 @@ table.dataTable thead th.sorting_desc:after {
   margin-bottom: -$padding-base-vertical;
 
   .navbar-nav {
+
+    .nav-section.active {
+      border-bottom: none;
+    }
+
     .active .dropdown {
       color: $navbar-default-link-active-color;
 
