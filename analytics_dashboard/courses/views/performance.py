@@ -6,6 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 from slugify import slugify
 from slumber.exceptions import SlumberBaseException
 
+from core.exceptions import BadGatewayError
 from courses.presenters.performance import CoursePerformancePresenter
 from courses.views import CourseTemplateWithNavView, CourseAPIMixin
 
@@ -40,9 +41,12 @@ class PerformanceTemplateView(CourseTemplateWithNavView, CourseAPIMixin):
         except SlumberBaseException as e:
             # Return the appropriate response if a 404 occurred.
             response = getattr(e, 'response')
-            if response is not None and response.status_code == 404:
-                logger.info('Course API data not found for %s: %s', self.course_id, e)
-                raise Http404
+            if response is not None:
+                if response.status_code == 404:
+                    logger.info('Course API data not found for %s: %s', self.course_id, e)
+                    raise Http404
+                elif response.status_code == 502:
+                    raise BadGatewayError
 
             # Not a 404. Continue raising the error.
             logger.error('An error occurred while using Slumber to communicate with an API: %s', e)

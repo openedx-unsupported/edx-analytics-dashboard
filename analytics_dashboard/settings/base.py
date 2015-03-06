@@ -188,6 +188,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'waffle.middleware.WaffleMiddleware',
     'core.middleware.LanguagePreferenceMiddleware',
+    'core.middleware.BadGatewayExceptionMiddleware',
     'courses.middleware.CourseMiddleware',
     'courses.middleware.CoursePermissionsExceptionMiddleware',
     'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',

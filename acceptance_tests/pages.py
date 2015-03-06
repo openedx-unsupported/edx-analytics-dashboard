@@ -226,3 +226,8 @@ class NotFoundErrorPage(ErrorPage):
 class AccessDeniedErrorPage(ErrorPage):
     error_code = 403
     error_title = u'Access Denied'
+
+
+class BadGatewayErrorPage(ErrorPage):
+    error_code = 502
+    error_title = u"We're having trouble loading this page. Please try again in a minute."
