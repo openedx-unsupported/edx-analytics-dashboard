@@ -228,6 +228,6 @@ class AccessDeniedErrorPage(ErrorPage):
     error_title = u'Access Denied'
 
 
-class BadGatewayErrorPage(ErrorPage):
-    error_code = 502
+class ServiceUnavailableErrorPage(ErrorPage):
+    error_code = 503
     error_title = u"We're having trouble loading this page. Please try again in a minute."

@@ -42,7 +42,7 @@ if settings.DEBUG:  # pragma: no cover
         url(r'^403/$', 'django.views.defaults.permission_denied'),
         url(r'^404/$', 'django.views.defaults.page_not_found'),
         url(r'^500/$', 'django.views.defaults.server_error'),
-        url(r'^502/$', views.BadGatewayView.as_view(), name='bad_gateway'),
+        url(r'^503/$', views.ServiceUnavailableView.as_view()),
     )
 
     if os.environ.get('ENABLE_DJANGO_TOOLBAR', False):
