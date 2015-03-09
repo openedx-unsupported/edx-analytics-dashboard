@@ -77,7 +77,7 @@ the NTP service usually resolves this issue.
 Internationalization (i18n)
 ---------------------------
 In order to work with translations you must have you must have [gettext](http://www.gnu.org/software/gettext/) installed. gettext
- should be available via your preferred package manager (e.g. `yum`, `apt-get`, `brew`, or `ports`).
+ should be available via your preferred package manager (e.g. `yum`, `apt-get`, 'brew`, or `ports`).
 ###Development###
 When adding or updating code, you should ensure all necessary strings are marked for translation. We have provided a
 command that will generate dummy translations to help with this. This will create an "Esperanto" translation that is 
@@ -159,7 +159,7 @@ before we can accept your contribution. See our
 file for more information -- it also contains guidelines for how to maintain
 high code quality, which will make your contribution more likely to be accepted.
 
-### JavaScript Code Quality
+### Javascript Code Quality
 JavaScript developers should adhere to the [edX JavaScript standards](https://github.com/edx/edx-platform/wiki/Javascript-standards-for-the-edx-platform).
 These standards are enforced using [JSHint](http://www.jshint.com/) and [jscs](https://www.npmjs.org/package/jscs).
 
