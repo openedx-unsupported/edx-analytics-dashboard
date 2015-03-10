@@ -7,7 +7,7 @@ from lang_pref_middleware import middleware
 
 from django.template.response import TemplateResponse
 
-from core.exceptions import BadGatewayError
+from core.exceptions import ServiceUnavailableError
 
 logger = logging.getLogger(__name__)
 
@@ -22,12 +22,12 @@ class LanguagePreferenceMiddleware(middleware.LanguagePreferenceMiddleware):
         return user.language
 
 
-class BadGatewayExceptionMiddleware(object):
+class ServiceUnavailableExceptionMiddleware(object):
     """
     Display an error template for 502 errors.
     """
 
     def process_exception(self, request, exception):
-        if type(exception) is BadGatewayError:
+        if type(exception) is ServiceUnavailableError:
             logger.exception(exception)
-            return TemplateResponse(request, '502.html', status=502)
+            return TemplateResponse(request, '503.html', status=503)

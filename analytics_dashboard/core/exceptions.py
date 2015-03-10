@@ -1,5 +1,5 @@
-class BadGatewayError(Exception):
+class ServiceUnavailableError(Exception):
     """
-    Raise if bad gateway (502).
+    Raise if service unavailable (503).
     """
     pass

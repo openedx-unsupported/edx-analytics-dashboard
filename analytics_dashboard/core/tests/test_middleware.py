@@ -6,8 +6,8 @@ from django_dynamic_fixture import G
 from lang_pref_middleware.tests import LangPrefMiddlewareTestCaseMixin
 from testfixtures import LogCapture
 
-from core.exceptions import BadGatewayError
-from core.middleware import BadGatewayExceptionMiddleware, LanguagePreferenceMiddleware
+from core.exceptions import ServiceUnavailableError
+from core.middleware import ServiceUnavailableExceptionMiddleware, LanguagePreferenceMiddleware
 from core.models import User
 
 
@@ -38,21 +38,21 @@ class TestUserLanguagePreferenceMiddleware(LangPrefMiddlewareTestCaseMixin, Test
         user.save()
 
 
-class BadGatewayMiddlewareTests(MiddlewareAssertionMixin, MiddlewareTestCase):
-    middleware_class = BadGatewayExceptionMiddleware
+class ServiceUnavaliableMiddlewareTests(MiddlewareAssertionMixin, MiddlewareTestCase):
+    middleware_class = ServiceUnavailableExceptionMiddleware
 
-    def assertIsBadGatewayErrorResponse(self, response):
-        self.assertEqual(response.status_code, 502)
+    def assertIsServiceUnavailableErrorResponse(self, response):
+        self.assertEqual(response.status_code, 503)
         self.assertIs(type(response), TemplateResponse)
-        self.assertEqual(response.template_name, '502.html')
+        self.assertEqual(response.template_name, '503.html')
 
     def test_process_exception(self):
         request = self.factory.get('/')
         self.assertStandardExceptions(request)
         with LogCapture(level=logging.WARN) as l:
-            exception = BadGatewayError()
+            exception = ServiceUnavailableError()
             response = self.middleware.process_exception(request, exception)
-            self.assertIsBadGatewayErrorResponse(response)
+            self.assertIsServiceUnavailableErrorResponse(response)
 
             # Verify the exception was logged
             l.check(('core.middleware', 'ERROR', str(exception)),)
