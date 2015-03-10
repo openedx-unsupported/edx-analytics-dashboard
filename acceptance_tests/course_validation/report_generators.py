@@ -333,3 +333,22 @@ class CoursePerformanceScreenshotReporter(CoursePerformanceReportGenerator):
             self.driver.close()
 
         return True, report
+
+
+class CourseHasStructureDataReportGenerator(ReportGeneratorBase):
+    """
+    Verifies that the course structure API returns data for the course.
+    """
+    REPORT_NAME = 'course_has_structure_data'
+
+    def generate_report(self):
+        report = {'course_id': self.course_id}
+        try:
+            self.course_api_client.course_structures(self.course_id).get()
+            valid = True
+        except Exception as ex:  # pylint: disable=broad-except
+            valid = False
+            report['error'] = ex.message
+
+        report['has_structure_data'] = valid
+        return valid, report
