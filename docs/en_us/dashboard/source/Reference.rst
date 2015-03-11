@@ -431,15 +431,15 @@ Submission Counts chart and report. The .csv file contains the following columns
        for these problems.
 
    * - ``consolidated_variant``
-     - TRUE if the problem uses the randomization setting in Studio, but there
-       is a problem with the Python script that randomizes the values. FALSE
-       if the Python script is randomizing values or if the problem does not
-       use the randomization setting.
+     - TRUE if the problem component uses the randomization setting in Studio,
+       but there is an error in the Python script that randomizes the values.
+       FALSE if the Python script is randomizing values or if the problem does
+       not use the randomization setting.
    * - ``correct``
      - TRUE if this answer value is correct. FALSE if this answer value is
        incorrect.
    * - ``count``
-     - The number of times that students entered or selected this answer as
+     - The number of students who entered or selected this answer as
        their most recent submission for the problem or problem variant. 
 
        The count reflects the entire problem history. If you change a 
