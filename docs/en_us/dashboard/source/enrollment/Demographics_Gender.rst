@@ -1,7 +1,7 @@
 .. _Demographics_Gender:
 
 ################################
-Enrollment Demographics: Gender
+Gender Demographics
 ################################
 
 What is the gender balance in my course? Knowing the male-female ratio in your
@@ -26,10 +26,10 @@ computations, see
 Self-Reported Student Gender Chart
 ======================================
 
-The bars on this chart represent the percentage of enrolled learners who
-reported a gender of **Female**, **Male**, or **Other**. Moving your cursor
-over the chart shows the percentage for that gender, calculated to one decimal
-place.
+The bars on this chart represent the most recently calculated percentage of
+enrolled learners who reported a gender of **Female**, **Male**, or **Other**.
+Moving your cursor over the chart shows the percentage for that gender,
+calculated to one decimal place.
 
 Student gender data is also available for review in tabular format and can be
 downloaded.
@@ -46,10 +46,11 @@ Examples of this chart for two different courses follow.
 
 .. MITx/8.MReVx/2T2014/enrollment/demographics/gender/
 
-These charts are both for science courses. In both courses, the median
-student age is 25. Each of these course teams might use this information as a
-starting point for an investigation into how students learn about their course
-offering and make the decision to enroll in the course.
+Both of these charts are for science courses, and those courses have the same
+median age, 25. Each of these course teams might use information about the
+percentages of enrolled men and women as a starting point for an investigation
+into how students learn about their course offering and make the decision to
+enroll in the course.
 
 See the :ref:`Reference` for a detailed description of how student gender
 values are computed.
