@@ -98,6 +98,18 @@ class CoursePerformancePageTestsMixin(CoursePageTestsMixin):
         return 'Problem submission data was last updated %(update_date)s at %(update_time)s UTC.' % \
                self.format_last_updated_date_and_time(last_updated)
 
+    def _format_number_or_hyphen(self, value):
+        if value:
+            return self.format_number(value)
+        else:
+            return '-'
+
+    def _build_display_percentage_or_hyphen(self, correct, total):
+        if correct:
+            return self.build_display_percentage(correct, total)
+        else:
+            return '-'
+
 
 @skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test the graded content page.')
 class CoursePerformanceGradedContentTests(CoursePerformancePageTestsMixin, WebAppTest):
@@ -177,7 +189,8 @@ class CoursePerformanceGradedContentByTypeTests(CoursePerformancePageTestsMixin,
 
         # Check the column headings
         cols = table.find_elements_by_css_selector('thead tr th')
-        expected = [u'Order', u'Assignment Name', u'Problems', u'Correct', u'Incorrect', u'Total']
+        expected = [u'Order', u'Assignment Name', u'Problems', u'Correct', u'Incorrect', u'Total',
+                    u'Percentage Correct']
         self.assertRowTextEquals(cols, expected)
 
         # Check the row texts
@@ -191,9 +204,12 @@ class CoursePerformanceGradedContentByTypeTests(CoursePerformancePageTestsMixin,
                 unicode(index + 1),
                 assignment['name'],
                 unicode(len(assignment['problems'])),
-                self.format_number(assignment['correct_submissions']),
-                self.format_number(assignment['total_submissions'] - assignment['correct_submissions']),
-                self.format_number(assignment['total_submissions'])
+                unicode(self._format_number_or_hyphen(assignment['correct_submissions'])),
+                unicode(self._format_number_or_hyphen(
+                    assignment['total_submissions'] - assignment['correct_submissions'])),
+                unicode(self._format_number_or_hyphen(assignment['total_submissions'])),
+                unicode(self._build_display_percentage_or_hyphen(assignment['correct_submissions'],
+                                                                 assignment['total_submissions']))
             ]
             self.assertRowTextEquals(cols, expected)
 
@@ -224,7 +240,7 @@ class CoursePerformanceAssignmentTests(CoursePerformancePageTestsMixin, WebAppTe
 
         # Check the column headings
         cols = table.find_elements_by_css_selector('thead tr th')
-        expected = [u'Order', u'Problem Name', u'Correct', u'Incorrect', u'Total']
+        expected = [u'Order', u'Problem Name', u'Correct', u'Incorrect', u'Total', u'Percentage Correct']
         self.assertRowTextEquals(cols, expected)
 
         # Check the row texts
@@ -239,9 +255,11 @@ class CoursePerformanceAssignmentTests(CoursePerformancePageTestsMixin, WebAppTe
             expected = [
                 unicode(index + 1),
                 problem['name'],
-                self.format_number(problem['correct_submissions']),
-                self.format_number(problem['total_submissions'] - problem['correct_submissions']),
-                self.format_number(problem['total_submissions']),
+                self._format_number_or_hyphen(problem['correct_submissions']),
+                self._format_number_or_hyphen(problem['total_submissions'] - problem['correct_submissions']),
+                self._format_number_or_hyphen(problem['total_submissions']),
+                self._build_display_percentage_or_hyphen(problem['correct_submissions'],
+                                                         problem['total_submissions'])
             ]
             self.assertRowTextEquals(cols, expected)
 

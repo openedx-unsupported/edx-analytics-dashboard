@@ -35,6 +35,13 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                 color: '#4BB4FB'
             });
 
+            tableColumns.push({
+                key: 'correct_percent',
+                title: gettext('Percentage Correct'),
+                className: 'text-right',
+                type: 'percent'
+            });
+
             new StackedBarView({
                 el: '#chart-view',
                 model: model,

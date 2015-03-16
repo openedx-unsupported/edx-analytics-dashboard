@@ -32,7 +32,8 @@ define(['models/course-model', 'views/data-table-view'], function(CourseModel, D
                 view = new DataTableView({
                     el: document.createElement('div'),
                     model: model,
-                    modelAttribute: 'ages'
+                    modelAttribute: 'ages',
+                    replaceZero: '-'
                 }),
                 percentFunc = view.createFormatPercentFunc(dataType, 100),
                 row = {};
@@ -45,6 +46,9 @@ define(['models/course-model', 'views/data-table-view'], function(CourseModel, D
 
             row[dataType] = 1;
             expect(percentFunc(row, renderType)).toBe('100.0%');
+
+            row[dataType] = 0;
+            expect(percentFunc(row, renderType)).toBe('-');
         });
 
         it('should format display of a date', function() {
