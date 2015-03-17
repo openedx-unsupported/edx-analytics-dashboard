@@ -431,10 +431,15 @@ Submission Counts chart and report. The .csv file contains the following columns
        for these problems.
 
    * - ``consolidated_variant``
-     - TRUE if the problem component uses the randomization setting in Studio,
-       but there is an error in the Python script that randomizes the values.
-       FALSE if the Python script is randomizing values or if the problem does
-       not use the randomization setting.
+     - TRUE if the Studio **Randomization** setting for this problem component
+       is set to **Always**, **On Reset**, or **Per Student**, but there is no
+       variation in the possible answers. Often, this indicates that the
+       Python script that randomizes values for the problem is not present.
+       
+       FALSE if the Studio **Randomization** setting for this problem
+       component is set to **Never** (the default) or if the Python script is
+       randomizing values.
+
    * - ``correct``
      - TRUE if this answer value is correct. FALSE if this answer value is
        incorrect.
@@ -464,7 +469,7 @@ Submission Counts chart and report. The .csv file contains the following columns
        text is surrounded by two pairs of angle brackets (>>Question<<). Blank
        for questions that do not have an accessible label.
 
-       For problems that use the randomization setting in Studio, if a
+       For problems that use the **Randomization** setting in Studio, if a
        particular answer has not been selected since 6 Mar 2014, the
        ``question_text`` is blank for that answer.
 
@@ -473,9 +478,9 @@ Submission Counts chart and report. The .csv file contains the following columns
        and multiple choice problems. Blank for dropdown, numerical input, text
        input, and math expression input problems.
    * - ``variant``
-     - For problems that use the randomization setting in Studio, the unique
-       identifier for a variant of the problem. Blank for problems that have
-       this setting defined as **Never** (the default).
+     - For problems that use the **Randomization** setting in Studio, the
+       unique identifier for a variant of the problem. Blank for problems that
+       have this setting defined as **Never** (the default).
 
 
 After you download the .csv file, be aware that different spreadsheet
@@ -520,8 +525,8 @@ In the following situations, data may not be available in edX Insights.
   platform, data for enrollment activity and student engagement may not be
   available.
 
-* Charts are not available for problems that use the randomization setting in
-  Studio. Because such problems can result in numerous possible submission
+* Charts are not available for problems that use the **Randomization** setting
+  in Studio. Because such problems can result in numerous possible submission
   variants, both correct and incorrect, edX Insights does not attempt to graph
   them. The Submissions report and downloadable .csv file are available for
   such problems, and include one row for each problem-variant-answer

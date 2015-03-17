@@ -261,7 +261,7 @@ data in a bar chart and a report that you can view or download. Descriptions
 of the chart and report follow. For detailed information about the
 computations, see :ref:`Reference`.
 
-.. note:: Problems that use the randomization setting in Studio result in 
+.. note:: Problems that use the **Randomization** setting in Studio result in
  many possible submission variants, both correct and incorrect. As a result,
  edX Insights does not attempt to present a chart of the responses submitted
  for these problems. You can download the Submissions Counts report to
@@ -326,9 +326,9 @@ student. For example, consider a dropdown problem that has five possible
 answers. The report or file contains up to five rows, one for each answer
 submitted by at least one student.
 
-For problems that use the randomization feature in Studio, the report has one
-row for each problem-variant-answer combination selected by at least one
-student. For more information about problem randomization, see
+For problems that use the **Randomization** feature in Studio, the report has
+one row for each problem-variant-answer combination selected by at least one
+student. For more information about this randomization option, see
 `Randomization`_.
 
 See the :ref:`Reference` for a detailed description of each column.
