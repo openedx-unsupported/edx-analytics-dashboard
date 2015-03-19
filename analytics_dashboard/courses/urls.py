@@ -10,10 +10,16 @@ COURSE_ID_PATTERN = r'(?P<course_id>[^/+]+[/+][^/+]+[/+][^/]+)'
 PROBLEM_PART_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'problem_part_id')
 ASSIGNMENT_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'assignment_id')
 PROBLEM_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'problem_id')
+SECTION_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'section_id')
+SUBSECTION_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'subsection_id')
 
 answer_distribution_regex = \
     r'^graded_content/assignments/{assignment_id}/problems/{problem_id}/parts/{part_id}/answer_distribution/$'.format(
         assignment_id=ASSIGNMENT_ID_PATTERN, problem_id=PROBLEM_ID_PATTERN, part_id=PROBLEM_PART_ID_PATTERN)
+
+ungraded_answer_distribution_regex = \
+    r'^ungraded_content/sections/{}/subsections/{}/problems/{}/parts/{}/answer_distribution/$'.format(
+        SECTION_ID_PATTERN, SUBSECTION_ID_PATTERN, PROBLEM_ID_PATTERN, PROBLEM_PART_ID_PATTERN)
 
 ENROLLMENT_URLS = patterns(
     '',
@@ -32,6 +38,15 @@ ENGAGEMENT_URLS = patterns(
 
 PERFORMANCE_URLS = patterns(
     '',
+    url(r'^ungraded_content/$', performance.PerformanceUngradedContent.as_view(), name='ungraded_content'),
+    url(ungraded_answer_distribution_regex, performance.PerformanceUngradedAnswerDistribution.as_view(),
+        name='ungraded_answer_distribution'),
+    url(r'^ungraded_content/sections/{}/subsections/{}/$'.format(SECTION_ID_PATTERN, SUBSECTION_ID_PATTERN),
+        performance.PerformanceUngradedSubsection.as_view(),
+        name='ungraded_subsection'),
+    url(r'^ungraded_content/sections/{}/$'.format(SECTION_ID_PATTERN),
+        performance.PerformanceUngradedSection.as_view(),
+        name='ungraded_section'),
     url(r'^graded_content/$', performance.PerformanceGradedContent.as_view(), name='graded_content'),
     url(r'^graded_content/(?P<assignment_type>[\w-]+)/$',
         performance.PerformanceGradedContentByType.as_view(),

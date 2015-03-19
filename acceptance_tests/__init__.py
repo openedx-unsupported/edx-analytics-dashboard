@@ -41,9 +41,19 @@ if ENABLE_OAUTH_TESTS and not (LMS_HOSTNAME and LMS_USERNAME and LMS_PASSWORD):
 TEST_COURSE_ID = os.environ.get('TEST_COURSE_ID', u'edX/DemoX/Demo_Course')
 TEST_ASSIGNMENT_TYPE = os.environ.get('TEST_ASSIGNMENT_TYPE', 'Homework')
 TEST_ASSIGNMENT_ID = os.environ.get('TEST_ASSIGNMENT_ID', u'i4x://edX/DemoX/sequential/basic_questions')
-TEST_PROBLEM_ID = os.environ.get('TEST_PROBLEM_ID', u'i4x://edX/DemoX/problem/a0effb954cca4759994f1ac9e9434bf4')
-TEST_PROBLEM_PART_ID = os.environ.get('TEST_PROBLEM_PART_ID',
-                                      u'i4x-edX-DemoX-problem-a0effb954cca4759994f1ac9e9434bf4_2_1')
+TEST_GRADED_PROBLEM_ID = os.environ.get('TEST_GRADED_PROBLEM_ID',
+                                        u'i4x://edX/DemoX/problem/a0effb954cca4759994f1ac9e9434bf4')
+TEST_GRADED_PROBLEM_PART_ID = os.environ.get('TEST_GRADED_PROBLEM_PART_ID',
+                                             u'i4x-edX-DemoX-problem-a0effb954cca4759994f1ac9e9434bf4_2_1')
+TEST_UNGRADED_SECTION_ID = os.environ.get('TEST_UNGRADED_SECTION_ID',
+                                          u'i4x://edX/DemoX/chapter/interactive_demonstrations')
+TEST_UNGRADED_SUBSECTION_ID = os.environ.get('TEST_UNGRADED_SUBSECTION_ID',
+                                             u'i4x://edX/DemoX/sequential/19a30717eff543078a5d94ae9d6c18a5')
+TEST_UNGRADED_PROBLEM_ID = os.environ.get('TEST_UNGRADED_PROBLEM_ID',
+                                          u'i4x://edX/DemoX/problem/303034da25524878a2e66fb57c91cf85')
+TEST_UNGRADED_PROBLEM_PART_ID = os.environ.get('TEST_UNGRADED_PROBLEM_PART_ID',
+                                               u'i4x-edX-DemoX-problem-303034da25524878a2e66fb57c91cf85_2_1')
+
 
 DOC_BASE_URL = os.environ.get('DOC_BASE_URL', 'http://edx-insights.readthedocs.org/en/latest')
 

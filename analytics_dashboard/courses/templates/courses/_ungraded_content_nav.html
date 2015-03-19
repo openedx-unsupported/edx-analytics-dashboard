@@ -1,0 +1,32 @@
+{% extends "courses/_base_content_nav.html" %}
+
+{% load i18n %}
+{% load dashboard_extras %}
+
+{% block home_content_url %}
+    {% url "courses:performance:ungraded_content" course_id=course_id %}
+{% endblock %}
+
+{% block select_first_level %}
+    {% trans "Select Section" %}
+{% endblock %}
+
+{% block select_first_level_all %}
+  {% trans "All Sections" %}
+{% endblock %}
+
+{% block first_level_url %}
+    {% url "courses:performance:ungraded_section" course_id=course_id section_id=level.id %}
+{% endblock %}
+
+{% block select_second_level %}
+    {% trans "Select Subsection" %}
+{% endblock %}
+
+{% block second_level_url %}
+    {% url "courses:performance:ungraded_subsection" course_id=course_id section_id=selected_first_level.id subsection_id=level.id %}
+{% endblock %}
+
+{% block problem_part_level_url %}
+    {% url "courses:performance:ungraded_answer_distribution" course_id=course_id section_id=selected_first_level.id subsection_id=selected_second_level.id problem_id=level.id problem_part_id=level.part_ids.0 %}
+{% endblock %}

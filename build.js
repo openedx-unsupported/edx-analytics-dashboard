@@ -45,11 +45,7 @@
             exclude: ['js/common']
         },
         {
-            name: 'js/performance-graded-content-assignment-types-main',
-            exclude: ['js/common']
-        },
-        {
-            name: 'js/performance-graded-content-assignment-main',
+            name: 'js/performance-content-main',
             exclude: ['js/common']
         },
         {

@@ -5,7 +5,7 @@
 {% block child_content %}
   <section class="view-section">
     {% trans "Which assignment type do you want to investigate?" as heading_note %}
-    {% include "courses/_graded_content_nav.html" with active="assignment_type" assignment_types=assignment_types heading_note=heading_note %}
+    {% include "courses/_graded_content_nav.html" with active="first_level" first_levels=assignment_types heading_note=heading_note %}
     <div class="section-content section-data-table grading-policy">
       <div class="tooltip-container">
         {% trans "Click an assignment type to view more detail information about the assignments." as tip_text %}

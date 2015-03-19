@@ -5,8 +5,11 @@ from bok_choy.web_app_test import WebAppTest
 
 from acceptance_tests import ENABLE_COURSE_API
 from acceptance_tests.mixins import CoursePageTestsMixin
-from acceptance_tests.pages import CoursePerformanceGradedContentPage, CoursePerformanceAnswerDistributionPage, \
-    CoursePerformanceGradedContentByTypePage, CoursePerformanceAssignmentPage
+from acceptance_tests.pages import CoursePerformanceUngradedContentPage, \
+    CoursePerformanceGradedContentPage, CoursePerformanceAnswerDistributionPage, \
+    CoursePerformanceGradedContentByTypePage, CoursePerformanceAssignmentPage, \
+    CoursePerformanceUngradedSectionPage, CoursePerformanceUngradedSubsectionPage, \
+    CoursePerformanceUngradedAnswerDistributionPage
 from common.course_structure import CourseStructure
 
 
@@ -30,67 +33,6 @@ class CoursePerformancePageTestsMixin(CoursePageTestsMixin):
     def _test_table(self):
         raise NotImplementedError
 
-    def _filter_children(self, blocks, key, **kwargs):
-        """
-        Given the blocks locates the nested graded or ungraded problems.
-        """
-        block = blocks[key]
-
-        block_type = kwargs.pop(u'block_type', None)
-        if block_type in kwargs:
-            kwargs[u'type'] = block_type
-
-        kwargs.setdefault(u'graded', False)
-
-        matched = True
-        for name, value in kwargs.iteritems():
-            matched &= (block.get(name, None) == value)
-            if not matched:
-                break
-
-        if matched:
-            return [block]
-
-        children = []
-        for child in block[u'children']:
-            children += self._filter_children(blocks, child, **kwargs)
-
-        return children
-
-    def _get_assignments(self, assignment_type=None):
-        structure = self.course_api_client.course_structures(self.page.course_id).get()
-        assignments = CourseStructure.course_structure_to_assignments(structure, graded=True,
-                                                                      assignment_type=assignment_type)
-
-        # Retrieve the submissions from the Analytics Data API and create a lookup table.
-        problems = self.course.problems()
-        problems = dict((problem['module_id'], problem) for problem in problems)
-
-        # Sum the submission counts
-        for assignment in assignments:
-            total = 0
-            correct = 0
-
-            for problem in assignment['problems']:
-                submission_entry = problems.get(problem['id'], None)
-
-                problem.update({
-                    'total_submissions': 0,
-                    'correct_submissions': 0
-                })
-
-                if submission_entry:
-                    total += submission_entry['total_submissions']
-                    correct += submission_entry['correct_submissions']
-
-                    problem['total_submissions'] = submission_entry['total_submissions']
-                    problem['correct_submissions'] = submission_entry['correct_submissions']
-
-            assignment['total_submissions'] = total
-            assignment['correct_submissions'] = correct
-
-        return assignments
-
     def _get_data_update_message(self):
         problems = self.course.problems()
         last_updated = datetime.datetime.min
@@ -98,8 +40,9 @@ class CoursePerformancePageTestsMixin(CoursePageTestsMixin):
         for problem in problems:
             last_updated = max(last_updated, datetime.datetime.strptime(problem['created'], self.api_datetime_format))
 
-        return 'Problem submission data was last updated %(update_date)s at %(update_time)s UTC.' % \
-               self.format_last_updated_date_and_time(last_updated)
+        updated_date_and_time = self.format_last_updated_date_and_time(last_updated)
+        return ('Problem submission data was last updated {} at {} UTC.').format(
+            updated_date_and_time['update_date'], updated_date_and_time['update_time'])
 
     def _format_number_or_hyphen(self, value):
         if value:
@@ -112,6 +55,89 @@ class CoursePerformancePageTestsMixin(CoursePageTestsMixin):
             return self.build_display_percentage(correct, total)
         else:
             return '-'
+
+    def _get_problems_dict(self):
+        # Retrieve the submissions from the Analytics Data API and create a lookup table.
+        problems = self.course.problems()
+        return {problem['module_id']: problem for problem in problems}
+
+    def _get_assignments(self, assignment_type=None):
+        structure = self.course_api_client.course_structures(self.page.course_id).get()
+        assignments = CourseStructure.course_structure_to_assignments(structure, graded=True,
+                                                                      assignment_type=assignment_type)
+
+        return self._build_submissions(assignments, self._get_problems_dict())
+
+    def _get_sections(self):
+        structure = self.course_api_client.course_structures(self.page.course_id).get()
+        sections = CourseStructure.course_structure_to_sections(structure, graded=False)
+        problems = self._get_problems_dict()
+        for section in sections:
+            self._build_submissions(section['children'], problems)
+        return self._build_submissions(sections, problems)
+
+    def _find_child_block(self, blocks, child_id):
+        for block in blocks:
+            if block[u'id'] == child_id:
+                return block
+        return None
+
+    def _build_submissions(self, blocks, problems):
+        # Sum the submission counts
+        for parent_block in blocks:
+            total = 0
+            correct = 0
+
+            for child_block in parent_block['children']:
+                submission_entry = problems.get(child_block['id'], None)
+
+                if submission_entry:
+                    total += submission_entry['total_submissions']
+                    correct += submission_entry['correct_submissions']
+
+                    child_block['total_submissions'] = submission_entry['total_submissions']
+                    child_block['correct_submissions'] = submission_entry['correct_submissions']
+                elif 'total_submissions' in child_block and 'correct_submissions' in child_block:
+                    total += child_block['total_submissions']
+                    correct += child_block['correct_submissions']
+                else:
+                    child_block.update({
+                        'total_submissions': 0,
+                        'correct_submissions': 0
+                    })
+
+            parent_block['total_submissions'] = total
+            parent_block['correct_submissions'] = correct
+
+        return blocks
+
+    def assertTableColumns(self, expected_column_headings):
+        self.assertTableColumnHeadingsEqual('div[data-role="performance-table"]', expected_column_headings)
+
+    def assertBlockRows(self, blocks, include_children_count=True):
+        table = self.page.browser.find_element_by_css_selector('div[data-role="performance-table"]')
+        # Check the row texts
+        rows = table.find_elements_by_css_selector('tbody tr')
+        self.assertEqual(len(rows), len(blocks))
+
+        for index, row in enumerate(rows):
+            block = blocks[index]
+            cols = row.find_elements_by_css_selector('td')
+            expected = [unicode(index + 1), block['name']]
+
+            if include_children_count:
+                expected += [unicode(self._format_number_or_hyphen(len(block.get('children', []))))]
+
+            expected += [
+                unicode(self._format_number_or_hyphen(block['correct_submissions'])),
+                unicode(self._format_number_or_hyphen(
+                    block['total_submissions'] - block['correct_submissions'])),
+                unicode(self._format_number_or_hyphen(block['total_submissions'])),
+                unicode(self._build_display_percentage_or_hyphen(block['correct_submissions'],
+                                                                 block['total_submissions']))
+            ]
+
+            self.assertRowTextEquals(cols, expected)
 
 
 @skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test the graded content page.')
@@ -188,33 +214,9 @@ class CoursePerformanceGradedContentByTypeTests(CoursePerformancePageTestsMixin,
         self.assignments = self._get_assignments(self.assignment_type)
 
     def _test_table(self):
-        table = self.page.browser.find_element_by_css_selector('.section-data-table table')
-
-        # Check the column headings
-        cols = table.find_elements_by_css_selector('thead tr th')
-        expected = [u'Order', u'Assignment Name', u'Problems', u'Correct', u'Incorrect', u'Total',
-                    u'Percentage Correct']
-        self.assertRowTextEquals(cols, expected)
-
-        # Check the row texts
-        rows = table.find_elements_by_css_selector('tbody tr')
-        self.assertEqual(len(rows), len(self.assignments))
-
-        for index, row in enumerate(rows):
-            assignment = self.assignments[index]
-            cols = row.find_elements_by_css_selector('td')
-            expected = [
-                unicode(index + 1),
-                assignment['name'],
-                unicode(len(assignment['problems'])),
-                unicode(self._format_number_or_hyphen(assignment['correct_submissions'])),
-                unicode(self._format_number_or_hyphen(
-                    assignment['total_submissions'] - assignment['correct_submissions'])),
-                unicode(self._format_number_or_hyphen(assignment['total_submissions'])),
-                unicode(self._build_display_percentage_or_hyphen(assignment['correct_submissions'],
-                                                                 assignment['total_submissions']))
-            ]
-            self.assertRowTextEquals(cols, expected)
+        self.assertTableColumns([u'Order', u'Assignment Name', u'Problems', u'Correct', u'Incorrect', u'Total',
+                                 u'Percentage Correct'])
+        self.assertBlockRows(self.assignments)
 
 
 @skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test the course assignment detail page.')
@@ -239,51 +241,31 @@ class CoursePerformanceAssignmentTests(CoursePerformancePageTestsMixin, WebAppTe
         self.assignment = self._get_assignment()
 
     def _test_table(self):
-        table = self.page.browser.find_element_by_css_selector('.section-data-table table')
-
         # Check the column headings
-        cols = table.find_elements_by_css_selector('thead tr th')
-        expected = [u'Order', u'Problem Name', u'Correct', u'Incorrect', u'Total', u'Percentage Correct']
-        self.assertRowTextEquals(cols, expected)
-
-        # Check the row texts
-        rows = table.find_elements_by_css_selector('tbody tr')
-        problems = self.assignment['problems']
-        self.assertEqual(len(rows), len(problems))
-
-        for index, row in enumerate(rows):
-            problem = problems[index]
-            cols = row.find_elements_by_css_selector('td')
-
-            expected = [
-                unicode(index + 1),
-                problem['name'],
-                self._format_number_or_hyphen(problem['correct_submissions']),
-                self._format_number_or_hyphen(problem['total_submissions'] - problem['correct_submissions']),
-                self._format_number_or_hyphen(problem['total_submissions']),
-                self._build_display_percentage_or_hyphen(problem['correct_submissions'],
-                                                         problem['total_submissions'])
-            ]
-            self.assertRowTextEquals(cols, expected)
+        self.assertTableColumns([u'Order', u'Problem Name', u'Correct', u'Incorrect', u'Total', u'Percentage Correct'])
+        self.assertBlockRows(self.assignment['children'], False)
 
 
-@skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test the answer distribution page.')
-class CoursePerformanceAnswerDistributionTests(CoursePerformancePageTestsMixin, WebAppTest):
-    """
-    Tests for the course problem answer distribution page.
-    """
+class CoursePerformanceAnswerDistributionMixin(CoursePerformancePageTestsMixin):
+
+    course = None
+    module = None
+    answer_distribution = None
 
     def setUp(self):
-        super(CoursePerformanceAnswerDistributionTests, self).setUp()
-        self.page = CoursePerformanceAnswerDistributionPage(self.browser)
+        super(CoursePerformanceAnswerDistributionMixin, self).setUp()
+        self.page = self.get_page()
         self.course = self.analytics_api_client.courses(self.page.course_id)
         self.module = self.analytics_api_client.modules(self.page.course_id, self.page.problem_id)
         api_response = self.module.answer_distribution()
         data = [i for i in api_response if i['part_id'] == self.page.part_id]
         self.answer_distribution = sorted(data, key=lambda a: a['count'], reverse=True)
 
+    def get_page(self):
+        raise NotImplementedError
+
     def test_page(self):
-        super(CoursePerformanceAnswerDistributionTests, self).test_page()
+        super(CoursePerformanceAnswerDistributionMixin, self).test_page()
         self._test_heading_question()
         self._test_problem_description()
 
@@ -305,7 +287,11 @@ class CoursePerformanceAnswerDistributionTests(CoursePerformancePageTestsMixin, 
         self.assertElementHasContent(chart_selector)
 
         element = self.page.q(css='#distQuestionsMenu')
-        self.assertIn('Submissions for Part', element[0].text)
+        if element:
+            self.assertIn('Submissions for Part', element[0].text)
+        else:
+            element = self.page.q(css='.chart-info')
+            self.assertIn('Submissions', element[0].text)
 
         container_selector = '.analytics-chart-container'
         element = self.page.q(css=container_selector + ' i')
@@ -338,3 +324,63 @@ class CoursePerformanceAnswerDistributionTests(CoursePerformancePageTestsMixin, 
 
             self.assertListEqual(actual, expected)
             self.assertIn('text-right', columns[2].get_attribute('class'))
+
+
+@skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test the answer distribution page.')
+class CoursePerformanceAnswerDistributionTests(CoursePerformanceAnswerDistributionMixin, WebAppTest):
+
+    def get_page(self):
+        return CoursePerformanceAnswerDistributionPage(self.browser)
+
+
+@skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test the answer distribution page.')
+class CoursePerformanceUngradedAnswerDistributionTests(CoursePerformanceAnswerDistributionMixin, WebAppTest):
+
+    def get_page(self):
+        return CoursePerformanceUngradedAnswerDistributionPage(self.browser)
+
+
+@skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test ungraded content.')
+class CoursePerformanceUngradedContentTests(CoursePerformancePageTestsMixin, WebAppTest):
+
+    def setUp(self):
+        super(CoursePerformanceUngradedContentTests, self).setUp()
+        self.page = CoursePerformanceUngradedContentPage(self.browser)
+        self.course = self.analytics_api_client.courses(self.page.course_id)
+        self.sections = self._get_sections()
+
+    def _test_table(self):
+        self.assertTableColumns([u'Order', u'Section Name', u'Problems', u'Correct', u'Incorrect', u'Total',
+                                 u'Percentage Correct'])
+        self.assertBlockRows(self.sections)
+
+
+@skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test ungraded content.')
+class CoursePerformanceUngradedSectionTests(CoursePerformancePageTestsMixin, WebAppTest):
+
+    def setUp(self):
+        super(CoursePerformanceUngradedSectionTests, self).setUp()
+        self.page = CoursePerformanceUngradedSectionPage(self.browser)
+        self.course = self.analytics_api_client.courses(self.page.course_id)
+        self.section = self._find_child_block(self._get_sections(), self.page.section_id)
+
+    def _test_table(self):
+        self.assertTableColumns([u'Order', u'Subsection Name', u'Problems', u'Correct', u'Incorrect', u'Total',
+                                 u'Percentage Correct'])
+        self.assertBlockRows(self.section['children'])
+
+
+@skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test ungraded content.')
+class CoursePerformanceUngradedSubsectionTests(CoursePerformancePageTestsMixin, WebAppTest):
+
+    def setUp(self):
+        super(CoursePerformanceUngradedSubsectionTests, self).setUp()
+        self.page = CoursePerformanceUngradedSubsectionPage(self.browser)
+        self.course = self.analytics_api_client.courses(self.page.course_id)
+        subsections = self._find_child_block(self._get_sections(), self.page.section_id)['children']
+        self.problems = self._find_child_block(subsections, self.page.subsection_id)['children']
+
+    def _test_table(self):
+        self.assertTableColumns([u'Order', u'Problem Name', u'Correct', u'Incorrect', u'Total',
+                                 u'Percentage Correct'])
+        self.assertBlockRows(self.problems, False)

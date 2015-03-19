@@ -24,13 +24,17 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                 ],
                 tableColumns = [
                     {key: 'index', title: gettext('Order'), type: 'number', className: 'text-right'},
-                    {key: 'name', title: gettext('Assignment Name')},
-                    {
-                        key: 'num_problems',
-                        title: gettext('Problems'),
-                        type: 'number', className: 'text-right'
-                    }
-                ].concat(graphSubmissionColumns);
+                    {key: 'name', title: model.get('contentTableHeading'), type: 'hasNull'}
+                ];
+
+            if (model.get('showProblemCount')) {
+                tableColumns.push({
+                    key: 'num_children',
+                    title: gettext('Problems'),
+                    type: 'number', className: 'text-right'
+                });
+            }
+            tableColumns = tableColumns.concat(graphSubmissionColumns);
 
             tableColumns.push({
                 key: 'total_submissions',
@@ -47,11 +51,11 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                 type: 'percent'
             });
 
-            if (model.get('assignmentsHaveSubmissions')) {
+            if (model.get('hasSubmissions')) {
                 new StackedBarView({
                     el: '#chart-view',
                     model: model,
-                    modelAttribute: 'assignments',
+                    modelAttribute: 'primaryContent',
                     truncateXTicks: true,
                     trends: graphSubmissionColumns,
                     x: {key: 'id', displayKey: 'name'},
@@ -73,9 +77,9 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
             }
 
             new DataTableView({
-                el: '[data-role=assignment-table]',
+                el: '[data-role=performance-table]',
                 model: model,
-                modelAttribute: 'assignments',
+                modelAttribute: 'primaryContent',
                 columns: tableColumns,
                 sorting: ['index'],
                 replaceZero: '-'

@@ -353,7 +353,7 @@ class CoursePerformancePresenterTests(TestCase):
         """ Verify the presenter returns the correct assignment types. """
         with mock.patch('courses.presenters.performance.CoursePerformancePresenter.grading_policy',
                         mock.Mock(return_value=self.factory.present_grading_policy)):
-            self.assertListEqual(self.presenter.assignment_types(), CoursePerformanceDataFactory.assignment_types)
+            self.assertListEqual(self.presenter.assignment_types(), self.factory.present_assignment_types)
 
     def test_assignments(self):
         """ Verify the presenter returns the correct assignments and sets the last updated date. """
@@ -370,10 +370,10 @@ class CoursePerformancePresenterTests(TestCase):
                 self.assertEqual(self.presenter.last_updated, utils.CREATED_DATETIME)
 
                 # With an assignment type set, the presenter should return only the assignments of the specified type.
-                for assignment_type in self.factory.assignment_types:
+                for assignment_type in self.factory.present_assignment_types:
                     cache.clear()
                     expected = [assignment for assignment in expected_assignments if
-                                assignment[u'assignment_type'] == assignment_type]
+                                assignment[u'assignment_type'] == assignment_type['name']]
 
                     for index, assignment in enumerate(expected):
                         assignment[u'index'] = index + 1
@@ -394,13 +394,72 @@ class CoursePerformancePresenterTests(TestCase):
 
     def test_problem(self):
         """ Verify the presenter returns a specific problem. """
-        problem = self.factory.present_assignments()[0]['problems'][0]
+        problem = self.factory.present_assignments()[0]['children'][0]
         _id = problem['id']
 
         with mock.patch('slumber.Resource.get', mock.Mock(return_value=self.factory.structure)):
             actual = self.presenter.problem(_id)
             expected = {
                 'id': _id,
-                'name': problem['name']
+                'name': problem['name'],
+                'children': []
             }
             self.assertDictContainsSubset(expected, actual)
+
+    def test_sections(self):
+        """ Verify the presenter returns a specific assignment. """
+        ungraded_problems = self.factory.problems(False)
+        with mock.patch('slumber.Resource.get', mock.Mock(return_value=self.factory.structure)):
+            with mock.patch('analyticsclient.course.Course.problems', mock.Mock(return_value=ungraded_problems)):
+                expected = self.factory.present_sections
+                self.assertListEqual(self.presenter.sections(), expected)
+
+    def test_section(self):
+        """ Verify the presenter returns a specific assignment. """
+        ungraded_problems = self.factory.problems(False)
+        with mock.patch('slumber.Resource.get', mock.Mock(return_value=self.factory.structure)):
+            with mock.patch('analyticsclient.course.Course.problems', mock.Mock(return_value=ungraded_problems)):
+                # The method should return None if the assignment does not exist.
+                self.assertIsNone(self.presenter.section(None))
+                self.assertIsNone(self.presenter.section('non-existent-id'))
+                expected = self.factory.present_sections[0]
+                self.assertEqual(self.presenter.section(expected['id']), expected)
+
+    def test_subsections(self):
+        """ Verify the presenter returns a specific assignment. """
+        ungraded_problems = self.factory.problems(False)
+        with mock.patch('slumber.Resource.get', mock.Mock(return_value=self.factory.structure)):
+            with mock.patch('analyticsclient.course.Course.problems', mock.Mock(return_value=ungraded_problems)):
+                # The method should return None if the assignment does not exist.
+                self.assertIsNone(self.presenter.subsections(None))
+                self.assertIsNone(self.presenter.subsections('non-existent-id'))
+                section = self.factory.present_sections[0]
+                expected = section['children']
+                self.assertListEqual(self.presenter.subsections(section['id']), expected)
+
+    def test_subsection(self):
+        """ Verify the presenter returns a specific assignment. """
+        ungraded_problems = self.factory.problems(False)
+        with mock.patch('slumber.Resource.get', mock.Mock(return_value=self.factory.structure)):
+            with mock.patch('analyticsclient.course.Course.problems', mock.Mock(return_value=ungraded_problems)):
+                # The method should return None if the assignment does not exist.
+                self.assertIsNone(self.presenter.subsection(None, None))
+                self.assertIsNone(self.presenter.subsection('non-existent-id', 'nope'))
+                section = self.factory.present_sections[0]
+                expected_subsection = section['children'][0]
+                self.assertEqual(self.presenter.subsection(section['id'], expected_subsection['id']),
+                                 expected_subsection)
+
+    def test_subsection_problems(self):
+        """ Verify the presenter returns a specific assignment. """
+        ungraded_problems = self.factory.problems(False)
+        with mock.patch('slumber.Resource.get', mock.Mock(return_value=self.factory.structure)):
+            with mock.patch('analyticsclient.course.Course.problems', mock.Mock(return_value=ungraded_problems)):
+                # The method should return None if the assignment does not exist.
+                self.assertIsNone(self.presenter.subsection_problems(None, None))
+                self.assertIsNone(self.presenter.subsection_problems('non-existent-id', 'nope'))
+                section = self.factory.present_sections[0]
+                subsection = section['children'][0]
+                expected_problems = subsection['children']
+                self.assertListEqual(
+                    self.presenter.subsection_problems(section['id'], subsection['id']), expected_problems)
