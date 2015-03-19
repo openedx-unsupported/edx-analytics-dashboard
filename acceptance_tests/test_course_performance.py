@@ -14,6 +14,9 @@ _multiprocess_can_split_ = True
 
 
 class CoursePerformancePageTestsMixin(CoursePageTestsMixin):
+
+    help_path = 'performance/Performance_Answers.html'
+
     def test_page(self):
         super(CoursePerformancePageTestsMixin, self).test_page()
         self._test_chart()
@@ -251,8 +254,6 @@ class CoursePerformanceAnswerDistributionTests(CoursePerformancePageTestsMixin, 
     """
     Tests for the course problem answer distribution page.
     """
-
-    help_path = 'performance/index.html'
 
     def setUp(self):
         super(CoursePerformanceAnswerDistributionTests, self).setUp()
