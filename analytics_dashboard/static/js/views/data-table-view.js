@@ -153,11 +153,16 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
              * percentages.
              */
             createFormatPercentFunc: function (columnKey) {
+                var self = this;
                 return function (row, type) {
                     var value = row[columnKey],
                         display = value;
                     if (type === 'display') {
-                        display = Utils.formatDisplayPercentage(value);
+                        if (_(self.options).has('replaceZero') && value === 0) {
+                            display = self.options.replaceZero;
+                        } else {
+                            display = Utils.formatDisplayPercentage(value);
+                        }
                     }
                     return display;
                 };
