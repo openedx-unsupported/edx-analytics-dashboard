@@ -48,6 +48,8 @@ edX Insights presents.
  * :ref:`Engagement_Content`
  
  * :ref:`Performance_Graded`
+ 
+ * :ref:`Performance_Ungraded`
 
 Each of these chapters contains a section for anecdotal "Analytics in Action".
 These sections showcase how collected data has revealed information about

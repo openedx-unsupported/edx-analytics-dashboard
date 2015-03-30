@@ -20,13 +20,18 @@ for problem components of these types:
 
 * Math expression input
 
-When you select **Graded Content**, EdX Insights displays the grading
+After you select **Graded Content**, edX Insights displays the grading
 configuration for your course. You can review aggregated performance data for
-assignments and problems, and then the answers that students submitted for
+the assignments and problems, and then the answers that students submitted for
 assigned questions.
 
-For performance data to be available for a problem, at least one student must
-have submitted an answer for that problem.
+After you select **Ungraded Problems**, edX Insights displays the sections in
+your course that contain ungraded problem components. You can review aggregated
+performance data for ungraded problems by section and subsection, and
+then examine the answers that students submitted for the problems.
+
+For performance data to be available for either graded or ungraded course
+content, at least one student must have submitted an answer for that problem.
 
 Student submissions are updated every day. The computations use the last
 answer submitted by each student and received through the end of the previous
@@ -36,4 +41,5 @@ day (23:59 UTC).
    :maxdepth: 1
 
    Performance_Answers
+   Performance_Ungraded
 

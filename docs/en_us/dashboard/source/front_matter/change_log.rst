@@ -12,6 +12,8 @@ Change Log
 
    * - Date
      - Change
+   * - 10 Apr 2015
+     - Added :ref:`Performance_Ungraded`.
    * - 11 Mar 2015
      - Added :ref:`Performance_Graded`.
       

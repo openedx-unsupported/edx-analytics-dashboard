@@ -212,7 +212,7 @@ submissions received for each one.
 For information about identifying the graded subsections in a course, see `Set
 the Assignment Type and Due Date for a Subsection`_.
 
-You use the drop-down **Select {Assignement Type}** menu or click a bar in the
+You use the drop-down **Select {Assignment Type}** menu or click a bar in the
 chart to select the assignment you want to examine further.
 
 =========================
