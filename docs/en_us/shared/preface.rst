@@ -13,13 +13,80 @@ goals, and solve problems, edX provides a variety of information resources.
 
 To help you find what you need, browse the edX offerings in these categories:
 
-* :ref:`Resources for Course Teams`
-* :ref:`Resources for Researchers`
-* :ref:`Resources for Developers`
-* :ref:`Resources for Students`
+* `The edX Partner Portal`_
+* `The Open edX Portal`_
+* `Release Announcements through the Open edX Portal`_
+* `Resources for Course Teams`_
+* `Resources for Researchers`_
+* `Resources for Developers`_
+* `Resources for Open edX`_
+* `Resources for Students`_
 
 All members of the edX community are encouraged to make use of any of the
-resources described in this preface.
+resources described in this preface. We welcome your feedback on these edX
+information resources. Contact the edX documentation team at `docs@edx.org`_.
+
+.. _The edX Partner Portal:
+
+***********************
+The edX Partner Portal
+***********************
+
+The `edX Partner Portal`_ is the destination for partners to learn, connect,
+and collaborate with one another. Partners can explore rich resources and share
+success stories and best practices while staying up-to-date with important news
+and updates.
+
+To use the edX Partner Portal, you must register and request verification as an
+edX partner. If you are an edX partner and have not used the edX Partner
+Portal, follow these steps.
+
+#. Visit `partners.edx.org`_, and select **Create New Account**.
+#. Select **Request Partner Access**, then fill in your personal details.
+#. Select **Create New Account**. You will receive a confirmation email with
+   your account access within 24 hours.
+
+.. _The Open edX Portal:
+
+***********************
+The Open edX Portal
+***********************
+
+The `Open edX Portal`_ is the destination for all edX users to learn about the
+edX roadmap, as well as hosting, extending the edX platform, and contributing
+to Open edX. In addition, the Open edX Portal provides product announcements,
+the Open edX blog, and other rich community resources.
+
+All users can view content on the Open edX Portal without creating an account
+and logging in.  
+
+To comment on blog posts or the edX roadmap, you must create an account and log
+in. If you do not have an account, follow these steps.
+
+#. Visit `open.edx.org/user/register`_.
+#. Fill in your personal details.
+#. Select **Create New Account**. You are then logged in to the `Open edX
+   Portal`_.
+
+***************************************************
+Release Announcements through the Open edX Portal
+***************************************************
+
+To receive and share product and release announcements by email, subscribe to
+announcements on the `Open edX Portal`_.
+
+#. Create an account on the `Open edX Portal`_ as described above.
+#. Go to https://open.edx.org/announcements.
+#. Under **Announcement Type** in the **Subscriptions** block, select the type
+   of announcements that you want to receive through email.
+#. Click **Save**.
+   
+You will now receive email messages when new announcements of the types you
+selected are posted.
+
+.. note:: 
+ EdX partners can complete the same steps on the **Announcements** page in the
+ `edX Partner Portal`_.
 
 ***********************
 System Status
@@ -79,7 +146,10 @@ Documentation for course teams is available on the docs.edx.org web page.
 
 These guides open in your web browser. The left side of each page includes a
 **Search docs** field and links to that guide's contents. To open or save a PDF
-version, click **v: latest** at the lower left of the page, then click **PDF**.
+version, click **v: latest** at the lower right of the page, then click **PDF**.
+
+.. note:: If you use the Safari browser, be aware that it does not support the 
+ search feature for the `edX documentation`_. This is a known limitation.
 
 Email
 -----
@@ -119,8 +189,11 @@ The `edX Research Guide`_ is available on the docs.edx.org web page.
 
 This guide opens in your web browser, with a **Search docs** field and links to
 that guide's contents on the left side of each page. To open or save a PDF
-version, click **v: latest** at the lower left of the page, and then click
+version, click **v: latest** at the lower right of the page, and then click
 **PDF**.
+
+.. note:: If you use the Safari browser, be aware that it does not support the 
+ search feature for the `edX documentation`_. This is a known limitation.
 
 Email
 -------
@@ -129,12 +202,15 @@ To receive and share information by email, researchers can join the
 `openedx-analytics`_ Google group to ask questions and participate in 
 discussions with peers at other edX partner organizations and edX staffers.
 
-Wiki
+Wikis
 -------------------
 
 The edX Analytics team maintains the `Open edX Analytics`_ wiki, which includes
 links to periodic release notes, the Open edX Public Product Roadmap, and other
 resources for researchers.
+
+The `edx-tools`_ wiki lists publicly shared tools for working with the edX
+platform, including scripts for data analysis and reporting.
 
 .. _Resources for Developers:
 
@@ -175,6 +251,8 @@ Documentation for developers is available on the docs.edx.org web page.
 * `edX Platform API`_ provides tools for building applications to view course
   information and videos.
 
+.. note:: If you use the Safari browser, be aware that it does not support the 
+ search feature for the `edX documentation`_. This is a known limitation.
 
 GitHub
 -------
@@ -201,11 +279,14 @@ staffers.
 
 * For conversations about the code in Open edX, join `edx-code`_.  
 * For conversations about running Open edX, join `openedx-ops`_. 
-* For conversations about globalization and translation, join `openedx-translation`_.
+* For conversations about globalization and translation, join 
+  `openedx-translation`_.
 
 Additional Google groups are occasionally formed for individual projects.
 
-.. note:: Please do not report security issues in public. If you have a concern, please email security@edx.org.
+.. note:: 
+ Please do not report security issues in public. If you have a concern, please
+ email security@edx.org.
 
 EdX engineers often monitor the Freenode #edx-code IRC channel.
 
@@ -222,6 +303,35 @@ The pull request dashboard_  is a visualization of the count and age of the
 pull requests (PRs) assigned to teams at edX. Click the bars in this chart to
 get more information about the PRs.
 
+The `edx-tools`_ wiki lists publicly shared tools for working with the edX
+platform, including scripts and helper utilities.
+
+.. _Resources for Open edX:
+
+**************************
+Resources for Open edX
+**************************
+
+Hosting providers, platform exenders, core contributors, and course staff all
+use Open edX. Starting with the Birch release of Open edX, the following
+release-specific documentation is available on docs.edx.org.  
+
+* `Open edX Release Notes`_ provides information on changes in Open edX
+  releases.
+
+* `Installing, Configuring, and Running the edX Platform`_ provides procedures
+  for getting Devstack and Fullstack installed and operational.
+
+* `Building and Running an Open edX Course`_ is a comprehensive guide with
+  concepts and procedures to help you build a course in Studio, and then
+  use the Learning Management System (LMS) to run a course.
+
+  When you are working in Studio, you can access relevant sections of this
+  guide by clicking **Help** on any page.
+
+.. note:: If you use the Safari browser, be aware that it does not support the 
+ search feature for the `edX documentation`_. This is a known limitation.
+
 .. _Resources for Students:
 
 **************************
@@ -232,7 +342,7 @@ Documentation
 -------------
 
 The `edX Guide for Students`_ is available on the docs.edx.org web page.
-Because students are not currently guided to this resource through the
+Because students are currently only guided to this resource through the
 courseware, we encourage course staff to provide links to students as needed
 in course updates or discussions.
 
@@ -260,7 +370,7 @@ From edX
 
 To help you get started with the edX learning experience, edX offers a course
 (of course!). You can find the edX Demo_ course on the edX web site. EdX also
-maintains a list of frequently_ asked questions and answers.
+maintains a list of `frequently asked questions`_ and answers.
 
 If you still have questions or suggestions, you can get help from the edX
 support team: click **Contact** at the bottom of any edX web page or send an
@@ -299,7 +409,7 @@ edX Global Community meetup_ group.
 .. _edx/edx-analytics-dashboard: https://github.com/edx/edx-analytics-dashboard
 .. _dashboard: http://dash.openedx.org/age.html
 .. _Demo: http://www.edx.org/course/edx/edx-edxdemo101-edx-demo-1038
-.. _frequently: http://www.edx.org/student-faq
+.. _frequently asked questions: http://www.edx.org/student-faq
 .. _meetup: http://www.meetup.com/edX-Global-Community/
 .. _openedx-ops: http://groups.google.com/forum/#!forum/openedx-ops
 .. _openedx-translation: http://groups.google.com/forum/#!forum/openedx-translation
@@ -308,3 +418,12 @@ edX Global Community meetup_ group.
 .. _edX Data Analytics API: http://edx.readthedocs.org/projects/edx-data-analytics-api/en/latest/index.html
 .. _edX Enrollment API: http://edx.readthedocs.org/projects/edx-enrollment-api/en/latest/
 .. _edX Platform API: http://edx.readthedocs.org/projects/edx-platform-api/en/latest/
+.. _edX Partner Portal: https://partners.edx.org
+.. _partners.edx.org: https://partners.edx.org
+.. _Open edX Portal: https://open.edx.org
+.. _open.edx.org/user/register: https://open.edx.org/user/register
+.. _Open edX Release Notes: http://edx.readthedocs.org/projects/open-edx-release-notes/en/latest/
+.. _Building and Running an Open edX Course: http://edx.readthedocs.org/projects/open-edx-building-and-running-a-course/en/named-release-birch/
+.. _docs@edx.org: docs@edx.org
+.. _edX documentation: http://docs.edx.org
+.. _edx-tools: https://github.com/edx/edx-tools/wiki

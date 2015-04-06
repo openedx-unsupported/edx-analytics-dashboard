@@ -205,7 +205,7 @@ For information about viewing student demographic data in edX Insights, see
        - More specialized preparation for continuing education or employment
          lasting three to four years.
      * - Associate
-       - Associate's degree
+       - Associate degree
        - Completion of two years of post-secondary education.
      * - Bachelor's
        - Bachelor's degree
@@ -232,7 +232,7 @@ For information about viewing student demographic data in edX Insights, see
        - None, Elementary/primary school, Junior secondary/junior high/middle
          school, Secondary/high school
      * - College Degree
-       - Associate's degree, Bachelor's degree
+       - Associate degree, Bachelor's degree
      * - Advanced Degree
        - Master's or professional degree, Doctorate
 
