@@ -1,92 +1,35 @@
+{% extends "courses/_base_content_nav.html" %}
+
 {% load i18n %}
 {% load dashboard_extras %}
 
-<div class="row">
-  <div class="col-xs-12">
-    <div class="graded-content-nav">
-      <ul class="nav navbar-nav">
-        <li class="{% if active == "assignment_type" %}active{% endif %} nav-section">
-          <div class="dropdown">
-              <span class="link-label dropdown-toggle" id="assignmentTypeMenu" data-toggle="dropdown">
-                {% if assignment_type %}
-                  {{ assignment_type }}
-                {% else %}
-                  {% trans "Select Assignment Type" %}
-                {% endif %}
-                <span class="caret"></span>
-              </span>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="assignmentTypeMenu">
-              <li role="presentation">
-                <a role="menuitem" href="{% url "courses:performance:graded_content" course_id=course_id %}">
-                  {# Translators: This refers to all course assignment types (e.g. homework, exam, lab). #}
-                  {% trans "All Assignments" %}
-                </a>
-              </li>
-              {% for assignment_type in assignment_types %}
-                <li role="presentation">
-                  <a role="menuitem"
-                     href="{% url "courses:performance:graded_content_by_type" course_id=course_id assignment_type=assignment_type|unicode_slugify %}">
-                    {{ assignment_type }}
-                  </a>
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
-        </li>
-        {% if assignments %}
-          <li class="{% if active == "assignments" %}active{% endif %} nav-section">
-            <div class="dropdown">
-              <span class="link-label dropdown-toggle" id="assignmentMenu" data-toggle="dropdown">
-                {% if assignment and assignment.name %}
-                  {{ assignment.name }}
-                {% else %}
-                  {% blocktrans %}
-                    Select {{ assignment_type }}
-                  {% endblocktrans %}
-                {% endif %}
-                <span class="caret"></span>
-              </span>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="assignmentMenu">
-                {% for assignment in assignments %}
-                  <li role="presentation" {% if not assignment.total_submissions > 0 %}class="disabled"{% endif %}>
-                    <a role="menuitem"
-                       {% if assignment.total_submissions > 0 %}href="{% url "courses:performance:assignment" course_id=course_id assignment_id=assignment.id %}"{% endif %}>
-                      {{ assignment.name }}
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
-            </div>
-          </li>
-        {% endif %}
-        {% if problems %}
-          <li class="{% if active == "problems" %}active{% endif %} nav-section">
-            <div class="dropdown">
-              <span class="link-label dropdown-toggle" id="problemMenu" data-toggle="dropdown">
-                {% if problem and problem.name %}
-                  {{ problem.name }}
-                {% else %}
-                  {% trans "Select Problem" %}
-                {% endif %}
-                <span class="caret"></span>
-              </span>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="problemMenu">
-                {% for problem in problems %}
-                  {% if problem.part_ids|length == 0 %}
-                    {% include 'courses/_graded_content_nav_problem.html' with course_id=course_id assignment_id=assignment.id problem_id=problem.id part_id=None enabled=False name=problem.name %}
-                  {% else %}
-                    {% include 'courses/_graded_content_nav_problem.html' with course_id=course_id assignment_id=assignment.id problem_id=problem.id part_id=problem.part_ids.0 enabled=True name=problem.name %}
-                  {% endif %}
+{% block home_content_url %}
+    {% url "courses:performance:graded_content" course_id=course_id %}
+{% endblock %}
 
-                {% endfor %}
-              </ul>
-            </div>
-          </li>
-        {% endif %}
-      </ul>
-      <div class="section-heading">
-        <span class="section-heading-note small">{{ heading_note }}</span>
-      </div>
-    </div>
-  </div>
-</div>
+{% block select_first_level %}
+    {% trans "Select Assignment Type" %}
+{% endblock %}
+
+{% block select_first_level_all %}
+  {# Translators: This refers to all course assignment types (e.g. homework, exam, lab). #}
+  {% trans "All Assignments" %}
+{% endblock %}
+
+{% block first_level_url %}
+    {% url "courses:performance:graded_content_by_type" course_id=course_id assignment_type=level.name|unicode_slugify %}
+{% endblock %}
+
+{% block select_second_level %}
+    {% blocktrans with level=selected_first_level.name %}
+        Select {{ level }}
+    {% endblocktrans %}
+{% endblock %}
+
+{% block second_level_url %}
+    {% url "courses:performance:assignment" course_id=course_id assignment_id=level.id %}
+{% endblock %}
+
+{% block problem_part_level_url %}
+    {% url "courses:performance:answer_distribution" course_id=course_id assignment_id=selected_second_level.id problem_id=level.id problem_part_id=level.part_ids.0 %}
+{% endblock %}

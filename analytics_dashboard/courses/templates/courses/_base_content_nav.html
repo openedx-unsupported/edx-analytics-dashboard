@@ -1,0 +1,93 @@
+{% load i18n %}
+{% load dashboard_extras %}
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="graded-content-nav">
+      <ul class="nav navbar-nav">
+        <li class="{% if active == "first_level" %}active{% endif %} nav-section">
+          <div class="dropdown">
+              <span class="link-label dropdown-toggle" id="firstLevelMenu" data-toggle="dropdown">
+                {% if selected_first_level and selected_first_level.name %}
+                  {{ selected_first_level.name }}
+                {% else %}
+                  {% block select_first_level %}{% endblock %}
+                {% endif %}
+                <span class="caret"></span>
+              </span>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="firstLevelMenu">
+              <li role="presentation">
+                <a role="menuitem" href="{% block home_content_url %}{% endblock %}">
+                  {% block select_first_level_all %}{% endblock %}
+                </a>
+              </li>
+              {% for level in first_levels %}
+                <li role="presentation" {% if level.total_submissions == 0 %}class="disabled"{% endif %}>
+                  <a role="menuitem"
+                     {% if level.total_submissions != 0 %}href="{% block first_level_url %}{% endblock %}{% endif %}">
+                    {{ level.name }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </li>
+        {% if second_levels %}
+          <li class="{% if active == "second_level" %}active{% endif %} nav-section">
+            <div class="dropdown">
+              <span class="link-label dropdown-toggle" id="secondLevelMenu" data-toggle="dropdown">
+                {% if selected_second_level and selected_second_level.name %}
+                  {{ selected_second_level.name }}
+                {% else %}
+                    {% block select_second_level%}{% endblock %}
+                {% endif %}
+                <span class="caret"></span>
+              </span>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="secondLevelMenu">
+                {% for level in second_levels %}
+                  <li role="presentation" {% if level.total_submissions == 0 %}class="disabled"{% endif %}>
+                    <a role="menuitem"
+                      {% if level.total_submissions != 0 %}href="{% block second_level_url %}{% endblock %}"{% endif %}>
+                      {{ level.name }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </li>
+        {% endif %}
+        {% if third_levels %}
+          <li class="{% if active == "third_level" %}active{% endif %} nav-section">
+            <div class="dropdown">
+              <span class="link-label dropdown-toggle" id="thirdLevelMenu" data-toggle="dropdown">
+                {% if selected_third_level and selected_third_level.name %}
+                  {{ selected_third_level.name }}
+                {% else %}
+                  {% trans "Select Problem" %}
+                {% endif %}
+                <span class="caret"></span>
+              </span>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="thirdLevelMenu">
+                {% for level in third_levels %}
+                  <li role="presentation" {% if level.part_ids|length == 0 %}class="disabled"{% endif %}>
+                    <a role="menuitem"
+                      {% if level.part_ids|length > 0 %}
+                        href="{% block problem_part_level_url %}{% endblock %}"
+                      {% endif %}>
+                      {# Translators: This indicates that no text was provided. #}
+                      {% trans "(empty)" as empty %}
+                      {{ level.name|default_if_none:empty }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </li>
+        {% endif %}
+      </ul>
+      <div class="section-heading">
+        <span class="section-heading-note small">{{ heading_note }}</span>
+      </div>
+    </div>
+  </div>
+</div>

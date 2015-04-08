@@ -74,7 +74,41 @@ class CourseStructure(object):
                 'id': assignment['id'],
                 'name': assignment['display_name'],
                 'assignment_type': assignment['format'],
-                'problems': problems,
+                'children': problems,
             })
 
         return assignments
+
+    @staticmethod
+    def course_structure_to_sections(structure, graded=None):
+        """
+        Returns sections, subsections, and problems, nested within 'children' attributes.
+        """
+
+        blocks = structure[u'blocks']
+        root = blocks[structure[u'root']]
+        sections = CourseStructure._build_sections(blocks, root[u'id'],
+                                                   graded, [u'chapter', u'sequential', u'problem'])
+        return sections
+
+    @staticmethod
+    def _build_sections(blocks, section_id, graded, block_types):
+        """ Recursively build sections of block_type. """
+        sections = []
+        if len(block_types) > 0:
+            block_types = list(block_types)
+            block_type = block_types.pop(0)
+            structure_sections = CourseStructure._filter_children(blocks, section_id,
+                                                                  graded=graded,
+                                                                  block_type=block_type,
+                                                                  require_format=False)
+
+            for section in structure_sections:
+                children = CourseStructure._build_sections(blocks, section[u'id'], graded, block_types)
+                sections.append({
+                    'id': section['id'],
+                    'name': section['display_name'],
+                    'children': children
+                })
+
+        return sections

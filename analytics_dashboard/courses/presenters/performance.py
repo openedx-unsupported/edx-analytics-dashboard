@@ -205,7 +205,8 @@ class CoursePerformancePresenter(BasePresenter):
     def assignment_types(self):
         """ Returns the assignment types for the represented course."""
         grading_policy = self.grading_policy()
-        return [gp['assignment_type'] for gp in grading_policy]
+        # return the results in a similar format to the course structure for standard parsing
+        return [{'name': gp['assignment_type']} for gp in grading_policy]
 
     def _course_problems(self):
         """ Retrieves course problems (from cache or course API) and adds submission data. """
@@ -254,7 +255,7 @@ class CoursePerformancePresenter(BasePresenter):
 
         return problems
 
-    def _add_submissions_and_part_ids(self, assignments):
+    def _add_submissions_and_part_ids(self, assignments, url_func=None):
         """ Adds submissions and part IDs to the given assignments. """
 
         DEFAULT_DATA = {
@@ -273,7 +274,7 @@ class CoursePerformancePresenter(BasePresenter):
             course_problems = {}
 
         for assignment in assignments:
-            problems = assignment['problems']
+            problems = assignment['children']
 
             for index, problem in enumerate(problems):
                 data = course_problems.get(problem['id'], DEFAULT_DATA)
@@ -286,16 +287,9 @@ class CoursePerformancePresenter(BasePresenter):
                 # not all problems have submissions
                 if len(data['part_ids']) > 0:
                     utils.sorting.natural_sort(data['part_ids'])
-                    data['url'] = reverse('courses:performance:answer_distribution',
-                                          kwargs={
-                                              'course_id': self.course_id,
-                                              'assignment_id': assignment['id'],
-                                              'problem_id': problem['id'],
-                                              'problem_part_id': data['part_ids'][0]
-                                          })
+                    if url_func:
+                        data['url'] = url_func(assignment, problem, data)
                 problem.update(data)
-
-            assignment['problems'] = problems
 
     def _structure(self):
         """ Retrieves course structure from the course API. """
@@ -312,7 +306,8 @@ class CoursePerformancePresenter(BasePresenter):
     def assignments(self, assignment_type=None):
         """ Returns the assignments (and problems) for the represented course. """
 
-        assignment_type_key = self.get_cache_key(u'assignments_{}'.format(assignment_type))
+        assignment_type_name = None if assignment_type is None else assignment_type['name']
+        assignment_type_key = self.get_cache_key(u'assignments_{}'.format(assignment_type_name))
         assignments = cache.get(assignment_type_key)
 
         if not assignments:
@@ -326,38 +321,83 @@ class CoursePerformancePresenter(BasePresenter):
                 cache.set(all_assignments_key, assignments)
 
             if assignment_type:
-                assignment_type = assignment_type.lower()
+                assignment_type['name'] = assignment_type['name'].lower()
                 assignments = [assignment for assignment in assignments if
-                               assignment['assignment_type'].lower() == assignment_type]
+                               assignment['assignment_type'].lower() == assignment_type['name']]
 
-            self._add_submissions_and_part_ids(assignments)
-
-            for index, assignment in enumerate(assignments):
-                problems = assignment['problems']
-                total_submissions = sum(problem.get('total_submissions', 0) for problem in problems)
-                correct_submissions = sum(problem.get('correct_submissions', 0) for problem in problems)
-                assignment['num_problems'] = len(problems)
-                assignment['total_submissions'] = total_submissions
-                assignment['correct_submissions'] = correct_submissions
-                assignment['correct_percent'] = utils.math.calculate_percent(correct_submissions, total_submissions)
-                assignment['incorrect_submissions'] = total_submissions - correct_submissions
-                assignment['incorrect_percent'] = utils.math.calculate_percent(
-                    assignment['incorrect_submissions'], total_submissions)
-                assignment['index'] = index + 1
-                # removing the URL keeps navigation between the menu and bar chart consistent
-                if assignment['total_submissions'] > 0:
-                    assignment['url'] = reverse('courses:performance:assignment',
-                                                kwargs={'course_id': self.course_id, 'assignment_id': assignment['id']})
+            self._add_submissions_and_part_ids(assignments, self._build_graded_answer_distribution_url)
+            self._build_submission_collections(assignments, self._build_assignment_url)
 
             # Cache the data for the course-assignment_type combination.
             cache.set(assignment_type_key, assignments)
 
         return assignments
 
+    def _build_submission_collections(self, collections, url_func=None):
+        for index, submission_collection in enumerate(collections):
+            children = submission_collection['children']
+            total_submissions = sum(child.get('total_submissions', 0) for child in children)
+            correct_submissions = sum(child.get('correct_submissions', 0) for child in children)
+            submission_collection['num_children'] = len(children)
+            submission_collection['total_submissions'] = total_submissions
+            submission_collection['correct_submissions'] = correct_submissions
+            submission_collection['correct_percent'] = utils.math.calculate_percent(
+                correct_submissions, total_submissions)
+            submission_collection['incorrect_submissions'] = total_submissions - correct_submissions
+            submission_collection['incorrect_percent'] = utils.math.calculate_percent(
+                submission_collection['incorrect_submissions'], total_submissions)
+            submission_collection['index'] = index + 1
+            # removing the URL keeps navigation between the menu and bar chart consistent
+            if url_func and submission_collection['total_submissions'] > 0:
+                submission_collection['url'] = url_func(submission_collection)
+
+    def _build_graded_answer_distribution_url(self, parent, problem, parts):
+        return reverse('courses:performance:answer_distribution',
+                       kwargs={
+                           'course_id': self.course_id,
+                           'assignment_id': parent['id'],
+                           'problem_id': problem['id'],
+                           'problem_part_id': parts['part_ids'][0]
+                       })
+
+    def _build_ungraded_answer_distribution_url_func(self, section_id):
+        def build_url(parent, problem, parts):
+            return reverse('courses:performance:ungraded_answer_distribution',
+                           kwargs={
+                               'course_id': self.course_id,
+                               'section_id': section_id,
+                               'subsection_id': parent['id'],
+                               'problem_id': problem['id'],
+                               'problem_part_id': parts['part_ids'][0]
+                           })
+
+        return build_url
+
+    def _build_assignment_url(self, assignment):
+        return reverse('courses:performance:assignment', kwargs={
+            'course_id': self.course_id, 'assignment_id': assignment['id']})
+
+    def _build_section_url(self, section):
+        return reverse('courses:performance:ungraded_section', kwargs={'course_id': self.course_id,
+                                                                       'section_id': section['id']})
+
+    def _build_subsection_url_func(self, section_id):
+        """
+        Returns a function for creating the ungraded subsection URL.
+        """
+        # Using closures to keep the section ID available
+        def subsection_url(subsection):
+            return reverse('courses:performance:ungraded_subsection',
+                           kwargs={'course_id': self.course_id,
+                                   'section_id': section_id,
+                                   'subsection_id': subsection['id']})
+        return subsection_url
+
     def has_submissions(self, assignments):
-        for assignment in assignments:
-            if assignment['total_submissions'] > 0:
-                return True
+        if assignments:
+            for assignment in assignments:
+                if assignment['total_submissions'] > 0:
+                    return True
         return False
 
     def assignment(self, assignment_id):
@@ -373,3 +413,66 @@ class CoursePerformancePresenter(BasePresenter):
         problem = self._structure()['blocks'][problem_id]
         problem['name'] = problem.pop('display_name')
         return problem
+
+    def _ungraded_structure(self, section_id=None, subsection_id=None):
+        section_type_key = self.get_cache_key(u'sections_{}_{}'.format(section_id, subsection_id))
+        found_structure = cache.get(section_type_key)
+
+        if not found_structure:
+            all_sections_key = self.get_cache_key(u'sections')
+            found_structure = cache.get(all_sections_key)
+
+            if not found_structure:
+                structure = self._structure()
+                found_structure = CourseStructure.course_structure_to_sections(structure, graded=False)
+                cache.set(all_sections_key, found_structure)
+
+            for section in found_structure:
+                self._add_submissions_and_part_ids(section['children'],
+                                                   self._build_ungraded_answer_distribution_url_func(
+                                                       section['id']))
+                self._build_submission_collections(section['children'],
+                                                   self._build_subsection_url_func(section['id']))
+
+            self._build_submission_collections(found_structure, self._build_section_url)
+
+            if found_structure:
+                if section_id:
+                    found_structure = [section for section in found_structure if section['id'] == section_id]
+
+                if found_structure and subsection_id:
+                    found_structure = \
+                        [section for section in found_structure[0]['children'] if section['id'] == subsection_id]
+
+            cache.set(section_type_key, found_structure)
+
+        return found_structure
+
+    def sections(self):
+        return self._ungraded_structure()
+
+    def section(self, section_id):
+        section = None
+        if section_id:
+            section = self._ungraded_structure(section_id)
+            section = section[0] if section else None
+        return section
+
+    def subsections(self, section_id):
+        sections = self.section(section_id)
+        if sections:
+            return sections.get('children', None)
+        return None
+
+    def subsection(self, section_id, subsection_id):
+        subsection = None
+        if section_id and subsection_id:
+            subsection = self._ungraded_structure(section_id, subsection_id)
+            subsection = subsection[0] if subsection else None
+        return subsection
+
+    def subsection_problems(self, section_id, subsection_id):
+        subsections = self.subsection(section_id, subsection_id)
+        if subsections:
+            return subsections.get('children', None)
+        return None

@@ -5,29 +5,45 @@ from common.tests.factories import CourseStructureFactory
 
 
 class CourseStructureTests(TestCase):
-    def _prepare_assignments(self, structure, assignments):
+    def _prepare_structure(self, structure, assignments, has_format=True):
         prepared = []
 
         for assignment in assignments:
             # Exclude assignments with invalid assignment types
-            if not assignment['format']:
-                continue
+            if has_format:
+                if not assignment['format']:
+                    continue
 
             problems = []
             for child in assignment.pop('children'):
                 block = structure['blocks'][child]
-
-                problems.append({
+                child_block = {
                     'id': block['id'],
                     'name': block['display_name']
-                })
+                }
+                problems.append(child_block)
 
-            prepared.append({
+                grandchildren = []
+                for grandchild in block['children']:
+                    block = structure['blocks'][grandchild]
+                    grandchildren.append({
+                        'id': block['id'],
+                        'name': block['display_name'],
+                        'children': []
+                    })
+                if len(grandchildren) > 0:
+                    child_block['children'] = grandchildren
+
+            block = {
                 'id': assignment['id'],
                 'name': assignment['display_name'],
-                'assignment_type': assignment['format'],
-                'problems': problems,
-            })
+                'children': problems,
+            }
+
+            if has_format:
+                block['assignment_type'] = assignment['format']
+
+            prepared.append(block)
 
         return prepared
 
@@ -36,7 +52,7 @@ class CourseStructureTests(TestCase):
         structure = factory.structure
 
         actual = CourseStructure.course_structure_to_assignments(structure, graded=True)
-        expected = self._prepare_assignments(structure, factory.assignments)
+        expected = self._prepare_structure(structure, factory.assignments)
         self.assertListEqual(actual, expected)
 
         # Test for assignment type filtering
@@ -44,5 +60,12 @@ class CourseStructureTests(TestCase):
         actual = CourseStructure.course_structure_to_assignments(structure, graded=True,
                                                                  assignment_type=assignment_type)
         assignments = [assignment for assignment in factory.assignments if assignment['format'] == assignment_type]
-        expected = self._prepare_assignments(structure, assignments)
+        expected = self._prepare_structure(structure, assignments)
         self.assertListEqual(actual, expected)
+
+    def test_course_structure_to_sections(self):
+        factory = CourseStructureFactory()
+        structure = factory.structure
+
+        actual = CourseStructure.course_structure_to_sections(structure, False)
+        self.assertListEqual(actual, self._prepare_structure(structure, factory.sections, False))

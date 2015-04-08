@@ -47,12 +47,6 @@ class CoursePerformanceViewTestMixin(CourseAPIMixin, NavAssertMixin, ViewTestMix
         # Ensure patches from previous test failures are removed and de-referenced
         self.clear_patches()
 
-        self._patch('courses.presenters.performance.CoursePerformancePresenter.assignments',
-                    return_value=self.factory.present_assignments())
-        self._patch('courses.presenters.performance.CoursePerformancePresenter.grading_policy',
-                    return_value=self.factory.present_grading_policy)
-        self.start_patching()
-
     def tearDown(self):
         super(CoursePerformanceViewTestMixin, self).tearDown()
         self.clear_patches()
@@ -74,12 +68,29 @@ class CoursePerformanceViewTestMixin(CourseAPIMixin, NavAssertMixin, ViewTestMix
         }
         self.assertDictEqual(nav, expected)
 
+    def get_expected_secondary_nav(self, _course_id):
+        """ Override this for each page. """
+        return [
+            {
+                'active': True,
+                'name': 'graded_content',
+                'label': _('Graded Content'),
+                'href': '#'
+            },
+            {
+                'active': True,
+                'name': 'ungraded_content',
+                'label': _('Ungraded Problems'),
+                'href': '#'
+            }
+        ]
+
     def assertSecondaryNavs(self, context, course_id):
         """
         Verifies that the Graded Content option is active in the secondary navigation bar.
         """
         nav = context['secondary_nav_items']
-        expected = [{'active': True, 'name': 'graded_content', 'label': _('Graded Content'), 'href': '#'}]
+        expected = self.get_expected_secondary_nav(course_id)
         self.assertListEqual(nav, expected)
 
     @httpretty.activate
@@ -108,6 +119,9 @@ class CoursePerformanceViewTestMixin(CourseAPIMixin, NavAssertMixin, ViewTestMix
         """
         The view should return HTTP 404 if the course is invalid.
         """
+        pass
+
+    def _test_invalid_course(self, api_template):
         self.stop_patching()
 
         course_id = 'fakeOrg/soFake/Fake_Course'
@@ -115,8 +129,9 @@ class CoursePerformanceViewTestMixin(CourseAPIMixin, NavAssertMixin, ViewTestMix
         self.mock_course_detail(course_id)
         path = self.path(course_id=course_id)
 
-        # The course API would return a 404 for an invalid course. Simulate it to force an error in the view.
-        api_path = 'grading_policies/{}/'.format(course_id)
+        # The course API would return a 404 for an invalid course. Simulate it to
+        # force an error in the view.
+        api_path = api_template.format(course_id)
         self.mock_course_api(api_path, status=404)
 
         response = self.client.get(path, follow=True)
@@ -155,42 +170,101 @@ class CoursePerformanceViewTestMixin(CourseAPIMixin, NavAssertMixin, ViewTestMix
         self._test_api_error()
 
     def assertValidContext(self, context):
+        pass
+
+
+@ddt
+# pylint: disable=abstract-method
+class CoursePerformanceGradedMixin(CoursePerformanceViewTestMixin):
+    active_secondary_nav_label = 'Graded Content'
+
+    def setUp(self):
+        super(CoursePerformanceGradedMixin, self).setUp()
+        self._patch('courses.presenters.performance.CoursePerformancePresenter.assignments',
+                    return_value=self.factory.present_assignments())
+        self._patch('courses.presenters.performance.CoursePerformancePresenter.grading_policy',
+                    return_value=self.factory.present_grading_policy)
+        self.start_patching()
+
+    @httpretty.activate
+    def test_invalid_course(self):
+        self._test_invalid_course('grading_policies/{}/')
+
+    def assertValidContext(self, context):
         """
         Validates the response context.
 
         This is intended to be validate the context of a VALID response returned by a view under normal conditions.
         """
         expected = {
-            'assignment_types': self.factory.assignment_types,
+            'assignment_types': self.factory.present_assignment_types,
             'assignments': self.factory.present_assignments()
         }
         self.assertDictContainsSubset(expected, context)
 
+    def get_expected_secondary_nav(self, course_id):
+        expected = super(CoursePerformanceGradedMixin, self).get_expected_secondary_nav(course_id)
+        expected[1].update({
+            'href': reverse('courses:performance:ungraded_content', kwargs={'course_id': course_id}),
+            'active': False
+        })
+        return expected
+
 
 @ddt
-class CoursePerformanceAnswerDistributionViewTests(CoursePerformanceViewTestMixin, TestCase):
-    viewname = 'courses:performance:answer_distribution'
-    presenter_method = 'courses.presenters.performance.CoursePerformancePresenter.get_answer_distribution'
+# pylint: disable=abstract-method
+class CoursePerformanceUngradedMixin(CoursePerformanceViewTestMixin):
+    active_secondary_nav_label = 'Ungraded Problems'
+    sections = None
 
+    def setUp(self):
+        super(CoursePerformanceUngradedMixin, self).setUp()
+        self.sections = self.factory.present_sections
+        self._patch('courses.presenters.performance.CoursePerformancePresenter.sections',
+                    return_value=self.sections)
+        self._patch('courses.presenters.performance.CoursePerformancePresenter.section',
+                    return_value=self.sections[0])
+        self._patch('courses.presenters.performance.CoursePerformancePresenter.subsections',
+                    return_value=self.sections[0]['children'])
+        self._patch('courses.presenters.performance.CoursePerformancePresenter.subsection',
+                    return_value=self.sections[0]['children'][0])
+        self._patch('courses.presenters.performance.CoursePerformancePresenter.subsection_problems',
+                    return_value=self.sections[0]['children'][0]['children'])
+        self.start_patching()
+
+    @httpretty.activate
+    def test_invalid_course(self):
+        self._test_invalid_course('course_structures/{}/')
+
+    def assertValidContext(self, context):
+        expected = {
+            'sections': self.sections
+        }
+        self.assertDictContainsSubset(expected, context)
+
+    def get_expected_secondary_nav(self, course_id):
+        expected = super(CoursePerformanceUngradedMixin, self).get_expected_secondary_nav(course_id)
+        expected[0].update({
+            'href': reverse('courses:performance:graded_content', kwargs={'course_id': course_id}),
+            'active': False
+        })
+        return expected
+
+
+@ddt
+class CoursePerformanceAnswerDistributionMixin(CoursePerformanceViewTestMixin):
     PROBLEM_ID = 'i4x://edX/DemoX.1/problem/05d289c5ad3d47d48a77622c4a81ec36'
     TEXT_PROBLEM_PART_ID = 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_2_1'
     NUMERIC_PROBLEM_PART_ID = 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_3_1'
     RANDOMIZED_PROBLEM_PART_ID = 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_3_1'
 
-    def path(self, **kwargs):
-        # Use default kwargs for tests that don't necessarily care about the specific argument values.
-        default_kwargs = {
-            'assignment_id': self.factory.assignments[0][u'id'],
-            'problem_id': self.PROBLEM_ID,
-            'problem_part_id': self.TEXT_PROBLEM_PART_ID
-        }
-        default_kwargs.update(kwargs)
-        kwargs = default_kwargs
+    presenter_method = 'courses.presenters.performance.CoursePerformancePresenter.get_answer_distribution'
 
-        return super(CoursePerformanceAnswerDistributionViewTests, self).path(**kwargs)
+    def test_valid_course(self):
+        pass
 
     @httpretty.activate
-    def test_valid_course(self):
+    def _test_valid_course(self, rv):
         course_id = DEMO_COURSE_ID
 
         # Mock the course details
@@ -198,7 +272,7 @@ class CoursePerformanceAnswerDistributionViewTests(CoursePerformanceViewTestMixi
 
         # Mock the problem response used to populate the navbar.
         with patch('courses.presenters.performance.CoursePerformancePresenter.problem',
-                   return_value=self.factory.present_assignments()[0]['problems'][0]):
+                   return_value=rv):
             # API returns different data (e.g. text answers, numeric answers, and randomized answers), resulting in
             # different renderings for these problem part IDs.
             for problem_part_id in [self.TEXT_PROBLEM_PART_ID, self.NUMERIC_PROBLEM_PART_ID,
@@ -207,14 +281,11 @@ class CoursePerformanceAnswerDistributionViewTests(CoursePerformanceViewTestMixi
                 self.assertViewIsValid(course_id, self.PROBLEM_ID, problem_part_id)
 
     def assertViewIsValid(self, course_id, problem_id, problem_part_id):
-        # Retrieve a mock assignment ID
-        assignment_id = self.factory.assignments[0][u'id']
-
         # Mock the answer distribution and retrieve the view
         rv = utils.get_presenter_answer_distribution(course_id, problem_part_id)
         with patch(self.presenter_method, return_value=rv):
-            response = self.client.get(self.path(course_id=course_id, assignment_id=assignment_id,
-                                                 problem_id=problem_id, problem_part_id=problem_part_id))
+            response = self.client.get(self.path(course_id=course_id, problem_id=problem_id,
+                                                 problem_part_id=problem_part_id))
 
         context = response.context
 
@@ -250,7 +321,6 @@ class CoursePerformanceAnswerDistributionViewTests(CoursePerformanceViewTestMixi
         """
         The view should return HTTP 404 if the answer distribution data is missing.
         """
-
         course_id = DEMO_COURSE_ID
 
         # Mock the course details
@@ -260,7 +330,50 @@ class CoursePerformanceAnswerDistributionViewTests(CoursePerformanceViewTestMixi
         self.assertEqual(response.status_code, 404)
 
 
-class CoursePerformanceGradedContentViewTests(CoursePerformanceViewTestMixin, TestCase):
+@ddt
+class CoursePerformanceGradedAnswerDistributionViewTests(CoursePerformanceAnswerDistributionMixin,
+                                                         CoursePerformanceGradedMixin, TestCase):
+    viewname = 'courses:performance:answer_distribution'
+
+    def path(self, **kwargs):
+        # Use default kwargs for tests that don't necessarily care about the specific argument values.
+        default_kwargs = {
+            'assignment_id': self.factory.assignments[0][u'id'],
+            'problem_id': self.PROBLEM_ID,
+            'problem_part_id': self.TEXT_PROBLEM_PART_ID
+        }
+        default_kwargs.update(kwargs)
+        kwargs = default_kwargs
+
+        return super(CoursePerformanceGradedAnswerDistributionViewTests, self).path(**kwargs)
+
+    def test_valid_course(self):
+        self._test_valid_course(self.factory.present_assignments()[0]['children'][0])
+
+
+@ddt
+class CoursePerformanceUngradedAnswerDistributionViewTests(CoursePerformanceAnswerDistributionMixin,
+                                                           CoursePerformanceUngradedMixin, TestCase):
+    viewname = 'courses:performance:ungraded_answer_distribution'
+
+    def path(self, **kwargs):
+        # Use default kwargs for tests that don't necessarily care about the specific argument values.
+        default_kwargs = {
+            'section_id': self.factory.sections[0]['id'],
+            'subsection_id': self.factory.subsections[0]['id'],
+            'problem_id': self.PROBLEM_ID,
+            'problem_part_id': self.TEXT_PROBLEM_PART_ID
+        }
+        default_kwargs.update(kwargs)
+        kwargs = default_kwargs
+
+        return super(CoursePerformanceUngradedAnswerDistributionViewTests, self).path(**kwargs)
+
+    def test_valid_course(self):
+        self._test_valid_course(self.factory.present_assignments()[0]['children'][0])
+
+
+class CoursePerformanceGradedContentViewTests(CoursePerformanceGradedMixin, TestCase):
     viewname = 'courses:performance:graded_content'
 
     def assertValidContext(self, context):
@@ -268,23 +381,23 @@ class CoursePerformanceGradedContentViewTests(CoursePerformanceViewTestMixin, Te
         # an assignments field in the context.
 
         expected = {
-            'assignment_types': self.factory.assignment_types,
+            'assignment_types': self.factory.present_assignment_types,
             'grading_policy': self.factory.present_grading_policy,
         }
         self.assertDictContainsSubset(expected, context)
 
 
-class CoursePerformanceGradedContentByTypeViewTests(CoursePerformanceViewTestMixin, TestCase):
+class CoursePerformanceGradedContentByTypeViewTests(CoursePerformanceGradedMixin, TestCase):
     viewname = 'courses:performance:graded_content_by_type'
 
     def setUp(self):
         super(CoursePerformanceGradedContentByTypeViewTests, self).setUp()
-        self.assignment_type = self.factory.assignment_types[0]
+        self.assignment_type = self.factory.present_assignment_types[0]
 
     def path(self, **kwargs):
         # Use default kwargs for tests that don't necessarily care about the specific argument values.
         default_kwargs = {
-            'assignment_type': self.assignment_type,
+            'assignment_type': self.assignment_type['name'],
         }
         default_kwargs.update(kwargs)
         kwargs = default_kwargs
@@ -314,13 +427,13 @@ class CoursePerformanceGradedContentByTypeViewTests(CoursePerformanceViewTestMix
         self.assertEqual(response.status_code, 200)
 
 
-class CoursePerformanceAssignmentViewTests(CoursePerformanceViewTestMixin, TestCase):
+class CoursePerformanceAssignmentViewTests(CoursePerformanceGradedMixin, TestCase):
     viewname = 'courses:performance:assignment'
 
     def setUp(self):
         super(CoursePerformanceAssignmentViewTests, self).setUp()
         self.assignment = self.factory.present_assignments()[0]
-        self.assignment_type = self.assignment['assignment_type']
+        self.assignment_type = {'name': self.assignment['assignment_type']}
 
     def path(self, **kwargs):
         # Use default kwargs for tests that don't necessarily care about the specific argument values.
@@ -335,7 +448,7 @@ class CoursePerformanceAssignmentViewTests(CoursePerformanceViewTestMixin, TestC
     def assertValidContext(self, context):
         super(CoursePerformanceAssignmentViewTests, self).assertValidContext(context)
 
-        self.assertListEqual(context['js_data']['course']['problems'], self.assignment['problems'])
+        self.assertListEqual(context['assignment']['children'], self.assignment['children'])
         expected = {
             'assignment_type': self.assignment_type,
             'assignment': self.assignment,
@@ -357,4 +470,71 @@ class CoursePerformanceAssignmentViewTests(CoursePerformanceViewTestMixin, TestC
         self.mock_course_detail(course_id)
 
         response = self.client.get(self.path(course_id=course_id, assignment_id='Invalid'))
+        self.assertEqual(response.status_code, 404)
+
+
+class CoursePerformanceUngradedContentViewTests(CoursePerformanceUngradedMixin, TestCase):
+    viewname = 'courses:performance:ungraded_content'
+
+    @httpretty.activate
+    @patch('courses.presenters.performance.CoursePerformancePresenter.sections', Mock(return_value=None))
+    def test_missing_sections(self):
+        self.mock_course_detail(DEMO_COURSE_ID)
+        response = self.client.get(self.path(course_id=DEMO_COURSE_ID))
+        # base page will should return a 200 even if no sections found
+        self.assertEqual(response.status_code, 200)
+
+
+class CoursePerformanceUngradedSectionViewTests(CoursePerformanceUngradedMixin, TestCase):
+    viewname = 'courses:performance:ungraded_section'
+
+    def path(self, **kwargs):
+        # Use default kwargs for tests that don't necessarily care about the specific argument values.
+        default_kwargs = {
+            'section_id': self.sections[0]['id'],
+        }
+        default_kwargs.update(kwargs)
+        kwargs = default_kwargs
+
+        return super(CoursePerformanceUngradedSectionViewTests, self).path(**kwargs)
+
+    def assertValidContext(self, context):
+        super(CoursePerformanceUngradedSectionViewTests, self).assertValidContext(context)
+        self.assertEqual(self.sections[0], context['section'])
+        self.assertListEqual(self.sections[0]['children'], context['subsections'])
+
+    @httpretty.activate
+    @patch('courses.presenters.performance.CoursePerformancePresenter.section', Mock(return_value=None))
+    def test_missing_subsections(self):
+        self.mock_course_detail(DEMO_COURSE_ID)
+        response = self.client.get(self.path(course_id=DEMO_COURSE_ID, section_id='Invalid'))
+        self.assertEqual(response.status_code, 404)
+
+
+class CoursePerformanceUngradedSubsectionViewTests(CoursePerformanceUngradedMixin, TestCase):
+    viewname = 'courses:performance:ungraded_subsection'
+
+    def path(self, **kwargs):
+        # Use default kwargs for tests that don't necessarily care about the specific argument values.
+        default_kwargs = {
+            'section_id': self.sections[0]['id'],
+            'subsection_id': self.sections[0]['children'][0]['id'],
+        }
+        default_kwargs.update(kwargs)
+        kwargs = default_kwargs
+
+        return super(CoursePerformanceUngradedSubsectionViewTests, self).path(**kwargs)
+
+    def assertValidContext(self, context):
+        super(CoursePerformanceUngradedSubsectionViewTests, self).assertValidContext(context)
+        section = self.sections[0]
+        self.assertEqual(section, context['section'])
+        self.assertListEqual(section['children'], context['subsections'])
+        self.assertEqual(section['children'][0], context['subsection'])
+
+    @httpretty.activate
+    @patch('courses.presenters.performance.CoursePerformancePresenter.subsection', Mock(return_value=None))
+    def test_missing_subsection(self):
+        self.mock_course_detail(DEMO_COURSE_ID)
+        response = self.client.get(self.path(course_id=DEMO_COURSE_ID, section_id='Invalid', subsection_id='Nope'))
         self.assertEqual(response.status_code, 404)

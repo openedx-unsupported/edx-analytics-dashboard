@@ -491,6 +491,11 @@ class CourseHome(CourseTemplateWithNavView):
                         'title': _('How are students doing on graded course assignments?'),
                         'view': 'courses:performance:graded_content',
                         'breadcrumbs': [_('Graded Content')]
+                    },
+                    {
+                        'title': _('How are students doing on ungraded exercises?'),
+                        'view': 'courses:performance:ungraded_content',
+                        'breadcrumbs': [_('Ungraded Problems')]
                     }
                 ]
             })
