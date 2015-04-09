@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Andrey Bochkarev <abocha@ya.ru>, 2015
 # Anton Sazhin <sazhin@arbiconde.ru>, 2014
 # cblackburn <cblackburn@edx.org>, 2014
 # Dmitriy <polevaiabrest@gmail.com>, 2014
@@ -11,18 +12,20 @@
 # Maksimenkova Olga <omaksimenkova@hse.ru>, 2014
 # mastergowen <mastergowen@gmail.com>, 2014
 # mcha121 <mcha-12-1@bk.ru>, 2014
+# Michael Savin <m.savin.ru@gmail.com>, 2015
 # Natalie Murashkina <murnatty@gmail.com>, 2014
-# Nikolay K Medvedev <elsin16@gmail.com>, 2014
+# Nikolay K Medvedev <elsin16@gmail.com>, 2014-2015
 # Peter Markushin, 2014
+# Vladimir.Serykh <Vladimir.Serykh@extenza-studio.ru>, 2015
 # Weyedide <weyedide@gmail.com>, 2014-2015
 # Yana Malinovskaya <y.malinovskaya@itransition.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-09 16:38-0500\n"
-"PO-Revision-Date: 2015-01-09 21:41+0000\n"
-"Last-Translator: cblackburn <cblackburn@edx.org>\n"
+"POT-Creation-Date: 2015-04-08 16:48-0400\n"
+"PO-Revision-Date: 2015-04-09 06:51+0000\n"
+"Last-Translator: Michael Savin <m.savin.ru@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/edx-platform/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,37 +33,36 @@ msgstr ""
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid "Login"
 msgstr "Войти"
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid "Insights to help course teams improve courses."
-msgstr ""
+msgstr "Наработки, которые помогут в усовершенствовании курсов."
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
-#: courses/views.py
+#: core/templates/core/landing.html courses/views/__init__.py
 msgid "Who are my students?"
 msgstr "Кто мои студенты?"
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid "Target your course to fit the backgrounds of your students."
 msgstr ""
 "Спланируйте свой курс так, чтобы он соответствовал предыдущей подготовке "
 "Ваших студентов."
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 #: courses/templates/courses/enrollment_geography.html
-#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
-#: courses/views.py
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/__init__.py
 msgid "Enrollment"
 msgstr "Запись на курс"
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid "What are students engaging with in my course?"
 msgstr "С каким материалом моего курса работают студенты?"
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid ""
 "Improve frequently accessed content, or point students at underused "
 "resources."
@@ -68,41 +70,45 @@ msgstr ""
 "Усовершенствовать часто просматриваемые материалы или указать студентам на "
 "недостаточно используемые ресурсы."
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
-#: courses/tests/test_views/test_pages.py courses/views.py courses/views.py
-#: courses/views.py
+#: core/templates/core/landing.html
+#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
+#: courses/views/__init__.py
 msgid "Engagement"
 msgstr "активность"
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid "How well is my content supporting student learning?"
 msgstr ""
 "Насколько хорошо содержимое моих курсов способствует обучению студентов?"
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid "Adjust your course based on where students are struggling."
 msgstr ""
 "Корректировать курс исходя из затруднений, которые испытывают студенты."
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
+#: courses/tests/test_views/test_performance.py courses/views/__init__.py
+#: courses/views/__init__.py
 msgid "Performance"
 msgstr "Показатели"
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid "Join the Open Source Community"
-msgstr ""
+msgstr "Присоединиться к сообществу Open Source"
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
 msgstr ""
+"Магистраль аналитических данных edX и Наработки edX являются открытыми "
+"источниками информации. %(link_start)sУзнать больше%(link_end)s."
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid "Research at edX"
 msgstr "Исследования в edX"
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid ""
 "We are committed to advancing teaching and learning through research. "
 "%(link_start)sLearn more%(link_end)s."
@@ -110,11 +116,11 @@ msgstr ""
 "Мы стремимся усовершенствовать преподавание и обучение путём проведения "
 "соответствующих исследований. %(link_start)sУзнать больше%(link_end)s."
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid "Need Help?"
 msgstr "Нужна помощь?"
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
 msgstr ""
@@ -123,81 +129,208 @@ msgstr ""
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
-#: analytics_dashboard/templatetags/dashboard_extras.py
+#: core/templatetags/dashboard_extras.py
 msgid "{statistic}%"
 msgstr "{statistic}%"
 
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Female"
 msgstr "Женский"
 
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Male"
 msgstr "Мужской"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
-#: courses/presenters.py courses/presenters.py
+#: courses/presenters/enrollment.py courses/presenters/enrollment.py
 msgid "Other"
 msgstr "Другое"
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
-#: courses/presenters.py courses/presenters.py courses/presenters.py
+#: courses/presenters/enrollment.py courses/presenters/enrollment.py
+#: courses/presenters/enrollment.py
 msgid "Unknown"
 msgstr "Неизвестно"
 
 #. Translators: This describes the learner's education level.
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "None"
 msgstr "Нет"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
-#: courses/presenters.py courses/tests/test_serializers.py
+#: courses/presenters/enrollment.py courses/tests/test_serializers.py
 msgid "Primary"
 msgstr "Начальные классы"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Middle"
 msgstr "Средние классы"
 
 #. Translators: This describes the learner's education level.
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Secondary"
 msgstr "Среднее образование"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Associate"
 msgstr "Незаконченное высшее"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Bachelor's"
 msgstr "Бакалавр"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Master's"
 msgstr "Магистр"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Doctorate"
 msgstr "Докторская степень"
 
 #. Translators: This is a placeholder for enrollment data collected without a
 #. known geolocation.
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Unknown Country"
 msgstr "страна неуказанна"
+
+#. Translators: This describes the data displayed in the chart below.
+#: courses/presenters/performance.py
+#: courses/templates/courses/submissions_chart_info.html
+msgid "Submissions"
+msgstr "Контрольные задания"
+
+#: courses/presenters/performance.py
+msgid "Submissions for Part {part_number}: {part_description}"
+msgstr "Задания для части {part_number}: {part_description}"
+
+#: courses/presenters/performance.py
+msgid "Part {part_number}: {part_description}"
+msgstr "Часть {part_number}: {part_description}"
+
+#: courses/presenters/performance.py
+msgid "Submissions: {part_description}"
+msgstr "Контрольные задания: {part_description}"
+
+#: courses/presenters/performance.py
+msgid "{part_description}"
+msgstr "{part_description}"
+
+#: courses/presenters/performance.py
+msgid "Submissions for Part {part_number}"
+msgstr "Задания для части {part_number}"
+
+#: courses/presenters/performance.py
+msgid "Part {part_number}"
+msgstr "Часть {part_number}"
+
+#: courses/templates/courses/_base_content_nav.html
+msgid "Select Problem"
+msgstr "Выберите проблему"
+
+#. Translators: This indicates that no text was provided.
+#: courses/templates/courses/_base_content_nav.html
+msgid "(empty)"
+msgstr "(пусто)"
+
+#: courses/templates/courses/_graded_content_nav.html
+msgid "Select Assignment Type"
+msgstr "Выберите тип задания"
+
+#. Translators: This refers to all course assignment types (e.g. homework,
+#. exam, lab).
+#: courses/templates/courses/_graded_content_nav.html
+msgid "All Assignments"
+msgstr "Все задания"
+
+#: courses/templates/courses/_graded_content_nav.html
+msgid ""
+"\n"
+"        Select %(level)s\n"
+"    "
+msgstr ""
+"\n"
+"        Выберите %(level)s\n"
+"    "
+
+#: courses/templates/courses/_ungraded_content_nav.html
+msgid "Select Section"
+msgstr "Выберите раздел"
+
+#: courses/templates/courses/_ungraded_content_nav.html
+msgid "All Sections"
+msgstr "Все разделы"
+
+#: courses/templates/courses/_ungraded_content_nav.html
+msgid "Select Subsection"
+msgstr "Выберите подраздел"
+
+#. Translators: This text will be a direct link to the a specific
+#. module/problem.
+#: courses/templates/courses/base_performance_answer_distribution.html
+msgid "View Live"
+msgstr "Просмотр текущей версии"
+
+#. Translators: This text describes a bar chart displayed.
+#: courses/templates/courses/base_performance_answer_distribution.html
+msgid ""
+"This chart shows the most common answers submitted by students, ordered by "
+"frequency."
+msgstr ""
+"Эта диаграмма показывает наиболее распространенные ответы студентов, "
+"упорядоченные по частоте."
+
+#. Translators: Variants refers to versions of a problem/assignment.
+#: courses/templates/courses/base_performance_answer_distribution.html
+msgid ""
+"Due to the number of possible variants for randomized problems, charts are "
+"not available. %(read_more_link_start)sRead more%(read_more_link_end)s."
+msgstr ""
+"В связи с большим количеством случайных вариантов заданий, диаграммы не "
+"доступны. %(read_more_link_start)sПодробнее%(read_more_link_end)s."
+
+#. Translators: Variants refers to versions of a problem/assignment.
+#: courses/templates/courses/base_performance_answer_distribution.html
+msgid ""
+"Review all submission variants below, or click Download CSV to review them "
+"offline."
+msgstr ""
+"Проверьте все возможные варианты заданий, или нажмите Скачать CSV для их "
+"оффлайн проверки."
+
+#: courses/templates/courses/base_performance_answer_distribution.html
+msgid "Submission Counts"
+msgstr "Счётчик попыток"
+
+#: courses/templates/courses/base_performance_answer_distribution.html
+#: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_demographics_age.html
+#: courses/templates/courses/enrollment_demographics_education.html
+#: courses/templates/courses/enrollment_demographics_gender.html
+#: courses/templates/courses/enrollment_geography.html
+msgid "Download CSV"
+msgstr "Скачать в CSV"
+
+#: courses/templates/courses/base_performance_answer_distribution.html
+msgid "Student Submission Counts"
+msgstr "Счётчик попыток студента"
+
+#: courses/templates/courses/base_performance_grouped_content.html
+msgid "No submissions received for these assignments."
+msgstr "Ответы на эти задания пока не получены."
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
@@ -208,7 +341,7 @@ msgstr "Студенты (на основе регистрационных да�
 msgid "Weekly Student Engagement"
 msgstr "Еженедельная успеваемость студентов"
 
-#: courses/templates/courses/engagement_content.html courses/views.py
+#: courses/templates/courses/engagement_content.html courses/views/__init__.py
 msgid "How many students are interacting with my course?"
 msgstr "Сколько студентов работают с моим курсом?"
 
@@ -275,20 +408,12 @@ msgstr "студенты, принимающие участие в обсужд�
 msgid "Content Engagement Breakdown"
 msgstr "Содержимое Привлечение Распределение"
 
-#: courses/templates/courses/engagement_content.html
-#: courses/templates/courses/enrollment_activity.html
-#: courses/templates/courses/enrollment_demographics_age.html
-#: courses/templates/courses/enrollment_demographics_education.html
-#: courses/templates/courses/enrollment_demographics_gender.html
-#: courses/templates/courses/enrollment_geography.html
-msgid "Download CSV"
-msgstr "Скачать в формате CSV"
-
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
 msgstr "Зачисление студентов на курс, по дням"
 
-#: courses/templates/courses/enrollment_activity.html courses/views.py
+#: courses/templates/courses/enrollment_activity.html
+#: courses/views/__init__.py
 msgid "How many students are in my course?"
 msgstr "Сколько студентов зачислено на курс?"
 
@@ -373,7 +498,8 @@ msgstr ""
 msgid "Enrollment Over Time"
 msgstr "Число зарегистрированных студентов на протяжении времени"
 
-#: courses/templates/courses/enrollment_demographics_age.html courses/views.py
+#: courses/templates/courses/enrollment_demographics_age.html
+#: courses/views/__init__.py
 msgid "How old are my students?"
 msgstr "Каков возраст моих студентов?"
 
@@ -451,7 +577,7 @@ msgid "Age Breakdown"
 msgstr "возрастная группа"
 
 #: courses/templates/courses/enrollment_demographics_education.html
-#: courses/views.py
+#: courses/views/__init__.py
 msgid "What level of education do my students have?"
 msgstr "Каков уровень образования моих студентов?"
 
@@ -516,7 +642,7 @@ msgid "Educational Breakdown"
 msgstr "распределение по уровню образования"
 
 #: courses/templates/courses/enrollment_demographics_gender.html
-#: courses/views.py
+#: courses/views/__init__.py
 msgid "What is the student gender breakdown?"
 msgstr "Каково студенческое разделение по полу?"
 
@@ -538,7 +664,8 @@ msgstr "Половое разделение с течением времени"
 msgid "Geographic Distribution"
 msgstr "Географическое распределение"
 
-#: courses/templates/courses/enrollment_geography.html courses/views.py
+#: courses/templates/courses/enrollment_geography.html
+#: courses/views/__init__.py
 msgid "Where are my students?"
 msgstr "Где находятся мои студенты?"
 
@@ -608,7 +735,7 @@ msgstr "географическое распределение"
 msgid "Application"
 msgstr "Приложение"
 
-#: courses/templates/courses/home.html courses/views.py
+#: courses/templates/courses/home.html courses/views/__init__.py
 msgid "Course Home"
 msgstr "Домашняя страница курса"
 
@@ -629,7 +756,7 @@ msgstr "Добро пожаловать, %(username)s!"
 
 #: courses/templates/courses/index.html
 msgid "Here are the courses you currently have access to in Insights:"
-msgstr " Курсы, которые доступны Вам в Insights:"
+msgstr " Курсы, которые доступны Вам в Наработках:"
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
@@ -642,6 +769,116 @@ msgid ""
 msgstr ""
 "Нажмите кнопку справка в правом верхнем углу, чтобы получить более подробную"
 " информацию о %(application_name)s. Отправить нам отзыв в %(email_link)s."
+
+#: courses/templates/courses/performance_answer_distribution.html
+#: courses/templates/courses/performance_ungraded_answer_distribution.html
+msgid "How did students answer this problem?"
+msgstr "Как студенты ответили на задачу?"
+
+#: courses/templates/courses/performance_assignment.html
+msgid "How are students doing on this assignment?"
+msgstr "Как студенты работают над этим заданием?"
+
+#: courses/templates/courses/performance_assignment.html
+#: courses/templates/courses/performance_ungraded_by_subsection.html
+msgid ""
+"These bars show the correct and incorrect submission counts for each "
+"problem. Only the last submission from each student is counted."
+msgstr ""
+"Эти столбцы показывают количество правильных и неправильных ответов для "
+"каждой задачи. Только последние варианты ответов учитываются."
+
+#: courses/templates/courses/performance_assignment.html
+#: courses/templates/courses/performance_ungraded_by_subsection.html
+msgid "Problem Submissions"
+msgstr "Проблемные задания"
+
+#: courses/templates/courses/performance_graded_content.html
+msgid "Which assignment type do you want to investigate?"
+msgstr "Какой тип заданий вы хотите исследовать?"
+
+#: courses/templates/courses/performance_graded_content.html
+msgid ""
+"Click an assignment type to view more detail information about the "
+"assignments."
+msgstr "Нажмите тип задания для просмотра подробной информации о заданиях."
+
+#. Translators: This describes the percent an assignment contributes to that
+#. of a learner's grade (e.g. Exam: 60% of the grading policy.).
+#: courses/templates/courses/performance_graded_content.html
+msgid ""
+"\n"
+"                %(assignment_type)s: %(policy_ratio)s%% of the grading policy\n"
+"              "
+msgstr ""
+"\n"
+"                %(assignment_type)s: %(policy_ratio)s%% правил оценки\n"
+"              "
+
+#. Translators: This describes the percent of a learner's grade (e.g. 60%).
+#: courses/templates/courses/performance_graded_content.html
+msgid "%(policy_ratio)s%%"
+msgstr "%(policy_ratio)s%%"
+
+#: courses/templates/courses/performance_graded_content_by_type.html
+msgid ""
+"\n"
+"      How are students doing on the %(type)s?\n"
+"    "
+msgstr ""
+"\n"
+"      Как студенты работают над %(type)s?\n"
+"    "
+
+#: courses/templates/courses/performance_graded_content_by_type.html
+msgid ""
+"These bars show the correct and incorrect submission counts for each "
+"assignment. For each problem, only the last submission from each student is "
+"counted."
+msgstr ""
+"Эти столбцы показывают количество правильных и неправильных ответов для "
+"каждого задания. Только последние варианты ответов учитываются."
+
+#: courses/templates/courses/performance_graded_content_by_type.html
+msgid "Assignment Submissions"
+msgstr "Назначенные задания"
+
+#: courses/templates/courses/performance_ungraded_by_section.html
+msgid "How are students doing on this section?"
+msgstr "Как студенты работают над этим разделом?"
+
+#: courses/templates/courses/performance_ungraded_by_section.html
+msgid ""
+"These bars show the correct and incorrect submission counts for each "
+"subsection. Only the last submission from each student is counted."
+msgstr ""
+"Эти столбцы показывают количество правильных и неправильных ответов для "
+"каждого подраздела. Только последние варианты ответов учитываются."
+
+#: courses/templates/courses/performance_ungraded_by_section.html
+msgid "Subsection Submissions"
+msgstr "Ответы по подразделу"
+
+#: courses/templates/courses/performance_ungraded_by_subsection.html
+msgid "How are students doing on this subsection?"
+msgstr "Как студенты работают над этим подразделом?"
+
+#: courses/templates/courses/performance_ungraded_content.html
+#: courses/views/__init__.py
+msgid "How are students doing on ungraded exercises?"
+msgstr "Как студенты справляются с заданиями без оценки?"
+
+#: courses/templates/courses/performance_ungraded_content.html
+msgid ""
+"These bars show the correct and incorrect submission counts for each "
+"section. Only the last submission from each student is counted."
+msgstr ""
+"Эти столбцы показывают количество правильных и неправильных ответов для "
+"каждого раздела. Только последние варианты ответов учитываются."
+
+#: courses/templates/courses/performance_ungraded_content.html
+msgid "Section Submissions"
+msgstr "Ответы по разделу"
 
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
@@ -659,42 +896,82 @@ msgstr ""
 " Если вы продолжаете испытывать проблемы, пожалуйста, дайте нам знать."
 
 #: courses/templates/courses/permissions-retrieval-failed.html
-#: templates/auth_error.html
 msgid "Try Again"
 msgstr "Попробуйте ещё раз"
 
-#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/enrollment.py
 msgid "Activity"
 msgstr "Активность"
 
-#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
-#: courses/views.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/__init__.py courses/views/__init__.py
+#: courses/views/enrollment.py
 msgid "Demographics"
 msgstr "демографические показатели"
 
-#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/enrollment.py
 msgid "Geography"
 msgstr "География"
 
-#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/enrollment.py
 msgid "Age"
 msgstr "возраст"
 
-#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/enrollment.py
 msgid "Education"
 msgstr "образование"
 
-#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/enrollment.py
 msgid "Gender"
 msgstr "Пол"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
-#: courses/tests/test_views/test_pages.py courses/views.py courses/views.py
+#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
+#: courses/views/engagement.py
 msgid "Content"
 msgstr "Содержимое"
 
+#: courses/tests/test_views/test_performance.py courses/views/__init__.py
+#: courses/views/performance.py courses/views/performance.py
+msgid "Graded Content"
+msgstr "Оценено"
+
+#: courses/tests/test_views/test_performance.py courses/views/__init__.py
+#: courses/views/performance.py courses/views/performance.py
+msgid "Ungraded Problems"
+msgstr "Задания без оценки"
+
+#: courses/views/__init__.py
+msgid "What are students doing in my course?"
+msgstr "Что делают студенты на курсе?"
+
+#: courses/views/__init__.py
+msgid "How are students doing on course assignments?"
+msgstr "Как студенты справляются с выполнением заданий?"
+
+#: courses/views/__init__.py
+msgid "How are students doing on graded course assignments?"
+msgstr "Как студенты справляются с заданиями на оценку?"
+
+#: courses/views/engagement.py
+msgid "Engagement Content"
+msgstr "Взаимодействие Контент"
+
 #. Translators: Do not translate UTC.
-#: courses/views.py
+#: courses/views/engagement.py
+msgid ""
+"Course engagement data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr ""
+"Курс привлечения данных был уточнен %(update_date)s в %(update_time)s UTC."
+
+#. Translators: Do not translate UTC.
+#: courses/views/enrollment.py
 msgid ""
 "Demographic student data was last updated %(update_date)s at %(update_time)s"
 " UTC."
@@ -704,19 +981,19 @@ msgstr ""
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
-#: courses/views.py
+#: courses/views/enrollment.py
 msgid ""
 "All above demographic data was self-reported at the time of registration."
 msgstr ""
 "Демографические данные, указанные выше были представлены студентами при "
 "регистрации."
 
-#: courses/views.py
+#: courses/views/enrollment.py
 msgid "Enrollment Activity"
 msgstr "динамика зачисления"
 
 #. Translators: Do not translate UTC.
-#: courses/views.py
+#: courses/views/enrollment.py
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
@@ -724,26 +1001,26 @@ msgstr ""
 "Данные о регистрации деятельности были обновлены %(update_date)s с "
 "при%(update_time)s."
 
-#: courses/views.py
+#: courses/views/enrollment.py
 msgid "Enrollment Demographics by Age"
 msgstr "Зарегистрированные студенты по возрастным группам"
 
-#: courses/views.py
+#: courses/views/enrollment.py
 msgid "Enrollment Demographics by Education"
 msgstr ""
 "демографические показатели зарегистрированных студентов по уровню "
 "образования"
 
-#: courses/views.py
+#: courses/views/enrollment.py
 msgid "Enrollment Demographics by Gender"
 msgstr "Зарегистрированные студенты по половому признаку"
 
-#: courses/views.py
+#: courses/views/enrollment.py
 msgid "Enrollment Geography"
 msgstr "Географическое местоположение зачисленных"
 
 #. Translators: Do not translate UTC.
-#: courses/views.py
+#: courses/views/enrollment.py
 msgid ""
 "Geographic student data was last updated %(update_date)s at %(update_time)s "
 "UTC."
@@ -751,21 +1028,36 @@ msgstr ""
 "Географические данные студентов были обновлены %(update_date)s в "
 "%(update_time)s по времени UTC."
 
-#: courses/views.py
-msgid "Engagement Content"
-msgstr "Взаимодействие Контент"
-
 #. Translators: Do not translate UTC.
-#: courses/views.py
+#: courses/views/performance.py
 msgid ""
-"Course engagement data was last updated %(update_date)s at %(update_time)s "
+"Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
-"Курс привлечения данных был уточнен %(update_date)s в %(update_time)s UTC."
+msgstr "Задание было обновлено %(update_date)s в %(update_time)s по UTC."
 
-#: courses/views.py
-msgid "What are students doing in my course?"
-msgstr "Что делают студенты на курсе?"
+#: courses/views/performance.py
+msgid "Assignment Name"
+msgstr "Наименование Задания"
+
+#: courses/views/performance.py courses/views/performance.py
+msgid "Performance: Problem Submissions"
+msgstr "Производительность: проблемные задания"
+
+#: courses/views/performance.py
+msgid "Graded Content: %(assignment_type)s"
+msgstr "Оценено: %(assignment_type)s"
+
+#: courses/views/performance.py courses/views/performance.py
+msgid "Problem Name"
+msgstr "Наименование задачи"
+
+#: courses/views/performance.py
+msgid "Section Name"
+msgstr "Название раздела"
+
+#: courses/views/performance.py
+msgid "Subsection Name"
+msgstr "Название подраздела"
 
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
@@ -777,9 +1069,9 @@ msgid ""
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
 msgstr ""
-"У вас нет прав на просмотр этой страницы. Если вы считаете, что у вас должен"
-" быть доступ к этой странице, попробуйте выйти и войти в свой аккаунт "
-"заново, чтобы обновить свои права доступа."
+"У вас нет прав доступа к этой странице. Если вы считаете, что должны иметь к"
+" ней доступ, попробуйте выйти из системы и снова войти, чтобы обновить "
+"информацию о своих правах доступа."
 
 #: templates/403.html
 msgid "Logout then Login"
@@ -809,15 +1101,18 @@ msgstr ""
 "Наши сервера не могут завершить запрос. Пожалуйста, попробуйте снова, "
 "обновив страницу и повторив Ваши действия."
 
-#: templates/auth_error.html templates/auth_error.html.py
-msgid "Authentication Failed"
-msgstr "Ошибка аутентификации"
-
-#: templates/auth_error.html
-msgid "There was a problem accessing your account. Please try again."
+#: templates/503.html templates/503.html.py
+msgid "We're having trouble loading this page. Please try again in a minute."
 msgstr ""
-"Возникла проблема с доступом к вашей учётной записи.  Пожалуйста, попробуйте"
-" ещё раз."
+"Возникла проблема при загрузке страницы.  Пожалуйста, попробуйте ещё раз."
+
+#: templates/503.html
+msgid "(Technical details: 503 Service Unavailable.)"
+msgstr "(Технические подробности: 503 Service Unavailable)"
+
+#: templates/announcements.html
+msgid "Close"
+msgstr "Закрыть"
 
 #: templates/base-error.html
 msgid "Use our support tool to ask questions or share feedback."
@@ -830,6 +1125,10 @@ msgstr ""
 #: templates/base-error.html
 msgid "Contact %(platform_name)s Support"
 msgstr "Связаться со службой поддержки %(platform_name)s"
+
+#: templates/footer.html
+msgid "Feedback"
+msgstr "Отзыв"
 
 #: templates/footer.html
 msgid ""
@@ -871,8 +1170,8 @@ msgid "Logout"
 msgstr "Выйти"
 
 #: templates/loading.html
-msgid "LOADING..."
-msgstr "ЗАГРУЗКА..."
+msgid "Loading"
+msgstr "Загрузка"
 
 #: templates/section_error.html
 msgid "We are unable to load this chart."
