@@ -3,22 +3,26 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Allan Melo <allmelo@gmail.com>, 2015
+# Bruno Sette <brunosette@gmail.com>, 2015
 # Edgar Aparecido Pereira de Melo <edgarapmelo@gmail.com>, 2014
 # Edgar Aparecido Pereira de Melo <edgarapmelo@gmail.com>, 2014
 # Francisco Cantarutti <francisco.cantarutti@sisqualis.com.br>, 2014
+# Icaro Seara <ikro89@gmail.com>, 2015
 # Jamille Raiza Menezes de Sousa <mille_sousa16@hotmail.com>, 2014
 # Leonardo Flores Zambaldi <fzleonardo@gmail.com>, 2014
 # Lex Pontes <alexsandropontes@gmail.com>, 2015
 # Marco Túlio Pires <mtrpires@outlook.com>, 2014
+# Mike Job Silva <mikejobrn@gmail.com>, 2015
 # Pedro Guimarães Martins <pedrogmartins7@gmail.com>, 2014
 # Thiago Freitas Da Ponte <thiagoponte@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-09 16:38-0500\n"
-"PO-Revision-Date: 2015-01-09 21:41+0000\n"
-"Last-Translator: cblackburn <cblackburn@edx.org>\n"
+"POT-Creation-Date: 2015-04-08 16:48-0400\n"
+"PO-Revision-Date: 2015-04-08 21:36+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/edx-platform/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,166 +30,296 @@ msgstr ""
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid "Login"
 msgstr "Entrar"
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid "Insights to help course teams improve courses."
-msgstr ""
+msgstr "Ideias para ajudar a equipe a melhorar os cursos."
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
-#: courses/views.py
+#: core/templates/core/landing.html courses/views/__init__.py
 msgid "Who are my students?"
 msgstr "Quem são os meus estudantes?"
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid "Target your course to fit the backgrounds of your students."
 msgstr "Selecione seu curso para ajustar o perfil de seus alunos."
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 #: courses/templates/courses/enrollment_geography.html
-#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
-#: courses/views.py
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/__init__.py
 msgid "Enrollment"
 msgstr "Matrícula"
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid "What are students engaging with in my course?"
 msgstr "Quais estudantes estão engajados em meu curso?"
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid ""
 "Improve frequently accessed content, or point students at underused "
 "resources."
 msgstr ""
-"Aprimore frequentemente o conteúdo acessado ou mostre aos estudantes os "
-"recursos subutilizados"
+"Aprimore conteúdos acessados com frequência ou mostre aos estudantes os "
+"recursos subutilizados."
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
-#: courses/tests/test_views/test_pages.py courses/views.py courses/views.py
-#: courses/views.py
+#: core/templates/core/landing.html
+#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
+#: courses/views/__init__.py
 msgid "Engagement"
 msgstr "Engajamento"
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid "How well is my content supporting student learning?"
-msgstr ""
+msgstr "O quanto meu conteúdo está ajudando no aprendizado dos alunos?"
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid "Adjust your course based on where students are struggling."
-msgstr ""
+msgstr "Ajuste seu curso baseado nas dificuldades dos alunos."
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
+#: courses/tests/test_views/test_performance.py courses/views/__init__.py
+#: courses/views/__init__.py
 msgid "Performance"
 msgstr "Desempenho"
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid "Join the Open Source Community"
-msgstr ""
+msgstr "Faça parte da Comunidade Open Source"
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
 msgstr ""
+"O edX analytics data pipeline e o edX Insights são códigos abertos. "
+"%(link_start)sSaiba mais%(link_end)s."
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid "Research at edX"
-msgstr ""
+msgstr "Pesquisa na edX"
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid ""
 "We are committed to advancing teaching and learning through research. "
 "%(link_start)sLearn more%(link_end)s."
 msgstr ""
+"Estamos comprometidos em métodos de ensino avançados mediante pesquisas. "
+"%(link_start)sSaiba mais%(link_end)s."
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid "Need Help?"
 msgstr "Precisa de ajuda?"
 
-#: analytics_dashboard/templates/analytics_dashboard/landing.html
+#: core/templates/core/landing.html
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
-msgstr ""
+msgstr "%(link_start)sNosso centro de ajuda%(link_end)s pode te ajudar."
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
-#: analytics_dashboard/templatetags/dashboard_extras.py
+#: core/templatetags/dashboard_extras.py
 msgid "{statistic}%"
 msgstr "{statistic}%"
 
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Female"
 msgstr "Feminino"
 
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Male"
 msgstr "Masculino"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
-#: courses/presenters.py courses/presenters.py
+#: courses/presenters/enrollment.py courses/presenters/enrollment.py
 msgid "Other"
 msgstr "Outro"
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
-#: courses/presenters.py courses/presenters.py courses/presenters.py
+#: courses/presenters/enrollment.py courses/presenters/enrollment.py
+#: courses/presenters/enrollment.py
 msgid "Unknown"
 msgstr "Desconhecido"
 
 #. Translators: This describes the learner's education level.
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "None"
 msgstr "Nenhum"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
-#: courses/presenters.py courses/tests/test_serializers.py
+#: courses/presenters/enrollment.py courses/tests/test_serializers.py
 msgid "Primary"
 msgstr "Primário"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Middle"
 msgstr "Médio"
 
 #. Translators: This describes the learner's education level.
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Secondary"
 msgstr "Secundário"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Associate"
 msgstr "Tecnólogo"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Bachelor's"
 msgstr "Bacharelado"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Master's"
 msgstr "Mestrado"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Doctorate"
 msgstr "Doutorado"
 
 #. Translators: This is a placeholder for enrollment data collected without a
 #. known geolocation.
-#: courses/presenters.py
+#: courses/presenters/enrollment.py
 msgid "Unknown Country"
 msgstr "País desconhecido"
+
+#. Translators: This describes the data displayed in the chart below.
+#: courses/presenters/performance.py
+#: courses/templates/courses/submissions_chart_info.html
+msgid "Submissions"
+msgstr "Envios"
+
+#: courses/presenters/performance.py
+msgid "Submissions for Part {part_number}: {part_description}"
+msgstr "Envios para Parte {part_number}: {part_description}"
+
+#: courses/presenters/performance.py
+msgid "Part {part_number}: {part_description}"
+msgstr "Parte {part_number}: {part_description}"
+
+#: courses/presenters/performance.py
+msgid "Submissions: {part_description}"
+msgstr "Envios: {part_description}"
+
+#: courses/presenters/performance.py
+msgid "{part_description}"
+msgstr "{part_description}"
+
+#: courses/presenters/performance.py
+msgid "Submissions for Part {part_number}"
+msgstr "Envios para Parte {part_number}"
+
+#: courses/presenters/performance.py
+msgid "Part {part_number}"
+msgstr "Parte {part_number}"
+
+#: courses/templates/courses/_base_content_nav.html
+msgid "Select Problem"
+msgstr "Selecione o Problema"
+
+#. Translators: This indicates that no text was provided.
+#: courses/templates/courses/_base_content_nav.html
+msgid "(empty)"
+msgstr " (vazio)"
+
+#: courses/templates/courses/_graded_content_nav.html
+msgid "Select Assignment Type"
+msgstr "Selecione o tipo de tarefa"
+
+#. Translators: This refers to all course assignment types (e.g. homework,
+#. exam, lab).
+#: courses/templates/courses/_graded_content_nav.html
+msgid "All Assignments"
+msgstr "Todas as tarefas"
+
+#: courses/templates/courses/_graded_content_nav.html
+msgid ""
+"\n"
+"        Select %(level)s\n"
+"    "
+msgstr ""
+
+#: courses/templates/courses/_ungraded_content_nav.html
+msgid "Select Section"
+msgstr ""
+
+#: courses/templates/courses/_ungraded_content_nav.html
+msgid "All Sections"
+msgstr ""
+
+#: courses/templates/courses/_ungraded_content_nav.html
+msgid "Select Subsection"
+msgstr ""
+
+#. Translators: This text will be a direct link to the a specific
+#. module/problem.
+#: courses/templates/courses/base_performance_answer_distribution.html
+msgid "View Live"
+msgstr "Visualizar ao Vivo"
+
+#. Translators: This text describes a bar chart displayed.
+#: courses/templates/courses/base_performance_answer_distribution.html
+msgid ""
+"This chart shows the most common answers submitted by students, ordered by "
+"frequency."
+msgstr ""
+"Este gráfico mostra as respostas mais comuns enviadas pelos alunos, "
+"ordenadas pela frequência."
+
+#. Translators: Variants refers to versions of a problem/assignment.
+#: courses/templates/courses/base_performance_answer_distribution.html
+msgid ""
+"Due to the number of possible variants for randomized problems, charts are "
+"not available. %(read_more_link_start)sRead more%(read_more_link_end)s."
+msgstr ""
+"Devido ao número de variações possíveis para problemas aleatórios, os "
+"gráficos não estão disponíveis. %(read_more_link_start)sLeia "
+"mais%(read_more_link_end)s."
+
+#. Translators: Variants refers to versions of a problem/assignment.
+#: courses/templates/courses/base_performance_answer_distribution.html
+msgid ""
+"Review all submission variants below, or click Download CSV to review them "
+"offline."
+msgstr ""
+"Revise todas as versões de envio abaixo, ou clique Baixar CSV para revisá-"
+"las offline."
+
+#: courses/templates/courses/base_performance_answer_distribution.html
+msgid "Submission Counts"
+msgstr "Quantidade de Envios"
+
+#: courses/templates/courses/base_performance_answer_distribution.html
+#: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_demographics_age.html
+#: courses/templates/courses/enrollment_demographics_education.html
+#: courses/templates/courses/enrollment_demographics_gender.html
+#: courses/templates/courses/enrollment_geography.html
+msgid "Download CSV"
+msgstr "Baixar CSV"
+
+#: courses/templates/courses/base_performance_answer_distribution.html
+msgid "Student Submission Counts"
+msgstr "Quantidade de Envios do Aluno"
+
+#: courses/templates/courses/base_performance_grouped_content.html
+msgid "No submissions received for these assignments."
+msgstr "Nenhum envio para estes trabalhos foi recebido."
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
@@ -196,7 +330,7 @@ msgstr "Alunos (dados próprios)"
 msgid "Weekly Student Engagement"
 msgstr "Engajamento Semanal de Alunos"
 
-#: courses/templates/courses/engagement_content.html courses/views.py
+#: courses/templates/courses/engagement_content.html courses/views/__init__.py
 msgid "How many students are interacting with my course?"
 msgstr "Quantos alunos estão interagindo com o meu curso?"
 
@@ -263,20 +397,12 @@ msgstr "Alunos que postaram em qualquer tópico de discussão"
 msgid "Content Engagement Breakdown"
 msgstr "Distribuição de engajamento de conteúdo"
 
-#: courses/templates/courses/engagement_content.html
-#: courses/templates/courses/enrollment_activity.html
-#: courses/templates/courses/enrollment_demographics_age.html
-#: courses/templates/courses/enrollment_demographics_education.html
-#: courses/templates/courses/enrollment_demographics_gender.html
-#: courses/templates/courses/enrollment_geography.html
-msgid "Download CSV"
-msgstr "Baixar CSV"
-
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
 msgstr "Matrículas por dia"
 
-#: courses/templates/courses/enrollment_activity.html courses/views.py
+#: courses/templates/courses/enrollment_activity.html
+#: courses/views/__init__.py
 msgid "How many students are in my course?"
 msgstr "Quantos alunos estão no meu curso?"
 
@@ -361,7 +487,8 @@ msgstr ""
 msgid "Enrollment Over Time"
 msgstr "Matrículas ao longo do tempo"
 
-#: courses/templates/courses/enrollment_demographics_age.html courses/views.py
+#: courses/templates/courses/enrollment_demographics_age.html
+#: courses/views/__init__.py
 msgid "How old are my students?"
 msgstr "Qual é a idade dos meus estudantes?"
 
@@ -440,7 +567,7 @@ msgid "Age Breakdown"
 msgstr "Distribuição Etária"
 
 #: courses/templates/courses/enrollment_demographics_education.html
-#: courses/views.py
+#: courses/views/__init__.py
 msgid "What level of education do my students have?"
 msgstr "Qual grau de escolaridade têm meus alunos?"
 
@@ -504,7 +631,7 @@ msgid "Educational Breakdown"
 msgstr "Distribuição Educacional"
 
 #: courses/templates/courses/enrollment_demographics_gender.html
-#: courses/views.py
+#: courses/views/__init__.py
 msgid "What is the student gender breakdown?"
 msgstr "O que é a discriminação de gênero dos alunos?"
 
@@ -527,7 +654,8 @@ msgstr "Distribuição de gênero ao longo do tempo"
 msgid "Geographic Distribution"
 msgstr "Distribuição Geográfica"
 
-#: courses/templates/courses/enrollment_geography.html courses/views.py
+#: courses/templates/courses/enrollment_geography.html
+#: courses/views/__init__.py
 msgid "Where are my students?"
 msgstr "Onde estão os meus alunos?"
 
@@ -597,9 +725,9 @@ msgstr "Distribuição Geográfica"
 msgid "Application"
 msgstr "Aplicação"
 
-#: courses/templates/courses/home.html courses/views.py
+#: courses/templates/courses/home.html courses/views/__init__.py
 msgid "Course Home"
-msgstr ""
+msgstr "Curso"
 
 #. Translators: This refers to the active tab/navigation item.
 #. Translators: This refers to the active tab/navigation item.
@@ -632,6 +760,112 @@ msgstr ""
 "Clique Ajuda no caonto superior direito para obter mais informação sobre "
 "%(application_name)s. Envie-nos retorno em %(email_link)s."
 
+#: courses/templates/courses/performance_answer_distribution.html
+#: courses/templates/courses/performance_ungraded_answer_distribution.html
+msgid "How did students answer this problem?"
+msgstr "Como os alunos responderam este problema?"
+
+#: courses/templates/courses/performance_assignment.html
+msgid "How are students doing on this assignment?"
+msgstr "Como os alunos estão indo nesta tarefa?"
+
+#: courses/templates/courses/performance_assignment.html
+#: courses/templates/courses/performance_ungraded_by_subsection.html
+msgid ""
+"These bars show the correct and incorrect submission counts for each "
+"problem. Only the last submission from each student is counted."
+msgstr ""
+"Estas barras mostram a quantidade de envios corretos e incorretos para cada "
+"problema. Apenas o último envio de cada aluno é contabilizado."
+
+#: courses/templates/courses/performance_assignment.html
+#: courses/templates/courses/performance_ungraded_by_subsection.html
+msgid "Problem Submissions"
+msgstr "Problemas enviados"
+
+#: courses/templates/courses/performance_graded_content.html
+msgid "Which assignment type do you want to investigate?"
+msgstr "Qual tipo de trabalho você quer verificar?"
+
+#: courses/templates/courses/performance_graded_content.html
+msgid ""
+"Click an assignment type to view more detail information about the "
+"assignments."
+msgstr ""
+"Clique em um tipo de trabalho para visualizar mais detalhes sobre os "
+"trabalhos."
+
+#. Translators: This describes the percent an assignment contributes to that
+#. of a learner's grade (e.g. Exam: 60% of the grading policy.).
+#: courses/templates/courses/performance_graded_content.html
+msgid ""
+"\n"
+"                %(assignment_type)s: %(policy_ratio)s%% of the grading policy\n"
+"              "
+msgstr ""
+"\n"
+"                %(assignment_type)s: %(policy_ratio)s%% da política de avaliação\n"
+"              "
+
+#. Translators: This describes the percent of a learner's grade (e.g. 60%).
+#: courses/templates/courses/performance_graded_content.html
+msgid "%(policy_ratio)s%%"
+msgstr "%(policy_ratio)s%%"
+
+#: courses/templates/courses/performance_graded_content_by_type.html
+msgid ""
+"\n"
+"      How are students doing on the %(type)s?\n"
+"    "
+msgstr ""
+
+#: courses/templates/courses/performance_graded_content_by_type.html
+msgid ""
+"These bars show the correct and incorrect submission counts for each "
+"assignment. For each problem, only the last submission from each student is "
+"counted."
+msgstr ""
+"Estas barras mostram a quantidade de envios corretos e incorretos para cada "
+"trabalho. Para cada problema, apenas o último envio de cada aluno é "
+"contabilizado."
+
+#: courses/templates/courses/performance_graded_content_by_type.html
+msgid "Assignment Submissions"
+msgstr "Tarefas Enviadas"
+
+#: courses/templates/courses/performance_ungraded_by_section.html
+msgid "How are students doing on this section?"
+msgstr ""
+
+#: courses/templates/courses/performance_ungraded_by_section.html
+msgid ""
+"These bars show the correct and incorrect submission counts for each "
+"subsection. Only the last submission from each student is counted."
+msgstr ""
+
+#: courses/templates/courses/performance_ungraded_by_section.html
+msgid "Subsection Submissions"
+msgstr ""
+
+#: courses/templates/courses/performance_ungraded_by_subsection.html
+msgid "How are students doing on this subsection?"
+msgstr ""
+
+#: courses/templates/courses/performance_ungraded_content.html
+#: courses/views/__init__.py
+msgid "How are students doing on ungraded exercises?"
+msgstr ""
+
+#: courses/templates/courses/performance_ungraded_content.html
+msgid ""
+"These bars show the correct and incorrect submission counts for each "
+"section. Only the last submission from each student is counted."
+msgstr ""
+
+#: courses/templates/courses/performance_ungraded_content.html
+msgid "Section Submissions"
+msgstr ""
+
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
 #: courses/templates/courses/permissions-retrieval-failed.html
@@ -648,42 +882,81 @@ msgstr ""
 "novamente. Se continuar tendo problemas, fale com a gente."
 
 #: courses/templates/courses/permissions-retrieval-failed.html
-#: templates/auth_error.html
 msgid "Try Again"
 msgstr "Tente Novamente"
 
-#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/enrollment.py
 msgid "Activity"
 msgstr "Atividade"
 
-#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
-#: courses/views.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/__init__.py courses/views/__init__.py
+#: courses/views/enrollment.py
 msgid "Demographics"
 msgstr "Demografia"
 
-#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/enrollment.py
 msgid "Geography"
 msgstr "Distribuição Geográfica"
 
-#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/enrollment.py
 msgid "Age"
 msgstr "Idade"
 
-#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/enrollment.py
 msgid "Education"
 msgstr "Educação"
 
-#: courses/tests/test_views/__init__.py courses/views.py courses/views.py
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/enrollment.py
 msgid "Gender"
 msgstr "Sexo"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
-#: courses/tests/test_views/test_pages.py courses/views.py courses/views.py
+#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
+#: courses/views/engagement.py
 msgid "Content"
 msgstr "Conteúdo"
 
+#: courses/tests/test_views/test_performance.py courses/views/__init__.py
+#: courses/views/performance.py courses/views/performance.py
+msgid "Graded Content"
+msgstr "Conteúdo Avaliado"
+
+#: courses/tests/test_views/test_performance.py courses/views/__init__.py
+#: courses/views/performance.py courses/views/performance.py
+msgid "Ungraded Problems"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "What are students doing in my course?"
+msgstr "O que os estudantes estão fazendo em meu curso?"
+
+#: courses/views/__init__.py
+msgid "How are students doing on course assignments?"
+msgstr "Como os alunos estão indo nas tarefas do curso?"
+
+#: courses/views/__init__.py
+msgid "How are students doing on graded course assignments?"
+msgstr ""
+
+#: courses/views/engagement.py
+msgid "Engagement Content"
+msgstr "Conteúdo de Engajamento"
+
 #. Translators: Do not translate UTC.
-#: courses/views.py
+#: courses/views/engagement.py
+msgid ""
+"Course engagement data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr "Engajamento no Curso entre %(update_date)s at %(update_time)s UTC."
+
+#. Translators: Do not translate UTC.
+#: courses/views/enrollment.py
 msgid ""
 "Demographic student data was last updated %(update_date)s at %(update_time)s"
 " UTC."
@@ -693,60 +966,78 @@ msgstr ""
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
-#: courses/views.py
+#: courses/views/enrollment.py
 msgid ""
 "All above demographic data was self-reported at the time of registration."
 msgstr "Todos os dados foram preenchidos na data de inscrição."
 
-#: courses/views.py
+#: courses/views/enrollment.py
 msgid "Enrollment Activity"
 msgstr "Matrículas"
 
 #. Translators: Do not translate UTC.
-#: courses/views.py
+#: courses/views/enrollment.py
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
 msgstr ""
 "Atividades de Matrículas entre  %(update_date)s e %(update_time)s UTC."
 
-#: courses/views.py
+#: courses/views/enrollment.py
 msgid "Enrollment Demographics by Age"
 msgstr "Dados demográficos de registração por idade"
 
-#: courses/views.py
+#: courses/views/enrollment.py
 msgid "Enrollment Demographics by Education"
 msgstr "Dados demográficos de inscrição por educação"
 
-#: courses/views.py
+#: courses/views/enrollment.py
 msgid "Enrollment Demographics by Gender"
 msgstr "Dados demográficos de registro por sexo"
 
-#: courses/views.py
+#: courses/views/enrollment.py
 msgid "Enrollment Geography"
 msgstr "Distribuição Geográfica das Matrículas"
 
 #. Translators: Do not translate UTC.
-#: courses/views.py
+#: courses/views/enrollment.py
 msgid ""
 "Geographic student data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr ""
 " Dados de Estudantes alterados entre %(update_date)s e %(update_time)s UTC."
 
-#: courses/views.py
-msgid "Engagement Content"
-msgstr "Conteúdo de Engajamento"
-
 #. Translators: Do not translate UTC.
-#: courses/views.py
+#: courses/views/performance.py
 msgid ""
-"Course engagement data was last updated %(update_date)s at %(update_time)s "
+"Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr "Engajamento no Curso entre %(update_date)s at %(update_time)s UTC."
+msgstr ""
+"Última atualização dos dados do Problema em %(update_date)s às "
+"%(update_time)s UTC."
 
-#: courses/views.py
-msgid "What are students doing in my course?"
+#: courses/views/performance.py
+msgid "Assignment Name"
+msgstr "Nome da tarefa"
+
+#: courses/views/performance.py courses/views/performance.py
+msgid "Performance: Problem Submissions"
+msgstr "Desempenho: Problemas Enviados"
+
+#: courses/views/performance.py
+msgid "Graded Content: %(assignment_type)s"
+msgstr ""
+
+#: courses/views/performance.py courses/views/performance.py
+msgid "Problem Name"
+msgstr "Nome da questão"
+
+#: courses/views/performance.py
+msgid "Section Name"
+msgstr ""
+
+#: courses/views/performance.py
+msgid "Subsection Name"
 msgstr ""
 
 #: templates/403.html templates/403.html.py
@@ -790,13 +1081,19 @@ msgstr ""
 "Nossos servidores não conseguiram completar sua requisição. Tente de novo "
 "atualizando essa página ou refazendo seus passos."
 
-#: templates/auth_error.html templates/auth_error.html.py
-msgid "Authentication Failed"
-msgstr "Falha na Autenticação"
+#: templates/503.html templates/503.html.py
+msgid "We're having trouble loading this page. Please try again in a minute."
+msgstr ""
+"Estamos com problemas para carregar esta página. Por favor, tente novamente "
+"em breve."
 
-#: templates/auth_error.html
-msgid "There was a problem accessing your account. Please try again."
-msgstr "Tivemos um problema ao acessar sua conta. Tente novamente."
+#: templates/503.html
+msgid "(Technical details: 503 Service Unavailable.)"
+msgstr "(Detalhes técnicos: 503 Serviço Indisponível.)"
+
+#: templates/announcements.html
+msgid "Close"
+msgstr "Fechar"
 
 #: templates/base-error.html
 msgid "Use our support tool to ask questions or share feedback."
@@ -809,6 +1106,10 @@ msgstr ""
 #: templates/base-error.html
 msgid "Contact %(platform_name)s Support"
 msgstr "Fale com Suporte %(platform_name)s"
+
+#: templates/footer.html
+msgid "Feedback"
+msgstr "Feedback"
 
 #: templates/footer.html
 msgid ""
@@ -850,8 +1151,8 @@ msgid "Logout"
 msgstr "Sair"
 
 #: templates/loading.html
-msgid "LOADING..."
-msgstr "CARREGANDO..."
+msgid "Loading"
+msgstr "Carregando"
 
 #: templates/section_error.html
 msgid "We are unable to load this chart."

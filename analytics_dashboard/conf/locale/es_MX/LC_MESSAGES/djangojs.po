@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Laura A. D.- M <alongjourney2013@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-09 16:38-0500\n"
-"PO-Revision-Date: 2015-01-06 20:21+0000\n"
-"Last-Translator: cblackburn <cblackburn@edx.org>\n"
+"POT-Creation-Date: 2015-04-08 16:48-0400\n"
+"PO-Revision-Date: 2015-04-08 21:36+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Spanish (Mexico) (http://www.transifex.com/projects/p/edx-platform/language/es_MX/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,92 +18,76 @@ msgstr ""
 "Language: es_MX\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: static/dist/js/common.js
+#: static/dist/js/common.js static/js/utils/utils.js
 msgid "..."
-msgstr ""
+msgstr "..."
 
-#. Translators: (empty) is displayed in a table and indicates that no
-#. label/value was provided.
-#. Translators: (empty) is displayed in a table and indicates that no
-#. label/value was provided.
-#. Translators: (empty) is displayed in a table and indicates that no
-#. label/value was provided.
-#. Translators: (empty) is displayed in a table and indicates that no
-#. label/value was provided.
 #. Translators: (empty) is displayed as a label in a chart and indicates that
 #. no label was provided.
-#. Translators: (empty) is displayed in a table and indicates that no
-#. label/value was provided.
 #. Translators: (empty) is displayed as a label in a chart and indicates that
 #. no label was provided.
-#. Translators: (empty) is displayed in a table and indicates that no
-#. label/value was provided.
-#. Translators: (empty) is displayed in a table and indicates that no
-#. label/value was provided.
 #. Translators: (empty) is displayed as a label in a chart and indicates that
 #. no label was provided.
-#. Translators: (empty) is displayed in a table and indicates that no
-#. label/value was provided.
 #. Translators: (empty) is displayed as a label in a chart and indicates that
 #. no label was provided.
-#. Translators: (empty) is displayed in a table and indicates that no
-#. label/value was provided.
 #. Translators: (empty) is displayed as a label in a chart and indicates that
 #. no label was provided.
-#: static/dist/js/engagement-content-main.js
-#: static/dist/js/enrollment-activity-main.js
-#: static/dist/js/enrollment-demographics-age-main.js
-#: static/dist/js/enrollment-demographics-education-main.js
+#: static/dist/js/common.js
 #: static/dist/js/enrollment-demographics-education-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/dist/js/enrollment-geography-main.js
 #: static/dist/js/performance-answer-distribution-main.js
-#: static/dist/js/performance-answer-distribution-main.js
-#: static/dist/js/performance-graded-content-assignment-main.js
-#: static/dist/js/performance-graded-content-assignment-main.js
-#: static/dist/js/performance-graded-content-assignment-types-main.js
-#: static/dist/js/performance-graded-content-assignment-types-main.js
+#: static/dist/js/performance-content-main.js
+#: static/js/views/data-table-view.js static/js/views/discrete-bar-view.js
 msgid "(empty)"
-msgstr ""
+msgstr "(vacio)"
+
+#. Translators: "Correct" is displayed in a table..
+#. Translators: "Correct" is displayed in a table..
+#: static/dist/js/common.js
+#: static/dist/js/performance-answer-distribution-main.js
+#: static/dist/js/performance-content-main.js
+#: static/js/performance-answer-distribution-main.js
+#: static/js/performance-content-main.js static/js/views/data-table-view.js
+msgid "Correct"
+msgstr "correcta"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Week Ending"
-msgstr ""
+msgstr "fin de semana"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Active Students"
-msgstr ""
+msgstr "Estudiantes Activos"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Watched a Video"
-msgstr ""
+msgstr "observar video"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Tried a Problem"
-msgstr ""
+msgstr "intentar problema"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Posted in Forum"
-msgstr ""
+msgstr "publicado en foro"
 
 #. Translators: <%=value%> will be replaced with a date.
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Week Ending <%=value%>"
-msgstr ""
+msgstr "fin de semana <%=value%>"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-activity-main.js
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Date"
-msgstr ""
+msgstr "Fecha"
 
 #. Translators: The noun count (e.g. number of students)
 #. Translators: The noun count (e.g. number of students)
@@ -113,22 +98,22 @@ msgstr ""
 #: static/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-geography-main.js
 msgid "Total Enrollment"
-msgstr ""
+msgstr "Inscripcion total"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Honor Code"
-msgstr ""
+msgstr "Codigo de honor"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Verified"
-msgstr ""
+msgstr "Verificado"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Professional"
-msgstr ""
+msgstr "Profesional"
 
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-age-main.js
@@ -137,49 +122,49 @@ msgstr ""
 #: static/js/enrollment-demographics-age-main.js
 #: static/js/enrollment-demographics-education-main.js
 msgid "Number of Students"
-msgstr ""
+msgstr "edad <%=value%>"
 
 #. Translators: <%=value%> will be replaced with an age.
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/js/enrollment-demographics-age-main.js
 msgid "Age: <%=value%>"
-msgstr ""
+msgstr "edad"
 
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/js/enrollment-demographics-age-main.js
 msgid "Age"
-msgstr ""
+msgstr "edad"
 
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/js/enrollment-demographics-age-main.js
 msgid "Percent of Total"
-msgstr ""
+msgstr "porcentaje del  total"
 
 #: static/dist/js/enrollment-demographics-education-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-education-main.js
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Percentage"
-msgstr ""
+msgstr "porcentaje"
 
 #. Translators: <%=value%> will be replaced with a level of education (e.g.
 #. Doctorate).
 #: static/dist/js/enrollment-demographics-education-main.js
 #: static/js/enrollment-demographics-education-main.js
 msgid "Education: <%=value%>"
-msgstr ""
+msgstr "educacion: <%=value%>"
 
 #: static/dist/js/enrollment-demographics-education-main.js
 #: static/js/enrollment-demographics-education-main.js
 msgid "Educational Background"
-msgstr ""
+msgstr "Antecendente Educacional"
 
 #. Translators: <%=value%> will be replaced with a level of gender (e.g.
 #. Female).
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Gender: <%=value%>"
-msgstr ""
+msgstr "genero: <%=value%>"
 
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-gender-main.js
@@ -199,7 +184,7 @@ msgstr "Otro"
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Not Reported"
-msgstr ""
+msgstr "Sin reporte"
 
 #: static/dist/js/enrollment-geography-main.js
 #: static/js/enrollment-geography-main.js
@@ -207,62 +192,74 @@ msgid ""
 "Student location is determined from IP address. This map shows where "
 "students most recently connected."
 msgstr ""
+"Localización del estudiante es determinada por la dirección IP. Este mapa "
+"muestra la coneccion mas reciente de los estudiantes"
 
 #: static/dist/js/enrollment-geography-main.js
 #: static/js/enrollment-geography-main.js
 msgid "Country"
-msgstr ""
+msgstr "Pais "
 
 #: static/dist/js/enrollment-geography-main.js
 #: static/js/enrollment-geography-main.js
 msgid "Percent"
-msgstr ""
+msgstr "Porcentaje"
 
 #: static/dist/js/performance-answer-distribution-main.js
+#: static/js/performance-answer-distribution-main.js
 msgid "Answer"
-msgstr ""
+msgstr "respuesta"
 
 #: static/dist/js/performance-answer-distribution-main.js
-msgid "Correct"
-msgstr ""
-
-#: static/dist/js/performance-answer-distribution-main.js
+#: static/js/performance-answer-distribution-main.js
 msgid "Submission Count"
-msgstr ""
+msgstr "Cuenta sumision  "
 
 #: static/dist/js/performance-answer-distribution-main.js
+#: static/js/performance-answer-distribution-main.js
 msgid "Variant"
-msgstr ""
+msgstr "variante"
 
 #. Translators: <%=value%> will be replaced by a student response to a
 #. question asked in a course.
 #: static/dist/js/performance-answer-distribution-main.js
+#: static/js/performance-answer-distribution-main.js
 msgid "Answer: <%=value%>"
-msgstr ""
+msgstr "respuesta: <%=value%>"
 
-#: static/dist/js/performance-graded-content-assignment-main.js
-#: static/dist/js/performance-graded-content-assignment-types-main.js
-msgid "Total Submissions"
-msgstr ""
+#: static/dist/js/performance-content-main.js
+#: static/js/performance-content-main.js
+msgid "Incorrect"
+msgstr "Incorrecto"
 
-#: static/dist/js/performance-graded-content-assignment-main.js
-#: static/dist/js/performance-graded-content-assignment-types-main.js
-msgid "Correct Submissions"
-msgstr ""
-
-#: static/dist/js/performance-graded-content-assignment-main.js
-#: static/dist/js/performance-graded-content-assignment-types-main.js
+#: static/dist/js/performance-content-main.js
+#: static/js/performance-content-main.js
 msgid "Order"
-msgstr ""
+msgstr "order"
 
-#: static/dist/js/performance-graded-content-assignment-main.js
-msgid "Problem Name"
-msgstr ""
-
-#: static/dist/js/performance-graded-content-assignment-types-main.js
+#: static/dist/js/performance-content-main.js
 msgid "Assignment Name"
 msgstr "Nombre de la asignación"
 
-#: static/dist/js/performance-graded-content-assignment-types-main.js
+#: static/dist/js/performance-content-main.js
+#: static/js/performance-content-main.js
 msgid "Problems"
+msgstr "Problemas"
+
+#: static/dist/js/performance-content-main.js
+#: static/js/performance-content-main.js
+msgid "Total"
+msgstr ""
+
+#: static/dist/js/performance-content-main.js
+#: static/js/performance-content-main.js
+msgid "Percentage Correct"
+msgstr ""
+
+#. Translators: <%=value%> will be replaced by a number followed by a
+#. percentage.
+#. For example, "400 (29%)"
+#: static/dist/js/performance-content-main.js
+#: static/js/performance-content-main.js
+msgid "<%=value%> (<%=percent%>)"
 msgstr ""
