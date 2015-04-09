@@ -21,6 +21,7 @@ class PerformanceTemplateView(CourseTemplateWithNavView, CourseAPIMixin):
     presenter = None
     problem_id = None
     part_id = None
+    no_data_message = None
 
     # Translators: Do not translate UTC.
     update_message = _('Problem submission data was last updated %(update_date)s at %(update_time)s UTC.')
@@ -36,6 +37,7 @@ class PerformanceTemplateView(CourseTemplateWithNavView, CourseAPIMixin):
         context_data = super(PerformanceTemplateView, self).get_context_data(**kwargs)
         self.presenter = CoursePerformancePresenter(self.access_token, self.course_id)
 
+        context_data['no_data_message'] = self.no_data_message
         context_data['js_data']['course'].update({
             'showProblemCount': True,  # overwrite to hide problem count column
             'contentTableHeading': _('Assignment Name')  # overwrite for different heading
@@ -68,6 +70,7 @@ class PerformanceUngradedContentTemplateView(PerformanceTemplateView):
     active_secondary_nav_item = 'ungraded_content'
     section_id = None
     subsection_id = None
+    no_data_message = _('No submissions received for these exercises.')
 
     def set_primary_content(self, context, primary_data):
         context['js_data']['course'].update({
@@ -116,6 +119,7 @@ class PerformanceGradedContentTemplateView(PerformanceTemplateView):
     assignment_type = None
     assignment_id = None
     assignment = None
+    no_data_message = _('No submissions received for these assignments.')
 
     def dispatch(self, request, *args, **kwargs):
         self.assignment_id = kwargs.get('assignment_id')

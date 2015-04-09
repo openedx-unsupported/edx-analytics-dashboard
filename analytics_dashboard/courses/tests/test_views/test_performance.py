@@ -198,7 +198,8 @@ class CoursePerformanceGradedMixin(CoursePerformanceViewTestMixin):
         """
         expected = {
             'assignment_types': self.factory.present_assignment_types,
-            'assignments': self.factory.present_assignments()
+            'assignments': self.factory.present_assignments(),
+            'no_data_message': u'No submissions received for these assignments.'
         }
         self.assertDictContainsSubset(expected, context)
 
@@ -238,7 +239,8 @@ class CoursePerformanceUngradedMixin(CoursePerformanceViewTestMixin):
 
     def assertValidContext(self, context):
         expected = {
-            'sections': self.sections
+            'sections': self.sections,
+            'no_data_message': 'No submissions received for these exercises.'
         }
         self.assertDictContainsSubset(expected, context)
 
