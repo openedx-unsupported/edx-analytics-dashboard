@@ -5,7 +5,7 @@ from django.conf import settings
 from django.core.cache import cache
 from django.dispatch import receiver
 
-from social.apps.django_app import load_strategy
+from social.apps.django_app.utils import load_strategy
 
 from auth_backends.backends import EdXOpenIdConnect
 
