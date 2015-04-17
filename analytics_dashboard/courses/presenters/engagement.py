@@ -1,15 +1,24 @@
 import datetime
-
+from django.core.urlresolvers import reverse
+import logging
 from waffle import switch_is_active
+
+from opaque_keys.edx.keys import UsageKey
 from analyticsclient.client import Client
 import analyticsclient.constants.activity_type as AT
+from analyticsclient.exceptions import NotFoundError
 
-from courses.presenters import BasePresenter
+from courses import utils
+from courses.exceptions import NoVideosError
+from courses.presenters import (BasePresenter, CourseAPIPresenterMixin)
 
 
-class CourseEngagementPresenter(BasePresenter):
+logger = logging.getLogger(__name__)
+
+
+class CourseEngagementActivityPresenter(BasePresenter):
     """
-    Presenter for the engagement page.
+    Presenter for the engagement activity page.
     """
 
     def get_activity_types(self):
@@ -84,3 +93,113 @@ class CourseEngagementPresenter(BasePresenter):
         summary = self._build_summary(api_trends)
         trends = self._build_trend(api_trends)
         return summary, trends
+
+
+class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, BasePresenter):
+
+    def blocks_have_data(self, videos):
+        if videos:
+            for video in videos:
+                if video['start_views'] > 0 or video['end_views'] > 0:
+                    return True
+        return False
+
+    @property
+    def section_type_template(self):
+        return u'video_sections_{}_{}'
+
+    @property
+    def all_sections_key(self):
+        return u'video_sections'
+
+    @property
+    def module_type(self):
+        return 'video'
+
+    def fetch_course_module_data(self):
+        # Get the videos from the API.  Use course_module_data() for cached data.
+        try:
+            videos = self.client.courses(self.course_id).videos()
+        except NotFoundError:
+            raise NoVideosError(course_id=self.course_id)
+        return videos
+
+    def attach_computed_data(self, video):
+        # Change the id key name
+        if 'encoded_module_id' in video:
+            video['id'] = video.pop('encoded_module_id')
+
+        total = video['start_views'] + video['end_views']
+        start_only_views = video['start_views'] - video['end_views']
+        video.update({
+            'end_percent': utils.math.calculate_percent(video['end_views'], total),
+            'start_only_views': start_only_views,
+            'start_only_percent': utils.math.calculate_percent(start_only_views, total),
+        })
+
+    def attach_aggregated_data_to_parent(self, index, parent, url_func=None):
+        children = parent['children']
+        total_start_views = sum(child.get('start_views', 0) for child in children)
+        total_end_views = sum(child.get('end_views', 0) for child in children)
+        parent.update({
+            'num_children': len(children),
+            'start_views': total_start_views,
+            'end_views': total_end_views,
+            'index': index + 1
+        })
+
+        # calculates the percentages too
+        self.attach_computed_data(parent)
+
+        # including the URL enables navigation to child pages
+        if url_func and parent['num_children'] > 0:
+            parent['url'] = url_func(parent)
+
+    def build_section_url(self, section):
+        return reverse('courses:engagement:video_section', kwargs={'course_id': self.course_id,
+                                                                   'section_id': section['id']})
+
+    def build_subsection_url_func(self, section_id):
+        """
+        Returns a function for creating the subsection URL.
+        """
+        # Using closures to keep the section ID available
+        def subsection_url(subsection):
+            return reverse('courses:engagement:video_subsection',
+                           kwargs={'course_id': self.course_id,
+                                   'section_id': section_id,
+                                   'subsection_id': subsection['id']})
+        return subsection_url
+
+    def build_module_url_func(self, section_id):
+        def build_url(parent, video):
+            return reverse('courses:engagement:video_timeline',
+                           kwargs={
+                               'course_id': self.course_id,
+                               'section_id': section_id,
+                               'subsection_id': parent['id'],
+                               'video_id': video['id']
+                           })
+
+        return build_url
+
+    def post_process_adding_data_to_blocks(self, data, parent_block, child_block, url_func=None):
+        if url_func:
+            data['url'] = url_func(parent_block, child_block)
+
+    @property
+    def default_block_data(self):
+        return {
+            'start_views': 0,
+            'end_views': 0,
+            'start_only_views': 0,
+            'start_only_percent': 0,
+            'end_percent': 0
+        }
+
+    def module_id_to_data_id(self, module):
+        """
+        The data api only has the encoded module ID.  This converts the course structure ID
+        to the encoded form.
+        """
+        return UsageKey.from_string(module['id']).html_id()

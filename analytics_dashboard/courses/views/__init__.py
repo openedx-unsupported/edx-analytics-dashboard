@@ -14,16 +14,22 @@ from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import TemplateView
 import requests
-from slumber.exceptions import HttpClientError
+from slumber.exceptions import (HttpClientError, SlumberBaseException)
 from waffle import switch_is_active
+
 from analyticsclient.client import Client
-from analyticsclient.exceptions import NotFoundError, ClientError
+from analyticsclient.exceptions import (ClientError, NotFoundError)
+
 
 from common.clients import CourseStructureApiClient
+
+from core.exceptions import ServiceUnavailableError
 from core.utils import sanitize_cache_key
+
 from courses import permissions
 from courses.serializers import LazyEncoder
 from courses.utils import is_feature_enabled
+
 from help.views import ContextSensitiveHelpMixin
 
 
@@ -433,55 +439,64 @@ class CourseHome(CourseTemplateWithNavView):
     page_title = _('Course Home')
 
     def get_table_items(self):
-        items = [
-            {
-                'name': _('Enrollment'),
-                'icon': 'fa-child',
-                'heading': _('Who are my students?'),
-                'items': [
-                    {
-                        'title': _('How many students are in my course?'),
-                        'view': 'courses:enrollment:activity',
-                        'breadcrumbs': [_('Activity')]
-                    },
-                    {
-                        'title': _('How old are my students?'),
-                        'view': 'courses:enrollment:demographics_age',
-                        'breadcrumbs': [_('Demographics'), _('Age')]
-                    },
-                    {
-                        'title': _('What level of education do my students have?'),
-                        'view': 'courses:enrollment:demographics_education',
-                        'breadcrumbs': [_('Demographics'), _('Education')]
-                    },
-                    {
-                        'title': _('What is the student gender breakdown?'),
-                        'view': 'courses:enrollment:demographics_gender',
-                        'breadcrumbs': [_('Demographics'), _('Gender')]
-                    },
-                    {
-                        'title': _('Where are my students?'),
-                        'view': 'courses:enrollment:geography',
-                        'breadcrumbs': [_('Geography')]
-                    },
-                ],
-            },
-            {
-                'name': _('Engagement'),
-                'icon': 'fa-bar-chart',
-                'heading': _('What are students doing in my course?'),
-                'items': [
-                    {
-                        'title': _('How many students are interacting with my course?'),
-                        'view': 'courses:engagement:content',
-                        'breadcrumbs': [_('Content')]
-                    }
-                ]
-            }
+        items = []
 
-        ]
+        enrollment_items = {
+            'name': _('Enrollment'),
+            'icon': 'fa-child',
+            'heading': _('Who are my students?'),
+            'items': [
+                {
+                    'title': _('How many students are in my course?'),
+                    'view': 'courses:enrollment:activity',
+                    'breadcrumbs': [_('Activity')]
+                },
+                {
+                    'title': _('How old are my students?'),
+                    'view': 'courses:enrollment:demographics_age',
+                    'breadcrumbs': [_('Demographics'), _('Age')]
+                },
+                {
+                    'title': _('What level of education do my students have?'),
+                    'view': 'courses:enrollment:demographics_education',
+                    'breadcrumbs': [_('Demographics'), _('Education')]
+                },
+                {
+                    'title': _('What is the student gender breakdown?'),
+                    'view': 'courses:enrollment:demographics_gender',
+                    'breadcrumbs': [_('Demographics'), _('Gender')]
+                },
+                {
+                    'title': _('Where are my students?'),
+                    'view': 'courses:enrollment:geography',
+                    'breadcrumbs': [_('Geography')]
+                },
+            ],
+        }
+        items.append(enrollment_items)
 
-        if switch_is_active('enable_course_api'):
+        engagement_items = {
+            'name': _('Engagement'),
+            'icon': 'fa-bar-chart',
+            'heading': _('What are students doing in my course?'),
+            'items': [
+                {
+                    'title': _('How many students are interacting with my course?'),
+                    'view': 'courses:engagement:content',
+                    'breadcrumbs': [_('Content')]
+                }
+            ]
+        }
+        if self.course_api_enabled:
+            engagement_items['items'].append({
+                'title': _('How did students interact with course videos?'),
+                'view': 'courses:engagement:videos',
+                'breadcrumbs': [_('Videos')]
+            })
+
+        items.append(engagement_items)
+
+        if self.course_api_enabled:
             items.append({
                 'name': _('Performance'),
                 'icon': 'fa-check-square-o',
@@ -550,3 +565,79 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LazyEnco
         info.sort(key=lambda course: (course.get('name', '') or course.get('key', '') or '').lower())
 
         return info
+
+
+class CourseStructureExceptionMixin(object):
+    """
+    Catches exceptions from the course structure API.  This mixin should be included before
+    CourseAPIMixin.
+    """
+
+    def dispatch(self, request, *args, **kwargs):
+        try:
+            return super(CourseStructureExceptionMixin, self).dispatch(request, *args, **kwargs)
+        except SlumberBaseException as e:
+            # Return the appropriate response if a 404 occurred.
+            response = getattr(e, 'response')
+            if response is not None:
+                if response.status_code == 404:
+                    logger.info('Course API data not found for %s: %s', self.course_id, e)
+                    raise Http404
+                elif response.status_code == 503:
+                    raise ServiceUnavailableError
+
+            # Not a 404. Continue raising the error.
+            logger.error('An error occurred while using Slumber to communicate with an API: %s', e)
+            raise
+
+
+class CourseStructureMixin(object):
+    """
+    Retrieves and sets section and subsection IDs and added the sections, subsections,
+    and subsection children (e.g. videos, problems) to the context.
+
+    The presenter is expected to be derived from CourseAPIPresenterMixin.
+    """
+
+    section_id = None
+    subsection_id = None
+    presenter = None  # course structure presenter
+
+    def dispatch(self, request, *args, **kwargs):
+        self.section_id = kwargs.get('section_id', None)
+        self.subsection_id = kwargs.get('subsection_id', None)
+        return super(CourseStructureMixin, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(CourseStructureMixin, self).get_context_data(**kwargs)
+        context.update({
+            'sections': self.presenter.sections(),
+        })
+
+        if self.section_id:
+            section = self.presenter.section(self.section_id)
+            if section:
+                context.update({
+                    'section': section,
+                    'subsections': self.presenter.subsections(self.section_id)
+                })
+            else:
+                raise Http404
+
+            if self.subsection_id:
+                subsection = self.presenter.subsection(self.section_id, self.subsection_id)
+                if subsection:
+                    context.update({
+                        'subsection': subsection,
+                        'subsection_children': self.presenter.subsection_children(self.section_id, self.subsection_id)
+                    })
+                else:
+                    raise Http404
+
+        return context
+
+    def set_primary_content(self, context, primary_data):
+        context['js_data']['course'].update({
+            'primaryContent': primary_data,
+            'hasData': self.presenter.blocks_have_data(primary_data)
+        })

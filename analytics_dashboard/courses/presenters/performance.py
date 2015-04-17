@@ -1,19 +1,15 @@
 from collections import namedtuple
-import datetime
 import logging
 
 from analyticsclient.exceptions import NotFoundError
-from django.conf import settings
 from django.core.cache import cache
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
-from common.clients import CourseStructureApiClient
 from common.course_structure import CourseStructure
 from courses import utils
 from courses.exceptions import NoAnswerSubmissionsError
-from courses.presenters import BasePresenter
-from core.utils import sanitize_cache_key
+from courses.presenters import (BasePresenter, CourseAPIPresenterMixin)
 
 
 logger = logging.getLogger(__name__)
@@ -31,21 +27,16 @@ AnswerDistributionEntry = namedtuple('AnswerDistributionEntry', [
 ])
 
 
-class CoursePerformancePresenter(BasePresenter):
+class CoursePerformancePresenter(CourseAPIPresenterMixin, BasePresenter):
     """
     Presenter for the performance page.
     """
-    _last_updated = None
 
     # limit for the number of bars to display in the answer distribution chart
     CHART_LIMIT = 12
 
     # minimum screen space a grading policy bar will take up (even if a policy is 0%, display some bar)
     MIN_POLICY_DISPLAY_PERCENT = 5
-
-    def __init__(self, access_token, course_id, timeout=10):
-        super(CoursePerformancePresenter, self).__init__(course_id, timeout)
-        self.course_api_client = CourseStructureApiClient(settings.COURSE_API_URL, access_token)
 
     def get_answer_distribution(self, problem_id, problem_part_id):
         """
@@ -164,17 +155,6 @@ class CoursePerformancePresenter(BasePresenter):
         answer_distributions = sorted(answer_distributions, key=lambda a: -a['count'])
         return answer_distributions
 
-    def get_cache_key(self, name):
-        return sanitize_cache_key(u'{}_{}'.format(self.course_id, name))
-
-    @property
-    def last_updated(self):
-        if not self._last_updated:
-            key = self.get_cache_key('problems_last_updated')
-            self._last_updated = cache.get(key)
-
-        return self._last_updated
-
     def grading_policy(self):
         """ Returns the grading policy for the represented course."""
         key = self.get_cache_key('grading_policy')
@@ -208,57 +188,33 @@ class CoursePerformancePresenter(BasePresenter):
         # return the results in a similar format to the course structure for standard parsing
         return [{'name': gp['assignment_type']} for gp in grading_policy]
 
-    def _course_problems(self):
-        """ Retrieves course problems (from cache or course API) and adds submission data. """
-
-        key = self.get_cache_key('problems')
-        problems = cache.get(key)
-
-        if not problems:
-            # Get the problems from the API
-            logger.debug('Retrieving problem submissions for course: %s', self.course_id)
-
-            try:
-                problems = self.client.courses(self.course_id).problems()
-            except NotFoundError:
-                raise NoAnswerSubmissionsError(course_id=self.course_id)
-
-            # Create a lookup table so that submission data can be quickly retrieved by downstream consumers.
-            table = {}
-            last_updated = datetime.datetime.min
-
-            for problem in problems:
-                # Change the id key name
-                problem['id'] = problem.pop('module_id')
-
-                # Add an percent and incorrect_submissions field
-                total = problem['total_submissions']
-                problem['correct_percent'] = utils.math.calculate_percent(problem['correct_submissions'], total)
-                problem['incorrect_submissions'] = total - problem['correct_submissions']
-                problem['incorrect_percent'] = utils.math.calculate_percent(problem['incorrect_submissions'], total)
-
-                table[problem['id']] = problem
-
-                # Set the last_updated value
-                created = problem.pop('created', None)
-                if created:
-                    created = self.parse_api_datetime(created)
-                    last_updated = max(last_updated, created)
-
-            if last_updated is not datetime.datetime.min:
-                _key = self.get_cache_key('problems_last_updated')
-                cache.set(_key, last_updated)
-                self._last_updated = last_updated
-
-            problems = table
-            cache.set(key, problems)
-
+    def fetch_course_module_data(self):
+        # Implementation of abstract method.  Returns problems from data api.
+        try:
+            problems = self.client.courses(self.course_id).problems()
+        except NotFoundError:
+            raise NoAnswerSubmissionsError(course_id=self.course_id)
         return problems
 
-    def _add_submissions_and_part_ids(self, assignments, url_func=None):
-        """ Adds submissions and part IDs to the given assignments. """
+    def attach_computed_data(self, problem):
+        # Change the id key name
+        problem['id'] = problem.pop('module_id')
+        # Add an percent and incorrect_submissions field
+        total = problem['total_submissions']
+        problem['correct_percent'] = utils.math.calculate_percent(problem['correct_submissions'], total)
+        problem['incorrect_submissions'] = total - problem['correct_submissions']
+        problem['incorrect_percent'] = utils.math.calculate_percent(problem['incorrect_submissions'], total)
 
-        DEFAULT_DATA = {
+    def post_process_adding_data_to_blocks(self, data, parent_block, child_block, url_func=None):
+        # not all problems have submissions
+        if len(data['part_ids']) > 0:
+            utils.sorting.natural_sort(data['part_ids'])
+            if url_func:
+                data['url'] = url_func(parent_block, child_block, data)
+
+    @property
+    def default_block_data(self):
+        return {
             'total_submissions': 0,
             'correct_submissions': 0,
             'correct_percent': 0,
@@ -266,42 +222,6 @@ class CoursePerformancePresenter(BasePresenter):
             'incorrect_percent': 0,
             'part_ids': []
         }
-
-        try:
-            course_problems = self._course_problems()
-        except NoAnswerSubmissionsError as e:
-            logger.warning(e)
-            course_problems = {}
-
-        for assignment in assignments:
-            problems = assignment['children']
-
-            for index, problem in enumerate(problems):
-                data = course_problems.get(problem['id'], DEFAULT_DATA)
-
-                # map empty names to None so that the UI catches them and displays as '(empty)'
-                if len(problem['name']) < 1:
-                    problem['name'] = None
-                data['index'] = index + 1
-
-                # not all problems have submissions
-                if len(data['part_ids']) > 0:
-                    utils.sorting.natural_sort(data['part_ids'])
-                    if url_func:
-                        data['url'] = url_func(assignment, problem, data)
-                problem.update(data)
-
-    def _structure(self):
-        """ Retrieves course structure from the course API. """
-        key = self.get_cache_key('structure')
-        structure = cache.get(key)
-
-        if not structure:
-            logger.debug('Retrieving structure for course: %s', self.course_id)
-            structure = self.course_api_client.course_structures(self.course_id).get()
-            cache.set(key, structure)
-
-        return structure
 
     def assignments(self, assignment_type=None):
         """ Returns the assignments (and problems) for the represented course. """
@@ -315,7 +235,7 @@ class CoursePerformancePresenter(BasePresenter):
             assignments = cache.get(all_assignments_key)
 
             if not assignments:
-                structure = self._structure()
+                structure = self._get_structure()
                 assignments = CourseStructure.course_structure_to_assignments(
                     structure, graded=True, assignment_type=None)
                 cache.set(all_assignments_key, assignments)
@@ -325,31 +245,30 @@ class CoursePerformancePresenter(BasePresenter):
                 assignments = [assignment for assignment in assignments if
                                assignment['assignment_type'].lower() == assignment_type['name']]
 
-            self._add_submissions_and_part_ids(assignments, self._build_graded_answer_distribution_url)
-            self._build_submission_collections(assignments, self._build_assignment_url)
+            self.add_child_data_to_parent_blocks(assignments, self._build_graded_answer_distribution_url)
+            self.attach_data_to_parents(assignments, self._build_assignment_url)
 
             # Cache the data for the course-assignment_type combination.
             cache.set(assignment_type_key, assignments)
 
         return assignments
 
-    def _build_submission_collections(self, collections, url_func=None):
-        for index, submission_collection in enumerate(collections):
-            children = submission_collection['children']
-            total_submissions = sum(child.get('total_submissions', 0) for child in children)
-            correct_submissions = sum(child.get('correct_submissions', 0) for child in children)
-            submission_collection['num_children'] = len(children)
-            submission_collection['total_submissions'] = total_submissions
-            submission_collection['correct_submissions'] = correct_submissions
-            submission_collection['correct_percent'] = utils.math.calculate_percent(
-                correct_submissions, total_submissions)
-            submission_collection['incorrect_submissions'] = total_submissions - correct_submissions
-            submission_collection['incorrect_percent'] = utils.math.calculate_percent(
-                submission_collection['incorrect_submissions'], total_submissions)
-            submission_collection['index'] = index + 1
-            # removing the URL keeps navigation between the menu and bar chart consistent
-            if url_func and submission_collection['total_submissions'] > 0:
-                submission_collection['url'] = url_func(submission_collection)
+    def attach_aggregated_data_to_parent(self, index, parent, url_func=None):
+        children = parent['children']
+        total_submissions = sum(child.get('total_submissions', 0) for child in children)
+        correct_submissions = sum(child.get('correct_submissions', 0) for child in children)
+        parent['num_children'] = len(children)
+        parent['total_submissions'] = total_submissions
+        parent['correct_submissions'] = correct_submissions
+        parent['correct_percent'] = utils.math.calculate_percent(
+            correct_submissions, total_submissions)
+        parent['incorrect_submissions'] = total_submissions - correct_submissions
+        parent['incorrect_percent'] = utils.math.calculate_percent(
+            parent['incorrect_submissions'], total_submissions)
+        parent['index'] = index + 1
+        # removing the URL keeps navigation between the menu and bar chart consistent
+        if url_func and parent['total_submissions'] > 0:
+            parent['url'] = url_func(parent)
 
     def _build_graded_answer_distribution_url(self, parent, problem, parts):
         return reverse('courses:performance:answer_distribution',
@@ -360,7 +279,7 @@ class CoursePerformancePresenter(BasePresenter):
                            'problem_part_id': parts['part_ids'][0]
                        })
 
-    def _build_ungraded_answer_distribution_url_func(self, section_id):
+    def build_module_url_func(self, section_id):
         def build_url(parent, problem, parts):
             return reverse('courses:performance:ungraded_answer_distribution',
                            kwargs={
@@ -377,11 +296,11 @@ class CoursePerformancePresenter(BasePresenter):
         return reverse('courses:performance:assignment', kwargs={
             'course_id': self.course_id, 'assignment_id': assignment['id']})
 
-    def _build_section_url(self, section):
+    def build_section_url(self, section):
         return reverse('courses:performance:ungraded_section', kwargs={'course_id': self.course_id,
                                                                        'section_id': section['id']})
 
-    def _build_subsection_url_func(self, section_id):
+    def build_subsection_url_func(self, section_id):
         """
         Returns a function for creating the ungraded subsection URL.
         """
@@ -393,7 +312,7 @@ class CoursePerformancePresenter(BasePresenter):
                                    'subsection_id': subsection['id']})
         return subsection_url
 
-    def has_submissions(self, assignments):
+    def blocks_have_data(self, assignments):
         if assignments:
             for assignment in assignments:
                 if assignment['total_submissions'] > 0:
@@ -408,71 +327,14 @@ class CoursePerformancePresenter(BasePresenter):
         else:
             return None
 
-    def problem(self, problem_id):
-        """ Retrieve a specific problem. """
-        problem = self._structure()['blocks'][problem_id]
-        problem['name'] = problem.pop('display_name')
-        return problem
+    @property
+    def section_type_template(self):
+        return u'ungraded_sections_{}_{}'
 
-    def _ungraded_structure(self, section_id=None, subsection_id=None):
-        section_type_key = self.get_cache_key(u'sections_{}_{}'.format(section_id, subsection_id))
-        found_structure = cache.get(section_type_key)
+    @property
+    def all_sections_key(self):
+        return u'ungraded_sections'
 
-        if not found_structure:
-            all_sections_key = self.get_cache_key(u'sections')
-            found_structure = cache.get(all_sections_key)
-
-            if not found_structure:
-                structure = self._structure()
-                found_structure = CourseStructure.course_structure_to_sections(structure, graded=False)
-                cache.set(all_sections_key, found_structure)
-
-            for section in found_structure:
-                self._add_submissions_and_part_ids(section['children'],
-                                                   self._build_ungraded_answer_distribution_url_func(
-                                                       section['id']))
-                self._build_submission_collections(section['children'],
-                                                   self._build_subsection_url_func(section['id']))
-
-            self._build_submission_collections(found_structure, self._build_section_url)
-
-            if found_structure:
-                if section_id:
-                    found_structure = [section for section in found_structure if section['id'] == section_id]
-
-                if found_structure and subsection_id:
-                    found_structure = \
-                        [section for section in found_structure[0]['children'] if section['id'] == subsection_id]
-
-            cache.set(section_type_key, found_structure)
-
-        return found_structure
-
-    def sections(self):
-        return self._ungraded_structure()
-
-    def section(self, section_id):
-        section = None
-        if section_id:
-            section = self._ungraded_structure(section_id)
-            section = section[0] if section else None
-        return section
-
-    def subsections(self, section_id):
-        sections = self.section(section_id)
-        if sections:
-            return sections.get('children', None)
-        return None
-
-    def subsection(self, section_id, subsection_id):
-        subsection = None
-        if section_id and subsection_id:
-            subsection = self._ungraded_structure(section_id, subsection_id)
-            subsection = subsection[0] if subsection else None
-        return subsection
-
-    def subsection_problems(self, section_id, subsection_id):
-        subsections = self.subsection(section_id, subsection_id)
-        if subsections:
-            return subsections.get('children', None)
-        return None
+    @property
+    def module_type(self):
+        return 'problem'

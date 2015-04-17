@@ -10,6 +10,7 @@ from django.contrib.humanize.templatetags.humanize import intcomma
 from django.utils.translation import ugettext_lazy as _
 import httpretty
 import mock
+from mock import patch, Mock, _is_started
 
 from core.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin
 from courses.permissions import set_user_course_permissions, revoke_user_course_permissions
@@ -263,3 +264,91 @@ class CourseEnrollmentDemographicsMixin(CourseEnrollmentViewTestMixin):
              'href': reverse('courses:enrollment:demographics_gender', kwargs=reverse_kwargs)}
         ]
         self.assertNavs(nav, expected, self.active_tertiary_nav_label)
+
+
+class PatchMixin(object):
+    patches = []
+
+    def _patch(self, target, **mock_kwargs):
+        self.patches.append(patch(target, Mock(**mock_kwargs)))
+
+    def start_patching(self):
+        for _patch in self.patches:
+            _patch.start()
+
+    def stop_patching(self):
+        for _patch in self.patches:
+            if _is_started(_patch):
+                _patch.stop()
+
+    def clear_patches(self):
+        self.stop_patching()
+        self.patches = []
+
+    def setUp(self):
+        super(PatchMixin, self).setUp()
+        # Ensure patches from previous test failures are removed and de-referenced
+        self.clear_patches()
+
+    def tearDown(self):
+        super(PatchMixin, self).tearDown()
+        self.clear_patches()
+
+
+class CourseStructureViewMixin(NavAssertMixin, ViewTestMixin):
+
+    def assertValidContext(self, context):
+        raise NotImplementedError
+
+    @httpretty.activate
+    def test_valid_course(self):
+        """
+        The view should return HTTP 200 if the course is valid.
+
+        Additional assertions should be added to validate page content.
+        """
+
+        course_id = DEMO_COURSE_ID
+
+        # Mock the course details
+        self.mock_course_detail(course_id)
+
+        # Retrieve the page. Validate the status code and context.
+        response = self.client.get(self.path(course_id=course_id))
+        self.assertEqual(response.status_code, 200)
+        self.assertValidContext(response.context)
+
+        self.assertPrimaryNav(response.context['primary_nav_item'], course_id)
+        self.assertSecondaryNavs(response.context['secondary_nav_items'], course_id)
+
+    def test_invalid_course(self):
+        """
+        The view will return HTTP 404 if the course is invalid.
+        """
+        raise NotImplementedError
+
+    def _test_invalid_course(self, api_template):
+        self.stop_patching()
+
+        course_id = 'fakeOrg/soFake/Fake_Course'
+        self.grant_permission(self.user, course_id)
+        self.mock_course_detail(course_id)
+        path = self.path(course_id=course_id)
+
+        # The course API would return a 404 for an invalid course. Simulate it to
+        # force an error in the view.
+        api_path = api_template.format(course_id)
+        self.mock_course_api(api_path, status=404)
+
+        response = self.client.get(path, follow=True)
+        self.assertEqual(response.status_code, 404)
+
+    def _test_api_error(self):
+        # We need to break the methods that we normally patch.
+        self.stop_patching()
+
+        course_id = DEMO_COURSE_ID
+        self.mock_course_detail(course_id)
+
+        path = self.path(course_id=course_id)
+        self.assertRaises(Exception, self.client.get, path, follow=True)

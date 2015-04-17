@@ -67,5 +67,5 @@ class CourseStructureTests(TestCase):
         factory = CourseStructureFactory()
         structure = factory.structure
 
-        actual = CourseStructure.course_structure_to_sections(structure, False)
+        actual = CourseStructure.course_structure_to_sections(structure, 'problem', False)
         self.assertListEqual(actual, self._prepare_structure(structure, factory.sections, False))

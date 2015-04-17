@@ -16,20 +16,12 @@
   {% trans "All Assignments" %}
 {% endblock %}
 
-{% block first_level_url %}
-    {% url "courses:performance:graded_content_by_type" course_id=course_id assignment_type=level.name|unicode_slugify %}
-{% endblock %}
-
 {% block select_second_level %}
     {% blocktrans with level=selected_first_level.name %}
         Select {{ level }}
     {% endblocktrans %}
 {% endblock %}
 
-{% block second_level_url %}
-    {% url "courses:performance:assignment" course_id=course_id assignment_id=level.id %}
-{% endblock %}
-
-{% block problem_part_level_url %}
-    {% url "courses:performance:answer_distribution" course_id=course_id assignment_id=selected_second_level.id problem_id=level.id problem_part_id=level.part_ids.0 %}
+{% block select_third_level %}
+    {% trans "Select Problem" %}
 {% endblock %}

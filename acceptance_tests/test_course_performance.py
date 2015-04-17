@@ -19,6 +19,7 @@ _multiprocess_can_split_ = True
 class CoursePerformancePageTestsMixin(CoursePageTestsMixin):
 
     help_path = 'performance/Performance_Answers.html'
+    table_selector = 'div[data-role="data-table"]'
 
     def test_page(self):
         super(CoursePerformancePageTestsMixin, self).test_page()
@@ -70,7 +71,7 @@ class CoursePerformancePageTestsMixin(CoursePageTestsMixin):
 
     def _get_sections(self):
         structure = self.course_api_client.course_structures(self.page.course_id).get()
-        sections = CourseStructure.course_structure_to_sections(structure, graded=False)
+        sections = CourseStructure.course_structure_to_sections(structure, 'problem', graded=False)
         problems = self._get_problems_dict()
         for section in sections:
             self._build_submissions(section['children'], problems)
@@ -111,11 +112,8 @@ class CoursePerformancePageTestsMixin(CoursePageTestsMixin):
 
         return blocks
 
-    def assertTableColumns(self, expected_column_headings):
-        self.assertTableColumnHeadingsEqual('div[data-role="performance-table"]', expected_column_headings)
-
     def assertBlockRows(self, blocks, include_children_count=True):
-        table = self.page.browser.find_element_by_css_selector('div[data-role="performance-table"]')
+        table = self.page.browser.find_element_by_css_selector(self.table_selector)
         # Check the row texts
         rows = table.find_elements_by_css_selector('tbody tr')
         self.assertEqual(len(rows), len(blocks))
@@ -214,8 +212,9 @@ class CoursePerformanceGradedContentByTypeTests(CoursePerformancePageTestsMixin,
         self.assignments = self._get_assignments(self.assignment_type)
 
     def _test_table(self):
-        self.assertTableColumns([u'Order', u'Assignment Name', u'Problems', u'Correct', u'Incorrect', u'Total',
-                                 u'Percentage Correct'])
+        self.assertTableColumnHeadingsEqual(self.table_selector,
+                                            [u'Order', u'Assignment Name', u'Problems',
+                                             u'Correct', u'Incorrect', u'Total', u'Percentage Correct'])
         self.assertBlockRows(self.assignments)
 
 
@@ -242,7 +241,8 @@ class CoursePerformanceAssignmentTests(CoursePerformancePageTestsMixin, WebAppTe
 
     def _test_table(self):
         # Check the column headings
-        self.assertTableColumns([u'Order', u'Problem Name', u'Correct', u'Incorrect', u'Total', u'Percentage Correct'])
+        self.assertTableColumnHeadingsEqual(self.table_selector, [
+            u'Order', u'Problem Name', u'Correct', u'Incorrect', u'Total', u'Percentage Correct'])
         self.assertBlockRows(self.assignment['children'], False)
 
 
@@ -350,8 +350,9 @@ class CoursePerformanceUngradedContentTests(CoursePerformancePageTestsMixin, Web
         self.sections = self._get_sections()
 
     def _test_table(self):
-        self.assertTableColumns([u'Order', u'Section Name', u'Problems', u'Correct', u'Incorrect', u'Total',
-                                 u'Percentage Correct'])
+        self.assertTableColumnHeadingsEqual(self.table_selector,
+                                            [u'Order', u'Section Name', u'Problems', u'Correct',
+                                             u'Incorrect', u'Total', u'Percentage Correct'])
         self.assertBlockRows(self.sections)
 
 
@@ -365,8 +366,9 @@ class CoursePerformanceUngradedSectionTests(CoursePerformancePageTestsMixin, Web
         self.section = self._find_child_block(self._get_sections(), self.page.section_id)
 
     def _test_table(self):
-        self.assertTableColumns([u'Order', u'Subsection Name', u'Problems', u'Correct', u'Incorrect', u'Total',
-                                 u'Percentage Correct'])
+        self.assertTableColumnHeadingsEqual(self.table_selector,
+                                            [u'Order', u'Subsection Name', u'Problems', u'Correct',
+                                             u'Incorrect', u'Total', u'Percentage Correct'])
         self.assertBlockRows(self.section['children'])
 
 
@@ -381,6 +383,6 @@ class CoursePerformanceUngradedSubsectionTests(CoursePerformancePageTestsMixin, 
         self.problems = self._find_child_block(subsections, self.page.subsection_id)['children']
 
     def _test_table(self):
-        self.assertTableColumns([u'Order', u'Problem Name', u'Correct', u'Incorrect', u'Total',
-                                 u'Percentage Correct'])
+        self.assertTableColumnHeadingsEqual(self.table_selector, [u'Order', u'Problem Name', u'Correct',
+                                                                  u'Incorrect', u'Total', u'Percentage Correct'])
         self.assertBlockRows(self.problems, False)

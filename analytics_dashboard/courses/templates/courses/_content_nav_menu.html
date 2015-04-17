@@ -1,0 +1,17 @@
+{# Template for display a navigation menu items #}
+
+<ul class="dropdown-menu" role="menu" aria-labelledby="{{ labelledby }}">
+    {% if home_content_url and home_content_text %}
+        <li role="presentation">
+            <a role="menuitem" href="{{ home_content_url }}">{{ home_content_text }}</a>
+        </li>
+    {% endif %}
+    {% for level in levels %}
+        <li role="presentation" {% if level.url == None %}class="disabled"{% endif %}>
+            <a role="menuitem"
+                {% if level.url %}href="{{ level.url }}{% endif %}">
+                {{ level.name }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>

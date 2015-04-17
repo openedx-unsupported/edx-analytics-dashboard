@@ -40,6 +40,7 @@ class CourseStructureFactory(object):
         self._sections = []
         self._subsections = []
         self._ungraded_problems = []
+        self._subsection_children = []
         self._generate_structure()
 
     def _generate_block(self, block_type, block_format=None, display_name=None, graded=True, children=None):
@@ -52,7 +53,8 @@ class CourseStructureFactory(object):
             'children': children or []
         }
 
-    def _generate_problem(self, assignment_type, display_name, problem_index, graded):
+    def _generate_subsection_children(self, assignment_type, display_name, problem_index, graded):
+        """ Overwrite if you want other subsection types (e.g. videos) """
         problem = self._generate_block('problem',
                                        assignment_type,
                                        '{} Problem {}'.format(display_name, problem_index),
@@ -88,7 +90,7 @@ class CourseStructureFactory(object):
 
                 # Generate the graded children
                 for problem_index in range(1, 4):
-                    problem = self._generate_problem(assignment_type, display_name, problem_index, True)
+                    problem = self._generate_subsection_children(assignment_type, display_name, problem_index, True)
                     graded_children.append(problem['id'])
 
                 assignment = self._generate_block('sequential', assignment_type, display_name, children=graded_children)
@@ -102,10 +104,10 @@ class CourseStructureFactory(object):
         self._assignments.append(self._generate_block('sequential', '', 'Block with format set to empty string'))
 
         # add ungraded
-        self._ungraded_problems = [self._generate_problem(None, 'Ungraded Problem', 1, False)]
+        self._subsection_children = [self._generate_subsection_children(None, 'Ungraded Problem', 1, False)]
 
         self._subsections = [self._generate_block('sequential', None, 'Subsection 1', False,
-                                                  [self._ungraded_problems[0]['id']])]
+                                                  [self._subsection_children[0]['id']])]
         blocks[self._subsections[0]['id']] = self._subsections[0]
 
         section = self._generate_block('chapter', None, 'Chapter 1', False, [self._subsections[0]['id']])

@@ -25,6 +25,10 @@
             exclude: ['js/common']
         },
         {
+            name: 'js/engagement-video-content-main',
+            exclude: ['js/common']
+        },
+        {
             name: 'js/enrollment-activity-main',
             exclude: ['js/common']
         },

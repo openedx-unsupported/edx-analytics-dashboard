@@ -4,17 +4,19 @@ from django.conf import settings
 from django.http import Http404
 from django.utils.translation import ugettext_lazy as _
 from slugify import slugify
-from slumber.exceptions import SlumberBaseException
 
-from core.exceptions import ServiceUnavailableError
 from courses.presenters.performance import CoursePerformancePresenter
-from courses.views import CourseTemplateWithNavView, CourseAPIMixin
+from courses.views import (
+    CourseTemplateWithNavView,
+    CourseAPIMixin,
+    CourseStructureMixin,
+    CourseStructureExceptionMixin)
 
 
 logger = logging.getLogger(__name__)
 
 
-class PerformanceTemplateView(CourseTemplateWithNavView, CourseAPIMixin):
+class PerformanceTemplateView(CourseStructureExceptionMixin, CourseTemplateWithNavView, CourseAPIMixin):
     """
     Base view for course performance pages.
     """
@@ -45,71 +47,19 @@ class PerformanceTemplateView(CourseTemplateWithNavView, CourseAPIMixin):
 
         return context_data
 
-    def dispatch(self, request, *args, **kwargs):
-        try:
-            self.problem_id = kwargs.get('problem_id', None)
-            self.part_id = kwargs.get('problem_part_id', None)
-            return super(PerformanceTemplateView, self).dispatch(request, *args, **kwargs)
-        except SlumberBaseException as e:
-            # Return the appropriate response if a 404 occurred.
-            response = getattr(e, 'response')
-            if response is not None:
-                if response.status_code == 404:
-                    logger.info('Course API data not found for %s: %s', self.course_id, e)
-                    raise Http404
-                elif response.status_code == 503:
-                    raise ServiceUnavailableError
 
-            # Not a 404. Continue raising the error.
-            logger.error('An error occurred while using Slumber to communicate with an API: %s', e)
-            raise
-
-
-class PerformanceUngradedContentTemplateView(PerformanceTemplateView):
+class PerformanceUngradedContentTemplateView(CourseStructureMixin, PerformanceTemplateView):
     page_title = _('Ungraded Problems')
     active_secondary_nav_item = 'ungraded_content'
     section_id = None
     subsection_id = None
     no_data_message = _('No submissions received for these exercises.')
 
-    def set_primary_content(self, context, primary_data):
-        context['js_data']['course'].update({
-            'primaryContent': primary_data,
-            'hasSubmissions': self.presenter.has_submissions(primary_data)
-        })
-
-    def dispatch(self, request, *args, **kwargs):
-        self.section_id = kwargs.get('section_id', None)
-        self.subsection_id = kwargs.get('subsection_id', None)
-        return super(PerformanceUngradedContentTemplateView, self).dispatch(request, *args, **kwargs)
-
     def get_context_data(self, **kwargs):
         context = super(PerformanceUngradedContentTemplateView, self).get_context_data(**kwargs)
         context.update({
-            'sections': self.presenter.sections(),
             'update_message': self.get_last_updated_message(self.presenter.last_updated)
         })
-
-        if self.section_id:
-            section = self.presenter.section(self.section_id)
-            if section:
-                context.update({
-                    'section': section,
-                    'subsections': self.presenter.subsections(self.section_id)
-                })
-            else:
-                raise Http404
-
-            if self.subsection_id:
-                subsection = self.presenter.subsection(self.section_id, self.subsection_id)
-                if subsection:
-                    context.update({
-                        'subsection': subsection,
-                        'problems': self.presenter.subsection_problems(self.section_id, self.subsection_id)
-                    })
-                else:
-                    raise Http404
-
         return context
 
 
@@ -155,7 +105,7 @@ class PerformanceGradedContentTemplateView(PerformanceTemplateView):
             assignments = self.presenter.assignments(self.assignment_type)
 
             context['js_data']['course']['assignments'] = assignments
-            context['js_data']['course']['hasSubmissions'] = self.presenter.has_submissions(assignments)
+            context['js_data']['course']['hasData'] = self.presenter.blocks_have_data(assignments)
             context['js_data']['course']['assignmentType'] = self.assignment_type
 
             context.update({
@@ -172,6 +122,11 @@ class PerformanceAnswerDistributionMixin(object):
     course_id = None
     problem_id = None
     part_id = None
+
+    def dispatch(self, request, *args, **kwargs):
+        self.problem_id = kwargs.get('problem_id', None)
+        self.part_id = kwargs.get('problem_part_id', None)
+        return super(PerformanceAnswerDistributionMixin, self).dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super(PerformanceAnswerDistributionMixin, self).get_context_data(**kwargs)
@@ -192,7 +147,7 @@ class PerformanceAnswerDistributionMixin(object):
         })
 
         context.update({
-            'problem': self.presenter.problem(self.problem_id),
+            'problem': self.presenter.block(self.problem_id),
             'questions': answer_distribution_entry.questions,
             'active_question': answer_distribution_entry.active_question,
             'problem_id': self.problem_id,
@@ -322,7 +277,7 @@ class PerformanceUngradedSubsection(PerformanceUngradedContentTemplateView):
     def get_context_data(self, **kwargs):
         context = super(PerformanceUngradedSubsection, self).get_context_data(**kwargs)
 
-        problems = self.presenter.subsection_problems(self.section_id, self.subsection_id)
+        problems = self.presenter.subsection_children(self.section_id, self.subsection_id)
         self.set_primary_content(context, problems)
         context['js_data']['course']['contentTableHeading'] = _('Problem Name')
         context['js_data']['course'].update({

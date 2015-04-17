@@ -1,8 +1,15 @@
+import abc
 import datetime
 import logging
 
 from django.conf import settings
+from django.core.cache import cache
 from analyticsclient.client import Client
+from common.clients import CourseStructureApiClient
+from common.course_structure import CourseStructure
+from core.utils import sanitize_cache_key
+
+from courses.exceptions import BaseCourseError
 
 
 logger = logging.getLogger(__name__)
@@ -41,3 +48,255 @@ class BasePresenter(object):
     @staticmethod
     def sum_counts(data):
         return sum(datum['count'] for datum in data)
+
+
+class CourseAPIPresenterMixin(object):
+    """
+    This mixin provides access to the course structure API and processes the hierarchy
+    for sections, subsections, modules, and leaves (e.g. videos, problems, etc.).
+    """
+    __metaclass__ = abc.ABCMeta
+
+    _last_updated = None
+
+    def __init__(self, access_token, course_id, timeout=10):
+        super(CourseAPIPresenterMixin, self).__init__(course_id, timeout)
+        self.course_api_client = CourseStructureApiClient(settings.COURSE_API_URL, access_token)
+
+    def _get_structure(self):
+        """ Retrieves course structure from the course API. """
+        key = self.get_cache_key('structure')
+        structure = cache.get(key)
+
+        if not structure:
+            logger.debug('Retrieving structure for course: %s', self.course_id)
+            structure = self.course_api_client.course_structures(self.course_id).get()
+            cache.set(key, structure)
+
+        return structure
+
+    @abc.abstractproperty
+    def section_type_template(self):
+        """ Template for key generation to store/retrieve and cached structure data. E.g. "video_{}_{}" """
+        pass
+
+    @abc.abstractproperty
+    def all_sections_key(self):
+        """ Cache key for storing/retrieving structure for all sections. """
+        pass
+
+    @abc.abstractproperty
+    def module_type(self):
+        """ Module type to retrieve structure for. E.g. video, problem. """
+        pass
+
+    def get_cache_key(self, name):
+        """ Returns sanitized key for caching. """
+        return sanitize_cache_key(u'{}_{}'.format(self.course_id, name))
+
+    def course_structure(self, section_id=None, subsection_id=None):
+        """
+        Returns course structure from cache.  If structure isn't found, it is fetched from the
+        course structure API.  If no arguments are provided, all sections and children are returned.
+        If only section_id is provided, that section is returned.  If both section_id and
+        subsection_id is provided, the structure for the subsection is returned.
+        """
+        if section_id is None and subsection_id is not None:
+            raise ValueError('section_id must be specified if subsection_id is specified.')
+
+        structure_type_key = self.get_cache_key(self.section_type_template.format(section_id, subsection_id))
+        found_structure = cache.get(structure_type_key)
+
+        if not found_structure:
+            all_sections_key = self.get_cache_key(self.all_sections_key)
+            found_structure = cache.get(all_sections_key)
+
+            if not found_structure:
+                structure = self._get_structure()
+                found_structure = CourseStructure.course_structure_to_sections(structure, self.module_type,
+                                                                               graded=False)
+                cache.set(all_sections_key, found_structure)
+
+            for section in found_structure:
+                self.add_child_data_to_parent_blocks(section['children'],
+                                                     self.build_module_url_func(section['id']))
+                self.attach_data_to_parents(section['children'],
+                                            self.build_subsection_url_func(section['id']))
+
+            self.attach_data_to_parents(found_structure, self.build_section_url)
+
+            if found_structure:
+                if section_id:
+                    found_structure = [section for section in found_structure if section['id'] == section_id]
+
+                    if found_structure and subsection_id:
+                        found_structure = \
+                            [section for section in found_structure[0]['children'] if section['id'] == subsection_id]
+
+            cache.set(structure_type_key, found_structure)
+
+        return found_structure
+
+    def attach_data_to_parents(self, parents, url_func=None):
+        """ Convenience method for adding aggregated data from children."""
+        for index, parent in enumerate(parents):
+            self.attach_aggregated_data_to_parent(index, parent, url_func)
+
+    @abc.abstractmethod
+    def attach_aggregated_data_to_parent(self, index, parent, url_func=None):
+        """ Adds aggregate data from the child modules to the parent. """
+        pass
+
+    @abc.abstractproperty
+    def default_block_data(self):
+        """
+        Returns a dictionary of default data for a block.  Typically, this would be the expected fields
+        with empty/zero values.
+        """
+        pass
+
+    @abc.abstractmethod
+    def fetch_course_module_data(self):
+        """
+        Fetch course module data from the data API.  Use _course_module_data() for cached data.
+        """
+        pass
+
+    @abc.abstractmethod
+    def attach_computed_data(self, module_data):
+        """
+        Called by _course_module_data() to attach computed data (e.g. percentages, new IDs, etc.) to
+        data returned from the analytics data api.
+        """
+        pass
+
+    def _course_module_data(self):
+        """ Retrieves course problems (from cache or course API) and calls process_module_data to attach data. """
+
+        key = self.get_cache_key(self.module_type)
+        module_data = cache.get(key)
+
+        if not module_data:
+            module_data = self.fetch_course_module_data()
+
+            # Create a lookup table so that submission data can be quickly retrieved by downstream consumers.
+            table = {}
+            last_updated = datetime.datetime.min
+
+            for datum in module_data:
+                self.attach_computed_data(datum)
+                table[datum['id']] = datum
+
+                # Set the last_updated value
+                created = datum.pop('created', None)
+                if created:
+                    created = self.parse_api_datetime(created)
+                    last_updated = max(last_updated, created)
+
+            if last_updated is not datetime.datetime.min:
+                _key = self.get_cache_key('{}_last_updated'.format(self.module_type))
+                cache.set(_key, last_updated)
+                self._last_updated = last_updated
+
+            module_data = table
+            cache.set(key, module_data)
+
+        return module_data
+
+    def module_id_to_data_id(self, module):
+        """ Translates the course structure module to the ID used by the analytics data API. """
+        return module['id']
+
+    def add_child_data_to_parent_blocks(self, parent_blocks, url_func=None):
+        """ Attaches data from the analytics data API to the course structure modules. """
+        try:
+            module_data = self._course_module_data()
+        except BaseCourseError as e:
+            logger.warning(e)
+            module_data = {}
+
+        for parent_block in parent_blocks:
+            for index, child in enumerate(parent_block['children']):
+                data = module_data.get(self.module_id_to_data_id(child), self.default_block_data)
+
+                # map empty names to None so that the UI catches them and displays as '(empty)'
+                if len(child['name']) < 1:
+                    child['name'] = None
+                data['index'] = index + 1
+                self.post_process_adding_data_to_blocks(data, parent_block, child, url_func)
+                child.update(data)
+
+    def post_process_adding_data_to_blocks(self, data, parent_block, child, url_func=None):
+        """
+        Override this if additional data is needed on the child block (e.g. problem part data).
+
+        Arguments:
+            data: Data for data API.
+            parent_block: Parent of the child .
+            child: Block that will be processed.
+            url_func: URL generating function if needed to attach a URL to the child.
+        """
+        pass
+
+    def build_section_url(self, _section):
+        return None
+
+    def build_subsection_url_func(self, _section_id):
+        """
+        Optionally override to return a function for creating the subsection URL.
+        """
+        return None
+
+    def build_module_url_func(self, _section_id):
+        """ Returns a function for generating a URL to the module (subsection child). """
+        return None
+
+    def sections(self):
+        return self.course_structure()
+
+    def section(self, section_id):
+        section = None
+        if section_id:
+            section = self.course_structure(section_id)
+            section = section[0] if section else None
+        return section
+
+    def subsections(self, section_id):
+        sections = self.section(section_id)
+        if sections:
+            return sections.get('children', None)
+        return None
+
+    def subsection(self, section_id, subsection_id):
+        subsection = None
+        if section_id and subsection_id:
+            subsection = self.course_structure(section_id, subsection_id)
+            subsection = subsection[0] if subsection else None
+        return subsection
+
+    def subsection_children(self, section_id, subsection_id):
+        """ Returns children (e.g. problems, videos) of a subsection. """
+        subsections = self.subsection(section_id, subsection_id)
+        if subsections:
+            return subsections.get('children', None)
+        return None
+
+    def block(self, block_id):
+        """ Retrieve a specific block (e.g. problem, video). """
+        block = self._get_structure()['blocks'][block_id]
+        block['name'] = block.get('display_name')
+        return block
+
+    @abc.abstractmethod
+    def blocks_have_data(self, blocks):
+        """ Returns whether blocks contains any displayable data. """
+        pass
+
+    @property
+    def last_updated(self):
+        """ Returns when data was last updated according to the data api. """
+        if not self._last_updated:
+            key = self.get_cache_key('{}_last_updated'.format(self.module_type))
+            self._last_updated = cache.get(key)
+
+        return self._last_updated

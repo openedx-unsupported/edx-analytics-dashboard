@@ -2,12 +2,14 @@ import datetime
 
 import analyticsclient.constants.activity_type as AT
 from django.core.cache import cache
+from django.core.urlresolvers import reverse
 from django.test import TestCase
 import mock
 
+from courses.exceptions import NoVideosError
 from courses.presenters import BasePresenter
-from courses.presenters.engagement import CourseEngagementPresenter
-from courses.presenters.enrollment import CourseEnrollmentPresenter, CourseEnrollmentDemographicsPresenter
+from courses.presenters.engagement import (CourseEngagementActivityPresenter, CourseEngagementVideoPresenter)
+from courses.presenters.enrollment import (CourseEnrollmentPresenter, CourseEnrollmentDemographicsPresenter)
 from courses.presenters.performance import CoursePerformancePresenter
 from courses.tests import utils, SwitchMixin
 from courses.tests.factories import CoursePerformanceDataFactory
@@ -39,10 +41,12 @@ class BasePresenterTests(TestCase):
         self.assertEqual(self.presenter.get_current_date(), datetime.datetime.utcnow().strftime(dt_format))
 
 
-class CourseEngagementPresenterTests(SwitchMixin, TestCase):
+class CourseEngagementActivityPresenterTests(SwitchMixin, TestCase):
+
     def setUp(self):
-        super(CourseEngagementPresenterTests, self).setUp()
-        self.presenter = CourseEngagementPresenter('this/course/id')
+        super(CourseEngagementActivityPresenterTests, self).setUp()
+        self.course_id = 'this/course/id'
+        self.presenter = CourseEngagementActivityPresenter(self.course_id)
 
     def get_expected_trends(self, include_forum_data):
         trends = [
@@ -114,6 +118,123 @@ class CourseEngagementPresenterTests(SwitchMixin, TestCase):
 
         self.assertSummaryAndTrendsValid(False, self.get_expected_trends_small(False))
         self.assertSummaryAndTrendsValid(True, self.get_expected_trends_small(True))
+
+
+class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
+    SECTION_ID = 'i4x://edX/DemoX/chapter/9fca584977d04885bc911ea76a9ef29e'
+    SUBSECTION_ID = 'i4x://edX/DemoX/sequential/07bc32474380492cb34f76e5f9d9a135'
+    VIDEO_ID = 'i4x://edX/DemoX/video/0b9e39477cf34507a7a48f74be381fdd'
+
+    def setUp(self):
+        super(CourseEngagementVideoPresenterTests, self).setUp()
+        self.course_id = 'this/course/id'
+        self.presenter = CourseEngagementVideoPresenter(None, self.course_id)
+
+    def test_default_block_data(self):
+        self.assertDictEqual(self.presenter.default_block_data, {
+            'start_views': 0,
+            'end_views': 0,
+            'end_percent': 0,
+            'start_only_views': 0,
+            'start_only_percent': 0,
+        })
+
+    def test_module_id_to_data_id(self):
+        opaque_key_id = 'i4x-edX-DemoX-video-0b9e39477cf34507a7a48f74be381fdd'
+        module_id = 'i4x://edX/DemoX/video/0b9e39477cf34507a7a48f74be381fdd'
+        self.assertEqual(self.presenter.module_id_to_data_id({'id': module_id}), opaque_key_id)
+
+        block_id = 'block-v1:edX+DemoX.1+2014+type@problem+block@466f474fa4d045a8b7bde1b911e095ca'
+        self.assertEqual(self.presenter.module_id_to_data_id({'id': block_id}), '466f474fa4d045a8b7bde1b911e095ca')
+
+    def test_post_process_adding_data_to_blocks(self):
+        def url_func(parent_block, child_block):
+            return '{}-{}'.format(parent_block, child_block)
+        data = {'start_views': 10}
+        self.presenter.post_process_adding_data_to_blocks(data, 'parent', 'child', url_func)
+        self.assertDictContainsSubset({'url': 'parent-child'}, data)
+
+        data = {}
+        self.presenter.post_process_adding_data_to_blocks(data, 'parent', 'child', None)
+        self.assertDictEqual({}, data)
+
+    def test_build_module_url_func(self):
+        url_func = self.presenter.build_module_url_func(self.SECTION_ID)
+        actual_url = url_func({'id': self.SUBSECTION_ID},
+                              {'id': self.VIDEO_ID})
+        expected_url = reverse('courses:engagement:video_timeline',
+                               kwargs={
+                                   'course_id': self.course_id,
+                                   'section_id': self.SECTION_ID,
+                                   'subsection_id': self.SUBSECTION_ID,
+                                   'video_id': self.VIDEO_ID
+                               })
+        self.assertEqual(actual_url, expected_url)
+
+    def test_build_subsection_url_func(self):
+        url_func = self.presenter.build_subsection_url_func(self.SECTION_ID)
+        actual_url = url_func({'id': self.SUBSECTION_ID})
+        expected_url = reverse('courses:engagement:video_subsection',
+                               kwargs={
+                                   'course_id': self.course_id,
+                                   'section_id': self.SECTION_ID,
+                                   'subsection_id': self.SUBSECTION_ID,
+                               })
+        self.assertEqual(actual_url, expected_url)
+
+    def test_build_section_url_func(self):
+        actual_url = self.presenter.build_section_url({'id': self.SECTION_ID})
+        expected_url = reverse('courses:engagement:video_section',
+                               kwargs={
+                                   'course_id': self.course_id,
+                                   'section_id': self.SECTION_ID,
+                               })
+        self.assertEqual(actual_url, expected_url)
+
+    def test_attach_computed_data(self):
+        data = {
+            'encoded_module_id': self.VIDEO_ID,
+            'start_views': 15,
+            'end_views': 5
+        }
+        self.presenter.attach_computed_data(data)
+        self.assertDictEqual(data, {
+            'id': self.VIDEO_ID,
+            'start_views': 15,
+            'end_views': 5,
+            'end_percent': 0.25,
+            'start_only_views': 10,
+            'start_only_percent': 0.5,
+        })
+
+    @mock.patch('analyticsclient.course.Course.videos')
+    def test_fetch_course_module_data(self, mock_videos):
+        videos = [
+            {
+                "pipeline_video_id": "edX/DemoX/Demo_Course|i4x-edX-DemoX-video-7e9b434e6de3435ab99bd3fb25bde807",
+                "encoded_module_id": "i4x-edX-DemoX-video-7e9b434e6de3435ab99bd3fb25bde807",
+                "duration": 257,
+                "segment_length": 5,
+                "start_views": 10,
+                "end_views": 0,
+                "created": "2015-04-15T214158"
+            },
+            {
+                "pipeline_video_id": "edX/DemoX/Demo_Course|i4x-edX-DemoX-videoalpha-0b9e39477cf34507a7a48f74be381fdd",
+                "encoded_module_id": "i4x-edX-DemoX-videoalpha-0b9e39477cf34507a7a48f74be381fdd",
+                "duration": 195,
+                "segment_length": 5,
+                "start_views": 55,
+                "end_views": 0,
+                "created": "2015-04-15T214158"
+            }
+        ]
+        mock_videos.return_value = videos
+        self.assertListEqual(self.presenter.fetch_course_module_data(), videos)
+
+        mock_videos.side_effect = NoVideosError(course_id=self.course_id)
+        with self.assertRaises(NoVideosError):
+            self.presenter.fetch_course_module_data()
 
 
 class CourseEnrollmentPresenterTests(SwitchMixin, TestCase):
@@ -341,7 +462,7 @@ class CoursePerformancePresenterTests(TestCase):
         """
 
         grading_policy = self.presenter.grading_policy()
-        self.assertListEqual(grading_policy, self.factory.present_grading_policy)
+        self.assertListEqual(grading_policy, self.factory.presented_grading_policy)
 
         percent = self.presenter.get_max_policy_display_percent(grading_policy)
         self.assertEqual(100, percent)
@@ -352,8 +473,8 @@ class CoursePerformancePresenterTests(TestCase):
     def test_assignment_types(self):
         """ Verify the presenter returns the correct assignment types. """
         with mock.patch('courses.presenters.performance.CoursePerformancePresenter.grading_policy',
-                        mock.Mock(return_value=self.factory.present_grading_policy)):
-            self.assertListEqual(self.presenter.assignment_types(), self.factory.present_assignment_types)
+                        mock.Mock(return_value=self.factory.presented_grading_policy)):
+            self.assertListEqual(self.presenter.assignment_types(), self.factory.presented_assignment_types)
 
     def test_assignments(self):
         """ Verify the presenter returns the correct assignments and sets the last updated date. """
@@ -364,13 +485,13 @@ class CoursePerformancePresenterTests(TestCase):
             with mock.patch('analyticsclient.course.Course.problems', self.factory.problems):
                 # With no assignment type set, the method should return all assignment types.
                 assignments = self.presenter.assignments()
-                expected_assignments = self.factory.present_assignments()
+                expected_assignments = self.factory.presented_assignments
 
                 self.assertListEqual(assignments, expected_assignments)
                 self.assertEqual(self.presenter.last_updated, utils.CREATED_DATETIME)
 
                 # With an assignment type set, the presenter should return only the assignments of the specified type.
-                for assignment_type in self.factory.present_assignment_types:
+                for assignment_type in self.factory.presented_assignment_types:
                     cache.clear()
                     expected = [assignment for assignment in expected_assignments if
                                 assignment[u'assignment_type'] == assignment_type['name']]
@@ -383,22 +504,22 @@ class CoursePerformancePresenterTests(TestCase):
     def test_assignment(self):
         """ Verify the presenter returns a specific assignment. """
         with mock.patch('courses.presenters.performance.CoursePerformancePresenter.assignments',
-                        mock.Mock(return_value=self.factory.present_assignments())):
+                        mock.Mock(return_value=self.factory.presented_assignments)):
             # The method should return None if the assignment does not exist.
             self.assertIsNone(self.presenter.assignment(None))
             self.assertIsNone(self.presenter.assignment('non-existent-id'))
 
             # The method should return an individual assignment if the ID exists.
-            assignment = self.factory.present_assignments()[0]
+            assignment = self.factory.presented_assignments[0]
             self.assertDictEqual(self.presenter.assignment(assignment[u'id']), assignment)
 
     def test_problem(self):
         """ Verify the presenter returns a specific problem. """
-        problem = self.factory.present_assignments()[0]['children'][0]
+        problem = self.factory.presented_assignments[0]['children'][0]
         _id = problem['id']
 
         with mock.patch('slumber.Resource.get', mock.Mock(return_value=self.factory.structure)):
-            actual = self.presenter.problem(_id)
+            actual = self.presenter.block(_id)
             expected = {
                 'id': _id,
                 'name': problem['name'],
@@ -411,7 +532,7 @@ class CoursePerformancePresenterTests(TestCase):
         ungraded_problems = self.factory.problems(False)
         with mock.patch('slumber.Resource.get', mock.Mock(return_value=self.factory.structure)):
             with mock.patch('analyticsclient.course.Course.problems', mock.Mock(return_value=ungraded_problems)):
-                expected = self.factory.present_sections
+                expected = self.factory.presented_sections
                 self.assertListEqual(self.presenter.sections(), expected)
 
     def test_section(self):
@@ -422,7 +543,7 @@ class CoursePerformancePresenterTests(TestCase):
                 # The method should return None if the assignment does not exist.
                 self.assertIsNone(self.presenter.section(None))
                 self.assertIsNone(self.presenter.section('non-existent-id'))
-                expected = self.factory.present_sections[0]
+                expected = self.factory.presented_sections[0]
                 self.assertEqual(self.presenter.section(expected['id']), expected)
 
     def test_subsections(self):
@@ -433,7 +554,7 @@ class CoursePerformancePresenterTests(TestCase):
                 # The method should return None if the assignment does not exist.
                 self.assertIsNone(self.presenter.subsections(None))
                 self.assertIsNone(self.presenter.subsections('non-existent-id'))
-                section = self.factory.present_sections[0]
+                section = self.factory.presented_sections[0]
                 expected = section['children']
                 self.assertListEqual(self.presenter.subsections(section['id']), expected)
 
@@ -445,7 +566,7 @@ class CoursePerformancePresenterTests(TestCase):
                 # The method should return None if the assignment does not exist.
                 self.assertIsNone(self.presenter.subsection(None, None))
                 self.assertIsNone(self.presenter.subsection('non-existent-id', 'nope'))
-                section = self.factory.present_sections[0]
+                section = self.factory.presented_sections[0]
                 expected_subsection = section['children'][0]
                 self.assertEqual(self.presenter.subsection(section['id'], expected_subsection['id']),
                                  expected_subsection)
@@ -456,10 +577,10 @@ class CoursePerformancePresenterTests(TestCase):
         with mock.patch('slumber.Resource.get', mock.Mock(return_value=self.factory.structure)):
             with mock.patch('analyticsclient.course.Course.problems', mock.Mock(return_value=ungraded_problems)):
                 # The method should return None if the assignment does not exist.
-                self.assertIsNone(self.presenter.subsection_problems(None, None))
-                self.assertIsNone(self.presenter.subsection_problems('non-existent-id', 'nope'))
-                section = self.factory.present_sections[0]
+                self.assertIsNone(self.presenter.subsection_children(None, None))
+                self.assertIsNone(self.presenter.subsection_children('non-existent-id', 'nope'))
+                section = self.factory.presented_sections[0]
                 subsection = section['children'][0]
                 expected_problems = subsection['children']
                 self.assertListEqual(
-                    self.presenter.subsection_problems(section['id'], subsection['id']), expected_problems)
+                    self.presenter.subsection_children(section['id'], subsection['id']), expected_problems)
