@@ -13,8 +13,8 @@ slumber==0.6.2
 
 edx-auth-backends==0.1.2    # AGPL
 
-# TODO Use the PyPi package once it is updated. RahimovIR's branch makes this compatible with django 1.7
-git+https://github.com/RahimovIR/django-announcements.git@54657f27c043362be2f21a9c34a1e96409f0c9c9#egg=django-announcements # MIT
+# TODO Use the PyPi package once it is updated.
+git+https://github.com/pinax/django-announcements.git@f85e690705e038a62407abe54ac195f60760934b#egg=django-announcements # MIT
 
 git+https://github.com/edx/django-lang-pref-middleware.git@0.1.0#egg=django-lang-pref-middleware
 git+https://github.com/edx/edx-analytics-data-api-client.git@0.5.2#egg=edx-analytics-data-api-client # edX
