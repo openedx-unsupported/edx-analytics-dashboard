@@ -29,12 +29,11 @@ enrollment percentage. You can view the enrollment total for each country: move
 your mouse over the map.
 
 In this example, the country with the highest number of enrolled students is
-the United States. The cursor is pointing to Brazil, and a tip  shows the
+the United States. The cursor is pointing to Brazil, and a tip shows the
 percentage of students enrolled in the course from that country.
 
 .. image:: ../images/geography_chart.png
- :alt: The Geographic Distribution map with the tip for the country of Brazil
-       shown.
+ :alt: Map showing the tip for the country of Brazil.
 
 ======================================
 Total Countries Represented Metric

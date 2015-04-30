@@ -49,8 +49,8 @@ certainly the course creator and another staff member) on the day the course
 was created in Studio.
 
 .. image:: ../images/enrollment_chart.png
- :alt: The Daily Student Enrollment chart for six months. The periods when the
-       rate of enrollment was greater are circled.
+ :alt: A chart with the periods when the rate of enrollment was greater
+       circled.
 
 .. ColumbiaX/HIST1.1x/3T2014/enrollment/activity/
 
@@ -66,9 +66,7 @@ private online course. In this course, the course team used the Instructor
 Dashboard to automatically enroll all of the students.
 
 .. image:: ../images/enrollment_chart_SPOC.png
- :alt: A Daily Student Enrollment chart with a nearly vertical line showing
-       an increase from just over 0 to over 700 students in a two week period. 
-       The mouseover tip for May 17, 2014 is shown.
+ :alt: A chart with a nearly vertical line for a fast increase in enrollment.
 
 .. IMFx/OL14.01/2T2014/enrollment/activity/
 

@@ -53,8 +53,8 @@ each bar. The chart indicates that for most of the questions, a significant
 percentage of learners submitted an incorrect answer.
 
 .. image:: ../images/problems_ungraded.png
- :alt: A screen shot that illustrates that 30% or more of the learners
-     submitted the incorrect answer for most of the questions
+ :alt: A chart showing that 30% or more of the learners submitted the
+     incorrect answer for most of the questions.
 
 .. BUx/PY1x/1T2015/performance/ungraded_content/sections/i4x%3A//BUx/PY1x/chapter/1e2e85d75de44431a83f698c1aed99b6/subsections/i4x%3A//BUx/PY1x/sequential/1dbce9aea0fb4df1b22521cb02fd1c17/
 
@@ -90,8 +90,8 @@ number of learners submitting answers in each section went down over time.
 However, the percentage of learners who submitted the correct answer went up.
 
 .. image:: ../images/sections_ungraded.png
- :alt: A screen shot that illustrates the downward trend in number of learners
-  answering, but with lower percentages of incorrect answers
+ :alt: A chart with a downward trend in number of learners answering, but with
+  lower percentages of incorrect answers.
 
 .. CaltechX/Ec1011x/1T2014/performance/ungraded_content/
 
@@ -131,8 +131,7 @@ bar for each answer.
  Insights instead of showing stacked percentages.
 
 .. image:: ../images/survey_ungraded.png
- :alt: A screen shot that illustrates the downward trend in number of learners
-  answering, but with lower percentages of incorrect answers
+ :alt: A chart showing that students chose a wide range of answers, all marked incorrect.
 
 .. BerkeleyX/GG101x/1T2014/performance/ungraded_content/sections/i4x%3A//BerkeleyX/GG101x/chapter/d13fe70f7ca44a8f85f2d38efdc8d86c/subsections/i4x%3A//BerkeleyX/GG101x/sequential/0c8e4c5cdb3a4329a9a12f2e33c1fd76/problems/i4x%3A//BerkeleyX/GG101x/problem/89d1916b958341129ad23fd75a09df48/parts/i4x-BerkeleyX-GG101x-problem-89d1916b958341129ad23fd75a09df48_2_1/answer_distribution/
 
@@ -165,8 +164,8 @@ displays a stacked bar chart that summarizes learner performance on ungraded
 problems in every section in the course. 
 
 .. image:: ../images/ungraded_section_selection.png
- :alt: A screen shot of a chart with two bars, one for each of the course
-  sections that includes ungraded content
+ :alt: A chart with two bars, one for each course section that includes
+  ungraded content.
 
 The graph includes a bar for a section only if it both contains an ungraded problem
 and at least one learner has submitted an answer. You use the drop-down
@@ -187,8 +186,7 @@ subsection. In this example from the edX DemoX course, there is only one
 subsection in the selected section.
 
 .. image:: ../images/ungraded_subsection_selection.png
- :alt: A screen shot of a chart with one bar, for the subsection in the
-     selected section
+ :alt: A chart with only one bar, for the sinlge subsection with ungraded content.
 
 The Subsection Submissions report on this page provides the number of ungraded
 problems in each subsection and the aggregate number of correct and incorrect
@@ -207,8 +205,8 @@ example from the edX Demo course, the selected subsection includes
 four problems. 
 
 .. image:: ../images/ungraded_problem_selection.png
- :alt: A screen shot of a chart with four bars, one for each of the ungraded
-     problems in the selected subsection
+ :alt: A chart with four bars, one for each ungraded problem in the selected
+     subsection.
 
 The Problem Submissions report on this page provides the number of questions
 in each problem and the aggregate number of correct and incorrect submissions
@@ -250,8 +248,8 @@ truncated. Moving your cursor over each bar shows a longer version of the
 answer.
 
 .. image:: ../images/answers_ungraded.png
- :alt: A screen shot that illustrates an even split between correct and
-     incorrect answers submitted for a True or False question
+ :alt: A chart showing an even split between correct and incorrect answers for
+     a True or False question.
 
 .. edX/DemoX.1/2014/performance/ungraded_content/sections/i4x%3A//edX/DemoX.1/chapter/0af8db2309474971bfa70cda98668a30/subsections/i4x%3A//edX/DemoX.1/sequential/ec3364075f2845baa625bfecd5970410/problems/i4x%3A//edX/DemoX.1/problem/47bf6dbce8374b789e3ebdefd74db332/parts/i4x-edX-DemoX_1-problem-47bf6dbce8374b789e3ebdefd74db332_2_1/answer_distribution/
 
