@@ -43,10 +43,7 @@ data that is shown by indicating several recent occurences: the beginning of
 the beta test, the course start date, and the due date of the first homework.
 
 .. image:: ../images/engagement_chart_start.png
- :alt: A line graph with four months of minimal activity during course
-       development, a very minor increase when the beta test began, a large
-       increase in all three activity measures on the start date, and then a
-       decrease after the first homework due date.
+ :alt: A graph showing changes in number of engaged students over time.
 
 In the second example, a small, private online course was developed on one
 instance of the platform, and then exported and imported to a different
@@ -55,7 +52,7 @@ students enaging in different activities on the same day that the final
 homework was due.
 
 .. image:: ../images/engagement_chart_SPOC.png
- :alt: A line graph with almost immediate activity in all three measures.
+ :alt: A graph with almost immediate activity in all three measures.
 
 ======================================
 Active Students Last Week Metric
@@ -131,10 +128,6 @@ initial video with a weekly message to the students.
 The completion and certification rates for the course were higher than average
 for the subject. In the course exit survey, students indicated that the video
 messages had a significant motivating effect.
-
-.. Melanie checking with MIT to make sure this ^ is ok to use
-
-.. "When you see your first homework assignment, some of you may feel somewhat intimidated. That's normal... However, it would be the wrong thing to stop the course at this point. At least stay in for one month before you make that tragic decision." - Professor Walter Lewin, September 5, 2013
 
 ==========================================
 Motivation through Public Recognition

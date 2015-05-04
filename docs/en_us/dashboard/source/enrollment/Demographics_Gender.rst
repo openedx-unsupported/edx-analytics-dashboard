@@ -37,12 +37,12 @@ downloaded.
 Examples of this chart for two different courses follow. 
 
 .. image:: ../images/gender_chart_even.png
-   :alt: A bar chart showing 46% female and 53% male
+   :alt: A bar chart showing 46% female and 53% male.
 
 .. RiceX/AdvBIOx/2014T3/enrollment/demographics/gender/
 
 .. image:: ../images/gender_chart_disparate.png
-   :alt: A bar chart showing 16% female and 82% male
+   :alt: A bar chart showing 16% female and 82% male.
 
 .. MITx/8.MReVx/2T2014/enrollment/demographics/gender/
 

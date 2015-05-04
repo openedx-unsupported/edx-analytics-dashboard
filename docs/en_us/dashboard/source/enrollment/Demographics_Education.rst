@@ -36,15 +36,14 @@ be downloaded.
 Examples of this chart for two different courses follow. 
 
 .. image:: ../images/education_chart_diverse.png
-   :alt: An education histogram with comparable numbers for secondary school 
-         diplomates, Bachelor's degree recipients, and then Master's degree 
-         recipients
+   :alt: A histogram with comparable numbers of high school, college, and master's 
+         recipients.
 
 .. RiceX/AdvBIOx/2014T3/enrollment/demographics/age/
 
 .. image:: ../images/education_chart_highered.png
-   :alt: An education histogram with the longest bar for Master's degree 
-         recipients, then Bachelor's degree recipients
+   :alt: A histogram showing master's degree recipients as the highest number,
+         then bachelor's.
 
 .. ColumbiaX/HIST1.1x/3T2014/enrollment/demographics/education/
 

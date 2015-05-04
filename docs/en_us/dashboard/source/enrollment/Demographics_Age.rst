@@ -35,8 +35,7 @@ A couple of examples of this chart follow for different courses. The first
 example shows the age distribution for an Advanced Placement (AP) course.
 
 .. image:: ../images/age_chart_AP.png
-   :alt: An age histogram with the longest bars for students aged 17, 16, 15, 
-         and 18
+   :alt: A histogram with the longest bars for ages 17, 16, 15, and 18.
 
 .. RiceX/AdvBIOx/2014T3/enrollment/demographics/age/
 
@@ -47,8 +46,8 @@ reveals that the enrollment also includes students who reported other ages.
 The second example shows the Self-Reported Student Age chart for a MOOC.
 
 .. image:: ../images/age_chart_MOOC.png
-   :alt: An age histogram with the longest bar for students aged 24, and 
-         fairly comparable numbers of students for ages 38 through68 
+   :alt: A histogram with the longest bar for age 24, and comparable numbers
+       for 38 through 68.
 
 .. ColumbiaX/HIST1.1x/3T2014/enrollment/demographics/age/
 

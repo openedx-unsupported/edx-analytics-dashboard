@@ -80,9 +80,8 @@ correct answer of "Antarctica". The problem is set up to recognize other
 variations in capitalization for this English spelling as correct.
 
 .. image:: ../images/problem_answers.png
- :alt: This chart has one bar for each answer submitted for a problem or part,
-     and the bars are colored differently for correct and incorrect
-     submissions
+ :alt: A histogram with one bar for each answer. Bars for correct or incorrect
+     submissions have different colors.
 
 .. edX/DemoX.1/2014/performance/graded_content/assignments/i4x%3A//edX/DemoX.1/sequential/9c1aacbb2795470e8473b059b59c3344/problems/i4x%3A//edX/DemoX.1/problem/466f474fa4d045a8b7bde1b911e095ca/parts/i4x-edX-DemoX_1-problem-466f474fa4d045a8b7bde1b911e095ca_2_1/answer_distribution/
 
@@ -123,7 +122,7 @@ you notice that for your first two homework assignments, you forgot to include
 the distinguishing number after the name "Problem Set".
 
 .. image:: ../images/assignment_name_issue.png
- :alt: This chart shows two bars with the same x-axis label, Problem Set
+ :alt: This chart shows two bars with the same x-axis label, Problem Set.
 
 .. MITx/6.832x/3T2014/performance/graded_content/Homework/
 
@@ -133,8 +132,7 @@ for this question does not have a title. For this problem component, you
 neglected to identify the question with an accessible label.
 
 .. image:: ../images/problem_missing_question.png
- :alt: In this chart of the answers to a problem the title bar above the chart
-  is blank
+ :alt: This chart has a blank title bar.
 
 .. UTAustinX/UT.8.02x/1T2015/performance/graded_content/assignments/i4x%3A//UTAustinX/UT.8.02x/sequential/d8dd4296856a4745b1afd7d7c4aef7f6/problems/i4x%3A//UTAustinX/UT.8.02x/problem/802cd3308245482b870ca7f36a3cd282/parts/i4x-UTAustinX-UT_8_02x-problem-802cd3308245482b870ca7f36a3cd282_2_1/answer_distribution/
 
@@ -147,8 +145,7 @@ that you did not change the default display name, "Multiple Choice", for any
 of the problems that it includes.
 
 .. image:: ../images/problem_display_name.png
- :alt: In this chart of the problems in an assignment, every problem has the
-  same name
+ :alt: In this chart, every problem has the same name.
 
 .. MITx/9.01x/3T2014/performance/graded_content/assignments/i4x%3A//MITx/9.01x/sequential/19aa8209e5474d52aab965f0f1649270/
 
@@ -183,8 +180,8 @@ use the drop-down **Select Assignment Type** menu or click an item in the
 grading configuration to select the assignment type to investigate.
 
 .. image:: ../images/assignment_type.png
- :alt: Single bar, thermometer-style chart that shows the percentage that each
-     assignment type contributes to the course grade
+ :alt: Single bar showing the percentage that each assignment type contributes
+     to the grade.
 
 .. edX/DemoX.1/2014/performance/graded_content/
 
@@ -200,8 +197,8 @@ stacked bar chart that summarizes student performance on each assignment of
 that type. 
 
 .. image:: ../images/assignment.png
- :alt: This chart has one bar for each assignment of the selected type, with
-     different colors stacked in the bar for correct and incorrect submissions
+ :alt: Histogram with bars for each assignment, each bar divided into
+     percentage of correct and incorrect submissions.
 
 .. edX/DemoX.1/2014/performance/graded_content/Homework/
 
@@ -225,8 +222,7 @@ example from the edX Demo course, the selected homework assignment includes
 just one problem.
 
 .. image:: ../images/problems.png
- :alt: This chart has one bar for each problem in the selected assignment,
-     with different colors stacked in the bar for correct and incorrect submissions
+ :alt: Histogram with bars for each problem.
 
 .. edX/DemoX.1/2014/performance/graded_content/assignments/i4x%3A//edX/DemoX.1/sequential/9c1aacbb2795470e8473b059b59c3344/
 
@@ -246,7 +242,7 @@ selected homework problem has three parts.
 
 .. image:: ../images/problem_part_menu.png
  :alt: The Submissions for Part menu with three options for different problem
-     parts
+     parts.
 
 .. edX/DemoX.1/2014/performance/graded_content/assignments/i4x%3A//edX/DemoX.1/sequential/9c1aacbb2795470e8473b059b59c3344/problems/i4x%3A//edX/DemoX.1/problem/466f474fa4d045a8b7bde1b911e095ca/parts/i4x-edX-DemoX_1-problem-466f474fa4d045a8b7bde1b911e095ca_2_1/answer_distribution/
 
@@ -291,7 +287,7 @@ most students selected the correct answer for a multiple choice problem.
 
 .. image:: ../images/answer_dist_easy.png
    :alt: A bar chart showing that most students selected the correct answer
-       out of four possible choices
+       out of four choices.
 
 .. edX/DemoX.1/2014/performance/graded_content/assignments/i4x%3A//edX/DemoX.1/sequential/9c1aacbb2795470e8473b059b59c3344/problems/i4x%3A//edX/DemoX.1/problem/466f474fa4d045a8b7bde1b911e095ca/parts/i4x-edX-DemoX_1-problem-466f474fa4d045a8b7bde1b911e095ca_3_1/answer_distribution/
 
@@ -303,7 +299,7 @@ Submission Counts report includes a row for every submitted answer.
 
 .. image:: ../images/answer_dist_hard.png
    :alt: A bar chart showing that most students submitted incorrect answers
-       with bars for the 12 most frequent answers
+       with bars for the 12 most frequent answers.
 
 .. MITx/EECS.6.002x/3T2013/performance/graded_content/assignments/i4x%3A//MITx/EECS.6.002x/sequential/Homework_10/problems/i4x%3A//MITx/EECS.6.002x/problem/H10P3_An_L_Network/parts/i4x-MITx-EECS_6_002x-problem-H10P3_An_L_Network_3_1/answer_distribution/
 
