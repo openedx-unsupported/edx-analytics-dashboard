@@ -30,10 +30,11 @@ echo "Starting Analytics Data API Server..."
 ./edx-analytics-data-api/manage.py runserver 9001 --noreload &
 
 echo "Starting Analytics Dashboard Server..."
-./manage.py runserver 9000 --noreload &
+./manage.py runserver 9000 --noreload > acceptance.log &
 
 echo "Running acceptance tests..."
 make accept -e NUM_PROCESSES=1
+echo "$(cat acceptance.log)"
 
 # capture the exit code from the test.  Anything more than 0 indicates failed cases.
 EXIT_CODE=$?
