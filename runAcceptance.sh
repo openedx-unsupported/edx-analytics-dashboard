@@ -33,7 +33,8 @@ echo "Starting Analytics Dashboard Server..."
 ./manage.py runserver 9000 --noreload &
 
 echo "Running acceptance tests..."
-make accept -e NUM_PROCESSES=1
+make accept -e NUM_PROCESSES=1 > acceptance.log
+cat acceptance.log
 
 # capture the exit code from the test.  Anything more than 0 indicates failed cases.
 EXIT_CODE=$?
