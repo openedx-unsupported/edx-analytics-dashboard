@@ -8,6 +8,10 @@ django-countries==3.1.1     # MIT
 django-libsass==0.2			# BSD
 django-model-utils==1.5.0 	# BSD
 django-waffle==0.10			# BSD
+
+# other versions cause a segment fault when running compression
+libsass==0.5.1              # MIT
+
 logutils==0.3.3				# BSD
 slumber==0.6.2
 
