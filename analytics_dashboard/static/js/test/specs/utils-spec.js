@@ -77,4 +77,13 @@ define(['utils/utils'], function (Utils) {
         });
     });
 
+    describe('formatTime', function () {
+        it('should format time', function () {
+            expect(Utils.formatTime(0)).toEqual('00:00');
+            expect(Utils.formatTime(31)).toEqual('00:31');
+            expect(Utils.formatTime(60)).toEqual('01:00');
+            expect(Utils.formatTime(3601)).toEqual('60:01');
+        });
+    });
+
 });

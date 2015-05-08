@@ -57,6 +57,8 @@ TEST_VIDEO_SECTION_ID = os.environ.get('TEST_VIDEO_SECTION_ID',
                                        u'i4x://edX/DemoX/chapter/interactive_demonstrations')
 TEST_VIDEO_SUBSECTION_ID = os.environ.get('TEST_VIDEO_SUBSECTION_ID',
                                           u'i4x://edX/DemoX/sequential/19a30717eff543078a5d94ae9d6c18a5')
+TEST_VIDEO_ID = os.environ.get('TEST_VIDEO_ID',
+                               u'i4x://edX/DemoX/video/7e9b434e6de3435ab99bd3fb25bde807')
 
 DOC_BASE_URL = os.environ.get('DOC_BASE_URL', 'http://edx-insights.readthedocs.org/en/latest')
 

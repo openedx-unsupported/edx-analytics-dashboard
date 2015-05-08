@@ -156,6 +156,12 @@ class CourseEngagementVideoMixin(CourseEngagementViewTestMixin, CourseStructureV
                     return_value=self.sections[0]['children'][0])
         self._patch('courses.presenters.engagement.CourseEngagementVideoPresenter.subsection_children',
                     return_value=self.sections[0]['children'][0]['children'])
+        self._patch('courses.presenters.engagement.CourseEngagementVideoPresenter.get_video_timeline',
+                    return_value=self.factory.get_presented_video_timeline())
+        self._patch('courses.presenters.engagement.CourseEngagementVideoPresenter.block',
+                    return_value=self.sections[0]['children'][0]['children'][0])
+        self._patch('courses.presenters.engagement.CourseEngagementVideoPresenter.subsection_child',
+                    return_value=self.sections[0]['children'][0]['children'][0])
         self.start_patching()
 
     def assertValidContext(self, context):
@@ -231,3 +237,46 @@ class EngagementVideoCourseSubsectionTest(CourseEngagementVideoMixin, TestCase):
         self.mock_course_detail(DEMO_COURSE_ID)
         response = self.client.get(self.path(course_id=DEMO_COURSE_ID, section_id='Invalid', subsection_id='Nope'))
         self.assertEqual(response.status_code, 404)
+
+
+class EngagementVideoCourseTimelineTest(CourseEngagementVideoMixin, TestCase):
+    viewname = 'courses:engagement:video_timeline'
+
+    def path(self, **kwargs):
+        # Use default kwargs for tests that don't necessarily care about the specific argument values.
+        default_kwargs = {
+            'section_id': self.sections[0]['id'],
+            'subsection_id': self.sections[0]['children'][0]['id'],
+            'video_id': self.sections[0]['children'][0]['children'][0]['id']
+        }
+        default_kwargs.update(kwargs)
+        kwargs = default_kwargs
+        return super(EngagementVideoCourseTimelineTest, self).path(**kwargs)
+
+    def assertValidContext(self, context):
+        super(EngagementVideoCourseTimelineTest, self).assertValidContext(context)
+        section = self.sections[0]
+        self.assertEqual(section, context['section'])
+        self.assertListEqual(section['children'], context['subsections'])
+        self.assertEqual(section['children'][0], context['subsection'])
+        self.assertEqual(section['children'][0]['children'], context['subsection_children'])
+        self.assertEqual(section['children'][0]['children'][0], context['summary_metrics'])
+        self.assertListEqual(self.factory.get_presented_video_timeline(),
+                             context['js_data']['course']['videoTimeline'])
+
+    @httpretty.activate
+    @patch('courses.presenters.engagement.CourseEngagementVideoPresenter.subsection_child', Mock(return_value=None))
+    def test_missing_video_module(self):
+        """ Every video page will use sections and will return 200 if sections aren't available. """
+        self.mock_course_detail(DEMO_COURSE_ID)
+        response = self.client.get(self.path(course_id=DEMO_COURSE_ID))
+        # base page will should return a 200 even if no sections found
+        self.assertEqual(response.status_code, 404)
+
+    @httpretty.activate
+    @patch('courses.presenters.engagement.CourseEngagementVideoPresenter.get_video_timeline', Mock(return_value=None))
+    def test_missing_video_data(self):
+        self.mock_course_detail(DEMO_COURSE_ID)
+        response = self.client.get(self.path(course_id=DEMO_COURSE_ID))
+        # page will still be displayed, but with error messages
+        self.assertEqual(response.status_code, 200)

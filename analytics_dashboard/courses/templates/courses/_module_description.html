@@ -1,0 +1,20 @@
+{% load i18n %}
+
+{% if view_live_url or description %}
+    <div class="col-xs-12 module-description">
+        <div class="col-sm-10 col-xs-12">
+            <p>{{ description }}</p>
+        </div>
+
+        <div class="col-sm-2 col-xs-12">
+            {% if view_live_url %}
+                <a href="{{ view_live_url }}" class="btn btn-default pull-right"
+                   role="button" target="_blank">
+                    {# Translators: This text will be a direct link to the a specific module/problem. #}
+                    {% trans "View Live" %}
+                </a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="clearfix"></div>
+{% endif %}

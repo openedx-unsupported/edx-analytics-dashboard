@@ -131,12 +131,6 @@ class PerformanceAnswerDistributionMixin(object):
     def get_context_data(self, **kwargs):
         context = super(PerformanceAnswerDistributionMixin, self).get_context_data(**kwargs)
 
-        view_live_url = None
-
-        if settings.LMS_COURSE_SHORTCUT_BASE_URL:
-            view_live_url = u'{0}/{1}/jump_to/{2}'.format(settings.LMS_COURSE_SHORTCUT_BASE_URL,
-                                                          self.course_id, self.problem_id)
-
         answer_distribution_entry = self.presenter.get_answer_distribution(self.problem_id, self.part_id)
 
         context['js_data']['course'].update({
@@ -153,7 +147,7 @@ class PerformanceAnswerDistributionMixin(object):
             'problem_id': self.problem_id,
             'problem_part_id': self.part_id,
             'problem_part_description': answer_distribution_entry.problem_part_description,
-            'view_live_url': view_live_url
+            'view_live_url': self.presenter.build_view_live_url(settings.LMS_COURSE_SHORTCUT_BASE_URL, self.problem_id),
         })
 
         context['page_data'] = self.get_page_data(context)

@@ -274,7 +274,7 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformancePageTestsMixin):
         self.assertEqual(element.text[0], u'How did students answer this problem?')
 
     def _test_problem_description(self):
-        section_selector = '.problem-description'
+        section_selector = '.module-description'
 
         element = self.page.q(css=section_selector + ' p')
         self.assertIsNotNone(element[0])

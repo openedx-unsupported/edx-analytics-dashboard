@@ -281,6 +281,15 @@ class CourseAPIPresenterMixin(object):
             return subsections.get('children', None)
         return None
 
+    def subsection_child(self, section_id, subsection_id, child_id):
+        """ Return the specified child of a subsection (e.g. problem, video). """
+        found_child = None
+        children = self.subsection_children(section_id, subsection_id)
+        if children:
+            found_children = [child for child in children if child['id'] == child_id]
+            found_child = found_children[0] if found_children else None
+        return found_child
+
     def block(self, block_id):
         """ Retrieve a specific block (e.g. problem, video). """
         block = self._get_structure()['blocks'][block_id]
@@ -300,3 +309,10 @@ class CourseAPIPresenterMixin(object):
             self._last_updated = cache.get(key)
 
         return self._last_updated
+
+    def build_view_live_url(self, base_url, module_id):
+        """ Returns URL to view the module on the LMS. """
+        view_live_url = None
+        if base_url:
+            view_live_url = u'{0}/{1}/jump_to/{2}'.format(base_url, self.course_id, module_id)
+        return view_live_url

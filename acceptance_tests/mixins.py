@@ -317,12 +317,12 @@ class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterLegalMixin, FooterFeed
             "Loading finished."
         ).fulfill()
 
-    def build_display_percentage(self, count, total):
+    def build_display_percentage(self, count, total, zero_percent_default='0.0%'):
         if total and count:
             percent = count / float(total) * 100.0
             return '{:.1f}%'.format(percent) if percent >= 1.0 else '< 1%'
         else:
-            return '0.0%'
+            return zero_percent_default
 
     def _get_data_update_message(self):
         raise NotImplementedError

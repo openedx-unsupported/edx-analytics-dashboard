@@ -19,22 +19,9 @@
     {% block content_nav %}
     {% endblock %}
 
-    <div class="col-xs-12 problem-description">
-
-        <div class="col-sm-10 col-xs-12">
-            <p>{{problem_part_description}}</p>
-        </div>
-
-        <div class="col-sm-2 col-xs-12">
-            {% if view_live_url %}
-                <a href="{{view_live_url}}" class="btn btn-default pull-right" role="button" target="_blank">
-                    {# Translators: This text will be a direct link to the a specific module/problem. #}
-                    {% trans "View Live" %}
-                </a>
-            {% endif %}
-        </div>
-    </div>
-    <div class="clearfix"></div>
+    {% block module_description %}
+        {% include "courses/_module_description.html" with description=problem_part_description view_live_url=view_live_url %}
+    {% endblock %}
 
     <div class="section-content section-data-graph">
         <div class="section-content section-data-viz">

@@ -3,6 +3,7 @@ from unittest import skipUnless
 
 from analyticsclient.constants import activity_type as at
 from bok_choy.web_app_test import WebAppTest
+from opaque_keys.edx.keys import UsageKey
 
 from acceptance_tests import (ENABLE_COURSE_API, ENABLE_FORUM_POSTS)
 from acceptance_tests.mixins import CoursePageTestsMixin
@@ -10,7 +11,8 @@ from acceptance_tests.pages import (
     CourseEngagementContentPage,
     CourseEngagementVideosContentPage,
     CourseEngagementVideoSectionPage,
-    CourseEngagementVideoSubsectionPage)
+    CourseEngagementVideoSubsectionPage,
+    CourseEngagementVideoTimelinePage)
 
 
 _multiprocess_can_split_ = True
@@ -125,6 +127,7 @@ class CourseEngagementContentTests(CourseEngagementPageTestsMixin, WebAppTest):
 class CourseEngagementVideoMixin(CourseEngagementPageTestsMixin):
     help_path = 'engagement/Engagement_Video.html'
     chart_selector = '#chart-view'
+    expected_table_heading = u'Video Plays'
     expected_heading = None
     expected_tooltip = None
     expected_table_columns = None
@@ -134,9 +137,9 @@ class CourseEngagementVideoMixin(CourseEngagementPageTestsMixin):
         self._test_heading_question()
 
     def _get_data_update_message(self):
-        videos = self.course.videos()
         last_updated = datetime.datetime.min
 
+        videos = self.course.videos()
         for video in videos:
             last_updated = max(last_updated, datetime.datetime.strptime(video['created'], self.api_datetime_format))
 
@@ -145,8 +148,8 @@ class CourseEngagementVideoMixin(CourseEngagementPageTestsMixin):
             updated_date_and_time['update_date'], updated_date_and_time['update_time'])
 
     def _test_table(self):
-        element = self.page.q(css='.section-title')
-        self.assertIn(u'Video Plays', element[0].text)
+        element = self.page.q(css='.section-data-table-title')
+        self.assertIn(self.expected_table_heading, element[0].text)
         self.assertTableColumnHeadingsEqual('div[data-role="data-table"]', self.expected_table_columns)
 
     def _test_chart(self):
@@ -202,3 +205,49 @@ class CourseEngagementVideoSubsectionTests(CourseEngagementVideoMixin, WebAppTes
         super(CourseEngagementVideoSubsectionTests, self).setUp()
         self.page = CourseEngagementVideoSubsectionPage(self.browser)
         self.course = self.analytics_api_client.courses(self.page.course_id)
+
+
+@skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test the video pages.')
+class CourseEngagementVideoTimelineTests(CourseEngagementVideoMixin, WebAppTest):
+    expected_heading = u'What were the viewing patterns for this video?'
+    expected_tooltip = u'The number of students who watched each segment of the video, and the ' \
+                       u'number of replays for each segment.'
+    expected_table_columns = [u'Time', u'Unique Viewers', u'Replays']
+    expected_table_heading = u'Total Video Views'
+
+    def setUp(self):
+        super(CourseEngagementVideoTimelineTests, self).setUp()
+        self.page = CourseEngagementVideoTimelinePage(self.browser)
+        self.course = self.analytics_api_client.courses(self.page.course_id)
+
+    def test_page(self):
+        super(CourseEngagementVideoTimelineTests, self).test_page()
+        self._test_metrics()
+
+    def _test_metrics(self):
+        module_id = UsageKey.from_string(self.page.video_id).html_id()
+        video = [video for video in self.course.videos() if video['encoded_module_id'] == module_id][0]
+
+        expected_metrics = [
+            {
+                'tooltip': 'Estimated percentage of students who watched the entire video.',
+                'data_type': 'watched-percent',
+                'metric_value': self.build_display_percentage(
+                    video['end_views'], max(video['start_views'], video['end_views']), zero_percent_default='0%')
+            },
+            {
+                'tooltip': 'Students who started watching the video.',
+                'data_type': 'started-video',
+                'metric_value': self.format_number(video['start_views'])
+            },
+            {
+                'tooltip': 'Students who watched the video to the end.',
+                'data_type': 'finished-video',
+                'metric_value': self.format_number(video['end_views'])
+            }
+        ]
+
+        for expected in expected_metrics:
+            data_selector = 'data-type={0}'.format(expected['data_type'])
+            self.assertSummaryPointValueEquals(data_selector, expected['metric_value'])
+            self.assertSummaryTooltipEquals(data_selector, expected['tooltip'])

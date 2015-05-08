@@ -78,6 +78,20 @@ define(['moment', 'underscore', 'utils/globalization'], function (moment, _, Glo
                 formattedLabel = text.slice(0, characterLimit - 3) + gettext('...');
             }
             return formattedLabel;
+        },
+
+        /**
+         * Converts seconds into MM:SS format.
+         */
+        formatTime: function(totalSeconds) {
+            var minutes = Math.floor(totalSeconds / 60),
+                seconds = totalSeconds - (minutes * 60);
+            return _([minutes, seconds]).map(function(time) {
+                if (time < 10) {
+                    time = '0' + time;
+                }
+                return time;
+            }).join(':');
         }
     };
 

@@ -79,6 +79,14 @@ class CourseEngagementActivityTrendCSV(CSVResponseMixin, CourseView):
         return self.course.activity(data_format=data_format.CSV, end_date=end_date)
 
 
+class CourseEngagementVideoTimelineCSV(CSVResponseMixin, CourseView):
+    csv_filename_suffix = u'engagement-video-timeline'
+
+    def get_data(self):
+        modules = self.client.modules(self.course_id, self.kwargs['pipeline_video_id'])
+        return modules.video_timeline(data_format=data_format.CSV)
+
+
 class PerformanceAnswerDistributionCSV(CSVResponseMixin, CourseView):
     csv_filename_suffix = u'performance-answer-distribution'
 
