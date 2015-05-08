@@ -64,20 +64,28 @@ class CourseHomeTests(CoursePageTestsMixin, WebAppTest):
                         'breadcrumbs': ['Geography']
                     },
                 ],
-            },
-            {
-                'name': 'Engagement',
-                'icon': 'fa-bar-chart',
-                'heading': 'What are students doing in my course?',
-                'items': [
-                    {
-                        'title': 'How many students are interacting with my course?',
-                        'view': 'courses:engagement:content',
-                        'breadcrumbs': ['Content']
-                    }
-                ]
             }
         ]
+
+        engagement = {
+            'name': 'Engagement',
+            'icon': 'fa-bar-chart',
+            'heading': 'What are students doing in my course?',
+            'items': [
+                {
+                    'title': 'How many students are interacting with my course?',
+                    'view': 'courses:engagement:content',
+                    'breadcrumbs': ['Content']
+                }
+            ]
+        }
+        if ENABLE_COURSE_API:
+            engagement['items'].append({
+                'title': 'How did students interact with course videos?',
+                'view': 'courses:engagement:videos',
+                'breadcrumbs': ['Videos']
+            })
+        table_items.append(engagement)
 
         if ENABLE_COURSE_API:
             table_items.append({

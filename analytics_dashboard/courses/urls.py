@@ -12,6 +12,7 @@ ASSIGNMENT_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'assignment_id'
 PROBLEM_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'problem_id')
 SECTION_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'section_id')
 SUBSECTION_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'subsection_id')
+VIDEO_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'video_id')
 
 answer_distribution_regex = \
     r'^graded_content/assignments/{assignment_id}/problems/{problem_id}/parts/{part_id}/answer_distribution/$'.format(
@@ -20,6 +21,10 @@ answer_distribution_regex = \
 ungraded_answer_distribution_regex = \
     r'^ungraded_content/sections/{}/subsections/{}/problems/{}/parts/{}/answer_distribution/$'.format(
         SECTION_ID_PATTERN, SUBSECTION_ID_PATTERN, PROBLEM_ID_PATTERN, PROBLEM_PART_ID_PATTERN)
+
+video_timeline_regex = \
+    r'^videos/sections/{}/subsections/{}/modules/{}/timeline/$'.format(
+        SECTION_ID_PATTERN, SUBSECTION_ID_PATTERN, VIDEO_ID_PATTERN)
 
 ENROLLMENT_URLS = patterns(
     '',
@@ -34,6 +39,15 @@ ENROLLMENT_URLS = patterns(
 ENGAGEMENT_URLS = patterns(
     '',
     url(r'^content/$', engagement.EngagementContentView.as_view(), name='content'),
+    url(r'^videos/$', engagement.EngagementVideoCourse.as_view(), name='videos'),
+    # ordering of the URLS is important for routing the the section, subsection, etc. correctly
+    url(video_timeline_regex, engagement.EngagementVideoTimeline.as_view(), name='video_timeline'),
+    url(r'^videos/sections/{}/subsections/{}/$'.format(SECTION_ID_PATTERN, SUBSECTION_ID_PATTERN),
+        engagement.EngagementVideoSubsection.as_view(),
+        name='video_subsection'),
+    url(r'^videos/sections/{}/$'.format(SECTION_ID_PATTERN),
+        engagement.EngagementVideoSection.as_view(),
+        name='video_section'),
 )
 
 PERFORMANCE_URLS = patterns(

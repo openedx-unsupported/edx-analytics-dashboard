@@ -5,10 +5,12 @@ Tests for course analytics pages
 from bok_choy.page_object import PageObject
 from bok_choy.promise import EmptyPromise
 
-from acceptance_tests import (DASHBOARD_SERVER_URL, BASIC_AUTH_PASSWORD, BASIC_AUTH_USERNAME, LMS_HOSTNAME,
-                              TEST_COURSE_ID, TEST_GRADED_PROBLEM_ID, TEST_GRADED_PROBLEM_PART_ID, TEST_ASSIGNMENT_ID,
-                              TEST_ASSIGNMENT_TYPE, TEST_UNGRADED_SECTION_ID, TEST_UNGRADED_SUBSECTION_ID,
-                              TEST_UNGRADED_PROBLEM_ID, TEST_UNGRADED_PROBLEM_PART_ID, LMS_SSL_ENABLED)
+from acceptance_tests import (
+    DASHBOARD_SERVER_URL, BASIC_AUTH_PASSWORD, BASIC_AUTH_USERNAME, LMS_HOSTNAME,
+    TEST_COURSE_ID, TEST_GRADED_PROBLEM_ID, TEST_GRADED_PROBLEM_PART_ID, TEST_ASSIGNMENT_ID,
+    TEST_ASSIGNMENT_TYPE, TEST_UNGRADED_SECTION_ID, TEST_UNGRADED_SUBSECTION_ID,
+    TEST_UNGRADED_PROBLEM_ID, TEST_UNGRADED_PROBLEM_PART_ID, LMS_SSL_ENABLED,
+    TEST_VIDEO_SECTION_ID, TEST_VIDEO_SUBSECTION_ID)
 
 
 class DashboardPage(PageObject):  # pylint: disable=abstract-method
@@ -143,6 +145,40 @@ class CourseEngagementContentPage(CoursePage):
     def is_browser_on_page(self):
         return super(CourseEngagementContentPage, self).is_browser_on_page() and \
                'Engagement Content' in self.browser.title
+
+
+class CourseEngagementVideosContentPage(CoursePage):
+    def __init__(self, browser, course_id=None):
+        super(CourseEngagementVideosContentPage, self).__init__(browser, course_id)
+        self.page_url += '/engagement/videos/'
+
+    def is_browser_on_page(self):
+        return super(CourseEngagementVideosContentPage, self).is_browser_on_page() and \
+               'Engagement Videos' in self.browser.title
+
+
+class CourseEngagementVideoSectionPage(CoursePage):
+    def __init__(self, browser, course_id=None, section_id=None):
+        super(CourseEngagementVideoSectionPage, self).__init__(browser, course_id)
+        self.section_id = section_id or TEST_VIDEO_SECTION_ID
+        self.page_url += '/engagement/videos/sections/{}/'.format(self.section_id)
+
+    def is_browser_on_page(self):
+        return super(CourseEngagementVideoSectionPage, self).is_browser_on_page() and \
+               'Engagement Videos' in self.browser.title
+
+
+class CourseEngagementVideoSubsectionPage(CoursePage):
+    def __init__(self, browser, course_id=None, section_id=None, subsection_id=None):
+        super(CourseEngagementVideoSubsectionPage, self).__init__(browser, course_id)
+        self.section_id = section_id or TEST_VIDEO_SECTION_ID
+        self.subsection_id = subsection_id or TEST_VIDEO_SUBSECTION_ID
+        self.page_url += '/engagement/videos/sections/{}/subsections/{}/'.format(
+            self.section_id, self.subsection_id)
+
+    def is_browser_on_page(self):
+        return super(CourseEngagementVideoSubsectionPage, self).is_browser_on_page() and \
+               'Engagement Videos' in self.browser.title
 
 
 class CourseIndexPage(DashboardPage):

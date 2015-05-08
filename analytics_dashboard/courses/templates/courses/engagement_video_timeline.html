@@ -1,0 +1,15 @@
+{% extends "courses/engagement_grouped_content.html" %}
+{% load i18n %}
+
+{% block content_nav %}
+    {% trans "TBD? - Video Timeline" as heading_note %}
+    {% include "courses/_video_content_nav.html" with selected_first_level=section first_levels=sections selected_second_level=subsection second_levels=subsections third_levels=js_data.course.primaryContent selected_third_level=video heading_note=heading_note %}
+{% endblock %}
+
+{% block chart_tip_text %}
+    {% trans "TBD" %}
+{% endblock %}
+
+{% block table_title %}
+    {% trans "TBD" %}
+{% endblock %}

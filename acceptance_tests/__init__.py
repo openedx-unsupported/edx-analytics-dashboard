@@ -53,7 +53,10 @@ TEST_UNGRADED_PROBLEM_ID = os.environ.get('TEST_UNGRADED_PROBLEM_ID',
                                           u'i4x://edX/DemoX/problem/303034da25524878a2e66fb57c91cf85')
 TEST_UNGRADED_PROBLEM_PART_ID = os.environ.get('TEST_UNGRADED_PROBLEM_PART_ID',
                                                u'i4x-edX-DemoX-problem-303034da25524878a2e66fb57c91cf85_2_1')
-
+TEST_VIDEO_SECTION_ID = os.environ.get('TEST_VIDEO_SECTION_ID',
+                                       u'i4x://edX/DemoX/chapter/interactive_demonstrations')
+TEST_VIDEO_SUBSECTION_ID = os.environ.get('TEST_VIDEO_SUBSECTION_ID',
+                                          u'i4x://edX/DemoX/sequential/19a30717eff543078a5d94ae9d6c18a5')
 
 DOC_BASE_URL = os.environ.get('DOC_BASE_URL', 'http://edx-insights.readthedocs.org/en/latest')
 

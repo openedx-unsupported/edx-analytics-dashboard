@@ -80,15 +80,16 @@ class CourseStructure(object):
         return assignments
 
     @staticmethod
-    def course_structure_to_sections(structure, graded=None):
+    def course_structure_to_sections(structure, child_block_type, graded=None):
         """
-        Returns sections, subsections, and problems, nested within 'children' attributes.
+        Returns sections, subsections, and the child block type (e.g. problem or video), nested
+        within 'children' attributes.
         """
 
         blocks = structure[u'blocks']
         root = blocks[structure[u'root']]
         sections = CourseStructure._build_sections(blocks, root[u'id'],
-                                                   graded, [u'chapter', u'sequential', u'problem'])
+                                                   graded, [u'chapter', u'sequential', unicode(child_block_type)])
         return sections
 
     @staticmethod

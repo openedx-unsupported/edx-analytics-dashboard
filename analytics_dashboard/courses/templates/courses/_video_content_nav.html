@@ -1,10 +1,10 @@
-{% extends "courses/_base_content_nav.html" %}
+{% extends "courses/_base_content_nav.html"%}
 
 {% load i18n %}
 {% load dashboard_extras %}
 
 {% block home_content_url %}
-    {% url "courses:performance:ungraded_content" course_id=course_id %}
+    {% url "courses:engagement:videos" course_id=course_id %}
 {% endblock %}
 
 {% block select_first_level %}
@@ -20,5 +20,5 @@
 {% endblock %}
 
 {% block select_third_level %}
-    {% trans "Select Problem" %}
+    {% trans "Select Video" %}
 {% endblock %}

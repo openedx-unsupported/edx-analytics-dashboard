@@ -5,7 +5,7 @@
 
 {% block content_nav %}
     {% trans "How did students answer this problem?" as heading_note %}
-    {% include "courses/_ungraded_content_nav.html" with selected_third_level=problem selected_first_level=section first_levels=sections selected_second_level=subsection second_levels=subsections third_levels=problems heading_note=heading_note %}
+    {% include "courses/_ungraded_content_nav.html" with selected_third_level=problem selected_first_level=section first_levels=sections selected_second_level=subsection second_levels=subsections third_levels=subsection_children heading_note=heading_note %}
 {% endblock %}
 
 {% block problem_part_url %}

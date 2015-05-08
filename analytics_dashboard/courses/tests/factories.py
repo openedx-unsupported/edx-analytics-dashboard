@@ -7,7 +7,8 @@ from courses.tests.utils import CREATED_DATETIME_STRING
 class CoursePerformanceDataFactory(CourseStructureFactory):
     """ Factory that can be used to generate data for course performance-related presenters and APIs. """
 
-    def present_assignments(self):
+    @property
+    def presented_assignments(self):
         presented = []
 
         # Exclude assignments with no assignment type
@@ -80,16 +81,16 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
         return problems
 
     @property
-    def present_grading_policy(self):
+    def presented_grading_policy(self):
         return self._cleaned_grading_policy
 
     @property
-    def present_assignment_types(self):
+    def presented_assignment_types(self):
         policies = self._cleaned_grading_policy
         return [{'name': gp['assignment_type']} for gp in policies]
 
     @property
-    def present_sections(self):
+    def presented_sections(self):
         presented = []
         total_submissions = 1
 
@@ -155,6 +156,76 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                 'incorrect_percent': 0.0,
                 'url': urllib.quote(url_template.format(
                     CoursePerformanceDataFactory.course_id, section['id']))
+            }
+
+            presented.append(presented_sections)
+
+        return presented
+
+
+class CourseEngagementDataFactory(CourseStructureFactory):
+
+    def _generate_subsection_children(self, assignment_type, display_name, video_index, graded):
+        video = self._generate_block('video', assignment_type,
+                                     '{} Video {}'.format(display_name, video_index),
+                                     graded)
+        self._structure['blocks'][video['id']] = video
+        return video
+
+    @property
+    def presented_sections(self):
+        presented = []
+
+        for section_index, section in enumerate(self._sections):
+            subsections = []
+            for subsection_index, subsection in enumerate(self._subsections):
+                problems = []
+                for module_index, child in enumerate(subsection['children']):
+                    block = self._structure['blocks'][child]
+
+                    _id = block['id']
+                    url_template = '/courses/{}/engagement/videos/sections/{}/subsections/' \
+                                   '{}/modules/{}/timeline'
+                    problems.append({
+                        'index': module_index + 1,
+                        'start_views': 10,
+                        'end_views': 0,
+                        'id': _id,
+                        'name': block['display_name'],
+                        'children': [],
+                        'url': urllib.quote(url_template.format(
+                            CourseEngagementDataFactory.course_id, section['id'],
+                            subsection['id'], _id))
+                    })
+
+                num_problems = len(problems)
+                url_template = '/courses/{}/engagement/videos/sections/{}/subsections/{}/'
+                presented_subsection = {
+                    'index': subsection_index + 1,
+                    'id': subsection['id'],
+                    'name': subsection['display_name'],
+                    'children': problems,
+                    'num_children': num_problems,
+                    'start_views': 10,
+                    'end_views': 0,
+                    'url': urllib.quote(url_template.format(
+                        CourseEngagementDataFactory.course_id, section['id'],
+                        subsection['id']))
+                }
+                subsections.append(presented_subsection)
+
+            num_problems = 1
+            url_template = '/courses/{}/engagement/videos/sections/{}/'
+            presented_sections = {
+                'index': section_index + 1,
+                'id': section['id'],
+                'name': section['display_name'],
+                'children': subsections,
+                'num_children': num_problems,
+                'start_views': 10,
+                'end_views': 0,
+                'url': urllib.quote(url_template.format(
+                    CourseEngagementDataFactory.course_id, section['id']))
             }
 
             presented.append(presented_sections)
