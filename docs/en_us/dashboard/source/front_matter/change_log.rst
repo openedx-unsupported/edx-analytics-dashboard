@@ -12,6 +12,9 @@ Change Log
 
    * - Date
      - Change
+   * - 8 Jun 2015
+     - Added :ref:`Engagement_Video`. At this time, data and reports for course
+       videos are available for Open edX installations only.
    * - 10 Apr 2015
      - Added :ref:`Performance_Ungraded`.
    * - 11 Mar 2015

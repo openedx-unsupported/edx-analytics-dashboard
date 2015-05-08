@@ -5,21 +5,11 @@ Computation Reference
 #######################
 
 This chapter provides detailed information about how values presented by
-edX Insights are computed. It contains sections for:
+edX Insights are computed. 
 
-* :ref:`All Computations`
-
-* :ref:`Enrollment Computations`
-
-* :ref:`Demographic Computations`
-
-* :ref:`Location Computations`
-
-* :ref:`Engagement Computations`
-
-* :ref:`Performance Computations`
-  
-* :ref:`Error Conditions`
+.. contents:: Section Contents 
+  :local:
+  :depth: 1
 
 .. _All Computations:
 
@@ -181,8 +171,8 @@ For information about viewing student demographic data in edX Insights, see
   educational level, not from the total number of students enrolled in the
   course.
 
-*  The table that follows shows each edX Insights label, the option that
-   students can select at registration, and a brief description.
+* The table that follows shows each edX Insights label, the option that
+  students can select at registration, and a brief description.
   
   .. list-table::
      :widths: 10 20 70
@@ -306,8 +296,12 @@ as well.
 Engagement Computations
 *********************************
 
-* The computations for student engagement are updated once a week, typically on
-  Mondays.
+=================================
+Content Engagement Computations
+=================================
+
+* The computations for engagement with course content are updated once a week,
+  typically on Mondays.
 
 * Computations are made on data collected through Sunday at 23:59 UTC (11:59
   pm).
@@ -358,9 +352,6 @@ For information about viewing engagement metrics in edX Insights, see
   * Text input (`<stringresponse>`)
   * Math expression input (`<formularesponse>`)
 
-.. Gabe believes that there may actually be a few more. Subtask created.
-.. TODO: when complete list received, comment in doc for each problem type that Gabe determines to be a capa problem for future reference
-
 **Weekly Student Engagement graph**
   
 * The markers on the graph represent the number of users who interacted with
@@ -372,6 +363,67 @@ For information about viewing engagement metrics in edX Insights, see
 * Computations are updated weekly.
 
 * The y-axis shows the number of unique users.
+
+==============================
+Video Engagement Computations
+==============================
+
+.. TBD: schedule and interval for updating video data
+
+To compute data for video engagement, edX defines a video view as having both a
+play video action and a companion pause video action or the automated stop that
+occurs at the end of the video. 
+
+* EdX Insights counts each play action at the 00:00 second that has a companion
+  automated stop at the end of the video as a complete view of the video. 
+
+* EdX Insights counts each five second segment that occurs between the play
+  action and a pause or the stop as a complete view of that segment.
+
+* Some normal user interactions, such as closing the browser window without
+  explicitly pausing the video first, result in a play action without the
+  necessary companion pause or stop action. As a result, the data that edX
+  Insights presents can be considered a conservative estimate of the actual
+  number of complete views.
+
+For information about reviewing data for videos in edX Insights, see
+:ref:`Engagement_Video`.
+
+**Video Views stacked bar chart**
+
+* Each bar in the histogram aggregates data for all of the video components in
+  a section, subsection, or unit.
+
+ * The x-axis shows the sections, subsections, or units in the course.
+
+ * The y-axis shows the total number of times the video was viewed. The
+   area shaded in green represents the number of complete views. The area
+   shaded in gray represents the number of incomplete views.
+  
+**Total Video Views stacked area chart**
+
+* The x-axis shows the duration of the video.
+
+* The y-axis shows the number of play events. 
+
+* The filled area of this stacked area chart represents the total number of
+  times each five second segment of a video file has played.
+
+ * The area shaded in lighter blue represents the number of unique users who
+   played that segment of the video.
+
+ * The area shaded in darker blue represents the number of additional views,
+   or replays, of that segment of the video.
+
+**Video metrics**
+
+* The percentage of learners who started the video at its beginning and were
+  playing it when it automatically stopped at the end of the file.
+
+* The number of learners who started playing the video file.
+
+* The number of learners who were playing the video when it automatically
+  stopped at the end of the file.
 
 
 .. _Performance Computations:
