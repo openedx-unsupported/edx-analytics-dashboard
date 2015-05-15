@@ -6,20 +6,20 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
             var model = page.models.courseModel,
                 graphSubmissionColumns = [
                     {
-                        key: 'start_only_views',
-                        percent_key: 'start_only_percent',
-                        title: gettext('Started Watching'),
-                        className: 'text-right',
-                        type: 'number',
-                        color: '#4BB4FB'
-                    },
-                    {
                         key: 'end_views',
                         percent_key: 'end_percent',
-                        title: gettext('Finished Watching'),
+                        title: gettext('Complete Plays'),
                         className: 'text-right',
                         type: 'number',
-                        color: '#CA0061'
+                        color: '#58BC4B'
+                    },
+                    {
+                        key: 'start_only_views',
+                        percent_key: 'start_only_percent',
+                        title: gettext('Incomplete Plays'),
+                        className: 'text-right',
+                        type: 'number',
+                        color: '#9B9B9B'
                     }
                 ],
                 tableColumns = [
