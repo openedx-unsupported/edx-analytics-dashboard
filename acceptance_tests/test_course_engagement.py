@@ -123,6 +123,7 @@ class CourseEngagementContentTests(CourseEngagementPageTestsMixin, WebAppTest):
 
 # pylint: disable=abstract-method
 class CourseEngagementVideoMixin(CourseEngagementPageTestsMixin):
+    help_path = 'engagement/Engagement_Video.html'
     chart_selector = '#chart-view'
     expected_heading = None
     expected_tooltip = None
