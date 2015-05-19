@@ -1,4 +1,5 @@
 import urllib
+import uuid
 
 from common.tests.factories import CourseStructureFactory
 from courses.tests.utils import CREATED_DATETIME_STRING
@@ -179,14 +180,14 @@ class CourseEngagementDataFactory(CourseStructureFactory):
         for section_index, section in enumerate(self._sections):
             subsections = []
             for subsection_index, subsection in enumerate(self._subsections):
-                problems = []
+                videos = []
                 for module_index, child in enumerate(subsection['children']):
                     block = self._structure['blocks'][child]
 
                     _id = block['id']
                     url_template = '/courses/{}/engagement/videos/sections/{}/subsections/' \
                                    '{}/modules/{}/timeline'
-                    problems.append({
+                    videos.append({
                         'index': module_index + 1,
                         'start_views': 10,
                         'end_views': 0,
@@ -195,17 +196,19 @@ class CourseEngagementDataFactory(CourseStructureFactory):
                         'children': [],
                         'url': urllib.quote(url_template.format(
                             CourseEngagementDataFactory.course_id, section['id'],
-                            subsection['id'], _id))
+                            subsection['id'], _id)),
+                        'pipeline_video_id': 'edX/DemoX/Demo_Course|i4x-edX_Demo_Course-video-{}'.format(
+                            uuid.uuid4().hex)
                     })
 
-                num_problems = len(problems)
+                num_videos = len(videos)
                 url_template = '/courses/{}/engagement/videos/sections/{}/subsections/{}/'
                 presented_subsection = {
                     'index': subsection_index + 1,
                     'id': subsection['id'],
                     'name': subsection['display_name'],
-                    'children': problems,
-                    'num_children': num_problems,
+                    'children': videos,
+                    'num_children': num_videos,
                     'start_views': 10,
                     'end_views': 0,
                     'url': urllib.quote(url_template.format(
@@ -231,3 +234,59 @@ class CourseEngagementDataFactory(CourseStructureFactory):
             presented.append(presented_sections)
 
         return presented
+
+    def get_video_timeline_api_response(self, min_segment=10, max_segment=100):
+        return self._get_video_segments(min_segment, max_segment)
+
+    def get_presented_video_timeline(self, segment_length=5, min_segment=10, max_segment=100, duration=500):
+        # this video timeline has all the gaps filled in
+        segments = self._get_video_segments(0, max_segment)
+        for i in range(min_segment):
+            segment = segments[i]
+            segment.update({
+                'num_users': 0,
+                'num_views': 0
+            })
+
+        for segment in segments:
+            segment.update({
+                'start_time': segment['segment'] * segment_length,
+                'num_replays': segment['num_views'] - segment['num_users']
+            })
+
+        if max_segment * segment_length <= duration:
+            current_time = max_segment * segment_length
+
+            # fill in the remainder of the video with zeros
+            while current_time < (duration-segment_length):
+                current_time += segment_length
+                segments.append({
+                    'start_time': current_time,
+                    'num_replays': 0,
+                    'num_users': 0,
+                    'num_views': 0,
+                })
+
+            # the video may end within the bounds of a segment bucket, so fill in the last
+            # point at the actual video ending
+            if current_time <= duration:
+                last_segment = segments[-1]
+                segments.append({
+                    'start_time': duration,
+                    'num_replays': last_segment['num_replays'],
+                    'num_users': last_segment['num_users'],
+                    'num_views': last_segment['num_views'],
+                })
+
+        return segments
+
+    def _get_video_segments(self, segment_min, segment_max):
+        segments = []
+        for i in range(segment_min, segment_max):
+            segments.append({
+                'segment': i,
+                'num_users': i,
+                'num_views': i * 2,
+                'created': CREATED_DATETIME_STRING
+            })
+        return segments

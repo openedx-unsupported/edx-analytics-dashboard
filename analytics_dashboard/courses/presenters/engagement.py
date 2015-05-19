@@ -1,4 +1,5 @@
 import datetime
+import math
 from django.core.urlresolvers import reverse
 import logging
 from waffle import switch_is_active
@@ -129,7 +130,7 @@ class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, BasePresenter):
         if 'encoded_module_id' in video:
             video['id'] = video.pop('encoded_module_id')
 
-        total = video['start_views'] + video['end_views']
+        total = max([video['start_views'], video['end_views']])
         start_only_views = video['start_views'] - video['end_views']
         video.update({
             'end_percent': utils.math.calculate_percent(video['end_views'], total),
@@ -152,7 +153,8 @@ class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, BasePresenter):
         self.attach_computed_data(parent)
 
         # including the URL enables navigation to child pages
-        if url_func and parent['num_children'] > 0:
+        has_views = total_start_views > 0 or total_end_views > 0
+        if url_func and parent['num_children'] > 0 and has_views:
             parent['url'] = url_func(parent)
 
     def build_section_url(self, section):
@@ -203,3 +205,66 @@ class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, BasePresenter):
         to the encoded form.
         """
         return UsageKey.from_string(module['id']).html_id()
+
+    def get_video_timeline(self, video_module):
+        """ Returns the video timeline with gaps in the beginning and end filled in with zeros. """
+        api_response = self.client.modules(self.course_id, video_module['pipeline_video_id']).video_timeline()
+        segment_length = video_module['segment_length']
+        video_duration = video_module['duration']
+        api_response = self._fill_video_timeline_gaps(api_response, self._calculate_total_video_segments(
+            segment_length, video_duration))
+        return self._build_video_timeline(api_response, segment_length, video_duration)
+
+    def _calculate_total_video_segments(self, segment_length, video_duration=None):
+        """ Return the total number of segments based on video duration or None if duration not specified. """
+        total_segments = None
+        if video_duration:
+            total_segments = int(math.floor(video_duration/segment_length))
+        return total_segments
+
+    def _fill_video_timeline_gaps(self, api_response, segment_total=None):
+        # fill any gaps at the beginning and between segments
+        gaps = []
+        expected_next_segment_index = 0
+        for segment in api_response:
+            current_segment_index = segment['segment']
+            if current_segment_index > expected_next_segment_index:
+                for i in range(expected_next_segment_index, current_segment_index):
+                    gaps.append(self._get_default_video_timeline_segment(i))
+            expected_next_segment_index = current_segment_index + 1
+        api_response.extend(gaps)
+        api_response = sorted(api_response, key=lambda segment: segment['segment'])
+
+        # fill in the end of the timeline if needed
+        if segment_total and len(api_response) > 1:
+            next_segment = api_response[-1]['segment'] + 1
+            for i in range(next_segment, segment_total + 1):
+                api_response.append(self._get_default_video_timeline_segment(i))
+
+        return api_response
+
+    def _get_default_video_timeline_segment(self, segment_index):
+        return {
+            'num_users': 0,
+            'num_views': 0,
+            'segment': segment_index
+        }
+
+    def _build_video_timeline(self, api_response, segment_length, video_duration=None):
+        """ Adds the replays, segment start time, and clips the final video time point if needed. """
+        for segment in api_response:
+            segment.update({
+                'num_replays': segment['num_views'] - segment['num_users'],
+                'start_time': segment['segment'] * segment_length,
+            })
+
+        # add a final data point at the video duration so that it doesn't look shorter than it actually is
+        if video_duration and len(api_response) > 1:
+            last_segment = api_response[-1].copy()
+            last_segment.update({
+                'start_time': video_duration,
+                'segment': last_segment['segment'] + 1
+            })
+            api_response.append(last_segment)
+
+        return api_response

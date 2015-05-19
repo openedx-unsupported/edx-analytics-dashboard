@@ -13,6 +13,8 @@ PROBLEM_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'problem_id')
 SECTION_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'section_id')
 SUBSECTION_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'subsection_id')
 VIDEO_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'video_id')
+PIPELINE_VIDEO_ID = r'(?P<pipeline_video_id>([^/+]+[/+][^/+]+[/+][^/]+)+[|]((?:i4x://?[^/]+/[^/]+/[^/]+' \
+                    r'/[^@]+(?:@[^/]+)?)|(?:[^/]+)+))'
 
 answer_distribution_regex = \
     r'^graded_content/assignments/{assignment_id}/problems/{problem_id}/parts/{part_id}/answer_distribution/$'.format(
@@ -90,6 +92,9 @@ CSV_URLS = patterns(
     url(r'^engagement/activity_trend/$',
         csv.CourseEngagementActivityTrendCSV.as_view(),
         name='engagement_activity_trend'),
+    url(r'^engagement/videos/{}/$'.format(PIPELINE_VIDEO_ID),
+        csv.CourseEngagementVideoTimelineCSV.as_view(),
+        name='engagement_video_timeline'),
     url(r'^performance/graded_content/problems/{}/answer_distribution/{}/$'.format(CONTENT_ID_PATTERN,
                                                                                    PROBLEM_PART_ID_PATTERN),
         csv.PerformanceAnswerDistributionCSV.as_view(),

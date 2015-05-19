@@ -85,12 +85,25 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
                         def.data = self.createFormatBoolFunc(column.key);
                     } else if (column.type === 'hasNull') {
                         def.data = self.createFormatHasNullFunc(column.key);
+                    } else if (column.type === 'time') {
+                        def.data = self.createFormatTimeFunc(column.key);
                     }
 
                     defs.push(def);
                     iColumn++;
                 });
                 return defs;
+            },
+
+            createFormatTimeFunc: function (columnKey) {
+                return function (row, type) {
+                    var value = row[columnKey],
+                        display = value;
+                    if (type === 'display') {
+                        display = Utils.formatTime(Number(value));
+                    }
+                    return display;
+                };
             },
 
             /**

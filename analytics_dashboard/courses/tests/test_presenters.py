@@ -1,3 +1,4 @@
+from __future__ import division
 import datetime
 
 import analyticsclient.constants.activity_type as AT
@@ -12,7 +13,7 @@ from courses.presenters.engagement import (CourseEngagementActivityPresenter, Co
 from courses.presenters.enrollment import (CourseEnrollmentPresenter, CourseEnrollmentDemographicsPresenter)
 from courses.presenters.performance import CoursePerformancePresenter
 from courses.tests import utils, SwitchMixin
-from courses.tests.factories import CoursePerformanceDataFactory
+from courses.tests.factories import CourseEngagementDataFactory, CoursePerformanceDataFactory
 
 
 class BasePresenterTests(TestCase):
@@ -192,19 +193,23 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
         self.assertEqual(actual_url, expected_url)
 
     def test_attach_computed_data(self):
+        max_views = 15
+        start_only_views = 10
+        end_views = max_views - start_only_views
+        end_percent = end_views / max_views
         data = {
             'encoded_module_id': self.VIDEO_ID,
-            'start_views': 15,
-            'end_views': 5
+            'start_views': max_views,
+            'end_views': end_views
         }
         self.presenter.attach_computed_data(data)
         self.assertDictEqual(data, {
             'id': self.VIDEO_ID,
-            'start_views': 15,
-            'end_views': 5,
-            'end_percent': 0.25,
-            'start_only_views': 10,
-            'start_only_percent': 0.5,
+            'start_views': max_views,
+            'end_views': end_views,
+            'end_percent': end_percent,
+            'start_only_views': start_only_views,
+            'start_only_percent': start_only_views / max_views,
         })
 
     @mock.patch('analyticsclient.course.Course.videos')
@@ -235,6 +240,61 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
         mock_videos.side_effect = NoVideosError(course_id=self.course_id)
         with self.assertRaises(NoVideosError):
             self.presenter.fetch_course_module_data()
+
+    @mock.patch('analyticsclient.module.Module.video_timeline')
+    def test_get_video_timeline(self, mock_timeline):
+        factory = CourseEngagementDataFactory()
+        video_module = {
+            'pipeline_video_id': 'edX/DemoX/Demo_Course|i4x-edX-DemoX-videoalpha-0b9e39477cf34507a7a48f74be381fdd',
+            'segment_length': 5,
+            'duration': None
+        }
+        # duration can be null/None
+        mock_timeline.return_value = factory.get_video_timeline_api_response()
+        actual_timeline = self.presenter.get_video_timeline(video_module)
+        expected_timeline = factory.get_presented_video_timeline(duration=495)
+        self.assertEqual(100, len(actual_timeline))
+        self.assertTimeline(expected_timeline, actual_timeline)
+
+        video_module['duration'] = 499
+        mock_timeline.return_value = factory.get_video_timeline_api_response()
+        actual_timeline = self.presenter.get_video_timeline(video_module)
+        last_segment = expected_timeline[-1].copy()
+        last_segment.update({
+            'segment': last_segment['segment'] + 1,
+            'start_time': video_module['duration']
+        })
+        expected_timeline.append(last_segment)
+        self.assertEqual(101, len(actual_timeline))
+        self.assertTimeline(expected_timeline, actual_timeline)
+
+        video_module['duration'] = 501
+        expected_timeline[-1].update({
+            'start_time': 500,
+            'num_users': 0,
+            'num_views': 0,
+            'num_replays': 0
+        })
+        last_segment = expected_timeline[-1].copy()
+        last_segment.update({
+            'segment': last_segment['segment'] + 1,
+            'start_time': video_module['duration']
+        })
+        expected_timeline.append(last_segment)
+        mock_timeline.return_value = factory.get_video_timeline_api_response()
+        actual_timeline = self.presenter.get_video_timeline(video_module)
+        self.assertEqual(102, len(actual_timeline))
+        self.assertTimeline(expected_timeline, actual_timeline)
+
+    def assertTimeline(self, expected_timeline, actual_timeline):
+        self.assertEqual(len(expected_timeline), len(actual_timeline))
+        for expected, actual in zip(expected_timeline, actual_timeline):
+            self.assertDictContainsSubset(actual, expected)
+
+    def test_build_live_url(self):
+        actual_view_live_url = self.presenter.build_view_live_url('a-url', self.VIDEO_ID)
+        self.assertEqual('a-url/{}/jump_to/{}'.format(self.course_id, self.VIDEO_ID), actual_view_live_url)
+        self.assertEqual(None, self.presenter.build_view_live_url(None, self.VIDEO_ID))
 
 
 class CourseEnrollmentPresenterTests(SwitchMixin, TestCase):

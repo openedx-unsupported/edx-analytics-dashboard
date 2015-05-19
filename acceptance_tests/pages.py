@@ -10,7 +10,7 @@ from acceptance_tests import (
     TEST_COURSE_ID, TEST_GRADED_PROBLEM_ID, TEST_GRADED_PROBLEM_PART_ID, TEST_ASSIGNMENT_ID,
     TEST_ASSIGNMENT_TYPE, TEST_UNGRADED_SECTION_ID, TEST_UNGRADED_SUBSECTION_ID,
     TEST_UNGRADED_PROBLEM_ID, TEST_UNGRADED_PROBLEM_PART_ID, LMS_SSL_ENABLED,
-    TEST_VIDEO_SECTION_ID, TEST_VIDEO_SUBSECTION_ID)
+    TEST_VIDEO_SECTION_ID, TEST_VIDEO_SUBSECTION_ID, TEST_VIDEO_ID)
 
 
 class DashboardPage(PageObject):  # pylint: disable=abstract-method
@@ -178,6 +178,20 @@ class CourseEngagementVideoSubsectionPage(CoursePage):
 
     def is_browser_on_page(self):
         return super(CourseEngagementVideoSubsectionPage, self).is_browser_on_page() and \
+               'Engagement Videos' in self.browser.title
+
+
+class CourseEngagementVideoTimelinePage(CoursePage):
+    def __init__(self, browser, course_id=None, section_id=None, subsection_id=None, video_id=None):
+        super(CourseEngagementVideoTimelinePage, self).__init__(browser, course_id)
+        self.section_id = section_id or TEST_VIDEO_SECTION_ID
+        self.subsection_id = subsection_id or TEST_VIDEO_SUBSECTION_ID
+        self.video_id = video_id or TEST_VIDEO_ID
+        self.page_url += '/engagement/videos/sections/{}/subsections/{}/modules/{}/timeline/'.format(
+            self.section_id, self.subsection_id, self.video_id)
+
+    def is_browser_on_page(self):
+        return super(CourseEngagementVideoTimelinePage, self).is_browser_on_page() and \
                'Engagement Videos' in self.browser.title
 
 

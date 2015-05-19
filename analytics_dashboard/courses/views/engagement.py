@@ -1,5 +1,7 @@
 import logging
 
+from django.conf import settings
+from django.http import Http404
 from django.utils.translation import ugettext_lazy as _
 
 from analyticsclient.exceptions import NotFoundError
@@ -63,7 +65,7 @@ class EngagementVideoContentTemplateView(CourseStructureMixin, CourseStructureEx
     subsection_id = None
     # Translators: Do not translate UTC.
     update_message = _('Video data was last updated %(update_date)s at %(update_time)s UTC.')
-    no_data_message = _('No videos watched for these exercises.')
+    no_data_message = _('Looks like no one has watched any videos in these sections.')
 
     def get_context_data(self, **kwargs):
         self.presenter = CourseEngagementVideoPresenter(self.access_token, self.course_id)
@@ -130,14 +132,37 @@ class EngagementVideoSubsection(EngagementVideoContentTemplateView):
 class EngagementVideoTimeline(EngagementVideoContentTemplateView):
     template_name = 'courses/engagement_video_timeline.html'
     page_name = 'engagement_videos'
+    video_id = None
+
+    def dispatch(self, request, *args, **kwargs):
+        self.video_id = kwargs.get('video_id', None)
+        return super(EngagementVideoTimeline, self).dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super(EngagementVideoTimeline, self).get_context_data(**kwargs)
-        videos = self.presenter.subsection_children(self.section_id, self.subsection_id)
-        video_id = kwargs.get('video_id', None)
-        self.set_primary_content(context, videos)
-        context.update({
-            'video': self.presenter.block(video_id),
-            'page_data': self.get_page_data(context)
-        })
+
+        video_data_id = self.presenter.module_id_to_data_id({'id': self.video_id})
+        video_module = self.presenter.subsection_child(self.section_id, self.subsection_id, video_data_id)
+        if video_module:
+            timeline = self.presenter.get_video_timeline(video_module)
+
+            videos = self.presenter.subsection_children(self.section_id, self.subsection_id)
+            self.set_primary_content(context, videos)
+            context.update({
+                'video': self.presenter.block(self.video_id),
+                'summary_metrics': video_module,
+                'view_live_url': self.presenter.build_view_live_url(settings.LMS_COURSE_SHORTCUT_BASE_URL,
+                                                                    self.video_id),
+                'page_data': self.get_page_data(context)
+            })
+
+            context['js_data']['course'].update({
+                'videoTimeline': timeline,
+            })
+            context.update({
+                'page_data': self.get_page_data(context)
+            })
+        else:
+            raise Http404
+
         return context

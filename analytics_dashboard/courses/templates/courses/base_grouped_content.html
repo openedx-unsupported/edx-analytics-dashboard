@@ -7,6 +7,9 @@
     {% block content_nav %}
     {% endblock %}
 
+    {% block module_description %}
+    {% endblock %}
+
     <div class="section-content section-data-graph">
       <div class="section-content section-data-viz">
         <div class="analytics-chart-container">
@@ -32,11 +35,14 @@
     </div>
   </section>
 
+  {% block metric_cards %}{% endblock %}
+
   {% if js_data.course.hasData %}
     <section class="view-section">
 
-    <div class="section-heading">
+    <div class="section-heading section-data-table-title">
       <h4 class="section-title">{% block table_title %}{% endblock %}</h4>
+      {% block table_download %}{% endblock %}
     </div>
 
     {% if js_data.course.primaryContent %}
@@ -46,7 +52,6 @@
     {% else %}
       {% show_table_error %}
     {% endif %}
+    </section>
   {% endif %}
-
-  </section>
 {% endblock %}
