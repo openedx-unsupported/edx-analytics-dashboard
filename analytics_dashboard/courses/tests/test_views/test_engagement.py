@@ -25,7 +25,7 @@ class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):  # pylint: disa
 
     def setUp(self):
         super(CourseEngagementViewTestMixin, self).setUp()
-        self.toggle_switch('enable_course_api', True)
+        self.toggle_switch('enable_engagement_videos_pages', True)
 
     def get_mock_data(self, course_id):
         return utils.mock_course_activity(course_id)
