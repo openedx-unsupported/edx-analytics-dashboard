@@ -189,8 +189,8 @@ class CourseEngagementDataFactory(CourseStructureFactory):
                                    '{}/modules/{}/timeline'
                     videos.append({
                         'index': module_index + 1,
-                        'start_views': 10,
-                        'end_views': 0,
+                        'users_at_start': 10,
+                        'users_at_end': 0,
                         'id': _id,
                         'name': block['display_name'],
                         'children': [],
@@ -209,8 +209,8 @@ class CourseEngagementDataFactory(CourseStructureFactory):
                     'name': subsection['display_name'],
                     'children': videos,
                     'num_children': num_videos,
-                    'start_views': 10,
-                    'end_views': 0,
+                    'users_at_start': 10,
+                    'users_at_end': 0,
                     'url': urllib.quote(url_template.format(
                         CourseEngagementDataFactory.course_id, section['id'],
                         subsection['id']))
@@ -225,8 +225,8 @@ class CourseEngagementDataFactory(CourseStructureFactory):
                 'name': section['display_name'],
                 'children': subsections,
                 'num_children': num_problems,
-                'start_views': 10,
-                'end_views': 0,
+                'users_at_start': 10,
+                'users_at_end': 0,
                 'url': urllib.quote(url_template.format(
                     CourseEngagementDataFactory.course_id, section['id']))
             }

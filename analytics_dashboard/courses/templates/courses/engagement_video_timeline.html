@@ -46,12 +46,12 @@
                 <div class="col-xs-12 col-sm-3" data-type="started-video">
                     {% trans "Started Video" as label %}
                     {% trans "Students who started watching the video." as tooltip %}
-                    {% summary_point summary_metrics.start_views label tooltip=tooltip %}
+                    {% summary_point summary_metrics.users_at_start label tooltip=tooltip %}
                 </div>
                 <div class="col-xs-12 col-sm-3" data-type="finished-video">
                     {% trans "Finished Video" as label %}
                     {% trans "Students who watched the video to the end." as tooltip %}
-                    {% summary_point summary_metrics.end_views label tooltip=tooltip %}
+                    {% summary_point summary_metrics.users_at_end label tooltip=tooltip %}
                 </div>
             </div>
         {% else %}
