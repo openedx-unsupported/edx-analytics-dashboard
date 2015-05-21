@@ -5,8 +5,8 @@ import uuid
 class CourseStructureFactory(object):
     """ Factory that can be used to generate course structure. """
 
-    course_id = "edX/DemoX/Demo_Course"
     assignment_types = ['Homework', 'Exam']
+    _course_id = "edX/DemoX/Demo_Course"
     grading_policy = [
         {
             "assignment_type": "Homework",
@@ -42,6 +42,14 @@ class CourseStructureFactory(object):
         self._ungraded_problems = []
         self._subsection_children = []
         self._generate_structure()
+
+    @property
+    def course_id(self):
+        return self._course_id
+
+    @course_id.setter
+    def course_id(self, course_id):
+        self._course_id = course_id
 
     def _generate_block(self, block_type, block_format=None, display_name=None, graded=True, children=None):
         return {

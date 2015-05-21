@@ -1,5 +1,6 @@
 from collections import namedtuple
 import logging
+from slugify import slugify
 
 from analyticsclient.exceptions import NotFoundError
 from django.core.cache import cache
@@ -185,8 +186,18 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, BasePresenter):
     def assignment_types(self):
         """ Returns the assignment types for the represented course."""
         grading_policy = self.grading_policy()
+
         # return the results in a similar format to the course structure for standard parsing
-        return [{'name': gp['assignment_type']} for gp in grading_policy]
+        return [
+            {
+                'name': gp['assignment_type'],
+                'url': reverse('courses:performance:graded_content_by_type',
+                               kwargs={
+                                   'course_id': self.course_id,
+                                   'assignment_type': slugify(gp['assignment_type'])
+                               })
+            } for gp in grading_policy
+        ]
 
     def fetch_course_module_data(self):
         # Implementation of abstract method.  Returns problems from data api.
