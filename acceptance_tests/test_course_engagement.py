@@ -233,17 +233,18 @@ class CourseEngagementVideoTimelineTests(CourseEngagementVideoMixin, WebAppTest)
                 'tooltip': 'Estimated percentage of students who watched the entire video.',
                 'data_type': 'watched-percent',
                 'metric_value': self.build_display_percentage(
-                    video['end_views'], max(video['start_views'], video['end_views']), zero_percent_default='0%')
+                    video['users_at_end'], max(video['users_at_start'], video['users_at_end']),
+                    zero_percent_default='0%')
             },
             {
                 'tooltip': 'Students who started watching the video.',
                 'data_type': 'started-video',
-                'metric_value': self.format_number(video['start_views'])
+                'metric_value': self.format_number(video['users_at_start'])
             },
             {
                 'tooltip': 'Students who watched the video to the end.',
                 'data_type': 'finished-video',
-                'metric_value': self.format_number(video['end_views'])
+                'metric_value': self.format_number(video['users_at_end'])
             }
         ]
 

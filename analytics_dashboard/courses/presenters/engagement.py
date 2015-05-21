@@ -101,7 +101,7 @@ class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, BasePresenter):
     def blocks_have_data(self, videos):
         if videos:
             for video in videos:
-                if video['start_views'] > 0 or video['end_views'] > 0:
+                if video['users_at_start'] > 0 or video['users_at_end'] > 0:
                     return True
         return False
 
@@ -130,22 +130,22 @@ class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, BasePresenter):
         if 'encoded_module_id' in video:
             video['id'] = video.pop('encoded_module_id')
 
-        total = max([video['start_views'], video['end_views']])
-        start_only_views = video['start_views'] - video['end_views']
+        total = max([video['users_at_start'], video['users_at_end']])
+        start_only_users = video['users_at_start'] - video['users_at_end']
         video.update({
-            'end_percent': utils.math.calculate_percent(video['end_views'], total),
-            'start_only_views': start_only_views,
-            'start_only_percent': utils.math.calculate_percent(start_only_views, total),
+            'end_percent': utils.math.calculate_percent(video['users_at_end'], total),
+            'start_only_users': start_only_users,
+            'start_only_percent': utils.math.calculate_percent(start_only_users, total),
         })
 
     def attach_aggregated_data_to_parent(self, index, parent, url_func=None):
         children = parent['children']
-        total_start_views = sum(child.get('start_views', 0) for child in children)
-        total_end_views = sum(child.get('end_views', 0) for child in children)
+        total_start_users = sum(child.get('users_at_start', 0) for child in children)
+        total_end_users = sum(child.get('users_at_end', 0) for child in children)
         parent.update({
             'num_children': len(children),
-            'start_views': total_start_views,
-            'end_views': total_end_views,
+            'users_at_start': total_start_users,
+            'users_at_end': total_end_users,
             'index': index + 1
         })
 
@@ -153,7 +153,7 @@ class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, BasePresenter):
         self.attach_computed_data(parent)
 
         # including the URL enables navigation to child pages
-        has_views = total_start_views > 0 or total_end_views > 0
+        has_views = total_start_users > 0 or total_end_users > 0
         if url_func and parent['num_children'] > 0 and has_views:
             parent['url'] = url_func(parent)
 
@@ -192,9 +192,9 @@ class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, BasePresenter):
     @property
     def default_block_data(self):
         return {
-            'start_views': 0,
-            'end_views': 0,
-            'start_only_views': 0,
+            'users_at_start': 0,
+            'users_at_end': 0,
+            'start_only_users': 0,
             'start_only_percent': 0,
             'end_percent': 0
         }

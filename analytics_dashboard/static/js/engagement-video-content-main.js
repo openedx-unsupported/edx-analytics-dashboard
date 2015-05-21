@@ -6,7 +6,7 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
             var model = page.models.courseModel,
                 graphSubmissionColumns = [
                     {
-                        key: 'end_views',
+                        key: 'users_at_end',
                         percent_key: 'end_percent',
                         title: gettext('Complete Plays'),
                         className: 'text-right',
@@ -14,7 +14,7 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                         color: '#58BC4B'
                     },
                     {
-                        key: 'start_only_views',
+                        key: 'start_only_users',
                         percent_key: 'start_only_percent',
                         title: gettext('Incomplete Plays'),
                         className: 'text-right',

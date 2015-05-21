@@ -133,10 +133,10 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
 
     def test_default_block_data(self):
         self.assertDictEqual(self.presenter.default_block_data, {
-            'start_views': 0,
-            'end_views': 0,
+            'users_at_start': 0,
+            'users_at_end': 0,
             'end_percent': 0,
-            'start_only_views': 0,
+            'start_only_users': 0,
             'start_only_percent': 0,
         })
 
@@ -151,7 +151,7 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
     def test_post_process_adding_data_to_blocks(self):
         def url_func(parent_block, child_block):
             return '{}-{}'.format(parent_block, child_block)
-        data = {'start_views': 10}
+        data = {'users_at_start': 10}
         self.presenter.post_process_adding_data_to_blocks(data, 'parent', 'child', url_func)
         self.assertDictContainsSubset({'url': 'parent-child'}, data)
 
@@ -193,23 +193,23 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
         self.assertEqual(actual_url, expected_url)
 
     def test_attach_computed_data(self):
-        max_views = 15
-        start_only_views = 10
-        end_views = max_views - start_only_views
-        end_percent = end_views / max_views
+        max_users = 15
+        start_only_users = 10
+        end_users = max_users - start_only_users
+        end_percent = end_users / max_users
         data = {
             'encoded_module_id': self.VIDEO_ID,
-            'start_views': max_views,
-            'end_views': end_views
+            'users_at_start': max_users,
+            'users_at_end': end_users
         }
         self.presenter.attach_computed_data(data)
         self.assertDictEqual(data, {
             'id': self.VIDEO_ID,
-            'start_views': max_views,
-            'end_views': end_views,
+            'users_at_start': max_users,
+            'users_at_end': end_users,
             'end_percent': end_percent,
-            'start_only_views': start_only_views,
-            'start_only_percent': start_only_views / max_views,
+            'start_only_users': start_only_users,
+            'start_only_percent': start_only_users / max_users,
         })
 
     @mock.patch('analyticsclient.course.Course.videos')
@@ -220,8 +220,8 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
                 "encoded_module_id": "i4x-edX-DemoX-video-7e9b434e6de3435ab99bd3fb25bde807",
                 "duration": 257,
                 "segment_length": 5,
-                "start_views": 10,
-                "end_views": 0,
+                "users_at_start": 10,
+                "users_at_end": 0,
                 "created": "2015-04-15T214158"
             },
             {
@@ -229,8 +229,8 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
                 "encoded_module_id": "i4x-edX-DemoX-videoalpha-0b9e39477cf34507a7a48f74be381fdd",
                 "duration": 195,
                 "segment_length": 5,
-                "start_views": 55,
-                "end_views": 0,
+                "users_at_start": 55,
+                "users_at_end": 0,
                 "created": "2015-04-15T214158"
             }
         ]
