@@ -26,6 +26,7 @@ class CoursePerformanceViewTestMixin(PatchMixin, CourseStructureViewMixin, Cours
         super(CoursePerformanceViewTestMixin, self).setUp()
         self.toggle_switch('enable_course_api', True)
         self.factory = CoursePerformanceDataFactory()
+        self.factory.course_id = DEMO_COURSE_ID
 
     def get_mock_data(self, course_id):
         # The subclasses don't need this.
@@ -353,7 +354,7 @@ class CoursePerformanceAssignmentViewTests(CoursePerformanceGradedMixin, TestCas
     def setUp(self):
         super(CoursePerformanceAssignmentViewTests, self).setUp()
         self.assignment = self.factory.presented_assignments[0]
-        self.assignment_type = {'name': self.assignment['assignment_type']}
+        self.assignment_type = self.factory.presented_assignment_types[0]
 
     def path(self, **kwargs):
         # Use default kwargs for tests that don't necessarily care about the specific argument values.

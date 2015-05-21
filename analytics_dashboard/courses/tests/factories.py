@@ -1,3 +1,4 @@
+from slugify import slugify
 import urllib
 import uuid
 
@@ -38,7 +39,7 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                     'name': block['display_name'],
                     'part_ids': [part_id],
                     'url': urllib.quote(url_template.format(
-                        CoursePerformanceDataFactory.course_id, assignment['id'], _id, part_id))
+                        self.course_id, assignment['id'], _id, part_id))
                 })
 
             num_problems = len(problems)
@@ -56,7 +57,7 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                 'incorrect_submissions': 0,
                 'incorrect_percent': 0.0,
                 'url': urllib.quote(url_template.format(
-                    CoursePerformanceDataFactory.course_id, assignment['id']))
+                    self.course_id, assignment['id']))
             }
 
             presented.append(presented_assignment)
@@ -88,7 +89,14 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
     @property
     def presented_assignment_types(self):
         policies = self._cleaned_grading_policy
-        return [{'name': gp['assignment_type']} for gp in policies]
+        url_template = '/courses/{}/performance/graded_content/{}/'
+        return [
+            {
+                'name': gp['assignment_type'],
+                'url': urllib.quote(url_template.format(self.course_id, slugify(gp['assignment_type'])))
+
+            } for gp in policies
+        ]
 
     @property
     def presented_sections(self):
@@ -119,7 +127,7 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                         'part_ids': [part_id],
                         'children': [],
                         'url': urllib.quote(url_template.format(
-                            CoursePerformanceDataFactory.course_id, section['id'],
+                            self.course_id, section['id'],
                             subsection['id'], _id, part_id))
                     })
 
@@ -137,7 +145,7 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                     'incorrect_submissions': 0,
                     'incorrect_percent': 0.0,
                     'url': urllib.quote(url_template.format(
-                        CoursePerformanceDataFactory.course_id, section['id'],
+                        self.course_id, section['id'],
                         subsection['id']))
                 }
                 subsections.append(presented_subsection)
@@ -156,7 +164,7 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                 'incorrect_submissions': 0,
                 'incorrect_percent': 0.0,
                 'url': urllib.quote(url_template.format(
-                    CoursePerformanceDataFactory.course_id, section['id']))
+                    self.course_id, section['id']))
             }
 
             presented.append(presented_sections)
@@ -195,7 +203,7 @@ class CourseEngagementDataFactory(CourseStructureFactory):
                         'name': block['display_name'],
                         'children': [],
                         'url': urllib.quote(url_template.format(
-                            CourseEngagementDataFactory.course_id, section['id'],
+                            self.course_id, section['id'],
                             subsection['id'], _id)),
                         'pipeline_video_id': 'edX/DemoX/Demo_Course|i4x-edX_Demo_Course-video-{}'.format(
                             uuid.uuid4().hex)
@@ -212,7 +220,7 @@ class CourseEngagementDataFactory(CourseStructureFactory):
                     'users_at_start': 10,
                     'users_at_end': 0,
                     'url': urllib.quote(url_template.format(
-                        CourseEngagementDataFactory.course_id, section['id'],
+                        self.course_id, section['id'],
                         subsection['id']))
                 }
                 subsections.append(presented_subsection)
@@ -228,7 +236,7 @@ class CourseEngagementDataFactory(CourseStructureFactory):
                 'users_at_start': 10,
                 'users_at_end': 0,
                 'url': urllib.quote(url_template.format(
-                    CourseEngagementDataFactory.course_id, section['id']))
+                    self.course_id, section['id']))
             }
 
             presented.append(presented_sections)
