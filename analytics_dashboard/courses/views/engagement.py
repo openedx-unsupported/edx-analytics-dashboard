@@ -20,7 +20,8 @@ class EngagementTemplateView(CourseTemplateWithNavView):
     secondary_nav_items = [
         # Translators: Content as in course content (e.g. things, not the feeling)
         {'name': 'content', 'label': _('Content'), 'view': 'courses:engagement:content'},
-        {'name': 'videos', 'label': _('Videos'), 'view': 'courses:engagement:videos', 'switch': 'enable_course_api'},
+        {'name': 'videos', 'label': _('Videos'), 'view': 'courses:engagement:videos',
+         'switch': 'enable_engagement_videos_pages'},
     ]
     active_primary_nav_item = 'engagement'
     presenter = None

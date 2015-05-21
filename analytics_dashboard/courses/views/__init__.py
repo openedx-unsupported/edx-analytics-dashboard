@@ -487,7 +487,7 @@ class CourseHome(CourseTemplateWithNavView):
                 }
             ]
         }
-        if self.course_api_enabled:
+        if switch_is_active('enable_engagement_videos_pages'):
             engagement_items['items'].append({
                 'title': _('How did students interact with course videos?'),
                 'view': 'courses:engagement:videos',
