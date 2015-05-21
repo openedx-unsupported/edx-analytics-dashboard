@@ -8,7 +8,7 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                     {
                         key: 'users_at_end',
                         percent_key: 'end_percent',
-                        title: gettext('Complete Plays'),
+                        title: gettext('Complete Views'),
                         className: 'text-right',
                         type: 'number',
                         color: '#58BC4B'
@@ -16,7 +16,7 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                     {
                         key: 'start_only_users',
                         percent_key: 'start_only_percent',
-                        title: gettext('Incomplete Plays'),
+                        title: gettext('Incomplete Views'),
                         className: 'text-right',
                         type: 'number',
                         color: '#9B9B9B'

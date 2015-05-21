@@ -14,7 +14,8 @@
 {% endblock table_title %}
 
 {% block chart_info %}
-    {% include "courses/views_chart_info.html" %}
+    {% trans "Total Video Views" as chart_info %}
+    {% include "courses/_chart_info.html" with chart_info=chart_info %}
 {% endblock chart_info %}
 
 {% block content_nav %}
