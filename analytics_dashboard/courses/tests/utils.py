@@ -228,10 +228,11 @@ def get_presenter_gender(course_id):
 
 
 def get_mock_api_enrollment_age_data(course_id):
+    current_year = datetime.date.today().year
     data = [
-        {'course_id': course_id, 'birth_year': 1900, 'count': 100, 'created': CREATED_DATETIME_STRING},
-        {'course_id': course_id, 'birth_year': 2000, 'count': 400, 'created': CREATED_DATETIME_STRING},
-        {'course_id': course_id, 'birth_year': 2015, 'count': 500, 'created': CREATED_DATETIME_STRING},
+        {'course_id': course_id, 'birth_year': current_year-150, 'count': 100, 'created': CREATED_DATETIME_STRING},
+        {'course_id': course_id, 'birth_year': current_year-26, 'count': 400, 'created': CREATED_DATETIME_STRING},
+        {'course_id': course_id, 'birth_year': current_year, 'count': 500, 'created': CREATED_DATETIME_STRING},
         {'course_id': course_id, 'birth_year': None, 'count': 1000, 'created': CREATED_DATETIME_STRING}
     ]
 
@@ -239,7 +240,6 @@ def get_mock_api_enrollment_age_data(course_id):
 
 
 def get_presenter_enrollment_binned_ages():
-    # TODO Make this code less brittle. It currently relies on the current year being 2015.
     current_year = datetime.date.today().year
     oldest = current_year - 100
     binned = []
@@ -251,15 +251,14 @@ def get_presenter_enrollment_binned_ages():
     binned[0]['count'] = 100
     binned[0]['percent'] = 0.05
 
-    # adjust year 2015
-    index_2015 = 2015 - current_year - 1
-    binned[index_2015]['count'] = 500
-    binned[index_2015]['percent'] = 0.25
+    age_0_index = -1
+    binned[age_0_index]['count'] = 500
+    binned[age_0_index]['percent'] = 0.25
 
     # adjust year 2000
-    index_2000 = 2000 - current_year - 1
-    binned[index_2000]['count'] = 400
-    binned[index_2000]['percent'] = 0.2
+    age_26_index = -27
+    binned[age_26_index]['count'] = 400
+    binned[age_26_index]['percent'] = 0.2
 
     binned.insert(0, {'age': 'Unknown', 'count': 1000, 'percent': 0.5})
 
@@ -267,12 +266,11 @@ def get_presenter_enrollment_binned_ages():
 
 
 def get_presenter_enrollment_ages_summary():
-    current_year = datetime.date.today().year
     return {
-        'median': (current_year * 2 - 2000 - 2015) * 0.5,
-        'under_25': 0.9,
-        'between_26_40': 0.0,
-        'over_40': 0.1
+        'median': 13.0,
+        'age_25_and_under': 0.5,
+        'age_26_to_40': 0.4,
+        'age_41_and_over': 0.1
     }
 
 

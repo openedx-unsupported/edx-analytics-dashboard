@@ -381,18 +381,18 @@ class CourseEnrollmentDemographicsPresenter(BasePresenter):
 
     def _count_ages(self, api_response, min_age, max_age):
         """
-        Returns the number of enrollments between min_age (exclusive) and
-        max_age (inclusive).
+        Returns the number of enrollments between min_age (inclusive) and
+        max_age (exclusive).
         """
         current_year = datetime.date.today().year
         filtered_ages = api_response
 
         if min_age:
             filtered_ages = ([datum for datum in filtered_ages
-                              if datum['birth_year'] and (current_year - datum['birth_year']) > min_age])
+                              if datum['birth_year'] and (current_year - datum['birth_year']) >= min_age])
         if max_age:
             filtered_ages = ([datum for datum in filtered_ages
-                              if datum['birth_year'] and (current_year - datum['birth_year']) <= max_age])
+                              if datum['birth_year'] and (current_year - datum['birth_year']) < max_age])
         return self.sum_counts(filtered_ages)
 
     def _calculate_median_age(self, api_response):
@@ -421,19 +421,18 @@ class CourseEnrollmentDemographicsPresenter(BasePresenter):
         """ Returns age metrics, excluding unknown ages. """
         known_ages = [i for i in api_response if i['birth_year']]
         summary = {'median': self._calculate_median_age(known_ages)}
-
         summary_params = [
             {
-                'field': 'under_25',
-                'ages': [None, 25]
+                'field': 'age_25_and_under',
+                'ages': [None, 26]
             },
             {
-                'field': 'between_26_40',
-                'ages': [26, 40]
+                'field': 'age_26_to_40',
+                'ages': [26, 41]
             },
             {
-                'field': 'over_40',
-                'ages': [40, None]
+                'field': 'age_41_and_over',
+                'ages': [41, None]
             }
         ]
 
