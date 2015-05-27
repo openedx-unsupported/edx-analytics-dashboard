@@ -1,4 +1,5 @@
 {% load i18n %}
         
 {# Translators: This describes the data displayed in the chart below. #}
-<div class="chart-info">{% trans "Submissions" %}</div>
+{% trans "Submissions" as chart_info %}
+{% include "courses/_chart_info.html" with chart_info=chart_info %}

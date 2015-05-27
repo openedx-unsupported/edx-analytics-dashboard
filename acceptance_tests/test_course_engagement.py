@@ -127,7 +127,7 @@ class CourseEngagementContentTests(CourseEngagementPageTestsMixin, WebAppTest):
 class CourseEngagementVideoMixin(CourseEngagementPageTestsMixin):
     help_path = 'engagement/Engagement_Video.html'
     chart_selector = '#chart-view'
-    expected_table_heading = u'Video Plays'
+    expected_table_heading = u'Video Views'
     expected_heading = None
     expected_tooltip = None
     expected_table_columns = None
@@ -166,10 +166,10 @@ class CourseEngagementVideoMixin(CourseEngagementPageTestsMixin):
 @skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test the video pages.')
 class CourseEngagementVideoContentTests(CourseEngagementVideoMixin, WebAppTest):
     expected_heading = u'How did students interact with course videos?'
-    expected_tooltip = u'Each bar shows the counts of complete and incomplete plays of the videos in that section. ' \
+    expected_tooltip = u'Each bar shows the counts of complete and incomplete views of the videos in that section. ' \
                        u'Click on bars with low totals or a high incomplete rate to drill down and understand ' \
                        u'why.'
-    expected_table_columns = [u'Order', u'Section Name', u'Videos', u'Started Watching', u'Finished Watching',
+    expected_table_columns = [u'Order', u'Section Name', u'Videos', u'Complete Views', u'Incomplete Views',
                               u'Completion Percentage']
 
     def setUp(self):
@@ -181,10 +181,10 @@ class CourseEngagementVideoContentTests(CourseEngagementVideoMixin, WebAppTest):
 @skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test the video pages.')
 class CourseEngagementVideoSectionTests(CourseEngagementVideoMixin, WebAppTest):
     expected_heading = u'How did students interact with videos in this section?'
-    expected_tooltip = u'Each bar shows the counts of complete and incomplete plays of the videos in that ' \
+    expected_tooltip = u'Each bar shows the counts of complete and incomplete views of the videos in that ' \
                        u'subsection. Click on bars with low totals or a high incomplete rate to drill down and ' \
                        u'understand why.'
-    expected_table_columns = [u'Order', u'Subsection Name', u'Videos', u'Started Watching', u'Finished Watching',
+    expected_table_columns = [u'Order', u'Subsection Name', u'Videos', u'Complete Views', u'Incomplete Views',
                               u'Completion Percentage']
 
     def setUp(self):
@@ -196,9 +196,9 @@ class CourseEngagementVideoSectionTests(CourseEngagementVideoMixin, WebAppTest):
 @skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test the video pages.')
 class CourseEngagementVideoSubsectionTests(CourseEngagementVideoMixin, WebAppTest):
     expected_heading = u'How did students interact with videos in this subsection?'
-    expected_tooltip = u'Each bar shows the counts of complete and incomplete plays for that video. ' \
+    expected_tooltip = u'Each bar shows the counts of complete and incomplete views for that video. ' \
                        u'Click to understand where students drop off and which parts they replay.'
-    expected_table_columns = [u'Order', u'Video Name', u'Started Watching', u'Finished Watching',
+    expected_table_columns = [u'Order', u'Video Name', u'Complete Views', u'Incomplete Views',
                               u'Completion Percentage']
 
     def setUp(self):
