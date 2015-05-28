@@ -69,21 +69,21 @@
                     {# Translators: This is a label to identify the number of students in the age range. #}
                     {% trans "Students 25 and Under" as label %}
                     {% trans "The percentage of students aged 25 years or younger (of those who provided a year of birth)." as tooltip %}
-                    {% summary_point summary.under_25|metric_percentage label tooltip=tooltip %}
+                    {% summary_point summary.age_25_and_under|metric_percentage label tooltip=tooltip %}
                 </div>
 
                 <div class="col-xs-12 col-sm-3" data-stat-type="enrollment_age_between_26_40">
                     {# Translators: This is a label to identify the number of students in the age range. #}
                     {% trans "Students 26 to 40" as label %}
                     {% trans "The percentage of students aged from 26 to 40 years (of those who provided a year of birth)." as tooltip %}
-                    {% summary_point summary.between_26_40|metric_percentage label tooltip=tooltip %}
+                    {% summary_point summary.age_26_to_40|metric_percentage label tooltip=tooltip %}
                 </div>
 
                 <div class="col-xs-12 col-sm-3" data-stat-type="enrollment_age_over_40">
                     {# Translators: This is a label to identify the number of students in the age range. #}
                     {% trans "Students 41 and Over" as label %}
                     {% trans "The percentage of students aged 41 years or older (of those who provided a year of birth)." as tooltip %}
-                    {% summary_point summary.over_40|metric_percentage label tooltip=tooltip %}
+                    {% summary_point summary.age_41_and_over|metric_percentage label tooltip=tooltip %}
                 </div>
 
 

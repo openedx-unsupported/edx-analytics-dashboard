@@ -60,17 +60,17 @@ class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, Web
 
     def _count_ages(self, current_year, min_age, max_age):
         """
-        Returns the number of enrollments between min_age (exclusive) and
-        max_age (inclusive).
+        Returns the number of enrollments between min_age (inclusive) and
+        max_age (exclusive).
         """
         filtered_ages = self.demographic_data_without_none
 
         if min_age:
             filtered_ages = ([datum for datum in filtered_ages
-                              if (current_year - datum['birth_year']) > min_age])
+                              if (current_year - datum['birth_year']) >= min_age])
         if max_age:
             filtered_ages = ([datum for datum in filtered_ages
-                              if (current_year - datum['birth_year']) <= max_age])
+                              if (current_year - datum['birth_year']) < max_age])
 
         return sum([datum['count'] for datum in filtered_ages])
 
@@ -84,15 +84,15 @@ class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, Web
             },
             {
                 'stat_type': 'enrollment_age_under_25',
-                'value': self.build_display_percentage(self._count_ages(current_year, None, 25), total)
+                'value': self.build_display_percentage(self._count_ages(current_year, None, 26), total)
             },
             {
                 'stat_type': 'enrollment_age_between_26_40',
-                'value': self.build_display_percentage(self._count_ages(current_year, 26, 40), total)
+                'value': self.build_display_percentage(self._count_ages(current_year, 26, 41), total)
             },
             {
                 'stat_type': 'enrollment_age_over_40',
-                'value': self.build_display_percentage(self._count_ages(current_year, 40, None), total)
+                'value': self.build_display_percentage(self._count_ages(current_year, 41, None), total)
             }
         ]
 
