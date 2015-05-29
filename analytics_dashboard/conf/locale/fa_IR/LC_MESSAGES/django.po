@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Ali Taheri <beingalitaheri@gmail.com>, 2015
+# Mohammad Dashtizadeh <mohammad@dashtizadeh.net>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 16:48-0400\n"
-"PO-Revision-Date: 2015-04-08 21:36+0000\n"
+"POT-Creation-Date: 2015-05-29 10:09-0400\n"
+"PO-Revision-Date: 2015-05-29 14:11+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Persian (Iran) (http://www.transifex.com/projects/p/edx-platform/language/fa_IR/)\n"
 "MIME-Version: 1.0\n"
@@ -211,15 +212,6 @@ msgstr ""
 msgid "Part {part_number}"
 msgstr ""
 
-#: courses/templates/courses/_base_content_nav.html
-msgid "Select Problem"
-msgstr ""
-
-#. Translators: This indicates that no text was provided.
-#: courses/templates/courses/_base_content_nav.html
-msgid "(empty)"
-msgstr "(خالی)"
-
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
 msgstr ""
@@ -236,24 +228,39 @@ msgid ""
 "        Select %(level)s\n"
 "    "
 msgstr ""
+"\n"
+"        انتخاب %(level)s\n"
+"    "
 
+#: courses/templates/courses/_graded_content_nav.html
 #: courses/templates/courses/_ungraded_content_nav.html
-msgid "Select Section"
-msgstr ""
-
-#: courses/templates/courses/_ungraded_content_nav.html
-msgid "All Sections"
-msgstr ""
-
-#: courses/templates/courses/_ungraded_content_nav.html
-msgid "Select Subsection"
+msgid "Select Problem"
 msgstr ""
 
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
-#: courses/templates/courses/base_performance_answer_distribution.html
+#: courses/templates/courses/_module_description.html
 msgid "View Live"
 msgstr "نمایش زنده"
+
+#: courses/templates/courses/_ungraded_content_nav.html
+#: courses/templates/courses/_video_content_nav.html
+msgid "Select Section"
+msgstr "انتخاب بخش"
+
+#: courses/templates/courses/_ungraded_content_nav.html
+#: courses/templates/courses/_video_content_nav.html
+msgid "All Sections"
+msgstr "تمامی بخش‌ها"
+
+#: courses/templates/courses/_ungraded_content_nav.html
+#: courses/templates/courses/_video_content_nav.html
+msgid "Select Subsection"
+msgstr ""
+
+#: courses/templates/courses/_video_content_nav.html
+msgid "Select Video"
+msgstr ""
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -282,6 +289,7 @@ msgstr ""
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 #: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_demographics_age.html
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -292,10 +300,6 @@ msgstr ""
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Student Submission Counts"
-msgstr ""
-
-#: courses/templates/courses/base_performance_grouped_content.html
-msgid "No submissions received for these assignments."
 msgstr ""
 
 #. Translators: This describes the data displayed in the chart below.
@@ -327,7 +331,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_content.html
 msgid "Active Students Last Week"
-msgstr ""
+msgstr "دانش‌آموزان فعال هفتۀ گذشته"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who visited at least one page in the course content."
@@ -368,6 +372,93 @@ msgstr ""
 #: courses/templates/courses/engagement_content.html
 #: courses/templates/courses/engagement_content.html
 msgid "Content Engagement Breakdown"
+msgstr ""
+
+#. Translators: This describes the data displayed in the chart below. E.g. how
+#. many learners viewed a video.
+#: courses/templates/courses/engagement_grouped_content.html
+#: courses/templates/courses/views_chart_info.html
+msgid "Video Views"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_section.html
+msgid "How did students interact with videos in this section?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_section.html
+msgid ""
+"Each bar shows the counts of complete and incomplete views of the videos in "
+"that subsection. Click on bars with low totals or a high incomplete rate to "
+"drill down and understand why."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_subsection.html
+msgid "How did students interact with videos in this subsection?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_subsection.html
+msgid ""
+"Each bar shows the counts of complete and incomplete views for that video. "
+"Click to understand where students drop off and which parts they replay."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_course.html
+#: courses/views/__init__.py
+msgid "How did students interact with course videos?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_course.html
+msgid ""
+"Each bar shows the counts of complete and incomplete views of the videos in "
+"that section. Click on bars with low totals or a high incomplete rate to "
+"drill down and understand why."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Total Video Views"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "What were the viewing patterns for this video?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid ""
+"The number of students who watched each segment of the video, and the number"
+" of replays for each segment."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Video Metrics"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Completion Rate"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Estimated percentage of students who watched the entire video."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Started Video"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Students who started watching the video."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Finished Video"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Students who watched the video to the end."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Video Viewing Over Time"
 msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
@@ -672,14 +763,14 @@ msgstr ""
 
 #: courses/templates/courses/home.html courses/views/__init__.py
 msgid "Course Home"
-msgstr ""
+msgstr "صفحۀ دروس"
 
 #. Translators: This refers to the active tab/navigation item.
 #. Translators: This refers to the active tab/navigation item.
 #: courses/templates/courses/home.html templates/lens-navigation.html
 #: templates/submenu_navigation.html
 msgid "Active"
-msgstr ""
+msgstr "فعال"
 
 #: courses/templates/courses/index.html
 msgid "Courses"
@@ -687,7 +778,7 @@ msgstr "دوره‌ها"
 
 #: courses/templates/courses/index.html
 msgid "Welcome, %(username)s!"
-msgstr ""
+msgstr " %(username)s، خوش آمدید!"
 
 #: courses/templates/courses/index.html
 msgid "Here are the courses you currently have access to in Insights:"
@@ -819,7 +910,7 @@ msgstr "دوباره تلاش کنید"
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Activity"
-msgstr ""
+msgstr "فعالیت"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/__init__.py courses/views/__init__.py
@@ -840,7 +931,7 @@ msgstr "سن"
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Education"
-msgstr ""
+msgstr "تحصیلات"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
@@ -852,6 +943,11 @@ msgstr "جنسیت"
 #: courses/views/engagement.py
 msgid "Content"
 msgstr "محتوا"
+
+#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
+#: courses/views/engagement.py
+msgid "Videos"
+msgstr ""
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
@@ -884,6 +980,31 @@ msgstr ""
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
+msgstr ""
+
+#: courses/views/engagement.py
+msgid "Engagement Videos"
+msgstr ""
+
+#. Translators: Do not translate UTC.
+#: courses/views/engagement.py
+msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
+msgstr ""
+
+#: courses/views/engagement.py
+msgid "Looks like no one has watched any videos in these sections."
+msgstr ""
+
+#: courses/views/engagement.py courses/views/performance.py
+msgid "Section Name"
+msgstr "نام بخش"
+
+#: courses/views/engagement.py courses/views/performance.py
+msgid "Subsection Name"
+msgstr ""
+
+#: courses/views/engagement.py
+msgid "Video Name"
 msgstr ""
 
 #. Translators: Do not translate UTC.
@@ -945,6 +1066,14 @@ msgstr ""
 msgid "Assignment Name"
 msgstr "نام تکلیف"
 
+#: courses/views/performance.py
+msgid "No submissions received for these exercises."
+msgstr ""
+
+#: courses/views/performance.py
+msgid "No submissions received for these assignments."
+msgstr ""
+
 #: courses/views/performance.py courses/views/performance.py
 msgid "Performance: Problem Submissions"
 msgstr ""
@@ -956,14 +1085,6 @@ msgstr ""
 #: courses/views/performance.py courses/views/performance.py
 msgid "Problem Name"
 msgstr "نام مشکلات"
-
-#: courses/views/performance.py
-msgid "Section Name"
-msgstr ""
-
-#: courses/views/performance.py
-msgid "Subsection Name"
-msgstr ""
 
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
@@ -978,7 +1099,7 @@ msgstr ""
 
 #: templates/403.html
 msgid "Logout then Login"
-msgstr ""
+msgstr "خروج و ورود دوباره"
 
 #: templates/404.html templates/404.html.py
 msgid "Page Not Found"
@@ -992,7 +1113,7 @@ msgstr ""
 
 #: templates/500.html templates/500.html.py
 msgid "An Error Occurred"
-msgstr ""
+msgstr "خطایی رخ داد"
 
 #: templates/500.html
 msgid ""
@@ -1025,7 +1146,7 @@ msgstr ""
 
 #: templates/footer.html
 msgid "Feedback"
-msgstr ""
+msgstr "بازخورد"
 
 #: templates/footer.html
 msgid ""
@@ -1059,7 +1180,7 @@ msgstr "راهنما"
 
 #: templates/header.html
 msgid "Logout"
-msgstr ""
+msgstr "خروج"
 
 #: templates/loading.html
 msgid "Loading"
@@ -1067,11 +1188,11 @@ msgstr "در حال بارگذاری"
 
 #: templates/section_error.html
 msgid "We are unable to load this chart."
-msgstr ""
+msgstr "ما توانایی بارگزاری این نمودار را نداریم."
 
 #: templates/section_error.html
 msgid "We are unable to load this table."
-msgstr ""
+msgstr "ما توانایی بارگزاری این جدول را نداریم."
 
 #: templates/section_error.html
 msgid "We are unable to load these metrics."

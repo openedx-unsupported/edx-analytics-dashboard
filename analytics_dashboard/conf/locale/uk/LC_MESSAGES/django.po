@@ -6,14 +6,15 @@
 # Anna Zizinska <zildress@gmail.com>, 2015
 # Eugenia <sakovets93@gmail.com>, 2014
 # Tetiana Korshun, 2014
-# sorenabell, 2015
+# Zoriana Zaiats, 2015
 # Tetiana Korshun, 2014
+# Zoriana Zaiats, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 16:48-0400\n"
-"PO-Revision-Date: 2015-04-08 21:36+0000\n"
+"POT-Creation-Date: 2015-05-29 10:09-0400\n"
+"PO-Revision-Date: 2015-05-29 14:11+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/edx-platform/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -61,7 +62,7 @@ msgstr ""
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/__init__.py
 msgid "Engagement"
-msgstr ""
+msgstr "Залученість"
 
 #: core/templates/core/landing.html
 msgid "How well is my content supporting student learning?"
@@ -90,7 +91,7 @@ msgstr ""
 
 #: core/templates/core/landing.html
 msgid "Research at edX"
-msgstr ""
+msgstr "Дослідницька робота у edX"
 
 #: core/templates/core/landing.html
 msgid ""
@@ -106,12 +107,14 @@ msgstr "Потрібна допомога?"
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
 msgstr ""
+"%(link_start)sНаш центр підтримки%(link_end)s може допомогти вам знайти "
+"рішення."
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
 #: core/templatetags/dashboard_extras.py
 msgid "{statistic}%"
-msgstr ""
+msgstr "{statistic}%"
 
 #: courses/presenters/enrollment.py
 msgid "Female"
@@ -143,7 +146,7 @@ msgstr "Немає"
 #. School Degree).
 #: courses/presenters/enrollment.py courses/tests/test_serializers.py
 msgid "Primary"
-msgstr ""
+msgstr "Початкова"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
@@ -154,7 +157,7 @@ msgstr "Середня"
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Secondary"
-msgstr ""
+msgstr "Середня"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
@@ -216,24 +219,15 @@ msgstr ""
 msgid "Part {part_number}"
 msgstr ""
 
-#: courses/templates/courses/_base_content_nav.html
-msgid "Select Problem"
-msgstr ""
-
-#. Translators: This indicates that no text was provided.
-#: courses/templates/courses/_base_content_nav.html
-msgid "(empty)"
-msgstr ""
-
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
-msgstr ""
+msgstr "Вибрати тип завдання"
 
 #. Translators: This refers to all course assignment types (e.g. homework,
 #. exam, lab).
 #: courses/templates/courses/_graded_content_nav.html
 msgid "All Assignments"
-msgstr ""
+msgstr "Всі завдання"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid ""
@@ -241,23 +235,37 @@ msgid ""
 "        Select %(level)s\n"
 "    "
 msgstr ""
+"\n"
+"Вибрати %(level)s"
 
+#: courses/templates/courses/_graded_content_nav.html
 #: courses/templates/courses/_ungraded_content_nav.html
-msgid "Select Section"
-msgstr ""
-
-#: courses/templates/courses/_ungraded_content_nav.html
-msgid "All Sections"
-msgstr ""
-
-#: courses/templates/courses/_ungraded_content_nav.html
-msgid "Select Subsection"
-msgstr ""
+msgid "Select Problem"
+msgstr "Вибрати завдання"
 
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
-#: courses/templates/courses/base_performance_answer_distribution.html
+#: courses/templates/courses/_module_description.html
 msgid "View Live"
+msgstr "Дивитись наживо"
+
+#: courses/templates/courses/_ungraded_content_nav.html
+#: courses/templates/courses/_video_content_nav.html
+msgid "Select Section"
+msgstr "Вибрати розділ"
+
+#: courses/templates/courses/_ungraded_content_nav.html
+#: courses/templates/courses/_video_content_nav.html
+msgid "All Sections"
+msgstr "Всі розділи"
+
+#: courses/templates/courses/_ungraded_content_nav.html
+#: courses/templates/courses/_video_content_nav.html
+msgid "Select Subsection"
+msgstr "Вибрати підрозділ"
+
+#: courses/templates/courses/_video_content_nav.html
+msgid "Select Video"
 msgstr ""
 
 #. Translators: This text describes a bar chart displayed.
@@ -266,6 +274,8 @@ msgid ""
 "This chart shows the most common answers submitted by students, ordered by "
 "frequency."
 msgstr ""
+"Цей графік показує найпоширеніші відповіді подані студентами, розставлені за"
+" частотою."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -287,6 +297,7 @@ msgstr ""
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 #: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_demographics_age.html
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -299,10 +310,6 @@ msgstr "Завантажити CSV"
 msgid "Student Submission Counts"
 msgstr ""
 
-#: courses/templates/courses/base_performance_grouped_content.html
-msgid "No submissions received for these assignments."
-msgstr ""
-
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
 msgid "Students (Self-Reported)"
@@ -310,7 +317,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_content.html
 msgid "Weekly Student Engagement"
-msgstr ""
+msgstr "Щотижневе залучення студентів"
 
 #: courses/templates/courses/engagement_content.html courses/views/__init__.py
 msgid "How many students are interacting with my course?"
@@ -328,7 +335,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_content.html
 msgid "Student Activity Metrics"
-msgstr ""
+msgstr "Показники активності студентів"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Active Students Last Week"
@@ -346,13 +353,13 @@ msgstr "Переглядів за тиждень"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who played one or more videos."
-msgstr ""
+msgstr "Студенти, які переглянули принаймні одне відео."
 
 #. Translators: This is a label indicating the number of students who tried a
 #. problem.
 #: courses/templates/courses/engagement_content.html
 msgid "Tried a Problem Last Week"
-msgstr ""
+msgstr "Пробували виконати завдання за минулий тиждень"
 
 #: courses/templates/courses/engagement_content.html
 msgid ""
@@ -373,6 +380,93 @@ msgstr ""
 #: courses/templates/courses/engagement_content.html
 #: courses/templates/courses/engagement_content.html
 msgid "Content Engagement Breakdown"
+msgstr ""
+
+#. Translators: This describes the data displayed in the chart below. E.g. how
+#. many learners viewed a video.
+#: courses/templates/courses/engagement_grouped_content.html
+#: courses/templates/courses/views_chart_info.html
+msgid "Video Views"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_section.html
+msgid "How did students interact with videos in this section?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_section.html
+msgid ""
+"Each bar shows the counts of complete and incomplete views of the videos in "
+"that subsection. Click on bars with low totals or a high incomplete rate to "
+"drill down and understand why."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_subsection.html
+msgid "How did students interact with videos in this subsection?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_subsection.html
+msgid ""
+"Each bar shows the counts of complete and incomplete views for that video. "
+"Click to understand where students drop off and which parts they replay."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_course.html
+#: courses/views/__init__.py
+msgid "How did students interact with course videos?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_course.html
+msgid ""
+"Each bar shows the counts of complete and incomplete views of the videos in "
+"that section. Click on bars with low totals or a high incomplete rate to "
+"drill down and understand why."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Total Video Views"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "What were the viewing patterns for this video?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid ""
+"The number of students who watched each segment of the video, and the number"
+" of replays for each segment."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Video Metrics"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Completion Rate"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Estimated percentage of students who watched the entire video."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Started Video"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Students who started watching the video."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Finished Video"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Students who watched the video to the end."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Video Viewing Over Time"
 msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
@@ -472,57 +566,66 @@ msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
 "students who provided a year of birth."
 msgstr ""
+"Ця вікова гістограма показує дані на основі %(value)s%% зарахованих "
+"студентів, які вказали свій рік народження."
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Metrics"
-msgstr ""
+msgstr "Вікові показники"
 
 #. Translators: This is a label to identify the median age of enrolled
 #. students.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Median Student Age"
-msgstr ""
+msgstr "Середній вік студентів"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The midpoint of the student ages, computed from the provided year of birth."
 msgstr ""
+"Середній вік студентів, розрахований на основі даних про рік народження."
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 25 and Under"
-msgstr ""
+msgstr "Студенти до 25"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The percentage of students aged 25 years or younger (of those who provided a"
 " year of birth)."
 msgstr ""
+"Процентне співвідношення студентів віком до 25 (з тих, хто вказав дату "
+"народження)."
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 26 to 40"
-msgstr ""
+msgstr "Студенти 26-40"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The percentage of students aged from 26 to 40 years (of those who provided a"
 " year of birth)."
 msgstr ""
+"Процентне співвідношення студентів віком від 26 до 40 (з тих, хто вказав "
+"дату народження)."
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 41 and Over"
-msgstr ""
+msgstr "Студенти за 41"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The percentage of students aged 41 years or older (of those who provided a "
 "year of birth)."
 msgstr ""
+"Процентне співвідношення студентів віком від 41 і старших (з тих, хто вказав"
+" дату народження)."
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Breakdown"
@@ -531,7 +634,7 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_education.html
 #: courses/views/__init__.py
 msgid "What level of education do my students have?"
-msgstr ""
+msgstr "Який рівень освіти мають мої студенти?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -544,7 +647,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Education Metrics"
-msgstr ""
+msgstr "Показники освіти"
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -604,7 +707,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geographic Distribution"
-msgstr ""
+msgstr "Географічне розташування"
 
 #: courses/templates/courses/enrollment_geography.html
 #: courses/views/__init__.py
@@ -613,11 +716,11 @@ msgstr "Де мої студенти?"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Enrollment by Country"
-msgstr ""
+msgstr "Зарахування на курс по країнах"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geography Metrics"
-msgstr ""
+msgstr "Географічні показники"
 
 #. Translators: This string represents the number of countries where students
 #. are enrolled.
@@ -627,43 +730,43 @@ msgstr "Усього представлено країн"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Countries with at least one student."
-msgstr ""
+msgstr "Країни хоча б з один студентом"
 
 #. Translators: This string represents the country with the greatest number of
 #. enrolled students.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Top Country by Enrollment"
-msgstr ""
+msgstr "Перша країна за кількістю студентів"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the largest number of students."
-msgstr ""
+msgstr "Країна з найбільшою кількістю студентів, записаних на курс."
 
 #. Translators: This string represents the country with the second-greatest
 #. number of enrolled students.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Second Country by Enrollment"
-msgstr ""
+msgstr "Друга країна за кількістю студентів"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the second largest number of students."
-msgstr ""
+msgstr "Країна - друга за кількістю студентів, записаних на курс."
 
 #. Translators: This string represents the country with the third-greatest
 #. number of enrolled students.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Third Country by Enrollment"
-msgstr ""
+msgstr "Третя країна за кількістю студентів"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the third largest number of students."
-msgstr ""
+msgstr "Країна - третя за кількістю студентів, записаних на курс."
 
 #. Translators: This string represents the percentage of students in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
 #: courses/templates/courses/enrollment_geography.html
 msgid "%(percent)s%% of students"
-msgstr ""
+msgstr "%(percent)s%% студентів"
 
 #: courses/templates/courses/enrollment_geography.html
 #: courses/templates/courses/enrollment_geography.html
@@ -694,7 +797,7 @@ msgstr "Курси"
 
 #: courses/templates/courses/index.html
 msgid "Welcome, %(username)s!"
-msgstr ""
+msgstr "Ласкаво просимо, %(username)s!"
 
 #: courses/templates/courses/index.html
 msgid "Here are the courses you currently have access to in Insights:"
@@ -702,22 +805,25 @@ msgstr ""
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
-msgstr ""
+msgstr "Вперше у %(application_name)s?"
 
 #: courses/templates/courses/index.html
 msgid ""
 "Click Help in the upper-right corner to get more information about "
 "%(application_name)s. Send us feedback at %(email_link)s."
 msgstr ""
+"Клацніть на Допомогу у верхньому правому куті, щоб отримати більше "
+"інформації про  %(application_name)s. Надішліть нам свої враження на "
+"%(email_link)s."
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
 msgid "How did students answer this problem?"
-msgstr ""
+msgstr "Як студенти відповіли на цю проблему?"
 
 #: courses/templates/courses/performance_assignment.html
 msgid "How are students doing on this assignment?"
-msgstr ""
+msgstr "Як студенти справляються з цим завданням?"
 
 #: courses/templates/courses/performance_assignment.html
 #: courses/templates/courses/performance_ungraded_by_subsection.html
@@ -733,13 +839,14 @@ msgstr ""
 
 #: courses/templates/courses/performance_graded_content.html
 msgid "Which assignment type do you want to investigate?"
-msgstr ""
+msgstr "Який тип завдань ви хочете дослідити?"
 
 #: courses/templates/courses/performance_graded_content.html
 msgid ""
 "Click an assignment type to view more detail information about the "
 "assignments."
 msgstr ""
+"Виберіть тип завдання, щоб переглянути детальнішу інформацію про завдання."
 
 #. Translators: This describes the percent an assignment contributes to that
 #. of a learner's grade (e.g. Exam: 60% of the grading policy.).
@@ -753,7 +860,7 @@ msgstr ""
 #. Translators: This describes the percent of a learner's grade (e.g. 60%).
 #: courses/templates/courses/performance_graded_content.html
 msgid "%(policy_ratio)s%%"
-msgstr ""
+msgstr "%(policy_ratio)s%%"
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
@@ -761,6 +868,8 @@ msgid ""
 "      How are students doing on the %(type)s?\n"
 "    "
 msgstr ""
+"\n"
+"Як студенти справляються з %(type)s?"
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
@@ -775,7 +884,7 @@ msgstr ""
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are students doing on this section?"
-msgstr ""
+msgstr "Як студенти справляються з цим розділом?"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid ""
@@ -789,7 +898,7 @@ msgstr ""
 
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid "How are students doing on this subsection?"
-msgstr ""
+msgstr "Як студенти справляються з цим підрозділом?"
 
 #: courses/templates/courses/performance_ungraded_content.html
 #: courses/views/__init__.py
@@ -832,7 +941,7 @@ msgstr "Діяльність"
 #: courses/views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Demographics"
-msgstr ""
+msgstr "Демографія"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
@@ -859,6 +968,11 @@ msgstr "Стать"
 #: courses/views/engagement.py
 msgid "Content"
 msgstr "Вміст"
+
+#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
+#: courses/views/engagement.py
+msgid "Videos"
+msgstr ""
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
@@ -891,6 +1005,31 @@ msgstr ""
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
+msgstr ""
+
+#: courses/views/engagement.py
+msgid "Engagement Videos"
+msgstr ""
+
+#. Translators: Do not translate UTC.
+#: courses/views/engagement.py
+msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
+msgstr ""
+
+#: courses/views/engagement.py
+msgid "Looks like no one has watched any videos in these sections."
+msgstr ""
+
+#: courses/views/engagement.py courses/views/performance.py
+msgid "Section Name"
+msgstr "Назва розділу"
+
+#: courses/views/engagement.py courses/views/performance.py
+msgid "Subsection Name"
+msgstr "Назва підрозділу"
+
+#: courses/views/engagement.py
+msgid "Video Name"
 msgstr ""
 
 #. Translators: Do not translate UTC.
@@ -952,6 +1091,14 @@ msgstr ""
 msgid "Assignment Name"
 msgstr "Найменування Завдання"
 
+#: courses/views/performance.py
+msgid "No submissions received for these exercises."
+msgstr ""
+
+#: courses/views/performance.py
+msgid "No submissions received for these assignments."
+msgstr ""
+
 #: courses/views/performance.py courses/views/performance.py
 msgid "Performance: Problem Submissions"
 msgstr ""
@@ -963,14 +1110,6 @@ msgstr ""
 #: courses/views/performance.py courses/views/performance.py
 msgid "Problem Name"
 msgstr "Назва завдання"
-
-#: courses/views/performance.py
-msgid "Section Name"
-msgstr ""
-
-#: courses/views/performance.py
-msgid "Subsection Name"
-msgstr ""
 
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
@@ -985,7 +1124,7 @@ msgstr ""
 
 #: templates/403.html
 msgid "Logout then Login"
-msgstr ""
+msgstr "Вийдіть та знову авторизуйтесь"
 
 #: templates/404.html templates/404.html.py
 msgid "Page Not Found"
@@ -1010,6 +1149,7 @@ msgstr ""
 #: templates/503.html templates/503.html.py
 msgid "We're having trouble loading this page. Please try again in a minute."
 msgstr ""
+"Виникла проблема при завантаженні сторінки. Спробуйте ще раз через хвилину."
 
 #: templates/503.html
 msgid "(Technical details: 503 Service Unavailable.)"
@@ -1030,11 +1170,11 @@ msgstr ""
 #. placeholder as you see fit.
 #: templates/base-error.html
 msgid "Contact %(platform_name)s Support"
-msgstr ""
+msgstr "Зверніться до служби підтримки сервісу %(platform_name)s"
 
 #: templates/footer.html
 msgid "Feedback"
-msgstr ""
+msgstr "Зворотній зв’язок"
 
 #: templates/footer.html
 msgid ""
@@ -1068,7 +1208,7 @@ msgstr "Допомога"
 
 #: templates/header.html
 msgid "Logout"
-msgstr ""
+msgstr "Вийти"
 
 #: templates/loading.html
 msgid "Loading"

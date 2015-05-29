@@ -5,12 +5,13 @@
 # Translators:
 # Riina <ciairdabar@yahoo.com>, 2014-2015
 # Edukometrija <jolitad@mruni.eu>, 2014
+# Marius <mariux74@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 16:48-0400\n"
-"PO-Revision-Date: 2015-04-08 21:36+0000\n"
+"POT-Creation-Date: 2015-05-29 10:10-0400\n"
+"PO-Revision-Date: 2015-05-29 14:11+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/projects/p/edx-platform/language/lt_LT/)\n"
 "MIME-Version: 1.0\n"
@@ -33,7 +34,9 @@ msgstr "..."
 #. no label was provided.
 #. Translators: (empty) is displayed as a label in a chart and indicates that
 #. no label was provided.
-#: static/dist/js/common.js
+#. Translators: (empty) is displayed as a label in a chart and indicates that
+#. no label was provided.
+#: static/dist/js/common.js static/dist/js/engagement-video-content-main.js
 #: static/dist/js/enrollment-demographics-education-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/dist/js/performance-answer-distribution-main.js
@@ -82,6 +85,56 @@ msgstr "Parašė forume"
 #: static/js/engagement-content-main.js
 msgid "Week Ending <%=value%>"
 msgstr "Savaitė, kuri baigiasi <%=value%>"
+
+#: static/dist/js/engagement-video-content-main.js
+msgid "Complete Plays"
+msgstr ""
+
+#: static/dist/js/engagement-video-content-main.js
+msgid "Incomplete Plays"
+msgstr ""
+
+#: static/dist/js/engagement-video-content-main.js
+#: static/dist/js/performance-content-main.js
+#: static/js/engagement-video-content-main.js
+#: static/js/performance-content-main.js
+msgid "Order"
+msgstr "Sutvarkyti"
+
+#: static/dist/js/engagement-video-content-main.js
+#: static/js/engagement-video-content-main.js
+msgid "Videos"
+msgstr ""
+
+#: static/dist/js/engagement-video-content-main.js
+#: static/js/engagement-video-content-main.js
+msgid "Completion Percentage"
+msgstr ""
+
+#. Translators: <%=value%> will be replaced by a number followed by a
+#. percentage.
+#. For example, "400 (29%)"
+#: static/dist/js/engagement-video-content-main.js
+#: static/dist/js/performance-content-main.js
+#: static/js/engagement-video-content-main.js
+#: static/js/performance-content-main.js
+msgid "<%=value%> (<%=percent%>)"
+msgstr "<%=value%> (<%=percent%>)"
+
+#: static/dist/js/engagement-video-timeline-main.js
+#: static/js/engagement-video-timeline-main.js
+msgid "Unique Viewers"
+msgstr ""
+
+#: static/dist/js/engagement-video-timeline-main.js
+#: static/js/engagement-video-timeline-main.js
+msgid "Replays"
+msgstr ""
+
+#: static/dist/js/engagement-video-timeline-main.js
+#: static/js/engagement-video-timeline-main.js
+msgid "Time"
+msgstr ""
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
@@ -235,15 +288,6 @@ msgstr "Neteisingas"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
-msgid "Order"
-msgstr "Sutvarkyti"
-
-#: static/dist/js/performance-content-main.js
-msgid "Assignment Name"
-msgstr "Užduoties pavadinimas"
-
-#: static/dist/js/performance-content-main.js
-#: static/js/performance-content-main.js
 msgid "Problems"
 msgstr "Uždaviniai"
 
@@ -255,12 +299,12 @@ msgstr "Iš viso"
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
 msgid "Percentage Correct"
+msgstr "Užpildyta procentais"
+
+#: static/js/engagement-video-content-main.js
+msgid "Complete Views"
 msgstr ""
 
-#. Translators: <%=value%> will be replaced by a number followed by a
-#. percentage.
-#. For example, "400 (29%)"
-#: static/dist/js/performance-content-main.js
-#: static/js/performance-content-main.js
-msgid "<%=value%> (<%=percent%>)"
+#: static/js/engagement-video-content-main.js
+msgid "Incomplete Views"
 msgstr ""
