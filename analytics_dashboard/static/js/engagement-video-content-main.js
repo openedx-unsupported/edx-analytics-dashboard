@@ -29,7 +29,7 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
 
             if (model.get('showVideoCount')) {
                 tableColumns.push({
-                    key: 'num_children',
+                    key: 'num_modules',
                     title: gettext('Videos'),
                     type: 'number', className: 'text-right'
                 });

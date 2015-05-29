@@ -50,7 +50,7 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                 'name': assignment['display_name'],
                 'assignment_type': assignment['format'],
                 'children': problems,
-                'num_children': num_problems,
+                'num_modules': num_problems,
                 'total_submissions': num_problems,
                 'correct_submissions': num_problems,
                 'correct_percent': 1.0,
@@ -138,7 +138,7 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                     'id': subsection['id'],
                     'name': subsection['display_name'],
                     'children': problems,
-                    'num_children': num_problems,
+                    'num_modules': num_problems,
                     'total_submissions': num_problems,
                     'correct_submissions': num_problems,
                     'correct_percent': 1.0,
@@ -157,7 +157,7 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                 'id': section['id'],
                 'name': section['display_name'],
                 'children': subsections,
-                'num_children': num_problems,
+                'num_modules': num_problems,
                 'total_submissions': num_problems,
                 'correct_submissions': num_problems,
                 'correct_percent': 1.0,
@@ -216,7 +216,7 @@ class CourseEngagementDataFactory(CourseStructureFactory):
                     'id': subsection['id'],
                     'name': subsection['display_name'],
                     'children': videos,
-                    'num_children': num_videos,
+                    'num_modules': num_videos,
                     'users_at_start': 10,
                     'users_at_end': 0,
                     'url': urllib.quote(url_template.format(
@@ -225,14 +225,13 @@ class CourseEngagementDataFactory(CourseStructureFactory):
                 }
                 subsections.append(presented_subsection)
 
-            num_problems = 1
             url_template = '/courses/{}/engagement/videos/sections/{}/'
             presented_sections = {
                 'index': section_index + 1,
                 'id': section['id'],
                 'name': section['display_name'],
                 'children': subsections,
-                'num_children': num_problems,
+                'num_modules': 1,
                 'users_at_start': 10,
                 'users_at_end': 0,
                 'url': urllib.quote(url_template.format(
