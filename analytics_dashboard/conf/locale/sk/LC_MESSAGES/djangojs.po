@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 16:48-0400\n"
-"PO-Revision-Date: 2015-04-08 21:36+0000\n"
+"POT-Creation-Date: 2015-05-29 10:10-0400\n"
+"PO-Revision-Date: 2015-05-29 14:11+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Slovak (http://www.transifex.com/projects/p/edx-platform/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -33,7 +33,9 @@ msgstr "..."
 #. no label was provided.
 #. Translators: (empty) is displayed as a label in a chart and indicates that
 #. no label was provided.
-#: static/dist/js/common.js
+#. Translators: (empty) is displayed as a label in a chart and indicates that
+#. no label was provided.
+#: static/dist/js/common.js static/dist/js/engagement-video-content-main.js
 #: static/dist/js/enrollment-demographics-education-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/dist/js/performance-answer-distribution-main.js
@@ -50,38 +52,88 @@ msgstr "(prázdny)"
 #: static/js/performance-answer-distribution-main.js
 #: static/js/performance-content-main.js static/js/views/data-table-view.js
 msgid "Correct"
-msgstr "Správna"
+msgstr "Správnych"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Week Ending"
-msgstr "Ku koncu týždňa"
+msgstr "Koniec týždňa"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Active Students"
-msgstr "Aktívnych študentov"
+msgstr "Aktívni študenti"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Watched a Video"
-msgstr "Pozerali videá"
+msgstr "Pozreli si video"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Tried a Problem"
-msgstr "Riešili problémovú úlohu"
+msgstr "Riešili úlohu"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Posted in Forum"
-msgstr "Prispievali do fóra"
+msgstr "Prispeli do diskusie"
 
 #. Translators: <%=value%> will be replaced with a date.
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Week Ending <%=value%>"
-msgstr "Ku koncu týždňa <%=value%>"
+msgstr "Koniec týždňa <%=value%>"
+
+#: static/dist/js/engagement-video-content-main.js
+msgid "Complete Plays"
+msgstr ""
+
+#: static/dist/js/engagement-video-content-main.js
+msgid "Incomplete Plays"
+msgstr ""
+
+#: static/dist/js/engagement-video-content-main.js
+#: static/dist/js/performance-content-main.js
+#: static/js/engagement-video-content-main.js
+#: static/js/performance-content-main.js
+msgid "Order"
+msgstr "Poradie"
+
+#: static/dist/js/engagement-video-content-main.js
+#: static/js/engagement-video-content-main.js
+msgid "Videos"
+msgstr ""
+
+#: static/dist/js/engagement-video-content-main.js
+#: static/js/engagement-video-content-main.js
+msgid "Completion Percentage"
+msgstr ""
+
+#. Translators: <%=value%> will be replaced by a number followed by a
+#. percentage.
+#. For example, "400 (29%)"
+#: static/dist/js/engagement-video-content-main.js
+#: static/dist/js/performance-content-main.js
+#: static/js/engagement-video-content-main.js
+#: static/js/performance-content-main.js
+msgid "<%=value%> (<%=percent%>)"
+msgstr "<%=value%> (<%=percent%>)"
+
+#: static/dist/js/engagement-video-timeline-main.js
+#: static/js/engagement-video-timeline-main.js
+msgid "Unique Viewers"
+msgstr ""
+
+#: static/dist/js/engagement-video-timeline-main.js
+#: static/js/engagement-video-timeline-main.js
+msgid "Replays"
+msgstr ""
+
+#: static/dist/js/engagement-video-timeline-main.js
+#: static/js/engagement-video-timeline-main.js
+msgid "Time"
+msgstr ""
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
@@ -109,12 +161,12 @@ msgstr "Kódex cti"
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Verified"
-msgstr "Overený"
+msgstr "Overených"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Professional"
-msgstr "Profesionál"
+msgstr "Profesionálnych"
 
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-age-main.js
@@ -139,7 +191,7 @@ msgstr "Vek"
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/js/enrollment-demographics-age-main.js
 msgid "Percent of Total"
-msgstr "Percent celkovo"
+msgstr "Celkový percentný podiel"
 
 #: static/dist/js/enrollment-demographics-education-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
@@ -193,8 +245,8 @@ msgid ""
 "Student location is determined from IP address. This map shows where "
 "students most recently connected."
 msgstr ""
-"Poloha študentov je určená podľa IP adresy. Táto mapa ukazuje, odkiaľ sa "
-"študenti naposledy pripájali."
+"Poloha študentov je určená na základe IP adresy. Táto karta ukazuje, odkiaľ "
+"sa študenti naposledy pripájali."
 
 #: static/dist/js/enrollment-geography-main.js
 #: static/js/enrollment-geography-main.js
@@ -219,7 +271,7 @@ msgstr "Počet podaní"
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
 msgid "Variant"
-msgstr "Variant"
+msgstr "Varianta"
 
 #. Translators: <%=value%> will be replaced by a student response to a
 #. question asked in a course.
@@ -231,36 +283,27 @@ msgstr "Odpoveď: <%=value%>"
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
 msgid "Incorrect"
-msgstr "Nesprávny"
-
-#: static/dist/js/performance-content-main.js
-#: static/js/performance-content-main.js
-msgid "Order"
-msgstr "Poradie"
-
-#: static/dist/js/performance-content-main.js
-msgid "Assignment Name"
-msgstr "Názov zadania"
+msgstr "Nesprávnych"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
 msgid "Problems"
-msgstr "Problémy"
+msgstr "Úlohy"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
 msgid "Total"
-msgstr "Celkový"
+msgstr "Celkovo"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
 msgid "Percentage Correct"
+msgstr "Percento správnych"
+
+#: static/js/engagement-video-content-main.js
+msgid "Complete Views"
 msgstr ""
 
-#. Translators: <%=value%> will be replaced by a number followed by a
-#. percentage.
-#. For example, "400 (29%)"
-#: static/dist/js/performance-content-main.js
-#: static/js/performance-content-main.js
-msgid "<%=value%> (<%=percent%>)"
-msgstr "<%=value%> (<%=percent%>)"
+#: static/js/engagement-video-content-main.js
+msgid "Incomplete Views"
+msgstr ""

@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Jirayu Chamamahattana <mman2x@gmail.com>, 2015
 # Kamthorn Krairaksa <kamthorn@gmail.com>, 2014
 # neelawat <neelawat@gmail.com>, 2014
 # neelawat <neelawat@gmail.com>, 2014
@@ -15,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 16:48-0400\n"
-"PO-Revision-Date: 2015-04-08 21:36+0000\n"
+"POT-Creation-Date: 2015-05-29 10:09-0400\n"
+"PO-Revision-Date: 2015-05-29 14:11+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Thai (http://www.transifex.com/projects/p/edx-platform/language/th/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +28,7 @@ msgstr ""
 
 #: core/templates/core/landing.html
 msgid "Login"
-msgstr "ลงชื่อเข้าใช้"
+msgstr "เข้าสู่ระบบ"
 
 #: core/templates/core/landing.html
 msgid "Insights to help course teams improve courses."
@@ -39,7 +40,7 @@ msgstr "ใครคือผู้เรียนของฉัน?"
 
 #: core/templates/core/landing.html
 msgid "Target your course to fit the backgrounds of your students."
-msgstr "มุ่งหมายให้หลักสูตรของคุณเหมาะกับพื้นความรู้ผู้เรียนของคุณ"
+msgstr "ตั้งเป้าหมายให้หลักสูตรของคุณให้เหมาะสมกับพื้นฐานของผู้เรียน"
 
 #: core/templates/core/landing.html
 #: courses/templates/courses/enrollment_geography.html
@@ -77,19 +78,19 @@ msgstr "ปรับหลักสูตรของคุณตามปัญ
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/__init__.py
 msgid "Performance"
-msgstr "การแสดงผล"
+msgstr "สมรรถนะ"
 
 #: core/templates/core/landing.html
 msgid "Join the Open Source Community"
-msgstr "เข้าร่วมกับชุมชนแหล่งข้อมูลเปิด"
+msgstr "เข้าร่วมกับชุมชนโอเพ่นซอร์ส"
 
 #: core/templates/core/landing.html
 msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
 msgstr ""
-"ท่อนำสายการวิเคราะห์ข้อมูลedXและเชาว์ปัญญาedX เป็นแหล่งข้อมูลเปิด "
-"%(link_start)s เรียนรู้เพิ่ม %(link_end)s."
+"ผลการวิเคราะห์ข้อมูลของ edX และข้อมูลลอง edX "
+"ในเชิงลึกนั้นเป็นข้อมูลที่เปิดเผย %(link_start)s เรียนรู้เพิ่ม %(link_end)s."
 
 #: core/templates/core/landing.html
 msgid "Research at edX"
@@ -149,18 +150,18 @@ msgstr "ไม่ระบุ"
 #. School Degree).
 #: courses/presenters/enrollment.py courses/tests/test_serializers.py
 msgid "Primary"
-msgstr "ประถม"
+msgstr "ประถมศึกษา"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: courses/presenters/enrollment.py
 msgid "Middle"
-msgstr "มัธยม"
+msgstr "มัธยมต้น"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Secondary"
-msgstr "มัธยมต้น"
+msgstr "มัธยมศึกษา"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
@@ -222,15 +223,6 @@ msgstr "ส่งคำตอบสำหรับส่วน {part_number}"
 msgid "Part {part_number}"
 msgstr "ส่วน {part_number}"
 
-#: courses/templates/courses/_base_content_nav.html
-msgid "Select Problem"
-msgstr "เลือกปัญหา"
-
-#. Translators: This indicates that no text was provided.
-#: courses/templates/courses/_base_content_nav.html
-msgid "(empty)"
-msgstr "(empty)"
-
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
 msgstr "เลือกประเภทของการบ้าน"
@@ -248,30 +240,42 @@ msgid ""
 "    "
 msgstr ""
 
+#: courses/templates/courses/_graded_content_nav.html
 #: courses/templates/courses/_ungraded_content_nav.html
+msgid "Select Problem"
+msgstr "เลือกปัญหา"
+
+#. Translators: This text will be a direct link to the a specific
+#. module/problem.
+#: courses/templates/courses/_module_description.html
+msgid "View Live"
+msgstr "ดูสด"
+
+#: courses/templates/courses/_ungraded_content_nav.html
+#: courses/templates/courses/_video_content_nav.html
 msgid "Select Section"
 msgstr ""
 
 #: courses/templates/courses/_ungraded_content_nav.html
+#: courses/templates/courses/_video_content_nav.html
 msgid "All Sections"
 msgstr ""
 
 #: courses/templates/courses/_ungraded_content_nav.html
+#: courses/templates/courses/_video_content_nav.html
 msgid "Select Subsection"
 msgstr ""
 
-#. Translators: This text will be a direct link to the a specific
-#. module/problem.
-#: courses/templates/courses/base_performance_answer_distribution.html
-msgid "View Live"
-msgstr "ดูสด"
+#: courses/templates/courses/_video_content_nav.html
+msgid "Select Video"
+msgstr ""
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid ""
 "This chart shows the most common answers submitted by students, ordered by "
 "frequency."
-msgstr "แผนภูมแสดงคำส่วนใหญ่ที่นักเรียนส่งเข้ามา เรียงตามจำนวน"
+msgstr "แผนภูมแสดงคำส่วนใหญ่ที่ผู้เรียนส่งเข้ามา เรียงตามจำนวน"
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -295,6 +299,7 @@ msgstr "จำนวนการส่งคำตอบ"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 #: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_demographics_age.html
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -306,10 +311,6 @@ msgstr "ดาวน์โหลด CSV"
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Student Submission Counts"
 msgstr "จำนวนนักเรียนที่ส่งคำตอบ"
-
-#: courses/templates/courses/base_performance_grouped_content.html
-msgid "No submissions received for these assignments."
-msgstr "ยังไม่ได้รับคำตอบสำหรับงานที่มอบหมาย"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
@@ -352,7 +353,7 @@ msgstr "ผู้เรียนที่เข้าชมเนื้อหา
 #. a video.
 #: courses/templates/courses/engagement_content.html
 msgid "Watched a Video Last Week"
-msgstr "ผู้วิดีโอที่ชมในสัปดาห์ที่ผ่านมา"
+msgstr "ดูวิดีโอในสัปดาห์ที่ผ่านมา"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who played one or more videos."
@@ -384,6 +385,93 @@ msgstr "ผู้เรียนซึ่งก่อให้เกิดปร
 #: courses/templates/courses/engagement_content.html
 msgid "Content Engagement Breakdown"
 msgstr "ล้มเลิกเนื้อหาผูกพัน"
+
+#. Translators: This describes the data displayed in the chart below. E.g. how
+#. many learners viewed a video.
+#: courses/templates/courses/engagement_grouped_content.html
+#: courses/templates/courses/views_chart_info.html
+msgid "Video Views"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_section.html
+msgid "How did students interact with videos in this section?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_section.html
+msgid ""
+"Each bar shows the counts of complete and incomplete views of the videos in "
+"that subsection. Click on bars with low totals or a high incomplete rate to "
+"drill down and understand why."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_subsection.html
+msgid "How did students interact with videos in this subsection?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_subsection.html
+msgid ""
+"Each bar shows the counts of complete and incomplete views for that video. "
+"Click to understand where students drop off and which parts they replay."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_course.html
+#: courses/views/__init__.py
+msgid "How did students interact with course videos?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_course.html
+msgid ""
+"Each bar shows the counts of complete and incomplete views of the videos in "
+"that section. Click on bars with low totals or a high incomplete rate to "
+"drill down and understand why."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Total Video Views"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "What were the viewing patterns for this video?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid ""
+"The number of students who watched each segment of the video, and the number"
+" of replays for each segment."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Video Metrics"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Completion Rate"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Estimated percentage of students who watched the entire video."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Started Video"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Students who started watching the video."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Finished Video"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Students who watched the video to the end."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Video Viewing Over Time"
+msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
@@ -461,7 +549,7 @@ msgid ""
 "The difference between the number of students pursuing verified certificates"
 " at the end of the day yesterday and one week before."
 msgstr ""
-"ความต่างระหว่างจำนวนผู้เรียนที่ยืนยันหนังสือสำเร็จเมื่อสิ้นวันเมื่อวานกับหนึ่งอาทิตย์ก่อนหน้านี้"
+"ความต่างระหว่างจำนวนผู้เรียนที่ยืนยันใบรับรองเมื่อสิ้นวันเมื่อวานกับหนึ่งอาทิตย์ก่อนหน้านี้"
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html
@@ -499,7 +587,7 @@ msgstr "ค่ากลางอายุผู้เรียน"
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The midpoint of the student ages, computed from the provided year of birth."
-msgstr "ค่ากลางของอายุผู้เรียน คำนวญจากปีเกิดที่ให้"
+msgstr "ค่ากลางของอายุผู้เรียน คำนวณจากปีเกิดที่ให้"
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
@@ -894,6 +982,11 @@ msgstr "เพศ"
 msgid "Content"
 msgstr "เนื้อหา"
 
+#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
+#: courses/views/engagement.py
+msgid "Videos"
+msgstr ""
+
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
 msgid "Graded Content"
@@ -929,6 +1022,31 @@ msgstr ""
 "ปรับปรุงข้อมูลข้อตกลงหลักสูตรล่าสุดวันที่ %(update_date)s เวลา "
 "%(update_time)s UTC."
 
+#: courses/views/engagement.py
+msgid "Engagement Videos"
+msgstr ""
+
+#. Translators: Do not translate UTC.
+#: courses/views/engagement.py
+msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
+msgstr ""
+
+#: courses/views/engagement.py
+msgid "Looks like no one has watched any videos in these sections."
+msgstr ""
+
+#: courses/views/engagement.py courses/views/performance.py
+msgid "Section Name"
+msgstr ""
+
+#: courses/views/engagement.py courses/views/performance.py
+msgid "Subsection Name"
+msgstr ""
+
+#: courses/views/engagement.py
+msgid "Video Name"
+msgstr ""
+
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
 msgid ""
@@ -960,15 +1078,15 @@ msgstr ""
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Age"
-msgstr "สถิติการลงทะเบียนประชากรโดย อายุ"
+msgstr "สถิติการลงทะเบียนโดย อายุ"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Education"
-msgstr "สถิติการลงทะเบียนประชากรโดย การศึกษา"
+msgstr "สถิติการลงทะเบียนโดย การศึกษา"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Gender"
-msgstr "สถิติการลงทะเบียนประชากรโดย เพศสภาพ"
+msgstr "สถิติการลงทะเบียนโดย เพศสภาพ"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Geography"
@@ -995,6 +1113,14 @@ msgstr ""
 msgid "Assignment Name"
 msgstr "ชื่องาน:"
 
+#: courses/views/performance.py
+msgid "No submissions received for these exercises."
+msgstr ""
+
+#: courses/views/performance.py
+msgid "No submissions received for these assignments."
+msgstr "ยังไม่ได้รับคำตอบสำหรับงานที่มอบหมาย"
+
 #: courses/views/performance.py courses/views/performance.py
 msgid "Performance: Problem Submissions"
 msgstr "ปฏิบัติการ: ส่งคำถาม"
@@ -1007,14 +1133,6 @@ msgstr "เนื้อหาการออกเกรด: %(assignment_type)s
 msgid "Problem Name"
 msgstr "ชื่อปัญหา"
 
-#: courses/views/performance.py
-msgid "Section Name"
-msgstr ""
-
-#: courses/views/performance.py
-msgid "Subsection Name"
-msgstr ""
-
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
 msgstr "ไม่อนุญาตให้เข้าถึง"
@@ -1025,12 +1143,12 @@ msgid ""
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
 msgstr ""
-"คุณไม่ได้รับอนุญาติให้ดูหน้าเพจนี้ "
-"หากคุณคิดว่าคุณควรเข้าถึงหน้าเพจนี้ลองล็อกเอาท์และล็อกอินเพื่อเข้าถึงการอนุญาตอีกครั้ง"
+"คุณไม่ได้รับอนุญาตให้ดูหน้านี้ "
+"หากคุณคิดว่าคุณควรเข้าถึงหน้านี้ลองออกจากระบบและเข้าสู่ระบบเพื่อเข้าถึงการอนุญาตอีกครั้ง"
 
 #: templates/403.html
 msgid "Logout then Login"
-msgstr "ออกจากระบบ แล้วเข้าระบบ"
+msgstr "ออกจากระบบ แล้วเข้าสู่ระบบ"
 
 #: templates/404.html templates/404.html.py
 msgid "Page Not Found"
@@ -1041,7 +1159,7 @@ msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
 msgstr ""
-"เราพบหน้าที่คุรต้องการ กรุณาตรวจสอบความถูกต้องของ URL หรือลองใหม่อีกครั้ง"
+"เราไม่พบหน้าที่คุณต้องการ กรุณาตรวจสอบความถูกต้องของ URL หรือลองใหม่อีกครั้ง"
 
 #: templates/500.html templates/500.html.py
 msgid "An Error Occurred"
@@ -1053,7 +1171,7 @@ msgid ""
 "refreshing this page or retracing your steps."
 msgstr ""
 "เซฟเวอร์ของเราไม่สามารถทำตามคำขอของคุณได้สมบูรณ์ "
-"กรุณาเฟชรหน้านี้ใหม่หรือย้อนขั้นตอนอีกครั้ง"
+"กรุณารีเฟชรหน้านี้ใหม่หรือย้อนขั้นตอนอีกครั้ง"
 
 #: templates/503.html templates/503.html.py
 msgid "We're having trouble loading this page. Please try again in a minute."

@@ -5,13 +5,15 @@
 # Translators:
 # Livia Meskova <liviameskova@hotmail.com>, 2014-2015
 # Lucia Štubňová <stubnovalucia@gmail.com>, 2015
+# Marcel Miklosik <marcel.miklosik@gmail.com>, 2015
 # seliga.adam <seliga.adam@gmail.com>, 2014
+# Vladimír Záhradník <vladimir.zahradnik@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 16:48-0400\n"
-"PO-Revision-Date: 2015-04-09 17:25+0000\n"
+"POT-Creation-Date: 2015-05-29 10:09-0400\n"
+"PO-Revision-Date: 2015-05-29 14:11+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Slovak (http://www.transifex.com/projects/p/edx-platform/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -22,11 +24,11 @@ msgstr ""
 
 #: core/templates/core/landing.html
 msgid "Login"
-msgstr "Prihlásiť"
+msgstr "Prihlásiť sa"
 
 #: core/templates/core/landing.html
 msgid "Insights to help course teams improve courses."
-msgstr "Prehľady pomáhajúce vzdelávaciemu tímu zlepšiť kurzy."
+msgstr "Náhľady, ktoré pomôžu pri zlepšovaní kurzov."
 
 #: core/templates/core/landing.html courses/views/__init__.py
 msgid "Who are my students?"
@@ -45,15 +47,15 @@ msgstr "Zápis"
 
 #: core/templates/core/landing.html
 msgid "What are students engaging with in my course?"
-msgstr "Čo zapojilo študentov do môjho kurzu?"
+msgstr "Akí študenti sa zúčastňujú v mojom kurze?"
 
 #: core/templates/core/landing.html
 msgid ""
 "Improve frequently accessed content, or point students at underused "
 "resources."
 msgstr ""
-"Zlepšiť často sprístupňovaný obsah, alebo ukáž študentov s málo používanými "
-"zdrojmi."
+"Zlepšite obsah, ku ktorému sa pristupuje často alebo ukážte študentom "
+"zdroje, ktoré sa používajú málo."
 
 #: core/templates/core/landing.html
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
@@ -67,8 +69,7 @@ msgstr "Ako dobre podporuje môj obsah učenie študentov?"
 
 #: core/templates/core/landing.html
 msgid "Adjust your course based on where students are struggling."
-msgstr ""
-"Prispôsobte váš kurz na základe častí, s ktorými majú študenti problémy."
+msgstr "Prispôsobte váš kurz podľa toho, kde majú študenti problémy."
 
 #: core/templates/core/landing.html
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
@@ -78,27 +79,27 @@ msgstr "Výkonnosť"
 
 #: core/templates/core/landing.html
 msgid "Join the Open Source Community"
-msgstr "Zapojte sa do Open Source Community"
+msgstr "Pridajte sa k Open Source komunite"
 
 #: core/templates/core/landing.html
 msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
 msgstr ""
-"edX prúd analytických dát a edX pohľad sú open source. %(link_start)sLearn "
-"more%(link_end)s."
+"Prúd analytických dát edX a tiež edX Náhľady sú dostupné ako open source. "
+"%(link_start)sDozvedieť sa viac%(link_end)s."
 
 #: core/templates/core/landing.html
 msgid "Research at edX"
-msgstr "Vyhľadajte na edX"
+msgstr "Výskum na edX"
 
 #: core/templates/core/landing.html
 msgid ""
 "We are committed to advancing teaching and learning through research. "
 "%(link_start)sLearn more%(link_end)s."
 msgstr ""
-"Sme odhodlaný presadzovať pokrok vo vzdelávaní cez výskum.  "
-"%(link_start)sLearn more%(link_end)s."
+"Sme odhodlaní presadzovať pokroky vo vyučovaní a štúdiu prostredníctvom "
+"výskumu.  %(link_start)sDozvedieť sa viac%(link_end)s."
 
 #: core/templates/core/landing.html
 msgid "Need Help?"
@@ -108,13 +109,13 @@ msgstr "Potrebujete pomoc?"
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
 msgstr ""
-"%(link_start)sNaše podporné centrum%(link_end)s vám pomôže nájsť riešenia."
+"%(link_start)sNaše centrum podpory%(link_end)s vám pomôže nájsť riešenia."
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
 #: core/templatetags/dashboard_extras.py
 msgid "{statistic}%"
-msgstr ""
+msgstr "{statistic}%"
 
 #: courses/presenters/enrollment.py
 msgid "Female"
@@ -140,7 +141,7 @@ msgstr "Neznáme"
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "None"
-msgstr "Žiadny"
+msgstr "Žiadne"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
@@ -163,19 +164,19 @@ msgstr "Vyššie stredné"
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Associate"
-msgstr "Spolupracovník"
+msgstr "Partner"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Bachelor's"
-msgstr "Bakalárske"
+msgstr "Bakalár"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Master's"
-msgstr "Magisterské"
+msgstr "Magister"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
@@ -219,18 +220,9 @@ msgstr "Podania pre časť {part_number}"
 msgid "Part {part_number}"
 msgstr "Časť {part_number}"
 
-#: courses/templates/courses/_base_content_nav.html
-msgid "Select Problem"
-msgstr "Vyberte problém"
-
-#. Translators: This indicates that no text was provided.
-#: courses/templates/courses/_base_content_nav.html
-msgid "(empty)"
-msgstr "(prázdny)"
-
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
-msgstr "Vyberte typ zadania"
+msgstr "Vybrať typ zadania"
 
 #. Translators: This refers to all course assignment types (e.g. homework,
 #. exam, lab).
@@ -244,24 +236,39 @@ msgid ""
 "        Select %(level)s\n"
 "    "
 msgstr ""
+"\n"
+"        Vybrať %(level)s\n"
+"    "
 
+#: courses/templates/courses/_graded_content_nav.html
 #: courses/templates/courses/_ungraded_content_nav.html
-msgid "Select Section"
-msgstr ""
-
-#: courses/templates/courses/_ungraded_content_nav.html
-msgid "All Sections"
-msgstr ""
-
-#: courses/templates/courses/_ungraded_content_nav.html
-msgid "Select Subsection"
-msgstr ""
+msgid "Select Problem"
+msgstr "Vybrať úlohu"
 
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
-#: courses/templates/courses/base_performance_answer_distribution.html
+#: courses/templates/courses/_module_description.html
 msgid "View Live"
-msgstr "Pohľad naživo"
+msgstr "Zobraziť aktuálne údaje"
+
+#: courses/templates/courses/_ungraded_content_nav.html
+#: courses/templates/courses/_video_content_nav.html
+msgid "Select Section"
+msgstr "Vybrať sekciu"
+
+#: courses/templates/courses/_ungraded_content_nav.html
+#: courses/templates/courses/_video_content_nav.html
+msgid "All Sections"
+msgstr "Všetky sekcie"
+
+#: courses/templates/courses/_ungraded_content_nav.html
+#: courses/templates/courses/_video_content_nav.html
+msgid "Select Subsection"
+msgstr "Vybrať subsekciu"
+
+#: courses/templates/courses/_video_content_nav.html
+msgid "Select Video"
+msgstr ""
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -269,8 +276,8 @@ msgid ""
 "This chart shows the most common answers submitted by students, ordered by "
 "frequency."
 msgstr ""
-"Táto schéma ukazuje najčastejšie odpovede poslané študentmi v radení podľa "
-"častosti."
+"Tento graf zobrazuje najčastejšie odpovede odoslané študentami zoradené "
+"podľa početnosti výskytu."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -278,8 +285,8 @@ msgid ""
 "Due to the number of possible variants for randomized problems, charts are "
 "not available. %(read_more_link_start)sRead more%(read_more_link_end)s."
 msgstr ""
-"Z dôvodu veľkého počtu možných variantov pre náhodne vybrané úlohy, schémy "
-"nie sú k dispozícii. %(read_more_link_start)sPrečítajte si "
+"Z dôvodu veľkého počtu možných variant pre náhodne vybrané úlohy nie sú "
+"grafy k dispozícii. %(read_more_link_start)sČítať "
 "viac%(read_more_link_end)s."
 
 #. Translators: Variants refers to versions of a problem/assignment.
@@ -288,43 +295,40 @@ msgid ""
 "Review all submission variants below, or click Download CSV to review them "
 "offline."
 msgstr ""
-"Skontrolujte všetky dolu podané varianty alebo kliknite na Download CSV, aby"
-" ste ich mohli skontrolovať offline."
+"Skontrolujte všetky varianty podaní nižšie alebo kliknite na Prevziať CSV, "
+"aby ste si ich mohli prezrieť offline."
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Submission Counts"
-msgstr "Počítadlo podaní"
+msgstr "Počty podaní"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 #: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_demographics_age.html
 #: courses/templates/courses/enrollment_demographics_education.html
 #: courses/templates/courses/enrollment_demographics_gender.html
 #: courses/templates/courses/enrollment_geography.html
 msgid "Download CSV"
-msgstr "stiahnuť SCV"
+msgstr "Prevziať CSV"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Student Submission Counts"
-msgstr "Študentské počítadlo podaní"
-
-#: courses/templates/courses/base_performance_grouped_content.html
-msgid "No submissions received for these assignments."
-msgstr "Pre tieto zadania neboli prijaté žiadne podania."
+msgstr "Počty podaní študentov"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
 msgid "Students (Self-Reported)"
-msgstr "Študenti (Samo-nahlásení)"
+msgstr "Študenti (samo-nahlásení)"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Weekly Student Engagement"
-msgstr "Týždenná účasť študenta"
+msgstr "Zamestnanie študenta za týždeň"
 
 #: courses/templates/courses/engagement_content.html courses/views/__init__.py
 msgid "How many students are interacting with my course?"
-msgstr "Koľko študentov pracuje na mojom kurze?"
+msgstr "Koľko študentov je v mojom kurze?"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students"
@@ -335,16 +339,16 @@ msgid ""
 "The number of active students, and the number of students who engaged in "
 "specific activities, over time."
 msgstr ""
-"Počet aktívnych študentov a počet študentov, ktorí sa zapojili do "
-"špecifických aktivít navyše."
+"Počet aktívnych študentov a počet študentov, ktorí sa zapojili do určitých "
+"aktivít."
 
 #: courses/templates/courses/engagement_content.html
 msgid "Student Activity Metrics"
-msgstr "Merania študentovej aktivity"
+msgstr "Dáta o aktivite študentov"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Active Students Last Week"
-msgstr "Aktívny študenti z minulého týždňa"
+msgstr "Aktívni študenti v minulom týždni"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who visited at least one page in the course content."
@@ -354,31 +358,31 @@ msgstr "Študenti, ktorí navštívili aspoň jednu stránku kurzu."
 #. a video.
 #: courses/templates/courses/engagement_content.html
 msgid "Watched a Video Last Week"
-msgstr "Pozerali video minulý týždeň"
+msgstr "Pozreli si minulý týždeň video"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who played one or more videos."
-msgstr "Študenti, ktorí si prezreli jedno alebo viac videí."
+msgstr "Počet študentov, ktorí si prezreli jedno alebo viac videí."
 
 #. Translators: This is a label indicating the number of students who tried a
 #. problem.
 #: courses/templates/courses/engagement_content.html
 msgid "Tried a Problem Last Week"
-msgstr "Riešili problémovú úlohu minulý týždeň"
+msgstr "Riešili počas minulého týždňa úlohu"
 
 #: courses/templates/courses/engagement_content.html
 msgid ""
 "Students who submitted an answer for a standard problem. Not all problem "
 "types are included."
 msgstr ""
-"Študenti, ktorí poslali odpoveď na bežnú úlohu. Nie všetky typy úloh sú "
-"zahrnuté."
+"Študenti, ktorí odoslali odpoveď na bežnú úlohu. Nie sú zahrnuté všetky typy"
+" úloh."
 
 #. Translators: This is a label indicating the number of students who posted
 #. in a forum discussion.
 #: courses/templates/courses/engagement_content.html
 msgid "Posted in a Discussion Last Week"
-msgstr "Prispievali do diskusií minulý týždeň"
+msgstr "Prispeli počas minulého týždňa do diskusie"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who contributed to any discussion topic."
@@ -387,20 +391,107 @@ msgstr "Študenti, ktorí prispeli do akejkoľvek témy diskusie."
 #: courses/templates/courses/engagement_content.html
 #: courses/templates/courses/engagement_content.html
 msgid "Content Engagement Breakdown"
-msgstr "Analýza angažovanosti v obsahu"
+msgstr "Rozdelenie účasti na kurze"
+
+#. Translators: This describes the data displayed in the chart below. E.g. how
+#. many learners viewed a video.
+#: courses/templates/courses/engagement_grouped_content.html
+#: courses/templates/courses/views_chart_info.html
+msgid "Video Views"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_section.html
+msgid "How did students interact with videos in this section?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_section.html
+msgid ""
+"Each bar shows the counts of complete and incomplete views of the videos in "
+"that subsection. Click on bars with low totals or a high incomplete rate to "
+"drill down and understand why."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_subsection.html
+msgid "How did students interact with videos in this subsection?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_subsection.html
+msgid ""
+"Each bar shows the counts of complete and incomplete views for that video. "
+"Click to understand where students drop off and which parts they replay."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_course.html
+#: courses/views/__init__.py
+msgid "How did students interact with course videos?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_course.html
+msgid ""
+"Each bar shows the counts of complete and incomplete views of the videos in "
+"that section. Click on bars with low totals or a high incomplete rate to "
+"drill down and understand why."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Total Video Views"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "What were the viewing patterns for this video?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid ""
+"The number of students who watched each segment of the video, and the number"
+" of replays for each segment."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Video Metrics"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Completion Rate"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Estimated percentage of students who watched the entire video."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Started Video"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Students who started watching the video."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Finished Video"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Students who watched the video to the end."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Video Viewing Over Time"
+msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
-msgstr "Denné prihlásenie študentov"
+msgstr "Denné zápisy študentov"
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/views/__init__.py
 msgid "How many students are in my course?"
-msgstr "Koľko je študentov v mojom kurze?"
+msgstr "Koľko študentov je v mojom kurze?"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollments"
-msgstr "Počet prihlásených"
+msgstr "Zápisy"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
@@ -408,23 +499,24 @@ msgid ""
 " each day. Total enrollment includes new enrollments as well as "
 "unenrollments."
 msgstr ""
-"Tento graf ukazuje celkový počet prihlásených do kurzu vypočítaný  na konci "
-"každého dňa."
+"Tento graf zobrazuje celkový počet zápisov do tohto kurzu vypočítaný na "
+"konci každého dňa. Celkový počet zápisov obsahuje nové prihlásenia ako aj "
+"odhlásenia z kurzu."
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollment Metrics"
-msgstr "Analýza prihlásenia"
+msgstr "Dáta o zápisoch"
 
 #. Translators: This is a label to identify current student enrollment.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Total Enrollment"
-msgstr "Celkový počet príhlásených"
+msgstr "Celkovo zapísaných"
 
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Students enrolled in the course."
-msgstr "Študenti prihlásení do kurzu"
+msgstr "Študenti zapísaní do kurzu"
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
@@ -437,14 +529,14 @@ msgid ""
 "The difference between the number of students enrolled at the end of the day"
 " yesterday and one week before."
 msgstr ""
-"Rozdiel v počte prihlásených študentov na konci včerajšieho dňa a pred "
+"Rozdiel v počte zapísaných študentov na konci včerajšieho dňa a pred "
 "týždňom."
 
 #. Translators: This is a label to identify enrollment of students on the
 #. verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Verified Enrollment"
-msgstr "Overené prihlásenie do kurzu"
+msgstr "Overený zápis"
 
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course on the verified track.
@@ -453,22 +545,23 @@ msgid ""
 "Number of enrolled students who are pursuing a verified certificate of "
 "achievement."
 msgstr ""
-"Počet prihlásených študentov, ktorí chcú úspešne získať overený certifikát."
+"Počet zapísaných študentov, ktorí sa usilujú o získanie overeného "
+"certifikátu o dokončení kurzu."
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in the verified track of a course since the previous
 #. week.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Change in Verified Enrollments Last Week"
-msgstr "Zmena v overenom počte prihlásených za minulý týždeň"
+msgstr "Zmena v počte overených zápisov za minulý týždeň"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
 "The difference between the number of students pursuing verified certificates"
 " at the end of the day yesterday and one week before."
 msgstr ""
-"Rozdiel mezdi počtom študentov prihlásených na overený certifikát na konci "
-"včerajšieho dňa a týždeň predtým."
+"Rozdiel v počte študentov, ktorí sa usilujú o získanie overeného "
+"certifikátu, na konci včerajšieho dňa a pred týždňom."
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html
@@ -476,7 +569,7 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_education.html
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "Enrollment Over Time"
-msgstr "Prihlásenie v priebehu"
+msgstr "Zápisy v priebehu času"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 #: courses/views/__init__.py
@@ -491,12 +584,12 @@ msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
 "students who provided a year of birth."
 msgstr ""
-"Tento vekový stĺpcový graf predstavuje údaje vypočítané z  %(value)s%% "
-"prihlásených študentov, ktorí uviedli svoj rok narodenia."
+"Tento stĺpcový graf veku študentov predstavuje údaje vypočítané z "
+"%(value)s%% zapísaných študentov, ktorí uviedli svoj rok narodenia."
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Metrics"
-msgstr "Veková analýza"
+msgstr "Dáta o veku študentov"
 
 #. Translators: This is a label to identify the median age of enrolled
 #. students.
@@ -569,12 +662,12 @@ msgid ""
 "This graph presents data for the %(value)s%% of enrolled students who "
 "provided a highest level of education completed."
 msgstr ""
-"Tento graf predstavuej údaje  %(value)s%% prihlásených študentov, ktorí "
-"poskytli svoje najvyššie dosiahnuté ukončené vzdelanie."
+"Tento graf predstavuje údaje z %(value)s%% zapísaných študentov, ktorí "
+"uviedli svoje najvyššie dosiahnuté ukončené vzdelanie."
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Education Metrics"
-msgstr "Údaje o vzdelaní"
+msgstr "Dáta o vzdelaní"
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -588,7 +681,7 @@ msgid ""
 "highest level of education completed."
 msgstr ""
 "Percento študentov, ktorí vybrali strednú školu, 2. stupeň základnej školy "
-"alebo 1. stupeň základnej školy, ako ich najvyššie dosiahnuté ukončené "
+"alebo 1. stupeň základnej školy ako ich najvyššie dosiahnuté ukončené "
 "vzdelanie."
 
 #. Translators: This is a label to identify student educational background.
@@ -601,8 +694,8 @@ msgid ""
 "The percentage of students who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
 msgstr ""
-"Percento študentov, ktorí vybrali bakalársky alebo podobný titul ako ich "
-"najvyššie dosiahnuté ukončené vzdelanie."
+"Percento študentov, ktorí vybrali bakalársky titul alebo titul diplomovaného"
+" špecialistu ako ich najvyššie dosiahnuté ukončené vzdelanie."
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -614,7 +707,7 @@ msgid ""
 "The percentage of students who selected Doctorate or Master's or "
 "professional degree as their highest level of education completed."
 msgstr ""
-"Percento študentov, ktorí vybrali doktorát alebo magisterský titul alebo "
+"Percento študentov, ktorí vybrali doktorát, magisterský titul alebo "
 "profesijný titul ako ich najvyššie dosiahnuté ukončené vzdelanie."
 
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -634,12 +727,12 @@ msgid ""
 "This graph presents data for the %(value)s%% of enrolled students who "
 "specified their gender."
 msgstr ""
-"Tento graf predstavuje údaje  %(value)s%% prihlásených študentov, ktorí "
-"špšcifikovali svoje pohlavie."
+"Tento graf predstavuje údaje z %(value)s%% zapísaných študentov, ktorí "
+"uviedli svoje pohlavie."
 
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "Gender Breakdown Over Time"
-msgstr "Prehľad podľa pohlavia v priebehu"
+msgstr "Rozdelenie pohlavia v priebehu"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geographic Distribution"
@@ -652,11 +745,11 @@ msgstr "Kde sú moji študenti?"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Enrollment by Country"
-msgstr "Prihlásenie podľa krajiny"
+msgstr "Zápis podľa krajiny"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geography Metrics"
-msgstr "Geografická analýza"
+msgstr "Geografické dáta"
 
 #. Translators: This string represents the number of countries where students
 #. are enrolled.
@@ -672,17 +765,17 @@ msgstr "Krajiny s minimálne jedným študentom."
 #. enrolled students.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Top Country by Enrollment"
-msgstr "Krajina vo vedúcej pozícii podľa prihlásení"
+msgstr "Krajina s najvyšším počtom zápisov"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the largest number of students."
-msgstr "Krajina s najväčším počtom študentov."
+msgstr "Krajina s najvyšším počtom študentov."
 
 #. Translators: This string represents the country with the second-greatest
 #. number of enrolled students.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Second Country by Enrollment"
-msgstr "Krajina na druhom mieste podľa prihlásení"
+msgstr "Krajina s druhým najvyšším počtom zápisov"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the second largest number of students."
@@ -692,11 +785,11 @@ msgstr "Krajina s druhým najvyšším počtom študentov."
 #. number of enrolled students.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Third Country by Enrollment"
-msgstr "Krajina na treťom mieste podľa prihlásených"
+msgstr "Krajina s tretím najvyšším počtom zápisov"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the third largest number of students."
-msgstr "Krajina na treťom mieste v počte študentov."
+msgstr "Krajina s tretím najvyšším počtom študentov."
 
 #. Translators: This string represents the percentage of students in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
@@ -707,7 +800,7 @@ msgstr "%(percent)s%% študentov"
 #: courses/templates/courses/enrollment_geography.html
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geographic Breakdown"
-msgstr "Geografická analýza"
+msgstr "Geografické rozdelenie"
 
 #. Translators: Application here refers to the web site/application being used
 #. (e.g. the dashboard).
@@ -737,11 +830,13 @@ msgstr "Vitajte, %(username)s!"
 
 #: courses/templates/courses/index.html
 msgid "Here are the courses you currently have access to in Insights:"
-msgstr "Tu sú kurzy, do ktorých máte v súčasnosti prístup v Insights:"
+msgstr ""
+"Tu sú kurzy, do ktorých máte v súčasnosti prístup v analytickom module "
+"Náhľady:"
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
-msgstr "Nový %(application_name)s?"
+msgstr "Nový v %(application_name)s?"
 
 #: courses/templates/courses/index.html
 msgid ""
@@ -766,8 +861,8 @@ msgid ""
 "These bars show the correct and incorrect submission counts for each "
 "problem. Only the last submission from each student is counted."
 msgstr ""
-"Stĺpce zobrazujú počty správnych a nesprávnych podaní pre každú úlohu. Iba "
-"posledné podanie každého študenta je započítané."
+"Tieto stĺpce zobrazujú počty správnych a nesprávnych podaní pre každú úlohu."
+" Je započítané vždy iba posledné podanie od každého študenta."
 
 #: courses/templates/courses/performance_assignment.html
 #: courses/templates/courses/performance_ungraded_by_subsection.html
@@ -776,14 +871,14 @@ msgstr "Podania úloh"
 
 #: courses/templates/courses/performance_graded_content.html
 msgid "Which assignment type do you want to investigate?"
-msgstr "Ktorý typ úlohy chcete preskúmať?"
+msgstr "Ktorý typ zadania chcete preskúmať?"
 
 #: courses/templates/courses/performance_graded_content.html
 msgid ""
 "Click an assignment type to view more detail information about the "
 "assignments."
 msgstr ""
-"Kliknite na typ úlohy, aby ste videli vviacej detailov o dannej úlohe."
+"Kliknite na typ zadania, aby ste videli podrobnejšie informácie o zadaniach."
 
 #. Translators: This describes the percent an assignment contributes to that
 #. of a learner's grade (e.g. Exam: 60% of the grading policy.).
@@ -794,7 +889,8 @@ msgid ""
 "              "
 msgstr ""
 "\n"
-"%(assignment_type)s: %(policy_ratio)s%% hodnotiaceho postupu"
+"                %(assignment_type)s: %(policy_ratio)s%% hodnotiaceho postupu\n"
+"              "
 
 #. Translators: This describes the percent of a learner's grade (e.g. 60%).
 #: courses/templates/courses/performance_graded_content.html
@@ -807,6 +903,9 @@ msgid ""
 "      How are students doing on the %(type)s?\n"
 "    "
 msgstr ""
+"\n"
+"      Ako sa darí študentom s %(type)s?\n"
+"    "
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
@@ -814,9 +913,9 @@ msgid ""
 "assignment. For each problem, only the last submission from each student is "
 "counted."
 msgstr ""
-"Uvedené stĺpce ukazujú počet správnych a nesprávnych podaní ku každému "
-"zadaniu. Pre každú úlohu, iba posledné podanie každého študenta je "
-"započítané."
+"Tieto stĺpce zobrazujú počet správnych a nesprávnych podaní ku každému "
+"zadaniu. Pre každú úlohu je započítané iba posledné podanie od každého "
+"študenta."
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid "Assignment Submissions"
@@ -824,55 +923,59 @@ msgstr "Podania zadaní"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are students doing on this section?"
-msgstr ""
+msgstr "Ako sa študentom darí v tejto sekcii?"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid ""
 "These bars show the correct and incorrect submission counts for each "
 "subsection. Only the last submission from each student is counted."
 msgstr ""
+"Tieto stĺpce zobrazujú počet správnych a nesprávnych podaní pre každú "
+"podsekciu. Je započítané iba posledné podanie od každého študenta."
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "Subsection Submissions"
-msgstr ""
+msgstr "Podania podsekcie"
 
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid "How are students doing on this subsection?"
-msgstr ""
+msgstr "Ako sa študentom darí v tejto podsekcii?"
 
 #: courses/templates/courses/performance_ungraded_content.html
 #: courses/views/__init__.py
 msgid "How are students doing on ungraded exercises?"
-msgstr ""
+msgstr "Ako sa študentom darí v neznámkovaných cvičeniach?"
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid ""
 "These bars show the correct and incorrect submission counts for each "
 "section. Only the last submission from each student is counted."
 msgstr ""
+"Tieto stĺpce zobrazujú počet správnych a nesprávnych podaní pre každú "
+"sekciu. Je započítané iba posledné podanie od každého študenta."
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid "Section Submissions"
-msgstr ""
+msgstr "Podania sekcie"
 
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
 #: courses/templates/courses/permissions-retrieval-failed.html
 #: courses/templates/courses/permissions-retrieval-failed.html
 msgid "Permissions Retrieval Failed"
-msgstr "Znovuzískanie prístupu zlyhalo"
+msgstr "Pri získaní povolení došlo k chybe"
 
 #: courses/templates/courses/permissions-retrieval-failed.html
 msgid ""
 "There was a problem retrieving course permissions for your account. Please "
 "try again. If you continue to experience issues, please let us know."
 msgstr ""
-"Nastal problém pri získavaní prístupovým práv ku kurzu pre váš účet. Prosím,"
-" skúste znovu. Ak problémy pretrvávajú, prosím kontaktujte nás."
+"Vyskytol sa problém pri získaní povolení ku kurzu pre váš účet. Skúste to, "
+"prosím, opäť. Pokiaľ problémy pretrvávajú, dajte nám, prosím, vedieť."
 
 #: courses/templates/courses/permissions-retrieval-failed.html
 msgid "Try Again"
-msgstr "Vyskúšať znovu"
+msgstr "Skúsiť znovu"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
@@ -911,15 +1014,20 @@ msgstr "Pohlavie"
 msgid "Content"
 msgstr "Obsah"
 
+#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
+#: courses/views/engagement.py
+msgid "Videos"
+msgstr ""
+
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
 msgid "Graded Content"
-msgstr "Hodnotený obsah"
+msgstr "Známkovaný obsah"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
 msgid "Ungraded Problems"
-msgstr ""
+msgstr "Neznámkované úlohy"
 
 #: courses/views/__init__.py
 msgid "What are students doing in my course?"
@@ -927,11 +1035,11 @@ msgstr "Čo robia študenti v mojom kurze?"
 
 #: courses/views/__init__.py
 msgid "How are students doing on course assignments?"
-msgstr "Ako sa darí študentom v kurzových úlohách?"
+msgstr "Ako sa darí študentom v zadaniach k tomuto kurzu?"
 
 #: courses/views/__init__.py
 msgid "How are students doing on graded course assignments?"
-msgstr "Ako sa darí študnetom v hodnotených kruzových úlohách?"
+msgstr "Ako sa darí študentom v známkovaných zadaniach k tomuto kurzu?"
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
@@ -943,8 +1051,33 @@ msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr ""
-"Údaje záujmu o kurz boli naposledy aktualizované %(update_date)s o  "
+"Dáta o účasti v kurze naposledy aktualizované %(update_date)s o  "
 "%(update_time)s UTC."
+
+#: courses/views/engagement.py
+msgid "Engagement Videos"
+msgstr ""
+
+#. Translators: Do not translate UTC.
+#: courses/views/engagement.py
+msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
+msgstr ""
+
+#: courses/views/engagement.py
+msgid "Looks like no one has watched any videos in these sections."
+msgstr ""
+
+#: courses/views/engagement.py courses/views/performance.py
+msgid "Section Name"
+msgstr "Názov sekcie"
+
+#: courses/views/engagement.py courses/views/performance.py
+msgid "Subsection Name"
+msgstr "Názov podsekcie"
+
+#: courses/views/engagement.py
+msgid "Video Name"
+msgstr ""
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -952,8 +1085,8 @@ msgid ""
 "Demographic student data was last updated %(update_date)s at %(update_time)s"
 " UTC."
 msgstr ""
-"Demografické údaje študnetov boli naposledky aktualizované %(update_date)s "
-"o%(update_time)s koordinovaného svetového času."
+"Demografické dáta o študentoch boli naposledy aktualizované %(update_date)s "
+"o %(update_time)s UTC."
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
@@ -961,12 +1094,11 @@ msgstr ""
 msgid ""
 "All above demographic data was self-reported at the time of registration."
 msgstr ""
-"Všetky vyššie uvedené demografické údaje boli samostatne poskytnuté v čase "
-"registrácie."
+"Všetky vyššie uvedené demografické dáta boli získané počas registrácie."
 
 #: courses/views/enrollment.py
 msgid "Enrollment Activity"
-msgstr "Aktivita prihlásených"
+msgstr "Aktivita zapísaných"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -974,24 +1106,24 @@ msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
 msgstr ""
-"Údaje o aktivite prihlásených boli naposledy aktualizované %(update_date)s o"
-" %(update_time)s UTC."
+"Dáta o aktivite zapísaných študentov boli naposledy aktualizované "
+"%(update_date)s o %(update_time)s UTC."
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Age"
-msgstr "Ddemografia prihlásených podľa veku"
+msgstr "Demografia zapísaných podľa veku"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Education"
-msgstr "Demografia prihlásených podľa vzdelania"
+msgstr "Demografia zapísaných podľa vzdelania"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Gender"
-msgstr "Demografia prihlásených podľa pohlavia"
+msgstr "Demografia zapísaných podľa pohlavia"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Geography"
-msgstr "Lokalita prihlásených"
+msgstr "Lokalita zapísaných"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -999,7 +1131,7 @@ msgid ""
 "Geographic student data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr ""
-"Geografické údaje študentov boli naposledy aktualizované %(update_date)s o "
+"Geografické dáta študentov boli naposledy aktualizované %(update_date)s o "
 "%(update_time)s UTC."
 
 #. Translators: Do not translate UTC.
@@ -1008,36 +1140,36 @@ msgid ""
 "Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr ""
-"Údaje o problémových podaniach boli naposledy aktualizované %(update_date)s "
-"o%(update_time)s UTC."
+"Dáta o podaniach úloh boli naposledy aktualizované %(update_date)s o "
+"%(update_time)s UTC."
 
 #: courses/views/performance.py
 msgid "Assignment Name"
 msgstr "Názov zadania"
 
+#: courses/views/performance.py
+msgid "No submissions received for these exercises."
+msgstr "Pre tieto cvičenia neboli prijaté žiadne podania."
+
+#: courses/views/performance.py
+msgid "No submissions received for these assignments."
+msgstr "Pre tieto zadania neboli prijaté žiadne podania."
+
 #: courses/views/performance.py courses/views/performance.py
 msgid "Performance: Problem Submissions"
-msgstr "Výkonnosť: Problematické podania"
+msgstr "Výkonnosť: Podania úloh"
 
 #: courses/views/performance.py
 msgid "Graded Content: %(assignment_type)s"
-msgstr "Hodnotený obsah: %(assignment_type)s"
+msgstr "Známkovaný obsah: %(assignment_type)s"
 
 #: courses/views/performance.py courses/views/performance.py
 msgid "Problem Name"
-msgstr "Názov problému"
-
-#: courses/views/performance.py
-msgid "Section Name"
-msgstr ""
-
-#: courses/views/performance.py
-msgid "Subsection Name"
-msgstr ""
+msgstr "Názov úlohy"
 
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
-msgstr "Prístup odmietnutý"
+msgstr "Prístup zamietnutý"
 
 #: templates/403.html
 msgid ""
@@ -1045,25 +1177,25 @@ msgid ""
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
 msgstr ""
-"Nemáte dostatočné prístupové práva na prezeranie tejto stránky. Ak si "
-"myslíte, že by ste mali mať k tejto stránke prístup, skúste sa odhlásiť a "
-"znovu prihlásiť, aby sa aktualizovali vaše prístupové práva."
+"Nemáte povolenie na zobrazenie tejto stránky. Ak si myslíte, že by ste mali "
+"mať k tejto stránke prístup, skúste sa odhlásiť a opätovne prihlásiť, aby sa"
+" mohli vaše povolenia zaktualizovať"
 
 #: templates/403.html
 msgid "Logout then Login"
-msgstr "Odhlásiť a potom prihlásiť"
+msgstr "Odhlásiť sa a následne sa prihlásiť"
 
 #: templates/404.html templates/404.html.py
 msgid "Page Not Found"
-msgstr "Stránka nájdená"
+msgstr "Stránka sa nenašla"
 
 #: templates/404.html
 msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
 msgstr ""
-"Nepodarilo sa nám nájsť stránku, ktorú hľadáte. Prosím uistite sa, že URL "
-"adresa je správna, a ak nie, vyskúšajte znovu."
+"Nepodarilo sa nám nájsť stránku, ktorú hľadáte. Skontrolujte, prosím, či je "
+"URL adresa správna, inak to skúste znovu."
 
 #: templates/500.html templates/500.html.py
 msgid "An Error Occurred"
@@ -1074,13 +1206,12 @@ msgid ""
 "Our servers weren't able to complete your request. Please try again by "
 "refreshing this page or retracing your steps."
 msgstr ""
-"Naše servery neboli schopné vykonať vašu požiadavku. Prosím vyskúšajte znovu"
-" aktualizovaním tejto stránky alebo znovu opakovaním vašich krokov."
+"Naše servery neboli schopné dokončiť vašu požiadavku. Skúste to, prosím, "
+"opäť obnovením tejto stránky alebo tým, že zopakujete vaše kroky."
 
 #: templates/503.html templates/503.html.py
 msgid "We're having trouble loading this page. Please try again in a minute."
-msgstr ""
-"Máme problém so zobrazením tejto stránky. Skúste prosím znovu o chvíľu."
+msgstr "Máme problémy s načítaním tejto stránky. Skúste to opäť za chvíľu."
 
 #: templates/503.html
 msgid "(Technical details: 503 Service Unavailable.)"
@@ -1088,20 +1219,20 @@ msgstr "(Technické detaily: 503 Nedostupná služba.)"
 
 #: templates/announcements.html
 msgid "Close"
-msgstr "Zatvoriť"
+msgstr "Zavrieť"
 
 #: templates/base-error.html
 msgid "Use our support tool to ask questions or share feedback."
 msgstr ""
-"Používajte náš nástroj pre podporu na pýtanie sa otázok alebo zdieľajte "
-"spätnú väzbu."
+"Používajte náš nástroj pre podporu, aby ste sa mohli pýtať otázky alebo "
+"zdieľať spätnú väzbu."
 
 #. Translators: This intention here is that a user clicks a button to contact
 #. a support group (e.g. edX Support, or MITx Support). Reorder the
 #. placeholder as you see fit.
 #: templates/base-error.html
 msgid "Contact %(platform_name)s Support"
-msgstr "Kontaktujte podporu %(platform_name)s"
+msgstr "Kontaktovať podporu pre %(platform_name)s"
 
 #: templates/footer.html
 msgid "Feedback"
@@ -1114,12 +1245,13 @@ msgid ""
 "or suggestions? Email %(email_link)s."
 msgstr ""
 "Chceme, aby vám táto prístupová stránka fungovala! Potrebujete pomoc? "
-"%(support_link_start)s Navštívte naše fórum podpory %(support_link_end)s. "
-"Komentáre alebo návrhy? Pošlite nám e-mail %(email_link)s."
+"%(support_link_start)s Navštívte diskusné fórum našej "
+"podpory%(support_link_end)s. Komentáre alebo návrhy? Pošlite nám e-mail "
+"%(email_link)s."
 
 #: templates/footer.html
 msgid "Terms of Service"
-msgstr "podmienky služby"
+msgstr "Podmienky používania služby"
 
 #: templates/footer.html
 msgid "Privacy Policy"
@@ -1131,12 +1263,12 @@ msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
 "            reserved. "
 msgstr ""
-"%(current_year)s%(platform_name)s, okrem vyznačeného, všetky práva\n"
-"vyhradené."
+" %(current_year)s %(platform_name)s, s výnimkou, kde je to poznačené, všetky práva\n"
+"            vyhradené. "
 
 #: templates/header.html
 msgid "Toggle navigation"
-msgstr "Navigácia klikaním"
+msgstr "Prepnúť navigáciu"
 
 #: templates/header.html
 msgid "Help"
@@ -1148,7 +1280,7 @@ msgstr "Odhlásiť"
 
 #: templates/loading.html
 msgid "Loading"
-msgstr "Načítavanie"
+msgstr "Načíta sa"
 
 #: templates/section_error.html
 msgid "We are unable to load this chart."
@@ -1160,4 +1292,4 @@ msgstr "Nie sme schopní načítať túto tabuľku."
 
 #: templates/section_error.html
 msgid "We are unable to load these metrics."
-msgstr "Nie sme schopní načítať tieto údaje."
+msgstr "Nie sme schopní načítať tieto dáta."

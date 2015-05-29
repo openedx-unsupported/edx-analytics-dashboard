@@ -6,6 +6,7 @@
 # clecoq <cel.lecoq@gmail.com>, 2014
 # Eric Fortin, 2014
 # Gérard Vidal <Gerard.Vidal@ens-lyon.fr>, 2014
+# Kévin SEVERIN <kevin.severin@laposte.net>, 2015
 # laurentFUN <laurent.at.fun@gmail.com>, 2014
 # moocit-france <contact@moocit.fr>, 2015
 # rafcha <raphael.chay@gmail.com>, 2014
@@ -14,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 16:48-0400\n"
-"PO-Revision-Date: 2015-04-08 21:36+0000\n"
+"POT-Creation-Date: 2015-05-29 10:10-0400\n"
+"PO-Revision-Date: 2015-05-29 14:11+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/edx-platform/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -38,14 +39,16 @@ msgstr "..."
 #. no label was provided.
 #. Translators: (empty) is displayed as a label in a chart and indicates that
 #. no label was provided.
-#: static/dist/js/common.js
+#. Translators: (empty) is displayed as a label in a chart and indicates that
+#. no label was provided.
+#: static/dist/js/common.js static/dist/js/engagement-video-content-main.js
 #: static/dist/js/enrollment-demographics-education-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-content-main.js
 #: static/js/views/data-table-view.js static/js/views/discrete-bar-view.js
 msgid "(empty)"
-msgstr "(vide)"
+msgstr "(vide) "
 
 #. Translators: "Correct" is displayed in a table..
 #. Translators: "Correct" is displayed in a table..
@@ -60,7 +63,7 @@ msgstr "Correct"
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Week Ending"
-msgstr "Semaine se terminant"
+msgstr "Fin de semaine"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
@@ -88,6 +91,56 @@ msgstr "Ont posté dans un forum"
 msgid "Week Ending <%=value%>"
 msgstr "Semaine terminant le <%=value%>"
 
+#: static/dist/js/engagement-video-content-main.js
+msgid "Complete Plays"
+msgstr ""
+
+#: static/dist/js/engagement-video-content-main.js
+msgid "Incomplete Plays"
+msgstr ""
+
+#: static/dist/js/engagement-video-content-main.js
+#: static/dist/js/performance-content-main.js
+#: static/js/engagement-video-content-main.js
+#: static/js/performance-content-main.js
+msgid "Order"
+msgstr "Trier"
+
+#: static/dist/js/engagement-video-content-main.js
+#: static/js/engagement-video-content-main.js
+msgid "Videos"
+msgstr ""
+
+#: static/dist/js/engagement-video-content-main.js
+#: static/js/engagement-video-content-main.js
+msgid "Completion Percentage"
+msgstr ""
+
+#. Translators: <%=value%> will be replaced by a number followed by a
+#. percentage.
+#. For example, "400 (29%)"
+#: static/dist/js/engagement-video-content-main.js
+#: static/dist/js/performance-content-main.js
+#: static/js/engagement-video-content-main.js
+#: static/js/performance-content-main.js
+msgid "<%=value%> (<%=percent%>)"
+msgstr "<%=value%>(<%=percent%>)"
+
+#: static/dist/js/engagement-video-timeline-main.js
+#: static/js/engagement-video-timeline-main.js
+msgid "Unique Viewers"
+msgstr ""
+
+#: static/dist/js/engagement-video-timeline-main.js
+#: static/js/engagement-video-timeline-main.js
+msgid "Replays"
+msgstr ""
+
+#: static/dist/js/engagement-video-timeline-main.js
+#: static/js/engagement-video-timeline-main.js
+msgid "Time"
+msgstr ""
+
 #: static/dist/js/enrollment-activity-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-activity-main.js
@@ -114,7 +167,7 @@ msgstr "Code d'honneur"
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Verified"
-msgstr "Vérifié"
+msgstr "Vérifié "
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
@@ -241,15 +294,6 @@ msgstr "Incorrect"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
-msgid "Order"
-msgstr "Trier"
-
-#: static/dist/js/performance-content-main.js
-msgid "Assignment Name"
-msgstr "Nom du travail"
-
-#: static/dist/js/performance-content-main.js
-#: static/js/performance-content-main.js
 msgid "Problems"
 msgstr "Exercices"
 
@@ -261,12 +305,12 @@ msgstr "Total"
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
 msgid "Percentage Correct"
+msgstr "Pourcentage correct"
+
+#: static/js/engagement-video-content-main.js
+msgid "Complete Views"
 msgstr ""
 
-#. Translators: <%=value%> will be replaced by a number followed by a
-#. percentage.
-#. For example, "400 (29%)"
-#: static/dist/js/performance-content-main.js
-#: static/js/performance-content-main.js
-msgid "<%=value%> (<%=percent%>)"
-msgstr "<%=value%>(<%=percent%>)"
+#: static/js/engagement-video-content-main.js
+msgid "Incomplete Views"
+msgstr ""

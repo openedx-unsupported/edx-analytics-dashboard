@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 16:48-0400\n"
-"PO-Revision-Date: 2015-04-08 21:36+0000\n"
+"POT-Creation-Date: 2015-05-29 10:10-0400\n"
+"PO-Revision-Date: 2015-05-29 14:11+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/edx-platform/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -37,14 +37,16 @@ msgstr "..."
 #. no label was provided.
 #. Translators: (empty) is displayed as a label in a chart and indicates that
 #. no label was provided.
-#: static/dist/js/common.js
+#. Translators: (empty) is displayed as a label in a chart and indicates that
+#. no label was provided.
+#: static/dist/js/common.js static/dist/js/engagement-video-content-main.js
 #: static/dist/js/enrollment-demographics-education-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-content-main.js
 #: static/js/views/data-table-view.js static/js/views/discrete-bar-view.js
 msgid "(empty)"
-msgstr "(empty)"
+msgstr "(空)"
 
 #. Translators: "Correct" is displayed in a table..
 #. Translators: "Correct" is displayed in a table..
@@ -59,33 +61,83 @@ msgstr "正确"
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Week Ending"
-msgstr "本周结束日"
+msgstr "一周结束日"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Active Students"
-msgstr "活跃学生"
+msgstr "活跃学生数"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Watched a Video"
-msgstr "看了一段视频"
+msgstr "看过视频"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Tried a Problem"
-msgstr "尝试解决一个问题"
+msgstr "尝试过解决问题"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Posted in Forum"
-msgstr "在论坛中发帖"
+msgstr "在论坛中发过帖"
 
 #. Translators: <%=value%> will be replaced with a date.
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Week Ending <%=value%>"
-msgstr "本周结束日 <%=value%>"
+msgstr "一周结束日为<%=value%>"
+
+#: static/dist/js/engagement-video-content-main.js
+msgid "Complete Plays"
+msgstr ""
+
+#: static/dist/js/engagement-video-content-main.js
+msgid "Incomplete Plays"
+msgstr ""
+
+#: static/dist/js/engagement-video-content-main.js
+#: static/dist/js/performance-content-main.js
+#: static/js/engagement-video-content-main.js
+#: static/js/performance-content-main.js
+msgid "Order"
+msgstr "订单"
+
+#: static/dist/js/engagement-video-content-main.js
+#: static/js/engagement-video-content-main.js
+msgid "Videos"
+msgstr ""
+
+#: static/dist/js/engagement-video-content-main.js
+#: static/js/engagement-video-content-main.js
+msgid "Completion Percentage"
+msgstr ""
+
+#. Translators: <%=value%> will be replaced by a number followed by a
+#. percentage.
+#. For example, "400 (29%)"
+#: static/dist/js/engagement-video-content-main.js
+#: static/dist/js/performance-content-main.js
+#: static/js/engagement-video-content-main.js
+#: static/js/performance-content-main.js
+msgid "<%=value%> (<%=percent%>)"
+msgstr "<%=value%> (<%=percent%>)"
+
+#: static/dist/js/engagement-video-timeline-main.js
+#: static/js/engagement-video-timeline-main.js
+msgid "Unique Viewers"
+msgstr ""
+
+#: static/dist/js/engagement-video-timeline-main.js
+#: static/js/engagement-video-timeline-main.js
+msgid "Replays"
+msgstr ""
+
+#: static/dist/js/engagement-video-timeline-main.js
+#: static/js/engagement-video-timeline-main.js
+msgid "Time"
+msgstr ""
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
@@ -113,12 +165,12 @@ msgstr "诚信准则"
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Verified"
-msgstr "已验证"
+msgstr "已认证的"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Professional"
-msgstr "职业"
+msgstr "专业的"
 
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-age-main.js
@@ -133,7 +185,7 @@ msgstr "学生数目"
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/js/enrollment-demographics-age-main.js
 msgid "Age: <%=value%>"
-msgstr "年龄: <%=value%>"
+msgstr "年龄：<%=value%>"
 
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/js/enrollment-demographics-age-main.js
@@ -157,7 +209,7 @@ msgstr "百分比"
 #: static/dist/js/enrollment-demographics-education-main.js
 #: static/js/enrollment-demographics-education-main.js
 msgid "Education: <%=value%>"
-msgstr "教育程度: <%=value%>"
+msgstr "受教育程度：<%=value%>"
 
 #: static/dist/js/enrollment-demographics-education-main.js
 #: static/js/enrollment-demographics-education-main.js
@@ -169,7 +221,7 @@ msgstr "教育背景"
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Gender: <%=value%>"
-msgstr "性别: <%=value%>"
+msgstr "性别：<%=value%>"
 
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-gender-main.js
@@ -189,19 +241,19 @@ msgstr "其他"
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Not Reported"
-msgstr "不报告"
+msgstr "未报告"
 
 #: static/dist/js/enrollment-geography-main.js
 #: static/js/enrollment-geography-main.js
 msgid ""
 "Student location is determined from IP address. This map shows where "
 "students most recently connected."
-msgstr "学生们的所在地由IP地址进行定位。这张地图展示了学生们最频繁的连接地点。"
+msgstr "学生们的所在地由其 IP 地址得到，这张地图展示了最近学生们访问网站的地点。"
 
 #: static/dist/js/enrollment-geography-main.js
 #: static/js/enrollment-geography-main.js
 msgid "Country"
-msgstr "国家"
+msgstr "国家／地区"
 
 #: static/dist/js/enrollment-geography-main.js
 #: static/js/enrollment-geography-main.js
@@ -221,28 +273,19 @@ msgstr "提交次数"
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
 msgid "Variant"
-msgstr "版本"
+msgstr "变体"
 
 #. Translators: <%=value%> will be replaced by a student response to a
 #. question asked in a course.
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
 msgid "Answer: <%=value%>"
-msgstr "答案: <%=value%>"
+msgstr "答案：<%=value%>"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
 msgid "Incorrect"
 msgstr "不正确"
-
-#: static/dist/js/performance-content-main.js
-#: static/js/performance-content-main.js
-msgid "Order"
-msgstr "订单"
-
-#: static/dist/js/performance-content-main.js
-msgid "Assignment Name"
-msgstr "作业名称"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
@@ -257,12 +300,12 @@ msgstr "总计"
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
 msgid "Percentage Correct"
+msgstr "正确的百分比"
+
+#: static/js/engagement-video-content-main.js
+msgid "Complete Views"
 msgstr ""
 
-#. Translators: <%=value%> will be replaced by a number followed by a
-#. percentage.
-#. For example, "400 (29%)"
-#: static/dist/js/performance-content-main.js
-#: static/js/performance-content-main.js
-msgid "<%=value%> (<%=percent%>)"
-msgstr "<%=value%> (<%=percent%>)"
+#: static/js/engagement-video-content-main.js
+msgid "Incomplete Views"
+msgstr ""

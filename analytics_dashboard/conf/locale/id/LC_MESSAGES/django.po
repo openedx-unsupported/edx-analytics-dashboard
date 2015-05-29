@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# cholif yulian <cholifyulian123@gmail.com>, 2015
 # Dicky Bagus <dicky.bagus@gmail.com>, 2014
 # Fikry Maulana <fikry.maulana@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 16:48-0400\n"
-"PO-Revision-Date: 2015-04-08 21:36+0000\n"
+"POT-Creation-Date: 2015-05-29 10:09-0400\n"
+"PO-Revision-Date: 2015-05-29 14:11+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/edx-platform/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -21,19 +22,21 @@ msgstr ""
 
 #: core/templates/core/landing.html
 msgid "Login"
-msgstr ""
+msgstr "Masuk"
 
 #: core/templates/core/landing.html
 msgid "Insights to help course teams improve courses."
-msgstr ""
+msgstr "Wawasan untuk membantu tim kursus meningkatkan kursus"
 
 #: core/templates/core/landing.html courses/views/__init__.py
 msgid "Who are my students?"
-msgstr ""
+msgstr "Siapa pelajar-pelajar saya?"
 
 #: core/templates/core/landing.html
 msgid "Target your course to fit the backgrounds of your students."
 msgstr ""
+"Target kursus anda untuk menyesuakan latar belakang dari pelajar-pelajar "
+"anda"
 
 #: core/templates/core/landing.html
 #: courses/templates/courses/enrollment_geography.html
@@ -44,7 +47,7 @@ msgstr "Pendaftaran"
 
 #: core/templates/core/landing.html
 msgid "What are students engaging with in my course?"
-msgstr ""
+msgstr "Apa yang  melibatkan pelajar dy kursus saya?"
 
 #: core/templates/core/landing.html
 msgid ""
@@ -60,11 +63,12 @@ msgstr ""
 
 #: core/templates/core/landing.html
 msgid "How well is my content supporting student learning?"
-msgstr ""
+msgstr "Seberapa baik kontent saya mendukung pembelajaran pelajar?"
 
 #: core/templates/core/landing.html
 msgid "Adjust your course based on where students are struggling."
 msgstr ""
+"Atur kursus anda berdasarkan dimana para pelajar yang sedang perjuangkan"
 
 #: core/templates/core/landing.html
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
@@ -74,7 +78,7 @@ msgstr "Performa"
 
 #: core/templates/core/landing.html
 msgid "Join the Open Source Community"
-msgstr ""
+msgstr "Gabung dengan komunitas Open Source"
 
 #: core/templates/core/landing.html
 msgid ""
@@ -84,13 +88,15 @@ msgstr ""
 
 #: core/templates/core/landing.html
 msgid "Research at edX"
-msgstr ""
+msgstr "Penelitian pada edX"
 
 #: core/templates/core/landing.html
 msgid ""
 "We are committed to advancing teaching and learning through research. "
 "%(link_start)sLearn more%(link_end)s."
 msgstr ""
+"Kami komitment untuk meningkatkan pengajaran dan pembelajaran melalui "
+"penelitian. %(link_start)spelajari lebih lanjut%(link_end)s."
 
 #: core/templates/core/landing.html
 msgid "Need Help?"
@@ -100,12 +106,14 @@ msgstr "Butuh Bantuan?"
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
 msgstr ""
+"%(link_start)sPusat suport kamir%(link_end)s dapat membantu anda temukan "
+"solusi."
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
 #: core/templatetags/dashboard_extras.py
 msgid "{statistic}%"
-msgstr ""
+msgstr "{statistic}%"
 
 #: courses/presenters/enrollment.py
 msgid "Female"
@@ -126,108 +134,99 @@ msgstr "Lainnya"
 #: courses/presenters/enrollment.py courses/presenters/enrollment.py
 #: courses/presenters/enrollment.py
 msgid "Unknown"
-msgstr ""
+msgstr "Tidak diketahui"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "None"
-msgstr ""
+msgstr "kosong"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
 #: courses/presenters/enrollment.py courses/tests/test_serializers.py
 msgid "Primary"
-msgstr ""
+msgstr "Dasar"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: courses/presenters/enrollment.py
 msgid "Middle"
-msgstr ""
+msgstr "tengah"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Secondary"
-msgstr ""
+msgstr "menengah pertama"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Associate"
-msgstr ""
+msgstr "Associate"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Bachelor's"
-msgstr ""
+msgstr "Sarjana"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Master's"
-msgstr ""
+msgstr "Master"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Doctorate"
-msgstr ""
+msgstr "Doctor"
 
 #. Translators: This is a placeholder for enrollment data collected without a
 #. known geolocation.
 #: courses/presenters/enrollment.py
 msgid "Unknown Country"
-msgstr ""
+msgstr "Negara tidak diketahui"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/presenters/performance.py
 #: courses/templates/courses/submissions_chart_info.html
 msgid "Submissions"
-msgstr ""
+msgstr "Kiriman"
 
 #: courses/presenters/performance.py
 msgid "Submissions for Part {part_number}: {part_description}"
-msgstr ""
+msgstr "Kiriman untuk bagian {part_number}: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "Part {part_number}: {part_description}"
-msgstr ""
+msgstr "Bagian {part_number}: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "Submissions: {part_description}"
-msgstr ""
+msgstr "Kiriman: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "{part_description}"
-msgstr ""
+msgstr "{part_description}"
 
 #: courses/presenters/performance.py
 msgid "Submissions for Part {part_number}"
-msgstr ""
+msgstr "Kiriman untuk bagian {part_number}"
 
 #: courses/presenters/performance.py
 msgid "Part {part_number}"
-msgstr ""
-
-#: courses/templates/courses/_base_content_nav.html
-msgid "Select Problem"
-msgstr ""
-
-#. Translators: This indicates that no text was provided.
-#: courses/templates/courses/_base_content_nav.html
-msgid "(empty)"
-msgstr ""
+msgstr "Bagian {part_number}"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
-msgstr ""
+msgstr "Pilih tipe penugasan"
 
 #. Translators: This refers to all course assignment types (e.g. homework,
 #. exam, lab).
 #: courses/templates/courses/_graded_content_nav.html
 msgid "All Assignments"
-msgstr ""
+msgstr "Semua penugasan"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid ""
@@ -235,24 +234,39 @@ msgid ""
 "        Select %(level)s\n"
 "    "
 msgstr ""
+"\n"
+"        pilih %(level)s\n"
+"    "
 
+#: courses/templates/courses/_graded_content_nav.html
 #: courses/templates/courses/_ungraded_content_nav.html
-msgid "Select Section"
-msgstr ""
-
-#: courses/templates/courses/_ungraded_content_nav.html
-msgid "All Sections"
-msgstr ""
-
-#: courses/templates/courses/_ungraded_content_nav.html
-msgid "Select Subsection"
-msgstr ""
+msgid "Select Problem"
+msgstr "Pilih masalah"
 
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
-#: courses/templates/courses/base_performance_answer_distribution.html
+#: courses/templates/courses/_module_description.html
 msgid "View Live"
 msgstr "Tampilkan Live"
+
+#: courses/templates/courses/_ungraded_content_nav.html
+#: courses/templates/courses/_video_content_nav.html
+msgid "Select Section"
+msgstr "Pilih seksi"
+
+#: courses/templates/courses/_ungraded_content_nav.html
+#: courses/templates/courses/_video_content_nav.html
+msgid "All Sections"
+msgstr "Semua seksi"
+
+#: courses/templates/courses/_ungraded_content_nav.html
+#: courses/templates/courses/_video_content_nav.html
+msgid "Select Subsection"
+msgstr "Pilih Sub Seksi"
+
+#: courses/templates/courses/_video_content_nav.html
+msgid "Select Video"
+msgstr ""
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -260,6 +274,8 @@ msgid ""
 "This chart shows the most common answers submitted by students, ordered by "
 "frequency."
 msgstr ""
+"Grafik ini menunjukkan jawaban paling umum dikirim oleh para pelajar, sering"
+" diperintahkan"
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -267,6 +283,8 @@ msgid ""
 "Due to the number of possible variants for randomized problems, charts are "
 "not available. %(read_more_link_start)sRead more%(read_more_link_end)s."
 msgstr ""
+"Karena jumlah varian yang memungkinkan untuk problem acak, grafik tidak "
+"tersedia.  %(read_more_link_start)sRead more%(read_more_link_end)s."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -274,41 +292,40 @@ msgid ""
 "Review all submission variants below, or click Download CSV to review them "
 "offline."
 msgstr ""
+"Tinjau ulang semua kiriman varian dibawah, atau klik Download CSV untuk "
+"meninjaunya secara offline"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Submission Counts"
-msgstr ""
+msgstr "Jumlah kiriman"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 #: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_demographics_age.html
 #: courses/templates/courses/enrollment_demographics_education.html
 #: courses/templates/courses/enrollment_demographics_gender.html
 #: courses/templates/courses/enrollment_geography.html
 msgid "Download CSV"
-msgstr ""
+msgstr "Download CSV"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Student Submission Counts"
-msgstr ""
-
-#: courses/templates/courses/base_performance_grouped_content.html
-msgid "No submissions received for these assignments."
-msgstr ""
+msgstr "Jumlah kiriman pelajar"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
 msgid "Students (Self-Reported)"
-msgstr ""
+msgstr "Pelajar (Self-Reported)"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Weekly Student Engagement"
-msgstr ""
+msgstr "Keterlibatan pelajar dalam mingguan"
 
 #: courses/templates/courses/engagement_content.html courses/views/__init__.py
 msgid "How many students are interacting with my course?"
-msgstr ""
+msgstr "Berapa jumlah pelajar yang sedang berinteraksi dengan kursus saya"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students"
@@ -319,54 +336,147 @@ msgid ""
 "The number of active students, and the number of students who engaged in "
 "specific activities, over time."
 msgstr ""
+"Jumlah pelajar aktif , dan jumlah pelajar yang terlibat dalam aktifitas "
+"spesifik, melebihi waktu"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Student Activity Metrics"
-msgstr ""
+msgstr "Metrik aktivitas pelajar"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Active Students Last Week"
-msgstr ""
+msgstr "Pelajar yang aktif minggu lalu"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who visited at least one page in the course content."
 msgstr ""
+"Pelajar yang mengunjungi sekurang-kurangnya satu halaman di dalam konten "
+"kursus"
 
 #. Translators: This is a label indicating the number of students who watched
 #. a video.
 #: courses/templates/courses/engagement_content.html
 msgid "Watched a Video Last Week"
-msgstr ""
+msgstr "Menonton video minggu lalu"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who played one or more videos."
-msgstr ""
+msgstr "Pelajar yang menghidupkan satu atau lebih video"
 
 #. Translators: This is a label indicating the number of students who tried a
 #. problem.
 #: courses/templates/courses/engagement_content.html
 msgid "Tried a Problem Last Week"
-msgstr ""
+msgstr "Mencoba problem minggu lalu"
 
 #: courses/templates/courses/engagement_content.html
 msgid ""
 "Students who submitted an answer for a standard problem. Not all problem "
 "types are included."
 msgstr ""
+"Pelajar yang mengirimkan jawaban untuk problem standar. Tidak termasuk semua"
+" tipe problem"
 
 #. Translators: This is a label indicating the number of students who posted
 #. in a forum discussion.
 #: courses/templates/courses/engagement_content.html
 msgid "Posted in a Discussion Last Week"
-msgstr ""
+msgstr "Diposting dalam diskusi minggu yang lalu"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who contributed to any discussion topic."
-msgstr ""
+msgstr "Pelajar yang berkontribusi pada beberapa topik diskusi"
 
 #: courses/templates/courses/engagement_content.html
 #: courses/templates/courses/engagement_content.html
 msgid "Content Engagement Breakdown"
+msgstr "Content Engagement Breakdown"
+
+#. Translators: This describes the data displayed in the chart below. E.g. how
+#. many learners viewed a video.
+#: courses/templates/courses/engagement_grouped_content.html
+#: courses/templates/courses/views_chart_info.html
+msgid "Video Views"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_section.html
+msgid "How did students interact with videos in this section?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_section.html
+msgid ""
+"Each bar shows the counts of complete and incomplete views of the videos in "
+"that subsection. Click on bars with low totals or a high incomplete rate to "
+"drill down and understand why."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_subsection.html
+msgid "How did students interact with videos in this subsection?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_subsection.html
+msgid ""
+"Each bar shows the counts of complete and incomplete views for that video. "
+"Click to understand where students drop off and which parts they replay."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_course.html
+#: courses/views/__init__.py
+msgid "How did students interact with course videos?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_course.html
+msgid ""
+"Each bar shows the counts of complete and incomplete views of the videos in "
+"that section. Click on bars with low totals or a high incomplete rate to "
+"drill down and understand why."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Total Video Views"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "What were the viewing patterns for this video?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid ""
+"The number of students who watched each segment of the video, and the number"
+" of replays for each segment."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Video Metrics"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Completion Rate"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Estimated percentage of students who watched the entire video."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Started Video"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Students who started watching the video."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Finished Video"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Students who watched the video to the end."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Video Viewing Over Time"
 msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
@@ -380,7 +490,7 @@ msgstr "Berapa jumlah siswa pada kursus saya?"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollments"
-msgstr ""
+msgstr "Pendaftaran"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
@@ -391,36 +501,38 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollment Metrics"
-msgstr ""
+msgstr "Matrik pendaftaran"
 
 #. Translators: This is a label to identify current student enrollment.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Total Enrollment"
-msgstr ""
+msgstr "Total pendaftaran"
 
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Students enrolled in the course."
-msgstr ""
+msgstr "Pelajar terdaftar di kursus"
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Change in Last Week"
-msgstr ""
+msgstr "Perubahan pada minggu lalu"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
 "The difference between the number of students enrolled at the end of the day"
 " yesterday and one week before."
 msgstr ""
+"Perbedaan antara jumlah pelajar yang terdaftar pada akhir hari kemarin dan "
+"satu minggu sebelumnya"
 
 #. Translators: This is a label to identify enrollment of students on the
 #. verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Verified Enrollment"
-msgstr ""
+msgstr "Pendaftaran terverifikasi"
 
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course on the verified track.
@@ -429,19 +541,22 @@ msgid ""
 "Number of enrolled students who are pursuing a verified certificate of "
 "achievement."
 msgstr ""
+"Jumlah pelajar terdaftar yang berusaha verifikasi sertifikat dari prestasi "
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in the verified track of a course since the previous
 #. week.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Change in Verified Enrollments Last Week"
-msgstr ""
+msgstr "Perubahan dalam  pendaftaran terverifikasi minggu lalu"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
 "The difference between the number of students pursuing verified certificates"
 " at the end of the day yesterday and one week before."
 msgstr ""
+"Perbedaan antara jumlah pelajar yang berusaha verifikasi sertifikat pada "
+"akhir hari kemarin dan satu minggu sebelumnya"
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html
@@ -454,7 +569,7 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_age.html
 #: courses/views/__init__.py
 msgid "How old are my students?"
-msgstr ""
+msgstr "Berapa usia para pelajar saya"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -467,13 +582,13 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Metrics"
-msgstr ""
+msgstr "Metrik usia"
 
 #. Translators: This is a label to identify the median age of enrolled
 #. students.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Median Student Age"
-msgstr ""
+msgstr "Median usia pelajar"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
@@ -484,37 +599,43 @@ msgstr ""
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 25 and Under"
-msgstr ""
+msgstr "Pelajar usia 25 dan dibawahnya"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The percentage of students aged 25 years or younger (of those who provided a"
 " year of birth)."
 msgstr ""
+"Prosentase pelajar usia 25 tahun atau yang lebih muda (dari mereka semua "
+"yang telah terdapat tahun lahir)"
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 26 to 40"
-msgstr ""
+msgstr "Pelajar usia 26 sampai 40"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The percentage of students aged from 26 to 40 years (of those who provided a"
 " year of birth)."
 msgstr ""
+"Prosentase usia pelajar dari 26 sampai 40 tahun (dari mereka semua yang "
+"terdapat tahun lahirnya)"
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 41 and Over"
-msgstr ""
+msgstr "Pelajar usia 41 atau lebih"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The percentage of students aged 41 years or older (of those who provided a "
 "year of birth)."
 msgstr ""
+"Prosentase pelajar usia 41 tahun atau lebih muda (dari mereka yang telah "
+"terdapat tahun lahir)"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Breakdown"
@@ -536,7 +657,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Education Metrics"
-msgstr ""
+msgstr "Metrik pendidikan"
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -852,6 +973,11 @@ msgstr "Jenis Kelamin"
 msgid "Content"
 msgstr "Konten"
 
+#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
+#: courses/views/engagement.py
+msgid "Videos"
+msgstr ""
+
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
 msgid "Graded Content"
@@ -883,6 +1009,31 @@ msgstr ""
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
+msgstr ""
+
+#: courses/views/engagement.py
+msgid "Engagement Videos"
+msgstr ""
+
+#. Translators: Do not translate UTC.
+#: courses/views/engagement.py
+msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
+msgstr ""
+
+#: courses/views/engagement.py
+msgid "Looks like no one has watched any videos in these sections."
+msgstr ""
+
+#: courses/views/engagement.py courses/views/performance.py
+msgid "Section Name"
+msgstr ""
+
+#: courses/views/engagement.py courses/views/performance.py
+msgid "Subsection Name"
+msgstr ""
+
+#: courses/views/engagement.py
+msgid "Video Name"
 msgstr ""
 
 #. Translators: Do not translate UTC.
@@ -944,6 +1095,14 @@ msgstr ""
 msgid "Assignment Name"
 msgstr "Judul Tugas"
 
+#: courses/views/performance.py
+msgid "No submissions received for these exercises."
+msgstr ""
+
+#: courses/views/performance.py
+msgid "No submissions received for these assignments."
+msgstr ""
+
 #: courses/views/performance.py courses/views/performance.py
 msgid "Performance: Problem Submissions"
 msgstr ""
@@ -955,14 +1114,6 @@ msgstr ""
 #: courses/views/performance.py courses/views/performance.py
 msgid "Problem Name"
 msgstr "Nama Masalah"
-
-#: courses/views/performance.py
-msgid "Section Name"
-msgstr ""
-
-#: courses/views/performance.py
-msgid "Subsection Name"
-msgstr ""
 
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
@@ -1062,7 +1213,7 @@ msgstr ""
 
 #: templates/loading.html
 msgid "Loading"
-msgstr ""
+msgstr "Memuat"
 
 #: templates/section_error.html
 msgid "We are unable to load this chart."

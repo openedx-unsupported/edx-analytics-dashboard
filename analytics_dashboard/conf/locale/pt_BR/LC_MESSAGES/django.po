@@ -7,7 +7,9 @@
 # Bruno Sette <brunosette@gmail.com>, 2015
 # Edgar Aparecido Pereira de Melo <edgarapmelo@gmail.com>, 2014
 # Edgar Aparecido Pereira de Melo <edgarapmelo@gmail.com>, 2014
+# Emili Costa <m.lee.costa@gmail.com>, 2015
 # Francisco Cantarutti <francisco.cantarutti@sisqualis.com.br>, 2014
+# Gislene Kucker Arantes <gislene.trad@gmail.com>, 2015
 # Icaro Seara <ikro89@gmail.com>, 2015
 # Jamille Raiza Menezes de Sousa <mille_sousa16@hotmail.com>, 2014
 # Leonardo Flores Zambaldi <fzleonardo@gmail.com>, 2014
@@ -20,8 +22,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 16:48-0400\n"
-"PO-Revision-Date: 2015-04-08 21:36+0000\n"
+"POT-Creation-Date: 2015-05-29 10:09-0400\n"
+"PO-Revision-Date: 2015-05-29 14:11+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/edx-platform/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -227,15 +229,6 @@ msgstr "Envios para Parte {part_number}"
 msgid "Part {part_number}"
 msgstr "Parte {part_number}"
 
-#: courses/templates/courses/_base_content_nav.html
-msgid "Select Problem"
-msgstr "Selecione o Problema"
-
-#. Translators: This indicates that no text was provided.
-#: courses/templates/courses/_base_content_nav.html
-msgid "(empty)"
-msgstr " (vazio)"
-
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
 msgstr "Selecione o tipo de tarefa"
@@ -252,24 +245,38 @@ msgid ""
 "        Select %(level)s\n"
 "    "
 msgstr ""
+"\n"
+"Selecione %(level)s"
 
+#: courses/templates/courses/_graded_content_nav.html
 #: courses/templates/courses/_ungraded_content_nav.html
-msgid "Select Section"
-msgstr ""
-
-#: courses/templates/courses/_ungraded_content_nav.html
-msgid "All Sections"
-msgstr ""
-
-#: courses/templates/courses/_ungraded_content_nav.html
-msgid "Select Subsection"
-msgstr ""
+msgid "Select Problem"
+msgstr "Selecione o Problema"
 
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
-#: courses/templates/courses/base_performance_answer_distribution.html
+#: courses/templates/courses/_module_description.html
 msgid "View Live"
 msgstr "Visualizar ao Vivo"
+
+#: courses/templates/courses/_ungraded_content_nav.html
+#: courses/templates/courses/_video_content_nav.html
+msgid "Select Section"
+msgstr "Selecionar seção"
+
+#: courses/templates/courses/_ungraded_content_nav.html
+#: courses/templates/courses/_video_content_nav.html
+msgid "All Sections"
+msgstr "Todas as seções"
+
+#: courses/templates/courses/_ungraded_content_nav.html
+#: courses/templates/courses/_video_content_nav.html
+msgid "Select Subsection"
+msgstr "Selecione a subseção"
+
+#: courses/templates/courses/_video_content_nav.html
+msgid "Select Video"
+msgstr ""
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -305,6 +312,7 @@ msgstr "Quantidade de Envios"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 #: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_demographics_age.html
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -316,10 +324,6 @@ msgstr "Baixar CSV"
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Student Submission Counts"
 msgstr "Quantidade de Envios do Aluno"
-
-#: courses/templates/courses/base_performance_grouped_content.html
-msgid "No submissions received for these assignments."
-msgstr "Nenhum envio para estes trabalhos foi recebido."
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
@@ -396,6 +400,93 @@ msgstr "Alunos que postaram em qualquer tópico de discussão"
 #: courses/templates/courses/engagement_content.html
 msgid "Content Engagement Breakdown"
 msgstr "Distribuição de engajamento de conteúdo"
+
+#. Translators: This describes the data displayed in the chart below. E.g. how
+#. many learners viewed a video.
+#: courses/templates/courses/engagement_grouped_content.html
+#: courses/templates/courses/views_chart_info.html
+msgid "Video Views"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_section.html
+msgid "How did students interact with videos in this section?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_section.html
+msgid ""
+"Each bar shows the counts of complete and incomplete views of the videos in "
+"that subsection. Click on bars with low totals or a high incomplete rate to "
+"drill down and understand why."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_subsection.html
+msgid "How did students interact with videos in this subsection?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_subsection.html
+msgid ""
+"Each bar shows the counts of complete and incomplete views for that video. "
+"Click to understand where students drop off and which parts they replay."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_course.html
+#: courses/views/__init__.py
+msgid "How did students interact with course videos?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_course.html
+msgid ""
+"Each bar shows the counts of complete and incomplete views of the videos in "
+"that section. Click on bars with low totals or a high incomplete rate to "
+"drill down and understand why."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Total Video Views"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "What were the viewing patterns for this video?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid ""
+"The number of students who watched each segment of the video, and the number"
+" of replays for each segment."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Video Metrics"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Completion Rate"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Estimated percentage of students who watched the entire video."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Started Video"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Students who started watching the video."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Finished Video"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Students who watched the video to the end."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Video Viewing Over Time"
+msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
@@ -818,6 +909,8 @@ msgid ""
 "      How are students doing on the %(type)s?\n"
 "    "
 msgstr ""
+"\n"
+"Como os estudantes estão se saindo no/na %(type)s?"
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
@@ -835,36 +928,40 @@ msgstr "Tarefas Enviadas"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are students doing on this section?"
-msgstr ""
+msgstr "Como os estudantes estão se saindo nesta seção?"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid ""
 "These bars show the correct and incorrect submission counts for each "
 "subsection. Only the last submission from each student is counted."
 msgstr ""
+"Essas barras mostram a contagem de envios corretos e incorretos para cada "
+"subseção. Somente o último envio de cada aluno é contado."
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "Subsection Submissions"
-msgstr ""
+msgstr "Envios de subseção"
 
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid "How are students doing on this subsection?"
-msgstr ""
+msgstr "Como os estudantes estão se saindo nesta subseção?"
 
 #: courses/templates/courses/performance_ungraded_content.html
 #: courses/views/__init__.py
 msgid "How are students doing on ungraded exercises?"
-msgstr ""
+msgstr "Como os alunos estão indo nos exercícios não avaliativos?"
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid ""
 "These bars show the correct and incorrect submission counts for each "
 "section. Only the last submission from each student is counted."
 msgstr ""
+"Essas barras mostram a contagem de envios corretos e incorretos para cada "
+"seção. Somente o último envio de cada aluno é contado."
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid "Section Submissions"
-msgstr ""
+msgstr "Envios de seção"
 
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
@@ -922,6 +1019,11 @@ msgstr "Sexo"
 msgid "Content"
 msgstr "Conteúdo"
 
+#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
+#: courses/views/engagement.py
+msgid "Videos"
+msgstr ""
+
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
 msgid "Graded Content"
@@ -930,7 +1032,7 @@ msgstr "Conteúdo Avaliado"
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
 msgid "Ungraded Problems"
-msgstr ""
+msgstr "Problemas não classificados"
 
 #: courses/views/__init__.py
 msgid "What are students doing in my course?"
@@ -942,7 +1044,7 @@ msgstr "Como os alunos estão indo nas tarefas do curso?"
 
 #: courses/views/__init__.py
 msgid "How are students doing on graded course assignments?"
-msgstr ""
+msgstr "Como os alunos estão indo nas tarefas do curso avaliado?"
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
@@ -954,6 +1056,31 @@ msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr "Engajamento no Curso entre %(update_date)s at %(update_time)s UTC."
+
+#: courses/views/engagement.py
+msgid "Engagement Videos"
+msgstr ""
+
+#. Translators: Do not translate UTC.
+#: courses/views/engagement.py
+msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
+msgstr ""
+
+#: courses/views/engagement.py
+msgid "Looks like no one has watched any videos in these sections."
+msgstr ""
+
+#: courses/views/engagement.py courses/views/performance.py
+msgid "Section Name"
+msgstr "Nome da Seção"
+
+#: courses/views/engagement.py courses/views/performance.py
+msgid "Subsection Name"
+msgstr "Nome da Subseção"
+
+#: courses/views/engagement.py
+msgid "Video Name"
+msgstr ""
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1020,25 +1147,25 @@ msgstr ""
 msgid "Assignment Name"
 msgstr "Nome da tarefa"
 
+#: courses/views/performance.py
+msgid "No submissions received for these exercises."
+msgstr "Sem envios recebidos para estes exercícios."
+
+#: courses/views/performance.py
+msgid "No submissions received for these assignments."
+msgstr "Nenhum envio para estes trabalhos foi recebido."
+
 #: courses/views/performance.py courses/views/performance.py
 msgid "Performance: Problem Submissions"
 msgstr "Desempenho: Problemas Enviados"
 
 #: courses/views/performance.py
 msgid "Graded Content: %(assignment_type)s"
-msgstr ""
+msgstr "Conteúdo avaliado: %(assignment_type)s"
 
 #: courses/views/performance.py courses/views/performance.py
 msgid "Problem Name"
 msgstr "Nome da questão"
-
-#: courses/views/performance.py
-msgid "Section Name"
-msgstr ""
-
-#: courses/views/performance.py
-msgid "Subsection Name"
-msgstr ""
 
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"

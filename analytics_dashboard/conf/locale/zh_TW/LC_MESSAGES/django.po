@@ -8,15 +8,15 @@
 # Lin Yu-Chun <iftwoplustwoequalsfive@gmail.com>, 2014-2015
 # LIU,SHU-HAO <jeremy55662004@gmail.com>, 2014
 # LIU,SHU-HAO <jeremy55662004@gmail.com>, 2014-2015
-# MOH CHIN LAM <chinlam91@gmail.com>, 2014
-# Xaver Y.R. Chen <yrchen@atcity.org>, 2014
+# MOH CHIN LAM <chinlam91@gmail.com>, 2014-2015
+# Xaver Y.R. Chen <yrchen@atcity.org>, 2014-2015
 # Zhen-Rong Chen <zhenrcaaron@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 16:48-0400\n"
-"PO-Revision-Date: 2015-04-08 21:36+0000\n"
+"POT-Creation-Date: 2015-05-29 10:09-0400\n"
+"PO-Revision-Date: 2015-05-29 14:11+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/edx-platform/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -218,15 +218,6 @@ msgstr "為 {part_number} 部分提交 "
 msgid "Part {part_number}"
 msgstr "{part_number} 部分"
 
-#: courses/templates/courses/_base_content_nav.html
-msgid "Select Problem"
-msgstr "選取問題"
-
-#. Translators: This indicates that no text was provided.
-#: courses/templates/courses/_base_content_nav.html
-msgid "(empty)"
-msgstr "(略)"
-
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
 msgstr "選取作業類型"
@@ -243,24 +234,38 @@ msgid ""
 "        Select %(level)s\n"
 "    "
 msgstr ""
+"\n"
+"選取%(level)s"
 
+#: courses/templates/courses/_graded_content_nav.html
 #: courses/templates/courses/_ungraded_content_nav.html
-msgid "Select Section"
-msgstr ""
-
-#: courses/templates/courses/_ungraded_content_nav.html
-msgid "All Sections"
-msgstr ""
-
-#: courses/templates/courses/_ungraded_content_nav.html
-msgid "Select Subsection"
-msgstr ""
+msgid "Select Problem"
+msgstr "選取問題"
 
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
-#: courses/templates/courses/base_performance_answer_distribution.html
+#: courses/templates/courses/_module_description.html
 msgid "View Live"
 msgstr "線上檢視"
+
+#: courses/templates/courses/_ungraded_content_nav.html
+#: courses/templates/courses/_video_content_nav.html
+msgid "Select Section"
+msgstr "選取章節"
+
+#: courses/templates/courses/_ungraded_content_nav.html
+#: courses/templates/courses/_video_content_nav.html
+msgid "All Sections"
+msgstr "所有章節"
+
+#: courses/templates/courses/_ungraded_content_nav.html
+#: courses/templates/courses/_video_content_nav.html
+msgid "Select Subsection"
+msgstr "選取小節"
+
+#: courses/templates/courses/_video_content_nav.html
+msgid "Select Video"
+msgstr ""
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -291,6 +296,7 @@ msgstr "提交數"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 #: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_demographics_age.html
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -302,10 +308,6 @@ msgstr "下載CSV"
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Student Submission Counts"
 msgstr "學生提交數"
-
-#: courses/templates/courses/base_performance_grouped_content.html
-msgid "No submissions received for these assignments."
-msgstr "這些作業沒有接收到提交。"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
@@ -378,6 +380,93 @@ msgstr "在任何討論主題作貢獻的學生。"
 #: courses/templates/courses/engagement_content.html
 msgid "Content Engagement Breakdown"
 msgstr "內容參與分佈"
+
+#. Translators: This describes the data displayed in the chart below. E.g. how
+#. many learners viewed a video.
+#: courses/templates/courses/engagement_grouped_content.html
+#: courses/templates/courses/views_chart_info.html
+msgid "Video Views"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_section.html
+msgid "How did students interact with videos in this section?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_section.html
+msgid ""
+"Each bar shows the counts of complete and incomplete views of the videos in "
+"that subsection. Click on bars with low totals or a high incomplete rate to "
+"drill down and understand why."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_subsection.html
+msgid "How did students interact with videos in this subsection?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_subsection.html
+msgid ""
+"Each bar shows the counts of complete and incomplete views for that video. "
+"Click to understand where students drop off and which parts they replay."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_course.html
+#: courses/views/__init__.py
+msgid "How did students interact with course videos?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_course.html
+msgid ""
+"Each bar shows the counts of complete and incomplete views of the videos in "
+"that section. Click on bars with low totals or a high incomplete rate to "
+"drill down and understand why."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Total Video Views"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "What were the viewing patterns for this video?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid ""
+"The number of students who watched each segment of the video, and the number"
+" of replays for each segment."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Video Metrics"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Completion Rate"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Estimated percentage of students who watched the entire video."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Started Video"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Students who started watching the video."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Finished Video"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Students who watched the video to the end."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Video Viewing Over Time"
+msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
@@ -574,13 +663,13 @@ msgstr "學生選擇學士學位或副學士學位為他們最高學歷的比例
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Advanced Degree"
-msgstr "高等學位"
+msgstr "專科進階學位"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
 "The percentage of students who selected Doctorate or Master's or "
 "professional degree as their highest level of education completed."
-msgstr "學生選擇博士學位或碩士或專業學位為他們最高完成學歷的比例。"
+msgstr "學生選擇博士學位、碩士或專業學位為他們最高完成學歷的比例。"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Educational Breakdown"
@@ -704,7 +793,7 @@ msgstr "這裡是您當前在Insights中已經使用的課程："
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
-msgstr "新%(application_name)s？"
+msgstr "新增%(application_name)s？"
 
 #: courses/templates/courses/index.html
 msgid ""
@@ -765,6 +854,8 @@ msgid ""
 "      How are students doing on the %(type)s?\n"
 "    "
 msgstr ""
+"\n"
+"學生在%(type)s是如何操作的呢？"
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
@@ -779,36 +870,36 @@ msgstr "作業提交"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are students doing on this section?"
-msgstr ""
+msgstr "學生是如何完成這一章節的呢?"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid ""
 "These bars show the correct and incorrect submission counts for each "
 "subsection. Only the last submission from each student is counted."
-msgstr ""
+msgstr "這些狀態列顯示每個小節的正確和錯誤提交數。只會計算每位學生最後之提交。"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "Subsection Submissions"
-msgstr ""
+msgstr "小節提交"
 
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid "How are students doing on this subsection?"
-msgstr ""
+msgstr "學生是如何完成這一小節的呢?"
 
 #: courses/templates/courses/performance_ungraded_content.html
 #: courses/views/__init__.py
 msgid "How are students doing on ungraded exercises?"
-msgstr ""
+msgstr "學生們是如何完成未分級練習？"
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid ""
 "These bars show the correct and incorrect submission counts for each "
 "section. Only the last submission from each student is counted."
-msgstr ""
+msgstr "這些狀態列顯示每個章節的正確和錯誤提交數。 只會計算每位學生最後之提交。"
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid "Section Submissions"
-msgstr ""
+msgstr "章節提交"
 
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
@@ -864,6 +955,11 @@ msgstr "性別"
 msgid "Content"
 msgstr "內容"
 
+#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
+#: courses/views/engagement.py
+msgid "Videos"
+msgstr ""
+
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
 msgid "Graded Content"
@@ -872,7 +968,7 @@ msgstr "評分內容"
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
 msgid "Ungraded Problems"
-msgstr ""
+msgstr "更新問題"
 
 #: courses/views/__init__.py
 msgid "What are students doing in my course?"
@@ -896,6 +992,31 @@ msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr "最新更新課程參與資料 %(update_date)s在%(update_time)s國際標準時間。"
+
+#: courses/views/engagement.py
+msgid "Engagement Videos"
+msgstr ""
+
+#. Translators: Do not translate UTC.
+#: courses/views/engagement.py
+msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
+msgstr ""
+
+#: courses/views/engagement.py
+msgid "Looks like no one has watched any videos in these sections."
+msgstr ""
+
+#: courses/views/engagement.py courses/views/performance.py
+msgid "Section Name"
+msgstr "章節名稱"
+
+#: courses/views/engagement.py courses/views/performance.py
+msgid "Subsection Name"
+msgstr "小章名稱"
+
+#: courses/views/engagement.py
+msgid "Video Name"
+msgstr ""
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -956,6 +1077,14 @@ msgstr "問題提交資料最後更新於 %(update_date)s at %(update_time)s UTC
 msgid "Assignment Name"
 msgstr "作業名稱"
 
+#: courses/views/performance.py
+msgid "No submissions received for these exercises."
+msgstr "這些作業練習未被提交。"
+
+#: courses/views/performance.py
+msgid "No submissions received for these assignments."
+msgstr "這些作業未被提交。"
+
 #: courses/views/performance.py courses/views/performance.py
 msgid "Performance: Problem Submissions"
 msgstr "表現：問題提交"
@@ -967,14 +1096,6 @@ msgstr "評分內容： %(assignment_type)s"
 #: courses/views/performance.py courses/views/performance.py
 msgid "Problem Name"
 msgstr "問題名稱"
-
-#: courses/views/performance.py
-msgid "Section Name"
-msgstr ""
-
-#: courses/views/performance.py
-msgid "Subsection Name"
-msgstr ""
 
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
