@@ -29,7 +29,7 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
 
             if (model.get('showProblemCount')) {
                 tableColumns.push({
-                    key: 'num_children',
+                    key: 'num_modules',
                     title: gettext('Problems'),
                     type: 'number', className: 'text-right'
                 });

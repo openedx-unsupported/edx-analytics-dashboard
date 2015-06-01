@@ -143,7 +143,6 @@ class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, BasePresenter):
         total_start_users = sum(child.get('users_at_start', 0) for child in children)
         total_end_users = sum(child.get('users_at_end', 0) for child in children)
         parent.update({
-            'num_children': len(children),
             'users_at_start': total_start_users,
             'users_at_end': total_end_users,
             'index': index + 1
@@ -154,7 +153,7 @@ class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, BasePresenter):
 
         # including the URL enables navigation to child pages
         has_views = total_start_users > 0 or total_end_users > 0
-        if url_func and parent['num_children'] > 0 and has_views:
+        if url_func and parent['num_modules'] > 0 and has_views:
             parent['url'] = url_func(parent)
 
     def build_section_url(self, section):

@@ -122,6 +122,7 @@ class CourseAPIPresenterMixin(object):
                                                      self.build_module_url_func(section['id']))
                 self.attach_data_to_parents(section['children'],
                                             self.build_subsection_url_func(section['id']))
+                section['num_modules'] = sum(child.get('num_modules', 0) for child in section['children'])
 
             self.attach_data_to_parents(found_structure, self.build_section_url)
 
@@ -216,6 +217,7 @@ class CourseAPIPresenterMixin(object):
             module_data = {}
 
         for parent_block in parent_blocks:
+            parent_block['num_modules'] = len(parent_block['children'])
             for index, child in enumerate(parent_block['children']):
                 data = module_data.get(self.module_id_to_data_id(child), self.default_block_data)
 

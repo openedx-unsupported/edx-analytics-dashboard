@@ -88,6 +88,7 @@ class CoursePerformancePageTestsMixin(CoursePageTestsMixin):
         for parent_block in blocks:
             total = 0
             correct = 0
+            num_modules = 0
 
             for child_block in parent_block['children']:
                 submission_entry = problems.get(child_block['id'], None)
@@ -95,24 +96,34 @@ class CoursePerformancePageTestsMixin(CoursePageTestsMixin):
                 if submission_entry:
                     total += submission_entry['total_submissions']
                     correct += submission_entry['correct_submissions']
+                    num_modules += 1
 
-                    child_block['total_submissions'] = submission_entry['total_submissions']
-                    child_block['correct_submissions'] = submission_entry['correct_submissions']
+                    child_block.update({
+                        'total_submissions': submission_entry['total_submissions'],
+                        'correct_submissions': submission_entry['correct_submissions'],
+                        'num_modules': 1
+                    })
                 elif 'total_submissions' in child_block and 'correct_submissions' in child_block:
                     total += child_block['total_submissions']
                     correct += child_block['correct_submissions']
+                    num_modules += child_block['num_modules']
                 else:
+                    num_modules += 1
                     child_block.update({
                         'total_submissions': 0,
-                        'correct_submissions': 0
+                        'correct_submissions': 0,
+                        'num_modules': 1,
                     })
 
-            parent_block['total_submissions'] = total
-            parent_block['correct_submissions'] = correct
+            parent_block.update({
+                'total_submissions': total,
+                'correct_submissions': correct,
+                'num_modules': num_modules
+            })
 
         return blocks
 
-    def assertBlockRows(self, blocks, include_children_count=True):
+    def assertBlockRows(self, blocks, include_module_count=True):
         table = self.page.browser.find_element_by_css_selector(self.table_selector)
         # Check the row texts
         rows = table.find_elements_by_css_selector('tbody tr')
@@ -123,8 +134,8 @@ class CoursePerformancePageTestsMixin(CoursePageTestsMixin):
             cols = row.find_elements_by_css_selector('td')
             expected = [unicode(index + 1), block['name']]
 
-            if include_children_count:
-                expected += [unicode(self._format_number_or_hyphen(len(block.get('children', []))))]
+            if include_module_count:
+                expected += [unicode(self._format_number_or_hyphen(block.get('num_modules', 0)))]
 
             expected += [
                 unicode(self._format_number_or_hyphen(block['correct_submissions'])),

@@ -268,7 +268,6 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, BasePresenter):
         children = parent['children']
         total_submissions = sum(child.get('total_submissions', 0) for child in children)
         correct_submissions = sum(child.get('correct_submissions', 0) for child in children)
-        parent['num_children'] = len(children)
         parent['total_submissions'] = total_submissions
         parent['correct_submissions'] = correct_submissions
         parent['correct_percent'] = utils.math.calculate_percent(
