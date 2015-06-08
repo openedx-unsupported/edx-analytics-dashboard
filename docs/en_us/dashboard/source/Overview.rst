@@ -45,19 +45,19 @@ edX Insights presents.
 
  * :ref:`Enrollment_Geography`
 
+ * :ref:`Enrollment_Demographics`
+
  * :ref:`Engagement_Content`
+
+ * :ref:`Engagement_Video`
  
  * :ref:`Performance_Graded`
  
  * :ref:`Performance_Ungraded`
 
 Each of these chapters contains a section for anecdotal "Analytics in Action".
-These sections showcase how collected data has revealed information about
-courses and students, and how course teams have reacted to the information.
-
-.. note:: All of the Analytics in Action anecdotes featured in this early 
- version of *Using edX Insights* describe data that was collected and acted 
- upon before the release of edX Insights.
+These sections showcase how collected data can reveal information about
+courses and students, and how course teams might react to the information.
 
 You are invited to share your experiences using edX Insights. Contact the edX
 documentation team at `docs@edx.org`_.
