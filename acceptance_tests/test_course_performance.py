@@ -123,30 +123,52 @@ class CoursePerformancePageTestsMixin(CoursePageTestsMixin):
 
         return blocks
 
-    def assertBlockRows(self, blocks, include_module_count=True):
+    def assertBlockRows(self, blocks):
         table = self.page.browser.find_element_by_css_selector(self.table_selector)
-        # Check the row texts
         rows = table.find_elements_by_css_selector('tbody tr')
         self.assertEqual(len(rows), len(blocks))
 
         for index, row in enumerate(rows):
             block = blocks[index]
             cols = row.find_elements_by_css_selector('td')
-            expected = [unicode(index + 1), block['name']]
+            self.assertRowTextEquals(cols, self.get_expected_row(index, block))
 
-            if include_module_count:
-                expected += [unicode(self._format_number_or_hyphen(block.get('num_modules', 0)))]
+    def get_expected_row(self, index, block):
+        return [unicode(index + 1), block['name']]
 
-            expected += [
-                unicode(self._format_number_or_hyphen(block['correct_submissions'])),
-                unicode(self._format_number_or_hyphen(
-                    block['total_submissions'] - block['correct_submissions'])),
-                unicode(self._format_number_or_hyphen(block['total_submissions'])),
-                unicode(self._build_display_percentage_or_hyphen(block['correct_submissions'],
-                                                                 block['total_submissions']))
-            ]
 
-            self.assertRowTextEquals(cols, expected)
+# pylint: disable=abstract-method
+class CoursePerformanceAveragedTableMixin(CoursePerformancePageTestsMixin):
+
+    def get_expected_row(self, index, block):
+        row = super(CoursePerformanceAveragedTableMixin, self).get_expected_row(index, block)
+        num_modules_denominator = float(block.get('num_modules', 1))
+        row += [
+            unicode(self._format_number_or_hyphen(block.get('num_modules', 0))),
+            unicode(self._format_number_or_hyphen(block['correct_submissions'] / num_modules_denominator)),
+            unicode(self._format_number_or_hyphen(
+                (block['total_submissions'] - block['correct_submissions']) / num_modules_denominator)),
+            unicode(self._format_number_or_hyphen(block['total_submissions'] / num_modules_denominator)),
+            unicode(self._build_display_percentage_or_hyphen(block['correct_submissions'],
+                                                             block['total_submissions']))
+        ]
+        return row
+
+
+# pylint: disable=abstract-method
+class CoursePerformanceModuleTableMixin(CoursePerformancePageTestsMixin):
+
+    def get_expected_row(self, index, block):
+        row = super(CoursePerformanceModuleTableMixin, self).get_expected_row(index, block)
+        row += [
+            unicode(self._format_number_or_hyphen(block['correct_submissions'])),
+            unicode(self._format_number_or_hyphen(
+                block['total_submissions'] - block['correct_submissions'])),
+            unicode(self._format_number_or_hyphen(block['total_submissions'])),
+            unicode(self._build_display_percentage_or_hyphen(block['correct_submissions'],
+                                                             block['total_submissions']))
+        ]
+        return row
 
 
 @skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test the graded content page.')
@@ -210,7 +232,7 @@ class CoursePerformanceGradedContentTests(CoursePerformancePageTestsMixin, WebAp
 
 
 @skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test the course assignment type detail page.')
-class CoursePerformanceGradedContentByTypeTests(CoursePerformancePageTestsMixin, WebAppTest):
+class CoursePerformanceGradedContentByTypeTests(CoursePerformanceAveragedTableMixin, WebAppTest):
     """
     Tests for the course assignment type detail page.
     """
@@ -225,12 +247,13 @@ class CoursePerformanceGradedContentByTypeTests(CoursePerformancePageTestsMixin,
     def _test_table(self):
         self.assertTableColumnHeadingsEqual(self.table_selector,
                                             [u'Order', u'Assignment Name', u'Problems',
-                                             u'Correct', u'Incorrect', u'Total', u'Percentage Correct'])
+                                             u'Average Correct', u'Average Incorrect',
+                                             u'Average Submissions Per Problem', u'Percentage Correct'])
         self.assertBlockRows(self.assignments)
 
 
 @skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test the course assignment detail page.')
-class CoursePerformanceAssignmentTests(CoursePerformancePageTestsMixin, WebAppTest):
+class CoursePerformanceAssignmentTests(CoursePerformanceModuleTableMixin, WebAppTest):
     """
     Tests for the course assignment detail page.
     """
@@ -254,7 +277,7 @@ class CoursePerformanceAssignmentTests(CoursePerformancePageTestsMixin, WebAppTe
         # Check the column headings
         self.assertTableColumnHeadingsEqual(self.table_selector, [
             u'Order', u'Problem Name', u'Correct', u'Incorrect', u'Total', u'Percentage Correct'])
-        self.assertBlockRows(self.assignment['children'], False)
+        self.assertBlockRows(self.assignment['children'])
 
 
 class CoursePerformanceAnswerDistributionMixin(CoursePerformancePageTestsMixin):
@@ -352,7 +375,7 @@ class CoursePerformanceUngradedAnswerDistributionTests(CoursePerformanceAnswerDi
 
 
 @skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test ungraded content.')
-class CoursePerformanceUngradedContentTests(CoursePerformancePageTestsMixin, WebAppTest):
+class CoursePerformanceUngradedContentTests(CoursePerformanceAveragedTableMixin, WebAppTest):
 
     def setUp(self):
         super(CoursePerformanceUngradedContentTests, self).setUp()
@@ -362,13 +385,14 @@ class CoursePerformanceUngradedContentTests(CoursePerformancePageTestsMixin, Web
 
     def _test_table(self):
         self.assertTableColumnHeadingsEqual(self.table_selector,
-                                            [u'Order', u'Section Name', u'Problems', u'Correct',
-                                             u'Incorrect', u'Total', u'Percentage Correct'])
+                                            [u'Order', u'Section Name', u'Problems', u'Average Correct',
+                                             u'Average Incorrect', u'Average Submissions Per Problem',
+                                             u'Percentage Correct'])
         self.assertBlockRows(self.sections)
 
 
 @skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test ungraded content.')
-class CoursePerformanceUngradedSectionTests(CoursePerformancePageTestsMixin, WebAppTest):
+class CoursePerformanceUngradedSectionTests(CoursePerformanceAveragedTableMixin, WebAppTest):
 
     def setUp(self):
         super(CoursePerformanceUngradedSectionTests, self).setUp()
@@ -378,13 +402,14 @@ class CoursePerformanceUngradedSectionTests(CoursePerformancePageTestsMixin, Web
 
     def _test_table(self):
         self.assertTableColumnHeadingsEqual(self.table_selector,
-                                            [u'Order', u'Subsection Name', u'Problems', u'Correct',
-                                             u'Incorrect', u'Total', u'Percentage Correct'])
+                                            [u'Order', u'Subsection Name', u'Problems', u'Average Correct',
+                                             u'Average Incorrect', u'Average Submissions Per Problem',
+                                             u'Percentage Correct'])
         self.assertBlockRows(self.section['children'])
 
 
 @skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test ungraded content.')
-class CoursePerformanceUngradedSubsectionTests(CoursePerformancePageTestsMixin, WebAppTest):
+class CoursePerformanceUngradedSubsectionTests(CoursePerformanceModuleTableMixin, WebAppTest):
 
     def setUp(self):
         super(CoursePerformanceUngradedSubsectionTests, self).setUp()
@@ -396,4 +421,4 @@ class CoursePerformanceUngradedSubsectionTests(CoursePerformancePageTestsMixin, 
     def _test_table(self):
         self.assertTableColumnHeadingsEqual(self.table_selector, [u'Order', u'Problem Name', u'Correct',
                                                                   u'Incorrect', u'Total', u'Percentage Correct'])
-        self.assertBlockRows(self.problems, False)
+        self.assertBlockRows(self.problems)

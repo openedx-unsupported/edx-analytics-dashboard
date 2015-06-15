@@ -74,7 +74,7 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
                     } else if (column.type === 'percent') {
                         def.data = self.createFormatPercentFunc(column.key);
                     } else if (column.type === 'number') {
-                        def.data = self.createFormatNumberFunc(column.key);
+                        def.data = self.createFormatNumberFunc(column.key, column.fractionDigits);
                     } else if (column.type === 'maxNumber') {
                         // this is useful so that sorting is number based, but
                         // '+' can be displayed after the maximum
@@ -110,7 +110,7 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
              * Returns a function used by datatables to format the cell for
              * numbers.
              */
-            createFormatNumberFunc: function (columnKey) {
+            createFormatNumberFunc: function (columnKey, fractionDigits) {
                 var self = this;
                 return function (row, type) {
                     var value = row[columnKey],
@@ -119,7 +119,7 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
                         if (_(self.options).has('replaceZero') && value === 0) {
                             display = self.options.replaceZero;
                         } else if (!_(value).isUndefined() && !_(value).isNull()){
-                            display = Utils.localizeNumber(Number(value));
+                            display = Utils.localizeNumber(Number(value), fractionDigits);
                         }
                     }
                     return display;

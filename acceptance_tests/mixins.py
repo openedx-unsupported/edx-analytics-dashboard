@@ -347,7 +347,10 @@ class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterLegalMixin, FooterFeed
     @staticmethod
     def format_number(value):
         """ Format the given value for the current locale (e.g. include decimal separator). """
-        return locale.format("%d", value, grouping=True)
+        if isinstance(value, int):
+            return locale.format("%d", value, grouping=True)
+        else:
+            return locale.format("%.1f", value, grouping=True)
 
 
 class CourseDemographicsPageTestsMixin(CoursePageTestsMixin):

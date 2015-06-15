@@ -6,38 +6,39 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
             var model = page.models.courseModel,
                 graphSubmissionColumns = [
                     {
-                        key: 'users_at_end',
-                        percent_key: 'end_percent',
-                        title: gettext('Complete Views'),
+                        key: 'correct_submissions',
+                        percent_key: 'correct_percent',
+                        title: gettext('Correct'),
                         className: 'text-right',
                         type: 'number',
-                        color: '#58BC4B'
+                        color: '#4BB4FB'
                     },
                     {
-                        key: 'start_only_users',
-                        percent_key: 'start_only_percent',
-                        title: gettext('Incomplete Views'),
+                        key: 'incorrect_submissions',
+                        percent_key: 'incorrect_percent',
+                        title: gettext('Incorrect'),
                         className: 'text-right',
                         type: 'number',
-                        color: '#9B9B9B'
+                        color: '#CA0061'
                     }
                 ],
                 tableColumns = [
                     {key: 'index', title: gettext('Order'), type: 'number', className: 'text-right'},
-                    {key: 'name', title: model.get('contentTableHeading'), type: 'hasNull'}
-                ];
+                    {key: 'name', title: model.get('contentTableHeading'), type: 'hasNull'}                ];
 
-            if (model.get('showVideoCount')) {
-                tableColumns.push({
-                    key: 'num_modules',
-                    title: gettext('Videos'),
-                    type: 'number', className: 'text-right'
-                });
-            }
             tableColumns = tableColumns.concat(graphSubmissionColumns);
+
             tableColumns.push({
-                key: 'end_percent',
-                title: gettext('Completion Percentage'),
+                key: 'total_submissions',
+                title: gettext('Total'),
+                className: 'text-right',
+                type: 'number',
+                color: '#4BB4FB'
+            });
+
+            tableColumns.push({
+                key: 'correct_percent',
+                title: gettext('Percentage Correct'),
                 className: 'text-right',
                 type: 'percent'
             });

@@ -268,14 +268,27 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, BasePresenter):
         children = parent['children']
         total_submissions = sum(child.get('total_submissions', 0) for child in children)
         correct_submissions = sum(child.get('correct_submissions', 0) for child in children)
-        parent['total_submissions'] = total_submissions
-        parent['correct_submissions'] = correct_submissions
-        parent['correct_percent'] = utils.math.calculate_percent(
-            correct_submissions, total_submissions)
-        parent['incorrect_submissions'] = total_submissions - correct_submissions
-        parent['incorrect_percent'] = utils.math.calculate_percent(
-            parent['incorrect_submissions'], total_submissions)
-        parent['index'] = index + 1
+        incorrect_submissions = total_submissions - correct_submissions
+        parent.update({
+            'total_submissions': total_submissions,
+            'correct_submissions': correct_submissions,
+            'correct_percent': utils.math.calculate_percent(correct_submissions, total_submissions),
+            'incorrect_submissions': incorrect_submissions,
+            'incorrect_percent': utils.math.calculate_percent(incorrect_submissions, total_submissions),
+            'index': index + 1,
+            'average_submissions': 0,
+            'average_correct_submissions': 0,
+            'average_incorrect_submissions': 0,
+        })
+
+        if parent['num_modules']:
+            num_modules = float(parent['num_modules'])
+            parent.update({
+                'average_submissions': total_submissions / num_modules,
+                'average_correct_submissions': correct_submissions / num_modules,
+                'average_incorrect_submissions': incorrect_submissions / num_modules,
+            })
+
         # removing the URL keeps navigation between the menu and bar chart consistent
         if url_func and parent['total_submissions'] > 0:
             parent['url'] = url_func(parent)

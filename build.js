@@ -57,6 +57,10 @@
             exclude: ['js/common']
         },
         {
+            name: 'js/performance-problems-main',
+            exclude: ['js/common']
+        },
+        {
             name: 'js/performance-answer-distribution-main',
             exclude: ['js/common']
         }

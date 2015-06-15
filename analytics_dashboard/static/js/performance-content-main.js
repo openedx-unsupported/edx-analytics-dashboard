@@ -6,41 +6,38 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
             var model = page.models.courseModel,
                 graphSubmissionColumns = [
                     {
-                        key: 'correct_submissions',
+                        key: 'average_correct_submissions',
                         percent_key: 'correct_percent',
-                        title: gettext('Correct'),
+                        title: gettext('Average Correct'),
                         className: 'text-right',
                         type: 'number',
+                        fractionDigits: 1,
                         color: '#4BB4FB'
                     },
                     {
-                        key: 'incorrect_submissions',
+                        key: 'average_incorrect_submissions',
                         percent_key: 'incorrect_percent',
-                        title: gettext('Incorrect'),
+                        title: gettext('Average Incorrect'),
                         className: 'text-right',
                         type: 'number',
+                        fractionDigits: 1,
                         color: '#CA0061'
                     }
                 ],
                 tableColumns = [
                     {key: 'index', title: gettext('Order'), type: 'number', className: 'text-right'},
-                    {key: 'name', title: model.get('contentTableHeading'), type: 'hasNull'}
+                    {key: 'name', title: model.get('contentTableHeading'), type: 'hasNull'},
+                    {key: 'num_modules', title: gettext('Problems'), type: 'number', className: 'text-right'}
                 ];
 
-            if (model.get('showProblemCount')) {
-                tableColumns.push({
-                    key: 'num_modules',
-                    title: gettext('Problems'),
-                    type: 'number', className: 'text-right'
-                });
-            }
             tableColumns = tableColumns.concat(graphSubmissionColumns);
 
             tableColumns.push({
-                key: 'total_submissions',
-                title: gettext('Total'),
+                key: 'average_submissions',
+                title: gettext('Average Submissions Per Problem'),
                 className: 'text-right',
                 type: 'number',
+                fractionDigits: 1,
                 color: '#4BB4FB'
             });
 
@@ -56,23 +53,8 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                     el: '#chart-view',
                     model: model,
                     modelAttribute: 'primaryContent',
-                    truncateXTicks: true,
-                    trends: graphSubmissionColumns,
-                    x: {key: 'id', displayKey: 'name'},
-                    y: {key: 'count'},
-                    interactiveTooltipValueTemplate: function (trend) {
-                        /* Translators: <%=value%> will be replaced by a number followed by a percentage.
-                         For example, "400 (29%)" */
-                        return _.template(gettext('<%=value%> (<%=percent%>)'))({
-                            value: trend.value,
-                            percent: d3.format('.1%')(trend.point[trend.options.percent_key])
-                        });
-                    },
-                    click: function (d) {
-                        if (_(d).has('url')) {
-                            document.location.href = d.url;
-                        }
-                    }
+                    dataType: 'decimal',
+                    trends: graphSubmissionColumns
                 });
             }
 

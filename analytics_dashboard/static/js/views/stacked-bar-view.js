@@ -1,11 +1,27 @@
-define(['nvd3', 'underscore', 'views/discrete-bar-view'],
-    function (nvd3, _, DiscreteBarView) {
+define(['d3', 'nvd3', 'underscore', 'views/discrete-bar-view'],
+    function (d3, nvd3, _, DiscreteBarView) {
         'use strict';
 
         var StackedBarView = DiscreteBarView.extend({
 
             defaults: _.extend({}, DiscreteBarView.prototype.defaults, {
-                    barSelector: '.nv-bar'
+                    barSelector: '.nv-bar',
+                    truncateXTicks: true,
+                    interactiveTooltipValueTemplate: function (trend) {
+                        /* Translators: <%=value%> will be replaced by a number followed by a percentage.
+                         For example, "400 (29%)" */
+                        return _.template(gettext('<%=value%> (<%=percent%>)'))({
+                            value: trend.value,
+                            percent: d3.format('.1%')(trend.point[trend.options.percent_key])
+                        });
+                    },
+                    click: function (d) {
+                        if (_(d).has('url')) {
+                            document.location.href = d.url;
+                        }
+                    },
+                    x: {key: 'id', displayKey: 'name'},
+                    y: {key: 'count'}
                 }
             ),
 
