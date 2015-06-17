@@ -1,4 +1,4 @@
-define(['models/course-model', 'views/stacked-bar-view'], function(CourseModel, StackedBarView) {
+define(['underscore', 'models/course-model', 'views/stacked-bar-view'], function(_, CourseModel, StackedBarView) {
     'use strict';
 
     describe('Stacked bar view', function () {
@@ -74,6 +74,23 @@ define(['models/course-model', 'views/stacked-bar-view'], function(CourseModel, 
             expect(assembledData.length).toBe(2);
             expect(assembledData[0].color).toBe('#4BB4FB');
             expect(assembledData[1].color).toBe('#CA0061');
+        });
+
+        it('should have default options', function () {
+            var view = new StackedBarView({model: new CourseModel(), modelAttribute: 'data'}),
+                trend = {
+                    value: 200,
+                    options: {percent_key: 'percent'},
+                    point: {percent: 0.1239}
+                },
+                expectedTooltip = '200 (12.4%)';
+            expect(_.isFunction(view.options.click)).toBe(true);
+            expect(view.options.truncateXTicks).toBe(true);
+            expect(view.options.barSelector).toBe('.nv-bar');
+            expect(view.options.barSelector).toBe('.nv-bar');
+            expect(view.options.x).toEqual({key: 'id', displayKey: 'name'});
+            expect(view.options.y).toEqual({key: 'count'});
+            expect(view.options.interactiveTooltipValueTemplate(trend)).toBe(expectedTooltip);
         });
 
     });

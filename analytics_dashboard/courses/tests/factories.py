@@ -43,6 +43,7 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                 })
 
             num_problems = len(problems)
+            num_problems_float = float(num_problems)
             url_template = '/courses/{}/performance/graded_content/assignments/{}/'
             presented_assignment = {
                 'index': assignment_index + 1,
@@ -56,6 +57,9 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                 'correct_percent': 1.0,
                 'incorrect_submissions': 0,
                 'incorrect_percent': 0.0,
+                'average_submissions': num_problems / num_problems_float,
+                'average_correct_submissions': num_problems / num_problems_float,
+                'average_incorrect_submissions': 0.0,
                 'url': urllib.quote(url_template.format(
                     self.course_id, assignment['id']))
             }
@@ -132,6 +136,7 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                     })
 
                 num_problems = len(problems)
+                num_problems_float = float(num_problems)
                 url_template = '/courses/{}/performance/ungraded_content/sections/{}/subsections/{}/'
                 presented_subsection = {
                     'index': subsection_index + 1,
@@ -144,6 +149,9 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                     'correct_percent': 1.0,
                     'incorrect_submissions': 0,
                     'incorrect_percent': 0.0,
+                    'average_submissions': num_problems / num_problems_float,
+                    'average_correct_submissions': num_problems / num_problems_float,
+                    'average_incorrect_submissions': 0.0,
                     'url': urllib.quote(url_template.format(
                         self.course_id, section['id'],
                         subsection['id']))
@@ -151,6 +159,7 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                 subsections.append(presented_subsection)
 
             num_problems = 1
+            num_problems_float = float(num_problems)
             url_template = '/courses/{}/performance/ungraded_content/sections/{}/'
             presented_sections = {
                 'index': section_index + 1,
@@ -163,6 +172,9 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                 'correct_percent': 1.0,
                 'incorrect_submissions': 0,
                 'incorrect_percent': 0.0,
+                'average_submissions': num_problems / num_problems_float,
+                'average_correct_submissions': num_problems / num_problems_float,
+                'average_incorrect_submissions': 0.0,
                 'url': urllib.quote(url_template.format(
                     self.course_id, section['id']))
             }

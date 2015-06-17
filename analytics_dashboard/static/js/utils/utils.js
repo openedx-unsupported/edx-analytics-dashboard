@@ -48,8 +48,12 @@ define(['moment', 'underscore', 'utils/globalization'], function (moment, _, Glo
          * @param value {number}
          * @returns {string}
          */
-        localizeNumber: function (value) {
-            return Globalize.formatNumber(value);
+        localizeNumber: function (value, fractionDigits) {
+            var options = {
+                minimumFractionDigits: fractionDigits,
+                maximumFractionDigits: fractionDigits
+            };
+            return Globalize.formatNumber(value, options);
         },
 
         /**

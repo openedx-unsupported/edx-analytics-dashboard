@@ -191,6 +191,8 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
 
                 if (self.options.dataType === 'percent') {
                     format = d3.format('.1%');
+                } else if (self.options.dataType === 'decimal') {
+                    format = d3.format('.1f');
                 }
 
                 return format;

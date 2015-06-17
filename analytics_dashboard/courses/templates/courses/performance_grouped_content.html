@@ -4,9 +4,12 @@
 
 {% block javascript %}
     {{ block.super }}
-    <script src="{% static_rjs 'js/performance-content-main.js' %}"></script>
+    {# override for custom JS loading #}
+    {% block performance_javascript %}
+        <script src="{% static_rjs 'js/performance-content-main.js' %}"></script>
+    {% endblock performance_javascript %}
 {% endblock javascript %}
 
 {% block chart_info %}
-    {% include "courses/submissions_chart_info.html"%}
+    {% include "courses/submissions_chart_info.html" %}
 {% endblock chart_info %}

@@ -41,7 +41,6 @@ class PerformanceTemplateView(CourseStructureExceptionMixin, CourseTemplateWithN
 
         context_data['no_data_message'] = self.no_data_message
         context_data['js_data']['course'].update({
-            'showProblemCount': True,  # overwrite to hide problem count column
             'contentTableHeading': _('Assignment Name')  # overwrite for different heading
         })
 
@@ -220,8 +219,7 @@ class PerformanceAssignment(PerformanceGradedContentTemplateView):
 
         context['js_data']['course'].update({
             'contentTableHeading': _('Problem Name'),
-            'primaryContent': self.assignment['children'],
-            'showProblemCount': False  # hide the problem count column
+            'primaryContent': self.assignment['children']
         })
 
         context.update({
@@ -274,9 +272,6 @@ class PerformanceUngradedSubsection(PerformanceUngradedContentTemplateView):
         problems = self.presenter.subsection_children(self.section_id, self.subsection_id)
         self.set_primary_content(context, problems)
         context['js_data']['course']['contentTableHeading'] = _('Problem Name')
-        context['js_data']['course'].update({
-            'showProblemCount': False  # hide the problem count column
-        })
 
         context.update({
             'page_data': self.get_page_data(context)
