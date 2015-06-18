@@ -1,32 +1,14 @@
-{% load announcements_tags i18n %}
+{% load soapbox %}
+{% load announcements_tags %}
+
+{% get_messages_for_page view.page_name as soapbox_messages %}
+{% for message in soapbox_messages %}
+  {% include "_announcement.html" with message=message %}
+{% endfor %}
 
 {% announcements as announcements_list %}
-
 {% with announcements_list|first as announcement %}
   {% if announcement %}
-    <div class="announcement-container" data-dismiss-url="{{ announcement.dismiss_url }}"
-         data-view="announcement">
-      <div class="container">
-        {% csrf_token %}
-        <a class="dismiss">
-          <span aria-hidden="true"><i class="fa fa-times"></i></span><span class="sr-only">{% trans "Close" %}</span>
-        </a>
-
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-1 col-md-1">
-              <div class="icon"><i class="fa fa-bullhorn"></i></div>
-            </div>
-
-            <div class="col-xs-9 col-md-9">
-              <div class="message">
-                <div class="title">{{ announcement.title }}</div>
-                <div class="body">{{ announcement.content|safe }}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    {% include "_announcement.html" with body=announcement.content title=announcement.title dismiss_url=announcement.dismiss_url %}
   {% endif %}
 {% endwith %}
