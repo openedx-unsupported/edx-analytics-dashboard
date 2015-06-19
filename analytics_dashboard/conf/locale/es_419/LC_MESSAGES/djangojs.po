@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-29 10:10-0400\n"
-"PO-Revision-Date: 2015-05-29 14:11+0000\n"
+"POT-Creation-Date: 2015-06-19 11:21-0400\n"
+"PO-Revision-Date: 2015-06-19 15:23+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Spanish (Latin America) (http://www.transifex.com/projects/p/edx-platform/language/es_419/)\n"
 "MIME-Version: 1.0\n"
@@ -39,11 +39,14 @@ msgstr "..."
 #. no label was provided.
 #. Translators: (empty) is displayed as a label in a chart and indicates that
 #. no label was provided.
+#. Translators: (empty) is displayed as a label in a chart and indicates that
+#. no label was provided.
 #: static/dist/js/common.js static/dist/js/engagement-video-content-main.js
 #: static/dist/js/enrollment-demographics-education-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-problems-main.js
 #: static/js/views/data-table-view.js static/js/views/discrete-bar-view.js
 msgid "(empty)"
 msgstr "(vacío)"
@@ -52,9 +55,9 @@ msgstr "(vacío)"
 #. Translators: "Correct" is displayed in a table..
 #: static/dist/js/common.js
 #: static/dist/js/performance-answer-distribution-main.js
-#: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
-#: static/js/performance-content-main.js static/js/views/data-table-view.js
+#: static/js/performance-problems-main.js static/js/views/data-table-view.js
 msgid "Correct"
 msgstr "Corregir"
 
@@ -90,54 +93,67 @@ msgid "Week Ending <%=value%>"
 msgstr "Semana Final  <%=value%>"
 
 #: static/dist/js/engagement-video-content-main.js
-msgid "Complete Plays"
-msgstr ""
+#: static/js/engagement-video-content-main.js
+msgid "Complete Views"
+msgstr "Visualizaciones completas"
 
 #: static/dist/js/engagement-video-content-main.js
-msgid "Incomplete Plays"
-msgstr ""
+#: static/js/engagement-video-content-main.js
+msgid "Incomplete Views"
+msgstr "Visualizaciones incompletas"
 
 #: static/dist/js/engagement-video-content-main.js
 #: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-problems-main.js
 #: static/js/engagement-video-content-main.js
 #: static/js/performance-content-main.js
+#: static/js/performance-problems-main.js
 msgid "Order"
 msgstr "Orden"
 
 #: static/dist/js/engagement-video-content-main.js
 #: static/js/engagement-video-content-main.js
 msgid "Videos"
-msgstr ""
+msgstr "Videos"
 
 #: static/dist/js/engagement-video-content-main.js
 #: static/js/engagement-video-content-main.js
 msgid "Completion Percentage"
-msgstr ""
+msgstr "Porcentaje de completado"
 
+#. Translators: <%=value%> will be replaced by a number followed by a
+#. percentage.
+#. For example, "400 (29%)"
+#. Translators: <%=value%> will be replaced by a number followed by a
+#. percentage.
+#. For example, "40.8 (29%)"
+#. Translators: <%=value%> will be replaced by a number followed by a
+#. percentage.
+#. For example, "400 (29%)"
 #. Translators: <%=value%> will be replaced by a number followed by a
 #. percentage.
 #. For example, "400 (29%)"
 #: static/dist/js/engagement-video-content-main.js
 #: static/dist/js/performance-content-main.js
-#: static/js/engagement-video-content-main.js
-#: static/js/performance-content-main.js
+#: static/dist/js/performance-problems-main.js
+#: static/js/views/stacked-bar-view.js
 msgid "<%=value%> (<%=percent%>)"
 msgstr "<%=value%> (<%=percent%>)"
 
 #: static/dist/js/engagement-video-timeline-main.js
 #: static/js/engagement-video-timeline-main.js
 msgid "Unique Viewers"
-msgstr ""
+msgstr "Observadores únicos"
 
 #: static/dist/js/engagement-video-timeline-main.js
 #: static/js/engagement-video-timeline-main.js
 msgid "Replays"
-msgstr ""
+msgstr "Repeticiones"
 
 #: static/dist/js/engagement-video-timeline-main.js
 #: static/js/engagement-video-timeline-main.js
 msgid "Time"
-msgstr ""
+msgstr "Tiempo"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
@@ -286,8 +302,13 @@ msgstr "Respuesta: <%=value%>"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
-msgid "Incorrect"
-msgstr "Incorrecto"
+msgid "Average Correct"
+msgstr ""
+
+#: static/dist/js/performance-content-main.js
+#: static/js/performance-content-main.js
+msgid "Average Incorrect"
+msgstr ""
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
@@ -296,18 +317,22 @@ msgstr "Problemas"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
-msgid "Total"
-msgstr "Total"
+msgid "Average Submissions Per Problem"
+msgstr ""
 
 #: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-problems-main.js
 #: static/js/performance-content-main.js
+#: static/js/performance-problems-main.js
 msgid "Percentage Correct"
 msgstr "Porcentaje Correcto"
 
-#: static/js/engagement-video-content-main.js
-msgid "Complete Views"
-msgstr ""
+#: static/dist/js/performance-problems-main.js
+#: static/js/performance-problems-main.js
+msgid "Incorrect"
+msgstr "Incorrecto"
 
-#: static/js/engagement-video-content-main.js
-msgid "Incomplete Views"
-msgstr ""
+#: static/dist/js/performance-problems-main.js
+#: static/js/performance-problems-main.js
+msgid "Total"
+msgstr "Total"

@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Azmi Ozgen <azmican73@gmail.com>, 2014
+# Can Taşdemir <can.tsdmr@windowslive.com>, 2015
 # Emre Saraçoğlu <emresaracoglu@live.com>, 2014
 # Hüseyin Eski, 2015
 # İhsan Karataylı <ihsan.karatayli@gmail.com>, 2015
@@ -12,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-29 10:09-0400\n"
-"PO-Revision-Date: 2015-05-29 14:11+0000\n"
+"POT-Creation-Date: 2015-06-19 11:21-0400\n"
+"PO-Revision-Date: 2015-06-19 15:22+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/edx-platform/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -49,7 +50,7 @@ msgstr "Kayıt"
 
 #: core/templates/core/landing.html
 msgid "What are students engaging with in my course?"
-msgstr ""
+msgstr "Öğrenciler dersimde neler ile etkileşim içerisindeler?"
 
 #: core/templates/core/landing.html
 msgid ""
@@ -165,13 +166,13 @@ msgstr ""
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Bachelor's"
-msgstr ""
+msgstr "Lisans derecesi"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Master's"
-msgstr ""
+msgstr "Yüksek Lisans Derecesi"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
@@ -331,11 +332,11 @@ msgstr ""
 
 #: courses/templates/courses/engagement_content.html
 msgid "Active Students Last Week"
-msgstr ""
+msgstr "Geçmiş haftada aktif olan öğrenciler"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who visited at least one page in the course content."
-msgstr ""
+msgstr "Ders içeriğinde en az bir sayfayı ziyaret eden öğrenciler"
 
 #. Translators: This is a label indicating the number of students who watched
 #. a video.
@@ -345,7 +346,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who played one or more videos."
-msgstr ""
+msgstr "Bir ya da daha fazla video izleyen öğrenciler"
 
 #. Translators: This is a label indicating the number of students who tried a
 #. problem.
@@ -379,11 +380,11 @@ msgstr ""
 #: courses/templates/courses/engagement_grouped_content.html
 #: courses/templates/courses/views_chart_info.html
 msgid "Video Views"
-msgstr ""
+msgstr "Video İzlenme Sayısı"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid "How did students interact with videos in this section?"
-msgstr ""
+msgstr "Öğrenciler bu bölümde  videolar ile nasıl etkileşim içerisinde oldu?"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
@@ -417,7 +418,7 @@ msgstr ""
 #: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Total Video Views"
-msgstr ""
+msgstr "Toplam Video İzlenme Sayısı"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "What were the viewing patterns for this video?"
@@ -435,7 +436,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Completion Rate"
-msgstr ""
+msgstr "Tamamlama Oranı"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Estimated percentage of students who watched the entire video."
@@ -848,8 +849,8 @@ msgstr ""
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
-"These bars show the correct and incorrect submission counts for each "
-"assignment. For each problem, only the last submission from each student is "
+"Each bar shows the average number of correct and incorrect submissions for "
+"problems in the assignment. Only the last submission from each student is "
 "counted."
 msgstr ""
 
@@ -863,8 +864,8 @@ msgstr ""
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid ""
-"These bars show the correct and incorrect submission counts for each "
-"subsection. Only the last submission from each student is counted."
+"Each bar shows the average number of correct and incorrect submissions for "
+"each subsection. Only the last submission from each student is counted."
 msgstr ""
 
 #: courses/templates/courses/performance_ungraded_by_section.html
@@ -882,8 +883,8 @@ msgstr ""
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid ""
-"These bars show the correct and incorrect submission counts for each "
-"section. Only the last submission from each student is counted."
+"Each bar shows the average number of correct and incorrect submissions for "
+"each section. Only the last submission from each student is counted."
 msgstr ""
 
 #: courses/templates/courses/performance_ungraded_content.html
@@ -1131,7 +1132,7 @@ msgstr ""
 msgid "(Technical details: 503 Service Unavailable.)"
 msgstr ""
 
-#: templates/announcements.html
+#: templates/_announcement.html
 msgid "Close"
 msgstr "kapat"
 

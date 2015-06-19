@@ -7,6 +7,7 @@
 # Anton Sazhin <sazhin@arbiconde.ru>, 2014
 # cblackburn <cblackburn@edx.org>, 2014
 # Dmitriy <polevaiabrest@gmail.com>, 2014
+# Dmitry Oshkalo <dmitry.oshkalo@gmail.com>, 2015
 # Dmitry Zau <panoplied@yandex.ru>, 2014
 # Elena Freundorfer <e_freundorfer@gmx.de>, 2014
 # Liubov Fomicheva <liubov.nelapa@gmail.com>, 2015
@@ -24,8 +25,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-29 10:09-0400\n"
-"PO-Revision-Date: 2015-05-29 14:11+0000\n"
+"POT-Creation-Date: 2015-06-19 11:21-0400\n"
+"PO-Revision-Date: 2015-06-19 15:22+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/edx-platform/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -285,7 +286,7 @@ msgstr "Выберите подраздел"
 
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
-msgstr ""
+msgstr "Выбрать видео"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -414,7 +415,7 @@ msgstr "Содержимое Привлечение Распределение"
 #: courses/templates/courses/engagement_grouped_content.html
 #: courses/templates/courses/views_chart_info.html
 msgid "Video Views"
-msgstr ""
+msgstr "Просмотры видео"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid "How did students interact with videos in this section?"
@@ -452,7 +453,7 @@ msgstr ""
 #: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Total Video Views"
-msgstr ""
+msgstr "Общее число просмотров видео"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "What were the viewing patterns for this video?"
@@ -466,31 +467,31 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Metrics"
-msgstr ""
+msgstr "Показатели видео"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Completion Rate"
-msgstr ""
+msgstr "Процент выполнения"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Estimated percentage of students who watched the entire video."
-msgstr ""
+msgstr "Приблизительный процент студентов, просмотревших видео целиком."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Started Video"
-msgstr ""
+msgstr "Начатые видео"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who started watching the video."
-msgstr ""
+msgstr "Студенты, начавшие смотреть видео."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Finished Video"
-msgstr ""
+msgstr "Законченные видео"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who watched the video to the end."
-msgstr ""
+msgstr "Студенты, просмотревшие видео до конца."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Viewing Over Time"
@@ -920,12 +921,10 @@ msgstr ""
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
-"These bars show the correct and incorrect submission counts for each "
-"assignment. For each problem, only the last submission from each student is "
+"Each bar shows the average number of correct and incorrect submissions for "
+"problems in the assignment. Only the last submission from each student is "
 "counted."
 msgstr ""
-"Эти столбцы показывают количество правильных и неправильных ответов для "
-"каждого задания. Только последние варианты ответов учитываются."
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid "Assignment Submissions"
@@ -937,11 +936,9 @@ msgstr "Как студенты работают над этим раздело�
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid ""
-"These bars show the correct and incorrect submission counts for each "
-"subsection. Only the last submission from each student is counted."
+"Each bar shows the average number of correct and incorrect submissions for "
+"each subsection. Only the last submission from each student is counted."
 msgstr ""
-"Эти столбцы показывают количество правильных и неправильных ответов для "
-"каждого подраздела. Только последние варианты ответов учитываются."
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "Subsection Submissions"
@@ -958,11 +955,9 @@ msgstr "Как студенты справляются с заданиями б�
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid ""
-"These bars show the correct and incorrect submission counts for each "
-"section. Only the last submission from each student is counted."
+"Each bar shows the average number of correct and incorrect submissions for "
+"each section. Only the last submission from each student is counted."
 msgstr ""
-"Эти столбцы показывают количество правильных и неправильных ответов для "
-"каждого раздела. Только последние варианты ответов учитываются."
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid "Section Submissions"
@@ -1027,7 +1022,7 @@ msgstr "Содержимое"
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Videos"
-msgstr ""
+msgstr "Видео"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
@@ -1074,7 +1069,7 @@ msgstr ""
 
 #: courses/views/engagement.py
 msgid "Looks like no one has watched any videos in these sections."
-msgstr ""
+msgstr "Пожоже, что никто не смотрел видео в этих секциях."
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Section Name"
@@ -1086,7 +1081,7 @@ msgstr "Название подраздела"
 
 #: courses/views/engagement.py
 msgid "Video Name"
-msgstr ""
+msgstr "Название видео"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1228,7 +1223,7 @@ msgstr ""
 msgid "(Technical details: 503 Service Unavailable.)"
 msgstr "(Технические подробности: 503 Service Unavailable)"
 
-#: templates/announcements.html
+#: templates/_announcement.html
 msgid "Close"
 msgstr "Закрыть"
 
