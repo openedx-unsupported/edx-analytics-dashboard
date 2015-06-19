@@ -230,6 +230,7 @@ LOCAL_APPS = (
     'courses',
     'django_rjs',
     'help',
+    'soapbox',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
