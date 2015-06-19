@@ -369,9 +369,11 @@ table.dataTable thead th.sorting_desc:after {
 
 .announcement-container {
   background-color: $gray-d2;
-  border-bottom: solid 3px $edx-blue;
+  border-bottom: solid 1px $edx-blue;
   padding-bottom: $padding-large-vertical * 1.5;
   padding-top: $padding-large-vertical;
+  color: $gray;
+  font-size: $font-size-small;
 
   .dismiss {
     float: right;
@@ -386,17 +388,10 @@ table.dataTable thead th.sorting_desc:after {
     font-size: $font-size-h2;
   }
 
-  .message {
-    .title {
-      color: $white;
-      font-size: $font-size-large;
-      padding-bottom: $padding-small-vertical;
-    }
-
-    .body {
-      color: $gray;
-      font-size: $font-size-small;
-    }
+  h1 {
+    color: $white;
+    font-size: $font-size-large;
+    padding-bottom: $padding-small-vertical;
   }
 }
 
