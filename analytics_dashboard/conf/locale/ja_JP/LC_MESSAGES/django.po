@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-29 10:09-0400\n"
-"PO-Revision-Date: 2015-05-29 14:11+0000\n"
+"POT-Creation-Date: 2015-06-19 11:21-0400\n"
+"PO-Revision-Date: 2015-06-19 15:22+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/edx-platform/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -265,7 +265,7 @@ msgstr "節を選択"
 
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
-msgstr ""
+msgstr "ビデオを選択"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -386,11 +386,11 @@ msgstr "コンテンツへの取組度合いの分解"
 #: courses/templates/courses/engagement_grouped_content.html
 #: courses/templates/courses/views_chart_info.html
 msgid "Video Views"
-msgstr ""
+msgstr "ビデオ視聴"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid "How did students interact with videos in this section?"
-msgstr ""
+msgstr "受講者がこの章のビデオとどのようにやりとりしているか？"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
@@ -398,10 +398,11 @@ msgid ""
 "that subsection. Click on bars with low totals or a high incomplete rate to "
 "drill down and understand why."
 msgstr ""
+"節にあるビデオのうちいくつを完了したか、完了できていないかを、それぞれの棒グラフが示しています。完了本数が少なかったり、未完了の本数が多い理由を、棒グラフをクリックしてドリルダウンすることで理解できます。"
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did students interact with videos in this subsection?"
-msgstr ""
+msgstr "受講者がこの節のビデオとどのようにやりとりしているか？"
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid ""
@@ -412,7 +413,7 @@ msgstr ""
 #: courses/templates/courses/engagement_video_course.html
 #: courses/views/__init__.py
 msgid "How did students interact with course videos?"
-msgstr ""
+msgstr "受講者が講座のビデオとどのようにやりとりしているか？"
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
@@ -420,53 +421,54 @@ msgid ""
 "that section. Click on bars with low totals or a high incomplete rate to "
 "drill down and understand why."
 msgstr ""
+"章にあるビデオのうちいくつを完了したか、完了できていないかを、それぞれの棒グラフが示しています。完了本数が少なかったり、未完了の本数が多い理由を、棒グラフをクリックしてドリルダウンすることで理解できます。"
 
 #: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Total Video Views"
-msgstr ""
+msgstr "ビデオ視聴の総数"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "What were the viewing patterns for this video?"
-msgstr ""
+msgstr "このビデオの視聴のパタンは何か？"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid ""
 "The number of students who watched each segment of the video, and the number"
 " of replays for each segment."
-msgstr ""
+msgstr "このビデオの各区分を視聴した生徒数と、各区分の再生回数。"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Metrics"
-msgstr ""
+msgstr "ビデオ指標"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Completion Rate"
-msgstr ""
+msgstr "完了の割合"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Estimated percentage of students who watched the entire video."
-msgstr ""
+msgstr "ビデオの視聴を完了した生徒のパーセンテージ見積もり。"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Started Video"
-msgstr ""
+msgstr "開始ビデオ"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who started watching the video."
-msgstr ""
+msgstr "ビデオの視聴を開始した受講者"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Finished Video"
-msgstr ""
+msgstr "終了ビデオ"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who watched the video to the end."
-msgstr ""
+msgstr "ビデオを最後まで視聴した受講者"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Viewing Over Time"
-msgstr ""
+msgstr "期限切れで視聴されたビデオ"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
@@ -863,10 +865,10 @@ msgstr ""
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
-"These bars show the correct and incorrect submission counts for each "
-"assignment. For each problem, only the last submission from each student is "
+"Each bar shows the average number of correct and incorrect submissions for "
+"problems in the assignment. Only the last submission from each student is "
 "counted."
-msgstr "これらのバーは各問題の正解と不正解の投稿の数を表しています。各問題では各受講者の最終解答だけが数えられます。"
+msgstr ""
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid "Assignment Submissions"
@@ -878,9 +880,9 @@ msgstr "受講者がこの章をどのようにやっているのか？"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid ""
-"These bars show the correct and incorrect submission counts for each "
-"subsection. Only the last submission from each student is counted."
-msgstr "これらのバーは各節の正解と不正解の投稿の数を表しています。各受講者の最終解答だけが数えられます。"
+"Each bar shows the average number of correct and incorrect submissions for "
+"each subsection. Only the last submission from each student is counted."
+msgstr ""
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "Subsection Submissions"
@@ -897,9 +899,9 @@ msgstr "受講者が採点外の練習問題をどのようにやっているか
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid ""
-"These bars show the correct and incorrect submission counts for each "
-"section. Only the last submission from each student is counted."
-msgstr "これらのバーは各章の正解と不正解の投稿の数を表しています。各受講者の最終解答だけが数えられます。"
+"Each bar shows the average number of correct and incorrect submissions for "
+"each section. Only the last submission from each student is counted."
+msgstr ""
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid "Section Submissions"
@@ -962,7 +964,7 @@ msgstr "コンテンツ"
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Videos"
-msgstr ""
+msgstr "ビデオ"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
@@ -999,16 +1001,16 @@ msgstr "講座参加データの最終アップデートは%(update_date)s  %(up
 
 #: courses/views/engagement.py
 msgid "Engagement Videos"
-msgstr ""
+msgstr "参加ビデオ"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
+msgstr "ビデオデータは %(update_date)s の %(update_time)s に更新されました。"
 
 #: courses/views/engagement.py
 msgid "Looks like no one has watched any videos in these sections."
-msgstr ""
+msgstr "この章のビデオは誰にも視聴されていないようです。"
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Section Name"
@@ -1020,7 +1022,7 @@ msgstr "節の名称"
 
 #: courses/views/engagement.py
 msgid "Video Name"
-msgstr ""
+msgstr "ビデオの名称"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1145,7 +1147,7 @@ msgstr "このページの読み込みに問題があります。しばらくし
 msgid "(Technical details: 503 Service Unavailable.)"
 msgstr "(技術情報: 503 Service Unavailable.)"
 
-#: templates/announcements.html
+#: templates/_announcement.html
 msgid "Close"
 msgstr "閉じる"
 

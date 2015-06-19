@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-29 10:09-0400\n"
-"PO-Revision-Date: 2015-05-29 14:11+0000\n"
+"POT-Creation-Date: 2015-06-19 11:21-0400\n"
+"PO-Revision-Date: 2015-06-19 15:22+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Slovak (http://www.transifex.com/projects/p/edx-platform/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -909,13 +909,10 @@ msgstr ""
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
-"These bars show the correct and incorrect submission counts for each "
-"assignment. For each problem, only the last submission from each student is "
+"Each bar shows the average number of correct and incorrect submissions for "
+"problems in the assignment. Only the last submission from each student is "
 "counted."
 msgstr ""
-"Tieto stĺpce zobrazujú počet správnych a nesprávnych podaní ku každému "
-"zadaniu. Pre každú úlohu je započítané iba posledné podanie od každého "
-"študenta."
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid "Assignment Submissions"
@@ -927,11 +924,9 @@ msgstr "Ako sa študentom darí v tejto sekcii?"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid ""
-"These bars show the correct and incorrect submission counts for each "
-"subsection. Only the last submission from each student is counted."
+"Each bar shows the average number of correct and incorrect submissions for "
+"each subsection. Only the last submission from each student is counted."
 msgstr ""
-"Tieto stĺpce zobrazujú počet správnych a nesprávnych podaní pre každú "
-"podsekciu. Je započítané iba posledné podanie od každého študenta."
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "Subsection Submissions"
@@ -948,11 +943,9 @@ msgstr "Ako sa študentom darí v neznámkovaných cvičeniach?"
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid ""
-"These bars show the correct and incorrect submission counts for each "
-"section. Only the last submission from each student is counted."
+"Each bar shows the average number of correct and incorrect submissions for "
+"each section. Only the last submission from each student is counted."
 msgstr ""
-"Tieto stĺpce zobrazujú počet správnych a nesprávnych podaní pre každú "
-"sekciu. Je započítané iba posledné podanie od každého študenta."
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid "Section Submissions"
@@ -1217,7 +1210,7 @@ msgstr "Máme problémy s načítaním tejto stránky. Skúste to opäť za chv�
 msgid "(Technical details: 503 Service Unavailable.)"
 msgstr "(Technické detaily: 503 Nedostupná služba.)"
 
-#: templates/announcements.html
+#: templates/_announcement.html
 msgid "Close"
 msgstr "Zavrieť"
 

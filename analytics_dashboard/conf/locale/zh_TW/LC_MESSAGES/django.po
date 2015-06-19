@@ -10,13 +10,13 @@
 # LIU,SHU-HAO <jeremy55662004@gmail.com>, 2014-2015
 # MOH CHIN LAM <chinlam91@gmail.com>, 2014-2015
 # Xaver Y.R. Chen <yrchen@atcity.org>, 2014-2015
-# Zhen-Rong Chen <zhenrcaaron@gmail.com>, 2014
+# Zhen-Rong Chen <zhenrcaaron@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-29 10:09-0400\n"
-"PO-Revision-Date: 2015-05-29 14:11+0000\n"
+"POT-Creation-Date: 2015-06-19 11:21-0400\n"
+"PO-Revision-Date: 2015-06-19 15:22+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/edx-platform/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -265,7 +265,7 @@ msgstr "選取小節"
 
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
-msgstr ""
+msgstr "選取影片"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -386,87 +386,87 @@ msgstr "內容參與分佈"
 #: courses/templates/courses/engagement_grouped_content.html
 #: courses/templates/courses/views_chart_info.html
 msgid "Video Views"
-msgstr ""
+msgstr "觀看數"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid "How did students interact with videos in this section?"
-msgstr ""
+msgstr "學生是如何跟此章節的影片互動的？"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
 "Each bar shows the counts of complete and incomplete views of the videos in "
 "that subsection. Click on bars with low totals or a high incomplete rate to "
 "drill down and understand why."
-msgstr ""
+msgstr "每個條狀圖顯示在此小節該完成影片的觀看和未完成影片的觀看的統計數。點擊條狀圖較低的統計數或高不完整率來探討原因。"
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did students interact with videos in this subsection?"
-msgstr ""
+msgstr "學生是如何跟此小節的影片互動的？"
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
 "Click to understand where students drop off and which parts they replay."
-msgstr ""
+msgstr "每個條狀圖顯示在此小節該完成影片的觀看和未完成影片的觀看的統計數。點擊了解學生哪裡落後了或是哪一部份重新播放。"
 
 #: courses/templates/courses/engagement_video_course.html
 #: courses/views/__init__.py
 msgid "How did students interact with course videos?"
-msgstr ""
+msgstr "學生是如何跟此課程影片互動的？"
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
 "Each bar shows the counts of complete and incomplete views of the videos in "
 "that section. Click on bars with low totals or a high incomplete rate to "
 "drill down and understand why."
-msgstr ""
+msgstr "每個條狀圖顯示在此章節該完成影片的觀看和未完成影片的觀看的統計數。點擊條狀圖較低的統計數或高不完整率來探討原因。"
 
 #: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Total Video Views"
-msgstr ""
+msgstr "總觀看數"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "What were the viewing patterns for this video?"
-msgstr ""
+msgstr "此影片是什麼的觀看模式？"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid ""
 "The number of students who watched each segment of the video, and the number"
 " of replays for each segment."
-msgstr ""
+msgstr "觀看每個影片段落的學生數量，以及重複播放每個段落的學生數量。"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Metrics"
-msgstr ""
+msgstr "影片指標"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Completion Rate"
-msgstr ""
+msgstr "完成率"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Estimated percentage of students who watched the entire video."
-msgstr ""
+msgstr "估計看過整部影片的學生比例。"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Started Video"
-msgstr ""
+msgstr "開始播放影片"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who started watching the video."
-msgstr ""
+msgstr "已開始觀看影片的學生。"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Finished Video"
-msgstr ""
+msgstr "結束播放影片"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who watched the video to the end."
-msgstr ""
+msgstr "已開始結束觀看影片的學生。"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Viewing Over Time"
-msgstr ""
+msgstr "隨著時間影片的觀看"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
@@ -859,10 +859,10 @@ msgstr ""
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
-"These bars show the correct and incorrect submission counts for each "
-"assignment. For each problem, only the last submission from each student is "
+"Each bar shows the average number of correct and incorrect submissions for "
+"problems in the assignment. Only the last submission from each student is "
 "counted."
-msgstr "這些狀態條顯示每個作業的正確和錯誤提交數。 對於每一個問題，只會計算每位學生最後之提交。"
+msgstr ""
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid "Assignment Submissions"
@@ -874,9 +874,9 @@ msgstr "學生是如何完成這一章節的呢?"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid ""
-"These bars show the correct and incorrect submission counts for each "
-"subsection. Only the last submission from each student is counted."
-msgstr "這些狀態列顯示每個小節的正確和錯誤提交數。只會計算每位學生最後之提交。"
+"Each bar shows the average number of correct and incorrect submissions for "
+"each subsection. Only the last submission from each student is counted."
+msgstr ""
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "Subsection Submissions"
@@ -893,9 +893,9 @@ msgstr "學生們是如何完成未分級練習？"
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid ""
-"These bars show the correct and incorrect submission counts for each "
-"section. Only the last submission from each student is counted."
-msgstr "這些狀態列顯示每個章節的正確和錯誤提交數。 只會計算每位學生最後之提交。"
+"Each bar shows the average number of correct and incorrect submissions for "
+"each section. Only the last submission from each student is counted."
+msgstr ""
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid "Section Submissions"
@@ -958,7 +958,7 @@ msgstr "內容"
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Videos"
-msgstr ""
+msgstr "影片"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
@@ -995,16 +995,16 @@ msgstr "最新更新課程參與資料 %(update_date)s在%(update_time)s國際�
 
 #: courses/views/engagement.py
 msgid "Engagement Videos"
-msgstr ""
+msgstr "參與影片"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
+msgstr "影片資料最新更新於%(update_date)s在 %(update_time)s 世界標準時間。"
 
 #: courses/views/engagement.py
 msgid "Looks like no one has watched any videos in these sections."
-msgstr ""
+msgstr "看起來沒有人看過此章節的任何的影片。"
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Section Name"
@@ -1016,7 +1016,7 @@ msgstr "小章名稱"
 
 #: courses/views/engagement.py
 msgid "Video Name"
-msgstr ""
+msgstr "影片名稱"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1140,7 +1140,7 @@ msgstr "讀取頁面時發生錯誤，請稍候再試。"
 msgid "(Technical details: 503 Service Unavailable.)"
 msgstr "(Technical details: 503 Service Unavailable.)"
 
-#: templates/announcements.html
+#: templates/_announcement.html
 msgid "Close"
 msgstr "關閉"
 

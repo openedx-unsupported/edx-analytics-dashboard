@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Bentsi Magidovich <bentsi@yeda.org.il>, 2015
+# Bentsi Magidovich <magidovich@gmail.com>, 2015
 # Nadav Stark <nadav@yeda.org.il>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-29 10:09-0400\n"
-"PO-Revision-Date: 2015-05-29 14:11+0000\n"
+"POT-Creation-Date: 2015-06-19 11:21-0400\n"
+"PO-Revision-Date: 2015-06-19 15:22+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Hebrew (http://www.transifex.com/projects/p/edx-platform/language/he/)\n"
 "MIME-Version: 1.0\n"
@@ -876,12 +876,10 @@ msgstr ""
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
-"These bars show the correct and incorrect submission counts for each "
-"assignment. For each problem, only the last submission from each student is "
+"Each bar shows the average number of correct and incorrect submissions for "
+"problems in the assignment. Only the last submission from each student is "
 "counted."
 msgstr ""
-"עמודות אלו מציגות את ספירת ההגשות הנכונות והלא נכונות עבור כל מטלה. עבור כל "
-"בעיה, תחושב רק ההגשה האחרונה של כל סטודנט."
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid "Assignment Submissions"
@@ -893,11 +891,9 @@ msgstr "מה מצב הסטודנטים במקטע זה?"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid ""
-"These bars show the correct and incorrect submission counts for each "
-"subsection. Only the last submission from each student is counted."
+"Each bar shows the average number of correct and incorrect submissions for "
+"each subsection. Only the last submission from each student is counted."
 msgstr ""
-"עמודות אלו מציגות את ספירת ההגשות הנכונות והלא נכונות עבור כל תת מקטע.  רק "
-"ההגשה האחרונה של כל סטודנט תחושב."
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "Subsection Submissions"
@@ -914,11 +910,9 @@ msgstr "מה מצב הסטודנטים בתרגילים ללא ציון?"
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid ""
-"These bars show the correct and incorrect submission counts for each "
-"section. Only the last submission from each student is counted."
+"Each bar shows the average number of correct and incorrect submissions for "
+"each section. Only the last submission from each student is counted."
 msgstr ""
-"עמודות אלו מציגות את ספירת ההגשות הנכונות והלא נכונות עבור כל מקטע. רק ההגשה"
-" האחרונה של כל סטודנט תחושב."
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid "Section Submissions"
@@ -1171,7 +1165,7 @@ msgstr "יש קושי בטעינת דף זה. אנא נסה שוב עוד דקה
 msgid "(Technical details: 503 Service Unavailable.)"
 msgstr "(פרטים טכניים: 503 שירות לא זמין)"
 
-#: templates/announcements.html
+#: templates/_announcement.html
 msgid "Close"
 msgstr "סגור"
 

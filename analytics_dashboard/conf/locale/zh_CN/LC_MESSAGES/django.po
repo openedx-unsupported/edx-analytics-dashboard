@@ -11,9 +11,11 @@
 # focusheart <focusheart@gmail.com>, 2015
 # Johnny Wei <johntzwei@yahoo.com>, 2015
 # jsgang <jsgang9@gmail.com>, 2014-2015
+# LIU NIAN <lauraqq@gmail.com>, 2015
 # peipeixiang <peipei0903@gmail.com>, 2014
 # ranfish <ranfish@gmail.com>, 2015
 # shuchuanchen <am15501@163.com>, 2014
+# Song Qiang <cncatdog@163.com>, 2015
 # louyihua <supermouselyh@hotmail.com>, 2015
 # wanghe <1636807295@qq.com>, 2014
 # Wu fangyuan <wufangyuan@gmail.com>, 2014
@@ -24,8 +26,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-29 10:09-0400\n"
-"PO-Revision-Date: 2015-05-29 14:11+0000\n"
+"POT-Creation-Date: 2015-06-19 11:21-0400\n"
+"PO-Revision-Date: 2015-06-19 15:22+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/edx-platform/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -272,7 +274,7 @@ msgstr "选择小节"
 
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
-msgstr ""
+msgstr "选择视频"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -393,11 +395,11 @@ msgstr "注册失败"
 #: courses/templates/courses/engagement_grouped_content.html
 #: courses/templates/courses/views_chart_info.html
 msgid "Video Views"
-msgstr ""
+msgstr "视频浏览"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid "How did students interact with videos in this section?"
-msgstr ""
+msgstr "学生是如何在本章节与视频互动的？"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
@@ -431,7 +433,7 @@ msgstr ""
 #: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Total Video Views"
-msgstr ""
+msgstr "视频浏览次数"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "What were the viewing patterns for this video?"
@@ -868,10 +870,10 @@ msgstr ""
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
-"These bars show the correct and incorrect submission counts for each "
-"assignment. For each problem, only the last submission from each student is "
+"Each bar shows the average number of correct and incorrect submissions for "
+"problems in the assignment. Only the last submission from each student is "
 "counted."
-msgstr "这些条形图表示了对每次作业所提交的正确答案和错误答案的个数。对于每个单独的问题，我们仅考虑学生最后一次提交的答案。"
+msgstr ""
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid "Assignment Submissions"
@@ -883,9 +885,9 @@ msgstr "学生在此章节的表现如何？"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid ""
-"These bars show the correct and incorrect submission counts for each "
-"subsection. Only the last submission from each student is counted."
-msgstr "这些条形图表示了对每个小部分所提交的正确答案和错误答案的个数。我们仅考虑每位学生最后一次提交的答案。"
+"Each bar shows the average number of correct and incorrect submissions for "
+"each subsection. Only the last submission from each student is counted."
+msgstr ""
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "Subsection Submissions"
@@ -902,9 +904,9 @@ msgstr "学生在未评分的练习上表现如何？"
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid ""
-"These bars show the correct and incorrect submission counts for each "
-"section. Only the last submission from each student is counted."
-msgstr "这些条形图表示了对每个部分所提交的正确答案和错误答案的个数。我们仅考虑每位学生最后一次提交的答案。"
+"Each bar shows the average number of correct and incorrect submissions for "
+"each section. Only the last submission from each student is counted."
+msgstr ""
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid "Section Submissions"
@@ -967,7 +969,7 @@ msgstr "内容"
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Videos"
-msgstr ""
+msgstr "视频"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
@@ -1025,7 +1027,7 @@ msgstr "节的名字"
 
 #: courses/views/engagement.py
 msgid "Video Name"
-msgstr ""
+msgstr "视频名称"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1149,7 +1151,7 @@ msgstr "加载该页面时发生故障。请在一分钟后重试。"
 msgid "(Technical details: 503 Service Unavailable.)"
 msgstr "(技术信息: 503服务不可用.)"
 
-#: templates/announcements.html
+#: templates/_announcement.html
 msgid "Close"
 msgstr "关闭"
 

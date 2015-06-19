@@ -3,18 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Hongseob Lee <shevreg@yahoo.com>, 2015
 # Jong-Dae Park <jdpark7@gmail.com>, 2015
 # Kevin Min <gr326887@graded.br>, 2015
 # Kunwoo Kim <crazyabtmath@naver.com>, 2015
 # Nicole <dlruddk1112@gmail.com>, 2014
 # Sujin Lee <sujinlee.me@gmail.com>, 2014
+# Yang Seunghoon <azang970120@gmail.com>, 2015
 # Yongkyu Lee <snowcat8436@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-29 10:09-0400\n"
-"PO-Revision-Date: 2015-05-29 14:11+0000\n"
+"POT-Creation-Date: 2015-06-19 11:21-0400\n"
+"PO-Revision-Date: 2015-06-19 15:22+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/edx-platform/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -29,15 +31,15 @@ msgstr "로그인"
 
 #: core/templates/core/landing.html
 msgid "Insights to help course teams improve courses."
-msgstr ""
+msgstr "코스 팀들이 코스를 발전시키는 것을 도울 이해"
 
 #: core/templates/core/landing.html courses/views/__init__.py
 msgid "Who are my students?"
-msgstr ""
+msgstr "누가 나의 수강생들일까요?"
 
 #: core/templates/core/landing.html
 msgid "Target your course to fit the backgrounds of your students."
-msgstr ""
+msgstr "당신의 강의가 수강생들의 배경에 맞을 수 있도록 겨냥하세요."
 
 #: core/templates/core/landing.html
 #: courses/templates/courses/enrollment_geography.html
@@ -48,7 +50,7 @@ msgstr "등록"
 
 #: core/templates/core/landing.html
 msgid "What are students engaging with in my course?"
-msgstr ""
+msgstr "무엇이 나의 강의에서 학생들과 맞물릴까?"
 
 #: core/templates/core/landing.html
 msgid ""
@@ -74,7 +76,7 @@ msgstr ""
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/__init__.py
 msgid "Performance"
-msgstr ""
+msgstr "성능"
 
 #: core/templates/core/landing.html
 msgid "Join the Open Source Community"
@@ -853,8 +855,8 @@ msgstr ""
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
-"These bars show the correct and incorrect submission counts for each "
-"assignment. For each problem, only the last submission from each student is "
+"Each bar shows the average number of correct and incorrect submissions for "
+"problems in the assignment. Only the last submission from each student is "
 "counted."
 msgstr ""
 
@@ -868,8 +870,8 @@ msgstr ""
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid ""
-"These bars show the correct and incorrect submission counts for each "
-"subsection. Only the last submission from each student is counted."
+"Each bar shows the average number of correct and incorrect submissions for "
+"each subsection. Only the last submission from each student is counted."
 msgstr ""
 
 #: courses/templates/courses/performance_ungraded_by_section.html
@@ -887,8 +889,8 @@ msgstr ""
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid ""
-"These bars show the correct and incorrect submission counts for each "
-"section. Only the last submission from each student is counted."
+"Each bar shows the average number of correct and incorrect submissions for "
+"each section. Only the last submission from each student is counted."
 msgstr ""
 
 #: courses/templates/courses/performance_ungraded_content.html
@@ -1140,7 +1142,7 @@ msgstr ""
 msgid "(Technical details: 503 Service Unavailable.)"
 msgstr ""
 
-#: templates/announcements.html
+#: templates/_announcement.html
 msgid "Close"
 msgstr "닫기"
 

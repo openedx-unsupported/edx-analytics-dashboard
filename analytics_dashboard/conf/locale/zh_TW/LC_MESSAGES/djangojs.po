@@ -9,13 +9,13 @@
 # MOH CHIN LAM <chinlam91@gmail.com>, 2015
 # Penny Lee <pe8951@gmail.com>, 2015
 # Wesley Chow, 2015
-# Zhen-Rong Chen <zhenrcaaron@gmail.com>, 2014
+# Zhen-Rong Chen <zhenrcaaron@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-29 10:10-0400\n"
-"PO-Revision-Date: 2015-05-29 14:11+0000\n"
+"POT-Creation-Date: 2015-06-19 11:21-0400\n"
+"PO-Revision-Date: 2015-06-19 15:23+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/edx-platform/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -40,11 +40,14 @@ msgstr "..."
 #. no label was provided.
 #. Translators: (empty) is displayed as a label in a chart and indicates that
 #. no label was provided.
+#. Translators: (empty) is displayed as a label in a chart and indicates that
+#. no label was provided.
 #: static/dist/js/common.js static/dist/js/engagement-video-content-main.js
 #: static/dist/js/enrollment-demographics-education-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-problems-main.js
 #: static/js/views/data-table-view.js static/js/views/discrete-bar-view.js
 msgid "(empty)"
 msgstr "(略)"
@@ -53,9 +56,9 @@ msgstr "(略)"
 #. Translators: "Correct" is displayed in a table..
 #: static/dist/js/common.js
 #: static/dist/js/performance-answer-distribution-main.js
-#: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
-#: static/js/performance-content-main.js static/js/views/data-table-view.js
+#: static/js/performance-problems-main.js static/js/views/data-table-view.js
 msgid "Correct"
 msgstr "正確"
 
@@ -91,54 +94,67 @@ msgid "Week Ending <%=value%>"
 msgstr "本週結束"
 
 #: static/dist/js/engagement-video-content-main.js
-msgid "Complete Plays"
-msgstr ""
+#: static/js/engagement-video-content-main.js
+msgid "Complete Views"
+msgstr "完成瀏覽"
 
 #: static/dist/js/engagement-video-content-main.js
-msgid "Incomplete Plays"
-msgstr ""
+#: static/js/engagement-video-content-main.js
+msgid "Incomplete Views"
+msgstr "未完成瀏覽"
 
 #: static/dist/js/engagement-video-content-main.js
 #: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-problems-main.js
 #: static/js/engagement-video-content-main.js
 #: static/js/performance-content-main.js
+#: static/js/performance-problems-main.js
 msgid "Order"
 msgstr "序"
 
 #: static/dist/js/engagement-video-content-main.js
 #: static/js/engagement-video-content-main.js
 msgid "Videos"
-msgstr ""
+msgstr "影片"
 
 #: static/dist/js/engagement-video-content-main.js
 #: static/js/engagement-video-content-main.js
 msgid "Completion Percentage"
-msgstr ""
+msgstr "完成度"
 
+#. Translators: <%=value%> will be replaced by a number followed by a
+#. percentage.
+#. For example, "400 (29%)"
+#. Translators: <%=value%> will be replaced by a number followed by a
+#. percentage.
+#. For example, "40.8 (29%)"
+#. Translators: <%=value%> will be replaced by a number followed by a
+#. percentage.
+#. For example, "400 (29%)"
 #. Translators: <%=value%> will be replaced by a number followed by a
 #. percentage.
 #. For example, "400 (29%)"
 #: static/dist/js/engagement-video-content-main.js
 #: static/dist/js/performance-content-main.js
-#: static/js/engagement-video-content-main.js
-#: static/js/performance-content-main.js
+#: static/dist/js/performance-problems-main.js
+#: static/js/views/stacked-bar-view.js
 msgid "<%=value%> (<%=percent%>)"
 msgstr "<%=value%> (<%=percent%>)"
 
 #: static/dist/js/engagement-video-timeline-main.js
 #: static/js/engagement-video-timeline-main.js
 msgid "Unique Viewers"
-msgstr ""
+msgstr "未重複瀏覽者"
 
 #: static/dist/js/engagement-video-timeline-main.js
 #: static/js/engagement-video-timeline-main.js
 msgid "Replays"
-msgstr ""
+msgstr "重播"
 
 #: static/dist/js/engagement-video-timeline-main.js
 #: static/js/engagement-video-timeline-main.js
 msgid "Time"
-msgstr ""
+msgstr "時間"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
@@ -285,8 +301,13 @@ msgstr "答案: <%=value%>"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
-msgid "Incorrect"
-msgstr "不正確"
+msgid "Average Correct"
+msgstr ""
+
+#: static/dist/js/performance-content-main.js
+#: static/js/performance-content-main.js
+msgid "Average Incorrect"
+msgstr ""
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
@@ -295,18 +316,22 @@ msgstr "問題"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
-msgid "Total"
-msgstr "總數"
+msgid "Average Submissions Per Problem"
+msgstr ""
 
 #: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-problems-main.js
 #: static/js/performance-content-main.js
+#: static/js/performance-problems-main.js
 msgid "Percentage Correct"
 msgstr "答對百分比"
 
-#: static/js/engagement-video-content-main.js
-msgid "Complete Views"
-msgstr ""
+#: static/dist/js/performance-problems-main.js
+#: static/js/performance-problems-main.js
+msgid "Incorrect"
+msgstr "不正確"
 
-#: static/js/engagement-video-content-main.js
-msgid "Incomplete Views"
-msgstr ""
+#: static/dist/js/performance-problems-main.js
+#: static/js/performance-problems-main.js
+msgid "Total"
+msgstr "總數"

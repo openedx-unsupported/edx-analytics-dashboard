@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-29 10:10-0400\n"
-"PO-Revision-Date: 2015-05-29 14:11+0000\n"
+"POT-Creation-Date: 2015-06-19 11:21-0400\n"
+"PO-Revision-Date: 2015-06-19 15:23+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Thai (http://www.transifex.com/projects/p/edx-platform/language/th/)\n"
 "MIME-Version: 1.0\n"
@@ -37,22 +37,25 @@ msgstr "..."
 #. no label was provided.
 #. Translators: (empty) is displayed as a label in a chart and indicates that
 #. no label was provided.
+#. Translators: (empty) is displayed as a label in a chart and indicates that
+#. no label was provided.
 #: static/dist/js/common.js static/dist/js/engagement-video-content-main.js
 #: static/dist/js/enrollment-demographics-education-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-problems-main.js
 #: static/js/views/data-table-view.js static/js/views/discrete-bar-view.js
 msgid "(empty)"
-msgstr "(empty)"
+msgstr "(ว่างเปล่า)"
 
 #. Translators: "Correct" is displayed in a table..
 #. Translators: "Correct" is displayed in a table..
 #: static/dist/js/common.js
 #: static/dist/js/performance-answer-distribution-main.js
-#: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
-#: static/js/performance-content-main.js static/js/views/data-table-view.js
+#: static/js/performance-problems-main.js static/js/views/data-table-view.js
 msgid "Correct"
 msgstr "ถูกต้อง"
 
@@ -88,17 +91,21 @@ msgid "Week Ending <%=value%>"
 msgstr "สิ้นสุดสัปดาห์ <%=value%>"
 
 #: static/dist/js/engagement-video-content-main.js
-msgid "Complete Plays"
+#: static/js/engagement-video-content-main.js
+msgid "Complete Views"
 msgstr ""
 
 #: static/dist/js/engagement-video-content-main.js
-msgid "Incomplete Plays"
+#: static/js/engagement-video-content-main.js
+msgid "Incomplete Views"
 msgstr ""
 
 #: static/dist/js/engagement-video-content-main.js
 #: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-problems-main.js
 #: static/js/engagement-video-content-main.js
 #: static/js/performance-content-main.js
+#: static/js/performance-problems-main.js
 msgid "Order"
 msgstr "รายการที่คุณสั่งคือ"
 
@@ -115,10 +122,19 @@ msgstr ""
 #. Translators: <%=value%> will be replaced by a number followed by a
 #. percentage.
 #. For example, "400 (29%)"
+#. Translators: <%=value%> will be replaced by a number followed by a
+#. percentage.
+#. For example, "40.8 (29%)"
+#. Translators: <%=value%> will be replaced by a number followed by a
+#. percentage.
+#. For example, "400 (29%)"
+#. Translators: <%=value%> will be replaced by a number followed by a
+#. percentage.
+#. For example, "400 (29%)"
 #: static/dist/js/engagement-video-content-main.js
 #: static/dist/js/performance-content-main.js
-#: static/js/engagement-video-content-main.js
-#: static/js/performance-content-main.js
+#: static/dist/js/performance-problems-main.js
+#: static/js/views/stacked-bar-view.js
 msgid "<%=value%> (<%=percent%>)"
 msgstr "<%=value%> (<%=percent%>)"
 
@@ -284,8 +300,13 @@ msgstr "คำตอบ: <%=value%>"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
-msgid "Incorrect"
-msgstr "ไม่ถูกต้อง"
+msgid "Average Correct"
+msgstr ""
+
+#: static/dist/js/performance-content-main.js
+#: static/js/performance-content-main.js
+msgid "Average Incorrect"
+msgstr ""
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
@@ -294,18 +315,22 @@ msgstr "ปัญหา"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
-msgid "Total"
-msgstr "ทั้งหมด"
+msgid "Average Submissions Per Problem"
+msgstr ""
 
 #: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-problems-main.js
 #: static/js/performance-content-main.js
+#: static/js/performance-problems-main.js
 msgid "Percentage Correct"
 msgstr "เปอร์เซ็นต์ที่ถูกต้อง"
 
-#: static/js/engagement-video-content-main.js
-msgid "Complete Views"
-msgstr ""
+#: static/dist/js/performance-problems-main.js
+#: static/js/performance-problems-main.js
+msgid "Incorrect"
+msgstr "ไม่ถูกต้อง"
 
-#: static/js/engagement-video-content-main.js
-msgid "Incomplete Views"
-msgstr ""
+#: static/dist/js/performance-problems-main.js
+#: static/js/performance-problems-main.js
+msgid "Total"
+msgstr "ทั้งหมด"
