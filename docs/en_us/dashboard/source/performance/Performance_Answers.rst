@@ -5,11 +5,11 @@ Graded Content Submissions
 #############################
 
 How are students answering questions? In edX Insights, graded content
-submissions show you the responses that students submit for graded problems
-and help you evaluate what they find difficult. To illustrate, this chapter
+submissions show you the responses that students submit for graded problems,
+and help you evaluate what they find difficult. To illustrate, this section
 presents the Analytics in Action section first.
 
-After the Analytics in Action examples, this chapter describes how you
+After the Analytics in Action examples, this section describes how you
 :ref:`select an assignment type, assignment, and problem<Selecting the
 Assignment Type, Assignment, and Problem>` and then :ref:`review student
 answers<Review Answers to Graded Problems>`. 
@@ -21,7 +21,7 @@ Analytics in Action: Interpreting Graded Submissions
 A review of the distribution of student answer submissions for a graded
 problem can lead to discoveries about your students and about your course.
 
-* You can assess how difficult the problem is for students to answer correctly. 
+* You can assess how difficult the problem is for students to answer correctly.
 
 * You can detect common mistakes.
 
@@ -29,9 +29,9 @@ problem can lead to discoveries about your students and about your course.
 
 * You can find errors in problem components.
 
-In addition, you can use the aggregate data in the graphs of your assignment
-types and assignments to identify where students are submitting more incorrect
-answers.
+In addition, you can use the stacked bar chart presented for each course
+assignment type and assignment to identify where students are submitting
+relatively more incorrect answers.
 
 ===============================================
 Researching Unexpected Difficulties
@@ -40,7 +40,7 @@ Researching Unexpected Difficulties
 For problem types that provide both the question and a set of possible answers
 (checkboxes, dropdown, and multiple choice), submission data helps you assess
 how difficult it is for students to identify and submit the correct answer.
-With the submissions chart, you can visually contrast the number of students
+The submissions chart provides a visual contrast of the number of students
 who select incorrect answers with the number who answer correctly.
 
 If the proportion of students who answer the problem incorrectly surprises
@@ -70,18 +70,18 @@ Investigating Similar Responses
 
 For open-ended problem types that provide only the question (numerical, text,
 and math expression input), submission data can help you identify similar
-responses. In the Submission Counts report you have access to every answer
+responses. In the Submission Counts report, you have access to every answer
 submitted by a student. The chart, however, presents only the 12 most
 frequently submitted responses. Your initial investigation into how students
-answer a question can begin with this set.
+answer a question can begin with this set of 12.
 
 For example, the edX Demo course includes a text input problem that has a
-correct answer of "Antarctica". The problem is set up to recognize other
-variations in capitalization for this English spelling as correct.
+correct answer of "Antarctica". The problem is set up to recognize variations
+in capitalization for this English spelling as correct.
 
 .. image:: ../images/problem_answers.png
- :alt: A histogram with one bar for each answer. Bars for correct or incorrect
-     submissions have different colors.
+ :alt: A histogram with one bar for each answer. Bars have different colors for
+     correct or incorrect submissions.
 
 .. edX/DemoX.1/2014/performance/graded_content/assignments/i4x%3A//edX/DemoX.1/sequential/9c1aacbb2795470e8473b059b59c3344/problems/i4x%3A//edX/DemoX.1/problem/466f474fa4d045a8b7bde1b911e095ca/parts/i4x-edX-DemoX_1-problem-466f474fa4d045a8b7bde1b911e095ca_2_1/answer_distribution/
 
@@ -95,13 +95,13 @@ including "antartika", "Antartide", and "el continente Antártico". You realize
 that these answers also indicate the continent of Antarctica, but in languages
 other than English. Seeing answers such as these in the report might reassure
 you that more students understand the question and the relevant course
-material than is indicated by the correct answer count. You might then decide
+material than is indicated by the correct answer count. You might decide
 to reconfigure the problem so that correct answers in other languages also
 evaluate as correct. Alternatively, you might decide to revise the question to
 specify that answers be given in English only.
 
 =====================================================
-Reviewing Answers to Test and Complete Course Setup
+Reviewing Answers to Complete Course Setup
 =====================================================
 
 Before the release date of each section, you encourage your beta testers to
@@ -136,9 +136,9 @@ neglected to identify the question with an accessible label.
 
 .. UTAustinX/UT.8.02x/1T2015/performance/graded_content/assignments/i4x%3A//UTAustinX/UT.8.02x/sequential/d8dd4296856a4745b1afd7d7c4aef7f6/problems/i4x%3A//UTAustinX/UT.8.02x/problem/802cd3308245482b870ca7f36a3cd282/parts/i4x-UTAustinX-UT_8_02x-problem-802cd3308245482b870ca7f36a3cd282_2_1/answer_distribution/
 
-You can select **View Live** to see what the problem looks like in the LMS,
-and from there select **View Unit in Studio** to add the accessible label to
-the problem.
+You can select **View Live** to see what the problem looks like in the LMS, and
+from there select **View Unit in Studio** to add the missing accessible label
+to the problem.
 
 In this last example, when you see the chart for an assignment you realize
 that you did not change the default display name, "Multiple Choice", for any
@@ -149,8 +149,8 @@ of the problems that it includes.
 
 .. MITx/9.01x/3T2014/performance/graded_content/assignments/i4x%3A//MITx/9.01x/sequential/19aa8209e5474d52aab965f0f1649270/
 
-Because students see problem display names in the LMS, you might decide to go
-back to Studio and provide identifying display names for the problems before
+Because students also see problem display names in the LMS, you might decide to
+go back to Studio and provide identifying display names for the problems before
 you publish the subsection.
 
 .. _Selecting the Assignment Type, Assignment, and Problem:
@@ -168,7 +168,7 @@ Step 2: Select an assignment.
 
 Step 3: Select a problem.
 
-EdX Insights provides aggregated data for each selection that you make. 
+EdX Insights provides data for each selection that you make. 
 
 ==================================
 Step 1: Select an Assignment Type
@@ -202,9 +202,10 @@ that type.
 
 .. edX/DemoX.1/2014/performance/graded_content/Homework/
 
-The Assignment Submissions report on this page provides the number of
-problems in each assignment and the aggregate number of correct and incorrect
-submissions received for each one.
+The Assignment Submissions report on this page provides the number of problems
+in each assignment. The report also includes the correct and incorrect
+submissions received. These values are averaged by the number of problems in
+each assignment.
 
 For information about identifying the graded subsections in a course, see `Set
 the Assignment Type and Due Date for a Subsection`_.
@@ -226,19 +227,18 @@ just one problem.
 
 .. edX/DemoX.1/2014/performance/graded_content/assignments/i4x%3A//edX/DemoX.1/sequential/9c1aacbb2795470e8473b059b59c3344/
 
-The Problem Submissions report on this page provides the number of questions
-in each problem and the aggregate number of correct and incorrect submissions
-received for each one.
+The Problem Submissions report on this page includes a row for each problem and
+provides the number of correct and incorrect submissions received for each one.
 
 For information about adding a unit to a subsection, see `Create a Unit`_.
 
-You use the drop-down **Select Problem** menu or click a bar in the chart to
+You use the drop-down **Select Problem** menu, or click a bar in the chart, to
 select the problem that you want to examine further.
 
 If the problem that you select includes more than one part (or question), the
-first part appears. To select a different part, you use the drop-down
-**Submissions for Part {number}** menu. In the Demo course example, the
-selected homework problem has three parts.
+first part appears. To select a different part, you use the **Submissions for
+Part {number}** drop-down. In the Demo course example, the selected homework
+problem has three parts.
 
 .. image:: ../images/problem_part_menu.png
  :alt: The Submissions for Part menu with three options for different problem
@@ -321,6 +321,10 @@ The report includes one row for each problem-answer combination submitted by a
 student. For example, consider a dropdown problem that has five possible
 answers. The report or file contains up to five rows, one for each answer
 submitted by at least one student.
+
+If the problem that you select includes more than one part, the chart and
+report for the first part appears. To select a different part, you use the
+**Submissions for Part {number}** drop-down.
 
 For problems that use the **Randomization** feature in Studio, the report has
 one row for each problem-variant-answer combination selected by at least one
