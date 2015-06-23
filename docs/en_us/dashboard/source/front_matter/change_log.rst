@@ -7,11 +7,14 @@ Change Log
 ****
 
 .. list-table::
-   :widths: 10 70
+   :widths: 15 70
    :header-rows: 1
 
    * - Date
      - Change
+   * - 23 Jun 2015
+     - Updated the :ref:`Performance_Graded` and :ref:`Performance_Ungraded`
+       sections. Submission data is now averaged rather than summed.
    * - 8 Jun 2015
      - Added :ref:`Engagement_Video`. At this time, data and reports for course
        videos are available for Open edX installations only.
@@ -26,7 +29,7 @@ Change Log
 ****
 
 .. list-table::
-   :widths: 10 70
+   :widths: 15 70
    :header-rows: 1
 
    * - Date

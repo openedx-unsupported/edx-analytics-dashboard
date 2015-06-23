@@ -21,14 +21,14 @@ for problem components of these types:
 * Math expression input
 
 After you select **Graded Content**, edX Insights displays the grading
-configuration for your course. You can review aggregated performance data for
-the assignments and problems, and then the answers that students submitted for
+configuration for your course. You can review performance data for the
+assignments and problems, and then the answers that students submitted for
 assigned questions.
 
 After you select **Ungraded Problems**, edX Insights displays the sections in
-your course that contain ungraded problem components. You can review aggregated
-performance data for ungraded problems by section and subsection, and
-then examine the answers that students submitted for the problems.
+your course that contain ungraded problem components. You can review
+performance data for ungraded problems by section and subsection, and then
+examine the answers that students submitted for the problems.
 
 For performance data to be available for either graded or ungraded course
 content, at least one student must have submitted an answer for that problem.

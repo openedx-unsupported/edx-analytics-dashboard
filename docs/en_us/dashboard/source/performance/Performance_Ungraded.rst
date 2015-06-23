@@ -5,15 +5,16 @@ Ungraded Problem Submissions
 #############################
 
 How do learners answer problems that do not count toward their course grades?
-Do they answer these questions? Using edX Insights, you can review aggregate
-data for the ungraded problems in course sections and subsections. This data
-shows you how many learners are submitting answers, and what percentage of
-those answers are correct. Then, you can review the actual responses learners
-make to questions that are not part of the grading configuration for your
-course. You can also compare data about ungraded and graded course content.
-Information about learner performance on ungraded problems can help you
-understand where learners are making errors, and also find ways to improve
-the problems.
+Do they answer these questions at all? Using edX Insights, you can review data
+for the ungraded problems in a course and its sections. This data shows you how
+many learners are submitting answers, and the average number of answers that
+are correct.
+
+Then, you can review the actual responses learners make to
+questions that are not part of the grading configuration for your course. You
+can also compare data about ungraded and graded course content. Information
+about learner performance on ungraded problems can help you understand where
+learners are making errors, and also find ways to improve the problems.
 
 This section begins with example analyses of different types of ungraded
 problems: initial assessments, practice problems, and surveys. These examples
@@ -46,11 +47,12 @@ these.
 .. Victor, more or better questions?
 
 The illustration that follows is for a course that includes a preliminary
-assessment during "Week 0". The chart includes one bar for each of the
-problems in the subsection that contains the assessment. The percentage of
-incorrect answers is stacked on top of the percentage of correct answers in
-each bar. The chart indicates that for most of the questions, a significant
-percentage of learners submitted an incorrect answer.
+assessment during "Week 0". The chart includes one bar for each of the problems
+in the subsection that contains the assessment. The average number of incorrect
+answers, in pink, is stacked on top of the average number of correct answers,
+in blue, in each bar. The chart indicates that for most of the questions in the
+preliminary assessment, a significant percentage of learners submitted an
+incorrect answer.
 
 .. image:: ../images/problems_ungraded.png
  :alt: A chart showing that 30% or more of the learners submitted the
@@ -67,7 +69,7 @@ to additional preparatory material. Or, you could decide to post more
 frequently, and with more detail, in the content-specific course discussions.
 
 ============================
-Practice Problems 
+Practice Problems
 ============================
 
 To give learners opportunities to practice, gain confidence, and learn from
@@ -80,14 +82,18 @@ like these.
 
 * Do more learners answer the practice problems or the graded problems?
 
-* Do more learners answer the practice problems correctly, or the graded problems?
+* Do more learners answer the practice problems correctly, or the graded
+  problems?
 
 The illustration that follows is for a course that includes ungraded practice
 problems in most sections. The chart includes one bar for each section in the
-course. The percentage of incorrect answers for the entire section is stacked
-on top of the percentage of correct answers in each bar. In this course, the
-number of learners submitting answers in each section went down over time.
-However, the percentage of learners who submitted the correct answer went up.
+course. Each bar shows the average number of incorrect answers for the entire
+section, in pink, stacked on top of the average number of correct answers, in
+blue. These values are averaged by the number of problems in each section.
+
+In this course, the number of learners submitting answers in each section went
+down over time. However, the number of learners who submitted the correct
+answer went up.
 
 .. image:: ../images/sections_ungraded.png
  :alt: A chart with a downward trend in number of learners answering, but with
@@ -95,20 +101,20 @@ However, the percentage of learners who submitted the correct answer went up.
 
 .. CaltechX/Ec1011x/1T2014/performance/ungraded_content/
 
-You can use the aggregated data for course sections and subsections to track
-changes in how many learners are working through the practice problems. You
-can also compare the answers submitted for similar ungraded and graded
-problems. Depending on what you find, you might consider changes to future
-versions of the course. For example, you might add or revise the explanations
-for the practice problems, or increase the number of attempt that learners
-have to submit the correct answer. You might also be able to find and address
-differences in problem difficulty.
+You can use this data for course sections and subsections to track changes in
+how many learners are working through the practice problems. You can also
+compare the answers submitted for similar ungraded and graded problems.
+Depending on what you find, you might consider changes to future versions of
+the course. For example, you might add or revise the explanations for the
+practice problems, add hints or feedback, or increase the number of attempts
+that learners have to submit the correct answer. You might also be able to find
+and address differences in problem difficulty.
 
 ===============================================
 Surveys
 ===============================================
 
-.. Victor, please let me know if we should include this section at this time. The semi-critical "show_correctness" attribute that one sets in Studio is not currently documented...
+.. The semi-critical "show_correctness" attribute that one sets in Studio is not currently documented...
 
 If you use problem components to survey your learners, you can use edX
 Insights to review their responses. The data available for survey-type
@@ -127,11 +133,11 @@ bar for each answer.
 
 .. note:: If you do not explicitly identify a correct answer for a
  question in Studio, all submitted answers are marked as incorrect. As a
- result, the bar charts for these questions appear in a single color in
- Insights instead of showing stacked percentages.
+ result, the bar charts for these questions appear in a single color.
 
 .. image:: ../images/survey_ungraded.png
- :alt: A chart showing that students chose a wide range of answers, all marked incorrect.
+ :alt: A chart showing that students chose a wide range of answers, all marked
+     incorrect.
 
 .. BerkeleyX/GG101x/1T2014/performance/ungraded_content/sections/i4x%3A//BerkeleyX/GG101x/chapter/d13fe70f7ca44a8f85f2d38efdc8d86c/subsections/i4x%3A//BerkeleyX/GG101x/sequential/0c8e4c5cdb3a4329a9a12f2e33c1fd76/problems/i4x%3A//BerkeleyX/GG101x/problem/89d1916b958341129ad23fd75a09df48/parts/i4x-BerkeleyX-GG101x-problem-89d1916b958341129ad23fd75a09df48_2_1/answer_distribution/
 
@@ -153,7 +159,7 @@ Step 2: Select a subsection.
 
 Step 3: Select a problem.
 
-EdX Insights provides aggregated data for each selection that you make. 
+EdX Insights provides data for each selection that you make. 
 
 ==================================
 Step 1: Select a Section
@@ -167,14 +173,16 @@ problems in every section in the course.
  :alt: A chart with two bars, one for each course section that includes
   ungraded content.
 
-The graph includes a bar for a section only if it both contains an ungraded problem
-and at least one learner has submitted an answer. You use the drop-down
-**Select Section** menu, or click a bar in the chart, to select a section to
-investigate.
+.. edX/DemoX.1/2014/performance/ungraded_content/
+
+The graph includes a bar for a section only if that section both contains an
+ungraded problem and at least one learner has submitted an answer. You use the
+drop-down **Select Section** menu, or click a bar in the chart, to select a
+section to investigate.
 
 The Section Submissions report on this page provides the number of ungraded
-problems in each course section, and the aggregate number of correct and
-incorrect submissions received.
+problems in each course section, and the average number of correct and
+incorrect submissions received based on the number of problems in each section.
 
 ==============================
 Step 2: Select a Subsection 
@@ -186,11 +194,11 @@ subsection. In this example from the edX DemoX course, there is only one
 subsection in the selected section.
 
 .. image:: ../images/ungraded_subsection_selection.png
- :alt: A chart with only one bar, for the sinlge subsection with ungraded content.
+ :alt: A chart with only one bar, for the single subsection with ungraded content.
 
 The Subsection Submissions report on this page provides the number of ungraded
-problems in each subsection and the aggregate number of correct and incorrect
-submissions received for each one.
+problems in each subsection and the number of correct and incorrect submissions
+received, averaged by the number of problems in each section.
 
 You use the drop-down **Select Subsection** menu or click a bar in the
 chart to select the subsection you want to examine further.
@@ -208,16 +216,17 @@ four problems.
  :alt: A chart with four bars, one for each ungraded problem in the selected
      subsection.
 
-The Problem Submissions report on this page provides the number of questions
-in each problem and the aggregate number of correct and incorrect submissions
-received for each one.
+.. edX/DemoX.1/2014/performance/ungraded_content/sections/i4x%3A//edX/DemoX.1/chapter/0af8db2309474971bfa70cda98668a30/subsections/i4x%3A//edX/DemoX.1/sequential/ec3364075f2845baa625bfecd5970410/
 
-You use the drop-down **Select Problem** menu or click a bar in the chart to
-select the problem that you want to examine further.
+The Problem Submissions report on this page includes a line for each of the
+problems in the selected subsection, and the number of correct and incorrect
+submissions received for each one. 
 
-If the problem that you select includes more than one part (or question), the
-first part appears. To select a different part, you use the drop-down
-**Submissions for Part {number}** menu. 
+You use the drop-down **Select Problem** menu, or click a bar in the chart, to
+select the problem that you want to examine further. If the problem that you
+select includes more than one part (or question), the first part appears. To
+select a different part, you use the drop-down **Submissions for Part
+{number}** menu.
 
 .. _Review Answers to Ungraded Problems:
 
@@ -279,6 +288,10 @@ The report includes one row for each problem-answer combination submitted by a
 learner. For example, consider a dropdown problem that has five possible
 answers. The report or file contains up to five rows, one for each answer
 submitted by at least one learner.
+
+If the problem that you select includes more than one part, the chart and
+report for the first part appears. To select a different part, you use the
+**Submissions for Part {number}** drop-down.
 
 For problems that use the **Randomization** feature in Studio, the report has
 one row for each problem-variant-answer combination selected by at least one
