@@ -81,14 +81,14 @@ Content Engagement Breakdown Report
 ======================================
 
 The weekly breakdown of student engagement with course content is available for
-review or download. Columns show each **Date** and its **Total
-Enrollment**.
+review or download. Columns show each **Week Ending** date and counts of active
+students, students who watched a video, and students who tried a problem.
 
 You can download the Content Engagement Breakdown report in comma-separated
 value format: click **Download CSV**. The CSV file contains the following
 columns:
 
-* any
+* any (active students)
 * attempted_problem
 * course_id
 * created (shows the date and time of the computation)
