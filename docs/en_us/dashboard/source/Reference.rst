@@ -77,17 +77,17 @@ For information about viewing enrollment activity data in edX Insights, see
 
 **Enrollment Over Time chart**
   
-* The filled area of this stacked area chart represents the total
-  number of users enrolled in the course each day.
+* The filled area of this stacked area chart represents the 
+  number of users who are currently enrolled in the course each day.
 
 * The x-axis shows dates from course creation through the end of the last
   update period.
 
-* The y-axis shows the total number of enrolled users. 
+* The y-axis shows the number of currently enrolled users. 
 
 * For courses that offer more than one enrollment option or certification
   track, different colors in the filled area represent the contribution of each
-  option and track to the enrollment total.
+  option or track to the current enrollment count.
 
   In addition to honor code certificates, courses can offer a verified
   certificate option or enroll students through a professional education
@@ -167,9 +167,9 @@ For information about viewing student demographic data in edX Insights, see
 * Each bar in the histogram represents the percentage of enrolled users
   (y-axis) who selected a completion level (x-axis).
 
-* Percentages are calculated for the total number of students who reported an
-  educational level, not from the total number of students enrolled in the
-  course.
+* Percentages are calculated based on the number of currently enrolled students
+  who reported an educational level, not on the total number of enrolled
+  students.
 
 * The table that follows shows each edX Insights label, the option that
   students can select at registration, and a brief description.
@@ -236,12 +236,12 @@ For information about viewing student demographic data in edX Insights, see
   who selected each choice (Female, Male, Other).
 
 * The chart only includes students who reported their genders. The percentages
-  shown in the chart are computed for the total number of students who did
+  shown in the chart are computed for currently enrolled students who did
   select a gender.
 
-* The report includes all enrolled students. For each day, the report includes
-  the daily total enrollment count followed by columns that break down the
-  total by Female, Male, Other or Not Reported.
+* The report includes all currently enrolled students. For each day, the report
+  includes the daily enrollment count followed by columns that break down the
+  enrollment count by Female, Male, Other, or Not Reported.
 
 .. _Location Computations:
 
@@ -266,17 +266,17 @@ For information about viewing geographic data in edX Insights, see
 
 **Geographic Distribution map**
 
-* The number of users and the percentage of the total enrollment is provided
-  for each country.
+* The number of users and the percentage of the current course enrollment is
+  provided for each country.
 
 * Users with IP addresses that cannot be located, or that result in a "non-
   country" code such as A1 (Anonymous Proxy), A2 (Satellite Provider), or O1
   (Other Country), are reported in an "Unknown" category.
 
 * The computational frequency and approaches used to determine user location
-  and user enrollment status are different. As a result, you may note
-  discrepancies between the total number of students reported by the Enrollment
-  Activity and Enrollment Geography sections of edX Insights.
+  and user enrollment status are different. As a result, you might note
+  discrepancies between the current number of students reported by the
+  Enrollment Activity and Enrollment Geography sections of edX Insights.
 
 **Total Countries Represented metric**
 
@@ -562,19 +562,19 @@ that are running now, or that ran recently, than for courses that ran in the
 past. Not all data for every value reported by edX Insights is available for
 every course run.
 
-In the following situations, data may not be available in edX Insights. 
+In the following situations, data might not be available in edX Insights. 
 
 * EdX changed the method used to track student enrollments on 3 Dec 2013.
   For courses created in Studio prior to 4 Dec 2013, edX Insights reports
   enrollment activity beginning with the enrollment count on 11 Nov 2013.
 
 * For courses with a very small number of enrolled users, such as newly created
-  courses, data for enrollment activity, enrollment geography, or both, may not
-  be available.
+  courses, data for enrollment activity, enrollment geography, or both, might
+  not be available.
 
 * For courses that do not have any recorded student interactions, such as test
   courses and courses that finished running early in the history of the edX
-  platform, data for enrollment activity and student engagement may not be
+  platform, data for enrollment activity and student engagement might not be
   available.
 
 * Charts are not available for problems that use the **Randomization** setting

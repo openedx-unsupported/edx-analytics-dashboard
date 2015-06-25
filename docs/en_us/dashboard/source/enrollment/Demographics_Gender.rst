@@ -59,10 +59,11 @@ values are computed.
 Gender Breakdown Over Time Report 
 ======================================
 
-The daily total enrollment count with gender breakdown is available for review
-or download. Columns show each date, the total enrollment on that date, and
-breakdown columns for the number of people who reported each gender category
-and who did not provide this information at registration.
+The daily count of currently enrolled learners, with gender breakdown, is
+available for review or download. Columns show each date, the current
+enrollment as of that date, and breakdown columns for the number of people who
+reported each gender category and who did not provide this information at
+registration.
 
 To download the Gender Breakdown Over Time report in a comma-separated value
 file, click **Download CSV**. The CSV file contains the following columns:

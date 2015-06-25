@@ -29,7 +29,7 @@ an overall total for students who completed any type of course activity, and
 totals for students who clicked play for any course video and for students who
 submitted an answer for a problem. Each total is for activity completed within
 a one week period. To see the total count for each activity type for a given
-week, move your cursor over the chart to display a tip.
+week, move your cursor over the chart to display a tooltip.
 
 Activity is included beginning with the week in which the first page visit took
 place. The first page visit is typically by a member of the course staff
@@ -47,7 +47,7 @@ the beta test, the course start date, and the due date of the first homework.
 
 In the second example, a small, private online course was developed on one
 instance of the platform, and then exported and imported to a different
-instance just before the course start date. The tip shows the number of
+instance just before the course start date. The tooltip shows the number of
 students enaging in different activities on the same day that the final
 homework was due.
 

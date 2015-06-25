@@ -24,9 +24,9 @@ Daily Student Enrollment Chart
 ======================================
 
 The daily student enrollment chart is a stacked area chart: the filled area
-represents the total number of enrolled learners on a particular date. For
-courses that offer more than one enrollment option or track, different colors
-represent the number of students who are enrolled with each option. 
+represents the number of learners enrolled in the course on a particular date.
+For courses that offer more than one enrollment option or track, different
+colors represent the number of students who were enrolled with each option.
 
 The chart currently includes these enrollment options and tracks, if they are
 offered for your course.
@@ -35,18 +35,18 @@ offered for your course.
 * Verified certificate
 * Professional education program
   
-Moving your cursor over the chart shows a tool tip with the counts for each
-enrollment type, and the total enrollment, for each day.
+Moving your cursor over the chart shows a tooltip with the counts for each
+enrollment type, and the current enrollment, for each day.
 
 The chart includes enrollment data for every day, beginning with the first
 enrollment (typically of the course creator). This data is also available for
 review in tabular format and can be downloaded.
 
 A couple of examples of this chart follow for different courses. In the first
-example, for a MOOC, you see enrollment climb fairly steadily over a period of 
+example, for a MOOC, you see enrollment climb fairly steadily over a period of
 several months. The markers begin with two "student" enrollments (almost
-certainly the course creator and another staff member) on the day the course
-was created in Studio.
+certainly the course creator and another course team member) on the day the
+course was created in Studio.
 
 .. image:: ../images/enrollment_chart.png
  :alt: A chart with the periods when the rate of enrollment was greater
@@ -74,40 +74,39 @@ See the :ref:`Reference` for a detailed description of how enrollment values
 are determined.
 
 ======================================
-Enrollment Metric
+Total Enrollment Metric
 ======================================
   
-This count reports the total number of students who enrolled in the course,
-less any students who unenrolled.
+This count reports the number of students who have ever enrolled in the
+course.
+
+======================================
+Current Enrollment Metric
+======================================
+  
+This count reports the number of students who have enrolled in the course, less
+any students who have unenrolled.
 
 ======================================
 Change in Last Week Metric
 ======================================
   
-This metric reports the difference between the enrollment total at the
+This metric reports the difference between the current enrollment count at the
 end of the day yesterday and at the end of the day one week ago.
 
 ======================================
 Verified Enrollment Metric
 ======================================
   
-This count reports the total number of enrolled students who have elected to
-pursue a verified certificate for the course. 
-
-======================================================
-Change in Verified Enrollments Last Week Metric
-======================================================
-  
-This metric reports the difference between the number of enrolled students who
-are in the verified certificate track as of the end of the day yesterday and at
-the end of the day one week ago.
+This count reports the number of currently enrolled students who have elected
+to pursue a verified certificate for the course.
 
 ======================================
 Enrollment Over Time Report 
 ======================================
 
-The daily total enrollment count, through the date of the last update, is
-available for review or download. Columns show each **Date** and its **Total
+The daily count of current enrollments, through the date of the last update, is
+available for review or download. Columns show each **Date** and its **Current
 Enrollment**.
 
 The report includes additional columns for courses that offer certification
@@ -120,7 +119,7 @@ students who did not elect one of those options.
 To download the Enrollment Over Time report in a comma-separated value file,
 click **Download CSV**. The CSV file contains the following columns: 
 
-* count (total enrollment)
+* count (current enrollment)
 * course_id
 * created (the date and time of the computation)
 * date

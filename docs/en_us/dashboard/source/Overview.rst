@@ -28,8 +28,8 @@ descriptions, move your cursor over the "i" information icons that appear at
 top right of each chart or metric.
 
 .. image:: images/tip_on_mouseover.png
- :alt: The Active Students Last Week metric with the tip "Students who visited 
-       at least one page in the course content" showing.
+ :alt: The Active Students Last Week metric with the tooltip "Students who
+       visited at least one page in the course content" showing.
 
 This guide is intended to offer more complete information about the data that
 edX Insights presents.
