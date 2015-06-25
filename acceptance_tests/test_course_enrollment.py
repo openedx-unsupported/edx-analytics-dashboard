@@ -67,14 +67,13 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         enrollment = enrollment_data[-1]['count']
 
         # Verify the current enrollment metric tile.
-        tooltip = u'Students enrolled in the course.'
+        tooltip = u'Students currently enrolled in the course.'
         self.assertMetricTileValid('current_enrollment', enrollment, tooltip)
 
         # Verify the total enrollment change metric tile.
         i = 7
         enrollment = enrollment - enrollment_data[-(i + 1)]['count']
-        tooltip = u'The difference between the number of students enrolled at the end of the day ' \
-                  u'yesterday and one week before.'
+        tooltip = u'Net difference in current enrollment in the last week.'
         self.assertMetricTileValid('enrollment_change_last_%s_days' % i, enrollment, tooltip)
 
         if ENABLE_ENROLLMENT_MODES:
@@ -83,13 +82,8 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
             if enrollment_modes.VERIFIED in valid_modes:
                 # Verify the verified enrollment metric tile.
                 verified_enrollment = enrollment_data[-1][enrollment_modes.VERIFIED]
-                tooltip = u'Number of enrolled students who are pursuing a verified certificate of achievement.'
+                tooltip = u'Number of currently enrolled students pursuing a verified certificate of achievement.'
                 self.assertMetricTileValid('verified_enrollment', verified_enrollment, tooltip)
-
-                verified_enrollment = verified_enrollment - enrollment_data[-(i + 1)][enrollment_modes.VERIFIED]
-                tooltip = u'The difference between the number of students pursuing verified certificates at the ' \
-                          u'end of the day yesterday and one week before.'
-                self.assertMetricTileValid('verified_change_last_%s_days' % i, verified_enrollment, tooltip)
 
         # Verify *something* rendered where the graph should be. We cannot easily verify what rendered
         self.assertElementHasContent("[data-section=enrollment-basics] #enrollment-trend-view")
@@ -100,7 +94,7 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         enrollment_data = sorted(self.get_enrollment_data(), reverse=True, key=lambda item: item['date'])
 
         table_selector = 'div[data-role=enrollment-table] table'
-        headings = ['Date', 'Total Enrollment']
+        headings = ['Date', 'Current Enrollment']
 
         if ENABLE_ENROLLMENT_MODES:
             headings.append('Honor Code')
@@ -180,7 +174,7 @@ class CourseEnrollmentGeographyTests(CoursePageTestsMixin, WebAppTest):
         """ Verify the geolocation enrollment table is loaded. """
 
         table_section_selector = "div[data-role=enrollment-location-table]"
-        self.assertTable(table_section_selector, ['Country', 'Percent', 'Total Enrollment'],
+        self.assertTable(table_section_selector, ['Country', 'Percent', 'Current Enrollment'],
                          'a[data-role=enrollment-location-csv]')
 
         rows = self.page.browser.find_elements_by_css_selector('{} tbody tr'.format(table_section_selector))

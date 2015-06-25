@@ -19,7 +19,7 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                     },
                     {
                         key: 'count',
-                        title: gettext('Total Enrollment'),
+                        title: gettext('Current Enrollment'),
                         className: 'text-right',
                         type: 'number',
                         color: '#4BB4FB'
