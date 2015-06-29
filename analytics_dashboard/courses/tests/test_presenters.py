@@ -312,6 +312,7 @@ class CourseEnrollmentPresenterTests(SwitchMixin, TestCase):
         expected_summary = {
             'last_updated': None,
             'current_enrollment': None,
+            'total_enrollment': None,
             'enrollment_change_last_7_days': None,
         }
 

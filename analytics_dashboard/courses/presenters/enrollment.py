@@ -138,7 +138,6 @@ class CourseEnrollmentPresenter(BasePresenter):
 
         if enrollment_modes.VERIFIED not in valid_modes:
             summary.pop('verified_enrollment')
-            summary.pop('verified_change_last_7_days')
 
         return summary, trends
 
@@ -184,6 +183,7 @@ class CourseEnrollmentPresenter(BasePresenter):
         trend = {'date': day.isoformat(), 'count': 0}
 
         if self.display_verified_enrollment:
+            trend['cumulative_count'] = 0
             for mode in enrollment_modes.ALL:
                 trend[mode] = 0
 
@@ -260,7 +260,7 @@ class CourseEnrollmentPresenter(BasePresenter):
             'current_enrollment': None,
             'enrollment_change_last_7_days': None,
             'verified_enrollment': None,
-            'verified_change_last_7_days': None,
+            'total_enrollment': None,
         }
 
         if api_trends:
@@ -276,26 +276,19 @@ class CourseEnrollmentPresenter(BasePresenter):
             verified_enrollment = recent_enrollment.get(enrollment_modes.VERIFIED,
                                                         0) if self.display_verified_enrollment else None
 
-            data = {
+            data.update({
                 'last_updated': last_enrollment_date,
                 'current_enrollment': current_enrollment,
-                'verified_enrollment': verified_enrollment
-            }
+                'verified_enrollment': verified_enrollment,
+                'total_enrollment': recent_enrollment.get('cumulative_count', None),
+            })
 
             # Get difference in enrollment for last week
             count = None
-            verified_count = None
-
             if len(api_trends) > days_in_week:
                 index = -days_in_week - 1
                 count = current_enrollment - api_trends[index]['count']
-                if self.display_verified_enrollment:
-                    verified_count = verified_enrollment - api_trends[index].get(enrollment_modes.VERIFIED, 0)
-
             data['enrollment_change_last_%s_days' % days_in_week] = count
-
-            if self.display_verified_enrollment:
-                data['verified_change_last_%s_days' % days_in_week] = verified_count
 
         return data
 

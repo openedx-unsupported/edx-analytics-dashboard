@@ -34,6 +34,9 @@ def get_mock_api_enrollment_data(course_id, include_verified=True):
             'created': CREATED_DATETIME_STRING
         }
 
+        if include_verified:
+            datum['cumulative_count'] = datum['count'] * 2
+
         for mode in modes:
             datum[mode] = index
 
@@ -52,15 +55,16 @@ def get_mock_enrollment_summary(include_verified=True):
     summary = {
         'last_updated': CREATED_DATETIME,
         'current_enrollment': 60,
+        'total_enrollment': None,
         'enrollment_change_last_7_days': 14,
     }
 
     if include_verified:
         summary.update({
             'current_enrollment': 120,
+            'total_enrollment': 240,
             'enrollment_change_last_7_days': 28,
             'verified_enrollment': 30,
-            'verified_change_last_7_days': 7,
         })
 
     return summary
@@ -71,7 +75,7 @@ def get_mock_enrollment_summary_and_trend(course_id):
 
 
 def _get_empty_enrollment(date):
-    enrollment = {'count': 0, 'date': date}
+    enrollment = {'count': 0, 'cumulative_count': 0, 'date': date}
 
     for mode in enrollment_modes.ALL:
         enrollment[mode] = 0
@@ -123,9 +127,9 @@ def get_mock_presenter_enrollment_summary_small():
     return {
         'last_updated': CREATED_DATETIME,
         'current_enrollment': 120,
+        'total_enrollment': 240,
         'enrollment_change_last_7_days': None,
         'verified_enrollment': 30,
-        'verified_change_last_7_days': None,
     }
 
 

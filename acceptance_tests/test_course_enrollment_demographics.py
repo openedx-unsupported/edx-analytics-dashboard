@@ -114,7 +114,7 @@ class CourseEnrollmentDemographicsGenderTests(CourseDemographicsPageTestsMixin, 
     help_path = 'enrollment/Demographics_Gender.html'
 
     demographic_type = demographic.GENDER
-    table_columns = ['Date', 'Total Enrollment', 'Female', 'Male', 'Other', 'Not Reported']
+    table_columns = ['Date', 'Current Enrollment', 'Female', 'Male', 'Other', 'Not Reported']
 
     def setUp(self):
         super(CourseEnrollmentDemographicsGenderTests, self).setUp()
