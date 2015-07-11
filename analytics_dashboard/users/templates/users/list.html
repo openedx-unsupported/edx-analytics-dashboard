@@ -1,0 +1,55 @@
+{% extends "users/base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load dashboard_extras %}
+{% load firstof from future %}
+
+{% block view-name %}view-course-list{% endblock view-name %}
+
+{% block title %}{% trans "Users" %} {{ block.super }}{% endblock title %}
+
+{% block header-text %}
+  <h3>
+    {% blocktrans %}Registered Users{% endblocktrans %}
+  </h3>
+{% endblock %}
+
+{% block intro-text %}
+  {% blocktrans %}Here are all the registered users in the system:{% endblocktrans %}
+{% endblock intro-text %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-8">
+
+      {% include "pagination.html" %}
+
+      <div class="user-list paginated">
+        {% for user in users %}
+          <div class="user">
+            <a href="{% url 'users:profile' user_id=user.id %}">
+              <span class="main-info">{{user.username}}</span>
+            </a>
+            <div class="sub-info">{{user.name}}</div>
+          </div>
+        {% endfor %}
+      </div>
+
+      {% include "pagination.html" %}
+
+    </div>
+
+    <div class="col-md-4">
+      <div class="help-msg">
+        <h4>{% blocktrans %}New to {{ application_name }}?{% endblocktrans %}</h4>
+
+        {% captureas email_link %}
+          <a class="feedback-email" href="mailto:{{ feedback_email }}?Subject=Feedback">
+            {{ feedback_email }}</a>{% endcaptureas %}
+
+        <p class="info-text">{% blocktrans trimmed %} Click Help in the upper-right corner to get more information
+          about {{ application_name }}. Send us feedback at {{ email_link }}.{% endblocktrans %}</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}

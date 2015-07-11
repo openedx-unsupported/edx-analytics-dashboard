@@ -1,0 +1,20 @@
+{% extends "base_dashboard.html" %}
+{% load dashboard_extras %}
+
+{% block title %}{{ page_title }} - {{ block.super }}{% endblock title %}
+
+{% block header-text %}
+{% endblock %}
+
+{% block content %}
+  {% block child_content %}
+  {% endblock %}
+  {% block data_messaging %}
+    {% if update_message %}
+      <div class="data-update-message">{{ update_message }}</div>
+    {% endif %}
+    {% if data_information_message %}
+      <div class="data-information-message">{{ data_information_message }}</div>
+    {% endif %}
+  {% endblock %}
+{% endblock %}

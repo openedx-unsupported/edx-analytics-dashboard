@@ -1,0 +1,12 @@
+{% load i18n %}
+<div class="pagination-nav">
+    <ul class="nav navbar-nav">
+        <li {% if page <= 1 %} class="unavailable-page" aria-hidden="true"{% endif %}>
+        	<a href="?page={{page|add:-1}}">{% trans "Prev" %}</a>
+        </li>
+        <li class="pagination-status">{% blocktrans %}Page {{page}} of {{total_pages}}{% endblocktrans %}</li>
+        <li {% if page >= total_pages %} class="unavailable-page" aria-hidden="true"{% endif %}>
+        	<a href="?page={{page|add:1}}">{% trans "Next" %}</a>
+        </li>
+    </ul>
+</div>

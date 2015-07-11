@@ -228,6 +228,7 @@ DJANGO_APPS = (
 LOCAL_APPS = (
     'core',
     'courses',
+    'users',
     'django_rjs',
     'help',
     'soapbox',
