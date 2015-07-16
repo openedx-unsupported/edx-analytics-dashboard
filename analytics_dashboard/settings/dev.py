@@ -53,6 +53,7 @@ INSTALLED_APPS += (
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 LMS_COURSE_SHORTCUT_BASE_URL = 'https://example.com/courses'
+CMS_COURSE_SHORTCUT_BASE_URL = 'https://studio.example.com/course'
 
 ########## BRANDING
 PLATFORM_NAME = 'Open edX'

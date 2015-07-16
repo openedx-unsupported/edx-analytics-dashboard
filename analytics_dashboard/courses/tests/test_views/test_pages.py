@@ -27,6 +27,36 @@ class CourseHomeViewTests(CourseViewTestMixin, TestCase):
     def test_missing_data(self, course_id):
         self.skipTest('The course homepage does not check for the existence of a course.')
 
+    @httpretty.activate
+    def test_course_overview(self):
+        self.toggle_switch('enable_course_api', True)
+        self.mock_course_detail(DEMO_COURSE_ID, {'start': '2015-01-23T00:00:00Z', 'end': None})
+        response = self.client.get(self.path(course_id=DEMO_COURSE_ID))
+        self.assertEqual(response.status_code, 200)
+
+        overview_data = {k: v for k, v in response.context['course_overview']}
+        self.assertEqual(overview_data.get('Start Date'), 'January 23, 2015')
+        self.assertEqual(overview_data.get('Status'), 'In Progress')
+        links = {link['title']: link['url'] for link in response.context['external_course_tools']}
+        self.assertEqual(len(links), 3)
+        self.assertEqual(links.get('Instructor Dashboard'), 'http://lms-host/{}/instructor'.format(DEMO_COURSE_ID))
+        self.assertEqual(links.get('Courseware'), 'http://lms-host/{}/courseware'.format(DEMO_COURSE_ID))
+        self.assertEqual(links.get('Studio'), 'http://cms-host/{}'.format(DEMO_COURSE_ID))
+
+    @httpretty.activate
+    def test_course_ended(self):
+        self.toggle_switch('enable_course_api', True)
+        self.mock_course_detail(DEMO_COURSE_ID, {
+            'start': '2015-01-01T00:00:00Z',
+            'end': '2015-02-15T00:00:00Z'
+        })
+        response = self.client.get(self.path(course_id=DEMO_COURSE_ID))
+        self.assertEqual(response.status_code, 200)
+        overview_data = {k: v for k, v in response.context['course_overview']}
+        self.assertEqual(overview_data.get('Start Date'), 'January 01, 2015')
+        self.assertEqual(overview_data.get('End Date'), 'February 15, 2015')
+        self.assertEqual(overview_data.get('Status'), 'Ended')
+
 
 class CourseIndexViewTests(CourseAPIMixin, ViewTestMixin, CoursePermissionsExceptionMixin, TestCase):
     viewname = 'courses:index'
