@@ -24,6 +24,17 @@
           </li>
         {% endfor %}
       </ul>
+      {# External link[s] that only appear on the course home page: #}
+      <ul class="nav navbar-nav navbar-right">
+        {% if view_courseware_url %}
+          <li>
+            <a href="{{ view_courseware_url }}"><span class="link-label">
+              <i class="ico fa fa-external-link" aria-hidden="true"></i>
+              {% trans "Go to Courseware" %}
+            </span></a>
+          </li>
+        {% endif %}
+      </ul>
     </div>
   </nav>
 {% endblock %}

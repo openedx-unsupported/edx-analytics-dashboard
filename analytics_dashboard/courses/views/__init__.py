@@ -524,6 +524,13 @@ class CourseHome(CourseTemplateWithNavView):
         })
 
         context['page_data'] = self.get_page_data(context)
+
+        if settings.LMS_COURSE_SHORTCUT_BASE_URL:
+            context['view_courseware_url'] = "{}/{}/courseware/".format(
+                settings.LMS_COURSE_SHORTCUT_BASE_URL,
+                self.course_id
+            )
+
         return context
 
 
