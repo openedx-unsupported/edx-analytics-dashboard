@@ -37,7 +37,7 @@ Selecting the Section, Subsection, and Video
 To access data about a video component, follow these steps.
 
 #. Open edX Insights at insights.edx.org. A list of the courses for which you
-   have the admin or staff role appears.
+   have the Admin or Staff role appears.
 
 #. Select the course.
 

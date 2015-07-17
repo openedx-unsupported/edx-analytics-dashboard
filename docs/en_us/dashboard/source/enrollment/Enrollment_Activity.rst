@@ -43,10 +43,10 @@ enrollment (typically of the course creator). This data is also available for
 review in tabular format and can be downloaded.
 
 A couple of examples of this chart follow for different courses. In the first
-example, for a MOOC, you see enrollment climb fairly steadily over a period of 
+example, for a MOOC, you see enrollment climb fairly steadily over a period of
 several months. The markers begin with two "student" enrollments (almost
-certainly the course creator and another staff member) on the day the course
-was created in Studio.
+certainly the course creator and another course team member) on the day the
+course was created in Studio.
 
 .. image:: ../images/enrollment_chart.png
  :alt: A chart with the periods when the rate of enrollment was greater

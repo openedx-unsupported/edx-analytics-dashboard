@@ -25,9 +25,9 @@ All Computations
 .. Jennifer asks for an x-ref to more information. Better place might be course_enrollment.rst in Running.
 
 * All users who are enrolled in a course are included in the computations for
-  that course. This means that in addition to the students, all staff members,
-  beta testers, and discussion admins and moderators who have privileged roles
-  in the course are included.
+  that course. This means that in addition to the students, all of the course
+  team members, beta testers, and discussion moderation team members are
+  included.
 
 .. spacer
 
@@ -59,7 +59,7 @@ For information about viewing enrollment activity data in edX Insights, see
 * The daily computations use the enrollment status of each user as of 23:59 UTC
   on the previous day.
 
-* Course staff can enroll students from the **Membership** page in the
+* Course team members can enroll students from the **Membership** page in the
   Instructor Dashboard by supplying a list of email addresses or usernames.
   Actual resulting enrollments can occur on different dates, as follows.
 
@@ -69,7 +69,7 @@ For information about viewing enrollment activity data in edX Insights, see
 
  * When **Auto Enroll** is selected, each student who already has a user
    account is enrolled in the course and included in the count as of the date
-   and time the initiating staff member clicks **Enroll**.
+   and time the initiating team member clicks **Enroll**.
 
    Students who are automatically enrolled in a course but have not yet
    registered a user account are included as of the date and time that they do
