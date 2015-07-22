@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+TEST_DIR=${1?arg missing, specify a directory to find tests}
+
 # this stops the django servers
 stopServers() {
     kill $(ps aux | grep "[m]anage.py" | awk '{print $2}')
@@ -25,15 +27,16 @@ echo "Preparing Analytics Data API..."
 cd edx-analytics-data-api/
 make travis
 cd -
+mkdir -p logs
 
 echo "Starting Analytics Data API Server..."
-./edx-analytics-data-api/manage.py runserver 9001 --noreload &
+./edx-analytics-data-api/manage.py runserver 9001 --noreload > logs/api.log 2>&1 &
 
 echo "Starting Analytics Dashboard Server..."
-./manage.py runserver 9000 --noreload &
+./manage.py runserver 9000 --noreload --traceback > logs/dashboard.log 2>&1 &
 
-echo "Running acceptance tests..."
-make accept -e NUM_PROCESSES=1
+echo "Running $TEST_DIR tests..."
+nosetests -v $TEST_DIR -e NUM_PROCESSES=1 --exclude-dir=acceptance_tests/course_validation
 
 # capture the exit code from the test.  Anything more than 0 indicates failed cases.
 EXIT_CODE=$?
@@ -45,5 +48,9 @@ if [[ "$EXIT_CODE" = "0" ]]; then
     echo "All tests passed..."
 else
     echo "Failed tests..."
+    echo -e "\033[33;34m Server Logs for Analytics Data API Server... \033[0m "
+    cat logs/api.log
+    echo -e "\033[33;34m Server logs for Analytics Dashboard Server... \033[0m "
+    cat logs/dashboard.log
 fi
 exit $EXIT_CODE

@@ -14,7 +14,8 @@ script:
     - make static -e DJANGO_SETTINGS_MODULE="analytics_dashboard.settings.test"
     - make validate
     - make generate_fake_translations
-    - bash ./runAcceptance.sh
+    - make accept
+    - make a11y
 branches:
     only:
       - master
