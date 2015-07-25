@@ -42,6 +42,13 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                     color: '#E78AC3',
                     className: 'text-right',
                     type: 'number'
+                },
+                {
+                    key: 'active_percent',
+                    title: gettext('Percent of Current Students'),
+                    color: '#FFFFFF',
+                    className: 'text-right',
+                    type: 'percent'
                 }
             ],
             trendSettings;
@@ -53,7 +60,7 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
 
         // trend settings don't need weekEnding
         trendSettings = _(settings).filter(function (setting) {
-            return setting.key !== 'weekEnding';
+            return setting.key !== 'weekEnding' && setting.key !== 'active_percent';
         });
 
         // weekly engagement activities graph
@@ -82,7 +89,8 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
             model: page.models.courseModel,
             modelAttribute: 'engagementTrends',
             columns: settings,
-            sorting: ['-weekEnding']
+            sorting: ['-weekEnding'],
+            replaceNull: '-'
         });
     });
 });

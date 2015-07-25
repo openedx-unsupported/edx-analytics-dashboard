@@ -69,11 +69,12 @@ class CaptureasNode(template.Node):
 
 
 @register.inclusion_tag('summary_point.html')
-def summary_point(value, label, subheading=None, tooltip=None):
+def summary_point(value, label, subheading=None, tooltip=None, additional_value=None):
     return {
         'value': value,
         'label': label,
         'subheading': subheading,
+        'additional_value': additional_value,
         'tooltip': tooltip
     }
 

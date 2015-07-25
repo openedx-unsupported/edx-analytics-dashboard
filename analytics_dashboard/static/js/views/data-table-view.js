@@ -173,6 +173,8 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
                     if (type === 'display') {
                         if (_(self.options).has('replaceZero') && value === 0) {
                             display = self.options.replaceZero;
+                        } else if (_(self.options).has('replaceNull') && value === null) {
+                            display = self.options.replaceNull;
                         } else {
                             display = Utils.formatDisplayPercentage(value);
                         }

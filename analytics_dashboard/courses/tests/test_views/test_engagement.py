@@ -26,6 +26,10 @@ class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):  # pylint: disa
     def setUp(self):
         super(CourseEngagementViewTestMixin, self).setUp()
         self.toggle_switch('enable_engagement_videos_pages', True)
+        # This view combines the activity API with the enrollment API, so we need to mock both.
+        patcher = mock.patch('analyticsclient.course.Course.enrollment', return_value=utils.mock_course_enrollment())
+        patcher.start()
+        self.addCleanup(patcher.stop)
 
     def get_mock_data(self, course_id):
         return utils.mock_course_activity(course_id)

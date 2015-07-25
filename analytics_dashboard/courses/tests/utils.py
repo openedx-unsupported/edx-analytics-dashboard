@@ -525,6 +525,32 @@ def get_mock_api_answer_distribution_multiple_questions_first_last_data(course_i
     return answers
 
 
+def get_mock_api_course_enrollment(course_id):
+    """ Mock enrollment data corresponding to mock activity data above """
+    aug = [{
+        'course_id': course_id,
+        'date': '2014-08-31',
+        'count': 10000,
+        'created': CREATED_DATETIME_STRING
+    }]
+    sept = [
+        {
+            'course_id': course_id,
+            'date': '2014-09-{:02d}'.format(day),
+            'count': 10000 + day,
+            'created': CREATED_DATETIME_STRING
+        }
+        for day in range(1, 10)
+    ]
+    return aug + sept
+
+
+# pylint: disable=unused-argument
+def mock_course_enrollment(start_date=None, end_date=None):
+    """ Mock API enrollment data """
+    return get_mock_api_course_enrollment(u'edX/DemoX/Demo_Course')
+
+
 def get_mock_api_answer_distribution_multiple_questions_data(course_id):
     answers = []
     total_first_count = 10
