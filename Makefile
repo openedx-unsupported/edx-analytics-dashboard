@@ -39,7 +39,10 @@ test_python: clean
 	--with-ignore-docstrings --cover-xml --cover-xml-file=$(COVERAGE)/coverage.xml
 
 accept:
-	nosetests -v acceptance_tests --exclude-dir=acceptance_tests/course_validation
+	./runTests.sh acceptance_tests
+
+a11y:
+	SELENIUM_BROWSER=phantomjs ./runTests.sh a11y_tests
 
 course_validation:
 	python -m acceptance_tests.course_validation.generate_report
