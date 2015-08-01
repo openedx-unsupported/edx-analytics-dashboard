@@ -1,15 +1,14 @@
 from analyticsclient.client import Client
 from analyticsclient.exceptions import ClientError
-from braces.views import LoginRequiredMixin
+from courses.views import CourseNavBarMixin, CourseView
 from django.conf import settings
 from django import shortcuts
-from django.views.generic import TemplateView
 import logging
 
 logger = logging.getLogger(__name__)
 
 
-class UsersView(LoginRequiredMixin, TemplateView):
+class UsersView(CourseNavBarMixin, CourseView):
     client = None
 
     def dispatch(self, request, *args, **kwargs):

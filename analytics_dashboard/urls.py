@@ -25,7 +25,6 @@ urlpatterns = patterns(
     url(r'^status/$', views.status, name='status'),
     url(r'^health/$', views.health, name='health'),
     url(r'^courses/', include('courses.urls', namespace='courses')),
-    url(r'^users/', include('users.urls', namespace='users')),
     url(r'^admin/', include(admin.site.urls)),
     url('', include('social.apps.django_app.urls', namespace='social')),
     url(r'^accounts/login/$',

@@ -14,6 +14,33 @@
   </h3>
 {% endblock %}
 
+{% block lens_navigation %}
+  {#  This is a simplified version of lens-navigation.html. #}
+
+  {#  Translators: Application here refers to the web site/application being used (e.g. the dashboard). #}
+  <nav class="navbar navbar-default lens-nav" role="navigation" aria-label="{% trans "Application" %}">
+    <div class="container ">
+      <ul id="mode-selectors" class="nav navbar-nav navbar-right">
+        <li class="has-tooltip" data-toggle="tooltip" title="Click to switch to course mode">
+          <a href="{% url 'courses:home' course_id=course_id %}">
+            <span class="link-label">
+              <i class="ico fa fa-users" aria-hidden="true"></i>
+            </span>
+          </a>
+        </li>
+        <li class="active nav-section has-tooltip" data-toggle="tooltip" title="You're in user mode. Click to go back to the list of all students enrolled in this course.">
+          <a href="{% url 'courses:users:list' course_id=course_id %}">
+            <span class="link-label">
+              <i class="ico fa fa-user" aria-hidden="true"></i>
+            </span>
+          </a>
+          <span class="sr-only">({% trans "Active" %})</span>
+        </li>
+      </ul>
+    </div>
+  </nav>
+{% endblock %}
+
 {% block content %}
   <div class="row">
     <div class="col-xs-12 col-md-8">

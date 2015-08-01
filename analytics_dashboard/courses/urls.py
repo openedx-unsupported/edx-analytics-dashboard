@@ -109,6 +109,7 @@ COURSE_URLS = patterns(
     url(r'^engagement/', include(ENGAGEMENT_URLS, namespace='engagement')),
     url(r'^performance/', include(PERFORMANCE_URLS, namespace='performance')),
     url(r'^csv/', include(CSV_URLS, namespace='csv')),
+    url(r'^users/', include('users.urls', namespace='users')),
 )
 
 urlpatterns = patterns(
