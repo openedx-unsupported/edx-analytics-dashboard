@@ -13,9 +13,9 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-19 11:21-0400\n"
-"PO-Revision-Date: 2015-06-19 15:22+0000\n"
-"Last-Translator: Dennis Jen <djen@edx.org>\n"
-"Language-Team: Slovak (http://www.transifex.com/projects/p/edx-platform/language/sk/)\n"
+"PO-Revision-Date: 2015-08-02 06:45+0000\n"
+"Last-Translator: Vladimír Záhradník <vladimir.zahradnik@gmail.com>\n"
+"Language-Team: Slovak (http://www.transifex.com/open-edx/edx-platform/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -28,7 +28,7 @@ msgstr "Prihlásiť sa"
 
 #: core/templates/core/landing.html
 msgid "Insights to help course teams improve courses."
-msgstr "Náhľady, ktoré pomôžu pri zlepšovaní kurzov."
+msgstr "Postrehy, ktoré pomôžu pri zlepšovaní kurzov."
 
 #: core/templates/core/landing.html courses/views/__init__.py
 msgid "Who are my students?"
@@ -75,7 +75,7 @@ msgstr "Prispôsobte váš kurz podľa toho, kde majú študenti problémy."
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/__init__.py
 msgid "Performance"
-msgstr "Výkonnosť"
+msgstr "Výkon"
 
 #: core/templates/core/landing.html
 msgid "Join the Open Source Community"
@@ -86,7 +86,7 @@ msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
 msgstr ""
-"Prúd analytických dát edX a tiež edX Náhľady sú dostupné ako open source. "
+"Prúd analytických dát edX a tiež edX Postrehy sú dostupné ako open source. "
 "%(link_start)sDozvedieť sa viac%(link_end)s."
 
 #: core/templates/core/landing.html
@@ -268,7 +268,7 @@ msgstr "Vybrať subsekciu"
 
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
-msgstr ""
+msgstr "Vybrať video"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -398,11 +398,11 @@ msgstr "Rozdelenie účasti na kurze"
 #: courses/templates/courses/engagement_grouped_content.html
 #: courses/templates/courses/views_chart_info.html
 msgid "Video Views"
-msgstr ""
+msgstr "Pozretí videa"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid "How did students interact with videos in this section?"
-msgstr ""
+msgstr "Ako študenti interagovali s videami v tejto sekcii?"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
@@ -410,21 +410,27 @@ msgid ""
 "that subsection. Click on bars with low totals or a high incomplete rate to "
 "drill down and understand why."
 msgstr ""
+"Každý stĺpec ukazuje počty úplných a neúplných pozretí videí v tejto "
+"podsekcii. Kliknite na stĺpce s nízkym počtom celkových pozretí alebo "
+"vysokou hodnotou neúplných pozretí a pokúste sa zistiť prečo je tomu tak."
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did students interact with videos in this subsection?"
-msgstr ""
+msgstr "Ako študenti interagovali s videami v tejto podsekcii?"
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
 "Click to understand where students drop off and which parts they replay."
 msgstr ""
+"Každý stĺpec ukazuje počty úplných a neúplných pozretí pre toto video. "
+"Kliknite na príslušný stĺpec, aby ste pochopili, v ktorej časti študenti "
+"video vypínajú a ktoré časti si púšťajú opäť."
 
 #: courses/templates/courses/engagement_video_course.html
 #: courses/views/__init__.py
 msgid "How did students interact with course videos?"
-msgstr ""
+msgstr "Ako študenti interagovali s videami kurzu?"
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
@@ -432,53 +438,58 @@ msgid ""
 "that section. Click on bars with low totals or a high incomplete rate to "
 "drill down and understand why."
 msgstr ""
+"Každý stĺpec ukazuje počty úplných a neúplných pozretí videí v tejto sekcii."
+" Kliknite na stĺpce s nízkym počtom celkových pozretí alebo vysokou hodnotou"
+" neúplných pozretí a pokúste sa zistiť prečo je tomu tak."
 
 #: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Total Video Views"
-msgstr ""
+msgstr "Pozretí videa celkovo"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "What were the viewing patterns for this video?"
-msgstr ""
+msgstr "Aké sú vzorce pre pozeranie tohto videa?"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid ""
 "The number of students who watched each segment of the video, and the number"
 " of replays for each segment."
 msgstr ""
+"Počet študentov, ktorí si pozreli každý segment videa a počet opätovných "
+"prehratí pre každý segment."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Metrics"
-msgstr ""
+msgstr "Dáta o videu"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Completion Rate"
-msgstr ""
+msgstr "Miera dokončenia"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Estimated percentage of students who watched the entire video."
-msgstr ""
+msgstr "Odhadované percento študentov, ktorí si pozreli celé video."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Started Video"
-msgstr ""
+msgstr "Začali pozerať video"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who started watching the video."
-msgstr ""
+msgstr "Študenti, ktorí začali pozerať video."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Finished Video"
-msgstr ""
+msgstr "Dopozerali celé video"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who watched the video to the end."
-msgstr ""
+msgstr "Študenti, ktorí dopozerali video až do konca."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Viewing Over Time"
-msgstr ""
+msgstr "Pozeranie videa nad čas"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
@@ -832,7 +843,7 @@ msgstr "Vitajte, %(username)s!"
 msgid "Here are the courses you currently have access to in Insights:"
 msgstr ""
 "Tu sú kurzy, do ktorých máte v súčasnosti prístup v analytickom module "
-"Náhľady:"
+"Postrehy:"
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
@@ -861,8 +872,8 @@ msgid ""
 "These bars show the correct and incorrect submission counts for each "
 "problem. Only the last submission from each student is counted."
 msgstr ""
-"Tieto stĺpce zobrazujú počty správnych a nesprávnych podaní pre každú úlohu."
-" Je započítané vždy iba posledné podanie od každého študenta."
+"Tieto stĺpce ukazujú počty správnych a nesprávnych podaní pre každú úlohu. "
+"Počíta sa iba posledné podanie od každého študenta."
 
 #: courses/templates/courses/performance_assignment.html
 #: courses/templates/courses/performance_ungraded_by_subsection.html
@@ -913,6 +924,8 @@ msgid ""
 "problems in the assignment. Only the last submission from each student is "
 "counted."
 msgstr ""
+"Každý stĺpec ukazuje priemerný počet správnych a nesprávnych podaní pre "
+"úlohy v tomto zadaní. Počíta sa iba posledné podanie od každého študenta."
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid "Assignment Submissions"
@@ -927,6 +940,8 @@ msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each subsection. Only the last submission from each student is counted."
 msgstr ""
+"Každý stĺpec ukazuje priemerný počet správnych a nesprávnych podaní pre "
+"každú podsekciu. Počíta sa iba posledné podanie od každého študenta."
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "Subsection Submissions"
@@ -946,6 +961,8 @@ msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each section. Only the last submission from each student is counted."
 msgstr ""
+"Každý stĺpec ukazuje priemerný počet správnych a nesprávnych podaní pre "
+"každú sekciu. Počíta sa iba posledné podanie od každého študenta."
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid "Section Submissions"
@@ -1010,7 +1027,7 @@ msgstr "Obsah"
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Videos"
-msgstr ""
+msgstr "Videá"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
@@ -1049,16 +1066,19 @@ msgstr ""
 
 #: courses/views/engagement.py
 msgid "Engagement Videos"
-msgstr ""
+msgstr "Videá pre zamestnanie"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr ""
+"Dáta videa boli naposledy aktualizované %(update_date)s o %(update_time)s "
+"UTC."
 
 #: courses/views/engagement.py
 msgid "Looks like no one has watched any videos in these sections."
 msgstr ""
+"Vyzerá to tak, že v týchto sekciách si ešte nikto nepozrel žiadne video."
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Section Name"
@@ -1070,7 +1090,7 @@ msgstr "Názov podsekcie"
 
 #: courses/views/engagement.py
 msgid "Video Name"
-msgstr ""
+msgstr "Názov videa"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1237,7 +1257,7 @@ msgid ""
 "%(support_link_start)sVisit our support forum%(support_link_end)s. Comments "
 "or suggestions? Email %(email_link)s."
 msgstr ""
-"Chceme, aby vám táto prístupová stránka fungovala! Potrebujete pomoc? "
+"Chceme, aby vám táto palubná doska fungovala! Potrebujete pomoc? "
 "%(support_link_start)s Navštívte diskusné fórum našej "
 "podpory%(support_link_end)s. Komentáre alebo návrhy? Pošlite nám e-mail "
 "%(email_link)s."
