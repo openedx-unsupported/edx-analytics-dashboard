@@ -153,6 +153,13 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, BasePresenter):
     def _build_answer_distribution(self, api_response, problem_part_id):
         """ Filter for this problem part and sort descending order. """
         answer_distributions = [i for i in api_response if i['part_id'] == problem_part_id]
+        for answer_dist in answer_distributions:
+            # First and last response counts were added, we can handle both types of API responses at the moment.
+            # If just the count is specified it is assumed to be the last response count.
+            # TODO: teach downstream logic about first and last response counts
+            count = answer_dist.get('last_response_count')
+            if count is not None:
+                answer_dist['count'] = count
         answer_distributions = sorted(answer_distributions, key=lambda a: -a['count'])
         return answer_distributions
 

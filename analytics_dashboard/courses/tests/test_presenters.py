@@ -6,6 +6,7 @@ from django.core.cache import cache
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 import mock
+from ddt import ddt, data
 
 from courses.exceptions import NoVideosError
 from courses.presenters import BasePresenter
@@ -151,13 +152,13 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
     def test_post_process_adding_data_to_blocks(self):
         def url_func(parent_block, child_block):
             return '{}-{}'.format(parent_block, child_block)
-        data = {'users_at_start': 10}
-        self.presenter.post_process_adding_data_to_blocks(data, 'parent', 'child', url_func)
-        self.assertDictContainsSubset({'url': 'parent-child'}, data)
+        user_data = {'users_at_start': 10}
+        self.presenter.post_process_adding_data_to_blocks(user_data, 'parent', 'child', url_func)
+        self.assertDictContainsSubset({'url': 'parent-child'}, user_data)
 
-        data = {}
-        self.presenter.post_process_adding_data_to_blocks(data, 'parent', 'child', None)
-        self.assertDictEqual({}, data)
+        empty_data = {}
+        self.presenter.post_process_adding_data_to_blocks(empty_data, 'parent', 'child', None)
+        self.assertDictEqual({}, empty_data)
 
     def test_build_module_url_func(self):
         url_func = self.presenter.build_module_url_func(self.SECTION_ID)
@@ -197,13 +198,13 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
         start_only_users = 10
         end_users = max_users - start_only_users
         end_percent = end_users / max_users
-        data = {
+        module_data = {
             'encoded_module_id': self.VIDEO_ID,
             'users_at_start': max_users,
             'users_at_end': end_users
         }
-        self.presenter.attach_computed_data(data)
-        self.assertDictEqual(data, {
+        self.presenter.attach_computed_data(module_data)
+        self.assertDictEqual(module_data, {
             'id': self.VIDEO_ID,
             'users_at_start': max_users,
             'users_at_end': end_users,
@@ -428,18 +429,43 @@ class CourseEnrollmentDemographicsPresenterTests(TestCase):
         self.assertEqual(known_percent, 0.5)
 
 
+PERFORMER_PRESENTER_COURSE_ID = 'edX/DemoX/Demo_Course'
+
+
+class ListWithName(list):
+    pass
+
+
+def annotated(l, name):
+    alist = ListWithName(l)
+    setattr(alist, '__name__', name)
+    return alist
+
+
+@ddt
 class CoursePerformancePresenterTests(TestCase):
+
     def setUp(self):
         cache.clear()
-        self.course_id = 'edX/DemoX/Demo_Course'
+        self.course_id = PERFORMER_PRESENTER_COURSE_ID
         self.problem_id = 'i4x://edX/DemoX.1/problem/05d289c5ad3d47d48a77622c4a81ec36'
         self.presenter = CoursePerformancePresenter(None, self.course_id)
         self.factory = CoursePerformanceDataFactory()
 
+    # First and last response counts were added, insights can handle both types of API responses at the moment.
+    @data(
+        annotated(
+            utils.get_mock_api_answer_distribution_multiple_questions_data(PERFORMER_PRESENTER_COURSE_ID),
+            'count'
+        ),
+        annotated(
+            utils.get_mock_api_answer_distribution_multiple_questions_first_last_data(PERFORMER_PRESENTER_COURSE_ID),
+            'first_last'
+        ),
+    )
     @mock.patch('analyticsclient.module.Module.answer_distribution')
-    def test_multiple_answer_distribution(self, mock_answer_distribution):
-
-        mock_data = utils.get_mock_api_answer_distribution_multiple_questions_data(self.course_id)
+    def test_multiple_answer_distribution(self, mock_data, mock_answer_distribution):
+        mock_answer_distribution.reset_mock()
         mock_answer_distribution.return_value = mock_data
 
         problem_parts = [
@@ -473,7 +499,7 @@ class CoursePerformancePresenterTests(TestCase):
             }
         ]
         questions = utils.get_presenter_performance_answer_distribution_multiple_questions()
-        self.assertAnswerDistribution(problem_parts, questions)
+        self.assertAnswerDistribution(problem_parts, questions, mock_data)
 
     @mock.patch('analyticsclient.module.Module.answer_distribution')
     def test_single_answer_distribution(self, mock_answer_distribution):
@@ -493,9 +519,9 @@ class CoursePerformancePresenterTests(TestCase):
             }
         ]
         questions = utils.get_presenter_performance_answer_distribution_single_question()
-        self.assertAnswerDistribution(problem_parts, questions)
+        self.assertAnswerDistribution(problem_parts, questions, mock_data)
 
-    def assertAnswerDistribution(self, expected_problem_parts, expected_questions):
+    def assertAnswerDistribution(self, expected_problem_parts, expected_questions, answer_distribution_data):
         for part in expected_problem_parts:
             expected = part['expected']
             answer_distribution_entry = self.presenter.get_answer_distribution(self.problem_id, part['part_id'])
@@ -506,7 +532,7 @@ class CoursePerformancePresenterTests(TestCase):
             self.assertEqual(answer_distribution_entry.answer_type, expected['answer_type'])
             self.assertEqual(answer_distribution_entry.is_random, expected['is_random'])
 
-            expected_answer_distribution = utils.get_filtered_answer_distribution(self.course_id, part['part_id'])
+            expected_answer_distribution = [d for d in answer_distribution_data if d['part_id'] == part['part_id']]
             self.assertListEqual(answer_distribution_entry.answer_distribution, expected_answer_distribution)
             if answer_distribution_entry.is_random:
                 self.assertIsNone(answer_distribution_entry.answer_distribution_limited)
