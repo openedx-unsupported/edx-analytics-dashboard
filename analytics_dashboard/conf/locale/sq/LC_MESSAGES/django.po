@@ -4,16 +4,16 @@
 # 
 # Translators:
 # Arta Dilo <a_dilo@hotmail.com>, 2015
-# Faton Nuha <faton11@live.com>, 2014
+# Faton Nuha <faton11@live.com>, 2014-2015
 # Liridon Selmani <liridon.selmani@hotmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-19 11:21-0400\n"
-"PO-Revision-Date: 2015-06-19 15:22+0000\n"
-"Last-Translator: Dennis Jen <djen@edx.org>\n"
-"Language-Team: Albanian (http://www.transifex.com/projects/p/edx-platform/language/sq/)\n"
+"PO-Revision-Date: 2015-08-03 21:36+0000\n"
+"Last-Translator: Faton Nuha <faton11@live.com>\n"
+"Language-Team: Albanian (http://www.transifex.com/open-edx/edx-platform/language/sq/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -235,11 +235,13 @@ msgid ""
 "        Select %(level)s\n"
 "    "
 msgstr ""
+"\n"
+"Zgjedh %(level)s"
 
 #: courses/templates/courses/_graded_content_nav.html
 #: courses/templates/courses/_ungraded_content_nav.html
 msgid "Select Problem"
-msgstr ""
+msgstr "Zgjedh Problemin"
 
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
@@ -250,12 +252,12 @@ msgstr "Shiko Drejtpërdrejt"
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Section"
-msgstr ""
+msgstr "Zgjedh Sekcionin"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "All Sections"
-msgstr ""
+msgstr "Të gjitha seksionet"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
@@ -264,7 +266,7 @@ msgstr ""
 
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
-msgstr ""
+msgstr "Zgjedh Videon"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -272,6 +274,8 @@ msgid ""
 "This chart shows the most common answers submitted by students, ordered by "
 "frequency."
 msgstr ""
+"Ky grafikë paraqet përgjigjiet më të shpeshta të paraqitura nga studentët, "
+"radhitur sipas frekuencës."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -455,7 +459,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who started watching the video."
-msgstr ""
+msgstr "Studentët që filluan shikimin e videos."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Finished Video"
@@ -463,7 +467,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who watched the video to the end."
-msgstr ""
+msgstr "Studentët që e shikuan videon deri në fund."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Viewing Over Time"
@@ -593,6 +597,8 @@ msgid ""
 "The percentage of students aged 25 years or younger (of those who provided a"
 " year of birth)."
 msgstr ""
+"Përqindja e studentëve të moshës 25 vjeç ose më të rinjë (e këtyre që e kanë"
+" paraqitur vitin e lindjes)."
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
@@ -619,6 +625,8 @@ msgid ""
 "The percentage of students aged 41 years or older (of those who provided a "
 "year of birth)."
 msgstr ""
+"Përqindja e studentëve të moshës 41 vjeç ose më të vjetër (e këtyre që e "
+"kanë paraqitur vitin e lindjes)."
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Breakdown"
@@ -668,13 +676,15 @@ msgstr ""
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Advanced Degree"
-msgstr ""
+msgstr "Nivel i avancuar"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
 "The percentage of students who selected Doctorate or Master's or "
 "professional degree as their highest level of education completed."
 msgstr ""
+"Përqindja e studentëve që e kanë zgjedhur Doktoraturën ose Master ose nivel "
+"professional si nivelin më të lartë të edukimit të përfunduar."
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Educational Breakdown"
@@ -693,6 +703,8 @@ msgid ""
 "This graph presents data for the %(value)s%% of enrolled students who "
 "specified their gender."
 msgstr ""
+"Ky grafikë paraqet të dhënat për %(value)s%% e studentëve të regjistruar të "
+"cilët e kanë specifikuar gjininë e tyre."
 
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "Gender Breakdown Over Time"
@@ -849,7 +861,7 @@ msgstr ""
 #. Translators: This describes the percent of a learner's grade (e.g. 60%).
 #: courses/templates/courses/performance_graded_content.html
 msgid "%(policy_ratio)s%%"
-msgstr ""
+msgstr "%(policy_ratio)s%%"
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
@@ -959,7 +971,7 @@ msgstr "Kontent"
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Videos"
-msgstr ""
+msgstr "Videot"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
@@ -1005,19 +1017,19 @@ msgstr ""
 
 #: courses/views/engagement.py
 msgid "Looks like no one has watched any videos in these sections."
-msgstr ""
+msgstr "Duket sikur askush nuk ka shikuar ndonjë video në këto seksione."
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Section Name"
-msgstr ""
+msgstr "Emri i seksionit"
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Subsection Name"
-msgstr ""
+msgstr "Emri in nënseksionit"
 
 #: courses/views/engagement.py
 msgid "Video Name"
-msgstr ""
+msgstr "Emri i videos"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py

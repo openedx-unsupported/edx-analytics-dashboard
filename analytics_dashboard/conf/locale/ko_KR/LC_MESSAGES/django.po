@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Hongseob Lee <shevious@gmail.com>, 2015
 # Hongseob Lee <shevreg@yahoo.com>, 2015
 # Jong-Dae Park <jdpark7@gmail.com>, 2015
 # Kevin Min <gr326887@graded.br>, 2015
@@ -16,9 +17,9 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-19 11:21-0400\n"
-"PO-Revision-Date: 2015-06-19 15:22+0000\n"
-"Last-Translator: Dennis Jen <djen@edx.org>\n"
-"Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/edx-platform/language/ko_KR/)\n"
+"PO-Revision-Date: 2015-08-04 05:08+0000\n"
+"Last-Translator: Hongseob Lee <shevious@gmail.com>\n"
+"Language-Team: Korean (Korea) (http://www.transifex.com/open-edx/edx-platform/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -56,7 +57,7 @@ msgstr "무엇이 나의 강의에서 학생들과 맞물릴까?"
 msgid ""
 "Improve frequently accessed content, or point students at underused "
 "resources."
-msgstr ""
+msgstr "나의 강좌 콘텐츠가 학습자의 학습을 잘 지원하고 있습니까?"
 
 #: core/templates/core/landing.html
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
@@ -101,7 +102,7 @@ msgstr ""
 
 #: core/templates/core/landing.html
 msgid "Need Help?"
-msgstr "도움이 필요하십니까?"
+msgstr "도움이 필요하세요?"
 
 #: core/templates/core/landing.html
 msgid ""
@@ -161,7 +162,7 @@ msgstr "고등학생"
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Associate"
-msgstr "준학사 "
+msgstr "전문학사"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
@@ -191,7 +192,7 @@ msgstr "알수 없는 국가"
 #: courses/presenters/performance.py
 #: courses/templates/courses/submissions_chart_info.html
 msgid "Submissions"
-msgstr ""
+msgstr "제출"
 
 #: courses/presenters/performance.py
 msgid "Submissions for Part {part_number}: {part_description}"
@@ -203,11 +204,11 @@ msgstr ""
 
 #: courses/presenters/performance.py
 msgid "Submissions: {part_description}"
-msgstr ""
+msgstr "제출: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "{part_description}"
-msgstr ""
+msgstr "{part_description}"
 
 #: courses/presenters/performance.py
 msgid "Submissions for Part {part_number}"
@@ -219,13 +220,13 @@ msgstr ""
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
-msgstr ""
+msgstr "과제 유형 선택하기"
 
 #. Translators: This refers to all course assignment types (e.g. homework,
 #. exam, lab).
 #: courses/templates/courses/_graded_content_nav.html
 msgid "All Assignments"
-msgstr ""
+msgstr "모든 과제"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid ""
@@ -233,11 +234,13 @@ msgid ""
 "        Select %(level)s\n"
 "    "
 msgstr ""
+"\n"
+"선택 %(level)s"
 
 #: courses/templates/courses/_graded_content_nav.html
 #: courses/templates/courses/_ungraded_content_nav.html
 msgid "Select Problem"
-msgstr ""
+msgstr "문제 선택"
 
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
@@ -248,21 +251,21 @@ msgstr "라이브로 보기"
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Section"
-msgstr ""
+msgstr "주제 선택"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "All Sections"
-msgstr ""
+msgstr "모든 주제"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Subsection"
-msgstr ""
+msgstr "소주제 선택"
 
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
-msgstr ""
+msgstr "비디오 선택"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -287,7 +290,7 @@ msgstr ""
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Submission Counts"
-msgstr ""
+msgstr "제출 수"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 #: courses/templates/courses/engagement_content.html
@@ -302,7 +305,7 @@ msgstr "CSV 다운로드 "
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Student Submission Counts"
-msgstr ""
+msgstr "학습자 제출 수"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
@@ -381,11 +384,11 @@ msgstr "콘텐츠 이용 내역"
 #: courses/templates/courses/engagement_grouped_content.html
 #: courses/templates/courses/views_chart_info.html
 msgid "Video Views"
-msgstr ""
+msgstr "동영상 시청수"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid "How did students interact with videos in this section?"
-msgstr ""
+msgstr "학습자들은 이 주제에서 동영상과 어떻게 상호작용을 했습니까?"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
@@ -396,7 +399,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did students interact with videos in this subsection?"
-msgstr ""
+msgstr "학습자들은 이 소주제에서 동영상과 어떻게 상호작용을 했습니까?"
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid ""
@@ -407,7 +410,7 @@ msgstr ""
 #: courses/templates/courses/engagement_video_course.html
 #: courses/views/__init__.py
 msgid "How did students interact with course videos?"
-msgstr ""
+msgstr "학습자들은 동영상과 어떻게 상호작용을 했습니까?"
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
@@ -419,11 +422,11 @@ msgstr ""
 #: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Total Video Views"
-msgstr ""
+msgstr "총 동영상 시청수"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "What were the viewing patterns for this video?"
-msgstr ""
+msgstr "동영상을 시청하는 패턴은 어떠했습니까?"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid ""
@@ -437,7 +440,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Completion Rate"
-msgstr ""
+msgstr "완료율"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Estimated percentage of students who watched the entire video."
@@ -768,7 +771,7 @@ msgstr "앱"
 
 #: courses/templates/courses/home.html courses/views/__init__.py
 msgid "Course Home"
-msgstr ""
+msgstr "강좌홈"
 
 #. Translators: This refers to the active tab/navigation item.
 #. Translators: This refers to the active tab/navigation item.
@@ -844,7 +847,7 @@ msgstr ""
 #. Translators: This describes the percent of a learner's grade (e.g. 60%).
 #: courses/templates/courses/performance_graded_content.html
 msgid "%(policy_ratio)s%%"
-msgstr ""
+msgstr "%(policy_ratio)s%%"
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
@@ -956,7 +959,7 @@ msgstr "콘텐츠"
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Videos"
-msgstr ""
+msgstr "비디오"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
@@ -1007,15 +1010,15 @@ msgstr ""
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Section Name"
-msgstr ""
+msgstr "주제명"
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Subsection Name"
-msgstr ""
+msgstr "소주제명"
 
 #: courses/views/engagement.py
 msgid "Video Name"
-msgstr ""
+msgstr "동영상 명"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1030,7 +1033,7 @@ msgstr ""
 #: courses/views/enrollment.py
 msgid ""
 "All above demographic data was self-reported at the time of registration."
-msgstr "학생들의 인구 통계 데이터는 등록과정에서 학생들이 자기보고를 하였습니다. "
+msgstr "학습자의 배경 정보는 가입과정에서 학습자가 스스로 입력 하였습니다. "
 
 #: courses/views/enrollment.py
 msgid "Enrollment Activity"
@@ -1075,7 +1078,7 @@ msgstr ""
 
 #: courses/views/performance.py
 msgid "Assignment Name"
-msgstr ""
+msgstr "과제 명"
 
 #: courses/views/performance.py
 msgid "No submissions received for these exercises."
@@ -1140,7 +1143,7 @@ msgstr ""
 
 #: templates/503.html
 msgid "(Technical details: 503 Service Unavailable.)"
-msgstr ""
+msgstr "(메세지: 503 Service Unavailable.)"
 
 #: templates/_announcement.html
 msgid "Close"
@@ -1168,8 +1171,8 @@ msgid ""
 "or suggestions? Email %(email_link)s."
 msgstr ""
 "저희 EDx팀은 이 대쉬보드가 당신에게 도움을 주기를 바랍니다! 도움이 필요하십니까? %(support_link_start)s저희의 지원"
-" 포럼을 방문해 주십시요%(support_link_end)s. 만약 저희 EDx팀에게 의견이나 제안을 하시려면 "
-"%(email_link)s으로 이메일을 보내주십시요.  "
+" 포럼을 방문해 주십시오%(support_link_end)s. 만약 저희 EDx팀에게 의견이나 제안을 하시려면 "
+"%(email_link)s으로 이메일을 보내 주세요.  "
 
 #: templates/footer.html
 msgid "Terms of Service"

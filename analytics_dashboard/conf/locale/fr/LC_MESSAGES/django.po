@@ -24,9 +24,9 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-19 11:21-0400\n"
-"PO-Revision-Date: 2015-06-19 17:19+0000\n"
-"Last-Translator: Dennis Jen <djen@edx.org>\n"
-"Language-Team: French (http://www.transifex.com/projects/p/edx-platform/language/fr/)\n"
+"PO-Revision-Date: 2015-07-26 20:33+0000\n"
+"Last-Translator: Sebastien Vigneau <sebastien.vigneau@gmail.com>\n"
+"Language-Team: French (http://www.transifex.com/open-edx/edx-platform/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -228,7 +228,7 @@ msgstr "{part_description}"
 
 #: courses/presenters/performance.py
 msgid "Submissions for Part {part_number}"
-msgstr "Soumission pour l'élément {part_number}"
+msgstr "Soumissions pour l'élément {part_number}"
 
 #: courses/presenters/performance.py
 msgid "Part {part_number}"
@@ -236,7 +236,7 @@ msgstr "Élément {part_number}"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
-msgstr "Sélectionnez le type de tâche"
+msgstr "Sélectionnez le type de devoir"
 
 #. Translators: This refers to all course assignment types (e.g. homework,
 #. exam, lab).
@@ -263,17 +263,17 @@ msgstr "Sélectionnez un problème"
 #. module/problem.
 #: courses/templates/courses/_module_description.html
 msgid "View Live"
-msgstr "Aperçu temps réel"
+msgstr "Aperçu réel"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Section"
-msgstr "Selectionnez un chapitre"
+msgstr "Selectionnez une section"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "All Sections"
-msgstr "Tous les chapitres"
+msgstr "Toutes les sections"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
@@ -327,7 +327,7 @@ msgstr "Télécharger le CSV"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Student Submission Counts"
-msgstr ""
+msgstr "Nombre de soumissions par l'étudiant"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
@@ -370,7 +370,7 @@ msgstr "Etudiants ayant au moins visité une page de ce cours."
 #. a video.
 #: courses/templates/courses/engagement_content.html
 msgid "Watched a Video Last Week"
-msgstr "Vidéo Regardée la Semaine Dernière"
+msgstr "Visioinné une vidéo la semaine dernière"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who played one or more videos."
@@ -427,6 +427,8 @@ msgstr ""
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did students interact with videos in this subsection?"
 msgstr ""
+"Comment les étudiants ont-ils interagi avec les vidéos dans cette sous-"
+"section?"
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid ""
@@ -437,7 +439,7 @@ msgstr ""
 #: courses/templates/courses/engagement_video_course.html
 #: courses/views/__init__.py
 msgid "How did students interact with course videos?"
-msgstr ""
+msgstr "Comment les étudiants ont-ils interagi avec les vidéos du cours?"
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
@@ -463,11 +465,11 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Metrics"
-msgstr ""
+msgstr "Statistiques concernant les vidéos"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Completion Rate"
-msgstr ""
+msgstr "Taux de complétion"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Estimated percentage of students who watched the entire video."

@@ -5,14 +5,15 @@
 # Translators:
 # Charles Nehez <knehez@gmail.com>, 2015
 # Keleti László <lkeleti@wininvestor.hu>, 2014
+# Oliver Hornyak <ohornyak@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-19 11:21-0400\n"
-"PO-Revision-Date: 2015-06-19 15:22+0000\n"
-"Last-Translator: Dennis Jen <djen@edx.org>\n"
-"Language-Team: Hungarian (http://www.transifex.com/projects/p/edx-platform/language/hu/)\n"
+"PO-Revision-Date: 2015-07-25 09:57+0000\n"
+"Last-Translator: Oliver Hornyak <ohornyak@gmail.com>\n"
+"Language-Team: Hungarian (http://www.transifex.com/open-edx/edx-platform/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -70,11 +71,11 @@ msgstr ""
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/__init__.py
 msgid "Performance"
-msgstr ""
+msgstr "Teljesítmény"
 
 #: core/templates/core/landing.html
 msgid "Join the Open Source Community"
-msgstr ""
+msgstr "Csatlakozz a nyílt forráskód közösséghez"
 
 #: core/templates/core/landing.html
 msgid ""
@@ -84,7 +85,7 @@ msgstr ""
 
 #: core/templates/core/landing.html
 msgid "Research at edX"
-msgstr ""
+msgstr "Kutatás az edXnél"
 
 #: core/templates/core/landing.html
 msgid ""
@@ -100,6 +101,7 @@ msgstr "Segítségre van szükséged?"
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
 msgstr ""
+"%(link_start)sA terméktámogatás%(link_end)s segíthet megtalálni a megoldást"
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
@@ -160,13 +162,13 @@ msgstr "Összekapcsolás"
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Bachelor's"
-msgstr ""
+msgstr "Bachelor"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Master's"
-msgstr ""
+msgstr "Mester"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
@@ -184,41 +186,41 @@ msgstr "Ismeretlen ország"
 #: courses/presenters/performance.py
 #: courses/templates/courses/submissions_chart_info.html
 msgid "Submissions"
-msgstr ""
+msgstr "Beadandók"
 
 #: courses/presenters/performance.py
 msgid "Submissions for Part {part_number}: {part_description}"
-msgstr ""
+msgstr "Beadandók a t {part_number}: {part_description} részhez"
 
 #: courses/presenters/performance.py
 msgid "Part {part_number}: {part_description}"
-msgstr ""
+msgstr "Rész {part_number}: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "Submissions: {part_description}"
-msgstr ""
+msgstr "Beadandók: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "{part_description}"
-msgstr ""
+msgstr "{part_description}"
 
 #: courses/presenters/performance.py
 msgid "Submissions for Part {part_number}"
-msgstr ""
+msgstr "Beadandók a {part_number} részhez"
 
 #: courses/presenters/performance.py
 msgid "Part {part_number}"
-msgstr ""
+msgstr "Rész {part_number}"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
-msgstr ""
+msgstr "Válaszz feladattípust"
 
 #. Translators: This refers to all course assignment types (e.g. homework,
 #. exam, lab).
 #: courses/templates/courses/_graded_content_nav.html
 msgid "All Assignments"
-msgstr ""
+msgstr "Összes feladat"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid ""
@@ -965,7 +967,7 @@ msgstr "Tartalom"
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Videos"
-msgstr ""
+msgstr "Videók"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
@@ -1017,15 +1019,15 @@ msgstr ""
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Section Name"
-msgstr ""
+msgstr "Fejezet neve"
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Subsection Name"
-msgstr ""
+msgstr "Alfejezet neve"
 
 #: courses/views/engagement.py
 msgid "Video Name"
-msgstr ""
+msgstr "Video neve"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1091,7 +1093,7 @@ msgstr ""
 
 #: courses/views/performance.py
 msgid "Assignment Name"
-msgstr ""
+msgstr "Feladat neve"
 
 #: courses/views/performance.py
 msgid "No submissions received for these exercises."
@@ -1160,7 +1162,7 @@ msgstr ""
 
 #: templates/503.html
 msgid "(Technical details: 503 Service Unavailable.)"
-msgstr ""
+msgstr "(Műszaki részletek: 503 Szolgáltatás nem elérhető.)"
 
 #: templates/_announcement.html
 msgid "Close"
@@ -1181,7 +1183,7 @@ msgstr "Vedd fel a kapcsolatot a %(platform_name)s támogató csoporttal"
 
 #: templates/footer.html
 msgid "Feedback"
-msgstr ""
+msgstr "Visszajelzés"
 
 #: templates/footer.html
 msgid ""
