@@ -514,15 +514,27 @@ def mock_course_activity(start_date=None, end_date=None):
     return get_mock_api_course_activity(u'edX/DemoX/Demo_Course')
 
 
+def get_mock_api_answer_distribution_multiple_questions_first_last_data(course_id):
+    # First and last response counts were added, insights can handle both types of API responses at the moment.
+    answers = get_mock_api_answer_distribution_multiple_questions_data(course_id)
+    for answer in answers:
+        answer['count'] = answer.pop('last_response_count')
+        del answer['first_response_count']
+
+    return answers
+
+
 def get_mock_api_answer_distribution_multiple_questions_data(course_id):
     answers = []
-    total_count = 100
+    total_first_count = 10
+    total_last_count = 100
 
     for text_response in ['Asia', 'Europe', 'Africa']:
         answers.append({
             'answer_value': text_response,
             'correct': False,
-            'count': total_count,
+            'first_response_count': total_first_count,
+            'last_response_count': total_last_count,
             'course_id': course_id,
             'created': CREATED_DATETIME_STRING,
             'module_id': 'i4x://edX/DemoX.1/problem/05d289c5ad3d47d48a77622c4a81ec36',
@@ -532,14 +544,16 @@ def get_mock_api_answer_distribution_multiple_questions_data(course_id):
             'problem_display_name': 'Example problem',
             'question_text': 'Is this a text problem?'
         })
-        total_count = total_count - 1
+        total_last_count = total_last_count - 1
+        total_first_count = total_first_count + 1
     answers[0]['correct'] = True
 
     for numeric_value in range(20):
         answers.append({
             'answer_value': numeric_value,
             'correct': False,
-            'count': total_count,
+            'first_response_count': total_first_count,
+            'last_response_count': total_last_count,
             'course_id': course_id,
             'created': CREATED_DATETIME_STRING,
             'module_id': 'i4x://edX/DemoX.1/problem/05d289c5ad3d47d48a77622c4a81ec36',
@@ -549,14 +563,16 @@ def get_mock_api_answer_distribution_multiple_questions_data(course_id):
             'problem_display_name': 'Example problem',
             'question_text': 'Is this a numeric problem?'
         })
-        total_count = total_count - 1
+        total_last_count = total_last_count - 1
+        total_first_count = total_first_count + 1
     answers[-1]['correct'] = True
 
     for randomized in range(5):
         answers.append({
             'answer_value': 0,
             'correct': True,
-            'count': total_count,
+            'first_response_count': total_first_count,
+            'last_response_count': total_last_count,
             'course_id': course_id,
             'created': CREATED_DATETIME_STRING,
             'module_id': 'i4x://edX/DemoX.1/problem/05d289c5ad3d47d48a77622c4a81ec36',
@@ -566,7 +582,8 @@ def get_mock_api_answer_distribution_multiple_questions_data(course_id):
             'problem_display_name': 'Example problem',
             'question_text': 'Is this a randomized problem?'
         })
-        total_count = total_count - 1
+        total_last_count = total_last_count - 1
+        total_first_count = total_first_count + 1
 
     return answers
 
