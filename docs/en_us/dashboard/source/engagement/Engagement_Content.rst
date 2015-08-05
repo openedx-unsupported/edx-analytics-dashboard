@@ -32,7 +32,7 @@ a one week period. To see the total count for each activity type for a given
 week, move your cursor over the chart to display a tip.
 
 Activity is included beginning with the week in which the first page visit took
-place. The first page visit is typically by a member of the course staff
+place. The first page visit is typically by a member of the course team
 shortly after course creation.  This data is also available for review in
 tabular format and can be downloaded. See the **Content Engagement Breakdown**
 report.

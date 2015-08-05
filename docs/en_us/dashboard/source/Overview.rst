@@ -5,7 +5,7 @@ Overview
 #############
 
 EdX Insights makes information about courses available to course team members
-who have the Course Staff or Instructor role. EdX Insights provides these
+who have the Staff or Admin role. EdX Insights provides these
 course team members with data about student activity, background, and
 performance throughout the course. Using edX Insights can help you monitor how
 students are doing, and validate the choices you made in designing your
