@@ -23,17 +23,17 @@ information about the computations, see :ref:`Reference`.
 Geographic Distribution Map
 ======================================
 
-The map uses a color scale to indicate the percentage of total enrollment
-represented by students from each country. The darker the shade, the higher the
-enrollment percentage. You can view the enrollment total for each country: move
-your mouse over the map.
+The map uses a color scale to indicate the percentage of current course
+enrollment represented by students from each country. The darker the shade, the
+higher the enrollment percentage. You can view the current enrollment count for
+each country by moving your mouse over the map.
 
 In this example, the country with the highest number of enrolled students is
-the United States. The cursor is pointing to Brazil, and a tip shows the
+the United States. The cursor is pointing to Brazil, and a tooltip shows the
 percentage of students enrolled in the course from that country.
 
 .. image:: ../images/geography_chart.png
- :alt: Map showing the tip for the country of Brazil.
+ :alt: Map showing the tooltip for the country of Brazil.
 
 ======================================
 Total Countries Represented Metric
@@ -69,8 +69,8 @@ Geographic Breakdown Report
 .. the downloadable report will have country/total/percentage 
 
 The columns in this report show each **Country** and its **Percentage** and
-**Total Enrollment**. Students whose location cannot be determined are reported
-in the "Unknown" category.
+**Current Enrollment**. Students whose location cannot be determined are
+reported in the "Unknown" category.
 
 To download the Enrollment Over Time report in a comma-separated value file,
 click **Download CSV**. The CSV file contains the following columns: 

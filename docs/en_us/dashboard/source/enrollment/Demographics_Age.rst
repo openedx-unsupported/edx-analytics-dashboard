@@ -24,9 +24,9 @@ Descriptions follow; for detailed information about the computations, see
 Self-Reported Student Age Chart
 ======================================
 
-Each bar on this chart represents the total number of enrolled learners who are
-a given age, based on reported year of birth. Moving your cursor over a bar in
-the chart shows a tip with the number of students of that age.
+Each bar on this chart represents the count of currently enrolled learners who
+are a given age, based on reported year of birth. Moving your cursor over a bar
+in the chart shows a tooltip with the number of students of that age.
 
 The chart includes every reported age. This data is also available for review
 in tabular format and can be downloaded.

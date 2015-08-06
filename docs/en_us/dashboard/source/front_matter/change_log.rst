@@ -12,6 +12,10 @@ Change Log
 
    * - Date
      - Change
+   * - 6 Aug 2015
+     - Added the Total Enrollment metric to the :ref:`Enrollment_Activity`
+       topic. Updated descriptions of enrollment computations throughout the
+       guide to distinguish total enrollment from current enrollment.
    * - 23 Jun 2015
      - Updated the :ref:`Performance_Graded` and :ref:`Performance_Ungraded`
        sections. Submission data is now averaged rather than summed.
