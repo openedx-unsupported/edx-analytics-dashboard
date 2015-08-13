@@ -4,6 +4,7 @@ from __future__ import absolute_import
 
 import os
 from os.path import join, normpath
+from urlparse import urljoin
 
 from analytics_dashboard.settings.base import *
 from analytics_dashboard.settings.logger import get_logger_config
@@ -73,7 +74,9 @@ INSTALLED_APPS += (
 )
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
-LMS_COURSE_SHORTCUT_BASE_URL = 'https://courses.edx.org/courses'
+LMS_URL = 'http://127.0.0.1:8000/'
+
+LMS_COURSE_SHORTCUT_BASE_URL = urljoin(LMS_URL, 'courses')
 
 ########## BRANDING
 PLATFORM_NAME = 'edX'
@@ -86,7 +89,7 @@ FULL_APPLICATION_NAME = '{0} {1}'.format(PLATFORM_NAME, APPLICATION_NAME)
 # Set these to the correct values for your OAuth2/OpenID Connect provider
 SOCIAL_AUTH_EDX_OIDC_KEY = 'replace-me'
 SOCIAL_AUTH_EDX_OIDC_SECRET = 'replace-me'
-SOCIAL_AUTH_EDX_OIDC_URL_ROOT = 'http://127.0.0.1:8000/oauth2'
+SOCIAL_AUTH_EDX_OIDC_URL_ROOT = urljoin(LMS_URL, 'oauth2')
 
 # This value should be the same as SOCIAL_AUTH_EDX_OIDC_SECRET
 SOCIAL_AUTH_EDX_OIDC_ID_TOKEN_DECRYPTION_KEY = SOCIAL_AUTH_EDX_OIDC_SECRET
@@ -106,6 +109,7 @@ HELP_URL = '#'
 SEGMENT_IO_KEY = os.environ.get('SEGMENT_WRITE_KEY')
 ########## END SEGMENT.IO
 
-COURSE_API_URL = 'http://127.0.0.1:8000/api/course_structure/v0/'
+COURSE_API_URL = urljoin(LMS_URL, 'api/course_structure/v0/')
+ENROLLMENT_API_URL = urljoin(LMS_URL, 'api/enrollment/v1/')
 
 LOGGING = get_logger_config(debug=DEBUG, dev_env=True, local_loglevel='DEBUG')

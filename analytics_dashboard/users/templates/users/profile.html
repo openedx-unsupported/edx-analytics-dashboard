@@ -68,4 +68,20 @@
       </table>
     </div>
   </div>
+  <div class="row">
+    <h4>Courses</h4>
+    <table class="table user-profile-courses">
+      <tr><th>Name</th><th>Enrollment Date</th><th>Start Date</th><th>End Date</th></tr>
+      {% for enrollment in enrollments %}
+      <tr{% if enrollment.course_details.course_id == course_id %} class="active-course"{% endif %}>
+        <td><a href="{% url 'courses:home' course_id=enrollment.course_details.course_id %}">
+            {% firstof enrollment.course_details.name enrollment.course_details.course_id|format_course_key %}
+        </a></td>
+        <td>{{enrollment.created|date:"DATETIME_FORMAT"}}</td>
+        <td>{{enrollment.course_details.course_start|date:"DATETIME_FORMAT"}}</td>
+        <td>{{enrollment.course_details.course_end|date:"DATETIME_FORMAT"}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
 {% endblock %}

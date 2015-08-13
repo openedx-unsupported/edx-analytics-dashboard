@@ -1,3 +1,8 @@
+"""
+Wrappers for REST APIs.
+
+The classes in this file subclass slumber.API (http://slumber.readthedocs.org/en/latest/).
+"""
 import logging
 
 import slumber
@@ -13,8 +18,7 @@ class CourseStructureApiClient(slumber.API):
     """
     Course Structure API Client
 
-    This class is a sub-class slumber.API (http://slumber.readthedocs.org/en/latest/). Details
-    about the API itself can be found at https://openedx.atlassian.net/wiki/display/AN/Course+Structure+API.
+    Details can be found at https://openedx.atlassian.net/wiki/display/AN/Course+Structure+API.
     """
     DATETIME_FORMAT = "%Y-%m-%dT%H:%M:%SZ"
 
@@ -45,3 +49,13 @@ class CourseStructureApiClient(slumber.API):
                 break
 
         return courses
+
+
+class EnrollmentApiClient(slumber.API):
+    """
+    Client wrapper for the enrollment API.
+
+    Details can be found at https://openedx.atlassian.net/wiki/display/ECOM/Enrollment+API+Design.
+    """
+    def __init__(self, url, access_token):
+        super(EnrollmentApiClient, self).__init__(url, auth=BearerAuth(access_token), append_slash=False)
