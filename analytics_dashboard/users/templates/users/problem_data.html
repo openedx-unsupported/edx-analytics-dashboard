@@ -1,0 +1,82 @@
+{% extends "users/base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load dashboard_extras %}
+{% load firstof from future %}
+
+{% block view-name %}view-problem-data{% endblock view-name %}
+
+{% block title %}{{ username }} - {{ block.super }}{% endblock title %}
+
+{% block header-text %}
+  <h3>
+    {% blocktrans %}Problem History: {{ username }}{% endblocktrans %}
+  </h3>
+{% endblock %}
+
+{% block intro-text %}
+  {% blocktrans %}Here is a list of problems that this user completed:{% endblocktrans %}
+{% endblock intro-text %}
+
+{% block lens_navigation %}
+  {#  This is a simplified version of lens-navigation.html. #}
+
+  {#  Translators: Application here refers to the web site/application being used (e.g. the dashboard). #}
+  <nav class="navbar navbar-default lens-nav" role="navigation" aria-label="{% trans "Application" %}">
+    <div class="container ">
+      <ul id="mode-selectors" class="nav navbar-nav navbar-right">
+        <li class="has-tooltip" data-toggle="tooltip" title="Click to switch to course mode">
+          <a href="{% url 'courses:home' course_id=course_id %}">
+            <span class="link-label">
+              <i class="ico fa fa-users" aria-hidden="true"></i>
+            </span>
+          </a>
+        </li>
+        <li class="active nav-section has-tooltip" data-toggle="tooltip" title="You're in user mode. Click to go back to the list of all students enrolled in this course.">
+          <a href="{% url 'courses:users:list' course_id=course_id %}">
+            <span class="link-label">
+              <i class="ico fa fa-user" aria-hidden="true"></i>
+            </span>
+          </a>
+          <span class="sr-only">({% trans "Active" %})</span>
+        </li>
+      </ul>
+    </div>
+  </nav>
+{% endblock %}
+
+{% block content %}
+
+<!--
+
+Problem Name           | # of attempts          | Final Score
+-----------------------|------------------------|-----------------
+Testing your knowledge | 2                      | 4/6
+What did you learn?    | 3                      | 10/11
+
+-->
+
+  <div class="row">
+    <div class="col-xs-12 col-md-8">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>{% trans "Problem Name" %}</th>
+            <th>{% trans "# of attempts" %}</th>
+            <th>{% trans "Final Score" %}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for problem in problem_data %}
+            <tr>
+              <td>{{ problem.name }}</td>
+              <td>{{ problem.num_attempts }}</td>
+              <td>{{ problem.final_score }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+{% endblock %}
