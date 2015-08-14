@@ -6,6 +6,7 @@ from waffle import switch_is_active
 
 from common.clients import EnrollmentApiClient
 from .base import UsersView
+from .user import SingleUserNavbarMixin
 
 
 def _parse_dates(dictionary, date_fields):
@@ -15,8 +16,10 @@ def _parse_dates(dictionary, date_fields):
             dictionary[date_field] = dateutil.parser.parse(dictionary[date_field])
 
 
-class UserProfileView(UsersView):
+class UserProfileView(UsersView, SingleUserNavbarMixin):
     template_name = 'users/profile.html'
+
+    active_primary_nav_item = 'profile'
 
     def get_context_data(self, **kwargs):
         context = super(UserProfileView, self).get_context_data(**kwargs)

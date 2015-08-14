@@ -2,10 +2,15 @@ from django.conf import settings
 
 from common.clients import CourseStructureApiClient
 from .base import UsersView
+from .user import SingleUserNavbarMixin
 
 
-class UserProblemDataView(UsersView):
+class UserProblemDataView(UsersView, SingleUserNavbarMixin):
+    course_api_client = None
+
     template_name = 'users/problem_data.html'
+
+    active_primary_nav_item = 'problems'
 
     def dispatch(self, request, *args, **kwargs):
         access_token = settings.COURSE_API_KEY or request.user.access_token
@@ -24,10 +29,6 @@ class UserProblemDataView(UsersView):
         user_id = profile['id']
 
         weekly_problem_data = self.client.user_problem_weekly_data(self.course_id, user_id).weekly_problem_data()
-
-        # High-level steps for each entry in weekly_problem_data:
-        # - Calculate total number of attempts from weekly number of attempts
-        # - Set final score to final score of most recent week
 
         problem_data = {}
 
