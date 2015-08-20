@@ -11,8 +11,6 @@ class UserListView(UsersView):
     def get_context_data(self, **kwargs):
         context = super(UserListView, self).get_context_data(**kwargs)
 
-        # TODO: Check permissions of self.request.user
-
         users_per_page = 100
         try:
             page = int(self.request.GET.get('page', 1))
@@ -21,7 +19,7 @@ class UserListView(UsersView):
         except ValueError:
             raise Http404
 
-        response = self.client.user_list().list_users(page=page, limit=users_per_page)
+        response = self.client.courses(self.course_id).list_users(page=page, limit=users_per_page)
         users_count = response['count']
         context['count'] = users_count
         context['page'] = page

@@ -54,7 +54,7 @@
       <div class="user-list paginated">
         {% for user in users %}
           <div class="user">
-            <a href="{% url 'courses:users:profile' course_id=course_id user_id=user.id %}">
+            <a href="{% url 'courses:users:profile' course_id=course_id username=user.username %}">
               <span class="main-info">{{user.username}}</span>
             </a>
             <div class="sub-info">{{user.name}}</div>

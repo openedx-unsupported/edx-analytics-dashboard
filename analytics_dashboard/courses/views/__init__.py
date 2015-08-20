@@ -298,7 +298,7 @@ class CourseNavBarMixin(object):
                 'view': 'courses:performance:graded_content',
                 'icon': 'fa-check-square-o',
                 'switch': 'enable_course_api',
-            },
+            }
 
         ]
 
