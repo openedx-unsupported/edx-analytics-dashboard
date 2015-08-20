@@ -1,15 +1,16 @@
 from analyticsclient.client import Client
 from analyticsclient.exceptions import ClientError
-from courses.views import CourseNavBarMixin, CourseView
+from courses.views import CourseTemplateWithNavView
 from django.conf import settings
 from django import shortcuts
+from django.utils.translation import ugettext_lazy as _
 import logging
 
 logger = logging.getLogger(__name__)
 
 
-class UsersView(CourseNavBarMixin, CourseView):
-    client = None
+class UsersView(CourseTemplateWithNavView):
+    page_title = _('Users')
 
     def dispatch(self, request, *args, **kwargs):
         self.client = Client(

@@ -2,21 +2,8 @@
 {% load i18n %}
 {% load staticfiles %}
 {% load dashboard_extras %}
-{% load firstof from future %}
 
-{% block view-name %}view-course-list{% endblock view-name %}
-
-{% block title %}{% trans "Users" %} {{ block.super }}{% endblock title %}
-
-{% block header-text %}
-  <h3>
-    {% blocktrans %}Enrolled Students{% endblocktrans %}
-  </h3>
-{% endblock %}
-
-{% block intro-text %}
-  {% blocktrans %}Here are all the students enrolled in this course:{% endblocktrans %}
-{% endblock intro-text %}
+{% block view-name %}view-user-list{% endblock view-name %}
 
 {% block lens_navigation %}
   {#  This is a simplified version of lens-navigation.html. #}
@@ -44,6 +31,16 @@
     </div>
   </nav>
 {% endblock %}
+
+{% block header-text %}
+  <h3>
+    {% blocktrans %}Enrolled Students{% endblocktrans %}
+  </h3>
+{% endblock %}
+
+{% block intro-text %}
+  {% blocktrans %}Here are all the students enrolled in this course:{% endblocktrans %}
+{% endblock intro-text %}
 
 {% block content %}
   <div class="row">

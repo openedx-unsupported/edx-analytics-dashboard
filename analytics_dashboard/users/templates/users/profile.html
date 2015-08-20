@@ -2,17 +2,8 @@
 {% load i18n %}
 {% load staticfiles %}
 {% load dashboard_extras %}
-{% load firstof from future %}
 
-{% block view-name %}view-course-list{% endblock view-name %}
-
-{% block title %}{{ profile.name }} {{ block.super }}{% endblock title %}
-
-{% block header-text %}
-  <h3>
-    {% blocktrans with name=profile.name %}User Profile: {{name}}{% endblocktrans %}
-  </h3>
-{% endblock %}
+{% block view-name %}view-user-profile{% endblock view-name %}
 
 {% block lens_navigation %}
   {#  This is a simplified version of lens-navigation.html. #}
@@ -39,6 +30,14 @@
       </ul>
     </div>
   </nav>
+{% endblock %}
+
+{% block title %}{{ profile.name }} - {{ block.super }}{% endblock title %}
+
+{% block header-text %}
+  <h3>
+    {% blocktrans with name=profile.name %}User Profile: {{name}}{% endblocktrans %}
+  </h3>
 {% endblock %}
 
 {% block content %}

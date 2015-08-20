@@ -1,10 +1,9 @@
 {% extends "base_dashboard.html" %}
 {% load dashboard_extras %}
 
-{% block title %}{{ page_title }} - {{ block.super }}{% endblock title %}
+{% block title %}{{ page_title }} - {{ course_key|format_course_key }} {{ block.super }}{% endblock title %}
 
-{% block header-text %}
-{% endblock %}
+{% block header-text %}{% endblock %}
 
 {% block content %}
   {% block child_content %}
