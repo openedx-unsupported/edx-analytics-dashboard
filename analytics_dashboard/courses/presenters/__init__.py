@@ -50,17 +50,14 @@ class BasePresenter(object):
         return sum(datum['count'] for datum in data)
 
 
-class CourseAPIPresenterMixin(object):
+class SimpleCourseAPIPresenterMixin(object):
     """
-    This mixin provides access to the course structure API and processes the hierarchy
-    for sections, subsections, modules, and leaves (e.g. videos, problems, etc.).
+    This mixin provides basic access to the course structure API. It is sufficient
+    for getting the sections of a course. For access to the full hierarchy, use
+    CourseAPIPresenterMixin instead.
     """
-    __metaclass__ = abc.ABCMeta
-
-    _last_updated = None
-
     def __init__(self, access_token, course_id, timeout=10):
-        super(CourseAPIPresenterMixin, self).__init__(course_id, timeout)
+        super(SimpleCourseAPIPresenterMixin, self).__init__(course_id, timeout)
         self.course_api_client = CourseStructureApiClient(settings.COURSE_API_URL, access_token)
 
     def _get_structure(self):
@@ -74,6 +71,29 @@ class CourseAPIPresenterMixin(object):
             cache.set(key, structure)
 
         return structure
+
+    def get_cache_key(self, name):
+        """ Returns sanitized key for caching. """
+        return sanitize_cache_key(u'{}_{}'.format(self.course_id, name))
+
+    def sections_flat(self):
+        """ Generator that yields the sections (chapters) of the course in order """
+        structure = self._get_structure()
+        blocks = structure['blocks']
+        for section_id in blocks[structure['root']]['children']:
+            block = blocks.get(section_id)
+            if block and block['type'] == 'chapter':
+                yield block
+
+
+class CourseAPIPresenterMixin(SimpleCourseAPIPresenterMixin):
+    """
+    This mixin provides access to the course structure API and processes the hierarchy
+    for sections, subsections, modules, and leaves (e.g. videos, problems, etc.).
+    """
+    __metaclass__ = abc.ABCMeta
+
+    _last_updated = None
 
     @abc.abstractproperty
     def section_type_template(self):
@@ -89,10 +109,6 @@ class CourseAPIPresenterMixin(object):
     def module_type(self):
         """ Module type to retrieve structure for. E.g. video, problem. """
         pass
-
-    def get_cache_key(self, name):
-        """ Returns sanitized key for caching. """
-        return sanitize_cache_key(u'{}_{}'.format(self.course_id, name))
 
     def course_structure(self, section_id=None, subsection_id=None):
         """

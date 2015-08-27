@@ -21,7 +21,8 @@ define(['d3', 'nvd3', 'underscore', 'views/discrete-bar-view'],
                         }
                     },
                     x: {key: 'id', displayKey: 'name'},
-                    y: {key: 'count'}
+                    y: {key: 'count'},
+                    showAllSeriesInTooltip: true
                 }
             ),
 
@@ -40,10 +41,16 @@ define(['d3', 'nvd3', 'underscore', 'views/discrete-bar-view'],
 
                 chart.tooltipContent(function(key, x, y, e) {
                     var tips = [];
-                    _(self.options.trends).each(function(trend) {
-                        var trendY = self.getYAxisFormat()(e.point[trend.key]);
+                    if (self.options.showAllSeriesInTooltip) {
+                        _(self.options.trends).each(function(trend) {
+                            var trendY = self.getYAxisFormat()(e.point[trend.key]);
+                            tips.push(self.buildTrendTip(trend, x, trendY, e));
+                        });
+                    } else {
+                        var trend = self.options.trends[e.seriesIndex],
+                            trendY = self.getYAxisFormat()(e.point[trend.key]);
                         tips.push(self.buildTrendTip(trend, x, trendY, e));
-                    });
+                    }
 
                     return self.hoverTooltipTemplate({
                         xValue: self.buildTipHeading(e.point),

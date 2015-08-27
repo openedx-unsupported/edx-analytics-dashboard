@@ -41,6 +41,7 @@ ENROLLMENT_URLS = patterns(
 ENGAGEMENT_URLS = patterns(
     '',
     url(r'^content/$', engagement.EngagementContentView.as_view(), name='content'),
+    url(r'^typology/$', engagement.EngagementTypologyView.as_view(), name='typology'),
     url(r'^videos/$', engagement.EngagementVideoCourse.as_view(), name='videos'),
     # ordering of the URLS is important for routing the the section, subsection, etc. correctly
     url(video_timeline_regex, engagement.EngagementVideoTimeline.as_view(), name='video_timeline'),

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from collections import defaultdict
 import datetime
 import math
 from django.core.urlresolvers import reverse
@@ -7,11 +9,12 @@ from waffle import switch_is_active
 from opaque_keys.edx.keys import UsageKey
 from analyticsclient.client import Client
 import analyticsclient.constants.activity_type as AT
+import analyticsclient.constants.typology as TYPOLOGY
 from analyticsclient.exceptions import NotFoundError
 
 from courses import utils
 from courses.exceptions import NoVideosError
-from courses.presenters import (BasePresenter, CourseAPIPresenterMixin)
+from courses.presenters import (BasePresenter, SimpleCourseAPIPresenterMixin, CourseAPIPresenterMixin)
 
 
 logger = logging.getLogger(__name__)
@@ -94,6 +97,91 @@ class CourseEngagementActivityPresenter(BasePresenter):
         summary = self._build_summary(api_trends)
         trends = self._build_trend(api_trends)
         return summary, trends
+
+
+class CourseEngagementTypologyPresenter(SimpleCourseAPIPresenterMixin, BasePresenter):
+    """
+    Present the typology data that categorizes students into types per course section
+    """
+    def get_data(self):
+        """
+        Retrieve and present the available typology data for this course.
+
+        Input is somewhat raw data from the API, like:
+            [
+                {"chapter_id": "week3", "video_type": 0, "problem_type": 1, "num_users": 2180, "created": datetime(…)},
+                {"chapter_id": "week3", "video_type": 2, "problem_type": 1, "num_users": 1284, "created": datetime(…)},
+                ⋮
+            ]
+        Output is grouped by section, ordered, and annotated with section names:
+            [
+                {
+                    "id": "week3",
+                    "index": 3,
+                    "name": "Week 3",
+                    "all_v_all_p": 3827, "all_v_all_p_fraction": 0.32,
+                    "some_v_all_p": 3123, "some_v_all_p_fraction": 0.12,
+                    "no_v_all_p": 1821, "no_v_all_p_fraction": 0.27,
+                    "all_v_some_p": 1284, "all_v_some_p_fraction": 0.08,
+                    "some_v_some_p": 542, "some_v_some_p_fraction": 0.18,
+                    "no_v_some_p": 2180, "no_v_some_p_fraction": 0.07,
+                    "all_v_no_p": 200, "all_v_no_p_fraction": 0.005,
+                    "some_v_no_p": 365, "some_v_no_p_fraction": 0.00,
+                },
+                ⋮
+            ]
+        """
+        raw_typology_data = self.course.typology()  # The raw data from the API (example in docstring above)
+
+        def default_section_data():
+            """ Factory for the info structure we want to describe each section """
+            return {
+                "index": 0,
+                "name": "",
+                "all_v_all_p": 0,  # Number of students who did "all videos, all problems"
+                "some_v_all_p": 0,  # Number who did "some videos, all problems"
+                "no_v_all_p": 0,  # etc.
+                "all_v_some_p": 0,
+                "some_v_some_p": 0,
+                "no_v_some_p": 0,
+                "all_v_no_p": 0,
+                "some_v_no_p": 0,
+                # There is no entry for "No videos, no problems" because we necessarily have no data about those users
+            }
+
+        # We build our data in data_by_section. The keys of this dict are block IDs like "week1"
+        data_by_section = defaultdict(default_section_data)
+        friendly_keys = {TYPOLOGY.NONE: "no", TYPOLOGY.SOME: "some", TYPOLOGY.ALL: "all"}
+        last_updated = None
+
+        # Iterate over the raw entries returned by the API and update data_by_section:
+        for row in raw_typology_data:
+            data = data_by_section[row['chapter_id']]
+            key = "{video_type}_v_{problem_type}_p".format(
+                video_type=friendly_keys.get(row["video_type"], "invalid"),
+                problem_type=friendly_keys.get(row["problem_type"], "invalid"),
+            )
+            data[key] = row['num_users']
+            created = self.parse_api_datetime(row['created'])
+            if not last_updated or last_updated < created:
+                last_updated = created
+
+        result = []
+        count_fields = [key for key in default_section_data() if key.endswith('_p')]
+
+        # Iterate over the sections of the course in order and finalize the data for each section:
+        for index, section in enumerate(self.sections_flat(), 1):
+            section_id = UsageKey.from_string(section['id']).block_id
+            data = data_by_section[section_id]
+            data['id'] = section_id
+            data['index'] = index
+            data['name'] = section['display_name']
+            total_active_users = sum(data[field] for field in count_fields)
+            for field in count_fields:
+                data[field + '_fraction'] = float(data[field]) / total_active_users if total_active_users else 0.
+            result.append(data)
+
+        return result, last_updated
 
 
 class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, BasePresenter):
