@@ -34,7 +34,7 @@ Individual course-centric engagement typology view.
                     {% trans "Yellow colors indicate students who engage more thoroughly with problems than video." as tip_text3 %}
                     {% trans "Blue colors indicate students who engage more thoroughly with video than problems." as tip_text4 %}
                     {% include "chart_tooltip.html" with tip_text=tip_text1|add:" "|add:tip_text2|add:" "|add:tip_text3|add:" "|add:tip_text4 track_category="trend"%}
-                    <div id="chart-view" class="analytics-chart">
+                    <div id="chart-view" class="analytics-chart analytics-chart-tall">
                         {% include "loading.html" %}
                     </div>
                 </div>
