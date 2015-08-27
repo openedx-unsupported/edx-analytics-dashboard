@@ -1,6 +1,3 @@
-from django.conf import settings
-
-from common.clients import CourseStructureApiClient
 from .base import UsersView
 from .user import SingleUserNavbarMixin
 
@@ -12,17 +9,13 @@ class UserProblemDataView(UsersView, SingleUserNavbarMixin):
 
     active_primary_nav_item = 'problems'
 
-    def dispatch(self, request, *args, **kwargs):
-        access_token = settings.COURSE_API_KEY or request.user.access_token
-        self.course_api_client = CourseStructureApiClient(settings.COURSE_API_URL, access_token)
-
-        return super(UserProblemDataView, self).dispatch(request, *args, **kwargs)
-
     def get_context_data(self, **kwargs):
         context = super(UserProblemDataView, self).get_context_data(**kwargs)
 
-        course_structure = self.course_api_client.course_structures(self.course_id).get()
-        blocks = course_structure.get('blocks', {})
+        if self.course_api_enabled:
+            blocks = self.course_structure.get('blocks', {})
+        else:
+            blocks = {}
 
         username = kwargs['username']
         profile = self.client.users(username).profile()
@@ -37,7 +30,7 @@ class UserProblemDataView(UsersView, SingleUserNavbarMixin):
             problem_id = entry['problem_id']
             num_attempts = entry['num_attempts']
             final_score = '{}/{}'.format(entry['most_recent_score'], entry['max_score'])
-            problem_name = blocks[problem_id].get('display_name', problem_id)
+            problem_name = blocks.get(problem_id, {}).get('display_name', problem_id)
 
             if problem_id not in problem_data:
                 problem_data[problem_id] = {
