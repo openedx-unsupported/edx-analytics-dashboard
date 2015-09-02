@@ -130,6 +130,7 @@ class CourseEngagementContentViewTests(CourseViewTestMixin, CourseEngagementView
 
 @ddt
 class CourseEngagementTypologyViewTests(CourseViewTestMixin, CourseEngagementViewTestMixin, TestCase):
+    api_method = None
     viewname = 'courses:engagement:typology'
     presenter_method = 'courses.presenters.engagement.CourseEngagementTypologyPresenter.get_data'
     active_secondary_nav_label = 'Typology'
