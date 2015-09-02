@@ -1,6 +1,6 @@
 /**
- * This is the first script called by the engagement page.  It loads
- * the libraries and kicks off the application.
+ * This is the main script used by the typology page to display the chart and
+ * data table.
  */
 
 require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
