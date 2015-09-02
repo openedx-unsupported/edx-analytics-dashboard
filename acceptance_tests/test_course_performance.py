@@ -145,10 +145,13 @@ class CoursePerformanceAveragedTableMixin(CoursePerformancePageTestsMixin):
         num_modules_denominator = float(block.get('num_modules', 1))
         row += [
             unicode(self._format_number_or_hyphen(block.get('num_modules', 0))),
-            unicode(self._format_number_or_hyphen(block['correct_submissions'] / num_modules_denominator)),
+            unicode(self._format_number_or_hyphen(block['correct_submissions'] / num_modules_denominator
+                                                  if num_modules_denominator else None)),
             unicode(self._format_number_or_hyphen(
-                (block['total_submissions'] - block['correct_submissions']) / num_modules_denominator)),
-            unicode(self._format_number_or_hyphen(block['total_submissions'] / num_modules_denominator)),
+                (block['total_submissions'] - block['correct_submissions']) / num_modules_denominator
+                if num_modules_denominator else None)),
+            unicode(self._format_number_or_hyphen(block['total_submissions'] / num_modules_denominator
+                                                  if num_modules_denominator else None)),
             unicode(self._build_display_percentage_or_hyphen(block['correct_submissions'],
                                                              block['total_submissions']))
         ]

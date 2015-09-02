@@ -145,15 +145,25 @@ class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, BasePresenter):
         parent.update({
             'users_at_start': total_start_users,
             'users_at_end': total_end_users,
-            'index': index + 1
+            'index': index + 1,
+            'average_users_at_start': 0,
+            'average_users_at_end': 0,
         })
 
         # calculates the percentages too
         self.attach_computed_data(parent)
 
-        # including the URL enables navigation to child pages
         has_views = total_start_users > 0 or total_end_users > 0
-        if url_func and parent['num_modules'] > 0 and has_views:
+
+        if has_views and parent['num_modules']:
+            num_modules = float(parent['num_modules'])
+            parent.update({
+                'average_users_at_start': total_start_users / num_modules,
+                'average_users_at_end': total_end_users / num_modules,
+            })
+
+        # including the URL enables navigation to child pages
+        if url_func > 0 and has_views:
             parent['url'] = url_func(parent)
 
     def build_section_url(self, section):

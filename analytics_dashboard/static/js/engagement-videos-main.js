@@ -1,5 +1,5 @@
 /**
- * Called for displaying aggregate video charts and tables.  Each bar is a collection of video views.
+ * Called for displaying a collection of video charts and tables.  Each bar represents a single video.
  */
 require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
     'use strict';
@@ -9,28 +9,25 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
             var model = page.models.courseModel,
                 graphVideoColumns = [
                     {
-                        key: 'average_users_at_start',
+                        key: 'users_at_end',
                         percent_key: 'end_percent',
-                        title: gettext('Average Complete Views'),
+                        title: gettext('Complete Views'),
                         className: 'text-right',
                         type: 'number',
-                        fractionDigits: 1,
                         color: '#58BC4B'
                     },
                     {
-                        key: 'average_users_at_end',
+                        key: 'start_only_users',
                         percent_key: 'start_only_percent',
-                        title: gettext('Average Incomplete Views'),
+                        title: gettext('Incomplete Views'),
                         className: 'text-right',
                         type: 'number',
-                        fractionDigits: 1,
                         color: '#9B9B9B'
                     }
                 ],
                 tableColumns = [
                     {key: 'index', title: gettext('Order'), type: 'number', className: 'text-right'},
-                    {key: 'name', title: model.get('contentTableHeading'), type: 'hasNull'},
-                    {key: 'num_modules', title: gettext('Videos'), type: 'number', className: 'text-right'}
+                    {key: 'name', title: model.get('contentTableHeading'), type: 'hasNull'}
                 ];
 
             tableColumns = tableColumns.concat(graphVideoColumns);
@@ -46,7 +43,6 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                     el: '#chart-view',
                     model: model,
                     modelAttribute: 'primaryContent',
-                    dataType: 'decimal',
                     trends: graphVideoColumns
                 });
             }
