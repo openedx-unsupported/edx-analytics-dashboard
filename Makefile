@@ -41,6 +41,11 @@ test_python: clean
 accept:
 	./runTests.sh acceptance_tests
 
+# local acceptance tests are typically run with by passing in environment variables on the commandline
+# e.g. API_SERVER_URL="http://localhost:9001/api/v0" API_AUTH_TOKEN="edx" make accept_local
+accept_local:
+	nosetests -v acceptance_tests --exclude-dir=acceptance_tests/course_validation
+
 a11y:
 	SELENIUM_BROWSER=phantomjs ./runTests.sh a11y_tests
 
