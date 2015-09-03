@@ -94,8 +94,8 @@ class CourseAPIMixin(object):
                 logger.debug("Retrieving structure for course: %s", course_id)
                 structure = self.course_api_client.course_structures(course_id).get()
                 cache.set(key, structure)
-            except HttpClientError as e:
-                logger.error("Unable to retrieve course structure for %s: %s", course_id, e)
+            except HttpClientError as err:
+                logger.error("Unable to retrieve course structure for %s: %s", course_id, err)
                 structure = {}
 
         return structure

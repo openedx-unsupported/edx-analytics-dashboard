@@ -20,6 +20,6 @@ class UsersView(CourseTemplateWithNavView):
         )
         try:
             return super(UsersView, self).dispatch(request, *args, **kwargs)
-        except ClientError as e:
-            logger.error('API ClientError: %s (%s)', e, e.message)
+        except ClientError as err:
+            logger.error('API ClientError: %s (%s)', err, err.message)
             return shortcuts.render(request, "users/api-error.html")
