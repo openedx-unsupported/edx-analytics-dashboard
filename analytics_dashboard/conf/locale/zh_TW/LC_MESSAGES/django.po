@@ -4,6 +4,9 @@
 # 
 # Translators:
 # SatoshiLiang <chihchengliang@gmail.com>, 2014
+# Chih-Ching Tsai <stringpiggy@gmail.com>, 2015
+# Cyrus <wkchan4@gmail.com>, 2015
+# Derek <derekya@gmail.com>, 2015
 # johnber <johnbertw@gmail.com>, 2014
 # Lin Yu-Chun <iftwoplustwoequalsfive@gmail.com>, 2014-2015
 # LIU,SHU-HAO <jeremy55662004@gmail.com>, 2014
@@ -15,10 +18,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 11:21-0400\n"
-"PO-Revision-Date: 2015-06-19 15:22+0000\n"
+"POT-Creation-Date: 2015-09-04 10:05-0400\n"
+"PO-Revision-Date: 2015-09-04 14:06+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/edx-platform/language/zh_TW/)\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/open-edx/edx-platform/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -31,11 +34,11 @@ msgstr "登入"
 
 #: core/templates/core/landing.html
 msgid "Insights to help course teams improve courses."
-msgstr "Insights可以幫助課程團隊來增進課程。"
+msgstr "Insights可以幫助課程團隊來改善課程。"
 
 #: core/templates/core/landing.html courses/views/__init__.py
 msgid "Who are my students?"
-msgstr "哪些是我的學生？"
+msgstr "誰是我的學生？"
 
 #: core/templates/core/landing.html
 msgid "Target your course to fit the backgrounds of your students."
@@ -338,7 +341,7 @@ msgstr "學生活動指標"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Active Students Last Week"
-msgstr "上一週的活動學生"
+msgstr "上一週活躍的學生"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who visited at least one page in the course content."
@@ -394,10 +397,10 @@ msgstr "學生是如何跟此章節的影片互動的？"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that subsection. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
-msgstr "每個條狀圖顯示在此小節該完成影片的觀看和未完成影片的觀看的統計數。點擊條狀圖較低的統計數或高不完整率來探討原因。"
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that subsection. Click on bars with low totals or a high "
+"incomplete rate to drill down and understand why."
+msgstr ""
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did students interact with videos in this subsection?"
@@ -416,10 +419,10 @@ msgstr "學生是如何跟此課程影片互動的？"
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that section. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
-msgstr "每個條狀圖顯示在此章節該完成影片的觀看和未完成影片的觀看的統計數。點擊條狀圖較低的統計數或高不完整率來探討原因。"
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that section. Click on bars with low totals or a high incomplete "
+"rate to drill down and understand why."
+msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
@@ -492,16 +495,27 @@ msgstr "此圖顯示了在每天結束時課程的總註冊量。總註冊包含
 msgid "Enrollment Metrics"
 msgstr "註冊指標"
 
-#. Translators: This is a label to identify current student enrollment.
+#. Translators: This is a label to identify the number of students who ever
+#. enrolled in the course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Total Enrollment"
 msgstr "總註冊"
 
+#. Translators: This is a label indicating the number of students in a course.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Students who ever enrolled in the course."
+msgstr "曾經選修此課程的學生"
+
+#. Translators: This is a label to identify current student enrollment.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Current Enrollment"
+msgstr "當前註冊"
+
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
-msgid "Students enrolled in the course."
-msgstr "在此課程註冊的學生"
+msgid "Students currently enrolled in the course."
+msgstr "現正選修此課程的學生"
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
@@ -510,10 +524,8 @@ msgid "Change in Last Week"
 msgstr "上一週變更"
 
 #: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students enrolled at the end of the day"
-" yesterday and one week before."
-msgstr "在昨天中最後註冊的學生數量和一週前之學生數量的不同。"
+msgid "Net difference in current enrollment in the last week."
+msgstr "於過去一星期新增的學生"
 
 #. Translators: This is a label to identify enrollment of students on the
 #. verified track.
@@ -525,22 +537,9 @@ msgstr "註冊已驗證"
 #. a course on the verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
-"Number of enrolled students who are pursuing a verified certificate of "
+"Number of currently enrolled students pursuing a verified certificate of "
 "achievement."
-msgstr "目標為認證證書的註冊學生數目"
-
-#. Translators: This is a label indicating the change in the number of
-#. students enrolled in the verified track of a course since the previous
-#. week.
-#: courses/templates/courses/enrollment_activity.html
-msgid "Change in Verified Enrollments Last Week"
-msgstr "上週簽名認證申請數目變化"
-
-#: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students pursuing verified certificates"
-" at the end of the day yesterday and one week before."
-msgstr "在昨天中最後學生追求認證證書的數目和一週前學生追求認證證書的數目的不同。"
+msgstr "現正選修並要求證書的學生人數"
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html
@@ -862,7 +861,7 @@ msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "problems in the assignment. Only the last submission from each student is "
 "counted."
-msgstr ""
+msgstr "每一狀態條會顯示功課問題之正確和錯誤答覆的平均數。 只會計算每位學生最後之提交。"
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid "Assignment Submissions"
@@ -876,7 +875,7 @@ msgstr "學生是如何完成這一章節的呢?"
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each subsection. Only the last submission from each student is counted."
-msgstr ""
+msgstr "每一狀態條會顯示每一節之正確和錯誤答覆的平均數。 只會計算每位學生最後之提交。"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "Subsection Submissions"
@@ -895,7 +894,7 @@ msgstr "學生們是如何完成未分級練習？"
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each section. Only the last submission from each student is counted."
-msgstr ""
+msgstr "每一狀態條會顯示每一章之正確和錯誤答覆的平均數。 只會計算每位學生最後之提交。"
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid "Section Submissions"

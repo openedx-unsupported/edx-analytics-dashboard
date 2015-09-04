@@ -5,12 +5,13 @@
 # Translators:
 # cblackburn <cblackburn@edx.org>, 2014
 # ddd <desislavdkv@gmail.com>, 2014
+# Tsvetanka Zhekova, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 11:21-0400\n"
-"PO-Revision-Date: 2015-07-14 17:59+0000\n"
+"POT-Creation-Date: 2015-09-04 10:05-0400\n"
+"PO-Revision-Date: 2015-09-04 14:06+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/open-edx/edx-platform/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +30,7 @@ msgstr ""
 
 #: core/templates/core/landing.html courses/views/__init__.py
 msgid "Who are my students?"
-msgstr ""
+msgstr "Кои са моите студенти?"
 
 #: core/templates/core/landing.html
 msgid "Target your course to fit the backgrounds of your students."
@@ -44,7 +45,7 @@ msgstr ""
 
 #: core/templates/core/landing.html
 msgid "What are students engaging with in my course?"
-msgstr ""
+msgstr "С какво са ангажирани студентите в моя курс?"
 
 #: core/templates/core/landing.html
 msgid ""
@@ -70,7 +71,7 @@ msgstr ""
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/__init__.py
 msgid "Performance"
-msgstr ""
+msgstr "Представяне"
 
 #: core/templates/core/landing.html
 msgid "Join the Open Source Community"
@@ -184,7 +185,7 @@ msgstr "Няма посочена"
 #: courses/presenters/performance.py
 #: courses/templates/courses/submissions_chart_info.html
 msgid "Submissions"
-msgstr ""
+msgstr "Разработки"
 
 #: courses/presenters/performance.py
 msgid "Submissions for Part {part_number}: {part_description}"
@@ -386,9 +387,9 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that subsection. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that subsection. Click on bars with low totals or a high "
+"incomplete rate to drill down and understand why."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_by_subsection.html
@@ -408,9 +409,9 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that section. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that section. Click on bars with low totals or a high incomplete "
+"rate to drill down and understand why."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
@@ -487,16 +488,27 @@ msgstr ""
 msgid "Enrollment Metrics"
 msgstr ""
 
-#. Translators: This is a label to identify current student enrollment.
+#. Translators: This is a label to identify the number of students who ever
+#. enrolled in the course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Total Enrollment"
 msgstr "Брой записвания"
 
+#. Translators: This is a label indicating the number of students in a course.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Students who ever enrolled in the course."
+msgstr ""
+
+#. Translators: This is a label to identify current student enrollment.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Current Enrollment"
+msgstr ""
+
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
-msgid "Students enrolled in the course."
-msgstr "Студенти записани в този курс."
+msgid "Students currently enrolled in the course."
+msgstr ""
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
@@ -505,12 +517,8 @@ msgid "Change in Last Week"
 msgstr "Промени от миналата седмица."
 
 #: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students enrolled at the end of the day"
-" yesterday and one week before."
+msgid "Net difference in current enrollment in the last week."
 msgstr ""
-"Разликата между броя на записаниете студенти на края на деня, от вчера и от "
-"миналата седмица."
 
 #. Translators: This is a label to identify enrollment of students on the
 #. verified track.
@@ -522,21 +530,8 @@ msgstr "Записани във \"Верифицирана група\""
 #. a course on the verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
-"Number of enrolled students who are pursuing a verified certificate of "
+"Number of currently enrolled students pursuing a verified certificate of "
 "achievement."
-msgstr "Брой записани студенти, целяшти получаване на сертификат"
-
-#. Translators: This is a label indicating the change in the number of
-#. students enrolled in the verified track of a course since the previous
-#. week.
-#: courses/templates/courses/enrollment_activity.html
-msgid "Change in Verified Enrollments Last Week"
-msgstr ""
-
-#: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students pursuing verified certificates"
-" at the end of the day yesterday and one week before."
 msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
@@ -1163,7 +1158,7 @@ msgstr "Свържете се с %(platform_name)s Help Desk"
 
 #: templates/footer.html
 msgid "Feedback"
-msgstr ""
+msgstr "Отзив"
 
 #: templates/footer.html
 msgid ""

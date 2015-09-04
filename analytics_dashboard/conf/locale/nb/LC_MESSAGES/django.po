@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Erland Flaten <eflaten@vangenplotz.no>, 2015
 # mymark <mark.stenersen@uit.no>, 2014
 # Pål Messenlien <paal@vangenplotz.no>, 2014
 # Vangenplotz edx <edx@vangenplotz.no>, 2015
@@ -10,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 11:21-0400\n"
-"PO-Revision-Date: 2015-07-14 12:19+0000\n"
-"Last-Translator: Vangenplotz edx <edx@vangenplotz.no>\n"
+"POT-Creation-Date: 2015-09-04 10:05-0400\n"
+"PO-Revision-Date: 2015-09-04 14:06+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/open-edx/edx-platform/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -402,13 +403,10 @@ msgstr "Hvordan brukte studentene video i denne seksjonen?"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that subsection. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that subsection. Click on bars with low totals or a high "
+"incomplete rate to drill down and understand why."
 msgstr ""
-"Hver skillene viser antall av fullførte og ikke fullførte visninger av "
-"videoer i den subseksjonen. Klikk på skillene med lav total eller høy ikke-"
-"fullførte for å gå gjennom og forstå hvorfor. "
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did students interact with videos in this subsection?"
@@ -430,13 +428,10 @@ msgstr "Hvordan brukte  studenten videokursene?"
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that section. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that section. Click on bars with low totals or a high incomplete "
+"rate to drill down and understand why."
 msgstr ""
-"Hvert skille viser antall av fullførte og ikke fullførte visninger av "
-"videoen i den seksjonen. Klikk på skillet med lav total antall visninger "
-"eller høy ikke-fullførte visninger for å finne ut av hvorfor. "
 
 #: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
@@ -514,16 +509,27 @@ msgstr ""
 msgid "Enrollment Metrics"
 msgstr "Innmeldingsmetrikker"
 
-#. Translators: This is a label to identify current student enrollment.
+#. Translators: This is a label to identify the number of students who ever
+#. enrolled in the course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Total Enrollment"
 msgstr "Total antall innmeldinger"
 
+#. Translators: This is a label indicating the number of students in a course.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Students who ever enrolled in the course."
+msgstr "Antall studenter som har meldt seg på kurset."
+
+#. Translators: This is a label to identify current student enrollment.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Current Enrollment"
+msgstr "Foreløpig påmeldt"
+
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
-msgid "Students enrolled in the course."
-msgstr "Antall studenter innmeldt på kurset."
+msgid "Students currently enrolled in the course."
+msgstr "Antll studenter som deltar på kurset"
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
@@ -532,12 +538,8 @@ msgid "Change in Last Week"
 msgstr "Forandringer i forrige uke"
 
 #: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students enrolled at the end of the day"
-" yesterday and one week before."
-msgstr ""
-"Forskjellen mellom antall innmeldte studenter ved enden av forrige dag og en"
-" uke tidligere."
+msgid "Net difference in current enrollment in the last week."
+msgstr "Nettoforskjellen på antall deltakende studenter den siste uken"
 
 #. Translators: This is a label to identify enrollment of students on the
 #. verified track.
@@ -549,25 +551,9 @@ msgstr "Bekreftet påmeldt"
 #. a course on the verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
-"Number of enrolled students who are pursuing a verified certificate of "
+"Number of currently enrolled students pursuing a verified certificate of "
 "achievement."
-msgstr ""
-"Antall innmeldte studenter som følger et verifisert prestasjonssertifikat. "
-
-#. Translators: This is a label indicating the change in the number of
-#. students enrolled in the verified track of a course since the previous
-#. week.
-#: courses/templates/courses/enrollment_activity.html
-msgid "Change in Verified Enrollments Last Week"
-msgstr "Forandringer i bekreftede innmeldinger forrige uke"
-
-#: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students pursuing verified certificates"
-" at the end of the day yesterday and one week before."
-msgstr ""
-"Forskjellene mellom antall studenter som ønsker verifisert sertifikat ved "
-"enden av dagen og en uke tidligere."
+msgstr "Antall deltakende studenter som jobber for å oppnå godkjent vitnemål."
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html

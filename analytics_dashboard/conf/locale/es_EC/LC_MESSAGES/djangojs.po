@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 11:21-0400\n"
-"PO-Revision-Date: 2015-06-19 15:22+0000\n"
+"POT-Creation-Date: 2015-09-04 10:05-0400\n"
+"PO-Revision-Date: 2015-09-04 14:06+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
-"Language-Team: Spanish (Ecuador) (http://www.transifex.com/projects/p/edx-platform/language/es_EC/)\n"
+"Language-Team: Spanish (Ecuador) (http://www.transifex.com/open-edx/edx-platform/language/es_EC/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -35,7 +35,10 @@ msgstr ""
 #. no label was provided.
 #. Translators: (empty) is displayed as a label in a chart and indicates that
 #. no label was provided.
+#. Translators: (empty) is displayed as a label in a chart and indicates that
+#. no label was provided.
 #: static/dist/js/common.js static/dist/js/engagement-video-content-main.js
+#: static/dist/js/engagement-videos-main.js
 #: static/dist/js/enrollment-demographics-education-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/dist/js/performance-answer-distribution-main.js
@@ -86,21 +89,33 @@ msgstr ""
 msgid "Week Ending <%=value%>"
 msgstr ""
 
+#. Translators: <%=value%> will be replaced by a number followed by a
+#. percentage.
+#. For example, "400 (29%)"
 #: static/dist/js/engagement-video-content-main.js
-#: static/js/engagement-video-content-main.js
-msgid "Complete Views"
+#: static/dist/js/engagement-videos-main.js
+#: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-problems-main.js
+#: static/js/views/stacked-bar-view.js
+msgid "<%=value%> (<%=percent%>)"
 msgstr ""
 
 #: static/dist/js/engagement-video-content-main.js
 #: static/js/engagement-video-content-main.js
-msgid "Incomplete Views"
+msgid "Average Complete Views"
 msgstr ""
 
 #: static/dist/js/engagement-video-content-main.js
+#: static/js/engagement-video-content-main.js
+msgid "Average Incomplete Views"
+msgstr ""
+
+#: static/dist/js/engagement-video-content-main.js
+#: static/dist/js/engagement-videos-main.js
 #: static/dist/js/performance-content-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/engagement-video-content-main.js
-#: static/js/performance-content-main.js
+#: static/js/engagement-videos-main.js static/js/performance-content-main.js
 #: static/js/performance-problems-main.js
 msgid "Order"
 msgstr ""
@@ -111,27 +126,10 @@ msgid "Videos"
 msgstr ""
 
 #: static/dist/js/engagement-video-content-main.js
+#: static/dist/js/engagement-videos-main.js
 #: static/js/engagement-video-content-main.js
+#: static/js/engagement-videos-main.js
 msgid "Completion Percentage"
-msgstr ""
-
-#. Translators: <%=value%> will be replaced by a number followed by a
-#. percentage.
-#. For example, "400 (29%)"
-#. Translators: <%=value%> will be replaced by a number followed by a
-#. percentage.
-#. For example, "40.8 (29%)"
-#. Translators: <%=value%> will be replaced by a number followed by a
-#. percentage.
-#. For example, "400 (29%)"
-#. Translators: <%=value%> will be replaced by a number followed by a
-#. percentage.
-#. For example, "400 (29%)"
-#: static/dist/js/engagement-video-content-main.js
-#: static/dist/js/performance-content-main.js
-#: static/dist/js/performance-problems-main.js
-#: static/js/views/stacked-bar-view.js
-msgid "<%=value%> (<%=percent%>)"
 msgstr ""
 
 #: static/dist/js/engagement-video-timeline-main.js
@@ -149,6 +147,16 @@ msgstr ""
 msgid "Time"
 msgstr ""
 
+#: static/dist/js/engagement-videos-main.js
+#: static/js/engagement-videos-main.js
+msgid "Complete Views"
+msgstr ""
+
+#: static/dist/js/engagement-videos-main.js
+#: static/js/engagement-videos-main.js
+msgid "Incomplete Views"
+msgstr ""
+
 #: static/dist/js/enrollment-activity-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-activity-main.js
@@ -164,7 +172,7 @@ msgstr "Fecha"
 #: static/js/enrollment-activity-main.js
 #: static/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-geography-main.js
-msgid "Total Enrollment"
+msgid "Current Enrollment"
 msgstr ""
 
 #: static/dist/js/enrollment-activity-main.js

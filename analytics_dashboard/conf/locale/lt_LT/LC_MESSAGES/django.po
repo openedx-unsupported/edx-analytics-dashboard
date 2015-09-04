@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 11:21-0400\n"
-"PO-Revision-Date: 2015-08-04 13:17+0000\n"
-"Last-Translator: Edukometrija <jolitad@mruni.eu>\n"
+"POT-Creation-Date: 2015-09-04 10:05-0400\n"
+"PO-Revision-Date: 2015-09-04 14:06+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/open-edx/edx-platform/language/lt_LT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -90,7 +90,7 @@ msgstr ""
 
 #: core/templates/core/landing.html
 msgid "Research at edX"
-msgstr "Tyrimai \"edX\""
+msgstr "Tyrimai edX"
 
 #: core/templates/core/landing.html
 msgid ""
@@ -129,7 +129,7 @@ msgstr "Vyras"
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py courses/presenters/enrollment.py
 msgid "Other"
-msgstr "Kitas"
+msgstr "Kita"
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
@@ -141,7 +141,7 @@ msgstr "Nežinoma"
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "None"
-msgstr "Neturiu jokio išsilavinimo"
+msgstr "Nėra"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
@@ -164,7 +164,7 @@ msgstr "Vidurinis"
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Associate"
-msgstr "Jaunesnysis narys"
+msgstr "Aukštojo neuniversitetinio arba aukštesniojo išsilavinimo"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
@@ -194,11 +194,11 @@ msgstr "Šalis nežinoma"
 #: courses/presenters/performance.py
 #: courses/templates/courses/submissions_chart_info.html
 msgid "Submissions"
-msgstr ""
+msgstr "Pateiktys"
 
 #: courses/presenters/performance.py
 msgid "Submissions for Part {part_number}: {part_description}"
-msgstr ""
+msgstr "Pateiktys {part_number} daliai: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "Part {part_number}: {part_description}"
@@ -206,7 +206,7 @@ msgstr ""
 
 #: courses/presenters/performance.py
 msgid "Submissions: {part_description}"
-msgstr ""
+msgstr "Pateiktys: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "{part_description}"
@@ -214,7 +214,7 @@ msgstr ""
 
 #: courses/presenters/performance.py
 msgid "Submissions for Part {part_number}"
-msgstr ""
+msgstr "Pateiktys {part_number} daliai"
 
 #: courses/presenters/performance.py
 msgid "Part {part_number}"
@@ -222,13 +222,13 @@ msgstr ""
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
-msgstr ""
+msgstr "Pasirinkite užduoties tipą"
 
 #. Translators: This refers to all course assignment types (e.g. homework,
 #. exam, lab).
 #: courses/templates/courses/_graded_content_nav.html
 msgid "All Assignments"
-msgstr ""
+msgstr "Visos užduotys"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid ""
@@ -240,13 +240,13 @@ msgstr ""
 #: courses/templates/courses/_graded_content_nav.html
 #: courses/templates/courses/_ungraded_content_nav.html
 msgid "Select Problem"
-msgstr ""
+msgstr "Pasirinkti užduotį"
 
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
 #: courses/templates/courses/_module_description.html
 msgid "View Live"
-msgstr "Žiūrėti gyvai"
+msgstr "Žiūrėti tiesiogiai"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
@@ -265,7 +265,7 @@ msgstr ""
 
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
-msgstr ""
+msgstr "Pasirinkti vaizdo įrašą"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -358,7 +358,7 @@ msgstr "Kurso dalyviai, peržiūrėję vieną ar daugiau vaizdo įrašų"
 #. problem.
 #: courses/templates/courses/engagement_content.html
 msgid "Tried a Problem Last Week"
-msgstr "Bandė spręsti uždavinį praėjusią savaitę"
+msgstr "Bandė spręsti užduotį praėjusią savaitę"
 
 #: courses/templates/courses/engagement_content.html
 msgid ""
@@ -388,7 +388,7 @@ msgstr "Turinio veiklos analizė"
 #: courses/templates/courses/engagement_grouped_content.html
 #: courses/templates/courses/views_chart_info.html
 msgid "Video Views"
-msgstr ""
+msgstr "Vaizdo įrašo peržiūros"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid "How did students interact with videos in this section?"
@@ -396,9 +396,9 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that subsection. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that subsection. Click on bars with low totals or a high "
+"incomplete rate to drill down and understand why."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_by_subsection.html
@@ -418,15 +418,15 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that section. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that section. Click on bars with low totals or a high incomplete "
+"rate to drill down and understand why."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Total Video Views"
-msgstr ""
+msgstr "Iš viso vaizdo įrašų peržiūrų"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "What were the viewing patterns for this video?"
@@ -440,7 +440,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Metrics"
-msgstr ""
+msgstr "Vaizdo įrašo rodikliai"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Completion Rate"
@@ -452,11 +452,11 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Started Video"
-msgstr ""
+msgstr "Pradėtas rodyti vaizdo įrašas"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who started watching the video."
-msgstr ""
+msgstr "Kurso dalyviai, pradėję vaizdo įrašo peržiūrą."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Finished Video"
@@ -498,16 +498,27 @@ msgstr ""
 msgid "Enrollment Metrics"
 msgstr "Registracijos metrika"
 
-#. Translators: This is a label to identify current student enrollment.
+#. Translators: This is a label to identify the number of students who ever
+#. enrolled in the course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Total Enrollment"
 msgstr "Iš viso užregistruota"
 
+#. Translators: This is a label indicating the number of students in a course.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Students who ever enrolled in the course."
+msgstr ""
+
+#. Translators: This is a label to identify current student enrollment.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Current Enrollment"
+msgstr "Dabartinė registracija"
+
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
-msgid "Students enrolled in the course."
-msgstr "Į kursą užregistravę dalyviai"
+msgid "Students currently enrolled in the course."
+msgstr ""
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
@@ -516,44 +527,22 @@ msgid "Change in Last Week"
 msgstr "Pokytis praėjusią savaitę"
 
 #: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students enrolled at the end of the day"
-" yesterday and one week before."
+msgid "Net difference in current enrollment in the last week."
 msgstr ""
-"Kurso dalyvių, užsiregistravusių iki vakar dienos pabaigos ir prieš vieną "
-"savaitę, skaičiaus skirtumas"
 
 #. Translators: This is a label to identify enrollment of students on the
 #. verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Verified Enrollment"
-msgstr "Patikrinta registracija"
+msgstr "Tapatybe patvirtinta registracija"
 
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course on the verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
-"Number of enrolled students who are pursuing a verified certificate of "
+"Number of currently enrolled students pursuing a verified certificate of "
 "achievement."
 msgstr ""
-"Užsiregistravusių kurso dalyvių, kurie siekia patvirtinto pasiekimų "
-"sertifikato, skaičius."
-
-#. Translators: This is a label indicating the change in the number of
-#. students enrolled in the verified track of a course since the previous
-#. week.
-#: courses/templates/courses/enrollment_activity.html
-msgid "Change in Verified Enrollments Last Week"
-msgstr ""
-"Patvirtinto sertifikato siekiančių kurso dalyvių pokytis praėjusią savaitę"
-
-#: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students pursuing verified certificates"
-" at the end of the day yesterday and one week before."
-msgstr ""
-"Kurso dalyvių, siekiančių patvirtinto sertifikato iki vakar dienos pabaigos "
-"ir prieš vieną savaitę, skaičiaus skirtumas"
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html
@@ -673,7 +662,7 @@ msgid ""
 "highest level of education completed."
 msgstr ""
 "Kurso dalyvių, kaip aukščiausią įgytą išsilavinimą nurodžiusių vidurinę, "
-"pagrindinę ar pradinę mokyklą, procentas"
+"pagrindinę ar pradinę mokyklą, procentas."
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -686,7 +675,8 @@ msgid ""
 "degree as their highest level of education completed."
 msgstr ""
 "Kurso dalyvių, kaip aukščiausią įgytą išsilavinimą nurodžiusių bakalauro "
-"arba jaunesniojo nario laipsnį, procentas"
+"laipsnį arba aukštąjį neuniversitetinį ar aukštesnįjį išsilavinimą, "
+"procentas."
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -699,7 +689,7 @@ msgid ""
 "professional degree as their highest level of education completed."
 msgstr ""
 "Kurso dalyvių, kaip aukščiausią įgytą išsilavinimą nurodžiusių daktaro, "
-"magistro laipsnį arba profesinę kvalifikaciją, procentas"
+"magistro laipsnį arba profesinę kvalifikaciją, procentas."
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Educational Breakdown"
@@ -825,7 +815,7 @@ msgstr "Šiuo metu turite prieigą prie šių \"Insights\" kursų:"
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
-msgstr "Esate naujas %(application_name)s?"
+msgstr "Pirmą kartą %(application_name)s?"
 
 #: courses/templates/courses/index.html
 msgid ""
@@ -855,7 +845,7 @@ msgstr ""
 #: courses/templates/courses/performance_assignment.html
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid "Problem Submissions"
-msgstr ""
+msgstr "Užduoties pateiktys"
 
 #: courses/templates/courses/performance_graded_content.html
 msgid "Which assignment type do you want to investigate?"
@@ -897,7 +887,7 @@ msgstr ""
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid "Assignment Submissions"
-msgstr ""
+msgstr "Užduoties pateiktys"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are students doing on this section?"
@@ -911,7 +901,7 @@ msgstr ""
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "Subsection Submissions"
-msgstr ""
+msgstr "Potemės pateiktys"
 
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid "How are students doing on this subsection?"
@@ -930,7 +920,7 @@ msgstr ""
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid "Section Submissions"
-msgstr ""
+msgstr "Temos pateiktys"
 
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
@@ -991,7 +981,7 @@ msgstr "Turinys"
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Videos"
-msgstr ""
+msgstr "Vaizdo įrašai"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
@@ -1051,7 +1041,7 @@ msgstr ""
 
 #: courses/views/engagement.py
 msgid "Video Name"
-msgstr ""
+msgstr "Vaizdo įrašo pavadinimas"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py

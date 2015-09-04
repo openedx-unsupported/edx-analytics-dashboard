@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 11:21-0400\n"
-"PO-Revision-Date: 2015-08-04 05:08+0000\n"
-"Last-Translator: Hongseob Lee <shevious@gmail.com>\n"
+"POT-Creation-Date: 2015-09-04 10:05-0400\n"
+"PO-Revision-Date: 2015-09-04 14:06+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/open-edx/edx-platform/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,15 +32,15 @@ msgstr "로그인"
 
 #: core/templates/core/landing.html
 msgid "Insights to help course teams improve courses."
-msgstr "코스 팀들이 코스를 발전시키는 것을 도울 이해"
+msgstr "강좌 개선에 도움이 되는 의견"
 
 #: core/templates/core/landing.html courses/views/__init__.py
 msgid "Who are my students?"
-msgstr "누가 나의 수강생들일까요?"
+msgstr "강좌를 수강하고 있는 학습자는 누구인가요?"
 
 #: core/templates/core/landing.html
 msgid "Target your course to fit the backgrounds of your students."
-msgstr "당신의 강의가 수강생들의 배경에 맞을 수 있도록 겨냥하세요."
+msgstr "학습자의 배경 정보를 반영한 강좌를 만들어 보세요."
 
 #: core/templates/core/landing.html
 #: courses/templates/courses/enrollment_geography.html
@@ -51,13 +51,13 @@ msgstr "등록"
 
 #: core/templates/core/landing.html
 msgid "What are students engaging with in my course?"
-msgstr "무엇이 나의 강의에서 학생들과 맞물릴까?"
+msgstr "어떻게 하면 학습자의 참여를 유도할 수 있을까요?"
 
 #: core/templates/core/landing.html
 msgid ""
 "Improve frequently accessed content, or point students at underused "
 "resources."
-msgstr "나의 강좌 콘텐츠가 학습자의 학습을 잘 지원하고 있습니까?"
+msgstr "내 강좌 콘텐츠가 학습자의 학습을 잘 지원하고 있습니까?"
 
 #: core/templates/core/landing.html
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
@@ -67,17 +67,17 @@ msgstr "참여"
 
 #: core/templates/core/landing.html
 msgid "How well is my content supporting student learning?"
-msgstr ""
+msgstr "내 강좌 콘텐츠가 학습을 잘 지원하고 있을까요?"
 
 #: core/templates/core/landing.html
 msgid "Adjust your course based on where students are struggling."
-msgstr ""
+msgstr "학습자가 어려워 하는 부분을 반영하여 조정하세요."
 
 #: core/templates/core/landing.html
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/__init__.py
 msgid "Performance"
-msgstr "성능"
+msgstr "수행"
 
 #: core/templates/core/landing.html
 msgid "Join the Open Source Community"
@@ -98,7 +98,7 @@ msgstr "edX에서 찾아보기"
 msgid ""
 "We are committed to advancing teaching and learning through research. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr ""
+msgstr "연구를 통해 보다 고품질의 교수학습을 지원하려고 합니다. %(link_start)s더 알아 보기%(link_end)s."
 
 #: core/templates/core/landing.html
 msgid "Need Help?"
@@ -107,7 +107,7 @@ msgstr "도움이 필요하세요?"
 #: core/templates/core/landing.html
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
-msgstr ""
+msgstr "%(link_start)s지원센터%(link_end)s에서 해결방법을 찾을 수 있도록 도와드립니다."
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
@@ -121,7 +121,7 @@ msgstr "여성"
 
 #: courses/presenters/enrollment.py
 msgid "Male"
-msgstr "남성"
+msgstr "남자"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
@@ -134,7 +134,7 @@ msgstr "기타"
 #: courses/presenters/enrollment.py courses/presenters/enrollment.py
 #: courses/presenters/enrollment.py
 msgid "Unknown"
-msgstr "알수없음"
+msgstr "알 수 없음"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
@@ -145,18 +145,18 @@ msgstr "없음"
 #. School Degree).
 #: courses/presenters/enrollment.py courses/tests/test_serializers.py
 msgid "Primary"
-msgstr "초등학생"
+msgstr "초등학교"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: courses/presenters/enrollment.py
 msgid "Middle"
-msgstr "중학생"
+msgstr "중학교"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Secondary"
-msgstr "고등학생"
+msgstr "고등학교"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
@@ -186,7 +186,7 @@ msgstr "박사"
 #. known geolocation.
 #: courses/presenters/enrollment.py
 msgid "Unknown Country"
-msgstr "알수 없는 국가"
+msgstr "알 수 없는 국가"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/presenters/performance.py
@@ -196,11 +196,11 @@ msgstr "제출"
 
 #: courses/presenters/performance.py
 msgid "Submissions for Part {part_number}: {part_description}"
-msgstr ""
+msgstr "{part_number}영역을 위한 제출: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "Part {part_number}: {part_description}"
-msgstr ""
+msgstr "{part_number}영역: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "Submissions: {part_description}"
@@ -212,11 +212,11 @@ msgstr "{part_description}"
 
 #: courses/presenters/performance.py
 msgid "Submissions for Part {part_number}"
-msgstr ""
+msgstr "{part_number} 영역의 제출"
 
 #: courses/presenters/performance.py
 msgid "Part {part_number}"
-msgstr ""
+msgstr "{part_number} 영역"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
@@ -272,7 +272,7 @@ msgstr "비디오 선택"
 msgid ""
 "This chart shows the most common answers submitted by students, ordered by "
 "frequency."
-msgstr ""
+msgstr "차트는 학습자가 제출한 일반적인 답을 빈도순으로 나열한것입니다."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -280,13 +280,15 @@ msgid ""
 "Due to the number of possible variants for randomized problems, charts are "
 "not available. %(read_more_link_start)sRead more%(read_more_link_end)s."
 msgstr ""
+"무작위로 발생한 문제의 다수의 유형으로 인해 차트를 만들 수 없습니다. %(read_more_link_start)s더 알아보기Read "
+"more%(read_more_link_end)s."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid ""
 "Review all submission variants below, or click Download CSV to review them "
 "offline."
-msgstr ""
+msgstr "모든 제출된 결과물은 아래에 있습니다. 오프라인으로 보기 위해서는 CSV로 다운받기를 클릭하세요."
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Submission Counts"
@@ -310,69 +312,69 @@ msgstr "학습자 제출 수"
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
 msgid "Students (Self-Reported)"
-msgstr "학생수 (자가보고)"
+msgstr "학습자수 (자가보고)"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Weekly Student Engagement"
-msgstr "주간 학생 참여도"
+msgstr "주간 학습자 참여도"
 
 #: courses/templates/courses/engagement_content.html courses/views/__init__.py
 msgid "How many students are interacting with my course?"
-msgstr "몇명의 학생이 제 강의에 참여하고 있나요?"
+msgstr "몇 명의 학습자가 제 강좌에서 활동하고 있나요?"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students"
-msgstr "학생"
+msgstr "학습자"
 
 #: courses/templates/courses/engagement_content.html
 msgid ""
 "The number of active students, and the number of students who engaged in "
 "specific activities, over time."
-msgstr "수업에 참여하고 있는 학생수 및 어떤 특정한 활동에 참여하고 있는 학생수 "
+msgstr "활발히 참여하고 있는 학습자 수 및 특정 활동에 참여하고 있는 학습자 수"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Student Activity Metrics"
-msgstr "학생 활동 지표"
+msgstr "학습자 활동표"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Active Students Last Week"
-msgstr "지난주 수업에 참여한 학생수"
+msgstr "지난주 활발히 참여한 학습자"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who visited at least one page in the course content."
-msgstr "강의내용을 한 페이지라도 본 학생수 "
+msgstr "강좌 내용 중 최소 1 페이지에 방문한 학습자 수 "
 
 #. Translators: This is a label indicating the number of students who watched
 #. a video.
 #: courses/templates/courses/engagement_content.html
 msgid "Watched a Video Last Week"
-msgstr "지난주에 비디오를 본 학생수 "
+msgstr "지난주 동영상 시청자 수 "
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who played one or more videos."
-msgstr "비디오강좌를 하나 이상 본 학생들"
+msgstr "동영상 강좌를 1개 이상 시청한 학습자"
 
 #. Translators: This is a label indicating the number of students who tried a
 #. problem.
 #: courses/templates/courses/engagement_content.html
 msgid "Tried a Problem Last Week"
-msgstr "지난주에 한문제라도 풀어본 학생수 "
+msgstr "지난주 문제 1개를 풀기 시도한 학습자 수 "
 
 #: courses/templates/courses/engagement_content.html
 msgid ""
 "Students who submitted an answer for a standard problem. Not all problem "
 "types are included."
-msgstr "표준적인 문제를 완료한 학생들. 모든 문제 종류가 포함되어있지는 않습니다. "
+msgstr "기본 문제 답변을 완료한 학습자. 모든 문제 미포함"
 
 #. Translators: This is a label indicating the number of students who posted
 #. in a forum discussion.
 #: courses/templates/courses/engagement_content.html
 msgid "Posted in a Discussion Last Week"
-msgstr "지난주 토론방에 글을 쓴 학생수"
+msgstr "지난주 게시판에 글을 작성한 학습자 수"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who contributed to any discussion topic."
-msgstr "토론방에 한번이라도 참여한 학생수 "
+msgstr "게시판 주제에 기여한 학습자 수 "
 
 #: courses/templates/courses/engagement_content.html
 #: courses/templates/courses/engagement_content.html
@@ -392,9 +394,9 @@ msgstr "학습자들은 이 주제에서 동영상과 어떻게 상호작용을 
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that subsection. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that subsection. Click on bars with low totals or a high "
+"incomplete rate to drill down and understand why."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_by_subsection.html
@@ -406,6 +408,7 @@ msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
 "Click to understand where students drop off and which parts they replay."
 msgstr ""
+"각 막대표시는 동영상의 완료 혹은 미완료 시청의 수를 보여줍니다. 학습자가 줄어들거나 재실행하는 영역을 클릭해서 살펴보세요. "
 
 #: courses/templates/courses/engagement_video_course.html
 #: courses/views/__init__.py
@@ -414,9 +417,9 @@ msgstr "학습자들은 동영상과 어떻게 상호작용을 했습니까?"
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that section. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that section. Click on bars with low totals or a high incomplete "
+"rate to drill down and understand why."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
@@ -432,11 +435,11 @@ msgstr "동영상을 시청하는 패턴은 어떠했습니까?"
 msgid ""
 "The number of students who watched each segment of the video, and the number"
 " of replays for each segment."
-msgstr ""
+msgstr "동영상의 소영역을 본 학습자의 수와 각 소영역이 다시 재생된 횟수"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Metrics"
-msgstr ""
+msgstr "동영상 표"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Completion Rate"
@@ -444,40 +447,40 @@ msgstr "완료율"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Estimated percentage of students who watched the entire video."
-msgstr ""
+msgstr "전체 동영상을 시청한 학습자 비율 추정"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Started Video"
-msgstr ""
+msgstr "시작된 동영상"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who started watching the video."
-msgstr ""
+msgstr "동영상을 시청하기 시작한 학습자"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Finished Video"
-msgstr ""
+msgstr "종료된 동영상"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who watched the video to the end."
-msgstr ""
+msgstr "동영상을 끝까지 시청한 학습자"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Viewing Over Time"
-msgstr ""
+msgstr "시간별 동영상 시청"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
-msgstr "일일 학생 등록생"
+msgstr "오늘의 학습자 등록 수"
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/views/__init__.py
 msgid "How many students are in my course?"
-msgstr "제 강의에 몇 명의 학생들이 듣나요?"
+msgstr "강좌 수강 인원은 어떤가요?"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollments"
-msgstr "신입생"
+msgstr "등록 현황 "
 
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
@@ -485,61 +488,57 @@ msgid ""
 " each day. Total enrollment includes new enrollments as well as "
 "unenrollments."
 msgstr ""
-"이 그래프는 하루 끝에 계산이 된 총 등록생수를 보여줍니다.  총 등록생수는 새로운 등록생들과 강좌에서 탈퇴한 등록생수가 포함이 됩니다 "
+"이 그래프는 매일 집계되는 총 수강 현황을 보여줍니다.  총 수강 현황에는 신규 수강 현황뿐만 아니라 수강 취소 현황까지 포함됩니다. "
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollment Metrics"
 msgstr "등록 현황 통계"
 
-#. Translators: This is a label to identify current student enrollment.
+#. Translators: This is a label to identify the number of students who ever
+#. enrolled in the course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Total Enrollment"
-msgstr "전체 등록생"
+msgstr "전체 등록 "
+
+#. Translators: This is a label indicating the number of students in a course.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Students who ever enrolled in the course."
+msgstr "수강 신청한 학습자"
+
+#. Translators: This is a label to identify current student enrollment.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Current Enrollment"
+msgstr "현재 등록"
 
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
-msgid "Students enrolled in the course."
-msgstr "강의에 등록되어 있는 학생수 "
+msgid "Students currently enrolled in the course."
+msgstr "현재까지 등록한 학습자"
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Change in Last Week"
-msgstr "지난주에 있었던 학생수 변화 "
+msgstr "지난주 변동"
 
 #: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students enrolled at the end of the day"
-" yesterday and one week before."
-msgstr "오늘 있었던 새로운 등록생 수와 지난주에 있었던 새로운 등록생 수의 차이 "
+msgid "Net difference in current enrollment in the last week."
+msgstr "1주일 동안 등록자 수"
 
 #. Translators: This is a label to identify enrollment of students on the
 #. verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Verified Enrollment"
-msgstr "검증된 등록 학위 "
+msgstr "인증된 등록"
 
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course on the verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
-"Number of enrolled students who are pursuing a verified certificate of "
+"Number of currently enrolled students pursuing a verified certificate of "
 "achievement."
-msgstr "검증된 등록 학위를 추구하는 등록생 수 "
-
-#. Translators: This is a label indicating the change in the number of
-#. students enrolled in the verified track of a course since the previous
-#. week.
-#: courses/templates/courses/enrollment_activity.html
-msgid "Change in Verified Enrollments Last Week"
-msgstr "지난중에 있었던 검증된 등록 학위의 변화 "
-
-#: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students pursuing verified certificates"
-" at the end of the day yesterday and one week before."
-msgstr "오늘 있었던 검증된 등록 학위를 추구하는 등록생 수와 지난주에 있었던 검증된 등록 학위를 추구하는 등록생 수의 차이"
+msgstr "인증 수료증 취득을 희망하는 학습자의 수"
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html
@@ -547,12 +546,12 @@ msgstr "오늘 있었던 검증된 등록 학위를 추구하는 등록생 수�
 #: courses/templates/courses/enrollment_demographics_education.html
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "Enrollment Over Time"
-msgstr "시간 경과에 따른 등록 현황"
+msgstr "시간별 등록 현황"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 #: courses/views/__init__.py
 msgid "How old are my students?"
-msgstr "학생들의 나이가 어떻게 되나요?"
+msgstr "학습자의 연령이 어떻게 되나요?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -561,46 +560,46 @@ msgstr "학생들의 나이가 어떻게 되나요?"
 msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
 "students who provided a year of birth."
-msgstr "생년월일을 제공한 학생들 %(value)s%% 의 나이 히스토그램 "
+msgstr "생년월일을 제공한 학습자 %(value)s%% 의 나이 분포"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Metrics"
-msgstr "나이 지표"
+msgstr "연령표"
 
 #. Translators: This is a label to identify the median age of enrolled
 #. students.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Median Student Age"
-msgstr "학생들 나이의 중앙값"
+msgstr "학습자 연령의 중앙값"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The midpoint of the student ages, computed from the provided year of birth."
-msgstr "컴퓨터가 출생월일에 따라 측정을 한 학생들 나이의 중간값 "
+msgstr "출생 연도에 따라 산출한 학습자 연령의 중앙값 "
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 25 and Under"
-msgstr "25세 이하"
+msgstr "25세 이하 학습자"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The percentage of students aged 25 years or younger (of those who provided a"
 " year of birth)."
-msgstr "(생년월일을 제공한 학생들 중) 25세 이하 학생의 총 비율 "
+msgstr "(출생 연도를 제공한 학습자 중) 25세 이하 학습자의 총 비율 "
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 26 to 40"
-msgstr "26세~40세인 학생"
+msgstr "26세~40세인 학습자"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The percentage of students aged from 26 to 40 years (of those who provided a"
 " year of birth)."
-msgstr "(생년월일을 제공한 학생들 중) 26에서 40세 학생의 총 비율 "
+msgstr "(출생 연도를 제공한 학습자 중) 26에서 40세 학습자 총 비율 "
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
@@ -612,7 +611,7 @@ msgstr "41세 이상"
 msgid ""
 "The percentage of students aged 41 years or older (of those who provided a "
 "year of birth)."
-msgstr "(생년월일을 제공한 학생들 중) 41세 이상 학생의 총 비율 "
+msgstr "(생년월일을 제공한 학습자 중) 41세 이상 학생의 총 비율 "
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Breakdown"
@@ -621,7 +620,7 @@ msgstr "나이 분포도 "
 #: courses/templates/courses/enrollment_demographics_education.html
 #: courses/views/__init__.py
 msgid "What level of education do my students have?"
-msgstr "제 학생들은 어떤 교육 수준을 갖고 있습니까?"
+msgstr "전체 학습자의 학력은 어떻습니까?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -630,11 +629,11 @@ msgstr "제 학생들은 어떤 교육 수준을 갖고 있습니까?"
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled students who "
 "provided a highest level of education completed."
-msgstr "이 그래프는 자기의 최고교육과정을 밝힌 %(value)s%%의 등록생 데이터를 나타내고 있습니다."
+msgstr "그래프는 최종학력을 밝힌 %(value)s%%의 등록생 데이터를 나타내고 있습니다."
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Education Metrics"
-msgstr "가장 높았던 교육과정 지표 "
+msgstr "학력"
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -646,7 +645,7 @@ msgid ""
 "The percentage of students who selected Secondary/high school, Junior "
 "secondary/junior high/middle school, or Elementary/primary school as their "
 "highest level of education completed."
-msgstr "등록생들중 고졸, 중졸 및 초졸이 자기가 이수한 최고 교육 과정이라고 얘기한 학생들의 퍼센트 분포"
+msgstr "등록 학습자 중 초, 중, 고등학교 졸업이 최종 학력인 학습자 비율"
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -657,29 +656,27 @@ msgstr "학사"
 msgid ""
 "The percentage of students who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
-msgstr "등록생들중 대졸및 학사학위가 자기가 이수한 최고 교육 과정이라고 얘기한 학생들의 퍼센트 분포"
+msgstr "등록 학습자 중,  학사 및 준학사학위가 최종 학력인 학습자 비율"
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Advanced Degree"
-msgstr "대졸"
+msgstr "대학원 학위"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
 "The percentage of students who selected Doctorate or Master's or "
 "professional degree as their highest level of education completed."
-msgstr ""
-"등록생들중 석사학위 및 박사학위가 자기가 이수한 최고 교육 과정이라고 얘기한 학생들의 퍼센트 분포\n"
-" "
+msgstr "최종 학위를 석사 및 박사라고 선택한 학습자의 비율"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Educational Breakdown"
-msgstr "학생들의 최고 교육 분포도 "
+msgstr "학력 별 학습자 분포"
 
 #: courses/templates/courses/enrollment_demographics_gender.html
 #: courses/views/__init__.py
 msgid "What is the student gender breakdown?"
-msgstr "학생들의 성별 비율이 어떻게 됩니까? "
+msgstr "학습자의 성별 비율이 어떻습니까?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -696,16 +693,16 @@ msgstr "시간 경과에 따른 성별 지표"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geographic Distribution"
-msgstr "지리 분포도 "
+msgstr "지역 분포도 "
 
 #: courses/templates/courses/enrollment_geography.html
 #: courses/views/__init__.py
 msgid "Where are my students?"
-msgstr "제 학생들은 어디서 왔나요? "
+msgstr "제 학습자들은 어디서 왔나요? "
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Enrollment by Country"
-msgstr "국가별 등록 학생수 "
+msgstr "국가별 등록 학습자 수 "
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geography Metrics"
@@ -719,43 +716,43 @@ msgstr "총 참여하는 국가수 "
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Countries with at least one student."
-msgstr "적어도 하나의 학생이 이 강좌에 등록을 한 국가"
+msgstr "최소 1명 이상의 학습자가 등록을 한 국가"
 
 #. Translators: This string represents the country with the greatest number of
 #. enrolled students.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Top Country by Enrollment"
-msgstr "가장 많은 학생이 등록되어 있는 국가순 "
+msgstr "가장 많은 학습자가 등록되어 있는 국가"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the largest number of students."
-msgstr "가장 많은 학생이 등록되어 있는 국가"
+msgstr "가장 많은 학습자가 등록되어 있는 국가"
 
 #. Translators: This string represents the country with the second-greatest
 #. number of enrolled students.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Second Country by Enrollment"
-msgstr "두번째로 많은 학생이 등록되어 있는 국가"
+msgstr "두번째로 많은 학습자가 등록되어 있는 국가"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the second largest number of students."
-msgstr "두번째로 많은 학생이 등록되어 있는 국가"
+msgstr "두번째로 많은 학습자가 등록되어 있는 국가"
 
 #. Translators: This string represents the country with the third-greatest
 #. number of enrolled students.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Third Country by Enrollment"
-msgstr "세번째로 많은 학생이 등록되어 있는 국가"
+msgstr "세번째로 많은 학습자가 등록되어 있는 국가"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the third largest number of students."
-msgstr "세번째로 많은 학생이 등록되어 있는 국가"
+msgstr "세번째로 많은 학습자가 등록되어 있는 국가"
 
 #. Translators: This string represents the percentage of students in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
 #: courses/templates/courses/enrollment_geography.html
 msgid "%(percent)s%% of students"
-msgstr "%(percent)s%% 의 학생들"
+msgstr "%(percent)s%%의 학습자"
 
 #: courses/templates/courses/enrollment_geography.html
 #: courses/templates/courses/enrollment_geography.html
@@ -771,7 +768,7 @@ msgstr "앱"
 
 #: courses/templates/courses/home.html courses/views/__init__.py
 msgid "Course Home"
-msgstr "강좌홈"
+msgstr "강좌 홈"
 
 #. Translators: This refers to the active tab/navigation item.
 #. Translators: This refers to the active tab/navigation item.
@@ -790,7 +787,7 @@ msgstr "환영합니다 %(username)s님!"
 
 #: courses/templates/courses/index.html
 msgid "Here are the courses you currently have access to in Insights:"
-msgstr "당신이 인사이트에서 접근권한이 있는 모든 강좌들 입니다."
+msgstr "Insights에서 접근 권한이 있는 모든 강좌들입니다."
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
@@ -807,33 +804,33 @@ msgstr ""
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
 msgid "How did students answer this problem?"
-msgstr ""
+msgstr "이 문제에 대해 학습자들은 어덯게 답하고 있나요?"
 
 #: courses/templates/courses/performance_assignment.html
 msgid "How are students doing on this assignment?"
-msgstr ""
+msgstr "학습자는 이 과제를 어떻게 수행하고 있나요?"
 
 #: courses/templates/courses/performance_assignment.html
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid ""
 "These bars show the correct and incorrect submission counts for each "
 "problem. Only the last submission from each student is counted."
-msgstr ""
+msgstr "각 막대표시는 문제들의 정답및 오답 제출을 보여줍니다. 각 학습자의 최근 제출  결과를 바탕으로 산출되었습니다."
 
 #: courses/templates/courses/performance_assignment.html
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid "Problem Submissions"
-msgstr ""
+msgstr "문제 제출"
 
 #: courses/templates/courses/performance_graded_content.html
 msgid "Which assignment type do you want to investigate?"
-msgstr ""
+msgstr "어떤 과제 유형을 살펴보길 원하세요?"
 
 #: courses/templates/courses/performance_graded_content.html
 msgid ""
 "Click an assignment type to view more detail information about the "
 "assignments."
-msgstr ""
+msgstr "과제에 대한 더 자세한 정보를 보기 위해 과제 유형을 클릭하세요."
 
 #. Translators: This describes the percent an assignment contributes to that
 #. of a learner's grade (e.g. Exam: 60% of the grading policy.).
@@ -843,6 +840,8 @@ msgid ""
 "                %(assignment_type)s: %(policy_ratio)s%% of the grading policy\n"
 "              "
 msgstr ""
+"\n"
+"%(assignment_type)s: 성적 규정의 %(policy_ratio)s%% "
 
 #. Translators: This describes the percent of a learner's grade (e.g. 60%).
 #: courses/templates/courses/performance_graded_content.html
@@ -855,6 +854,8 @@ msgid ""
 "      How are students doing on the %(type)s?\n"
 "    "
 msgstr ""
+"\n"
+"학습자들은 %(type)s를 어떻게 수행하고 있나요?"
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
@@ -862,43 +863,47 @@ msgid ""
 "problems in the assignment. Only the last submission from each student is "
 "counted."
 msgstr ""
+"소주제별 각 막대표시는 과제에서 문제들의 정답및 오답 제출의 평균을 보여줍니다. 각 학습자의 최근 제출한  결과를 바탕으로 "
+"산출되었습니다."
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid "Assignment Submissions"
-msgstr ""
+msgstr "과제 제출"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are students doing on this section?"
-msgstr ""
+msgstr "이 주제에서 학습자는 어떻게 수행하고 있나요?"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each subsection. Only the last submission from each student is counted."
 msgstr ""
+"각 막대 표시는 각 소주제의 정답 및 오답 제출의 평균 수를 보여 줍니다. 각 학습자의 최근 제출 결과를 바탕으로 산출되었습니다."
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "Subsection Submissions"
-msgstr ""
+msgstr "소주제 영역 제출"
 
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid "How are students doing on this subsection?"
-msgstr ""
+msgstr "학습자는 소주제 영역에서 어떻게 수행하고 있나요?"
 
 #: courses/templates/courses/performance_ungraded_content.html
 #: courses/views/__init__.py
 msgid "How are students doing on ungraded exercises?"
-msgstr ""
+msgstr "학습자는 채점되지 않는 연습을 어떻게 수행하고 있나요?"
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each section. Only the last submission from each student is counted."
 msgstr ""
+"각 막대 표시는 각 주제의 정답 및 오답 제출의 평균 수를 보여 줍니다. 각 학습자의 최근 제출 결과를 바탕으로 산출되었습니다."
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid "Section Submissions"
-msgstr ""
+msgstr "주제 영역에서 제출"
 
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
@@ -912,12 +917,11 @@ msgid ""
 "There was a problem retrieving course permissions for your account. Please "
 "try again. If you continue to experience issues, please let us know."
 msgstr ""
-"당신의 계정에서 강좌 권한을 찾는데 문제가 발생했습니다. 다시 시도해 주시기를 바랍니다. 만약 이 문제가 계속해서 일어날 때 저희한테 "
-"알려 주십시오."
+"귀하의 계정에서 강좌 권한을 찾는데 문제가 발생했습니다. 잠시 후에 다시 시도하세요. 만약 이 문제가 계속되면 관리자에게 연락바랍니다. "
 
 #: courses/templates/courses/permissions-retrieval-failed.html
 msgid "Try Again"
-msgstr "다시 시도"
+msgstr "다시 시도하세요."
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
@@ -928,7 +932,7 @@ msgstr "활동"
 #: courses/views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Demographics"
-msgstr "인구 통계"
+msgstr "학습자 통계"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
@@ -964,24 +968,24 @@ msgstr "비디오"
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
 msgid "Graded Content"
-msgstr ""
+msgstr "채점된 콘텐츠"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
 msgid "Ungraded Problems"
-msgstr ""
+msgstr "채점되지 않은 문제"
 
 #: courses/views/__init__.py
 msgid "What are students doing in my course?"
-msgstr "학생들이 제 강의에서 무엇을 하나요?"
+msgstr "학습자는 강좌에서 무엇을 하나요?"
 
 #: courses/views/__init__.py
 msgid "How are students doing on course assignments?"
-msgstr ""
+msgstr "학습자들은 강좌의 과제를 어떻게 수행하고 있나요?"
 
 #: courses/views/__init__.py
 msgid "How are students doing on graded course assignments?"
-msgstr ""
+msgstr "학습자들이 채점되는 과제를 어떻게 수행하고 있나요?"
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
@@ -992,21 +996,20 @@ msgstr "참여 내용"
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
-"학생들의 참여 내용 데이터는 %(update_date)s %(update_time)s UTC에 마지막으로 업데이트가 되었습니다."
+msgstr "학습자의 참여 자료는 %(update_date)s %(update_time)s UTC에 마지막으로 업데이트가 되었습니다."
 
 #: courses/views/engagement.py
 msgid "Engagement Videos"
-msgstr ""
+msgstr "참여 비디오"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
+msgstr "동영상 자료가  %(update_time)s UTC의 %(update_date)s에 업데이트 되었습니다."
 
 #: courses/views/engagement.py
 msgid "Looks like no one has watched any videos in these sections."
-msgstr ""
+msgstr "이 주제에서는 동영상을 아무도 시청하지 않은 것으로 보입니다. "
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Section Name"
@@ -1026,7 +1029,7 @@ msgid ""
 "Demographic student data was last updated %(update_date)s at %(update_time)s"
 " UTC."
 msgstr ""
-"학생들의 인구 통계 데이터는 %(update_date)s %(update_time)s UTC에 마지막으로 업데이트가 되었습니다."
+"학습자의 배경 정보 통계는 %(update_date)s %(update_time)s UTC에 마지막으로 업데이트가 되었습니다."
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
@@ -1067,14 +1070,14 @@ msgstr "등록생들의 지리적 위치 "
 msgid ""
 "Geographic student data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr "지리적 학생 데이터는 %(update_date)s %(update_time)s UTC에 마지막으로 업데이트가 되었습니다. "
+msgstr "학습자의 지역 정보는 %(update_date)s %(update_time)s UTC에 마지막으로 업데이트가 되었습니다. "
 
 #. Translators: Do not translate UTC.
 #: courses/views/performance.py
 msgid ""
 "Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "문제 제출 자료가 %(update_time)s UTC의 %(update_date)s에 업데이트 되었습니다."
 
 #: courses/views/performance.py
 msgid "Assignment Name"
@@ -1082,19 +1085,19 @@ msgstr "과제 명"
 
 #: courses/views/performance.py
 msgid "No submissions received for these exercises."
-msgstr ""
+msgstr "연습과 관련된 제출이 없습니다."
 
 #: courses/views/performance.py
 msgid "No submissions received for these assignments."
-msgstr ""
+msgstr "과제와 관련된 제출이 없습니다."
 
 #: courses/views/performance.py courses/views/performance.py
 msgid "Performance: Problem Submissions"
-msgstr ""
+msgstr "수행: 문제 제출"
 
 #: courses/views/performance.py
 msgid "Graded Content: %(assignment_type)s"
-msgstr ""
+msgstr "채점된 콘텐츠: %(assignment_type)s"
 
 #: courses/views/performance.py courses/views/performance.py
 msgid "Problem Name"
@@ -1109,9 +1112,7 @@ msgid ""
 "You do not have permission to view this page. If you believe you should have"
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
-msgstr ""
-"당신은 이 페이지를 볼 수 있는 권한이 없습니다. 만약 당신이 이 페이지를 접속할 수 있는 권한이 있어야 한다고 생각을 한다면 로그아웃을"
-" 한뒤 다시 로그인을 하셔서 권한을 새로고침하십시요. "
+msgstr "이 페이지를 볼 수 있는 권한이 없습니다. "
 
 #: templates/403.html
 msgid "Logout then Login"
@@ -1125,11 +1126,11 @@ msgstr "페이지가 없습니다."
 msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
-msgstr "당신이 찾고 싶은 페이지를 저희가 찾지 못했습니다. 부디 요청하신 URL이 맞는지 확인해보시고 다시 시도해주시길 바랍니다."
+msgstr "당신이 찾고 싶은 페이지를 저희가 찾지 못했습니다. 부디 요청하신 URL이 맞는지 확인해보시고 다시 시도하세요."
 
 #: templates/500.html templates/500.html.py
 msgid "An Error Occurred"
-msgstr "오류 발생"
+msgstr "오류가 발생했습니다."
 
 #: templates/500.html
 msgid ""
@@ -1139,7 +1140,7 @@ msgstr "저희 서버가 당신의 요청을 완료할수 없었습니다. 부�
 
 #: templates/503.html templates/503.html.py
 msgid "We're having trouble loading this page. Please try again in a minute."
-msgstr ""
+msgstr "이 페이지를 불러오는데 문제가 있습니다. 잠시 후에 다시 시도하세요."
 
 #: templates/503.html
 msgid "(Technical details: 503 Service Unavailable.)"
@@ -1170,9 +1171,8 @@ msgid ""
 "%(support_link_start)sVisit our support forum%(support_link_end)s. Comments "
 "or suggestions? Email %(email_link)s."
 msgstr ""
-"저희 EDx팀은 이 대쉬보드가 당신에게 도움을 주기를 바랍니다! 도움이 필요하십니까? %(support_link_start)s저희의 지원"
-" 포럼을 방문해 주십시오%(support_link_end)s. 만약 저희 EDx팀에게 의견이나 제안을 하시려면 "
-"%(email_link)s으로 이메일을 보내 주세요.  "
+"도움이 필요하십니까? %(support_link_start)s 지원 게시판으로 연결합니다.%(support_link_end)s. 의견이나"
+" 제안이 있을 경우,  %(email_link)s으로 이메일을 보내주세요.  "
 
 #: templates/footer.html
 msgid "Terms of Service"
@@ -1187,7 +1187,7 @@ msgstr "개인정보 보호 정책"
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
 "            reserved. "
-msgstr "%(current_year)s %(platform_name)s에 공지가 되어있지 않으면 모든 권힌이 보호됩니다 "
+msgstr "%(current_year)s %(platform_name)s에 특별한 언급이 없을 경우, 모든 권한이 보호됩니다. "
 
 #: templates/header.html
 msgid "Toggle navigation"
@@ -1203,7 +1203,7 @@ msgstr "로그아웃"
 
 #: templates/loading.html
 msgid "Loading"
-msgstr "로딩"
+msgstr "불러오는 중"
 
 #: templates/section_error.html
 msgid "We are unable to load this chart."

@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 11:21-0400\n"
-"PO-Revision-Date: 2015-07-08 10:21+0000\n"
-"Last-Translator: Toshiboumi Ohta <ohta@securesky-tech.com>\n"
+"POT-Creation-Date: 2015-09-04 10:05-0400\n"
+"PO-Revision-Date: 2015-09-04 14:06+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/open-edx/edx-platform/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -394,11 +394,10 @@ msgstr "受講者がこの章のビデオとどのようにやりとりしてい
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that subsection. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that subsection. Click on bars with low totals or a high "
+"incomplete rate to drill down and understand why."
 msgstr ""
-"節にあるビデオのうちいくつを完了したか、完了できていないかを、それぞれの棒グラフが示しています。完了本数が少なかったり、未完了の本数が多い理由を、棒グラフをクリックしてドリルダウンすることで理解できます。"
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did students interact with videos in this subsection?"
@@ -418,11 +417,10 @@ msgstr "受講者が講座のビデオとどのようにやりとりしている
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that section. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that section. Click on bars with low totals or a high incomplete "
+"rate to drill down and understand why."
 msgstr ""
-"章にあるビデオのうちいくつを完了したか、完了できていないかを、それぞれの棒グラフが示しています。完了本数が少なかったり、未完了の本数が多い理由を、棒グラフをクリックしてドリルダウンすることで理解できます。"
 
 #: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
@@ -496,16 +494,27 @@ msgstr ""
 msgid "Enrollment Metrics"
 msgstr "受講登録指標"
 
-#. Translators: This is a label to identify current student enrollment.
+#. Translators: This is a label to identify the number of students who ever
+#. enrolled in the course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Total Enrollment"
 msgstr "合計履修"
 
+#. Translators: This is a label indicating the number of students in a course.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Students who ever enrolled in the course."
+msgstr "この講座を受講したことのある生徒。"
+
+#. Translators: This is a label to identify current student enrollment.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Current Enrollment"
+msgstr "現在の受講状況"
+
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
-msgid "Students enrolled in the course."
-msgstr "この講座の受講登録者数"
+msgid "Students currently enrolled in the course."
+msgstr "この講座を現在受講中の生徒。"
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
@@ -514,10 +523,8 @@ msgid "Change in Last Week"
 msgstr "先週の変動数"
 
 #: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students enrolled at the end of the day"
-" yesterday and one week before."
-msgstr "昨日時点と、先週時点での受講登録者数の差分です。"
+msgid "Net difference in current enrollment in the last week."
+msgstr "先週までの受講登録の正味差分。"
 
 #. Translators: This is a label to identify enrollment of students on the
 #. verified track.
@@ -529,22 +536,9 @@ msgstr "認証された履修"
 #. a course on the verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
-"Number of enrolled students who are pursuing a verified certificate of "
+"Number of currently enrolled students pursuing a verified certificate of "
 "achievement."
-msgstr "本人認証付きコースを選択した受講者数"
-
-#. Translators: This is a label indicating the change in the number of
-#. students enrolled in the verified track of a course since the previous
-#. week.
-#: courses/templates/courses/enrollment_activity.html
-msgid "Change in Verified Enrollments Last Week"
-msgstr "先週の本人認証付きコースへの変更数"
-
-#: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students pursuing verified certificates"
-" at the end of the day yesterday and one week before."
-msgstr "昨日時点と、先週時点での本人認証付きコースの受講者数の差分です。"
+msgstr "本人認証付き修了書を希望している現在受講中の受講者数。"
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html

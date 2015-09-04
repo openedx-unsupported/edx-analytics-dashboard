@@ -12,6 +12,7 @@
 # Nacho Díaz <nachotheix@gmail.com>, 2014
 # Óscar Arce Ruiz <oscararceruiz@hotmail.com>, 2014
 # Oscar Carrero <holaoscar@protonmail.ch>, 2015
+# Rocío Pérez Venero <perezvenero.rocio@gmail.com>, 2015
 # UAMx <uamx.dev@gmail.com>, 2014-2015
 # Valeria Freire <valtodopds@hotmail.com>, 2014
 # Verónica López Fernández <veronicalopezfernandez@gmail.com>, 2014
@@ -20,10 +21,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 11:21-0400\n"
-"PO-Revision-Date: 2015-06-19 15:22+0000\n"
+"POT-Creation-Date: 2015-09-04 10:05-0400\n"
+"PO-Revision-Date: 2015-09-04 14:06+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
-"Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/edx-platform/language/es_ES/)\n"
+"Language-Team: Spanish (Spain) (http://www.transifex.com/open-edx/edx-platform/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -303,6 +304,8 @@ msgid ""
 "Review all submission variants below, or click Download CSV to review them "
 "offline."
 msgstr ""
+"Revise todas las variantes de las entregas a continuación, o pinche en "
+"Descargar CSV para revisarlas sin conexión."
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Submission Counts"
@@ -412,9 +415,9 @@ msgstr "¿Cómo se relacionaron los alumnos con los vídeos en este apartado?"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that subsection. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that subsection. Click on bars with low totals or a high "
+"incomplete rate to drill down and understand why."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_by_subsection.html
@@ -426,17 +429,20 @@ msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
 "Click to understand where students drop off and which parts they replay."
 msgstr ""
+"Cada barra muestra la cantidad de reproducciones completas e incompletas de "
+"ese vídeo. Pinche para ver dónde paran los estudiantes, y qué partes vuelven"
+" a reproducir."
 
 #: courses/templates/courses/engagement_video_course.html
 #: courses/views/__init__.py
 msgid "How did students interact with course videos?"
-msgstr ""
+msgstr "¿Cómo han interaccionado los estudiantes con los vídeos del curso?"
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that section. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that section. Click on bars with low totals or a high incomplete "
+"rate to drill down and understand why."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
@@ -486,7 +492,7 @@ msgstr "Alumnos que vieron el vídeo hasta el final."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Viewing Over Time"
-msgstr ""
+msgstr "Visionado del vídeo con el paso del tiempo"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
@@ -514,16 +520,27 @@ msgstr ""
 msgid "Enrollment Metrics"
 msgstr "Estadística de inscripciones"
 
-#. Translators: This is a label to identify current student enrollment.
+#. Translators: This is a label to identify the number of students who ever
+#. enrolled in the course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Total Enrollment"
 msgstr "Inscripción total"
 
+#. Translators: This is a label indicating the number of students in a course.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Students who ever enrolled in the course."
+msgstr "Estudiantes que se han inscrito en el curso."
+
+#. Translators: This is a label to identify current student enrollment.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Current Enrollment"
+msgstr "Inscripción actual"
+
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
-msgid "Students enrolled in the course."
-msgstr "Alumnos inscritos al curso"
+msgid "Students currently enrolled in the course."
+msgstr "Estudiantes inscritos actualmente en el curso."
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
@@ -532,12 +549,8 @@ msgid "Change in Last Week"
 msgstr "Cambios en la semana anterior"
 
 #: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students enrolled at the end of the day"
-" yesterday and one week before."
+msgid "Net difference in current enrollment in the last week."
 msgstr ""
-"Diferencia entre el número de alumnos inscritos al día de ayer y una semana "
-"antes."
 
 #. Translators: This is a label to identify enrollment of students on the
 #. verified track.
@@ -549,26 +562,11 @@ msgstr "Inscripciones verificadas"
 #. a course on the verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
-"Number of enrolled students who are pursuing a verified certificate of "
+"Number of currently enrolled students pursuing a verified certificate of "
 "achievement."
 msgstr ""
-"Número de alumnos inscritos que pretenden conseguir un Certificado de "
-"Verificación de resultados obtenidos."
-
-#. Translators: This is a label indicating the change in the number of
-#. students enrolled in the verified track of a course since the previous
-#. week.
-#: courses/templates/courses/enrollment_activity.html
-msgid "Change in Verified Enrollments Last Week"
-msgstr "Cambios en las inscripciones comprobadas la semana anterior"
-
-#: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students pursuing verified certificates"
-" at the end of the day yesterday and one week before."
-msgstr ""
-"Diferencia entre el número de alumnos que pretenden conseguir un Certificado"
-" Verificado al final del día de ayer y una semana antes."
+"Número de estudiantes inscritos actualmente que pretenden conseguir un "
+"Certificado de Verificación de resultados obtenidos."
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html
@@ -867,6 +865,8 @@ msgid ""
 "These bars show the correct and incorrect submission counts for each "
 "problem. Only the last submission from each student is counted."
 msgstr ""
+"Estas barras muestran la cantidad de entregas correctas e incorrectas para "
+"cada ejercicio. Solo se contará la última entrega de cada estudiante."
 
 #: courses/templates/courses/performance_assignment.html
 #: courses/templates/courses/performance_ungraded_by_subsection.html
@@ -882,6 +882,8 @@ msgid ""
 "Click an assignment type to view more detail information about the "
 "assignments."
 msgstr ""
+"Pinche en un tipo de actividad para ver información más detallada sobre las "
+"actividades."
 
 #. Translators: This describes the percent an assignment contributes to that
 #. of a learner's grade (e.g. Exam: 60% of the grading policy.).
@@ -916,6 +918,9 @@ msgid ""
 "problems in the assignment. Only the last submission from each student is "
 "counted."
 msgstr ""
+"Cada barra muestra el promedio de entregas correctas e incorrectas para los "
+"problemas de la actividad. Solo se contará la última entrega de cada "
+"estudiante."
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid "Assignment Submissions"
@@ -930,29 +935,33 @@ msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each subsection. Only the last submission from each student is counted."
 msgstr ""
+"Cada barra muestra el promedio de entregas correctas e incorrectas para cada"
+" subapartado. Solo se contará la última entrega de cada estudiante."
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "Subsection Submissions"
-msgstr ""
+msgstr "Entregas del subapartado"
 
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid "How are students doing on this subsection?"
-msgstr ""
+msgstr "¿Cómo les va a los estudiantes en este subapartado?"
 
 #: courses/templates/courses/performance_ungraded_content.html
 #: courses/views/__init__.py
 msgid "How are students doing on ungraded exercises?"
-msgstr ""
+msgstr "¿Cómo les va a los estudiantes en los ejercicios no evaluables?"
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each section. Only the last submission from each student is counted."
 msgstr ""
+"Cada barra muestra el promedio de entregas correctas e incorrectas para cada"
+" apartado. Solo se contará la última entrega de cada estudiante."
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid "Section Submissions"
-msgstr ""
+msgstr "Entregas del apartado"
 
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
@@ -1036,7 +1045,7 @@ msgstr "¿Cómo les va a los alumnos en las tareas del curso?"
 
 #: courses/views/__init__.py
 msgid "How are students doing on graded course assignments?"
-msgstr ""
+msgstr "¿Cómo les va a los alumnos en las tareas evaluables del curso?"
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
@@ -1059,6 +1068,8 @@ msgstr ""
 #: courses/views/engagement.py
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr ""
+"Los datos del vídeo fueron actualizados por última vez el %(update_date)s a "
+"las %(update_time)s UTC."
 
 #: courses/views/engagement.py
 msgid "Looks like no one has watched any videos in these sections."

@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 11:21-0400\n"
-"PO-Revision-Date: 2015-07-21 06:53+0000\n"
-"Last-Translator: yuval zana\n"
+"POT-Creation-Date: 2015-09-04 10:05-0400\n"
+"PO-Revision-Date: 2015-09-04 14:06+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Hebrew (http://www.transifex.com/open-edx/edx-platform/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,7 +39,10 @@ msgstr "..."
 #. no label was provided.
 #. Translators: (empty) is displayed as a label in a chart and indicates that
 #. no label was provided.
+#. Translators: (empty) is displayed as a label in a chart and indicates that
+#. no label was provided.
 #: static/dist/js/common.js static/dist/js/engagement-video-content-main.js
+#: static/dist/js/engagement-videos-main.js
 #: static/dist/js/enrollment-demographics-education-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/dist/js/performance-answer-distribution-main.js
@@ -90,21 +93,33 @@ msgstr "פרסם בפורום"
 msgid "Week Ending <%=value%>"
 msgstr "שבוע מסתיים <%=value%>"
 
+#. Translators: <%=value%> will be replaced by a number followed by a
+#. percentage.
+#. For example, "400 (29%)"
 #: static/dist/js/engagement-video-content-main.js
-#: static/js/engagement-video-content-main.js
-msgid "Complete Views"
-msgstr "צפיות שהושלמו"
+#: static/dist/js/engagement-videos-main.js
+#: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-problems-main.js
+#: static/js/views/stacked-bar-view.js
+msgid "<%=value%> (<%=percent%>)"
+msgstr "<%=value%> (<%=percent%>)"
 
 #: static/dist/js/engagement-video-content-main.js
 #: static/js/engagement-video-content-main.js
-msgid "Incomplete Views"
-msgstr "צפיות שלא הושלמו"
+msgid "Average Complete Views"
+msgstr ""
 
 #: static/dist/js/engagement-video-content-main.js
+#: static/js/engagement-video-content-main.js
+msgid "Average Incomplete Views"
+msgstr ""
+
+#: static/dist/js/engagement-video-content-main.js
+#: static/dist/js/engagement-videos-main.js
 #: static/dist/js/performance-content-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/engagement-video-content-main.js
-#: static/js/performance-content-main.js
+#: static/js/engagement-videos-main.js static/js/performance-content-main.js
 #: static/js/performance-problems-main.js
 msgid "Order"
 msgstr "סדר"
@@ -115,28 +130,11 @@ msgid "Videos"
 msgstr "סרטונים"
 
 #: static/dist/js/engagement-video-content-main.js
+#: static/dist/js/engagement-videos-main.js
 #: static/js/engagement-video-content-main.js
+#: static/js/engagement-videos-main.js
 msgid "Completion Percentage"
 msgstr "אחוז השלמה"
-
-#. Translators: <%=value%> will be replaced by a number followed by a
-#. percentage.
-#. For example, "400 (29%)"
-#. Translators: <%=value%> will be replaced by a number followed by a
-#. percentage.
-#. For example, "40.8 (29%)"
-#. Translators: <%=value%> will be replaced by a number followed by a
-#. percentage.
-#. For example, "400 (29%)"
-#. Translators: <%=value%> will be replaced by a number followed by a
-#. percentage.
-#. For example, "400 (29%)"
-#: static/dist/js/engagement-video-content-main.js
-#: static/dist/js/performance-content-main.js
-#: static/dist/js/performance-problems-main.js
-#: static/js/views/stacked-bar-view.js
-msgid "<%=value%> (<%=percent%>)"
-msgstr "<%=value%> (<%=percent%>)"
 
 #: static/dist/js/engagement-video-timeline-main.js
 #: static/js/engagement-video-timeline-main.js
@@ -153,6 +151,16 @@ msgstr "תגובות"
 msgid "Time"
 msgstr "זמן"
 
+#: static/dist/js/engagement-videos-main.js
+#: static/js/engagement-videos-main.js
+msgid "Complete Views"
+msgstr "צפיות שהושלמו"
+
+#: static/dist/js/engagement-videos-main.js
+#: static/js/engagement-videos-main.js
+msgid "Incomplete Views"
+msgstr "צפיות שלא הושלמו"
+
 #: static/dist/js/enrollment-activity-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-activity-main.js
@@ -168,8 +176,8 @@ msgstr "תאריך"
 #: static/js/enrollment-activity-main.js
 #: static/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-geography-main.js
-msgid "Total Enrollment"
-msgstr "הרשמה כוללת"
+msgid "Current Enrollment"
+msgstr "רישום נוכחי"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
