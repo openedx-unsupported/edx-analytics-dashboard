@@ -1,5 +1,10 @@
 {% extends "courses/engagement_grouped_content.html" %}
 {% load i18n %}
+{% load rjs %}
+
+{% block engagement_javascript %}
+    <script src="{% static_rjs 'js/engagement-videos-main.js' %}"></script>
+{% endblock engagement_javascript %}
 
 {% block content_nav %}
     {% trans "How did students interact with videos in this subsection?" as heading_note %}

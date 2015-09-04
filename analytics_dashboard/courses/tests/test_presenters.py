@@ -1,4 +1,5 @@
 from __future__ import division
+import copy
 import datetime
 
 import analyticsclient.constants.activity_type as AT
@@ -212,6 +213,35 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
             'start_only_users': start_only_users,
             'start_only_percent': start_only_users / max_users,
         })
+
+    def test_attach_aggregated_data_to_parent(self):
+        parent = {
+            'num_modules': 2,
+            'children': [
+                {
+                    'users_at_start': 60,
+                    'users_at_end': 40,
+                },
+                {
+                    'users_at_start': 0,
+                    'users_at_end': 0,
+                },
+            ]
+        }
+        expected = copy.deepcopy(parent)
+        expected.update({
+            'users_at_start': 60,
+            'users_at_end': 40,
+            'index': 1,
+            'average_users_at_start': 30,
+            'average_users_at_end': 20,
+            'end_percent': 2/3,
+            'start_only_users': 20,
+            'start_only_percent': 1/3,
+        })
+
+        self.presenter.attach_aggregated_data_to_parent(0, parent)
+        self.assertDictEqual(parent, expected)
 
     @mock.patch('analyticsclient.course.Course.videos')
     def test_fetch_course_module_data(self, mock_videos):

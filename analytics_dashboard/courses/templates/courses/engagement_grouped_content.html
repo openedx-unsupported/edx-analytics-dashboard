@@ -5,7 +5,10 @@
 
 {% block javascript %}
     {{ block.super }}
-    <script src="{% static_rjs 'js/engagement-video-content-main.js' %}"></script>
+    {# override for custom JS loading #}
+    {% block engagement_javascript %}
+        <script src="{% static_rjs 'js/engagement-video-content-main.js' %}"></script>
+    {% endblock engagement_javascript %}
 {% endblock javascript %}
 
 {% block table_title %}

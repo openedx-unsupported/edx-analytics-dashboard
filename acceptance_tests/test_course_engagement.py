@@ -166,11 +166,11 @@ class CourseEngagementVideoMixin(CourseEngagementPageTestsMixin):
 @skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test the video pages.')
 class CourseEngagementVideoContentTests(CourseEngagementVideoMixin, WebAppTest):
     expected_heading = u'How did students interact with course videos?'
-    expected_tooltip = u'Each bar shows the counts of complete and incomplete views of the videos in that section. ' \
-                       u'Click on bars with low totals or a high incomplete rate to drill down and understand ' \
-                       u'why.'
-    expected_table_columns = [u'Order', u'Section Name', u'Videos', u'Complete Views', u'Incomplete Views',
-                              u'Completion Percentage']
+    expected_tooltip = u'Each bar shows the average number of complete and incomplete views for videos in that ' \
+                       u'section. Click on bars with low totals or a high incomplete rate to drill down and ' \
+                       u'understand why.'
+    expected_table_columns = [u'Order', u'Section Name', u'Videos', u'Average Complete Views',
+                              u'Average Incomplete Views', u'Completion Percentage']
 
     def setUp(self):
         super(CourseEngagementVideoContentTests, self).setUp()
@@ -181,11 +181,11 @@ class CourseEngagementVideoContentTests(CourseEngagementVideoMixin, WebAppTest):
 @skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test the video pages.')
 class CourseEngagementVideoSectionTests(CourseEngagementVideoMixin, WebAppTest):
     expected_heading = u'How did students interact with videos in this section?'
-    expected_tooltip = u'Each bar shows the counts of complete and incomplete views of the videos in that ' \
+    expected_tooltip = u'Each bar shows the average number of complete and incomplete views for videos in that ' \
                        u'subsection. Click on bars with low totals or a high incomplete rate to drill down and ' \
                        u'understand why.'
-    expected_table_columns = [u'Order', u'Subsection Name', u'Videos', u'Complete Views', u'Incomplete Views',
-                              u'Completion Percentage']
+    expected_table_columns = [u'Order', u'Subsection Name', u'Videos', u'Average Complete Views',
+                              u'Average Incomplete Views', u'Completion Percentage']
 
     def setUp(self):
         super(CourseEngagementVideoSectionTests, self).setUp()

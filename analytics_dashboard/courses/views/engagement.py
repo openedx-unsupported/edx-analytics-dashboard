@@ -71,9 +71,6 @@ class EngagementVideoContentTemplateView(CourseStructureMixin, CourseStructureEx
     def get_context_data(self, **kwargs):
         self.presenter = CourseEngagementVideoPresenter(self.access_token, self.course_id)
         context = super(EngagementVideoContentTemplateView, self).get_context_data(**kwargs)
-        context['js_data']['course'].update({
-            'showVideoCount': True,  # overwrite to hide video count column
-        })
         context.update({
             'sections': self.presenter.sections(),
             'update_message': self.get_last_updated_message(self.presenter.last_updated),
@@ -122,7 +119,6 @@ class EngagementVideoSubsection(EngagementVideoContentTemplateView):
         self.set_primary_content(context, videos)
         context['js_data']['course'].update({
             'contentTableHeading': _('Video Name'),
-            'showVideoCount': False,  # overwrite to hide video count column
         })
         context.update({
             'page_data': self.get_page_data(context)
