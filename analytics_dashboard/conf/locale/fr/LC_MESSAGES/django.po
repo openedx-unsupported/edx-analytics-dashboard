@@ -23,9 +23,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 11:21-0400\n"
-"PO-Revision-Date: 2015-07-26 20:33+0000\n"
-"Last-Translator: Sebastien Vigneau <sebastien.vigneau@gmail.com>\n"
+"POT-Creation-Date: 2015-09-04 10:05-0400\n"
+"PO-Revision-Date: 2015-09-04 14:06+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: French (http://www.transifex.com/open-edx/edx-platform/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -419,9 +419,9 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that subsection. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that subsection. Click on bars with low totals or a high "
+"incomplete rate to drill down and understand why."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_by_subsection.html
@@ -443,9 +443,9 @@ msgstr "Comment les étudiants ont-ils interagi avec les vidéos du cours?"
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that section. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that section. Click on bars with low totals or a high incomplete "
+"rate to drill down and understand why."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
@@ -522,16 +522,27 @@ msgstr ""
 msgid "Enrollment Metrics"
 msgstr "Statistiques d'inscriptions"
 
-#. Translators: This is a label to identify current student enrollment.
+#. Translators: This is a label to identify the number of students who ever
+#. enrolled in the course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Total Enrollment"
 msgstr "Effectif total"
 
+#. Translators: This is a label indicating the number of students in a course.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Students who ever enrolled in the course."
+msgstr ""
+
+#. Translators: This is a label to identify current student enrollment.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Current Enrollment"
+msgstr "Inscriptions Courantes"
+
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
-msgid "Students enrolled in the course."
-msgstr "Etudiants inscrits dans ce cours."
+msgid "Students currently enrolled in the course."
+msgstr ""
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
@@ -540,12 +551,8 @@ msgid "Change in Last Week"
 msgstr "Modifications de la semaine dernière"
 
 #: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students enrolled at the end of the day"
-" yesterday and one week before."
+msgid "Net difference in current enrollment in the last week."
 msgstr ""
-"Différence entre le nombre d'étudiants inscrits hier à minuit et ceux "
-"inscrits une semaine avant."
 
 #. Translators: This is a label to identify enrollment of students on the
 #. verified track.
@@ -557,25 +564,9 @@ msgstr "Inscriptions au Certificat Vérifié"
 #. a course on the verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
-"Number of enrolled students who are pursuing a verified certificate of "
+"Number of currently enrolled students pursuing a verified certificate of "
 "achievement."
 msgstr ""
-"Nombre d'étudiants inscrits qui poursuivent certificat de réussite vérifié."
-
-#. Translators: This is a label indicating the change in the number of
-#. students enrolled in the verified track of a course since the previous
-#. week.
-#: courses/templates/courses/enrollment_activity.html
-msgid "Change in Verified Enrollments Last Week"
-msgstr "Variation du nombre de Certificats Vérifiés la semaine dernière"
-
-#: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students pursuing verified certificates"
-" at the end of the day yesterday and one week before."
-msgstr ""
-"Différence entre le nombre d'étudiants poursuivant un certificat validé "
-"inscrits hier à minuit et ceux inscrits une semaine avant."
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html
@@ -1146,7 +1137,7 @@ msgstr ""
 
 #: courses/views/performance.py
 msgid "Assignment Name"
-msgstr "Nom du travail"
+msgstr "Nom du devoir"
 
 #: courses/views/performance.py
 msgid "No submissions received for these exercises."
@@ -1222,7 +1213,7 @@ msgstr ""
 
 #: templates/_announcement.html
 msgid "Close"
-msgstr "Proche"
+msgstr "Fermer"
 
 #: templates/base-error.html
 msgid "Use our support tool to ask questions or share feedback."
@@ -1235,7 +1226,7 @@ msgstr ""
 #. placeholder as you see fit.
 #: templates/base-error.html
 msgid "Contact %(platform_name)s Support"
-msgstr "Contacter l'assistance %(platform_name)s"
+msgstr "Contacter le support %(platform_name)s"
 
 #: templates/footer.html
 msgid "Feedback"
@@ -1265,13 +1256,11 @@ msgstr "Politique de confidentialité"
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
 "            reserved. "
-msgstr ""
-" %(current_year)s %(platform_name)s, tous droits réservés, sauf indication "
-"contraire."
+msgstr " %(current_year)s %(platform_name)s, tous droits réservés."
 
 #: templates/header.html
 msgid "Toggle navigation"
-msgstr "Échanger la navigation"
+msgstr "Basculer la navigation"
 
 #: templates/header.html
 msgid "Help"

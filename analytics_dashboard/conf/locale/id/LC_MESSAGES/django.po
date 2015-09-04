@@ -10,10 +10,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 11:21-0400\n"
-"PO-Revision-Date: 2015-06-19 15:22+0000\n"
+"POT-Creation-Date: 2015-09-04 10:05-0400\n"
+"PO-Revision-Date: 2015-09-04 14:06+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
-"Language-Team: Indonesian (http://www.transifex.com/projects/p/edx-platform/language/id/)\n"
+"Language-Team: Indonesian (http://www.transifex.com/open-edx/edx-platform/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -405,9 +405,9 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that subsection. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that subsection. Click on bars with low totals or a high "
+"incomplete rate to drill down and understand why."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_by_subsection.html
@@ -427,9 +427,9 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that section. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that section. Click on bars with low totals or a high incomplete "
+"rate to drill down and understand why."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
@@ -503,16 +503,27 @@ msgstr ""
 msgid "Enrollment Metrics"
 msgstr "Matrik pendaftaran"
 
-#. Translators: This is a label to identify current student enrollment.
+#. Translators: This is a label to identify the number of students who ever
+#. enrolled in the course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Total Enrollment"
 msgstr "Total pendaftaran"
 
+#. Translators: This is a label indicating the number of students in a course.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Students who ever enrolled in the course."
+msgstr ""
+
+#. Translators: This is a label to identify current student enrollment.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Current Enrollment"
+msgstr "Pendaftaran saat ini"
+
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
-msgid "Students enrolled in the course."
-msgstr "Pelajar terdaftar di kursus"
+msgid "Students currently enrolled in the course."
+msgstr ""
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
@@ -521,12 +532,8 @@ msgid "Change in Last Week"
 msgstr "Perubahan pada minggu lalu"
 
 #: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students enrolled at the end of the day"
-" yesterday and one week before."
+msgid "Net difference in current enrollment in the last week."
 msgstr ""
-"Perbedaan antara jumlah pelajar yang terdaftar pada akhir hari kemarin dan "
-"satu minggu sebelumnya"
 
 #. Translators: This is a label to identify enrollment of students on the
 #. verified track.
@@ -538,25 +545,9 @@ msgstr "Pendaftaran terverifikasi"
 #. a course on the verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
-"Number of enrolled students who are pursuing a verified certificate of "
+"Number of currently enrolled students pursuing a verified certificate of "
 "achievement."
 msgstr ""
-"Jumlah pelajar terdaftar yang berusaha verifikasi sertifikat dari prestasi "
-
-#. Translators: This is a label indicating the change in the number of
-#. students enrolled in the verified track of a course since the previous
-#. week.
-#: courses/templates/courses/enrollment_activity.html
-msgid "Change in Verified Enrollments Last Week"
-msgstr "Perubahan dalam  pendaftaran terverifikasi minggu lalu"
-
-#: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students pursuing verified certificates"
-" at the end of the day yesterday and one week before."
-msgstr ""
-"Perbedaan antara jumlah pelajar yang berusaha verifikasi sertifikat pada "
-"akhir hari kemarin dan satu minggu sebelumnya"
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html

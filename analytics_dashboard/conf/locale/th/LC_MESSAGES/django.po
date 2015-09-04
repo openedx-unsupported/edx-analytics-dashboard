@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 11:21-0400\n"
-"PO-Revision-Date: 2015-08-04 01:21+0000\n"
-"Last-Translator: Pornchai Tummarattananont <yantaku@gmail.com>\n"
+"POT-Creation-Date: 2015-09-04 10:05-0400\n"
+"PO-Revision-Date: 2015-09-04 14:06+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Thai (http://www.transifex.com/open-edx/edx-platform/language/th/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,7 +51,7 @@ msgstr "การลงทะเบียน"
 
 #: core/templates/core/landing.html
 msgid "What are students engaging with in my course?"
-msgstr "ผู้เรียนสนใจอะไรในหลักสูตรฉัน?"
+msgstr "ผู้เรียนสนใจอะไรในหลักสูตรของฉัน?"
 
 #: core/templates/core/landing.html
 msgid ""
@@ -239,6 +239,9 @@ msgid ""
 "        Select %(level)s\n"
 "    "
 msgstr ""
+"\n"
+"        เลือก %(level)s\n"
+"    "
 
 #: courses/templates/courses/_graded_content_nav.html
 #: courses/templates/courses/_ungraded_content_nav.html
@@ -259,16 +262,16 @@ msgstr "เลือกหัวข้อ"
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "All Sections"
-msgstr ""
+msgstr "ทุกหัวข้อ"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Subsection"
-msgstr ""
+msgstr "เลือกหัวข้อย่อย"
 
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
-msgstr ""
+msgstr "เลือกวิดีโอ"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -391,7 +394,7 @@ msgstr "ล้มเลิกเนื้อหาผูกพัน"
 #: courses/templates/courses/engagement_grouped_content.html
 #: courses/templates/courses/views_chart_info.html
 msgid "Video Views"
-msgstr ""
+msgstr "การเข้าชมวิดีโอ"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid "How did students interact with videos in this section?"
@@ -399,9 +402,9 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that subsection. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that subsection. Click on bars with low totals or a high "
+"incomplete rate to drill down and understand why."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_by_subsection.html
@@ -421,15 +424,15 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that section. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that section. Click on bars with low totals or a high incomplete "
+"rate to drill down and understand why."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Total Video Views"
-msgstr ""
+msgstr "การเข้าชมวิดีโอทั้งหมด"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "What were the viewing patterns for this video?"
@@ -443,11 +446,11 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Metrics"
-msgstr ""
+msgstr "ระดับวิดีโอ"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Completion Rate"
-msgstr ""
+msgstr "อัตราเสร็จสมบูรณ์"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Estimated percentage of students who watched the entire video."
@@ -455,7 +458,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Started Video"
-msgstr ""
+msgstr "เริ่มวิดีโอ"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who started watching the video."
@@ -463,7 +466,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Finished Video"
-msgstr ""
+msgstr "สิ้นสุดวิดีโอ"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who watched the video to the end."
@@ -499,16 +502,27 @@ msgstr ""
 msgid "Enrollment Metrics"
 msgstr "การลงทะเบียนเรียน"
 
-#. Translators: This is a label to identify current student enrollment.
+#. Translators: This is a label to identify the number of students who ever
+#. enrolled in the course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Total Enrollment"
 msgstr "ลงทะเบียนเรียนทั้งหมด"
 
+#. Translators: This is a label indicating the number of students in a course.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Students who ever enrolled in the course."
+msgstr ""
+
+#. Translators: This is a label to identify current student enrollment.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Current Enrollment"
+msgstr "การลงทะเบียนปัจจุบัน"
+
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
-msgid "Students enrolled in the course."
-msgstr "ผู้เรียนที่ลงทะเบียนเรียนในวิชา"
+msgid "Students currently enrolled in the course."
+msgstr ""
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
@@ -517,11 +531,8 @@ msgid "Change in Last Week"
 msgstr "เปลี่ยนแปลงในช่วงสัปดาห์ที่ผ่านมา"
 
 #: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students enrolled at the end of the day"
-" yesterday and one week before."
+msgid "Net difference in current enrollment in the last week."
 msgstr ""
-"ความต่างระหว่างจำนวนผู้เรียนที่ลงทะเบียนเมื่อสิ้นวันเมื่อวานกับหนึ่งอาทิตย์ก่อนหน้านี้"
 
 #. Translators: This is a label to identify enrollment of students on the
 #. verified track.
@@ -533,23 +544,9 @@ msgstr "ยืนยันการลงทะเบียนแล้ว"
 #. a course on the verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
-"Number of enrolled students who are pursuing a verified certificate of "
+"Number of currently enrolled students pursuing a verified certificate of "
 "achievement."
-msgstr "จำนวนของผู้เรียนลงทะเบียนที่กำลังตามการยืนยันการรับรอง"
-
-#. Translators: This is a label indicating the change in the number of
-#. students enrolled in the verified track of a course since the previous
-#. week.
-#: courses/templates/courses/enrollment_activity.html
-msgid "Change in Verified Enrollments Last Week"
-msgstr "เปลี่ยนแปลงการยืนยันการลงทะเบียนในช่วงสัปดาห์ที่ผ่านมา"
-
-#: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students pursuing verified certificates"
-" at the end of the day yesterday and one week before."
 msgstr ""
-"ความต่างระหว่างจำนวนผู้เรียนที่ยืนยันใบรับรองเมื่อสิ้นวันเมื่อวานกับหนึ่งอาทิตย์ก่อนหน้านี้"
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html
@@ -675,7 +672,7 @@ msgid ""
 "The percentage of students who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
 msgstr ""
-"อัตราร้อยละของผู้เรียนที่เลือก ระดับปริญาตรี หรือ อนุปริญญา "
+"อัตราร้อยละของผู้เรียนที่เลือก ระดับปริญญาตรี หรือ อนุปริญญา "
 "เป็นการศึกษาขั้นสูงสุดที่สำเร็จ"
 
 #. Translators: This is a label to identify student educational background.
@@ -693,12 +690,12 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Educational Breakdown"
-msgstr "ล้มเลิกการศึกษา"
+msgstr "การศึกษาล้มเหลว"
 
 #: courses/templates/courses/enrollment_demographics_gender.html
 #: courses/views/__init__.py
 msgid "What is the student gender breakdown?"
-msgstr "อะไรคือการล้มเลิกเพศสภาพของผู้เรียน?"
+msgstr "อะไรคือเพศของผู้เรียนล้มเหลว?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -711,7 +708,7 @@ msgstr "แผนภูมินี้แสดงข้อมูลของผ
 
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "Gender Breakdown Over Time"
-msgstr "ล้มเลิกเพศสภาพตลอดเวลา"
+msgstr "การระบุเพศเลยเวลา"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geographic Distribution"
@@ -734,7 +731,7 @@ msgstr "ระดับเชิงภูมิศาสตร์"
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Total Countries Represented"
-msgstr "แสดงปรเทศทั้งหมด"
+msgstr "แสดงประเทศทั้งหมด"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Countries with at least one student."
@@ -797,7 +794,7 @@ msgstr "หน้าโฮม หลักสูตร"
 #: courses/templates/courses/home.html templates/lens-navigation.html
 #: templates/submenu_navigation.html
 msgid "Active"
-msgstr "ทำงานอยู่"
+msgstr "กำลังใช้งาน"
 
 #: courses/templates/courses/index.html
 msgid "Courses"
@@ -893,7 +890,7 @@ msgstr "การส่งงาน"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are students doing on this section?"
-msgstr ""
+msgstr "นักเรียจะทำหัวข้อนี้อย่างไร"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid ""
@@ -903,11 +900,11 @@ msgstr ""
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "Subsection Submissions"
-msgstr ""
+msgstr "การส่งหัวข้อย่อย"
 
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid "How are students doing on this subsection?"
-msgstr ""
+msgstr "นักเรียนจะทำหัวข้อย่อยนี้อย่างไร"
 
 #: courses/templates/courses/performance_ungraded_content.html
 #: courses/views/__init__.py
@@ -922,7 +919,7 @@ msgstr ""
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid "Section Submissions"
-msgstr ""
+msgstr "การส่งหัวข้อ"
 
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
@@ -993,7 +990,7 @@ msgstr "เนื้อหาการออกเกรด"
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
 msgid "Ungraded Problems"
-msgstr ""
+msgstr "ปัญหาการไม่ออกเกรด"
 
 #: courses/views/__init__.py
 msgid "What are students doing in my course?"
@@ -1035,15 +1032,15 @@ msgstr ""
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Section Name"
-msgstr ""
+msgstr "ชื่อหัวข้อ"
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Subsection Name"
-msgstr ""
+msgstr "ชื่อหัวข้อย่อย"
 
 #: courses/views/engagement.py
 msgid "Video Name"
-msgstr ""
+msgstr "ชื่อวิดีโอ"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py

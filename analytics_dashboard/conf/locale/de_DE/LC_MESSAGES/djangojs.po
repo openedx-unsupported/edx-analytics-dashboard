@@ -5,15 +5,16 @@
 # Translators:
 # Alexander L. <alexander.lohberg@paluno.uni-due.de>, 2014
 # Ettore Atalan <atalanttore@googlemail.com>, 2014
+# mc <marc.mannsfeld@phil.hhu.de>, 2015
 # Simon D. <hardys972@googlemail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 11:21-0400\n"
-"PO-Revision-Date: 2015-06-19 15:23+0000\n"
+"POT-Creation-Date: 2015-09-04 10:05-0400\n"
+"PO-Revision-Date: 2015-09-04 14:06+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
-"Language-Team: German (Germany) (http://www.transifex.com/projects/p/edx-platform/language/de_DE/)\n"
+"Language-Team: German (Germany) (http://www.transifex.com/open-edx/edx-platform/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,8 +23,10 @@ msgstr ""
 
 #: static/dist/js/common.js static/js/utils/utils.js
 msgid "..."
-msgstr ""
+msgstr "..."
 
+#. Translators: (empty) is displayed as a label in a chart and indicates that
+#. no label was provided.
 #. Translators: (empty) is displayed as a label in a chart and indicates that
 #. no label was provided.
 #. Translators: (empty) is displayed as a label in a chart and indicates that
@@ -39,6 +42,7 @@ msgstr ""
 #. Translators: (empty) is displayed as a label in a chart and indicates that
 #. no label was provided.
 #: static/dist/js/common.js static/dist/js/engagement-video-content-main.js
+#: static/dist/js/engagement-videos-main.js
 #: static/dist/js/enrollment-demographics-education-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/dist/js/performance-answer-distribution-main.js
@@ -89,52 +93,47 @@ msgstr "Im Forum veröffentlicht"
 msgid "Week Ending <%=value%>"
 msgstr "Wochenende <%=value%>"
 
-#: static/dist/js/engagement-video-content-main.js
-#: static/js/engagement-video-content-main.js
-msgid "Complete Views"
-msgstr ""
-
-#: static/dist/js/engagement-video-content-main.js
-#: static/js/engagement-video-content-main.js
-msgid "Incomplete Views"
-msgstr ""
-
-#: static/dist/js/engagement-video-content-main.js
-#: static/dist/js/performance-content-main.js
-#: static/dist/js/performance-problems-main.js
-#: static/js/engagement-video-content-main.js
-#: static/js/performance-content-main.js
-#: static/js/performance-problems-main.js
-msgid "Order"
-msgstr ""
-
-#: static/dist/js/engagement-video-content-main.js
-#: static/js/engagement-video-content-main.js
-msgid "Videos"
-msgstr ""
-
-#: static/dist/js/engagement-video-content-main.js
-#: static/js/engagement-video-content-main.js
-msgid "Completion Percentage"
-msgstr ""
-
-#. Translators: <%=value%> will be replaced by a number followed by a
-#. percentage.
-#. For example, "400 (29%)"
-#. Translators: <%=value%> will be replaced by a number followed by a
-#. percentage.
-#. For example, "40.8 (29%)"
-#. Translators: <%=value%> will be replaced by a number followed by a
-#. percentage.
-#. For example, "400 (29%)"
 #. Translators: <%=value%> will be replaced by a number followed by a
 #. percentage.
 #. For example, "400 (29%)"
 #: static/dist/js/engagement-video-content-main.js
+#: static/dist/js/engagement-videos-main.js
 #: static/dist/js/performance-content-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/views/stacked-bar-view.js
 msgid "<%=value%> (<%=percent%>)"
+msgstr "<%=value%> (<%=percent%>)"
+
+#: static/dist/js/engagement-video-content-main.js
+#: static/js/engagement-video-content-main.js
+msgid "Average Complete Views"
+msgstr ""
+
+#: static/dist/js/engagement-video-content-main.js
+#: static/js/engagement-video-content-main.js
+msgid "Average Incomplete Views"
+msgstr ""
+
+#: static/dist/js/engagement-video-content-main.js
+#: static/dist/js/engagement-videos-main.js
+#: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-problems-main.js
+#: static/js/engagement-video-content-main.js
+#: static/js/engagement-videos-main.js static/js/performance-content-main.js
+#: static/js/performance-problems-main.js
+msgid "Order"
+msgstr "Bestellung"
+
+#: static/dist/js/engagement-video-content-main.js
+#: static/js/engagement-video-content-main.js
+msgid "Videos"
+msgstr "Videos"
+
+#: static/dist/js/engagement-video-content-main.js
+#: static/dist/js/engagement-videos-main.js
+#: static/js/engagement-video-content-main.js
+#: static/js/engagement-videos-main.js
+msgid "Completion Percentage"
 msgstr ""
 
 #: static/dist/js/engagement-video-timeline-main.js
@@ -150,7 +149,17 @@ msgstr ""
 #: static/dist/js/engagement-video-timeline-main.js
 #: static/js/engagement-video-timeline-main.js
 msgid "Time"
-msgstr ""
+msgstr "Zeit"
+
+#: static/dist/js/engagement-videos-main.js
+#: static/js/engagement-videos-main.js
+msgid "Complete Views"
+msgstr "Abgeschlossene Betrachtungen"
+
+#: static/dist/js/engagement-videos-main.js
+#: static/js/engagement-videos-main.js
+msgid "Incomplete Views"
+msgstr "Unkomplette Betrachtungen"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
@@ -167,8 +176,8 @@ msgstr "Datum"
 #: static/js/enrollment-activity-main.js
 #: static/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-geography-main.js
-msgid "Total Enrollment"
-msgstr "Gesamteinschreibungsanzahl"
+msgid "Current Enrollment"
+msgstr "Aktuelle Einschreibungen"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
@@ -278,7 +287,7 @@ msgstr "Prozent"
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
 msgid "Answer"
-msgstr ""
+msgstr "Antwort"
 
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
@@ -300,12 +309,12 @@ msgstr ""
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
 msgid "Average Correct"
-msgstr ""
+msgstr "Durchschnittlich korrekt"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
 msgid "Average Incorrect"
-msgstr ""
+msgstr "Durchschnittlich unkorrekt"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
@@ -315,7 +324,7 @@ msgstr "Probleme"
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
 msgid "Average Submissions Per Problem"
-msgstr ""
+msgstr "Durchschnittliche Einreichungen pro Problem"
 
 #: static/dist/js/performance-content-main.js
 #: static/dist/js/performance-problems-main.js

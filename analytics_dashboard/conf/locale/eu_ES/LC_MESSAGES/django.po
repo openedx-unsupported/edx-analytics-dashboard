@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 11:21-0400\n"
-"PO-Revision-Date: 2015-07-10 08:10+0000\n"
-"Last-Translator: Abel <abelcama@gmail.com>\n"
+"POT-Creation-Date: 2015-09-04 10:05-0400\n"
+"PO-Revision-Date: 2015-09-04 14:06+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Basque (Spain) (http://www.transifex.com/open-edx/edx-platform/language/eu_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -137,7 +137,7 @@ msgstr "Bat ere ez"
 #. School Degree).
 #: courses/presenters/enrollment.py courses/tests/test_serializers.py
 msgid "Primary"
-msgstr ""
+msgstr "Lehen hezkuntza"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
@@ -148,7 +148,7 @@ msgstr "Erdia"
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Secondary"
-msgstr ""
+msgstr "Bigarren Hezkuntza"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
@@ -226,6 +226,9 @@ msgid ""
 "        Select %(level)s\n"
 "    "
 msgstr ""
+"\n"
+"        Aukeratu %(level)s\n"
+"    "
 
 #: courses/templates/courses/_graded_content_nav.html
 #: courses/templates/courses/_ungraded_content_nav.html
@@ -280,7 +283,7 @@ msgstr ""
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Submission Counts"
-msgstr ""
+msgstr "Bidalketa-kopuruak"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 #: courses/templates/courses/engagement_content.html
@@ -295,7 +298,7 @@ msgstr "Jaitsi CSV"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Student Submission Counts"
-msgstr ""
+msgstr "Ikaslearen bidalketa-kopuruak"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
@@ -308,7 +311,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_content.html courses/views/__init__.py
 msgid "How many students are interacting with my course?"
-msgstr ""
+msgstr "Zenbat ikasle ari dira parte  hartzen nire ikastaroan?"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students"
@@ -326,7 +329,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_content.html
 msgid "Active Students Last Week"
-msgstr ""
+msgstr "Azken astean aritu diren ikasleak"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who visited at least one page in the course content."
@@ -382,9 +385,9 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that subsection. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that subsection. Click on bars with low totals or a high "
+"incomplete rate to drill down and understand why."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_by_subsection.html
@@ -404,9 +407,9 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that section. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that section. Click on bars with low totals or a high incomplete "
+"rate to drill down and understand why."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
@@ -442,7 +445,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who started watching the video."
-msgstr ""
+msgstr "Bideoa ikusten hasitako ikasleak."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Finished Video"
@@ -480,15 +483,26 @@ msgstr ""
 msgid "Enrollment Metrics"
 msgstr ""
 
-#. Translators: This is a label to identify current student enrollment.
+#. Translators: This is a label to identify the number of students who ever
+#. enrolled in the course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Total Enrollment"
 msgstr "Matrikulazioak denera"
 
+#. Translators: This is a label indicating the number of students in a course.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Students who ever enrolled in the course."
+msgstr ""
+
+#. Translators: This is a label to identify current student enrollment.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Current Enrollment"
+msgstr "Oraingo matrikulazioa"
+
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
-msgid "Students enrolled in the course."
+msgid "Students currently enrolled in the course."
 msgstr ""
 
 #. Translators: This is a label indicating the change in the number of
@@ -498,9 +512,7 @@ msgid "Change in Last Week"
 msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students enrolled at the end of the day"
-" yesterday and one week before."
+msgid "Net difference in current enrollment in the last week."
 msgstr ""
 
 #. Translators: This is a label to identify enrollment of students on the
@@ -513,21 +525,8 @@ msgstr "Egiaztatutako matrikulazioa"
 #. a course on the verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
-"Number of enrolled students who are pursuing a verified certificate of "
+"Number of currently enrolled students pursuing a verified certificate of "
 "achievement."
-msgstr ""
-
-#. Translators: This is a label indicating the change in the number of
-#. students enrolled in the verified track of a course since the previous
-#. week.
-#: courses/templates/courses/enrollment_activity.html
-msgid "Change in Verified Enrollments Last Week"
-msgstr ""
-
-#: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students pursuing verified certificates"
-" at the end of the day yesterday and one week before."
 msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
@@ -541,7 +540,7 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_age.html
 #: courses/views/__init__.py
 msgid "How old are my students?"
-msgstr ""
+msgstr "Zenbat urte dute nire ikasleek?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -571,7 +570,7 @@ msgstr ""
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 25 and Under"
-msgstr ""
+msgstr "Ikalseak: 25etik behera"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
@@ -583,7 +582,7 @@ msgstr ""
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 26 to 40"
-msgstr ""
+msgstr "Ikasleak: 26 - 40"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
@@ -595,7 +594,7 @@ msgstr ""
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 41 and Over"
-msgstr ""
+msgstr "Ikasleak: 41etik gora"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
@@ -610,7 +609,7 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_education.html
 #: courses/views/__init__.py
 msgid "What level of education do my students have?"
-msgstr ""
+msgstr "Zein hezkuntza-maila dute nire ikasleek?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -683,7 +682,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geographic Distribution"
-msgstr ""
+msgstr "Banaketa geografikoa"
 
 #: courses/templates/courses/enrollment_geography.html
 #: courses/views/__init__.py
@@ -692,7 +691,7 @@ msgstr "Non daude nire ikasleak?"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Enrollment by Country"
-msgstr ""
+msgstr "Matrikulazioak herrialdearen arabera"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geography Metrics"
@@ -832,7 +831,7 @@ msgstr ""
 #. Translators: This describes the percent of a learner's grade (e.g. 60%).
 #: courses/templates/courses/performance_graded_content.html
 msgid "%(policy_ratio)s%%"
-msgstr ""
+msgstr "%(policy_ratio)s%%"
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
@@ -916,7 +915,7 @@ msgstr ""
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Geography"
-msgstr ""
+msgstr "Geografia"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
@@ -956,7 +955,7 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "What are students doing in my course?"
-msgstr ""
+msgstr "Zer egiten ari dira ikasleak nire ikastaroan?"
 
 #: courses/views/__init__.py
 msgid "How are students doing on course assignments?"

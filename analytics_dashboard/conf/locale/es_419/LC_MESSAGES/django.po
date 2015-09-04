@@ -17,9 +17,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 11:21-0400\n"
-"PO-Revision-Date: 2015-07-31 19:03+0000\n"
-"Last-Translator: UAbierta Universidad de Chile <uabierta@u.uchile.cl>\n"
+"POT-Creation-Date: 2015-09-04 10:05-0400\n"
+"PO-Revision-Date: 2015-09-04 14:06+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Spanish (Latin America) (http://www.transifex.com/open-edx/edx-platform/language/es_419/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -416,13 +416,10 @@ msgstr "¿Cómo interactuaron los estudiantes con los videos en esta sección?"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that subsection. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that subsection. Click on bars with low totals or a high "
+"incomplete rate to drill down and understand why."
 msgstr ""
-"Cada barra muestra la cantidad de visualizaciones completas e incompletas de"
-" videos en una subsección. Haga clic en las barras con tasas muy bajas para "
-"entrar en profundidad y entender el porque de estos comportamientos."
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did students interact with videos in this subsection?"
@@ -445,13 +442,10 @@ msgstr "¿Cómo interactuaron los estudiantes con los videos del curso?"
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that section. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that section. Click on bars with low totals or a high incomplete "
+"rate to drill down and understand why."
 msgstr ""
-"Cada barra muestra la cantidad de visualizaciones completas e incompletas de"
-" videos en una sección. Haga clic en las barras con tasas muy bajas para "
-"entrar en profundidad y entender el porque de estos comportamientos."
 
 #: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
@@ -529,16 +523,27 @@ msgstr ""
 msgid "Enrollment Metrics"
 msgstr "Métricas de inscripciones"
 
-#. Translators: This is a label to identify current student enrollment.
+#. Translators: This is a label to identify the number of students who ever
+#. enrolled in the course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Total Enrollment"
 msgstr "Total de inscritos"
 
+#. Translators: This is a label indicating the number of students in a course.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Students who ever enrolled in the course."
+msgstr "Estudiantes que se inscribieron en el curso."
+
+#. Translators: This is a label to identify current student enrollment.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Current Enrollment"
+msgstr "Inscripción Actual"
+
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
-msgid "Students enrolled in the course."
-msgstr "Estudiantes inscritos en el curso."
+msgid "Students currently enrolled in the course."
+msgstr "Estudiantes inscritos actualmente en el curso."
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
@@ -547,12 +552,8 @@ msgid "Change in Last Week"
 msgstr "Cambios en la última semana"
 
 #: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students enrolled at the end of the day"
-" yesterday and one week before."
-msgstr ""
-"Diferencia entre el número de estudiantes inscritos al final del día de ayer"
-" y una semana antes."
+msgid "Net difference in current enrollment in the last week."
+msgstr "Diferencia neta en las inscripciones en la última semana."
 
 #. Translators: This is a label to identify enrollment of students on the
 #. verified track.
@@ -564,25 +565,10 @@ msgstr "Inscripciones verificadas"
 #. a course on the verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
-"Number of enrolled students who are pursuing a verified certificate of "
+"Number of currently enrolled students pursuing a verified certificate of "
 "achievement."
 msgstr ""
 "Número de estudiantes inscritos que solicitaron un certificado verificado."
-
-#. Translators: This is a label indicating the change in the number of
-#. students enrolled in the verified track of a course since the previous
-#. week.
-#: courses/templates/courses/enrollment_activity.html
-msgid "Change in Verified Enrollments Last Week"
-msgstr "Cambio en las inscripciones verificadas de la última semana."
-
-#: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students pursuing verified certificates"
-" at the end of the day yesterday and one week before."
-msgstr ""
-"La diferencia entre el número de estudiantes que solicitaron certificado "
-"verificado al final del día, ayer y una semana atrás."
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html

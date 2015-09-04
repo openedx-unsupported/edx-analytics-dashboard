@@ -3,8 +3,10 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Adem Özgür <admozgur@gmail.com>, 2015
 # Azmi Ozgen <azmican73@gmail.com>, 2014
 # Can Taşdemir <can.tsdmr@windowslive.com>, 2015
+# Emrah Emirtekin <eemirtekin@gmail.com>, 2015
 # Emre Saraçoğlu <emresaracoglu@live.com>, 2014
 # Hüseyin Eski, 2015
 # İhsan Karataylı <ihsan.karatayli@gmail.com>, 2015
@@ -13,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 11:21-0400\n"
-"PO-Revision-Date: 2015-06-28 20:40+0000\n"
+"POT-Creation-Date: 2015-09-04 10:05-0400\n"
+"PO-Revision-Date: 2015-09-04 14:06+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/open-edx/edx-platform/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -111,7 +113,7 @@ msgstr ""
 #. NOT translate the word statistic.
 #: core/templatetags/dashboard_extras.py
 msgid "{statistic}%"
-msgstr ""
+msgstr "{statistic}%"
 
 #: courses/presenters/enrollment.py
 msgid "Female"
@@ -184,7 +186,7 @@ msgstr "Doktora Derecesi"
 #. known geolocation.
 #: courses/presenters/enrollment.py
 msgid "Unknown Country"
-msgstr ""
+msgstr "Bilinmeyen Ülke"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/presenters/performance.py
@@ -198,7 +200,7 @@ msgstr ""
 
 #: courses/presenters/performance.py
 msgid "Part {part_number}: {part_description}"
-msgstr ""
+msgstr "Bölüm  {part_number}: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "Submissions: {part_description}"
@@ -206,7 +208,7 @@ msgstr ""
 
 #: courses/presenters/performance.py
 msgid "{part_description}"
-msgstr ""
+msgstr "{part_description}"
 
 #: courses/presenters/performance.py
 msgid "Submissions for Part {part_number}"
@@ -214,11 +216,11 @@ msgstr ""
 
 #: courses/presenters/performance.py
 msgid "Part {part_number}"
-msgstr ""
+msgstr "Bölüm {part_number}"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
-msgstr ""
+msgstr "Ödev Türü Seçiniz"
 
 #. Translators: This refers to all course assignment types (e.g. homework,
 #. exam, lab).
@@ -232,6 +234,8 @@ msgid ""
 "        Select %(level)s\n"
 "    "
 msgstr ""
+"\n"
+"Seç %(level)s"
 
 #: courses/templates/courses/_graded_content_nav.html
 #: courses/templates/courses/_ungraded_content_nav.html
@@ -252,16 +256,16 @@ msgstr "Bölüm Seçiniz"
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "All Sections"
-msgstr ""
+msgstr "Bütün Bölümler"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Subsection"
-msgstr ""
+msgstr "Alt bölüm Seç"
 
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
-msgstr ""
+msgstr "Video Seç"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -306,15 +310,15 @@ msgstr ""
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
 msgid "Students (Self-Reported)"
-msgstr ""
+msgstr "Öğrenciler (Öz-Raporlanmış)"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Weekly Student Engagement"
-msgstr ""
+msgstr "Haftalık Öğrenci Katılımı"
 
 #: courses/templates/courses/engagement_content.html courses/views/__init__.py
 msgid "How many students are interacting with my course?"
-msgstr ""
+msgstr "Kaç öğrenci dersimle etkileşim kurdu?"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students"
@@ -328,7 +332,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_content.html
 msgid "Student Activity Metrics"
-msgstr ""
+msgstr "Öğrenci Etkinliği Metrikleri"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Active Students Last Week"
@@ -388,9 +392,9 @@ msgstr "Öğrenciler bu bölümde  videolar ile nasıl etkileşim içerisinde ol
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that subsection. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that subsection. Click on bars with low totals or a high "
+"incomplete rate to drill down and understand why."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_by_subsection.html
@@ -410,9 +414,9 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
-"Each bar shows the counts of complete and incomplete views of the videos in "
-"that section. Click on bars with low totals or a high incomplete rate to "
-"drill down and understand why."
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that section. Click on bars with low totals or a high incomplete "
+"rate to drill down and understand why."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
@@ -432,7 +436,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Metrics"
-msgstr ""
+msgstr "Video Metrikleri"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Completion Rate"
@@ -448,7 +452,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who started watching the video."
-msgstr ""
+msgstr "Videoyu izlemeye başlayan öğrenciler"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Finished Video"
@@ -456,7 +460,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who watched the video to the end."
-msgstr ""
+msgstr "Videoyu sonuna kadar izleyen öğrenciler"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Viewing Over Time"
@@ -464,16 +468,16 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
-msgstr ""
+msgstr "Günlük Öğrenci Kayıtlanmaları"
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/views/__init__.py
 msgid "How many students are in my course?"
-msgstr ""
+msgstr "Dersimde kaç öğrenci var?"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollments"
-msgstr ""
+msgstr "Kayıtlanmalar"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
@@ -484,18 +488,29 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollment Metrics"
+msgstr "Kayıtlanma Metrikleri"
+
+#. Translators: This is a label to identify the number of students who ever
+#. enrolled in the course.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Total Enrollment"
+msgstr "Toplam Kayıt"
+
+#. Translators: This is a label indicating the number of students in a course.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Students who ever enrolled in the course."
 msgstr ""
 
 #. Translators: This is a label to identify current student enrollment.
 #: courses/templates/courses/enrollment_activity.html
-msgid "Total Enrollment"
-msgstr ""
+msgid "Current Enrollment"
+msgstr "Şu anki Kayıt"
 
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
-msgid "Students enrolled in the course."
-msgstr "Öğrenciler bu kursa kayıt yaptırdı."
+msgid "Students currently enrolled in the course."
+msgstr ""
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
@@ -504,9 +519,7 @@ msgid "Change in Last Week"
 msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students enrolled at the end of the day"
-" yesterday and one week before."
+msgid "Net difference in current enrollment in the last week."
 msgstr ""
 
 #. Translators: This is a label to identify enrollment of students on the
@@ -519,21 +532,8 @@ msgstr "Geçerli Kayıt"
 #. a course on the verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
-"Number of enrolled students who are pursuing a verified certificate of "
+"Number of currently enrolled students pursuing a verified certificate of "
 "achievement."
-msgstr ""
-
-#. Translators: This is a label indicating the change in the number of
-#. students enrolled in the verified track of a course since the previous
-#. week.
-#: courses/templates/courses/enrollment_activity.html
-msgid "Change in Verified Enrollments Last Week"
-msgstr ""
-
-#: courses/templates/courses/enrollment_activity.html
-msgid ""
-"The difference between the number of students pursuing verified certificates"
-" at the end of the day yesterday and one week before."
 msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
@@ -542,12 +542,12 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_education.html
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "Enrollment Over Time"
-msgstr ""
+msgstr "Zamana Göre Kayıtlanmalar"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 #: courses/views/__init__.py
 msgid "How old are my students?"
-msgstr ""
+msgstr "Öğrencilerim kaç yaşında?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -560,13 +560,13 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Metrics"
-msgstr ""
+msgstr "Yaş Metrikleri"
 
 #. Translators: This is a label to identify the median age of enrolled
 #. students.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Median Student Age"
-msgstr ""
+msgstr "Öğrenci Yaşı Ortancası-Medyanı"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
@@ -577,7 +577,7 @@ msgstr ""
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 25 and Under"
-msgstr ""
+msgstr "25 ve Altındaki Öğrenciler"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
@@ -589,7 +589,7 @@ msgstr ""
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 26 to 40"
-msgstr ""
+msgstr "26 ile 40 Arasındaki Öğrenciler"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
@@ -601,7 +601,7 @@ msgstr ""
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 41 and Over"
-msgstr ""
+msgstr "41 ve Üzeri Öğrenciler"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
@@ -616,7 +616,7 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_education.html
 #: courses/views/__init__.py
 msgid "What level of education do my students have?"
-msgstr ""
+msgstr "Öğrencilerim hangi eğitim düzeyine sahip?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -629,7 +629,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Education Metrics"
-msgstr ""
+msgstr "Eğitim Metrikleri"
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -689,36 +689,36 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geographic Distribution"
-msgstr ""
+msgstr "Coğrafik Dağılım"
 
 #: courses/templates/courses/enrollment_geography.html
 #: courses/views/__init__.py
 msgid "Where are my students?"
-msgstr ""
+msgstr "Öğrencilerim nerede?"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Enrollment by Country"
-msgstr ""
+msgstr "Ülkelere göre Kayıtlanma"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geography Metrics"
-msgstr ""
+msgstr "Coğrafi Metrikler"
 
 #. Translators: This string represents the number of countries where students
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Total Countries Represented"
-msgstr ""
+msgstr "Toplamda Gösterilen Ülkeler"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Countries with at least one student."
-msgstr ""
+msgstr "En az bir öğrencisi olan ülkeler"
 
 #. Translators: This string represents the country with the greatest number of
 #. enrolled students.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Top Country by Enrollment"
-msgstr ""
+msgstr "Kayıtlanmaya göre Birinci Ülke"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the largest number of students."
@@ -728,21 +728,21 @@ msgstr "En çok  öğrenciye sahip ülke."
 #. number of enrolled students.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Second Country by Enrollment"
-msgstr ""
+msgstr "Kayıtlanmaya göre İkinci Ülke"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the second largest number of students."
-msgstr ""
+msgstr "En çok öğrenciye sahip ikinci ülke."
 
 #. Translators: This string represents the country with the third-greatest
 #. number of enrolled students.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Third Country by Enrollment"
-msgstr ""
+msgstr "Kayıtlanmaya göre Üçüncü Ülke"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the third largest number of students."
-msgstr ""
+msgstr "En çok öğrenciye sahip üçüncü ülke."
 
 #. Translators: This string represents the percentage of students in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
@@ -764,7 +764,7 @@ msgstr "Uygulama"
 
 #: courses/templates/courses/home.html courses/views/__init__.py
 msgid "Course Home"
-msgstr ""
+msgstr "Ders Ana Sayfası"
 
 #. Translators: This refers to the active tab/navigation item.
 #. Translators: This refers to the active tab/navigation item.
@@ -787,7 +787,7 @@ msgstr ""
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
-msgstr ""
+msgstr "Yeni %(application_name)s?"
 
 #: courses/templates/courses/index.html
 msgid ""
@@ -948,21 +948,21 @@ msgstr "İçerik"
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Videos"
-msgstr ""
+msgstr "Videolar"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
 msgid "Graded Content"
-msgstr ""
+msgstr "Puanlanmış İçerik"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
 msgid "Ungraded Problems"
-msgstr ""
+msgstr "Puanlanmamış Problemler"
 
 #: courses/views/__init__.py
 msgid "What are students doing in my course?"
-msgstr ""
+msgstr "Dersimde öğrenciler neler yapıyor?"
 
 #: courses/views/__init__.py
 msgid "How are students doing on course assignments?"
@@ -998,15 +998,15 @@ msgstr ""
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Section Name"
-msgstr ""
+msgstr "Bölüm Adı"
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Subsection Name"
-msgstr ""
+msgstr "Alt bölüm Adı"
 
 #: courses/views/engagement.py
 msgid "Video Name"
-msgstr ""
+msgstr "Video Adı"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1024,7 +1024,7 @@ msgstr ""
 
 #: courses/views/enrollment.py
 msgid "Enrollment Activity"
-msgstr ""
+msgstr "Kayıtlanma Etkinliği"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1081,7 +1081,7 @@ msgstr ""
 
 #: courses/views/performance.py
 msgid "Graded Content: %(assignment_type)s"
-msgstr ""
+msgstr "Puanlanmış İçerik: %(assignment_type)s"
 
 #: courses/views/performance.py courses/views/performance.py
 msgid "Problem Name"
@@ -1100,7 +1100,7 @@ msgstr ""
 
 #: templates/403.html
 msgid "Logout then Login"
-msgstr ""
+msgstr "Oturumu kapatın sonrasında Oturum açın"
 
 #: templates/404.html templates/404.html.py
 msgid "Page Not Found"
@@ -1116,7 +1116,7 @@ msgstr ""
 
 #: templates/500.html templates/500.html.py
 msgid "An Error Occurred"
-msgstr ""
+msgstr "Bir Hata Oluştu"
 
 #: templates/500.html
 msgid ""
@@ -1127,10 +1127,12 @@ msgstr ""
 #: templates/503.html templates/503.html.py
 msgid "We're having trouble loading this page. Please try again in a minute."
 msgstr ""
+"Bu sayfayı yüklerken problem yaşıyoruz. Bir dakika içerisinde tekrar "
+"deneyiniz."
 
 #: templates/503.html
 msgid "(Technical details: 503 Service Unavailable.)"
-msgstr ""
+msgstr "(Teknik detaylar: 503 Servis Erişilemez.)"
 
 #: templates/_announcement.html
 msgid "Close"
@@ -1138,7 +1140,7 @@ msgstr "kapat"
 
 #: templates/base-error.html
 msgid "Use our support tool to ask questions or share feedback."
-msgstr ""
+msgstr "Soru sormak veya dönüt paylaşmak için destek aracımızı kullanınız."
 
 #. Translators: This intention here is that a user clicks a button to contact
 #. a support group (e.g. edX Support, or MITx Support). Reorder the
@@ -1149,7 +1151,7 @@ msgstr ""
 
 #: templates/footer.html
 msgid "Feedback"
-msgstr ""
+msgstr "Dönüt"
 
 #: templates/footer.html
 msgid ""
@@ -1160,7 +1162,7 @@ msgstr ""
 
 #: templates/footer.html
 msgid "Terms of Service"
-msgstr "Hizmet Şartları"
+msgstr "Kullanım Koşulları"
 
 #: templates/footer.html
 msgid "Privacy Policy"
@@ -1191,12 +1193,12 @@ msgstr "Yükleniyor..."
 
 #: templates/section_error.html
 msgid "We are unable to load this chart."
-msgstr ""
+msgstr "Bu grafiği yükleyemiyoruz."
 
 #: templates/section_error.html
 msgid "We are unable to load this table."
-msgstr ""
+msgstr "Bu tabloyu yükleyemiyoruz."
 
 #: templates/section_error.html
 msgid "We are unable to load these metrics."
-msgstr ""
+msgstr "Bu metrikleri yükleyemiyoruz."
