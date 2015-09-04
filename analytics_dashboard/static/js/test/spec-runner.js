@@ -2,6 +2,7 @@
  * This is where your tests go.  It should happen automatically when you
  * add files to the karma configuration.
  */
+'use strict';
 
 var isBrowser = window.__karma__ === undefined,
     specs = [],
@@ -28,7 +29,6 @@ if (isBrowser) {
     // the text so tests can be run if modules reference gettext
     if (!window.gettext) {
         window.gettext = function(text) {
-            'use strict';
             return text;
         };
     }
@@ -56,7 +56,6 @@ if (isBrowser) {
     // a hack
     // http://stackoverflow.com/questions/19240302/does-jasmine-2-0-really-not-work-with-require-js
     require(['boot'], function () {
-        'use strict';
         require(specs,
             function () {
                 window.onload();
