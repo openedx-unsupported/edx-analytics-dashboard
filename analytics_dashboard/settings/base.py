@@ -228,6 +228,7 @@ DJANGO_APPS = (
 LOCAL_APPS = (
     'core',
     'courses',
+    'users',
     'django_rjs',
     'help',
     'soapbox',
@@ -420,3 +421,7 @@ COURSE_API_URL = None
 # If no key is specified, the authenticated user's OAuth2 access token will be used.
 COURSE_API_KEY = None
 ########## END COURSE API
+
+########## ENROLLMENT API
+ENROLLMENT_API_URL = None
+########## END ENROLLMENT API

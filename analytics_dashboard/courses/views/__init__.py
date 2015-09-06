@@ -39,8 +39,18 @@ logger = logging.getLogger(__name__)
 class CourseAPIMixin(object):
     access_token = None
     course_api_enabled = False
+    course_api_client = None
     course_api = None
     course_id = None
+
+    @cached_property
+    def course_structure(self):
+        """
+        Returns course structure.
+
+        All requests for course structure should be made against this property to take advantage of caching.
+        """
+        return self.get_course_structure(self.course_id)
 
     @cached_property
     def course_info(self):
@@ -56,12 +66,40 @@ class CourseAPIMixin(object):
 
         if self.course_api_enabled and request.user.is_authenticated():
             self.access_token = settings.COURSE_API_KEY or request.user.access_token
-            self.course_api = CourseStructureApiClient(settings.COURSE_API_URL, self.access_token).courses
+            self.course_api_client = CourseStructureApiClient(settings.COURSE_API_URL, self.access_token)
+            self.course_api = self.course_api_client.courses
 
         return super(CourseAPIMixin, self).dispatch(request, *args, **kwargs)
 
+    def _course_structure_cache_key(self, course_id):
+        return sanitize_cache_key(u'course_{}_structure').format(course_id)
+
     def _course_detail_cache_key(self, course_id):
         return sanitize_cache_key(u'course_{}_details'.format(course_id))
+
+    def get_course_structure(self, course_id):
+        """
+        Retrieve course structure from the Course API.
+
+        Retrieved data is cached.
+
+        Arguments
+            course_id       -- ID of the course for which data should be retrieved
+        """
+        key = self._course_structure_cache_key(course_id)
+        structure = cache.get(key)
+
+        if not structure:
+            try:
+                logger.debug("Retrieving structure for course: %s", course_id)
+                structure = self.course_api_client.course_structures(course_id).get()
+                cache.set(key, structure)
+            except HttpClientError as err:
+                logger.error("Unable to retrieve course structure for %s: %s", course_id, err)
+                structure = {}
+
+        return structure
+        # return self.course_api_client.course_structures(course_id).get()
 
     def get_course_info(self, course_id):
         """

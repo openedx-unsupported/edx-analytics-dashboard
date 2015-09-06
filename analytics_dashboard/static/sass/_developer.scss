@@ -168,6 +168,10 @@ button.chart-info {
   }
 }
 
+#mode-selectors {
+  margin-right: 0;
+}
+
 .navbar-nav {
 
   .nav-section.active {
@@ -265,23 +269,72 @@ $lens-box-model: border-box;
   }
 }
 
-.course-list {
+.pagination-nav {
+  @include clearfix();
+
+  text-align: right;
+  padding-right: $padding-large-horizontal;
+
+  .nav {
+    width: 100%;
+  }
+
+  .nav li {
+    display: inline-block;
+    float: none;
+  }
+
+  .pagination-status {
+    padding: 0 10px;
+  }
+
+  .unavailable-page {
+    visibility: hidden;
+  }
+
+  li > a {
+    color: $link-color;
+    padding-top: 0px;
+    padding-bottom: $padding-small-vertical;
+
+    &:hover {
+      color: $link-hover-color;
+      background-color: transparent;
+    }
+  }
+}
+
+.pagination-nav + .paginated {
+  margin-top: 0;
+}
+
+.paginated + .pagination-nav {
+  margin-top: -15px;
+  margin-bottom: 15px;
+
+  li > a {
+    padding-top: $padding-small-vertical;
+    padding-bottom: 0;
+  }
+}
+
+.course-list, .user-list {
   margin-top: 10px;
   margin-bottom: 15px;
   background: white;
   border: 1px solid $edx-gray;
   border-width: 0 0 1px 1px;
 
-  .course {
+  .course, .user {
     padding: 15px;
     border: 1px solid $edx-gray;
     border-width: 1px 1px 0 0;
 
-    .course-name {
+    .course-name, .main-info {
       font-size: $font-size-large;
     }
 
-    .course-key {
+    .course-key, .sub-info {
       color: $edx-gray;
     }
   }
@@ -316,6 +369,16 @@ body.view-course-list {
       margin-bottom: 50px;
     }
   }
+}
+
+.user-profile-info {
+  .missing-data {
+    color: $edx-gray-l1;
+  }
+}
+
+.user-profile-courses .active-course {
+  font-weight: bold;
 }
 
 // DataTables

@@ -33,6 +33,25 @@ Partial for displaying the lens navigation and the sections within the lenses.
 
         {% include "submenu_navigation.html" with nav_items=secondary_nav_items%}
       </ul>
+
+      <ul id="mode-selectors" class="nav navbar-nav navbar-right">
+        {# Translators: Being in course mode means that the user is looking at a page that provides course-centric information. #}
+        <li class="active nav-section has-tooltip" data-toggle="tooltip" title="{% trans "You're in course mode" %}">
+          <a href="#">
+            <span class="link-label">
+              <i class="ico fa fa-users" aria-hidden="true"></i>
+            </span>
+          </a>
+          <span class="sr-only">({% trans "Active" %})</span>
+        </li>
+        <li class="has-tooltip" data-toggle="tooltip" title="{% trans "Click to switch to user mode" %}">
+          <a href="{% url 'courses:users:list' course_id=course_id %}">
+            <span class="link-label">
+              <i class="ico fa fa-user" aria-hidden="true"></i>
+            </span>
+          </a>
+        </li>
+      </ul>
     </div>
   </nav>
 {% endif %}

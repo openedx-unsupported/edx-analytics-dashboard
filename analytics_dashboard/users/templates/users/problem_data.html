@@ -1,0 +1,43 @@
+{% extends "users/user.html" %}
+{% load i18n %}
+
+{% block view-name %}view-problem-data{% endblock view-name %}
+
+{% block title %}{{ username }} - {{ block.super }}{% endblock title %}
+
+{% block header-text %}
+  <h3>
+    {% blocktrans %}Problem History: {{ username }}{% endblocktrans %}
+  </h3>
+{% endblock %}
+
+{% block intro-text %}
+  {% blocktrans %}Here is a list of problems that this user completed:{% endblocktrans %}
+{% endblock intro-text %}
+
+{% block content %}
+
+  <div class="row">
+    <div class="col-xs-12 col-md-8">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>{% trans "Problem Name" %}</th>
+            <th>{% trans "# of attempts" %}</th>
+            <th>{% trans "Final Score" %}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for problem in problem_data %}
+            <tr>
+              <td>{{ problem.name }}</td>
+              <td>{{ problem.num_attempts }}</td>
+              <td>{{ problem.final_score }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+{% endblock %}
