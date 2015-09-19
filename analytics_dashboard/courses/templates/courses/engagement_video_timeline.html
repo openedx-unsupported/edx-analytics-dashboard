@@ -29,7 +29,19 @@
 
 {% block module_meta %}
     <div class="module-meta">
-        {% include "courses/_video_module_controls.html" with view_live_url=view_live_url %}
+        {% if show_video_preview %}
+            {% trans "Collapse Preview" as click_to_expand_text %}
+            {% trans "Expand Preview" as click_to_collapse_text %}
+            {% include "courses/_video_preview.html" with render_xblock_url=render_xblock_url view_live_url=view_live_url collapse_text=click_to_collapse_text expand_text=click_to_expand_text %}
+        {% else %}
+            {% include "courses/_module_description.html" with view_live_url=view_live_url %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block module_controls %}
+    <div class="module-controls">
+        {% include "courses/_video_module_controls.html" %}
     </div>
 {% endblock %}
 

@@ -29,7 +29,8 @@ require.config({
         cldr: 'bower_components/cldrjs/dist/cldr',
         'cldr-data': 'bower_components/cldr-data',
         globalize: 'bower_components/globalize/dist/globalize',
-        globalization: 'js/utils/globalization'
+        globalization: 'js/utils/globalization',
+        collapsible: 'bower_components/edx-ui-toolkit/components/views/collapsible-view'
     },
     wrapShim: true,
     shim: {

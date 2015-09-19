@@ -585,9 +585,9 @@ table.dataTable thead th.sorting_desc:after {
   white-space: normal;
 }
 
-.module-meta {
+// description and controls at the top and bottom of the chart
+.chart-marginals {
   border: $description-border;
-  border-bottom: none;
   padding: $padding-small-horizontal 0;
   background-color: $white;
 
@@ -598,6 +598,48 @@ table.dataTable thead th.sorting_desc:after {
 
   a.disabled {
     @extend disabled-link;
+  }
+}
+
+.module-meta {
+  @extend .chart-marginals;
+  border-bottom: none;
+}
+
+// for the next/previous buttons that sit at the bottom of the chart
+.module-controls {
+  @extend .chart-marginals;
+  border-top: none;
+}
+
+.module-preview-collapsible {
+  // the video preview height can be variable, so use media queries to mimic height changes
+  .video-preview {
+    width: 100%;
+    height: 700px;
+    border: 0;
+
+    @media screen and (min-width: $screen-sm-min) {
+      height: 670px;
+    }
+
+    @media screen and (min-width: $screen-md-min) {
+      height: 770px;
+    }
+  }
+
+  .collapsible-toggle-text {
+    // moving the text down just a tad so that it's in line with the next/previous buttons
+    padding-top: 8px;
+  }
+
+  .collapsible-content {
+    // initially collapsed
+    display: none;
+  }
+
+  #module-loading {
+    padding-top: $padding-large-vertical;
   }
 }
 

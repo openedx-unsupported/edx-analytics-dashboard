@@ -31,8 +31,11 @@
             {% endif %}
           </div>
         </div>
+        {% block module_controls %}
+        {% endblock %}
       </div>
     </div>
+
   </section>
 
   {% block metric_cards %}{% endblock %}
