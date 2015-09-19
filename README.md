@@ -54,6 +54,7 @@ The following switches are available:
 |-----------------------------------|----------------------------------------------------------|
 | show_engagement_forum_activity    | Show the forum activity on the course engagement page    |
 | enable_course_api                 | Retrieve course details from the course API              |
+| enable_ccx_courses                | Display CCX Courses in the course listing page.          |
 | enable_engagement_videos_pages    | Enable engagement video pages.                           |
 | display_names_for_course_index    | Display course names on course index page.               |
 | display_course_name_in_nav        | Display course name in navigation bar.                   |

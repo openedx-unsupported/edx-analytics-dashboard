@@ -44,7 +44,8 @@ class DashboardExtraTests(TestCase):
 
     def test_format_course_key(self):
         values = [('edX/DemoX/Demo_Course', 'edX/DemoX/Demo_Course'),
-                  ('course-v1:edX+DemoX+Demo_2014', 'edX/DemoX/Demo_2014')]
+                  ('course-v1:edX+DemoX+Demo_2014', 'edX/DemoX/Demo_2014'),
+                  ('ccx-v1:edx+1.005x-CCX+rerun+ccx@15', 'edx/1.005x-CCX/rerun')]
         for course_id, expected in values:
             # Test with CourseKey
             course_key = CourseKey.from_string(course_id)
