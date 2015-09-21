@@ -4,7 +4,7 @@ ROOT = $(shell echo "$$PWD")
 COVERAGE = $(ROOT)/build/coverage
 NODE_BIN=./node_modules/.bin
 
-DJANGO_SETTINGS_MODULE := "analytics_dashboard.settings.local"
+DJANGO_SETTINGS_MODULE ?= "analytics_dashboard.settings.local"
 
 .PHONY: requirements clean
 

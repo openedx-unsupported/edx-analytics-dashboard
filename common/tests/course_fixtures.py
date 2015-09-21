@@ -8,13 +8,16 @@ class CourseStructureAPIFixtureMixin(object):
         self._uuid = uuid.uuid4().hex
         self._type = None
         self._display_name = kwargs.get('display_name', '')
-        self._graded = False
+        self.graded = False
         self._assignment_type = None
         self._children = []
         # Course data
-        self._org = None
-        self._course = None
-        self._run = None
+        self.org = None
+        self.course = None
+        self.run = None
+
+    def __repr__(self):
+        return self.id
 
     @property
     def children(self):
@@ -26,46 +29,52 @@ class CourseStructureAPIFixtureMixin(object):
             'id': self.id,
             'type': self._type,
             'display_name': self._display_name,
-            'graded': self._graded,
+            'graded': self.graded,
             'format': self._assignment_type,
             'children': [child.id for child in self._children]
         }
 
     def add_children(self, *children):
         """Add children to this block"""
+        def _add_course_info(parent, child):
+            """
+            Children should inherit and cache org, course, and run for ID generation.
+            'graded' is also inherited.
+            """
+            child.org = parent.org
+            child.course = parent.course
+            child.run = parent.run
+            child.graded = parent.graded
+
         self._children += children
+        self.pre_order(visit_fn=_add_course_info)
         return self
 
-    def pre_order(self):
+    def pre_order(self, visit_fn=None):
         """Return the fixture rooted at `self` as a list visited in pre-order."""
         visited = [self]
         for child in self._children:
-            # Children should inherit and cache org, course, and run for ID generation.
-            # 'graded' is also inherited.
-            # pylint: disable=protected-access
-            child._org = self._org
-            child._course = self._course
-            child._run = self._run
-            child._graded = self._graded
-            visited += child.pre_order()
+            if visit_fn:
+                visit_fn(self, child)
+            visited += child.pre_order(visit_fn=visit_fn)
         return visited
 
     @property
     def id(self):
         """Uniquely identifies this block in the format used by the Course Structure API."""
         return 'i4x://{org}/{course}/{type}/{_uuid}'.format(
-            org=self._org, course=self._course, type=self._type, _uuid=self._uuid
+            org=self.org, course=self.course, type=self._type, _uuid=self._uuid
         )
 
 
 class CourseFixture(CourseStructureAPIFixtureMixin):
     """Represents a course as returned by the Course Structure API."""
-    def __init__(self, org=None, course=None, run=None, *args, **kwargs):
+    def __init__(self, org='test_org', course='test_course', run='test_run', *args, **kwargs):
         super(CourseFixture, self).__init__(*args, **kwargs)
         self._type = 'course'
-        self._org = org
-        self._course = course
-        self._run = run
+        self.org = org
+        self.course = course
+        self.run = run
         self._uuid = run  # The org/course/run triple uniquely identifies the course
 
     def course_structure(self):
@@ -90,7 +99,7 @@ class SequentialFixture(CourseStructureAPIFixtureMixin):
     """Represents a sequential as returned by the Course Structure API."""
     def __init__(self, graded=False, assignment_type=None, *args, **kwargs):
         super(SequentialFixture, self).__init__(*args, **kwargs)
-        self._graded = graded
+        self.graded = graded
         self._assignment_type = assignment_type
         self._type = 'sequential'
 

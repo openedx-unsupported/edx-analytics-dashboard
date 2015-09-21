@@ -7,9 +7,15 @@ from django.core.cache import cache
 from django.core.urlresolvers import reverse
 from django.test import (override_settings, TestCase)
 import mock
-from ddt import ddt, data
+from ddt import ddt, data, unpack
 
-from common.tests import course_fixtures
+from common.tests.course_fixtures import (
+    ChapterFixture,
+    CourseFixture,
+    SequentialFixture,
+    VerticalFixture,
+    VideoFixture
+)
 
 from courses.exceptions import NoVideosError
 from courses.presenters import BasePresenter
@@ -130,6 +136,9 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
     SECTION_ID = 'i4x://edX/DemoX/chapter/9fca584977d04885bc911ea76a9ef29e'
     SUBSECTION_ID = 'i4x://edX/DemoX/sequential/07bc32474380492cb34f76e5f9d9a135'
     VIDEO_ID = 'i4x://edX/DemoX/video/0b9e39477cf34507a7a48f74be381fdd'
+    VIDEO_1 = VideoFixture()
+    VIDEO_2 = VideoFixture()
+    VIDEO_3 = VideoFixture()
 
     def setUp(self):
         super(CourseEngagementVideoPresenterTests, self).setUp()
@@ -149,17 +158,17 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
         """
         Create graded and ungraded video sections.
         """
-        chapter_fixture = course_fixtures.ChapterFixture()
+        chapter_fixture = ChapterFixture()
         # a dictionary to access the fixtures easily
         course_structure_fixtures = {
             'chapter': chapter_fixture,
-            'course': course_fixtures.CourseFixture(org='this', course='course', run='id')
+            'course': CourseFixture(org='this', course='course', run='id')
         }
 
         for grade_status in ['graded', 'ungraded']:
-            sequential_fixture = course_fixtures.SequentialFixture(graded=grade_status is 'graded').add_children(
-                course_fixtures.VerticalFixture().add_children(
-                    course_fixtures.VideoFixture()
+            sequential_fixture = SequentialFixture(graded=grade_status is 'graded').add_children(
+                VerticalFixture().add_children(
+                    VideoFixture()
                 )
             )
             course_structure_fixtures[grade_status] = {
@@ -370,6 +379,172 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
         actual_view_live_url = self.presenter.build_view_live_url('a-url', self.VIDEO_ID)
         self.assertEqual('a-url/{}/jump_to/{}'.format(self.course_id, self.VIDEO_ID), actual_view_live_url)
         self.assertEqual(None, self.presenter.build_view_live_url(None, self.VIDEO_ID))
+
+    @data(
+        (CourseFixture().add_children(
+            ChapterFixture().add_children(
+                SequentialFixture().add_children(
+                    VerticalFixture().add_children(
+                        VIDEO_1
+                    )
+                )
+            )
+        ), VIDEO_1.id, 0, VIDEO_1.id),
+        (CourseFixture().add_children(
+            ChapterFixture().add_children(
+                SequentialFixture().add_children(
+                    VerticalFixture().add_children(
+                        VIDEO_1,
+                        VIDEO_2
+                    )
+                )
+            )
+        ), VIDEO_1.id, 1, VIDEO_2.id),
+        (CourseFixture().add_children(
+            ChapterFixture().add_children(
+                SequentialFixture().add_children(
+                    VerticalFixture().add_children(
+                        VIDEO_1,
+                        VIDEO_2
+                    )
+                )
+            )
+        ), VIDEO_2.id, -1, VIDEO_1.id),
+        (CourseFixture().add_children(
+            ChapterFixture().add_children(
+                SequentialFixture().add_children(
+                    VerticalFixture().add_children(
+                        VIDEO_1,
+                    ),
+                    VerticalFixture().add_children(
+                        VIDEO_2,
+                    )
+                )
+            )
+        ), VIDEO_1.id, 1, VIDEO_2.id),
+        (CourseFixture().add_children(
+            ChapterFixture().add_children(
+                SequentialFixture().add_children(
+                    VerticalFixture().add_children(
+                        VIDEO_1,
+                    ),
+                ),
+                SequentialFixture().add_children(
+                    VerticalFixture().add_children(
+                        VIDEO_2,
+                    ),
+                )
+            )
+        ), VIDEO_1.id, 1, VIDEO_2.id),
+        (CourseFixture().add_children(
+            ChapterFixture().add_children(
+                SequentialFixture().add_children(
+                    VerticalFixture().add_children(
+                        VIDEO_1,
+                    ),
+                ),
+            ),
+            ChapterFixture().add_children(
+                SequentialFixture().add_children(
+                    VerticalFixture().add_children(
+                        VIDEO_2,
+                    ),
+                ),
+            )
+        ), VIDEO_1.id, 1, VIDEO_2.id),
+        (CourseFixture().add_children(
+            ChapterFixture().add_children(
+                SequentialFixture().add_children(
+                    VerticalFixture().add_children(
+                        VIDEO_1,
+                    ),
+                ),
+            ),
+            ChapterFixture().add_children(
+                SequentialFixture().add_children(
+                    VerticalFixture().add_children(
+                        VIDEO_2
+                    ),
+                ),
+            ),
+            ChapterFixture().add_children(
+                SequentialFixture().add_children(
+                    VerticalFixture().add_children(
+                        VIDEO_3
+                    ),
+                ),
+            )
+        ), VIDEO_1.id, 2, VIDEO_3.id),
+        (CourseFixture().add_children(
+            ChapterFixture().add_children(
+                SequentialFixture().add_children(
+                    VerticalFixture().add_children(
+                        VIDEO_1
+                    )
+                )
+            )
+        ), VIDEO_1.id, -1, None),
+        (CourseFixture().add_children(
+            ChapterFixture().add_children(
+                SequentialFixture().add_children(
+                    VerticalFixture().add_children(
+                        VIDEO_1
+                    )
+                )
+            )
+        ), VIDEO_1.id, 1, None),
+    )
+    @unpack
+    @override_settings(CACHES={
+        'default': {
+            'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        }
+    })
+    @mock.patch('analyticsclient.course.Course.videos')
+    def test_sibling(self, fixture, start_id, offset, expected_sibling_id, mock_videos):
+        """Tests the _sibling method of the `CourseAPIPresenterMixin`."""
+        mock_videos.return_value = []
+        with mock.patch('slumber.Resource.get', mock.Mock(return_value=fixture.course_structure())):
+            sibling = self.presenter.sibling_block(start_id, offset)
+            if expected_sibling_id is None:
+                self.assertIsNone(sibling)
+            else:
+                self.assertEqual(sibling['id'], expected_sibling_id)
+
+    @override_settings(CACHES={
+        'default': {
+            'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        }
+    })
+    @mock.patch('analyticsclient.course.Course.videos')
+    def test_sibling_no_data(self, mock_videos):
+        """
+        Verify that _sibling() skips over siblings with no data (no associated URL).
+        """
+        mock_videos.return_value = []
+        fixture = CourseFixture().add_children(
+            ChapterFixture().add_children(
+                SequentialFixture().add_children(
+                    VerticalFixture().add_children(
+                        self.VIDEO_1,
+                        self.VIDEO_2,  # self.VIDEO_2 will have no data
+                        self.VIDEO_3
+                    )
+                )
+            )
+        )
+        with mock.patch('slumber.Resource.get', mock.Mock(return_value=fixture.course_structure())):
+            # pylint: disable=unused-argument
+            def build_module_url_func(parent, video):
+                if video['id'] == self.VIDEO_2.id:
+                    return None
+                else:
+                    return 'dummy_url'
+
+            with mock.patch.object(CourseEngagementVideoPresenter, 'build_module_url_func',
+                                   mock.Mock(return_value=build_module_url_func)):
+                sibling = self.presenter.sibling_block(self.VIDEO_1.id, 1)
+                self.assertEqual(sibling['id'], self.VIDEO_3.id)
 
 
 class CourseEnrollmentPresenterTests(SwitchMixin, TestCase):

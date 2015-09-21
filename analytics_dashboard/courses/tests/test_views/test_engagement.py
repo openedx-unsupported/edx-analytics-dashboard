@@ -171,7 +171,7 @@ class CourseEngagementVideoMixin(CourseEngagementViewTestMixin, CourseStructureV
         self.assertDictContainsSubset(expected, context)
 
     @httpretty.activate
-    @patch('courses.presenters.engagement.CourseEngagementVideoPresenter.sections', Mock(return_value=None))
+    @patch('courses.presenters.engagement.CourseEngagementVideoPresenter.sections', Mock(return_value=dict()))
     def test_missing_sections(self):
         """ Every video page will use sections and will return 200 if sections aren't available. """
         self.mock_course_detail(DEMO_COURSE_ID)

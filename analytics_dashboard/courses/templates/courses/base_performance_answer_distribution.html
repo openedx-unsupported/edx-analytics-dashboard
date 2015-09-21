@@ -19,9 +19,9 @@
     {% block content_nav %}
     {% endblock %}
 
-    {% block module_description %}
+    <div class="module-meta">
         {% include "courses/_module_description.html" with description=problem_part_description view_live_url=view_live_url %}
-    {% endblock %}
+    </div>
 
     <div class="section-content section-data-graph">
         <div class="section-content section-data-viz">
