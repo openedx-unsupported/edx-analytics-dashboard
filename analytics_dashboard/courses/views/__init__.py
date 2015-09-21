@@ -4,6 +4,7 @@ import logging
 import re
 
 from braces.views import LoginRequiredMixin
+from ccx_keys.locator import CCXLocator
 from django.conf import settings
 from django.core.cache import cache
 from django.core.exceptions import PermissionDenied
@@ -13,13 +14,13 @@ from django.utils import dateformat
 from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import TemplateView
+from opaque_keys.edx.keys import CourseKey
 import requests
 from slumber.exceptions import (HttpClientError, SlumberBaseException)
 from waffle import switch_is_active
 
 from analyticsclient.client import Client
 from analyticsclient.exceptions import (ClientError, NotFoundError)
-
 
 from common.clients import CourseStructureApiClient
 
@@ -549,6 +550,12 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LazyEnco
     def _create_course_list(self, course_ids):
         info = []
         course_data = {}
+
+        # ccx courses are hidden on the course listing page unless enabled
+        if not switch_is_active('enable_ccx_courses'):
+            # filter ccx courses
+            course_ids = [course_id for course_id in course_ids
+                          if not isinstance(CourseKey.from_string(course_id), CCXLocator)]
 
         if self.course_api_enabled and switch_is_active('display_names_for_course_index'):
 

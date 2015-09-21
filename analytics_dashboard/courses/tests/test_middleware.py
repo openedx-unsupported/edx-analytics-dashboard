@@ -1,3 +1,4 @@
+import ddt
 import logging
 
 from django.template.response import TemplateResponse
@@ -16,24 +17,27 @@ class CoursePermissionsExceptionMixin(MiddlewareAssertionMixin):
         self.assertEqual(response.template_name, 'courses/permissions-retrieval-failed.html')
 
 
+@ddt.ddt
 class CourseMiddlewareTests(MiddlewareTestCase):
     middleware_class = CourseMiddleware
 
     # pylint: disable=no-member
-    def test_course_id(self):
+    def test_no_course_id(self):
         """
-        Verify the middleware sets the course_id attribute on the request.
+        A non-course URL should have course_id set to None
         """
-
-        # A non-course URL should have course_id set to None
         request = self.factory.get('/')
         self.middleware.process_view(request, '', None, {})
         self.assertIsNone(request.course_id)
         self.assertIsNone(request.course_key)
 
+    @ddt.data('edX/DemoX/Demo_Course', 'course-v1:edX+DemoX+Demo_2014', 'ccx-v1:edx+1.005x-CCX+rerun+ccx@15')
+    def test_course_id(self, course_id):
+        """
+        Verify the middleware sets the course_id attribute on the request.
+        """
         # Course-related URLs should set a course_id and course_key on the request
         request = self.factory.get('/')
-        course_id = 'edX/DemoX/Demo_Course'
         course_key = CourseKey.from_string(course_id)
         self.middleware.process_view(request, '', None, {'course_id': course_id})
         self.assertEqual(request.course_id, course_id)
