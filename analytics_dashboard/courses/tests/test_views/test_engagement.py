@@ -1,3 +1,4 @@
+import datetime
 from ddt import ddt
 import mock
 from mock import patch, Mock
@@ -39,22 +40,32 @@ class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):  # pylint: disa
         }
         self.assertDictEqual(nav, expected)
 
-    def get_expected_secondary_nav(self, _course_id):
-        # override for each secondary page
-        return [
+    def get_expected_secondary_nav(self, course_id):
+        entries = [
             {
-                'active': True,
-                'href': '#',
+                'active': False,
+                'href': reverse('courses:engagement:content', kwargs={'course_id': course_id}),
                 'name': 'content',
                 'label': _('Content'),
             },
             {
-                'active': True,
-                'href': '#',
+                'active': False,
+                'href': reverse('courses:engagement:typology', kwargs={'course_id': course_id}),
+                'name': 'typology',
+                'label': _('Typology'),
+            },
+            {
+                'active': False,
+                'href': reverse('courses:engagement:videos', kwargs={'course_id': course_id}),
                 'name': 'videos',
                 'label': _('Videos'),
             },
         ]
+        for entry in entries:
+            if entry['label'] == self.active_secondary_nav_label:
+                entry['active'] = True
+                entry['href'] = '#'
+        return entries
 
     def assertSecondaryNavs(self, nav, course_id):
         expected = self.get_expected_secondary_nav(course_id)
@@ -66,14 +77,6 @@ class CourseEngagementContentViewTests(CourseViewTestMixin, CourseEngagementView
     viewname = 'courses:engagement:content'
     presenter_method = 'courses.presenters.engagement.CourseEngagementActivityPresenter.get_summary_and_trend_data'
     active_secondary_nav_label = 'Content'
-
-    def get_expected_secondary_nav(self, course_id):
-        expected = super(CourseEngagementContentViewTests, self).get_expected_secondary_nav(course_id)
-        expected[1].update({
-            'href': reverse('courses:engagement:videos', kwargs={'course_id': course_id}),
-            'active': False
-        })
-        return expected
 
     def assertViewIsValid(self, course_id):
         rv = utils.mock_engagement_activity_summary_and_trend_data()
@@ -126,17 +129,55 @@ class CourseEngagementContentViewTests(CourseViewTestMixin, CourseEngagementView
 
 
 @ddt
-class CourseEngagementVideoMixin(CourseEngagementViewTestMixin, CourseStructureViewMixin):
-    active_secondary_nav_label = 'Video'
-    sections = None
+class CourseEngagementTypologyViewTests(CourseViewTestMixin, CourseEngagementViewTestMixin, TestCase):
+    api_method = None
+    viewname = 'courses:engagement:typology'
+    presenter_method = 'courses.presenters.engagement.CourseEngagementTypologyPresenter.get_data'
+    active_secondary_nav_label = 'Typology'
 
-    def get_expected_secondary_nav(self, course_id):
-        expected = super(CourseEngagementVideoMixin, self).get_expected_secondary_nav(course_id)
-        expected[0].update({
-            'href': reverse('courses:engagement:content', kwargs={'course_id': course_id}),
-            'active': False
-        })
-        return expected
+    def get_mock_presenter_data(self):
+        data = {
+            "id": "week1",
+            "index": 1,
+            "name": "Week 1: Introduction",
+            "all_v_all_p": 0, "all_v_all_p_fraction": 0.0,
+            "some_v_all_p": 100, "some_v_all_p_fraction": 0.10,
+            "no_v_all_p": 250, "no_v_all_p_fraction": 0.25,
+            "all_v_some_p": 0, "all_v_some_p_fraction": 0.0,
+            "some_v_some_p": 300, "some_v_some_p_fraction": 0.30,
+            "no_v_some_p": 0, "no_v_some_p_fraction": 0.0,
+            "all_v_no_p": 0, "all_v_no_p_fraction": 0.0,
+            "some_v_no_p": 350, "some_v_no_p_fraction": 0.35,
+        }
+        last_updated = datetime.datetime(2015, 1, 1, 12, 0)
+        return data, last_updated
+
+    def assertViewIsValid(self, course_id):
+        with mock.patch(self.presenter_method, self.get_mock_presenter_data):
+            response = self.client.get(self.path(course_id=course_id))
+
+        # make sure that we get a 200
+        self.assertEqual(response.status_code, 200)
+
+        # check page title
+        self.assertEqual(response.context['page_title'], 'Engagement Typology')
+
+        # Check the data
+        typology_data = response.context['js_data']['course']['typology']
+        expected = self.get_mock_presenter_data()[0]
+
+        self.assertEqual(typology_data, expected)
+
+    def assertValidMissingDataContext(self, context):
+        # typology should evaluate to a falsy value, which the
+        # template evaluates to render error messages
+        self.assertIsNone(context['js_data']['course']['typology'])
+
+
+@ddt
+class CourseEngagementVideoMixin(CourseEngagementViewTestMixin, CourseStructureViewMixin):
+    active_secondary_nav_label = 'Videos'
+    sections = None
 
     @httpretty.activate
     def test_invalid_course(self):

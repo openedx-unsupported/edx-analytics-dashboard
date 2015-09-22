@@ -65,7 +65,8 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
                         },
                         // this text is displayed in the header
                         title: column.title,
-                        className: column.className || undefined
+                        className: column.className || undefined,
+                        orderable: !column.unorderable
                     };
 
                     // extend definitions to render different types of data
@@ -87,6 +88,10 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
                         def.data = self.createFormatHasNullFunc(column.key);
                     } else if (column.type === 'time') {
                         def.data = self.createFormatTimeFunc(column.key);
+                    } else if (column.type === 'custom') {
+                        def.data = function(row, type) {
+                            return row[type === 'display' ? column.displayKey : column.key];
+                        };
                     }
 
                     defs.push(def);

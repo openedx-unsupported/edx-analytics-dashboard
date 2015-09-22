@@ -11,7 +11,11 @@ from ddt import ddt, data
 
 from courses.exceptions import NoVideosError
 from courses.presenters import BasePresenter
-from courses.presenters.engagement import (CourseEngagementActivityPresenter, CourseEngagementVideoPresenter)
+from courses.presenters.engagement import (
+    CourseEngagementActivityPresenter,
+    CourseEngagementTypologyPresenter,
+    CourseEngagementVideoPresenter,
+)
 from courses.presenters.enrollment import (CourseEnrollmentPresenter, CourseEnrollmentDemographicsPresenter)
 from courses.presenters.performance import CoursePerformancePresenter
 from courses.tests import utils, SwitchMixin
@@ -121,6 +125,90 @@ class CourseEngagementActivityPresenterTests(SwitchMixin, TestCase):
 
         self.assertSummaryAndTrendsValid(False, self.get_expected_trends_small(False))
         self.assertSummaryAndTrendsValid(True, self.get_expected_trends_small(True))
+
+
+class CourseEngagementTypologyPresenterTests(TestCase):
+
+    def setUp(self):
+        super(CourseEngagementTypologyPresenterTests, self).setUp()
+        self.course_id = 'course-v1:Typology+TEST+123'
+        self.created_date = "2015-08-20T043618"
+        access_token = 'test'
+        self.presenter = CourseEngagementTypologyPresenter(access_token, self.course_id)
+
+    def get_mock_input_data_from_api(self):
+        """ Get data to mock the analytics API typology endpoint """
+        return [
+            {"chapter_id": "week1", "video_type": 0, "problem_type": 2, "num_users": 250, "created": self.created_date},
+            {"chapter_id": "week1", "video_type": 1, "problem_type": 0, "num_users": 350, "created": self.created_date},
+            {"chapter_id": "week1", "video_type": 1, "problem_type": 1, "num_users": 300, "created": self.created_date},
+            {"chapter_id": "week1", "video_type": 1, "problem_type": 2, "num_users": 100, "created": self.created_date},
+            {"chapter_id": "invalid", "video_type": 1, "problem_type": 2, "num_users": 3, "created": self.created_date},
+        ]
+
+    def get_mock_course_structure(self):
+        """ Get data to mock the course structure """
+        return {
+            "root": "block-v1:Typology+TEST+123+type@course+block@course",
+            "blocks": {
+                "block-v1:Typology+TEST+123+type@course+block@course": {
+                    "children": [
+                        "block-v1:Typology+TEST+123+type@chapter+block@week1",
+                        "block-v1:Typology+TEST+123+type@chapter+block@week2",
+                    ]
+                },
+                "block-v1:Typology+TEST+123+type@chapter+block@week1": {
+                    "id": "block-v1:Typology+TEST+123+type@chapter+block@week1",
+                    "type": "chapter", "display_name": "Week 1: Introduction",
+                },
+                "block-v1:Typology+TEST+123+type@chapter+block@week2": {
+                    "id": "block-v1:Typology+TEST+123+type@chapter+block@week2",
+                    "type": "chapter", "display_name": "Week 2: Typologizing",
+                },
+            }
+        }
+
+    def get_expected_data(self):
+        """ Get the data expected back from the presenter """
+        return [
+            {
+                "id": "week1",
+                "index": 1,
+                "name": "Week 1: Introduction",
+                "all_v_all_p": 0, "all_v_all_p_fraction": 0.0,
+                "some_v_all_p": 100, "some_v_all_p_fraction": 0.10,
+                "no_v_all_p": 250, "no_v_all_p_fraction": 0.25,
+                "all_v_some_p": 0, "all_v_some_p_fraction": 0.0,
+                "some_v_some_p": 300, "some_v_some_p_fraction": 0.30,
+                "no_v_some_p": 0, "no_v_some_p_fraction": 0.0,
+                "all_v_no_p": 0, "all_v_no_p_fraction": 0.0,
+                "some_v_no_p": 350, "some_v_no_p_fraction": 0.35,
+            },
+            {
+                "id": "week2",
+                "index": 2,
+                "name": "Week 2: Typologizing",
+                "all_v_all_p": 0, "all_v_all_p_fraction": 0.0,
+                "some_v_all_p": 0, "some_v_all_p_fraction": 0.0,
+                "no_v_all_p": 0, "no_v_all_p_fraction": 0.0,
+                "all_v_some_p": 0, "all_v_some_p_fraction": 0.0,
+                "some_v_some_p": 0, "some_v_some_p_fraction": 0.0,
+                "no_v_some_p": 0, "no_v_some_p_fraction": 0.0,
+                "all_v_no_p": 0, "all_v_no_p_fraction": 0.0,
+                "some_v_no_p": 0, "some_v_no_p_fraction": 0.0,
+            },
+        ]
+
+    @mock.patch('common.clients.CourseStructureApiClient.course_structures', create=True)
+    @mock.patch('analyticsclient.course.Course.typology')
+    def test_presenter(self, mock_raw_typology_data, mock_structures):
+        mock_raw_typology_data.return_value = self.get_mock_input_data_from_api()
+        mock_structures.return_value.get = self.get_mock_course_structure
+
+        typology_data, last_updated = self.presenter.get_data()
+
+        self.assertEqual(typology_data, self.get_expected_data())
+        self.assertEqual(last_updated, self.presenter.parse_api_datetime(self.created_date))
 
 
 class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):

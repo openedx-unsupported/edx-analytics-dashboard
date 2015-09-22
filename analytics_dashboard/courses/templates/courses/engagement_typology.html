@@ -1,0 +1,70 @@
+{% extends "courses/base-course.html" %}
+
+{% load i18n %}
+{% load staticfiles %}
+{% load waffle_tags %}
+{% load dashboard_extras %}
+{% load rjs %}
+
+{% comment %}
+Individual course-centric engagement typology view.
+{% endcomment %}
+
+{% block view-name %}view-course-engagement view-dashboard{% endblock view-name %}
+
+{% block javascript %}
+  {{ block.super }}
+  <script src="{% static_rjs 'js/engagement-typology-main.js' %}"></script>
+{% endblock javascript %}
+
+{% block child_content %}
+  <section class="view-section" aria-hidden="true">
+    <div class="section-heading">
+      <h4 class="section-title">{% trans "Student Typology" %}</h4>
+      <span class="section-heading-note small">{% trans "How are students interacting with my course?" %}</span>
+    </div>
+
+    {% if js_data.course.typology %}
+        <div class="section-typology section-data-graph">
+          <div class="section-typology section-data-viz">
+                <div class="analytics-chart-container">
+                    <div class="chart-info">{% trans "Students by type" %}</div>
+                    {% trans "Students categorized by how they interacted with the course, per chapter." as tip_text1 %}
+                    {% trans "Darker colors indicate more engaged students." as tip_text2 %}
+                    {% trans "Yellow colors indicate students who engage more thoroughly with problems than video." as tip_text3 %}
+                    {% trans "Blue colors indicate students who engage more thoroughly with video than problems." as tip_text4 %}
+                    {% include "chart_tooltip.html" with tip_text=tip_text1|add:" "|add:tip_text2|add:" "|add:tip_text3|add:" "|add:tip_text4 track_category="trend"%}
+                    <div id="chart-view" class="analytics-chart analytics-chart-tall">
+                        {% include "loading.html" %}
+                    </div>
+                </div>
+          </div>
+        </div>
+    {% else %}
+        {% show_chart_error %}
+    {% endif %}
+  </section>
+
+  <section class="view-section">
+    <div class="section-heading">
+      <h4 class="section-title">{% trans "Student Typology Breakdown" %}</h4>
+    </div>
+
+      <p>
+        {% blocktrans with all_videos_symbol="▸▸" some_videos_symbol="▸▹" no_videos_symbol="▹▹" all_problems_symbol="■■" some_problems_symbol="■□" no_problems_symbol="□□" %}
+          Legend:
+          {{all_videos_symbol}} All videos, {{some_videos_symbol}} Some videos, {{no_videos_symbol}} No videos,
+          {{all_problems_symbol}} All problems, {{some_problems_symbol}} Some problems, {{no_problems_symbol}} No problems,
+        {% endblocktrans %}
+      </p>
+
+    {% if js_data.course.typology %}
+        <div class="section-content section-data-table" data-role="data-table">
+          {% include "loading.html" %}
+        </div>
+    {% else %}
+        {% show_table_error %}
+    {% endif %}
+  </section>
+
+{% endblock %}

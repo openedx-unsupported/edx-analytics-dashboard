@@ -39,8 +39,11 @@ button.chart-info {
   border: $description-border-color 1px solid;
 
   .analytics-chart {
-    height: 305px; // Update the height of the graph in trends-view.js to be this height minus 5px.
+    height: 305px; // In chart-view.js the chart height is set to be this height minus 5px.
     padding-top: $padding-large-vertical;
+    &.analytics-chart-tall {
+      height: 455px;
+    }
   }
 
   // shorten the chart so just a message (e.g. error message) is displayed
@@ -644,6 +647,10 @@ table.dataTable thead th.sorting_desc:after {
   .nvd3 .nv-legend .nv-series {
     cursor: default;
   }
+}
+
+.symbolic-header {
+  font-size: 120%;
 }
 
 .graded-content-nav {

@@ -6,7 +6,11 @@ from django.utils.translation import ugettext_lazy as _
 
 from analyticsclient.exceptions import NotFoundError
 
-from courses.presenters.engagement import (CourseEngagementActivityPresenter, CourseEngagementVideoPresenter)
+from courses.presenters.engagement import (
+    CourseEngagementActivityPresenter,
+    CourseEngagementTypologyPresenter,
+    CourseEngagementVideoPresenter,
+)
 from courses.views import (CourseStructureMixin, CourseStructureExceptionMixin, CourseTemplateWithNavView)
 
 
@@ -20,6 +24,7 @@ class EngagementTemplateView(CourseTemplateWithNavView):
     secondary_nav_items = [
         # Translators: Content as in course content (e.g. things, not the feeling)
         {'name': 'content', 'label': _('Content'), 'view': 'courses:engagement:content'},
+        {'name': 'typology', 'label': _('Typology'), 'view': 'courses:engagement:typology'},
         {'name': 'videos', 'label': _('Videos'), 'view': 'courses:engagement:videos',
          'switch': 'enable_engagement_videos_pages'},
     ]
@@ -52,6 +57,36 @@ class EngagementContentView(EngagementTemplateView):
         context['js_data']['course']['engagementTrends'] = trends
         context.update({
             'summary': summary,
+            'update_message': self.get_last_updated_message(last_updated)
+        })
+        context['page_data'] = self.get_page_data(context)
+
+        return context
+
+
+class EngagementTypologyView(EngagementTemplateView):
+    template_name = 'courses/engagement_typology.html'
+    # Translators: Typology is a noun referring to a categorization students into "types"
+    page_title = _('Engagement Typology')
+    page_name = 'engagement_typology'
+    active_secondary_nav_item = 'typology'
+
+    # Translators: Do not translate UTC.
+    update_message = _('Course typology data was last updated %(update_date)s at %(update_time)s UTC.')
+
+    def get_context_data(self, **kwargs):
+        context = super(EngagementTypologyView, self).get_context_data(**kwargs)
+        self.presenter = CourseEngagementTypologyPresenter(self.access_token, self.course_id)
+
+        sections = None
+        last_updated = None
+        try:
+            sections, last_updated = self.presenter.get_data()
+        except NotFoundError:
+            logger.error("Failed to retrieve engagement content data for %s.", self.course_id)
+
+        context['js_data']['course']['typology'] = sections
+        context.update({
             'update_message': self.get_last_updated_message(last_updated)
         })
         context['page_data'] = self.get_page_data(context)

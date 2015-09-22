@@ -91,6 +91,7 @@ define(['underscore', 'models/course-model', 'views/stacked-bar-view'], function
             expect(view.options.x).toEqual({key: 'id', displayKey: 'name'});
             expect(view.options.y).toEqual({key: 'count'});
             expect(view.options.interactiveTooltipValueTemplate(trend)).toBe(expectedTooltip);
+            expect(view.options.showAllSeriesInTooltip).toBe(true);
         });
 
     });
