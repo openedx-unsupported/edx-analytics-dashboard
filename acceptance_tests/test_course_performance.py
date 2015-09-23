@@ -296,7 +296,7 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformancePageTestsMixin):
         self.module = self.analytics_api_client.modules(self.page.course_id, self.page.problem_id)
         api_response = self.module.answer_distribution()
         data = [i for i in api_response if i['part_id'] == self.page.part_id]
-        self.answer_distribution = sorted(data, key=lambda a: a['count'], reverse=True)
+        self.answer_distribution = sorted(data, key=lambda a: a['last_response_count'], reverse=True)
 
     def get_page(self):
         raise NotImplementedError
@@ -357,7 +357,7 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformancePageTestsMixin):
             if answer['correct']:
                 correct = u'Correct'
             expected.append(correct)
-            expected.append(self.format_number(answer['count']))
+            expected.append(self.format_number(answer['last_response_count']))
 
             self.assertListEqual(actual, expected)
             self.assertIn('text-right', columns[2].get_attribute('class'))
