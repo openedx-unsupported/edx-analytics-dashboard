@@ -233,7 +233,7 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
             'users_at_start': 60,
             'users_at_end': 40,
             'index': 1,
-            'average_users_at_start': 30,
+            'average_start_only_users': 10,
             'average_users_at_end': 20,
             'end_percent': 2/3,
             'start_only_users': 20,

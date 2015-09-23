@@ -146,7 +146,7 @@ class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, BasePresenter):
             'users_at_start': total_start_users,
             'users_at_end': total_end_users,
             'index': index + 1,
-            'average_users_at_start': 0,
+            'average_start_only_users': 0,
             'average_users_at_end': 0,
         })
 
@@ -158,7 +158,7 @@ class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, BasePresenter):
         if has_views and parent['num_modules']:
             num_modules = float(parent['num_modules'])
             parent.update({
-                'average_users_at_start': total_start_users / num_modules,
+                'average_start_only_users': parent['start_only_users'] / num_modules,
                 'average_users_at_end': total_end_users / num_modules,
             })
 
