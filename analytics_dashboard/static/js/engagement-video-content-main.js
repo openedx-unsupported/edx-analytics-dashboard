@@ -9,7 +9,7 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
             var model = page.models.courseModel,
                 graphVideoColumns = [
                     {
-                        key: 'average_users_at_start',
+                        key: 'average_users_at_end',
                         percent_key: 'end_percent',
                         title: gettext('Average Complete Views'),
                         className: 'text-right',
@@ -18,7 +18,7 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                         color: '#58BC4B'
                     },
                     {
-                        key: 'average_users_at_end',
+                        key: 'average_start_only_users',
                         percent_key: 'start_only_percent',
                         title: gettext('Average Incomplete Views'),
                         className: 'text-right',
