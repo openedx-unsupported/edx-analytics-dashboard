@@ -92,7 +92,10 @@ class CourseAPIPresenterMixin(object):
 
     @property
     def module_graded_type(self):
-        """ Graded module type to review structure for. E.g. True, False, None. """
+        """
+        Property used to filter modules by.  True/False will include only modules with
+        that grade field.  Set to None if not filtering by the graded value.
+        """
         return None
 
     def get_cache_key(self, name):
