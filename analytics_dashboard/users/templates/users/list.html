@@ -1,0 +1,79 @@
+{% extends "users/base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load dashboard_extras %}
+
+{% block view-name %}view-user-list{% endblock view-name %}
+
+{% block lens_navigation %}
+  {#  This is a simplified version of lens-navigation.html. #}
+
+  {#  Translators: Application here refers to the web site/application being used (e.g. the dashboard). #}
+  <nav class="navbar navbar-default lens-nav" role="navigation" aria-label="{% trans "Application" %}">
+    <div class="container ">
+      <ul id="mode-selectors" class="nav navbar-nav navbar-right">
+        <li class="has-tooltip" data-toggle="tooltip" title="Click to switch to course mode">
+          <a href="{% url 'courses:home' course_id=course_id %}">
+            <span class="link-label">
+              <i class="ico fa fa-users" aria-hidden="true"></i>
+            </span>
+          </a>
+        </li>
+        <li class="active nav-section has-tooltip" data-toggle="tooltip" title="You're in user mode">
+          <a href="#">
+            <span class="link-label">
+              <i class="ico fa fa-user" aria-hidden="true"></i>
+            </span>
+          </a>
+          <span class="sr-only">({% trans "Active" %})</span>
+        </li>
+      </ul>
+    </div>
+  </nav>
+{% endblock %}
+
+{% block header-text %}
+  <h3>
+    {% blocktrans %}Enrolled Students{% endblocktrans %}
+  </h3>
+{% endblock %}
+
+{% block intro-text %}
+  {% blocktrans %}Here are all the students enrolled in this course:{% endblocktrans %}
+{% endblock intro-text %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-8">
+
+      {% include "pagination.html" %}
+
+      <div class="user-list paginated">
+        {% for user in users %}
+          <div class="user">
+            <a href="{% url 'courses:users:profile' course_id=course_id username=user.username %}">
+              <span class="main-info">{{user.username}}</span>
+            </a>
+            <div class="sub-info">{{user.name}}</div>
+          </div>
+        {% endfor %}
+      </div>
+
+      {% include "pagination.html" %}
+
+    </div>
+
+    <div class="col-md-4">
+      <div class="help-msg">
+        <h4>{% blocktrans %}New to {{ application_name }}?{% endblocktrans %}</h4>
+
+        {% captureas email_link %}
+          <a class="feedback-email" href="mailto:{{ feedback_email }}?Subject=Feedback">
+            {{ feedback_email }}</a>{% endcaptureas %}
+
+        <p class="info-text">{% blocktrans trimmed %} Click Help in the upper-right corner to get more information
+          about {{ application_name }}. Send us feedback at {{ email_link }}.{% endblocktrans %}</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}

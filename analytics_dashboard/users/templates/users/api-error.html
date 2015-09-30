@@ -1,0 +1,16 @@
+{% extends "base-error.html" %}
+{% load i18n %}
+
+{% comment %}Translators: This message is displayed when the website is unable to retrieve data requested by the user{% endcomment %}
+{% block title %}{% trans "Data Retrieval Failed" %} {{ block.super }}{% endblock title %}
+
+{% block error-title %}{% trans "Data Retrieval Failed" %}{% endblock %}
+{% block error-copy %}
+  {% trans "There was a problem retrieving the data you requested. Please try again. If you continue to experience issues, please let us know." %}
+{% endblock %}
+
+{% block buttons %}
+  <a onclick="location.reload(true);" class="btn btn-lg btn-primary"> <i class="ico fa fa-refresh" aria-hidden="true"></i>
+    {% trans "Try Again" %}</a>
+  {{ block.super }}
+{% endblock %}

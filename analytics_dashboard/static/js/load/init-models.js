@@ -8,14 +8,12 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
         'use strict';
         var courseModel = new CourseModel(),
             trackingModel = new TrackingModel(),
-            userModel = new UserModel();
+            userModel = new UserModel(),
+            modelData = window.initModelData || {}; // initModelData is set by the Django template at render time.
 
-        /* jshint ignore:start */
-        // initModelData is set by the Django template at render time.
-        courseModel.set(initModelData.course);
-        trackingModel.set(initModelData.tracking);
-        userModel.set(initModelData.user);
-        /* jshint ignore:end */
+        courseModel.set(modelData.course);
+        trackingModel.set(modelData.tracking);
+        userModel.set(modelData.user);
 
         return {
             courseModel: courseModel,

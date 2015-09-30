@@ -1,0 +1,87 @@
+{% extends "users/base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load dashboard_extras %}
+
+{% block view-name %}view-user-profile{% endblock view-name %}
+
+{% block lens_navigation %}
+  {#  This is a simplified version of lens-navigation.html. #}
+
+  {#  Translators: Application here refers to the web site/application being used (e.g. the dashboard). #}
+  <nav class="navbar navbar-default lens-nav" role="navigation" aria-label="{% trans "Application" %}">
+    <div class="container ">
+      <ul id="mode-selectors" class="nav navbar-nav navbar-right">
+        <li class="has-tooltip" data-toggle="tooltip" title="Click to switch to course mode">
+          <a href="{% url 'courses:home' course_id=course_id %}">
+            <span class="link-label">
+              <i class="ico fa fa-users" aria-hidden="true"></i>
+            </span>
+          </a>
+        </li>
+        <li class="active nav-section has-tooltip" data-toggle="tooltip" title="You're in user mode. Click to go back to the list of all students enrolled in this course.">
+          <a href="{% url 'courses:users:list' course_id=course_id %}">
+            <span class="link-label">
+              <i class="ico fa fa-user" aria-hidden="true"></i>
+            </span>
+          </a>
+          <span class="sr-only">({% trans "Active" %})</span>
+        </li>
+      </ul>
+    </div>
+  </nav>
+{% endblock %}
+
+{% block title %}{{ profile.name }} - {{ block.super }}{% endblock title %}
+
+{% block header-text %}
+  <h3>
+    {% blocktrans with name=profile.name %}User Profile: {{name}}{% endblocktrans %}
+  </h3>
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-xs-12 col-md-8">
+      <table class="table user-profile-info">
+        <tr><td>{% trans "Name" %}</td><td> {{profile.name}}</td></tr>
+        <tr><td>{% trans "Username" %}</td><td> {{profile.username}}</td></tr>
+        <tr><td>{% trans "Email" %}</td><td> {{profile.email}}</td></tr>
+        <tr><td>{% trans "Last Login" %}</td><td> {{profile.last_login|date:"DATETIME_FORMAT"}}</td></tr>
+        <tr><td>{% trans "Date Joined" %}</td><td> {{profile.date_joined|date:"DATETIME_FORMAT"}}</td></tr>
+        <tr>
+          <td>{% trans "Staff Status" %}</td>
+          <td>{%if profile.is_staff%}{%trans "Yes"%}{%else%}{%trans "No"%}{%endif%}</td>
+        </tr>
+        <tr>
+          <td>{% trans "Gender" %}</td>
+          {% if profile.gender == constants.gender.UNKNOWN %}<td class="missing-data">{% trans "Unknown" %}</td>{%else%}<td>{{profile.gender}}</td>{%endif%}
+        </tr>
+        <tr>
+          <td>{% trans "Year of Birth" %}</td>
+          {% if not profile.year_of_birth %}<td class="missing-data">{% trans "Unknown" %}</td>{%else%}<td>{{profile.year_of_birth}}</td>{%endif%}
+        </tr>
+        <tr>
+          <td>{% trans "Level of Education" %}</td>
+          {% if profile.gender == constants.education_level.UNKNOWN %}<td class="missing-data">{% trans "Unknown" %}</td>{%else%}<td>{{profile.level_of_education}}</td>{%endif%}
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <h4>Courses</h4>
+    <table class="table user-profile-courses">
+      <tr><th>Name</th><th>Enrollment Date</th><th>Start Date</th><th>End Date</th></tr>
+      {% for enrollment in enrollments %}
+      <tr{% if enrollment.course_details.course_id == course_id %} class="active-course"{% endif %}>
+        <td><a href="{% url 'courses:home' course_id=enrollment.course_details.course_id %}">
+            {% firstof enrollment.course_details.name enrollment.course_details.course_id|format_course_key %}
+        </a></td>
+        <td>{{enrollment.created|date:"DATETIME_FORMAT"}}</td>
+        <td>{{enrollment.course_details.course_start|date:"DATETIME_FORMAT"}}</td>
+        <td>{{enrollment.course_details.course_end|date:"DATETIME_FORMAT"}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+{% endblock %}
