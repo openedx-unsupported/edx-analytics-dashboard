@@ -19,25 +19,11 @@ class CourseEnrollmentDemographicsAgeTests(CoursePageTestsMixin, WebAppTest):
         self.login()
         self.page.visit()
 
-        # Generate accessibillity report
-        report = self.page.do_axs_audit()
+        # TODO: AN-6010
+        # TODO: AN-6011
+        self.page.a11y_audit.config.set_rules({
+            "ignore": ['color-contrast'],
+        })
 
-        # Check that there was one page reviewed in this report
-        self.assertEqual(1, len(report))
-        result = report[0]
-
-        # Verify that this page has no accessibility errors.
-        self.assertEqual(0, len(result.errors))
-
-        # Verify that this page currently has 2 accessibility warnings.
-        self.assertEqual(2, len(result.warnings))
-
-        # And that these are the warnings that the page currently gives.
-        for warning in result.warnings:
-            self.assertTrue(
-                warning.startswith((
-                    'Warning: AX_FOCUS_01',
-                    'Warning: AX_COLOR_01',
-                )),
-                msg="Unexpected warning: {}".format(warning)
-            )
+        # Check the page for accessibility errors
+        report = self.page.a11y_audit.check_for_accessibility_errors()
