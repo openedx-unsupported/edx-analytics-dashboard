@@ -11,7 +11,7 @@ def str2bool(s):
 # Dashboard settings
 DASHBOARD_SERVER_URL = os.environ.get('DASHBOARD_SERVER_URL', 'http://localhost:9000')
 DASHBOARD_FEEDBACK_EMAIL = os.environ.get('DASHBOARD_FEEDBACK_EMAIL', 'override.this.email@example.com')
-PLATFORM_NAME = os.environ.get('PLATFORM_NAME', 'edX')
+PLATFORM_NAME = os.environ.get('PLATFORM_NAME', 'Open edX')
 APPLICATION_NAME = os.environ.get('APPLICATION_NAME', 'Insights')
 SUPPORT_URL = os.environ.get('SUPPORT_URL', 'http://example.com/')
 OPEN_SOURCE_URL = os.environ.get('OPEN_SOURCE_URL', 'http://example.com/')
