@@ -368,3 +368,14 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, BasePresenter):
     @property
     def module_type(self):
         return 'problem'
+
+    @property
+    def module_graded_type(self):
+        """
+        Get ungraded blocks.
+
+        This is a bit confusing as this presenter is used to show both graded and
+        ungraded content.  The ungraded content uses CourseAPIPresenterMixin::course_structure
+        which then gets the module grade type for filtering.
+        """
+        return False

@@ -309,3 +309,29 @@ class CourseEngagementDataFactory(CourseStructureFactory):
                 'created': CREATED_DATETIME_STRING
             })
         return segments
+
+    def videos(self):
+        """
+        Mock video data.
+        """
+        videos = [
+            {
+                "pipeline_video_id": "edX/DemoX/Demo_Course|i4x-edX-DemoX-video-7e9b434e6de3435ab99bd3fb25bde807",
+                "encoded_module_id": "i4x-edX-DemoX-video-7e9b434e6de3435ab99bd3fb25bde807",
+                "duration": 257,
+                "segment_length": 5,
+                "users_at_start": 10,
+                "users_at_end": 0,
+                "created": "2015-04-15T214158"
+            },
+            {
+                "pipeline_video_id": "edX/DemoX/Demo_Course|i4x-edX-DemoX-videoalpha-0b9e39477cf34507a7a48f74be381fdd",
+                "encoded_module_id": "i4x-edX-DemoX-videoalpha-0b9e39477cf34507a7a48f74be381fdd",
+                "duration": 195,
+                "segment_length": 5,
+                "users_at_start": 55,
+                "users_at_end": 0,
+                "created": "2015-04-15T214158"
+            }
+        ]
+        return videos

@@ -5,17 +5,19 @@ import datetime
 import analyticsclient.constants.activity_type as AT
 from django.core.cache import cache
 from django.core.urlresolvers import reverse
-from django.test import TestCase
+from django.test import (override_settings, TestCase)
 import mock
 from ddt import ddt, data
+
+from common.tests import course_fixtures
 
 from courses.exceptions import NoVideosError
 from courses.presenters import BasePresenter
 from courses.presenters.engagement import (CourseEngagementActivityPresenter, CourseEngagementVideoPresenter)
 from courses.presenters.enrollment import (CourseEnrollmentPresenter, CourseEnrollmentDemographicsPresenter)
 from courses.presenters.performance import CoursePerformancePresenter
-from courses.tests import utils, SwitchMixin
-from courses.tests.factories import CourseEngagementDataFactory, CoursePerformanceDataFactory
+from courses.tests import (SwitchMixin, utils)
+from courses.tests.factories import (CourseEngagementDataFactory, CoursePerformanceDataFactory)
 
 
 class BasePresenterTests(TestCase):
@@ -123,6 +125,7 @@ class CourseEngagementActivityPresenterTests(SwitchMixin, TestCase):
         self.assertSummaryAndTrendsValid(True, self.get_expected_trends_small(True))
 
 
+@ddt
 class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
     SECTION_ID = 'i4x://edX/DemoX/chapter/9fca584977d04885bc911ea76a9ef29e'
     SUBSECTION_ID = 'i4x://edX/DemoX/sequential/07bc32474380492cb34f76e5f9d9a135'
@@ -141,6 +144,65 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
             'start_only_users': 0,
             'start_only_percent': 0,
         })
+
+    def _create_graded_and_ungraded_course_structure_fixtures(self):
+        """
+        Create graded and ungraded video sections.
+        """
+        chapter_fixture = course_fixtures.ChapterFixture()
+        # a dictionary to access the fixtures easily
+        course_structure_fixtures = {
+            'chapter': chapter_fixture,
+            'course': course_fixtures.CourseFixture(org='this', course='course', run='id')
+        }
+
+        for grade_status in ['graded', 'ungraded']:
+            sequential_fixture = course_fixtures.SequentialFixture(graded=grade_status is 'graded').add_children(
+                course_fixtures.VerticalFixture().add_children(
+                    course_fixtures.VideoFixture()
+                )
+            )
+            course_structure_fixtures[grade_status] = {
+                'sequential': sequential_fixture,
+            }
+            chapter_fixture.add_children(sequential_fixture)
+
+        course_structure_fixtures['course'].add_children(chapter_fixture)
+        return course_structure_fixtures
+
+    @data('graded', 'ungraded')
+    @override_settings(CACHES={
+        'default': {
+            'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        }
+    })
+    def test_graded_modes(self, grade_status):
+        """
+        Ensure that video structure will be retrieved for both graded and ungraded.
+        """
+        factory = CourseEngagementDataFactory()
+        course_structure_fixtures = self._create_graded_and_ungraded_course_structure_fixtures()
+        course_fixture = course_structure_fixtures['course']
+        chapter_fixture = course_structure_fixtures['chapter']
+
+        with mock.patch('slumber.Resource.get', mock.Mock(return_value=course_fixture.course_structure())):
+            with mock.patch('analyticsclient.course.Course.videos', mock.Mock(return_value=factory.videos())):
+                # check that we get results for both graded and ungraded
+                sequential_fixture = course_structure_fixtures[grade_status]['sequential']
+                video_id = sequential_fixture.children[0].children[0].id
+
+                actual_videos = self.presenter.subsection_children(chapter_fixture.id, sequential_fixture.id)
+                expected_url = reverse('courses:engagement:video_timeline',
+                                       kwargs={
+                                           'course_id': self.course_id,
+                                           'section_id': chapter_fixture.id,
+                                           'subsection_id': sequential_fixture.id,
+                                           'video_id': video_id
+                                       })
+                expected = [{'index': 1, 'name': None, 'end_percent': 0, 'url': expected_url, 'start_only_percent': 0,
+                             'id': video_id, 'users_at_start': 0, 'start_only_users': 0, 'users_at_end': 0,
+                             'children': []}]
+                self.assertListEqual(actual_videos, expected)
 
     def test_module_id_to_data_id(self):
         opaque_key_id = 'i4x-edX-DemoX-video-0b9e39477cf34507a7a48f74be381fdd'
@@ -245,26 +307,8 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
 
     @mock.patch('analyticsclient.course.Course.videos')
     def test_fetch_course_module_data(self, mock_videos):
-        videos = [
-            {
-                "pipeline_video_id": "edX/DemoX/Demo_Course|i4x-edX-DemoX-video-7e9b434e6de3435ab99bd3fb25bde807",
-                "encoded_module_id": "i4x-edX-DemoX-video-7e9b434e6de3435ab99bd3fb25bde807",
-                "duration": 257,
-                "segment_length": 5,
-                "users_at_start": 10,
-                "users_at_end": 0,
-                "created": "2015-04-15T214158"
-            },
-            {
-                "pipeline_video_id": "edX/DemoX/Demo_Course|i4x-edX-DemoX-videoalpha-0b9e39477cf34507a7a48f74be381fdd",
-                "encoded_module_id": "i4x-edX-DemoX-videoalpha-0b9e39477cf34507a7a48f74be381fdd",
-                "duration": 195,
-                "segment_length": 5,
-                "users_at_start": 55,
-                "users_at_end": 0,
-                "created": "2015-04-15T214158"
-            }
-        ]
+        factory = CourseEngagementDataFactory()
+        videos = factory.videos()
         mock_videos.return_value = videos
         self.assertListEqual(self.presenter.fetch_course_module_data(), videos)
 

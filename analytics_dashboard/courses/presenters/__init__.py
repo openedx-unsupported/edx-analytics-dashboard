@@ -90,6 +90,14 @@ class CourseAPIPresenterMixin(object):
         """ Module type to retrieve structure for. E.g. video, problem. """
         pass
 
+    @property
+    def module_graded_type(self):
+        """
+        Property used to filter modules by.  True/False will include only modules with
+        that grade field.  Set to None if not filtering by the graded value.
+        """
+        return None
+
     def get_cache_key(self, name):
         """ Returns sanitized key for caching. """
         return sanitize_cache_key(u'{}_{}'.format(self.course_id, name))
@@ -114,7 +122,7 @@ class CourseAPIPresenterMixin(object):
             if not found_structure:
                 structure = self._get_structure()
                 found_structure = CourseStructure.course_structure_to_sections(structure, self.module_type,
-                                                                               graded=False)
+                                                                               graded=self.module_graded_type)
                 cache.set(all_sections_key, found_structure)
 
             for section in found_structure:

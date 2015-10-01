@@ -17,8 +17,6 @@ class CourseStructure(object):
         if block_type:
             kwargs[u'type'] = block_type
 
-        kwargs.setdefault(u'graded', False)
-
         matched = True
         for name, value in kwargs.iteritems():
             matched &= (block.get(name, None) == value)
@@ -99,10 +97,14 @@ class CourseStructure(object):
         if len(block_types) > 0:
             block_types = list(block_types)
             block_type = block_types.pop(0)
+            filter_kwargs = {
+                'block_type': block_type,
+            }
+            if graded is not None:
+                filter_kwargs['graded'] = graded
             structure_sections = CourseStructure._filter_children(blocks, section_id,
-                                                                  graded=graded,
-                                                                  block_type=block_type,
-                                                                  require_format=False)
+                                                                  require_format=False,
+                                                                  **filter_kwargs)
 
             for section in structure_sections:
                 children = CourseStructure._build_sections(blocks, section[u'id'], graded, block_types)
