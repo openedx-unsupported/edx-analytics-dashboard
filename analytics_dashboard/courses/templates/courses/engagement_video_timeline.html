@@ -27,8 +27,10 @@
     {% trans "The number of students who watched each segment of the video, and the number of replays for each segment." %}
 {% endblock %}
 
-{% block module_description %}
-    {% include "courses/_module_description.html" with view_live_url=view_live_url %}
+{% block module_meta %}
+    <div class="module-meta">
+        {% include "courses/_video_module_controls.html" with view_live_url=view_live_url %}
+    </div>
 {% endblock %}
 
 {% block metric_cards %}

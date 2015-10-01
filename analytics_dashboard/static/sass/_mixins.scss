@@ -28,3 +28,10 @@
   color: $gray;
   background-color: $gray-d2;
 }
+
+@mixin disabled-link {
+  &, &:hover, &:focus {
+    color: $navbar-default-link-disabled-color;
+    background-color: $navbar-default-link-disabled-bg;
+  }
+}

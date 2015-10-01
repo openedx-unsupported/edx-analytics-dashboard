@@ -144,13 +144,17 @@ class EngagementVideoTimeline(EngagementVideoContentTemplateView):
             timeline = self.presenter.get_video_timeline(video_module)
 
             videos = self.presenter.subsection_children(self.section_id, self.subsection_id)
+            next_video = self.presenter.next_block(video_data_id)
+            previous_video = self.presenter.previous_block(video_data_id)
             self.set_primary_content(context, videos)
             context.update({
                 'video': self.presenter.block(self.video_id),
                 'summary_metrics': video_module,
                 'view_live_url': self.presenter.build_view_live_url(settings.LMS_COURSE_SHORTCUT_BASE_URL,
                                                                     self.video_id),
-                'page_data': self.get_page_data(context)
+                'page_data': self.get_page_data(context),
+                'next_video_url': next_video['url'] if next_video is not None else None,
+                'previous_video_url': previous_video['url'] if previous_video is not None else None
             })
 
             context['js_data']['course'].update({

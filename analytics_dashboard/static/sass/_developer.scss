@@ -585,7 +585,7 @@ table.dataTable thead th.sorting_desc:after {
   white-space: normal;
 }
 
-.module-description {
+.module-meta {
   border: $description-border;
   border-bottom: none;
   padding: $padding-small-horizontal 0;
@@ -594,6 +594,10 @@ table.dataTable thead th.sorting_desc:after {
   p {
     // shifts it down so that it's even with the adjacent button
     padding-top: 8px;
+  }
+
+  a.disabled {
+    @extend disabled-link;
   }
 }
 
@@ -692,10 +696,7 @@ table.dataTable thead th.sorting_desc:after {
         }
 
         > .disabled > a {
-          &, &:hover, &:focus {
-            color: $navbar-default-link-disabled-color;
-            background-color: $navbar-default-link-disabled-bg;
-          }
+          @include disabled-link;
         }
       }
     }

@@ -306,6 +306,48 @@ class CourseAPIPresenterMixin(object):
         block['name'] = block.get('display_name')
         return block
 
+    def sibling_block(self, block_id, sibling_offset):
+        """
+        Returns a sibling block of the same type as the one denoted by
+        `block_id`, where order is course ordering.  The sibling is chosen by
+        `sibling_offset` which is the difference in index between the block and
+        its requested sibling.  Returns `None` if no such sibling is found.
+        Only siblings with data are returned.
+        """
+        sections = self.sections()
+        siblings = [
+            component
+            for section in sections
+            for subsection in section['children']
+            for component in subsection['children']
+            if component.get('url')  # Only consider siblings with data, hence with URLs
+        ]
+        try:
+            block_index = (index for index, sibling in enumerate(siblings) if sibling['id'] == block_id).next()
+            sibling_index = block_index + sibling_offset
+            if sibling_index < 0:
+                return None
+            else:
+                return siblings[sibling_index]
+        except (StopIteration, IndexError):
+            # StopIteration: requested video not found in the course structure
+            # IndexError: No such video with the requested offset
+            return None
+
+    def next_block(self, block_id):
+        """
+        Get the next block in the course with the same block type as the block
+        denoted by `block_id`.
+        """
+        return self.sibling_block(block_id, 1)
+
+    def previous_block(self, block_id):
+        """
+        Get the previous block in the course with the same block type as the
+        block denoted by `block_id`.
+        """
+        return self.sibling_block(block_id, -1)
+
     @abc.abstractmethod
     def blocks_have_data(self, blocks):
         """ Returns whether blocks contains any displayable data. """
