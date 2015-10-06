@@ -4,22 +4,18 @@
 Enrollment Demographics
 #############################
 
-Who is taking my course? Demographic data about your enrolled students helps
+Who is taking my course? Demographic data about your enrolled learners helps
 quantify characteristics of the people who are taking your course.
 
 EdX Insights delivers demographic data for three population characteristics:
-age, educational background, and gender. When students register an edX or edX
-Edge user account, they can provide this information about themselves.
+age, educational background, and gender. When learners register an edX or edX
+Edge user account, they can provide this information about themselves. 
 
-.. image:: ../images/edx_registration.png
- :alt: The registration page on the edX website with the dropdown lists for 
-       Highest Level of Education Completed, Gender, and Year of Birth circled.
+Responses to these questions are optional. Learners can update this information
+at any time on the `Account Settings`_ page.
 
-Responses to these questions are optional. Students cannot change the values
-that they provide.
-
-.. note:: EdX Insights does not use the values that students select from the 
- **Country** list to determine student location. See :ref:`Location
+.. note:: EdX Insights does not use the values that learners select from the 
+ **Country** list to determine learner location. See :ref:`Location
  Computations`.
 
 In edX Insights, after you select **Enrollment** and then **Demographics**, you
@@ -36,10 +32,11 @@ Insights presents.
 * :ref:`Demographics_Education`
 * :ref:`Demographics_Gender`
 
-To review detailed data about individual enrolled students, you can download
-student profile information from the Instructor Dashboard. For more
-information, see `Student Data`_ in *Building & Running an edX Course*.
+To review detailed data about all of the enrolled learners in your course, you
+can download the student profile report from the Instructor Dashboard. For more
+information, see `Learner Data`_ in *Building & Running an edX Course*.
 
 
+.. _Learner Data: http://edx.readthedocs.org/projects/edx-partner-course-staff/en/latest/running_course/course_student.html
 
-.. _Student Data: http://edx.readthedocs.org/projects/edx-partner-course-staff/en/latest/running_course/course_student.html
+.. _Account Settings: http://edx.readthedocs.org/projects/open-edx-building-and-running-a-course/en/latest/getting_started/dashboard_acctsettings_profile.html#sfd-account-settings
