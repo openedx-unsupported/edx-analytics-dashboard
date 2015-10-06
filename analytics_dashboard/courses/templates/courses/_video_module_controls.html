@@ -1,31 +1,19 @@
 {% load i18n %}
 
-<div class="col-xs-12 module-controls">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-4">
-                <a href="{% firstof previous_video_url "#" %}"
-                   class="previous-link btn btn-default {% if not previous_video_url %} disabled {% endif %}">
-                    {% trans 'Previous Video' %}
-                </a>
-            </div>
-            <div class="col-xs-4">
-                {% if view_live_url %}
-                    <div class="text-center">
-                        <a href="{{ view_live_url }}" class="btn btn-default"
-                           role="button" target="_blank">
-                            {# Translators: This text will be a direct link to the a specific module/problem. #}
-                            {% trans "View Live" %}
-                        </a>
-                    </div>
-                {% endif %}
-            </div>
-            <div class="col-xs-4">
-                <a href="{% firstof next_video_url "#" %}"
-                   class="previous-link btn btn-default pull-right {% if not next_video_url %} disabled {% endif %}">
-                    {% trans 'Next Video' %}
-                </a>
-            </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-6">
+            <a href="{% firstof previous_video_url "#" %}"
+               class="previous-link btn btn-default {% if not previous_video_url %} disabled {% endif %}">
+                {% trans 'Previous Video' %}
+            </a>
+        </div>
+
+        <div class="col-xs-6">
+            <a href="{% firstof next_video_url "#" %}"
+               class="previous-link btn btn-default pull-right {% if not next_video_url %} disabled {% endif %}">
+                {% trans 'Next Video' %}
+            </a>
         </div>
     </div>
 </div>

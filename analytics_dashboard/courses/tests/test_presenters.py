@@ -546,6 +546,12 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
                 sibling = self.presenter.sibling_block(self.VIDEO_1.id, 1)
                 self.assertEqual(sibling['id'], self.VIDEO_3.id)
 
+    @data('http://example.com', 'http://example.com/')
+    def test_build_render_xblock_url(self, xblock_render_base):
+        self.assertIsNone(self.presenter.build_render_xblock_url(None, None))
+        expected_url = '/'.join(str(arg).rstrip('/') for arg in [xblock_render_base, self.VIDEO_ID])
+        self.assertEqual(expected_url, self.presenter.build_render_xblock_url(xblock_render_base, self.VIDEO_ID))
+
 
 class CourseEnrollmentPresenterTests(SwitchMixin, TestCase):
     @classmethod

@@ -1,6 +1,7 @@
 import abc
 import datetime
 import logging
+from urlparse import urljoin
 
 from django.conf import settings
 from django.core.cache import cache
@@ -368,3 +369,16 @@ class CourseAPIPresenterMixin(object):
         if base_url:
             view_live_url = u'{0}/{1}/jump_to/{2}'.format(base_url, self.course_id, module_id)
         return view_live_url
+
+    def build_render_xblock_url(self, base_url, module_id):
+        xblock_url = None
+        if base_url:
+            xblock_url = self._build_url(base_url, module_id)
+        return xblock_url
+
+    def _build_url(self, *args):
+        """
+        Removes trailing slashes from urls.  urllib.urljoin doesn't work because
+        paths in our urls can include module IDs (e.g. i4x://edx/demo/video/12345ab2).
+        """
+        return '/'.join(str(arg).rstrip('/') for arg in args)

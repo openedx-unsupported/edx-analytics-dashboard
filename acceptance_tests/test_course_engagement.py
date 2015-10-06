@@ -223,6 +223,21 @@ class CourseEngagementVideoTimelineTests(CourseEngagementVideoMixin, WebAppTest)
     def test_page(self):
         super(CourseEngagementVideoTimelineTests, self).test_page()
         self._test_metrics()
+        self._test_video_preview()
+
+    def _test_video_preview(self):
+        preview_selector = '#module-preview'
+        self.assertFalse(self.page.q(css=preview_selector).visible)
+
+        toggle_element = self.page.q(css='.collapsible-toggle-text')
+        self.assertTrue(toggle_element.present)
+        self.assertEqual(toggle_element.text[0], 'Expand Preview')
+        toggle_element.click()
+        self.assertEqual(toggle_element.text[0], 'Collapse Preview')
+        self.page.wait_for_element_visibility(preview_selector, 'Video preview is visible')
+
+        self.fulfill_loading_promise('.module-loading')
+        self.assertElementHasContent(preview_selector)
 
     def _test_metrics(self):
         module_id = UsageKey.from_string(self.page.video_id).html_id()

@@ -152,9 +152,12 @@ class EngagementVideoTimeline(EngagementVideoContentTemplateView):
                 'summary_metrics': video_module,
                 'view_live_url': self.presenter.build_view_live_url(settings.LMS_COURSE_SHORTCUT_BASE_URL,
                                                                     self.video_id),
-                'page_data': self.get_page_data(context),
                 'next_video_url': next_video['url'] if next_video is not None else None,
-                'previous_video_url': previous_video['url'] if previous_video is not None else None
+                'previous_video_url': previous_video['url'] if previous_video is not None else None,
+                'show_video_preview': settings.MODULE_PREVIEW_URL is not None,
+                'render_xblock_url': self.presenter.build_render_xblock_url(settings.MODULE_PREVIEW_URL,
+                                                                            self.video_id),
+                'page_data': self.get_page_data(context),
             })
 
             context['js_data']['course'].update({

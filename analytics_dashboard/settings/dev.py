@@ -88,3 +88,7 @@ SEGMENT_IO_KEY = os.environ.get('SEGMENT_WRITE_KEY')
 COURSE_API_URL = 'http://127.0.0.1:8000/api/course_structure/v0/'
 
 LOGGING = get_logger_config(debug=DEBUG, dev_env=True, local_loglevel='DEBUG')
+
+########## MODULE_PREVIEW
+MODULE_PREVIEW_URL = 'http://127.0.0.1:8000/xblock'
+########## END MODULE_PREVIEW
