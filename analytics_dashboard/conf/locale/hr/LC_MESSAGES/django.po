@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Taarna, 2015
+# Leona Grujić <bearhtma1@gmail.com>, 2015
 # Marijana Z. <inactive+marijana_z@transifex.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-04 10:05-0400\n"
-"PO-Revision-Date: 2015-09-04 14:06+0000\n"
+"POT-Creation-Date: 2015-10-06 16:27-0400\n"
+"PO-Revision-Date: 2015-10-06 20:28+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Croatian (http://www.transifex.com/open-edx/edx-platform/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +26,7 @@ msgstr "Prijavi se"
 
 #: core/templates/core/landing.html
 msgid "Insights to help course teams improve courses."
-msgstr ""
+msgstr "Ideje za pomoć timovima za poboljšanje tečaja"
 
 #: core/templates/core/landing.html courses/views/__init__.py
 msgid "Who are my students?"
@@ -33,7 +34,7 @@ msgstr "Tko su moji studenti?"
 
 #: core/templates/core/landing.html
 msgid "Target your course to fit the backgrounds of your students."
-msgstr ""
+msgstr "Prilagodite svoj tečaj pozadinama svojih studenata"
 
 #: core/templates/core/landing.html
 #: courses/templates/courses/enrollment_geography.html
@@ -44,13 +45,15 @@ msgstr "Broj upisanih"
 
 #: core/templates/core/landing.html
 msgid "What are students engaging with in my course?"
-msgstr ""
+msgstr "S čime studenti dolaze u dodir na mojem tečaju?"
 
 #: core/templates/core/landing.html
 msgid ""
 "Improve frequently accessed content, or point students at underused "
 "resources."
 msgstr ""
+"Poboljšajte često pregledavani sadržaj, ili usmjerite studente prema "
+"nedovoljno iskorištenim izvorima"
 
 #: core/templates/core/landing.html
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
@@ -60,11 +63,11 @@ msgstr "Broj aktivnih"
 
 #: core/templates/core/landing.html
 msgid "How well is my content supporting student learning?"
-msgstr ""
+msgstr "Koliko moj sadržaj podupire studentsko učenje?"
 
 #: core/templates/core/landing.html
 msgid "Adjust your course based on where students are struggling."
-msgstr ""
+msgstr "Prilagodite svoj tečaj ovisno o tome s čime se studenti najviše muče"
 
 #: core/templates/core/landing.html
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
@@ -84,7 +87,7 @@ msgstr ""
 
 #: core/templates/core/landing.html
 msgid "Research at edX"
-msgstr ""
+msgstr "Istražujte na edEx-u"
 
 #: core/templates/core/landing.html
 msgid ""
@@ -94,7 +97,7 @@ msgstr ""
 
 #: core/templates/core/landing.html
 msgid "Need Help?"
-msgstr ""
+msgstr "Trebate pomoć?"
 
 #: core/templates/core/landing.html
 msgid ""
@@ -109,24 +112,24 @@ msgstr ""
 
 #: courses/presenters/enrollment.py
 msgid "Female"
-msgstr ""
+msgstr "Žensko"
 
 #: courses/presenters/enrollment.py
 msgid "Male"
-msgstr ""
+msgstr "Muško"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py courses/presenters/enrollment.py
 msgid "Other"
-msgstr ""
+msgstr "Drugo"
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py courses/presenters/enrollment.py
 #: courses/presenters/enrollment.py
 msgid "Unknown"
-msgstr ""
+msgstr "Nepoznato"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
@@ -235,6 +238,7 @@ msgstr ""
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
 #: courses/templates/courses/_module_description.html
+#: courses/templates/courses/_video_preview.html
 msgid "View Live"
 msgstr ""
 
@@ -255,6 +259,14 @@ msgstr ""
 
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
+msgstr ""
+
+#: courses/templates/courses/_video_module_controls.html
+msgid "Previous Video"
+msgstr ""
+
+#: courses/templates/courses/_video_module_controls.html
+msgid "Next Video"
 msgstr ""
 
 #. Translators: This text describes a bar chart displayed.
@@ -426,6 +438,14 @@ msgstr ""
 msgid ""
 "The number of students who watched each segment of the video, and the number"
 " of replays for each segment."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Collapse Preview"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Expand Preview"
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
@@ -1101,9 +1121,9 @@ msgid ""
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
 msgstr ""
-"Nemaš odobrenje za otvaranje ove stranice. Ako misliš da bi trebao/la imati "
-"pristup ovoj stranici, pokušaj se odjaviti i prijaviti kako bi se tvoja "
-"odobrenja ponovno učitala."
+"Nemate odobrenje za otvaranje ove stranice. Ako mislite da biste trebali "
+"imati pristup ovoj stranici, pokušajte se odjaviti i prijaviti kako bi se "
+"Vaša odobrenja ponovno učitala."
 
 #: templates/403.html
 msgid "Logout then Login"
@@ -1118,8 +1138,8 @@ msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
 msgstr ""
-"Ne možemo pronaći stranicu koju tražiš. Provjeri je li URL točan. Ako nije, "
-"pokušaj ponovno."
+"Ne možemo pronaći stranicu koju tražite. Provjerite je li URL točan. Ako "
+"nije, pokušajte ponovno."
 
 #: templates/500.html templates/500.html.py
 msgid "An Error Occurred"
@@ -1130,12 +1150,14 @@ msgid ""
 "Our servers weren't able to complete your request. Please try again by "
 "refreshing this page or retracing your steps."
 msgstr ""
-"Naši serveri nisu uspjeli ispuniti tvoj zahtjev. Pokušaj ponovno učitati ovu"
-" stranicu ili se vratiti nekoliko koraka unatrag."
+"Naši serveri nisu uspjeli ispuniti Vaš zahtjev. Pokušajte ponovno učitati "
+"ovu stranicu ili se vratiti nekoliko koraka unatrag."
 
 #: templates/503.html templates/503.html.py
 msgid "We're having trouble loading this page. Please try again in a minute."
 msgstr ""
+"Imamo problema s učitavanjem ove stranice. Molimo pokušajte ponovno za "
+"minutu."
 
 #: templates/503.html
 msgid "(Technical details: 503 Service Unavailable.)"
@@ -1200,7 +1222,7 @@ msgstr "Odjavi se"
 
 #: templates/loading.html
 msgid "Loading"
-msgstr ""
+msgstr "Učitava se"
 
 #: templates/section_error.html
 msgid "We are unable to load this chart."

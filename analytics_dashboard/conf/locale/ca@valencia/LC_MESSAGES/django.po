@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-04 10:05-0400\n"
-"PO-Revision-Date: 2015-09-04 14:06+0000\n"
+"POT-Creation-Date: 2015-10-06 16:27-0400\n"
+"PO-Revision-Date: 2015-10-06 20:28+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Catalan (Valencian) (http://www.transifex.com/open-edx/edx-platform/language/ca@valencia/)\n"
 "MIME-Version: 1.0\n"
@@ -125,7 +125,7 @@ msgstr ""
 #: courses/presenters/enrollment.py courses/presenters/enrollment.py
 #: courses/presenters/enrollment.py
 msgid "Unknown"
-msgstr ""
+msgstr "Desconegut"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
@@ -234,6 +234,7 @@ msgstr ""
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
 #: courses/templates/courses/_module_description.html
+#: courses/templates/courses/_video_preview.html
 msgid "View Live"
 msgstr ""
 
@@ -254,6 +255,14 @@ msgstr ""
 
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
+msgstr ""
+
+#: courses/templates/courses/_video_module_controls.html
+msgid "Previous Video"
+msgstr ""
+
+#: courses/templates/courses/_video_module_controls.html
+msgid "Next Video"
 msgstr ""
 
 #. Translators: This text describes a bar chart displayed.
@@ -421,6 +430,14 @@ msgstr ""
 msgid ""
 "The number of students who watched each segment of the video, and the number"
 " of replays for each segment."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Collapse Preview"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Expand Preview"
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
@@ -1121,7 +1138,7 @@ msgstr ""
 
 #: templates/_announcement.html
 msgid "Close"
-msgstr ""
+msgstr "Tancar"
 
 #: templates/base-error.html
 msgid "Use our support tool to ask questions or share feedback."

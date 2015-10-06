@@ -4,6 +4,7 @@
 # 
 # Translators:
 # watcafe, 2014-2015
+# ayokose <ayokose.gacco@gmail.com>, 2015
 # cblackburn <cblackburn@edx.org>, 2014
 # Eusebio de Jesús Gutiérrez Orozco <kanjinobrain@gmail.com>, 2015
 # Hideki Mori <mori.h.aq@m.titech.ac.jp>, 2014
@@ -15,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-04 10:05-0400\n"
-"PO-Revision-Date: 2015-09-04 14:06+0000\n"
+"POT-Creation-Date: 2015-10-06 16:27-0400\n"
+"PO-Revision-Date: 2015-10-06 20:28+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/open-edx/edx-platform/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -245,6 +246,7 @@ msgstr "問題の選択"
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
 #: courses/templates/courses/_module_description.html
+#: courses/templates/courses/_video_preview.html
 msgid "View Live"
 msgstr "ライブ表示"
 
@@ -266,6 +268,14 @@ msgstr "節を選択"
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
 msgstr "ビデオを選択"
+
+#: courses/templates/courses/_video_module_controls.html
+msgid "Previous Video"
+msgstr ""
+
+#: courses/templates/courses/_video_module_controls.html
+msgid "Next Video"
+msgstr ""
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -436,6 +446,14 @@ msgid ""
 "The number of students who watched each segment of the video, and the number"
 " of replays for each segment."
 msgstr "このビデオの各区分を視聴した生徒数と、各区分の再生回数。"
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Collapse Preview"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Expand Preview"
+msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Metrics"
@@ -791,7 +809,7 @@ msgstr "インサイトで最近アクセスした講座："
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
-msgstr "%(application_name)sに慣れていないですか？"
+msgstr "%(application_name)sのアカウントをまだお持ちでない方はこちら"
 
 #: courses/templates/courses/index.html
 msgid ""
