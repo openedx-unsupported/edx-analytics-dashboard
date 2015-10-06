@@ -11,12 +11,13 @@
 # Hüseyin Eski, 2015
 # İhsan Karataylı <ihsan.karatayli@gmail.com>, 2015
 # Muammer Aktas <maktas@harmonytx.org>, 2015
+# nasozby <nasozby@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-04 10:05-0400\n"
-"PO-Revision-Date: 2015-09-04 14:06+0000\n"
+"POT-Creation-Date: 2015-10-06 16:27-0400\n"
+"PO-Revision-Date: 2015-10-06 20:28+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/open-edx/edx-platform/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -59,12 +60,14 @@ msgid ""
 "Improve frequently accessed content, or point students at underused "
 "resources."
 msgstr ""
+"Sıkça erişilen içeriği iyileştirin ya da öğrencileri az kullanılan "
+"kaynaklara yönlendirin"
 
 #: core/templates/core/landing.html
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/__init__.py
 msgid "Engagement"
-msgstr ""
+msgstr "Taahhüt"
 
 #: core/templates/core/landing.html
 msgid "How well is my content supporting student learning?"
@@ -72,7 +75,7 @@ msgstr "İçeriğim öğrencinin öğrenmesini ne kadar desteklemektedir?"
 
 #: core/templates/core/landing.html
 msgid "Adjust your course based on where students are struggling."
-msgstr ""
+msgstr "Öğrencilerin bocaladıkları yerlere göre kursunuzu ayarların."
 
 #: core/templates/core/landing.html
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
@@ -89,6 +92,8 @@ msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
 msgstr ""
+"The edX analiz ver hattı ve edX Insights açık kaynaktır. %(link_start)sDaha "
+"fazlası%(link_end)s."
 
 #: core/templates/core/landing.html
 msgid "Research at edX"
@@ -99,6 +104,8 @@ msgid ""
 "We are committed to advancing teaching and learning through research. "
 "%(link_start)sLearn more%(link_end)s."
 msgstr ""
+"Araştırmaya dayalı ileri eğitim ve öğretimde karalıyız. %(link_start)sDaha "
+"fazlası%(link_end)s."
 
 #: core/templates/core/landing.html
 msgid "Need Help?"
@@ -108,6 +115,8 @@ msgstr "Yardım ister misiniz?"
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
 msgstr ""
+"%(link_start)sDestek merkezimiz%(link_end)s çözüm bulmanıza yardımcı "
+"olabilir."
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
@@ -151,7 +160,7 @@ msgstr "Birincil"
 #. School Degree).
 #: courses/presenters/enrollment.py
 msgid "Middle"
-msgstr ""
+msgstr "Orta"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
@@ -162,7 +171,7 @@ msgstr "İkincil"
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Associate"
-msgstr ""
+msgstr "Ortak"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
@@ -192,11 +201,11 @@ msgstr "Bilinmeyen Ülke"
 #: courses/presenters/performance.py
 #: courses/templates/courses/submissions_chart_info.html
 msgid "Submissions"
-msgstr ""
+msgstr "Öneriler"
 
 #: courses/presenters/performance.py
 msgid "Submissions for Part {part_number}: {part_description}"
-msgstr ""
+msgstr " {part_number} bölümü için öneriler: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "Part {part_number}: {part_description}"
@@ -204,7 +213,7 @@ msgstr "Bölüm  {part_number}: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "Submissions: {part_description}"
-msgstr ""
+msgstr "Öneriler: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "{part_description}"
@@ -212,7 +221,7 @@ msgstr "{part_description}"
 
 #: courses/presenters/performance.py
 msgid "Submissions for Part {part_number}"
-msgstr ""
+msgstr "{part_number} bölümü için öneriler"
 
 #: courses/presenters/performance.py
 msgid "Part {part_number}"
@@ -245,6 +254,7 @@ msgstr "Problem Seçiniz"
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
 #: courses/templates/courses/_module_description.html
+#: courses/templates/courses/_video_preview.html
 msgid "View Live"
 msgstr "Canlı Görüntüle"
 
@@ -267,12 +277,22 @@ msgstr "Alt bölüm Seç"
 msgid "Select Video"
 msgstr "Video Seç"
 
+#: courses/templates/courses/_video_module_controls.html
+msgid "Previous Video"
+msgstr ""
+
+#: courses/templates/courses/_video_module_controls.html
+msgid "Next Video"
+msgstr ""
+
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid ""
 "This chart shows the most common answers submitted by students, ordered by "
 "frequency."
 msgstr ""
+"Grafik öğrencilerin genellikle verdiği cevapların sıklığına göre sıralanmış "
+"halini gösteriri"
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -432,6 +452,14 @@ msgstr ""
 msgid ""
 "The number of students who watched each segment of the video, and the number"
 " of replays for each segment."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Collapse Preview"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Expand Preview"
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html

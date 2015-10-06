@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-04 10:05-0400\n"
-"PO-Revision-Date: 2015-09-04 14:06+0000\n"
+"POT-Creation-Date: 2015-10-06 16:27-0400\n"
+"PO-Revision-Date: 2015-10-06 20:28+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Basque (Spain) (http://www.transifex.com/open-edx/edx-platform/language/eu_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -44,7 +44,7 @@ msgstr "Matrikulazioa"
 
 #: core/templates/core/landing.html
 msgid "What are students engaging with in my course?"
-msgstr ""
+msgstr "Zein ikasle ari dira jardunean nire ikastaroan?"
 
 #: core/templates/core/landing.html
 msgid ""
@@ -56,7 +56,7 @@ msgstr ""
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/__init__.py
 msgid "Engagement"
-msgstr ""
+msgstr "Jarduna"
 
 #: core/templates/core/landing.html
 msgid "How well is my content supporting student learning?"
@@ -70,11 +70,11 @@ msgstr ""
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/__init__.py
 msgid "Performance"
-msgstr ""
+msgstr "Performantzia"
 
 #: core/templates/core/landing.html
 msgid "Join the Open Source Community"
-msgstr ""
+msgstr "Bat egin Kode irekiko komunitatearekin"
 
 #: core/templates/core/landing.html
 msgid ""
@@ -84,7 +84,7 @@ msgstr ""
 
 #: core/templates/core/landing.html
 msgid "Research at edX"
-msgstr ""
+msgstr "Ikerketa edX-en"
 
 #: core/templates/core/landing.html
 msgid ""
@@ -160,13 +160,13 @@ msgstr ""
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Bachelor's"
-msgstr ""
+msgstr "Lizentzia"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Master's"
-msgstr ""
+msgstr "Masterra"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
@@ -188,15 +188,15 @@ msgstr "Bidalketak"
 
 #: courses/presenters/performance.py
 msgid "Submissions for Part {part_number}: {part_description}"
-msgstr ""
+msgstr "{part_number} atalerako bidalkeatk: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "Part {part_number}: {part_description}"
-msgstr ""
+msgstr "{part_number} atala: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "Submissions: {part_description}"
-msgstr ""
+msgstr "Bidalketak: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "{part_description}"
@@ -204,11 +204,11 @@ msgstr "{part_description}"
 
 #: courses/presenters/performance.py
 msgid "Submissions for Part {part_number}"
-msgstr ""
+msgstr "Bidalketak atal honetarako: {part_number}"
 
 #: courses/presenters/performance.py
 msgid "Part {part_number}"
-msgstr ""
+msgstr "Atala {part_number}"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
@@ -233,11 +233,12 @@ msgstr ""
 #: courses/templates/courses/_graded_content_nav.html
 #: courses/templates/courses/_ungraded_content_nav.html
 msgid "Select Problem"
-msgstr ""
+msgstr "Aukeratu ariketa"
 
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
 #: courses/templates/courses/_module_description.html
+#: courses/templates/courses/_video_preview.html
 msgid "View Live"
 msgstr ""
 
@@ -259,6 +260,14 @@ msgstr "Aukeratu azpiatala"
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
 msgstr "Aukeratu bideoa"
+
+#: courses/templates/courses/_video_module_controls.html
+msgid "Previous Video"
+msgstr ""
+
+#: courses/templates/courses/_video_module_controls.html
+msgid "Next Video"
+msgstr ""
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -307,7 +316,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_content.html
 msgid "Weekly Student Engagement"
-msgstr ""
+msgstr "Ikasleen astekako jarduna"
 
 #: courses/templates/courses/engagement_content.html courses/views/__init__.py
 msgid "How many students are interacting with my course?"
@@ -333,17 +342,17 @@ msgstr "Azken astean aritu diren ikasleak"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who visited at least one page in the course content."
-msgstr ""
+msgstr "Gutxienez ikastaroko edukiaren orri bat bisitatu duten ikasleak."
 
 #. Translators: This is a label indicating the number of students who watched
 #. a video.
 #: courses/templates/courses/engagement_content.html
 msgid "Watched a Video Last Week"
-msgstr ""
+msgstr "Aurreko astean ikusitako bideoa"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who played one or more videos."
-msgstr ""
+msgstr "Bideo bat edo gehiago ikusi duten ikasleak."
 
 #. Translators: This is a label indicating the number of students who tried a
 #. problem.
@@ -361,27 +370,27 @@ msgstr ""
 #. in a forum discussion.
 #: courses/templates/courses/engagement_content.html
 msgid "Posted in a Discussion Last Week"
-msgstr ""
+msgstr "Azken astean eztabaidara bidalia"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who contributed to any discussion topic."
-msgstr ""
+msgstr "Eztabaidaren batean parte hartu duten ikasleak."
 
 #: courses/templates/courses/engagement_content.html
 #: courses/templates/courses/engagement_content.html
 msgid "Content Engagement Breakdown"
-msgstr ""
+msgstr "Jardunaren sailkapena edukietan"
 
 #. Translators: This describes the data displayed in the chart below. E.g. how
 #. many learners viewed a video.
 #: courses/templates/courses/engagement_grouped_content.html
 #: courses/templates/courses/views_chart_info.html
 msgid "Video Views"
-msgstr ""
+msgstr "Bideo-ikustaldiak"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid "How did students interact with videos in this section?"
-msgstr ""
+msgstr "Zer egin dute ikasleek bideoekin atal honetan?"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
@@ -389,21 +398,27 @@ msgid ""
 "videos in that subsection. Click on bars with low totals or a high "
 "incomplete rate to drill down and understand why."
 msgstr ""
+"Barra bakoitzak azpiatal honetako bideoak osorik eta zatika zenbat aldiz "
+"ikusi diren erakusten du. Sakatu denerako txikia edo zatikako altua duten "
+"barrei zer gertatu den eta zergatik jakiteko."
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did students interact with videos in this subsection?"
-msgstr ""
+msgstr "Zer egin dute ikasleek bideoekin azpiatal honetan?"
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
 "Click to understand where students drop off and which parts they replay."
 msgstr ""
+"Barra bakoitzak bideo hau osorik eta zatika zenbat aldiz ikusi den erakusten"
+" du. Sakatu ikasleek non uzten duten eta zein zati errepikatzen duten "
+"jakiteko."
 
 #: courses/templates/courses/engagement_video_course.html
 #: courses/views/__init__.py
 msgid "How did students interact with course videos?"
-msgstr ""
+msgstr "Zer egin dute ikasleek ikastaroko bideoekin?"
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
@@ -411,11 +426,14 @@ msgid ""
 "videos in that section. Click on bars with low totals or a high incomplete "
 "rate to drill down and understand why."
 msgstr ""
+"Barra bakoitzak atal honetako bideoak osorik eta zatika zenbat aldiz ikusi "
+"diren erakusten du. Sakatu denerako txikia edo zatikako altua duten barrei "
+"zer gertatu den eta zergatik jakiteko."
 
 #: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Total Video Views"
-msgstr ""
+msgstr "Denerako bideo-ikustaldiak"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "What were the viewing patterns for this video?"
@@ -425,6 +443,14 @@ msgstr ""
 msgid ""
 "The number of students who watched each segment of the video, and the number"
 " of replays for each segment."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Collapse Preview"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Expand Preview"
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
@@ -441,7 +467,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Started Video"
-msgstr ""
+msgstr "Hasitako bideoa"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who started watching the video."
@@ -449,11 +475,11 @@ msgstr "Bideoa ikusten hasitako ikasleak."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Finished Video"
-msgstr ""
+msgstr "Amaitutako bideoa"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who watched the video to the end."
-msgstr ""
+msgstr "Amaierara arte bideoa ikusi duten ikasleak."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Viewing Over Time"
@@ -461,7 +487,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
-msgstr ""
+msgstr "Egunez eguneko ikasle-matrikulazioa"
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/views/__init__.py
@@ -492,7 +518,7 @@ msgstr "Matrikulazioak denera"
 #. Translators: This is a label indicating the number of students in a course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Students who ever enrolled in the course."
-msgstr ""
+msgstr "Ikastaroan matrikula egin duten ikasleak."
 
 #. Translators: This is a label to identify current student enrollment.
 #: courses/templates/courses/enrollment_activity.html
@@ -503,7 +529,7 @@ msgstr "Oraingo matrikulazioa"
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Students currently enrolled in the course."
-msgstr ""
+msgstr "Une honetan ikastaroan matrikulatutako ikasleak"
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
@@ -780,7 +806,7 @@ msgstr ""
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
-msgstr ""
+msgstr "Berria hemen: %(application_name)s?"
 
 #: courses/templates/courses/index.html
 msgid ""
@@ -791,7 +817,7 @@ msgstr ""
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
 msgid "How did students answer this problem?"
-msgstr ""
+msgstr "Nola erantzun diote ikasleek ariketa honi?"
 
 #: courses/templates/courses/performance_assignment.html
 msgid "How are students doing on this assignment?"
@@ -853,7 +879,7 @@ msgstr ""
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are students doing on this section?"
-msgstr ""
+msgstr "Nola ari dira lanean ikasleak atal honetan?"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid ""
@@ -863,11 +889,11 @@ msgstr ""
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "Subsection Submissions"
-msgstr ""
+msgstr "Azpiatalaren bidalketak"
 
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid "How are students doing on this subsection?"
-msgstr ""
+msgstr "Nola ari dira lanean ikasleak azpiatal honetan?"
 
 #: courses/templates/courses/performance_ungraded_content.html
 #: courses/views/__init__.py
@@ -882,7 +908,7 @@ msgstr ""
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid "Section Submissions"
-msgstr ""
+msgstr "Atalaren bidalketak"
 
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
@@ -904,13 +930,13 @@ msgstr "Saiatu berriz"
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Activity"
-msgstr ""
+msgstr "Jarduera"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Demographics"
-msgstr ""
+msgstr "Demografia"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
@@ -967,7 +993,7 @@ msgstr ""
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
-msgstr ""
+msgstr "Jarduna edukietan"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
@@ -975,10 +1001,12 @@ msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr ""
+"Ikastaroko jardunaren azken eguneraketa %(update_date)s egunean izan zen "
+"%(update_time)s UTC orduan."
 
 #: courses/views/engagement.py
 msgid "Engagement Videos"
-msgstr ""
+msgstr "Jarduna bideoetan"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
@@ -1107,7 +1135,7 @@ msgstr ""
 
 #: templates/500.html templates/500.html.py
 msgid "An Error Occurred"
-msgstr ""
+msgstr "Errorea gertatu da"
 
 #: templates/500.html
 msgid ""
@@ -1182,11 +1210,11 @@ msgstr "Igotzen"
 
 #: templates/section_error.html
 msgid "We are unable to load this chart."
-msgstr ""
+msgstr "Ezin dugu diagrama hau igo"
 
 #: templates/section_error.html
 msgid "We are unable to load this table."
-msgstr ""
+msgstr "Ezin dugu taula hau igo"
 
 #: templates/section_error.html
 msgid "We are unable to load these metrics."

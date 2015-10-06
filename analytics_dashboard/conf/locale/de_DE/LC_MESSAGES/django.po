@@ -10,14 +10,16 @@
 # Fritz Bischof <fritz@bischof.eu>, 2015
 # Johannes Heinlein <johannes@edx.org>, 2014
 # Kay Schüffler <kay.schueffler@gmail.com>, 2014
+# Niklas Y <hanspeter1337@yahoo.de>, 2015
 # Nik <winston.smith_krull@yahoo.de>, 2015
+# Blubberstrahl <transifex@christianhess.biz>, 2015
 # Vishal Bhalla <bhalla_vishal17@yahoo.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-04 10:05-0400\n"
-"PO-Revision-Date: 2015-09-04 14:06+0000\n"
+"POT-Creation-Date: 2015-10-06 16:27-0400\n"
+"PO-Revision-Date: 2015-10-06 20:28+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/open-edx/edx-platform/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
@@ -227,7 +229,7 @@ msgstr ""
 #. exam, lab).
 #: courses/templates/courses/_graded_content_nav.html
 msgid "All Assignments"
-msgstr ""
+msgstr "Alle Aufgaben"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid ""
@@ -239,31 +241,40 @@ msgstr ""
 #: courses/templates/courses/_graded_content_nav.html
 #: courses/templates/courses/_ungraded_content_nav.html
 msgid "Select Problem"
-msgstr ""
+msgstr "Wähle Problem"
 
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
 #: courses/templates/courses/_module_description.html
+#: courses/templates/courses/_video_preview.html
 msgid "View Live"
 msgstr "Seite ansehen"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Section"
-msgstr ""
+msgstr "Wähle Sektion"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "All Sections"
-msgstr ""
+msgstr "Alle Sektionen"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Subsection"
-msgstr ""
+msgstr "Unterabschnitt auswählen"
 
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
+msgstr "Wähle Video"
+
+#: courses/templates/courses/_video_module_controls.html
+msgid "Previous Video"
+msgstr ""
+
+#: courses/templates/courses/_video_module_controls.html
+msgid "Next Video"
 msgstr ""
 
 #. Translators: This text describes a bar chart displayed.
@@ -289,7 +300,7 @@ msgstr ""
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Submission Counts"
-msgstr ""
+msgstr "Abgabe zählt"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 #: courses/templates/courses/engagement_content.html
@@ -393,11 +404,11 @@ msgstr "Aufschlüsselung der Kursteilnahme"
 #: courses/templates/courses/engagement_grouped_content.html
 #: courses/templates/courses/views_chart_info.html
 msgid "Video Views"
-msgstr ""
+msgstr "Videoaufrufe"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid "How did students interact with videos in this section?"
-msgstr ""
+msgstr "Wie haben Studenten mit Videos in dieser Sektion interagiert ?"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
@@ -408,7 +419,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did students interact with videos in this subsection?"
-msgstr ""
+msgstr "Wie haben Studenten mit Videos in dieser Sektion interagiert ?"
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid ""
@@ -431,7 +442,7 @@ msgstr ""
 #: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Total Video Views"
-msgstr ""
+msgstr "Insgesamte Videoaufrufe"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "What were the viewing patterns for this video?"
@@ -441,6 +452,14 @@ msgstr ""
 msgid ""
 "The number of students who watched each segment of the video, and the number"
 " of replays for each segment."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Collapse Preview"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Expand Preview"
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
@@ -457,15 +476,15 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Started Video"
-msgstr ""
+msgstr "Gestartetes Video"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who started watching the video."
-msgstr ""
+msgstr "Studenten, die begonnen haben das Video anzuschauen"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Finished Video"
-msgstr ""
+msgstr "Abgeschlossenes Video"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who watched the video to the end."
@@ -473,7 +492,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Viewing Over Time"
-msgstr ""
+msgstr "Zuschauerbindung"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
@@ -522,7 +541,7 @@ msgstr "Aktuelle Einschreibungen"
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Students currently enrolled in the course."
-msgstr ""
+msgstr "Teilnehme, aktuell im Kurs eingeschrieben."
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
@@ -1029,6 +1048,7 @@ msgstr ""
 #: courses/views/engagement.py
 msgid "Looks like no one has watched any videos in these sections."
 msgstr ""
+"Sieht so aus, als ob niemand die Videos in diesem Abschnitt gesehen hat."
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Section Name"
@@ -1040,7 +1060,7 @@ msgstr "Unterabschnitt"
 
 #: courses/views/engagement.py
 msgid "Video Name"
-msgstr ""
+msgstr "Videoname"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1229,6 +1249,8 @@ msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
 "            reserved. "
 msgstr ""
+"%(current_year)s %(platform_name)s, soweit nicht anders angemerkt, alle "
+"Rechte vorbehalten."
 
 #: templates/header.html
 msgid "Toggle navigation"

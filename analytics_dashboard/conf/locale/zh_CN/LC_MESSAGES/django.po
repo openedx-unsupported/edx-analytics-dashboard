@@ -12,6 +12,7 @@
 # Johnny Wei <johntzwei@yahoo.com>, 2015
 # jsgang <jsgang9@gmail.com>, 2014-2015
 # LIU NIAN <lauraqq@gmail.com>, 2015
+# Wheathana <mr_wheat@sina.cn>, 2015
 # peipeixiang <peipei0903@gmail.com>, 2014
 # ranfish <ranfish@gmail.com>, 2015
 # San <github@zhujunsan.net>, 2015
@@ -27,8 +28,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-04 10:05-0400\n"
-"PO-Revision-Date: 2015-09-04 14:06+0000\n"
+"POT-Creation-Date: 2015-10-06 16:27-0400\n"
+"PO-Revision-Date: 2015-10-06 20:28+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/open-edx/edx-platform/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -255,6 +256,7 @@ msgstr "选择问题"
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
 #: courses/templates/courses/_module_description.html
+#: courses/templates/courses/_video_preview.html
 msgid "View Live"
 msgstr "在线查看"
 
@@ -276,6 +278,14 @@ msgstr "选择小节"
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
 msgstr "选择视频"
+
+#: courses/templates/courses/_video_module_controls.html
+msgid "Previous Video"
+msgstr ""
+
+#: courses/templates/courses/_video_module_controls.html
+msgid "Next Video"
+msgstr ""
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -411,7 +421,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did students interact with videos in this subsection?"
-msgstr ""
+msgstr "学生是如何在此小结中与视频互动的？"
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid ""
@@ -422,7 +432,7 @@ msgstr ""
 #: courses/templates/courses/engagement_video_course.html
 #: courses/views/__init__.py
 msgid "How did students interact with course videos?"
-msgstr ""
+msgstr "学生是如何与课程视频互动的？"
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
@@ -447,6 +457,14 @@ msgid ""
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
+msgid "Collapse Preview"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Expand Preview"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Metrics"
 msgstr "视频图表"
 
@@ -456,7 +474,7 @@ msgstr "完成度"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Estimated percentage of students who watched the entire video."
-msgstr ""
+msgstr "观看了完整视频的学生的估计百分比。"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Started Video"
@@ -472,11 +490,11 @@ msgstr "已完成的视频"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who watched the video to the end."
-msgstr ""
+msgstr "观看了完整视频的学生。"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Viewing Over Time"
-msgstr ""
+msgstr "视频播放超时"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
@@ -511,7 +529,7 @@ msgstr "选课总人数"
 #. Translators: This is a label indicating the number of students in a course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Students who ever enrolled in the course."
-msgstr ""
+msgstr "曾选修过此课程的学生。"
 
 #. Translators: This is a label to identify current student enrollment.
 #: courses/templates/courses/enrollment_activity.html
@@ -1008,11 +1026,11 @@ msgstr ""
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
+msgstr "视频数据最近更新于UTC时间 %(update_date)s %(update_time)s。"
 
 #: courses/views/engagement.py
 msgid "Looks like no one has watched any videos in these sections."
-msgstr ""
+msgstr "好像还没有人看过这些部分的视频。"
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Section Name"

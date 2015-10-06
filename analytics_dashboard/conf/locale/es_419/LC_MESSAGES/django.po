@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-04 10:05-0400\n"
-"PO-Revision-Date: 2015-09-04 14:06+0000\n"
+"POT-Creation-Date: 2015-10-06 16:27-0400\n"
+"PO-Revision-Date: 2015-10-06 20:28+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Spanish (Latin America) (http://www.transifex.com/open-edx/edx-platform/language/es_419/)\n"
 "MIME-Version: 1.0\n"
@@ -257,6 +257,7 @@ msgstr "Escoja un problema"
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
 #: courses/templates/courses/_module_description.html
+#: courses/templates/courses/_video_preview.html
 msgid "View Live"
 msgstr "Ver en vivo"
 
@@ -278,6 +279,14 @@ msgstr "Escoja la subseción"
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
 msgstr "Seleccionar video"
+
+#: courses/templates/courses/_video_module_controls.html
+msgid "Previous Video"
+msgstr ""
+
+#: courses/templates/courses/_video_module_controls.html
+msgid "Next Video"
+msgstr ""
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -420,6 +429,9 @@ msgid ""
 "videos in that subsection. Click on bars with low totals or a high "
 "incomplete rate to drill down and understand why."
 msgstr ""
+"Cada barra muestra el promedio de visualizaciones completas e incompletas de"
+" videos en la subsección. Haga clic en las barras con tasas muy bajas para "
+"entrar en profundidad y entender el porque de estos comportamientos."
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did students interact with videos in this subsection?"
@@ -446,6 +458,9 @@ msgid ""
 "videos in that section. Click on bars with low totals or a high incomplete "
 "rate to drill down and understand why."
 msgstr ""
+"Cada barra muestra el promedio de visualizaciones completas e incompletas de"
+" videos en una sección. Haga clic en las barras con tasas muy bajas para "
+"entrar en profundidad y entender el porque de estos comportamientos."
 
 #: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
@@ -463,6 +478,14 @@ msgid ""
 msgstr ""
 "El número de estudiantes que visualizó cada segmento del video y el número "
 "de repeticiones para cada segmento."
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Collapse Preview"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Expand Preview"
+msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Metrics"

@@ -26,8 +26,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-04 10:05-0400\n"
-"PO-Revision-Date: 2015-09-04 14:06+0000\n"
+"POT-Creation-Date: 2015-10-06 16:27-0400\n"
+"PO-Revision-Date: 2015-10-06 20:28+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Russian (http://www.transifex.com/open-edx/edx-platform/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -267,6 +267,7 @@ msgstr "Выберите проблему"
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
 #: courses/templates/courses/_module_description.html
+#: courses/templates/courses/_video_preview.html
 msgid "View Live"
 msgstr "Просмотр текущей версии"
 
@@ -288,6 +289,14 @@ msgstr "Выберите подраздел"
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
 msgstr "Выбрать видео"
+
+#: courses/templates/courses/_video_module_controls.html
+msgid "Previous Video"
+msgstr ""
+
+#: courses/templates/courses/_video_module_controls.html
+msgid "Next Video"
+msgstr ""
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -428,6 +437,9 @@ msgid ""
 "videos in that subsection. Click on bars with low totals or a high "
 "incomplete rate to drill down and understand why."
 msgstr ""
+"Каждый столбец показывает среднее число полных и неполных просмотров видео в"
+" этом подразделе. Нажмите на столбцах с низким количеством просмотров или с "
+"высоким количеством неполных просмотров, чтобы развернуть и понять, почему."
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did students interact with videos in this subsection?"
@@ -453,6 +465,9 @@ msgid ""
 "videos in that section. Click on bars with low totals or a high incomplete "
 "rate to drill down and understand why."
 msgstr ""
+"Каждый столбец показывает среднее число полных и неполных просмотров видео в"
+" этом разделе. Нажмите на столбцах с низким количеством просмотров или с "
+"высоким количеством неполных просмотров, чтобы развернуть и понять, почему."
 
 #: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
@@ -470,6 +485,14 @@ msgid ""
 msgstr ""
 "Количество студентов, просмотревших каждую часть видео и количество "
 "повторных просмотров каждой части."
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Collapse Preview"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Expand Preview"
+msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Metrics"

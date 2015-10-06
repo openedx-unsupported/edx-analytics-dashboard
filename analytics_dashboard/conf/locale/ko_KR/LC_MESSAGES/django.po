@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Hongseob Lee <shevious@gmail.com>, 2015
+# Hongseob Lee <shevious@yahoo.com>, 2015
 # Hongseob Lee <shevreg@yahoo.com>, 2015
 # Jong-Dae Park <jdpark7@gmail.com>, 2015
 # Kevin Min <gr326887@graded.br>, 2015
@@ -16,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-04 10:05-0400\n"
-"PO-Revision-Date: 2015-09-04 14:06+0000\n"
+"POT-Creation-Date: 2015-10-06 16:27-0400\n"
+"PO-Revision-Date: 2015-10-06 20:28+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/open-edx/edx-platform/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -245,8 +246,9 @@ msgstr "문제 선택"
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
 #: courses/templates/courses/_module_description.html
+#: courses/templates/courses/_video_preview.html
 msgid "View Live"
-msgstr "라이브로 보기"
+msgstr "적용 결과 보기"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
@@ -265,7 +267,15 @@ msgstr "소주제 선택"
 
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
-msgstr "비디오 선택"
+msgstr "동영상 선택"
+
+#: courses/templates/courses/_video_module_controls.html
+msgid "Previous Video"
+msgstr ""
+
+#: courses/templates/courses/_video_module_controls.html
+msgid "Next Video"
+msgstr ""
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -438,6 +448,14 @@ msgid ""
 msgstr "동영상의 소영역을 본 학습자의 수와 각 소영역이 다시 재생된 횟수"
 
 #: courses/templates/courses/engagement_video_timeline.html
+msgid "Collapse Preview"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Expand Preview"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Metrics"
 msgstr "동영상 표"
 
@@ -538,7 +556,7 @@ msgstr "인증된 등록"
 msgid ""
 "Number of currently enrolled students pursuing a verified certificate of "
 "achievement."
-msgstr "인증 수료증 취득을 희망하는 학습자의 수"
+msgstr "인증 이수증 취득을 희망하는 학습자의 수"
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html
@@ -575,7 +593,7 @@ msgstr "학습자 연령의 중앙값"
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The midpoint of the student ages, computed from the provided year of birth."
-msgstr "출생 연도에 따라 산출한 학습자 연령의 중앙값 "
+msgstr "출생연도에 따라 산출한 학습자 연령의 중앙값 "
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
@@ -587,7 +605,7 @@ msgstr "25세 이하 학습자"
 msgid ""
 "The percentage of students aged 25 years or younger (of those who provided a"
 " year of birth)."
-msgstr "(출생 연도를 제공한 학습자 중) 25세 이하 학습자의 총 비율 "
+msgstr "(출생연도를 제공한 학습자 중) 25세 이하 학습자의 총 비율 "
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
@@ -599,7 +617,7 @@ msgstr "26세~40세인 학습자"
 msgid ""
 "The percentage of students aged from 26 to 40 years (of those who provided a"
 " year of birth)."
-msgstr "(출생 연도를 제공한 학습자 중) 26에서 40세 학습자 총 비율 "
+msgstr "(출생연도를 제공한 학습자 중) 26에서 40세 학습자 총 비율 "
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
@@ -963,7 +981,7 @@ msgstr "콘텐츠"
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Videos"
-msgstr "비디오"
+msgstr "동영상"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
@@ -1000,7 +1018,7 @@ msgstr "학습자의 참여 자료는 %(update_date)s %(update_time)s UTC에 마
 
 #: courses/views/engagement.py
 msgid "Engagement Videos"
-msgstr "참여 비디오"
+msgstr "참여 동영상"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
