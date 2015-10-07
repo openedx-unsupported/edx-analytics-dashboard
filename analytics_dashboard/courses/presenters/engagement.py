@@ -131,7 +131,7 @@ class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, BasePresenter):
             video['id'] = video.pop('encoded_module_id')
 
         total = max([video['users_at_start'], video['users_at_end']])
-        start_only_users = video['users_at_start'] - video['users_at_end']
+        start_only_users = max(video['users_at_start'] - video['users_at_end'], 0)
         video.update({
             'end_percent': utils.math.calculate_percent(video['users_at_end'], total),
             'start_only_users': start_only_users,
