@@ -285,6 +285,22 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
             'start_only_percent': start_only_users / max_users,
         })
 
+    def test_greater_users_at_end(self):
+        module_data = {
+            'encoded_module_id': self.VIDEO_ID,
+            'users_at_start': 0,
+            'users_at_end': 1
+        }
+        self.presenter.attach_computed_data(module_data)
+        self.assertDictEqual(module_data, {
+            'id': self.VIDEO_ID,
+            'users_at_start': 0,
+            'users_at_end': 1,
+            'end_percent': 1.0,
+            'start_only_users': 0,
+            'start_only_percent': 0.0,
+        })
+
     def test_attach_aggregated_data_to_parent(self):
         parent = {
             'num_modules': 2,
