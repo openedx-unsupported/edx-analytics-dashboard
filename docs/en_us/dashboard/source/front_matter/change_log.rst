@@ -12,6 +12,9 @@ Change Log
 
    * - Date
      - Change
+   * - 8 Oct 2015
+     - Updated the :ref:`Engagement_Video` topic. Engagement data for video
+       interaction is now available for courses on edx.org and edX Edge.
    * - 6 Aug 2015
      - Added the Total Enrollment metric to the :ref:`Enrollment_Activity`
        topic. Updated descriptions of enrollment computations throughout the

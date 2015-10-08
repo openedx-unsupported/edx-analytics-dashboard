@@ -368,37 +368,32 @@ For information about viewing engagement metrics in edX Insights, see
 Video Engagement Computations
 ==============================
 
-.. TBD: schedule and interval for updating video data
+Video engagement data is updated every day to include video activity through
+the end of the previous day (23:59 UTC).
 
-To compute data for video engagement, edX defines a video view as having both a
-play video action and a companion pause video action or the automated stop that
-occurs at the end of the video. 
+EdX Insights makes the following computations for video engagement.
 
-* EdX Insights counts each play action at the 00:00 second that has a companion
-  automated stop at the end of the video as a complete view of the video. 
+* EdX Insights defines a complete view as each unique viewer who is playing
+  the video either at the point 95% into the video length, or 30 seconds from
+  the end of the video, whichever is greater.
 
 * EdX Insights counts each five second segment that occurs between the play
-  action and a pause or the stop as a complete view of that segment.
-
-* Some normal user interactions, such as closing the browser window without
-  explicitly pausing the video first, result in a play action without the
-  necessary companion pause or stop action. As a result, the data that edX
-  Insights presents can be considered a conservative estimate of the actual
-  number of complete views.
+  action and a pause, seek, or stop action as a complete view of that segment.
 
 For information about reviewing data for videos in edX Insights, see
 :ref:`Engagement_Video`.
 
 **Video Views stacked bar chart**
 
-* Each bar in the histogram aggregates data for all of the video components in
-  a section, subsection, or unit.
+* Each bar in the histogram represents data for all of the video components in
+  a section or subsection, or for the videos in a unit. 
 
  * The x-axis shows the sections, subsections, or units in the course.
 
- * The y-axis shows the total number of times the video was viewed. The
-   area shaded in green represents the number of complete views. The area
-   shaded in gray represents the number of incomplete views.
+ * The y-axis shows the average number of times videos in this section or
+   subsection were viewed, or the total number for individual videos in a unit.
+   The lower part of each bar, shaded green, shows complete views. The upper
+   area of the bar, shaded gray, shows incomplete views.
   
 **Total Video Views stacked area chart**
 
