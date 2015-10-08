@@ -56,6 +56,7 @@ The following switches are available:
 | enable_course_api                 | Retrieve course details from the course API              |
 | enable_ccx_courses                | Display CCX Courses in the course listing page.          |
 | enable_engagement_videos_pages    | Enable engagement video pages.                           |
+| enable_video_preview              | Enable video preview.                                    |
 | display_names_for_course_index    | Display course names on course index page.               |
 | display_course_name_in_nav        | Display course name in navigation bar.                   |
 

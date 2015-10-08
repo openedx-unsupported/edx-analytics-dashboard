@@ -4,6 +4,8 @@ from django.conf import settings
 from django.http import Http404
 from django.utils.translation import ugettext_lazy as _
 
+from waffle import switch_is_active
+
 from analyticsclient.exceptions import NotFoundError
 
 from courses.presenters.engagement import (CourseEngagementActivityPresenter, CourseEngagementVideoPresenter)
@@ -146,6 +148,7 @@ class EngagementVideoTimeline(EngagementVideoContentTemplateView):
             videos = self.presenter.subsection_children(self.section_id, self.subsection_id)
             next_video = self.presenter.next_block(video_data_id)
             previous_video = self.presenter.previous_block(video_data_id)
+            show_preview = switch_is_active('enable_video_preview') and settings.MODULE_PREVIEW_URL is not None
             self.set_primary_content(context, videos)
             context.update({
                 'video': self.presenter.block(self.video_id),
@@ -154,7 +157,7 @@ class EngagementVideoTimeline(EngagementVideoContentTemplateView):
                                                                     self.video_id),
                 'next_video_url': next_video['url'] if next_video is not None else None,
                 'previous_video_url': previous_video['url'] if previous_video is not None else None,
-                'show_video_preview': settings.MODULE_PREVIEW_URL is not None,
+                'show_video_preview': show_preview,
                 'render_xblock_url': self.presenter.build_render_xblock_url(settings.MODULE_PREVIEW_URL,
                                                                             self.video_id),
                 'page_data': self.get_page_data(context),
