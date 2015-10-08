@@ -5,7 +5,7 @@ from analyticsclient.constants import activity_type as at
 from bok_choy.web_app_test import WebAppTest
 from opaque_keys.edx.keys import UsageKey
 
-from acceptance_tests import (ENABLE_COURSE_API, ENABLE_FORUM_POSTS)
+from acceptance_tests import (ENABLE_COURSE_API, ENABLE_FORUM_POSTS, ENABLE_VIDEO_PREVIEW)
 from acceptance_tests.mixins import CoursePageTestsMixin
 from acceptance_tests.pages import (
     CourseEngagementContentPage,
@@ -223,7 +223,8 @@ class CourseEngagementVideoTimelineTests(CourseEngagementVideoMixin, WebAppTest)
     def test_page(self):
         super(CourseEngagementVideoTimelineTests, self).test_page()
         self._test_metrics()
-        self._test_video_preview()
+        if ENABLE_VIDEO_PREVIEW:
+            self._test_video_preview()
 
     def _test_video_preview(self):
         preview_selector = '#module-preview'

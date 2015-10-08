@@ -72,3 +72,6 @@ COURSE_API_KEY = os.environ.get('COURSE_API_KEY')
 
 if ENABLE_COURSE_API and not (COURSE_API_URL and COURSE_API_KEY):
     raise Exception('Course API details not supplied!')
+
+# Video preview
+ENABLE_VIDEO_PREVIEW = str2bool(os.environ.get('ENABLE_VIDEO_PREVIEW', False))
