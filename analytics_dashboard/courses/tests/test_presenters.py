@@ -189,13 +189,13 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
         """
         Ensure that video structure will be retrieved for both graded and ungraded.
         """
-        factory = CourseEngagementDataFactory()
         course_structure_fixtures = self._create_graded_and_ungraded_course_structure_fixtures()
         course_fixture = course_structure_fixtures['course']
         chapter_fixture = course_structure_fixtures['chapter']
 
         with mock.patch('slumber.Resource.get', mock.Mock(return_value=course_fixture.course_structure())):
-            with mock.patch('analyticsclient.course.Course.videos', mock.Mock(return_value=factory.videos())):
+            with mock.patch('analyticsclient.course.Course.videos',
+                            mock.Mock(return_value=utils.get_mock_video_data(course_fixture))):
                 # check that we get results for both graded and ungraded
                 sequential_fixture = course_structure_fixtures[grade_status]['sequential']
                 video_id = sequential_fixture.children[0].children[0].id
@@ -208,10 +208,10 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
                                            'subsection_id': sequential_fixture.id,
                                            'video_id': video_id
                                        })
-                expected = [{'index': 1, 'name': None, 'end_percent': 0, 'url': expected_url, 'start_only_percent': 0,
-                             'id': video_id, 'users_at_start': 0, 'start_only_users': 0, 'users_at_end': 0,
-                             'children': []}]
-                self.assertListEqual(actual_videos, expected)
+                expected = [{'id': utils.get_encoded_module_id(video_id), 'url': expected_url}]
+                self.assertEqual(len(actual_videos), len(expected))
+                for index, actual_video in enumerate(actual_videos):
+                    self.assertDictContainsSubset(expected[index], actual_video)
 
     def test_module_id_to_data_id(self):
         opaque_key_id = 'i4x-edX-DemoX-video-0b9e39477cf34507a7a48f74be381fdd'
@@ -405,7 +405,7 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
                     )
                 )
             )
-        ), VIDEO_1.id, 0, VIDEO_1.id),
+        ), VIDEO_1, 0, VIDEO_1),
         (CourseFixture().add_children(
             ChapterFixture().add_children(
                 SequentialFixture().add_children(
@@ -415,7 +415,7 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
                     )
                 )
             )
-        ), VIDEO_1.id, 1, VIDEO_2.id),
+        ), VIDEO_1, 1, VIDEO_2),
         (CourseFixture().add_children(
             ChapterFixture().add_children(
                 SequentialFixture().add_children(
@@ -425,7 +425,7 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
                     )
                 )
             )
-        ), VIDEO_2.id, -1, VIDEO_1.id),
+        ), VIDEO_2, -1, VIDEO_1),
         (CourseFixture().add_children(
             ChapterFixture().add_children(
                 SequentialFixture().add_children(
@@ -437,7 +437,7 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
                     )
                 )
             )
-        ), VIDEO_1.id, 1, VIDEO_2.id),
+        ), VIDEO_1, 1, VIDEO_2),
         (CourseFixture().add_children(
             ChapterFixture().add_children(
                 SequentialFixture().add_children(
@@ -451,7 +451,7 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
                     ),
                 )
             )
-        ), VIDEO_1.id, 1, VIDEO_2.id),
+        ), VIDEO_1, 1, VIDEO_2),
         (CourseFixture().add_children(
             ChapterFixture().add_children(
                 SequentialFixture().add_children(
@@ -467,7 +467,7 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
                     ),
                 ),
             )
-        ), VIDEO_1.id, 1, VIDEO_2.id),
+        ), VIDEO_1, 1, VIDEO_2),
         (CourseFixture().add_children(
             ChapterFixture().add_children(
                 SequentialFixture().add_children(
@@ -490,7 +490,7 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
                     ),
                 ),
             )
-        ), VIDEO_1.id, 2, VIDEO_3.id),
+        ), VIDEO_1, 2, VIDEO_3),
         (CourseFixture().add_children(
             ChapterFixture().add_children(
                 SequentialFixture().add_children(
@@ -499,7 +499,7 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
                     )
                 )
             )
-        ), VIDEO_1.id, -1, None),
+        ), VIDEO_1, -1, None),
         (CourseFixture().add_children(
             ChapterFixture().add_children(
                 SequentialFixture().add_children(
@@ -508,7 +508,7 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
                     )
                 )
             )
-        ), VIDEO_1.id, 1, None),
+        ), VIDEO_1, 1, None),
     )
     @unpack
     @override_settings(CACHES={
@@ -516,28 +516,27 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
             'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
         }
     })
-    @mock.patch('analyticsclient.course.Course.videos')
-    def test_sibling(self, fixture, start_id, offset, expected_sibling_id, mock_videos):
+    def test_sibling(self, fixture, start_block, offset, expected_sibling_block):
         """Tests the _sibling method of the `CourseAPIPresenterMixin`."""
-        mock_videos.return_value = []
-        with mock.patch('slumber.Resource.get', mock.Mock(return_value=fixture.course_structure())):
-            sibling = self.presenter.sibling_block(start_id, offset)
-            if expected_sibling_id is None:
-                self.assertIsNone(sibling)
-            else:
-                self.assertEqual(sibling['id'], expected_sibling_id)
+        with mock.patch(
+            'analyticsclient.course.Course.videos', mock.Mock(return_value=utils.get_mock_video_data(fixture))
+        ):
+            with mock.patch('slumber.Resource.get', mock.Mock(return_value=fixture.course_structure())):
+                sibling = self.presenter.sibling_block(utils.get_encoded_module_id(start_block['id']), offset)
+                if expected_sibling_block is None:
+                    self.assertIsNone(sibling)
+                else:
+                    self.assertEqual(sibling['id'], utils.get_encoded_module_id(expected_sibling_block['id']))
 
     @override_settings(CACHES={
         'default': {
             'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
         }
     })
-    @mock.patch('analyticsclient.course.Course.videos')
-    def test_sibling_no_data(self, mock_videos):
+    def test_sibling_no_data(self):
         """
         Verify that _sibling() skips over siblings with no data (no associated URL).
         """
-        mock_videos.return_value = []
         fixture = CourseFixture().add_children(
             ChapterFixture().add_children(
                 SequentialFixture().add_children(
@@ -549,18 +548,13 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
                 )
             )
         )
-        with mock.patch('slumber.Resource.get', mock.Mock(return_value=fixture.course_structure())):
-            # pylint: disable=unused-argument
-            def build_module_url_func(parent, video):
-                if video['id'] == self.VIDEO_2.id:
-                    return None
-                else:
-                    return 'dummy_url'
-
-            with mock.patch.object(CourseEngagementVideoPresenter, 'build_module_url_func',
-                                   mock.Mock(return_value=build_module_url_func)):
-                sibling = self.presenter.sibling_block(self.VIDEO_1.id, 1)
-                self.assertEqual(sibling['id'], self.VIDEO_3.id)
+        with mock.patch(
+            'analyticsclient.course.Course.videos',
+            mock.Mock(return_value=utils.get_mock_video_data(fixture, excluded_module_ids=[self.VIDEO_2['id']]))
+        ):
+            with mock.patch('slumber.Resource.get', mock.Mock(return_value=fixture.course_structure())):
+                sibling = self.presenter.sibling_block(utils.get_encoded_module_id(self.VIDEO_1['id']), 1)
+                self.assertEqual(sibling['id'], utils.get_encoded_module_id(self.VIDEO_3['id']))
 
     @data('http://example.com', 'http://example.com/')
     def test_build_render_xblock_url(self, xblock_render_base):

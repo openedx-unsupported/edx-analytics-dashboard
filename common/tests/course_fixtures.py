@@ -19,6 +19,13 @@ class CourseStructureAPIFixtureMixin(object):
     def __repr__(self):
         return self.id
 
+    def __getitem__(self, item):
+        """
+        Allows course structure fixture objects to be treated like the
+        dict data structures they represent.
+        """
+        return self.to_dict().__getitem__(item)
+
     @property
     def children(self):
         return self._children
