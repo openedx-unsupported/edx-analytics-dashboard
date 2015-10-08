@@ -4,7 +4,6 @@ from django.core.urlresolvers import reverse
 import logging
 from waffle import switch_is_active
 
-from opaque_keys.edx.keys import UsageKey
 from analyticsclient.client import Client
 import analyticsclient.constants.activity_type as AT
 from analyticsclient.exceptions import NotFoundError
@@ -138,6 +137,14 @@ class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, BasePresenter):
             'start_only_percent': utils.math.calculate_percent(start_only_users, total),
         })
 
+    def video_has_data(self, video_or_data):
+        """
+        Return True if and only if `video_or_data` represents a video that has been viewed.
+
+        `video_or_data` is either a video block annotated with data or the data itself.
+        """
+        return video_or_data.get('users_at_start', 0) > 0 or video_or_data.get('users_at_end', 0) > 0
+
     def attach_aggregated_data_to_parent(self, index, parent, url_func=None):
         children = parent['children']
         total_start_users = sum(child.get('users_at_start', 0) for child in children)
@@ -153,7 +160,7 @@ class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, BasePresenter):
         # calculates the percentages too
         self.attach_computed_data(parent)
 
-        has_views = total_start_users > 0 or total_end_users > 0
+        has_views = any(self.video_has_data(video) for video in children)
 
         if has_views and parent['num_modules']:
             num_modules = float(parent['num_modules'])
@@ -195,7 +202,7 @@ class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, BasePresenter):
         return build_url
 
     def post_process_adding_data_to_blocks(self, data, parent_block, child_block, url_func=None):
-        if url_func:
+        if url_func and self.video_has_data(data):
             data['url'] = url_func(parent_block, child_block)
 
     @property
@@ -213,7 +220,7 @@ class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, BasePresenter):
         The data api only has the encoded module ID.  This converts the course structure ID
         to the encoded form.
         """
-        return UsageKey.from_string(module['id']).html_id()
+        return utils.get_encoded_module_id(module['id'])
 
     def get_video_timeline(self, video_module):
         """ Returns the video timeline with gaps in the beginning and end filled in with zeros. """

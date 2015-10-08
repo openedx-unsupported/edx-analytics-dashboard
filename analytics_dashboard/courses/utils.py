@@ -1,6 +1,8 @@
 import re
 from waffle import switch_is_active
 
+from opaque_keys.edx.keys import UsageKey
+
 
 def is_feature_enabled(item):
     switch_name = item.get('switch', None)
@@ -9,6 +11,11 @@ def is_feature_enabled(item):
         return switch_is_active(switch_name)
 
     return True
+
+
+def get_encoded_module_id(module_id):
+    """Return an encoded module ID representing `module_id`"""
+    return UsageKey.from_string(module_id).html_id()
 
 
 class number(object):

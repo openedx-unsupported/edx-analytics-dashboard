@@ -11,6 +11,7 @@ import analyticsclient.constants.gender as GENDER
 
 from courses.permissions import set_user_course_permissions
 from courses.presenters.performance import AnswerDistributionEntry
+from courses.utils import get_encoded_module_id
 
 
 CREATED_DATETIME = datetime.datetime(year=2014, month=2, day=2)
@@ -651,3 +652,31 @@ def get_presenter_answer_distribution(course_id, problem_part_id):
 
 def mock_course_name(course_id):
     return 'Test ' + course_id
+
+
+def get_mock_video_data(course_fixture, excluded_module_ids=None):
+    """
+    Given a `course_fixture` (instance of `CourseFixture`), return a
+    list of mock video data for each video in the course.
+
+    If `excluded_module_ids` is provided, don't generate data for any
+    module IDs in the list.
+    """
+    if excluded_module_ids is None:
+        excluded_module_ids = list()
+    return [
+        {
+            "pipeline_video_id": '{org}/{course}/{run}|{encoded_module_id}'.format(
+                org=course_fixture.org, course=course_fixture.course, run=course_fixture.run,
+                encoded_module_id=get_encoded_module_id(module_id)
+            ),
+            "encoded_module_id": get_encoded_module_id(module_id),
+            "duration": 129,
+            "segment_length": 5,
+            "users_at_start": 1,
+            "users_at_end": 1,
+            "created": "2015-10-03T195620"
+        }
+        for module_id, module_block in course_fixture.course_structure()['blocks'].items()
+        if module_block['type'] == 'video' and module_id not in excluded_module_ids
+    ]
