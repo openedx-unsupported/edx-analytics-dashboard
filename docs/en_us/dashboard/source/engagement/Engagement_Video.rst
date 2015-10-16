@@ -5,11 +5,14 @@ Engagement with Course Videos
 #############################
 
 Are learners watching the course videos? Do they watch some videos more than
-others? Of those who watched a video, what percentage watched it to the end?
-Do learners watch certain parts of the video more than once?
+others? Of those who watched a video, what percentage watched it to the end? Do
+learners watch certain parts of the video more than once? The video engagement
+data in edX Insights gives you information to gain perspective on your
+learners' viewing patterns.
 
-The video engagement data in edX Insights gives you information to gain
-perspective on your learners' viewing patterns.
+.. contents::
+   :local:
+   :depth: 2
 
 Video engagement data is updated every day to include video activity through
 the end of the previous day (23:59 UTC).
@@ -100,7 +103,7 @@ Could you have, accidentally or deliberately, included the same video file in
 your course more than once?
 
 When you select a section with a relatively low average of complete views,
-another stacked bar chart appears for the subsections in that section. 
+another stacked bar chart appears for the subsections in that section.
 
 .. image:: ../images/video_subsections.png
  :width: 800
@@ -236,9 +239,9 @@ only a minute or so, beginning at 8:20.
 
 To understand this viewing pattern, you might follow these steps.
 
-#. Select **View Live**, and then in the LMS select **View Unit in Studio**. 
+#. Select **View Live**, and then in the LMS select **View Unit in Studio**.
 
-#. For this video component, select **Edit**, and then **Advanced Settings**. 
+#. For this video component, select **Edit**, and then **Advanced Settings**.
 
 When you review the video component settings, you realize that start and stop
 times were defined to artificially reduce the length of the video from almost

@@ -9,10 +9,9 @@ submissions show you the responses that students submit for graded problems,
 and help you evaluate what they find difficult. To illustrate, this section
 presents the Analytics in Action section first.
 
-After the Analytics in Action examples, this section describes how you
-:ref:`select an assignment type, assignment, and problem<Selecting the
-Assignment Type, Assignment, and Problem>` and then :ref:`review student
-answers<Review Answers to Graded Problems>`. 
+.. contents::
+   :local:
+   :depth: 2
 
 *******************************************************
 Analytics in Action: Interpreting Graded Submissions
@@ -164,11 +163,11 @@ component, you make these selections.
 
 Step 1: Select a graded course assignment type.
 
-Step 2: Select an assignment. 
+Step 2: Select an assignment.
 
 Step 3: Select a problem.
 
-EdX Insights provides data for each selection that you make. 
+EdX Insights provides data for each selection that you make.
 
 ==================================
 Step 1: Select an Assignment Type
@@ -189,12 +188,12 @@ For information about defining course assignment types, see `Establishing a
 Grading Policy`_.
 
 ==============================
-Step 2: Select an Assignment 
+Step 2: Select an Assignment
 ==============================
 
 After you select one of the course assignment types, edX Insights displays a
 stacked bar chart that summarizes student performance on each assignment of
-that type. 
+that type.
 
 .. image:: ../images/assignment.png
  :alt: Histogram with bars for each assignment, each bar divided into

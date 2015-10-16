@@ -5,9 +5,9 @@ Computation Reference
 #######################
 
 This chapter provides detailed information about how values presented by
-edX Insights are computed. 
+edX Insights are computed.
 
-.. contents:: Section Contents 
+.. contents::
   :local:
   :depth: 1
 
@@ -76,14 +76,14 @@ For information about viewing enrollment activity data in edX Insights, see
    register their user accounts.
 
 **Enrollment Over Time chart**
-  
-* The filled area of this stacked area chart represents the 
+
+* The filled area of this stacked area chart represents the
   number of users who are currently enrolled in the course each day.
 
 * The x-axis shows dates from course creation through the end of the last
   update period.
 
-* The y-axis shows the number of currently enrolled users. 
+* The y-axis shows the number of currently enrolled users.
 
 * For courses that offer more than one enrollment option or certification
   track, different colors in the filled area represent the contribution of each
@@ -102,7 +102,7 @@ For information about viewing enrollment activity data in edX Insights, see
 * If a course offers students the option to pursue a verified certificate, the
   report includes columns for **Verified Enrollment** and **Honor Code
   Enrollment**.
-  
+
 * If a course enrolls students through a professional education program, the
   report includes columns for **Professional Enrollment** and **Honor Code
   Enrollment**.
@@ -145,7 +145,7 @@ For information about viewing student demographic data in edX Insights, see
 * Students can select a year of birth. Student age is computed as the
   difference between the current year and the selected year of birth.
 
-* Each bar in the histogram represents the number of enrolled users (y-axis) 
+* Each bar in the histogram represents the number of enrolled users (y-axis)
   of that age (x-axis).
 
 * Students who did not provide a year of birth at registration are not
@@ -162,8 +162,8 @@ For information about viewing student demographic data in edX Insights, see
 
 **Educational Background chart**
 
-* Students can select a highest level of education completed. 
-  
+* Students can select a highest level of education completed.
+
 * Each bar in the histogram represents the percentage of enrolled users
   (y-axis) who selected a completion level (x-axis).
 
@@ -173,7 +173,7 @@ For information about viewing student demographic data in edX Insights, see
 
 * The table that follows shows each edX Insights label, the option that
   students can select at registration, and a brief description.
-  
+
   .. list-table::
      :widths: 10 20 70
      :header-rows: 1
@@ -211,7 +211,7 @@ For information about viewing student demographic data in edX Insights, see
 **Educational Background band metrics**
 
 * Student educational backgrounds are grouped into three bands, as follows.
-  
+
   .. list-table::
      :widths: 10 70
      :header-rows: 1
@@ -252,7 +252,7 @@ Location Computations
 * The geographic locations of students are updated every day.
 
 * User location is determined from the IP address used during interactions with
-  course content. An ISO 3166 country code is associated with each IP address. 
+  course content. An ISO 3166 country code is associated with each IP address.
 
 * The last known location of each user, as of the end of the previous day, is
   used.
@@ -280,11 +280,11 @@ For information about viewing geographic data in edX Insights, see
 
 **Total Countries Represented metric**
 
-* The sum of the unique country codes identified from user IP addresses. 
+* The sum of the unique country codes identified from user IP addresses.
 
 * This total does not include "non-country" ISO codes such as A1, A2, or O1.
 
-**Top Country by Enrollment metric** 
+**Top Country by Enrollment metric**
 
 The country in which the largest number of users is located. The countries in
 which the second and third largest numbers of users are located are identified
@@ -320,8 +320,8 @@ Content Engagement Computations
 For information about viewing engagement metrics in edX Insights, see
 :ref:`Engagement_Content`.
 
-**Active Students Last Week metric** 
-  
+**Active Students Last Week metric**
+
 * The number of unique users who visited any page in the course (a URL) at
   least once during the last update period.
 
@@ -331,17 +331,17 @@ For information about viewing engagement metrics in edX Insights, see
   video, and reviewing the course updates.
 
 * This metric includes all course activities, excluding enrollment and
-  unenrollment.  
+  unenrollment.
 
-**Watched a Video Last Week metric** 
-  
+**Watched a Video Last Week metric**
+
 * The number of unique users who clicked play for at least one of the course
-  videos. 
+  videos.
 
 * Only videos that were played on the edX platform video player are included.
 
-**Tried a Problem Last Week metric** 
-  
+**Tried a Problem Last Week metric**
+
 * The number of unique users who submitted an answer for at least one problem
   of these types:
 
@@ -353,7 +353,7 @@ For information about viewing engagement metrics in edX Insights, see
   * Math expression input (`<formularesponse>`)
 
 **Weekly Student Engagement graph**
-  
+
 * The markers on the graph represent the number of users who interacted with
   different aspects of the course each week.
 
@@ -386,7 +386,7 @@ For information about reviewing data for videos in edX Insights, see
 **Video Views stacked bar chart**
 
 * Each bar in the histogram represents data for all of the video components in
-  a section or subsection, or for the videos in a unit. 
+  a section or subsection, or for the videos in a unit.
 
  * The x-axis shows the sections, subsections, or units in the course.
 
@@ -394,12 +394,12 @@ For information about reviewing data for videos in edX Insights, see
    subsection were viewed, or the total number for individual videos in a unit.
    The lower part of each bar, shaded green, shows complete views. The upper
    area of the bar, shaded gray, shows incomplete views.
-  
+
 **Total Video Views stacked area chart**
 
 * The x-axis shows the duration of the video.
 
-* The y-axis shows the number of play events. 
+* The y-axis shows the number of play events.
 
 * The filled area of this stacked area chart represents the total number of
   times each five second segment of a video file has played.
@@ -436,14 +436,14 @@ Performance Computations
   * Numerical input (``<numericalresponse>``)
   * Text input (``<stringresponse>``)
   * Math expression input (``<formularesponse>``)
-  
+
   For information about the problem types that can be included in courses and
   their settings, see `Creating Exercises and Tools`_.
 
 * For data to be available for a problem, at least one student must
   have submitted an answer for that problem after 6 Mar 2014.
 
-* Computations are updated daily. 
+* Computations are updated daily.
 
 * Only a student's last submission is included in the computation. Any
   attempts prior to the last submission are not included.
@@ -454,7 +454,7 @@ Performance Computations
   the problem is set to 0), data is not available for student submission
   computations.
 
-* Only problem activity that occurred after 23 Oct 2013 is included. 
+* Only problem activity that occurred after 23 Oct 2013 is included.
 
 **Graded Content Submissions .csv file**
 
@@ -470,7 +470,7 @@ Submission Counts chart and report. The .csv file contains the following columns
    * - ``answer_value``
      - The text label of the answer choice for checkboxes, dropdown, and
        multiple choice problems. The value entered by the student for text
-       input, numerical input, and math expression input problems. 
+       input, numerical input, and math expression input problems.
 
        Answer choices selected by at least one student after 23 Oct 2013, but
        not selected after 6 Mar 2014, do not include an ``answer_value`` for
@@ -482,7 +482,7 @@ Submission Counts chart and report. The .csv file contains the following columns
        is set to **Always**, **On Reset**, or **Per Student**, but there is no
        variation in the possible answers. Often, this indicates that the
        Python script that randomizes values for the problem is not present.
-       
+
        FALSE if the Studio **Randomization** setting for this problem
        component is set to **Never** (the default) or if the Python script is
        randomizing values.
@@ -492,10 +492,10 @@ Submission Counts chart and report. The .csv file contains the following columns
        incorrect.
    * - ``count``
      - The number of students who entered or selected this answer as
-       their most recent submission for the problem or problem variant. 
+       their most recent submission for the problem or problem variant.
 
-       The count reflects the entire problem history. If you change a 
-       problem after it is released, it might not be possible for you to 
+       The count reflects the entire problem history. If you change a
+       problem after it is released, it might not be possible for you to
        determine which answers were given before and after you made the change.
 
    * - ``course_id``
@@ -557,7 +557,7 @@ that are running now, or that ran recently, than for courses that ran in the
 past. Not all data for every value reported by edX Insights is available for
 every course run.
 
-In the following situations, data might not be available in edX Insights. 
+In the following situations, data might not be available in edX Insights.
 
 * EdX changed the method used to track student enrollments on 3 Dec 2013.
   For courses created in Studio prior to 4 Dec 2013, edX Insights reports

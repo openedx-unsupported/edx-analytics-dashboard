@@ -8,6 +8,10 @@ How many of the enrolled students are actually keeping up with the work? What
 are they doing? Content engagement data helps you monitor how many students are
 active in your course and what they are doing.
 
+.. contents::
+   :local:
+   :depth: 2
+
 Content engagement data is updated every week for the period Monday at 00:00
 UTC through Sunday at 23:59 UTC.
 
@@ -71,7 +75,7 @@ during the last complete one week period.
 ======================================
 Tried a Problem Last Week Metric
 ======================================
-  
+
 The total number of students who submitted an answer for at least one problem
 during the last complete one week period. Not all problem types are included in
 this count; see :ref:`Engagement Computations`.
@@ -101,17 +105,17 @@ See the :ref:`Reference` chapter for a detailed description of each value.
 .. info on why you might want to download, what to do with csv after
 
 ***************************************************************
-Analytics in Action: Interpreting Data About Student Engagement 
+Analytics in Action: Interpreting Data About Student Engagement
 ***************************************************************
 
 Many online courses experience periodic drops in student activity that can be
 closely correlated to specific events: problem due dates. Teams can forecast
-these changes in engagement, implement strategies to mitigate them, and use 
+these changes in engagement, implement strategies to mitigate them, and use
 weekly activity counts to monitor their reach.
 
 .. Instead of comparing weekly student engagement counts to the total course enrollment, many teams define a new baseline for assessing student engagement after the first assignment is due.
 
-.. not sure where to put this ^ 
+.. not sure where to put this ^
 
 ==================================================
 An Immediate Appeal, then Ongoing Encouragement
@@ -142,7 +146,7 @@ contributions that they make to the learning environment.
 
 * Another professor gave special attention to student questions. He updated the
   **Course Info** page regularly with questions taken from the discussions. He
-  followed each question by thanking the student and giving a direct and 
+  followed each question by thanking the student and giving a direct and
   in-depth answer.
 
 If you post ongoing, regular updates to spotlight student work, you might

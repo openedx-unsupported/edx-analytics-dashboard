@@ -7,6 +7,10 @@ Age Demographics
 How old are my students? Awareness of the ages reported by your students can
 help you understand whether a target audience is enrolled in your course.
 
+.. contents::
+   :local:
+   :depth: 2
+
 Student demographic data is updated every day to include changes in enrollment
 through 23:59 UTC the previous day.
 
@@ -51,7 +55,7 @@ The second example shows the Self-Reported Student Age chart for a MOOC.
 
 .. ColumbiaX/HIST1.1x/3T2014/enrollment/demographics/age/
 
-This chart shows a more evenly distributed range of adult ages. 
+This chart shows a more evenly distributed range of adult ages.
 
 In both charts, note that students report ages of 0 and 100+. To gain a more
 accurate understanding of the ages of the students in any course, its course
@@ -63,20 +67,20 @@ student age values.
 ======================================
 Median Age Statistic
 ======================================
-  
+
 This statistic indicates that half of the students in your course who reported
 their ages are younger, and half older, than the value that is shown.
 
 ======================================
 Age Band Metrics
 ======================================
-  
+
 Three age ranges, or bands, are provided to give you a different at-a-glance
 perspective of the distribution of student ages. The percentage of students  in
 each band is shown.
 
 ======================================
-Age Breakdown Report 
+Age Breakdown Report
 ======================================
 
 The number of students reporting each age, as of the date of the last update,
@@ -85,7 +89,7 @@ with columns for **Number of Students** and **Percentage**. The report also
 includes a row for enrolled students who did not supply this data.
 
 To download the Age Breakdown report in a comma-separated value file,
-click **Download CSV**. The CSV file contains the following columns: 
+click **Download CSV**. The CSV file contains the following columns:
 
 * birth_year
 * count
