@@ -6,7 +6,11 @@ Enrollment Activity
 
 How many students are enrolled in my course? Enrollment activity data helps you
 monitor how many people are enrolling in your course and how that number
-changes over time. 
+changes over time.
+
+.. contents::
+   :local:
+   :depth: 2
 
 Enrollment activity data is updated every day to include changes in enrollment
 through the end of the previous day (23:59 UTC).
@@ -31,10 +35,10 @@ colors represent the number of students who were enrolled with each option.
 The chart currently includes these enrollment options and tracks, if they are
 offered for your course.
 
-* Honor certificate 
+* Honor certificate
 * Verified certificate
 * Professional education program
-  
+
 Moving your cursor over the chart shows a tooltip with the counts for each
 enrollment type, and the current enrollment, for each day.
 
@@ -59,7 +63,7 @@ increased rapidly, or "spiked" (circled). The team for this course might have
 the contextual knowledge to correlate those periods with marketing efforts or
 automated enrollment events, or might want to research possible explanations.
 After the course start date, on September 17, 2014, enrollment continued to
-increase. 
+increase.
 
 The second example shows the Daily Student Enrollment chart for a small,
 private online course. In this course, the course team used the Instructor
@@ -76,33 +80,33 @@ are determined.
 ======================================
 Total Enrollment Metric
 ======================================
-  
+
 This count reports the number of students who have ever enrolled in the
 course.
 
 ======================================
 Current Enrollment Metric
 ======================================
-  
+
 This count reports the number of students who have enrolled in the course, less
 any students who have unenrolled.
 
 ======================================
 Change in Last Week Metric
 ======================================
-  
+
 This metric reports the difference between the current enrollment count at the
 end of the day yesterday and at the end of the day one week ago.
 
 ======================================
 Verified Enrollment Metric
 ======================================
-  
+
 This count reports the number of currently enrolled students who have elected
 to pursue a verified certificate for the course.
 
 ======================================
-Enrollment Over Time Report 
+Enrollment Over Time Report
 ======================================
 
 The daily count of current enrollments, through the date of the last update, is
@@ -117,7 +121,7 @@ includes the **Honor Code Enrollment** column for the count of enrolled
 students who did not elect one of those options.
 
 To download the Enrollment Over Time report in a comma-separated value file,
-click **Download CSV**. The CSV file contains the following columns: 
+click **Download CSV**. The CSV file contains the following columns:
 
 * count (current enrollment)
 * course_id

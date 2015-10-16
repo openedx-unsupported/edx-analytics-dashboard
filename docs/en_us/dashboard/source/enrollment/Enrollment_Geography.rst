@@ -7,6 +7,10 @@ Enrollment Geography
 Where are my students from? Enrollment geography data helps you understand the
 global reach of your course.
 
+.. contents::
+   :local:
+   :depth: 2
+
 Enrollment geography data is updated every day. Changes in the locations
 for enrolled students through the end of the previous day (23:59 UTC) are
 included.
@@ -38,14 +42,14 @@ percentage of students enrolled in the course from that country.
 ======================================
 Total Countries Represented Metric
 ======================================
-  
+
 This metric reports the number of countries in which one or more students are
 located.
 
 ======================================
 Top Country by Enrollment Percentage
 ======================================
-  
+
 This statistic reports the country with the highest percentage of students.
 
 ========================================
@@ -66,14 +70,14 @@ students.
 Geographic Breakdown Report
 ======================================
 
-.. the downloadable report will have country/total/percentage 
+.. the downloadable report will have country/total/percentage
 
 The columns in this report show each **Country** and its **Percentage** and
 **Current Enrollment**. Students whose location cannot be determined are
 reported in the "Unknown" category.
 
 To download the Enrollment Over Time report in a comma-separated value file,
-click **Download CSV**. The CSV file contains the following columns: 
+click **Download CSV**. The CSV file contains the following columns:
 
 * count
 * country.alpha2 (the two-character ISO 3166 country code)
@@ -83,7 +87,7 @@ click **Download CSV**. The CSV file contains the following columns:
 * created (the date and time of the computation)
 * date
 
-.. note:: The CSV file is UTF-8 encoded, but not all spreadsheet applications 
+.. note:: The CSV file is UTF-8 encoded, but not all spreadsheet applications
  interpret and render UTF-8 encoded characters correctly. For example, a French
  country name that includes accented characters displays differently in
  Microsoft Excel for Mac than in OpenOffice Calc. If you notice characters that

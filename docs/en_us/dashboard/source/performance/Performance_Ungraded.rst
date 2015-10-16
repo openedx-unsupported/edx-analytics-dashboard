@@ -16,21 +16,19 @@ can also compare data about ungraded and graded course content. Information
 about learner performance on ungraded problems can help you understand where
 learners are making errors, and also find ways to improve the problems.
 
-This section begins with example analyses of different types of ungraded
-problems: initial assessments, practice problems, and surveys. These examples
-are followed by descriptions of how you :ref:`select a section and
-subsection<Selecting the Section, Subsection, and Problem>` and then
-:ref:`review learner answers<Review Answers to Ungraded Problems>`.
+.. contents::
+   :local:
+   :depth: 2
 
 *******************************************************
 Analytics in Action: Interpreting Ungraded Submissions
 *******************************************************
 
 A review of the distribution of answer submissions for an ungraded problem can
-lead to discoveries about your learners and about your course. 
+lead to discoveries about your learners and about your course.
 
 ============================
-Initial Assessments 
+Initial Assessments
 ============================
 
 Ungraded problems that are included early in the courseware can provide
@@ -120,7 +118,7 @@ If you use problem components to survey your learners, you can use edX
 Insights to review their responses. The data available for survey-type
 problems in edX Insights can help you answer questions like these.
 
-* How many learners responded? 
+* How many learners responded?
 
 * For questions with a limited number of possible answers, such as multiple
   choice, what percentage of learners selected each answer?
@@ -155,11 +153,11 @@ component, you make these selections.
 
 Step 1: Select a section in the course.
 
-Step 2: Select a subsection. 
+Step 2: Select a subsection.
 
 Step 3: Select a problem.
 
-EdX Insights provides data for each selection that you make. 
+EdX Insights provides data for each selection that you make.
 
 ==================================
 Step 1: Select a Section
@@ -167,7 +165,7 @@ Step 1: Select a Section
 
 After you select **Performance** and **Ungraded Problems**, edX Insights
 displays a stacked bar chart that summarizes learner performance on ungraded
-problems in every section in the course. 
+problems in every section in the course.
 
 .. image:: ../images/ungraded_section_selection.png
  :alt: A chart with two bars, one for each course section that includes
@@ -185,7 +183,7 @@ problems in each course section, and the average number of correct and
 incorrect submissions received based on the number of problems in each section.
 
 ==============================
-Step 2: Select a Subsection 
+Step 2: Select a Subsection
 ==============================
 
 After you select the course section, edX Insights displays a stacked bar chart
@@ -210,7 +208,7 @@ Step 3: Select a Problem
 After you select a subsection, edX Insights displays a stacked bar chart that
 summarizes learner performance on each problem in that assignment. In this
 example from the edX Demo course, the selected subsection includes
-four problems. 
+four problems.
 
 .. image:: ../images/ungraded_problem_selection.png
  :alt: A chart with four bars, one for each ungraded problem in the selected
@@ -220,7 +218,7 @@ four problems.
 
 The Problem Submissions report on this page includes a line for each of the
 problems in the selected subsection, and the number of correct and incorrect
-submissions received for each one. 
+submissions received for each one.
 
 You use the drop-down **Select Problem** menu, or click a bar in the chart, to
 select the problem that you want to examine further. If the problem that you

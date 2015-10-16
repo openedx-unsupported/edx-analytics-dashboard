@@ -8,6 +8,10 @@ What is the gender balance in my course? Knowing the male-female ratio in your
 course can help you understand who is enrolling in your course and whether the
 balance changes over time.
 
+.. contents::
+   :local:
+   :depth: 2
+
 Student demographic data is updated every day to include changes in enrollment
 through 23:59 UTC the previous day.
 
@@ -34,7 +38,7 @@ calculated to one decimal place.
 Student gender data is also available for review in tabular format and can be
 downloaded.
 
-Examples of this chart for two different courses follow. 
+Examples of this chart for two different courses follow.
 
 .. image:: ../images/gender_chart_even.png
    :alt: A bar chart showing 46% female and 53% male.
@@ -56,7 +60,7 @@ See the :ref:`Reference` for a detailed description of how student gender
 values are computed.
 
 ======================================
-Gender Breakdown Over Time Report 
+Gender Breakdown Over Time Report
 ======================================
 
 The daily count of currently enrolled learners, with gender breakdown, is
@@ -99,7 +103,7 @@ if it represented the course differently than they had intended.
 Even more important to the team than finding potential causes was to make an
 effort to enroll more women in the course. To do so, the team subsequently
 partnered with professional women’s organizations for guidance on ways to
-market the course to their members. 
+market the course to their members.
 
 Today, teams can use edX Insights to monitor the success of such outreach
 efforts by checking the Gender Breakdown Over Time report and CSV file for

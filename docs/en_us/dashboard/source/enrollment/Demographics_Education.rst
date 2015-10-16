@@ -9,6 +9,10 @@ formal education that your students have completed can help you understand
 whether your course is enrolling people with the learning background that you
 expect.
 
+.. contents::
+   :local:
+   :depth: 2
+
 Student demographic data is updated every day to include changes in enrollment
 through 23:59 UTC the previous day.
 
@@ -33,10 +37,10 @@ the chart shows the percentage for each level, calculated to one decimal place.
 Student education data is also available for review in tabular format and can
 be downloaded.
 
-Examples of this chart for two different courses follow. 
+Examples of this chart for two different courses follow.
 
 .. image:: ../images/education_chart_diverse.png
-   :alt: A histogram with comparable numbers of high school, college, and master's 
+   :alt: A histogram with comparable numbers of high school, college, and master's
          recipients.
 
 .. RiceX/AdvBIOx/2014T3/enrollment/demographics/age/
@@ -76,7 +80,7 @@ distribution of educational levels among your students. The percentage of
 students in each band is shown.
 
 ======================================
-Education Breakdown Report 
+Education Breakdown Report
 ======================================
 
 The number of students reporting completion of each educational level, through
@@ -86,7 +90,7 @@ Students**. The report also includes a row labeled **Unknown** for enrolled
 students who did not supply educational data.
 
 To download the Education Breakdown report in a comma-separated value file,
-click **Download CSV**. The CSV file contains the following columns: 
+click **Download CSV**. The CSV file contains the following columns:
 
 * count
 * course_id
