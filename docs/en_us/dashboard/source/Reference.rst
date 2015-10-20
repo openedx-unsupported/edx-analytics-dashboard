@@ -373,12 +373,15 @@ the end of the previous day (23:59 UTC).
 
 EdX Insights makes the following computations for video engagement.
 
-* EdX Insights defines a complete view as each unique viewer who is playing
-  the video either at the point 95% into the video length, or 30 seconds from
-  the end of the video, whichever is greater.
+* To estimate the number of complete views, edX Insights counts the number of
+  unique viewers at the point in the video that is either 30 seconds from the
+  end, or at the 95% complete mark, whichever means that more of the video has
+  elapsed.
 
-* EdX Insights counts each five second segment that occurs between the play
-  action and a pause, seek, or stop action as a complete view of that segment.
+* EdX Insights counts each five second segment of a video as played if any part
+  of it occurs between the play action and a pause, seek, or stop action.
+
+* Only videos that were played on the edX platform video player are included.
 
 For information about reviewing data for videos in edX Insights, see
 :ref:`Engagement_Video`.
@@ -392,8 +395,12 @@ For information about reviewing data for videos in edX Insights, see
 
  * The y-axis shows the average number of times videos in this section or
    subsection were viewed, or the total number for individual videos in a unit.
-   The lower part of each bar, shaded green, shows complete views. The upper
-   area of the bar, shaded gray, shows incomplete views.
+   The lower part of each bar, shaded green, shows the number of learners who
+   started playing the video and were also playing the video at the point in
+   the video near the end (complete views of the video). The upper area of the
+   bar, shaded gray, shows the number of learners who started playing the video
+   minus the number who were playing the video near its end (incomplete views
+   of the video).
 
 **Total Video Views stacked area chart**
 
@@ -412,13 +419,14 @@ For information about reviewing data for videos in edX Insights, see
 
 **Video metrics**
 
-* The percentage of learners who started the video at its beginning and were
-  playing it when it automatically stopped at the end of the file.
+* The number of learners who were playing the video at the point in the video
+  that is either 30 seconds from the end, or at the 95% complete mark,
+  whichever means that more of the video elapsed, divided by the number of
+  learners who started playing the video.
 
 * The number of learners who started playing the video file.
 
-* The number of learners who were playing the video when it automatically
-  stopped at the end of the file.
+* The number of learners who were playing the video at the point near its end.
 
 
 .. _Performance Computations:
