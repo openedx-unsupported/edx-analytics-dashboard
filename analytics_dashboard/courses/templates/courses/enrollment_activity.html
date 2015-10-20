@@ -30,7 +30,7 @@ Individual course-centric enrollment activity view.
         <div class="section-content section-data-viz">
           <div class="analytics-chart-container">
             <div class="chart-info">{% trans "Enrollments" %}</div>
-            {% trans "This graph displays total enrollment for the course calculated at the end of each day. Total enrollment includes new enrollments as well as unenrollments." as tip_text %}
+            {% trans "This graph displays the current enrollment for the course as of the end of each day. This includes new enrollments as well as unenrollments." as tip_text %}
             {% include "chart_tooltip.html" with tip_text=tip_text track_category="trend" %}
             <div id="enrollment-trend-view" class="analytics-chart">
               {% include "loading.html" %}
