@@ -216,7 +216,7 @@ when executing either of the commands above.
 | TEST_PASSWORD                | Password used to login to the app          | edx                              |
 | PLATFORM_NAME                | Platform/organization name                 | edX                              |
 | APPLICATION_NAME             | Name of this application                   | Insights                         |
-| SUPPORT_URL                  | URL where error pages should link          | http://example.com/              |
+| SUPPORT_EMAIL                | Email where error pages should link        | support@example.com              |
 | ENABLE_COURSE_API            | Indicates if the course API is enabled on the server being tested. Also, determines if course performance tests should be run. | False     |
 | COURSE_API_URL               | URL where the course API is served         | (None)                           |
 | COURSE_API_KEY               | API key used to access the course  API     | (None)                           |

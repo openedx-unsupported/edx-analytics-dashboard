@@ -288,7 +288,7 @@ SEGMENT_IGNORE_EMAIL_REGEX = None
 
 ########## FEEDBACK AND SUPPORT -- These values should be overridden for production deployments.
 FEEDBACK_EMAIL = 'override.this.email@example.com'
-SUPPORT_URL = 'http://example.com/'
+SUPPORT_EMAIL = 'support@example.com'
 PRIVACY_POLICY_URL = 'http://example.com/'
 TERMS_OF_SERVICE_URL = 'http://example.com/'
 HELP_URL = None
