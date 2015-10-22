@@ -5,12 +5,13 @@
 # Translators:
 # Abel <abelcama@gmail.com>, 2015
 # Abel <abelcama@gmail.com>, 2015
+# Maite Goñi <mgoni@mondragon.edu>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-06 16:27-0400\n"
-"PO-Revision-Date: 2015-10-06 20:28+0000\n"
+"POT-Creation-Date: 2015-10-22 12:11-0400\n"
+"PO-Revision-Date: 2015-10-22 16:12+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Basque (Spain) (http://www.transifex.com/open-edx/edx-platform/language/eu_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -263,11 +264,11 @@ msgstr "Aukeratu bideoa"
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Previous Video"
-msgstr ""
+msgstr "Aurreko bideoa"
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Next Video"
-msgstr ""
+msgstr "Hurrengo bideoa"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -500,14 +501,13 @@ msgstr "Matrikulazioak"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
-"This graph displays total enrollment for the course calculated at the end of"
-" each day. Total enrollment includes new enrollments as well as "
-"unenrollments."
+"This graph displays the current enrollment for the course as of the end of "
+"each day. This includes new enrollments as well as unenrollments."
 msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollment Metrics"
-msgstr ""
+msgstr "Matrikulazio-metrikak"
 
 #. Translators: This is a label to identify the number of students who ever
 #. enrolled in the course.
@@ -1146,6 +1146,8 @@ msgstr ""
 #: templates/503.html templates/503.html.py
 msgid "We're having trouble loading this page. Please try again in a minute."
 msgstr ""
+"Hainbat arazo ditugu orri hau igotzeko. Mesedez, saiatu berriz minutu bat "
+"barru."
 
 #: templates/503.html
 msgid "(Technical details: 503 Service Unavailable.)"
@@ -1173,8 +1175,8 @@ msgstr "Feedbacka"
 #: templates/footer.html
 msgid ""
 "We want this dashboard to work for you! Need help? "
-"%(support_link_start)sVisit our support forum%(support_link_end)s. Comments "
-"or suggestions? Email %(email_link)s."
+"%(support_link_start)sContact course team support%(support_link_end)s. "
+"Comments or suggestions? Email %(email_link)s."
 msgstr ""
 
 #: templates/footer.html
