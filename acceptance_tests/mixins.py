@@ -5,7 +5,7 @@ from unittest import skip
 from bok_choy.promise import EmptyPromise
 from analyticsclient.client import Client
 
-from acceptance_tests import API_SERVER_URL, API_AUTH_TOKEN, DASHBOARD_FEEDBACK_EMAIL, SUPPORT_URL, LMS_USERNAME, \
+from acceptance_tests import API_SERVER_URL, API_AUTH_TOKEN, DASHBOARD_FEEDBACK_EMAIL, SUPPORT_EMAIL, LMS_USERNAME, \
     LMS_PASSWORD, DASHBOARD_SERVER_URL, ENABLE_AUTO_AUTH, DOC_BASE_URL, COURSE_API_URL, \
     COURSE_API_KEY, ENABLE_COURSE_API
 from acceptance_tests.pages import LMSLoginPage
@@ -146,9 +146,9 @@ class FooterFeedbackMixin(FooterMixin):
         # check that we have an email
         self.assertValidFeedbackLink(self.footer_selector + " a[class=feedback-email]")
 
-        # check that we have the support link
-        selector = self.footer_selector + " a[class=support-link]"
-        self.assertHrefEqual(selector, SUPPORT_URL)
+        # check that we have the support email
+        selector = self.footer_selector + " a[class=support-email]"
+        self.assertHrefEqual(selector, SUPPORT_EMAIL)
 
 
 class PrimaryNavMixin(CourseApiMixin):

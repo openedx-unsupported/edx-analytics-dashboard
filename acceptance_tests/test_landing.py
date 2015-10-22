@@ -1,6 +1,6 @@
 from bok_choy.web_app_test import WebAppTest
 
-from acceptance_tests import OPEN_SOURCE_URL, RESEARCH_URL, SUPPORT_URL, SHOW_LANDING_RESEARCH
+from acceptance_tests import OPEN_SOURCE_URL, RESEARCH_URL, SUPPORT_EMAIL, SHOW_LANDING_RESEARCH
 from acceptance_tests.mixins import LoginMixin, LogoutMixin, FooterLegalMixin, PageTestMixin
 from acceptance_tests.pages import LandingPage
 
@@ -67,7 +67,7 @@ class LandingTests(PageTestMixin, LoginMixin, LogoutMixin, FooterLegalMixin, Web
         self.assertTrue(action_link_elements.present)
         self.assertEqual(len(action_link_elements), num_actions)
 
-        expected_links = [OPEN_SOURCE_URL, RESEARCH_URL, SUPPORT_URL]
+        expected_links = [OPEN_SOURCE_URL, RESEARCH_URL, 'mailto:{}'.format(SUPPORT_EMAIL)]
         for i in range(num_actions):
             self.assertEqual(header_elements[i].text, expected_headers[i])
             self.assertEqual(action_link_elements.attrs('href')[i], expected_links[i])

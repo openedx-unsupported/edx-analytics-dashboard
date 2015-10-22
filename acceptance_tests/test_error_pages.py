@@ -2,7 +2,7 @@ from unittest import skipUnless
 
 from bok_choy.web_app_test import WebAppTest
 
-from acceptance_tests import PLATFORM_NAME, APPLICATION_NAME, SUPPORT_URL, ENABLE_ERROR_PAGE_TESTS
+from acceptance_tests import PLATFORM_NAME, APPLICATION_NAME, SUPPORT_EMAIL, ENABLE_ERROR_PAGE_TESTS
 from acceptance_tests.pages import ServerErrorPage, NotFoundErrorPage, AccessDeniedErrorPage, \
     ServiceUnavailableErrorPage
 
@@ -23,7 +23,7 @@ class ErrorPagesTests(WebAppTest):
             self.assertEqual(expected, self.browser.title)
 
             # Check the support link
-            element = page.q(css='a[data-role=support-link]')
+            element = page.q(css='a[data-role=support-email]')
             self.assertTrue(element.present)
             href = element.attrs('href')[0]
-            self.assertEqual(href, SUPPORT_URL)
+            self.assertEqual(href, 'mailto:{}'.format(SUPPORT_EMAIL))
