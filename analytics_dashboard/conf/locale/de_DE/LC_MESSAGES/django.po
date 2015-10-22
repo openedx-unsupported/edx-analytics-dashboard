@@ -5,6 +5,7 @@
 # Translators:
 # Alexander L. <alexander.lohberg@paluno.uni-due.de>, 2014
 # AndMer <a.mertgens@googlemail.com>, 2014
+# OberstK <Benjamin.Kurczyk@gmail.com>, 2015
 # Christian Layr <Christian.Layr@unisg.ch>, 2014
 # Ettore Atalan <atalanttore@googlemail.com>, 2014-2015
 # Fritz Bischof <fritz@bischof.eu>, 2015
@@ -18,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-06 16:27-0400\n"
-"PO-Revision-Date: 2015-10-06 20:28+0000\n"
+"POT-Creation-Date: 2015-10-22 12:11-0400\n"
+"PO-Revision-Date: 2015-10-22 16:12+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/open-edx/edx-platform/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
@@ -271,11 +272,11 @@ msgstr "Wähle Video"
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Previous Video"
-msgstr ""
+msgstr "Vorheriges Video"
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Next Video"
-msgstr ""
+msgstr "Nächstes Video"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -509,13 +510,9 @@ msgstr "Einschreibungen"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
-"This graph displays total enrollment for the course calculated at the end of"
-" each day. Total enrollment includes new enrollments as well as "
-"unenrollments."
+"This graph displays the current enrollment for the course as of the end of "
+"each day. This includes new enrollments as well as unenrollments."
 msgstr ""
-"Dieser Graph zeigt die Gesamtzahl der Einschreibungen dieses Kurses, die am "
-"Ende jedes Tages berechnet wurde. Die Gesamtzahl der Einschreibungen "
-"beinhaltet sowohl Neuanmeldungen, als auch Abmeldungen."
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollment Metrics"
@@ -1228,12 +1225,9 @@ msgstr "Rückmeldung"
 #: templates/footer.html
 msgid ""
 "We want this dashboard to work for you! Need help? "
-"%(support_link_start)sVisit our support forum%(support_link_end)s. Comments "
-"or suggestions? Email %(email_link)s."
+"%(support_link_start)sContact course team support%(support_link_end)s. "
+"Comments or suggestions? Email %(email_link)s."
 msgstr ""
-"Dieses Dashboard sollte Dich unterstützen! Du brauchst Hilfe? "
-"%(support_link_start)sBesuche das Hilfe Forum%(support_link_end)s. Hinweise "
-"oder Vorschläge? E-Mail %(email_link)s."
 
 #: templates/footer.html
 msgid "Terms of Service"
