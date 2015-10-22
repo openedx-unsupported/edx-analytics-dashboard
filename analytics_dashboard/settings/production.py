@@ -37,7 +37,7 @@ for override, value in DB_OVERRIDES.iteritems():
     DATABASES['default'][override] = value
 
 # Re-declare the full application name in case the components have been overridden.
-FULL_APPLICATION_NAME = '{0} {1}'.format(PLATFORM_NAME, APPLICATION_NAME)
+FULL_APPLICATION_NAME = u'{0} {1}'.format(PLATFORM_NAME, APPLICATION_NAME)
 
 # Depends on DOCUMENTATION_LOAD_ERROR_URL, so evaluate at the end
 DOCUMENTATION_LOAD_ERROR_MESSAGE = 'This data may not be available for your course. ' \
