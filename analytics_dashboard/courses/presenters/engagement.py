@@ -1,6 +1,7 @@
 import datetime
 import math
 from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext_lazy as _
 import logging
 from waffle import switch_is_active
 
@@ -8,6 +9,7 @@ from analyticsclient.client import Client
 import analyticsclient.constants.activity_type as AT
 from analyticsclient.exceptions import NotFoundError
 
+from core.templatetags.dashboard_extras import metric_percentage
 from courses import utils
 from courses.exceptions import NoVideosError
 from courses.presenters import (BasePresenter, CourseAPIPresenterMixin)
@@ -83,6 +85,38 @@ class CourseEngagementActivityPresenter(BasePresenter):
 
         return summary
 
+    def _annotate_with_enrollment(self, summary, trends, enrollment_data):
+        """
+        Add weekly enrollment data to the summary and trends so we can display stats as a
+        percentage of the total enrollment at the time.
+        """
+        # Approximate the weekly enrollment using the last day of each week:
+        enrollment_by_day = {datum['date']: datum['count'] for datum in enrollment_data}
+        has_enrollment_data = any(enrollment_by_day.get(week['weekEnding']) for week in trends)
+        if not has_enrollment_data:
+            return
+        for week in trends:
+            week['enrollment'] = enrollment_by_day.get(week['weekEnding'])
+            num_active = week.get('any', 0)
+            if num_active == 0:
+                week['active_percent'] = 0
+            elif week['enrollment']:
+                week['active_percent'] = num_active / float(week['enrollment'])
+            else:
+                week['active_percent'] = None  # Avoid divide-by-zero but add an entry for this column so it appears
+        most_recent = trends[-1]
+        summary_enrollment = enrollment_by_day.get(most_recent['weekEnding'])
+        if summary_enrollment:
+            for key in self.get_activity_types():
+                if summary.get(key):
+                    # Translators: '{percentage}' in as a placeholder for the percentage value.
+                    percent_str = _("{percentage} of current students")
+                    summary[key + '_percent_str'] = percent_str.format(
+                        percentage=metric_percentage(summary[key] / float(summary_enrollment))
+                    )
+                elif key in summary:
+                    summary[key + '_percent_str'] = '--'
+
     def get_summary_and_trend_data(self):
         """
         Retrieve recent summary and all historical trend data.
@@ -92,6 +126,9 @@ class CourseEngagementActivityPresenter(BasePresenter):
         api_trends = self.course.activity(start_date=None, end_date=end_date)
         summary = self._build_summary(api_trends)
         trends = self._build_trend(api_trends)
+        if trends:
+            enrollment_data = self.course.enrollment(start_date=None, end_date=end_date)
+            self._annotate_with_enrollment(summary, trends, enrollment_data)
         return summary, trends
 
 

@@ -9,6 +9,9 @@
     {% if subheading %}
       <span class="summary-point-note">{{ subheading }}</span>
     {% endif %}
+    {% if additional_value %}
+      <span class="summary-point-addtional-value">{{ additional_value }}</span>
+    {% endif %}
     {% if tooltip %}
       <div class="summary-point-help">
         <span class="sr-only">{{ tooltip }}</span>
