@@ -12,6 +12,10 @@ Change Log
 
    * - Date
      - Change
+     - 4 November 2015
+     - Updated the :ref:`Engagement_Content` and :ref:`Reference` sections.
+       Metrics for learner engagement with content are now expressed as
+       percentages as well as counts.
    * - 8 Oct 2015
      - Updated the :ref:`Engagement_Video` topic. Engagement data for video
        interaction is now available for courses on edx.org and edX Edge.
@@ -29,7 +33,7 @@ Change Log
      - Added :ref:`Performance_Ungraded`.
    * - 11 Mar 2015
      - Added :ref:`Performance_Graded`.
-      
+
 
 ****
 2014
