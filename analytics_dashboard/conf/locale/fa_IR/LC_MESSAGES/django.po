@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-22 12:11-0400\n"
-"PO-Revision-Date: 2015-10-22 16:12+0000\n"
+"POT-Creation-Date: 2015-10-30 09:59-0400\n"
+"PO-Revision-Date: 2015-10-30 14:00+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Persian (Iran) (http://www.transifex.com/open-edx/edx-platform/language/fa_IR/)\n"
 "MIME-Version: 1.0\n"
@@ -108,6 +108,11 @@ msgstr ""
 #. NOT translate the word statistic.
 #: core/templatetags/dashboard_extras.py
 msgid "{statistic}%"
+msgstr ""
+
+#. Translators: '{percentage}' in as a placeholder for the percentage value.
+#: courses/presenters/engagement.py
+msgid "{percentage} of current students"
 msgstr ""
 
 #: courses/presenters/enrollment.py
@@ -794,7 +799,8 @@ msgid "Welcome, %(username)s!"
 msgstr " %(username)s، خوش آمدید!"
 
 #: courses/templates/courses/index.html
-msgid "Here are the courses you currently have access to in Insights:"
+msgid ""
+"Here are the courses you currently have access to in %(application_name)s:"
 msgstr ""
 
 #: courses/templates/courses/index.html

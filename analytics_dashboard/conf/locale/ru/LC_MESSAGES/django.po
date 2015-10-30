@@ -26,8 +26,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-22 12:11-0400\n"
-"PO-Revision-Date: 2015-10-22 16:12+0000\n"
+"POT-Creation-Date: 2015-10-30 09:59-0400\n"
+"PO-Revision-Date: 2015-10-30 14:00+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Russian (http://www.transifex.com/open-edx/edx-platform/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -135,6 +135,11 @@ msgstr ""
 #: core/templatetags/dashboard_extras.py
 msgid "{statistic}%"
 msgstr "{statistic}%"
+
+#. Translators: '{percentage}' in as a placeholder for the percentage value.
+#: courses/presenters/engagement.py
+msgid "{percentage} of current students"
+msgstr ""
 
 #: courses/presenters/enrollment.py
 msgid "Female"
@@ -544,6 +549,9 @@ msgid ""
 "This graph displays the current enrollment for the course as of the end of "
 "each day. This includes new enrollments as well as unenrollments."
 msgstr ""
+"Этот график показывает текущее количество записанных на курс, вычисленное в "
+"конце каждого дня. Это количество включает в себя новых учащихся, а также "
+"отменивших запись на курс."
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollment Metrics"
@@ -864,8 +872,9 @@ msgid "Welcome, %(username)s!"
 msgstr "Добро пожаловать, %(username)s!"
 
 #: courses/templates/courses/index.html
-msgid "Here are the courses you currently have access to in Insights:"
-msgstr " Курсы, которые доступны Вам в Наработках:"
+msgid ""
+"Here are the courses you currently have access to in %(application_name)s:"
+msgstr ""
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
@@ -1280,6 +1289,9 @@ msgid ""
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
 msgstr ""
+"Нам бы хотелось, чтобы панель аналитики была Вам полезна. Нужна помощь? "
+"%(support_link_start)s Посетите наш форум поддержки %(support_link_end)s "
+"Замечания или предложения? Напишите нам на адрес %(email_link)s"
 
 #: templates/footer.html
 msgid "Terms of Service"

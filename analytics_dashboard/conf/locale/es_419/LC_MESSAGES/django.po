@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-22 12:11-0400\n"
-"PO-Revision-Date: 2015-10-22 16:12+0000\n"
+"POT-Creation-Date: 2015-10-30 09:59-0400\n"
+"PO-Revision-Date: 2015-10-30 14:00+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Spanish (Latin America) (http://www.transifex.com/open-edx/edx-platform/language/es_419/)\n"
 "MIME-Version: 1.0\n"
@@ -126,6 +126,11 @@ msgstr ""
 #: core/templatetags/dashboard_extras.py
 msgid "{statistic}%"
 msgstr "{statistic}%"
+
+#. Translators: '{percentage}' in as a placeholder for the percentage value.
+#: courses/presenters/engagement.py
+msgid "{percentage} of current students"
+msgstr ""
 
 #: courses/presenters/enrollment.py
 msgid "Female"
@@ -538,6 +543,8 @@ msgid ""
 "This graph displays the current enrollment for the course as of the end of "
 "each day. This includes new enrollments as well as unenrollments."
 msgstr ""
+"Este gráfico muestra las inscripciones vigentes para el curso al final de "
+"cada día. Incluye nuevas inscripciones, y también inscripciones eliminadas."
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollment Metrics"
@@ -856,8 +863,9 @@ msgid "Welcome, %(username)s!"
 msgstr "Bienvenido, %(username)s!"
 
 #: courses/templates/courses/index.html
-msgid "Here are the courses you currently have access to in Insights:"
-msgstr "Aquí están los cursos que tienes acceso actualmente en Insigths:"
+msgid ""
+"Here are the courses you currently have access to in %(application_name)s:"
+msgstr ""
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
@@ -1278,6 +1286,10 @@ msgid ""
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
 msgstr ""
+"Queremos que este Panel de Control funcione para usted! ¿Necesita ayuda?  "
+"%(support_link_start)sContacte a su equipo de soporte del "
+"curso%(support_link_end)s. ¿Comentarios o sugerencias? Envíe un correo a "
+"%(email_link)s."
 
 #: templates/footer.html
 msgid "Terms of Service"
