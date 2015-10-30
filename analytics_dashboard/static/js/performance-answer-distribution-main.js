@@ -39,9 +39,9 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                     trends: [{
                         title: function(index) {
                             if (courseModel.get('answerDistributionLimited')[index].correct) {
-                                return 'Correct';
+                                return gettext('Correct');
                             } else {
-                                return 'Incorrect';
+                                return gettext('Incorrect');
                             }
                         },
                         color: function (bar, index) {
