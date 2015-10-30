@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-06 16:27-0400\n"
-"PO-Revision-Date: 2015-09-05 21:23+0000\n"
+"POT-Creation-Date: 2015-10-30 10:00-0400\n"
+"PO-Revision-Date: 2015-10-30 14:00+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Croatian (http://www.transifex.com/open-edx/edx-platform/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -54,6 +54,7 @@ msgstr ""
 #: static/dist/js/common.js
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-problems-main.js
+#: static/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
 #: static/js/performance-problems-main.js static/js/views/data-table-view.js
 msgid "Correct"
@@ -158,39 +159,6 @@ msgstr ""
 msgid "Incomplete Views"
 msgstr ""
 
-#: static/dist/js/enrollment-activity-main.js
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-activity-main.js
-#: static/js/enrollment-demographics-gender-main.js
-msgid "Date"
-msgstr "Datum"
-
-#. Translators: The noun count (e.g. number of students)
-#. Translators: The noun count (e.g. number of students)
-#: static/dist/js/enrollment-activity-main.js
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/dist/js/enrollment-geography-main.js
-#: static/js/enrollment-activity-main.js
-#: static/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-geography-main.js
-msgid "Current Enrollment"
-msgstr ""
-
-#: static/dist/js/enrollment-activity-main.js
-#: static/js/enrollment-activity-main.js
-msgid "Honor Code"
-msgstr "Kodeks časti"
-
-#: static/dist/js/enrollment-activity-main.js
-#: static/js/enrollment-activity-main.js
-msgid "Verified"
-msgstr ""
-
-#: static/dist/js/enrollment-activity-main.js
-#: static/js/enrollment-activity-main.js
-msgid "Professional"
-msgstr ""
-
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-education-main.js
@@ -240,6 +208,22 @@ msgstr ""
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Gender: <%=value%>"
+msgstr ""
+
+#: static/dist/js/enrollment-demographics-gender-main.js
+#: static/js/enrollment-activity-main.js
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Date"
+msgstr "Datum"
+
+#. Translators: The noun count (e.g. number of students)
+#. Translators: The noun count (e.g. number of students)
+#: static/dist/js/enrollment-demographics-gender-main.js
+#: static/dist/js/enrollment-geography-main.js
+#: static/js/enrollment-activity-main.js
+#: static/js/enrollment-demographics-gender-main.js
+#: static/js/enrollment-geography-main.js
+msgid "Current Enrollment"
 msgstr ""
 
 #: static/dist/js/enrollment-demographics-gender-main.js
@@ -331,6 +315,7 @@ msgid "Percentage Correct"
 msgstr ""
 
 #: static/dist/js/performance-problems-main.js
+#: static/js/performance-answer-distribution-main.js
 #: static/js/performance-problems-main.js
 msgid "Incorrect"
 msgstr ""
@@ -338,4 +323,20 @@ msgstr ""
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-problems-main.js
 msgid "Total"
+msgstr ""
+
+#: static/js/engagement-content-main.js
+msgid "Percent of Current Students"
+msgstr ""
+
+#: static/js/enrollment-activity-main.js
+msgid "Honor Code"
+msgstr "Kodeks časti"
+
+#: static/js/enrollment-activity-main.js
+msgid "Verified"
+msgstr ""
+
+#: static/js/enrollment-activity-main.js
+msgid "Professional"
 msgstr ""

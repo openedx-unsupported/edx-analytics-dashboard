@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Duong Nguyen <supermanikin@yahoo.com>, 2015
 # Hoang Ha <halink0803@gmail.com>, 2015
 # huynt <huynt57@gmail.com>, 2014
 # Lộc <ngokpika@gmail.com>, 2014
@@ -11,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-22 12:11-0400\n"
-"PO-Revision-Date: 2015-10-22 16:12+0000\n"
+"POT-Creation-Date: 2015-10-30 09:59-0400\n"
+"PO-Revision-Date: 2015-10-30 14:00+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/open-edx/edx-platform/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -28,6 +29,7 @@ msgstr "Đăng nhập"
 #: core/templates/core/landing.html
 msgid "Insights to help course teams improve courses."
 msgstr ""
+"Những hiểu biết giúp đội ngũ thực hiện giáo trình cải thiện các môn học."
 
 #: core/templates/core/landing.html courses/views/__init__.py
 msgid "Who are my students?"
@@ -35,7 +37,7 @@ msgstr "Ai là học viên của tôi?"
 
 #: core/templates/core/landing.html
 msgid "Target your course to fit the backgrounds of your students."
-msgstr ""
+msgstr "Định hướng khóa học của bạn phù hợp với kiến thức của học viên."
 
 #: core/templates/core/landing.html
 #: courses/templates/courses/enrollment_geography.html
@@ -46,13 +48,15 @@ msgstr "Ghi danh"
 
 #: core/templates/core/landing.html
 msgid "What are students engaging with in my course?"
-msgstr ""
+msgstr "Học viên bị thu hút bởi cái gì trong khóa học của tôi?"
 
 #: core/templates/core/landing.html
 msgid ""
 "Improve frequently accessed content, or point students at underused "
 "resources."
 msgstr ""
+"Cải thiện nội dung truy cập thường xuyên, hoặc chỉ học viên đến những tài "
+"liệu chưa được sử dụng hữu hiệu."
 
 #: core/templates/core/landing.html
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
@@ -62,11 +66,13 @@ msgstr "Tham gia"
 
 #: core/templates/core/landing.html
 msgid "How well is my content supporting student learning?"
-msgstr ""
+msgstr "Nội dung của tôi giúp đỡ học viên tiếp thu kiến thức như thế nào?"
 
 #: core/templates/core/landing.html
 msgid "Adjust your course based on where students are struggling."
 msgstr ""
+"Thay đổi khóa học của bạn dựa trên những điểm học viên còn carm thấy khó "
+"khăn."
 
 #: core/templates/core/landing.html
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
@@ -76,23 +82,27 @@ msgstr "Thành quả học tập"
 
 #: core/templates/core/landing.html
 msgid "Join the Open Source Community"
-msgstr ""
+msgstr "Tham gia vào Open Source Community"
 
 #: core/templates/core/landing.html
 msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
 msgstr ""
+"edX analytics data pipeline và edX Insights là phần mềm mã nguồn mở. "
+"%(link_start)sTìm hiểu thêm%(link_end)s."
 
 #: core/templates/core/landing.html
 msgid "Research at edX"
-msgstr ""
+msgstr "Nghiên cứu tại edX"
 
 #: core/templates/core/landing.html
 msgid ""
 "We are committed to advancing teaching and learning through research. "
 "%(link_start)sLearn more%(link_end)s."
 msgstr ""
+"Chúng tôi cam kết thúc đẩy dậy và học qua quá trình nghiên cứu. "
+"%(link_start)sTìm hiểu thêm%(link_end)s."
 
 #: core/templates/core/landing.html
 msgid "Need Help?"
@@ -102,12 +112,19 @@ msgstr "Cần Trợ Giúp?"
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
 msgstr ""
+"%(link_start)sTrung tâm trợ giúp của chúng tôi%(link_end)s có thể giúp bạn "
+"tìm giải pháp."
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
 #: core/templatetags/dashboard_extras.py
 msgid "{statistic}%"
 msgstr "{statistic}%"
+
+#. Translators: '{percentage}' in as a placeholder for the percentage value.
+#: courses/presenters/engagement.py
+msgid "{percentage} of current students"
+msgstr ""
 
 #: courses/presenters/enrollment.py
 msgid "Female"
@@ -186,41 +203,41 @@ msgstr "Quốc gia chưa rõ"
 #: courses/presenters/performance.py
 #: courses/templates/courses/submissions_chart_info.html
 msgid "Submissions"
-msgstr ""
+msgstr "Các bài đã gửi"
 
 #: courses/presenters/performance.py
 msgid "Submissions for Part {part_number}: {part_description}"
-msgstr ""
+msgstr "Bài gửi cho phần {part_number}: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "Part {part_number}: {part_description}"
-msgstr ""
+msgstr "Phần {part_number}: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "Submissions: {part_description}"
-msgstr ""
+msgstr "Bài gửi: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "{part_description}"
-msgstr ""
+msgstr "{part_description}"
 
 #: courses/presenters/performance.py
 msgid "Submissions for Part {part_number}"
-msgstr ""
+msgstr "Bài gửi cho phần {part_number}"
 
 #: courses/presenters/performance.py
 msgid "Part {part_number}"
-msgstr ""
+msgstr "Phần {part_number}"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
-msgstr ""
+msgstr "Chọn loại bài tập"
 
 #. Translators: This refers to all course assignment types (e.g. homework,
 #. exam, lab).
 #: courses/templates/courses/_graded_content_nav.html
 msgid "All Assignments"
-msgstr ""
+msgstr "Tất cả bài tập"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid ""
@@ -228,11 +245,14 @@ msgid ""
 "        Select %(level)s\n"
 "    "
 msgstr ""
+"\n"
+"        Chọn %(level)s\n"
+"    "
 
 #: courses/templates/courses/_graded_content_nav.html
 #: courses/templates/courses/_ungraded_content_nav.html
 msgid "Select Problem"
-msgstr ""
+msgstr "Chọn vấn đề"
 
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
@@ -244,29 +264,29 @@ msgstr "Xem bản thực"
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Section"
-msgstr ""
+msgstr "Chọn mục"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "All Sections"
-msgstr ""
+msgstr "Tất cả các mục"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Subsection"
-msgstr ""
+msgstr "Chọn các mục con"
 
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
-msgstr ""
+msgstr "Chọn Video"
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Previous Video"
-msgstr ""
+msgstr "Video Trước"
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Next Video"
-msgstr ""
+msgstr "Video Tiếp"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -274,6 +294,8 @@ msgid ""
 "This chart shows the most common answers submitted by students, ordered by "
 "frequency."
 msgstr ""
+"Bảng này cho biết những câu hỏi được gửi nhiều nhất từ học viên, sắp xếp "
+"theo thứ tự tần suất."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -281,17 +303,19 @@ msgid ""
 "Due to the number of possible variants for randomized problems, charts are "
 "not available. %(read_more_link_start)sRead more%(read_more_link_end)s."
 msgstr ""
+"Do một số phương án có thể xảy ra cho vấn đề ngẫu nhiên, bảng không dùng "
+"được. %(read_more_link_start)sXem thêm%(read_more_link_end)s."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid ""
 "Review all submission variants below, or click Download CSV to review them "
 "offline."
-msgstr ""
+msgstr "Xem xét tất cả bài gửi dưới đây, hoặc tải CSV để xem lại."
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Submission Counts"
-msgstr ""
+msgstr "Số lượng bài gửi"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 #: courses/templates/courses/engagement_content.html
@@ -302,11 +326,11 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_gender.html
 #: courses/templates/courses/enrollment_geography.html
 msgid "Download CSV"
-msgstr "Tải tệp CSV"
+msgstr "Tải về tệp CSV"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Student Submission Counts"
-msgstr ""
+msgstr "Số lượng bài gửi của học viên"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
@@ -389,11 +413,11 @@ msgstr "Nội dung cam kết gặp sự cố"
 #: courses/templates/courses/engagement_grouped_content.html
 #: courses/templates/courses/views_chart_info.html
 msgid "Video Views"
-msgstr ""
+msgstr "Lượt xem video"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid "How did students interact with videos in this section?"
-msgstr ""
+msgstr "Làm thế nào học viên tương tác với video trong mục này?"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
@@ -401,21 +425,26 @@ msgid ""
 "videos in that subsection. Click on bars with low totals or a high "
 "incomplete rate to drill down and understand why."
 msgstr ""
+"Mỗi cột biểu thị số lượng trung bình của mỗi lượt xem hoàn toàn và chưa hoàn"
+" toàn cho các video trong mục con đó. Ấn vào các cột có tổng số thấp hoặc tỷ"
+" lệ chưa hoàn thành cao để tìm hiểu tại sao."
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did students interact with videos in this subsection?"
-msgstr ""
+msgstr "Làm thế nào học viên tương tác với video trong mục này?"
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
 "Click to understand where students drop off and which parts they replay."
 msgstr ""
+"Mỗi cột biểu thị số lượng lượt xem hoàn toàn hay chưa hoàn toàn cho video "
+"đó. Ấn vào để hiểu học viên đã bỏ dở ở đầu và phần nào họ xem lại."
 
 #: courses/templates/courses/engagement_video_course.html
 #: courses/views/__init__.py
 msgid "How did students interact with course videos?"
-msgstr ""
+msgstr "Làm thế nào học viên tương tác với video của khóa học?"
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
@@ -423,61 +452,65 @@ msgid ""
 "videos in that section. Click on bars with low totals or a high incomplete "
 "rate to drill down and understand why."
 msgstr ""
+"Mỗi cột biểu thị số lượng trung bình của mỗi lượt xem hoàn toàn và chưa hoàn"
+" toàn cho các video trong mục con đó. Ấn vào các cột có tổng số thấp hoặc tỷ"
+" lệ chưa hoàn thành cao để tìm hiểu tại sao."
 
 #: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Total Video Views"
-msgstr ""
+msgstr "Tổng lượt xem video"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "What were the viewing patterns for this video?"
-msgstr ""
+msgstr "mô hình theo dõi của video này là? "
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid ""
 "The number of students who watched each segment of the video, and the number"
 " of replays for each segment."
 msgstr ""
+"Số lượng học viên đã xem mỗi phần của video, và số lần xem lại của mỗi phần."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Collapse Preview"
-msgstr ""
+msgstr "Thu Nhỏ Xem Trước"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Expand Preview"
-msgstr ""
+msgstr "Phóng Lón Xem Trước"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Metrics"
-msgstr ""
+msgstr "Thông số video"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Completion Rate"
-msgstr ""
+msgstr "Tỷ lệ hoàn thành"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Estimated percentage of students who watched the entire video."
-msgstr ""
+msgstr "Lượng phần trăm dự đoán về số lượng học viên đã xem hoàn toàn video."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Started Video"
-msgstr ""
+msgstr "Video đã bắt đầu."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who started watching the video."
-msgstr ""
+msgstr "Học viên đã bắt đầu xem video."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Finished Video"
-msgstr ""
+msgstr "Đã hoàn thành video"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who watched the video to the end."
-msgstr ""
+msgstr "Học viên xem video đến cuối."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Viewing Over Time"
-msgstr ""
+msgstr "Video được xem quá thời gian"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
@@ -497,6 +530,9 @@ msgid ""
 "This graph displays the current enrollment for the course as of the end of "
 "each day. This includes new enrollments as well as unenrollments."
 msgstr ""
+"Biểu đồ này biểu thị toàn bộ số ghi danh cho khóa học tính đến cuối mỗi "
+"ngày. Tổng số ghi danh bao gồm lượng ghi danh mới lẫn lượng đã ghi danh rồi "
+"hủy."
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollment Metrics"
@@ -511,7 +547,7 @@ msgstr "Tổng Số Ghi Danh"
 #. Translators: This is a label indicating the number of students in a course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Students who ever enrolled in the course."
-msgstr ""
+msgstr "Học viên ghi danh trong khóa học."
 
 #. Translators: This is a label to identify current student enrollment.
 #: courses/templates/courses/enrollment_activity.html
@@ -522,7 +558,7 @@ msgstr "Lượng Ghi Danh Hiện Tại"
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Students currently enrolled in the course."
-msgstr ""
+msgstr "Các học viên đang tham gia vào khóa học hiện nay."
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
@@ -532,7 +568,7 @@ msgstr "Thay đổi tuần vừa rồi"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Net difference in current enrollment in the last week."
-msgstr ""
+msgstr "Tổng sự thay đổi trong ghi danh hiện tại so với tuần trước."
 
 #. Translators: This is a label to identify enrollment of students on the
 #. verified track.
@@ -547,6 +583,8 @@ msgid ""
 "Number of currently enrolled students pursuing a verified certificate of "
 "achievement."
 msgstr ""
+"Số lượng học sinh đã tham gia theo đuổi chứng nhận hoàn thành được kiểm "
+"chứng."
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html
@@ -554,12 +592,12 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_education.html
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "Enrollment Over Time"
-msgstr ""
+msgstr "Ghi danh quá hạn"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 #: courses/views/__init__.py
 msgid "How old are my students?"
-msgstr ""
+msgstr "Học sinh của tôi bao nhiêu tuổi?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -569,66 +607,74 @@ msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
 "students who provided a year of birth."
 msgstr ""
+"Biểu đồ tuổi này biểu thị thông tin được xử lý cho %(value)s%% của học viên "
+"đã tham gia cung cấp năm sinh."
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Metrics"
-msgstr ""
+msgstr "Thông số tuổi"
 
 #. Translators: This is a label to identify the median age of enrolled
 #. students.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Median Student Age"
-msgstr ""
+msgstr "Tuổi trung bình học viên"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The midpoint of the student ages, computed from the provided year of birth."
-msgstr ""
+msgstr "Điểm giữa của tuổi học viên, được xử lý từ năm sinh được cung cấp."
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 25 and Under"
-msgstr ""
+msgstr "Học viên 25 hoặc dưới"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The percentage of students aged 25 years or younger (of those who provided a"
 " year of birth)."
 msgstr ""
+"Tỷ lệ phần trăm học viên tuổi 25 hoạc trẻ hơn (trong những người đã cung cấp"
+" năm sinh)"
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 26 to 40"
-msgstr ""
+msgstr "học viên 26 đến 40"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The percentage of students aged from 26 to 40 years (of those who provided a"
 " year of birth)."
 msgstr ""
+"Tỷ lệ phần trăm học viên tuổi 26 đến 40 (trong những người đã cung cấp năm "
+"sinh)"
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 41 and Over"
-msgstr ""
+msgstr "Học viên 41 hoặc trên"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The percentage of students aged 41 years or older (of those who provided a "
 "year of birth)."
 msgstr ""
+"Tỷ lệ phần trăm học viên tuổi trên 41 (trong những người đã cung cấp năm "
+"sinh)"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Breakdown"
-msgstr ""
+msgstr "Phân loại tuổi"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 #: courses/views/__init__.py
 msgid "What level of education do my students have?"
-msgstr ""
+msgstr "Học viên của tôi có mức độ học vấn như thế nào ?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -638,15 +684,17 @@ msgid ""
 "This graph presents data for the %(value)s%% of enrolled students who "
 "provided a highest level of education completed."
 msgstr ""
+"Biểu đồ này cho thấy thông tin về %(value)s%% của những học sinh đã tham gia"
+" khóa học, những người có trình độ học vấn cao nhất."
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Education Metrics"
-msgstr ""
+msgstr "Thông số giáo dục"
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "High School Diploma or Less"
-msgstr ""
+msgstr "Trung học phổ thông hoặc thấp hơn"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
@@ -654,37 +702,43 @@ msgid ""
 "secondary/junior high/middle school, or Elementary/primary school as their "
 "highest level of education completed."
 msgstr ""
+"Tỷ lệ phần trăm học viên chọn Trung Học cơ sở/Trung Học phổ thông, tiểu học "
+"hoặc mẫu giáo như là trình độ học vấn cao nhất của họ"
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "College Degree"
-msgstr ""
+msgstr "Bằng đại học"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
 "The percentage of students who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
 msgstr ""
+"Tỷ lệ phần trăm học viên chọn bằng cử nhân như là trình độ học vấn cao nhất "
+"của họ"
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Advanced Degree"
-msgstr ""
+msgstr "Bằng cao học"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
 "The percentage of students who selected Doctorate or Master's or "
 "professional degree as their highest level of education completed."
 msgstr ""
+"Tỷ lệ phần trăm học viên chọn cao học hoặc nghiên cứu sinh hoặc bằng cấp "
+"chuyên nghiệp như là trình độ học vấn cao nhất của họ"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Educational Breakdown"
-msgstr ""
+msgstr "Phân Loại Học Vấn"
 
 #: courses/templates/courses/enrollment_demographics_gender.html
 #: courses/views/__init__.py
 msgid "What is the student gender breakdown?"
-msgstr ""
+msgstr "Phân loại giới tính học viên là gì?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -694,10 +748,12 @@ msgid ""
 "This graph presents data for the %(value)s%% of enrolled students who "
 "specified their gender."
 msgstr ""
+"Biểu đồ tuổi này biểu thị thông tin về %(value)s%% của học viên đã tham gia "
+"cung cấp giới tính."
 
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "Gender Breakdown Over Time"
-msgstr ""
+msgstr "Phân loại giới tính theo thời gian"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geographic Distribution"
@@ -706,7 +762,7 @@ msgstr "Phân Bố Địa Lý"
 #: courses/templates/courses/enrollment_geography.html
 #: courses/views/__init__.py
 msgid "Where are my students?"
-msgstr ""
+msgstr "Những học viên của tôi ở đâu?"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Enrollment by Country"
@@ -714,76 +770,76 @@ msgstr "Ghi Danh theo các Quốc Gia"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geography Metrics"
-msgstr ""
+msgstr "Thông số về địa lý"
 
 #. Translators: This string represents the number of countries where students
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Total Countries Represented"
-msgstr ""
+msgstr "Tổng số các quốc gia"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Countries with at least one student."
-msgstr ""
+msgstr "Các quốc gia với ít nhất 1 học viên."
 
 #. Translators: This string represents the country with the greatest number of
 #. enrolled students.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Top Country by Enrollment"
-msgstr ""
+msgstr "Quốc gia có số học sinh tham gia nhiều nhất"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the largest number of students."
-msgstr ""
+msgstr "Quốc gia với số lượng học viên lớn nhất"
 
 #. Translators: This string represents the country with the second-greatest
 #. number of enrolled students.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Second Country by Enrollment"
-msgstr ""
+msgstr "Quốc gia có số lượng tham gia đứng thứ 2"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the second largest number of students."
-msgstr ""
+msgstr "Quốc gia với số lượng học viên đứng thứ hai."
 
 #. Translators: This string represents the country with the third-greatest
 #. number of enrolled students.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Third Country by Enrollment"
-msgstr ""
+msgstr "Quốc gia có số lượng tham gia đứng thứ 3"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the third largest number of students."
-msgstr ""
+msgstr "Quốc gia với số lượng học viên đứng thứ ba."
 
 #. Translators: This string represents the percentage of students in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
 #: courses/templates/courses/enrollment_geography.html
 msgid "%(percent)s%% of students"
-msgstr ""
+msgstr "%(percent)s%% của học viên"
 
 #: courses/templates/courses/enrollment_geography.html
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geographic Breakdown"
-msgstr ""
+msgstr "Phân Loại Địa Lý"
 
 #. Translators: Application here refers to the web site/application being used
 #. (e.g. the dashboard).
 #: courses/templates/courses/home.html templates/base_dashboard.html
 #: templates/footer.html templates/lens-navigation.html
 msgid "Application"
-msgstr ""
+msgstr "Ứng dụng"
 
 #: courses/templates/courses/home.html courses/views/__init__.py
 msgid "Course Home"
-msgstr ""
+msgstr "Trang chủ khóa học"
 
 #. Translators: This refers to the active tab/navigation item.
 #. Translators: This refers to the active tab/navigation item.
 #: courses/templates/courses/home.html templates/lens-navigation.html
 #: templates/submenu_navigation.html
 msgid "Active"
-msgstr ""
+msgstr "Hoạt động"
 
 #: courses/templates/courses/index.html
 msgid "Courses"
@@ -794,27 +850,30 @@ msgid "Welcome, %(username)s!"
 msgstr "Chào mừng, %(username)s!"
 
 #: courses/templates/courses/index.html
-msgid "Here are the courses you currently have access to in Insights:"
-msgstr "Đây là những khóa học bạn hiện đang truy cập vào qua Insights:"
+msgid ""
+"Here are the courses you currently have access to in %(application_name)s:"
+msgstr ""
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
-msgstr ""
+msgstr "Mới với %(application_name)s?"
 
 #: courses/templates/courses/index.html
 msgid ""
 "Click Help in the upper-right corner to get more information about "
 "%(application_name)s. Send us feedback at %(email_link)s."
 msgstr ""
+"Ấn  trợ giúp ở góc trên bên phải để biết thêm thông tin về  "
+"%(application_name)s. Gửi phản hồi cho chúng tôi tại %(email_link)s."
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
 msgid "How did students answer this problem?"
-msgstr ""
+msgstr "Học viên đã trả lời vấn đề này như thế nào?"
 
 #: courses/templates/courses/performance_assignment.html
 msgid "How are students doing on this assignment?"
-msgstr ""
+msgstr "Học viên đang làm bài tập như thế nào?"
 
 #: courses/templates/courses/performance_assignment.html
 #: courses/templates/courses/performance_ungraded_by_subsection.html
@@ -822,21 +881,23 @@ msgid ""
 "These bars show the correct and incorrect submission counts for each "
 "problem. Only the last submission from each student is counted."
 msgstr ""
+"Những cột trên cho biết bài gửi chính xác hay không chính xác cho mỗi vấn "
+"đề. Chỉ có bài gửi cuối cùng từ mỗi học sinh mới được tính."
 
 #: courses/templates/courses/performance_assignment.html
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid "Problem Submissions"
-msgstr ""
+msgstr "Bài nộp cho vấn đề"
 
 #: courses/templates/courses/performance_graded_content.html
 msgid "Which assignment type do you want to investigate?"
-msgstr ""
+msgstr "Bạn muốn tìm hiểu về loại bài tập nào?"
 
 #: courses/templates/courses/performance_graded_content.html
 msgid ""
 "Click an assignment type to view more detail information about the "
 "assignments."
-msgstr ""
+msgstr "Ấn vào một loại bài tập để xem thêm thông tin về bài tập đó."
 
 #. Translators: This describes the percent an assignment contributes to that
 #. of a learner's grade (e.g. Exam: 60% of the grading policy.).
@@ -846,11 +907,14 @@ msgid ""
 "                %(assignment_type)s: %(policy_ratio)s%% of the grading policy\n"
 "              "
 msgstr ""
+"\n"
+"                %(assignment_type)s: %(policy_ratio)s%% của chính sách chấm điểm\n"
+"              "
 
 #. Translators: This describes the percent of a learner's grade (e.g. 60%).
 #: courses/templates/courses/performance_graded_content.html
 msgid "%(policy_ratio)s%%"
-msgstr ""
+msgstr "%(policy_ratio)s%%"
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
@@ -858,6 +922,9 @@ msgid ""
 "      How are students doing on the %(type)s?\n"
 "    "
 msgstr ""
+"\n"
+"      Tình hình học viên trong nhóm %(type)s?\n"
+"    "
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
@@ -865,43 +932,52 @@ msgid ""
 "problems in the assignment. Only the last submission from each student is "
 "counted."
 msgstr ""
+"Những cột trên cho biết trung bình số lượng bài gửi chính xác hay không "
+"chính xác cho mỗi vấn đề trong bài tập. Chỉ có bài gửi cuối cùng từ mỗi học "
+"sinh mới được tính."
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid "Assignment Submissions"
-msgstr ""
+msgstr "Nộp bài tập"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are students doing on this section?"
-msgstr ""
+msgstr "Học viên đang làm như thế nào trong mục này?"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each subsection. Only the last submission from each student is counted."
 msgstr ""
+"Những cột trên cho biết trung bình số lượng bài gửi chính xác hay không "
+"chính xác cho mỗi vấn đề trong bài tập. Chỉ có bài gửi cuối cùng từ mỗi học "
+"sinh mới được tính."
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "Subsection Submissions"
-msgstr ""
+msgstr "Nộp các tiểu mục"
 
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid "How are students doing on this subsection?"
-msgstr ""
+msgstr "Học viên đang làm như thế nào trong tiểu mục này?"
 
 #: courses/templates/courses/performance_ungraded_content.html
 #: courses/views/__init__.py
 msgid "How are students doing on ungraded exercises?"
-msgstr ""
+msgstr "Học viên đang làm như thế nào trong các bài chưa được chấm?"
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each section. Only the last submission from each student is counted."
 msgstr ""
+"Những cột trên cho biết trung bình số lượng bài gửi chính xác hay không "
+"chính xác cho mỗi vấn đề trong bài tập. Chỉ có bài gửi cuối cùng từ mỗi học "
+"sinh mới được tính."
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid "Section Submissions"
-msgstr ""
+msgstr "Nộp các mục"
 
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
@@ -931,7 +1007,7 @@ msgstr "Hoạt động"
 #: courses/views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Demographics"
-msgstr ""
+msgstr "Nhân khẩu học"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
@@ -962,29 +1038,29 @@ msgstr "Nội dung"
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Videos"
-msgstr ""
+msgstr "Videos"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
 msgid "Graded Content"
-msgstr ""
+msgstr "Nội dung đã chấm"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
 msgid "Ungraded Problems"
-msgstr ""
+msgstr "Các vấn đề chưa được chấm"
 
 #: courses/views/__init__.py
 msgid "What are students doing in my course?"
-msgstr ""
+msgstr "Học viên đang học như thế nào trong các khóa học của tôi?"
 
 #: courses/views/__init__.py
 msgid "How are students doing on course assignments?"
-msgstr ""
+msgstr "Học viên đang làm bài tập khóa học như thế nào?"
 
 #: courses/views/__init__.py
 msgid "How are students doing on graded course assignments?"
-msgstr ""
+msgstr "Học viên đang làm như thế nào trong các bài tập đã chấm?"
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
@@ -1001,28 +1077,30 @@ msgstr ""
 
 #: courses/views/engagement.py
 msgid "Engagement Videos"
-msgstr ""
+msgstr "Video tham gia"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr ""
+"Thông tin video được cập nhật lần cuối vào ngày %(update_date)s lúc "
+"%(update_time)s UTC."
 
 #: courses/views/engagement.py
 msgid "Looks like no one has watched any videos in these sections."
-msgstr ""
+msgstr "Có vẻ như không ai xem video nào trong những mục này."
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Section Name"
-msgstr ""
+msgstr "Tên mục"
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Subsection Name"
-msgstr ""
+msgstr "Tên tiểu mục"
 
 #: courses/views/engagement.py
 msgid "Video Name"
-msgstr ""
+msgstr "Tên Video"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1030,13 +1108,15 @@ msgid ""
 "Demographic student data was last updated %(update_date)s at %(update_time)s"
 " UTC."
 msgstr ""
+"Thông tin nhân khẩu của học viên được cập nhật lần cuối vào ngày "
+"%(update_date)s lúc %(update_time)s UTC."
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
 #: courses/views/enrollment.py
 msgid ""
 "All above demographic data was self-reported at the time of registration."
-msgstr ""
+msgstr "Các thông tin nhân khẩu trên được học viên tự điền vào lúc đăng ký."
 
 #: courses/views/enrollment.py
 msgid "Enrollment Activity"
@@ -1053,15 +1133,15 @@ msgstr ""
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Age"
-msgstr ""
+msgstr "Thông tin nhân khẩu học của các đăng kí theo Tuổi"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Education"
-msgstr ""
+msgstr "Thông tin nhân khẩu học của đăng ký theo trình độ học vấn"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Gender"
-msgstr ""
+msgstr "Thông tin nhân khẩu học của đăng ký theo giới tính"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Geography"
@@ -1082,6 +1162,8 @@ msgid ""
 "Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr ""
+"Thông tin của vấn đề được cập nhật lần cuối vào ngày %(update_date)s lúc "
+"%(update_time)s UTC."
 
 #: courses/views/performance.py
 msgid "Assignment Name"
@@ -1089,19 +1171,19 @@ msgstr "Tên Bài Tập"
 
 #: courses/views/performance.py
 msgid "No submissions received for these exercises."
-msgstr ""
+msgstr "Không bài gửi nào được nhận cho những bài tập này."
 
 #: courses/views/performance.py
 msgid "No submissions received for these assignments."
-msgstr ""
+msgstr "Không bài gửi nào được nhận cho những bài tập này."
 
 #: courses/views/performance.py courses/views/performance.py
 msgid "Performance: Problem Submissions"
-msgstr ""
+msgstr "Hoàn thành: Vấn đề được gửi"
 
 #: courses/views/performance.py
 msgid "Graded Content: %(assignment_type)s"
-msgstr ""
+msgstr "Nội dung đã chấm: %(assignment_type)s"
 
 #: courses/views/performance.py courses/views/performance.py
 msgid "Problem Name"
@@ -1151,11 +1233,11 @@ msgstr ""
 
 #: templates/503.html templates/503.html.py
 msgid "We're having trouble loading this page. Please try again in a minute."
-msgstr ""
+msgstr "Xảy ra sự cố trong lúc tải trang bạn này. Vui lòng thử lại sau."
 
 #: templates/503.html
 msgid "(Technical details: 503 Service Unavailable.)"
-msgstr ""
+msgstr "(Thông tin kỹ thuật: 503 dịch vụ không khả dụng.)"
 
 #: templates/_announcement.html
 msgid "Close"
@@ -1171,7 +1253,7 @@ msgstr ""
 #. placeholder as you see fit.
 #: templates/base-error.html
 msgid "Contact %(platform_name)s Support"
-msgstr ""
+msgstr "Liên hệ %(platform_name)s để được trợ giúp"
 
 #: templates/footer.html
 msgid "Feedback"
@@ -1183,6 +1265,9 @@ msgid ""
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
 msgstr ""
+"Chúng tôi muốn bảng điều khiển phù hợp với bạn! Cần sự trợ giúp "
+"%(support_link_start)sLiên hệ nhóm trợ giúp khóa học%(support_link_end)s. "
+"Bình luận hay gợi ý? Email %(email_link)s."
 
 #: templates/footer.html
 msgid "Terms of Service"
@@ -1198,6 +1283,8 @@ msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
 "            reserved. "
 msgstr ""
+" %(current_year)s %(platform_name)s, ngoại trừ những điểm đã được đánh dấu, tất cả các quyền\n"
+"            đều được giữ lại. "
 
 #: templates/header.html
 msgid "Toggle navigation"
@@ -1217,12 +1304,12 @@ msgstr "Đang tải"
 
 #: templates/section_error.html
 msgid "We are unable to load this chart."
-msgstr ""
+msgstr "Chúng tôi không thể tải bảng này."
 
 #: templates/section_error.html
 msgid "We are unable to load this table."
-msgstr ""
+msgstr "Chúng tôi không thể tải bảng này."
 
 #: templates/section_error.html
 msgid "We are unable to load these metrics."
-msgstr ""
+msgstr "Chúng tôi không thể tải các thông số này."

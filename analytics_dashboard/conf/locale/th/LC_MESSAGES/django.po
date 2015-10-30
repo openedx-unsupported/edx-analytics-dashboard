@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-22 12:11-0400\n"
-"PO-Revision-Date: 2015-10-22 16:12+0000\n"
+"POT-Creation-Date: 2015-10-30 09:59-0400\n"
+"PO-Revision-Date: 2015-10-30 14:00+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Thai (http://www.transifex.com/open-edx/edx-platform/language/th/)\n"
 "MIME-Version: 1.0\n"
@@ -119,6 +119,11 @@ msgstr ""
 #: core/templatetags/dashboard_extras.py
 msgid "{statistic}%"
 msgstr "{statistic}%"
+
+#. Translators: '{percentage}' in as a placeholder for the percentage value.
+#: courses/presenters/engagement.py
+msgid "{percentage} of current students"
+msgstr ""
 
 #: courses/presenters/enrollment.py
 msgid "Female"
@@ -517,6 +522,8 @@ msgid ""
 "This graph displays the current enrollment for the course as of the end of "
 "each day. This includes new enrollments as well as unenrollments."
 msgstr ""
+"กราฟนี้แสดงการลงทะเบียนปัจจุบันสำหรับหลักสูตร ณ จุดสิ้นสุดในแต่ละวัน "
+"ซึ่งรวมถึงการลงทะเบียนใหม่และการไม่ลงทะเบียน"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollment Metrics"
@@ -828,8 +835,9 @@ msgid "Welcome, %(username)s!"
 msgstr "ยินดีต้อนรับ %(username)s!"
 
 #: courses/templates/courses/index.html
-msgid "Here are the courses you currently have access to in Insights:"
-msgstr "นี้คือหลักสูตรปัจจุบันของคุณที่เข้ามาเพื่อทำความเข้าใจ:"
+msgid ""
+"Here are the courses you currently have access to in %(application_name)s:"
+msgstr ""
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
@@ -1233,6 +1241,10 @@ msgid ""
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
 msgstr ""
+"เราอยากให้แดชบอร์ดนี้ใช้งานได้ดีเพื่อคุณ "
+"ต้องการความช่วยเหลือ?%(support_link_start)s "
+"ติดต่อทีมสนับสนุนของหลักสูตร%(support_link_end)s แสดงความคิดเห็นหรือแนะนำ "
+"ทางอีเมล์ %(email_link)s"
 
 #: templates/footer.html
 msgid "Terms of Service"

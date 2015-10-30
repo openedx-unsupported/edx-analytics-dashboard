@@ -4,14 +4,15 @@
 # 
 # Translators:
 # Dinh Hung Tu <dinhhungtu@gmail.com>, 2015
+# Duong Nguyen <supermanikin@yahoo.com>, 2015
 # Nguyen Don Binh <donbinhvn@gmail.com>, 2014
 # NGUYEN HOANG AN <neyugn2909@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-22 12:11-0400\n"
-"PO-Revision-Date: 2015-10-18 04:27+0000\n"
+"POT-Creation-Date: 2015-10-30 10:00-0400\n"
+"PO-Revision-Date: 2015-10-30 14:00+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/open-edx/edx-platform/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -57,6 +58,7 @@ msgstr "(trống)"
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
+#: static/js/performance-answer-distribution-main.js
 #: static/js/performance-problems-main.js static/js/views/data-table-view.js
 msgid "Correct"
 msgstr "Đúng"
@@ -64,7 +66,7 @@ msgstr "Đúng"
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Week Ending"
-msgstr "Ngày Tổng Kết"
+msgstr "Ngày hết tuần"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
@@ -90,7 +92,7 @@ msgstr "Đã Đăng Bài trong Diễn Đàn"
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Week Ending <%=value%>"
-msgstr "Ngày Tổng Kết <%=value%>"
+msgstr "Ngày hết tuần <%=value%>"
 
 #. Translators: <%=value%> will be replaced by a number followed by a
 #. percentage.
@@ -101,17 +103,17 @@ msgstr "Ngày Tổng Kết <%=value%>"
 #: static/dist/js/performance-problems-main.js
 #: static/js/views/stacked-bar-view.js
 msgid "<%=value%> (<%=percent%>)"
-msgstr "<%=giá trị%> (<%=phần trăm%>)"
+msgstr "<%=value%> (<%=percent%>)"
 
 #: static/dist/js/engagement-video-content-main.js
 #: static/js/engagement-video-content-main.js
 msgid "Average Complete Views"
-msgstr ""
+msgstr "Số lần xem hoàn toàn trung bình"
 
 #: static/dist/js/engagement-video-content-main.js
 #: static/js/engagement-video-content-main.js
 msgid "Average Incomplete Views"
-msgstr ""
+msgstr "Số lần xem chưa hoàn toàn trung bình"
 
 #: static/dist/js/engagement-video-content-main.js
 #: static/dist/js/engagement-videos-main.js
@@ -126,72 +128,39 @@ msgstr "Thứ tự"
 #: static/dist/js/engagement-video-content-main.js
 #: static/js/engagement-video-content-main.js
 msgid "Videos"
-msgstr ""
+msgstr "Videos"
 
 #: static/dist/js/engagement-video-content-main.js
 #: static/dist/js/engagement-videos-main.js
 #: static/js/engagement-video-content-main.js
 #: static/js/engagement-videos-main.js
 msgid "Completion Percentage"
-msgstr ""
+msgstr "Tỷ lệ phần trăm hoàn thành"
 
 #: static/dist/js/engagement-video-timeline-main.js
 #: static/js/engagement-video-timeline-main.js
 msgid "Unique Viewers"
-msgstr ""
+msgstr "Các lượt xem duy nhất"
 
 #: static/dist/js/engagement-video-timeline-main.js
 #: static/js/engagement-video-timeline-main.js
 msgid "Replays"
-msgstr ""
+msgstr "Xem lại"
 
 #: static/dist/js/engagement-video-timeline-main.js
 #: static/js/engagement-video-timeline-main.js
 msgid "Time"
-msgstr ""
+msgstr "Thời gian"
 
 #: static/dist/js/engagement-videos-main.js
 #: static/js/engagement-videos-main.js
 msgid "Complete Views"
-msgstr ""
+msgstr "Các lượt xem hoàn toàn"
 
 #: static/dist/js/engagement-videos-main.js
 #: static/js/engagement-videos-main.js
 msgid "Incomplete Views"
-msgstr ""
-
-#: static/dist/js/enrollment-activity-main.js
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-activity-main.js
-#: static/js/enrollment-demographics-gender-main.js
-msgid "Date"
-msgstr "Ngày"
-
-#. Translators: The noun count (e.g. number of students)
-#. Translators: The noun count (e.g. number of students)
-#: static/dist/js/enrollment-activity-main.js
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/dist/js/enrollment-geography-main.js
-#: static/js/enrollment-activity-main.js
-#: static/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-geography-main.js
-msgid "Current Enrollment"
-msgstr "Lượng Ghi Danh Hiện Tại"
-
-#: static/dist/js/enrollment-activity-main.js
-#: static/js/enrollment-activity-main.js
-msgid "Honor Code"
-msgstr "Cam Kết Danh Dự"
-
-#: static/dist/js/enrollment-activity-main.js
-#: static/js/enrollment-activity-main.js
-msgid "Verified"
-msgstr "Đã xác thực"
-
-#: static/dist/js/enrollment-activity-main.js
-#: static/js/enrollment-activity-main.js
-msgid "Professional"
-msgstr "Nghiệp Vụ"
+msgstr "Các lượt xem không hoàn toàn"
 
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-age-main.js
@@ -243,6 +212,22 @@ msgstr "Quá Trình Học Tập"
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Gender: <%=value%>"
 msgstr "Giới tính: <%=value%>"
+
+#: static/dist/js/enrollment-demographics-gender-main.js
+#: static/js/enrollment-activity-main.js
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Date"
+msgstr "Ngày"
+
+#. Translators: The noun count (e.g. number of students)
+#. Translators: The noun count (e.g. number of students)
+#: static/dist/js/enrollment-demographics-gender-main.js
+#: static/dist/js/enrollment-geography-main.js
+#: static/js/enrollment-activity-main.js
+#: static/js/enrollment-demographics-gender-main.js
+#: static/js/enrollment-geography-main.js
+msgid "Current Enrollment"
+msgstr "Lượng Ghi Danh Hiện Tại"
 
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-gender-main.js
@@ -308,12 +293,12 @@ msgstr "Trả lời:  <%=value%>"
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
 msgid "Average Correct"
-msgstr ""
+msgstr "Trung bình kết quả đúng"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
 msgid "Average Incorrect"
-msgstr ""
+msgstr "Trung bình kết quả sai"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
@@ -323,7 +308,7 @@ msgstr "Câu Hỏi"
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
 msgid "Average Submissions Per Problem"
-msgstr ""
+msgstr "Trung bình bài nộp cho mỗi vấn đề"
 
 #: static/dist/js/performance-content-main.js
 #: static/dist/js/performance-problems-main.js
@@ -333,6 +318,7 @@ msgid "Percentage Correct"
 msgstr "Phần trăm chính xác"
 
 #: static/dist/js/performance-problems-main.js
+#: static/js/performance-answer-distribution-main.js
 #: static/js/performance-problems-main.js
 msgid "Incorrect"
 msgstr "Sai"
@@ -341,3 +327,19 @@ msgstr "Sai"
 #: static/js/performance-problems-main.js
 msgid "Total"
 msgstr "Tổng cộng"
+
+#: static/js/engagement-content-main.js
+msgid "Percent of Current Students"
+msgstr ""
+
+#: static/js/enrollment-activity-main.js
+msgid "Honor Code"
+msgstr "Cam Kết Danh Dự"
+
+#: static/js/enrollment-activity-main.js
+msgid "Verified"
+msgstr "Đã xác thực"
+
+#: static/js/enrollment-activity-main.js
+msgid "Professional"
+msgstr "Nghiệp Vụ"

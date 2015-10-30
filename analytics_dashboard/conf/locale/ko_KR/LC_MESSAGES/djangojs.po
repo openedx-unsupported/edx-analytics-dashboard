@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-06 16:27-0400\n"
-"PO-Revision-Date: 2015-09-25 11:02+0000\n"
-"Last-Translator: Hongseob Lee <shevious@yahoo.com>\n"
+"POT-Creation-Date: 2015-10-30 10:00-0400\n"
+"PO-Revision-Date: 2015-10-30 14:00+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/open-edx/edx-platform/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -57,6 +57,7 @@ msgstr "(비어있음)"
 #: static/dist/js/common.js
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-problems-main.js
+#: static/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
 #: static/js/performance-problems-main.js static/js/views/data-table-view.js
 msgid "Correct"
@@ -161,39 +162,6 @@ msgstr "시청 완료"
 msgid "Incomplete Views"
 msgstr "시청 미완료"
 
-#: static/dist/js/enrollment-activity-main.js
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-activity-main.js
-#: static/js/enrollment-demographics-gender-main.js
-msgid "Date"
-msgstr "날짜"
-
-#. Translators: The noun count (e.g. number of students)
-#. Translators: The noun count (e.g. number of students)
-#: static/dist/js/enrollment-activity-main.js
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/dist/js/enrollment-geography-main.js
-#: static/js/enrollment-activity-main.js
-#: static/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-geography-main.js
-msgid "Current Enrollment"
-msgstr "현재 수강신청"
-
-#: static/dist/js/enrollment-activity-main.js
-#: static/js/enrollment-activity-main.js
-msgid "Honor Code"
-msgstr "학습자 서약"
-
-#: static/dist/js/enrollment-activity-main.js
-#: static/js/enrollment-activity-main.js
-msgid "Verified"
-msgstr "인증"
-
-#: static/dist/js/enrollment-activity-main.js
-#: static/js/enrollment-activity-main.js
-msgid "Professional"
-msgstr "전문과정"
-
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-education-main.js
@@ -244,6 +212,22 @@ msgstr "교육배경"
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Gender: <%=value%>"
 msgstr "성별: <%=value%>"
+
+#: static/dist/js/enrollment-demographics-gender-main.js
+#: static/js/enrollment-activity-main.js
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Date"
+msgstr "날짜"
+
+#. Translators: The noun count (e.g. number of students)
+#. Translators: The noun count (e.g. number of students)
+#: static/dist/js/enrollment-demographics-gender-main.js
+#: static/dist/js/enrollment-geography-main.js
+#: static/js/enrollment-activity-main.js
+#: static/js/enrollment-demographics-gender-main.js
+#: static/js/enrollment-geography-main.js
+msgid "Current Enrollment"
+msgstr "현재 수강신청"
 
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-gender-main.js
@@ -332,6 +316,7 @@ msgid "Percentage Correct"
 msgstr "정답 비율"
 
 #: static/dist/js/performance-problems-main.js
+#: static/js/performance-answer-distribution-main.js
 #: static/js/performance-problems-main.js
 msgid "Incorrect"
 msgstr "오답"
@@ -340,3 +325,19 @@ msgstr "오답"
 #: static/js/performance-problems-main.js
 msgid "Total"
 msgstr "합계"
+
+#: static/js/engagement-content-main.js
+msgid "Percent of Current Students"
+msgstr ""
+
+#: static/js/enrollment-activity-main.js
+msgid "Honor Code"
+msgstr "학습자 서약"
+
+#: static/js/enrollment-activity-main.js
+msgid "Verified"
+msgstr "인증"
+
+#: static/js/enrollment-activity-main.js
+msgid "Professional"
+msgstr "전문과정"

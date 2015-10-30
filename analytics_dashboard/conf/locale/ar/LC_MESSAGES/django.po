@@ -9,12 +9,13 @@
 # Manal Ahmed Aljahdali <manal.ahmed.m.j@gmail.com>, 2014
 # may <may@qordoba.com>, 2014
 # Nabeel El-Dughailib <nabeel@qordoba.com>, 2014-2015
+# omarithawi <oithawi@qrf.org>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-22 12:11-0400\n"
-"PO-Revision-Date: 2015-10-22 16:12+0000\n"
+"POT-Creation-Date: 2015-10-30 09:59-0400\n"
+"PO-Revision-Date: 2015-10-30 14:00+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Arabic (http://www.transifex.com/open-edx/edx-platform/language/ar/)\n"
 "MIME-Version: 1.0\n"
@@ -119,6 +120,11 @@ msgstr ""
 #: core/templatetags/dashboard_extras.py
 msgid "{statistic}%"
 msgstr "{statistic}%"
+
+#. Translators: '{percentage}' in as a placeholder for the percentage value.
+#: courses/presenters/engagement.py
+msgid "{percentage} of current students"
+msgstr ""
 
 #: courses/presenters/enrollment.py
 msgid "Female"
@@ -252,7 +258,7 @@ msgstr "اختر مسألة"
 #: courses/templates/courses/_module_description.html
 #: courses/templates/courses/_video_preview.html
 msgid "View Live"
-msgstr "المشاهدة عبر بثّ مباشر"
+msgstr "شاهد النسخة الحالية"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
@@ -835,10 +841,9 @@ msgid "Welcome, %(username)s!"
 msgstr "مرحباً بك، %(username)s!"
 
 #: courses/templates/courses/index.html
-msgid "Here are the courses you currently have access to in Insights:"
+msgid ""
+"Here are the courses you currently have access to in %(application_name)s:"
 msgstr ""
-"فيما يلي قائمة بالمساقات التي يمكنك حاليًا الوصول إليها من خلال صفحة ’لمحة "
-"عن المساق‘:"
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"

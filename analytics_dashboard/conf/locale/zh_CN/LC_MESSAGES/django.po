@@ -30,8 +30,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-22 12:11-0400\n"
-"PO-Revision-Date: 2015-10-22 16:12+0000\n"
+"POT-Creation-Date: 2015-10-30 09:59-0400\n"
+"PO-Revision-Date: 2015-10-30 14:00+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/open-edx/edx-platform/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -127,6 +127,11 @@ msgstr "%(link_start)s我们的帮助中心%(link_end)s能帮助你找到解决�
 #: core/templatetags/dashboard_extras.py
 msgid "{statistic}%"
 msgstr "{statistic}% "
+
+#. Translators: '{percentage}' in as a placeholder for the percentage value.
+#: courses/presenters/engagement.py
+msgid "{percentage} of current students"
+msgstr ""
 
 #: courses/presenters/enrollment.py
 msgid "Female"
@@ -514,7 +519,7 @@ msgstr "选课"
 msgid ""
 "This graph displays the current enrollment for the course as of the end of "
 "each day. This includes new enrollments as well as unenrollments."
-msgstr ""
+msgstr "这张表格展示了每天结束时课程的当前选课人数，包括了当天新选课的人数与放弃选课的人数。"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollment Metrics"
@@ -812,8 +817,9 @@ msgid "Welcome, %(username)s!"
 msgstr "欢迎，%(username)s！"
 
 #: courses/templates/courses/index.html
-msgid "Here are the courses you currently have access to in Insights:"
-msgstr "这里是您当前在Insights中已经拥有的课程："
+msgid ""
+"Here are the courses you currently have access to in %(application_name)s:"
+msgstr ""
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
@@ -1191,6 +1197,7 @@ msgid ""
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
 msgstr ""
+"我们希望此课程面板能为您效劳！需要帮助吗？请%(support_link_start)s联系课程团队支持%(support_link_end)s。想发表评论或者建议？请发电子邮件至%(email_link)s。"
 
 #: templates/footer.html
 msgid "Terms of Service"

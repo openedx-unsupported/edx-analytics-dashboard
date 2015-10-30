@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-04 10:05-0400\n"
-"PO-Revision-Date: 2015-09-04 14:06+0000\n"
+"POT-Creation-Date: 2015-10-30 10:00-0400\n"
+"PO-Revision-Date: 2015-10-30 14:00+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Chinese (Hong Kong) (http://www.transifex.com/open-edx/edx-platform/language/zh_HK/)\n"
 "MIME-Version: 1.0\n"
@@ -54,6 +54,7 @@ msgstr ""
 #: static/dist/js/common.js
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-problems-main.js
+#: static/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
 #: static/js/performance-problems-main.js static/js/views/data-table-view.js
 msgid "Correct"
@@ -158,39 +159,6 @@ msgstr ""
 msgid "Incomplete Views"
 msgstr ""
 
-#: static/dist/js/enrollment-activity-main.js
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-activity-main.js
-#: static/js/enrollment-demographics-gender-main.js
-msgid "Date"
-msgstr "日期"
-
-#. Translators: The noun count (e.g. number of students)
-#. Translators: The noun count (e.g. number of students)
-#: static/dist/js/enrollment-activity-main.js
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/dist/js/enrollment-geography-main.js
-#: static/js/enrollment-activity-main.js
-#: static/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-geography-main.js
-msgid "Current Enrollment"
-msgstr ""
-
-#: static/dist/js/enrollment-activity-main.js
-#: static/js/enrollment-activity-main.js
-msgid "Honor Code"
-msgstr "榮譽準則"
-
-#: static/dist/js/enrollment-activity-main.js
-#: static/js/enrollment-activity-main.js
-msgid "Verified"
-msgstr "已驗證"
-
-#: static/dist/js/enrollment-activity-main.js
-#: static/js/enrollment-activity-main.js
-msgid "Professional"
-msgstr "专业的"
-
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-education-main.js
@@ -240,6 +208,22 @@ msgstr "教育背景"
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Gender: <%=value%>"
+msgstr ""
+
+#: static/dist/js/enrollment-demographics-gender-main.js
+#: static/js/enrollment-activity-main.js
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Date"
+msgstr "日期"
+
+#. Translators: The noun count (e.g. number of students)
+#. Translators: The noun count (e.g. number of students)
+#: static/dist/js/enrollment-demographics-gender-main.js
+#: static/dist/js/enrollment-geography-main.js
+#: static/js/enrollment-activity-main.js
+#: static/js/enrollment-demographics-gender-main.js
+#: static/js/enrollment-geography-main.js
+msgid "Current Enrollment"
 msgstr ""
 
 #: static/dist/js/enrollment-demographics-gender-main.js
@@ -329,6 +313,7 @@ msgid "Percentage Correct"
 msgstr ""
 
 #: static/dist/js/performance-problems-main.js
+#: static/js/performance-answer-distribution-main.js
 #: static/js/performance-problems-main.js
 msgid "Incorrect"
 msgstr "不正確"
@@ -337,3 +322,19 @@ msgstr "不正確"
 #: static/js/performance-problems-main.js
 msgid "Total"
 msgstr "總數"
+
+#: static/js/engagement-content-main.js
+msgid "Percent of Current Students"
+msgstr ""
+
+#: static/js/enrollment-activity-main.js
+msgid "Honor Code"
+msgstr "榮譽準則"
+
+#: static/js/enrollment-activity-main.js
+msgid "Verified"
+msgstr "已驗證"
+
+#: static/js/enrollment-activity-main.js
+msgid "Professional"
+msgstr "专业的"
