@@ -63,9 +63,11 @@ class CourseAPIMixin(SwitchMixin):
         httpretty.register_uri(httpretty.GET, url, **default_kwargs)
         logger.debug('Mocking Course API URL: %s', url)
 
-    def mock_course_detail(self, course_id):
+    def mock_course_detail(self, course_id, extra=None):
         path = 'courses/{}'.format(course_id)
         body = {'id': course_id, 'name': mock_course_name(course_id)}
+        if extra:
+            body.update(extra)
         self.mock_course_api(path, body)
 
     def mock_course_list(self):

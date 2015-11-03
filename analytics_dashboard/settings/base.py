@@ -318,6 +318,9 @@ LMS_COURSE_VALIDATION_BASE_URL = None
 # used to construct the shortcut link to course modules
 LMS_COURSE_SHORTCUT_BASE_URL = None
 
+# used to construct shortcusts to view/edit courses in Studio
+CMS_COURSE_SHORTCUT_BASE_URL = None
+
 # Used to determine how dates are displayed in templates
 DATE_FORMAT = 'F d, Y'
 

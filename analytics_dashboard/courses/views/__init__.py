@@ -5,6 +5,7 @@ import re
 
 from braces.views import LoginRequiredMixin
 from ccx_keys.locator import CCXLocator
+from datetime import datetime
 from django.conf import settings
 from django.core.cache import cache
 from django.core.exceptions import PermissionDenied
@@ -525,6 +526,64 @@ class CourseHome(CourseTemplateWithNavView):
         })
 
         context['page_data'] = self.get_page_data(context)
+
+        overview_data = []
+        if self.course_api_enabled:
+            if switch_is_active('display_course_name_in_nav'):
+                # Translators: 'Course ID' is 'Course Identifier', the unique code that identifies the course
+                overview_data.append((_('Course ID'), self.course_id))
+            else:
+                overview_data.append((_('Course Name'), self.course_info.get('name')))
+
+            def parse_course_date(date_str):
+                return datetime.strptime(date_str, CourseStructureApiClient.DATETIME_FORMAT) if date_str else None
+
+            def format_date(date):
+                return dateformat.format(date, settings.DATE_FORMAT) if date else "--"
+
+            start_date = parse_course_date(self.course_info.get('start'))
+            end_date = parse_course_date(self.course_info.get('end'))
+            todays_date = datetime.now()
+            status_str = '--'
+            if start_date:
+                if todays_date >= start_date:
+                    in_progress = (end_date is None or end_date > todays_date)
+                    # Translators: 'In Progress' and 'Ended' refer to whether students are
+                    # actively using the course or it is over.
+                    status_str = _('In Progress') if in_progress else _('Ended')
+                else:
+                    # Translators: This refers to a course that has not yet begun.
+                    status_str = _('Not Started Yet')
+            overview_data += [
+                (_('Start Date'), format_date(start_date)),
+                (_('End Date'), format_date(end_date)),
+                (_('Status'), status_str),
+            ]
+
+        context['course_overview'] = overview_data
+
+        external_tools = []
+
+        if settings.LMS_COURSE_SHORTCUT_BASE_URL:
+            external_tools.append({
+                'title': _('Instructor Dashboard'),
+                'url': "{}/{}/instructor".format(settings.LMS_COURSE_SHORTCUT_BASE_URL, self.course_id),
+                'icon': 'fa-dashboard',
+            })
+            external_tools.append({
+                'title': _('Courseware'),
+                'url': "{}/{}/courseware".format(settings.LMS_COURSE_SHORTCUT_BASE_URL, self.course_id),
+                'icon': 'fa-pencil-square-o',
+            })
+        if settings.CMS_COURSE_SHORTCUT_BASE_URL:
+            external_tools.append({
+                # Translators: This is the name of the edX Course Editor (the CMS)
+                'title': _('Studio'),
+                'url': "{}/{}".format(settings.CMS_COURSE_SHORTCUT_BASE_URL, self.course_id),
+                'icon': 'fa-sliders',
+            })
+        context['external_course_tools'] = external_tools
+
         return context
 
 

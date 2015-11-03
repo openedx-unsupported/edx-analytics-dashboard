@@ -23,6 +23,7 @@ ENABLE_AUTO_AUTH = True
 SOCIAL_AUTH_EDX_OIDC_URL_ROOT = 'http://example.com'
 
 LMS_COURSE_SHORTCUT_BASE_URL = 'http://lms-host'
+CMS_COURSE_SHORTCUT_BASE_URL = 'http://cms-host'
 COURSE_API_URL = 'http://course-api-host'
 
 LOGGING = get_logger_config(debug=DEBUG, dev_env=True, local_loglevel='DEBUG')
