@@ -12,7 +12,7 @@ Change Log
 
    * - Date
      - Change
-     - 4 November 2015
+   * - 4 November 2015
      - Updated the :ref:`Engagement_Content` and :ref:`Reference` sections.
        Metrics for learner engagement with content are now expressed as
        percentages as well as counts.
