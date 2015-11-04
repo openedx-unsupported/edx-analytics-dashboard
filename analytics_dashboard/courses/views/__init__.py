@@ -577,8 +577,7 @@ class CourseHome(CourseTemplateWithNavView):
             })
         if settings.CMS_COURSE_SHORTCUT_BASE_URL:
             external_tools.append({
-                # Translators: This is the name of the edX Course Editor (the CMS)
-                'title': _('Studio'),
+                'title': 'Studio',  # As a brand name, "Studio" is not translated.
                 'url': "{}/{}".format(settings.CMS_COURSE_SHORTCUT_BASE_URL, self.course_id),
                 'icon': 'fa-sliders',
             })
