@@ -30,10 +30,10 @@ Weekly Student Engagement Chart
 The markers on this chart represent the number of unique students who
 interacted with course content. The graph plots three categories of engagement:
 an overall total for students who completed any type of course activity, and
-totals for students who clicked play for any course video and for students who
-submitted an answer for a problem. Each total is for activity completed within
-a one week period. To see the total count for each activity type for a given
-week, move your cursor over the chart to display a tooltip.
+totals for students who played any course video and for students who submitted
+an answer for a problem. Each total is for activity completed within a one week
+period. To see the total count for each activity type for a given week, move
+your cursor over the chart to display a tooltip.
 
 Activity is included beginning with the week in which the first page visit took
 place. The first page visit is typically by a member of the course team
@@ -43,7 +43,7 @@ report.
 
 Examples of the Weekly Student Engagement chart follow. The first example shows
 a course that started only a few weeks ago. Callouts provide context for the
-data that is shown by indicating several recent occurences: the beginning of
+data that is shown by indicating several recent occurrences: the beginning of
 the beta test, the course start date, and the due date of the first homework.
 
 .. image:: ../images/engagement_chart_start.png
@@ -52,7 +52,7 @@ the beta test, the course start date, and the due date of the first homework.
 In the second example, a small, private online course was developed on one
 instance of the platform, and then exported and imported to a different
 instance just before the course start date. The tooltip shows the number of
-students enaging in different activities on the same day that the final
+students engaging in different activities on the same day that the final
 homework was due.
 
 .. image:: ../images/engagement_chart_SPOC.png
@@ -62,35 +62,36 @@ homework was due.
 Active Students Last Week Metric
 ======================================
 
-The total number of students who, at least once, visited a page in the course
-during the last complete one week period.
+The number and percentage of students who, at least once, visited a page in the
+course during the last complete one week period.
 
 ======================================
 Watched a Video Last Week Metric
 ======================================
 
-The total number of students who played at least one of the course videos
-during the last complete one week period.
+The number and percentage of students who played at least one of the
+course videos during the last complete one week period.
 
 ======================================
 Tried a Problem Last Week Metric
 ======================================
 
-The total number of students who submitted an answer for at least one problem
-during the last complete one week period. Not all problem types are included in
-this count; see :ref:`Engagement Computations`.
+The number and percentage of students who submitted an answer for at least one
+problem during the last complete one week period. Not all problem types are
+included in this count; see :ref:`Engagement Computations`.
 
 ======================================
 Content Engagement Breakdown Report
 ======================================
 
 The weekly breakdown of student engagement with course content is available for
-review or download. Columns show each **Week Ending** date and counts of active
-students, students who watched a video, and students who tried a problem.
+review or download. Columns show each **Week Ending** date and the count and
+percentage of active students, students who watched a video, and students who
+tried a problem.
 
 You can download the Content Engagement Breakdown report in comma-separated
-value format: click **Download CSV**. The CSV file contains the following
-columns:
+value format: select **Download CSV**. The CSV file contains the following
+columns.
 
 * any (active students)
 * attempted_problem
@@ -154,7 +155,7 @@ consider adding another element to stimulate involvement. You can include the
 count for who tried problems last week, and challenge your students to increase
 participation in the coming week.
 
-.. use of dicussions can be added...
+.. use of discussions can be added...
 
 ==================================================
 Gauging the Effectiveness of an Investment

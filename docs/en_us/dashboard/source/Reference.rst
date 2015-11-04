@@ -333,12 +333,16 @@ For information about viewing engagement metrics in edX Insights, see
 * This metric includes all course activities, excluding enrollment and
   unenrollment.
 
+* This value is also expressed as a percentage of currently enrolled students.
+
 **Watched a Video Last Week metric**
 
 * The number of unique users who clicked play for at least one of the course
   videos.
 
 * Only videos that were played on the edX platform video player are included.
+
+* This value is also expressed as a percentage of currently enrolled students.
 
 **Tried a Problem Last Week metric**
 
@@ -351,6 +355,8 @@ For information about viewing engagement metrics in edX Insights, see
   * Numerical input (`<numericalresponse>`)
   * Text input (`<stringresponse>`)
   * Math expression input (`<formularesponse>`)
+
+* This value is also expressed as a percentage of currently enrolled students.
 
 **Weekly Student Engagement graph**
 
