@@ -16,7 +16,7 @@ require.config({
         views: 'js/views',
         utils: 'js/utils',
         load: 'js/load',
-        dataTables: 'bower_components/datatables/media/js/jquery.dataTables',
+        datatables: 'bower_components/datatables/media/js/jquery.dataTables',
         dataTablesBootstrap: 'vendor/dataTables/dataTables.bootstrap',
         naturalSort: 'bower_components/natural-sort/naturalSort',
         d3: 'bower_components/d3/d3',
@@ -53,7 +53,7 @@ require.config({
             }
         },
         dataTablesBootstrap: {
-            deps: ['jquery', 'dataTables']
+            deps: ['jquery', 'datatables']
         },
         naturalSort: {
             exports: 'naturalSort'
