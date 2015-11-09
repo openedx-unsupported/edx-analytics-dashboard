@@ -139,27 +139,27 @@ happens at the 40 second mark.
  :alt: A chart showing a noticeable increase in the number of replays 40
   seconds into the video.
 
-To find out what that segment of the video contains, you select **View Live**
-to open the video component in the LMS. In this video, you realize that a
-single word, right at 00:40, is difficult to understand. However, because the
-transcript for the video is accurate, you might decide that no further action
-is needed in this case.
+To find out what that segment of the video contains, you select **Expand
+Preview** to open the video player for that video. In this video, you realize
+that a single word, right at 00:40, is difficult to understand. However,
+because the transcript for the video is accurate, you might decide that no
+further action is needed in this case.
 
-In Insights, you might then select **Next** to review the data for the next
-video component in the courseware. In that video, the stacked area graph shows
-that learners replayed certain segments of the video, particularly near the
-end, more often than others.
+You might then select **Next** to review the data for the next video component
+in the courseware. In that video, the stacked area graph shows that learners
+replayed certain segments of the video, particularly near the end, more often
+than others.
 
 .. image:: ../images/video_frequent_replays.png
  :width: 800
  :alt: A chart showing significant increases in the number of replays during
      the last three minutes of the video.
 
-After you review specific segments of that video in the LMS, you might decide
-that the increased number of replays was an indicator of the complexity of the
-material being covered. You might decide to spend some extra time answering
-questions in the discussion topic for that unit, or provide a course handout
-with additional references on the material covered for learners who want them.
+After you preview that video, you might decide that the increased number of
+replays was an indicator of the complexity of the material being covered. You
+might decide to spend some extra time answering questions in the discussion
+topic for that unit, or provide a course handout with additional references on
+the material covered for learners who want them.
 
 ==========================================
 Establishing an Engagement Baseline
