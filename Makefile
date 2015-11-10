@@ -47,7 +47,7 @@ accept_local:
 	nosetests -v acceptance_tests --exclude-dir=acceptance_tests/course_validation
 
 a11y:
-	SELENIUM_BROWSER=phantomjs ./runTests.sh a11y_tests
+	BOKCHOY_A11Y_CUSTOM_RULES_FILE=./node_modules/edx-custom-a11y-rules/lib/custom_a11y_rules.js SELENIUM_BROWSER=phantomjs ./runTests.sh a11y_tests
 
 course_validation:
 	python -m acceptance_tests.course_validation.generate_report
