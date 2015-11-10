@@ -36,7 +36,8 @@ def health(_request):
         cursor.fetchone()
         cursor.close()
         database_status = OK
-    except DatabaseError:  # pylint: disable=catching-non-exception
+    except DatabaseError as e:  # pylint: disable=catching-non-exception
+        logger.exception('Database is not reachable: %s', e)
         database_status = UNAVAILABLE
 
     try:
