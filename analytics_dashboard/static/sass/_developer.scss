@@ -1,26 +1,52 @@
 // utilities: developer
 // ====================
 // NOTE: use this area for any developer-needed or created styling that needs to be refactored into patterns or visually polished. Please list any template/view that your styles reference when definining them (example below):
-
 // Views: New Prototype View
 // --------------------
 // .crazy-new-feature {
 //   background: transparent;
 // }
+@import "mixins";
+
+.chart-info {
+  @extend .pull-left;
+  padding-left: $padding-small-horizontal;
+  padding-top: $padding-large-vertical;
+  color: $edx-blue;
+  font-size: $font-size-small;
+
+  // controls in the chart info section are floated left, so push the menu
+  // down a bit so it doesn't appear on top of the control
+  .dropdown-menu {
+    top: 20px;
+  }
+}
+
+button.chart-info {
+  padding-left: 0;
+  padding-top: 0;
+  border: none;
+}
 
 .chart-tooltip {
-  @extend .pull-right;
+  float: right;
   padding-right: $padding-small-horizontal;
   padding-top: $padding-large-vertical;
 }
 
-.line-chart-container {
+.analytics-chart-container {
   background-color: white;
-  border: $edx-gray 1px solid;
+  border: $description-border-color 1px solid;
 
-  .line-chart {
+  .analytics-chart {
     height: 305px; // Update the height of the graph in trends-view.js to be this height minus 5px.
     padding-top: $padding-large-vertical;
+  }
+
+  // shorten the chart so just a message (e.g. error message) is displayed
+  .message-only-chart {
+    height: inherit; // allows container height to adjust for long messages
+    min-height: 38px;
   }
 
   .nvd3 {
@@ -60,8 +86,15 @@
   @extend %vertical-align;
 }
 
-.error-section-container {
+.chart-message-container {
+  top: $padding-large-horizontal * 2;
 
+  p {
+    padding-bottom: $padding-large-horizontal;
+  }
+}
+
+.error-section-container {
   padding: $padding-large-horizontal $padding-large-vertical;
   padding-bottom: $padding-large-horizontal * 2;
   margin-bottom: $padding-large-horizontal * 2;
@@ -80,9 +113,13 @@
   }
 }
 
+.white-background {
+  background-color: white;
+}
+
 // this keeps the gray borders from touching the top band at a 45 degree angle
 .error-section-container:before {
-  border: $error-border;
+  border: $description-border;
   border-top: none;
   content: "";
   position: absolute;
@@ -131,6 +168,18 @@
   }
 }
 
+.navbar-nav {
+
+  .nav-section.active {
+    color: $navbar-default-link-active-color;
+    border-bottom: 6px solid $navbar-default-link-active-color;
+  }
+
+  .nav-section {
+    @include a-background(transparent);
+  }
+}
+
 // lens navigation consists of a drop down and the lens sections in a navigation
 $lens-background-color: $gray-d2;
 $lens-nav-text-color: $gray-l1;
@@ -174,31 +223,45 @@ $lens-box-model: border-box;
 
     // style the nav secondary items
     li > a {
-      padding-top: 18px;
-      padding-bottom: 0px;
       color: $lens-nav-text-color;
       min-height: $lens-nav-height;
-    }
-
-    .nav-section.active {
-      color: $navbar-default-link-active-color;
-      border-bottom: 4px solid $navbar-default-link-active-color;
+      padding-top: 18px;
+      padding-bottom: 0px;
     }
 
     .nav-section {
-
-      a {
-        // override the default behaviour (change background, which looks weird in the navbar)
-        background: transparent;
-
-        &:active, &:hover {
-          background: transparent;
-        }
-
-      }
-
+      @include a-background(transparent);
     }
 
+  }
+}
+
+.tertiary-nav {
+
+  padding-left: $padding-large-horizontal;
+
+  li > a {
+    color: $lens-nav-text-color;
+    padding-top: 0px;
+    padding-bottom: $padding-small-vertical;
+
+    // use darkest gray when hovering over sub-lens nav (e.g. age, education, gender)
+    &:hover {
+      color: $edx-gray-d2
+    }
+  }
+
+  li.active > a {
+    color: $navbar-default-link-active-color;
+  }
+
+  .section-heading {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    .section-heading-note {
+      margin-top: 0;
+    }
   }
 }
 
@@ -213,6 +276,14 @@ $lens-box-model: border-box;
     padding: 15px;
     border: 1px solid $edx-gray;
     border-width: 1px 1px 0 0;
+
+    .course-name {
+      font-size: $font-size-large;
+    }
+
+    .course-key {
+      color: $edx-gray;
+    }
   }
 }
 
@@ -285,22 +356,391 @@ table.dataTable thead th.sorting_desc:after {
   }
 }
 
-.data-update-message {
+.data-information-message {
   @extend .small;
-  border-top: $edx-gray-l1 1px solid;
   padding-top: $padding-base-vertical;
   margin-top: $padding-large-vertical;
 }
 
-.navbar-default {
-  .navbar-link {
-    &.active-course-number {
-      padding: $navbar-padding-vertical $navbar-padding-horizontal;
+.data-update-message {
+  @extend .data-information-message;
+  border-top: $edx-gray-l1 1px solid;
+}
+
+.announcement-container {
+  background-color: $gray-d2;
+  border-bottom: solid 1px $edx-blue;
+  padding-bottom: $padding-large-vertical * 1.5;
+  padding-top: $padding-large-vertical;
+  color: $gray;
+  font-size: $font-size-small;
+
+  .dismiss {
+    float: right;
+    margin-right: $padding-small-horizontal;
+    cursor: pointer;
+    font-size: $font-size-large;
+  }
+
+  .icon {
+    color: $edx-blue;
+    text-align: right;
+    font-size: $font-size-h2;
+  }
+
+  h1 {
+    color: $white;
+    font-size: $font-size-large;
+    padding-bottom: $padding-small-vertical;
+  }
+}
+
+.course-home-table-outer {
+  header.heading-outer {
+    display: table;
+    height: $font-size-large * 4;
+    padding-bottom: $padding-large-vertical;
+    width: 100%;
+    @extend .text-center;
+
+    .heading {
+      display: table-cell;
+      vertical-align: bottom;
+      font-size: $font-size-large;
+      color: $edx-blue;
+
+      // increase line height for med-small screens so headers are same level for long lines
+      @media (max-width: $screen-md-max) and (min-width: $screen-sm-min) {
+        min-height: $font-size-large * 3.5;
+      }
+    }
+  }
+
+  .course-home-table {
+    border: 1px solid $edx-gray-l1;
+    border-width: 0 0 1px 1px;
+    margin-bottom: $padding-large-vertical;
+
+    .item {
+      background: white;
+      padding: $padding-large-vertical;
+      border: 1px solid $edx-gray-l1;
+      border-width: 1px 1px 0 0;
+
+      &.name {
+        color: $edx-gray;
+        font-size: $font-size-large;
+      }
+
+      .title {
+        margin-bottom: $padding-base-vertical;
+      }
+
+      .breadcrumbs {
+        color: $edx-gray;
+        font-size: $font-size-small;
+      }
+    }
+  }
+}
+
+.masthead {
+
+  .cover-container {
+    width: 100%;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-top: 4px solid $edx-blue-s1;
+    height: 100%;
+
+    .cover {
+      // center cover image
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      height: 400px;
+
+      // cover image will be smaller on smaller displays
+      @media (max-width: $screen-md-min) {
+        height: 200px;
+      }
+
+    }
+  }
+
+  .masthead-heading {
+    @include dark-background;
+    text-align: center;
+    font-size: $font-size-large * 1.25;
+    font-weight: 300;
+    padding-top: $padding-large-vertical + 9px;
+    padding-bottom: $padding-large-vertical;
+  }
+
+  // default margins cause the masthead to be vertically scrollable
+  &.row {
+    margin-left: -1px;
+    margin-right: -1px;
+  }
+
+}
+
+.landing {
+
+  p {
+    color: $gray-l2;
+  }
+
+  // match the login button style to that of the LMS
+  button {
+    text-transform: uppercase;
+    color: $navbar-default-link-active-color;
+    padding: 4px 45px;
+    font-weight: 600;
+    font-size: $font-size-large;
+    border-radius: 5px;
+    border: 3px solid #e6e6e6;
+
+    &:hover {
+      border-color: $navbar-default-link-active-color;
+      color: $gray-d2;
+      background: white;
+      @include transition(color 0.25s 0 ease);
+    }
+  }
+
+  .login-button-container {
+    padding-top: 25px;
+  }
+
+  // into tagline section directly below the cover image
+  .intro-block {
+    padding-top: $padding-large-horizontal * 3;
+    margin-bottom: $padding-large-horizontal * 2 + 5px;
+  }
+
+  .lens-question {
+    font-size: $font-size-large;
+    color: $edx-blue-s1;
+    min-height: 60px;
+    text-align: center;
+    vertical-align: bottom;
+
+    // adjust the display when the screen is small so that the lens questions are
+    // displayed stacked
+    @media (max-width: $screen-md-min) {
+      min-height: inherit;
+      padding-top: $padding-large-horizontal * 1.5;
+      padding-bottom: $padding-large-horizontal;
+    }
+  }
+
+  .lens-summary {
+    @extend %ui-box;
+    h1 {
+      font-size: $font-size-large;
+      text-align: center;
+      font-weight: 300;
+      color: $edx-gray;
+    }
+
+    p {
+      color: $edx-gray;
+    }
+  }
+
+  .audience-message {
+    margin-bottom: $padding-large-horizontal * 2;
+
+    p {
+      color: $gray;
+    }
+  }
+
+  .audience-message-module {
+    h1 {
+      font-size: $font-size-base;
+      font-weight: bold;
+    }
+
+  }
+
+}
+
+// cap the size of the dropdown menus (useful for long question/problem names)
+.dropdown-menu {
+  .truncate {
+    max-width: 450px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+// ensures tooltips won't span the width of the screen and wraps tooltip title
+.nv-pointer-events-none {
+  max-width: 500px;
+  text-align: left;
+  white-space: normal;
+}
+
+// description and controls at the top and bottom of the chart
+.chart-marginals {
+  border: $description-border;
+  padding: $padding-small-horizontal 0;
+  background-color: $white;
+
+  p {
+    // shifts it down so that it's even with the adjacent button
+    padding-top: 8px;
+  }
+
+  a.disabled {
+    @extend disabled-link;
+  }
+}
+
+.module-meta {
+  @extend .chart-marginals;
+  border-bottom: none;
+}
+
+// for the next/previous buttons that sit at the bottom of the chart
+.module-controls {
+  @extend .chart-marginals;
+  border-top: none;
+}
+
+.module-preview-collapsible {
+  // the video preview height can be variable, so use media queries to mimic height changes
+  .video-preview {
+    width: 100%;
+    height: 700px;
+    border: 0;
+
+    @media screen and (min-width: $screen-sm-min) {
+      height: 670px;
+    }
+
+    @media screen and (min-width: $screen-md-min) {
+      height: 770px;
+    }
+  }
+
+  .collapsible-toggle-text {
+    // moving the text down just a tad so that it's in line with the next/previous buttons
+    padding-top: 8px;
+  }
+
+  .collapsible-content {
+    // initially collapsed
+    display: none;
+  }
+
+  #module-loading {
+    padding-top: $padding-large-vertical;
+  }
+}
+
+.grading-policy {
+  a {
+    color: inherit;
+  }
+
+  .tooltip-container {
+    text-align: right;
+
+    .chart-tooltip {
+      float: none;
+      padding: 0 0 $padding-large-vertical;
+    }
+  }
+
+  .policy-item {
+    @extend .text-center;
+    // float the policy item so that it's all on one line
+    @extend .pull-left;
+
+    // adds padding to the inside so that the policy items don't touch
+    padding: 5px;
+
+    .policy-item-box {
+      background-color: $edx-blue-l1;
+      margin-bottom: $padding-base-vertical;
+      height: 50px;
+      line-height: 50px;
+
+      .weight {
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: bold;
+      }
+    }
+
+    .type {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+}
+
+.static-legend {
+  .nvd3 .nv-legend .nv-series {
+    cursor: default;
+  }
+}
+
+.graded-content-nav {
+  @extend .tertiary-nav;
+
+  margin-bottom: -$padding-base-vertical;
+
+  .navbar-nav {
+
+    .nav-section.active {
+      border-bottom: none;
+    }
+
+    .active .dropdown {
+      color: $navbar-default-link-active-color;
 
       &:hover {
         color: inherit;
       }
+    }
 
+    .dropdown, .separator {
+      padding: $nav-link-padding;
+      color: $edx-gray;
+    }
+
+    .dropdown {
+      cursor: pointer;
+
+      &:hover {
+        color: $edx-gray-d2
+      }
+
+      .dropdown-menu {
+        margin-top: -1px;
+        margin-left: -1px;
+
+        li > a {
+          color: $dropdown-link-color;
+          padding-bottom: $padding-small-vertical;
+
+          &:hover {
+            // Override the transparent background set by the .navbar-nav selector.
+            background: $dropdown-link-hover-bg;
+          }
+        }
+
+        > .disabled > a {
+          @include disabled-link;
+        }
+      }
     }
   }
 }

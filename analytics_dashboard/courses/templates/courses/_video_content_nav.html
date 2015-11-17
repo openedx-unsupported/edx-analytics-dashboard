@@ -1,0 +1,24 @@
+{% extends "courses/_base_content_nav.html"%}
+
+{% load i18n %}
+{% load dashboard_extras %}
+
+{% block home_content_url %}
+    {% url "courses:engagement:videos" course_id=course_id %}
+{% endblock %}
+
+{% block select_first_level %}
+    {% trans "Select Section" %}
+{% endblock %}
+
+{% block select_first_level_all %}
+  {% trans "All Sections" %}
+{% endblock %}
+
+{% block select_second_level %}
+    {% trans "Select Subsection" %}
+{% endblock %}
+
+{% block select_third_level %}
+    {% trans "Select Video" %}
+{% endblock %}

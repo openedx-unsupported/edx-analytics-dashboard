@@ -1,0 +1,27 @@
+{% extends "courses/_base_content_nav.html" %}
+
+{% load i18n %}
+{% load dashboard_extras %}
+
+{% block home_content_url %}
+    {% url "courses:performance:graded_content" course_id=course_id %}
+{% endblock %}
+
+{% block select_first_level %}
+    {% trans "Select Assignment Type" %}
+{% endblock %}
+
+{% block select_first_level_all %}
+  {# Translators: This refers to all course assignment types (e.g. homework, exam, lab). #}
+  {% trans "All Assignments" %}
+{% endblock %}
+
+{% block select_second_level %}
+    {% blocktrans with level=selected_first_level.name %}
+        Select {{ level }}
+    {% endblocktrans %}
+{% endblock %}
+
+{% block select_third_level %}
+    {% trans "Select Problem" %}
+{% endblock %}

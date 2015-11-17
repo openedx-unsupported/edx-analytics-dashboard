@@ -41,7 +41,8 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
                     formattedData[key] = {
                         value: country.count,
                         percent: country.percent,
-                        fillKey: key
+                        fillKey: key,
+                        name: country.countryName
                     };
                 });
 
@@ -76,10 +77,9 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
              * from formatData().
              */
             getCountryMax: function (countryData) {
-                var max = _(countryData).max(function (countryData) {
+                return _(countryData).max(function (countryData) {
                     return countryData.value;
                 }).value;
-                return max;
             },
 
             /**
@@ -151,7 +151,8 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
              * Underscore style template for the hover popup that displays a
              * label/name and value.
              */
-            popupTemplate: _.template('<div class="hoverinfo"><%=name%>: <%=value%><% if(percent) { %> (<%=percent%>)<% } %></div>'),
+            // See http://www.w3.org/TR/WCAG20-TECHS/H34.html for info on &rlm;
+            popupTemplate: _.template('<div class="hoverinfo"><%=name%>: <%=value%><% if(percent) { %> (<%=percent%>)&rlm;<% } %></div>'),   // jshint ignore:line
 
             /**
              * Underscore style template for displaying the tooltip for screen
@@ -199,8 +200,8 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
                         popupOnHover: true,
                         popupTemplate: function (geography, data) {
                             return self.popupTemplate({
-                                name: geography.properties.name,
-                                value: data ? data.value : 0,
+                                name: data ? data.name : geography.properties.name,
+                                value: data ? Utils.localizeNumber(data.value) : 0,
                                 percent: data ? Utils.formatDisplayPercentage(data.percent) : 0
                             });
                         }
@@ -221,8 +222,6 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
             }
         });
 
-
         return WorldMapView;
     }
-)
-;
+);

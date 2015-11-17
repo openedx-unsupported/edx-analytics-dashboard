@@ -1,0 +1,20 @@
+{% load i18n %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-6">
+            <a href="{% firstof previous_video_url "#" %}"
+               class="previous-link btn btn-default {% if not previous_video_url %} disabled {% endif %}">
+                {% trans 'Previous Video' %}
+            </a>
+        </div>
+
+        <div class="col-xs-6">
+            <a href="{% firstof next_video_url "#" %}"
+               class="previous-link btn btn-default pull-right {% if not next_video_url %} disabled {% endif %}">
+                {% trans 'Next Video' %}
+            </a>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>

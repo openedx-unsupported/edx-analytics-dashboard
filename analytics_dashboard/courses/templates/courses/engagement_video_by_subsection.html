@@ -1,0 +1,16 @@
+{% extends "courses/engagement_grouped_content.html" %}
+{% load i18n %}
+{% load rjs %}
+
+{% block engagement_javascript %}
+    <script src="{% static_rjs 'js/engagement-videos-main.js' %}"></script>
+{% endblock engagement_javascript %}
+
+{% block content_nav %}
+    {% trans "How did students interact with videos in this subsection?" as heading_note %}
+    {% include "courses/_video_content_nav.html" with active="third_level" selected_first_level=section first_levels=sections selected_second_level=subsection second_levels=subsections third_levels=js_data.course.primaryContent heading_note=heading_note %}
+{% endblock %}
+
+{% block chart_tip_text %}
+    {% trans "Each bar shows the counts of complete and incomplete views for that video. Click to understand where students drop off and which parts they replay." %}
+{% endblock %}

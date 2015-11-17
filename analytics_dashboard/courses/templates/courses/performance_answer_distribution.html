@@ -1,0 +1,13 @@
+{% extends "courses/base_performance_answer_distribution.html" %}
+{% load i18n %}
+
+{% block view-name %}view-course-enrollment view-dashboard{% endblock view-name %}
+
+{% block content_nav %}
+    {% trans "How did students answer this problem?" as heading_note %}
+    {% include "courses/_graded_content_nav.html" with selected_third_level=problem selected_first_level=assignment_type first_levels=assignment_types second_levels=assignments selected_second_level=assignment selected_third_level=problem third_levels=assignment.children heading_note=heading_note %}
+{% endblock %}
+
+{% block problem_part_url %}
+    {% url 'courses:performance:answer_distribution' course_id=course_id assignment_id=assignment.id problem_id=problem_id problem_part_id=question.part_id %}
+{% endblock %}

@@ -24,19 +24,19 @@ define(['utils/utils'], function (Utils) {
             actualAttributes = Utils.getNodeProperties(element.attributes,
                 'data-');
             expect(actualAttributes).toEqual({
-                'type': 'my-data-type',
-                'category': 'my-data-category',
-                'event': 'my-data-event'
+                type: 'my-data-type',
+                category: 'my-data-category',
+                event: 'my-data-event'
             });
 
             actualAttributes = Utils.getNodeProperties(element.attributes,
                 'data-', ['data-type', 'data-category']);
             expect(actualAttributes).toEqual({
-                'event': 'my-data-event'
+                event: 'my-data-event'
             });
         });
 
-        it('should return node attributes', function () {
+        it('should format dates', function () {
             expect(Utils.formatDate('2014-01-31')).toEqual('January 31, 2014');
             expect(Utils.formatDate('2014-01-01')).toEqual('January 1, 2014');
         });
@@ -45,7 +45,7 @@ define(['utils/utils'], function (Utils) {
 
     describe('formatDisplayPercentage', function () {
         it('should return < 1% if the parameter is < 0.01', function () {
-            expect(Utils.formatDisplayPercentage(0)).toEqual('< 1%');
+            expect(Utils.formatDisplayPercentage(0)).toEqual('0.0%');
             expect(Utils.formatDisplayPercentage(0.002)).toEqual('< 1%');
         });
 
@@ -55,4 +55,35 @@ define(['utils/utils'], function (Utils) {
             expect(Utils.formatDisplayPercentage(1)).toEqual('100.0%');
         });
     });
+
+    describe('truncateText', function () {
+        it('should truncate long text', function () {
+            expect(Utils.truncateText('this is a long text', 14)).toEqual('this is a l...');
+        });
+
+        it('should return short text unmodified', function () {
+            expect(Utils.truncateText('short text', 100)).toEqual('short text');
+        });
+
+        it('should return short truncations without ellipse', function () {
+            expect(Utils.truncateText('yes', 2)).toEqual('ye');
+        });
+    });
+
+    describe('localizeNumber', function () {
+        it('should format values', function () {
+            expect(Utils.localizeNumber(14)).toEqual('14');
+            expect(Utils.localizeNumber(12345)).toEqual('12,345');
+        });
+    });
+
+    describe('formatTime', function () {
+        it('should format time', function () {
+            expect(Utils.formatTime(0)).toEqual('00:00');
+            expect(Utils.formatTime(31)).toEqual('00:31');
+            expect(Utils.formatTime(60)).toEqual('01:00');
+            expect(Utils.formatTime(3601)).toEqual('60:01');
+        });
+    });
+
 });

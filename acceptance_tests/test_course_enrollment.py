@@ -1,9 +1,10 @@
 import datetime
 
+from analyticsclient.constants import demographic, UNKNOWN_COUNTRY_CODE, enrollment_modes
 from bok_choy.web_app_test import WebAppTest
 
-from analyticsclient.constants import demographic
-from acceptance_tests import CoursePageTestsMixin
+from acceptance_tests import ENABLE_ENROLLMENT_MODES
+from acceptance_tests.mixins import CoursePageTestsMixin
 from acceptance_tests.pages import CourseEnrollmentActivityPage, CourseEnrollmentGeographyPage
 
 
@@ -11,18 +12,22 @@ _multiprocess_can_split_ = True
 
 
 class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
+    help_path = 'enrollment/Enrollment_Activity.html'
+
     def setUp(self):
         super(CourseEnrollmentActivityTests, self).setUp()
         self.page = CourseEnrollmentActivityPage(self.browser)
-        self.course = self.api_client.courses(self.page.course_id)
+        self.course = self.analytics_api_client.courses(self.page.course_id)
 
     def get_enrollment_data(self):
         """
         Returns all historical enrollment data for enrollment count collection.
         """
         end_date = datetime.datetime.utcnow()
-        end_date_string = end_date.strftime(self.api_client.DATE_FORMAT)
-        return self.course.enrollment(start_date=None, end_date=end_date_string)
+        end_date_string = end_date.strftime(self.analytics_api_client.DATE_FORMAT)
+        _demographic = 'mode' if ENABLE_ENROLLMENT_MODES else None
+
+        return self.course.enrollment(_demographic, start_date=None, end_date=end_date_string)
 
     def test_page(self):
         super(CourseEnrollmentActivityTests, self).test_page()
@@ -30,30 +35,55 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         self._test_enrollment_trend_table()
 
     def _get_data_update_message(self):
-        current_enrollment = self.course.enrollment()[0]
+        current_enrollment = self.get_enrollment_data()[-1]
         last_updated = datetime.datetime.strptime(current_enrollment['created'], self.api_datetime_format)
         return 'Enrollment activity data was last updated %(update_date)s at %(update_time)s UTC.' % \
                self.format_last_updated_date_and_time(last_updated)
+
+    def assertMetricTileValid(self, stat_type, value, tooltip):
+        selector = 'data-stat-type=%s' % stat_type
+        self.assertSummaryPointValueEquals(selector, self.format_number(value))
+        self.assertSummaryTooltipEquals(selector, tooltip)
+
+    def _get_valid_enrollment_modes(self, trends):
+        valid_modes = {enrollment_modes.AUDIT, enrollment_modes.HONOR}
+        invalid_modes = set(enrollment_modes.ALL) - valid_modes
+
+        for datum in trends:
+            for candidate in list(invalid_modes):
+                if datum.get(candidate, 0) > 0:
+                    invalid_modes.remove(candidate)
+                    valid_modes.add(candidate)
+
+            if len(invalid_modes) <= 0:
+                break
+
+        return valid_modes
 
     def _test_enrollment_metrics_and_graph(self):
         """ Verify the graph loads and that the metric tiles display the correct information. """
 
         enrollment_data = self.get_enrollment_data()
-        current_enrollment = enrollment_data[-1]
+        enrollment = enrollment_data[-1]['count']
 
-        # Check values of summary boxes
-        current_enrollment_count = current_enrollment['count']
-        data_selector = 'data-stat-type=current_enrollment'
-        self.assertSummaryPointValueEquals(data_selector, unicode(current_enrollment_count))
-        self.assertSummaryTooltipEquals(data_selector, u'Students enrolled in the course.')
+        # Verify the current enrollment metric tile.
+        tooltip = u'Students currently enrolled in the course.'
+        self.assertMetricTileValid('current_enrollment', enrollment, tooltip)
 
-        # Check value of summary box for last week
+        # Verify the total enrollment change metric tile.
         i = 7
-        value = current_enrollment_count - enrollment_data[-(i + 1)]['count']
-        data_selector = 'data-stat-type=enrollment_change_last_%s_days' % i
-        self.assertSummaryPointValueEquals(data_selector, unicode(value))
-        self.assertSummaryTooltipEquals(data_selector,
-                                        u'The difference between the number of students enrolled at the end of the day yesterday and one week before.')
+        enrollment = enrollment - enrollment_data[-(i + 1)]['count']
+        tooltip = u'Net difference in current enrollment in the last week.'
+        self.assertMetricTileValid('enrollment_change_last_%s_days' % i, enrollment, tooltip)
+
+        if ENABLE_ENROLLMENT_MODES:
+            valid_modes = self._get_valid_enrollment_modes(enrollment_data)
+
+            if enrollment_modes.VERIFIED in valid_modes:
+                # Verify the verified enrollment metric tile.
+                verified_enrollment = enrollment_data[-1][enrollment_modes.VERIFIED]
+                tooltip = u'Number of currently enrolled students pursuing a verified certificate of achievement.'
+                self.assertMetricTileValid('verified_enrollment', verified_enrollment, tooltip)
 
         # Verify *something* rendered where the graph should be. We cannot easily verify what rendered
         self.assertElementHasContent("[data-section=enrollment-basics] #enrollment-trend-view")
@@ -64,7 +94,20 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         enrollment_data = sorted(self.get_enrollment_data(), reverse=True, key=lambda item: item['date'])
 
         table_selector = 'div[data-role=enrollment-table] table'
-        self.assertTableColumnHeadingsEqual(table_selector, ['Date', 'Total Enrollment'])
+        headings = ['Date', 'Current Enrollment']
+
+        if ENABLE_ENROLLMENT_MODES:
+            headings.append('Honor Code')
+
+            valid_modes = self._get_valid_enrollment_modes(enrollment_data)
+
+            if enrollment_modes.VERIFIED in valid_modes:
+                headings.append('Verified')
+
+            if enrollment_modes.PROFESSIONAL in valid_modes:
+                headings.append('Professional')
+
+        self.assertTableColumnHeadingsEqual(table_selector, headings)
 
         rows = self.page.browser.find_elements_by_css_selector('%s tbody tr' % table_selector)
         self.assertGreater(len(rows), 0)
@@ -72,10 +115,11 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         for i, row in enumerate(rows):
             columns = row.find_elements_by_css_selector('td')
             enrollment = enrollment_data[i]
-            expected_date = datetime.datetime.strptime(enrollment['date'], self.api_date_format).strftime(
-                "%B %d, %Y").replace(' 0', ' ')
-            expected = [expected_date, enrollment['count']]
-            actual = [columns[0].text, int(columns[1].text)]
+            expected_date = datetime.datetime.strptime(enrollment['date'], self.api_date_format).strftime("%B %d, %Y")
+            expected_date = self.date_strip_leading_zeroes(expected_date)
+
+            expected = [expected_date, self.format_number(enrollment['count'])]
+            actual = [columns[0].text, columns[1].text]
             self.assertListEqual(actual, expected)
             self.assertIn('text-right', columns[1].get_attribute('class'))
 
@@ -85,10 +129,12 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
 
 
 class CourseEnrollmentGeographyTests(CoursePageTestsMixin, WebAppTest):
+    help_path = 'enrollment/Enrollment_Geography.html'
+
     def setUp(self):
         super(CourseEnrollmentGeographyTests, self).setUp()
         self.page = CourseEnrollmentGeographyPage(self.browser)
-        self.course = self.api_client.courses(self.page.course_id)
+        self.course = self.analytics_api_client.courses(self.page.course_id)
         self.enrollment_data = sorted(self.course.enrollment(demographic.LOCATION),
                                       key=lambda item: item['count'], reverse=True)
 
@@ -128,39 +174,24 @@ class CourseEnrollmentGeographyTests(CoursePageTestsMixin, WebAppTest):
         """ Verify the geolocation enrollment table is loaded. """
 
         table_section_selector = "div[data-role=enrollment-location-table]"
+        self.assertTable(table_section_selector, ['Country', 'Percent', 'Current Enrollment'],
+                         'a[data-role=enrollment-location-csv]')
 
-        # Ensure the table is loaded via AJAX
-        self.fulfill_loading_promise(table_section_selector)
-
-        # make sure the map section is present
-        element = self.page.q(css=table_section_selector)
-        self.assertTrue(element.present)
-
-        # make sure the table is present
-        table_selector = table_section_selector + " table"
-        element = self.page.q(css=table_selector)
-        self.assertTrue(element.present)
-
-        # check the headings
-        self.assertTableColumnHeadingsEqual(table_selector, ['Country', 'Percent', 'Total Enrollment'])
-
-        # Verify CSV button has an href attribute
-        selector = "a[data-role=enrollment-location-csv]"
-        self.assertValidHref(selector)
-
-        # Check the results of the table
-        rows = self.page.browser.find_elements_by_css_selector('%s tbody tr' % table_selector)
-        self.assertGreater(len(rows), 0)
-
+        rows = self.page.browser.find_elements_by_css_selector('{} tbody tr'.format(table_section_selector))
         sum_count = float(sum([datum['count'] for datum in self.enrollment_data]))
 
         for i, row in enumerate(rows):
             columns = row.find_elements_by_css_selector('td')
             enrollment = self.enrollment_data[i]
-            expected_percent = enrollment['count'] / sum_count * 100
-            expected_percent_display = '{:.1f}%'.format(expected_percent) if expected_percent >= 1.0 else '< 1%'
-            expected = [enrollment['country']['name'], expected_percent_display, enrollment['count']]
-            actual = [columns[0].text, columns[1].text, int(columns[2].text)]
+
+            expected_percent_display = self.build_display_percentage(enrollment['count'], sum_count)
+
+            country_name = enrollment['country']['name']
+            if country_name == UNKNOWN_COUNTRY_CODE:
+                country_name = u'Unknown Country'
+
+            expected = [country_name, expected_percent_display, self.format_number(enrollment['count'])]
+            actual = [columns[0].text, columns[1].text, columns[2].text]
             self.assertListEqual(actual, expected)
             self.assertIn('text-right', columns[1].get_attribute('class'))
 

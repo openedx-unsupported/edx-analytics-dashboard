@@ -1,0 +1,60 @@
+{% extends "courses/base-course.html" %}
+{% load i18n %}
+{% load dashboard_extras %}
+
+{% block child_content %}
+  <section class="view-section">
+    {% block content_nav %}
+    {% endblock %}
+
+    {% block module_meta %}
+    {% endblock %}
+
+    <div class="section-content section-data-graph">
+      <div class="section-content section-data-viz">
+        <div class="analytics-chart-container">
+          {% if js_data.course.hasData %}
+            {% block chart_info %}{% endblock %}
+            {% captureas chart_tip_text %}{% block chart_tip_text %}{% endblock %}{% endcaptureas %}
+            {% include "chart_tooltip.html" with tip_text=chart_tip_text track_category="bar" %}
+          {% endif %}
+          <div id="chart-view" class="analytics-chart {% if not js_data.course.hasData%}message-only-chart{% endif %}">
+            {% if js_data.course.hasData %}
+              {% include "loading.html" %}
+            {% else %}
+              <div class="clearfix"></div>
+              <div class="chart-message-container">
+                <p class="text-center">
+                  {{ no_data_message }}
+                </p>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+        {% block module_controls %}
+        {% endblock %}
+      </div>
+    </div>
+
+  </section>
+
+  {% block metric_cards %}{% endblock %}
+
+  {% if js_data.course.hasData %}
+    <section class="view-section">
+
+    <div class="section-heading section-data-table-title">
+      <h4 class="section-title">{% block table_title %}{% endblock %}</h4>
+      {% block table_download %}{% endblock %}
+    </div>
+
+    {% if js_data.course.primaryContent %}
+      <div class="section-content section-data-table" data-role="data-table">
+        {% include "loading.html" %}
+      </div>
+    {% else %}
+      {% show_table_error %}
+    {% endif %}
+    </section>
+  {% endif %}
+{% endblock %}

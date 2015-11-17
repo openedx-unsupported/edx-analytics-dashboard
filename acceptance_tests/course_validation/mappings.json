@@ -1,0 +1,106 @@
+{
+  "course_performance_screenshot": {
+    "properties": {
+      "approved": {
+        "type": "boolean"
+      },
+      "course_id": {
+        "type": "string"
+      },
+      "course_valid": {
+        "type": "boolean"
+      },
+      "error": {
+        "type": "string"
+      },
+      "pages": {
+        "properties": {
+          "filename": {
+            "type": "string"
+          },
+          "url_path": {
+            "type": "string"
+          }
+        }
+      },
+      "reviewed": {
+        "type": "boolean"
+      },
+      "start": {
+        "type": "date",
+        "format": "dateOptionalTime"
+      }
+    }
+  },
+  "course_performance": {
+    "properties": {
+      "assignment_types": {
+        "properties": {
+          "actual": {
+            "type": "string"
+          },
+          "expected": {
+            "type": "string"
+          },
+          "results": {
+            "properties": {
+              "actual": {
+                "type": "integer"
+              },
+              "expected": {
+                "type": "integer"
+              },
+              "load_time": {
+                "type": "double"
+              },
+              "name": {
+                "type": "string"
+              },
+              "problems": {
+                "properties": {
+                  "number_in_structure": {
+                    "type": "integer"
+                  },
+                  "number_with_submissions": {
+                    "type": "integer"
+                  },
+                  "total_submissions": {
+                    "type": "integer"
+                  },
+                  "valid": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "status": {
+                "type": "integer"
+              },
+              "valid": {
+                "type": "boolean"
+              }
+            }
+          },
+          "valid": {
+            "type": "boolean"
+          }
+        }
+      },
+      "course_id": {
+        "type": "string"
+      },
+      "course_valid": {
+        "type": "boolean"
+      },
+      "error": {
+        "type": "string"
+      },
+      "has_submissions": {
+        "type": "boolean"
+      },
+      "start": {
+        "type": "date",
+        "format": "dateOptionalTime"
+      }
+    }
+  }
+}

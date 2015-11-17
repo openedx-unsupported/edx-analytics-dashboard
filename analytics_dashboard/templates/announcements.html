@@ -1,0 +1,14 @@
+{% load soapbox %}
+{% load announcements_tags %}
+
+{% get_messages_for_page view.page_name as soapbox_messages %}
+{% for message in soapbox_messages %}
+  {% include "_announcement.html" with message=message %}
+{% endfor %}
+
+{% announcements as announcements_list %}
+{% with announcements_list|first as announcement %}
+  {% if announcement %}
+    {% include "_announcement.html" with body=announcement.content title=announcement.title dismiss_url=announcement.dismiss_url %}
+  {% endif %}
+{% endwith %}

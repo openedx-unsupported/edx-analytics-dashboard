@@ -4,6 +4,7 @@
 {% load staticfiles %}
 {% load waffle_tags %}
 {% load dashboard_extras %}
+{% load rjs %}
 
 {% comment %}
 Individual course-centric engagement content view.
@@ -13,7 +14,7 @@ Individual course-centric engagement content view.
 
 {% block javascript %}
   {{ block.super }}
-  <script src="{% static 'js/engagement-content-main.js' %}"></script>
+  <script src="{% static_rjs 'js/engagement-content-main.js' %}"></script>
 {% endblock javascript %}
 
 {% block child_content %}
@@ -26,13 +27,14 @@ Individual course-centric engagement content view.
     {% if js_data.course.engagementTrends %}
         <div class="section-content section-data-graph">
           <div class="section-content section-data-viz">
-            <div id="engagement-trend-view">
-              <div class="line-chart-container">
-                <div class="line-chart ">
-                  {% include "loading.html" %}
+                <div class="analytics-chart-container">
+                    <div class="chart-info">{% trans "Students" %}</div>
+                    {% trans "The number of active students, and the number of students who engaged in specific activities, over time." as tip_text %}
+                    {% include "chart_tooltip.html" with tip_text=tip_text track_category="trend"%}
+                    <div id="engagement-trend-view" class="analytics-chart">
+                        {% include "loading.html" %}
+                    </div>
                 </div>
-              </div>
-            </div>
           </div>
         </div>
     {% else %}
@@ -50,21 +52,21 @@ Individual course-centric engagement content view.
           <div class="col-xs-12 col-sm-3" data-activity-type="any">
             {% trans "Active Students Last Week" as label %}
             {% trans "Students who visited at least one page in the course content." as tooltip %}
-            {% summary_point summary.any label tooltip=tooltip %}
+            {% summary_point summary.any label tooltip=tooltip additional_value=summary.any_percent_str %}
           </div>
 
           <div class="col-xs-12 col-sm-3" data-activity-type="played_video">
             {# Translators: This is a label indicating the number of students who watched a video. #}
             {% trans "Watched a Video Last Week" as label %}
             {% trans "Students who played one or more videos." as tooltip %}
-            {% summary_point summary.played_video label tooltip=tooltip %}
+            {% summary_point summary.played_video label tooltip=tooltip additional_value=summary.played_video_percent_str %}
           </div>
 
           <div class="col-xs-12 col-sm-3" data-activity-type="attempted_problem">
             {# Translators: This is a label indicating the number of students who tried a problem. #}
             {% trans "Tried a Problem Last Week" as label %}
             {% trans "Students who submitted an answer for a standard problem. Not all problem types are included." as tooltip %}
-            {% summary_point summary.attempted_problem label tooltip=tooltip %}
+            {% summary_point summary.attempted_problem label tooltip=tooltip additional_value=summary.attempted_problem_percent_str %}
           </div>
 
           {% switch show_engagement_forum_activity %}
@@ -72,7 +74,7 @@ Individual course-centric engagement content view.
               {# Translators: This is a label indicating the number of students who posted in a forum discussion. #}
               {% trans "Posted in a Discussion Last Week" as label %}
               {% trans "Students who contributed to any discussion topic." as tooltip %}
-              {% summary_point summary.posted_forum label tooltip=tooltip %}
+              {% summary_point summary.posted_forum label tooltip=tooltip additional_value=summary.posted_forum_percent_str %}
             </div>
           {% endswitch %}
         </div>
@@ -87,7 +89,7 @@ Individual course-centric engagement content view.
 
       <div class="section-actions">
         {% if js_data.course.engagementTrends %}
-            <a href="{% url 'courses:csv_engagement_activity_trend' course_id=course_id %}" class="btn btn-default"
+            <a href="{% url 'courses:csv:engagement_activity_trend' course_id=course_id %}" class="btn btn-default"
                data-role="engagement-trend-csv" data-track-type="click"
                data-track-event="edx.bi.csv.downloaded" data-track-category="trend">
               <i class="ico fa fa-download" aria-hidden="true"></i> {% trans "Download CSV" %}

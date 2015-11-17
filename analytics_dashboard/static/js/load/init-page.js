@@ -5,7 +5,7 @@ define(['jquery', 'load/init-models', 'load/init-tooltips'], function ($, models
     'use strict';
 
     // initialize tracking
-    require(['load/init-tracking'], function(initTracking){
+    require(['load/init-tracking'], function (initTracking) {
         initTracking(models);
     });
 

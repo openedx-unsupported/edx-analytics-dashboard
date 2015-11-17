@@ -1,15 +1,33 @@
 PyJWT==0.2.3
-Django==1.6.6				# BSD License
 South==1.0					# Apache License
+awesome-slugify==1.6.2      # GPLv3
 bpython==0.12				# MIT License
+Django==1.7.4				# BSD License
+django-appconf==0.6
 django-braces==1.2.2		# BSD
+django_compressor==1.4		# MIT
+django-countries==3.1.1     # MIT
 django-libsass==0.2			# BSD
 django-model-utils==1.5.0 	# BSD
-django_compressor==1.4		# MIT
-django-appconf==0.6
-logutils==0.3.3				# BSD
-python-social-auth==0.2.0   # BSD
--e git+https://github.com/edx/edx-analytics-data-api-client.git@0.2.3#egg=edx-analytics-data-api-client # edX
--e git+https://github.com/edx/django-lang-pref-middleware.git@0.1.0#egg=django-lang-pref-middleware
+django-soapbox==1.1         # BSD
 django-waffle==0.10			# BSD
--e git+https://github.com/edx/i18n-tools.git@0d7847f9dfa2281640527b4dc51f5854f950f9b7#egg=i18n_tools
+
+# other versions cause a segment fault when running compression
+libsass==0.5.1              # MIT
+
+logutils==0.3.3				# BSD
+slumber==0.6.2
+
+# versions above 0.2.3 introduce a breaking change
+python-social-auth==0.2.3
+edx-auth-backends==0.1.2    # AGPL
+
+# TODO Use the PyPi package once it is updated.
+git+https://github.com/pinax/django-announcements.git@f85e690705e038a62407abe54ac195f60760934b#egg=django-announcements # MIT
+
+git+https://github.com/edx/django-lang-pref-middleware.git@0.1.0#egg=django-lang-pref-middleware
+git+https://github.com/edx/edx-analytics-data-api-client.git@0.6.1#egg=edx-analytics-data-api-client==0.6.1  # edX
+git+https://github.com/edx/i18n-tools.git@0d7847f9dfa2281640527b4dc51f5854f950f9b7#egg=i18n_tools
+git+https://github.com/edx/opaque-keys.git@d45d0bd8d64c69531be69178b9505b5d38806ce0#egg=opaque-keys
+# custom opaque-key implementations for ccx
+git+https://github.com/jazkarta/ccx-keys.git@e6b03704b1bb97c1d2f31301ecb4e3a687c536ea#egg=ccx-keys

@@ -1,0 +1,20 @@
+{% extends "courses/performance_grouped_content.html" %}
+{% load i18n %}
+{% load rjs %}
+
+{% block performance_javascript %}
+    <script src="{% static_rjs 'js/performance-problems-main.js' %}"></script>
+{% endblock performance_javascript %}
+
+{% block content_nav %}
+  {% trans "How are students doing on this assignment?" as heading_note %}
+  {% include "courses/_graded_content_nav.html" with active="third_level" heading_note=heading_note selected_first_level=assignment_type selected_second_level=assignment first_levels=assignment_types heading_note=heading_note second_levels=assignments third_levels=assignment.children %}
+{% endblock %}
+
+{% block chart_tip_text %}
+    {% trans "These bars show the correct and incorrect submission counts for each problem. Only the last submission from each student is counted." %}
+{% endblock %}
+
+{% block table_title %}
+    {% trans "Problem Submissions" %}
+{% endblock %}

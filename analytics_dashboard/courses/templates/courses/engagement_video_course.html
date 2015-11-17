@@ -1,0 +1,11 @@
+{% extends "courses/engagement_grouped_content.html" %}
+{% load i18n %}
+
+{% block content_nav %}
+    {% trans "How did students interact with course videos?" as heading_note %}
+    {% include "courses/_video_content_nav.html" with active="first_level" first_levels=js_data.course.primaryContent heading_note=heading_note %}
+{% endblock %}
+
+{% block chart_tip_text %}
+    {% trans "Each bar shows the average number of complete and incomplete views for videos in that section. Click on bars with low totals or a high incomplete rate to drill down and understand why." %}
+{% endblock %}

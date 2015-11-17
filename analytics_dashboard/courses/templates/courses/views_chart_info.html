@@ -1,0 +1,5 @@
+{% load i18n %}
+
+{# Translators: This describes the data displayed in the chart below. E.g. how many learners viewed a video.#}
+{% trans "Video Views" as chart_info %}
+{% include "courses/_chart_info.html" with chart_info=chart_info %}

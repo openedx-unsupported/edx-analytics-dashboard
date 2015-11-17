@@ -1,5 +1,5 @@
-define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/attribute-listener-view'],
-    function (dt, $, _, Utils, AttributeListenerView) {
+define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/utils', 'views/attribute-listener-view'],
+    function (dt, $, naturalSort, _, Utils, AttributeListenerView) {
         'use strict';
 
         var DataTableView = AttributeListenerView.extend({
@@ -11,17 +11,31 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
                 self.options = options || {};
                 self.options.sorting = options.sorting || [];
 
+                self.addNaturalSort();
                 self.renderIfDataAvailable();
             },
 
-            _buildSorting: function () {
-                var dtSorting = [];
-                var sortRegexp = /^(-?)(.*)/g;
-                var columns = _.map(this.options.columns, function (column) {
-                    return column.key;
-                });
+            /**
+             * Adds natural sort to the data table sorting.
+             */
+            addNaturalSort: function() {
+                $.fn.dataTableExt.oSort['natural-asc'] = function (a, b) {
+                    return naturalSort(a,b);
+                };
+                $.fn.dataTableExt.oSort['natural-desc'] = function (a, b) {
+                    return -naturalSort(a,b);
+                };
+            },
 
-                _.each(this.options.sorting, function (sorting) {
+            _buildSorting: function () {
+                var self = this,
+                    dtSorting = [],
+                    sortRegexp = /^(-?)(.*)/g,
+                    columns = _.map(self.options.columns, function (column) {
+                        return column.key;
+                    });
+
+                _.each(self.options.sorting, function (sorting) {
                     var match = sortRegexp.exec(sorting),
                         direction = match[1] === '-' ? 'desc' : 'asc',
                         index = columns.indexOf(match[2]);
@@ -37,11 +51,11 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
              * the table sortable by the underlying data (rather than what's
              * necessarily displayed).
              */
-            _buildColumnDefs: function() {
+            _buildColumnDefs: function () {
                 var self = this,
                     defs = [],
                     iColumn = 0;
-                _(self.options.columns).each(function(column){
+                _(self.options.columns).each(function (column) {
                     // default column definitions
                     var def = {
                         targets: iColumn,
@@ -59,6 +73,20 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
                         def.data = self.createFormatDateFunc(column.key);
                     } else if (column.type === 'percent') {
                         def.data = self.createFormatPercentFunc(column.key);
+                    } else if (column.type === 'number') {
+                        def.data = self.createFormatNumberFunc(column.key, column.fractionDigits);
+                    } else if (column.type === 'maxNumber') {
+                        // this is useful so that sorting is number based, but
+                        // '+' can be displayed after the maximum
+                        def.data = self.createFormatMaxNumberFunc(column.key, column.maxNumber);
+                        // this column has a mix of numbers and strings
+                        def.type = 'natural';
+                    } else if (column.type === 'bool') {
+                        def.data = self.createFormatBoolFunc(column.key);
+                    } else if (column.type === 'hasNull') {
+                        def.data = self.createFormatHasNullFunc(column.key);
+                    } else if (column.type === 'time') {
+                        def.data = self.createFormatTimeFunc(column.key);
                     }
 
                     defs.push(def);
@@ -67,12 +95,43 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
                 return defs;
             },
 
+            createFormatTimeFunc: function (columnKey) {
+                return function (row, type) {
+                    var value = row[columnKey],
+                        display = value;
+                    if (type === 'display') {
+                        display = Utils.formatTime(Number(value));
+                    }
+                    return display;
+                };
+            },
+
+            /**
+             * Returns a function used by datatables to format the cell for
+             * numbers.
+             */
+            createFormatNumberFunc: function (columnKey, fractionDigits) {
+                var self = this;
+                return function (row, type) {
+                    var value = row[columnKey],
+                        display = value;
+                    if (type === 'display') {
+                        if (_(self.options).has('replaceZero') && value === 0) {
+                            display = self.options.replaceZero;
+                        } else if (!_(value).isUndefined() && !_(value).isNull()){
+                            display = Utils.localizeNumber(Number(value), fractionDigits);
+                        }
+                    }
+                    return display;
+                };
+            },
+
             /**
              * Returns a function used by datatables to format the cell for
              * dates.
              */
-            createFormatDateFunc: function(columnKey) {
-                return function(row, type) {
+            createFormatDateFunc: function (columnKey) {
+                return function (row, type) {
                     var value = row[columnKey],
                         display = value;
                     if (type === 'display') {
@@ -85,14 +144,79 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
 
             /**
              * Returns a function used by datatables to format the cell for
-             * percentages.
+             * to display a '+' after the maximum number.
              */
-            createFormatPercentFunc: function(columnKey) {
+            createFormatMaxNumberFunc: function(columnKey, maxNumber) {
                 return function(row, type) {
                     var value = row[columnKey],
                         display = value;
+                    // isNaN() return true for strings -- e.g. 'Unknown'
+                    if (type === 'display' && !isNaN(value)) {
+                        display = Utils.localizeNumber(value);
+                        if (value >= maxNumber) {
+                            display = display + '+';
+                        }
+                    }
+                    return display;
+                };
+            },
+
+            /**
+             * Returns a function used by datatables to format the cell for
+             * percentages.
+             */
+            createFormatPercentFunc: function (columnKey) {
+                var self = this;
+                return function (row, type) {
+                    var value = row[columnKey],
+                        display = value;
                     if (type === 'display') {
-                        display = ' ' + Utils.formatDisplayPercentage(value);
+                        if (_(self.options).has('replaceZero') && value === 0) {
+                            display = self.options.replaceZero;
+                        } else if (_(self.options).has('replaceNull') && value === null) {
+                            display = self.options.replaceNull;
+                        } else {
+                            display = Utils.formatDisplayPercentage(value);
+                        }
+                    }
+                    return display;
+                };
+            },
+
+            /**
+             * Returns a function used by datatables to display null values as
+             * "(empty)".
+             */
+            createFormatHasNullFunc: function(columnKey) {
+                return function (row, type) {
+                    var value = row[columnKey],
+                        display = value;
+                    if (type === 'display' && _(display).isNull()) {
+                        /**
+                         * Translators: (empty) is displayed in a table and indicates no label/value.
+                         * Keep text in the parenthesis or an equivalent symbol.
+                         */
+                        display = gettext('(empty)');
+                    }
+                    return display;
+                };
+            },
+
+            /**
+             * Returns a function used by datatables to format the cell for
+             * booleans (Correct vs -).
+             */
+            createFormatBoolFunc: function (columnKey) {
+                return function (row, type) {
+                    var value = row[columnKey],
+                        display = value;
+                    if (type === 'display') {
+                        if (value) {
+                            // Translators: "Correct" is displayed in a table..
+                            display = gettext('Correct');
+                        } else {
+                            display = '-';
+                        }
                     }
                     return display;
                 };
@@ -101,7 +225,7 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
             render: function () {
                 AttributeListenerView.prototype.render.call(this);
                 var self = this,
-                    $parent = $('<div/>', {class:'table-responsive'}).appendTo(self.$el),
+                    $parent = $('<div/>', {class: 'table-responsive'}).appendTo(self.$el),
                     $table = $('<table/>', {class: 'table table-striped'}).appendTo($parent),
                     dtConfig,
                     dtSorting;
@@ -111,12 +235,16 @@ define(['dataTablesBootstrap', 'jquery', 'underscore', 'utils/utils', 'views/att
                     info: false,
                     filter: false,
                     data: self.model.get(self.options.modelAttribute),
+
                     // providing 'columns' will override columnDefs
                     columnDefs: self._buildColumnDefs(),
-                    // this positions the "length changing" control to the bottom
-                    // using bootstrap styling
+
+                    // this positions the "length changing" control to the bottom using bootstrap styling
                     // more information at http://datatables.net/examples/basic_init/dom.html
-                    dom: "<'row'<'col-xs-12't>><'row'<'col-xs-6'l><'col-xs-6'p>>"
+                    dom: '<"row"<"col-xs-12"t>><"row"<"col-xs-6"l><"col-xs-6"p>>',
+
+                    // Disable auto-width as it causes the date column to wrap unnecessarily.
+                    autoWidth: false
                 };
 
                 dtSorting = self._buildSorting();

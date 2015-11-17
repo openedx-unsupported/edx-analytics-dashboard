@@ -12,16 +12,16 @@ define(['underscore', 'backbone'],
                 var self = this;
                 self.options = options;
 
-                if(_(self.options).has('trackEventType')) {
+                if (_(self.options).has('trackEventType')) {
                     self.render();
                 }
             },
 
-            render: function() {
+            render: function () {
                 var self = this;
 
                 // track the click
-                self.$el.click(function() {
+                self.$el.click(function () {
                     // track this event type along with properties
                     self.model.trigger('segment:track',
                         self.options.trackEventType,

@@ -1,10 +1,14 @@
-
 import datetime
 import logging
+
 from django.conf import settings
 from django.core.cache import cache
-from social.apps.django_app import load_strategy
-from analytics_dashboard.backends import EdXOpenIdConnect
+from django.dispatch import receiver
+
+from social.apps.django_app.utils import load_strategy
+
+from auth_backends.backends import EdXOpenIdConnect
+
 from courses.exceptions import UserNotAssociatedWithBackendError, InvalidAccessTokenError, \
     PermissionsRetrievalFailedError
 
@@ -15,8 +19,8 @@ def _get_course_permission_cache_keys(user):
     """
     Return the cache keys used for user-course permissions
     """
-    key_last_updated = 'course_permissions_updated_at_{}'.format(user.pk)
-    key_courses = 'course_permissions_{}'.format(user.pk)
+    key_last_updated = 'course_permissions_updated_at_{}'.format(user.id)
+    key_courses = 'course_permissions_{}'.format(user.id)
     return key_courses, key_last_updated
 
 
@@ -132,6 +136,22 @@ def user_can_view_course(user, course_id):
         user (User)     --  User whose permissions are being checked
         course_id (str) --  Course to check
     """
+
+    if user.is_superuser:
+        return True
+
     courses = get_user_course_permissions(user)
 
     return course_id in courses
+
+
+# pylint: disable=unused-argument
+@receiver(EdXOpenIdConnect.auth_complete_signal)
+def on_auth_complete(sender, user, id_token, **kwargs):
+    """ Callback to cache course permissions if available in the IDToken. """
+    allowed_courses = set()
+    for name in settings.COURSE_PERMISSIONS_CLAIMS:
+        if name in id_token:
+            allowed_courses.update(id_token[name])
+            if allowed_courses:
+                set_user_course_permissions(user, allowed_courses)

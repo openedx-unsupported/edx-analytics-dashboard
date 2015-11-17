@@ -64,6 +64,21 @@ class PermissionsTests(TestCase):
         permissions.set_user_course_permissions(self.user, [self.course_id])
         self.assertTrue(permissions.user_can_view_course(self.user, self.course_id))
 
+    def test_superuser_can_view_course(self):
+        """ Verify that superusers can view everything. """
+        user = self.user
+        user.is_superuser = True
+        user.save()
+
+        # With no permissions set, a superuser should still be able to view a course.
+        permissions.set_user_course_permissions(user, [])
+        self.assertTrue(permissions.user_can_view_course(user, self.course_id))
+
+        # With permissions set, a superuser should be able to view a course
+        # (although the individual permissions don't matter).
+        permissions.set_user_course_permissions(user, [self.course_id])
+        self.assertTrue(permissions.user_can_view_course(user, self.course_id))
+
     @mock.patch('courses.permissions.refresh_user_course_permissions', side_effect=set_empty_permissions)
     def test_user_can_view_course_refresh(self, mock_refresh):
         """
@@ -75,7 +90,7 @@ class PermissionsTests(TestCase):
         mock_refresh.assert_called_with(self.user)
         self.assertFalse(permissions.user_can_view_course(self.user, self.course_id))
 
-    @mock.patch('analytics_dashboard.backends.EdXOpenIdConnect.get_json',
+    @mock.patch('auth_backends.backends.EdXOpenIdConnect.get_json',
                 mock.Mock(return_value={'staff_courses': ['edX/DemoX/Demo_Course']}))
     def test_refresh_user_course_permissions(self):
         """
@@ -114,7 +129,7 @@ class PermissionsTests(TestCase):
         # Sanity check: verify the user can view the course
         self.assertTrue(permissions.user_can_view_course(self.user, self.course_id))
 
-    @mock.patch('analytics_dashboard.backends.EdXOpenIdConnect.get_json', mock.Mock(return_value={}))
+    @mock.patch('auth_backends.backends.EdXOpenIdConnect.get_json', mock.Mock(return_value={}))
     def test_refresh_user_course_permissions_with_missing_permissions(self):
         """
         If the authorization backend fails to return course permission data, a warning should be logged and the users
@@ -160,5 +175,5 @@ class PermissionsTests(TestCase):
 
         # Raise a PermissionsError if the backend is unavailable.
         G(UserSocialAuth, user=self.user, provider='edx-oidc', extra_data={'access_token': '1234'})
-        with mock.patch('analytics_dashboard.backends.EdXOpenIdConnect.get_json', side_effect=Exception):
+        with mock.patch('auth_backends.backends.EdXOpenIdConnect.get_json', side_effect=Exception):
             self.assertRaises(PermissionsRetrievalFailedError, permissions.get_user_course_permissions, self.user)

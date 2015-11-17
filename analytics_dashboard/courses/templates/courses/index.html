@@ -1,7 +1,8 @@
-{% extends "base.html" %}
+{% extends "base_dashboard.html" %}
 {% load i18n %}
 {% load staticfiles %}
 {% load dashboard_extras %}
+{% load firstof from future %}
 
 {% block view-name %}view-course-list{% endblock view-name %}
 
@@ -14,7 +15,7 @@
 {% endblock %}
 
 {% block intro-text %}
-  {% blocktrans %}Here are the courses you currently have access to in Insights:{% endblocktrans %}
+  {% blocktrans %}Here are the courses you currently have access to in {{ application_name }}:{% endblocktrans %}
 {% endblock intro-text %}
 
 {% block content %}
@@ -22,11 +23,15 @@
     <div class="col-md-8">
       <div class="course-list">
         {% for course in courses %}
-          <a href="{% url 'courses:home' course_id=course %}">
-            <div class="course">
-              <span class="course-title">{{ course }}</span>
-            </div>
-          </a>
+          <div class="course">
+            <a href="{% url 'courses:home' course_id=course.key %}">
+              <span class="course-name">{% firstof course.name course.key|format_course_key %}</span>
+            </a>
+
+            {% if course.name %}
+              <div class="course-key">{{ course.key|format_course_key:" / " }}</div>
+            {% endif %}
+          </div>
         {% endfor %}
       </div>
     </div>
@@ -39,8 +44,8 @@
           <a class="feedback-email" href="mailto:{{ feedback_email }}?Subject=Feedback">
             {{ feedback_email }}</a>{% endcaptureas %}
 
-        <p class="info-text">{% blocktrans %} Click Help in the upper-right corner to get more information
-            about {{ application_name }}. Send us feedback at {{email_link}}.{% endblocktrans %}</p>
+        <p class="info-text">{% blocktrans trimmed %} Click Help in the upper-right corner to get more information
+          about {{ application_name }}. Send us feedback at {{ email_link }}.{% endblocktrans %}</p>
       </div>
     </div>
   </div>

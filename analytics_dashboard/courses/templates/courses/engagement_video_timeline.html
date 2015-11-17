@@ -1,0 +1,87 @@
+{% extends "courses/base_grouped_content.html" %}
+
+{% load dashboard_extras %}
+{% load i18n %}
+{% load rjs %}
+
+{% block javascript %}
+    {{ block.super }}
+    <script src="{% static_rjs 'js/engagement-video-timeline-main.js' %}"></script>
+{% endblock javascript %}
+
+{% block table_title %}
+    {% trans "Total Video Views" %}
+{% endblock table_title %}
+
+{% block chart_info %}
+    {% trans "Total Video Views" as chart_info %}
+    {% include "courses/_chart_info.html" with chart_info=chart_info %}
+{% endblock chart_info %}
+
+{% block content_nav %}
+    {% trans "What were the viewing patterns for this video?" as heading_note %}
+    {% include "courses/_video_content_nav.html" with selected_third_level=video selected_first_level=section first_levels=sections selected_second_level=subsection second_levels=subsections third_levels=js_data.course.primaryContent heading_note=heading_note %}
+{% endblock %}
+
+{% block chart_tip_text %}
+    {% trans "The number of students who watched each segment of the video, and the number of replays for each segment." %}
+{% endblock %}
+
+{% block module_meta %}
+    <div class="module-meta">
+        {% if show_video_preview %}
+            {% trans "Collapse Preview" as click_to_expand_text %}
+            {% trans "Expand Preview" as click_to_collapse_text %}
+            {% include "courses/_video_preview.html" with render_xblock_url=render_xblock_url view_live_url=view_live_url collapse_text=click_to_collapse_text expand_text=click_to_expand_text %}
+        {% else %}
+            {% include "courses/_module_description.html" with view_live_url=view_live_url %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block module_controls %}
+    <div class="module-controls">
+        {% include "courses/_video_module_controls.html" %}
+    </div>
+{% endblock %}
+
+{% block metric_cards %}
+    <section class="view-section">
+        <div class="section-heading bordered">
+            <h4 class="section-title">{% trans "Video Metrics" %}</h4>
+        </div>
+
+        {% if summary_metrics %}
+            <div class="row">
+                <div class="col-xs-12 col-sm-3" data-type="watched-percent">
+                    {% trans "Completion Rate" as label %}
+                    {% trans "Estimated percentage of students who watched the entire video." as tooltip %}
+                    {% summary_point summary_metrics.end_percent|metric_percentage label tooltip=tooltip %}
+                </div>
+                <div class="col-xs-12 col-sm-3" data-type="started-video">
+                    {% trans "Started Video" as label %}
+                    {% trans "Students who started watching the video." as tooltip %}
+                    {% summary_point summary_metrics.users_at_start label tooltip=tooltip %}
+                </div>
+                <div class="col-xs-12 col-sm-3" data-type="finished-video">
+                    {% trans "Finished Video" as label %}
+                    {% trans "Students who watched the video to the end." as tooltip %}
+                    {% summary_point summary_metrics.users_at_end label tooltip=tooltip %}
+                </div>
+            </div>
+        {% else %}
+            {% show_metrics_error %}
+        {% endif %}
+    </section>
+{% endblock %}
+
+{% block table_download %}
+    <div class="section-actions">
+        <a href="{% url 'courses:csv:engagement_video_timeline' course_id=course_id pipeline_video_id=summary_metrics.pipeline_video_id %}"
+            class="btn btn-default pull-right" data-role="engagement-csv" data-track-type="click"
+            data-track-event="edx.bi.csv.downloaded" data-track-category="video-timeline">
+            <i class="ico fa fa-download" aria-hidden="true"></i> {% trans "Download CSV" %}
+            <span class="sr-only">{% trans "Video Viewing Over Time" %}</span>
+        </a>
+    </div>
+{% endblock %}

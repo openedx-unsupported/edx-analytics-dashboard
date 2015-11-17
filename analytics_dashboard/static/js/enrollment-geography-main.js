@@ -14,7 +14,7 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                 el: '[data-view=world-map]',
                 model: page.models.courseModel,
                 modelAttribute: 'enrollmentByCountry',
-                tooltip: gettext('Student location is determined from IP address. This map shows where students most recently connected.')
+                tooltip: gettext('Student location is determined from IP address. This map shows where students most recently connected.')  // jshint ignore:line
             });
 
             // Enrollment by country table
@@ -26,7 +26,7 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                     {key: 'countryName', title: gettext('Country')},
                     {key: 'percent', title: gettext('Percent'), className: 'text-right', type: 'percent'},
                     // Translators: The noun count (e.g. number of students)
-                    {key: 'count', title: gettext('Total Enrollment'), className: 'text-right'}
+                    {key: 'count', title: gettext('Current Enrollment'), className: 'text-right', type: 'number'}
                 ],
                 sorting: ['-count']
             });

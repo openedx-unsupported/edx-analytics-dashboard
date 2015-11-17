@@ -1,0 +1,27 @@
+{% load i18n %}
+
+<div class="module-preview-collapsible container-fluid" data-collapse-text="{{ collapse_text }}" data-expand-text="{{ expand_text }}">
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="pull-right">
+                <a href="{{ view_live_url }}" class="btn btn-default" role="button" target="_blank">
+                    {# Translators: This text will be a direct link to the a specific module/problem. #}
+                    {% trans "View Live" %}
+                </a>
+            </span>
+            <div>
+                {# The aria-expanded attribute will be updated via edx-ui-toolkit CollapsibleView. #}
+                <button aria-expanded="false" aria-controls="collapsible-preview" class="collapsible-toggle-text center-block btn btn-default">{{ collapse_text }}</button>
+            </div>
+        </div>
+
+        <div id="collapsible-preview" class="col-xs-12 collapsible-content">
+            <div id="module-loading">
+                {% include "loading.html" %}
+            </div>
+            <iframe id="module-preview" class="video-preview" data-src="{{ render_xblock_url }}">
+            </iframe>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>

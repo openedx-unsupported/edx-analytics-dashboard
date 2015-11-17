@@ -5,15 +5,12 @@ Overview
 #############
 
 EdX Insights makes information about courses available to course team members
-who have the Course Staff or Instructor role. EdX Insights provides these
-course team members with data about student backgrounds and activities
-throughout the course. Using edX Insights can help you validate the choices you
-made in designing your course. It can also help you re-evaluate choices and
-inform efforts to improve your course and the experience of your learners.
-
-.. ...data about student activity, background, and performance throughout the course.
-
-.. be sure to cast this as firstly a tool to provide the "how are my students doing" info that teams want when performance gets added (Mark Rudnick comment)
+who have the Staff or Admin role. EdX Insights provides these
+course team members with data about student activity, background, and
+performance throughout the course. Using edX Insights can help you monitor how
+students are doing, and validate the choices you made in designing your
+course. It can also help you re-evaluate choices and inform efforts to improve
+your course and the experience of your learners.
 
 Putting the data provided by edX Insights to work involves:
 
@@ -31,10 +28,11 @@ descriptions, move your cursor over the "i" information icons that appear at
 top right of each chart or metric.
 
 .. image:: images/tip_on_mouseover.png
- :alt: The Active Students Last Week metric with the tip "Students who visited 
-       at least one page in the course content" showing
+ :alt: The Active Students Last Week metric with the tooltip "Students who
+       visited at least one page in the course content" showing.
 
-This guide is intended to offer more complete information.
+This guide is intended to offer more complete information about the data that
+edX Insights presents.
 
 * For information about the computation of the values that are reported, see 
   the :ref:`Reference` chapter. For a reference to the data that edX collects 
@@ -47,15 +45,19 @@ This guide is intended to offer more complete information.
 
  * :ref:`Enrollment_Geography`
 
+ * :ref:`Enrollment_Demographics`
+
  * :ref:`Engagement_Content`
 
-Each of these chapters contains a section for anecdotal "Analytics in Action".
-These sections showcase how collected data has revealed information about
-courses and students, and how course teams have reacted to the information.
+ * :ref:`Engagement_Video`
+ 
+ * :ref:`Performance_Graded`
+ 
+ * :ref:`Performance_Ungraded`
 
-.. note:: All of the Analytics in Action anecdotes featured in this early 
- version of *Using edX Insights* describe data that was collected and acted 
- upon before the release of edX Insights.
+Each of these chapters contains a section for anecdotal "Analytics in Action".
+These sections showcase how collected data can reveal information about
+courses and students, and how course teams might react to the information.
 
 You are invited to share your experiences using edX Insights. Contact the edX
 documentation team at `docs@edx.org`_.

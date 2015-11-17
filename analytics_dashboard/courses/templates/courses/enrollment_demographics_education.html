@@ -1,0 +1,115 @@
+{% extends "courses/base-course.html" %}
+{% load i18n %}
+{% load dashboard_extras %}
+{% load staticfiles %}
+{% load rjs %}
+
+{% block view-name %}view-course-enrollment view-dashboard{% endblock view-name %}
+
+{% block javascript %}
+{{ block.super }}
+<script src="{% static_rjs 'js/enrollment-demographics-education-main.js' %}"></script>
+{% endblock javascript %}
+
+
+{% block child_content %}
+
+<section class="view-section" data-section="enrollment-basics" aria-hidden="true">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="tertiary-nav">
+                <ul class="nav navbar-nav">
+                    {% include "submenu_navigation.html" with nav_items=tertiary_nav_items%}
+                </ul>
+                <div class="section-heading">
+                    <span class="section-heading-note small">{% trans "What level of education do my students have?" %}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if js_data.course.education %}
+        <div class="section-content section-data-graph">
+            <div class="section-content section-data-viz">
+                <div class="analytics-chart-container">
+                    {% include "courses/demographics_chart_info.html"%}
+                    {% captureas tip_text %}
+                      {# Translators: Maintain the double percentage symbols (%%) but move them to the appropriate location (before/after the value placeholder) for your language. #}
+                      {% blocktrans with value=chart_tooltip_value %}This graph presents data for the {{ value }}% of enrolled students who provided a highest level of education completed.{% endblocktrans %}
+                    {% endcaptureas %}
+                    {% include "chart_tooltip.html" with tip_text=tip_text track_category="bar"%}
+                    <div id="enrollment-chart-view" class="analytics-chart">
+                        {% include "loading.html" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        {% show_chart_error %}
+    {% endif %}
+</section>
+
+<section class="view-section">
+    <div class="section-heading bordered">
+        <h4 class="section-title">{% trans "Education Metrics"%}</h4>
+    </div>
+
+    {% if summary %}
+        <div class="section-content">
+            <div class="row">
+                <div class="col-xs-12 col-sm-3" data-stat-type="education_high_school_or_less_enrollment">
+                    {# Translators: This is a label to identify student educational background. #}
+                    {% trans "High School Diploma or Less" as label %}
+                    {% trans "The percentage of students who selected Secondary/high school, Junior secondary/junior high/middle school, or Elementary/primary school as their highest level of education completed." as tooltip %}
+                    {% summary_point summary.high_school_or_less|metric_percentage label tooltip=tooltip %}
+                </div>
+
+                <div class="col-xs-12 col-sm-3" data-stat-type="education_college_enrollment">
+                    {# Translators: This is a label to identify student educational background. #}
+                    {% trans "College Degree" as label %}
+                    {% trans "The percentage of students who selected Bachelor's degree or Associate degree as their highest level of education completed." as tooltip %}
+                    {% summary_point summary.college|metric_percentage label tooltip=tooltip %}
+                </div>
+
+                <div class="col-xs-12 col-sm-3" data-stat-type="education_advanced_enrollment">
+                    {# Translators: This is a label to identify student educational background. #}
+                    {% trans "Advanced Degree" as label %}
+                    {% trans "The percentage of students who selected Doctorate or Master's or professional degree as their highest level of education completed." as tooltip %}
+                    {% summary_point summary.advanced|metric_percentage label tooltip=tooltip %}
+                </div>
+            </div>
+        </div>
+    {% else %}
+        {% show_metrics_error %}
+    {% endif %}
+</section>
+
+<section class="view-section">
+    <div class="section-heading">
+        <h4 class="section-title">{% trans "Educational Breakdown"%}</h4>
+
+        <div class="section-actions">
+            {% if js_data.course.education %}
+                <a href="{% url 'courses:csv:enrollment_demographics_education' course_id=course_id %}"
+                   class="btn btn-default"
+                   data-role="enrollment-csv" data-track-type="click"
+                   data-track-event="edx.bi.csv.downloaded"
+                   data-track-category="education">
+                    <i class="ico fa fa-download" aria-hidden="true"></i> {% trans "Download CSV" %}
+                    <span class="sr-only">{% trans "Enrollment Over Time" %}</span>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if js_data.course.education %}
+        <div class="section-content section-data-table" data-role="enrollment-table">
+            {% include "loading.html" %}
+        </div>
+    {% else %}
+        {% show_table_error %}
+    {% endif %}
+
+</section>
+
+{% endblock %}
