@@ -11,7 +11,7 @@
 # Françoise Docq, 2014
 # Gérard Vidal <Gerard.Vidal@ens-lyon.fr>, 2014
 # JulietteFUN, 2015
-# Kulgar <kulgar@ct2c.fr>, 2015
+# Régis Millet <kulgar@ct2c.fr>, 2015
 # laurentFUN <laurent.at.fun@gmail.com>, 2014
 # Leslie Bordonné <leslie@bordonne.com>, 2015
 # Magdalene Schock <magdaparis@hotmail.com>, 2015
@@ -24,8 +24,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-30 09:59-0400\n"
-"PO-Revision-Date: 2015-10-30 14:00+0000\n"
+"POT-Creation-Date: 2015-11-18 14:58-0500\n"
+"PO-Revision-Date: 2015-11-18 20:00+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: French (http://www.transifex.com/open-edx/edx-platform/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -135,7 +135,7 @@ msgstr "{statistic}%"
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: courses/presenters/engagement.py
 msgid "{percentage} of current students"
-msgstr ""
+msgstr "{percentage} des étudiants actuels"
 
 #: courses/presenters/enrollment.py
 msgid "Female"
@@ -499,6 +499,7 @@ msgstr "Taux de complétion"
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Estimated percentage of students who watched the entire video."
 msgstr ""
+"Estimation du pourcentage d'étudiants ayant visionné la vidéo en entier."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Started Video"
@@ -847,6 +848,16 @@ msgstr "Accueil du cours"
 msgid "Active"
 msgstr "Actif"
 
+#: courses/templates/courses/home.html
+msgid "Basic Course Information"
+msgstr ""
+
+#. Translators: This title describes a list of links to outside tools for this
+#. course.
+#: courses/templates/courses/home.html
+msgid "External Tools"
+msgstr ""
+
 #: courses/templates/courses/index.html
 msgid "Courses"
 msgstr "Cours"
@@ -1058,6 +1069,51 @@ msgid "How are students doing on graded course assignments?"
 msgstr ""
 "Comment les étudiants s'en sortent-ils au niveau des tâches notées du cours "
 "?"
+
+#. Translators: 'Course ID' is 'Course Identifier', the unique code that
+#. identifies the course
+#: courses/views/__init__.py
+msgid "Course ID"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Course Name"
+msgstr ""
+
+#. Translators: 'In Progress' and 'Ended' refer to whether students are
+#. actively using the course or it is over.
+#: courses/views/__init__.py
+msgid "In Progress"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Ended"
+msgstr ""
+
+#. Translators: This refers to a course that has not yet begun.
+#: courses/views/__init__.py
+msgid "Not Started Yet"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Start Date"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "End Date"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Status"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Instructor Dashboard"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Courseware"
+msgstr ""
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
