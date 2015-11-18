@@ -1,6 +1,8 @@
 from calendar import timegm
 import json
+import logging
 import datetime
+from testfixtures import LogCapture
 
 from django.core.cache import cache
 from django.test.utils import override_settings
@@ -13,11 +15,12 @@ from django.db import DatabaseError
 from django_dynamic_fixture import G
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.test import TestCase
-from analyticsclient.exceptions import ClientError
+from analyticsclient.exceptions import TimeoutError
 from social.exceptions import AuthException
 from social.utils import parse_qs
 
 from auth_backends.backends import EdXOpenIdConnect
+from core.views import OK, UNAVAILABLE
 from courses.permissions import set_user_course_permissions, user_can_view_course, get_user_course_permissions
 
 
@@ -63,15 +66,16 @@ class RedirectTestCaseMixin(object):
 
 
 class ViewTests(TestCase):
-    def assertUnhealthyAPI(self):
+    def verify_health_response(self, expected_status_code, overall_status, database_connection, analytics_api):
+        """Verify that the health endpoint returns the expected response."""
         response = self.client.get(reverse('health'))
-        self.assertEqual(response.status_code, 503)
+        self.assertEqual(response.status_code, expected_status_code)
         self.assertEqual(response['content-type'], 'application/json')
         expected = {
-            u'overall_status': u'UNAVAILABLE',
+            u'overall_status': overall_status,
             u'detailed_status': {
-                u'database_connection': u'OK',
-                u'analytics_api': u'UNAVAILABLE'
+                u'database_connection': database_connection,
+                u'analytics_api': analytics_api
             }
         }
         self.assertDictEqual(json.loads(response.content), expected)
@@ -81,43 +85,62 @@ class ViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     @mock.patch('analyticsclient.status.Status.healthy', mock.PropertyMock(return_value=True))
-    def test_health(self):
-        response = self.client.get(reverse('health'))
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(response['content-type'], 'application/json')
-
-        expected = {
-            u'overall_status': u'OK',
-            u'detailed_status': {
-                u'database_connection': u'OK',
-                u'analytics_api': u'OK'
-            }
-        }
-        self.assertDictEqual(json.loads(response.content), expected)
+    def test_healthy(self):
+        with LogCapture(level=logging.ERROR) as l:
+            self.verify_health_response(
+                expected_status_code=200, overall_status=OK, database_connection=OK, analytics_api=OK
+            )
+            l.check()
 
     @mock.patch('analyticsclient.status.Status.healthy', mock.PropertyMock(return_value=True))
-    @mock.patch('django.db.backends.BaseDatabaseWrapper.cursor', mock.Mock(side_effect=DatabaseError))
+    @mock.patch('django.db.backends.BaseDatabaseWrapper.cursor', mock.Mock(side_effect=DatabaseError('example error')))
     def test_health_database_outage(self):
-        response = self.client.get(reverse('health'))
-        self.assertEqual(response.status_code, 503)
-        self.assertEqual(response['content-type'], 'application/json')
-
-        expected = {
-            u'overall_status': u'UNAVAILABLE',
-            u'detailed_status': {
-                u'database_connection': u'UNAVAILABLE',
-                u'analytics_api': u'OK'
-            }
-        }
-        self.assertDictEqual(json.loads(response.content), expected)
+        with LogCapture(level=logging.ERROR) as l:
+            self.verify_health_response(
+                expected_status_code=503, overall_status=UNAVAILABLE, database_connection=UNAVAILABLE, analytics_api=OK
+            )
+            l.check(('analytics_dashboard.core.views', 'ERROR', 'Insights database is not reachable: example error'))
 
     @mock.patch('analyticsclient.status.Status.healthy', mock.PropertyMock(return_value=False))
     def test_health_analytics_api_unhealthy(self):
-        self.assertUnhealthyAPI()
+        with LogCapture(level=logging.ERROR) as l:
+            self.verify_health_response(
+                expected_status_code=503, overall_status=UNAVAILABLE, database_connection=OK, analytics_api=UNAVAILABLE
+            )
+            l.check(('analytics_dashboard.core.views', 'ERROR', 'Analytics API health check failed from dashboard'))
 
-    @mock.patch('analyticsclient.status.Status.healthy', mock.PropertyMock(side_effect=ClientError))
+    @mock.patch('analyticsclient.status.Status.healthy', mock.PropertyMock(side_effect=TimeoutError('example error')))
     def test_health_analytics_api_unreachable(self):
-        self.assertUnhealthyAPI()
+        with LogCapture(level=logging.ERROR) as l:
+            self.verify_health_response(
+                expected_status_code=503, overall_status=UNAVAILABLE, database_connection=OK, analytics_api=UNAVAILABLE
+            )
+            l.check((
+                'analytics_dashboard.core.views',
+                'ERROR',
+                'Analytics API health check timed out from dashboard: example error'
+            ))
+
+    @mock.patch('analyticsclient.status.Status.healthy', mock.PropertyMock(return_value=False))
+    @mock.patch('django.db.backends.BaseDatabaseWrapper.cursor', mock.Mock(side_effect=DatabaseError('example error')))
+    def test_health_both_unavailable(self):
+        with LogCapture(level=logging.ERROR) as l:
+            self.verify_health_response(
+                expected_status_code=503, overall_status=UNAVAILABLE,
+                database_connection=UNAVAILABLE, analytics_api=UNAVAILABLE
+            )
+            l.check(
+                (
+                    'analytics_dashboard.core.views',
+                    'ERROR',
+                    'Insights database is not reachable: example error'
+                ),
+                (
+                    'analytics_dashboard.core.views',
+                    'ERROR',
+                    'Analytics API health check failed from dashboard'
+                )
+            )
 
 
 class LoginViewTests(RedirectTestCaseMixin, TestCase):

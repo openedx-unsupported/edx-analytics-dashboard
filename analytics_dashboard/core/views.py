@@ -11,7 +11,7 @@ from django.shortcuts import redirect
 from django.views.generic import View, TemplateView
 from django.core.urlresolvers import reverse_lazy
 from analyticsclient.client import Client
-from analyticsclient.exceptions import ClientError
+from analyticsclient.exceptions import TimeoutError
 
 from analytics_dashboard.courses import permissions
 
@@ -19,15 +19,16 @@ from analytics_dashboard.courses import permissions
 logger = logging.getLogger(__name__)
 User = get_user_model()
 
+# Health constants
+OK = u'OK'
+UNAVAILABLE = u'UNAVAILABLE'
+
 
 def status(_request):
     return HttpResponse()
 
 
 def health(_request):
-    OK = 'OK'
-    UNAVAILABLE = 'UNAVAILABLE'
-
     overall_status = analytics_api_status = database_status = UNAVAILABLE
 
     try:
@@ -36,17 +37,26 @@ def health(_request):
         cursor.fetchone()
         cursor.close()
         database_status = OK
-    except DatabaseError as e:  # pylint: disable=catching-non-exception
-        logger.exception('Database is not reachable: %s', e)
+    except DatabaseError as e:
+        logger.exception('Insights database is not reachable: %s', e)
         database_status = UNAVAILABLE
 
     try:
-        client = Client(base_url=settings.DATA_API_URL, auth_token=settings.DATA_API_AUTH_TOKEN)
-        if client.status.healthy:
-            analytics_api_status = OK
-    except ClientError as e:
-        logger.exception('API is not reachable from dashboard: %s', e)
+        client = Client(base_url=settings.DATA_API_URL, auth_token=settings.DATA_API_AUTH_TOKEN, timeout=0.35)
+        # Note: client.status.healthy sends a request to the health endpoint on
+        # the Analytics API.  The request may throw a TimeoutError.  Currently,
+        # other exceptions are caught by the client.status.healthy method
+        # itself, which will return False in those cases.
+        analytics_api_healthy = client.status.healthy
+    except TimeoutError as e:
+        logger.exception('Analytics API health check timed out from dashboard: %s', e)
         analytics_api_status = UNAVAILABLE
+    else:
+        if analytics_api_healthy:
+            analytics_api_status = OK
+        else:
+            logger.error('Analytics API health check failed from dashboard')
+            analytics_api_status = UNAVAILABLE
 
     overall_status = OK if (analytics_api_status == database_status == OK) else UNAVAILABLE
 
