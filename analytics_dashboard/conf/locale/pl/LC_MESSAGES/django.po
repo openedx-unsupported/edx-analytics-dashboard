@@ -7,6 +7,7 @@
 # Adam Banasiak <adam@cku.elblag.pl>, 2015
 # Adam Łukasiak <adamus160@gmail.com>, 2014
 # Adrian Budasz <adrianbudasz@gmail.com>, 2015
+# Bartosz Muczynski <b.muczynski@gmail.com>, 2015
 # Fundacja Eduprojekt.org <maciej@eduprojekt.org>, 2014
 # Grzegorz Czarnocki <g.czarnocki1@gmail.com>, 2015
 # Jakub Kopczyk <kuba5566@gmail.com>, 2014
@@ -14,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-30 09:59-0400\n"
-"PO-Revision-Date: 2015-10-30 14:00+0000\n"
+"POT-Creation-Date: 2015-11-18 14:58-0500\n"
+"PO-Revision-Date: 2015-11-18 20:00+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Polish (http://www.transifex.com/open-edx/edx-platform/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -266,15 +267,15 @@ msgstr "Wybierz podsekcję"
 
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
-msgstr ""
+msgstr "Wybierz film"
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Previous Video"
-msgstr ""
+msgstr "Poprzedni film"
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Next Video"
-msgstr ""
+msgstr "Następny film"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -815,6 +816,16 @@ msgstr ""
 msgid "Active"
 msgstr "Aktywne"
 
+#: courses/templates/courses/home.html
+msgid "Basic Course Information"
+msgstr ""
+
+#. Translators: This title describes a list of links to outside tools for this
+#. course.
+#: courses/templates/courses/home.html
+msgid "External Tools"
+msgstr ""
+
 #: courses/templates/courses/index.html
 msgid "Courses"
 msgstr "Kursy"
@@ -1014,6 +1025,51 @@ msgstr "Jak studenci radzą sobie z zadaniami z kursu?"
 #: courses/views/__init__.py
 msgid "How are students doing on graded course assignments?"
 msgstr "Jak studenci radzą sobie z punktowanymi zadaniami z kursu?"
+
+#. Translators: 'Course ID' is 'Course Identifier', the unique code that
+#. identifies the course
+#: courses/views/__init__.py
+msgid "Course ID"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Course Name"
+msgstr ""
+
+#. Translators: 'In Progress' and 'Ended' refer to whether students are
+#. actively using the course or it is over.
+#: courses/views/__init__.py
+msgid "In Progress"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Ended"
+msgstr ""
+
+#. Translators: This refers to a course that has not yet begun.
+#: courses/views/__init__.py
+msgid "Not Started Yet"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Start Date"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "End Date"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Status"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Instructor Dashboard"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Courseware"
+msgstr ""
 
 #: courses/views/engagement.py
 msgid "Engagement Content"

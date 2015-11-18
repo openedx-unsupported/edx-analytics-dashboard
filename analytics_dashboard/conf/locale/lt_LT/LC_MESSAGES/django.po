@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-30 09:59-0400\n"
-"PO-Revision-Date: 2015-10-30 14:00+0000\n"
+"POT-Creation-Date: 2015-11-18 14:58-0500\n"
+"PO-Revision-Date: 2015-11-18 20:00+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/open-edx/edx-platform/language/lt_LT/)\n"
 "MIME-Version: 1.0\n"
@@ -207,7 +207,7 @@ msgstr "Pateiktys {part_number} daliai: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "Part {part_number}: {part_description}"
-msgstr ""
+msgstr "{part_number} dalis: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "Submissions: {part_description}"
@@ -215,7 +215,7 @@ msgstr "Pateiktys: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "{part_description}"
-msgstr ""
+msgstr "{part_description}"
 
 #: courses/presenters/performance.py
 msgid "Submissions for Part {part_number}"
@@ -223,7 +223,7 @@ msgstr "Pateiktys {part_number} daliai"
 
 #: courses/presenters/performance.py
 msgid "Part {part_number}"
-msgstr ""
+msgstr "{part_number} dalis"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
@@ -818,6 +818,16 @@ msgstr "Kurso pagrindinis puslapis"
 msgid "Active"
 msgstr "Aktyvus"
 
+#: courses/templates/courses/home.html
+msgid "Basic Course Information"
+msgstr ""
+
+#. Translators: This title describes a list of links to outside tools for this
+#. course.
+#: courses/templates/courses/home.html
+msgid "External Tools"
+msgstr ""
+
 #: courses/templates/courses/index.html
 msgid "Courses"
 msgstr "Kursai"
@@ -883,11 +893,13 @@ msgid ""
 "                %(assignment_type)s: %(policy_ratio)s%% of the grading policy\n"
 "              "
 msgstr ""
+"\n"
+"%(assignment_type)s: %(policy_ratio)s%% "
 
 #. Translators: This describes the percent of a learner's grade (e.g. 60%).
 #: courses/templates/courses/performance_graded_content.html
 msgid "%(policy_ratio)s%%"
-msgstr ""
+msgstr "%(policy_ratio)s%%"
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
@@ -1023,6 +1035,51 @@ msgstr ""
 msgid "How are students doing on graded course assignments?"
 msgstr ""
 
+#. Translators: 'Course ID' is 'Course Identifier', the unique code that
+#. identifies the course
+#: courses/views/__init__.py
+msgid "Course ID"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Course Name"
+msgstr ""
+
+#. Translators: 'In Progress' and 'Ended' refer to whether students are
+#. actively using the course or it is over.
+#: courses/views/__init__.py
+msgid "In Progress"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Ended"
+msgstr ""
+
+#. Translators: This refers to a course that has not yet begun.
+#: courses/views/__init__.py
+msgid "Not Started Yet"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Start Date"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "End Date"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Status"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Instructor Dashboard"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Courseware"
+msgstr ""
+
 #: courses/views/engagement.py
 msgid "Engagement Content"
 msgstr "Dalyvavimo turinys"
@@ -1044,6 +1101,8 @@ msgstr ""
 #: courses/views/engagement.py
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr ""
+"Vaizdo įrašas paskutinį kartą atnaujintas %(update_date)s %(update_time)s "
+"UTC."
 
 #: courses/views/engagement.py
 msgid "Looks like no one has watched any videos in these sections."
@@ -1123,6 +1182,8 @@ msgid ""
 "Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr ""
+"Užduoties pateikimo data paskutinį kartą atnaujinta %(update_date)s "
+"%(update_time)s UTC."
 
 #: courses/views/performance.py
 msgid "Assignment Name"
@@ -1142,7 +1203,7 @@ msgstr ""
 
 #: courses/views/performance.py
 msgid "Graded Content: %(assignment_type)s"
-msgstr ""
+msgstr "Vertinamas turinys: %(assignment_type)s"
 
 #: courses/views/performance.py courses/views/performance.py
 msgid "Problem Name"
