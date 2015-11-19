@@ -174,7 +174,7 @@ def get_courses():
 
     if not courses:
         logger.info('Retrieving courses from API...')
-        client = CourseStructureApiClient(COURSE_API_URL, COURSE_API_KEY)
+        client = CourseStructureApiClient(COURSE_API_URL, COURSE_API_KEY, 5)
         courses = client.all_courses
         courses = [course['id'] for course in courses]
         courses.sort(key=lambda course: course.lower())

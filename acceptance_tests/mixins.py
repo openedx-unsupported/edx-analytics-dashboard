@@ -33,7 +33,7 @@ class CourseApiMixin(object):
         super(CourseApiMixin, self).setUp()
 
         if ENABLE_COURSE_API:
-            self.course_api_client = CourseStructureApiClient(COURSE_API_URL, COURSE_API_KEY)
+            self.course_api_client = CourseStructureApiClient(COURSE_API_URL, COURSE_API_KEY, 5)
 
     def get_course_name_or_id(self, course_id):
         """ Returns the course name if the course API is enabled; otherwise, the course ID. """

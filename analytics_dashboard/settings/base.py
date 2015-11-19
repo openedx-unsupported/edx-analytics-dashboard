@@ -427,3 +427,11 @@ COURSE_API_KEY = None
 ########## MODULE_PREVIEW
 MODULE_PREVIEW_URL = None
 ########## END MODULE_PREVIEW
+
+########## EXTERNAL SERVICE TIMEOUTS
+# Time in seconds that Insights should wait on external services
+# before giving up.  These values should be overridden in
+# configuration.
+ANALYTICS_API_DEFAULT_TIMEOUT = 5
+LMS_DEFAULT_TIMEOUT = 5
+########## END EXTERNAL SERVICE TIMEOUTS

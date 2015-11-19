@@ -15,18 +15,16 @@ from django.utils import dateformat
 from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import TemplateView
+from edx_rest_api_client.exceptions import (HttpClientError, SlumberBaseException)
 from opaque_keys.edx.keys import CourseKey
 import requests
-from slumber.exceptions import (HttpClientError, SlumberBaseException)
 from waffle import switch_is_active
 
 from analyticsclient.client import Client
 from analyticsclient.exceptions import (ClientError, NotFoundError)
 
-from common.clients import CourseStructureApiClient
-
 from core.exceptions import ServiceUnavailableError
-from core.utils import sanitize_cache_key
+from core.utils import CourseStructureApiClient, sanitize_cache_key
 
 from courses import permissions
 from courses.serializers import LazyEncoder
@@ -221,7 +219,7 @@ class CourseValidMixin(object):
             uri = '{0}/{1}/info'.format(settings.LMS_COURSE_VALIDATION_BASE_URL, self.course_id)
 
             try:
-                response = requests.get(uri, timeout=5)
+                response = requests.get(uri, timeout=settings.LMS_DEFAULT_TIMEOUT)
             except requests.exceptions.Timeout:
                 logger.error('Course validation timed out: %s', uri)
                 # consider the course valid if the LMS times out
@@ -407,7 +405,7 @@ class CourseView(LoginRequiredMixin, CourseValidMixin, CoursePermissionMixin, Te
     def get_context_data(self, **kwargs):
         context = super(CourseView, self).get_context_data(**kwargs)
         self.client = Client(base_url=settings.DATA_API_URL,
-                             auth_token=settings.DATA_API_AUTH_TOKEN, timeout=5)
+                             auth_token=settings.DATA_API_AUTH_TOKEN, timeout=settings.LMS_DEFAULT_TIMEOUT)
         self.course = self.client.courses(self.course_id)
         return context
 

@@ -28,10 +28,13 @@ class CourseAPIMixin(SwitchMixin):
     """
     Mixin with methods to help mock the course API.
     """
-
     COURSE_API_COURSE_LIST = {'next': None, 'results': [
         {'id': course_key, 'name': 'Test ' + course_key} for course_key in [DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID]
     ]}
+
+    def setUp(self, *args, **kwargs):
+        super(CourseAPIMixin, self).setUp(*args, **kwargs)
+        self.toggle_switch('enable_course_api', True)
 
     def mock_course_api(self, path, body=None, **kwargs):
         """
