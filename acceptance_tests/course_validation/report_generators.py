@@ -24,7 +24,7 @@ class ReportGeneratorBase(object):
     def __init__(self, course_id, http_cookies=None):
         self.course_id = course_id
         self.analytics_api_client = Client(base_url=API_SERVER_URL, auth_token=API_AUTH_TOKEN, timeout=1000)
-        self.course_api_client = CourseStructureApiClient(COURSE_API_URL, COURSE_API_KEY)
+        self.course_api_client = CourseStructureApiClient(COURSE_API_URL, COURSE_API_KEY, 5)
         self.http_client = requests.Session()
         self.http_client.cookies = http_cookies
 

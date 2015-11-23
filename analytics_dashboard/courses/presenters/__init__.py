@@ -1,14 +1,12 @@
 import abc
 import datetime
 import logging
-from urlparse import urljoin
 
 from django.conf import settings
 from django.core.cache import cache
 from analyticsclient.client import Client
-from common.clients import CourseStructureApiClient
 from common.course_structure import CourseStructure
-from core.utils import sanitize_cache_key
+from core.utils import CourseStructureApiClient, sanitize_cache_key
 
 from courses.exceptions import BaseCourseError
 
@@ -22,7 +20,7 @@ class BasePresenter(object):
     for the presenters to use to access the data API.
     """
 
-    def __init__(self, course_id, timeout=10):
+    def __init__(self, course_id, timeout=settings.ANALYTICS_API_DEFAULT_TIMEOUT):
         self.client = Client(base_url=settings.DATA_API_URL,
                              auth_token=settings.DATA_API_AUTH_TOKEN,
                              timeout=timeout)
@@ -60,7 +58,7 @@ class CourseAPIPresenterMixin(object):
 
     _last_updated = None
 
-    def __init__(self, access_token, course_id, timeout=10):
+    def __init__(self, access_token, course_id, timeout=settings.LMS_DEFAULT_TIMEOUT):
         super(CourseAPIPresenterMixin, self).__init__(course_id, timeout)
         self.course_api_client = CourseStructureApiClient(settings.COURSE_API_URL, access_token)
 
