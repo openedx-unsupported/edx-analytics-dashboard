@@ -1,1 +1,2 @@
 DATE_FORMAT = 'F d, Y'
+TIME_FORMAT = 'g:i A'
