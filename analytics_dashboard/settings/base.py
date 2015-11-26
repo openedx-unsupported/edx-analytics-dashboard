@@ -321,8 +321,12 @@ LMS_COURSE_SHORTCUT_BASE_URL = None
 # used to construct the shortcut link to view/edit a course in Studio
 CMS_COURSE_SHORTCUT_BASE_URL = None
 
-# Used to determine how dates are displayed in templates
+# Used to determine how dates and time are displayed in templates
+# The strings are intended for use with the django.utils.dateformat
+# module, which uses the PHP's date() style. Format details are
+# described at http://www.php.net/date.
 DATE_FORMAT = 'F d, Y'
+TIME_FORMAT = 'g:i A'
 
 ########## AUTHENTICATION
 AUTH_USER_MODEL = 'core.User'

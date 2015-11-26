@@ -426,7 +426,8 @@ class CourseTemplateView(ContextSensitiveHelpMixin, CourseContextMixin, CourseVi
 
     @staticmethod
     def format_last_updated_date_and_time(d):
-        return {'update_date': dateformat.format(d, settings.DATE_FORMAT), 'update_time': dateformat.format(d, 'g:i A')}
+        return {'update_date': dateformat.format(d, settings.DATE_FORMAT),
+                'update_time': dateformat.format(d, settings.TIME_FORMAT)}
 
 
 class CourseTemplateWithNavView(CourseNavBarMixin, CourseTemplateView):
