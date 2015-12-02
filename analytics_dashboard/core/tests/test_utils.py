@@ -1,5 +1,6 @@
-from ddt import data, ddt, unpack
 import uuid
+
+from ddt import data, ddt, unpack
 
 from django.conf import settings
 from django.contrib.auth import get_user_model

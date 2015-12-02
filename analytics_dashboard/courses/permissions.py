@@ -103,7 +103,7 @@ def _get_user_courses(access_token, backend):
     for claim in claims:
         courses.update(data.get(claim, []))
 
-    return courses
+    return list(courses)
 
 
 def get_user_course_permissions(user):

@@ -372,12 +372,13 @@ class CourseDemographicsPageTestsMixin(CoursePageTestsMixin):
         self.fulfill_loading_promise(self.chart_selector)
         self.assertElementHasContent(self.chart_selector)
 
+    # pylint: disable=unsubscriptable-object
     def _test_table(self):
         self.assertTable(self.table_section_selector, self.table_columns, self.table_download_selector)
 
         rows = self.page.browser.find_elements_by_css_selector('{} tbody tr'.format(self.table_section_selector))
         self.assertGreater(len(rows), 0)
-        sum_count = 0
+        sum_count = 0.0
         if self.demographic_data and 'count' in self.demographic_data[0]:
             sum_count = float(sum([datum['count'] for datum in self.demographic_data]))
 

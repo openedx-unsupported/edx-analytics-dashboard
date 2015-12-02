@@ -353,7 +353,7 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformancePageTestsMixin):
                 actual.append(col.text)
 
             expected = [answer[value_field] if answer[value_field] else u'(empty)']
-            correct = '-'
+            correct = u'-'
             if answer['correct']:
                 correct = u'Correct'
             expected.append(correct)
