@@ -7,9 +7,15 @@ function fixLanguageCode(languageCode) {
 
     languageCode = languageCode.toLowerCase();
 
-    // Django uses zh-cn. CLDR uses zh.
-    if (languageCode === 'zh-cn') {
+    // CLDR uses zh for Simplified Chinese, while Django may use different strings.
+    if (languageCode === 'zh-cn' || languageCode === 'zh-sg' ||
+        languageCode.indexOf('zh-hans') === 0) {
         return 'zh';
+    }
+    // CLDR uses zh-hant for Traditional Chinese, while Django may use different strings.
+    if (languageCode === 'zh-tw' || languageCode === 'zh-hk' ||
+        languageCode === 'zh-mo' || languageCode.indexOf('zh-hant') === 0) {
+        return 'zh-hant';
     }
 
     // There doesn't seem to be an onFailure event for the text! plugin. Make sure we only pass valid language codes

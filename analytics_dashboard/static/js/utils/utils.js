@@ -39,7 +39,14 @@ define(['moment', 'underscore', 'utils/globalization'], function (moment, _, Glo
          * @returns {string} Returns a formatted date (ex. January 31, 2014)
          */
         formatDate: function (date) {
-            moment.locale(window.language);
+            // moment accepts 'zh-cn' rather than 'zh' and 'zh-tw' rather than 'zh-hant'
+            if (window.language === 'zh') {
+                moment.locale('zh-cn');
+            } else if (window.language === 'zh-hant') {
+                moment.locale('zh-tw');
+            } else {
+                moment.locale(window.language);
+            }
             return moment(date).format('LL');
         },
 
