@@ -1,6 +1,6 @@
-import ddt
 import logging
 
+import ddt
 from django.template.response import TemplateResponse
 from opaque_keys.edx.keys import CourseKey
 from testfixtures import LogCapture

@@ -98,6 +98,7 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, BasePresenter):
                 return True
         return False
 
+    # pylint: disable=redefined-variable-type
     def _build_questions(self, answer_distributions):
         """
         Builds the questions and part_id from the answer distribution. Displayed

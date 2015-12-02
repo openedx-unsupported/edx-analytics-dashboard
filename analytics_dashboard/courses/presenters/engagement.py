@@ -1,8 +1,9 @@
 import datetime
+import logging
 import math
+
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
-import logging
 from waffle import switch_is_active
 
 from analyticsclient.client import Client

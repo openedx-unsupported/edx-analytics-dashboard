@@ -34,6 +34,6 @@ class CoursePermissionsExceptionMiddleware(object):
     """
 
     def process_exception(self, request, exception):
-        if type(exception) is PermissionsRetrievalFailedError:
+        if isinstance(exception, PermissionsRetrievalFailedError):
             logger.exception(exception)
             return TemplateResponse(request, 'courses/permissions-retrieval-failed.html', status=500)

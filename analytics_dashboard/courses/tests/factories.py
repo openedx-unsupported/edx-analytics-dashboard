@@ -1,6 +1,7 @@
-from slugify import slugify
 import urllib
 import uuid
+
+from slugify import slugify
 
 from common.tests.factories import CourseStructureFactory
 from courses.tests.utils import CREATED_DATETIME_STRING
@@ -25,7 +26,7 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                 part_id = '{}_1_2'.format(_id)
                 correct_percent = 1.0
                 if problem_index == 0:
-                    correct_percent = 0
+                    correct_percent = 0.0
                 url_template = '/courses/{}/performance/graded_content/assignments/{}/problems/' \
                                '{}/parts/{}/answer_distribution/'
                 problems.append({

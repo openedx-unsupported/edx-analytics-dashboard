@@ -1,11 +1,11 @@
 import copy
+from datetime import datetime
 import json
 import logging
 import re
 
 from braces.views import LoginRequiredMixin
 from ccx_keys.locator import CCXLocator
-from datetime import datetime
 from django.conf import settings
 from django.core.cache import cache
 from django.core.exceptions import PermissionDenied
@@ -518,6 +518,7 @@ class CourseHome(CourseTemplateWithNavView):
 
         return items
 
+    # pylint: disable=redefined-variable-type
     def get_context_data(self, **kwargs):
         context = super(CourseHome, self).get_context_data(**kwargs)
         context.update({
@@ -598,8 +599,8 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LazyEnco
             # The user is probably not a course administrator and should not be using this application.
             raise PermissionDenied
 
-        courses = self._create_course_list(courses)
-        context['courses'] = courses
+        courses_list = self._create_course_list(courses)
+        context['courses'] = courses_list
         context['page_data'] = self.get_page_data(context)
 
         return context
