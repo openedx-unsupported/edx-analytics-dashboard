@@ -1,12 +1,12 @@
 # pylint: disable=no-value-for-parameter
 
+from django.conf import settings
 from django.conf.urls import url, patterns, include
 
 from courses import views
 from courses.views import enrollment, engagement, performance, csv
 
 CONTENT_ID_PATTERN = r'(?P<content_id>(?:i4x://?[^/]+/[^/]+/[^/]+/[^@]+(?:@[^/]+)?)|(?:[^/]+))'
-COURSE_ID_PATTERN = r'(?P<course_id>[^/+]+[/+][^/+]+[/+][^/]+)'
 PROBLEM_PART_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'problem_part_id')
 ASSIGNMENT_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'assignment_id')
 PROBLEM_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'problem_id')
@@ -114,5 +114,5 @@ COURSE_URLS = patterns(
 urlpatterns = patterns(
     '',
     url('^$', views.CourseIndex.as_view(), name='index'),
-    url(r'^{}/'.format(COURSE_ID_PATTERN), include(COURSE_URLS))
+    url(r'^{}/'.format(settings.COURSE_ID_PATTERN), include(COURSE_URLS))
 )
