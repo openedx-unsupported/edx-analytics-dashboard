@@ -21,6 +21,7 @@ js_info_dict = {
 urlpatterns = patterns(
     '',
     url(r'^$', views.LandingView.as_view(), name='landing'),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^jsi18n/$', 'django.views.i18n.javascript_catalog', js_info_dict),
     url(r'^status/$', views.status, name='status'),
     url(r'^health/$', views.health, name='health'),
@@ -34,6 +35,7 @@ urlpatterns = patterns(
     url(r'^accounts/logout_then_login/$', views.logout_then_login, name='logout_then_login'),
     url(r'^test/auto_auth/$', views.AutoAuth.as_view(), name='auto_auth'),
     url(r'^announcements/', include('announcements.urls')),
+    url(r'^api/learner_analytics/', include('learner_analytics_api.urls', namespace='learner_analytics')),
 )
 
 if settings.DEBUG:  # pragma: no cover
