@@ -34,6 +34,7 @@ urlpatterns = patterns(
     url(r'^accounts/logout_then_login/$', views.logout_then_login, name='logout_then_login'),
     url(r'^test/auto_auth/$', views.AutoAuth.as_view(), name='auto_auth'),
     url(r'^announcements/', include('announcements.urls')),
+    url(r'^api/learner_analytics/', include('learner_analytics_api.urls')),
 )
 
 if settings.DEBUG:  # pragma: no cover
