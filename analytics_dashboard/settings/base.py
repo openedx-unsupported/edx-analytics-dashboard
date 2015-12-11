@@ -233,8 +233,12 @@ LOCAL_APPS = (
     'soapbox',
 )
 
+THIRD_PARTY_APPS = (
+    'rest_framework',
+)
+
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
-INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
+INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 ########## END APP CONFIGURATION
 
 
@@ -439,3 +443,19 @@ MODULE_PREVIEW_URL = None
 ANALYTICS_API_DEFAULT_TIMEOUT = 5
 LMS_DEFAULT_TIMEOUT = 5
 ########## END EXTERNAL SERVICE TIMEOUTS
+
+########## REST FRAMEWORK CONFIGURATION
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
+}
+########## END REST FRAMEWORK CONFIGURATION
+
+########## COURSE_ID_PATTERN
+# Regex used to capture course_ids from URLs
+COURSE_ID_PATTERN = r'(?P<course_id>[^/+]+[/+][^/+]+[/+][^/]+)'
+########## END COURSE_ID_PATTERN
