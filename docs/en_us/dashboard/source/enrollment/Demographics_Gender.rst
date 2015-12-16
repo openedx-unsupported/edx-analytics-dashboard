@@ -20,10 +20,10 @@ Gaining Insight into Student Gender
 ********************************************
 
 Students can identify themselves with a gender by selecting **Female**,
-**Male**, or **Other** when they register for an account on edx.org or
-edge.edx.org. Student gender data is provided in a chart and a report that you
-can view or download. Descriptions follow; for detailed information about the
-computations, see
+**Male**, or **Other/Prefer Not to Say** when they register for an account on
+edx.org or edge.edx.org. Student gender data is provided in a chart and a
+report that you can view or download. Descriptions follow; for detailed
+information about the computations, see
 :ref:`Reference`.
 
 ======================================
@@ -31,9 +31,9 @@ Self-Reported Student Gender Chart
 ======================================
 
 The bars on this chart represent the most recently calculated percentage of
-enrolled learners who reported a gender of **Female**, **Male**, or **Other**.
-Moving your cursor over the chart shows the percentage for that gender,
-calculated to one decimal place.
+enrolled learners who reported a gender of **Female**, **Male**, or
+**Other/Prefer Not to Say**. Moving your cursor over the chart shows the
+percentage for each selection, calculated to one decimal place.
 
 Student gender data is also available for review in tabular format and can be
 downloaded.

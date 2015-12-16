@@ -219,8 +219,8 @@ For information about viewing student demographic data in edX Insights, see
      * - Band
        - Student Response
      * - High school diploma or less
-       - None, Elementary/primary school, Junior secondary/junior high/middle
-         school, Secondary/high school
+       - No Formal Education, Elementary/primary school, Junior
+         secondary/junior high/middle school, Secondary/high school
      * - College Degree
        - Associate degree, Bachelor's degree
      * - Advanced Degree
@@ -233,7 +233,7 @@ For information about viewing student demographic data in edX Insights, see
 **Gender chart and report**
 
 * Students can select a gender. The chart depicts the percentage of students
-  who selected each choice (Female, Male, Other).
+  who selected each choice (Female, Male, Other/Prefer Not to Say).
 
 * The chart only includes students who reported their genders. The percentages
   shown in the chart are computed for currently enrolled students who did
