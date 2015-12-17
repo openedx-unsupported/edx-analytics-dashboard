@@ -11,5 +11,5 @@ urlpatterns = patterns(
     url(r'^learners/{}/$'.format(USERNAME_PATTERN), views.LearnerDetailView.as_view()),
     url(r'^learners/$', views.LearnerListView.as_view()),
     url(r'^engagement_timelines/{}/$'.format(USERNAME_PATTERN), views.EngagementTimelinesView.as_view()),
-    url(r'^course_learner_metadata/{}/$'.format(COURSE_ID_PATTERN), views.CourseLearnerMetadata.as_view()),
+    url(r'^course_learner_metadata/{}/$'.format(COURSE_ID_PATTERN), views.CourseLearnerMetadataView.as_view()),
 )

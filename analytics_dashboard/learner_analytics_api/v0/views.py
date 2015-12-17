@@ -1,38 +1,111 @@
-from rest_framework import generics
+import json
 
-from django.http import HttpResponse
+from rest_framework.exceptions import PermissionDenied
+from rest_framework.generics import RetrieveAPIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 
+from .permissions import HasCourseAccessPermission
 from .utils import LearnerAPIClient
 
 
-# LEARNER API VIEWS
-# TODO: caching?
-# TODO: authenticate? or is it just already done?
-class BaseLearnerApiView(generics.RetrieveAPIView):
+# TODO: Consider caching responses from the data api when working on AN-6157
+class BaseLearnerApiView(RetrieveAPIView):
+    permission_classes = (IsAuthenticated, HasCourseAccessPermission,)
+
     def __init__(self, *args, **kwargs):
         super(BaseLearnerApiView, self).__init__(*args, **kwargs)
         self.client = LearnerAPIClient()
 
+    def get_queryset(self):
+        """
+        DRF requires that we override this method.  Since we don't actually use
+        querysets/django models in this API, this method doesn't have to return
+        anything.
+        """
+        pass
 
-class LearnerDetailView(BaseLearnerApiView):
+    @property
+    def course_id(self):
+        """
+        Gets the course_id either from the URL or the querystring parameters.
+        """
+        course_id = getattr(self.request, 'course_id')
+        if not course_id:
+            course_id = self.request.query_params.get('course_id')
+        return course_id
+
+    def get(self, request, api_response, *args, **kwargs):
+        """Return the same response as the one from the Data API."""
+        return Response(
+            json.loads(api_response.content),
+            status=api_response.status_code,
+            headers=api_response.headers,
+        )
+
+
+class NotFoundLearnerApiViewMixin(object):
+    """
+    Returns 404s rather than 403s when PermissionDenied exceptions are raised.
+    """
+    not_found_developer_message = ''
+    not_found_error_code = ''
+
+    def handle_exception(self, exc):
+        if isinstance(exc, PermissionDenied):
+            return Response(
+                data={'developer_message': self.not_found_developer_message, 'error_code': self.not_found_error_code},
+                status=404
+            )
+        return super(NotFoundLearnerApiViewMixin, self).handle_exception(exc)
+
+class LearnerDetailView(NotFoundLearnerApiViewMixin, BaseLearnerApiView):
+    """
+    Forwards requests to the Learner Analytics API's Learner Detail endpoint.
+    """
+    not_found_error_code = 'no_learner_for_course'
+    @property
+    def not_found_developer_message(self):
+        message = 'Learner {} not found'.format(self.kwargs.get('username', ''))
+        message += 'for course {}.'.format(self.course_id) if self.course_id else '.'
+        return message
+
     def get(self, request, username, **kwargs):
-        kwargs.update(request.query_params)
-        return HttpResponse(self.client.learners(username).get(**kwargs))
+        return super(LearnerDetailView, self).get(request, self.client.learners(username).get(**request.query_params))
 
 
 class LearnerListView(BaseLearnerApiView):
+    """
+    Forwards requests to the Learner Analytics API's Learner List endpoint.
+    """
     def get(self, request, **kwargs):
-        kwargs.update(request.query_params)
-        return HttpResponse(self.client.learners.get(**kwargs))
+        return super(LearnerListView, self).get(request, self.client.learners.get(**request.query_params))
 
 
-class EngagementTimelinesView(BaseLearnerApiView):
+class EngagementTimelinesView(NotFoundLearnerApiViewMixin, BaseLearnerApiView):
+    """
+    Forwards requests to the Learner Analytics API's Engagement Timeline
+    endpoint.
+    """
+    not_found_error_code = 'no_learner_engagement_timeline'
+
+    @property
+    def not_found_developer_message(self):
+        message = 'Learner {} engagement timeline not found'.format(self.kwargs.get('username', ''))
+        message += 'for course {}.'.format(self.course_id) if self.course_id else '.'
+        return message
+
     def get(self, request, username, **kwargs):
-        kwargs.update(request.query_params)
-        return HttpResponse(self.client.engagement_timelines(username).get(**kwargs))
+        return super(EngagementTimelinesView, self).get(
+            request, self.client.engagement_timelines(username).get(**request.query_params)
+        )
 
 
-class CourseLearnerMetadata(BaseLearnerApiView):
+class CourseLearnerMetadataView(BaseLearnerApiView):
+    """
+    Forwards requests to the Learner Analytics API's Course Metadata endpoint.
+    """
     def get(self, request, course_id, **kwargs):
-        kwargs.update(request.query_params)
-        return HttpResponse(self.client.course_learner_metadata(course_id).get(**kwargs))
+        return super(CourseLearnerMetadataView, self).get(
+            request, self.client.course_learner_metadata(course_id).get(**request.query_params)
+        )
