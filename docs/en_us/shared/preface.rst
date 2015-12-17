@@ -42,6 +42,10 @@ Portal, follow these steps.
 #. Select **Create New Account**. You will receive a confirmation email with
    your account access within 24 hours.
 
+After you create an account, you can sign up to receive email updates about edX
+releases, news from the product team, and other announcements. For more
+information, see :ref:`Release Announcements through the Open edX Portal`.
+
 ===============================================
 Course Team Support in the edX Partner Portal
 ===============================================
@@ -77,25 +81,23 @@ steps.
 
 .. _Release Announcements through the Open edX Portal:
 
-***************************************************
-Release Announcements through the Open edX Portal
-***************************************************
+===============================
+Release Announcements by Email
+===============================
 
-To receive and share product and release announcements by email, subscribe to
-announcements on the `Open edX Portal`_.
+To receive and share product and release announcements by email, you can
+subscribe to announcements on one of the edX portal sites.
 
-#. Create an account on the `Open edX Portal`_ as described above.
-#. Go to https://open.edx.org/announcements.
-#. Under **Announcement Type** in the **Subscriptions** block, select the type
-   of announcements that you want to receive through email.
+#. Create an account on the `Open edX Portal`_ or the  `edX Partner Portal`_ as
+   described above.
+#. Select **Community** and then **Announcements**.
+#. Under **Subscriptions**, select the different types of announcements that
+   you want to receive through email. You might need to scroll down to see
+   these options.
 #. Select **Save**.
 
 You will now receive email messages when new announcements of the types you
 selected are posted.
-
-.. note::
- EdX partners can complete the same steps on the **Announcements** page in the
- `edX Partner Portal`_.
 
 ***********************
 System Status
@@ -126,6 +128,14 @@ The `edX101`_ course was built in Studio and is available for enrollment on
 edx.org. This course takes one to two hours to complete, and is designed to
 provide a high-level overview of the course creation and delivery process. It
 also highlights the extensive capabilities of the edX platform.
+
+=============================================
+StudioX: Creating a Course with edX Studio
+=============================================
+
+After you complete edX101, `StudioX`_ provides more detail about using Studio
+to create a course, add different types of content, and configure your course
+to provide an optimal on-line learning experience.
 
 ==============
 Documentation
@@ -441,6 +451,7 @@ edX Global Community meetup_ group.
 .. _dashboard: http://dash.openedx.org/age.html
 .. _docs@edx.org: docs@edx.org
 .. _edx101: https://www.edx.org/course/overview-creating-edx-course-edx-edx101#.VIIJbWTF_yM
+.. _StudioX: https://www.edx.org/course/creating-course-edx-studio-edx-studiox#.VRLYIJPF8kR
 .. _Demo: http://www.edx.org/course/edx/edx-edxdemo101-edx-demo-1038
 .. _edX Partner Support: https://partners.edx.org/edx_zendesk
 .. _edx-code: http://groups.google.com/forum/#!forum/edx-code
