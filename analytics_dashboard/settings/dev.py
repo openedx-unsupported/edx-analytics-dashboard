@@ -93,3 +93,10 @@ LOGGING = get_logger_config(debug=DEBUG, dev_env=True, local_loglevel='DEBUG')
 ########## MODULE_PREVIEW
 MODULE_PREVIEW_URL = 'http://127.0.0.1:8000/xblock'
 ########## END MODULE_PREVIEW
+
+########## REST FRAMEWORK CONFIGURATION
+REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = (
+    'rest_framework.renderers.JSONRenderer',
+    'rest_framework.renderers.BrowsableAPIRenderer',
+)
+########## END REST FRAMEWORK CONFIGURATION
