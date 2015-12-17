@@ -16,9 +16,6 @@ script:
     - make generate_fake_translations
     - make accept
     - make a11y
-branches:
-    only:
-      - master
 after_success:
     - coveralls
     - bash ./scripts/build-stats-to-datadog.sh
