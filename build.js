@@ -67,6 +67,10 @@
         {
             name: 'js/performance-answer-distribution-main',
             exclude: ['js/common']
+        },
+        {
+            name: 'js/learners-main',
+            exclude: ['js/common']
         }
     ]
 })
