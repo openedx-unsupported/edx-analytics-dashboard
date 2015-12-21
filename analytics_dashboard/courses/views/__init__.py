@@ -298,6 +298,12 @@ class CourseNavBarMixin(object):
                 'view': 'courses:performance:graded_content',
                 'icon': 'fa-check-square-o',
                 'switch': 'enable_course_api',
+            },
+            {
+                'name': 'learners',
+                'label': _('Learners'),
+                'view': 'courses:learners:learners',
+                'icon': 'fa-users',
             }
 
         ]
@@ -515,6 +521,32 @@ class CourseHome(CourseTemplateWithNavView):
                     }
                 ]
             })
+
+        items.append({
+            'name': _('Learners'),
+            'icon': 'fa-users',
+            'heading': _('What are individual learners doing?'),
+            'items': [
+                {
+                    'title': _('Who has been active recently?'),
+                    'view': 'courses:learners:learners',  # TODO: map this to the actual action in AN-6205
+                    # TODO: what would the breadcrumbs be?
+                    'breadcrumbs': [_('TODO: what is this?')]
+                },
+                {
+                    'title': _('Who is most engaged in the discussions?'),
+                    'view': 'courses:learners:learners',  # TODO: map this to the actual action in AN-6205
+                    # TODO: what would the breadcrumbs be?
+                    'breadcrumbs': [_('TODO: what is this?')]
+                },
+                {
+                    'title': _("Who hasn't watched videos recently?"),
+                    'view': 'courses:learners:learners',  # TODO: map this to the actual action in AN-6205
+                    # TODO: what would the breadcrumbs be?
+                    'breadcrumbs': [_('TODO: what is this?')]
+                }
+            ]
+        })
 
         return items
 
