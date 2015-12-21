@@ -301,6 +301,16 @@ class CoursePerformanceAnswerDistributionPage(CoursePage):
                self.browser.title.startswith('Performance: Problem Submissions')
 
 
+class CourseLearnersPage(CoursePage):
+    def __init__(self, browser, course_id=None):
+        super(CourseLearnersPage, self).__init__(browser, course_id)
+        self.page_url += '/learners/'
+
+    def is_browser_on_page(self):
+        return super(CourseLearnersPage, self).is_browser_on_page() \
+            and self.browser.title.startswith('Learners')
+
+
 class ErrorPage(DashboardPage):
     error_code = None
     error_title = None

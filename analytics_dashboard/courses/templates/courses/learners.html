@@ -1,0 +1,18 @@
+{% extends "courses/base-course.html" %}
+
+{% load rjs %}
+
+{% comment %}
+View of individual learners within a course.
+{% endcomment %}
+
+{% block javascript %}
+  {{ block.super }}
+  <script src="{% static_rjs 'js/learners-main.js' %}"></script>
+{% endblock javascript %}
+
+{% block child_content %}
+    <div class="learners-app-container">
+        <p>TODO: put the app here!</p>
+    </div>
+{% endblock %}
