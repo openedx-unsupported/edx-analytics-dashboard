@@ -30,7 +30,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Using edX Insights'
-copyright = u'2015, edX'
+copyright = u'2016, edX'
 
 # The short X.Y version.
 version = ''
