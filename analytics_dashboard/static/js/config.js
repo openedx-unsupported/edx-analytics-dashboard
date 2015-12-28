@@ -31,7 +31,7 @@ require.config({
         globalize: 'bower_components/globalize/dist/globalize',
         globalization: 'js/utils/globalization',
         collapsible: 'bower_components/edx-ui-toolkit/components/views/collapsible-view',
-        marionette: 'bower_components/marionette/lib/backbone.marionette.min'
+        marionette: 'bower_components/marionette/lib/core/backbone.marionette.min'
     },
     wrapShim: true,
     shim: {
