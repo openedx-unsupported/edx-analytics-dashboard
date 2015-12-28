@@ -26,6 +26,11 @@ module.exports = function (config) {
             'analytics_dashboard/static/js/test/spec-runner.js'
         ],
 
+        exclude: [
+            // Don't run library unit tests
+            'analytics_dashboard/static/bower_components/**/spec/**/*.js',
+            'analytics_dashboard/static/bower_components/**/test/**/*.js'
+        ],
 
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
