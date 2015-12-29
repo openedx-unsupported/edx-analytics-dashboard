@@ -1,4 +1,5 @@
 # pylint: disable=no-value-for-parameter
+from waffle import switch_is_active
 
 from django.conf import settings
 from django.conf.urls import url, patterns, include
@@ -114,8 +115,10 @@ COURSE_URLS = patterns(
     url(r'^engagement/', include(ENGAGEMENT_URLS, namespace='engagement')),
     url(r'^performance/', include(PERFORMANCE_URLS, namespace='performance')),
     url(r'^csv/', include(CSV_URLS, namespace='csv')),
-    url(r'^learners/', include(LEARNER_URLS, namespace='learners')),
 )
+
+if switch_is_active('enable_learner_analytics'):
+    COURSE_URLS += patterns('', url(r'^learners/', include(LEARNER_URLS, namespace='learners')))
 
 urlpatterns = patterns(
     '',

@@ -1,7 +1,10 @@
 from hashlib import md5
 
+from waffle import switch_is_active
+
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.http import Http404
 
 from common import clients
 
@@ -30,3 +33,19 @@ class CourseStructureApiClient(clients.CourseStructureApiClient):
     """
     def __init__(self, url, access_token, timeout=settings.LMS_DEFAULT_TIMEOUT):
         super(CourseStructureApiClient, self).__init__(url, access_token=access_token, timeout=timeout)
+
+
+def feature_flagged(feature_flag):
+    """
+    A decorator for class-based views which should throw 404s when a
+    waffle flag is not enabled.
+    """
+    def decorator(cls):
+        def dispatch(self, request, *args, **kwargs):
+            if not switch_is_active(feature_flag):
+                raise Http404
+            else:
+                return super(cls, self).dispatch(request, *args, **kwargs)
+        cls.dispatch = dispatch
+        return cls
+    return decorator

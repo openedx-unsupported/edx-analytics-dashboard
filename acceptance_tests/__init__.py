@@ -75,3 +75,6 @@ if ENABLE_COURSE_API and not (COURSE_API_URL and COURSE_API_KEY):
 
 # Video preview
 ENABLE_VIDEO_PREVIEW = str2bool(os.environ.get('ENABLE_VIDEO_PREVIEW', False))
+
+# Learner analytics
+ENABLE_LEARNER_ANALYTICS = str2bool(os.environ.get('ENABLE_LEARNER_ANALYTICS', False))
