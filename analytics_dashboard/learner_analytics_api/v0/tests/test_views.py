@@ -8,10 +8,11 @@ from django.test import TestCase
 
 from core.tests.test_views import UserTestCaseMixin
 from courses.tests.test_views import PermissionsTestMixin
+from courses.tests import SwitchMixin
 
 
 @ddt.ddt
-class LearnerAPITestMixin(UserTestCaseMixin, PermissionsTestMixin):
+class LearnerAPITestMixin(UserTestCaseMixin, PermissionsTestMixin, SwitchMixin):
     """
     Provides test cases and helper methods for learner analytics api test
     classes.
@@ -32,6 +33,10 @@ class LearnerAPITestMixin(UserTestCaseMixin, PermissionsTestMixin):
     required_query_params = {}
     no_permissions_status_code = None
 
+    @classmethod
+    def setUpClass(cls):
+        cls.toggle_switch('enable_learner_analytics', True)
+
     def assert_response_equals(self, response, expected_status_code, expected_body=None):
         self.assertEqual(response.status_code, expected_status_code)
         if expected_body is not None:
@@ -45,6 +50,11 @@ class LearnerAPITestMixin(UserTestCaseMixin, PermissionsTestMixin):
         self.login()
         response = self.client.get('/api/learner_analytics/v0' + self.endpoint, self.required_query_params)
         self.assert_response_equals(response, self.no_permissions_status_code)
+
+    def test_feature_flagged_off(self):
+        self.toggle_switch('enable_learner_analytics', False)
+        response = self.client.get('/api/learner_analytics/v0' + self.endpoint, self.required_query_params)
+        self.assertEqual(response.status_code, 404)
 
     @ddt.data((200, {'test': 'value'}), (400, {'a': 'b', 'c': 'd'}), (500, {}))
     @ddt.unpack
