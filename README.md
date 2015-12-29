@@ -8,7 +8,7 @@ Prerequisites
 -------------
 * Python 2.7.x (not tested with Python 3.x)
 * [gettext](http://www.gnu.org/software/gettext/)
-* [npm](https://www.npmjs.org/) 
+* [npm](https://www.npmjs.org/)
 * [JDK 7+](http://openjdk.java.net/)
 
 Getting Started
@@ -50,27 +50,28 @@ details on utilizing features in code and templates.
 
 The following switches are available:
 
-| Switch                            | Purpose                                                  |
-|-----------------------------------|----------------------------------------------------------|
-| show_engagement_forum_activity    | Show the forum activity on the course engagement page    |
-| enable_course_api                 | Retrieve course details from the course API              |
-| enable_ccx_courses                | Display CCX Courses in the course listing page.          |
-| enable_engagement_videos_pages    | Enable engagement video pages.                           |
-| enable_video_preview              | Enable video preview.                                    |
-| display_names_for_course_index    | Display course names on course index page.               |
-| display_course_name_in_nav        | Display course name in navigation bar.                   |
+| Switch                         | Purpose                                               |
+|--------------------------------+-------------------------------------------------------|
+| show_engagement_forum_activity | Show the forum activity on the course engagement page |
+| enable_course_api              | Retrieve course details from the course API           |
+| enable_ccx_courses             | Display CCX Courses in the course listing page.       |
+| enable_engagement_videos_pages | Enable engagement video pages.                        |
+| enable_video_preview           | Enable video preview.                                 |
+| display_names_for_course_index | Display course names on course index page.            |
+| display_course_name_in_nav     | Display course name in navigation bar.                |
+| enable_learner_analytics       | Enable Learner Analytics app and API                  |
 
 Authentication & Authorization
 ------------------------------
-By default, this application relies on an external OAuth2/Open ID Connect provider 
-(contained within the [LMS](https://github.com/edx/edx-platform)) for authentication and authorization. If you are a 
+By default, this application relies on an external OAuth2/Open ID Connect provider
+(contained within the [LMS](https://github.com/edx/edx-platform)) for authentication and authorization. If you are a
 developer, and do not want to setup edx-platform, you can get around this requirement by doing the following:
 
 1. Set `ENABLE_AUTO_AUTH` to `True` in your settings file. (This is the default value in `settings/local.py`).
 2. Set `ENABLE_COURSE_PERMISSIONS` to `False` in your settings file.
 3. Visit `http://localhost:9000/test/auto_auth/` to create and login as a new user.
 
-Note: When using Open ID Connect, the dashboard and provider must be accessed via different host names 
+Note: When using Open ID Connect, the dashboard and provider must be accessed via different host names
 (e.g. dashboard.example.org and provider.example.org) in order to avoid issues with session cookies being overwritten.
 
 Note 2: Seeing signature expired errors upon login? Make sure the clocks of your dashboard and OAuth servers are synced
@@ -83,23 +84,23 @@ In order to work with translations you must have you must have [gettext](http://
  should be available via your preferred package manager (e.g. `yum`, `apt-get`, `brew`, or `ports`).
 ###Development###
 When adding or updating code, you should ensure all necessary strings are marked for translation. We have provided a
-command that will generate dummy translations to help with this. This will create an "Esperanto" translation that is 
+command that will generate dummy translations to help with this. This will create an "Esperanto" translation that is
 actually over-accented English.
 
         $ make generate_fake_translations
 
-Restart your server after running the command above and update your browser's language preference to Esperanto (eo). 
-Navigate to a page and verify that you see fake translations. If you see plain English instead, your code is not being 
+Restart your server after running the command above and update your browser's language preference to Esperanto (eo).
+Navigate to a page and verify that you see fake translations. If you see plain English instead, your code is not being
 properly translated.
 
 ###Updating Translations###
 Once development is complete, translation source files (.po) must be generated. The command below handle this.
 
         $ cd analytics_dashboard && i18n_tool extract
-        
-The generated files located in `analytics_dashboard/conf/locale/en/LC_MESSAGES` should be uploaded to 
+
+The generated files located in `analytics_dashboard/conf/locale/en/LC_MESSAGES` should be uploaded to
 the [analytics-dashboard](https://www.transifex.com/projects/p/edx-platform/resource/analytics-dashboard/) and
-[analytics-dashboard-js](https://www.transifex.com/projects/p/edx-platform/resource/analytics-dashboard-js/) resources 
+[analytics-dashboard-js](https://www.transifex.com/projects/p/edx-platform/resource/analytics-dashboard-js/) resources
 at Transifex where translators will begin the translation process. This task can be completed using the [Transifex
 Client](http://docs.transifex.com/developer/client/):
 
@@ -121,7 +122,7 @@ Asset Pipeline
 --------------
 Static files are managed via [django-compressor](http://django-compressor.readthedocs.org/) and [RequireJS](http://requirejs.org/).
 RequireJS (and r.js) are used to manage JavaScript dependencies. django-compressor compiles SASS, minifies JavaScript (
-using [Closure Compiler](https://developers.google.com/closure/compiler/)), and handles naming files to facilitate 
+using [Closure Compiler](https://developers.google.com/closure/compiler/)), and handles naming files to facilitate
 cache busting during deployment.
 
 Both tools should operate seamlessly in a local development environment. When deploying to production, call
@@ -174,7 +175,7 @@ The complete unit test and quality suite can be run with:
 
         $ make validate
 
-The Python portion of this project uses `nose` to find and run tests. `pep8` and `pylint` are used to verify code 
+The Python portion of this project uses `nose` to find and run tests. `pep8` and `pylint` are used to verify code
 quality. All three can be run with the command below:
 
         $ make validate_python
@@ -183,10 +184,10 @@ quality. All three can be run with the command below:
 JavaScript tests and linting can be run with the following command:
 
         $ make validate_js
-        
+
 #### Continuous Integration (CI) Reports
-The commands above will generate coverage reports the `build` directory. Python reports are located in `build/coverage`. 
- JavaScript reports are in `build/coverage-js`. Both should have a [Cobertura](http://cobertura.github.io/cobertura/) 
+The commands above will generate coverage reports the `build` directory. Python reports are located in `build/coverage`.
+ JavaScript reports are in `build/coverage-js`. Both should have a [Cobertura](http://cobertura.github.io/cobertura/)
  `coverage.xml` file and an `html` directory with a human-readable HTML site.
 
 
@@ -240,5 +241,5 @@ Please do not report security issues in public. Please email security@edx.org.
 
 Mailing List and IRC Channel
 ----------------------------
-You can discuss this code on the [edx-code Google Group](https://groups.google.com/forum/#!forum/edx-code) or in the 
+You can discuss this code on the [edx-code Google Group](https://groups.google.com/forum/#!forum/edx-code) or in the
 `edx-code` IRC channel on Freenode.
