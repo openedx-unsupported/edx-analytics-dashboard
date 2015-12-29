@@ -19,6 +19,7 @@ export LMS_USERNAME=user
 export ENABLE_AUTO_AUTH=True
 export ENABLE_OAUTH_TESTS=False
 export ENABLE_ERROR_PAGE_TESTS=False
+export ENABLE_LEARNER_ANALYTICS=True
 
 echo "Migrating Analytics Dashboard DB..."
 make migrate
@@ -28,6 +29,9 @@ cd edx-analytics-data-api/
 make travis
 cd -
 mkdir -p logs
+
+echo "Enabling waffle flags..."
+./manage.py switch enable_learner_analytics on --create
 
 echo "Starting Analytics Data API Server..."
 ./edx-analytics-data-api/manage.py runserver 9001 --noreload > logs/api.log 2>&1 &
