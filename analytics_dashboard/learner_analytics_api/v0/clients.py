@@ -21,6 +21,8 @@ class LearnerApiResource(Resource):
     Learner Analytics API to the browser.
     """
     def _request(self, *args, **kwargs):
+        # Doesn't hide 400s and 500s, however timeouts will still
+        # raise a requests.exceptions.ConnectTimeout.
         try:
             response = super(LearnerApiResource, self)._request(*args, **kwargs)
         except exceptions.SlumberHttpBaseException as e:

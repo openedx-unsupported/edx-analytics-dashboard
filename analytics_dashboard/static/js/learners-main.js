@@ -1,3 +1,0 @@
-require([], function () {
-    'use strict';
-});
