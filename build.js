@@ -69,7 +69,7 @@
             exclude: ['js/common']
         },
         {
-            name: 'js/learners-main',
+            name: 'js/learners-app',
             exclude: ['js/common']
         }
     ]
