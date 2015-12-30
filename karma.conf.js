@@ -19,11 +19,13 @@ module.exports = function (config) {
             {pattern: 'analytics_dashboard/static/bower_components/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/bower_components/**/*.json', included: false},
             {pattern: 'analytics_dashboard/static/js/models/**/*.js', included: false},
+            {pattern: 'analytics_dashboard/static/js/collections/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/js/views/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/js/utils/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/js/test/specs/*.js', included: false},
             'analytics_dashboard/static/js/config.js',
-            'analytics_dashboard/static/js/test/spec-runner.js'
+            'analytics_dashboard/static/js/test/spec-runner.js',
+            './node_modules/phantomjs-polyfill/bind-polyfill.js' // Implements Function.prototype.bind for PhantomJS
         ],
 
         exclude: [

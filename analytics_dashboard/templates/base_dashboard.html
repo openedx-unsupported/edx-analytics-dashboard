@@ -84,8 +84,11 @@
     {% endcompress %}
 
 
+    {# Note: These blocks are purposely separated from the one above so that browsers cache the common JS instead of downloading a single, large file for each page. #}
+    {# The 'uncompressed_javascript' block should be used for small scripts that do not need to block the page load.  It's useful for factory javascript used to dynamically pass server data to the front via django templating, which does not work with offline compression. #}
+    {% block uncompressed_javascript %}
+    {% endblock uncompressed_javascript %}
     {% compress js %}
-      {# Note: This block is purposely separated from the one above so that browsers cache the common JS instead of downloading a single, large file for each page. #}
       {% block javascript %}
       {% endblock javascript %}
     {% endcompress %}

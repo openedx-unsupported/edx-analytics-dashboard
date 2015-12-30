@@ -2,6 +2,8 @@ import json
 
 import ddt
 import httpretty
+import mock
+from requests.exceptions import ConnectTimeout
 
 from django.conf import settings
 from django.test import TestCase
@@ -55,6 +57,13 @@ class LearnerAPITestMixin(UserTestCaseMixin, PermissionsTestMixin, SwitchMixin):
         self.toggle_switch('enable_learner_analytics', False)
         response = self.client.get('/api/learner_analytics/v0' + self.endpoint, self.required_query_params)
         self.assertEqual(response.status_code, 404)
+
+    @mock.patch('learner_analytics_api.v0.clients.LearnerApiResource._request', mock.Mock(side_effect=ConnectTimeout))
+    def test_timeout(self):
+        self.login()
+        self.grant_permission(self.user, 'edX/DemoX/Demo_Course')
+        response = self.client.get('/api/learner_analytics/v0' + self.endpoint, self.required_query_params)
+        self.assertEqual(response.status_code, 504)
 
     @ddt.data((200, {'test': 'value'}), (400, {'a': 'b', 'c': 'd'}), (500, {}))
     @ddt.unpack
