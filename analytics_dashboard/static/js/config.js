@@ -10,9 +10,13 @@ require.config({
         jquery: 'bower_components/jquery/dist/jquery',
         underscore: 'bower_components/underscore/underscore',
         backbone: 'bower_components/backbone/backbone',
+        'backbone.paginator': 'bower_components/backbone.paginator/lib/backbone.paginator.min',
+        'backbone.wreqr': 'bower_components/backbone.wreqr/lib/backbone.wreqr.min',
+        'backbone.babysitter': 'bower_components/backbone.babysitter/lib/backbone.babysitter.min',
         bootstrap: 'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap',
         bootstrap_accessibility: 'bower_components/bootstrapaccessibilityplugin/plugins/js/bootstrap-accessibility',
         models: 'js/models',
+        collections: 'js/collections',
         views: 'js/views',
         utils: 'js/utils',
         load: 'js/load',
@@ -31,7 +35,13 @@ require.config({
         globalize: 'bower_components/globalize/dist/globalize',
         globalization: 'js/utils/globalization',
         collapsible: 'bower_components/edx-ui-toolkit/components/views/collapsible-view',
-        marionette: 'bower_components/marionette/lib/core/backbone.marionette.min'
+        marionette: 'bower_components/marionette/lib/core/backbone.marionette.min',
+        components: 'bower_components/edx-ui-toolkit/components',
+        // URI and its dependencies
+        URI: 'bower_components/uri.js/src/URI',
+        IPv6: 'bower_components/uri.js/src/IPv6',
+        punycode: 'bower_components/uri.js/src/punycode',
+        SecondLevelDomains: 'bower_components/uri.js/src/SecondLevelDomains'
     },
     wrapShim: true,
     shim: {
