@@ -289,8 +289,6 @@ SEGMENT_IGNORE_EMAIL_REGEX = None
 ########## FEEDBACK AND SUPPORT -- These values should be overridden for production deployments.
 FEEDBACK_EMAIL = 'override.this.email@example.com'
 SUPPORT_EMAIL = 'support@example.com'
-PRIVACY_POLICY_URL = 'http://example.com/'
-TERMS_OF_SERVICE_URL = 'http://example.com/'
 HELP_URL = None
 ########## END FEEDBACK
 
@@ -439,3 +437,19 @@ MODULE_PREVIEW_URL = None
 ANALYTICS_API_DEFAULT_TIMEOUT = 5
 LMS_DEFAULT_TIMEOUT = 5
 ########## END EXTERNAL SERVICE TIMEOUTS
+
+_ = lambda s: s
+
+########## LINKS THAT SHOULD BE SHOWN IN FOOTER
+# Example:
+# FOOTER_LINKS = (
+#     {'url': 'https://www.edx.org', 'text': 'About edX', 'data_role': None},
+#     {'url': 'https://www.edx.org/contact-us', 'text': 'Contact Us', 'data_role': None},
+#     {'url': 'http://example.com', 'text': 'Terms of Service', 'data_role': 'tos'},
+#     {'url': 'http://example.com', 'text': 'Privacy Policy', 'data_role': 'privacy-policy'},
+# )
+FOOTER_LINKS = (
+    {'url': 'http://example.com/', 'text': _('Terms of Service'), 'data_role': 'tos'},
+    {'url': 'http://example.com/', 'text': _('Privacy Policy'), 'data_role': 'privacy-policy'},
+)
+########## END LINKS THAT SHOULD BE SHOWN IN FOOTER

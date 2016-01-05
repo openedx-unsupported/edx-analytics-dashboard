@@ -24,13 +24,14 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-6 col-md-6">
-          <a href="{{ terms_of_service_url }}" target="_blank" data-role="tos">
-            {% blocktrans %}Terms of Service{% endblocktrans %}
-          </a>
-          &nbsp;
-          <a href="{{ privacy_policy_url }}" target="_blank" data-role="privacy-policy">
-            {% blocktrans %}Privacy Policy{% endblocktrans %}
-          </a>
+          {% if footer_links %}
+            {% for link in footer_links %}
+            <a href="{{ link.url }}" target="_blank" {% if link.data_role %}data-role="{{ link.data_role }}"{% endif %}>
+              {% trans link.text %}
+            </a>
+            &nbsp;
+            {% endfor %}
+          {% endif %}
         </div>
         <div class="col-xs-6 col-md-6 text-right">
           {% captureas current_year %}{% now "Y" %}{% endcaptureas %}
