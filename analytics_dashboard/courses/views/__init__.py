@@ -298,6 +298,13 @@ class CourseNavBarMixin(object):
                 'view': 'courses:performance:graded_content',
                 'icon': 'fa-check-square-o',
                 'switch': 'enable_course_api',
+            },
+            {
+                'name': 'learners',
+                'label': _('Learners'),
+                'view': 'courses:learners:learners',
+                'icon': 'fa-users',
+                'switch': 'enable_learner_analytics'
             }
 
         ]
@@ -512,6 +519,33 @@ class CourseHome(CourseTemplateWithNavView):
                         'title': _('How are students doing on ungraded exercises?'),
                         'view': 'courses:performance:ungraded_content',
                         'breadcrumbs': [_('Ungraded Problems')]
+                    }
+                ]
+            })
+
+        if switch_is_active('enable_learner_analytics'):
+            items.append({
+                'name': _('Learners'),
+                'icon': 'fa-users',
+                'heading': _('What are individual learners doing?'),
+                'items': [
+                    {
+                        'title': _('Who has been active recently?'),
+                        'view': 'courses:learners:learners',  # TODO: map this to the actual action in AN-6205
+                        # TODO: what would the breadcrumbs be?
+                        'breadcrumbs': [_('Learners')]
+                    },
+                    {
+                        'title': _('Who is most engaged in the discussions?'),
+                        'view': 'courses:learners:learners',  # TODO: map this to the actual action in AN-6205
+                        # TODO: what would the breadcrumbs be?
+                        'breadcrumbs': [_('Learners')]
+                    },
+                    {
+                        'title': _("Who hasn't watched videos recently?"),
+                        'view': 'courses:learners:learners',  # TODO: map this to the actual action in AN-6205
+                        # TODO: what would the breadcrumbs be?
+                        'breadcrumbs': [_('Learners')]
                     }
                 ]
             })

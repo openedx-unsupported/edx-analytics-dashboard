@@ -5,11 +5,14 @@ from rest_framework.generics import RetrieveAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
+from core.utils import feature_flagged
+
 from .permissions import HasCourseAccessPermission
 from .utils import LearnerAPIClient
 
 
 # TODO: Consider caching responses from the data api when working on AN-6157
+@feature_flagged('enable_learner_analytics')
 class BaseLearnerApiView(RetrieveAPIView):
     permission_classes = (IsAuthenticated, HasCourseAccessPermission,)
 
