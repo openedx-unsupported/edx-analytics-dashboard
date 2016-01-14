@@ -7,6 +7,7 @@
         path = require('path'),
         browserSync = require('browser-sync'),
         jscs = require('gulp-jscs'),
+        extend = require('util')._extend,
         paths = {
             spec: [
                 'analytics_dashboard/static/js/**/*.js',
@@ -28,11 +29,13 @@
         };
 
     // kicks up karma to the tests once
-    function runKarma(configFile, cb) {
-        karma.start({
+    function runKarma(configFile, cb, options) {
+        var defaultOptions = {
             configFile: path.resolve(configFile),
-            singleRun: true
-        }, cb);
+            singleRun: true,
+            browsers: ['PhantomJS']
+        };
+        karma.start(extend(defaultOptions, options), cb);
     }
 
     gulp.task('lint', function () {
@@ -52,6 +55,15 @@
     //      http://127.0.0.1:8000/static/js/test/spec-runner.html
     gulp.task('test', function (cb) {
         runKarma(paths.karamaConf, cb);
+    });
+
+    gulp.task('test-debug', function (cb) {
+        runKarma(paths.karamaConf, cb, {
+            singleRun: false,
+            autoWatch: true,
+            browsers: ['Firefox'],
+            reporters: ['kjhtml']
+        });
     });
 
     // these are the default tasks when you run gulp
