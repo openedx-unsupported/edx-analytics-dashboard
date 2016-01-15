@@ -31,10 +31,12 @@ cd -
 mkdir -p logs
 
 echo "Enabling waffle flags..."
-./manage.py switch enable_learner_analytics on --create
+if [[ "${ENABLE_LEARNER_ANALYTICS}" = "True" ]]; then
+    ./manage.py switch enable_learner_analytics on --create
+fi
 
 echo "Starting Analytics Data API Server..."
-./edx-analytics-data-api/manage.py runserver 9001 --noreload > logs/api.log 2>&1 &
+./scripts/run_analytics_data_api.sh
 
 echo "Starting Analytics Dashboard Server..."
 ./manage.py runserver 9000 --noreload --traceback > logs/dashboard.log 2>&1 &
