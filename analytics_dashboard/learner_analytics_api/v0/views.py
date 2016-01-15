@@ -9,8 +9,8 @@ from rest_framework.response import Response
 
 from core.utils import feature_flagged
 
+from .clients import LearnerAPIClient
 from .permissions import HasCourseAccessPermission
-from .utils import LearnerAPIClient
 
 
 # TODO: Consider caching responses from the data api when working on AN-6157
