@@ -51,7 +51,7 @@ details on utilizing features in code and templates.
 The following switches are available:
 
 | Switch                         | Purpose                                               |
-|--------------------------------+-------------------------------------------------------|
+|--------------------------------|-------------------------------------------------------|
 | show_engagement_forum_activity | Show the forum activity on the course engagement page |
 | enable_course_api              | Retrieve course details from the course API           |
 | enable_ccx_courses             | Display CCX Courses in the course listing page.       |
