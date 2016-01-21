@@ -1,4 +1,4 @@
-require(['backbone', 'models/learner-model'], function (Backbone, LearnerModel) {
+define(['backbone', 'learners/js/models/learner-model'], function (Backbone, LearnerModel) {
     'use strict';
 
     describe('LearnerModel', function () {

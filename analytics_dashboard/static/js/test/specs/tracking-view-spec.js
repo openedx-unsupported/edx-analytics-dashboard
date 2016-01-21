@@ -1,5 +1,5 @@
-define(['models/course-model', 'models/tracking-model', 'models/user-model', 'views/tracking-view'],
-    function (CourseModel, TrackingModel, UserModel, TrackingView) {
+define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-model', 'views/tracking-view'],
+    function ($, CourseModel, TrackingModel, UserModel, TrackingView) {
 
         'use strict';
 
