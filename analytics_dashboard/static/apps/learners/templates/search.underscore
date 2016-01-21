@@ -1,0 +1,7 @@
+<span class="search">&nbsp;</span>
+<label for="search-learners" class="hidden"><%- labelText %></label>
+<input id="search-learners" type="search" <% if (placeholder) { %> placeholder="<%- placeholder %>" <% } %> name="<%- name %>" />
+<a class="clear" data-backgrid-action="clear" href="#">
+    <span aria-hidden="true">&times;</span>
+    <span class="sr-only"><%- clearSearchText %></span>
+</a>

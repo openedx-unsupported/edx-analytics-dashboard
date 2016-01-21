@@ -1,13 +1,25 @@
 define([
-    'collections/learner-collection',
+    'backbone',
     'jquery',
-    'marionette',
-    'models/learner-model',
-    'underscore'
-], function (LearnerCollection, $, Marionette, LearnerModel, _) {
+    'learners/js/collections/learner-collection',
+    'learners/js/controller',
+    'learners/js/router',
+    'learners/js/views/root-view',
+    'marionette'
+], function (
+    Backbone,
+    $,
+    LearnerCollection,
+    LearnersController,
+    LearnersRouter,
+    LearnersRootView,
+    Marionette
+) {
     'use strict';
 
-    var LearnersApp = Marionette.Application.extend({
+    var LearnersApp;
+
+    LearnersApp = Marionette.Application.extend({
         /**
          * Initializes the learner analytics app.
          *
@@ -27,6 +39,7 @@ define([
         },
 
         onBeforeStart: function () {
+            // Initialize the collection, and refresh it if necessary.
             this.learnerCollection = new LearnerCollection(this.options.learnerListJson, {
                 url: this.options.learnerListUrl,
                 courseId: this.options.courseId,
@@ -38,22 +51,18 @@ define([
         },
 
         onStart: function () {
-            // TODO: remove this temporary UI with AN-6205.
-            var LearnerView = Marionette.ItemView.extend({
-                template: _.template(
-                    '<div>' +
-                        '| <%- name %> | ' +
-                        '<%- username %> |' +
-                        '</div>'
-                )
-            }), LearnersView = Marionette.CollectionView.extend({
-                childView: LearnerView
+            var rootView = new LearnersRootView({el: $(this.options.containerSelector)}).render(),
+                router;
+            // Initialize our router and start keeping track of history
+            router = new LearnersRouter({
+                controller: new LearnersController({
+                    learnerCollection: this.learnerCollection,
+                    rootView: rootView
+                }),
+                learnerCollection: this.learnerCollection
             });
 
-            new LearnersView({
-                collection: this.learnerCollection,
-                el: $(this.options.containerSelector)
-            }).render();
+            Backbone.history.start();
         }
     });
 

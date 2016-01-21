@@ -10,7 +10,7 @@ module.exports = function (config) {
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['jasmine', 'requirejs', 'sinon'],
+        frameworks: ['jasmine-jquery', 'jasmine', 'requirejs', 'sinon'],
 
 
         // list of files / patterns to load in the browser
@@ -19,13 +19,14 @@ module.exports = function (config) {
             {pattern: 'analytics_dashboard/static/bower_components/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/bower_components/**/*.json', included: false},
             {pattern: 'analytics_dashboard/static/js/models/**/*.js', included: false},
-            {pattern: 'analytics_dashboard/static/js/collections/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/js/views/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/js/utils/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/js/test/specs/*.js', included: false},
+            {pattern: 'analytics_dashboard/static/apps/**/*.js', included: false},
+            {pattern: 'analytics_dashboard/static/apps/**/*.underscore', included: false},
             'analytics_dashboard/static/js/config.js',
             'analytics_dashboard/static/js/test/spec-runner.js',
-            './node_modules/phantomjs-polyfill/bind-polyfill.js' // Implements Function.prototype.bind for PhantomJS
+            './node_modules/phantomjs-polyfill/bind-polyfill.js',
         ],
 
         exclude: [
@@ -39,12 +40,14 @@ module.exports = function (config) {
         preprocessors: {
             'analytics_dashboard/static/js/models/**/*.js': ['coverage'],
             'analytics_dashboard/static/js/views/**/*.js': ['coverage'],
-            'analytics_dashboard/static/js/utils/**/*.js': ['coverage']
+            'analytics_dashboard/static/js/utils/**/*.js': ['coverage'],
+            'analytics_dashboard/static/apps/**/*.js': ['coverage']
         },
 
         // plugins required for running the karma tests
         plugins:[
             'karma-jasmine',
+            'karma-jasmine-jquery',
             'karma-jasmine-html-reporter',
             'karma-requirejs',
             'karma-phantomjs-launcher',

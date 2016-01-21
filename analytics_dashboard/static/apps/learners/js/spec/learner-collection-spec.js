@@ -1,4 +1,4 @@
-require(['collections/learner-collection', 'URI'], function (LearnerCollection, URI) {
+define(['learners/js/collections/learner-collection', 'URI'], function (LearnerCollection, URI) {
     'use strict';
 
     describe('LearnerCollection', function () {
@@ -156,10 +156,34 @@ require(['collections/learner-collection', 'URI'], function (LearnerCollection, 
         it('triggers an event when server gateway timeouts occur', function () {
             var spy = {eventCallback: function () {}};
             spyOn(spy, 'eventCallback');
-            learners.on('gatewayTimeout', spy.eventCallback);
+            learners.on('serverError', spy.eventCallback);
             learners.fetch();
             lastRequest().respond(504, {}, '');
             expect(spy.eventCallback).toHaveBeenCalled();
+        });
+
+        describe('Backgrid Paginator shim', function () {
+            it('implements hasPrevious', function () {
+                learners = new LearnerCollection({
+                    num_pages: 2, count: 50, results: []
+                }, {state: {currentPage: 2}, url: '/endpoint/', courseId: courseId, parse: true});
+                expect(learners.hasPreviousPage()).toBe(true);
+                expect(learners.hasPrevious()).toBe(true);
+                learners.state.currentPage = 1;
+                expect(learners.hasPreviousPage()).toBe(false);
+                expect(learners.hasPrevious()).toBe(false);
+            });
+
+            it('implements hasNext', function () {
+                learners = new LearnerCollection({
+                    num_pages: 2, count: 50, results: []
+                }, {state: {currentPage: 1}, url: '/endpoint/', courseId: courseId, parse: true});
+                expect(learners.hasNextPage()).toBe(true);
+                expect(learners.hasNext()).toBe(true);
+                learners.state.currentPage = 2;
+                expect(learners.hasNextPage()).toBe(false);
+                expect(learners.hasNext()).toBe(false);
+            });
         });
     });
 });

@@ -1,6 +1,6 @@
 define([
     'components/pagination/collections/paging_collection',
-    'models/learner-model'
+    'learners/js/models/learner-model'
 ], function (PagingCollection, LearnerModel) {
     'use strict';
 
@@ -17,7 +17,7 @@ define([
             this.registerSortableField('problems_attempted', gettext('Problems Attempted'));
             this.registerSortableField('problems_completed', gettext('Problems Completed'));
             this.registerSortableField('videos_viewed', gettext('Videos Viewed'));
-            this.registerSortableField('problems_attempted_per_completed', gettext('Problems Attempted per Completed'));
+            this.registerSortableField('problem_attempts_per_completed', gettext('Problem Attempts per Completed'));
             this.registerSortableField('discussion_contributions', gettext('Discussion Contributions'));
 
             this.registerFilterableField('segments', gettext('Segments'));
@@ -29,13 +29,7 @@ define([
         fetch: function (options) {
             // Handle gateway timeouts
             return PagingCollection.prototype.fetch.call(this, options).fail(function (jqXHR) {
-                // Note that we're currently only handling gateway
-                // timeouts here, but we can eventually check against
-                // other expected errors and trigger events
-                // accordingly.
-                if (jqXHR.status === 504) {
-                    this.trigger('gatewayTimeout');
-                }
+                this.trigger('serverError', jqXHR.status, jqXHR.responseJson);
             }.bind(this));
         },
 
@@ -45,6 +39,17 @@ define([
 
         queryParams: {
             course_id: function () { return this.courseId; }
+        },
+
+        // Shim code follows for backgrid.paginator 0.3.5
+        // compatibility, which expects the backbone.pageable
+        // (pre-backbone.paginator) API.
+        hasPrevious: function () {
+            return this.hasPreviousPage();
+        },
+
+        hasNext: function () {
+            return this.hasNextPage();
         }
     });
 
