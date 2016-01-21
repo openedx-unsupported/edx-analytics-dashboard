@@ -7,10 +7,16 @@
 View of individual learners within a course.
 {% endcomment %}
 
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="stylesheet" href="/static/bower_components/backgrid-paginator/backgrid-paginator.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/bower_components/backgrid-filter/backgrid-filter.min.css" type="text/css">
+{% endblock stylesheets %}
+
 {% block uncompressed_javascript %}
     {{ block.super }}
     <script>
-     require(['load/init-page', 'js/learners-app'], function (page, LearnersApp) {
+     require(['load/init-page', 'learners/js/app'], function (page, LearnersApp) {
          var app = new LearnersApp({
              courseId: '{{ course_id }}',
              containerSelector: '.learners-app-container',
@@ -23,7 +29,5 @@ View of individual learners within a course.
 {% endblock uncompressed_javascript %}
 
 {% block child_content %}
-    <div class="learners-app-container">
-        <p>TODO: put the app here!</p>
-    </div>
+    <div class="learners-app-container"></div>
 {% endblock %}

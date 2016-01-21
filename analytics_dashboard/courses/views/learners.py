@@ -11,6 +11,7 @@ class LearnersView(CourseTemplateWithNavView):
     template_name = 'courses/learners.html'
     active_primary_nav_item = 'learners'
     page_title = _('Learners')
+    page_name = 'learners'
 
     def get_context_data(self, **kwargs):
         context = super(LearnersView, self).get_context_data(**kwargs)
