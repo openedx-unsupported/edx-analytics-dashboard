@@ -31,8 +31,8 @@ define(['d3', 'models/course-model', 'views/world-map-view'], function(d3, Cours
 
             actual = view.formatData();
             expected = {
-                USA: { value: 100, fillKey: 'USA', percent: 0.3333 },
-                ARG: { value: 200, fillKey: 'ARG', percent: 0.6666 }
+                USA: { value: 100, fillKey: 'USA', percent: 0.3333, name: undefined },
+                ARG: { value: 200, fillKey: 'ARG', percent: 0.6666, name: undefined }
             };
             expect(actual).toEqual(expected);
         });

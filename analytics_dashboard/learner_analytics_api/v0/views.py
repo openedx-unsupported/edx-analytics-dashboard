@@ -1,5 +1,7 @@
 import json
 
+from requests.exceptions import ConnectTimeout
+
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.permissions import IsAuthenticated
@@ -7,8 +9,8 @@ from rest_framework.response import Response
 
 from core.utils import feature_flagged
 
+from .clients import LearnerAPIClient
 from .permissions import HasCourseAccessPermission
-from .utils import LearnerAPIClient
 
 
 # TODO: Consider caching responses from the data api when working on AN-6157
@@ -45,6 +47,18 @@ class BaseLearnerApiView(RetrieveAPIView):
             status=api_response.status_code,
             headers=api_response.headers,
         )
+
+    def handle_exception(self, exc):
+        """
+        Handles timeouts raised by the API client by returning an HTTP
+        504.
+        """
+        if isinstance(exc, ConnectTimeout):
+            return Response(
+                data={'developer_message': 'Learner Analytics API timed out.', 'error_code': 'analytics_api_timeout'},
+                status=504
+            )
+        return super(BaseLearnerApiView, self).handle_exception(exc)
 
 
 class NotFoundLearnerApiViewMixin(object):

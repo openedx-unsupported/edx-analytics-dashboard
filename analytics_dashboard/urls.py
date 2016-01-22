@@ -39,7 +39,7 @@ urlpatterns = patterns(
 
 urlpatterns += patterns(
     '',
-    url(r'^api/learner_analytics/', include('learner_analytics_api.urls', namespace='learner_analytics'))
+    url(r'^api/learner_analytics/', include('learner_analytics_api.urls', namespace='learner_analytics_api'))
 )
 
 if settings.DEBUG:  # pragma: no cover
