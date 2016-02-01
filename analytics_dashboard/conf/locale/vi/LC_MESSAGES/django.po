@@ -1,21 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Duong Nguyen <supermanikin@yahoo.com>, 2015
 # Hoang Ha <halink0803@gmail.com>, 2015
 # huynt <huynt57@gmail.com>, 2014
 # Lộc <ngokpika@gmail.com>, 2014
 # NGUYEN HOANG AN <neyugn2909@gmail.com>, 2014
-# Trung Nguyen <trung.ngvan@gmail.com>, 2015
+# Son La <thanhson.la310@gmail.com>, 2015
+# Ton Nu Quy Thien <thien.tonnu1001@gmail.com>, 2016
+# Trung Nguyen <trung.ngvan@gmail.com>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-18 14:58-0500\n"
-"PO-Revision-Date: 2015-11-18 20:00+0000\n"
-"Last-Translator: Dennis Jen <djen@edx.org>\n"
+"PO-Revision-Date: 2016-01-28 06:09+0000\n"
+"Last-Translator: Ton Nu Quy Thien <thien.tonnu1001@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/open-edx/edx-platform/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,8 +31,7 @@ msgstr "Đăng nhập"
 
 #: core/templates/core/landing.html
 msgid "Insights to help course teams improve courses."
-msgstr ""
-"Những hiểu biết giúp đội ngũ thực hiện giáo trình cải thiện các môn học."
+msgstr "Những hiểu biết giúp đội ngũ cải thiện khóa học"
 
 #: core/templates/core/landing.html courses/views/__init__.py
 msgid "Who are my students?"
@@ -716,8 +717,8 @@ msgid ""
 "The percentage of students who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
 msgstr ""
-"Tỷ lệ phần trăm học viên chọn bằng cử nhân như là trình độ học vấn cao nhất "
-"của họ"
+"Tỷ lệ phần trăm học viên chọn bằng cử nhân hoặc cao đẳng như là trình độ học"
+" vấn cao nhất của họ"
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -844,7 +845,7 @@ msgstr "Hoạt động"
 
 #: courses/templates/courses/home.html
 msgid "Basic Course Information"
-msgstr ""
+msgstr "Thông tin cơ bản cho khóa học"
 
 #. Translators: This title describes a list of links to outside tools for this
 #. course.
@@ -864,6 +865,8 @@ msgstr "Chào mừng, %(username)s!"
 msgid ""
 "Here are the courses you currently have access to in %(application_name)s:"
 msgstr ""
+"Đây là những khoá học bạn đang truy cập gần đây dưới tên "
+"%(application_name)s:"
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
@@ -1077,21 +1080,21 @@ msgstr "Học viên đang làm như thế nào trong các bài tập đã chấm
 #. identifies the course
 #: courses/views/__init__.py
 msgid "Course ID"
-msgstr ""
+msgstr "Course ID"
 
 #: courses/views/__init__.py
 msgid "Course Name"
-msgstr ""
+msgstr "Tên khóa học"
 
 #. Translators: 'In Progress' and 'Ended' refer to whether students are
 #. actively using the course or it is over.
 #: courses/views/__init__.py
 msgid "In Progress"
-msgstr ""
+msgstr "Trong tiến trình"
 
 #: courses/views/__init__.py
 msgid "Ended"
-msgstr ""
+msgstr "Kết thúc"
 
 #. Translators: This refers to a course that has not yet begun.
 #: courses/views/__init__.py
@@ -1100,7 +1103,7 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "Start Date"
-msgstr ""
+msgstr "Ngày bắt đầu"
 
 #: courses/views/__init__.py
 msgid "End Date"
@@ -1108,15 +1111,15 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "Status"
-msgstr ""
+msgstr "Trạng Thái"
 
 #: courses/views/__init__.py
 msgid "Instructor Dashboard"
-msgstr ""
+msgstr "Bảng Điều Khiển của Giáo Viên Hướng Dẫn"
 
 #: courses/views/__init__.py
 msgid "Courseware"
-msgstr ""
+msgstr "Chương trình học"
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
@@ -1331,7 +1334,7 @@ msgstr "Điều khoản sử dụng"
 
 #: templates/footer.html
 msgid "Privacy Policy"
-msgstr "Chính Sách Bảo Mật"
+msgstr "Chính sách bảo mật"
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html
