@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Cleomir Waiczyk <w.cleomir@gmail.com>, 2015
 # Edgar Aparecido Pereira de Melo <edgarapmelo@gmail.com>, 2014
@@ -11,14 +11,16 @@
 # Leonardo Flores Zambaldi <fzleonardo@gmail.com>, 2014
 # Marco Túlio Pires <mtrpires@outlook.com>, 2014
 # Mike Job Silva <mikejobrn@gmail.com>, 2015
+# Monica Farias <monifar.tp@gmail.com>, 2015
+# Renata Barboza-Murray, 2016
 # Toni Lazaro <tonilazaro@hotmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-30 10:00-0400\n"
-"PO-Revision-Date: 2015-10-30 14:00+0000\n"
-"Last-Translator: Dennis Jen <djen@edx.org>\n"
+"POT-Creation-Date: 2015-11-18 14:58-0500\n"
+"PO-Revision-Date: 2016-01-20 18:22+0000\n"
+"Last-Translator: Monica Farias <monifar.tp@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/open-edx/edx-platform/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -66,17 +68,17 @@ msgstr " (vazio)"
 #: static/js/performance-answer-distribution-main.js
 #: static/js/performance-problems-main.js static/js/views/data-table-view.js
 msgid "Correct"
-msgstr "Correta"
+msgstr "Correto"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Week Ending"
-msgstr "Semana Final"
+msgstr "Semana terminada em"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Active Students"
-msgstr "Estudantes Ativos"
+msgstr "Estudantes ativos"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
@@ -86,7 +88,7 @@ msgstr "Assistiram a um vídeo"
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Tried a Problem"
-msgstr "Tentou Resolver"
+msgstr "Tentou resolver uma questão"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
@@ -97,7 +99,7 @@ msgstr "Postado no Forum"
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Week Ending <%=value%>"
-msgstr "Semana Finalizando em <%=value%>"
+msgstr "Semana terminada em <%=value%>"
 
 #. Translators: <%=value%> will be replaced by a number followed by a
 #. percentage.
@@ -113,12 +115,12 @@ msgstr "<%=value%> (<%=percent%>)"
 #: static/dist/js/engagement-video-content-main.js
 #: static/js/engagement-video-content-main.js
 msgid "Average Complete Views"
-msgstr ""
+msgstr "Média das visualizações completas"
 
 #: static/dist/js/engagement-video-content-main.js
 #: static/js/engagement-video-content-main.js
 msgid "Average Incomplete Views"
-msgstr ""
+msgstr "Média das visualizações incompletas"
 
 #: static/dist/js/engagement-video-content-main.js
 #: static/dist/js/engagement-videos-main.js
@@ -145,7 +147,7 @@ msgstr "Percentual completo"
 #: static/dist/js/engagement-video-timeline-main.js
 #: static/js/engagement-video-timeline-main.js
 msgid "Unique Viewers"
-msgstr "Únicos visitantes"
+msgstr "Visitantes únicos"
 
 #: static/dist/js/engagement-video-timeline-main.js
 #: static/js/engagement-video-timeline-main.js
@@ -160,12 +162,12 @@ msgstr "Tempo"
 #: static/dist/js/engagement-videos-main.js
 #: static/js/engagement-videos-main.js
 msgid "Complete Views"
-msgstr "Exibições completas"
+msgstr "Visualizações completas"
 
 #: static/dist/js/engagement-videos-main.js
 #: static/js/engagement-videos-main.js
 msgid "Incomplete Views"
-msgstr "Exibições incompletas"
+msgstr "Visualizações incompletas"
 
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-age-main.js
@@ -174,7 +176,7 @@ msgstr "Exibições incompletas"
 #: static/js/enrollment-demographics-age-main.js
 #: static/js/enrollment-demographics-education-main.js
 msgid "Number of Students"
-msgstr "Número de Alunos"
+msgstr "Número de alunos"
 
 #. Translators: <%=value%> will be replaced with an age.
 #: static/dist/js/enrollment-demographics-age-main.js
@@ -190,7 +192,7 @@ msgstr "Idade"
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/js/enrollment-demographics-age-main.js
 msgid "Percent of Total"
-msgstr "Porcentual do Total"
+msgstr "Porcentual do total"
 
 #: static/dist/js/enrollment-demographics-education-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
@@ -252,7 +254,7 @@ msgstr "Outro"
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Not Reported"
-msgstr "Não Relatado"
+msgstr "Não especificado"
 
 #: static/dist/js/enrollment-geography-main.js
 #: static/js/enrollment-geography-main.js
@@ -261,7 +263,7 @@ msgid ""
 "students most recently connected."
 msgstr ""
 "A localização do aluno é determinada a partir do endereço IP. Este mapa "
-"mostra de onde os alunos recentemente conectaram."
+"mostra de onde os alunos recentemente se conectaram."
 
 #: static/dist/js/enrollment-geography-main.js
 #: static/js/enrollment-geography-main.js
@@ -281,7 +283,7 @@ msgstr "Resposta"
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
 msgid "Submission Count"
-msgstr "Contagem Submetida"
+msgstr "Contagem de envios"
 
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
@@ -313,7 +315,7 @@ msgstr "Questões"
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
 msgid "Average Submissions Per Problem"
-msgstr "Média de envios por problema"
+msgstr "Média de envios por questões"
 
 #: static/dist/js/performance-content-main.js
 #: static/dist/js/performance-problems-main.js
@@ -326,7 +328,7 @@ msgstr "Percentual de acerto"
 #: static/js/performance-answer-distribution-main.js
 #: static/js/performance-problems-main.js
 msgid "Incorrect"
-msgstr "Incorreta"
+msgstr "Incorreto"
 
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-problems-main.js
@@ -335,7 +337,7 @@ msgstr "Total"
 
 #: static/js/engagement-content-main.js
 msgid "Percent of Current Students"
-msgstr ""
+msgstr "Percentual de alunos atuais"
 
 #: static/js/enrollment-activity-main.js
 msgid "Honor Code"

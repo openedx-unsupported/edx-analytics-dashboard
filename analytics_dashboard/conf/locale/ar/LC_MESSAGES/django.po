@@ -1,22 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Abdelghani Gadiri <wh.gnu.linux@gmail.com>, 2014
 # Ashraf Alsinglawi <alsinglawi@hotmail.com>, 2014
 # Aya S <ayaswork@gmail.com>, 2015
 # Manal Ahmed Aljahdali <manal.ahmed.m.j@gmail.com>, 2014
-# may <may@qordoba.com>, 2014
+# may <may@qordoba.com>, 2014-2015
 # Nabeel El-Dughailib <nabeel@qordoba.com>, 2014-2015
 # omarithawi <oithawi@qrf.org>, 2015
+# Soha Assali <soha+transifex@qordoba.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-18 14:58-0500\n"
-"PO-Revision-Date: 2015-11-18 20:00+0000\n"
-"Last-Translator: Dennis Jen <djen@edx.org>\n"
+"PO-Revision-Date: 2015-12-19 23:22+0000\n"
+"Last-Translator: Soha Assali <soha+transifex@qordoba.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/open-edx/edx-platform/language/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -124,7 +125,7 @@ msgstr "{statistic}%"
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: courses/presenters/engagement.py
 msgid "{percentage} of current students"
-msgstr ""
+msgstr "نسبة {percentage} من الطلاب الحاليين"
 
 #: courses/presenters/enrollment.py
 msgid "Female"
@@ -281,11 +282,11 @@ msgstr "اختر الفيديو"
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Previous Video"
-msgstr ""
+msgstr "الفيديو السابق"
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Next Video"
-msgstr ""
+msgstr "الفيديو التالي"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -426,6 +427,10 @@ msgid ""
 "videos in that subsection. Click on bars with low totals or a high "
 "incomplete rate to drill down and understand why."
 msgstr ""
+"يُظهِر كل عمود متوسّط عدد المشاهدات الكاملة وغير الكاملة لمقاطع الفيديو "
+"المدرجة ضمن ذلك قسم فرعي. يُرجى النقر على الأعمدة ذات الأعداد الإجمالية "
+"المتدنّية أو التي تحمل معدّلًا عاليًا من عدم اكتمال المشاهدات لتتابع الموضوع"
+" وتتحرّى السبب."
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did students interact with videos in this subsection?"
@@ -450,6 +455,10 @@ msgid ""
 "videos in that section. Click on bars with low totals or a high incomplete "
 "rate to drill down and understand why."
 msgstr ""
+"يُظهِر كل عمود متوسّط عدد المشاهدات الكاملة وغير الكاملة لمقاطع الفيديو "
+"المدرجة ضمن ذلك القسم. يُرجى النقر على الأعمدة ذات الأعداد الإجمالية "
+"المتدنّية أو التي تحمل معدّلًا عاليًا من عدم اكتمال المشاهدات لتتابع الموضوع"
+" وتتحرّى السبب."
 
 #: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
@@ -470,11 +479,11 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Collapse Preview"
-msgstr ""
+msgstr "طي صفحة المعاينة"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Expand Preview"
-msgstr ""
+msgstr "توسيع صفحة المعاينة"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Metrics"
@@ -526,6 +535,8 @@ msgid ""
 "This graph displays the current enrollment for the course as of the end of "
 "each day. This includes new enrollments as well as unenrollments."
 msgstr ""
+"يبيّن هذا الرسم الوضع الحالي للتسجيل في المساق محسوبًا في نهاية كل يوم. يشمل"
+" إجمالي التسجيل عمليات التسجيل الجديدة إضافة إلى إلغاء التسجيل."
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollment Metrics"
@@ -540,18 +551,18 @@ msgstr "إجمالي عمليات التسجيل"
 #. Translators: This is a label indicating the number of students in a course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Students who ever enrolled in the course."
-msgstr ""
+msgstr "طلاب سجّلوا يومًا في هذا المساق."
 
 #. Translators: This is a label to identify current student enrollment.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Current Enrollment"
-msgstr ""
+msgstr "التسجيل الحاليّ"
 
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Students currently enrolled in the course."
-msgstr ""
+msgstr "طلاب مسجّلين حاليًا في هذا المساق"
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
@@ -561,7 +572,7 @@ msgstr "التغيّر في عدد الطلّاب المسجّلين في الم
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Net difference in current enrollment in the last week."
-msgstr ""
+msgstr "صافي الفرق بين عمليات التسجيل الحالية ومثيلاتها في الأسبوع الماضي"
 
 #. Translators: This is a label to identify enrollment of students on the
 #. verified track.
@@ -576,6 +587,7 @@ msgid ""
 "Number of currently enrolled students pursuing a verified certificate of "
 "achievement."
 msgstr ""
+"عدد الطلاب المسجّلين حاليًا الذين يسعون  للحصول على شهادة إتمام موثّقة"
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html
@@ -834,13 +846,13 @@ msgstr "فعّال"
 
 #: courses/templates/courses/home.html
 msgid "Basic Course Information"
-msgstr ""
+msgstr "المعلومات الأساسية للمساق"
 
 #. Translators: This title describes a list of links to outside tools for this
 #. course.
 #: courses/templates/courses/home.html
 msgid "External Tools"
-msgstr ""
+msgstr "أدوات خارجيّة"
 
 #: courses/templates/courses/index.html
 msgid "Courses"
@@ -854,6 +866,8 @@ msgstr "مرحباً بك، %(username)s!"
 msgid ""
 "Here are the courses you currently have access to in %(application_name)s:"
 msgstr ""
+"إليك قائمة بالمساقات التي تملك حاليًّا صلاحية الدخول إليها في "
+"%(application_name)s:"
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
@@ -1063,46 +1077,46 @@ msgstr "كيف يبلي الطلّاب في واجبات المساق التي �
 #. identifies the course
 #: courses/views/__init__.py
 msgid "Course ID"
-msgstr ""
+msgstr "رقم تعريف المساق "
 
 #: courses/views/__init__.py
 msgid "Course Name"
-msgstr ""
+msgstr "اسم المساق"
 
 #. Translators: 'In Progress' and 'Ended' refer to whether students are
 #. actively using the course or it is over.
 #: courses/views/__init__.py
 msgid "In Progress"
-msgstr ""
+msgstr "جاري التقييم"
 
 #: courses/views/__init__.py
 msgid "Ended"
-msgstr ""
+msgstr "انتهى بتاريخ"
 
 #. Translators: This refers to a course that has not yet begun.
 #: courses/views/__init__.py
 msgid "Not Started Yet"
-msgstr ""
+msgstr "لم يبدأ بعد"
 
 #: courses/views/__init__.py
 msgid "Start Date"
-msgstr ""
+msgstr "تاريخ البدء"
 
 #: courses/views/__init__.py
 msgid "End Date"
-msgstr ""
+msgstr "تاريخ الانتهاء"
 
 #: courses/views/__init__.py
 msgid "Status"
-msgstr ""
+msgstr "الحالة"
 
 #: courses/views/__init__.py
 msgid "Instructor Dashboard"
-msgstr ""
+msgstr "لوحة المعلومات الخاصة بالأستاذ"
 
 #: courses/views/__init__.py
 msgid "Courseware"
-msgstr ""
+msgstr "محتويات المساق"
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
@@ -1309,6 +1323,10 @@ msgid ""
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
 msgstr ""
+"يهمنا أن تيسّر لوحة المعلومات هذه عملك! أتحتاج لمساعدة؟ "
+"%(support_link_start)sيُرجى الاتصال بفريق الدعم الفنّي %(support_link_end)s."
+" كما ويمكنك مراسلتنا على عنوان البريد الإلكتروني %(email_link)s في حال كانت "
+"لديك أي تعليقات أو اقتراحات."
 
 #: templates/footer.html
 msgid "Terms of Service"
