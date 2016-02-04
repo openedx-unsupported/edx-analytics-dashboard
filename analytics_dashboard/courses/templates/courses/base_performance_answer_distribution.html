@@ -1,0 +1,125 @@
+{% extends "courses/base-course.html" %}
+{% load i18n %}
+{% load dashboard_extras %}
+{% load staticfiles %}
+{% load rjs %}
+
+{% block view-name %}view-course-enrollment view-dashboard{% endblock view-name %}
+
+{% block javascript %}
+{{ block.super }}
+<script src="{% static_rjs 'js/performance-answer-distribution-main.js' %}"></script>
+{% endblock javascript %}
+
+
+{% block child_content %}
+
+<section class="view-section" data-section="performance-answer-distribution" aria-hidden="true">
+
+    {% block content_nav %}
+    {% endblock %}
+
+    <div class="module-meta">
+        {% include "courses/_module_description.html" with description=problem_part_description view_live_url=view_live_url %}
+    </div>
+
+    <div class="section-content section-data-graph">
+        <div class="section-content section-data-viz">
+            <div class="analytics-chart-container">
+                <div class="chart-info">
+                    {% if questions %}
+                        {% captureas chart_label %}
+                            {{active_question|truncatechars:50}}
+                        {% endcaptureas %}
+                        {% if questions|length == 1 %}
+                            <div class="chart-info">{{chart_label}}</div>
+                        {% else %}
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle chart-info" type="button" id="distQuestionsMenu" data-toggle="dropdown" aria-expanded="true">
+                                    {{chart_label}}
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="distQuestionsMenu">
+                                    {% for question in questions %}
+                                        <li role="presentation">
+                                          <a role="menuitem"tabindex="-1" class="truncate"
+                                             href="{% block problem_part_url %}{% endblock %}">
+                                              {{question.question}}
+                                          </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                </div>
+                {% captureas tip_text %}
+                    {# Translators: This text describes a bar chart displayed. #}
+                    {% blocktrans trimmed %}
+                        This chart shows the most common answers submitted by students, ordered by frequency.
+                    {% endblocktrans %}
+                {% endcaptureas %}
+                {% include "chart_tooltip.html" with tip_text=tip_text track_category="bar" %}
+
+                <div id="performance-chart-view" class="analytics-chart
+                        {% if not js_data.course.answerDistribution or js_data.course.isRandom %}message-only-chart{% endif %}">
+                    {% if js_data.course.isRandom %}
+                        <!-- sets the message on a new row; otherwise, it won't be centered properly. -->
+                        <div class="clearfix"></div>
+                        <div class="chart-message-container">
+                            <p class="text-center">
+                                {% captureas read_more_link_start %}
+                                    <a href="{% settings_value 'DOCUMENTATION_LOAD_ERROR_URL' %}" target="_blank">{% endcaptureas %}
+                                {% captureas read_more_link_end %}</a>{% endcaptureas %}
+                                {# Translators: Variants refers to versions of a problem/assignment. #}
+                                {% blocktrans trimmed %}
+                                    Due to the number of possible variants for randomized problems, charts are not available. {{read_more_link_start}}Read more{{read_more_link_end}}.
+                                {% endblocktrans %}
+                                <br>
+                                {# Translators: Variants refers to versions of a problem/assignment. #}
+                                {% blocktrans trimmed %}
+                                    Review all submission variants below, or click Download CSV to review them offline.
+                                {% endblocktrans %}
+                            </p>
+                        </div>
+                    {% elif js_data.course.answerDistribution %}
+                        {% include "loading.html" %}
+                    {% endif %}
+                </div>
+            </div>
+            {% if not js_data.course.answerDistribution %}
+                {% show_chart_error 'white-background' %}
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="view-section">
+    <div class="section-heading">
+
+        <h4 class="section-title">{% trans "Submission Counts" %}</h4>
+        <div class="section-actions">
+            {% if js_data.course.answerDistribution %}
+                <a href="{% url 'courses:csv:performance_answer_distribution' course_id=course_id content_id=problem_id problem_part_id=problem_part_id %}"
+                   class="btn btn-default"
+                   data-role="performance-csv" data-track-type="click"
+                   data-track-event="edx.bi.csv.downloaded"
+                   data-track-category="answer-distribution">
+                    <i class="ico fa fa-download" aria-hidden="true"></i> {% trans "Download CSV" %}
+                    <span class="sr-only">{% trans "Student Submission Counts" %}</span>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if js_data.course.answerDistribution %}
+        <div class="section-content section-data-table" data-role="performance-table">
+            {% include "loading.html" %}
+        </div>
+    {% else %}
+        {% show_table_error %}
+    {% endif %}
+
+</section>
+
+{% endblock %}

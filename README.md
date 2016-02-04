@@ -4,20 +4,26 @@ edX Analytics Dashboard [![BuildStatus](https://travis-ci.org/edx/edx-analytics-
 =======================
 Dashboard to display course analytics to course teams
 
+Prerequisites
+-------------
+* Python 2.7.x (not tested with Python 3.x)
+* [gettext](http://www.gnu.org/software/gettext/)
+* [npm](https://www.npmjs.org/) 
+* [JDK 7+](http://openjdk.java.net/)
+
 Getting Started
 ---------------
 1. Get the code (e.g. clone the repository).
-2. Install the Python requirements:
+2. Install the Python/Node/Bower requirements:
 
         $ make develop
 
 3. Setup your database:
 
-        $ make syncdb
+        $ make migrate
 
 4. Run the server:
 
-        $ cd analytics_dashboard
         $ ./manage.py runserver 0.0.0.0:9000
 
 By default the Django Default Toolbar is disabled. To enable it set the environmental variable ENABLE_DJANGO_TOOLBAR.
@@ -26,6 +32,11 @@ Alternatively, you can launch the server using:
 
         $ ENABLE_DJANGO_TOOLBAR=1 ./manage.py runserver
 
+
+Site-Wide Announcements
+-----------------------
+Site-wide announcements are facilitated by [django-announcements](http://django-announcements.readthedocs.org/en/latest/).
+Use the admin site to manage announcements and dismissals.
 
 Feature Gating
 --------------
@@ -42,6 +53,12 @@ The following switches are available:
 | Switch                            | Purpose                                                  |
 |-----------------------------------|----------------------------------------------------------|
 | show_engagement_forum_activity    | Show the forum activity on the course engagement page    |
+| enable_course_api                 | Retrieve course details from the course API              |
+| enable_ccx_courses                | Display CCX Courses in the course listing page.          |
+| enable_engagement_videos_pages    | Enable engagement video pages.                           |
+| enable_video_preview              | Enable video preview.                                    |
+| display_names_for_course_index    | Display course names on course index page.               |
+| display_course_name_in_nav        | Display course name in navigation bar.                   |
 
 Authentication & Authorization
 ------------------------------
@@ -51,28 +68,20 @@ developer, and do not want to setup edx-platform, you can get around this requir
 
 1. Set `ENABLE_AUTO_AUTH` to `True` in your settings file. (This is the default value in `settings/local.py`).
 2. Set `ENABLE_COURSE_PERMISSIONS` to `False` in your settings file.
-3. Visit `http://localhost:9000/test/auto_auth/` to create and login as a new user. 
+3. Visit `http://localhost:9000/test/auto_auth/` to create and login as a new user.
+
+Note: When using Open ID Connect, the dashboard and provider must be accessed via different host names 
+(e.g. dashboard.example.org and provider.example.org) in order to avoid issues with session cookies being overwritten.
+
+Note 2: Seeing signature expired errors upon login? Make sure the clocks of your dashboard and OAuth servers are synced
+with a centralized time server. If you are using a VM, the VM's clock may skew when the host is suspended. Restarting
+the NTP service usually resolves this issue.
 
 Internationalization (i18n)
 ---------------------------
-In order to generate translation files, you must have [gettext](http://www.gnu.org/software/gettext/) installed. gettext
- should be available via `yum` or `apt-get`. If you are using Homebrew on Mac OS X, execute the commands below:
-
-        $ brew install gettext
-        $ brew link gettext --force
-        
-Once gettext is installed, translation files can be generated with:
-
-        $ cd analytics_dashboard && i18n_tool extract
-        
-The generated files located in `analytics_dashboard/conf/locale/en/LC_MESSAGES` should be uploaded to 
-the [analytics-dashboard](https://www.transifex.com/projects/p/edx-platform/resource/analytics-dashboard/) and
-[analytics-dashboard-js](https://www.transifex.com/projects/p/edx-platform/resource/analytics-dashboard-js/) resources 
-at Transifex where translators will begin the translation process. Once translations are complete, run the command 
-below to compile the translations:
-
-        $ cd analytics_dashboard && i18n_tool generate
-
+In order to work with translations you must have you must have [gettext](http://www.gnu.org/software/gettext/) installed. gettext
+ should be available via your preferred package manager (e.g. `yum`, `apt-get`, `brew`, or `ports`).
+###Development###
 When adding or updating code, you should ensure all necessary strings are marked for translation. We have provided a
 command that will generate dummy translations to help with this. This will create an "Esperanto" translation that is 
 actually over-accented English.
@@ -82,6 +91,60 @@ actually over-accented English.
 Restart your server after running the command above and update your browser's language preference to Esperanto (eo). 
 Navigate to a page and verify that you see fake translations. If you see plain English instead, your code is not being 
 properly translated.
+
+###Updating Translations###
+Once development is complete, translation source files (.po) must be generated. The command below handle this.
+
+        $ cd analytics_dashboard && i18n_tool extract
+        
+The generated files located in `analytics_dashboard/conf/locale/en/LC_MESSAGES` should be uploaded to 
+the [analytics-dashboard](https://www.transifex.com/projects/p/edx-platform/resource/analytics-dashboard/) and
+[analytics-dashboard-js](https://www.transifex.com/projects/p/edx-platform/resource/analytics-dashboard-js/) resources 
+at Transifex where translators will begin the translation process. This task can be completed using the [Transifex
+Client](http://docs.transifex.com/developer/client/):
+
+        $ tx push -s
+
+Once translations are completed, run the commands below to download and compile the translations:
+
+        $ make pull_translations
+
+Note that only the following files (for each language) should be committed to this repository:
+
+* django.mo
+* django.po
+* djangojs.mo
+* djangojs.po
+
+
+Asset Pipeline
+--------------
+Static files are managed via [django-compressor](http://django-compressor.readthedocs.org/) and [RequireJS](http://requirejs.org/).
+RequireJS (and r.js) are used to manage JavaScript dependencies. django-compressor compiles SASS, minifies JavaScript (
+using [Closure Compiler](https://developers.google.com/closure/compiler/)), and handles naming files to facilitate 
+cache busting during deployment.
+
+Both tools should operate seamlessly in a local development environment. When deploying to production, call
+`make static` to compile all static assets and move them to the proper location to be served.
+
+When creating new pages that utilize RequireJS dependencies, remember to use the `static_rjs` templatetag to load
+the script, and to add a new module to `build.js`.
+
+Theming and Branding
+--------------------
+We presently have support for basic branding of the logo displayed in the header and on error pages. This is facilitated
+by including an additional SCSS file specifying the path and dimensions of the logo. The default Open edX theme located
+at `static/sass/themes/open-edx.scss` is a good starting point for those interested in changing the logo. Once your
+customizations are complete, update the value of the setting `THEME_SCSS` with the path to your new SCSS file.
+
+Developers may also choose to further customize the site by changing the variables loaded by SCSS. This is most easily
+accomplished via the steps below. This will allow for easily changing basic colors and spacing.
+
+        1. Copy `static/sass/_config-variables.scss` to a new file (e.g. static/sass/_config-variables-awesome-theme).
+        2. Modify your variable values, but not the names, to correspond with your theme.
+        3. Update `static/sass/style-application.scss` to load your file immediately after loading `config-variables`.
+
+We welcome contributions from those interested in further expanding theming support!
 
 License
 -------
@@ -98,6 +161,10 @@ before we can accept your contribution. See our
 [CONTRIBUTING](https://github.com/edx/edx-platform/blob/master/CONTRIBUTING.rst)
 file for more information -- it also contains guidelines for how to maintain
 high code quality, which will make your contribution more likely to be accepted.
+
+### JavaScript Code Quality
+JavaScript developers should adhere to the [edX JavaScript standards](https://github.com/edx/edx-platform/wiki/Javascript-standards-for-the-edx-platform).
+These standards are enforced using [JSHint](http://www.jshint.com/) and [jscs](https://www.npmjs.org/package/jscs).
 
 Testing
 -------
@@ -139,17 +206,20 @@ If you already have a server running, there is also a make task you can run inst
 The tests make a few assumptions about URLs and authentication. These can be overridden by setting environment variables
 when executing either of the commands above.
 
-| Variable                 | Purpose                               | Default Value                    |
-|--------------------------|---------------------------------------|----------------------------------|
-| DASHBOARD_SERVER_URL     | URL where the dashboard is served     | http://127.0.0.1:9000            |
-| API_SERVER_URL           | URL where the analytics API is served | http://127.0.0.1:9001/api/v0     |
-| API_AUTH_TOKEN           | Analytics API authentication token    | edx                              |
-| DASHBOARD_FEEDBACK_EMAIL | Feedback email in the footer          | override.this.email@example.com  |
-| TEST_USERNAME            | Username used to login to the app     | edx                              |
-| TEST_PASSWORD            | Password used to login to the app     | edx                              |
-| PLATFORM_NAME            | Platform/organization name            | edX                              |
-| APPLICATION_NAME         | Name of this application              | Insights                         |
-| SUPPORT_URL              | URL where error pages should link     | http://example.com/              |
+| Variable                     | Purpose                                    | Default Value                    |
+|------------------------------|--------------------------------------------|----------------------------------|
+| DASHBOARD_SERVER_URL         | URL where the dashboard is served          | http://127.0.0.1:9000            |
+| API_SERVER_URL               | URL where the analytics API is served      | http://127.0.0.1:9001/api/v0     |
+| API_AUTH_TOKEN               | Analytics API authentication token         | edx                              |
+| DASHBOARD_FEEDBACK_EMAIL     | Feedback email in the footer               | override.this.email@example.com  |
+| TEST_USERNAME                | Username used to login to the app          | edx                              |
+| TEST_PASSWORD                | Password used to login to the app          | edx                              |
+| PLATFORM_NAME                | Platform/organization name                 | edX                              |
+| APPLICATION_NAME             | Name of this application                   | Insights                         |
+| SUPPORT_EMAIL                | Email where error pages should link        | support@example.com              |
+| ENABLE_COURSE_API            | Indicates if the course API is enabled on the server being tested. Also, determines if course performance tests should be run. | False     |
+| COURSE_API_URL               | URL where the course API is served         | (None)                           |
+| COURSE_API_KEY               | API key used to access the course  API     | (None)                           |
 
 
 Override example:

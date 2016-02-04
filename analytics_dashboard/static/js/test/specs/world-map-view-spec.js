@@ -1,4 +1,4 @@
-define(['models/course-model', 'views/world-map-view'], function(CourseModel, WorldMapView) {
+define(['d3', 'models/course-model', 'views/world-map-view'], function(d3, CourseModel, WorldMapView) {
     'use strict';
 
     describe('World map view', function () {
@@ -14,7 +14,7 @@ define(['models/course-model', 'views/world-map-view'], function(CourseModel, Wo
                 value: 100,
                 percent: '100%'
             });
-            expect(actual).toBe('<div class="hoverinfo">My Map: 100 (100%)</div>');
+            expect(actual).toBe('<div class="hoverinfo">My Map: 100 (100%)&rlm;</div>');
         });
 
         it('should format data for Datamaps', function () {

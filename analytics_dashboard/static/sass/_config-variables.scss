@@ -241,9 +241,17 @@ $tooltip-color: $white;
 $tooltip-bg: $black-t3;
 
 // Footer
-$footer-height: 116px;
+$footer-height: 57px;
+$sock-height: 59px;
+$footer-sock-height: $footer-height + $sock-height;
+
+// gray box around description/information sections
+$description-border-color: $edx-gray-l1;
+$description-border: 1px solid $description-border-color;
 
 // loading error
 $error-background-color: rgb(242, 242, 242);
-$error-border: 1px solid $edx-gray-t1;
 $error-section-highlight-color: rgb(195, 53, 59);
+
+// FontAwesome font directory
+$fa-font-path: "/static/bower_components/font-awesome/fonts";

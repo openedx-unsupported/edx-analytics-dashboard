@@ -1,0 +1,15 @@
+{% extends "courses/performance_grouped_content.html" %}
+{% load i18n %}
+
+{% block content_nav %}
+    {% trans "How are students doing on ungraded exercises?" as heading_note %}
+    {% include "courses/_ungraded_content_nav.html" with active="first_level" first_levels=js_data.course.primaryContent heading_note=heading_note %}
+{% endblock %}
+
+{% block chart_tip_text %}
+    {% trans "Each bar shows the average number of correct and incorrect submissions for each section. Only the last submission from each student is counted." %}
+{% endblock %}
+
+{% block table_title %}
+    {% trans "Section Submissions" %}
+{% endblock %}

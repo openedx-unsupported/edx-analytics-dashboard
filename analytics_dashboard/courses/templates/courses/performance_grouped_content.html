@@ -1,0 +1,15 @@
+{% extends "courses/base_grouped_content.html" %}
+
+{% load rjs %}
+
+{% block javascript %}
+    {{ block.super }}
+    {# override for custom JS loading #}
+    {% block performance_javascript %}
+        <script src="{% static_rjs 'js/performance-content-main.js' %}"></script>
+    {% endblock performance_javascript %}
+{% endblock javascript %}
+
+{% block chart_info %}
+    {% include "courses/submissions_chart_info.html" %}
+{% endblock chart_info %}

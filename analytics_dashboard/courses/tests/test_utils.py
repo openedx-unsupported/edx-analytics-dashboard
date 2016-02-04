@@ -20,3 +20,11 @@ class UtilsTest(TestCase):
         switch.active = True
         switch.save()
         self.assertTrue(utils.is_feature_enabled(item))
+
+
+class NumberTests(TestCase):
+    def test_is_number(self):
+        self.assertTrue(utils.number.is_number('-123'))
+        self.assertTrue(utils.number.is_number('12678.123'))
+        self.assertFalse(utils.number.is_number('45Test'))
+        self.assertFalse(utils.number.is_number('edx'))

@@ -1,0 +1,12 @@
+$brand-logo-path: '/static/images/edx-logo-header.png';
+$brand-logo-width: 93px;
+$brand-logo-height: 47px;
+
+@import "open-edx";
+
+.navbar-brand {
+  .navbar-brand-app {
+    // No padding is needed for the edX logo.
+    padding-top: 0;
+  }
+}

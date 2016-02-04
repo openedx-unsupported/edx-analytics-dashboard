@@ -1,4 +1,7 @@
-{% load i18n %}
+{% comment %}
+Base template pages.
+{% endcomment %}
+
 {% load staticfiles %}
 {% load compress %}
 {% load dashboard_extras %}
@@ -20,7 +23,11 @@
 
     {% block stylesheets %}
     {% compress css %}
-    <link rel="stylesheet" href="{% static 'sass/style-application.scss' %}" type="text/x-scss">
+      <link rel="stylesheet" href="{% static 'sass/style-application.scss' %}" type="text/x-scss">
+      {% captureas theme_scss %}
+        {% settings_value 'THEME_SCSS' %}
+      {% endcaptureas %}
+      <link rel="stylesheet" href="{% static theme_scss %}" type="text/x-scss">
     {% endcompress %}
     {% endblock %}
 
@@ -31,82 +38,5 @@
 
 </head>
 
-<body class="{% block view-name %}{% endblock view-name %}" >
-<div id="wrap">
-    {% block header %}
-    {% include "header.html" %}
-    {% endblock header %}
-
-    {% block lens_navigation %}
-    {% include "lens-navigation.html" %}
-    {% endblock lens_navigation %}
-
-    <div class="container">
-        <div class="row">
-          {% block content-outer %}
-            {#  Translators: Application here refers to the web site/application being used (e.g. the dashboard). #}
-            <main class="col-xs-12 main" id="content" aria-label="{% trans "Application" %}">
-                <div class="view-head">
-                  {% block header-text %}
-                    {% if page_title %}
-                      <div class="row page-title-outer">
-                        <div class="col-md-6 col-xs-12">
-                          <h1>{{ page_title }}</h1>
-                        </div>
-                        <div class="col-md-6 col-xs-12">
-                          <div class="page-subtitle">{{ page_subtitle|default_if_none:'' }}</div>
-                        </div>
-                      </div>
-                    {% endif %}
-                  {% endblock %}
-                </div>
-
-                <div class="view-intro">
-                    <p class="lead text-muted intro-text">
-                        {% block intro-text %}{% endblock intro-text %}
-                    </p>
-                </div>
-
-                {% block content %}
-                {% endblock content %}
-            </main>
-          {% endblock %}
-        </div>
-    </div>
-
-    <!-- Placed at the end of the document so the pages load faster -->
-    {% comment %}
-    Make sure to add your JS files here.  You'll probably want to use block.super to add to the comment includes rather
-    than override them.
-    {% endcomment %}
-
-    {# Translation support for JavaScript strings. #}
-    <script type="text/javascript" src="{% url 'django.views.i18n.javascript_catalog' %}"></script>
-
-    {# Initial page data passed from view to JS initializer #}
-    {% if page_data %}
-    <script type="text/javascript">
-      var initModelData = {{ page_data|safe }};
-    </script>
-    {% endif %}
-
-    {% compress js %}
-      <script src="{% static 'js/common.js' %}"></script>
-      <script src="{% static 'vendor/require.js' %}"></script>
-
-      {# Note: django-compressor does not recognize the data-main attribute. Load the main script separately. #}
-      <script src="{% static 'js/application-main.js' %}"></script>
-
-      {% block javascript %}
-      {% endblock javascript %}
-    {% endcompress %}
-
-  <div id="push"></div>
-</div>
-{% block footer %}
-  <div id="footer">
-  {% include "footer.html" %}
-  </div>
-{% endblock footer %}
-</body>
+{% block body %}{% endblock %}
 </html>

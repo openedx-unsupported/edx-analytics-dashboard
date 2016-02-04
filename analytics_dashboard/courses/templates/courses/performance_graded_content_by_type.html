@@ -1,0 +1,21 @@
+{% extends "courses/performance_grouped_content.html" %}
+{% load i18n %}
+{% load dashboard_extras %}
+{% load rjs %}
+
+{% block content_nav %}
+  {% captureas heading_note %}
+    {% blocktrans with type=assignment_type.name %}
+      How are students doing on the {{type}}?
+    {% endblocktrans %}
+  {% endcaptureas %}
+  {% include "courses/_graded_content_nav.html" with active="second_level" selected_first_level=assignment_type first_levels=assignment_types second_levels=assignments heading_note=heading_note%}
+{% endblock %}
+
+{% block chart_tip_text %}
+    {% trans "Each bar shows the average number of correct and incorrect submissions for problems in the assignment. Only the last submission from each student is counted." %}
+{% endblock %}
+
+{% block table_title %}
+    {% trans "Assignment Submissions" %}
+{% endblock %}

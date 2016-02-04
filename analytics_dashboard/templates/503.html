@@ -1,0 +1,11 @@
+{% extends "base-error.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "We're having trouble loading this page. Please try again in a minute." %} {{ block.super }}{% endblock title %}
+
+{% block error-title %}{% trans "We're having trouble loading this page. Please try again in a minute." %}{% endblock %}
+{% block error-copy %}
+  {{ block.super }}
+  {% trans "(Technical details: 503 Service Unavailable.)" %}
+{% endblock %}

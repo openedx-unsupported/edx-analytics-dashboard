@@ -1,35 +1,38 @@
 from bok_choy.web_app_test import WebAppTest
-from acceptance_tests import AssertMixin, PrimaryNavMixin
-from pages import CourseIndexPage
+
+from acceptance_tests import TEST_COURSE_ID
+from acceptance_tests.mixins import AnalyticsDashboardWebAppTestMixin
+from acceptance_tests.pages import CourseIndexPage
+
 
 _multiprocess_can_split_ = True
 
 
-class CourseIndexTests(WebAppTest, AssertMixin, PrimaryNavMixin):
+class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
     def setUp(self):
         super(CourseIndexTests, self).setUp()
         self.page = CourseIndexPage(self.browser)
 
     def test_page(self):
-        self.page.visit()
+        super(CourseIndexTests, self).test_page()
         self._test_course_list()
-        self._test_user_menu()
 
     def _test_course_list(self):
         """
-        Course list should contain a link to the demo course.
+        Course list should contain a link to the test course.
         """
-        course_id = 'edX/DemoX/Demo_Course'
+        course_id = TEST_COURSE_ID
+        course_name = self.get_course_name_or_id(course_id)
 
-        element = self.page.q(css='.course-list a')
-        self.assertTrue(element.present)
+        # Validate that we have a list of course names
+        course_names = self.page.q(css='.course-list .course a .course-name')
+        self.assertTrue(course_names.present)
 
-        # The element should list the course ID.
-        self.assertEqual(element.text[0], course_id)
+        # The element should list the test course name.
+        self.assertIn(course_name, course_names.text)
 
-        # The element should link to the course landing page.
-        href = element.attrs('href')[0]
-        self.assertTrue(href.endswith('/courses/{}/'.format(course_id)))
-
-        # check that we have an email
-        self.assertValidFeedbackLink('div[class=help-msg] a[class=feedback-email]')
+        # Validate the course link
+        index = course_names.text.index(course_name)
+        course_links = self.page.q(css='.course-list .course a')
+        href = course_links.attrs('href')[index]
+        self.assertTrue(href.endswith(u'/courses/{}/'.format(course_id)))

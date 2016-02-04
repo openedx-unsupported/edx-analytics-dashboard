@@ -1,29 +1,31 @@
 (function () {
     'use strict';
 
-    var jshint = require('gulp-jshint');
-    var gulp = require('gulp');
-    var karma = require('karma').server;
-    var path = require('path');
-    var browserSync = require('browser-sync');
-
-    var paths = {
-        spec: [
-            'analytics_dashboard/static/js/**/*.js',
-            'analytics_dashboard/static/js/test/**/*.js'
-        ],
-        lint: [
-            'gulpfile.js',
-            'analytics_dashboard/static/js/**/*.js',
-            'analytics_dashboard/static/js/test/**/*.js'
-        ],
-        templates: [
-            'analytics_dashboard/courses/templates/courses/*.html',
-            'analytics_dashboard/templates/*.html'
-        ],
-        sass: ['analytics_dashboard/static/sass/*.scss'],
-        karamaConf: 'karma.conf.js'
-    };
+    var jshint = require('gulp-jshint'),
+        gulp = require('gulp'),
+        karma = require('karma').server,
+        path = require('path'),
+        browserSync = require('browser-sync'),
+        jscs = require('gulp-jscs'),
+        paths = {
+            spec: [
+                'analytics_dashboard/static/js/**/*.js',
+                'analytics_dashboard/static/js/test/**/*.js'
+            ],
+            lint: [
+                'build.js',
+                'gulpfile.js',
+                'analytics_dashboard/static/js/**/*.js',
+                'analytics_dashboard/static/js/test/**/*.js'
+            ],
+            templates: [
+                'analytics_dashboard/analytics_dashboard/templates/analytics_dashboard/*.html',
+                'analytics_dashboard/courses/templates/courses/*.html',
+                'analytics_dashboard/templates/*.html'
+            ],
+            sass: ['analytics_dashboard/static/sass/*.scss'],
+            karamaConf: 'karma.conf.js'
+        };
 
     // kicks up karma to the tests once
     function runKarma(configFile, cb) {
@@ -36,7 +38,13 @@
     gulp.task('lint', function () {
         return gulp.src(paths.lint)
             .pipe(jshint())
-            .pipe(jshint.reporter('default'));
+            .pipe(jshint.reporter('default'))
+            .pipe(jshint.reporter('fail'));
+    });
+
+    gulp.task('jscs', function () {
+        return gulp.src(paths.lint)
+            .pipe(jscs());
     });
 
     // this task runs the tests.  It doesn't give you very detailed results,

@@ -8,6 +8,10 @@ How many of the enrolled students are actually keeping up with the work? What
 are they doing? Content engagement data helps you monitor how many students are
 active in your course and what they are doing.
 
+.. contents::
+   :local:
+   :depth: 2
+
 Content engagement data is updated every week for the period Monday at 00:00
 UTC through Sunday at 23:59 UTC.
 
@@ -29,10 +33,10 @@ an overall total for students who completed any type of course activity, and
 totals for students who clicked play for any course video and for students who
 submitted an answer for a problem. Each total is for activity completed within
 a one week period. To see the total count for each activity type for a given
-week, move your cursor over the chart to display a tip.
+week, move your cursor over the chart to display a tooltip.
 
 Activity is included beginning with the week in which the first page visit took
-place. The first page visit is typically by a member of the course staff
+place. The first page visit is typically by a member of the course team
 shortly after course creation.  This data is also available for review in
 tabular format and can be downloaded. See the **Content Engagement Breakdown**
 report.
@@ -43,19 +47,16 @@ data that is shown by indicating several recent occurences: the beginning of
 the beta test, the course start date, and the due date of the first homework.
 
 .. image:: ../images/engagement_chart_start.png
- :alt: A line graph with four months of minimal activity during course
-       development, a very minor increase when the beta test began, a large
-       increase in all three activity measures on the start date, and then a
-       decrease after the first homework due date.
+ :alt: A graph showing changes in number of engaged students over time.
 
 In the second example, a small, private online course was developed on one
 instance of the platform, and then exported and imported to a different
-instance just before the course start date. The tip shows the number of
+instance just before the course start date. The tooltip shows the number of
 students enaging in different activities on the same day that the final
 homework was due.
 
 .. image:: ../images/engagement_chart_SPOC.png
- :alt: A line graph with almost immediate activity in all three measures.
+ :alt: A graph with almost immediate activity in all three measures.
 
 ======================================
 Active Students Last Week Metric
@@ -74,7 +75,7 @@ during the last complete one week period.
 ======================================
 Tried a Problem Last Week Metric
 ======================================
-  
+
 The total number of students who submitted an answer for at least one problem
 during the last complete one week period. Not all problem types are included in
 this count; see :ref:`Engagement Computations`.
@@ -84,14 +85,14 @@ Content Engagement Breakdown Report
 ======================================
 
 The weekly breakdown of student engagement with course content is available for
-review or download. Columns show each **Date** and its **Total
-Enrollment**.
+review or download. Columns show each **Week Ending** date and counts of active
+students, students who watched a video, and students who tried a problem.
 
 You can download the Content Engagement Breakdown report in comma-separated
 value format: click **Download CSV**. The CSV file contains the following
 columns:
 
-* any
+* any (active students)
 * attempted_problem
 * course_id
 * created (shows the date and time of the computation)
@@ -104,17 +105,17 @@ See the :ref:`Reference` chapter for a detailed description of each value.
 .. info on why you might want to download, what to do with csv after
 
 ***************************************************************
-Analytics in Action: Interpreting Data About Student Engagement 
+Analytics in Action: Interpreting Data About Student Engagement
 ***************************************************************
 
 Many online courses experience periodic drops in student activity that can be
 closely correlated to specific events: problem due dates. Teams can forecast
-these changes in engagement, implement strategies to mitigate them, and use 
+these changes in engagement, implement strategies to mitigate them, and use
 weekly activity counts to monitor their reach.
 
 .. Instead of comparing weekly student engagement counts to the total course enrollment, many teams define a new baseline for assessing student engagement after the first assignment is due.
 
-.. not sure where to put this ^ 
+.. not sure where to put this ^
 
 ==================================================
 An Immediate Appeal, then Ongoing Encouragement
@@ -132,10 +133,6 @@ The completion and certification rates for the course were higher than average
 for the subject. In the course exit survey, students indicated that the video
 messages had a significant motivating effect.
 
-.. Melanie checking with MIT to make sure this ^ is ok to use
-
-.. "When you see your first homework assignment, some of you may feel somewhat intimidated. That's normal... However, it would be the wrong thing to stop the course at this point. At least stay in for one month before you make that tragic decision." - Professor Walter Lewin, September 5, 2013
-
 ==========================================
 Motivation through Public Recognition
 ==========================================
@@ -149,7 +146,7 @@ contributions that they make to the learning environment.
 
 * Another professor gave special attention to student questions. He updated the
   **Course Info** page regularly with questions taken from the discussions. He
-  followed each question by thanking the student and giving a direct and 
+  followed each question by thanking the student and giving a direct and
   in-depth answer.
 
 If you post ongoing, regular updates to spotlight student work, you might

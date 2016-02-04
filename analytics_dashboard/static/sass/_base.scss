@@ -11,6 +11,8 @@
 // + view: dashboard
 // + view: system
 
+@import "mixins";
+
 // basics
 // --------------------
 html {
@@ -19,6 +21,19 @@ html {
 
 a {
   @include transition(color ease-in-out .25s);
+}
+
+
+// removes the outline around links when hovering
+a {
+  &:active, &:hover {
+    outline: none;
+  }
+}
+
+// removes the outline around nav links when hovering
+.nav > li > a {
+  @extend a;
 }
 
 hr.has-emphasis {
@@ -58,15 +73,7 @@ hr.has-emphasis {
 }
 
 .navbar-brand {
-  padding: 25px 50px; // needed for edX logo to render properly
-
-  .navbar-brand-logo {
-    display: inline-block;
-    vertical-align: middle;
-    // setting the width keeps IE from computing the width too large (and sizing the brand section oddly)
-    width: 64px;
-    margin-right: 10px;
-  }
+  padding: 25px 50px; // needed for logo to render properly
 
   .navbar-brand-app {
     @include transition(color ease-in-out .25s);
@@ -265,6 +272,10 @@ hr.has-emphasis {
     margin-top: 0;
   }
 
+  .summary-point-addtional-value {
+    color: $gray;
+  }
+
   .summary-point-label {
     @extend h4;
   }
@@ -312,10 +323,10 @@ hr.has-emphasis {
 // Footer
 // --------
 .footer {
+  @include dark-background;
+
   padding-bottom: ($padding-large-vertical);
   font-size: $font-size-small;
-  color: $gray;
-  background-color: $gray-d2;
 
   .legal {
     padding-top: ($padding-large-vertical*2);
@@ -397,13 +408,6 @@ hr.has-emphasis {
   .masthead-brand {
     margin-top: $padding-large-vertical;
     margin-bottom: $padding-large-vertical;
-  }
-
-  .masthead-brand-logo {
-    display: inline-block;
-    vertical-align: middle;
-    height: 60px;
-    margin-right: 10px;
   }
 
   .masthead-brand-app {

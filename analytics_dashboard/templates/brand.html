@@ -3,6 +3,6 @@
 {% load dashboard_extras %}
 
 <a class="{{ class_prefix }}-brand" href="/">
-  <img class="{{ class_prefix }}-brand-logo" src="{% static 'images/edx-logo-header.png' %}" alt="{% settings_value 'PLATFORM_NAME' %}"/>
+  <div class="{{ class_prefix }}-brand-logo" alt="{% settings_value 'PLATFORM_NAME' %}"></div>
   <span class="{{ class_prefix }}-brand-app">{% settings_value 'APPLICATION_NAME' %}</span>
 </a>

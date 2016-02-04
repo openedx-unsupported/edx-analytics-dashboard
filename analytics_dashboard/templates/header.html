@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load firstof from future %}
 
 {% comment %}
 Partial: App-wide header element
@@ -15,15 +16,21 @@ Partial: App-wide header element
       </button>
 
       {% include 'brand.html' with class_prefix='navbar' %}
-      <span class="active-course-number navbar-link navbar-brand">{{ course_id }}</span>
+      {% if course_id %}
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="{% url 'courses:home' course_id=course_id %}" class="navbar-link active-course-name">{% firstof course_name course_id %}</a>
+        </li>
+      </ul>
+      {% endif %}
     </div>
 
     <div class="collapse navbar-collapse" id="main-nav">
       <ul class="nav navbar-nav navbar-right">
         {% if help_url %}
           <li>
-            <a class="navbar-link " data-track-type="click" data-track-event="edx.bi.help.clicked" href="{{ help_url }}"
-               target="_blank">{% trans "Help" %}</a>
+            <a id="help" class="navbar-link " data-track-type="click" data-track-event="edx.bi.help.clicked"
+               href="{{ help_url }}" target="_blank">{% trans "Help" %}</a>
           </li>
         {% endif %}
         <li class="dropdown">

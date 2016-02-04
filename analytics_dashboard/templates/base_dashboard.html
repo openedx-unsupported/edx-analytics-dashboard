@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+
+{% load i18n %}
+{% load staticfiles %}
+{% load compress %}
+{% load dashboard_extras %}
+{% load rjs %}
+
+
+{% block body %}
+  <body class="{% block view-name %}{% endblock view-name %}">
+  <div id="wrap-content-push-footer-sock">
+    {% block header %}
+      {% include "header.html" %}
+    {% endblock header %}
+
+    {% block announcements %}
+      {% include "announcements.html" %}
+    {% endblock %}
+
+    {% block lens_navigation %}
+      {% include "lens-navigation.html" %}
+    {% endblock lens_navigation %}
+
+    <div class="container">
+      <div class="row">
+        {% block content-outer %}
+          {#  Translators: Application here refers to the web site/application being used (e.g. the dashboard). #}
+          <main class="col-xs-12 main" id="content" aria-label="{% trans "Application" %}">
+            <div class="view-head">
+              {% block header-text %}
+                {% if page_title %}
+                  <div class="row page-title-outer">
+                    <div class="col-md-6 col-xs-12">
+                      <h1>{{ page_title }}</h1>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                      <div class="page-subtitle">{{ page_subtitle|default_if_none:'' }}</div>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endblock %}
+            </div>
+
+            <div class="view-intro">
+              <p class="lead text-muted intro-text">
+                {% block intro-text %}{% endblock intro-text %}
+              </p>
+            </div>
+
+            {% block content %}
+            {% endblock content %}
+          </main>
+        {% endblock %}
+      </div>
+    </div>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    {% comment %}
+    Make sure to add your JS files here.  You'll probably want to use block.super to add to the comment includes rather
+    than override them.
+    {% endcomment %}
+
+    {# Translation support for JavaScript strings. #}
+    <script type="text/javascript" src="{% url 'django.views.i18n.javascript_catalog' %}"></script>
+    <script type="text/javascript">
+      window.language = "{{ LANGUAGE_CODE }}";
+    </script>
+
+    {# Initial page data passed from view to JS initializer #}
+    {% if page_data %}
+      <script type="text/javascript">
+        var initModelData = {{ page_data|safe }};
+      </script>
+    {% endif %}
+
+    {% compress js %}
+      <script src="{% static 'bower_components/requirejs/require.js' %}"></script>
+      <script src="{% static_rjs 'js/config.js' %}"></script>
+
+      {# Note: django-compressor does not recognize the data-main attribute. Load the main script separately. #}
+      <script src="{% static_rjs 'js/common.js' %}"></script>
+    {% endcompress %}
+
+
+    {% compress js %}
+      {# Note: This block is purposely separated from the one above so that browsers cache the common JS instead of downloading a single, large file for each page. #}
+      {% block javascript %}
+      {% endblock javascript %}
+    {% endcompress %}
+
+    <div id="footer-sock-push"></div>
+  </div>
+  {% block footer %}
+    <div id="footer-sock">
+      {% include "footer.html" with show_feedback=True %}
+    </div>
+  {% endblock footer %}
+  </body>
+{% endblock body %}

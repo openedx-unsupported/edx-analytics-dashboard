@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base_dashboard.html" %}
 
 {% load i18n %}
 {% load dashboard_extras %}
@@ -6,8 +6,9 @@
 {% block view-name %}view-system{% endblock view-name %}
 
 {# These are intentionally left blank. #}
-{% block header %}{% endblock header %}
+{% block header %}{% endblock %}
 {% block lens_navigation %}{% endblock %}
+{% block announcements %}{% endblock %}
 {% block footer %}{% endblock %}
 
 {% block content-outer %}
@@ -37,7 +38,7 @@
 
           <p class="lead">
             {% block buttons %}
-              <a href="{% settings_value 'SUPPORT_URL' %}" class="btn btn-lg btn-primary" data-role="support-link" target="_blank"
+              <a href="mailto:{% settings_value 'SUPPORT_EMAIL' %}" class="btn btn-lg btn-primary" data-role="support-email"
                  title="{% trans 'Use our support tool to ask questions or share feedback.' %}">
                 <i class="ico fa fa-life-ring" aria-hidden="true"></i>
                 {% captureas platform_name %}{% settings_value "PLATFORM_NAME" %}{% endcaptureas %}

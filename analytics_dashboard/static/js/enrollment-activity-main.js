@@ -3,36 +3,87 @@
  * the libraries and kicks off the application.
  */
 
-require(['vendor/domReady!', 'load/init-page'], function(doc, page){
+require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
     'use strict';
 
     // this is your page specific code
     require(['views/data-table-view',
-            'views/trends-view'],
-        function (DataTableView, TrendsView) {
+            'views/stacked-trends-view'],
+        function (DataTableView, StackedTrendsView) {
 
-        // Daily enrollment graph
-        new TrendsView({
-            el: '#enrollment-trend-view',
-            model: page.models.courseModel,
-            modelAttribute: 'enrollmentTrends',
-            trends: [{title: 'Students'}],
-            x: { key: 'date' },
-            y: { key: 'count' },
-            tooltip: gettext('This graph displays total enrollment for the course calculated at the end of each day. Total enrollment includes new enrollments as well as unenrollments.')
-        });
+            var settings = [
+                    {
+                        key: 'date',
+                        title: gettext('Date'),
+                        type: 'date'
+                    },
+                    {
+                        key: 'count',
+                        title: gettext('Current Enrollment'),
+                        className: 'text-right',
+                        type: 'number',
+                        color: '#4BB4FB'
+                    },
+                    {
+                        key: 'honor',
+                        title: gettext('Honor Code'),
+                        className: 'text-right',
+                        type: 'number',
+                        color: '#4BB4FB'
+                    },
+                    {
+                        key: 'verified',
+                        title: gettext('Verified'),
+                        className: 'text-right',
+                        type: 'number',
+                        color: '#CA0061'
+                    },
+                    {
+                        key: 'professional',
+                        title: gettext('Professional'),
+                        className: 'text-right',
+                        type: 'number',
+                        color: '#CCCCCC'
+                    }
+                ],
+                trendSettings,
+                enrollmentTrackTrendSettings;
 
-        // Daily enrollment table
-        new DataTableView({
-            el: '[data-role=enrollment-table]',
-            model: page.models.courseModel,
-            modelAttribute: 'enrollmentTrends',
-            columns: [
-                {key: 'date', title: gettext('Date'), type: 'date'},
-                // Translators: The noun count (e.g. number of students)
-                {key: 'count', title: gettext('Total Enrollment'), className: 'text-right'}
-            ],
-            sorting: ['-date']
+            // Remove settings for which there is no data (e.g. don't attempt to display verified if there is no data).
+            settings = _(settings).filter(function (setting) {
+                return page.models.courseModel.hasTrend('enrollmentTrends', setting.key);
+            });
+
+            trendSettings = _(settings).filter(function (setting) {
+                return setting.key !== 'date';
+            });
+
+            // Do not display total enrollment on the chart if track data exists
+            enrollmentTrackTrendSettings = _(trendSettings).filter(function (setting) {
+                return setting.key !== 'count';
+            });
+
+            if (enrollmentTrackTrendSettings.length) {
+                trendSettings = enrollmentTrackTrendSettings;
+            }
+
+            // Daily enrollment graph
+            new StackedTrendsView({
+                el: '#enrollment-trend-view',
+                model: page.models.courseModel,
+                modelAttribute: 'enrollmentTrends',
+                trends: trendSettings,
+                x: { key: 'date' },
+                y: { key: 'count' }
+            });
+
+            // Daily enrollment table
+            new DataTableView({
+                el: '[data-role=enrollment-table]',
+                model: page.models.courseModel,
+                modelAttribute: 'enrollmentTrends',
+                columns: settings,
+                sorting: ['-date']
+            });
         });
-    });
 });

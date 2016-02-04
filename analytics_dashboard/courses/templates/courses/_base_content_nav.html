@@ -1,0 +1,63 @@
+{% load i18n %}
+{% load dashboard_extras %}
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="graded-content-nav">
+      <ul class="nav navbar-nav">
+        <li class="{% if active == "first_level" %}active{% endif %} nav-section">
+          <div class="dropdown">
+              <span class="link-label dropdown-toggle" id="firstLevelMenu" data-toggle="dropdown">
+                {% if selected_first_level and selected_first_level.name %}
+                  {{ selected_first_level.name }}
+                {% else %}
+                  {% block select_first_level %}{% endblock %}
+                {% endif %}
+                <span class="caret"></span>
+              </span>
+                {% captureas sections_home_url %}
+                  {% block home_content_url %}{% endblock %}
+                {% endcaptureas %}
+                {% captureas all_sections_text %}
+                  {% block select_first_level_all %}{% endblock %}
+                {% endcaptureas %}
+              {% include "courses/_content_nav_menu.html" with levels=first_levels labelledby="firstLevelMenu" home_content_url=sections_home_url home_content_text=all_sections_text%}
+          </div>
+        </li>
+        {% if second_levels %}
+          <li class="{% if active == "second_level" %}active{% endif %} nav-section">
+            <div class="dropdown">
+              <span class="link-label dropdown-toggle" id="secondLevelMenu" data-toggle="dropdown">
+                {% if selected_second_level and selected_second_level.name %}
+                  {{ selected_second_level.name }}
+                {% else %}
+                    {% block select_second_level%}{% endblock %}
+                {% endif %}
+                <span class="caret"></span>
+              </span>
+              {% include "courses/_content_nav_menu.html" with levels=second_levels labelledby="secondLevelMenu"%}
+            </div>
+          </li>
+        {% endif %}
+        {% if third_levels %}
+          <li class="{% if active == "third_level" %}active{% endif %} nav-section">
+            <div class="dropdown">
+              <span class="link-label dropdown-toggle" id="thirdLevelMenu" data-toggle="dropdown">
+                {% if selected_third_level and selected_third_level.name %}
+                  {{ selected_third_level.name }}
+                {% else %}
+                  {% block select_third_level%}{% endblock %}
+                {% endif %}
+                <span class="caret"></span>
+              </span>
+              {% include "courses/_content_nav_menu.html" with levels=third_levels labelledby="thirdLevelMenu"%}
+            </div>
+          </li>
+        {% endif %}
+      </ul>
+      <div class="section-heading">
+        <span class="section-heading-note small">{{ heading_note }}</span>
+      </div>
+    </div>
+  </div>
+</div>
