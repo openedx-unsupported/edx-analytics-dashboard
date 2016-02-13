@@ -35,7 +35,7 @@ define(['moment', 'underscore', 'utils/globalization'], function (moment, _, Glo
 
         /**
          * Takes a standard string date and returns a formatted date.
-         * @param {string} date (ex. 2014-01-31)
+         * @param {(string|Date)} date (ex. 2014-01-31 or Date object)
          * @returns {string} Returns a formatted date (ex. January 31, 2014)
          */
         formatDate: function (date) {
