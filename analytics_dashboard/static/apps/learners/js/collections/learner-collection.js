@@ -13,12 +13,12 @@ define([
             this.url = options.url;
             this.courseId = options.courseId;
 
-            this.registerSortableField('username', gettext('Username'));
-            this.registerSortableField('problems_attempted', gettext('Problems Attempted'));
-            this.registerSortableField('problems_completed', gettext('Problems Completed'));
-            this.registerSortableField('videos_viewed', gettext('Videos Viewed'));
-            this.registerSortableField('problem_attempts_per_completed', gettext('Problem Attempts per Completed'));
-            this.registerSortableField('discussion_contributions', gettext('Discussion Contributions'));
+            this.registerSortableField('username', gettext('Name'));
+            this.registerSortableField('problems_attempted', gettext('Problems Tried'));
+            this.registerSortableField('problems_completed', gettext('Problems Correct'));
+            this.registerSortableField('videos_viewed', gettext('Videos'));
+            this.registerSortableField('problem_attempts_per_completed', gettext('Attempts per Problem Correct'));
+            this.registerSortableField('discussion_contributions', gettext('Discussions'));
 
             this.registerFilterableField('segments', gettext('Segments'));
             this.registerFilterableField('ignore_segments', gettext('Segments to Ignore'));
