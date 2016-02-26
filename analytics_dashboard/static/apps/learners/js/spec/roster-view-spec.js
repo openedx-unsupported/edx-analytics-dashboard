@@ -10,18 +10,14 @@ define([
     'use strict';
 
     describe('LearnerRosterView', function () {
-        var fixtureClass,
+        var fixtureClass = 'roster-view-fixture',
+            perPage = 25,
             getLastRequest,
             getLastRequestParams,
             getResponseBody,
             getRosterView,
-            perPage,
             server,
             verifyErrorHandling;
-
-        perPage = 25;
-
-        fixtureClass  = 'roster-view-fixture';
 
         getLastRequest = function () {
             return server.requests[server.requests.length - 1];
@@ -88,6 +84,7 @@ define([
                     {name: 'zita', username: 'zita', engagements: generateEngagements()}
                 ],
                 rosterView = getRosterView({results: learners}, {parse: true});
+
             _.chain(_.zip(learners, rosterView.$('tbody tr'))).each(function (learnerAndTr) {
                 var learner = learnerAndTr[0],
                     tr = learnerAndTr[1];
@@ -102,6 +99,35 @@ define([
                 expect($(tr).find('td.videos_viewed'))
                     .toContainText(learner.engagements.videos_viewed);
             });
+        });
+
+        describe('table headers', function() {
+
+            it('has tooltips', function () {
+                // username doesn't have tooltips
+                var headersWithTips = [
+                    'videos_viewed',
+                    'problems_completed',
+                    'problems_attempted',
+                    'discussion_contributions',
+                    'problem_attempts_per_completed'
+                ];
+
+                // creates the roster view
+                getRosterView();
+
+                _(headersWithTips).each(function (headerClass) {
+                    var $heading = $('th.' + headerClass).focusin(),
+                        $tooltip;
+
+                    // aria tag is added when tooltip is displayed (e.g. on focus)
+                    expect($heading).toHaveAttr('aria-describedby');
+                    $tooltip = $('#' + $heading.attr('aria-describedby'));
+                    expect($tooltip.text().length).toBeGreaterThan(0);
+                });
+
+            });
+
         });
 
         describe('sorting', function () {
