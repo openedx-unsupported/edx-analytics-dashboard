@@ -11,11 +11,11 @@
 # Dmitry Zau <panoplied@yandex.ru>, 2014
 # Elena Freundorfer <e_freundorfer@gmx.de>, 2014
 # Julia Mozharova <mozharovajuliia@gmail.com>, 2015
-# Liubov Fomicheva <liubov.nelapa@gmail.com>, 2015
+# Liubov Fomicheva <liubov.nelapa@gmail.com>, 2015-2016
 # Maksimenkova Olga <omaksimenkova@hse.ru>, 2014-2015
 # mastergowen <mastergowen@gmail.com>, 2014
 # mcha121 <mcha-12-1@bk.ru>, 2014
-# Michael Savin <m.savin.ru@gmail.com>, 2015
+# Michael Savin <m.savin.ru@gmail.com>, 2015-2016
 # Natalie Murashkina <murnatty@gmail.com>, 2014
 # Nikolay K Medvedev <elsin16@gmail.com>, 2014-2015
 # Peter Markushin, 2014
@@ -27,8 +27,8 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-18 14:58-0500\n"
-"PO-Revision-Date: 2015-12-10 06:02+0000\n"
-"Last-Translator: Michael Savin <m.savin.ru@gmail.com>\n"
+"PO-Revision-Date: 2016-02-29 15:10+0000\n"
+"Last-Translator: Liubov Fomicheva <liubov.nelapa@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/open-edx/edx-platform/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,31 +46,31 @@ msgstr "Наработки, которые помогут в усовершен�
 
 #: core/templates/core/landing.html courses/views/__init__.py
 msgid "Who are my students?"
-msgstr "Кто мои студенты?"
+msgstr "Кто мои слушатели?"
 
 #: core/templates/core/landing.html
 msgid "Target your course to fit the backgrounds of your students."
 msgstr ""
-"Спланируйте свой курс так, чтобы он соответствовал уровню подготовки Ваших "
-"студентов."
+"Спланируйте свой курс так, чтобы он соответствовал уровню подготовки ваших "
+"слушателей."
 
 #: core/templates/core/landing.html
 #: courses/templates/courses/enrollment_geography.html
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/__init__.py
 msgid "Enrollment"
-msgstr "Запись на курс"
+msgstr "Регистрация на курс"
 
 #: core/templates/core/landing.html
 msgid "What are students engaging with in my course?"
-msgstr "С каким материалом моего курса работают студенты?"
+msgstr "Что пользуется популярностью у слушателей?"
 
 #: core/templates/core/landing.html
 msgid ""
 "Improve frequently accessed content, or point students at underused "
 "resources."
 msgstr ""
-"Усовершенствовать часто просматриваемые материалы или указать студентам на "
+"Усовершенствовать часто просматриваемые материалы или указать на "
 "недостаточно используемые ресурсы."
 
 #: core/templates/core/landing.html
@@ -81,13 +81,12 @@ msgstr "активность"
 
 #: core/templates/core/landing.html
 msgid "How well is my content supporting student learning?"
-msgstr ""
-"Насколько хорошо содержимое моих курсов способствует обучению студентов?"
+msgstr "Насколько хорошо содержимое моих курсов способствует обучению?"
 
 #: core/templates/core/landing.html
 msgid "Adjust your course based on where students are struggling."
 msgstr ""
-"Корректировать курс исходя из затруднений, которые испытывают студенты."
+"Корректировать курс исходя из затруднений, которые испытывают обучающиеся."
 
 #: core/templates/core/landing.html
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
@@ -139,7 +138,7 @@ msgstr "{statistic}%"
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: courses/presenters/engagement.py
 msgid "{percentage} of current students"
-msgstr "{percentage} студентов"
+msgstr "{percentage} слушателей"
 
 #: courses/presenters/enrollment.py
 msgid "Female"
@@ -274,7 +273,7 @@ msgstr "Выберите задание"
 #: courses/templates/courses/_module_description.html
 #: courses/templates/courses/_video_preview.html
 msgid "View Live"
-msgstr "Просмотр текущей версии"
+msgstr "Просмотр курса"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
@@ -309,8 +308,8 @@ msgid ""
 "This chart shows the most common answers submitted by students, ordered by "
 "frequency."
 msgstr ""
-"Эта диаграмма показывает наиболее распространенные ответы студентов, "
-"упорядоченные по частоте."
+"Эта диаграмма показывает наиболее распространенные ответы, упорядоченные по "
+"частоте."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -347,44 +346,44 @@ msgstr "Скачать в CSV"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Student Submission Counts"
-msgstr "Счётчик попыток студента"
+msgstr "Счётчик попыток"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
 msgid "Students (Self-Reported)"
-msgstr "Студенты (на основе регистрационных данных)"
+msgstr "Обучающиеся (на основе анкетных данных)"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Weekly Student Engagement"
-msgstr "Еженедельная успеваемость студентов"
+msgstr "Еженедельная успеваемость"
 
 #: courses/templates/courses/engagement_content.html courses/views/__init__.py
 msgid "How many students are interacting with my course?"
-msgstr "Сколько студентов работают с моим курсом?"
+msgstr "Сколько слушателей работают с моим курсом?"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students"
-msgstr "Студенты"
+msgstr "Обучающиеся"
 
 #: courses/templates/courses/engagement_content.html
 msgid ""
 "The number of active students, and the number of students who engaged in "
 "specific activities, over time."
 msgstr ""
-"Количество активных студентов и количество студентов, которые выполняли "
+"Количество активных слушателей и количество слушателей, которые выполняли "
 "определённые действия, в различные периоды времени."
 
 #: courses/templates/courses/engagement_content.html
 msgid "Student Activity Metrics"
-msgstr "Метрики активности студентов"
+msgstr "Метрики активности слушателей"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Active Students Last Week"
-msgstr "Активные студенты на прошедшей неделе"
+msgstr "Слушатели, активные на прошедшей неделе"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who visited at least one page in the course content."
-msgstr "Студенты, посетившие хотя бы одну страницу содержимого курса."
+msgstr "Слушатели, посетившие хотя бы одну страницу содержимого курса."
 
 #. Translators: This is a label indicating the number of students who watched
 #. a video.
@@ -394,7 +393,7 @@ msgstr "Смотревшие видео на прошлой неделе"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who played one or more videos."
-msgstr "Студенты, просмотревшие одно или более видео"
+msgstr "Слушатели, просмотревшие одно или более видео"
 
 #. Translators: This is a label indicating the number of students who tried a
 #. problem.
@@ -407,8 +406,7 @@ msgid ""
 "Students who submitted an answer for a standard problem. Not all problem "
 "types are included."
 msgstr ""
-"Студенты, которые представили ответ для стандартной задачи. Не все типы "
-"задач."
+"Слушатели, ответившие на задание базового типа. Не все типы задач включены."
 
 #. Translators: This is a label indicating the number of students who posted
 #. in a forum discussion.
@@ -418,7 +416,7 @@ msgstr "Участвовали в обсуждениях на прошлой н�
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who contributed to any discussion topic."
-msgstr "студенты, принимающие участие в обсуждениях."
+msgstr "Слушатели, принимающие участие в обсуждениях."
 
 #: courses/templates/courses/engagement_content.html
 #: courses/templates/courses/engagement_content.html
@@ -434,7 +432,7 @@ msgstr "Просмотры видео"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid "How did students interact with videos in this section?"
-msgstr "Как студенты работали с видео-материалами из этого раздела?"
+msgstr "Как работали с видео-материалами из этого раздела?"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
@@ -448,7 +446,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did students interact with videos in this subsection?"
-msgstr "Как студенты работали с видео-материалами из этого подраздела?"
+msgstr "Как работали с видео-материалами из этого подраздела?"
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid ""
@@ -456,13 +454,13 @@ msgid ""
 "Click to understand where students drop off and which parts they replay."
 msgstr ""
 "Каждый столбик соответствует количеству полных и неполных просмотров данного"
-" видео.  Щёлкните по столбику, чтобы узнать, в какой момент студенты "
+" видео.  Щёлкните по столбику, чтобы узнать, в какой момент слушатели "
 "прерывают просмотр и какие части просматривают повторно."
 
 #: courses/templates/courses/engagement_video_course.html
 #: courses/views/__init__.py
 msgid "How did students interact with course videos?"
-msgstr "Как студенты работали с видео-материалами курса?"
+msgstr "Как слушатели работали с видео-материалами курса?"
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
@@ -488,7 +486,7 @@ msgid ""
 "The number of students who watched each segment of the video, and the number"
 " of replays for each segment."
 msgstr ""
-"Количество студентов, просмотревших каждую часть видео и количество "
+"Количество слушателей, просмотревших каждую часть видео и количество "
 "повторных просмотров каждой части."
 
 #: courses/templates/courses/engagement_video_timeline.html
@@ -497,7 +495,7 @@ msgstr "Свернуть краткое содержание"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Expand Preview"
-msgstr "Развернуть краткое содержание"
+msgstr "Развернуть содержание"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Metrics"
@@ -509,7 +507,7 @@ msgstr "Процент выполнения"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Estimated percentage of students who watched the entire video."
-msgstr "Приблизительный процент студентов, просмотревших видео целиком."
+msgstr "Приблизительный процент слушателей, просмотревших видео целиком."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Started Video"
@@ -517,7 +515,7 @@ msgstr "Начатые видео"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who started watching the video."
-msgstr "Студенты, начавшие смотреть видео."
+msgstr "Слушатели, начавшие смотреть видео."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Finished Video"
@@ -525,7 +523,7 @@ msgstr "Законченные видео"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who watched the video to the end."
-msgstr "Студенты, просмотревшие видео до конца."
+msgstr "Просмотревшие видео до конца."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Viewing Over Time"
@@ -533,51 +531,51 @@ msgstr "Просмотр видео за период времени"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
-msgstr "Зачисление студентов на курс, по дням"
+msgstr "Регистрация слушателей на курс, по дням"
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/views/__init__.py
 msgid "How many students are in my course?"
-msgstr "Сколько студентов зачислено на курс?"
+msgstr "Сколько слушателей зарегистрировано на курс?"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollments"
-msgstr "Участники"
+msgstr "Регистрации"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
 "This graph displays the current enrollment for the course as of the end of "
 "each day. This includes new enrollments as well as unenrollments."
 msgstr ""
-"Этот график показывает текущее количество записанных на курс, вычисленное в "
-"конце каждого дня. Это количество включает в себя новых учащихся, а также "
+"Этот график показывает количество регистраций, вычисленное в конце каждого "
+"дня. Это количество включает в себя новых участников, а также слушателей, "
 "отменивших запись на курс."
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollment Metrics"
-msgstr "Метрики записи на курс"
+msgstr "Метрики регистрации на курс"
 
 #. Translators: This is a label to identify the number of students who ever
 #. enrolled in the course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Total Enrollment"
-msgstr "Всего зачислено"
+msgstr "Всего зарегистрировано"
 
 #. Translators: This is a label indicating the number of students in a course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Students who ever enrolled in the course."
-msgstr "Студенты, которые когда-либо регистрировались на данный курс."
+msgstr "Слушатели, которые когда-либо регистрировались на данный курс."
 
 #. Translators: This is a label to identify current student enrollment.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Current Enrollment"
-msgstr "Текущее количество студентов"
+msgstr "Количество регистраций"
 
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Students currently enrolled in the course."
-msgstr "Студенты, зарегистрированные на курс в настоящий момент."
+msgstr "Обучающиеся в настоящий момент."
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
@@ -595,7 +593,7 @@ msgstr ""
 #. verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Verified Enrollment"
-msgstr "Подтвержденная регистрация"
+msgstr "Регистраций с подтверждением личности"
 
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course on the verified track.
@@ -604,8 +602,8 @@ msgid ""
 "Number of currently enrolled students pursuing a verified certificate of "
 "achievement."
 msgstr ""
-"Многие из учащихся на данных момент студентов гонятся за получением "
-"верифицированного сертификата об успешном окончании курсов."
+"Многие из обучающихся заинтересованы в получении Подтверждённого сертификата"
+" об успешном окончании курса."
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html
@@ -613,12 +611,12 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_education.html
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "Enrollment Over Time"
-msgstr "Число зарегистрированных студентов за период времени"
+msgstr "Число зарегистрированных за период времени"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 #: courses/views/__init__.py
 msgid "How old are my students?"
-msgstr "Каков возраст моих студентов?"
+msgstr "Каков возраст моих слушателей?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -629,7 +627,7 @@ msgid ""
 "students who provided a year of birth."
 msgstr ""
 "Эта гистограмма данных по возрасту, рассчитанных в %(value)s%% показывает "
-"зачисленных студентов, которые указали год рождения."
+"обучающихся, которые указали год рождения."
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Metrics"
@@ -639,54 +637,54 @@ msgstr "возрастные показатели"
 #. students.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Median Student Age"
-msgstr "средний возраст студентов"
+msgstr "Средний возраст слушателей"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The midpoint of the student ages, computed from the provided year of birth."
 msgstr ""
-"Средний возраст студентов, рассчитанный на основе регистрационных данных."
+"Средний возраст слушателей, рассчитанный на основе регистрационных данных."
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 25 and Under"
-msgstr "студенты моложе 25 лет"
+msgstr "Моложе 25 лет"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The percentage of students aged 25 years or younger (of those who provided a"
 " year of birth)."
 msgstr ""
-"Процент учащихся в возрасте 25 лет или младше (из тех, кто указал год "
+"Процент слушателей в возрасте 25 лет или младше (из тех, кто указал год "
 "рождения)."
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 26 to 40"
-msgstr "Студенты в возрасте от 26 до 40 лет"
+msgstr "В возрасте от 26 до 40 лет"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The percentage of students aged from 26 to 40 years (of those who provided a"
 " year of birth)."
 msgstr ""
-"Процент учащихся в возрасте от 26 до 40 лет (из тех, кто указал год "
+"Процент слушателей в возрасте от 26 до 40 лет (из тех, кто указал год "
 "рождения)."
 
 #. Translators: This is a label to identify the number of students in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 41 and Over"
-msgstr "студенты старше 41 года"
+msgstr "Старше 41 года"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "The percentage of students aged 41 years or older (of those who provided a "
 "year of birth)."
 msgstr ""
-"Процент учащихся в возрасте от 41 года и старше (из тех, кто указал год "
+"Процент слушателей в возрасте от 41 года и старше (из тех, кто указал год "
 "рождения)."
 
 #: courses/templates/courses/enrollment_demographics_age.html
@@ -696,7 +694,7 @@ msgstr "возрастная группа"
 #: courses/templates/courses/enrollment_demographics_education.html
 #: courses/views/__init__.py
 msgid "What level of education do my students have?"
-msgstr "Каков уровень образования моих студентов?"
+msgstr "Каков уровень образования слушателей?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -706,8 +704,8 @@ msgid ""
 "This graph presents data for the %(value)s%% of enrolled students who "
 "provided a highest level of education completed."
 msgstr ""
-"Этот график представляет данные в %(value)s%% зачисленных студентов, которые"
-" обеспечили высокий уровень законченного образования."
+"Этот график представляет данные о %(value)s%% обучающихся, которые указали "
+"высокий уровень полученного образования."
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Education Metrics"
@@ -724,9 +722,8 @@ msgid ""
 "secondary/junior high/middle school, or Elementary/primary school as their "
 "highest level of education completed."
 msgstr ""
-"Процент учащихся, выбравших в средней/старшей школе, в младших классах "
-"средней/неполной средней/средней школы или начальной/начальной школы, так "
-"как уровень их  законченного образования высок."
+"Процент слушателей, выбравших начальное, общее или полное/среднее "
+"образование как свой наивысший уровень законченного образования."
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -738,8 +735,8 @@ msgid ""
 "The percentage of students who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
 msgstr ""
-"Процент учащихся, выбравших степень бакалавра или младшего специалиста как "
-"свой наивысший уровень законченного образования."
+"Процент слушателей, выбравших степень бакалавра или специалиста как свой "
+"наивысший уровень законченного образования."
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -751,8 +748,8 @@ msgid ""
 "The percentage of students who selected Doctorate or Master's or "
 "professional degree as their highest level of education completed."
 msgstr ""
-"Процент учащихся, выбравших степень доктора или магистра как свой наивысший "
-"уровень законченного образования."
+"Процент слушателей, выбравших степень доктора или магистра как свой "
+"наивысший уровень законченного образования."
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Educational Breakdown"
@@ -761,7 +758,7 @@ msgstr "распределение по уровню образования"
 #: courses/templates/courses/enrollment_demographics_gender.html
 #: courses/views/__init__.py
 msgid "What is the student gender breakdown?"
-msgstr "Каково студенческое разделение по полу?"
+msgstr "Каково разделение по полу?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -771,8 +768,8 @@ msgid ""
 "This graph presents data for the %(value)s%% of enrolled students who "
 "specified their gender."
 msgstr ""
-"Этот график представляет данные в %(value)s%% зачисленных студентов, "
-"указавших свой пол"
+"Этот график представляет данные о %(value)s%% обучающихся, указавших свой "
+"пол."
 
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "Gender Breakdown Over Time"
@@ -785,7 +782,7 @@ msgstr "Географическое распределение"
 #: courses/templates/courses/enrollment_geography.html
 #: courses/views/__init__.py
 msgid "Where are my students?"
-msgstr "Где находятся мои студенты?"
+msgstr "Где проживают мои слушатели?"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Enrollment by Country"
@@ -809,37 +806,37 @@ msgstr "Страны с одним и более участниками"
 #. enrolled students.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Top Country by Enrollment"
-msgstr "Страна, с наибольшим числом зарегистрировавшихся студентов."
+msgstr "Страна, с наибольшим числом слушателей"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the largest number of students."
-msgstr "Страна с самым большим количеством студентов."
+msgstr "Страна с самым большим количеством слушателей."
 
 #. Translators: This string represents the country with the second-greatest
 #. number of enrolled students.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Second Country by Enrollment"
-msgstr "Второе место по числу зарегистрировавшихся студентов"
+msgstr "Второе место по зачисленным слушателям"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the second largest number of students."
-msgstr "Страна со вторым по счёту количеством студентов."
+msgstr "Вторая по количеству слушателей страна."
 
 #. Translators: This string represents the country with the third-greatest
 #. number of enrolled students.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Third Country by Enrollment"
-msgstr "Третье место по числу зарегистрировавшихся студентов"
+msgstr "Третье место по числу зачисленных слушателей"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the third largest number of students."
-msgstr "Страна с третьим по счёту количеством студентов."
+msgstr "Страна с третьим по счёту количеством слушателей."
 
 #. Translators: This string represents the percentage of students in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
 #: courses/templates/courses/enrollment_geography.html
 msgid "%(percent)s%% of students"
-msgstr "%(percent)s%% студентов"
+msgstr "%(percent)s%% слушателей"
 
 #: courses/templates/courses/enrollment_geography.html
 #: courses/templates/courses/enrollment_geography.html
@@ -866,7 +863,7 @@ msgstr "Активный"
 
 #: courses/templates/courses/home.html
 msgid "Basic Course Information"
-msgstr "Основная Информация о Курсе"
+msgstr "Основная информация о курсе"
 
 #. Translators: This title describes a list of links to outside tools for this
 #. course.
@@ -902,11 +899,11 @@ msgstr ""
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
 msgid "How did students answer this problem?"
-msgstr "Как студенты ответили на задачу?"
+msgstr "Как слушатели ответили на задачу?"
 
 #: courses/templates/courses/performance_assignment.html
 msgid "How are students doing on this assignment?"
-msgstr "Как студенты работают над заданием?"
+msgstr "Как слушатели работают над заданием?"
 
 #: courses/templates/courses/performance_assignment.html
 #: courses/templates/courses/performance_ungraded_by_subsection.html
@@ -956,7 +953,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"      Как студенты работают над %(type)s?\n"
+"      Как слушатели работают над %(type)s?\n"
 "    "
 
 #: courses/templates/courses/performance_graded_content_by_type.html
@@ -966,8 +963,7 @@ msgid ""
 "counted."
 msgstr ""
 "Каждый столбик соответствует среднему количеству верных и неверных ответов "
-"на задачи в данном задании.  Учитывается только последний вариант ответа "
-"каждого из студентов."
+"на задачи в данном задании.  Учитывается только последний вариант ответа."
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid "Assignment Submissions"
@@ -975,7 +971,7 @@ msgstr "Назначенные задания"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are students doing on this section?"
-msgstr "Как студенты работают над этим разделом?"
+msgstr "Как слушатели работают над этим разделом?"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid ""
@@ -983,8 +979,7 @@ msgid ""
 "each subsection. Only the last submission from each student is counted."
 msgstr ""
 "Каждый столбик соответствует среднему количеству верных и неверных ответов "
-"по подразделам.  Учитывается только последний вариант ответа каждого из "
-"студентов."
+"по подразделам.  Учитывается только последний вариант ответа."
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "Subsection Submissions"
@@ -992,12 +987,12 @@ msgstr "Ответы по подразделу"
 
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid "How are students doing on this subsection?"
-msgstr "Как студенты работают над этим подразделом?"
+msgstr "Как слушатели работают над этим подразделом?"
 
 #: courses/templates/courses/performance_ungraded_content.html
 #: courses/views/__init__.py
 msgid "How are students doing on ungraded exercises?"
-msgstr "Как студенты справляются с заданиями без оценки?"
+msgstr "Как слушатели справляются с заданиями без оценки?"
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid ""
@@ -1005,8 +1000,7 @@ msgid ""
 "each section. Only the last submission from each student is counted."
 msgstr ""
 "Каждый столбик соответствует среднему количеству верных и неверных ответов "
-"по разделам.  Учитывается только последний вариант ответа каждого из "
-"студентов."
+"по разделам.  Учитывается только последний вариант ответа."
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid "Section Submissions"
@@ -1085,15 +1079,15 @@ msgstr "Задания без оценки"
 
 #: courses/views/__init__.py
 msgid "What are students doing in my course?"
-msgstr "Что делают студенты на курсе?"
+msgstr "Что делают слушатели на курсе?"
 
 #: courses/views/__init__.py
 msgid "How are students doing on course assignments?"
-msgstr "Как студенты справляются с выполнением заданий?"
+msgstr "Как слушатели справляются с выполнением заданий?"
 
 #: courses/views/__init__.py
 msgid "How are students doing on graded course assignments?"
-msgstr "Как студенты справляются с заданиями на оценку?"
+msgstr "Как слушатели справляются с заданиями на оценку?"
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
@@ -1138,7 +1132,7 @@ msgstr "Панель управления преподавателя"
 
 #: courses/views/__init__.py
 msgid "Courseware"
-msgstr "Содержание курса"
+msgstr "Содержание"
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
@@ -1183,8 +1177,8 @@ msgid ""
 "Demographic student data was last updated %(update_date)s at %(update_time)s"
 " UTC."
 msgstr ""
-"демографические показатели студентов были обновлены %(update_date)s в "
-"%(update_time)s по времени UTC."
+"Демографические показатели были обновлены %(update_date)s в %(update_time)s "
+"по времени UTC."
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
@@ -1192,7 +1186,7 @@ msgstr ""
 msgid ""
 "All above demographic data was self-reported at the time of registration."
 msgstr ""
-"Демографические данные, указанные выше были представлены студентами при "
+"Демографические данные, указанные выше, были представлены слушателями при "
 "регистрации."
 
 #: courses/views/enrollment.py
@@ -1210,17 +1204,15 @@ msgstr ""
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Age"
-msgstr "Демографические показатели студентов по возрасту"
+msgstr "Демографические показатели по возрасту"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Education"
-msgstr ""
-"демографические показатели зарегистрированных студентов по уровню "
-"образования"
+msgstr "Демографические показатели по уровню образования"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Gender"
-msgstr "Зарегистрированные студенты по половому признаку"
+msgstr "Демографические показатели по половому признаку"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Geography"
@@ -1232,8 +1224,8 @@ msgid ""
 "Geographic student data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr ""
-"Географические показатели студентов были обновлены %(update_date)s в "
-"%(update_time)s по времени UTC."
+"Географические показатели были обновлены %(update_date)s в %(update_time)s "
+"по времени UTC."
 
 #. Translators: Do not translate UTC.
 #: courses/views/performance.py
@@ -1306,7 +1298,7 @@ msgid ""
 "refreshing this page or retracing your steps."
 msgstr ""
 "Наши сервера не могут завершить запрос. Пожалуйста, попробуйте снова, "
-"обновив страницу и повторив Ваши действия."
+"обновив страницу и повторив ваши действия."
 
 #: templates/503.html templates/503.html.py
 msgid "We're having trouble loading this page. Please try again in a minute."
@@ -1343,7 +1335,7 @@ msgid ""
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
 msgstr ""
-"Нам бы хотелось, чтобы панель аналитики была Вам полезна. Нужна помощь? "
+"Нам бы хотелось, чтобы панель аналитики была вам полезна. Нужна помощь? "
 "%(support_link_start)s Посетите наш форум поддержки %(support_link_end)s "
 "Замечания или предложения? Напишите нам на адрес %(email_link)s"
 
