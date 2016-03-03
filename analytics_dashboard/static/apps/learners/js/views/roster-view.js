@@ -218,6 +218,12 @@ define([
      * particular implementation.
      */
     LearnerSearch = Backgrid.Extension.ServerSideFilter.extend({
+        className: function () {
+            return Backgrid.Extension.ServerSideFilter.prototype.className + ' ' + 'learners-search';
+        },
+        events: function () {
+            return _.extend(Backgrid.Extension.ServerSideFilter.prototype.events, {'click .search': 'search'});
+        },
         template: _.template(learnerSearchTemplate, null, {variable: null}),
         render: function () {
             this.$el.empty().append(this.template({
@@ -225,6 +231,7 @@ define([
                 placeholder: this.placeholder,
                 value: this.value,
                 labelText: gettext('Search learners'),
+                executeSearchText: gettext('search'),
                 clearSearchText: gettext('clear search')
             }));
             this.showClearButtonMaybe();

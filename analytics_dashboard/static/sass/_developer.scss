@@ -776,4 +776,32 @@ table.dataTable thead th.sorting_desc:after {
   .learner-engagement-cell {
     text-align: right;
   }
+
+  .learners-search {
+    padding-left: 20px;
+
+    .wrapper-search-input {
+      position: relative;
+
+      .clear {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        z-index: 99;
+        color: $edx-gray;
+
+        &:hover {
+          color: $edx-gray-d2;
+        }
+      }
+    }
+
+    .search {
+      margin-left: 5px;
+    }
+  }
+
+  .learners-cohort-filter {
+    padding-left: 20px;
+  }
 }
