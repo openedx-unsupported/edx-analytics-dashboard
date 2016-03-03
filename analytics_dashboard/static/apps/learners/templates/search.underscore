@@ -1,7 +1,20 @@
-<span class="search">&nbsp;</span>
-<label for="search-learners" class="hidden"><%- labelText %></label>
-<input id="search-learners" type="search" <% if (placeholder) { %> placeholder="<%- placeholder %>" <% } %> name="<%- name %>" />
-<a class="clear" data-backgrid-action="clear" href="#">
-    <span aria-hidden="true">&times;</span>
-    <span class="sr-only"><%- clearSearchText %></span>
-</a>
+<div class="input-group">
+    <div class="wrapper-search-input">
+        <label for="search-learners" class="hidden"><%- labelText %></label>
+        <input id="search-learners"
+            class="form-control"
+            type="search"
+            <% if (placeholder) { %> placeholder="<%- placeholder %>" <% } %> name="<%- name %>"
+        />
+        <a href="#" class="clear btn" data-backgrid-action="clear">
+            <i class="fa fa-times" aria-hidden="true"></i>
+            <span class="sr-only"><%- clearSearchText %></span>
+        </a>
+    </div>
+    <span class="input-group-btn">
+        <a href="#" class="search btn btn-primary">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <span class="sr-only"><%- executeSearchText %></span>
+        </a>
+    </span>
+</div>
