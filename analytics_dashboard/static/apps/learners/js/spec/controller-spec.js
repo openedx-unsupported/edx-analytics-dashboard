@@ -2,8 +2,9 @@ define([
     'jquery',
     'learners/js/collections/learner-collection',
     'learners/js/controller',
+    'learners/js/models/course-metadata',
     'marionette'
-], function ($, LearnerCollection, LearnersController, Marionette) {
+], function ($, LearnerCollection, LearnersController, CourseMetadataModel, Marionette) {
     'use strict';
 
     describe('LearnersController', function () {
@@ -33,7 +34,11 @@ define([
                     course_id: 'test/course/id'
                 }
             ]);
-            this.controller = new LearnersController({rootView: this.rootView, learnerCollection: collection});
+            this.controller = new LearnersController({
+                rootView: this.rootView,
+                learnerCollection: collection,
+                courseMetadata: new CourseMetadataModel()
+            });
         });
 
         it('should show the learner roster page', function () {

@@ -6,13 +6,13 @@
             type="search"
             <% if (placeholder) { %> placeholder="<%- placeholder %>" <% } %> name="<%- name %>"
         />
-        <a href="#" class="clear btn" data-backgrid-action="clear">
+        <a href="#" type="button" class="clear btn" data-backgrid-action="clear">
             <i class="fa fa-times" aria-hidden="true"></i>
             <span class="sr-only"><%- clearSearchText %></span>
         </a>
     </div>
     <span class="input-group-btn">
-        <a href="#" class="search btn btn-primary">
+        <a href="#" type="button" class="search btn btn-primary">
             <i class="fa fa-search" aria-hidden="true"></i>
             <span class="sr-only"><%- executeSearchText %></span>
         </a>
