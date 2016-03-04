@@ -37,8 +37,8 @@ class CourseStructureApiClient(clients.CourseStructureApiClient):
 
 def feature_flagged(feature_flag):
     """
-    A decorator for class-based views which should throw 404s when a
-    waffle flag is not enabled.
+    A decorator for class-based views which throws 404s when a waffle
+    flag is not enabled.
     """
     def decorator(cls):
         def dispatch(self, request, *args, **kwargs):

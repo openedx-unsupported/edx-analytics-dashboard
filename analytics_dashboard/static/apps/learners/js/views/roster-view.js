@@ -13,6 +13,7 @@ define([
     'bootstrap_accessibility',  // adds the aria-describedby to tooltips
     'jquery',
     'marionette',
+    'text!learners/templates/cohort-filter.underscore',
     'text!learners/templates/base-header-cell.underscore',
     'text!learners/templates/name-username-cell.underscore',
     'text!learners/templates/page-handle.underscore',
@@ -28,6 +29,7 @@ define([
     _BootstrapAccessibility,
     $,
     Marionette,
+    cohortFilterTemplate,
     baseHeaderCellTemplate,
     nameUsernameCellTemplate,
     pageHandleTemplate,
@@ -39,6 +41,7 @@ define([
     'use strict';
 
     var BaseHeaderCell,
+        CohortFiliter,
         createEngagementCell,
         createEngagementHeaderCell,
         LearnerSearch,
@@ -219,7 +222,7 @@ define([
      */
     LearnerSearch = Backgrid.Extension.ServerSideFilter.extend({
         className: function () {
-            return Backgrid.Extension.ServerSideFilter.prototype.className + ' ' + 'learners-search';
+            return [Backgrid.Extension.ServerSideFilter.prototype.className, 'learners-search'].join(' ');
         },
         events: function () {
             return _.extend(Backgrid.Extension.ServerSideFilter.prototype.events, {'click .search': 'search'});
@@ -237,6 +240,66 @@ define([
             this.showClearButtonMaybe();
             this.delegateEvents();
             return this;
+        },
+        search: function () {
+            Backgrid.Extension.ServerSideFilter.prototype.search.apply(this, arguments);
+            this.resetFocus();
+        },
+        clear: function () {
+            Backgrid.Extension.ServerSideFilter.prototype.clear.apply(this, arguments);
+            this.resetFocus();
+        },
+        resetFocus: function () {
+            $('#learner-app-focusable').focus();
+        }
+    });
+
+    /**
+     * A component to filter the roster view by cohort.
+     */
+    CohortFiliter = Marionette.ItemView.extend({
+        events: {
+            'change #cohort-filter': 'onSelectCohort'
+        },
+        className: 'learners-cohort-filter',
+        template: _.template(cohortFilterTemplate),
+        initialize: function (options) {
+            this.options = options || {};
+            _.bind(this.onSelectCohort, this);
+        },
+        templateHelpers: function () {
+            var cohorts = _.mapObject(this.options.courseMetadata.get('cohorts'), function (numLearners, cohortName) {
+                return {
+                    displayName: _.template(ngettext(
+                        // jshint ignore:start
+                        // Translators: 'cohortName' is the name of the cohort and 'numLearners' is the number of learners in that cohort.  The resulting phrase displays a cohort and the number of students belonging to it.
+                        '<%- cohortName %> (<%- numLearners %> learner)',
+                        // Translators: 'cohortName' is the name of the cohort and 'numLearners' is the number of learners in that cohort.  The resulting phrase displays a cohort and the number of students belonging to it.
+                        '<%- cohortName %> (<%- numLearners %> learners)',
+                        // jshint ignore:end
+                        numLearners
+                    ))({
+                        cohortName: cohortName,
+                        numLearners: Utils.localizeNumber(numLearners, 0)
+                    })
+                };
+            });
+
+            return {
+                cohorts: cohorts,
+                // Translators: "Cohort Groups" refers to groups of students within a course.
+                selectDisplayName: gettext('Cohort Groups'),
+                // Translators: "All" refers to viewing all the learners in a course.
+                allCohortsSelectedMessage: gettext('All')
+            };
+        },
+        onSelectCohort: function (event) {
+            // Sends a request to the server for the learner list filtered by
+            // cohort then resets focus.
+            event.preventDefault();
+            this.collection.setFilterField('cohort', $(event.currentTarget).find('option:selected').val());
+            this.collection.refresh();
+            $('#learner-app-focusable').focus();
         }
     });
 
@@ -263,9 +326,10 @@ define([
         },
 
         regions: {
-            search: '.learners-search',
+            search: '.learners-search-container',
             table: '.learners-table',
-            paginator: '.learners-paging-footer'
+            paginator: '.learners-paging-footer',
+            cohortFilter: '.learners-cohort-filter-container'
         },
 
         initialize: function (options) {
@@ -324,6 +388,11 @@ define([
             // Render the paging footer
             this.showChildView('paginator', new PagingFooter({
                 collection: this.options.collection, goBackFirstOnSort: false
+            }));
+            // Render the cohort filter
+            this.showChildView('cohortFilter', new CohortFiliter({
+                collection: this.options.collection,
+                courseMetadata: this.options.courseMetadata
             }));
             // Accessibility hacks
             this.$('table').prepend('<caption class="sr-only">' + gettext('Learner Roster') + '</caption>');
