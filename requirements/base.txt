@@ -1,6 +1,6 @@
 awesome-slugify==1.6.2      # GPLv3
 bpython==0.12				# MIT License
-Django==1.7.4				# BSD License
+Django==1.7.11				# BSD License
 django-appconf==0.6
 django-braces==1.2.2		# BSD
 django_compressor==1.4		# MIT
@@ -10,7 +10,7 @@ django-model-utils==1.5.0 	# BSD
 djangorestframework==3.3.1  # BSD
 django-soapbox==1.1         # BSD
 django-waffle==0.10			# BSD
-edx-rest-api-client==1.2.1              # Apache
+edx-rest-api-client>=1.5.0, <1.6.0  # Apache
 
 # other versions cause a segment fault when running compression
 libsass==0.5.1              # MIT

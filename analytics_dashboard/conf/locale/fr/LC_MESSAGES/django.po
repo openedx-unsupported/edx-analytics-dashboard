@@ -1,13 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # cblackburn <cblackburn@edx.org>, 2014
 # Charles <charles@mister-o.fr>, 2015
 # Daniel Antelme <daniel.antelme@insa-rouen.fr>, 2015
 # Daniel Le Berre, 2014
-# Eric Fortin, 2014
+# Eric Fortin, 2014,2016
 # Françoise Docq, 2014
 # Gérard Vidal <Gerard.Vidal@ens-lyon.fr>, 2014
 # JulietteFUN, 2015
@@ -18,15 +18,15 @@
 # moocit-france <contact@moocit.fr>, 2015
 # rafcha <raphael.chay@gmail.com>, 2014-2015
 # Sebastien Vigneau <sebastien.vigneau@gmail.com>, 2015
-# Sebastien Vigneau <sebastien.vigneau@gmail.com>, 2015
+# Sebastien Vigneau <sebastien.vigneau@gmail.com>, 2015-2016
 # Steven BERNARD <steven.bernard@u-paris2.fr>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-18 14:58-0500\n"
-"PO-Revision-Date: 2015-11-18 20:00+0000\n"
-"Last-Translator: Dennis Jen <djen@edx.org>\n"
+"PO-Revision-Date: 2016-02-18 13:55+0000\n"
+"Last-Translator: Eric Fortin\n"
 "Language-Team: French (http://www.transifex.com/open-edx/edx-platform/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -324,6 +324,8 @@ msgid ""
 "Review all submission variants below, or click Download CSV to review them "
 "offline."
 msgstr ""
+"Revoir ci-dessous toutes les versions soumises, ou cliquer Télécharger CSV "
+"pour les revoir hors connection."
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Submission Counts"
@@ -438,6 +440,10 @@ msgid ""
 "videos in that subsection. Click on bars with low totals or a high "
 "incomplete rate to drill down and understand why."
 msgstr ""
+"Chaque bâton représente le nombre moyen des visualisations complètes et "
+"incomplètes par vidéo. Cliquez sur les bâtons avec des valeurs faibles, ou "
+"des taux élevés de visualisation incomplète pour accéder aux données et "
+"comprendre pourquoi."
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did students interact with videos in this subsection?"
@@ -450,6 +456,9 @@ msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
 "Click to understand where students drop off and which parts they replay."
 msgstr ""
+"Chaque bâton représente le nombre total de visualisations complètes et "
+"incomplètes pour cette vidéo. Cliquez pour comprendre là où les étudiants "
+"décrochent et quels éléments ils revisionnent."
 
 #: courses/templates/courses/engagement_video_course.html
 #: courses/views/__init__.py
@@ -462,6 +471,10 @@ msgid ""
 "videos in that section. Click on bars with low totals or a high incomplete "
 "rate to drill down and understand why."
 msgstr ""
+"Chaque bâton représente le nombre moyen de visualisations complètes et "
+"incomplètes pour cette vidéo dans cette section. Cliquez sur les bâtons avec"
+" des valeurs faibles, ou des taux élevés de visualisation incomplète pour "
+"accéder aux données et comprendre pourquoi."
 
 #: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
@@ -470,7 +483,7 @@ msgstr "Nombre de vues total de la vidéo"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "What were the viewing patterns for this video?"
-msgstr ""
+msgstr "Quelles ont été les habitudes de visionnage pour cette vidéo?"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid ""
@@ -519,7 +532,7 @@ msgstr "Étudiants ayant visionné la vidéo jusqu'à la fin."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Viewing Over Time"
-msgstr ""
+msgstr "Visionnage de la vidéo au cours du temps"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
@@ -539,6 +552,9 @@ msgid ""
 "This graph displays the current enrollment for the course as of the end of "
 "each day. This includes new enrollments as well as unenrollments."
 msgstr ""
+"Ce graphique affiche le nombre actuel d'inscriptions pour ce cours à la fin "
+"de chaque journée. Il inclue les nouvelles inscriptions et tout comme les "
+"désistements."
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollment Metrics"
@@ -574,7 +590,7 @@ msgstr "Modifications de la semaine dernière"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Net difference in current enrollment in the last week."
-msgstr ""
+msgstr "Différence nette dans le nombre d'inscriptions la semaine passée."
 
 #. Translators: This is a label to identify enrollment of students on the
 #. verified track.
@@ -589,6 +605,8 @@ msgid ""
 "Number of currently enrolled students pursuing a verified certificate of "
 "achievement."
 msgstr ""
+"Nombre actuel d'étudiant inscrits ayant souscrit un certificat de réussite "
+"certifié."
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html
@@ -850,13 +868,13 @@ msgstr "Actif"
 
 #: courses/templates/courses/home.html
 msgid "Basic Course Information"
-msgstr ""
+msgstr "Informations de base relatives au cours"
 
 #. Translators: This title describes a list of links to outside tools for this
 #. course.
 #: courses/templates/courses/home.html
 msgid "External Tools"
-msgstr ""
+msgstr "Outils externes"
 
 #: courses/templates/courses/index.html
 msgid "Courses"
@@ -870,6 +888,8 @@ msgstr "Bienvenue, %(username)s!"
 msgid ""
 "Here are the courses you currently have access to in %(application_name)s:"
 msgstr ""
+"Voici les cours auxquels vous avez présentement accès dans "
+"%(application_name)s:"
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
@@ -891,7 +911,7 @@ msgstr "Comment les étudiants ont-ils répondu à ce problème?"
 
 #: courses/templates/courses/performance_assignment.html
 msgid "How are students doing on this assignment?"
-msgstr ""
+msgstr "Où en sont les étudiants concernant cet exercice?"
 
 #: courses/templates/courses/performance_assignment.html
 #: courses/templates/courses/performance_ungraded_by_subsection.html
@@ -899,24 +919,26 @@ msgid ""
 "These bars show the correct and incorrect submission counts for each "
 "problem. Only the last submission from each student is counted."
 msgstr ""
-"Les barres montrent le nombre de soumissions correctes et incorrectes pour "
+"Les barres montrent le nombre de tentatives correctes et incorrectes pour "
 "chaque exercice. Seule la dernière soumission de la chaque apprenant est "
 "prise en compte."
 
 #: courses/templates/courses/performance_assignment.html
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid "Problem Submissions"
-msgstr ""
+msgstr "Soumission de problème"
 
 #: courses/templates/courses/performance_graded_content.html
 msgid "Which assignment type do you want to investigate?"
-msgstr ""
+msgstr "Quel type de devoir voulez-vous inspecter?"
 
 #: courses/templates/courses/performance_graded_content.html
 msgid ""
 "Click an assignment type to view more detail information about the "
 "assignments."
 msgstr ""
+"Cliquez sur un type de devoir pour voir plus d'information détaillée "
+"concernant ces devoirs."
 
 #. Translators: This describes the percent an assignment contributes to that
 #. of a learner's grade (e.g. Exam: 60% of the grading policy.).
@@ -926,11 +948,13 @@ msgid ""
 "                %(assignment_type)s: %(policy_ratio)s%% of the grading policy\n"
 "              "
 msgstr ""
+"\n"
+"%(assignment_type)s: %(policy_ratio)s%% du barème de notation"
 
 #. Translators: This describes the percent of a learner's grade (e.g. 60%).
 #: courses/templates/courses/performance_graded_content.html
 msgid "%(policy_ratio)s%%"
-msgstr ""
+msgstr "%(policy_ratio)s%%"
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
@@ -938,6 +962,8 @@ msgid ""
 "      How are students doing on the %(type)s?\n"
 "    "
 msgstr ""
+"\n"
+"Où en sont les étudiants concernant ce %(type)s?"
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
@@ -945,43 +971,52 @@ msgid ""
 "problems in the assignment. Only the last submission from each student is "
 "counted."
 msgstr ""
+"Chaque bâton représente le nombre moyen de tentatives correctes et "
+"incorrectes pour les exercices du devoir.  Seule la dernière tentative de "
+"chaque étudiant est prise en compte."
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid "Assignment Submissions"
-msgstr ""
+msgstr "Soumissions de devoir"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are students doing on this section?"
-msgstr ""
+msgstr "Où en sont les étudiants concernant cette section?"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each subsection. Only the last submission from each student is counted."
 msgstr ""
+"Chaque bâton représente le nombre moyen de tentatives correctes et "
+"incorrectes pour chaque sous-section.  Seule la dernière tentative de chaque"
+" étudiant est prise en compte."
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "Subsection Submissions"
-msgstr ""
+msgstr "Réponses de la Sous-Section"
 
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid "How are students doing on this subsection?"
-msgstr ""
+msgstr "Où en sont les étudiants concernant cette sous-section?"
 
 #: courses/templates/courses/performance_ungraded_content.html
 #: courses/views/__init__.py
 msgid "How are students doing on ungraded exercises?"
-msgstr ""
+msgstr "Où en sont les étudiants concernant cet exercice non noté?"
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each section. Only the last submission from each student is counted."
 msgstr ""
+"Chaque bâton représente le nombre moyen de tentatives correctes et "
+"incorrectes pour chaque section.  Seule la dernière tentative de chaque "
+"étudiant est prise en compte."
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid "Section Submissions"
-msgstr ""
+msgstr "Réponses de la Section"
 
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
@@ -1074,46 +1109,46 @@ msgstr ""
 #. identifies the course
 #: courses/views/__init__.py
 msgid "Course ID"
-msgstr ""
+msgstr "ID de Cours"
 
 #: courses/views/__init__.py
 msgid "Course Name"
-msgstr ""
+msgstr "Nom du cours"
 
 #. Translators: 'In Progress' and 'Ended' refer to whether students are
 #. actively using the course or it is over.
 #: courses/views/__init__.py
 msgid "In Progress"
-msgstr ""
+msgstr "En cours"
 
 #: courses/views/__init__.py
 msgid "Ended"
-msgstr ""
+msgstr "Fini"
 
 #. Translators: This refers to a course that has not yet begun.
 #: courses/views/__init__.py
 msgid "Not Started Yet"
-msgstr ""
+msgstr "Pas Encore Commencé"
 
 #: courses/views/__init__.py
 msgid "Start Date"
-msgstr ""
+msgstr "Date de début"
 
 #: courses/views/__init__.py
 msgid "End Date"
-msgstr ""
+msgstr "Date de fin."
 
 #: courses/views/__init__.py
 msgid "Status"
-msgstr ""
+msgstr "Statut"
 
 #: courses/views/__init__.py
 msgid "Instructor Dashboard"
-msgstr ""
+msgstr "Tableau de bord enseignant"
 
 #: courses/views/__init__.py
 msgid "Courseware"
-msgstr ""
+msgstr "Cours"
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
@@ -1130,16 +1165,18 @@ msgstr ""
 
 #: courses/views/engagement.py
 msgid "Engagement Videos"
-msgstr ""
+msgstr "Vidéo de l'Engagement"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr ""
+"Les données de la vidéo ont été mises à jour la dernière fois le "
+"%(update_date)s à %(update_time)s UTC."
 
 #: courses/views/engagement.py
 msgid "Looks like no one has watched any videos in these sections."
-msgstr ""
+msgstr "On dirait que personne n'a regardé de vidéo dans cette section."
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Section Name"
@@ -1215,6 +1252,8 @@ msgid ""
 "Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr ""
+"Les données sur les réponses aux exercices ont été mises à jour la dernière "
+"fois le %(update_date)s à %(update_time)s UTC."
 
 #: courses/views/performance.py
 msgid "Assignment Name"
@@ -1222,19 +1261,19 @@ msgstr "Nom du devoir"
 
 #: courses/views/performance.py
 msgid "No submissions received for these exercises."
-msgstr ""
+msgstr "Pas de tentative reçue pour cet exercice."
 
 #: courses/views/performance.py
 msgid "No submissions received for these assignments."
-msgstr ""
+msgstr "Pas de tentative reçue pour ce devoir."
 
 #: courses/views/performance.py courses/views/performance.py
 msgid "Performance: Problem Submissions"
-msgstr ""
+msgstr "Performance: Soumission de problème"
 
 #: courses/views/performance.py
 msgid "Graded Content: %(assignment_type)s"
-msgstr ""
+msgstr "Contenu Evalué: %(assignment_type)s"
 
 #: courses/views/performance.py courses/views/performance.py
 msgid "Problem Name"
@@ -1290,7 +1329,7 @@ msgstr ""
 
 #: templates/503.html
 msgid "(Technical details: 503 Service Unavailable.)"
-msgstr ""
+msgstr "(Précisions techniques: 503 Service Indisponible.)"
 
 #: templates/_announcement.html
 msgid "Close"
@@ -1319,6 +1358,10 @@ msgid ""
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
 msgstr ""
+"Nous souhaitons que ce tableau de bord fonctionne pour vous! Besoin d'aide? "
+"%(support_link_start)sContactez notre équipe "
+"d'assistance%(support_link_end)s. Des commentaires ou suggestions? Ecrivez-"
+"nous %(email_link)s."
 
 #: templates/footer.html
 msgid "Terms of Service"
