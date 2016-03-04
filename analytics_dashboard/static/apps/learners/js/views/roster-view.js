@@ -9,6 +9,8 @@ define([
     'backgrid',
     'backgrid-filter',
     'backgrid-paginator',
+    'bootstrap',
+    'bootstrap_accessibility',  // adds the aria-describedby to tooltips
     'jquery',
     'marionette',
     'text!learners/templates/base-header-cell.underscore',
@@ -22,6 +24,8 @@ define([
     Backgrid,
     _backgridFilter,
     _backgridPaginator,
+    _Bootstrap,
+    _BootstrapAccessibility,
     $,
     Marionette,
     baseHeaderCellTemplate,
@@ -36,7 +40,7 @@ define([
 
     var BaseHeaderCell,
         createEngagementCell,
-        EngagementHeaderCell,
+        createEngagementHeaderCell,
         LearnerSearch,
         LearnerRosterView,
         NameAndUsernameCell,
@@ -66,8 +70,8 @@ define([
             this.renderSortState(column, direction);
         },
         renderSortState: function (column, direction) {
-            var sortDirectionMap,
-                sortIcon = this.$('i');
+            var sortIcon = this.$('i'),
+                sortDirectionMap;
             if (column && column.cid !== this.column.cid) {
                 direction = 'neutral';
             } else {
@@ -97,9 +101,29 @@ define([
      * Cell class for engagement headers, which need to be right
      * aligned.
      */
-    EngagementHeaderCell = BaseHeaderCell.extend({
-        className: 'learner-engagement-cell'
-    });
+    createEngagementHeaderCell = function (key) {
+        var tooltips = {
+            problems_attempted: gettext('Number of unique problems this learner attempted.'),
+            problems_completed: gettext('Number of unique problems the learner answered correctly.'),
+            videos_viewed: gettext('Number of unique videos this learner played.'),
+            problem_attempts_per_completed: gettext('Average number of attempts per correct problem. Learners with a relatively high value compared to their peers may be struggling.'),   // jshint ignore:line
+            discussion_contributions: gettext('Number of contributions by this learner, including posts, responses, and comments.')   // jshint ignore:line
+        };
+
+        return BaseHeaderCell.extend({
+            className: 'learner-engagement-cell',
+
+            attributes: _.extend({}, BaseHeaderCell.prototype.attributes, {
+                title: tooltips[key]
+            }),
+
+            initialize: function () {
+                BaseHeaderCell.prototype.initialize.apply(this, arguments);
+                this.$el.tooltip({ container: '.learners-table' });
+            }
+
+        });
+    };
 
     /**
      * Factory for creating a Backgrid cell class that renders a key
@@ -278,11 +302,15 @@ define([
                         sortable: true,
                         sortType: 'toggle'
                     };
+
                     if (key === 'username') {
-                        column = _.extend(column, {cell: NameAndUsernameCell, headerCell: BaseHeaderCell});
+                        column.cell = NameAndUsernameCell;
+                        column.headerCell = BaseHeaderCell;
                     } else {
-                        column = _.extend(column, {cell: createEngagementCell(key), headerCell: EngagementHeaderCell});
+                        column.cell = createEngagementCell(key);
+                        column.headerCell = createEngagementHeaderCell(key);
                     }
+
                     return column;
                 })
             }));
