@@ -2,11 +2,12 @@ define([
     'axe-core',
     'jquery',
     'learners/js/collections/learner-collection',
+    'learners/js/models/course-metadata',
     'learners/js/models/learner-model',
     'learners/js/views/roster-view',
     'underscore',
     'URI'
-], function (axe, $, LearnerCollection, LearnerModel, LearnerRosterView, _, URI) {
+], function (axe, $, LearnerCollection, CourseMetadataModel, LearnerModel, LearnerRosterView, _, URI) {
     'use strict';
 
     describe('LearnerRosterView', function () {
@@ -37,12 +38,14 @@ define([
             };
         };
 
-        getRosterView  = function (collectionResponse, collectionOptions) {
+        getRosterView = function (options) {
+            options = options || {};
             var rosterView = new LearnerRosterView({
                 collection: new LearnerCollection(
-                    collectionResponse,
-                    _.extend({url: 'test-url'}, collectionOptions)
+                    options.collectionResponse,
+                    _.extend({url: 'test-url'}, options.collectionOptions)
                 ),
+                courseMetadata: new CourseMetadataModel(options.courseMetadata),
                 el: '.' + fixtureClass
             }).render();
             rosterView.onBeforeShow();
@@ -64,8 +67,11 @@ define([
         });
 
         it('displays the last updated date', function () {
-            var roster = getRosterView({results: [{last_updated: new Date('1/1/2016')}]}, {parse: true});
-            expect(roster.$('.last-updated-message')).toContainText('Date Last Updated: January 1, 2016');
+            var roster = getRosterView({
+                collectionResponse: {results: [{last_updated: new Date('1/2/2016')}]},
+                collectionOptions: {parse: true}
+            });
+            expect(roster.$('.last-updated-message')).toContainText('Date Last Updated: January 2, 2016');
         });
 
         it('renders a list of learners', function () {
@@ -83,8 +89,10 @@ define([
                     {name: 'lily', username: 'lily', engagements: generateEngagements()},
                     {name: 'zita', username: 'zita', engagements: generateEngagements()}
                 ],
-                rosterView = getRosterView({results: learners}, {parse: true});
-
+                rosterView = getRosterView({
+                    collectionResponse: {results: learners},
+                    collectionOptions: {parse: true}
+                });
             _.chain(_.zip(learners, rosterView.$('tbody tr'))).each(function (learnerAndTr) {
                 var learner = learnerAndTr[0],
                     tr = learnerAndTr[1];
@@ -204,7 +212,10 @@ define([
             };
 
             createTwoPageRoster = function () {
-                return getRosterView(getResponseBody(2, 1), {parse: true});
+                return getRosterView({
+                    collectionResponse: getResponseBody(2, 1),
+                    collectionOptions: {parse: true}
+                });
             };
 
             expectLinkStates = function (rosterView, activeLinkTitle, disabledLinkTitles) {
@@ -333,6 +344,60 @@ define([
             });
         });
 
+        describe('filtering', function () {
+            describe('by cohort', function () {
+                var expectCanFilterBy = function (cohort) {
+                    $('select').val(cohort);
+                    $('select').change();
+                    if (cohort) {
+                        expect(getLastRequestParams()).toEqual(jasmine.objectContaining({
+                            cohort: cohort
+                        }));
+                    } else {
+                        expect(getLastRequestParams().hasOwnProperty('cohort')).toBe(false);
+                    }
+                    getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(1, 1)));
+                    expect($('option[value="' + cohort + '"]')).toBeSelected();
+                };
+
+                it('does not render when the course contains no cohorts', function () {
+                    var rosterView = getRosterView({courseMetadata: {cohorts: {}}});
+                    expect(rosterView.$('.learners-cohort-filter').children()).not.toExist();
+                });
+
+                it('renders when the course contains cohorts', function () {
+                    var rosterView = getRosterView({courseMetadata: {cohorts: {
+                            'Cohort A': 1,
+                            'Cohort B': 2
+                        }}}),
+                        options = rosterView.$('.learners-cohort-filter option'),
+                        defaultOption = $(options[0]),
+                        cohortAOption = $(options[1]),
+                        cohortBOption = $(options[2]);
+
+                    expect(defaultOption).toBeSelected();
+                    expect(defaultOption).toHaveValue('');
+                    expect(defaultOption).toHaveText('All');
+
+                    expect(cohortAOption).not.toBeSelected();
+                    expect(cohortAOption).toHaveValue('Cohort A');
+                    expect(cohortAOption).toHaveText('Cohort A (1 learner)');
+
+                    expect(cohortBOption).not.toBeSelected();
+                    expect(cohortBOption).toHaveValue('Cohort B');
+                    expect(cohortBOption).toHaveText('Cohort B (2 learners)');
+                });
+
+                it('can execute a cohort filter', function () {
+                    getRosterView({courseMetadata: {cohorts: {
+                        'Cohort A': 1
+                    }}});
+                    expectCanFilterBy('Cohort A');
+                    expectCanFilterBy('');
+                });
+            });
+        });
+
         describe('accessibility', function () {
             it('the table has a <caption> element', function () {
                 var rosterView = getRosterView();
@@ -361,8 +426,9 @@ define([
 
             it('the search input has a label', function () {
                 var rosterView = getRosterView(),
-                    inputId = rosterView.$('input').attr('id'),
-                    $label = rosterView.$('label');
+                    searchContainer = rosterView.$('.learners-search-container'),
+                    inputId = searchContainer.find('input').attr('id'),
+                    $label = searchContainer.find('label');
                 expect($label).toHaveAttr('for', inputId);
                 expect($label).toHaveText('Search learners');
             });
@@ -375,7 +441,10 @@ define([
             });
 
             it('sets focus to the top of the table after taking a paging action', function () {
-                var rosterView = getRosterView(getResponseBody(2, 1), {parse: true}),
+                var rosterView = getRosterView({
+                    collectionResponse: getResponseBody(2, 1),
+                    collectionOptions: {parse: true}
+                }),
                     firstPageLink = rosterView.$('.backgrid-paginator li a[title="Page 1"]'),
                     secondPageLink = rosterView.$('.backgrid-paginator li a[title="Page 2"]');
                 // It would be ideal to use jasmine-jquery's
@@ -396,7 +465,10 @@ define([
             });
 
             it('does not violate the axe-core ruleset', function (done) {
-                getRosterView(getResponseBody(1, 1), {parse: true});
+                getRosterView({
+                    collectionResponse: getResponseBody(1, 1),
+                    collectionOptions: {parse: true}
+                });
                 axe.a11yCheck($('.roster-view-fixture')[0], function (result) {
                     expect(result.violations.length).toBe(0);
                     done();
