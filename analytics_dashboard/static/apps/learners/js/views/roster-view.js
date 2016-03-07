@@ -335,19 +335,27 @@ define([
         initialize: function (options) {
             this.options = options || {};
             this.options.collection.on('serverError', this.handleServerError, this);
+            this.options.collection.on('networkError', this.handleNetworkError, this);
             this.options.collection.on('sync', this.handleSync, this);
+            this.options.courseMetadata.on('serverError', this.handleServerError, this);
+            this.options.courseMetadata.on('networkError', this.handleNetworkError, this);
+            this.options.courseMetadata.on('sync', this.handleSync, this);
         },
 
         handleServerError: function (status) {
             if (status === 504) {
-                // TODO: verify copy with Alison
                 this.triggerMethod('appError', gettext('504: Server error: processing your request took too long to complete. Reload the page to try again.')); // jshint ignore:line
             } else {
-                // TODO: verify copy with Alison
                 this.triggerMethod(
                     'appError', gettext('Server error: your request could not be processed. Reload the page to try again.') // jshint ignore:line
                 );
             }
+        },
+
+        handleNetworkError: function () {
+            this.triggerMethod(
+                'appError', gettext('Network error: your request could not be processed. Reload the page to try again.')
+            );
         },
 
         handleSync: function () {

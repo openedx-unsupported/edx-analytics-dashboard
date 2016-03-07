@@ -18,6 +18,7 @@ define([
             getResponseBody,
             getRosterView,
             server,
+            testTimeout,
             verifyErrorHandling;
 
         getLastRequest = function () {
@@ -50,6 +51,22 @@ define([
             }).render();
             rosterView.onBeforeShow();
             return rosterView;
+        };
+
+        testTimeout = function (rosterView, actionFunction) {
+            var ajaxSetup;
+            jasmine.clock().install();
+            ajaxSetup = $.ajaxSetup();
+            $.ajaxSetup({timeout: 1});
+            spyOn(rosterView, 'trigger');
+            actionFunction();
+            jasmine.clock().tick(2);
+            expect(rosterView.trigger).toHaveBeenCalledWith(
+                'appError',
+                'Network error: your request could not be processed. Reload the page to try again.'
+            );
+            jasmine.clock().uninstall();
+            $.ajaxSetup(ajaxSetup);
         };
 
         verifyErrorHandling = function (rosterView, status, expectedMessage) {
@@ -199,6 +216,12 @@ define([
                 clickSortingHeader('username');
                 verifyErrorHandling(this.rosterView, 504, '504: Server error: processing your request took too long to complete. Reload the page to try again.'); // jshint ignore:line
             });
+
+            it('handles network errors', function () {
+                testTimeout(this.rosterView, function () {
+                    clickSortingHeader('username');
+                });
+            });
         });
 
         describe('paging', function () {
@@ -286,6 +309,13 @@ define([
                     rosterView, 500, 'Server error: your request could not be processed. Reload the page to try again.' // jshint ignore:line
                 );
             });
+
+            it('handles network errors', function () {
+                var rosterView = createTwoPageRoster();
+                testTimeout(rosterView, function () {
+                    clickPagingControl('Next');
+                });
+            });
         });
 
         describe('search', function () {
@@ -342,6 +372,13 @@ define([
                     rosterView, 500, 'Server error: your request could not be processed. Reload the page to try again.' // jshint ignore:line
                 );
             });
+
+            it('handles network errors', function () {
+                var rosterView = getRosterView();
+                testTimeout(rosterView, function () {
+                    executeSearch('test search');
+                });
+            });
         });
 
         describe('filtering', function () {
@@ -394,6 +431,30 @@ define([
                     }}});
                     expectCanFilterBy('Cohort A');
                     expectCanFilterBy('');
+                });
+
+                it('handles server errors', function () {
+                    var rosterView = getRosterView({courseMetadata: {cohorts: {
+                        'Cohort A': 1
+                    }}});
+                    spyOn(rosterView, 'trigger');
+                    rosterView.$('select').val('Cohort A');
+                    rosterView.$('select').change();
+                    verifyErrorHandling(
+                        rosterView,
+                        500,
+                        'Server error: your request could not be processed. Reload the page to try again.'
+                    );
+                });
+
+                it('handles network errors', function () {
+                    var rosterView = getRosterView({courseMetadata: {cohorts: {
+                        'Cohort A': 1
+                    }}});
+                    testTimeout(rosterView, function () {
+                        rosterView.$('select').val('Cohort A');
+                        rosterView.$('select').change();
+                    });
                 });
             });
         });
