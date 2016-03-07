@@ -1,7 +1,8 @@
 define([
     'components/pagination/collections/paging_collection',
-    'learners/js/models/learner-model'
-], function (PagingCollection, LearnerModel) {
+    'learners/js/models/learner-model',
+    'learners/js/utils'
+], function (PagingCollection, LearnerModel, LearnerUtils) {
     'use strict';
 
     var LearnerCollection = PagingCollection.extend({
@@ -27,10 +28,8 @@ define([
         },
 
         fetch: function (options) {
-            // Handle gateway timeouts
-            return PagingCollection.prototype.fetch.call(this, options).fail(function (jqXHR) {
-                this.trigger('serverError', jqXHR.status, jqXHR.responseJson);
-            }.bind(this));
+            return PagingCollection.prototype.fetch.call(this, options)
+                .fail(LearnerUtils.handleAjaxFailure.bind(this));
         },
 
         state: {
