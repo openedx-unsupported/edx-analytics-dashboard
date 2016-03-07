@@ -48,37 +48,41 @@ define([
             this.options = options || {};
         },
 
-        onBeforeStart: function () {
-            // Initialize the learner collection, and refresh it if necessary.
-            this.learnerCollection = new LearnerCollection(this.options.learnerListJson, {
+        onStart: function () {
+            var courseMetadata,
+                learnerCollection,
+                rootView,
+                router;
+
+            learnerCollection = new LearnerCollection(this.options.learnerListJson, {
                 url: this.options.learnerListUrl,
                 courseId: this.options.courseId,
                 parse: this.options.learnerListJson ? true : false
             });
-            if (!this.options.learnerListJson) {
-                this.learnerCollection.setPage(1);
-            }
-            // Inititalize the course metadata model, and fetch it if necessary
-            this.courseMetadata = new CourseMetadataModel(this.options.courseLearnerMetadataJson, {
+
+            courseMetadata = new CourseMetadataModel(this.options.courseLearnerMetadataJson, {
                 url: this.options.courseLearnerMetadataUrl,
                 parse: true
             });
-            if (!this.options.courseLearnerMetadataJson) {
-                this.courseMetadata.fetch();
-            }
-        },
 
-        onStart: function () {
-            var rootView = new LearnersRootView({el: $(this.options.containerSelector)}).render(),
-                router;
-            // Initialize our router and start keeping track of history
+            rootView = new LearnersRootView({el: $(this.options.containerSelector)}).render();
+
             router = new LearnersRouter({
                 controller: new LearnersController({
-                    learnerCollection: this.learnerCollection,
-                    courseMetadata: this.courseMetadata,
+                    learnerCollection: learnerCollection,
+                    courseMetadata: courseMetadata,
                     rootView: rootView
                 }),
             });
+
+            // If we haven't been provided with any data, fetch it now
+            // from the server.
+            if (!this.options.learnerListJson) {
+                learnerCollection.setPage(1);
+            }
+            if (!this.options.courseLearnerMetadataJson) {
+                courseMetadata.fetch();
+            }
 
             Backbone.history.start();
         }

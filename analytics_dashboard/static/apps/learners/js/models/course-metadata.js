@@ -1,4 +1,7 @@
-define(['backbone'], function (Backbone) {
+define([
+    'backbone',
+    'learners/js/utils'
+], function (Backbone, LearnerUtils) {
     'use strict';
 
     var CourseMetadataModel = Backbone.Model.extend({
@@ -21,6 +24,11 @@ define(['backbone'], function (Backbone) {
 
         url: function () {
             return this.options.url;
+        },
+
+        fetch: function (options) {
+            Backbone.Model.prototype.fetch.call(this, options)
+                .fail(LearnerUtils.handleAjaxFailure.bind(this));
         }
     });
 
