@@ -20,7 +20,8 @@ define([
 
         showLearnerRosterPage: function () {
             this.options.rootView.showChildView('main', new LearnerRosterView({
-                collection: this.options.learnerCollection
+                collection: this.options.learnerCollection,
+                courseMetadata: this.options.courseMetadata
             }));
         },
 
