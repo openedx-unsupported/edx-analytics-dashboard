@@ -1,5 +1,5 @@
 define([
-    'components/pagination/collections/paging_collection',
+    'uitk/js/pagination/paging-collection',
     'learners/js/models/learner-model',
     'learners/js/utils'
 ], function (PagingCollection, LearnerModel, LearnerUtils) {

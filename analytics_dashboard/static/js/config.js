@@ -37,16 +37,17 @@ require.config({
         'cldr-data': 'bower_components/cldr-data',
         globalize: 'bower_components/globalize/dist/globalize',
         globalization: 'js/utils/globalization',
-        collapsible: 'bower_components/edx-ui-toolkit/components/views/collapsible-view',
+        collapsible: 'bower_components/edx-ui-toolkit/src/js/disclosure/disclosure-view',
         marionette: 'bower_components/marionette/lib/core/backbone.marionette.min',
-        components: 'bower_components/edx-ui-toolkit/components',
+        uitk: 'bower_components/edx-ui-toolkit/src',
         // URI and its dependencies
         URI: 'bower_components/uri.js/src/URI',
         IPv6: 'bower_components/uri.js/src/IPv6',
         punycode: 'bower_components/uri.js/src/punycode',
         SecondLevelDomains: 'bower_components/uri.js/src/SecondLevelDomains',
         learners: 'apps/learners',
-        'axe-core': 'bower_components/axe-core/axe.min'
+        'axe-core': 'bower_components/axe-core/axe.min',
+        sinon: 'bower_components/sinon/lib/sinon'
     },
     wrapShim: true,
     shim: {

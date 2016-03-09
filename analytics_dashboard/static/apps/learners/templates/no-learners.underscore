@@ -1,0 +1,12 @@
+<div class="no-results panel panel-default">
+    <div class="panel-heading"><%- noLearnersMessage %></div>
+    <% if (suggestions.length) { %>
+        <div class="panel-body">
+            <ul class="suggestions">
+                <% suggestions.map(function (suggestion) { %>
+                    <li><%- suggestion %></li>
+                <% }); %>
+            </ul>
+        </div>
+    <% } %>
+</div>
