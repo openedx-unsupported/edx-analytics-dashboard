@@ -72,7 +72,7 @@ define([
                     learnerCollection: learnerCollection,
                     courseMetadata: courseMetadata,
                     rootView: rootView
-                }),
+                })
             });
 
             // If we haven't been provided with any data, fetch it now
