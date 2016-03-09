@@ -6,7 +6,8 @@ define([
     'learners/js/models/course-metadata',
     'learners/js/router',
     'learners/js/views/root-view',
-    'marionette'
+    'marionette',
+    'underscore'
 ], function (
     Backbone,
     $,
@@ -15,7 +16,8 @@ define([
     CourseMetadataModel,
     LearnersRouter,
     LearnersRootView,
-    Marionette
+    Marionette,
+    _
 ) {
     'use strict';
 
@@ -77,10 +79,10 @@ define([
 
             // If we haven't been provided with any data, fetch it now
             // from the server.
-            if (!this.options.learnerListJson) {
+            if (_.isEmpty(this.options.learnerListJson)) {
                 learnerCollection.setPage(1);
             }
-            if (!this.options.courseLearnerMetadataJson) {
+            if (_.isEmpty(this.options.courseLearnerMetadataJson)) {
                 courseMetadata.fetch();
             }
 

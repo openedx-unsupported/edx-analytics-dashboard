@@ -87,4 +87,4 @@ update_translations: pull_translations generate_fake_translations
 static:
 	$(NODE_BIN)/r.js -o build.js
 	python manage.py collectstatic --noinput
-	python manage.py compress
+	python manage.py compress --force

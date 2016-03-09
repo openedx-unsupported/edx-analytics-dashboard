@@ -138,8 +138,10 @@ define([
                     'problem_attempts_per_completed'
                 ];
 
-                // creates the roster view
-                getRosterView();
+                getRosterView({
+                    collectionResponse: getResponseBody(1, 1),
+                    collectionOptions: {parse: true}
+                });
 
                 _(headersWithTips).each(function (headerClass) {
                     var $heading = $('th.' + headerClass).focusin(),
@@ -169,6 +171,8 @@ define([
             executeSortTest = function (field) {
                 expect(getSortingHeaderLink(field).find('i')).toHaveClass('fa-sort');
                 clickSortingHeader(field);
+                // For some reason, the header is going back to the default
+                // unsorted appearance.
                 expectSortCalled(field, 'asc');
                 clickSortingHeader(field);
                 expectSortCalled(field, 'desc');
@@ -184,7 +188,10 @@ define([
             };
 
             beforeEach(function () {
-                this.rosterView = getRosterView();
+                getRosterView({
+                    collectionResponse: getResponseBody(1, 1),
+                    collectionOptions: {parse: true}
+                });
             });
 
             it('can sort by username', function () {
@@ -457,6 +464,19 @@ define([
                     });
                 });
             });
+        });
+
+        describe('no results', function () {
+            it('renders a "no results" view when there is no learner data', function () {
+                var rosterView = getRosterView();
+                expect(rosterView.$('.no-results')).toHaveText('There\'s no learner data currently available for your course.');
+            });
+
+            xit('renders a "no results" view when there are no learners for the current search', function () {});
+
+            xit('renders a "no results" view when there are no learners for the current filter', function () {});
+
+            xit('renders a "no results" view when there are no learners for the current search and filter', function () {});
         });
 
         describe('accessibility', function () {

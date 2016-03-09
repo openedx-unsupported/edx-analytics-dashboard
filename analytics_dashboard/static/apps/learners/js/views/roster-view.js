@@ -16,9 +16,12 @@ define([
     'text!learners/templates/cohort-filter.underscore',
     'text!learners/templates/base-header-cell.underscore',
     'text!learners/templates/name-username-cell.underscore',
+    'text!learners/templates/no-learners.underscore',
     'text!learners/templates/page-handle.underscore',
     'text!learners/templates/roster.underscore',
+    'text!learners/templates/roster-controls.underscore',
     'text!learners/templates/search.underscore',
+    'text!learners/templates/table.underscore',
     'underscore',
     'utils/utils'
 ], function (
@@ -32,21 +35,28 @@ define([
     cohortFilterTemplate,
     baseHeaderCellTemplate,
     nameUsernameCellTemplate,
+    noLearnersTemplate,
     pageHandleTemplate,
     rosterTemplate,
+    rosterControlsTemplate,
     learnerSearchTemplate,
+    learnerTableTemplate,
     _,
     Utils
 ) {
     'use strict';
 
     var BaseHeaderCell,
-        CohortFiliter,
+        CohortFilter,
         createEngagementCell,
         createEngagementHeaderCell,
-        LearnerSearch,
+        RosterControlsView,
+        LearnerResultsView,
         LearnerRosterView,
+        LearnerSearch,
+        LearnerTableView,
         NameAndUsernameCell,
+        NoLearnersView,
         PagingFooter;
 
     /**
@@ -243,10 +253,12 @@ define([
         },
         search: function () {
             Backgrid.Extension.ServerSideFilter.prototype.search.apply(this, arguments);
+            this.collection.setSearchString(this.searchBox().val().trim());
             this.resetFocus();
         },
         clear: function () {
             Backgrid.Extension.ServerSideFilter.prototype.clear.apply(this, arguments);
+            this.collection.unsetSearchString();
             this.resetFocus();
         },
         resetFocus: function () {
@@ -257,7 +269,7 @@ define([
     /**
      * A component to filter the roster view by cohort.
      */
-    CohortFiliter = Marionette.ItemView.extend({
+    CohortFilter = Marionette.ItemView.extend({
         events: {
             'change #cohort-filter': 'onSelectCohort'
         },
@@ -304,72 +316,82 @@ define([
     });
 
     /**
-     * Wraps up the search view, table view, and pagination footer
-     * view.
+     * A wrapper view for controls.
      */
-    LearnerRosterView = Marionette.LayoutView.extend({
-        className: 'learner-roster',
-
-        template: _.template(rosterTemplate),
-
-        templateHelpers: function () {
-            // Note that we currently assume that all the learners in
-            // the roster were last updated at the same time.
-            var firstLearner = this.options.collection.at(0),
-                lastUpdatedMessage = _.template(gettext('Date Last Updated: <%- lastUpdatedDateString %>')),
-                lastUpdatedDateString = (firstLearner && firstLearner.get('last_updated')) ?
-                    Utils.formatDate(firstLearner.get('last_updated')) :
-                    gettext('unknown');
-            return {
-                lastUpdatedMessage: lastUpdatedMessage({lastUpdatedDateString: lastUpdatedDateString})
-            };
-        },
-
+    RosterControlsView = Marionette.LayoutView.extend({
+        template: _.template(rosterControlsTemplate),
         regions: {
             search: '.learners-search-container',
-            table: '.learners-table',
-            paginator: '.learners-paging-footer',
             cohortFilter: '.learners-cohort-filter-container'
         },
-
         initialize: function (options) {
             this.options = options || {};
-            this.options.collection.on('serverError', this.handleServerError, this);
-            this.options.collection.on('networkError', this.handleNetworkError, this);
-            this.options.collection.on('sync', this.handleSync, this);
-            this.options.courseMetadata.on('serverError', this.handleServerError, this);
-            this.options.courseMetadata.on('networkError', this.handleNetworkError, this);
-            this.options.courseMetadata.on('sync', this.handleSync, this);
         },
-
-        handleServerError: function (status) {
-            if (status === 504) {
-                this.triggerMethod('appError', gettext('504: Server error: processing your request took too long to complete. Reload the page to try again.')); // jshint ignore:line
-            } else {
-                this.triggerMethod(
-                    'appError', gettext('Server error: your request could not be processed. Reload the page to try again.') // jshint ignore:line
-                );
-            }
-        },
-
-        handleNetworkError: function () {
-            this.triggerMethod(
-                'appError', gettext('Network error: your request could not be processed. Reload the page to try again.')
-            );
-        },
-
-        handleSync: function () {
-            this.triggerMethod('clearError');
-        },
-
         onBeforeShow: function () {
-            // Render the search bar
             this.showChildView('search', new LearnerSearch({
                 collection: this.options.collection,
                 name: 'text_search',
                 placeholder: gettext('Find a learner')
             }));
-            // Render the table
+            this.showChildView('cohortFilter', new CohortFilter({
+                collection: this.options.collection,
+                courseMetadata: this.options.courseMetadata
+            }));
+        }
+    });
+
+    /**
+     * Displays a message when there are no learners to display.  Assumes that
+     * the collection is empty.
+     */
+    NoLearnersView = Marionette.ItemView.extend({
+        template: _.template(noLearnersTemplate),
+        initialize: function (options) {
+            this.options = options || {};
+        },
+        templateHelpers: function () {
+            var collection = this.options.collection,
+                noLearnersMessage,
+                suggestions = [];
+            // TODO how awesome should we make this?
+            //  - Should we list every single filter?
+            //  - Should we make each suggestion clickable?
+            if (collection.searchString || collection.activeFilters) {
+                noLearnersMessage = gettext('No learners matched your criteria.');
+                if (collection.searchString) {
+                    suggestions.push(gettext('Try a different search.'));
+                } if (collection.activeFilters) {
+                    // TODO: will have to actually implement active filter API so that we know which filters are applied
+                    suggestions.push(gettext('Try clearing the filters.'));
+                }
+            } else {
+                // TODO: can we translate multi-line strings like this?
+                noLearnersMessage = gettext(
+                    'There\'s no learner data currently available for your course.' +
+                    ' ' + 'Either no learners have enrolled yet or your data hasn\'t been processed yet.' +
+                    ' ' + 'Check back in <insert time frame here> to see the most up-to-date learner data.'
+                );
+            }
+            return {
+                noLearnersMessage: noLearnersMessage,
+                suggestions: suggestions
+            };
+        }
+    });
+
+    /**
+     * Displays a table of learners and a pagination control.
+     */
+    LearnerTableView = Marionette.LayoutView.extend({
+        template: _.template(learnerTableTemplate),
+        regions: {
+            table: '.learners-table',
+            paginator: '.learners-paging-footer'
+        },
+        initialize: function (options) {
+            this.options = options || {};
+        },
+        onBeforeShow: function () {
             this.showChildView('table', new Backgrid.Grid({
                 className: 'table',  // Use bootstrap styling
                 collection: this.options.collection,
@@ -393,17 +415,105 @@ define([
                     return column;
                 })
             }));
-            // Render the paging footer
             this.showChildView('paginator', new PagingFooter({
                 collection: this.options.collection, goBackFirstOnSort: false
             }));
-            // Render the cohort filter
-            this.showChildView('cohortFilter', new CohortFiliter({
+            // Accessibility hacks
+            this.$('table').prepend('<caption class="sr-only">' + gettext('Learner Roster') + '</caption>');
+        }
+    });
+
+    /**
+     * Displays either a paginated table of learners or a message that there are
+     * no learners to display.
+     */
+    LearnerResultsView = Marionette.LayoutView.extend({
+        template: _.template('<div class="main"></div>'),
+        regions: {
+            main: '.main'
+        },
+        initialize: function (options) {
+            this.options = options || {};
+            this.listenTo(this.collection, 'sync', this.onLearnerCollectionUpdated);
+            this.listenTo(this.collection, 'serverError', this.onLearnerCollectionUpdated);
+            this.listenTo(this.collection, 'networkError', this.onLearnerCollectionUpdated);
+        },
+        onBeforeShow: function () {
+            this.onLearnerCollectionUpdated(this.options.collection);
+        },
+        onLearnerCollectionUpdated: function (collection) {
+            // TODO: verify that collection.length is 0 when no models returned
+            if (!collection.length) {
+                this.showChildView('main', new NoLearnersView({collection: this.options.collection}));
+            } else {
+                this.showChildView('main', new LearnerTableView({collection: this.collection}));
+            }
+        }
+    });
+
+    /**
+     * Wraps up the search view, table view, and pagination footer
+     * view.
+     */
+    LearnerRosterView = Marionette.LayoutView.extend({
+        className: 'learner-roster',
+
+        template: _.template(rosterTemplate),
+
+        templateHelpers: function () {
+            // Note that we currently assume that all the learners in
+            // the roster were last updated at the same time.
+            var firstLearner = this.options.collection.at(0),
+                lastUpdatedMessage = _.template(gettext('Date Last Updated: <%- lastUpdatedDateString %>')),
+                lastUpdatedDateString = (firstLearner && firstLearner.get('last_updated')) ?
+                    Utils.formatDate(firstLearner.get('last_updated')) :
+                    gettext('unknown');
+            return {
+                lastUpdatedMessage: lastUpdatedMessage({lastUpdatedDateString: lastUpdatedDateString})
+            };
+        },
+
+        regions: {
+            controls: '.learners-table-controls',
+            results: '.learners-results'
+        },
+
+        initialize: function (options) {
+            this.options = options || {};
+            this.listenTo(this.options.collection, 'serverError', this.handleServerError);
+            this.listenTo(this.options.collection, 'networkError', this.handleNetworkError);
+            this.listenTo(this.options.collection, 'sync', this.handleSync);
+            this.listenTo(this.options.courseMetadata, 'serverError', this.handleServerError);
+            this.listenTo(this.options.courseMetadata, 'networkError', this.handleNetworkError);
+            this.listenTo(this.options.courseMetadata, 'sync', this.handleSync);
+        },
+
+        handleServerError: function (status) {
+            if (status === 504) {
+                this.triggerMethod('appError', gettext('504: Server error: processing your request took too long to complete. Reload the page to try again.')); // jshint ignore:line
+            } else {
+                this.triggerMethod(
+                    'appError', gettext('Server error: your request could not be processed. Reload the page to try again.') // jshint ignore:line
+                );
+            }
+        },
+
+        handleNetworkError: function () {
+            this.triggerMethod(
+                'appError', gettext('Network error: your request could not be processed. Reload the page to try again.')
+            );
+        },
+
+        handleSync: function () {
+            this.triggerMethod('clearError');
+        },
+
+        onBeforeShow: function () {
+            this.showChildView('controls', new RosterControlsView({
                 collection: this.options.collection,
                 courseMetadata: this.options.courseMetadata
             }));
-            // Accessibility hacks
-            this.$('table').prepend('<caption class="sr-only">' + gettext('Learner Roster') + '</caption>');
+            this.showChildView('results', new LearnerResultsView({collection: this.options.collection}));
         }
     });
 
