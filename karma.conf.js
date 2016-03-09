@@ -17,6 +17,7 @@ module.exports = function (config) {
         files: [
             {pattern: 'analytics_dashboard/static/vendor/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/bower_components/**/*.js', included: false},
+            {pattern: 'analytics_dashboard/static/bower_components/**/*.underscore', included: false},
             {pattern: 'analytics_dashboard/static/bower_components/**/*.json', included: false},
             {pattern: 'analytics_dashboard/static/js/models/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/js/views/**/*.js', included: false},
@@ -32,6 +33,7 @@ module.exports = function (config) {
         exclude: [
             // Don't run library unit tests
             'analytics_dashboard/static/bower_components/**/spec/**/*.js',
+            'analytics_dashboard/static/bower_components/**/specs/**/*.js',
             'analytics_dashboard/static/bower_components/**/test/**/*.js'
         ],
 
