@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import json
 
 from django.template import Template, Context, TemplateSyntaxError
 from django.test import TestCase
@@ -63,3 +64,11 @@ class DashboardExtraTests(TestCase):
     def test_unicode_slugify(self):
         self.assertEqual(dashboard_extras.unicode_slugify('hello world'), 'hello-world')
         self.assertEqual(dashboard_extras.unicode_slugify(u'straße road'), u'strasse-road')
+
+    def test_escape_json(self):
+        data_as_dict = {'user_bio': '</script><script>alert("&hellip;"!)</script>'}
+        data_as_json = json.dumps(data_as_dict)
+        expected_json = \
+            '{"user_bio": "\\u003c/script\\u003e\\u003cscript\\u003ealert(\\"\\u0026hellip;\\"!)\\u003c/script\\u003e"}'
+        self.assertEqual(dashboard_extras.escape_json(data_as_dict), expected_json)
+        self.assertEqual(dashboard_extras.escape_json(data_as_json), expected_json)

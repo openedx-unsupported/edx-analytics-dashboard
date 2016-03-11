@@ -1,5 +1,5 @@
-define(['backbone', 'underscore', 'utils/utils'],
-    function (Backbone, _, Utils) {
+define(['backbone', 'jquery', 'underscore', 'utils/utils'],
+    function (Backbone, $, _, Utils) {
         'use strict';
 
         /**

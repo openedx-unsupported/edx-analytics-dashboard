@@ -770,3 +770,36 @@ table.dataTable thead th.sorting_desc:after {
     }
   }
 }
+
+// Learner App
+.learner-roster {
+  .learner-engagement-cell {
+    text-align: right;
+  }
+
+  .learners-table-controls {
+    padding-left: 20px;
+
+    .learners-search {
+      .wrapper-search-input {
+        position: relative;
+
+        .clear {
+          position: absolute;
+          right: 0px;
+          top: 0px;
+          z-index: 99;
+          color: $edx-gray;
+
+          &:hover {
+            color: $edx-gray-d2;
+          }
+        }
+      }
+
+      .search {
+        margin-left: 5px;
+      }
+    }
+  }
+}

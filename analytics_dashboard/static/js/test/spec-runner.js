@@ -34,6 +34,16 @@
             };
         }
 
+        if (!window.ngettext) {
+            window.ngettext = function(singularString, pluralString, count) {
+                if (count === 1) {
+                    return singularString;
+                } else {
+                    return pluralString;
+                }
+            };
+        }
+
         // you can automatically get the test files using karma's configs
         for (var file in window.__karma__.files) {
             if (/spec\.js$/.test(file)) {

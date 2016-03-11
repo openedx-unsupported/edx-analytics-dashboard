@@ -7,16 +7,19 @@
         path = require('path'),
         browserSync = require('browser-sync'),
         jscs = require('gulp-jscs'),
+        extend = require('util')._extend,
         paths = {
             spec: [
                 'analytics_dashboard/static/js/**/*.js',
-                'analytics_dashboard/static/js/test/**/*.js'
+                'analytics_dashboard/static/js/test/**/*.js',
+                'analytics_dashboard/static/apps/**/*.js'
             ],
             lint: [
                 'build.js',
                 'gulpfile.js',
                 'analytics_dashboard/static/js/**/*.js',
-                'analytics_dashboard/static/js/test/**/*.js'
+                'analytics_dashboard/static/js/test/**/*.js',
+                'analytics_dashboard/static/apps/**/*.js'
             ],
             templates: [
                 'analytics_dashboard/analytics_dashboard/templates/analytics_dashboard/*.html',
@@ -24,15 +27,17 @@
                 'analytics_dashboard/templates/*.html'
             ],
             sass: ['analytics_dashboard/static/sass/*.scss'],
-            karamaConf: 'karma.conf.js'
+            karmaConf: 'karma.conf.js'
         };
 
     // kicks up karma to the tests once
-    function runKarma(configFile, cb) {
-        karma.start({
+    function runKarma(configFile, cb, options) {
+        var defaultOptions = {
             configFile: path.resolve(configFile),
-            singleRun: true
-        }, cb);
+            singleRun: true,
+            browsers: ['PhantomJS']
+        };
+        karma.start(extend(defaultOptions, options), cb);
     }
 
     gulp.task('lint', function () {
@@ -51,7 +56,16 @@
     // so you may need to run the jasmine test page directly:
     //      http://127.0.0.1:8000/static/js/test/spec-runner.html
     gulp.task('test', function (cb) {
-        runKarma(paths.karamaConf, cb);
+        runKarma(paths.karmaConf, cb);
+    });
+
+    gulp.task('test-debug', function (cb) {
+        runKarma(paths.karmaConf, cb, {
+            singleRun: false,
+            autoWatch: true,
+            browsers: ['Firefox'],
+            reporters: ['kjhtml']
+        });
     });
 
     // these are the default tasks when you run gulp

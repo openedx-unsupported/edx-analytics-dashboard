@@ -10,9 +10,16 @@ require.config({
         jquery: 'bower_components/jquery/dist/jquery',
         underscore: 'bower_components/underscore/underscore',
         backbone: 'bower_components/backbone/backbone',
+        'backbone.paginator': 'bower_components/backbone.paginator/lib/backbone.paginator.min',
+        'backbone.wreqr': 'bower_components/backbone.wreqr/lib/backbone.wreqr.min',
+        'backbone.babysitter': 'bower_components/backbone.babysitter/lib/backbone.babysitter.min',
+        backgrid: 'bower_components/backgrid/lib/backgrid.min',
+        'backgrid-filter': 'bower_components/backgrid-filter/backgrid-filter.min',
+        'backgrid-paginator': 'bower_components/backgrid-paginator/backgrid-paginator.min',
         bootstrap: 'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap',
         bootstrap_accessibility: 'bower_components/bootstrapaccessibilityplugin/plugins/js/bootstrap-accessibility',
         models: 'js/models',
+        collections: 'js/collections',
         views: 'js/views',
         utils: 'js/utils',
         load: 'js/load',
@@ -30,7 +37,16 @@ require.config({
         'cldr-data': 'bower_components/cldr-data',
         globalize: 'bower_components/globalize/dist/globalize',
         globalization: 'js/utils/globalization',
-        collapsible: 'bower_components/edx-ui-toolkit/components/views/collapsible-view'
+        collapsible: 'bower_components/edx-ui-toolkit/components/views/collapsible-view',
+        marionette: 'bower_components/marionette/lib/core/backbone.marionette.min',
+        components: 'bower_components/edx-ui-toolkit/components',
+        // URI and its dependencies
+        URI: 'bower_components/uri.js/src/URI',
+        IPv6: 'bower_components/uri.js/src/IPv6',
+        punycode: 'bower_components/uri.js/src/punycode',
+        SecondLevelDomains: 'bower_components/uri.js/src/SecondLevelDomains',
+        learners: 'apps/learners',
+        'axe-core': 'bower_components/axe-core/axe.min'
     },
     wrapShim: true,
     shim: {
@@ -51,6 +67,16 @@ require.config({
                 Backbone.$ = $;
                 return Backbone;
             }
+        },
+        backgrid: {
+            deps: ['backbone', 'underscore', 'jquery'],
+            exports: 'Backgrid'
+        },
+        'backgrid-filter': {
+            deps: ['backbone', 'underscore', 'backgrid']
+        },
+        'backgrid-paginator': {
+            deps: ['backbone', 'underscore', 'jquery', 'backgrid']
         },
         dataTablesBootstrap: {
             deps: ['jquery', 'datatables']
@@ -82,6 +108,9 @@ require.config({
         globalization: {
             deps: ['globalize'],
             exports: 'Globalize'
+        },
+        'axe-core': {
+            exports: 'axe'
         }
     }
 });

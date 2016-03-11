@@ -1,0 +1,34 @@
+{% extends "courses/base-course.html" %}
+
+{% load dashboard_extras %}
+{% load rjs %}
+
+{% comment %}
+View of individual learners within a course.
+{% endcomment %}
+
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="stylesheet" href="/static/bower_components/backgrid-paginator/backgrid-paginator.min.css" type="text/css">
+{% endblock stylesheets %}
+
+{% block uncompressed_javascript %}
+    {{ block.super }}
+    <script>
+     require(['load/init-page', 'learners/js/app'], function (page, LearnersApp) {
+         var app = new LearnersApp({
+             courseId: '{{ course_id }}',
+             containerSelector: '.learners-app-container',
+             learnerListJson: {{ learner_list_json | escape_json }},
+             learnerListUrl: '{{ learner_list_url }}',
+             courseLearnerMetadataJson: {{ course_learner_metadata_json | escape_json }},
+             courseLearnerMetadataUrl: '{{ course_learner_metadata_url }}'
+         });
+         app.start();
+     });
+    </script>
+{% endblock uncompressed_javascript %}
+
+{% block child_content %}
+    <div class="learners-app-container"></div>
+{% endblock %}

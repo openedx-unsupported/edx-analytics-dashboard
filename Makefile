@@ -21,10 +21,6 @@ test.requirements: requirements
 develop: test.requirements
 	pip install -q -r requirements/local.txt --exists-action w
 
-test.acceptance: develop
-	git clone https://github.com/edx/edx-analytics-data-api.git
-	pip install -q -r edx-analytics-data-api/requirements/base.txt
-
 migrate:
 	python manage.py migrate
 
@@ -39,7 +35,7 @@ test_python: clean
 	--with-ignore-docstrings --cover-xml --cover-xml-file=$(COVERAGE)/coverage.xml
 
 accept:
-	./runTests.sh acceptance_tests
+	./scripts/runTests.sh acceptance_tests
 
 # local acceptance tests are typically run with by passing in environment variables on the commandline
 # e.g. API_SERVER_URL="http://localhost:9001/api/v0" API_AUTH_TOKEN="edx" make accept_local
@@ -47,7 +43,7 @@ accept_local:
 	nosetests -v acceptance_tests --exclude-dir=acceptance_tests/course_validation
 
 a11y:
-	BOKCHOY_A11Y_CUSTOM_RULES_FILE=./node_modules/edx-custom-a11y-rules/lib/custom_a11y_rules.js SELENIUM_BROWSER=phantomjs ./runTests.sh a11y_tests
+	BOKCHOY_A11Y_CUSTOM_RULES_FILE=./node_modules/edx-custom-a11y-rules/lib/custom_a11y_rules.js SELENIUM_BROWSER=phantomjs ./scripts/runTests.sh a11y_tests
 
 course_validation:
 	python -m acceptance_tests.course_validation.generate_report
