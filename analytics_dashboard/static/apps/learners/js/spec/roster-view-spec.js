@@ -11,7 +11,8 @@ define([
     'use strict';
 
     describe('LearnerRosterView', function () {
-        var fixtureClass = 'roster-view-fixture',
+        var executeSearch,
+            fixtureClass = 'roster-view-fixture',
             perPage = 25,
             getLastRequest,
             getLastRequestParams,
@@ -72,6 +73,12 @@ define([
         verifyErrorHandling = function (rosterView, status, expectedMessage) {
             getLastRequest().respond(status, {}, '');
             expect(rosterView.trigger).toHaveBeenCalledWith('appError', expectedMessage);
+        };
+
+        executeSearch = function (searchString) {
+            $('#search-learners').val(searchString);
+            $('#search-learners').keyup();  // Triggers rendering of the clear search control
+            $('#search-learners').submit();
         };
 
         beforeEach(function () {
@@ -326,13 +333,7 @@ define([
         });
 
         describe('search', function () {
-            var executeSearch, expectSearchedFor;
-
-            executeSearch = function (searchString) {
-                $('#search-learners').val(searchString);
-                $('#search-learners').keyup();  // Triggers rendering of the clear search control
-                $('#search-learners').submit();
-            };
+            var expectSearchedFor;
 
             expectSearchedFor = function (searchString) {
                 expect(getLastRequestParams()).toEqual(jasmine.objectContaining({
@@ -467,16 +468,52 @@ define([
         });
 
         describe('no results', function () {
-            it('renders a "no results" view when there is no learner data', function () {
+            it('renders a "no results" view when there is no learner data in the initial collection', function () {
                 var rosterView = getRosterView();
                 expect(rosterView.$('.no-results')).toHaveText('There\'s no learner data currently available for your course.');
             });
 
-            xit('renders a "no results" view when there are no learners for the current search', function () {});
+            it('renders a "no results" view when there are no learners for the current search', function () {
+                var rosterView = getRosterView({
+                    collectionResponse: getResponseBody(1, 1),
+                    collectionOptions: {parse: true}
+                });
+                executeSearch('Dan');
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0, 0)));
+                expect(rosterView.$('.no-results')).toHaveText('No learners matched your criteria.');
+                expect(rosterView.$('.no-results')).toHaveText('Try a different search.');
+                expect(rosterView.$('.no-results')).not.toHaveText('Try clearing the filters.');
+            });
 
-            xit('renders a "no results" view when there are no learners for the current filter', function () {});
+            it('renders a "no results" view when there are no learners for the current filter', function () {
+                var rosterView = getRosterView({
+                    collectionResponse: getResponseBody(1, 1),
+                    collectionOptions: {parse: true},
+                    courseMetadata: {cohorts: {'Cohort A': 10}}
+                });
+                $('select').val(cohort);
+                $('select').change();
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0, 0)));
+                expect(rosterView.$('.no-results')).toHaveText('No learners matched your criteria.');
+                expect(rosterView.$('.no-results')).toHaveText('Try clearing the filters.');
+                expect(rosterView.$('.no-results')).not.toHaveText('Try a different search.');
+            });
 
-            xit('renders a "no results" view when there are no learners for the current search and filter', function () {});
+            it('renders a "no results" view when there are no learners for the current search and filter', function () {
+                var rosterView = getRosterView({
+                    collectionResponse: getResponseBody(1, 1),
+                    collectionOptions: {parse: true},
+                    courseMetadata: {cohorts: {'Cohort A': 10}}
+                });
+                executeSearch('Dan');
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(1, 1)));
+                $('select').val(cohort);
+                $('select').change();
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0, 0)));
+                expect(rosterView.$('.no-results')).toHaveText('No learners matched your criteria.');
+                expect(rosterView.$('.no-results')).toHaveText('Try clearing the filters.');
+                expect(rosterView.$('.no-results')).toHaveText('Try a different search.');
+            });
         });
 
         describe('accessibility', function () {

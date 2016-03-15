@@ -27,7 +27,7 @@ define([
         },
 
         fetch: function (options) {
-            Backbone.Model.prototype.fetch.call(this, options)
+            return Backbone.Model.prototype.fetch.call(this, options)
                 .fail(LearnerUtils.handleAjaxFailure.bind(this));
         }
     });

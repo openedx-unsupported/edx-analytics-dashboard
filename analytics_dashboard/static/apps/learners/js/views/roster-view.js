@@ -434,9 +434,7 @@ define([
         },
         initialize: function (options) {
             this.options = options || {};
-            this.listenTo(this.collection, 'sync', this.onLearnerCollectionUpdated);
-            this.listenTo(this.collection, 'serverError', this.onLearnerCollectionUpdated);
-            this.listenTo(this.collection, 'networkError', this.onLearnerCollectionUpdated);
+            this.listenTo(this.options.collection, 'sync', this.onLearnerCollectionUpdated);
         },
         onBeforeShow: function () {
             this.onLearnerCollectionUpdated(this.options.collection);
@@ -444,9 +442,12 @@ define([
         onLearnerCollectionUpdated: function (collection) {
             // TODO: verify that collection.length is 0 when no models returned
             if (!collection.length) {
-                this.showChildView('main', new NoLearnersView({collection: this.options.collection}));
+                this.showChildView('main', new NoLearnersView({collection: collection}));
             } else {
-                this.showChildView('main', new LearnerTableView({collection: this.collection}));
+                // Don't re-render the learner table view if one already exists.
+                if (!(this.getRegion('main').currentView instanceof LearnerTableView)) {
+                    this.showChildView('main', new LearnerTableView({collection: collection}));
+                }
             }
         }
     });

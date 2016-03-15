@@ -74,17 +74,19 @@ define([
                     learnerCollection: learnerCollection,
                     courseMetadata: courseMetadata,
                     rootView: rootView
-                }),
+                })
             });
 
             // If we haven't been provided with any data, fetch it now
             // from the server.
-            if (_.isEmpty(this.options.learnerListJson)) {
-                learnerCollection.setPage(1);
+            if (!this.options.learnerListJson || _.isEmpty(this.options.learnerListJson)) {
+                learnerCollection.setPage(1); // Returns deferred.promise()
             }
-            if (_.isEmpty(this.options.courseLearnerMetadataJson)) {
-                courseMetadata.fetch();
+            if (!this.options.courseLearnerMetadataJson || _.isEmpty(this.options.courseLearnerMetadataJson)) {
+                courseMetadata.fetch(); // Returns a jqXHR
             }
+            // If the above requests fail, don't render the learner
+            // roster page.
 
             Backbone.history.start();
         }

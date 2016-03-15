@@ -35,7 +35,7 @@ class LearnersView(CourseTemplateWithNavView):
         for data_name, request_function, error_message in [
                 (
                     'learner_list_json',
-                    lambda: client.learners.get(course_id=self.course_id).json(),
+                    lambda: client.learners.get(course_id=self.course_id).json(), # TODO: 500s will return no JSON
                     'Failed to reach the Learner List endpoint',
                 ),
                 (
