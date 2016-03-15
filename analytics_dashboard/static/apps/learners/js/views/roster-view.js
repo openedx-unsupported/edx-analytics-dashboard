@@ -353,24 +353,25 @@ define([
             var collection = this.options.collection,
                 hasSearch = collection.searchString !== '',
                 hasActiveFilter = collection.getActiveFilterFields().length > 0,
+                suggestions = [],
                 noLearnersMessage,
-                suggestions = [];
+                detailedMessage;
             if (hasSearch || hasActiveFilter) {
                 noLearnersMessage = gettext('No learners matched your criteria.');
                 if (hasSearch) {
                     suggestions.push(gettext('Try a different search.'));
-                } if (hasActiveFilter) {
+                }
+                if (hasActiveFilter) {
                     suggestions.push(gettext('Try clearing the filters.'));
                 }
             } else {
-                noLearnersMessage = gettext(
-                    'There\'s no learner data currently available for your course.' +
-                    ' ' + 'Either no learners have enrolled yet or your data hasn\'t been processed yet.' +
-                    ' ' + 'Check back in <insert time frame here> to see the most up-to-date learner data.'
-                );
+                // TODO: can we translate multi-line strings like this?
+                noLearnersMessage = gettext("There's no learner data currently available for your course.");
+                detailedMessage = gettext("Either no learners have enrolled yet or your data hasn't been processed yet. Check back in <insert time frame here> to see the most up-to-date learner data.");
             }
             return {
-                noLearnersMessage: noLearnersMessage,
+                title: noLearnersMessage,
+                body: detailedMessage,
                 suggestions: suggestions
             };
         }
@@ -438,13 +439,13 @@ define([
         },
         onLearnerCollectionUpdated: function (collection) {
             // TODO: verify that collection.length is 0 when no models returned
-            if (!collection.length) {
-                this.showChildView('main', new NoLearnersView({collection: collection}));
-            } else {
+            if (collection.length) {
                 // Don't re-render the learner table view if one already exists.
                 if (!(this.getRegion('main').currentView instanceof LearnerTableView)) {
                     this.showChildView('main', new LearnerTableView({collection: collection}));
                 }
+            } else {
+                this.showChildView('main', new NoLearnersView({collection: collection}));
             }
         }
     });
