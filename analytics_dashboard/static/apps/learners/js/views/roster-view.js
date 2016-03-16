@@ -367,7 +367,7 @@ define([
             } else {
                 // TODO: can we translate multi-line strings like this?
                 noLearnersMessage = gettext("There's no learner data currently available for your course.");
-                detailedMessage = gettext("Either no learners have enrolled yet or your data hasn't been processed yet. Check back in <insert time frame here> to see the most up-to-date learner data.");
+                detailedMessage = gettext("Either no learners have enrolled yet or your data hasn't been processed yet. Check back in a day to see the most up-to-date learner data.");
             }
             return {
                 title: noLearnersMessage,
