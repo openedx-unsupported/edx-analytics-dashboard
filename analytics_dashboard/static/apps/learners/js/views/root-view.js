@@ -2,11 +2,11 @@
  * A layout view to manage app page rendering.
  */
 define([
-    'learners/js/views/error-view',
+    'learners/js/views/alert-view',
     'marionette',
     'text!learners/templates/app-container.underscore',
     'underscore'
-], function (ErrorView, Marionette, appContainerTemplate, _) {
+], function (AlertView, Marionette, appContainerTemplate, _) {
     'use strict';
 
     var LearnersRootView = Marionette.LayoutView.extend({
@@ -20,7 +20,10 @@ define([
             clearError: 'onClearError'
         },
         onAppError: function (childView, errorMessage) {
-            this.showChildView('error', new ErrorView({errorMessage: errorMessage}));
+            this.showChildView('error', new AlertView({
+                alertType: 'error',
+                title: errorMessage
+            }));
         },
         onClearError: function () {
             this.getRegion('error').empty();
