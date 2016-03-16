@@ -12,11 +12,11 @@ define([
     'bootstrap',
     'bootstrap_accessibility',  // adds the aria-describedby to tooltips
     'jquery',
+    'learners/js/views/alert-view',
     'marionette',
     'text!learners/templates/cohort-filter.underscore',
     'text!learners/templates/base-header-cell.underscore',
     'text!learners/templates/name-username-cell.underscore',
-    'text!learners/templates/no-learners.underscore',
     'text!learners/templates/page-handle.underscore',
     'text!learners/templates/roster.underscore',
     'text!learners/templates/roster-controls.underscore',
@@ -31,11 +31,11 @@ define([
     _Bootstrap,
     _BootstrapAccessibility,
     $,
+    AlertView,
     Marionette,
     cohortFilterTemplate,
     baseHeaderCellTemplate,
     nameUsernameCellTemplate,
-    noLearnersTemplate,
     pageHandleTemplate,
     rosterTemplate,
     rosterControlsTemplate,
@@ -56,7 +56,6 @@ define([
         LearnerSearch,
         LearnerTableView,
         NameAndUsernameCell,
-        NoLearnersView,
         PagingFooter;
 
     /**
@@ -341,43 +340,6 @@ define([
     });
 
     /**
-     * Displays a message when there are no learners to display.  Assumes that
-     * the collection is empty.
-     */
-    NoLearnersView = Marionette.ItemView.extend({
-        template: _.template(noLearnersTemplate),
-        initialize: function (options) {
-            this.options = options || {};
-        },
-        templateHelpers: function () {
-            var collection = this.options.collection,
-                hasSearch =  !_.isNull(collection.searchString) && collection.searchString !== '',
-                hasActiveFilter = collection.getActiveFilterFields().length > 0,
-                suggestions = [],
-                noLearnersMessage,
-                detailedMessage;
-            if (hasSearch || hasActiveFilter) {
-                noLearnersMessage = gettext('No learners matched your criteria.');
-                if (hasSearch) {
-                    suggestions.push(gettext('Try a different search.'));
-                }
-                if (hasActiveFilter) {
-                    suggestions.push(gettext('Try clearing the filters.'));
-                }
-            } else {
-                // TODO: can we translate multi-line strings like this?
-                noLearnersMessage = gettext("There's no learner data currently available for your course.");
-                detailedMessage = gettext("Either no learners have enrolled yet or your data hasn't been processed yet. Check back in a day to see the most up-to-date learner data.");
-            }
-            return {
-                title: noLearnersMessage,
-                body: detailedMessage,
-                suggestions: suggestions
-            };
-        }
-    });
-
-    /**
      * Displays a table of learners and a pagination control.
      */
     LearnerTableView = Marionette.LayoutView.extend({
@@ -444,8 +406,35 @@ define([
                     this.showChildView('main', new LearnerTableView({collection: collection}));
                 }
             } else {
-                this.showChildView('main', new NoLearnersView({collection: collection}));
+                this.showChildView('main', this.createAlertView(collection));
             }
+        },
+        createAlertView: function(collection) {
+            var hasSearch =  !_.isNull(collection.searchString) && collection.searchString !== '',
+                hasActiveFilter = collection.getActiveFilterFields().length > 0,
+                suggestions = [],
+                noLearnersMessage,
+                detailedMessage;
+            if (hasSearch || hasActiveFilter) {
+                noLearnersMessage = gettext('No learners matched your criteria.');
+                if (hasSearch) {
+                    suggestions.push(gettext('Try a different search.'));
+                }
+                if (hasActiveFilter) {
+                    suggestions.push(gettext('Try clearing the filters.'));
+                }
+            } else {
+                // TODO: can we translate multi-line strings like this?
+                noLearnersMessage = gettext("There's no learner data currently available for your course.");
+                detailedMessage = gettext("Either no learners have enrolled yet or your data hasn't been processed yet. Check back in a day to see the most up-to-date learner data.");
+            }
+
+            return new AlertView({
+                alertType: 'info',
+                title: noLearnersMessage,
+                body: detailedMessage,
+                suggestions: suggestions
+            });
         }
     });
 
