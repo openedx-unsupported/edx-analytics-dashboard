@@ -13,7 +13,7 @@ require.config({
         'backbone.paginator': 'bower_components/backbone.paginator/lib/backbone.paginator.min',
         'backbone.wreqr': 'bower_components/backbone.wreqr/lib/backbone.wreqr.min',
         'backbone.babysitter': 'bower_components/backbone.babysitter/lib/backbone.babysitter.min',
-        backgrid: 'bower_components/backgrid/lib/backgrid.min',
+        backgrid: 'bower_components/backgrid/lib/backgrid',
         'backgrid-filter': 'bower_components/backgrid-filter/backgrid-filter.min',
         'backgrid-paginator': 'bower_components/backgrid-paginator/backgrid-paginator.min',
         bootstrap: 'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap',

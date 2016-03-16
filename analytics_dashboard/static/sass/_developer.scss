@@ -772,6 +772,10 @@ table.dataTable thead th.sorting_desc:after {
 }
 
 // Learner App
+.learners-app-container {
+  margin-bottom: $padding-large-horizontal;
+}
+
 .learner-roster {
   .learner-engagement-cell {
     text-align: right;
@@ -801,5 +805,14 @@ table.dataTable thead th.sorting_desc:after {
         margin-left: 5px;
       }
     }
+  }
+
+  .backgrid-paginator {
+
+    ul {
+      // remove default padding around the paging controls
+      padding: 0;
+    }
+
   }
 }
