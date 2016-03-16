@@ -351,21 +351,18 @@ define([
         },
         templateHelpers: function () {
             var collection = this.options.collection,
+                hasSearch = collection.searchString !== '',
+                hasActiveFilter = collection.getActiveFilterFields().length > 0,
                 noLearnersMessage,
                 suggestions = [];
-            // TODO how awesome should we make this?
-            //  - Should we list every single filter?
-            //  - Should we make each suggestion clickable?
-            if (collection.searchString || collection.activeFilters) {
+            if (hasSearch || hasActiveFilter) {
                 noLearnersMessage = gettext('No learners matched your criteria.');
-                if (collection.searchString) {
+                if (hasSearch) {
                     suggestions.push(gettext('Try a different search.'));
-                } if (collection.activeFilters) {
-                    // TODO: will have to actually implement active filter API so that we know which filters are applied
+                } if (hasActiveFilter) {
                     suggestions.push(gettext('Try clearing the filters.'));
                 }
             } else {
-                // TODO: can we translate multi-line strings like this?
                 noLearnersMessage = gettext(
                     'There\'s no learner data currently available for your course.' +
                     ' ' + 'Either no learners have enrolled yet or your data hasn\'t been processed yet.' +
