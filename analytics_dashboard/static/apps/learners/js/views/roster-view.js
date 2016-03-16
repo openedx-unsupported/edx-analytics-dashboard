@@ -365,9 +365,8 @@ define([
                     suggestions.push(gettext('Try clearing the filters.'));
                 }
             } else {
-                // TODO: can we translate multi-line strings like this?
-                noLearnersMessage = gettext("There's no learner data currently available for your course.");
-                detailedMessage = gettext("Either no learners have enrolled yet or your data hasn't been processed yet. Check back in <insert time frame here> to see the most up-to-date learner data.");
+                noLearnersMessage = gettext("No learner data is currently available for your course.");
+                detailedMessage = gettext("No learners are enrolled, or course activity data has not yet been processed. Data is updated every day, so check back regularly for up-to-date metrics.");
             }
             return {
                 title: noLearnersMessage,
