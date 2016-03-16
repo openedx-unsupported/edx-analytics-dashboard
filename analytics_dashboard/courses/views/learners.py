@@ -35,13 +35,11 @@ class LearnersView(CourseTemplateWithNavView):
         for data_name, request_function, error_message in [
                 (
                     'learner_list_json',
-                    # TODO: https://openedx.atlassian.net/browse/AN-6841
                     lambda: client.learners.get(course_id=self.course_id).json(),
                     'Failed to reach the Learner List endpoint',
                 ),
                 (
                     'course_learner_metadata_json',
-                    # TODO: https://openedx.atlassian.net/browse/AN-6841
                     lambda: client.course_learner_metadata(self.course_id).get().json(),
                     'Failed to reach the Course Learner Metadata endpoint',
                 )
