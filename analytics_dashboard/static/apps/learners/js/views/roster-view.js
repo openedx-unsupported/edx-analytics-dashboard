@@ -371,7 +371,7 @@ define([
             }));
             // Render the table
             this.showChildView('table', new Backgrid.Grid({
-                className: 'table',  // Use bootstrap styling
+                className: 'table table-striped',  // Use bootstrap styling
                 collection: this.options.collection,
                 columns: _.map(this.options.collection.sortableFields, function (val, key) {
                     var column = {
