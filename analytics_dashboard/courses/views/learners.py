@@ -46,7 +46,8 @@ class LearnersView(CourseTemplateWithNavView):
         ]:
             try:
                 context[data_name] = request_function()
-            except (Timeout, ConnectionError):
+            except (Timeout, ConnectionError, ValueError):
+                # ValueError may be thrown by the call to .json()
                 logger.exception(error_message)
                 context[data_name] = {}
 
