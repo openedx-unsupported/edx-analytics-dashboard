@@ -81,7 +81,7 @@ class LearnersViewTests(ViewTestMixin, SwitchMixin, TestCase):
             'course_learner_metadata_json': course_metadata_payload,
         })
 
-    @data(Timeout, ConnectionError)
+    @data(Timeout, ConnectionError, ValueError)
     def test_data_api_error(self, RequestExceptionClass):
         learners_payload = {'should_not': 'return this value'}
         course_metadata_payload = learners_payload
