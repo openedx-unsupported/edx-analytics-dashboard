@@ -52,7 +52,7 @@ define([
         initialize: function (options) {
             var alertType;
 
-            this.options = _.extend({}, this.defaults, this.options);
+            this.options = _.extend({}, this.defaults, options);
 
             alertType = this.options.alertType;
             this.validateAlertType(alertType)

@@ -6,10 +6,9 @@ define([
     describe('AlertView', function () {
 
         it('throws exception for invalid alert types', function () {
-            expect(function(){
+            expect(function () {
                 new AlertView({alertType: 'scooby-doo'});
-            })
-            .toThrow(new Error('AlertView error: "scooby-doo" is not valid. Valid types are error, info.'));
+            }).toThrow(new Error('AlertView error: "scooby-doo" is not valid. Valid types are error, info.'));
         });
 
         it('renders an error alert', function () {

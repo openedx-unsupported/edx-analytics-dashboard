@@ -11,9 +11,9 @@ define([
     'use strict';
 
     describe('LearnerRosterView', function () {
-        var executeSearch,
-            fixtureClass = 'roster-view-fixture',
+        var fixtureClass = 'roster-view-fixture',
             perPage = 25,
+            executeSearch,
             getLastRequest,
             getLastRequestParams,
             getResponseBody,
@@ -476,7 +476,7 @@ define([
             it('renders a "no results" view when there is no learner data in the initial collection', function () {
                 var rosterView = getRosterView();
                 expect(rosterView.$('.alert-info-container'))
-                    .toContainText('There\'s no learner data currently available for your course.');
+                    .toContainText('No learner data is currently available for your course.');
             });
 
             it('renders a "no results" view when there are no learners for the current search', function () {
