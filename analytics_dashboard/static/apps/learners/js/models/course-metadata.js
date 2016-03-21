@@ -1,7 +1,8 @@
 define([
     'backbone',
-    'learners/js/utils'
-], function (Backbone, LearnerUtils) {
+    'learners/js/utils',
+    'underscore'
+], function (Backbone, LearnerUtils, _) {
     'use strict';
 
     var CourseMetadataModel = Backbone.Model.extend({
@@ -14,7 +15,7 @@ define([
                 problems_attempted: {},
                 problems_completed: {},
                 problem_attempts_per_completed: {},
-                discussions_contributed: {}
+                discussion_contributions: {}
             }
         },
 
@@ -29,6 +30,36 @@ define([
         fetch: function (options) {
             return Backbone.Model.prototype.fetch.call(this, options)
                 .fail(LearnerUtils.handleAjaxFailure.bind(this));
+        },
+
+        /**
+         * Returns which category ('average', 'above_average', 'below_average'),
+         * the engagement values falls into.  Returns undefined the range isn't
+         * available.
+         *
+         * @param engagementKey Key for engagement range. E.g. problems_attempted.
+         * @param value Engagement value.
+         */
+        getEngagementCategory: function(engagementKey, value) {
+            var categories = ['average', 'above_average', 'below_average'],
+                ranges = this.get('engagement_ranges')[engagementKey],
+                engagementCategory;
+
+            if (ranges) {
+                _(categories).each(function (category) {
+                    if (_(ranges).has(category)) {
+                        try {
+                            if (LearnerUtils.inRange(value, ranges[category])) {
+                                engagementCategory = category;
+                            }
+                        } catch (Error) {
+                            // min and max are null -- do nothing
+                        }
+                    }
+                });
+            }
+
+            return engagementCategory;
         }
     });
 

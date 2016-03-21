@@ -140,6 +140,66 @@ define([
             });
         });
 
+        it('categorizes engagement values', function () {
+            var learners = [{
+                    name: 'agnes',
+                    username: 'agnes',
+                    engagements: {
+                        discussion_contributions: 10,
+                        problems_attempted: 100,
+                        problems_completed: 32,
+                        videos_viewed: 1,
+                        problem_attempts_per_completed: 0.56
+                    }
+                }],
+                engagementRanges = {
+                    problems_attempted: {
+                        below_average: [0, 10],
+                        average: [11, 25],
+                        above_average: [26, null]
+                    },
+                    videos_viewed: {
+                        below_average: [0, 1],
+                        average: [1, 10],
+                        above_average: [10, null]
+                    },
+                    problems_completed: {
+                        below_average: [0, 10],
+                        average: [11, 50],
+                        above_average: [50, null]
+                    },
+                    problem_attempts_per_completed: {
+                        below_average: [null, 1],
+                        average: [2, 25],
+                        above_average: [26, 60]
+                    },
+                    discussion_contributions: {
+                        below_average: [0, 100],
+                        average: [100, 125],
+                        above_average: [125, null]
+                    }
+                },
+                rosterView = getRosterView({
+                    collectionResponse: {results: learners},
+                    collectionOptions: {parse: true},
+                    courseMetadata: {
+                        engagement_ranges: engagementRanges
+                    }
+                }),
+                $tr = $(rosterView.$('tbody tr'));
+
+            expect($tr.children('td.discussion_contributions'))
+                .toHaveClass('learner-cell-below-average');
+            expect($tr.find('td.problems_completed'))
+                .toHaveClass('learner-cell-average');
+            expect($tr.find('td.problems_attempted'))
+                .toHaveClass('learner-cell-above-average');
+            expect($tr.find('td.problem_attempts_per_completed'))
+                .toHaveClass('learner-cell-below-average');
+            expect($tr.find('td.videos_viewed'))
+                .toHaveClass('learner-cell-average');
+        });
+
         describe('table headers', function() {
 
             it('has tooltips', function () {
