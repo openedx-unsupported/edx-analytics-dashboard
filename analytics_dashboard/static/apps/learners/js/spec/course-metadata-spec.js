@@ -1,4 +1,4 @@
-require(['learners/js/models/course-metadata'], function (CourseMetadataModel) {
+define(['learners/js/models/course-metadata'], function (CourseMetadataModel) {
     'use strict';
 
     describe('CourseMetadataModel', function () {
@@ -6,7 +6,7 @@ require(['learners/js/models/course-metadata'], function (CourseMetadataModel) {
 
         beforeEach(function () {
             jasmine.clock().install();
-            server = sinon.fakeServer.create(); // jshint ignore:line
+            server = sinon.fakeServer.create();
         });
 
         afterEach(function () {

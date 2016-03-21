@@ -33,11 +33,11 @@ define(['backbone', 'learners/js/models/learner-model'], function (Backbone, Lea
         it('should treat the username as its id', function () {
             var learner = new LearnerModel({username: 'daniel', course_id: 'edX/DemoX/Demo_Course'});
             new (Backbone.Collection.extend({url: '/endpoint/'}))([learner]);
-            expect(learner.url()).toEqual('/endpoint/daniel?course_id=edX/DemoX/Demo_Course');
+            expect(learner.url()).toEqual('/endpoint/daniel?course_id=edX%2FDemoX%2FDemo_Course');
             learner = new (LearnerModel.extend({
                 urlRoot: '/other-endpoint/'
             }))({username: 'daniel', course_id: 'edX/DemoX/Demo_Course'});
-            expect(learner.url()).toEqual('/other-endpoint/daniel?course_id=edX/DemoX/Demo_Course');
+            expect(learner.url()).toEqual('/other-endpoint/daniel?course_id=edX%2FDemoX%2FDemo_Course');
         });
     });
 });

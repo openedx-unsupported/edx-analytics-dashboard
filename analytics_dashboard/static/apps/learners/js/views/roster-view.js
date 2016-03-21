@@ -12,6 +12,7 @@ define([
     'bootstrap',
     'bootstrap_accessibility',  // adds the aria-describedby to tooltips
     'jquery',
+    'learners/js/utils',
     'learners/js/views/alert-view',
     'marionette',
     'text!learners/templates/cohort-filter.underscore',
@@ -31,6 +32,7 @@ define([
     _Bootstrap,
     _BootstrapAccessibility,
     $,
+    LearnerUtils,
     AlertView,
     Marionette,
     cohortFilterTemplate,
@@ -488,33 +490,17 @@ define([
         },
 
         initialize: function (options) {
+            var eventTransformers;
+
             this.options = options || {};
-            this.listenTo(this.options.collection, 'serverError', this.handleServerError);
-            this.listenTo(this.options.collection, 'networkError', this.handleNetworkError);
-            this.listenTo(this.options.collection, 'sync', this.handleSync);
-            this.listenTo(this.options.courseMetadata, 'serverError', this.handleServerError);
-            this.listenTo(this.options.courseMetadata, 'networkError', this.handleNetworkError);
-            this.listenTo(this.options.courseMetadata, 'sync', this.handleSync);
-        },
 
-        handleServerError: function (status) {
-            if (status === 504) {
-                this.triggerMethod('appError', gettext('504: Server error: processing your request took too long to complete. Reload the page to try again.')); // jshint ignore:line
-            } else {
-                this.triggerMethod(
-                    'appError', gettext('Server error: your request could not be processed. Reload the page to try again.') // jshint ignore:line
-                );
-            }
-        },
-
-        handleNetworkError: function () {
-            this.triggerMethod(
-                'appError', gettext('Network error: your request could not be processed. Reload the page to try again.')
-            );
-        },
-
-        handleSync: function () {
-            this.triggerMethod('clearError');
+            eventTransformers = {
+                serverError: LearnerUtils.EventTransformers.serverErrorToAppError,
+                networkError: LearnerUtils.EventTransformers.networkErrorToAppError,
+                sync: LearnerUtils.EventTransformers.syncToClearError
+            };
+            LearnerUtils.mapEvents(this.options.collection, eventTransformers, this);
+            LearnerUtils.mapEvents(this.options.courseMetadata, eventTransformers, this);
         },
 
         onBeforeShow: function () {

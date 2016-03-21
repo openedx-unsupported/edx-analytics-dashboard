@@ -1,4 +1,4 @@
-require([
+define([
     'jquery',
     'learners/js/utils'
 ], function ($, LearnerUtils) {
@@ -10,7 +10,7 @@ require([
 
             beforeEach(function () {
                 jasmine.clock().install();
-                server = sinon.fakeServer.create();  // jshint ignore:line
+                server = sinon.fakeServer.create();
             });
 
             afterEach(function () {

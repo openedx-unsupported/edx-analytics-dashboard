@@ -9,8 +9,16 @@
 define([
     'backbone',
     'marionette',
+    'learners/js/models/engagement-timeline',
+    'learners/js/views/learner-detail',
     'learners/js/views/roster-view'
-], function (Backbone, Marionette, LearnerRosterView) {
+], function (
+    Backbone,
+    Marionette,
+    EngagementTimelineModel,
+    LearnerDetailView,
+    LearnerRosterView
+) {
     'use strict';
 
     var LearnersController = Marionette.Object.extend({
@@ -25,13 +33,21 @@ define([
             }));
         },
 
+        /**
+         * Render the learner detail page assuming the learner model fetch
+         * succeeds.
+         *
+         * @returns a jqXHR representing the learner engagement model fetch.
+         */
         showLearnerDetailPage: function (username) {
-            // TODO: we'll eventually have to fetch the learner either
-            // from the cached collection, or from the server.  See
-            // https://openedx.atlassian.net/browse/AN-6191
-            this.options.rootView.showChildView('main', new (Backbone.View.extend({
-                render: function () {this.$el.text(username); return this;}
-            }))());
+            var engagementTimelineModel = new EngagementTimelineModel({}, {
+                url: this.options.learnerEngagementTimelineUrl.replace('temporary_username', username),
+                courseId: this.options.courseId
+            });
+            this.options.rootView.showChildView('main', new LearnerDetailView({
+                engagementTimelineModel: engagementTimelineModel
+            }));
+            return engagementTimelineModel.fetch();
         },
 
         showNotFoundPage: function () {

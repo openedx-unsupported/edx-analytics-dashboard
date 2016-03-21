@@ -18,7 +18,7 @@ define(['learners/js/collections/learner-collection', 'URI'], function (LearnerC
         };
 
         beforeEach(function () {
-            server = sinon.fakeServer.create(); // jshint ignore:line
+            server = sinon.fakeServer.create();
             learners = new LearnerCollection(null, {url: '/endpoint/', courseId: courseId});
         });
 

@@ -28,6 +28,13 @@ class LearnersView(CourseTemplateWithNavView):
                 'learner_analytics_api:v0:CourseMetadata',
                 args=(self.course_id,)
             ),
+            'learner_engagement_timeline_url': reverse(
+                'learner_analytics_api:v0:EngagementTimeline',
+                # Unfortunately, we need to pass a username to the `reverse`
+                # function.  This will get dynamically interpolated with the
+                # actual users' usernames on the client side.
+                kwargs={'username': 'temporary_username'}
+            ),
         })
         # Try to prefetch API responses.  If anything fails, the front-end will
         # retry the requests and gracefully fail.

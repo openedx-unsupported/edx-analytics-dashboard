@@ -27,7 +27,7 @@ define([
          *
          * @param options specifies the following values:
          * - courseId (string) required - the course id for this
-         *   learner app
+         *   learner app.
          * - containerSelector (string) required - the CSS selector
          *   for the HTML element that this app should attach to
          * - learnerListUrl (string) required - the URL for the
@@ -43,6 +43,8 @@ define([
          *   representing an initial server response from the Learner
          *   Course Metadata endpoint used for data on cohorts,
          *   segments, enrollment modes, and engagement ranges.
+         * - learnerEngagementTimelineUrl (String) required - the URL for the
+         *   Learner Engagement Timeline API endpoint.
          */
         initialize: function (options) {
             this.options = options || {};
@@ -69,9 +71,11 @@ define([
 
             router = new LearnersRouter({
                 controller: new LearnersController({
+                    courseId: this.options.courseId,
                     learnerCollection: learnerCollection,
                     courseMetadata: courseMetadata,
-                    rootView: rootView
+                    rootView: rootView,
+                    learnerEngagementTimelineUrl: this.options.learnerEngagementTimelineUrl
                 })
             });
 

@@ -30,6 +30,21 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
              * Returns an array of maps of the trend data passed to nvd3 for
              * rendering.  The map consists of the trend data as 'values' and
              * the trend title as 'key'.
+             *
+             * Part of the contract is that
+             * 'this.model.get(this.options.modelAttribute)' has a particular
+             * structure: it is an array of objects, where each object
+             * represents a tick in the chart.  Each object contains key/value
+             * pairs for each trend as well as a key/value pair which maps the x
+             * axis name to the value for that particular tick.  For example:
+             *   this.options.modelAttribute -> [
+             *       {
+             *           day: '2000-01-01', // the x-axis in this example
+             *           someTrend: 4,      // a trend value
+             *           anotherTrend: 22   // another trend value
+             *       },
+             *       ...
+             *   ]
              */
             assembleTrendData: function () {
                 var self = this,

@@ -1,4 +1,7 @@
-define(['backbone'], function (Backbone) {
+define([
+    'backbone',
+    'learners/js/utils'
+], function (Backbone, LearnerUtils) {
     'use strict';
 
     var LearnerModel = Backbone.Model.extend({
@@ -19,7 +22,12 @@ define(['backbone'], function (Backbone) {
         idAttribute: 'username',
 
         url: function () {
-            return Backbone.Model.prototype.url.call(this) + '?course_id=' + this.get('course_id');
+            return Backbone.Model.prototype.url.call(this) + '?course_id=' + encodeURIComponent(this.get('course_id'));
+        },
+
+        fetch: function (options) {
+            return Backbone.Model.prototype.fetch.call(this, options)
+                .fail(LearnerUtils.handleAjaxFailure.bind(this));
         },
 
         /**
