@@ -785,6 +785,23 @@ table.dataTable thead th.sorting_desc:after {
     }
   }
 
+  .learner-engagement-cell {
+    // gives the numbers in the engagement table a bit more weight
+    font-weight: 600;
+  }
+
+  // color-bind safe colors for differentiating engagement categories
+  $below-average-color: rgb(230,121,80);
+  $above-average-color: rgb(82,184,135);
+  .learner-cell-below-average {
+    color: $below-average-color;
+  }
+
+  .learner-cell-above-average {
+
+    color: $above-average-color;
+  }
+
   .backgrid-paginator {
 
     ul {
