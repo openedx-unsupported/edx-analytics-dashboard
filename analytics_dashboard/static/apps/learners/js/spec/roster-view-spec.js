@@ -90,7 +90,7 @@ define([
 
         beforeEach(function () {
             setFixtures('<div class="' + fixtureClass + '"></div>');
-            server = sinon.fakeServer.create();  // jshint ignore:line
+            server = sinon.fakeServer.create();
         });
 
         afterEach(function () {

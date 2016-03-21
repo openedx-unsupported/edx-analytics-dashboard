@@ -20,6 +20,7 @@ define([
         },
 
         initialize: function (attributes, options) {
+            Backbone.Model.prototype.initialize.call(this, attributes, options);
             this.options = options || {};
         },
 

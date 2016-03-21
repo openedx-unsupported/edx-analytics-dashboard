@@ -47,6 +47,71 @@ define([], function () {
             }
 
             return value >= min && value < max;
+        },
+
+        /**
+         * Transforms events coming from one object to new events on another
+         * object.
+         *
+         * @param originator (object) An object extending Backbone.Events.
+         * @param transformFunctions (object) An object hashing event names to
+         * event transformation functions.  The event transformation functions
+         * take an event name and its arguments and return a new event arguments
+         * array.  See 'EventTransformers' for examples.
+         * @param forwarder (object) A Marionette object which should trigger
+         * the transformed events via 'triggerMethod'.
+         */
+        mapEvents: function (originator, transformFunctions, forwarder) {
+            Object.keys(transformFunctions).map(function (eventName) {
+                forwarder.listenTo(originator, eventName, function () {
+                    var transformFunc = transformFunctions[eventName],
+                        newEventArguments = transformFunc.apply(forwarder, arguments);
+                    forwarder.triggerMethod.apply(forwarder, newEventArguments);
+                });
+            });
+        },
+
+        /**
+         * Encapsulates a few common event transformer functions for translating
+         * model/collection events to view events.
+         */
+        EventTransformers: {
+            /**
+             * Transforms an AJAX server error (as defined in handleAjaxFailure)
+             * to an application error.
+             */
+            serverErrorToAppError: function (status) {
+                if (status === 504) {
+                    return [
+                        'appError',
+                        gettext('504: Server error: processing your request took too long to complete. Reload the page to try again.') // jshint ignore:line
+                    ];
+                } else {
+                    return [
+                        'appError',
+                        gettext('Server error: your request could not be processed. Reload the page to try again.')
+                    ];
+                }
+            },
+
+            /**
+             * Transforms an AJAX network error (as defined in
+             * handleAjaxFailure) to an application error.
+             */
+            networkErrorToAppError: function () {
+                return [
+                    'appError',
+                    gettext('Network error: your request could not be processed. Reload the page to try again.')
+                ];
+            },
+
+            /**
+             * Translates a model/collection 'sync' event to an application
+             * 'clearError' event.
+             */
+            syncToClearError: function () {
+                return ['clearError'];
+            }
         }
     };
 
