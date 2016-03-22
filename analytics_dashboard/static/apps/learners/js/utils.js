@@ -21,6 +21,32 @@ define([], function () {
                 // Request incomplete; network error
                 this.trigger('networkError', textStatus);
             }
+        },
+
+        /**
+         * Returns true if the value falls within the range (inclusive of min
+         * and exclusive of max).
+         *
+         * @param value Value in question.
+         * @param range Array of min and max.
+         */
+        inRange: function(value, range) {
+            var min = range[0],
+                max = range[1],
+                minIsUnbounded = _.isNull(min),
+                maxIsUnbounded = _.isNull(max);
+
+            if (minIsUnbounded && maxIsUnbounded) {
+                throw new Error('min and max range values cannot both be null (unbounded)');
+            }
+
+            if (minIsUnbounded) {
+                return value < max;
+            } else if (maxIsUnbounded) {
+                return value >= min;
+            }
+
+            return value >= min && value < max;
         }
     };
 

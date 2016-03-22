@@ -141,15 +141,34 @@ define([
      * Factory for creating a Backgrid cell class that renders a key
      * from the learner model's engagement attribute.
      */
-    createEngagementCell = function (key) {
+    createEngagementCell = function (key, options) {
         return Backgrid.Cell.extend({
+
             className: 'learner-engagement-cell ' + key,
+
+            options: options,
+
             formatter: {
                 fromRaw: function (rawData, model) {
                     var value = model.get('engagements')[key];
                     // Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate accordingly.
                     return value === null ? gettext('N/A') : value;
                 }
+            },
+
+            enagementCategoryToClass: {
+                below_average: 'learner-cell-below-average',
+                average: 'learner-cell-average',
+                above_average: 'learner-cell-above-average'
+            },
+
+            render: function() {
+                var value = this.model.get('engagements')[key],
+                    engagementCategory = this.options.courseMetadata.getEngagementCategory(key, value);
+                if (engagementCategory) {
+                    this.$el.addClass(this.enagementCategoryToClass[engagementCategory]);
+                }
+                return Backgrid.Cell.prototype.render.apply(this, arguments);
             }
         });
     };
@@ -352,6 +371,7 @@ define([
             this.options = options || {};
         },
         onBeforeShow: function () {
+            var options = this.options;
             this.showChildView('table', new Backgrid.Grid({
                 className: 'table table-striped',  // Use bootstrap styling
                 collection: this.options.collection,
@@ -368,7 +388,7 @@ define([
                         column.cell = NameAndUsernameCell;
                         column.headerCell = BaseHeaderCell;
                     } else {
-                        column.cell = createEngagementCell(key);
+                        column.cell = createEngagementCell(key, options);
                         column.headerCell = createEngagementHeaderCell(key);
                     }
 
@@ -403,7 +423,10 @@ define([
             if (collection.length) {
                 // Don't re-render the learner table view if one already exists.
                 if (!(this.getRegion('main').currentView instanceof LearnerTableView)) {
-                    this.showChildView('main', new LearnerTableView({collection: collection}));
+                    this.showChildView('main', new LearnerTableView({
+                        collection: collection,
+                        courseMetadata: this.options.courseMetadata
+                    }));
                 }
             } else {
                 this.showChildView('main', this.createAlertView(collection));
@@ -499,7 +522,10 @@ define([
                 collection: this.options.collection,
                 courseMetadata: this.options.courseMetadata
             }));
-            this.showChildView('results', new LearnerResultsView({collection: this.options.collection}));
+            this.showChildView('results', new LearnerResultsView({
+                collection: this.options.collection,
+                courseMetadata: this.options.courseMetadata
+            }));
         }
     });
 
