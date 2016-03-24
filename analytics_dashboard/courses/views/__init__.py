@@ -530,23 +530,29 @@ class CourseHome(CourseTemplateWithNavView):
                 'heading': _('What are individual learners doing?'),
                 'items': [
                     {
-                        'title': _('Who has been active recently?'),
-                        'view': 'courses:learners:learners',  # TODO: map this to the actual action in AN-6205
-                        # TODO: what would the breadcrumbs be?
-                        'breadcrumbs': [_('Learners')]
+                        'title': _('Who is enrolled?'),
+                        'view': 'courses:learners:learners',
+                        'breadcrumbs': [_('All Learners')]
                     },
-                    {
-                        'title': _('Who is most engaged in the discussions?'),
-                        'view': 'courses:learners:learners',  # TODO: map this to the actual action in AN-6205
-                        # TODO: what would the breadcrumbs be?
-                        'breadcrumbs': [_('Learners')]
-                    },
-                    {
-                        'title': _("Who hasn't watched videos recently?"),
-                        'view': 'courses:learners:learners',  # TODO: map this to the actual action in AN-6205
-                        # TODO: what would the breadcrumbs be?
-                        'breadcrumbs': [_('Learners')]
-                    }
+                    # TODO: this is commented out until we complete the deep linking work, AN-6671
+                    # {
+                    #     'title': _('Who has been active recently?'),
+                    #     'view': 'courses:learners:learners',  # TODO: map this to the actual action in AN-6205
+                    #     # TODO: what would the breadcrumbs be?
+                    #     'breadcrumbs': [_('Learners')]
+                    # },
+                    # {
+                    #     'title': _('Who is most engaged in the discussions?'),
+                    #     'view': 'courses:learners:learners',  # TODO: map this to the actual action in AN-6205
+                    #     # TODO: what would the breadcrumbs be?
+                    #     'breadcrumbs': [_('Learners')]
+                    # },
+                    # {
+                    #     'title': _("Who hasn't watched videos recently?"),
+                    #     'view': 'courses:learners:learners',  # TODO: map this to the actual action in AN-6205
+                    #     # TODO: what would the breadcrumbs be?
+                    #     'breadcrumbs': [_('Learners')]
+                    # }
                 ]
             })
 
