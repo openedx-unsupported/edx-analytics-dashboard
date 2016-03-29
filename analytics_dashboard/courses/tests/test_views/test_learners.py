@@ -18,6 +18,7 @@ from courses.tests.test_views import DEMO_COURSE_ID, ViewTestMixin
 @httpretty.activate
 @ddt
 class LearnersViewTests(ViewTestMixin, SwitchMixin, TestCase):
+    TABLE_ERROR_TEXT = 'We are unable to load this table.'
     viewname = 'courses:learners:learners'
 
     @classmethod
@@ -79,7 +80,9 @@ class LearnersViewTests(ViewTestMixin, SwitchMixin, TestCase):
         self._assert_context(response, {
             'learner_list_json': learners_payload,
             'course_learner_metadata_json': course_metadata_payload,
+            'show_error': False
         })
+        self.assertNotContains(response, self.TABLE_ERROR_TEXT)
 
     @data(Timeout, ConnectionError, ValueError)
     def test_data_api_error(self, RequestExceptionClass):
@@ -95,7 +98,9 @@ class LearnersViewTests(ViewTestMixin, SwitchMixin, TestCase):
                 self._assert_context(response, {
                     'learner_list_json': {},
                     'course_learner_metadata_json': {},
+                    'show_error': True,
                 })
+                self.assertContains(response, self.TABLE_ERROR_TEXT, 1)
                 lc.check(
                     ('courses.views.learners', 'ERROR', 'Failed to reach the Learner List endpoint'),
                     ('courses.views.learners', 'ERROR', 'Failed to reach the Course Learner Metadata endpoint')

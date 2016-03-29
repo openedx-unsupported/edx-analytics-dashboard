@@ -51,4 +51,7 @@ class LearnersView(CourseTemplateWithNavView):
                 logger.exception(error_message)
                 context[data_name] = {}
 
+        # Only show roster if data is avilable for it; otherwise, an error will be displayed.
+        context['show_error'] = False if context['learner_list_json'] else True
+
         return context
