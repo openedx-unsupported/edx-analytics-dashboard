@@ -14,21 +14,27 @@ View of individual learners within a course.
 
 {% block uncompressed_javascript %}
     {{ block.super }}
-    <script>
-     require(['load/init-page', 'learners/js/app'], function (page, LearnersApp) {
-         var app = new LearnersApp({
-             courseId: '{{ course_id }}',
-             containerSelector: '.learners-app-container',
-             learnerListJson: {{ learner_list_json | escape_json }},
-             learnerListUrl: '{{ learner_list_url }}',
-             courseLearnerMetadataJson: {{ course_learner_metadata_json | escape_json }},
-             courseLearnerMetadataUrl: '{{ course_learner_metadata_url }}'
+    {% if not show_error %}
+        <script>
+         require(['load/init-page', 'learners/js/app'], function (page, LearnersApp) {
+             var app = new LearnersApp({
+                 courseId: '{{ course_id }}',
+                 containerSelector: '.learners-app-container',
+                 learnerListJson: {{ learner_list_json | escape_json }},
+                 learnerListUrl: '{{ learner_list_url }}',
+                 courseLearnerMetadataJson: {{ course_learner_metadata_json | escape_json }},
+                 courseLearnerMetadataUrl: '{{ course_learner_metadata_url }}'
+             });
+             app.start();
          });
-         app.start();
-     });
-    </script>
+        </script>
+    {% endif %}
 {% endblock uncompressed_javascript %}
 
 {% block child_content %}
-    <div class="learners-app-container"></div>
+    {% if show_error %}
+        {% show_table_error %}
+    {% else %}
+        <div class="learners-app-container"></div>
+    {% endif %}
 {% endblock %}
