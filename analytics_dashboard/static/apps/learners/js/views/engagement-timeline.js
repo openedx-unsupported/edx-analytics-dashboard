@@ -21,7 +21,7 @@ define([
                 model: this.model,
                 modelAttribute: 'days',
                 isDataAvailable: function () {
-                    return this.model.get('days').length > 0;
+                    return this.model.hasData();
                 },
                 trends: [{
                     key: 'discussion_contributions',

@@ -92,7 +92,8 @@ define([
         });
 
         it('can render an engagement timeline', function () {
-            var model, view;
+            var model,
+                view;
             model = getTimelineModel();
             view = new EngagementTimelineView({
                 model: model,

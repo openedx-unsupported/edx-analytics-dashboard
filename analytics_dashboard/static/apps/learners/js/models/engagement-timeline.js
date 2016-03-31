@@ -36,7 +36,12 @@ define([
         fetch: function () {
             return Backbone.Model.prototype.fetch.apply(this, arguments)
                 .fail(LearnerUtils.handleAjaxFailure.bind(this));
+        },
+
+        hasData: function() {
+            return this.get('days').length > 0;
         }
+
     });
 
     return EngagementTimelineModel;
