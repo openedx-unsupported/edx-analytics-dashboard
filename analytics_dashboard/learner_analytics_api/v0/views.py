@@ -41,11 +41,13 @@ class BaseLearnerApiView(RetrieveAPIView):
         return course_id
 
     def get(self, request, api_response, *args, **kwargs):
-        """Return the same response as the one from the Data API."""
+        """
+        Return the same response as the one from the Data API EXCEPT for the
+        HTTP headers.  This will be further investigated in AN-6928.
+        """
         return Response(
-            json.loads(api_response.content),
+            data=json.loads(api_response.content),
             status=api_response.status_code,
-            headers=api_response.headers,
         )
 
     def handle_exception(self, exc):
