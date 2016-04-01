@@ -14,8 +14,26 @@ define([
             setFixtures('<div class="' + fixtureClass.slice(1) + '"></div>');
         });
 
+        it('renders a loading view first', function () {
+            var engagementTimelineModel = new EngagementTimelineModel(),
+                detailView = new LearnerDetailView({
+                    engagementTimelineModel: engagementTimelineModel,
+                    el: fixtureClass
+                });
+
+            detailView.render().onBeforeShow();
+            expect(detailView.$('.loading-container')).toExist();
+            expect(detailView.$('.learner-engagement-timeline')).not.toExist();
+
+            engagementTimelineModel.trigger('sync');
+            expect(detailView.$('.loading-container')).not.toExist();
+            expect(detailView.$('.learner-engagement-timeline')).toExist();
+        });
+
         it('renders a learner engagement timeline', function () {
-            var engagementTimelineModel, detailView;
+            var engagementTimelineModel,
+                detailView;
+
             engagementTimelineModel = new EngagementTimelineModel({
                 days: [{
                     date: '2016-01-01',
@@ -30,6 +48,7 @@ define([
                 el: fixtureClass
             });
             detailView.render().onBeforeShow();
+            expect(detailView.$('.loading-container')).not.toExist();
             expect(detailView.$('.learner-engagement-timeline')).toExist();
         });
     });
