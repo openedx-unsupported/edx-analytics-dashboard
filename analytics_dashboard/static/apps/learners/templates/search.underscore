@@ -4,7 +4,9 @@
         <input id="search-learners"
             class="form-control"
             type="search"
-            <% if (placeholder) { %> placeholder="<%- placeholder %>" <% } %> name="<%- name %>"
+            <% if (placeholder) { %> placeholder="<%- placeholder %>" <% } %>
+            name="<%- name %>"
+            <% if (value) { %> value="<%- value %>" <% } %>
         />
         <a href="#" type="button" class="clear btn" data-backgrid-action="clear">
             <i class="fa fa-times" aria-hidden="true"></i>
