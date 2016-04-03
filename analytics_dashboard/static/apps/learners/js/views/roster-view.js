@@ -262,6 +262,10 @@ define([
             return _.extend(Backgrid.Extension.ServerSideFilter.prototype.events, {'click .search': 'search'});
         },
         template: _.template(learnerSearchTemplate, null, {variable: null}),
+        initialize: function (options) {
+            this.value = options.collection.searchString;
+            Backgrid.Extension.ServerSideFilter.prototype.initialize.call(this, options);
+        },
         render: function () {
             this.$el.empty().append(this.template({
                 name: this.name,

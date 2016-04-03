@@ -48,12 +48,15 @@ define([
         };
 
         getRosterView = function (options) {
+            var collection,
+                rosterView;
             options = options || {};
-            var rosterView = new LearnerRosterView({
-                collection: new LearnerCollection(
-                    options.collectionResponse,
-                    _.extend({url: 'test-url'}, options.collectionOptions)
-                ),
+            collection = options.collection || new LearnerCollection(
+                options.collectionResponse,
+                _.extend({url: 'test-url'}, options.collectionOptions)
+            );
+            rosterView = new LearnerRosterView({
+                collection: collection,
                 courseMetadata: new CourseMetadataModel(options.courseMetadata),
                 el: '.' + fixtureClass
             }).render();
@@ -427,6 +430,17 @@ define([
                     text_search: searchString
                 }));
             };
+
+            it('renders the current search string', function () {
+                var collection,
+                    rosterView,
+                    searchString;
+                searchString = 'search string';
+                collection = new LearnerCollection();
+                collection.setSearchString(searchString);
+                rosterView = getRosterView({collection: collection});
+                expect(rosterView.$('#search-learners')).toHaveValue(searchString);
+            });
 
             it('can search for arbitrary strings', function () {
                 var searchString = 'search string';
