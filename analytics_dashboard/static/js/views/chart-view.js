@@ -17,6 +17,28 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
                 }
             ),
 
+            /**
+             * Initializes a ChartView.
+             *
+             * @param options (Object) an object specifying view parameters.
+             * This options hash must include:
+             *  - trends (Array of Objects) defines timeline trends:
+             *      [{
+             *          key: str,   // key for data lookup
+             *          title: str, // display name (should be translated)
+             *          type: str   // data type
+             *      }, ...]
+             *  - x (Object) defines how to find x axis data:
+             *      {
+             *          title: str, // display name (translated) for the X axis
+             *          key: str    // key for the data lookup
+             *      }
+             *  - y (Object) defines how to find y axis data:
+             *      {
+             *          title: str // display name (translated) for the X axis
+             *          key: str   // key for the data lookup
+             *      }
+             */
             initialize: function (options) {
                 AttributeListenerView.prototype.initialize.call(this, options);
                 var self = this;

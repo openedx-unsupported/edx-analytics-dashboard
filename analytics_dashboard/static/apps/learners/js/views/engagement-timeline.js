@@ -1,9 +1,9 @@
 define([
     'marionette',
     'text!learners/templates/engagement-timeline.underscore',
-    'views/trends-view',
-    'underscore'
-], function (Marionette, engagementTimelineTemplate, TrendsView, _) {
+    'underscore',
+    'views/trends-view'
+], function (Marionette, engagementTimelineTemplate, _, TrendsView) {
     'use strict';
 
     var LearnerEngagementTimelineView = Marionette.LayoutView.extend({
