@@ -41,7 +41,6 @@ define([
         hasData: function() {
             return this.get('days').length > 0;
         }
-
     });
 
     return EngagementTimelineModel;

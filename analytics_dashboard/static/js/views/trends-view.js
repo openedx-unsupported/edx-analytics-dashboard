@@ -8,33 +8,6 @@ define(['moment', 'nvd3', 'underscore', 'views/chart-view'],
          */
         var TrendsView = ChartView.extend({
 
-            /**
-             * Initializes a TrendsView.
-             *
-             * @param options (Object) an object specifying view parameters.
-             * In addition to parameters passed to 'ChartView', this options
-             * hash must include:
-             *  - trends (Array of Objects) defines timeline trends:
-             *      [{
-             *          key: str,   // key for data lookup
-             *          title: str, // display name (should be translated)
-             *          type: str   // data type
-             *      }, ...]
-             *  - x (Object) defines how to find x axis data:
-             *      {
-             *          title: str, // display name (translated) for the X axis
-             *          key: str    // key for the data lookup
-             *      }
-             *  - y (Object) defines how to find y axis data:
-             *      {
-             *          title: str // display name (translated) for the X axis
-             *          key: str   // key for the data lookup
-             *      }
-             */
-            initialize: function (options) {
-                ChartView.prototype.initialize.call(this, options);
-            },
-
             defaults: _.extend({}, ChartView.prototype.defaults, {
                 showLegend: false
             }),

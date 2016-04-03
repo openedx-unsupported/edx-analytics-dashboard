@@ -84,6 +84,7 @@ define([], function () {
                 if (status === 504) {
                     return [
                         'appError',
+                        // Translators: "504" is a number representing a server error, so please leave it as "504".
                         gettext('504: Server error: processing your request took too long to complete. Reload the page to try again.') // jshint ignore:line
                     ];
                 } else {
