@@ -308,29 +308,62 @@ define([
             _.bind(this.onSelectCohort, this);
         },
         templateHelpers: function () {
-            var cohorts = _.mapObject(this.options.courseMetadata.get('cohorts'), function (numLearners, cohortName) {
-                return {
-                    displayName: _.template(ngettext(
-                        // jshint ignore:start
-                        // Translators: 'cohortName' is the name of the cohort and 'numLearners' is the number of learners in that cohort.  The resulting phrase displays a cohort and the number of students belonging to it.
-                        '<%- cohortName %> (<%- numLearners %> learner)',
-                        // Translators: 'cohortName' is the name of the cohort and 'numLearners' is the number of learners in that cohort.  The resulting phrase displays a cohort and the number of students belonging to it.
-                        '<%- cohortName %> (<%- numLearners %> learners)',
-                        // jshint ignore:end
-                        numLearners
-                    ))({
+            // 'cohorts' is an array of objects, each having a 'cohortName' key
+            // and a 'displayName' key.  'cohortName' is the canonical name for
+            // the cohort, while 'displayName' is the user-facing representation
+            // of the cohort.
+            var catchAllCohortName,
+                cohorts,
+                selectedCohort;
+            cohorts = _.chain(this.options.courseMetadata.get('cohorts'))
+                .pairs()
+                .map(function (cohortPair) {
+                    var cohortName = cohortPair[0],
+                        numLearners = cohortPair[1];
+                    return {
                         cohortName: cohortName,
-                        numLearners: Utils.localizeNumber(numLearners, 0)
-                    })
-                };
-            });
+                        displayName: _.template(ngettext(
+                            // jshint ignore:start
+                            // Translators: 'cohortName' is the name of the cohort and 'numLearners' is the number of learners in that cohort.  The resulting phrase displays a cohort and the number of students belonging to it. For example: "Cohort Awesome (1,234 learners)".
+                            '<%= cohortName %> (<%= numLearners %> learner)',
+                            // Translators: 'cohortName' is the name of the cohort and 'numLearners' is the number of learners in that cohort.  The resulting phrase displays a cohort and the number of students belonging to it.
+                            '<%= cohortName %> (<%= numLearners %> learners)',
+                            // jshint ignore:end
+                            numLearners
+                        ))({
+                            cohortName: cohortName,
+                            numLearners: Utils.localizeNumber(numLearners, 0)
+                        })
+                    };
+                })
+                .value();
+
+            if (cohorts.length) {
+                // There can never be a cohort with no name, due to
+                // validation in the LMS, therefore it's safe to use the
+                // empty string as a property in this object.  The API
+                // interprets this as "all students, regardless of
+                // cohort".
+                catchAllCohortName = '';
+                cohorts.unshift({
+                    cohortName: catchAllCohortName,
+                    // Translators: "All" refers to viewing all the learners in a course.
+                    displayName: gettext('All')
+                });
+
+                // Assumes that you can only filter by one cohort at a time.
+                selectedCohort = _.chain(cohorts)
+                    .pluck('cohortName')
+                    .intersection(this.options.collection.getActiveFilterFields())
+                    .first()
+                    .value() || catchAllCohortName;
+                _.findWhere(cohorts, {cohortName: selectedCohort}).selected = true;
+            }
 
             return {
                 cohorts: cohorts,
                 // Translators: "Cohort Groups" refers to groups of students within a course.
-                selectDisplayName: gettext('Cohort Groups'),
-                // Translators: "All" refers to viewing all the learners in a course.
-                allCohortsSelectedMessage: gettext('All')
+                selectDisplayName: gettext('Cohort Groups')
             };
         },
         onSelectCohort: function (event) {
@@ -447,7 +480,7 @@ define([
         },
         createAlertView: function(collection) {
             var hasSearch =  !_.isNull(collection.searchString) && collection.searchString !== '',
-                hasActiveFilter = collection.getActiveFilterFields().length > 0,
+                hasActiveFilter = !_.isEmpty(collection.getActiveFilterFields()),
                 suggestions = [],
                 noLearnersMessage,
                 detailedMessage;

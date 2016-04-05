@@ -57,7 +57,7 @@ define([
             );
             rosterView = new LearnerRosterView({
                 collection: collection,
-                courseMetadata: new CourseMetadataModel(options.courseMetadata),
+                courseMetadata: options.courseMetadataModel || new CourseMetadataModel(options.courseMetadata),
                 el: '.' + fixtureClass
             }).render();
             rosterView.onBeforeShow();
@@ -505,6 +505,23 @@ define([
                     getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(1, 1)));
                     expect($('option[value="' + cohort + '"]')).toBeSelected();
                 };
+
+                it('renders the current cohort filter', function () {
+                    var courseMetadataModel,
+                        collection,
+                        rosterView;
+                    courseMetadataModel = new CourseMetadataModel({cohorts: {
+                        'Cohort A': 1,
+                        'Cohort B': 2
+                    }});
+                    collection = new LearnerCollection();
+                    collection.setFilterField('cohort', 'Cohort A');
+                    rosterView = getRosterView({
+                        courseMetadataModel: courseMetadataModel,
+                        collection: collection
+                    });
+                    expect(rosterView.$('.learners-cohort-filter option[value="Cohort A"]')).toBeSelected();
+                });
 
                 it('does not render when the course contains no cohorts', function () {
                     var rosterView = getRosterView({courseMetadata: {cohorts: {}}});

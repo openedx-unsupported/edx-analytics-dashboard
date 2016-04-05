@@ -4,9 +4,10 @@
     <%- selectDisplayName %>
 </label>
 <select id="cohort-filter" class="form-control">
-    <option selected value=""><%- allCohortsSelectedMessage %></option>
-    <% _.each(cohorts, function (cohortData, cohortName) { %>
-        <option value="<%- cohortName %>"><%- cohortData.displayName %></option>
+    <% _.each(cohorts, function (cohort) { %>
+        <option value="<%- cohort.cohortName %>" <% if (cohort.selected) { %> selected <% } %>>
+            <%- cohort.displayName %>
+        </option>
     <% }); %>
 </select>
 <% } %>
