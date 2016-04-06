@@ -615,7 +615,7 @@ table.dataTable thead th.sorting_desc:after {
   border-top: none;
 }
 
-.module-preview-collapsible {
+.module-preview-disclosure {
   // the video preview height can be variable, so use media queries to mimic height changes
   .video-preview {
     width: 100%;
@@ -631,12 +631,12 @@ table.dataTable thead th.sorting_desc:after {
     }
   }
 
-  .collapsible-toggle-text {
+  .disclosure-toggle {
     // moving the text down just a tad so that it's in line with the next/previous buttons
     padding-top: 8px;
   }
 
-  .collapsible-content {
+  .disclosure-target {
     // initially collapsed
     display: none;
   }

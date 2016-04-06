@@ -5,8 +5,8 @@
 require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
     'use strict';
 
-    require(['collapsible', 'underscore', 'views/data-table-view', 'views/iframe-view', 'views/stacked-timeline-view'],
-        function (CollapsibleView, _, DataTableView, IFrameView, StackedTimelineView) {
+    require(['disclosure', 'underscore', 'views/data-table-view', 'views/iframe-view', 'views/stacked-timeline-view'],
+        function (DisclosureView, _, DataTableView, IFrameView, StackedTimelineView) {
 
             var courseModel = page.models.courseModel,
                 timelineSettings = [
@@ -31,8 +31,8 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
 
             tableColumns = tableColumns.concat(timelineSettings);
 
-            new CollapsibleView({
-                el: '.module-preview-collapsible'
+            new DisclosureView({
+                el: '.module-preview-disclosure'
             });
 
             // loading the iframe blocks content, so load it after the rest of the page loads
