@@ -37,7 +37,7 @@ require.config({
         'cldr-data': 'bower_components/cldr-data',
         globalize: 'bower_components/globalize/dist/globalize',
         globalization: 'js/utils/globalization',
-        collapsible: 'bower_components/edx-ui-toolkit/src/js/disclosure/disclosure-view',
+        disclosure: 'bower_components/edx-ui-toolkit/src/js/disclosure/disclosure-view',
         marionette: 'bower_components/marionette/lib/core/backbone.marionette.min',
         uitk: 'bower_components/edx-ui-toolkit/src',
         // URI and its dependencies
