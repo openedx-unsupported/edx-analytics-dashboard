@@ -1,6 +1,6 @@
 {% load i18n %}
 
-<div class="module-preview-collapsible container-fluid" data-collapse-text="{{ collapse_text }}" data-expand-text="{{ expand_text }}">
+<div class="module-preview-disclosure container-fluid" data-collapse-text="{{ collapse_text }}" data-expand-text="{{ expand_text }}">
     <div class="row">
         <div class="col-xs-12">
             <span class="pull-right">
@@ -11,11 +11,11 @@
             </span>
             <div>
                 {# The aria-expanded attribute will be updated via edx-ui-toolkit CollapsibleView. #}
-                <button aria-expanded="false" aria-controls="collapsible-preview" class="collapsible-toggle-text center-block btn btn-default">{{ collapse_text }}</button>
+                <button aria-expanded="false" aria-controls="disclosure-preview" class="disclosure-toggle center-block btn btn-default">{{ collapse_text }}</button>
             </div>
         </div>
 
-        <div id="collapsible-preview" class="col-xs-12 collapsible-content">
+        <div id="disclosure-preview" class="col-xs-12 disclosure-target">
             <div id="module-loading">
                 {% include "loading.html" %}
             </div>
