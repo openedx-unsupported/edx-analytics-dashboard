@@ -1,11 +1,14 @@
 {% extends "courses/base-course.html" %}
 
 {% load dashboard_extras %}
+{% load i18n %}
 {% load rjs %}
 
 {% comment %}
 View of individual learners within a course.
 {% endcomment %}
+
+{% block view-name %}view-learners view-dashboard{% endblock view-name %}
 
 {% block stylesheets %}
     {{ block.super }}
@@ -33,9 +36,16 @@ View of individual learners within a course.
 {% endblock uncompressed_javascript %}
 
 {% block child_content %}
-    {% if show_error %}
-        {% show_table_error %}
-    {% else %}
-        <div class="learners-app-container"></div>
-    {% endif %}
+    <section class="view-section">
+        {% if show_error %}
+            <div class="section-heading bordered">
+                <h4 class="section-title">{% trans "Learners" %}</h4>
+            </div>
+            {% show_table_error %}
+        {% else %}
+            <div class="learners-app-container">
+                {% include "loading.html" %}
+            </div>
+        {% endif %}
+    </section>
 {% endblock %}

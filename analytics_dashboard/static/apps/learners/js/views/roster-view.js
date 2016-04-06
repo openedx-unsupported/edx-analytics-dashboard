@@ -417,9 +417,9 @@ define([
      * no learners to display.
      */
     LearnerResultsView = Marionette.LayoutView.extend({
-        template: _.template('<div class="main"></div>'),
+        template: _.template('<div class="roster-main"></div>'),
         regions: {
-            main: '.main'
+            main: '.roster-main'
         },
         initialize: function (options) {
             this.options = options || {};
@@ -477,19 +477,6 @@ define([
         className: 'learner-roster',
 
         template: _.template(rosterTemplate),
-
-        templateHelpers: function () {
-            // Note that we currently assume that all the learners in
-            // the roster were last updated at the same time.
-            var firstLearner = this.options.collection.at(0),
-                lastUpdatedMessage = _.template(gettext('Date Last Updated: <%- lastUpdatedDateString %>')),
-                lastUpdatedDateString = (firstLearner && firstLearner.get('last_updated')) ?
-                    Utils.formatDate(firstLearner.get('last_updated')) :
-                    gettext('unknown');
-            return {
-                lastUpdatedMessage: lastUpdatedMessage({lastUpdatedDateString: lastUpdatedDateString})
-            };
-        },
 
         regions: {
             controls: '.learners-table-controls',
