@@ -97,14 +97,6 @@ define([
             server.restore();
         });
 
-        it('displays the last updated date', function () {
-            var roster = getRosterView({
-                collectionResponse: {results: [{last_updated: new Date('1/2/2016')}]},
-                collectionOptions: {parse: true}
-            });
-            expect(roster.$('.last-updated-message')).toContainText('Date Last Updated: January 2, 2016');
-        });
-
         it('renders a list of learners', function () {
             var generateEngagements = function () {
                     return {

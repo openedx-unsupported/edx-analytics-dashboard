@@ -24,9 +24,21 @@ define([
     var LearnersController = Marionette.Object.extend({
         initialize: function (options) {
             this.options = options || {};
+            this.listenTo(this.options.learnerCollection, 'sync', this.onLearnerCollectionUpdated);
+            this.onLearnerCollectionUpdated(this.options.learnerCollection);
+        },
+
+        onLearnerCollectionUpdated: function (collection) {
+            // Note that we currently assume that all the learners in
+            // the roster were last updated at the same time.
+            if (collection.length) {
+                this.options.pageModel.set('lastUpdated', collection.at(0).get('last_updated'));
+            }
         },
 
         showLearnerRosterPage: function () {
+            this.options.pageModel.set('title', gettext('Learners'));
+            this.onLearnerCollectionUpdated(this.options.learnerCollection);
             this.options.rootView.showChildView('main', new LearnerRosterView({
                 collection: this.options.learnerCollection,
                 courseMetadata: this.options.courseMetadata
@@ -41,8 +53,14 @@ define([
          */
         showLearnerDetailPage: function (username) {
             var engagementTimelineModel = new EngagementTimelineModel({}, {
-                url: this.options.learnerEngagementTimelineUrl.replace('temporary_username', username),
-                courseId: this.options.courseId
+                    url: this.options.learnerEngagementTimelineUrl.replace('temporary_username', username),
+                    courseId: this.options.courseId
+                }),
+                titleTemplate = _.template(gettext('Learner Engagement for <%- user %>'));
+
+            this.options.pageModel.set({
+                title: titleTemplate({user: username}),
+                lastUpdated: undefined
             });
             this.options.rootView.showChildView('main', new LearnerDetailView({
                 engagementTimelineModel: engagementTimelineModel
