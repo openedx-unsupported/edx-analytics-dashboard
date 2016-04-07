@@ -317,9 +317,10 @@ To download the Submission Counts report in a comma-separated value
 file, select **Download CSV**.
 
 The report includes one row for each problem-answer combination submitted by a
-student. For example, consider a dropdown problem that has five possible
+learner. Only the most recent attempt submitted by each learner is included in
+the count. For example, consider a dropdown problem that has five possible
 answers. The report or file contains up to five rows, one for each answer
-submitted by at least one student.
+submitted by at least one learner in their last attempt to answer the problem.
 
 If the problem that you select includes more than one part, the chart and
 report for the first part appears. To select a different part, you use the

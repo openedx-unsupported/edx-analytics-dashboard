@@ -441,7 +441,7 @@ For information about reviewing data for videos in edX Insights, see
 Performance Computations
 *****************************
 
-* Student answer submission data is available only for problems of these
+* Student answer data is available only for problems of these
   types.
 
   * Checkboxes (``<choiceresponse>``)
@@ -459,8 +459,8 @@ Performance Computations
 
 * Computations are updated daily.
 
-* Only a student's last submission is included in the computation. Any
-  attempts prior to the last submission are not included.
+* Only a student's last submission, or attempt to answer, is included in the
+  computation. Any attempts prior to the last submission are not included.
 
 * Computations for graded content include only problems for which students can
   click **Check** to submit their responses. If students can only save their
@@ -494,19 +494,22 @@ Submission Counts chart and report. The .csv file contains the following columns
    * - ``consolidated_variant``
      - TRUE if the Studio **Randomization** setting for this problem component
        is set to **Always**, **On Reset**, or **Per Student**, but there is no
-       variation in the possible answers. Often, this indicates that the
-       Python script that randomizes values for the problem is not present.
+       variation in the possible answers. Often, this indicates that the Python
+       script that randomizes values for the problem is not present, or that
+       the multiple choice problem is not currently set up to shuffle the
+       answer options.
 
-       FALSE if the Studio **Randomization** setting for this problem
-       component is set to **Never** (the default) or if the Python script is
-       randomizing values.
+       FALSE if the Studio **Randomization** setting for this problem component
+       is set to **Never** (the default) or if the Python script or multiple
+       choice question is randomizing values.
 
    * - ``correct``
      - TRUE if this answer value is correct. FALSE if this answer value is
        incorrect.
    * - ``count``
-     - The number of students who entered or selected this answer as
-       their most recent submission for the problem or problem variant.
+     - The number of students who entered or selected this answer. Only the
+       most recent attempt submitted for the problem or problem variant by each
+       student is included in the count.
 
        The count reflects the entire problem history. If you change a
        problem after it is released, it might not be possible for you to
@@ -526,7 +529,7 @@ Submission Counts chart and report. The .csv file contains the following columns
      - The display name defined for the problem.
    * - ``question_text``
      - The accessible label that appears above the answer choices or
-       the value entry field for the problem. In the Studio Simple Editor, this
+       the value entry field for the problem. In the Studio simple editor, this
        text is surrounded by two pairs of angle brackets (>>Question<<). Blank
        for questions that do not have an accessible label.
 
