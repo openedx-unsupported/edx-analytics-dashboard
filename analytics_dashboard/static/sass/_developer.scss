@@ -754,6 +754,23 @@ table.dataTable thead th.sorting_desc:after {
 }
 
 .learner-roster {
+
+  th {
+
+    font-weight: 600;
+
+    a {
+      // update header colors
+      color: $text-color;
+    }
+
+    i {
+      // makes the sort icons gray
+      color: $gray;
+    }
+
+  }
+
   .learner-engagement-cell {
     text-align: right;
   }
@@ -798,7 +815,6 @@ table.dataTable thead th.sorting_desc:after {
   }
 
   .learner-cell-above-average {
-
     color: $above-average-color;
   }
 
