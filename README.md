@@ -41,7 +41,7 @@ Use the admin site to manage announcements and dismissals.
 Feature Gating
 --------------
 Need a fallback to disable a feature? Create a [Waffle](http://waffle.readthedocs.org/en/latest/)
-[switch](http://waffle.readthedocs.org/en/latest/types.html#switches):
+[switch](http://waffle.readthedocs.org/en/latest/types/switch.html):
 
         $ ./manage.py switch feature_name [on/off] --create
 

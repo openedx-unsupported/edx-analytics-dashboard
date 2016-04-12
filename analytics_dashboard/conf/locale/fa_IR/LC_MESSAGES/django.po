@@ -1,18 +1,20 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
+# Abbas Sharifi Tabar <abbas.sharifi@gmail.com>, 2015
 # Ali Taheri <beingalitaheri@gmail.com>, 2015
 # Mohammad Dashtizadeh <mohammad@dashtizadeh.net>, 2015
+# Reyhaneh Nikoo <reyhaneh.nikoo@gmail.com>, 2015
 # Sina Shirinpour <sshirinpoor@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-18 14:58-0500\n"
-"PO-Revision-Date: 2015-11-18 20:00+0000\n"
-"Last-Translator: Dennis Jen <djen@edx.org>\n"
+"PO-Revision-Date: 2015-12-07 10:57+0000\n"
+"Last-Translator: Abbas Sharifi Tabar <abbas.sharifi@gmail.com>\n"
 "Language-Team: Persian (Iran) (http://www.transifex.com/open-edx/edx-platform/language/fa_IR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -108,12 +110,12 @@ msgstr ""
 #. NOT translate the word statistic.
 #: core/templatetags/dashboard_extras.py
 msgid "{statistic}%"
-msgstr ""
+msgstr "{statistic} درصد"
 
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: courses/presenters/engagement.py
 msgid "{percentage} of current students"
-msgstr ""
+msgstr "{percentage} دانش‌جویان فعلی"
 
 #: courses/presenters/enrollment.py
 msgid "Female"
@@ -145,24 +147,24 @@ msgstr "هیچکدام"
 #. School Degree).
 #: courses/presenters/enrollment.py courses/tests/test_serializers.py
 msgid "Primary"
-msgstr ""
+msgstr "اولیه"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: courses/presenters/enrollment.py
 msgid "Middle"
-msgstr ""
+msgstr "میانه"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Secondary"
-msgstr ""
+msgstr "ثانویه"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Associate"
-msgstr ""
+msgstr "مشارکت"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
@@ -186,13 +188,13 @@ msgstr "درجه دکتری"
 #. known geolocation.
 #: courses/presenters/enrollment.py
 msgid "Unknown Country"
-msgstr ""
+msgstr "کشور نامعلوم"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/presenters/performance.py
 #: courses/templates/courses/submissions_chart_info.html
 msgid "Submissions"
-msgstr ""
+msgstr "تحویل‌ها"
 
 #: courses/presenters/performance.py
 msgid "Submissions for Part {part_number}: {part_description}"
@@ -216,17 +218,17 @@ msgstr ""
 
 #: courses/presenters/performance.py
 msgid "Part {part_number}"
-msgstr ""
+msgstr "بخش {part_number}"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
-msgstr ""
+msgstr "انتخاب نوع تکلیف"
 
 #. Translators: This refers to all course assignment types (e.g. homework,
 #. exam, lab).
 #: courses/templates/courses/_graded_content_nav.html
 msgid "All Assignments"
-msgstr ""
+msgstr "همه‌ی تکالیف"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid ""
@@ -241,7 +243,7 @@ msgstr ""
 #: courses/templates/courses/_graded_content_nav.html
 #: courses/templates/courses/_ungraded_content_nav.html
 msgid "Select Problem"
-msgstr ""
+msgstr "مسئله را انتخاب کنید"
 
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
@@ -263,19 +265,19 @@ msgstr "تمامی بخش‌ها"
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Subsection"
-msgstr ""
+msgstr "زیربخش مورد نظر را انتخاب کنید"
 
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
-msgstr ""
+msgstr "ویدئوی مورد نظر را انتخاب کنید"
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Previous Video"
-msgstr ""
+msgstr "ویدئوی قبلی"
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Next Video"
-msgstr ""
+msgstr "ویدئوی بعدی"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -342,7 +344,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_content.html
 msgid "Student Activity Metrics"
-msgstr ""
+msgstr "اندازه‌گیری فعالیت دانشجویان"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Active Students Last Week"
@@ -394,7 +396,7 @@ msgstr ""
 #: courses/templates/courses/engagement_grouped_content.html
 #: courses/templates/courses/views_chart_info.html
 msgid "Video Views"
-msgstr ""
+msgstr "بازدیدهای ویدئو"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid "How did students interact with videos in this section?"
@@ -432,7 +434,7 @@ msgstr ""
 #: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Total Video Views"
-msgstr ""
+msgstr "تمام بازدیدهای ویدئو"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "What were the viewing patterns for this video?"
@@ -454,11 +456,11 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Metrics"
-msgstr ""
+msgstr "شاخص‌های ویدیو"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Completion Rate"
-msgstr ""
+msgstr "نرخ تمام کردن"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Estimated percentage of students who watched the entire video."
@@ -466,7 +468,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Started Video"
-msgstr ""
+msgstr "ویدئوی شروع‌ شده"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who started watching the video."
@@ -474,7 +476,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Finished Video"
-msgstr ""
+msgstr "ویدیوی خاتمه یافته"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who watched the video to the end."
@@ -792,7 +794,7 @@ msgstr "فعال"
 
 #: courses/templates/courses/home.html
 msgid "Basic Course Information"
-msgstr ""
+msgstr "اطلاعات پایه درس"
 
 #. Translators: This title describes a list of links to outside tools for this
 #. course.
@@ -950,7 +952,7 @@ msgstr ""
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Geography"
-msgstr ""
+msgstr "جغرافیا"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
@@ -981,12 +983,12 @@ msgstr "ویدیوها"
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
 msgid "Graded Content"
-msgstr ""
+msgstr "محتوای رتبه‌بندی شده"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
 msgid "Ungraded Problems"
-msgstr ""
+msgstr "مشکلات رتبه‌بندی نشده"
 
 #: courses/views/__init__.py
 msgid "What are students doing in my course?"
@@ -1004,46 +1006,46 @@ msgstr ""
 #. identifies the course
 #: courses/views/__init__.py
 msgid "Course ID"
-msgstr ""
+msgstr "شناسه دوره"
 
 #: courses/views/__init__.py
 msgid "Course Name"
-msgstr ""
+msgstr "نام دوره "
 
 #. Translators: 'In Progress' and 'Ended' refer to whether students are
 #. actively using the course or it is over.
 #: courses/views/__init__.py
 msgid "In Progress"
-msgstr ""
+msgstr "درحال پیشرفت"
 
 #: courses/views/__init__.py
 msgid "Ended"
-msgstr ""
+msgstr "پایان یافته"
 
 #. Translators: This refers to a course that has not yet begun.
 #: courses/views/__init__.py
 msgid "Not Started Yet"
-msgstr ""
+msgstr "هنوز آغاز نشده"
 
 #: courses/views/__init__.py
 msgid "Start Date"
-msgstr ""
+msgstr "تاریخ شروع"
 
 #: courses/views/__init__.py
 msgid "End Date"
-msgstr ""
+msgstr "تاریخ اختتام"
 
 #: courses/views/__init__.py
 msgid "Status"
-msgstr ""
+msgstr "وضعیت"
 
 #: courses/views/__init__.py
 msgid "Instructor Dashboard"
-msgstr ""
+msgstr "آموزش صفحه کنترل"
 
 #: courses/views/__init__.py
 msgid "Courseware"
-msgstr ""
+msgstr "دروس"
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
@@ -1075,11 +1077,11 @@ msgstr "نام بخش"
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Subsection Name"
-msgstr ""
+msgstr "نام زیربخش"
 
 #: courses/views/engagement.py
 msgid "Video Name"
-msgstr ""
+msgstr "نام ویدیو"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1270,4 +1272,4 @@ msgstr "ما توانایی بارگزاری این جدول را نداریم."
 
 #: templates/section_error.html
 msgid "We are unable to load these metrics."
-msgstr ""
+msgstr "ما توانایی بارگزاری این شاخص‌ها را نداریم."

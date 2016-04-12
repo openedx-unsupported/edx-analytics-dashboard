@@ -328,7 +328,7 @@ For information about viewing engagement metrics in edX Insights, see
   Some examples of the activities that a student can complete on a page, and
   that are included in this count, include contributing to a discussion topic,
   reading a textbook, submitting an answer to any type of problem, playing a
-  video, and reviewing the course updates.
+  video, and reviewing course updates on the **Home** page.
 
 * This metric includes all course activities, excluding enrollment and
   unenrollment.

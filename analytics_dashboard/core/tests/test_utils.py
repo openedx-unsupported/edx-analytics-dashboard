@@ -1,6 +1,6 @@
 import uuid
 
-from ddt import data, ddt, unpack
+from ddt import ddt
 
 from django.conf import settings
 from django.contrib.auth import get_user_model
@@ -55,11 +55,6 @@ class CourseStructureApiClientTests(TestCase):
     """
     Tests the CourseStructureApiClient wrapper class.
     """
-    @data((None, None), ('http://example.com/', None), (None, 'arbitrary_access_token'))
-    @unpack
-    def test_required_args(self, url, access_token):
-        with self.assertRaises(ValueError):
-            CourseStructureApiClient(url, access_token)
 
     def test_default_timeout(self):
         client = CourseStructureApiClient('http://example.com/', 'arbitrary_access_token')
