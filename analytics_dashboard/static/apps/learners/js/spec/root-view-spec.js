@@ -1,14 +1,21 @@
 define([
     'jquery',
+    'learners/js/models/page-model',
     'learners/js/views/root-view',
     'marionette'
-], function ($, LearnersRootView, Marionette) {
+], function ($, PageModel, LearnersRootView, Marionette) {
     'use strict';
 
     describe('LearnersRootView', function () {
         beforeEach(function () {
             setFixtures('<div class=root-view-container></div>');
-            this.rootView = new LearnersRootView({el: '.root-view-container'}).render();
+            this.rootView = new LearnersRootView({
+                el: '.root-view-container',
+                pageModel: new PageModel({
+                    title: 'Testing Title',
+                    lastUpdated: new Date(2016, 1, 28)
+                })
+            }).render();
         });
 
         it('renders a main region', function () {
@@ -18,6 +25,11 @@ define([
                 }
             }))());
             expect(this.rootView.$('.learners-main-region').html()).toContainText('example view');
+        });
+
+        it('renders a header title and date', function () {
+            expect(this.rootView.$('.learners-header-region').html()).toContainText('Testing Title');
+            expect(this.rootView.$('.learners-header-region').html()).toContainText('February 28, 2016');
         });
 
         it('renders and clears errors', function () {

@@ -3,8 +3,9 @@ define([
     'learners/js/collections/learner-collection',
     'learners/js/controller',
     'learners/js/models/course-metadata',
+    'learners/js/models/page-model',
     'learners/js/views/root-view'
-], function ($, LearnerCollection, LearnersController, CourseMetadataModel, LearnersRootView) {
+], function ($, LearnerCollection, LearnersController, CourseMetadataModel, PageModel, LearnersRootView) {
     'use strict';
 
     describe('LearnersController', function () {
@@ -14,10 +15,15 @@ define([
         courseId = 'test/course/id';
 
         beforeEach(function () {
-            var collection;
+            var collection,
+                pageModel = new PageModel();
+
             server = sinon.fakeServer.create();
             setFixtures('<div class="root-view"><div class="main"></div></div>');
-            this.rootView = new LearnersRootView({el: '.root-view'});
+            this.rootView = new LearnersRootView({
+                el: '.root-view',
+                pageModel: pageModel
+            });
             this.rootView.render();
             // The learner roster view looks at the first learner in
             // the collection in order to render a last updated
@@ -33,7 +39,7 @@ define([
                     cohort: null,
                     segments: ['highly_engaged'],
                     engagements: {},
-                    last_updated: new Date(),
+                    last_updated: new Date(2016, 1, 28),
                     course_id: courseId
                 }
             ]);
@@ -41,6 +47,7 @@ define([
                 rootView: this.rootView,
                 learnerCollection: collection,
                 courseMetadata: new CourseMetadataModel(),
+                pageModel: pageModel,
                 learnerEngagementTimelineUrl: '/test-endpoint/',
                 courseId: courseId
             });
@@ -53,6 +60,7 @@ define([
         it('should show the learner roster page', function () {
             this.controller.showLearnerRosterPage();
             expect(this.rootView.$('.learner-roster')).toBeInDOM();
+            expect(this.rootView.$('.learners-header-region').html()).toContainText('Learners');
         });
 
         describe('navigating to the Learner Detail page', function () {
@@ -70,6 +78,8 @@ define([
                 }]});
                 server.requests[server.requests.length - 1].respond(200, {}, engagementTimelineResponse);
                 expect(this.rootView.$('.learner-detail-container')).toExist();
+                expect(this.rootView.$('.learners-header-region').html())
+                    .toContainText('Learner Engagement for example-username');
             });
 
             it('should handle AJAX errors', function (done) {
@@ -88,5 +98,6 @@ define([
             this.controller.showNotFoundPage();
             expect(this.rootView.$el.html()).toContainText('Sorry, we couldn\'t find the page you\'re looking for.');
         });
+
     });
 });

@@ -4,6 +4,7 @@ define([
     'learners/js/collections/learner-collection',
     'learners/js/controller',
     'learners/js/models/course-metadata',
+    'learners/js/models/page-model',
     'learners/js/router',
     'learners/js/views/root-view',
     'marionette'
@@ -13,6 +14,7 @@ define([
     LearnerCollection,
     LearnersController,
     CourseMetadataModel,
+    PageModel,
     LearnersRouter,
     LearnersRootView,
     Marionette
@@ -51,7 +53,8 @@ define([
         },
 
         onStart: function () {
-            var courseMetadata,
+            var pageModel = new PageModel(),
+                courseMetadata,
                 learnerCollection,
                 rootView,
                 router;
@@ -67,13 +70,17 @@ define([
                 parse: true
             });
 
-            rootView = new LearnersRootView({el: $(this.options.containerSelector)}).render();
+            rootView = new LearnersRootView({
+                el: $(this.options.containerSelector),
+                pageModel: pageModel
+            }).render();
 
             router = new LearnersRouter({
                 controller: new LearnersController({
                     courseId: this.options.courseId,
                     learnerCollection: learnerCollection,
                     courseMetadata: courseMetadata,
+                    pageModel:  pageModel,
                     rootView: rootView,
                     learnerEngagementTimelineUrl: this.options.learnerEngagementTimelineUrl
                 })
