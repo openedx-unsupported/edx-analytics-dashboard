@@ -192,6 +192,36 @@ define([
                 .toHaveClass('learner-cell-average');
         });
 
+        it('formats numbers', function () {
+            var learners = [{
+                    name: 'agnes',
+                    username: 'agnes',
+                    engagements: {
+                        discussion_contributions: null,
+                        problems_attempted: undefined,
+                        problems_completed: 32,
+                        videos_viewed: 0,
+                        problem_attempts_per_completed: 0.566
+                    }
+                }],
+                rosterView = getRosterView({
+                    collectionResponse: {results: learners},
+                    collectionOptions: {parse: true}
+                }),
+                $tr = $(rosterView.$('tbody tr'));
+
+            expect($tr.children('td.discussion_contributions'))
+                .toContainText('N/A');
+            expect($tr.find('td.problems_completed'))
+                .toContainText('32');
+            expect($tr.find('td.problems_attempted'))
+                .toContainText('N/A');
+            expect($tr.find('td.problem_attempts_per_completed'))
+                .toContainText('0.6');
+            expect($tr.find('td.videos_viewed'))
+                .toContainText('0');
+        });
+
         describe('table headers', function() {
 
             it('has tooltips', function () {
