@@ -55,7 +55,7 @@ module.exports = function (config) {
             'karma-phantomjs-launcher',
             'karma-coverage',
             'karma-sinon',
-            'karma-firefox-launcher'
+            'karma-chrome-launcher'
         ],
 
         // test results reporter to use

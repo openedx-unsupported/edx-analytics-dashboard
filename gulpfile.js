@@ -59,7 +59,7 @@
         runKarma(paths.karmaConf, cb, {
             singleRun: false,
             autoWatch: true,
-            browsers: ['Firefox'],
+            browsers: ['Chrome'],
             reporters: ['kjhtml']
         });
     });
