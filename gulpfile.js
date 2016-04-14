@@ -44,11 +44,7 @@
         return gulp.src(paths.lint)
             .pipe(jshint())
             .pipe(jshint.reporter('default'))
-            .pipe(jshint.reporter('fail'));
-    });
-
-    gulp.task('jscs', function () {
-        return gulp.src(paths.lint)
+            .pipe(jshint.reporter('fail'))
             .pipe(jscs());
     });
 

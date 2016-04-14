@@ -57,7 +57,6 @@ validate_python: test.requirements test_python quality
 validate_js: requirements.js
 	$(NODE_BIN)/gulp test
 	$(NODE_BIN)/gulp lint
-	$(NODE_BIN)/gulp jscs
 
 validate: validate_python validate_js
 
