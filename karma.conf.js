@@ -10,38 +10,52 @@ module.exports = function (config) {
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['jasmine', 'requirejs', 'sinon'],
+        frameworks: ['jasmine-jquery', 'jasmine', 'requirejs', 'sinon'],
 
 
         // list of files / patterns to load in the browser
         files: [
             {pattern: 'analytics_dashboard/static/vendor/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/bower_components/**/*.js', included: false},
+            {pattern: 'analytics_dashboard/static/bower_components/**/*.underscore', included: false},
             {pattern: 'analytics_dashboard/static/bower_components/**/*.json', included: false},
             {pattern: 'analytics_dashboard/static/js/models/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/js/views/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/js/utils/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/js/test/specs/*.js', included: false},
+            {pattern: 'analytics_dashboard/static/apps/**/*.js', included: false},
+            {pattern: 'analytics_dashboard/static/apps/**/*.underscore', included: false},
             'analytics_dashboard/static/js/config.js',
-            'analytics_dashboard/static/js/test/spec-runner.js'
+            'analytics_dashboard/static/js/test/spec-runner.js',
+            './node_modules/phantomjs-polyfill/bind-polyfill.js',
         ],
 
+        exclude: [
+            // Don't run library unit tests
+            'analytics_dashboard/static/bower_components/**/spec/**/*.js',
+            'analytics_dashboard/static/bower_components/**/specs/**/*.js',
+            'analytics_dashboard/static/bower_components/**/test/**/*.js'
+        ],
 
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
             'analytics_dashboard/static/js/models/**/*.js': ['coverage'],
             'analytics_dashboard/static/js/views/**/*.js': ['coverage'],
-            'analytics_dashboard/static/js/utils/**/*.js': ['coverage']
+            'analytics_dashboard/static/js/utils/**/*.js': ['coverage'],
+            'analytics_dashboard/static/apps/**/*.js': ['coverage']
         },
 
         // plugins required for running the karma tests
         plugins:[
             'karma-jasmine',
+            'karma-jasmine-jquery',
+            'karma-jasmine-html-reporter',
             'karma-requirejs',
             'karma-phantomjs-launcher',
             'karma-coverage',
-            'karma-sinon'
+            'karma-sinon',
+            'karma-chrome-launcher'
         ],
 
         // test results reporter to use

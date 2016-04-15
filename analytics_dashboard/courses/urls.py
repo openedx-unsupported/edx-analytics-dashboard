@@ -1,12 +1,11 @@
 # pylint: disable=no-value-for-parameter
-
+from django.conf import settings
 from django.conf.urls import url, patterns, include
 
 from courses import views
-from courses.views import enrollment, engagement, performance, csv
+from courses.views import enrollment, engagement, performance, csv, learners
 
 CONTENT_ID_PATTERN = r'(?P<content_id>(?:i4x://?[^/]+/[^/]+/[^/]+/[^@]+(?:@[^/]+)?)|(?:[^/]+))'
-COURSE_ID_PATTERN = r'(?P<course_id>[^/+]+[/+][^/+]+[/+][^/]+)'
 PROBLEM_PART_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'problem_part_id')
 ASSIGNMENT_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'assignment_id')
 PROBLEM_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'problem_id')
@@ -101,6 +100,11 @@ CSV_URLS = patterns(
         name='performance_answer_distribution'),
 )
 
+LEARNER_URLS = patterns(
+    '',
+    url(r'^$', learners.LearnersView.as_view(), name='learners'),
+)
+
 COURSE_URLS = patterns(
     '',
     # Course homepage. This should be the entry point for other applications linking to the course.
@@ -109,10 +113,11 @@ COURSE_URLS = patterns(
     url(r'^engagement/', include(ENGAGEMENT_URLS, namespace='engagement')),
     url(r'^performance/', include(PERFORMANCE_URLS, namespace='performance')),
     url(r'^csv/', include(CSV_URLS, namespace='csv')),
+    url(r'^learners/', include(LEARNER_URLS, namespace='learners')),
 )
 
 urlpatterns = patterns(
     '',
     url('^$', views.CourseIndex.as_view(), name='index'),
-    url(r'^{}/'.format(COURSE_ID_PATTERN), include(COURSE_URLS))
+    url(r'^{}/'.format(settings.COURSE_ID_PATTERN), include(COURSE_URLS))
 )

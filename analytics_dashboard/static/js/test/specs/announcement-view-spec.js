@@ -37,7 +37,7 @@ define(['views/announcement-view', 'jquery', 'underscore'], function (Announceme
             var server;
 
             beforeEach(function () {
-                server = sinon.fakeServer.create(); // jshint ignore:line
+                server = sinon.fakeServer.create();
                 view.dismiss();
             });
 

@@ -193,7 +193,7 @@ $brand-info: $color-status;
 $brand-warning: $color-warning;
 $brand-danger: $color-error;
 
-// scaffoling
+// scaffolding
 $body-bg: $edx-gray-l2;
 $text-color: $gray-d2;
 // $link-color: ;
@@ -249,9 +249,10 @@ $footer-sock-height: $footer-height + $sock-height;
 $description-border-color: $edx-gray-l1;
 $description-border: 1px solid $description-border-color;
 
-// loading error
-$error-background-color: rgb(242, 242, 242);
-$error-section-highlight-color: rgb(195, 53, 59);
+// alerts
+$alert-background-color: rgb(242, 242, 242);
+$alert-error-color: rgb(195, 53, 59);
+$alert-info-color: rgb(111, 160, 186);
 
 // FontAwesome font directory
 $fa-font-path: "/static/bower_components/font-awesome/fonts";

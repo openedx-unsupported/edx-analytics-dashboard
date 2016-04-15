@@ -1,0 +1,51 @@
+{% extends "courses/base-course.html" %}
+
+{% load dashboard_extras %}
+{% load i18n %}
+{% load rjs %}
+
+{% comment %}
+View of individual learners within a course.
+{% endcomment %}
+
+{% block view-name %}view-learners view-dashboard{% endblock view-name %}
+
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="stylesheet" href="/static/bower_components/backgrid-paginator/backgrid-paginator.min.css" type="text/css">
+{% endblock stylesheets %}
+
+{% block uncompressed_javascript %}
+    {{ block.super }}
+    {% if not show_error %}
+        <script>
+         require(['load/init-page', 'learners/js/app'], function (page, LearnersApp) {
+             var app = new LearnersApp({
+                 courseId: '{{ course_id }}',
+                 containerSelector: '.learners-app-container',
+                 learnerListJson: {{ learner_list_json | escape_json }},
+                 learnerListUrl: '{{ learner_list_url }}',
+                 courseLearnerMetadataJson: {{ course_learner_metadata_json | escape_json }},
+                 courseLearnerMetadataUrl: '{{ course_learner_metadata_url }}',
+                 learnerEngagementTimelineUrl: '{{ learner_engagement_timeline_url }}'
+             });
+             app.start();
+         });
+        </script>
+    {% endif %}
+{% endblock uncompressed_javascript %}
+
+{% block child_content %}
+    <section class="view-section">
+        {% if show_error %}
+            <div class="section-heading bordered">
+                <h4 class="section-title">{% trans "Learners" %}</h4>
+            </div>
+            {% show_table_error %}
+        {% else %}
+            <div class="learners-app-container">
+                {% include "loading.html" %}
+            </div>
+        {% endif %}
+    </section>
+{% endblock %}

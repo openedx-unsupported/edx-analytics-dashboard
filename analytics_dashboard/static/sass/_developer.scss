@@ -94,39 +94,16 @@ button.chart-info {
   }
 }
 
-.error-section-container {
-  padding: $padding-large-horizontal $padding-large-vertical;
-  padding-bottom: $padding-large-horizontal * 2;
-  margin-bottom: $padding-large-horizontal * 2;
-  background-color: $error-background-color;
-  border-top: 4px solid $error-section-highlight-color;
+.alert-error-container {
+  @include alert-container($alert-error-color);
+}
 
-  i.error {
-    color: $error-section-highlight-color;
-    font-size: $font-size-large * 2;
-  }
-
-  .short-message {
-    font-size: $font-size-large;
-    font-weight: 700;
-    padding-bottom: $padding-small-horizontal;
-  }
+.alert-info-container {
+  @include alert-container($alert-info-color);
 }
 
 .white-background {
   background-color: white;
-}
-
-// this keeps the gray borders from touching the top band at a 45 degree angle
-.error-section-container:before {
-  border: $description-border;
-  border-top: none;
-  content: "";
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
 }
 
 // Ensure that the map fits for different screens sizes
@@ -638,7 +615,7 @@ table.dataTable thead th.sorting_desc:after {
   border-top: none;
 }
 
-.module-preview-collapsible {
+.module-preview-disclosure {
   // the video preview height can be variable, so use media queries to mimic height changes
   .video-preview {
     width: 100%;
@@ -654,12 +631,12 @@ table.dataTable thead th.sorting_desc:after {
     }
   }
 
-  .collapsible-toggle-text {
+  .disclosure-toggle {
     // moving the text down just a tad so that it's in line with the next/previous buttons
     padding-top: 8px;
   }
 
-  .collapsible-content {
+  .disclosure-target {
     // initially collapsed
     display: none;
   }
@@ -768,5 +745,84 @@ table.dataTable thead th.sorting_desc:after {
         }
       }
     }
+  }
+}
+
+// Learner App
+.learners-app-container {
+  margin-bottom: $padding-large-horizontal;
+}
+
+.learner-roster {
+
+  th {
+
+    font-weight: 600;
+
+    a {
+      // update header colors
+      color: $text-color;
+    }
+
+    i {
+      // makes the sort icons gray
+      color: $gray;
+    }
+
+  }
+
+  .learner-engagement-cell {
+    text-align: right;
+  }
+
+  .learners-table-controls {
+    padding-bottom: 20px;
+
+    .learners-search {
+      .wrapper-search-input {
+        position: relative;
+
+        .clear {
+          position: absolute;
+          right: 0px;
+          top: 0px;
+          z-index: 99;
+          color: $edx-gray;
+
+          &:hover {
+            color: $edx-gray-d2;
+          }
+        }
+      }
+
+      .search {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  .learner-engagement-cell {
+    // gives the numbers in the engagement table a bit more weight
+    font-weight: 600;
+  }
+
+  // color-bind safe colors for differentiating engagement categories
+  $below-average-color: rgb(230,121,80);
+  $above-average-color: rgb(82,184,135);
+  .learner-cell-below-average {
+    color: $below-average-color;
+  }
+
+  .learner-cell-above-average {
+    color: $above-average-color;
+  }
+
+  .backgrid-paginator {
+
+    ul {
+      // remove default padding around the paging controls
+      padding: 0;
+    }
+
   }
 }
