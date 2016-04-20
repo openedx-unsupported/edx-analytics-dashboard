@@ -9,7 +9,7 @@ define(function (require) {
 
         Filter = require('learners/roster/views/filter'),
         LearnerSearch = require('learners/roster/views/search'),
-        rosterControlsTemplate = require('text!learners/roster/templates/roster-controls.underscore'),
+        rosterControlsTemplate = require('text!learners/roster/templates/controls.underscore'),
 
         RosterControlsView;
 
@@ -18,7 +18,8 @@ define(function (require) {
 
         regions: {
             search: '.learners-search-container',
-            cohortFilter: '.learners-cohort-filter-container'
+            cohortFilter: '.learners-cohort-filter-container',
+            enrollmentTrackFilter: '.learners-enrollment-track-filter-container'
         },
 
         initialize: function (options) {
@@ -36,6 +37,12 @@ define(function (require) {
                 filterKey: 'cohort',
                 filterValues: this.options.courseMetadata.get('cohorts'),
                 selectDisplayName: gettext('Cohort Groups')
+            }));
+            this.showChildView('enrollmentTrackFilter', new Filter({
+                collection: this.options.collection,
+                filterKey: 'enrollment_mode',
+                filterValues: this.options.courseMetadata.get('enrollment_modes'),
+                selectDisplayName: gettext('Enrollment Tracks')
             }));
         }
     });

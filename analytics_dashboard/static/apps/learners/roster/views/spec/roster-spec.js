@@ -4,6 +4,7 @@ define(function (require) {
     var $ = require('jquery'),
         _ = require('underscore'),
         axe = require('axe-core'),
+        SpecHelpers = require('uitk/utils/spec-helpers/spec-helpers'),
         URI = require('URI'),
 
         CourseMetadataModel = require('learners/common/models/course-metadata'),
@@ -491,80 +492,100 @@ define(function (require) {
         });
 
         describe('filtering', function () {
-            describe('by cohort', function () {
-                var expectCanFilterBy = function (cohort) {
-                    $('select').val(cohort);
-                    $('select').change();
-                    if (cohort) {
-                        expect(getLastRequestParams()).toEqual(jasmine.objectContaining({
-                            cohort: cohort
-                        }));
-                    } else {
-                        expect(getLastRequestParams().hasOwnProperty('cohort')).toBe(false);
-                    }
-                    getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(1, 1)));
-                    expect($('option[value="' + cohort + '"]')).toBeSelected();
-                };
+            var expectCanFilterBy = function (filterKey, filterValue) {
+                var expectedRequestSubset;
+                $('select').val(filterValue);
+                $('select').change();
+                if (filterValue) {
+                    expectedRequestSubset = {};
+                    expectedRequestSubset[filterKey] = filterValue;
+                    expect(getLastRequestParams()).toEqual(jasmine.objectContaining(expectedRequestSubset));
+                } else {
+                    expect(getLastRequestParams().hasOwnProperty(filterKey)).toBe(false);
+                }
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(1, 1)));
+                expect($('option[value="' + filterValue + '"]')).toBeSelected();
+            };
 
-                it('renders the current cohort filter', function () {
-                    var courseMetadataModel,
-                        collection,
+            SpecHelpers.withConfiguration({
+                'by cohort': [
+                    'cohort', // filter field name
+                    'cohorts', // course metadata field name
+                    {'Cohort A': 1, 'Cohort B': 2} // default cohort metadata
+                ],
+                'by enrollment track': [
+                    'enrollment_mode', // filter field name
+                    'enrollment_modes', // course metadata field name
+                    {verified: 1, audit: 2} // default enrollment modes
+                ]
+            }, function (filterFieldName, courseMetadataFieldName, filterOptions) {
+                var courseMetadataAttributes = {};
+                courseMetadataAttributes[courseMetadataFieldName] = filterOptions;
+                this.courseMetadata = new CourseMetadataModel(courseMetadataAttributes);
+                this.filterFieldName = filterFieldName;
+                this.filterOptions = filterOptions;
+                this.firstFilterOption = _.keys(this.filterOptions)[0];
+            }, function () {
+                it('renders the filter which is currently applied', function () {
+                    var collection,
+                        firstFilterOption,
                         rosterView;
-                    courseMetadataModel = new CourseMetadataModel({cohorts: {
-                        'Cohort A': 1,
-                        'Cohort B': 2
-                    }});
+                    firstFilterOption = this.firstFilterOption;
                     collection = new LearnerCollection();
-                    collection.setFilterField('cohort', 'Cohort A');
+                    collection.setFilterField(this.filterFieldName, firstFilterOption);
                     rosterView = getRosterView({
-                        courseMetadataModel: courseMetadataModel,
+                        courseMetadataModel: this.courseMetadata,
                         collection: collection
                     });
-                    expect(rosterView.$('.learners-filter option[value="Cohort A"]')).toBeSelected();
+                    expect(rosterView.$('.learners-filter option[value="' + firstFilterOption + '"]')).toBeSelected();
                 });
 
-                it('does not render when the course contains no cohorts', function () {
-                    var rosterView = getRosterView({courseMetadata: {cohorts: {}}});
+                it('only renders when filter options are provided', function () {
+                    var rosterView,
+                        selectOptions,
+                        defaultSelectOption;
+
+                    // Doesn't render when no filter options are provided.
+                    rosterView = getRosterView({courseMetadata: {}});
                     expect(rosterView.$('.learners-filter').children()).not.toExist();
+
+                    // Does render when filter options are provided.
+                    rosterView = getRosterView({courseMetadataModel: this.courseMetadata});
+                    selectOptions = rosterView.$('.learners-filter option').get();
+                    defaultSelectOption = selectOptions[0];
+
+                    expect(defaultSelectOption).toBeSelected();
+                    expect(defaultSelectOption).toHaveValue('');
+                    expect(defaultSelectOption).toHaveText('All');
+
+                    _.chain(this.filterOptions)
+                        .pairs()
+                        .zip(_.rest(selectOptions))
+                        .each(function (filterAndSelectOption) {
+                            var filterOption = filterAndSelectOption[0],
+                                filterOptionKey = filterOption[0],
+                                learnerCount = filterOption[1],
+                                selectOption = filterAndSelectOption[1];
+                            expect(selectOption).not.toBeSelected();
+                            expect(selectOption).toHaveValue(filterOptionKey);
+                            if (learnerCount === 1) {
+                                expect(selectOption).toHaveText(filterOptionKey + ' (' + learnerCount + ' learner)');
+                            } else {
+                                expect(selectOption).toHaveText(filterOptionKey + ' (' + learnerCount + ' learners)');
+                            }
+                        });
                 });
 
-                it('renders when the course contains cohorts', function () {
-                    var rosterView = getRosterView({courseMetadata: {cohorts: {
-                            'Cohort A': 1,
-                            'Cohort B': 2
-                        }}}),
-                        options = rosterView.$('.learners-filter option'),
-                        defaultOption = $(options[0]),
-                        cohortAOption = $(options[1]),
-                        cohortBOption = $(options[2]);
-
-                    expect(defaultOption).toBeSelected();
-                    expect(defaultOption).toHaveValue('');
-                    expect(defaultOption).toHaveText('All');
-
-                    expect(cohortAOption).not.toBeSelected();
-                    expect(cohortAOption).toHaveValue('Cohort A');
-                    expect(cohortAOption).toHaveText('Cohort A (1 learner)');
-
-                    expect(cohortBOption).not.toBeSelected();
-                    expect(cohortBOption).toHaveValue('Cohort B');
-                    expect(cohortBOption).toHaveText('Cohort B (2 learners)');
-                });
-
-                it('can execute a cohort filter', function () {
-                    getRosterView({courseMetadata: {cohorts: {
-                        'Cohort A': 1
-                    }}});
-                    expectCanFilterBy('Cohort A');
-                    expectCanFilterBy('');
+                it('can execute a filter', function () {
+                    getRosterView({courseMetadataModel: this.courseMetadata});
+                    expectCanFilterBy(this.filterFieldName, this.firstFilterOption);
+                    expectCanFilterBy(this.filterFieldName, '');
                 });
 
                 it('handles server errors', function () {
-                    var rosterView = getRosterView({courseMetadata: {cohorts: {
-                        'Cohort A': 1
-                    }}});
+                    var rosterView = getRosterView({courseMetadataModel: this.courseMetadata});
                     spyOn(rosterView, 'trigger');
-                    rosterView.$('select').val('Cohort A');
+                    rosterView.$('select').val(this.firstFilterOption);
                     rosterView.$('select').change();
                     verifyErrorHandling(
                         rosterView,
@@ -574,13 +595,11 @@ define(function (require) {
                 });
 
                 it('handles network errors', function () {
-                    var rosterView = getRosterView({courseMetadata: {cohorts: {
-                        'Cohort A': 1
-                    }}});
+                    var rosterView = getRosterView({courseMetadataModel: this.courseMetadata});
                     testTimeout(rosterView, function () {
-                        rosterView.$('select').val('Cohort A');
+                        rosterView.$('select').val(this.firstFilterOption);
                         rosterView.$('select').change();
-                    });
+                    }.bind(this));
                 });
             });
         });
