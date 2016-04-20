@@ -98,7 +98,7 @@ define(function (require) {
         onBeforeShow: function () {
             var options = this.options;
             this.showChildView('table', new Backgrid.Grid({
-                className: 'table table-striped',  // Use bootstrap styling
+                className: 'table table-striped dataTable',  // Combine bootstrap and datatables styling
                 collection: this.options.collection,
                 columns: _.map(this.options.collection.sortableFields, function (val, key) {
                     var column = {
