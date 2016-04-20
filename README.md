@@ -8,6 +8,7 @@ Prerequisites
 -------------
 * Python 2.7.x (not tested with Python 3.x)
 * [gettext](http://www.gnu.org/software/gettext/)
+* [node](https://nodejs.org) 5.2.x
 * [npm](https://www.npmjs.org/)
 * [JDK 7+](http://openjdk.java.net/)
 

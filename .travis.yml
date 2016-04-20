@@ -1,12 +1,16 @@
-language: python
+language:
+  - python
+  - node_js
 python: "2.7"
+node_js: "5.2.0"
+sudo: false
 before_install:
-    - export PATH=./node_modules/.bin:$PATH
-    - sudo apt-get update -qq
-    - sudo apt-get install -y npm
-    - sudo apt-get --reinstall install -qq language-pack-en
-    - "export DISPLAY=:99.0"
-    - "sh -e /etc/init.d/xvfb start"
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+addons:
+    apt:
+        packages:
+            - language-pack-en
 install:
     - make develop
     - ./scripts/install_analytics_data_api.sh
