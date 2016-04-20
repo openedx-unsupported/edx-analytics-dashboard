@@ -7,7 +7,7 @@ define(function (require) {
     var _ = require('underscore'),
         Marionette = require('marionette'),
 
-        CohortFilter = require('learners/roster/views/cohort-filter'),
+        Filter = require('learners/roster/views/filter'),
         LearnerSearch = require('learners/roster/views/search'),
         rosterControlsTemplate = require('text!learners/roster/templates/roster-controls.underscore'),
 
@@ -15,22 +15,27 @@ define(function (require) {
 
     RosterControlsView = Marionette.LayoutView.extend({
         template: _.template(rosterControlsTemplate),
+
         regions: {
             search: '.learners-search-container',
             cohortFilter: '.learners-cohort-filter-container'
         },
+
         initialize: function (options) {
             this.options = options || {};
         },
+
         onBeforeShow: function () {
             this.showChildView('search', new LearnerSearch({
                 collection: this.options.collection,
                 name: 'text_search',
                 placeholder: gettext('Find a learner')
             }));
-            this.showChildView('cohortFilter', new CohortFilter({
+            this.showChildView('cohortFilter', new Filter({
                 collection: this.options.collection,
-                courseMetadata: this.options.courseMetadata
+                filterKey: 'cohort',
+                filterValues: this.options.courseMetadata.get('cohorts'),
+                selectDisplayName: gettext('Cohort Groups')
             }));
         }
     });

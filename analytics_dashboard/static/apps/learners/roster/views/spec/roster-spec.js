@@ -520,12 +520,12 @@ define(function (require) {
                         courseMetadataModel: courseMetadataModel,
                         collection: collection
                     });
-                    expect(rosterView.$('.learners-cohort-filter option[value="Cohort A"]')).toBeSelected();
+                    expect(rosterView.$('.learners-filter option[value="Cohort A"]')).toBeSelected();
                 });
 
                 it('does not render when the course contains no cohorts', function () {
                     var rosterView = getRosterView({courseMetadata: {cohorts: {}}});
-                    expect(rosterView.$('.learners-cohort-filter').children()).not.toExist();
+                    expect(rosterView.$('.learners-filter').children()).not.toExist();
                 });
 
                 it('renders when the course contains cohorts', function () {
@@ -533,7 +533,7 @@ define(function (require) {
                             'Cohort A': 1,
                             'Cohort B': 2
                         }}}),
-                        options = rosterView.$('.learners-cohort-filter option'),
+                        options = rosterView.$('.learners-filter option'),
                         defaultOption = $(options[0]),
                         cohortAOption = $(options[1]),
                         cohortBOption = $(options[2]);

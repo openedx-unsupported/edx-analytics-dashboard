@@ -1,0 +1,14 @@
+<% if (!_.isEmpty(filterValues)) { %>
+<% var filterId = 'filter-' + filterKey; %>
+<hr>
+<label for="<%- filterId %>">
+    <%- selectDisplayName %>
+</label>
+<select id="<%- filterId %>" class="form-control">
+    <% _.each(filterValues, function (filterValue) { %>
+        <option value="<%- filterValue.name %>" <% if (filterValue.selected) { %> selected <% } %>>
+            <%- filterValue.displayName %>
+        </option>
+    <% }); %>
+</select>
+<% } %>
