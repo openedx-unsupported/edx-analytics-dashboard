@@ -19,7 +19,7 @@ View of individual learners within a course.
     {{ block.super }}
     {% if not show_error %}
         <script>
-         require(['load/init-page', 'learners/js/app'], function (page, LearnersApp) {
+         require(['load/init-page', 'learners/app/app'], function (page, LearnersApp) {
              var app = new LearnersApp({
                  courseId: '{{ course_id }}',
                  containerSelector: '.learners-app-container',
