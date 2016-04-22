@@ -89,8 +89,14 @@ define(function (require) {
 
             Backbone.history.start();
 
+            // TODO:
+            //  - Make the controller start/stop the loading bar
+            //  - what about timeouts?
             // Loading progress bar via nprogress
             NProgress.configure({ showSpinner: false });
+            // initial page load
+            NProgress.done(true);
+            // bind to ajax start/stop events
             $(document).ajaxStart(function () { NProgress.start(); });
             $(document).ajaxStop(function () { NProgress.done(); });
         }
