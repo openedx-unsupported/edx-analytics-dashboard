@@ -15,7 +15,7 @@ define(function (require) {
         learnerTableTemplate = require('text!learners/roster/templates/table.underscore'),
 
         createEngagementCell,
-        createEngagementHeaderCell,
+        EngagementHeaderCell,
         LearnerTableView;
 
     /**
@@ -62,29 +62,9 @@ define(function (require) {
      * Cell class for engagement headers, which need to be right
      * aligned.
      */
-    createEngagementHeaderCell = function (key) {
-        var tooltips = {
-            problems_attempted: gettext('Number of unique problems this learner attempted.'),
-            problems_completed: gettext('Number of unique problems the learner answered correctly.'),
-            videos_viewed: gettext('Number of unique videos this learner played.'),
-            problem_attempts_per_completed: gettext('Average number of attempts per correct problem. Learners with a relatively high value compared to their peers may be struggling.'),   // jshint ignore:line
-            discussion_contributions: gettext('Number of contributions by this learner, including posts, responses, and comments.')   // jshint ignore:line
-        };
-
-        return BaseHeaderCell.extend({
-            className: 'learner-engagement-cell',
-
-            attributes: _.extend({}, BaseHeaderCell.prototype.attributes, {
-                title: tooltips[key]
-            }),
-
-            initialize: function () {
-                BaseHeaderCell.prototype.initialize.apply(this, arguments);
-                this.$el.tooltip({ container: '.learners-table' });
-            }
-
-        });
-    };
+    EngagementHeaderCell = BaseHeaderCell.extend({
+        className: 'learner-engagement-cell',
+    });
 
     LearnerTableView = Marionette.LayoutView.extend({
         template: _.template(learnerTableTemplate),
@@ -117,7 +97,7 @@ define(function (require) {
                             significantDigits: key === 'problem_attempts_per_completed' ? 1 : 0
                         }, options);
                         column.cell = createEngagementCell(key, options);
-                        column.headerCell = createEngagementHeaderCell(key);
+                        column.headerCell = EngagementHeaderCell;
                     }
 
                     return column;

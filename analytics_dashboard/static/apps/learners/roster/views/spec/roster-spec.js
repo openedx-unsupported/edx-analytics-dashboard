@@ -228,8 +228,8 @@ define(function (require) {
         describe('table headers', function() {
 
             it('has tooltips', function () {
-                // username doesn't have tooltips
-                var headersWithTips = [
+                var headerClasses = [
+                    'username',
                     'videos_viewed',
                     'problems_completed',
                     'problems_attempted',
@@ -242,7 +242,7 @@ define(function (require) {
                     collectionOptions: {parse: true}
                 });
 
-                _(headersWithTips).each(function (headerClass) {
+                _(headerClasses).each(function (headerClass) {
                     var $heading = $('th.' + headerClass).focusin(),
                         $tooltip;
 
