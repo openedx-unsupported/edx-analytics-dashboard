@@ -13,6 +13,7 @@ define(function (require) {
     describe('LearnerRosterView', function () {
         var fixtureClass = 'roster-view-fixture',
             perPage = 25,
+            clickPagingControl,
             executeSearch,
             getLastRequest,
             getLastRequestParams,
@@ -89,6 +90,10 @@ define(function (require) {
             $('#search-learners').val(searchString);
             $('#search-learners').keyup();  // Triggers rendering of the clear search control
             $('#search-learners').submit();
+        };
+
+        clickPagingControl = function (titleSelector) {
+            $('a[title="' + titleSelector + '"]').click();
         };
 
         beforeEach(function () {
@@ -326,17 +331,30 @@ define(function (require) {
                     clickSortingHeader('username');
                 });
             });
+
+            it('goes to the first page after applying a sort', function () {
+                this.rosterView = getRosterView({
+                    collectionResponse: getResponseBody(2, 1),
+                    collectionOptions: {parse: true}
+                });
+                clickPagingControl('Page 2');
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(2, 2)));
+                expect(this.rosterView.$('a[title="Page 2"]').parent('li')).toHaveClass('active');
+                clickSortingHeader('username');
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(2, 2)));
+                expect(getLastRequestParams()).toEqual(jasmine.objectContaining({
+                    page: '1',
+                    order_by: 'username'
+                }));
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(2, 1)));
+                expect(this.rosterView.$('a[title="Page 1"]').parent('li')).toHaveClass('active');
+            });
         });
 
         describe('paging', function () {
-            var clickPagingControl,
-                createTwoPageRoster,
+            var createTwoPageRoster,
                 expectLinkStates,
                 expectRequestedPage;
-
-            clickPagingControl = function (titleSelector) {
-                $('a[title="' + titleSelector + '"]').click();
-            };
 
             createTwoPageRoster = function () {
                 return getRosterView({
