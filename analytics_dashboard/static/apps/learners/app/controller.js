@@ -11,6 +11,7 @@ define(function (require) {
 
     var Backbone = require('backbone'),
         Marionette = require('marionette'),
+        NProgress = require('nprogress'),
 
         EngagementTimelineModel = require('learners/common/models/engagement-timeline'),
         LearnerDetailView = require('learners/detail/views/learner-detail'),
@@ -23,6 +24,18 @@ define(function (require) {
             this.options = options || {};
             this.listenTo(this.options.learnerCollection, 'sync', this.onLearnerCollectionUpdated);
             this.onLearnerCollectionUpdated(this.options.learnerCollection);
+        },
+
+        /**
+         * Event handler for the 'showPage' event.  Called by the
+         * router whenever a route method beginning with "show" has
+         * been triggered.
+         */
+        onShowPage: function () {
+            // Show a loading bar
+            NProgress.done(true);
+            // Clear any existing alert
+            this.options.rootView.triggerMethod('clearError');
         },
 
         onLearnerCollectionUpdated: function (collection) {

@@ -1,7 +1,9 @@
 define(function (require) {
     'use strict';
 
-    var CourseMetadataModel = require('learners/common/models/course-metadata'),
+    var $ = require('jquery'),
+
+        CourseMetadataModel = require('learners/common/models/course-metadata'),
         LearnerCollection = require('learners/common/collections/learners'),
         LearnersController = require('learners/app/controller'),
         LearnersRootView = require('learners/app/views/root'),
@@ -105,26 +107,33 @@ define(function (require) {
             });
         });
 
-        it('should hide errors when navigating between pages', function () {
-            var rootView = this.rootView;
-            this.controller.showLearnerRosterPage();
-            expectRosterPage(rootView);
-            expect(rootView.$('[role="alert"]')).not.toExist();
+        // The 'showPage' event gets fired by the router on the
+        // controller any time a route is hit which should change the
+        // current page.
+        describe('showPage event', function () {
+            it('renders the loading bar', function () {
+                jasmine.clock().install();
 
-            this.controller.showLearnerDetailPage('example-username');
-            server.requests[server.requests.length - 1].respond(404, {});
-            expectDetailPage(this.rootView, 'example-username');
-            expect(rootView.$('[role="alert"]')).toExist();
+                expect($('#nprogress')).not.toExist();
+                this.controller.triggerMethod('showPage');
+                expect($('#nprogress')).toExist();
 
-            this.controller.showLearnerRosterPage();
-            expectRosterPage(rootView);
-            expect(rootView.$('[role="alert"]')).not.toExist();
+                jasmine.clock().uninstall();
+            });
+
+            it('hides errors', function () {
+                this.controller.showLearnerDetailPage('example-username');
+                server.requests[server.requests.length - 1].respond(404, {});
+                expectDetailPage(this.rootView, 'example-username');
+                expect(this.rootView.$('[role="alert"]')).toExist();
+                this.controller.triggerMethod('showPage');
+                expect(this.rootView.$('[role="alert"]')).not.toExist();
+            });
         });
 
         it('should show the not found page', function () {
             this.controller.showNotFoundPage();
             expect(this.rootView.$el.html()).toContainText('Sorry, we couldn\'t find the page you\'re looking for.');
         });
-
     });
 });
