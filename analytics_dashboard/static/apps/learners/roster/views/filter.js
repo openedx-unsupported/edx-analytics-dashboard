@@ -65,15 +65,7 @@ define(function (require) {
                         numLearners = filterPair[1];
                     return {
                         name: name,
-                        displayName: _.template(ngettext(
-                            // jshint ignore:start
-                            // Translators: 'name' is the name of the filter value and 'numLearners' is the number of learners within that specific filter.  The resulting phrase displays a filter and the number of students belonging to it. For example: "Cohort Awesome (1,234 learners)".
-                            '<%= name %> (<%= numLearners %> learner)',
-                            // Translators: 'name' is the name of the filter value and 'numLearners' is the number of learners within that specific filter.  The resulting phrase displays a filter and the number of students belonging to it. For example: "Cohort Awesome (1,234 learners)".
-                            '<%= name %> (<%= numLearners %> learners)',
-                            // jshint ignore:end
-                            numLearners
-                        ))({
+                        displayName: _.template('<%= name %> (<%= numLearners %>)')({
                             name: name,
                             numLearners: Utils.localizeNumber(numLearners, 0)
                         })

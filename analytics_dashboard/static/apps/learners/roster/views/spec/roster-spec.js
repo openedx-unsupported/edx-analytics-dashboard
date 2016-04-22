@@ -568,11 +568,7 @@ define(function (require) {
                                 selectOption = filterAndSelectOption[1];
                             expect(selectOption).not.toBeSelected();
                             expect(selectOption).toHaveValue(filterOptionKey);
-                            if (learnerCount === 1) {
-                                expect(selectOption).toHaveText(filterOptionKey + ' (' + learnerCount + ' learner)');
-                            } else {
-                                expect(selectOption).toHaveText(filterOptionKey + ' (' + learnerCount + ' learners)');
-                            }
+                            expect(selectOption).toHaveText(filterOptionKey + ' (' + learnerCount + ')');
                         });
                 });
 
