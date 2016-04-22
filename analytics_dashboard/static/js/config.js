@@ -47,7 +47,8 @@ require.config({
         SecondLevelDomains: 'bower_components/uri.js/src/SecondLevelDomains',
         learners: 'apps/learners',
         'axe-core': 'bower_components/axe-core/axe.min',
-        sinon: 'bower_components/sinon/lib/sinon'
+        sinon: 'bower_components/sinon/lib/sinon',
+        nprogress: 'bower_components/nprogress/nprogress'
     },
     wrapShim: true,
     shim: {
