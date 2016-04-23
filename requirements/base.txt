@@ -12,6 +12,7 @@ django-soapbox==1.1         # BSD
 django-waffle==0.10			# BSD
 edx-auth-backends==0.1.2
 edx-ccx-keys==0.2.0
+edx-opaque-keys==0.3.1
 edx-rest-api-client>=1.5.0,<2.0.0
 
 # other versions cause a segment fault when running compression
@@ -28,4 +29,3 @@ git+https://github.com/pinax/django-announcements.git@f85e690705e038a62407abe54a
 git+https://github.com/edx/django-lang-pref-middleware.git@0.1.0#egg=django-lang-pref-middleware
 git+https://github.com/edx/edx-analytics-data-api-client.git@0.6.1#egg=edx-analytics-data-api-client==0.6.1  # edX
 git+https://github.com/edx/i18n-tools.git@0d7847f9dfa2281640527b4dc51f5854f950f9b7#egg=i18n_tools
-git+https://github.com/edx/opaque-keys.git@d45d0bd8d64c69531be69178b9505b5d38806ce0#egg=opaque-keys
