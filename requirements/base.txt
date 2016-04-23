@@ -10,9 +10,10 @@ django-model-utils==1.5.0 	# BSD
 djangorestframework==3.3.1  # BSD
 django-soapbox==1.1         # BSD
 django-waffle==0.10			# BSD
+edx-auth-backends==0.1.2
 edx-ccx-keys==0.2.0
 edx-opaque-keys==0.3.1
-edx-rest-api-client>=1.5.0, <1.6.0  # Apache
+edx-rest-api-client>=1.5.0,<2.0.0
 
 # other versions cause a segment fault when running compression
 libsass==0.5.1              # MIT
@@ -20,8 +21,7 @@ libsass==0.5.1              # MIT
 logutils==0.3.3				# BSD
 
 # versions above 0.2.3 introduce a breaking change
-python-social-auth==0.2.14
-edx-auth-backends==0.1.2    # AGPL
+python-social-auth==0.2.3
 
 # TODO Use the PyPi package once it is updated.
 git+https://github.com/pinax/django-announcements.git@f85e690705e038a62407abe54ac195f60760934b#egg=django-announcements # MIT
