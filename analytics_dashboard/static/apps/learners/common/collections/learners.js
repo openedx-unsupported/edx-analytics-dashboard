@@ -17,7 +17,7 @@ define(function (require) {
             this.url = options.url;
             this.courseId = options.courseId;
 
-            this.registerSortableField('username', gettext('Name'));
+            this.registerSortableField('username', gettext('Name (Username)'));
             this.registerSortableField('problems_attempted', gettext('Problems Tried'));
             this.registerSortableField('problems_completed', gettext('Problems Correct'));
             this.registerSortableField('videos_viewed', gettext('Videos'));
