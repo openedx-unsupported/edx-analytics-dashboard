@@ -530,7 +530,7 @@ class CourseHome(CourseTemplateWithNavView):
                 'heading': _('What are individual learners doing?'),
                 'items': [
                     {
-                        'title': _('Who is enrolled?'),
+                        'title': _("Who is engaged? Who isn't?"),
                         'view': 'courses:learners:learners',
                         'breadcrumbs': [_('All Learners')]
                     },
