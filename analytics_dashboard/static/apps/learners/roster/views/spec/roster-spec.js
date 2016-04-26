@@ -507,6 +507,34 @@ define(function (require) {
                 expect($('option[value="' + filterValue + '"]')).toBeSelected();
             };
 
+            it('renders filters in alphabetical order', function () {
+                var options,
+                    rosterView;
+                rosterView = getRosterView({courseMetadata: {
+                    cohorts: {
+                        zebra: 1,
+                        antelope: 2
+                    }
+                }});
+                options = rosterView.$('.learners-filter option');
+                expect(options[1]).toHaveText('antelope (2)');
+                expect(options[2]).toHaveText('zebra (1)');
+            });
+
+            it('sets focus after executing a filter', function () {
+                var rosterView,
+                    spy,
+                    cohortFilterView;
+                rosterView = getRosterView({courseMetadata: {cohorts: {
+                    mudskipper: 1
+                }}});
+                spy = {onFocusTriggered: function () {}};
+                cohortFilterView = rosterView.controls.currentView.cohortFilter.currentView;
+                spyOn(cohortFilterView, 'triggerMethod');
+                expectCanFilterBy('cohort', 'mudskipper');
+                expect(cohortFilterView.triggerMethod).toHaveBeenCalledWith('setFocusToTop');
+            });
+
             SpecHelpers.withConfiguration({
                 'by cohort': [
                     'cohort', // filter field name
@@ -560,6 +588,7 @@ define(function (require) {
 
                     _.chain(this.filterOptions)
                         .pairs()
+                        .sortBy(0) // we expect the filter options to appear in alphabetical order
                         .zip(_.rest(selectOptions))
                         .each(function (filterAndSelectOption) {
                             var filterOption = filterAndSelectOption[0],

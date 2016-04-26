@@ -51,10 +51,11 @@ define(function (require) {
 
         templateHelpers: function () {
             // 'filterValues' is an array of objects, each having a 'name' key
-            // and a 'displayName' key.  'name' is the canonical name for the
-            // filter, while 'displayName' is the user-facing representation of
-            // the filter which combines the filter with the number of users
-            // belonging to it.
+            // and a 'displayName' key.  'name' is the name of the filter value
+            // (e.g. the cohort name when filtering by cohort), while
+            // 'displayName' is the user-facing representation of the filter
+            // which combines the filter with the number of users belonging to
+            // it.
             var catchAllFilterValue,
                 filterValues,
                 selectedFilterValue;
@@ -65,12 +66,18 @@ define(function (require) {
                         numLearners = filterPair[1];
                     return {
                         name: name,
-                        displayName: _.template('<%= name %> (<%= numLearners %>)')({
+                        displayName: _.template(
+                            // jshint ignore:start
+                            // Translators: 'name' here refers to the name of the filter, while 'numLearners' refers to the number of learners belonging to that filter.
+                            gettext('<%= name %> (<%= numLearners %>)')
+                            // jshint ignore:end
+                        )({
                             name: name,
                             numLearners: Utils.localizeNumber(numLearners, 0)
                         })
                     };
                 })
+                .sortBy('name')
                 .value();
 
             if (filterValues.length) {
@@ -109,7 +116,7 @@ define(function (require) {
                 $(event.currentTarget).find('option:selected').val()
             );
             this.collection.refresh();
-            $('#learner-app-focusable').focus();
+            this.triggerMethod('setFocusToTop');
         }
     });
 
