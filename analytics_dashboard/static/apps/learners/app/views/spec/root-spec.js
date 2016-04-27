@@ -40,5 +40,12 @@ define(function (require) {
             this.rootView.triggerMethod('clearError', 'This is the error copy');
             expect(this.rootView.$('.learners-error-region')).not.toHaveText('This is the error copy');
         });
+
+        it('sets focus on setFocusToTop events', function () {
+            var childView = new Marionette.View();
+            this.rootView.showChildView('main', childView);
+            childView.triggerMethod('setFocusToTop');
+            expect(this.rootView.$('#learner-app-focusable')).toBeFocused();
+        });
     });
 });

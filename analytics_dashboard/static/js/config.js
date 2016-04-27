@@ -37,9 +37,8 @@ require.config({
         'cldr-data': 'bower_components/cldr-data',
         globalize: 'bower_components/globalize/dist/globalize',
         globalization: 'js/utils/globalization',
-        disclosure: 'bower_components/edx-ui-toolkit/src/js/disclosure/disclosure-view',
         marionette: 'bower_components/marionette/lib/core/backbone.marionette.min',
-        uitk: 'bower_components/edx-ui-toolkit/src',
+        uitk: 'bower_components/edx-ui-toolkit/src/js',
         // URI and its dependencies
         URI: 'bower_components/uri.js/src/URI',
         IPv6: 'bower_components/uri.js/src/IPv6',

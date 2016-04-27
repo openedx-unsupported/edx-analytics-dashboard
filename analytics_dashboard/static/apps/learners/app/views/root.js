@@ -15,31 +15,42 @@ define(function (require) {
 
     LearnersRootView = Marionette.LayoutView.extend({
         template: _.template(rootTemplate),
+
         regions: {
             error: '.learners-error-region',
             header: '.learners-header-region',
             main: '.learners-main-region'
         },
+
         childEvents: {
             appError: 'onAppError',
-            clearError: 'onClearError'
+            clearError: 'onClearError',
+            setFocusToTop: 'onSetFocusToTop'
         },
+
         initialize: function (options) {
             this.options = options || {};
         },
+
         onRender: function () {
             this.showChildView('header', new HeaderView({
                 model: this.options.pageModel
             }));
         },
+
         onAppError: function (childView, errorMessage) {
             this.showChildView('error', new AlertView({
                 alertType: 'error',
                 title: errorMessage
             }));
         },
+
         onClearError: function () {
             this.getRegion('error').empty();
+        },
+
+        onSetFocusToTop: function () {
+            this.$('#learner-app-focusable').focus();
         }
     });
 
