@@ -71,11 +71,12 @@ def refresh_user_course_permissions(user):
         raise UserNotAssociatedWithBackendError
 
     access_token = user_social_auth.extra_data.get('access_token')
+    token_type = user_social_auth.extra_data.get('token_type', 'Bearer')
 
     if not access_token:
         raise InvalidAccessTokenError
 
-    courses = _get_user_courses(access_token, backend)
+    courses = _get_user_courses(access_token, token_type, backend)
 
     # If the backend does not provide course permissions, assign no permissions and log a warning as there may be an
     # issue with the backend provider.
@@ -88,14 +89,14 @@ def refresh_user_course_permissions(user):
     return courses
 
 
-def _get_user_courses(access_token, backend):
+def _get_user_courses(access_token, token_type, backend):
     """ Return a list of courses that the user has access to."""
     # The authorized courses can come form different claims according to the user role. For example there could be a
     # list of courses the user has access as staff and another that the user has access as instructor. The variable
     # `settings.COURSE_PERMISSIONS_CLAIMS` is a list of the claims that contain the courses.
     try:
         claims = settings.COURSE_PERMISSIONS_CLAIMS
-        data = backend.get_user_claims(access_token, claims)
+        data = backend.get_user_claims(access_token, claims, token_type=token_type)
     except Exception as e:
         raise PermissionsRetrievalFailedError(e)
 
@@ -132,9 +133,12 @@ def user_can_view_course(user, course_id):
     """
     Returns boolean indicating if specified user can view specified course.
 
-    Arguments
+    Arguments:
         user (User)     --  User whose permissions are being checked
         course_id (str) --  Course to check
+
+    Returns:
+        bool -- True, if user can view course; otherwise, False.
     """
 
     if user.is_superuser:

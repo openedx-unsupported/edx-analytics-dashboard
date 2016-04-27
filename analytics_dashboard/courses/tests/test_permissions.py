@@ -1,5 +1,7 @@
 import logging
 
+from auth_backends.backends import EdXOpenIdConnect
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.cache import cache
 from django.test import TestCase
@@ -177,3 +179,12 @@ class PermissionsTests(TestCase):
         G(UserSocialAuth, user=self.user, provider='edx-oidc', extra_data={'access_token': '1234'})
         with mock.patch('auth_backends.backends.EdXOpenIdConnect.get_json', side_effect=Exception):
             self.assertRaises(PermissionsRetrievalFailedError, permissions.get_user_course_permissions, self.user)
+
+    def test_on_auth_complete(self):
+        """ Verify the function receives the auth_complete_signal signal, and updates course permissions. """
+        permissions.set_user_course_permissions(self.user, [])
+        self.assertFalse(permissions.user_can_view_course(self.user, self.course_id))
+
+        id_token = {claim: [self.course_id] for claim in settings.COURSE_PERMISSIONS_CLAIMS}
+        EdXOpenIdConnect.auth_complete_signal.send(None, user=self.user, id_token=id_token)
+        self.assertTrue(permissions.user_can_view_course(self.user, self.course_id))
