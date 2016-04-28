@@ -182,9 +182,16 @@ class PermissionsTests(TestCase):
 
     def test_on_auth_complete(self):
         """ Verify the function receives the auth_complete_signal signal, and updates course permissions. """
+        # No initial permissions
         permissions.set_user_course_permissions(self.user, [])
         self.assertFalse(permissions.user_can_view_course(self.user, self.course_id))
 
+        # Permissions can be granted
         id_token = {claim: [self.course_id] for claim in settings.COURSE_PERMISSIONS_CLAIMS}
         EdXOpenIdConnect.auth_complete_signal.send(None, user=self.user, id_token=id_token)
         self.assertTrue(permissions.user_can_view_course(self.user, self.course_id))
+
+        # Permissions can be revoked
+        revoked_access_id_token = {claim: list() for claim in settings.COURSE_PERMISSIONS_CLAIMS}
+        EdXOpenIdConnect.auth_complete_signal.send(None, user=self.user, id_token=revoked_access_id_token)
+        self.assertFalse(permissions.user_can_view_course(self.user, self.course_id))
