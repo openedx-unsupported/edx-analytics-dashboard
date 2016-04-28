@@ -7,6 +7,7 @@
         path = require('path'),
         browserSync = require('browser-sync'),
         jscs = require('gulp-jscs'),
+        coveralls = require('gulp-coveralls'),
         extend = require('util')._extend,
         paths = {
             spec: [
@@ -48,6 +49,11 @@
             .pipe(jscs());
     });
 
+    gulp.task('coverage', function () {
+        return gulp.src('coverage/**/lcov.info')
+            .pipe(coveralls());
+    });
+
     // this task runs the tests.  It doesn't give you very detailed results,
     // so you may need to run the jasmine test page directly:
     //      http://127.0.0.1:8000/static/js/test/spec-runner.html
@@ -65,7 +71,7 @@
     });
 
     // these are the default tasks when you run gulp
-    gulp.task('default', ['test', 'lint']);
+    gulp.task('default', ['test', 'lint', 'coverage']);
 
     // type 'gulp watch' to continuously run linting and tests
     gulp.task('watch', function () {
