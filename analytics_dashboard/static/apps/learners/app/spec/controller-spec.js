@@ -9,9 +9,24 @@ define(function (require) {
 
     describe('LearnersController', function () {
         var courseId,
+            expectDetailPage,
+            expectRosterPage,
             server;
 
         courseId = 'test/course/id';
+
+        // convenience method for asserting that we are on the learner detail page
+        expectDetailPage = function (rootView, username) {
+            expect(rootView.$('.learner-detail-container')).toExist();
+            expect(rootView.$('.learners-header-region').html())
+                .toContainText('Learner Engagement for ' + username);
+        };
+
+        // convenience method for asserting that we are on the roster page
+        expectRosterPage = function (rootView) {
+            expect(rootView.$('.learner-roster')).toBeInDOM();
+            expect(rootView.$('.learners-header-region').html()).toContainText('Learners');
+        };
 
         beforeEach(function () {
             var collection,
@@ -58,8 +73,7 @@ define(function (require) {
 
         it('should show the learner roster page', function () {
             this.controller.showLearnerRosterPage();
-            expect(this.rootView.$('.learner-roster')).toBeInDOM();
-            expect(this.rootView.$('.learners-header-region').html()).toContainText('Learners');
+            expectRosterPage(this.rootView);
         });
 
         describe('navigating to the Learner Detail page', function () {
@@ -76,9 +90,7 @@ define(function (require) {
                     videos_viewed: 1
                 }]});
                 server.requests[server.requests.length - 1].respond(200, {}, engagementTimelineResponse);
-                expect(this.rootView.$('.learner-detail-container')).toExist();
-                expect(this.rootView.$('.learners-header-region').html())
-                    .toContainText('Learner Engagement for example-username');
+                expectDetailPage(this.rootView, 'example-username');
             });
 
             it('should handle AJAX errors', function (done) {
@@ -91,6 +103,22 @@ define(function (require) {
                     });
                 server.requests[server.requests.length - 1].respond(500, {}, '');
             });
+        });
+
+        it('should hide errors when navigating between pages', function () {
+            var rootView = this.rootView;
+            this.controller.showLearnerRosterPage();
+            expectRosterPage(rootView);
+            expect(rootView.$('[role="alert"]')).not.toExist();
+
+            this.controller.showLearnerDetailPage('example-username');
+            server.requests[server.requests.length - 1].respond(404, {});
+            expectDetailPage(this.rootView, 'example-username');
+            expect(rootView.$('[role="alert"]')).toExist();
+
+            this.controller.showLearnerRosterPage();
+            expectRosterPage(rootView);
+            expect(rootView.$('[role="alert"]')).not.toExist();
         });
 
         it('should show the not found page', function () {
