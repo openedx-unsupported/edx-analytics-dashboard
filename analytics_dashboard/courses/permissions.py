@@ -157,5 +157,4 @@ def on_auth_complete(sender, user, id_token, **kwargs):
     for name in settings.COURSE_PERMISSIONS_CLAIMS:
         if name in id_token:
             allowed_courses.update(id_token[name])
-            if allowed_courses:
-                set_user_course_permissions(user, allowed_courses)
+    set_user_course_permissions(user, allowed_courses)
