@@ -39,7 +39,7 @@ define(function (require) {
             }
         },
         createAlertView: function(collection) {
-            var hasSearch =  !_.isNull(collection.searchString) && collection.searchString !== '',
+            var hasSearch =  collection.hasActiveSearch(),
                 hasActiveFilter = !_.isEmpty(collection.getActiveFilterFields()),
                 suggestions = [],
                 noLearnersMessage,

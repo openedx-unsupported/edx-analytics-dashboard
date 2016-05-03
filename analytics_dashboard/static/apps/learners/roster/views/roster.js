@@ -11,6 +11,7 @@ define(function (require) {
     var _ = require('underscore'),
         Marionette = require('marionette'),
 
+        ActiveFiltersView = require('learners/roster/views/active-filters'),
         LearnerResultsView = require('learners/roster/views/results'),
         LearnerUtils = require('learners/common/utils'),
         RosterControlsView = require('learners/roster/views/controls'),
@@ -33,6 +34,7 @@ define(function (require) {
         template: _.template(rosterTemplate),
 
         regions: {
+            activeFilters: '.learners-active-filters',
             controls: '.learners-table-controls',
             results: '.learners-results'
         },
@@ -52,6 +54,9 @@ define(function (require) {
         },
 
         onBeforeShow: function () {
+            this.showChildView('activeFilters', new ActiveFiltersView({
+                collection: this.options.collection
+            }));
             this.showChildView('controls', new RosterControlsView({
                 collection: this.options.collection,
                 courseMetadata: this.options.courseMetadata
@@ -60,6 +65,12 @@ define(function (require) {
                 collection: this.options.collection,
                 courseMetadata: this.options.courseMetadata
             }));
+        },
+
+        templateHelpers: function () {
+            return {
+                controlsLabel: gettext('Learner roster controls')
+            };
         }
     });
 

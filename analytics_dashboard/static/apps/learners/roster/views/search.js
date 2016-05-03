@@ -24,15 +24,21 @@ define(function (require) {
         className: function () {
             return [Backgrid.Extension.ServerSideFilter.prototype.className, 'learners-search'].join(' ');
         },
+
         events: function () {
             return _.extend(Backgrid.Extension.ServerSideFilter.prototype.events, {'click .search': 'search'});
         },
+
         template: _.template(learnerSearchTemplate, null, {variable: null}),
+
         initialize: function (options) {
-            this.value = options.collection.searchString;
+            this.options = options || {};
+            this.listenTo(options.collection, 'sync', this.render);
             Backgrid.Extension.ServerSideFilter.prototype.initialize.call(this, options);
         },
+
         render: function () {
+            this.value = this.options.collection.getSearchString();
             this.$el.empty().append(this.template({
                 name: this.name,
                 placeholder: this.placeholder,
@@ -45,16 +51,21 @@ define(function (require) {
             this.delegateEvents();
             return this;
         },
-        search: function () {
-            Backgrid.Extension.ServerSideFilter.prototype.search.apply(this, arguments);
+
+        search: function (event) {
+            event.preventDefault();
             this.collection.setSearchString(this.searchBox().val().trim());
+            this.collection.refresh();
             this.resetFocus();
         },
-        clear: function () {
-            Backgrid.Extension.ServerSideFilter.prototype.clear.apply(this, arguments);
+
+        clear: function (event) {
+            event.preventDefault();
             this.collection.unsetSearchString();
+            this.collection.refresh();
             this.resetFocus();
         },
+
         resetFocus: function () {
             $('#learner-app-focusable').focus();
         }

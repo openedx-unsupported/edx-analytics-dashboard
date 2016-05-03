@@ -24,6 +24,12 @@ define(function (require) {
             return eventsHash;
         },
 
+        // It is assumed that there can never be a filter with an empty
+        // name, therefore it's safe to use the empty string as a
+        // property in this object.  The API interprets this as "all
+        // students, unfiltered".
+        catchAllFilterValue: '',
+
         className: 'learners-filter',
 
         template: _.template(filterTemplate),
@@ -47,6 +53,7 @@ define(function (require) {
         initialize: function (options) {
             this.options = options || {};
             _.bind(this.onSelectFilter, this);
+            this.listenTo(this.options.collection, 'sync', this.render);
         },
 
         templateHelpers: function () {
@@ -56,8 +63,7 @@ define(function (require) {
             // 'displayName' is the user-facing representation of the filter
             // which combines the filter with the number of users belonging to
             // it.
-            var catchAllFilterValue,
-                filterValues,
+            var filterValues,
                 selectedFilterValue;
             filterValues = _.chain(this.options.filterValues)
                 .pairs()
@@ -81,13 +87,8 @@ define(function (require) {
                 .value();
 
             if (filterValues.length) {
-                // It is assumed that there can never be a filter with an empty
-                // name, therefore it's safe to use the empty string as a
-                // property in this object.  The API interprets this as "all
-                // students, unfiltered".
-                catchAllFilterValue = '';
                 filterValues.unshift({
-                    name: catchAllFilterValue,
+                    name: this.catchAllFilterValue,
                     // Translators: "All" refers to viewing all the learners in a course.
                     displayName: gettext('All')
                 });
@@ -97,7 +98,7 @@ define(function (require) {
                     .pluck('name')
                     .intersection(this.options.collection.getActiveFilterFields())
                     .first()
-                    .value() || catchAllFilterValue;
+                    .value() || this.catchAllFilterValue;
                 _.findWhere(filterValues, {name: selectedFilterValue}).selected = true;
             }
 
@@ -110,14 +111,18 @@ define(function (require) {
 
         onSelectFilter: function (event) {
             // Sends a request to the server for the filtered learner list.
+            var selectedOption = $(event.currentTarget).find('option:selected'),
+                selectedFilterValue = selectedOption.val(),
+                filterWasUnset = selectedFilterValue === this.catchAllFilterValue;
             event.preventDefault();
-            this.collection.setFilterField(
-                this.options.filterKey,
-                $(event.currentTarget).find('option:selected').val()
-            );
+            if (filterWasUnset) {
+                this.collection.unsetFilterField(this.options.filterKey);
+            } else {
+                this.collection.setFilterField(this.options.filterKey, selectedFilterValue);
+            }
             this.collection.refresh();
             this.triggerMethod('setFocusToTop');
-        }
+        },
     });
 
     return Filter;

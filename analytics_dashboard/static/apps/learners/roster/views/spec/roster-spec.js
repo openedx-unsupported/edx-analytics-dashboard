@@ -470,6 +470,20 @@ define(function (require) {
                 }));
             });
 
+            it('renders itself whenever the collection changes', function () {
+                var rosterView = getRosterView({courseMetadataModel: this.courseMetadata}),
+                    searchString = 'search string';
+                executeSearch(searchString);
+                expect(getLastRequestParams()).toEqual(jasmine.objectContaining({
+                    text_search: searchString
+                }));
+                expect(rosterView.$('#search-learners')).toHaveValue(searchString);
+                rosterView.options.collection.unsetSearchString();
+                rosterView.options.collection.refresh();
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
+                expect(rosterView.$('#search-learners')).toHaveValue('');
+            });
+
             it('can clear the search with the clear link', function () {
                 var searchString = 'search string';
                 getRosterView();
@@ -625,6 +639,15 @@ define(function (require) {
                     expectCanFilterBy(this.filterFieldName, '');
                 });
 
+                it('renders itself whenever the collection changes', function () {
+                    var rosterView = getRosterView({courseMetadataModel: this.courseMetadata});
+                    expectCanFilterBy(this.filterFieldName, this.firstFilterOption);
+                    rosterView.collection.unsetAllFilterFields();
+                    rosterView.collection.refresh();
+                    getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
+                    expect(rosterView.$('select option:selected')).toHaveValue('');
+                });
+
                 it('handles server errors', function () {
                     var rosterView = getRosterView({courseMetadataModel: this.courseMetadata});
                     spyOn(rosterView, 'trigger');
@@ -643,6 +666,167 @@ define(function (require) {
                         rosterView.$('select').val(this.firstFilterOption);
                         rosterView.$('select').change();
                     }.bind(this));
+                });
+            });
+
+        });
+
+        describe('active filters', function () {
+            var expectActiveFilters,
+                expectNoActiveFilters;
+
+            expectNoActiveFilters = function (rosterView) {
+                expect(rosterView.$('#active-filters-title')).not.toExist();
+                expect(rosterView.$('.action-clear-all-filters')).not.toExist();
+            };
+
+            expectActiveFilters = function (rosterView, options) {
+                var activeFiltersTitle = rosterView.$('#active-filters-title'),
+                    clearAllButton = rosterView.$('.action-clear-all-filters'),
+                    activeFilters = rosterView.$('.active-filters'),
+                    activeSearch = activeFilters.find('.filter-text_search'),
+                    activeCohort = activeFilters.find('.filter-cohort'),
+                    activeEnrollmentTrack = activeFilters.find('.filter-enrollment_mode'),
+                    removeFilterText = 'Click to remove this filter';
+
+                expect(activeFiltersTitle).toExist();
+                expect(activeFilters.find('.filter').length).toEqual(_.keys(options).length);
+                expect(clearAllButton).toExist();
+
+                if (options.search) {
+                    expect(activeSearch).toContainText('"' + options.search + '"');
+                    expect(activeSearch.find('.sr-only')).toContainText(removeFilterText);
+                } else {
+                    expect(activeSearch).not.toExist();
+                }
+
+                if (options.cohort) {
+                    expect(activeCohort).toContainText('Cohort: ' + options.cohort);
+                    expect(activeCohort.find('.sr-only')).toContainText(removeFilterText);
+                } else {
+                    expect(activeCohort).not.toExist();
+                }
+
+                if (options.enrollmentTrack) {
+                    expect(activeEnrollmentTrack).toContainText('Enrollment Track: ' + options.enrollmentTrack);
+                    expect(activeEnrollmentTrack.find('.sr-only')).toContainText(removeFilterText);
+                } else {
+                    expect(activeEnrollmentTrack).not.toExist();
+                }
+            };
+
+            it('does not render when there are no active filters', function () {
+                expectNoActiveFilters(getRosterView());
+            });
+
+            it('renders a search filter', function () {
+                var rosterView = getRosterView();
+                rosterView.options.collection.setSearchString('hello, world');
+                rosterView.options.collection.refresh();
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
+                expectActiveFilters(rosterView, {search: 'hello, world'});
+            });
+
+            it('renders a cohort filter', function () {
+                var rosterView = getRosterView();
+                rosterView.options.collection.setFilterField('cohort', 'labrador');
+                rosterView.options.collection.refresh();
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
+                expectActiveFilters(rosterView, {cohort: 'labrador'});
+            });
+
+            it('renders an enrollment track filter', function () {
+                var rosterView = getRosterView();
+                rosterView.options.collection.setFilterField('enrollment_mode', 'honor');
+                rosterView.options.collection.refresh();
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
+                expectActiveFilters(rosterView, {enrollmentTrack: 'honor'});
+            });
+
+            it('renders multiple filters', function () {
+                var rosterView = getRosterView();
+                rosterView.options.collection.setSearchString('foo');
+                rosterView.options.collection.setFilterField('cohort', 'labrador');
+                rosterView.options.collection.setFilterField('enrollment_mode', 'honor');
+                rosterView.options.collection.refresh();
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
+                expectActiveFilters(rosterView, {
+                    search: 'foo',
+                    cohort: 'labrador',
+                    enrollmentTrack: 'honor'
+                });
+            });
+
+            it('can clear a search', function () {
+                var rosterView = getRosterView();
+                rosterView.options.collection.setFilterField('cohort', 'labrador');
+                rosterView.options.collection.setSearchString('foo');
+                rosterView.options.collection.refresh();
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
+                expectActiveFilters(rosterView, {
+                    search: 'foo',
+                    cohort: 'labrador'
+                });
+                rosterView.$('.active-filters .filter-text_search .action-clear-filter').click();
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
+                expect(rosterView.options.collection.hasActiveSearch()).toBe(false);
+                expectActiveFilters(rosterView, {cohort: 'labrador'});
+            });
+
+            it('can clear a filter', function () {
+                var rosterView = getRosterView();
+                rosterView.options.collection.setFilterField('cohort', 'labrador');
+                rosterView.options.collection.setSearchString('foo');
+                rosterView.options.collection.refresh();
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
+                expectActiveFilters(rosterView, {
+                    search: 'foo',
+                    cohort: 'labrador'
+                });
+                rosterView.$('.active-filters .filter-cohort .action-clear-filter').click();
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
+                expectActiveFilters(rosterView, {search: 'foo'});
+                expect(rosterView.collection.getFilterFieldValue('cohort')).not.toBe('labrador');
+            });
+
+            it('can clear all the filters', function () {
+                var rosterView = getRosterView();
+                rosterView.options.collection.setSearchString('foo');
+                rosterView.options.collection.setFilterField('cohort', 'labrador');
+                rosterView.options.collection.setFilterField('enrollment_mode', 'honor');
+                rosterView.options.collection.refresh();
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
+                expectActiveFilters(rosterView, {
+                    search: 'foo',
+                    cohort: 'labrador',
+                    enrollmentTrack: 'honor'
+                });
+                rosterView.$('.action-clear-all-filters').click();
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
+                expectNoActiveFilters(rosterView);
+            });
+
+            it('handles server errors', function () {
+                var rosterView = getRosterView({courseMetadataModel: this.courseMetadata});
+                spyOn(rosterView, 'trigger');
+                rosterView.options.collection.setFilterField('cohort', 'labrador');
+                rosterView.options.collection.refresh();
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
+                rosterView.$('.active-filters .filter-cohort .action-clear-filter').click();
+                verifyErrorHandling(
+                    rosterView,
+                    500,
+                    'Server error: your request could not be processed. Reload the page to try again.'
+                );
+            });
+
+            it('handles network errors', function () {
+                var rosterView = getRosterView({courseMetadataModel: this.courseMetadata});
+                rosterView.options.collection.setFilterField('cohort', 'labrador');
+                rosterView.options.collection.refresh();
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
+                testTimeout(rosterView, function () {
+                    rosterView.$('.active-filters .filter-cohort .action-clear-filter').click();
                 });
             });
         });
