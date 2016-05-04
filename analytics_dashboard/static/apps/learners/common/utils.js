@@ -82,16 +82,16 @@ define(function (require) {  // jshint ignore:line
              */
             serverErrorToAppError: function (status) {
                 if (status === 504) {
-                    return [
-                        'appError',
+                    return ['appError', {
                         // Translators: "504" is a number representing a server error, so please leave it as "504".
-                        gettext('504: Server error: processing your request took too long to complete. Reload the page to try again.') // jshint ignore:line
-                    ];
+                        title: gettext('504: Server error'),
+                        description: gettext('Processing your request took too long to complete. Reload the page to try again.') // jshint ignore:line
+                    }];
                 } else {
-                    return [
-                        'appError',
-                        gettext('Server error: your request could not be processed. Reload the page to try again.')
-                    ];
+                    return ['appError', {
+                        title: gettext('Server error'),
+                        description: gettext('Your request could not be processed. Reload the page to try again.')
+                    }];
                 }
             },
 
@@ -100,10 +100,10 @@ define(function (require) {  // jshint ignore:line
              * handleAjaxFailure) to an application error.
              */
             networkErrorToAppError: function () {
-                return [
-                    'appError',
-                    gettext('Network error: your request could not be processed. Reload the page to try again.')
-                ];
+                return ['appError', {
+                    title: gettext('Network error'),
+                    description: gettext('Your request could not be processed. Reload the page to try again.')
+                }];
             },
 
             /**

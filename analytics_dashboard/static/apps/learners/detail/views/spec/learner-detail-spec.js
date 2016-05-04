@@ -27,26 +27,53 @@ define(function (require) {
             expect(detailView.$('.learner-engagement-timeline')).toExist();
         });
 
-        it('renders a learner engagement timeline', function () {
-            var engagementTimelineModel,
-                detailView;
+        describe('managing the engagement timeline', function () {
+            var server;
 
-            engagementTimelineModel = new EngagementTimelineModel({
-                days: [{
-                    date: '2016-01-01',
-                    discussions_contributed: 1,
-                    problems_attempted: 1,
-                    problems_completed: 1,
-                    videos_viewed: 1
-                }]
+            beforeEach(function () {
+                server = sinon.fakeServer.create();
             });
-            detailView = new LearnerDetailView({
-                engagementTimelineModel: engagementTimelineModel,
-                el: fixtureClass
+
+            afterEach(function () {
+                server.restore();
             });
-            detailView.render().onBeforeShow();
-            expect(detailView.$('.loading-container')).not.toExist();
-            expect(detailView.$('.learner-engagement-timeline')).toExist();
+
+            it('renders a timeline', function () {
+                var engagementTimelineModel,
+                    detailView;
+
+                engagementTimelineModel = new EngagementTimelineModel({
+                    days: [{
+                        date: '2016-01-01',
+                        discussions_contributed: 1,
+                        problems_attempted: 1,
+                        problems_completed: 1,
+                        videos_viewed: 1
+                    }]
+                });
+                detailView = new LearnerDetailView({
+                    engagementTimelineModel: engagementTimelineModel,
+                    el: fixtureClass
+                });
+                detailView.render().onBeforeShow();
+                expect(detailView.$('.loading-container')).not.toExist();
+                expect(detailView.$('.learner-engagement-timeline')).toExist();
+            });
+
+            it('handles 404s from the timeline endpoint', function () {
+                var engagementTimelineModel,
+                    detailView;
+                engagementTimelineModel = new EngagementTimelineModel();
+                detailView = new LearnerDetailView({
+                    engagementTimelineModel: engagementTimelineModel,
+                    el: fixtureClass
+                });
+                detailView.render().onBeforeShow();
+                engagementTimelineModel.fetch();
+                spyOn(detailView, 'triggerMethod');
+                server.requests[server.requests.length - 1].respond(404, {}, '');
+                expect(detailView.triggerMethod).toHaveBeenCalledWith('appWarning', jasmine.any(Object));
+            });
         });
     });
 });

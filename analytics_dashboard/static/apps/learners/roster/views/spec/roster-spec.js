@@ -76,15 +76,18 @@ define(function (require) {
             jasmine.clock().tick(2);
             expect(rosterView.trigger).toHaveBeenCalledWith(
                 'appError',
-                'Network error: your request could not be processed. Reload the page to try again.'
+                {
+                    title: 'Network error',
+                    description: 'Your request could not be processed. Reload the page to try again.'
+                }
             );
             jasmine.clock().uninstall();
             $.ajaxSetup(ajaxSetup);
         };
 
-        verifyErrorHandling = function (rosterView, status, expectedMessage) {
+        verifyErrorHandling = function (rosterView, status) {
             getLastRequest().respond(status, {}, '');
-            expect(rosterView.trigger).toHaveBeenCalledWith('appError', expectedMessage);
+            expect(rosterView.trigger).toHaveBeenCalledWith('appError', jasmine.any(Object));
         };
 
         executeSearch = function (searchString) {
@@ -320,11 +323,9 @@ define(function (require) {
             it('handles server errors', function () {
                 spyOn(this.rosterView, 'trigger');
                 clickSortingHeader('username');
-                verifyErrorHandling(
-                    this.rosterView, 500, 'Server error: your request could not be processed. Reload the page to try again.' // jshint ignore:line
-                );
+                verifyErrorHandling(this.rosterView, 500);
                 clickSortingHeader('username');
-                verifyErrorHandling(this.rosterView, 504, '504: Server error: processing your request took too long to complete. Reload the page to try again.'); // jshint ignore:line
+                verifyErrorHandling(this.rosterView, 504);
             });
 
             it('handles network errors', function () {
@@ -421,16 +422,14 @@ define(function (require) {
                 var rosterView = createTwoPageRoster();
                 spyOn(rosterView, 'trigger');
                 clickPagingControl('Next');
-                verifyErrorHandling(rosterView, 504, '504: Server error: processing your request took too long to complete. Reload the page to try again.'); // jshint ignore:line
+                verifyErrorHandling(rosterView, 504);
             });
 
             it('handles server errors', function () {
                 var rosterView = createTwoPageRoster();
                 spyOn(rosterView, 'trigger');
                 clickPagingControl('Next');
-                verifyErrorHandling(
-                    rosterView, 500, 'Server error: your request could not be processed. Reload the page to try again.' // jshint ignore:line
-                );
+                verifyErrorHandling(rosterView, 500);
             });
 
             it('handles network errors', function () {
@@ -508,11 +507,9 @@ define(function (require) {
                 var rosterView = getRosterView();
                 spyOn(rosterView, 'trigger');
                 executeSearch('test search');
-                verifyErrorHandling(rosterView, 504, '504: Server error: processing your request took too long to complete. Reload the page to try again.'); // jshint ignore:line
+                verifyErrorHandling(rosterView, 504);
                 executeSearch('test search');
-                verifyErrorHandling(
-                    rosterView, 500, 'Server error: your request could not be processed. Reload the page to try again.' // jshint ignore:line
-                );
+                verifyErrorHandling(rosterView, 500);
             });
 
             it('handles network errors', function () {
@@ -653,11 +650,7 @@ define(function (require) {
                     spyOn(rosterView, 'trigger');
                     rosterView.$('select').val(this.firstFilterOption);
                     rosterView.$('select').change();
-                    verifyErrorHandling(
-                        rosterView,
-                        500,
-                        'Server error: your request could not be processed. Reload the page to try again.'
-                    );
+                    verifyErrorHandling(rosterView, 500);
                 });
 
                 it('handles network errors', function () {
@@ -813,11 +806,7 @@ define(function (require) {
                 rosterView.options.collection.refresh();
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
                 rosterView.$('.active-filters .filter-cohort .action-clear-filter').click();
-                verifyErrorHandling(
-                    rosterView,
-                    500,
-                    'Server error: your request could not be processed. Reload the page to try again.'
-                );
+                verifyErrorHandling(rosterView, 500);
             });
 
             it('handles network errors', function () {
