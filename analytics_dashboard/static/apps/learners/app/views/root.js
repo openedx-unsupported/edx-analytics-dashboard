@@ -17,13 +17,14 @@ define(function (require) {
         template: _.template(rootTemplate),
 
         regions: {
-            error: '.learners-error-region',
+            alert: '.learners-alert-region',
             header: '.learners-header-region',
             main: '.learners-main-region'
         },
 
         childEvents: {
             appError: 'onAppError',
+            appWarning: 'onAppWarning',
             clearError: 'onClearError',
             setFocusToTop: 'onSetFocusToTop'
         },
@@ -42,19 +43,43 @@ define(function (require) {
             }));
         },
 
-        onAppError: function (childView, errorMessage) {
-            this.showChildView('error', new AlertView({
-                alertType: 'error',
-                title: errorMessage
-            }));
+        onAppError: function (childView, options) {
+            this.showAlert('error', options.title, options.description);
+        },
+
+        onAppWarning: function (childView, options) {
+            this.showAlert('info', options.title, options.description);
         },
 
         onClearError: function () {
-            this.getRegion('error').empty();
+            this.hideAlert();
         },
 
         onSetFocusToTop: function () {
             this.$('#learner-app-focusable').focus();
+        },
+
+        /**
+         * Renders an alert view.
+         *
+         * @param {string} type - the type of alert that should be shown.  Alert
+         * types are defined in the AlertView module.
+         * @param {string} title - the title of the alert.
+         * @param {string} description - the description of the alert.
+         */
+        showAlert: function (type, title, description) {
+            this.showChildView('alert', new AlertView({
+                alertType: type,
+                title: title,
+                body: description
+            }));
+        },
+
+        /**
+         * Hides the alert view, if active.
+         */
+        hideAlert: function () {
+            this.getRegion('alert').empty();
         }
     });
 

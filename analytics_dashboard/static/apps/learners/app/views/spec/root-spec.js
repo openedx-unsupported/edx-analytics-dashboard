@@ -32,13 +32,13 @@ define(function (require) {
             expect(this.rootView.$('.learners-header-region').html()).toContainText('February 28, 2016');
         });
 
-        it('renders and clears errors', function () {
+        it('renders and clears alerts', function () {
             var childView = new Marionette.View();
             this.rootView.showChildView('main', childView);
-            childView.triggerMethod('appError', 'This is the error copy');
-            expect(this.rootView.$('.learners-error-region')).toHaveText('This is the error copy');
+            childView.triggerMethod('appError', {title: 'This is the error copy'});
+            expect(this.rootView.$('.learners-alert-region')).toHaveText('This is the error copy');
             this.rootView.triggerMethod('clearError', 'This is the error copy');
-            expect(this.rootView.$('.learners-error-region')).not.toHaveText('This is the error copy');
+            expect(this.rootView.$('.learners-alert-region')).not.toHaveText('This is the error copy');
         });
 
         it('sets focus on setFocusToTop events', function () {

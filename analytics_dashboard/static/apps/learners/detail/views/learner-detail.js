@@ -14,23 +14,27 @@ define(function (require) {
 
     LearnerDetailView = Marionette.LayoutView.extend({
         className: 'learner-detail-container',
+
         template: _.template(learnerDetailTemplate),
+
         regions: {
             engagementTimeline: '.learner-engagement-timeline-container'
         },
+
         initialize: function (options) {
             Marionette.LayoutView.prototype.initialize.call(this, options);
             this.options = options || {};
-
             LearnerUtils.mapEvents(this.options.engagementTimelineModel, {
-                serverError: LearnerUtils.EventTransformers.serverErrorToAppError,
+                serverError: this.serverErrorToAppError,
                 networkError: LearnerUtils.EventTransformers.networkErrorToAppError,
                 sync: LearnerUtils.EventTransformers.syncToClearError
             }, this);
         },
-        onAppError: function () {
+
+        onAppWarning: function () {
             this.removeRegion('engagementTimeline');
         },
+
         onBeforeShow: function () {
             var timelineModel = this.options.engagementTimelineModel,
                 timelineView = new LearnerEngagementTimelineView({
@@ -48,6 +52,17 @@ define(function (require) {
             }
 
             this.showChildView('engagementTimeline', mainView);
+        },
+
+        serverErrorToAppError: function (status) {
+            if (status === 404) {
+                return ['appWarning', {
+                    title: gettext('No course activity data is available for this learner.'),
+                    description: gettext('Check back daily for up-to-date data.')
+                }];
+            } else {
+                return LearnerUtils.EventTransformers.serverErrorToAppError(status);
+            }
         }
     });
 
