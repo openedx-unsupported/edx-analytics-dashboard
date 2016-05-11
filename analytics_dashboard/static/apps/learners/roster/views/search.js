@@ -54,14 +54,22 @@ define(function (require) {
 
         search: function (event) {
             event.preventDefault();
-            this.collection.setSearchString(this.searchBox().val().trim());
-            this.collection.refresh();
-            this.resetFocus();
+            var searchString = this.searchBox().val().trim();
+            if (searchString === '') {
+                this.collection.unsetSearchString();
+            } else {
+                this.collection.setSearchString(searchString);
+            }
+            this.execute();
         },
 
         clear: function (event) {
             event.preventDefault();
             this.collection.unsetSearchString();
+            this.execute();
+        },
+
+        execute: function () {
             this.collection.refresh();
             this.resetFocus();
         },

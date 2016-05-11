@@ -494,13 +494,16 @@ define(function (require) {
             });
 
             it('can clear the search by searching the empty string', function () {
-                var searchString = 'search string';
-                getRosterView();
+                var rosterView, searchString;
+                searchString = 'search string';
+                rosterView = getRosterView();
                 executeSearch(searchString);
                 expectSearchedFor(searchString);
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(1, 1)));
                 executeSearch('');
+                expect(rosterView.options.collection.getSearchString()).toBeNull();
                 expect(getLastRequestParams().text_search).toBeUndefined();
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(1, 1)));
             });
 
             it('handles server errors', function () {
