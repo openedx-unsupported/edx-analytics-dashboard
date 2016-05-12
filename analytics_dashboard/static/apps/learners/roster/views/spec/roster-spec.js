@@ -494,7 +494,8 @@ define(function (require) {
             });
 
             it('can clear the search by searching the empty string', function () {
-                var rosterView, searchString;
+                var rosterView,
+                    searchString;
                 searchString = 'search string';
                 rosterView = getRosterView();
                 executeSearch(searchString);
