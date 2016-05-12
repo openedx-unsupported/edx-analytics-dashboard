@@ -2,6 +2,9 @@
 
 git clone https://github.com/edx/edx-analytics-data-api.git
 cd edx-analytics-data-api
-pip install -q -r requirements/base.txt
+virtualenv venv
+source venv/bin/activate
+make requirements
 make test.install_elasticsearch
+deactivate
 cd -

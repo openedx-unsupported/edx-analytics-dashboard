@@ -26,7 +26,10 @@ make migrate
 
 echo "Preparing Analytics Data API..."
 cd edx-analytics-data-api/
-make travis
+source venv/bin/activate
+DJANGO_SETTINGS_MODULE="analyticsdataserver.settings.local" make develop
+DJANGO_SETTINGS_MODULE="analyticsdataserver.settings.local" make travis
+deactivate
 cd -
 mkdir -p logs
 
