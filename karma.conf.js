@@ -27,7 +27,6 @@ module.exports = function (config) {
             {pattern: 'analytics_dashboard/static/apps/**/*.underscore', included: false},
             'analytics_dashboard/static/js/config.js',
             'analytics_dashboard/static/js/test/spec-runner.js',
-            './node_modules/phantomjs-polyfill/bind-polyfill.js',
         ],
 
         exclude: [
