@@ -52,15 +52,16 @@ details on utilizing features in code and templates.
 
 The following switches are available:
 
-| Switch                         | Purpose                                               |
-|--------------------------------|-------------------------------------------------------|
-| show_engagement_forum_activity | Show the forum activity on the course engagement page |
-| enable_course_api              | Retrieve course details from the course API           |
-| enable_ccx_courses             | Display CCX Courses in the course listing page.       |
-| enable_engagement_videos_pages | Enable engagement video pages.                        |
-| enable_video_preview           | Enable video preview.                                 |
-| display_names_for_course_index | Display course names on course index page.            |
-| display_course_name_in_nav     | Display course name in navigation bar.                |
+| Switch                               | Purpose                                               |
+|--------------------------------------|-------------------------------------------------------|
+| show_engagement_forum_activity       | Show the forum activity on the course engagement page |
+| enable_course_api                    | Retrieve course details from the course API           |
+| enable_ccx_courses                   | Display CCX Courses in the course listing page.       |
+| enable_engagement_videos_pages       | Enable engagement video pages.                        |
+| enable_video_preview                 | Enable video preview.                                 |
+| display_names_for_course_index       | Display course names on course index page.            |
+| display_course_name_in_nav           | Display course name in navigation bar.                |
+| enable_performance_learning_outcome  | Enable performance section with learning outcome breakdown (functionality based on tagging questions in Studio) | 
 
 [Waffle](http://waffle.readthedocs.org/en/latest/) flags are used to disable/enable
 functionality on request (e.g. turning on beta functionality for superusers). Create a

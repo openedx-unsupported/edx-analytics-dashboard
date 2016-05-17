@@ -34,6 +34,8 @@ class CourseStructureFactory(object):
         }
     ]
 
+    _count_of_problems = 4
+
     def __init__(self):
         self._structure = {}
         self._assignments = []
@@ -51,9 +53,14 @@ class CourseStructureFactory(object):
     def course_id(self, course_id):
         self._course_id = course_id
 
+    def _get_block_id(self, block_type, block_format=None, display_name=None,  # pylint: disable=unused-argument
+                      graded=True, children=None):                             # pylint: disable=unused-argument
+        return uuid.uuid4().hex
+
     def _generate_block(self, block_type, block_format=None, display_name=None, graded=True, children=None):
         return {
-            'id': 'i4x://edX/DemoX/{}/{}'.format(block_type, uuid.uuid4().hex),
+            'id': 'i4x://edX/DemoX/{}/{}'.format(block_type, self._get_block_id(block_type, block_format, display_name,
+                                                                                graded, children)),
             'display_name': display_name,
             'graded': graded,
             'format': block_format,
@@ -97,7 +104,7 @@ class CourseStructureFactory(object):
                 graded_children = []
 
                 # Generate the graded children
-                for problem_index in range(1, 4):
+                for problem_index in range(1, self._count_of_problems):
                     problem = self._generate_subsection_children(assignment_type, display_name, problem_index, True)
                     graded_children.append(problem['id'])
 

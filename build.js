@@ -71,6 +71,14 @@
         {
             name: 'apps/learners/app/app',
             exclude: ['js/common']
+        },
+        {
+            name: 'js/performance-learning-outcomes-content-main',
+            exclude: ['js/common']
+        },
+        {
+            name: 'js/performance-learning-outcomes-section-main',
+            exclude: ['js/common']
         }
     ]
 });

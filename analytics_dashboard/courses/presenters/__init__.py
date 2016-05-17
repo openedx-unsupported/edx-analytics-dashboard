@@ -1,4 +1,5 @@
 import abc
+from collections import OrderedDict
 import datetime
 import logging
 
@@ -66,7 +67,6 @@ class CourseAPIPresenterMixin(object):
         """ Retrieves course structure from the course API. """
         key = self.get_cache_key('structure')
         structure = cache.get(key)
-
         if not structure:
             logger.debug('Retrieving structure for course: %s', self.course_id)
             structure = self.course_api_client.course_structures(self.course_id).get()
@@ -188,7 +188,7 @@ class CourseAPIPresenterMixin(object):
             module_data = self.fetch_course_module_data()
 
             # Create a lookup table so that submission data can be quickly retrieved by downstream consumers.
-            table = {}
+            table = OrderedDict()
             last_updated = datetime.datetime.min
 
             for datum in module_data:
@@ -221,7 +221,7 @@ class CourseAPIPresenterMixin(object):
             module_data = self._course_module_data()
         except BaseCourseError as e:
             logger.warning(e)
-            module_data = {}
+            module_data = OrderedDict()
 
         for parent_block in parent_blocks:
             parent_block['num_modules'] = len(parent_block['children'])
