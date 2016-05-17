@@ -4,6 +4,7 @@ define(function (require) {
     var $ = require('jquery'),
         Backbone = require('backbone'),
         Marionette = require('marionette'),
+        NProgress = require('nprogress'),
 
         CourseMetadataModel = require('learners/common/models/course-metadata'),
         LearnerCollection = require('learners/common/collections/learners'),
@@ -87,6 +88,11 @@ define(function (require) {
             }
 
             Backbone.history.start();
+
+            // Loading progress bar via nprogress
+            NProgress.configure({ showSpinner: false });
+            $(document).ajaxStart(function () { NProgress.start(); });
+            $(document).ajaxStop(function () { NProgress.done(); });
         }
     });
 

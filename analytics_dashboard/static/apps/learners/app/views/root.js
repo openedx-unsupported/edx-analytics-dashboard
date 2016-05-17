@@ -31,10 +31,6 @@ define(function (require) {
 
         initialize: function (options) {
             this.options = options || {};
-
-            // clear error message whenever the main section changes (e.g. detail
-            // or roster pages shown)
-            this.getRegion('main').on('before:show', this.onClearError.bind(this));
         },
 
         onRender: function () {

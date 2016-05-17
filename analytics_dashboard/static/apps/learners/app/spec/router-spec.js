@@ -2,20 +2,23 @@ define(function (require) {
     'use strict';
 
     var Backbone = require('backbone'),
+        Marionette = require('marionette'),
 
         LearnersRouter = require('learners/app/router');
 
     describe('LearnersRouter', function () {
         beforeEach(function () {
             Backbone.history.start({silent: true});
-            this.controller = {
+            this.controller = new (Marionette.Object.extend({
                 showLearnerRosterPage: function () {},
                 showLearnerDetailPage: function () {},
-                showNotFoundPage: function () {}
-            };
+                showNotFoundPage: function () {},
+                onShowPage: function () {}
+            }))();
             spyOn(this.controller, 'showLearnerRosterPage');
             spyOn(this.controller, 'showLearnerDetailPage');
             spyOn(this.controller, 'showNotFoundPage');
+            spyOn(this.controller, 'onShowPage');
             this.router = new LearnersRouter({
                 controller: this.controller
             });
@@ -25,6 +28,13 @@ define(function (require) {
             // Clear previous route
             this.router.navigate('');
             Backbone.history.stop();
+        });
+
+        it('triggers a showPage event for pages beginning with "show"', function () {
+            this.router.navigate('foo', {trigger: true});
+            expect(this.controller.onShowPage).toHaveBeenCalled();
+            this.router.navigate('/', {trigger: true});
+            expect(this.controller.onShowPage).toHaveBeenCalled();
         });
 
         describe('showLearnerRosterPage', function () {
