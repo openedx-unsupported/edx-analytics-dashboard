@@ -1,1 +1,18 @@
+<section class="learner-summary-container">
+    <div class="row">
+        <div class="col-sm-3 col-xs-6 learner-names" />
+        <% _.each(['learner-enrollment', 'learner-cohort', 'learner-accessed'], function(learnerClass) { %>
+            <div class="col-sm-3 col-xs-6 <%- learnerClass %>"></div>
+        <% }); %>
+    </div>
+</section>
+
+<div class="section-heading bordered fake-tab">
+    <h4 class="section-title"><%- engagement %></h4>
+    <span class="section-heading-note small learner-email"></span>
+</div>
+
+<div class="section-heading">
+    <h4 class="section-title"><%- activity %></h4>
+</div>
 <div class="learner-engagement-timeline-container"></div>

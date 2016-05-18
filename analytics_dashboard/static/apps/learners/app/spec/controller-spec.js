@@ -18,10 +18,11 @@ define(function (require) {
         courseId = 'test/course/id';
 
         // convenience method for asserting that we are on the learner detail page
-        expectDetailPage = function (rootView, username) {
+        expectDetailPage = function (rootView) {
             expect(rootView.$('.learner-detail-container')).toExist();
+            expect(rootView.$('.learner-summary-container')).toExist();
             expect(rootView.$('.learners-header-region').html())
-                .toContainText('Learner Engagement for ' + username);
+                .toContainText('Learner Details');
         };
 
         // convenience method for asserting that we are on the roster page
@@ -64,7 +65,8 @@ define(function (require) {
                 learnerCollection: collection,
                 courseMetadata: new CourseMetadataModel(),
                 pageModel: pageModel,
-                learnerEngagementTimelineUrl: '/test-endpoint/',
+                learnerEngagementTimelineUrl: '/test-engagement-endpoint/',
+                learnerListUrl: '/test-learner-endpoint/',
                 courseId: courseId
             });
         });
@@ -92,17 +94,17 @@ define(function (require) {
                     videos_viewed: 1
                 }]});
                 server.requests[server.requests.length - 1].respond(200, {}, engagementTimelineResponse);
-                expectDetailPage(this.rootView, 'example-username');
+                expectDetailPage(this.rootView);
             });
 
             it('should handle AJAX errors', function (done) {
-                var rootView = this.rootView;
-                this.controller.showLearnerDetailPage('example-username')
-                    .always(function () {
-                        expect(rootView.$('.learner-detail-container')).toExist();
-                        expect(rootView.$('[role="alert"]')).toExist();
-                        done();
-                    });
+                var view = this.controller.showLearnerDetailPage('example-username');
+
+                view.on('appError', function (options) {
+                    expect(options.title).toBe('Server error');
+                    done();
+                });
+
                 server.requests[server.requests.length - 1].respond(500, {}, '');
             });
         });
@@ -113,18 +115,16 @@ define(function (require) {
         describe('showPage event', function () {
             it('renders the loading bar', function () {
                 jasmine.clock().install();
-
                 expect($('#nprogress')).not.toExist();
                 this.controller.triggerMethod('showPage');
                 expect($('#nprogress')).toExist();
-
                 jasmine.clock().uninstall();
             });
 
-            it('hides errors', function () {
+            it('hides app-wide errors', function () {
                 this.controller.showLearnerDetailPage('example-username');
-                server.requests[server.requests.length - 1].respond(404, {});
-                expectDetailPage(this.rootView, 'example-username');
+                server.requests[server.requests.length - 1].respond(500, {});
+                expectDetailPage(this.rootView);
                 expect(this.rootView.$('[role="alert"]')).toExist();
                 this.controller.triggerMethod('showPage');
                 expect(this.rootView.$('[role="alert"]')).not.toExist();
@@ -133,7 +133,7 @@ define(function (require) {
 
         it('should show the not found page', function () {
             this.controller.showNotFoundPage();
-            expect(this.rootView.$el.html()).toContainText('Sorry, we couldn\'t find the page you\'re looking for.');
+            expect(this.rootView.$el.html()).toContainText("Sorry, we couldn't find the page you're looking for.");  // jshint ignore:line
         });
     });
 });

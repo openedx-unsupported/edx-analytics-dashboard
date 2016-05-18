@@ -74,7 +74,8 @@ define(function (require) {
                     courseMetadata: courseMetadata,
                     pageModel:  pageModel,
                     rootView: rootView,
-                    learnerEngagementTimelineUrl: this.options.learnerEngagementTimelineUrl
+                    learnerEngagementTimelineUrl: this.options.learnerEngagementTimelineUrl,
+                    learnerListUrl: this.options.learnerListUrl,
                 })
             });
 

@@ -1,7 +1,8 @@
 define(function (require) {
     'use strict';
 
-    var Backbone = require('backbone'),
+    var _ = require('underscore'),
+        Backbone = require('backbone'),
 
         LearnerUtils = require('learners/common/utils'),
 
@@ -42,6 +43,13 @@ define(function (require) {
             parsedResponse.enrollment_date = response.enrollment_date ? new Date(response.enrollment_date) : null;
             parsedResponse.last_updated = response.last_updated ? new Date(response.last_updated) : null;
             return parsedResponse;
+        },
+
+        /**
+         * Returns true if the username has been set.  False otherwise.
+         */
+        hasData: function () {
+            return !_(this.get('username')).isEmpty();
         }
     });
 
