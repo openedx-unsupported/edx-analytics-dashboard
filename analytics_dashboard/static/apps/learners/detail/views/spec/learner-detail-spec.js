@@ -2,7 +2,9 @@ define(function (require) {
     'use strict';
 
     var EngagementTimelineModel = require('learners/common/models/engagement-timeline'),
-        LearnerDetailView = require('learners/detail/views/learner-detail');
+        LearnerDetailView = require('learners/detail/views/learner-detail'),
+        LearnerModel = require('learners/common/models/learner'),
+        Utils = require('utils/utils');
 
     describe('LearnerDetailView', function () {
         var fixtureClass = '.learner-detail-fixture';
@@ -14,6 +16,7 @@ define(function (require) {
         it('renders a loading view first', function () {
             var engagementTimelineModel = new EngagementTimelineModel(),
                 detailView = new LearnerDetailView({
+                    learnerModel: new LearnerModel(),
                     engagementTimelineModel: engagementTimelineModel,
                     el: fixtureClass
                 });
@@ -52,12 +55,16 @@ define(function (require) {
                     }]
                 });
                 detailView = new LearnerDetailView({
+                    learnerModel: new LearnerModel(),
                     engagementTimelineModel: engagementTimelineModel,
                     el: fixtureClass
                 });
                 detailView.render().onBeforeShow();
                 expect(detailView.$('.loading-container')).not.toExist();
                 expect(detailView.$('.learner-engagement-timeline')).toExist();
+                expect(detailView.$('.learner-accessed')).toContainText(
+                    Utils.formatDate(_(engagementTimelineModel.get('days')).last().date)
+                );
             });
 
             it('handles 404s from the timeline endpoint', function () {
@@ -65,15 +72,74 @@ define(function (require) {
                     detailView;
                 engagementTimelineModel = new EngagementTimelineModel();
                 detailView = new LearnerDetailView({
+                    learnerModel: new LearnerModel(),
                     engagementTimelineModel: engagementTimelineModel,
                     el: fixtureClass
                 });
                 detailView.render().onBeforeShow();
                 engagementTimelineModel.fetch();
-                spyOn(detailView, 'triggerMethod');
                 server.requests[server.requests.length - 1].respond(404, {}, '');
-                expect(detailView.triggerMethod).toHaveBeenCalledWith('appWarning', jasmine.any(Object));
+                expect(detailView.$('[role="alert"]')).toExist();
             });
         });
+
+        describe('basic user profile', function () {
+            var learnerModel,
+                server;
+
+            beforeEach(function () {
+                server = sinon.fakeServer.create();
+                learnerModel = new LearnerModel({
+                    course_id: 'test/course/1',
+                    username: 'dummy-user'
+                });
+                learnerModel.urlRoot = 'test-endpoint';
+            });
+
+            afterEach(function () {
+                server.restore();
+            });
+
+            it('renders the profile', function () {
+                var detailView = new LearnerDetailView({
+                    learnerModel: learnerModel,
+                    engagementTimelineModel: new EngagementTimelineModel(),
+                    el: fixtureClass
+                });
+
+                learnerModel.set({
+                    name: 'Spider Plant',
+                    email: 'spider@plant.com',
+                    enrollment_mode: 'honor',
+                    cohort: 'Shade Tolerant'
+                });
+
+                detailView.render().onBeforeShow();
+                expect(detailView.$('.learner-username')).toContainText('dummy-user');
+                expect(detailView.$('.learner-name')).toContainText('Spider Plant');
+                expect(detailView.$('.learner-enrollment')).toContainText('honor');
+                expect(detailView.$('.learner-cohort')).toContainText('Shade Tolerant');
+                expect(detailView.$('.learner-accessed')).toContainText('n/a');
+                expect(detailView.$('.learner-email')).toContainText('spider@plant.com');
+            });
+
+            it('handles 404s from the learner endpoint', function () {
+                var detailView;
+
+                detailView = new LearnerDetailView({
+                    learnerModel: learnerModel,
+                    engagementTimelineModel: new EngagementTimelineModel(),
+                    el: fixtureClass
+                });
+
+                detailView.render().onBeforeShow();
+                learnerModel.fetch();
+                spyOn(detailView, 'triggerMethod');
+                server.requests[server.requests.length - 1].respond(404, {}, '');
+                expect(detailView.triggerMethod)
+                    .toHaveBeenCalledWith('learnerUnavailable', jasmine.any(Object));
+            });
+        });
+
     });
 });

@@ -43,5 +43,14 @@ define(function (require) {
             }))({username: 'daniel', course_id: 'edX/DemoX/Demo_Course'});
             expect(learner.url()).toEqual('/other-endpoint/daniel?course_id=edX%2FDemoX%2FDemo_Course');
         });
+
+        it('should use username to determine if data is available', function () {
+            var learner = new LearnerModel();
+            expect(learner.hasData()).toBe(false);
+
+            learner.set('username', 'spiderman');
+            expect(learner.hasData()).toBe(true);
+        });
+
     });
 });

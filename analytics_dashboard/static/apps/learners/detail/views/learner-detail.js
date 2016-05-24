@@ -4,20 +4,38 @@ define(function (require) {
     var _ = require('underscore'),
         Marionette = require('marionette'),
 
-        LearnerEngagementTimelineView = require('learners/detail/views/engagement-timeline'),
         LearnerUtils = require('learners/common/utils'),
+        Utils = require('utils/utils'),
+
+        AlertView = require('learners/common/views/alert-view'),
+        LearnerEmailView = require('learners/detail/views/learner-email'),
+        LearnerEngagementTimelineView = require('learners/detail/views/engagement-timeline'),
+        LearnerNameView = require('learners/detail/views/learner-names'),
+        LearnerSummaryFieldView = require('learners/detail/views/learner-summary-field'),
         LoadingView = require('learners/common/views/loading-view'),
         chartLoadingTemplate = require('text!learners/detail/templates/chart-loading.underscore'),
-        learnerDetailTemplate = require('text!learners/detail/templates/learner-detail.underscore'),
+        learnerDetailTemplate = require('text!learners/detail/templates/learner-detail.underscore');
 
-        LearnerDetailView;
-
-    LearnerDetailView = Marionette.LayoutView.extend({
+    return Marionette.LayoutView.extend({
         className: 'learner-detail-container',
 
         template: _.template(learnerDetailTemplate),
 
+        templateHelpers: function () {
+            return {
+                // Translators: e.g. Student engagement
+                engagement: gettext('Engagement'),
+                activity: gettext('Activity')
+            };
+        },
+
         regions: {
+            learnerSummary: '.learner-summary-container',
+            learnerEmail: '.learner-email',
+            names: '.learner-names',
+            enrollment: '.learner-enrollment',
+            cohort: '.learner-cohort',
+            accessed: '.learner-accessed',
             engagementTimeline: '.learner-engagement-timeline-container'
         },
 
@@ -25,25 +43,30 @@ define(function (require) {
             Marionette.LayoutView.prototype.initialize.call(this, options);
             this.options = options || {};
             LearnerUtils.mapEvents(this.options.engagementTimelineModel, {
-                serverError: this.serverErrorToAppError,
+                serverError: this.timelineServerErrorToAppError,
                 networkError: LearnerUtils.EventTransformers.networkErrorToAppError,
                 sync: LearnerUtils.EventTransformers.syncToClearError
             }, this);
-        },
+            this.listenTo(this, 'engagementTimelineUnavailable', this.showTimelineUnavailable);
 
-        onAppWarning: function () {
-            this.removeRegion('engagementTimeline');
+            LearnerUtils.mapEvents(this.options.learnerModel, {
+                serverError: this.learnerServerErrorToAppError,
+                networkError: LearnerUtils.EventTransformers.networkErrorToAppError,
+                sync: LearnerUtils.EventTransformers.syncToClearError
+            }, this);
+            this.listenTo(this, 'learnerUnavailable', this.showLearnerUnavailable);
         },
 
         onBeforeShow: function () {
-            var timelineModel = this.options.engagementTimelineModel,
+            var learnerModel = this.options.learnerModel,
+                timelineModel = this.options.engagementTimelineModel,
                 timelineView = new LearnerEngagementTimelineView({
                     model: timelineModel
                 }),
                 mainView = timelineView;
 
             if (!timelineModel.hasData()) {
-                // instead of showing the timeline direction, show a loading view
+                // instead of showing the timeline directly, show a loading view
                 mainView = new LoadingView({
                     model: timelineModel,
                     template: _.template(chartLoadingTemplate),
@@ -51,20 +74,78 @@ define(function (require) {
                 });
             }
 
+            this.showChildView('learnerEmail', new LearnerEmailView({
+                model: learnerModel
+            }));
+
+            this.showChildView('names', new LearnerNameView({
+                model: learnerModel
+            }));
+
+            this.showChildView('enrollment', new LearnerSummaryFieldView({
+                model: learnerModel,
+                modelAttribute: 'enrollment_mode',
+                fieldDisplayName: 'Enrollment'
+            }));
+
+            this.showChildView('cohort', new LearnerSummaryFieldView({
+                model: learnerModel,
+                modelAttribute: 'cohort',
+                fieldDisplayName: 'Cohort'
+            }));
+            this.showChildView('accessed', new LearnerSummaryFieldView({
+                model: timelineModel,
+                modelAttribute: 'days',
+                fieldDisplayName: 'Last Accessed',
+                valueFormatter: function (days) {
+                    // Translators: 'n/a' means 'not available'
+                    return days.length ? Utils.formatDate(_(days).last().date) : gettext('n/a');
+                }
+            }));
+
             this.showChildView('engagementTimeline', mainView);
         },
 
-        serverErrorToAppError: function (status) {
+        showLearnerUnavailable: function (options) {
+            this.showUnavailable('learnerSummary', options);
+        },
+
+        showTimelineUnavailable: function (options) {
+            this.showUnavailable('engagementTimeline', options);
+        },
+
+        showUnavailable: function (region, options) {
+            this.showChildView(region, new AlertView({
+                alertType: 'info',
+                title: options.title,
+                body: options.description
+            }));
+        },
+
+        serverErrorToAppError: function (status, unavailableError) {
             if (status === 404) {
-                return ['appWarning', {
-                    title: gettext('No course activity data is available for this learner.'),
+                return [unavailableError.errorType, {
+                    title: unavailableError.title,
                     description: gettext('Check back daily for up-to-date data.')
                 }];
             } else {
                 return LearnerUtils.EventTransformers.serverErrorToAppError(status);
             }
-        }
-    });
+        },
 
-    return LearnerDetailView;
+        timelineServerErrorToAppError: function (status) {
+            return this.serverErrorToAppError(status, {
+                errorType: 'engagementTimelineUnavailable',
+                title: gettext('No course activity data is available for this learner.')
+            });
+        },
+
+        learnerServerErrorToAppError: function (status) {
+            return this.serverErrorToAppError(status, {
+                errorType: 'learnerUnavailable',
+                title: gettext('No learner data is available.')
+            });
+        }
+
+    });
 });

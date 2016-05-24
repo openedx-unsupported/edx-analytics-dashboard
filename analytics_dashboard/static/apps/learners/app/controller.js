@@ -15,6 +15,7 @@ define(function (require) {
 
         EngagementTimelineModel = require('learners/common/models/engagement-timeline'),
         LearnerDetailView = require('learners/detail/views/learner-detail'),
+        LearnerModel = require('learners/common/models/learner'),
         LearnerRosterView = require('learners/roster/views/roster'),
 
         LearnersController;
@@ -47,43 +48,68 @@ define(function (require) {
         },
 
         showLearnerRosterPage: function () {
-            this.options.pageModel.set('title', gettext('Learners'));
-            this.onLearnerCollectionUpdated(this.options.learnerCollection);
-            this.options.rootView.showChildView('main', new LearnerRosterView({
+            var rosterView = new LearnerRosterView({
                 collection: this.options.learnerCollection,
                 courseMetadata: this.options.courseMetadata
-            }));
+            });
+
+            this.options.pageModel.set('title', gettext('Learners'));
+            this.onLearnerCollectionUpdated(this.options.learnerCollection);
+            this.options.rootView.showChildView('main', rosterView);
+
+            return rosterView;
         },
 
         /**
          * Render the learner detail page assuming the learner model fetch
          * succeeds.
-         *
-         * @returns a jqXHR representing the learner engagement model fetch.
          */
         showLearnerDetailPage: function (username) {
             var engagementTimelineModel = new EngagementTimelineModel({}, {
                     url: this.options.learnerEngagementTimelineUrl.replace('temporary_username', username),
                     courseId: this.options.courseId
                 }),
-                titleTemplate = _.template(gettext('Learner Engagement for <%- user %>'));
+                learnerModel = this.options.learnerCollection.get(username) || new LearnerModel(),
+                detailView;
 
             this.options.pageModel.set({
-                title: titleTemplate({user: username}),
+                title: gettext('Learner Details'),
                 lastUpdated: undefined
             });
-            this.options.rootView.showChildView('main', new LearnerDetailView({
+
+            detailView = new LearnerDetailView({
+                learnerModel: learnerModel,
                 engagementTimelineModel: engagementTimelineModel
-            }));
-            return engagementTimelineModel.fetch();
+            });
+            this.options.rootView.showChildView('main', detailView);
+
+            // fetch data is the model is empty
+            if (!learnerModel.hasData()) {
+                learnerModel.urlRoot = this.options.learnerListUrl;
+                learnerModel.set({
+                    course_id: this.options.courseId,
+                    username: username
+                })
+                .fetch();
+            }
+
+            engagementTimelineModel.fetch();
+
+            return detailView;
         },
 
         showNotFoundPage: function () {
             // TODO: Implement this page in https://openedx.atlassian.net/browse/AN-6697
-            var message = gettext("Sorry, we couldn't find the page you're looking for.");  // jshint ignore:line
-            this.options.rootView.showChildView('main', new (Backbone.View.extend({
-                render: function () {this.$el.text(message); return this;}
-            }))());
+            var message = gettext("Sorry, we couldn't find the page you're looking for."),  // jshint ignore:line
+                notFoundView;
+
+            notFoundView = new (Backbone.View.extend({
+                render: function () {
+                    this.$el.text(message);
+                    return this;
+                }
+            }))();
+            this.options.rootView.showChildView('main', notFoundView);
         }
     });
 

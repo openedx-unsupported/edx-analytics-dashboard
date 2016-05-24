@@ -1,0 +1,6 @@
+<% if (!_(email).isEmpty()) { %>
+    <a href="mailto:<%- email %>">
+        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+        <%- email %>
+    </a>
+<% } %>
