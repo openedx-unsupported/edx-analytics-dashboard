@@ -53,11 +53,6 @@ class LearnerAPITestMixin(UserTestCaseMixin, PermissionsTestMixin, SwitchMixin):
         response = self.client.get('/api/learner_analytics/v0' + self.endpoint, self.required_query_params)
         self.assert_response_equals(response, self.no_permissions_status_code)
 
-    def test_feature_flagged_off(self):
-        self.toggle_switch('enable_learner_analytics', False)
-        response = self.client.get('/api/learner_analytics/v0' + self.endpoint, self.required_query_params)
-        self.assertEqual(response.status_code, 404)
-
     @mock.patch('learner_analytics_api.v0.clients.LearnerApiResource._request', mock.Mock(side_effect=ConnectTimeout))
     def test_timeout(self):
         self.login()
