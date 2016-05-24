@@ -3,15 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Edder Antonio León Hernández <e.solid007@gmail.com>, 2016
 # Felix Antonio Valdez Noverola <felix@itesm.mx>, 2015
+# Guillermo Valle Mendoza <gvamen@hotmail.com>, 2016
 # Mecabotware <mecabotware.ideas@gmail.com>, 2015
 # Valeria Susarrey Rios <v_a_l_e_r_y@hotmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-18 14:58-0500\n"
-"PO-Revision-Date: 2015-11-18 20:05+0000\n"
+"POT-Creation-Date: 2016-05-24 14:25-0400\n"
+"PO-Revision-Date: 2016-05-24 18:28+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Spanish (Mexico) (http://www.transifex.com/open-edx/edx-platform/language/es_MX/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +28,7 @@ msgstr "Acceso"
 
 #: core/templates/core/landing.html
 msgid "Insights to help course teams improve courses."
-msgstr ""
+msgstr "Sugerencias para ayudar a los equipos a mejorar los cursos"
 
 #: core/templates/core/landing.html courses/views/__init__.py
 msgid "Who are my students?"
@@ -41,11 +43,11 @@ msgstr "Enfoca tu curso para ajustarse al trasfondo de tus estudiantes."
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/__init__.py
 msgid "Enrollment"
-msgstr ""
+msgstr "Inscripción"
 
 #: core/templates/core/landing.html
 msgid "What are students engaging with in my course?"
-msgstr ""
+msgstr "¿Cuáles son las cosas que interesan a los estudiantes en mi curso?"
 
 #: core/templates/core/landing.html
 msgid ""
@@ -61,11 +63,12 @@ msgstr ""
 
 #: core/templates/core/landing.html
 msgid "How well is my content supporting student learning?"
-msgstr ""
+msgstr "¿Qué tan bien apoya el aprendizaje del estudiante mi contenido?"
 
 #: core/templates/core/landing.html
 msgid "Adjust your course based on where students are struggling."
 msgstr ""
+"Ajustar el curso basándose en donde los estudiantes tienen complicaciones "
 
 #: core/templates/core/landing.html
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
@@ -818,6 +821,11 @@ msgid ""
 "%(application_name)s. Send us feedback at %(email_link)s."
 msgstr ""
 
+#: courses/templates/courses/learners.html courses/views/__init__.py
+#: courses/views/__init__.py courses/views/learners.py
+msgid "Learners"
+msgstr ""
+
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
 msgid "How did students answer this problem?"
@@ -995,6 +1003,18 @@ msgstr ""
 msgid "How are students doing on graded course assignments?"
 msgstr ""
 
+#: courses/views/__init__.py
+msgid "What are individual learners doing?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Who is engaged? Who isn't?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "All Learners"
+msgstr ""
+
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: courses/views/__init__.py
@@ -1155,6 +1175,14 @@ msgstr ""
 msgid "Problem Name"
 msgstr "nombre del problema"
 
+#: settings/base.py
+msgid "Terms of Service"
+msgstr "Términos de Servicio"
+
+#: settings/base.py
+msgid "Privacy Policy"
+msgstr "Políticas de Privacidad"
+
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
 msgstr ""
@@ -1225,14 +1253,6 @@ msgid ""
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
 msgstr ""
-
-#: templates/footer.html
-msgid "Terms of Service"
-msgstr "Términos de Servicio"
-
-#: templates/footer.html
-msgid "Privacy Policy"
-msgstr "Políticas de Privacidad"
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html

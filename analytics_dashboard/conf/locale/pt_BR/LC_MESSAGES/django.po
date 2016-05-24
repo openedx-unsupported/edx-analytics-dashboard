@@ -17,6 +17,7 @@
 # Gislene Kucker Arantes <gislene.trad@gmail.com>, 2015
 # Icaro Seara <ikro89@gmail.com>, 2015
 # Jamille Raiza Menezes de Sousa <mille_sousa16@hotmail.com>, 2014
+# José Rodrigues <jrsf19@gmail.com>, 2016
 # Leonardo Flores Zambaldi <fzleonardo@gmail.com>, 2014
 # Lex Pontes <alexsandropontes@gmail.com>, 2015
 # Marcelo Rosa <marcelomapr@gmail.com>, 2015
@@ -26,14 +27,15 @@
 # Monica Farias <monifar.tp@gmail.com>, 2015-2016
 # Pedro Guimarães Martins <pedrogmartins7@gmail.com>, 2014
 # Renata Barboza-Murray, 2015-2016
+# Sergio Silva <sergiohrs@gmail.com>, 2016
 # Thiago Freitas Da Ponte <thiagoponte@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-18 14:58-0500\n"
-"PO-Revision-Date: 2016-02-13 16:15+0000\n"
-"Last-Translator: Fabio Eis <fabio@fabioeis.com>\n"
+"POT-Creation-Date: 2016-05-24 14:25-0400\n"
+"PO-Revision-Date: 2016-05-24 18:47+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/open-edx/edx-platform/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -138,7 +140,7 @@ msgstr "{statistic}%"
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: courses/presenters/engagement.py
 msgid "{percentage} of current students"
-msgstr "{percentage} de alunos atuais"
+msgstr ""
 
 #: courses/presenters/enrollment.py
 msgid "Female"
@@ -897,6 +899,11 @@ msgstr ""
 "Clique Ajuda no canto superior direito para obter mais informação sobre "
 "%(application_name)s. Envie seus comentários para %(email_link)s."
 
+#: courses/templates/courses/learners.html courses/views/__init__.py
+#: courses/views/__init__.py courses/views/learners.py
+msgid "Learners"
+msgstr "Estudantes"
+
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
 msgid "How did students answer this problem?"
@@ -1091,6 +1098,18 @@ msgstr "Como os alunos estão indo nas tarefas do curso?"
 msgid "How are students doing on graded course assignments?"
 msgstr "Como os alunos estão indo nas tarefas avaliadas do curso?"
 
+#: courses/views/__init__.py
+msgid "What are individual learners doing?"
+msgstr "O que os estudantes individuais estão fazendo?"
+
+#: courses/views/__init__.py
+msgid "Who is engaged? Who isn't?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "All Learners"
+msgstr "Todos os estudantes"
+
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: courses/views/__init__.py
@@ -1265,6 +1284,14 @@ msgstr "Conteúdo avaliado: %(assignment_type)s"
 msgid "Problem Name"
 msgstr "Nome da questão"
 
+#: settings/base.py
+msgid "Terms of Service"
+msgstr "Termos de Serviço"
+
+#: settings/base.py
+msgid "Privacy Policy"
+msgstr "Política de Privacidade"
+
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
 msgstr "Acesso negado"
@@ -1346,14 +1373,6 @@ msgstr ""
 "Queremos que esse painel de controle funcione para você! Precisa de ajuda? "
 "%(support_link_start)sContate a equipe de suporte do "
 "curso%(support_link_end)s. Comentários ou sugestões? E-mail %(email_link)s."
-
-#: templates/footer.html
-msgid "Terms of Service"
-msgstr "Termos de Serviço"
-
-#: templates/footer.html
-msgid "Privacy Policy"
-msgstr "Política de Privacidade"
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html

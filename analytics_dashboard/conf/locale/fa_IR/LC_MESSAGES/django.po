@@ -5,6 +5,7 @@
 # Translators:
 # Abbas Sharifi Tabar <abbas.sharifi@gmail.com>, 2015
 # Ali Taheri <beingalitaheri@gmail.com>, 2015
+# e rezaei <rezaeiphd@gmail.com>, 2016
 # Mohammad Dashtizadeh <mohammad@dashtizadeh.net>, 2015
 # Reyhaneh Nikoo <reyhaneh.nikoo@gmail.com>, 2015
 # Sina Shirinpour <sshirinpoor@gmail.com>, 2015
@@ -12,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-18 14:58-0500\n"
-"PO-Revision-Date: 2015-12-07 10:57+0000\n"
-"Last-Translator: Abbas Sharifi Tabar <abbas.sharifi@gmail.com>\n"
+"POT-Creation-Date: 2016-05-24 14:25-0400\n"
+"PO-Revision-Date: 2016-05-24 18:28+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Persian (Iran) (http://www.transifex.com/open-edx/edx-platform/language/fa_IR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,7 +62,7 @@ msgstr ""
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/__init__.py
 msgid "Engagement"
-msgstr ""
+msgstr "درگیرسازی"
 
 #: core/templates/core/landing.html
 msgid "How well is my content supporting student learning?"
@@ -545,7 +546,7 @@ msgstr ""
 #. verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Verified Enrollment"
-msgstr ""
+msgstr "ثبت نام تایید شده"
 
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course on the verified track.
@@ -566,7 +567,7 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_age.html
 #: courses/views/__init__.py
 msgid "How old are my students?"
-msgstr ""
+msgstr "دانشجویان من چند سالشان است."
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -708,16 +709,16 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geographic Distribution"
-msgstr ""
+msgstr "توزیع جغرافیایی"
 
 #: courses/templates/courses/enrollment_geography.html
 #: courses/views/__init__.py
 msgid "Where are my students?"
-msgstr ""
+msgstr "دانشجویان من اهل کجا هستند؟"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Enrollment by Country"
-msgstr ""
+msgstr "ثبت نام با کشور"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geography Metrics"
@@ -823,6 +824,11 @@ msgstr ""
 msgid ""
 "Click Help in the upper-right corner to get more information about "
 "%(application_name)s. Send us feedback at %(email_link)s."
+msgstr ""
+
+#: courses/templates/courses/learners.html courses/views/__init__.py
+#: courses/views/__init__.py courses/views/learners.py
+msgid "Learners"
 msgstr ""
 
 #: courses/templates/courses/performance_answer_distribution.html
@@ -1002,6 +1008,18 @@ msgstr ""
 msgid "How are students doing on graded course assignments?"
 msgstr ""
 
+#: courses/views/__init__.py
+msgid "What are individual learners doing?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Who is engaged? Who isn't?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "All Learners"
+msgstr ""
+
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: courses/views/__init__.py
@@ -1162,6 +1180,14 @@ msgstr ""
 msgid "Problem Name"
 msgstr "نام مشکلات"
 
+#: settings/base.py
+msgid "Terms of Service"
+msgstr "شرایط استفاده از سرویس"
+
+#: settings/base.py
+msgid "Privacy Policy"
+msgstr "سیاست حفظ حریم خصوصی"
+
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
 msgstr ""
@@ -1230,14 +1256,6 @@ msgid ""
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
 msgstr ""
-
-#: templates/footer.html
-msgid "Terms of Service"
-msgstr "شرایط استفاده از سرویس"
-
-#: templates/footer.html
-msgid "Privacy Policy"
-msgstr "سیاست حفظ حریم خصوصی"
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html

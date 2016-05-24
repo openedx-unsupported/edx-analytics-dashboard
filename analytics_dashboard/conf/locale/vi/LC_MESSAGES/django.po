@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Daniel PHAM <anhem2012@gmail.com>, 2016
 # Duong Nguyen <supermanikin@yahoo.com>, 2015
 # Hoang Ha <halink0803@gmail.com>, 2015
 # huynt <huynt57@gmail.com>, 2014
@@ -10,14 +11,14 @@
 # NGUYEN HOANG AN <neyugn2909@gmail.com>, 2014
 # Son La <thanhson.la310@gmail.com>, 2015
 # Ton Nu Quy Thien <thien.tonnu1001@gmail.com>, 2016
-# Trung Nguyen <trung.ngvan@gmail.com>, 2015-2016
+# Trung V. Nguyen <trung.ngvan@gmail.com>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-18 14:58-0500\n"
-"PO-Revision-Date: 2016-01-28 06:09+0000\n"
-"Last-Translator: Ton Nu Quy Thien <thien.tonnu1001@gmail.com>\n"
+"POT-Creation-Date: 2016-05-24 14:25-0400\n"
+"PO-Revision-Date: 2016-05-24 18:28+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/open-edx/edx-platform/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -126,7 +127,7 @@ msgstr "{statistic}%"
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: courses/presenters/engagement.py
 msgid "{percentage} of current students"
-msgstr ""
+msgstr "{percentage} của số học viên hiện tại"
 
 #: courses/presenters/enrollment.py
 msgid "Female"
@@ -851,7 +852,7 @@ msgstr "Thông tin cơ bản cho khóa học"
 #. course.
 #: courses/templates/courses/home.html
 msgid "External Tools"
-msgstr ""
+msgstr "Những công cụ bên ngoài"
 
 #: courses/templates/courses/index.html
 msgid "Courses"
@@ -879,6 +880,11 @@ msgid ""
 msgstr ""
 "Ấn  trợ giúp ở góc trên bên phải để biết thêm thông tin về  "
 "%(application_name)s. Gửi phản hồi cho chúng tôi tại %(email_link)s."
+
+#: courses/templates/courses/learners.html courses/views/__init__.py
+#: courses/views/__init__.py courses/views/learners.py
+msgid "Learners"
+msgstr ""
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
@@ -1076,6 +1082,18 @@ msgstr "Học viên đang làm bài tập khóa học như thế nào?"
 msgid "How are students doing on graded course assignments?"
 msgstr "Học viên đang làm như thế nào trong các bài tập đã chấm?"
 
+#: courses/views/__init__.py
+msgid "What are individual learners doing?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Who is engaged? Who isn't?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "All Learners"
+msgstr ""
+
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: courses/views/__init__.py
@@ -1099,7 +1117,7 @@ msgstr "Kết thúc"
 #. Translators: This refers to a course that has not yet begun.
 #: courses/views/__init__.py
 msgid "Not Started Yet"
-msgstr ""
+msgstr "Chưa bắt đầu"
 
 #: courses/views/__init__.py
 msgid "Start Date"
@@ -1107,7 +1125,7 @@ msgstr "Ngày bắt đầu"
 
 #: courses/views/__init__.py
 msgid "End Date"
-msgstr ""
+msgstr "Ngày kết thúc"
 
 #: courses/views/__init__.py
 msgid "Status"
@@ -1248,6 +1266,14 @@ msgstr "Nội dung đã chấm: %(assignment_type)s"
 msgid "Problem Name"
 msgstr "Tên Câu Hỏi"
 
+#: settings/base.py
+msgid "Terms of Service"
+msgstr "Điều khoản sử dụng"
+
+#: settings/base.py
+msgid "Privacy Policy"
+msgstr "Chính sách bảo mật"
+
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
 msgstr "Không Thể Truy Cập"
@@ -1327,14 +1353,6 @@ msgstr ""
 "Chúng tôi muốn bảng điều khiển phù hợp với bạn! Cần sự trợ giúp "
 "%(support_link_start)sLiên hệ nhóm trợ giúp khóa học%(support_link_end)s. "
 "Bình luận hay gợi ý? Email %(email_link)s."
-
-#: templates/footer.html
-msgid "Terms of Service"
-msgstr "Điều khoản sử dụng"
-
-#: templates/footer.html
-msgid "Privacy Policy"
-msgstr "Chính sách bảo mật"
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html

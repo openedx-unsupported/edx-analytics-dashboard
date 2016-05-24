@@ -9,6 +9,7 @@
 # Tetiana Korshun, 2014
 # Zoriana Zaiats, 2015
 # Tetiana Korshun, 2014
+# Volodymyr Buberenko <v.buberenko@gmail.com>, 2016
 # Zoriana Zaiats, 2015
 # Юлия, 2015
 # Юлія <yuliachernyak9@gmail.com>, 2015
@@ -17,9 +18,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-18 14:58-0500\n"
-"PO-Revision-Date: 2016-02-26 17:03+0000\n"
-"Last-Translator: Яна Ловягина <yana.lovyagina@raccoongang.com>\n"
+"POT-Creation-Date: 2016-05-24 14:25-0400\n"
+"PO-Revision-Date: 2016-05-24 18:28+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/open-edx/edx-platform/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -442,6 +443,9 @@ msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
 "Click to understand where students drop off and which parts they replay."
 msgstr ""
+"Кожний з рядків показує кількість завершених та незавершених переглядів для "
+"цього відео. Клікніть для того, що зрозуміти де студенти втрачаються і які "
+"частини вони програють знову."
 
 #: courses/templates/courses/engagement_video_course.html
 #: courses/views/__init__.py
@@ -872,6 +876,11 @@ msgstr ""
 "інформації про  %(application_name)s. Надішліть нам свої враження на "
 "%(email_link)s."
 
+#: courses/templates/courses/learners.html courses/views/__init__.py
+#: courses/views/__init__.py courses/views/learners.py
+msgid "Learners"
+msgstr ""
+
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
 msgid "How did students answer this problem?"
@@ -1055,6 +1064,18 @@ msgstr "Як студенти справляються з завданням к�
 msgid "How are students doing on graded course assignments?"
 msgstr ""
 
+#: courses/views/__init__.py
+msgid "What are individual learners doing?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Who is engaged? Who isn't?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "All Learners"
+msgstr ""
+
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: courses/views/__init__.py
@@ -1227,6 +1248,14 @@ msgstr ""
 msgid "Problem Name"
 msgstr "Назва завдання"
 
+#: settings/base.py
+msgid "Terms of Service"
+msgstr "Умови надання послуг"
+
+#: settings/base.py
+msgid "Privacy Policy"
+msgstr "Політика конфіденційності"
+
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
 msgstr "У доступі відмовлено"
@@ -1298,14 +1327,6 @@ msgid ""
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
 msgstr ""
-
-#: templates/footer.html
-msgid "Terms of Service"
-msgstr "Умови надання послуг"
-
-#: templates/footer.html
-msgid "Privacy Policy"
-msgstr "Політика конфіденційності"
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html

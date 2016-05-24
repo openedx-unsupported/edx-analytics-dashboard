@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-18 14:58-0500\n"
-"PO-Revision-Date: 2015-11-18 20:00+0000\n"
+"POT-Creation-Date: 2016-05-24 14:25-0400\n"
+"PO-Revision-Date: 2016-05-24 18:28+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Catalan (Valencian) (http://www.transifex.com/open-edx/edx-platform/language/ca@valencia/)\n"
 "MIME-Version: 1.0\n"
@@ -39,7 +39,7 @@ msgstr ""
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/__init__.py
 msgid "Enrollment"
-msgstr ""
+msgstr "Inscripcions"
 
 #: core/templates/core/landing.html
 msgid "What are students engaging with in my course?"
@@ -55,7 +55,7 @@ msgstr ""
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/__init__.py
 msgid "Engagement"
-msgstr ""
+msgstr "Compromís"
 
 #: core/templates/core/landing.html
 msgid "How well is my content supporting student learning?"
@@ -321,7 +321,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_content.html courses/views/__init__.py
 msgid "How many students are interacting with my course?"
-msgstr ""
+msgstr "Quants estudiants hi han interactuant al meu curs?"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students"
@@ -339,27 +339,27 @@ msgstr ""
 
 #: courses/templates/courses/engagement_content.html
 msgid "Active Students Last Week"
-msgstr ""
+msgstr "Estudiants actius la setmana passada"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who visited at least one page in the course content."
-msgstr ""
+msgstr "Estudiants que visitaren al menys una pàgina del contingut del curs."
 
 #. Translators: This is a label indicating the number of students who watched
 #. a video.
 #: courses/templates/courses/engagement_content.html
 msgid "Watched a Video Last Week"
-msgstr ""
+msgstr "Que miraren un video la setmana passada"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who played one or more videos."
-msgstr ""
+msgstr "Estudiants que van vore un o més videos."
 
 #. Translators: This is a label indicating the number of students who tried a
 #. problem.
 #: courses/templates/courses/engagement_content.html
 msgid "Tried a Problem Last Week"
-msgstr ""
+msgstr "Que intentaren un Problema la setmana passada"
 
 #: courses/templates/courses/engagement_content.html
 msgid ""
@@ -479,7 +479,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
-msgstr ""
+msgstr "Inscripció diària d'estudiants"
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/views/__init__.py
@@ -816,6 +816,11 @@ msgid ""
 "%(application_name)s. Send us feedback at %(email_link)s."
 msgstr ""
 
+#: courses/templates/courses/learners.html courses/views/__init__.py
+#: courses/views/__init__.py courses/views/learners.py
+msgid "Learners"
+msgstr ""
+
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
 msgid "How did students answer this problem?"
@@ -932,7 +937,7 @@ msgstr ""
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Activity"
-msgstr ""
+msgstr "Activitat"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/__init__.py courses/views/__init__.py
@@ -943,7 +948,7 @@ msgstr ""
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Geography"
-msgstr ""
+msgstr "Geografia"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
@@ -964,7 +969,7 @@ msgstr ""
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Content"
-msgstr ""
+msgstr "Contingut"
 
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
@@ -991,6 +996,18 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "How are students doing on graded course assignments?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "What are individual learners doing?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Who is engaged? Who isn't?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "All Learners"
 msgstr ""
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
@@ -1090,7 +1107,7 @@ msgstr ""
 
 #: courses/views/enrollment.py
 msgid "Enrollment Activity"
-msgstr ""
+msgstr "Activitat d'inscripció"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1098,6 +1115,8 @@ msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
 msgstr ""
+"La data de la matrícula ha sigut actualitzada a %(update_date)s a "
+"%(update_time)s UTC."
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Age"
@@ -1113,7 +1132,7 @@ msgstr ""
 
 #: courses/views/enrollment.py
 msgid "Enrollment Geography"
-msgstr ""
+msgstr "Geografia d'inscripció"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1153,6 +1172,14 @@ msgstr ""
 msgid "Problem Name"
 msgstr ""
 
+#: settings/base.py
+msgid "Terms of Service"
+msgstr ""
+
+#: settings/base.py
+msgid "Privacy Policy"
+msgstr ""
+
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
 msgstr ""
@@ -1170,7 +1197,7 @@ msgstr ""
 
 #: templates/404.html templates/404.html.py
 msgid "Page Not Found"
-msgstr ""
+msgstr "No s'ha trobat la pàgina"
 
 #: templates/404.html
 msgid ""
@@ -1220,14 +1247,6 @@ msgid ""
 "We want this dashboard to work for you! Need help? "
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
-msgstr ""
-
-#: templates/footer.html
-msgid "Terms of Service"
-msgstr ""
-
-#: templates/footer.html
-msgid "Privacy Policy"
 msgstr ""
 
 #. Translators: The © symbol appears directly before this line.

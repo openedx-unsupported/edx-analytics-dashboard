@@ -19,9 +19,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-18 14:58-0500\n"
-"PO-Revision-Date: 2015-12-28 17:48+0000\n"
-"Last-Translator: ali selek <aliselek01@gmail.com>\n"
+"POT-Creation-Date: 2016-05-24 14:25-0400\n"
+"PO-Revision-Date: 2016-05-24 18:28+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/open-edx/edx-platform/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -877,6 +877,11 @@ msgstr ""
 "%(application_name)s hakkında daha fazla bilgi almak için sağ üst köşedeki Yardım'ı tıklatın.\n"
 "%(email_link)s konumunda bize geri bildirim gönderin."
 
+#: courses/templates/courses/learners.html courses/views/__init__.py
+#: courses/views/__init__.py courses/views/learners.py
+msgid "Learners"
+msgstr "Öğrenciler"
+
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
 msgid "How did students answer this problem?"
@@ -1070,6 +1075,18 @@ msgstr "Öğrenciler dersteki ödevlerini nasıl yapıyor?"
 msgid "How are students doing on graded course assignments?"
 msgstr "Öğrenciler notlandırılmış dersteki ödevlerini nasıl yapıyor?"
 
+#: courses/views/__init__.py
+msgid "What are individual learners doing?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Who is engaged? Who isn't?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "All Learners"
+msgstr ""
+
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: courses/views/__init__.py
@@ -1242,6 +1259,14 @@ msgstr "Puanlanmış İçerik: %(assignment_type)s"
 msgid "Problem Name"
 msgstr "Problem Adı"
 
+#: settings/base.py
+msgid "Terms of Service"
+msgstr "Kullanım Koşulları"
+
+#: settings/base.py
+msgid "Privacy Policy"
+msgstr "Gizlilik İlkeleri"
+
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
 msgstr "Erişim Engellendi"
@@ -1322,14 +1347,6 @@ msgstr ""
 "Bu panelin senin için çalışmasını istiyoruz! Yardıma mı ihtiyacın var? "
 "%(support_link_start)sDers ekip desteği ile iletişime "
 "geç%(support_link_end)s. Yorumlar ya da Öneriler? Eposta %(email_link)s."
-
-#: templates/footer.html
-msgid "Terms of Service"
-msgstr "Kullanım Koşulları"
-
-#: templates/footer.html
-msgid "Privacy Policy"
-msgstr "Gizlilik İlkeleri"
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html

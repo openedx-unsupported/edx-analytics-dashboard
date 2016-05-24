@@ -5,9 +5,13 @@
 # Translators:
 # Cristian Salamea <ovnicraft@gmail.com>, 2014-2015
 # Elias Estay <eestay@u.uchile.cl>, 2015
+# Jesus Villela <jav512289@gmail.com>, 2016
 # Juan Camilo Montoya Franco <juan.montoya@edunext.co>, 2015
 # Juan Camilo Montoya Franco <juan.montoya@edunext.co>, 2014
 # Juan Fernando Villa <elite.linux@gmail.com>, 2015
+# Laura Silva <lingison@edx.org>, 2016
+# Leonel Atencio <leo.atencio@gmail.com>, 2016
+# miriam lee <mimibaari+coursera@gmail.com>, 2016
 # Moira Zamora <mmzamora85@hotmail.com>, 2015
 # UAbierta Universidad de Chile <uabierta@u.uchile.cl>, 2015
 # Valeria Freire <valtodopds@hotmail.com>, 2015
@@ -15,15 +19,394 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-18 14:58-0500\n"
-"PO-Revision-Date: 2015-11-27 18:48+0000\n"
-"Last-Translator: Cristian Salamea <ovnicraft@gmail.com>\n"
+"POT-Creation-Date: 2016-05-24 14:25-0400\n"
+"PO-Revision-Date: 2016-05-24 18:34+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Spanish (Latin America) (http://www.transifex.com/open-edx/edx-platform/language/es_419/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es_419\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
+msgid "Learners"
+msgstr "Estudiantes"
+
+#: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
+msgid "Learner Details"
+msgstr ""
+
+#: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
+msgid "Sorry, we couldn't find the page you're looking for."
+msgstr "Lo sentimos, no pudimos encontrar la página que buscas."
+
+#: static/apps/learners/app/views/header.js
+#: static/dist/apps/learners/app/app.js
+msgid "Date Last Updated: <%- lastUpdatedDateString %>"
+msgstr "Última fecha de actualización: <%- lastUpdatedDateString %>"
+
+#: static/apps/learners/app/views/header.js
+#: static/dist/apps/learners/app/app.js
+msgid "unknown"
+msgstr "desconocido"
+
+#: static/apps/learners/common/collections/learners.js
+#: static/dist/apps/learners/app/app.js
+msgid "Name (Username)"
+msgstr ""
+
+#: static/apps/learners/common/collections/learners.js
+#: static/dist/apps/learners/app/app.js
+msgid "Problems Tried"
+msgstr "Problemas intentados"
+
+#: static/apps/learners/common/collections/learners.js
+#: static/dist/apps/learners/app/app.js
+msgid "Problems Correct"
+msgstr "Problemas correctos"
+
+#: static/apps/learners/common/collections/learners.js
+#: static/dist/apps/learners/app/app.js
+#: static/dist/js/engagement-video-content-main.js
+#: static/js/engagement-video-content-main.js
+msgid "Videos"
+msgstr "Videos"
+
+#: static/apps/learners/common/collections/learners.js
+#: static/dist/apps/learners/app/app.js
+msgid "Attempts per Problem Correct"
+msgstr "Intentos por problema correcto"
+
+#: static/apps/learners/common/collections/learners.js
+#: static/dist/apps/learners/app/app.js
+msgid "Discussions"
+msgstr "Discusiones"
+
+#: static/apps/learners/common/collections/learners.js
+#: static/dist/apps/learners/app/app.js
+msgid "Segments"
+msgstr "Segmentos"
+
+#: static/apps/learners/common/collections/learners.js
+#: static/dist/apps/learners/app/app.js
+msgid "Segments to Ignore"
+msgstr "Segmentos a ignorar"
+
+#: static/apps/learners/common/collections/learners.js
+#: static/dist/apps/learners/app/app.js
+msgid "Cohort"
+msgstr "Cohorte"
+
+#: static/apps/learners/common/collections/learners.js
+#: static/dist/apps/learners/app/app.js
+msgid "Enrollment Mode"
+msgstr "Modo de inscripción"
+
+#. Translators: "504" is a number representing a server error, so please leave
+#. it as "504".
+#: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
+msgid "504: Server error"
+msgstr ""
+
+#: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
+msgid ""
+"Processing your request took too long to complete. Reload the page to try "
+"again."
+msgstr ""
+
+#: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
+msgid "Server error"
+msgstr ""
+
+#: static/apps/learners/common/utils.js static/apps/learners/common/utils.js
+#: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
+msgid "Your request could not be processed. Reload the page to try again."
+msgstr ""
+
+#: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
+msgid "Network error"
+msgstr ""
+
+#. Translators: This message indicates content is loading in the page.
+#: static/apps/learners/common/views/loading-view.js
+#: static/dist/apps/learners/app/app.js
+msgid "Loading..."
+msgstr "Cargando..."
+
+#: static/apps/learners/detail/views/engagement-timeline.js
+#: static/dist/apps/learners/app/app.js
+msgid "Discussion Contributions"
+msgstr "Contribuciones a la discusión"
+
+#: static/apps/learners/detail/views/engagement-timeline.js
+#: static/dist/apps/learners/app/app.js
+msgid "Problems Completed"
+msgstr "Problemas completados"
+
+#: static/apps/learners/detail/views/engagement-timeline.js
+#: static/dist/apps/learners/app/app.js
+msgid "Videos Viewed"
+msgstr "Videos vistos"
+
+#: static/apps/learners/detail/views/engagement-timeline.js
+#: static/dist/apps/learners/app/app.js
+#: static/dist/js/enrollment-activity-main.js
+#: static/dist/js/enrollment-demographics-gender-main.js
+#: static/js/enrollment-activity-main.js
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Date"
+msgstr "Fecha"
+
+#: static/apps/learners/detail/views/engagement-timeline.js
+#: static/dist/apps/learners/app/app.js
+msgid "Value"
+msgstr "Valor"
+
+#. Translators: e.g. Student engagement
+#: static/apps/learners/detail/views/learner-detail.js
+msgid "Engagement"
+msgstr "Participación"
+
+#: static/apps/learners/detail/views/learner-detail.js
+msgid "Activity"
+msgstr "Actividad"
+
+#. Translators: 'n/a' means 'not available'
+#. Translators: 'n/a' means 'not available'
+#: static/apps/learners/detail/views/learner-detail.js
+#: static/apps/learners/detail/views/learner-summary-field.js
+#: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
+msgid "n/a"
+msgstr ""
+
+#: static/apps/learners/detail/views/learner-detail.js
+#: static/dist/apps/learners/app/app.js
+msgid "Check back daily for up-to-date data."
+msgstr ""
+
+#: static/apps/learners/detail/views/learner-detail.js
+#: static/dist/apps/learners/app/app.js
+msgid "No course activity data is available for this learner."
+msgstr ""
+
+#: static/apps/learners/detail/views/learner-detail.js
+#: static/dist/apps/learners/app/app.js
+msgid "No learner data is available."
+msgstr ""
+
+#. Translators: this is a label describing a selection that the user
+#. initiated.
+#: static/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/learners/app/app.js
+msgid "Cohort: <%= filterVal %>"
+msgstr ""
+
+#. Translators: this is a label describing a selection that the user
+#. initiated.
+#: static/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/learners/app/app.js
+msgid "Enrollment Track: <%= filterVal %>"
+msgstr ""
+
+#: static/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/learners/app/app.js
+msgid "Active Filters:"
+msgstr ""
+
+#: static/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/learners/app/app.js
+msgid "Click to remove this filter"
+msgstr ""
+
+#. Translators: "Clear" in this context means "remove all of the filters"
+#: static/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/learners/app/app.js
+msgid "Clear"
+msgstr "Borrar"
+
+#: static/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/learners/app/app.js
+msgid "Click to remove all filters"
+msgstr ""
+
+#: static/apps/learners/roster/views/base-header-cell.js
+#: static/dist/apps/learners/app/app.js
+msgid "The name and username of this learner. Click to sort by username."
+msgstr ""
+
+#: static/apps/learners/roster/views/base-header-cell.js
+#: static/dist/apps/learners/app/app.js
+msgid "Number of unique problems this learner attempted."
+msgstr "Número de problemas únicos que este estudiante intentó responder."
+
+#: static/apps/learners/roster/views/base-header-cell.js
+#: static/dist/apps/learners/app/app.js
+msgid "Number of unique problems the learner answered correctly."
+msgstr "Número de problemas únicos que el estudiante respondió correctamente."
+
+#: static/apps/learners/roster/views/base-header-cell.js
+#: static/dist/apps/learners/app/app.js
+msgid "Number of unique videos this learner played."
+msgstr "Número de videos únicos que este estudiante reprodujo. "
+
+#: static/apps/learners/roster/views/base-header-cell.js
+#: static/dist/apps/learners/app/app.js
+msgid ""
+"Average number of attempts per correct problem. Learners with a relatively "
+"high value compared to their peers may be struggling."
+msgstr ""
+"Número promedio de intentos por problema correcto. Para los estudiantes con "
+"un nivel relativamente alto comparado con sus compañeros, el curso les puede"
+" estar costando."
+
+#: static/apps/learners/roster/views/base-header-cell.js
+#: static/dist/apps/learners/app/app.js
+msgid ""
+"Number of contributions by this learner, including posts, responses, and "
+"comments."
+msgstr ""
+"Número de contribuciones por parte de este estudiante, incluyendo entradas, "
+"respuestas, y comentarios. "
+
+#. Translators: "sort ascending" describes the current
+#. sort state to the user.
+#: static/apps/learners/roster/views/base-header-cell.js
+#: static/dist/apps/learners/app/app.js
+msgid "sort ascending"
+msgstr "ordenar de manera ascendente"
+
+#. Translators: "sort descending" describes the
+#. current sort state to the user.
+#: static/apps/learners/roster/views/base-header-cell.js
+#: static/dist/apps/learners/app/app.js
+msgid "sort descending"
+msgstr "ordenar de manera descendente"
+
+#. Translators: "click to sort" tells the user that
+#. they can click this link to sort by the current
+#. field.
+#: static/apps/learners/roster/views/base-header-cell.js
+#: static/dist/apps/learners/app/app.js
+msgid "click to sort"
+msgstr "haga clic para ordenar"
+
+#: static/apps/learners/roster/views/controls.js
+#: static/dist/apps/learners/app/app.js
+msgid "Find a learner"
+msgstr "Encontrar estudiante"
+
+#: static/apps/learners/roster/views/controls.js
+#: static/dist/apps/learners/app/app.js
+msgid "Cohort Groups"
+msgstr "Grupos de cohorte"
+
+#: static/apps/learners/roster/views/controls.js
+#: static/dist/apps/learners/app/app.js
+msgid "Enrollment Tracks"
+msgstr ""
+
+#. Translators: 'name' here refers to the name of the filter, while
+#. 'numLearners' refers to the number of learners belonging to that filter.
+#: static/apps/learners/roster/views/filter.js
+#: static/dist/apps/learners/app/app.js
+msgid "<%= name %> (<%= numLearners %>)"
+msgstr ""
+
+#. Translators: "All" refers to viewing all the learners in a course.
+#: static/apps/learners/roster/views/filter.js
+#: static/dist/apps/learners/app/app.js
+msgid "All"
+msgstr "Todos"
+
+#: static/apps/learners/roster/views/paging-footer.js
+#: static/dist/apps/learners/app/app.js
+msgid "first page"
+msgstr "primera página"
+
+#: static/apps/learners/roster/views/paging-footer.js
+#: static/dist/apps/learners/app/app.js
+msgid "previous page"
+msgstr "página previa"
+
+#: static/apps/learners/roster/views/paging-footer.js
+#: static/dist/apps/learners/app/app.js
+msgid "next page"
+msgstr "próxima página"
+
+#: static/apps/learners/roster/views/paging-footer.js
+#: static/dist/apps/learners/app/app.js
+msgid "last page"
+msgstr "última página"
+
+#: static/apps/learners/roster/views/paging-footer.js
+#: static/dist/apps/learners/app/app.js
+msgid "page"
+msgstr "página"
+
+#: static/apps/learners/roster/views/results.js
+#: static/dist/apps/learners/app/app.js
+msgid "No learners matched your criteria."
+msgstr "Ningún estudiante coincide con los criterios dados."
+
+#: static/apps/learners/roster/views/results.js
+#: static/dist/apps/learners/app/app.js
+msgid "Try a different search."
+msgstr "Intente con una búsqueda distinta."
+
+#: static/apps/learners/roster/views/results.js
+#: static/dist/apps/learners/app/app.js
+msgid "Try clearing the filters."
+msgstr "Intente eliminando los filtros."
+
+#: static/apps/learners/roster/views/results.js
+#: static/dist/apps/learners/app/app.js
+msgid "No learner data is currently available for your course."
+msgstr ""
+"Actualmente no hay datos disponibles sobre los estudiantes de tu curso."
+
+#: static/apps/learners/roster/views/results.js
+#: static/dist/apps/learners/app/app.js
+msgid ""
+"No learners are enrolled, or course activity data has not yet been "
+"processed. Data is updated every day, so check back regularly for up-to-date"
+" metrics."
+msgstr ""
+"No hay estudiantes inscritos, o los datos de la actividad del curso aún no "
+"han sido procesados. Los datos se actualizan todos los días, así que revise "
+"regularmente para ver los datos más actualizados."
+
+#: static/apps/learners/roster/views/roster.js
+#: static/dist/apps/learners/app/app.js
+msgid "Learner roster controls"
+msgstr ""
+
+#: static/apps/learners/roster/views/search.js
+#: static/dist/apps/learners/app/app.js
+msgid "Search learners"
+msgstr "Buscar estudiantes"
+
+#: static/apps/learners/roster/views/search.js
+#: static/dist/apps/learners/app/app.js
+msgid "search"
+msgstr "buscar"
+
+#: static/apps/learners/roster/views/search.js
+#: static/dist/apps/learners/app/app.js
+msgid "clear search"
+msgstr "borrar búsqueda"
+
+#. Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate
+#. accordingly.
+#: static/apps/learners/roster/views/table.js
+#: static/dist/apps/learners/app/app.js
+msgid "N/A"
+msgstr "N/D"
+
+#: static/apps/learners/roster/views/table.js
+#: static/dist/apps/learners/app/app.js
+msgid "Learner Roster"
+msgstr "Lista de estudiantes"
 
 #: static/dist/js/common.js static/js/utils/utils.js
 msgid "..."
@@ -60,6 +443,7 @@ msgstr "(vacío)"
 #. Translators: "Correct" is displayed in a table..
 #: static/dist/js/common.js
 #: static/dist/js/performance-answer-distribution-main.js
+#: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
@@ -91,6 +475,11 @@ msgstr "Problema resuelto"
 #: static/js/engagement-content-main.js
 msgid "Posted in Forum"
 msgstr "Publicado en foro"
+
+#: static/dist/js/engagement-content-main.js
+#: static/js/engagement-content-main.js
+msgid "Percent of Current Students"
+msgstr "Porcentaje de Estudiantes"
 
 #. Translators: <%=value%> will be replaced with a date.
 #: static/dist/js/engagement-content-main.js
@@ -130,11 +519,6 @@ msgid "Order"
 msgstr "Orden"
 
 #: static/dist/js/engagement-video-content-main.js
-#: static/js/engagement-video-content-main.js
-msgid "Videos"
-msgstr "Videos"
-
-#: static/dist/js/engagement-video-content-main.js
 #: static/dist/js/engagement-videos-main.js
 #: static/js/engagement-video-content-main.js
 #: static/js/engagement-videos-main.js
@@ -165,6 +549,32 @@ msgstr "Visualizaciones completas"
 #: static/js/engagement-videos-main.js
 msgid "Incomplete Views"
 msgstr "Visualizaciones incompletas"
+
+#. Translators: The noun count (e.g. number of students)
+#. Translators: The noun count (e.g. number of students)
+#: static/dist/js/enrollment-activity-main.js
+#: static/dist/js/enrollment-demographics-gender-main.js
+#: static/dist/js/enrollment-geography-main.js
+#: static/js/enrollment-activity-main.js
+#: static/js/enrollment-demographics-gender-main.js
+#: static/js/enrollment-geography-main.js
+msgid "Current Enrollment"
+msgstr "Inscripción Actual"
+
+#: static/dist/js/enrollment-activity-main.js
+#: static/js/enrollment-activity-main.js
+msgid "Honor Code"
+msgstr "Código de Honor"
+
+#: static/dist/js/enrollment-activity-main.js
+#: static/js/enrollment-activity-main.js
+msgid "Verified"
+msgstr "Verificado"
+
+#: static/dist/js/enrollment-activity-main.js
+#: static/js/enrollment-activity-main.js
+msgid "Professional"
+msgstr "Profesional"
 
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-age-main.js
@@ -216,22 +626,6 @@ msgstr "Trayectoria educativa"
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Gender: <%=value%>"
 msgstr "Género:  <%=value%>"
-
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-activity-main.js
-#: static/js/enrollment-demographics-gender-main.js
-msgid "Date"
-msgstr "Fecha"
-
-#. Translators: The noun count (e.g. number of students)
-#. Translators: The noun count (e.g. number of students)
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/dist/js/enrollment-geography-main.js
-#: static/js/enrollment-activity-main.js
-#: static/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-geography-main.js
-msgid "Current Enrollment"
-msgstr "Inscripción Actual"
 
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-gender-main.js
@@ -287,6 +681,13 @@ msgstr "Recuento de Envío"
 msgid "Variant"
 msgstr "Variante"
 
+#: static/dist/js/performance-answer-distribution-main.js
+#: static/dist/js/performance-problems-main.js
+#: static/js/performance-answer-distribution-main.js
+#: static/js/performance-problems-main.js
+msgid "Incorrect"
+msgstr "Incorrecto"
+
 #. Translators: <%=value%> will be replaced by a student response to a
 #. question asked in a course.
 #: static/dist/js/performance-answer-distribution-main.js
@@ -322,28 +723,6 @@ msgid "Percentage Correct"
 msgstr "Porcentaje Correcto"
 
 #: static/dist/js/performance-problems-main.js
-#: static/js/performance-answer-distribution-main.js
-#: static/js/performance-problems-main.js
-msgid "Incorrect"
-msgstr "Incorrecto"
-
-#: static/dist/js/performance-problems-main.js
 #: static/js/performance-problems-main.js
 msgid "Total"
 msgstr "Total"
-
-#: static/js/engagement-content-main.js
-msgid "Percent of Current Students"
-msgstr "Porcentaje de Estudiantes"
-
-#: static/js/enrollment-activity-main.js
-msgid "Honor Code"
-msgstr "Código de Honor"
-
-#: static/js/enrollment-activity-main.js
-msgid "Verified"
-msgstr "Verificado"
-
-#: static/js/enrollment-activity-main.js
-msgid "Professional"
-msgstr "Profesional"

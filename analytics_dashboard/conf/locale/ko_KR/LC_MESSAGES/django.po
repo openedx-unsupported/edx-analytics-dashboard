@@ -12,13 +12,13 @@
 # Nicole <dlruddk1112@gmail.com>, 2014
 # Sujin Lee <sujinlee.me@gmail.com>, 2014
 # Yang Seunghoon <azang970120@gmail.com>, 2015
-# Yongkyu Lee <snowcat8436@gmail.com>, 2015
+# yongkyu Lee <snowcat8436@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-18 14:58-0500\n"
-"PO-Revision-Date: 2015-11-18 20:05+0000\n"
+"POT-Creation-Date: 2016-05-24 14:25-0400\n"
+"PO-Revision-Date: 2016-05-24 18:28+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/open-edx/edx-platform/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -833,6 +833,11 @@ msgstr ""
 "오른쪽 위 모서리에 있는 도움말 버튼을 클릭해서 %(application_name)s에 대한 더 많은 내용을 얻으십시요. 그리고 "
 "%(email_link)s으로 피드백을 보내주시기를 바랍니다. "
 
+#: courses/templates/courses/learners.html courses/views/__init__.py
+#: courses/views/__init__.py courses/views/learners.py
+msgid "Learners"
+msgstr ""
+
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
 msgid "How did students answer this problem?"
@@ -1019,6 +1024,18 @@ msgstr "학습자들은 강좌의 과제를 어떻게 수행하고 있나요?"
 msgid "How are students doing on graded course assignments?"
 msgstr "학습자들이 채점되는 과제를 어떻게 수행하고 있나요?"
 
+#: courses/views/__init__.py
+msgid "What are individual learners doing?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Who is engaged? Who isn't?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "All Learners"
+msgstr ""
+
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: courses/views/__init__.py
@@ -1180,6 +1197,14 @@ msgstr "채점된 콘텐츠: %(assignment_type)s"
 msgid "Problem Name"
 msgstr "문제 이름"
 
+#: settings/base.py
+msgid "Terms of Service"
+msgstr "서비스 규정"
+
+#: settings/base.py
+msgid "Privacy Policy"
+msgstr "개인정보 보호 정책"
+
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
 msgstr "엑세스가 거부되었습니다"
@@ -1248,14 +1273,6 @@ msgid ""
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
 msgstr ""
-
-#: templates/footer.html
-msgid "Terms of Service"
-msgstr "서비스 규정"
-
-#: templates/footer.html
-msgid "Privacy Policy"
-msgstr "개인정보 보호 정책"
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html
