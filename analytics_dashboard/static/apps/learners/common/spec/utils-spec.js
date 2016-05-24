@@ -56,30 +56,5 @@ define(function (require) {
                 jasmine.clock().tick(2);
             });
         });
-
-        describe('inRange', function () {
-
-            it('returns true when value is in range', function () {
-                expect(LearnerUtils.inRange(1, [0, 2])).toBe(true);
-                expect(LearnerUtils.inRange(10.5, [5, 11])).toBe(true);
-                expect(LearnerUtils.inRange(44, [null, 45])).toBe(true);
-                expect(LearnerUtils.inRange(59.3, [59, null])).toBe(true);
-            });
-
-            it('returns false when value is out of range', function () {
-                expect(LearnerUtils.inRange(3, [0, 2])).toBe(false);
-                expect(LearnerUtils.inRange(4.5, [5, 11])).toBe(false);
-                expect(LearnerUtils.inRange(45, [null, 45])).toBe(false);
-                expect(LearnerUtils.inRange(58.3, [59, null])).toBe(false);
-            });
-
-            it('throws error when bounds are null', function () {
-                expect(function () {
-                    LearnerUtils.inRange(1, [null, null]);
-                }).toThrow(new Error('min and max range values cannot both be null (unbounded)'));
-            });
-
-        });
-
     });
 });
