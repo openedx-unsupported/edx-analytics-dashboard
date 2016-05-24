@@ -5,14 +5,16 @@
 # Translators:
 # Alexandre Pita <alexandrepita189@gmail.com>, 2015
 # João Duarte Vasconcelos Freitas <jdvfreitas@gmail.com>, 2015
+# Juliana Rodrigues, 2016
 # luis miguel mendes soares <luis.miguel.mendes.soares@gmail.com>, 2015
 # Paulo Caldeira, 2014
+# T Charneca <tcharneca@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-18 14:58-0500\n"
-"PO-Revision-Date: 2015-11-18 20:05+0000\n"
+"POT-Creation-Date: 2016-05-24 14:25-0400\n"
+"PO-Revision-Date: 2016-05-24 18:28+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/open-edx/edx-platform/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +25,7 @@ msgstr ""
 
 #: core/templates/core/landing.html
 msgid "Login"
-msgstr "Entrar"
+msgstr "Iniciar sessão"
 
 #: core/templates/core/landing.html
 msgid "Insights to help course teams improve courses."
@@ -227,13 +229,13 @@ msgstr ""
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
-msgstr ""
+msgstr "Selecione o Tipo de Tarefa"
 
 #. Translators: This refers to all course assignment types (e.g. homework,
 #. exam, lab).
 #: courses/templates/courses/_graded_content_nav.html
 msgid "All Assignments"
-msgstr ""
+msgstr "Todas as Tarefas"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid ""
@@ -257,29 +259,29 @@ msgstr "Visualizar no ar"
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Section"
-msgstr ""
+msgstr "Selecione a subsecção"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "All Sections"
-msgstr ""
+msgstr "Todas as secções"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Subsection"
-msgstr ""
+msgstr "Selecione a Subsecção"
 
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
-msgstr ""
+msgstr "Selecione o video"
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Previous Video"
-msgstr ""
+msgstr "Video anterior"
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Next Video"
-msgstr ""
+msgstr "Próximo video"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -287,6 +289,8 @@ msgid ""
 "This chart shows the most common answers submitted by students, ordered by "
 "frequency."
 msgstr ""
+"Este gráfico mostra as respostas mais frequentemente submetidas por alunos, "
+"ordenadas por frequência."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -319,7 +323,7 @@ msgstr "Download do CSV"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Student Submission Counts"
-msgstr ""
+msgstr "Número de submissões feitas por estudantes"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
@@ -402,11 +406,11 @@ msgstr "Repartição do Envolvimento do Conteúdo"
 #: courses/templates/courses/engagement_grouped_content.html
 #: courses/templates/courses/views_chart_info.html
 msgid "Video Views"
-msgstr ""
+msgstr "Visualizações do Video"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid "How did students interact with videos in this section?"
-msgstr ""
+msgstr "Como é que os estudantes interagiram com os videos nesta secção?"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
@@ -414,21 +418,28 @@ msgid ""
 "videos in that subsection. Click on bars with low totals or a high "
 "incomplete rate to drill down and understand why."
 msgstr ""
+"Cada barra mostra o número médio de visualizações de vídeos, completas e "
+"incompletas, nessa subsecção. Clicar nas barras com valor total menor ou com"
+" uma taxa elevada de visualizações incompletas, para aprofundar e "
+"compreender o porquê."
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did students interact with videos in this subsection?"
-msgstr ""
+msgstr "Como é que os estudantes interagiram com os videos desta subsecção?"
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
 "Click to understand where students drop off and which parts they replay."
 msgstr ""
+"Cada barra mostra o número de visualizações completas e incompletas para o "
+"vídeo. Clicar para perceber em que partes os estudantes desistem e quais as "
+"partes que eles repetem."
 
 #: courses/templates/courses/engagement_video_course.html
 #: courses/views/__init__.py
 msgid "How did students interact with course videos?"
-msgstr ""
+msgstr "Como é que os estudantes interagiram com os videos do curso?"
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
@@ -440,17 +451,19 @@ msgstr ""
 #: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Total Video Views"
-msgstr ""
+msgstr "Total de Visualizações do Video"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "What were the viewing patterns for this video?"
-msgstr ""
+msgstr "Quais foram os padrões de visualização deste video?"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid ""
 "The number of students who watched each segment of the video, and the number"
 " of replays for each segment."
 msgstr ""
+"O número de alunos que visualizaram cada segmento do vídeo, e o número de "
+"reproduções por cada segmento."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Collapse Preview"
@@ -458,7 +471,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Expand Preview"
-msgstr ""
+msgstr "Expandir pré-visualização"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Metrics"
@@ -470,27 +483,27 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Estimated percentage of students who watched the entire video."
-msgstr ""
+msgstr "Percentagem estimada de estudantes que visualizaram o vídeo completo."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Started Video"
-msgstr ""
+msgstr "Vídeo iniciado"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who started watching the video."
-msgstr ""
+msgstr "Estudantes que começaram a visualizar o vídeo."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Finished Video"
-msgstr ""
+msgstr "Vídeo terminado"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who watched the video to the end."
-msgstr ""
+msgstr "Alunos que visualizaram o vídeo até ao fim."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Viewing Over Time"
-msgstr ""
+msgstr "Visualizações do vídeo no tempo"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
@@ -739,27 +752,27 @@ msgstr "Número Total de Países Representados"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Countries with at least one student."
-msgstr ""
+msgstr "Países com pelo menos um aluno."
 
 #. Translators: This string represents the country with the greatest number of
 #. enrolled students.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Top Country by Enrollment"
-msgstr ""
+msgstr "País com mais inscrições"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the largest number of students."
-msgstr ""
+msgstr "País com o maior número de alunos."
 
 #. Translators: This string represents the country with the second-greatest
 #. number of enrolled students.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Second Country by Enrollment"
-msgstr ""
+msgstr "Segundo país com mais inscrições"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the second largest number of students."
-msgstr ""
+msgstr "País com o segundo maior número de alunos."
 
 #. Translators: This string represents the country with the third-greatest
 #. number of enrolled students.
@@ -791,7 +804,7 @@ msgstr ""
 
 #: courses/templates/courses/home.html courses/views/__init__.py
 msgid "Course Home"
-msgstr ""
+msgstr "Página Inicial"
 
 #. Translators: This refers to the active tab/navigation item.
 #. Translators: This refers to the active tab/navigation item.
@@ -808,7 +821,7 @@ msgstr ""
 #. course.
 #: courses/templates/courses/home.html
 msgid "External Tools"
-msgstr ""
+msgstr "Ferramentas Externas"
 
 #: courses/templates/courses/index.html
 msgid "Courses"
@@ -816,12 +829,12 @@ msgstr "Cursos"
 
 #: courses/templates/courses/index.html
 msgid "Welcome, %(username)s!"
-msgstr ""
+msgstr "Benvindo/Benvinda, %(username)s!"
 
 #: courses/templates/courses/index.html
 msgid ""
 "Here are the courses you currently have access to in %(application_name)s:"
-msgstr ""
+msgstr "Estes são os cursos aos quais tem acesso em %(application_name)s:"
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
@@ -833,6 +846,11 @@ msgid ""
 "%(application_name)s. Send us feedback at %(email_link)s."
 msgstr ""
 
+#: courses/templates/courses/learners.html courses/views/__init__.py
+#: courses/views/__init__.py courses/views/learners.py
+msgid "Learners"
+msgstr ""
+
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
 msgid "How did students answer this problem?"
@@ -840,7 +858,7 @@ msgstr "Como os estudantes responderam a esta questão?"
 
 #: courses/templates/courses/performance_assignment.html
 msgid "How are students doing on this assignment?"
-msgstr ""
+msgstr "Como está a ser o desempenho dos alunos neste trabalho?"
 
 #: courses/templates/courses/performance_assignment.html
 #: courses/templates/courses/performance_ungraded_by_subsection.html
@@ -894,7 +912,7 @@ msgstr ""
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid "Assignment Submissions"
-msgstr ""
+msgstr "Submissão de trabalho"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are students doing on this section?"
@@ -988,7 +1006,7 @@ msgstr "Conteúdo"
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Videos"
-msgstr ""
+msgstr "Vídeos"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py courses/views/performance.py
@@ -1012,11 +1030,23 @@ msgstr "Como os estudantes estão se saindo, nos tarefas do curso"
 msgid "How are students doing on graded course assignments?"
 msgstr ""
 
+#: courses/views/__init__.py
+msgid "What are individual learners doing?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Who is engaged? Who isn't?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "All Learners"
+msgstr ""
+
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: courses/views/__init__.py
 msgid "Course ID"
-msgstr ""
+msgstr "Identificação do Curso"
 
 #: courses/views/__init__.py
 msgid "Course Name"
@@ -1030,12 +1060,12 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "Ended"
-msgstr ""
+msgstr "Terminou"
 
 #. Translators: This refers to a course that has not yet begun.
 #: courses/views/__init__.py
 msgid "Not Started Yet"
-msgstr ""
+msgstr "Ainda Não Iniciado"
 
 #: courses/views/__init__.py
 msgid "Start Date"
@@ -1091,7 +1121,7 @@ msgstr "Nome da subsecção"
 
 #: courses/views/engagement.py
 msgid "Video Name"
-msgstr ""
+msgstr "Nome do vídeo"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1172,9 +1202,17 @@ msgstr ""
 msgid "Problem Name"
 msgstr "Nome do problema"
 
+#: settings/base.py
+msgid "Terms of Service"
+msgstr "Termos de Serviço"
+
+#: settings/base.py
+msgid "Privacy Policy"
+msgstr "Politica de Privacidade"
+
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
-msgstr ""
+msgstr "Acesso não permitido"
 
 #: templates/403.html
 msgid ""
@@ -1185,7 +1223,7 @@ msgstr ""
 
 #: templates/403.html
 msgid "Logout then Login"
-msgstr ""
+msgstr "Sair e voltar a Entrar"
 
 #: templates/404.html templates/404.html.py
 msgid "Page Not Found"
@@ -1242,14 +1280,6 @@ msgid ""
 "Comments or suggestions? Email %(email_link)s."
 msgstr ""
 
-#: templates/footer.html
-msgid "Terms of Service"
-msgstr "Termos de Serviço"
-
-#: templates/footer.html
-msgid "Privacy Policy"
-msgstr "Politica de Privacidade"
-
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html
 msgid ""
@@ -1275,7 +1305,7 @@ msgstr "Carregando"
 
 #: templates/section_error.html
 msgid "We are unable to load this chart."
-msgstr ""
+msgstr "Não foi possível carregar o gráfico."
 
 #: templates/section_error.html
 msgid "We are unable to load this table."

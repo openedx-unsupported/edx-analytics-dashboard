@@ -8,7 +8,7 @@
 # neelawat <neelawat@gmail.com>, 2014
 # neelawat <neelawat@gmail.com>, 2014
 # Noppachai Eiamwasant <noporo@hotmail.com>, 2015
-# Pornchai Tummarattananont <yantaku@gmail.com>, 2015
+# Pornchai TummarATTAnanonT <yantaku@gmail.com>, 2015-2016
 # Sira Nokyoongtong <gumaraa@gmail.com>, 2014
 # Sitdhibong Laokok <sitdhibong@gmail.com>, 2015
 # Theeranuch Sirikojakorn <totallyp3@gmail.com>, 2015
@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-18 14:58-0500\n"
-"PO-Revision-Date: 2015-11-18 20:05+0000\n"
+"POT-Creation-Date: 2016-05-24 14:25-0400\n"
+"PO-Revision-Date: 2016-05-24 18:28+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Thai (http://www.transifex.com/open-edx/edx-platform/language/th/)\n"
 "MIME-Version: 1.0\n"
@@ -834,7 +834,7 @@ msgstr "รายละเอียดหลักสูตรขั้นพื
 #. course.
 #: courses/templates/courses/home.html
 msgid "External Tools"
-msgstr ""
+msgstr "เครื่องมือภายนอก"
 
 #: courses/templates/courses/index.html
 msgid "Courses"
@@ -847,7 +847,7 @@ msgstr "ยินดีต้อนรับ %(username)s!"
 #: courses/templates/courses/index.html
 msgid ""
 "Here are the courses you currently have access to in %(application_name)s:"
-msgstr ""
+msgstr "นี้คือหลักสูตรปัจจุบันของคุณที่สามารถ %(application_name)s:"
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
@@ -860,6 +860,11 @@ msgid ""
 msgstr ""
 "คลิก ช่วยเหลือ ตรงมุมขวาบน เพื่อทราบข้อมูลเกี่ยวกับ %(application_name)s "
 "ส่งผลตอบกลับมาที่ %(email_link)s"
+
+#: courses/templates/courses/learners.html courses/views/__init__.py
+#: courses/views/__init__.py courses/views/learners.py
+msgid "Learners"
+msgstr ""
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
@@ -1053,6 +1058,18 @@ msgstr "นักเรียจะทำการบ้านในรายว
 msgid "How are students doing on graded course assignments?"
 msgstr "นักเรียจะให้เกรดการบ้านในรายวิชานี้อย่างไร?"
 
+#: courses/views/__init__.py
+msgid "What are individual learners doing?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Who is engaged? Who isn't?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "All Learners"
+msgstr ""
+
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: courses/views/__init__.py
@@ -1071,12 +1088,12 @@ msgstr "อยู่ในระหว่างดำเนินการ"
 
 #: courses/views/__init__.py
 msgid "Ended"
-msgstr ""
+msgstr "สิ้นสุด"
 
 #. Translators: This refers to a course that has not yet begun.
 #: courses/views/__init__.py
 msgid "Not Started Yet"
-msgstr ""
+msgstr "ยังไม่เริ่ม"
 
 #: courses/views/__init__.py
 msgid "Start Date"
@@ -1084,7 +1101,7 @@ msgstr "วันที่เริ่ม"
 
 #: courses/views/__init__.py
 msgid "End Date"
-msgstr ""
+msgstr "วันที่จบ"
 
 #: courses/views/__init__.py
 msgid "Status"
@@ -1223,6 +1240,14 @@ msgstr "เนื้อหาการออกเกรด: %(assignment_type)s
 msgid "Problem Name"
 msgstr "ชื่อปัญหา"
 
+#: settings/base.py
+msgid "Terms of Service"
+msgstr "เงื่อนไขการให้บริการ"
+
+#: settings/base.py
+msgid "Privacy Policy"
+msgstr "นโยบายความเป็นส่วนตัว"
+
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
 msgstr "ไม่อนุญาตให้เข้าถึง"
@@ -1300,14 +1325,6 @@ msgstr ""
 "ต้องการความช่วยเหลือ?%(support_link_start)s "
 "ติดต่อทีมสนับสนุนของหลักสูตร%(support_link_end)s แสดงความคิดเห็นหรือแนะนำ "
 "ทางอีเมล์ %(email_link)s"
-
-#: templates/footer.html
-msgid "Terms of Service"
-msgstr "เงื่อนไขการให้บริการ"
-
-#: templates/footer.html
-msgid "Privacy Policy"
-msgstr "นโยบายความเป็นส่วนตัว"
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html

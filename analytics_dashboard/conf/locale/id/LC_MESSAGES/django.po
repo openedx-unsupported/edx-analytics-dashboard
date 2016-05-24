@@ -4,14 +4,15 @@
 #
 # Translators:
 # cholif yulian <cholifyulian123@gmail.com>, 2015
+# Dicky Bagus <dicky.bagus@gmail.com>, 2016
 # Dicky Bagus <dicky.bagus@gmail.com>, 2014
 # Fikry Maulana <fikry.maulana@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-18 14:58-0500\n"
-"PO-Revision-Date: 2015-11-18 20:05+0000\n"
+"POT-Creation-Date: 2016-05-24 14:25-0400\n"
+"PO-Revision-Date: 2016-05-24 18:28+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Indonesian (http://www.transifex.com/open-edx/edx-platform/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -26,17 +27,15 @@ msgstr "Masuk"
 
 #: core/templates/core/landing.html
 msgid "Insights to help course teams improve courses."
-msgstr "Wawasan untuk membantu tim kursus meningkatkan kursus"
+msgstr "Wawasan untuk membantu para pelatih meningkatkan pelatihan"
 
 #: core/templates/core/landing.html courses/views/__init__.py
 msgid "Who are my students?"
-msgstr "Siapa pelajar-pelajar saya?"
+msgstr "Siapa saja pelajar saya?"
 
 #: core/templates/core/landing.html
 msgid "Target your course to fit the backgrounds of your students."
-msgstr ""
-"Target kursus anda untuk menyesuakan latar belakang dari pelajar-pelajar "
-"anda"
+msgstr "Target pelatihan anda dengan melihat latar belakang pelajar anda"
 
 #: core/templates/core/landing.html
 #: courses/templates/courses/enrollment_geography.html
@@ -47,7 +46,7 @@ msgstr "Pendaftaran"
 
 #: core/templates/core/landing.html
 msgid "What are students engaging with in my course?"
-msgstr "Apa yang  melibatkan pelajar dy kursus saya?"
+msgstr "Pelajar bagaimana yang terlibat pada pelatihan saya?"
 
 #: core/templates/core/landing.html
 msgid ""
@@ -63,12 +62,11 @@ msgstr ""
 
 #: core/templates/core/landing.html
 msgid "How well is my content supporting student learning?"
-msgstr "Seberapa baik kontent saya mendukung pembelajaran pelajar?"
+msgstr "Seberapa baik konten saya mendukung pelajar untuk belajar?"
 
 #: core/templates/core/landing.html
 msgid "Adjust your course based on where students are struggling."
-msgstr ""
-"Atur kursus anda berdasarkan dimana para pelajar yang sedang perjuangkan"
+msgstr "Sesuaikan pelatihan anda berdasarkan kesulitan para pelajar"
 
 #: core/templates/core/landing.html
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
@@ -78,7 +76,7 @@ msgstr "Performa"
 
 #: core/templates/core/landing.html
 msgid "Join the Open Source Community"
-msgstr "Gabung dengan komunitas Open Source"
+msgstr "Bergabunglah dengan komunitas Open Source"
 
 #: core/templates/core/landing.html
 msgid ""
@@ -95,7 +93,7 @@ msgid ""
 "We are committed to advancing teaching and learning through research. "
 "%(link_start)sLearn more%(link_end)s."
 msgstr ""
-"Kami komitment untuk meningkatkan pengajaran dan pembelajaran melalui "
+"Kami berkomitmen untuk meningkatkan pengajaran dan pembelajaran melalui "
 "penelitian. %(link_start)spelajari lebih lanjut%(link_end)s."
 
 #: core/templates/core/landing.html
@@ -185,7 +183,7 @@ msgstr "Master"
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Doctorate"
-msgstr "Doctor"
+msgstr "Doktor"
 
 #. Translators: This is a placeholder for enrollment data collected without a
 #. known geolocation.
@@ -197,19 +195,19 @@ msgstr "Negara tidak diketahui"
 #: courses/presenters/performance.py
 #: courses/templates/courses/submissions_chart_info.html
 msgid "Submissions"
-msgstr "Kiriman"
+msgstr "Pendaftaran"
 
 #: courses/presenters/performance.py
 msgid "Submissions for Part {part_number}: {part_description}"
-msgstr "Kiriman untuk bagian {part_number}: {part_description}"
+msgstr "Mendaftar untuk Bab {part_number}: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "Part {part_number}: {part_description}"
-msgstr "Bagian {part_number}: {part_description}"
+msgstr "Bab {part_number}: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "Submissions: {part_description}"
-msgstr "Kiriman: {part_description}"
+msgstr "Pendaftaran: {part_description}"
 
 #: courses/presenters/performance.py
 msgid "{part_description}"
@@ -217,11 +215,11 @@ msgstr "{part_description}"
 
 #: courses/presenters/performance.py
 msgid "Submissions for Part {part_number}"
-msgstr "Kiriman untuk bagian {part_number}"
+msgstr "Pendaftaran untuk bab {part_number}"
 
 #: courses/presenters/performance.py
 msgid "Part {part_number}"
-msgstr "Bagian {part_number}"
+msgstr "Bab {part_number}"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
@@ -253,7 +251,7 @@ msgstr "Pilih masalah"
 #: courses/templates/courses/_module_description.html
 #: courses/templates/courses/_video_preview.html
 msgid "View Live"
-msgstr "Tampilkan Live"
+msgstr "Tampilan Langsung"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
@@ -272,15 +270,15 @@ msgstr "Pilih Sub Seksi"
 
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
-msgstr ""
+msgstr "Pilih Video"
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Previous Video"
-msgstr ""
+msgstr "Video Sebelumnya"
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Next Video"
-msgstr ""
+msgstr "Video Selanjutnya"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -288,8 +286,8 @@ msgid ""
 "This chart shows the most common answers submitted by students, ordered by "
 "frequency."
 msgstr ""
-"Grafik ini menunjukkan jawaban paling umum dikirim oleh para pelajar, sering"
-" diperintahkan"
+"Grafik ini menunjukkan jawaban paling sering oleh para pelajar, diurutkan "
+"berdasar kekerapan"
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -297,8 +295,8 @@ msgid ""
 "Due to the number of possible variants for randomized problems, charts are "
 "not available. %(read_more_link_start)sRead more%(read_more_link_end)s."
 msgstr ""
-"Karena jumlah varian yang memungkinkan untuk problem acak, grafik tidak "
-"tersedia.  %(read_more_link_start)sRead more%(read_more_link_end)s."
+"Karena berbagai kemungkinan jawaban yang mungkin timbul, grafik tidak dapat disediakan\n"
+"%(read_more_link_start)sRead more%(read_more_link_end)s."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -306,12 +304,12 @@ msgid ""
 "Review all submission variants below, or click Download CSV to review them "
 "offline."
 msgstr ""
-"Tinjau ulang semua kiriman varian dibawah, atau klik Download CSV untuk "
-"meninjaunya secara offline"
+"Tinjau semua variasi jawaban dibawah ini atau klik Unduh CSV untuk meninjau "
+"secara offline"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Submission Counts"
-msgstr "Jumlah kiriman"
+msgstr "Jumlah pendaftar"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 #: courses/templates/courses/engagement_content.html
@@ -411,11 +409,11 @@ msgstr "Content Engagement Breakdown"
 #: courses/templates/courses/engagement_grouped_content.html
 #: courses/templates/courses/views_chart_info.html
 msgid "Video Views"
-msgstr ""
+msgstr "Menampilkan VIdeo"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid "How did students interact with videos in this section?"
-msgstr ""
+msgstr "Bagaimana interaksi pelajar dengan video pada seksi ini?"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
@@ -423,6 +421,9 @@ msgid ""
 "videos in that subsection. Click on bars with low totals or a high "
 "incomplete rate to drill down and understand why."
 msgstr ""
+"Tiap balok menunjukkan rata-rata tayangan video secara lengkap maupun tidak "
+"lengkap pada subseksi terkait. Klik pada balok dengan jumlah rating terendah"
+" atau rating tertinggi untuk menggali lebih lanjut dan mencari solusi "
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did students interact with videos in this subsection?"
@@ -846,6 +847,11 @@ msgid ""
 "%(application_name)s. Send us feedback at %(email_link)s."
 msgstr ""
 
+#: courses/templates/courses/learners.html courses/views/__init__.py
+#: courses/views/__init__.py courses/views/learners.py
+msgid "Learners"
+msgstr ""
+
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
 msgid "How did students answer this problem?"
@@ -1023,6 +1029,18 @@ msgstr ""
 msgid "How are students doing on graded course assignments?"
 msgstr ""
 
+#: courses/views/__init__.py
+msgid "What are individual learners doing?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Who is engaged? Who isn't?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "All Learners"
+msgstr ""
+
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: courses/views/__init__.py
@@ -1183,6 +1201,14 @@ msgstr ""
 msgid "Problem Name"
 msgstr "Nama Masalah"
 
+#: settings/base.py
+msgid "Terms of Service"
+msgstr "Ketentuan Layanan"
+
+#: settings/base.py
+msgid "Privacy Policy"
+msgstr "Kebijakan Privasi"
+
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
 msgstr "Akses Ditolak"
@@ -1251,14 +1277,6 @@ msgid ""
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
 msgstr ""
-
-#: templates/footer.html
-msgid "Terms of Service"
-msgstr "Ketentuan Layanan"
-
-#: templates/footer.html
-msgid "Privacy Policy"
-msgstr "Kebijakan Privasi"
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html

@@ -20,7 +20,8 @@
 # San <github@zhujunsan.net>, 2015
 # shuchuanchen <am15501@163.com>, 2014
 # Song Qiang <cncatdog@163.com>, 2015
-# louyihua <supermouselyh@hotmail.com>, 2015
+# louyihua <supermouselyh@hotmail.com>, 2015-2016
+# Tu Wenjia <tobunka@gmail.com>, 2016
 # wanghe <1636807295@qq.com>, 2014
 # Wu fangyuan <wufangyuan@gmail.com>, 2014
 # Zihui Cheng <z7cheng@ucsd.edu>, 2015
@@ -31,8 +32,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-18 14:58-0500\n"
-"PO-Revision-Date: 2016-02-01 18:54+0000\n"
+"POT-Creation-Date: 2016-05-24 14:25-0400\n"
+"PO-Revision-Date: 2016-05-24 18:28+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/open-edx/edx-platform/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -132,7 +133,7 @@ msgstr "{statistic}% "
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: courses/presenters/engagement.py
 msgid "{percentage} of current students"
-msgstr ""
+msgstr "{percentage}的学生"
 
 #: courses/presenters/enrollment.py
 msgid "Female"
@@ -811,13 +812,13 @@ msgstr "活动的"
 
 #: courses/templates/courses/home.html
 msgid "Basic Course Information"
-msgstr "基本课程信息"
+msgstr "课程基本信息"
 
 #. Translators: This title describes a list of links to outside tools for this
 #. course.
 #: courses/templates/courses/home.html
 msgid "External Tools"
-msgstr "扩展工具"
+msgstr "外部工具"
 
 #: courses/templates/courses/index.html
 msgid "Courses"
@@ -841,6 +842,11 @@ msgid ""
 "Click Help in the upper-right corner to get more information about "
 "%(application_name)s. Send us feedback at %(email_link)s."
 msgstr "单击右上角的帮助可以得到更多的关于%(application_name)s的信息。通过%(email_link)s发送反馈给我们。"
+
+#: courses/templates/courses/learners.html courses/views/__init__.py
+#: courses/views/__init__.py courses/views/learners.py
+msgid "Learners"
+msgstr "学习者"
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
@@ -1025,6 +1031,18 @@ msgstr "学生们在课程作业中表现如何？"
 msgid "How are students doing on graded course assignments?"
 msgstr "学生们在计分的课程作业中表现如何？"
 
+#: courses/views/__init__.py
+msgid "What are individual learners doing?"
+msgstr "每个学习者都在做什么？"
+
+#: courses/views/__init__.py
+msgid "Who is engaged? Who isn't?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "All Learners"
+msgstr "所有学习者"
+
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: courses/views/__init__.py
@@ -1039,7 +1057,7 @@ msgstr "课程名称"
 #. actively using the course or it is over.
 #: courses/views/__init__.py
 msgid "In Progress"
-msgstr "正在进行中"
+msgstr "正在进行"
 
 #: courses/views/__init__.py
 msgid "Ended"
@@ -1068,7 +1086,7 @@ msgstr "教师面板"
 
 #: courses/views/__init__.py
 msgid "Courseware"
-msgstr "课程页面"
+msgstr "课件"
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
@@ -1185,6 +1203,14 @@ msgstr "计分的内容：%(assignment_type)s"
 msgid "Problem Name"
 msgstr "问题名称"
 
+#: settings/base.py
+msgid "Terms of Service"
+msgstr "服务条款"
+
+#: settings/base.py
+msgid "Privacy Policy"
+msgstr "隐私政策"
+
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
 msgstr "禁止访问"
@@ -1254,14 +1280,6 @@ msgid ""
 "Comments or suggestions? Email %(email_link)s."
 msgstr ""
 "我们希望此课程面板能为您效劳！需要帮助吗？请%(support_link_start)s联系课程团队支持%(support_link_end)s。想发表评论或者建议？请发电子邮件至%(email_link)s。"
-
-#: templates/footer.html
-msgid "Terms of Service"
-msgstr "服务条款"
-
-#: templates/footer.html
-msgid "Privacy Policy"
-msgstr "隐私政策"
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html

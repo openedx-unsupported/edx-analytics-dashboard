@@ -11,13 +11,14 @@
 # joachim_gregoor <joachim.gregoor@pxl.be>, 2014
 # Lynn <lynn_girl@live.nl>, 2015
 # Tom Boeckx <s2mash@yahoo.com>, 2016
+# Vikki Quigley <vikki.quigley@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-18 14:58-0500\n"
-"PO-Revision-Date: 2016-02-25 12:41+0000\n"
-"Last-Translator: Bert Carremans <bert.carremans@gmail.com>\n"
+"POT-Creation-Date: 2016-05-24 14:25-0400\n"
+"PO-Revision-Date: 2016-05-24 18:28+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/open-edx/edx-platform/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -887,6 +888,11 @@ msgstr ""
 "Klik Help in de rechterbovenhoek voor meer informatie over "
 "%(application_name)s. Stuur ons feedback op %(email_link)s. "
 
+#: courses/templates/courses/learners.html courses/views/__init__.py
+#: courses/views/__init__.py courses/views/learners.py
+msgid "Learners"
+msgstr "Leerlingen"
+
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
 msgid "How did students answer this problem?"
@@ -1083,6 +1089,18 @@ msgstr "Hoe gaat het met andere studenten bij deze cursus opdrachten?"
 msgid "How are students doing on graded course assignments?"
 msgstr "Wat is het resultaat van de studenten voor gekwoteerde opdrachten?"
 
+#: courses/views/__init__.py
+msgid "What are individual learners doing?"
+msgstr "Wat zijn individuele leerlingen aan het doen?"
+
+#: courses/views/__init__.py
+msgid "Who is engaged? Who isn't?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "All Learners"
+msgstr "Alle leerlingen"
+
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: courses/views/__init__.py
@@ -1256,6 +1274,14 @@ msgstr "Gekwoteerde inhoud: %(assignment_type)s"
 msgid "Problem Name"
 msgstr "Probleem Naam"
 
+#: settings/base.py
+msgid "Terms of Service"
+msgstr "Gebruiksvoorwaarden"
+
+#: settings/base.py
+msgid "Privacy Policy"
+msgstr "Privacybeleid"
+
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
 msgstr "Toegang geweigerd"
@@ -1338,14 +1364,6 @@ msgstr ""
 "We willen dat dit dashboard werkt voor jou! Hulp nodig? "
 "%(support_link_start)sContacteer cursus team support%(support_link_end)s. "
 "Opmerkingen of suggesties? Email %(email_link)s."
-
-#: templates/footer.html
-msgid "Terms of Service"
-msgstr "Gebruiksvoorwaarden"
-
-#: templates/footer.html
-msgid "Privacy Policy"
-msgstr "Privacybeleid"
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html

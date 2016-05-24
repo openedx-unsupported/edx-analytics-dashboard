@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-18 14:58-0500\n"
-"PO-Revision-Date: 2015-11-18 20:05+0000\n"
+"POT-Creation-Date: 2016-05-24 14:25-0400\n"
+"PO-Revision-Date: 2016-05-24 18:28+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/open-edx/edx-platform/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -833,6 +833,11 @@ msgstr ""
 "%(application_name)sについてさらに知りたい場合は右上のヘルプをクリックしてください。%(email_link)s "
 "から我々にフィードバックしてください。"
 
+#: courses/templates/courses/learners.html courses/views/__init__.py
+#: courses/views/__init__.py courses/views/learners.py
+msgid "Learners"
+msgstr ""
+
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
 msgid "How did students answer this problem?"
@@ -1015,6 +1020,18 @@ msgstr "受講者はどのように講座の課題をしているのか？"
 msgid "How are students doing on graded course assignments?"
 msgstr "受講者は採点済み講座の課題で何をしているのか？"
 
+#: courses/views/__init__.py
+msgid "What are individual learners doing?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Who is engaged? Who isn't?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "All Learners"
+msgstr ""
+
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: courses/views/__init__.py
@@ -1175,6 +1192,14 @@ msgstr "評価されたコンテンツ：%(assignment_type)s"
 msgid "Problem Name"
 msgstr "問題名"
 
+#: settings/base.py
+msgid "Terms of Service"
+msgstr "利用規約"
+
+#: settings/base.py
+msgid "Privacy Policy"
+msgstr "プライバシーポリシー"
+
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
 msgstr "アクセス拒否"
@@ -1244,14 +1269,6 @@ msgid ""
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
 msgstr ""
-
-#: templates/footer.html
-msgid "Terms of Service"
-msgstr "利用規約"
-
-#: templates/footer.html
-msgid "Privacy Policy"
-msgstr "プライバシーポリシー"
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html

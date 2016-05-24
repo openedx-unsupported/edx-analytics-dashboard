@@ -6,6 +6,7 @@
 # Claudia Bedin <bedin.claudia1@gmail.com>, 2014
 # david asquino <info@davidasquino.com>, 2015
 # Giorgio Att <attorresi.giorgio@gmail.com>, 2014
+# Marco Caresia <caresia@gmail.com>, 2016
 # Pietro Lombardo <pietrolombardo1979@gmail.com>, 2014-2015
 # Stefania Carta <info@stefaniacarta.com>, 2015
 # Thimoty Barbieri <thimoty@thimoty.it>, 2015
@@ -13,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-18 14:58-0500\n"
-"PO-Revision-Date: 2015-11-18 20:05+0000\n"
+"POT-Creation-Date: 2016-05-24 14:25-0400\n"
+"PO-Revision-Date: 2016-05-24 18:28+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Italian (Italy) (http://www.transifex.com/open-edx/edx-platform/language/it_IT/)\n"
 "MIME-Version: 1.0\n"
@@ -91,10 +92,12 @@ msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
 msgstr ""
+"I componenti edX analytics ed edX Insights sono Open Source. "
+"%(link_start)sUlteriori informazioni%(link_end)s."
 
 #: core/templates/core/landing.html
 msgid "Research at edX"
-msgstr ""
+msgstr "Ricerca presso edX"
 
 #: core/templates/core/landing.html
 msgid ""
@@ -120,7 +123,7 @@ msgstr "{statistic}%"
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: courses/presenters/engagement.py
 msgid "{percentage} of current students"
-msgstr ""
+msgstr "{percentage} degli studenti correnti"
 
 #: courses/presenters/enrollment.py
 msgid "Female"
@@ -152,7 +155,7 @@ msgstr "Nessuno"
 #. School Degree).
 #: courses/presenters/enrollment.py courses/tests/test_serializers.py
 msgid "Primary"
-msgstr ""
+msgstr "Scuola dell'obbligo"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
@@ -169,7 +172,7 @@ msgstr "Superiori"
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Associate"
-msgstr ""
+msgstr "Socio"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
@@ -199,7 +202,7 @@ msgstr "Paese Sconosciuto"
 #: courses/presenters/performance.py
 #: courses/templates/courses/submissions_chart_info.html
 msgid "Submissions"
-msgstr ""
+msgstr "Invii"
 
 #: courses/presenters/performance.py
 msgid "Submissions for Part {part_number}: {part_description}"
@@ -227,13 +230,13 @@ msgstr ""
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
-msgstr ""
+msgstr "Selezionare il tipo di compito"
 
 #. Translators: This refers to all course assignment types (e.g. homework,
 #. exam, lab).
 #: courses/templates/courses/_graded_content_nav.html
 msgid "All Assignments"
-msgstr ""
+msgstr "Tutti i compiti"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid ""
@@ -262,7 +265,7 @@ msgstr "Seleziona una sezione"
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "All Sections"
-msgstr ""
+msgstr "Tutte le sezioni"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
@@ -271,15 +274,15 @@ msgstr ""
 
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
-msgstr ""
+msgstr "Selezionare il video"
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Previous Video"
-msgstr ""
+msgstr "Video precedente"
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Next Video"
-msgstr ""
+msgstr "Video successivo"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -832,6 +835,11 @@ msgid ""
 "%(application_name)s. Send us feedback at %(email_link)s."
 msgstr ""
 
+#: courses/templates/courses/learners.html courses/views/__init__.py
+#: courses/views/__init__.py courses/views/learners.py
+msgid "Learners"
+msgstr ""
+
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
 msgid "How did students answer this problem?"
@@ -1009,6 +1017,18 @@ msgstr ""
 msgid "How are students doing on graded course assignments?"
 msgstr ""
 
+#: courses/views/__init__.py
+msgid "What are individual learners doing?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Who is engaged? Who isn't?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "All Learners"
+msgstr ""
+
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: courses/views/__init__.py
@@ -1169,6 +1189,14 @@ msgstr ""
 msgid "Problem Name"
 msgstr "Nome del problema"
 
+#: settings/base.py
+msgid "Terms of Service"
+msgstr "Termini di Servizio"
+
+#: settings/base.py
+msgid "Privacy Policy"
+msgstr "Informativa sulla privacy"
+
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
 msgstr "Accesso Negato"
@@ -1237,14 +1265,6 @@ msgid ""
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
 msgstr ""
-
-#: templates/footer.html
-msgid "Terms of Service"
-msgstr "Termini di Servizio"
-
-#: templates/footer.html
-msgid "Privacy Policy"
-msgstr "Informativa sulla privacy"
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html

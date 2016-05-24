@@ -13,8 +13,9 @@
 # JulietteFUN, 2015
 # Régis Millet <kulgar@ct2c.fr>, 2015
 # laurentFUN <laurent.at.fun@gmail.com>, 2014
-# Leslie Bordonné <leslie@bordonne.com>, 2015
+# Leslie Bordonné <inactive+lbordonne@transifex.com>, 2015
 # Magdalene Schock <magdaparis@hotmail.com>, 2015
+# Mohamed TOUITI <mtouiti@outlook.com>, 2016
 # moocit-france <contact@moocit.fr>, 2015
 # rafcha <raphael.chay@gmail.com>, 2014-2015
 # Sebastien Vigneau <sebastien.vigneau@gmail.com>, 2015
@@ -24,9 +25,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-18 14:58-0500\n"
-"PO-Revision-Date: 2016-02-18 13:55+0000\n"
-"Last-Translator: Eric Fortin\n"
+"POT-Creation-Date: 2016-05-24 14:25-0400\n"
+"PO-Revision-Date: 2016-05-24 18:28+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: French (http://www.transifex.com/open-edx/edx-platform/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -904,6 +905,11 @@ msgstr ""
 "informations sur  %(application_name)s. Envoyez nous vos commentaires à "
 "%(email_link)s."
 
+#: courses/templates/courses/learners.html courses/views/__init__.py
+#: courses/views/__init__.py courses/views/learners.py
+msgid "Learners"
+msgstr "Etudiants"
+
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
 msgid "How did students answer this problem?"
@@ -1105,6 +1111,18 @@ msgstr ""
 "Comment les étudiants s'en sortent-ils au niveau des tâches notées du cours "
 "?"
 
+#: courses/views/__init__.py
+msgid "What are individual learners doing?"
+msgstr "Que font les étudiants indivuduels ? "
+
+#: courses/views/__init__.py
+msgid "Who is engaged? Who isn't?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "All Learners"
+msgstr "Tous les étudiants"
+
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: courses/views/__init__.py
@@ -1279,6 +1297,14 @@ msgstr "Contenu Evalué: %(assignment_type)s"
 msgid "Problem Name"
 msgstr "Nom de l'exercice"
 
+#: settings/base.py
+msgid "Terms of Service"
+msgstr "Conditions générales du service"
+
+#: settings/base.py
+msgid "Privacy Policy"
+msgstr "Politique de confidentialité"
+
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
 msgstr "Accès refusé"
@@ -1362,14 +1388,6 @@ msgstr ""
 "%(support_link_start)sContactez notre équipe "
 "d'assistance%(support_link_end)s. Des commentaires ou suggestions? Ecrivez-"
 "nous %(email_link)s."
-
-#: templates/footer.html
-msgid "Terms of Service"
-msgstr "Conditions générales du service"
-
-#: templates/footer.html
-msgid "Privacy Policy"
-msgstr "Politique de confidentialité"
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html

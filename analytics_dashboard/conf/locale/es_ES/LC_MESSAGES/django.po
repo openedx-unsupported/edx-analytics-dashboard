@@ -4,10 +4,11 @@
 #
 # Translators:
 # ADRIAN ABREU GONZALEZ <aabreuglez@gmail.com>, 2015
-# Alicia P. <pericia@gmail.com>, 2014
+# Alicia P., 2014
 # cblackburn <cblackburn@edx.org>, 2015
 # Enrique Centelles <ecentelles2003@yahoo.es>, 2014
 # spentamanyu <i.delamo@gmail.com>, 2014
+# jorge jorge marrero <jjorgewill@gmail.com>, 2016
 # Mariangeles Fernandez <mariangelesfm@gmail.com>, 2015
 # miguel <mgarcia0094@gmail.com>, 2015
 # Nacho Díaz <nachotheix@gmail.com>, 2014
@@ -22,8 +23,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-18 14:58-0500\n"
-"PO-Revision-Date: 2016-01-15 07:49+0000\n"
+"POT-Creation-Date: 2016-05-24 14:25-0400\n"
+"PO-Revision-Date: 2016-05-24 18:28+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/open-edx/edx-platform/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -864,7 +865,7 @@ msgstr "Información básica del curso"
 #. course.
 #: courses/templates/courses/home.html
 msgid "External Tools"
-msgstr ""
+msgstr "Herramientas externas"
 
 #: courses/templates/courses/index.html
 msgid "Courses"
@@ -892,6 +893,11 @@ msgid ""
 msgstr ""
 "Haz clic en Ayuda en el ángulo superior derecho para obtener más información"
 " acerca de %(application_name)s. Envíanos tus comentarios en %(email_link)s."
+
+#: courses/templates/courses/learners.html courses/views/__init__.py
+#: courses/views/__init__.py courses/views/learners.py
+msgid "Learners"
+msgstr "Estudiantes"
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
@@ -1090,6 +1096,18 @@ msgstr "¿Cómo les va a los alumnos en las tareas del curso?"
 msgid "How are students doing on graded course assignments?"
 msgstr "¿Cómo les va a los alumnos en las tareas evaluables del curso?"
 
+#: courses/views/__init__.py
+msgid "What are individual learners doing?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Who is engaged? Who isn't?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "All Learners"
+msgstr ""
+
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: courses/views/__init__.py
@@ -1262,6 +1280,14 @@ msgstr "Contenido evaluado: %(assignment_type)s"
 msgid "Problem Name"
 msgstr "Nombre del ejercicio"
 
+#: settings/base.py
+msgid "Terms of Service"
+msgstr "Condiciones del servicio"
+
+#: settings/base.py
+msgid "Privacy Policy"
+msgstr "Política de privacidad"
+
 #: templates/403.html templates/403.html.py
 msgid "Access Denied"
 msgstr "Acceso denegado"
@@ -1342,14 +1368,6 @@ msgid ""
 msgstr ""
 "¡Queremos que este panel te resulte útil! ¿Necesitas ayuda?\n"
 "%(support_link_start)sContacta con nuestro equipo de soporte del curso%(support_link_end)s. ¿Comentarios o sugerencias? Correo electrónico %(email_link)s."
-
-#: templates/footer.html
-msgid "Terms of Service"
-msgstr "Condiciones del servicio"
-
-#: templates/footer.html
-msgid "Privacy Policy"
-msgstr "Política de privacidad"
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html
