@@ -67,11 +67,6 @@ class LearnersViewTests(ViewTestMixin, SwitchMixin, TestCase):
     def get_mock_data(self, *args, **kwargs):
         pass
 
-    def test_feature_flag(self):
-        self.toggle_switch('enable_learner_analytics', False)
-        self.assertEqual(self._get().status_code, 404)
-        self.toggle_switch('enable_learner_analytics', True)
-
     def test_success(self):
         learners_payload = {'arbitrary_learners_key': ['arbitrary_value_1', 'arbitrary_value_2']}
         course_metadata_payload = {'arbitrary_metadata_value': {'arbitrary_value_1': 'arbitrary_value_2'}}

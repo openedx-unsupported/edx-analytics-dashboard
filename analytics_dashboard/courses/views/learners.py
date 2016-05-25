@@ -4,7 +4,6 @@ from requests.exceptions import ConnectionError, Timeout
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
-from core.utils import feature_flagged
 from courses.views import CourseTemplateWithNavView
 from learner_analytics_api.v0.clients import LearnerAPIClient
 
@@ -12,7 +11,6 @@ from learner_analytics_api.v0.clients import LearnerAPIClient
 logger = logging.getLogger(__name__)
 
 
-@feature_flagged('enable_learner_analytics')
 class LearnersView(CourseTemplateWithNavView):
     template_name = 'courses/learners.html'
     active_primary_nav_item = 'learners'
