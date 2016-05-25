@@ -9,17 +9,19 @@ define(function (require) {
         CourseMetadataModel;
 
     CourseMetadataModel = Backbone.Model.extend({
-        defaults:{
-            cohorts: {},
-            segments: {},
-            enrollment_modes: {},
-            engagement_ranges: {
-                date_range: {},
-                problems_attempted: {},
-                problems_completed: {},
-                problem_attempts_per_completed: {},
-                discussion_contributions: {}
-            }
+        defaults: function () {
+            return {
+                cohorts: {},
+                segments: {},
+                enrollment_modes: {},
+                engagement_ranges: {
+                    date_range: {},
+                    problems_attempted: {},
+                    problems_completed: {},
+                    problem_attempts_per_completed: {},
+                    discussion_contributions: {}
+                }
+            };
         },
 
         initialize: function (attributes, options) {
@@ -36,34 +38,60 @@ define(function (require) {
                 .fail(LearnerUtils.handleAjaxFailure.bind(this));
         },
 
+        parse: function (response) {
+            var parsedEngagementRanges = _.mapObject(response.engagement_ranges, function (metricRanges) {
+                return _.mapObject(metricRanges, function (range) {
+                    // range is either null or a two-element array
+                    if (_.isNull(range)) {
+                        return null;
+                    }
+                    return [
+                        _.isNull(range[0]) ? -Infinity : range[0],
+                        _.isNull(range[1]) ? Infinity : range[1]
+                    ];
+                });
+            });
+            return _.extend(response, { engagement_ranges: parsedEngagementRanges });
+        },
+
         /**
          * Returns which category ('average', 'above_average', 'below_average'),
-         * the engagement values falls into.  Returns undefined the range isn't
-         * available.
+         * the engagement values falls into.  Returns undefined if the range
+         * isn't available.
          *
-         * @param engagementKey Key for engagement range. E.g. problems_attempted.
+         * @param engagementMetric Key for engagement range. E.g. problems_attempted.
          * @param value Engagement value.
          */
-        getEngagementCategory: function(engagementKey, value) {
-            var categories = ['average', 'above_average', 'below_average'],
-                ranges = this.get('engagement_ranges')[engagementKey],
+        getEngagementCategory: function(engagementMetric, value) {
+            var ranges = this.get('engagement_ranges')[engagementMetric],
                 engagementCategory;
 
-            if (ranges) {
-                _(categories).each(function (category) {
-                    if (_(ranges).has(category)) {
-                        try {
-                            if (LearnerUtils.inRange(value, ranges[category])) {
-                                engagementCategory = category;
-                            }
-                        } catch (Error) {
-                            // min and max are null -- do nothing
-                        }
-                    }
-                });
-            }
+            _.each(ranges, function (range, category) {
+                if (this.inMetricRange(value, range)) {
+                    engagementCategory = category;
+                }
+            }, this);
 
             return engagementCategory;
+        },
+
+        /**
+         * Returns true if the value falls within the range (inclusive of min
+         * and exclusive of max).
+         *
+         * There are some edge cases to note:
+         *   - `null` ranges are considered unspecified, hence no value will be
+         *     in-range.
+         *   - When the range is infinite in the positive dimension, infinity is
+         *     considered in-range.
+         *
+         * @param value Value in question.
+         * @param range Array of min and max.  May be null.
+         */
+        inMetricRange: function(value, range) {
+            return _.isNull(range) ? false :
+                (value === Infinity && range[1] === Infinity) ? true :
+                value >= range[0] && value < range[1];
         }
     });
 

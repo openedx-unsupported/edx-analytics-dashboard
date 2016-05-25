@@ -34,6 +34,23 @@ define(function (require) {
             expect(learner.get('last_updated')).toEqual(dateObj);
         });
 
+        it('should parse engagement metrics', function () {
+            var learner = new LearnerModel({
+                engagements: {
+                    discussions_contributed: 1,
+                    problems_attempted: 2,
+                    problems_completed: 3,
+                    videos_viewed: 4
+                }
+            }, {parse: true});
+            expect(learner.get('engagements').discussions_contributed).toEqual(1);
+            expect(learner.get('engagements').problems_attempted).toEqual(2);
+            expect(learner.get('engagements').problems_completed).toEqual(3);
+            expect(learner.get('engagements').videos_viewed).toEqual(4);
+            // Note that missing engagement metrics should be parsed as Infinity
+            expect(learner.get('engagements').problem_attempts_per_completed).toEqual(Infinity);
+        });
+
         it('should treat the username as its id', function () {
             var learner = new LearnerModel({username: 'daniel', course_id: 'edX/DemoX/Demo_Course'});
             new (Backbone.Collection.extend({url: '/endpoint/'}))([learner]);

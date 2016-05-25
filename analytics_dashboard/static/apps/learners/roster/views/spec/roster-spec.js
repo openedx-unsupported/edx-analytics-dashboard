@@ -59,7 +59,8 @@ define(function (require) {
             );
             rosterView = new LearnerRosterView({
                 collection: collection,
-                courseMetadata: options.courseMetadataModel || new CourseMetadataModel(options.courseMetadata),
+                courseMetadata: options.courseMetadataModel ||
+                    new CourseMetadataModel(options.courseMetadata,{parse: true}),
                 el: '.' + fixtureClass
             }).render();
             rosterView.onBeforeShow();
