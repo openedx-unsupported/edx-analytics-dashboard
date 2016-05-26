@@ -139,8 +139,15 @@ define(['backbone', 'jquery', 'underscore', 'utils/utils'],
 
                 // send event to segment including the course ID
                 self.segment.track(eventType, _.extend(course, properties));
-            }
+            },
 
+            /**
+             * Catch 'segment:page' events in order to send a page view event to
+             * segment.io.
+             */
+            page: function (pageName, metadata) {
+                this.segment.page(pageName, _.extend({}, this.buildCourseProperties(), metadata));
+            }
         });
 
         return TrackingView;
