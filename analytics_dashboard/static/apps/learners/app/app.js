@@ -6,6 +6,8 @@ define(function (require) {
         Marionette = require('marionette'),
         NProgress = require('nprogress'),
 
+        initModels = require('load/init-page'),
+
         CourseMetadataModel = require('learners/common/models/course-metadata'),
         LearnerCollection = require('learners/common/collections/learners'),
         LearnersController = require('learners/app/controller'),
@@ -76,6 +78,7 @@ define(function (require) {
                     rootView: rootView,
                     learnerEngagementTimelineUrl: this.options.learnerEngagementTimelineUrl,
                     learnerListUrl: this.options.learnerListUrl,
+                    trackingModel: initModels.trackingModel
                 })
             });
 
