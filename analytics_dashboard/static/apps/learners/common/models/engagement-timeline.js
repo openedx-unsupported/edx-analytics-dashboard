@@ -11,7 +11,7 @@ define(function (require) {
         /* Days is an array of objects, with each object containing the
          * following keys:
          *      - date (string) ISO 8601 date
-         *      - discussions_contributed (int) number of discussions
+         *      - discussion_contributions (int) number of discussions
          *        contributed to on the specified date.
          *      - problems_attempted (int) number of problems
          *        attempted on the specified date.

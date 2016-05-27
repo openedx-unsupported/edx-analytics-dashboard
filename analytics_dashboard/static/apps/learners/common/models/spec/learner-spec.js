@@ -17,7 +17,13 @@ define(function (require) {
                 enrollment_date: null,
                 cohort: null,
                 segments: [],
-                engagements: {},
+                engagements: {
+                    discussion_contributions: 0,
+                    problems_attempted: 0,
+                    problems_completed: 0,
+                    videos_viewed: 0,
+                    problem_attempts_per_completed: Infinity
+                },
                 last_updated: null,
                 course_id: ''
             });
@@ -37,17 +43,18 @@ define(function (require) {
         it('should parse engagement metrics', function () {
             var learner = new LearnerModel({
                 engagements: {
-                    discussions_contributed: 1,
+                    discussion_contributions: 1,
                     problems_attempted: 2,
                     problems_completed: 3,
-                    videos_viewed: 4
+                    videos_viewed: 4,
+                    problem_attempts_per_completed: null
                 }
             }, {parse: true});
-            expect(learner.get('engagements').discussions_contributed).toEqual(1);
+            expect(learner.get('engagements').discussion_contributions).toEqual(1);
             expect(learner.get('engagements').problems_attempted).toEqual(2);
             expect(learner.get('engagements').problems_completed).toEqual(3);
             expect(learner.get('engagements').videos_viewed).toEqual(4);
-            // Note that missing engagement metrics should be parsed as Infinity
+            // Note that null engagement metrics should be parsed as Infinity
             expect(learner.get('engagements').problem_attempts_per_completed).toEqual(Infinity);
         });
 

@@ -88,7 +88,7 @@ define(function (require) {
                 // learner engagement timeline data.
                 engagementTimelineResponse = JSON.stringify({days: [{
                     date: '2016-01-01',
-                    discussions_contributed: 1,
+                    discussion_contributions: 1,
                     problems_attempted: 1,
                     problems_completed: 1,
                     videos_viewed: 1
