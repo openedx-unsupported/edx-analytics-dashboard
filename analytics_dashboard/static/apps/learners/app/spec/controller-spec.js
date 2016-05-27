@@ -7,7 +7,8 @@ define(function (require) {
         LearnerCollection = require('learners/common/collections/learners'),
         LearnersController = require('learners/app/controller'),
         LearnersRootView = require('learners/app/views/root'),
-        PageModel = require('learners/common/models/page');
+        PageModel = require('learners/common/models/page'),
+        TrackingModel = require('models/tracking-model');
 
     describe('LearnersController', function () {
         var courseId,
@@ -67,7 +68,8 @@ define(function (require) {
                 pageModel: pageModel,
                 learnerEngagementTimelineUrl: '/test-engagement-endpoint/',
                 learnerListUrl: '/test-learner-endpoint/',
-                courseId: courseId
+                courseId: courseId,
+                trackingModel: new TrackingModel()
             });
         });
 
