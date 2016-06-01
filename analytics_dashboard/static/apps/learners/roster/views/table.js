@@ -32,7 +32,11 @@ define(function (require) {
             formatter: {
                 fromRaw: function (rawData, model) {
                     var value = model.get('engagements')[key];
-                    if (_(value).isNull() || _(value).isUndefined()) {
+                    // Engagement values are always numerical, but we may get
+                    // "Infinity" for ratio metrics (e.g.
+                    // problem_attempts_per_completed), which should just be
+                    // rendered to the user as 'N/A'.
+                    if (value === Infinity) {
                         // Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate accordingly.
                         return gettext('N/A');
                     } else {

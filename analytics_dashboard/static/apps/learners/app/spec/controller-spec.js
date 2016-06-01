@@ -59,7 +59,7 @@ define(function (require) {
                     last_updated: new Date(2016, 1, 28),
                     course_id: courseId
                 }
-            ]);
+            ], {parse: true});
             this.controller = new LearnersController({
                 rootView: this.rootView,
                 learnerCollection: collection,
@@ -88,7 +88,7 @@ define(function (require) {
                 // learner engagement timeline data.
                 engagementTimelineResponse = JSON.stringify({days: [{
                     date: '2016-01-01',
-                    discussions_contributed: 1,
+                    discussion_contributions: 1,
                     problems_attempted: 1,
                     problems_completed: 1,
                     videos_viewed: 1
@@ -100,7 +100,7 @@ define(function (require) {
             it('should handle AJAX errors', function (done) {
                 var view = this.controller.showLearnerDetailPage('example-username');
 
-                view.on('appError', function (options) {
+                view.once('appError', function (options) {
                     expect(options.title).toBe('Server error');
                     done();
                 });

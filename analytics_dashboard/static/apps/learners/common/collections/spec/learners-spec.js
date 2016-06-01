@@ -160,7 +160,7 @@ define(function (require) {
         it('triggers an event when server gateway timeouts occur', function () {
             var spy = {eventCallback: function () {}};
             spyOn(spy, 'eventCallback');
-            learners.on('serverError', spy.eventCallback);
+            learners.once('serverError', spy.eventCallback);
             learners.fetch();
             lastRequest().respond(504, {}, '');
             expect(spy.eventCallback).toHaveBeenCalled();

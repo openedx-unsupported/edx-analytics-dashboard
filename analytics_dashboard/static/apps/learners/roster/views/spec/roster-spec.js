@@ -210,8 +210,8 @@ define(function (require) {
                     name: 'agnes',
                     username: 'agnes',
                     engagements: {
-                        discussion_contributions: null,
-                        problems_attempted: undefined,
+                        discussion_contributions: 0,
+                        problems_attempted: 0,
                         problems_completed: 32,
                         videos_viewed: 0,
                         problem_attempts_per_completed: 0.566
@@ -224,13 +224,43 @@ define(function (require) {
                 $tr = $(rosterView.$('tbody tr'));
 
             expect($tr.children('td.discussion_contributions'))
-                .toContainText('N/A');
+                .toContainText('0');
             expect($tr.find('td.problems_completed'))
                 .toContainText('32');
             expect($tr.find('td.problems_attempted'))
-                .toContainText('N/A');
+                .toContainText('0');
             expect($tr.find('td.problem_attempts_per_completed'))
                 .toContainText('0.6');
+            expect($tr.find('td.videos_viewed'))
+                .toContainText('0');
+        });
+
+        it('displays "infinite" metrics as N/A', function () {
+            var learners = [{
+                    name: 'agnes',
+                    username: 'agnes',
+                    engagements: {
+                        discussion_contributions: 0,
+                        problems_attempted: 0,
+                        problems_completed: 0,
+                        videos_viewed: 0,
+                        problem_attempts_per_completed: null
+                    }
+                }],
+                rosterView = getRosterView({
+                    collectionResponse: {results: learners},
+                    collectionOptions: {parse: true}
+                }),
+                $tr = $(rosterView.$('tbody tr'));
+
+            expect($tr.children('td.discussion_contributions'))
+                .toContainText('0');
+            expect($tr.find('td.problems_completed'))
+                .toContainText('0');
+            expect($tr.find('td.problems_attempted'))
+                .toContainText('0');
+            expect($tr.find('td.problem_attempts_per_completed'))
+                .toContainText('N/A');
             expect($tr.find('td.videos_viewed'))
                 .toContainText('0');
         });

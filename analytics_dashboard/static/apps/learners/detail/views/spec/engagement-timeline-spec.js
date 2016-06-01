@@ -62,19 +62,19 @@ define(function (require) {
             return new EngagementTimelineModel({
                 days: [{
                     date: '2016-01-01',
-                    discussions_contributed: 1,
+                    discussion_contributions: 1,
                     problems_attempted: 1,
                     problems_completed: 1,
                     videos_viewed: 1
                 }, {
                     date: '2016-01-02',
-                    discussions_contributed: 2,
+                    discussion_contributions: 2,
                     problems_attempted: 2,
                     problems_completed: 2,
                     videos_viewed: 2
                 }, {
                     fdate: '2016-01-03',
-                    discussions_contributed: 3,
+                    discussion_contributions: 3,
                     problems_attempted: 3,
                     problems_completed: 3,
                     videos_viewed: 3
