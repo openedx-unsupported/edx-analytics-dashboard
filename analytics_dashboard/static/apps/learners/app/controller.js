@@ -57,6 +57,10 @@ define(function (require) {
             this.onLearnerCollectionUpdated(this.options.learnerCollection);
             this.options.rootView.showChildView('main', rosterView);
 
+            // track the "page" view
+            this.options.trackingModel.set('page', 'learner_roster');
+            this.options.trackingModel.trigger('segment:page');
+
             return rosterView;
         },
 
@@ -95,6 +99,10 @@ define(function (require) {
 
             engagementTimelineModel.fetch();
 
+            // track the "page" view
+            this.options.trackingModel.set('page', 'learner_details');
+            this.options.trackingModel.trigger('segment:page');
+
             return detailView;
         },
 
@@ -110,6 +118,11 @@ define(function (require) {
                 }
             }))();
             this.options.rootView.showChildView('main', notFoundView);
+
+            // track the "page" view
+            this.options.trackingModel.set('page', 'learner_not_found');
+            this.options.trackingModel.trigger('segment:page');
+
         }
     });
 

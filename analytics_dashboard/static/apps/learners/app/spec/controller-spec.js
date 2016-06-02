@@ -7,7 +7,8 @@ define(function (require) {
         LearnerCollection = require('learners/common/collections/learners'),
         LearnersController = require('learners/app/controller'),
         LearnersRootView = require('learners/app/views/root'),
-        PageModel = require('learners/common/models/page');
+        PageModel = require('learners/common/models/page'),
+        TrackingModel = require('models/tracking-model');
 
     describe('LearnersController', function () {
         var courseId,
@@ -18,17 +19,21 @@ define(function (require) {
         courseId = 'test/course/id';
 
         // convenience method for asserting that we are on the learner detail page
-        expectDetailPage = function (rootView) {
-            expect(rootView.$('.learner-detail-container')).toExist();
-            expect(rootView.$('.learner-summary-container')).toExist();
-            expect(rootView.$('.learners-header-region').html())
+        expectDetailPage = function (controller) {
+            expect(controller.options.rootView.$('.learner-detail-container')).toExist();
+            expect(controller.options.rootView.$('.learner-summary-container')).toExist();
+            expect(controller.options.rootView.$('.learners-header-region').html())
                 .toContainText('Learner Details');
+            expect(controller.options.trackingModel.get('page')).toBe('learner_details');
+            expect(controller.options.trackingModel.trigger).toHaveBeenCalledWith('segment:page');
         };
 
         // convenience method for asserting that we are on the roster page
-        expectRosterPage = function (rootView) {
-            expect(rootView.$('.learner-roster')).toBeInDOM();
-            expect(rootView.$('.learners-header-region').html()).toContainText('Learners');
+        expectRosterPage = function (controller) {
+            expect(controller.options.rootView.$('.learner-roster')).toBeInDOM();
+            expect(controller.options.rootView.$('.learners-header-region').html()).toContainText('Learners');
+            expect(controller.options.trackingModel.get('page')).toBe('learner_roster');
+            expect(controller.options.trackingModel.trigger).toHaveBeenCalledWith('segment:page');
         };
 
         beforeEach(function () {
@@ -67,8 +72,10 @@ define(function (require) {
                 pageModel: pageModel,
                 learnerEngagementTimelineUrl: '/test-engagement-endpoint/',
                 learnerListUrl: '/test-learner-endpoint/',
-                courseId: courseId
+                courseId: courseId,
+                trackingModel: new TrackingModel()
             });
+            spyOn(this.controller.options.trackingModel, 'trigger');
         });
 
         afterEach(function () {
@@ -77,7 +84,7 @@ define(function (require) {
 
         it('should show the learner roster page', function () {
             this.controller.showLearnerRosterPage();
-            expectRosterPage(this.rootView);
+            expectRosterPage(this.controller);
         });
 
         describe('navigating to the Learner Detail page', function () {
@@ -94,7 +101,7 @@ define(function (require) {
                     videos_viewed: 1
                 }]});
                 server.requests[server.requests.length - 1].respond(200, {}, engagementTimelineResponse);
-                expectDetailPage(this.rootView);
+                expectDetailPage(this.controller);
             });
 
             it('should handle AJAX errors', function (done) {
@@ -124,7 +131,7 @@ define(function (require) {
             it('hides app-wide errors', function () {
                 this.controller.showLearnerDetailPage('example-username');
                 server.requests[server.requests.length - 1].respond(500, {});
-                expectDetailPage(this.rootView);
+                expectDetailPage(this.controller);
                 expect(this.rootView.$('[role="alert"]')).toExist();
                 this.controller.triggerMethod('showPage');
                 expect(this.rootView.$('[role="alert"]')).not.toExist();
@@ -134,6 +141,8 @@ define(function (require) {
         it('should show the not found page', function () {
             this.controller.showNotFoundPage();
             expect(this.rootView.$el.html()).toContainText("Sorry, we couldn't find the page you're looking for.");  // jshint ignore:line
+            expect(this.controller.options.trackingModel.get('page')).toBe('learner_not_found');
+            expect(this.controller.options.trackingModel.trigger).toHaveBeenCalledWith('segment:page');
         });
     });
 });
