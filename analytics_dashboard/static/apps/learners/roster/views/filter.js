@@ -49,6 +49,8 @@ define(function (require) {
          *        filter.
          *      - selectDisplayName (string): a *translated* string that will
          *        appear as the label for this filter.
+         *      - trackingModel (Object): tracking model for broadcasting filter
+         *        events.
          */
         initialize: function (options) {
             this.options = options || {};
@@ -122,6 +124,9 @@ define(function (require) {
             }
             this.collection.refresh();
             this.triggerMethod('setFocusToTop');
+            this.options.trackingModel.trigger('segment:track', 'edx.bi.roster.filtered', {
+                category: this.options.filterKey
+            });
         },
     });
 
