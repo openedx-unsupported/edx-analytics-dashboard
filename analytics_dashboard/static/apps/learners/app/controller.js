@@ -50,7 +50,8 @@ define(function (require) {
         showLearnerRosterPage: function () {
             var rosterView = new LearnerRosterView({
                 collection: this.options.learnerCollection,
-                courseMetadata: this.options.courseMetadata
+                courseMetadata: this.options.courseMetadata,
+                trackingModel: this.options.trackingModel
             });
 
             this.options.pageModel.set('title', gettext('Learners'));
