@@ -126,8 +126,6 @@ student body, team members have changed their courses in a variety of ways.
   assignments, and found that it made sense to change a due date that fell on
   a major festival day in India.
 
-.. Same story, pre-anonymized: * After he learned the top few countries where students in his Circuits and Electronics course were located, Professor Anant Agarwal made a quick change to some of the homework problems. Instead of using first names that are only common among American and European students in examples, he sprinkled in names that would be familiar to students in India, Colombia, and China. Professor Agarwal also checked the scheduled due dates for the course assignments, and found that it made sense to change a due date that fell on a major festival day in India.
-
 .. * Another team provided a Hindi translation of their course introduction.
 
 =======================================================
@@ -149,12 +147,8 @@ Fostering Community
 ============================
 
 When students enroll in a course and click through from the edX dashboard, they
-see the Course Info page first. One professor welcomed students into the course
-community by including enrollment data from previous iterations of his course.
-By showcasing the size and geographic reach of the course in this way, the
-professor used the "wow" factor of his MOOC to capture interest and escalate
-enthusiasm.
-
-.. ^ is there a way to make this stronger?
-
-.. "I'd like to share some important details with you about our community. Since its launch in March 2013, HeroesX has enrolled over 60,000 individuals from over 170 countries, and this third session is growing every day. ...HeroesX is special because it brings together individual participants working independently from all over the world". - Gregory Nagy, September 2, 2014 (hold off on specifically quoting per Michele)
+see the course **Home** page first. One professor welcomed students into the
+course community by including enrollment data from previous iterations of his
+course. By showcasing the size and geographic reach of the course in this way,
+the professor used the "wow" factor of his MOOC to capture interest and
+escalate enthusiasm.

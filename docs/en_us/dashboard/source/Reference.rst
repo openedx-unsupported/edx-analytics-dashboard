@@ -370,6 +370,8 @@ For information about viewing engagement metrics in edX Insights, see
 
 * The y-axis shows the number of unique users.
 
+.. _Video Engagement Computations:
+
 ==============================
 Video Engagement Computations
 ==============================
@@ -433,7 +435,6 @@ For information about reviewing data for videos in edX Insights, see
 * The number of learners who started playing the video file.
 
 * The number of learners who were playing the video at the point near its end.
-
 
 .. _Performance Computations:
 
@@ -560,6 +561,64 @@ applications can display the same data in different ways.
 If you notice characters that do not display as expected, or multiple lines
 that have the same ``answer_value`` but different counts, try opening the file
 in a different spreadsheet application or a text editor.
+
+.. _Learner Computations:
+
+**********************
+Learner Computations
+**********************
+
+For information about the report and charts that are available in Insights
+for individual learner activities, see :ref:`Learners`.
+
+* The computations for these metrics are updated daily and use the enrollment
+  status and activities of each learner as of 23:59 UTC on the previous day.
+
+  * The report includes a row for every learner who ever enrolled in the
+    course. Activity metrics include activity in the last seven days.
+
+  * The chart plots activity for a selected learner throughout the course, and
+    is not limited to the last seven days.
+
+* The metrics for problems (the **Problems Tried** and **Problems Correct**
+  counts, and the **Attempts per Problem Correct** ratio) include only problems
+  of these types.
+
+  * Checkboxes (``<choiceresponse>``)
+  * Dropdown (``<optionresponse>``)
+  * Multiple choice (``<multiplechoiceresponse>``)
+  * Numerical input (``<numericalresponse>``)
+  * Text input (``<stringresponse>``)
+  * Math expression input (``<formularesponse>``)
+
+* The **Problems Correct** metric counts each problem component as one problem,
+  regardless of how many questions are included in the component.
+
+* The **Attempts per Problem Correct** ratio is computed as the number of
+  attempts made to answer problems of these types correctly divided by the
+  **Problems Correct** count.
+
+  * If the denominator (**Problems Correct**) for this ratio is 0, N/A displays
+    in this column.
+
+  * Insights does not display the value that is used as the numerator for this
+    ratio.
+
+* The **Videos Played** count includes each unique video file that the learner
+  played for any length of time.
+
+* The **Discussion Contributions** count includes each post, response, or
+  comment added by the learner. It does not include any other interactions,
+  such as editing a past contribution or voting for a post or response.
+
+* The percentiles that are used to color code values on the learner roster and
+  key activity report are computed for each metric individually. The percentile
+  computations use only the data for learners who engaged in the activity:
+  learners with a count or zero or a ratio of N/A are not included.
+
+  * Values in the 15th percentile or below appear in red.
+  * Values in the 16th to 84th percentile appear in black.
+  * Values in the 85th percentile and above appear in green.
 
 .. _Error Conditions:
 

@@ -13,4 +13,5 @@ Using edX Insights
    enrollment/index
    engagement/index
    performance/index
+   learners/index
    Reference
