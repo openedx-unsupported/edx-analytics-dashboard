@@ -59,7 +59,8 @@ define(function (require) {
             }));
             this.showChildView('controls', new RosterControlsView({
                 collection: this.options.collection,
-                courseMetadata: this.options.courseMetadata
+                courseMetadata: this.options.courseMetadata,
+                trackingModel: this.options.trackingModel
             }));
             this.showChildView('results', new LearnerResultsView({
                 collection: this.options.collection,
