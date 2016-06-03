@@ -9,7 +9,8 @@ define(function (require) {
 
         CourseMetadataModel = require('learners/common/models/course-metadata'),
         LearnerCollection = require('learners/common/collections/learners'),
-        LearnerRosterView = require('learners/roster/views/roster');
+        LearnerRosterView = require('learners/roster/views/roster'),
+        TrackingModel = require('models/tracking-model');
 
     describe('LearnerRosterView', function () {
         var fixtureClass = 'roster-view-fixture',
@@ -61,7 +62,8 @@ define(function (require) {
                 collection: collection,
                 courseMetadata: options.courseMetadataModel ||
                     new CourseMetadataModel(options.courseMetadata,{parse: true}),
-                el: '.' + fixtureClass
+                el: '.' + fixtureClass,
+                trackingModel: new TrackingModel()
             }).render();
             rosterView.onBeforeShow();
             return rosterView;
@@ -538,6 +540,18 @@ define(function (require) {
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(1, 1)));
             });
 
+            it('triggers a tracking event', function () {
+                var rosterView = getRosterView(),
+                    searchString = 'search string',
+                    triggerSpy = spyOn(rosterView.options.trackingModel, 'trigger');
+
+                executeSearch(searchString);
+                expectSearchedFor(searchString);
+                expect(triggerSpy).toHaveBeenCalledWith('segment:track', 'edx.bi.roster.searched', {
+                    category: 'search'
+                });
+            });
+
             it('handles server errors', function () {
                 var rosterView = getRosterView();
                 spyOn(rosterView, 'trigger');
@@ -587,12 +601,10 @@ define(function (require) {
 
             it('sets focus after executing a filter', function () {
                 var rosterView,
-                    spy,
                     cohortFilterView;
                 rosterView = getRosterView({courseMetadata: {cohorts: {
                     mudskipper: 1
                 }}});
-                spy = {onFocusTriggered: function () {}};
                 cohortFilterView = rosterView.controls.currentView.cohortFilter.currentView;
                 spyOn(cohortFilterView, 'triggerMethod');
                 expectCanFilterBy('cohort', 'mudskipper');
@@ -678,6 +690,17 @@ define(function (require) {
                     rosterView.collection.refresh();
                     getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
                     expect(rosterView.$('select option:selected')).toHaveValue('');
+                });
+
+                it('triggers a tracking event', function () {
+                    var rosterView = getRosterView({courseMetadataModel: this.courseMetadata}),
+                        filterFieldName = this.filterFieldName,
+                        triggerSpy = spyOn(rosterView.options.trackingModel, 'trigger');
+
+                    expectCanFilterBy(filterFieldName, this.firstFilterOption);
+                    expect(triggerSpy).toHaveBeenCalledWith('segment:track', 'edx.bi.roster.filtered', {
+                        category: filterFieldName
+                    });
                 });
 
                 it('handles server errors', function () {

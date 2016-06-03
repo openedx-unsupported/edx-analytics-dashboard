@@ -30,19 +30,22 @@ define(function (require) {
             this.showChildView('search', new LearnerSearch({
                 collection: this.options.collection,
                 name: 'text_search',
-                placeholder: gettext('Find a learner')
+                placeholder: gettext('Find a learner'),
+                trackingModel: this.options.trackingModel
             }));
             this.showChildView('cohortFilter', new Filter({
                 collection: this.options.collection,
                 filterKey: 'cohort',
                 filterValues: this.options.courseMetadata.get('cohorts'),
-                selectDisplayName: gettext('Cohort Groups')
+                selectDisplayName: gettext('Cohort Groups'),
+                trackingModel: this.options.trackingModel
             }));
             this.showChildView('enrollmentTrackFilter', new Filter({
                 collection: this.options.collection,
                 filterKey: 'enrollment_mode',
                 filterValues: this.options.courseMetadata.get('enrollment_modes'),
-                selectDisplayName: gettext('Enrollment Tracks')
+                selectDisplayName: gettext('Enrollment Tracks'),
+                trackingModel: this.options.trackingModel
             }));
         }
     });
