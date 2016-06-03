@@ -540,6 +540,18 @@ define(function (require) {
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(1, 1)));
             });
 
+            it('triggers a tracking event', function () {
+                var rosterView = getRosterView(),
+                    searchString = 'search string',
+                    triggerSpy = spyOn(rosterView.options.trackingModel, 'trigger');
+
+                executeSearch(searchString);
+                expectSearchedFor(searchString);
+                expect(triggerSpy).toHaveBeenCalledWith('segment:track', 'edx.bi.roster.searched', {
+                    category: 'search'
+                });
+            });
+
             it('handles server errors', function () {
                 var rosterView = getRosterView();
                 spyOn(rosterView, 'trigger');
