@@ -30,7 +30,8 @@ define(function (require) {
             this.showChildView('search', new LearnerSearch({
                 collection: this.options.collection,
                 name: 'text_search',
-                placeholder: gettext('Find a learner')
+                placeholder: gettext('Find a learner'),
+                trackingModel: this.options.trackingModel
             }));
             this.showChildView('cohortFilter', new Filter({
                 collection: this.options.collection,
