@@ -59,6 +59,9 @@ define(function (require) {
                 this.collection.unsetSearchString();
             } else {
                 this.collection.setSearchString(searchString);
+                this.options.trackingModel.trigger('segment:track', 'edx.bi.roster.searched', {
+                    category: 'search'
+                });
             }
             this.execute();
         },
