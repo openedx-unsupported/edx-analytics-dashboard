@@ -108,7 +108,8 @@ define(function (require) {
                 })
             }));
             this.showChildView('paginator', new PagingFooter({
-                collection: this.options.collection
+                collection: this.options.collection,
+                trackingModel: this.options.trackingModel
             }));
             // Accessibility hacks
             this.$('table').prepend('<caption class="sr-only">' + gettext('Learner Roster') + '</caption>');

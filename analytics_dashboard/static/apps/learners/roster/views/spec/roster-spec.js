@@ -421,6 +421,23 @@ define(function (require) {
                 }));
             };
 
+            it('triggers a tracking event', function () {
+                var rosterView = createTwoPageRoster(),
+                    triggerSpy = spyOn(rosterView.options.trackingModel, 'trigger');
+
+                // verifies the initial state
+                expectLinkStates(rosterView, 'Page 1', ['First', 'Previous']);
+
+                // navigate to page 2
+                clickPagingControl('Next');
+                expectRequestedPage(2);
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(2, 2)));
+                expectLinkStates(rosterView, 'Page 2', ['Next', 'Last']);
+                expect(triggerSpy).toHaveBeenCalledWith('segment:track', 'edx.bi.roster.paged', {
+                    category: 2
+                });
+            });
+
             it('can jump to a particular page', function () {
                 var rosterView = createTwoPageRoster();
                 clickPagingControl('Page 2');
