@@ -1,8 +1,11 @@
 .. _Learners:
 
-##########
-Learners
-##########
+################
+Learner Activity
+################
+
+.. note:: This feature is not yet supported. EdX is currently testing the
+ per learner activity feature.
 
 Which learners, specifically, are engaging with my course? Who is struggling,
 and who is doing well? Investigating and comparing the activities of individual
@@ -215,7 +218,7 @@ exemplary or counterproductive.
   per problem correct: a top performer. When you look at that learner's
   activity chart, however, you see that all of the problems were answered
   correctly on the very first day the course opened. Did this learner enroll in
-  the honor track for a previous course run, and is now taking the course for a
+  the audit track for a previous course run, and is now taking the course for a
   second time in the verified track? Or, could this learner have violated the
   honor code?
 

@@ -564,9 +564,12 @@ in a different spreadsheet application or a text editor.
 
 .. _Learner Computations:
 
-**********************
-Learner Computations
-**********************
+*************************
+Per Learner Computations
+*************************
+
+.. note:: This feature is not yet supported. EdX is currently testing the
+ per learner activity feature.
 
 For information about the report and charts that are available in Insights
 for individual learner activities, see :ref:`Learners`.
