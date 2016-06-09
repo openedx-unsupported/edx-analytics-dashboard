@@ -26,8 +26,24 @@ define(function (require) {
             forward: {title: 'Next', label: '<i class="fa fa-step-forward" aria-hidden="true"></i>'},
             fastForward: {title: 'Last', label: '<i class="fa fa-fast-forward" aria-hidden="true"></i>'}
         },
+        initialize: function (options) {
+            Backgrid.Extension.Paginator.prototype.initialize.call(this, options);
+            this.options = options || {};
+        },
+        render: function () {
+            var self = this;
+            Backgrid.Extension.Paginator.prototype.render.call(this);
+
+            // pass the tracking model to the page handles so that they can trigger
+            // tracking event
+            _(this.handles).each(function (handle) {
+                handle.trackingModel = self.options.trackingModel;
+            });
+
+        },
         pageHandle: Backgrid.Extension.PageHandle.extend({
             template: _.template(pageHandleTemplate),
+            trackingModel: undefined,  // set by PagingFooter
             render: function () {
                 var isHiddenFromSr = true,
                     srText;
@@ -61,6 +77,9 @@ define(function (require) {
                 } else {
                     this.$('a').focus();
                 }
+                this.trackingModel.trigger('segment:track', 'edx.bi.roster.paged', {
+                    category: this.pageIndex
+                });
             }
         })
     });
