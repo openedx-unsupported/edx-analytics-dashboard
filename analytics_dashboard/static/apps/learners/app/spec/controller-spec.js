@@ -20,6 +20,8 @@ define(function (require) {
 
         // convenience method for asserting that we are on the learner detail page
         expectDetailPage = function (controller) {
+            expect(controller.options.rootView.$('.learners-navigation-region').html())
+                .toContainText('Return to Learners');
             expect(controller.options.rootView.$('.learner-detail-container')).toExist();
             expect(controller.options.rootView.$('.learner-summary-container')).toExist();
             expect(controller.options.rootView.$('.learners-header-region').html())
@@ -30,6 +32,8 @@ define(function (require) {
 
         // convenience method for asserting that we are on the roster page
         expectRosterPage = function (controller) {
+            expect(controller.options.rootView.$('.learners-navigation-region').html())
+                .not.toContainText('Return to Learners');
             expect(controller.options.rootView.$('.learner-roster')).toBeInDOM();
             expect(controller.options.rootView.$('.learners-header-region').html()).toContainText('Learners');
             expect(controller.options.trackingModel.get('page')).toBe('learner_roster');

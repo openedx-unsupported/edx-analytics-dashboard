@@ -17,6 +17,7 @@ define(function (require) {
         LearnerDetailView = require('learners/detail/views/learner-detail'),
         LearnerModel = require('learners/common/models/learner'),
         LearnerRosterView = require('learners/roster/views/roster'),
+        ReturnLinkView = require('learners/detail/views/learner-return'),
 
         LearnersController;
 
@@ -54,6 +55,8 @@ define(function (require) {
                 trackingModel: this.options.trackingModel
             });
 
+            this.options.rootView.getRegion('navigation').empty();
+
             this.options.pageModel.set('title', gettext('Learners'));
             this.onLearnerCollectionUpdated(this.options.learnerCollection);
             this.options.rootView.showChildView('main', rosterView);
@@ -70,6 +73,7 @@ define(function (require) {
          * succeeds.
          */
         showLearnerDetailPage: function (username) {
+            this.options.rootView.showChildView('navigation', new ReturnLinkView({}));
             var engagementTimelineModel = new EngagementTimelineModel({}, {
                     url: this.options.learnerEngagementTimelineUrl.replace('temporary_username', username),
                     courseId: this.options.courseId

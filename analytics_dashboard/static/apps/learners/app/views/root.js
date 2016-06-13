@@ -19,7 +19,8 @@ define(function (require) {
         regions: {
             alert: '.learners-alert-region',
             header: '.learners-header-region',
-            main: '.learners-main-region'
+            main: '.learners-main-region',
+            navigation: '.learners-navigation-region'
         },
 
         childEvents: {
