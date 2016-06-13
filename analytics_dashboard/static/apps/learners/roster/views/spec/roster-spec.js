@@ -384,6 +384,27 @@ define(function (require) {
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(2, 1)));
                 expect(this.rosterView.$('a[title="Page 1"]').parent('li')).toHaveClass('active');
             });
+
+            it ('triggers a tracking event', function() {
+                var triggerSpy = spyOn(this.rosterView.options.trackingModel, 'trigger'),
+                    headerClasses = [
+                        'username',
+                        'videos_viewed',
+                        'problems_attempted',
+                        'problems_completed',
+                        'discussion_contributions',
+                        'problem_attempts_per_completed'
+                    ];
+                _.each(headerClasses, function(column) {
+                    executeSortTest(column);
+                    expect(triggerSpy).toHaveBeenCalledWith('segment:track','edx.bi.roster.sorted', {
+                        category: column + '_asc'
+                    });
+                    expect(triggerSpy).toHaveBeenCalledWith('segment:track','edx.bi.roster.sorted', {
+                        category: column + '_desc'
+                    });
+                });
+            });
         });
 
         describe('paging', function () {

@@ -78,7 +78,7 @@ define(function (require) {
                     rootView: rootView,
                     learnerEngagementTimelineUrl: this.options.learnerEngagementTimelineUrl,
                     learnerListUrl: this.options.learnerListUrl,
-                    trackingModel: initModels.trackingModel
+                    trackingModel: initModels.models.trackingModel
                 })
             });
 
