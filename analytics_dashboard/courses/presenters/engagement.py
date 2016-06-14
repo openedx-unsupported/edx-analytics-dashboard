@@ -132,6 +132,9 @@ class CourseEngagementActivityPresenter(BasePresenter):
             self._annotate_with_enrollment(summary, trends, enrollment_data)
         return summary, trends
 
+    def get_course_views(self):
+        return self.course.views()
+
 
 class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, BasePresenter):
 

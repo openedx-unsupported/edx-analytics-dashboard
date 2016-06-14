@@ -42,6 +42,30 @@ Individual course-centric engagement content view.
     {% endif %}
   </section>
 
+  <section class="view-section" aria-hidden="true">
+    <div class="section-heading">
+      <h4 class="section-title">{% trans "Content Views" %}</h4>
+      <span class="section-heading-note small">{% trans "How many views?" %}</span>
+    </div>
+
+    {% if js_data.course.courseViews %}
+        <div class="section-content section-data-graph">
+          <div class="section-content section-data-viz">
+                <div class="analytics-chart-container">
+                    <div class="chart-info">{% trans "Views" %}</div>
+                    {% trans "Course Views." as tip_text %}
+                    {% include "chart_tooltip.html" with tip_text=tip_text track_category="trend"%}
+                    <div id="course-views" class="analytics-chart">
+                        {% include "loading.html" %}
+                    </div>
+                </div>
+          </div>
+        </div>
+    {% else %}
+        {% show_chart_error %}
+    {% endif %}
+  </section>
+
   <section class="view-section">
     <div class="section-heading bordered">
       <h4 class="section-title">{% trans "Student Activity Metrics" %}</h4>

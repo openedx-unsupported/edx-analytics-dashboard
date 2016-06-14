@@ -6,7 +6,8 @@
 require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
     'use strict';
 
-    require(['underscore', 'views/data-table-view', 'views/trends-view'], function (_, DataTableView, TrendsView) {
+    require(['underscore', 'views/data-table-view', 'views/trends-view', 'views/stacked-bar-view'],
+        function (_, DataTableView, TrendsView, StackedBarView) {
         // shared settings between the chart and table
         // colors are chosen to be color-blind accessible
         var settings = [
@@ -51,7 +52,8 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                     type: 'percent'
                 }
             ],
-            trendSettings;
+            trendSettings,
+            courseViewsColumns;
 
         // remove settings for data that doesn't exist (ex. forums)
         settings = _(settings).filter(function (setting) {
@@ -92,5 +94,34 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
             sorting: ['-weekEnding'],
             replaceNull: '-'
         });
+
+        courseViewsColumns = [
+            {
+                key: 'total_views',
+                title: gettext('Average Correct'),
+                className: 'text-right',
+                type: 'number',
+                color: '#4BB4FB'
+            },
+            {
+                key: 'unique_user_views',
+                title: gettext('Average Incorrect'),
+                className: 'text-right',
+                type: 'number',
+                color: '#CA0061'
+            }
+        ];
+        // create a unique name...
+        _(page.models.courseModel.get('courseViews')).each(function (view) {
+            view.name = [view.section, view.subsection].join('_');
+        });
+
+        new StackedBarView({
+            el: '#course-views',
+            model: page.models.courseModel,
+            modelAttribute: 'courseViews',
+            trends: courseViewsColumns
+        });
+
     });
 });

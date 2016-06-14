@@ -50,7 +50,7 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
 
             if (model.get('hasData')) {
                 new StackedBarView({
-                    el: '#chart-view',
+                    el: '#course-views',
                     model: model,
                     modelAttribute: 'primaryContent',
                     dataType: 'decimal',

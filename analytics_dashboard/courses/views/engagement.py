@@ -45,13 +45,16 @@ class EngagementContentView(EngagementTemplateView):
         summary = None
         trends = None
         last_updated = None
+        course_views = None
         try:
             summary, trends = self.presenter.get_summary_and_trend_data()
+            course_views = self.presenter.get_course_views()
             last_updated = summary['last_updated']
         except NotFoundError:
             logger.error("Failed to retrieve engagement content data for %s.", self.course_id)
 
         context['js_data']['course']['engagementTrends'] = trends
+        context['js_data']['course']['courseViews'] = course_views
         context.update({
             'summary': summary,
             'update_message': self.get_last_updated_message(last_updated)
