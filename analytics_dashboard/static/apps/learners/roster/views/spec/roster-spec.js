@@ -384,6 +384,27 @@ define(function (require) {
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(2, 1)));
                 expect(this.rosterView.$('a[title="Page 1"]').parent('li')).toHaveClass('active');
             });
+
+            it ('triggers a tracking event', function() {
+                var triggerSpy = spyOn(this.rosterView.options.trackingModel, 'trigger'),
+                    headerClasses = [
+                        'username',
+                        'videos_viewed',
+                        'problems_attempted',
+                        'problems_completed',
+                        'discussion_contributions',
+                        'problem_attempts_per_completed'
+                    ];
+                _.each(headerClasses, function(column) {
+                    executeSortTest(column);
+                    expect(triggerSpy).toHaveBeenCalledWith('segment:track','edx.bi.roster.sorted', {
+                        category: column + '_asc'
+                    });
+                    expect(triggerSpy).toHaveBeenCalledWith('segment:track','edx.bi.roster.sorted', {
+                        category: column + '_desc'
+                    });
+                });
+            });
         });
 
         describe('paging', function () {
@@ -420,6 +441,23 @@ define(function (require) {
                     page: pageNum.toString()
                 }));
             };
+
+            it('triggers a tracking event', function () {
+                var rosterView = createTwoPageRoster(),
+                    triggerSpy = spyOn(rosterView.options.trackingModel, 'trigger');
+
+                // verifies the initial state
+                expectLinkStates(rosterView, 'Page 1', ['First', 'Previous']);
+
+                // navigate to page 2
+                clickPagingControl('Next');
+                expectRequestedPage(2);
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(2, 2)));
+                expectLinkStates(rosterView, 'Page 2', ['Next', 'Last']);
+                expect(triggerSpy).toHaveBeenCalledWith('segment:track', 'edx.bi.roster.paged', {
+                    category: 2
+                });
+            });
 
             it('can jump to a particular page', function () {
                 var rosterView = createTwoPageRoster();

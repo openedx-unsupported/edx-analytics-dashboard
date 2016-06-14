@@ -78,6 +78,12 @@ define(function (require) {
         },
         initialize: function (options) {
             this.options = options || {};
+            this.collection.on('backgrid:sort', this.onSort, this);
+        },
+        onSort: function(column, direction) {
+            this.options.trackingModel.trigger('segment:track', 'edx.bi.roster.sorted', {
+                category: column.get('name') + '_' + direction.slice(0,-6)
+            });
         },
         onBeforeShow: function () {
             var options = this.options;
@@ -108,7 +114,8 @@ define(function (require) {
                 })
             }));
             this.showChildView('paginator', new PagingFooter({
-                collection: this.options.collection
+                collection: this.options.collection,
+                trackingModel: this.options.trackingModel
             }));
             // Accessibility hacks
             this.$('table').prepend('<caption class="sr-only">' + gettext('Learner Roster') + '</caption>');

@@ -31,7 +31,8 @@ define(function (require) {
                 if (!(this.getRegion('main').currentView instanceof LearnerTableView)) {
                     this.showChildView('main', new LearnerTableView({
                         collection: collection,
-                        courseMetadata: this.options.courseMetadata
+                        courseMetadata: this.options.courseMetadata,
+                        trackingModel: this.options.trackingModel
                     }));
                 }
             } else {
