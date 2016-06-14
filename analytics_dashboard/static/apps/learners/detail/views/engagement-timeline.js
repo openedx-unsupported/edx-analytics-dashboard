@@ -32,7 +32,7 @@ define(function (require) {
                     type: 'number'
                 }, {
                     key: 'problems_completed',
-                    title: gettext('Problems Completed'),
+                    title: gettext('Problems Correct'),
                     type: 'number'
                 }, {
                     key: 'videos_viewed',

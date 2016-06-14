@@ -95,7 +95,7 @@ the learner interacted with the course each day. The graph plots the following
 types of activity.
 
 * Discussion Contributions
-* Problems Completed (same as Problems Correct in the roster)
+* Problems Correct
 * Videos Viewed
 
 The chart shows when a learner was active in the course, beginning with the
