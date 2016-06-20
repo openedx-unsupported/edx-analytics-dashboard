@@ -9,6 +9,8 @@ from acceptance_tests.pages import CourseLearnersPage
 
 @skipUnless(ENABLE_LEARNER_ANALYTICS, 'Learner Analytics must be enabled to run CourseLearnersTests')
 class CourseLearnersTests(CoursePageTestsMixin, WebAppTest):
+    help_path = 'engagement/learners.html'
+
     def setUp(self):
         super(CourseLearnersTests, self).setUp()
         self.page = CourseLearnersPage(self.browser)
