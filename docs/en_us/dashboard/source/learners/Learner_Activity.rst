@@ -1,11 +1,11 @@
-.. _Learners:
+.. _Learner Activity:
 
 ################
 Learner Activity
 ################
 
 .. note:: This feature is not yet supported. EdX is currently testing the
- per learner activity feature.
+ individual learner activity feature.
 
 Which learners, specifically, are engaging with my course? Who is struggling,
 and who is doing well? Investigating and comparing the activities of individual
