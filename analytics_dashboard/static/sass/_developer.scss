@@ -813,15 +813,15 @@ table.dataTable thead th.sorting_desc:after {
     font-weight: 600;
   }
 
-  // color-bind safe colors for differentiating engagement categories
-  $below-average-color: rgb(230,121,80);
-  $above-average-color: rgb(82,184,135);
-  .learner-cell-below-average {
-    color: $below-average-color;
+  // color-blind safe colors for differentiating engagement categories
+  $rank-bottom-color: rgb(230,121,80);
+  $rank-top-color: rgb(82,184,135);
+  .learner-cell-rank-bottom {
+    color: $rank-bottom-color;
   }
 
-  .learner-cell-above-average {
-    color: $above-average-color;
+  .learner-cell-rank-top {
+    color: $rank-top-color;
   }
 
   .backgrid-paginator {

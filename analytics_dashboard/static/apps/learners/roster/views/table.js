@@ -46,9 +46,9 @@ define(function (require) {
             },
 
             enagementCategoryToClass: {
-                below_average: 'learner-cell-below-average',
-                average: 'learner-cell-average',
-                above_average: 'learner-cell-above-average'
+                classRankBottom: 'learner-cell-rank-bottom',
+                classRankMiddle: 'learner-cell-rank-middle',
+                classRankTop: 'learner-cell-rank-top'
             },
 
             render: function() {
