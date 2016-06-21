@@ -20,8 +20,8 @@ define(function (require) {
             this.registerSortableField('username', gettext('Name (Username)'));
             this.registerSortableField('problems_attempted', gettext('Problems Tried'));
             this.registerSortableField('problems_completed', gettext('Problems Correct'));
-            this.registerSortableField('videos_viewed', gettext('Videos'));
             this.registerSortableField('problem_attempts_per_completed', gettext('Attempts per Problem Correct'));
+            this.registerSortableField('videos_viewed', gettext('Videos'));
             this.registerSortableField('discussion_contributions', gettext('Discussions'));
 
             this.registerFilterableField('segments', gettext('Segments'));
