@@ -832,6 +832,20 @@ table.dataTable thead th.sorting_desc:after {
     }
 
   }
+
+  .activity-date-range {
+    color: $edx-gray-d2;
+
+    // padding keeps the element from shifting when active filters are selected
+    padding-top: $padding-large-vertical * 1.5;
+    padding-bottom: $padding-large-vertical * 1.5;
+
+    @media (min-width: $screen-sm-min) {
+      float: right;
+    }
+
+  }
+
 }
 
 // styles for the learner details summary

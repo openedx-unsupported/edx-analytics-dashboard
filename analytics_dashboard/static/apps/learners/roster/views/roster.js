@@ -11,6 +11,7 @@ define(function (require) {
     var _ = require('underscore'),
         Marionette = require('marionette'),
 
+        ActiveDateRangeView = require('learners/roster/views/activity-date-range'),
         ActiveFiltersView = require('learners/roster/views/active-filters'),
         LearnerResultsView = require('learners/roster/views/results'),
         LearnerUtils = require('learners/common/utils'),
@@ -35,6 +36,7 @@ define(function (require) {
 
         regions: {
             activeFilters: '.learners-active-filters',
+            activityDateRange: '.activity-date-range',
             controls: '.learners-table-controls',
             results: '.learners-results'
         },
@@ -56,6 +58,9 @@ define(function (require) {
         onBeforeShow: function () {
             this.showChildView('activeFilters', new ActiveFiltersView({
                 collection: this.options.collection
+            }));
+            this.showChildView('activityDateRange', new ActiveDateRangeView({
+                model: this.options.courseMetadata
             }));
             this.showChildView('controls', new RosterControlsView({
                 collection: this.options.collection,

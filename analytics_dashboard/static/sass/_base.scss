@@ -158,6 +158,10 @@ hr.has-emphasis {
     }
   }
 
+  .section-heading-note {
+    color: $edx-gray-d2;
+  }
+
   // CASE: larger than small screen breakpoint
   @media (min-width: $screen-sm-min) {
 
@@ -177,10 +181,8 @@ hr.has-emphasis {
         margin-top: $font-size-base;
       }
 
-      .section-heading-note {
-        color: $edx-gray;
-      }
     }
+
   }
 
   .section-nav {
