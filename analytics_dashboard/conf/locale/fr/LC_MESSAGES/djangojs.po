@@ -10,14 +10,15 @@
 # Kévin SEVERIN <kevin.severin@laposte.net>, 2015
 # laurentFUN <laurent.at.fun@gmail.com>, 2014
 # moocit-france <contact@moocit.fr>, 2015-2016
+# Pierre TASSEL <pierre.tassel@outlook.fr>, 2016
 # rafcha <raphael.chay@gmail.com>, 2014
 # Sebastien Vigneau <sebastien.vigneau@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-24 14:25-0400\n"
-"PO-Revision-Date: 2016-05-24 18:34+0000\n"
+"POT-Creation-Date: 2016-06-22 09:59-0400\n"
+"PO-Revision-Date: 2016-06-22 14:04+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: French (http://www.transifex.com/open-edx/edx-platform/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -36,12 +37,12 @@ msgstr ""
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Sorry, we couldn't find the page you're looking for."
-msgstr ""
+msgstr "Désolé, nous ne trouvons pas la page demandé."
 
 #: static/apps/learners/app/views/header.js
 #: static/dist/apps/learners/app/app.js
 msgid "Date Last Updated: <%- lastUpdatedDateString %>"
-msgstr ""
+msgstr "Date dernière mise à jour: <%- lastUpdatedDateString %>"
 
 #: static/apps/learners/app/views/header.js
 #: static/dist/apps/learners/app/app.js
@@ -51,17 +52,18 @@ msgstr "inconnu"
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
 msgid "Name (Username)"
-msgstr ""
+msgstr "Nom (Pseudo)"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
 msgid "Problems Tried"
-msgstr ""
+msgstr "Problèmes Essayé"
 
 #: static/apps/learners/common/collections/learners.js
+#: static/apps/learners/detail/views/engagement-timeline.js
 #: static/dist/apps/learners/app/app.js
 msgid "Problems Correct"
-msgstr ""
+msgstr "Problèmes Correct"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
@@ -73,7 +75,7 @@ msgstr "Vidéos"
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
 msgid "Attempts per Problem Correct"
-msgstr ""
+msgstr "Essaies par Problème Correct"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
@@ -104,7 +106,7 @@ msgstr ""
 #. it as "504".
 #: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
 msgid "504: Server error"
-msgstr ""
+msgstr "504: Erreur Serveur"
 
 #: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
 msgid ""
@@ -114,7 +116,7 @@ msgstr ""
 
 #: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
 msgid "Server error"
-msgstr ""
+msgstr "Erreur serveur"
 
 #: static/apps/learners/common/utils.js static/apps/learners/common/utils.js
 #: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
@@ -123,7 +125,7 @@ msgstr ""
 
 #: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
 msgid "Network error"
-msgstr ""
+msgstr "Erreur de connection"
 
 #. Translators: This message indicates content is loading in the page.
 #: static/apps/learners/common/views/loading-view.js
@@ -138,13 +140,8 @@ msgstr ""
 
 #: static/apps/learners/detail/views/engagement-timeline.js
 #: static/dist/apps/learners/app/app.js
-msgid "Problems Completed"
-msgstr ""
-
-#: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/app.js
 msgid "Videos Viewed"
-msgstr ""
+msgstr "Vidéos vues"
 
 #: static/apps/learners/detail/views/engagement-timeline.js
 #: static/dist/apps/learners/app/app.js
@@ -192,6 +189,10 @@ msgstr ""
 msgid "No learner data is available."
 msgstr ""
 
+#: static/apps/learners/detail/views/learner-return.js
+msgid "Return to Learners"
+msgstr ""
+
 #. Translators: this is a label describing a selection that the user
 #. initiated.
 #: static/apps/learners/roster/views/active-filters.js
@@ -214,7 +215,7 @@ msgstr ""
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Click to remove this filter"
-msgstr ""
+msgstr "Cliquez pour supprimer ce filtre"
 
 #. Translators: "Clear" in this context means "remove all of the filters"
 #: static/apps/learners/roster/views/active-filters.js
@@ -225,12 +226,12 @@ msgstr "Effacer"
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Click to remove all filters"
-msgstr ""
+msgstr "Cliquez pour supprimer tous les filtres"
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
 msgid "The name and username of this learner. Click to sort by username."
-msgstr ""
+msgstr "Le nom et pseudo de l'étudiant. Cliquez pour trier par pseudo."
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
@@ -281,12 +282,12 @@ msgstr ""
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
 msgid "click to sort"
-msgstr ""
+msgstr "cliquez pour trier"
 
 #: static/apps/learners/roster/views/controls.js
 #: static/dist/apps/learners/app/app.js
 msgid "Find a learner"
-msgstr ""
+msgstr "Trouver un étudiant"
 
 #: static/apps/learners/roster/views/controls.js
 #: static/dist/apps/learners/app/app.js
@@ -309,12 +310,12 @@ msgstr ""
 #: static/apps/learners/roster/views/filter.js
 #: static/dist/apps/learners/app/app.js
 msgid "All"
-msgstr ""
+msgstr "Tout"
 
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/app.js
 msgid "first page"
-msgstr ""
+msgstr "première page"
 
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/app.js
@@ -329,12 +330,12 @@ msgstr "page suivante"
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/app.js
 msgid "last page"
-msgstr ""
+msgstr "dernière page"
 
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/app.js
 msgid "page"
-msgstr ""
+msgstr "page"
 
 #: static/apps/learners/roster/views/results.js
 #: static/dist/apps/learners/app/app.js
@@ -395,6 +396,10 @@ msgstr "N/A"
 #: static/dist/apps/learners/app/app.js
 msgid "Learner Roster"
 msgstr ""
+
+#: static/dist/apps/learners/app/app.js
+msgid "Problems Completed"
+msgstr "Exercices finis"
 
 #: static/dist/js/common.js static/js/utils/utils.js
 msgid "..."

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-24 14:25-0400\n"
-"PO-Revision-Date: 2016-05-24 18:34+0000\n"
+"POT-Creation-Date: 2016-06-22 09:59-0400\n"
+"PO-Revision-Date: 2016-06-22 14:04+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Romanian (http://www.transifex.com/open-edx/edx-platform/language/ro/)\n"
 "MIME-Version: 1.0\n"
@@ -51,6 +51,7 @@ msgid "Problems Tried"
 msgstr ""
 
 #: static/apps/learners/common/collections/learners.js
+#: static/apps/learners/detail/views/engagement-timeline.js
 #: static/dist/apps/learners/app/app.js
 msgid "Problems Correct"
 msgstr ""
@@ -130,11 +131,6 @@ msgstr ""
 
 #: static/apps/learners/detail/views/engagement-timeline.js
 #: static/dist/apps/learners/app/app.js
-msgid "Problems Completed"
-msgstr ""
-
-#: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/app.js
 msgid "Videos Viewed"
 msgstr ""
 
@@ -182,6 +178,10 @@ msgstr ""
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "No learner data is available."
+msgstr ""
+
+#: static/apps/learners/detail/views/learner-return.js
+msgid "Return to Learners"
 msgstr ""
 
 #. Translators: this is a label describing a selection that the user
@@ -386,6 +386,10 @@ msgstr ""
 #: static/apps/learners/roster/views/table.js
 #: static/dist/apps/learners/app/app.js
 msgid "Learner Roster"
+msgstr ""
+
+#: static/dist/apps/learners/app/app.js
+msgid "Problems Completed"
 msgstr ""
 
 #: static/dist/js/common.js static/js/utils/utils.js

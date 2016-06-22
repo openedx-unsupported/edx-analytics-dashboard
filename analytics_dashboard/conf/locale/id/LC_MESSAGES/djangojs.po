@@ -4,12 +4,13 @@
 #
 # Translators:
 # Eka Y Saputra <ekajogja@ymail.com>, 2014
+# el greshard <elgreshard@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-24 14:25-0400\n"
-"PO-Revision-Date: 2016-05-24 18:34+0000\n"
+"POT-Creation-Date: 2016-06-22 09:59-0400\n"
+"PO-Revision-Date: 2016-06-22 14:04+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Indonesian (http://www.transifex.com/open-edx/edx-platform/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -33,7 +34,7 @@ msgstr ""
 #: static/apps/learners/app/views/header.js
 #: static/dist/apps/learners/app/app.js
 msgid "Date Last Updated: <%- lastUpdatedDateString %>"
-msgstr ""
+msgstr "Tanggal Terakhir Diperbaharui : <%- lastUpdatedDateString %>"
 
 #: static/apps/learners/app/views/header.js
 #: static/dist/apps/learners/app/app.js
@@ -43,7 +44,7 @@ msgstr "tidak diketahui"
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
 msgid "Name (Username)"
-msgstr ""
+msgstr "Nama (Nama Pengguna)"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
@@ -51,6 +52,7 @@ msgid "Problems Tried"
 msgstr ""
 
 #: static/apps/learners/common/collections/learners.js
+#: static/apps/learners/detail/views/engagement-timeline.js
 #: static/dist/apps/learners/app/app.js
 msgid "Problems Correct"
 msgstr ""
@@ -112,6 +114,8 @@ msgstr ""
 #: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
 msgid "Your request could not be processed. Reload the page to try again."
 msgstr ""
+"Permintaan anda tidak dapat diproses. Buka ulang halaman untuk mencoba "
+"kembali "
 
 #: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
 msgid "Network error"
@@ -126,11 +130,6 @@ msgstr "Memuat..."
 #: static/apps/learners/detail/views/engagement-timeline.js
 #: static/dist/apps/learners/app/app.js
 msgid "Discussion Contributions"
-msgstr ""
-
-#: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/app.js
-msgid "Problems Completed"
 msgstr ""
 
 #: static/apps/learners/detail/views/engagement-timeline.js
@@ -177,11 +176,15 @@ msgstr ""
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "No course activity data is available for this learner."
-msgstr ""
+msgstr "Tidak tersedia data aktivitas course untuk peserta ini"
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "No learner data is available."
+msgstr "Tidak ada data peserta yang tersedia"
+
+#: static/apps/learners/detail/views/learner-return.js
+msgid "Return to Learners"
 msgstr ""
 
 #. Translators: this is a label describing a selection that the user
@@ -201,12 +204,12 @@ msgstr ""
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Active Filters:"
-msgstr ""
+msgstr "Filter yang digunakan :"
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Click to remove this filter"
-msgstr ""
+msgstr "Klik untuk menghapus filter ini"
 
 #. Translators: "Clear" in this context means "remove all of the filters"
 #: static/apps/learners/roster/views/active-filters.js
@@ -217,12 +220,12 @@ msgstr "Kosongkan"
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Click to remove all filters"
-msgstr ""
+msgstr "Klik untuk menghapus semua filter"
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
 msgid "The name and username of this learner. Click to sort by username."
-msgstr ""
+msgstr "Nama dan Username peserta. Klik untuk mengurutkan menurut username"
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
@@ -258,14 +261,14 @@ msgstr ""
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
 msgid "sort ascending"
-msgstr ""
+msgstr "urut keatas"
 
 #. Translators: "sort descending" describes the
 #. current sort state to the user.
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
 msgid "sort descending"
-msgstr ""
+msgstr "urut kebawah"
 
 #. Translators: "click to sort" tells the user that
 #. they can click this link to sort by the current
@@ -273,17 +276,17 @@ msgstr ""
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
 msgid "click to sort"
-msgstr ""
+msgstr "klik untuk mengurutkan"
 
 #: static/apps/learners/roster/views/controls.js
 #: static/dist/apps/learners/app/app.js
 msgid "Find a learner"
-msgstr ""
+msgstr "Temukan peserta"
 
 #: static/apps/learners/roster/views/controls.js
 #: static/dist/apps/learners/app/app.js
 msgid "Cohort Groups"
-msgstr ""
+msgstr "Kelompok Cohort"
 
 #: static/apps/learners/roster/views/controls.js
 #: static/dist/apps/learners/app/app.js
@@ -306,32 +309,32 @@ msgstr ""
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/app.js
 msgid "first page"
-msgstr ""
+msgstr "halaman awal"
 
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/app.js
 msgid "previous page"
-msgstr ""
+msgstr "halaman sebelumnya"
 
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/app.js
 msgid "next page"
-msgstr ""
+msgstr "halaman berikutnya"
 
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/app.js
 msgid "last page"
-msgstr ""
+msgstr "halaman terakhir"
 
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/app.js
 msgid "page"
-msgstr ""
+msgstr "halaman"
 
 #: static/apps/learners/roster/views/results.js
 #: static/dist/apps/learners/app/app.js
 msgid "No learners matched your criteria."
-msgstr ""
+msgstr "Tidak ada peserta yang ditemukan"
 
 #: static/apps/learners/roster/views/results.js
 #: static/dist/apps/learners/app/app.js
@@ -346,7 +349,7 @@ msgstr ""
 #: static/apps/learners/roster/views/results.js
 #: static/dist/apps/learners/app/app.js
 msgid "No learner data is currently available for your course."
-msgstr ""
+msgstr "Tidak ada data peserta tersedua untuk course anda"
 
 #: static/apps/learners/roster/views/results.js
 #: static/dist/apps/learners/app/app.js
@@ -364,7 +367,7 @@ msgstr ""
 #: static/apps/learners/roster/views/search.js
 #: static/dist/apps/learners/app/app.js
 msgid "Search learners"
-msgstr ""
+msgstr "Cari pesrta"
 
 #: static/apps/learners/roster/views/search.js
 #: static/dist/apps/learners/app/app.js
@@ -374,18 +377,22 @@ msgstr "Cari"
 #: static/apps/learners/roster/views/search.js
 #: static/dist/apps/learners/app/app.js
 msgid "clear search"
-msgstr ""
+msgstr "bersihkan pencarian"
 
 #. Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate
 #. accordingly.
 #: static/apps/learners/roster/views/table.js
 #: static/dist/apps/learners/app/app.js
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: static/apps/learners/roster/views/table.js
 #: static/dist/apps/learners/app/app.js
 msgid "Learner Roster"
+msgstr ""
+
+#: static/dist/apps/learners/app/app.js
+msgid "Problems Completed"
 msgstr ""
 
 #: static/dist/js/common.js static/js/utils/utils.js
@@ -518,7 +525,7 @@ msgstr ""
 #: static/dist/js/engagement-video-timeline-main.js
 #: static/js/engagement-video-timeline-main.js
 msgid "Time"
-msgstr ""
+msgstr "Waktu"
 
 #: static/dist/js/engagement-videos-main.js
 #: static/js/engagement-videos-main.js
@@ -598,7 +605,7 @@ msgstr ""
 #: static/dist/js/enrollment-demographics-education-main.js
 #: static/js/enrollment-demographics-education-main.js
 msgid "Educational Background"
-msgstr ""
+msgstr "Latar belakang Pendidikan"
 
 #. Translators: <%=value%> will be replaced with a level of gender (e.g.
 #. Female).
@@ -676,12 +683,12 @@ msgstr ""
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
 msgid "Average Correct"
-msgstr ""
+msgstr "Rata-rata Benar"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
 msgid "Average Incorrect"
-msgstr ""
+msgstr "Rata-rata Salah"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
@@ -698,7 +705,7 @@ msgstr ""
 #: static/js/performance-content-main.js
 #: static/js/performance-problems-main.js
 msgid "Percentage Correct"
-msgstr ""
+msgstr "Persentase Benar"
 
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-problems-main.js

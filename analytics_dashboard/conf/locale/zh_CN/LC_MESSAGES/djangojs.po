@@ -10,6 +10,7 @@
 # Li Jiaqi <willliricardo@icloud.com>, 2015
 # louyihua <supermouselyh@hotmail.com>, 2015
 # wanghe <1636807295@qq.com>, 2014
+# Xuejia Tong <snowytong@hotmail.com>, 2016
 # 桢 任 <1105054123@st.nuc.edu.cn>, 2016
 # 张逸涵 <jeanzhang970128@gmail.com>, 2014
 # 竹轩 <fmyzjs@gmail.com>, 2014
@@ -17,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-24 14:25-0400\n"
-"PO-Revision-Date: 2016-05-24 18:34+0000\n"
+"POT-Creation-Date: 2016-06-22 09:59-0400\n"
+"PO-Revision-Date: 2016-06-22 14:04+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/open-edx/edx-platform/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -52,7 +53,7 @@ msgstr "未知"
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
 msgid "Name (Username)"
-msgstr ""
+msgstr "名称 (用户名)"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
@@ -60,6 +61,7 @@ msgid "Problems Tried"
 msgstr "尝试问题"
 
 #: static/apps/learners/common/collections/learners.js
+#: static/apps/learners/detail/views/engagement-timeline.js
 #: static/dist/apps/learners/app/app.js
 msgid "Problems Correct"
 msgstr "解决问题"
@@ -111,7 +113,7 @@ msgstr ""
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
-msgstr ""
+msgstr "您的请求过程耗时过长，请刷新页面重试。"
 
 #: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
 msgid "Server error"
@@ -124,7 +126,7 @@ msgstr ""
 
 #: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
 msgid "Network error"
-msgstr ""
+msgstr "网络连接错误"
 
 #. Translators: This message indicates content is loading in the page.
 #: static/apps/learners/common/views/loading-view.js
@@ -136,11 +138,6 @@ msgstr "载入中..."
 #: static/dist/apps/learners/app/app.js
 msgid "Discussion Contributions"
 msgstr "（额外）讨论成绩"
-
-#: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/app.js
-msgid "Problems Completed"
-msgstr "已完成的习题"
 
 #: static/apps/learners/detail/views/engagement-timeline.js
 #: static/dist/apps/learners/app/app.js
@@ -181,7 +178,7 @@ msgstr ""
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "Check back daily for up-to-date data."
-msgstr ""
+msgstr "您可以每日查看以获得最新数据。"
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
@@ -191,6 +188,10 @@ msgstr ""
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "No learner data is available."
+msgstr ""
+
+#: static/apps/learners/detail/views/learner-return.js
+msgid "Return to Learners"
 msgstr ""
 
 #. Translators: this is a label describing a selection that the user
@@ -396,6 +397,10 @@ msgstr "不适用"
 #: static/dist/apps/learners/app/app.js
 msgid "Learner Roster"
 msgstr "学生名单"
+
+#: static/dist/apps/learners/app/app.js
+msgid "Problems Completed"
+msgstr "已完成的习题"
 
 #: static/dist/js/common.js static/js/utils/utils.js
 msgid "..."

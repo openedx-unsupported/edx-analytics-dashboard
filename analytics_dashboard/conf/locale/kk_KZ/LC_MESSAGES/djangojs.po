@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Zhanar Sagyndykova <janar.9696@mail.ru>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-24 14:25-0400\n"
-"PO-Revision-Date: 2016-05-24 18:28+0000\n"
+"POT-Creation-Date: 2016-06-22 09:59-0400\n"
+"PO-Revision-Date: 2016-06-22 14:04+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Kazakh (Kazakhstan) (http://www.transifex.com/open-edx/edx-platform/language/kk_KZ/)\n"
 "MIME-Version: 1.0\n"
@@ -19,102 +20,107 @@ msgstr ""
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Learners"
-msgstr ""
+msgstr "Оқып-үйренушілер"
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Learner Details"
-msgstr ""
+msgstr "Оқып-үйренушілер туралы толығырақ ақпарат"
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Sorry, we couldn't find the page you're looking for."
-msgstr ""
+msgstr "Кешіріңіз, біз, сіз іздеген бетті таба алмадық"
 
 #: static/apps/learners/app/views/header.js
 #: static/dist/apps/learners/app/app.js
 msgid "Date Last Updated: <%- lastUpdatedDateString %>"
-msgstr ""
+msgstr "Соңғы жаңартулар датасы: <%- lastUpdatedDateString %>"
 
 #: static/apps/learners/app/views/header.js
 #: static/dist/apps/learners/app/app.js
 msgid "unknown"
-msgstr "белгісіз"
+msgstr "Белгісіз"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
 msgid "Name (Username)"
-msgstr ""
+msgstr "Аты (Қолданушының аты-жөні)"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
 msgid "Problems Tried"
-msgstr ""
+msgstr "Мәселелерді байқап көру"
 
 #: static/apps/learners/common/collections/learners.js
+#: static/apps/learners/detail/views/engagement-timeline.js
 #: static/dist/apps/learners/app/app.js
 msgid "Problems Correct"
-msgstr ""
+msgstr "Мәселелерді шешу"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
 #: static/dist/js/engagement-video-content-main.js
 #: static/js/engagement-video-content-main.js
 msgid "Videos"
-msgstr ""
+msgstr "Бейнелер"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
 msgid "Attempts per Problem Correct"
-msgstr ""
+msgstr "Мәселелерді шешуге талпыныс"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
 msgid "Discussions"
-msgstr ""
+msgstr "Талқылаулар"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
 msgid "Segments"
-msgstr ""
+msgstr "Сегменттер"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
 msgid "Segments to Ignore"
-msgstr ""
+msgstr "Ескерілмейтін сегменттер"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
 msgid "Cohort"
-msgstr ""
+msgstr "Топ"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
 msgid "Enrollment Mode"
-msgstr ""
+msgstr "Қабылдау режимі"
 
 #. Translators: "504" is a number representing a server error, so please leave
 #. it as "504".
 #: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
 msgid "504: Server error"
-msgstr ""
+msgstr "504: Сервер қателігі"
 
 #: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
 msgstr ""
+"Сіздің сұранысыңызды өңдеу тым ұзақ уақытқа созылды. Қайтадан көру үшін "
+"бетті қайта жүктеңіз."
 
 #: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
 msgid "Server error"
-msgstr ""
+msgstr "Сервер қателігі"
 
 #: static/apps/learners/common/utils.js static/apps/learners/common/utils.js
 #: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
 msgid "Your request could not be processed. Reload the page to try again."
 msgstr ""
+"Сіздің сұранысыңызды өңдеу мүмкін емес.  Қайтадан көру үшін бетті қайта "
+"жүктеңіз."
 
 #: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
 msgid "Network error"
-msgstr ""
+msgstr "Желі қателігі"
 
 #. Translators: This message indicates content is loading in the page.
 #: static/apps/learners/common/views/loading-view.js
@@ -125,17 +131,12 @@ msgstr "Жүктелу өтуде..."
 #: static/apps/learners/detail/views/engagement-timeline.js
 #: static/dist/apps/learners/app/app.js
 msgid "Discussion Contributions"
-msgstr ""
-
-#: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/app.js
-msgid "Problems Completed"
-msgstr ""
+msgstr "Талқылау жарналары"
 
 #: static/apps/learners/detail/views/engagement-timeline.js
 #: static/dist/apps/learners/app/app.js
 msgid "Videos Viewed"
-msgstr ""
+msgstr "Қаралған видеолар"
 
 #: static/apps/learners/detail/views/engagement-timeline.js
 #: static/dist/apps/learners/app/app.js
@@ -154,11 +155,11 @@ msgstr "Мәні"
 #. Translators: e.g. Student engagement
 #: static/apps/learners/detail/views/learner-detail.js
 msgid "Engagement"
-msgstr ""
+msgstr "Міндеттеме"
 
 #: static/apps/learners/detail/views/learner-detail.js
 msgid "Activity"
-msgstr ""
+msgstr "Қызмет"
 
 #. Translators: 'n/a' means 'not available'
 #. Translators: 'n/a' means 'not available'
@@ -171,7 +172,7 @@ msgstr ""
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "Check back daily for up-to-date data."
-msgstr ""
+msgstr "Бүгінгі күнге дейінгі деректерді күн сайын тексеріңіз."
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
@@ -181,6 +182,10 @@ msgstr ""
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "No learner data is available."
+msgstr "Оқып-үйренуші жайлы деректер қол жетімсіз."
+
+#: static/apps/learners/detail/views/learner-return.js
+msgid "Return to Learners"
 msgstr ""
 
 #. Translators: this is a label describing a selection that the user
@@ -188,62 +193,62 @@ msgstr ""
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Cohort: <%= filterVal %>"
-msgstr ""
+msgstr "Топ: <%= filterVal %>"
 
 #. Translators: this is a label describing a selection that the user
 #. initiated.
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Enrollment Track: <%= filterVal %>"
-msgstr ""
+msgstr "Қабылдау жолы: <%= filterVal %>"
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Active Filters:"
-msgstr ""
+msgstr "Белсенді фильтрлер"
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Click to remove this filter"
-msgstr ""
+msgstr "Бұл фильтрді алып тастау үшін басыңыз."
 
 #. Translators: "Clear" in this context means "remove all of the filters"
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Clear"
-msgstr ""
+msgstr "Тазарту"
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Click to remove all filters"
-msgstr ""
+msgstr "Барлық фильтрді жою үшін басыңыз"
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
 msgid "The name and username of this learner. Click to sort by username."
-msgstr ""
+msgstr "Осы оқушының аты-жөні. Аты бойынша сұрыптау үшін басыңыз."
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
 msgid "Number of unique problems this learner attempted."
-msgstr ""
+msgstr "Оқушы байқап көрген бірегей мәселелер саны"
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
 msgid "Number of unique problems the learner answered correctly."
-msgstr ""
+msgstr "Оқушы дұрыс жауап берген бірегей мәселелер саны"
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
 msgid "Number of unique videos this learner played."
-msgstr ""
+msgstr "Оқушы орындаған бірегей бейнелер саны"
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
 msgid ""
 "Average number of attempts per correct problem. Learners with a relatively "
 "high value compared to their peers may be struggling."
-msgstr ""
+msgstr "Мәселені шешу шін жасалған әрекеттердің орташа саны."
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
@@ -251,20 +256,21 @@ msgid ""
 "Number of contributions by this learner, including posts, responses, and "
 "comments."
 msgstr ""
+"Пікір, жауап, және ескертулерді қоса алғанда,  оқушы салымдарының саны"
 
 #. Translators: "sort ascending" describes the current
 #. sort state to the user.
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
 msgid "sort ascending"
-msgstr ""
+msgstr "Өсу реті бойынша сұрыптау"
 
 #. Translators: "sort descending" describes the
 #. current sort state to the user.
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
 msgid "sort descending"
-msgstr ""
+msgstr "Кему реті бойынша сұрыптау"
 
 #. Translators: "click to sort" tells the user that
 #. they can click this link to sort by the current
@@ -272,12 +278,12 @@ msgstr ""
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
 msgid "click to sort"
-msgstr ""
+msgstr "Сұрыптау үшін басыңыз"
 
 #: static/apps/learners/roster/views/controls.js
 #: static/dist/apps/learners/app/app.js
 msgid "Find a learner"
-msgstr ""
+msgstr "Оқып-үйренушілерді табу"
 
 #: static/apps/learners/roster/views/controls.js
 #: static/dist/apps/learners/app/app.js
@@ -287,7 +293,7 @@ msgstr ""
 #: static/apps/learners/roster/views/controls.js
 #: static/dist/apps/learners/app/app.js
 msgid "Enrollment Tracks"
-msgstr ""
+msgstr "Тіркеу жолы"
 
 #. Translators: 'name' here refers to the name of the filter, while
 #. 'numLearners' refers to the number of learners belonging to that filter.
@@ -300,52 +306,52 @@ msgstr ""
 #: static/apps/learners/roster/views/filter.js
 #: static/dist/apps/learners/app/app.js
 msgid "All"
-msgstr ""
+msgstr "Барлығы"
 
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/app.js
 msgid "first page"
-msgstr ""
+msgstr "Бірінші бет"
 
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/app.js
 msgid "previous page"
-msgstr ""
+msgstr "Алдыңғы бет"
 
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/app.js
 msgid "next page"
-msgstr ""
+msgstr "Келесі бет"
 
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/app.js
 msgid "last page"
-msgstr ""
+msgstr "Соңғы бет"
 
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/app.js
 msgid "page"
-msgstr ""
+msgstr "Бет"
 
 #: static/apps/learners/roster/views/results.js
 #: static/dist/apps/learners/app/app.js
 msgid "No learners matched your criteria."
-msgstr ""
+msgstr "Критерийге сай оқып-үйренушілер жоқ"
 
 #: static/apps/learners/roster/views/results.js
 #: static/dist/apps/learners/app/app.js
 msgid "Try a different search."
-msgstr ""
+msgstr "Басқа іздеуді көріңіз."
 
 #: static/apps/learners/roster/views/results.js
 #: static/dist/apps/learners/app/app.js
 msgid "Try clearing the filters."
-msgstr ""
+msgstr "Сүзгілерді тазалап көріңіз."
 
 #: static/apps/learners/roster/views/results.js
 #: static/dist/apps/learners/app/app.js
 msgid "No learner data is currently available for your course."
-msgstr ""
+msgstr "Қазіргі уақытта сіздің курсыңызға қол жеткізген оқушы деректері жоқ"
 
 #: static/apps/learners/roster/views/results.js
 #: static/dist/apps/learners/app/app.js
@@ -354,38 +360,45 @@ msgid ""
 "processed. Data is updated every day, so check back regularly for up-to-date"
 " metrics."
 msgstr ""
+"Тіркелген оқушылар жоқ немесе курстық қызмет деректері әлі өңделмеген. "
+"Деректер күн сайын жаңартылып отырады, сондықтан осыған дейінгі "
+"көрсеткіштерді жүйелі түрде тексеріңіз."
 
 #: static/apps/learners/roster/views/roster.js
 #: static/dist/apps/learners/app/app.js
 msgid "Learner roster controls"
-msgstr ""
+msgstr "Оқушы басқару элементтерінің тізіміне енгізілді."
 
 #: static/apps/learners/roster/views/search.js
 #: static/dist/apps/learners/app/app.js
 msgid "Search learners"
-msgstr ""
+msgstr "Оқушыларды іздеу "
 
 #: static/apps/learners/roster/views/search.js
 #: static/dist/apps/learners/app/app.js
 msgid "search"
-msgstr ""
+msgstr "Іздеу"
 
 #: static/apps/learners/roster/views/search.js
 #: static/dist/apps/learners/app/app.js
 msgid "clear search"
-msgstr ""
+msgstr "Іздеуді тазалау"
 
 #. Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate
 #. accordingly.
 #: static/apps/learners/roster/views/table.js
 #: static/dist/apps/learners/app/app.js
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: static/apps/learners/roster/views/table.js
 #: static/dist/apps/learners/app/app.js
 msgid "Learner Roster"
-msgstr ""
+msgstr "Оқушы тізімге енгізілген"
+
+#: static/dist/apps/learners/app/app.js
+msgid "Problems Completed"
+msgstr "Мәселелер аяқталды"
 
 #: static/dist/js/common.js static/js/utils/utils.js
 msgid "..."
@@ -416,7 +429,7 @@ msgstr ""
 #: static/dist/js/performance-problems-main.js
 #: static/js/views/data-table-view.js static/js/views/discrete-bar-view.js
 msgid "(empty)"
-msgstr ""
+msgstr "(Бос)"
 
 #. Translators: "Correct" is displayed in a table..
 #. Translators: "Correct" is displayed in a table..
@@ -433,38 +446,38 @@ msgstr "Дұрыс"
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Week Ending"
-msgstr ""
+msgstr "Аптаның соңы"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Active Students"
-msgstr ""
+msgstr "Белсенді студенттер"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Watched a Video"
-msgstr ""
+msgstr "Бейнені қарады"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Tried a Problem"
-msgstr ""
+msgstr "Мәселелерді байқап көрді"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Posted in Forum"
-msgstr ""
+msgstr "Форумда жарияланған"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Percent of Current Students"
-msgstr ""
+msgstr "Ағымдағы студенттердің пайызы"
 
 #. Translators: <%=value%> will be replaced with a date.
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Week Ending <%=value%>"
-msgstr ""
+msgstr "Аптаның соңы <%=value%>"
 
 #. Translators: <%=value%> will be replaced by a number followed by a
 #. percentage.
@@ -480,12 +493,12 @@ msgstr ""
 #: static/dist/js/engagement-video-content-main.js
 #: static/js/engagement-video-content-main.js
 msgid "Average Complete Views"
-msgstr ""
+msgstr "Толық шолулардың орташа саны"
 
 #: static/dist/js/engagement-video-content-main.js
 #: static/js/engagement-video-content-main.js
 msgid "Average Incomplete Views"
-msgstr ""
+msgstr "Аяқталмаған шолулардың орташа саны"
 
 #: static/dist/js/engagement-video-content-main.js
 #: static/dist/js/engagement-videos-main.js
@@ -495,39 +508,39 @@ msgstr ""
 #: static/js/engagement-videos-main.js static/js/performance-content-main.js
 #: static/js/performance-problems-main.js
 msgid "Order"
-msgstr ""
+msgstr "Реті"
 
 #: static/dist/js/engagement-video-content-main.js
 #: static/dist/js/engagement-videos-main.js
 #: static/js/engagement-video-content-main.js
 #: static/js/engagement-videos-main.js
 msgid "Completion Percentage"
-msgstr ""
+msgstr "Аяқталу пайызы"
 
 #: static/dist/js/engagement-video-timeline-main.js
 #: static/js/engagement-video-timeline-main.js
 msgid "Unique Viewers"
-msgstr ""
+msgstr "Бірегей көрермендер"
 
 #: static/dist/js/engagement-video-timeline-main.js
 #: static/js/engagement-video-timeline-main.js
 msgid "Replays"
-msgstr ""
+msgstr "Қайталаулар"
 
 #: static/dist/js/engagement-video-timeline-main.js
 #: static/js/engagement-video-timeline-main.js
 msgid "Time"
-msgstr ""
+msgstr "Уақыт"
 
 #: static/dist/js/engagement-videos-main.js
 #: static/js/engagement-videos-main.js
 msgid "Complete Views"
-msgstr ""
+msgstr "Толық шолулар"
 
 #: static/dist/js/engagement-videos-main.js
 #: static/js/engagement-videos-main.js
 msgid "Incomplete Views"
-msgstr ""
+msgstr "Аяқталмаған шолулар"
 
 #. Translators: The noun count (e.g. number of students)
 #. Translators: The noun count (e.g. number of students)
@@ -538,7 +551,7 @@ msgstr ""
 #: static/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-geography-main.js
 msgid "Current Enrollment"
-msgstr ""
+msgstr "Ағымдағы тіркеу"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
@@ -548,12 +561,12 @@ msgstr "Ар-намыс кодексі"
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Verified"
-msgstr ""
+msgstr "Тексерілген"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Professional"
-msgstr ""
+msgstr "Кәсіпқой"
 
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-age-main.js
@@ -562,49 +575,49 @@ msgstr ""
 #: static/js/enrollment-demographics-age-main.js
 #: static/js/enrollment-demographics-education-main.js
 msgid "Number of Students"
-msgstr "Студенттер саны"
+msgstr "Студенттердің саны"
 
 #. Translators: <%=value%> will be replaced with an age.
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/js/enrollment-demographics-age-main.js
 msgid "Age: <%=value%>"
-msgstr ""
+msgstr "Жас: <%=value%>"
 
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/js/enrollment-demographics-age-main.js
 msgid "Age"
-msgstr ""
+msgstr "Жас"
 
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/js/enrollment-demographics-age-main.js
 msgid "Percent of Total"
-msgstr ""
+msgstr "Барлығының пайызы"
 
 #: static/dist/js/enrollment-demographics-education-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-education-main.js
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Percentage"
-msgstr ""
+msgstr "Пайыз"
 
 #. Translators: <%=value%> will be replaced with a level of education (e.g.
 #. Doctorate).
 #: static/dist/js/enrollment-demographics-education-main.js
 #: static/js/enrollment-demographics-education-main.js
 msgid "Education: <%=value%>"
-msgstr ""
+msgstr "Білімі: <%=value%>"
 
 #: static/dist/js/enrollment-demographics-education-main.js
 #: static/js/enrollment-demographics-education-main.js
 msgid "Educational Background"
-msgstr ""
+msgstr "Білім берудің қосалқы жоспары "
 
 #. Translators: <%=value%> will be replaced with a level of gender (e.g.
 #. Female).
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Gender: <%=value%>"
-msgstr ""
+msgstr "Жынысы: <%=value%>"
 
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-gender-main.js
@@ -624,7 +637,7 @@ msgstr "Басқа"
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Not Reported"
-msgstr ""
+msgstr "Хабарланбаған"
 
 #: static/dist/js/enrollment-geography-main.js
 #: static/js/enrollment-geography-main.js
@@ -632,6 +645,8 @@ msgid ""
 "Student location is determined from IP address. This map shows where "
 "students most recently connected."
 msgstr ""
+"Студенттің орналасуы IP мекенжайы арқылы анықталады. Бұл карта студенттердің"
+" ең соңғы рет қашан қосылғанын көрсетеді."
 
 #: static/dist/js/enrollment-geography-main.js
 #: static/js/enrollment-geography-main.js
@@ -646,17 +661,17 @@ msgstr "Пайыз"
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
 msgid "Answer"
-msgstr ""
+msgstr "Жауап"
 
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
 msgid "Submission Count"
-msgstr ""
+msgstr "Есепті ұсыну"
 
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
 msgid "Variant"
-msgstr ""
+msgstr "Нұсқа"
 
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-problems-main.js
@@ -670,34 +685,34 @@ msgstr "Дұрыс емес"
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
 msgid "Answer: <%=value%>"
-msgstr ""
+msgstr "Жауап: <%=value%>"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
 msgid "Average Correct"
-msgstr ""
+msgstr "Орташа дұрыс"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
 msgid "Average Incorrect"
-msgstr ""
+msgstr "Орташа қате"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
 msgid "Problems"
-msgstr ""
+msgstr "Мәселелер"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
 msgid "Average Submissions Per Problem"
-msgstr ""
+msgstr "Әрбір мәселеге шаққандағы деректердің орташа саны"
 
 #: static/dist/js/performance-content-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-content-main.js
 #: static/js/performance-problems-main.js
 msgid "Percentage Correct"
-msgstr ""
+msgstr "Дұрыстарының пайызы"
 
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-problems-main.js
