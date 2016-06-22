@@ -5,15 +5,15 @@
 # Translators:
 # Akif Vohra <akifvohra@gmail.com>, 2016
 # Alexander L. <alexander.lohberg@ufo-style.de>, 2014
-# Ettore Atalan <atalanttore@googlemail.com>, 2014
+# Ettore Atalan <atalanttore@googlemail.com>, 2014,2016
 # mc <marc.mannsfeld@phil.hhu.de>, 2015
 # Simon D. <hardys972@googlemail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-24 14:25-0400\n"
-"PO-Revision-Date: 2016-05-24 18:34+0000\n"
+"POT-Creation-Date: 2016-06-22 09:59-0400\n"
+"PO-Revision-Date: 2016-06-22 14:04+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/open-edx/edx-platform/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
@@ -47,7 +47,7 @@ msgstr "unbekannt"
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
 msgid "Name (Username)"
-msgstr ""
+msgstr "Name (Benutzername)"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
@@ -55,6 +55,7 @@ msgid "Problems Tried"
 msgstr ""
 
 #: static/apps/learners/common/collections/learners.js
+#: static/apps/learners/detail/views/engagement-timeline.js
 #: static/dist/apps/learners/app/app.js
 msgid "Problems Correct"
 msgstr ""
@@ -79,7 +80,7 @@ msgstr "Diskussionen"
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
 msgid "Segments"
-msgstr ""
+msgstr "Segmente"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
@@ -89,7 +90,7 @@ msgstr ""
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
 msgid "Cohort"
-msgstr "Geburtsjahrgang"
+msgstr "Grossgruppe"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
@@ -100,7 +101,7 @@ msgstr "Einschreibungsmodus"
 #. it as "504".
 #: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
 msgid "504: Server error"
-msgstr ""
+msgstr "504: Serverfehler"
 
 #: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
 msgid ""
@@ -110,7 +111,7 @@ msgstr ""
 
 #: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
 msgid "Server error"
-msgstr ""
+msgstr "Serverfehler"
 
 #: static/apps/learners/common/utils.js static/apps/learners/common/utils.js
 #: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
@@ -119,7 +120,7 @@ msgstr ""
 
 #: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
 msgid "Network error"
-msgstr ""
+msgstr "Netzwerkfehler"
 
 #. Translators: This message indicates content is loading in the page.
 #: static/apps/learners/common/views/loading-view.js
@@ -134,13 +135,8 @@ msgstr "Diskussionsbeiträge"
 
 #: static/apps/learners/detail/views/engagement-timeline.js
 #: static/dist/apps/learners/app/app.js
-msgid "Problems Completed"
-msgstr ""
-
-#: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/app.js
 msgid "Videos Viewed"
-msgstr ""
+msgstr "Videoaufrufe"
 
 #: static/apps/learners/detail/views/engagement-timeline.js
 #: static/dist/apps/learners/app/app.js
@@ -171,7 +167,7 @@ msgstr "Aktivität"
 #: static/apps/learners/detail/views/learner-summary-field.js
 #: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
 msgid "n/a"
-msgstr ""
+msgstr "n/v"
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
@@ -188,12 +184,16 @@ msgstr ""
 msgid "No learner data is available."
 msgstr ""
 
+#: static/apps/learners/detail/views/learner-return.js
+msgid "Return to Learners"
+msgstr ""
+
 #. Translators: this is a label describing a selection that the user
 #. initiated.
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Cohort: <%= filterVal %>"
-msgstr ""
+msgstr "Grossgruppe: <%= filterVal %>"
 
 #. Translators: this is a label describing a selection that the user
 #. initiated.
@@ -205,7 +205,7 @@ msgstr ""
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Active Filters:"
-msgstr ""
+msgstr "Aktive Filter:"
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
@@ -290,7 +290,7 @@ msgstr ""
 #: static/apps/learners/roster/views/controls.js
 #: static/dist/apps/learners/app/app.js
 msgid "Cohort Groups"
-msgstr ""
+msgstr "Grossgruppen"
 
 #: static/apps/learners/roster/views/controls.js
 #: static/dist/apps/learners/app/app.js
@@ -302,18 +302,18 @@ msgstr ""
 #: static/apps/learners/roster/views/filter.js
 #: static/dist/apps/learners/app/app.js
 msgid "<%= name %> (<%= numLearners %>)"
-msgstr ""
+msgstr "<%= name %> (<%= numLearners %>)"
 
 #. Translators: "All" refers to viewing all the learners in a course.
 #: static/apps/learners/roster/views/filter.js
 #: static/dist/apps/learners/app/app.js
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/app.js
 msgid "first page"
-msgstr ""
+msgstr "erste Seite"
 
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/app.js
@@ -323,17 +323,17 @@ msgstr ""
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/app.js
 msgid "next page"
-msgstr ""
+msgstr "nächste Seite"
 
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/app.js
 msgid "last page"
-msgstr ""
+msgstr "letzte Seite"
 
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/app.js
 msgid "page"
-msgstr ""
+msgstr "Seite"
 
 #: static/apps/learners/roster/views/results.js
 #: static/dist/apps/learners/app/app.js
@@ -381,7 +381,7 @@ msgstr "Suche"
 #: static/apps/learners/roster/views/search.js
 #: static/dist/apps/learners/app/app.js
 msgid "clear search"
-msgstr ""
+msgstr "Suche löschen"
 
 #. Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate
 #. accordingly.
@@ -393,6 +393,10 @@ msgstr "nicht verfügbar"
 #: static/apps/learners/roster/views/table.js
 #: static/dist/apps/learners/app/app.js
 msgid "Learner Roster"
+msgstr ""
+
+#: static/dist/apps/learners/app/app.js
+msgid "Problems Completed"
 msgstr ""
 
 #: static/dist/js/common.js static/js/utils/utils.js
@@ -666,7 +670,7 @@ msgstr ""
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
 msgid "Variant"
-msgstr ""
+msgstr "Variante"
 
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-problems-main.js
@@ -680,7 +684,7 @@ msgstr "Falsch"
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
 msgid "Answer: <%=value%>"
-msgstr ""
+msgstr "Antwort: <%=value%>"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
