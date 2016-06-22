@@ -156,7 +156,7 @@ define(function (require) {
                         problems_attempted: 100,
                         problems_completed: 32,
                         videos_viewed: 1,
-                        problem_attempts_per_completed: 0.56
+                        problem_attempts_per_completed: 1.56
                     }
                 }],
                 engagementRanges = {
@@ -176,8 +176,8 @@ define(function (require) {
                         above_average: [50, null]
                     },
                     problem_attempts_per_completed: {
-                        below_average: [null, 1],
-                        average: [2, 25],
+                        below_average: [1, 1.6],
+                        average: [1.6, 25],
                         above_average: [26, 60]
                     },
                     discussion_contributions: {
@@ -196,15 +196,15 @@ define(function (require) {
                 $tr = $(rosterView.$('tbody tr'));
 
             expect($tr.children('td.discussion_contributions'))
-                .toHaveClass('learner-cell-below-average');
+                .toHaveClass('learner-cell-rank-bottom');
             expect($tr.find('td.problems_completed'))
-                .toHaveClass('learner-cell-average');
+                .toHaveClass('learner-cell-rank-middle');
             expect($tr.find('td.problems_attempted'))
-                .toHaveClass('learner-cell-above-average');
+                .toHaveClass('learner-cell-rank-top');
             expect($tr.find('td.problem_attempts_per_completed'))
-                .toHaveClass('learner-cell-below-average');
+                .toHaveClass('learner-cell-rank-top');
             expect($tr.find('td.videos_viewed'))
-                .toHaveClass('learner-cell-average');
+                .toHaveClass('learner-cell-rank-middle');
         });
 
         it('formats numbers', function () {

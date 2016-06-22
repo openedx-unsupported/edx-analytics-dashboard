@@ -24,9 +24,53 @@ define(function (require) {
             };
         },
 
+        renameEngagementRanges: function(engagementRanges) {
+            var rankedEngagementRanges = {},
+                newRanges = {
+                discussion_contributions : {
+                    above_average : 'classRankTop',
+                    average: 'classRankMiddle',
+                    below_average : 'classRankBottom'
+                },
+                problem_attempts_per_completed : {
+                    above_average : 'classRankBottom',
+                    average: 'classRankMiddle',
+                    below_average : 'classRankTop'
+                },
+                problems_attempted: {
+                    above_average : 'classRankTop',
+                    average: 'classRankMiddle',
+                    below_average : 'classRankBottom'
+                },
+                problems_completed : {
+                    above_average : 'classRankTop',
+                    average: 'classRankMiddle',
+                    below_average : 'classRankBottom'
+                },
+                videos_viewed : {
+                    above_average : 'classRankTop',
+                    average: 'classRankMiddle',
+                    below_average : 'classRankBottom'
+                }
+            };
+            for (var metric in engagementRanges) {
+                if (metric in newRanges) {
+                    rankedEngagementRanges[metric] = {};
+                    for (var range in engagementRanges[metric]) {
+                        if (engagementRanges[metric].hasOwnProperty(range)) {
+                            rankedEngagementRanges[metric][newRanges[metric][range]] =
+                                engagementRanges[metric][range];
+                        }
+                    }
+                }
+            }
+            this.set('rankedEngagementRanges', rankedEngagementRanges);
+        },
+
         initialize: function (attributes, options) {
             Backbone.Model.prototype.initialize.call(this, attributes, options);
             this.options = options || {};
+            this.renameEngagementRanges(this.get('engagement_ranges'));
         },
 
         url: function () {
@@ -63,7 +107,7 @@ define(function (require) {
          * @param value Engagement value.
          */
         getEngagementCategory: function(engagementMetric, value) {
-            var ranges = this.get('engagement_ranges')[engagementMetric],
+            var ranges = this.get('rankedEngagementRanges')[engagementMetric],
                 engagementCategory;
 
             _.each(ranges, function (range, category) {

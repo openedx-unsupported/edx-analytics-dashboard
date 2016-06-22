@@ -46,19 +46,21 @@ define(function (require) {
                             above_average: [25, null]
                         },
                         problem_attempts_per_completed: {
-                            below_average: [null, 1],
-                            average: [1, 5.8],
+                            below_average: [1, 1.4],
+                            average: [1.4, 5.8],
                             above_average: [5.8, null]
                         }
                     }
                 }, {parse: true});
 
-            expect(courseMetadata.getEngagementCategory('problems_attempted', 9)).toBe('below_average');
-            expect(courseMetadata.getEngagementCategory('problems_attempted', 12)).toBe('average');
-            expect(courseMetadata.getEngagementCategory('problems_attempted', 100)).toBe('above_average');
+            expect(courseMetadata.getEngagementCategory('problems_attempted', 9)).toBe('classRankBottom');
+            expect(courseMetadata.getEngagementCategory('problems_attempted', 12)).toBe('classRankMiddle');
+            expect(courseMetadata.getEngagementCategory('problems_attempted', 100)).toBe('classRankTop');
 
-            expect(courseMetadata.getEngagementCategory('problem_attempts_per_completed', 0)).toBe('below_average');
-            expect(courseMetadata.getEngagementCategory('problem_attempts_per_completed', 3.3)).toBe('average');
+            expect(courseMetadata.getEngagementCategory('problem_attempts_per_completed', 1.1)).toBe('classRankTop');
+            expect(courseMetadata.getEngagementCategory('problem_attempts_per_completed', 3.3))
+                .toBe('classRankMiddle');
+            expect(courseMetadata.getEngagementCategory('problem_attempts_per_completed', 6)).toBe('classRankBottom');
         });
 
         it('parses nulls in ranges', function () {
