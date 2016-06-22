@@ -564,15 +564,15 @@ in a different spreadsheet application or a text editor.
 
 .. _Learner Computations:
 
-*************************
-Per Learner Computations
-*************************
+*******************************
+Individual Learner Computations
+*******************************
 
 .. note:: This feature is not yet supported. EdX is currently testing the
- per learner activity feature.
+ individual learner activity feature.
 
 For information about the report and charts that are available in Insights
-for individual learner activities, see :ref:`Learners`.
+for individual learner activities, see :ref:`Learner Activity`.
 
 * The computations for these metrics are updated daily and use the enrollment
   status and activities of each learner as of 23:59 UTC on the previous day.
