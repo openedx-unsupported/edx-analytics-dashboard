@@ -455,6 +455,11 @@ Performance Computations
   For information about the problem types that can be included in courses and
   their settings, see `Creating Exercises and Tools`_.
 
+* Checkbox, multiple choice, and numerical input problems can be set up to
+  :ref:`partnercoursestaff:award partial credit<Awarding Partial Credit for a
+  Problem>`. When a learner receives either full or partial credit for a
+  problem, Insights includes that answer as completely correct.
+
 * For data to be available for a problem, at least one student must
   have submitted an answer for that problem after 6 Mar 2014.
 
