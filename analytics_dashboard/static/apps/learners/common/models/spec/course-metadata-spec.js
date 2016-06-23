@@ -78,6 +78,19 @@ define(function (require) {
             expect(courseMetadata.get('engagement_ranges').problems_attempted.above_average).toEqual(null);
         });
 
+        it('does not parse engagement date range', function () {
+            var courseMetadata = new CourseMetadataModel({
+                engagement_ranges: {
+                    date_range: {
+                        start: '2015-12-03',
+                        end: '2016-06-01'
+                    }
+                }
+            }, {parse: true});
+            expect(courseMetadata.get('engagement_ranges').date_range.start).toEqual('2015-12-03');
+            expect(courseMetadata.get('engagement_ranges').date_range.end).toEqual('2016-06-01');
+        });
+
         describe('inMetricRange', function () {
             it('returns true when value is in range', function () {
                 var courseMetadata = new CourseMetadataModel();

@@ -83,18 +83,24 @@ define(function (require) {
         },
 
         parse: function (response) {
-            var parsedEngagementRanges = _.mapObject(response.engagement_ranges, function (metricRanges) {
-                return _.mapObject(metricRanges, function (range) {
-                    // range is either null or a two-element array
-                    if (_.isNull(range)) {
-                        return null;
-                    }
-                    return [
-                        _.isNull(range[0]) ? -Infinity : range[0],
-                        _.isNull(range[1]) ? Infinity : range[1]
-                    ];
-                });
+            var parsedEngagementRanges = _.mapObject(response.engagement_ranges, function (metricRanges, key) {
+                // do not parse the date_range field (it's not a metric range)
+                if (key === 'date_range') {
+                    return metricRanges;
+                } else {
+                    return _.mapObject(metricRanges, function (range) {
+                        // range is either null or a two-element array
+                        if (_.isNull(range)) {
+                            return null;
+                        }
+                        return [
+                            _.isNull(range[0]) ? -Infinity : range[0],
+                            _.isNull(range[1]) ? Infinity : range[1]
+                        ];
+                    });
+                }
             });
+
             return _.extend(response, { engagement_ranges: parsedEngagementRanges });
         },
 

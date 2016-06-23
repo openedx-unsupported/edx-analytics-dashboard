@@ -760,6 +760,30 @@ define(function (require) {
 
         });
 
+        describe('activity date range', function () {
+            it('renders dates', function () {
+                var rosterView = getRosterView({
+                    courseMetadata: {
+                        engagement_ranges: {
+                            date_range: {
+                                start: '2016-01-12',
+                                end: '2016-03-30'
+                            }
+                        }
+                    }
+                });
+                expect(rosterView.$('.activity-date-range'))
+                    .toContainText('Activity between January 12, 2016 - March 30, 2016');
+            });
+
+            it('renders n/a when no date range available', function () {
+                var rosterView = getRosterView();
+                expect(rosterView.$('.activity-date-range'))
+                    .toContainText('Activity between n/a - n/a');
+            });
+
+        });
+
         describe('active filters', function () {
             var expectActiveFilters,
                 expectNoActiveFilters;
