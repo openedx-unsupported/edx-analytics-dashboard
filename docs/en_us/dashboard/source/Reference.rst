@@ -456,9 +456,8 @@ Performance Computations
   their settings, see `Creating Exercises and Tools`_.
 
 * Checkbox, multiple choice, and numerical input problems can be set up to
-  :ref:`partnercoursestaff:award partial credit<Awarding Partial Credit for a
-  Problem>`. When a learner receives either full or partial credit for a
-  problem, Insights includes that answer as completely correct.
+  `award partial credit`_. When a learner receives either full or partial
+  credit for a problem, Insights includes that answer as completely correct.
 
 * For data to be available for a problem, at least one student must
   have submitted an answer for that problem after 6 Mar 2014.
@@ -479,7 +478,8 @@ Performance Computations
 **Graded Content Submissions .csv file**
 
 The .csv file contains a superset of the data that is included in the
-Submission Counts chart and report. The .csv file contains the following columns.
+Submission Counts chart and report. The .csv file contains the following
+columns.
 
 .. list-table::
    :widths: 20 60
@@ -665,3 +665,6 @@ In the following situations, data might not be available in edX Insights.
 
 
 .. _Creating Exercises and Tools: http://edx.readthedocs.org/projects/edx-partner-course-staff/en/latest/exercises_tools/index.html
+
+.. _award partial credit: http://edx.readthedocs.io/projects/edx-partner-course-staff/en/latest/course_components/create_problem.html#awarding-partial-credit-for-a-problem
+
