@@ -772,13 +772,14 @@ define(function (require) {
                         }
                     }
                 });
-                rosterView.$('.activity-date-range')
+                expect(rosterView.$('.activity-date-range'))
                     .toContainText('Activity between January 12, 2016 - March 30, 2016');
             });
 
             it('renders n/a when no date range available', function () {
                 var rosterView = getRosterView();
-                rosterView.$('.activity-date-range').toContainText('Activity between n/a - n/a');
+                expect(rosterView.$('.activity-date-range'))
+                    .toContainText('Activity between n/a - n/a');
             });
 
         });
