@@ -47,7 +47,8 @@ require.config({
         learners: 'apps/learners',
         'axe-core': 'bower_components/axe-core/axe.min',
         sinon: 'bower_components/sinon/lib/sinon',
-        nprogress: 'bower_components/nprogress/nprogress'
+        nprogress: 'bower_components/nprogress/nprogress',
+        sparkline: 'bower_components/jquery-sparkline/dist/jquery.sparkline'
     },
     wrapShim: true,
     shim: {

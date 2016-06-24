@@ -6,8 +6,12 @@
 require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
     'use strict';
 
-    require(['underscore', 'views/data-table-view', 'views/discrete-bar-view'],
-        function (_, DataTableView, DiscreteBarView) {
+    require(['jquery', 'sparkline', 'underscore', 'views/data-table-view', 'views/discrete-bar-view'],
+        function ($, sparkline, _, DataTableView, DiscreteBarView) {
+            var genderTrend = page.models.courseModel.get('genderTrend');
+            $('.gender-female').sparkline(_(genderTrend).pluck('female'), {type: 'line'});
+            $('.gender-male').sparkline(_(genderTrend).pluck('male'), {type: 'line'});
+            $('.gender-other').sparkline(_(genderTrend).pluck('other'), {type: 'line'});
 
             new DiscreteBarView({
                 el: '#enrollment-chart-view',

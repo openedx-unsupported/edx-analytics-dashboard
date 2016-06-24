@@ -68,6 +68,14 @@
     </div>
 
     {% if js_data.course.genderTrend %}
+
+        <h5>Female</h5>
+        <div class="section-content gender-female"></div>
+        <h5>Male</h5>
+        <div class="section-content gender-male"></div>
+        <h5>Other</h5>
+        <div class="section-content gender-other"></div>
+
         <div class="section-content section-data-table" data-role="enrollment-table">
             {% include "loading.html" %}
         </div>
