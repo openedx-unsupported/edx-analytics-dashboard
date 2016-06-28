@@ -49,6 +49,7 @@ define(['backbone', 'jquery', 'underscore', 'utils/utils'],
 
                     // now segment has been loaded, we can track events
                     self.listenTo(self.model, 'segment:track', self.track);
+                    self.listenTo(self.model, 'segment:page', self.page);
                 }
             },
 
