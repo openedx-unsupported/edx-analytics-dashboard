@@ -56,6 +56,11 @@ define(function (require) {
                     engagementCategory = this.options.courseMetadata.getEngagementCategory(key, value);
                 if (engagementCategory) {
                     this.$el.addClass(this.enagementCategoryToClass[engagementCategory]);
+                    if (engagementCategory === 'classRankTop') {
+                        this.$el.attr('aria-label', 'high');
+                    } else if (engagementCategory === 'classRankBottom') {
+                        this.$el.attr('aria-label', 'low');
+                    }
                 }
                 return Backgrid.Cell.prototype.render.apply(this, arguments);
             }

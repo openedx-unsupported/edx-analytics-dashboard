@@ -197,12 +197,15 @@ define(function (require) {
 
             expect($tr.children('td.discussion_contributions'))
                 .toHaveClass('learner-cell-rank-bottom');
+            expect($tr.children('td.discussion_contributions ')).toHaveAttr('aria-label', 'low');
             expect($tr.find('td.problems_completed'))
                 .toHaveClass('learner-cell-rank-middle');
             expect($tr.find('td.problems_attempted'))
                 .toHaveClass('learner-cell-rank-top');
+            expect($tr.find('td.problems_attempted')).toHaveAttr('aria-label', 'high');
             expect($tr.find('td.problem_attempts_per_completed'))
                 .toHaveClass('learner-cell-rank-top');
+            expect($tr.find('td.problem_attempts_per_completed')).toHaveAttr('aria-label', 'high');
             expect($tr.find('td.videos_viewed'))
                 .toHaveClass('learner-cell-rank-middle');
         });
