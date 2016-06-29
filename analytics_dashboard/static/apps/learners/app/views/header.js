@@ -7,7 +7,6 @@ define(function (require) {
     var _ = require('underscore'),
         Marionette = require('marionette'),
 
-        Utils = require('utils/utils'),
         headerTemplate = require('text!learners/app/templates/header.underscore'),
 
         HeaderView;
@@ -21,13 +20,8 @@ define(function (require) {
         },
 
         templateHelpers: function () {
-            var lastUpdatedMessage = _.template(gettext('Date Last Updated: <%- lastUpdatedDateString %>')),
-                lastUpdatedDateString = this.model.has('lastUpdated') ?
-                    Utils.formatDate(this.model.get('lastUpdated')) :
-                    gettext('unknown');
             return {
-                title: this.model.get('title'),
-                lastUpdated: lastUpdatedMessage({lastUpdatedDateString: lastUpdatedDateString})
+                title: this.model.get('title')
             };
         }
 

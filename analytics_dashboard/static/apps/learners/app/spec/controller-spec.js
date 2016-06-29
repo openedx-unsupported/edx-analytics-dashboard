@@ -28,7 +28,7 @@ define(function (require) {
             expect(controller.options.rootView.$('.learners-header-region').html())
                 .toContainText('Learner Details');
             expect(controller.options.rootView.$('.learners-header-region').html())
-                .toContainText(date.toLocaleDateString('en-us', {year: 'numeric', month: 'long', day: 'numeric'}));
+                .not.toContainText(date.toLocaleDateString('en-us', {year: 'numeric', month: 'long', day: 'numeric'}));
             expect(controller.options.trackingModel.get('page')).toBe('learner_details');
             expect(controller.options.trackingModel.trigger).toHaveBeenCalledWith('segment:page');
         };
