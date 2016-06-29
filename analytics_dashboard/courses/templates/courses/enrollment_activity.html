@@ -77,17 +77,15 @@ Individual course-centric enrollment activity view.
             {% summary_point summary.enrollment_change_last_7_days label tooltip=tooltip %}
           </div>
 
-          {% switch display_verified_enrollment %}
-            {% if not summary.verified_enrollment == None %}
-              <div class="col-xs-12 col-sm-3" data-stat-type="verified_enrollment">
-                {# Translators: This is a label to identify enrollment of students on the verified track. #}
-                {% trans "Verified Enrollment" as label %}
-                {# Translators: This is a label indicating the number of students enrolled in a course on the verified track. #}
-                {% trans "Number of currently enrolled students pursuing a verified certificate of achievement." as tooltip %}
-                {% summary_point summary.verified_enrollment label tooltip=tooltip %}
-              </div>
-            {% endif %}
-          {% endswitch %}
+        {% if not summary.verified_enrollment == None %}
+          <div class="col-xs-12 col-sm-3" data-stat-type="verified_enrollment">
+            {# Translators: This is a label to identify enrollment of students on the verified track. #}
+            {% trans "Verified Enrollment" as label %}
+            {# Translators: This is a label indicating the number of students enrolled in a course on the verified track. #}
+            {% trans "Number of currently enrolled students pursuing a verified certificate of achievement." as tooltip %}
+            {% summary_point summary.verified_enrollment label tooltip=tooltip %}
+          </div>
+        {% endif %}
         </div>
       </div>
     {% else %}

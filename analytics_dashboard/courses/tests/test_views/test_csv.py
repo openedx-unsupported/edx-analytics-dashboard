@@ -90,10 +90,6 @@ class CourseEnrollmentModeCSVViewTests(SwitchMixin, CourseCSVTestMixin, TestCase
     base_file_name = 'enrollment'
     api_method = 'analyticsclient.course.Course.enrollment'
 
-    @classmethod
-    def setUpClass(cls):
-        cls.toggle_switch('display_verified_enrollment', True)
-
     def get_mock_data(self, course_id):
         return get_mock_api_enrollment_data(course_id)
 

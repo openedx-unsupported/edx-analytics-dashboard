@@ -61,7 +61,6 @@ validate_js: requirements.js
 validate: validate_python validate_js
 
 demo:
-	python manage.py switch display_verified_enrollment on --create
 	python manage.py switch show_engagement_forum_activity off --create
 	python manage.py switch enable_course_api off --create
 	python manage.py switch display_names_for_course_index off --create

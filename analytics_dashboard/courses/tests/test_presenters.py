@@ -3,6 +3,7 @@ import copy
 import datetime
 
 import analyticsclient.constants.activity_type as AT
+from analyticsclient.constants import enrollment_modes
 from django.conf import settings
 from django.core.cache import cache
 from django.core.urlresolvers import reverse
@@ -579,9 +580,6 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
 
 
 class CourseEnrollmentPresenterTests(SwitchMixin, TestCase):
-    @classmethod
-    def setUpClass(cls):
-        cls.toggle_switch('display_verified_enrollment', True)
 
     def setUp(self):
         self.course_id = 'edX/DemoX/Demo_Course'
@@ -659,13 +657,35 @@ class CourseEnrollmentPresenterTests(SwitchMixin, TestCase):
     @mock.patch('analyticsclient.course.Course.enrollment')
     def test_hide_empty_enrollment_modes(self, mock_enrollment):
         """ Enrollment modes with no enrolled students should not be returned. """
-        mock_enrollment.return_value = utils.get_mock_api_enrollment_data(self.course_id, include_verified=False)
+
+        # set trend for one mode to be all 0
+        mock_api_data = utils.get_mock_api_enrollment_data(self.course_id)
+        for day in mock_api_data:
+            day[enrollment_modes.PROFESSIONAL] = 0
+        mock_enrollment.return_value = mock_api_data
 
         actual_summary, actual_trend = self.presenter.get_summary_and_trend_data()
-        self.assertDictEqual(actual_summary, utils.get_mock_enrollment_summary(include_verified=False))
+        self.assertDictEqual(actual_summary, utils.get_mock_enrollment_summary())
 
-        expected_trend = utils.get_mock_presenter_enrollment_trend(self.course_id, include_verified=False)
+        # trends without enrollment shouldn't be present in the returned trend
+        expected_trend = utils.get_mock_presenter_enrollment_trend(self.course_id)
+        for day in expected_trend:
+            del day[enrollment_modes.PROFESSIONAL]
+
         self.assertListEqual(actual_trend, expected_trend)
+
+    @mock.patch('analyticsclient.course.Course.enrollment')
+    def test_remove_verified_summary(self, mock_enrollment):
+        """ Verified summary should be removed none are enrolled. """
+        mock_api_data = utils.get_mock_api_enrollment_data(self.course_id)
+        for day in mock_api_data:
+            day[enrollment_modes.VERIFIED] = 0
+        mock_enrollment.return_value = mock_api_data
+
+        actual_summary, _actual_trend = self.presenter.get_summary_and_trend_data()
+        expected_summary = utils.get_mock_enrollment_summary()
+        del expected_summary['verified_enrollment']
+        self.assertDictEqual(actual_summary, expected_summary)
 
 
 class CourseEnrollmentDemographicsPresenterTests(TestCase):
