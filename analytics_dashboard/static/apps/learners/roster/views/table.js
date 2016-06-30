@@ -57,9 +57,9 @@ define(function (require) {
                 if (engagementCategory) {
                     this.$el.addClass(this.enagementCategoryToClass[engagementCategory]);
                     if (engagementCategory === 'classRankTop') {
-                        this.$el.attr('aria-label', 'high');
+                        this.$el.attr('aria-label', value + ' high');
                     } else if (engagementCategory === 'classRankBottom') {
-                        this.$el.attr('aria-label', 'low');
+                        this.$el.attr('aria-label', value + ' low');
                     }
                 }
                 return Backgrid.Cell.prototype.render.apply(this, arguments);
