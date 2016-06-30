@@ -12,7 +12,7 @@ make test.run_elasticsearch
 # it during testing.
 sleep 10
 # Create the ElasticSearch indicies and mappings.
-export ELASTICSEARCH_LEARNERS_HOST='http://localhost:9200'
+export ELASTICSEARCH_LEARNERS_HOST='http://localhost:9223'
 export ELASTICSEARCH_LEARNERS_INDEX='learner'
 export ELASTICSEARCH_LEARNERS_UPDATE_INDEX='index_update'
 export DJANGO_SETTINGS_MODULE="analyticsdataserver.settings.local"
