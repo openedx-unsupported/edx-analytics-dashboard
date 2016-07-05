@@ -24,8 +24,8 @@ Gaining Insight into Individual Learner Activities
 **************************************************
 
 EdX Insights delivers data about the activities of individual learners in a
-report and in charts of activity over time. Descriptions follow; for detailed
-information about the computations, see
+report and in charts of activity over time. Descriptions of the report and
+charts follow; for detailed information about the computations, see
 :ref:`Learner Computations`.
 
 =========================================
@@ -48,7 +48,7 @@ during the last seven days, through end of day (UTC) yesterday.
 Reviewing the Report
 ********************
 
-To review the learner roster and key activity report, you select **Learners**
+To review the learner roster and key activity report, select **Learners**
 at the top of any Insights page. By default, the report shows data for all
 learners.
 
@@ -58,6 +58,9 @@ following options.
 * Sort by username or by an activity metric, in ascending or descending order.
 
 * Search for a learner by name or username.
+
+* Select an enrollment track to report only learners who are enrolled in that
+  track.
 
 * Select one cohort (in a course that includes learner cohorts).
 
@@ -80,7 +83,7 @@ order by number of problems tried.
  :alt: A learner roster showing differently colored numbers for values in
   different percentiles.
 
-.. Downloading the Report
+.. Downloading the Report section when added
 
 ========================
 Learner Activity Chart
@@ -100,8 +103,8 @@ types of activity.
 
 The chart shows when a learner was active in the course, beginning with the
 first day that one of these activities took place, and ending with the last day
-that one these activities took place. The timeline is not limited to activity
-in the last seven days.
+that one these activities took place. Unlike the roster, this timeline is not
+limited to activity in the last seven days.
 
 Examples of learner activity charts follow. The first example shows the
 activity chart for a learner who is playing 10 or more course videos every
@@ -114,9 +117,10 @@ yet contributed to the discussions.
      correct activity, but ongoing video activity.
 
 This learner might be getting exactly what they want out of the course, the
-opportunity to learn from the videos. However, you might want to go back to the
-learner roster and key activity report to see if this learner is attempting to
-answer problems, but not managing to answer any correctly.
+opportunity to learn from the videos. However, to get a more complete
+understanding of this learner's experience, you could go back to the learner
+roster and key activity report to see if this learner is attempting to answer
+problems, but not managing to answer any correctly.
 
 The next example shows the activity chart for a learner who watches one or more
 videos almost every day, and who has occasionally contributed to the
@@ -133,6 +137,29 @@ Knowing the context of how your course is set up, this pattern might indicate
 when the learner reached the first homework assignment. Or, it might indicate
 that the learner completed all of the ungraded practice questions and the
 midterm on one day.
+
+Sending Email Messages to Learners
+***********************************
+
+To make taking action to help a struggling learner, reengage an inactive
+learner, or recognize the achievement of a successful learner easier, the
+learner activity chart includes the learner's email address. You can select the
+email address to send a message directly to that learner.
+
+Before you use Insights to send email messages to learners, note that this
+feature is different from the bulk email feature that is available on the
+instructor dashboard of an edx.org course.
+
+* Selecting a learner email address in Insights opens the default email client
+  of the computer that you are currently using. As a result, if you use your
+  personal computer to access Insights, your personal email address could be
+  used to send the message.
+
+* Insights does not log when messages are sent, or record the email address of
+  the sender or the recipient.
+
+When you use Insights, be sure to follow your organization's guidelines for
+communicating with learners.
 
 **************************************************************
 Analytics in Action: Interpreting Individual Activity Patterns
