@@ -8,7 +8,6 @@ define(function (require) {
         Utils = require('utils/utils'),
 
         AlertView = require('learners/common/views/alert-view'),
-        LearnerEmailView = require('learners/detail/views/learner-email'),
         LearnerEngagementTimelineView = require('learners/detail/views/engagement-timeline'),
         LearnerNameView = require('learners/detail/views/learner-names'),
         LearnerSummaryFieldView = require('learners/detail/views/learner-summary-field'),
@@ -23,15 +22,13 @@ define(function (require) {
 
         templateHelpers: function () {
             return {
-                // Translators: e.g. Student engagement
-                engagement: gettext('Engagement'),
-                activity: gettext('Activity')
+                // Translators: e.g. Student engagement activity
+                activity: gettext('Engagement Activity')
             };
         },
 
         regions: {
             learnerSummary: '.learner-summary-container',
-            learnerEmail: '.learner-email',
             names: '.learner-names',
             enrollment: '.learner-enrollment',
             cohort: '.learner-cohort',
@@ -73,10 +70,6 @@ define(function (require) {
                     successView: timelineView
                 });
             }
-
-            this.showChildView('learnerEmail', new LearnerEmailView({
-                model: learnerModel
-            }));
 
             this.showChildView('names', new LearnerNameView({
                 model: learnerModel

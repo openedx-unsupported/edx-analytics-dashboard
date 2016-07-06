@@ -7,12 +7,11 @@
     </div>
 </section>
 
-<div class="section-heading bordered fake-tab">
-    <h4 class="section-title"><%- engagement %></h4>
-    <span class="section-heading-note small learner-email"></span>
-</div>
-
-<div class="section-heading">
-    <h4 class="section-title"><%- activity %></h4>
-</div>
-<div class="learner-engagement-timeline-container"></div>
+<section class="view-section" data-section="learner-engagement" aria-hidden="true">
+    <div class="section-heading">
+        <h4 class="section-title"><%- activity %></h4>
+    </div>
+    <div class="section-content">
+        <div class="learner-engagement-timeline-container"></div>
+    </div>
+</section>

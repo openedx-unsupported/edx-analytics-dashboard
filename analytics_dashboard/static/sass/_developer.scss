@@ -851,24 +851,13 @@ table.dataTable thead th.sorting_desc:after {
 // styles for the learner details summary
 .learner-summary-container {
 
-  .learner-username {
-    font-size: $font-size-large;
-  }
-
   .learner-name {
-    font-size: $font-size-large * 1.5;
+    font-size: $font-size-large;
   }
 
   // e.g. "enrollment" or "cohort"
   .learner-summary-field {
-    color: $gray-l1;
+    color: $edx-gray-d2;
   }
 
-}
-
-.learner-detail-container {
-  // this heading will be replaced with a tab in the future
-  .bordered.fake-tab {
-    border-bottom-width: 3px;
-  }
 }
