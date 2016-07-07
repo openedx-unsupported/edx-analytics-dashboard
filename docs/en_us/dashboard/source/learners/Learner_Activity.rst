@@ -152,8 +152,9 @@ instructor dashboard of an edx.org course.
 
 * Selecting a learner email address in Insights opens the default email client
   of the computer that you are currently using. As a result, if you use your
-  personal computer to access Insights, your personal email address could be
-  used to send the message.
+  personal computer to access Insights, your personal email address might be
+  the default for sending the message. Be sure to use only your official
+  institution email address when you communicate with learners by email.
 
 * Insights does not log when messages are sent, or record the email address of
   the sender or the recipient.
@@ -223,16 +224,6 @@ discussions. They can also search by username to find the activity reported for
 individual cohort members. The learner activity charts can show, at a glance,
 whether discussion activity is a regular part of a learner's weekly involvement
 in the course, or if it takes place more sporadically.
-
-==========================
-Recruiting Job Candidates
-==========================
-
-An organization used their MOOC as a recruiting tool. They defined a set of
-criteria for potential job candidates, including metrics that would reflect
-engagement over time, mastery of the material, and interaction with other
-learners. Learners who met or exceeded these criteria were automatically placed
-into consideration for a screening interview.
 
 ==================================
 Identifying Questionable Activity
