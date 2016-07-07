@@ -18,6 +18,7 @@ define(function (require) {
         LearnerModel = require('learners/common/models/learner'),
         LearnerRosterView = require('learners/roster/views/roster'),
         ReturnLinkView = require('learners/detail/views/learner-return'),
+        Utils = require('utils/utils'),
 
         LearnersController;
 
@@ -48,18 +49,24 @@ define(function (require) {
             }
         },
 
-        showLearnerRosterPage: function () {
+        showLearnerRosterPage: function (queryString) {
             var rosterView = new LearnerRosterView({
                 collection: this.options.learnerCollection,
                 courseMetadata: this.options.courseMetadata,
-                trackingModel: this.options.trackingModel
+                trackingModel: this.options.trackingModel,
             });
+
+            this.setCollectionState(queryString, this.options.learnerCollection, function (response) {
+                if (response.status === 404) {
+                    this.options.learnerCollection.reset();
+                }
+                this.options.rootView.showChildView('main', rosterView);
+            }.bind(this));
 
             this.options.rootView.getRegion('navigation').empty();
 
             this.options.pageModel.set('title', gettext('Learners'));
             this.onLearnerCollectionUpdated(this.options.learnerCollection);
-            this.options.rootView.showChildView('main', rosterView);
 
             // track the "page" view
             this.options.trackingModel.set('page', 'learner_roster');
@@ -73,7 +80,9 @@ define(function (require) {
          * succeeds.
          */
         showLearnerDetailPage: function (username) {
-            this.options.rootView.showChildView('navigation', new ReturnLinkView({}));
+            this.options.rootView.showChildView('navigation', new ReturnLinkView({
+                queryString: this.options.learnerCollection.getQueryString()
+            }));
             var engagementTimelineModel = new EngagementTimelineModel({}, {
                     url: this.options.learnerEngagementTimelineUrl.replace('temporary_username', username),
                     courseId: this.options.courseId
@@ -130,6 +139,32 @@ define(function (require) {
             this.options.trackingModel.set('page', 'learner_not_found');
             this.options.trackingModel.trigger('segment:page');
 
+        },
+
+        setCollectionState: function (queryString, collection, callback) {
+            var params = Utils.parseQueryString(queryString),
+                order = -1,
+                order_name = 'ascending',
+                page, sortKey;
+            _.mapObject(params, function (val, key) {
+                if (key === 'page') {
+                    page = parseInt(val, 10);
+                    collection.state.currentPage = page;
+                } else if (key === 'sortKey') {
+                    sortKey = val;
+                } else if (key === 'order') {
+                    order = val === 'desc' ? 1 : -1;
+                    order_name = val === 'desc' ?  'descending' : 'ascending';
+                } else {
+                    collection.setFilterField(key, val);
+                }
+            });
+            if (sortKey) {
+                if (sortKey !== collection.state.sortKey || order !== collection.state.order) {
+                    collection.setSorting(sortKey, order);
+                }
+            }
+            collection.fetch({reset: true}).complete(callback);
         }
     });
 

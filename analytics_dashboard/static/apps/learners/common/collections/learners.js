@@ -52,6 +52,26 @@ define(function (require) {
 
         hasNext: function () {
             return this.hasNextPage();
+        },
+
+        // Encodes the state of the collection into a query string that can be appended onto the URL.
+        getQueryString: function () {
+            var params = this.getActiveFilterFields(true),
+                fragment = '?';
+            params.page = this.state.currentPage;
+            if (this.state.sortKey !== null) {
+                params.sortKey = this.state.sortKey;
+                params.order = this.state.order === 1 ? 'desc' : 'asc';
+            }
+            _.mapObject(params, function (val, key) {
+                if (fragment.length !== 1) {
+                    fragment = fragment.concat('&');
+                }
+                // Note: this assumes that filter keys will never have URI special characters. We should encode the key
+                // too if that assumption is wrong.
+                fragment = fragment.concat(key, '=', encodeURIComponent(val));
+            });
+            return fragment === '?' ? '' : fragment;
         }
     });
 

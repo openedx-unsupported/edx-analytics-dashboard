@@ -103,6 +103,41 @@ define(['moment', 'underscore', 'utils/globalization'], function (moment, _, Glo
                 }
                 return time;
             }).join(':');
+        },
+
+        /**
+         * Converts the querystring portion of the URL into an object
+         * mapping keys to argument values.
+         *
+         * Examples:
+         * - 'foo=bar&baz=quux' -> {foo: 'bar', baz: 'quux'}
+         * - 'foo=bar&' -> {foo: 'bar'}
+         * - 'foo=bar&baz' -> {foo: 'bar', baz: ''}
+         * - 'foo=bar&baz=' -> {foo: 'bar', baz: ''}
+         * - '' -> {}
+         * - null -> {}
+         *
+         * @param queryString {string}
+         * @returns {object}
+         */
+        parseQueryString: function (queryString) {
+            if (queryString) {
+                return _(decodeURI(queryString).split('&')).map(function (namedVal) {
+                    var keyValPair = namedVal.split('='), obj = {};
+                    if (keyValPair.length === 1 && keyValPair[0]) {  // No value
+                        obj[keyValPair[0]] = '';
+                    } else if (keyValPair.length === 2){
+                        obj[keyValPair[0]] = keyValPair[1];
+                    } else if (keyValPair.length > 2) {  // Have something like foo=bar=...
+                        throw new Error('Each "&"-separated substring must either be a key or a key-value pair');
+                    }
+                    return obj;
+                }).reduce(function (memo, keyValPair) {
+                    return _.extend(memo, keyValPair);
+                });
+            } else {
+                return {}
+            }
         }
     };
 
