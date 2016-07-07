@@ -32,15 +32,9 @@ represents the number of learners enrolled in the course on a particular date.
 For courses that offer more than one enrollment option or track, different
 colors represent the number of students who were enrolled with each option.
 
-The chart currently includes these enrollment options and tracks, if they are
-offered for your course.
-
-* Honor certificate
-* Verified certificate
-* Professional education program
-
-Moving your cursor over the chart shows a tooltip with the counts for each
-enrollment type, and the current enrollment, for each day.
+The chart includes each of the enrollment options and tracks that are offered
+for your course. Moving your cursor over the chart shows a tooltip with the
+counts for each enrollment type, and the current enrollment, for each day.
 
 The chart includes enrollment data for every day, beginning with the first
 enrollment (typically of the course creator). This data is also available for
@@ -53,26 +47,23 @@ certainly the course creator and another course team member) on the day the
 course was created in Studio.
 
 .. image:: ../images/enrollment_chart.png
- :alt: A chart with the periods when the rate of enrollment was greater
+ :alt: A chart with the periods when the rate of enrollment increased
        circled.
-
-.. ColumbiaX/HIST1.1x/3T2014/enrollment/activity/
 
 The chart does reveal several periods when the rate of new enrollments
 increased rapidly, or "spiked" (circled). The team for this course might have
 the contextual knowledge to correlate those periods with marketing efforts or
 automated enrollment events, or might want to research possible explanations.
-After the course start date, on September 17, 2014, enrollment continued to
-increase.
+After the final spike, which coincided with the course start date on 17
+September, enrollment continued to increase.
 
 The second example shows the Daily Student Enrollment chart for a small,
-private online course. In this course, the course team used the Instructor
-Dashboard to automatically enroll all of the students.
+private online course. In this course, the course team used the instructor
+dashboard in the LMS to enroll almost all of the students in just a few
+days.
 
 .. image:: ../images/enrollment_chart_SPOC.png
  :alt: A chart with a nearly vertical line for a fast increase in enrollment.
-
-.. IMFx/OL14.01/2T2014/enrollment/activity/
 
 See the :ref:`Reference` for a detailed description of how enrollment values
 are determined.
@@ -113,19 +104,19 @@ The daily count of current enrollments, through the date of the last update, is
 available for review or download. Columns show each **Date** and its **Current
 Enrollment**.
 
-The report includes additional columns for courses that offer certification
-options or enrollment tracks in addition to the honor certificate audit track.
-For courses with multiple enrollment tracks, the report includes the **Verified
-Enrollment** or **Professional Enrollment** column, or both. The report also
-includes the **Honor Code Enrollment** column for the count of enrolled
-students who did not elect one of those options.
+The report includes an additional column for each of the certification options
+or enrollment tracks that are offered by the course, such as **Verified** and
+**Audit** or **Professional** and **Audit**.
 
 To download the Enrollment Over Time report in a comma-separated value file,
-click **Download CSV**. The CSV file contains the following columns:
+select **Download CSV**. The CSV file contains the following columns.
 
+* audit
 * count (current enrollment)
 * course_id
 * created (the date and time of the computation)
+* credit
+* cumulative_count (total enrollment)
 * date
 * honor
 * professional
