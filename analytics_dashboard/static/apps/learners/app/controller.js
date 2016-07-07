@@ -20,6 +20,7 @@ define(function (require) {
         ReturnLinkView = require('learners/detail/views/learner-return'),
         Utils = require('utils/utils'),
         LoadingView = require('learners/common/views/loading-view'),
+        AlertView = require('learners/common/views/alert-view'),
 
         rosterLoadingTemplate = require('text!learners/roster/templates/roster-loading.underscore'),
 
@@ -59,25 +60,36 @@ define(function (require) {
                 trackingModel: this.options.trackingModel,
             });
 
-            var fetchNeeded = this.setCollectionState(queryString, this.options.learnerCollection);
-            if (fetchNeeded) {
-                // Show a loading spinner while we fetch new collection data
-                var loadingView = new LoadingView({
-                    model: this.options.learnerCollection,
-                    template: _.template(rosterLoadingTemplate),
-                    successView: rosterView
-                });
-                this.options.rootView.showChildView('main', loadingView);
-                              
-                this.options.learnerCollection.fetch({reset: true}).complete(function (response) {
-                    // fetch doesn't empty the collection on 404 by default
-                    if (response && response.status === 404) {
-                        this.options.learnerCollection.reset();
+            try {
+                var fetchNeeded = this.setCollectionState(queryString, this.options.learnerCollection);
+                if (fetchNeeded) {
+                    // Show a loading spinner while we fetch new collection data
+                    var loadingView = new LoadingView({
+                        model: this.options.learnerCollection,
+                        template: _.template(rosterLoadingTemplate),
+                        successView: rosterView
+                    });
+                    this.options.rootView.showChildView('main', loadingView);
+                    
+                    var fetch = this.options.learnerCollection.fetch({reset: true});
+                    if (fetch) {
+                        fetch.complete(function (response) {
+                            // fetch doesn't empty the collection on 404 by default
+                            if (response && response.status === 404) {
+                                this.options.learnerCollection.reset();
+                            }
+                        });
                     }
-                });
-            } else {
-                // Immediately show the roster with the currently loaded collection data
-                this.options.rootView.showChildView('main', rosterView);
+                } else {
+                    // Immediately show the roster with the currently loaded collection data
+                    this.options.rootView.showChildView('main', rosterView);
+                }
+            } catch (e) {
+                if (e instanceof RangeError || e instanceof TypeError) {
+                    this.showInvalidParametersPage();
+                } else {
+                    throw e;
+                }
             }
 
             this.options.rootView.getRegion('navigation').empty();
@@ -154,6 +166,20 @@ define(function (require) {
 
             // track the "page" view
             this.options.trackingModel.set('page', 'learner_not_found');
+            this.options.trackingModel.trigger('segment:page');
+
+        },
+        
+        showInvalidParametersPage: function () {
+            this.options.rootView.showChildView('main', new AlertView({
+                alertType: 'error',
+                title: gettext('Invalid Parameters'),
+                body: gettext('Sorry, we could not find data for that query. ' +
+                              'Please return to the home page.')
+            }));
+
+            // track the "page" view
+            this.options.trackingModel.set('page', 'learner_invalid_params');
             this.options.trackingModel.trigger('segment:page');
 
         },

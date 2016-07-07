@@ -129,7 +129,7 @@ define(['moment', 'underscore', 'utils/globalization'], function (moment, _, Glo
                     } else if (keyValPair.length === 2){
                         obj[keyValPair[0]] = keyValPair[1];
                     } else if (keyValPair.length > 2) {  // Have something like foo=bar=...
-                        throw new Error('Each "&"-separated substring must either be a key or a key-value pair');
+                        throw new TypeError('Each "&"-separated substring must either be a key or a key-value pair');
                     }
                     return obj;
                 }).reduce(function (memo, keyValPair) {
