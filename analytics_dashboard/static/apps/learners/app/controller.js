@@ -19,6 +19,9 @@ define(function (require) {
         LearnerRosterView = require('learners/roster/views/roster'),
         ReturnLinkView = require('learners/detail/views/learner-return'),
         Utils = require('utils/utils'),
+        LoadingView = require('learners/common/views/loading-view'),
+
+        rosterLoadingTemplate = require('text!learners/roster/templates/roster-loading.underscore'),
 
         LearnersController;
 
@@ -56,12 +59,26 @@ define(function (require) {
                 trackingModel: this.options.trackingModel,
             });
 
-            this.setCollectionState(queryString, this.options.learnerCollection, function (response) {
-                if (response.status === 404) {
-                    this.options.learnerCollection.reset();
-                }
+            var fetchNeeded = this.setCollectionState(queryString, this.options.learnerCollection);
+            if (fetchNeeded) {
+                // Show a loading spinner while we fetch new collection data
+                var loadingView = new LoadingView({
+                    model: this.options.learnerCollection,
+                    template: _.template(rosterLoadingTemplate),
+                    successView: rosterView
+                });
+                this.options.rootView.showChildView('main', loadingView);
+                              
+                this.options.learnerCollection.fetch({reset: true}).complete(function (response) {
+                    // fetch doesn't empty the collection on 404 by default
+                    if (response && response.status === 404) {
+                        this.options.learnerCollection.reset();
+                    }
+                });
+            } else {
+                // Immediately show the roster with the currently loaded collection data
                 this.options.rootView.showChildView('main', rosterView);
-            }.bind(this));
+            }
 
             this.options.rootView.getRegion('navigation').empty();
 
@@ -141,14 +158,21 @@ define(function (require) {
 
         },
 
-        setCollectionState: function (queryString, collection, callback) {
+        // Sets the learnerCollection state based on the query params. Returns a boolean stating whether the new state
+        // differs from the old state (so the caller knows that the collection is stale and needs to do a fetch).
+        setCollectionState: function (queryString, collection) {
             var params = Utils.parseQueryString(queryString),
                 order = -1,
                 order_name = 'ascending',
+                fetchNeeded = false,
                 page, sortKey;
+
             _.mapObject(params, function (val, key) {
                 if (key === 'page') {
                     page = parseInt(val, 10);
+                    if (page !== collection.state.currentPage) {
+                        fetchNeeded = true;
+                    }
                     collection.state.currentPage = page;
                 } else if (key === 'sortKey') {
                     sortKey = val;
@@ -156,15 +180,22 @@ define(function (require) {
                     order = val === 'desc' ? 1 : -1;
                     order_name = val === 'desc' ?  'descending' : 'ascending';
                 } else {
+                    if (val !== collection.getFilterFieldValue(key)) {
+                        fetchNeeded = true;
+                    }
                     collection.setFilterField(key, val);
                 }
             });
+
+            // Set the sort state if sortKey or order from the queryString are different from the current state
             if (sortKey) {
                 if (sortKey !== collection.state.sortKey || order !== collection.state.order) {
+                    fetchNeeded = true;
                     collection.setSorting(sortKey, order);
                 }
             }
-            collection.fetch({reset: true}).complete(callback);
+
+            return fetchNeeded;
         }
     });
 
