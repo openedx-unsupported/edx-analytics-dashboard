@@ -11,40 +11,49 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
             'views/stacked-trends-view'],
         function (DataTableView, StackedTrendsView) {
 
-            var settings = [
+            var colors = ['#4BB4FB', '#CA0061', '#CCCCCC'],
+                numericColumn = {
+                    className: 'text-right',
+                    type: 'number'
+                },
+                settings = [
                     {
                         key: 'date',
                         title: gettext('Date'),
                         type: 'date'
                     },
-                    {
+                    _.defaults({}, numericColumn, {
                         key: 'count',
                         title: gettext('Current Enrollment'),
-                        className: 'text-right',
-                        type: 'number',
-                        color: '#4BB4FB'
-                    },
-                    {
+                        color: colors[0]
+                    }),
+                    _.defaults({}, numericColumn, {
                         key: 'honor',
-                        title: gettext('Honor Code'),
-                        className: 'text-right',
-                        type: 'number',
-                        color: '#4BB4FB'
-                    },
-                    {
+                        // Translators: this describe the learner's enrollment track (e.g. Honor certificate)
+                        title: gettext('Honor'),
+                        color: colors[0]
+                    }),
+                    _.defaults({}, numericColumn, {
+                        key: 'audit',
+                        title: gettext('Audit'),
+                        color: colors[0]
+                    }),
+                    _.defaults({}, numericColumn, {
                         key: 'verified',
                         title: gettext('Verified'),
-                        className: 'text-right',
-                        type: 'number',
-                        color: '#CA0061'
-                    },
-                    {
+                        color: colors[1]
+                    }),
+                    _.defaults({}, numericColumn, {
                         key: 'professional',
                         title: gettext('Professional'),
-                        className: 'text-right',
-                        type: 'number',
-                        color: '#CCCCCC'
-                    }
+                        color: colors[2]
+                    }),
+                    _.defaults({}, numericColumn, {
+                        key: 'credit',
+                        // Translators: this label indicates the learner has registered for academic credit
+                        title: gettext('Verified with Credit'),
+                        color: colors[2]
+                    })
                 ],
                 trendSettings,
                 enrollmentTrackTrendSettings;
