@@ -136,7 +136,7 @@ define(['moment', 'underscore', 'utils/globalization'], function (moment, _, Glo
                     return _.extend(memo, keyValPair);
                 });
             } else {
-                return {}
+                return {};
             }
         }
     };

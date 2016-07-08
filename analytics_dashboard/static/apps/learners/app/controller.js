@@ -70,7 +70,7 @@ define(function (require) {
                         successView: rosterView
                     });
                     this.options.rootView.showChildView('main', loadingView);
-                    
+
                     var fetch = this.options.learnerCollection.fetch({reset: true});
                     if (fetch) {
                         fetch.complete(function (response) {
@@ -169,7 +169,7 @@ define(function (require) {
             this.options.trackingModel.trigger('segment:page');
 
         },
-        
+
         showInvalidParametersPage: function () {
             this.options.rootView.showChildView('main', new AlertView({
                 alertType: 'error',
