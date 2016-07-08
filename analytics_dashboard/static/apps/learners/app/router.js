@@ -30,7 +30,7 @@ define(function (require) {
         // Called on LearnerCollection update. Converts the state of the collection (including any filters, searchers,
         // sorts, or page numbers) into a url and then navigates the router to that url.
         updateUrl: function () {
-            this.navigate(this.learnerCollection.getQueryString());
+            this.navigate(this.learnerCollection.getQueryString(), {replace: true});
         },
 
     });
