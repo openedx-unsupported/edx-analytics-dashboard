@@ -174,8 +174,8 @@ define(function (require) {
             this.options.rootView.showChildView('main', new AlertView({
                 alertType: 'error',
                 title: gettext('Invalid Parameters'),
-                body: gettext('Sorry, we could not find data for that query. ' +
-                              'Please return to the home page.')
+                body: gettext('Sorry, we couldn\'t find learners for that query.'),
+                suggestions: [gettext('Try returning to the home page.')]
             }));
 
             // track the "page" view
@@ -206,15 +206,17 @@ define(function (require) {
                     order = val === 'desc' ? 1 : -1;
                     order_name = val === 'desc' ?  'descending' : 'ascending';
                 } else {
-                    if (val !== collection.getFilterFieldValue(key)) {
-                        fetchNeeded = true;
+                    if (key in collection.filterableFields || key === 'text_search') {
+                        if (val !== collection.getFilterFieldValue(key)) {
+                            fetchNeeded = true;
+                        }
+                        collection.setFilterField(key, val);
                     }
-                    collection.setFilterField(key, val);
                 }
             });
 
             // Set the sort state if sortKey or order from the queryString are different from the current state
-            if (sortKey) {
+            if (sortKey && sortKey in collection.sortableFields) {
                 if (sortKey !== collection.state.sortKey || order !== collection.state.order) {
                     fetchNeeded = true;
                     collection.setSorting(sortKey, order);
