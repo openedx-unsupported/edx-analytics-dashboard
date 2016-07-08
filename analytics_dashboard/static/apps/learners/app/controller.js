@@ -175,7 +175,7 @@ define(function (require) {
                 alertType: 'error',
                 title: gettext('Invalid Parameters'),
                 body: gettext('Sorry, we couldn\'t find learners for that query.'),
-                suggestions: [gettext('Try returning to the home page.')]
+                link: {url: '#', text: gettext('Return to the Learners page.')}
             }));
 
             // track the "page" view

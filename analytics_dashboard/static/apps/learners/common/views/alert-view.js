@@ -31,7 +31,8 @@ define(function (require) {
             alertType: 'info',  // default alert type
             title: undefined,   // string title of alert
             body: undefined,    // string body of alert
-            suggestions: []     // list of strings to display after the body
+            suggestions: [],    // list of strings to display after the body
+            link: undefined,    // string to display and url of link on alert
         },
 
         /**
