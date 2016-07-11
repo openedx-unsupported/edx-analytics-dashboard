@@ -230,7 +230,9 @@ Identifying Questionable Activity
 ==================================
 
 Certain activity patterns can alert you to behavior that might be either
-exemplary or counterproductive.
+exemplary or counterproductive. You can use learner data to identify unusual
+combinations of activity and decide whether to investigate further. Examples
+follow.
 
 * A learner has a high problems correct total, and a very low ratio of attempts
   per problem correct: a top performer. When you look at that learner's
@@ -238,14 +240,12 @@ exemplary or counterproductive.
   correctly on the very first day the course opened. Did this learner enroll in
   the audit track for a previous course run, and is now taking the course for a
   second time in the verified track? Or, could this learner have violated the
-  honor code?
+  `honor code`_?
 
 * A learner is in the 85th percentile (or above) for discussion contributions:
   a highly engaged community member. However, the same learner has zero
   problems attempted and zero videos played, so the discussions are the only
   type of key course activity in which the learner engages. Is this learner
-  answering questions thoughtfully and with accurate information? Or, have any
-  of this learner's discussion posts been flagged as inappropriate?
+  answering questions thoughtfully and with accurate information?
 
-You can use learner data to identify unusual combinations of activity and
-decide whether to investigate further.
+.. _honor code: https://www.edx.org/edx-terms-service#honorcode
