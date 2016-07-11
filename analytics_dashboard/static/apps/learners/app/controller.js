@@ -174,7 +174,7 @@ define(function (require) {
             this.options.rootView.showChildView('main', new AlertView({
                 alertType: 'error',
                 title: gettext('Invalid Parameters'),
-                body: gettext('Sorry, we couldn\'t find learners for that query.'),
+                body: gettext('Sorry, we couldn\'t find any learners who matched that query.'),
                 link: {url: '#', text: gettext('Return to the Learners page.')}
             }));
 
