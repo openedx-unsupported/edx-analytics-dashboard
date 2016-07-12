@@ -1,7 +1,7 @@
 define(['models/course-model', 'views/data-table-view'], function(CourseModel, DataTableView) {
     'use strict';
 
-    describe('Data Table View', function () {
+    describe('Data Table View', function() {
         it('should format display of the max number (e.g. 100+)', function() {
             var dataType = 'myData',
                 renderType = 'display',
@@ -127,7 +127,5 @@ define(['models/course-model', 'views/data-table-view'], function(CourseModel, D
             row[dataType] = 1234567;
             expect(func(row, renderType)).toBe('1,234,567');
         });
-
     });
-
 });

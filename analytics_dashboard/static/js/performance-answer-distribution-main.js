@@ -6,11 +6,10 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
     'use strict';
 
     require(['underscore', 'views/data-table-view', 'views/discrete-bar-view'],
-            function (_, DataTableView, DiscreteBarView) {
-
+            function(_, DataTableView, DiscreteBarView) {
                 var courseModel = page.models.courseModel,
                     answerField = 'answer_value',
-                    answerColumn = {key: answerField, title: gettext('Answer'), type:'hasNull'},
+                    answerColumn = {key: answerField, title: gettext('Answer'), type: 'hasNull'},
                     tableColumns = [
                         answerColumn,
                         {key: 'correct', title: gettext('Correct'), type: 'bool'},
@@ -44,7 +43,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                                 return gettext('Incorrect');
                             }
                         },
-                        color: function (bar, index) {
+                        color: function(bar, index) {
                             // green bars represent bars with the correct answer
                             if (courseModel.get('answerDistributionLimited')[index].correct) {
                                 return '#4BB4FB';
@@ -53,8 +52,8 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                             }
                         }
                     }],
-                    x: { key: answerField },
-                    y: { key: 'count' },
+                    x: {key: answerField},
+                    y: {key: 'count'},
                     // Translators: <%=value%> will be replaced by a student response to a question asked in a course.
                     interactiveTooltipHeaderTemplate: _.template(gettext('Answer: <%=value%>'))
                 });
@@ -67,6 +66,5 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                     sorting: ['-count'],
                     replaceZero: '-'
                 });
-
             });
 });

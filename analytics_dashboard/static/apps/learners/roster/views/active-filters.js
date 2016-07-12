@@ -1,4 +1,4 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var $ = require('jquery'),
@@ -19,17 +19,17 @@ define(function (require) {
 
         template: _.template(activeFiltersTemplate),
 
-        initialize: function (options) {
+        initialize: function(options) {
             this.options = options || {};
             this.listenTo(this.options.collection, 'sync', this.render);
         },
 
-        templateHelpers: function () {
+        templateHelpers: function() {
             // Note that search is included in 'activeFilters'
             var activeFilters = this.options.collection.getActiveFilterFields(true),
                 hasActiveFilters = !_.isEmpty(activeFilters);
 
-            activeFilters = _.mapObject(activeFilters, function (filterVal, filterKey) {
+            activeFilters = _.mapObject(activeFilters, function(filterVal, filterKey) {
                 var filterDisplayName;
                 if (filterKey === LearnerCollection.DefaultSearchKey) {
                     filterDisplayName = '"' + filterVal + '"';
@@ -62,7 +62,7 @@ define(function (require) {
             };
         },
 
-        clearOneFilter: function (event) {
+        clearOneFilter: function(event) {
             var filterKey;
             event.preventDefault();
             filterKey = $(event.currentTarget).data('filter-key');
@@ -70,7 +70,7 @@ define(function (require) {
             this.options.collection.refresh();
         },
 
-        clearAllFilters: function (event) {
+        clearAllFilters: function(event) {
             event.preventDefault();
             this.options.collection.unsetAllFilterFields();
             this.options.collection.refresh();

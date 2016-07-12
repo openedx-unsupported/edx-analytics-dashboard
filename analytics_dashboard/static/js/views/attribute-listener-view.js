@@ -1,7 +1,7 @@
 define([
     'backbone',
     'underscore'
-], function (
+], function(
     Backbone,
     _
 ) {
@@ -25,21 +25,21 @@ define([
          *   - modelAttribute (String) the attribute on the model which the
          *     view should react to
          */
-        initialize: function (options) {
+        initialize: function(options) {
             var self = this;
             this.options = options || {};
             self.modelAttribute = options.modelAttribute;
             self.listenTo(self.model, 'change:' + self.modelAttribute, self.render);
         },
 
-        renderIfDataAvailable: function () {
+        renderIfDataAvailable: function() {
             var self = this;
             if (self.isDataAvailable()) {
                 self.render();
             }
         },
 
-        isDataAvailable: function () {
+        isDataAvailable: function() {
             var isDataAvailableFunc = this.model.hasData;
             if (_.isFunction(isDataAvailableFunc)) {
                 return isDataAvailableFunc.call(this.model);
@@ -50,7 +50,7 @@ define([
         /**
          * Clears out the view.
          */
-        render: function () {
+        render: function() {
             var self = this;
             self.$el.empty();
             return self;

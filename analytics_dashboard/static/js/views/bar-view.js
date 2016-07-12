@@ -2,16 +2,16 @@
  * Abstract class for NVD3 bar charts (includes discrete bar and histogram).
  */
 define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
-    function (d3, nvd3, _, Utils, ChartView) {
+    function(d3, nvd3, _, Utils, ChartView) {
         'use strict';
 
         var BarView = ChartView.extend({
 
             defaults: _.extend({}, ChartView.prototype.defaults, {
-                    graphShiftSelector: '.nv-barsWrap',
-                    tipCharLimit: 250,  // clip and add ellipses to long tooltips
-                    barSelector: '.nv-bar'
-                }
+                graphShiftSelector: '.nv-barsWrap',
+                tipCharLimit: 250,  // clip and add ellipses to long tooltips
+                barSelector: '.nv-bar'
+            }
             ),
 
             /**
@@ -20,7 +20,7 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
              *
              * This is called for both display labels beneath the bars and in tooltips.
              */
-            formatXValue: function (xValue) {
+            formatXValue: function(xValue) {
                 var self = this,
                     trend = self.options.trends[0],
                     maxNumber = trend.maxNumber;
@@ -38,7 +38,7 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
             /**
              * Returns function for displaying a truncated label.
              */
-            truncateXTick: function (d) {
+            truncateXTick: function(d) {
                 var self = this;
                 d = self.formatXValue(d);
 
@@ -58,16 +58,16 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
                 return formattedLabel;
             },
 
-            addChartClick: function () {
+            addChartClick: function() {
                 var self = this;
                 d3.selectAll('rect.nv-bar')
                     .style('cursor', 'pointer')
-                    .on('click', function (d) {
+                    .on('click', function(d) {
                         self.options.click(d);
                     });
             },
 
-            buildTrendTip: function (trend, x, y, e) {
+            buildTrendTip: function(trend, x, y, e) {
                 var self = this,
                     swatchColor = trend.color,  // e.g #ff9988 or a function
                     label = trend.title;  // e.g. 'my title' or a function
@@ -100,7 +100,7 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
             /**
              * Builds the header for the interactive tooltip.
              */
-            buildTipHeading: function (point) {
+            buildTipHeading: function(point) {
                 var self = this,
                     heading = self.formatXValue(point[self.options.x.key]),
                     charLimit = self.options.tipCharLimit;
@@ -119,12 +119,12 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
                 return heading;
             },
 
-            initChart: function (chart) {
+            initChart: function(chart) {
                 var self = this;
                 ChartView.prototype.initChart.call(self, chart);
 
                 // NVD3's bar views display tooltips differently than for graphs
-                chart.tooltipContent(function (key, x, y, e) {
+                chart.tooltipContent(function(key, x, y, e) {
                     var trend = self.options.trends[e.seriesIndex],
                     // 'e' contains the raw x-value and 'x' could be formatted (e.g. truncated, ellipse, etc.)
                         tips = [self.buildTrendTip(trend, x, y, e)];

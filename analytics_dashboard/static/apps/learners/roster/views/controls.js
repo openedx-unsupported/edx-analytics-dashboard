@@ -1,7 +1,7 @@
 /**
  * A wrapper view for controls.
  */
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
@@ -22,11 +22,11 @@ define(function (require) {
             enrollmentTrackFilter: '.learners-enrollment-track-filter-container'
         },
 
-        initialize: function (options) {
+        initialize: function(options) {
             this.options = options || {};
         },
 
-        onBeforeShow: function () {
+        onBeforeShow: function() {
             this.showChildView('search', new LearnerSearch({
                 collection: this.options.collection,
                 name: 'text_search',

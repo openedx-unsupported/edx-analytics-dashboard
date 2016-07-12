@@ -1,19 +1,19 @@
 define(['models/course-model'], function(CourseModel) {
     'use strict';
 
-    describe('Course model', function () {
-        it('should be empty', function () {
+    describe('Course model', function() {
+        it('should be empty', function() {
             var model = new CourseModel();
             expect(model.isEmpty()).toBe(true);
         });
 
-        it('should have an ID', function () {
+        it('should have an ID', function() {
             var model = new CourseModel({courseId: 'test'});
             expect(model.isEmpty()).toBe(false);
             expect(model.get('courseId')).toBe('test');
         });
 
-        it('should determine if trend data is available ', function () {
+        it('should determine if trend data is available ', function() {
             var model = new CourseModel();
 
             // the trend dataset is entirely unavailable
@@ -24,6 +24,5 @@ define(['models/course-model'], function(CourseModel) {
             expect(model.hasTrend('trendData', 'data')).toBe(true);
             expect(model.hasTrend('trendData', 'notFound')).toBe(false);
         });
-
     });
 });

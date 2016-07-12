@@ -6,7 +6,7 @@
  * - learnerCollection: A `LearnerCollection` instance.
  * - rootView: A `LearnersRootView` instance.
  */
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var Backbone = require('backbone'),
@@ -22,7 +22,7 @@ define(function (require) {
         LearnersController;
 
     LearnersController = Marionette.Object.extend({
-        initialize: function (options) {
+        initialize: function(options) {
             this.options = options || {};
             this.listenTo(this.options.learnerCollection, 'sync', this.onLearnerCollectionUpdated);
             this.onLearnerCollectionUpdated(this.options.learnerCollection);
@@ -33,14 +33,14 @@ define(function (require) {
          * router whenever a route method beginning with "show" has
          * been triggered.
          */
-        onShowPage: function () {
+        onShowPage: function() {
             // Show a loading bar
             NProgress.done(true);
             // Clear any existing alert
             this.options.rootView.triggerMethod('clearError');
         },
 
-        onLearnerCollectionUpdated: function (collection) {
+        onLearnerCollectionUpdated: function(collection) {
             // Note that we currently assume that all the learners in
             // the roster were last updated at the same time.
             if (collection.length) {
@@ -48,7 +48,7 @@ define(function (require) {
             }
         },
 
-        showLearnerRosterPage: function () {
+        showLearnerRosterPage: function() {
             var rosterView = new LearnerRosterView({
                 collection: this.options.learnerCollection,
                 courseMetadata: this.options.courseMetadata,
@@ -72,7 +72,7 @@ define(function (require) {
          * Render the learner detail page assuming the learner model fetch
          * succeeds.
          */
-        showLearnerDetailPage: function (username) {
+        showLearnerDetailPage: function(username) {
             this.options.rootView.showChildView('navigation', new ReturnLinkView({}));
             var engagementTimelineModel = new EngagementTimelineModel({}, {
                     url: this.options.learnerEngagementTimelineUrl.replace('temporary_username', username),
@@ -111,13 +111,13 @@ define(function (require) {
             return detailView;
         },
 
-        showNotFoundPage: function () {
+        showNotFoundPage: function() {
             // TODO: Implement this page in https://openedx.atlassian.net/browse/AN-6697
             var message = gettext("Sorry, we couldn't find the page you're looking for."),  // jshint ignore:line
                 notFoundView;
 
             notFoundView = new (Backbone.View.extend({
-                render: function () {
+                render: function() {
                     this.$el.text(message);
                     return this;
                 }
@@ -127,7 +127,6 @@ define(function (require) {
             // track the "page" view
             this.options.trackingModel.set('page', 'learner_not_found');
             this.options.trackingModel.trigger('segment:page');
-
         }
     });
 

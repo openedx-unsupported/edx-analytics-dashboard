@@ -1,7 +1,7 @@
 /**
  * Base class for all table header cells.  Adds proper routing and icons.
  */
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
@@ -28,15 +28,15 @@ define(function (require) {
 
         template: _.template(baseHeaderCellTemplate),
 
-        initialize: function () {
+        initialize: function() {
             Backgrid.HeaderCell.prototype.initialize.apply(this, arguments);
             this.collection.on('backgrid:sort', this.onSort, this);
             // Set up the tooltip
             this.$el.attr('title', tooltips[this.column.get('name')]);
-            this.$el.tooltip({ container: '.learners-table' });
+            this.$el.tooltip({container: '.learners-table'});
         },
 
-        render: function (column, direction) {
+        render: function(column, direction) {
             Backgrid.HeaderCell.prototype.render.apply(this, arguments);
             this.$el.html(this.template({
                 label: this.column.get('label')
@@ -45,11 +45,11 @@ define(function (require) {
             return this;
         },
 
-        onSort: function (column, direction) {
+        onSort: function(column, direction) {
             this.renderSortState(column, direction);
         },
 
-        renderSortState: function (column, direction) {
+        renderSortState: function(column, direction) {
             var sortIcon = this.$('i'),
                 sortDirectionMap;
             if (column && column.cid !== this.column.cid) {

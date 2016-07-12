@@ -3,63 +3,62 @@
  * the libraries and kicks off the application.
  */
 
-require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
+require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
     'use strict';
 
     // this is your page specific code
     require(['views/data-table-view',
             'views/stacked-trends-view'],
-        function (DataTableView, StackedTrendsView) {
-
+        function(DataTableView, StackedTrendsView) {
             var settings = [
-                    {
-                        key: 'date',
-                        title: gettext('Date'),
-                        type: 'date'
-                    },
-                    {
-                        key: 'count',
-                        title: gettext('Current Enrollment'),
-                        className: 'text-right',
-                        type: 'number',
-                        color: '#4BB4FB'
-                    },
-                    {
-                        key: 'honor',
-                        title: gettext('Honor Code'),
-                        className: 'text-right',
-                        type: 'number',
-                        color: '#4BB4FB'
-                    },
-                    {
-                        key: 'verified',
-                        title: gettext('Verified'),
-                        className: 'text-right',
-                        type: 'number',
-                        color: '#CA0061'
-                    },
-                    {
-                        key: 'professional',
-                        title: gettext('Professional'),
-                        className: 'text-right',
-                        type: 'number',
-                        color: '#CCCCCC'
-                    }
+                {
+                    key: 'date',
+                    title: gettext('Date'),
+                    type: 'date'
+                },
+                {
+                    key: 'count',
+                    title: gettext('Current Enrollment'),
+                    className: 'text-right',
+                    type: 'number',
+                    color: '#4BB4FB'
+                },
+                {
+                    key: 'honor',
+                    title: gettext('Honor Code'),
+                    className: 'text-right',
+                    type: 'number',
+                    color: '#4BB4FB'
+                },
+                {
+                    key: 'verified',
+                    title: gettext('Verified'),
+                    className: 'text-right',
+                    type: 'number',
+                    color: '#CA0061'
+                },
+                {
+                    key: 'professional',
+                    title: gettext('Professional'),
+                    className: 'text-right',
+                    type: 'number',
+                    color: '#CCCCCC'
+                }
                 ],
                 trendSettings,
                 enrollmentTrackTrendSettings;
 
             // Remove settings for which there is no data (e.g. don't attempt to display verified if there is no data).
-            settings = _(settings).filter(function (setting) {
+            settings = _(settings).filter(function(setting) {
                 return page.models.courseModel.hasTrend('enrollmentTrends', setting.key);
             });
 
-            trendSettings = _(settings).filter(function (setting) {
+            trendSettings = _(settings).filter(function(setting) {
                 return setting.key !== 'date';
             });
 
             // Do not display total enrollment on the chart if track data exists
-            enrollmentTrackTrendSettings = _(trendSettings).filter(function (setting) {
+            enrollmentTrackTrendSettings = _(trendSettings).filter(function(setting) {
                 return setting.key !== 'count';
             });
 
@@ -73,8 +72,8 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                 model: page.models.courseModel,
                 modelAttribute: 'enrollmentTrends',
                 trends: trendSettings,
-                x: { key: 'date' },
-                y: { key: 'count' }
+                x: {key: 'date'},
+                y: {key: 'count'}
             });
 
             // Daily enrollment table

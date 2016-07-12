@@ -1,7 +1,7 @@
 /**
  * A layout view to manage app page rendering.
  */
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
@@ -30,29 +30,29 @@ define(function (require) {
             setFocusToTop: 'onSetFocusToTop'
         },
 
-        initialize: function (options) {
+        initialize: function(options) {
             this.options = options || {};
         },
 
-        onRender: function () {
+        onRender: function() {
             this.showChildView('header', new HeaderView({
                 model: this.options.pageModel
             }));
         },
 
-        onAppError: function (childView, options) {
+        onAppError: function(childView, options) {
             this.showAlert('error', options.title, options.description);
         },
 
-        onAppWarning: function (childView, options) {
+        onAppWarning: function(childView, options) {
             this.showAlert('info', options.title, options.description);
         },
 
-        onClearError: function () {
+        onClearError: function() {
             this.hideAlert();
         },
 
-        onSetFocusToTop: function () {
+        onSetFocusToTop: function() {
             this.$('#learner-app-focusable').focus();
         },
 
@@ -64,7 +64,7 @@ define(function (require) {
          * @param {string} title - the title of the alert.
          * @param {string} description - the description of the alert.
          */
-        showAlert: function (type, title, description) {
+        showAlert: function(type, title, description) {
             this.showChildView('alert', new AlertView({
                 alertType: type,
                 title: title,
@@ -75,7 +75,7 @@ define(function (require) {
         /**
          * Hides the alert view, if active.
          */
-        hideAlert: function () {
+        hideAlert: function() {
             this.getRegion('alert').empty();
         }
     });

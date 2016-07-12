@@ -1,11 +1,11 @@
 /**
  * Called for displaying aggregate video charts and tables.  Each bar is a collection of video views.
  */
-require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
+require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
     'use strict';
 
     require(['d3', 'underscore', 'views/data-table-view', 'views/stacked-bar-view'],
-        function (d3, _, DataTableView, StackedBarView) {
+        function(d3, _, DataTableView, StackedBarView) {
             var model = page.models.courseModel,
                 graphVideoColumns = [
                     {
