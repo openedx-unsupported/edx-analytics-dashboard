@@ -2,22 +2,18 @@
  * This is the first script called by the video timeline page and displays a
  * video timeline chart and data table.
  */
-require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
+var doc = require('vendor/domReady!'),
+    page = require('load/init-page'),
+    DisclosureView = require('uitk/disclosure/disclosure-view'),
+    _ = require('underscore'),
+    DataTableView = require('views/data-table-view'),
+    IFrameView = require('views/iframe-view'),
+    StackedTimelineView = require('views/stacked-timeline-view');
+
+(function() {
     'use strict';
 
-    require([
-        'uitk/disclosure/disclosure-view',
-        'underscore',
-        'views/data-table-view',
-        'views/iframe-view',
-        'views/stacked-timeline-view'
-    ], function(
-        DisclosureView,
-        _,
-        DataTableView,
-        IFrameView,
-        StackedTimelineView
-    ) {
+    (function() {
         var courseModel = page.models.courseModel,
             timelineSettings = [
                 {

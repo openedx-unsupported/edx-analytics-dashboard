@@ -2,11 +2,16 @@
  * This is the first script called by the engagement page.  It loads
  * the libraries and kicks off the application.
  */
+var doc = require('vendor/domReady!'),
+    page = require('load/init-page'),
+    _ = require('underscore'),
+    DataTableView = require('views/data-table-view'),
+    TrendsView = require('views/trends-view');
 
-require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
+(function() {
     'use strict';
 
-    require(['underscore', 'views/data-table-view', 'views/trends-view'], function(_, DataTableView, TrendsView) {
+    (function() {
         // shared settings between the chart and table
         // colors are chosen to be color-blind accessible
         var settings = [
