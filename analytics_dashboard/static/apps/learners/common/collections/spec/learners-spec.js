@@ -211,8 +211,8 @@ define(function (require) {
                 learners.setFilterField('enrollment_mode', 'audit');
                 learners.setFilterField('cohort', 'group1');
                 // order of filter fields in query string is not defined
-                var qstring = learners.getQueryString();
-                var pageAfterFilters = (qstring === '?enrollment_mode=audit&cohort=group1&page=1' ||
+                var qstring = learners.getQueryString(),
+                    pageAfterFilters = (qstring === '?enrollment_mode=audit&cohort=group1&page=1' ||
                                         qstring === '?cohort=group1&enrollment_mode=audit&page=1');
                 expect(pageAfterFilters).toBe(true);
             });

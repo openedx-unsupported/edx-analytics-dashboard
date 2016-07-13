@@ -149,7 +149,7 @@ define(function (require) {
                 server.requests[server.requests.length - 1].respond(200, {}, JSON.stringify({}));
                 expect(this.controller.options.rootView.$('.learners-navigation-region a').attr('href'))
                     .toEqual('#?text_search=foobar&page=2');
-                });
+            });
         });
 
         // The 'showPage' event gets fired by the router on the
