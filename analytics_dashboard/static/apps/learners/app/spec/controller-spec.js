@@ -94,6 +94,7 @@ define(function (require) {
 
         it('should show the filtered learner roster page', function (done) {
             this.controller.showLearnerRosterPage('text_search=foo');
+            expect(this.controller.options.learnerCollection.getSearchString()).toEqual('foo');
             this.controller.options.learnerCollection.once('sync', function () {
                 expectRosterPage(this.controller);
                 expect(this.controller.options.rootView.$('.learners-active-filters').html()).toContainText('foo');
