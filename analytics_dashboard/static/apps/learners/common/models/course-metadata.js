@@ -26,6 +26,8 @@ define(function(require) {
 
         renameEngagementRanges: function(engagementRanges) {
             var rankedEngagementRanges = {},
+                metric,
+                range,
                 newRanges = {
                     discussion_contributions: {
                         above_average: 'classRankTop',
@@ -53,10 +55,10 @@ define(function(require) {
                         below_average: 'classRankBottom'
                     }
                 };
-            for (var metric in engagementRanges) {
+            for (metric in engagementRanges) {
                 if (metric in newRanges) {
                     rankedEngagementRanges[metric] = {};
-                    for (var range in engagementRanges[metric]) {
+                    for (range in engagementRanges[metric]) {
                         if (engagementRanges[metric].hasOwnProperty(range)) {
                             rankedEngagementRanges[metric][newRanges[metric][range]] =
                                 engagementRanges[metric][range];

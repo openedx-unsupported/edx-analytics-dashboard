@@ -7,7 +7,8 @@
 
     var isBrowser = window.__karma__ === undefined,
         specs = [],
-        config = {};
+        config = {},
+        file;
 
     // Two execution paths: browser or gulp
     if (isBrowser) {
@@ -45,7 +46,7 @@
         }
 
         // you can automatically get the test files using karma's configs
-        for (var file in window.__karma__.files) {
+        for (file in window.__karma__.files) {
             if (/spec\.js$/.test(file)) {
                 specs.push(file);
             }
