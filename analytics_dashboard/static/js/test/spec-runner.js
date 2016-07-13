@@ -59,7 +59,7 @@
         config.callback = window.__karma__.start;
     }
 
-    requirejs.config(config);
+    requirejs.config(config);  // eslint-disable-line no-undef
 
     // the browser needs to kick off jasmine.  The gulp task does it through
     // node

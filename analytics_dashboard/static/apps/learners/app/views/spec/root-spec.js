@@ -1,7 +1,8 @@
 define(function(require) {
     'use strict';
 
-    var Marionette = require('marionette'),
+    var Backbone = require('backbone'),
+        Marionette = require('marionette'),
 
         LearnersRootView = require('learners/app/views/root'),
         PageModel = require('learners/common/models/page');

@@ -10,6 +10,8 @@ var doc = require('vendor/domReady!'),
 (function() {
     'use strict';
 
+    var _ = require('underscore');
+
     // this is your page specific code
     (function() {
         var settings = [

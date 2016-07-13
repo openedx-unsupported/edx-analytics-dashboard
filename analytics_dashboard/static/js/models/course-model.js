@@ -1,4 +1,4 @@
-define(['backbone'], function(Backbone) {
+define(['backbone', 'underscore'], function(Backbone, _) {
     'use strict';
 
     var CourseModel = Backbone.Model.extend({

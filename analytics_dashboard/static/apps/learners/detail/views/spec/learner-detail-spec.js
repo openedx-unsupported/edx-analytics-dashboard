@@ -1,7 +1,8 @@
 define(function(require) {
     'use strict';
 
-    var EngagementTimelineModel = require('learners/common/models/engagement-timeline'),
+    var _ = require('underscore'),
+        EngagementTimelineModel = require('learners/common/models/engagement-timeline'),
         LearnerDetailView = require('learners/detail/views/learner-detail'),
         LearnerModel = require('learners/common/models/learner'),
         Utils = require('utils/utils');

@@ -65,8 +65,8 @@ require.config({
             exports: 'Backbone',
             init: function(_, $) {
                 'use strict';
-                Backbone.$ = $;
-                return Backbone;
+                Backbone.$ = $;   // eslint-disable-line no-undef
+                return Backbone;  // eslint-disable-line no-undef
             }
         },
         backgrid: {
