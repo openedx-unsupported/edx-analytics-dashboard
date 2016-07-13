@@ -14,8 +14,7 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
                 xAxisMargin: 6,
                 graphShiftSelector: null, // Selector used for shifting chart position
                 truncateXTicks: false     // Determines if x axis ticks should be truncated
-            }
-            ),
+            }),
 
             /**
              * Initializes a ChartView.
@@ -278,7 +277,7 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
                     assembledData = self.assembleTrendData(),
                     xLabelMapping = self.buildXLabelMapping();
                 AttributeListenerView.prototype.render.call(this);
-                
+
                 self.xLabelMapping = xLabelMapping;
                 self.chart = self.getChart();
                 self.initChart(self.chart);

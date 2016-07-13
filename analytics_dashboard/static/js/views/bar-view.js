@@ -11,8 +11,7 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
                 graphShiftSelector: '.nv-barsWrap',
                 tipCharLimit: 250,  // clip and add ellipses to long tooltips
                 barSelector: '.nv-bar'
-            }
-            ),
+            }),
 
             /**
              * Returns the x-value/label displayed on the chart.  Further formatting (e.g. adding ellipse)
@@ -40,9 +39,9 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
              */
             truncateXTick: function(d) {
                 var self = this,
-                    formattedD = self.formatXValue(d);
+                    formattedD = self.formatXValue(d),
                     barWidth = d3.select(self.options.barSelector).attr('width'),
-                // this is a rough estimate of how wide a character is
+                    // this is a rough estimate of how wide a character is
                     charWidth = 6,
                     characterLimit = Math.floor(barWidth / charWidth),
                     formattedLabel = formattedD;
