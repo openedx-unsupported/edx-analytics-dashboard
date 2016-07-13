@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    'use strict';
   // Shift nav in mobile when clicking the menu.
     $("[data-toggle='wy-nav-top']").click(function() {
         $("[data-toggle='wy-nav-shift']").toggleClass('shift');

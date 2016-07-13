@@ -8,4 +8,5 @@ require([
     'load/init-page',
     'js/application-main'
 ], function() {
+	'use strict';
 });

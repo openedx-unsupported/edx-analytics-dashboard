@@ -2,6 +2,7 @@
 // Generated on Thu Jun 26 2014 17:49:39 GMT-0400 (EDT)
 
 module.exports = function(config) {
+    'use strict';
     config.set({
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -80,7 +81,8 @@ module.exports = function(config) {
 
 
         // level of logging
-        // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+        // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN ||
+        // config.LOG_INFO || config.LOG_DEBUG
         logLevel: config.LOG_INFO,
 
 

@@ -1,33 +1,34 @@
+var eslint = require('gulp-eslint'),
+    gulp = require('gulp'),
+    karma = require('karma').server,
+    path = require('path'),
+    browserSync = require('browser-sync'),
+    extend = require('util')._extend;
+
 (function() {
     'use strict';
 
-    var eslint = require('gulp-eslint'),
-        gulp = require('gulp'),
-        karma = require('karma').server,
-        path = require('path'),
-        browserSync = require('browser-sync'),
-        extend = require('util')._extend,
-        paths = {
-            spec: [
-                'analytics_dashboard/static/js/**/*.js',
-                'analytics_dashboard/static/js/test/**/*.js',
-                'analytics_dashboard/static/apps/**/*.js'
-            ],
-            lint: [
-                'build.js',
-                'gulpfile.js',
-                'analytics_dashboard/static/js/**/*.js',
-                'analytics_dashboard/static/js/test/**/*.js',
-                'analytics_dashboard/static/apps/**/*.js'
-            ],
-            templates: [
-                'analytics_dashboard/analytics_dashboard/templates/analytics_dashboard/*.html',
-                'analytics_dashboard/courses/templates/courses/*.html',
-                'analytics_dashboard/templates/*.html'
-            ],
-            sass: ['analytics_dashboard/static/sass/*.scss'],
-            karmaConf: 'karma.conf.js'
-        };
+    var paths = {
+        spec: [
+            'analytics_dashboard/static/js/**/*.js',
+            'analytics_dashboard/static/js/test/**/*.js',
+            'analytics_dashboard/static/apps/**/*.js'
+        ],
+        lint: [
+            'build.js',
+            'gulpfile.js',
+            'analytics_dashboard/static/js/**/*.js',
+            'analytics_dashboard/static/js/test/**/*.js',
+            'analytics_dashboard/static/apps/**/*.js'
+        ],
+        templates: [
+            'analytics_dashboard/analytics_dashboard/templates/analytics_dashboard/*.html',
+            'analytics_dashboard/courses/templates/courses/*.html',
+            'analytics_dashboard/templates/*.html'
+        ],
+        sass: ['analytics_dashboard/static/sass/*.scss'],
+        karmaConf: 'karma.conf.js'
+    };
 
     // kicks up karma to the tests once
     function runKarma(configFile, cb, options) {
