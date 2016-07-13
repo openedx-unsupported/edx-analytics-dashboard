@@ -144,7 +144,8 @@ define(function(require) {
 
         it('should show the not found page', function() {
             this.controller.showNotFoundPage();
-            expect(this.rootView.$el.html()).toContainText("Sorry, we couldn't find the page you're looking for.");  // jshint ignore:line
+            // eslint-disable-next-line max-len
+            expect(this.rootView.$el.html()).toContainText("Sorry, we couldn't find the page you're looking for.");
             expect(this.controller.options.trackingModel.get('page')).toBe('learner_not_found');
             expect(this.controller.options.trackingModel.trigger).toHaveBeenCalledWith('segment:page');
         });

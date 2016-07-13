@@ -152,7 +152,8 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
              * label/name and value.
              */
             // See http://www.w3.org/TR/WCAG20-TECHS/H34.html for info on &rlm;
-            popupTemplate: _.template('<div class="hoverinfo"><%=name%>: <%=value%><% if(percent) { %> (<%=percent%>)&rlm;<% } %></div>'),   // jshint ignore:line
+            // eslint-disable-next-line max-len
+            popupTemplate: _.template('<div class="hoverinfo"><%=name%>: <%=value%><% if(percent) { %> (<%=percent%>)&rlm;<% } %></div>'),
 
             /**
              * Underscore style template for displaying the tooltip for screen
