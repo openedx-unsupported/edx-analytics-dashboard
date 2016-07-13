@@ -14,9 +14,13 @@ define(function (require) {
             '*notFound': 'showNotFoundPage'
         },
 
-        onRoute: function (routeName) {
-            if (routeName.indexOf('show') === 0) {
+        // This method is run before the route methods are run.
+        execute: function (callback, args, name) {
+            if (name.indexOf('show') === 0) {
                 this.options.controller.triggerMethod('showPage');
+            }
+            if (callback) {
+                callback.apply(this, args);
             }
         },
 

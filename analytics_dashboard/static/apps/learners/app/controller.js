@@ -18,9 +18,7 @@ define(function (require) {
         LearnerModel = require('learners/common/models/learner'),
         LearnerRosterView = require('learners/roster/views/roster'),
         ReturnLinkView = require('learners/detail/views/learner-return'),
-        Utils = require('utils/utils'),
         LoadingView = require('learners/common/views/loading-view'),
-        AlertView = require('learners/common/views/alert-view'),
 
         rosterLoadingTemplate = require('text!learners/roster/templates/roster-loading.underscore'),
 
@@ -36,7 +34,7 @@ define(function (require) {
         /**
          * Event handler for the 'showPage' event.  Called by the
          * router whenever a route method beginning with "show" has
-         * been triggered.
+         * been triggered. Executes before the route method does.
          */
         onShowPage: function () {
             // Show a loading bar
@@ -57,11 +55,11 @@ define(function (require) {
             var rosterView = new LearnerRosterView({
                 collection: this.options.learnerCollection,
                 courseMetadata: this.options.courseMetadata,
-                trackingModel: this.options.trackingModel,
+                trackingModel: this.options.trackingModel
             });
 
             try {
-                var fetchNeeded = this.setCollectionState(queryString, this.options.learnerCollection);
+                var fetchNeeded = this.options.learnerCollection.setStateFromQueryString(queryString);
                 if (fetchNeeded) {
                     // Show a loading spinner while we fetch new collection data
                     var loadingView = new LoadingView({
@@ -85,8 +83,11 @@ define(function (require) {
                     this.options.rootView.showChildView('main', rosterView);
                 }
             } catch (e) {
+                // These JS errors occur when trying to parse invalid URL parameters
                 if (e instanceof RangeError || e instanceof TypeError) {
-                    this.showInvalidParametersPage();
+                    this.options.rootView.showAlert('error', gettext('Invalid Parameters'),
+                        gettext('Sorry, we couldn\'t find any learners who matched that query.'),
+                        {url: '#', text: gettext('Return to the Learners page.')});
                 } else {
                     throw e;
                 }
@@ -167,64 +168,8 @@ define(function (require) {
             // track the "page" view
             this.options.trackingModel.set('page', 'learner_not_found');
             this.options.trackingModel.trigger('segment:page');
-
         },
 
-        showInvalidParametersPage: function () {
-            this.options.rootView.showChildView('main', new AlertView({
-                alertType: 'error',
-                title: gettext('Invalid Parameters'),
-                body: gettext('Sorry, we couldn\'t find any learners who matched that query.'),
-                link: {url: '#', text: gettext('Return to the Learners page.')}
-            }));
-
-            // track the "page" view
-            this.options.trackingModel.set('page', 'learner_invalid_params');
-            this.options.trackingModel.trigger('segment:page');
-
-        },
-
-        // Sets the learnerCollection state based on the query params. Returns a boolean stating whether the new state
-        // differs from the old state (so the caller knows that the collection is stale and needs to do a fetch).
-        setCollectionState: function (queryString, collection) {
-            var params = Utils.parseQueryString(queryString),
-                order = -1,
-                order_name = 'ascending',
-                fetchNeeded = false,
-                page, sortKey;
-
-            _.mapObject(params, function (val, key) {
-                if (key === 'page') {
-                    page = parseInt(val, 10);
-                    if (page !== collection.state.currentPage) {
-                        fetchNeeded = true;
-                    }
-                    collection.state.currentPage = page;
-                } else if (key === 'sortKey') {
-                    sortKey = val;
-                } else if (key === 'order') {
-                    order = val === 'desc' ? 1 : -1;
-                    order_name = val === 'desc' ?  'descending' : 'ascending';
-                } else {
-                    if (key in collection.filterableFields || key === 'text_search') {
-                        if (val !== collection.getFilterFieldValue(key)) {
-                            fetchNeeded = true;
-                        }
-                        collection.setFilterField(key, val);
-                    }
-                }
-            });
-
-            // Set the sort state if sortKey or order from the queryString are different from the current state
-            if (sortKey && sortKey in collection.sortableFields) {
-                if (sortKey !== collection.state.sortKey || order !== collection.state.order) {
-                    fetchNeeded = true;
-                    collection.setSorting(sortKey, order);
-                }
-            }
-
-            return fetchNeeded;
-        }
     });
 
     return LearnersController;
