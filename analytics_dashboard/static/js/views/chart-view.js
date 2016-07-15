@@ -162,9 +162,11 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
              * Return the NVD3 chart that will be displayed
              * (e.g. nvd3.models.lineChart).
              */
-            getChart: function() {
+            /* eslint-disable no-unused-vars, no-throw-literal */
+            getChart: function(d) {
                 throw 'Not implemented';
             },
+            /* eslint-enable no-unused-vars, no-throw-literal */
 
             /**
              * Returns the formatted label for the x-axis ticks.
@@ -183,9 +185,11 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
             /**
             * Truncate (e.g. add ellipses) long labels shown beneath the bar.
             */
-            truncateXTick: function(d) {   // jshint ignore:line
+            /* eslint-disable no-unused-vars, no-throw-literal */
+            truncateXTick: function(d) {
                 throw 'Not implemented';
             },
+            /* eslint-enable no-unused-vars, no-throw-literal */
 
             parseXData: function(d) {
                 var self = this;
@@ -267,9 +271,11 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
              * Implement this to enable users to click on chart elements.  This
              * is called when render is complete and the click option is specified.
              */
-            addChartClick: function(d) {   // jshint ignore:line
+            /* eslint-disable no-unused-vars, no-throw-literal */
+            addChartClick: function(d) {
                 throw 'Not implemented';
             },
+            /* eslint-enable no-unused-vars, no-throw-literal */
 
             render: function() {
                 var self = this,

@@ -11,7 +11,7 @@ var doc = require('vendor/domReady!'),
     'use strict';
 
     // this is your page specific code
-    (function(DataTableView, WorldMapView) {
+    (function() {
         // Enrollment by country map
         new WorldMapView({
             el: '[data-view=world-map]',

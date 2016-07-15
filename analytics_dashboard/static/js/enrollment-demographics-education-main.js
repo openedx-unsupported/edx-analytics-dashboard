@@ -8,7 +8,7 @@ var doc = require('vendor/domReady!'),
     DataTableView = require('views/data-table-view'),
     DiscreteBarView = require('views/discrete-bar-view');
 
-(function () {
+(function() {
     'use strict';
 
     (function() {

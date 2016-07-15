@@ -3,14 +3,13 @@
  * the libraries and kicks off the application.
  */
 var doc = require('vendor/domReady!'),
+    _ = require('underscore'),
     page = require('load/init-page'),
     DataTableView = require('views/data-table-view'),
     StackedTrendsView = require('views/stacked-trands-view');
 
 (function() {
     'use strict';
-
-    var _ = require('underscore');
 
     // this is your page specific code
     (function() {

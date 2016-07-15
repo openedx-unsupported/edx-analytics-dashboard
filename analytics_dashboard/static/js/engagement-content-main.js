@@ -4,7 +4,6 @@
  */
 var doc = require('vendor/domReady!'),
     page = require('load/init-page'),
-    _ = require('underscore'),
     DataTableView = require('views/data-table-view'),
     TrendsView = require('views/trends-view');
 

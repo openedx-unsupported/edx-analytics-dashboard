@@ -63,8 +63,8 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
                     .range([self.options.lowColor, self.options.highColor]);
 
                 // create the mapping from country to color
-                _(countryData).each(function(countryData, key) {
-                    fills[key] = colorMap(countryData.value);
+                _(countryData).each(function(country, key) {
+                    fills[key] = colorMap(country.value);
                 });
 
                 fills.defaultFill = self.options.lowColor;
@@ -77,8 +77,8 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
              * from formatData().
              */
             getCountryMax: function(countryData) {
-                return _(countryData).max(function(countryData) {
-                    return countryData.value;
+                return _(countryData).max(function(country) {
+                    return country.value;
                 }).value;
             },
 

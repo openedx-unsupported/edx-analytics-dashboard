@@ -6,12 +6,12 @@ var doc = require('vendor/domReady!'),
     page = require('load/init-page'),
     _ = require('underscore'),
     DataTableView = require('views/data-table-view'),
-    WorldMapView = require('views/world-map-view');
+    DiscreteBarView = require('views/discrete-bar-view');
 
-(function(doc, page) {
+(function() {
     'use strict';
 
-    (function(_, DataTableView, DiscreteBarView) {
+    (function( ) {
         new DiscreteBarView({
             el: '#enrollment-chart-view',
             model: page.models.courseModel,
