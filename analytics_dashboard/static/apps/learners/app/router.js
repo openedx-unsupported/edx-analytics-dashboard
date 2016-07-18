@@ -35,8 +35,7 @@ define(function (require) {
         // sorts, or page numbers) into a url and then navigates the router to that url.
         updateUrl: function () {
             this.navigate(this.learnerCollection.getQueryString(), {replace: true});
-        },
-
+        }
     });
 
     return LearnersRouter;

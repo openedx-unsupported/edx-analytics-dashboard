@@ -123,15 +123,15 @@ define(['moment', 'underscore', 'utils/globalization'], function (moment, _, Glo
         parseQueryString: function (queryString) {
             if (queryString) {
                 return _(decodeURI(queryString).split('&')).map(function (namedVal) {
-                    var keyValPair = namedVal.split('='), obj = {};
+                    var keyValPair = namedVal.split('='), params = {};
                     if (keyValPair.length === 1 && keyValPair[0]) {  // No value
-                        obj[keyValPair[0]] = '';
+                        params[keyValPair[0]] = '';
                     } else if (keyValPair.length === 2){
-                        obj[keyValPair[0]] = keyValPair[1];
+                        params[keyValPair[0]] = keyValPair[1];
                     } else if (keyValPair.length > 2) {  // Have something like foo=bar=...
                         throw new TypeError('Each "&"-separated substring must either be a key or a key-value pair');
                     }
-                    return obj;
+                    return params;
                 }).reduce(function (memo, keyValPair) {
                     return _.extend(memo, keyValPair);
                 });

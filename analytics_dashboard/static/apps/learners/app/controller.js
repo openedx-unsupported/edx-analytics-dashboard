@@ -17,8 +17,8 @@ define(function (require) {
         LearnerDetailView = require('learners/detail/views/learner-detail'),
         LearnerModel = require('learners/common/models/learner'),
         LearnerRosterView = require('learners/roster/views/roster'),
-        ReturnLinkView = require('learners/detail/views/learner-return'),
         LoadingView = require('learners/common/views/loading-view'),
+        ReturnLinkView = require('learners/detail/views/learner-return'),
 
         rosterLoadingTemplate = require('text!learners/roster/templates/roster-loading.underscore'),
 
@@ -53,23 +53,24 @@ define(function (require) {
 
         showLearnerRosterPage: function (queryString) {
             var rosterView = new LearnerRosterView({
-                collection: this.options.learnerCollection,
-                courseMetadata: this.options.courseMetadata,
-                trackingModel: this.options.trackingModel
-            });
+                    collection: this.options.learnerCollection,
+                    courseMetadata: this.options.courseMetadata,
+                    trackingModel: this.options.trackingModel,
+                }),
+                loadingView = new LoadingView({
+                    model: this.options.learnerCollection,
+                    template: _.template(rosterLoadingTemplate),
+                    successView: rosterView
+                }),
+                fetch;
 
             try {
-                var fetchNeeded = this.options.learnerCollection.setStateFromQueryString(queryString);
-                if (fetchNeeded) {
+                this.options.learnerCollection.setStateFromQueryString(queryString);
+                if (this.options.learnerCollection.isStale) {
                     // Show a loading spinner while we fetch new collection data
-                    var loadingView = new LoadingView({
-                        model: this.options.learnerCollection,
-                        template: _.template(rosterLoadingTemplate),
-                        successView: rosterView
-                    });
                     this.options.rootView.showChildView('main', loadingView);
 
-                    var fetch = this.options.learnerCollection.fetch({reset: true});
+                    fetch = this.options.learnerCollection.fetch({reset: true});
                     if (fetch) {
                         fetch.complete(function (response) {
                             // fetch doesn't empty the collection on 404 by default
@@ -86,7 +87,7 @@ define(function (require) {
                 // These JS errors occur when trying to parse invalid URL parameters
                 if (e instanceof RangeError || e instanceof TypeError) {
                     this.options.rootView.showAlert('error', gettext('Invalid Parameters'),
-                        gettext('Sorry, we couldn\'t find any learners who matched that query.'),
+                        gettext("Sorry, we couldn't find any learners who matched that query."),
                         {url: '#', text: gettext('Return to the Learners page.')});
                 } else {
                     throw e;
@@ -168,8 +169,7 @@ define(function (require) {
             // track the "page" view
             this.options.trackingModel.set('page', 'learner_not_found');
             this.options.trackingModel.trigger('segment:page');
-        },
-
+        }
     });
 
     return LearnersController;

@@ -2,10 +2,10 @@ define(function (require) {
     'use strict';
 
     var Backbone = require('backbone'),
-        PageModel = require('learners/common/models/page'),
-        LearnersRouter = require('learners/app/router'),
+        LearnerCollection = require('learners/common/collections/learners'),
         LearnersController = require('learners/app/controller'),
-        LearnerCollection = require('learners/common/collections/learners');
+        LearnersRouter = require('learners/app/router'),
+        PageModel = require('learners/common/models/page');
 
     describe('LearnersRouter', function () {
         beforeEach(function () {
@@ -102,6 +102,5 @@ define(function (require) {
             });
             this.server.requests[0].respond(200, {}, JSON.stringify([this.user]));
         });
-
     });
 });

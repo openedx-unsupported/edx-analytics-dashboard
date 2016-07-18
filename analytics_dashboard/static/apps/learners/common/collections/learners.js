@@ -67,62 +67,60 @@ define(function (require) {
         // Encodes the state of the collection into a query string that can be appended onto the URL.
         getQueryString: function () {
             var params = this.getActiveFilterFields(true),
-                fragment = '?',
-                ordered_params = [];
+                orderedParams = [],
+                fragment;
 
-            // Because the active filter fields object is not ordered, these are the only params of ordered_params that
+            // Order the parameters: filters & search, sortKey, order, and then page.
+
+            // Because the active filter fields object is not ordered, these are the only params of orderedParams that
             // don't have a defined order besides being before sortKey, order, and page.
             _.mapObject(params, function (val, key) {
-                ordered_params.push({key: key, val: val});
+                orderedParams.push({key: key, val: val});
             });
 
             if (this.state.sortKey !== null) {
-                ordered_params.push({key: 'sortKey', val: this.state.sortKey});
-                ordered_params.push({key: 'order', val: this.state.order === 1 ? 'desc' : 'asc'});
+                orderedParams.push({key: 'sortKey', val: this.state.sortKey});
+                orderedParams.push({key: 'order', val: this.state.order === 1 ? 'desc' : 'asc'});
             }
-            ordered_params.push({key: 'page', val: this.state.currentPage});
+            orderedParams.push({key: 'page', val: this.state.currentPage});
 
-            _.each(ordered_params, function (param) {
-                if (fragment.length !== 1) {
-                    fragment = fragment.concat('&');
-                }
+            fragment = orderedParams.map(function (param) {
                 // Note: this assumes that filter keys will never have URI special characters. We should encode the key
                 // too if that assumption is wrong.
-                fragment = fragment.concat(param.key, '=', encodeURIComponent(param.val));
-            });
-            return fragment === '?' ? '' : fragment;
+                return param.key + '=' + encodeURIComponent(param.val);
+            }).join('&');
+
+            // Prefix query string params with '?', but return an empty string if there are no params.
+            return fragment !== '' ? ('?' + fragment) : fragment;
         },
 
         /**
          * Decodes a query string into arguments and sets the state of the collection to what the arguments describe.
          * The query string argument should have already had the prefix '?' stripped (the AppRouter does this).
          *
-         * Returns a boolean stating whether the new state differs from the old state (so the caller knows that the
-         * collection is stale and needs to do a fetch).
+         * Will set the collection's isStale boolean to whether the new state differs from the old state (so the caller
+         * knows that the collection is stale and needs to do a fetch).
          */
         setStateFromQueryString: function (queryString) {
             var params = Utils.parseQueryString(queryString),
                 order = -1,
-                order_name = 'ascending',
-                fetchNeeded = false,
                 page, sortKey;
 
             _.mapObject(params, function (val, key) {
                 if (key === 'page') {
                     page = parseInt(val, 10);
                     if (page !== this.state.currentPage) {
-                        fetchNeeded = true;
+                        this.isStale = true;
                     }
                     this.state.currentPage = page;
                 } else if (key === 'sortKey') {
                     sortKey = val;
                 } else if (key === 'order') {
                     order = val === 'desc' ? 1 : -1;
-                    order_name = val === 'desc' ?  'descending' : 'ascending';
                 } else {
                     if (key in this.filterableFields || key === 'text_search') {
                         if (val !== this.getFilterFieldValue(key)) {
-                            fetchNeeded = true;
+                            this.isStale = true;
                         }
                         this.setFilterField(key, val);
                     }
@@ -132,12 +130,10 @@ define(function (require) {
             // Set the sort state if sortKey or order from the queryString are different from the current state
             if (sortKey && sortKey in this.sortableFields) {
                 if (sortKey !== this.state.sortKey || order !== this.state.order) {
-                    fetchNeeded = true;
+                    this.isStale = true;
                     this.setSorting(sortKey, order);
                 }
             }
-
-            return fetchNeeded;
         }
     });
 
