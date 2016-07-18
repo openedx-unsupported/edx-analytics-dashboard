@@ -368,8 +368,10 @@ class CourseNavBarMixin(object):
         # Get the active primary item and remove it from the list
         primary_nav_item = None
         if self.active_primary_nav_item:
-            primary_nav_item = [i for i in primary_nav_items if i['name'] == self.active_primary_nav_item][0]
-            primary_nav_items.remove(primary_nav_item)
+            navs = [i for i in primary_nav_items if i['name'] == self.active_primary_nav_item]
+            if navs:
+                primary_nav_item = navs[0]
+                primary_nav_items.remove(primary_nav_item)
 
         context.update({
             'primary_nav_item': primary_nav_item,

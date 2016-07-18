@@ -30,7 +30,7 @@ define(function(require) {
 
         it('renders a header title and date', function() {
             expect(this.rootView.$('.learners-header-region').html()).toContainText('Testing Title');
-            expect(this.rootView.$('.learners-header-region').html()).toContainText('February 28, 2016');
+            expect(this.rootView.$('.learners-header-region').html()).not.toContainText('February 28, 2016');
         });
 
         it('renders and clears alerts', function() {

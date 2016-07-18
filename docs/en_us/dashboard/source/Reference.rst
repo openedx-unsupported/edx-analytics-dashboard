@@ -585,7 +585,7 @@ for individual learner activities, see :ref:`Learner Activity`.
   * The report includes a row for every learner who ever enrolled in the
     course. Activity metrics include activity in the last seven days.
 
-  * The chart plots activity for a selected learner throughout the course, and
+  * The chart plots activity for a selected learner throughout the course. It
     is not limited to the last seven days.
 
 * The metrics for problems (the **Problems Tried** and **Problems Correct**
@@ -622,7 +622,7 @@ for individual learner activities, see :ref:`Learner Activity`.
 * The percentiles that are used to color code values on the learner roster and
   key activity report are computed for each metric individually. The percentile
   computations use only the data for learners who engaged in the activity:
-  learners with a count or zero or a ratio of N/A are not included.
+  learners with a count of zero, or a ratio of N/A, are not included.
 
   * Values in the 15th percentile or below appear in red.
   * Values in the 16th to 84th percentile appear in black.

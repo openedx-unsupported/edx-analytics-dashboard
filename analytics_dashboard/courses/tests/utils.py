@@ -20,10 +20,10 @@ GAP_START = 2
 GAP_END = 4
 
 
-def get_mock_api_enrollment_data(course_id, include_verified=True):
+def get_mock_api_enrollment_data(course_id):
     data = []
     start_date = datetime.date(year=2014, month=1, day=1)
-    modes = enrollment_modes.ALL if include_verified else [enrollment_modes.AUDIT, enrollment_modes.HONOR]
+    modes = enrollment_modes.ALL
 
     for index in range(31):
         date = start_date + datetime.timedelta(days=index)
@@ -32,11 +32,9 @@ def get_mock_api_enrollment_data(course_id, include_verified=True):
             'date': date.strftime(Client.DATE_FORMAT),
             'course_id': unicode(course_id),
             'count': index * len(modes),
-            'created': CREATED_DATETIME_STRING
+            'created': CREATED_DATETIME_STRING,
+            'cumulative_count': index * len(modes) * 2
         }
-
-        if include_verified:
-            datum['cumulative_count'] = datum['count'] * 2
 
         for mode in modes:
             datum[mode] = index
@@ -52,22 +50,14 @@ def get_mock_api_enrollment_data_with_gaps(course_id):
     return data
 
 
-def get_mock_enrollment_summary(include_verified=True):
+def get_mock_enrollment_summary():
     summary = {
         'last_updated': CREATED_DATETIME,
-        'current_enrollment': 60,
-        'total_enrollment': None,
-        'enrollment_change_last_7_days': 14,
+        'current_enrollment': 150,
+        'total_enrollment': 300,
+        'enrollment_change_last_7_days': 35,
+        'verified_enrollment': 30,
     }
-
-    if include_verified:
-        summary.update({
-            'current_enrollment': 120,
-            'total_enrollment': 240,
-            'enrollment_change_last_7_days': 28,
-            'verified_enrollment': 30,
-        })
-
     return summary
 
 
@@ -84,17 +74,8 @@ def _get_empty_enrollment(date):
     return enrollment
 
 
-def _clean_modes(data):
-    for datum in data:
-        datum[enrollment_modes.HONOR] = datum[enrollment_modes.AUDIT] + datum[enrollment_modes.HONOR]
-        datum.pop(enrollment_modes.AUDIT)
-
-    return data
-
-
-def get_mock_presenter_enrollment_trend(course_id, include_verified=True):
-    trend = get_mock_api_enrollment_data(course_id, include_verified=include_verified)
-    trend = _clean_modes(trend)
+def get_mock_presenter_enrollment_trend(course_id):
+    trend = get_mock_api_enrollment_data(course_id)
     return trend
 
 
@@ -119,19 +100,13 @@ def get_mock_presenter_enrollment_trend_with_gaps_filled(course_id):
 
 def get_mock_presenter_enrollment_data_small(course_id):
     data = [_get_empty_enrollment('2014-01-30'), get_mock_api_enrollment_data(course_id)[-1]]
-    data = _clean_modes(data)
-
     return data
 
 
 def get_mock_presenter_enrollment_summary_small():
-    return {
-        'last_updated': CREATED_DATETIME,
-        'current_enrollment': 120,
-        'total_enrollment': 240,
-        'enrollment_change_last_7_days': None,
-        'verified_enrollment': 30,
-    }
+    summary = get_mock_enrollment_summary()
+    summary['enrollment_change_last_7_days'] = None
+    return summary
 
 
 def get_mock_api_enrollment_geography_data(course_id):

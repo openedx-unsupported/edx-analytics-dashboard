@@ -82,8 +82,7 @@ define(function(require) {
 
             this.options.rootView.showChildView('navigation', new ReturnLinkView({}));
             this.options.pageModel.set({
-                title: gettext('Learner Details'),
-                lastUpdated: undefined
+                title: gettext('Learner Details')
             });
 
             detailView = new LearnerDetailView({
@@ -94,6 +93,9 @@ define(function(require) {
 
             // fetch data is the model is empty
             if (!learnerModel.hasData()) {
+                learnerModel.on('change:last_updated', function () {
+                    this.options.pageModel.set('lastUpdated', learnerModel.get('last_updated'));
+                }, this);
                 learnerModel.urlRoot = this.options.learnerListUrl;
                 learnerModel.set({
                     course_id: this.options.courseId,

@@ -156,6 +156,48 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                         param: 'my-param'
                     });
             });
+
+            it('should call segment::page()', function () {
+                var view,
+                    courseModel = new CourseModel({
+                        courseId: 'my/course/id'
+                    }),
+                    trackingModel = new TrackingModel({
+                        page: 'mypage'
+                    }),
+                    userModel = new TrackingModel();
+
+                view = new TrackingView({
+                    model: trackingModel,
+                    courseModel: courseModel,
+                    userModel: userModel
+                });
+
+                // mock segment
+                view.segment = {
+                    track: jasmine.createSpy('track'),
+                    load: jasmine.createSpy('load'),
+                    page: jasmine.createSpy('page'),
+                    identify: jasmine.createSpy('identify')
+                };
+
+                // trigger a segment event
+                trackingModel.trigger('segment:page', 'pageName', {param: 'my-param'});
+
+                // we don't track events until segment has been loaded
+                expect(view.segment.page).not.toHaveBeenCalled();
+
+                trackingModel.set('segmentApplicationId', 'some ID');
+
+                // trigger an event and make sure that page is called
+                trackingModel.trigger('segment:page', 'pageName', {param: 'my-param'});
+                expect(view.segment.page).toHaveBeenCalledWith(
+                    'pageName', {
+                        label: 'mypage',
+                        courseId: 'my/course/id',
+                        param: 'my-param'
+                    });
+            });
         });
 
         describe('Tracking element events', function() {

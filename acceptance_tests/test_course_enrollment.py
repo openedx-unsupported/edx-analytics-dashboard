@@ -1,9 +1,9 @@
+from collections import OrderedDict
 import datetime
 
 from analyticsclient.constants import demographic, UNKNOWN_COUNTRY_CODE, enrollment_modes
 from bok_choy.web_app_test import WebAppTest
 
-from acceptance_tests import ENABLE_ENROLLMENT_MODES
 from acceptance_tests.mixins import CoursePageTestsMixin
 from acceptance_tests.pages import CourseEnrollmentActivityPage, CourseEnrollmentGeographyPage
 
@@ -25,9 +25,7 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         """
         end_date = datetime.datetime.utcnow()
         end_date_string = end_date.strftime(self.analytics_api_client.DATE_FORMAT)
-        _demographic = 'mode' if ENABLE_ENROLLMENT_MODES else None
-
-        return self.course.enrollment(_demographic, start_date=None, end_date=end_date_string)
+        return self.course.enrollment('mode', start_date=None, end_date=end_date_string)
 
     def test_page(self):
         super(CourseEnrollmentActivityTests, self).test_page()
@@ -46,8 +44,8 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         self.assertSummaryTooltipEquals(selector, tooltip)
 
     def _get_valid_enrollment_modes(self, trends):
-        valid_modes = {enrollment_modes.AUDIT, enrollment_modes.HONOR}
-        invalid_modes = set(enrollment_modes.ALL) - valid_modes
+        valid_modes = set()
+        invalid_modes = set(enrollment_modes.ALL)
 
         for datum in trends:
             for candidate in list(invalid_modes):
@@ -76,14 +74,13 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         tooltip = u'Net difference in current enrollment in the last week.'
         self.assertMetricTileValid('enrollment_change_last_%s_days' % i, enrollment, tooltip)
 
-        if ENABLE_ENROLLMENT_MODES:
-            valid_modes = self._get_valid_enrollment_modes(enrollment_data)
+        valid_modes = self._get_valid_enrollment_modes(enrollment_data)
 
-            if enrollment_modes.VERIFIED in valid_modes:
-                # Verify the verified enrollment metric tile.
-                verified_enrollment = enrollment_data[-1][enrollment_modes.VERIFIED]
-                tooltip = u'Number of currently enrolled students pursuing a verified certificate of achievement.'
-                self.assertMetricTileValid('verified_enrollment', verified_enrollment, tooltip)
+        if enrollment_modes.VERIFIED in valid_modes:
+            # Verify the verified enrollment metric tile.
+            verified_enrollment = enrollment_data[-1][enrollment_modes.VERIFIED]
+            tooltip = u'Number of currently enrolled students pursuing a verified certificate of achievement.'
+            self.assertMetricTileValid('verified_enrollment', verified_enrollment, tooltip)
 
         # Verify *something* rendered where the graph should be. We cannot easily verify what rendered
         self.assertElementHasContent("[data-section=enrollment-basics] #enrollment-trend-view")
@@ -96,16 +93,17 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         table_selector = 'div[data-role=enrollment-table] table'
         headings = ['Date', 'Current Enrollment']
 
-        if ENABLE_ENROLLMENT_MODES:
-            headings.append('Honor Code')
-
-            valid_modes = self._get_valid_enrollment_modes(enrollment_data)
-
-            if enrollment_modes.VERIFIED in valid_modes:
-                headings.append('Verified')
-
-            if enrollment_modes.PROFESSIONAL in valid_modes:
-                headings.append('Professional')
+        valid_modes = self._get_valid_enrollment_modes(enrollment_data)
+        display_names = OrderedDict([
+            (enrollment_modes.HONOR, 'Honor'),
+            (enrollment_modes.AUDIT, 'Audit'),
+            (enrollment_modes.VERIFIED, 'Verified'),
+            (enrollment_modes.PROFESSIONAL, 'Professional'),
+            (enrollment_modes.CREDIT, 'Verified with Credit')
+        ])
+        for mode, display_name in display_names.items():
+            if mode in valid_modes:
+                headings.append(display_name)
 
         self.assertTableColumnHeadingsEqual(table_selector, headings)
 

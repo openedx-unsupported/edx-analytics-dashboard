@@ -19,13 +19,16 @@ define(function(require) {
         courseId = 'test/course/id';
 
         // convenience method for asserting that we are on the learner detail page
-        expectDetailPage = function(controller) {
+        expectDetailPage = function (controller) {
+            var date = new Date(2016, 1, 28);
             expect(controller.options.rootView.$('.learners-navigation-region').html())
                 .toContainText('Return to Learners');
             expect(controller.options.rootView.$('.learner-detail-container')).toExist();
             expect(controller.options.rootView.$('.learner-summary-container')).toExist();
             expect(controller.options.rootView.$('.learners-header-region').html())
                 .toContainText('Learner Details');
+            expect(controller.options.rootView.$('.learners-header-region').html())
+                .not.toContainText(date.toLocaleDateString('en-us', {year: 'numeric', month: 'long', day: 'numeric'}));
             expect(controller.options.trackingModel.get('page')).toBe('learner_details');
             expect(controller.options.trackingModel.trigger).toHaveBeenCalledWith('segment:page');
         };
@@ -40,9 +43,9 @@ define(function(require) {
             expect(controller.options.trackingModel.trigger).toHaveBeenCalledWith('segment:page');
         };
 
-        beforeEach(function() {
-            var collection,
-                pageModel = new PageModel();
+
+        beforeEach(function () {
+            var pageModel = new PageModel();
 
             server = sinon.fakeServer.create();
             setFixtures('<div class="root-view"><div class="main"></div></div>');
@@ -54,24 +57,23 @@ define(function(require) {
             // The learner roster view looks at the first learner in
             // the collection in order to render a last updated
             // message.
-            collection = new LearnerCollection([
-                {
-                    name: 'learner',
-                    username: 'learner',
-                    email: 'learner@example.com',
-                    account_url: 'example.com/learner',
-                    enrollment_mode: 'audit',
-                    enrollment_date: new Date(),
-                    cohort: null,
-                    segments: ['highly_engaged'],
-                    engagements: {},
-                    last_updated: new Date(2016, 1, 28),
-                    course_id: courseId
-                }
-            ], {parse: true});
+            this.user = {
+                name: 'learner',
+                username: 'learner',
+                email: 'learner@example.com',
+                account_url: 'example.com/learner',
+                enrollment_mode: 'audit',
+                enrollment_date: new Date(),
+                cohort: null,
+                segments: ['highly_engaged'],
+                engagements: {},
+                last_updated: new Date(2016, 1, 28),
+                course_id: courseId
+            };
+            this.collection = new LearnerCollection([this.user], {parse: true});
             this.controller = new LearnersController({
                 rootView: this.rootView,
-                learnerCollection: collection,
+                learnerCollection: this.collection,
                 courseMetadata: new CourseMetadataModel(),
                 pageModel: pageModel,
                 learnerEngagementTimelineUrl: '/test-engagement-endpoint/',
@@ -94,7 +96,7 @@ define(function(require) {
         describe('navigating to the Learner Detail page', function() {
             it('should show the learner detail page', function() {
                 var engagementTimelineResponse;
-                this.controller.showLearnerDetailPage('example-username');
+                this.controller.showLearnerDetailPage('learner');
                 // Showing the learner detail page triggers a request for the
                 // learner engagement timeline data.
                 engagementTimelineResponse = JSON.stringify({days: [{
@@ -104,6 +106,7 @@ define(function(require) {
                     problems_completed: 1,
                     videos_viewed: 1
                 }]});
+                server.requests[0].respond(200, {}, JSON.stringify(this.user));
                 server.requests[server.requests.length - 1].respond(200, {}, engagementTimelineResponse);
                 expectDetailPage(this.controller);
             });
@@ -132,8 +135,9 @@ define(function(require) {
                 jasmine.clock().uninstall();
             });
 
-            it('hides app-wide errors', function() {
-                this.controller.showLearnerDetailPage('example-username');
+            it('hides app-wide errors', function () {
+                this.controller.showLearnerDetailPage('learner');
+                server.requests[0].respond(200, {}, JSON.stringify(this.user));
                 server.requests[server.requests.length - 1].respond(500, {});
                 expectDetailPage(this.controller);
                 expect(this.rootView.$('[role="alert"]')).toExist();

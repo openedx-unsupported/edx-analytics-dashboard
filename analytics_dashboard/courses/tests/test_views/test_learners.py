@@ -79,6 +79,10 @@ class LearnersViewTests(ViewTestMixin, SwitchMixin, TestCase):
         })
         self.assertNotContains(response, self.TABLE_ERROR_TEXT)
 
+    def test_success_if_hidden(self):
+        self.toggle_switch('enable_learner_analytics', False)
+        self.test_success()
+
     @data(Timeout, ConnectionError, ValueError)
     def test_data_api_error(self, RequestExceptionClass):
         learners_payload = {'should_not': 'return this value'}

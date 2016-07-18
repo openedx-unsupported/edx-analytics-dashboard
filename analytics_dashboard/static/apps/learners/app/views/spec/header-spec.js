@@ -21,7 +21,7 @@ define(function(require) {
             }).render();
 
             expect(fixture).toContainText('First Title');
-            expect(fixture).toContainText('Date Last Updated: unknown');
+            expect(fixture).not.toContainText('Date Last Updated: unknown');
             pageModel.set('title', 'Updated Title');
             expect(fixture).toContainText('Updated Title');
         });
@@ -37,7 +37,7 @@ define(function(require) {
                 model: pageModel
             }).render();
 
-            expect(fixture).toContainText('Date Last Updated: January 15, 2016');
+            expect(fixture).not.toContainText('Date Last Updated: January 15, 2016');
         });
     });
 });

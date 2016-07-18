@@ -24,8 +24,8 @@ Gaining Insight into Individual Learner Activities
 **************************************************
 
 EdX Insights delivers data about the activities of individual learners in a
-report and in charts of activity over time. Descriptions follow; for detailed
-information about the computations, see
+report and in charts of activity over time. Descriptions of the report and
+charts follow; for detailed information about the computations, see
 :ref:`Learner Computations`.
 
 =========================================
@@ -48,7 +48,7 @@ during the last seven days, through end of day (UTC) yesterday.
 Reviewing the Report
 ********************
 
-To review the learner roster and key activity report, you select **Learners**
+To review the learner roster and key activity report, select **Learners**
 at the top of any Insights page. By default, the report shows data for all
 learners.
 
@@ -58,6 +58,9 @@ following options.
 * Sort by username or by an activity metric, in ascending or descending order.
 
 * Search for a learner by name or username.
+
+* Select an enrollment track to report only learners who are enrolled in that
+  track.
 
 * Select one cohort (in a course that includes learner cohorts).
 
@@ -80,7 +83,7 @@ order by number of problems tried.
  :alt: A learner roster showing differently colored numbers for values in
   different percentiles.
 
-.. Downloading the Report
+.. Downloading the Report section when added
 
 ========================
 Learner Activity Chart
@@ -100,8 +103,8 @@ types of activity.
 
 The chart shows when a learner was active in the course, beginning with the
 first day that one of these activities took place, and ending with the last day
-that one these activities took place. The timeline is not limited to activity
-in the last seven days.
+that one these activities took place. Unlike the roster, this timeline is not
+limited to activity in the last seven days.
 
 Examples of learner activity charts follow. The first example shows the
 activity chart for a learner who is playing 10 or more course videos every
@@ -114,9 +117,10 @@ yet contributed to the discussions.
      correct activity, but ongoing video activity.
 
 This learner might be getting exactly what they want out of the course, the
-opportunity to learn from the videos. However, you might want to go back to the
-learner roster and key activity report to see if this learner is attempting to
-answer problems, but not managing to answer any correctly.
+opportunity to learn from the videos. However, to get a more complete
+understanding of this learner's experience, you could go back to the learner
+roster and key activity report to see if this learner is attempting to answer
+problems, but not managing to answer any correctly.
 
 The next example shows the activity chart for a learner who watches one or more
 videos almost every day, and who has occasionally contributed to the
@@ -133,6 +137,30 @@ Knowing the context of how your course is set up, this pattern might indicate
 when the learner reached the first homework assignment. Or, it might indicate
 that the learner completed all of the ungraded practice questions and the
 midterm on one day.
+
+Sending Email Messages to Learners
+***********************************
+
+To make taking action to help a struggling learner, reengage an inactive
+learner, or recognize the achievement of a successful learner easier, the
+learner activity chart includes the learner's email address. You can select the
+email address to send a message directly to that learner.
+
+Before you use Insights to send email messages to learners, note that this
+feature is different from the bulk email feature that is available on the
+instructor dashboard of an edx.org course.
+
+* Selecting a learner email address in Insights opens the default email client
+  of the computer that you are currently using. As a result, if you use your
+  personal computer to access Insights, your personal email address might be
+  the default for sending the message. Be sure to use only your official
+  institution email address when you communicate with learners by email.
+
+* Insights does not log when messages are sent, or record the email address of
+  the sender or the recipient.
+
+When you use Insights, be sure to follow your organization's guidelines for
+communicating with learners.
 
 **************************************************************
 Analytics in Action: Interpreting Individual Activity Patterns
@@ -197,22 +225,14 @@ individual cohort members. The learner activity charts can show, at a glance,
 whether discussion activity is a regular part of a learner's weekly involvement
 in the course, or if it takes place more sporadically.
 
-==========================
-Recruiting Job Candidates
-==========================
-
-An organization used their MOOC as a recruiting tool. They defined a set of
-criteria for potential job candidates, including metrics that would reflect
-engagement over time, mastery of the material, and interaction with other
-learners. Learners who met or exceeded these criteria were automatically placed
-into consideration for a screening interview.
-
 ==================================
 Identifying Questionable Activity
 ==================================
 
 Certain activity patterns can alert you to behavior that might be either
-exemplary or counterproductive.
+exemplary or counterproductive. You can use learner data to identify unusual
+combinations of activity and decide whether to investigate further. Examples
+follow.
 
 * A learner has a high problems correct total, and a very low ratio of attempts
   per problem correct: a top performer. When you look at that learner's
@@ -220,14 +240,12 @@ exemplary or counterproductive.
   correctly on the very first day the course opened. Did this learner enroll in
   the audit track for a previous course run, and is now taking the course for a
   second time in the verified track? Or, could this learner have violated the
-  honor code?
+  `honor code`_?
 
 * A learner is in the 85th percentile (or above) for discussion contributions:
   a highly engaged community member. However, the same learner has zero
   problems attempted and zero videos played, so the discussions are the only
   type of key course activity in which the learner engages. Is this learner
-  answering questions thoughtfully and with accurate information? Or, have any
-  of this learner's discussion posts been flagged as inappropriate?
+  answering questions thoughtfully and with accurate information?
 
-You can use learner data to identify unusual combinations of activity and
-decide whether to investigate further.
+.. _honor code: https://www.edx.org/edx-terms-service#honorcode
