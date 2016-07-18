@@ -127,12 +127,14 @@ define(function(require) {
         },
 
         showUnavailable: function(region, options) {
-            var tableSection = document.getElementById('table-section');
-            this.showChildView(region, new AlertView({
-                alertType: 'info',
-                title: options.title,
-                body: options.description
-            }));
+            var tableSection = document.getElementById('table-section'),
+                alertView = new AlertView({
+                    alertType: 'info',
+                    title: options.title,
+                    body: options.description
+                });
+            alertView.validateAndUpdateTemplate();
+            this.showChildView(region, alertView);
             this.getRegion('engagementTable').empty();
             tableSection.parentElement.removeChild(tableSection);
         },

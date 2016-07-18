@@ -53,13 +53,14 @@ define(function(require) {
         },
 
         initialize: function(options) {
-            var alertType;
-
             this.options = _.extend({}, this.defaults, options);
+        },
 
-            alertType = this.options.alertType;
+        validateAndUpdateTemplate: function() {
+            var alertType = this.options.alertType;
             this.validateAlertType(alertType)
                 .updateTemplateSetings(alertType);
+            return this;
         },
 
         templateHelpers: function() {

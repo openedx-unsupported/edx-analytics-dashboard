@@ -3,21 +3,24 @@ define(['jquery', 'views/iframe-view'], function($, IFrameView) {
 
     describe('IFrameView', function() {
         it('should set src', function() {
-            var el = document.createElement('div');
+            var el = document.createElement('div'),
+                iFrameView;
 
             el.dataset.src = 'http://example.com';
-            new IFrameView({
+            iFrameView = new IFrameView({
                 el: el
             });
+            iFrameView.render();
             expect(el.getAttribute('src')).toEqual('http://example.com');
         });
 
         it('should hide the loading selector', function() {
-            var el = document.createElement('div');
-            new IFrameView({
-                el: el,
-                loadingSelector: document.createElement('div').setAttribute('id', 'loading')
-            });
+            var el = document.createElement('div'),
+                iFrameView = new IFrameView({
+                    el: el,
+                    loadingSelector: document.createElement('div').setAttribute('id', 'loading')
+                });
+            iFrameView.render();
 
             expect(document.getElementById('loading')).toBeDefined();
 

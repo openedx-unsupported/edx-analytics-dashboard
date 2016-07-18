@@ -33,7 +33,8 @@ var doc = require('vendor/domReady!'),
             ],
             tableColumns = [
                 {key: 'start_time', title: gettext('Time'), type: 'time'}
-            ];
+            ],
+            iFrameView;
 
         tableColumns = tableColumns.concat(timelineSettings);
 
@@ -42,10 +43,11 @@ var doc = require('vendor/domReady!'),
         });
 
         // loading the iframe blocks content, so load it after the rest of the page loads
-        new IFrameView({
+        iFrameView = new IFrameView({
             el: '#module-preview',
             loadingSelector: '#module-loading'
         });
+        iFrameView.render();
 
         new StackedTimelineView({
             el: '#chart-view',

@@ -10,7 +10,6 @@ define(['backbone', 'jquery'], function(Backbone, $) {
 
         initialize: function(options) {
             this.options = options;
-            this.render();
         },
 
         render: function() {

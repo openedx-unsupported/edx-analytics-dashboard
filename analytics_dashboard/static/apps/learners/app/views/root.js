@@ -65,11 +65,13 @@ define(function(require) {
          * @param {string} description - the description of the alert.
          */
         showAlert: function(type, title, description) {
-            this.showChildView('alert', new AlertView({
+            var alertView = new AlertView({
                 alertType: type,
                 title: title,
                 body: description
-            }));
+            });
+            alertView.validateAndUpdateTemplate();
+            this.showChildView('alert', alertView);
         },
 
         /**

@@ -44,7 +44,8 @@ define(function(require) {
                 hasActiveFilter = !_.isEmpty(collection.getActiveFilterFields()),
                 suggestions = [],
                 noLearnersMessage,
-                detailedMessage;
+                detailedMessage,
+                alertView;
             if (hasSearch || hasActiveFilter) {
                 noLearnersMessage = gettext('No learners matched your criteria.');
                 if (hasSearch) {
@@ -59,12 +60,14 @@ define(function(require) {
                 detailedMessage = gettext('No learners are enrolled, or course activity data has not yet been processed. Data is updated every day, so check back regularly for up-to-date metrics.');
             }
 
-            return new AlertView({
+            alertView = new AlertView({
                 alertType: 'info',
                 title: noLearnersMessage,
                 body: detailedMessage,
                 suggestions: suggestions
             });
+            alertView.validateAndUpdateTemplate();
+            return alertView;
         }
     });
 

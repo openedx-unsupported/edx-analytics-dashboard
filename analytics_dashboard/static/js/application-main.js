@@ -9,10 +9,10 @@ require(['bootstrap',
         'views/announcement-view'],
     function(bootstrap, bootstrapAccessibility, doc, page, DataTableView, AnnouncementView) {
         'use strict';
-
         // Instantiate the announcement view(s)
         $('[data-view=announcement]').each(function(index, element) {
-            new AnnouncementView({el: element});
+            var announcementView = new AnnouncementView({el: element});
+            announcementView.render();
         });
     }
 );

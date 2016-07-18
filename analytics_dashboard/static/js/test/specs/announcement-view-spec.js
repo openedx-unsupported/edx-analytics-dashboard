@@ -16,6 +16,7 @@ define(['views/announcement-view', 'jquery', 'underscore'], function(Announcemen
 
             // Instantiate view
             view = new AnnouncementView({el: $el[0]});
+            view.render();
         });
 
         describe('init', function() {
