@@ -73,4 +73,4 @@
             exclude: ['js/common']
         }
     ]
-})
+});

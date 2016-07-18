@@ -1,5 +1,5 @@
 define(['views/attribute-listener-view'],
-    function (AttributeListenerView) {
+    function(AttributeListenerView) {
         'use strict';
 
         /**
@@ -7,13 +7,13 @@ define(['views/attribute-listener-view'],
          */
         var AttributeView = AttributeListenerView.extend({
 
-            initialize: function (options) {
+            initialize: function(options) {
                 AttributeListenerView.prototype.initialize.call(this, options);
                 var self = this;
                 self.renderIfDataAvailable();
             },
 
-            render: function () {
+            render: function() {
                 AttributeListenerView.prototype.render.call(this);
                 var self = this;
                 self.$el.html(self.model.get(self.modelAttribute));

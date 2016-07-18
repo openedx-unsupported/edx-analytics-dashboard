@@ -1,10 +1,8 @@
 define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-model', 'views/tracking-view'],
-    function ($, CourseModel, TrackingModel, UserModel, TrackingView) {
-
+    function($, CourseModel, TrackingModel, UserModel, TrackingView) {
         'use strict';
 
-        describe('Tracking View', function () {
-
+        describe('Tracking View', function() {
             var USER_DETAILS = {
                 username: 'edX',
                 name: 'Ed Xavier',
@@ -12,7 +10,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                 ignoreInReporting: true
             };
 
-            it('should call segment with application key and page', function () {
+            it('should call segment with application key and page', function() {
                 var view;
 
                 view = new TrackingView({
@@ -30,7 +28,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                 expect(view.segment.page).toHaveBeenCalled();
             });
 
-            it('should call segment with user information', function () {
+            it('should call segment with user information', function() {
                 var view = new TrackingView({
                     model: new TrackingModel(),
                     userModel: new UserModel(USER_DETAILS)
@@ -50,7 +48,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                 });
             });
 
-            it('should call applicationIdSet() when segmentApplicationId is set', function () {
+            it('should call applicationIdSet() when segmentApplicationId is set', function() {
                 var view,
                     courseModel = new CourseModel(),
                     trackingModel = new TrackingModel(),
@@ -88,7 +86,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                 expect(view.segment.load).toHaveBeenCalled();
             });
 
-            it('should only attach listeners if application ID set', function () {
+            it('should only attach listeners if application ID set', function() {
                 var view,
                     courseModel = new CourseModel(),
                     trackingModel = new TrackingModel(),
@@ -117,7 +115,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                 expect(view.segment.track).not.toHaveBeenCalled();
             });
 
-            it('should call segment::track() when segment events are triggers', function () {
+            it('should call segment::track() when segment events are triggers', function() {
                 var view,
                     courseModel = new CourseModel({
                         courseId: 'my/course/id'
@@ -159,7 +157,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                     });
             });
 
-            it('should call segment::page()', function () {
+            it('should call segment::page()', function() {
                 var view,
                     courseModel = new CourseModel({
                         courseId: 'my/course/id'
@@ -200,15 +198,14 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                         param: 'my-param'
                     });
             });
-
         });
 
-        describe('Tracking element events', function () {
-            beforeEach(function () {
+        describe('Tracking element events', function() {
+            beforeEach(function() {
                 $('<div id="sandbox"></div>').appendTo('body');
             });
 
-            afterEach(function () {
+            afterEach(function() {
                 $('#sandbox').remove();
             });
 
@@ -247,19 +244,19 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                     trackingModel: trackingModel,
                     view: view,
                     sandbox: sandbox,
-                    showTooltip: function () {
+                    showTooltip: function() {
                         sandbox.trigger('shown.bs.tooltip');
                     },
-                    expectNoEventToHaveBeenEmitted: function () {
+                    expectNoEventToHaveBeenEmitted: function() {
                         expect(view.segment.track).not.toHaveBeenCalled();
                     },
-                    expectEventEmitted: function (eventType, properties) {
+                    expectEventEmitted: function(eventType, properties) {
                         expect(view.segment.track).toHaveBeenCalledWith(eventType, properties);
                     }
                 };
             }
 
-            it('should emit an event when tooltips are shown', function () {
+            it('should emit an event when tooltips are shown', function() {
                 var test = setupTest();
 
                 test.showTooltip();
@@ -274,7 +271,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                 );
             });
 
-            it('should not emit an event when tooltips are shown when tracking is not enabled', function () {
+            it('should not emit an event when tooltips are shown when tracking is not enabled', function() {
                 var test = setupTest();
 
                 test.trackingModel.unset('segmentApplicationId');
@@ -283,7 +280,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                 test.expectNoEventToHaveBeenEmitted();
             });
 
-            it('should not emit an event when tooltips are shown when event type is empty', function () {
+            it('should not emit an event when tooltips are shown when event type is empty', function() {
                 var test = setupTest();
 
                 test.sandbox.attr('data-track-event', '');
@@ -291,7 +288,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                 test.expectNoEventToHaveBeenEmitted();
             });
 
-            it('should not emit an event when tooltips are shown when event type is undefined', function () {
+            it('should not emit an event when tooltips are shown when event type is undefined', function() {
                 var test = setupTest();
 
                 test.sandbox.removeAttr('data-track-event');

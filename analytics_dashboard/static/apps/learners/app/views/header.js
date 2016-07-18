@@ -1,7 +1,7 @@
 /**
  * Renders a section title and last updated date for the learner.
  */
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
@@ -19,7 +19,7 @@ define(function (require) {
             change: 'render'
         },
 
-        templateHelpers: function () {
+        templateHelpers: function() {
             return {
                 title: this.model.get('title')
             };

@@ -1,9 +1,8 @@
 define(['jquery', 'views/iframe-view'], function($, IFrameView) {
     'use strict';
 
-    describe('IFrameView', function () {
-
-        it('should set src', function () {
+    describe('IFrameView', function() {
+        it('should set src', function() {
             var el = document.createElement('div');
 
             el.dataset.src = 'http://example.com';
@@ -13,7 +12,7 @@ define(['jquery', 'views/iframe-view'], function($, IFrameView) {
             expect(el.getAttribute('src')).toEqual('http://example.com');
         });
 
-        it('should hide the loading selector', function () {
+        it('should hide the loading selector', function() {
             var el = document.createElement('div');
             new IFrameView({
                 el: el,
@@ -25,6 +24,5 @@ define(['jquery', 'views/iframe-view'], function($, IFrameView) {
             $(el).trigger('load');
             expect(document.getElementById('loading')).toBeNull();
         });
-
     });
 });

@@ -2,7 +2,7 @@
  * Displays either a paginated table of learners or a message that there are
  * no learners to display.
  */
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
@@ -18,14 +18,14 @@ define(function (require) {
         regions: {
             main: '.roster-main'
         },
-        initialize: function (options) {
+        initialize: function(options) {
             this.options = options || {};
             this.listenTo(this.options.collection, 'sync', this.onLearnerCollectionUpdated);
         },
-        onBeforeShow: function () {
+        onBeforeShow: function() {
             this.onLearnerCollectionUpdated(this.options.collection);
         },
-        onLearnerCollectionUpdated: function (collection) {
+        onLearnerCollectionUpdated: function(collection) {
             if (collection.length) {
                 // Don't re-render the learner table view if one already exists.
                 if (!(this.getRegion('main').currentView instanceof LearnerTableView)) {
@@ -40,7 +40,7 @@ define(function (require) {
             }
         },
         createAlertView: function(collection) {
-            var hasSearch =  collection.hasActiveSearch(),
+            var hasSearch = collection.hasActiveSearch(),
                 hasActiveFilter = !_.isEmpty(collection.getActiveFilterFields()),
                 suggestions = [],
                 noLearnersMessage,

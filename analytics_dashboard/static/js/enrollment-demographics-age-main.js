@@ -7,8 +7,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
     'use strict';
 
     require(['underscore', 'views/data-table-view', 'views/histogram-view'],
-        function (_, DataTableView, HistogramView) {
-
+        function(_, DataTableView, HistogramView) {
             // used in the table to show ages above this are binned--displayed as "100+"
             var maxNumber = 100;
 
@@ -22,8 +21,8 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                     color: 'rgb(58, 162, 224)',
                     maxNumber: maxNumber
                 }],
-                x: { key: 'age' },
-                y: { key: 'count' },
+                x: {key: 'age'},
+                y: {key: 'count'},
                 // Translators: <%=value%> will be replaced with an age.
                 interactiveTooltipHeaderTemplate: _.template(gettext('Age: <%=value%>'))
             });

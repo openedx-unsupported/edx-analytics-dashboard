@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Thu Jun 26 2014 17:49:39 GMT-0400 (EDT)
 
-module.exports = function (config) {
+module.exports = function(config) {
     config.set({
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -26,7 +26,7 @@ module.exports = function (config) {
             {pattern: 'analytics_dashboard/static/apps/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/apps/**/*.underscore', included: false},
             'analytics_dashboard/static/js/config.js',
-            'analytics_dashboard/static/js/test/spec-runner.js',
+            'analytics_dashboard/static/js/test/spec-runner.js'
         ],
 
         exclude: [
@@ -46,7 +46,7 @@ module.exports = function (config) {
         },
 
         // plugins required for running the karma tests
-        plugins:[
+        plugins: [
             'karma-jasmine',
             'karma-jasmine-jquery',
             'karma-jasmine-html-reporter',
@@ -63,8 +63,8 @@ module.exports = function (config) {
         reporters: ['progress', 'coverage'],
 
         coverageReporter: {
-            dir:'build', subdir: 'coverage-js',
-            reporters:[
+            dir: 'build', subdir: 'coverage-js',
+            reporters: [
                 {type: 'html', subdir: 'coverage-js/html'},
                 {type: 'cobertura', file: 'coverage.xml'},
                 {type: 'text-summary'}

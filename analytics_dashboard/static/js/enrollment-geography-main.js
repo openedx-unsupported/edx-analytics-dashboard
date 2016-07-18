@@ -3,12 +3,12 @@
  * the libraries and kicks off the application.
  */
 
-require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
+require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
     'use strict';
 
     // this is your page specific code
     require(['views/data-table-view', 'views/world-map-view'],
-        function (DataTableView, WorldMapView) {
+        function(DataTableView, WorldMapView) {
             // Enrollment by country map
             new WorldMapView({
                 el: '[data-view=world-map]',

@@ -1,4 +1,4 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var Backbone = require('backbone'),
@@ -24,16 +24,16 @@ define(function (require) {
             days: []
         },
 
-        initialize: function (attributes, options) {
+        initialize: function(attributes, options) {
             Backbone.Model.prototype.initialize.call(this, attributes, options);
             this.options = options || {};
         },
 
-        url: function () {
+        url: function() {
             return this.options.url + '?course_id=' + encodeURIComponent(this.options.courseId);
         },
 
-        fetch: function () {
+        fetch: function() {
             return Backbone.Model.prototype.fetch.apply(this, arguments)
                 .fail(LearnerUtils.handleAjaxFailure.bind(this));
         },
