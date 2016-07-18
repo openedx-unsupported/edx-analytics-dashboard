@@ -164,7 +164,7 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
              * (e.g. nvd3.models.lineChart).
              */
             getChart: function() {
-                throw 'Not implemented';
+                throw 'Not implemented'; // eslint-disable-line no-throw-literal
             },
 
             /**
@@ -184,8 +184,8 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
             /**
             * Truncate (e.g. add ellipses) long labels shown beneath the bar.
             */
-            truncateXTick: function(d) {   // jshint ignore:line
-                throw 'Not implemented';
+            truncateXTick: function() {
+                throw 'Not implemented'; // eslint-disable-line no-throw-literal
             },
 
             parseXData: function(d) {
@@ -268,8 +268,8 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
              * Implement this to enable users to click on chart elements.  This
              * is called when render is complete and the click option is specified.
              */
-            addChartClick: function(d) {   // jshint ignore:line
-                throw 'Not implemented';
+            addChartClick: function() {
+                throw 'Not implemented'; // eslint-disable-line no-throw-literal
             },
 
             render: function() {

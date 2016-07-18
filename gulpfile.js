@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
 
     var eslint = require('gulp-eslint'),
@@ -39,7 +39,7 @@
         karma.start(extend(defaultOptions, options), cb);
     }
 
-    gulp.task('lint', function () {
+    gulp.task('lint', function() {
         return gulp.src(paths.lint)
             .pipe(eslint())
             .pipe(eslint.format())
@@ -49,11 +49,11 @@
     // this task runs the tests.  It doesn't give you very detailed results,
     // so you may need to run the jasmine test page directly:
     //      http://127.0.0.1:8000/static/js/test/spec-runner.html
-    gulp.task('test', function (cb) {
+    gulp.task('test', function(cb) {
         runKarma(paths.karmaConf, cb);
     });
 
-    gulp.task('test-debug', function (cb) {
+    gulp.task('test-debug', function(cb) {
         runKarma(paths.karmaConf, cb, {
             singleRun: false,
             autoWatch: true,
@@ -66,13 +66,13 @@
     gulp.task('default', ['test', 'lint']);
 
     // type 'gulp watch' to continuously run linting and tests
-    gulp.task('watch', function () {
+    gulp.task('watch', function() {
         gulp.watch(paths.spec, ['test', 'lint']);
     });
 
     // Proxy to django server (assuming that we're using port 8000 and
     // localhost)
-    gulp.task('browser-sync', function () {
+    gulp.task('browser-sync', function() {
         // there is a little delay before reloading b/c the sass files need to
         // recompile, but we can't necessarily watch the generated directory
         // because django creates a new css file that browser-sync doesn't
@@ -84,5 +84,4 @@
             reloadDelay: 1000
         });
     });
-
 }());
