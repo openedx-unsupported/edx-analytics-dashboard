@@ -94,7 +94,7 @@ define(function (require) {
                             return null;
                         }
                         return [
-                            _.isNull(range[0]) ? -Infinity : range[0],
+                            _.isNull(range[0]) ? Infinity : range[0],
                             _.isNull(range[1]) ? Infinity : range[1]
                         ];
                     });
@@ -141,6 +141,7 @@ define(function (require) {
         inMetricRange: function(value, range) {
             return _.isNull(range) ? false :
                 (value === Infinity && range[1] === Infinity) ? true :
+                (value === range[0] && range[0] === range[1]) ? true :
                 value >= range[0] && value < range[1];
         }
     });
