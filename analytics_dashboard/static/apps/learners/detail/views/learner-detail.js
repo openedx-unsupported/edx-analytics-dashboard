@@ -8,11 +8,13 @@ define(function (require) {
         Utils = require('utils/utils'),
 
         AlertView = require('learners/common/views/alert-view'),
+        LearnerEngagementTableView = require('learners/detail/views/engagement-table'),
         LearnerEngagementTimelineView = require('learners/detail/views/engagement-timeline'),
         LearnerNameView = require('learners/detail/views/learner-names'),
         LearnerSummaryFieldView = require('learners/detail/views/learner-summary-field'),
         LoadingView = require('learners/common/views/loading-view'),
         chartLoadingTemplate = require('text!learners/detail/templates/chart-loading.underscore'),
+        tableLoadingTemplate = require('text!learners/detail/templates/table-loading.underscore'),
         learnerDetailTemplate = require('text!learners/detail/templates/learner-detail.underscore');
 
     return Marionette.LayoutView.extend({
@@ -23,7 +25,9 @@ define(function (require) {
         templateHelpers: function () {
             return {
                 // Translators: e.g. Student engagement activity
-                activity: gettext('Engagement Activity')
+                engagement: gettext('Engagement Activity'),
+                activity: gettext('Daily Activity'),
+                table: gettext('Activity Over Time')
             };
         },
 
@@ -33,7 +37,8 @@ define(function (require) {
             enrollment: '.learner-enrollment',
             cohort: '.learner-cohort',
             accessed: '.learner-accessed',
-            engagementTimeline: '.learner-engagement-timeline-container'
+            engagementTimeline: '.learner-engagement-timeline-container',
+            engagementTable: '.learner-engagement-table-container'
         },
 
         initialize: function (options) {
@@ -57,17 +62,25 @@ define(function (require) {
         onBeforeShow: function () {
             var learnerModel = this.options.learnerModel,
                 timelineModel = this.options.engagementTimelineModel,
-                timelineView = new LearnerEngagementTimelineView({
+                engagementTimelineView = new LearnerEngagementTimelineView({
                     model: timelineModel
                 }),
-                mainView = timelineView;
-
+                engagementTableView = new LearnerEngagementTableView({
+                    model: timelineModel
+                }),
+                chartView = engagementTimelineView,
+                tableView = engagementTableView;
             if (!timelineModel.hasData()) {
                 // instead of showing the timeline directly, show a loading view
-                mainView = new LoadingView({
+                chartView = new LoadingView({
                     model: timelineModel,
                     template: _.template(chartLoadingTemplate),
-                    successView: timelineView
+                    successView: engagementTimelineView
+                });
+                tableView = new LoadingView({
+                    model: timelineModel,
+                    template: _.template(tableLoadingTemplate),
+                    successView: engagementTableView
                 });
             }
 
@@ -95,8 +108,9 @@ define(function (require) {
                     return days.length ? Utils.formatDate(_(days).last().date) : gettext('n/a');
                 }
             }));
+            this.showChildView('engagementTimeline', chartView);
+            this.showChildView('engagementTable', tableView);
 
-            this.showChildView('engagementTimeline', mainView);
         },
 
         showLearnerUnavailable: function (options) {
@@ -113,6 +127,9 @@ define(function (require) {
                 title: options.title,
                 body: options.description
             }));
+            this.getRegion('engagementTable').empty();
+            var tableSection = document.getElementById('table-section');
+            tableSection.parentElement.removeChild(tableSection);
         },
 
         serverErrorToAppError: function (status, unavailableError) {

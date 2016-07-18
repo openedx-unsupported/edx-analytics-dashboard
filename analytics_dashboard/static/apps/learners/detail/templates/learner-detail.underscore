@@ -13,5 +13,13 @@
     </div>
     <div class="section-content">
         <div class="learner-engagement-timeline-container"></div>
+        <div id="table-section">
+            <div class="section-heading">
+                <h4 class="section-title"> <%- table %> </h4>
+            </div>
+            <div class="section-content section-data-table" data-role="engagement-table">
+                <div class="learner-engagement-table-container"></div>
+            </div>
+        </div>
     </div>
 </section>

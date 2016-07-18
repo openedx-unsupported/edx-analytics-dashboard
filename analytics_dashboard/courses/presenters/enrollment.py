@@ -4,7 +4,6 @@ import logging
 
 from django.utils.translation import ugettext_lazy as _
 from django_countries import countries
-from waffle import switch_is_active
 from analyticsclient.constants import demographic, UNKNOWN_COUNTRY_CODE, enrollment_modes
 import analyticsclient.constants.education_level as EDUCATION_LEVEL
 import analyticsclient.constants.gender as GENDER
@@ -82,16 +81,11 @@ class CourseEnrollmentPresenter(BasePresenter):
 
     NUMBER_TOP_COUNTRIES = 3
 
-    @property
-    def display_verified_enrollment(self):
-        return switch_is_active('display_verified_enrollment')
-
     def get_summary_and_trend_data(self):
         """
         Retrieve recent summary and all historical trend data.
         """
-        _demographic = 'mode' if self.display_verified_enrollment else None
-        trends = self.course.enrollment(_demographic, start_date=None, end_date=self.get_current_date())
+        trends = self.course.enrollment('mode', start_date=None, end_date=self.get_current_date())
         trends = self._fill_trend(trends)
 
         summary = self._build_summary(trends)
@@ -101,19 +95,17 @@ class CourseEnrollmentPresenter(BasePresenter):
             day_before = self.parse_api_date(trends[0]['date']) - datetime.timedelta(days=1)
             trends.insert(0, self._create_empty_enrollment_datapoint(day_before))
 
-        if self.display_verified_enrollment:
-            trends = self._merge_audit_and_honor(trends)
-            summary, trends = self._remove_empty_enrollment_modes(summary, trends)
-
-        return summary, trends
+        return self._remove_empty_enrollment_modes(summary, trends)
 
     def _get_valid_enrollment_modes(self, trends):
         """
-        Return enrollment modes for which there is currently, or have been in the past, at least one enrolled student.
+        Return enrollment modes for which there was at least one enrolled student.
         """
-        valid_modes = {enrollment_modes.AUDIT, enrollment_modes.HONOR}
-        invalid_modes = set(enrollment_modes.ALL) - valid_modes
+        # default modes
+        valid_modes = set()
+        invalid_modes = set(enrollment_modes.ALL)
 
+        # go through each day of the trend and record any tracks with enrollment as valid
         for datum in trends:
             for candidate in invalid_modes.copy():
                 if datum.get(candidate, 0) > 0:
@@ -136,21 +128,11 @@ class CourseEnrollmentPresenter(BasePresenter):
             for mode in invalid_modes:
                 trend.pop(mode, None)
 
+        # hides verified enrollment counts in the summary card if it doesn't exist
         if enrollment_modes.VERIFIED not in valid_modes:
             summary.pop('verified_enrollment')
 
         return summary, trends
-
-    def _merge_audit_and_honor(self, data):
-        """
-        Merge the audit and honor tracks into a single "honor" track
-
-        Note: This can be removed once the API has been deployed, as it will be updated to handle this for us.
-        """
-        for datum in data:
-            datum[enrollment_modes.HONOR] = datum.get(enrollment_modes.HONOR, 0) + datum.pop(enrollment_modes.AUDIT, 0)
-
-        return data
 
     def _fill_trend(self, api_response):
         """ Fills in enrollment counts for missing days in the trend data for display. """
@@ -180,12 +162,14 @@ class CourseEnrollmentPresenter(BasePresenter):
         """
         Create an enrollment datapoint with all counts set to zero.
         """
-        trend = {'date': day.isoformat(), 'count': 0}
+        trend = {
+            'date': day.isoformat(),
+            'count': 0,
+            'cumulative_count': 0
+        }
 
-        if self.display_verified_enrollment:
-            trend['cumulative_count'] = 0
-            for mode in enrollment_modes.ALL:
-                trend[mode] = 0
+        for mode in enrollment_modes.ALL:
+            trend[mode] = 0
 
         return trend
 
@@ -273,8 +257,7 @@ class CourseEnrollmentPresenter(BasePresenter):
 
             # Add the first values to the returned data dictionary using the most-recent enrollment data
             current_enrollment = recent_enrollment['count']
-            verified_enrollment = recent_enrollment.get(enrollment_modes.VERIFIED,
-                                                        0) if self.display_verified_enrollment else None
+            verified_enrollment = recent_enrollment.get(enrollment_modes.VERIFIED, 0)
 
             data.update({
                 'last_updated': last_enrollment_date,

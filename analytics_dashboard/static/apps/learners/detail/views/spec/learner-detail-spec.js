@@ -22,8 +22,10 @@ define(function (require) {
                 });
 
             detailView.render().onBeforeShow();
-            expect(detailView.$('.loading-container')).toExist();
+            expect(detailView.$('.chart-loading-container')).toExist();
+            expect(detailView.$('.table-loading-container')).toExist();
             expect(detailView.$('.learner-engagement-timeline')).not.toExist();
+            expect(detailView.$('.learner-engagement-table')).not.toExist();
 
             engagementTimelineModel.trigger('sync');
             expect(detailView.$('.loading-container')).not.toExist();
@@ -67,6 +69,29 @@ define(function (require) {
                 );
             });
 
+            it('renders a table', function () {
+                var engagementTimelineModel,
+                    detailView;
+
+                engagementTimelineModel = new EngagementTimelineModel({
+                    days: [{
+                        date: '2016-01-01',
+                        discussion_contributions: 1,
+                        problems_attempted: 1,
+                        problems_completed: 1,
+                        videos_viewed: 1
+                    }]
+                });
+                detailView = new LearnerDetailView({
+                    learnerModel: new LearnerModel(),
+                    engagementTimelineModel: engagementTimelineModel,
+                    el: fixtureClass
+                });
+                detailView.render().onBeforeShow();
+                expect(detailView.$('.table-loading-container')).not.toExist();
+                expect(detailView.$('.learner-engagement-table')).toExist();
+            });
+
             it('handles 404s from the timeline endpoint', function () {
                 var engagementTimelineModel,
                     detailView;
@@ -77,9 +102,11 @@ define(function (require) {
                     el: fixtureClass
                 });
                 detailView.render().onBeforeShow();
+                expect(detailView.$('#table-section')).toExist();
                 engagementTimelineModel.fetch();
                 server.requests[server.requests.length - 1].respond(404, {}, '');
                 expect(detailView.$('[role="alert"]')).toExist();
+                expect(detailView.$('#table-section')).not.toExist();
             });
         });
 

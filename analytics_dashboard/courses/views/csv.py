@@ -4,7 +4,6 @@ import urllib
 
 from django.http import HttpResponse
 
-from waffle import switch_is_active
 from analyticsclient.constants import data_format, demographic
 from analyticsclient.client import Client
 
@@ -66,9 +65,8 @@ class CourseEnrollmentCSV(CSVResponseMixin, CourseView):
     csv_filename_suffix = u'enrollment'
 
     def get_data(self):
-        _demographic = 'mode' if switch_is_active('display_verified_enrollment') else None
         end_date = datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
-        return self.course.enrollment(_demographic, data_format=data_format.CSV, end_date=end_date)
+        return self.course.enrollment('mode', data_format=data_format.CSV, end_date=end_date)
 
 
 class CourseEngagementActivityTrendCSV(CSVResponseMixin, CourseView):
