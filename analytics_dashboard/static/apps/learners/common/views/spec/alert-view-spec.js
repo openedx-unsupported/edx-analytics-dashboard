@@ -14,10 +14,10 @@ define(function(require) {
         it('renders an error alert', function() {
             var fixture = setFixtures('<div id="error-alert"></div>'),
                 alertView = new AlertView({
-                                el: '#error-alert',
-                                alertType: 'error',
-                                title: 'edX Error Alert'
-                            });
+                    el: '#error-alert',
+                    alertType: 'error',
+                    title: 'edX Error Alert'
+                });
             alertView.validateAndUpdateTemplate().render();
 
             expect(fixture).toContainElement('i.fa-exclamation-triangle');

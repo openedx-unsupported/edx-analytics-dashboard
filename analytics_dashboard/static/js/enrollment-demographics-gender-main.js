@@ -11,7 +11,7 @@ var doc = require('vendor/domReady!'),
 (function() {
     'use strict';
 
-    (function( ) {
+    (function() {
         new DiscreteBarView({
             el: '#enrollment-chart-view',
             model: page.models.courseModel,
