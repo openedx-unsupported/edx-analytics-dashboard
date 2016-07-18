@@ -87,7 +87,7 @@ define(function (require) {
                 // These JS errors occur when trying to parse invalid URL parameters
                 if (e instanceof RangeError || e instanceof TypeError) {
                     this.options.rootView.showAlert('error', gettext('Invalid Parameters'),
-                        gettext("Sorry, we couldn't find any learners who matched that query."),
+                        gettext('Sorry, we couldn\'t find any learners who matched that query.'),
                         {url: '#', text: gettext('Return to the Learners page.')});
                 } else {
                     throw e;
