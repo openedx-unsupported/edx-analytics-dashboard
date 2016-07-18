@@ -1,2 +1,10 @@
-<div class="learner-username"><%- username %></div>
 <div class="learner-name"><%- name %></div>
+<div class="learner-username"><%- username %></div>
+<div class="learner-email">
+	<% if (!_(email).isEmpty()) { %>
+	    <a href="mailto:<%- email %>">
+	        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+	        <%- email %>
+	    </a>
+	<% } %>
+</div>
