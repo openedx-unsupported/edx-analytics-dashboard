@@ -55,7 +55,8 @@ define(function(require) {
                 }
             } else {
                 noLearnersMessage = gettext('No learner data is currently available for your course.');
-                detailedMessage = gettext('No learners are enrolled, or course activity data has not yet been processed. Data is updated every day, so check back regularly for up-to-date metrics.'); // jshint ignore:line
+                // eslint-disable-next-line max-len
+                detailedMessage = gettext('No learners are enrolled, or course activity data has not yet been processed. Data is updated every day, so check back regularly for up-to-date metrics.');
             }
 
             return new AlertView({

@@ -59,7 +59,8 @@ define(function(require) {  // jshint ignore:line
                     return ['appError', {
                         // Translators: "504" is a number representing a server error, so please leave it as "504".
                         title: gettext('504: Server error'),
-                        description: gettext('Processing your request took too long to complete. Reload the page to try again.') // jshint ignore:line
+                        // eslint-disable-next-line max-len
+                        description: gettext('Processing your request took too long to complete. Reload the page to try again.')
                     }];
                 } else {
                     return ['appError', {

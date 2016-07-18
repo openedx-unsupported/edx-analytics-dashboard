@@ -139,9 +139,12 @@ define(function(require) {
          * @param range Array of min and max.  May be null.
          */
         inMetricRange: function(value, range) {
-            return _.isNull(range) ? false :
-                (value === Infinity && range[1] === Infinity) ? true :
-                value >= range[0] && value < range[1];
+            if (_.isNull(range)) {
+                return false;
+            } else if (value === Infinity && range[1] === Infinity) {
+                return true;
+            }
+            return value >= range[0] && value < range[1];
         }
     });
 

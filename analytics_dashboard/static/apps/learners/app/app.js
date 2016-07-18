@@ -56,7 +56,7 @@ define(function(require) {
             learnerCollection = new LearnerCollection(this.options.learnerListJson, {
                 url: this.options.learnerListUrl,
                 courseId: this.options.courseId,
-                parse: this.options.learnerListJson ? true : false
+                parse: this.options.learnerListJson
             });
 
             courseMetadata = new CourseMetadataModel(this.options.courseLearnerMetadataJson, {

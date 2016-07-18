@@ -219,7 +219,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                         segmentApplicationId: 'some ID'
                     }),
                     userModel = new TrackingModel(),
-                    sandbox = $('#sandbox');
+                    $sandbox = $('#sandbox');
 
                 view = new TrackingView({
                     el: document,
@@ -236,16 +236,16 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                     identify: jasmine.createSpy('identify')
                 };
 
-                sandbox.attr('data-track-event', 'trackingEvent');
-                sandbox.attr('data-track-param', 'my-param');
-                sandbox.attr('data-track-foo', 'bar');
+                $sandbox.attr('data-track-event', 'trackingEvent');
+                $sandbox.attr('data-track-param', 'my-param');
+                $sandbox.attr('data-track-foo', 'bar');
 
                 return {
                     trackingModel: trackingModel,
                     view: view,
-                    sandbox: sandbox,
+                    sandbox: $sandbox,
                     showTooltip: function() {
-                        sandbox.trigger('shown.bs.tooltip');
+                        $sandbox.trigger('shown.bs.tooltip');
                     },
                     expectNoEventToHaveBeenEmitted: function() {
                         expect(view.segment.track).not.toHaveBeenCalled();

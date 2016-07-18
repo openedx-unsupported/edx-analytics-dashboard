@@ -75,10 +75,9 @@ define(function(require) {
                     return {
                         name: name,
                         displayName: _.template(
-                            // jshint ignore:start
+                            // eslint-disable-next-line max-len
                             // Translators: 'name' here refers to the name of the filter, while 'numLearners' refers to the number of learners belonging to that filter.
                             gettext('<%= name %> (<%= numLearners %>)')
-                            // jshint ignore:end
                         )({
                             name: name,
                             numLearners: Utils.localizeNumber(numLearners, 0)
