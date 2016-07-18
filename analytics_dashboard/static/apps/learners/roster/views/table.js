@@ -1,7 +1,7 @@
 /**
  * Displays a table of learners and a pagination control.
  */
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
@@ -22,7 +22,7 @@ define(function (require) {
      * Factory for creating a Backgrid cell class that renders a key
      * from the learner model's engagement attribute.
      */
-    createEngagementCell = function (key, options) {
+    createEngagementCell = function(key, options) {
         return Backgrid.Cell.extend({
 
             className: 'learner-engagement-cell ' + key,
@@ -30,7 +30,7 @@ define(function (require) {
             options: options,
 
             formatter: {
-                fromRaw: function (rawData, model) {
+                fromRaw: function(rawData, model) {
                     var value = model.get('engagements')[key];
                     // Engagement values are always numerical, but we may get
                     // "Infinity" for ratio metrics (e.g.
@@ -72,7 +72,7 @@ define(function (require) {
      * aligned.
      */
     EngagementHeaderCell = BaseHeaderCell.extend({
-        className: 'learner-engagement-cell',
+        className: 'learner-engagement-cell'
     });
 
     LearnerTableView = Marionette.LayoutView.extend({
@@ -81,21 +81,21 @@ define(function (require) {
             table: '.learners-table',
             paginator: '.learners-paging-footer'
         },
-        initialize: function (options) {
+        initialize: function(options) {
             this.options = options || {};
             this.collection.on('backgrid:sort', this.onSort, this);
         },
         onSort: function(column, direction) {
             this.options.trackingModel.trigger('segment:track', 'edx.bi.roster.sorted', {
-                category: column.get('name') + '_' + direction.slice(0,-6)
+                category: column.get('name') + '_' + direction.slice(0, -6)
             });
         },
-        onBeforeShow: function () {
+        onBeforeShow: function() {
             var options = this.options;
             this.showChildView('table', new Backgrid.Grid({
                 className: 'table table-striped dataTable',  // Combine bootstrap and datatables styling
                 collection: this.options.collection,
-                columns: _.map(this.options.collection.sortableFields, function (val, key) {
+                columns: _.map(this.options.collection.sortableFields, function(val, key) {
                     var column = {
                         label: val.displayName,
                         name: key,

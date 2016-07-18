@@ -1,4 +1,4 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var Marionette = require('marionette'),
@@ -15,7 +15,7 @@ define(function (require) {
             '*notFound': 'showNotFoundPage'
         },
 
-        onRoute: function (routeName) {
+        onRoute: function(routeName) {
             if (routeName.indexOf('show') === 0) {
                 this.options.controller.triggerMethod('showPage');
             }

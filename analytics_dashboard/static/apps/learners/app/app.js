@@ -1,4 +1,4 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var $ = require('jquery'),
@@ -42,11 +42,11 @@ define(function (require) {
          * - learnerEngagementTimelineUrl (String) required - the URL for the
          *   Learner Engagement Timeline API endpoint.
          */
-        initialize: function (options) {
+        initialize: function(options) {
             this.options = options || {};
         },
 
-        onStart: function () {
+        onStart: function() {
             var pageModel = new PageModel(),
                 courseMetadata,
                 learnerCollection,
@@ -56,7 +56,7 @@ define(function (require) {
             learnerCollection = new LearnerCollection(this.options.learnerListJson, {
                 url: this.options.learnerListUrl,
                 courseId: this.options.courseId,
-                parse: this.options.learnerListJson ? true : false
+                parse: this.options.learnerListJson
             });
 
             courseMetadata = new CourseMetadataModel(this.options.courseLearnerMetadataJson, {
@@ -74,7 +74,7 @@ define(function (require) {
                     courseId: this.options.courseId,
                     learnerCollection: learnerCollection,
                     courseMetadata: courseMetadata,
-                    pageModel:  pageModel,
+                    pageModel: pageModel,
                     rootView: rootView,
                     learnerEngagementTimelineUrl: this.options.learnerEngagementTimelineUrl,
                     learnerListUrl: this.options.learnerListUrl,
@@ -94,9 +94,9 @@ define(function (require) {
             Backbone.history.start();
 
             // Loading progress bar via nprogress
-            NProgress.configure({ showSpinner: false });
-            $(document).ajaxStart(function () { NProgress.start(); });
-            $(document).ajaxStop(function () { NProgress.done(); });
+            NProgress.configure({showSpinner: false});
+            $(document).ajaxStart(function() { NProgress.start(); });
+            $(document).ajaxStop(function() { NProgress.done(); });
         }
     });
 

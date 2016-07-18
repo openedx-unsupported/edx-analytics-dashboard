@@ -1,13 +1,14 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
-    var Marionette = require('marionette'),
+    var Backbone = require('backbone'),
+        Marionette = require('marionette'),
 
         LearnersRootView = require('learners/app/views/root'),
         PageModel = require('learners/common/models/page');
 
-    describe('LearnersRootView', function () {
-        beforeEach(function () {
+    describe('LearnersRootView', function() {
+        beforeEach(function() {
             setFixtures('<div class=root-view-container></div>');
             this.rootView = new LearnersRootView({
                 el: '.root-view-container',
@@ -18,21 +19,21 @@ define(function (require) {
             }).render();
         });
 
-        it('renders a main region', function () {
+        it('renders a main region', function() {
             this.rootView.showChildView('main', new (Backbone.View.extend({
-                render: function () {
+                render: function() {
                     this.$el.html('example view');
                 }
             }))());
             expect(this.rootView.$('.learners-main-region').html()).toContainText('example view');
         });
 
-        it('renders a header title and date', function () {
+        it('renders a header title and date', function() {
             expect(this.rootView.$('.learners-header-region').html()).toContainText('Testing Title');
             expect(this.rootView.$('.learners-header-region').html()).not.toContainText('February 28, 2016');
         });
 
-        it('renders and clears alerts', function () {
+        it('renders and clears alerts', function() {
             var childView = new Marionette.View();
             this.rootView.showChildView('main', childView);
             childView.triggerMethod('appError', {title: 'This is the error copy'});
@@ -41,7 +42,7 @@ define(function (require) {
             expect(this.rootView.$('.learners-alert-region')).not.toHaveText('This is the error copy');
         });
 
-        it('sets focus on setFocusToTop events', function () {
+        it('sets focus on setFocusToTop events', function() {
             var childView = new Marionette.View();
             this.rootView.showChildView('main', childView);
             childView.triggerMethod('setFocusToTop');

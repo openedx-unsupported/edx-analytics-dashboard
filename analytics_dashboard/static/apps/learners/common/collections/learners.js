@@ -1,4 +1,4 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var PagingCollection = require('uitk/pagination/paging-collection'),
@@ -11,7 +11,7 @@ define(function (require) {
     LearnerCollection = PagingCollection.extend({
         model: LearnerModel,
 
-        initialize: function (models, options) {
+        initialize: function(models, options) {
             PagingCollection.prototype.initialize.call(this, options);
 
             this.url = options.url;
@@ -30,7 +30,7 @@ define(function (require) {
             this.registerFilterableField('enrollment_mode', gettext('Enrollment Mode'));
         },
 
-        fetch: function (options) {
+        fetch: function(options) {
             return PagingCollection.prototype.fetch.call(this, options)
                 .fail(LearnerUtils.handleAjaxFailure.bind(this));
         },
@@ -40,17 +40,17 @@ define(function (require) {
         },
 
         queryParams: {
-            course_id: function () { return this.courseId; }
+            course_id: function() { return this.courseId; }
         },
 
         // Shim code follows for backgrid.paginator 0.3.5
         // compatibility, which expects the backbone.pageable
         // (pre-backbone.paginator) API.
-        hasPrevious: function () {
+        hasPrevious: function() {
             return this.hasPreviousPage();
         },
 
-        hasNext: function () {
+        hasNext: function() {
             return this.hasNextPage();
         }
     });

@@ -1,4 +1,4 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
@@ -23,7 +23,7 @@ define(function (require) {
 
         template: _.template(learnerDetailTemplate),
 
-        templateHelpers: function () {
+        templateHelpers: function() {
             return {
                 // Translators: e.g. Student engagement
                 engagement: gettext('Engagement'),
@@ -43,7 +43,7 @@ define(function (require) {
             engagementTable: '.learner-engagement-table-container'
         },
 
-        initialize: function (options) {
+        initialize: function(options) {
             Marionette.LayoutView.prototype.initialize.call(this, options);
             this.options = options || {};
             LearnerUtils.mapEvents(this.options.engagementTimelineModel, {
@@ -61,7 +61,7 @@ define(function (require) {
             this.listenTo(this, 'learnerUnavailable', this.showLearnerUnavailable);
         },
 
-        onBeforeShow: function () {
+        onBeforeShow: function() {
             var learnerModel = this.options.learnerModel,
                 timelineModel = this.options.engagementTimelineModel,
                 engagementTimelineView = new LearnerEngagementTimelineView({
@@ -109,36 +109,37 @@ define(function (require) {
                 model: timelineModel,
                 modelAttribute: 'days',
                 fieldDisplayName: 'Last Accessed',
-                valueFormatter: function (days) {
+                valueFormatter: function(days) {
                     // Translators: 'n/a' means 'not available'
                     return days.length ? Utils.formatDate(_(days).last().date) : gettext('n/a');
                 }
             }));
             this.showChildView('engagementTimeline', chartView);
             this.showChildView('engagementTable', tableView);
-
         },
 
-        showLearnerUnavailable: function (options) {
+        showLearnerUnavailable: function(options) {
             this.showUnavailable('learnerSummary', options);
         },
 
-        showTimelineUnavailable: function (options) {
+        showTimelineUnavailable: function(options) {
             this.showUnavailable('engagementTimeline', options);
         },
 
-        showUnavailable: function (region, options) {
-            this.showChildView(region, new AlertView({
-                alertType: 'info',
-                title: options.title,
-                body: options.description
-            }));
+        showUnavailable: function(region, options) {
+            var tableSection = document.getElementById('table-section'),
+                alertView = new AlertView({
+                    alertType: 'info',
+                    title: options.title,
+                    body: options.description
+                });
+            alertView.validateAndUpdateTemplate();
+            this.showChildView(region, alertView);
             this.getRegion('engagementTable').empty();
-            var tableSection = document.getElementById('table-section');
             tableSection.parentElement.removeChild(tableSection);
         },
 
-        serverErrorToAppError: function (status, unavailableError) {
+        serverErrorToAppError: function(status, unavailableError) {
             if (status === 404) {
                 return [unavailableError.errorType, {
                     title: unavailableError.title,
@@ -149,14 +150,14 @@ define(function (require) {
             }
         },
 
-        timelineServerErrorToAppError: function (status) {
+        timelineServerErrorToAppError: function(status) {
             return this.serverErrorToAppError(status, {
                 errorType: 'engagementTimelineUnavailable',
                 title: gettext('No course activity data is available for this learner.')
             });
         },
 
-        learnerServerErrorToAppError: function (status) {
+        learnerServerErrorToAppError: function(status) {
             return this.serverErrorToAppError(status, {
                 errorType: 'learnerUnavailable',
                 title: gettext('No learner data is available.')

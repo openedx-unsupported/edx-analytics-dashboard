@@ -1,18 +1,18 @@
-define(['nvd3', 'views/trends-view'],
-    function (nvd3, TrendsView) {
+define(['nvd3', 'views/trends-view', 'underscore'],
+    function(nvd3, TrendsView, _) {
         'use strict';
 
         var StackedTrendsView = TrendsView.extend({
             defaults: _.extend({}, TrendsView.prototype.defaults, {
-                    graphShiftSelector: '.nv-stackedarea'
-                }
+                graphShiftSelector: '.nv-stackedarea'
+            }
             ),
 
-            getChart: function () {
+            getChart: function() {
                 return nvd3.models.stackedAreaChart().showControls(false);
             },
 
-            render: function () {
+            render: function() {
                 var self = this;
                 TrendsView.prototype.render.call(self);
 

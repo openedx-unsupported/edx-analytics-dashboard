@@ -1,4 +1,4 @@
-define(['views/announcement-view', 'jquery', 'underscore'], function (AnnouncementView, $, _) {
+define(['views/announcement-view', 'jquery', 'underscore'], function(AnnouncementView, $, _) {
     'use strict';
 
     var view, $el,
@@ -8,23 +8,24 @@ define(['views/announcement-view', 'jquery', 'underscore'], function (Announceme
             '<input type="hidden" name="csrfmiddlewaretoken" value="<%=csrftoken%>">' +
             '<a class="dismiss">Close</a></div>');
 
-    describe('AnnouncementView', function () {
-        beforeEach(function () {
+    describe('AnnouncementView', function() {
+        beforeEach(function() {
             // Create DOM elements
             $el = $(template({url: url, csrftoken: csrftoken}));
             $(document.body).append($el);
 
             // Instantiate view
             view = new AnnouncementView({el: $el[0]});
+            view.render();
         });
 
-        describe('init', function () {
-            it('should retrieve the CSRF token from the hidden input', function () {
+        describe('init', function() {
+            it('should retrieve the CSRF token from the hidden input', function() {
                 expect(view.csrftoken).toEqual(csrftoken);
             });
         });
 
-        it('should call dismiss when the dismiss element is clicked', function () {
+        it('should call dismiss when the dismiss element is clicked', function() {
             spyOn(view, 'dismiss');
 
             view.delegateEvents();
@@ -33,27 +34,26 @@ define(['views/announcement-view', 'jquery', 'underscore'], function (Announceme
             expect(view.dismiss).toHaveBeenCalled();
         });
 
-        describe('dismiss', function () {
+        describe('dismiss', function() {
             var server;
 
-            beforeEach(function () {
+            beforeEach(function() {
                 server = sinon.fakeServer.create();
                 view.dismiss();
             });
 
-            afterEach(function () {
+            afterEach(function() {
                 server.restore();
             });
 
-            it('should add the CSRF token to the header', function () {
+            it('should add the CSRF token to the header', function() {
                 var request = server.requests[0];
                 expect(request.requestHeaders['X-CSRFToken']).toEqual(csrftoken);
             });
 
-            it('should POST to the dismiss URL', function () {
-                view.dismiss();
-
+            it('should POST to the dismiss URL', function() {
                 var request = server.requests[0];
+                view.dismiss();
                 expect(request.method).toEqual('POST');
                 expect(request.url).toEqual(url);
             });

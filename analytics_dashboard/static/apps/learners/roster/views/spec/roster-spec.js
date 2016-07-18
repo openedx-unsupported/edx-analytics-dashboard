@@ -1,4 +1,4 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var $ = require('jquery'),
@@ -12,7 +12,7 @@ define(function (require) {
         LearnerRosterView = require('learners/roster/views/roster'),
         TrackingModel = require('models/tracking-model');
 
-    describe('LearnerRosterView', function () {
+    describe('LearnerRosterView', function() {
         var fixtureClass = 'roster-view-fixture',
             perPage = 25,
             clickPagingControl,
@@ -25,19 +25,19 @@ define(function (require) {
             testTimeout,
             verifyErrorHandling;
 
-        getLastRequest = function () {
+        getLastRequest = function() {
             return server.requests[server.requests.length - 1];
         };
 
-        getLastRequestParams = function () {
+        getLastRequestParams = function() {
             return (new URI(getLastRequest().url)).query(true);
         };
 
-        getResponseBody = function (numPages, pageNum) {
+        getResponseBody = function(numPages, pageNum) {
             var results;
             pageNum = pageNum || 1;
             if (numPages) {
-                results = _.range(perPage * (pageNum - 1), perPage * (pageNum - 1) + perPage).map(function (index) {
+                results = _.range(perPage * (pageNum - 1), perPage * (pageNum - 1) + perPage).map(function(index) {
                     return {name: 'user ' + index, username: 'user_' + index};
                 });
             } else {
@@ -50,7 +50,7 @@ define(function (require) {
             };
         };
 
-        getRosterView = function (options) {
+        getRosterView = function(options) {
             var collection,
                 rosterView;
             options = options || {};
@@ -61,7 +61,7 @@ define(function (require) {
             rosterView = new LearnerRosterView({
                 collection: collection,
                 courseMetadata: options.courseMetadataModel ||
-                    new CourseMetadataModel(options.courseMetadata,{parse: true}),
+                    new CourseMetadataModel(options.courseMetadata, {parse: true}),
                 el: '.' + fixtureClass,
                 trackingModel: new TrackingModel()
             }).render();
@@ -69,7 +69,7 @@ define(function (require) {
             return rosterView;
         };
 
-        testTimeout = function (rosterView, actionFunction) {
+        testTimeout = function(rosterView, actionFunction) {
             var ajaxSetup;
             jasmine.clock().install();
             ajaxSetup = $.ajaxSetup();
@@ -88,32 +88,32 @@ define(function (require) {
             $.ajaxSetup(ajaxSetup);
         };
 
-        verifyErrorHandling = function (rosterView, status) {
+        verifyErrorHandling = function(rosterView, status) {
             getLastRequest().respond(status, {}, '');
             expect(rosterView.trigger).toHaveBeenCalledWith('appError', jasmine.any(Object));
         };
 
-        executeSearch = function (searchString) {
+        executeSearch = function(searchString) {
             $('#search-learners').val(searchString);
             $('#search-learners').keyup();  // Triggers rendering of the clear search control
             $('#search-learners').submit();
         };
 
-        clickPagingControl = function (titleSelector) {
+        clickPagingControl = function(titleSelector) {
             $('a[title="' + titleSelector + '"]').click();
         };
 
-        beforeEach(function () {
+        beforeEach(function() {
             setFixtures('<div class="' + fixtureClass + '"></div>');
             server = sinon.fakeServer.create();
         });
 
-        afterEach(function () {
+        afterEach(function() {
             server.restore();
         });
 
-        it('renders a list of learners', function () {
-            var generateEngagements = function () {
+        it('renders a list of learners', function() {
+            var generateEngagements = function() {
                     return {
                         discussion_contributions: Math.floor(Math.random() * 10),
                         problems_attempted: Math.floor(Math.random() * 10),
@@ -131,7 +131,7 @@ define(function (require) {
                     collectionResponse: {results: learners},
                     collectionOptions: {parse: true}
                 });
-            _.chain(_.zip(learners, rosterView.$('tbody tr'))).each(function (learnerAndTr) {
+            _.chain(_.zip(learners, rosterView.$('tbody tr'))).each(function(learnerAndTr) {
                 var learner = learnerAndTr[0],
                     tr = learnerAndTr[1];
                 expect($(tr).find('td.learner-name-username-cell .name')).toContainText(learner.name);
@@ -147,7 +147,7 @@ define(function (require) {
             });
         });
 
-        it('categorizes engagement values', function () {
+        it('categorizes engagement values', function() {
             var learners = [{
                     name: 'agnes',
                     username: 'agnes',
@@ -210,7 +210,7 @@ define(function (require) {
                 .toHaveClass('learner-cell-rank-middle');
         });
 
-        it('formats numbers', function () {
+        it('formats numbers', function() {
             var learners = [{
                     name: 'agnes',
                     username: 'agnes',
@@ -240,7 +240,7 @@ define(function (require) {
                 .toContainText('0');
         });
 
-        it('displays "infinite" metrics as N/A', function () {
+        it('displays "infinite" metrics as N/A', function() {
             var learners = [{
                     name: 'agnes',
                     username: 'agnes',
@@ -271,8 +271,7 @@ define(function (require) {
         });
 
         describe('table headers', function() {
-
-            it('has tooltips', function () {
+            it('has tooltips', function() {
                 var headerClasses = [
                     'username',
                     'videos_viewed',
@@ -287,7 +286,7 @@ define(function (require) {
                     collectionOptions: {parse: true}
                 });
 
-                _(headerClasses).each(function (headerClass) {
+                _(headerClasses).each(function(headerClass) {
                     var $heading = $('th.' + headerClass).focusin(),
                         $tooltip;
 
@@ -296,23 +295,21 @@ define(function (require) {
                     $tooltip = $('#' + $heading.attr('aria-describedby'));
                     expect($tooltip.text().length).toBeGreaterThan(0);
                 });
-
             });
-
         });
 
-        describe('sorting', function () {
+        describe('sorting', function() {
             var clickSortingHeader, executeSortTest, expectSortCalled, getSortingHeaderLink;
 
-            getSortingHeaderLink = function (headerClass) {
+            getSortingHeaderLink = function(headerClass) {
                 return $('th.' + headerClass + ' a');
             };
 
-            clickSortingHeader = function (headerClass) {
+            clickSortingHeader = function(headerClass) {
                 getSortingHeaderLink(headerClass).click();
             };
 
-            executeSortTest = function (field) {
+            executeSortTest = function(field) {
                 expect(getSortingHeaderLink(field).find('i')).toHaveClass('fa-sort');
                 clickSortingHeader(field);
                 expectSortCalled(field, 'asc');
@@ -320,7 +317,7 @@ define(function (require) {
                 expectSortCalled(field, 'desc');
             };
 
-            expectSortCalled = function (sortField, sortValue) {
+            expectSortCalled = function(sortField, sortValue) {
                 expect(getLastRequestParams()).toEqual(jasmine.objectContaining({
                     order_by: sortField,
                     sort_order: sortValue
@@ -329,34 +326,34 @@ define(function (require) {
                 expect(getSortingHeaderLink(sortField).find('i')).toHaveClass('fa-sort-' + sortValue);
             };
 
-            beforeEach(function () {
+            beforeEach(function() {
                 this.rosterView = getRosterView({
                     collectionResponse: getResponseBody(1, 1),
                     collectionOptions: {parse: true}
                 });
             });
 
-            it('can sort by username', function () {
+            it('can sort by username', function() {
                 executeSortTest('username');
             });
 
-            it('can sort by discussion contributions', function () {
+            it('can sort by discussion contributions', function() {
                 executeSortTest('discussion_contributions');
             });
 
-            it('can sort by problems attempted', function () {
+            it('can sort by problems attempted', function() {
                 executeSortTest('problems_attempted');
             });
 
-            it('can sort by attempts per problem completed', function () {
+            it('can sort by attempts per problem completed', function() {
                 executeSortTest('problem_attempts_per_completed');
             });
 
-            it('can sort by videos watched', function () {
+            it('can sort by videos watched', function() {
                 executeSortTest('videos_viewed');
             });
 
-            it('handles server errors', function () {
+            it('handles server errors', function() {
                 spyOn(this.rosterView, 'trigger');
                 clickSortingHeader('username');
                 verifyErrorHandling(this.rosterView, 500);
@@ -364,13 +361,13 @@ define(function (require) {
                 verifyErrorHandling(this.rosterView, 504);
             });
 
-            it('handles network errors', function () {
-                testTimeout(this.rosterView, function () {
+            it('handles network errors', function() {
+                testTimeout(this.rosterView, function() {
                     clickSortingHeader('username');
                 });
             });
 
-            it('goes to the first page after applying a sort', function () {
+            it('goes to the first page after applying a sort', function() {
                 this.rosterView = getRosterView({
                     collectionResponse: getResponseBody(2, 1),
                     collectionOptions: {parse: true}
@@ -388,7 +385,7 @@ define(function (require) {
                 expect(this.rosterView.$('a[title="Page 1"]').parent('li')).toHaveClass('active');
             });
 
-            it ('triggers a tracking event', function() {
+            it('triggers a tracking event', function() {
                 var triggerSpy = spyOn(this.rosterView.options.trackingModel, 'trigger'),
                     headerClasses = [
                         'username',
@@ -400,30 +397,30 @@ define(function (require) {
                     ];
                 _.each(headerClasses, function(column) {
                     executeSortTest(column);
-                    expect(triggerSpy).toHaveBeenCalledWith('segment:track','edx.bi.roster.sorted', {
+                    expect(triggerSpy).toHaveBeenCalledWith('segment:track', 'edx.bi.roster.sorted', {
                         category: column + '_asc'
                     });
-                    expect(triggerSpy).toHaveBeenCalledWith('segment:track','edx.bi.roster.sorted', {
+                    expect(triggerSpy).toHaveBeenCalledWith('segment:track', 'edx.bi.roster.sorted', {
                         category: column + '_desc'
                     });
                 });
             });
         });
 
-        describe('paging', function () {
+        describe('paging', function() {
             var createTwoPageRoster,
                 expectLinkStates,
                 expectRequestedPage;
 
-            createTwoPageRoster = function () {
+            createTwoPageRoster = function() {
                 return getRosterView({
                     collectionResponse: getResponseBody(2, 1),
                     collectionOptions: {parse: true}
                 });
             };
 
-            expectLinkStates = function (rosterView, activeLinkTitle, disabledLinkTitles) {
-                rosterView.$('li > a').each(function (_index, link) {
+            expectLinkStates = function(rosterView, activeLinkTitle, disabledLinkTitles) {
+                rosterView.$('li > a').each(function(_index, link) {
                     var $link = $(link),
                         $parentLi = $link.parent('li');
                     if ($link.attr('title') === activeLinkTitle) {
@@ -439,13 +436,13 @@ define(function (require) {
                 });
             };
 
-            expectRequestedPage = function (pageNum) {
+            expectRequestedPage = function(pageNum) {
                 expect(getLastRequestParams()).toEqual(jasmine.objectContaining({
                     page: pageNum.toString()
                 }));
             };
 
-            it('triggers a tracking event', function () {
+            it('triggers a tracking event', function() {
                 var rosterView = createTwoPageRoster(),
                     triggerSpy = spyOn(rosterView.options.trackingModel, 'trigger');
 
@@ -462,7 +459,7 @@ define(function (require) {
                 });
             });
 
-            it('can jump to a particular page', function () {
+            it('can jump to a particular page', function() {
                 var rosterView = createTwoPageRoster();
                 clickPagingControl('Page 2');
                 expectRequestedPage(2);
@@ -470,7 +467,7 @@ define(function (require) {
                 expectLinkStates(rosterView, 'Page 2', ['Next', 'Last']);
             });
 
-            it('can navigate to the next/previous page', function () {
+            it('can navigate to the next/previous page', function() {
                 var rosterView = createTwoPageRoster();
 
                 clickPagingControl('Next');
@@ -484,7 +481,7 @@ define(function (require) {
                 expectLinkStates(rosterView, 'Page 1', ['First', 'Previous']);
             });
 
-            it('does not enable pagination controls for unreachable pages', function () {
+            it('does not enable pagination controls for unreachable pages', function() {
                 var rosterView = createTwoPageRoster();
                 // Verify no request, no view change
                 clickPagingControl('Previous');
@@ -492,38 +489,38 @@ define(function (require) {
                 expectLinkStates(rosterView, 'Page 1', ['First', 'Previous']);
             });
 
-            it('handles gateway timeouts', function () {
+            it('handles gateway timeouts', function() {
                 var rosterView = createTwoPageRoster();
                 spyOn(rosterView, 'trigger');
                 clickPagingControl('Next');
                 verifyErrorHandling(rosterView, 504);
             });
 
-            it('handles server errors', function () {
+            it('handles server errors', function() {
                 var rosterView = createTwoPageRoster();
                 spyOn(rosterView, 'trigger');
                 clickPagingControl('Next');
                 verifyErrorHandling(rosterView, 500);
             });
 
-            it('handles network errors', function () {
+            it('handles network errors', function() {
                 var rosterView = createTwoPageRoster();
-                testTimeout(rosterView, function () {
+                testTimeout(rosterView, function() {
                     clickPagingControl('Next');
                 });
             });
         });
 
-        describe('search', function () {
+        describe('search', function() {
             var expectSearchedFor;
 
-            expectSearchedFor = function (searchString) {
+            expectSearchedFor = function(searchString) {
                 expect(getLastRequestParams()).toEqual(jasmine.objectContaining({
                     text_search: searchString
                 }));
             };
 
-            it('renders the current search string', function () {
+            it('renders the current search string', function() {
                 var collection,
                     rosterView,
                     searchString;
@@ -534,7 +531,7 @@ define(function (require) {
                 expect(rosterView.$('#search-learners')).toHaveValue(searchString);
             });
 
-            it('can search for arbitrary strings', function () {
+            it('can search for arbitrary strings', function() {
                 var searchString = 'search string';
                 getRosterView();
                 executeSearch(searchString);
@@ -543,7 +540,7 @@ define(function (require) {
                 }));
             });
 
-            it('renders itself whenever the collection changes', function () {
+            it('renders itself whenever the collection changes', function() {
                 var rosterView = getRosterView({courseMetadataModel: this.courseMetadata}),
                     searchString = 'search string';
                 executeSearch(searchString);
@@ -557,7 +554,7 @@ define(function (require) {
                 expect(rosterView.$('#search-learners')).toHaveValue('');
             });
 
-            it('can clear the search with the clear link', function () {
+            it('can clear the search with the clear link', function() {
                 var searchString = 'search string';
                 getRosterView();
                 executeSearch(searchString);
@@ -567,7 +564,7 @@ define(function (require) {
                 expect(getLastRequestParams().text_search).toBeUndefined();
             });
 
-            it('can clear the search by searching the empty string', function () {
+            it('can clear the search by searching the empty string', function() {
                 var rosterView,
                     searchString;
                 searchString = 'search string';
@@ -581,7 +578,7 @@ define(function (require) {
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(1, 1)));
             });
 
-            it('triggers a tracking event', function () {
+            it('triggers a tracking event', function() {
                 var rosterView = getRosterView(),
                     searchString = 'search string',
                     triggerSpy = spyOn(rosterView.options.trackingModel, 'trigger');
@@ -593,7 +590,7 @@ define(function (require) {
                 });
             });
 
-            it('handles server errors', function () {
+            it('handles server errors', function() {
                 var rosterView = getRosterView();
                 spyOn(rosterView, 'trigger');
                 executeSearch('test search');
@@ -602,16 +599,16 @@ define(function (require) {
                 verifyErrorHandling(rosterView, 500);
             });
 
-            it('handles network errors', function () {
+            it('handles network errors', function() {
                 var rosterView = getRosterView();
-                testTimeout(rosterView, function () {
+                testTimeout(rosterView, function() {
                     executeSearch('test search');
                 });
             });
         });
 
-        describe('filtering', function () {
-            var expectCanFilterBy = function (filterKey, filterValue) {
+        describe('filtering', function() {
+            var expectCanFilterBy = function(filterKey, filterValue) {
                 var expectedRequestSubset;
                 $('select').val(filterValue);
                 $('select').change();
@@ -626,7 +623,7 @@ define(function (require) {
                 expect($('option[value="' + filterValue + '"]')).toBeSelected();
             };
 
-            it('renders filters in alphabetical order', function () {
+            it('renders filters in alphabetical order', function() {
                 var options,
                     rosterView;
                 rosterView = getRosterView({courseMetadata: {
@@ -640,7 +637,7 @@ define(function (require) {
                 expect(options[2]).toHaveText('zebra (1)');
             });
 
-            it('sets focus after executing a filter', function () {
+            it('sets focus after executing a filter', function() {
                 var rosterView,
                     cohortFilterView;
                 rosterView = getRosterView({courseMetadata: {cohorts: {
@@ -663,15 +660,15 @@ define(function (require) {
                     'enrollment_modes', // course metadata field name
                     {verified: 1, audit: 2} // default enrollment modes
                 ]
-            }, function (filterFieldName, courseMetadataFieldName, filterOptions) {
+            }, function(filterFieldName, courseMetadataFieldName, filterOptions) {
                 var courseMetadataAttributes = {};
                 courseMetadataAttributes[courseMetadataFieldName] = filterOptions;
                 this.courseMetadata = new CourseMetadataModel(courseMetadataAttributes);
                 this.filterFieldName = filterFieldName;
                 this.filterOptions = filterOptions;
                 this.firstFilterOption = _.keys(this.filterOptions)[0];
-            }, function () {
-                it('renders the filter which is currently applied', function () {
+            }, function() {
+                it('renders the filter which is currently applied', function() {
                     var collection,
                         firstFilterOption,
                         rosterView;
@@ -685,7 +682,7 @@ define(function (require) {
                     expect(rosterView.$('.learners-filter option[value="' + firstFilterOption + '"]')).toBeSelected();
                 });
 
-                it('only renders when filter options are provided', function () {
+                it('only renders when filter options are provided', function() {
                     var rosterView,
                         selectOptions,
                         defaultSelectOption;
@@ -707,7 +704,7 @@ define(function (require) {
                         .pairs()
                         .sortBy(0) // we expect the filter options to appear in alphabetical order
                         .zip(_.rest(selectOptions))
-                        .each(function (filterAndSelectOption) {
+                        .each(function(filterAndSelectOption) {
                             var filterOption = filterAndSelectOption[0],
                                 filterOptionKey = filterOption[0],
                                 learnerCount = filterOption[1],
@@ -718,13 +715,13 @@ define(function (require) {
                         });
                 });
 
-                it('can execute a filter', function () {
+                it('can execute a filter', function() {
                     getRosterView({courseMetadataModel: this.courseMetadata});
                     expectCanFilterBy(this.filterFieldName, this.firstFilterOption);
                     expectCanFilterBy(this.filterFieldName, '');
                 });
 
-                it('renders itself whenever the collection changes', function () {
+                it('renders itself whenever the collection changes', function() {
                     var rosterView = getRosterView({courseMetadataModel: this.courseMetadata});
                     expectCanFilterBy(this.filterFieldName, this.firstFilterOption);
                     rosterView.collection.unsetAllFilterFields();
@@ -733,7 +730,7 @@ define(function (require) {
                     expect(rosterView.$('select option:selected')).toHaveValue('');
                 });
 
-                it('triggers a tracking event', function () {
+                it('triggers a tracking event', function() {
                     var rosterView = getRosterView({courseMetadataModel: this.courseMetadata}),
                         filterFieldName = this.filterFieldName,
                         triggerSpy = spyOn(rosterView.options.trackingModel, 'trigger');
@@ -744,7 +741,7 @@ define(function (require) {
                     });
                 });
 
-                it('handles server errors', function () {
+                it('handles server errors', function() {
                     var rosterView = getRosterView({courseMetadataModel: this.courseMetadata});
                     spyOn(rosterView, 'trigger');
                     rosterView.$('select').val(this.firstFilterOption);
@@ -752,19 +749,18 @@ define(function (require) {
                     verifyErrorHandling(rosterView, 500);
                 });
 
-                it('handles network errors', function () {
+                it('handles network errors', function() {
                     var rosterView = getRosterView({courseMetadataModel: this.courseMetadata});
-                    testTimeout(rosterView, function () {
+                    testTimeout(rosterView, function() {
                         rosterView.$('select').val(this.firstFilterOption);
                         rosterView.$('select').change();
                     }.bind(this));
                 });
             });
-
         });
 
-        describe('activity date range', function () {
-            it('renders dates', function () {
+        describe('activity date range', function() {
+            it('renders dates', function() {
                 var rosterView = getRosterView({
                     courseMetadata: {
                         engagement_ranges: {
@@ -779,24 +775,23 @@ define(function (require) {
                     .toContainText('Activity between January 12, 2016 - March 30, 2016');
             });
 
-            it('renders n/a when no date range available', function () {
+            it('renders n/a when no date range available', function() {
                 var rosterView = getRosterView();
                 expect(rosterView.$('.activity-date-range'))
                     .toContainText('Activity between n/a - n/a');
             });
-
         });
 
-        describe('active filters', function () {
+        describe('active filters', function() {
             var expectActiveFilters,
                 expectNoActiveFilters;
 
-            expectNoActiveFilters = function (rosterView) {
+            expectNoActiveFilters = function(rosterView) {
                 expect(rosterView.$('#active-filters-title')).not.toExist();
                 expect(rosterView.$('.action-clear-all-filters')).not.toExist();
             };
 
-            expectActiveFilters = function (rosterView, options) {
+            expectActiveFilters = function(rosterView, options) {
                 var activeFiltersTitle = rosterView.$('#active-filters-title'),
                     clearAllButton = rosterView.$('.action-clear-all-filters'),
                     activeFilters = rosterView.$('.active-filters'),
@@ -831,11 +826,11 @@ define(function (require) {
                 }
             };
 
-            it('does not render when there are no active filters', function () {
+            it('does not render when there are no active filters', function() {
                 expectNoActiveFilters(getRosterView());
             });
 
-            it('renders a search filter', function () {
+            it('renders a search filter', function() {
                 var rosterView = getRosterView();
                 rosterView.options.collection.setSearchString('hello, world');
                 rosterView.options.collection.refresh();
@@ -843,7 +838,7 @@ define(function (require) {
                 expectActiveFilters(rosterView, {search: 'hello, world'});
             });
 
-            it('renders a cohort filter', function () {
+            it('renders a cohort filter', function() {
                 var rosterView = getRosterView();
                 rosterView.options.collection.setFilterField('cohort', 'labrador');
                 rosterView.options.collection.refresh();
@@ -851,7 +846,7 @@ define(function (require) {
                 expectActiveFilters(rosterView, {cohort: 'labrador'});
             });
 
-            it('renders an enrollment track filter', function () {
+            it('renders an enrollment track filter', function() {
                 var rosterView = getRosterView();
                 rosterView.options.collection.setFilterField('enrollment_mode', 'honor');
                 rosterView.options.collection.refresh();
@@ -859,7 +854,7 @@ define(function (require) {
                 expectActiveFilters(rosterView, {enrollmentTrack: 'honor'});
             });
 
-            it('renders multiple filters', function () {
+            it('renders multiple filters', function() {
                 var rosterView = getRosterView();
                 rosterView.options.collection.setSearchString('foo');
                 rosterView.options.collection.setFilterField('cohort', 'labrador');
@@ -873,7 +868,7 @@ define(function (require) {
                 });
             });
 
-            it('can clear a search', function () {
+            it('can clear a search', function() {
                 var rosterView = getRosterView();
                 rosterView.options.collection.setFilterField('cohort', 'labrador');
                 rosterView.options.collection.setSearchString('foo');
@@ -889,7 +884,7 @@ define(function (require) {
                 expectActiveFilters(rosterView, {cohort: 'labrador'});
             });
 
-            it('can clear a filter', function () {
+            it('can clear a filter', function() {
                 var rosterView = getRosterView();
                 rosterView.options.collection.setFilterField('cohort', 'labrador');
                 rosterView.options.collection.setSearchString('foo');
@@ -905,7 +900,7 @@ define(function (require) {
                 expect(rosterView.collection.getFilterFieldValue('cohort')).not.toBe('labrador');
             });
 
-            it('can clear all the filters', function () {
+            it('can clear all the filters', function() {
                 var rosterView = getRosterView();
                 rosterView.options.collection.setSearchString('foo');
                 rosterView.options.collection.setFilterField('cohort', 'labrador');
@@ -922,7 +917,7 @@ define(function (require) {
                 expectNoActiveFilters(rosterView);
             });
 
-            it('handles server errors', function () {
+            it('handles server errors', function() {
                 var rosterView = getRosterView({courseMetadataModel: this.courseMetadata});
                 spyOn(rosterView, 'trigger');
                 rosterView.options.collection.setFilterField('cohort', 'labrador');
@@ -932,25 +927,25 @@ define(function (require) {
                 verifyErrorHandling(rosterView, 500);
             });
 
-            it('handles network errors', function () {
+            it('handles network errors', function() {
                 var rosterView = getRosterView({courseMetadataModel: this.courseMetadata});
                 rosterView.options.collection.setFilterField('cohort', 'labrador');
                 rosterView.options.collection.refresh();
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
-                testTimeout(rosterView, function () {
+                testTimeout(rosterView, function() {
                     rosterView.$('.active-filters .filter-cohort .action-clear-filter').click();
                 });
             });
         });
 
-        describe('no results', function () {
-            it('renders a "no results" view when there is no learner data in the initial collection', function () {
+        describe('no results', function() {
+            it('renders a "no results" view when there is no learner data in the initial collection', function() {
                 var rosterView = getRosterView();
                 expect(rosterView.$('.alert-info-container'))
                     .toContainText('No learner data is currently available for your course.');
             });
 
-            it('renders a "no results" view when there are no learners for the current search', function () {
+            it('renders a "no results" view when there are no learners for the current search', function() {
                 var rosterView = getRosterView({
                     collectionResponse: getResponseBody(1, 1),
                     collectionOptions: {parse: true}
@@ -962,7 +957,7 @@ define(function (require) {
                 expect(rosterView.$('.alert-info-container')).not.toContainText('Try clearing the filters.');
             });
 
-            it('renders a "no results" view when there are no learners for the current filter', function () {
+            it('renders a "no results" view when there are no learners for the current filter', function() {
                 var rosterView = getRosterView({
                     collectionResponse: getResponseBody(1, 1),
                     collectionOptions: {parse: true},
@@ -976,7 +971,7 @@ define(function (require) {
                 expect(rosterView.$('.alert-info-container')).not.toContainText('Try a different search.');
             });
 
-            it('renders a "no results" view when there are no learners for the current search and filter', function () {
+            it('renders a "no results" view when there are no learners for the current search and filter', function() {
                 var rosterView = getRosterView({
                     collectionResponse: getResponseBody(1, 1),
                     collectionOptions: {parse: true},
@@ -993,8 +988,8 @@ define(function (require) {
             });
         });
 
-        describe('accessibility', function () {
-            it('the table has a <caption> element', function () {
+        describe('accessibility', function() {
+            it('the table has a <caption> element', function() {
                 var rosterView = getRosterView({
                     collectionResponse: getResponseBody(1, 1),
                     collectionOptions: {parse: true}
@@ -1002,24 +997,24 @@ define(function (require) {
                 expect(rosterView.$('table > caption')).toBeInDOM();
             });
 
-            it('all <th> elements have scope attributes', function () {
+            it('all <th> elements have scope attributes', function() {
                 var rosterView = getRosterView({
                     collectionResponse: getResponseBody(1, 1),
                     collectionOptions: {parse: true}
                 });
-                rosterView.$('th').each(function (_index, $th) {
+                rosterView.$('th').each(function(_index, $th) {
                     expect($th).toHaveAttr('scope', 'col');
                 });
             });
 
-            it('all <th> elements have screen reader text', function () {
+            it('all <th> elements have screen reader text', function() {
                 var rosterView = getRosterView({
                         collectionResponse: getResponseBody(1, 1),
                         collectionOptions: {parse: true}
                     }),
                     screenReaderTextSelector = '.sr-sorting-text',
                     sortColumnSelector = '.username.sortable';
-                rosterView.$('th').each(function (_index, th) {
+                rosterView.$('th').each(function(_index, th) {
                     expect($(th).find(screenReaderTextSelector)).toHaveText('click to sort');
                 });
                 rosterView.$(sortColumnSelector + ' > a').click();
@@ -1028,7 +1023,7 @@ define(function (require) {
                 expect(rosterView.$(sortColumnSelector).find(screenReaderTextSelector)).toHaveText('sort descending');
             });
 
-            it('the search input has a label', function () {
+            it('the search input has a label', function() {
                 var rosterView = getRosterView(),
                     searchContainer = rosterView.$('.learners-search-container'),
                     inputId = searchContainer.find('input').attr('id'),
@@ -1037,17 +1032,17 @@ define(function (require) {
                 expect($label).toHaveText('Search learners');
             });
 
-            it('all icons should be aria-hidden', function () {
+            it('all icons should be aria-hidden', function() {
                 var rosterView = getRosterView({
                     collectionResponse: getResponseBody(1, 1),
                     collectionOptions: {parse: true}
                 });
-                rosterView.$('i').each(function (_index, el) {
+                rosterView.$('i').each(function(_index, el) {
                     expect($(el)).toHaveAttr('aria-hidden', 'true');
                 });
             });
 
-            it('sets focus to the top of the table after taking a paging action', function () {
+            it('sets focus to the top of the table after taking a paging action', function() {
                 var rosterView = getRosterView({
                         collectionResponse: getResponseBody(2, 1),
                         collectionOptions: {parse: true}
@@ -1071,12 +1066,12 @@ define(function (require) {
                 expect($('#learner-app-focusable').focus).toHaveBeenCalled();
             });
 
-            it('does not violate the axe-core ruleset', function (done) {
+            it('does not violate the axe-core ruleset', function(done) {
                 getRosterView({
                     collectionResponse: getResponseBody(1, 1),
                     collectionOptions: {parse: true}
                 });
-                axe.a11yCheck($('.roster-view-fixture')[0], function (result) {
+                axe.a11yCheck($('.roster-view-fixture')[0], function(result) {
                     expect(result.violations.length).toBe(0);
                     done();
                 });

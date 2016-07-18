@@ -1,4 +1,4 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var $ = require('jquery'),
@@ -10,7 +10,7 @@ define(function (require) {
         PageModel = require('learners/common/models/page'),
         TrackingModel = require('models/tracking-model');
 
-    describe('LearnersController', function () {
+    describe('LearnersController', function() {
         var courseId,
             expectDetailPage,
             expectRosterPage,
@@ -19,7 +19,7 @@ define(function (require) {
         courseId = 'test/course/id';
 
         // convenience method for asserting that we are on the learner detail page
-        expectDetailPage = function (controller) {
+        expectDetailPage = function(controller) {
             var date = new Date(2016, 1, 28);
             expect(controller.options.rootView.$('.learners-navigation-region').html())
                 .toContainText('Return to Learners');
@@ -34,7 +34,7 @@ define(function (require) {
         };
 
         // convenience method for asserting that we are on the roster page
-        expectRosterPage = function (controller) {
+        expectRosterPage = function(controller) {
             expect(controller.options.rootView.$('.learners-navigation-region').html())
                 .not.toContainText('Return to Learners');
             expect(controller.options.rootView.$('.learner-roster')).toBeInDOM();
@@ -43,7 +43,8 @@ define(function (require) {
             expect(controller.options.trackingModel.trigger).toHaveBeenCalledWith('segment:page');
         };
 
-        beforeEach(function () {
+
+        beforeEach(function() {
             var pageModel = new PageModel();
 
             server = sinon.fakeServer.create();
@@ -83,17 +84,17 @@ define(function (require) {
             spyOn(this.controller.options.trackingModel, 'trigger');
         });
 
-        afterEach(function () {
+        afterEach(function() {
             server.restore();
         });
 
-        it('should show the learner roster page', function () {
+        it('should show the learner roster page', function() {
             this.controller.showLearnerRosterPage();
             expectRosterPage(this.controller);
         });
 
-        describe('navigating to the Learner Detail page', function () {
-            it('should show the learner detail page', function () {
+        describe('navigating to the Learner Detail page', function() {
+            it('should show the learner detail page', function() {
                 var engagementTimelineResponse;
                 this.controller.showLearnerDetailPage('learner');
                 // Showing the learner detail page triggers a request for the
@@ -110,10 +111,10 @@ define(function (require) {
                 expectDetailPage(this.controller);
             });
 
-            it('should handle AJAX errors', function (done) {
+            it('should handle AJAX errors', function(done) {
                 var view = this.controller.showLearnerDetailPage('example-username');
 
-                view.once('appError', function (options) {
+                view.once('appError', function(options) {
                     expect(options.title).toBe('Server error');
                     done();
                 });
@@ -125,8 +126,8 @@ define(function (require) {
         // The 'showPage' event gets fired by the router on the
         // controller any time a route is hit which should change the
         // current page.
-        describe('showPage event', function () {
-            it('renders the loading bar', function () {
+        describe('showPage event', function() {
+            it('renders the loading bar', function() {
                 jasmine.clock().install();
                 expect($('#nprogress')).not.toExist();
                 this.controller.triggerMethod('showPage');
@@ -134,7 +135,7 @@ define(function (require) {
                 jasmine.clock().uninstall();
             });
 
-            it('hides app-wide errors', function () {
+            it('hides app-wide errors', function() {
                 this.controller.showLearnerDetailPage('learner');
                 server.requests[0].respond(200, {}, JSON.stringify(this.user));
                 server.requests[server.requests.length - 1].respond(500, {});
@@ -145,9 +146,10 @@ define(function (require) {
             });
         });
 
-        it('should show the not found page', function () {
+        it('should show the not found page', function() {
             this.controller.showNotFoundPage();
-            expect(this.rootView.$el.html()).toContainText("Sorry, we couldn't find the page you're looking for.");  // jshint ignore:line
+            // eslint-disable-next-line max-len
+            expect(this.rootView.$el.html()).toContainText("Sorry, we couldn't find the page you're looking for.");
             expect(this.controller.options.trackingModel.get('page')).toBe('learner_not_found');
             expect(this.controller.options.trackingModel.trigger).toHaveBeenCalledWith('segment:page');
         });

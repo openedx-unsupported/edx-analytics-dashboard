@@ -2,7 +2,7 @@
  * Class for the pagination footer, which needs to set focus to
  * the top of the table after being clicked.
  */
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var $ = require('jquery'),
@@ -26,25 +26,24 @@ define(function (require) {
             forward: {title: 'Next', label: '<i class="fa fa-step-forward" aria-hidden="true"></i>'},
             fastForward: {title: 'Last', label: '<i class="fa fa-fast-forward" aria-hidden="true"></i>'}
         },
-        initialize: function (options) {
+        initialize: function(options) {
             Backgrid.Extension.Paginator.prototype.initialize.call(this, options);
             this.options = options || {};
         },
-        render: function () {
+        render: function() {
             var trackingModel = this.options.trackingModel;
             Backgrid.Extension.Paginator.prototype.render.call(this);
 
             // pass the tracking model to the page handles so that they can trigger
             // tracking event
-            _(this.handles).each(function (handle) {
+            _(this.handles).each(function(handle) {
                 handle.trackingModel = trackingModel;
             });
-
         },
         pageHandle: Backgrid.Extension.PageHandle.extend({
             template: _.template(pageHandleTemplate),
             trackingModel: undefined,  // set by PagingFooter
-            render: function () {
+            render: function() {
                 var isHiddenFromSr = true,
                     srText;
                 Backgrid.Extension.PageHandle.prototype.render.apply(this, arguments);
@@ -70,7 +69,7 @@ define(function (require) {
                 this.delegateEvents();
                 return this;
             },
-            changePage: function () {
+            changePage: function() {
                 Backgrid.Extension.PageHandle.prototype.changePage.apply(this, arguments);
                 if (!this.$el.hasClass('active') && !this.$el.hasClass('disabled')) {
                     $('#learner-app-focusable').focus();

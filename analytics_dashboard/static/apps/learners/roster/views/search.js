@@ -7,7 +7,7 @@
  * backgrid.filter 0.3.5, making it heavily reliant on that
  * particular implementation.
  */
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var $ = require('jquery'),
@@ -21,23 +21,23 @@ define(function (require) {
     require('backgrid-filter');
 
     LearnerSearch = Backgrid.Extension.ServerSideFilter.extend({
-        className: function () {
+        className: function() {
             return [Backgrid.Extension.ServerSideFilter.prototype.className, 'learners-search'].join(' ');
         },
 
-        events: function () {
+        events: function() {
             return _.extend(Backgrid.Extension.ServerSideFilter.prototype.events, {'click .search': 'search'});
         },
 
         template: _.template(learnerSearchTemplate, null, {variable: null}),
 
-        initialize: function (options) {
+        initialize: function(options) {
             this.options = options || {};
             this.listenTo(options.collection, 'sync', this.render);
             Backgrid.Extension.ServerSideFilter.prototype.initialize.call(this, options);
         },
 
-        render: function () {
+        render: function() {
             this.value = this.options.collection.getSearchString();
             this.$el.empty().append(this.template({
                 name: this.name,
@@ -52,9 +52,9 @@ define(function (require) {
             return this;
         },
 
-        search: function (event) {
-            event.preventDefault();
+        search: function(event) {
             var searchString = this.searchBox().val().trim();
+            event.preventDefault();
             if (searchString === '') {
                 this.collection.unsetSearchString();
             } else {
@@ -66,18 +66,18 @@ define(function (require) {
             this.execute();
         },
 
-        clear: function (event) {
+        clear: function(event) {
             event.preventDefault();
             this.collection.unsetSearchString();
             this.execute();
         },
 
-        execute: function () {
+        execute: function() {
             this.collection.refresh();
             this.resetFocus();
         },
 
-        resetFocus: function () {
+        resetFocus: function() {
             $('#learner-app-focusable').focus();
         }
     });

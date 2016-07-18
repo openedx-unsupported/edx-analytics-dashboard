@@ -1,19 +1,20 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
-    var EngagementTimelineModel = require('learners/common/models/engagement-timeline'),
+    var _ = require('underscore'),
+        EngagementTimelineModel = require('learners/common/models/engagement-timeline'),
         LearnerDetailView = require('learners/detail/views/learner-detail'),
         LearnerModel = require('learners/common/models/learner'),
         Utils = require('utils/utils');
 
-    describe('LearnerDetailView', function () {
+    describe('LearnerDetailView', function() {
         var fixtureClass = '.learner-detail-fixture';
 
-        beforeEach(function () {
+        beforeEach(function() {
             setFixtures('<div class="' + fixtureClass.slice(1) + '"></div>');
         });
 
-        it('renders a loading view first', function () {
+        it('renders a loading view first', function() {
             var engagementTimelineModel = new EngagementTimelineModel(),
                 detailView = new LearnerDetailView({
                     learnerModel: new LearnerModel(),
@@ -32,18 +33,18 @@ define(function (require) {
             expect(detailView.$('.learner-engagement-timeline')).toExist();
         });
 
-        describe('managing the engagement timeline', function () {
+        describe('managing the engagement timeline', function() {
             var server;
 
-            beforeEach(function () {
+            beforeEach(function() {
                 server = sinon.fakeServer.create();
             });
 
-            afterEach(function () {
+            afterEach(function() {
                 server.restore();
             });
 
-            it('renders a timeline', function () {
+            it('renders a timeline', function() {
                 var engagementTimelineModel,
                     detailView;
 
@@ -69,7 +70,7 @@ define(function (require) {
                 );
             });
 
-            it('renders a table', function () {
+            it('renders a table', function() {
                 var engagementTimelineModel,
                     detailView;
 
@@ -92,7 +93,7 @@ define(function (require) {
                 expect(detailView.$('.learner-engagement-table')).toExist();
             });
 
-            it('handles 404s from the timeline endpoint', function () {
+            it('handles 404s from the timeline endpoint', function() {
                 var engagementTimelineModel,
                     detailView;
                 engagementTimelineModel = new EngagementTimelineModel();
@@ -110,11 +111,11 @@ define(function (require) {
             });
         });
 
-        describe('basic user profile', function () {
+        describe('basic user profile', function() {
             var learnerModel,
                 server;
 
-            beforeEach(function () {
+            beforeEach(function() {
                 server = sinon.fakeServer.create();
                 learnerModel = new LearnerModel({
                     course_id: 'test/course/1',
@@ -123,11 +124,11 @@ define(function (require) {
                 learnerModel.urlRoot = 'test-endpoint';
             });
 
-            afterEach(function () {
+            afterEach(function() {
                 server.restore();
             });
 
-            it('renders the profile', function () {
+            it('renders the profile', function() {
                 var detailView = new LearnerDetailView({
                     learnerModel: learnerModel,
                     engagementTimelineModel: new EngagementTimelineModel(),
@@ -150,7 +151,7 @@ define(function (require) {
                 expect(detailView.$('.learner-email')).toContainText('spider@plant.com');
             });
 
-            it('handles 404s from the learner endpoint', function () {
+            it('handles 404s from the learner endpoint', function() {
                 var detailView;
 
                 detailView = new LearnerDetailView({
@@ -167,6 +168,5 @@ define(function (require) {
                     .toHaveBeenCalledWith('learnerUnavailable', jasmine.any(Object));
             });
         });
-
     });
 });

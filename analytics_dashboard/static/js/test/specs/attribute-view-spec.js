@@ -1,9 +1,8 @@
 define(['models/course-model', 'views/attribute-view'], function(CourseModel, AttributeView) {
     'use strict';
 
-    describe('Attribute view', function () {
-
-        it('should wait to render', function () {
+    describe('Attribute view', function() {
+        it('should wait to render', function() {
             var attributeData = 'An Attribute',
                 model = new CourseModel(),
                 view = new AttributeView({
@@ -22,7 +21,7 @@ define(['models/course-model', 'views/attribute-view'], function(CourseModel, At
             expect(actual).toEqual(attributeData);
         });
 
-        it('should render immediate if data is available', function () {
+        it('should render immediate if data is available', function() {
             var view = new AttributeView({
                     model: new CourseModel({attributeData: 'Another Attribute'}),
                     modelAttribute: 'attributeData',

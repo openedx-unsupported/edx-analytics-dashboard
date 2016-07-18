@@ -1,7 +1,7 @@
 /**
  * Renders an alert, given an alert type (e.g. error, info).
  */
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
@@ -37,7 +37,7 @@ define(function (require) {
         /**
          * Throws an error if the alert type isn't valid.
          */
-        validateAlertType: function (alertType) {
+        validateAlertType: function(alertType) {
             var types = _(this.alertTypes).keys();
             if (_(types).contains(alertType)) {
                 return this;
@@ -52,17 +52,18 @@ define(function (require) {
             this.options = _.extend({}, this.alertTypes[alertType], this.options);
         },
 
-        initialize: function (options) {
-            var alertType;
-
+        initialize: function(options) {
             this.options = _.extend({}, this.defaults, options);
-
-            alertType = this.options.alertType;
-            this.validateAlertType(alertType)
-                .updateTemplateSetings(alertType);
         },
 
-        templateHelpers: function () {
+        validateAndUpdateTemplate: function() {
+            var alertType = this.options.alertType;
+            this.validateAlertType(alertType)
+                .updateTemplateSetings(alertType);
+            return this;
+        },
+
+        templateHelpers: function() {
             return this.options;
         }
     });

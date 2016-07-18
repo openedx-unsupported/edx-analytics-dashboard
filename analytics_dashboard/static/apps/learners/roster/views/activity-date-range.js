@@ -1,4 +1,4 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
@@ -17,9 +17,8 @@ define(function (require) {
 
             return {
                 startDate: _(dateRange).has('start') ? Utils.formatDate(dateRange.start) : naText,
-                endDate: _(dateRange).has('end') ? Utils.formatDate(dateRange.end) : naText,
+                endDate: _(dateRange).has('end') ? Utils.formatDate(dateRange.end) : naText
             };
-        },
+        }
     });
-
 });

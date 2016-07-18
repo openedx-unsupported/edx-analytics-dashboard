@@ -1,4 +1,4 @@
-define(['backbone', 'jquery'], function (Backbone, $) {
+define(['backbone', 'jquery'], function(Backbone, $) {
     'use strict';
 
     var AnnouncementView = Backbone.View.extend({
@@ -6,22 +6,21 @@ define(['backbone', 'jquery'], function (Backbone, $) {
             'click .dismiss': 'dismiss'
         },
 
-        initialize: function () {
+        initialize: function() {
             this.csrftoken = $('input[name=csrfmiddlewaretoken]', this.$el).val();
-            this.render();
         },
 
-        render: function () {
+        render: function() {
             this.delegateEvents();
             return this;
         },
 
-        dismiss: function () {
+        dismiss: function() {
             var self = this,
                 url = this.$el.data('dismiss-url');
 
             $.ajaxSetup({
-                beforeSend: function (xhr) {
+                beforeSend: function(xhr) {
                     xhr.setRequestHeader('X-CSRFToken', self.csrftoken);
                 }
             });

@@ -1,4 +1,4 @@
-define(['moment', 'underscore', 'utils/globalization'], function (moment, _, Globalize) {
+define(['moment', 'underscore', 'utils/globalization'], function(moment, _, Globalize) {
     'use strict';
 
     var utils = {
@@ -11,14 +11,14 @@ define(['moment', 'underscore', 'utils/globalization'], function (moment, _, Glo
          * @param blackList Exclude attributes in this array of strings.
          * @returns Hash of found attributes.
          */
-        getNodeProperties: function (nodeAttributes, startsWithAndStrip, blackList) {
+        getNodeProperties: function(nodeAttributes, startsWithAndStrip, blackList) {
             var properties = {};
 
             // fill in defaults
             startsWithAndStrip = startsWithAndStrip || '';
             blackList = blackList || [];
 
-            _(_(nodeAttributes.length).range()).each(function (i) {
+            _(_(nodeAttributes.length).range()).each(function(i) {
                 var nodeName = nodeAttributes.item(i).nodeName,
                     strippedName;
                 // filter the attributes to just the ones that start with our
@@ -38,7 +38,7 @@ define(['moment', 'underscore', 'utils/globalization'], function (moment, _, Glo
          * @param {(string|Date)} date (ex. 2014-01-31 or Date object)
          * @returns {string} Returns a formatted date (ex. January 31, 2014)
          */
-        formatDate: function (date) {
+        formatDate: function(date) {
             // moment accepts 'zh-cn' rather than 'zh' and 'zh-tw' rather than 'zh-hant'
             if (window.language === 'zh') {
                 moment.locale('zh-cn');
@@ -55,7 +55,7 @@ define(['moment', 'underscore', 'utils/globalization'], function (moment, _, Glo
          * @param value {number}
          * @returns {string}
          */
-        localizeNumber: function (value, fractionDigits) {
+        localizeNumber: function(value, fractionDigits) {
             var options = {
                 minimumFractionDigits: fractionDigits,
                 maximumFractionDigits: fractionDigits
@@ -68,7 +68,7 @@ define(['moment', 'underscore', 'utils/globalization'], function (moment, _, Glo
          * @param value {number}
          * @returns {string}
          */
-        formatDisplayPercentage: function (value) {
+        formatDisplayPercentage: function(value) {
             var display = '< 1%';
             if (value >= 0.01 || value === 0) {
                 display = Globalize.formatNumber(value, {

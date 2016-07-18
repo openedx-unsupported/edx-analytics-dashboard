@@ -2,20 +2,19 @@
  * Abstract class for NVD3 charts.  See TrendsView, HistogramView, and DiscreteBarView.
  */
 define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-listener-view'],
-    function (d3, $, nvd3, _, Utils, AttributeListenerView) {
+    function(d3, $, nvd3, _, Utils, AttributeListenerView) {
         'use strict';
 
         var ChartView = AttributeListenerView.extend({
 
             defaults: _.extend({}, AttributeListenerView.prototype.defaults, {
-                    displayExplicitTicksThreshold: 11,
-                    excludeData: [],  // e.g. excludes data rows from chart (e.g. 'Unknown')
-                    dataType: 'int',  // e.g. int, percent
-                    xAxisMargin: 6,
-                    graphShiftSelector: null, // Selector used for shifting chart position
-                    truncateXTicks: false     // Determines if x axis ticks should be truncated
-                }
-            ),
+                displayExplicitTicksThreshold: 11,
+                excludeData: [],  // e.g. excludes data rows from chart (e.g. 'Unknown')
+                dataType: 'int',  // e.g. int, percent
+                xAxisMargin: 6,
+                graphShiftSelector: null, // Selector used for shifting chart position
+                truncateXTicks: false     // Determines if x axis ticks should be truncated
+            }),
 
             /**
              * Initializes a ChartView.
@@ -39,9 +38,9 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
              *          key: str   // key for the data lookup
              *      }
              */
-            initialize: function (options) {
-                AttributeListenerView.prototype.initialize.call(this, options);
+            initialize: function(options) {
                 var self = this;
+                AttributeListenerView.prototype.initialize.call(this, options);
                 self.chart = null;
                 self.options = _.extend({}, self.defaults, options);
                 _.bindAll(this, 'truncateXTick', 'formatXTick');
@@ -68,7 +67,7 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
              *       ...
              *   ]
              */
-            assembleTrendData: function () {
+            assembleTrendData: function() {
                 var self = this,
                     data = self.model.get(self.options.modelAttribute),
                     trendOptions = self.options.trends,
@@ -76,14 +75,14 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
 
                 if (self.options.excludeData.length > 0) {
                     // exclude specific rows of data (e.g. 'Unknown') from display
-                    data = _(data).reject(function (datum) {
+                    data = _(data).reject(function(datum) {
                         return _(self.options.excludeData).contains(datum[self.options.x.key]);
                     });
                 }
 
                 // parse and format the data for nvd3
-                combinedTrends = _(trendOptions).map(function (trendOption) {
-                    var values = _(data).map(function (datum) {
+                combinedTrends = _(trendOptions).map(function(trendOption) {
+                    var values = _(data).map(function(datum) {
                         var keyedValue = _(datum).clone(),
                             yKey = trendOption.key || self.options.y.key;
                         keyedValue[self.options.y.key] = datum[yKey];
@@ -109,7 +108,7 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
              * This can be useful if the dataset has unique identifiers that
              * aren't display friendly.
              */
-            buildXLabelMapping: function () {
+            buildXLabelMapping: function() {
                 var self = this,
                     data = self.model.get(self.options.modelAttribute),
                     mapping;
@@ -121,7 +120,7 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
                 return mapping;
             },
 
-            styleChart: function () {
+            styleChart: function() {
                 var self = this,
                     canvas = d3.select(self.el),
                 // ex. translate(200, 200) or translate(200 200)
@@ -163,16 +162,18 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
              * Return the NVD3 chart that will be displayed
              * (e.g. nvd3.models.lineChart).
              */
-            getChart: function () {
+            /* eslint-disable no-unused-vars, no-throw-literal */
+            getChart: function(d) {
                 throw 'Not implemented';
             },
+            /* eslint-enable no-unused-vars, no-throw-literal */
 
             /**
              * Returns the formatted label for the x-axis ticks.
              *
              * @param d Data along the x-axis to format.
              */
-            formatXTick: function (d) {
+            formatXTick: function(d) {
                 var self = this,
                     label = d;
                 if (_(self).has('xLabelMapping') && _(self.xLabelMapping).has(d)) {
@@ -184,45 +185,47 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
             /**
             * Truncate (e.g. add ellipses) long labels shown beneath the bar.
             */
-            truncateXTick: function (d) {   // jshint ignore:line
+            /* eslint-disable no-unused-vars, no-throw-literal */
+            truncateXTick: function(d) {
                 throw 'Not implemented';
             },
+            /* eslint-enable no-unused-vars, no-throw-literal */
 
-            parseXData: function (d) {
+            parseXData: function(d) {
                 var self = this;
                 return d[self.options.x.key];
             },
 
-            getExplicitXTicks: function (assembledData) {
+            getExplicitXTicks: function(assembledData) {
                 var self = this,
                     xTicks;
 
                 // get dates for the explicit ticks -- assuming data isn't sparse
-                xTicks = _(assembledData[0].values).map(function (data) {
+                xTicks = _(assembledData[0].values).map(function(data) {
                     return self.parseXData(data);
                 });
 
                 return xTicks;
             },
 
-            initChart: function (chart) {
+            initChart: function(chart) {
                 var self = this;
 
                 // minimize the spacing, but leave enough for point at the top to be shown w/o being clipped
                 chart.margin({top: self.options.xAxisMargin})
                     .height(300)    // This should be the same as the height set on the chart container in CSS.
                     .forceY(0)
-                    .x(function (d) {
+                    .x(function(d) {
                         // Parse dates to integers
                         return self.parseXData(d);
                     })
-                    .y(function (d) {
+                    .y(function(d) {
                         // Simply return the count
                         return d[self.options.y.key];
                     });
             },
 
-            getYAxisFormat: function () {
+            getYAxisFormat: function() {
                 var self = this,
                     format = d3.format('f');  // defaults to integer
 
@@ -268,16 +271,18 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
              * Implement this to enable users to click on chart elements.  This
              * is called when render is complete and the click option is specified.
              */
-            addChartClick: function (d) {   // jshint ignore:line
+            /* eslint-disable no-unused-vars, no-throw-literal */
+            addChartClick: function(d) {
                 throw 'Not implemented';
             },
+            /* eslint-enable no-unused-vars, no-throw-literal */
 
-            render: function () {
-                AttributeListenerView.prototype.render.call(this);
+            render: function() {
                 var self = this,
                     canvas = d3.select(self.el),
                     assembledData = self.assembleTrendData(),
                     xLabelMapping = self.buildXLabelMapping();
+                AttributeListenerView.prototype.render.call(this);
 
                 self.xLabelMapping = xLabelMapping;
                 self.chart = self.getChart();
@@ -310,7 +315,7 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
 
                 self.styleChart();
 
-                nvd3.utils.windowResize(function () {
+                nvd3.utils.windowResize(function() {
                     self.chart.update();
                     self.styleChart();
                 });

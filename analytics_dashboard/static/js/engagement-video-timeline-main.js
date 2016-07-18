@@ -2,23 +2,18 @@
  * This is the first script called by the video timeline page and displays a
  * video timeline chart and data table.
  */
-require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
+var doc = require('vendor/domReady!'),
+    page = require('load/init-page'),
+    DisclosureView = require('uitk/disclosure/disclosure-view'),
+    _ = require('underscore'),
+    DataTableView = require('views/data-table-view'),
+    IFrameView = require('views/iframe-view'),
+    StackedTimelineView = require('views/stacked-timeline-view');
+
+(function() {
     'use strict';
 
-    require([
-        'uitk/disclosure/disclosure-view',
-        'underscore',
-        'views/data-table-view',
-        'views/iframe-view',
-        'views/stacked-timeline-view'
-    ], function (
-        DisclosureView,
-        _,
-        DataTableView,
-        IFrameView,
-        StackedTimelineView
-    ) {
-
+    (function() {
         var courseModel = page.models.courseModel,
             timelineSettings = [
                 {
@@ -38,7 +33,8 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             ],
             tableColumns = [
                 {key: 'start_time', title: gettext('Time'), type: 'time'}
-            ];
+            ],
+            iFrameView;
 
         tableColumns = tableColumns.concat(timelineSettings);
 
@@ -47,18 +43,19 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
         });
 
         // loading the iframe blocks content, so load it after the rest of the page loads
-        new IFrameView({
+        iFrameView = new IFrameView({
             el: '#module-preview',
             loadingSelector: '#module-loading'
         });
+        iFrameView.render();
 
         new StackedTimelineView({
             el: '#chart-view',
             model: courseModel,
             modelAttribute: 'videoTimeline',
             trends: timelineSettings,
-            x: { key: 'start_time', title: 'Time' },
-            y: { key: 'num_users' }
+            x: {key: 'start_time', title: 'Time'},
+            y: {key: 'num_users'}
         });
 
         new DataTableView({
@@ -67,6 +64,5 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             modelAttribute: 'videoTimeline',
             columns: tableColumns
         });
-
     });
 });

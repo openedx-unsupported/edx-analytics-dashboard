@@ -1,4 +1,4 @@
-define(['backbone', 'jquery'], function (Backbone, $) {
+define(['backbone', 'jquery'], function(Backbone, $) {
     'use strict';
 
     /**
@@ -10,14 +10,13 @@ define(['backbone', 'jquery'], function (Backbone, $) {
 
         initialize: function(options) {
             this.options = options;
-            this.render();
         },
 
-        render: function () {
+        render: function() {
             var self = this;
             self.$el.attr('src', self.$el.data('src'));
             if (self.options.loadingSelector) {
-                self.$el.on('load', function () {
+                self.$el.on('load', function() {
                     $(self.options.loadingSelector).remove();
                 });
             }
