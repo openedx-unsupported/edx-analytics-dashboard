@@ -7,16 +7,12 @@
 		"sinon": true // used for mocking
 	},
 	"rules": {
-		"import/no-unresolved": "off",
-	    "no-new" : "off",
-	    "no-unused-vars" : "off",
-	    "no-unused-expressions" : "off",
-	    "no-param-reassign" : "off",
-	    "no-undef" : "off",
-	    "no-underscore-dangle" : "off",
-	    "array-callback-return" : "off",
-	    "no-restricted-syntax" : "off",
-	    "vars-on-top" : "off",
-	    "global-require" : "off"
+		"import/no-unresolved": "off", // 178 errors
+	    "no-new" : "off", // 35 errors
+	    "no-param-reassign" : "off", // 16 errors
+	    "no-undef" : "off", // 20 errors
+	    "array-callback-return" : "off", // 1 error
+	    "no-restricted-syntax" : "off", // 3 errors
+	    "global-require" : "off" // 21 errors
 	}
 }

@@ -6,7 +6,7 @@
         karma = require('karma').server,
         path = require('path'),
         browserSync = require('browser-sync'),
-        extend = require('util')._extend,
+        extend = require('util')._extend, // eslint-disable-line no-underscore-dangle
         paths = {
             spec: [
                 'analytics_dashboard/static/js/**/*.js',
