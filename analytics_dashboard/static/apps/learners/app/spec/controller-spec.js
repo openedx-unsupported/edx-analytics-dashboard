@@ -19,7 +19,7 @@ define(function(require) {
         courseId = 'test/course/id';
 
         // convenience method for asserting that we are on the learner detail page
-        expectDetailPage = function (controller) {
+        expectDetailPage = function(controller) {
             var date = new Date(2016, 1, 28);
             expect(controller.options.rootView.$('.learners-navigation-region').html())
                 .toContainText('Return to Learners');
@@ -44,7 +44,7 @@ define(function(require) {
         };
 
 
-        beforeEach(function () {
+        beforeEach(function() {
             var pageModel = new PageModel();
 
             server = sinon.fakeServer.create();
@@ -135,7 +135,7 @@ define(function(require) {
                 jasmine.clock().uninstall();
             });
 
-            it('hides app-wide errors', function () {
+            it('hides app-wide errors', function() {
                 this.controller.showLearnerDetailPage('learner');
                 server.requests[0].respond(200, {}, JSON.stringify(this.user));
                 server.requests[server.requests.length - 1].respond(500, {});

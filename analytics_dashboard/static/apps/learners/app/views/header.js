@@ -19,7 +19,7 @@ define(function(require) {
             change: 'render'
         },
 
-        templateHelpers: function () {
+        templateHelpers: function() {
             return {
                 title: this.model.get('title')
             };

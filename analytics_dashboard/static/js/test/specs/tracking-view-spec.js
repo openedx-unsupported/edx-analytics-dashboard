@@ -157,7 +157,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                     });
             });
 
-            it('should call segment::page()', function () {
+            it('should call segment::page()', function() {
                 var view,
                     courseModel = new CourseModel({
                         courseId: 'my/course/id'

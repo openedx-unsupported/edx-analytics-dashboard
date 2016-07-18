@@ -10,8 +10,7 @@ var doc = require('vendor/domReady!'),
 
 (function() {
     'use strict';
-    function () {
-
+    (function() {
         var colors = ['#4BB4FB', '#CA0061', '#CCCCCC'],
             numericColumn = {
                 className: 'text-right',
