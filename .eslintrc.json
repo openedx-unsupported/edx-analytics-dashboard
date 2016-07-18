@@ -1,0 +1,50 @@
+{
+	"extends": "eslint-config-edx",
+	"globals": {
+		"gettext": true, // added by django for i18n
+		"fixLanguageCode": true, // global function to correct window.language
+		"setFixtures": true,  // added globally by jasmine-jquery
+		"sinon": true // used for mocking
+	},
+	"rules": {
+		"import/no-unresolved": "off",
+	    "no-new" : "off",
+	    "no-unused-vars" : "off",
+	    "no-unused-expressions" : "off",
+	    "no-param-reassign" : "off",
+	    "no-undef" : "off",
+	    "no-underscore-dangle" : "off",
+	    "array-callback-return" : "off",
+	    "no-restricted-syntax" : "off",
+	    "space-before-function-paren" : "off",
+	    "indent" : "off",
+	    "padded-blocks" : "off",
+	    "key-spacing" : "off",
+	    "comma-spacing" : "off",
+	    "vars-on-top" : "off",
+	    "max-len" : "off",
+	    "object-curly-spacing" : "off",
+	    "no-spaced-func" : "off",
+	    "comma-dangle" : "off",
+	    "no-multi-spaces" : "off",
+	    "no-unneeded-ternary" : "off",
+	    "no-nested-ternary" : "off",
+	    "global-require" : "off",
+	    "no-shadow" : "off",
+	    "dollar-sign/dollar-sign" : "off",
+	    "space-infix-ops" : "off",
+	    "block-spacing" : "off",
+	    "no-sequences" : "off",
+	    "semi" : "off",
+	    "semi-spacing" : "off",
+	    "no-throw-literal" : "off",
+	    "camelcase" : "off",
+	    "strict" : "off",
+	    "array-bracket-spacing" : "off",
+	    "wrap-iife" : "off",
+	    "spaced-comment" : "off",
+	    "space-before-blocks" : "off",
+	    "keyword-spacing" : "off",
+	    "yoda" : "off"
+	}
+}

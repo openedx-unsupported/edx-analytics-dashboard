@@ -1,12 +1,11 @@
 (function () {
     'use strict';
 
-    var jshint = require('gulp-jshint'),
+    var eslint = require('gulp-eslint'),
         gulp = require('gulp'),
         karma = require('karma').server,
         path = require('path'),
         browserSync = require('browser-sync'),
-        jscs = require('gulp-jscs'),
         extend = require('util')._extend,
         paths = {
             spec: [
@@ -42,10 +41,9 @@
 
     gulp.task('lint', function () {
         return gulp.src(paths.lint)
-            .pipe(jshint())
-            .pipe(jshint.reporter('default'))
-            .pipe(jshint.reporter('fail'))
-            .pipe(jscs());
+            .pipe(eslint())
+            .pipe(eslint.format())
+            .pipe(eslint.failAfterError());
     });
 
     // this task runs the tests.  It doesn't give you very detailed results,
