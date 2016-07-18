@@ -7,7 +7,8 @@ define(function(require) {
     return Marionette.ItemView.extend({
         template: _.template(require('text!learners/detail/templates/learner-names.underscore')),
         modelEvents: {
-            change: 'render'
+            change: 'render',
+            'change:email': 'render'
         }
     });
 });
