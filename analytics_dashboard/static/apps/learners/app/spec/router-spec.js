@@ -2,23 +2,27 @@ define(function (require) {
     'use strict';
 
     var Backbone = require('backbone'),
-        Marionette = require('marionette'),
-
-        LearnersRouter = require('learners/app/router');
+        LearnerCollection = require('learners/common/collections/learners'),
+        LearnersController = require('learners/app/controller'),
+        LearnersRouter = require('learners/app/router'),
+        PageModel = require('learners/common/models/page');
 
     describe('LearnersRouter', function () {
         beforeEach(function () {
             Backbone.history.start({silent: true});
-            this.controller = new (Marionette.Object.extend({
-                showLearnerRosterPage: function () {},
-                showLearnerDetailPage: function () {},
-                showNotFoundPage: function () {},
-                onShowPage: function () {}
-            }))();
-            spyOn(this.controller, 'showLearnerRosterPage');
-            spyOn(this.controller, 'showLearnerDetailPage');
-            spyOn(this.controller, 'showNotFoundPage');
-            spyOn(this.controller, 'onShowPage');
+            this.server = sinon.fakeServer.create();
+            this.user = {
+                last_updated: new Date(2016, 1, 28)
+            };
+            this.collection = new LearnerCollection([this.user], {url: 'http://example.com'});
+            this.controller = new LearnersController({
+                learnerCollection: this.collection,
+                pageModel: new PageModel()
+            });
+            spyOn(this.controller, 'showLearnerRosterPage').and.stub();
+            spyOn(this.controller, 'showLearnerDetailPage').and.stub();
+            spyOn(this.controller, 'showNotFoundPage').and.stub();
+            spyOn(this.controller, 'onShowPage').and.stub();
             this.router = new LearnersRouter({
                 controller: this.controller
             });
@@ -28,6 +32,7 @@ define(function (require) {
             // Clear previous route
             this.router.navigate('');
             Backbone.history.stop();
+            this.server.restore();
         });
 
         it('triggers a showPage event for pages beginning with "show"', function () {
@@ -85,6 +90,17 @@ define(function (require) {
                 this.router.navigate('this/does/not/match', {trigger: true});
                 expect(this.controller.showNotFoundPage).toHaveBeenCalledWith('this/does/not/match', null);
             });
+        });
+
+        it('URL fragment is updated on LearnerCollection sync', function (done) {
+            this.collection.state.currentPage = 2;
+            this.collection.setFilterField('text_search', 'foo');
+            this.collection.fetch({reset: true});
+            this.collection.once('sync', function () {
+                expect(Backbone.history.getFragment()).toBe('?text_search=foo&page=2');
+                done();
+            });
+            this.server.requests[0].respond(200, {}, JSON.stringify([this.user]));
         });
     });
 });

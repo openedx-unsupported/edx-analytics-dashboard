@@ -38,7 +38,7 @@
 
 @mixin alert-container($alert-color) {
   padding: $padding-large-horizontal $padding-large-vertical;
-  padding-bottom: $padding-large-horizontal * 2;
+  padding-bottom: ($padding-large-horizontal * 2) - $padding-small-horizontal;
   margin-bottom: $padding-large-horizontal * 2;
   background-color: $alert-background-color;
   border-top: 4px solid $alert-color;
@@ -52,6 +52,10 @@
   .short-message {
     font-size: $font-size-large;
     font-weight: 700;
+    padding-bottom: $padding-small-horizontal;
+  }
+
+  .alert-body, .link {
     padding-bottom: $padding-small-horizontal;
   }
 

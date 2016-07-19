@@ -9,16 +9,23 @@
                     <%- title %>
                 </div>
                 <% if (body) { %>
-                    <div>
+                    <div class="alert-body">
                         <%- body %>
                     </div>
                 <% } %>
                 <% if (suggestions.length) { %>
-                    <ul class="suggestions">
-                        <% suggestions.map(function (suggestion) { %>
-                            <li><%- suggestion %></li>
-                        <% }); %>
-                    </ul>
+                    <div>
+                        <ul class="suggestions">
+                            <% suggestions.map(function (suggestion) { %>
+                                <li><%- suggestion %></li>
+                            <% }); %>
+                        </ul>
+                    </div>
+                <% } %>
+                <% if (link) { %>
+                    <div class="link">
+                        <a href="<%- link.url %>"><%- link.text %></a>
+                    </div>
                 <% } %>
             </div>
         </div>

@@ -86,4 +86,18 @@ define(['utils/utils'], function (Utils) {
         });
     });
 
+    describe('parseQueryString', function () {
+        it('should parse query string', function () {
+            expect(Utils.parseQueryString('foo=bar&baz=quux')).toEqual({foo: 'bar', baz: 'quux'});
+            expect(Utils.parseQueryString('foo=bar&')).toEqual({foo: 'bar'});
+            expect(Utils.parseQueryString('foo=bar&baz')).toEqual({foo: 'bar', baz: ''});
+            expect(Utils.parseQueryString('foo=bar&baz=')).toEqual({foo: 'bar', baz: ''});
+            expect(Utils.parseQueryString('')).toEqual({});
+            expect(Utils.parseQueryString(null)).toEqual({});
+            expect(function () { Utils.parseQueryString('foo=bar='); }).toThrow(
+                new Error('Each "&"-separated substring must either be a key or a key-value pair')
+            );
+        });
+    });
+
 });

@@ -69,7 +69,7 @@ define(function (require) {
                 last_updated: new Date(2016, 1, 28),
                 course_id: courseId
             };
-            this.collection = new LearnerCollection([this.user], {parse: true});
+            this.collection = new LearnerCollection([this.user], {parse: true, url:'http://example.com'});
             this.controller = new LearnersController({
                 rootView: this.rootView,
                 learnerCollection: this.collection,
@@ -90,6 +90,26 @@ define(function (require) {
         it('should show the learner roster page', function () {
             this.controller.showLearnerRosterPage();
             expectRosterPage(this.controller);
+        });
+
+        it('should show the filtered learner roster page', function (done) {
+            this.controller.showLearnerRosterPage('text_search=foo');
+            expect(this.controller.options.learnerCollection.getSearchString()).toEqual('foo');
+            this.controller.options.learnerCollection.once('sync', function () {
+                expectRosterPage(this.controller);
+                expect(this.controller.options.rootView.$('.learners-active-filters').html()).toContainText('foo');
+                done();
+            }, this, done);
+            expect(this.controller.options.rootView.$('.learners-main-region').html()).toContainText('Loading...');
+            server.requests[server.requests.length - 1].respond(200, {}, '{}');
+        });
+
+        it('should show invalid parameters alert with invalid URL parameters', function () {
+            this.controller.showLearnerRosterPage('text_search=foo=');
+            expect(this.controller.options.rootView.$('.learners-alert-region').html()).toContainText(
+                'Invalid Parameters'
+            );
+            expect(this.controller.options.rootView.$('.learners-main-region').html()).toBe('');
         });
 
         describe('navigating to the Learner Detail page', function () {
@@ -119,6 +139,16 @@ define(function (require) {
                 });
 
                 server.requests[server.requests.length - 1].respond(500, {}, '');
+            });
+
+            it('should have query string in return to learners navigation link', function () {
+                this.collection.state.currentPage = 2;
+                this.collection.setSearchString('foobar');
+                this.controller.showLearnerDetailPage('learner');
+                server.requests[0].respond(200, {}, JSON.stringify(this.user));
+                server.requests[server.requests.length - 1].respond(200, {}, JSON.stringify({}));
+                expect(this.controller.options.rootView.$('.learners-navigation-region a').attr('href'))
+                    .toEqual('#?text_search=foobar&page=2');
             });
         });
 
