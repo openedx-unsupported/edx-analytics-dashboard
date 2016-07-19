@@ -1,5 +1,5 @@
 define(['backbone', 'jquery', 'underscore', 'utils/utils'],
-    function (Backbone, $, _, Utils) {
+    function(Backbone, $, _, Utils) {
         'use strict';
 
         /**
@@ -22,7 +22,7 @@ define(['backbone', 'jquery', 'underscore', 'utils/utils'],
                 'shown.bs.tooltip': 'trackElementEvent'
             },
 
-            initialize: function (options) {
+            initialize: function(options) {
                 var self = this;
 
                 self.options = options;
@@ -37,7 +37,7 @@ define(['backbone', 'jquery', 'underscore', 'utils/utils'],
                 }
             },
 
-            applicationIdSet: function () {
+            applicationIdSet: function() {
                 var self = this,
                     trackId = self.model.get('segmentApplicationId');
 
@@ -57,7 +57,7 @@ define(['backbone', 'jquery', 'underscore', 'utils/utils'],
              * This emits an event to our external tracking systems when an
              * event bubbles up from a DOM element.
              */
-            trackElementEvent: function (ev) {
+            trackElementEvent: function(ev) {
                 var self = this,
                     trackedElement = ev.target,
                     properties = Utils.getNodeProperties(
@@ -77,17 +77,15 @@ define(['backbone', 'jquery', 'underscore', 'utils/utils'],
              *
              * this.segment is set for convenience.
              */
-            initSegment: function (applicationKey) {
+            initSegment: function(applicationKey) {
                 var self = this;
 
                 if (_.isUndefined(self.segment)) {
                     // This is taken directly from https://segment.io/docs/tutorials/quickstart-analytics.js/.
 
-                    /* jshint ignore:start */
-                    // jscs:disable
-                    window.analytics=window.analytics||[],window.analytics.methods=['identify','group','track','page','pageview','alias','ready','on','once','off','trackLink','trackForm','trackClick','trackSubmit'],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var key=window.analytics.methods[i];window.analytics[key]=window.analytics.factory(key)}window.analytics.load=function(t){if(!document.getElementById('analytics-js')){var a=document.createElement('script');a.type='text/javascript',a.id='analytics-js',a.async=!0,a.src=('https:'===document.location.protocol?'https://':'http://')+'cdn.segment.io/analytics.js/v1/'+t+'/analytics.min.js';var n=document.getElementsByTagName('script')[0];n.parentNode.insertBefore(a,n)}},window.analytics.SNIPPET_VERSION='2.0.9';
-                    // jscs:enable
-                    /* jshint ignore:end */
+                    // eslint-disable-next-line
+                    window.analytics = window.analytics || [], window.analytics.methods = ['identify', 'group', 'track', 'page', 'pageview', 'alias', 'ready', 'on', 'once', 'off', 'trackLink', 'trackForm', 'trackClick', 'trackSubmit'], window.analytics.factory = function(t) { return function() { var a = Array.prototype.slice.call(arguments); return a.unshift(t), window.analytics.push(a), window.analytics; }; }; for (var i = 0; i < window.analytics.methods.length; i++) { var key = window.analytics.methods[i]; window.analytics[key] = window.analytics.factory(key); }window.analytics.load = function(t) { if (!document.getElementById('analytics-js')) { var a = document.createElement('script'); a.type = 'text/javascript', a.id = 'analytics-js', a.async = !0, a.src = ('https:' === document.location.protocol ? 'https://' : 'http://') + 'cdn.segment.io/analytics.js/v1/' + t + '/analytics.min.js'; var n = document.getElementsByTagName('script')[0]; n.parentNode.insertBefore(a, n); } }, window.analytics.SNIPPET_VERSION = '2.0.9';
+
 
                     // shortcut to segment.io
                     self.segment = window.analytics;
@@ -103,7 +101,7 @@ define(['backbone', 'jquery', 'underscore', 'utils/utils'],
             /**
              * Log the user.
              */
-            logUser: function () {
+            logUser: function() {
                 var self = this,
                     userModel = self.options.userModel;
                 self.segment.identify(userModel.get('username'), {
@@ -134,7 +132,7 @@ define(['backbone', 'jquery', 'underscore', 'utils/utils'],
              *
              * @param eventType String event type.
              */
-            track: function (eventType, properties) {
+            track: function(eventType, properties) {
                 var self = this,
                     course = self.buildCourseProperties();
 
@@ -146,7 +144,7 @@ define(['backbone', 'jquery', 'underscore', 'utils/utils'],
              * Catch 'segment:page' events in order to send a page view event to
              * segment.io.
              */
-            page: function (pageName, metadata) {
+            page: function(pageName, metadata) {
                 this.segment.page(pageName, _.extend({}, this.buildCourseProperties(), metadata));
             }
         });

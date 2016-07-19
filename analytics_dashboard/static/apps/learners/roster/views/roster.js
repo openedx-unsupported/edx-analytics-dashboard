@@ -5,7 +5,7 @@
  * Requires the following values in the options hash:
  * - options.collection - an instance of LearnerCollection
  */
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
@@ -41,7 +41,7 @@ define(function (require) {
             results: '.learners-results'
         },
 
-        initialize: function (options) {
+        initialize: function(options) {
             var eventTransformers;
 
             this.options = options || {};
@@ -55,7 +55,7 @@ define(function (require) {
             LearnerUtils.mapEvents(this.options.courseMetadata, eventTransformers, this);
         },
 
-        onBeforeShow: function () {
+        onBeforeShow: function() {
             this.showChildView('activeFilters', new ActiveFiltersView({
                 collection: this.options.collection
             }));
@@ -74,7 +74,7 @@ define(function (require) {
             }));
         },
 
-        templateHelpers: function () {
+        templateHelpers: function() {
             return {
                 controlsLabel: gettext('Learner roster controls')
             };

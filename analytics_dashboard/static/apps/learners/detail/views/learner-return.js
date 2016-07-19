@@ -1,4 +1,4 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
@@ -9,10 +9,9 @@ define(function (require) {
 
         templateHelpers: function() {
             return {
-                returnText : gettext('Return to Learners'),
+                returnText: gettext('Return to Learners'),
                 queryString: this.options.queryString
             };
-        },
+        }
     });
-
 });

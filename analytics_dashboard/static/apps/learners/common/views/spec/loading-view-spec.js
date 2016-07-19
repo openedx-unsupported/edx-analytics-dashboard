@@ -1,4 +1,4 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
@@ -6,15 +6,14 @@ define(function (require) {
 
         LoadingView = require('learners/common/views/loading-view');
 
-    describe('LoadingView', function () {
-
+    describe('LoadingView', function() {
         var fixtureClass = '.loading-fixture';
 
-        beforeEach(function () {
+        beforeEach(function() {
             setFixtures('<div class="' + fixtureClass.slice(1) + '"></div>');
         });
 
-        it('shows and hides loading template', function () {
+        it('shows and hides loading template', function() {
             var loadingView = new LoadingView({
                 model: new Backbone.Model(),
                 el: fixtureClass,
@@ -27,6 +26,5 @@ define(function (require) {
             loadingView.model.trigger('sync');
             expect(loadingView.$('.loading')).not.toContainText('Loading...');
         });
-
     });
 });

@@ -1,8 +1,8 @@
-require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
+require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
     'use strict';
 
     require(['d3', 'underscore', 'views/data-table-view', 'views/stacked-bar-view'],
-        function (d3, _, DataTableView, StackedBarView) {
+        function(d3, _, DataTableView, StackedBarView) {
             var model = page.models.courseModel,
                 graphSubmissionColumns = [
                     {
@@ -24,7 +24,7 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                 ],
                 tableColumns = [
                     {key: 'index', title: gettext('Order'), type: 'number', className: 'text-right'},
-                    {key: 'name', title: model.get('contentTableHeading'), type: 'hasNull'}                ];
+                    {key: 'name', title: model.get('contentTableHeading'), type: 'hasNull'}];
 
             tableColumns = tableColumns.concat(graphSubmissionColumns);
 

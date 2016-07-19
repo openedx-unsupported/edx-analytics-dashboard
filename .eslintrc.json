@@ -1,0 +1,19 @@
+{
+	"extends": "eslint-config-edx",
+	"globals": {
+		"gettext": true, // added by django for i18n
+		"fixLanguageCode": true, // global function to correct window.language
+		"setFixtures": true,  // added globally by jasmine-jquery
+		"sinon": true // used for mocking
+	},
+	"rules": {
+		"import/no-unresolved": "off",
+	    "no-new" : "off",
+	    "no-param-reassign" : "off",
+	    "no-undef" : "off",
+	    "array-callback-return" : "off",
+	    "no-restricted-syntax" : "off",
+	    "vars-on-top" : "off",
+	    "global-require" : "off"
+	}
+}

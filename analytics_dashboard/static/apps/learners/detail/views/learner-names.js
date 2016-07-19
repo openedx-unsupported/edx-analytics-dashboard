@@ -1,4 +1,4 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
@@ -11,5 +11,4 @@ define(function (require) {
             'change:email': 'render'
         }
     });
-
 });

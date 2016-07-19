@@ -1,4 +1,4 @@
-define(function (require) {  // jshint ignore:line
+define(function(require) { // eslint-disable-line no-unused-vars
     'use strict';
 
     var utils = {
@@ -13,7 +13,7 @@ define(function (require) {  // jshint ignore:line
          * @param jqXHR a jQuery XHR object.
          * @param textStatus
          */
-        handleAjaxFailure: function (jqXHR, textStatus) {
+        handleAjaxFailure: function(jqXHR, textStatus) {
             if (jqXHR.readyState === 4) {
                 // Request completed; server error
                 this.trigger('serverError', jqXHR.status, jqXHR.responseJSON);
@@ -35,9 +35,9 @@ define(function (require) {  // jshint ignore:line
          * @param forwarder (object) A Marionette object which should trigger
          * the transformed events via 'triggerMethod'.
          */
-        mapEvents: function (originator, transformFunctions, forwarder) {
-            Object.keys(transformFunctions).map(function (eventName) {
-                forwarder.listenTo(originator, eventName, function () {
+        mapEvents: function(originator, transformFunctions, forwarder) {
+            Object.keys(transformFunctions).map(function(eventName) {
+                forwarder.listenTo(originator, eventName, function() {
                     var transformFunc = transformFunctions[eventName],
                         newEventArguments = transformFunc.apply(forwarder, arguments);
                     forwarder.triggerMethod.apply(forwarder, newEventArguments);
@@ -54,12 +54,13 @@ define(function (require) {  // jshint ignore:line
              * Transforms an AJAX server error (as defined in handleAjaxFailure)
              * to an application error.
              */
-            serverErrorToAppError: function (status) {
+            serverErrorToAppError: function(status) {
                 if (status === 504) {
                     return ['appError', {
                         // Translators: "504" is a number representing a server error, so please leave it as "504".
                         title: gettext('504: Server error'),
-                        description: gettext('Processing your request took too long to complete. Reload the page to try again.') // jshint ignore:line
+                        // eslint-disable-next-line max-len
+                        description: gettext('Processing your request took too long to complete. Reload the page to try again.')
                     }];
                 } else {
                     return ['appError', {
@@ -73,7 +74,7 @@ define(function (require) {  // jshint ignore:line
              * Transforms an AJAX network error (as defined in
              * handleAjaxFailure) to an application error.
              */
-            networkErrorToAppError: function () {
+            networkErrorToAppError: function() {
                 return ['appError', {
                     title: gettext('Network error'),
                     description: gettext('Your request could not be processed. Reload the page to try again.')
@@ -84,7 +85,7 @@ define(function (require) {  // jshint ignore:line
              * Translates a model/collection 'sync' event to an application
              * 'clearError' event.
              */
-            syncToClearError: function () {
+            syncToClearError: function() {
                 return ['clearError'];
             }
         }

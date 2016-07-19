@@ -1,4 +1,4 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var PagingCollection = require('uitk/pagination/paging-collection'),
@@ -12,7 +12,7 @@ define(function (require) {
     LearnerCollection = PagingCollection.extend({
         model: LearnerModel,
 
-        initialize: function (models, options) {
+        initialize: function(models, options) {
             PagingCollection.prototype.initialize.call(this, options);
 
             this.url = options.url;
@@ -31,7 +31,7 @@ define(function (require) {
             this.registerFilterableField('enrollment_mode', gettext('Enrollment Mode'));
         },
 
-        fetch: function (options) {
+        fetch: function(options) {
             return PagingCollection.prototype.fetch.call(this, options)
                 .fail(LearnerUtils.handleAjaxFailure.bind(this));
         },
@@ -41,17 +41,17 @@ define(function (require) {
         },
 
         queryParams: {
-            course_id: function () { return this.courseId; }
+            course_id: function() { return this.courseId; }
         },
 
         // Shim code follows for backgrid.paginator 0.3.5
         // compatibility, which expects the backbone.pageable
         // (pre-backbone.paginator) API.
-        hasPrevious: function () {
+        hasPrevious: function() {
             return this.hasPreviousPage();
         },
 
-        hasNext: function () {
+        hasNext: function() {
             return this.hasNextPage();
         },
 
@@ -65,7 +65,7 @@ define(function (require) {
          */
 
         // Encodes the state of the collection into a query string that can be appended onto the URL.
-        getQueryString: function () {
+        getQueryString: function() {
             var params = this.getActiveFilterFields(true),
                 orderedParams = [],
                 fragment;
@@ -74,7 +74,7 @@ define(function (require) {
 
             // Because the active filter fields object is not ordered, these are the only params of orderedParams that
             // don't have a defined order besides being before sortKey, order, and page.
-            _.mapObject(params, function (val, key) {
+            _.mapObject(params, function(val, key) {
                 orderedParams.push({key: key, val: val});
             });
 
@@ -84,7 +84,7 @@ define(function (require) {
             }
             orderedParams.push({key: 'page', val: this.state.currentPage});
 
-            fragment = orderedParams.map(function (param) {
+            fragment = orderedParams.map(function(param) {
                 // Note: this assumes that filter keys will never have URI special characters. We should encode the key
                 // too if that assumption is wrong.
                 return param.key + '=' + encodeURIComponent(param.val);
@@ -101,12 +101,12 @@ define(function (require) {
          * Will set the collection's isStale boolean to whether the new state differs from the old state (so the caller
          * knows that the collection is stale and needs to do a fetch).
          */
-        setStateFromQueryString: function (queryString) {
+        setStateFromQueryString: function(queryString) {
             var params = Utils.parseQueryString(queryString),
                 order = -1,
                 page, sortKey;
 
-            _.mapObject(params, function (val, key) {
+            _.mapObject(params, function(val, key) {
                 if (key === 'page') {
                     page = parseInt(val, 10);
                     if (page !== this.state.currentPage) {

@@ -1,4 +1,4 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
@@ -9,7 +9,7 @@ define(function (require) {
         LearnerModel;
 
     LearnerModel = Backbone.Model.extend({
-        defaults: function () {
+        defaults: function() {
             return {
                 name: '',
                 username: '',
@@ -41,21 +41,21 @@ define(function (require) {
 
         idAttribute: 'username',
 
-        url: function () {
+        url: function() {
             return Backbone.Model.prototype.url.call(this) + '?course_id=' + encodeURIComponent(this.get('course_id'));
         },
 
-        fetch: function (options) {
+        fetch: function(options) {
             return Backbone.Model.prototype.fetch.call(this, options)
                 .fail(LearnerUtils.handleAjaxFailure.bind(this));
         },
 
-        parse: function (response) {
+        parse: function(response) {
             return _.extend({}, response, {
                 enrollment_date: response.enrollment_date ? new Date(response.enrollment_date) : null,
                 last_updated: response.last_updated ? new Date(response.last_updated) : null,
                 engagements: _.extend(
-                    {}, this.defaults().engagements, _.pick(response.engagements, function (metricValue) {
+                    {}, this.defaults().engagements, _.pick(response.engagements, function(metricValue) {
                         // metrics with null values should defer to defaults
                         return !_.isNull(metricValue) && !_.isUndefined(metricValue);
                     })
@@ -66,7 +66,7 @@ define(function (require) {
         /**
          * Returns true if the username has been set.  False otherwise.
          */
-        hasData: function () {
+        hasData: function() {
             return !_(this.get('username')).isEmpty();
         }
     });

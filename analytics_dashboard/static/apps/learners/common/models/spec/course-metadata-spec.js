@@ -1,27 +1,27 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var CourseMetadataModel = require('learners/common/models/course-metadata');
 
-    describe('CourseMetadataModel', function () {
+    describe('CourseMetadataModel', function() {
         var server;
 
-        beforeEach(function () {
+        beforeEach(function() {
             jasmine.clock().install();
             server = sinon.fakeServer.create();
         });
 
-        afterEach(function () {
+        afterEach(function() {
             jasmine.clock().uninstall();
             server.restore();
         });
 
-        it('sets its url through the initialize function', function () {
+        it('sets its url through the initialize function', function() {
             var url = '/resource/';
             expect(new CourseMetadataModel(null, {url: url}).url()).toBe(url);
         });
 
-        it('triggers a serverError event on server errors', function () {
+        it('triggers a serverError event on server errors', function() {
             var courseMetadata = new CourseMetadataModel(null, {url: '/resource/'});
             spyOn(courseMetadata, 'trigger');
             courseMetadata.fetch();
@@ -29,7 +29,7 @@ define(function (require) {
             expect(courseMetadata.trigger).toHaveBeenCalledWith('serverError', 500, {});
         });
 
-        it('triggers a networkError event on network errors', function () {
+        it('triggers a networkError event on network errors', function() {
             var courseMetadata = new CourseMetadataModel(null, {url: '/resource/'});
             spyOn(courseMetadata, 'trigger');
             courseMetadata.fetch({timeout: 1});
@@ -37,21 +37,21 @@ define(function (require) {
             expect(courseMetadata.trigger).toHaveBeenCalledWith('networkError', 'timeout');
         });
 
-        it('categorizes engagement values', function () {
+        it('categorizes engagement values', function() {
             var courseMetadata = new CourseMetadataModel({
-                    engagement_ranges: {
-                        problems_attempted: {
-                            below_average: [0, 10],
-                            average: [10, 25],
-                            above_average: [25, null]
-                        },
-                        problem_attempts_per_completed: {
-                            below_average: [1, 1.4],
-                            average: [1.4, 5.8],
-                            above_average: [5.8, null]
-                        }
+                engagement_ranges: {
+                    problems_attempted: {
+                        below_average: [0, 10],
+                        average: [10, 25],
+                        above_average: [25, null]
+                    },
+                    problem_attempts_per_completed: {
+                        below_average: [1, 1.4],
+                        average: [1.4, 5.8],
+                        above_average: [5.8, null]
                     }
-                }, {parse: true});
+                }
+            }, {parse: true});
 
             expect(courseMetadata.getEngagementCategory('problems_attempted', 9)).toBe('classRankBottom');
             expect(courseMetadata.getEngagementCategory('problems_attempted', 12)).toBe('classRankMiddle');
@@ -63,7 +63,7 @@ define(function (require) {
             expect(courseMetadata.getEngagementCategory('problem_attempts_per_completed', 6)).toBe('classRankBottom');
         });
 
-        it('parses nulls in ranges', function () {
+        it('parses nulls in ranges', function() {
             var courseMetadata = new CourseMetadataModel({
                 engagement_ranges: {
                     problems_attempted: {
@@ -85,7 +85,7 @@ define(function (require) {
                 .toEqual([Infinity, Infinity]);
         });
 
-        it('does not parse engagement date range', function () {
+        it('does not parse engagement date range', function() {
             var courseMetadata = new CourseMetadataModel({
                 engagement_ranges: {
                     date_range: {
@@ -98,8 +98,8 @@ define(function (require) {
             expect(courseMetadata.get('engagement_ranges').date_range.end).toEqual('2016-06-01');
         });
 
-        describe('inMetricRange', function () {
-            it('returns true when value is in range', function () {
+        describe('inMetricRange', function() {
+            it('returns true when value is in range', function() {
                 var courseMetadata = new CourseMetadataModel();
                 expect(courseMetadata.inMetricRange(1, [0, 2])).toBe(true);
                 expect(courseMetadata.inMetricRange(10.5, [5, 11])).toBe(true);
@@ -107,7 +107,7 @@ define(function (require) {
                 expect(courseMetadata.inMetricRange(59.3, [59, Infinity])).toBe(true);
             });
 
-            it('returns false when value is out of range', function () {
+            it('returns false when value is out of range', function() {
                 var courseMetadata = new CourseMetadataModel();
                 expect(courseMetadata.inMetricRange(3, [0, 2])).toBe(false);
                 expect(courseMetadata.inMetricRange(4.5, [5, 11])).toBe(false);
@@ -115,17 +115,16 @@ define(function (require) {
                 expect(courseMetadata.inMetricRange(58.3, [59, Infinity])).toBe(false);
             });
 
-            it('inf is included in ranges with an infinite upper bound', function () {
+            it('inf is included in ranges with an infinite upper bound', function() {
                 var courseMetadata = new CourseMetadataModel();
                 expect(courseMetadata.inMetricRange(Infinity, [0, Infinity])).toBe(true);
             });
 
-            it('value is included in ranges where value is specified on both sides', function () {
+            it('value is included in ranges where value is specified on both sides', function() {
                 var courseMetadata = new CourseMetadataModel();
                 expect(courseMetadata.inMetricRange(0, [0, 0])).toBe(true);
                 expect(courseMetadata.inMetricRange(Infinity, [Infinity, Infinity])).toBe(true);
             });
         });
-
     });
 });

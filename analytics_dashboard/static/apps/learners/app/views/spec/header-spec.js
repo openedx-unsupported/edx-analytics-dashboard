@@ -1,18 +1,18 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var Backbone = require('backbone'),
 
         HeaderView = require('learners/app/views/header');
 
-    describe('HeaderView', function () {
+    describe('HeaderView', function() {
         var fixture;
 
-        beforeEach(function () {
+        beforeEach(function() {
             fixture = setFixtures('<div id="header-title"></div>');
         });
 
-        it('renders updated title', function () {
+        it('renders updated title', function() {
             var pageModel = new Backbone.Model({title: 'First Title'});
 
             new HeaderView({
@@ -26,11 +26,11 @@ define(function (require) {
             expect(fixture).toContainText('Updated Title');
         });
 
-        it('renders a date', function () {
+        it('renders a date', function() {
             var pageModel = new Backbone.Model({
-                    title: 'Initial Title',
-                    lastUpdated: new Date(2016, 0, 15)
-                });
+                title: 'Initial Title',
+                lastUpdated: new Date(2016, 0, 15)
+            });
 
             new HeaderView({
                 el: '#header-title',
@@ -39,6 +39,5 @@ define(function (require) {
 
             expect(fixture).not.toContainText('Date Last Updated: January 15, 2016');
         });
-
     });
 });

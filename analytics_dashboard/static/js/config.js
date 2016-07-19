@@ -63,7 +63,7 @@ require.config({
         backbone: {
             deps: ['underscore', 'jquery'],
             exports: 'Backbone',
-            init: function (_, $) {
+            init: function(_, $) {
                 'use strict';
                 Backbone.$ = $;
                 return Backbone;

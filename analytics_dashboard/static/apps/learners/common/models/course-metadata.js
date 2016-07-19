@@ -1,4 +1,4 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
@@ -9,7 +9,7 @@ define(function (require) {
         CourseMetadataModel;
 
     CourseMetadataModel = Backbone.Model.extend({
-        defaults: function () {
+        defaults: function() {
             return {
                 cohorts: {},
                 segments: {},
@@ -27,32 +27,32 @@ define(function (require) {
         renameEngagementRanges: function(engagementRanges) {
             var rankedEngagementRanges = {},
                 newRanges = {
-                discussion_contributions : {
-                    above_average : 'classRankTop',
-                    average: 'classRankMiddle',
-                    below_average : 'classRankBottom'
-                },
-                problem_attempts_per_completed : {
-                    above_average : 'classRankBottom',
-                    average: 'classRankMiddle',
-                    below_average : 'classRankTop'
-                },
-                problems_attempted: {
-                    above_average : 'classRankTop',
-                    average: 'classRankMiddle',
-                    below_average : 'classRankBottom'
-                },
-                problems_completed : {
-                    above_average : 'classRankTop',
-                    average: 'classRankMiddle',
-                    below_average : 'classRankBottom'
-                },
-                videos_viewed : {
-                    above_average : 'classRankTop',
-                    average: 'classRankMiddle',
-                    below_average : 'classRankBottom'
-                }
-            };
+                    discussion_contributions: {
+                        above_average: 'classRankTop',
+                        average: 'classRankMiddle',
+                        below_average: 'classRankBottom'
+                    },
+                    problem_attempts_per_completed: {
+                        above_average: 'classRankBottom',
+                        average: 'classRankMiddle',
+                        below_average: 'classRankTop'
+                    },
+                    problems_attempted: {
+                        above_average: 'classRankTop',
+                        average: 'classRankMiddle',
+                        below_average: 'classRankBottom'
+                    },
+                    problems_completed: {
+                        above_average: 'classRankTop',
+                        average: 'classRankMiddle',
+                        below_average: 'classRankBottom'
+                    },
+                    videos_viewed: {
+                        above_average: 'classRankTop',
+                        average: 'classRankMiddle',
+                        below_average: 'classRankBottom'
+                    }
+                };
             for (var metric in engagementRanges) {
                 if (metric in newRanges) {
                     rankedEngagementRanges[metric] = {};
@@ -67,28 +67,28 @@ define(function (require) {
             this.set('rankedEngagementRanges', rankedEngagementRanges);
         },
 
-        initialize: function (attributes, options) {
+        initialize: function(attributes, options) {
             Backbone.Model.prototype.initialize.call(this, attributes, options);
             this.options = options || {};
             this.renameEngagementRanges(this.get('engagement_ranges'));
         },
 
-        url: function () {
+        url: function() {
             return this.options.url;
         },
 
-        fetch: function (options) {
+        fetch: function(options) {
             return Backbone.Model.prototype.fetch.call(this, options)
                 .fail(LearnerUtils.handleAjaxFailure.bind(this));
         },
 
-        parse: function (response) {
-            var parsedEngagementRanges = _.mapObject(response.engagement_ranges, function (metricRanges, key) {
+        parse: function(response) {
+            var parsedEngagementRanges = _.mapObject(response.engagement_ranges, function(metricRanges, key) {
                 // do not parse the date_range field (it's not a metric range)
                 if (key === 'date_range') {
                     return metricRanges;
                 } else {
-                    return _.mapObject(metricRanges, function (range) {
+                    return _.mapObject(metricRanges, function(range) {
                         // range is either null or a two-element array
                         if (_.isNull(range)) {
                             return null;
@@ -103,7 +103,7 @@ define(function (require) {
                 }
             });
 
-            return _.extend(response, { engagement_ranges: parsedEngagementRanges });
+            return _.extend(response, {engagement_ranges: parsedEngagementRanges});
         },
 
         /**
@@ -118,7 +118,7 @@ define(function (require) {
             var ranges = this.get('rankedEngagementRanges')[engagementMetric],
                 engagementCategory;
 
-            _.each(ranges, function (range, category) {
+            _.each(ranges, function(range, category) {
                 if (this.inMetricRange(value, range)) {
                     engagementCategory = category;
                 }

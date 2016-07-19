@@ -3,18 +3,19 @@
  * the libraries and kicks off the application.
  */
 
-require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
+require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
     'use strict';
 
     // this is your page specific code
     require(['views/data-table-view', 'views/world-map-view'],
-        function (DataTableView, WorldMapView) {
+        function(DataTableView, WorldMapView) {
             // Enrollment by country map
             new WorldMapView({
                 el: '[data-view=world-map]',
                 model: page.models.courseModel,
                 modelAttribute: 'enrollmentByCountry',
-                tooltip: gettext('Student location is determined from IP address. This map shows where students most recently connected.')  // jshint ignore:line
+                // eslint-disable-next-line max-len
+                tooltip: gettext('Student location is determined from IP address. This map shows where students most recently connected.')
             });
 
             // Enrollment by country table

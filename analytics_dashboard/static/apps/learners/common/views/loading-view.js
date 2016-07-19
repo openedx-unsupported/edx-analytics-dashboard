@@ -1,4 +1,4 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var Marionette = require('marionette'),
@@ -14,7 +14,7 @@ define(function (require) {
      */
     LoadingView = Marionette.LayoutView.extend({
 
-        templateHelpers: function () {
+        templateHelpers: function() {
             return {
                 // Translators: This message indicates content is loading in the page.
                 loadingText: gettext('Loading...')
@@ -25,8 +25,8 @@ define(function (require) {
             loadingRegion: '.loading'
         },
 
-        onBeforeShow: function () {
-            this.listenTo(this.model, 'sync', function () {
+        onBeforeShow: function() {
+            this.listenTo(this.model, 'sync', function() {
                 this.showChildView('loadingRegion', this.options.successView);
             });
         }
