@@ -7,5 +7,6 @@ require([
     'vendor/domReady!',
     'load/init-page',
     'js/application-main'
-], function () {
+], function() {
+    'use strict';
 });

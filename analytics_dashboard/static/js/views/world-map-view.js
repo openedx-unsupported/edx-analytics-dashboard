@@ -1,5 +1,5 @@
 define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribute-listener-view'],
-    function ($, d3, Datamap, _, Utils, AttributeListenerView) {
+    function($, d3, Datamap, _, Utils, AttributeListenerView) {
         'use strict';
 
         /**
@@ -9,7 +9,7 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
          */
         var WorldMapView = AttributeListenerView.extend({
 
-            initialize: function (options) {
+            initialize: function(options) {
                 AttributeListenerView.prototype.initialize.call(this, options);
                 var self = this;
 
@@ -29,14 +29,14 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
              * @returns An object of mappings between country code and value.
              *   ex. { USA: { fillKey: '#f6f6f6', value: 10}, ... }
              */
-            formatData: function () {
+            formatData: function() {
                 var self = this,
                     data = self.model.get(this.options.modelAttribute),
                     formattedData = {};
 
                 // go through all the data and create mappings from country code
                 // to value/count
-                _(data).each(function (country) {
+                _(data).each(function(country) {
                     var key = country.countryCode;
                     formattedData[key] = {
                         value: country.count,
@@ -53,7 +53,7 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
              * Given a mapping of the country to value, return the mappings of
              * the countries to colors.
              */
-            getFills: function (countryData, max) {
+            getFills: function(countryData, max) {
                 var self = this,
                     fills = {},
                     colorMap;
@@ -63,8 +63,8 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
                     .range([self.options.lowColor, self.options.highColor]);
 
                 // create the mapping from country to color
-                _(countryData).each(function (countryData, key) {
-                    fills[key] = colorMap(countryData.value);
+                _(countryData).each(function(country, key) {
+                    fills[key] = colorMap(country.value);
                 });
 
                 fills.defaultFill = self.options.lowColor;
@@ -76,16 +76,16 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
              * Get the maximum value for the set of countries.  The mapping is
              * from formatData().
              */
-            getCountryMax: function (countryData) {
-                return _(countryData).max(function (countryData) {
-                    return countryData.value;
+            getCountryMax: function(countryData) {
+                return _(countryData).max(function(country) {
+                    return country.value;
                 }).value;
             },
 
             /**
              * Plugin for the map to display a heatmap legend with labels.
              */
-            addHeatmapLegend: function (layer, options) {
+            addHeatmapLegend: function(layer, options) {
                 // "this" is the Datamap (not the WorldMapView)
                 var self = this,
                     el = self.options.element,
@@ -115,7 +115,7 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
                     .enter()
                     .append('g')
                     .attr('class', 'legend')
-                    .attr('transform', function (d, i) {
+                    .attr('transform', function(d, i) {
                         // move the legend color swatches to be arranged vertically
                         var x = swatch.width,
                             y = canvasHeight - swatch.height * ranges.length + i * swatch.height - margins.bottom;
@@ -130,14 +130,14 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
 
                 // display the high and low ranges on the legend
                 legend.append('text')
-                    .filter(function (d, i) {
+                    .filter(function(d, i) {
                         // only show labels for the bounds
                         return _([0, ranges.length - 1]).contains(i);
                     })
                     .attr('x', swatch.width + 3)
                     .attr('y', swatch.height * 0.75)
                     .attr('dy', '.35em')
-                    .text(function (d, i) {
+                    .text(function(d, i) {
                         var append = '';
                         // ticks are rounded, so denote this in our legend
                         if (i === 0) {
@@ -152,7 +152,8 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
              * label/name and value.
              */
             // See http://www.w3.org/TR/WCAG20-TECHS/H34.html for info on &rlm;
-            popupTemplate: _.template('<div class="hoverinfo"><%=name%>: <%=value%><% if(percent) { %> (<%=percent%>)&rlm;<% } %></div>'),   // jshint ignore:line
+            // eslint-disable-next-line max-len
+            popupTemplate: _.template('<div class="hoverinfo"><%=name%>: <%=value%><% if(percent) { %> (<%=percent%>)&rlm;<% } %></div>'),
 
             /**
              * Underscore style template for displaying the tooltip for screen
@@ -165,7 +166,7 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
                 'title="<%=text%>"></i>'
             ),
 
-            render: function () {
+            render: function() {
                 AttributeListenerView.prototype.render.call(this);
                 var self = this,
                     mapData = self.formatData(),
@@ -190,7 +191,7 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
                         borderWidth: 1,
                         borderColor: borderColor,
                         highlightOnHover: true,
-                        highlightFillColor: function (geometry) {
+                        highlightFillColor: function(geometry) {
                             // keep the fill color the same -- only the border
                             // color will change when hovering
                             return fills[geometry.id] || fills.defaultFill;
@@ -198,7 +199,7 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
                         highlightBorderColor: d3.rgb(borderColor).darker(1),
                         highlightBorderWidth: 1,
                         popupOnHover: true,
-                        popupTemplate: function (geography, data) {
+                        popupTemplate: function(geography, data) {
                             return self.popupTemplate({
                                 name: data ? data.name : geography.properties.name,
                                 value: data ? Utils.localizeNumber(data.value) : 0,

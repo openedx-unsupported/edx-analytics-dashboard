@@ -6,7 +6,7 @@
  * - learnerCollection: A `LearnerCollection` instance.
  * - rootView: A `LearnersRootView` instance.
  */
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var Backbone = require('backbone'),
@@ -25,7 +25,7 @@ define(function (require) {
         LearnersController;
 
     LearnersController = Marionette.Object.extend({
-        initialize: function (options) {
+        initialize: function(options) {
             this.options = options || {};
             this.listenTo(this.options.learnerCollection, 'sync', this.onLearnerCollectionUpdated);
             this.onLearnerCollectionUpdated(this.options.learnerCollection);
@@ -36,14 +36,14 @@ define(function (require) {
          * router whenever a route method beginning with "show" has
          * been triggered. Executes before the route method does.
          */
-        onShowPage: function () {
+        onShowPage: function() {
             // Show a loading bar
             NProgress.done(true);
             // Clear any existing alert
             this.options.rootView.triggerMethod('clearError');
         },
 
-        onLearnerCollectionUpdated: function (collection) {
+        onLearnerCollectionUpdated: function(collection) {
             // Note that we currently assume that all the learners in
             // the roster were last updated at the same time.
             if (collection.length) {
@@ -51,11 +51,11 @@ define(function (require) {
             }
         },
 
-        showLearnerRosterPage: function (queryString) {
+        showLearnerRosterPage: function(queryString) {
             var rosterView = new LearnerRosterView({
                     collection: this.options.learnerCollection,
                     courseMetadata: this.options.courseMetadata,
-                    trackingModel: this.options.trackingModel,
+                    trackingModel: this.options.trackingModel
                 }),
                 loadingView = new LoadingView({
                     model: this.options.learnerCollection,
@@ -72,7 +72,7 @@ define(function (require) {
 
                     fetch = this.options.learnerCollection.fetch({reset: true});
                     if (fetch) {
-                        fetch.complete(function (response) {
+                        fetch.complete(function(response) {
                             // fetch doesn't empty the collection on 404 by default
                             if (response && response.status === 404) {
                                 this.options.learnerCollection.reset();
@@ -110,7 +110,7 @@ define(function (require) {
          * Render the learner detail page assuming the learner model fetch
          * succeeds.
          */
-        showLearnerDetailPage: function (username) {
+        showLearnerDetailPage: function(username) {
             this.options.rootView.showChildView('navigation', new ReturnLinkView({
                 queryString: this.options.learnerCollection.getQueryString()
             }));
@@ -133,7 +133,7 @@ define(function (require) {
 
             // fetch data is the model is empty
             if (!learnerModel.hasData()) {
-                learnerModel.on('change:last_updated', function () {
+                learnerModel.on('change:last_updated', function() {
                     this.options.pageModel.set('lastUpdated', learnerModel.get('last_updated'));
                 }, this);
                 learnerModel.urlRoot = this.options.learnerListUrl;
@@ -153,13 +153,13 @@ define(function (require) {
             return detailView;
         },
 
-        showNotFoundPage: function () {
+        showNotFoundPage: function() {
             // TODO: Implement this page in https://openedx.atlassian.net/browse/AN-6697
             var message = gettext("Sorry, we couldn't find the page you're looking for."),  // jshint ignore:line
                 notFoundView;
 
             notFoundView = new (Backbone.View.extend({
-                render: function () {
+                render: function() {
                     this.$el.text(message);
                     return this;
                 }

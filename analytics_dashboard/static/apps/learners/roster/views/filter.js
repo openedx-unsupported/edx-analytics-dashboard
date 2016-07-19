@@ -4,7 +4,7 @@
  * It takes a collection, a display name, a filter field, and a set of possible
  * filter values.
  */
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var $ = require('jquery'),
@@ -17,7 +17,7 @@ define(function (require) {
         Filter;
 
     Filter = Marionette.ItemView.extend({
-        events: function () {
+        events: function() {
             var changeFilterEvent = 'change #filter-' + this.options.filterKey,
                 eventsHash = {};
             eventsHash[changeFilterEvent] = 'onSelectFilter';
@@ -52,13 +52,13 @@ define(function (require) {
          *      - trackingModel (Object): tracking model for broadcasting filter
          *        events.
          */
-        initialize: function (options) {
+        initialize: function(options) {
             this.options = options || {};
             _.bind(this.onSelectFilter, this);
             this.listenTo(this.options.collection, 'sync', this.render);
         },
 
-        templateHelpers: function () {
+        templateHelpers: function() {
             // 'filterValues' is an array of objects, each having a 'name' key
             // and a 'displayName' key.  'name' is the name of the filter value
             // (e.g. the cohort name when filtering by cohort), while
@@ -69,16 +69,15 @@ define(function (require) {
                 selectedFilterValue;
             filterValues = _.chain(this.options.filterValues)
                 .pairs()
-                .map(function (filterPair) {
+                .map(function(filterPair) {
                     var name = filterPair[0],
                         numLearners = filterPair[1];
                     return {
                         name: name,
                         displayName: _.template(
-                            // jshint ignore:start
+                            // eslint-disable-next-line max-len
                             // Translators: 'name' here refers to the name of the filter, while 'numLearners' refers to the number of learners belonging to that filter.
                             gettext('<%= name %> (<%= numLearners %>)')
-                            // jshint ignore:end
                         )({
                             name: name,
                             numLearners: Utils.localizeNumber(numLearners, 0)
@@ -111,7 +110,7 @@ define(function (require) {
             };
         },
 
-        onSelectFilter: function (event) {
+        onSelectFilter: function(event) {
             // Sends a request to the server for the filtered learner list.
             var selectedOption = $(event.currentTarget).find('option:selected'),
                 selectedFilterValue = selectedOption.val(),
@@ -127,7 +126,7 @@ define(function (require) {
             this.options.trackingModel.trigger('segment:track', 'edx.bi.roster.filtered', {
                 category: this.options.filterKey
             });
-        },
+        }
     });
 
     return Filter;

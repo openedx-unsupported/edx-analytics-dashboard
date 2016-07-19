@@ -1,5 +1,5 @@
 define(['nvd3', 'underscore', 'views/bar-view'],
-    function (nvd3, _, BarView) {
+    function(nvd3, _, BarView) {
         'use strict';
 
         var HistogramView = BarView.extend({

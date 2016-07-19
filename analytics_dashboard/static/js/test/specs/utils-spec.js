@@ -1,8 +1,8 @@
-define(['utils/utils'], function (Utils) {
+define(['utils/utils'], function(Utils) {
     'use strict';
 
-    describe('Utils', function () {
-        it('should return node attributes', function () {
+    describe('Utils', function() {
+        it('should return node attributes', function() {
             var actualAttributes,
                 element;
 
@@ -36,49 +36,48 @@ define(['utils/utils'], function (Utils) {
             });
         });
 
-        it('should format dates', function () {
+        it('should format dates', function() {
             expect(Utils.formatDate('2014-01-31')).toEqual('January 31, 2014');
             expect(Utils.formatDate('2014-01-01')).toEqual('January 1, 2014');
         });
-
     });
 
-    describe('formatDisplayPercentage', function () {
-        it('should return < 1% if the parameter is < 0.01', function () {
+    describe('formatDisplayPercentage', function() {
+        it('should return < 1% if the parameter is < 0.01', function() {
             expect(Utils.formatDisplayPercentage(0)).toEqual('0.0%');
             expect(Utils.formatDisplayPercentage(0.002)).toEqual('< 1%');
         });
 
-        it('should return a percentage formatted to a single decimal place if the parameter is >= 0.01', function () {
+        it('should return a percentage formatted to a single decimal place if the parameter is >= 0.01', function() {
             expect(Utils.formatDisplayPercentage(0.01)).toEqual('1.0%');
             expect(Utils.formatDisplayPercentage(0.396)).toEqual('39.6%');
             expect(Utils.formatDisplayPercentage(1)).toEqual('100.0%');
         });
     });
 
-    describe('truncateText', function () {
-        it('should truncate long text', function () {
+    describe('truncateText', function() {
+        it('should truncate long text', function() {
             expect(Utils.truncateText('this is a long text', 14)).toEqual('this is a l...');
         });
 
-        it('should return short text unmodified', function () {
+        it('should return short text unmodified', function() {
             expect(Utils.truncateText('short text', 100)).toEqual('short text');
         });
 
-        it('should return short truncations without ellipse', function () {
+        it('should return short truncations without ellipse', function() {
             expect(Utils.truncateText('yes', 2)).toEqual('ye');
         });
     });
 
-    describe('localizeNumber', function () {
-        it('should format values', function () {
+    describe('localizeNumber', function() {
+        it('should format values', function() {
             expect(Utils.localizeNumber(14)).toEqual('14');
             expect(Utils.localizeNumber(12345)).toEqual('12,345');
         });
     });
 
-    describe('formatTime', function () {
-        it('should format time', function () {
+    describe('formatTime', function() {
+        it('should format time', function() {
             expect(Utils.formatTime(0)).toEqual('00:00');
             expect(Utils.formatTime(31)).toEqual('00:31');
             expect(Utils.formatTime(60)).toEqual('01:00');
@@ -86,18 +85,17 @@ define(['utils/utils'], function (Utils) {
         });
     });
 
-    describe('parseQueryString', function () {
-        it('should parse query string', function () {
+    describe('parseQueryString', function() {
+        it('should parse query string', function() {
             expect(Utils.parseQueryString('foo=bar&baz=quux')).toEqual({foo: 'bar', baz: 'quux'});
             expect(Utils.parseQueryString('foo=bar&')).toEqual({foo: 'bar'});
             expect(Utils.parseQueryString('foo=bar&baz')).toEqual({foo: 'bar', baz: ''});
             expect(Utils.parseQueryString('foo=bar&baz=')).toEqual({foo: 'bar', baz: ''});
             expect(Utils.parseQueryString('')).toEqual({});
             expect(Utils.parseQueryString(null)).toEqual({});
-            expect(function () { Utils.parseQueryString('foo=bar='); }).toThrow(
+            expect(function() { Utils.parseQueryString('foo=bar='); }).toThrow(
                 new Error('Each "&"-separated substring must either be a key or a key-value pair')
             );
         });
     });
-
 });

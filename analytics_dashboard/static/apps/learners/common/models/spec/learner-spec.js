@@ -1,12 +1,12 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var Backbone = require('backbone'),
 
         LearnerModel = require('learners/common/models/learner');
 
-    describe('LearnerModel', function () {
-        it('should have all the expected fields', function () {
+    describe('LearnerModel', function() {
+        it('should have all the expected fields', function() {
             var learner = new LearnerModel();
             expect(learner.attributes).toEqual({
                 name: '',
@@ -29,7 +29,7 @@ define(function (require) {
             });
         });
 
-        it('should parse ISO 8601 dates', function () {
+        it('should parse ISO 8601 dates', function() {
             var dateString = '2016-01-11',
                 dateObj = new Date(dateString),
                 learner = new LearnerModel(
@@ -40,7 +40,7 @@ define(function (require) {
             expect(learner.get('last_updated')).toEqual(dateObj);
         });
 
-        it('should parse engagement metrics', function () {
+        it('should parse engagement metrics', function() {
             var learner = new LearnerModel({
                 engagements: {
                     discussion_contributions: 1,
@@ -58,7 +58,7 @@ define(function (require) {
             expect(learner.get('engagements').problem_attempts_per_completed).toEqual(Infinity);
         });
 
-        it('should treat the username as its id', function () {
+        it('should treat the username as its id', function() {
             var learner = new LearnerModel({username: 'daniel', course_id: 'edX/DemoX/Demo_Course'});
             new (Backbone.Collection.extend({url: '/endpoint/'}))([learner]);
             expect(learner.url()).toEqual('/endpoint/daniel?course_id=edX%2FDemoX%2FDemo_Course');
@@ -68,13 +68,12 @@ define(function (require) {
             expect(learner.url()).toEqual('/other-endpoint/daniel?course_id=edX%2FDemoX%2FDemo_Course');
         });
 
-        it('should use username to determine if data is available', function () {
+        it('should use username to determine if data is available', function() {
             var learner = new LearnerModel();
             expect(learner.hasData()).toBe(false);
 
             learner.set('username', 'spiderman');
             expect(learner.hasData()).toBe(true);
         });
-
     });
 });

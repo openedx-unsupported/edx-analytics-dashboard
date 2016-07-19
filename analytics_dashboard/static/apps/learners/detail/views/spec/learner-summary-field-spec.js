@@ -1,17 +1,17 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var Backbone = require('backbone'),
         LearnerSummaryFieldView = require('learners/detail/views/learner-summary-field');
 
-    describe('LearnerSummaryField', function () {
+    describe('LearnerSummaryField', function() {
         var fixture;
 
-        beforeEach(function () {
+        beforeEach(function() {
             fixture = setFixtures('<div id="summary"></div>');
         });
 
-        it('displays a field and value', function () {
+        it('displays a field and value', function() {
             var model = new Backbone.Model({animal: 'Rubber Duck'}),
                 view = new LearnerSummaryFieldView({
                     model: model,
@@ -26,7 +26,7 @@ define(function (require) {
             expect(fixture).toContainText('Rubber Duck');
         });
 
-        it('displays "n/a" initially and updates', function () {
+        it('displays "n/a" initially and updates', function() {
             var model = new Backbone.Model(),
                 view = new LearnerSummaryFieldView({
                     model: model,
@@ -44,14 +44,14 @@ define(function (require) {
             expect(fixture).toContainText('My Attribute');
         });
 
-        it('formats values', function () {
+        it('formats values', function() {
             var model = new Backbone.Model({animal: 'Rubber Duck'}),
                 view = new LearnerSummaryFieldView({
                     model: model,
                     modelAttribute: 'animal',
                     fieldDisplayName: 'Friend',
                     el: fixture,
-                    valueFormatter: function (value) {
+                    valueFormatter: function(value) {
                         return value + 'y';
                     }
                 });
@@ -60,6 +60,5 @@ define(function (require) {
             expect(fixture).toContainText('Friend');
             expect(fixture).toContainText('Rubber Ducky');
         });
-
     });
 });

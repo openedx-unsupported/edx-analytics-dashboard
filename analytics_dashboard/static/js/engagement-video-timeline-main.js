@@ -11,14 +11,13 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
         'views/data-table-view',
         'views/iframe-view',
         'views/stacked-timeline-view'
-    ], function (
+    ], function(
         DisclosureView,
         _,
         DataTableView,
         IFrameView,
         StackedTimelineView
     ) {
-
         var courseModel = page.models.courseModel,
             timelineSettings = [
                 {
@@ -57,8 +56,8 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             model: courseModel,
             modelAttribute: 'videoTimeline',
             trends: timelineSettings,
-            x: { key: 'start_time', title: 'Time' },
-            y: { key: 'num_users' }
+            x: {key: 'start_time', title: 'Time'},
+            y: {key: 'num_users'}
         });
 
         new DataTableView({
@@ -67,6 +66,5 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             modelAttribute: 'videoTimeline',
             columns: tableColumns
         });
-
     });
 });

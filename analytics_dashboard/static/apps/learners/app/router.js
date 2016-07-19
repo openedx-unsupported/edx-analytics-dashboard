@@ -1,4 +1,4 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var Marionette = require('marionette'),
@@ -15,7 +15,7 @@ define(function (require) {
         },
 
         // This method is run before the route methods are run.
-        execute: function (callback, args, name) {
+        execute: function(callback, args, name) {
             if (name.indexOf('show') === 0) {
                 this.options.controller.triggerMethod('showPage');
             }
@@ -24,7 +24,7 @@ define(function (require) {
             }
         },
 
-        initialize: function (options) {
+        initialize: function(options) {
             this.options = options || {};
             this.learnerCollection = options.controller.options.learnerCollection;
             this.listenTo(this.learnerCollection, 'sync', this.updateUrl);
@@ -33,7 +33,7 @@ define(function (require) {
 
         // Called on LearnerCollection update. Converts the state of the collection (including any filters, searchers,
         // sorts, or page numbers) into a url and then navigates the router to that url.
-        updateUrl: function () {
+        updateUrl: function() {
             this.navigate(this.learnerCollection.getQueryString(), {replace: true});
         }
     });

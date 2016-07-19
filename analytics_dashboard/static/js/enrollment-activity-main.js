@@ -3,14 +3,13 @@
  * the libraries and kicks off the application.
  */
 
-require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
+require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
     'use strict';
 
     // this is your page specific code
     require(['views/data-table-view',
             'views/stacked-trends-view'],
-        function (DataTableView, StackedTrendsView) {
-
+    function(DataTableView, StackedTrendsView) {
             var colors = ['#4BB4FB', '#898C8F', '#009CD3', '#B72667', '#442255', '#1E8142'],
                 numericColumn = {
                     className: 'text-right',
@@ -59,16 +58,16 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                 enrollmentTrackTrendSettings;
 
             // Remove settings for which there is no data (e.g. don't attempt to display verified if there is no data).
-            settings = _(settings).filter(function (setting) {
+            settings = _(settings).filter(function(setting) {
                 return page.models.courseModel.hasTrend('enrollmentTrends', setting.key);
             });
 
-            trendSettings = _(settings).filter(function (setting) {
+            trendSettings = _(settings).filter(function(setting) {
                 return setting.key !== 'date';
             });
 
             // Do not display total enrollment on the chart if track data exists
-            enrollmentTrackTrendSettings = _(trendSettings).filter(function (setting) {
+            enrollmentTrackTrendSettings = _(trendSettings).filter(function(setting) {
                 return setting.key !== 'count';
             });
 
@@ -82,8 +81,8 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                 model: page.models.courseModel,
                 modelAttribute: 'enrollmentTrends',
                 trends: trendSettings,
-                x: { key: 'date' },
-                y: { key: 'count' }
+                x: {key: 'date'},
+                y: {key: 'count'}
             });
 
             // Daily enrollment table

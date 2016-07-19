@@ -1,4 +1,4 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var $ = require('jquery'),
@@ -8,44 +8,44 @@ define(function (require) {
         EngagementTimelineModel = require('learners/common/models/engagement-timeline'),
         EngagementTimelineView = require('learners/detail/views/engagement-timeline');
 
-    describe('EngagementTimelineView', function () {
+    describe('EngagementTimelineView', function() {
         var expectLegendRendered,
             expectTimelineRendered,
             expectXAxisRendered,
             fixtureClass,
             getTimelineModel;
 
-        expectLegendRendered = function (view) {
+        expectLegendRendered = function(view) {
             var labels,
                 legendItems;
             labels = ['Discussion Contributions', 'Problems Correct', 'Videos Viewed'];
             legendItems = view.$('.nv-legend-text');
             expect(labels.length).toEqual(legendItems.length);
-            _.each(labels, function (label, index) {
+            _.each(labels, function(label, index) {
                 expect(legendItems[index]).toHaveText(label);
             });
         };
 
-        expectXAxisRendered = function (view) {
+        expectXAxisRendered = function(view) {
             var dates,
                 xLabels;
-            dates = _.map(view.model.get('days'), function (day) {
+            dates = _.map(view.model.get('days'), function(day) {
                 return moment(Date.parse(day.date)).format('M/D');
             });
             // Note that NVD3 unfortunately doesn't semantically order the
             // x-axis labels in the DOM, so we can't verify each label in order.
             xLabels = _.chain(view.$('.nv-x.nv-axis text'))
-                .filter(function (el) {
+                .filter(function(el) {
                     return $(el).text() !== '';
                 })
-                .map(function (el) {
+                .map(function(el) {
                     return $(el).text();
                 })
                 .value();
             expect(dates.sort()).toEqual(xLabels.sort());
         };
 
-        expectTimelineRendered = function (view) {
+        expectTimelineRendered = function(view) {
             // We can't verify the rendering of the actual svg paths, since they
             // don't semantically encode which data they represent; instead NVD3
             // encodes pixel/location values of the points along the paths.
@@ -58,7 +58,7 @@ define(function (require) {
 
         fixtureClass = '.engagement-timeline-fixture';
 
-        getTimelineModel = function () {
+        getTimelineModel = function() {
             return new EngagementTimelineModel({
                 days: [{
                     date: '2016-01-01',
@@ -82,11 +82,11 @@ define(function (require) {
             });
         };
 
-        beforeEach(function () {
+        beforeEach(function() {
             setFixtures('<div class="' + fixtureClass.slice(1) + '"></div>');
         });
 
-        it('can render an engagement timeline', function () {
+        it('can render an engagement timeline', function() {
             var model,
                 view;
             model = getTimelineModel();

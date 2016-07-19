@@ -4,7 +4,7 @@
  * Returns the model.
  */
 define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-model'],
-    function ($, CourseModel, TrackingModel, UserModel) {
+    function($, CourseModel, TrackingModel, UserModel) {
         'use strict';
         var courseModel = new CourseModel(),
             trackingModel = new TrackingModel(),

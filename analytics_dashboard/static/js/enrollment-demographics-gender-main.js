@@ -7,8 +7,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
     'use strict';
 
     require(['underscore', 'views/data-table-view', 'views/discrete-bar-view'],
-        function (_, DataTableView, DiscreteBarView) {
-
+        function(_, DataTableView, DiscreteBarView) {
             new DiscreteBarView({
                 el: '#enrollment-chart-view',
                 model: page.models.courseModel,
@@ -18,8 +17,8 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                     title: gettext('Percentage'),
                     color: 'rgb(58, 162, 224)'
                 }],
-                x: { key: 'gender' },
-                y: { key: 'percent' },
+                x: {key: 'gender'},
+                y: {key: 'percent'},
                 // Translators: <%=value%> will be replaced with a level of gender (e.g. Female).
                 interactiveTooltipHeaderTemplate: _.template(gettext('Gender: <%=value%>'))
             });

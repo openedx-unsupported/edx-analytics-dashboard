@@ -1,4 +1,4 @@
-define(function (require) {
+define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
@@ -14,7 +14,7 @@ define(function (require) {
         regions: {
             main: '.learner-engagement-timeline.analytics-chart'
         },
-        onAttach: function () {
+        onAttach: function() {
             // Normally we'd declare this logic in the
             // `Marionette.View.onBeforeView` method, but the TrendsView
             // requires that the chart's container element is in the DOM.
@@ -23,7 +23,7 @@ define(function (require) {
                 el: this.regions.main,
                 model: this.model,
                 modelAttribute: 'days',
-                isDataAvailable: function () {
+                isDataAvailable: function() {
                     return this.model.hasData();
                 },
                 trends: [{

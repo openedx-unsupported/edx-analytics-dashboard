@@ -2,10 +2,10 @@
  * This is where your tests go.  It should happen automatically when you
  * add files to the karma configuration.
  */
-(function () {
+(function() {
     'use strict';
 
-    var isBrowser = window.__karma__ === undefined,
+    var isBrowser = window.__karma__ === undefined, // eslint-disable-line no-underscore-dangle
         specs = [],
         config = {};
 
@@ -45,7 +45,7 @@
         }
 
         // you can automatically get the test files using karma's configs
-        for (var file in window.__karma__.files) {
+        for (var file in window.__karma__.files) { // eslint-disable-line no-underscore-dangle
             if (/spec\.js$/.test(file)) {
                 specs.push(file);
             }
@@ -55,7 +55,7 @@
 
         // Karma lets you list the test files here
         config.deps = specs;
-        config.callback = window.__karma__.start;
+        config.callback = window.__karma__.start; // eslint-disable-line no-underscore-dangle
     }
 
     requirejs.config(config);
@@ -63,14 +63,14 @@
     // the browser needs to kick off jasmine.  The gulp task does it through
     // node
     if (isBrowser) {
-        //jasmine 2.0 needs boot.js to run, which loads on a window load, so this is
+        // jasmine 2.0 needs boot.js to run, which loads on a window load, so this is
         // a hack
         // http://stackoverflow.com/questions/19240302/does-jasmine-2-0-really-not-work-with-require-js
-        require(['boot'], function () {
+        require(['boot'], function() {
             require(specs,
-                function () {
+                function() {
                     window.onload();
                 });
         });
     }
-})();
+}());
