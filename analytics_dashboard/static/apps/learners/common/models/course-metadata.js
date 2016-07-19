@@ -94,7 +94,9 @@ define(function (require) {
                             return null;
                         }
                         return [
-                            _.isNull(range[0]) ? -Infinity : range[0],
+                            // A null element is interpreted as infinity
+                            // Note: Something like [null, 0] is invalid. The API should not return that.
+                            _.isNull(range[0]) ? Infinity : range[0],
                             _.isNull(range[1]) ? Infinity : range[1]
                         ];
                     });
@@ -134,14 +136,20 @@ define(function (require) {
          *     in-range.
          *   - When the range is infinite in the positive dimension, infinity is
          *     considered in-range.
+         *   - When the range has the same value on both sides, that value is
+         *     considered in-range, but only that value.
          *
          * @param value Value in question.
          * @param range Array of min and max.  May be null.
          */
         inMetricRange: function(value, range) {
-            return _.isNull(range) ? false :
-                (value === Infinity && range[1] === Infinity) ? true :
-                value >= range[0] && value < range[1];
+            if (_.isNull(range)) {
+                return false;
+            } else if ((value === Infinity && range[1] === Infinity) ||
+                       (value === range[0] && range[0] === range[1])) {
+                return true;
+            }
+            return value >= range[0] && value < range[1];
         }
     });
 
