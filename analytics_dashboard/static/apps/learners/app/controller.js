@@ -73,6 +73,7 @@ define(function(require) {
          * succeeds.
          */
         showLearnerDetailPage: function(username) {
+            this.options.rootView.showChildView('navigation', new ReturnLinkView({}));
             var engagementTimelineModel = new EngagementTimelineModel({}, {
                     url: this.options.learnerEngagementTimelineUrl.replace('temporary_username', username),
                     courseId: this.options.courseId
@@ -80,7 +81,6 @@ define(function(require) {
                 learnerModel = this.options.learnerCollection.get(username) || new LearnerModel(),
                 detailView;
 
-            this.options.rootView.showChildView('navigation', new ReturnLinkView({}));
             this.options.pageModel.set({
                 title: gettext('Learner Details')
             });

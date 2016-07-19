@@ -53,8 +53,8 @@ define(function(require) {
         },
 
         search: function(event) {
-            var searchString = this.searchBox().val().trim();
             event.preventDefault();
+            var searchString = this.searchBox().val().trim();
             if (searchString === '') {
                 this.collection.unsetSearchString();
             } else {

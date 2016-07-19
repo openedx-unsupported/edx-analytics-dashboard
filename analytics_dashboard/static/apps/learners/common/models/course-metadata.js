@@ -52,13 +52,11 @@ define(function(require) {
                         average: 'classRankMiddle',
                         below_average: 'classRankBottom'
                     }
-                },
-                metric,
-                range;
-            for (metric in engagementRanges) {
+                };
+            for (var metric in engagementRanges) {
                 if (metric in newRanges) {
                     rankedEngagementRanges[metric] = {};
-                    for (range in engagementRanges[metric]) {
+                    for (var range in engagementRanges[metric]) {
                         if (engagementRanges[metric].hasOwnProperty(range)) {
                             rankedEngagementRanges[metric][newRanges[metric][range]] =
                                 engagementRanges[metric][range];

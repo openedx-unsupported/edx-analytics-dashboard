@@ -50,7 +50,8 @@ define(function(require) {
             var pageModel = new PageModel(),
                 courseMetadata,
                 learnerCollection,
-                rootView;
+                rootView,
+                router;
 
             learnerCollection = new LearnerCollection(this.options.learnerListJson, {
                 url: this.options.learnerListUrl,
@@ -68,7 +69,7 @@ define(function(require) {
                 pageModel: pageModel
             }).render();
 
-            new LearnersRouter({
+            router = new LearnersRouter({
                 controller: new LearnersController({
                     courseId: this.options.courseId,
                     learnerCollection: learnerCollection,

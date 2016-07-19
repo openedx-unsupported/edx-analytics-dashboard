@@ -1,4 +1,4 @@
-define(function() {
+define(function(require) {  // jshint ignore:line
     'use strict';
 
     var utils = {

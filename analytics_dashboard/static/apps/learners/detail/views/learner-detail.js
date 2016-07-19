@@ -121,13 +121,13 @@ define(function(require) {
         },
 
         showUnavailable: function(region, options) {
-            var tableSection = document.getElementById('table-section');
             this.showChildView(region, new AlertView({
                 alertType: 'info',
                 title: options.title,
                 body: options.description
             }));
             this.getRegion('engagementTable').empty();
+            var tableSection = document.getElementById('table-section');
             tableSection.parentElement.removeChild(tableSection);
         },
 

@@ -39,14 +39,14 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
              * Returns function for displaying a truncated label.
              */
             truncateXTick: function(d) {
-                var self = this,
-                    barWidth = d3.select(self.options.barSelector).attr('width'),
+                var self = this;
+                d = self.formatXValue(d);
+
+                var barWidth = d3.select(self.options.barSelector).attr('width'),  // jshint ignore:line
                 // this is a rough estimate of how wide a character is
                     charWidth = 6,
                     characterLimit = Math.floor(barWidth / charWidth),
-                    formattedLabel;
-                d = self.formatXValue(d);
-                formattedLabel = d;
+                    formattedLabel = d;
 
                 if (characterLimit < 3) {
                     // no labels will be displayed if label space is limited

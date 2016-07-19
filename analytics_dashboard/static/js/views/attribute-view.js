@@ -8,14 +8,14 @@ define(['views/attribute-listener-view'],
         var AttributeView = AttributeListenerView.extend({
 
             initialize: function(options) {
-                var self = this;
                 AttributeListenerView.prototype.initialize.call(this, options);
+                var self = this;
                 self.renderIfDataAvailable();
             },
 
             render: function() {
-                var self = this;
                 AttributeListenerView.prototype.render.call(this);
+                var self = this;
                 self.$el.html(self.model.get(self.modelAttribute));
                 return self;
             }
