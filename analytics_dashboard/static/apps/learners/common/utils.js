@@ -1,4 +1,4 @@
-define(function(require) {  // jshint ignore:line
+define(function(require) { // eslint-disable-line no-unused-vars
     'use strict';
 
     var utils = {

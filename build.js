@@ -1,4 +1,4 @@
-/* jshint asi: true, expr:true */
+/* eslint-disable no-unused-expressions */
 ({
     mainConfigFile: 'analytics_dashboard/static/js/config.js',
     baseUrl: 'analytics_dashboard/static',

@@ -27,7 +27,7 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
                 };
             },
 
-            _buildSorting: function() {
+            buildSorting: function() {
                 var self = this,
                     dtSorting = [],
                     sortRegexp = /^(-?)(.*)/g,
@@ -51,7 +51,7 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
              * the table sortable by the underlying data (rather than what's
              * necessarily displayed).
              */
-            _buildColumnDefs: function() {
+            buildColumnDefs: function() {
                 var self = this,
                     defs = [],
                     iColumn = 0;
@@ -237,7 +237,7 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
                     data: self.model.get(self.options.modelAttribute),
 
                     // providing 'columns' will override columnDefs
-                    columnDefs: self._buildColumnDefs(),
+                    columnDefs: self.buildColumnDefs(),
 
                     // this positions the "length changing" control to the bottom using bootstrap styling
                     // more information at http://datatables.net/examples/basic_init/dom.html
@@ -247,7 +247,7 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
                     autoWidth: false
                 };
 
-                dtSorting = self._buildSorting();
+                dtSorting = self.buildSorting();
 
                 if (dtSorting.length) {
                     dtConfig.order = dtSorting;
