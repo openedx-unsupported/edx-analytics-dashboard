@@ -17,7 +17,10 @@ define(function(require) {
         LearnerDetailView = require('learners/detail/views/learner-detail'),
         LearnerModel = require('learners/common/models/learner'),
         LearnerRosterView = require('learners/roster/views/roster'),
+        LoadingView = require('learners/common/views/loading-view'),
         ReturnLinkView = require('learners/detail/views/learner-return'),
+
+        rosterLoadingTemplate = require('text!learners/roster/templates/roster-loading.underscore'),
 
         LearnersController;
 
@@ -31,7 +34,7 @@ define(function(require) {
         /**
          * Event handler for the 'showPage' event.  Called by the
          * router whenever a route method beginning with "show" has
-         * been triggered.
+         * been triggered. Executes before the route method does.
          */
         onShowPage: function() {
             // Show a loading bar
@@ -48,18 +51,53 @@ define(function(require) {
             }
         },
 
-        showLearnerRosterPage: function() {
+        showLearnerRosterPage: function(queryString) {
             var rosterView = new LearnerRosterView({
-                collection: this.options.learnerCollection,
-                courseMetadata: this.options.courseMetadata,
-                trackingModel: this.options.trackingModel
-            });
+                    collection: this.options.learnerCollection,
+                    courseMetadata: this.options.courseMetadata,
+                    trackingModel: this.options.trackingModel
+                }),
+                loadingView = new LoadingView({
+                    model: this.options.learnerCollection,
+                    template: _.template(rosterLoadingTemplate),
+                    successView: rosterView
+                }),
+                fetch;
+
+            try {
+                this.options.learnerCollection.setStateFromQueryString(queryString);
+                if (this.options.learnerCollection.isStale) {
+                    // Show a loading spinner while we fetch new collection data
+                    this.options.rootView.showChildView('main', loadingView);
+
+                    fetch = this.options.learnerCollection.fetch({reset: true});
+                    if (fetch) {
+                        fetch.complete(function(response) {
+                            // fetch doesn't empty the collection on 404 by default
+                            if (response && response.status === 404) {
+                                this.options.learnerCollection.reset();
+                            }
+                        });
+                    }
+                } else {
+                    // Immediately show the roster with the currently loaded collection data
+                    this.options.rootView.showChildView('main', rosterView);
+                }
+            } catch (e) {
+                // These JS errors occur when trying to parse invalid URL parameters
+                if (e instanceof RangeError || e instanceof TypeError) {
+                    this.options.rootView.showAlert('error', gettext('Invalid Parameters'),
+                        gettext('Sorry, we couldn\'t find any learners who matched that query.'),
+                        {url: '#', text: gettext('Return to the Learners page.')});
+                } else {
+                    throw e;
+                }
+            }
 
             this.options.rootView.getRegion('navigation').empty();
 
             this.options.pageModel.set('title', gettext('Learners'));
             this.onLearnerCollectionUpdated(this.options.learnerCollection);
-            this.options.rootView.showChildView('main', rosterView);
 
             // track the "page" view
             this.options.trackingModel.set('page', 'learner_roster');
@@ -73,7 +111,9 @@ define(function(require) {
          * succeeds.
          */
         showLearnerDetailPage: function(username) {
-            this.options.rootView.showChildView('navigation', new ReturnLinkView({}));
+            this.options.rootView.showChildView('navigation', new ReturnLinkView({
+                queryString: this.options.learnerCollection.getQueryString()
+            }));
             var engagementTimelineModel = new EngagementTimelineModel({}, {
                     url: this.options.learnerEngagementTimelineUrl.replace('temporary_username', username),
                     courseId: this.options.courseId

@@ -189,5 +189,77 @@ define(function(require) {
                 expect(learners.hasNext()).toBe(false);
             });
         });
+
+        describe('Encoding State to a Query String', function() {
+            it('encodes an empty state', function() {
+                expect(learners.getQueryString()).toBe('?page=1');
+            });
+            it('encodes the page number', function() {
+                learners.state.currentPage = 2;
+                expect(learners.getQueryString()).toBe('?page=2');
+            });
+            it('encodes the sort state', function() {
+                learners.state.sortKey = 'username';
+                learners.state.order = 1;
+                expect(learners.getQueryString()).toBe('?sortKey=username&order=desc&page=1');
+            });
+            it('encodes the text search', function() {
+                learners.setFilterField('text_search', 'foo');
+                expect(learners.getQueryString()).toBe('?text_search=foo&page=1');
+            });
+            it('encodes the filters', function() {
+                learners.setFilterField('enrollment_mode', 'audit');
+                learners.setFilterField('cohort', 'group1');
+                // order of filter fields in query string is not defined
+                var qstring = learners.getQueryString(),
+                    pageAfterFilters = (qstring === '?enrollment_mode=audit&cohort=group1&page=1' ||
+                                        qstring === '?cohort=group1&enrollment_mode=audit&page=1');
+                expect(pageAfterFilters).toBe(true);
+            });
+        });
+
+        describe('Decoding Query String to a State', function() {
+            var state = {};
+            beforeEach(function() {
+                state = {
+                    firstPage: 1,
+                    lastPage: null,
+                    currentPage: 1,
+                    pageSize: 25,
+                    totalPages: null,
+                    totalRecords: null,
+                    sortKey: null,
+                    order: -1
+                };
+            });
+            it('decodes an empty query string', function() {
+                learners.setStateFromQueryString('');
+                expect(learners.state).toEqual(state);
+                expect(learners.getActiveFilterFields()).toEqual({});
+            });
+            it('decodes the page number', function() {
+                state.currentPage = 2;
+                learners.setStateFromQueryString('page=2');
+                expect(learners.state).toEqual(state);
+                expect(learners.getActiveFilterFields()).toEqual({});
+            });
+            it('decodes the sort', function() {
+                state.sortKey = 'username';
+                state.order = 1;
+                learners.setStateFromQueryString('sortKey=username&order=desc');
+                expect(learners.state).toEqual(state);
+                expect(learners.getActiveFilterFields()).toEqual({});
+            });
+            it('decodes the text search', function() {
+                learners.setStateFromQueryString('text_search=foo');
+                expect(learners.state).toEqual(state);
+                expect(learners.getSearchString()).toEqual('foo');
+            });
+            it('decodes the filters', function() {
+                learners.setStateFromQueryString('enrollment_mode=audit&cohort=group1');
+                expect(learners.state).toEqual(state);
+                expect(learners.getActiveFilterFields()).toEqual({enrollment_mode: 'audit', cohort: 'group1'});
+            });
+        });
     });
 });

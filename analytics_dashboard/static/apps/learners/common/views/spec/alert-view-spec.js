@@ -38,5 +38,24 @@ define(function(require) {
             expect(fixture).toContainElement('.alert-info-container');
             expect(fixture).toContainElement('li');
         });
+
+        it('renders an alert with a link', function() {
+            var fixture = setFixtures('<div class="info-alert"></div>');
+
+            new AlertView({
+                el: '.info-alert',
+                alertType: 'info',
+                title: 'edX Info Alert',
+                body: 'More description about an information alert.',
+                suggestions: ['Display alerts.', 'Alerts are helpful messages!'],
+                link: {url: 'http://example.com', text: 'A helpful link.'}
+            }).render();
+
+            expect(fixture).toContainElement('i.fa-bullhorn');
+            expect(fixture).toContainElement('.alert-info-container');
+            expect(fixture).toContainElement('li');
+            expect(fixture).toContainElement('.link');
+            expect(fixture).toContainElement('a');
+        });
     });
 });

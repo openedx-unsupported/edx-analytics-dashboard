@@ -63,12 +63,15 @@ define(function(require) {
          * types are defined in the AlertView module.
          * @param {string} title - the title of the alert.
          * @param {string} description - the description of the alert.
+         * @param {object} link - the link for the alert. Has key "url"
+         * (the href) and key "text" (the display text for the link).
          */
-        showAlert: function(type, title, description) {
+        showAlert: function(type, title, description, link) {
             this.showChildView('alert', new AlertView({
                 alertType: type,
                 title: title,
-                body: description
+                body: description,
+                link: link
             }));
         },
 

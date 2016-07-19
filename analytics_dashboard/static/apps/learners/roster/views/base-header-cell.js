@@ -39,6 +39,11 @@ define(function(require) {
         },
 
         render: function(column, direction) {
+            if (this.collection.state.sortKey && this.collection.state.sortKey === this.column.attributes.name) {
+                direction = this.collection.state.order ? 'ascending' : 'descending';
+                this.column.attributes.direction = direction;
+                column = this.column;
+            }
             Backgrid.HeaderCell.prototype.render.apply(this, arguments);
             this.$el.html(this.template({
                 label: this.column.get('label')

@@ -67,15 +67,22 @@ define(function(require) {
             var courseMetadata = new CourseMetadataModel({
                 engagement_ranges: {
                     problems_attempted: {
-                        below_average: [null, 0],
-                        average: [0, null],
+                        below_average: [0, 10],
+                        average: [10, null],
                         above_average: null
+                    },
+                    problem_attempts_per_completed: {
+                        below_average: [0, 10],
+                        average: [10, null],
+                        above_average: [null, null]
                     }
                 }
             }, {parse: true});
-            expect(courseMetadata.get('engagement_ranges').problems_attempted.below_average).toEqual([-Infinity, 0]);
-            expect(courseMetadata.get('engagement_ranges').problems_attempted.average).toEqual([0, Infinity]);
+            expect(courseMetadata.get('engagement_ranges').problems_attempted.below_average).toEqual([0, 10]);
+            expect(courseMetadata.get('engagement_ranges').problems_attempted.average).toEqual([10, Infinity]);
             expect(courseMetadata.get('engagement_ranges').problems_attempted.above_average).toEqual(null);
+            expect(courseMetadata.get('engagement_ranges').problem_attempts_per_completed.above_average)
+                .toEqual([Infinity, Infinity]);
         });
 
         it('does not parse engagement date range', function() {
@@ -111,6 +118,12 @@ define(function(require) {
             it('inf is included in ranges with an infinite upper bound', function() {
                 var courseMetadata = new CourseMetadataModel();
                 expect(courseMetadata.inMetricRange(Infinity, [0, Infinity])).toBe(true);
+            });
+
+            it('value is included in ranges where value is specified on both sides', function() {
+                var courseMetadata = new CourseMetadataModel();
+                expect(courseMetadata.inMetricRange(0, [0, 0])).toBe(true);
+                expect(courseMetadata.inMetricRange(Infinity, [Infinity, Infinity])).toBe(true);
             });
         });
     });
