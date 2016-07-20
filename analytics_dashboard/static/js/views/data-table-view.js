@@ -5,8 +5,8 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
         var DataTableView = AttributeListenerView.extend({
 
             initialize: function(options) {
-                AttributeListenerView.prototype.initialize.call(this, options);
                 var self = this;
+                AttributeListenerView.prototype.initialize.call(this, options);
 
                 self.options = options || {};
                 self.options.sorting = options.sorting || [];
@@ -223,13 +223,12 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
             },
 
             render: function() {
-                AttributeListenerView.prototype.render.call(this);
                 var self = this,
-                    $parent = $('<div/>', {class: 'table-responsive'}).appendTo(self.$el),
-                    $table = $('<table/>', {class: 'table table-striped'}).appendTo($parent),
-                    dtConfig,
-                    dtSorting;
+                    $parent, $table, dtConfig, dtSorting;
+                AttributeListenerView.prototype.render.call(this);
 
+                $parent = $('<div/>', {class: 'table-responsive'}).appendTo(self.$el);
+                $table = $('<table/>', {class: 'table table-striped'}).appendTo($parent);
                 dtConfig = {
                     paging: true,
                     info: false,

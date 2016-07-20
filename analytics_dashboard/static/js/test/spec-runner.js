@@ -7,7 +7,8 @@
 
     var isBrowser = window.__karma__ === undefined, // eslint-disable-line no-underscore-dangle
         specs = [],
-        config = {};
+        config = {},
+        file;
 
     // Two execution paths: browser or gulp
     if (isBrowser) {
@@ -45,7 +46,7 @@
         }
 
         // you can automatically get the test files using karma's configs
-        for (var file in window.__karma__.files) { // eslint-disable-line no-underscore-dangle
+        for (file in window.__karma__.files) { // eslint-disable-line no-underscore-dangle
             if (/spec\.js$/.test(file)) {
                 specs.push(file);
             }

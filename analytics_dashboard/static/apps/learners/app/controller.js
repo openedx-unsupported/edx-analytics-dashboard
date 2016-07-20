@@ -111,15 +111,15 @@ define(function(require) {
          * succeeds.
          */
         showLearnerDetailPage: function(username) {
-            this.options.rootView.showChildView('navigation', new ReturnLinkView({
-                queryString: this.options.learnerCollection.getQueryString()
-            }));
             var engagementTimelineModel = new EngagementTimelineModel({}, {
                     url: this.options.learnerEngagementTimelineUrl.replace('temporary_username', username),
                     courseId: this.options.courseId
                 }),
                 learnerModel = this.options.learnerCollection.get(username) || new LearnerModel(),
                 detailView;
+            this.options.rootView.showChildView('navigation', new ReturnLinkView({
+                queryString: this.options.learnerCollection.getQueryString()
+            }));
 
             this.options.pageModel.set({
                 title: gettext('Learner Details')

@@ -10,8 +10,8 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
         var WorldMapView = AttributeListenerView.extend({
 
             initialize: function(options) {
-                AttributeListenerView.prototype.initialize.call(this, options);
                 var self = this;
+                AttributeListenerView.prototype.initialize.call(this, options);
 
                 // colors can be supplied
                 self.options = _.defaults(options, {
@@ -167,14 +167,14 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
             ),
 
             render: function() {
-                AttributeListenerView.prototype.render.call(this);
                 var self = this,
-                    mapData = self.formatData(),
-                    max = self.getCountryMax(mapData),
-                    fills = self.getFills(mapData, max),
-                    borderColor = self.options.borderColor,
-                    map,
-                    $tooltip;
+                    mapData, max, fills, borderColor, map, $tooltip;
+
+                AttributeListenerView.prototype.render.call(this);
+                mapData = self.formatData();
+                max = self.getCountryMax(mapData);
+                fills = self.getFills(mapData, max);
+                borderColor = self.options.borderColor;
 
                 // Add the tooltip
                 if (_(self.options).has('tooltip')) {
