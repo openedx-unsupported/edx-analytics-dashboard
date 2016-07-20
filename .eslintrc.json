@@ -1,11 +1,11 @@
 {
-	"extends": "eslint-config-edx",
-	"globals": {
-		"gettext": true, // added by django for i18n
-		"fixLanguageCode": true, // global function to correct window.language
-		"setFixtures": true,  // added globally by jasmine-jquery
-		"sinon": true // used for mocking
-	},
+    "extends": "eslint-config-edx",
+    "globals": {
+        "gettext": true, // added by django for i18n
+        "fixLanguageCode": true, // global function to correct window.language
+        "setFixtures": true,  // added globally by jasmine-jquery
+        "sinon": true // used for mocking
+    },
     "settings": {
         "import/resolver": {
             "node": {
@@ -26,14 +26,14 @@
                                 "json!cldr-data/supplemental/likelySubtags.json",
                                 "json!cldr-data/supplemental/numberingSystems.json"]
     },
-	"rules": {
+    "rules": {
         "import/no-unresolved": [2, {"amd": true}],
-	    "no-new" : "off",
-	    "no-param-reassign" : "off",
-	    "no-undef" : "off",
-	    "array-callback-return" : "off",
-	    "no-restricted-syntax" : "off",
-	    "vars-on-top" : "off",
-	    "global-require" : "off"
-	}
+        "no-new" : "off",
+        "no-param-reassign" : "off",
+        "no-undef" : "off",
+        "array-callback-return" : "off",
+        "no-restricted-syntax" : "off",
+        "vars-on-top" : "off",
+        "global-require" : "off"
+    }
 }
