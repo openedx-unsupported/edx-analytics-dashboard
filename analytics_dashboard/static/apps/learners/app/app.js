@@ -68,7 +68,7 @@ define(function(require) {
                 pageModel: pageModel
             }).render();
 
-            new LearnersRouter({
+            learnersRouter = new LearnersRouter({
                 controller: new LearnersController({
                     courseId: this.options.courseId,
                     learnerCollection: learnerCollection,

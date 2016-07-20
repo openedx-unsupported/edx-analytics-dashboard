@@ -9,6 +9,7 @@ define(['d3', 'models/course-model', 'views/world-map-view'], function(d3, Cours
                 }),
                 actual;
 
+            view.renderIfDataAvailable();
             actual = view.popupTemplate({
                 name: 'My Map',
                 value: 100,
@@ -29,6 +30,7 @@ define(['d3', 'models/course-model', 'views/world-map-view'], function(d3, Cours
                 actual,
                 expected;
 
+            view.renderIfDataAvailable();
             actual = view.formatData();
             expected = {
                 USA: {value: 100, fillKey: 'USA', percent: 0.3333, name: undefined},
@@ -55,6 +57,7 @@ define(['d3', 'models/course-model', 'views/world-map-view'], function(d3, Cours
                     .domain([0, 200])
                     .range([lowColor, highColor]);
 
+            view.renderIfDataAvailable();
             actual = view.getFills(countryData, 200);
             expected = {
                 defaultFill: '#000000',
@@ -76,6 +79,7 @@ define(['d3', 'models/course-model', 'views/world-map-view'], function(d3, Cours
                 }),
                 actual;
 
+            view.renderIfDataAvailable();
             actual = view.getCountryMax(countryData);
             expect(actual).toEqual(200);
         });

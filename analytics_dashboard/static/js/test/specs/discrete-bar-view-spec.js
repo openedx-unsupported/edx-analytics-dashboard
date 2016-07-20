@@ -30,6 +30,7 @@ define(['models/course-model', 'views/discrete-bar-view'], function(CourseModel,
                 assembledData;
 
             view.render = jasmine.createSpy('render');
+            view.renderIfDataAvailable();
             expect(view.render).not.toHaveBeenCalled();
 
             // mock getChart (otherwise, an error is thrown)

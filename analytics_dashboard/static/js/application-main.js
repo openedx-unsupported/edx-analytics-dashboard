@@ -12,7 +12,8 @@ require(['bootstrap',
 
         // Instantiate the announcement view(s)
         $('[data-view=announcement]').each(function(index, element) {
-            new AnnouncementView({el: element});
+            var announcement = AnnouncementView({el: element});
+            announcement.render();
         });
     }
 );

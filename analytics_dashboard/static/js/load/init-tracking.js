@@ -9,14 +9,18 @@ define(['jquery', 'underscore', 'views/clickable-view', 'views/tracking-view', '
     function($, _, ClickableView, TrackingView, Utils) {
         'use strict';
         return function(models) {
+            var trackingView,
+                clickableView;
+
             if (models.trackingModel.isTracking()) {
                 // this is only activated when tracking ID is set
-                new TrackingView({
+                trackingView = new TrackingView({
                     el: document,
                     model: models.trackingModel,
                     userModel: models.userModel,
                     courseModel: models.courseModel
                 });
+                trackingView.applicationIdSet();
 
                 // instrument the click events
                 _($('[data-track-type="click"]')).each(function(track) {
@@ -25,12 +29,13 @@ define(['jquery', 'underscore', 'views/clickable-view', 'views/tracking-view', '
                     var properties = Utils.getNodeProperties(track.attributes,
                         'data-track-', ['data-track-event']);
 
-                    new ClickableView({
+                    clickableView = new ClickableView({
                         model: models.trackingModel,
                         trackEventType: $(track).attr('data-track-event'),
                         trackProperties: properties,
                         el: track
                     });
+                    clickableView.renderIfHasEventType();
                 });
             }
         };

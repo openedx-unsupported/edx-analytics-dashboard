@@ -12,7 +12,7 @@ define(function(require) {
             main: '.learner-engagement-table.analytics-table'
         },
         onAttach: function() {
-            new DataTableView({
+            var learnerEngagementTable = new DataTableView({
                 el: this.regions.main,
                 model: this.model,
                 modelAttribute: 'days',
@@ -44,6 +44,7 @@ define(function(require) {
                 sorting: ['-date'],
                 replaceNull: '-'
             });
+            learnerEngagementTable.renderIfDataAvailable();
         }
     });
 

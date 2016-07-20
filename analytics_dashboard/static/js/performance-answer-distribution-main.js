@@ -14,7 +14,9 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                         answerColumn,
                         {key: 'correct', title: gettext('Correct'), type: 'bool'},
                         {key: 'count', title: gettext('Submission Count'), type: 'number', className: 'text-right'}
-                    ];
+                    ],
+                    performanceAnswerChart,
+                    performanceAnswerTable;
 
                 // answers are stored either the numeric or string fields
                 if (courseModel.get('answerType') === 'numeric') {
@@ -29,7 +31,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                     });
                 }
 
-                new DiscreteBarView({
+                performanceAnswerChart = new DiscreteBarView({
                     el: '#performance-chart-view',
                     model: courseModel,
                     modelAttribute: 'answerDistributionLimited',
@@ -57,8 +59,9 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                     // Translators: <%=value%> will be replaced by a student response to a question asked in a course.
                     interactiveTooltipHeaderTemplate: _.template(gettext('Answer: <%=value%>'))
                 });
+                performanceAnswerChart.renderIfDataAvailable();
 
-                new DataTableView({
+                performanceAnswerTable = new DataTableView({
                     el: '[data-role=performance-table]',
                     model: courseModel,
                     modelAttribute: 'answerDistribution',
@@ -66,5 +69,6 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                     sorting: ['-count'],
                     replaceZero: '-'
                 });
+                performanceAnswerTable.renderIfDataAvailable();
             });
 });
