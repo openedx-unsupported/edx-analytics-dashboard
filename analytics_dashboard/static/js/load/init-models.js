@@ -10,12 +10,12 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
             trackingModel = new TrackingModel(),
             userModel = new UserModel();
 
-        /* jshint ignore:start */
+        /* eslint-disable no-undef */
         // initModelData is set by the Django template at render time.
         courseModel.set(initModelData.course);
         trackingModel.set(initModelData.tracking);
         userModel.set(initModelData.user);
-        /* jshint ignore:end */
+        /* eslint-enable no-undef */
 
         return {
             courseModel: courseModel,

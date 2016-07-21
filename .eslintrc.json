@@ -11,8 +11,10 @@
 	    "no-new" : "off",
 	    "no-param-reassign" : "off",
 	    "no-undef" : "off",
-	    "array-callback-return" : "off",
+	    //"array-callback-return" : "off",
 	    "no-restricted-syntax" : "off",
 	    "global-require" : "off"
+	    // global-require turned off due to https://github.com/eslint/eslint/issues/4812. Fixed in v3.1.1
+	    // consider turning rule on after upgrading to ESLint 3.1.1
 	}
 }

@@ -36,7 +36,7 @@ define(function(require) { // eslint-disable-line no-unused-vars
          * the transformed events via 'triggerMethod'.
          */
         mapEvents: function(originator, transformFunctions, forwarder) {
-            Object.keys(transformFunctions).map(function(eventName) {
+            Object.keys(transformFunctions).forEach(function(eventName) {
                 forwarder.listenTo(originator, eventName, function() {
                     var transformFunc = transformFunctions[eventName],
                         newEventArguments = transformFunc.apply(forwarder, arguments);
