@@ -27,7 +27,7 @@
                                 "json!cldr-data/supplemental/numberingSystems.json"]
     },
     "rules": {
-        "import/no-unresolved": [2, {"amd": true}],
+        "import/no-unresolved": ["error", {"amd": true}],
         "no-new" : "off",
         "no-param-reassign" : "off",
         "no-undef" : "off",
