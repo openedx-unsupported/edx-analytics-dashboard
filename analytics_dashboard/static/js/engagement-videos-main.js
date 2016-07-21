@@ -28,7 +28,9 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                 tableColumns = [
                     {key: 'index', title: gettext('Order'), type: 'number', className: 'text-right'},
                     {key: 'name', title: model.get('contentTableHeading'), type: 'hasNull'}
-                ];
+                ],
+                videoChart,
+                videoTable;
 
             tableColumns = tableColumns.concat(graphVideoColumns);
             tableColumns.push({
@@ -39,15 +41,16 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             });
 
             if (model.get('hasData')) {
-                new StackedBarView({
+                videoChart = new StackedBarView({
                     el: '#chart-view',
                     model: model,
                     modelAttribute: 'primaryContent',
                     trends: graphVideoColumns
                 });
+                videoChart.renderIfDataAvailable();
             }
 
-            new DataTableView({
+            videoTable = new DataTableView({
                 el: '[data-role=data-table]',
                 model: model,
                 modelAttribute: 'primaryContent',
@@ -55,5 +58,6 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                 sorting: ['index'],
                 replaceZero: '-'
             });
+            videoTable.renderIfDataAvailable();
         });
 });

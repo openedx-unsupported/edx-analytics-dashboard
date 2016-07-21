@@ -59,8 +59,9 @@ define(function(require) {
         });
 
         it('should treat the username as its id', function() {
-            var learner = new LearnerModel({username: 'daniel', course_id: 'edX/DemoX/Demo_Course'});
-            new (Backbone.Collection.extend({url: '/endpoint/'}))([learner]);
+            var learner = new LearnerModel({username: 'daniel', course_id: 'edX/DemoX/Demo_Course'}),
+                // eslint-disable-next-line no-unused-vars
+                collection = new (Backbone.Collection.extend({url: '/endpoint/'}))([learner]);
             expect(learner.url()).toEqual('/endpoint/daniel?course_id=edX%2FDemoX%2FDemo_Course');
             learner = new (LearnerModel.extend({
                 urlRoot: '/other-endpoint/'

@@ -1,18 +1,37 @@
 {
-	"extends": "eslint-config-edx",
-	"globals": {
-		"gettext": true, // added by django for i18n
-		"fixLanguageCode": true, // global function to correct window.language
-		"setFixtures": true,  // added globally by jasmine-jquery
-		"sinon": true // used for mocking
-	},
-	"rules": {
-		"import/no-unresolved": "off",
-	    "no-new" : "off",
-	    "no-undef" : "off",
-	    "array-callback-return" : "off",
-	    "no-restricted-syntax" : "off",
-	    "vars-on-top" : "off",
-	    "global-require" : "off"
-	}
+    "extends": "eslint-config-edx",
+    "globals": {
+        "gettext": true, // added by django for i18n
+        "fixLanguageCode": true, // global function to correct window.language
+        "setFixtures": true,  // added globally by jasmine-jquery
+        "sinon": true // used for mocking
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".json"],
+                "moduleDirectory": ["node_modules", "analytics_dashboard/static",
+                                    "analytics_dashboard/static/js"]
+            }
+        },
+        "import/core-modules": ["jquery", "underscore", "backbone", "backbone.paginator", "backbone.wreqr",
+                                "backbone.babysitter", "backgrid", "backgrid-filter", "backgrid-paginator", "bootstrap",
+                                "bootstrap_accessibility", "models", "collections", "views", "utils", "load",
+                                "datatables", "dataTablesBootstrap", "naturalSort", "d3", "nvd3", "topojson",
+                                "datamaps", "moment", "text", "json", "cldr", "cldr-data", "globalize", "globalization",
+                                "marionette", "uitk", "URI", "IPv6", "punycode", "SecondLevelDomains", "learners",
+                                "axe-core", "sinon", "nprogress",
+                                "vendor/domReady!", "globalize/number", "boot",
+                                "uitk/disclosure/disclosure-view",
+                                "json!cldr-data/supplemental/likelySubtags.json",
+                                "json!cldr-data/supplemental/numberingSystems.json"]
+    },
+    "rules": {
+        "import/no-unresolved": ["error", {"amd": true}],
+        "no-undef" : "off",
+        "array-callback-return" : "off",
+        "no-restricted-syntax" : "off",
+        "vars-on-top" : "off",
+        "global-require" : "off"
+    }
 }

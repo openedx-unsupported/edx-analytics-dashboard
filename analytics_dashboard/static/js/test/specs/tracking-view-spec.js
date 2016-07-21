@@ -16,6 +16,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                 view = new TrackingView({
                     model: new TrackingModel()
                 });
+                view.applicationIdSet();
 
                 // mock segment
                 view.segment = {
@@ -33,6 +34,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                     model: new TrackingModel(),
                     userModel: new UserModel(USER_DETAILS)
                 });
+                view.applicationIdSet();
 
                 // mock segment
                 view.segment = {
@@ -59,6 +61,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                     courseModel: courseModel,
                     userModel: userModel
                 });
+                view.applicationIdSet();
 
                 // mock segment
                 view.segment = {
@@ -97,6 +100,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                     courseModel: courseModel,
                     userModel: userModel
                 });
+                view.applicationIdSet();
 
                 // mock segment
                 view.segment = {
@@ -130,6 +134,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                     courseModel: courseModel,
                     userModel: userModel
                 });
+                view.applicationIdSet();
 
                 // mock segment
                 view.segment = {
@@ -172,6 +177,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                     courseModel: courseModel,
                     userModel: userModel
                 });
+                view.applicationIdSet();
 
                 // mock segment
                 view.segment = {
@@ -227,6 +233,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                     courseModel: courseModel,
                     userModel: userModel
                 });
+                view.applicationIdSet();
 
                 // mock segment
                 view.segment = {

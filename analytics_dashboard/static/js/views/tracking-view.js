@@ -29,12 +29,7 @@ define(['backbone', 'jquery', 'underscore', 'utils/utils'],
 
                 // wait until you have a segment application ID before kicking
                 // up the script
-                if (self.model.isTracking()) {
-                    self.applicationIdSet();
-                } else {
-                    self.listenToOnce(self.model, 'change:segmentApplicationId',
-                        self.applicationIdSet);
-                }
+                self.listenToOnce(self.model, 'change:segmentApplicationId', self.applicationIdSet);
             },
 
             applicationIdSet: function() {

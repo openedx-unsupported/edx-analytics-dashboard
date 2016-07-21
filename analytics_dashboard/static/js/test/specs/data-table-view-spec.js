@@ -14,6 +14,7 @@ define(['models/course-model', 'views/data-table-view'], function(CourseModel, D
                 maxNumberFunc = view.createFormatMaxNumberFunc(dataType, 100),
                 row = {};
 
+            view.renderIfDataAvailable();
             row[dataType] = 50;
             expect(maxNumberFunc(row, renderType)).toBe('50');
 
@@ -38,6 +39,7 @@ define(['models/course-model', 'views/data-table-view'], function(CourseModel, D
                 percentFunc = view.createFormatPercentFunc(dataType, 100),
                 row = {};
 
+            view.renderIfDataAvailable();
             row[dataType] = 0.05;
             expect(percentFunc(row, renderType)).toBe('5.0%');
 
@@ -63,6 +65,7 @@ define(['models/course-model', 'views/data-table-view'], function(CourseModel, D
                 dateFunc = view.createFormatDateFunc(dataType, 100),
                 row = {};
 
+            view.renderIfDataAvailable();
             row[dataType] = new Date(2014, 0, 1);
             expect(dateFunc(row, renderType)).toBe('January 1, 2014');
         });
@@ -79,6 +82,7 @@ define(['models/course-model', 'views/data-table-view'], function(CourseModel, D
                 func = view.createFormatBoolFunc(dataType),
                 row = {};
 
+            view.renderIfDataAvailable();
             row[dataType] = true;
             expect(func(row, renderType)).toBe('Correct');
 
@@ -98,6 +102,7 @@ define(['models/course-model', 'views/data-table-view'], function(CourseModel, D
                 func = view.createFormatHasNullFunc(dataType),
                 row = {};
 
+            view.renderIfDataAvailable();
             row[dataType] = 'Not Null';
             expect(func(row, renderType)).toBe('Not Null');
 
@@ -118,6 +123,7 @@ define(['models/course-model', 'views/data-table-view'], function(CourseModel, D
                 func = view.createFormatNumberFunc(dataType),
                 row = {};
 
+            view.renderIfDataAvailable();
             row[dataType] = 0;
             expect(func(row, renderType)).toBe('-');
 
