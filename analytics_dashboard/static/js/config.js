@@ -63,11 +63,13 @@ require.config({
         backbone: {
             deps: ['underscore', 'jquery'],
             exports: 'Backbone',
+            /* eslint-disable no-undef */
             init: function(_, $) {
                 'use strict';
                 Backbone.$ = $;
                 return Backbone;
             }
+            /* eslint-enable no-undef */
         },
         backgrid: {
             deps: ['backbone', 'underscore', 'jquery'],

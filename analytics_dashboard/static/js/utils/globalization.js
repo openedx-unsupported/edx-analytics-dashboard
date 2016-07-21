@@ -44,5 +44,5 @@ define([
     Globalize.load(numberingSystems);
     Globalize.load(numbers);
 
-    return Globalize(window.language);  // jshint ignore:line
+    return Globalize(window.language);
 });

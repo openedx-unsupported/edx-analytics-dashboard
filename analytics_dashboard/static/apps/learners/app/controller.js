@@ -12,6 +12,7 @@ define(function(require) {
     var Backbone = require('backbone'),
         Marionette = require('marionette'),
         NProgress = require('nprogress'),
+        _ = require('underscore'),
 
         EngagementTimelineModel = require('learners/common/models/engagement-timeline'),
         LearnerDetailView = require('learners/detail/views/learner-detail'),
@@ -155,7 +156,7 @@ define(function(require) {
 
         showNotFoundPage: function() {
             // TODO: Implement this page in https://openedx.atlassian.net/browse/AN-6697
-            var message = gettext("Sorry, we couldn't find the page you're looking for."),  // jshint ignore:line
+            var message = gettext("Sorry, we couldn't find the page you're looking for."),
                 notFoundView;
 
             notFoundView = new (Backbone.View.extend({

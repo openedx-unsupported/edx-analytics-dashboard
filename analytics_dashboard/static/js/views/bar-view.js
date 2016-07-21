@@ -41,7 +41,7 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
             truncateXTick: function(d) {
                 var self = this,
                     formattedLabel = self.formatXValue(d),
-                    barWidth = d3.select(self.options.barSelector).attr('width'),  // jshint ignore:line
+                    barWidth = d3.select(self.options.barSelector).attr('width'),
                 // this is a rough estimate of how wide a character is
                     charWidth = 6,
                     characterLimit = Math.floor(barWidth / charWidth);

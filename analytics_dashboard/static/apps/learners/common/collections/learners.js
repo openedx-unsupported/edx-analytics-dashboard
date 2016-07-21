@@ -2,10 +2,10 @@ define(function(require) {
     'use strict';
 
     var PagingCollection = require('uitk/pagination/paging-collection'),
-
         LearnerModel = require('learners/common/models/learner'),
         LearnerUtils = require('learners/common/utils'),
         Utils = require('utils/utils'),
+        _ = require('underscore'),
 
         LearnerCollection;
 
