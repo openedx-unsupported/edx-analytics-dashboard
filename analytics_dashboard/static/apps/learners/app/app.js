@@ -68,7 +68,7 @@ define(function(require) {
                 pageModel: pageModel
             }).render();
 
-            learnersRouter = new LearnersRouter({
+            new LearnersRouter({ // eslint-disable-line no-new
                 controller: new LearnersController({
                     courseId: this.options.courseId,
                     learnerCollection: learnerCollection,
