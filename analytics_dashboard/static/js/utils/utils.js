@@ -12,20 +12,19 @@ define(['moment', 'underscore', 'utils/globalization'], function(moment, _, Glob
          * @returns Hash of found attributes.
          */
         getNodeProperties: function(nodeAttributes, startsWithAndStrip, blackList) {
-            var properties = {};
-
-            // fill in defaults
-            startsWithAndStrip = startsWithAndStrip || '';
-            blackList = blackList || [];
+            var properties = {},
+                // fill in defaults
+                startsWithAndStripDefault = startsWithAndStrip || '',
+                blackListDefault = blackList || [];
 
             _(_(nodeAttributes.length).range()).each(function(i) {
                 var nodeName = nodeAttributes.item(i).nodeName,
                     strippedName;
                 // filter the attributes to just the ones that start with our
                 // selection and aren't in our blacklist
-                if (nodeName.indexOf(startsWithAndStrip) === 0 && !_(blackList).contains(nodeName)) {
+                if (nodeName.indexOf(startsWithAndStripDefault) === 0 && !_(blackListDefault).contains(nodeName)) {
                     // remove the
-                    strippedName = nodeName.replace(startsWithAndStrip, '');
+                    strippedName = nodeName.replace(startsWithAndStripDefault, '');
                     properties[strippedName] =
                         nodeAttributes.item(i).value;
                 }
@@ -99,7 +98,7 @@ define(['moment', 'underscore', 'utils/globalization'], function(moment, _, Glob
                 seconds = totalSeconds - (minutes * 60);
             return _([minutes, seconds]).map(function(time) {
                 if (time < 10) {
-                    time = '0' + time;
+                    return '0' + time;
                 }
                 return time;
             }).join(':');

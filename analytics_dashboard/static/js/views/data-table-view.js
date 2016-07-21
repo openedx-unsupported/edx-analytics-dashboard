@@ -18,10 +18,10 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
              * Adds natural sort to the data table sorting.
              */
             addNaturalSort: function() {
-                $.fn.dataTableExt.oSort['natural-asc'] = function(a, b) {
+                $.fn.dataTableExt.oSort['natural-asc'] = function(a, b) { // eslint-disable-line no-param-reassign
                     return naturalSort(a, b);
                 };
-                $.fn.dataTableExt.oSort['natural-desc'] = function(a, b) {
+                $.fn.dataTableExt.oSort['natural-desc'] = function(a, b) { // eslint-disable-line no-param-reassign
                     return -naturalSort(a, b);
                 };
             },
