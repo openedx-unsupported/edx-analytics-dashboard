@@ -16,9 +16,9 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/bar-view'],
              */
             formatXValue: function(xValue) {
                 var self = this;
-                xValue = BarView.prototype.formatXValue.call(self, xValue);
+                formattedXValue = BarView.prototype.formatXValue.call(self, xValue);
                 // Translators: (empty) is displayed as a label in a chart and indicates that no label was provided.
-                return _(xValue).isNull() ? gettext('(empty)') : xValue;
+                return _(formattedXValue).isNull() ? gettext('(empty)') : formattedXValue;
             },
 
             getChart: function() {

@@ -25,14 +25,14 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
                     trend = self.options.trends[0],
                     maxNumber = trend.maxNumber;
 
-                xValue = ChartView.prototype.formatXTick.call(self, xValue);
+                formattedXValue = ChartView.prototype.formatXTick.call(self, xValue);
 
                 if (!_(maxNumber).isUndefined()) {
                     // e.g. 100+
-                    xValue = xValue >= maxNumber ? maxNumber + '+' : xValue;
+                    formattedXValue = formattedXValue >= maxNumber ? maxNumber + '+' : formattedXValue;
                 }
 
-                return xValue;
+                return formattedXValue;
             },
 
             /**
@@ -40,13 +40,13 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
              */
             truncateXTick: function(d) {
                 var self = this;
-                d = self.formatXValue(d);
+                x = self.formatXValue(d);
 
                 var barWidth = d3.select(self.options.barSelector).attr('width'),  // jshint ignore:line
                 // this is a rough estimate of how wide a character is
                     charWidth = 6,
                     characterLimit = Math.floor(barWidth / charWidth),
-                    formattedLabel = d;
+                    formattedLabel = x;
 
                 if (characterLimit < 3) {
                     // no labels will be displayed if label space is limited
@@ -87,13 +87,13 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
                 }
 
                 if (_(self.options).has('interactiveTooltipValueTemplate')) {
-                    y = self.options.interactiveTooltipValueTemplate({value: y, point: e.point, options: trend});
+                    yValue = self.options.interactiveTooltipValueTemplate({value: y, point: e.point, options: trend});
                 }
 
                 return {
                     label: label,
                     color: swatchColor,
-                    value: y
+                    value: yValue
                 };
             },
 

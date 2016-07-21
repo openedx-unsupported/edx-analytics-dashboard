@@ -34,10 +34,10 @@ define(function(require) {
         };
 
         getResponseBody = function(numPages, pageNum) {
-            var results;
-            pageNum = pageNum || 1;
+            var results,
+                page = pageNum || 1;
             if (numPages) {
-                results = _.range(perPage * (pageNum - 1), perPage * (pageNum - 1) + perPage).map(function(index) {
+                results = _.range(perPage * (page - 1), perPage * (page - 1) + perPage).map(function(index) {
                     return {name: 'user ' + index, username: 'user_' + index};
                 });
             } else {
@@ -52,16 +52,16 @@ define(function(require) {
 
         getRosterView = function(options) {
             var collection,
-                rosterView;
-            options = options || {};
-            collection = options.collection || new LearnerCollection(
-                options.collectionResponse,
-                _.extend({url: 'test-url'}, options.collectionOptions)
+                rosterView,
+                defaultOptions = _.defaults({}, options);
+            collection = defaultOptions.collection || new LearnerCollection(
+                defaultOptions.collectionResponse,
+                _.extend({url: 'test-url'}, defaultOptions.collectionOptions)
             );
             rosterView = new LearnerRosterView({
                 collection: collection,
-                courseMetadata: options.courseMetadataModel ||
-                    new CourseMetadataModel(options.courseMetadata, {parse: true}),
+                courseMetadata: defaultOptions.courseMetadataModel ||
+                    new CourseMetadataModel(defaultOptions.courseMetadata, {parse: true}),
                 el: '.' + fixtureClass,
                 trackingModel: new TrackingModel()
             }).render();

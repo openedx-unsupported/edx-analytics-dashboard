@@ -38,17 +38,23 @@ define(function(require) {
             this.$el.tooltip({container: '.learners-table'});
         },
 
-        render: function(column, direction) {
+        render: function() {
+            var directionWord;
             if (this.collection.state.sortKey && this.collection.state.sortKey === this.column.attributes.name) {
-                direction = this.collection.state.order ? 'ascending' : 'descending';
-                this.column.attributes.direction = direction;
-                column = this.column;
+                directionWord = this.collection.state.order ? 'ascending' : 'descending';
+                this.column.attributes.direction = directionWord;
             }
+
             Backgrid.HeaderCell.prototype.render.apply(this, arguments);
             this.$el.html(this.template({
                 label: this.column.get('label')
             }));
-            this.renderSortState(column, direction);
+
+            if (directionWord) { // this column is sorted
+                this.renderSortState(this.column, directionWord);
+            } else {
+                this.renderSortState();
+            }
             return this;
         },
 
@@ -58,11 +64,12 @@ define(function(require) {
 
         renderSortState: function(column, direction) {
             var sortIcon = this.$('i'),
-                sortDirectionMap;
+                sortDirectionMap,
+                directionOrNeutral;
             if (column && column.cid !== this.column.cid) {
-                direction = 'neutral';
+                directionOrNeutral = 'neutral';
             } else {
-                direction = direction || 'neutral';
+                directionOrNeutral = direction || 'neutral';
             }
             // Maps a sort direction to its appropriate screen reader
             // text and icon.
@@ -79,8 +86,8 @@ define(function(require) {
                 neutral: {screenReaderText: gettext('click to sort'), iconClass: 'fa-sort'}
             };
             sortIcon.removeClass('fa-sort fa-sort-asc fa-sort-desc');
-            sortIcon.addClass(sortDirectionMap[direction].iconClass);
-            this.$('.sr-sorting-text').text(' ' + sortDirectionMap[direction].screenReaderText);
+            sortIcon.addClass(sortDirectionMap[directionOrNeutral].iconClass);
+            this.$('.sr-sorting-text').text(' ' + sortDirectionMap[directionOrNeutral].screenReaderText);
         }
     });
 
