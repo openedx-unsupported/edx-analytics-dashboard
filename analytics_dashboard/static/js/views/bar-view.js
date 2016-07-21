@@ -23,9 +23,8 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
             formatXValue: function(xValue) {
                 var self = this,
                     trend = self.options.trends[0],
-                    maxNumber = trend.maxNumber;
-
-                formattedXValue = ChartView.prototype.formatXTick.call(self, xValue);
+                    maxNumber = trend.maxNumber,
+                    formattedXValue = ChartView.prototype.formatXTick.call(self, xValue);
 
                 if (!_(maxNumber).isUndefined()) {
                     // e.g. 100+
