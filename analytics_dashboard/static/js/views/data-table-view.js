@@ -12,7 +12,6 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
                 self.options.sorting = options.sorting || [];
 
                 self.addNaturalSort();
-                self.renderIfDataAvailable();
             },
 
             /**

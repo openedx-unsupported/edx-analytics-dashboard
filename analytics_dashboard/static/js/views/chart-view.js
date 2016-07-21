@@ -45,7 +45,6 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
                 self.chart = null;
                 self.options = _.extend({}, self.defaults, options);
                 _.bindAll(this, 'truncateXTick', 'formatXTick');
-                self.renderIfDataAvailable();
             },
 
             /**

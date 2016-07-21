@@ -51,7 +51,9 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                 type: 'percent'
             }
             ],
-            trendSettings;
+            trendSettings,
+            engagementChart,
+            engagementTable;
 
         // remove settings for data that doesn't exist (ex. forums)
         settings = _(settings).filter(function(setting) {
@@ -64,7 +66,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
         });
 
         // weekly engagement activities graph
-        new TrendsView({
+        engagementChart = new TrendsView({
             el: '#engagement-trend-view',
             model: page.models.courseModel,
             modelAttribute: 'engagementTrends',
@@ -82,9 +84,10 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             // Translators: <%=value%> will be replaced with a date.
             interactiveTooltipHeaderTemplate: _.template(gettext('Week Ending <%=value%>'))
         });
+        engagementChart.renderIfDataAvailable();
 
         // weekly engagement activities table
-        new DataTableView({
+        engagementTable = new DataTableView({
             el: '[data-role=engagement-table]',
             model: page.models.courseModel,
             modelAttribute: 'engagementTrends',
@@ -92,5 +95,6 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             sorting: ['-weekEnding'],
             replaceNull: '-'
         });
+        engagementTable.renderIfDataAvailable();
     });
 });

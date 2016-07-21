@@ -8,7 +8,6 @@ define(['backbone', 'jquery'], function(Backbone, $) {
 
         initialize: function() {
             this.csrftoken = $('input[name=csrfmiddlewaretoken]', this.$el).val();
-            this.render();
         },
 
         render: function() {

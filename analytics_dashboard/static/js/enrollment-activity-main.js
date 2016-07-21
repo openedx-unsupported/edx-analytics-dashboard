@@ -55,7 +55,9 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                 })
             ],
             trendSettings,
-            enrollmentTrackTrendSettings;
+            enrollmentTrackTrendSettings,
+            enrollmentChart,
+            enrollmentTable;
 
         // Remove settings for which there is no data (e.g. don't attempt to display verified if there is no data).
         settings = _(settings).filter(function(setting) {
@@ -76,7 +78,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
         }
 
         // Daily enrollment graph
-        new StackedTrendsView({
+        enrollmentChart = new StackedTrendsView({
             el: '#enrollment-trend-view',
             model: page.models.courseModel,
             modelAttribute: 'enrollmentTrends',
@@ -84,14 +86,16 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             x: {key: 'date'},
             y: {key: 'count'}
         });
+        enrollmentChart.renderIfDataAvailable();
 
         // Daily enrollment table
-        new DataTableView({
+        enrollmentTable = new DataTableView({
             el: '[data-role=enrollment-table]',
             model: page.models.courseModel,
             modelAttribute: 'enrollmentTrends',
             columns: settings,
             sorting: ['-date']
         });
+        enrollmentTable.renderIfDataAvailable();
     });
 });
