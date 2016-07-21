@@ -6,33 +6,34 @@ define(function(require) {
     describe('AlertView', function() {
         it('throws exception for invalid alert types', function() {
             expect(function() {
-                new AlertView({alertType: 'scooby-doo'});
+                new AlertView({alertType: 'scooby-doo'}); // eslint-disable-line no-new
             }).toThrow(new Error('AlertView error: "scooby-doo" is not valid. Valid types are error, info.'));
         });
 
         it('renders an error alert', function() {
-            var fixture = setFixtures('<div id="error-alert"></div>');
+            var fixture = setFixtures('<div id="error-alert"></div>'),
+                alertView = new AlertView({
+                    alertType: 'error',
+                    el: '#error-alert',
+                    title: 'edX Error Alert'
+                });
 
-            new AlertView({
-                el: '#error-alert',
-                alertType: 'error',
-                title: 'edX Error Alert'
-            }).render();
+            alertView.render();
 
             expect(fixture).toContainElement('i.fa-exclamation-triangle');
             expect(fixture).toContainElement('.alert-error-container');
         });
 
         it('renders an info alert', function() {
-            var fixture = setFixtures('<div class="info-alert"></div>');
-
-            new AlertView({
-                el: '.info-alert',
-                alertType: 'info',
-                title: 'edX Info Alert',
-                body: 'More description about an information alert.',
-                suggestions: ['Display alerts.', 'Alerts are helpful messages!']
-            }).render();
+            var fixture = setFixtures('<div class="info-alert"></div>'),
+                alertView = new AlertView({
+                    el: '.info-alert',
+                    alertType: 'info',
+                    title: 'edX Info Alert',
+                    body: 'More description about an information alert.',
+                    suggestions: ['Display alerts.', 'Alerts are helpful messages!']
+                });
+            alertView.render();
 
             expect(fixture).toContainElement('i.fa-bullhorn');
             expect(fixture).toContainElement('.alert-info-container');
@@ -40,16 +41,16 @@ define(function(require) {
         });
 
         it('renders an alert with a link', function() {
-            var fixture = setFixtures('<div class="info-alert"></div>');
-
-            new AlertView({
-                el: '.info-alert',
-                alertType: 'info',
-                title: 'edX Info Alert',
-                body: 'More description about an information alert.',
-                suggestions: ['Display alerts.', 'Alerts are helpful messages!'],
-                link: {url: 'http://example.com', text: 'A helpful link.'}
-            }).render();
+            var fixture = setFixtures('<div class="info-alert"></div>'),
+                alertView = new AlertView({
+                    el: '.info-alert',
+                    alertType: 'info',
+                    title: 'edX Info Alert',
+                    body: 'More description about an information alert.',
+                    suggestions: ['Display alerts.', 'Alerts are helpful messages!'],
+                    link: {url: 'http://example.com', text: 'A helpful link.'}
+                });
+            alertView.render();
 
             expect(fixture).toContainElement('i.fa-bullhorn');
             expect(fixture).toContainElement('.alert-info-container');
