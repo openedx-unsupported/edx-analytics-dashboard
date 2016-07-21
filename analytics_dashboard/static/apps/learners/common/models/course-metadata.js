@@ -52,19 +52,16 @@ define(function(require) {
                         average: 'classRankMiddle',
                         below_average: 'classRankBottom'
                     }
-                },
-                metric, range;
-            for (metric in engagementRanges) {
+                };
+            Object.keys(engagementRanges).forEach(function(metric) {
                 if (metric in newRanges) {
                     rankedEngagementRanges[metric] = {};
-                    for (range in engagementRanges[metric]) {
-                        if (engagementRanges[metric].hasOwnProperty(range)) {
-                            rankedEngagementRanges[metric][newRanges[metric][range]] =
-                                engagementRanges[metric][range];
-                        }
-                    }
+                    Object.keys(engagementRanges[metric]).forEach(function(range) {
+                        rankedEngagementRanges[metric][newRanges[metric][range]] =
+                            engagementRanges[metric][range];
+                    });
                 }
-            }
+            });
             this.set('rankedEngagementRanges', rankedEngagementRanges);
         },
 
