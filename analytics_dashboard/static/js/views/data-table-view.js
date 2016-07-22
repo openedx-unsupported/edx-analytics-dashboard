@@ -12,17 +12,16 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
                 self.options.sorting = options.sorting || [];
 
                 self.addNaturalSort();
-                self.renderIfDataAvailable();
             },
 
             /**
              * Adds natural sort to the data table sorting.
              */
             addNaturalSort: function() {
-                $.fn.dataTableExt.oSort['natural-asc'] = function(a, b) {
+                $.fn.dataTableExt.oSort['natural-asc'] = function(a, b) { // eslint-disable-line no-param-reassign
                     return naturalSort(a, b);
                 };
-                $.fn.dataTableExt.oSort['natural-desc'] = function(a, b) {
+                $.fn.dataTableExt.oSort['natural-desc'] = function(a, b) { // eslint-disable-line no-param-reassign
                     return -naturalSort(a, b);
                 };
             },

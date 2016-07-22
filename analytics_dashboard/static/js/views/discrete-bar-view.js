@@ -15,10 +15,10 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/bar-view'],
              * Returns the original bar label or "(empty)" if no label provided.
              */
             formatXValue: function(xValue) {
-                var self = this;
-                xValue = BarView.prototype.formatXValue.call(self, xValue);
+                var self = this,
+                    formattedXValue = BarView.prototype.formatXValue.call(self, xValue);
                 // Translators: (empty) is displayed as a label in a chart and indicates that no label was provided.
-                return _(xValue).isNull() ? gettext('(empty)') : xValue;
+                return _(formattedXValue).isNull() ? gettext('(empty)') : formattedXValue;
             },
 
             getChart: function() {

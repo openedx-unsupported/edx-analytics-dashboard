@@ -19,8 +19,6 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
                     highColor: '#124d6f',
                     borderColor: '#ffffff'
                 });
-
-                self.renderIfDataAvailable();
             },
 
             /**

@@ -37,7 +37,7 @@ define(function(require) {
             // pass the tracking model to the page handles so that they can trigger
             // tracking event
             _(this.handles).each(function(handle) {
-                handle.trackingModel = trackingModel;
+                handle.trackingModel = trackingModel; // eslint-disable-line no-param-reassign
             });
         },
         pageHandle: Backgrid.Extension.PageHandle.extend({

@@ -28,7 +28,9 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                     {key: 'index', title: gettext('Order'), type: 'number', className: 'text-right'},
                     {key: 'name', title: model.get('contentTableHeading'), type: 'hasNull'},
                     {key: 'num_modules', title: gettext('Problems'), type: 'number', className: 'text-right'}
-                ];
+                ],
+                performanceChart,
+                performanceTable;
 
             tableColumns = tableColumns.concat(graphSubmissionColumns);
 
@@ -49,16 +51,17 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             });
 
             if (model.get('hasData')) {
-                new StackedBarView({
+                performanceChart = new StackedBarView({
                     el: '#chart-view',
                     model: model,
                     modelAttribute: 'primaryContent',
                     dataType: 'decimal',
                     trends: graphSubmissionColumns
                 });
+                performanceChart.renderIfDataAvailable();
             }
 
-            new DataTableView({
+            performanceTable = new DataTableView({
                 el: '[data-role=data-table]',
                 model: model,
                 modelAttribute: 'primaryContent',
@@ -66,5 +69,6 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                 sorting: ['index'],
                 replaceZero: '-'
             });
+            performanceTable.renderIfDataAvailable();
         });
 });

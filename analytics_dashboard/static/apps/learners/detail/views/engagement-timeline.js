@@ -18,7 +18,7 @@ define(function(require) {
             // Normally we'd declare this logic in the
             // `Marionette.View.onBeforeView` method, but the TrendsView
             // requires that the chart's container element is in the DOM.
-            new TrendsView({
+            var learnerEngagementChart = new TrendsView({
                 showLegend: true,
                 el: this.regions.main,
                 model: this.model,
@@ -48,6 +48,7 @@ define(function(require) {
                     key: 'value'
                 }
             });
+            learnerEngagementChart.renderIfDataAvailable();
         }
     });
 

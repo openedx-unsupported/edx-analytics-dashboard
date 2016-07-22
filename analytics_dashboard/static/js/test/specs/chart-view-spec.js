@@ -35,6 +35,7 @@ define(['d3', 'models/course-model', 'views/chart-view'], function(d3, CourseMod
                 explicitXTicks;
 
             view.render = jasmine.createSpy('render');
+            view.renderIfDataAvailable();
             expect(view.render).not.toHaveBeenCalled();
 
             // mock getChart (otherwise, an error is thrown)
@@ -116,6 +117,7 @@ define(['d3', 'models/course-model', 'views/chart-view'], function(d3, CourseMod
                 mapping;
 
             view.render = jasmine.createSpy('render');
+            view.renderIfDataAvailable();
             expect(view.render).not.toHaveBeenCalled();
 
             // mock getChart (otherwise, an error is thrown)
@@ -162,6 +164,7 @@ define(['d3', 'models/course-model', 'views/chart-view'], function(d3, CourseMod
                 el: document.createElement('div'),
                 model: new CourseModel()
             });
+            view.renderIfDataAvailable();
 
             expect(view.getYAxisFormat()(1000)).toBe('1000');
 

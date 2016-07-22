@@ -42,6 +42,7 @@ define(['underscore', 'models/course-model', 'views/stacked-bar-view'], function
                 xLabelMapping;
 
             view.render = jasmine.createSpy('render');
+            view.renderIfDataAvailable();
             expect(view.render).not.toHaveBeenCalled();
 
             // mock getChart (otherwise, an error is thrown)
@@ -84,6 +85,7 @@ define(['underscore', 'models/course-model', 'views/stacked-bar-view'], function
                     point: {percent: 0.1239}
                 },
                 expectedTooltip = '200 (12.4%)';
+            view.renderIfDataAvailable();
             expect(_.isFunction(view.options.click)).toBe(true);
             expect(view.options.truncateXTicks).toBe(true);
             expect(view.options.barSelector).toBe('.nv-bar');

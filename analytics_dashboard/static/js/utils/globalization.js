@@ -1,20 +1,21 @@
 function fixLanguageCode(languageCode) {
     'use strict';
+    var fixedLanguageCode;
 
     if (!languageCode || typeof languageCode !== 'string') {
         return 'en';
     }
 
-    languageCode = languageCode.toLowerCase();
+    fixedLanguageCode = languageCode.toLowerCase();
 
     // CLDR uses zh for Simplified Chinese, while Django may use different strings.
-    if (languageCode === 'zh-cn' || languageCode === 'zh-sg' ||
-        languageCode.indexOf('zh-hans') === 0) {
+    if (fixedLanguageCode === 'zh-cn' || fixedLanguageCode === 'zh-sg' ||
+        fixedLanguageCode.indexOf('zh-hans') === 0) {
         return 'zh';
     }
     // CLDR uses zh-hant for Traditional Chinese, while Django may use different strings.
-    if (languageCode === 'zh-tw' || languageCode === 'zh-hk' ||
-        languageCode === 'zh-mo' || languageCode.indexOf('zh-hant') === 0) {
+    if (fixedLanguageCode === 'zh-tw' || fixedLanguageCode === 'zh-hk' ||
+        fixedLanguageCode === 'zh-mo' || fixedLanguageCode.indexOf('zh-hant') === 0) {
         return 'zh-hant';
     }
 
@@ -22,8 +23,8 @@ function fixLanguageCode(languageCode) {
     // so the plugin does not attempt to load non-existent files.
     if (['ar', 'ca', 'cs', 'da', 'de', 'el', 'en-001', 'en-au', 'en-ca', 'en-gb', 'en-hk', 'en-in', 'en', 'es', 'fi',
         'fr', 'he', 'hi', 'hr', 'hu', 'it', 'ja', 'ko', 'nb', 'nl', 'pl', 'pt-pt', 'pt', 'ro', 'root', 'ru', 'sk', 'sl',
-        'sr', 'sv', 'th', 'tr', 'uk', 'vi', 'zh-hant', 'zh'].indexOf(languageCode) > -1) {
-        return languageCode;
+        'sr', 'sv', 'th', 'tr', 'uk', 'vi', 'zh-hant', 'zh'].indexOf(fixedLanguageCode) > -1) {
+        return fixedLanguageCode;
     }
 
     return 'en';

@@ -37,21 +37,25 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             ],
             tableColumns = [
                 {key: 'start_time', title: gettext('Time'), type: 'time'}
-            ];
+            ],
+            iframe,
+            videoTimelineChart,
+            videoTimelineTable;
 
         tableColumns = tableColumns.concat(timelineSettings);
 
-        new DisclosureView({
+        new DisclosureView({ // eslint-disable-line no-new
             el: '.module-preview-disclosure'
         });
 
         // loading the iframe blocks content, so load it after the rest of the page loads
-        new IFrameView({
+        iframe = new IFrameView({
             el: '#module-preview',
             loadingSelector: '#module-loading'
         });
+        iframe.render();
 
-        new StackedTimelineView({
+        videoTimelineChart = new StackedTimelineView({
             el: '#chart-view',
             model: courseModel,
             modelAttribute: 'videoTimeline',
@@ -59,12 +63,14 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             x: {key: 'start_time', title: 'Time'},
             y: {key: 'num_users'}
         });
+        videoTimelineChart.renderIfDataAvailable();
 
-        new DataTableView({
+        videoTimelineTable = new DataTableView({
             el: '[data-role=data-table]',
             model: courseModel,
             modelAttribute: 'videoTimeline',
             columns: tableColumns
         });
+        videoTimelineTable.renderIfDataAvailable();
     });
 });

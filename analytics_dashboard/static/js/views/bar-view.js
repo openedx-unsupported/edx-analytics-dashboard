@@ -23,16 +23,15 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
             formatXValue: function(xValue) {
                 var self = this,
                     trend = self.options.trends[0],
-                    maxNumber = trend.maxNumber;
-
-                xValue = ChartView.prototype.formatXTick.call(self, xValue);
+                    maxNumber = trend.maxNumber,
+                    formattedXValue = ChartView.prototype.formatXTick.call(self, xValue);
 
                 if (!_(maxNumber).isUndefined()) {
                     // e.g. 100+
-                    xValue = xValue >= maxNumber ? maxNumber + '+' : xValue;
+                    formattedXValue = formattedXValue >= maxNumber ? maxNumber + '+' : formattedXValue;
                 }
 
-                return xValue;
+                return formattedXValue;
             },
 
             /**
@@ -40,11 +39,12 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
              */
             truncateXTick: function(d) {
                 var self = this,
-                    formattedLabel = self.formatXValue(d),
+                    x = self.formatXValue(d),
                     barWidth = d3.select(self.options.barSelector).attr('width'),
                 // this is a rough estimate of how wide a character is
                     charWidth = 6,
-                    characterLimit = Math.floor(barWidth / charWidth);
+                    characterLimit = Math.floor(barWidth / charWidth),
+                    formattedLabel = x;
 
                 if (characterLimit < 3) {
                     // no labels will be displayed if label space is limited
@@ -68,7 +68,8 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
             buildTrendTip: function(trend, x, y, e) {
                 var self = this,
                     swatchColor = trend.color,  // e.g #ff9988 or a function
-                    label = trend.title;  // e.g. 'my title' or a function
+                    label = trend.title,  // e.g. 'my title' or a function
+                    yValue = y;
 
                 // bar colors can be dynamically assigned based on value
                 if (_(swatchColor).isFunction()) {
@@ -85,13 +86,13 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
                 }
 
                 if (_(self.options).has('interactiveTooltipValueTemplate')) {
-                    y = self.options.interactiveTooltipValueTemplate({value: y, point: e.point, options: trend});
+                    yValue = self.options.interactiveTooltipValueTemplate({value: y, point: e.point, options: trend});
                 }
 
                 return {
                     label: label,
                     color: swatchColor,
-                    value: y
+                    value: yValue
                 };
             },
 
