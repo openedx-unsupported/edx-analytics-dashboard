@@ -4,7 +4,8 @@ define(function(require) {
     var EngagementTimelineModel = require('learners/common/models/engagement-timeline'),
         LearnerDetailView = require('learners/detail/views/learner-detail'),
         LearnerModel = require('learners/common/models/learner'),
-        Utils = require('utils/utils');
+        Utils = require('utils/utils'),
+        _ = require('underscore');
 
     describe('LearnerDetailView', function() {
         var fixtureClass = '.learner-detail-fixture';

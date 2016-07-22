@@ -51,9 +51,10 @@ define(['views/announcement-view', 'jquery', 'underscore'], function(Announcemen
             });
 
             it('should POST to the dismiss URL', function() {
+                var request;
                 view.dismiss();
 
-                var request = server.requests[0];
+                request = server.requests[0];
                 expect(request.method).toEqual('POST');
                 expect(request.url).toEqual(url);
             });

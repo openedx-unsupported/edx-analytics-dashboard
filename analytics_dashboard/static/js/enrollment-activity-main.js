@@ -7,9 +7,10 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
     'use strict';
 
     // this is your page specific code
-    require(['views/data-table-view',
+    require(['underscore',
+            'views/data-table-view',
             'views/stacked-trends-view'],
-    function(DataTableView, StackedTrendsView) {
+    function(_, DataTableView, StackedTrendsView) {
         var colors = ['#4BB4FB', '#898C8F', '#009CD3', '#B72667', '#442255', '#1E8142'],
             numericColumn = {
                 className: 'text-right',

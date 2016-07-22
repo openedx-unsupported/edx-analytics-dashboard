@@ -1,11 +1,12 @@
 function fixLanguageCode(languageCode) {
     'use strict';
+    var fixedLanguageCode;
 
     if (!languageCode || typeof languageCode !== 'string') {
         return 'en';
     }
 
-    var fixedLanguageCode = languageCode.toLowerCase();
+    fixedLanguageCode = languageCode.toLowerCase();
 
     // CLDR uses zh for Simplified Chinese, while Django may use different strings.
     if (fixedLanguageCode === 'zh-cn' || fixedLanguageCode === 'zh-sg' ||
@@ -44,5 +45,5 @@ define([
     Globalize.load(numberingSystems);
     Globalize.load(numbers);
 
-    return Globalize(window.language);  // jshint ignore:line
+    return Globalize(window.language);
 });

@@ -1,4 +1,3 @@
-/* jshint ignore:start */
 define(['utils/globalization'], function() {
     'use strict';
 
@@ -29,4 +28,3 @@ define(['utils/globalization'], function() {
         });
     });
 });
-/* jshint ignore:end */

@@ -4,7 +4,8 @@
         "gettext": true, // added by django for i18n
         "fixLanguageCode": true, // global function to correct window.language
         "setFixtures": true,  // added globally by jasmine-jquery
-        "sinon": true // used for mocking
+        "sinon": true, // used for mocking
+        "requirejs": true
     },
     "settings": {
         "import/resolver": {
@@ -28,10 +29,8 @@
     },
     "rules": {
         "import/no-unresolved": ["error", {"amd": true}],
-        "no-undef" : "off",
-        "array-callback-return" : "off",
-        "no-restricted-syntax" : "off",
-        "vars-on-top" : "off",
         "global-require" : "off"
+        // global-require turned off due to https://github.com/eslint/eslint/issues/4812. Fixed in v3.1.1
+        // consider turning rule on after upgrading to ESLint 3.1.1
     }
 }

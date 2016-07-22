@@ -40,8 +40,8 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
              *      }
              */
             initialize: function(options) {
-                AttributeListenerView.prototype.initialize.call(this, options);
                 var self = this;
+                AttributeListenerView.prototype.initialize.call(this, options);
                 self.chart = null;
                 self.options = _.extend({}, self.defaults, options);
                 _.bindAll(this, 'truncateXTick', 'formatXTick');
@@ -272,11 +272,12 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
             },
 
             render: function() {
-                AttributeListenerView.prototype.render.call(this);
                 var self = this,
-                    canvas = d3.select(self.el),
-                    assembledData = self.assembleTrendData(),
-                    xLabelMapping = self.buildXLabelMapping();
+                    canvas, assembledData, xLabelMapping;
+                AttributeListenerView.prototype.render.call(this);
+                canvas = d3.select(self.el);
+                assembledData = self.assembleTrendData();
+                xLabelMapping = self.buildXLabelMapping();
 
                 self.xLabelMapping = xLabelMapping;
                 self.chart = self.getChart();

@@ -17,8 +17,8 @@ define(['moment', 'nvd3', 'underscore', 'views/chart-view'],
             },
 
             initChart: function(chart) {
-                ChartView.prototype.initChart.call(this, chart);
                 var self = this;
+                ChartView.prototype.initChart.call(this, chart);
 
                 chart.showLegend(this.options.showLegend)
                     .useInteractiveGuideline(true);

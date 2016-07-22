@@ -1,5 +1,5 @@
-define(['nvd3', 'views/trends-view'],
-    function(nvd3, TrendsView) {
+define(['underscore', 'nvd3', 'views/trends-view'],
+    function(_, nvd3, TrendsView) {
         'use strict';
 
         var StackedTrendsView = TrendsView.extend({

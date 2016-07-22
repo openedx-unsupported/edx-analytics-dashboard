@@ -45,11 +45,11 @@
         }
 
         // you can automatically get the test files using karma's configs
-        for (var file in window.__karma__.files) { // eslint-disable-line no-underscore-dangle
+        Object.keys(window.__karma__.files).forEach(function(file) { // eslint-disable-line no-underscore-dangle
             if (/spec\.js$/.test(file)) {
                 specs.push(file);
             }
-        }
+        });
         // This is where karma puts the files
         config.baseUrl = '/base/analytics_dashboard/static/';
 
