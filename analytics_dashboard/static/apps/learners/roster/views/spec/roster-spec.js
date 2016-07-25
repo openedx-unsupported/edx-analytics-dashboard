@@ -637,18 +637,6 @@ define(function(require) {
                 expect(options[2]).toHaveText('zebra (1)');
             });
 
-            it('sets focus after executing a filter', function() {
-                var rosterView,
-                    cohortFilterView;
-                rosterView = getRosterView({courseMetadata: {cohorts: {
-                    mudskipper: 1
-                }}});
-                cohortFilterView = rosterView.controls.currentView.cohortFilter.currentView;
-                spyOn(cohortFilterView, 'triggerMethod');
-                expectCanFilterBy('cohort', 'mudskipper');
-                expect(cohortFilterView.triggerMethod).toHaveBeenCalledWith('setFocusToTop');
-            });
-
             SpecHelpers.withConfiguration({
                 'by cohort': [
                     'cohort', // filter field name
@@ -739,6 +727,14 @@ define(function(require) {
                     expect(triggerSpy).toHaveBeenCalledWith('segment:track', 'edx.bi.roster.filtered', {
                         category: filterFieldName
                     });
+                });
+
+                it('sets focus to the top after filtering', function() {
+                    var filterFieldName = this.filterFieldName;
+                    getRosterView({courseMetadataModel: this.courseMetadata});
+                    spyOn($.fn, 'focus');
+                    expectCanFilterBy(filterFieldName, this.firstFilterOption);
+                    expect($('#learner-app-focusable').focus).toHaveBeenCalled();
                 });
 
                 it('handles server errors', function() {
@@ -1063,6 +1059,14 @@ define(function(require) {
                 // clicking it, we should set focus to the top of the
                 // table.
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(2, 2)));
+                expect($('#learner-app-focusable').focus).toHaveBeenCalled();
+            });
+
+            it('sets focus to the top after searching', function() {
+                var searchString = 'search string';
+                getRosterView();
+                spyOn($.fn, 'focus');
+                executeSearch(searchString);
                 expect($('#learner-app-focusable').focus).toHaveBeenCalled();
             });
 

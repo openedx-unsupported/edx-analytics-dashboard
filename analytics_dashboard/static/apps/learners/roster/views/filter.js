@@ -122,7 +122,7 @@ define(function(require) {
                 this.collection.setFilterField(this.options.filterKey, selectedFilterValue);
             }
             this.collection.refresh();
-            this.triggerMethod('setFocusToTop');
+            $('#learner-app-focusable').focus();
             this.options.trackingModel.trigger('segment:track', 'edx.bi.roster.filtered', {
                 category: this.options.filterKey
             });
