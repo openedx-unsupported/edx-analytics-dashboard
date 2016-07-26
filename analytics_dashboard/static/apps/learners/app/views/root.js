@@ -52,10 +52,6 @@ define(function(require) {
             this.hideAlert();
         },
 
-        onSetFocusToTop: function() {
-            this.$('#learner-app-focusable').focus();
-        },
-
         /**
          * Renders an alert view.
          *
