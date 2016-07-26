@@ -102,7 +102,7 @@ define(function(require) {
                     .value() || this.catchAllFilterValue;
                 _.findWhere(filterValues, {name: selectedFilterValue}).selected = true;
             }
-
+            console.log(filterValues);
             return {
                 filterKey: this.options.filterKey,
                 filterValues: filterValues,
@@ -116,6 +116,9 @@ define(function(require) {
                 selectedFilterValue = selectedOption.val(),
                 filterWasUnset = selectedFilterValue === this.catchAllFilterValue;
             event.preventDefault();
+            if (this.options.filterKey === 'segments') {
+                selectedFilterValue = 'inactive';
+            }
             if (filterWasUnset) {
                 this.collection.unsetFilterField(this.options.filterKey);
             } else {

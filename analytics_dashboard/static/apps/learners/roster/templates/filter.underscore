@@ -4,6 +4,7 @@
 <label for="<%- filterId %>">
     <%- selectDisplayName %>
 </label>
+<% if (!(filterKey == 'segments')) { %>
 <select id="<%- filterId %>" class="form-control">
     <% _.each(filterValues, function (filterValue) { %>
         <option value="<%- filterValue.name %>" <% if (filterValue.selected) { %> selected <% } %>>
@@ -11,4 +12,10 @@
         </option>
     <% }); %>
 </select>
+<% } %>
+<% if (filterKey == 'segments') { %>
+    <% _.each(filterValues, function (filterValue) { %>
+        <input type="checkbox" <% if (filterValue.selected) { %> selected <% } %>>
+    <% }); %>
+<% } %>
 <% } %>
