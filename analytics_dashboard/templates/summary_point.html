@@ -15,11 +15,11 @@
     {% if tooltip %}
       <div class="summary-point-help">
         <span class="sr-only">{{ tooltip }}</span>
-        <i data-toggle="tooltip" data-placement="top" title="{{ tooltip }}"
+        <span data-toggle="tooltip" data-placement="top" title="{{ tooltip }}"
            data-track-event="edx.bi.tooltip.displayed"
            data-track-title="{{ label }}"
            data-track-category="summary"
-           class="ico ico-tooltip fa fa-info-circle has-tooltip"></i>
+           class="ico ico-tooltip fa fa-info-circle has-tooltip"></span>
       </div>
     {% endif %}
   </div>

@@ -158,10 +158,10 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
              * readers and in the tooltip icon.
              */
             tooltipTemplate: _.template('<span class="sr-only"><%=text%></span>' +
-                '<i class="ico ico-tooltip fa fa-info-circle chart-tooltip" ' +
+                '<span class="ico ico-tooltip fa fa-info-circle chart-tooltip" ' +
                 'data-toggle="tooltip" data-placement="top" ' +
                 'data-track-event="edx.bi.tooltip.displayed" data-track-category="map" ' +
-                'title="<%=text%>"></i>'
+                'title="<%=text%>"></span>'
             ),
 
             render: function() {

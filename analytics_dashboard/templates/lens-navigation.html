@@ -11,11 +11,11 @@ Partial for displaying the lens navigation and the sections within the lenses.
         <li class="dropdown">
           <a href="#" class="dropdown-toggle navbar-link" data-toggle="dropdown" role="button" id="lensPrimaryMenu">
             <span class="link-label">
-            <i class="ico fa {{ primary_nav_item.icon }}" aria-hidden="true"></i>
+            <span class="ico fa {{ primary_nav_item.icon }}" aria-hidden="true"></span>
             {{ primary_nav_item.label }}
             {# Translators: This refers to the active tab/navigation item. #}
             <span class="sr-only">({% trans "Active" %})</span>
-            <i class="ico ico-indicator fa fa-caret-down"></i></span>
+            <span class="ico ico-indicator fa fa-caret-down" aria-hidden="true"></span></span>
           </a>
 
           <ul class="dropdown-menu" role="menu" aria-labelledby="lensPrimaryMenu">
@@ -23,7 +23,7 @@ Partial for displaying the lens navigation and the sections within the lenses.
               <li>
                 <a href="{{ item.href }}">
                   <span class="link-label">
-                    <i class="ico fa {{ item.icon }}" aria-hidden="true"></i> {{ item.label }}
+                    <span class="ico fa {{ item.icon }}" aria-hidden="true"></span> {{ item.label }}
                   </span>
                 </a>
               </li>

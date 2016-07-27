@@ -4,7 +4,7 @@
         <% _.mapObject(activeFilters, function (filterVal, filterKey) { %>
             <li class="filter filter-<%- filterKey %>">
                 <button class="action-clear-filter btn btn-default" data-filter-key="<%- filterKey %>">
-                    <%- filterVal.displayName %> &nbsp; <i class="fa fa-times" aria-hidden="true"></i>
+                    <%- filterVal.displayName %> &nbsp; <span class="fa fa-times" aria-hidden="true"></span>
                     <span class="sr-only"><%- removeFilterMessage %></span>
                 </button>
             </li>

@@ -310,7 +310,7 @@ define(function(require) {
             };
 
             executeSortTest = function(field) {
-                expect(getSortingHeaderLink(field).find('i')).toHaveClass('fa-sort');
+                expect(getSortingHeaderLink(field).find('span.fa')).toHaveClass('fa-sort');
                 clickSortingHeader(field);
                 expectSortCalled(field, 'asc');
                 clickSortingHeader(field);
@@ -323,7 +323,7 @@ define(function(require) {
                     sort_order: sortValue
                 }));
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(1, 1)));
-                expect(getSortingHeaderLink(sortField).find('i')).toHaveClass('fa-sort-' + sortValue);
+                expect(getSortingHeaderLink(sortField).find('span')).toHaveClass('fa-sort-' + sortValue);
             };
 
             beforeEach(function() {

@@ -21,10 +21,10 @@ define(function(require) {
             role: 'navigation'
         },
         controls: {
-            rewind: {title: 'First', label: '<i class="fa fa-fast-backward" aria-hidden="true"></i>'},
-            back: {title: 'Previous', label: '<i class="fa fa-step-backward" aria-hidden="true"></i>'},
-            forward: {title: 'Next', label: '<i class="fa fa-step-forward" aria-hidden="true"></i>'},
-            fastForward: {title: 'Last', label: '<i class="fa fa-fast-forward" aria-hidden="true"></i>'}
+            rewind: {title: 'First', label: '<span class="fa fa-fast-backward" aria-hidden="true"></span>'},
+            back: {title: 'Previous', label: '<span class="fa fa-step-backward" aria-hidden="true"></span>'},
+            forward: {title: 'Next', label: '<span class="fa fa-step-forward" aria-hidden="true"></span>'},
+            fastForward: {title: 'Last', label: '<span class="fa fa-fast-forward" aria-hidden="true"></span>'}
         },
         initialize: function(options) {
             Backgrid.Extension.Paginator.prototype.initialize.call(this, options);

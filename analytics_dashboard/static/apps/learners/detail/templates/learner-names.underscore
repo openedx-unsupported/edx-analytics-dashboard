@@ -3,7 +3,7 @@
 <div class="learner-email">
 	<% if (!_(email).isEmpty()) { %>
 	    <a href="mailto:<%- email %>">
-	        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+	        <span class="fa fa-envelope-o" aria-hidden="true"></span>
 	        <%- email %>
 	    </a>
 	<% } %>
