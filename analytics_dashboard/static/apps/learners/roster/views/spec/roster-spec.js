@@ -1068,8 +1068,7 @@ define(function(require) {
                 spyOn($.fn, 'focus');
                 executeSearch(searchString);
                 expect($('#learner-app-focusable').focus).toHaveBeenCalled();
-                expect($('#learner-app-focusable')).toBeFocused();
-            })
+            });
 
             it('does not violate the axe-core ruleset', function(done) {
                 getRosterView({

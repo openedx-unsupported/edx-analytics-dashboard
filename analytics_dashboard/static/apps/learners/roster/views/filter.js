@@ -20,7 +20,7 @@ define(function(require) {
         events: function() {
             var changeFilterEvent = 'change #filter-' + this.options.filterKey,
                 eventsHash = {};
-            eventsHash[changeFilterEvent] = 'onSelectFilter';
+            eventsHash[changeFilterEvent] = 'onFilter';
             return eventsHash;
         },
 
@@ -66,7 +66,8 @@ define(function(require) {
             // which combines the filter with the number of users belonging to
             // it.
             var filterValues,
-                selectedFilterValue;
+                selectedFilterValue,
+                hideInactive = false;
             filterValues = _.chain(this.options.filterValues)
                 .pairs()
                 .map(function(filterPair) {
@@ -102,12 +103,28 @@ define(function(require) {
                     .value() || this.catchAllFilterValue;
                 _.findWhere(filterValues, {name: selectedFilterValue}).selected = true;
             }
-            console.log(filterValues);
+            if ('ignore_segments' in this.options.collection.getActiveFilterFields()) {
+                hideInactive = true;
+            }
             return {
                 filterKey: this.options.filterKey,
                 filterValues: filterValues,
+                hideInactive: hideInactive,
                 selectDisplayName: this.options.selectDisplayName
             };
+        },
+
+        onCheckboxFilter: function(event) {
+            if ($(event.currentTarget).find('input:checkbox:checked').length) {
+                this.collection.setFilterField('ignore_segments', 'inactive');
+            } else {
+                this.collection.unsetFilterField('ignore_segments');
+            }
+            this.collection.refresh();
+            $('#learner-app-focusable').focus();
+            this.options.trackingModel.trigger('segment:track', 'edx.bi.roster.filtered', {
+                category: 'inactive'
+            });
         },
 
         onSelectFilter: function(event) {
@@ -129,6 +146,14 @@ define(function(require) {
             this.options.trackingModel.trigger('segment:track', 'edx.bi.roster.filtered', {
                 category: this.options.filterKey
             });
+        },
+
+        onFilter: function(event) {
+            if ($(event.currentTarget).find('option').length) {
+                this.onSelectFilter(event);
+            } else if ($(event.currentTarget).find('input:checkbox').length) {
+                this.onCheckboxFilter(event);
+            }
         }
     });
 

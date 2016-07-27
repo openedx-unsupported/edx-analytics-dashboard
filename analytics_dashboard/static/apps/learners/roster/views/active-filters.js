@@ -43,6 +43,10 @@ define(function(require) {
                     filterDisplayName = _.template(gettext('Enrollment Track: <%= filterVal %>'))({
                         filterVal: filterVal
                     });
+                } else if (filterKey === 'ignore_segments') {
+                    filterDisplayName = _.template(gettext('Engagement: <%= filterVal %>'))({
+                        filterVal: filterVal
+                    });
                 } else {
                     filterDisplayName = filterVal;
                 }

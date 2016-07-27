@@ -50,7 +50,7 @@ define(function(require) {
             }));
             this.showChildView('activeFilter', new Filter({
                 collection: this.options.collection,
-                filterKey: 'segments',
+                filterKey: 'ignore_segments',
                 filterValues: this.options.courseMetadata.get('segments'),
                 selectDisplayName: gettext('Inactive Learners'),
                 trackingModel: this.options.trackingModel
