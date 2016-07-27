@@ -122,8 +122,7 @@ class CourseEngagementActivityPresenter(BasePresenter):
         """
         Retrieve recent summary and all historical trend data.
         """
-        # setting the end date (exclusive) to the next day retrieves data as soon as it's available
-        end_date = (datetime.datetime.utcnow() + datetime.timedelta(days=1)).strftime(Client.DATE_FORMAT)
+        end_date = datetime.datetime.utcnow().strftime(Client.DATETIME_FORMAT)
         api_trends = self.course.activity(start_date=None, end_date=end_date)
         summary = self._build_summary(api_trends)
         trends = self._build_trend(api_trends)

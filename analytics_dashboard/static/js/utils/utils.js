@@ -46,7 +46,7 @@ define(['moment', 'underscore', 'utils/globalization'], function(moment, _, Glob
             } else {
                 moment.locale(window.language);
             }
-            return moment(date).format('LL');
+            return moment.utc(date).format('LL');
         },
 
         /**

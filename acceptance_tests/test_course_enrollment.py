@@ -24,7 +24,7 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         Returns all historical enrollment data for enrollment count collection.
         """
         end_date = datetime.datetime.utcnow()
-        end_date_string = end_date.strftime(self.analytics_api_client.DATE_FORMAT)
+        end_date_string = end_date.strftime(self.analytics_api_client.DATETIME_FORMAT)
         return self.course.enrollment('mode', start_date=None, end_date=end_date_string)
 
     def test_page(self):

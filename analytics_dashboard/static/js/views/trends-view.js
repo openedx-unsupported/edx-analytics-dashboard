@@ -32,7 +32,7 @@ define(['moment', 'nvd3', 'underscore', 'views/chart-view'],
 
             formatXTick: function(d) {
                 // overriding default to display a formatted date
-                return moment(d).format('M/D');
+                return moment.utc(d).format('M/D');
             },
 
             parseXData: function(d) {
