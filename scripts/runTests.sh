@@ -19,7 +19,7 @@ export LMS_USERNAME=user
 export ENABLE_AUTO_AUTH=True
 export ENABLE_OAUTH_TESTS=False
 export ENABLE_ERROR_PAGE_TESTS=False
-export ENABLE_LEARNER_ANALYTICS=True
+export DISPLAY_LEARNER_ANALYTICS=True
 
 echo "Migrating Analytics Dashboard DB..."
 make migrate
@@ -34,8 +34,8 @@ cd -
 mkdir -p logs
 
 echo "Enabling waffle flags..."
-if [[ "${ENABLE_LEARNER_ANALYTICS}" = "True" ]]; then
-    ./manage.py switch enable_learner_analytics on --create
+if [[ "${DISPLAY_LEARNER_ANALYTICS}" = "True" ]]; then
+    ./manage.py waffle_flag enable_learner_analytics on --create --everyone
 fi
 
 echo "Starting Analytics Data API Server..."
