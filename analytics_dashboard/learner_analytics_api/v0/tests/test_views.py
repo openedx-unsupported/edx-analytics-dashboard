@@ -36,7 +36,8 @@ class LearnerAPITestMixin(UserTestCaseMixin, PermissionsTestMixin, SwitchMixin):
     no_permissions_status_code = None
 
     @classmethod
-    def setUpClass(cls):
+    def setUpClass(cls, *args, **kwargs):
+        super(LearnerAPITestMixin, cls).setUpClass(*args, **kwargs)
         cls.toggle_switch('enable_learner_analytics', True)
 
     def assert_response_equals(self, response, expected_status_code, expected_body=None):

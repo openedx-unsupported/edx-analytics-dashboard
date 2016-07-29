@@ -1,4 +1,3 @@
-import urllib
 import uuid
 
 from slugify import slugify
@@ -39,8 +38,8 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                     'id': _id,
                     'name': block['display_name'],
                     'part_ids': [part_id],
-                    'url': urllib.quote(url_template.format(
-                        self.course_id, assignment['id'], _id, part_id))
+                    'url': url_template.format(
+                        self.course_id, assignment['id'], _id, part_id)
                 })
 
             num_problems = len(problems)
@@ -61,8 +60,8 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                 'average_submissions': num_problems / num_problems_float,
                 'average_correct_submissions': num_problems / num_problems_float,
                 'average_incorrect_submissions': 0.0,
-                'url': urllib.quote(url_template.format(
-                    self.course_id, assignment['id']))
+                'url': url_template.format(
+                    self.course_id, assignment['id'])
             }
 
             presented.append(presented_assignment)
@@ -98,7 +97,7 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
         return [
             {
                 'name': gp['assignment_type'],
-                'url': urllib.quote(url_template.format(self.course_id, slugify(gp['assignment_type'])))
+                'url': url_template.format(self.course_id, slugify(gp['assignment_type']))
 
             } for gp in policies
         ]
@@ -131,9 +130,9 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                         'name': block['display_name'],
                         'part_ids': [part_id],
                         'children': [],
-                        'url': urllib.quote(url_template.format(
+                        'url': url_template.format(
                             self.course_id, section['id'],
-                            subsection['id'], _id, part_id))
+                            subsection['id'], _id, part_id)
                     })
 
                 num_problems = len(problems)
@@ -153,9 +152,9 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                     'average_submissions': num_problems / num_problems_float,
                     'average_correct_submissions': num_problems / num_problems_float,
                     'average_incorrect_submissions': 0.0,
-                    'url': urllib.quote(url_template.format(
+                    'url': url_template.format(
                         self.course_id, section['id'],
-                        subsection['id']))
+                        subsection['id'])
                 }
                 subsections.append(presented_subsection)
 
@@ -176,8 +175,8 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                 'average_submissions': num_problems / num_problems_float,
                 'average_correct_submissions': num_problems / num_problems_float,
                 'average_incorrect_submissions': 0.0,
-                'url': urllib.quote(url_template.format(
-                    self.course_id, section['id']))
+                'url': url_template.format(
+                    self.course_id, section['id'])
             }
 
             presented.append(presented_sections)
@@ -215,9 +214,9 @@ class CourseEngagementDataFactory(CourseStructureFactory):
                         'id': _id,
                         'name': block['display_name'],
                         'children': [],
-                        'url': urllib.quote(url_template.format(
+                        'url': url_template.format(
                             self.course_id, section['id'],
-                            subsection['id'], _id)),
+                            subsection['id'], _id),
                         'pipeline_video_id': 'edX/DemoX/Demo_Course|i4x-edX_Demo_Course-video-{}'.format(
                             uuid.uuid4().hex)
                     })
@@ -232,9 +231,9 @@ class CourseEngagementDataFactory(CourseStructureFactory):
                     'num_modules': num_videos,
                     'users_at_start': 10,
                     'users_at_end': 0,
-                    'url': urllib.quote(url_template.format(
+                    'url': url_template.format(
                         self.course_id, section['id'],
-                        subsection['id']))
+                        subsection['id'])
                 }
                 subsections.append(presented_subsection)
 
@@ -247,8 +246,8 @@ class CourseEngagementDataFactory(CourseStructureFactory):
                 'num_modules': 1,
                 'users_at_start': 10,
                 'users_at_end': 0,
-                'url': urllib.quote(url_template.format(
-                    self.course_id, section['id']))
+                'url': url_template.format(
+                    self.course_id, section['id'])
             }
 
             presented.append(presented_sections)

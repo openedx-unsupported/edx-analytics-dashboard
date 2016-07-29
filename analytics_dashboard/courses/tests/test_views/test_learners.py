@@ -1,6 +1,5 @@
 import json
 import logging
-from urllib import quote_plus
 
 from ddt import data, ddt
 import httpretty
@@ -56,7 +55,7 @@ class LearnersViewTests(ViewTestMixin, SwitchMixin, TestCase):
         default_expected_context_subset = {
             'learner_list_url': '/api/learner_analytics/v0/learners/',
             'course_learner_metadata_url': '/api/learner_analytics/v0/course_learner_metadata/{course_id}/'.format(
-                course_id=quote_plus(DEMO_COURSE_ID)
+                course_id=DEMO_COURSE_ID
             ),
         }
         self.assertDictContainsSubset(
