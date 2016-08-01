@@ -600,7 +600,7 @@ table.dataTable thead th.sorting_desc:after {
   }
 
   a.disabled {
-    @extend disabled-link;
+    @extend disabled-link !optional;
   }
 }
 

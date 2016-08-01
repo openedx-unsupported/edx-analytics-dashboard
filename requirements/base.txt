@@ -1,30 +1,28 @@
-awesome-slugify==1.6.2      # GPLv3
-bpython==0.12				# MIT License
-Django==1.8.14				# BSD License
-django-appconf==0.6
-django-braces==1.2.2		# BSD
+awesome-slugify==1.6.5      # GPLv3
+bpython==0.15				# MIT License
+Django==1.9.9				# BSD License
+django-appconf==1.0.2
+django-braces==1.9.0		# BSD
 django_compressor==2.0		# MIT
-django-countries==3.1.1     # MIT
-django-libsass==0.7			# BSD
-django-model-utils==1.5.0 	# BSD
-djangorestframework==3.3.1  # BSD
-django-soapbox==1.1         # BSD
-django-waffle==0.10			# BSD
-edx-auth-backends==0.2.1
+django-countries==3.4.1     # MIT
+django-libsass==0.7		    # BSD
+django-model-utils==2.5 	# BSD
+djangorestframework==3.4.1  # BSD
+# Dependency of djangorestframework
+django-crispy-forms==1.6.0  # MIT
+django-soapbox==1.3         # BSD
+django-waffle==0.11.1		# BSD
+pinax-announcements==2.0.4   # MIT
+edx-auth-backends==0.5.0
 edx-django-release-util==0.0.3      # AGPLv3
 edx-rest-api-client>=1.5.0, <1.6.0  # Apache
 
-# other versions cause a segment fault when running compression
-libsass==0.7.0              # MIT
+libsass==0.11.1              # MIT
 
 logutils==0.3.3				# BSD
-# TODO Remove this once https://github.com/omab/python-social-auth/pull/908 is released.
-python-social-auth==0.2.14
+python-social-auth==0.2.19
 
 requests==2.10.0            # Apache 2.0
-
-# TODO Use the PyPi package once it is updated.
-git+https://github.com/pinax/django-announcements.git@f85e690705e038a62407abe54ac195f60760934b#egg=django-announcements # MIT
 
 git+https://github.com/edx/django-lang-pref-middleware.git@0.1.0#egg=django-lang-pref-middleware
 git+https://github.com/edx/edx-analytics-data-api-client.git@0.8.0#egg=edx-analytics-data-api-client==0.8.0  # edX

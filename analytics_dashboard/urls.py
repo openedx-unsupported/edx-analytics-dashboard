@@ -7,6 +7,7 @@ from django.contrib import admin
 from django.core.urlresolvers import reverse_lazy
 from django.views import defaults
 from django.views.generic import RedirectView
+from django.views.i18n import javascript_catalog
 
 # pylint suggests importing analytics_dashboard.core, which causes errors in our AMI
 # pylint: disable=relative-import
@@ -21,12 +22,14 @@ js_info_dict = {
 
 urlpatterns = [
     url(r'^$', views.LandingView.as_view(), name='landing'),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^jsi18n/$', 'django.views.i18n.javascript_catalog', js_info_dict),
+    url(r'^api-auth/', include('rest_framework.urls')),
+    url(r'^jsi18n/$', javascript_catalog, js_info_dict),
     url(r'^status/$', views.status, name='status'),
     url(r'^health/$', views.health, name='health'),
-    url(r'^courses/', include('courses.urls', namespace='courses')),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^courses/', include('courses.urls')),
+    url(r'^admin/', admin.site.urls),
+    # TODO: the namespace arg is deprecated, but python-social-auth urls.py doesn't specify app_name so we are stuck
+    # using namespace. Once python-social-auth is updated to fix that, remove the namespace arg.
     url('', include('social.apps.django_app.urls', namespace='social')),
     url(r'^accounts/login/$',
         RedirectView.as_view(url=reverse_lazy('social:begin', args=['edx-oidc']), permanent=False, query_string=True),
@@ -34,11 +37,11 @@ urlpatterns = [
     url(r'^accounts/logout/$', views.logout, name='logout'),
     url(r'^accounts/logout_then_login/$', views.logout_then_login, name='logout_then_login'),
     url(r'^test/auto_auth/$', views.AutoAuth.as_view(), name='auto_auth'),
-    url(r'^announcements/', include('announcements.urls')),
+    url(r'^announcements/', include('pinax.announcements.urls')),
 ]
 
 urlpatterns += [
-    url(r'^api/learner_analytics/', include('learner_analytics_api.urls', namespace='learner_analytics_api'))
+    url(r'^api/learner_analytics/', include('learner_analytics_api.urls'))
 ]
 
 if settings.DEBUG:  # pragma: no cover

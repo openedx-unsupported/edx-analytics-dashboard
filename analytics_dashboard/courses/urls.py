@@ -27,16 +27,16 @@ video_timeline_regex = \
     r'^videos/sections/{}/subsections/{}/modules/{}/timeline/$'.format(
         SECTION_ID_PATTERN, SUBSECTION_ID_PATTERN, VIDEO_ID_PATTERN)
 
-ENROLLMENT_URLS = [
+ENROLLMENT_URLS = ([
     url(r'^activity/$', enrollment.EnrollmentActivityView.as_view(), name='activity'),
     url(r'^geography/$', enrollment.EnrollmentGeographyView.as_view(), name='geography'),
     url(r'^demographics/age/$', enrollment.EnrollmentDemographicsAgeView.as_view(), name='demographics_age'),
     url(r'^demographics/education/$', enrollment.EnrollmentDemographicsEducationView.as_view(),
         name='demographics_education'),
     url(r'^demographics/gender/$', enrollment.EnrollmentDemographicsGenderView.as_view(), name='demographics_gender'),
-]
+], 'enrollment')
 
-ENGAGEMENT_URLS = [
+ENGAGEMENT_URLS = ([
     url(r'^content/$', engagement.EngagementContentView.as_view(), name='content'),
     url(r'^videos/$', engagement.EngagementVideoCourse.as_view(), name='videos'),
     # ordering of the URLS is important for routing the the section, subsection, etc. correctly
@@ -47,9 +47,9 @@ ENGAGEMENT_URLS = [
     url(r'^videos/sections/{}/$'.format(SECTION_ID_PATTERN),
         engagement.EngagementVideoSection.as_view(),
         name='video_section'),
-]
+], 'engagement')
 
-PERFORMANCE_URLS = [
+PERFORMANCE_URLS = ([
     url(r'^ungraded_content/$', performance.PerformanceUngradedContent.as_view(), name='ungraded_content'),
     url(ungraded_answer_distribution_regex, performance.PerformanceUngradedAnswerDistribution.as_view(),
         name='ungraded_answer_distribution'),
@@ -70,9 +70,9 @@ PERFORMANCE_URLS = [
     url(r'^graded_content/assignments/{}/$'.format(ASSIGNMENT_ID_PATTERN),
         performance.PerformanceAssignment.as_view(),
         name='assignment'),
-]
+], 'performance')
 
-CSV_URLS = [
+CSV_URLS = ([
     url(r'^enrollment/$', csv.CourseEnrollmentCSV.as_view(), name='enrollment'),
     url(r'^enrollment/geography/$', csv.CourseEnrollmentByCountryCSV.as_view(), name='enrollment_geography'),
     url(r'^enrollment/demographics/age/$',
@@ -94,22 +94,23 @@ CSV_URLS = [
                                                                                    PROBLEM_PART_ID_PATTERN),
         csv.PerformanceAnswerDistributionCSV.as_view(),
         name='performance_answer_distribution'),
-]
+], 'csv')
 
-LEARNER_URLS = [
+LEARNER_URLS = ([
     url(r'^$', learners.LearnersView.as_view(), name='learners'),
-]
+], 'learners')
 
 COURSE_URLS = [
     # Course homepage. This should be the entry point for other applications linking to the course.
     url(r'^$', views.CourseHome.as_view(), name='home'),
-    url(r'^enrollment/', include(ENROLLMENT_URLS, namespace='enrollment')),
-    url(r'^engagement/', include(ENGAGEMENT_URLS, namespace='engagement')),
-    url(r'^performance/', include(PERFORMANCE_URLS, namespace='performance')),
-    url(r'^csv/', include(CSV_URLS, namespace='csv')),
-    url(r'^learners/', include(LEARNER_URLS, namespace='learners')),
+    url(r'^enrollment/', include(ENROLLMENT_URLS)),
+    url(r'^engagement/', include(ENGAGEMENT_URLS)),
+    url(r'^performance/', include(PERFORMANCE_URLS)),
+    url(r'^csv/', include(CSV_URLS)),
+    url(r'^learners/', include(LEARNER_URLS)),
 ]
 
+app_name = 'courses'
 urlpatterns = [
     url('^$', views.CourseIndex.as_view(), name='index'),
     url(r'^{}/'.format(settings.COURSE_ID_PATTERN), include(COURSE_URLS))

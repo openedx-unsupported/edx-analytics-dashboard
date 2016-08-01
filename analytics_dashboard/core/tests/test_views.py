@@ -58,7 +58,7 @@ class RedirectTestCaseMixin(object):
             expected_url += '?{}'.format('&'.join('%s=%s' % (key, urlquote(value))
                                                   for (key, value) in querystringkwargs.items()))
 
-        self.assertEqual(response['Location'], 'http://testserver{}'.format(expected_url))
+        self.assertEqual(response['Location'], '{}'.format(expected_url))
         self.assertEqual(response.status_code, status_code)
 
 

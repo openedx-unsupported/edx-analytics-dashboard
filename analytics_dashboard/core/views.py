@@ -100,7 +100,7 @@ class AutoAuth(View):
 
 
 def logout(request, next_page='/', template_name=None,
-           redirect_field_name=REDIRECT_FIELD_NAME, current_app=None, extra_context=None):
+           redirect_field_name=REDIRECT_FIELD_NAME, extra_context=None):
     """
     Revoke user permissions and logout
     """
@@ -109,16 +109,16 @@ def logout(request, next_page='/', template_name=None,
     permissions.revoke_user_course_permissions(request.user)
 
     # Back to the standard logout flow
-    return django.contrib.auth.views.logout(request, next_page, template_name, redirect_field_name, current_app,
+    return django.contrib.auth.views.logout(request, next_page, template_name, redirect_field_name,
                                             extra_context)
 
 
-def logout_then_login(request, login_url=reverse_lazy('login'), current_app=None, extra_context=None):
+def logout_then_login(request, login_url=reverse_lazy('login'), extra_context=None):
     """
     Logout then login
     """
     permissions.revoke_user_course_permissions(request.user)
-    return django.contrib.auth.views.logout_then_login(request, login_url, current_app, extra_context)
+    return django.contrib.auth.views.logout_then_login(request, login_url, extra_context)
 
 
 class ServiceUnavailableView(TemplateView):

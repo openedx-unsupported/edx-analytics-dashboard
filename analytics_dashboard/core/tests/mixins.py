@@ -1,4 +1,4 @@
-from waffle import Switch
+from waffle.models import Switch
 
 
 class FeatureTestCaseMixin(object):

@@ -1,5 +1,5 @@
 from django.test import TestCase
-from waffle import Switch
+from waffle.models import Switch
 
 import courses.utils as utils
 
