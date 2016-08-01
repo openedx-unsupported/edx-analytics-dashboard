@@ -103,6 +103,9 @@ define(function(require) {
                     .value() || this.catchAllFilterValue;
                 _.findWhere(filterValues, {name: selectedFilterValue}).selected = true;
             }
+            if (this.options.filterKey === 'ignore_segments') {
+                this.options.selectDisplayName = 'Hide Inactive Learners';
+            }
             if ('ignore_segments' in this.options.collection.getActiveFilterFields()) {
                 hideInactive = true;
             }
