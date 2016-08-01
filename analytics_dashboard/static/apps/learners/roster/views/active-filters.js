@@ -30,25 +30,24 @@ define(function(require) {
                 hasActiveFilters = !_.isEmpty(activeFilters);
 
             activeFilters = _.mapObject(activeFilters, function(filterVal, filterKey) {
-                var filterDisplayName;
-                if (filterKey === LearnerCollection.DefaultSearchKey) {
-                    filterDisplayName = '"' + filterVal + '"';
-                } else if (filterKey === 'cohort') {
-                    // Translators: this is a label describing a selection that the user initiated.
-                    filterDisplayName = _.template(gettext('Cohort: <%= filterVal %>'))({
-                        filterVal: filterVal
-                    });
-                } else if (filterKey === 'enrollment_mode') {
-                    // Translators: this is a label describing a selection that the user initiated.
-                    filterDisplayName = _.template(gettext('Enrollment Track: <%= filterVal %>'))({
-                        filterVal: filterVal
-                    });
-                } else if (filterKey === 'ignore_segments') {
-                    filterDisplayName = _.template(gettext('Engagement: <%= filterVal %>'))({
-                        filterVal: filterVal
-                    });
-                } else {
-                    filterDisplayName = filterVal;
+                var filterDisplayNames = {
+                        // Translators: this is a label describing a selection that the user initiated.
+                        cohort: _.template(gettext('Cohort: <%= filterVal %>'))({
+                            filterVal: filterVal
+                        }),
+                        // Translators: this is a label describing a selection that the user initiated.
+                        enrollment_mode: _.template(gettext('Enrollment Track: <%= filterVal %>'))({
+                            filterVal: filterVal
+                        }),
+                        // Translators: this is a label describing a selection that the user initiated.
+                        ignore_segments: _.template(gettext('Engagement: <%= filterVal %>'))({
+                            filterVal: filterVal
+                        })
+                    },
+                    filterDisplayName;
+                filterDisplayNames[LearnerCollection.DefaultSearchKey] = '"' + filterVal + '"';
+                if (filterKey in filterDisplayNames) {
+                    filterDisplayName = filterDisplayNames[filterKey];
                 }
                 return {
                     displayName: filterDisplayName
