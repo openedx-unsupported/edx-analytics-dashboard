@@ -65,9 +65,9 @@ define(function(require) {
             // 'displayName' is the user-facing representation of the filter
             // which combines the filter with the number of users belonging to
             // it.
-            var filterValues,
-                selectedFilterValue,
-                hideInactive = false;
+            var hideInactive = false,
+                filterValues,
+                selectedFilterValue;
             filterValues = _.chain(this.options.filterValues)
                 .pairs()
                 .map(function(filterPair) {
