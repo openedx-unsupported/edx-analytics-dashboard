@@ -187,6 +187,9 @@ class CourseEnrollmentGeographyTests(CoursePageTestsMixin, WebAppTest):
             country_name = enrollment['country']['name']
             if country_name == UNKNOWN_COUNTRY_CODE:
                 country_name = u'Unknown Country'
+            # FIXME: because django-countries is different between dashboard and api
+            elif country_name == 'United States':
+                country_name = u'United States of America'
 
             expected = [country_name, expected_percent_display, self.format_number(enrollment['count'])]
             actual = [columns[0].text, columns[1].text, columns[2].text]
@@ -201,4 +204,7 @@ class CourseEnrollmentGeographyTests(CoursePageTestsMixin, WebAppTest):
 
         for i in range(0, 3):
             country = enrollment_data[i]['country']['name']
+            # FIXME: because django-countries is different between dashboard and api
+            if country == 'United States':
+                country = u'United Sta...'
             self.assertSummaryPointValueEquals('data-stat-type=top-country-{0}'.format((i + 1)), country)

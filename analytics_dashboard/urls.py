@@ -44,10 +44,16 @@ urlpatterns += [
     url(r'^api/learner_analytics/', include('learner_analytics_api.urls'))
 ]
 
+def debug_page_not_found(request):
+    return defaults.page_not_found(request, AttributeError('foobar'))
+
+def debug_permission_denied(request):
+    return defaults.permission_denied(request, AttributeError('foobar'))
+
 if settings.DEBUG:  # pragma: no cover
     urlpatterns += [
-        url(r'^403/$', defaults.permission_denied),
-        url(r'^404/$', defaults.page_not_found),
+        url(r'^403/$', debug_permission_denied),
+        url(r'^404/$', debug_page_not_found),
         url(r'^500/$', defaults.server_error),
         url(r'^503/$', views.ServiceUnavailableView.as_view()),
     ]
