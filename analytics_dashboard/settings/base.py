@@ -125,13 +125,6 @@ COMPRESS_CLOSURE_JS_ARGUMENTS = {'compilation_level': 'ADVANCED_OPTIMIZATIONS', 
 SECRET_KEY = os.environ.get("ANALYTICS_SECRET_KEY", "insecure-secret-key")
 ########## END SECRET CONFIGURATION
 
-########## DJANGO SETUP
-# See: http://stackoverflow.com/a/34115677
-# Needed for Django 1.9+
-#  import django
-#  django.setup()
-########## END DJANGO SETUP
-
 
 ########## SITE CONFIGURATION
 # Hosts/domain names that are valid for this site
@@ -222,7 +215,6 @@ DJANGO_APPS = (
     'django_countries',
     'pinax.announcements',
     'compressor',
-    'crispy_forms',
 )
 
 # Apps specific for this project go here.

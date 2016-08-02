@@ -6,12 +6,12 @@ import mock
 
 from django.core.cache import cache
 from django.core.urlresolvers import reverse, reverse_lazy
-from django.utils.http import urlquote
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import DatabaseError
 from django.test import TestCase
 from django.test.utils import override_settings
+from django.utils.http import urlquote
 from django_dynamic_fixture import G
 
 from analyticsclient.exceptions import TimeoutError
