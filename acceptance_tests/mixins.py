@@ -286,7 +286,7 @@ class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterLegalMixin, FooterFeed
         self.assertTrue(screen_reader_element.present)
         self.assertEqual(screen_reader_element.text[0], tip_text)
 
-        tooltip_element = self.page.q(css=help_selector + " > i[data-toggle='tooltip']")
+        tooltip_element = self.page.q(css=help_selector + " > span[data-toggle='tooltip']")
         self.assertTrue(tooltip_element.present)
         # the context of title gets move to "data-original-title"
         self.assertEqual(tooltip_element[0].get_attribute('data-original-title'), tip_text)
