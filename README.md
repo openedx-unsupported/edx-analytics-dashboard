@@ -61,7 +61,12 @@ The following switches are available:
 | enable_video_preview           | Enable video preview.                                 |
 | display_names_for_course_index | Display course names on course index page.            |
 | display_course_name_in_nav     | Display course name in navigation bar.                |
-| enable_learner_analytics       | Enable Learner Analytics app and API                  |
+
+The following flags are available:
+
+| Flag                           | Purpose                                               |
+|--------------------------------|-------------------------------------------------------|
+| display_learner_analytics      | Display Learner Analytics links                       |
 
 Authentication & Authorization
 ------------------------------

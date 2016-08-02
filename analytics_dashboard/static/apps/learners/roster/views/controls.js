@@ -19,7 +19,8 @@ define(function(require) {
         regions: {
             search: '.learners-search-container',
             cohortFilter: '.learners-cohort-filter-container',
-            enrollmentTrackFilter: '.learners-enrollment-track-filter-container'
+            enrollmentTrackFilter: '.learners-enrollment-track-filter-container',
+            activeFilter: '.learners-active-filter-container'
         },
 
         initialize: function(options) {
@@ -45,6 +46,13 @@ define(function(require) {
                 filterKey: 'enrollment_mode',
                 filterValues: this.options.courseMetadata.get('enrollment_modes'),
                 selectDisplayName: gettext('Enrollment Tracks'),
+                trackingModel: this.options.trackingModel
+            }));
+            this.showChildView('activeFilter', new Filter({
+                collection: this.options.collection,
+                filterKey: 'ignore_segments',
+                filterValues: this.options.courseMetadata.get('segments'),
+                selectDisplayName: gettext('Inactive Learners'),
                 trackingModel: this.options.trackingModel
             }));
         }

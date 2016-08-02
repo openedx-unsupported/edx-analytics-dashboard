@@ -10,25 +10,17 @@ from testfixtures import LogCapture
 from django.conf import settings
 from django.test import TestCase
 
-from courses.tests import SwitchMixin
+from waffle.testutils import override_flag
+
 from courses.tests.test_views import DEMO_COURSE_ID, ViewTestMixin
 
 
 @httpretty.activate
+@override_flag('display_learner_analytics', active=True)
 @ddt
-class LearnersViewTests(ViewTestMixin, SwitchMixin, TestCase):
+class LearnersViewTests(ViewTestMixin, TestCase):
     TABLE_ERROR_TEXT = 'We are unable to load this table.'
     viewname = 'courses:learners:learners'
-
-    @classmethod
-    def setUpClass(cls, *args, **kwargs):
-        super(LearnersViewTests, cls).setUpClass(*args, **kwargs)
-        cls.toggle_switch('enable_learner_analytics', True)
-
-    @classmethod
-    def tearDownClass(cls, *args, **kwargs):
-        super(LearnersViewTests, cls).tearDownClass(*args, **kwargs)
-        cls.toggle_switch('enable_learner_analytics', False)
 
     def _register_uris(self, learners_status, learners_payload, course_metadata_status, course_metadata_payload):
         httpretty.register_uri(
@@ -78,8 +70,8 @@ class LearnersViewTests(ViewTestMixin, SwitchMixin, TestCase):
         })
         self.assertNotContains(response, self.TABLE_ERROR_TEXT)
 
+    @override_flag('display_learner_analytics', active=False)
     def test_success_if_hidden(self):
-        self.toggle_switch('enable_learner_analytics', False)
         self.test_success()
 
     @data(Timeout, ConnectionError, ValueError)

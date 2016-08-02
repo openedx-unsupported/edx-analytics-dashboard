@@ -4,7 +4,6 @@ from django.test import TestCase
 import mock
 
 from analyticsclient.exceptions import NotFoundError
-from courses.tests import SwitchMixin
 from courses.tests.test_views import ViewTestMixin, DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID
 from courses.tests.utils import convert_list_of_dicts_to_csv, get_mock_api_enrollment_geography_data, \
     get_mock_api_enrollment_data, get_mock_api_course_activity, get_mock_api_enrollment_age_data, \
@@ -84,7 +83,7 @@ class CourseEnrollmentCSVViewTests(CourseCSVTestMixin, TestCase):
         return get_mock_api_enrollment_data(course_id)
 
 
-class CourseEnrollmentModeCSVViewTests(SwitchMixin, CourseCSVTestMixin, TestCase):
+class CourseEnrollmentModeCSVViewTests(CourseCSVTestMixin, TestCase):
     viewname = 'courses:csv:enrollment'
     column_headings = ['count', 'course_id', 'date', 'audit', 'honor', 'professional', 'verified']
     base_file_name = 'enrollment'

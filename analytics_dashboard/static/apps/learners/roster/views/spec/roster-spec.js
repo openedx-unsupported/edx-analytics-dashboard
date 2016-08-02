@@ -793,6 +793,7 @@ define(function(require) {
                     activeFilters = rosterView.$('.active-filters'),
                     activeSearch = activeFilters.find('.filter-text_search'),
                     activeCohort = activeFilters.find('.filter-cohort'),
+                    activeEngagement = activeFilters.find('.filter-ignore_segments'),
                     activeEnrollmentTrack = activeFilters.find('.filter-enrollment_mode'),
                     removeFilterText = 'Click to remove this filter';
 
@@ -819,6 +820,13 @@ define(function(require) {
                     expect(activeEnrollmentTrack.find('.sr-only')).toContainText(removeFilterText);
                 } else {
                     expect(activeEnrollmentTrack).not.toExist();
+                }
+
+                if (options.engagement) {
+                    expect(activeEngagement).toContainText('Engagement: ' + options.engagement);
+                    expect(activeEngagement.find('.sr-only')).toContainText(removeFilterText);
+                } else {
+                    expect(activeEngagement).not.toExist();
                 }
             };
 
@@ -848,6 +856,14 @@ define(function(require) {
                 rosterView.options.collection.refresh();
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
                 expectActiveFilters(rosterView, {enrollmentTrack: 'honor'});
+            });
+
+            it('renders an engagement filter', function() {
+                var rosterView = getRosterView();
+                rosterView.options.collection.setFilterField('ignore_segments', 'inactive');
+                rosterView.options.collection.refresh();
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
+                expectActiveFilters(rosterView, {engagement: 'inactive'});
             });
 
             it('renders multiple filters', function() {

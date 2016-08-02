@@ -1,25 +1,37 @@
-from django.test import TestCase
-from waffle.models import Switch
+from django.contrib.auth.models import AnonymousUser
+from django.test import RequestFactory, TestCase
+
+from waffle.testutils import override_flag, override_switch
 
 import courses.utils as utils
 
 
 class UtilsTest(TestCase):
     def test_is_feature_enabled(self):
-        name = 'test-switch'
-        item = {'switch': name}
+        request = RequestFactory().get('/')
+        request.user = AnonymousUser()
 
-        # Return True if no switch provided
-        self.assertTrue(utils.is_feature_enabled({'switch': None}))
+        # Return True if no switch or flag are provided
+        self.assertTrue(utils.is_feature_enabled({'switch': None, 'flag': None}, request))
 
+        name = 'test-waffle'
+        item = {'switch': 'test-waffle'}
         # Return False if switch inactive
-        switch = Switch.objects.create(name=name, active=False)
-        self.assertFalse(utils.is_feature_enabled(item))
+        with override_switch(name, active=False):
+            self.assertFalse(utils.is_feature_enabled(item, request))
 
         # Return True if switch active
-        switch.active = True
-        switch.save()
-        self.assertTrue(utils.is_feature_enabled(item))
+        with override_switch(name, active=True):
+            self.assertTrue(utils.is_feature_enabled(item, request))
+
+        item = {'flag': 'test-waffle'}
+        # Return False if flag inactive
+        with override_flag(name, active=False):
+            self.assertFalse(utils.is_feature_enabled(item, request))
+
+        # Return True if flag active
+        with override_flag(name, active=True):
+            self.assertTrue(utils.is_feature_enabled(item, request))
 
 
 class NumberTests(TestCase):
