@@ -1,14 +1,18 @@
 import json
 import logging
 
-from analyticsclient.exceptions import ClientError, NotFoundError
 from ddt import ddt
+import httpretty
+from mock import patch, Mock
+
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 from django.utils.translation import ugettext_lazy as _
-import httpretty
-from mock import patch, Mock
+
+from waffle.testutils import override_switch
+
+from analyticsclient.exceptions import ClientError, NotFoundError
 
 from courses.tests import utils
 from courses.tests.factories import CoursePerformanceDataFactory
@@ -18,13 +22,12 @@ from courses.tests.test_views import (DEMO_COURSE_ID, CourseStructureViewMixin, 
 logger = logging.getLogger(__name__)
 
 
-@ddt
 # pylint: disable=abstract-method
+@ddt
 class CoursePerformanceViewTestMixin(PatchMixin, CourseStructureViewMixin, CourseAPIMixin):
 
     def setUp(self):
         super(CoursePerformanceViewTestMixin, self).setUp()
-        self.toggle_switch('enable_course_api', True)
         self.factory = CoursePerformanceDataFactory()
         self.factory.course_id = DEMO_COURSE_ID
 
@@ -251,6 +254,7 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformanceViewTestMixin):
         self.assertEqual(response.status_code, 404)
 
 
+@override_switch('enable_course_api', active=True)
 @ddt
 class CoursePerformanceGradedAnswerDistributionViewTests(CoursePerformanceAnswerDistributionMixin,
                                                          CoursePerformanceGradedMixin, TestCase):
@@ -272,6 +276,7 @@ class CoursePerformanceGradedAnswerDistributionViewTests(CoursePerformanceAnswer
         self._test_valid_course(self.factory.presented_assignments[0]['children'][0])
 
 
+@override_switch('enable_course_api', active=True)
 @ddt
 class CoursePerformanceUngradedAnswerDistributionViewTests(CoursePerformanceAnswerDistributionMixin,
                                                            CoursePerformanceUngradedMixin, TestCase):
@@ -294,6 +299,7 @@ class CoursePerformanceUngradedAnswerDistributionViewTests(CoursePerformanceAnsw
         self._test_valid_course(self.factory.presented_assignments[0]['children'][0])
 
 
+@override_switch('enable_course_api', active=True)
 class CoursePerformanceGradedContentViewTests(CoursePerformanceGradedMixin, TestCase):
     viewname = 'courses:performance:graded_content'
 
@@ -308,6 +314,7 @@ class CoursePerformanceGradedContentViewTests(CoursePerformanceGradedMixin, Test
         self.assertDictContainsSubset(expected, context)
 
 
+@override_switch('enable_course_api', active=True)
 class CoursePerformanceGradedContentByTypeViewTests(CoursePerformanceGradedMixin, TestCase):
     viewname = 'courses:performance:graded_content_by_type'
 
@@ -348,6 +355,7 @@ class CoursePerformanceGradedContentByTypeViewTests(CoursePerformanceGradedMixin
         self.assertEqual(response.status_code, 200)
 
 
+@override_switch('enable_course_api', active=True)
 class CoursePerformanceAssignmentViewTests(CoursePerformanceGradedMixin, TestCase):
     viewname = 'courses:performance:assignment'
 
@@ -394,6 +402,7 @@ class CoursePerformanceAssignmentViewTests(CoursePerformanceGradedMixin, TestCas
         self.assertEqual(response.status_code, 404)
 
 
+@override_switch('enable_course_api', active=True)
 class CoursePerformanceUngradedContentViewTests(CoursePerformanceUngradedMixin, TestCase):
     viewname = 'courses:performance:ungraded_content'
 
@@ -406,6 +415,7 @@ class CoursePerformanceUngradedContentViewTests(CoursePerformanceUngradedMixin, 
         self.assertEqual(response.status_code, 200)
 
 
+@override_switch('enable_course_api', active=True)
 class CoursePerformanceUngradedSectionViewTests(CoursePerformanceUngradedMixin, TestCase):
     viewname = 'courses:performance:ungraded_section'
 
@@ -432,6 +442,7 @@ class CoursePerformanceUngradedSectionViewTests(CoursePerformanceUngradedMixin, 
         self.assertEqual(response.status_code, 404)
 
 
+@override_switch('enable_course_api', active=True)
 class CoursePerformanceUngradedSubsectionViewTests(CoursePerformanceUngradedMixin, TestCase):
     viewname = 'courses:performance:ungraded_subsection'
 

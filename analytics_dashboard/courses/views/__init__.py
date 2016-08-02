@@ -18,7 +18,7 @@ from django.views.generic import TemplateView
 from edx_rest_api_client.exceptions import (HttpClientError, SlumberBaseException)
 from opaque_keys.edx.keys import CourseKey
 import requests
-from waffle import switch_is_active
+from waffle import flag_is_active, switch_is_active
 
 from analyticsclient.client import Client
 from analyticsclient.exceptions import (ClientError, NotFoundError)
@@ -274,7 +274,7 @@ class CourseNavBarMixin(object):
     # Items that will populate the tertiary nav list. This value is optional.
     tertiary_nav_items = []
 
-    def get_primary_nav_items(self):
+    def get_primary_nav_items(self, request):
         """
         Return the primary nav items.
         """
@@ -304,25 +304,25 @@ class CourseNavBarMixin(object):
                 'label': _('Learners'),
                 'view': 'courses:learners:learners',
                 'icon': 'fa-users',
-                'switch': 'enable_learner_analytics'
+                'flag': 'display_learner_analytics'
             }
 
         ]
 
         # Remove disabled items
-        items = filter(is_feature_enabled, items)
+        items = [item for item in items if is_feature_enabled(item, request)]
 
         # Clean each item
         map(self.clean_item, items)
 
         return items
 
-    def _build_nav_items(self, nav_items, active_item):
+    def _build_nav_items(self, nav_items, active_item, request):
         # Deep copy the list since it is a list of dictionaries
         items = copy.deepcopy(nav_items)
 
         # Process only the nav items that are enabled
-        items = filter(is_feature_enabled, items)
+        items = [item for item in items if is_feature_enabled(item, request)]
 
         for item in items:
             item['active'] = active_item == item['name']
@@ -330,17 +330,17 @@ class CourseNavBarMixin(object):
 
         return items
 
-    def get_secondary_nav_items(self):
+    def get_secondary_nav_items(self, request):
         """
         Return the secondary nav items.
         """
-        return self._build_nav_items(self.secondary_nav_items, self.active_secondary_nav_item)
+        return self._build_nav_items(self.secondary_nav_items, self.active_secondary_nav_item, request)
 
-    def get_tertiary_nav_items(self):
+    def get_tertiary_nav_items(self, request):
         """
         Return the tertiary nav items.
         """
-        return self._build_nav_items(self.tertiary_nav_items, self.active_tertiary_nav_item)
+        return self._build_nav_items(self.tertiary_nav_items, self.active_tertiary_nav_item, request)
 
     def clean_item(self, item):
         """
@@ -361,9 +361,9 @@ class CourseNavBarMixin(object):
     def get_context_data(self, **kwargs):
         context = super(CourseNavBarMixin, self).get_context_data(**kwargs)
 
-        primary_nav_items = self.get_primary_nav_items()
-        secondary_nav_items = self.get_secondary_nav_items()
-        tertiary_nav_items = self.get_tertiary_nav_items()
+        primary_nav_items = self.get_primary_nav_items(self.request)
+        secondary_nav_items = self.get_secondary_nav_items(self.request)
+        tertiary_nav_items = self.get_tertiary_nav_items(self.request)
 
         # Get the active primary item and remove it from the list
         primary_nav_item = None
@@ -448,7 +448,7 @@ class CourseHome(CourseTemplateWithNavView):
     page_name = 'course_home'
     page_title = _('Course Home')
 
-    def get_table_items(self):
+    def get_table_items(self, request):
         items = []
 
         enrollment_items = {
@@ -525,7 +525,7 @@ class CourseHome(CourseTemplateWithNavView):
                 ]
             })
 
-        if switch_is_active('enable_learner_analytics'):
+        if flag_is_active(request, 'display_learner_analytics'):
             items.append({
                 'name': _('Learners'),
                 'icon': 'fa-users',
@@ -564,7 +564,7 @@ class CourseHome(CourseTemplateWithNavView):
     def get_context_data(self, **kwargs):
         context = super(CourseHome, self).get_context_data(**kwargs)
         context.update({
-            'table_items': self.get_table_items()
+            'table_items': self.get_table_items(self.request)
         })
 
         context['page_data'] = self.get_page_data(context)
