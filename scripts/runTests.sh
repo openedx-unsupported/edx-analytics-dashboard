@@ -21,8 +21,8 @@ export ENABLE_OAUTH_TESTS=False
 export ENABLE_ERROR_PAGE_TESTS=False
 export ENABLE_LEARNER_ANALYTICS=True
 
-echo "Migrating Analytics Dashboard DB..."
-make migrate
+# echo "Migrating Analytics Dashboard DB..."
+# make migrate
 
 echo "Preparing Analytics Data API..."
 cd edx-analytics-data-api/
