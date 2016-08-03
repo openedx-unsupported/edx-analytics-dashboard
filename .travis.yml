@@ -17,7 +17,7 @@ install:
     - ./scripts/install_analytics_data_api.sh
     - pip install coveralls
 script:
-    - make static -e DJANGO_SETTINGS_MODULE="analytics_dashboard.settings.test"
+    - make static_no_compress
     - make validate
     - make generate_fake_translations
     - make accept
