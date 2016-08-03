@@ -13,6 +13,7 @@ addons:
             - language-pack-en
 install:
     - make develop
+    - make migrate
     - ./scripts/install_analytics_data_api.sh
     - pip install coveralls
 script:

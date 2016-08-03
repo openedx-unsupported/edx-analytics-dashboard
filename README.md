@@ -36,7 +36,8 @@ Alternatively, you can launch the server using:
 
 Site-Wide Announcements
 -----------------------
-Site-wide announcements are facilitated by [django-announcements](http://django-announcements.readthedocs.org/en/latest/).
+Site-wide announcements are facilitated by
+[pinax-announcements](https://github.com/pinax/pinax-announcements/blob/master/docs/index.md).
 Use the admin site to manage announcements and dismissals.
 
 Feature Gating

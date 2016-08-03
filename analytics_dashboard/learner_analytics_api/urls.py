@@ -1,6 +1,6 @@
-from django.conf.urls import patterns, url, include
+from django.conf.urls import url, include
 
-urlpatterns = patterns(
-    '',
-    url(r'^v0/', include('learner_analytics_api.v0.urls', namespace='v0'))
-)
+app_name = 'learner_analytics_api'
+urlpatterns = [
+    url(r'^v0/', include('learner_analytics_api.v0.urls'))
+]

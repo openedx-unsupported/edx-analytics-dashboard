@@ -22,7 +22,7 @@ develop: test.requirements
 	pip install -q -r requirements/local.txt --exists-action w
 
 migrate:
-	python manage.py migrate
+	python manage.py migrate --run-syncdb
 
 clean:
 	find . -name '*.pyc' -delete
