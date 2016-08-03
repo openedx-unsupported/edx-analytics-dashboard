@@ -161,7 +161,7 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
                 '<span class="ico ico-tooltip fa fa-info-circle chart-tooltip" ' +
                 'data-toggle="tooltip" data-placement="top" ' +
                 'data-track-event="edx.bi.tooltip.displayed" data-track-category="map" ' +
-                'title="<%=text%>"></span>'
+                'title="<%=text%>" aria-hidden="true"></span>'
             ),
 
             render: function() {
