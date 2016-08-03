@@ -41,7 +41,7 @@ class LandingTests(PageTestMixin, LoginMixin, LogoutMixin, FooterLegalMixin, Web
         self.assertTrue(summary_elements.present)
         self.assertTrue(len(summary_elements), num_lenses)
 
-        lens_icon_elements = self.page.q(css='.lens-summary h1 i')
+        lens_icon_elements = self.page.q(css='.lens-summary h1 span')
         self.assertTrue(lens_icon_elements.present)
         self.assertTrue(len(lens_icon_elements), num_lenses)
 

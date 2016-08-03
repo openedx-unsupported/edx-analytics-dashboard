@@ -80,7 +80,7 @@
         <a href="{% url 'courses:csv:engagement_video_timeline' course_id=course_id pipeline_video_id=summary_metrics.pipeline_video_id %}"
             class="btn btn-default pull-right" data-role="engagement-csv" data-track-type="click"
             data-track-event="edx.bi.csv.downloaded" data-track-category="video-timeline">
-            <i class="ico fa fa-download" aria-hidden="true"></i> {% trans "Download CSV" %}
+            <span class="ico fa fa-download" aria-hidden="true"></span> {% trans "Download CSV" %}
             <span class="sr-only">{% trans "Video Viewing Over Time" %}</span>
         </a>
     </div>
