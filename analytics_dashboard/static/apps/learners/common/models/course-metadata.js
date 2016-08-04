@@ -26,39 +26,19 @@ define(function(require) {
 
         renameEngagementRanges: function(engagementRanges) {
             var rankedEngagementRanges = {},
-                newRanges = {
-                    discussion_contributions: {
-                        above_average: 'classRankTop',
-                        average: 'classRankMiddle',
-                        below_average: 'classRankBottom'
-                    },
-                    problem_attempts_per_completed: {
-                        above_average: 'classRankBottom',
-                        average: 'classRankMiddle',
-                        below_average: 'classRankTop'
-                    },
-                    problems_attempted: {
-                        above_average: 'classRankTop',
-                        average: 'classRankMiddle',
-                        below_average: 'classRankBottom'
-                    },
-                    problems_completed: {
-                        above_average: 'classRankTop',
-                        average: 'classRankMiddle',
-                        below_average: 'classRankBottom'
-                    },
-                    videos_viewed: {
-                        above_average: 'classRankTop',
-                        average: 'classRankMiddle',
-                        below_average: 'classRankBottom'
-                    }
+                metrics = ['discussion_contributions', 'problem_attempts_per_completed',
+                    'problems_attempted', 'problems_completed', 'videos_viewed'],
+                renamedFields = {
+                    class_rank_top: 'classRankTop',
+                    class_rank_average: 'classRankMiddle',
+                    class_rank_bottom: 'classRankBottom'
                 };
-            Object.keys(engagementRanges).forEach(function(metric) {
-                if (metric in newRanges) {
+
+            _(engagementRanges).each(function(ranges, metric) {
+                if (_(metrics).contains(metric)) {
                     rankedEngagementRanges[metric] = {};
-                    Object.keys(engagementRanges[metric]).forEach(function(range) {
-                        rankedEngagementRanges[metric][newRanges[metric][range]] =
-                            engagementRanges[metric][range];
+                    _(ranges).each(function(range, classRankType) {
+                        rankedEngagementRanges[metric][renamedFields[classRankType]] = range;
                     });
                 }
             });
@@ -105,7 +85,7 @@ define(function(require) {
         },
 
         /**
-         * Returns which category ('average', 'above_average', 'below_average'),
+         * Returns which category ('class_rank_average', 'class_rank_top', 'class_rank_bottom'),
          * the engagement values falls into.  Returns undefined if the range
          * isn't available.
          *

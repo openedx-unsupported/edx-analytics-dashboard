@@ -41,14 +41,14 @@ define(function(require) {
             var courseMetadata = new CourseMetadataModel({
                 engagement_ranges: {
                     problems_attempted: {
-                        below_average: [0, 10],
-                        average: [10, 25],
-                        above_average: [25, null]
+                        class_rank_bottom: [0, 10],
+                        class_rank_average: [10, 25],
+                        class_rank_top: [25, null]
                     },
                     problem_attempts_per_completed: {
-                        below_average: [1, 1.4],
-                        average: [1.4, 5.8],
-                        above_average: [5.8, null]
+                        class_rank_top: [1, 1.4],
+                        class_rank_average: [1.4, 5.8],
+                        class_rank_bottom: [5.8, null]
                     }
                 }
             }, {parse: true});
@@ -67,21 +67,22 @@ define(function(require) {
             var courseMetadata = new CourseMetadataModel({
                 engagement_ranges: {
                     problems_attempted: {
-                        below_average: [0, 10],
-                        average: [10, null],
-                        above_average: null
+                        class_rank_bottom: [0, 10],
+                        class_rank_average: [10, null],
+                        class_rank_top: null
                     },
                     problem_attempts_per_completed: {
-                        below_average: [0, 10],
-                        average: [10, null],
-                        above_average: [null, null]
+                        class_rank_top: [0, 10],
+                        class_rank_average: [10, null],
+                        class_rank_bottom: [null, null]
                     }
                 }
             }, {parse: true});
-            expect(courseMetadata.get('engagement_ranges').problems_attempted.below_average).toEqual([0, 10]);
-            expect(courseMetadata.get('engagement_ranges').problems_attempted.average).toEqual([10, Infinity]);
-            expect(courseMetadata.get('engagement_ranges').problems_attempted.above_average).toEqual(null);
-            expect(courseMetadata.get('engagement_ranges').problem_attempts_per_completed.above_average)
+            expect(courseMetadata.get('engagement_ranges').problems_attempted.class_rank_bottom).toEqual([0, 10]);
+            expect(courseMetadata.get('engagement_ranges').problems_attempted.class_rank_average)
+                .toEqual([10, Infinity]);
+            expect(courseMetadata.get('engagement_ranges').problems_attempted.class_rank_top).toEqual(null);
+            expect(courseMetadata.get('engagement_ranges').problem_attempts_per_completed.class_rank_bottom)
                 .toEqual([Infinity, Infinity]);
         });
 
