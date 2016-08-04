@@ -45,7 +45,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                                 return gettext('Incorrect');
                             }
                         },
-                        color: function(bar, index) {
+                        color: function(index) {
                             // green bars represent bars with the correct answer
                             if (courseModel.get('answerDistributionLimited')[index].correct) {
                                 return '#4BB4FB';
