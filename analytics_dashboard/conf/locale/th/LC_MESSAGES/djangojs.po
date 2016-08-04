@@ -4,6 +4,7 @@
 #
 # Translators:
 # Jirayu Chamamahattana <mman2x@gmail.com>, 2015
+# Kitsada Samuthsakorn <m.crispyandroid@gmail.com>, 2016
 # Noppachai Eiamwasant <noporo@hotmail.com>, 2015
 # Pornchai TummarATTAnanonT <yantaku@gmail.com>, 2015
 # Sitdhibong Laokok <sitdhibong@gmail.com>, 2015
@@ -12,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-22 09:59-0400\n"
-"PO-Revision-Date: 2016-06-22 14:04+0000\n"
+"POT-Creation-Date: 2016-08-04 11:40-0400\n"
+"PO-Revision-Date: 2016-08-04 15:42+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Thai (http://www.transifex.com/open-edx/edx-platform/language/th/)\n"
 "MIME-Version: 1.0\n"
@@ -23,31 +24,33 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
-msgid "Learners"
+msgid "Invalid Parameters"
 msgstr ""
+
+#: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
+msgid "Sorry, we couldn't find any learners who matched that query."
+msgstr ""
+
+#: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
+msgid "Return to the Learners page."
+msgstr ""
+
+#: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
+msgid "Learners"
+msgstr "ผู้เรียน"
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Learner Details"
-msgstr ""
+msgstr "รายละเอียดของผู้เรียน"
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Sorry, we couldn't find the page you're looking for."
-msgstr ""
-
-#: static/apps/learners/app/views/header.js
-#: static/dist/apps/learners/app/app.js
-msgid "Date Last Updated: <%- lastUpdatedDateString %>"
-msgstr ""
-
-#: static/apps/learners/app/views/header.js
-#: static/dist/apps/learners/app/app.js
-msgid "unknown"
-msgstr "ไม่ทราบ"
+msgstr "ขออภัย เราไม่พบหน้าที่คุณกำลังหา"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
 msgid "Name (Username)"
-msgstr ""
+msgstr "ชื่อ (ชื่อผู้ใช้)"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
@@ -55,9 +58,16 @@ msgid "Problems Tried"
 msgstr ""
 
 #: static/apps/learners/common/collections/learners.js
+#: static/apps/learners/detail/views/engagement-table.js
 #: static/apps/learners/detail/views/engagement-timeline.js
+#: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
 #: static/dist/apps/learners/app/app.js
 msgid "Problems Correct"
+msgstr ""
+
+#: static/apps/learners/common/collections/learners.js
+#: static/dist/apps/learners/app/app.js
+msgid "Attempts per Problem Correct"
 msgstr ""
 
 #: static/apps/learners/common/collections/learners.js
@@ -69,13 +79,8 @@ msgstr "วีดีโอ"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
-msgid "Attempts per Problem Correct"
-msgstr ""
-
-#: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/app.js
 msgid "Discussions"
-msgstr ""
+msgstr "การอภิปราย"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
@@ -95,10 +100,8 @@ msgstr "กลุ่มเพื่อน"
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
 msgid "Enrollment Mode"
-msgstr ""
+msgstr "โหมดลงทะเบียน"
 
-#. Translators: "504" is a number representing a server error, so please leave
-#. it as "504".
 #: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
 msgid "504: Server error"
 msgstr ""
@@ -108,38 +111,30 @@ msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
 msgstr ""
+"การประมวลคำร้องขอของคุณใช้เวลานานเกินกว่าจะทำให้เสร็จสิ้นได้ "
+"โหลดหน้านี้อีกครั้งเพื่อลองใหม่"
 
 #: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
 msgid "Server error"
-msgstr ""
+msgstr "เซิร์ฟเวอร์ผิดพลาด"
 
 #: static/apps/learners/common/utils.js static/apps/learners/common/utils.js
 #: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
 msgid "Your request could not be processed. Reload the page to try again."
-msgstr ""
+msgstr "ไม่สามารถประมวลคำร้องขอของคุณ"
 
 #: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
 msgid "Network error"
-msgstr ""
+msgstr "เครือข่ายผิดพลาด"
 
-#. Translators: This message indicates content is loading in the page.
 #: static/apps/learners/common/views/loading-view.js
 #: static/dist/apps/learners/app/app.js
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
+#: static/apps/learners/detail/views/engagement-table.js
 #: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/app.js
-msgid "Discussion Contributions"
-msgstr ""
-
-#: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/app.js
-msgid "Videos Viewed"
-msgstr ""
-
-#: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
 #: static/dist/js/enrollment-activity-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-activity-main.js
@@ -147,27 +142,45 @@ msgstr ""
 msgid "Date"
 msgstr "วันที่"
 
+#: static/apps/learners/detail/views/engagement-table.js
+#: static/apps/learners/detail/views/engagement-timeline.js
+#: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
+msgid "Discussion Contributions"
+msgstr ""
+
+#: static/apps/learners/detail/views/engagement-table.js
+#: static/apps/learners/detail/views/engagement-timeline.js
+#: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
+msgid "Videos Viewed"
+msgstr "วีดีโอที่เข้าชมแล้ว"
+
 #: static/apps/learners/detail/views/engagement-timeline.js
 #: static/dist/apps/learners/app/app.js
 msgid "Value"
 msgstr "ค่า"
 
-#. Translators: e.g. Student engagement
 #: static/apps/learners/detail/views/learner-detail.js
-msgid "Engagement"
-msgstr "การเข้าร่วม"
+#: static/dist/apps/learners/app/app.js
+msgid "Engagement Activity"
+msgstr ""
 
 #: static/apps/learners/detail/views/learner-detail.js
-msgid "Activity"
-msgstr "กิจกรรม"
+#: static/dist/apps/learners/app/app.js
+msgid "Daily Activity"
+msgstr ""
 
-#. Translators: 'n/a' means 'not available'
-#. Translators: 'n/a' means 'not available'
+#: static/apps/learners/detail/views/learner-detail.js
+#: static/dist/apps/learners/app/app.js
+msgid "Activity Over Time"
+msgstr ""
+
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/apps/learners/detail/views/learner-summary-field.js
+#: static/apps/learners/roster/views/activity-date-range.js
 #: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/app.js
 msgid "n/a"
-msgstr ""
+msgstr "ระบุไม่ได้"
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
@@ -182,24 +195,26 @@ msgstr ""
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "No learner data is available."
-msgstr ""
+msgstr "ไม่พบข้อมูลผู้เรียน"
 
 #: static/apps/learners/detail/views/learner-return.js
+#: static/dist/apps/learners/app/app.js
 msgid "Return to Learners"
 msgstr ""
 
-#. Translators: this is a label describing a selection that the user
-#. initiated.
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Cohort: <%= filterVal %>"
 msgstr ""
 
-#. Translators: this is a label describing a selection that the user
-#. initiated.
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Enrollment Track: <%= filterVal %>"
+msgstr ""
+
+#: static/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/learners/app/app.js
+msgid "Engagement: <%= filterVal %>"
 msgstr ""
 
 #: static/apps/learners/roster/views/active-filters.js
@@ -210,9 +225,8 @@ msgstr ""
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Click to remove this filter"
-msgstr ""
+msgstr "คลิกเพื่อเอาตัวกรองนี้ออก"
 
-#. Translators: "Clear" in this context means "remove all of the filters"
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Clear"
@@ -221,12 +235,17 @@ msgstr "ล้าง"
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Click to remove all filters"
+msgstr "คลิกเพื่อเอาตัวกรองทั้งหมดออก"
+
+#: static/apps/learners/roster/views/activity-date-range.js
+#: static/dist/apps/learners/app/app.js
+msgid "Activity between <%- startDate %> - <%- endDate %>"
 msgstr ""
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
 msgid "The name and username of this learner. Click to sort by username."
-msgstr ""
+msgstr "ชื่อและชื่อผู้ใช้ของผู้เรียนคนนี้ คลิกเพื่อจัดเรียงตามชื่อผู้ใช้"
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
@@ -257,32 +276,25 @@ msgid ""
 "comments."
 msgstr ""
 
-#. Translators: "sort ascending" describes the current
-#. sort state to the user.
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
 msgid "sort ascending"
 msgstr ""
 
-#. Translators: "sort descending" describes the
-#. current sort state to the user.
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
 msgid "sort descending"
 msgstr ""
 
-#. Translators: "click to sort" tells the user that
-#. they can click this link to sort by the current
-#. field.
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
 msgid "click to sort"
-msgstr ""
+msgstr "คลิกเพื่อจัดเรียง"
 
 #: static/apps/learners/roster/views/controls.js
 #: static/dist/apps/learners/app/app.js
 msgid "Find a learner"
-msgstr ""
+msgstr "ค้นหาผู้เรียน"
 
 #: static/apps/learners/roster/views/controls.js
 #: static/dist/apps/learners/app/app.js
@@ -294,23 +306,25 @@ msgstr ""
 msgid "Enrollment Tracks"
 msgstr ""
 
-#. Translators: 'name' here refers to the name of the filter, while
-#. 'numLearners' refers to the number of learners belonging to that filter.
+#: static/apps/learners/roster/views/controls.js
+#: static/dist/apps/learners/app/app.js
+msgid "Inactive Learners"
+msgstr ""
+
 #: static/apps/learners/roster/views/filter.js
 #: static/dist/apps/learners/app/app.js
 msgid "<%= name %> (<%= numLearners %>)"
 msgstr ""
 
-#. Translators: "All" refers to viewing all the learners in a course.
 #: static/apps/learners/roster/views/filter.js
 #: static/dist/apps/learners/app/app.js
 msgid "All"
-msgstr ""
+msgstr "ทั้งหมด"
 
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/app.js
 msgid "first page"
-msgstr ""
+msgstr "หน้าแรก"
 
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/app.js
@@ -325,27 +339,27 @@ msgstr "หน้าถัดไป"
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/app.js
 msgid "last page"
-msgstr ""
+msgstr "หน้าสุดท้าย"
 
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/app.js
 msgid "page"
-msgstr ""
+msgstr "หน้า"
 
 #: static/apps/learners/roster/views/results.js
 #: static/dist/apps/learners/app/app.js
 msgid "No learners matched your criteria."
-msgstr ""
+msgstr "ไม่มีผู้เรียนที่ตรงตามเกณฑ์ของคุณ"
 
 #: static/apps/learners/roster/views/results.js
 #: static/dist/apps/learners/app/app.js
 msgid "Try a different search."
-msgstr ""
+msgstr "ลองค้นหาในแบบอื่น"
 
 #: static/apps/learners/roster/views/results.js
 #: static/dist/apps/learners/app/app.js
 msgid "Try clearing the filters."
-msgstr ""
+msgstr "ลองล้างค่าตัวกรอง"
 
 #: static/apps/learners/roster/views/results.js
 #: static/dist/apps/learners/app/app.js
@@ -368,7 +382,7 @@ msgstr ""
 #: static/apps/learners/roster/views/search.js
 #: static/dist/apps/learners/app/app.js
 msgid "Search learners"
-msgstr ""
+msgstr "ค้นหาผู้เรียน"
 
 #: static/apps/learners/roster/views/search.js
 #: static/dist/apps/learners/app/app.js
@@ -378,10 +392,8 @@ msgstr "ค้นหา"
 #: static/apps/learners/roster/views/search.js
 #: static/dist/apps/learners/app/app.js
 msgid "clear search"
-msgstr ""
+msgstr "ล้างค่าการค้นหา"
 
-#. Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate
-#. accordingly.
 #: static/apps/learners/roster/views/table.js
 #: static/dist/apps/learners/app/app.js
 msgid "N/A"
@@ -392,30 +404,10 @@ msgstr "ไม่ปรากฎ"
 msgid "Learner Roster"
 msgstr ""
 
-#: static/dist/apps/learners/app/app.js
-msgid "Problems Completed"
-msgstr ""
-
 #: static/dist/js/common.js static/js/utils/utils.js
 msgid "..."
 msgstr "..."
 
-#. Translators: (empty) is displayed as a label in a chart and indicates that
-#. no label was provided.
-#. Translators: (empty) is displayed as a label in a chart and indicates that
-#. no label was provided.
-#. Translators: (empty) is displayed as a label in a chart and indicates that
-#. no label was provided.
-#. Translators: (empty) is displayed as a label in a chart and indicates that
-#. no label was provided.
-#. Translators: (empty) is displayed as a label in a chart and indicates that
-#. no label was provided.
-#. Translators: (empty) is displayed as a label in a chart and indicates that
-#. no label was provided.
-#. Translators: (empty) is displayed as a label in a chart and indicates that
-#. no label was provided.
-#. Translators: (empty) is displayed as a label in a chart and indicates that
-#. no label was provided.
 #: static/dist/js/common.js static/dist/js/engagement-video-content-main.js
 #: static/dist/js/engagement-videos-main.js
 #: static/dist/js/enrollment-demographics-education-main.js
@@ -427,8 +419,6 @@ msgstr "..."
 msgid "(empty)"
 msgstr "(ว่างเปล่า)"
 
-#. Translators: "Correct" is displayed in a table..
-#. Translators: "Correct" is displayed in a table..
 #: static/dist/js/common.js
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-answer-distribution-main.js
@@ -469,7 +459,6 @@ msgstr "โพสท์บนกระดาน"
 msgid "Percent of Current Students"
 msgstr ""
 
-#. Translators: <%=value%> will be replaced with a date.
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Week Ending <%=value%>"
@@ -477,7 +466,7 @@ msgstr "สิ้นสุดสัปดาห์ <%=value%>"
 
 #. Translators: <%=value%> will be replaced by a number followed by a
 #. percentage.
-#. For example, "400 (29%)"
+#. For example, "400 (29%)" */
 #: static/dist/js/engagement-video-content-main.js
 #: static/dist/js/engagement-videos-main.js
 #: static/dist/js/performance-content-main.js
@@ -538,8 +527,6 @@ msgstr "การรับชมเสร็จสมบูรณ์"
 msgid "Incomplete Views"
 msgstr "การรับชมที่ไม่เสร็จสมบูรณ์"
 
-#. Translators: The noun count (e.g. number of students)
-#. Translators: The noun count (e.g. number of students)
 #: static/dist/js/enrollment-activity-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/dist/js/enrollment-geography-main.js
@@ -551,8 +538,13 @@ msgstr "การลงทะเบียนปัจจุบัน"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
-msgid "Honor Code"
-msgstr "แนวทางการปฏิบัติ"
+msgid "Honor"
+msgstr ""
+
+#: static/dist/js/enrollment-activity-main.js
+#: static/js/enrollment-activity-main.js
+msgid "Audit"
+msgstr ""
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
@@ -564,6 +556,11 @@ msgstr "ตรวจสอบแล้ว"
 msgid "Professional"
 msgstr "วิชาชีพ"
 
+#: static/dist/js/enrollment-activity-main.js
+#: static/js/enrollment-activity-main.js
+msgid "Verified with Credit"
+msgstr ""
+
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-education-main.js
@@ -573,7 +570,6 @@ msgstr "วิชาชีพ"
 msgid "Number of Students"
 msgstr "จำนวนของผู้เรียน"
 
-#. Translators: <%=value%> will be replaced with an age.
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/js/enrollment-demographics-age-main.js
 msgid "Age: <%=value%>"
@@ -596,8 +592,6 @@ msgstr "ร้อยละของทั้งหมด"
 msgid "Percentage"
 msgstr "เปอร์เซ็นต์"
 
-#. Translators: <%=value%> will be replaced with a level of education (e.g.
-#. Doctorate).
 #: static/dist/js/enrollment-demographics-education-main.js
 #: static/js/enrollment-demographics-education-main.js
 msgid "Education: <%=value%>"
@@ -608,8 +602,6 @@ msgstr "การศึกษา: <%=value%>"
 msgid "Educational Background"
 msgstr "พื้นฐานการศึกษา"
 
-#. Translators: <%=value%> will be replaced with a level of gender (e.g.
-#. Female).
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Gender: <%=value%>"
@@ -676,8 +668,6 @@ msgstr "เวอร์ชัน"
 msgid "Incorrect"
 msgstr "ไม่ถูกต้อง"
 
-#. Translators: <%=value%> will be replaced by a student response to a
-#. question asked in a course.
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
 msgid "Answer: <%=value%>"

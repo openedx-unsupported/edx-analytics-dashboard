@@ -7,6 +7,7 @@
 # ali selek <aliselek01@gmail.com>, 2015
 # Azmi Ozgen <azmican73@gmail.com>, 2014
 # Can Taşdemir <can.tsdmr@windowslive.com>, 2015
+# Ekin Hazal Bayar <ekinhazalbayar@gmail.com>, 2016
 # Emrah Emirtekin <eemirtekin@gmail.com>, 2015
 # Emre Saraçoğlu <emresaracoglu@live.com>, 2014
 # Hüseyin Eski, 2015
@@ -19,8 +20,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-24 14:25-0400\n"
-"PO-Revision-Date: 2016-05-24 18:28+0000\n"
+"POT-Creation-Date: 2016-08-04 11:40-0400\n"
+"PO-Revision-Date: 2016-08-04 15:42+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/open-edx/edx-platform/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -39,7 +40,7 @@ msgstr ""
 "Ders geliştirici ekiplerin daha iyi sonuçlar elde edebilmeleri için "
 "öneriler."
 
-#: core/templates/core/landing.html courses/views/__init__.py
+#: core/templates/core/landing.html
 msgid "Who are my students?"
 msgstr "Öğrencilerim kimler?"
 
@@ -49,8 +50,6 @@ msgstr "Öğrencilerin geçmişlerini girebilmek için dersinizi hedefleyin."
 
 #: core/templates/core/landing.html
 #: courses/templates/courses/enrollment_geography.html
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/__init__.py
 msgid "Enrollment"
 msgstr "Kayıt"
 
@@ -67,8 +66,6 @@ msgstr ""
 "kaynaklara yönlendirin"
 
 #: core/templates/core/landing.html
-#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
-#: courses/views/__init__.py
 msgid "Engagement"
 msgstr "Taahhüt"
 
@@ -81,8 +78,6 @@ msgid "Adjust your course based on where students are struggling."
 msgstr "Öğrencilerin bocaladıkları yerlere göre kursunuzu ayarların."
 
 #: core/templates/core/landing.html
-#: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/__init__.py
 msgid "Performance"
 msgstr "Performans"
 
@@ -120,120 +115,6 @@ msgid ""
 msgstr ""
 "%(link_start)sDestek merkezimiz%(link_end)s çözüm bulmanıza yardımcı "
 "olabilir."
-
-#. Translators: Simply move the percent symbol (%) to the correct location. Do
-#. NOT translate the word statistic.
-#: core/templatetags/dashboard_extras.py
-msgid "{statistic}%"
-msgstr "{statistic}%"
-
-#. Translators: '{percentage}' in as a placeholder for the percentage value.
-#: courses/presenters/engagement.py
-msgid "{percentage} of current students"
-msgstr "mevcut öğrencilerin {percentage}"
-
-#: courses/presenters/enrollment.py
-msgid "Female"
-msgstr "Kadın"
-
-#: courses/presenters/enrollment.py
-msgid "Male"
-msgstr "Erkek"
-
-#. Translators: Other gender
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py courses/presenters/enrollment.py
-msgid "Other"
-msgstr "Diğer"
-
-#. Translators: Unknown gender
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py courses/presenters/enrollment.py
-#: courses/presenters/enrollment.py
-msgid "Unknown"
-msgstr "Bilinmeyen neden"
-
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py
-msgid "None"
-msgstr "Hiçbiri"
-
-#. Translators: This describes the learner's education level (e.g. Elementary
-#. School Degree).
-#: courses/presenters/enrollment.py courses/tests/test_serializers.py
-msgid "Primary"
-msgstr "Birincil"
-
-#. Translators: This describes the learner's education level  (e.g. Middle
-#. School Degree).
-#: courses/presenters/enrollment.py
-msgid "Middle"
-msgstr "Orta"
-
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py
-msgid "Secondary"
-msgstr "İkincil"
-
-#. Translators: This describes the learner's education level (e.g. Associate's
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Associate"
-msgstr "Ortak"
-
-#. Translators: This describes the learner's education level (e.g. Bachelor's
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Bachelor's"
-msgstr "Lisans derecesi"
-
-#. Translators: This describes the learner's education level (e.g. Master's
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Master's"
-msgstr "Yüksek Lisans Derecesi"
-
-#. Translators: This describes the learner's education level (e.g. Doctorate
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Doctorate"
-msgstr "Doktora Derecesi"
-
-#. Translators: This is a placeholder for enrollment data collected without a
-#. known geolocation.
-#: courses/presenters/enrollment.py
-msgid "Unknown Country"
-msgstr "Bilinmeyen Ülke"
-
-#. Translators: This describes the data displayed in the chart below.
-#: courses/presenters/performance.py
-#: courses/templates/courses/submissions_chart_info.html
-msgid "Submissions"
-msgstr "Öneriler"
-
-#: courses/presenters/performance.py
-msgid "Submissions for Part {part_number}: {part_description}"
-msgstr " {part_number} bölümü için öneriler: {part_description}"
-
-#: courses/presenters/performance.py
-msgid "Part {part_number}: {part_description}"
-msgstr "Bölüm  {part_number}: {part_description}"
-
-#: courses/presenters/performance.py
-msgid "Submissions: {part_description}"
-msgstr "Öneriler: {part_description}"
-
-#: courses/presenters/performance.py
-msgid "{part_description}"
-msgstr "{part_description}"
-
-#: courses/presenters/performance.py
-msgid "Submissions for Part {part_number}"
-msgstr "{part_number} bölümü için öneriler"
-
-#: courses/presenters/performance.py
-msgid "Part {part_number}"
-msgstr "Bölüm {part_number}"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
@@ -349,7 +230,7 @@ msgstr "Öğrenciler (Öz-Raporlanmış)"
 msgid "Weekly Student Engagement"
 msgstr "Haftalık Öğrenci Katılımı"
 
-#: courses/templates/courses/engagement_content.html courses/views/__init__.py
+#: courses/templates/courses/engagement_content.html
 msgid "How many students are interacting with my course?"
 msgstr "Kaç öğrenci dersimle etkileşim kurdu?"
 
@@ -450,7 +331,6 @@ msgstr ""
 "anlamak için tıklayın."
 
 #: courses/templates/courses/engagement_video_course.html
-#: courses/views/__init__.py
 msgid "How did students interact with course videos?"
 msgstr "Öğrenciler nasıl ders videoları ile etkileşime girdi?"
 
@@ -526,7 +406,6 @@ msgid "Daily Student Enrollment"
 msgstr "Günlük Öğrenci Kayıtlanmaları"
 
 #: courses/templates/courses/enrollment_activity.html
-#: courses/views/__init__.py
 msgid "How many students are in my course?"
 msgstr "Dersimde kaç öğrenci var?"
 
@@ -601,7 +480,6 @@ msgid "Enrollment Over Time"
 msgstr "Zamana Göre Kayıtlanmalar"
 
 #: courses/templates/courses/enrollment_demographics_age.html
-#: courses/views/__init__.py
 msgid "How old are my students?"
 msgstr "Öğrencilerim kaç yaşında?"
 
@@ -672,7 +550,6 @@ msgid "Age Breakdown"
 msgstr "Yaş Dağılımı"
 
 #: courses/templates/courses/enrollment_demographics_education.html
-#: courses/views/__init__.py
 msgid "What level of education do my students have?"
 msgstr "Öğrencilerim hangi eğitim düzeyine sahip?"
 
@@ -736,7 +613,6 @@ msgid "Educational Breakdown"
 msgstr "Eğitim Dağılımı"
 
 #: courses/templates/courses/enrollment_demographics_gender.html
-#: courses/views/__init__.py
 msgid "What is the student gender breakdown?"
 msgstr "Öğrenci cinsiyet dağılımı nedir?"
 
@@ -760,7 +636,6 @@ msgid "Geographic Distribution"
 msgstr "Coğrafik Dağılım"
 
 #: courses/templates/courses/enrollment_geography.html
-#: courses/views/__init__.py
 msgid "Where are my students?"
 msgstr "Öğrencilerim nerede?"
 
@@ -830,11 +705,10 @@ msgstr "Coğrafik Dağılım"
 msgid "Application"
 msgstr "Uygulama"
 
-#: courses/templates/courses/home.html courses/views/__init__.py
+#: courses/templates/courses/home.html
 msgid "Course Home"
 msgstr "Ders Ana Sayfası"
 
-#. Translators: This refers to the active tab/navigation item.
 #. Translators: This refers to the active tab/navigation item.
 #: courses/templates/courses/home.html templates/lens-navigation.html
 #: templates/submenu_navigation.html
@@ -877,8 +751,7 @@ msgstr ""
 "%(application_name)s hakkında daha fazla bilgi almak için sağ üst köşedeki Yardım'ı tıklatın.\n"
 "%(email_link)s konumunda bize geri bildirim gönderin."
 
-#: courses/templates/courses/learners.html courses/views/__init__.py
-#: courses/views/__init__.py courses/views/learners.py
+#: courses/templates/courses/learners.html
 msgid "Learners"
 msgstr "Öğrenciler"
 
@@ -976,7 +849,6 @@ msgid "How are students doing on this subsection?"
 msgstr "Nasıl bu bölümde yapıyor öğrenciler?"
 
 #: courses/templates/courses/performance_ungraded_content.html
-#: courses/views/__init__.py
 msgid "How are students doing on ungraded exercises?"
 msgstr "Nasıl puanlanmamış alıştırmalar yapıyor öğrenciler?"
 
@@ -1011,263 +883,12 @@ msgstr ""
 msgid "Try Again"
 msgstr "Yeniden Deneyiniz"
 
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Activity"
-msgstr "Faaliyet"
+#. Translators: This describes the data displayed in the chart below.
+#: courses/templates/courses/submissions_chart_info.html
+msgid "Submissions"
+msgstr "Öneriler"
 
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Demographics"
-msgstr "Demografik "
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Geography"
-msgstr "Çoğrafi Konum"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Age"
-msgstr "Yaş"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Education"
-msgstr "Eğitim"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Gender"
-msgstr "Cinsiyet"
-
-#. Translators: Content as in course content (e.g. things, not the feeling)
-#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
-#: courses/views/engagement.py
-msgid "Content"
-msgstr "İçerik"
-
-#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
-#: courses/views/engagement.py
-msgid "Videos"
-msgstr "Videolar"
-
-#: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/performance.py courses/views/performance.py
-msgid "Graded Content"
-msgstr "Puanlanmış İçerik"
-
-#: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/performance.py courses/views/performance.py
-msgid "Ungraded Problems"
-msgstr "Puanlanmamış Problemler"
-
-#: courses/views/__init__.py
-msgid "What are students doing in my course?"
-msgstr "Dersimde öğrenciler neler yapıyor?"
-
-#: courses/views/__init__.py
-msgid "How are students doing on course assignments?"
-msgstr "Öğrenciler dersteki ödevlerini nasıl yapıyor?"
-
-#: courses/views/__init__.py
-msgid "How are students doing on graded course assignments?"
-msgstr "Öğrenciler notlandırılmış dersteki ödevlerini nasıl yapıyor?"
-
-#: courses/views/__init__.py
-msgid "What are individual learners doing?"
-msgstr ""
-
-#: courses/views/__init__.py
-msgid "Who is engaged? Who isn't?"
-msgstr ""
-
-#: courses/views/__init__.py
-msgid "All Learners"
-msgstr ""
-
-#. Translators: 'Course ID' is 'Course Identifier', the unique code that
-#. identifies the course
-#: courses/views/__init__.py
-msgid "Course ID"
-msgstr "Ders No"
-
-#: courses/views/__init__.py
-msgid "Course Name"
-msgstr "Ders Adı"
-
-#. Translators: 'In Progress' and 'Ended' refer to whether students are
-#. actively using the course or it is over.
-#: courses/views/__init__.py
-msgid "In Progress"
-msgstr "İşlem sürüyor"
-
-#: courses/views/__init__.py
-msgid "Ended"
-msgstr "Bitti"
-
-#. Translators: This refers to a course that has not yet begun.
-#: courses/views/__init__.py
-msgid "Not Started Yet"
-msgstr "Henüz başlamadı"
-
-#: courses/views/__init__.py
-msgid "Start Date"
-msgstr "Başlangıç Tarihi"
-
-#: courses/views/__init__.py
-msgid "End Date"
-msgstr "Bitiş Tarihi"
-
-#: courses/views/__init__.py
-msgid "Status"
-msgstr "Durum"
-
-#: courses/views/__init__.py
-msgid "Instructor Dashboard"
-msgstr "Eğitmen / Ana Panel"
-
-#: courses/views/__init__.py
-msgid "Courseware"
-msgstr "Ders İçerikleri"
-
-#: courses/views/engagement.py
-msgid "Engagement Content"
-msgstr "Taahhüt İçeriği"
-
-#. Translators: Do not translate UTC.
-#: courses/views/engagement.py
-msgid ""
-"Course engagement data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr ""
-"Ders taahhüt verisi en son %(update_date)s tarihinde %(update_time)s UTC "
-"saatinde güncellendi."
-
-#: courses/views/engagement.py
-msgid "Engagement Videos"
-msgstr "Taahhüt Videoları"
-
-#. Translators: Do not translate UTC.
-#: courses/views/engagement.py
-msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
-"Video verisi en son %(update_date)s tarihinde %(update_time)s UTC saatinde "
-"güncellendi."
-
-#: courses/views/engagement.py
-msgid "Looks like no one has watched any videos in these sections."
-msgstr "Hiç kimse bu bölümlerden herhangi videoları izlemiş gibi görünmüyor."
-
-#: courses/views/engagement.py courses/views/performance.py
-msgid "Section Name"
-msgstr "Bölüm Adı"
-
-#: courses/views/engagement.py courses/views/performance.py
-msgid "Subsection Name"
-msgstr "Alt bölüm Adı"
-
-#: courses/views/engagement.py
-msgid "Video Name"
-msgstr "Video Adı"
-
-#. Translators: Do not translate UTC.
-#: courses/views/enrollment.py
-msgid ""
-"Demographic student data was last updated %(update_date)s at %(update_time)s"
-" UTC."
-msgstr ""
-"Demografik öğrenci verisi en son %(update_date)s tarihinde %(update_time)s "
-"UTC saatinde güncellendi."
-
-#. Translators: This sentence is displayed at the bottom of the page and
-#. describe the demographics data displayed.
-#: courses/views/enrollment.py
-msgid ""
-"All above demographic data was self-reported at the time of registration."
-msgstr "Yukarıdaki tüm demografik veriler kayıt sırasında kendini bildirildi."
-
-#: courses/views/enrollment.py
-msgid "Enrollment Activity"
-msgstr "Kayıtlanma Etkinliği"
-
-#. Translators: Do not translate UTC.
-#: courses/views/enrollment.py
-msgid ""
-"Enrollment activity data was last updated %(update_date)s at %(update_time)s"
-" UTC."
-msgstr ""
-"Kayıt aktivite verisi en son %(update_date)s tarihinde %(update_time)s UTC "
-"saatinde güncellendi."
-
-#: courses/views/enrollment.py
-msgid "Enrollment Demographics by Age"
-msgstr "Yaşa Göre Kayıt İstatistikleri"
-
-#: courses/views/enrollment.py
-msgid "Enrollment Demographics by Education"
-msgstr "Eğitime Göre Kayıt İstatistikleri"
-
-#: courses/views/enrollment.py
-msgid "Enrollment Demographics by Gender"
-msgstr "Cinsiyete Göre Kayıt İstatistikleri"
-
-#: courses/views/enrollment.py
-msgid "Enrollment Geography"
-msgstr "Kayıt Konumu"
-
-#. Translators: Do not translate UTC.
-#: courses/views/enrollment.py
-msgid ""
-"Geographic student data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr ""
-"Coğrafik öğrenci verisi en son %(update_date)s tarihinde %(update_time)s UTC"
-" saatinde güncellendi."
-
-#. Translators: Do not translate UTC.
-#: courses/views/performance.py
-msgid ""
-"Problem submission data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr ""
-"Problem gönderim verisi en son %(update_date)s tarihinde %(update_time)s UTC"
-" saatinde güncellendi."
-
-#: courses/views/performance.py
-msgid "Assignment Name"
-msgstr "Ödev İsmi"
-
-#: courses/views/performance.py
-msgid "No submissions received for these exercises."
-msgstr "Hiçbir gönderimler bu alıştırmalar için alınmadı."
-
-#: courses/views/performance.py
-msgid "No submissions received for these assignments."
-msgstr "Hiçbir gönderimler bu atamalar için alınmadı."
-
-#: courses/views/performance.py courses/views/performance.py
-msgid "Performance: Problem Submissions"
-msgstr "Performans: Problem Yüklemeleri"
-
-#: courses/views/performance.py
-msgid "Graded Content: %(assignment_type)s"
-msgstr "Puanlanmış İçerik: %(assignment_type)s"
-
-#: courses/views/performance.py courses/views/performance.py
-msgid "Problem Name"
-msgstr "Problem Adı"
-
-#: settings/base.py
-msgid "Terms of Service"
-msgstr "Kullanım Koşulları"
-
-#: settings/base.py
-msgid "Privacy Policy"
-msgstr "Gizlilik İlkeleri"
-
-#: templates/403.html templates/403.html.py
+#: templates/403.html templates/403.html
 msgid "Access Denied"
 msgstr "Erişim Engellendi"
 
@@ -1285,7 +906,7 @@ msgstr ""
 msgid "Logout then Login"
 msgstr "Oturumu kapatın sonrasında Oturum açın"
 
-#: templates/404.html templates/404.html.py
+#: templates/404.html templates/404.html
 msgid "Page Not Found"
 msgstr "Sayfa Bulunamadı"
 
@@ -1297,7 +918,7 @@ msgstr ""
 "Bakındığınız sayfa bulunamadı.Adresin doğru olduğundan emin olun veya tekrar"
 " deneyin."
 
-#: templates/500.html templates/500.html.py
+#: templates/500.html templates/500.html
 msgid "An Error Occurred"
 msgstr "Bir Hata Oluştu"
 
@@ -1309,7 +930,7 @@ msgstr ""
 "Bizim sunucularımız isteğinizi tamamlamak için yeterli değildir. Bu sayfayı "
 "yenileyerek veya adımlarınızın üzerinden geçerek tekrar deneyin."
 
-#: templates/503.html templates/503.html.py
+#: templates/503.html templates/503.html
 msgid "We're having trouble loading this page. Please try again in a minute."
 msgstr ""
 "Bu sayfayı yüklerken problem yaşıyoruz. Bir dakika içerisinde tekrar "

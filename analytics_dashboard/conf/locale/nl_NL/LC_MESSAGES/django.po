@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-24 14:25-0400\n"
-"PO-Revision-Date: 2016-05-24 18:28+0000\n"
+"POT-Creation-Date: 2016-08-04 11:40-0400\n"
+"PO-Revision-Date: 2016-08-04 15:42+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/open-edx/edx-platform/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgstr "Inloggen"
 msgid "Insights to help course teams improve courses."
 msgstr "Inzichten om de teams te helpen hun cursussen beter te maken"
 
-#: core/templates/core/landing.html courses/views/__init__.py
+#: core/templates/core/landing.html
 msgid "Who are my students?"
 msgstr "Wie zijn mijn studenten?"
 
@@ -44,8 +44,6 @@ msgstr "Richt uw cursus naar de achtergrond van uw studenten."
 
 #: core/templates/core/landing.html
 #: courses/templates/courses/enrollment_geography.html
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/__init__.py
 msgid "Enrollment"
 msgstr "Inschrijving"
 
@@ -62,8 +60,6 @@ msgstr ""
 "gebruikte informatie."
 
 #: core/templates/core/landing.html
-#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
-#: courses/views/__init__.py
 msgid "Engagement"
 msgstr "Betrokkenheid"
 
@@ -76,8 +72,6 @@ msgid "Adjust your course based on where students are struggling."
 msgstr "Pas je cursus aan gebaseerd op waar studenten moeite mee hebben. "
 
 #: core/templates/core/landing.html
-#: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/__init__.py
 msgid "Performance"
 msgstr "Prestatie"
 
@@ -115,120 +109,6 @@ msgid ""
 msgstr ""
 "%(link_start)sOns support center%(link_end)s kan je helpen oplossingen te "
 "vinden."
-
-#. Translators: Simply move the percent symbol (%) to the correct location. Do
-#. NOT translate the word statistic.
-#: core/templatetags/dashboard_extras.py
-msgid "{statistic}%"
-msgstr "{statistic}%"
-
-#. Translators: '{percentage}' in as a placeholder for the percentage value.
-#: courses/presenters/engagement.py
-msgid "{percentage} of current students"
-msgstr "{percentage} van huidige studenten"
-
-#: courses/presenters/enrollment.py
-msgid "Female"
-msgstr "Vrouw"
-
-#: courses/presenters/enrollment.py
-msgid "Male"
-msgstr "Man"
-
-#. Translators: Other gender
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py courses/presenters/enrollment.py
-msgid "Other"
-msgstr "Anders"
-
-#. Translators: Unknown gender
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py courses/presenters/enrollment.py
-#: courses/presenters/enrollment.py
-msgid "Unknown"
-msgstr "Onbekend"
-
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py
-msgid "None"
-msgstr "Geen"
-
-#. Translators: This describes the learner's education level (e.g. Elementary
-#. School Degree).
-#: courses/presenters/enrollment.py courses/tests/test_serializers.py
-msgid "Primary"
-msgstr "Lagere school"
-
-#. Translators: This describes the learner's education level  (e.g. Middle
-#. School Degree).
-#: courses/presenters/enrollment.py
-msgid "Middle"
-msgstr "Midden"
-
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py
-msgid "Secondary"
-msgstr "Voortgezet onderwijs"
-
-#. Translators: This describes the learner's education level (e.g. Associate's
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Associate"
-msgstr "Associate"
-
-#. Translators: This describes the learner's education level (e.g. Bachelor's
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Bachelor's"
-msgstr "Bachelor's"
-
-#. Translators: This describes the learner's education level (e.g. Master's
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Master's"
-msgstr "Master's"
-
-#. Translators: This describes the learner's education level (e.g. Doctorate
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Doctorate"
-msgstr "Doctoraat"
-
-#. Translators: This is a placeholder for enrollment data collected without a
-#. known geolocation.
-#: courses/presenters/enrollment.py
-msgid "Unknown Country"
-msgstr "Land Onbekend"
-
-#. Translators: This describes the data displayed in the chart below.
-#: courses/presenters/performance.py
-#: courses/templates/courses/submissions_chart_info.html
-msgid "Submissions"
-msgstr "Inzendingen"
-
-#: courses/presenters/performance.py
-msgid "Submissions for Part {part_number}: {part_description}"
-msgstr "Inzendingen voor Onderdeel {part_number}: {part_description}"
-
-#: courses/presenters/performance.py
-msgid "Part {part_number}: {part_description}"
-msgstr "Onderdeel {part_number}: {part_description}"
-
-#: courses/presenters/performance.py
-msgid "Submissions: {part_description}"
-msgstr "Inzendingen: {part_description}"
-
-#: courses/presenters/performance.py
-msgid "{part_description}"
-msgstr "{part_description}"
-
-#: courses/presenters/performance.py
-msgid "Submissions for Part {part_number}"
-msgstr "Inzendingen voor Onderdeel {part_number}"
-
-#: courses/presenters/performance.py
-msgid "Part {part_number}"
-msgstr "Onderdeel {part_number}"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
@@ -344,7 +224,7 @@ msgstr "Studenten (Zelf-Gerapporteerd)"
 msgid "Weekly Student Engagement"
 msgstr "Wekelijkse studentenbetrokkenheid"
 
-#: courses/templates/courses/engagement_content.html courses/views/__init__.py
+#: courses/templates/courses/engagement_content.html
 msgid "How many students are interacting with my course?"
 msgstr "Hoeveel studenten zijn actief bezig met mijn cursus?"
 
@@ -448,7 +328,6 @@ msgstr ""
 "herbekijken."
 
 #: courses/templates/courses/engagement_video_course.html
-#: courses/views/__init__.py
 msgid "How did students interact with course videos?"
 msgstr "Hoe hebben studenten gewerkt met cursusvideo's?"
 
@@ -525,7 +404,6 @@ msgid "Daily Student Enrollment"
 msgstr "Dagelijkse studenteninschrijvingen"
 
 #: courses/templates/courses/enrollment_activity.html
-#: courses/views/__init__.py
 msgid "How many students are in my course?"
 msgstr "Hoeveel studenten zijn er in mijn cursus?"
 
@@ -603,7 +481,6 @@ msgid "Enrollment Over Time"
 msgstr "Inschrijvingen in de loop der tijd"
 
 #: courses/templates/courses/enrollment_demographics_age.html
-#: courses/views/__init__.py
 msgid "How old are my students?"
 msgstr "Hoe oud zijn mijn studenten?"
 
@@ -682,7 +559,6 @@ msgid "Age Breakdown"
 msgstr "Onderverdeling naar Leeftijd"
 
 #: courses/templates/courses/enrollment_demographics_education.html
-#: courses/views/__init__.py
 msgid "What level of education do my students have?"
 msgstr "Welk opleidingsniveau hebben mijn studenten?"
 
@@ -746,7 +622,6 @@ msgid "Educational Breakdown"
 msgstr "Onderverdeling Naar Opleiding"
 
 #: courses/templates/courses/enrollment_demographics_gender.html
-#: courses/views/__init__.py
 msgid "What is the student gender breakdown?"
 msgstr "Wat is de onderverdeling naar geslacht van de studenten?"
 
@@ -770,7 +645,6 @@ msgid "Geographic Distribution"
 msgstr "Geografische verdeling"
 
 #: courses/templates/courses/enrollment_geography.html
-#: courses/views/__init__.py
 msgid "Where are my students?"
 msgstr "Waar zijn mijn studenten?"
 
@@ -840,11 +714,10 @@ msgstr "Geografische specificatie"
 msgid "Application"
 msgstr "Toepassing"
 
-#: courses/templates/courses/home.html courses/views/__init__.py
+#: courses/templates/courses/home.html
 msgid "Course Home"
 msgstr "Cursus Homepagina"
 
-#. Translators: This refers to the active tab/navigation item.
 #. Translators: This refers to the active tab/navigation item.
 #: courses/templates/courses/home.html templates/lens-navigation.html
 #: templates/submenu_navigation.html
@@ -888,8 +761,7 @@ msgstr ""
 "Klik Help in de rechterbovenhoek voor meer informatie over "
 "%(application_name)s. Stuur ons feedback op %(email_link)s. "
 
-#: courses/templates/courses/learners.html courses/views/__init__.py
-#: courses/views/__init__.py courses/views/learners.py
+#: courses/templates/courses/learners.html
 msgid "Learners"
 msgstr "Leerlingen"
 
@@ -989,7 +861,6 @@ msgid "How are students doing on this subsection?"
 msgstr "Wat is het resultaat van de studenten in deze subsectie?"
 
 #: courses/templates/courses/performance_ungraded_content.html
-#: courses/views/__init__.py
 msgid "How are students doing on ungraded exercises?"
 msgstr ""
 "Wat is het resultaat van de studenten voor niet gekwoteerde oefeningen?"
@@ -1025,264 +896,12 @@ msgstr ""
 msgid "Try Again"
 msgstr "Opnieuw proberen"
 
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Activity"
-msgstr "Activiteit"
+#. Translators: This describes the data displayed in the chart below.
+#: courses/templates/courses/submissions_chart_info.html
+msgid "Submissions"
+msgstr "Inzendingen"
 
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Demographics"
-msgstr "Demografie"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Geography"
-msgstr "Geografie"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Age"
-msgstr "Leeftijd"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Education"
-msgstr "Opleiding"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Gender"
-msgstr "Geslacht"
-
-#. Translators: Content as in course content (e.g. things, not the feeling)
-#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
-#: courses/views/engagement.py
-msgid "Content"
-msgstr "Inhoud"
-
-#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
-#: courses/views/engagement.py
-msgid "Videos"
-msgstr "Video's"
-
-#: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/performance.py courses/views/performance.py
-msgid "Graded Content"
-msgstr "Gekwoteerde oefening"
-
-#: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/performance.py courses/views/performance.py
-msgid "Ungraded Problems"
-msgstr "Niet gekwoteerde oefening"
-
-#: courses/views/__init__.py
-msgid "What are students doing in my course?"
-msgstr "Wat doen studenten in mijn cursus?"
-
-#: courses/views/__init__.py
-msgid "How are students doing on course assignments?"
-msgstr "Hoe gaat het met andere studenten bij deze cursus opdrachten?"
-
-#: courses/views/__init__.py
-msgid "How are students doing on graded course assignments?"
-msgstr "Wat is het resultaat van de studenten voor gekwoteerde opdrachten?"
-
-#: courses/views/__init__.py
-msgid "What are individual learners doing?"
-msgstr "Wat zijn individuele leerlingen aan het doen?"
-
-#: courses/views/__init__.py
-msgid "Who is engaged? Who isn't?"
-msgstr ""
-
-#: courses/views/__init__.py
-msgid "All Learners"
-msgstr "Alle leerlingen"
-
-#. Translators: 'Course ID' is 'Course Identifier', the unique code that
-#. identifies the course
-#: courses/views/__init__.py
-msgid "Course ID"
-msgstr "Cursus ID"
-
-#: courses/views/__init__.py
-msgid "Course Name"
-msgstr "Naam cursus"
-
-#. Translators: 'In Progress' and 'Ended' refer to whether students are
-#. actively using the course or it is over.
-#: courses/views/__init__.py
-msgid "In Progress"
-msgstr "In Behandeling"
-
-#: courses/views/__init__.py
-msgid "Ended"
-msgstr "Beëindigd"
-
-#. Translators: This refers to a course that has not yet begun.
-#: courses/views/__init__.py
-msgid "Not Started Yet"
-msgstr "Nog niet gestart"
-
-#: courses/views/__init__.py
-msgid "Start Date"
-msgstr "Start Datum"
-
-#: courses/views/__init__.py
-msgid "End Date"
-msgstr "Einddatum"
-
-#: courses/views/__init__.py
-msgid "Status"
-msgstr "Status"
-
-#: courses/views/__init__.py
-msgid "Instructor Dashboard"
-msgstr "Instructeur Dashboard"
-
-#: courses/views/__init__.py
-msgid "Courseware"
-msgstr "Cursusmateriaal"
-
-#: courses/views/engagement.py
-msgid "Engagement Content"
-msgstr "Betrokkenheid bij de inhoud"
-
-#. Translators: Do not translate UTC.
-#: courses/views/engagement.py
-msgid ""
-"Course engagement data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr ""
-"Cursus deelname-activiteit gegevens zijn het laatst bijgewerkt op "
-"%(update_date)s om %(update_time)s UTC."
-
-#: courses/views/engagement.py
-msgid "Engagement Videos"
-msgstr "Betrokkenheid Videos"
-
-#. Translators: Do not translate UTC.
-#: courses/views/engagement.py
-msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
-"Deze video is laatst bijgewerkt op %(update_date)s om %(update_time)s UTC."
-
-#: courses/views/engagement.py
-msgid "Looks like no one has watched any videos in these sections."
-msgstr "Het lijkt erop dat niemand de video's heeft bekeken van deze secties."
-
-#: courses/views/engagement.py courses/views/performance.py
-msgid "Section Name"
-msgstr "Sectie naam"
-
-#: courses/views/engagement.py courses/views/performance.py
-msgid "Subsection Name"
-msgstr "Naam subsectie"
-
-#: courses/views/engagement.py
-msgid "Video Name"
-msgstr "Video naam"
-
-#. Translators: Do not translate UTC.
-#: courses/views/enrollment.py
-msgid ""
-"Demographic student data was last updated %(update_date)s at %(update_time)s"
-" UTC."
-msgstr ""
-"Demografische student gegevens zijn het laatst bijgewerkt op %(update_date)s"
-" om %(update_time)s UTC."
-
-#. Translators: This sentence is displayed at the bottom of the page and
-#. describe the demographics data displayed.
-#: courses/views/enrollment.py
-msgid ""
-"All above demographic data was self-reported at the time of registration."
-msgstr ""
-"Alle bovenstaande demografische gegevens zijn zelf-gerapporteerd tijdens "
-"registratie."
-
-#: courses/views/enrollment.py
-msgid "Enrollment Activity"
-msgstr "Inschrijvingsactiviteit"
-
-#. Translators: Do not translate UTC.
-#: courses/views/enrollment.py
-msgid ""
-"Enrollment activity data was last updated %(update_date)s at %(update_time)s"
-" UTC."
-msgstr ""
-"Inschrijving activiteit gegevens zijn het laatst bijgewerkt op "
-"%(update_date)s om %(update_time)s UTC."
-
-#: courses/views/enrollment.py
-msgid "Enrollment Demographics by Age"
-msgstr "Inschrijving Demografie naar Leeftijd"
-
-#: courses/views/enrollment.py
-msgid "Enrollment Demographics by Education"
-msgstr "Inschrijving Demografie naar Opleiding"
-
-#: courses/views/enrollment.py
-msgid "Enrollment Demographics by Gender"
-msgstr "Inschrijving Demografie naar Geslacht"
-
-#: courses/views/enrollment.py
-msgid "Enrollment Geography"
-msgstr "Inschrijving volgens geografie"
-
-#. Translators: Do not translate UTC.
-#: courses/views/enrollment.py
-msgid ""
-"Geographic student data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr ""
-"Geografische student gegevens zijn het laatst bijgewerkt op %(update_date)s "
-"om %(update_time)s UTC."
-
-#. Translators: Do not translate UTC.
-#: courses/views/performance.py
-msgid ""
-"Problem submission data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr ""
-"Inzendingsdata voor probleem is laatst aangepast op %(update_date)s om "
-"%(update_time)s UTC."
-
-#: courses/views/performance.py
-msgid "Assignment Name"
-msgstr "Toegewezen Naam"
-
-#: courses/views/performance.py
-msgid "No submissions received for these exercises."
-msgstr "Geen inzendingen ontvangen voor deze oefeningen."
-
-#: courses/views/performance.py
-msgid "No submissions received for these assignments."
-msgstr "Geen inzendingen ontvangen voor deze opdrachten."
-
-#: courses/views/performance.py courses/views/performance.py
-msgid "Performance: Problem Submissions"
-msgstr "Prestatie: Probleem Inzendingen"
-
-#: courses/views/performance.py
-msgid "Graded Content: %(assignment_type)s"
-msgstr "Gekwoteerde inhoud: %(assignment_type)s"
-
-#: courses/views/performance.py courses/views/performance.py
-msgid "Problem Name"
-msgstr "Probleem Naam"
-
-#: settings/base.py
-msgid "Terms of Service"
-msgstr "Gebruiksvoorwaarden"
-
-#: settings/base.py
-msgid "Privacy Policy"
-msgstr "Privacybeleid"
-
-#: templates/403.html templates/403.html.py
+#: templates/403.html templates/403.html
 msgid "Access Denied"
 msgstr "Toegang geweigerd"
 
@@ -1300,7 +919,7 @@ msgstr ""
 msgid "Logout then Login"
 msgstr "Uitloggen, dan inloggen"
 
-#: templates/404.html templates/404.html.py
+#: templates/404.html templates/404.html
 msgid "Page Not Found"
 msgstr "Pagina Niet Gevonden"
 
@@ -1312,7 +931,7 @@ msgstr ""
 "De pagina die u zoekt kan niet gevonden worden. Controleer of de URL correct"
 " is, probeer het opnieuw als de URL niet correct is."
 
-#: templates/500.html templates/500.html.py
+#: templates/500.html templates/500.html
 msgid "An Error Occurred"
 msgstr "Er is een fout opgetreden"
 
@@ -1324,7 +943,7 @@ msgstr ""
 "Onze servers hebben uw verzoek niet kunnen verwerken. Probeer het opnieuw "
 "door deze pagina te verversen of door uw handelingen te controleren."
 
-#: templates/503.html templates/503.html.py
+#: templates/503.html templates/503.html
 msgid "We're having trouble loading this page. Please try again in a minute."
 msgstr ""
 "We hebben problemen om deze pagina te laden. Probeert U  over een paar "

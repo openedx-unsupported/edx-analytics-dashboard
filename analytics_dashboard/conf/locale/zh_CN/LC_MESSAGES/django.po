@@ -33,9 +33,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-22 09:59-0400\n"
-"PO-Revision-Date: 2016-06-10 01:29+0000\n"
-"Last-Translator: Xuejia Tong <snowytong@hotmail.com>\n"
+"POT-Creation-Date: 2016-08-04 11:40-0400\n"
+"PO-Revision-Date: 2016-08-04 15:42+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/open-edx/edx-platform/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,7 +51,7 @@ msgstr "登录"
 msgid "Insights to help course teams improve courses."
 msgstr "洞察数据以帮助课程团队提升课程质量。"
 
-#: core/templates/core/landing.html courses/views/__init__.py
+#: core/templates/core/landing.html
 msgid "Who are my students?"
 msgstr "谁是我的学生？"
 
@@ -61,8 +61,6 @@ msgstr "使你的课程能与学生的背景条件相适应。 "
 
 #: core/templates/core/landing.html
 #: courses/templates/courses/enrollment_geography.html
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/__init__.py
 msgid "Enrollment"
 msgstr "选课"
 
@@ -77,8 +75,6 @@ msgid ""
 msgstr "改进常用的内容或向学生指明未充分利用的资源。"
 
 #: core/templates/core/landing.html
-#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
-#: courses/views/__init__.py
 msgid "Engagement"
 msgstr "参与"
 
@@ -91,8 +87,6 @@ msgid "Adjust your course based on where students are struggling."
 msgstr "根据学生的学习情况调整你的课程。"
 
 #: core/templates/core/landing.html
-#: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/__init__.py
 msgid "Performance"
 msgstr "表现"
 
@@ -124,120 +118,6 @@ msgstr "需要帮助？"
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
 msgstr "%(link_start)s我们的帮助中心%(link_end)s能帮助你找到解决方案。"
-
-#. Translators: Simply move the percent symbol (%) to the correct location. Do
-#. NOT translate the word statistic.
-#: core/templatetags/dashboard_extras.py
-msgid "{statistic}%"
-msgstr "{statistic}% "
-
-#. Translators: '{percentage}' in as a placeholder for the percentage value.
-#: courses/presenters/engagement.py
-msgid "{percentage} of current students"
-msgstr "{percentage}的学生"
-
-#: courses/presenters/enrollment.py
-msgid "Female"
-msgstr "女"
-
-#: courses/presenters/enrollment.py
-msgid "Male"
-msgstr "男"
-
-#. Translators: Other gender
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py courses/presenters/enrollment.py
-msgid "Other"
-msgstr "其他"
-
-#. Translators: Unknown gender
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py courses/presenters/enrollment.py
-#: courses/presenters/enrollment.py
-msgid "Unknown"
-msgstr "未知"
-
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py
-msgid "None"
-msgstr "无"
-
-#. Translators: This describes the learner's education level (e.g. Elementary
-#. School Degree).
-#: courses/presenters/enrollment.py courses/tests/test_serializers.py
-msgid "Primary"
-msgstr "小学"
-
-#. Translators: This describes the learner's education level  (e.g. Middle
-#. School Degree).
-#: courses/presenters/enrollment.py
-msgid "Middle"
-msgstr "初中"
-
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py
-msgid "Secondary"
-msgstr "高中"
-
-#. Translators: This describes the learner's education level (e.g. Associate's
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Associate"
-msgstr "准学士 "
-
-#. Translators: This describes the learner's education level (e.g. Bachelor's
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Bachelor's"
-msgstr "学士"
-
-#. Translators: This describes the learner's education level (e.g. Master's
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Master's"
-msgstr "硕士"
-
-#. Translators: This describes the learner's education level (e.g. Doctorate
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Doctorate"
-msgstr "博士"
-
-#. Translators: This is a placeholder for enrollment data collected without a
-#. known geolocation.
-#: courses/presenters/enrollment.py
-msgid "Unknown Country"
-msgstr "未知国家/地区"
-
-#. Translators: This describes the data displayed in the chart below.
-#: courses/presenters/performance.py
-#: courses/templates/courses/submissions_chart_info.html
-msgid "Submissions"
-msgstr "提交数"
-
-#: courses/presenters/performance.py
-msgid "Submissions for Part {part_number}: {part_description}"
-msgstr "第 {part_number} 部分：{part_description} 的提交数"
-
-#: courses/presenters/performance.py
-msgid "Part {part_number}: {part_description}"
-msgstr "第 {part_number} 部分：{part_description}"
-
-#: courses/presenters/performance.py
-msgid "Submissions: {part_description}"
-msgstr "提交数：{part_description}"
-
-#: courses/presenters/performance.py
-msgid "{part_description}"
-msgstr "{part_description}"
-
-#: courses/presenters/performance.py
-msgid "Submissions for Part {part_number}"
-msgstr "第 {part_number} 部分的提交数"
-
-#: courses/presenters/performance.py
-msgid "Part {part_number}"
-msgstr "第 {part_number} 部分"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
@@ -347,7 +227,7 @@ msgstr "(已填了写相应字段的)学生数"
 msgid "Weekly Student Engagement"
 msgstr "学生每周参与情况"
 
-#: courses/templates/courses/engagement_content.html courses/views/__init__.py
+#: courses/templates/courses/engagement_content.html
 msgid "How many students are interacting with my course?"
 msgstr "有多少学生与我的课程互动？"
 
@@ -439,7 +319,6 @@ msgid ""
 msgstr "每个柱形条显示了相应视频的完成观看次数及未完成观看的次数，单击以了解学生们都在什么位置停止观看视频，以及他们都重复播放过哪些部分。"
 
 #: courses/templates/courses/engagement_video_course.html
-#: courses/views/__init__.py
 msgid "How did students interact with course videos?"
 msgstr "学生们对课程视频的观看行为是什么样的？"
 
@@ -510,7 +389,6 @@ msgid "Daily Student Enrollment"
 msgstr "每日的学生选课数量"
 
 #: courses/templates/courses/enrollment_activity.html
-#: courses/views/__init__.py
 msgid "How many students are in my course?"
 msgstr "在我的课程里有多少个学生呢？"
 
@@ -583,7 +461,6 @@ msgid "Enrollment Over Time"
 msgstr "随时间推移的选课情况"
 
 #: courses/templates/courses/enrollment_demographics_age.html
-#: courses/views/__init__.py
 msgid "How old are my students?"
 msgstr "我的学生们都多大了？"
 
@@ -652,7 +529,6 @@ msgid "Age Breakdown"
 msgstr "年龄明细"
 
 #: courses/templates/courses/enrollment_demographics_education.html
-#: courses/views/__init__.py
 msgid "What level of education do my students have?"
 msgstr "我的学生们的教育程度是？"
 
@@ -708,7 +584,6 @@ msgid "Educational Breakdown"
 msgstr "教育程度明细"
 
 #: courses/templates/courses/enrollment_demographics_gender.html
-#: courses/views/__init__.py
 msgid "What is the student gender breakdown?"
 msgstr "学生的性别明细是什么？"
 
@@ -730,7 +605,6 @@ msgid "Geographic Distribution"
 msgstr "地理分布"
 
 #: courses/templates/courses/enrollment_geography.html
-#: courses/views/__init__.py
 msgid "Where are my students?"
 msgstr "我的学生们在哪？"
 
@@ -800,11 +674,10 @@ msgstr "地理明细"
 msgid "Application"
 msgstr "应用"
 
-#: courses/templates/courses/home.html courses/views/__init__.py
+#: courses/templates/courses/home.html
 msgid "Course Home"
 msgstr "课程主页"
 
-#. Translators: This refers to the active tab/navigation item.
 #. Translators: This refers to the active tab/navigation item.
 #: courses/templates/courses/home.html templates/lens-navigation.html
 #: templates/submenu_navigation.html
@@ -844,8 +717,7 @@ msgid ""
 "%(application_name)s. Send us feedback at %(email_link)s."
 msgstr "单击右上角的帮助可以得到更多的关于%(application_name)s的信息。通过%(email_link)s发送反馈给我们。"
 
-#: courses/templates/courses/learners.html courses/views/__init__.py
-#: courses/views/__init__.py courses/views/learners.py
+#: courses/templates/courses/learners.html
 msgid "Learners"
 msgstr "学习者"
 
@@ -937,7 +809,6 @@ msgid "How are students doing on this subsection?"
 msgstr "学生在本节的表现如何？"
 
 #: courses/templates/courses/performance_ungraded_content.html
-#: courses/views/__init__.py
 msgid "How are students doing on ungraded exercises?"
 msgstr "学生在不计分的练习上表现如何？"
 
@@ -968,251 +839,12 @@ msgstr "在获取您的账户权限时发生错误，请重试。若仍然出现
 msgid "Try Again"
 msgstr "重试"
 
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Activity"
-msgstr "活动"
+#. Translators: This describes the data displayed in the chart below.
+#: courses/templates/courses/submissions_chart_info.html
+msgid "Submissions"
+msgstr "提交数"
 
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Demographics"
-msgstr "统计"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Geography"
-msgstr "地理"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Age"
-msgstr "年龄"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Education"
-msgstr "教育程度"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Gender"
-msgstr "性别"
-
-#. Translators: Content as in course content (e.g. things, not the feeling)
-#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
-#: courses/views/engagement.py
-msgid "Content"
-msgstr "内容"
-
-#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
-#: courses/views/engagement.py
-msgid "Videos"
-msgstr "视频"
-
-#: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/performance.py courses/views/performance.py
-msgid "Graded Content"
-msgstr "计分的内容"
-
-#: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/performance.py courses/views/performance.py
-msgid "Ungraded Problems"
-msgstr "不计分的问题"
-
-#: courses/views/__init__.py
-msgid "What are students doing in my course?"
-msgstr "在我的课程里的学生们正在做什么？"
-
-#: courses/views/__init__.py
-msgid "How are students doing on course assignments?"
-msgstr "学生们在课程作业中表现如何？"
-
-#: courses/views/__init__.py
-msgid "How are students doing on graded course assignments?"
-msgstr "学生们在计分的课程作业中表现如何？"
-
-#: courses/views/__init__.py
-msgid "What are individual learners doing?"
-msgstr "每个学习者都在做什么？"
-
-#: courses/views/__init__.py
-msgid "Who is engaged? Who isn't?"
-msgstr "谁参与了？谁没有参与？"
-
-#: courses/views/__init__.py
-msgid "All Learners"
-msgstr "所有学习者"
-
-#. Translators: 'Course ID' is 'Course Identifier', the unique code that
-#. identifies the course
-#: courses/views/__init__.py
-msgid "Course ID"
-msgstr "课程编号"
-
-#: courses/views/__init__.py
-msgid "Course Name"
-msgstr "课程名称"
-
-#. Translators: 'In Progress' and 'Ended' refer to whether students are
-#. actively using the course or it is over.
-#: courses/views/__init__.py
-msgid "In Progress"
-msgstr "正在进行"
-
-#: courses/views/__init__.py
-msgid "Ended"
-msgstr "已经结束"
-
-#. Translators: This refers to a course that has not yet begun.
-#: courses/views/__init__.py
-msgid "Not Started Yet"
-msgstr "尚未开始"
-
-#: courses/views/__init__.py
-msgid "Start Date"
-msgstr "开始日期"
-
-#: courses/views/__init__.py
-msgid "End Date"
-msgstr "结束日期"
-
-#: courses/views/__init__.py
-msgid "Status"
-msgstr "状态"
-
-#: courses/views/__init__.py
-msgid "Instructor Dashboard"
-msgstr "教师面板"
-
-#: courses/views/__init__.py
-msgid "Courseware"
-msgstr "课件"
-
-#: courses/views/engagement.py
-msgid "Engagement Content"
-msgstr "参与内容"
-
-#. Translators: Do not translate UTC.
-#: courses/views/engagement.py
-msgid ""
-"Course engagement data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr "课程参与数据最后更新于 UTC 时间 %(update_date)s %(update_time)s。"
-
-#: courses/views/engagement.py
-msgid "Engagement Videos"
-msgstr "参与视频"
-
-#. Translators: Do not translate UTC.
-#: courses/views/engagement.py
-msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr "视频数据最后更新于 UTC 时间 %(update_date)s %(update_time)s。"
-
-#: courses/views/engagement.py
-msgid "Looks like no one has watched any videos in these sections."
-msgstr "似乎还没有人看过这些章中的视频。"
-
-#: courses/views/engagement.py courses/views/performance.py
-msgid "Section Name"
-msgstr "章的名字"
-
-#: courses/views/engagement.py courses/views/performance.py
-msgid "Subsection Name"
-msgstr "节的名字"
-
-#: courses/views/engagement.py
-msgid "Video Name"
-msgstr "视频名称"
-
-#. Translators: Do not translate UTC.
-#: courses/views/enrollment.py
-msgid ""
-"Demographic student data was last updated %(update_date)s at %(update_time)s"
-" UTC."
-msgstr "学生统计数据最后更新于 UTC 时间 %(update_date)s  %(update_time)s。"
-
-#. Translators: This sentence is displayed at the bottom of the page and
-#. describe the demographics data displayed.
-#: courses/views/enrollment.py
-msgid ""
-"All above demographic data was self-reported at the time of registration."
-msgstr "所有上述学生统计信息都来自于注册时学生自己提交的数据。"
-
-#: courses/views/enrollment.py
-msgid "Enrollment Activity"
-msgstr "选课活动"
-
-#. Translators: Do not translate UTC.
-#: courses/views/enrollment.py
-msgid ""
-"Enrollment activity data was last updated %(update_date)s at %(update_time)s"
-" UTC."
-msgstr "选课活动数据最后更新于 UTC 时间 %(update_date)s  %(update_time)s。"
-
-#: courses/views/enrollment.py
-msgid "Enrollment Demographics by Age"
-msgstr "按年龄统计选课情况"
-
-#: courses/views/enrollment.py
-msgid "Enrollment Demographics by Education"
-msgstr "按教育程度统计选课情况"
-
-#: courses/views/enrollment.py
-msgid "Enrollment Demographics by Gender"
-msgstr "按性别统计选课情况"
-
-#: courses/views/enrollment.py
-msgid "Enrollment Geography"
-msgstr "选课的地理位置"
-
-#. Translators: Do not translate UTC.
-#: courses/views/enrollment.py
-msgid ""
-"Geographic student data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr "学生地理位置数据最后更新于 UTC 时间 %(update_date)s  %(update_time)s。"
-
-#. Translators: Do not translate UTC.
-#: courses/views/performance.py
-msgid ""
-"Problem submission data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr "问题提交数据最后更新于 UTC 时间 %(update_date)s %(update_time)s。"
-
-#: courses/views/performance.py
-msgid "Assignment Name"
-msgstr "作业名称"
-
-#: courses/views/performance.py
-msgid "No submissions received for these exercises."
-msgstr "尚未提交这些练习的答案。"
-
-#: courses/views/performance.py
-msgid "No submissions received for these assignments."
-msgstr "尚未提交这些作业的答案。"
-
-#: courses/views/performance.py courses/views/performance.py
-msgid "Performance: Problem Submissions"
-msgstr "表现：问题提交数"
-
-#: courses/views/performance.py
-msgid "Graded Content: %(assignment_type)s"
-msgstr "计分的内容：%(assignment_type)s"
-
-#: courses/views/performance.py courses/views/performance.py
-msgid "Problem Name"
-msgstr "问题名称"
-
-#: settings/base.py
-msgid "Terms of Service"
-msgstr "服务条款"
-
-#: settings/base.py
-msgid "Privacy Policy"
-msgstr "隐私政策"
-
-#: templates/403.html templates/403.html.py
+#: templates/403.html templates/403.html
 msgid "Access Denied"
 msgstr "禁止访问"
 
@@ -1227,7 +859,7 @@ msgstr "您没有权限查看此页面。如果您认为自己应该有权访问
 msgid "Logout then Login"
 msgstr "先退出后再登录"
 
-#: templates/404.html templates/404.html.py
+#: templates/404.html templates/404.html
 msgid "Page Not Found"
 msgstr "页面未找到"
 
@@ -1237,7 +869,7 @@ msgid ""
 "correct and if not try again."
 msgstr "您要寻找的页面不存在。请确认网址是正确的并再试一次。"
 
-#: templates/500.html templates/500.html.py
+#: templates/500.html templates/500.html
 msgid "An Error Occurred"
 msgstr "发生了一个错误"
 
@@ -1247,7 +879,7 @@ msgid ""
 "refreshing this page or retracing your steps."
 msgstr "我们的服务器无法完成您的请求。请尝试刷新此页面或回溯您的步骤。"
 
-#: templates/503.html templates/503.html.py
+#: templates/503.html templates/503.html
 msgid "We're having trouble loading this page. Please try again in a minute."
 msgstr "加载该页面时发生故障。请在一分钟后重试。"
 
