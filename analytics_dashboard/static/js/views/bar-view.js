@@ -50,7 +50,7 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
                     // no labels will be displayed if label space is limited
                     formattedLabel = '';
                 } else if (_(formattedLabel).size() > characterLimit) {
-                    formattedLabel = Utils.truncateText(d, characterLimit);
+                    formattedLabel = Utils.truncateText(x, characterLimit);
                 }
 
                 return formattedLabel;
