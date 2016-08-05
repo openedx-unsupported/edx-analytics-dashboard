@@ -6,7 +6,7 @@ define(['d3', 'nvd3', 'underscore', 'views/discrete-bar-view'],
 
             defaults: _.extend({}, DiscreteBarView.prototype.defaults, {
                 barSelector: '.nv-bar',
-                truncateXTicks: false,
+                truncateXTicks: true,
                 interactiveTooltipValueTemplate: function(trend) {
                         /* Translators: <%=value%> will be replaced by a number followed by a percentage.
                          For example, "400 (29%)" */
