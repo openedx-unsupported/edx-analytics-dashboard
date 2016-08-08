@@ -45,7 +45,7 @@ Feature Gating
 Need a fallback to disable a feature? Create a [Waffle](http://waffle.readthedocs.org/en/latest/)
 [switch](http://waffle.readthedocs.org/en/latest/types/switch.html):
 
-        $ ./manage.py switch feature_name [on/off] --create
+        $ ./manage.py waffle_switch feature_name [on/off] --create
 
 See the [Waffle documentation](http://waffle.readthedocs.org/en/latest/) for
 details on utilizing features in code and templates.
