@@ -56,6 +56,12 @@ define(function(require) {
             this.options = options || {};
             _.bind(this.onSelectFilter, this);
             this.listenTo(this.options.collection, 'sync', this.render);
+            this.setDefaultFilters();
+        },
+
+        setDefaultFilters: function() {
+            this.collection.setFilterField('ignore_segments', 'inactive');
+            this.collection.refresh();
         },
 
         templateHelpers: function() {
