@@ -8,7 +8,7 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
         var ChartView = AttributeListenerView.extend({
 
             defaults: _.extend({}, AttributeListenerView.prototype.defaults, {
-                displayExplicitTicksThreshold: 11,
+                displayExplicitTicksThreshold: 9,
                 excludeData: [],  // e.g. excludes data rows from chart (e.g. 'Unknown')
                 dataType: 'int',  // e.g. int, percent
                 xAxisMargin: 6,
@@ -208,7 +208,7 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
                 var self = this;
 
                 // minimize the spacing, but leave enough for point at the top to be shown w/o being clipped
-                chart.margin({top: self.options.xAxisMargin})
+                chart.margin({top: self.options.xAxisMargin, right: 60})
                     .height(300)    // This should be the same as the height set on the chart container in CSS.
                     .forceY(0)
                     .x(function(d) {
@@ -294,6 +294,10 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
                     }
                 }
 
+                if (_.isFunction(self.chart.xScale)) {
+                    self.chart.xScale(d3.time.scale.utc());
+                }
+                self.chart.xAxis.ticks(d3.time.month);
                 self.chart.xAxis.tickFormat(self.options.truncateXTicks ? self.truncateXTick : self.formatXTick);
 
                 self.chart.yAxis
