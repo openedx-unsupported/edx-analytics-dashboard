@@ -208,7 +208,7 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
                 var self = this;
 
                 // minimize the spacing, but leave enough for point at the top to be shown w/o being clipped
-                chart.margin({top: self.options.xAxisMargin})
+                chart.margin({top: self.options.xAxisMargin, right: 60})
                     .height(300)    // This should be the same as the height set on the chart container in CSS.
                     .forceY(0)
                     .x(function(d) {
