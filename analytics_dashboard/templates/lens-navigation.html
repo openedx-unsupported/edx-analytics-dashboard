@@ -21,7 +21,7 @@ Partial for displaying the lens navigation and the sections within the lenses.
           <ul class="dropdown-menu" role="menu" aria-labelledby="lensPrimaryMenu">
             {% for item in primary_nav_items %}
               <li>
-                <a href="{{ item.href }}">
+                <a href="{{ item.href }}{{ item.fragment }}">
                   <span class="link-label">
                     <span class="ico fa {{ item.icon }}" aria-hidden="true"></span> {{ item.label }}
                   </span>

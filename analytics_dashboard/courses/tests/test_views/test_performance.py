@@ -43,7 +43,8 @@ class CoursePerformanceViewTestMixin(PatchMixin, CourseStructureViewMixin, Cours
             'icon': 'fa-check-square-o',
             'href': reverse('courses:performance:graded_content', kwargs={'course_id': course_id}),
             'label': _('Performance'),
-            'name': 'performance'
+            'name': 'performance',
+            'fragment': ''
         }
         self.assertDictEqual(nav, expected)
 

@@ -217,7 +217,8 @@ class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
             'icon': 'fa-child',
             'href': reverse('courses:enrollment:activity', kwargs={'course_id': course_id}),
             'label': _('Enrollment'),
-            'name': 'enrollment'
+            'name': 'enrollment',
+            'fragment': ''
         }
         self.assertDictEqual(nav, expected)
 

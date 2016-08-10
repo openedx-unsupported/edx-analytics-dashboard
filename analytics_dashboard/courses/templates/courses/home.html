@@ -17,10 +17,10 @@
 
         {% for item in primary_nav_items %}
           <li>
-            <a href="{{ item.href }}"><span class="link-label">
-                {% if item.icon %}<span class="ico fa {{ item.icon }}" aria-hidden="true"></span>{% endif %}
-              {{ item.label }}
-            </span></a>
+              <a href="{{ item.href }}{{ item.fragment }}"><span class="link-label">
+                  {% if item.icon %}<span class="ico fa {{ item.icon }}" aria-hidden="true"></span>{% endif %}
+                {{ item.label }}
+              </span></a>
           </li>
         {% endfor %}
       </ul>
@@ -43,7 +43,7 @@
 
           {% for item in column.items %}
             <div class="item">
-              <div class="title"><a href="{% url item.view course_id=course_id %}">{{ item.title }}</a></div>
+              <div class="title"><a href="{% url item.view course_id=course_id %}{{ item.fragment }}">{{ item.title }}</a></div>
               <div class="breadcrumbs">
                 <span class="ico fa {{ column.icon }}" aria-hidden="true"></span>
                 <span class="ico fa fa-caret-right" aria-hidden="true"></span>
