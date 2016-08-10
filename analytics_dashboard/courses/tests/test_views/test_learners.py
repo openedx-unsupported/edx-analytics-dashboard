@@ -9,8 +9,9 @@ from testfixtures import LogCapture
 
 from django.conf import settings
 from django.test import TestCase
+from django.test.utils import override_settings
 
-from waffle.testutils import override_flag
+from waffle.testutils import override_flag, override_switch
 
 from courses.tests.test_views import DEMO_COURSE_ID, ViewTestMixin
 
@@ -69,10 +70,30 @@ class LearnersViewTests(ViewTestMixin, TestCase):
             'course_learner_metadata_json': course_metadata_payload
         })
         self.assertNotContains(response, self.TABLE_ERROR_TEXT)
+        return response
 
     @override_flag('display_learner_analytics', active=False)
     def test_success_if_hidden(self):
         self.test_success()
+
+    @override_switch('enable_learner_download', active=False)
+    def test_disable_learner_download_button(self):
+        response = self.test_success()
+        self.assertNotIn('learner_list_download_url', response.context['js_data']['course'])
+
+    @override_switch('enable_learner_download', active=True)
+    @override_settings(LEARNER_API_LIST_DOWNLOAD_FIELDS=None)
+    def test_enable_learner_download_button(self):
+        response = self.test_success()
+        self.assertEquals(response.context['js_data']['course']['learner_list_download_url'],
+                          '/api/learner_analytics/v0/learners.csv')
+
+    @override_switch('enable_learner_download', active=True)
+    @override_settings(LEARNER_API_LIST_DOWNLOAD_FIELDS='username,email')
+    def test_enable_learner_download_button_with_fields(self):
+        response = self.test_success()
+        self.assertEquals(response.context['js_data']['course']['learner_list_download_url'],
+                          '/api/learner_analytics/v0/learners.csv?fields=username%2Cemail')
 
     @data(Timeout, ConnectionError, ValueError)
     def test_data_api_error(self, RequestExceptionClass):

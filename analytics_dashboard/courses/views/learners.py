@@ -1,8 +1,11 @@
 import logging
+from urllib import urlencode
 from requests.exceptions import ConnectionError, Timeout
 
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
+from waffle import switch_is_active
 
 from courses.views import CourseTemplateWithNavView
 from learner_analytics_api.v0.clients import LearnerAPIClient
@@ -33,6 +36,7 @@ class LearnersView(CourseTemplateWithNavView):
                 kwargs={'username': 'temporary_username'}
             ),
         })
+
         # Try to prefetch API responses.  If anything fails, the front-end will
         # retry the requests and gracefully fail.
         client = LearnerAPIClient()
@@ -58,6 +62,18 @@ class LearnersView(CourseTemplateWithNavView):
                 data_name: context[data_name]
             })
 
-        context['page_data'] = self.get_page_data(context)
+        # Only show learner download button(s) if switch is enabled
+        if switch_is_active('enable_learner_download'):
+            list_download_url = reverse('learner_analytics_api:v0:LearnerListCSV')
 
+            # Append the 'fields' parameter if configured
+            list_fields = getattr(settings, 'LEARNER_API_LIST_DOWNLOAD_FIELDS', None)
+            if list_fields is not None:
+                list_download_url = '{}?{}'.format(list_download_url,
+                                                   urlencode(dict(fields=list_fields)))
+            context['js_data']['course'].update({
+                'learner_list_download_url': list_download_url,
+            })
+
+        context['page_data'] = self.get_page_data(context)
         return context

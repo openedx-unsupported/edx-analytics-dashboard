@@ -58,7 +58,8 @@ quality:
 
 validate_python: test.requirements test_python quality
 
-validate_js: requirements.js
+#FIXME validate_js: requirements.js
+validate_js:
 	$(NODE_BIN)/gulp test
 	$(NODE_BIN)/gulp lint
 

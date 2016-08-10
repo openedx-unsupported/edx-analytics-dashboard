@@ -73,6 +73,7 @@ define(function(require) {
                 pageModel: pageModel,
                 learnerEngagementTimelineUrl: '/test-engagement-endpoint/',
                 learnerListUrl: '/test-learner-endpoint/',
+                learnerListDownloadUrl: '/test-learner-endpoint.csv',
                 courseId: courseId,
                 trackingModel: new TrackingModel()
             });
