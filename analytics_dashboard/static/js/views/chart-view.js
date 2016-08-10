@@ -8,7 +8,7 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
         var ChartView = AttributeListenerView.extend({
 
             defaults: _.extend({}, AttributeListenerView.prototype.defaults, {
-                displayExplicitTicksThreshold: 9,
+                displayExplicitTicksThreshold: 11,
                 excludeData: [],  // e.g. excludes data rows from chart (e.g. 'Unknown')
                 dataType: 'int',  // e.g. int, percent
                 xAxisMargin: 6,
@@ -294,10 +294,6 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
                     }
                 }
 
-                if (_.isFunction(self.chart.xScale)) {
-                    self.chart.xScale(d3.time.scale.utc());
-                }
-                self.chart.xAxis.ticks(d3.time.month);
                 self.chart.xAxis.tickFormat(self.options.truncateXTicks ? self.truncateXTick : self.formatXTick);
 
                 self.chart.yAxis
