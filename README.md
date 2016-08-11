@@ -45,7 +45,7 @@ Feature Gating
 Need a fallback to disable a feature? Create a [Waffle](http://waffle.readthedocs.org/en/latest/)
 [switch](http://waffle.readthedocs.org/en/latest/types/switch.html):
 
-        $ ./manage.py switch feature_name [on/off] --create
+        $ ./manage.py waffle_flag feature_name --percent=50 --rollout --create
 
 See the [Waffle documentation](http://waffle.readthedocs.org/en/latest/) for
 details on utilizing features in code and templates.
@@ -61,6 +61,12 @@ The following switches are available:
 | enable_video_preview           | Enable video preview.                                 |
 | display_names_for_course_index | Display course names on course index page.            |
 | display_course_name_in_nav     | Display course name in navigation bar.                |
+
+[Waffle](http://waffle.readthedocs.org/en/latest/) flags are used to disable/enable
+functionality on request (e.g. turning on beta functionality for superusers). Create a
+[flag](http://waffle.readthedocs.io/en/latest/usage/cli.html#flags):
+
+        $ ./manage.py waffle_flag feature_name [on/off] --create
 
 The following flags are available:
 
