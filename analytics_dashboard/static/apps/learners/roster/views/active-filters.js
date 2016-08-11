@@ -30,34 +30,36 @@ define(function(require) {
                 hasActiveFilters = !_.isEmpty(activeFilters);
 
             activeFilters = _.mapObject(activeFilters, function(filterVal, filterKey) {
-                var filterDisplayNames = {
+                var formattedFilterVal = (filterKey === 'text_search') ?
+                    filterVal : filterVal.charAt(0).toUpperCase() + filterVal.slice(1),
+                    filterDisplayNames = {
                         // Translators: this is a label describing a selection that the user initiated.
                         cohort: _.template(gettext('Cohort: <%= filterVal %>'))({
-                            filterVal: filterVal
+                            filterVal: formattedFilterVal
                         }),
                         // Translators: this is a label describing a selection that the user initiated.
                         enrollment_mode: _.template(gettext('Enrollment Track: <%= filterVal %>'))({
-                            filterVal: filterVal
+                            filterVal: formattedFilterVal
                         }),
                         // Translators: this is a label describing a selection that the user initiated.
-                        ignore_segments: _.template(gettext('Engagement: <%= filterVal %>'))({
-                            filterVal: filterVal
+                        ignore_segments: _.template('<%= filterVal %>')({
+                            filterVal: gettext('Active Learners')
                         })
                     },
                     filterDisplayName;
-                filterDisplayNames[LearnerCollection.DefaultSearchKey] = '"' + filterVal + '"';
+                filterDisplayNames[LearnerCollection.DefaultSearchKey] = '"' + formattedFilterVal + '"';
                 if (filterKey in filterDisplayNames) {
                     filterDisplayName = filterDisplayNames[filterKey];
                 }
                 return {
-                    displayName: filterDisplayName
+                    displayName: filterDisplayName.charAt(0).toUpperCase() + filterDisplayName.slice(1)
                 };
             });
 
             return {
                 hasActiveFilters: hasActiveFilters,
                 activeFilters: activeFilters,
-                activeFiltersTitle: gettext('Active Filters:'),
+                activeFiltersTitle: gettext('Filters In Use:'),
                 removeFilterMessage: gettext('Click to remove this filter'),
                 // Translators: "Clear" in this context means "remove all of the filters"
                 clearFiltersMessage: gettext('Clear'),

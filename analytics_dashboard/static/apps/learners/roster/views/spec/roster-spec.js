@@ -823,7 +823,7 @@ define(function(require) {
                 }
 
                 if (options.engagement) {
-                    expect(activeEngagement).toContainText('Engagement: ' + options.engagement);
+                    expect(activeEngagement).toContainText('Active Learners');
                     expect(activeEngagement.find('.sr-only')).toContainText(removeFilterText);
                 } else {
                     expect(activeEngagement).not.toExist();
@@ -847,7 +847,7 @@ define(function(require) {
                 rosterView.options.collection.setFilterField('cohort', 'labrador');
                 rosterView.options.collection.refresh();
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
-                expectActiveFilters(rosterView, {cohort: 'labrador'});
+                expectActiveFilters(rosterView, {cohort: 'Labrador'});
             });
 
             it('renders an enrollment track filter', function() {
@@ -855,7 +855,7 @@ define(function(require) {
                 rosterView.options.collection.setFilterField('enrollment_mode', 'honor');
                 rosterView.options.collection.refresh();
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
-                expectActiveFilters(rosterView, {enrollmentTrack: 'honor'});
+                expectActiveFilters(rosterView, {enrollmentTrack: 'Honor'});
             });
 
             it('renders an engagement filter', function() {
@@ -875,8 +875,8 @@ define(function(require) {
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
                 expectActiveFilters(rosterView, {
                     search: 'foo',
-                    cohort: 'labrador',
-                    enrollmentTrack: 'honor'
+                    cohort: 'Labrador',
+                    enrollmentTrack: 'Honor'
                 });
             });
 
@@ -888,12 +888,12 @@ define(function(require) {
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
                 expectActiveFilters(rosterView, {
                     search: 'foo',
-                    cohort: 'labrador'
+                    cohort: 'Labrador'
                 });
                 rosterView.$('.active-filters .filter-text_search .action-clear-filter').click();
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
                 expect(rosterView.options.collection.hasActiveSearch()).toBe(false);
-                expectActiveFilters(rosterView, {cohort: 'labrador'});
+                expectActiveFilters(rosterView, {cohort: 'Labrador'});
             });
 
             it('can clear a filter', function() {
@@ -904,7 +904,7 @@ define(function(require) {
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
                 expectActiveFilters(rosterView, {
                     search: 'foo',
-                    cohort: 'labrador'
+                    cohort: 'Labrador'
                 });
                 rosterView.$('.active-filters .filter-cohort .action-clear-filter').click();
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
@@ -921,8 +921,8 @@ define(function(require) {
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
                 expectActiveFilters(rosterView, {
                     search: 'foo',
-                    cohort: 'labrador',
-                    enrollmentTrack: 'honor'
+                    cohort: 'Labrador',
+                    enrollmentTrack: 'Honor'
                 });
                 rosterView.$('.action-clear-all-filters').click();
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));

@@ -41,7 +41,8 @@ class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):  # pylint: disa
             'icon': 'fa-bar-chart',
             'href': reverse('courses:engagement:content', kwargs={'course_id': course_id}),
             'label': _('Engagement'),
-            'name': 'engagement'
+            'name': 'engagement',
+            'fragment': ''
         }
         self.assertDictEqual(nav, expected)
 
