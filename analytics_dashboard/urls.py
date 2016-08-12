@@ -37,7 +37,7 @@ urlpatterns = [
     url(r'^accounts/logout/$', views.logout, name='logout'),
     url(r'^accounts/logout_then_login/$', views.logout_then_login, name='logout_then_login'),
     url(r'^test/auto_auth/$', views.AutoAuth.as_view(), name='auto_auth'),
-    url(r'^announcements/', include('pinax.announcements.urls')),
+    url(r'^announcements/', include('pinax.announcements.urls', namespace='pinax_announcements')),
 ]
 
 urlpatterns += [
