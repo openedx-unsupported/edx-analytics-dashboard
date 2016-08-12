@@ -18,7 +18,7 @@ define(function(require) {
         expectLegendRendered = function(view) {
             var labels,
                 legendItems;
-            labels = ['Discussion Contribut...', 'Problems Correct', 'Videos Viewed'];
+            labels = ['Discussion Contributions', 'Problems Correct', 'Videos Viewed'];
             legendItems = view.$('.nv-legend-text');
             expect(labels.length).toEqual(legendItems.length);
             _.each(labels, function(label, index) {
