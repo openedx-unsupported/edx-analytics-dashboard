@@ -8,13 +8,15 @@ from requests.exceptions import ConnectTimeout
 from django.conf import settings
 from django.test import TestCase
 
+from waffle.testutils import override_flag
+
 from core.tests.test_views import UserTestCaseMixin
 from courses.tests.test_views import PermissionsTestMixin
-from courses.tests import SwitchMixin
 
 
+@override_flag('display_learner_analytics', active=True)
 @ddt.ddt
-class LearnerAPITestMixin(UserTestCaseMixin, PermissionsTestMixin, SwitchMixin):
+class LearnerAPITestMixin(UserTestCaseMixin, PermissionsTestMixin):
     """
     Provides test cases and helper methods for learner analytics api test
     classes.
@@ -34,10 +36,6 @@ class LearnerAPITestMixin(UserTestCaseMixin, PermissionsTestMixin, SwitchMixin):
     endpoint = ''
     required_query_params = {}
     no_permissions_status_code = None
-
-    @classmethod
-    def setUpClass(cls):
-        cls.toggle_switch('enable_learner_analytics', True)
 
     def assert_response_equals(self, response, expected_status_code, expected_body=None):
         self.assertEqual(response.status_code, expected_status_code)

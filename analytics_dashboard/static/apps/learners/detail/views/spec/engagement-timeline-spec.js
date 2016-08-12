@@ -30,7 +30,7 @@ define(function(require) {
             var dates,
                 xLabels;
             dates = _.map(view.model.get('days'), function(day) {
-                return moment.utc(Date.parse(day.date)).format('M/D');
+                return moment.utc(Date.parse(day.date)).format('D MMM YYYY');
             });
             // Note that NVD3 unfortunately doesn't semantically order the
             // x-axis labels in the DOM, so we can't verify each label in order.

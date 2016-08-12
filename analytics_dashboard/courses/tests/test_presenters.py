@@ -2,14 +2,17 @@ from __future__ import division
 import copy
 import datetime
 
-import analyticsclient.constants.activity_type as AT
-from analyticsclient.constants import enrollment_modes
 from django.conf import settings
 from django.core.cache import cache
 from django.core.urlresolvers import reverse
 from django.test import (override_settings, TestCase)
-import mock
+
 from ddt import ddt, data, unpack
+import mock
+from waffle.testutils import override_switch
+
+import analyticsclient.constants.activity_type as AT
+from analyticsclient.constants import enrollment_modes
 
 from common.tests.course_fixtures import (
     ChapterFixture,
@@ -24,7 +27,7 @@ from courses.presenters import BasePresenter
 from courses.presenters.engagement import (CourseEngagementActivityPresenter, CourseEngagementVideoPresenter)
 from courses.presenters.enrollment import (CourseEnrollmentPresenter, CourseEnrollmentDemographicsPresenter)
 from courses.presenters.performance import CoursePerformancePresenter
-from courses.tests import (SwitchMixin, utils)
+from courses.tests import utils
 from courses.tests.factories import (CourseEngagementDataFactory, CoursePerformanceDataFactory)
 
 
@@ -54,7 +57,7 @@ class BasePresenterTests(TestCase):
         self.assertEqual(self.presenter.get_current_date(), datetime.datetime.utcnow().strftime(dt_format))
 
 
-class CourseEngagementActivityPresenterTests(SwitchMixin, TestCase):
+class CourseEngagementActivityPresenterTests(TestCase):
 
     def setUp(self):
         super(CourseEngagementActivityPresenterTests, self).setUp()
@@ -102,34 +105,33 @@ class CourseEngagementActivityPresenterTests(SwitchMixin, TestCase):
         return trends
 
     def assertSummaryAndTrendsValid(self, include_forum_activity, expected_trends):
-        self.toggle_switch('show_engagement_forum_activity', include_forum_activity)
+        with override_switch('show_engagement_forum_activity', active=include_forum_activity):
+            summary, trends = self.presenter.get_summary_and_trend_data()
 
-        summary, trends = self.presenter.get_summary_and_trend_data()
+            # Validate the trends
+            self.assertEqual(len(expected_trends), len(trends))
+            self.assertDictEqual(expected_trends[0], trends[0])
+            self.assertDictEqual(expected_trends[1], trends[1])
 
-        # Validate the trends
-        self.assertEqual(len(expected_trends), len(trends))
-        self.assertDictEqual(expected_trends[0], trends[0])
-        self.assertDictEqual(expected_trends[1], trends[1])
+            # Validate the summary
+            expected_summary = utils.mock_course_activity()[1]
+            del expected_summary['created']
+            del expected_summary['interval_end']
+            del expected_summary['course_id']
+            expected_summary.update({
+                'attempted_problem_percent_str': u"3.0% of current students",
+                'posted_forum_percent_str': "--",
+                'played_video_percent_str': u"10.0% of current students",
+                'any_percent_str': u"< 1% of current students",
+            })
 
-        # Validate the summary
-        expected_summary = utils.mock_course_activity()[1]
-        del expected_summary['created']
-        del expected_summary['interval_end']
-        del expected_summary['course_id']
-        expected_summary.update({
-            'attempted_problem_percent_str': u"3.0% of current students",
-            'posted_forum_percent_str': "--",
-            'played_video_percent_str': u"10.0% of current students",
-            'any_percent_str': u"< 1% of current students",
-        })
+            if not include_forum_activity:
+                del expected_summary[AT.POSTED_FORUM]
+                del expected_summary['posted_forum_percent_str']
 
-        if not include_forum_activity:
-            del expected_summary[AT.POSTED_FORUM]
-            del expected_summary['posted_forum_percent_str']
+            expected_summary['last_updated'] = utils.CREATED_DATETIME
 
-        expected_summary['last_updated'] = utils.CREATED_DATETIME
-
-        self.assertDictEqual(summary, expected_summary)
+            self.assertDictEqual(summary, expected_summary)
 
     @mock.patch('analyticsclient.course.Course.activity', mock.Mock(side_effect=utils.mock_course_activity))
     @mock.patch('analyticsclient.course.Course.enrollment', mock.Mock(side_effect=utils.mock_course_enrollment))
@@ -148,7 +150,7 @@ class CourseEngagementActivityPresenterTests(SwitchMixin, TestCase):
 
 
 @ddt
-class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
+class CourseEngagementVideoPresenterTests(TestCase):
     SECTION_ID = 'i4x://edX/DemoX/chapter/9fca584977d04885bc911ea76a9ef29e'
     SUBSECTION_ID = 'i4x://edX/DemoX/sequential/07bc32474380492cb34f76e5f9d9a135'
     VIDEO_ID = 'i4x://edX/DemoX/video/0b9e39477cf34507a7a48f74be381fdd'
@@ -579,7 +581,7 @@ class CourseEngagementVideoPresenterTests(SwitchMixin, TestCase):
         self.assertEqual(expected_url, self.presenter.build_render_xblock_url(xblock_render_base, self.VIDEO_ID))
 
 
-class CourseEnrollmentPresenterTests(SwitchMixin, TestCase):
+class CourseEnrollmentPresenterTests(TestCase):
 
     def setUp(self):
         self.course_id = 'edX/DemoX/Demo_Course'

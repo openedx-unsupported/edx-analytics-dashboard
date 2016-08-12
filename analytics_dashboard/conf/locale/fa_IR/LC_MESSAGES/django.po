@@ -6,15 +6,19 @@
 # Abbas Sharifi Tabar <abbas.sharifi@gmail.com>, 2015
 # Ali Taheri <beingalitaheri@gmail.com>, 2015
 # e rezaei <rezaeiphd@gmail.com>, 2016
+# maedeh maedeh <maedeh.emami.1390@gmail.com>, 2016
+# Mohammad Ali Rooeintan <m.a.rooeintan@gmail.com>, 2016
 # Mohammad Dashtizadeh <mohammad@dashtizadeh.net>, 2015
+# MohammadSadegh Mahmoudpour <mahmoudpour.sadegh@gmail.com>, 2016
 # Reyhaneh Nikoo <reyhaneh.nikoo@gmail.com>, 2015
+# Siavash Kavousi <siavash.kavousi.sk@gmail.com>, 2016
 # Sina Shirinpour <sshirinpoor@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-24 14:25-0400\n"
-"PO-Revision-Date: 2016-05-24 18:28+0000\n"
+"POT-Creation-Date: 2016-08-04 11:40-0400\n"
+"PO-Revision-Date: 2016-08-04 15:42+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Persian (Iran) (http://www.transifex.com/open-edx/edx-platform/language/fa_IR/)\n"
 "MIME-Version: 1.0\n"
@@ -33,7 +37,7 @@ msgstr ""
 "اطلاعاتی برای کمک به تیم‌های تولید کننده‌ی دروس در راستای بهینه کردن "
 "دوره‌هایشان"
 
-#: core/templates/core/landing.html courses/views/__init__.py
+#: core/templates/core/landing.html
 msgid "Who are my students?"
 msgstr "شاگردان من چه کسانی هستند؟"
 
@@ -43,8 +47,6 @@ msgstr ""
 
 #: core/templates/core/landing.html
 #: courses/templates/courses/enrollment_geography.html
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/__init__.py
 msgid "Enrollment"
 msgstr " ثبت‌نام"
 
@@ -59,28 +61,24 @@ msgid ""
 msgstr ""
 
 #: core/templates/core/landing.html
-#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
-#: courses/views/__init__.py
 msgid "Engagement"
 msgstr "درگیرسازی"
 
 #: core/templates/core/landing.html
 msgid "How well is my content supporting student learning?"
-msgstr ""
+msgstr "تاچه اندازه مطالب من به یادگیری دانش آموزان کمک می کند ؟"
 
 #: core/templates/core/landing.html
 msgid "Adjust your course based on where students are struggling."
 msgstr ""
 
 #: core/templates/core/landing.html
-#: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/__init__.py
 msgid "Performance"
 msgstr "عملکرد"
 
 #: core/templates/core/landing.html
 msgid "Join the Open Source Community"
-msgstr ""
+msgstr "به جامعه ی متن باز بپیوندید."
 
 #: core/templates/core/landing.html
 msgid ""
@@ -106,120 +104,6 @@ msgstr "به کمک نیاز دارید؟"
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
 msgstr ""
-
-#. Translators: Simply move the percent symbol (%) to the correct location. Do
-#. NOT translate the word statistic.
-#: core/templatetags/dashboard_extras.py
-msgid "{statistic}%"
-msgstr "{statistic} درصد"
-
-#. Translators: '{percentage}' in as a placeholder for the percentage value.
-#: courses/presenters/engagement.py
-msgid "{percentage} of current students"
-msgstr "{percentage} دانش‌جویان فعلی"
-
-#: courses/presenters/enrollment.py
-msgid "Female"
-msgstr "زن"
-
-#: courses/presenters/enrollment.py
-msgid "Male"
-msgstr "مرد"
-
-#. Translators: Other gender
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py courses/presenters/enrollment.py
-msgid "Other"
-msgstr "غیره"
-
-#. Translators: Unknown gender
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py courses/presenters/enrollment.py
-#: courses/presenters/enrollment.py
-msgid "Unknown"
-msgstr "ناشناخته"
-
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py
-msgid "None"
-msgstr "هیچکدام"
-
-#. Translators: This describes the learner's education level (e.g. Elementary
-#. School Degree).
-#: courses/presenters/enrollment.py courses/tests/test_serializers.py
-msgid "Primary"
-msgstr "اولیه"
-
-#. Translators: This describes the learner's education level  (e.g. Middle
-#. School Degree).
-#: courses/presenters/enrollment.py
-msgid "Middle"
-msgstr "میانه"
-
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py
-msgid "Secondary"
-msgstr "ثانویه"
-
-#. Translators: This describes the learner's education level (e.g. Associate's
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Associate"
-msgstr "مشارکت"
-
-#. Translators: This describes the learner's education level (e.g. Bachelor's
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Bachelor's"
-msgstr "کارشناسی"
-
-#. Translators: This describes the learner's education level (e.g. Master's
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Master's"
-msgstr "کارشناسی ارشد"
-
-#. Translators: This describes the learner's education level (e.g. Doctorate
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Doctorate"
-msgstr "درجه دکتری"
-
-#. Translators: This is a placeholder for enrollment data collected without a
-#. known geolocation.
-#: courses/presenters/enrollment.py
-msgid "Unknown Country"
-msgstr "کشور نامعلوم"
-
-#. Translators: This describes the data displayed in the chart below.
-#: courses/presenters/performance.py
-#: courses/templates/courses/submissions_chart_info.html
-msgid "Submissions"
-msgstr "تحویل‌ها"
-
-#: courses/presenters/performance.py
-msgid "Submissions for Part {part_number}: {part_description}"
-msgstr ""
-
-#: courses/presenters/performance.py
-msgid "Part {part_number}: {part_description}"
-msgstr ""
-
-#: courses/presenters/performance.py
-msgid "Submissions: {part_description}"
-msgstr ""
-
-#: courses/presenters/performance.py
-msgid "{part_description}"
-msgstr ""
-
-#: courses/presenters/performance.py
-msgid "Submissions for Part {part_number}"
-msgstr ""
-
-#: courses/presenters/performance.py
-msgid "Part {part_number}"
-msgstr "بخش {part_number}"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
@@ -323,13 +207,13 @@ msgstr ""
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
 msgid "Students (Self-Reported)"
-msgstr ""
+msgstr "دانش آموزان ( خود اظهاری)"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Weekly Student Engagement"
 msgstr ""
 
-#: courses/templates/courses/engagement_content.html courses/views/__init__.py
+#: courses/templates/courses/engagement_content.html
 msgid "How many students are interacting with my course?"
 msgstr ""
 
@@ -421,7 +305,6 @@ msgid ""
 msgstr ""
 
 #: courses/templates/courses/engagement_video_course.html
-#: courses/views/__init__.py
 msgid "How did students interact with course videos?"
 msgstr ""
 
@@ -492,7 +375,6 @@ msgid "Daily Student Enrollment"
 msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
-#: courses/views/__init__.py
 msgid "How many students are in my course?"
 msgstr ""
 
@@ -536,7 +418,7 @@ msgstr ""
 #. students enrolled in a course since the previous week.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Change in Last Week"
-msgstr ""
+msgstr "هفته گذشته تغییر کرده است"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Net difference in current enrollment in the last week."
@@ -565,7 +447,6 @@ msgid "Enrollment Over Time"
 msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_age.html
-#: courses/views/__init__.py
 msgid "How old are my students?"
 msgstr "دانشجویان من چند سالشان است."
 
@@ -634,7 +515,6 @@ msgid "Age Breakdown"
 msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_education.html
-#: courses/views/__init__.py
 msgid "What level of education do my students have?"
 msgstr ""
 
@@ -690,7 +570,6 @@ msgid "Educational Breakdown"
 msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_gender.html
-#: courses/views/__init__.py
 msgid "What is the student gender breakdown?"
 msgstr ""
 
@@ -712,7 +591,6 @@ msgid "Geographic Distribution"
 msgstr "توزیع جغرافیایی"
 
 #: courses/templates/courses/enrollment_geography.html
-#: courses/views/__init__.py
 msgid "Where are my students?"
 msgstr "دانشجویان من اهل کجا هستند؟"
 
@@ -782,11 +660,10 @@ msgstr ""
 msgid "Application"
 msgstr ""
 
-#: courses/templates/courses/home.html courses/views/__init__.py
+#: courses/templates/courses/home.html
 msgid "Course Home"
 msgstr "صفحۀ دروس"
 
-#. Translators: This refers to the active tab/navigation item.
 #. Translators: This refers to the active tab/navigation item.
 #: courses/templates/courses/home.html templates/lens-navigation.html
 #: templates/submenu_navigation.html
@@ -818,7 +695,7 @@ msgstr ""
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
-msgstr ""
+msgstr "تازه با %(application_name)s آشنا شده اید؟"
 
 #: courses/templates/courses/index.html
 msgid ""
@@ -826,10 +703,9 @@ msgid ""
 "%(application_name)s. Send us feedback at %(email_link)s."
 msgstr ""
 
-#: courses/templates/courses/learners.html courses/views/__init__.py
-#: courses/views/__init__.py courses/views/learners.py
+#: courses/templates/courses/learners.html
 msgid "Learners"
-msgstr ""
+msgstr "دانش آموزان"
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
@@ -913,7 +789,6 @@ msgid "How are students doing on this subsection?"
 msgstr ""
 
 #: courses/templates/courses/performance_ungraded_content.html
-#: courses/views/__init__.py
 msgid "How are students doing on ungraded exercises?"
 msgstr ""
 
@@ -944,251 +819,12 @@ msgstr ""
 msgid "Try Again"
 msgstr "دوباره تلاش کنید"
 
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Activity"
-msgstr "فعالیت"
+#. Translators: This describes the data displayed in the chart below.
+#: courses/templates/courses/submissions_chart_info.html
+msgid "Submissions"
+msgstr "تحویل‌ها"
 
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Demographics"
-msgstr ""
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Geography"
-msgstr "جغرافیا"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Age"
-msgstr "سن"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Education"
-msgstr "تحصیلات"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Gender"
-msgstr "جنسیت"
-
-#. Translators: Content as in course content (e.g. things, not the feeling)
-#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
-#: courses/views/engagement.py
-msgid "Content"
-msgstr "محتوا"
-
-#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
-#: courses/views/engagement.py
-msgid "Videos"
-msgstr "ویدیوها"
-
-#: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/performance.py courses/views/performance.py
-msgid "Graded Content"
-msgstr "محتوای رتبه‌بندی شده"
-
-#: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/performance.py courses/views/performance.py
-msgid "Ungraded Problems"
-msgstr "مشکلات رتبه‌بندی نشده"
-
-#: courses/views/__init__.py
-msgid "What are students doing in my course?"
-msgstr ""
-
-#: courses/views/__init__.py
-msgid "How are students doing on course assignments?"
-msgstr ""
-
-#: courses/views/__init__.py
-msgid "How are students doing on graded course assignments?"
-msgstr ""
-
-#: courses/views/__init__.py
-msgid "What are individual learners doing?"
-msgstr ""
-
-#: courses/views/__init__.py
-msgid "Who is engaged? Who isn't?"
-msgstr ""
-
-#: courses/views/__init__.py
-msgid "All Learners"
-msgstr ""
-
-#. Translators: 'Course ID' is 'Course Identifier', the unique code that
-#. identifies the course
-#: courses/views/__init__.py
-msgid "Course ID"
-msgstr "شناسه دوره"
-
-#: courses/views/__init__.py
-msgid "Course Name"
-msgstr "نام دوره "
-
-#. Translators: 'In Progress' and 'Ended' refer to whether students are
-#. actively using the course or it is over.
-#: courses/views/__init__.py
-msgid "In Progress"
-msgstr "درحال پیشرفت"
-
-#: courses/views/__init__.py
-msgid "Ended"
-msgstr "پایان یافته"
-
-#. Translators: This refers to a course that has not yet begun.
-#: courses/views/__init__.py
-msgid "Not Started Yet"
-msgstr "هنوز آغاز نشده"
-
-#: courses/views/__init__.py
-msgid "Start Date"
-msgstr "تاریخ شروع"
-
-#: courses/views/__init__.py
-msgid "End Date"
-msgstr "تاریخ اختتام"
-
-#: courses/views/__init__.py
-msgid "Status"
-msgstr "وضعیت"
-
-#: courses/views/__init__.py
-msgid "Instructor Dashboard"
-msgstr "آموزش صفحه کنترل"
-
-#: courses/views/__init__.py
-msgid "Courseware"
-msgstr "دروس"
-
-#: courses/views/engagement.py
-msgid "Engagement Content"
-msgstr ""
-
-#. Translators: Do not translate UTC.
-#: courses/views/engagement.py
-msgid ""
-"Course engagement data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr ""
-
-#: courses/views/engagement.py
-msgid "Engagement Videos"
-msgstr ""
-
-#. Translators: Do not translate UTC.
-#: courses/views/engagement.py
-msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
-
-#: courses/views/engagement.py
-msgid "Looks like no one has watched any videos in these sections."
-msgstr ""
-
-#: courses/views/engagement.py courses/views/performance.py
-msgid "Section Name"
-msgstr "نام بخش"
-
-#: courses/views/engagement.py courses/views/performance.py
-msgid "Subsection Name"
-msgstr "نام زیربخش"
-
-#: courses/views/engagement.py
-msgid "Video Name"
-msgstr "نام ویدیو"
-
-#. Translators: Do not translate UTC.
-#: courses/views/enrollment.py
-msgid ""
-"Demographic student data was last updated %(update_date)s at %(update_time)s"
-" UTC."
-msgstr ""
-
-#. Translators: This sentence is displayed at the bottom of the page and
-#. describe the demographics data displayed.
-#: courses/views/enrollment.py
-msgid ""
-"All above demographic data was self-reported at the time of registration."
-msgstr ""
-
-#: courses/views/enrollment.py
-msgid "Enrollment Activity"
-msgstr ""
-
-#. Translators: Do not translate UTC.
-#: courses/views/enrollment.py
-msgid ""
-"Enrollment activity data was last updated %(update_date)s at %(update_time)s"
-" UTC."
-msgstr ""
-
-#: courses/views/enrollment.py
-msgid "Enrollment Demographics by Age"
-msgstr ""
-
-#: courses/views/enrollment.py
-msgid "Enrollment Demographics by Education"
-msgstr ""
-
-#: courses/views/enrollment.py
-msgid "Enrollment Demographics by Gender"
-msgstr ""
-
-#: courses/views/enrollment.py
-msgid "Enrollment Geography"
-msgstr ""
-
-#. Translators: Do not translate UTC.
-#: courses/views/enrollment.py
-msgid ""
-"Geographic student data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr ""
-
-#. Translators: Do not translate UTC.
-#: courses/views/performance.py
-msgid ""
-"Problem submission data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr ""
-
-#: courses/views/performance.py
-msgid "Assignment Name"
-msgstr "نام تکلیف"
-
-#: courses/views/performance.py
-msgid "No submissions received for these exercises."
-msgstr ""
-
-#: courses/views/performance.py
-msgid "No submissions received for these assignments."
-msgstr ""
-
-#: courses/views/performance.py courses/views/performance.py
-msgid "Performance: Problem Submissions"
-msgstr ""
-
-#: courses/views/performance.py
-msgid "Graded Content: %(assignment_type)s"
-msgstr ""
-
-#: courses/views/performance.py courses/views/performance.py
-msgid "Problem Name"
-msgstr "نام مشکلات"
-
-#: settings/base.py
-msgid "Terms of Service"
-msgstr "شرایط استفاده از سرویس"
-
-#: settings/base.py
-msgid "Privacy Policy"
-msgstr "سیاست حفظ حریم خصوصی"
-
-#: templates/403.html templates/403.html.py
+#: templates/403.html templates/403.html
 msgid "Access Denied"
 msgstr ""
 
@@ -1203,7 +839,7 @@ msgstr ""
 msgid "Logout then Login"
 msgstr "خروج و ورود دوباره"
 
-#: templates/404.html templates/404.html.py
+#: templates/404.html templates/404.html
 msgid "Page Not Found"
 msgstr "صفحه مورد نظر شما یافت نشد"
 
@@ -1213,7 +849,7 @@ msgid ""
 "correct and if not try again."
 msgstr ""
 
-#: templates/500.html templates/500.html.py
+#: templates/500.html templates/500.html
 msgid "An Error Occurred"
 msgstr "خطایی رخ داد"
 
@@ -1223,7 +859,7 @@ msgid ""
 "refreshing this page or retracing your steps."
 msgstr ""
 
-#: templates/503.html templates/503.html.py
+#: templates/503.html templates/503.html
 msgid "We're having trouble loading this page. Please try again in a minute."
 msgstr ""
 
@@ -1244,7 +880,7 @@ msgstr ""
 #. placeholder as you see fit.
 #: templates/base-error.html
 msgid "Contact %(platform_name)s Support"
-msgstr ""
+msgstr "پشتیبانی %(platform_name)s محتوا"
 
 #: templates/footer.html
 msgid "Feedback"

@@ -11,6 +11,7 @@ from django.contrib.auth import get_user_model
 from django.db import DatabaseError
 from django.test import TestCase
 from django.test.utils import override_settings
+from django.utils.http import urlquote
 from django_dynamic_fixture import G
 
 from analyticsclient.exceptions import TimeoutError
@@ -44,7 +45,7 @@ class UserTestCaseMixin(object):
     def assertUserLoggedIn(self, user):
         """ Verifies that the specified user is logged in with the test client. """
 
-        self.assertEqual(self.client.session['_auth_user_id'], user.pk)
+        self.assertEqual(int(self.client.session['_auth_user_id']), user.pk)
 
     def setUp(self):
         super(UserTestCaseMixin, self).setUp()
@@ -54,9 +55,10 @@ class UserTestCaseMixin(object):
 class RedirectTestCaseMixin(object):
     def assertRedirectsNoFollow(self, response, expected_url, status_code=302, **querystringkwargs):
         if querystringkwargs:
-            expected_url += '?{}'.format('&'.join('%s=%s' % (key, value) for (key, value) in querystringkwargs.items()))
+            expected_url += '?{}'.format('&'.join('%s=%s' % (key, urlquote(value))
+                                                  for (key, value) in querystringkwargs.items()))
 
-        self.assertEqual(response['Location'], 'http://testserver{}'.format(expected_url))
+        self.assertEqual(response['Location'], '{}'.format(expected_url))
         self.assertEqual(response.status_code, status_code)
 
 
@@ -88,7 +90,8 @@ class ViewTests(TestCase):
             l.check()
 
     @mock.patch('analyticsclient.status.Status.healthy', mock.PropertyMock(return_value=True))
-    @mock.patch('django.db.backends.BaseDatabaseWrapper.cursor', mock.Mock(side_effect=DatabaseError('example error')))
+    @mock.patch('django.db.backends.base.base.BaseDatabaseWrapper.cursor',
+                mock.Mock(side_effect=DatabaseError('example error')))
     def test_health_database_outage(self):
         with LogCapture(level=logging.ERROR) as l:
             self.verify_health_response(
@@ -117,7 +120,8 @@ class ViewTests(TestCase):
             ))
 
     @mock.patch('analyticsclient.status.Status.healthy', mock.PropertyMock(return_value=False))
-    @mock.patch('django.db.backends.BaseDatabaseWrapper.cursor', mock.Mock(side_effect=DatabaseError('example error')))
+    @mock.patch('django.db.backends.base.base.BaseDatabaseWrapper.cursor',
+                mock.Mock(side_effect=DatabaseError('example error')))
     def test_health_both_unavailable(self):
         with LogCapture(level=logging.ERROR) as l:
             self.verify_health_response(

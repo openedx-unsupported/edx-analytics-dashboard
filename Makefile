@@ -22,17 +22,21 @@ develop: test.requirements
 	pip install -q -r requirements/local.txt --exists-action w
 
 migrate:
-	python manage.py migrate
+	python manage.py migrate --run-syncdb
 
 clean:
 	find . -name '*.pyc' -delete
 	coverage erase
 
-test_python: clean
-	python manage.py compress --settings=analytics_dashboard.settings.test
+test_python_no_compress: clean
 	python manage.py test analytics_dashboard common --settings=analytics_dashboard.settings.test --with-coverage \
 	--cover-package=analytics_dashboard --cover-package=common --cover-branches --cover-html --cover-html-dir=$(COVERAGE)/html/ \
 	--with-ignore-docstrings --cover-xml --cover-xml-file=$(COVERAGE)/coverage.xml
+
+test_compress:
+	python manage.py compress --settings=analytics_dashboard.settings.test
+
+test_python: test_compress test_python_no_compress
 
 accept:
 	./scripts/runTests.sh acceptance_tests
@@ -61,10 +65,10 @@ validate_js: requirements.js
 validate: validate_python validate_js
 
 demo:
-	python manage.py switch show_engagement_forum_activity off --create
-	python manage.py switch enable_course_api off --create
-	python manage.py switch display_names_for_course_index off --create
-	python manage.py switch display_course_name_in_nav off --create
+	python manage.py waffle_switch show_engagement_forum_activity off --create
+	python manage.py waffle_switch enable_course_api off --create
+	python manage.py waffle_switch display_names_for_course_index off --create
+	python manage.py waffle_switch display_course_name_in_nav off --create
 
 compile_translations:
 	cd analytics_dashboard && i18n_tool generate -v
@@ -82,7 +86,9 @@ pull_translations:
 
 update_translations: pull_translations generate_fake_translations
 
-static:
+static_no_compress:
 	$(NODE_BIN)/r.js -o build.js
 	python manage.py collectstatic --noinput
+
+static: static_no_compress
 	python manage.py compress

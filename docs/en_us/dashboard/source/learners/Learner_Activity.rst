@@ -23,7 +23,7 @@ previous day (23:59 UTC).
 Gaining Insight into Individual Learner Activities
 **************************************************
 
-EdX Insights delivers data about the activities of individual learners in a
+Insights delivers data about the activities of individual learners in a
 report and in charts of activity over time. Descriptions of the report and
 charts follow; for detailed information about the computations, see
 :ref:`Learner Computations`.
@@ -32,7 +32,7 @@ charts follow; for detailed information about the computations, see
 Learner Roster and Key Activity Report
 =========================================
 
-EdX Insights delivers data about the engagement of individual learners by
+Insights delivers data about the engagement of individual learners by
 providing counts for the following key activities.
 
 * Problems Tried
@@ -161,6 +161,16 @@ instructor dashboard of an edx.org course.
 
 When you use Insights, be sure to follow your organization's guidelines for
 communicating with learners.
+
+=========================
+Activity Over Time Report
+=========================
+
+A report of specific course activities that the learner completed each day is
+available for review. Columns show the counts of **Discussion Contributions**,
+**Problems Correct**, and **Videos Viewed**.
+
+See the :ref:`Reference` section for a detailed description of each value.
 
 **************************************************************
 Analytics in Action: Interpreting Individual Activity Patterns

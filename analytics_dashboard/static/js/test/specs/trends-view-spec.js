@@ -12,7 +12,7 @@ define(['models/course-model', 'views/trends-view'], function(CourseModel, Trend
                     key: 'date'
                 }
             });
-            expect(view.formatXTick('2014-06-15')).toBe('6/15');
+            expect(view.formatXTick('2014-06-15')).toBe('15 Jun 2014');
         });
 
         it('should parse x data as a timestamp', function() {

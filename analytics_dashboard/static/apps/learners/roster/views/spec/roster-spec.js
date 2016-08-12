@@ -161,29 +161,29 @@ define(function(require) {
                 }],
                 engagementRanges = {
                     problems_attempted: {
-                        below_average: [0, 10],
-                        average: [11, 25],
-                        above_average: [26, null]
+                        class_rank_bottom: [0, 10],
+                        class_rank_average: [11, 25],
+                        class_rank_top: [26, null]
                     },
                     videos_viewed: {
-                        below_average: [0, 1],
-                        average: [1, 10],
-                        above_average: [10, null]
+                        class_rank_bottom: [0, 1],
+                        class_rank_average: [1, 10],
+                        class_rank_top: [10, null]
                     },
                     problems_completed: {
-                        below_average: [0, 10],
-                        average: [11, 50],
-                        above_average: [50, null]
+                        class_rank_bottom: [0, 10],
+                        class_rank_average: [11, 50],
+                        class_rank_top: [50, null]
                     },
                     problem_attempts_per_completed: {
-                        below_average: [1, 1.6],
-                        average: [1.6, 25],
-                        above_average: [26, 60]
+                        class_rank_top: [1, 1.6],
+                        class_rank_average: [1.6, 25],
+                        class_rank_bottom: [26, 60]
                     },
                     discussion_contributions: {
-                        below_average: [0, 100],
-                        average: [100, 125],
-                        above_average: [125, null]
+                        class_rank_bottom: [0, 100],
+                        class_rank_average: [100, 125],
+                        class_rank_top: [125, null]
                     }
                 },
                 rosterView = getRosterView({
@@ -310,7 +310,7 @@ define(function(require) {
             };
 
             executeSortTest = function(field) {
-                expect(getSortingHeaderLink(field).find('i')).toHaveClass('fa-sort');
+                expect(getSortingHeaderLink(field).find('span.fa')).toHaveClass('fa-sort');
                 clickSortingHeader(field);
                 expectSortCalled(field, 'asc');
                 clickSortingHeader(field);
@@ -323,7 +323,7 @@ define(function(require) {
                     sort_order: sortValue
                 }));
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(1, 1)));
-                expect(getSortingHeaderLink(sortField).find('i')).toHaveClass('fa-sort-' + sortValue);
+                expect(getSortingHeaderLink(sortField).find('span')).toHaveClass('fa-sort-' + sortValue);
             };
 
             beforeEach(function() {
@@ -793,6 +793,7 @@ define(function(require) {
                     activeFilters = rosterView.$('.active-filters'),
                     activeSearch = activeFilters.find('.filter-text_search'),
                     activeCohort = activeFilters.find('.filter-cohort'),
+                    activeEngagement = activeFilters.find('.filter-ignore_segments'),
                     activeEnrollmentTrack = activeFilters.find('.filter-enrollment_mode'),
                     removeFilterText = 'Click to remove this filter';
 
@@ -820,6 +821,13 @@ define(function(require) {
                 } else {
                     expect(activeEnrollmentTrack).not.toExist();
                 }
+
+                if (options.engagement) {
+                    expect(activeEngagement).toContainText('Active Learners');
+                    expect(activeEngagement.find('.sr-only')).toContainText(removeFilterText);
+                } else {
+                    expect(activeEngagement).not.toExist();
+                }
             };
 
             it('does not render when there are no active filters', function() {
@@ -839,7 +847,7 @@ define(function(require) {
                 rosterView.options.collection.setFilterField('cohort', 'labrador');
                 rosterView.options.collection.refresh();
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
-                expectActiveFilters(rosterView, {cohort: 'labrador'});
+                expectActiveFilters(rosterView, {cohort: 'Labrador'});
             });
 
             it('renders an enrollment track filter', function() {
@@ -847,7 +855,15 @@ define(function(require) {
                 rosterView.options.collection.setFilterField('enrollment_mode', 'honor');
                 rosterView.options.collection.refresh();
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
-                expectActiveFilters(rosterView, {enrollmentTrack: 'honor'});
+                expectActiveFilters(rosterView, {enrollmentTrack: 'Honor'});
+            });
+
+            it('renders an engagement filter', function() {
+                var rosterView = getRosterView();
+                rosterView.options.collection.setFilterField('ignore_segments', 'inactive');
+                rosterView.options.collection.refresh();
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
+                expectActiveFilters(rosterView, {engagement: 'inactive'});
             });
 
             it('renders multiple filters', function() {
@@ -859,8 +875,8 @@ define(function(require) {
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
                 expectActiveFilters(rosterView, {
                     search: 'foo',
-                    cohort: 'labrador',
-                    enrollmentTrack: 'honor'
+                    cohort: 'Labrador',
+                    enrollmentTrack: 'Honor'
                 });
             });
 
@@ -872,12 +888,12 @@ define(function(require) {
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
                 expectActiveFilters(rosterView, {
                     search: 'foo',
-                    cohort: 'labrador'
+                    cohort: 'Labrador'
                 });
                 rosterView.$('.active-filters .filter-text_search .action-clear-filter').click();
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
                 expect(rosterView.options.collection.hasActiveSearch()).toBe(false);
-                expectActiveFilters(rosterView, {cohort: 'labrador'});
+                expectActiveFilters(rosterView, {cohort: 'Labrador'});
             });
 
             it('can clear a filter', function() {
@@ -888,7 +904,7 @@ define(function(require) {
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
                 expectActiveFilters(rosterView, {
                     search: 'foo',
-                    cohort: 'labrador'
+                    cohort: 'Labrador'
                 });
                 rosterView.$('.active-filters .filter-cohort .action-clear-filter').click();
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
@@ -905,8 +921,8 @@ define(function(require) {
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
                 expectActiveFilters(rosterView, {
                     search: 'foo',
-                    cohort: 'labrador',
-                    enrollmentTrack: 'honor'
+                    cohort: 'Labrador',
+                    enrollmentTrack: 'Honor'
                 });
                 rosterView.$('.action-clear-all-filters').click();
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));

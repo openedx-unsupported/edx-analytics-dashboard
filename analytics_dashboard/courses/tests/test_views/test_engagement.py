@@ -1,11 +1,13 @@
 from ddt import ddt
+import httpretty
 import mock
 from mock import patch, Mock
-import httpretty
 
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
+
+from waffle.testutils import override_switch
 
 import analyticsclient.constants.activity_type as AT
 
@@ -19,13 +21,13 @@ from courses.tests.test_views import (
 from courses.tests import utils
 
 
+@override_switch('enable_engagement_videos_pages', active=True)
 class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):  # pylint: disable=abstract-method
     api_method = 'analyticsclient.course.Course.activity'
     active_secondary_nav_label = None
 
     def setUp(self):
         super(CourseEngagementViewTestMixin, self).setUp()
-        self.toggle_switch('enable_engagement_videos_pages', True)
         # This view combines the activity API with the enrollment API, so we need to mock both.
         patcher = mock.patch('analyticsclient.course.Course.enrollment', return_value=utils.mock_course_enrollment())
         patcher.start()
@@ -39,7 +41,8 @@ class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):  # pylint: disa
             'icon': 'fa-bar-chart',
             'href': reverse('courses:engagement:content', kwargs={'course_id': course_id}),
             'label': _('Engagement'),
-            'name': 'engagement'
+            'name': 'engagement',
+            'fragment': ''
         }
         self.assertDictEqual(nav, expected)
 
@@ -65,6 +68,7 @@ class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):  # pylint: disa
         self.assertListEqual(nav, expected)
 
 
+@override_switch('enable_engagement_videos_pages', active=True)
 @ddt
 class CourseEngagementContentViewTests(CourseViewTestMixin, CourseEngagementViewTestMixin, TestCase):
     viewname = 'courses:engagement:content'
@@ -129,6 +133,7 @@ class CourseEngagementContentViewTests(CourseViewTestMixin, CourseEngagementView
         self.assertIsNone(context['js_data']['course']['engagementTrends'])
 
 
+@override_switch('enable_engagement_videos_pages', active=True)
 @ddt
 class CourseEngagementVideoMixin(CourseEngagementViewTestMixin, CourseStructureViewMixin):
     active_secondary_nav_label = 'Video'

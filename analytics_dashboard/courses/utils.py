@@ -1,14 +1,21 @@
 import re
-from waffle import switch_is_active
+from waffle import flag_is_active, switch_is_active
 
 from opaque_keys.edx.keys import UsageKey
 
 
-def is_feature_enabled(item):
+def is_feature_enabled(item, request):
+    """
+    Returns True if 'switch' or 'flag' are provided and active and True if neither
+    are provided.
+    """
     switch_name = item.get('switch', None)
-
     if switch_name:
         return switch_is_active(switch_name)
+
+    flag_name = item.get('flag', None)
+    if flag_name:
+        return flag_is_active(request, flag_name)
 
     return True
 

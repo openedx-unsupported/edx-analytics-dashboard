@@ -11,10 +11,10 @@ from django.utils.translation import ugettext_lazy as _
 import httpretty
 import mock
 from mock import patch, Mock, _is_started
+from waffle.testutils import override_switch
 
 from core.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin
 from courses.permissions import set_user_course_permissions, revoke_user_course_permissions
-from courses.tests import SwitchMixin
 from courses.tests.utils import set_empty_permissions, get_mock_api_enrollment_data, mock_course_name
 
 
@@ -24,17 +24,14 @@ DEPRECATED_DEMO_COURSE_ID = 'edX/DemoX/Demo_Course'
 logger = logging.getLogger(__name__)
 
 
-class CourseAPIMixin(SwitchMixin):
+@override_switch('enable_course_api', active=True)
+class CourseAPIMixin(object):
     """
     Mixin with methods to help mock the course API.
     """
     COURSE_API_COURSE_LIST = {'next': None, 'results': [
         {'id': course_key, 'name': 'Test ' + course_key} for course_key in [DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID]
     ]}
-
-    def setUp(self, *args, **kwargs):
-        super(CourseAPIMixin, self).setUp(*args, **kwargs)
-        self.toggle_switch('enable_course_api', True)
 
     def mock_course_api(self, path, body=None, **kwargs):
         """
@@ -188,9 +185,9 @@ class CourseViewTestMixin(CourseAPIMixin, NavAssertMixin, ViewTestMixin):
 
     @httpretty.activate
     @data(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
+    @override_switch('enable_course_api', active=True)
+    @override_switch('display_course_name_in_nav', active=True)
     def test_valid_course(self, course_id):
-        self.toggle_switch('enable_course_api', True)
-        self.toggle_switch('display_course_name_in_nav', True)
         self.mock_course_detail(course_id)
         self.assertViewIsValid(course_id)
 
@@ -220,7 +217,8 @@ class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
             'icon': 'fa-child',
             'href': reverse('courses:enrollment:activity', kwargs={'course_id': course_id}),
             'label': _('Enrollment'),
-            'name': 'enrollment'
+            'name': 'enrollment',
+            'fragment': ''
         }
         self.assertDictEqual(nav, expected)
 

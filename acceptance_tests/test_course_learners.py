@@ -2,12 +2,12 @@ from unittest import skipUnless
 
 from bok_choy.web_app_test import WebAppTest
 
-from acceptance_tests import ENABLE_LEARNER_ANALYTICS
+from acceptance_tests import DISPLAY_LEARNER_ANALYTICS
 from acceptance_tests.mixins import CoursePageTestsMixin
 from acceptance_tests.pages import CourseLearnersPage
 
 
-@skipUnless(ENABLE_LEARNER_ANALYTICS, 'Learner Analytics must be enabled to run CourseLearnersTests')
+@skipUnless(DISPLAY_LEARNER_ANALYTICS, 'Learner Analytics must be enabled to run CourseLearnersTests')
 class CourseLearnersTests(CoursePageTestsMixin, WebAppTest):
     help_path = 'learners/Learner_Activity.html'
 

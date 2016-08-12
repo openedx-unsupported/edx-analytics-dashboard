@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-24 14:25-0400\n"
-"PO-Revision-Date: 2016-05-24 18:28+0000\n"
+"POT-Creation-Date: 2016-08-04 11:40-0400\n"
+"PO-Revision-Date: 2016-08-04 15:42+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/open-edx/edx-platform/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +36,7 @@ msgstr "Логін"
 msgid "Insights to help course teams improve courses."
 msgstr "Поради для вдосконалення курсів."
 
-#: core/templates/core/landing.html courses/views/__init__.py
+#: core/templates/core/landing.html
 msgid "Who are my students?"
 msgstr "Хто мої студенти?"
 
@@ -46,8 +46,6 @@ msgstr "Плануйте свій курс відповідно до рівня 
 
 #: core/templates/core/landing.html
 #: courses/templates/courses/enrollment_geography.html
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/__init__.py
 msgid "Enrollment"
 msgstr "Зарахування на курс"
 
@@ -64,8 +62,6 @@ msgstr ""
 "недостатньо використовувані."
 
 #: core/templates/core/landing.html
-#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
-#: courses/views/__init__.py
 msgid "Engagement"
 msgstr "Залученість"
 
@@ -79,8 +75,6 @@ msgstr ""
 "Побудуйте свій курс відповідно до проблем, з якими стикаються студенти."
 
 #: core/templates/core/landing.html
-#: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/__init__.py
 msgid "Performance"
 msgstr "Виконання"
 
@@ -118,120 +112,6 @@ msgid ""
 msgstr ""
 "%(link_start)sНаш центр підтримки%(link_end)s може допомогти вам знайти "
 "рішення."
-
-#. Translators: Simply move the percent symbol (%) to the correct location. Do
-#. NOT translate the word statistic.
-#: core/templatetags/dashboard_extras.py
-msgid "{statistic}%"
-msgstr "{statistic}%"
-
-#. Translators: '{percentage}' in as a placeholder for the percentage value.
-#: courses/presenters/engagement.py
-msgid "{percentage} of current students"
-msgstr "{percentage} поточних студентів"
-
-#: courses/presenters/enrollment.py
-msgid "Female"
-msgstr "Жіноча"
-
-#: courses/presenters/enrollment.py
-msgid "Male"
-msgstr "Чоловіча"
-
-#. Translators: Other gender
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py courses/presenters/enrollment.py
-msgid "Other"
-msgstr "Інше"
-
-#. Translators: Unknown gender
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py courses/presenters/enrollment.py
-#: courses/presenters/enrollment.py
-msgid "Unknown"
-msgstr "Невідомий"
-
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py
-msgid "None"
-msgstr "Немає"
-
-#. Translators: This describes the learner's education level (e.g. Elementary
-#. School Degree).
-#: courses/presenters/enrollment.py courses/tests/test_serializers.py
-msgid "Primary"
-msgstr "Початкова"
-
-#. Translators: This describes the learner's education level  (e.g. Middle
-#. School Degree).
-#: courses/presenters/enrollment.py
-msgid "Middle"
-msgstr "Другого ступеня"
-
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py
-msgid "Secondary"
-msgstr "Середня"
-
-#. Translators: This describes the learner's education level (e.g. Associate's
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Associate"
-msgstr "Незакінчена вища"
-
-#. Translators: This describes the learner's education level (e.g. Bachelor's
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Bachelor's"
-msgstr "Бакалавр"
-
-#. Translators: This describes the learner's education level (e.g. Master's
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Master's"
-msgstr "Магістр"
-
-#. Translators: This describes the learner's education level (e.g. Doctorate
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Doctorate"
-msgstr "Кандидатський чи докторський ступінь"
-
-#. Translators: This is a placeholder for enrollment data collected without a
-#. known geolocation.
-#: courses/presenters/enrollment.py
-msgid "Unknown Country"
-msgstr "Невідома країна"
-
-#. Translators: This describes the data displayed in the chart below.
-#: courses/presenters/performance.py
-#: courses/templates/courses/submissions_chart_info.html
-msgid "Submissions"
-msgstr "Відповіді"
-
-#: courses/presenters/performance.py
-msgid "Submissions for Part {part_number}: {part_description}"
-msgstr "Відповіді для Частини {part_number}: {part_description}"
-
-#: courses/presenters/performance.py
-msgid "Part {part_number}: {part_description}"
-msgstr "Частина {part_number}: {part_description}"
-
-#: courses/presenters/performance.py
-msgid "Submissions: {part_description}"
-msgstr "Відповіді: {part_description}"
-
-#: courses/presenters/performance.py
-msgid "{part_description}"
-msgstr "{part_description}"
-
-#: courses/presenters/performance.py
-msgid "Submissions for Part {part_number}"
-msgstr "Відповіді для Частини {part_number}"
-
-#: courses/presenters/performance.py
-msgid "Part {part_number}"
-msgstr "Частина {part_number}"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
@@ -346,7 +226,7 @@ msgstr "Студенти (самостійна оцінка)"
 msgid "Weekly Student Engagement"
 msgstr "Щотижневе залучення студентів"
 
-#: courses/templates/courses/engagement_content.html courses/views/__init__.py
+#: courses/templates/courses/engagement_content.html
 msgid "How many students are interacting with my course?"
 msgstr "Яка кількість учнів слідкує за курсом?"
 
@@ -448,7 +328,6 @@ msgstr ""
 "частини вони програють знову."
 
 #: courses/templates/courses/engagement_video_course.html
-#: courses/views/__init__.py
 msgid "How did students interact with course videos?"
 msgstr "Як студенти взаємодіяли з відео цього курсу?"
 
@@ -521,7 +400,6 @@ msgid "Daily Student Enrollment"
 msgstr "Щоденне зарахування студентів"
 
 #: courses/templates/courses/enrollment_activity.html
-#: courses/views/__init__.py
 msgid "How many students are in my course?"
 msgstr "Скільки студентів на моєму курсі?"
 
@@ -598,7 +476,6 @@ msgid "Enrollment Over Time"
 msgstr "Зарахування в залежності від часу"
 
 #: courses/templates/courses/enrollment_demographics_age.html
-#: courses/views/__init__.py
 msgid "How old are my students?"
 msgstr "Скільки років моїм студентів?"
 
@@ -676,7 +553,6 @@ msgid "Age Breakdown"
 msgstr "Вікова Розбивка"
 
 #: courses/templates/courses/enrollment_demographics_education.html
-#: courses/views/__init__.py
 msgid "What level of education do my students have?"
 msgstr "Який рівень освіти мають мої студенти?"
 
@@ -737,7 +613,6 @@ msgid "Educational Breakdown"
 msgstr "Навчальна Розбивка"
 
 #: courses/templates/courses/enrollment_demographics_gender.html
-#: courses/views/__init__.py
 msgid "What is the student gender breakdown?"
 msgstr "Що такe розбивка по статі студента?"
 
@@ -759,7 +634,6 @@ msgid "Geographic Distribution"
 msgstr "Географічне розташування"
 
 #: courses/templates/courses/enrollment_geography.html
-#: courses/views/__init__.py
 msgid "Where are my students?"
 msgstr "Де мої студенти?"
 
@@ -829,11 +703,10 @@ msgstr "Географічна розбивка"
 msgid "Application"
 msgstr "Додаток"
 
-#: courses/templates/courses/home.html courses/views/__init__.py
+#: courses/templates/courses/home.html
 msgid "Course Home"
 msgstr "Домашня сторінка Курсу"
 
-#. Translators: This refers to the active tab/navigation item.
 #. Translators: This refers to the active tab/navigation item.
 #: courses/templates/courses/home.html templates/lens-navigation.html
 #: templates/submenu_navigation.html
@@ -876,8 +749,7 @@ msgstr ""
 "інформації про  %(application_name)s. Надішліть нам свої враження на "
 "%(email_link)s."
 
-#: courses/templates/courses/learners.html courses/views/__init__.py
-#: courses/views/__init__.py courses/views/learners.py
+#: courses/templates/courses/learners.html
 msgid "Learners"
 msgstr ""
 
@@ -969,7 +841,6 @@ msgid "How are students doing on this subsection?"
 msgstr "Як студенти справляються з цим підрозділом?"
 
 #: courses/templates/courses/performance_ungraded_content.html
-#: courses/views/__init__.py
 msgid "How are students doing on ungraded exercises?"
 msgstr "Як студенти справляються з оновленними вравами?"
 
@@ -1000,263 +871,12 @@ msgstr ""
 msgid "Try Again"
 msgstr "Спробувати ще раз"
 
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Activity"
-msgstr "Діяльність"
+#. Translators: This describes the data displayed in the chart below.
+#: courses/templates/courses/submissions_chart_info.html
+msgid "Submissions"
+msgstr "Відповіді"
 
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Demographics"
-msgstr "Демографія"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Geography"
-msgstr "Географія"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Age"
-msgstr "Вік"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Education"
-msgstr "Освіта"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Gender"
-msgstr "Стать"
-
-#. Translators: Content as in course content (e.g. things, not the feeling)
-#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
-#: courses/views/engagement.py
-msgid "Content"
-msgstr "Вміст"
-
-#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
-#: courses/views/engagement.py
-msgid "Videos"
-msgstr "Відео"
-
-#: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/performance.py courses/views/performance.py
-msgid "Graded Content"
-msgstr "Оцінений контент"
-
-#: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/performance.py courses/views/performance.py
-msgid "Ungraded Problems"
-msgstr "Оновлені Завдання"
-
-#: courses/views/__init__.py
-msgid "What are students doing in my course?"
-msgstr "Чим займаються студенти на моєму курсі?"
-
-#: courses/views/__init__.py
-msgid "How are students doing on course assignments?"
-msgstr "Як студенти справляються з завданням курсу?"
-
-#: courses/views/__init__.py
-msgid "How are students doing on graded course assignments?"
-msgstr ""
-
-#: courses/views/__init__.py
-msgid "What are individual learners doing?"
-msgstr ""
-
-#: courses/views/__init__.py
-msgid "Who is engaged? Who isn't?"
-msgstr ""
-
-#: courses/views/__init__.py
-msgid "All Learners"
-msgstr ""
-
-#. Translators: 'Course ID' is 'Course Identifier', the unique code that
-#. identifies the course
-#: courses/views/__init__.py
-msgid "Course ID"
-msgstr "ID курсу"
-
-#: courses/views/__init__.py
-msgid "Course Name"
-msgstr "Назва курсу"
-
-#. Translators: 'In Progress' and 'Ended' refer to whether students are
-#. actively using the course or it is over.
-#: courses/views/__init__.py
-msgid "In Progress"
-msgstr "Опрацьовується"
-
-#: courses/views/__init__.py
-msgid "Ended"
-msgstr "Закінчилося"
-
-#. Translators: This refers to a course that has not yet begun.
-#: courses/views/__init__.py
-msgid "Not Started Yet"
-msgstr "Ще не розпочато"
-
-#: courses/views/__init__.py
-msgid "Start Date"
-msgstr "Дата початку"
-
-#: courses/views/__init__.py
-msgid "End Date"
-msgstr "Дата Закінчення"
-
-#: courses/views/__init__.py
-msgid "Status"
-msgstr "Статус"
-
-#: courses/views/__init__.py
-msgid "Instructor Dashboard"
-msgstr "Панель управління викладача"
-
-#: courses/views/__init__.py
-msgid "Courseware"
-msgstr "Навчальна програма"
-
-#: courses/views/engagement.py
-msgid "Engagement Content"
-msgstr "Зміст Залученності"
-
-#. Translators: Do not translate UTC.
-#: courses/views/engagement.py
-msgid ""
-"Course engagement data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr ""
-"Дані з залученності на курс в останнє були оновленні %(update_date)s о "
-"%(update_time)s UTC."
-
-#: courses/views/engagement.py
-msgid "Engagement Videos"
-msgstr "Відео Залученісті"
-
-#. Translators: Do not translate UTC.
-#: courses/views/engagement.py
-msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
-"Відео данні в останнє були оновленні %(update_date)s о %(update_time)s UTC."
-
-#: courses/views/engagement.py
-msgid "Looks like no one has watched any videos in these sections."
-msgstr "Схоже, ніхто не дивився жодного відео в цих розділах."
-
-#: courses/views/engagement.py courses/views/performance.py
-msgid "Section Name"
-msgstr "Назва розділу"
-
-#: courses/views/engagement.py courses/views/performance.py
-msgid "Subsection Name"
-msgstr "Назва підрозділу"
-
-#: courses/views/engagement.py
-msgid "Video Name"
-msgstr "Ім’я відео"
-
-#. Translators: Do not translate UTC.
-#: courses/views/enrollment.py
-msgid ""
-"Demographic student data was last updated %(update_date)s at %(update_time)s"
-" UTC."
-msgstr ""
-"Демографічні дані студента в останнє були оновленні %(update_date)s о "
-"%(update_time)s UTC."
-
-#. Translators: This sentence is displayed at the bottom of the page and
-#. describe the demographics data displayed.
-#: courses/views/enrollment.py
-msgid ""
-"All above demographic data was self-reported at the time of registration."
-msgstr ""
-"Всі вищевказані демографічні дані були повідомилені під час реєстрації."
-
-#: courses/views/enrollment.py
-msgid "Enrollment Activity"
-msgstr "Активність з зарахувань"
-
-#. Translators: Do not translate UTC.
-#: courses/views/enrollment.py
-msgid ""
-"Enrollment activity data was last updated %(update_date)s at %(update_time)s"
-" UTC."
-msgstr ""
-"Дані активності з зарахувань на курс в останнє були оновленні "
-"%(update_date)s о %(update_time)s UTC."
-
-#: courses/views/enrollment.py
-msgid "Enrollment Demographics by Age"
-msgstr "Демографічні зарахування за віком"
-
-#: courses/views/enrollment.py
-msgid "Enrollment Demographics by Education"
-msgstr "Демографічні зарахування за освітою"
-
-#: courses/views/enrollment.py
-msgid "Enrollment Demographics by Gender"
-msgstr "Зарахування Демографія за статтю"
-
-#: courses/views/enrollment.py
-msgid "Enrollment Geography"
-msgstr "Географія учасників"
-
-#. Translators: Do not translate UTC.
-#: courses/views/enrollment.py
-msgid ""
-"Geographic student data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr ""
-"Географічні дані студента в останнє були оновленні %(update_date)s о "
-"%(update_time)s UTC."
-
-#. Translators: Do not translate UTC.
-#: courses/views/performance.py
-msgid ""
-"Problem submission data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr ""
-"Дані з відповідей на завдання в останнє були оновленні %(update_date)s о "
-"%(update_time)s UTC."
-
-#: courses/views/performance.py
-msgid "Assignment Name"
-msgstr "Найменування Завдання"
-
-#: courses/views/performance.py
-msgid "No submissions received for these exercises."
-msgstr "Ніяких відповідей для цих вправ не отримано."
-
-#: courses/views/performance.py
-msgid "No submissions received for these assignments."
-msgstr "Ніяких відповідей для цих призначінь не отримано."
-
-#: courses/views/performance.py courses/views/performance.py
-msgid "Performance: Problem Submissions"
-msgstr ""
-
-#: courses/views/performance.py
-msgid "Graded Content: %(assignment_type)s"
-msgstr ""
-
-#: courses/views/performance.py courses/views/performance.py
-msgid "Problem Name"
-msgstr "Назва завдання"
-
-#: settings/base.py
-msgid "Terms of Service"
-msgstr "Умови надання послуг"
-
-#: settings/base.py
-msgid "Privacy Policy"
-msgstr "Політика конфіденційності"
-
-#: templates/403.html templates/403.html.py
+#: templates/403.html templates/403.html
 msgid "Access Denied"
 msgstr "У доступі відмовлено"
 
@@ -1271,7 +891,7 @@ msgstr ""
 msgid "Logout then Login"
 msgstr "Вийдіть та знову авторизуйтесь"
 
-#: templates/404.html templates/404.html.py
+#: templates/404.html templates/404.html
 msgid "Page Not Found"
 msgstr "Сторінку не знайдено"
 
@@ -1281,7 +901,7 @@ msgid ""
 "correct and if not try again."
 msgstr ""
 
-#: templates/500.html templates/500.html.py
+#: templates/500.html templates/500.html
 msgid "An Error Occurred"
 msgstr "Сталася помилка."
 
@@ -1291,7 +911,7 @@ msgid ""
 "refreshing this page or retracing your steps."
 msgstr ""
 
-#: templates/503.html templates/503.html.py
+#: templates/503.html templates/503.html
 msgid "We're having trouble loading this page. Please try again in a minute."
 msgstr ""
 "Виникла проблема при завантаженні сторінки. Спробуйте ще раз через хвилину."

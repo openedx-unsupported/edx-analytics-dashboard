@@ -3,6 +3,8 @@
 from ddt import data, ddt
 import httpretty
 import mock
+from waffle.testutils import override_switch
+
 from django.test import TestCase
 
 from courses.tests.test_views import ViewTestMixin, CourseViewTestMixin, DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID, \
@@ -28,8 +30,8 @@ class CourseHomeViewTests(CourseViewTestMixin, TestCase):
         self.skipTest('The course homepage does not check for the existence of a course.')
 
     @httpretty.activate
+    @override_switch('enable_course_api', active=True)
     def test_course_overview(self):
-        self.toggle_switch('enable_course_api', True)
         self.mock_course_detail(DEMO_COURSE_ID, {'start': '2015-01-23T00:00:00Z', 'end': None})
         response = self.client.get(self.path(course_id=DEMO_COURSE_ID))
         self.assertEqual(response.status_code, 200)
@@ -44,8 +46,8 @@ class CourseHomeViewTests(CourseViewTestMixin, TestCase):
         self.assertEqual(links.get('Studio'), 'http://cms-host/{}'.format(DEMO_COURSE_ID))
 
     @httpretty.activate
+    @override_switch('enable_course_api', active=True)
     def test_course_ended(self):
-        self.toggle_switch('enable_course_api', True)
         self.mock_course_detail(DEMO_COURSE_ID, {
             'start': '2015-01-01T00:00:00Z',
             'end': '2015-02-15T00:00:00Z'
@@ -94,10 +96,10 @@ class CourseIndexViewTests(CourseAPIMixin, ViewTestMixin, CoursePermissionsExcep
         self.assertEqual(response.status_code, 403)
 
     @httpretty.activate
+    @override_switch('enable_course_api', active=True)
+    @override_switch('display_names_for_course_index', active=True)
     def test_get_with_course_api(self):
         """ Verify that the view properly retrieves data from the course API. """
-        self.toggle_switch('enable_course_api', True)
-        self.toggle_switch('display_names_for_course_index', True)
         self.mock_course_list()
         courses = self._create_course_list(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID, with_name=True)
         self.assertIsNotNone(httpretty.last_request())

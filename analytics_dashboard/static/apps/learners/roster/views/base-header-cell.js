@@ -63,7 +63,7 @@ define(function(require) {
         },
 
         renderSortState: function(column, direction) {
-            var sortIcon = this.$('i'),
+            var sortIcon = this.$('span.fa'),
                 sortDirectionMap,
                 directionOrNeutral;
             if (column && column.cid !== this.column.cid) {
@@ -76,14 +76,14 @@ define(function(require) {
             sortDirectionMap = {
                 // Translators: "sort ascending" describes the current
                 // sort state to the user.
-                ascending: {screenReaderText: gettext('sort ascending'), iconClass: 'fa-sort-asc'},
+                ascending: {screenReaderText: gettext('sort ascending'), iconClass: 'fa fa-sort-asc'},
                 // Translators: "sort descending" describes the
                 // current sort state to the user.
-                descending: {screenReaderText: gettext('sort descending'), iconClass: 'fa-sort-desc'},
+                descending: {screenReaderText: gettext('sort descending'), iconClass: 'fa fa-sort-desc'},
                 // Translators: "click to sort" tells the user that
                 // they can click this link to sort by the current
                 // field.
-                neutral: {screenReaderText: gettext('click to sort'), iconClass: 'fa-sort'}
+                neutral: {screenReaderText: gettext('click to sort'), iconClass: 'fa fa-sort'}
             };
             sortIcon.removeClass('fa-sort fa-sort-asc fa-sort-desc');
             sortIcon.addClass(sortDirectionMap[directionOrNeutral].iconClass);

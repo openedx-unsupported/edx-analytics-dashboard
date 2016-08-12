@@ -24,9 +24,6 @@ path.append(DJANGO_ROOT)
 ########## DEBUG CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = False
-
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
-TEMPLATE_DEBUG = DEBUG
 ########## END DEBUG CONFIGURATION
 
 
@@ -146,34 +143,30 @@ FIXTURE_DIRS = (
 
 
 ########## TEMPLATE CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#template-context-processors
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
-    'django.core.context_processors.static',
-    'django.core.context_processors.tz',
-    'django.contrib.messages.context_processors.messages',
-    'django.core.context_processors.request',
-    'core.context_processors.common',
-)
-
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-)
-
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
-TEMPLATE_DIRS = (
-    normpath(join(DJANGO_ROOT, 'templates')),
-)
-
-ALLOWED_INCLUDE_ROOTS = (
-    normpath(join(DJANGO_ROOT, 'templates')),
-)
-
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#templates
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True,
+        'DIRS': [
+            normpath(join(DJANGO_ROOT, 'templates')),
+        ],
+        'OPTIONS': {
+            'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
+                'core.context_processors.common',
+            ],
+            'debug': True,
+        }
+    }
+]
 ########## END TEMPLATE CONFIGURATION
 
 
@@ -221,7 +214,7 @@ DJANGO_APPS = (
     'django.contrib.admin',
     'waffle',
     'django_countries',
-    'announcements',
+    'pinax.announcements',
     'compressor',
 )
 

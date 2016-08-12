@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-24 14:25-0400\n"
-"PO-Revision-Date: 2016-05-24 18:28+0000\n"
+"POT-Creation-Date: 2016-08-04 11:40-0400\n"
+"PO-Revision-Date: 2016-08-04 15:42+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/open-edx/edx-platform/language/lt_LT/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "Prisijungti"
 msgid "Insights to help course teams improve courses."
 msgstr "Įžvalgos, skirtos padėti kursų komandoms tobulinti kursus."
 
-#: core/templates/core/landing.html courses/views/__init__.py
+#: core/templates/core/landing.html
 msgid "Who are my students?"
 msgstr "Kas yra mano kurso dalyviai?"
 
@@ -38,8 +38,6 @@ msgstr ""
 
 #: core/templates/core/landing.html
 #: courses/templates/courses/enrollment_geography.html
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/__init__.py
 msgid "Enrollment"
 msgstr "Registracija"
 
@@ -56,8 +54,6 @@ msgstr ""
 "nepakankamai naudojamus išteklius."
 
 #: core/templates/core/landing.html
-#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
-#: courses/views/__init__.py
 msgid "Engagement"
 msgstr "Dalyvavimas"
 
@@ -71,8 +67,6 @@ msgstr ""
 "Pakoreguokite kursą atsižvelgdami į tai, kas kurso dalyviams kelia sunkumų."
 
 #: core/templates/core/landing.html
-#: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/__init__.py
 msgid "Performance"
 msgstr "Produktyvumas"
 
@@ -110,120 +104,6 @@ msgid ""
 msgstr ""
 "%(link_start)sMūsų paramos centras%(link_end)s gali jums padėti rasti "
 "sprendimus."
-
-#. Translators: Simply move the percent symbol (%) to the correct location. Do
-#. NOT translate the word statistic.
-#: core/templatetags/dashboard_extras.py
-msgid "{statistic}%"
-msgstr "{statistic}%"
-
-#. Translators: '{percentage}' in as a placeholder for the percentage value.
-#: courses/presenters/engagement.py
-msgid "{percentage} of current students"
-msgstr ""
-
-#: courses/presenters/enrollment.py
-msgid "Female"
-msgstr "Moteris"
-
-#: courses/presenters/enrollment.py
-msgid "Male"
-msgstr "Vyras"
-
-#. Translators: Other gender
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py courses/presenters/enrollment.py
-msgid "Other"
-msgstr "Kita"
-
-#. Translators: Unknown gender
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py courses/presenters/enrollment.py
-#: courses/presenters/enrollment.py
-msgid "Unknown"
-msgstr "Nežinoma"
-
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py
-msgid "None"
-msgstr "Nėra"
-
-#. Translators: This describes the learner's education level (e.g. Elementary
-#. School Degree).
-#: courses/presenters/enrollment.py courses/tests/test_serializers.py
-msgid "Primary"
-msgstr "Pradinis"
-
-#. Translators: This describes the learner's education level  (e.g. Middle
-#. School Degree).
-#: courses/presenters/enrollment.py
-msgid "Middle"
-msgstr "Vidurys"
-
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py
-msgid "Secondary"
-msgstr "Vidurinis"
-
-#. Translators: This describes the learner's education level (e.g. Associate's
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Associate"
-msgstr "Aukštojo neuniversitetinio arba aukštesniojo išsilavinimo"
-
-#. Translators: This describes the learner's education level (e.g. Bachelor's
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Bachelor's"
-msgstr "Bakalauras"
-
-#. Translators: This describes the learner's education level (e.g. Master's
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Master's"
-msgstr "Magistras"
-
-#. Translators: This describes the learner's education level (e.g. Doctorate
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Doctorate"
-msgstr "Daktaro laipsnis"
-
-#. Translators: This is a placeholder for enrollment data collected without a
-#. known geolocation.
-#: courses/presenters/enrollment.py
-msgid "Unknown Country"
-msgstr "Šalis nežinoma"
-
-#. Translators: This describes the data displayed in the chart below.
-#: courses/presenters/performance.py
-#: courses/templates/courses/submissions_chart_info.html
-msgid "Submissions"
-msgstr "Pateiktys"
-
-#: courses/presenters/performance.py
-msgid "Submissions for Part {part_number}: {part_description}"
-msgstr "Pateiktys {part_number} daliai: {part_description}"
-
-#: courses/presenters/performance.py
-msgid "Part {part_number}: {part_description}"
-msgstr "{part_number} dalis: {part_description}"
-
-#: courses/presenters/performance.py
-msgid "Submissions: {part_description}"
-msgstr "Pateiktys: {part_description}"
-
-#: courses/presenters/performance.py
-msgid "{part_description}"
-msgstr "{part_description}"
-
-#: courses/presenters/performance.py
-msgid "Submissions for Part {part_number}"
-msgstr "Pateiktys {part_number} daliai"
-
-#: courses/presenters/performance.py
-msgid "Part {part_number}"
-msgstr "{part_number} dalis"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
@@ -330,7 +210,7 @@ msgstr "Kurso dalyviai (pranešę apie save)"
 msgid "Weekly Student Engagement"
 msgstr "Kurso dalyvių dalyvavimas per savaitę"
 
-#: courses/templates/courses/engagement_content.html courses/views/__init__.py
+#: courses/templates/courses/engagement_content.html
 msgid "How many students are interacting with my course?"
 msgstr "Kiek dalyvių yra mano kurse?"
 
@@ -426,7 +306,6 @@ msgid ""
 msgstr ""
 
 #: courses/templates/courses/engagement_video_course.html
-#: courses/views/__init__.py
 msgid "How did students interact with course videos?"
 msgstr ""
 
@@ -497,7 +376,6 @@ msgid "Daily Student Enrollment"
 msgstr "Kurso dalyvių registracija kas dieną"
 
 #: courses/templates/courses/enrollment_activity.html
-#: courses/views/__init__.py
 msgid "How many students are in my course?"
 msgstr "Kiek dalyvių yra mano kurse?"
 
@@ -570,7 +448,6 @@ msgid "Enrollment Over Time"
 msgstr "Registracija per tam tikrą laiką"
 
 #: courses/templates/courses/enrollment_demographics_age.html
-#: courses/views/__init__.py
 msgid "How old are my students?"
 msgstr "Kokio amžiaus mano kurso dalyviai?"
 
@@ -648,7 +525,6 @@ msgid "Age Breakdown"
 msgstr "Analizė pagal amžių"
 
 #: courses/templates/courses/enrollment_demographics_education.html
-#: courses/views/__init__.py
 msgid "What level of education do my students have?"
 msgstr "Kokį išsilavinimą turi mano kurso dalyviai?"
 
@@ -713,7 +589,6 @@ msgid "Educational Breakdown"
 msgstr "Analizė pagal išsilavinimą"
 
 #: courses/templates/courses/enrollment_demographics_gender.html
-#: courses/views/__init__.py
 msgid "What is the student gender breakdown?"
 msgstr "Kokia kurso dalyvių analizė pagal lytį?"
 
@@ -737,7 +612,6 @@ msgid "Geographic Distribution"
 msgstr "Geografinis pasiskirstymas"
 
 #: courses/templates/courses/enrollment_geography.html
-#: courses/views/__init__.py
 msgid "Where are my students?"
 msgstr "Kur gyvena mano kurso dalyviai?"
 
@@ -807,11 +681,10 @@ msgstr "Geografinė analizė"
 msgid "Application"
 msgstr "Paraiška"
 
-#: courses/templates/courses/home.html courses/views/__init__.py
+#: courses/templates/courses/home.html
 msgid "Course Home"
 msgstr "Kurso pagrindinis puslapis"
 
-#. Translators: This refers to the active tab/navigation item.
 #. Translators: This refers to the active tab/navigation item.
 #: courses/templates/courses/home.html templates/lens-navigation.html
 #: templates/submenu_navigation.html
@@ -854,8 +727,7 @@ msgstr ""
 "\"Pagalba\" dešiniajame viršutiniame kampe. Atsiųskite mums atsiliepimą el. "
 "paštu %(email_link)s."
 
-#: courses/templates/courses/learners.html courses/views/__init__.py
-#: courses/views/__init__.py courses/views/learners.py
+#: courses/templates/courses/learners.html
 msgid "Learners"
 msgstr ""
 
@@ -943,7 +815,6 @@ msgid "How are students doing on this subsection?"
 msgstr ""
 
 #: courses/templates/courses/performance_ungraded_content.html
-#: courses/views/__init__.py
 msgid "How are students doing on ungraded exercises?"
 msgstr ""
 
@@ -976,265 +847,12 @@ msgstr ""
 msgid "Try Again"
 msgstr "Bandykite dar kartą"
 
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Activity"
-msgstr "Aktyvumas"
+#. Translators: This describes the data displayed in the chart below.
+#: courses/templates/courses/submissions_chart_info.html
+msgid "Submissions"
+msgstr "Pateiktys"
 
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Demographics"
-msgstr "Demografija"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Geography"
-msgstr "Geografija"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Age"
-msgstr "Amžius"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Education"
-msgstr "Išsilavinimas"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Gender"
-msgstr "Lytis"
-
-#. Translators: Content as in course content (e.g. things, not the feeling)
-#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
-#: courses/views/engagement.py
-msgid "Content"
-msgstr "Turinys"
-
-#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
-#: courses/views/engagement.py
-msgid "Videos"
-msgstr "Vaizdo įrašai"
-
-#: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/performance.py courses/views/performance.py
-msgid "Graded Content"
-msgstr ""
-
-#: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/performance.py courses/views/performance.py
-msgid "Ungraded Problems"
-msgstr ""
-
-#: courses/views/__init__.py
-msgid "What are students doing in my course?"
-msgstr "Ką kurso dalyviai veikia mano kurse? "
-
-#: courses/views/__init__.py
-msgid "How are students doing on course assignments?"
-msgstr ""
-
-#: courses/views/__init__.py
-msgid "How are students doing on graded course assignments?"
-msgstr ""
-
-#: courses/views/__init__.py
-msgid "What are individual learners doing?"
-msgstr ""
-
-#: courses/views/__init__.py
-msgid "Who is engaged? Who isn't?"
-msgstr ""
-
-#: courses/views/__init__.py
-msgid "All Learners"
-msgstr ""
-
-#. Translators: 'Course ID' is 'Course Identifier', the unique code that
-#. identifies the course
-#: courses/views/__init__.py
-msgid "Course ID"
-msgstr "Kurso identifikacijos numeris"
-
-#: courses/views/__init__.py
-msgid "Course Name"
-msgstr "Kurso pavadinimas"
-
-#. Translators: 'In Progress' and 'Ended' refer to whether students are
-#. actively using the course or it is over.
-#: courses/views/__init__.py
-msgid "In Progress"
-msgstr "Vykdoma"
-
-#: courses/views/__init__.py
-msgid "Ended"
-msgstr ""
-
-#. Translators: This refers to a course that has not yet begun.
-#: courses/views/__init__.py
-msgid "Not Started Yet"
-msgstr ""
-
-#: courses/views/__init__.py
-msgid "Start Date"
-msgstr "Pradžios data"
-
-#: courses/views/__init__.py
-msgid "End Date"
-msgstr ""
-
-#: courses/views/__init__.py
-msgid "Status"
-msgstr "Statusas"
-
-#: courses/views/__init__.py
-msgid "Instructor Dashboard"
-msgstr "Lektoriaus informacinis puslapis"
-
-#: courses/views/__init__.py
-msgid "Courseware"
-msgstr "Kurso medžiaga"
-
-#: courses/views/engagement.py
-msgid "Engagement Content"
-msgstr "Dalyvavimo turinys"
-
-#. Translators: Do not translate UTC.
-#: courses/views/engagement.py
-msgid ""
-"Course engagement data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr ""
-"Dalyvavimo kurse duomenys paskutinį kartą atnaujinti %(update_date)s "
-"%(update_time)s UTC."
-
-#: courses/views/engagement.py
-msgid "Engagement Videos"
-msgstr ""
-
-#. Translators: Do not translate UTC.
-#: courses/views/engagement.py
-msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
-"Vaizdo įrašas paskutinį kartą atnaujintas %(update_date)s %(update_time)s "
-"UTC."
-
-#: courses/views/engagement.py
-msgid "Looks like no one has watched any videos in these sections."
-msgstr ""
-
-#: courses/views/engagement.py courses/views/performance.py
-msgid "Section Name"
-msgstr ""
-
-#: courses/views/engagement.py courses/views/performance.py
-msgid "Subsection Name"
-msgstr ""
-
-#: courses/views/engagement.py
-msgid "Video Name"
-msgstr "Vaizdo įrašo pavadinimas"
-
-#. Translators: Do not translate UTC.
-#: courses/views/enrollment.py
-msgid ""
-"Demographic student data was last updated %(update_date)s at %(update_time)s"
-" UTC."
-msgstr ""
-"Demografiniai kurso dalyvių duomenys paskutinį kartą atnaujinti "
-"%(update_date)s %(update_time)s UTC."
-
-#. Translators: This sentence is displayed at the bottom of the page and
-#. describe the demographics data displayed.
-#: courses/views/enrollment.py
-msgid ""
-"All above demographic data was self-reported at the time of registration."
-msgstr ""
-"Visi minėti demografiniai duomenys buvo savarankiškai pateikti registracijos"
-" metu."
-
-#: courses/views/enrollment.py
-msgid "Enrollment Activity"
-msgstr "Registravimosi aktyvumas"
-
-#. Translators: Do not translate UTC.
-#: courses/views/enrollment.py
-msgid ""
-"Enrollment activity data was last updated %(update_date)s at %(update_time)s"
-" UTC."
-msgstr ""
-"Registravimosi aktyvumo duomenys paskutinį kartą atnaujinti %(update_date)s "
-"%(update_time)s UTC."
-
-#: courses/views/enrollment.py
-msgid "Enrollment Demographics by Age"
-msgstr "Registracijos demografija pagal amžių"
-
-#: courses/views/enrollment.py
-msgid "Enrollment Demographics by Education"
-msgstr "Registracijos demografija pagal išsilavinimą"
-
-#: courses/views/enrollment.py
-msgid "Enrollment Demographics by Gender"
-msgstr "Registracijos demografija pagal lytį"
-
-#: courses/views/enrollment.py
-msgid "Enrollment Geography"
-msgstr "Registracijos geografija"
-
-#. Translators: Do not translate UTC.
-#: courses/views/enrollment.py
-msgid ""
-"Geographic student data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr ""
-"Geografiniai kurso dalyvių duomenys paskutinį kartą atnaujinti "
-"%(update_date)s %(update_time)s UTC."
-
-#. Translators: Do not translate UTC.
-#: courses/views/performance.py
-msgid ""
-"Problem submission data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr ""
-"Užduoties pateikimo data paskutinį kartą atnaujinta %(update_date)s "
-"%(update_time)s UTC."
-
-#: courses/views/performance.py
-msgid "Assignment Name"
-msgstr "Užduoties pavadinimas"
-
-#: courses/views/performance.py
-msgid "No submissions received for these exercises."
-msgstr ""
-
-#: courses/views/performance.py
-msgid "No submissions received for these assignments."
-msgstr ""
-
-#: courses/views/performance.py courses/views/performance.py
-msgid "Performance: Problem Submissions"
-msgstr ""
-
-#: courses/views/performance.py
-msgid "Graded Content: %(assignment_type)s"
-msgstr "Vertinamas turinys: %(assignment_type)s"
-
-#: courses/views/performance.py courses/views/performance.py
-msgid "Problem Name"
-msgstr "Užduoties pavadinimas"
-
-#: settings/base.py
-msgid "Terms of Service"
-msgstr "Naudojimosi sąlygos "
-
-#: settings/base.py
-msgid "Privacy Policy"
-msgstr "Privatumo politika"
-
-#: templates/403.html templates/403.html.py
+#: templates/403.html templates/403.html
 msgid "Access Denied"
 msgstr "Prieiga draudžiama"
 
@@ -1252,7 +870,7 @@ msgstr ""
 msgid "Logout then Login"
 msgstr "Atsijunkite ir tada prisijunkite"
 
-#: templates/404.html templates/404.html.py
+#: templates/404.html templates/404.html
 msgid "Page Not Found"
 msgstr "Puslapis nerastas"
 
@@ -1264,7 +882,7 @@ msgstr ""
 "Nepavyko rasti jūsų ieškomo puslapio. Įsitikinkite, kad URL nuoroda yra "
 "teisinga, o jeigu ne, bandykite iš naujo. "
 
-#: templates/500.html templates/500.html.py
+#: templates/500.html templates/500.html
 msgid "An Error Occurred"
 msgstr "Įvyko klaida"
 
@@ -1276,7 +894,7 @@ msgstr ""
 "Mūsų serveriams nepavyko įvykdyti jūsų užklausos. Prašom bandyti dar kartą "
 "atnaujinant šį puslapį arba pakartojant savo žingsnius."
 
-#: templates/503.html templates/503.html.py
+#: templates/503.html templates/503.html
 msgid "We're having trouble loading this page. Please try again in a minute."
 msgstr ""
 

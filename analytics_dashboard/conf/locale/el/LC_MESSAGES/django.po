@@ -11,15 +11,16 @@
 # Dimosthenis Karakatsoulis <karakatsou@gmail.com>, 2015-2016
 # Elisabeth Georgiado <almanean@yahoo.gr>, 2015
 # Giannoulis Thanasis <thanasis@giannoulis.net>, 2015
+# Katerina Ligkovanli <kaligova@gmail.com>, 2016
 # kostas kalatzis <koskalat@gmail.com>, 2015
-# Nick Gikopoulos <ngick1@gmail.com>, 2014
+# Nick Gikopoulos, 2014
 # Theofilos Chamalis <theofxam@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-24 14:25-0400\n"
-"PO-Revision-Date: 2016-05-24 18:43+0000\n"
+"POT-Creation-Date: 2016-08-04 11:40-0400\n"
+"PO-Revision-Date: 2016-08-04 15:42+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Greek (http://www.transifex.com/open-edx/edx-platform/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -34,9 +35,11 @@ msgstr "Είσοδος"
 
 #: core/templates/core/landing.html
 msgid "Insights to help course teams improve courses."
-msgstr "Ιδέες για τη βοήθεια των ομάδων μαθημάτων να βελτιώσουν τα μαθήματα."
+msgstr ""
+"Ιδέες που μπορούν να βοηθήσουν τις ομάδες μαθημάτων στη βελτίωση των "
+"μαθημάτων τους."
 
-#: core/templates/core/landing.html courses/views/__init__.py
+#: core/templates/core/landing.html
 msgid "Who are my students?"
 msgstr "Ποιοι είναι μαθητές μου;"
 
@@ -48,8 +51,6 @@ msgstr ""
 
 #: core/templates/core/landing.html
 #: courses/templates/courses/enrollment_geography.html
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/__init__.py
 msgid "Enrollment"
 msgstr "Συμμετοχή"
 
@@ -66,8 +67,6 @@ msgstr ""
 " μαθητών προς λιγότερο χρησιμοποιούμενο υλικό."
 
 #: core/templates/core/landing.html
-#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
-#: courses/views/__init__.py
 msgid "Engagement"
 msgstr "Ενασχόληση"
 
@@ -82,8 +81,6 @@ msgid "Adjust your course based on where students are struggling."
 msgstr "Προσαρμόστε το μάθημα σύμφωνα με τις δυσκολίες των μαθητών."
 
 #: core/templates/core/landing.html
-#: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/__init__.py
 msgid "Performance"
 msgstr "Επίδοση"
 
@@ -119,120 +116,6 @@ msgid ""
 msgstr ""
 "%(link_start)sΤο κέντρο υποστήριξης μας%(link_end)s μπορεί να σας βοηθήσει "
 "να βρείτε λύσεις."
-
-#. Translators: Simply move the percent symbol (%) to the correct location. Do
-#. NOT translate the word statistic.
-#: core/templatetags/dashboard_extras.py
-msgid "{statistic}%"
-msgstr "{statistic}%"
-
-#. Translators: '{percentage}' in as a placeholder for the percentage value.
-#: courses/presenters/engagement.py
-msgid "{percentage} of current students"
-msgstr "{percentage} από τους υπάρχοντες μαθητές"
-
-#: courses/presenters/enrollment.py
-msgid "Female"
-msgstr "Θήλυ"
-
-#: courses/presenters/enrollment.py
-msgid "Male"
-msgstr "Άρρεν"
-
-#. Translators: Other gender
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py courses/presenters/enrollment.py
-msgid "Other"
-msgstr "Άλλο"
-
-#. Translators: Unknown gender
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py courses/presenters/enrollment.py
-#: courses/presenters/enrollment.py
-msgid "Unknown"
-msgstr "Άγνωστο"
-
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py
-msgid "None"
-msgstr "Ουδέν"
-
-#. Translators: This describes the learner's education level (e.g. Elementary
-#. School Degree).
-#: courses/presenters/enrollment.py courses/tests/test_serializers.py
-msgid "Primary"
-msgstr "Βασική"
-
-#. Translators: This describes the learner's education level  (e.g. Middle
-#. School Degree).
-#: courses/presenters/enrollment.py
-msgid "Middle"
-msgstr "Μεσαία"
-
-#. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py
-msgid "Secondary"
-msgstr "Δευτεροβάθμια"
-
-#. Translators: This describes the learner's education level (e.g. Associate's
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Associate"
-msgstr "Απόφοιτος ανώτερης σχολής διετούς διάρκειας."
-
-#. Translators: This describes the learner's education level (e.g. Bachelor's
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Bachelor's"
-msgstr "Πτυχιούχος"
-
-#. Translators: This describes the learner's education level (e.g. Master's
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Master's"
-msgstr "Μεταπτυχιακό"
-
-#. Translators: This describes the learner's education level (e.g. Doctorate
-#. Degree).
-#: courses/presenters/enrollment.py
-msgid "Doctorate"
-msgstr "Δόκτωρ"
-
-#. Translators: This is a placeholder for enrollment data collected without a
-#. known geolocation.
-#: courses/presenters/enrollment.py
-msgid "Unknown Country"
-msgstr "Άγνωστη χώρα"
-
-#. Translators: This describes the data displayed in the chart below.
-#: courses/presenters/performance.py
-#: courses/templates/courses/submissions_chart_info.html
-msgid "Submissions"
-msgstr "Εγγραφές"
-
-#: courses/presenters/performance.py
-msgid "Submissions for Part {part_number}: {part_description}"
-msgstr "Εγγραφές για το τμήμα:  {part_number}: {part_description}"
-
-#: courses/presenters/performance.py
-msgid "Part {part_number}: {part_description}"
-msgstr "Τμήμα {part_number}: {part_description}"
-
-#: courses/presenters/performance.py
-msgid "Submissions: {part_description}"
-msgstr "Εγγραφές: {part_description}"
-
-#: courses/presenters/performance.py
-msgid "{part_description}"
-msgstr "{part_description}"
-
-#: courses/presenters/performance.py
-msgid "Submissions for Part {part_number}"
-msgstr "Εγγραφές για το τμήμα {part_number}"
-
-#: courses/presenters/performance.py
-msgid "Part {part_number}"
-msgstr "Τμήμα {part_number}"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
@@ -348,7 +231,7 @@ msgstr "Μαθητές (αυτο-αναφερόμενοι)"
 msgid "Weekly Student Engagement"
 msgstr "Εβδομαδιαίος χρόνος ενασχόλησης"
 
-#: courses/templates/courses/engagement_content.html courses/views/__init__.py
+#: courses/templates/courses/engagement_content.html
 msgid "How many students are interacting with my course?"
 msgstr "Πόσοι μαθητές ενασχολούνται με το μάθημά μου;"
 
@@ -455,7 +338,6 @@ msgstr ""
 "σημείο τα παράτησαν οι μαθητές και ποιο σημείο του βίντεο αναπαρήγαγαν ξανά."
 
 #: courses/templates/courses/engagement_video_course.html
-#: courses/views/__init__.py
 msgid "How did students interact with course videos?"
 msgstr "Με ποιον τρόπο ασχολήθηκαν με τα βίντεο οι μαθητές σε αυτό το μάθημα;"
 
@@ -532,7 +414,6 @@ msgid "Daily Student Enrollment"
 msgstr "Καθημερινές συμμετοχές μαθητών"
 
 #: courses/templates/courses/enrollment_activity.html
-#: courses/views/__init__.py
 msgid "How many students are in my course?"
 msgstr "Πόσοι μαθητές υπάρχουν στο μάθημα μου;"
 
@@ -590,7 +471,7 @@ msgstr ""
 #. verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Verified Enrollment"
-msgstr "Επαληθευμένη συμμετοχή"
+msgstr "Πιστοποιημένη εγγραφή"
 
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course on the verified track.
@@ -599,8 +480,8 @@ msgid ""
 "Number of currently enrolled students pursuing a verified certificate of "
 "achievement."
 msgstr ""
-"Αριθμός των μαθητών που δήλωσαν συμμετοχή και επιδιώκουν την απόκτηση "
-"πιστοποιητικού."
+"Αριθμός σπουδαστών που δήλωσαν συμμετοχή και επιδιώκουν την απόκτηση "
+"βεβαίωσης."
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html
@@ -611,7 +492,6 @@ msgid "Enrollment Over Time"
 msgstr "Συμμετοχές σε βάθος χρόνου"
 
 #: courses/templates/courses/enrollment_demographics_age.html
-#: courses/views/__init__.py
 msgid "How old are my students?"
 msgstr "Ποια είναι η ηλικία των μαθητών μου;"
 
@@ -690,7 +570,6 @@ msgid "Age Breakdown"
 msgstr "Ηλικιακή ανάλυση"
 
 #: courses/templates/courses/enrollment_demographics_education.html
-#: courses/views/__init__.py
 msgid "What level of education do my students have?"
 msgstr "Ποιο είναι το μορφωτικό επίπεδο των μαθητών μου;"
 
@@ -755,7 +634,6 @@ msgid "Educational Breakdown"
 msgstr "Ανάλυση μορφωτικού επιπέδου"
 
 #: courses/templates/courses/enrollment_demographics_gender.html
-#: courses/views/__init__.py
 msgid "What is the student gender breakdown?"
 msgstr "Ποια είναι η ανάλυση του φύλου των μαθητών;"
 
@@ -777,7 +655,6 @@ msgid "Geographic Distribution"
 msgstr "Γεωγραφική κατανομή"
 
 #: courses/templates/courses/enrollment_geography.html
-#: courses/views/__init__.py
 msgid "Where are my students?"
 msgstr "Που είναι οι μαθητές μου;"
 
@@ -847,11 +724,10 @@ msgstr "Γεωγραφική ανάλυση"
 msgid "Application"
 msgstr "Εφαρμογή"
 
-#: courses/templates/courses/home.html courses/views/__init__.py
+#: courses/templates/courses/home.html
 msgid "Course Home"
 msgstr "Αρχική σελίδα μαθήματος"
 
-#. Translators: This refers to the active tab/navigation item.
 #. Translators: This refers to the active tab/navigation item.
 #: courses/templates/courses/home.html templates/lens-navigation.html
 #: templates/submenu_navigation.html
@@ -860,7 +736,7 @@ msgstr "Ενεργό"
 
 #: courses/templates/courses/home.html
 msgid "Basic Course Information"
-msgstr "Βασικές πληροφορίες μαθήματος"
+msgstr "Βασικές πληροφορίες για το μάθημα"
 
 #. Translators: This title describes a list of links to outside tools for this
 #. course.
@@ -895,8 +771,7 @@ msgstr ""
 "σχετικά με την εφαρμογή %(application_name)s. Στείλτε μας τα σχόλιά σας στη "
 "διεύθυνση %(email_link)s."
 
-#: courses/templates/courses/learners.html courses/views/__init__.py
-#: courses/views/__init__.py courses/views/learners.py
+#: courses/templates/courses/learners.html
 msgid "Learners"
 msgstr "Μαθητές"
 
@@ -997,7 +872,6 @@ msgid "How are students doing on this subsection?"
 msgstr "Πώς τα πάνε οι μαθητές σε αυτή την υποενότητα;"
 
 #: courses/templates/courses/performance_ungraded_content.html
-#: courses/views/__init__.py
 msgid "How are students doing on ungraded exercises?"
 msgstr "Πώς τα πάνε οι μαθητές στις μη βαθμολογούμενες ασκήσεις;"
 
@@ -1034,267 +908,12 @@ msgstr ""
 msgid "Try Again"
 msgstr "Προσπαθήστε ξανά"
 
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Activity"
-msgstr "Δραστηριότητα"
+#. Translators: This describes the data displayed in the chart below.
+#: courses/templates/courses/submissions_chart_info.html
+msgid "Submissions"
+msgstr "Εγγραφές"
 
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Demographics"
-msgstr "Δημογραφικά στοιχεία"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Geography"
-msgstr "Τοποθεσία"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Age"
-msgstr "Ηλικία"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Education"
-msgstr "Εκπαίδευση"
-
-#: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/enrollment.py
-msgid "Gender"
-msgstr "Φύλο"
-
-#. Translators: Content as in course content (e.g. things, not the feeling)
-#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
-#: courses/views/engagement.py
-msgid "Content"
-msgstr "Περιεχόμενο"
-
-#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
-#: courses/views/engagement.py
-msgid "Videos"
-msgstr "Βίντεο"
-
-#: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/performance.py courses/views/performance.py
-msgid "Graded Content"
-msgstr "Βαθμολογούμενο περιεχόμενο"
-
-#: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/performance.py courses/views/performance.py
-msgid "Ungraded Problems"
-msgstr "Αβαθμολόγητα προβλήματα"
-
-#: courses/views/__init__.py
-msgid "What are students doing in my course?"
-msgstr "Με τι ασχολούνται οι μαθητές στο μάθημά μου;"
-
-#: courses/views/__init__.py
-msgid "How are students doing on course assignments?"
-msgstr "Πώς τα πάνε οι μαθητές στις εργασίες του μαθήματος;"
-
-#: courses/views/__init__.py
-msgid "How are students doing on graded course assignments?"
-msgstr "Πώς τα πάνε οι μαθητές στις βαθμολογούμενες εργασίες του μαθήματος;"
-
-#: courses/views/__init__.py
-msgid "What are individual learners doing?"
-msgstr "Με τι ασχολούνται οι ανεξάρτητοι μαθητές;"
-
-#: courses/views/__init__.py
-msgid "Who is engaged? Who isn't?"
-msgstr ""
-
-#: courses/views/__init__.py
-msgid "All Learners"
-msgstr "Όλοι οι μαθητές"
-
-#. Translators: 'Course ID' is 'Course Identifier', the unique code that
-#. identifies the course
-#: courses/views/__init__.py
-msgid "Course ID"
-msgstr "ID μαθήματος"
-
-#: courses/views/__init__.py
-msgid "Course Name"
-msgstr "Όνομα μαθήματος"
-
-#. Translators: 'In Progress' and 'Ended' refer to whether students are
-#. actively using the course or it is over.
-#: courses/views/__init__.py
-msgid "In Progress"
-msgstr "Σε εξέλιξη"
-
-#: courses/views/__init__.py
-msgid "Ended"
-msgstr "Έληξε"
-
-#. Translators: This refers to a course that has not yet begun.
-#: courses/views/__init__.py
-msgid "Not Started Yet"
-msgstr "Δεν έχει ξεκκινήσει ακόμη"
-
-#: courses/views/__init__.py
-msgid "Start Date"
-msgstr "Ημερομηνία έναρξης"
-
-#: courses/views/__init__.py
-msgid "End Date"
-msgstr "Ημερομηνία λήξης"
-
-#: courses/views/__init__.py
-msgid "Status"
-msgstr "Κατάσταση"
-
-#: courses/views/__init__.py
-msgid "Instructor Dashboard"
-msgstr "Πίνακας καθηγητή"
-
-#: courses/views/__init__.py
-msgid "Courseware"
-msgstr "Υλικό μαθήματος"
-
-#: courses/views/engagement.py
-msgid "Engagement Content"
-msgstr "Περιεχόμενο προς ενασχόληση"
-
-#. Translators: Do not translate UTC.
-#: courses/views/engagement.py
-msgid ""
-"Course engagement data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr ""
-"Τα δεδομένα των δραστηριοτήτων του μαθήματος ενημερώθηκαν την "
-"%(update_date)s στις %(update_time)s UTC."
-
-#: courses/views/engagement.py
-msgid "Engagement Videos"
-msgstr "Βίντεο ενασχολήσεων"
-
-#. Translators: Do not translate UTC.
-#: courses/views/engagement.py
-msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
-"Τα δεδομένα των βίντεο ενημερώθηκαν την %(update_date)s στις %(update_time)s"
-" UTC."
-
-#: courses/views/engagement.py
-msgid "Looks like no one has watched any videos in these sections."
-msgstr ""
-"Φαίνεται ότι κανείς δεν έχει παρακολουθήσει κανένα από τα βίντεο σε αυτές "
-"τις ενότητες."
-
-#: courses/views/engagement.py courses/views/performance.py
-msgid "Section Name"
-msgstr "Όνομα ενότητας"
-
-#: courses/views/engagement.py courses/views/performance.py
-msgid "Subsection Name"
-msgstr "Όνομα υποενότητας"
-
-#: courses/views/engagement.py
-msgid "Video Name"
-msgstr "Όνομα βίντεο"
-
-#. Translators: Do not translate UTC.
-#: courses/views/enrollment.py
-msgid ""
-"Demographic student data was last updated %(update_date)s at %(update_time)s"
-" UTC."
-msgstr ""
-"Τελευταία ενημέρωση των δημογραφικών στοιχείων την %(update_date)s στις "
-"%(update_time)s UTC."
-
-#. Translators: This sentence is displayed at the bottom of the page and
-#. describe the demographics data displayed.
-#: courses/views/enrollment.py
-msgid ""
-"All above demographic data was self-reported at the time of registration."
-msgstr ""
-"Τα ανωτέρω δημογραφικά στοιχεία καταχωρήθηκαν αυτόματα την ημερομηνία της "
-"εγγραφής."
-
-#: courses/views/enrollment.py
-msgid "Enrollment Activity"
-msgstr "Δραστηριότητα συμμετοχών"
-
-#. Translators: Do not translate UTC.
-#: courses/views/enrollment.py
-msgid ""
-"Enrollment activity data was last updated %(update_date)s at %(update_time)s"
-" UTC."
-msgstr ""
-"Τελευταία ενημέρωση δημογραφικών στοιχείων συμμετοχών την %(update_date)s "
-"στις %(update_time)s UTC."
-
-#: courses/views/enrollment.py
-msgid "Enrollment Demographics by Age"
-msgstr "Δημογραφικά στοιχεία συμμετοχών βάσει ηλικίας"
-
-#: courses/views/enrollment.py
-msgid "Enrollment Demographics by Education"
-msgstr "Δημογραφικά στοιχεία συμμετοχών βάσει εκπαίδευσης"
-
-#: courses/views/enrollment.py
-msgid "Enrollment Demographics by Gender"
-msgstr "Δημογραφικά στοιχεία συμμετοχών βάσει φύλου"
-
-#: courses/views/enrollment.py
-msgid "Enrollment Geography"
-msgstr "Δημογραφικά στοιχεία βάσει χώρας"
-
-#. Translators: Do not translate UTC.
-#: courses/views/enrollment.py
-msgid ""
-"Geographic student data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr ""
-"Τελευταία ενημέρωση γεωγραφικών στοιχείων των μαθητών την %(update_date)s "
-"στις %(update_time)s UTC."
-
-#. Translators: Do not translate UTC.
-#: courses/views/performance.py
-msgid ""
-"Problem submission data was last updated %(update_date)s at %(update_time)s "
-"UTC."
-msgstr ""
-"Τελευταία ενημέρωση στοιχείων υποβολής προβλημάτων την %(update_date)s στις "
-"%(update_time)s UTC."
-
-#: courses/views/performance.py
-msgid "Assignment Name"
-msgstr "Όνομα εργασίας"
-
-#: courses/views/performance.py
-msgid "No submissions received for these exercises."
-msgstr "Δεν παραλήφθησαν υποβολές γι' αυτές τις ασκήσεις."
-
-#: courses/views/performance.py
-msgid "No submissions received for these assignments."
-msgstr "Δεν παραλήφθησαν υποβολές γι' αυτές τις εργασίες."
-
-#: courses/views/performance.py courses/views/performance.py
-msgid "Performance: Problem Submissions"
-msgstr "Απόδοση: υποβολές προβλημάτων"
-
-#: courses/views/performance.py
-msgid "Graded Content: %(assignment_type)s"
-msgstr "Βαθμολογούμενο περιεχόμενο: %(assignment_type)s"
-
-#: courses/views/performance.py courses/views/performance.py
-msgid "Problem Name"
-msgstr "Ονομασία προβλήματος"
-
-#: settings/base.py
-msgid "Terms of Service"
-msgstr "Όροι χρήσης"
-
-#: settings/base.py
-msgid "Privacy Policy"
-msgstr "Πολιτική προστασίας δεδομένων"
-
-#: templates/403.html templates/403.html.py
+#: templates/403.html templates/403.html
 msgid "Access Denied"
 msgstr "Απαγορεύεται η πρόσβαση"
 
@@ -1312,7 +931,7 @@ msgstr ""
 msgid "Logout then Login"
 msgstr "Αποσυνδεθείτε και επανασυνδεθείτε"
 
-#: templates/404.html templates/404.html.py
+#: templates/404.html templates/404.html
 msgid "Page Not Found"
 msgstr "Η σελίδα δεν βρέθηκε"
 
@@ -1325,7 +944,7 @@ msgstr ""
 " η διεύθυνση της σελίδας 'URL' είναι ορθή και εάν δεν είναι προσπαθήστε "
 "ξανά."
 
-#: templates/500.html templates/500.html.py
+#: templates/500.html templates/500.html
 msgid "An Error Occurred"
 msgstr "Παρουσιάστηκε σφάλμα"
 
@@ -1337,7 +956,7 @@ msgstr ""
 "Οι διακομιστές μας δεν μπόρεσαν να ολοκληρώσουν το αίτημά σας. Παρακαλούμε "
 "προσπαθήστε ξανά ανανεώνοντας τη σελίδα ή ελέγχοντας τα βήματά σας."
 
-#: templates/503.html templates/503.html.py
+#: templates/503.html templates/503.html
 msgid "We're having trouble loading this page. Please try again in a minute."
 msgstr ""
 "Προέκυψε ένα πρόβλημα κατά τη φόρτωση της σελίδας που επιλέξατε. Παρακαλούμε"

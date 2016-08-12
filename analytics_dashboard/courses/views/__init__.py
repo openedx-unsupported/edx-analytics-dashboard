@@ -18,7 +18,7 @@ from django.views.generic import TemplateView
 from edx_rest_api_client.exceptions import (HttpClientError, SlumberBaseException)
 from opaque_keys.edx.keys import CourseKey
 import requests
-from waffle import switch_is_active
+from waffle import flag_is_active, switch_is_active
 
 from analyticsclient.client import Client
 from analyticsclient.exceptions import (ClientError, NotFoundError)
@@ -274,7 +274,7 @@ class CourseNavBarMixin(object):
     # Items that will populate the tertiary nav list. This value is optional.
     tertiary_nav_items = []
 
-    def get_primary_nav_items(self):
+    def get_primary_nav_items(self, request):
         """
         Return the primary nav items.
         """
@@ -284,13 +284,15 @@ class CourseNavBarMixin(object):
                 'name': 'enrollment',
                 'label': _('Enrollment'),
                 'view': 'courses:enrollment:activity',
-                'icon': 'fa-child'
+                'icon': 'fa-child',
+                'fragment': ''
             },
             {
                 'name': 'engagement',
                 'label': _('Engagement'),
                 'view': 'courses:engagement:content',
                 'icon': 'fa-bar-chart',
+                'fragment': ''
             },
             {
                 'name': 'performance',
@@ -298,31 +300,33 @@ class CourseNavBarMixin(object):
                 'view': 'courses:performance:graded_content',
                 'icon': 'fa-check-square-o',
                 'switch': 'enable_course_api',
+                'fragment': ''
             },
             {
                 'name': 'learners',
                 'label': _('Learners'),
                 'view': 'courses:learners:learners',
                 'icon': 'fa-users',
-                'switch': 'enable_learner_analytics'
+                'flag': 'display_learner_analytics',
+                'fragment': '#?ignore_segments=inactive'
             }
 
         ]
 
         # Remove disabled items
-        items = filter(is_feature_enabled, items)
+        items = [item for item in items if is_feature_enabled(item, request)]
 
         # Clean each item
         map(self.clean_item, items)
 
         return items
 
-    def _build_nav_items(self, nav_items, active_item):
+    def _build_nav_items(self, nav_items, active_item, request):
         # Deep copy the list since it is a list of dictionaries
         items = copy.deepcopy(nav_items)
 
         # Process only the nav items that are enabled
-        items = filter(is_feature_enabled, items)
+        items = [item for item in items if is_feature_enabled(item, request)]
 
         for item in items:
             item['active'] = active_item == item['name']
@@ -330,17 +334,17 @@ class CourseNavBarMixin(object):
 
         return items
 
-    def get_secondary_nav_items(self):
+    def get_secondary_nav_items(self, request):
         """
         Return the secondary nav items.
         """
-        return self._build_nav_items(self.secondary_nav_items, self.active_secondary_nav_item)
+        return self._build_nav_items(self.secondary_nav_items, self.active_secondary_nav_item, request)
 
-    def get_tertiary_nav_items(self):
+    def get_tertiary_nav_items(self, request):
         """
         Return the tertiary nav items.
         """
-        return self._build_nav_items(self.tertiary_nav_items, self.active_tertiary_nav_item)
+        return self._build_nav_items(self.tertiary_nav_items, self.active_tertiary_nav_item, request)
 
     def clean_item(self, item):
         """
@@ -361,9 +365,9 @@ class CourseNavBarMixin(object):
     def get_context_data(self, **kwargs):
         context = super(CourseNavBarMixin, self).get_context_data(**kwargs)
 
-        primary_nav_items = self.get_primary_nav_items()
-        secondary_nav_items = self.get_secondary_nav_items()
-        tertiary_nav_items = self.get_tertiary_nav_items()
+        primary_nav_items = self.get_primary_nav_items(self.request)
+        secondary_nav_items = self.get_secondary_nav_items(self.request)
+        tertiary_nav_items = self.get_tertiary_nav_items(self.request)
 
         # Get the active primary item and remove it from the list
         primary_nav_item = None
@@ -448,7 +452,7 @@ class CourseHome(CourseTemplateWithNavView):
     page_name = 'course_home'
     page_title = _('Course Home')
 
-    def get_table_items(self):
+    def get_table_items(self, request):
         items = []
 
         enrollment_items = {
@@ -459,27 +463,32 @@ class CourseHome(CourseTemplateWithNavView):
                 {
                     'title': _('How many students are in my course?'),
                     'view': 'courses:enrollment:activity',
-                    'breadcrumbs': [_('Activity')]
+                    'breadcrumbs': [_('Activity')],
+                    'fragment': ''
                 },
                 {
                     'title': _('How old are my students?'),
                     'view': 'courses:enrollment:demographics_age',
-                    'breadcrumbs': [_('Demographics'), _('Age')]
+                    'breadcrumbs': [_('Demographics'), _('Age')],
+                    'fragment': ''
                 },
                 {
                     'title': _('What level of education do my students have?'),
                     'view': 'courses:enrollment:demographics_education',
-                    'breadcrumbs': [_('Demographics'), _('Education')]
+                    'breadcrumbs': [_('Demographics'), _('Education')],
+                    'fragment': ''
                 },
                 {
                     'title': _('What is the student gender breakdown?'),
                     'view': 'courses:enrollment:demographics_gender',
-                    'breadcrumbs': [_('Demographics'), _('Gender')]
+                    'breadcrumbs': [_('Demographics'), _('Gender')],
+                    'fragment': ''
                 },
                 {
                     'title': _('Where are my students?'),
                     'view': 'courses:enrollment:geography',
-                    'breadcrumbs': [_('Geography')]
+                    'breadcrumbs': [_('Geography')],
+                    'fragment': ''
                 },
             ],
         }
@@ -493,7 +502,8 @@ class CourseHome(CourseTemplateWithNavView):
                 {
                     'title': _('How many students are interacting with my course?'),
                     'view': 'courses:engagement:content',
-                    'breadcrumbs': [_('Content')]
+                    'breadcrumbs': [_('Content')],
+                    'fragment': ''
                 }
             ]
         }
@@ -501,7 +511,8 @@ class CourseHome(CourseTemplateWithNavView):
             engagement_items['items'].append({
                 'title': _('How did students interact with course videos?'),
                 'view': 'courses:engagement:videos',
-                'breadcrumbs': [_('Videos')]
+                'breadcrumbs': [_('Videos')],
+                'fragment': ''
             })
 
         items.append(engagement_items)
@@ -515,17 +526,19 @@ class CourseHome(CourseTemplateWithNavView):
                     {
                         'title': _('How are students doing on graded course assignments?'),
                         'view': 'courses:performance:graded_content',
-                        'breadcrumbs': [_('Graded Content')]
+                        'breadcrumbs': [_('Graded Content')],
+                        'fragment': ''
                     },
                     {
                         'title': _('How are students doing on ungraded exercises?'),
                         'view': 'courses:performance:ungraded_content',
-                        'breadcrumbs': [_('Ungraded Problems')]
+                        'breadcrumbs': [_('Ungraded Problems')],
+                        'fragment': ''
                     }
                 ]
             })
 
-        if switch_is_active('enable_learner_analytics'):
+        if flag_is_active(request, 'display_learner_analytics'):
             items.append({
                 'name': _('Learners'),
                 'icon': 'fa-users',
@@ -534,7 +547,8 @@ class CourseHome(CourseTemplateWithNavView):
                     {
                         'title': _("Who is engaged? Who isn't?"),
                         'view': 'courses:learners:learners',
-                        'breadcrumbs': [_('All Learners')]
+                        'breadcrumbs': [_('All Learners')],
+                        'fragment': '#?ignore_segments=inactive'
                     },
                     # TODO: this is commented out until we complete the deep linking work, AN-6671
                     # {
@@ -564,7 +578,7 @@ class CourseHome(CourseTemplateWithNavView):
     def get_context_data(self, **kwargs):
         context = super(CourseHome, self).get_context_data(**kwargs)
         context.update({
-            'table_items': self.get_table_items()
+            'table_items': self.get_table_items(self.request)
         })
 
         context['page_data'] = self.get_page_data(context)

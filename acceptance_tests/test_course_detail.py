@@ -117,7 +117,7 @@ class CourseHomeTests(CoursePageTestsMixin, WebAppTest):
             self.assertEqual(name.text, item['name'])
 
             # If this element doesn't exist an exception will be thrown
-            name.find_element_by_css_selector('i.ico.fa.%s' % item['icon'])
+            name.find_element_by_css_selector('span.ico.fa.%s' % item['icon'])
 
             # Retrieve the individual table rows
             rows = table.find_elements_by_css_selector('.item')
@@ -137,5 +137,5 @@ class CourseHomeTests(CoursePageTestsMixin, WebAppTest):
 
                 # Check the breadcrumbs
                 breadcrumbs = element.find_element_by_css_selector('.breadcrumbs')
-                breadcrumbs.find_element_by_css_selector('i.ico.fa.%s' % item['icon'])
+                breadcrumbs.find_element_by_css_selector('span.ico.fa.%s' % item['icon'])
                 self.assertEqual(breadcrumbs.text, ' '.join(row['breadcrumbs']))

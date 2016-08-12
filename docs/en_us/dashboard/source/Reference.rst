@@ -89,32 +89,37 @@ For information about viewing enrollment activity data in edX Insights, see
   track, different colors in the filled area represent the contribution of each
   option or track to the current enrollment count.
 
-  In addition to honor code certificates, courses can offer a verified
-  certificate option or enroll students through a professional education
-  program.
-
 * Each enrolled student is included in one, and only one, of the possible
   enrollment tracks on a given date. The student's enrollment track as of 23:59
   UTC is used each day.
 
 **Enrollment Over Time report**
 
-* If a course offers students the option to pursue a verified certificate, the
-  report includes columns for **Verified Enrollment** and **Honor Code
-  Enrollment**.
+This report includes a column for each enrollment option or certification track
+offered by the course. The columns that can appear for edx.org courses follow.
 
-* If a course enrolls students through a professional education program, the
-  report includes columns for **Professional Enrollment** and **Honor Code
-  Enrollment**.
+* The **Audit** column reports the count of learners enrolled in the audit
+  track.
 
-* The **Honor Code Enrollment** column reports the count of students who opted
-  to receive an honor code certificate for the course.
+  * For courses offered after December 2015, learners who choose the audit
+    enrollment option are not eligible to receive certificates.
 
-  At one time, the edx.org site offered students options to "audit" the course
-  only, or to audit the course and then receive an "honor" certificate when a
-  passing grade was achieved. For courses that ran at that time, the **Honor
-  Code Enrollment** column reports the sum of the students with these
-  enrollment options.
+  * For courses that ran between August 2013 and October 2014, a certificate-
+    eligible audit track option was available. Learners who enrolled in the
+    audit track and passed the course could request honor certificates.
+
+* The **Verified** column reports the count of learners enrolled in the
+  verified track. This count does not include learners who have made the
+  additional choice to receive credit (if the course offers credit).
+
+* The **Verified with Credit** column reports the count of learners enrolled in
+  the verified track who have chosen to receive credit if they pass the course.
+
+* The **Professional** column reports the count of learners enrolled through a
+  professional education program.
+
+* The **Honor** column reports the count of learners enrolled in the
+  certificate-eligible honor track.
 
 .. _Demographic Computations:
 
