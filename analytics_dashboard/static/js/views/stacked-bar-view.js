@@ -38,15 +38,14 @@ define(['d3', 'nvd3', 'underscore', 'views/discrete-bar-view'],
                     .showLegend(false)
                     .reduceXTicks(false);  // shows all ticks
 
-                chart.tooltipContent(function(key, x, y, e) {
+                chart.tooltip.contentGenerator(function(o) {
                     var tips = [];
                     _(self.options.trends).each(function(trend) {
-                        var trendY = self.getYAxisFormat()(e.point[trend.key]);
-                        tips.push(self.buildTrendTip(trend, x, trendY, e));
+                        tips.push(self.buildTrendTip(trend, o));
                     });
 
                     return self.hoverTooltipTemplate({
-                        xValue: self.buildTipHeading(e.point),
+                        xValue: self.buildTipHeading(o.data),
                         tips: tips
                     });
                 });

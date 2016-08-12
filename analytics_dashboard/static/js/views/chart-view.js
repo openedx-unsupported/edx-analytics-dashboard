@@ -218,7 +218,8 @@ define(['d3', 'jquery', 'nvd3', 'underscore', 'utils/utils', 'views/attribute-li
                     .y(function(d) {
                         // Simply return the count
                         return d[self.options.y.key];
-                    });
+                    })
+                    .legend.maxKeyLength(25);
             },
 
             getYAxisFormat: function() {

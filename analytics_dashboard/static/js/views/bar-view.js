@@ -50,7 +50,7 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
                     // no labels will be displayed if label space is limited
                     formattedLabel = '';
                 } else if (_(formattedLabel).size() > characterLimit) {
-                    formattedLabel = Utils.truncateText(d, characterLimit);
+                    formattedLabel = Utils.truncateText(x, characterLimit);
                 }
 
                 return formattedLabel;
@@ -65,28 +65,30 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
                     });
             },
 
-            buildTrendTip: function(trend, x, y, e) {
+            buildTrendTip: function(trend, o) {
                 var self = this,
                     swatchColor = trend.color,  // e.g #ff9988 or a function
                     label = trend.title,  // e.g. 'my title' or a function
-                    yValue = y;
+                    key = trend.key ? trend.key : self.options.y.key,
+                    yValue = self.getYAxisFormat()(o.data[key]);
 
                 // bar colors can be dynamically assigned based on value
                 if (_(swatchColor).isFunction()) {
-                    swatchColor = trend.color(x, e.pointIndex);
+                    swatchColor = trend.color(o.index);
                 } else {
                     swatchColor = trend.color;
                 }
 
                 // bar label can be dynamically assigned based on value
                 if (_(label).isFunction()) {
-                    label = trend.title(e.pointIndex);
+                    label = trend.title(o.index);
                 } else {
                     label = trend.title;
                 }
 
                 if (_(self.options).has('interactiveTooltipValueTemplate')) {
-                    yValue = self.options.interactiveTooltipValueTemplate({value: y, point: e.point, options: trend});
+                    yValue = self.options.interactiveTooltipValueTemplate({
+                        value: yValue, point: o.data, options: trend});
                 }
 
                 return {
@@ -114,7 +116,6 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
                     }
                     heading = self.options.interactiveTooltipHeaderTemplate({value: heading});
                 }
-
                 return heading;
             },
 
@@ -123,13 +124,13 @@ define(['d3', 'nvd3', 'underscore', 'utils/utils', 'views/chart-view'],
                 ChartView.prototype.initChart.call(self, chart);
 
                 // NVD3's bar views display tooltips differently than for graphs
-                chart.tooltipContent(function(key, x, y, e) {
-                    var trend = self.options.trends[e.seriesIndex],
+                chart.tooltip.contentGenerator(function(o) {
+                    var trend = self.options.trends[o.data.series],
                     // 'e' contains the raw x-value and 'x' could be formatted (e.g. truncated, ellipse, etc.)
-                        tips = [self.buildTrendTip(trend, x, y, e)];
+                        tips = [self.buildTrendTip(trend, o)];
 
                     return self.hoverTooltipTemplate({
-                        xValue: self.buildTipHeading(e.point),
+                        xValue: self.buildTipHeading(o.data),
                         tips: tips
                     });
                 });
