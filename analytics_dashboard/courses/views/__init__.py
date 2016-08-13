@@ -27,6 +27,7 @@ from core.exceptions import ServiceUnavailableError
 from core.utils import CourseStructureApiClient, sanitize_cache_key
 
 from courses import permissions
+from courses.presenters.performance import CourseReportDownloadPresenter
 from courses.serializers import LazyEncoder
 from courses.utils import is_feature_enabled
 
@@ -538,6 +539,22 @@ class CourseHome(CourseTemplateWithNavView):
                     'breadcrumbs': [_('Learning Outcomes')],
                     'fragment': ''
                 })
+
+            if switch_is_active('enable_problem_response_download'):
+                try:
+                    info = CourseReportDownloadPresenter(self.course_id).get_report_info(
+                        report_name=CourseReportDownloadPresenter.PROBLEM_RESPONSES
+                    )
+                except NotFoundError:
+                    info = {}
+                if 'download_url' in info:
+                    # A problem response report CSV is available:
+                    subitems.append({
+                        'title': _('How are students responding to questions?'),
+                        'view': 'courses:csv:performance_problem_responses',
+                        'breadcrumbs': [_('Problem Response Report')],
+                        'format': 'csv',
+                    })
 
             items.append({
                 'name': _('Performance'),

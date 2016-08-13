@@ -108,6 +108,7 @@ CSV_URLS = ([
                                                                                    PROBLEM_PART_ID_PATTERN),
         csv.PerformanceAnswerDistributionCSV.as_view(),
         name='performance_answer_distribution'),
+    url(r'problem_responses/', csv.PerformanceProblemResponseCSV.as_view(), name='performance_problem_responses')
 ], 'csv')
 
 LEARNER_URLS = ([

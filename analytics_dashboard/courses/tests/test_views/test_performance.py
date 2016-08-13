@@ -49,20 +49,20 @@ class CoursePerformanceViewTestMixin(PatchMixin, CourseStructureViewMixin, Cours
         }
         self.assertDictEqual(nav, expected)
 
-    def get_expected_secondary_nav(self, _course_id):
+    def get_expected_secondary_nav(self, course_id):
         """ Override this for each page. """
         return [
             {
-                'active': True,
+                'active': False,
                 'name': 'graded_content',
                 'label': _('Graded Content'),
-                'href': '#'
+                'href': reverse('courses:performance:graded_content', kwargs={'course_id': course_id}),
             },
             {
-                'active': True,
+                'active': False,
                 'name': 'ungraded_content',
                 'label': _('Ungraded Problems'),
-                'href': '#'
+                'href': reverse('courses:performance:ungraded_content', kwargs={'course_id': course_id}),
             }
         ]
 
@@ -128,9 +128,9 @@ class CoursePerformanceGradedMixin(CoursePerformanceViewTestMixin):
 
     def get_expected_secondary_nav(self, course_id):
         expected = super(CoursePerformanceGradedMixin, self).get_expected_secondary_nav(course_id)
-        expected[1].update({
-            'href': reverse('courses:performance:ungraded_content', kwargs={'course_id': course_id}),
-            'active': False
+        expected[0].update({
+            'href': '#',
+            'active': True,
         })
         return expected
 
@@ -169,9 +169,9 @@ class CoursePerformanceUngradedMixin(CoursePerformanceViewTestMixin):
 
     def get_expected_secondary_nav(self, course_id):
         expected = super(CoursePerformanceUngradedMixin, self).get_expected_secondary_nav(course_id)
-        expected[0].update({
-            'href': reverse('courses:performance:graded_content', kwargs={'course_id': course_id}),
-            'active': False
+        expected[1].update({
+            'href': '#',
+            'active': True,
         })
         return expected
 

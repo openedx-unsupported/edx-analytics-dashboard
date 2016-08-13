@@ -8,6 +8,7 @@ from slugify import slugify
 from waffle import switch_is_active
 
 from courses.presenters.performance import CoursePerformancePresenter, TagsDistributionPresenter
+
 from courses.views import (
     CourseTemplateWithNavView,
     CourseAPIMixin,

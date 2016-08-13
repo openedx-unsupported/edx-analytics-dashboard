@@ -56,6 +56,12 @@
                     <span class="ico fa fa-caret-right" aria-hidden="true"></span>
                   {% endif %}
                 {% endfor %}
+                {% if item.format == "csv" %}
+                  {# Translators: This indicates that the adjacent link will trigger a CSV download. '{{download_icon}}' will be replaced with an icon. #}
+                  {% blocktrans with download_icon='<span class="ico fa fa-download" aria-hidden="true"></span>' %}
+                    ({{download_icon}} CSV Download)
+                  {% endblocktrans %}
+                {% endif %}
               </div>
             </div>
           {% endfor %}

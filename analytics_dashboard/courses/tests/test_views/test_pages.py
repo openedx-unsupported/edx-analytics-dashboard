@@ -7,6 +7,8 @@ from waffle.testutils import override_switch
 
 from django.test import TestCase
 
+from analyticsclient.exceptions import NotFoundError
+
 from courses.tests.test_views import ViewTestMixin, CourseViewTestMixin, DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID, \
     CourseAPIMixin
 
@@ -24,6 +26,19 @@ class CourseHomeViewTests(CourseViewTestMixin, TestCase):
 
         self.assertEqual(response.context['page_title'], 'Course Home')
         self.assertValidCourseName(course_id, response.context)
+
+    def assert_performance_report_link_present(self, expected):
+        """
+        Assert that the Problem Response Report download link is or is not present.
+        """
+        self.mock_course_detail(DEMO_COURSE_ID, {})
+        path = self.path(course_id=DEMO_COURSE_ID)
+        response = self.client.get(path)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context['page_title'], 'Course Home')
+        performance_item = next(g for g in response.context['table_items'] if unicode(g['name']) == u'Performance')
+        performance_views = [item['view'] for item in performance_item['items']]
+        self.assertEqual('courses:csv:performance_problem_responses' in performance_views, expected)
 
     @data(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
     def test_missing_data(self, course_id):
@@ -58,6 +73,29 @@ class CourseHomeViewTests(CourseViewTestMixin, TestCase):
         self.assertEqual(overview_data.get('Start Date'), 'January 01, 2015')
         self.assertEqual(overview_data.get('End Date'), 'February 15, 2015')
         self.assertEqual(overview_data.get('Status'), 'Ended')
+
+    @httpretty.activate
+    @override_switch('enable_course_api', active=True)
+    def test_performance_problem_response_link_default(self):
+        """
+        Ensure the problem response link is disabled by default
+        """
+        self.assert_performance_report_link_present(False)
+
+    @data(True, False)
+    @httpretty.activate
+    @override_switch('enable_course_api', active=True)
+    @override_switch('enable_problem_response_download', active=True)
+    @mock.patch('courses.presenters.performance.CourseReportDownloadPresenter.get_report_info')
+    def test_performance_problem_response_link_enabled(self, available, mock_get_report_info):
+        """
+        When enabled, ensure the problem response link is shown only if a report is available
+        """
+        if available:
+            mock_get_report_info.return_value = {'download_url': 'https://some/url.csv'}
+        else:
+            mock_get_report_info.side_effect = NotFoundError
+        self.assert_performance_report_link_present(available)
 
 
 class CourseIndexViewTests(CourseAPIMixin, ViewTestMixin, CoursePermissionsExceptionMixin, TestCase):
