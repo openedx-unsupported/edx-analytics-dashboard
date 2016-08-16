@@ -25,7 +25,7 @@ define(['moment', 'nvd3', 'underscore', 'views/chart-view'],
 
                 if (_(self.options).has('interactiveTooltipHeaderTemplate')) {
                     self.chart.interactiveLayer.tooltip.headerFormatter(function(d) {
-                        return self.options.interactiveTooltipHeaderTemplate({value: d});
+                        return self.options.interactiveTooltipHeaderTemplate({value: self.formatXTick(d)});
                     });
                 }
             },
