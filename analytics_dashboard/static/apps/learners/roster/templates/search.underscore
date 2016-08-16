@@ -8,15 +8,15 @@
             name="<%- name %>"
             <% if (value) { %> value="<%- value %>" <% } %>
         />
-        <a href="#" type="button" class="clear btn" data-backgrid-action="clear">
+        <button type="button" class="clear btn" data-backgrid-action="clear">
             <span class="fa fa-times" aria-hidden="true"></span>
             <span class="sr-only"><%- clearSearchText %></span>
-        </a>
+        </button>
     </div>
     <span class="input-group-btn">
-        <a href="#" type="button" class="search btn btn-primary">
+        <button type="button" class="search btn btn-primary">
             <span class="fa fa-search" aria-hidden="true"></span>
             <span class="sr-only"><%- executeSearchText %></span>
-        </a>
+        </button>
     </span>
 </div>

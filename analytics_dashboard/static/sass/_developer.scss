@@ -22,10 +22,28 @@
   }
 }
 
+#main-nav .navbar-nav li > button {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
 button.chart-info {
   padding-left: 0;
   padding-top: 0;
   border: none;
+}
+
+.clear.btn {
+  background: transparent;
+}
+
+.course-label {
+  padding-top: 18px;
+  padding-bottom: 0px;
+  padding-left: 15px;
+  padding-right: 15px;
+  min-height: 55px;
+  
 }
 
 .chart-tooltip {
@@ -155,6 +173,16 @@ button.chart-info {
   .nav-section {
     @include a-background(transparent);
   }
+
+  li > button {
+    line-height: 20px;
+    border: none;
+    background: transparent;
+  }
+
+  li > button:focus {
+    outline: dotted 1px #000;
+  }
 }
 
 // lens navigation consists of a drop down and the lens sections in a navigation
@@ -182,7 +210,8 @@ $lens-box-model: border-box;
     .dropdown {
       padding-right: 10px;
 
-      a {
+      a, button {
+        background: transparent;
         text-transform: uppercase;
         color: $navbar-default-link-active-color;
       }
@@ -204,6 +233,10 @@ $lens-box-model: border-box;
       min-height: $lens-nav-height;
       padding-top: 18px;
       padding-bottom: 0px;
+    }
+
+    li > button {
+      min-height: $lens-nav-height;
     }
 
     .nav-section {

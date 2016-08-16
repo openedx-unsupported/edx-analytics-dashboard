@@ -26,7 +26,11 @@ define(function(require) {
         },
 
         events: function() {
-            return _.extend(Backgrid.Extension.ServerSideFilter.prototype.events, {'click .search': 'search'});
+            return _.extend(Backgrid.Extension.ServerSideFilter.prototype.events,
+                {
+                    'click .search': 'search',
+                    'click .clear.btn': 'clear'
+                });
         },
 
         template: _.template(learnerSearchTemplate, null, {variable: null}),
@@ -35,6 +39,10 @@ define(function(require) {
             this.options = options || {};
             this.listenTo(options.collection, 'sync', this.render);
             Backgrid.Extension.ServerSideFilter.prototype.initialize.call(this, options);
+        },
+
+        clearButton: function() {
+            return this.$el.find('button[data-backgrid-action=clear]');
         },
 
         render: function() {
@@ -69,6 +77,7 @@ define(function(require) {
         clear: function(event) {
             event.preventDefault();
             this.collection.unsetSearchString();
+            this.searchBox().val('');
             this.execute();
         },
 
