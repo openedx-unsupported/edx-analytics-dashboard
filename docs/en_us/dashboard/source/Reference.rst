@@ -578,8 +578,9 @@ in a different spreadsheet application or a text editor.
 Individual Learner Computations
 *******************************
 
-.. note:: This feature is not yet supported. EdX is currently testing the
- individual learner activity feature.
+.. note:: Performance testing is currently in progress for the learner
+  activity feature. While this testing is in progress, this feature is
+  available to a limited number of users at a given time.
 
 For information about the report and charts that are available in Insights
 for individual learner activities, see :ref:`Learner Activity`.
@@ -624,14 +625,14 @@ for individual learner activities, see :ref:`Learner Activity`.
   comment added by the learner. It does not include any other interactions,
   such as editing a past contribution or voting for a post or response.
 
-* The percentiles that are used to color code values on the learner roster and
-  key activity report are computed for each metric individually. The percentile
-  computations use only the data for learners who engaged in the activity:
-  learners with a count of zero, or a ratio of N/A, are not included.
+* The percentiles that are used to provide color and font cues on the learner
+  roster and key activity report are computed for each metric individually. The
+  percentile computations use only the data for learners who engaged in the
+  activity: learners with a count of zero are not included.
 
-  * Values in the 15th percentile or below appear in red.
+  * Values in the 15th percentile or below appear underlined and in red font.
   * Values in the 16th to 84th percentile appear in black.
-  * Values in the 85th percentile and above appear in green.
+  * Values in the 85th percentile and above appear in bold, green font.
 
 .. _Error Conditions:
 

@@ -4,8 +4,9 @@
 Learner Activity
 ################
 
-.. note:: This feature is not yet supported. EdX is currently testing the
- individual learner activity feature.
+.. note:: Performance testing is currently in progress for the learner
+  activity feature. While this testing is in progress, this feature is
+  available to a limited number of users at a given time.
 
 Which learners, specifically, are engaging with my course? Who is struggling,
 and who is doing well? Investigating and comparing the activities of individual
@@ -59,19 +60,24 @@ following options.
 
 * Search for a learner by name or username.
 
+* Filter the report to include only learners who have completed one or more of
+  the key activities in the last 14 days. (However, note that only metrics for
+  the last seven days are reported. As a result, this filter might also help
+  you identify learners who have disengaged during the past week.)
+
 * Select an enrollment track to report only learners who are enrolled in that
   track.
 
 * Select one cohort (in a course that includes learner cohorts).
 
 To help you compare an individual learner's level of engagement to that of the
-class as a whole, the numbers on the report are color coded.
+class as a whole, the numbers on the report include these color and font cues.
 
-* Red: The learner's activity is in the 15th percentile or below. These
-  learners might be falling behind or struggling.
+* Red, underlined: The learner's activity is in the 15th percentile or below.
+  These values can indicate learners who might be falling behind or struggling.
 
-* Green: The learner's activity is in the 85th percentile or above. These
-  learners might be doing particularly well.
+* Green, bold: The learner's activity is in the 85th percentile or above.
+  These values can indicate learners who might be doing particularly well.
 
 * Black: All other values.
 
@@ -80,7 +86,7 @@ order by number of problems tried.
 
 .. image:: ../images/learner_roster.png
  :width: 600
- :alt: A learner roster showing differently colored numbers for values in
+ :alt: A learner roster showing different color and font cues for values in
   different percentiles.
 
 .. Downloading the Report section when added
@@ -185,18 +191,18 @@ Identifying Learners Who Are At Risk
 ====================================
 
 To identify learners who are falling behind, and who might be at risk of
-failing, course teams can use the 15th percentile and below color coding that
-is automatically indicated for values on the learner roster and key activity
-report. For example, a course team member can sort the report using any of the
-metrics, and then scan the report to locate any learners with a value that
-appears in red. In the example that follows, reported values in the 15th
-percentile and below appear in red and are circled.
+failing, course teams can use the identifiers for activity in the 15th
+percentile and below on the learner roster and key activity report. For
+example, a course team member can sort the report using any of the metrics, and
+then scan the report to locate any learners with a value that is underlined and
+in red. In the example that follows, reported values in the 15th percentile and
+below are circled.
 
 .. image:: ../images/learner_15thpercentile.png
  :width: 600
  :alt: A learner activity report that includes a learner who has not watched
-     any videos at all, and two other learners who have only tried two
-     problems.
+     any videos at all, and another learner with two problems correct who has
+     13.5 attempts per problem correct.
 
 When you review the report, your knowledge of the context can help you decide
 whether, and how, to intervene. Some possible scenarios follow.
