@@ -42,18 +42,27 @@ tabular format and can be downloaded. See the **Content Engagement Breakdown**
 report.
 
 Examples of the Weekly Student Engagement chart follow. The first example shows
-a course that started only a few weeks ago. Callouts provide context for the
-data that is shown by indicating several recent occurrences: the beginning of
-the beta test, the course start date, and the due date of the first homework.
+a course a few weeks after the start date. The numbered callouts in the image
+provide context for the data that is shown.
 
 .. image:: ../images/engagement_chart_start.png
- :alt: A graph showing changes in number of engaged students over time.
+ :alt: A graph showing changes in the number of engaged students over time.
 
-In the second example, a small, private online course was developed on one
-instance of the platform, and then exported and imported to a different
-instance just before the course start date. The tooltip shows the number of
-students engaging in different activities on the same day that the final
-homework was due.
+#. Course development on edx.org, a period when engagement levels were low in
+   all three categories.
+
+#. The beginning of the beta test, when a slight increase in all of the
+   engagement categories can be detected.
+
+#. The course start date, when the number of active students increased
+   significantly.
+
+#. The due date of the first homework, when the number of students who tried a
+   problem increased.
+
+The second example is for a small, private online course. The tooltip shows the
+number of students engaging in different activities on the same day that the
+final homework was due.
 
 .. image:: ../images/engagement_chart_SPOC.png
  :alt: A graph with almost immediate activity in all three measures.

@@ -113,7 +113,7 @@ that one these activities took place. Unlike the roster, this timeline is not
 limited to activity in the last seven days.
 
 Examples of learner activity charts follow. The first example shows the
-activity chart for a learner who is playing 10 or more course videos every
+activity chart for a learner who often plays 10 or more course videos per
 day. However, the learner is not answering any problems correctly, and has not
 yet contributed to the discussions.
 
@@ -128,21 +128,22 @@ understanding of this learner's experience, you could go back to the learner
 roster and key activity report to see if this learner is attempting to answer
 problems, but not managing to answer any correctly.
 
-The next example shows the activity chart for a learner who watches one or more
-videos almost every day, and who has occasionally contributed to the
-discussions. However, there was only a single day on which this learner
-answered any problems correctly. The tooltip shows the counts for each type of
-activity on that day.
+The next example shows the activity chart for a learner who occasionally
+watches videos, and who has not yet contributed to the discussions. However,
+there were only two days on which this learner answered any problems correctly.
+The tooltip shows the counts for each type of activity on one of those days.
 
 .. image:: ../images/learner_quiz.png
  :width: 800
- :alt: A learner activity chart showing ongoing discussion and video activity,
-     and a single day with problems correct activity.
+ :alt: A learner activity chart showing relatively little video activity,
+     and just two days with problems correct activity.
 
 Knowing the context of how your course is set up, this pattern might indicate
-when the learner reached the first homework assignment. Or, it might indicate
-that the learner completed all of the ungraded practice questions and the
-midterm on one day.
+that the learner completed the first homework assignment in your self-paced
+course and then, after some weeks off, completed the second homework
+assignment. Or, it might indicate that the learner started your
+instructor-paced course on schedule, but is now rushing to complete the
+remaining graded assignments before the end of the course.
 
 Sending Email Messages to Learners
 ***********************************
