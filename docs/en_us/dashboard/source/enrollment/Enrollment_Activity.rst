@@ -42,20 +42,21 @@ review in tabular format and can be downloaded.
 
 A couple of examples of this chart follow for different courses. In the first
 example, for a MOOC, you see enrollment climb fairly steadily over a period of
-several months. The markers begin with two "student" enrollments (almost
-certainly the course creator and another course team member) on the day the
+several months. The markers begin with four enrollments (almost
+certainly the course creator and other course team members) on the day the
 course was created in Studio.
 
 .. image:: ../images/enrollment_chart.png
  :alt: A chart with the periods when the rate of enrollment increased
        circled.
 
-The chart does reveal several periods when the rate of new enrollments
+The chart reveals different time periods when the rate of new enrollments
 increased rapidly, or "spiked" (circled). The team for this course might have
 the contextual knowledge to correlate those periods with marketing efforts or
 automated enrollment events, or might want to research possible explanations.
-After the final spike, which coincided with the course start date on 17
-September, enrollment continued to increase.
+After the first spike, which coincided with the course start date on 15 April,
+enrollment continued to increase and an additional spike occurred over a month
+later.
 
 The second example shows the Daily Student Enrollment chart for a small,
 private online course. In this course, the course team used the instructor
