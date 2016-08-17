@@ -14,6 +14,7 @@ SUBSECTION_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'subsection_id'
 VIDEO_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'video_id')
 PIPELINE_VIDEO_ID = r'(?P<pipeline_video_id>([^/+]+[/+][^/+]+[/+][^/]+)+[|]((?:i4x://?[^/]+/[^/]+/[^/]+' \
                     r'/[^@]+(?:@[^/]+)?)|(?:[^/]+)+))'
+TAG_VALUE_ID_PATTERN = r'(?P<tag_value>[\w-]+)'
 
 answer_distribution_regex = \
     r'^graded_content/assignments/{assignment_id}/problems/{problem_id}/parts/{part_id}/answer_distribution/$'.format(
@@ -70,6 +71,19 @@ PERFORMANCE_URLS = ([
     url(r'^graded_content/assignments/{}/$'.format(ASSIGNMENT_ID_PATTERN),
         performance.PerformanceAssignment.as_view(),
         name='assignment'),
+    url(r'^learning_outcomes/$',
+        performance.PerformanceLearningOutcomesContent.as_view(),
+        name='learning_outcomes'),
+    url(r'^learning_outcomes/{}/$'.format(TAG_VALUE_ID_PATTERN),
+        performance.PerformanceLearningOutcomesSection.as_view(),
+        name='learning_outcomes_section'),
+    url(r'^learning_outcomes/{}/problems/{}/$'.format(TAG_VALUE_ID_PATTERN, PROBLEM_ID_PATTERN),
+        performance.PerformanceLearningOutcomesAnswersDistribution.as_view(),
+        name='learning_outcomes_answers_distribution'),
+    url(r'^learning_outcomes/{}/problems/{}/{}/$'.format(TAG_VALUE_ID_PATTERN, PROBLEM_ID_PATTERN,
+                                                         PROBLEM_PART_ID_PATTERN),
+        performance.PerformanceLearningOutcomesAnswersDistribution.as_view(),
+        name='learning_outcomes_answers_distribution_with_part'),
 ], 'performance')
 
 CSV_URLS = ([

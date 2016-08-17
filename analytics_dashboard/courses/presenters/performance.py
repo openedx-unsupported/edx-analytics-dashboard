@@ -1,4 +1,4 @@
-from collections import namedtuple
+from collections import namedtuple, OrderedDict
 import logging
 from slugify import slugify
 
@@ -6,10 +6,13 @@ from analyticsclient.exceptions import NotFoundError
 from django.core.cache import cache
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
+from edx_rest_api_client.exceptions import HttpClientError
+from core.utils import sanitize_cache_key
+
 
 from common.course_structure import CourseStructure
 from courses import utils
-from courses.exceptions import NoAnswerSubmissionsError
+from courses.exceptions import (BaseCourseError, NoAnswerSubmissionsError)
 from courses.presenters import (BasePresenter, CourseAPIPresenterMixin)
 
 
@@ -38,6 +41,12 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, BasePresenter):
 
     # minimum screen space a grading policy bar will take up (even if a policy is 0%, display some bar)
     MIN_POLICY_DISPLAY_PERCENT = 5
+
+    def course_module_data(self):
+        try:
+            return self._course_module_data()
+        except BaseCourseError:
+            raise NotFoundError
 
     def get_answer_distribution(self, problem_id, problem_part_id):
         """
@@ -380,3 +389,214 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, BasePresenter):
         which then gets the module grade type for filtering.
         """
         return False
+
+
+class TagsDistributionPresenter(CourseAPIPresenterMixin, BasePresenter):
+    """
+    Presenter for the tags distribution page.
+    """
+
+    available_tags = None
+
+    @property
+    def section_type_template(self):
+        return u'tags_problem_sections_{}_{}'
+
+    @property
+    def all_sections_key(self):
+        return u'tags_problem_sections'
+
+    @property
+    def module_type(self):
+        return 'tags_problem'
+
+    @property
+    def module_graded_type(self):
+        return None
+
+    def get_cache_key(self, name):
+        return sanitize_cache_key(u'{}_{}'.format(self.course_id, name))
+
+    def fetch_course_module_data(self):
+        try:
+            problems_and_tags = self.client.courses(self.course_id).problems_and_tags()
+        except NotFoundError as e:
+            logger.warning("There is no tags distribution info for %s: %s", self.course_id, e)
+            return []
+        return problems_and_tags
+
+    @property
+    def default_block_data(self):
+        return {
+            'total_submissions': 0,
+            'correct_submissions': 0,
+            'incorrect_submissions': 0,
+            'tags': {}
+        }
+
+    def blocks_have_data(self, blocks):
+        pass
+
+    def attach_aggregated_data_to_parent(self, index, parent, url_func=None):
+        pass
+
+    def attach_computed_data(self, problem):
+        problem['id'] = problem.pop('module_id')
+        problem['incorrect_submissions'] = problem['total_submissions'] - problem['correct_submissions']
+
+    def get_available_tags(self):
+        """
+        This function is used to return dict with all emitted unique tag values.
+        The return dict format is:
+        {
+            'tag_name_1': set('tag_value_11', 'tag_value_12',  ... , 'tag_value_1n'),
+            'tag_name_2': set('tag_value_21', 'tag_value_22',  ... , 'tag_value_2n'),
+            ...
+        }
+        """
+        if not self.available_tags:
+            tags_distribution_data = self._get_course_module_data()
+            self.available_tags = {}
+
+            for item in tags_distribution_data.values():
+                for tag_key, tag_value in item['tags'].iteritems():
+                    if tag_key not in self.available_tags:
+                        self.available_tags[tag_key] = set()
+                    self.available_tags[tag_key].add(tag_value)
+        return self.available_tags
+
+    def get_tags_content_nav(self, key, selected=None):
+        """
+        This function is used to create dropdown list with all available values
+        for some particular tag. The first argument is the tag key.
+        The second argument is the selected tag value.
+        """
+        result = []
+        selected_item = None
+        tags = self.get_available_tags()
+
+        if key in tags:
+            for item in tags[key]:
+                val = {
+                    'id': item,
+                    'name': item,
+                    'url': reverse('courses:performance:learning_outcomes_section',
+                                   kwargs={'course_id': self.course_id,
+                                           'tag_value': slugify(item)})}
+                if selected == slugify(item):
+                    selected_item = val
+                result.append(val)
+        return result, selected_item
+
+    def _get_course_module_data(self):
+        try:
+            logger.debug("Retrieving tags distribution for course: %s", self.course_id)
+            return self._course_module_data()
+        except HttpClientError as e:
+            logger.error("Unable to retrieve tags distribution info for %s: %s", self.course_id, e)
+            return {}
+
+    def _get_course_structure(self):
+        def _update_node(updated_structure, origin_structure, node_id, parent_id=None):
+            """
+            Helper function to get proper course structure.
+            Updates the dict that passed as the first argument (adds the parent to each node)
+            """
+            updated_structure[node_id] = origin_structure[node_id]
+            updated_structure[node_id]['parent'] = parent_id if parent_id else None
+            for child_id in origin_structure[node_id]["children"]:
+                _update_node(updated_structure, origin_structure, child_id, origin_structure[node_id]['id'])
+
+        updated_structure = OrderedDict()
+        origin_structure = self._get_structure()
+        if origin_structure:
+            _update_node(updated_structure, origin_structure["blocks"], origin_structure['root'])
+        return updated_structure
+
+    def get_tags_distribution(self, key):
+        tags_distribution_data = self._get_course_module_data()
+
+        result = OrderedDict()
+        index = 0
+
+        for item in tags_distribution_data.values():
+            if key in item['tags']:
+                tag_value = item['tags'][key]
+                if tag_value not in result:
+                    index += 1
+                    result[tag_value] = {
+                        'id': tag_value,
+                        'index': index,
+                        'name': tag_value,
+                        'num_modules': 0,
+                        'total_submissions': 0,
+                        'correct_submissions': 0,
+                        'incorrect_submissions': 0
+                    }
+                result[tag_value]['num_modules'] += 1
+                result[tag_value]['total_submissions'] += item['total_submissions']
+                result[tag_value]['correct_submissions'] += item['correct_submissions']
+                result[tag_value]['incorrect_submissions'] += item['incorrect_submissions']
+
+        for tag_val, item in result.iteritems():
+            item.update({
+                'average_submissions': (item['total_submissions'] * 1.0) / item['num_modules'],
+                'average_correct_submissions': (item['correct_submissions'] * 1.0) / item['num_modules'],
+                'average_incorrect_submissions': (item['incorrect_submissions'] * 1.0) / item['num_modules'],
+                'correct_percent': utils.math.calculate_percent(item['correct_submissions'],
+                                                                item['total_submissions']),
+                'incorrect_percent': utils.math.calculate_percent(item['incorrect_submissions'],
+                                                                  item['total_submissions']),
+                'url': reverse('courses:performance:learning_outcomes_section',
+                               kwargs={'course_id': self.course_id,
+                                       'tag_value': slugify(tag_val)})
+            })
+        return result.values()
+
+    def get_modules_marked_with_tag(self, tag_key, tag_value):
+        tags_distribution_data = self._get_course_module_data()
+        available_tags = self.get_available_tags()
+        intermediate = OrderedDict()
+
+        for item in tags_distribution_data.values():
+            if tag_key in item['tags'] and tag_value == slugify(item['tags'][tag_key]):
+                val = {
+                    'id': item['id'],
+                    'name': item['id'],
+                    'total_submissions': item['total_submissions'],
+                    'correct_submissions': item['correct_submissions'],
+                    'incorrect_submissions': item['incorrect_submissions'],
+                    'correct_percent': utils.math.calculate_percent(item['correct_submissions'],
+                                                                    item['total_submissions']),
+                    'incorrect_percent': utils.math.calculate_percent(item['incorrect_submissions'],
+                                                                      item['total_submissions']),
+                    'url': reverse('courses:performance:learning_outcomes_answers_distribution',
+                                   kwargs={'course_id': self.course_id,
+                                           'tag_value': tag_value,
+                                           'problem_id': item['id']})
+                }
+                if available_tags:
+                    for av_tag_key in available_tags:
+                        if av_tag_key in item['tags']:
+                            val[av_tag_key] = item['tags'][av_tag_key]
+                        else:
+                            val[av_tag_key] = None
+                intermediate[item['id']] = val
+
+        result = []
+        index = 0
+
+        course_structure = self._get_course_structure()
+
+        for key, val in course_structure.iteritems():
+            if key in intermediate:
+                first_parent = course_structure[val['parent']]
+                second_parent = course_structure[first_parent['parent']]
+
+                index += 1
+                intermediate[key]['index'] = index
+                intermediate[key]['name'] = u', '.join([second_parent['display_name'], first_parent['display_name'],
+                                                        val['display_name']])
+                result.append(intermediate[key])
+
+        return result

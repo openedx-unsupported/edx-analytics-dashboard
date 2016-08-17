@@ -518,24 +518,31 @@ class CourseHome(CourseTemplateWithNavView):
         items.append(engagement_items)
 
         if self.course_api_enabled:
+            subitems = [{
+                'title': _('How are students doing on graded course assignments?'),
+                'view': 'courses:performance:graded_content',
+                'breadcrumbs': [_('Graded Content')],
+                'fragment': ''
+            }, {
+                'title': _('How are students doing on ungraded exercises?'),
+                'view': 'courses:performance:ungraded_content',
+                'breadcrumbs': [_('Ungraded Problems')],
+                'fragment': ''
+            }]
+
+            if switch_is_active('enable_performance_learning_outcome'):
+                subitems.append({
+                    'title': _('What is the breakdown for course learning outcomes?'),
+                    'view': 'courses:performance:learning_outcomes',
+                    'breadcrumbs': [_('Learning Outcomes')],
+                    'fragment': ''
+                })
+
             items.append({
                 'name': _('Performance'),
                 'icon': 'fa-check-square-o',
                 'heading': _('How are students doing on course assignments?'),
-                'items': [
-                    {
-                        'title': _('How are students doing on graded course assignments?'),
-                        'view': 'courses:performance:graded_content',
-                        'breadcrumbs': [_('Graded Content')],
-                        'fragment': ''
-                    },
-                    {
-                        'title': _('How are students doing on ungraded exercises?'),
-                        'view': 'courses:performance:ungraded_content',
-                        'breadcrumbs': [_('Ungraded Problems')],
-                        'fragment': ''
-                    }
-                ]
+                'items': subitems
             })
 
         if flag_is_active(request, 'display_learner_analytics'):

@@ -8,6 +8,7 @@ from django.core.urlresolvers import reverse
 from django.test import (override_settings, TestCase)
 
 from ddt import ddt, data, unpack
+from slugify import slugify
 import mock
 from waffle.testutils import override_switch
 
@@ -26,9 +27,10 @@ from courses.exceptions import NoVideosError
 from courses.presenters import BasePresenter
 from courses.presenters.engagement import (CourseEngagementActivityPresenter, CourseEngagementVideoPresenter)
 from courses.presenters.enrollment import (CourseEnrollmentPresenter, CourseEnrollmentDemographicsPresenter)
-from courses.presenters.performance import CoursePerformancePresenter
+from courses.presenters.performance import CoursePerformancePresenter, TagsDistributionPresenter
 from courses.tests import utils
-from courses.tests.factories import (CourseEngagementDataFactory, CoursePerformanceDataFactory)
+from courses.tests.factories import (CourseEngagementDataFactory, CoursePerformanceDataFactory,
+                                     TagsDistributionDataFactory)
 
 
 class BasePresenterTests(TestCase):
@@ -973,3 +975,133 @@ class CoursePerformancePresenterTests(TestCase):
                 expected_problems = subsection['children']
                 self.assertListEqual(
                     self.presenter.subsection_children(section['id'], subsection['id']), expected_problems)
+
+
+@ddt
+class TagsDistributionPresenterTests(TestCase):
+
+    def setUp(self):
+        cache.clear()
+        self.course_id = PERFORMER_PRESENTER_COURSE_ID
+        self.presenter = TagsDistributionPresenter(settings.COURSE_API_KEY, self.course_id)
+
+    @data(annotated([{"total_submissions": 21, "correct_submissions": 5,
+                      "tags": {"difficulty": "Hard"}},
+                     {"total_submissions": 11, "correct_submissions": 10,
+                      "tags": {"difficulty": "Easy"}},
+                     {"total_submissions": 15, "correct_submissions": 9,
+                      "tags": {"difficulty": "Medium"}},
+                     {"total_submissions": 10, "correct_submissions": 5,
+                      "tags": {"difficulty": "Hard"}}], 'only_difficulty_tag'),
+          annotated([{"total_submissions": 21, "correct_submissions": 5,
+                      "tags": {"difficulty": "Hard", "learning_outcome": "Learned a few things"}},
+                     {"total_submissions": 11, "correct_submissions": 10,
+                      "tags": {"difficulty": "Easy", "learning_outcome": "Learned nothing"}},
+                     {"total_submissions": 15, "correct_submissions": 9,
+                      "tags": {"difficulty": "Medium", "learning_outcome": "Learned nothing"}},
+                     {"total_submissions": 10, "correct_submissions": 5,
+                      "tags": {"difficulty": "Hard"}}], 'learning_outcome_and_difficulty_tags'),
+          annotated([], 'empty_data'),)
+    def test_available_tags(self, init_tags_data):
+        factory = TagsDistributionDataFactory(init_tags_data)
+
+        with mock.patch('slumber.Resource.get', mock.Mock(return_value=factory.structure)):
+            with mock.patch('analyticsclient.course.Course.problems_and_tags',
+                            mock.Mock(return_value=factory.problems_and_tags)):
+                available_tags = self.presenter.get_available_tags()
+                expected_available_tags = factory.get_expected_available_tags()
+                self.assertEqual(available_tags, expected_available_tags)
+
+                expected_tags_content_nav = factory.get_expected_learning_outcome_tags_content_nav('learning_outcome')
+                tags_content_nav, selected = self.presenter.get_tags_content_nav('learning_outcome')
+
+                self.assertEqual(selected, None)
+                self.assertEqual(tags_content_nav, expected_tags_content_nav)
+
+                tags_content_nav, selected = self.presenter.get_tags_content_nav('learning_outcome',
+                                                                                 slugify('Learned a few things'))
+                expected_selected = None
+                for v in tags_content_nav:
+                    if v['name'] == 'Learned a few things':
+                        expected_selected = v
+                        break
+
+                self.assertEqual(selected, expected_selected)
+                self.assertEqual(tags_content_nav, expected_tags_content_nav)
+
+    @data(annotated([{"total_submissions": 21, "correct_submissions": 5,
+                      "tags": {"difficulty": "Hard"}},
+                     {"total_submissions": 11, "correct_submissions": 10,
+                      "tags": {"difficulty": "Easy"}},
+                     {"total_submissions": 15, "correct_submissions": 9,
+                      "tags": {"difficulty": "Medium"}},
+                     {"total_submissions": 10, "correct_submissions": 5,
+                      "tags": {"difficulty": "Hard"}}], 'only_difficulty_tag'),
+          annotated([{"total_submissions": 41, "correct_submissions": 10,
+                      "tags": {"difficulty": "Hard", "learning_outcome": "Learned a few things"}},
+                     {"total_submissions": 25, "correct_submissions": 25,
+                      "tags": {"difficulty": "Easy", "learning_outcome": "Learned nothing"}},
+                     {"total_submissions": 17, "correct_submissions": 16,
+                      "tags": {"learning_outcome": "Learned everything"}},
+                     {"total_submissions": 10, "correct_submissions": 5,
+                      "tags": {"difficulty": "Hard"}},
+                     {"total_submissions": 35, "correct_submissions": 31,
+                      "tags": {"learning_outcome": "Learned nothing"}},
+                     {"total_submissions": 105, "correct_submissions": 10,
+                      "tags": {"difficulty": "Hard",
+                               "learning_outcome": "Learned everything"}}], 'learning_outcome_and_difficult'),
+          annotated([], 'empty_data'),)
+    def test_tags_distribution(self, init_tags_data):
+        factory = TagsDistributionDataFactory(init_tags_data)
+
+        with mock.patch('slumber.Resource.get', mock.Mock(return_value=factory.structure)):
+            with mock.patch('analyticsclient.course.Course.problems_and_tags',
+                            mock.Mock(return_value=factory.problems_and_tags)):
+                tags_distribution = self.presenter.get_tags_distribution('learning_outcome')
+                expected_tags_distribution = factory.get_expected_tags_distribution('learning_outcome')
+                self.assertEqual(tags_distribution, expected_tags_distribution)
+
+    @data(annotated([{"total_submissions": 21, "correct_submissions": 5,
+                      "tags": {"difficulty": "Hard"}},
+                     {"total_submissions": 11, "correct_submissions": 10,
+                      "tags": {"difficulty": "Easy"}},
+                     {"total_submissions": 15, "correct_submissions": 9,
+                      "tags": {"difficulty": "Medium"}},
+                     {"total_submissions": 10, "correct_submissions": 5,
+                      "tags": {"difficulty": "Hard"}}], 'only_difficulty_tag'),
+          annotated([{"total_submissions": 41, "correct_submissions": 10,
+                      "tags": {"difficulty": "Hard", "learning_outcome": "Learned a few things"}},
+                     {"total_submissions": 25, "correct_submissions": 25,
+                      "tags": {"difficulty": "Easy", "learning_outcome": "Learned a few things"}},
+                     {"total_submissions": 17, "correct_submissions": 16,
+                      "tags": {"learning_outcome": "Learned everything"}},
+                     {"total_submissions": 10, "correct_submissions": 5,
+                      "tags": {"difficulty": "Hard"}},
+                     {"total_submissions": 35, "correct_submissions": 31,
+                      "tags": {"learning_outcome": "Learned everything"}},
+                     {"total_submissions": 105, "correct_submissions": 10,
+                      "tags": {"difficulty": "Hard",
+                               "learning_outcome": "Learned everything"}}], 'learning_outcome_without_learned_nothing'),
+          annotated([{"total_submissions": 41, "correct_submissions": 10,
+                      "tags": {"difficulty": "Hard", "learning_outcome": "Learned a few things"}},
+                     {"total_submissions": 25, "correct_submissions": 25,
+                      "tags": {"difficulty": "Easy", "learning_outcome": "Learned nothing"}},
+                     {"total_submissions": 17, "correct_submissions": 16,
+                      "tags": {"learning_outcome": "Learned everything"}},
+                     {"total_submissions": 10, "correct_submissions": 5,
+                      "tags": {"difficulty": "Hard"}},
+                     {"total_submissions": 35, "correct_submissions": 31,
+                      "tags": {"learning_outcome": "Learned nothing"}},
+                     {"total_submissions": 105, "correct_submissions": 10,
+                      "tags": {"difficulty": "Hard",
+                               "learning_outcome": "Learned everything"}}], 'learning_outcome_and_difficult'),
+          annotated([], 'empty_data'),)
+    def test_modules_marked_with_tag(self, init_tags_data):
+        factory = TagsDistributionDataFactory(init_tags_data)
+
+        with mock.patch('slumber.Resource.get', mock.Mock(return_value=factory.structure)):
+            with mock.patch('analyticsclient.course.Course.problems_and_tags',
+                            mock.Mock(return_value=factory.problems_and_tags)):
+                modules = self.presenter.get_modules_marked_with_tag('learning_outcome', slugify('Learned nothing'))
+                expected_modules = factory.get_expected_modules_marked_with_tag('learning_outcome', 'Learned nothing')
+                self.assertEqual(modules, expected_modules)
