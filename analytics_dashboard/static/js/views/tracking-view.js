@@ -56,14 +56,18 @@ define(['backbone', 'jquery', 'underscore', 'utils/utils'],
                 var self = this,
                     trackedElement = ev.target,
                     properties = Utils.getNodeProperties(
-                        trackedElement.attributes, 'data-track-', ['data-track-event']),
-                    eventType = $(trackedElement).attr('data-track-event');
+                        trackedElement.attributes, 'data-track-', ['data-track-event', 'data-track-triggered']),
+                    eventType = $(trackedElement).attr('data-track-event'),
+                    trackType = $(trackedElement).attr('data-track-type'),
+                    triggered = $(trackedElement).attr('data-track-triggered');
 
-                if (!self.model.isTracking() || _.isEmpty(eventType) || !_.isString(eventType)) {
+                if ((!self.model.isTracking() || _.isEmpty(eventType) || !_.isString(eventType)) ||
+                    (trackType === 'tooltip' && triggered)) {
                     return;
                 }
 
                 self.track(eventType, properties);
+                $(trackedElement).attr('data-track-triggered', 'true');
             },
 
             /**

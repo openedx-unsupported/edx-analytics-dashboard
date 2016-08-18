@@ -43,7 +43,10 @@
 
           {% for item in column.items %}
             <div class="item">
-              <div class="title"><a href="{% url item.view course_id=course_id %}{{ item.fragment }}">{{ item.title }}</a></div>
+              <div class="title"><a href="{% url item.view course_id=course_id %}{{ item.fragment }}"
+                data-track-type="click" data-track-event="edx.bi.course.question_clicked"
+                data-track-category="{{ column.name|lower }}" data-track-question="{{ item.title }}"
+                data-track-url="{% url item.view course_id=course_id %}{{ item.fragment }}">{{ item.title }}</a></div>
               <div class="breadcrumbs">
                 <span class="ico fa {{ column.icon }}" aria-hidden="true"></span>
                 <span class="ico fa fa-caret-right" aria-hidden="true"></span>

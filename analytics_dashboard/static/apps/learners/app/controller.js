@@ -128,7 +128,8 @@ define(function(require) {
 
             detailView = new LearnerDetailView({
                 learnerModel: learnerModel,
-                engagementTimelineModel: engagementTimelineModel
+                engagementTimelineModel: engagementTimelineModel,
+                trackingModel: this.options.trackingModel
             });
             this.options.rootView.showChildView('main', detailView);
 

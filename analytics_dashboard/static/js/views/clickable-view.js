@@ -28,6 +28,8 @@ define(['underscore', 'backbone'],
             },
 
             renderIfHasEventType: function() {
+                var self = this;
+
                 if (_(self.options).has('trackEventType')) {
                     self.render();
                 }

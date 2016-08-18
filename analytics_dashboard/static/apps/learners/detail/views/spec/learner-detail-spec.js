@@ -4,6 +4,7 @@ define(function(require) {
     var EngagementTimelineModel = require('learners/common/models/engagement-timeline'),
         LearnerDetailView = require('learners/detail/views/learner-detail'),
         LearnerModel = require('learners/common/models/learner'),
+        TrackingModel = require('models/tracking-model'),
         Utils = require('utils/utils'),
         _ = require('underscore');
 
@@ -166,6 +167,30 @@ define(function(require) {
                 server.requests[server.requests.length - 1].respond(404, {}, '');
                 expect(detailView.triggerMethod)
                     .toHaveBeenCalledWith('learnerUnavailable', jasmine.any(Object));
+            });
+
+            it('triggers a tracking event on email link click', function() {
+                var trackingModel = new TrackingModel(),
+                    detailView = new LearnerDetailView({
+                        learnerModel: learnerModel,
+                        engagementTimelineModel: new EngagementTimelineModel(),
+                        el: fixtureClass,
+                        trackingModel: trackingModel
+                    }),
+                    triggerSpy = spyOn(trackingModel, 'trigger');
+
+                trackingModel.set({
+                    segmentApplicationId: 'foobar',
+                    page: 'learner_details'
+                });
+                learnerModel.set({
+                    email: 'spider@plant.com'
+                });
+
+                detailView.render().onBeforeShow();
+                detailView.$('.learner-email a').click();
+
+                expect(triggerSpy).toHaveBeenCalledWith('segment:track', 'edx.bi.learner.email_link_clicked', {});
             });
         });
     });

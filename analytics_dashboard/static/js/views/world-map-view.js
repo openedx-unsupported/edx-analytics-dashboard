@@ -159,7 +159,7 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
              */
             tooltipTemplate: _.template('<span class="sr-only"><%=text%></span>' +
                 '<span class="ico ico-tooltip fa fa-info-circle chart-tooltip" ' +
-                'data-toggle="tooltip" data-placement="top" ' +
+                'data-toggle="tooltip" data-placement="top" data-track-type="tooltip"' +
                 'data-track-event="edx.bi.tooltip.displayed" data-track-category="map" ' +
                 'title="<%=text%>" aria-hidden="true"></span>'
             ),

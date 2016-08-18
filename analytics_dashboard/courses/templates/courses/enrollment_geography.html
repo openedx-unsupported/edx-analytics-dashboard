@@ -25,7 +25,8 @@ Individual course-centric enrollment geography view.
     {% if js_data.course.enrollmentByCountry %}
     <div class="section-content section-data-viz">
       <div class="world-map" data-view="world-map" data-title="{% trans "Enrollment by Country" %}"
-           data-series-name="{% trans "Enrollment" %}">
+          data-series-name="{% trans "Enrollment" %}" data-track-type="hover"
+          data-track-event="edx.bi.graph.interacted" data-track-category="enrollment_geography">
         {% comment %}
         The map is loaded via ajax, so display a loading message.  Everything inside of this div will be
         cleared when the map data loads.
