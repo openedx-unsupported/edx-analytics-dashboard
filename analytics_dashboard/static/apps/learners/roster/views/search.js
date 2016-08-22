@@ -42,7 +42,7 @@ define(function(require) {
         },
 
         clearButton: function() {
-            return this.$el.find('button[data-backgrid-action=clear]');
+            return this.$el.find('[data-backgrid-action=clear]');
         },
 
         render: function() {
