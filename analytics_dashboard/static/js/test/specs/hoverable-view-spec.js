@@ -29,7 +29,6 @@ define(['views/hoverable-view'], function(HoverableView) {
                 .toHaveBeenCalledWith('segment:track', 'my:event', {'my-prop': 'a property'});
 
             // should only fire one event per page load
-            expect(view.$el.attr('data-track-triggered')).toEqual('true');
             model.trigger.calls.reset();
             view.$el.trigger('mouseenter');
             expect(model.trigger.calls.any()).toEqual(false);
