@@ -37,15 +37,6 @@ button.chart-info {
   background: transparent;
 }
 
-.course-label {
-  padding-top: 18px;
-  padding-bottom: 0px;
-  padding-left: 15px;
-  padding-right: 15px;
-  min-height: 55px;
-  
-}
-
 .chart-tooltip {
   float: right;
   padding-right: $padding-small-horizontal;
@@ -190,6 +181,16 @@ $lens-background-color: $gray-d2;
 $lens-nav-text-color: $gray-l1;
 $lens-nav-height: 55px;
 $lens-box-model: border-box;
+$lens-padding-top: 18px;
+$lens-nav-margin: 15px;
+
+.course-label {
+  padding-top: $lens-padding-top;
+  padding-bottom: 0px;
+  margin-left: $lens-nav-margin;
+  margin-right: $lens-nav-margin;
+  min-height: $lens-nav-height;
+}
 
 .lens-nav {
   background-color: $lens-background-color;
@@ -202,7 +203,7 @@ $lens-box-model: border-box;
 
   // aligns the navbar with the logo
   ul.navbar-nav {
-    margin-left: 15px;
+    margin-left: $lens-nav-margin;
   }
 
   .navbar-nav {
@@ -231,7 +232,7 @@ $lens-box-model: border-box;
     li > a {
       color: $lens-nav-text-color;
       min-height: $lens-nav-height;
-      padding-top: 18px;
+      padding-top: $lens-padding-top;
       padding-bottom: 0px;
     }
 
