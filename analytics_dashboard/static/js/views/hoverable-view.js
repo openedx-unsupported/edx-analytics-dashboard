@@ -17,17 +17,11 @@ define(['underscore', 'backbone'],
                 var self = this;
 
                 // track the hover
-                self.$el.hover(function(event) {
-                    var triggered = self.$el.attr('data-track-triggered');
-                    if (triggered === undefined || triggered === 'false') {
-                        // track this event type along with properties
-                        self.model.trigger('segment:track',
-                            self.options.trackEventType,
-                            self.options.trackProperties);
-                        // Only trigger hover once per page load
-                        self.$el.attr('data-track-triggered', 'true');
-                        self.$el.unbind(event);
-                    }
+                self.$el.one('mouseenter', function() {
+                    // track this event type along with properties
+                    self.model.trigger('segment:track',
+                        self.options.trackEventType,
+                        self.options.trackProperties);
                 });
 
                 return this;

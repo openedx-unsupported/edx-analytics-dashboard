@@ -62,7 +62,7 @@ define(['backbone', 'jquery', 'underscore', 'utils/utils'],
                     triggered = $(trackedElement).attr('data-track-triggered');
 
                 if ((!self.model.isTracking() || _.isEmpty(eventType) || !_.isString(eventType)) ||
-                    (trackType === 'tooltip' && triggered)) {
+                        (trackType === 'tooltip' && triggered)) {
                     return;
                 }
 

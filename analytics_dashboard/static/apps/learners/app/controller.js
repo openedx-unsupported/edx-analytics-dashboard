@@ -100,6 +100,10 @@ define(function(require) {
             this.options.pageModel.set('title', gettext('Learners'));
             this.onLearnerCollectionUpdated(this.options.learnerCollection);
 
+            // track the "page" view
+            this.options.trackingModel.set('page', 'learner_roster');
+            this.options.trackingModel.trigger('segment:page');
+
             return rosterView;
         },
 
@@ -163,6 +167,10 @@ define(function(require) {
                 }
             }))();
             this.options.rootView.showChildView('main', notFoundView);
+
+            // track the "page" view
+            this.options.trackingModel.set('page', 'learner_not_found');
+            this.options.trackingModel.trigger('segment:page');
         }
     });
 
