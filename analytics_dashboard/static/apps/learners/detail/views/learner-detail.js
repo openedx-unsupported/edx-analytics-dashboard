@@ -85,7 +85,8 @@ define(function(require) {
             }
 
             this.showChildView('names', new LearnerNameView({
-                model: learnerModel
+                model: learnerModel,
+                trackingModel: this.options.trackingModel
             }));
 
             this.showChildView('enrollment', new LearnerSummaryFieldView({

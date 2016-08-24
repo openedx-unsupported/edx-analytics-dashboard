@@ -3,10 +3,10 @@ define(['underscore', 'backbone'],
         'use strict';
 
         /**
-         * Use this for triggering track events when an element is clicked.
-         * 'segment:track' and an event are fired when the element is clicked.
+         * Use this for triggering track events when an element is hovered over.
+         * 'segment:track' and an event are fired when the element is hovered over.
          */
-        var ClickableView = Backbone.View.extend({
+        var HoverableView = Backbone.View.extend({
 
             initialize: function(options) {
                 var self = this;
@@ -16,8 +16,8 @@ define(['underscore', 'backbone'],
             render: function() {
                 var self = this;
 
-                // track the click
-                self.$el.click(function() {
+                // track the hover
+                self.$el.one('mouseenter', function() {
                     // track this event type along with properties
                     self.model.trigger('segment:track',
                         self.options.trackEventType,
@@ -37,6 +37,6 @@ define(['underscore', 'backbone'],
 
         });
 
-        return ClickableView;
+        return HoverableView;
     }
 );

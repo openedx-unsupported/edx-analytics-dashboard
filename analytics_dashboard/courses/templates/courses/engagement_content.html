@@ -31,7 +31,8 @@ Individual course-centric engagement content view.
                     <div class="chart-info">{% trans "Students" %}</div>
                     {% trans "The number of active students, and the number of students who engaged in specific activities, over time." as tip_text %}
                     {% include "chart_tooltip.html" with tip_text=tip_text track_category="trend"%}
-                    <div id="engagement-trend-view" class="analytics-chart">
+                    <div id="engagement-trend-view" class="analytics-chart" data-track-type="hover"
+                        data-track-event="edx.bi.graph.interacted" data-track-category="engagement_content">
                         {% include "loading.html" %}
                     </div>
                 </div>

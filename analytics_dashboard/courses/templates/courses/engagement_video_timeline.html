@@ -9,6 +9,8 @@
     <script src="{% static_rjs 'js/engagement-video-timeline-main.js' %}"></script>
 {% endblock javascript %}
 
+{% block hover_category %}engagement_video_timeline{% endblock hover_category %}
+
 {% block table_title %}
     {% trans "Total Video Views" %}
 {% endblock table_title %}
@@ -79,7 +81,7 @@
     <div class="section-actions">
         <a href="{% url 'courses:csv:engagement_video_timeline' course_id=course_id pipeline_video_id=summary_metrics.pipeline_video_id %}"
             class="btn btn-default pull-right" data-role="engagement-csv" data-track-type="click"
-            data-track-event="edx.bi.csv.downloaded" data-track-category="video-timeline">
+            data-track-event="edx.bi.csv.downloaded" data-track-category="video_timeline">
             <span class="ico fa fa-download" aria-hidden="true"></span> {% trans "Download CSV" %}
             <span class="sr-only">{% trans "Video Viewing Over Time" %}</span>
         </a>

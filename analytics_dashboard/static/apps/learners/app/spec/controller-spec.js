@@ -29,8 +29,6 @@ define(function(require) {
                 .toContainText('Learner Details');
             expect(controller.options.rootView.$('.learners-header-region').html())
                 .not.toContainText(date.toLocaleDateString('en-us', {year: 'numeric', month: 'long', day: 'numeric'}));
-            expect(controller.options.trackingModel.get('page')).toBe('learner_details');
-            expect(controller.options.trackingModel.trigger).toHaveBeenCalledWith('segment:page');
         };
 
         // convenience method for asserting that we are on the roster page
@@ -39,8 +37,6 @@ define(function(require) {
                 .not.toContainText('Return to Learners');
             expect(controller.options.rootView.$('.learner-roster')).toBeInDOM();
             expect(controller.options.rootView.$('.learners-header-region').html()).toContainText('Learners');
-            expect(controller.options.trackingModel.get('page')).toBe('learner_roster');
-            expect(controller.options.trackingModel.trigger).toHaveBeenCalledWith('segment:page');
         };
 
         beforeEach(function() {
@@ -80,7 +76,6 @@ define(function(require) {
                 courseId: courseId,
                 trackingModel: new TrackingModel()
             });
-            spyOn(this.controller.options.trackingModel, 'trigger');
         });
 
         afterEach(function() {
@@ -179,8 +174,6 @@ define(function(require) {
             this.controller.showNotFoundPage();
             // eslint-disable-next-line max-len
             expect(this.rootView.$el.html()).toContainText("Sorry, we couldn't find the page you're looking for.");
-            expect(this.controller.options.trackingModel.get('page')).toBe('learner_not_found');
-            expect(this.controller.options.trackingModel.trigger).toHaveBeenCalledWith('segment:page');
         });
     });
 });

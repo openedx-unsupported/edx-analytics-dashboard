@@ -62,7 +62,9 @@
                 {% include "chart_tooltip.html" with tip_text=tip_text track_category="bar" %}
 
                 <div id="performance-chart-view" class="analytics-chart
-                        {% if not js_data.course.answerDistribution or js_data.course.isRandom %}message-only-chart{% endif %}">
+                    {% if not js_data.course.answerDistribution or js_data.course.isRandom %}message-only-chart{% endif %}"
+                    data-track-type="hover" data-track-event="edx.bi.graph.interacted"
+                    data-track-category="performance_answer_distribution">
                     {% if js_data.course.isRandom %}
                         <!-- sets the message on a new row; otherwise, it won't be centered properly. -->
                         <div class="clearfix"></div>
@@ -104,7 +106,7 @@
                    class="btn btn-default"
                    data-role="performance-csv" data-track-type="click"
                    data-track-event="edx.bi.csv.downloaded"
-                   data-track-category="answer-distribution">
+                   data-track-category="performance_answer_distribution">
                     <span class="ico fa fa-download" aria-hidden="true"></span> {% trans "Download CSV" %}
                     <span class="sr-only">{% trans "Student Submission Counts" %}</span>
                 </a>

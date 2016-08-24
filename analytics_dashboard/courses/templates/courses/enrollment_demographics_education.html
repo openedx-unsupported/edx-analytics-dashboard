@@ -38,7 +38,9 @@
                       {% blocktrans with value=chart_tooltip_value %}This graph presents data for the {{ value }}% of enrolled students who provided a highest level of education completed.{% endblocktrans %}
                     {% endcaptureas %}
                     {% include "chart_tooltip.html" with tip_text=tip_text track_category="bar"%}
-                    <div id="enrollment-chart-view" class="analytics-chart">
+                    <div id="enrollment-chart-view" class="analytics-chart" data-track-type="hover"
+                        data-track-event="edx.bi.graph.interacted"
+                        data-track-category="enrollment_demographics_education">
                         {% include "loading.html" %}
                     </div>
                 </div>
