@@ -10,6 +10,7 @@
 # Li Jiaqi <willliricardo@icloud.com>, 2015
 # maxiaohao <inactive+grassrhyme@transifex.com>, 2016
 # orion <robinsonduoduo@gmail.com>, 2016
+# Primary Yue <2602757785@qq.com>, 2016
 # louyihua <supermouselyh@hotmail.com>, 2015
 # wanghe <1636807295@qq.com>, 2014
 # Xuejia Tong <snowytong@hotmail.com>, 2016
@@ -20,8 +21,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-04 11:40-0400\n"
-"PO-Revision-Date: 2016-08-04 15:42+0000\n"
+"POT-Creation-Date: 2016-08-25 10:29-0400\n"
+"PO-Revision-Date: 2016-08-25 14:31+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/open-edx/edx-platform/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -32,15 +33,15 @@ msgstr ""
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Invalid Parameters"
-msgstr ""
+msgstr "无效参数"
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Sorry, we couldn't find any learners who matched that query."
-msgstr ""
+msgstr "对不起，我们找不到任何与该查询相匹配的学习者。"
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Return to the Learners page."
-msgstr ""
+msgstr "返回学习页面。"
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Learners"
@@ -167,17 +168,17 @@ msgstr "值"
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "Engagement Activity"
-msgstr ""
+msgstr "参与活动"
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "Daily Activity"
-msgstr ""
+msgstr "日常活动"
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "Activity Over Time"
-msgstr ""
+msgstr "操作超时"
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/apps/learners/detail/views/learner-summary-field.js
@@ -218,19 +219,17 @@ msgid "Enrollment Track: <%= filterVal %>"
 msgstr "课程注册进程。"
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/app.js
-msgid "Engagement: <%= filterVal %>"
+msgid "Active Learners"
 msgstr ""
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/app.js
-msgid "Active Filters:"
+msgid "Filters In Use:"
 msgstr ""
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Click to remove this filter"
-msgstr ""
+msgstr "单击以删除此筛选器。"
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
@@ -240,7 +239,7 @@ msgstr "清除"
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Click to remove all filters"
-msgstr ""
+msgstr "单击以删除所有筛选器"
 
 #: static/apps/learners/roster/views/activity-date-range.js
 #: static/dist/apps/learners/app/app.js
@@ -312,7 +311,6 @@ msgid "Enrollment Tracks"
 msgstr ""
 
 #: static/apps/learners/roster/views/controls.js
-#: static/dist/apps/learners/app/app.js
 msgid "Inactive Learners"
 msgstr ""
 
@@ -409,6 +407,10 @@ msgstr "不适用"
 msgid "Learner Roster"
 msgstr "学生名单"
 
+#: static/dist/apps/learners/app/app.js
+msgid "Active Filters:"
+msgstr ""
+
 #: static/dist/js/common.js static/js/utils/utils.js
 msgid "..."
 msgstr "..."
@@ -430,6 +432,8 @@ msgstr "(空)"
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
+#: static/js/performance-learning-outcomes-section-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js static/js/views/data-table-view.js
 msgid "Correct"
 msgstr "正确"
@@ -496,6 +500,8 @@ msgstr "平均未完成观看的次数"
 #: static/dist/js/performance-problems-main.js
 #: static/js/engagement-video-content-main.js
 #: static/js/engagement-videos-main.js static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Order"
 msgstr "顺序"
@@ -544,12 +550,12 @@ msgstr "当前注册"
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Honor"
-msgstr ""
+msgstr "荣誉"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Audit"
-msgstr ""
+msgstr "旁听"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
@@ -667,6 +673,8 @@ msgstr "变体"
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
+#: static/js/performance-learning-outcomes-section-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Incorrect"
 msgstr "不正确"
@@ -678,11 +686,13 @@ msgstr "答案：<%=value%>"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
 msgid "Average Correct"
 msgstr "平均正确数"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
 msgid "Average Incorrect"
 msgstr "平均错误数"
 
@@ -699,11 +709,22 @@ msgstr "每个问题的平均提交数"
 #: static/dist/js/performance-content-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Percentage Correct"
 msgstr "正确的百分比"
 
 #: static/dist/js/performance-problems-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Total"
 msgstr "总计"
+
+#: static/js/performance-learning-outcomes-content-main.js
+msgid "Average Submissions per Problem"
+msgstr ""
+
+#: static/js/performance-learning-outcomes-section-main.js
+msgid "Difficulty"
+msgstr "难度"

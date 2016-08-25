@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Lata Verma <vermalata@hotmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-04 11:40-0400\n"
-"PO-Revision-Date: 2016-08-04 15:42+0000\n"
+"POT-Creation-Date: 2016-08-25 10:29-0400\n"
+"PO-Revision-Date: 2016-08-25 14:29+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/open-edx/edx-platform/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -19,19 +20,21 @@ msgstr ""
 
 #: core/templates/core/landing.html
 msgid "Login"
-msgstr ""
+msgstr "लॉग इन करें"
 
 #: core/templates/core/landing.html
 msgid "Insights to help course teams improve courses."
 msgstr ""
+"पाठ्यक्रम में सुधार के लिए पाठ्यक्रम टीमों की अंतर्दृष्टि मदद करने हेतु।"
 
 #: core/templates/core/landing.html
 msgid "Who are my students?"
-msgstr ""
+msgstr "मेरे छात्र कौन हैं?"
 
 #: core/templates/core/landing.html
 msgid "Target your course to fit the backgrounds of your students."
 msgstr ""
+"अपना पाठ्यक्रम, अपने छात्रों की पृष्ठभूमि को लक्ष्य में रख कर तैयार करें ।"
 
 #: core/templates/core/landing.html
 #: courses/templates/courses/enrollment_geography.html
@@ -40,17 +43,19 @@ msgstr "नामांकन"
 
 #: core/templates/core/landing.html
 msgid "What are students engaging with in my course?"
-msgstr ""
+msgstr "मेरे पाठ्यक्रम में छात्र कहां व्यस्त रहते हैं?"
 
 #: core/templates/core/landing.html
 msgid ""
 "Improve frequently accessed content, or point students at underused "
 "resources."
 msgstr ""
+"अक्सर ऐक्सेस की गई विष्य सामग्री को सुधारें, या छात्रों को कम प्रयोग किए गए "
+"संसाधनो की ओर  भेजें।"
 
 #: core/templates/core/landing.html
 msgid "Engagement"
-msgstr ""
+msgstr "अनुबंध"
 
 #: core/templates/core/landing.html
 msgid "How well is my content supporting student learning?"
@@ -62,7 +67,7 @@ msgstr ""
 
 #: core/templates/core/landing.html
 msgid "Performance"
-msgstr ""
+msgstr "प्रदर्शन"
 
 #: core/templates/core/landing.html
 msgid "Join the Open Source Community"
@@ -95,13 +100,13 @@ msgstr ""
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
-msgstr ""
+msgstr "कार्य प्रकार चुनें ।"
 
 #. Translators: This refers to all course assignment types (e.g. homework,
 #. exam, lab).
 #: courses/templates/courses/_graded_content_nav.html
 msgid "All Assignments"
-msgstr ""
+msgstr "सभी कार्य"
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid ""
@@ -111,9 +116,10 @@ msgid ""
 msgstr ""
 
 #: courses/templates/courses/_graded_content_nav.html
+#: courses/templates/courses/_tags_content_nav.html
 #: courses/templates/courses/_ungraded_content_nav.html
 msgid "Select Problem"
-msgstr ""
+msgstr "समस्या चुनें "
 
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
@@ -122,32 +128,40 @@ msgstr ""
 msgid "View Live"
 msgstr "सीधे देखें"
 
+#: courses/templates/courses/_tags_content_nav.html
+msgid "Select Outcome"
+msgstr ""
+
+#: courses/templates/courses/_tags_content_nav.html
+msgid "All Outcomes"
+msgstr ""
+
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Section"
-msgstr ""
+msgstr "अनुभाग चुनें "
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "All Sections"
-msgstr ""
+msgstr "सब अनुभाग "
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Subsection"
-msgstr ""
+msgstr "उपखण्ड चुनें"
 
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
-msgstr ""
+msgstr "वीडियो चुनें"
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Previous Video"
-msgstr ""
+msgstr "पिछला वीडियो "
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Next Video"
-msgstr ""
+msgstr "अगला वीडियो "
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -155,6 +169,7 @@ msgid ""
 "This chart shows the most common answers submitted by students, ordered by "
 "frequency."
 msgstr ""
+"यह चार्ट छात्रों द्वारा प्रस्तुत सबसे आम जवाब दरशाता है, आवृत्ति के आधार पर।"
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -169,10 +184,12 @@ msgid ""
 "Review all submission variants below, or click Download CSV to review them "
 "offline."
 msgstr ""
+"नीचे सभी प्रस्तुति प्रकारों का निरीक्षण करें, या Download CSV पर कि्लक कर "
+"ऑफलाईन निरीक्षण करें।"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Submission Counts"
-msgstr ""
+msgstr "प्रस्तुति गणना"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 #: courses/templates/courses/engagement_content.html
@@ -183,11 +200,11 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_gender.html
 #: courses/templates/courses/enrollment_geography.html
 msgid "Download CSV"
-msgstr ""
+msgstr "सी.एस.वी डाउनलोड करें"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Student Submission Counts"
-msgstr ""
+msgstr "छात्र प्रस्तुति गणना"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
@@ -218,39 +235,41 @@ msgstr ""
 
 #: courses/templates/courses/engagement_content.html
 msgid "Active Students Last Week"
-msgstr ""
+msgstr "पिछले हफ्ते सक्रिय छात्र"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who visited at least one page in the course content."
-msgstr ""
+msgstr "छात्र, जिन्होने पाठ्यक्रम का कम-से-कम एक पन्ना देखा।"
 
 #. Translators: This is a label indicating the number of students who watched
 #. a video.
 #: courses/templates/courses/engagement_content.html
 msgid "Watched a Video Last Week"
-msgstr ""
+msgstr "पिछले हफ्ते एक वीडियो देखा।"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who played one or more videos."
-msgstr ""
+msgstr "छात्र, जिन्होने एक या अधिक वडियो चलाये।"
 
 #. Translators: This is a label indicating the number of students who tried a
 #. problem.
 #: courses/templates/courses/engagement_content.html
 msgid "Tried a Problem Last Week"
-msgstr ""
+msgstr "पिछले हफ्ते समस्या सुलझाने की कोशिश की।"
 
 #: courses/templates/courses/engagement_content.html
 msgid ""
 "Students who submitted an answer for a standard problem. Not all problem "
 "types are included."
 msgstr ""
+"जिन छात्रों नें स्तरीय सवाल का जवाब जमा किया। सभी प्रकार के सवाल समिलित नही "
+"हैं।"
 
 #. Translators: This is a label indicating the number of students who posted
 #. in a forum discussion.
 #: courses/templates/courses/engagement_content.html
 msgid "Posted in a Discussion Last Week"
-msgstr ""
+msgstr "पिछले हफ्ते परिचर्चा में दर्ज किया।"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who contributed to any discussion topic."
@@ -317,11 +336,11 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Collapse Preview"
-msgstr ""
+msgstr "पूर्वदर्शन समाप्त करें।"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Expand Preview"
-msgstr ""
+msgstr "पूर्वदर्शन का विस्तार करें।"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Metrics"
@@ -337,27 +356,27 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Started Video"
-msgstr ""
+msgstr "शुरु किए गये वीडियो"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who started watching the video."
-msgstr ""
+msgstr "छात्र जिन्होने वीडियो देखना शुरु किया।"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Finished Video"
-msgstr ""
+msgstr "अंत तक देखे गये वीडियो"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who watched the video to the end."
-msgstr ""
+msgstr "छात्र जिन्होने वीडियो देखना खत्म किया।"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Viewing Over Time"
-msgstr ""
+msgstr "अब तक देखे गये वीडियो"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Daily Student Enrollment"
-msgstr ""
+msgstr "प्रतिदिन छात्र नामांकन"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "How many students are in my course?"
@@ -403,7 +422,7 @@ msgstr ""
 #. students enrolled in a course since the previous week.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Change in Last Week"
-msgstr ""
+msgstr "पिछले हफ्ते में बदलाव"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Net difference in current enrollment in the last week."
@@ -413,7 +432,7 @@ msgstr ""
 #. verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Verified Enrollment"
-msgstr "वैरीफ़ाईड नामांकन"
+msgstr "सत्यापित नामांकन"
 
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course on the verified track.
@@ -475,7 +494,7 @@ msgstr ""
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 26 to 40"
-msgstr ""
+msgstr "छात्र  26 से 40"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
@@ -487,7 +506,7 @@ msgstr ""
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 41 and Over"
-msgstr ""
+msgstr "छात्र  41 और उसके बाद"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
@@ -501,7 +520,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "What level of education do my students have?"
-msgstr ""
+msgstr " मेरे छात्रों  की शिक्षा का स्तर क्या है?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -552,7 +571,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Educational Breakdown"
-msgstr ""
+msgstr "शैक्षिक विश्लेषण "
 
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "What is the student gender breakdown?"
@@ -573,7 +592,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geographic Distribution"
-msgstr ""
+msgstr "भौगोलिक वितरण"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Where are my students?"
@@ -591,7 +610,7 @@ msgstr ""
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Total Countries Represented"
-msgstr ""
+msgstr "प्रतिनिधित कुल देश "
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Countries with at least one student."
@@ -643,7 +662,7 @@ msgstr ""
 #: courses/templates/courses/home.html templates/base_dashboard.html
 #: templates/footer.html templates/lens-navigation.html
 msgid "Application"
-msgstr ""
+msgstr "आवेदन "
 
 #: courses/templates/courses/home.html
 msgid "Course Home"
@@ -653,7 +672,7 @@ msgstr ""
 #: courses/templates/courses/home.html templates/lens-navigation.html
 #: templates/submenu_navigation.html
 msgid "Active"
-msgstr ""
+msgstr "सक्रिय"
 
 #: courses/templates/courses/home.html
 msgid "Basic Course Information"
@@ -693,6 +712,7 @@ msgid "Learners"
 msgstr "शिक्षार्थियों"
 
 #: courses/templates/courses/performance_answer_distribution.html
+#: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
 msgid "How did students answer this problem?"
 msgstr ""
@@ -709,6 +729,7 @@ msgid ""
 msgstr ""
 
 #: courses/templates/courses/performance_assignment.html
+#: courses/templates/courses/performance_learning_outcomes_section.html
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid "Problem Submissions"
 msgstr ""
@@ -753,6 +774,27 @@ msgstr ""
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid "Assignment Submissions"
+msgstr ""
+
+#: courses/templates/courses/performance_learning_outcomes_content.html
+#: courses/templates/courses/performance_learning_outcomes_section.html
+msgid "Measured by learning outcome, how are students performing?"
+msgstr ""
+
+#: courses/templates/courses/performance_learning_outcomes_content.html
+msgid ""
+"Each bar shows the average number of correct and incorrect submissions for "
+"each outcome."
+msgstr ""
+
+#: courses/templates/courses/performance_learning_outcomes_content.html
+msgid "Outcome Submissions"
+msgstr ""
+
+#: courses/templates/courses/performance_learning_outcomes_section.html
+msgid ""
+"Each bar shows the correct and incorrect number of submissions for each "
+"problem for the current outcome."
 msgstr ""
 
 #: courses/templates/courses/performance_ungraded_by_section.html

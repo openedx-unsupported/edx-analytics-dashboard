@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-04 11:40-0400\n"
-"PO-Revision-Date: 2016-08-04 15:42+0000\n"
+"POT-Creation-Date: 2016-08-25 10:29-0400\n"
+"PO-Revision-Date: 2016-08-25 14:29+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Indonesian (http://www.transifex.com/open-edx/edx-platform/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -209,14 +209,12 @@ msgid "Enrollment Track: <%= filterVal %>"
 msgstr ""
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/app.js
-msgid "Engagement: <%= filterVal %>"
+msgid "Active Learners"
 msgstr ""
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/app.js
-msgid "Active Filters:"
-msgstr "Filter yang digunakan :"
+msgid "Filters In Use:"
+msgstr ""
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
@@ -303,7 +301,6 @@ msgid "Enrollment Tracks"
 msgstr ""
 
 #: static/apps/learners/roster/views/controls.js
-#: static/dist/apps/learners/app/app.js
 msgid "Inactive Learners"
 msgstr ""
 
@@ -400,6 +397,10 @@ msgstr "N/A"
 msgid "Learner Roster"
 msgstr ""
 
+#: static/dist/apps/learners/app/app.js
+msgid "Active Filters:"
+msgstr "Filter yang digunakan :"
+
 #: static/dist/js/common.js static/js/utils/utils.js
 msgid "..."
 msgstr ""
@@ -421,6 +422,8 @@ msgstr "(kosong)"
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
+#: static/js/performance-learning-outcomes-section-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js static/js/views/data-table-view.js
 msgid "Correct"
 msgstr "Betul"
@@ -487,6 +490,8 @@ msgstr ""
 #: static/dist/js/performance-problems-main.js
 #: static/js/engagement-video-content-main.js
 #: static/js/engagement-videos-main.js static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Order"
 msgstr ""
@@ -535,12 +540,12 @@ msgstr "Pendaftaran saat ini"
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Honor"
-msgstr ""
+msgstr "Kehormatan"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Audit"
-msgstr ""
+msgstr "Audit"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
@@ -638,7 +643,7 @@ msgstr "Negara"
 #: static/dist/js/enrollment-geography-main.js
 #: static/js/enrollment-geography-main.js
 msgid "Percent"
-msgstr ""
+msgstr "Persen"
 
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
@@ -658,6 +663,8 @@ msgstr ""
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
+#: static/js/performance-learning-outcomes-section-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Incorrect"
 msgstr "Tidak betul"
@@ -669,11 +676,13 @@ msgstr ""
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
 msgid "Average Correct"
 msgstr "Rata-rata Benar"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
 msgid "Average Incorrect"
 msgstr "Rata-rata Salah"
 
@@ -690,11 +699,22 @@ msgstr ""
 #: static/dist/js/performance-content-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Percentage Correct"
 msgstr "Persentase Benar"
 
 #: static/dist/js/performance-problems-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Total"
 msgstr "Total"
+
+#: static/js/performance-learning-outcomes-content-main.js
+msgid "Average Submissions per Problem"
+msgstr ""
+
+#: static/js/performance-learning-outcomes-section-main.js
+msgid "Difficulty"
+msgstr ""

@@ -6,17 +6,19 @@
 # Ahmed Elsharbatly <denver.xoxo@gmail.com>, 2016
 # Alhamzah Alnufaili <alhamzah.alnufaili@gmail.com>, 2016
 # Amr Mohamed <Amr.samir.mohammed@gmail.com>, 2016
+# AR C2 <e2f458fd4s512@outlook.com>, 2016
+# AR R1 <e2far1@hotmail.com>, 2016
 # Manal Ahmed Aljahdali <manal.ahmed.m.j@gmail.com>, 2014
 # may <may@qordoba.com>, 2014-2015
 # Nabeel El-Dughailib <nabeel@qordoba.com>, 2014-2015
 # omarithawi <oithawi@qrf.org>, 2016
-# Ramy Gamal <ramygamal.yahoo@gmail.com>, 2016
+# Shaimaa Gamal <ramygamal.yahoo@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-04 11:40-0400\n"
-"PO-Revision-Date: 2016-08-04 15:42+0000\n"
+"POT-Creation-Date: 2016-08-25 10:29-0400\n"
+"PO-Revision-Date: 2016-08-25 14:31+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Arabic (http://www.transifex.com/open-edx/edx-platform/language/ar/)\n"
 "MIME-Version: 1.0\n"
@@ -27,15 +29,15 @@ msgstr ""
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Invalid Parameters"
-msgstr ""
+msgstr "معلمات غير صالحة"
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Sorry, we couldn't find any learners who matched that query."
-msgstr ""
+msgstr "عذرًا، لم نتمكن من العثور على أي متعلمين يطابقون هذا الاستعلام."
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Return to the Learners page."
-msgstr ""
+msgstr "العودة إلى صفحة المتعلمين."
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Learners"
@@ -162,17 +164,17 @@ msgstr "قيمة"
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "Engagement Activity"
-msgstr ""
+msgstr "نشاط المشاركة"
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "Daily Activity"
-msgstr ""
+msgstr "نشاط يومي"
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "Activity Over Time"
-msgstr ""
+msgstr "نشاط عبر فترة زمنية"
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/apps/learners/detail/views/learner-summary-field.js
@@ -180,52 +182,50 @@ msgstr ""
 #: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
 #: static/dist/apps/learners/app/app.js
 msgid "n/a"
-msgstr ""
+msgstr "غير متاح"
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "Check back daily for up-to-date data."
-msgstr ""
+msgstr "تحقق مرة أخرى يوميًا للحصول على بيانات محدثة. "
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "No course activity data is available for this learner."
-msgstr ""
+msgstr "لا يوجد بيانات لنشاط الدورة التدريبية متاحة لهذا المتعلم."
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "No learner data is available."
-msgstr ""
+msgstr "لا يوجد بيانات متعلم متاحة."
 
 #: static/apps/learners/detail/views/learner-return.js
 #: static/dist/apps/learners/app/app.js
 msgid "Return to Learners"
-msgstr ""
+msgstr "العودة إلى المتعلمين"
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Cohort: <%= filterVal %>"
-msgstr ""
+msgstr "مجموعة: <%= filterVal %> "
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Enrollment Track: <%= filterVal %>"
+msgstr "مسار التسجيل: <%= filterVal %>"
+
+#: static/apps/learners/roster/views/active-filters.js
+msgid "Active Learners"
 msgstr ""
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/app.js
-msgid "Engagement: <%= filterVal %>"
-msgstr ""
-
-#: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/app.js
-msgid "Active Filters:"
+msgid "Filters In Use:"
 msgstr ""
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Click to remove this filter"
-msgstr ""
+msgstr "انقر لحذف هذا الفلتر"
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
@@ -235,17 +235,17 @@ msgstr "حذف"
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Click to remove all filters"
-msgstr ""
+msgstr "انقر لحذف جميع الفلاتر"
 
 #: static/apps/learners/roster/views/activity-date-range.js
 #: static/dist/apps/learners/app/app.js
 msgid "Activity between <%- startDate %> - <%- endDate %>"
-msgstr ""
+msgstr "نشاط بين <%- startDate %> - <%- endDate %>"
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
 msgid "The name and username of this learner. Click to sort by username."
-msgstr ""
+msgstr "الاسم واسم المستخدم لهذا المتعلم. انقر للتصنيف حسب اسم المستخدم."
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
@@ -306,17 +306,16 @@ msgstr "مجموعات الشعبة"
 #: static/apps/learners/roster/views/controls.js
 #: static/dist/apps/learners/app/app.js
 msgid "Enrollment Tracks"
-msgstr ""
+msgstr "مسارات التسجيل"
 
 #: static/apps/learners/roster/views/controls.js
-#: static/dist/apps/learners/app/app.js
 msgid "Inactive Learners"
-msgstr ""
+msgstr "متعلمون غير نشطين"
 
 #: static/apps/learners/roster/views/filter.js
 #: static/dist/apps/learners/app/app.js
 msgid "<%= name %> (<%= numLearners %>)"
-msgstr ""
+msgstr "<%= name %> (<%= numLearners %>)"
 
 #: static/apps/learners/roster/views/filter.js
 #: static/dist/apps/learners/app/app.js
@@ -381,7 +380,7 @@ msgstr ""
 #: static/apps/learners/roster/views/roster.js
 #: static/dist/apps/learners/app/app.js
 msgid "Learner roster controls"
-msgstr ""
+msgstr "أدوات التحكم في قائمة المتعلمين"
 
 #: static/apps/learners/roster/views/search.js
 #: static/dist/apps/learners/app/app.js
@@ -408,6 +407,10 @@ msgstr "غير متوفّر"
 msgid "Learner Roster"
 msgstr "قائمة المتعلم"
 
+#: static/dist/apps/learners/app/app.js
+msgid "Active Filters:"
+msgstr "فلاتر نشطة:"
+
 #: static/dist/js/common.js static/js/utils/utils.js
 msgid "..."
 msgstr "..."
@@ -429,6 +432,8 @@ msgstr "(خالية)"
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
+#: static/js/performance-learning-outcomes-section-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js static/js/views/data-table-view.js
 msgid "Correct"
 msgstr "صحيح"
@@ -495,6 +500,8 @@ msgstr "معدّل المشاهدات غير الكاملة"
 #: static/dist/js/performance-problems-main.js
 #: static/js/engagement-video-content-main.js
 #: static/js/engagement-videos-main.js static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Order"
 msgstr "الطلب"
@@ -543,12 +550,12 @@ msgstr "التسجيل الحاليّ"
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Honor"
-msgstr ""
+msgstr "فخرية"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Audit"
-msgstr ""
+msgstr "مستمع"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
@@ -563,7 +570,7 @@ msgstr "مهني"
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Verified with Credit"
-msgstr ""
+msgstr "موثق مع الاعتماد"
 
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-age-main.js
@@ -668,6 +675,8 @@ msgstr "متغاير"
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
+#: static/js/performance-learning-outcomes-section-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Incorrect"
 msgstr "خاطئ"
@@ -679,11 +688,13 @@ msgstr "الإجابة: <%=value%>"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
 msgid "Average Correct"
 msgstr "متوسّط عدد الإجابات الصحيحة"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
 msgid "Average Incorrect"
 msgstr "متوسّط عدد الإجابات الخاطئة"
 
@@ -700,11 +711,22 @@ msgstr "متوسّط عدد التقديمات لكل مسألة"
 #: static/dist/js/performance-content-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Percentage Correct"
 msgstr "نسبة الإجابات الصحيحة"
 
 #: static/dist/js/performance-problems-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Total"
 msgstr "المجموع "
+
+#: static/js/performance-learning-outcomes-content-main.js
+msgid "Average Submissions per Problem"
+msgstr ""
+
+#: static/js/performance-learning-outcomes-section-main.js
+msgid "Difficulty"
+msgstr "الصعوبة"

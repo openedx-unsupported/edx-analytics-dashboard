@@ -10,15 +10,17 @@
 # Kévin SEVERIN <kevin.severin@laposte.net>, 2015
 # laurentFUN <laurent.at.fun@gmail.com>, 2014
 # moocit-france <contact@moocit.fr>, 2015-2016
+# Morgane Picard <picard.morgane@gmail.com>, 2016
 # Pierre TASSEL <pierre.tassel@outlook.fr>, 2016
 # rafcha <raphael.chay@gmail.com>, 2014
+# Richard Moch <richard.moch@gmail.com>, 2016
 # Sebastien Vigneau <sebastien.vigneau@gmail.com>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-04 11:40-0400\n"
-"PO-Revision-Date: 2016-08-04 15:42+0000\n"
+"POT-Creation-Date: 2016-08-25 10:29-0400\n"
+"PO-Revision-Date: 2016-08-25 14:31+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: French (http://www.transifex.com/open-edx/edx-platform/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -29,19 +31,21 @@ msgstr ""
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Invalid Parameters"
-msgstr ""
+msgstr "Paramètres invalides"
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Sorry, we couldn't find any learners who matched that query."
 msgstr ""
+"Désolé, nous n'avons pas pu trouver d'apprenant correspondant à cette "
+"requête."
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Return to the Learners page."
-msgstr ""
+msgstr "Retourner à la page Apprenants."
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Learners"
-msgstr "Etudiants"
+msgstr "Apprenants"
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Learner Details"
@@ -67,12 +71,12 @@ msgstr "Problèmes Essayé"
 #: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
 #: static/dist/apps/learners/app/app.js
 msgid "Problems Correct"
-msgstr "Problèmes Correct"
+msgstr "Problèmes correctes"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
 msgid "Attempts per Problem Correct"
-msgstr "Essaies par Problème Correct"
+msgstr "Essais par Problème Correct"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
@@ -124,10 +128,12 @@ msgstr "Erreur serveur"
 #: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
 msgid "Your request could not be processed. Reload the page to try again."
 msgstr ""
+"Votre requête n'a pas pu être traitée. Veuillez rafraichir la page et "
+"essayer de nouveau."
 
 #: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
 msgid "Network error"
-msgstr "Erreur de connection"
+msgstr "Erreur réseau"
 
 #: static/apps/learners/common/views/loading-view.js
 #: static/dist/apps/learners/app/app.js
@@ -169,12 +175,12 @@ msgstr ""
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "Daily Activity"
-msgstr ""
+msgstr "Activité journalière"
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "Activity Over Time"
-msgstr ""
+msgstr "Activité au fil du temps"
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/apps/learners/detail/views/learner-summary-field.js
@@ -187,7 +193,7 @@ msgstr ""
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "Check back daily for up-to-date data."
-msgstr ""
+msgstr "Revenez quotidiennement pour profiter de données mises à jour."
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
@@ -217,14 +223,12 @@ msgid "Enrollment Track: <%= filterVal %>"
 msgstr ""
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/app.js
-msgid "Engagement: <%= filterVal %>"
+msgid "Active Learners"
 msgstr ""
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/app.js
-msgid "Active Filters:"
-msgstr "Filtres actifs:"
+msgid "Filters In Use:"
+msgstr ""
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
@@ -312,7 +316,6 @@ msgid "Enrollment Tracks"
 msgstr ""
 
 #: static/apps/learners/roster/views/controls.js
-#: static/dist/apps/learners/app/app.js
 msgid "Inactive Learners"
 msgstr ""
 
@@ -409,6 +412,10 @@ msgstr "N/A"
 msgid "Learner Roster"
 msgstr ""
 
+#: static/dist/apps/learners/app/app.js
+msgid "Active Filters:"
+msgstr "Filtres actifs:"
+
 #: static/dist/js/common.js static/js/utils/utils.js
 msgid "..."
 msgstr "..."
@@ -430,6 +437,8 @@ msgstr "(vide) "
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
+#: static/js/performance-learning-outcomes-section-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js static/js/views/data-table-view.js
 msgid "Correct"
 msgstr "Correct"
@@ -496,6 +505,8 @@ msgstr "Moyenne des Vues partielles"
 #: static/dist/js/performance-problems-main.js
 #: static/js/engagement-video-content-main.js
 #: static/js/engagement-videos-main.js static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Order"
 msgstr "Trier"
@@ -544,12 +555,12 @@ msgstr "Inscriptions Courantes"
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Honor"
-msgstr ""
+msgstr "Honeur"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Audit"
-msgstr ""
+msgstr "Audit"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
@@ -670,6 +681,8 @@ msgstr "Variation"
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
+#: static/js/performance-learning-outcomes-section-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Incorrect"
 msgstr "Incorrect"
@@ -681,11 +694,13 @@ msgstr "Réponse: <%=value%>"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
 msgid "Average Correct"
 msgstr "Moyenne Correct"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
 msgid "Average Incorrect"
 msgstr "Moyenne Incorrect"
 
@@ -702,11 +717,22 @@ msgstr "Nombre moyen de soumissions par problème"
 #: static/dist/js/performance-content-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Percentage Correct"
 msgstr "Pourcentage correct"
 
 #: static/dist/js/performance-problems-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Total"
 msgstr "Total"
+
+#: static/js/performance-learning-outcomes-content-main.js
+msgid "Average Submissions per Problem"
+msgstr ""
+
+#: static/js/performance-learning-outcomes-section-main.js
+msgid "Difficulty"
+msgstr "Difficulté"

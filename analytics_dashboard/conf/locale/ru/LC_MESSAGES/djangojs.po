@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-04 11:40-0400\n"
-"PO-Revision-Date: 2016-08-04 15:42+0000\n"
+"POT-Creation-Date: 2016-08-25 10:29-0400\n"
+"PO-Revision-Date: 2016-08-25 14:31+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Russian (http://www.transifex.com/open-edx/edx-platform/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -29,15 +29,16 @@ msgstr ""
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Invalid Parameters"
-msgstr ""
+msgstr "Неверные параметры"
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Sorry, we couldn't find any learners who matched that query."
 msgstr ""
+"К сожалению, слушатели, соответствующие параметрам запроса, не найдены."
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Return to the Learners page."
-msgstr ""
+msgstr "Вернуться к списку слушателей."
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Learners"
@@ -173,12 +174,12 @@ msgstr ""
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "Daily Activity"
-msgstr ""
+msgstr "Ежедневная активность"
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "Activity Over Time"
-msgstr ""
+msgstr "Динамика активности"
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/apps/learners/detail/views/learner-summary-field.js
@@ -219,14 +220,12 @@ msgid "Enrollment Track: <%= filterVal %>"
 msgstr "Ссылка регистрации: <%= filterVal %>"
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/app.js
-msgid "Engagement: <%= filterVal %>"
+msgid "Active Learners"
 msgstr ""
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/app.js
-msgid "Active Filters:"
-msgstr "Активные фильтры: "
+msgid "Filters In Use:"
+msgstr ""
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
@@ -246,7 +245,7 @@ msgstr "Нажмите для отмены всех фильтров"
 #: static/apps/learners/roster/views/activity-date-range.js
 #: static/dist/apps/learners/app/app.js
 msgid "Activity between <%- startDate %> - <%- endDate %>"
-msgstr ""
+msgstr "Активность с <%- startDate %> по <%- endDate %>"
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
@@ -320,9 +319,8 @@ msgid "Enrollment Tracks"
 msgstr "Ссылки регистрации "
 
 #: static/apps/learners/roster/views/controls.js
-#: static/dist/apps/learners/app/app.js
 msgid "Inactive Learners"
-msgstr ""
+msgstr "Неактивные слушатели"
 
 #: static/apps/learners/roster/views/filter.js
 #: static/dist/apps/learners/app/app.js
@@ -420,6 +418,10 @@ msgstr "Нет"
 msgid "Learner Roster"
 msgstr "Реестр слушателей "
 
+#: static/dist/apps/learners/app/app.js
+msgid "Active Filters:"
+msgstr "Активные фильтры: "
+
 #: static/dist/js/common.js static/js/utils/utils.js
 msgid "..."
 msgstr "..."
@@ -441,6 +443,8 @@ msgstr "(пусто)"
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
+#: static/js/performance-learning-outcomes-section-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js static/js/views/data-table-view.js
 msgid "Correct"
 msgstr "Верных"
@@ -507,6 +511,8 @@ msgstr "Среднее кол-во незавершенных просмотро
 #: static/dist/js/performance-problems-main.js
 #: static/js/engagement-video-content-main.js
 #: static/js/engagement-videos-main.js static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Order"
 msgstr "Расположить по порядку"
@@ -555,12 +561,12 @@ msgstr "Количество зарегистрированных"
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Honor"
-msgstr ""
+msgstr "Сертификат Кодекса чести"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Audit"
-msgstr ""
+msgstr "Бесплатный курс"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
@@ -575,7 +581,7 @@ msgstr "Профессиональный"
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Verified with Credit"
-msgstr ""
+msgstr "Подтверждённые с зачётом"
 
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-age-main.js
@@ -680,6 +686,8 @@ msgstr "Вариант"
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
+#: static/js/performance-learning-outcomes-section-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Incorrect"
 msgstr "Неверных"
@@ -691,11 +699,13 @@ msgstr "Ответ: <%=value%>"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
 msgid "Average Correct"
 msgstr "Верных, в среднем"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
 msgid "Average Incorrect"
 msgstr "Неверных, в среднем"
 
@@ -712,11 +722,22 @@ msgstr "Среднее количество ответов, отправленн
 #: static/dist/js/performance-content-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Percentage Correct"
 msgstr "Верных ответов, в процентах"
 
 #: static/dist/js/performance-problems-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Total"
 msgstr "Итого"
+
+#: static/js/performance-learning-outcomes-content-main.js
+msgid "Average Submissions per Problem"
+msgstr ""
+
+#: static/js/performance-learning-outcomes-section-main.js
+msgid "Difficulty"
+msgstr "Сложность"
