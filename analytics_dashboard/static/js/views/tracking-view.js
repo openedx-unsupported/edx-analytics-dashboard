@@ -116,6 +116,7 @@ define(['backbone', 'jquery', 'underscore', 'utils/utils'],
 
                 if (self.options.courseModel) {
                     course.courseId = self.options.courseModel.get('courseId');
+                    course.org = self.options.courseModel.get('org');
                 }
 
                 if (self.model.has('page')) {
