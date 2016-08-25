@@ -21,8 +21,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-04 11:40-0400\n"
-"PO-Revision-Date: 2016-08-04 15:42+0000\n"
+"POT-Creation-Date: 2016-08-25 10:29-0400\n"
+"PO-Revision-Date: 2016-08-25 14:29+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/open-edx/edx-platform/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -129,6 +129,7 @@ msgstr ""
 "選取%(level)s"
 
 #: courses/templates/courses/_graded_content_nav.html
+#: courses/templates/courses/_tags_content_nav.html
 #: courses/templates/courses/_ungraded_content_nav.html
 msgid "Select Problem"
 msgstr "選取問題"
@@ -139,6 +140,14 @@ msgstr "選取問題"
 #: courses/templates/courses/_video_preview.html
 msgid "View Live"
 msgstr "線上檢視"
+
+#: courses/templates/courses/_tags_content_nav.html
+msgid "Select Outcome"
+msgstr ""
+
+#: courses/templates/courses/_tags_content_nav.html
+msgid "All Outcomes"
+msgstr ""
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
@@ -713,6 +722,7 @@ msgid "Learners"
 msgstr "學生"
 
 #: courses/templates/courses/performance_answer_distribution.html
+#: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
 msgid "How did students answer this problem?"
 msgstr "學生如何回答此問題？"
@@ -729,6 +739,7 @@ msgid ""
 msgstr "這些狀態條顯示每個問題的正確和錯誤提交數。 只會計算每位學生最後之提交。"
 
 #: courses/templates/courses/performance_assignment.html
+#: courses/templates/courses/performance_learning_outcomes_section.html
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid "Problem Submissions"
 msgstr "問題提交"
@@ -778,6 +789,27 @@ msgstr "每一狀態條會顯示功課問題之正確和錯誤答覆的平均數
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid "Assignment Submissions"
 msgstr "作業提交"
+
+#: courses/templates/courses/performance_learning_outcomes_content.html
+#: courses/templates/courses/performance_learning_outcomes_section.html
+msgid "Measured by learning outcome, how are students performing?"
+msgstr ""
+
+#: courses/templates/courses/performance_learning_outcomes_content.html
+msgid ""
+"Each bar shows the average number of correct and incorrect submissions for "
+"each outcome."
+msgstr ""
+
+#: courses/templates/courses/performance_learning_outcomes_content.html
+msgid "Outcome Submissions"
+msgstr ""
+
+#: courses/templates/courses/performance_learning_outcomes_section.html
+msgid ""
+"Each bar shows the correct and incorrect number of submissions for each "
+"problem for the current outcome."
+msgstr ""
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are students doing on this section?"

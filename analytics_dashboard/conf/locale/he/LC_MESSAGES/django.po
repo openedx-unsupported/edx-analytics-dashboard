@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-04 11:40-0400\n"
-"PO-Revision-Date: 2016-08-04 15:42+0000\n"
+"POT-Creation-Date: 2016-08-25 10:29-0400\n"
+"PO-Revision-Date: 2016-08-25 14:29+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Hebrew (http://www.transifex.com/open-edx/edx-platform/language/he/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr ""
 
 #: core/templates/core/landing.html
 msgid "Login"
-msgstr "התחברו"
+msgstr "כניסה"
 
 #: core/templates/core/landing.html
 msgid "Insights to help course teams improve courses."
@@ -38,7 +38,7 @@ msgstr "מי הם הסטודנטים שלי?"
 
 #: core/templates/core/landing.html
 msgid "Target your course to fit the backgrounds of your students."
-msgstr "התאימו את הקורס כך שיתאים לרקע הסטודנטים שלכם."
+msgstr "התאם את הקורס כך שיתאים לרקע הסטודנטים שלך."
 
 #: core/templates/core/landing.html
 #: courses/templates/courses/enrollment_geography.html
@@ -54,8 +54,8 @@ msgid ""
 "Improve frequently accessed content, or point students at underused "
 "resources."
 msgstr ""
-"שפרו תוכן שניגשים אליו בתדירות גבוהה או כוונו סטודנטים למשאבים שנעשה בהם "
-"שימוש מופחת. "
+"שפר תוכן שניגשים אליו בתדירות גבוהה או כוון סטודנטים למשאבים שנעשה בהם שימוש"
+" מופחת. "
 
 #: core/templates/core/landing.html
 msgid "Engagement"
@@ -67,7 +67,7 @@ msgstr "באיזו מידה תומך התוכן שלי בלמידה של הסט�
 
 #: core/templates/core/landing.html
 msgid "Adjust your course based on where students are struggling."
-msgstr "התאימו את הקורס שלכם בהתאם לקשיי הסטודנטים."
+msgstr "התאם את הקורס שלך בהתאם לקשיי הסטודנטים."
 
 #: core/templates/core/landing.html
 msgid "Performance"
@@ -75,7 +75,7 @@ msgstr "ביצועים"
 
 #: core/templates/core/landing.html
 msgid "Join the Open Source Community"
-msgstr "הצטרפו לקהילת הקוד הפתוח"
+msgstr "הצטרף לקהילת הקוד הפתוח"
 
 #: core/templates/core/landing.html
 msgid ""
@@ -99,7 +99,7 @@ msgstr ""
 
 #: core/templates/core/landing.html
 msgid "Need Help?"
-msgstr "זקוקים לעזרה?"
+msgstr "זקוק לעזרה?"
 
 #: core/templates/core/landing.html
 msgid ""
@@ -109,7 +109,7 @@ msgstr ""
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
-msgstr "בחרו סוג מטלה"
+msgstr "בחר סוג משימה"
 
 #. Translators: This refers to all course assignment types (e.g. homework,
 #. exam, lab).
@@ -127,35 +127,44 @@ msgstr ""
 "בחר %(level)s"
 
 #: courses/templates/courses/_graded_content_nav.html
+#: courses/templates/courses/_tags_content_nav.html
 #: courses/templates/courses/_ungraded_content_nav.html
 msgid "Select Problem"
-msgstr "בחרו בעיה"
+msgstr "בחר בעיה"
 
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
 #: courses/templates/courses/_module_description.html
 #: courses/templates/courses/_video_preview.html
 msgid "View Live"
-msgstr "צפו בזמן אמת"
+msgstr "צפה בזמן אמת"
+
+#: courses/templates/courses/_tags_content_nav.html
+msgid "Select Outcome"
+msgstr ""
+
+#: courses/templates/courses/_tags_content_nav.html
+msgid "All Outcomes"
+msgstr ""
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Section"
-msgstr "בחרו מקטע"
+msgstr "בחר קטע"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "All Sections"
-msgstr "כל המקטעים"
+msgstr "כל הפרקים"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Subsection"
-msgstr "בחרו תת מקטע"
+msgstr "בחר תת פרק"
 
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Video"
-msgstr "בחרו סרטון וידאו"
+msgstr "בחר סרטון וידאו"
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Previous Video"
@@ -189,8 +198,8 @@ msgid ""
 "Review all submission variants below, or click Download CSV to review them "
 "offline."
 msgstr ""
-"סקרו את כל משתני ההגשה למטה או לחצו על \"הורידו CSV\" על מנת לסקור אותם "
-"באופן לא מקוון."
+"סקור את כל משתני ההגשה למטה או לחץ על \"הורד CSV\" על מנת לסקור אותם באופן "
+"לא מקוון."
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Submission Counts"
@@ -205,7 +214,7 @@ msgstr "ספירת הגשות"
 #: courses/templates/courses/enrollment_demographics_gender.html
 #: courses/templates/courses/enrollment_geography.html
 msgid "Download CSV"
-msgstr "הורידו CSV"
+msgstr "הורד CSV"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Student Submission Counts"
@@ -233,8 +242,8 @@ msgid ""
 "The number of active students, and the number of students who engaged in "
 "specific activities, over time."
 msgstr ""
-"מספר הסטודנטים הפעילים ומספר הסטודנטים שהפגינו מעורבות במטלות מסוימות, לאורך"
-" ציר הזמן."
+"מספר הסטודנטים הפעילים ומספר הסטודנטים שהפגינו מעורבות במשימות מסוימות, "
+"לאורך ציר הזמן."
 
 #: courses/templates/courses/engagement_content.html
 msgid "Student Activity Metrics"
@@ -722,7 +731,7 @@ msgstr "ברוכים הבאים, %(username)s!"
 #: courses/templates/courses/index.html
 msgid ""
 "Here are the courses you currently have access to in %(application_name)s:"
-msgstr "להלן הקורסים שיש לכם כרגע גישה אליהם ב %(application_name)s:"
+msgstr "להלן הקורסים שיש באפשרותך כרגע לגשת אליהם ב %(application_name)s:"
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
@@ -733,14 +742,15 @@ msgid ""
 "Click Help in the upper-right corner to get more information about "
 "%(application_name)s. Send us feedback at %(email_link)s."
 msgstr ""
-"לחצו על 'עזרה' בפינה הימנית העליונה כדי לקבל מידע נוסף על "
-"%(application_name)s. שלחו לנו משוב לכתובת %(email_link)s."
+"לחץ על 'עזרה' בפינה הימנית העליונה על מנת לקבל מידע נוסף על "
+"%(application_name)s. שלח לנו משוב לכתובת %(email_link)s."
 
 #: courses/templates/courses/learners.html
 msgid "Learners"
 msgstr "לומדים"
 
 #: courses/templates/courses/performance_answer_distribution.html
+#: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
 msgid "How did students answer this problem?"
 msgstr "כיצד השיבו סטודנטים על בעיה זו?"
@@ -759,19 +769,20 @@ msgstr ""
 "האחרונה מכל סטודנט נחשבת."
 
 #: courses/templates/courses/performance_assignment.html
+#: courses/templates/courses/performance_learning_outcomes_section.html
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid "Problem Submissions"
 msgstr "הגשות בעיה"
 
 #: courses/templates/courses/performance_graded_content.html
 msgid "Which assignment type do you want to investigate?"
-msgstr "איזה סוג מטלות ברצונכם לחקור?"
+msgstr "איזה סוג משימות ברצונכם לחקור?"
 
 #: courses/templates/courses/performance_graded_content.html
 msgid ""
 "Click an assignment type to view more detail information about the "
 "assignments."
-msgstr "לחצו על סוג משימה על מנת לצפות במידע מפורט אודות המטלות."
+msgstr "לחץ על סוג משימה על מנת לצפות במידע מפורט אודות המשימות."
 
 #. Translators: This describes the percent an assignment contributes to that
 #. of a learner's grade (e.g. Exam: 60% of the grading policy.).
@@ -809,27 +820,48 @@ msgstr ""
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid "Assignment Submissions"
-msgstr "הגשות מטלה"
+msgstr "הגשות משימה"
+
+#: courses/templates/courses/performance_learning_outcomes_content.html
+#: courses/templates/courses/performance_learning_outcomes_section.html
+msgid "Measured by learning outcome, how are students performing?"
+msgstr ""
+
+#: courses/templates/courses/performance_learning_outcomes_content.html
+msgid ""
+"Each bar shows the average number of correct and incorrect submissions for "
+"each outcome."
+msgstr ""
+
+#: courses/templates/courses/performance_learning_outcomes_content.html
+msgid "Outcome Submissions"
+msgstr ""
+
+#: courses/templates/courses/performance_learning_outcomes_section.html
+msgid ""
+"Each bar shows the correct and incorrect number of submissions for each "
+"problem for the current outcome."
+msgstr ""
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are students doing on this section?"
-msgstr "כיצד מתמודדים הסטודנטים במקטע זה?"
+msgstr "כיצד מתמודדים הסטודנטים בפרק זה?"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each subsection. Only the last submission from each student is counted."
 msgstr ""
-"כל עמודה מציגה את המספר הממוצע של הגשות נכונות ושגויות עבור כל תת מקטע. רק "
+"כל עמודה מציגה את המספר הממוצע של הגשות נכונות ושגויות עבור כל תת פרק. רק "
 "ההגשה האחרונה מכל סטודנט נחשבת."
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "Subsection Submissions"
-msgstr "הגשות עבור תת מקטע"
+msgstr "הגשות עבור תת פרק"
 
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid "How are students doing on this subsection?"
-msgstr "כיצד מתקדמים הסטודנטים בתת מקטע זה?"
+msgstr "כיצד מתקדמים הסטודנטים בתת פרק זה?"
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid "How are students doing on ungraded exercises?"
@@ -840,12 +872,12 @@ msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each section. Only the last submission from each student is counted."
 msgstr ""
-"כל עמודה מציגה את המספר הממוצע של הגשות נכונות ושגויות עבור כל מקטע. רק "
-"ההגשה האחרונה מכל סטודנט נחשבת."
+"כל עמודה מציגה את המספר הממוצע של הגשות נכונות ושגויות עבור כל פרק. רק ההגשה"
+" האחרונה מכל סטודנט נחשבת."
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid "Section Submissions"
-msgstr "הגשות עבור מקטע"
+msgstr "הגשות עבור פרק"
 
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
@@ -859,12 +891,12 @@ msgid ""
 "There was a problem retrieving course permissions for your account. Please "
 "try again. If you continue to experience issues, please let us know."
 msgstr ""
-"היתה בעיה באחזור הרשאות קורס עבור חשבונכם. אנא נסו שוב. אם אתם ממשיכים לחוות"
-" קשיים, אנא צרו עמנו קשר."
+"היתה בעיה באחזור הרשאות קורס עבור חשבונך. אנא נסה שוב. אם אתה ממשיך לחוות "
+"קשיים, אנא צור עמנו קשר."
 
 #: courses/templates/courses/permissions-retrieval-failed.html
 msgid "Try Again"
-msgstr "נסו שוב"
+msgstr "נסה שוב"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/submissions_chart_info.html
@@ -881,8 +913,8 @@ msgid ""
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
 msgstr ""
-"אין לכם הרשאה לצפות בעמוד זה. אם לדעתכם צריכה להיות לכם גישה לעמוד, נסו "
-"להתנתק ולהתחבר שוב על מנת לעדכן את הרשאותיכם."
+"אין לך הרשאה לצפות בעמוד זה. אם לדעתך צריכה להיות לך גישה לעמוד, נסה להתנתק "
+"ולהתחבר שוב על מנת לעדכן את הרשאותיך."
 
 #: templates/403.html
 msgid "Logout then Login"
@@ -897,7 +929,7 @@ msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
 msgstr ""
-"איננו יכולים לאתר את העמוד המבוקש. אנא ודאו שכתובת ה-URL נכונה ואם לא, נסו "
+"איננו יכולים לאתר את העמוד המבוקש. אנא ודא שכתובת ה-URL נכונה ואם לא, נסה "
 "שוב."
 
 #: templates/500.html templates/500.html
@@ -914,7 +946,7 @@ msgstr ""
 
 #: templates/503.html templates/503.html
 msgid "We're having trouble loading this page. Please try again in a minute."
-msgstr "יש קושי בטעינת עמוד זה. אנא נסו שוב בעוד דקה."
+msgstr "יש קושי בטעינת עמוד זה. אנא נסה שוב בעוד דקה."
 
 #: templates/503.html
 msgid "(Technical details: 503 Service Unavailable.)"
@@ -926,14 +958,14 @@ msgstr "סגור"
 
 #: templates/base-error.html
 msgid "Use our support tool to ask questions or share feedback."
-msgstr "השתמשו בכלי התמיכה שלנו לשאול שאלות או לתת לנו משוב."
+msgstr "השתמש בכלי התמיכה שלנו לשאול שאלות או לשתף משוב."
 
 #. Translators: This intention here is that a user clicks a button to contact
 #. a support group (e.g. edX Support, or MITx Support). Reorder the
 #. placeholder as you see fit.
 #: templates/base-error.html
 msgid "Contact %(platform_name)s Support"
-msgstr "צרו קשר עם התמיכה של %(platform_name)s "
+msgstr "צור קשר עם התמיכה של %(platform_name)s "
 
 #: templates/footer.html
 msgid "Feedback"
@@ -945,8 +977,8 @@ msgid ""
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
 msgstr ""
-"אנחנו רוצים שלוח הבקרה יעזור לכם! זקוקים לעזרה? %(support_link_start)sצרו "
-"קשר עם התמיכה של צוות הקורס%(support_link_end)s. הערות או הצעות? דוא\"ל "
+"אנו רוצים שלוח הבקרה יעזור לך! זקוק לעזרה? %(support_link_start)sצרו קשר עם "
+"התמיכה של צוות הקורס%(support_link_end)s. הערות או הצעות? דוא\"ל "
 "%(email_link)s."
 
 #. Translators: The © symbol appears directly before this line.
@@ -960,7 +992,7 @@ msgstr ""
 
 #: templates/header.html
 msgid "Toggle navigation"
-msgstr "החליפו ניווט"
+msgstr "החלף ניווט"
 
 #: templates/header.html
 msgid "Help"
@@ -968,7 +1000,7 @@ msgstr "עזרה"
 
 #: templates/header.html
 msgid "Logout"
-msgstr "התנתקו"
+msgstr "התנתק"
 
 #: templates/loading.html
 msgid "Loading"

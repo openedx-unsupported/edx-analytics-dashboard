@@ -4,6 +4,7 @@
 #
 # Translators:
 # Bentsi Magidovich <magidovich@gmail.com>, 2015
+# e2f he_r1 <e2f_he_r1@outlook.com>, 2016
 # Naaman nov <naaman.nov@gmail.com>, 2015
 # Nadav Stark <nadav@yeda.org.il>, 2015
 # qualityalltext <quality@alltext.co.il>, 2016
@@ -14,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-04 11:40-0400\n"
-"PO-Revision-Date: 2016-08-04 15:42+0000\n"
+"POT-Creation-Date: 2016-08-25 10:29-0400\n"
+"PO-Revision-Date: 2016-08-25 14:29+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Hebrew (http://www.transifex.com/open-edx/edx-platform/language/he/)\n"
 "MIME-Version: 1.0\n"
@@ -26,15 +27,15 @@ msgstr ""
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Invalid Parameters"
-msgstr ""
+msgstr "הפרמטרים אינם חוקיים"
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Sorry, we couldn't find any learners who matched that query."
-msgstr ""
+msgstr "אנו מתנצלים, לא ניתן למצוא לומדים התואמים לחיפוש זה."
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Return to the Learners page."
-msgstr ""
+msgstr "חזור לעמוד הלומדים."
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Learners"
@@ -46,7 +47,7 @@ msgstr "פִּרטי הלומדים"
 
 #: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
 msgid "Sorry, we couldn't find the page you're looking for."
-msgstr "מצטערים, לא הצלחנו למצוא את העמוד שאתם מחפשים."
+msgstr "אנו מצטערים, לא ניתן למצוא את העמוד שאתה מחפש."
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
@@ -86,12 +87,12 @@ msgstr "דיונים"
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
 msgid "Segments"
-msgstr "קטעים"
+msgstr "מקטעים"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
 msgid "Segments to Ignore"
-msgstr "קטעים שיש להתעלם מהם"
+msgstr "מקטעים שיש להתעלם מהם"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/app.js
@@ -121,7 +122,7 @@ msgstr "שגיאת שרת"
 #: static/apps/learners/common/utils.js static/apps/learners/common/utils.js
 #: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
 msgid "Your request could not be processed. Reload the page to try again."
-msgstr "לא ניתן לעבד את בקשתכם. הטעינו מחדש את העמוד ונסו שנית."
+msgstr "לא ניתן לעבד את בקשתך. הטען מחדש את העמוד ונסה שנית."
 
 #: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
 msgid "Network error"
@@ -162,17 +163,17 @@ msgstr "ערך"
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "Engagement Activity"
-msgstr ""
+msgstr "פעילות תעסוקתית"
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "Daily Activity"
-msgstr ""
+msgstr "פעילות יומית"
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "Activity Over Time"
-msgstr ""
+msgstr "פעילות לאורך ציר הזמן"
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/apps/learners/detail/views/learner-summary-field.js
@@ -185,7 +186,7 @@ msgstr "לא זמין"
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
 msgid "Check back daily for up-to-date data."
-msgstr "בדקו באופן יומיומי את הנתונים המעודכנים. "
+msgstr "חזור ובדוק באופן יומיומי את הנתונים המעודכנים. "
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/app.js
@@ -200,7 +201,7 @@ msgstr "נתוני הלומד אינם זמינים."
 #: static/apps/learners/detail/views/learner-return.js
 #: static/dist/apps/learners/app/app.js
 msgid "Return to Learners"
-msgstr "חִזרו ל\"לומדים\""
+msgstr "חזור ל\"לומדים\""
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
@@ -213,39 +214,37 @@ msgid "Enrollment Track: <%= filterVal %>"
 msgstr "מסלול הרשמה: <%= filterVal %>"
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/app.js
-msgid "Engagement: <%= filterVal %>"
+msgid "Active Learners"
 msgstr ""
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/app.js
-msgid "Active Filters:"
-msgstr "מסנני פעילות:"
+msgid "Filters In Use:"
+msgstr ""
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Click to remove this filter"
-msgstr "לחצו להסרת מסנן זה"
+msgstr "לחץ להסרת מסנן זה"
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Clear"
-msgstr "נקו"
+msgstr "נקה"
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/app.js
 msgid "Click to remove all filters"
-msgstr "לִחצו להסרת כל המסננים"
+msgstr "לחץ להסרת כל המסננים"
 
 #: static/apps/learners/roster/views/activity-date-range.js
 #: static/dist/apps/learners/app/app.js
 msgid "Activity between <%- startDate %> - <%- endDate %>"
-msgstr ""
+msgstr "פעילות בין <%- startDate %> - <%- endDate %>"
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
 msgid "The name and username of this learner. Click to sort by username."
-msgstr "שם ושם משתמש של לומד זה. לחצו למיין על פי שם משתמש."
+msgstr "שם ושם משתמש של לומד זה. לחץ למיון על פי שם משתמש."
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
@@ -281,22 +280,22 @@ msgstr "מספר התרומות שביצע לומד זה כולל פוסטים, 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
 msgid "sort ascending"
-msgstr "מיינו בסדר עולה"
+msgstr "מיין בסדר עולה"
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
 msgid "sort descending"
-msgstr "מיינו בסדר יורד"
+msgstr "מיין בסדר יורד"
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/app.js
 msgid "click to sort"
-msgstr "לחצו למיון"
+msgstr "לחץ למיון"
 
 #: static/apps/learners/roster/views/controls.js
 #: static/dist/apps/learners/app/app.js
 msgid "Find a learner"
-msgstr "חפשו אחר לומד"
+msgstr "חפש אחר לומד"
 
 #: static/apps/learners/roster/views/controls.js
 #: static/dist/apps/learners/app/app.js
@@ -309,9 +308,8 @@ msgid "Enrollment Tracks"
 msgstr "מסלולי הרשמה"
 
 #: static/apps/learners/roster/views/controls.js
-#: static/dist/apps/learners/app/app.js
 msgid "Inactive Learners"
-msgstr ""
+msgstr "לומדים שאינם פעילים"
 
 #: static/apps/learners/roster/views/filter.js
 #: static/dist/apps/learners/app/app.js
@@ -356,12 +354,12 @@ msgstr "לא נמצאו לומדים המתאימים לקריטריון."
 #: static/apps/learners/roster/views/results.js
 #: static/dist/apps/learners/app/app.js
 msgid "Try a different search."
-msgstr "נסו חיפוש אחר."
+msgstr "נסה חיפוש אחר."
 
 #: static/apps/learners/roster/views/results.js
 #: static/dist/apps/learners/app/app.js
 msgid "Try clearing the filters."
-msgstr "נסו להסיר את המסננים."
+msgstr "נסה להסיר את המסננים."
 
 #: static/apps/learners/roster/views/results.js
 #: static/dist/apps/learners/app/app.js
@@ -376,7 +374,7 @@ msgid ""
 " metrics."
 msgstr ""
 "לא נרשמו לומדים או שנתוני פעילות הקורס לא עובדו עדיין. הנתונים מתעדכנים כל "
-"יום, לכן בדקו באופן קבוע מדדים מעודכנים."
+"יום, לכן חזור ובדוק באופן קבוע מדדים מעודכנים."
 
 #: static/apps/learners/roster/views/roster.js
 #: static/dist/apps/learners/app/app.js
@@ -396,7 +394,7 @@ msgstr "חיפוש"
 #: static/apps/learners/roster/views/search.js
 #: static/dist/apps/learners/app/app.js
 msgid "clear search"
-msgstr "נקו חיפוש"
+msgstr "נקה חיפוש"
 
 #: static/apps/learners/roster/views/table.js
 #: static/dist/apps/learners/app/app.js
@@ -407,6 +405,10 @@ msgstr "לא זמין"
 #: static/dist/apps/learners/app/app.js
 msgid "Learner Roster"
 msgstr "מצבת הלומדים"
+
+#: static/dist/apps/learners/app/app.js
+msgid "Active Filters:"
+msgstr "מסננים פעילים:"
 
 #: static/dist/js/common.js static/js/utils/utils.js
 msgid "..."
@@ -429,6 +431,8 @@ msgstr "(ריק)"
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
+#: static/js/performance-learning-outcomes-section-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js static/js/views/data-table-view.js
 msgid "Correct"
 msgstr "נכון"
@@ -456,7 +460,7 @@ msgstr "ניסו לפתור בעיה"
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Posted in Forum"
-msgstr "פרסמו בפורום"
+msgstr "פִּרסמו בפורום"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
@@ -495,6 +499,8 @@ msgstr "ממוצע צפיות חלקיות"
 #: static/dist/js/performance-problems-main.js
 #: static/js/engagement-video-content-main.js
 #: static/js/engagement-videos-main.js static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Order"
 msgstr "סדר"
@@ -543,12 +549,12 @@ msgstr "רישום נוכחי"
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Honor"
-msgstr ""
+msgstr "כבוד"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Audit"
-msgstr ""
+msgstr "שומע חופשי"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
@@ -563,7 +569,7 @@ msgstr "מקצועי"
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Verified with Credit"
-msgstr ""
+msgstr "מאומת בנקודות זכות"
 
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-age-main.js
@@ -668,6 +674,8 @@ msgstr "גרסה אחרת"
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
+#: static/js/performance-learning-outcomes-section-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Incorrect"
 msgstr "שגוי"
@@ -679,11 +687,13 @@ msgstr "תשובה: <%=value%>"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
 msgid "Average Correct"
 msgstr "ממוצע תשובות נכונות"
 
 #: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
 msgid "Average Incorrect"
 msgstr "ממוצע תשובות שגויות"
 
@@ -700,11 +710,22 @@ msgstr "ממוצע הגשות לבעיה"
 #: static/dist/js/performance-content-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Percentage Correct"
 msgstr "אחוז נכון"
 
 #: static/dist/js/performance-problems-main.js
+#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Total"
 msgstr "סה״כ"
+
+#: static/js/performance-learning-outcomes-content-main.js
+msgid "Average Submissions per Problem"
+msgstr ""
+
+#: static/js/performance-learning-outcomes-section-main.js
+msgid "Difficulty"
+msgstr ""
