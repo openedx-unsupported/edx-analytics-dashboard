@@ -41,7 +41,7 @@ class LearnersViewTests(ViewTestMixin, TestCase):
         self.addCleanup(httpretty.reset)
 
     def _get(self):
-        return self.client.get(self.path(course_id=DEMO_COURSE_ID), follow=True)
+        return self.client.get(self.path(course_id=DEMO_COURSE_ID))
 
     def _assert_context(self, response, expected_context_subset):
         default_expected_context_subset = {
@@ -50,9 +50,10 @@ class LearnersViewTests(ViewTestMixin, TestCase):
                 course_id=DEMO_COURSE_ID
             ),
         }
+        self.assertDictContainsSubset(dict(expected_context_subset.items()), response.context)
         self.assertDictContainsSubset(
-            dict(default_expected_context_subset.items() + expected_context_subset.items()),
-            response.context
+            dict(default_expected_context_subset.items()),
+            response.context['js_data']['course']
         )
 
     def get_mock_data(self, *args, **kwargs):
@@ -65,8 +66,7 @@ class LearnersViewTests(ViewTestMixin, TestCase):
         response = self._get()
         self._assert_context(response, {
             'learner_list_json': learners_payload,
-            'course_learner_metadata_json': course_metadata_payload,
-            'show_error': False
+            'course_learner_metadata_json': course_metadata_payload
         })
         self.assertNotContains(response, self.TABLE_ERROR_TEXT)
 
@@ -86,11 +86,9 @@ class LearnersViewTests(ViewTestMixin, TestCase):
             with LogCapture(level=logging.ERROR) as lc:
                 response = self._get()
                 self._assert_context(response, {
-                    'learner_list_json': {},
-                    'course_learner_metadata_json': {},
-                    'show_error': True,
+                    'learner_list_json': 'Failed to reach the Learner List endpoint',
+                    'course_learner_metadata_json': 'Failed to reach the Course Learner Metadata endpoint'
                 })
-                self.assertContains(response, self.TABLE_ERROR_TEXT, 1)
                 lc.check(
                     ('courses.views.learners', 'ERROR', 'Failed to reach the Learner List endpoint'),
                     ('courses.views.learners', 'ERROR', 'Failed to reach the Course Learner Metadata endpoint')

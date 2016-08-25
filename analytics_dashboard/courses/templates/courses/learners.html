@@ -2,6 +2,7 @@
 
 {% load dashboard_extras %}
 {% load i18n %}
+{% load staticfiles %}
 {% load rjs %}
 
 {% comment %}
@@ -16,40 +17,15 @@ View of individual learners within a course.
     <link rel="stylesheet" href="/static/bower_components/nprogress/nprogress.css" type="text/css">
 {% endblock stylesheets %}
 
-{% block uncompressed_javascript %}
+{% block javascript %}
     {{ block.super }}
-    {% if not show_error %}
-        <script>
-         require(['jquery', 'load/init-page', 'learners/app/app'], function ($, page, LearnersApp) {
-             var app = new LearnersApp({
-                 courseId: '{{ course_id }}',
-                 containerSelector: '.learners-app-container',
-                 learnerListJson: {{ learner_list_json | escape_json }},
-                 learnerListUrl: '{{ learner_list_url }}',
-                 courseLearnerMetadataJson: {{ course_learner_metadata_json | escape_json }},
-                 courseLearnerMetadataUrl: '{{ course_learner_metadata_url }}',
-                 learnerEngagementTimelineUrl: '{{ learner_engagement_timeline_url }}'
-             });
-
-             $(function () {
-                 app.start();
-             });
-         });
-        </script>
-    {% endif %}
-{% endblock uncompressed_javascript %}
+    <script src="{% static_rjs 'apps/learners/app/learners-main.js' %}"></script>
+{% endblock javascript %}
 
 {% block child_content %}
     <section class="view-section">
-        {% if show_error %}
-            <div class="section-heading bordered">
-                <h4 class="section-title">{% trans "Learners" %}</h4>
-            </div>
-            {% show_table_error %}
-        {% else %}
-            <div class="learners-app-container container-fluid">
-                {% include "loading.html" %}
-            </div>
-        {% endif %}
+        <div class="learners-app-container container-fluid">
+            {% include "loading.html" %}
+        </div>
     </section>
 {% endblock %}

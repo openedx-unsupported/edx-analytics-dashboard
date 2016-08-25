@@ -19,8 +19,7 @@ class LearnersView(CourseTemplateWithNavView):
 
     def get_context_data(self, **kwargs):
         context = super(LearnersView, self).get_context_data(**kwargs)
-        context.update({
-            'page_data': self.get_page_data(context),
+        context['js_data']['course'].update({
             'learner_list_url': reverse('learner_analytics_api:v0:LearnerList'),
             'course_learner_metadata_url': reverse(
                 'learner_analytics_api:v0:CourseMetadata',
@@ -54,9 +53,11 @@ class LearnersView(CourseTemplateWithNavView):
             except (Timeout, ConnectionError, ValueError):
                 # ValueError may be thrown by the call to .json()
                 logger.exception(error_message)
-                context[data_name] = {}
+                context[data_name] = error_message
+            context['js_data']['course'].update({
+                data_name: context[data_name]
+            })
 
-        # Only show roster if data is avilable for it; otherwise, an error will be displayed.
-        context['show_error'] = False if context['learner_list_json'] else True
+        context['page_data'] = self.get_page_data(context)
 
         return context
