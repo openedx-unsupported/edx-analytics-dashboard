@@ -26,7 +26,7 @@ define(function(require) {
             this.onLearnerCollectionUpdated(this.options.collection);
         },
         onLearnerCollectionUpdated: function(collection) {
-            if (collection.length) {
+            if (collection.length && this.options.hasData) {
                 // Don't re-render the learner table view if one already exists.
                 if (!(this.getRegion('main').currentView instanceof LearnerTableView)) {
                     this.showChildView('main', new LearnerTableView({

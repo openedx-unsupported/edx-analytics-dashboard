@@ -5,6 +5,7 @@ define(function(require) {
         Backbone = require('backbone'),
         Marionette = require('marionette'),
         NProgress = require('nprogress'),
+        _ = require('underscore'),
 
         initModels = require('load/init-page'),
 
@@ -73,6 +74,7 @@ define(function(require) {
                     courseId: this.options.courseId,
                     learnerCollection: learnerCollection,
                     courseMetadata: courseMetadata,
+                    hasData: _.isObject(this.options.learnerListJson),
                     pageModel: pageModel,
                     rootView: rootView,
                     learnerEngagementTimelineUrl: this.options.learnerEngagementTimelineUrl,

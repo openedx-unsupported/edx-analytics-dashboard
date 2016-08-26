@@ -70,6 +70,7 @@ define(function(require) {
             this.showChildView('results', new LearnerResultsView({
                 collection: this.options.collection,
                 courseMetadata: this.options.courseMetadata,
+                hasData: this.options.hasData,
                 trackingModel: this.options.trackingModel
             }));
         },
