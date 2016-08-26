@@ -72,7 +72,8 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
 
                 // segment view should call segment methods when data is set
                 courseModel.set({
-                    courseId: 'this/is/a/course'
+                    courseId: 'this/is/a/course',
+                    org: 'org'
                 });
                 trackingModel.set({
                     segmentApplicationId: 'applicationId',
@@ -84,6 +85,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                 expect(view.segment.identify).toHaveBeenCalled();
                 expect(view.segment.page).toHaveBeenCalledWith({
                     courseId: 'this/is/a/course',
+                    org: 'org',
                     label: 'mypage'
                 });
                 expect(view.segment.load).toHaveBeenCalled();
@@ -122,7 +124,8 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
             it('should call segment::track() when segment events are triggers', function() {
                 var view,
                     courseModel = new CourseModel({
-                        courseId: 'my/course/id'
+                        courseId: 'my/course/id',
+                        org: 'org'
                     }),
                     trackingModel = new TrackingModel({
                         page: 'mypage'
@@ -158,6 +161,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                     'trackingEvent', {
                         label: 'mypage',
                         courseId: 'my/course/id',
+                        org: 'org',
                         param: 'my-param'
                     });
             });
@@ -165,7 +169,8 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
             it('should call segment::page()', function() {
                 var view,
                     courseModel = new CourseModel({
-                        courseId: 'my/course/id'
+                        courseId: 'my/course/id',
+                        org: 'org'
                     }),
                     trackingModel = new TrackingModel({
                         page: 'mypage'
@@ -201,6 +206,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                     'pageName', {
                         label: 'mypage',
                         courseId: 'my/course/id',
+                        org: 'org',
                         param: 'my-param'
                     });
             });
@@ -218,7 +224,8 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
             function setupTest() {
                 var view,
                     courseModel = new CourseModel({
-                        courseId: 'my/course/id'
+                        courseId: 'my/course/id',
+                        org: 'org'
                     }),
                     trackingModel = new TrackingModel({
                         page: 'mypage',
@@ -272,6 +279,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                     'trackingEvent', {
                         label: 'mypage',
                         courseId: 'my/course/id',
+                        org: 'org',
                         param: 'my-param',
                         foo: 'bar'
                     }

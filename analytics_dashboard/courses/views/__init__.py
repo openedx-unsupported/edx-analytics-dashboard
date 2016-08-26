@@ -177,7 +177,8 @@ class CourseContextMixin(CourseAPIMixin, TrackedViewMixin, LazyEncoderMixin):
         context['js_data'] = context.get('js_data', {})
         context['js_data'].update({
             'course': {
-                'courseId': self.course_id
+                'courseId': self.course_id,
+                'org': CourseKey.from_string(self.course_id).org
             },
             'user': {
                 'username': user.get_username(),
