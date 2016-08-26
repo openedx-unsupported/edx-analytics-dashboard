@@ -36,6 +36,7 @@ Partial: App-wide header element
         <li class="dropdown">
           <button class="dropdown-toggle active-user navbar-link" data-toggle="dropdown"
              aria-controls="userDropdownMenu" id="userMenu">
+            <span class="sr-only">{% trans "Menu for" %}</span>
             <span class="ico-user fa fa-graduation-cap" aria-hidden="true"></span>
             <span class="active-user-name">{{ request.user.username }}</span>
             <span class="ico ico-indicator fa fa-caret-down" aria-hidden="true"></span>
