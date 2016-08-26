@@ -560,7 +560,7 @@ define(function(require) {
                 executeSearch(searchString);
                 expectSearchedFor(searchString);
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(1, 1)));
-                $('a.clear').click();
+                $('.clear.btn').click();
                 expect(getLastRequestParams().text_search).toBeUndefined();
             });
 

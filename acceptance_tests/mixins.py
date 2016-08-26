@@ -156,7 +156,7 @@ class PrimaryNavMixin(CourseApiMixin):
         """
         Verify the user menu functions properly.
         """
-        element = self.page.q(css='a.active-user.dropdown-toggle')
+        element = self.page.q(css='.active-user.dropdown-toggle')
         self.assertTrue(element.present)
         self.assertEqual(element.attrs('aria-expanded')[0], 'false')
 

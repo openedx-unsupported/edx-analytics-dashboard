@@ -22,10 +22,19 @@
   }
 }
 
+#main-nav .navbar-nav li > button {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
 button.chart-info {
   padding-left: 0;
   padding-top: 0;
   border: none;
+}
+
+.clear.btn {
+  background: transparent;
 }
 
 .chart-tooltip {
@@ -155,6 +164,16 @@ button.chart-info {
   .nav-section {
     @include a-background(transparent);
   }
+
+  li > button {
+    line-height: 20px;
+    border: none;
+    background: transparent;
+  }
+
+  li > button:focus {
+    outline: dotted 1px #000;
+  }
 }
 
 // lens navigation consists of a drop down and the lens sections in a navigation
@@ -162,6 +181,16 @@ $lens-background-color: $gray-d2;
 $lens-nav-text-color: $gray-l1;
 $lens-nav-height: 55px;
 $lens-box-model: border-box;
+$lens-padding-top: 18px;
+$lens-nav-margin: 15px;
+
+.course-label {
+  padding-top: $lens-padding-top;
+  padding-bottom: 0px;
+  margin-left: $lens-nav-margin;
+  margin-right: $lens-nav-margin;
+  min-height: $lens-nav-height;
+}
 
 .lens-nav {
   background-color: $lens-background-color;
@@ -174,7 +203,7 @@ $lens-box-model: border-box;
 
   // aligns the navbar with the logo
   ul.navbar-nav {
-    margin-left: 15px;
+    margin-left: $lens-nav-margin;
   }
 
   .navbar-nav {
@@ -182,7 +211,8 @@ $lens-box-model: border-box;
     .dropdown {
       padding-right: 10px;
 
-      a {
+      a, button {
+        background: transparent;
         text-transform: uppercase;
         color: $navbar-default-link-active-color;
       }
@@ -202,8 +232,12 @@ $lens-box-model: border-box;
     li > a {
       color: $lens-nav-text-color;
       min-height: $lens-nav-height;
-      padding-top: 18px;
+      padding-top: $lens-padding-top;
       padding-bottom: 0px;
+    }
+
+    li > button {
+      min-height: $lens-nav-height;
     }
 
     .nav-section {
