@@ -4,10 +4,6 @@
 Learner Activity
 ################
 
-.. note:: Performance testing is currently in progress for the learner
-  activity feature. While this testing is in progress, this feature is
-  available to a limited number of users at a given time.
-
 Which learners, specifically, are engaging with my course? Who is struggling,
 and who is doing well? Investigating and comparing the activities of individual
 learners helps you focus on those who are most likely to benefit from

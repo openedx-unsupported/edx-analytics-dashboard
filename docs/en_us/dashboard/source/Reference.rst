@@ -578,10 +578,6 @@ in a different spreadsheet application or a text editor.
 Individual Learner Computations
 *******************************
 
-.. note:: Performance testing is currently in progress for the learner
-  activity feature. While this testing is in progress, this feature is
-  available to a limited number of users at a given time.
-
 For information about the report and charts that are available in Insights
 for individual learner activities, see :ref:`Learner Activity`.
 
