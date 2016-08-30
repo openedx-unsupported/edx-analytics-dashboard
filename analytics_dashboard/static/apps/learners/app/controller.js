@@ -161,6 +161,8 @@ define(function(require) {
             var message = gettext("Sorry, we couldn't find the page you're looking for."),
                 notFoundView;
 
+            this.options.pageModel.set('title', gettext('Page Not Found'));
+
             notFoundView = new (Backbone.View.extend({
                 render: function() {
                     this.$el.text(message);
