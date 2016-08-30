@@ -3,12 +3,12 @@ import logging
 from slugify import slugify
 
 from analyticsclient.exceptions import NotFoundError
+from django.conf import settings
 from django.core.cache import cache
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 from edx_rest_api_client.exceptions import HttpClientError
-from core.utils import sanitize_cache_key
-
+from core.utils import (CourseStructureApiClient, sanitize_cache_key)
 
 from common.course_structure import CourseStructure
 from courses import utils
@@ -41,6 +41,11 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, BasePresenter):
 
     # minimum screen space a grading policy bar will take up (even if a policy is 0%, display some bar)
     MIN_POLICY_DISPLAY_PERCENT = 5
+
+    def __init__(self, access_token, course_id, timeout=settings.LMS_DEFAULT_TIMEOUT):
+        super(CoursePerformancePresenter, self).__init__(access_token, course_id, timeout)
+        # the deprecated course structure API has grading policy. This will be replaced in AN-7716
+        self.grading_policy_client = CourseStructureApiClient(settings.GRADING_POLICY_API_URL, access_token)
 
     def course_module_data(self):
         try:
@@ -180,7 +185,7 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, BasePresenter):
 
         if not grading_policy:
             logger.debug('Retrieving grading policy for course: %s', self.course_id)
-            grading_policy = self.course_api_client.grading_policies(self.course_id).get()
+            grading_policy = self.grading_policy_client.grading_policies(self.course_id).get()
 
             # Remove empty assignment types as they are not useful and will cause issues downstream.
             grading_policy = [item for item in grading_policy if item['assignment_type']]

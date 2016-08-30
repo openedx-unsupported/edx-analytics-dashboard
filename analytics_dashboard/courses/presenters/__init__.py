@@ -69,7 +69,13 @@ class CourseAPIPresenterMixin(object):
         structure = cache.get(key)
         if not structure:
             logger.debug('Retrieving structure for course: %s', self.course_id)
-            structure = self.course_api_client.course_structures(self.course_id).get()
+            blocks_kwargs = {
+                'course_id': self.course_id,
+                'depth': 'all',
+                'all_blocks': 'true',
+                'requested_fields': 'children,format,graded',
+            }
+            structure = self.course_api_client.blocks().get(**blocks_kwargs)
             cache.set(key, structure)
 
         return structure

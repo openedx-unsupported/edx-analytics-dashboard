@@ -29,17 +29,19 @@ class CourseAPIMixin(object):
     """
     Mixin with methods to help mock the course API.
     """
-    COURSE_API_COURSE_LIST = {'next': None, 'results': [
-        {'id': course_key, 'name': 'Test ' + course_key} for course_key in [DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID]
-    ]}
+    COURSE_BLOCKS_API_TEMPLATE = \
+        settings.COURSE_API_URL + \
+        '/blocks/?course_id={course_id}&requested_fields=children,graded&depth=all&all_blocks=true'
+    GRADING_POLICY_API_TEMPLATE = settings.GRADING_POLICY_API_URL + '/grading_policies/{course_id}/'
 
-    def mock_course_api(self, path, body=None, **kwargs):
+    def mock_course_api(self, url, body=None, **kwargs):
         """
         Registers an HTTP mock for the specified course API path. The mock returns the specified data.
 
         The calling test function MUST activate httpretty.
 
         Arguments
+            url     --  URL to be mocked
             body    --  Data returned by the mocked API
             kwargs  --  Additional arguments passed to httpretty.register_uri()
         """
@@ -49,11 +51,6 @@ class CourseAPIMixin(object):
             self.fail('httpretty is not enabled. The mock will not be used!')
 
         body = body or {}
-
-        # Remove trailing slashes from the path. They will be added back later.
-        path = path.strip(u'/')
-        url = '{}/{}/'.format(settings.COURSE_API_URL, path)
-
         default_kwargs = {
             'body': kwargs.get('body', json.dumps(body)),
             'content_type': 'application/json'
@@ -64,14 +61,25 @@ class CourseAPIMixin(object):
         logger.debug('Mocking Course API URL: %s', url)
 
     def mock_course_detail(self, course_id, extra=None):
-        path = 'courses/{}'.format(course_id)
+        path = '{api}/courses/{course_id}/'.format(api=settings.COURSE_API_URL, course_id=course_id)
         body = {'id': course_id, 'name': mock_course_name(course_id)}
         if extra:
             body.update(extra)
         self.mock_course_api(path, body)
 
+    @property
+    def course_api_course_list(self):
+        return {
+            'pagination': {
+                'next': None,
+            },
+            'results': [{'id': course_key, 'name': 'Test ' + course_key}
+                        for course_key in [DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID]],
+        }
+
     def mock_course_list(self):
-        self.mock_course_api('courses', self.COURSE_API_COURSE_LIST)
+        path = '{api}/courses/'.format(api=settings.COURSE_API_URL)
+        self.mock_course_api(path, self.course_api_course_list)
 
 
 class PermissionsTestMixin(object):
@@ -340,7 +348,7 @@ class CourseStructureViewMixin(NavAssertMixin, ViewTestMixin):
 
         # The course API would return a 404 for an invalid course. Simulate it to
         # force an error in the view.
-        api_path = api_template.format(course_id)
+        api_path = api_template.format(course_id=course_id)
         self.mock_course_api(api_path, status=404)
 
         response = self.client.get(path, follow=True)

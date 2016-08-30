@@ -25,14 +25,15 @@ class CourseStructure(object):
 
         if matched:
             if require_format:
-                if block[u'format']:
+                if u'format' in block and block[u'format']:
                     return [block]
             else:
                 return [block]
 
         children = []
-        for child in block[u'children']:
-            children += CourseStructure._filter_children(blocks, child, require_format=require_format, **kwargs)
+        if u'children' in block:
+            for child in block[u'children']:
+                children += CourseStructure._filter_children(blocks, child, require_format=require_format, **kwargs)
 
         return children
 

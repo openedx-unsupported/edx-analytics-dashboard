@@ -67,9 +67,10 @@ ENABLE_FORUM_POSTS = str2bool(os.environ.get('ENABLE_FORUM_POSTS', False))
 # Course API settings
 ENABLE_COURSE_API = str2bool(os.environ.get('ENABLE_COURSE_API', False))
 COURSE_API_URL = os.environ.get('COURSE_API_URL')
+GRADING_POLICY_API_URL = os.environ.get('GRADING_POLICY_API_URL')
 COURSE_API_KEY = os.environ.get('COURSE_API_KEY')
 
-if ENABLE_COURSE_API and not (COURSE_API_URL and COURSE_API_KEY):
+if ENABLE_COURSE_API and not (GRADING_POLICY_API_URL and COURSE_API_URL and COURSE_API_KEY):
     raise Exception('Course API details not supplied!')
 
 # Video preview

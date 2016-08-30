@@ -420,6 +420,7 @@ THEME_SCSS = 'sass/themes/open-edx.scss'
 
 ########## COURSE API
 COURSE_API_URL = None
+GRADING_POLICY_API_URL = None
 
 # If no key is specified, the authenticated user's OAuth2 access token will be used.
 COURSE_API_KEY = None
