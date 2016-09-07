@@ -6,6 +6,10 @@
 
 // config
 // --------------------
+// TODO: Putting this first so that variables don't collide -- AN-7813
+@import "../bower_components/edx-pattern-library/pattern-library/sass/edx-pattern-library-ltr";
+
+
 @import "config-assets";
 @import "config-variables";
 
