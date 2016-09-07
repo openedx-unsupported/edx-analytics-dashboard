@@ -63,15 +63,15 @@ class CoursePerformancePageTestsMixin(CoursePageTestsMixin):
         return {problem['module_id']: problem for problem in problems}
 
     def _get_assignments(self, assignment_type=None):
-        structure = self.course_api_client.course_structures(self.page.course_id).get()
-        assignments = CourseStructure.course_structure_to_assignments(structure, graded=True,
+        blocks = self.course_api_client.blocks().get()
+        assignments = CourseStructure.course_structure_to_assignments(blocks, graded=True,
                                                                       assignment_type=assignment_type)
 
         return self._build_submissions(assignments, self._get_problems_dict())
 
     def _get_sections(self):
-        structure = self.course_api_client.course_structures(self.page.course_id).get()
-        sections = CourseStructure.course_structure_to_sections(structure, 'problem', graded=False)
+        blocks = self.course_api_client.blocks().get()
+        sections = CourseStructure.course_structure_to_sections(blocks, 'problem', graded=False)
         problems = self._get_problems_dict()
         for section in sections:
             self._build_submissions(section['children'], problems)

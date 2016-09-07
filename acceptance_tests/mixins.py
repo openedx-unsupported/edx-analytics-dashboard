@@ -5,9 +5,20 @@ from unittest import skip
 from bok_choy.promise import EmptyPromise
 from analyticsclient.client import Client
 
-from acceptance_tests import API_SERVER_URL, API_AUTH_TOKEN, DASHBOARD_FEEDBACK_EMAIL, SUPPORT_EMAIL, LMS_USERNAME, \
-    LMS_PASSWORD, DASHBOARD_SERVER_URL, ENABLE_AUTO_AUTH, DOC_BASE_URL, COURSE_API_URL, \
-    COURSE_API_KEY, ENABLE_COURSE_API
+from acceptance_tests import (
+    API_SERVER_URL,
+    API_AUTH_TOKEN,
+    COURSE_API_KEY,
+    COURSE_API_URL,
+    DASHBOARD_FEEDBACK_EMAIL,
+    DASHBOARD_SERVER_URL,
+    DOC_BASE_URL,
+    ENABLE_AUTO_AUTH,
+    ENABLE_COURSE_API,
+    LMS_USERNAME,
+    LMS_PASSWORD,
+    SUPPORT_EMAIL,
+)
 from acceptance_tests.pages import LMSLoginPage
 from common.clients import CourseStructureApiClient
 

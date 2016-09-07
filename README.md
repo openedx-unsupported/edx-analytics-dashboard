@@ -233,8 +233,9 @@ when executing either of the commands above.
 | APPLICATION_NAME             | Name of this application                   | Insights                         |
 | SUPPORT_EMAIL                | Email where error pages should link        | support@example.com              |
 | ENABLE_COURSE_API            | Indicates if the course API is enabled on the server being tested. Also, determines if course performance tests should be run. | False     |
+| GRADING_POLICY_API_URL       | URL where the grading policy API is served | (None)                           |
 | COURSE_API_URL               | URL where the course API is served         | (None)                           |
-| COURSE_API_KEY               | API key used to access the course  API     | (None)                           |
+| COURSE_API_KEY               | API key used to access the course API     | (None)                           |
 
 
 Override example:

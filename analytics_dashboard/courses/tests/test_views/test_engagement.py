@@ -149,7 +149,7 @@ class CourseEngagementVideoMixin(CourseEngagementViewTestMixin, CourseStructureV
 
     @httpretty.activate
     def test_invalid_course(self):
-        self._test_invalid_course('course_structures/{}/')
+        self._test_invalid_course(self.COURSE_BLOCKS_API_TEMPLATE)
 
     def setUp(self):
         super(CourseEngagementVideoMixin, self).setUp()

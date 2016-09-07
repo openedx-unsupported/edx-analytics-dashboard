@@ -56,7 +56,7 @@ class CourseAPIMixin(object):
 
         if self.course_api_enabled and request.user.is_authenticated():
             self.access_token = settings.COURSE_API_KEY or request.user.access_token
-            self.course_api = CourseStructureApiClient(settings.COURSE_API_URL, self.access_token).courses
+            self.course_api = CourseStructureApiClient(settings.COURSE_API_URL, self.access_token)
 
         return super(CourseAPIMixin, self).dispatch(request, *args, **kwargs)
 
@@ -78,7 +78,7 @@ class CourseAPIMixin(object):
         if not info:
             try:
                 logger.debug("Retrieving detail for course: %s", course_id)
-                info = self.course_api(course_id).get()
+                info = self.course_api.courses(course_id).get()
                 cache.set(key, info)
             except HttpClientError as e:
                 logger.error("Unable to retrieve course info for %s: %s", course_id, e)
@@ -99,7 +99,7 @@ class CourseAPIMixin(object):
             while page:
                 try:
                     logger.debug('Retrieving page %d of course info...', page)
-                    response = self.course_api.get(page=page, page_size=100)
+                    response = self.course_api.courses.get(page=page, page_size=100)
                     course_details = response['results']
 
                     # Cache the information so that it doesn't need to be retrieved later.
@@ -110,7 +110,7 @@ class CourseAPIMixin(object):
 
                     courses += course_details
 
-                    if response['next']:
+                    if response['pagination']['next']:
                         page += 1
                     else:
                         page = None

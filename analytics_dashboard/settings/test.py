@@ -24,6 +24,7 @@ SOCIAL_AUTH_EDX_OIDC_URL_ROOT = 'http://example.com'
 
 LMS_COURSE_SHORTCUT_BASE_URL = 'http://lms-host'
 CMS_COURSE_SHORTCUT_BASE_URL = 'http://cms-host'
+GRADING_POLICY_API_URL = 'http://grading-policy-api-host'
 COURSE_API_URL = 'http://course-api-host'
 COURSE_API_KEY = 'test_course_api_key'
 

@@ -90,7 +90,7 @@ class CoursePerformanceViewTestMixin(PatchMixin, CourseStructureViewMixin, Cours
         # Nearly all course performance pages rely on retrieving the grading policy.
         # Break that endpoint to simulate an error.
         course_id = DEMO_COURSE_ID
-        api_path = 'grading_policies/{}/'.format(course_id)
+        api_path = self.GRADING_POLICY_API_TEMPLATE.format(course_id=course_id)
         self.mock_course_api(api_path, status=500)
 
         self._test_api_error()
@@ -111,7 +111,7 @@ class CoursePerformanceGradedMixin(CoursePerformanceViewTestMixin):
 
     @httpretty.activate
     def test_invalid_course(self):
-        self._test_invalid_course('grading_policies/{}/')
+        self._test_invalid_course(self.GRADING_POLICY_API_TEMPLATE)
 
     def assertValidContext(self, context):
         """
@@ -158,7 +158,7 @@ class CoursePerformanceUngradedMixin(CoursePerformanceViewTestMixin):
 
     @httpretty.activate
     def test_invalid_course(self):
-        self._test_invalid_course('course_structures/{}/')
+        self._test_invalid_course(self.COURSE_BLOCKS_API_TEMPLATE)
 
     def assertValidContext(self, context):
         expected = {
