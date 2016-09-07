@@ -8,7 +8,9 @@ DJANGO_SETTINGS_MODULE ?= "analytics_dashboard.settings.local"
 
 .PHONY: requirements clean
 
-requirements: requirements.js
+requirements: requirements.py requirements.js
+
+requirements.py:
 	pip install -q -r requirements/base.txt --exists-action w
 
 requirements.js:
