@@ -27,6 +27,10 @@
 @import 'base';
 @import 'sticky-footer';
 
+// import edx pattern library variables so it's available in developer
+@import '../bower_components/bourbon/app/assets/stylesheets/bourbon';
+@import "../bower_components/edx-pattern-library/pattern-library/sass/global/settings";
+
 // utility/misc.
 // --------------------
 @import 'developer';    // developer-friendly file: add rough/WIP styling that needs UI triage

@@ -17,6 +17,7 @@
 // --------------------
 html {
   height: 100%;
+  font-size: 100%;
 }
 
 a {
@@ -74,6 +75,7 @@ hr.has-emphasis {
 
 .navbar-brand {
   padding: 25px 50px; // needed for logo to render properly
+  height: inherit;
 
   .navbar-brand-app {
     @include transition(color ease-in-out .25s);
@@ -332,19 +334,21 @@ hr.has-emphasis {
 
   .legal {
     padding-top: ($padding-large-vertical*2);
+    margin-left: $padding-small-horizontal;
+    margin-right: $padding-small-horizontal;
   }
 
   .feedback {
     border-top: solid 2px $edx-blue;
     background-color: white;
     text-align: center;
-    padding: ($padding-large-vertical*2) 0;
+    padding: ($padding-large-vertical*2) $padding-small-horizontal;
   }
 }
 
 // view: dashboard
 // --------------------
-.view-dashboard {
+.view-dashboard, .view-course-list {
   .main {
     padding: ($padding-large-vertical*2) ($padding-large-horizontal*3);
   }

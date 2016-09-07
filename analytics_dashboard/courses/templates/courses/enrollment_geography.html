@@ -47,7 +47,7 @@ Individual course-centric enrollment geography view.
     {% if top_countries %}
         <div class="section-content">
           <div class="row">
-            <div class="col-xs-12 col-sm-3" data-stat-type="num-countries">
+            <div class="col col-12 sm-col-12 md-col-3" data-stat-type="num-countries">
               {# Translators: This string represents the number of countries where students are enrolled. #}
               {% trans "Total Countries Represented" as label %}
               {% trans "Countries with at least one student." as tooltip %}
@@ -55,7 +55,7 @@ Individual course-centric enrollment geography view.
             </div>
 
             {% for datum in top_countries %}
-              <div class="col-xs-12 col-sm-3" data-stat-type="top-country-{{ forloop.counter }}">
+              <div class="col col-12 sm-col-12 md-col-3" data-stat-type="top-country-{{ forloop.counter }}">
                 {% if forloop.first %}
                   {# Translators: This string represents the country with the greatest number of enrolled students. #}
                   {% trans "Top Country by Enrollment" as label %}

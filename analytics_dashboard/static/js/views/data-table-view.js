@@ -239,7 +239,8 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
 
                     // this positions the "length changing" control to the bottom using bootstrap styling
                     // more information at http://datatables.net/examples/basic_init/dom.html
-                    dom: '<"row"<"col-xs-12"t>><"row"<"col-xs-6"l><"col-xs-6"p>>',
+                    dom: '<"row"<"col col-12 sm-col-12"t>><"row"<"col col-12 sm-col-12 md-col-6"l>' +
+                         '<"col col-12 sm-col-12 md-col-6"p>>',
 
                     // Disable auto-width as it causes the date column to wrap unnecessarily.
                     autoWidth: false

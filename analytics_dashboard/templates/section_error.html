@@ -2,12 +2,11 @@
 {% load dashboard_extras %}
 
 <div class="row">
-    <div class="col-xs-12">
-        <div class="col-xs-12 alert-error-container {{background_class}}">
-            <div class="col-xs-1">
+        <div class="col col-12 sm-col-12 alert-error-container {{background_class}}">
+            <div class="col col-1 sm-col-1">
                 <span data-placement="top" class="fa fa-exclamation-triangle fa-3 alert" aria-hidden="true"></span>
             </div>
-            <div class="col-xs-11">
+            <div class="col col-11 sm-col-11">
                 <div class="short-message">
                     {% comment %}Keeping the sentences whole aids in accurate translations.{% endcomment %}
                     {% if content_type == 'chart' %}
@@ -24,5 +23,4 @@
                 </div>
             </div>
         </div>
-    </div>
 </div>

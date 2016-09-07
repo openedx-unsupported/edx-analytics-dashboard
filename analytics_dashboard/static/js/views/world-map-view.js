@@ -183,6 +183,7 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
 
                 map = new Datamap({
                     element: self.el,
+                    responsive: true,
                     projection: 'equirectangular',
                     geographyConfig: {
                         hideAntarctica: true,
@@ -215,6 +216,17 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
                     highColor: self.options.highColor,
                     lowColor: self.options.lowColor,
                     max: max
+                });
+
+                // Scale the map on window resize to be responsive.
+                $(window).on('resize', function() {
+                    map.resize();
+                    $('svg.datamaps-legend').remove();
+                    map.heatmapLegend({
+                        highColor: self.options.highColor,
+                        lowColor: self.options.lowColor,
+                        max: max
+                    });
                 });
 
                 return this;

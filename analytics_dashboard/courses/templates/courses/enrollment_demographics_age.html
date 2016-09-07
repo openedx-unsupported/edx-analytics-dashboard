@@ -16,7 +16,7 @@
 
 <section class="view-section" data-section="enrollment-basics" aria-hidden="true">
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col col-12 sm-col-12">
             <div class="tertiary-nav">
                 <ul class="nav navbar-nav">
                     {% include "submenu_navigation.html" with nav_items=tertiary_nav_items%}
@@ -59,28 +59,28 @@
         <div class="section-content">
             <div class="row">
 
-                <div class="col-xs-12 col-sm-3" data-stat-type="median_age">
+                <div class="col col-12 sm-col-12 md-col-3" data-stat-type="median_age">
                     {# Translators: This is a label to identify the median age of enrolled students. #}
                     {% trans "Median Student Age" as label %}
                     {% trans "The midpoint of the student ages, computed from the provided year of birth." as tooltip %}
                     {% summary_point summary.median label tooltip=tooltip %}
                 </div>
 
-                <div class="col-xs-12 col-sm-3" data-stat-type="enrollment_age_under_25">
+                <div class="col col-12 sm-col-12 md-col-3" data-stat-type="enrollment_age_under_25">
                     {# Translators: This is a label to identify the number of students in the age range. #}
                     {% trans "Students 25 and Under" as label %}
                     {% trans "The percentage of students aged 25 years or younger (of those who provided a year of birth)." as tooltip %}
                     {% summary_point summary.age_25_and_under|metric_percentage label tooltip=tooltip %}
                 </div>
 
-                <div class="col-xs-12 col-sm-3" data-stat-type="enrollment_age_between_26_40">
+                <div class="col col-12 sm-col-12 md-col-3" data-stat-type="enrollment_age_between_26_40">
                     {# Translators: This is a label to identify the number of students in the age range. #}
                     {% trans "Students 26 to 40" as label %}
                     {% trans "The percentage of students aged from 26 to 40 years (of those who provided a year of birth)." as tooltip %}
                     {% summary_point summary.age_26_to_40|metric_percentage label tooltip=tooltip %}
                 </div>
 
-                <div class="col-xs-12 col-sm-3" data-stat-type="enrollment_age_over_40">
+                <div class="col col-12 sm-col-12 md-col-3" data-stat-type="enrollment_age_over_40">
                     {# Translators: This is a label to identify the number of students in the age range. #}
                     {% trans "Students 41 and Over" as label %}
                     {% trans "The percentage of students aged 41 years or older (of those who provided a year of birth)." as tooltip %}

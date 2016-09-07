@@ -54,7 +54,7 @@ Individual course-centric enrollment activity view.
         <div class="row">
 
           {% if not summary.total_enrollment == None %}
-            <div class="col-xs-12 col-sm-3" data-stat-type="cumulative_enrollment">
+            <div class="col col-12 sm-col-12 md-col-3" data-stat-type="cumulative_enrollment">
               {# Translators: This is a label to identify the number of students who ever enrolled in the course. #}
               {% trans "Total Enrollment" as label %}
               {# Translators: This is a label indicating the number of students in a course. #}
@@ -63,7 +63,7 @@ Individual course-centric enrollment activity view.
             </div>
           {% endif %}
 
-          <div class="col-xs-12 col-sm-3" data-stat-type="current_enrollment">
+          <div class="col col-12 sm-col-12 md-col-3" data-stat-type="current_enrollment">
             {# Translators: This is a label to identify current student enrollment. #}
             {% trans "Current Enrollment" as label %}
             {# Translators: This is a label indicating the number of students enrolled in a course. #}
@@ -71,7 +71,7 @@ Individual course-centric enrollment activity view.
             {% summary_point summary.current_enrollment label tooltip=tooltip %}
           </div>
 
-          <div class="col-xs-12 col-sm-3" data-stat-type="enrollment_change_last_7_days">
+          <div class="col col-12 sm-col-12 md-col-3" data-stat-type="enrollment_change_last_7_days">
             {# Translators: This is a label indicating the change in the number of students enrolled in a course since the previous week. #}
             {% trans "Change in Last Week" as label %}
             {% trans "Net difference in current enrollment in the last week." as tooltip %}
@@ -79,7 +79,7 @@ Individual course-centric enrollment activity view.
           </div>
 
         {% if not summary.verified_enrollment == None %}
-          <div class="col-xs-12 col-sm-3" data-stat-type="verified_enrollment">
+          <div class="col col-12 sm-col-12 md-col-3" data-stat-type="verified_enrollment">
             {# Translators: This is a label to identify enrollment of students on the verified track. #}
             {% trans "Verified Enrollment" as label %}
             {# Translators: This is a label indicating the number of students enrolled in a course on the verified track. #}
