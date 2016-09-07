@@ -3,13 +3,13 @@
 <div class="announcement-container"
      data-dismiss-url="{{ dismiss_url }}"
      data-view="announcement">
-    <div class="container">
+    <div class="grid-container grid-manual">
         <div class="row">
-            <div class="hidden-xs col-sm-1">
+            <div class="hidden-xs col md-col-1">
                 <div class="icon"><span class="fa fa-bullhorn" aria-hidden="true"></span></div>
             </div>
 
-            <div class="col-xs-10">
+            <div class="col md-col-10">
                 {% if message %}
                     {{ message|safe }}
                 {% else %}
@@ -21,7 +21,7 @@
             </div>
 
             {% if dismiss_url %}
-                <div class="col-xs-2 col-sm-1">
+                <div class="col md-col-1">
                     {% csrf_token %}
                     <a class="dismiss">
                         <span class="fa fa-times" aria-hidden="true"></span>

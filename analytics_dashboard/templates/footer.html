@@ -5,7 +5,7 @@
 <footer class="footer" aria-label="{% trans "Application" %}">
   {% if show_feedback %}
   <div class="feedback">
-    <div class="container">
+    <div class="grid-container">
       <div class="row">
 
         {% captureas support_link_start %}
@@ -21,9 +21,9 @@
   </div>
   {% endif %}
   <div class="legal">
-    <div class="container">
+    <div class="grid-container">
       <div class="row">
-        <div class="col-xs-6 col-md-6">
+        <div class="col sm-col-6 md-col-6">
           {% if footer_links %}
             {% for link in footer_links %}
             <a href="{{ link.url }}" target="_blank" {% if link.data_role %}data-role="{{ link.data_role }}"{% endif %}>
@@ -33,7 +33,7 @@
             {% endfor %}
           {% endif %}
         </div>
-        <div class="col-xs-6 col-md-6 text-right">
+        <div class="col sm-col-6 md-col-6 text-right">
           {% captureas current_year %}{% now "Y" %}{% endcaptureas %}
           {# Translators: The © symbol appears directly before this line. #}
           <p class="copyright">© {% blocktrans %} {{ current_year }} {{ platform_name }}, except where noted, all rights
