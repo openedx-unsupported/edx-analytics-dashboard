@@ -13,6 +13,7 @@ define(function(require) {
 
         ActiveDateRangeView = require('learners/roster/views/activity-date-range'),
         ActiveFiltersView = require('learners/roster/views/active-filters'),
+        DownloadDataView = require('learners/common/views/download-data'),
         LearnerResultsView = require('learners/roster/views/results'),
         LearnerUtils = require('learners/common/utils'),
         RosterControlsView = require('learners/roster/views/controls'),
@@ -37,6 +38,7 @@ define(function(require) {
         regions: {
             activeFilters: '.learners-active-filters',
             activityDateRange: '.activity-date-range',
+            downloadData: '.learners-download-data',
             controls: '.learners-table-controls',
             results: '.learners-results'
         },
@@ -61,6 +63,11 @@ define(function(require) {
             }));
             this.showChildView('activityDateRange', new ActiveDateRangeView({
                 model: this.options.courseMetadata
+            }));
+            this.showChildView('downloadData', new DownloadDataView({
+                collection: this.options.collection,
+                trackingModel: this.options.trackingModel,
+                trackCategory: 'learner_roster'
             }));
             this.showChildView('controls', new RosterControlsView({
                 collection: this.options.collection,

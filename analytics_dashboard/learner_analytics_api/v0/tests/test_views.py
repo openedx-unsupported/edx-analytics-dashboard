@@ -36,6 +36,12 @@ class LearnerAPITestMixin(UserTestCaseMixin, PermissionsTestMixin):
     endpoint = ''
     required_query_params = {}
     no_permissions_status_code = None
+    content_type = 'application/json'
+
+    @property
+    def remote_endpoint(self):
+        '''By default, the remote API endpoint matches the local API endpoint.'''
+        return self.endpoint
 
     def assert_response_equals(self, response, expected_status_code, expected_body=None):
         self.assertEqual(response.status_code, expected_status_code)
@@ -66,7 +72,8 @@ class LearnerAPITestMixin(UserTestCaseMixin, PermissionsTestMixin):
         course_id = 'edX/DemoX/Demo_Course'
         self.grant_permission(self.user, course_id)
         httpretty.register_uri(
-            httpretty.GET, settings.DATA_API_URL + self.endpoint, body=json.dumps(body), status=status_code
+            httpretty.GET, settings.DATA_API_URL + self.remote_endpoint, body=json.dumps(body), status=status_code,
+            content_type=self.content_type,
         )
         response = self.client.get('/api/learner_analytics/v0' + self.endpoint, self.required_query_params)
         self.assert_response_equals(response, status_code, body)
@@ -96,6 +103,30 @@ class LearnerListViewTestCase(LearnerAPITestMixin, TestCase):
         self.grant_permission(self.user, 'edX/DemoX/Demo_Course')
         response = self.client.get('/api/learner_analytics/v0/learners/')
         self.assert_response_equals(response, 403, {'detail': 'You do not have permission to perform this action.'})
+
+
+@ddt.ddt
+class LearnerListCSVTestCase(LearnerListViewTestCase):
+    endpoint = '/learners.csv'
+    remote_endpoint = '/learners/'
+    content_type = 'text/csv'
+    course_id = 'edX/DemoX/Demo_Course'
+
+    @httpretty.activate
+    def test_headers(self):
+        self.login()
+        self.grant_permission(self.user, self.course_id)
+
+        # Ensure the extra headers from the remote endpoint get passed through to the response.
+        content_disposition = 'attachment; filename=learners.csv'
+        httpretty.register_uri(
+            httpretty.GET, settings.DATA_API_URL + self.remote_endpoint, body='body',
+            status=200, content_type=self.content_type, adding_headers={
+                'Content-Disposition': content_disposition,
+            },
+        )
+        response = self.client.get('/api/learner_analytics/v0' + self.endpoint, self.required_query_params)
+        self.assertEquals(response['Content-Disposition'], content_disposition)
 
 
 class EngagementTimelinesViewTestCase(LearnerAPITestMixin, TestCase):

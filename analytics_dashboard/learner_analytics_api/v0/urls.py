@@ -10,6 +10,7 @@ app_name = 'v0'
 urlpatterns = [
     url(r'^learners/{}/$'.format(USERNAME_PATTERN), views.LearnerDetailView.as_view(), name='LearnerDetail'),
     url(r'^learners/$', views.LearnerListView.as_view(), name='LearnerList'),
+    url(r'^learners.csv$', views.LearnerListCSV.as_view(), name='LearnerListCSV'),
     url(r'^engagement_timelines/{}/$'.format(USERNAME_PATTERN),
         views.EngagementTimelinesView.as_view(),
         name='EngagementTimeline'),

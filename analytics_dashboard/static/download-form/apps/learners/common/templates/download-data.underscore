@@ -1,0 +1,12 @@
+<% if (hasDownloadData) { %>
+    <div class="section-action">
+        <form method="GET" action="#" enctype="multipart/form-data" class="download-data">
+            <button type="submit" class="btn btn-default download-data" data-backgrid-action="clear"
+               data-role="learner-data-csv" data-track-type="click"
+               data-track-event="edx.bi.csv.downloaded" data-track-category="<%- trackCategory %>">
+                <span class="ico fa fa-download" aria-hidden="true"></span> <%- downloadDataTitle %>
+                <span class="sr-only"><%- downloadDataMessage %></span>
+            </button>
+        </form>
+    </div>
+<% } %>

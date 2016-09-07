@@ -127,7 +127,7 @@ define(['moment', 'underscore', 'utils/globalization'], function(moment, _, Glob
                     if (keyValPair.length === 1 && keyValPair[0]) {  // No value
                         params[keyValPair[0]] = '';
                     } else if (keyValPair.length === 2) {
-                        params[keyValPair[0]] = keyValPair[1];
+                        params[keyValPair[0]] = decodeURIComponent(keyValPair[1]);
                     } else if (keyValPair.length > 2) {  // Have something like foo=bar=...
                         throw new TypeError('Each "&"-separated substring must either be a key or a key-value pair');
                     }
@@ -138,6 +138,29 @@ define(['moment', 'underscore', 'utils/globalization'], function(moment, _, Glob
             } else {
                 return {};
             }
+        },
+
+        /**
+         * Concatenates the given parameter key/values to a querystring.
+         *
+         * Examples:
+         * - {foo: 'bar', baz: 'quux'} -> 'foo=bar&baz=quux'
+         * - {foo: 'bar'} => 'foo=bar&'
+         * - {foo: 'bar', baz: ''} -> 'foo=bar&baz'
+         * - {foo: 'bar', baz: ''} -> 'foo=bar&baz='
+         * - {} -> ''
+         *
+         * @param params {object}
+         * @returns {string}
+         */
+        toQueryString: function(params, sep) {
+            var separator = (sep === undefined ? '?' : sep),
+                fragment = params.map(function(param) {
+                    return encodeURIComponent(param.key) + '=' + encodeURIComponent(param.val);
+                }).join('&');
+
+            // Prefix query string params with '?', but return an empty string if there are no params.
+            return fragment === '' ? fragment : (separator + fragment);
         }
     };
 

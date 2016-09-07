@@ -16,6 +16,7 @@ define(function(require) {
             PagingCollection.prototype.initialize.call(this, options);
 
             this.url = options.url;
+            this.downloadUrl = options.downloadUrl;
             this.courseId = options.courseId;
 
             this.registerSortableField('username', gettext('Name (Username)'));
@@ -67,8 +68,7 @@ define(function(require) {
         // Encodes the state of the collection into a query string that can be appended onto the URL.
         getQueryString: function() {
             var params = this.getActiveFilterFields(true),
-                orderedParams = [],
-                fragment;
+                orderedParams = [];
 
             // Order the parameters: filters & search, sortKey, order, and then page.
 
@@ -83,15 +83,7 @@ define(function(require) {
                 orderedParams.push({key: 'order', val: this.state.order === 1 ? 'desc' : 'asc'});
             }
             orderedParams.push({key: 'page', val: this.state.currentPage});
-
-            fragment = orderedParams.map(function(param) {
-                // Note: this assumes that filter keys will never have URI special characters. We should encode the key
-                // too if that assumption is wrong.
-                return param.key + '=' + encodeURIComponent(param.val);
-            }).join('&');
-
-            // Prefix query string params with '?', but return an empty string if there are no params.
-            return fragment !== '' ? ('?' + fragment) : fragment;
+            return Utils.toQueryString(orderedParams);
         },
 
         /**

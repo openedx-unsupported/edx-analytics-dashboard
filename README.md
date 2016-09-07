@@ -62,6 +62,7 @@ The following switches are available:
 | display_names_for_course_index       | Display course names on course index page.            |
 | display_course_name_in_nav           | Display course name in navigation bar.                |
 | enable_performance_learning_outcome  | Enable performance section with learning outcome breakdown (functionality based on tagging questions in Studio) | 
+| enable_learner_download              | Display Download CSV button on Learner List page.     |
 
 [Waffle](http://waffle.readthedocs.org/en/latest/) flags are used to disable/enable
 functionality on request (e.g. turning on beta functionality for superusers). Create a
