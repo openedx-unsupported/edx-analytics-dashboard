@@ -18,3 +18,11 @@ CSS2SCSS ${BOWER_COMPONENTS_PATH}/nvd3/build/nv.d3
 # Download the CLDR data for all locales
 CLDR_DATA_PATH=${BOWER_COMPONENTS_PATH}/cldr-data
 node ./node_modules/cldr-data-downloader/bin/download.js -i ${CLDR_DATA_PATH}/index.json -o ${CLDR_DATA_PATH}
+
+# edX Pattern Library expects certain packages to be available to it
+PATTERN_LIBRARY_LIB_PATH="${BOWER_COMPONENTS_PATH}/edx-pattern-library/pattern-library/sass/global"
+PATTERN_LIBRARY_LIBS=('bi-app-sass' 'bourbon' 'breakpoint-sass' 'susy')
+for lib in "${PATTERN_LIBRARY_LIBS[@]}"
+do
+    cp -rf ${BOWER_COMPONENTS_PATH}/$lib $PATTERN_LIBRARY_LIB_PATH/
+done
