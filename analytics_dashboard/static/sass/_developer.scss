@@ -156,7 +156,10 @@ button.chart-info {
 
 .navbar-nav {
 
+  margin: 0;
+
   .nav-section.active {
+    margin-bottom: 0px;
     color: $navbar-default-link-active-color;
     border-bottom: 6px solid $navbar-default-link-active-color;
   }
@@ -424,6 +427,7 @@ table.dataTable thead th.sorting_desc:after {
 .course-external-tools {
   list-style: none;
   padding: 0;
+  margin-left: 0;
 
   li {
     padding: 8px 10px;

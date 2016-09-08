@@ -31,7 +31,7 @@
 {% block child_content %}
   <div class="row course-home-table-outer">
     {% for column in table_items %}
-      <div class="col md-col-4">
+      <div class="col col-12 sm-col-12 md-col-4">
         <header class="heading-outer">
           <div class="heading">{{ column.heading }}</div>
         </header>
@@ -66,11 +66,11 @@
 
   {% if course_overview or external_course_tools %}
     <div class="row">
-      <div class="col sm-col-12"><hr></div>
+      <div class="col col-12 sm-col-12"><hr></div>
     </div>
 
     <div class="row">
-      <div class="col md-col-8">
+      <div class="col col-12 sm-col-12 md-col-8">
         {% if course_overview %}
           <h4 class="section-title">{% trans "Basic Course Information" %}</h4>
           <table class="table course-overview" role="presentation">
@@ -83,7 +83,7 @@
         {% endif %}
       </div>
       {% if external_course_tools %}
-        <div class="col md-col-4">
+        <div class="col col-12 sm-col-12 md-col-4">
           {# Translators: This title describes a list of links to outside tools for this course. #}
           <h4 class="section-title">{% trans "External Tools" %}</h4>  
           <ul class="course-external-tools">

@@ -1,15 +1,15 @@
 {% load i18n %}
 
-<div class="grid-container">
+<div class="grid-container grid-manual">
     <div class="row">
-        <div class="col sm-col-6">
+        <div class="col col-6 sm-col-6">
             <a href="{% firstof previous_video_url "#" %}"
                class="previous-link btn btn-default {% if not previous_video_url %} disabled {% endif %}">
                 {% trans 'Previous Video' %}
             </a>
         </div>
 
-        <div class="col sm-col-6">
+        <div class="col col-6 sm-col-6">
             <a href="{% firstof next_video_url "#" %}"
                class="previous-link btn btn-default pull-right {% if not next_video_url %} disabled {% endif %}">
                 {% trans 'Next Video' %}

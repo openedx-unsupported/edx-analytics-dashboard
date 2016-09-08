@@ -16,7 +16,7 @@
 
 <section class="view-section" data-section="enrollment-basics" aria-hidden="true">
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col col-12 sm-col-12">
             <div class="tertiary-nav">
                 <ul class="nav navbar-nav">
                     {% include "submenu_navigation.html" with nav_items=tertiary_nav_items%}
@@ -59,21 +59,21 @@
     {% if summary %}
         <div class="section-content">
             <div class="row">
-                <div class="col-xs-12 col-sm-3" data-stat-type="education_high_school_or_less_enrollment">
+                <div class="col col-12 sm-col-12 md-col-3" data-stat-type="education_high_school_or_less_enrollment">
                     {# Translators: This is a label to identify student educational background. #}
                     {% trans "High School Diploma or Less" as label %}
                     {% trans "The percentage of students who selected Secondary/high school, Junior secondary/junior high/middle school, or Elementary/primary school as their highest level of education completed." as tooltip %}
                     {% summary_point summary.high_school_or_less|metric_percentage label tooltip=tooltip %}
                 </div>
 
-                <div class="col-xs-12 col-sm-3" data-stat-type="education_college_enrollment">
+                <div class="col col-12 sm-col-12 md-col-3" data-stat-type="education_college_enrollment">
                     {# Translators: This is a label to identify student educational background. #}
                     {% trans "College Degree" as label %}
                     {% trans "The percentage of students who selected Bachelor's degree or Associate degree as their highest level of education completed." as tooltip %}
                     {% summary_point summary.college|metric_percentage label tooltip=tooltip %}
                 </div>
 
-                <div class="col-xs-12 col-sm-3" data-stat-type="education_advanced_enrollment">
+                <div class="col col-12 sm-col-12 md-col-3" data-stat-type="education_advanced_enrollment">
                     {# Translators: This is a label to identify student educational background. #}
                     {% trans "Advanced Degree" as label %}
                     {% trans "The percentage of students who selected Doctorate or Master's or professional degree as their highest level of education completed." as tooltip %}

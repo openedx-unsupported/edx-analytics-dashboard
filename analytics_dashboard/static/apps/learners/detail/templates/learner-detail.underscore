@@ -1,8 +1,8 @@
 <section class="learner-summary-container">
     <div class="row">
-        <div class="col-sm-3 col-xs-6 learner-names" />
+        <div class="col col-3 md-col-3 learner-names" />
         <% _.each(['learner-enrollment', 'learner-cohort', 'learner-accessed'], function(learnerClass) { %>
-            <div class="col-sm-3 col-xs-6 <%- learnerClass %>"></div>
+            <div class="col col-3 md-col-3 <%- learnerClass %>"></div>
         <% }); %>
     </div>
 </section>

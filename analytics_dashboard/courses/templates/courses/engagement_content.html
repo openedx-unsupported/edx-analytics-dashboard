@@ -50,20 +50,20 @@ Individual course-centric engagement content view.
 
     {% if summary %}
         <div class="row">
-          <div class="col md-col-3" data-activity-type="any">
+          <div class="col col-12 sm-col-12 md-col-3" data-activity-type="any">
             {% trans "Active Students Last Week" as label %}
             {% trans "Students who visited at least one page in the course content." as tooltip %}
             {% summary_point summary.any label tooltip=tooltip additional_value=summary.any_percent_str %}
           </div>
 
-          <div class="col md-col-3" data-activity-type="played_video">
+          <div class="col col-12 sm-col-12 md-col-3" data-activity-type="played_video">
             {# Translators: This is a label indicating the number of students who watched a video. #}
             {% trans "Watched a Video Last Week" as label %}
             {% trans "Students who played one or more videos." as tooltip %}
             {% summary_point summary.played_video label tooltip=tooltip additional_value=summary.played_video_percent_str %}
           </div>
 
-          <div class="col md-col-3" data-activity-type="attempted_problem">
+          <div class="col col-12 sm-col-12 md-col-3" data-activity-type="attempted_problem">
             {# Translators: This is a label indicating the number of students who tried a problem. #}
             {% trans "Tried a Problem Last Week" as label %}
             {% trans "Students who submitted an answer for a standard problem. Not all problem types are included." as tooltip %}
@@ -71,7 +71,7 @@ Individual course-centric engagement content view.
           </div>
 
           {% switch show_engagement_forum_activity %}
-            <div class="col md-col-3" data-activity-type="posted_forum">
+            <div class="col col-12 sm-col-12 md-col-3" data-activity-type="posted_forum">
               {# Translators: This is a label indicating the number of students who posted in a forum discussion. #}
               {% trans "Posted in a Discussion Last Week" as label %}
               {% trans "Students who contributed to any discussion topic." as tooltip %}

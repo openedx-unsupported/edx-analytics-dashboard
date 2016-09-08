@@ -27,15 +27,15 @@
       <div class="row">
         {% block content-outer %}
           {#  Translators: Application here refers to the web site/application being used (e.g. the dashboard). #}
-          <main class="col sm-col-12 main" id="content" aria-label="{% trans "Application" %}">
+          <main class="col col-12 sm-col-12 main" id="content" aria-label="{% trans "Application" %}">
             <div class="view-head">
               {% block header-text %}
                 {% if page_title %}
                   <div class="row page-title-outer">
-                    <div class="col md-col-6 sm-col-12">
+                    <div class="col col-12 sm-col-12 md-col-6">
                       <h1>{{ page_title }}</h1>
                     </div>
-                    <div class="col md-col-6 sm-col-12">
+                    <div class="col col-12 sm-col-12 md-col-6">
                       <div class="page-subtitle">{{ page_subtitle|default_if_none:'' }}</div>
                     </div>
                   </div>
