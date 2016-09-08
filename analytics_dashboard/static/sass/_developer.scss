@@ -822,6 +822,16 @@ table.dataTable thead th.sorting_desc:after {
 
   }
 
+  .learners-table-controls-col {
+    position: relative;
+    left: percentage(2/3);
+  }
+
+  .learners-results-col {
+    position: relative;
+    right: percentage(1/3);
+  }
+
   .learner-engagement-cell {
     text-align: right;
   }
