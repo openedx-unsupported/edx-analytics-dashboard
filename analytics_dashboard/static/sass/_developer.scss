@@ -437,6 +437,9 @@ table.dataTable thead th.sorting_desc:after {
 }
 
 .course-home-table-outer {
+  columns: 3;
+  column-width: $bp-screen-lg / 3;
+
   header.heading-outer {
     display: table;
     height: $font-size-large * 4;
@@ -455,12 +458,19 @@ table.dataTable thead th.sorting_desc:after {
         min-height: $font-size-large * 3.5;
       }
     }
+  
+  }
+
+  .course-home-section {
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    padding-bottom: $padding-large-vertical;
   }
 
   .course-home-table {
     border: 1px solid $edx-gray-l1;
     border-width: 0 0 1px 1px;
-    margin-bottom: $padding-large-vertical;
 
     .item {
       background: white;
