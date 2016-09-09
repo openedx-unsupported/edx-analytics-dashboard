@@ -912,3 +912,8 @@ table.dataTable thead th.sorting_desc:after {
   }
 
 }
+
+// Fix the pattern library border styling
+.table.dataTable thead > tr:first-child > th {
+    border-top: 1px solid #414141;
+}
