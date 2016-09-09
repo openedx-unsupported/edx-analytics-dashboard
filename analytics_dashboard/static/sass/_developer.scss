@@ -157,6 +157,7 @@ button.chart-info {
 .navbar-nav {
 
   margin: 0;
+  display: inline-block;
 
   .nav-section.active {
     margin-bottom: 0px;
@@ -386,6 +387,8 @@ table.dataTable thead th.sorting_desc:after {
   border-bottom: solid 1px $edx-blue;
   padding-bottom: $padding-large-vertical * 1.5;
   padding-top: $padding-large-vertical;
+  padding-left: $padding-small-horizontal;
+  padding-right: $padding-small-horizontal;
   color: $gray;
   font-size: $font-size-small;
 
@@ -400,6 +403,7 @@ table.dataTable thead th.sorting_desc:after {
     color: $edx-blue;
     text-align: right;
     font-size: $font-size-h2;
+    margin-left: $padding-small-horizontal;
   }
 
   h1 {

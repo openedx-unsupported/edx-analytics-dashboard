@@ -75,6 +75,7 @@ hr.has-emphasis {
 
 .navbar-brand {
   padding: 25px 50px; // needed for logo to render properly
+  height: inherit;
 
   .navbar-brand-app {
     @include transition(color ease-in-out .25s);
@@ -333,6 +334,8 @@ hr.has-emphasis {
 
   .legal {
     padding-top: ($padding-large-vertical*2);
+    margin-left: $padding-small-horizontal;
+    margin-right: $padding-small-horizontal;
   }
 
   .feedback {
@@ -345,7 +348,7 @@ hr.has-emphasis {
 
 // view: dashboard
 // --------------------
-.view-dashboard {
+.view-dashboard, .view-course-list {
   .main {
     padding: ($padding-large-vertical*2) ($padding-large-horizontal*3);
   }
