@@ -334,6 +334,12 @@ body.view-course-list {
   }
 }
 
+body.view-dashboard {
+  .view-head {
+    margin-bottom: 0;
+  }
+}
+
 // DataTables
 // align the headings with the text in the rows
 table.dataTable thead > tr > th {
@@ -416,7 +422,7 @@ table.dataTable thead th.sorting_desc:after {
 
 .table.course-overview {
   th, td {
-    border-top: none;
+    border: none;
   }
 
   th {
