@@ -17,6 +17,10 @@
 // --------------------
 html {
   height: 100%;
+  // Note: This scales down the pattern-library default font-size from 16px to 14px. Since the PL uses rem units, this
+  // also affects other sizing, like making the width of the grid narrower.
+  // When we import the PL via sass, we should reconsider setting the global font size like this in favor of setting the
+  // grid width directly by setting a config variable.
   font-size: 14px;
 }
 

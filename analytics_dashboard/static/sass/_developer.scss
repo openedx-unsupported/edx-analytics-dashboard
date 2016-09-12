@@ -23,9 +23,9 @@
 }
 
 #main-nav .navbar-nav li > button {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-right: 30px;
+  padding-top: $navbar-padding;
+  padding-bottom: $navbar-padding;
+  padding-right: $navbar-padding;
 }
 
 button.chart-info {
@@ -84,19 +84,6 @@ button.chart-info {
   }
 }
 
-%vertical-align {
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.loading-container {
-  // FIXME vertical align not working
-  // @extend %vertical-align;
-}
-
 .chart-message-container {
   top: $padding-large-horizontal * 2;
 
@@ -115,7 +102,7 @@ button.chart-info {
   max-height: 450px;
 
   background-color: white;
-  border: $gray-l2 1px solid;
+  border: $description-border-color 1px solid;
   
   // Reason for !important: need to override Datamap style added directly to element via JS.
   // (they set it to 60%, but that makes too much vertical space for the height of the map)
@@ -352,13 +339,13 @@ body.view-dashboard {
 }
 
 .announcement-container {
-  background-color: $gray-d2;
+  background-color: $palette-grayscale-dark;
   border-bottom: solid 1px $edx-blue;
   padding-bottom: $padding-large-vertical * 1.5;
   padding-top: $padding-large-vertical;
   padding-left: $padding-small-horizontal;
   padding-right: $padding-small-horizontal;
-  color: $gray;
+  color: $palette-grayscale-accent;
   font-size: $font-size-small;
 
   .dismiss {
@@ -373,10 +360,14 @@ body.view-dashboard {
     text-align: right;
     font-size: $font-size-h2;
     margin-left: $padding-small-horizontal;
+
+    @media (max-width: $bp-screen-md - 1) {
+      display: none;
+    }
   }
 
   h1 {
-    color: $white;
+    color: $white-t3;
     font-size: $font-size-large;
     padding-bottom: $padding-small-vertical;
   }
@@ -442,13 +433,13 @@ body.view-dashboard {
   }
 
   .course-home-table {
-    border: 1px solid $gray-l2;
+    border: 1px solid $description-border-color;
     border-width: 0 0 1px 1px;
 
     .item {
       background: white;
       padding: $padding-large-vertical;
-      border: 1px solid $gray-l2;
+      border: 1px solid $description-border-color;
       border-width: 1px 1px 0 0;
 
       &.name {
@@ -513,7 +504,7 @@ body.view-dashboard {
 .landing {
 
   p {
-    color: $gray-l2;
+    color: $gray-lighter;
   }
 
   // match the login button style to that of the LMS
@@ -807,31 +798,18 @@ body.view-dashboard {
 
   .learners-table-controls-col {
     position: relative;
+     
+    @media (min-width: $bp-screen-md) {
+      left: percentage(2/3);
+    }
   }
 
   .learners-results-col {
     position: relative;
-  }
 
-  @media (min-width: $bp-screen-md) {
-
-    .learners-table-controls-col {
-      left: percentage(2/3);
-    }
-
-    .learners-results-col {
+    @media (min-width: $bp-screen-md) {
       right: percentage(1/3);
     }
-
-    .table-responsive {
-        width: 100%;
-        margin-bottom: 15px;
-        overflow-y: hidden;
-        overflow-x: auto;
-        -ms-overflow-style: -ms-autohiding-scrollbar;
-        -webkit-overflow-scrolling: touch;
-    }
-
   }
 
   .learner-engagement-cell {
@@ -922,5 +900,14 @@ body.view-dashboard {
 .table-responsive {
   .row {
     padding: 0 10px;
+  }
+
+  @media (min-width: $bp-screen-md) {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    overflow-x: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;
   }
 }
