@@ -35,39 +35,3 @@
     background-color: $navbar-default-link-disabled-bg;
   }
 }
-
-@mixin alert-container($alert-color) {
-  padding: $padding-large-horizontal $padding-large-vertical;
-  padding-bottom: ($padding-large-horizontal * 2) - $padding-small-horizontal;
-  margin-bottom: $padding-large-horizontal * 2;
-  background-color: $alert-background-color;
-  border-top: 4px solid $alert-color;
-
-  i.alert {
-    color: $alert-color;
-    font-size: $font-size-large * 2;
-    padding: 0;
-  }
-
-  .short-message {
-    font-size: $font-size-large;
-    font-weight: 700;
-    padding-bottom: $padding-small-horizontal;
-  }
-
-  .alert-body, .link {
-    padding-bottom: $padding-small-horizontal;
-  }
-
-  // this keeps the gray borders from touching the top band at a 45 degree angle
-  &:before {
-    border: $description-border;
-    border-top: none;
-    content: "";
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-}

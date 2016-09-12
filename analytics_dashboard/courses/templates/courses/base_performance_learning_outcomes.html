@@ -16,32 +16,25 @@
     {% block module_meta %}
     {% endblock %}
 
-    <div class="section-content section-data-graph">
-      <div class="section-content section-data-viz">
-        <div class="analytics-chart-container">
-          {% if js_data.course.hasData %}
+    {% if js_data.course.hasData %}
+      <div class="section-content section-data-graph">
+        <div class="section-content section-data-viz">
+          <div class="analytics-chart-container">
             {% block chart_info %}
-             {% include "courses/submissions_chart_info.html" %}
+              {% include "courses/submissions_chart_info.html" %}
             {% endblock chart_info %}
             {% captureas chart_tip_text %}{% block chart_tip_text %}{% endblock %}{% endcaptureas %}
             {% include "chart_tooltip.html" with tip_text=chart_tip_text track_category="bar" %}
-          {% endif %}
-          <div id="chart-view" class="analytics-chart {% if not js_data.course.hasData%}message-only-chart{% endif %}">
-            {% if js_data.course.hasData %}
+            <div id="chart-view" class="analytics-chart">
               {% include "loading.html" %}
-            {% else %}
-              <div class="clearfix"></div>
-              <div class="chart-message-container">
-                <p class="text-center">
-                  {{ no_data_message }}
-                </p>
-              </div>
-            {% endif %}
+            </div>
           </div>
+          {% block module_controls %}{% endblock %}
         </div>
-        {% block module_controls %}{% endblock %}
       </div>
-    </div>
+    {% else %}
+      {% include "alert_information.html" with message=no_data_message %}
+    {% endif %}
 </section>
 
 {% if js_data.course.hasData %}
