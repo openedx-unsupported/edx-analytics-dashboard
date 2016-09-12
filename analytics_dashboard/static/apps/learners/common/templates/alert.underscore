@@ -1,33 +1,28 @@
 <div class="row">
-    <div class="col col-12 sm-col-12">
-        <div class="col col-12 sm-col-12 <%- containerClass %>" role="alert">
-            <div class="col col-1 sm-col-1">
-                <span data-placement="top" class="fa <%- iconClass %> fa-3 alert" aria-hidden="true"></span>
-            </div>
-            <div class="col col-11 sm-col-11">
-                <div class="short-message">
-                    <%- title %>
-                </div>
+    <div class="alert <%- containerClass %>" role="alert" aria-labelledby="alert-title-information" tabindex="-1">
+        <span class="icon alert-icon fa <%- iconClass %>" aria-hidden="true"></span>
+
+        <div class="alert-message">
+            <h3 class="alert-title" id="alert-title-information">
+                <%- title %>
+            </h3>
+            <p class="alert-copy-with-title">
                 <% if (body) { %>
-                    <div class="alert-body">
-                        <%- body %>
-                    </div>
+                    <%- body %>
                 <% } %>
                 <% if (suggestions.length) { %>
-                    <div>
-                        <ul class="suggestions">
-                            <% suggestions.map(function (suggestion) { %>
-                                <li><%- suggestion %></li>
-                            <% }); %>
-                        </ul>
-                    </div>
+                    <ul class="suggestions">
+                        <% suggestions.map(function (suggestion) { %>
+                            <li><%- suggestion %></li>
+                        <% }); %>
+                    </ul>
                 <% } %>
                 <% if (link) { %>
                     <div class="link">
                         <a href="<%- link.url %>"><%- link.text %></a>
                     </div>
                 <% } %>
-            </div>
+            </p>
         </div>
     </div>
 </div>
