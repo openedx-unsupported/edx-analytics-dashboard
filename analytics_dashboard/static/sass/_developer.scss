@@ -52,12 +52,6 @@ button.chart-info {
     padding-top: $padding-large-vertical;
   }
 
-  // shorten the chart so just a message (e.g. error message) is displayed
-  .message-only-chart {
-    height: inherit; // allows container height to adjust for long messages
-    min-height: 38px;
-  }
-
   .nvd3 {
     .nv-axis {
 
@@ -101,10 +95,6 @@ button.chart-info {
   p {
     padding-bottom: $padding-large-horizontal;
   }
-}
-
-.white-background {
-  background-color: white;
 }
 
 // Ensure that the map fits for different screens sizes
