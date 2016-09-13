@@ -791,6 +791,11 @@ table.dataTable thead th.sorting_desc:after {
       }
     }
   }
+
+  .section-heading {
+    margin-top: 10px;
+    margin-bottom: 6px;
+  }
 }
 
 // Learner App
@@ -940,5 +945,10 @@ table.dataTable thead th.sorting_desc:after {
 
 // Fix the pattern library border styling
 .table.dataTable thead > tr:first-child > th {
-    border-top: 1px solid #414141;
+  border-top: 1px solid #414141;
+}
+
+// hack :(
+#performance-chart-view {
+  margin-bottom: -18px;
 }
