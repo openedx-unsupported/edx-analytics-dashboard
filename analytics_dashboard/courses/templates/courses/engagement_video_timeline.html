@@ -4,6 +4,8 @@
 {% load i18n %}
 {% load rjs %}
 
+{% block view-name %}view-course-engagement-video-timeline view-dashboard{% endblock view-name %}
+
 {% block javascript %}
     {{ block.super }}
     <script src="{% static_rjs 'js/engagement-video-timeline-main.js' %}"></script>

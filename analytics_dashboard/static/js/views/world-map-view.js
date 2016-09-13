@@ -183,6 +183,7 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
 
                 map = new Datamap({
                     element: self.el,
+                    height: $('.section-content').height(),
                     responsive: true,
                     projection: 'equirectangular',
                     geographyConfig: {

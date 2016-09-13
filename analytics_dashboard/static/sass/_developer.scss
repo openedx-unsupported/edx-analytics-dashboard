@@ -25,6 +25,7 @@
 #main-nav .navbar-nav li > button {
   padding-top: 30px;
   padding-bottom: 30px;
+  padding-right: 30px;
 }
 
 button.chart-info {
@@ -65,12 +66,12 @@ button.chart-info {
 
       &.nv-x {
         text {
-          fill: $edx-gray-l1;
+          fill: $palette-grayscale-accent;
           font-size: $font-size-small;
         }
 
         .x-axis-background {
-          fill: $gray-d2;
+          fill: $palette-grayscale-dark;
         }
       }
     }
@@ -86,7 +87,8 @@ button.chart-info {
 }
 
 .loading-container {
-  @extend %vertical-align;
+  // FIXME vertical align not working
+  // @extend %vertical-align;
 }
 
 .chart-message-container {
@@ -107,7 +109,11 @@ button.chart-info {
   max-height: 450px;
 
   background-color: white;
-  border: $edx-gray 1px solid;
+  border: $gray-l2 1px solid;
+  
+  // Reason for !important: need to override Datamap style added directly to element via JS.
+  // (they set it to 60%, but that makes too much vertical space for the height of the map)
+  padding-bottom: 41% !important;
 
   .chart-tooltip {
     position: absolute;
@@ -156,8 +162,8 @@ button.chart-info {
 }
 
 // lens navigation consists of a drop down and the lens sections in a navigation
-$lens-background-color: $gray-d2;
-$lens-nav-text-color: $gray-l1;
+$lens-background-color: $palette-grayscale-dark;
+$lens-nav-text-color: $palette-grayscale-accent;
 $lens-nav-height: 55px;
 $lens-box-model: border-box;
 $lens-padding-top: 18px;
@@ -260,12 +266,12 @@ $lens-nav-margin: 15px;
   margin-top: 10px;
   margin-bottom: 15px;
   background: white;
-  border: 1px solid $edx-gray;
+  border: 1px solid $gray;
   border-width: 0 0 1px 1px;
 
   .course {
     padding: 15px;
-    border: 1px solid $edx-gray;
+    border: 1px solid $gray;
     border-width: 1px 1px 0 0;
 
     .course-name {
@@ -335,7 +341,7 @@ body.view-dashboard {
 
 .data-update-message {
   @extend .data-information-message;
-  border-top: $edx-gray-l1 1px solid;
+  border-top: $gray-l1 1px solid;
 }
 
 .announcement-container {
@@ -429,17 +435,17 @@ body.view-dashboard {
   }
 
   .course-home-table {
-    border: 1px solid $edx-gray-l1;
+    border: 1px solid $gray-l2;
     border-width: 0 0 1px 1px;
 
     .item {
       background: white;
       padding: $padding-large-vertical;
-      border: 1px solid $edx-gray-l1;
+      border: 1px solid $gray-l2;
       border-width: 1px 1px 0 0;
 
       &.name {
-        color: $edx-gray;
+        color: $edx-gray-l1;
         font-size: $font-size-large;
       }
 
@@ -448,7 +454,7 @@ body.view-dashboard {
       }
 
       .breadcrumbs {
-        color: $edx-gray;
+        color: $edx-gray-l1;
         font-size: $font-size-small;
       }
     }
@@ -599,7 +605,7 @@ body.view-dashboard {
 // description and controls at the top and bottom of the chart
 .chart-marginals {
   border: $description-border;
-  padding: $padding-small-horizontal 0;
+  padding: $padding-small-horizontal $padding-small-horizontal;
   background-color: $white;
 
   p {
@@ -673,7 +679,7 @@ body.view-dashboard {
     padding: 5px;
 
     .policy-item-box {
-      background-color: $edx-blue-l1;
+      background-color: $edx-blue-l2;
       margin-bottom: $padding-base-vertical;
       height: 50px;
       line-height: 50px;
@@ -909,4 +915,10 @@ body.view-dashboard {
 // hack :(
 #performance-chart-view {
   margin-bottom: -18px;
+}
+
+.table-responsive {
+  .row {
+    padding: 0 10px;
+  }
 }
