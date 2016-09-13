@@ -73,7 +73,7 @@
       <div class="col col-12 sm-col-12 md-col-8">
         {% if course_overview %}
           <h4 class="section-title">{% trans "Basic Course Information" %}</h4>
-          <table class="table course-overview" role="presentation">
+          <table class="table course-overview copy-meta" role="presentation">
             <tbody>
               {% for label, value in course_overview %}
                 <tr><th>{{label}}</th><td>{{value|safe}}</td></tr>
@@ -86,7 +86,7 @@
         <div class="col col-12 sm-col-12 md-col-4">
           {# Translators: This title describes a list of links to outside tools for this course. #}
           <h4 class="section-title">{% trans "External Tools" %}</h4>  
-          <ul class="course-external-tools">
+          <ul class="course-external-tools copy-meta">
             {% for tool in external_course_tools %}
               <li><a href="{{tool.url}}"><span class="ico fa {{tool.icon}}" aria-hidden="true"></span>{{tool.title}}</a></li>
             {% endfor %}

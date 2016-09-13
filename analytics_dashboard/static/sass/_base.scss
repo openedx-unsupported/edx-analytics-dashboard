@@ -92,7 +92,6 @@ hr.has-emphasis {
 .navbar-link,
 .dropdown-menu .link-label {
   font-weight: 600;
-  font-size: 16px;
   font-family: $f-sans-serif;
 }
 
@@ -210,7 +209,7 @@ hr.has-emphasis {
 .ico-tooltip {
   @include transition(color ease-in-out .50s);
   color: $gray-lighter;
-  font-size: $font-size-large;
+  @extend .copy-large;
 
   // STATE: hover
   &:hover {
@@ -272,7 +271,7 @@ hr.has-emphasis {
 
   .summary-point-number {
     @include transition(color ease-in-out .50s);
-    @extend h2;
+    @extend .hd-2;
     margin-top: 0;
   }
 
@@ -281,7 +280,7 @@ hr.has-emphasis {
   }
 
   .summary-point-label {
-    @extend h4;
+    @extend .hd-4;
   }
 }
 
@@ -330,7 +329,7 @@ hr.has-emphasis {
   @include dark-background;
 
   padding-bottom: ($padding-large-vertical);
-  font-size: $font-size-small;
+  @extend .copy-meta;
 
   .legal {
     padding-top: ($padding-large-vertical*2);
@@ -419,7 +418,7 @@ hr.has-emphasis {
   .masthead-brand-app {
     @extend %hd-titlecased;
     @extend %brand-app;
-    font-size: $font-size-large;
+    @extend .copy-large;
   }
 
   // cover
@@ -469,4 +468,8 @@ hr.has-emphasis {
       width: 700px;
     }
   }
+}
+
+.text-center {
+  text-align: center;
 }

@@ -13,7 +13,7 @@
   padding-left: $padding-small-horizontal;
   padding-top: $padding-large-vertical;
   color: $edx-blue;
-  font-size: $font-size-small;
+  @extend .copy-meta;
 
   // controls in the chart info section are floated left, so push the menu
   // down a bit so it doesn't appear on top of the control
@@ -66,7 +66,7 @@ button.chart-info {
       &.nv-x {
         text {
           fill: $edx-gray-l1;
-          font-size: $font-size-small;
+          @extend .copy-meta;
         }
 
         .x-axis-background {
@@ -269,7 +269,7 @@ $lens-nav-margin: 15px;
     border-width: 1px 1px 0 0;
 
     .course-name {
-      font-size: $font-size-large;
+      @extend .copy-large;
     }
 
     .course-key {
@@ -293,17 +293,17 @@ body.view-course-list {
 
     .view-intro {
       .lead {
-        font-size: $font-size-base;
+        @extend .copy-base;
       }
     }
 
     .info-text {
       color: $edx-gray;
-      font-size: $font-size-small;
+      @extend .copy-meta;
     }
 
     .help-msg {
-      font-size: $font-size-small;
+      @extend .copy-meta;
       margin-bottom: 50px;
     }
   }
@@ -317,7 +317,7 @@ body.view-dashboard {
 
 .page-title-outer {
   .page-subtitle {
-    @extend .text-muted;
+    color: #999999;
     font-size: ($font-size-h1 * 0.5);
 
     @media (min-width: $screen-md-min) {
@@ -328,7 +328,7 @@ body.view-dashboard {
 }
 
 .data-information-message {
-  @extend .small;
+  @extend .copy-meta;
   padding-top: $padding-base-vertical;
   margin-top: $padding-large-vertical;
 }
@@ -346,13 +346,13 @@ body.view-dashboard {
   padding-left: $padding-small-horizontal;
   padding-right: $padding-small-horizontal;
   color: $gray;
-  font-size: $font-size-small;
+  @extend .copy-meta;
 
   .dismiss {
     float: right;
     margin-right: $padding-small-horizontal;
     cursor: pointer;
-    font-size: $font-size-large;
+    @extend .copy-large;
   }
 
   .icon {
@@ -364,8 +364,8 @@ body.view-dashboard {
 
   h1 {
     color: $white;
-    font-size: $font-size-large;
     padding-bottom: $padding-small-vertical;
+    font-size: 1.5rem;
   }
 }
 
@@ -405,12 +405,12 @@ body.view-dashboard {
     height: $font-size-large * 4;
     padding-bottom: $padding-large-vertical;
     width: 100%;
-    @extend .text-center;
+    text-align: center;
 
     .heading {
       display: table-cell;
       vertical-align: bottom;
-      font-size: $font-size-large;
+      @extend .copy-large;
       color: $edx-blue;
 
       // increase line height for med-small screens so headers are same level for long lines
@@ -440,7 +440,7 @@ body.view-dashboard {
 
       &.name {
         color: $edx-gray;
-        font-size: $font-size-large;
+        @extend .copy-large;
       }
 
       .title {
@@ -449,7 +449,7 @@ body.view-dashboard {
 
       .breadcrumbs {
         color: $edx-gray;
-        font-size: $font-size-small;
+        @extend .copy-meta;
       }
     }
   }
@@ -509,7 +509,7 @@ body.view-dashboard {
     color: $navbar-default-link-active-color;
     padding: 4px 45px;
     font-weight: 600;
-    font-size: $font-size-large;
+    @extend .copy-large;
     border-radius: 5px;
     border: 3px solid #e6e6e6;
 
@@ -532,7 +532,7 @@ body.view-dashboard {
   }
 
   .lens-question {
-    font-size: $font-size-large;
+    @extend .copy-large;
     color: $edx-blue-s1;
     min-height: 60px;
     text-align: center;
@@ -550,7 +550,7 @@ body.view-dashboard {
   .lens-summary {
     @extend %ui-box;
     h1 {
-      font-size: $font-size-large;
+      @extend .copy-large;
       text-align: center;
       font-weight: 300;
       color: $edx-gray;
@@ -571,7 +571,7 @@ body.view-dashboard {
 
   .audience-message-module {
     h1 {
-      font-size: $font-size-base;
+      @extend .copy-base;
       font-weight: bold;
     }
 
@@ -665,7 +665,7 @@ body.view-dashboard {
   }
 
   .policy-item {
-    @extend .text-center;
+    text-align: center;
     // float the policy item so that it's all on one line
     @extend .pull-left;
 
@@ -887,7 +887,7 @@ body.view-dashboard {
 .learner-summary-container {
 
   .learner-name {
-    font-size: $font-size-large;
+    @extend .copy-large;
   }
 
   // e.g. "enrollment" or "cohort"
@@ -904,4 +904,12 @@ body.view-dashboard {
 // hack :(
 #performance-chart-view {
   margin-bottom: -18px;
+}
+
+html {
+  font-size: 14px;
+}
+
+.grid-container {
+  max-width: 1140px;
 }
