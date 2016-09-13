@@ -954,7 +954,7 @@ define(function(require) {
         describe('no results', function() {
             it('renders a "no results" view when there is no learner data in the initial collection', function() {
                 var rosterView = getRosterView();
-                expect(rosterView.$('.alert-info-container'))
+                expect(rosterView.$('.alert-information'))
                     .toContainText('No learner data is currently available for your course.');
             });
 
@@ -965,9 +965,9 @@ define(function(require) {
                 });
                 executeSearch('Dan');
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
-                expect(rosterView.$('.alert-info-container')).toContainText('No learners matched your criteria.');
-                expect(rosterView.$('.alert-info-container')).toContainText('Try a different search.');
-                expect(rosterView.$('.alert-info-container')).not.toContainText('Try clearing the filters.');
+                expect(rosterView.$('.alert-information')).toContainText('No learners matched your criteria.');
+                expect(rosterView.$('.alert-information')).toContainText('Try a different search.');
+                expect(rosterView.$('.alert-information')).not.toContainText('Try clearing the filters.');
             });
 
             it('renders a "no results" view when there are no learners for the current filter', function() {
@@ -979,9 +979,9 @@ define(function(require) {
                 $('select').val('Cohort A');
                 $('select').change();
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
-                expect(rosterView.$('.alert-info-container')).toContainText('No learners matched your criteria.');
-                expect(rosterView.$('.alert-info-container')).toContainText('Try clearing the filters.');
-                expect(rosterView.$('.alert-info-container')).not.toContainText('Try a different search.');
+                expect(rosterView.$('.alert-information')).toContainText('No learners matched your criteria.');
+                expect(rosterView.$('.alert-information')).toContainText('Try clearing the filters.');
+                expect(rosterView.$('.alert-information')).not.toContainText('Try a different search.');
             });
 
             it('renders a "no results" view when there are no learners for the current search and filter', function() {
@@ -995,9 +995,9 @@ define(function(require) {
                 $('select').val('Cohort A');
                 $('select').change();
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
-                expect(rosterView.$('.alert-info-container')).toContainText('No learners matched your criteria.');
-                expect(rosterView.$('.alert-info-container')).toContainText('Try clearing the filters.');
-                expect(rosterView.$('.alert-info-container')).toContainText('Try a different search.');
+                expect(rosterView.$('.alert-information')).toContainText('No learners matched your criteria.');
+                expect(rosterView.$('.alert-information')).toContainText('Try clearing the filters.');
+                expect(rosterView.$('.alert-information')).toContainText('Try a different search.');
             });
         });
 
