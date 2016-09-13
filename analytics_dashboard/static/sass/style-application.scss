@@ -22,14 +22,15 @@
 @import "../vendor/dataTables/dataTables.fontAwesome";
 @import "../bower_components/nvd3/build/nv.d3";
 
-// app styling
-// --------------------
-@import 'base';
-@import 'sticky-footer';
-
-// import edx pattern library variables so it's available in developer
+// import edx pattern library variables so it's available to Insights styles
 @import '../bower_components/bourbon/app/assets/stylesheets/bourbon';
 @import "../bower_components/edx-pattern-library/pattern-library/sass/global/settings";
+
+// app styling
+// --------------------
+@import "global/global";
+@import 'base';
+@import 'components/components';
 
 // utility/misc.
 // --------------------
