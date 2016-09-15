@@ -16,11 +16,9 @@
       <div class="section-content section-data-graph">
         <div class="section-content section-data-viz">
           <div class="analytics-chart-container">
-            {% if js_data.course.hasData %}
-              {% block chart_info %}{% endblock %}
-              {% captureas chart_tip_text %}{% block chart_tip_text %}{% endblock %}{% endcaptureas %}
-              {% include "chart_tooltip.html" with tip_text=chart_tip_text track_category="bar" %}
-            {% endif %}
+            {% block chart_info %}{% endblock %}
+            {% captureas chart_tip_text %}{% block chart_tip_text %}{% endblock %}{% endcaptureas %}
+            {% include "chart_tooltip.html" with tip_text=chart_tip_text track_category="bar" %}
             <div id="chart-view" class="analytics-chart"
               data-track-type="hover" data-track-event="edx.bi.graph.interacted"
               data-track-category="{% block hover_category %}{% endblock %}">

@@ -48,9 +48,15 @@ button.chart-info {
   background-color: white;
   border: $description-border-color 1px solid;
 
+  $chart-height: 305px;
   .analytics-chart {
-    height: 305px; // Update the height of the graph in trends-view.js to be this height minus 5px.
+    height: $chart-height; // Update the height of the graph in trends-view.js to be this height minus 5px.
     padding-top: $padding-large-vertical;
+  }
+
+  // the answer distribution chart is a bit shorter
+  #performance-chart-view.analytics-chart {
+    height: $chart-height - 18px;
   }
 
   .nvd3 {
@@ -121,13 +127,13 @@ button.chart-info {
   }
 }
 
-@media (max-width: $screen-md) {
+@media (max-width: $bp-screen-lg) {
   .world-map {
     max-height: 250px;
   }
 }
 
-@media (max-width: $screen-sm) {
+@media (max-width: $bp-screen-md) {
   .world-map {
     max-height: 300px;
   }
@@ -326,7 +332,7 @@ body.view-dashboard {
     @extend .text-muted;
     font-size: ($font-size-h1 * 0.5);
 
-    @media (min-width: $screen-md-min) {
+    @media (min-width: $bp-screen-lg - 1) {
       text-align: right;
       margin-top: ($line-height-computed * 1.5);
     }
@@ -336,6 +342,7 @@ body.view-dashboard {
 .data-information-message {
   @extend .small;
   padding-top: $padding-base-vertical;
+  padding-bottom: $padding-base-vertical;
   margin-top: $padding-large-vertical;
 }
 
@@ -420,7 +427,7 @@ body.view-dashboard {
       color: $edx-blue;
 
       // increase line height for med-small screens so headers are same level for long lines
-      @media (max-width: $screen-md-max) and (min-width: $screen-sm-min) {
+      @media (max-width: $bp-screen-lg) and (min-width: $bp-screen-md - 1) {
         min-height: $font-size-large * 3.5;
       }
     }
@@ -479,7 +486,7 @@ body.view-dashboard {
       height: 400px;
 
       // cover image will be smaller on smaller displays
-      @media (max-width: $screen-md-min) {
+      @media (max-width: $bp-screen-lg - 1) {
         height: 200px;
       }
 
@@ -546,7 +553,7 @@ body.view-dashboard {
 
     // adjust the display when the screen is small so that the lens questions are
     // displayed stacked
-    @media (max-width: $screen-md-min) {
+    @media (max-width: $bp-screen-lg - 1) {
       min-height: inherit;
       padding-top: $padding-large-horizontal * 1.5;
       padding-bottom: $padding-large-horizontal;
@@ -632,11 +639,11 @@ body.view-dashboard {
     height: 700px;
     border: 0;
 
-    @media screen and (min-width: $screen-sm-min) {
+    @media screen and (min-width: $bp-screen-md - 1) {
       height: 670px;
     }
 
-    @media screen and (min-width: $screen-md-min) {
+    @media screen and (min-width: $bp-screen-lg - 1) {
       height: 770px;
     }
   }
@@ -746,7 +753,7 @@ body.view-dashboard {
 
           &:hover {
             // Override the transparent background set by the .navbar-nav selector.
-            background: $dropdown-link-hover-bg;
+            background: $navbar-default-link-active-bg;
           }
         }
 
@@ -886,7 +893,7 @@ body.view-dashboard {
     padding-top: $padding-large-vertical * 1.5;
     padding-bottom: $padding-large-vertical * 1.5;
 
-    @media (min-width: $screen-sm-min) {
+    @media (min-width: $bp-screen-md) {
       float: right;
     }
 
@@ -910,11 +917,6 @@ body.view-dashboard {
     margin-bottom: $padding-large-vertical;
   }
 
-}
-
-// hack :(
-#performance-chart-view {
-  margin-bottom: -18px;
 }
 
 .table-responsive {
