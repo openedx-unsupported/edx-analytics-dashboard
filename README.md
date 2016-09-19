@@ -45,7 +45,7 @@ Feature Gating
 Need a fallback to disable a feature? Create a [Waffle](http://waffle.readthedocs.org/en/latest/)
 [switch](http://waffle.readthedocs.org/en/latest/types/switch.html):
 
-        $ ./manage.py waffle_flag feature_name --percent=50 --rollout --create
+        $ ./manage.py waffle_switch name-of-my-switch on --create
 
 See the [Waffle documentation](http://waffle.readthedocs.org/en/latest/) for
 details on utilizing features in code and templates.
@@ -68,7 +68,7 @@ The following switches are available:
 functionality on request (e.g. turning on beta functionality for superusers). Create a
 [flag](http://waffle.readthedocs.io/en/latest/usage/cli.html#flags):
 
-        $ ./manage.py waffle_flag feature_name [on/off] --create
+        $ ./manage.py waffle_flag name-of-my-flag --everyone --create
 
 The following flags are available:
 
