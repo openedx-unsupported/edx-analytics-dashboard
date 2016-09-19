@@ -1,4 +1,5 @@
 from bok_choy.web_app_test import WebAppTest
+from bok_choy.promise import EmptyPromise
 from a11y_tests.pages import CourseEnrollmentDemographicsAgePage
 from a11y_tests.mixins import CoursePageTestsMixin
 
@@ -27,6 +28,12 @@ class CourseEnrollmentDemographicsAgeTests(CoursePageTestsMixin, WebAppTest):
                 'icon-aria-hidden',  # TODO: AN-6187
             ],
         })
+
+        # Wait for the datatable to finish loading
+        ready_promise = EmptyPromise(
+            lambda: 'Loading' not in self.q(css='div.section-data-table').text,
+            "Page finished loading"
+        ).fulfill()
 
         # Check the page for accessibility errors
         report = self.page.a11y_audit.check_for_accessibility_errors()
