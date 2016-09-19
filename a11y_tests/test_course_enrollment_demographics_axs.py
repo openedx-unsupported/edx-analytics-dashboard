@@ -31,7 +31,7 @@ class CourseEnrollmentDemographicsAgeTests(CoursePageTestsMixin, WebAppTest):
 
         # Wait for the datatable to finish loading
         ready_promise = EmptyPromise(
-            lambda: 'Loading' not in self.q(css='div.section-data-table').text,
+            lambda: 'Loading' not in self.page.q(css='div.section-data-table').text,
             "Page finished loading"
         ).fulfill()
 
