@@ -253,6 +253,10 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
 
                 $table.dataTable(dtConfig);
 
+                // Fix the aria role usage
+                $table.find('th').attr('role', 'columnheader').attr('scope', 'col');
+                $table.find('td').attr('role', 'gridcell');
+
                 return self;
             }
 
