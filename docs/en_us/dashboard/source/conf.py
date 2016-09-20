@@ -2,6 +2,7 @@
 #
 
 import sys, os
+import datetime
 
 # on_rtd is whether we are on readthedocs.org, this line of code grabbed from docs.readthedocs.org
 html_theme = 'edx_theme'
@@ -29,9 +30,9 @@ master_doc = 'index'
 
 
 # General information about the project.
-project = u'Using edX Insights'
+project = 'Using edX Insights'
 
-copyright = u'2016, edX Inc. and licensed under a Creative Commons Attribution-ShareAlike 4.0 International License unless otherwise specified'
+copyright = '{year}, edX Inc. and licensed under a Creative Commons Attribution-ShareAlike 4.0 International License unless otherwise specified'.format(year=datetime.datetime.now().year)
 
 # The short X.Y version.
 version = ''
