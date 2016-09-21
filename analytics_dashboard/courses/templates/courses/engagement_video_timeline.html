@@ -4,6 +4,8 @@
 {% load i18n %}
 {% load rjs %}
 
+{% block view-name %}view-course-engagement-video-timeline view-dashboard{% endblock view-name %}
+
 {% block javascript %}
     {{ block.super }}
     <script src="{% static_rjs 'js/engagement-video-timeline-main.js' %}"></script>
@@ -55,17 +57,17 @@
 
         {% if summary_metrics %}
             <div class="row">
-                <div class="col-xs-12 col-sm-3" data-type="watched-percent">
+                <div class="col col-12 sm-col-12 md-col-3" data-type="watched-percent">
                     {% trans "Completion Rate" as label %}
                     {% trans "Estimated percentage of students who watched the entire video." as tooltip %}
                     {% summary_point summary_metrics.end_percent|metric_percentage label tooltip=tooltip %}
                 </div>
-                <div class="col-xs-12 col-sm-3" data-type="started-video">
+                <div class="col col-12 sm-col-12 md-col-3" data-type="started-video">
                     {% trans "Started Video" as label %}
                     {% trans "Students who started watching the video." as tooltip %}
                     {% summary_point summary_metrics.users_at_start label tooltip=tooltip %}
                 </div>
-                <div class="col-xs-12 col-sm-3" data-type="finished-video">
+                <div class="col col-12 sm-col-12 md-col-3" data-type="finished-video">
                     {% trans "Finished Video" as label %}
                     {% trans "Students who watched the video to the end." as tooltip %}
                     {% summary_point summary_metrics.users_at_end label tooltip=tooltip %}

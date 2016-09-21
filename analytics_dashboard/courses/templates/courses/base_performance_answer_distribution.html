@@ -26,73 +26,79 @@
     <div class="section-content section-data-graph">
         <div class="section-content section-data-viz">
             <div class="analytics-chart-container">
-                <div class="chart-info">
-                    {% if questions %}
-                        {% captureas chart_label %}
-                            {{active_question|truncatechars:50}}
-                        {% endcaptureas %}
-                        {% if questions|length == 1 %}
-                            <div class="chart-info">{{chart_label}}</div>
-                        {% else %}
-                            <div class="dropdown">
-                                <button class="btn btn-default dropdown-toggle chart-info" type="button" id="distQuestionsMenu" data-toggle="dropdown" aria-expanded="true">
-                                    {{chart_label}}
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="distQuestionsMenu">
-                                    {% for question in questions %}
-                                        <li role="presentation">
-                                          <a role="menuitem"tabindex="-1" class="truncate"
-                                             href="{% block problem_part_url %}{% endblock %}">
-                                              {{question.question}}
-                                          </a>
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
+                <div class="row">
+                    <div class="col col-12 sm-col-12 md-col-11 chart-info">
+                        {% if questions %}
+                            {% captureas chart_label %}
+                                {{active_question|truncatechars:50}}
+                            {% endcaptureas %}
+                            {% if questions|length == 1 %}
+                                <div class="chart-info">{{chart_label}}</div>
+                            {% else %}
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle chart-info" type="button" id="distQuestionsMenu" data-toggle="dropdown" aria-expanded="true">
+                                        {{chart_label}}
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="distQuestionsMenu">
+                                        {% for question in questions %}
+                                            <li role="presentation">
+                                              <a role="menuitem"tabindex="-1" class="truncate"
+                                                 href="{% block problem_part_url %}{% endblock %}">
+                                                  {{question.question}}
+                                              </a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            {% endif %}
                         {% endif %}
-                    {% endif %}
+                    </div>
+                    <div class="col col-12 sm-col-12 md-col-1">
+                        {% captureas tip_text %}
+                            {# Translators: This text describes a bar chart displayed. #}
+                            {% blocktrans trimmed %}
+                                This chart shows the most common answers submitted by students, ordered by frequency.
+                            {% endblocktrans %}
+                        {% endcaptureas %}
+                        {% include "chart_tooltip.html" with tip_text=tip_text track_category="bar" %}
+                    </div>
                 </div>
-                {% captureas tip_text %}
-                    {# Translators: This text describes a bar chart displayed. #}
-                    {% blocktrans trimmed %}
-                        This chart shows the most common answers submitted by students, ordered by frequency.
-                    {% endblocktrans %}
-                {% endcaptureas %}
-                {% include "chart_tooltip.html" with tip_text=tip_text track_category="bar" %}
 
-                <div id="performance-chart-view" class="analytics-chart
-                    {% if not js_data.course.answerDistribution or js_data.course.isRandom %}message-only-chart{% endif %}"
-                    data-track-type="hover" data-track-event="edx.bi.graph.interacted"
-                    data-track-category="performance_answer_distribution">
-                    {% if js_data.course.isRandom %}
-                        <!-- sets the message on a new row; otherwise, it won't be centered properly. -->
-                        <div class="clearfix"></div>
-                        <div class="chart-message-container">
-                            <p class="text-center">
-                                {% captureas read_more_link_start %}
-                                    <a href="{% settings_value 'DOCUMENTATION_LOAD_ERROR_URL' %}" target="_blank">{% endcaptureas %}
-                                {% captureas read_more_link_end %}</a>{% endcaptureas %}
-                                {# Translators: Variants refers to versions of a problem/assignment. #}
-                                {% blocktrans trimmed %}
-                                    Due to the number of possible variants for randomized problems, charts are not available. {{read_more_link_start}}Read more{{read_more_link_end}}.
-                                {% endblocktrans %}
-                                <br>
-                                {# Translators: Variants refers to versions of a problem/assignment. #}
-                                {% blocktrans trimmed %}
-                                    Review all submission variants below, or click Download CSV to review them offline.
-                                {% endblocktrans %}
-                            </p>
-                        </div>
-                    {% elif js_data.course.answerDistribution %}
-                        {% include "loading.html" %}
-                    {% endif %}
+                <div class="row">
+                    <div id="performance-chart-view" class="col col-12 sm-col-12 analytics-chart
+                        {% if not js_data.course.answerDistribution or js_data.course.isRandom %}message-only-chart{% endif %}"
+                        data-track-type="hover" data-track-event="edx.bi.graph.interacted"
+                        data-track-category="performance_answer_distribution">
+                        {% if js_data.course.isRandom %}
+                            <!-- sets the message on a new row; otherwise, it won't be centered properly. -->
+                            <div class="clearfix"></div>
+                            <div class="chart-message-container">
+                                <p class="text-center">
+                                    {% captureas read_more_link_start %}
+                                        <a href="{% settings_value 'DOCUMENTATION_LOAD_ERROR_URL' %}" target="_blank">{% endcaptureas %}
+                                    {% captureas read_more_link_end %}</a>{% endcaptureas %}
+                                    {# Translators: Variants refers to versions of a problem/assignment. #}
+                                    {% blocktrans trimmed %}
+                                        Due to the number of possible variants for randomized problems, charts are not available. {{read_more_link_start}}Read more{{read_more_link_end}}.
+                                    {% endblocktrans %}
+                                    <br>
+                                    {# Translators: Variants refers to versions of a problem/assignment. #}
+                                    {% blocktrans trimmed %}
+                                        Review all submission variants below, or click Download CSV to review them offline.
+                                    {% endblocktrans %}
+                                </p>
+                            </div>
+                        {% elif js_data.course.answerDistribution %}
+                            {% include "loading.html" %}
+                        {% endif %}
+                    </div>
                 </div>
             </div>
-            {% if not js_data.course.answerDistribution %}
-                {% show_chart_error 'white-background' %}
-            {% endif %}
         </div>
+        {% if not js_data.course.answerDistribution %}
+            {% show_chart_error %}
+        {% endif %}
     </div>
 </section>
 

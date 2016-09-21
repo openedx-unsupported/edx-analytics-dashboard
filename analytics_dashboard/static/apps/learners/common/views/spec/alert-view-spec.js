@@ -21,7 +21,7 @@ define(function(require) {
             alertView.render();
 
             expect(fixture).toContainElement('span.fa-exclamation-triangle');
-            expect(fixture).toContainElement('.alert-error-container');
+            expect(fixture).toContainElement('.alert-error');
         });
 
         it('renders an info alert', function() {
@@ -36,7 +36,7 @@ define(function(require) {
             alertView.render();
 
             expect(fixture).toContainElement('span.fa-bullhorn');
-            expect(fixture).toContainElement('.alert-info-container');
+            expect(fixture).toContainElement('.alert-information');
             expect(fixture).toContainElement('li');
         });
 
@@ -53,7 +53,7 @@ define(function(require) {
             alertView.render();
 
             expect(fixture).toContainElement('span.fa-bullhorn');
-            expect(fixture).toContainElement('.alert-info-container');
+            expect(fixture).toContainElement('.alert-information');
             expect(fixture).toContainElement('li');
             expect(fixture).toContainElement('.link');
             expect(fixture).toContainElement('a');

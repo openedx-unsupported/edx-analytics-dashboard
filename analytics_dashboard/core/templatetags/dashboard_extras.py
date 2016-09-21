@@ -82,15 +82,11 @@ def summary_point(value, label, subheading=None, tooltip=None, additional_value=
 
 
 @register.inclusion_tag('section_error.html')
-def show_chart_error(background_class=''):
+def show_chart_error():
     """
     Returns the error section with default context.
-
-    Arguments
-        background_class -- CSS class to add to the background style
-        (e.g. 'white-background').  Default background is gray.
     """
-    return _get_base_error_context('chart', background_class)
+    return _get_base_error_context('chart')
 
 
 @register.inclusion_tag('section_error.html')
@@ -103,11 +99,10 @@ def show_metrics_error():
     return _get_base_error_context('metrics')
 
 
-def _get_base_error_context(content_type, background_class=''):
+def _get_base_error_context(content_type):
     return {
         'content_type': content_type,
         'load_error_message': settings.DOCUMENTATION_LOAD_ERROR_MESSAGE,
-        'background_class': background_class
     }
 
 

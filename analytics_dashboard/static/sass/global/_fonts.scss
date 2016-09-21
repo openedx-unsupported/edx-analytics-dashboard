@@ -1,0 +1,55 @@
+// Because the PL CSS is pre-compiled, the path to the actual location of the fonts
+// isn't set.  Override the paths here.
+$open-sans-font-path: '../bower_components/edx-pattern-library/pattern-library/fonts/OpenSans';
+@include font-face(
+    'Open Sans',
+    '#{$open-sans-font-path}/OpenSans-Light-webfont',
+    300,
+    $file-formats: woff woff2 ttf
+);
+@include font-face(
+    'Open Sans',
+    '#{$open-sans-font-path}/OpenSans-LightItalic-webfont',
+    300,
+    italic,
+    $file-formats: woff woff2 ttf
+);
+@include font-face(
+    'Open Sans',
+    '#{$open-sans-font-path}/OpenSans-Regular-webfont',
+    400,
+    $file-formats: woff woff2 ttf
+);
+@include font-face(
+    'Open Sans',
+    '#{$open-sans-font-path}/OpenSans-Italic-webfont',
+    400,
+    italic,
+    $file-formats: woff woff2 ttf
+);
+@include font-face(
+    'Open Sans',
+    '#{$open-sans-font-path}/OpenSans-Semibold-webfont',
+    600,
+    $file-formats: woff woff2 ttf
+);
+@include font-face(
+    'Open Sans',
+    '#{$open-sans-font-path}/OpenSans-SemiboldItalic-webfont',
+    600,
+    italic,
+    $file-formats: woff woff2 ttf
+);
+@include font-face(
+    'Open Sans',
+    '#{$open-sans-font-path}/OpenSans-Bold-webfont',
+    700,
+    $file-formats: woff woff2 ttf
+);
+@include font-face(
+    'Open Sans',
+    '#{$open-sans-font-path}/OpenSans-BoldItalic-webfont',
+    700,
+    italic,
+    $file-formats: woff woff2 ttf
+);

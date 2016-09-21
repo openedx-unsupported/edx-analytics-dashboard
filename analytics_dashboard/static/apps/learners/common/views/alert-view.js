@@ -19,11 +19,11 @@ define(function(require) {
         alertTypes: {
             error: {
                 iconClass: 'fa-exclamation-triangle',
-                containerClass: 'alert-error-container'
+                containerClass: 'alert-error'
             },
             info: {
                 iconClass: 'fa-bullhorn',
-                containerClass: 'alert-info-container'
+                containerClass: 'alert-information'
             }
         },
 

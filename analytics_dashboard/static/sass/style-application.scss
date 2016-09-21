@@ -1,27 +1,39 @@
 // edX Insights
 // ====================
 // NOTE: this Sass compiles into the static CSS needed for the edX Analytics Prototype to render. This styling relies
-// heavily upon Bootstrap UI (getbootstrap.com) and Font Awesome iconography (http://fontawesome.io/)
+// heavily upon the edX Pattern Library (http://ux.edx.org/), Bootstrap UI (getbootstrap.com) and Font Awesome
+// iconography (http://fontawesome.io/). We are trying to remove all dependencies on Bootstrap over time in favor of the
+// pattern library.
 
 
 // config
 // --------------------
+// import our settings first so that the vendor libraries below will use our definitions (if they use the !default tag)
 @import "config-assets";
 @import "config-variables";
 
 // vendor
 // --------------------
-@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
+// Note: to avoid slow sass compilation (see FEDX-240), we pre-compile the pattern library to css (saved as a .scss
+// file) in a bower post install script and import that here.
+@import "../bower_components/edx-pattern-library/pattern-library/sass/edx-pattern-library-ltr-compiled";
+
+@import "bootstrap-components";
 @import "../bower_components/bootstrapaccessibilityplugin/plugins/css/bootstrap-accessibility";
 @import "../bower_components/font-awesome/scss/font-awesome";
 @import "../vendor/dataTables/dataTables.bootstrap";
 @import "../vendor/dataTables/dataTables.fontAwesome";
 @import "../bower_components/nvd3/build/nv.d3";
 
+// import edx pattern library variables so it's available to Insights styles
+@import '../bower_components/bourbon/app/assets/stylesheets/bourbon';
+@import "../bower_components/edx-pattern-library/pattern-library/sass/global/settings";
+
 // app styling
 // --------------------
+@import "global/global";
 @import 'base';
-@import 'sticky-footer';
+@import 'components/components';
 
 // utility/misc.
 // --------------------
