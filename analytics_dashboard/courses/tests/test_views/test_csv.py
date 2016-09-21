@@ -132,3 +132,45 @@ class CourseEngagementActivityTrendCSVViewTests(CourseCSVTestMixin, TestCase):
 
     def get_mock_data(self, course_id):
         return get_mock_api_course_activity(course_id)
+
+
+@ddt
+class PerformanceProblemResponseCSVTests(ViewTestMixin, TestCase):
+    viewname = 'courses:csv:performance_problem_responses'
+    follow = False  # Inherited methods test_authentication() and test_authorization() should not follow redirects
+    success_status = 302
+    course_id = 'course-v1:Test+ing+This'
+    api_method = 'analyticsclient.course.Course.reports'
+    api_response = {
+        "course_id": "Test_ing_This",
+        "report_name": "problem_response",
+        "download_url": "https://bucket.s3.amazonaws.com/Test_ing_This_problem_response.csv?Signature=...",
+        "last_modified": "2016-08-12T043411",
+        "file_size": 3419,
+        "expiration_date": "2016-08-12T233704",
+    }
+    api_response_minimal = {
+        "course_id": "Test_ing_This",
+        "report_name": "problem_response",
+        "download_url": "https://bucket.s3.amazonaws.com/Test_ing_This_problem_response.csv?Signature=...",
+    }
+
+    def get_mock_data(self, course_id):
+        return self.api_response.copy()
+
+    @data(api_response, api_response_minimal)
+    def test_working_download_redirect(self, api_response):
+        """ A user with permission should be able to download a report """
+        self.grant_permission(self.user, self.course_id)
+
+        with mock.patch(self.api_method, return_value=api_response.copy()):
+            response = self.client.get(self.path(course_id=self.course_id))
+            self.assertEqual(response.status_code, self.success_status)
+            self.assertEqual(response['Location'], self.api_response["download_url"])
+
+    def test_no_data(self):
+        """ Expect a 404 when the report for this course is not available from the API """
+        self.grant_permission(self.user, self.course_id)
+        with mock.patch(self.api_method, side_effect=NotFoundError):
+            response = self.client.get(self.path(course_id=self.course_id))
+            self.assertEqual(response.status_code, 404)

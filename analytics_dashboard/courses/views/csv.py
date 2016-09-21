@@ -2,11 +2,12 @@ import datetime
 import logging
 import urllib
 
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 
 from analyticsclient.constants import data_format, demographic
 from analyticsclient.client import Client
 
+from courses.presenters.performance import CourseReportDownloadPresenter
 from courses.views import CourseView
 
 
@@ -91,3 +92,14 @@ class PerformanceAnswerDistributionCSV(CSVResponseMixin, CourseView):
     def get_data(self):
         modules = self.client.modules(self.course_id, self.kwargs['content_id'])
         return modules.answer_distribution(data_format=data_format.CSV)
+
+
+class PerformanceProblemResponseCSV(CourseView):
+    """
+    Query the Data API to get a temporary secure download URL, and redirect to that.
+    """
+    # pylint: disable=unused-argument
+    def render_to_response(self, context, **response_kwargs):
+        presenter = CourseReportDownloadPresenter(self.course_id)
+        data = presenter.get_report_info(CourseReportDownloadPresenter.PROBLEM_RESPONSES)
+        return HttpResponseRedirect(data['download_url'], **response_kwargs)

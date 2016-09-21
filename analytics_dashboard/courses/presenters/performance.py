@@ -605,3 +605,35 @@ class TagsDistributionPresenter(CourseAPIPresenterMixin, BasePresenter):
                 result.append(intermediate[key])
 
         return result
+
+
+class CourseReportDownloadPresenter(BasePresenter):
+    """
+    Presenter that can fetch temporary CSV download URLs from the data API
+    """
+    PROBLEM_RESPONSES = 'problem_response'
+
+    def get_report_info(self, report_name):
+        """
+        Get a temporary download URL and status information such as the "last modified" date for
+        a downloadable report.
+
+        Does not check any permissions.
+
+        Will raise NotFoundError if the course or the report does not exist.
+
+        Example return value (only the first three fields are guaranteed; see API for details):
+            {
+              "course_id": "Example_Demo_2016-08",
+              "report_name": "problem_response",
+              "download_url": "https://bucket.s3.amazonaws.com/Example_Demo_2016-08_problem_response.csv?Signature=...",
+              "last_modified": "2016-08-12T043411",
+              "file_size": 3419,
+              "expiration_date": "2016-08-12T233704",
+            }
+        """
+        data = self.course.reports(report_name)
+        for field in ('last_modified', 'expiration_date'):
+            if field in data:
+                data[field] = self.parse_api_datetime(data[field])
+        return data

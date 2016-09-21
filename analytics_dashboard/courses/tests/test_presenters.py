@@ -27,7 +27,11 @@ from courses.exceptions import NoVideosError
 from courses.presenters import BasePresenter
 from courses.presenters.engagement import (CourseEngagementActivityPresenter, CourseEngagementVideoPresenter)
 from courses.presenters.enrollment import (CourseEnrollmentPresenter, CourseEnrollmentDemographicsPresenter)
-from courses.presenters.performance import CoursePerformancePresenter, TagsDistributionPresenter
+from courses.presenters.performance import (
+    CoursePerformancePresenter,
+    CourseReportDownloadPresenter,
+    TagsDistributionPresenter,
+)
 from courses.tests import utils
 from courses.tests.factories import (CourseEngagementDataFactory, CoursePerformanceDataFactory,
                                      TagsDistributionDataFactory)
@@ -1105,3 +1109,44 @@ class TagsDistributionPresenterTests(TestCase):
                 modules = self.presenter.get_modules_marked_with_tag('learning_outcome', slugify('Learned nothing'))
                 expected_modules = factory.get_expected_modules_marked_with_tag('learning_outcome', 'Learned nothing')
                 self.assertEqual(modules, expected_modules)
+
+
+class CourseReportDownloadPresenterTests(TestCase):
+
+    def setUp(self):
+        cache.clear()
+        self.course_id = PERFORMER_PRESENTER_COURSE_ID
+        self.presenter = CourseReportDownloadPresenter(self.course_id)
+
+    @mock.patch('analyticsclient.course.Course.reports')
+    def test_report_presenter(self, mock_reports):
+        api_data = {
+            "course_id": "Test_Course_Run",
+            "report_name": "problem_response",
+            "download_url": "https://bucket.s3.amazonaws.com/Test_Course_Run_problem_response.csv?Signature=...",
+            "last_modified": "2016-08-12T043411",
+            "file_size": 3419,
+            "expiration_date": "2016-08-12T233704",
+        }
+        mock_reports.return_value = api_data
+        info = self.presenter.get_report_info(CourseReportDownloadPresenter.PROBLEM_RESPONSES)
+        mock_reports.assert_called_once_with("problem_response")
+        for field in ("course_id", "report_name", "download_url", "file_size"):
+            self.assertEqual(info[field], api_data[field])
+        self.assertIsInstance(info["last_modified"], datetime.datetime)
+        self.assertIsInstance(info["expiration_date"], datetime.datetime)
+
+    @mock.patch('analyticsclient.course.Course.reports')
+    def test_report_presenter_limited_data(self, mock_reports):
+        """
+        Test the presenter when the API returns only the minimum guaranteed set of fields
+        """
+        api_data = {
+            "course_id": "Test_Course_Run",
+            "report_name": "problem_response",
+            "download_url": "",
+        }
+        mock_reports.return_value = api_data
+        info = self.presenter.get_report_info(CourseReportDownloadPresenter.PROBLEM_RESPONSES)
+        mock_reports.assert_called_once_with("problem_response")
+        self.assertEqual(info, api_data)
