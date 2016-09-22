@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-25 10:29-0400\n"
-"PO-Revision-Date: 2016-08-25 14:29+0000\n"
+"POT-Creation-Date: 2016-09-22 10:24-0400\n"
+"PO-Revision-Date: 2016-09-22 14:25+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/open-edx/edx-platform/language/nb/)\n"
 "MIME-Version: 1.0\n"
@@ -248,7 +248,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_content.html
 msgid "Student Activity Metrics"
-msgstr "Studentaktivitet metrikk"
+msgstr "Studentaktivitetstatistikk"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Active Students Last Week"
@@ -372,7 +372,7 @@ msgstr "Utvid forhåndsvisning"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Metrics"
-msgstr "Videometrikker"
+msgstr "Videostatistikk"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Completion Rate"
@@ -424,7 +424,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollment Metrics"
-msgstr "Innmeldingsmetrikker"
+msgstr "Innmeldingsstatistikk"
 
 #. Translators: This is a label to identify the number of students who ever
 #. enrolled in the course.
@@ -497,7 +497,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Metrics"
-msgstr "Aldersmetrikker"
+msgstr "Aldersstatistikk"
 
 #. Translators: This is a label to identify the median age of enrolled
 #. students.
@@ -572,7 +572,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Education Metrics"
-msgstr "Utdanningsmetrikker"
+msgstr "Utdanningsstatistikk"
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -651,7 +651,7 @@ msgstr "Innmeldinger etter land"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geography Metrics"
-msgstr "Geografiske metrikker"
+msgstr "Geografistatistikk "
 
 #. Translators: This string represents the number of countries where students
 #. are enrolled.
@@ -721,6 +721,15 @@ msgstr "Kurs hjem"
 msgid "Active"
 msgstr "Aktiv"
 
+#. Translators: This indicates that the adjacent link will trigger a CSV
+#. download. '{{download_icon}}' will be replaced with an icon.
+#: courses/templates/courses/home.html
+msgid ""
+"\n"
+"                    (%(download_icon)s CSV Download)\n"
+"                  "
+msgstr ""
+
 #: courses/templates/courses/home.html
 msgid "Basic Course Information"
 msgstr "Grunnleggende kursinformasjon"
@@ -755,10 +764,6 @@ msgid ""
 msgstr ""
 "Klikk hjelp in øverste høyre hjerne for å få mer informasjon om "
 "%(application_name)s. Send oss tilbakemeldinger til %(email_link)s."
-
-#: courses/templates/courses/learners.html
-msgid "Learners"
-msgstr ""
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
@@ -1014,8 +1019,16 @@ msgid "Help"
 msgstr "Hjelp"
 
 #: templates/header.html
+msgid "Menu for"
+msgstr ""
+
+#: templates/header.html
 msgid "Logout"
 msgstr "Logg ut"
+
+#: templates/lens-navigation.html
+msgid "Navigation Menu."
+msgstr ""
 
 #: templates/loading.html
 msgid "Loading"
@@ -1031,4 +1044,4 @@ msgstr "Ikke mulig å laste denne tabellen. "
 
 #: templates/section_error.html
 msgid "We are unable to load these metrics."
-msgstr "Ikke mulig å laste disse metrikkene. "
+msgstr "Ikke mulig å laste denne statistikkene. "

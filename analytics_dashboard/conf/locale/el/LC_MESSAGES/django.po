@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-25 10:29-0400\n"
-"PO-Revision-Date: 2016-08-25 14:29+0000\n"
+"POT-Creation-Date: 2016-09-22 10:24-0400\n"
+"PO-Revision-Date: 2016-09-22 14:25+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Greek (http://www.transifex.com/open-edx/edx-platform/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -41,7 +41,7 @@ msgstr ""
 
 #: core/templates/core/landing.html
 msgid "Who are my students?"
-msgstr "Ποιοι είναι μαθητές μου;"
+msgstr "Ποιοι είναι οι μαθητές μου;"
 
 #: core/templates/core/landing.html
 msgid "Target your course to fit the backgrounds of your students."
@@ -103,8 +103,8 @@ msgid ""
 "We are committed to advancing teaching and learning through research. "
 "%(link_start)sLearn more%(link_end)s."
 msgstr ""
-"Είμαστε προσηλωμένοι στη βελτίωση της διαδικασίας παράδοσης και εκμάθησης "
-"μέσω έρευνας. %(link_start)sΜάθετε περισσότερα%(link_end)s."
+"Είμαστε προσηλωμένοι στη βελτίωση της διαδικασίας της διδασκαλίας και της "
+"μάθησης μέσω της έρευνας. %(link_start)sΜάθετε περισσότερα%(link_end)s."
 
 #: core/templates/core/landing.html
 msgid "Need Help?"
@@ -609,8 +609,8 @@ msgid ""
 "secondary/junior high/middle school, or Elementary/primary school as their "
 "highest level of education completed."
 msgstr ""
-"Το ποσοστό των μαθητών που έχουν επιλέξει Γυμνάσιο/Λύκειο, βθμια εκπαίδευση,"
-" ή Δημοτικό σχολείο ως το ανώτατο επίπεδο μόρφωσής τους."
+"Το ποσοστό των σπουδαστών που έχει επιλέξει Γυμνάσιο/Λύκειο, Β΄θμια "
+"εκπαίδευση, ή Δημοτικό σχολείο ως το ανώτατο επίπεδο μόρφωσής του."
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -622,8 +622,8 @@ msgid ""
 "The percentage of students who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
 msgstr ""
-"Το ποσοστό των μαθητών που έχουν επιλέξει πτυχίο πανεπιστημίου ή πτυχίο "
-"διετούς σχολής ως το ανώτατο επίπεδο μόρφωσής τους."
+"Το ποσοστό των σπουδαστών που έχει επιλέξει πτυχίο πανεπιστημίου ή πτυχίο "
+"διετούς σχολής ως το ανώτατο επίπεδο μόρφωσής του."
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -635,8 +635,8 @@ msgid ""
 "The percentage of students who selected Doctorate or Master's or "
 "professional degree as their highest level of education completed."
 msgstr ""
-"Το ποσοστό των μαθητών που έχουν επιλέξει πτυχίο διδακτορικό ή ανώτατο "
-"πτυχίο, ως το ανώτατο επίπεδο μόρφωσής τους."
+"Το ποσοστό των σπουδαστών που έχει επιλέξει πτυχίο διδακτορικό ή ανώτατο "
+"πτυχίο, ως το ανώτατο επίπεδο μόρφωσής του."
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Educational Breakdown"
@@ -693,7 +693,7 @@ msgstr "Πρώτη χώρα βάσει συμμετοχών"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the largest number of students."
-msgstr "Η χώρα με το μέγιστο αριθμό μαθητών."
+msgstr "Η χώρα με το μέγιστο αριθμό σπουδαστών."
 
 #. Translators: This string represents the country with the second-greatest
 #. number of enrolled students.
@@ -703,7 +703,7 @@ msgstr "Δεύτερη χώρα βάσει συμμετοχών"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the second largest number of students."
-msgstr "Η χώρα με τον δεύτερα μεγαλύτερο αριθμό μαθητών."
+msgstr "Η χώρα με τον δεύτερο μεγαλύτερο αριθμό σπουδαστών."
 
 #. Translators: This string represents the country with the third-greatest
 #. number of enrolled students.
@@ -713,7 +713,7 @@ msgstr "Τρίτη χώρα βάσει συμμετοχών"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the third largest number of students."
-msgstr "Η χώρα με τον τρίτο μεγαλύτερο αριθμό μαθητών."
+msgstr "Η χώρα με τον τρίτο μεγαλύτερο αριθμό σπουδαστών."
 
 #. Translators: This string represents the percentage of students in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
@@ -742,6 +742,15 @@ msgstr "Αρχική σελίδα μαθήματος"
 #: templates/submenu_navigation.html
 msgid "Active"
 msgstr "Ενεργό"
+
+#. Translators: This indicates that the adjacent link will trigger a CSV
+#. download. '{{download_icon}}' will be replaced with an icon.
+#: courses/templates/courses/home.html
+msgid ""
+"\n"
+"                    (%(download_icon)s CSV Download)\n"
+"                  "
+msgstr ""
 
 #: courses/templates/courses/home.html
 msgid "Basic Course Information"
@@ -779,10 +788,6 @@ msgstr ""
 "Κάντε κλικ στην Βοήθεια στην πάνω δεξιά γωνία, για να λάβετε πληροφορίες "
 "σχετικά με την εφαρμογή %(application_name)s. Στείλτε μας τα σχόλιά σας στη "
 "διεύθυνση %(email_link)s."
-
-#: courses/templates/courses/learners.html
-msgid "Learners"
-msgstr "Μαθητές"
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
@@ -1048,8 +1053,16 @@ msgid "Help"
 msgstr "Βοήθεια"
 
 #: templates/header.html
+msgid "Menu for"
+msgstr ""
+
+#: templates/header.html
 msgid "Logout"
 msgstr "Αποσύνδεση"
+
+#: templates/lens-navigation.html
+msgid "Navigation Menu."
+msgstr ""
 
 #: templates/loading.html
 msgid "Loading"

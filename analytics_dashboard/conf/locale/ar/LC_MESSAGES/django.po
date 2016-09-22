@@ -6,21 +6,24 @@
 # Abdelghani Gadiri <wh.gnu.linux@gmail.com>, 2014
 # Alhamzah Alnufaili <alhamzah.alnufaili@gmail.com>, 2016
 # Amr Mohamed <Amr.samir.mohammed@gmail.com>, 2016
+# AR C2 <e2f458fd4s512@outlook.com>, 2016
 # Ashraf Alsinglawi <alsinglawi@hotmail.com>, 2014
 # Aya S <ayaswork@gmail.com>, 2015
+# Elshafey Herry <sholhzx@gmail.com>, 2016
 # Mai Morsy <maimorsyusa@gmail.com>, 2016
 # Manal Ahmed Aljahdali <manal.ahmed.m.j@gmail.com>, 2014
 # may <may@qordoba.com>, 2014-2015
 # Mohamed Soliman <mo7amed.shorouk@gmail.com>, 2016
 # Nabeel El-Dughailib <nabeel@qordoba.com>, 2014-2015
 # omarithawi <oithawi@qrf.org>, 2015-2016
+# shefaa abu jabel <shefaa.aj@gmail.com>, 2016
 # Soha Assali <soha+transifex@qordoba.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-25 10:29-0400\n"
-"PO-Revision-Date: 2016-08-25 14:29+0000\n"
+"POT-Creation-Date: 2016-09-22 10:24-0400\n"
+"PO-Revision-Date: 2016-09-22 14:25+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Arabic (http://www.transifex.com/open-edx/edx-platform/language/ar/)\n"
 "MIME-Version: 1.0\n"
@@ -35,7 +38,7 @@ msgstr "تسجيل الدخول"
 
 #: core/templates/core/landing.html
 msgid "Insights to help course teams improve courses."
-msgstr "مفاهيم تساعد فرق المساقات على تحسين مساقاتهم"
+msgstr "مفاهيم لمساعدة فرق المساقات على تحسين مساقاتهم"
 
 #: core/templates/core/landing.html
 msgid "Who are my students?"
@@ -69,7 +72,7 @@ msgstr "المشاركة"
 
 #: core/templates/core/landing.html
 msgid "How well is my content supporting student learning?"
-msgstr "ما مدى الدعم الذي يسهم به محتوى مساقي في تعلّم الطلّاب؟"
+msgstr "إلى أي مدى يدعم محتوى مساقي عملية تعلّم الطلّاب؟"
 
 #: core/templates/core/landing.html
 msgid "Adjust your course based on where students are struggling."
@@ -116,7 +119,7 @@ msgstr ""
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
-msgstr "اختر نوع الواجب"
+msgstr "اختر نوع المهمة"
 
 #. Translators: This refers to all course assignment types (e.g. homework,
 #. exam, lab).
@@ -148,11 +151,11 @@ msgstr "شاهد النسخة الحالية"
 
 #: courses/templates/courses/_tags_content_nav.html
 msgid "Select Outcome"
-msgstr ""
+msgstr "اختر النتيجة"
 
 #: courses/templates/courses/_tags_content_nav.html
 msgid "All Outcomes"
-msgstr ""
+msgstr "كل النتائج"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
@@ -238,7 +241,7 @@ msgstr "المشاركة الأسبوعية للطلّاب"
 
 #: courses/templates/courses/engagement_content.html
 msgid "How many students are interacting with my course?"
-msgstr "كم عدد الطلّاب الذين يتفاعلون مع مساقي؟"
+msgstr "ما هو عدد الطلّاب الذين يتفاعلون مع مساقي؟"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students"
@@ -272,7 +275,7 @@ msgstr "عدد الطلّاب الذين شاهدوا فيديو خلال الأ
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who played one or more videos."
-msgstr "الطلّاب الذين قاموا بمشاهدة فيديو واحد أو أكثر"
+msgstr "عدد الطلّاب الذين قاموا بمشاهدة فيديو واحد أو أكثر"
 
 #. Translators: This is a label indicating the number of students who tried a
 #. problem.
@@ -321,7 +324,7 @@ msgid ""
 "incomplete rate to drill down and understand why."
 msgstr ""
 "يُظهِر كل عمود متوسّط عدد المشاهدات الكاملة وغير الكاملة لمقاطع الفيديو "
-"المدرجة ضمن ذلك قسم فرعي. يُرجى النقر على الأعمدة ذات الأعداد الإجمالية "
+"المدرجة ضمن ذلك القسم الفرعي. يُرجى النقر على الأعمدة ذات الأعداد الإجمالية "
 "المتدنّية أو التي تحمل معدّلًا عاليًا من عدم اكتمال المشاهدات لتتابع الموضوع"
 " وتتحرّى السبب."
 
@@ -730,6 +733,15 @@ msgstr "صفحة المساق الرئيسية"
 msgid "Active"
 msgstr "فعّال"
 
+#. Translators: This indicates that the adjacent link will trigger a CSV
+#. download. '{{download_icon}}' will be replaced with an icon.
+#: courses/templates/courses/home.html
+msgid ""
+"\n"
+"                    (%(download_icon)s CSV Download)\n"
+"                  "
+msgstr ""
+
 #: courses/templates/courses/home.html
 msgid "Basic Course Information"
 msgstr "المعلومات الأساسية للمساق"
@@ -767,10 +779,6 @@ msgstr ""
 "انقر زرّ المساعدة في الزاوية العلوية اليمنى للحصول على مزيد من المعلومات عن "
 "%(application_name)s. ويمكنك مراسلتنا على عنوان البريد الإلكتروني التالي "
 "%(email_link)s."
-
-#: courses/templates/courses/learners.html
-msgid "Learners"
-msgstr "المتعلمون"
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
@@ -848,23 +856,23 @@ msgstr "تقديمات الواجب"
 #: courses/templates/courses/performance_learning_outcomes_content.html
 #: courses/templates/courses/performance_learning_outcomes_section.html
 msgid "Measured by learning outcome, how are students performing?"
-msgstr ""
+msgstr "حسب مقياس نتيجة التعليم ، كيف كان أداء الطلاب؟"
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each outcome."
-msgstr ""
+msgstr "يظهر كل شريط متوسط عدد الإجابات الصحيحة وغير الصحيحة لكل نتيجة."
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 msgid "Outcome Submissions"
-msgstr ""
+msgstr "تسليم النتائج."
 
 #: courses/templates/courses/performance_learning_outcomes_section.html
 msgid ""
 "Each bar shows the correct and incorrect number of submissions for each "
 "problem for the current outcome."
-msgstr ""
+msgstr "يظهر كل شريط عدد الردود الصحيحة والغير صحيحة لكل مسألة"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are students doing on this section?"
@@ -884,11 +892,11 @@ msgstr "تقديمات القسم الفرعي"
 
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid "How are students doing on this subsection?"
-msgstr "كيف يبلي الطلّاب في هذا القسم الفرعي؟"
+msgstr "ما هو آداء الطلّاب في هذا القسم الفرعي؟"
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid "How are students doing on ungraded exercises?"
-msgstr "كيف يبلي الطلّاب في التمارين غير المقيَّمة؟"
+msgstr "ما هو آداء الطلّاب في التمارين غير المقيَّمة؟"
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid ""
@@ -1026,8 +1034,16 @@ msgid "Help"
 msgstr "المساعدة"
 
 #: templates/header.html
+msgid "Menu for"
+msgstr ""
+
+#: templates/header.html
 msgid "Logout"
 msgstr "تسجيل الخروج"
+
+#: templates/lens-navigation.html
+msgid "Navigation Menu."
+msgstr ""
 
 #: templates/loading.html
 msgid "Loading"

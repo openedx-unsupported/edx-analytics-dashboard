@@ -21,8 +21,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-25 10:29-0400\n"
-"PO-Revision-Date: 2016-08-25 14:31+0000\n"
+"POT-Creation-Date: 2016-09-22 10:24-0400\n"
+"PO-Revision-Date: 2016-09-22 14:25+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Spanish (Latin America) (http://www.transifex.com/open-edx/edx-platform/language/es_419/)\n"
 "MIME-Version: 1.0\n"
@@ -31,92 +31,106 @@ msgstr ""
 "Language: es_419\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
+#: static/apps/learners/app/controller.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Invalid Parameters"
 msgstr "Parámetros inválidos"
 
-#: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
+#: static/apps/learners/app/controller.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Sorry, we couldn't find any learners who matched that query."
 msgstr ""
 "Lo sentimos, no pudimos encontrar ningún estudiante que coincidiera con esta"
 " petición. "
 
-#: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
+#: static/apps/learners/app/controller.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Return to the Learners page."
 msgstr "Regresar a la página de Estudiantes."
 
-#: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
+#: static/apps/learners/app/controller.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Learners"
 msgstr "Estudiantes"
 
-#: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
+#: static/apps/learners/app/controller.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Learner Details"
 msgstr "Detalles del estudiante"
 
-#: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
+#: static/apps/learners/app/controller.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Sorry, we couldn't find the page you're looking for."
 msgstr "Lo sentimos, no pudimos encontrar la página que buscas."
 
+#: static/apps/learners/app/controller.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid "Page Not Found"
+msgstr "Página no encontrada"
+
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Name (Username)"
 msgstr "Nombre (nombre de usuario)"
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Problems Tried"
 msgstr "Problemas intentados"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/apps/learners/detail/views/engagement-table.js
 #: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Problems Correct"
 msgstr "Problemas correctos"
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Attempts per Problem Correct"
 msgstr "Intentos por problema correcto"
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 #: static/dist/js/engagement-video-content-main.js
 #: static/js/engagement-video-content-main.js
 msgid "Videos"
 msgstr "Videos"
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Discussions"
 msgstr "Discusiones"
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Segments"
 msgstr "Segmentos"
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Segments to Ignore"
 msgstr "Segmentos a ignorar"
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Cohort"
 msgstr "Cohorte"
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Enrollment Mode"
 msgstr "Modo de inscripción"
 
-#: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
+#: static/apps/learners/common/utils.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "504: Server error"
 msgstr "504: Error del Servidor"
 
-#: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
+#: static/apps/learners/common/utils.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
@@ -124,29 +138,47 @@ msgstr ""
 "El procesamiento de su solicitud tardó demasiado en completarse. Recargue la"
 " página para intentar nuevamente."
 
-#: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
+#: static/apps/learners/common/utils.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Server error"
 msgstr "Error del Servidor"
 
 #: static/apps/learners/common/utils.js static/apps/learners/common/utils.js
-#: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Your request could not be processed. Reload the page to try again."
 msgstr ""
 "Su solicitud no pudo ser procesada.  Recargue la página para intentar "
 "nuevamente."
 
-#: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
+#: static/apps/learners/common/utils.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Network error"
 msgstr "Error de red"
 
+#: static/apps/learners/common/views/download-data.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/download-form/apps/learners/common/views/download-data.js
+#: static/download-form/apps/learners/common/views/download-data.js
+msgid "Download CSV"
+msgstr "Descargar CSV"
+
+#: static/apps/learners/common/views/download-data.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/download-form/apps/learners/common/views/download-data.js
+#: static/download-form/apps/learners/common/views/download-data.js
+msgid "Download search results to CSV"
+msgstr ""
+
 #: static/apps/learners/common/views/loading-view.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Loading..."
 msgstr "Cargando..."
 
 #: static/apps/learners/detail/views/engagement-table.js
 #: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/apps/learners/app/learners-main.js
 #: static/dist/js/enrollment-activity-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-activity-main.js
@@ -156,127 +188,132 @@ msgstr "Fecha"
 
 #: static/apps/learners/detail/views/engagement-table.js
 #: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Discussion Contributions"
 msgstr "Contribuciones a la discusión"
 
 #: static/apps/learners/detail/views/engagement-table.js
 #: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Videos Viewed"
 msgstr "Videos vistos"
 
 #: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Value"
 msgstr "Valor"
 
 #: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Engagement Activity"
 msgstr "Actividad de participación"
 
 #: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Daily Activity"
 msgstr "Actividad diaria"
 
 #: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Activity Over Time"
 msgstr "Actividad a lo largo del tiempo"
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/apps/learners/detail/views/learner-summary-field.js
 #: static/apps/learners/roster/views/activity-date-range.js
-#: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "n/a"
 msgstr "n/a"
 
 #: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Check back daily for up-to-date data."
 msgstr "Revise diariamente para tener la información más actualizada"
 
 #: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "No course activity data is available for this learner."
 msgstr ""
 "No hay datos de actividad en el curso disponibles para este estudiante."
 
 #: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "No learner data is available."
 msgstr "No hay datos de estudiante disponibles."
 
 #: static/apps/learners/detail/views/learner-return.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Return to Learners"
 msgstr "Regresar a Estudiantes"
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Cohort: <%= filterVal %>"
 msgstr "Cohorte: <%= filterVal %>"
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Enrollment Track: <%= filterVal %>"
 msgstr "Ruta de inscripción: <%= filterVal %>"
 
 #: static/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Active Learners"
-msgstr ""
+msgstr "Estudiantes activos"
 
 #: static/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Filters In Use:"
-msgstr ""
+msgstr "Filtros en uso:"
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Click to remove this filter"
 msgstr "Haga clic para eliminar este filtro"
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Clear"
 msgstr "Borrar"
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Click to remove all filters"
 msgstr "Haga clic para eliminar todos los filtros"
 
 #: static/apps/learners/roster/views/activity-date-range.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Activity between <%- startDate %> - <%- endDate %>"
 msgstr "Actividad entre <%- startDate %> - <%- endDate %>"
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "The name and username of this learner. Click to sort by username."
 msgstr ""
 "Nombre y Nombre de usuario para este estudiante. Haga clic para ordenar por "
 "nombre de usuario."
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Number of unique problems this learner attempted."
 msgstr "Número de problemas únicos que este estudiante intentó responder."
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Number of unique problems the learner answered correctly."
 msgstr "Número de problemas únicos que el estudiante respondió correctamente."
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Number of unique videos this learner played."
 msgstr "Número de videos únicos que este estudiante reprodujo. "
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid ""
 "Average number of attempts per correct problem. Learners with a relatively "
 "high value compared to their peers may be struggling."
@@ -286,7 +323,7 @@ msgstr ""
 " estar costando."
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid ""
 "Number of contributions by this learner, including posts, responses, and "
 "comments."
@@ -295,97 +332,98 @@ msgstr ""
 "respuestas, y comentarios. "
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "sort ascending"
 msgstr "ordenar de manera ascendente"
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "sort descending"
 msgstr "ordenar de manera descendente"
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "click to sort"
 msgstr "haga clic para ordenar"
 
 #: static/apps/learners/roster/views/controls.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Find a learner"
 msgstr "Buscar un estudiante"
 
 #: static/apps/learners/roster/views/controls.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Cohort Groups"
 msgstr "Grupos de cohorte"
 
 #: static/apps/learners/roster/views/controls.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Enrollment Tracks"
 msgstr "Rutas de inscripción"
 
 #: static/apps/learners/roster/views/controls.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Inactive Learners"
 msgstr "Estudiantes inactivos"
 
 #: static/apps/learners/roster/views/filter.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "<%= name %> (<%= numLearners %>)"
 msgstr "<%= name %> (<%= numLearners %>)"
 
 #: static/apps/learners/roster/views/filter.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "All"
 msgstr "Todos"
 
 #: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "first page"
 msgstr "primera página"
 
 #: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "previous page"
 msgstr "página previa"
 
 #: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "next page"
 msgstr "próxima página"
 
 #: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "last page"
 msgstr "última página"
 
 #: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "page"
 msgstr "página"
 
 #: static/apps/learners/roster/views/results.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "No learners matched your criteria."
 msgstr "Ningún estudiante coincide con los criterios dados."
 
 #: static/apps/learners/roster/views/results.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Try a different search."
 msgstr "Intente con una búsqueda distinta."
 
 #: static/apps/learners/roster/views/results.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Try clearing the filters."
 msgstr "Intente eliminando los filtros."
 
 #: static/apps/learners/roster/views/results.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "No learner data is currently available for your course."
 msgstr ""
 "Actualmente no hay datos disponibles sobre los estudiantes de tu curso."
 
 #: static/apps/learners/roster/views/results.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid ""
 "No learners are enrolled, or course activity data has not yet been "
 "processed. Data is updated every day, so check back regularly for up-to-date"
@@ -396,38 +434,34 @@ msgstr ""
 "regularmente para ver los datos más actualizados."
 
 #: static/apps/learners/roster/views/roster.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Learner roster controls"
 msgstr "Control de estudiantes"
 
 #: static/apps/learners/roster/views/search.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Search learners"
 msgstr "Buscar estudiantes"
 
 #: static/apps/learners/roster/views/search.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "search"
 msgstr "buscar"
 
 #: static/apps/learners/roster/views/search.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "clear search"
 msgstr "borrar búsqueda"
 
 #: static/apps/learners/roster/views/table.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "N/A"
 msgstr "N/D"
 
 #: static/apps/learners/roster/views/table.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Learner Roster"
 msgstr "Lista de estudiantes"
-
-#: static/dist/apps/learners/app/app.js
-msgid "Active Filters:"
-msgstr "Filtros activos:"
 
 #: static/dist/js/common.js static/js/utils/utils.js
 msgid "..."
@@ -439,6 +473,8 @@ msgstr "..."
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-learning-outcomes-content-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/views/data-table-view.js static/js/views/discrete-bar-view.js
 msgid "(empty)"
@@ -447,6 +483,8 @@ msgstr "(vacío)"
 #: static/dist/js/common.js
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-answer-distribution-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
@@ -497,6 +535,8 @@ msgstr "Semana Final  <%=value%>"
 #: static/dist/js/engagement-video-content-main.js
 #: static/dist/js/engagement-videos-main.js
 #: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-learning-outcomes-content-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/views/stacked-bar-view.js
 msgid "<%=value%> (<%=percent%>)"
@@ -515,6 +555,8 @@ msgstr "Visualizaciones incompletas promedio"
 #: static/dist/js/engagement-video-content-main.js
 #: static/dist/js/engagement-videos-main.js
 #: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-learning-outcomes-content-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/engagement-video-content-main.js
 #: static/js/engagement-videos-main.js static/js/performance-content-main.js
@@ -691,6 +733,8 @@ msgid "Variant"
 msgstr "Variante"
 
 #: static/dist/js/performance-answer-distribution-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
 #: static/js/performance-learning-outcomes-section-main.js
@@ -705,12 +749,14 @@ msgid "Answer: <%=value%>"
 msgstr "Respuesta: <%=value%>"
 
 #: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-learning-outcomes-content-main.js
 #: static/js/performance-content-main.js
 #: static/js/performance-learning-outcomes-content-main.js
 msgid "Average Correct"
 msgstr "Promedio de correctas"
 
 #: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-learning-outcomes-content-main.js
 #: static/js/performance-content-main.js
 #: static/js/performance-learning-outcomes-content-main.js
 msgid "Average Incorrect"
@@ -727,6 +773,8 @@ msgid "Average Submissions Per Problem"
 msgstr "Promedio de envíos por problema"
 
 #: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-learning-outcomes-content-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-content-main.js
 #: static/js/performance-learning-outcomes-content-main.js
@@ -735,16 +783,19 @@ msgstr "Promedio de envíos por problema"
 msgid "Percentage Correct"
 msgstr "Porcentaje Correcto"
 
+#: static/dist/js/performance-learning-outcomes-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
+msgid "Average Submissions per Problem"
+msgstr "Promedio de envíos por problema"
+
+#: static/dist/js/performance-learning-outcomes-section-main.js
+#: static/js/performance-learning-outcomes-section-main.js
+msgid "Difficulty"
+msgstr "Dificultad"
+
+#: static/dist/js/performance-learning-outcomes-section-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Total"
 msgstr "Total"
-
-#: static/js/performance-learning-outcomes-content-main.js
-msgid "Average Submissions per Problem"
-msgstr ""
-
-#: static/js/performance-learning-outcomes-section-main.js
-msgid "Difficulty"
-msgstr "Dificultad"

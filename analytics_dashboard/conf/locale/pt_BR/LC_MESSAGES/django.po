@@ -25,18 +25,19 @@
 # Marcelo Rosa <marcelomapr@gmail.com>, 2015
 # Marco Túlio Pires <mtrpires@outlook.com>, 2014
 # Mariana Moretti <mamoretti@gmail.com>, 2015
-# Mike Job Silva <mikejobrn@gmail.com>, 2015
+# Mike Job <mikejobrn@gmail.com>, 2015
 # Monica Farias <monifar.tp@gmail.com>, 2015-2016
 # Pedro Guimarães Martins <pedrogmartins7@gmail.com>, 2014
 # Renata Barboza-Murray, 2015-2016
 # Sergio Silva <sergiohrs@gmail.com>, 2016
 # Thiago Ponte <thiagoponte@gmail.com>, 2014
+# Tiago da Silva Pinto <tiagosilva.anps@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-25 10:29-0400\n"
-"PO-Revision-Date: 2016-08-25 14:29+0000\n"
+"POT-Creation-Date: 2016-09-22 10:24-0400\n"
+"PO-Revision-Date: 2016-09-22 14:25+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/open-edx/edx-platform/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -748,6 +749,15 @@ msgstr "Curso"
 msgid "Active"
 msgstr "Ativo"
 
+#. Translators: This indicates that the adjacent link will trigger a CSV
+#. download. '{{download_icon}}' will be replaced with an icon.
+#: courses/templates/courses/home.html
+msgid ""
+"\n"
+"                    (%(download_icon)s CSV Download)\n"
+"                  "
+msgstr ""
+
 #: courses/templates/courses/home.html
 msgid "Basic Course Information"
 msgstr "Informações básicas sobre o curso"
@@ -782,10 +792,6 @@ msgid ""
 msgstr ""
 "Clique Ajuda no canto superior direito para obter mais informação sobre "
 "%(application_name)s. Envie seus comentários para %(email_link)s."
-
-#: courses/templates/courses/learners.html
-msgid "Learners"
-msgstr "Alunos"
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
@@ -873,6 +879,8 @@ msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each outcome."
 msgstr ""
+"Cada barra mostra a quantidade média de submissões corretas e incorretas "
+"para cada atividade."
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 msgid "Outcome Submissions"
@@ -1044,8 +1052,16 @@ msgid "Help"
 msgstr "Ajuda"
 
 #: templates/header.html
+msgid "Menu for"
+msgstr ""
+
+#: templates/header.html
 msgid "Logout"
 msgstr "Sair"
+
+#: templates/lens-navigation.html
+msgid "Navigation Menu."
+msgstr ""
 
 #: templates/loading.html
 msgid "Loading"

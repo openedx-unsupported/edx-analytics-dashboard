@@ -4,6 +4,7 @@
 #
 # Translators:
 # Bentsi Magidovich <magidovich@gmail.com>, 2015
+# e2f_HE c1 <e2f_HE_c1@outlook.com>, 2016
 # Eitan Burcat <eitan@eburcat.com>, 2015
 # Nadav Stark <nadav@yeda.org.il>, 2015
 # qualityalltext <quality@alltext.co.il>, 2016
@@ -14,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-25 10:29-0400\n"
-"PO-Revision-Date: 2016-08-25 14:29+0000\n"
+"POT-Creation-Date: 2016-09-22 10:24-0400\n"
+"PO-Revision-Date: 2016-09-22 14:25+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Hebrew (http://www.transifex.com/open-edx/edx-platform/language/he/)\n"
 "MIME-Version: 1.0\n"
@@ -137,20 +138,20 @@ msgstr "בחר בעיה"
 #: courses/templates/courses/_module_description.html
 #: courses/templates/courses/_video_preview.html
 msgid "View Live"
-msgstr "צפה בזמן אמת"
+msgstr "תצוגה חיה"
 
 #: courses/templates/courses/_tags_content_nav.html
 msgid "Select Outcome"
-msgstr ""
+msgstr "בחר תוצאה"
 
 #: courses/templates/courses/_tags_content_nav.html
 msgid "All Outcomes"
-msgstr ""
+msgstr "כל התוצאות"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
 msgid "Select Section"
-msgstr "בחר קטע"
+msgstr "בחר פרק"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
@@ -283,7 +284,7 @@ msgstr "סטודנטים שהגישו תשובה לבעיה רגילה. לא כ�
 #. in a forum discussion.
 #: courses/templates/courses/engagement_content.html
 msgid "Posted in a Discussion Last Week"
-msgstr "כַּתבו בפורום הדיונים בשבוע שעבר"
+msgstr "כתבו בפורום הדיונים בשבוע שעבר"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who contributed to any discussion topic."
@@ -303,7 +304,7 @@ msgstr "צפיות בסרטון וידאו"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid "How did students interact with videos in this section?"
-msgstr "כיצד יוכלו הסטודנטים ליצור אינטראקציה בעזרת סרטוני הווידאו בחלק זה?"
+msgstr "כיצד יוכלו הסטודנטים ליצור אינטראקציה בעזרת סרטוני הווידאו בפרק זה?"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
@@ -312,12 +313,12 @@ msgid ""
 "incomplete rate to drill down and understand why."
 msgstr ""
 "כל עמודה מציגה את המספר הממוצע של צפיות שלמות וחלקיות עבור סרטוני הווידאו "
-"שבתת מקטע זה. לִחצו על העמודים בעלי הסכומים הנמוכים או שיעור הצפיות החלקי "
+"שבתת פרק זה. לִחצו על העמודים בעלי הסכומים הנמוכים או שיעור הצפיות החלקי "
 "הגבוה על מנת להתעמק בעניין ולהבין מדוע."
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did students interact with videos in this subsection?"
-msgstr "כיצד הסטודנטים מגיבים לסרטוני וידאו שבתת מקטע זה?"
+msgstr "כיצד הסטודנטים מגיבים לסרטוני וידאו שבתת פרק זה?"
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid ""
@@ -338,8 +339,8 @@ msgid ""
 "rate to drill down and understand why."
 msgstr ""
 "כל עמודה מציגה את המספר הממוצע של צפיות שלמות וחלקיות עבור סרטוני הווידאו "
-"שבמקטע זה. לחצו על עמודות בעלי סכומים נמוכים או שיעור צפייה חלקי גבוה על מנת"
-" להתעמק בעניין ולהבין מדוע."
+"שבפרק זה. לחצו על עמודות בעלי סכומים נמוכים או שיעור צפייה חלקי גבוה על מנת "
+"להתעמק בעניין ולהבין מדוע."
 
 #: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
@@ -702,13 +703,22 @@ msgstr "אפליקציה"
 
 #: courses/templates/courses/home.html
 msgid "Course Home"
-msgstr "דף הבית של הקורס"
+msgstr "עמוד הבית של הקורס"
 
 #. Translators: This refers to the active tab/navigation item.
 #: courses/templates/courses/home.html templates/lens-navigation.html
 #: templates/submenu_navigation.html
 msgid "Active"
 msgstr "פעיל"
+
+#. Translators: This indicates that the adjacent link will trigger a CSV
+#. download. '{{download_icon}}' will be replaced with an icon.
+#: courses/templates/courses/home.html
+msgid ""
+"\n"
+"                    (%(download_icon)s CSV Download)\n"
+"                  "
+msgstr ""
 
 #: courses/templates/courses/home.html
 msgid "Basic Course Information"
@@ -744,10 +754,6 @@ msgid ""
 msgstr ""
 "לחץ על 'עזרה' בפינה הימנית העליונה על מנת לקבל מידע נוסף על "
 "%(application_name)s. שלח לנו משוב לכתובת %(email_link)s."
-
-#: courses/templates/courses/learners.html
-msgid "Learners"
-msgstr "לומדים"
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
@@ -826,22 +832,25 @@ msgstr "הגשות משימה"
 #: courses/templates/courses/performance_learning_outcomes_section.html
 msgid "Measured by learning outcome, how are students performing?"
 msgstr ""
+"מה מצב הביצועים של של הסטודנטים בהתחשב בכך שהוא נמדד לפי תוצאת הלמידה?"
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each outcome."
-msgstr ""
+msgstr "כל עמודה מציגה את המספר הממוצע של הגשות נכונות ושגויות עבור כל תוצאה."
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 msgid "Outcome Submissions"
-msgstr ""
+msgstr "הגשות תוצאה"
 
 #: courses/templates/courses/performance_learning_outcomes_section.html
 msgid ""
 "Each bar shows the correct and incorrect number of submissions for each "
 "problem for the current outcome."
 msgstr ""
+"כל עמודה מציגה את המספר הממוצע של הגשות נכונות ושגויות עבור כל בעיה שבתוצאה "
+"הנוכחית."
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are students doing on this section?"
@@ -918,7 +927,7 @@ msgstr ""
 
 #: templates/403.html
 msgid "Logout then Login"
-msgstr "התנתקו ואז התחברו"
+msgstr "התנתק ואז התחבר"
 
 #: templates/404.html templates/404.html
 msgid "Page Not Found"
@@ -941,12 +950,12 @@ msgid ""
 "Our servers weren't able to complete your request. Please try again by "
 "refreshing this page or retracing your steps."
 msgstr ""
-"השרתים שלנו לא הצליחו להשלים את בקשתכם. אנא נסו שוב באמצעות רענון עמוד זה או"
-" באמצעות שחזור צעדיכם. "
+"השרתים שלנו לא הצליחו להשלים את בקשתך. אנא נסה שוב באמצעות רענון עמוד זה או "
+"באמצעות שחזור צעדיך. "
 
 #: templates/503.html templates/503.html
 msgid "We're having trouble loading this page. Please try again in a minute."
-msgstr "יש קושי בטעינת עמוד זה. אנא נסה שוב בעוד דקה."
+msgstr "קיים קושי בטעינת עמוד זה. אנא נסה שוב בעוד דקה."
 
 #: templates/503.html
 msgid "(Technical details: 503 Service Unavailable.)"
@@ -977,8 +986,8 @@ msgid ""
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
 msgstr ""
-"אנו רוצים שלוח הבקרה יעזור לך! זקוק לעזרה? %(support_link_start)sצרו קשר עם "
-"התמיכה של צוות הקורס%(support_link_end)s. הערות או הצעות? דוא\"ל "
+"אנו רוצים שלוח הבקרה יעזור לך! זקוק לעזרה? %(support_link_start)sצור קשר עם "
+"התמיכה של צוות הקורס%(support_link_end)s. הערות או הצעות? דואר אלקטרוני ל "
 "%(email_link)s."
 
 #. Translators: The © symbol appears directly before this line.
@@ -999,8 +1008,16 @@ msgid "Help"
 msgstr "עזרה"
 
 #: templates/header.html
+msgid "Menu for"
+msgstr ""
+
+#: templates/header.html
 msgid "Logout"
 msgstr "התנתק"
+
+#: templates/lens-navigation.html
+msgid "Navigation Menu."
+msgstr ""
 
 #: templates/loading.html
 msgid "Loading"
