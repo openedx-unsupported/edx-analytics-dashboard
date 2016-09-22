@@ -12,9 +12,10 @@
 # Gérard Vidal <Gerard.Vidal@ens-lyon.fr>, 2014
 # JulietteFUN, 2015
 # Régis Millet <kulgar@ct2c.fr>, 2015
-# laurentFUN <laurent.at.fun@gmail.com>, 2014
+# laurentFUN <laurent.at.fun@gmail.com>, 2014,2016
 # Leslie Bordonné <inactive+lbordonne@transifex.com>, 2015
 # Magdalene Schock <magdaparis@hotmail.com>, 2015
+# Matthieu Falce <falce.matthieu@gmail.com>, 2016
 # Mohamed TOUITI <mtouiti@outlook.com>, 2016
 # moocit-france <contact@moocit.fr>, 2015
 # rafcha <raphael.chay@gmail.com>, 2014-2015
@@ -26,8 +27,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-25 10:29-0400\n"
-"PO-Revision-Date: 2016-08-25 14:29+0000\n"
+"POT-Creation-Date: 2016-09-22 10:24-0400\n"
+"PO-Revision-Date: 2016-09-22 14:25+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: French (http://www.transifex.com/open-edx/edx-platform/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -157,11 +158,11 @@ msgstr "Aperçu réel"
 
 #: courses/templates/courses/_tags_content_nav.html
 msgid "Select Outcome"
-msgstr ""
+msgstr "Sélectionner le résultat"
 
 #: courses/templates/courses/_tags_content_nav.html
 msgid "All Outcomes"
-msgstr ""
+msgstr "Tous les résultats"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
@@ -216,7 +217,7 @@ msgid ""
 "offline."
 msgstr ""
 "Revoir ci-dessous toutes les versions soumises, ou cliquer Télécharger CSV "
-"pour les revoir hors connection."
+"pour les revoir hors connexion."
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Submission Counts"
@@ -278,11 +279,11 @@ msgstr "Etudiants ayant au moins visité une page de ce cours."
 #. a video.
 #: courses/templates/courses/engagement_content.html
 msgid "Watched a Video Last Week"
-msgstr "Visioinné une vidéo la semaine dernière"
+msgstr "Visionné une vidéo la semaine dernière"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who played one or more videos."
-msgstr "Etudiants ayant regardé au moins une vidéo. "
+msgstr "Étudiants ayant regardé au moins une vidéo. "
 
 #. Translators: This is a label indicating the number of students who tried a
 #. problem.
@@ -295,7 +296,7 @@ msgid ""
 "Students who submitted an answer for a standard problem. Not all problem "
 "types are included."
 msgstr ""
-"Etudiant ayant proposé une réponse pour un problème courant. Cela n'inclue "
+"Étudiant ayant proposé une réponse pour un problème courant. Cela n'inclue "
 "pas tous les types de problèmes."
 
 #. Translators: This is a label indicating the number of students who posted
@@ -340,7 +341,7 @@ msgstr ""
 msgid "How did students interact with videos in this subsection?"
 msgstr ""
 "Comment les étudiants ont-ils interagi avec les vidéos dans cette sous-"
-"section?"
+"section ?"
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid ""
@@ -353,7 +354,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_course.html
 msgid "How did students interact with course videos?"
-msgstr "Comment les étudiants ont-ils interagi avec les vidéos du cours?"
+msgstr "Comment les étudiants ont-ils interagi avec les vidéos du cours ?"
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
@@ -373,7 +374,7 @@ msgstr "Nombre de vues total de la vidéo"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "What were the viewing patterns for this video?"
-msgstr "Quelles ont été les habitudes de visionnage pour cette vidéo?"
+msgstr "Quelles ont été les habitudes de visionnage pour cette vidéo ?"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid ""
@@ -442,7 +443,7 @@ msgid ""
 "each day. This includes new enrollments as well as unenrollments."
 msgstr ""
 "Ce graphique affiche le nombre actuel d'inscriptions pour ce cours à la fin "
-"de chaque journée. Il inclue les nouvelles inscriptions et tout comme les "
+"de chaque journée. Il inclue les nouvelles inscriptions, tout comme les "
 "désistements."
 
 #: courses/templates/courses/enrollment_activity.html
@@ -469,7 +470,7 @@ msgstr "Inscriptions Courantes"
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Students currently enrolled in the course."
-msgstr "Etudiants actuellement inscrits dans ce cours."
+msgstr "Étudiants actuellement inscrits dans ce cours."
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
@@ -507,7 +508,7 @@ msgstr "Inscriptions au fil du temps"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "How old are my students?"
-msgstr "Quel age ont mes étudiants?"
+msgstr "Quel age ont mes étudiants ?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -522,13 +523,13 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Metrics"
-msgstr "Statistiques d'Age"
+msgstr "Statistiques d'age"
 
 #. Translators: This is a label to identify the median age of enrolled
 #. students.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Median Student Age"
-msgstr "Age Median des Etudiants"
+msgstr "Age médian des étudiants"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
@@ -541,7 +542,7 @@ msgstr ""
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 25 and Under"
-msgstr "Etudiants de 25 ans et plus"
+msgstr "Etudiants de moins de 25 ans "
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
@@ -569,7 +570,7 @@ msgstr ""
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 41 and Over"
-msgstr "Etudiants âgés de 41 ans et plus "
+msgstr "Étudiants âgés de 41 ans et plus "
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
@@ -585,7 +586,7 @@ msgstr "Répartition par Age"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "What level of education do my students have?"
-msgstr "Quel niveau d'études ont mes étudiants?"
+msgstr "Quel niveau d'études ont mes étudiants ?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -600,12 +601,12 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Education Metrics"
-msgstr "Statistiques du niveau d'Etudes"
+msgstr "Statistiques du niveau d'études"
 
 #. Translators: This is a label to identify student educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "High School Diploma or Less"
-msgstr "Diplômes niveau Collège ou Inférieur"
+msgstr "Diplômes niveau collège ou inférieur"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
@@ -613,8 +614,8 @@ msgid ""
 "secondary/junior high/middle school, or Elementary/primary school as their "
 "highest level of education completed."
 msgstr ""
-"Pourcentage d'étudiants ayant choisi Lycée / enseignement secondaire, "
-"Collège / enseignement secondaire inférieur ou Enseignement primaire, comme "
+"Pourcentage d'étudiants ayant choisi lycée / enseignement secondaire, "
+"collège / enseignement secondaire inférieur ou enseignement primaire, comme "
 "leur plus haut niveau d'études réalisé."
 
 #. Translators: This is a label to identify student educational background.
@@ -649,7 +650,7 @@ msgstr "Répartition par Formation"
 
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "What is the student gender breakdown?"
-msgstr "Quelle est la répartition des étudiants par sexe?"
+msgstr "Quelle est la répartition des étudiants par sexe ?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -659,12 +660,12 @@ msgid ""
 "This graph presents data for the %(value)s%% of enrolled students who "
 "specified their gender."
 msgstr ""
-"Ce graphe représente les données des %(value)s%% d'étudiants enregistrés "
+"Ce graphique représente les données des %(value)s%% d'étudiants enregistrés "
 "ayant renseigné leur sexe."
 
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "Gender Breakdown Over Time"
-msgstr "Répartition par Sexe au Fil du Temps"
+msgstr "Répartition par sexe en fonction du temps"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geographic Distribution"
@@ -672,7 +673,7 @@ msgstr "Distribution géographique"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Where are my students?"
-msgstr "Où sont mes étudiants?"
+msgstr "Où sont mes étudiants ?"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Enrollment by Country"
@@ -720,7 +721,7 @@ msgstr "troisième pays par nombre d'inscriptions"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Country with the third largest number of students."
-msgstr "Pays avec le troisième plus grand nombre d'étudiants"
+msgstr "Pays avec le troisième plus grand nombre d'étudiants."
 
 #. Translators: This string represents the percentage of students in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
@@ -750,6 +751,15 @@ msgstr "Accueil du cours"
 msgid "Active"
 msgstr "Actif"
 
+#. Translators: This indicates that the adjacent link will trigger a CSV
+#. download. '{{download_icon}}' will be replaced with an icon.
+#: courses/templates/courses/home.html
+msgid ""
+"\n"
+"                    (%(download_icon)s CSV Download)\n"
+"                  "
+msgstr ""
+
 #: courses/templates/courses/home.html
 msgid "Basic Course Information"
 msgstr "Informations de base relatives au cours"
@@ -773,11 +783,11 @@ msgid ""
 "Here are the courses you currently have access to in %(application_name)s:"
 msgstr ""
 "Voici les cours auxquels vous avez présentement accès dans "
-"%(application_name)s:"
+"%(application_name)s :"
 
 #: courses/templates/courses/index.html
 msgid "New to %(application_name)s?"
-msgstr "Nouveau dans %(application_name)s?"
+msgstr "Nouveau dans %(application_name)s ?"
 
 #: courses/templates/courses/index.html
 msgid ""
@@ -785,18 +795,14 @@ msgid ""
 "%(application_name)s. Send us feedback at %(email_link)s."
 msgstr ""
 "Cliquez sur Aide dans le coin supérieur droit pour obtenir de plus amples "
-"informations sur  %(application_name)s. Envoyez nous vos commentaires à "
+"informations sur %(application_name)s. Envoyez nous vos commentaires à "
 "%(email_link)s."
-
-#: courses/templates/courses/learners.html
-msgid "Learners"
-msgstr "Etudiants"
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
 msgid "How did students answer this problem?"
-msgstr "Comment les étudiants ont-ils répondu à ce problème?"
+msgstr "Comment les étudiants ont-ils répondu à ce problème ?"
 
 #: courses/templates/courses/performance_assignment.html
 msgid "How are students doing on this assignment?"
@@ -809,8 +815,8 @@ msgid ""
 "problem. Only the last submission from each student is counted."
 msgstr ""
 "Les barres montrent le nombre de tentatives correctes et incorrectes pour "
-"chaque exercice. Seule la dernière soumission de la chaque apprenant est "
-"prise en compte."
+"chaque exercice. Seule la dernière réponse de chaque apprenant est prise en "
+"compte."
 
 #: courses/templates/courses/performance_assignment.html
 #: courses/templates/courses/performance_learning_outcomes_section.html
@@ -873,26 +879,32 @@ msgstr "Soumissions de devoir"
 #: courses/templates/courses/performance_learning_outcomes_section.html
 msgid "Measured by learning outcome, how are students performing?"
 msgstr ""
+"Quelle est la performance de vos étudiants évaluée selon les résultats "
+"d'apprentrissage?"
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each outcome."
 msgstr ""
+"Chaque barre verticale montre le nombre moyen de soumissions correcte ou "
+"incorrecte pour chaque objectif."
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 msgid "Outcome Submissions"
-msgstr ""
+msgstr "Soumissions de résultats"
 
 #: courses/templates/courses/performance_learning_outcomes_section.html
 msgid ""
 "Each bar shows the correct and incorrect number of submissions for each "
 "problem for the current outcome."
 msgstr ""
+"Chaque barre verticale montre le nombre moyen de soumissions correcte ou "
+"incorrecte pour chaque problème inclus dans l'objectif courant."
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are students doing on this section?"
-msgstr "Où en sont les étudiants concernant cette section?"
+msgstr "Où en sont les étudiants concernant cette section ?"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid ""
@@ -1032,9 +1044,9 @@ msgid ""
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
 msgstr ""
-"Nous souhaitons que ce tableau de bord fonctionne pour vous! Besoin d'aide? "
-"%(support_link_start)sContactez notre équipe "
-"d'assistance%(support_link_end)s. Des commentaires ou suggestions? Ecrivez-"
+"Nous souhaitons que ce tableau de bord fonctionne pour vous ! Besoin d'aide "
+"? %(support_link_start)sContactez notre équipe "
+"d'assistance%(support_link_end)s. Des commentaires ou suggestions ? Ecrivez-"
 "nous %(email_link)s."
 
 #. Translators: The © symbol appears directly before this line.
@@ -1053,8 +1065,16 @@ msgid "Help"
 msgstr "Aide"
 
 #: templates/header.html
+msgid "Menu for"
+msgstr ""
+
+#: templates/header.html
 msgid "Logout"
 msgstr "Déconnexion"
+
+#: templates/lens-navigation.html
+msgid "Navigation Menu."
+msgstr ""
 
 #: templates/loading.html
 msgid "Loading"

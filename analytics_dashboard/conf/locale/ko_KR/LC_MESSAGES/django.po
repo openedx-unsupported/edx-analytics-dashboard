@@ -6,6 +6,7 @@
 # kmooc <shevious@gmail.com>, 2015
 # shevious <shevious@yahoo.com>, 2015
 # Hongseob Lee <shevreg@yahoo.com>, 2015
+# Jay Oh <theanswer.jay@gmail.com>, 2016
 # Jong-Dae Park <jdpark7@gmail.com>, 2015
 # Kevin Min <gr326887@graded.br>, 2015
 # Kunwoo Kim <crazyabtmath@naver.com>, 2015
@@ -17,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-25 10:29-0400\n"
-"PO-Revision-Date: 2016-08-25 14:29+0000\n"
+"POT-Creation-Date: 2016-09-22 10:24-0400\n"
+"PO-Revision-Date: 2016-09-22 14:25+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/open-edx/edx-platform/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -165,11 +166,11 @@ msgstr "동영상 선택"
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Previous Video"
-msgstr ""
+msgstr "이전 영상"
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Next Video"
-msgstr ""
+msgstr "다음 영상"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -680,6 +681,15 @@ msgstr "강좌 홈"
 msgid "Active"
 msgstr "활성"
 
+#. Translators: This indicates that the adjacent link will trigger a CSV
+#. download. '{{download_icon}}' will be replaced with an icon.
+#: courses/templates/courses/home.html
+msgid ""
+"\n"
+"                    (%(download_icon)s CSV Download)\n"
+"                  "
+msgstr ""
+
 #: courses/templates/courses/home.html
 msgid "Basic Course Information"
 msgstr "강좌 기본 정보"
@@ -714,10 +724,6 @@ msgid ""
 msgstr ""
 "오른쪽 위 모서리에 있는 도움말 버튼을 클릭해서 %(application_name)s에 대한 더 많은 내용을 얻으십시요. 그리고 "
 "%(email_link)s으로 피드백을 보내주시기를 바랍니다. "
-
-#: courses/templates/courses/learners.html
-msgid "Learners"
-msgstr ""
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
@@ -953,8 +959,16 @@ msgid "Help"
 msgstr "도움말"
 
 #: templates/header.html
+msgid "Menu for"
+msgstr ""
+
+#: templates/header.html
 msgid "Logout"
 msgstr "로그아웃"
+
+#: templates/lens-navigation.html
+msgid "Navigation Menu."
+msgstr ""
 
 #: templates/loading.html
 msgid "Loading"

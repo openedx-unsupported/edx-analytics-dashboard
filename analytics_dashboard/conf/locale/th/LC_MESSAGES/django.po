@@ -10,6 +10,7 @@
 # neelawat <neelawat@gmail.com>, 2014
 # Noppachai Eiamwasant <noporo@hotmail.com>, 2015
 # Pornchai TummarATTAnanonT <yantaku@gmail.com>, 2015-2016
+# Sanyapong Kridakarn <sanyapong@kelanggreen.com>, 2016
 # Sira Nokyoongtong <gumaraa@gmail.com>, 2014
 # Sitdhibong Laokok <sitdhibong@gmail.com>, 2015
 # Theeranuch Sirikojakorn <totallyp3@gmail.com>, 2015
@@ -17,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-25 10:29-0400\n"
-"PO-Revision-Date: 2016-08-25 14:29+0000\n"
+"POT-Creation-Date: 2016-09-22 10:24-0400\n"
+"PO-Revision-Date: 2016-09-22 14:25+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Thai (http://www.transifex.com/open-edx/edx-platform/language/th/)\n"
 "MIME-Version: 1.0\n"
@@ -144,11 +145,11 @@ msgstr "ดูสด"
 
 #: courses/templates/courses/_tags_content_nav.html
 msgid "Select Outcome"
-msgstr ""
+msgstr "เลือกผลลัพธ์"
 
 #: courses/templates/courses/_tags_content_nav.html
 msgid "All Outcomes"
-msgstr ""
+msgstr "ผลลัพธ์ทั้งหมด"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
@@ -709,6 +710,15 @@ msgstr "หน้าโฮม หลักสูตร"
 msgid "Active"
 msgstr "กำลังใช้งาน"
 
+#. Translators: This indicates that the adjacent link will trigger a CSV
+#. download. '{{download_icon}}' will be replaced with an icon.
+#: courses/templates/courses/home.html
+msgid ""
+"\n"
+"                    (%(download_icon)s CSV Download)\n"
+"                  "
+msgstr ""
+
 #: courses/templates/courses/home.html
 msgid "Basic Course Information"
 msgstr "รายละเอียดหลักสูตรขั้นพื้นฐาน"
@@ -743,10 +753,6 @@ msgid ""
 msgstr ""
 "คลิก ช่วยเหลือ ตรงมุมขวาบน เพื่อทราบข้อมูลเกี่ยวกับ %(application_name)s "
 "ส่งผลตอบกลับมาที่ %(email_link)s"
-
-#: courses/templates/courses/learners.html
-msgid "Learners"
-msgstr "ผู้เรียน"
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
@@ -825,23 +831,26 @@ msgstr "การส่งการบ้าน"
 #: courses/templates/courses/performance_learning_outcomes_content.html
 #: courses/templates/courses/performance_learning_outcomes_section.html
 msgid "Measured by learning outcome, how are students performing?"
-msgstr ""
+msgstr "วัดผลจากผลลัพธ์การเรียนรู้ ผู้เรียนของคุณได้เรียนรู้อะไรบ้าง"
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each outcome."
 msgstr ""
+"แผนภูมิแท่งเหล่านี้แสดงจำนวนเฉลี่ยของคำตอบทั้งถูกและผิดในการส่งคำตอบสำหรับแต่ละผลลัพธ์"
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 msgid "Outcome Submissions"
-msgstr ""
+msgstr "การส่งผลลัพธ์"
 
 #: courses/templates/courses/performance_learning_outcomes_section.html
 msgid ""
 "Each bar shows the correct and incorrect number of submissions for each "
 "problem for the current outcome."
 msgstr ""
+"แผนภูมิแท่งเหล่านี้แสดงจำนวนคำตอบที่ถูกและผิด "
+"ในการส่งคำตอบสำหรับโจทย์แต่ละข้อสำหรับผลลัพธ์ปัจจุบัน"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are students doing on this section?"
@@ -999,8 +1008,16 @@ msgid "Help"
 msgstr "ช่วยเหลือ"
 
 #: templates/header.html
+msgid "Menu for"
+msgstr ""
+
+#: templates/header.html
 msgid "Logout"
 msgstr "ลงชื่อออก"
+
+#: templates/lens-navigation.html
+msgid "Navigation Menu."
+msgstr ""
 
 #: templates/loading.html
 msgid "Loading"

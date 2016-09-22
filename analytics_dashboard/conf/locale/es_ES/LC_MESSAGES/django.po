@@ -7,6 +7,7 @@
 # Alicia P., 2014
 # cblackburn <cblackburn@edx.org>, 2015
 # Enrique Centelles <ecentelles2003@yahoo.es>, 2014
+# Enrique Ros Carrión <enrique.ros.cp@gmail.com>, 2016
 # spentamanyu <i.delamo@gmail.com>, 2014
 # jorge jorge marrero <jjorgewill@gmail.com>, 2016
 # Mariangeles Fernandez <mariangelesfm@gmail.com>, 2015
@@ -24,8 +25,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-25 10:29-0400\n"
-"PO-Revision-Date: 2016-08-25 14:29+0000\n"
+"POT-Creation-Date: 2016-09-22 10:24-0400\n"
+"PO-Revision-Date: 2016-09-22 14:25+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/open-edx/edx-platform/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -155,11 +156,11 @@ msgstr "Ver en vivo"
 
 #: courses/templates/courses/_tags_content_nav.html
 msgid "Select Outcome"
-msgstr ""
+msgstr "Seleccione Beneficio"
 
 #: courses/templates/courses/_tags_content_nav.html
 msgid "All Outcomes"
-msgstr ""
+msgstr "Todos los Beneficios"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
@@ -470,7 +471,7 @@ msgstr "Cambios en la semana anterior"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Net difference in current enrollment in the last week."
-msgstr ""
+msgstr "Diferencia neta en la inscripción actual en la última semana."
 
 #. Translators: This is a label to identify enrollment of students on the
 #. verified track.
@@ -740,6 +741,15 @@ msgstr "Inicio del curso"
 msgid "Active"
 msgstr "Activa"
 
+#. Translators: This indicates that the adjacent link will trigger a CSV
+#. download. '{{download_icon}}' will be replaced with an icon.
+#: courses/templates/courses/home.html
+msgid ""
+"\n"
+"                    (%(download_icon)s CSV Download)\n"
+"                  "
+msgstr ""
+
 #: courses/templates/courses/home.html
 msgid "Basic Course Information"
 msgstr "Información básica del curso"
@@ -776,10 +786,6 @@ msgid ""
 msgstr ""
 "Haz clic en Ayuda en el ángulo superior derecho para obtener más información"
 " acerca de %(application_name)s. Envíanos tus comentarios en %(email_link)s."
-
-#: courses/templates/courses/learners.html
-msgid "Learners"
-msgstr "Estudiantes"
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
@@ -863,22 +869,28 @@ msgstr "Entregas de tareas"
 #: courses/templates/courses/performance_learning_outcomes_section.html
 msgid "Measured by learning outcome, how are students performing?"
 msgstr ""
+"Medidos por el beneficio del aprendizaje, ¿cómo de bien lo están haciendo "
+"los estudiantes?"
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each outcome."
 msgstr ""
+"Cada barra muestra el número medio de envíos de respuestas correctas e "
+"incorrectas para cada resultado."
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 msgid "Outcome Submissions"
-msgstr ""
+msgstr "Resultados de los envíos de respuestas."
 
 #: courses/templates/courses/performance_learning_outcomes_section.html
 msgid ""
 "Each bar shows the correct and incorrect number of submissions for each "
 "problem for the current outcome."
 msgstr ""
+"Cada barra muestra el número de envíos de respuestas correctas e incorrectas"
+" para cada problema para el resultado actual."
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are students doing on this section?"
@@ -1040,8 +1052,16 @@ msgid "Help"
 msgstr "Ayuda"
 
 #: templates/header.html
+msgid "Menu for"
+msgstr ""
+
+#: templates/header.html
 msgid "Logout"
 msgstr "Salir"
+
+#: templates/lens-navigation.html
+msgid "Navigation Menu."
+msgstr ""
 
 #: templates/loading.html
 msgid "Loading"

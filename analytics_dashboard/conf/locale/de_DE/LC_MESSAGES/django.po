@@ -21,8 +21,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-25 10:29-0400\n"
-"PO-Revision-Date: 2016-08-25 14:29+0000\n"
+"POT-Creation-Date: 2016-09-22 10:24-0400\n"
+"PO-Revision-Date: 2016-09-22 14:25+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/open-edx/edx-platform/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
@@ -696,6 +696,15 @@ msgstr "Startseite des Kurses"
 msgid "Active"
 msgstr "Ausgewählt"
 
+#. Translators: This indicates that the adjacent link will trigger a CSV
+#. download. '{{download_icon}}' will be replaced with an icon.
+#: courses/templates/courses/home.html
+msgid ""
+"\n"
+"                    (%(download_icon)s CSV Download)\n"
+"                  "
+msgstr ""
+
 #: courses/templates/courses/home.html
 msgid "Basic Course Information"
 msgstr "Allgemeine Kursinformationen"
@@ -730,10 +739,6 @@ msgid ""
 msgstr ""
 "Drücke Hilfe in der rechten oberen Ecke um weitere Informationen zu "
 "%(application_name)s erhalten. Sende uns Feedback an %(email_link)s."
-
-#: courses/templates/courses/learners.html
-msgid "Learners"
-msgstr "Lernende"
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
@@ -924,9 +929,9 @@ msgid ""
 "Our servers weren't able to complete your request. Please try again by "
 "refreshing this page or retracing your steps."
 msgstr ""
-"Unsere Server konnten deine Anfrage nicht beantworten. Bitte versuche es "
-"noch einmal, indem du die Seite aktualisierst, oder deine Schritte erneut "
-"durchgehst."
+"Unsere Server konnten Ihre Anfrage nicht beantworten. Bitte versuchen Sie es"
+" noch einmal, indem Sie die Seite aktualisieren, oder Ihre Schritte erneut "
+"durchgehen."
 
 #: templates/503.html templates/503.html
 msgid "We're having trouble loading this page. Please try again in a minute."
@@ -984,8 +989,16 @@ msgid "Help"
 msgstr "Hilfe"
 
 #: templates/header.html
+msgid "Menu for"
+msgstr ""
+
+#: templates/header.html
 msgid "Logout"
 msgstr "Abmelden"
+
+#: templates/lens-navigation.html
+msgid "Navigation Menu."
+msgstr ""
 
 #: templates/loading.html
 msgid "Loading"

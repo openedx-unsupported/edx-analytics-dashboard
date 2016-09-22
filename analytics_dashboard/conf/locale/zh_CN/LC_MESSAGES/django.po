@@ -10,7 +10,7 @@
 # chalow <charlotteouya@hotmail.com>, 2015
 # focusheart <focusheart@gmail.com>, 2015
 # Johnny Wei <johntzwei@yahoo.com>, 2015
-# jsgang <jsgang9@gmail.com>, 2014-2015
+# jsgang <jsgang9@gmail.com>, 2014-2016
 # Jun Hao Lin <xuxiao15994219982@gmail.com>, 2015
 # LIU NIAN <lauraqq@gmail.com>, 2015
 # meelo <bbvy@qq.com>, 2015
@@ -33,8 +33,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-25 10:29-0400\n"
-"PO-Revision-Date: 2016-08-25 14:29+0000\n"
+"POT-Creation-Date: 2016-09-22 10:24-0400\n"
+"PO-Revision-Date: 2016-09-22 14:25+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/open-edx/edx-platform/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -153,11 +153,11 @@ msgstr "在线查看"
 
 #: courses/templates/courses/_tags_content_nav.html
 msgid "Select Outcome"
-msgstr ""
+msgstr "选择结果"
 
 #: courses/templates/courses/_tags_content_nav.html
 msgid "All Outcomes"
-msgstr ""
+msgstr "所有结果"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
@@ -693,6 +693,15 @@ msgstr "课程主页"
 msgid "Active"
 msgstr "活动的"
 
+#. Translators: This indicates that the adjacent link will trigger a CSV
+#. download. '{{download_icon}}' will be replaced with an icon.
+#: courses/templates/courses/home.html
+msgid ""
+"\n"
+"                    (%(download_icon)s CSV Download)\n"
+"                  "
+msgstr ""
+
 #: courses/templates/courses/home.html
 msgid "Basic Course Information"
 msgstr "课程基本信息"
@@ -725,10 +734,6 @@ msgid ""
 "Click Help in the upper-right corner to get more information about "
 "%(application_name)s. Send us feedback at %(email_link)s."
 msgstr "单击右上角的帮助可以得到更多的关于%(application_name)s的信息。通过%(email_link)s发送反馈给我们。"
-
-#: courses/templates/courses/learners.html
-msgid "Learners"
-msgstr "学习者"
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
@@ -962,8 +967,16 @@ msgid "Help"
 msgstr "帮助"
 
 #: templates/header.html
+msgid "Menu for"
+msgstr ""
+
+#: templates/header.html
 msgid "Logout"
 msgstr "退出"
+
+#: templates/lens-navigation.html
+msgid "Navigation Menu."
+msgstr ""
 
 #: templates/loading.html
 msgid "Loading"

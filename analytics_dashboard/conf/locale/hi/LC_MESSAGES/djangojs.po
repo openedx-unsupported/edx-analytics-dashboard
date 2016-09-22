@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-25 10:29-0400\n"
-"PO-Revision-Date: 2016-08-25 14:29+0000\n"
+"POT-Creation-Date: 2016-09-22 10:24-0400\n"
+"PO-Revision-Date: 2016-09-22 14:25+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/open-edx/edx-platform/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -24,90 +24,104 @@ msgstr ""
 "Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
+#: static/apps/learners/app/controller.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Invalid Parameters"
 msgstr "अमान्य मापदण्ड"
 
-#: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
+#: static/apps/learners/app/controller.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Sorry, we couldn't find any learners who matched that query."
 msgstr "खेद है - इस प्रश्न से मिलता जुलता छात्र हमें नही मिला।"
 
-#: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
+#: static/apps/learners/app/controller.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Return to the Learners page."
 msgstr "छात्र-पृष्ठ पर वापिस जाएं।"
 
-#: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
+#: static/apps/learners/app/controller.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Learners"
 msgstr "शिक्षार्थियों"
 
-#: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
+#: static/apps/learners/app/controller.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Learner Details"
 msgstr "शिक्षार्थी विवरण"
 
-#: static/apps/learners/app/controller.js static/dist/apps/learners/app/app.js
+#: static/apps/learners/app/controller.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Sorry, we couldn't find the page you're looking for."
 msgstr "क्षमा करें, जो पृष्ठ आप तलाश रहे हैं हम नहीं ढूंढ पाऐ।"
 
+#: static/apps/learners/app/controller.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid "Page Not Found"
+msgstr "यह पेज मौजूद नहीं है"
+
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Name (Username)"
 msgstr "नाम (उपयोक्तानाम)"
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Problems Tried"
 msgstr "प्रश्न आज़माऐ"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/apps/learners/detail/views/engagement-table.js
 #: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Problems Correct"
 msgstr "प्रश्न सही"
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Attempts per Problem Correct"
 msgstr "सही कोशिशें प्रति सवाल"
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 #: static/dist/js/engagement-video-content-main.js
 #: static/js/engagement-video-content-main.js
 msgid "Videos"
 msgstr "वीडियोस "
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Discussions"
 msgstr "चर्चाएँ"
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Segments"
 msgstr "भाग"
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Segments to Ignore"
 msgstr "इन भागों को नज़रअन्दाज़ करें"
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Cohort"
 msgstr "सहयोग"
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Enrollment Mode"
 msgstr "नामाकंन प्रणाली"
 
-#: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
+#: static/apps/learners/common/utils.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "504: Server error"
 msgstr "504: सरवर की गलती"
 
-#: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
+#: static/apps/learners/common/utils.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
@@ -115,29 +129,47 @@ msgstr ""
 " आपके अनुरोध के प्रसंस्करण को पूरा करने में काफ़ी समय लगा। पृष्ठ को फिर से "
 "लोड करने की कोशिश करें।"
 
-#: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
+#: static/apps/learners/common/utils.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Server error"
 msgstr "सरवर की गलती"
 
 #: static/apps/learners/common/utils.js static/apps/learners/common/utils.js
-#: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Your request could not be processed. Reload the page to try again."
 msgstr ""
 "आपके निवेदन का प्रसंस्करण नही हो पाया। पृष्ठ को फिर से लोड करने की कोशिश "
 "करें।"
 
-#: static/apps/learners/common/utils.js static/dist/apps/learners/app/app.js
+#: static/apps/learners/common/utils.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Network error"
 msgstr "नेटवर्क गलती"
 
+#: static/apps/learners/common/views/download-data.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/download-form/apps/learners/common/views/download-data.js
+#: static/download-form/apps/learners/common/views/download-data.js
+msgid "Download CSV"
+msgstr "सी.एस.वी डाउनलोड करें"
+
+#: static/apps/learners/common/views/download-data.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/download-form/apps/learners/common/views/download-data.js
+#: static/download-form/apps/learners/common/views/download-data.js
+msgid "Download search results to CSV"
+msgstr ""
+
 #: static/apps/learners/common/views/loading-view.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Loading..."
 msgstr "लोड हो रहा है..."
 
 #: static/apps/learners/detail/views/engagement-table.js
 #: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/apps/learners/app/learners-main.js
 #: static/dist/js/enrollment-activity-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-activity-main.js
@@ -147,126 +179,131 @@ msgstr "तिथि"
 
 #: static/apps/learners/detail/views/engagement-table.js
 #: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Discussion Contributions"
 msgstr "चर्चा में योगदान"
 
 #: static/apps/learners/detail/views/engagement-table.js
 #: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Videos Viewed"
 msgstr "देखे गये वीडियो"
 
 #: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Value"
 msgstr "मूल्य"
 
 #: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Engagement Activity"
 msgstr "कार्य गतिविधि"
 
 #: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Daily Activity"
 msgstr "प्रतिदिन गतिविधि"
 
 #: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Activity Over Time"
 msgstr "समय के साथ गतिविधि"
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/apps/learners/detail/views/learner-summary-field.js
 #: static/apps/learners/roster/views/activity-date-range.js
-#: static/dist/apps/learners/app/app.js static/dist/apps/learners/app/app.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "n/a"
 msgstr "लागू नहीं"
 
 #: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Check back daily for up-to-date data."
 msgstr "नवीनतम जानकारी के लिऐ प्रतिदिन जाँचें।"
 
 #: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "No course activity data is available for this learner."
 msgstr "इस छात्र के अध्ययन गतिविधि आँकड़े उपलब्ध नही हैं।"
 
 #: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "No learner data is available."
 msgstr "छात्र आँकड़े उपलब्ध नही हैं।"
 
 #: static/apps/learners/detail/views/learner-return.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Return to Learners"
 msgstr "वापिस छात्रों के पास"
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Cohort: <%= filterVal %>"
 msgstr "सहयोग: <%= filterVal %> "
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Enrollment Track: <%= filterVal %>"
 msgstr "नामाकंन ट्रैक्स : <%= filterVal %>"
 
 #: static/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Active Learners"
 msgstr ""
 
 #: static/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Filters In Use:"
 msgstr ""
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Click to remove this filter"
 msgstr "इस फिल्टर को हटाने के लिए कि्लक करें"
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Clear"
 msgstr "साफ"
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Click to remove all filters"
 msgstr "सभी फिल्टरों को हटाने के लिए कि्लक करें"
 
 #: static/apps/learners/roster/views/activity-date-range.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Activity between <%- startDate %> - <%- endDate %>"
 msgstr "गतिविधि   <%- startDate %> से  <%- endDate %> तक "
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "The name and username of this learner. Click to sort by username."
 msgstr ""
 "छात्र का नाम और प्रयोक्ता नाम। प्रयोक्ता नाम से वर्गीकृत करने के लिए कि्लक "
 "करें।"
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Number of unique problems this learner attempted."
 msgstr "इस शिक्षार्थी द्वारा प्रयास की गई अद्वितीय समस्याओं की संख्या।"
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Number of unique problems the learner answered correctly."
 msgstr "इस शिक्षार्थी द्वारा अद्वितीय समस्याओं के सही जवाबों की संख्या।"
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Number of unique videos this learner played."
 msgstr "इस शिक्षार्थी द्वारा देखी गई अद्वितीय वीडियोज़ की संख्या।"
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid ""
 "Average number of attempts per correct problem. Learners with a relatively "
 "high value compared to their peers may be struggling."
@@ -275,7 +312,7 @@ msgstr ""
 " साथियों की तुलना में छात्रों का संघर्ष हो सकता है।"
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid ""
 "Number of contributions by this learner, including posts, responses, and "
 "comments."
@@ -284,96 +321,97 @@ msgstr ""
 "संख्या।"
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "sort ascending"
 msgstr " आरोही वर्गीकरण"
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "sort descending"
 msgstr " अवरोही वर्गीकरण"
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "click to sort"
 msgstr "सुलझाने के लिए क्लिक करें"
 
 #: static/apps/learners/roster/views/controls.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Find a learner"
 msgstr "छात्र तलाशें"
 
 #: static/apps/learners/roster/views/controls.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Cohort Groups"
 msgstr "सहयोगी समुह"
 
 #: static/apps/learners/roster/views/controls.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Enrollment Tracks"
 msgstr "नामाकंन ट्रैक्स"
 
 #: static/apps/learners/roster/views/controls.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Inactive Learners"
 msgstr "निष्क्रिय छात्र"
 
 #: static/apps/learners/roster/views/filter.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "<%= name %> (<%= numLearners %>)"
 msgstr ""
 
 #: static/apps/learners/roster/views/filter.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "All"
 msgstr "सब"
 
 #: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "first page"
 msgstr "पहला पृष्ठ"
 
 #: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "previous page"
 msgstr "पिछला पृष्ठ"
 
 #: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "next page"
 msgstr "अगला पृष्ठ"
 
 #: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "last page"
 msgstr "अंतिम पृष्ठ"
 
 #: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "page"
 msgstr "पृष्ठ"
 
 #: static/apps/learners/roster/views/results.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "No learners matched your criteria."
 msgstr "कोई भी छात्र आपकी कसौटी का नही मिला।"
 
 #: static/apps/learners/roster/views/results.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Try a different search."
 msgstr "किसी भिन्न खोज का प्रयास करें।"
 
 #: static/apps/learners/roster/views/results.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Try clearing the filters."
 msgstr "फिल्टर साफ़ करने का प्रयास करें।"
 
 #: static/apps/learners/roster/views/results.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "No learner data is currently available for your course."
 msgstr "आपके पाठ्यक्रम के लिए छात्र - आँकड़े अभी उपलब्ध नहीं हैं।"
 
 #: static/apps/learners/roster/views/results.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid ""
 "No learners are enrolled, or course activity data has not yet been "
 "processed. Data is updated every day, so check back regularly for up-to-date"
@@ -384,38 +422,34 @@ msgstr ""
 "नवीनतम मेट्रिक के लिए नियमित रूप से जांच करेंं।"
 
 #: static/apps/learners/roster/views/roster.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Learner roster controls"
 msgstr "छात्र तालिका कन्ट्रोल्स"
 
 #: static/apps/learners/roster/views/search.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Search learners"
 msgstr "छात्र तलाशें"
 
 #: static/apps/learners/roster/views/search.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "search"
 msgstr "ढूँढे"
 
 #: static/apps/learners/roster/views/search.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "clear search"
 msgstr "तलाश हटाएं"
 
 #: static/apps/learners/roster/views/table.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "N/A"
 msgstr "निरंक"
 
 #: static/apps/learners/roster/views/table.js
-#: static/dist/apps/learners/app/app.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Learner Roster"
 msgstr "छात्र तालिका"
-
-#: static/dist/apps/learners/app/app.js
-msgid "Active Filters:"
-msgstr "सक्रिय फिल्टर:"
 
 #: static/dist/js/common.js static/js/utils/utils.js
 msgid "..."
@@ -427,6 +461,8 @@ msgstr "..."
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-learning-outcomes-content-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/views/data-table-view.js static/js/views/discrete-bar-view.js
 msgid "(empty)"
@@ -435,6 +471,8 @@ msgstr "(खाली)"
 #: static/dist/js/common.js
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-answer-distribution-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
@@ -485,6 +523,8 @@ msgstr "सप्ताहांत <%=value%>"
 #: static/dist/js/engagement-video-content-main.js
 #: static/dist/js/engagement-videos-main.js
 #: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-learning-outcomes-content-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/views/stacked-bar-view.js
 msgid "<%=value%> (<%=percent%>)"
@@ -503,6 +543,8 @@ msgstr "औसत अपूर्ण व्यूज"
 #: static/dist/js/engagement-video-content-main.js
 #: static/dist/js/engagement-videos-main.js
 #: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-learning-outcomes-content-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/engagement-video-content-main.js
 #: static/js/engagement-videos-main.js static/js/performance-content-main.js
@@ -679,6 +721,8 @@ msgid "Variant"
 msgstr "भेद"
 
 #: static/dist/js/performance-answer-distribution-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
 #: static/js/performance-learning-outcomes-section-main.js
@@ -693,12 +737,14 @@ msgid "Answer: <%=value%>"
 msgstr "उत्तर: <%=मान%>"
 
 #: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-learning-outcomes-content-main.js
 #: static/js/performance-content-main.js
 #: static/js/performance-learning-outcomes-content-main.js
 msgid "Average Correct"
 msgstr "औसत सही"
 
 #: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-learning-outcomes-content-main.js
 #: static/js/performance-content-main.js
 #: static/js/performance-learning-outcomes-content-main.js
 msgid "Average Incorrect"
@@ -715,6 +761,8 @@ msgid "Average Submissions Per Problem"
 msgstr "प्रति समस्या औसत निवेदन"
 
 #: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-learning-outcomes-content-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-content-main.js
 #: static/js/performance-learning-outcomes-content-main.js
@@ -723,16 +771,19 @@ msgstr "प्रति समस्या औसत निवेदन"
 msgid "Percentage Correct"
 msgstr "प्रतिशत सही"
 
+#: static/dist/js/performance-learning-outcomes-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
+msgid "Average Submissions per Problem"
+msgstr ""
+
+#: static/dist/js/performance-learning-outcomes-section-main.js
+#: static/js/performance-learning-outcomes-section-main.js
+msgid "Difficulty"
+msgstr ""
+
+#: static/dist/js/performance-learning-outcomes-section-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Total"
 msgstr "कुल"
-
-#: static/js/performance-learning-outcomes-content-main.js
-msgid "Average Submissions per Problem"
-msgstr ""
-
-#: static/js/performance-learning-outcomes-section-main.js
-msgid "Difficulty"
-msgstr ""

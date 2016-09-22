@@ -9,6 +9,7 @@
 # huynt <huynt57@gmail.com>, 2014
 # Lộc <ngokpika@gmail.com>, 2014
 # NGUYEN HOANG AN <neyugn2909@gmail.com>, 2014,2016
+# Nguyen Nhat Quang <technicalmanager@gmail.com>, 2016
 # Son La <thanhson.la310@gmail.com>, 2015
 # Ton Nu Quy Thien <thien.tonnu1001@gmail.com>, 2016
 # Trung V. Nguyen <trung.ngvan@gmail.com>, 2015-2016
@@ -16,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-25 10:29-0400\n"
-"PO-Revision-Date: 2016-08-25 14:29+0000\n"
+"POT-Creation-Date: 2016-09-22 10:24-0400\n"
+"PO-Revision-Date: 2016-09-22 14:25+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/open-edx/edx-platform/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -147,11 +148,11 @@ msgstr "Xem bản thực"
 
 #: courses/templates/courses/_tags_content_nav.html
 msgid "Select Outcome"
-msgstr ""
+msgstr "Chọn chỉ tiêu theo dõi"
 
 #: courses/templates/courses/_tags_content_nav.html
 msgid "All Outcomes"
-msgstr ""
+msgstr "Chọn tất cả chỉ tiêu"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
@@ -726,6 +727,15 @@ msgstr "Trang chủ khóa học"
 msgid "Active"
 msgstr "Hoạt động"
 
+#. Translators: This indicates that the adjacent link will trigger a CSV
+#. download. '{{download_icon}}' will be replaced with an icon.
+#: courses/templates/courses/home.html
+msgid ""
+"\n"
+"                    (%(download_icon)s CSV Download)\n"
+"                  "
+msgstr ""
+
 #: courses/templates/courses/home.html
 msgid "Basic Course Information"
 msgstr "Thông tin cơ bản cho khóa học"
@@ -762,10 +772,6 @@ msgid ""
 msgstr ""
 "Ấn  trợ giúp ở góc trên bên phải để biết thêm thông tin về  "
 "%(application_name)s. Gửi phản hồi cho chúng tôi tại %(email_link)s."
-
-#: courses/templates/courses/learners.html
-msgid "Learners"
-msgstr "Học viên"
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
@@ -847,22 +853,28 @@ msgstr "Nộp bài tập"
 #: courses/templates/courses/performance_learning_outcomes_section.html
 msgid "Measured by learning outcome, how are students performing?"
 msgstr ""
+"Các sinh viên đã thể năng lực thể nào khi được đánh giá bằng các mục tiêu "
+"học tập"
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each outcome."
 msgstr ""
+"Mỗi cột cho biết trung bình số lượng bài gửi chính xác hay không chính xác "
+"cho mỗi mục tiêu"
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 msgid "Outcome Submissions"
-msgstr ""
+msgstr "Nộp kết quả cho mục tiêu"
 
 #: courses/templates/courses/performance_learning_outcomes_section.html
 msgid ""
 "Each bar shows the correct and incorrect number of submissions for each "
 "problem for the current outcome."
 msgstr ""
+"Mỗi cột cho biết trung bình số lượng bài gửi chính xác hay không chính xác "
+"cho mỗi vấn đề thuộc mục tiêu"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are students doing on this section?"
@@ -1012,8 +1024,8 @@ msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
 "            reserved. "
 msgstr ""
-" %(current_year)s %(platform_name)s, ngoại trừ những điểm đã được đánh dấu, tất cả các quyền\n"
-"            đều được giữ lại. "
+" %(current_year)s %(platform_name)s, ngoại trừ những điểm đã được đánh dấu, "
+"tất cả các quyền đều được bảo hộ. "
 
 #: templates/header.html
 msgid "Toggle navigation"
@@ -1024,8 +1036,16 @@ msgid "Help"
 msgstr "Trợ Giúp"
 
 #: templates/header.html
+msgid "Menu for"
+msgstr ""
+
+#: templates/header.html
 msgid "Logout"
 msgstr "Đăng xuất"
+
+#: templates/lens-navigation.html
+msgid "Navigation Menu."
+msgstr ""
 
 #: templates/loading.html
 msgid "Loading"

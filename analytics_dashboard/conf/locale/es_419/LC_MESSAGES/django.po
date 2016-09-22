@@ -3,10 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Angel Kurten <angelkurten@hotmail.com>, 2016
 # Antonio Mendoza <amendozag88@gmail.com>, 2015
 # Cristian Salamea <ovnicraft@gmail.com>, 2014-2015
 # johnfelipe <ingenierofelipeurrego@gmail.com>, 2016
-# Juan Camilo Montoya Franco <juan.montoya@edunext.co>, 2015
+# Juan Camilo Montoya Franco <juan.montoya@edunext.co>, 2015-2016
 # Juan Camilo Montoya Franco <juan.montoya@edunext.co>, 2014
 # Juan Fernando Villa <elite.linux@gmail.com>, 2015
 # Laura Silva <lingison@edx.org>, 2016
@@ -20,8 +21,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-25 10:29-0400\n"
-"PO-Revision-Date: 2016-08-25 14:29+0000\n"
+"POT-Creation-Date: 2016-09-22 10:24-0400\n"
+"PO-Revision-Date: 2016-09-22 14:25+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Spanish (Latin America) (http://www.transifex.com/open-edx/edx-platform/language/es_419/)\n"
 "MIME-Version: 1.0\n"
@@ -152,11 +153,11 @@ msgstr "Ver en vivo"
 
 #: courses/templates/courses/_tags_content_nav.html
 msgid "Select Outcome"
-msgstr ""
+msgstr "Seleccione resultado"
 
 #: courses/templates/courses/_tags_content_nav.html
 msgid "All Outcomes"
-msgstr ""
+msgstr "Todos los resultados"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
@@ -738,6 +739,15 @@ msgstr "Inicio de Curso"
 msgid "Active"
 msgstr "Activo"
 
+#. Translators: This indicates that the adjacent link will trigger a CSV
+#. download. '{{download_icon}}' will be replaced with an icon.
+#: courses/templates/courses/home.html
+msgid ""
+"\n"
+"                    (%(download_icon)s CSV Download)\n"
+"                  "
+msgstr ""
+
 #: courses/templates/courses/home.html
 msgid "Basic Course Information"
 msgstr "Información básica del curso"
@@ -774,10 +784,6 @@ msgstr ""
 "Clic en el botón de Ayuda de la esquina superior derecha para obtener más "
 "información sobre %(application_name)s. Envíanos tus sugerencias a "
 "%(email_link)s."
-
-#: courses/templates/courses/learners.html
-msgid "Learners"
-msgstr "Estudiantes"
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
@@ -861,22 +867,28 @@ msgstr "Entregas de tarea"
 #: courses/templates/courses/performance_learning_outcomes_section.html
 msgid "Measured by learning outcome, how are students performing?"
 msgstr ""
+"Medida para el resultado de aprendizaje, cómo se están desempeñando los "
+"estudiantes?"
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each outcome."
 msgstr ""
+"Cada barra muestra el número promedio de envíos correctos e incorrectos para"
+" cada resultado."
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 msgid "Outcome Submissions"
-msgstr ""
+msgstr "Envíos por resultado"
 
 #: courses/templates/courses/performance_learning_outcomes_section.html
 msgid ""
 "Each bar shows the correct and incorrect number of submissions for each "
 "problem for the current outcome."
 msgstr ""
+"Cada barra muestra el número promedio de envíos correctos e incorrectos para"
+" cada problema que hace parte del resultado."
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are students doing on this section?"
@@ -1041,8 +1053,16 @@ msgid "Help"
 msgstr "Ayuda"
 
 #: templates/header.html
+msgid "Menu for"
+msgstr ""
+
+#: templates/header.html
 msgid "Logout"
 msgstr "Salir"
+
+#: templates/lens-navigation.html
+msgid "Navigation Menu."
+msgstr ""
 
 #: templates/loading.html
 msgid "Loading"
