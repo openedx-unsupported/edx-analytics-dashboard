@@ -19,7 +19,12 @@ module.exports = function(config) {
             {pattern: 'analytics_dashboard/static/vendor/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/bower_components/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/bower_components/**/*.underscore', included: false},
-            {pattern: 'analytics_dashboard/static/bower_components/**/*.json', included: false},
+            // limiting the cldr json files to load (we don't use the other ones and loading too many
+            // throws errors on a mac)
+            {pattern: 'analytics_dashboard/static/bower_components/cldr-data/supplemental/*.json', included: false},
+            {pattern: 'analytics_dashboard/static/bower_components/cldr-data/availableLocales.json', included: false},
+            {pattern: 'analytics_dashboard/static/bower_components/cldr-data/**/numbers.json', included: false},
+            {pattern: 'analytics_dashboard/static/js/load/*.js', included: false},
             {pattern: 'analytics_dashboard/static/js/models/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/js/views/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/js/utils/**/*.js', included: false},
