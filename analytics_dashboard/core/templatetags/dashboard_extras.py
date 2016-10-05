@@ -131,3 +131,33 @@ def escape_json(data):
     json_string = json_string.replace(">", "\\u003e")
     json_string = json_string.replace("<", "\\u003c")
     return mark_safe(json_string)
+
+
+@register.filter
+def languade_code_to_cldr(language_code):
+    """
+    Returns language codes in the CLDR expected naming convention.  The CLDR
+    language codes in javascript are expected to have uppercase countries.
+    """
+    separator = '-'
+    tokens = language_code.split(separator)
+
+    if len(tokens) == 1:
+        return language_code
+
+    formatted_tokens = [tokens[0].lower()]
+    for token in tokens[1:]:
+        if len(token) == 2 or token in ['valencia', 'posix']:
+            formatted_tokens.append(token.upper())
+        else:
+            formatted_tokens.append(token.capitalize())
+
+    formatted_language_code = separator.join(formatted_tokens)
+
+    # special cases
+    if formatted_language_code.lower() in ['zh-tw', 'zh-hk', 'zh-mo', 'zh-hant']:
+        formatted_language_code = 'zh-Hant'
+    elif formatted_language_code.lower() in ['zh-cn', 'zh-sg', 'zh-hans']:
+        formatted_language_code = 'zh'
+
+    return formatted_language_code

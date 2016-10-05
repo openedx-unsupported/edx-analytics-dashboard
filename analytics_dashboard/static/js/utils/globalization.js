@@ -4,8 +4,8 @@ if (window.language === undefined) { // should only occur in test environments
 
 /**
  * Returns the Globalize object for localizing dates and numbers.  window.language
- * is expected to be standardized to those used in CLDR.  See js/load/init-page.js
- * for setting window.language.
+ * is expected to be standardized to those used in CLDR.  See base_dashboard.html
+ * for how window.language is set.
  */
 define([
     'globalize',
