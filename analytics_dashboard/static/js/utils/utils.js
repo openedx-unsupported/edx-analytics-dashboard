@@ -41,7 +41,7 @@ define(['moment', 'underscore', 'utils/globalization'], function(moment, _, Glob
             // moment accepts 'zh-cn' rather than 'zh' and 'zh-tw' rather than 'zh-hant'
             if (window.language === 'zh') {
                 moment.locale('zh-cn');
-            } else if (window.language === 'zh-hant') {
+            } else if (window.language === 'zh-Hant') {
                 moment.locale('zh-tw');
             } else {
                 moment.locale(window.language);
