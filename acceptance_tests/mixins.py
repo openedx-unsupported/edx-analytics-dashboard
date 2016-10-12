@@ -344,6 +344,10 @@ class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterLegalMixin, FooterFeed
         message = self._get_data_update_message()
         self.assertDataUpdateMessageEquals(message)
 
+    def _test_course_home_nav(self):
+        element = self.page.q(css='.course-label')
+        self.assertEqual(element.text[0], 'Course Home')
+
     def test_page(self):
         """
         Primary test method.
@@ -354,6 +358,7 @@ class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterLegalMixin, FooterFeed
         """
         super(CoursePageTestsMixin, self).test_page()
         self._test_data_update_message()
+        self._test_course_home_nav()
 
     @staticmethod
     def format_number(value):
