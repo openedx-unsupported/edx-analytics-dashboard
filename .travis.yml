@@ -4,6 +4,9 @@ language:
 python: "2.7"
 node_js: "5.2.0"
 sudo: false
+env:
+  # Make sure to update this string on every Insights or Data API release
+  - DATA_API_VERSION="0.17.0-rc.1"
 before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
@@ -14,7 +17,7 @@ addons:
 install:
     - make develop
     - make migrate
-    - ./scripts/install_analytics_data_api.sh
+    - ./scripts/install_analytics_data_api.sh $DATA_API_VERSION
     - pip install coveralls
 script:
     - make static_no_compress
