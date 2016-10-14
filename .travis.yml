@@ -6,7 +6,7 @@ node_js: "5.2.0"
 sudo: false
 env:
   # Make sure to update this string on every Insights or Data API release
-  - DATA_API_VERSION="0.17.0-rc.1"
+  - DATA_API_VERSION="open-release/eucalyptus.2"
 before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
