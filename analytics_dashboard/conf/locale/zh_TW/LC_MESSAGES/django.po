@@ -10,6 +10,7 @@
 # Derek <derekya@gmail.com>, 2015
 # JEN-HAO HSIEH <orienthauz@gmail.com>, 2015
 # johnber <johnbertw@gmail.com>, 2014
+# lin feather <further.33.44@gmail.com>, 2016
 # Lin Yu-Chun <iftwoplustwoequalsfive@gmail.com>, 2014-2015
 # LIU,SHU-HAO <jeremy55662004@gmail.com>, 2014
 # LIU,SHU-HAO <jeremy55662004@gmail.com>, 2014-2015
@@ -21,9 +22,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-22 10:24-0400\n"
-"PO-Revision-Date: 2016-09-22 14:25+0000\n"
-"Last-Translator: Dennis Jen <djen@edx.org>\n"
+"POT-Creation-Date: 2016-10-18 11:45-0400\n"
+"PO-Revision-Date: 2016-10-17 13:16+0000\n"
+"Last-Translator: Ya-chi Chang <yacchang@mail.fcu.edu.tw>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/open-edx/edx-platform/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,7 +61,7 @@ msgstr "在我的課程中哪些是學生參與的？"
 msgid ""
 "Improve frequently accessed content, or point students at underused "
 "resources."
-msgstr "改善常見的存取內容，或者指向學生未充分利用的資源。"
+msgstr "改善常見的存取內容，或者是指學生未充分利用的資源。"
 
 #: core/templates/core/landing.html
 msgid "Engagement"
@@ -143,11 +144,11 @@ msgstr "線上檢視"
 
 #: courses/templates/courses/_tags_content_nav.html
 msgid "Select Outcome"
-msgstr ""
+msgstr "選擇成果"
 
 #: courses/templates/courses/_tags_content_nav.html
 msgid "All Outcomes"
-msgstr ""
+msgstr "所有成果"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
@@ -257,7 +258,7 @@ msgstr "在此課程內容拜訪至少一次頁面的學生。"
 #. a video.
 #: courses/templates/courses/engagement_content.html
 msgid "Watched a Video Last Week"
-msgstr "觀看上週的影片"
+msgstr "上週觀看的影片"
 
 #: courses/templates/courses/engagement_content.html
 msgid "Students who played one or more videos."
@@ -378,7 +379,7 @@ msgstr "結束播放影片"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Students who watched the video to the end."
-msgstr "已開始結束觀看影片的學生。"
+msgstr "觀看完整影片的學生。"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Viewing Over Time"
@@ -426,7 +427,7 @@ msgstr "當前註冊"
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Students currently enrolled in the course."
-msgstr "現正選修此課程的學生"
+msgstr "目前選修此課程的學生"
 
 #. Translators: This is a label indicating the change in the number of
 #. students enrolled in a course since the previous week.
@@ -450,7 +451,7 @@ msgstr "註冊已驗證"
 msgid ""
 "Number of currently enrolled students pursuing a verified certificate of "
 "achievement."
-msgstr "現正選修並要求證書的學生人數"
+msgstr "目前選修並要求證書的學生人數"
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html
@@ -462,7 +463,7 @@ msgstr "在註冊時間"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "How old are my students?"
-msgstr "我的學生幾歲?"
+msgstr "我的學生年齡？"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -504,7 +505,7 @@ msgstr "學生年齡小於25歲的比例(那些有提供生日的人)。"
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 26 to 40"
-msgstr "學生26位到40位"
+msgstr "學生26到40"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
@@ -516,7 +517,7 @@ msgstr "學生年齡介由26歲到40歲的比例 (那些有提供生日的人)�
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 41 and Over"
-msgstr "學生大於41位"
+msgstr "學生大於41"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
@@ -530,7 +531,7 @@ msgstr "年齡分類"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "What level of education do my students have?"
-msgstr "我學生會有那種等級的教育？"
+msgstr "我的學生會有那些教育的程度？"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -581,7 +582,7 @@ msgstr "學生選擇博士學位、碩士或專業學位為他們最高完成學
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Educational Breakdown"
-msgstr "教育分類"
+msgstr "教育程度"
 
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "What is the student gender breakdown?"
@@ -674,7 +675,8 @@ msgstr "地區分佈"
 msgid "Application"
 msgstr "應用程式"
 
-#: courses/templates/courses/home.html
+#. Translators: This refers to the homepage of a course.
+#: courses/templates/courses/home.html templates/lens-navigation.html
 msgid "Course Home"
 msgstr "課程首頁"
 
@@ -692,6 +694,9 @@ msgid ""
 "                    (%(download_icon)s CSV Download)\n"
 "                  "
 msgstr ""
+"\n"
+"                    (%(download_icon)s CSV檔下載)\n"
+"                  "
 
 #: courses/templates/courses/home.html
 msgid "Basic Course Information"
@@ -768,7 +773,7 @@ msgid ""
 "              "
 msgstr ""
 "\n"
-"%(assignment_type)s: %(policy_ratio)s%% 評分政策"
+"%(assignment_type)s: %(policy_ratio)s%% 評分策略"
 
 #. Translators: This describes the percent of a learner's grade (e.g. 60%).
 #: courses/templates/courses/performance_graded_content.html
@@ -798,23 +803,23 @@ msgstr "作業提交"
 #: courses/templates/courses/performance_learning_outcomes_content.html
 #: courses/templates/courses/performance_learning_outcomes_section.html
 msgid "Measured by learning outcome, how are students performing?"
-msgstr ""
+msgstr "通過學習成果衡量，學生的表現如何？"
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each outcome."
-msgstr ""
+msgstr "每一個欄位顯示每個問題的即時結果之正確和不正確的提交平均次數。"
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 msgid "Outcome Submissions"
-msgstr ""
+msgstr "成果提交"
 
 #: courses/templates/courses/performance_learning_outcomes_section.html
 msgid ""
 "Each bar shows the correct and incorrect number of submissions for each "
 "problem for the current outcome."
-msgstr ""
+msgstr "每一個欄位顯示每個問題的即時結果之正確和不正確的提交次數。"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are students doing on this section?"
@@ -960,7 +965,7 @@ msgstr "幫助"
 
 #: templates/header.html
 msgid "Menu for"
-msgstr ""
+msgstr "目錄"
 
 #: templates/header.html
 msgid "Logout"
@@ -968,7 +973,7 @@ msgstr "登出"
 
 #: templates/lens-navigation.html
 msgid "Navigation Menu."
-msgstr ""
+msgstr "導引目錄"
 
 #: templates/loading.html
 msgid "Loading"
@@ -980,8 +985,8 @@ msgstr "我們無法載入此圖表。"
 
 #: templates/section_error.html
 msgid "We are unable to load this table."
-msgstr "我們不能下載此表格。"
+msgstr "我們無法下載此表格。"
 
 #: templates/section_error.html
 msgid "We are unable to load these metrics."
-msgstr "我們不能載入此指標。"
+msgstr "我們無法載入此指標。"
