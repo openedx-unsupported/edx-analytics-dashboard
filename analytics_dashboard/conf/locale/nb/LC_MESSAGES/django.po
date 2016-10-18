@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-22 10:24-0400\n"
-"PO-Revision-Date: 2016-09-22 14:25+0000\n"
-"Last-Translator: Dennis Jen <djen@edx.org>\n"
+"POT-Creation-Date: 2016-10-18 11:45-0400\n"
+"PO-Revision-Date: 2016-10-15 18:12+0000\n"
+"Last-Translator: Frode Arntsen <frode.arntsen@bibsys.no>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/open-edx/edx-platform/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,7 +37,7 @@ msgstr "Hvem er mine studenter?"
 
 #: core/templates/core/landing.html
 msgid "Target your course to fit the backgrounds of your students."
-msgstr "Tilpass ditt kurs til din elevs bakgrunn"
+msgstr "Tilpass ditt kurs til dine studenters bakgrunn"
 
 #: core/templates/core/landing.html
 #: courses/templates/courses/enrollment_geography.html
@@ -141,11 +141,11 @@ msgstr "Vis live"
 
 #: courses/templates/courses/_tags_content_nav.html
 msgid "Select Outcome"
-msgstr ""
+msgstr "Velg utbytte"
 
 #: courses/templates/courses/_tags_content_nav.html
 msgid "All Outcomes"
-msgstr ""
+msgstr "Alle utbytter"
 
 #: courses/templates/courses/_ungraded_content_nav.html
 #: courses/templates/courses/_video_content_nav.html
@@ -168,7 +168,7 @@ msgstr "Velg video"
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Previous Video"
-msgstr "Tidligere video"
+msgstr "Forrige video"
 
 #: courses/templates/courses/_video_module_controls.html
 msgid "Next Video"
@@ -204,7 +204,7 @@ msgstr ""
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Submission Counts"
-msgstr "Innlevering teller"
+msgstr "Antall innlevering"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 #: courses/templates/courses/engagement_content.html
@@ -215,11 +215,11 @@ msgstr "Innlevering teller"
 #: courses/templates/courses/enrollment_demographics_gender.html
 #: courses/templates/courses/enrollment_geography.html
 msgid "Download CSV"
-msgstr "Last ned CVS"
+msgstr "Last ned CSV"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Student Submission Counts"
-msgstr "Student innlevering teller"
+msgstr "Antall studentinnlevering"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
@@ -333,7 +333,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_course.html
 msgid "How did students interact with course videos?"
-msgstr "Hvordan brukte  studenten videokursene?"
+msgstr "Hvordan brukte  studenten kursvideoene?"
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
@@ -440,7 +440,7 @@ msgstr "Antall studenter som har meldt seg på kurset."
 #. Translators: This is a label to identify current student enrollment.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Current Enrollment"
-msgstr "Foreløpig påmeldt"
+msgstr "Påmeldinger så langt"
 
 #. Translators: This is a label indicating the number of students enrolled in
 #. a course.
@@ -452,7 +452,7 @@ msgstr "Antll studenter som deltar på kurset"
 #. students enrolled in a course since the previous week.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Change in Last Week"
-msgstr "Forandringer i forrige uke"
+msgstr "Endringer siste uke"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Net difference in current enrollment in the last week."
@@ -515,7 +515,7 @@ msgstr ""
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Students 25 and Under"
-msgstr "Studenter under 25 år"
+msgstr "Studenter 25 og under"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
@@ -711,7 +711,8 @@ msgstr "Geografisk klassifisering"
 msgid "Application"
 msgstr "Applikasjon"
 
-#: courses/templates/courses/home.html
+#. Translators: This refers to the homepage of a course.
+#: courses/templates/courses/home.html templates/lens-navigation.html
 msgid "Course Home"
 msgstr "Kurs hjem"
 
@@ -729,6 +730,9 @@ msgid ""
 "                    (%(download_icon)s CSV Download)\n"
 "                  "
 msgstr ""
+"\n"
+"                    (%(download_icon)s CSV Nedlasting)\n"
+"                  "
 
 #: courses/templates/courses/home.html
 msgid "Basic Course Information"
@@ -842,23 +846,27 @@ msgstr "Oppgavebesvarelser"
 #: courses/templates/courses/performance_learning_outcomes_content.html
 #: courses/templates/courses/performance_learning_outcomes_section.html
 msgid "Measured by learning outcome, how are students performing?"
-msgstr ""
+msgstr "Målt etter læringsutbytte, hvordan er studentenes resultater?"
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each outcome."
 msgstr ""
+"Hver stolpe viser det gjennomsnittlige antallet besvarelser som er rett "
+"eller galt for hvert utbytte."
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 msgid "Outcome Submissions"
-msgstr ""
+msgstr "Utbytte innleveringer"
 
 #: courses/templates/courses/performance_learning_outcomes_section.html
 msgid ""
 "Each bar shows the correct and incorrect number of submissions for each "
 "problem for the current outcome."
 msgstr ""
+"Hver stolpe viser antall riktige og gale besvarelser for hvert problem som "
+"er en del av dette utbyttet."
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are students doing on this section?"
@@ -1020,7 +1028,7 @@ msgstr "Hjelp"
 
 #: templates/header.html
 msgid "Menu for"
-msgstr ""
+msgstr "Meny for"
 
 #: templates/header.html
 msgid "Logout"
@@ -1028,7 +1036,7 @@ msgstr "Logg ut"
 
 #: templates/lens-navigation.html
 msgid "Navigation Menu."
-msgstr ""
+msgstr "Navigasjonsmeny."
 
 #: templates/loading.html
 msgid "Loading"
