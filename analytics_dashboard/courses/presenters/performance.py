@@ -44,7 +44,6 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, BasePresenter):
 
     def __init__(self, access_token, course_id, timeout=settings.LMS_DEFAULT_TIMEOUT):
         super(CoursePerformancePresenter, self).__init__(access_token, course_id, timeout)
-        # the deprecated course structure API has grading policy. This will be replaced in AN-7716
         self.grading_policy_client = CourseStructureApiClient(settings.GRADING_POLICY_API_URL, access_token)
 
     def course_module_data(self):
@@ -185,7 +184,7 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, BasePresenter):
 
         if not grading_policy:
             logger.debug('Retrieving grading policy for course: %s', self.course_id)
-            grading_policy = self.grading_policy_client.grading_policies(self.course_id).get()
+            grading_policy = self.grading_policy_client.courses(self.course_id).policy.get()
 
             # Remove empty assignment types as they are not useful and will cause issues downstream.
             grading_policy = [item for item in grading_policy if item['assignment_type']]
