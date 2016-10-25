@@ -5,7 +5,7 @@
 Partial: App-wide header element
 {% endcomment %}
 
-<a href="#content" class="skip-link">{% trans 'Skip to content' %}</a>
+{% include "_skip_link.html" with content_id="content" %}
 <header class="navbar navbar-default" role="banner" aria-label="main" id="nav">
   <div class="grid-container">
     <div class="navbar-header">
