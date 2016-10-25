@@ -148,6 +148,13 @@ hr.has-emphasis {
 }
 
 .skip-link {
+  &:active, &:focus, &:hover {
+      position: relative;
+      top: auto;
+      width: auto; 
+      height: auto; 
+      margin: 0;
+  }
   position: absolute;
   top: -1000px;
   height: 1px;
@@ -156,15 +163,6 @@ hr.has-emphasis {
   overflow: hidden;
 }
     
-.skip-link:active, 
-.skip-link:focus, 
-.skip-link:hover {
-    position: relative;
-    top: auto;
-    width: auto; 
-    height: auto; 
-    margin: 0;
-}
 
 // ui: views
 // --------------------
