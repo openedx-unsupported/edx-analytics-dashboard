@@ -28,12 +28,18 @@ Weekly Student Engagement Chart
 ======================================
 
 The markers on this chart represent the number of unique students who
-interacted with course content. The graph plots three categories of engagement:
-an overall total for students who completed any type of course activity, and
-totals for students who played any course video and for students who submitted
-an answer for a problem. Each total is for activity completed within a one week
-period. To see the total count for each activity type for a given week, move
-your cursor over the chart to display a tooltip.
+interacted with course content. The graph plots the following categories of
+engagement.
+
+* The count of students who completed any type of course activity.
+* The count of students who played any course video.
+* The count of students who submitted an answer for a problem.
+* The count of students who added a post, response, or comment to the
+  course discussion.
+
+Each total is for activity completed within a one week period. To see the total
+count for each activity type for a given week, move your cursor over the chart
+to display a tooltip.
 
 Activity is included beginning with the week in which the first page visit took
 place. The first page visit is typically by a member of the course team
@@ -51,8 +57,8 @@ provide context for the data that is shown.
 #. Course development on edx.org, a period when engagement levels were low in
    all three categories.
 
-#. The beginning of the beta test, when a slight increase in all of the
-   engagement categories can be detected.
+#. Beta testing, when a slight increase in all of the engagement categories can
+   be detected, and ongoing course development.
 
 #. The course start date, when the number of active students increased
    significantly.
@@ -60,12 +66,12 @@ provide context for the data that is shown.
 #. The due date of the first homework, when the number of students who tried a
    problem increased.
 
-The second example is for a small, private online course. The tooltip shows the
-number of students engaging in different activities on the same day that the
-final homework was due.
+The second example is for the edX Demo course. This self-paced course runs
+continuously. The tooltip shows the number of students engaging in different
+activities in a high volume week.
 
-.. image:: ../images/engagement_chart_SPOC.png
- :alt: A graph with almost immediate activity in all three measures.
+.. image:: ../images/engagement_chart.png
+ :alt: A graph with immediate and constant activity in all measures.
 
 ======================================
 Active Students Last Week Metric
@@ -90,6 +96,13 @@ problem during the last complete one week period. Not all problem types are
 included in this count; see :ref:`Engagement Computations`.
 
 ======================================
+Participated in Discussions Last Week
+======================================
+
+The number and percentage of students who added a post, response, or comment to
+the course discussion during the last complete one week period.
+
+======================================
 Content Engagement Breakdown Report
 ======================================
 
@@ -109,6 +122,7 @@ columns.
 * interval_end (shows the ending date of the one-week period)
 * interval_start (shows the beginning date of the one-week period)
 * played_video
+* posted_forum
 
 See the :ref:`Reference` chapter for a detailed description of each value.
 
@@ -132,7 +146,7 @@ An Immediate Appeal, then Ongoing Encouragement
 ==================================================
 
 To set expectations and encourage a minimum time commitment, one professor
-included a one-minute video message in the very first course component.
+included a one-minute video message as the very first course component.
 Speaking directly to the camera, the professor acknowledged that the material
 could be daunting. He then made a very specific request: that students complete
 not only the first homework assignment, but the entire first month of the
@@ -155,7 +169,7 @@ contributions that they make to the learning environment.
   discussions.
 
 * Another professor gave special attention to student questions. He updated the
-  **Course Info** page regularly with questions taken from the discussions. He
+  course  **Home** page regularly with questions taken from the discussions. He
   followed each question by thanking the student and giving a direct and
   in-depth answer.
 
@@ -178,4 +192,3 @@ email messages are usually sent less frequently, and may have longer content.
 By comparing the levels of student engagement week over week, or from run to
 run, you can make comparisons to evaluate your strategy.
 
-.. Patrick ok'd 9/24/14
