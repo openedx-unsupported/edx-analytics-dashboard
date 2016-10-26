@@ -141,7 +141,6 @@ class CourseEngagementActivityPresenterTests(TestCase):
             del expected_summary[AT.POSTED_FORUM]
             del expected_summary['posted_forum_percent_str']
 
-
         expected_summary['last_updated'] = utils.CREATED_DATETIME
 
         return expected_summary
@@ -157,7 +156,7 @@ class CourseEngagementActivityPresenterTests(TestCase):
             'played_video_percent_str': u"15.0% of current students",
             'any_percent_str': u"5.0% of current students",
         })
-        
+
         if not include_forum_data:
             del expected_summary['posted_forum_percent_str']
 

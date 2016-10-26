@@ -489,6 +489,7 @@ def get_mock_api_course_activity(course_id):
 def mock_course_activity(start_date=None, end_date=None):
     return get_mock_api_course_activity(u'edX/DemoX/Demo_Course')
 
+
 # pylint: disable=unused-argument
 def mock_course_activity_week_ahead(start_date=None, end_date=None):
     course_id = u'edX/DemoX/Demo_Course'
