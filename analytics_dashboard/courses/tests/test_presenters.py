@@ -110,7 +110,60 @@ class CourseEngagementActivityPresenterTests(TestCase):
 
         return trends
 
-    def assertSummaryAndTrendsValid(self, include_forum_activity, expected_trends):
+    def get_expected_trends_long(self, include_forum_data):
+        trends = self.get_expected_trends(include_forum_data)
+        trends.append({
+            AT.ANY: 500,
+            AT.ATTEMPTED_PROBLEM: 701,
+            AT.PLAYED_VIDEO: 1500,
+            'enrollment': None,
+            'active_percent': None,
+        })
+
+        if include_forum_data:
+            trends[-1][AT.POSTED_FORUM] = 32
+
+        return trends
+
+    def get_expected_summary(self, mocked_course_activity, include_forum_data):
+        expected_summary = mocked_course_activity()[-1]
+        del expected_summary['created']
+        del expected_summary['interval_end']
+        del expected_summary['course_id']
+        expected_summary.update({
+            'attempted_problem_percent_str': u"3.0% of current students",
+            'posted_forum_percent_str': "--",
+            'played_video_percent_str': u"10.0% of current students",
+            'any_percent_str': u"< 1% of current students",
+        })
+
+        if not include_forum_data:
+            del expected_summary[AT.POSTED_FORUM]
+            del expected_summary['posted_forum_percent_str']
+
+
+        expected_summary['last_updated'] = utils.CREATED_DATETIME
+
+        return expected_summary
+
+    def get_expected_summary_normal(self, include_forum_data):
+        return self.get_expected_summary(utils.mock_course_activity, include_forum_data)
+
+    def get_expected_summary_long(self, include_forum_data):
+        expected_summary = self.get_expected_summary(utils.mock_course_activity_week_ahead, include_forum_data)
+        expected_summary.update({
+            'attempted_problem_percent_str': u"7.0% of current students",
+            'posted_forum_percent_str': u"< 1% of current students",
+            'played_video_percent_str': u"15.0% of current students",
+            'any_percent_str': u"5.0% of current students",
+        })
+        
+        if not include_forum_data:
+            del expected_summary['posted_forum_percent_str']
+
+        return expected_summary
+
+    def assertSummaryAndTrendsValid(self, include_forum_activity, expected_trends, expected_summary):
         with override_switch('show_engagement_forum_activity', active=include_forum_activity):
             summary, trends = self.presenter.get_summary_and_trend_data()
 
@@ -120,30 +173,23 @@ class CourseEngagementActivityPresenterTests(TestCase):
             self.assertDictEqual(expected_trends[1], trends[1])
 
             # Validate the summary
-            expected_summary = utils.mock_course_activity()[1]
-            del expected_summary['created']
-            del expected_summary['interval_end']
-            del expected_summary['course_id']
-            expected_summary.update({
-                'attempted_problem_percent_str': u"3.0% of current students",
-                'posted_forum_percent_str': "--",
-                'played_video_percent_str': u"10.0% of current students",
-                'any_percent_str': u"< 1% of current students",
-            })
-
-            if not include_forum_activity:
-                del expected_summary[AT.POSTED_FORUM]
-                del expected_summary['posted_forum_percent_str']
-
-            expected_summary['last_updated'] = utils.CREATED_DATETIME
-
             self.assertDictEqual(summary, expected_summary)
 
     @mock.patch('analyticsclient.course.Course.activity', mock.Mock(side_effect=utils.mock_course_activity))
     @mock.patch('analyticsclient.course.Course.enrollment', mock.Mock(side_effect=utils.mock_course_enrollment))
     def test_get_summary_and_trend_data(self):
-        self.assertSummaryAndTrendsValid(False, self.get_expected_trends(False))
-        self.assertSummaryAndTrendsValid(True, self.get_expected_trends(True))
+        self.assertSummaryAndTrendsValid(False, self.get_expected_trends(False),
+                                         self.get_expected_summary_normal(False))
+        self.assertSummaryAndTrendsValid(True, self.get_expected_trends(True), self.get_expected_summary_normal(True))
+
+    @mock.patch('analyticsclient.course.Course.activity', mock.Mock(side_effect=utils.mock_course_activity_week_ahead))
+    @mock.patch('analyticsclient.course.Course.enrollment', mock.Mock(side_effect=utils.mock_course_enrollment))
+    def test_get_summary_and_trend_data_lagging_enrollment(self):
+        self.maxDiff = None
+        self.assertSummaryAndTrendsValid(False, self.get_expected_trends_long(False),
+                                         self.get_expected_summary_long(False))
+        self.assertSummaryAndTrendsValid(True, self.get_expected_trends_long(True),
+                                         self.get_expected_summary_long(True))
 
     @mock.patch('analyticsclient.course.Course.activity')
     @mock.patch('analyticsclient.course.Course.enrollment', mock.Mock(side_effect=utils.mock_course_enrollment))
@@ -151,8 +197,10 @@ class CourseEngagementActivityPresenterTests(TestCase):
         api_trend = [utils.mock_course_activity()[-1]]
         mock_activity.return_value = api_trend
 
-        self.assertSummaryAndTrendsValid(False, self.get_expected_trends_small(False))
-        self.assertSummaryAndTrendsValid(True, self.get_expected_trends_small(True))
+        self.assertSummaryAndTrendsValid(False, self.get_expected_trends_small(False),
+                                         self.get_expected_summary_normal(False))
+        self.assertSummaryAndTrendsValid(True, self.get_expected_trends_small(True),
+                                         self.get_expected_summary_normal(True))
 
 
 @ddt
