@@ -105,8 +105,20 @@ class CourseEngagementActivityPresenter(BasePresenter):
                 week['active_percent'] = num_active / float(week['enrollment'])
             else:
                 week['active_percent'] = None  # Avoid divide-by-zero but add an entry for this column so it appears
-        most_recent = trends[-1]
-        summary_enrollment = enrollment_by_day.get(most_recent['weekEnding'])
+
+        # Find the latest weekEnding in the trends that we have enrollment data for.
+        # (should usually be trends[-1] unless the enrollment data somehow got behind)
+        summary_enrollment = None
+        trends_step_back = 1
+        while not summary_enrollment:
+            if trends_step_back > len(trends):
+                # No enrollment data for any of the dates in the activity trend data.
+                # This should never be executed because of the has_enrollment_data check above.
+                return
+            most_recent = trends[-trends_step_back]
+            summary_enrollment = enrollment_by_day.get(most_recent['weekEnding'])
+            trends_step_back += 1
+
         if summary_enrollment:
             for key in self.get_activity_types():
                 if summary.get(key):

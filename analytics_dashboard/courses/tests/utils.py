@@ -490,6 +490,24 @@ def mock_course_activity(start_date=None, end_date=None):
     return get_mock_api_course_activity(u'edX/DemoX/Demo_Course')
 
 
+# pylint: disable=unused-argument
+def mock_course_activity_week_ahead(start_date=None, end_date=None):
+    course_id = u'edX/DemoX/Demo_Course'
+    activity = get_mock_api_course_activity(course_id)
+    activity.append(
+        {
+            'course_id': unicode(course_id),
+            'interval_end': '2014-09-15T000000',
+            AT.ANY: 500,
+            AT.ATTEMPTED_PROBLEM: 701,
+            AT.PLAYED_VIDEO: 1500,
+            AT.POSTED_FORUM: 32,
+            'created': CREATED_DATETIME_STRING
+        },
+    )
+    return activity
+
+
 def get_mock_api_answer_distribution_multiple_questions_first_last_data(course_id):
     # First and last response counts were added, insights can handle both types of API responses at the moment.
     answers = get_mock_api_answer_distribution_multiple_questions_data(course_id)
