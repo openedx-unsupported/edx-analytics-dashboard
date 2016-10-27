@@ -38,7 +38,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             },
             {
                 key: 'posted_forum',
-                title: gettext('Posted in Forum'),
+                title: gettext('Participated in Discussions'),
                 color: '#E78AC3',
                 className: 'text-right',
                 type: 'number'

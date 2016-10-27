@@ -94,7 +94,7 @@ class CourseEngagementContentTests(CourseEngagementPageTestsMixin, WebAppTest):
 
         headings = [u'Week Ending', u'Active Students', u'Watched a Video', u'Tried a Problem']
         if ENABLE_FORUM_POSTS:
-            headings.append(u'Posted in Forum')
+            headings.append(u'Participated in Discussions')
         headings.append(u'Percent of Current Students')
 
         self.assertTableColumnHeadingsEqual(table_selector, headings)
