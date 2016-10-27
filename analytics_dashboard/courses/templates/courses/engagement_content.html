@@ -73,8 +73,8 @@ Individual course-centric engagement content view.
           {% switch show_engagement_forum_activity %}
             <div class="col col-12 sm-col-12 md-col-3" data-activity-type="posted_forum">
               {# Translators: This is a label indicating the number of students who posted in a forum discussion. #}
-              {% trans "Posted in a Discussion Last Week" as label %}
-              {% trans "Students who contributed to any discussion topic." as tooltip %}
+              {% trans "Participated in Discussions Last Week" as label %}
+              {% trans "Learners who added a post, response, or comment to any course discussion." as tooltip %}
               {% summary_point summary.posted_forum label tooltip=tooltip additional_value=summary.posted_forum_percent_str %}
             </div>
           {% endswitch %}
