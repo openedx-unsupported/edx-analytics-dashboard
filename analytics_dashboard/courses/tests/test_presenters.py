@@ -131,10 +131,10 @@ class CourseEngagementActivityPresenterTests(TestCase):
         del expected_summary['interval_end']
         del expected_summary['course_id']
         expected_summary.update({
-            'attempted_problem_percent_str': u"3.0% of current students",
+            'attempted_problem_percent_str': u"3.0% of current learners",
             'posted_forum_percent_str': "--",
-            'played_video_percent_str': u"10.0% of current students",
-            'any_percent_str': u"< 1% of current students",
+            'played_video_percent_str': u"10.0% of current learners",
+            'any_percent_str': u"< 1% of current learners",
         })
 
         if not include_forum_data:
@@ -151,10 +151,10 @@ class CourseEngagementActivityPresenterTests(TestCase):
     def get_expected_summary_long(self, include_forum_data):
         expected_summary = self.get_expected_summary(utils.mock_course_activity_week_ahead, include_forum_data)
         expected_summary.update({
-            'attempted_problem_percent_str': u"7.0% of current students",
-            'posted_forum_percent_str': u"< 1% of current students",
-            'played_video_percent_str': u"15.0% of current students",
-            'any_percent_str': u"5.0% of current students",
+            'attempted_problem_percent_str': u"7.0% of current learners",
+            'posted_forum_percent_str': u"< 1% of current learners",
+            'played_video_percent_str': u"15.0% of current learners",
+            'any_percent_str': u"5.0% of current learners",
         })
 
         if not include_forum_data:
@@ -711,7 +711,7 @@ class CourseEnrollmentPresenterTests(TestCase):
 
     @mock.patch('analyticsclient.course.Course.enrollment')
     def test_hide_empty_enrollment_modes(self, mock_enrollment):
-        """ Enrollment modes with no enrolled students should not be returned. """
+        """ Enrollment modes with no enrolled learners should not be returned. """
 
         # set trend for one mode to be all 0
         mock_api_data = utils.get_mock_api_enrollment_data(self.course_id)

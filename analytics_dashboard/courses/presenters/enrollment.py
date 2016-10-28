@@ -99,7 +99,7 @@ class CourseEnrollmentPresenter(BasePresenter):
 
     def _get_valid_enrollment_modes(self, trends):
         """
-        Return enrollment modes for which there was at least one enrolled student.
+        Return enrollment modes for which there was at least one enrolled learner.
         """
         # default modes
         valid_modes = set()
@@ -452,7 +452,7 @@ class CourseEnrollmentDemographicsPresenter(BasePresenter):
             binned_ages.remove(datum)
         elderly_bin['percent'] = utils.math.calculate_percent(elderly_bin['count'], enrollment_total)
 
-        # tack enrollment counts for students with unknown ages
+        # tack enrollment counts for learners with unknown ages
         unknown = [i for i in api_response if not i['birth_year']]
         if unknown:
             unknown_count = unknown[0]['count']

@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block content_nav %}
-    {% trans "How did students interact with videos in this section?" as heading_note %}
+    {% trans "How did learners interact with videos in this section?" as heading_note %}
     {% include "courses/_video_content_nav.html" with active="second_level" selected_first_level=section first_levels=sections second_levels=js_data.course.primaryContent heading_note=heading_note %}
 {% endblock %}
 

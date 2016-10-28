@@ -15,7 +15,8 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                     model: page.models.courseModel,
                     modelAttribute: 'enrollmentByCountry',
                     // eslint-disable-next-line max-len
-                    tooltip: gettext('Student location is determined from IP address. This map shows where students most recently connected.')
+                    tooltip: gettext('Learner location is determined from IP address. This map shows where learners ' +
+                                     'most recently connected.')
                 }),
                 // Enrollment by country table
                 enrollmentGeographyTable = new DataTableView({
@@ -25,7 +26,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                     columns: [
                         {key: 'countryName', title: gettext('Country')},
                         {key: 'percent', title: gettext('Percent'), className: 'text-right', type: 'percent'},
-                        // Translators: The noun count (e.g. number of students)
+                        // Translators: The noun count (e.g. number of learners)
                         {key: 'count', title: gettext('Current Enrollment'), className: 'text-right', type: 'number'}
                     ],
                     sorting: ['-count']

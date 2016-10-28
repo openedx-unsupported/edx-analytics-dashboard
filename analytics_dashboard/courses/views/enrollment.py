@@ -36,7 +36,7 @@ class EnrollmentDemographicsTemplateView(EnrollmentTemplateView):
     ]
 
     # Translators: Do not translate UTC.
-    update_message = _('Demographic student data was last updated %(update_date)s at %(update_time)s UTC.')
+    update_message = _('Demographic learner data was last updated %(update_date)s at %(update_time)s UTC.')
 
     # pylint: disable=line-too-long
     # Translators: This sentence is displayed at the bottom of the page and describe the demographics data displayed.
@@ -193,7 +193,7 @@ class EnrollmentGeographyView(EnrollmentTemplateView):
     active_secondary_nav_item = 'geography'
 
     # Translators: Do not translate UTC.
-    update_message = _('Geographic student data was last updated %(update_date)s at %(update_time)s UTC.')
+    update_message = _('Geographic learner data was last updated %(update_date)s at %(update_time)s UTC.')
 
     def get_context_data(self, **kwargs):
         context = super(EnrollmentGeographyView, self).get_context_data(**kwargs)

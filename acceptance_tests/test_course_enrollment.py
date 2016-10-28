@@ -65,7 +65,7 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         enrollment = enrollment_data[-1]['count']
 
         # Verify the current enrollment metric tile.
-        tooltip = u'Students currently enrolled in the course.'
+        tooltip = u'Learners currently enrolled in the course.'
         self.assertMetricTileValid('current_enrollment', enrollment, tooltip)
 
         # Verify the total enrollment change metric tile.
@@ -79,7 +79,7 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         if enrollment_modes.VERIFIED in valid_modes:
             # Verify the verified enrollment metric tile.
             verified_enrollment = enrollment_data[-1][enrollment_modes.VERIFIED]
-            tooltip = u'Number of currently enrolled students pursuing a verified certificate of achievement.'
+            tooltip = u'Number of currently enrolled learners pursuing a verified certificate of achievement.'
             self.assertMetricTileValid('verified_enrollment', verified_enrollment, tooltip)
 
         # Verify *something* rendered where the graph should be. We cannot easily verify what rendered
@@ -145,7 +145,7 @@ class CourseEnrollmentGeographyTests(CoursePageTestsMixin, WebAppTest):
     def _get_data_update_message(self):
         current_enrollment = self.course.enrollment(demographic.LOCATION)[0]
         last_updated = datetime.datetime.strptime(current_enrollment['created'], self.api_datetime_format)
-        return 'Geographic student data was last updated %(update_date)s at %(update_time)s UTC.' % \
+        return 'Geographic learner data was last updated %(update_date)s at %(update_time)s UTC.' % \
                self.format_last_updated_date_and_time(last_updated)
 
     def _test_enrollment_country_map(self):

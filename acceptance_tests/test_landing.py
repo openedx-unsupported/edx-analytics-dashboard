@@ -29,8 +29,8 @@ class LandingTests(PageTestMixin, LoginMixin, LogoutMixin, FooterLegalMixin, Web
         question_elements = self.page.q(css='.lens-question')
         self.assertTrue(question_elements.present)
 
-        expected_questions = ['Who are my students?', 'What are students engaging with in my course?',
-                              'How well is my content supporting student learning?']
+        expected_questions = ['Who are my learners?', 'What are learners engaging with in my course?',
+                              'How well is my content supporting learners?']
         num_lenses = len(expected_questions)
         self.assertEqual(len(question_elements), num_lenses)
 

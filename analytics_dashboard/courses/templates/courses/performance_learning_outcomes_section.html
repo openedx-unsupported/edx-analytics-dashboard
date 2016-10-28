@@ -3,7 +3,7 @@
 {% load rjs %}
 
 {% block content_nav %}
-    {% trans "Measured by learning outcome, how are students performing?" as heading_note %}
+    {% trans "Measured by learning outcome, how are learners performing?" as heading_note %}
     {% include "courses/_tags_content_nav.html" with active="second_level" first_levels=js_data.first_level_content_nav selected_first_level=js_data.first_level_selected second_levels=js_data.second_level_content_nav heading_note=heading_note %}
 {% endblock %}
 
