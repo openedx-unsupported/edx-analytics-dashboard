@@ -24,7 +24,7 @@ html {
   font-size: 14px;
 }
 
-// Fix bug in Safari: remove outline around main element with tabindex="1".
+// Fix bug in Safari: remove outline around main element with tabindex="-1".
 main {
   outline: none;
 }
