@@ -22,7 +22,7 @@
                     {% include "submenu_navigation.html" with nav_items=tertiary_nav_items%}
                 </ul>
                 <div class="section-heading">
-                    <span class="section-heading-note small">{% trans "What level of education do my students have?" %}</span>
+                    <span class="section-heading-note small">{% trans "What level of education do my learners have?" %}</span>
                 </div>
             </div>
         </div>
@@ -35,7 +35,7 @@
                     {% include "courses/demographics_chart_info.html"%}
                     {% captureas tip_text %}
                       {# Translators: Maintain the double percentage symbols (%%) but move them to the appropriate location (before/after the value placeholder) for your language. #}
-                      {% blocktrans with value=chart_tooltip_value %}This graph presents data for the {{ value }}% of enrolled students who provided a highest level of education completed.{% endblocktrans %}
+                      {% blocktrans with value=chart_tooltip_value %}This graph presents data for the {{ value }}% of enrolled learners who provided a highest level of education completed.{% endblocktrans %}
                     {% endcaptureas %}
                     {% include "chart_tooltip.html" with tip_text=tip_text track_category="bar"%}
                     <div id="enrollment-chart-view" class="analytics-chart" data-track-type="hover"
@@ -60,23 +60,23 @@
         <div class="section-content">
             <div class="row">
                 <div class="col col-12 sm-col-12 md-col-3" data-stat-type="education_high_school_or_less_enrollment">
-                    {# Translators: This is a label to identify student educational background. #}
+                    {# Translators: This is a label to identify learner educational background. #}
                     {% trans "High School Diploma or Less" as label %}
-                    {% trans "The percentage of students who selected Secondary/high school, Junior secondary/junior high/middle school, or Elementary/primary school as their highest level of education completed." as tooltip %}
+                    {% trans "The percentage of learners who selected Secondary/high school, Junior secondary/junior high/middle school, or Elementary/primary school as their highest level of education completed." as tooltip %}
                     {% summary_point summary.high_school_or_less|metric_percentage label tooltip=tooltip %}
                 </div>
 
                 <div class="col col-12 sm-col-12 md-col-3" data-stat-type="education_college_enrollment">
-                    {# Translators: This is a label to identify student educational background. #}
+                    {# Translators: This is a label to identify learner educational background. #}
                     {% trans "College Degree" as label %}
-                    {% trans "The percentage of students who selected Bachelor's degree or Associate degree as their highest level of education completed." as tooltip %}
+                    {% trans "The percentage of learners who selected Bachelor's degree or Associate degree as their highest level of education completed." as tooltip %}
                     {% summary_point summary.college|metric_percentage label tooltip=tooltip %}
                 </div>
 
                 <div class="col col-12 sm-col-12 md-col-3" data-stat-type="education_advanced_enrollment">
-                    {# Translators: This is a label to identify student educational background. #}
+                    {# Translators: This is a label to identify learner educational background. #}
                     {% trans "Advanced Degree" as label %}
-                    {% trans "The percentage of students who selected Doctorate or Master's or professional degree as their highest level of education completed." as tooltip %}
+                    {% trans "The percentage of learners who selected Doctorate or Master's or professional degree as their highest level of education completed." as tooltip %}
                     {% summary_point summary.advanced|metric_percentage label tooltip=tooltip %}
                 </div>
             </div>

@@ -24,7 +24,7 @@ define(function(require) {
 
         templateHelpers: function() {
             return {
-                // Translators: e.g. Student engagement activity
+                // Translators: e.g. Learner engagement activity
                 engagement: gettext('Engagement Activity'),
                 activity: gettext('Daily Activity'),
                 table: gettext('Activity Over Time')

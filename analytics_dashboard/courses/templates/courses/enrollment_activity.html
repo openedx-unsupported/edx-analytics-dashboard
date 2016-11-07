@@ -21,8 +21,8 @@ Individual course-centric enrollment activity view.
 
   <section class="view-section" data-section="enrollment-basics" aria-hidden="true">
     <div class="section-heading">
-      <h4 class="section-title">{% trans "Daily Student Enrollment" %}</h4>
-      <span class="section-heading-note small">{% trans "How many students are in my course?" %}</span>
+      <h4 class="section-title">{% trans "Daily Learner Enrollment" %}</h4>
+      <span class="section-heading-note small">{% trans "How many learners are in my course?" %}</span>
     </div>
 
     {% if js_data.course.enrollmentTrends %}
@@ -55,24 +55,24 @@ Individual course-centric enrollment activity view.
 
           {% if not summary.total_enrollment == None %}
             <div class="col col-12 sm-col-12 md-col-3" data-stat-type="cumulative_enrollment">
-              {# Translators: This is a label to identify the number of students who ever enrolled in the course. #}
+              {# Translators: This is a label to identify the number of learners who ever enrolled in the course. #}
               {% trans "Total Enrollment" as label %}
-              {# Translators: This is a label indicating the number of students in a course. #}
-              {% trans "Students who ever enrolled in the course." as tooltip %}
+              {# Translators: This is a label indicating the number of learners in a course. #}
+              {% trans "Learners who ever enrolled in the course." as tooltip %}
               {% summary_point summary.total_enrollment label tooltip=tooltip %}
             </div>
           {% endif %}
 
           <div class="col col-12 sm-col-12 md-col-3" data-stat-type="current_enrollment">
-            {# Translators: This is a label to identify current student enrollment. #}
+            {# Translators: This is a label to identify current learner enrollment. #}
             {% trans "Current Enrollment" as label %}
-            {# Translators: This is a label indicating the number of students enrolled in a course. #}
-            {% trans "Students currently enrolled in the course." as tooltip %}
+            {# Translators: This is a label indicating the number of learners enrolled in a course. #}
+            {% trans "Learners currently enrolled in the course." as tooltip %}
             {% summary_point summary.current_enrollment label tooltip=tooltip %}
           </div>
 
           <div class="col col-12 sm-col-12 md-col-3" data-stat-type="enrollment_change_last_7_days">
-            {# Translators: This is a label indicating the change in the number of students enrolled in a course since the previous week. #}
+            {# Translators: This is a label indicating the change in the number of learners enrolled in a course since the previous week. #}
             {% trans "Change in Last Week" as label %}
             {% trans "Net difference in current enrollment in the last week." as tooltip %}
             {% summary_point summary.enrollment_change_last_7_days label tooltip=tooltip %}
@@ -80,10 +80,10 @@ Individual course-centric enrollment activity view.
 
         {% if not summary.verified_enrollment == None %}
           <div class="col col-12 sm-col-12 md-col-3" data-stat-type="verified_enrollment">
-            {# Translators: This is a label to identify enrollment of students on the verified track. #}
+            {# Translators: This is a label to identify enrollment of learners on the verified track. #}
             {% trans "Verified Enrollment" as label %}
-            {# Translators: This is a label indicating the number of students enrolled in a course on the verified track. #}
-            {% trans "Number of currently enrolled students pursuing a verified certificate of achievement." as tooltip %}
+            {# Translators: This is a label indicating the number of learners enrolled in a course on the verified track. #}
+            {% trans "Number of currently enrolled learners pursuing a verified certificate of achievement." as tooltip %}
             {% summary_point summary.verified_enrollment label tooltip=tooltip %}
           </div>
         {% endif %}

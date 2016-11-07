@@ -37,18 +37,18 @@
             <div class="grid-container grid-manual landing">
 
                 <div class="row intro-block">
-                    {% trans "Who are my students?" as heading %}
-                    {% trans "Target your course to fit the backgrounds of your students." as description %}
+                    {% trans "Who are my learners?" as heading %}
+                    {% trans "Target your course to fit the backgrounds of your learners." as description %}
                     {% trans "Enrollment" as lens_name %}
                     {% include "landing_lens.html" with heading=heading lens_icon="fa-child" lens_name=lens_name description=description%}
 
-                    {% trans "What are students engaging with in my course?" as heading %}
-                    {% trans "Improve frequently accessed content, or point students at underused resources." as description %}
+                    {% trans "What are learners engaging with in my course?" as heading %}
+                    {% trans "Improve frequently accessed content, or point learners at underused resources." as description %}
                     {% trans "Engagement" as lens_name %}
                     {% include "landing_lens.html" with heading=heading lens_icon="fa-bar-chart" lens_name=lens_name description=description%}
 
-                    {% trans "How well is my content supporting student learning?" as heading %}
-                    {% trans "Adjust your course based on where students are struggling." as description %}
+                    {% trans "How well is my content supporting learners?" as heading %}
+                    {% trans "Adjust your course based on where learners are struggling." as description %}
                     {% trans "Performance" as lens_name %}
                     {% include "landing_lens.html" with heading=heading lens_icon="fa-check-square-o" lens_name=lens_name description=description%}
                 </div>

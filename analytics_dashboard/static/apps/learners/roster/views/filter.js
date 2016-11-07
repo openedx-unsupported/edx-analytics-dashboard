@@ -27,7 +27,7 @@ define(function(require) {
         // It is assumed that there can never be a filter with an empty
         // name, therefore it's safe to use the empty string as a
         // property in this object.  The API interprets this as "all
-        // students, unfiltered".
+        // learners, unfiltered".
         catchAllFilterValue: '',
 
         className: 'learners-filter',

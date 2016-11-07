@@ -415,5 +415,5 @@ class CourseDemographicsPageTestsMixin(CoursePageTestsMixin):
     def _build_data_update_message(self, api_response):
         current_data = api_response[0]
         last_updated = datetime.datetime.strptime(current_data['created'], self.api_datetime_format)
-        return 'Demographic student data was last updated %(update_date)s at %(update_time)s UTC.' % \
+        return 'Demographic learner data was last updated %(update_date)s at %(update_time)s UTC.' % \
                self.format_last_updated_date_and_time(last_updated)

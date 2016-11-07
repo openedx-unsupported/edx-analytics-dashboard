@@ -19,7 +19,7 @@ Individual course-centric enrollment geography view.
   <section class="view-section" data-section="enrollment-location" aria-hidden="true">
     <div class="section-heading">
       <h4 class="section-title">{% trans "Geographic Distribution" %}</h4>
-      <span class="section-heading-note small">{% trans "Where are my students?" %}</span>
+      <span class="section-heading-note small">{% trans "Where are my learners?" %}</span>
     </div>
 
     {% if js_data.course.enrollmentByCountry %}
@@ -48,32 +48,32 @@ Individual course-centric enrollment geography view.
         <div class="section-content">
           <div class="row">
             <div class="col col-12 sm-col-12 md-col-3" data-stat-type="num-countries">
-              {# Translators: This string represents the number of countries where students are enrolled. #}
+              {# Translators: This string represents the number of countries where learners are enrolled. #}
               {% trans "Total Countries Represented" as label %}
-              {% trans "Countries with at least one student." as tooltip %}
+              {% trans "Countries with at least one learner." as tooltip %}
               {% summary_point num_countries label '&nbsp;' tooltip %}
             </div>
 
             {% for datum in top_countries %}
               <div class="col col-12 sm-col-12 md-col-3" data-stat-type="top-country-{{ forloop.counter }}">
                 {% if forloop.first %}
-                  {# Translators: This string represents the country with the greatest number of enrolled students. #}
+                  {# Translators: This string represents the country with the greatest number of enrolled learners. #}
                   {% trans "Top Country by Enrollment" as label %}
-                  {% trans "Country with the largest number of students." as tooltip %}
+                  {% trans "Country with the largest number of learners." as tooltip %}
                 {% elif forloop.counter == 2 %}
-                  {# Translators: This string represents the country with the second-greatest number of enrolled students. #}
+                  {# Translators: This string represents the country with the second-greatest number of enrolled learners. #}
                   {% trans "Second Country by Enrollment" as label %}
-                  {% trans "Country with the second largest number of students." as tooltip %}
+                  {% trans "Country with the second largest number of learners." as tooltip %}
                 {% elif forloop.counter == 3 %}
-                  {# Translators: This string represents the country with the third-greatest number of enrolled students. #}
+                  {# Translators: This string represents the country with the third-greatest number of enrolled learners. #}
                   {% trans "Third Country by Enrollment" as label %}
-                  {% trans "Country with the third largest number of students." as tooltip %}
+                  {% trans "Country with the third largest number of learners." as tooltip %}
                 {% endif %}
 
                 {% captureas subheading %}
                   {% captureas percent %}{% widthratio datum.percent 1 100 %}{% endcaptureas %}
-                  {# Translators: This string represents the percentage of students in a course. Move the % symbol, if necessary, but keep the percent variable/placeholder. #}
-                  {% blocktrans %}{{ percent }}% of students{% endblocktrans %}
+                  {# Translators: This string represents the percentage of learners in a course. Move the % symbol, if necessary, but keep the percent variable/placeholder. #}
+                  {% blocktrans %}{{ percent }}% of learners{% endblocktrans %}
                 {% endcaptureas %}
                 {% summary_point datum.countryName label subheading tooltip %}
               </div>

@@ -460,34 +460,34 @@ class CourseHome(CourseTemplateWithNavView):
         enrollment_items = {
             'name': _('Enrollment'),
             'icon': 'fa-child',
-            'heading': _('Who are my students?'),
+            'heading': _('Who are my learners?'),
             'items': [
                 {
-                    'title': _('How many students are in my course?'),
+                    'title': _('How many learners are in my course?'),
                     'view': 'courses:enrollment:activity',
                     'breadcrumbs': [_('Activity')],
                     'fragment': ''
                 },
                 {
-                    'title': _('How old are my students?'),
+                    'title': _('How old are my learners?'),
                     'view': 'courses:enrollment:demographics_age',
                     'breadcrumbs': [_('Demographics'), _('Age')],
                     'fragment': ''
                 },
                 {
-                    'title': _('What level of education do my students have?'),
+                    'title': _('What level of education do my learners have?'),
                     'view': 'courses:enrollment:demographics_education',
                     'breadcrumbs': [_('Demographics'), _('Education')],
                     'fragment': ''
                 },
                 {
-                    'title': _('What is the student gender breakdown?'),
+                    'title': _('What is the learner gender breakdown?'),
                     'view': 'courses:enrollment:demographics_gender',
                     'breadcrumbs': [_('Demographics'), _('Gender')],
                     'fragment': ''
                 },
                 {
-                    'title': _('Where are my students?'),
+                    'title': _('Where are my learners?'),
                     'view': 'courses:enrollment:geography',
                     'breadcrumbs': [_('Geography')],
                     'fragment': ''
@@ -499,10 +499,10 @@ class CourseHome(CourseTemplateWithNavView):
         engagement_items = {
             'name': _('Engagement'),
             'icon': 'fa-bar-chart',
-            'heading': _('What are students doing in my course?'),
+            'heading': _('What are learners doing in my course?'),
             'items': [
                 {
-                    'title': _('How many students are interacting with my course?'),
+                    'title': _('How many learners are interacting with my course?'),
                     'view': 'courses:engagement:content',
                     'breadcrumbs': [_('Content')],
                     'fragment': ''
@@ -511,7 +511,7 @@ class CourseHome(CourseTemplateWithNavView):
         }
         if switch_is_active('enable_engagement_videos_pages'):
             engagement_items['items'].append({
-                'title': _('How did students interact with course videos?'),
+                'title': _('How did learners interact with course videos?'),
                 'view': 'courses:engagement:videos',
                 'breadcrumbs': [_('Videos')],
                 'fragment': ''
@@ -521,12 +521,12 @@ class CourseHome(CourseTemplateWithNavView):
 
         if self.course_api_enabled:
             subitems = [{
-                'title': _('How are students doing on graded course assignments?'),
+                'title': _('How are learners doing on graded course assignments?'),
                 'view': 'courses:performance:graded_content',
                 'breadcrumbs': [_('Graded Content')],
                 'fragment': ''
             }, {
-                'title': _('How are students doing on ungraded exercises?'),
+                'title': _('How are learners doing on ungraded exercises?'),
                 'view': 'courses:performance:ungraded_content',
                 'breadcrumbs': [_('Ungraded Problems')],
                 'fragment': ''
@@ -550,7 +550,7 @@ class CourseHome(CourseTemplateWithNavView):
                 if 'download_url' in info:
                     # A problem response report CSV is available:
                     subitems.append({
-                        'title': _('How are students responding to questions?'),
+                        'title': _('How are learners responding to questions?'),
                         'view': 'courses:csv:performance_problem_responses',
                         'breadcrumbs': [_('Problem Response Report')],
                         'format': 'csv',
@@ -559,7 +559,7 @@ class CourseHome(CourseTemplateWithNavView):
             items.append({
                 'name': _('Performance'),
                 'icon': 'fa-check-square-o',
-                'heading': _('How are students doing on course assignments?'),
+                'heading': _('How are learners doing on course assignments?'),
                 'items': subitems
             })
 
@@ -629,7 +629,7 @@ class CourseHome(CourseTemplateWithNavView):
             if start_date:
                 if todays_date >= start_date:
                     in_progress = (end_date is None or end_date > todays_date)
-                    # Translators: 'In Progress' and 'Ended' refer to whether students are
+                    # Translators: 'In Progress' and 'Ended' refer to whether learners are
                     # actively using the course or it is over.
                     status_str = _('In Progress') if in_progress else _('Ended')
                 else:

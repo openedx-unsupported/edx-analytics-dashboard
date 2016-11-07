@@ -16,7 +16,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                     modelAttribute: 'ages',
                     excludeData: ['Unknown'],
                     trends: [{
-                        title: gettext('Number of Students'),
+                        title: gettext('Number of Learners'),
                         color: 'rgb(58, 162, 224)',
                         maxNumber: maxNumber
                     }],
@@ -31,7 +31,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                     modelAttribute: 'ages',
                     columns: [
                         {key: 'age', title: gettext('Age'), type: 'maxNumber', maxNumber: maxNumber},
-                        {key: 'count', title: gettext('Number of Students'), type: 'number', className: 'text-right'},
+                        {key: 'count', title: gettext('Number of Learners'), type: 'number', className: 'text-right'},
                         {key: 'percent', title: gettext('Percent of Total'), type: 'percent', className: 'text-right'}
                     ],
                     sorting: ['-percent']
