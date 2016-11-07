@@ -454,7 +454,7 @@ class CourseTemplateView(ContextSensitiveHelpMixin, CourseContextMixin, CourseVi
     @property
     def help_token(self):
         # Rather than duplicate the definition, simply return the page name.
-        return self.page_name
+        return self.page_name.get('name', 'default')
 
     def get_last_updated_message(self, last_updated):
         if last_updated:

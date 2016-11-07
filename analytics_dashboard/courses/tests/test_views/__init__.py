@@ -227,9 +227,13 @@ class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
         expected = {
             'icon': 'fa-child',
             'href': reverse('courses:enrollment:activity', kwargs={'course_id': course_id}),
-            'label': _('Enrollment'),
+            'label': 'lens+enrollment',
             'name': 'enrollment',
-            'fragment': ''
+            'fragment': '',
+            'scope': 'course',
+            'lens': 'enrollment',
+            'report': 'actvity',
+            'depth': ''
         }
         self.assertDictEqual(nav, expected)
 

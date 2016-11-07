@@ -77,7 +77,13 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                 });
                 trackingModel.set({
                     segmentApplicationId: 'applicationId',
-                    page: 'mypage'
+                    page: {
+                        scope: 'course',
+                        lens: 'mylens',
+                        report: 'myreport',
+                        depth: '',
+                        name: 'course_mylens_myreport'
+                    }
                 });
                 userModel.set(USER_DETAILS);
 
@@ -86,7 +92,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                 expect(view.segment.page).toHaveBeenCalledWith({
                     courseId: 'this/is/a/course',
                     org: 'org',
-                    label: 'mypage'
+                    label: 'course_mylens_myreport'
                 });
                 expect(view.segment.load).toHaveBeenCalled();
             });
@@ -128,7 +134,13 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                         org: 'org'
                     }),
                     trackingModel = new TrackingModel({
-                        page: 'mypage'
+                        page: {
+                            scope: 'course',
+                            lens: 'mylens',
+                            report: 'myreport',
+                            depth: '',
+                            name: 'course_mylens_myreport'
+                        }
                     }),
                     userModel = new TrackingModel();
 
@@ -159,7 +171,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                 trackingModel.trigger('segment:track', 'trackingEvent', {param: 'my-param'});
                 expect(view.segment.track).toHaveBeenCalledWith(
                     'trackingEvent', {
-                        label: 'mypage',
+                        label: 'course_mylens_myreport',
                         courseId: 'my/course/id',
                         org: 'org',
                         param: 'my-param'
@@ -173,7 +185,13 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                         org: 'org'
                     }),
                     trackingModel = new TrackingModel({
-                        page: 'mypage'
+                        page: {
+                            scope: 'course',
+                            lens: 'mylens',
+                            report: 'myreport',
+                            depth: '',
+                            name: 'course_mylens_myreport'
+                        }
                     }),
                     userModel = new TrackingModel();
 
@@ -204,7 +222,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                 trackingModel.trigger('segment:page', 'pageName', {param: 'my-param'});
                 expect(view.segment.page).toHaveBeenCalledWith(
                     'pageName', {
-                        label: 'mypage',
+                        label: 'course_mylens_myreport',
                         courseId: 'my/course/id',
                         org: 'org',
                         param: 'my-param'
@@ -228,7 +246,13 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                         org: 'org'
                     }),
                     trackingModel = new TrackingModel({
-                        page: 'mypage',
+                        page: {
+                            scope: 'course',
+                            lens: 'mylens',
+                            report: 'myreport',
+                            depth: '',
+                            name: 'course_mylens_myreport'
+                        },
                         segmentApplicationId: 'some ID'
                     }),
                     userModel = new TrackingModel(),
@@ -277,7 +301,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
 
                 test.expectEventEmitted(
                     'trackingEvent', {
-                        label: 'mypage',
+                        label: 'course_mylens_myreport',
                         courseId: 'my/course/id',
                         org: 'org',
                         param: 'my-param',
