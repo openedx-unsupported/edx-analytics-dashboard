@@ -15,8 +15,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                     model: page.models.courseModel,
                     modelAttribute: 'enrollmentByCountry',
                     // eslint-disable-next-line max-len
-                    tooltip: gettext('Learner location is determined from IP address. This map shows where learners ' +
-                                     'most recently connected.')
+                    tooltip: gettext('Learner location is determined from IP address. This map shows where learners most recently connected.')
                 }),
                 // Enrollment by country table
                 enrollmentGeographyTable = new DataTableView({
