@@ -363,6 +363,13 @@ For information about viewing engagement metrics in edX Insights, see
 
 * This value is also expressed as a percentage of currently enrolled students.
 
+**Participated in Discussions Last Week metric**
+
+* The number of unique users who added a post, response, or comment to any
+  topic in the course discussion.
+
+* This value is also expressed as a percentage of currently enrolled students.
+
 **Weekly Student Engagement graph**
 
 * The markers on the graph represent the number of users who interacted with
