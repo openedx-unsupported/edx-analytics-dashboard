@@ -131,10 +131,17 @@ class TrackedViewMixin(object):
     """
 
     # Page name used for usage tracking/analytics
-    page_name = None
+    page_name = {
+        'scope': '',
+        'lens': '',
+        'report': '',
+        'depth': '',
+    }
 
     def get_context_data(self, **kwargs):
         context = super(TrackedViewMixin, self).get_context_data(**kwargs)
+        self.page_name['name'] = '_'.join([self.page_name[lvl]
+                                           for lvl in ['scope', 'lens', 'report', 'depth'] if self.page_name[lvl]])
         context['js_data'] = context.get('js_data', {})
         context['js_data'].update({
             'tracking': {
@@ -287,14 +294,22 @@ class CourseNavBarMixin(object):
                 'label': _('Enrollment'),
                 'view': 'courses:enrollment:activity',
                 'icon': 'fa-child',
-                'fragment': ''
+                'fragment': '',
+                'scope': 'course',
+                'lens': 'enrollment',
+                'report': 'activity',
+                'depth': ''
             },
             {
                 'name': 'engagement',
                 'label': _('Engagement'),
                 'view': 'courses:engagement:content',
                 'icon': 'fa-bar-chart',
-                'fragment': ''
+                'fragment': '',
+                'scope': 'course',
+                'lens': 'engagement',
+                'report': 'content',
+                'depth': ''
             },
             {
                 'name': 'performance',
@@ -302,7 +317,11 @@ class CourseNavBarMixin(object):
                 'view': 'courses:performance:graded_content',
                 'icon': 'fa-check-square-o',
                 'switch': 'enable_course_api',
-                'fragment': ''
+                'fragment': '',
+                'scope': 'course',
+                'lens': 'performance',
+                'report': 'graded',
+                'depth': ''
             },
             {
                 'name': 'learners',
@@ -310,7 +329,11 @@ class CourseNavBarMixin(object):
                 'view': 'courses:learners:learners',
                 'icon': 'fa-users',
                 'flag': 'display_learner_analytics',
-                'fragment': '#?ignore_segments=inactive'
+                'fragment': '#?ignore_segments=inactive',
+                'scope': 'course',
+                'lens': 'learners',
+                'report': 'roster',
+                'depth': ''
             }
 
         ]
@@ -451,7 +474,12 @@ class CourseTemplateWithNavView(CourseNavBarMixin, CourseTemplateView):
 
 class CourseHome(CourseTemplateWithNavView):
     template_name = 'courses/home.html'
-    page_name = 'course_home'
+    page_name = {
+        'scope': 'course',
+        'lens': 'home',
+        'report': '',
+        'depth': ''
+    }
     page_title = _('Course Home')
 
     def get_table_items(self, request):
@@ -466,31 +494,51 @@ class CourseHome(CourseTemplateWithNavView):
                     'title': _('How many students are in my course?'),
                     'view': 'courses:enrollment:activity',
                     'breadcrumbs': [_('Activity')],
-                    'fragment': ''
+                    'fragment': '',
+                    'scope': 'course',
+                    'lens': 'enrollment',
+                    'report': 'activity',
+                    'depth': ''
                 },
                 {
                     'title': _('How old are my students?'),
                     'view': 'courses:enrollment:demographics_age',
                     'breadcrumbs': [_('Demographics'), _('Age')],
-                    'fragment': ''
+                    'fragment': '',
+                    'scope': 'course',
+                    'lens': 'enrollment',
+                    'report': 'demographics',
+                    'depth': 'age'
                 },
                 {
                     'title': _('What level of education do my students have?'),
                     'view': 'courses:enrollment:demographics_education',
                     'breadcrumbs': [_('Demographics'), _('Education')],
-                    'fragment': ''
+                    'fragment': '',
+                    'scope': 'course',
+                    'lens': 'enrollment',
+                    'report': 'demographics',
+                    'depth': 'education'
                 },
                 {
                     'title': _('What is the student gender breakdown?'),
                     'view': 'courses:enrollment:demographics_gender',
                     'breadcrumbs': [_('Demographics'), _('Gender')],
-                    'fragment': ''
+                    'fragment': '',
+                    'scope': 'course',
+                    'lens': 'enrollment',
+                    'report': 'demographics',
+                    'depth': 'gender'
                 },
                 {
                     'title': _('Where are my students?'),
                     'view': 'courses:enrollment:geography',
                     'breadcrumbs': [_('Geography')],
-                    'fragment': ''
+                    'fragment': '',
+                    'scope': 'course',
+                    'lens': 'enrollment',
+                    'report': 'geography',
+                    'depth': ''
                 },
             ],
         }
@@ -505,7 +553,11 @@ class CourseHome(CourseTemplateWithNavView):
                     'title': _('How many students are interacting with my course?'),
                     'view': 'courses:engagement:content',
                     'breadcrumbs': [_('Content')],
-                    'fragment': ''
+                    'fragment': '',
+                    'scope': 'course',
+                    'lens': 'engagement',
+                    'report': 'content',
+                    'depth': ''
                 }
             ]
         }
@@ -514,7 +566,11 @@ class CourseHome(CourseTemplateWithNavView):
                 'title': _('How did students interact with course videos?'),
                 'view': 'courses:engagement:videos',
                 'breadcrumbs': [_('Videos')],
-                'fragment': ''
+                'fragment': '',
+                'scope': 'course',
+                'lens': 'engagement',
+                'report': 'videos',
+                'depth': ''
             })
 
         items.append(engagement_items)
@@ -524,12 +580,20 @@ class CourseHome(CourseTemplateWithNavView):
                 'title': _('How are students doing on graded course assignments?'),
                 'view': 'courses:performance:graded_content',
                 'breadcrumbs': [_('Graded Content')],
-                'fragment': ''
+                'fragment': '',
+                'scope': 'course',
+                'lens': 'performance',
+                'report': 'graded',
+                'depth': ''
             }, {
                 'title': _('How are students doing on ungraded exercises?'),
                 'view': 'courses:performance:ungraded_content',
                 'breadcrumbs': [_('Ungraded Problems')],
-                'fragment': ''
+                'fragment': '',
+                'scope': 'course',
+                'lens': 'performance',
+                'report': 'ungraded',
+                'depth': ''
             }]
 
             if switch_is_active('enable_performance_learning_outcome'):
@@ -537,7 +601,11 @@ class CourseHome(CourseTemplateWithNavView):
                     'title': _('What is the breakdown for course learning outcomes?'),
                     'view': 'courses:performance:learning_outcomes',
                     'breadcrumbs': [_('Learning Outcomes')],
-                    'fragment': ''
+                    'fragment': '',
+                    'scope': 'course',
+                    'lens': 'performance',
+                    'report': 'outcomes',
+                    'depth': ''
                 })
 
             if switch_is_active('enable_problem_response_download'):
@@ -573,7 +641,11 @@ class CourseHome(CourseTemplateWithNavView):
                         'title': _("Who is engaged? Who isn't?"),
                         'view': 'courses:learners:learners',
                         'breadcrumbs': [_('All Learners')],
-                        'fragment': '#?ignore_segments=inactive'
+                        'fragment': '#?ignore_segments=inactive',
+                        'scope': 'course',
+                        'lens': 'learners',
+                        'report': 'roster',
+                        'depth': ''
                     },
                     # TODO: this is commented out until we complete the deep linking work, AN-6671
                     # {
@@ -669,7 +741,12 @@ class CourseHome(CourseTemplateWithNavView):
 
 class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LazyEncoderMixin, TemplateView):
     template_name = 'courses/index.html'
-    page_name = 'course_index'
+    page_name = {
+        'scope': 'insights',
+        'lens': 'home',
+        'report': '',
+        'depth': ''
+    }
 
     def get_context_data(self, **kwargs):
         context = super(CourseIndex, self).get_context_data(**kwargs)

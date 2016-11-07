@@ -21,7 +21,19 @@
                 {% captureas all_sections_text %}
                   {% block select_first_level_all %}{% endblock %}
                 {% endcaptureas %}
-              {% include "courses/_content_nav_menu.html" with levels=first_levels labelledby="firstLevelMenu" home_content_url=sections_home_url home_content_text=all_sections_text%}
+                {% captureas third_level %}
+                  {% block third_level_name %}component{% endblock %}
+                {% endcaptureas %}
+                {% captureas scope %}
+                  {% block scope_name %}course{% endblock %}
+                {% endcaptureas %}
+                {% captureas lens %}
+                  {% block lens_name %}{% endblock %}
+                {% endcaptureas %}
+                {% captureas report %}
+                  {% block report_name %}{% endblock %}
+                {% endcaptureas %}
+              {% include "courses/_content_nav_menu.html" with levels=first_levels labelledby="firstLevelMenu" home_content_url=sections_home_url home_content_text=all_sections_text level_type="section" upper_level="" scope=scope lens=lens report=report %}
           </div>
         </li>
         {% if second_levels %}
@@ -35,7 +47,7 @@
                 {% endif %}
                 <span class="caret"></span>
               </span>
-              {% include "courses/_content_nav_menu.html" with levels=second_levels labelledby="secondLevelMenu"%}
+              {% include "courses/_content_nav_menu.html" with levels=second_levels labelledby="secondLevelMenu" level_type="subsection" upper_level="section" scope=scope lens=lens report=report %}
             </div>
           </li>
         {% endif %}
@@ -50,7 +62,7 @@
                 {% endif %}
                 <span class="caret"></span>
               </span>
-              {% include "courses/_content_nav_menu.html" with levels=third_levels labelledby="thirdLevelMenu"%}
+              {% include "courses/_content_nav_menu.html" with levels=third_levels labelledby="thirdLevelMenu" level_type=third_level_name upper_level="subsection" scope=scope lens=lens report=report %}
             </div>
           </li>
         {% endif %}

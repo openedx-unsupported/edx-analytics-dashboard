@@ -19,7 +19,12 @@ Partial: App-wide header element
       {% if course_id %}
       <ul class="nav navbar-nav">
         <li>
-          <a href="{% url 'courses:home' course_id=course_id %}" class="navbar-link active-course-name">{% firstof course_name course_id %}</a>
+            <a href="{% url 'courses:home' course_id=course_id %}" class="navbar-link active-course-name"
+                data-track-type="click" data-track-event="edx.bi.ui.menu.navigated"
+                data-track-category="course_home" data-track-text="{% firstof course_name course_id}"
+                data-track-url="{% url 'courses:home' course_id=course_id %}" data-track-target-scope="course"
+                data-track-target-lens="home" data-track-menu-depth="home" data-track-link-name="course_title">
+                {% firstof course_name course_id %}</a>
         </li>
       </ul>
       {% endif %}

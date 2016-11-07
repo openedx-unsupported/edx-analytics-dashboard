@@ -3,13 +3,26 @@
 <ul class="dropdown-menu" role="menu" aria-labelledby="{{ labelledby }}">
     {% if home_content_url and home_content_text %}
         <li role="presentation">
-            <a role="menuitem" href="{{ home_content_url }}">{{ home_content_text }}</a>
+            <a role="menuitem" href="{{ home_content_url }}" data-track-type="click"
+                data-track-event="edx.bi.ui.menu.navigated"
+                data-track-text={{ home_content_text }} data-track-url="{{ home_content_url }}"
+                data-track-target-scope={{ scope }} data-track-target-lens="{{ lens }}"
+                data-track-target-report="{{ report }}" data-track-target-depth="{{ upper_level }}"
+                data-track-menu-depth="depth"
+                data-track-link-name="{% if upper_level == "" %}{{ report }}{% else %}{{ upper_level }}{% endif %}">
+                {{ home_content_text }}
+            </a>
         </li>
     {% endif %}
     {% for level in levels %}
         <li role="presentation" {% if level.url == None %}class="disabled"{% endif %}>
             <a role="menuitem"
-                {% if level.url %}href="{{ level.url }}{% endif %}">
+                {% if level.url %}href="{{ level.url }}" data-track-type="click"
+                data-track-event="edx.bi.ui.menu.navigated"
+                data-track-text="{{ level.name }}" data-track-url="{{ level.url }}"
+                data-track-target-scope="{{ scope }}" data-track-target-lens="{{ lens }}"
+                data-track-target-report="{{ report }}" data-track-target-depth="{{ level_type }}"
+                data-track-menu-depth="depth" data-track-link-name="{{ level_type }}"{% endif %}>
                 {{ level.name }}
             </a>
         </li>

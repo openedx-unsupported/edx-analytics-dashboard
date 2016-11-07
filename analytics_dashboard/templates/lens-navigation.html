@@ -10,7 +10,13 @@ Partial for displaying the lens navigation and the sections within the lenses.
       <ul class="nav navbar-nav">
         <li>
           {#  Translators: This refers to the homepage of a course. #}
-          <a href="{% url 'courses:home' course_id=course_id %}" class="course-label link-label">{% trans "Course Home" %}</a>
+          <a href="{% url 'courses:home' course_id=course_id %}" class="course-label link-label"
+              data-track-type="click" data-track-event="edx.bi.ui.menu.navigated"
+              data-track-text="{% trans 'Course Home' %}" data-track-url="{% url 'courses:home' course_id=course_id %}"
+              data-track-target-scope="course" data-track-target-lens="home" data-track-menu-depth="home"
+              data-track-link-name="course_home">
+            {% trans "Course Home" %}
+          </a>
         </li>
         <li class="dropdown">
           <button class="dropdown-toggle navbar-link" data-toggle="dropdown" id="lensPrimaryMenu"
@@ -28,7 +34,12 @@ Partial for displaying the lens navigation and the sections within the lenses.
           <ul id="lensDropdownMenu" class="dropdown-menu" aria-labelledby="lensPrimaryMenu" tabindex="-1">
             {% for item in primary_nav_items %}
               <li>
-                <a href="{{ item.href }}{{ item.fragment }}">
+                <a href="{{ item.href }}{{ item.fragment }}" data-track-type="click"
+                    data-track-event="edx.bi.ui.menu.navigated"
+                    data-track-text="{{ item.label }}" data-track-url="{{ item.href }}{{ item.fragment }}"
+                    data-track-target-scope="{{ item.scope }}" data-track-target-lens="{{ item.lens }}"
+                    data-track-target-report="{{ item.report }}" data-track-target-depth="{{ item.depth }}"
+                    data-track-menu-depth="lens" data-track-link-name="{{ item.lens }}">
                   <span class="link-label">
                     <span class="ico fa {{ item.icon }}" aria-hidden="true"></span> {{ item.label }}
                   </span>
@@ -38,7 +49,7 @@ Partial for displaying the lens navigation and the sections within the lenses.
           </ul>
         </li>
 
-        {% include "submenu_navigation.html" with nav_items=secondary_nav_items%}
+        {% include "submenu_navigation.html" with nav_items=secondary_nav_items lens=primary_nav_item.label|lower %}
       </ul>
     </div>
   </nav>

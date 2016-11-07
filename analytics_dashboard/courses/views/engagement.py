@@ -32,7 +32,12 @@ class EngagementTemplateView(CourseTemplateWithNavView):
 class EngagementContentView(EngagementTemplateView):
     template_name = 'courses/engagement_content.html'
     page_title = _('Engagement Content')
-    page_name = 'engagement_content'
+    page_name = {
+        'scope': 'course',
+        'lens': 'engagement',
+        'report': 'content',
+        'depth': ''
+    }
     active_secondary_nav_item = 'content'
 
     # Translators: Do not translate UTC.
@@ -84,7 +89,12 @@ class EngagementVideoContentTemplateView(CourseStructureMixin, CourseStructureEx
 
 class EngagementVideoCourse(EngagementVideoContentTemplateView):
     template_name = 'courses/engagement_video_course.html'
-    page_name = 'engagement_videos'
+    page_name = {
+        'scope': 'course',
+        'lens': 'engagement',
+        'report': 'videos',
+        'depth': ''
+    }
 
     def get_context_data(self, **kwargs):
         context = super(EngagementVideoCourse, self).get_context_data(**kwargs)
@@ -98,7 +108,12 @@ class EngagementVideoCourse(EngagementVideoContentTemplateView):
 
 class EngagementVideoSection(EngagementVideoContentTemplateView):
     template_name = 'courses/engagement_video_by_section.html'
-    page_name = 'engagement_videos'
+    page_name = {
+        'scope': 'course',
+        'lens': 'engagement',
+        'report': 'videos',
+        'depth': 'section'
+    }
 
     def get_context_data(self, **kwargs):
         context = super(EngagementVideoSection, self).get_context_data(**kwargs)
@@ -113,7 +128,12 @@ class EngagementVideoSection(EngagementVideoContentTemplateView):
 
 class EngagementVideoSubsection(EngagementVideoContentTemplateView):
     template_name = 'courses/engagement_video_by_subsection.html'
-    page_name = 'engagement_videos'
+    page_name = {
+        'scope': 'course',
+        'lens': 'engagement',
+        'report': 'videos',
+        'depth': 'subsection'
+    }
 
     def get_context_data(self, **kwargs):
         context = super(EngagementVideoSubsection, self).get_context_data(**kwargs)
@@ -130,7 +150,12 @@ class EngagementVideoSubsection(EngagementVideoContentTemplateView):
 
 class EngagementVideoTimeline(EngagementVideoContentTemplateView):
     template_name = 'courses/engagement_video_timeline.html'
-    page_name = 'engagement_videos'
+    page_name = {
+        'scope': 'course',
+        'lens': 'engagement',
+        'report': 'videos',
+        'depth': 'timeline'
+    }
     video_id = None
 
     def dispatch(self, request, *args, **kwargs):

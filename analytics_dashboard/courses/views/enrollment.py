@@ -17,9 +17,33 @@ class EnrollmentTemplateView(CourseTemplateWithNavView):
     Base view for course enrollment pages.
     """
     secondary_nav_items = [
-        {'name': 'activity', 'label': _('Activity'), 'view': 'courses:enrollment:activity'},
-        {'name': 'demographics', 'label': _('Demographics'), 'view': 'courses:enrollment:demographics_age'},
-        {'name': 'geography', 'label': _('Geography'), 'view': 'courses:enrollment:geography'},
+        {
+            'name': 'activity',
+            'label': _('Activity'),
+            'view': 'courses:enrollment:activity',
+            'scope': 'course',
+            'lens': 'enrollment',
+            'report': 'activity',
+            'depth': ''
+        },
+        {
+            'name': 'demographics',
+            'label': _('Demographics'),
+            'view': 'courses:enrollment:demographics_age',
+            'scope': 'course',
+            'lens': 'enrollment',
+            'report': 'demographics',
+            'depth': 'age'
+        },
+        {
+            'name': 'geography',
+            'label': _('Geography'),
+            'view': 'courses:enrollment:geography',
+            'scope': 'course',
+            'lens': 'enrollment',
+            'report': 'geography',
+            'depth': ''
+        },
     ]
     active_primary_nav_item = 'enrollment'
 
@@ -30,9 +54,33 @@ class EnrollmentDemographicsTemplateView(EnrollmentTemplateView):
     """
     active_secondary_nav_item = 'demographics'
     tertiary_nav_items = [
-        {'name': 'age', 'label': _('Age'), 'view': 'courses:enrollment:demographics_age'},
-        {'name': 'education', 'label': _('Education'), 'view': 'courses:enrollment:demographics_education'},
-        {'name': 'gender', 'label': _('Gender'), 'view': 'courses:enrollment:demographics_gender'}
+        {
+            'name': 'age',
+            'label': _('Age'),
+            'view': 'courses:enrollment:demographics_age',
+            'scope': 'course',
+            'lens': 'enrollment',
+            'report': 'demographics',
+            'depth': 'age'
+        },
+        {
+            'name': 'education',
+            'label': _('Education'),
+            'view': 'courses:enrollment:demographics_education',
+            'scope': 'course',
+            'lens': 'enrollment',
+            'report': 'demographics',
+            'depth': 'education'
+        },
+        {
+            'name': 'gender',
+            'label': _('Gender'),
+            'view': 'courses:enrollment:demographics_gender',
+            'scope': 'course',
+            'lens': 'enrollment',
+            'report': 'demographics',
+            'depth': 'gender'
+        }
     ]
 
     # Translators: Do not translate UTC.
@@ -54,7 +102,12 @@ class EnrollmentDemographicsTemplateView(EnrollmentTemplateView):
 class EnrollmentActivityView(EnrollmentTemplateView):
     template_name = 'courses/enrollment_activity.html'
     page_title = _('Enrollment Activity')
-    page_name = 'enrollment_activity'
+    page_name = {
+        'scope': 'course',
+        'lens': 'enrollment',
+        'report': 'activity',
+        'depth': ''
+    }
     active_secondary_nav_item = 'activity'
 
     # Translators: Do not translate UTC.
@@ -90,7 +143,12 @@ class EnrollmentActivityView(EnrollmentTemplateView):
 class EnrollmentDemographicsAgeView(EnrollmentDemographicsTemplateView):
     template_name = 'courses/enrollment_demographics_age.html'
     page_title = _('Enrollment Demographics by Age')
-    page_name = 'enrollment_demographics_age'
+    page_name = {
+        'scope': 'course',
+        'lens': 'enrollment',
+        'report': 'demographics',
+        'depth': 'age'
+    }
     active_tertiary_nav_item = 'age'
 
     def get_context_data(self, **kwargs):
@@ -123,7 +181,12 @@ class EnrollmentDemographicsAgeView(EnrollmentDemographicsTemplateView):
 class EnrollmentDemographicsEducationView(EnrollmentDemographicsTemplateView):
     template_name = 'courses/enrollment_demographics_education.html'
     page_title = _('Enrollment Demographics by Education')
-    page_name = 'enrollment_demographics_education'
+    page_name = {
+        'scope': 'course',
+        'lens': 'enrollment',
+        'report': 'demographics',
+        'depth': 'education'
+    }
     active_tertiary_nav_item = 'education'
 
     def get_context_data(self, **kwargs):
@@ -156,7 +219,12 @@ class EnrollmentDemographicsEducationView(EnrollmentDemographicsTemplateView):
 class EnrollmentDemographicsGenderView(EnrollmentDemographicsTemplateView):
     template_name = 'courses/enrollment_demographics_gender.html'
     page_title = _('Enrollment Demographics by Gender')
-    page_name = 'enrollment_demographics_gender'
+    page_name = {
+        'scope': 'course',
+        'lens': 'enrollment',
+        'report': 'demographics',
+        'depth': 'gender'
+    }
     active_tertiary_nav_item = 'gender'
 
     def get_context_data(self, **kwargs):
@@ -189,7 +257,12 @@ class EnrollmentDemographicsGenderView(EnrollmentDemographicsTemplateView):
 class EnrollmentGeographyView(EnrollmentTemplateView):
     template_name = 'courses/enrollment_geography.html'
     page_title = _('Enrollment Geography')
-    page_name = 'enrollment_geography'
+    page_name = {
+        'scope': 'course',
+        'lens': 'enrollment',
+        'report': 'geography',
+        'depth': ''
+    }
     active_secondary_nav_item = 'geography'
 
     # Translators: Do not translate UTC.

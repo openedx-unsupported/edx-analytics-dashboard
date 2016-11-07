@@ -120,10 +120,59 @@ define(['backbone', 'jquery', 'underscore', 'utils/utils'],
                 }
 
                 if (self.model.has('page')) {
-                    course.label = self.model.get('page');
+                    course.current_page = self.model.get('page');
+                    course.label = self.model.get('page').name;
                 }
 
                 return course;
+            },
+
+            /**
+             * Because of limitations on HTML element data attributes, we encode objects flately with hyphen separated
+             * keys and need to transform those keys/values back into objects.
+             */
+            transformPropertiesFromHTMLAttributes: function(props) {
+                var properties = props,
+                    targetNameParts = [],
+                    parts = ['scope', 'lens', 'report', 'depth'],
+                    part, i;
+                // collapse target scope, lens, report, and depth to a target_page dict
+                if ('target-scope' in properties) {
+                    properties.target_page = {
+                        scope: properties['target-scope'] || '',
+                        lens: properties['target-lens'] || '',
+                        report: properties['target-report'] || '',
+                        depth: properties['target-depth'] || ''
+                    };
+                    for (i = 0; i < 4; ++i) {
+                        part = properties.target_page[parts[i]];
+                        if (part !== '' && part !== undefined) {
+                            targetNameParts.push(part);
+                        }
+                    }
+                    properties.target_page.name = targetNameParts.join('_');
+                }
+                delete properties['target-scope'];
+                delete properties['target-lens'];
+                delete properties['target-report'];
+                delete properties['target-depth'];
+
+                // convert hyphens to underscores for menu_depth and link_name
+                if ('menu-depth' in properties) {
+                    properties.menu_depth = properties['menu-depth'] || '';
+                    delete properties['menu-depth'];
+                }
+                if ('link-name' in properties) {
+                    properties.link_name = properties['link-name'] || '';
+                    delete properties['link-name'];
+                }
+
+                // create category from menu_depth and link_name if it is not defined
+                if ('menu_depth' in properties && 'link_name' in properties && !('category' in properties)) {
+                    properties.category = properties.menu_depth + '+' + properties.link_name;
+                }
+
+                return properties;
             },
 
             /**
@@ -134,10 +183,11 @@ define(['backbone', 'jquery', 'underscore', 'utils/utils'],
              */
             track: function(eventType, properties) {
                 var self = this,
+                    transformedProps,
                     course = self.buildCourseProperties();
-
+                transformedProps = self.transformPropertiesFromHTMLAttributes(properties);
                 // send event to segment including the course ID
-                self.segment.track(eventType, _.extend(course, properties));
+                self.segment.track(eventType, _.extend(course, transformedProps));
             },
 
             /**

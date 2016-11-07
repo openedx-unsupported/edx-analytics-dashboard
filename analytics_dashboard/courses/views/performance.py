@@ -32,8 +32,24 @@ class PerformanceTemplateView(CourseStructureExceptionMixin, CourseTemplateWithN
     update_message = _('Problem submission data was last updated %(update_date)s at %(update_time)s UTC.')
 
     secondary_nav_items_base = [
-        {'name': 'graded_content', 'label': _('Graded Content'), 'view': 'courses:performance:graded_content'},
-        {'name': 'ungraded_content', 'label': _('Ungraded Problems'), 'view': 'courses:performance:ungraded_content'},
+        {
+            'name': 'graded_content',
+            'label': _('Graded Content'),
+            'view': 'courses:performance:graded_content',
+            'scope': 'course',
+            'lens': 'performance',
+            'report': 'graded',
+            'depth': ''
+        },
+        {
+            'name': 'ungraded_content',
+            'label': _('Ungraded Problems'),
+            'view': 'courses:performance:ungraded_content',
+            'scope': 'course',
+            'lens': 'performance',
+            'report': 'ungraded',
+            'depth': ''
+        },
     ]
     secondary_nav_items = None
 
@@ -171,12 +187,22 @@ class PerformanceAnswerDistributionView(PerformanceAnswerDistributionMixin,
                                         PerformanceGradedContentTemplateView):
     template_name = 'courses/performance_answer_distribution.html'
     page_title = _('Performance: Problem Submissions')
-    page_name = 'performance_answer_distribution'
+    page_name = {
+        'scope': 'course',
+        'lens': 'performance',
+        'report': 'graded',
+        'depth': 'problem'
+    }
 
 
 class PerformanceGradedContent(PerformanceGradedContentTemplateView):
     template_name = 'courses/performance_graded_content.html'
-    page_name = 'performance_graded_content'
+    page_name = {
+        'scope': 'course',
+        'lens': 'performance',
+        'report': 'graded',
+        'depth': ''
+    }
 
     def get_context_data(self, **kwargs):
         context = super(PerformanceGradedContent, self).get_context_data(**kwargs)
@@ -194,7 +220,12 @@ class PerformanceGradedContent(PerformanceGradedContentTemplateView):
 
 class PerformanceGradedContentByType(PerformanceGradedContentTemplateView):
     template_name = 'courses/performance_graded_content_by_type.html'
-    page_name = 'performance_graded_content_by_type'
+    page_name = {
+        'scope': 'course',
+        'lens': 'performance',
+        'report': 'graded',
+        'depth': 'section'
+    }
 
     def dispatch(self, request, *args, **kwargs):
         self.assignment_type = {'name': kwargs['assignment_type']}
@@ -225,7 +256,12 @@ class PerformanceGradedContentByType(PerformanceGradedContentTemplateView):
 
 class PerformanceAssignment(PerformanceGradedContentTemplateView):
     template_name = 'courses/performance_assignment.html'
-    page_name = 'performance_assignment'
+    page_name = {
+        'scope': 'course',
+        'lens': 'performance',
+        'report': 'graded',
+        'depth': 'subsection'
+    }
 
     def get_context_data(self, **kwargs):
         context = super(PerformanceAssignment, self).get_context_data(**kwargs)
@@ -244,7 +280,12 @@ class PerformanceAssignment(PerformanceGradedContentTemplateView):
 
 class PerformanceUngradedContent(PerformanceUngradedContentTemplateView):
     template_name = 'courses/performance_ungraded_content.html'
-    page_name = 'performance_ungraded_content'
+    page_name = {
+        'scope': 'course',
+        'lens': 'performance',
+        'report': 'ungraded',
+        'depth': ''
+    }
 
     def get_context_data(self, **kwargs):
         context = super(PerformanceUngradedContent, self).get_context_data(**kwargs)
@@ -260,7 +301,12 @@ class PerformanceUngradedContent(PerformanceUngradedContentTemplateView):
 
 class PerformanceUngradedSection(PerformanceUngradedContentTemplateView):
     template_name = 'courses/performance_ungraded_by_section.html'
-    page_name = 'performance_ungraded_by_section'
+    page_name = {
+        'scope': 'course',
+        'lens': 'performance',
+        'report': 'ungraded',
+        'depth': 'section'
+    }
 
     def get_context_data(self, **kwargs):
         context = super(PerformanceUngradedSection, self).get_context_data(**kwargs)
@@ -277,7 +323,12 @@ class PerformanceUngradedSection(PerformanceUngradedContentTemplateView):
 
 class PerformanceUngradedSubsection(PerformanceUngradedContentTemplateView):
     template_name = 'courses/performance_ungraded_by_subsection.html'
-    page_name = 'performance_ungraded_by_subsection'
+    page_name = {
+        'scope': 'course',
+        'lens': 'performance',
+        'report': 'ungraded',
+        'depth': 'subsection'
+    }
 
     def get_context_data(self, **kwargs):
         context = super(PerformanceUngradedSubsection, self).get_context_data(**kwargs)
@@ -296,7 +347,12 @@ class PerformanceUngradedSubsection(PerformanceUngradedContentTemplateView):
 class PerformanceUngradedAnswerDistribution(PerformanceAnswerDistributionMixin,
                                             PerformanceUngradedContentTemplateView):
     template_name = 'courses/performance_ungraded_answer_distribution.html'
-    page_name = 'performance_ungraded_answer_distribution'
+    page_name = {
+        'scope': 'course',
+        'lens': 'performance',
+        'report': 'ungraded',
+        'depth': 'problem'
+    }
     page_title = _('Performance: Problem Submissions')
 
 
@@ -327,7 +383,12 @@ class PerformanceLearningOutcomesMixin(PerformanceTemplateView):
 
 class PerformanceLearningOutcomesContent(PerformanceLearningOutcomesMixin):
     template_name = 'courses/performance_learning_outcomes_content.html'
-    page_name = 'performance_learning_outcomes_content'
+    page_name = {
+        'scope': 'course',
+        'lens': 'performance',
+        'report': 'outcomes',
+        'depth': ''
+    }
     page_title = _('Performance: Learning Outcomes')
 
     def get_context_data(self, **kwargs):
@@ -352,7 +413,12 @@ class PerformanceLearningOutcomesContent(PerformanceLearningOutcomesMixin):
 
 class PerformanceLearningOutcomesSection(PerformanceLearningOutcomesMixin):
     template_name = 'courses/performance_learning_outcomes_section.html'
-    page_name = 'performance_learning_outcomes_section'
+    page_name = {
+        'scope': 'course',
+        'lens': 'performance',
+        'report': 'outcomes',
+        'depth': 'section'
+    }
     page_title = _('Performance: Learning Outcomes')
     has_part_id_param = False
 
@@ -386,7 +452,12 @@ class PerformanceLearningOutcomesAnswersDistribution(PerformanceAnswerDistributi
                                                      PerformanceLearningOutcomesSection):
     template_name = 'courses/performance_learning_outcomes_answer_distribution.html'
     page_title = _('Performance: Problem Submissions')
-    page_name = 'performance_learning_outcomes_answer_distribution'
+    page_name = {
+        'scope': 'course',
+        'lens': 'performance',
+        'report': 'outcomes',
+        'depth': 'problem'
+    }
     has_part_id_param = True
 
     def get_context_data(self, **kwargs):

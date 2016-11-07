@@ -17,7 +17,12 @@
 
         {% for item in primary_nav_items %}
           <li>
-              <a href="{{ item.href }}{{ item.fragment }}"><span class="link-label">
+              <a href="{{ item.href }}{{ item.fragment }}" data-track-type="click"
+                  data-track-event="edx.bi.ui.menu.navigated" data-track-text="{{ item.label }}"
+                  data-track-url="{{ item.href }}{{ item.fragment }}" data-track-target-scope="{{ item.scope }}"
+                  data-track-target-lens="{{ item.lens }}" data-track-target-report="{{ item.report }}"
+                  data-track-target-depth="{{ item.depth }}" data-track-menu-depth="lens"
+                  data-track-link-name="{{ item.lens }}"><span class="link-label">
                   {% if item.icon %}<span class="ico fa {{ item.icon }}" aria-hidden="true"></span>{% endif %}
                 {{ item.label }}
               </span></a>
@@ -46,7 +51,11 @@
               <div class="title"><a href="{% url item.view course_id=course_id %}{{ item.fragment }}"
                 data-track-type="click" data-track-event="edx.bi.course.question_clicked"
                 data-track-category="{{ column.name|lower }}" data-track-question="{{ item.title }}"
-                data-track-url="{% url item.view course_id=course_id %}{{ item.fragment }}">{{ item.title }}</a></div>
+                data-track-url="{% url item.view course_id=course_id %}{{ item.fragment }}"
+                data-track-target-scope="{{ item.scope }}" data-track-target-lens="{{ item.lens }}"
+                data-track-target-report="{{ item.report }}" data-track-target-depth="{{ item.depth }}">
+                {{ item.title }}
+              </a></div>
               <div class="breadcrumbs">
                 <span class="ico fa {{ column.icon }}" aria-hidden="true"></span>
                 <span class="ico fa fa-caret-right" aria-hidden="true"></span>

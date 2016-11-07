@@ -7,6 +7,11 @@
     {% url "courses:performance:ungraded_content" course_id=course_id %}
 {% endblock %}
 
+{% block scope_name %}course{% endblock %}
+{% block lens_name %}performance{% endblock %}
+{% block report_name %}ungraded{% endblock %}
+{% block third_level %}problem{% endblock %}
+
 {% block select_first_level %}
     {% trans "Select Section" %}
 {% endblock %}
