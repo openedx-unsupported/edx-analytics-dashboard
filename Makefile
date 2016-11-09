@@ -15,7 +15,7 @@ requirements.py:
 
 requirements.js:
 	npm install
-	$(NODE_BIN)/bower install
+	$(NODE_BIN)/bower install --verbose
 
 test.requirements: requirements
 	pip install -q -r requirements/test.txt --exists-action w
