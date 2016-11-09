@@ -480,7 +480,7 @@ Performance Computations
   computation. Any attempts prior to the last submission are not included.
 
 * Computations for graded content include only problems for which students can
-  click **Check** to submit their responses. If students can only save their
+  click **Submit** to submit their responses. If students can only save their
   responses without submitting them (that is, if the **Maximum Attempts** for
   the problem is set to 0), data is not available for student submission
   computations.
