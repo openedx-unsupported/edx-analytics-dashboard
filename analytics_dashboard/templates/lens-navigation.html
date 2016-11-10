@@ -49,7 +49,7 @@ Partial for displaying the lens navigation and the sections within the lenses.
           </ul>
         </li>
 
-        {% include "submenu_navigation.html" with nav_items=secondary_nav_items lens=primary_nav_item.label|lower %}
+        {% include "submenu_navigation.html" with nav_items=secondary_nav_items lens=primary_nav_item.label|lower depth="report" %}
       </ul>
     </div>
   </nav>

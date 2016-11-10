@@ -40,7 +40,7 @@ class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):  # pylint: disa
         expected = {
             'icon': 'fa-bar-chart',
             'href': reverse('courses:engagement:content', kwargs={'course_id': course_id}),
-            'label': 'lens+engagement',
+            'label': _('Engagement'),
             'name': 'engagement',
             'fragment': '',
             'scope': 'course',
@@ -58,12 +58,20 @@ class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):  # pylint: disa
                 'href': '#',
                 'name': 'content',
                 'label': _('Content'),
+                'scope': 'course',
+                'lens': 'engagement',
+                'report': 'content',
+                'depth': ''
             },
             {
                 'active': True,
                 'href': '#',
                 'name': 'videos',
                 'label': _('Videos'),
+                'scope': 'course',
+                'lens': 'engagement',
+                'report': 'content',
+                'depth': ''
             },
         ]
 

@@ -62,7 +62,11 @@ class PerformanceTemplateView(CourseStructureExceptionMixin, CourseTemplateWithN
                 self.secondary_nav_items.append({
                     'name': 'learning_outcomes',
                     'label': _('Learning Outcomes'),
-                    'view': 'courses:performance:learning_outcomes'
+                    'view': 'courses:performance:learning_outcomes',
+                    'scope': 'course',
+                    'lens': 'performance',
+                    'report': 'outcomes',
+                    'depth': ''
                 })
 
         context_data = super(PerformanceTemplateView, self).get_context_data(**kwargs)

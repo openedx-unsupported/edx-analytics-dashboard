@@ -227,12 +227,12 @@ class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
         expected = {
             'icon': 'fa-child',
             'href': reverse('courses:enrollment:activity', kwargs={'course_id': course_id}),
-            'label': 'lens+enrollment',
+            'label': _('Enrollment'),
             'name': 'enrollment',
             'fragment': '',
             'scope': 'course',
             'lens': 'enrollment',
-            'report': 'actvity',
+            'report': 'activity',
             'depth': ''
         }
         self.assertDictEqual(nav, expected)
@@ -240,12 +240,33 @@ class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
     def assertSecondaryNavs(self, nav, course_id):
         reverse_kwargs = {'course_id': course_id}
         expected = [
-            {'name': 'activity', 'label': _('Activity'),
-             'href': reverse('courses:enrollment:activity', kwargs=reverse_kwargs)},
-            {'name': 'demographics', 'label': _('Demographics'),
-             'href': reverse('courses:enrollment:demographics_age', kwargs=reverse_kwargs)},
-            {'name': 'geography', 'label': _('Geography'),
-             'href': reverse('courses:enrollment:geography', kwargs=reverse_kwargs)}
+            {
+                'name': 'activity',
+                'label': _('Activity'),
+                'href': reverse('courses:enrollment:activity', kwargs=reverse_kwargs),
+                'scope': 'course',
+                'lens': 'enrollment',
+                'report': 'activity',
+                'depth': ''
+            },
+            {
+                'name': 'demographics',
+                'label': _('Demographics'),
+                'href': reverse('courses:enrollment:demographics_age', kwargs=reverse_kwargs),
+                'scope': 'course',
+                'lens': 'enrollment',
+                'report': 'demographics',
+                'depth': ''
+            },
+            {
+                'name': 'geography',
+                'label': _('Geography'),
+                'href': reverse('courses:enrollment:geography', kwargs=reverse_kwargs),
+                'scope': 'course',
+                'lens': 'enrollment',
+                'report': 'geography',
+                'depth': ''
+            }
         ]
 
         self.assertNavs(nav, expected, self.active_secondary_nav_label)

@@ -43,7 +43,7 @@ class CoursePerformanceViewTestMixin(PatchMixin, CourseStructureViewMixin, Cours
         expected = {
             'icon': 'fa-check-square-o',
             'href': reverse('courses:performance:graded_content', kwargs={'course_id': course_id}),
-            'label': 'lens+performance',
+            'label': _('Performance'),
             'name': 'performance',
             'fragment': '',
             'scope': 'course',
@@ -61,12 +61,20 @@ class CoursePerformanceViewTestMixin(PatchMixin, CourseStructureViewMixin, Cours
                 'name': 'graded_content',
                 'label': _('Graded Content'),
                 'href': reverse('courses:performance:graded_content', kwargs={'course_id': course_id}),
+                'scope': 'course',
+                'lens': 'performance',
+                'report': 'graded',
+                'depth': ''
             },
             {
                 'active': False,
                 'name': 'ungraded_content',
                 'label': _('Ungraded Problems'),
                 'href': reverse('courses:performance:ungraded_content', kwargs={'course_id': course_id}),
+                'scope': 'course',
+                'lens': 'performance',
+                'report': 'ungraded',
+                'depth': ''
             }
         ]
 
@@ -509,7 +517,16 @@ class CoursePerformanceLearningOutcomesViewTestMixin(CoursePerformanceViewTestMi
             'href': reverse('courses:performance:ungraded_content', kwargs={'course_id': course_id}),
             'active': False
         })
-        expected.append({'active': True, 'href': '#', 'label': _('Learning Outcomes'), 'name': 'learning_outcomes'})
+        expected.append({
+            'active': True,
+            'href': '#',
+            'label': _('Learning Outcomes'),
+            'name': 'learning_outcomes',
+            'scope': 'course',
+            'lens': 'performance',
+            'report': 'outcomes',
+            'depth': ''
+        })
         self.assertListEqual(secondary_nav_items, expected)
 
     def assertValidContext(self, context):
