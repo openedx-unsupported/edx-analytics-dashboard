@@ -70,14 +70,15 @@ class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):  # pylint: disa
                 'label': _('Videos'),
                 'scope': 'course',
                 'lens': 'engagement',
-                'report': 'content',
+                'report': 'videos',
                 'depth': ''
             },
         ]
 
     def assertSecondaryNavs(self, nav, course_id):
         expected = self.get_expected_secondary_nav(course_id)
-        self.assertListEqual(nav, expected)
+        for i, expected_item in enumerate(expected):
+            self.assertDictEqual(nav[i], expected_item)
 
 
 @override_switch('enable_engagement_videos_pages', active=True)

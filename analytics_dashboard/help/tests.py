@@ -42,7 +42,7 @@ class HelpURLMiddlewareTests(TestCase):
         self.assertHelpURLEqual('Not a real token', DOC_INDEX)
 
         # If the context has a valid page_token set, help_url should be set to the corresponding docs page.
-        self.assertHelpURLEqual('enrollment_activity', DOC_ENROLLMENT_ACTIVITY)
+        self.assertHelpURLEqual('course_enrollment_activity', DOC_ENROLLMENT_ACTIVITY)
 
     def test_process_template_response_with_error(self):
         """
@@ -67,4 +67,4 @@ class UtilsTests(TestCase):
         self.assertValidDocURL('Not a real token', DOC_INDEX)
 
         # If valid page_token passed, return the corresponding docs page.
-        self.assertValidDocURL('enrollment_activity', DOC_ENROLLMENT_ACTIVITY)
+        self.assertValidDocURL('course_enrollment_activity', DOC_ENROLLMENT_ACTIVITY)

@@ -256,7 +256,7 @@ class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
                 'scope': 'course',
                 'lens': 'enrollment',
                 'report': 'demographics',
-                'depth': ''
+                'depth': 'age'
             },
             {
                 'name': 'geography',
@@ -295,12 +295,33 @@ class CourseEnrollmentDemographicsMixin(CourseEnrollmentViewTestMixin):
     def assertTertiaryNavs(self, nav, course_id):
         reverse_kwargs = {'course_id': course_id}
         expected = [
-            {'name': 'age', 'label': _('Age'),
-             'href': reverse('courses:enrollment:demographics_age', kwargs=reverse_kwargs)},
-            {'name': 'education', 'label': _('Education'),
-             'href': reverse('courses:enrollment:demographics_education', kwargs=reverse_kwargs)},
-            {'name': 'gender', 'label': _('Gender'),
-             'href': reverse('courses:enrollment:demographics_gender', kwargs=reverse_kwargs)}
+            {
+                'name': 'age',
+                'label': _('Age'),
+                'href': reverse('courses:enrollment:demographics_age', kwargs=reverse_kwargs),
+                'scope': 'course',
+                'lens': 'enrollment',
+                'report': 'demographics',
+                'depth': 'age'
+            },
+            {
+                'name': 'education',
+                'label': _('Education'),
+                'href': reverse('courses:enrollment:demographics_education', kwargs=reverse_kwargs),
+                'scope': 'course',
+                'lens': 'enrollment',
+                'report': 'demographics',
+                'depth': 'education'
+            },
+            {
+                'name': 'gender',
+                'label': _('Gender'),
+                'href': reverse('courses:enrollment:demographics_gender', kwargs=reverse_kwargs),
+                'scope': 'course',
+                'lens': 'enrollment',
+                'report': 'demographics',
+                'depth': 'gender'
+            }
         ]
         self.assertNavs(nav, expected, self.active_tertiary_nav_label)
 

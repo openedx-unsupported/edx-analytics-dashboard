@@ -29,7 +29,7 @@ from core.utils import CourseStructureApiClient, sanitize_cache_key
 from courses import permissions
 from courses.presenters.performance import CourseReportDownloadPresenter
 from courses.serializers import LazyEncoder
-from courses.utils import is_feature_enabled
+from courses.utils import is_feature_enabled, get_page_name
 
 from help.views import ContextSensitiveHelpMixin
 
@@ -140,8 +140,7 @@ class TrackedViewMixin(object):
 
     def get_context_data(self, **kwargs):
         context = super(TrackedViewMixin, self).get_context_data(**kwargs)
-        self.page_name['name'] = '_'.join([self.page_name[lvl]
-                                           for lvl in ['scope', 'lens', 'report', 'depth'] if self.page_name[lvl]])
+        self.page_name['name'] = get_page_name(self.page_name)
         context['js_data'] = context.get('js_data', {})
         context['js_data'].update({
             'tracking': {
@@ -454,7 +453,10 @@ class CourseTemplateView(ContextSensitiveHelpMixin, CourseContextMixin, CourseVi
     @property
     def help_token(self):
         # Rather than duplicate the definition, simply return the page name.
-        return self.page_name.get('name', 'default')
+        page_name = get_page_name(self.page_name)
+        if not page_name:
+            page_name = 'default'
+        return page_name
 
     def get_last_updated_message(self, last_updated):
         if last_updated:

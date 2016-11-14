@@ -25,6 +25,11 @@ def get_encoded_module_id(module_id):
     return UsageKey.from_string(module_id).html_id()
 
 
+def get_page_name(page_name_object):
+    """Given a page_name object (scope, lens, report, depth), return a string with the levels concatenated in order."""
+    return '_'.join([page_name_object[lvl] for lvl in ['scope', 'lens', 'report', 'depth'] if page_name_object[lvl]])
+
+
 class number(object):
     @staticmethod
     def is_number(word):
