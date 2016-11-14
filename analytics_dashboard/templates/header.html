@@ -5,7 +5,8 @@
 Partial: App-wide header element
 {% endcomment %}
 
-<header class="navbar navbar-default" role="banner" aria-label="main" id="nav">
+{% include "_skip_link.html" with content_id="content" %}
+<header class="navbar navbar-default" id="nav">
   <div class="grid-container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">

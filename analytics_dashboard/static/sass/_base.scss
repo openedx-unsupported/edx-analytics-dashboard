@@ -24,6 +24,11 @@ html {
   font-size: 14px;
 }
 
+// Fix bug in Safari: remove outline around main element with tabindex="-1".
+main {
+  outline: none;
+}
+
 a {
   @include transition(color ease-in-out .25s);
 }
@@ -146,6 +151,23 @@ hr.has-emphasis {
     }
   }
 }
+
+.skip-link {
+  &:active, &:focus, &:hover {
+      position: relative;
+      top: auto;
+      width: auto; 
+      height: auto; 
+      margin: 0;
+  }
+  position: absolute;
+  top: -1000px;
+  height: 1px;
+  width: 1px;
+  text-align: left;
+  overflow: hidden;
+}
+    
 
 // ui: views
 // --------------------

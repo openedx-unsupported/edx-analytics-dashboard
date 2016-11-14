@@ -12,7 +12,9 @@
 {% block body %}
     <body class="landing">
         <div id="wrap-content-push-footer">
-            <header class="navbar navbar-default" role="banner" aria-label="main" id="nav">
+            <a href="#content" class="skip-link">{% trans 'Skip to content' %}</a>
+            {% include "_skip_link.html" with content_id="content" %}
+            <header class="navbar navbar-default" id="nav">
                 <div class="grid-container grid-manual">
                     <div class="navbar-header">
                         {% include 'brand.html' with class_prefix='navbar' %}
@@ -34,7 +36,7 @@
 
             </header>
 
-            <div class="grid-container grid-manual landing">
+            <main class="grid-container grid-manual landing" id="content" tabindex="-1" aria-label="{% trans Content %}">
 
                 <div class="row intro-block">
                     {% trans "Who are my learners?" as heading %}

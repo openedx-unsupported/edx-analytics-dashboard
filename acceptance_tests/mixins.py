@@ -4,6 +4,7 @@ from unittest import skip
 
 from bok_choy.promise import EmptyPromise
 from analyticsclient.client import Client
+from selenium.webdriver.common.keys import Keys
 
 from acceptance_tests import (
     API_SERVER_URL,
@@ -190,7 +191,22 @@ class PrimaryNavMixin(CourseApiMixin):
         course_name = self.get_course_name_or_id(course_id)
         self.assertEqual(element.text[0], course_name)
 
+    def _test_skip_link(self):
+        active_element = self.driver.switch_to.active_element
+        skip_link = self.page.q(css='.skip-link').results[0]
+        skip_link_ref = '#' + skip_link.get_attribute('href').split('#')[-1]
+        target_element = self.page.q(css=skip_link_ref)
+        self.assertEqual(len(target_element), 1)
+
+        active_element.send_keys(Keys.TAB)
+        active_element = self.driver.switch_to.active_element
+        active_element.send_keys(Keys.ENTER)
+
+        url_hash = self.driver.execute_script('return window.location.hash;')
+        self.assertEqual(url_hash, skip_link_ref)
+
     def test_page(self):
+        self._test_skip_link()
         self._test_user_menu()
         self._test_active_course()
 
