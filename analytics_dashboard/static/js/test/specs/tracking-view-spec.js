@@ -92,7 +92,14 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                 expect(view.segment.page).toHaveBeenCalledWith({
                     courseId: 'this/is/a/course',
                     org: 'org',
-                    label: 'course_mylens_myreport'
+                    label: 'course_mylens_myreport',
+                    current_page: {
+                        scope: 'course',
+                        lens: 'mylens',
+                        report: 'myreport',
+                        depth: '',
+                        name: 'course_mylens_myreport'
+                    }
                 });
                 expect(view.segment.load).toHaveBeenCalled();
             });
@@ -174,7 +181,14 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                         label: 'course_mylens_myreport',
                         courseId: 'my/course/id',
                         org: 'org',
-                        param: 'my-param'
+                        param: 'my-param',
+                        current_page: {
+                            scope: 'course',
+                            lens: 'mylens',
+                            report: 'myreport',
+                            depth: '',
+                            name: 'course_mylens_myreport'
+                        }
                     });
             });
 
@@ -225,7 +239,14 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                         label: 'course_mylens_myreport',
                         courseId: 'my/course/id',
                         org: 'org',
-                        param: 'my-param'
+                        param: 'my-param',
+                        current_page: {
+                            scope: 'course',
+                            lens: 'mylens',
+                            report: 'myreport',
+                            depth: '',
+                            name: 'course_mylens_myreport'
+                        }
                     });
             });
         });
@@ -305,7 +326,14 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                         courseId: 'my/course/id',
                         org: 'org',
                         param: 'my-param',
-                        foo: 'bar'
+                        foo: 'bar',
+                        current_page: {
+                            scope: 'course',
+                            lens: 'mylens',
+                            report: 'myreport',
+                            depth: '',
+                            name: 'course_mylens_myreport'
+                        }
                     }
                 );
             });
