@@ -21,7 +21,7 @@ Partial: App-wide header element
         <li>
             <a href="{% url 'courses:home' course_id=course_id %}" class="navbar-link active-course-name"
                 data-track-type="click" data-track-event="edx.bi.ui.menu.navigated"
-                data-track-category="course_home" data-track-text="{% firstof course_name course_id}"
+                data-track-text="{% firstof course_name course_id %}"
                 data-track-url="{% url 'courses:home' course_id=course_id %}" data-track-target-scope="course"
                 data-track-target-lens="home" data-track-menu-depth="home" data-track-link-name="course_title">
                 {% firstof course_name course_id %}</a>
@@ -50,7 +50,11 @@ Partial: App-wide header element
           <ul id="userDropdownMenu" class="dropdown-menu active-user-nav" tabindex="-1"
               aria-labelledby="userMenu">
             <li>
-              <a class="active-user-nav-logout" href="{% url 'logout' %}">{% trans "Logout" %}</a>
+              <a class="active-user-nav-logout" href="{% url 'logout' %}" data-track-type="click"
+                  data-track-event="edx.bi.ui.menu.navigated" data-track-text="{% trans "Logout" %}"
+                  data-track-url="{% url 'logout' %}" data-track-target-scope="insights"
+                  data-track-target-lens="logout" data-track-menu-depth="home" data-track-link-name="logout">
+                  {% trans "Logout" %}</a>
             </li>
           </ul>
         </li>
