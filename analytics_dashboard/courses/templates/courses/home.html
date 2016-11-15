@@ -1,5 +1,6 @@
 {% extends "courses/base-course.html" %}
 {% load i18n %}
+{% load dashboard_extras %}
 
 {% block view-name %}view-course-home view-dashboard{% endblock view-name %}
 
@@ -17,9 +18,10 @@
 
         {% for item in primary_nav_items %}
           <li>
-              <a href="{{ item.href }}{{ item.fragment }}" data-track-type="click"
+              {% captureas lens_url %}{{ item.href }}{{ item.fragment }}{% endcaptureas %}
+              <a href="{{ lens_url }}" data-track-type="click"
                   data-track-event="edx.bi.ui.menu.navigated" data-track-text="{{ item.label }}"
-                  data-track-url="{{ item.href }}{{ item.fragment }}" data-track-target-scope="{{ item.scope }}"
+                  data-track-url="{{ lens_url }}" data-track-target-scope="{{ item.scope }}"
                   data-track-target-lens="{{ item.lens }}" data-track-target-report="{{ item.report }}"
                   data-track-target-depth="{{ item.depth }}" data-track-menu-depth="lens"
                   data-track-link-name="{{ item.lens }}"><span class="link-label">
@@ -48,12 +50,13 @@
 
           {% for item in column.items %}
             <div class="item">
-              <div class="title"><a href="{% url item.view course_id=course_id %}{{ item.fragment }}"
+              {% captureas report_url %}{% url item.view course_id=course_id %}{{ item.fragment }}{% endcaptureas %}
+              <div class="title"><a href="{{ report_url }}"
                 data-track-type="click" data-track-event="edx.bi.course.question_clicked"
                 data-track-category="{{ column.name|lower }}" data-track-question="{{ item.title }}"
-                data-track-url="{% url item.view course_id=course_id %}{{ item.fragment }}"
-                data-track-target-scope="{{ item.scope }}" data-track-target-lens="{{ item.lens }}"
-                data-track-target-report="{{ item.report }}" data-track-target-depth="{{ item.depth }}">
+                data-track-url="{{ report_url }}" data-track-target-scope="{{ item.scope }}"
+                data-track-target-lens="{{ item.lens }}" data-track-target-report="{{ item.report }}"
+                data-track-target-depth="{{ item.depth }}">
                 {{ item.title }}
               </a></div>
               <div class="breadcrumbs">

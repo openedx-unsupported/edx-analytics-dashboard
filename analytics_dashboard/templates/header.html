@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load firstof from future %}
+{% load dashboard_extras %}
 
 {% comment %}
 Partial: App-wide header element
@@ -19,10 +20,11 @@ Partial: App-wide header element
       {% if course_id %}
       <ul class="nav navbar-nav">
         <li>
-            <a href="{% url 'courses:home' course_id=course_id %}" class="navbar-link active-course-name"
+            {% captureas course_home_url %}{% url 'courses:home' course_id=course_id %}{% endcaptureas %}
+            <a href="{{ course_home_url }}" class="navbar-link active-course-name"
                 data-track-type="click" data-track-event="edx.bi.ui.menu.navigated"
                 data-track-text="{% firstof course_name course_id %}"
-                data-track-url="{% url 'courses:home' course_id=course_id %}" data-track-target-scope="course"
+                data-track-url="{{ course_home_url }}" data-track-target-scope="course"
                 data-track-target-lens="home" data-track-menu-depth="home" data-track-link-name="course_title">
                 {% firstof course_name course_id %}</a>
         </li>
@@ -50,9 +52,10 @@ Partial: App-wide header element
           <ul id="userDropdownMenu" class="dropdown-menu active-user-nav" tabindex="-1"
               aria-labelledby="userMenu">
             <li>
-              <a class="active-user-nav-logout" href="{% url 'logout' %}" data-track-type="click"
-                  data-track-event="edx.bi.ui.menu.navigated" data-track-text="{% trans "Logout" %}"
-                  data-track-url="{% url 'logout' %}" data-track-target-scope="insights"
+              {% captureas logout_url %}{% url 'logout' %}{% endcaptureas %}
+              <a class="active-user-nav-logout" href="{{ logout_url }}" data-track-type="click"
+                  data-track-event="edx.bi.ui.menu.navigated" data-track-text="Logout"
+                  data-track-url="{{ logout_url }}" data-track-target-scope="insights"
                   data-track-target-lens="logout" data-track-menu-depth="home" data-track-link-name="logout">
                   {% trans "Logout" %}</a>
             </li>
