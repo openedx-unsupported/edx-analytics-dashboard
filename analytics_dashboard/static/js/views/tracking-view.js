@@ -134,22 +134,15 @@ define(['backbone', 'jquery', 'underscore', 'utils/utils'],
             transformPropertiesFromHTMLAttributes: function(props) {
                 var properties = props,
                     targetNameParts = [],
-                    parts = ['scope', 'lens', 'report', 'depth'],
-                    part, i;
+                    parts = ['scope', 'lens', 'report', 'depth'];
                 // collapse target scope, lens, report, and depth to a target_page dict
                 if ('target-scope' in properties) {
-                    properties.target_page = {
-                        scope: properties['target-scope'] || '',
-                        lens: properties['target-lens'] || '',
-                        report: properties['target-report'] || '',
-                        depth: properties['target-depth'] || ''
-                    };
-                    for (i = 0; i < 4; ++i) {
-                        part = properties.target_page[parts[i]];
+                    parts.forEach(function(part) {
+                        properties.target_page[part] = properties['target-' + part] || '';
                         if (part !== '' && part !== undefined) {
                             targetNameParts.push(part);
                         }
-                    }
+                    });
                     properties.target_page.name = targetNameParts.join('_');
                 }
                 delete properties['target-scope'];
@@ -183,8 +176,8 @@ define(['backbone', 'jquery', 'underscore', 'utils/utils'],
              */
             track: function(eventType, properties) {
                 var self = this,
-                    transformedProps,
-                    course = self.buildCourseProperties();
+                    course = self.buildCourseProperties(),
+                    transformedProps;
                 transformedProps = self.transformPropertiesFromHTMLAttributes(properties);
                 // send event to segment including the course ID
                 self.segment.track(eventType, _.extend(course, transformedProps));
