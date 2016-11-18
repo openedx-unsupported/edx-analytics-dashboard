@@ -673,7 +673,6 @@ class CourseHome(CourseTemplateWithNavView):
                 ]
             })
 
-    
         translate_dict_values(items, ('name',))
         for item in items:
             translate_dict_values(item['items'], ('title',))
@@ -740,7 +739,7 @@ class CourseHome(CourseTemplateWithNavView):
         if settings.CMS_COURSE_SHORTCUT_BASE_URL:
             external_tools.append({
                 'title': 'Studio',
-                'translated_title': 'Studio', # As a brand name, "Studio" is not translated.
+                'translated_title': 'Studio',  # As a brand name, "Studio" is not translated.
                 'url': "{}/{}".format(settings.CMS_COURSE_SHORTCUT_BASE_URL, self.course_id),
                 'icon': 'fa-sliders',
             })

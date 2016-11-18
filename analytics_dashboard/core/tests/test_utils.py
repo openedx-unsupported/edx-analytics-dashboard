@@ -57,9 +57,9 @@ class UtilsTests(TestCase):
             {'foo': '4', 'bar': '2', 'baz': '3'},
         ]
         expected = deepcopy(list_of_dicts)
-        for dict in expected:
-            dict['translated_foo'] = _(dict['foo'])
-        
+        for a_dict in expected:
+            a_dict['translated_foo'] = _(a_dict['foo'])
+
         self.assertTrue(translate_dict_values(list_of_dicts, ('foo',)))
 
         self.assertListEqual(expected, list_of_dicts)
@@ -68,6 +68,7 @@ class UtilsTests(TestCase):
 
         with self.assertRaises(KeyError):
             translate_dict_values(list_of_dicts, ('bad',))
+
 
 @ddt
 class CourseStructureApiClientTests(TestCase):

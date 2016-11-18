@@ -51,6 +51,7 @@ def feature_flagged(feature_flag):
         return cls
     return decorator
 
+
 def translate_dict_values(items, keys):
     """Translates the values of keys in given list of dicts
 
