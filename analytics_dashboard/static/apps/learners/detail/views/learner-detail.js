@@ -92,18 +92,18 @@ define(function(require) {
             this.showChildView('enrollment', new LearnerSummaryFieldView({
                 model: learnerModel,
                 modelAttribute: 'enrollment_mode',
-                fieldDisplayName: 'Enrollment'
+                fieldDisplayName: gettext('Enrollment')
             }));
 
             this.showChildView('cohort', new LearnerSummaryFieldView({
                 model: learnerModel,
                 modelAttribute: 'cohort',
-                fieldDisplayName: 'Cohort'
+                fieldDisplayName: gettext('Cohort')
             }));
             this.showChildView('accessed', new LearnerSummaryFieldView({
                 model: timelineModel,
                 modelAttribute: 'days',
-                fieldDisplayName: 'Last Accessed',
+                fieldDisplayName: gettext('Last Accessed'),
                 valueFormatter: function(days) {
                     // Translators: 'n/a' means 'not available'
                     return days.length ? Utils.formatDate(_(days).last().date) : gettext('n/a');

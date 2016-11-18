@@ -43,7 +43,8 @@ class CoursePerformanceViewTestMixin(PatchMixin, CourseStructureViewMixin, Cours
         expected = {
             'icon': 'fa-check-square-o',
             'href': reverse('courses:performance:graded_content', kwargs={'course_id': course_id}),
-            'label': _('Performance'),
+            'text': 'Performance',
+            'translated_text': _('Performance'),
             'name': 'performance',
             'fragment': '',
             'scope': 'course',
@@ -59,7 +60,8 @@ class CoursePerformanceViewTestMixin(PatchMixin, CourseStructureViewMixin, Cours
             {
                 'active': False,
                 'name': 'graded_content',
-                'label': _('Graded Content'),
+                'text': 'Graded Content',
+                'translated_text': _('Graded Content'),
                 'href': reverse('courses:performance:graded_content', kwargs={'course_id': course_id}),
                 'scope': 'course',
                 'lens': 'performance',
@@ -69,7 +71,8 @@ class CoursePerformanceViewTestMixin(PatchMixin, CourseStructureViewMixin, Cours
             {
                 'active': False,
                 'name': 'ungraded_content',
-                'label': _('Ungraded Problems'),
+                'text': 'Ungraded Problems',
+                'translated_text': _('Ungraded Problems'),
                 'href': reverse('courses:performance:ungraded_content', kwargs={'course_id': course_id}),
                 'scope': 'course',
                 'lens': 'performance',
@@ -520,7 +523,8 @@ class CoursePerformanceLearningOutcomesViewTestMixin(CoursePerformanceViewTestMi
         expected.append({
             'active': True,
             'href': '#',
-            'label': _('Learning Outcomes'),
+            'text': 'Learning Outcomes',
+            'translated_text': _('Learning Outcomes'),
             'name': 'learning_outcomes',
             'scope': 'course',
             'lens': 'performance',

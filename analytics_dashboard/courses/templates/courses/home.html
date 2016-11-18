@@ -20,13 +20,13 @@
           <li>
               {% captureas lens_url %}{{ item.href }}{{ item.fragment }}{% endcaptureas %}
               <a href="{{ lens_url }}" data-track-type="click"
-                  data-track-event="edx.bi.ui.menu.navigated" data-track-text="{{ item.label }}"
+                  data-track-event="edx.bi.ui.menu.navigated" data-track-text="{{ item.text }}"
                   data-track-url="{{ lens_url }}" data-track-target-scope="{{ item.scope }}"
                   data-track-target-lens="{{ item.lens }}" data-track-target-report="{{ item.report }}"
                   data-track-target-depth="{{ item.depth }}" data-track-menu-depth="lens"
                   data-track-link-name="{{ item.lens }}"><span class="link-label">
                   {% if item.icon %}<span class="ico fa {{ item.icon }}" aria-hidden="true"></span>{% endif %}
-                {{ item.label }}
+                {{ item.translated_text }}
               </span></a>
           </li>
         {% endfor %}
@@ -45,7 +45,7 @@
 
         <div class="course-home-table">
           <div class="item name">
-            <span class="ico fa {{ column.icon }}" aria-hidden="true"></span> {{ column.name }}
+            <span class="ico fa {{ column.icon }}" aria-hidden="true"></span> {{ column.translated_name }}
           </div>
 
           {% for item in column.items %}
@@ -57,7 +57,7 @@
                 data-track-url="{{ report_url }}" data-track-target-scope="{{ item.scope }}"
                 data-track-target-lens="{{ item.lens }}" data-track-target-report="{{ item.report }}"
                 data-track-target-depth="{{ item.depth }}">
-                {{ item.title }}
+                {{ item.translated_title }}
               </a></div>
               <div class="breadcrumbs">
                 <span class="ico fa {{ column.icon }}" aria-hidden="true"></span>

@@ -3,10 +3,11 @@ import logging
 
 from django.conf import settings
 from django.http import Http404
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _, ugettext_noop
 from slugify import slugify
 from waffle import switch_is_active
 
+from core.utils import translate_dict_values
 from courses.presenters.performance import CoursePerformancePresenter, TagsDistributionPresenter
 
 from courses.views import (
@@ -34,7 +35,7 @@ class PerformanceTemplateView(CourseStructureExceptionMixin, CourseTemplateWithN
     secondary_nav_items_base = [
         {
             'name': 'graded_content',
-            'label': _('Graded Content'),
+            'text': ugettext_noop('Graded Content'),
             'view': 'courses:performance:graded_content',
             'scope': 'course',
             'lens': 'performance',
@@ -43,7 +44,7 @@ class PerformanceTemplateView(CourseStructureExceptionMixin, CourseTemplateWithN
         },
         {
             'name': 'ungraded_content',
-            'label': _('Ungraded Problems'),
+            'text': ugettext_noop('Ungraded Problems'),
             'view': 'courses:performance:ungraded_content',
             'scope': 'course',
             'lens': 'performance',
@@ -51,8 +52,8 @@ class PerformanceTemplateView(CourseStructureExceptionMixin, CourseTemplateWithN
             'depth': ''
         },
     ]
+    translate_dict_values(secondary_nav_items_base, ('text',))
     secondary_nav_items = None
-
     active_primary_nav_item = 'performance'
 
     def get_context_data(self, **kwargs):
@@ -61,13 +62,14 @@ class PerformanceTemplateView(CourseStructureExceptionMixin, CourseTemplateWithN
             if not any(d['name'] == 'learning_outcomes' for d in self.secondary_nav_items):
                 self.secondary_nav_items.append({
                     'name': 'learning_outcomes',
-                    'label': _('Learning Outcomes'),
+                    'text': ugettext_noop('Learning Outcomes'),
                     'view': 'courses:performance:learning_outcomes',
                     'scope': 'course',
                     'lens': 'performance',
                     'report': 'outcomes',
                     'depth': ''
                 })
+                translate_dict_values(self.secondary_nav_items, ('text',))
 
         context_data = super(PerformanceTemplateView, self).get_context_data(**kwargs)
         self.presenter = CoursePerformancePresenter(self.access_token, self.course_id)

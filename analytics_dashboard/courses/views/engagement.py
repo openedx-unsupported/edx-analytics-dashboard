@@ -2,11 +2,12 @@ import logging
 
 from django.conf import settings
 from django.http import Http404
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _, ugettext_noop
 
 from waffle import switch_is_active
 
 from analyticsclient.exceptions import NotFoundError
+from core.utils import translate_dict_values
 
 from courses.presenters.engagement import (CourseEngagementActivityPresenter, CourseEngagementVideoPresenter)
 from courses.views import (CourseStructureMixin, CourseStructureExceptionMixin, CourseTemplateWithNavView)
@@ -20,10 +21,10 @@ class EngagementTemplateView(CourseTemplateWithNavView):
     Base view for course engagement pages.
     """
     secondary_nav_items = [
-        # Translators: Content as in course content (e.g. things, not the feeling)
         {
             'name': 'content',
-            'label': _('Content'),
+            # Translators: Content as in course content (e.g. things, not the feeling)
+            'text': ugettext_noop('Content'),
             'view': 'courses:engagement:content',
             'scope': 'course',
             'lens': 'engagement',
@@ -32,7 +33,7 @@ class EngagementTemplateView(CourseTemplateWithNavView):
         },
         {
             'name': 'videos',
-            'label': _('Videos'),
+            'text': ugettext_noop('Videos'),
             'view': 'courses:engagement:videos',
             'switch': 'enable_engagement_videos_pages',
             'scope': 'course',
@@ -41,6 +42,7 @@ class EngagementTemplateView(CourseTemplateWithNavView):
             'depth': ''
         },
     ]
+    translate_dict_values(secondary_nav_items, ('text',))
     active_primary_nav_item = 'engagement'
     presenter = None
 

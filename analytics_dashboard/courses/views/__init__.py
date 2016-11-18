@@ -13,7 +13,7 @@ from django.core.urlresolvers import reverse
 from django.http import Http404
 from django.utils import dateformat
 from django.utils.functional import cached_property
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _, ugettext_noop
 from django.views.generic import TemplateView
 from edx_rest_api_client.exceptions import (HttpClientError, SlumberBaseException)
 from opaque_keys.edx.keys import CourseKey
@@ -24,7 +24,7 @@ from analyticsclient.client import Client
 from analyticsclient.exceptions import (ClientError, NotFoundError)
 
 from core.exceptions import ServiceUnavailableError
-from core.utils import CourseStructureApiClient, sanitize_cache_key
+from core.utils import CourseStructureApiClient, sanitize_cache_key, translate_dict_values
 
 from courses import permissions
 from courses.presenters.performance import CourseReportDownloadPresenter
@@ -290,7 +290,7 @@ class CourseNavBarMixin(object):
         items = [
             {
                 'name': 'enrollment',
-                'label': _('Enrollment'),
+                'text': ugettext_noop('Enrollment'),
                 'view': 'courses:enrollment:activity',
                 'icon': 'fa-child',
                 'fragment': '',
@@ -301,7 +301,7 @@ class CourseNavBarMixin(object):
             },
             {
                 'name': 'engagement',
-                'label': _('Engagement'),
+                'text': ugettext_noop('Engagement'),
                 'view': 'courses:engagement:content',
                 'icon': 'fa-bar-chart',
                 'fragment': '',
@@ -312,7 +312,7 @@ class CourseNavBarMixin(object):
             },
             {
                 'name': 'performance',
-                'label': _('Performance'),
+                'text': ugettext_noop('Performance'),
                 'view': 'courses:performance:graded_content',
                 'icon': 'fa-check-square-o',
                 'switch': 'enable_course_api',
@@ -324,7 +324,7 @@ class CourseNavBarMixin(object):
             },
             {
                 'name': 'learners',
-                'label': _('Learners'),
+                'text': ugettext_noop('Learners'),
                 'view': 'courses:learners:learners',
                 'icon': 'fa-users',
                 'flag': 'display_learner_analytics',
@@ -336,6 +336,8 @@ class CourseNavBarMixin(object):
             }
 
         ]
+
+        translate_dict_values(items, ('text',))
 
         # Remove disabled items
         items = [item for item in items if is_feature_enabled(item, request)]
@@ -493,7 +495,7 @@ class CourseHome(CourseTemplateWithNavView):
             'heading': _('Who are my students?'),
             'items': [
                 {
-                    'title': _('How many students are in my course?'),
+                    'title': ugettext_noop('How many students are in my course?'),
                     'view': 'courses:enrollment:activity',
                     'breadcrumbs': [_('Activity')],
                     'fragment': '',
@@ -503,7 +505,7 @@ class CourseHome(CourseTemplateWithNavView):
                     'depth': ''
                 },
                 {
-                    'title': _('How old are my students?'),
+                    'title': ugettext_noop('How old are my students?'),
                     'view': 'courses:enrollment:demographics_age',
                     'breadcrumbs': [_('Demographics'), _('Age')],
                     'fragment': '',
@@ -513,7 +515,7 @@ class CourseHome(CourseTemplateWithNavView):
                     'depth': 'age'
                 },
                 {
-                    'title': _('What level of education do my students have?'),
+                    'title': ugettext_noop('What level of education do my students have?'),
                     'view': 'courses:enrollment:demographics_education',
                     'breadcrumbs': [_('Demographics'), _('Education')],
                     'fragment': '',
@@ -523,7 +525,7 @@ class CourseHome(CourseTemplateWithNavView):
                     'depth': 'education'
                 },
                 {
-                    'title': _('What is the student gender breakdown?'),
+                    'title': ugettext_noop('What is the student gender breakdown?'),
                     'view': 'courses:enrollment:demographics_gender',
                     'breadcrumbs': [_('Demographics'), _('Gender')],
                     'fragment': '',
@@ -533,7 +535,7 @@ class CourseHome(CourseTemplateWithNavView):
                     'depth': 'gender'
                 },
                 {
-                    'title': _('Where are my students?'),
+                    'title': ugettext_noop('Where are my students?'),
                     'view': 'courses:enrollment:geography',
                     'breadcrumbs': [_('Geography')],
                     'fragment': '',
@@ -552,7 +554,7 @@ class CourseHome(CourseTemplateWithNavView):
             'heading': _('What are students doing in my course?'),
             'items': [
                 {
-                    'title': _('How many students are interacting with my course?'),
+                    'title': ugettext_noop('How many students are interacting with my course?'),
                     'view': 'courses:engagement:content',
                     'breadcrumbs': [_('Content')],
                     'fragment': '',
@@ -565,7 +567,7 @@ class CourseHome(CourseTemplateWithNavView):
         }
         if switch_is_active('enable_engagement_videos_pages'):
             engagement_items['items'].append({
-                'title': _('How did students interact with course videos?'),
+                'title': ugettext_noop('How did students interact with course videos?'),
                 'view': 'courses:engagement:videos',
                 'breadcrumbs': [_('Videos')],
                 'fragment': '',
@@ -579,7 +581,7 @@ class CourseHome(CourseTemplateWithNavView):
 
         if self.course_api_enabled:
             subitems = [{
-                'title': _('How are students doing on graded course assignments?'),
+                'title': ugettext_noop('How are students doing on graded course assignments?'),
                 'view': 'courses:performance:graded_content',
                 'breadcrumbs': [_('Graded Content')],
                 'fragment': '',
@@ -588,7 +590,7 @@ class CourseHome(CourseTemplateWithNavView):
                 'report': 'graded',
                 'depth': ''
             }, {
-                'title': _('How are students doing on ungraded exercises?'),
+                'title': ugettext_noop('How are students doing on ungraded exercises?'),
                 'view': 'courses:performance:ungraded_content',
                 'breadcrumbs': [_('Ungraded Problems')],
                 'fragment': '',
@@ -600,7 +602,7 @@ class CourseHome(CourseTemplateWithNavView):
 
             if switch_is_active('enable_performance_learning_outcome'):
                 subitems.append({
-                    'title': _('What is the breakdown for course learning outcomes?'),
+                    'title': ugettext_noop('What is the breakdown for course learning outcomes?'),
                     'view': 'courses:performance:learning_outcomes',
                     'breadcrumbs': [_('Learning Outcomes')],
                     'fragment': '',
@@ -620,7 +622,7 @@ class CourseHome(CourseTemplateWithNavView):
                 if 'download_url' in info:
                     # A problem response report CSV is available:
                     subitems.append({
-                        'title': _('How are students responding to questions?'),
+                        'title': ugettext_noop('How are students responding to questions?'),
                         'view': 'courses:csv:performance_problem_responses',
                         'breadcrumbs': [_('Problem Response Report')],
                         'format': 'csv',
@@ -640,7 +642,7 @@ class CourseHome(CourseTemplateWithNavView):
                 'heading': _('What are individual learners doing?'),
                 'items': [
                     {
-                        'title': _("Who is engaged? Who isn't?"),
+                        'title': ugettext_noop("Who is engaged? Who isn't?"),
                         'view': 'courses:learners:learners',
                         'breadcrumbs': [_('All Learners')],
                         'fragment': '#?ignore_segments=inactive',
@@ -670,6 +672,11 @@ class CourseHome(CourseTemplateWithNavView):
                     # }
                 ]
             })
+
+    
+        translate_dict_values(items, ('name',))
+        for item in items:
+            translate_dict_values(item['items'], ('title',))
 
         return items
 
@@ -703,8 +710,8 @@ class CourseHome(CourseTemplateWithNavView):
             if start_date:
                 if todays_date >= start_date:
                     in_progress = (end_date is None or end_date > todays_date)
-                    # Translators: 'In Progress' and 'Ended' refer to whether students are
                     # actively using the course or it is over.
+                    # Translators: 'In Progress' and 'Ended' refer to whether students are
                     status_str = _('In Progress') if in_progress else _('Ended')
                 else:
                     # Translators: This refers to a course that has not yet begun.
@@ -721,21 +728,24 @@ class CourseHome(CourseTemplateWithNavView):
 
         if settings.LMS_COURSE_SHORTCUT_BASE_URL:
             external_tools.append({
-                'title': _('Instructor Dashboard'),
+                'title': ugettext_noop('Instructor Dashboard'),
                 'url': "{}/{}/instructor".format(settings.LMS_COURSE_SHORTCUT_BASE_URL, self.course_id),
                 'icon': 'fa-dashboard',
             })
             external_tools.append({
-                'title': _('Courseware'),
+                'title': ugettext_noop('Courseware'),
                 'url': "{}/{}/courseware".format(settings.LMS_COURSE_SHORTCUT_BASE_URL, self.course_id),
                 'icon': 'fa-pencil-square-o',
             })
         if settings.CMS_COURSE_SHORTCUT_BASE_URL:
             external_tools.append({
-                'title': 'Studio',  # As a brand name, "Studio" is not translated.
+                'title': 'Studio',
+                'translated_title': 'Studio', # As a brand name, "Studio" is not translated.
                 'url': "{}/{}".format(settings.CMS_COURSE_SHORTCUT_BASE_URL, self.course_id),
                 'icon': 'fa-sliders',
             })
+
+        translate_dict_values(external_tools, ('title',))
         context['external_course_tools'] = external_tools
 
         return context

@@ -1,13 +1,15 @@
 import uuid
 
+from copy import deepcopy
 from ddt import ddt
 
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.test.utils import override_settings
 from django.test import TestCase
+from django.utils.translation import ugettext_lazy as _
 
-from core.utils import CourseStructureApiClient, delete_auto_auth_users, sanitize_cache_key
+from core.utils import CourseStructureApiClient, delete_auto_auth_users, sanitize_cache_key, translate_dict_values
 
 
 User = get_user_model()
@@ -49,6 +51,23 @@ class UtilsTests(TestCase):
             # TODO Add a proper assertion to ensure all control characters are removed.
             self.assertNotIn(' ', sanitized)
 
+    def test_translate_dict_values(self):
+        list_of_dicts = [
+            {'foo': '1', 'bar': '2', 'baz': '2'},
+            {'foo': '4', 'bar': '2', 'baz': '3'},
+        ]
+        expected = deepcopy(list_of_dicts)
+        for dict in expected:
+            dict['translated_foo'] = _(dict['foo'])
+        
+        self.assertTrue(translate_dict_values(list_of_dicts, ('foo',)))
+
+        self.assertListEqual(expected, list_of_dicts)
+
+        self.assertFalse(translate_dict_values(list_of_dicts, ('foo',)))
+
+        with self.assertRaises(KeyError):
+            translate_dict_values(list_of_dicts, ('bad',))
 
 @ddt
 class CourseStructureApiClientTests(TestCase):

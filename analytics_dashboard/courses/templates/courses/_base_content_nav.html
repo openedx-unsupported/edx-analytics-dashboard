@@ -21,6 +21,9 @@
                 {% captureas all_sections_text %}
                   {% block select_first_level_all %}{% endblock %}
                 {% endcaptureas %}
+                {% captureas translated_all_sections_text %}
+                  {% blocktrans %}{{ all_sections_text }}{% endblocktrans %}
+                {% endcaptureas %}
                 {% captureas third_level %}
                   {% block third_level_name %}component{% endblock %}
                 {% endcaptureas %}
@@ -33,7 +36,7 @@
                 {% captureas report %}
                   {% block report_name %}{% endblock %}
                 {% endcaptureas %}
-              {% include "courses/_content_nav_menu.html" with levels=first_levels labelledby="firstLevelMenu" home_content_url=sections_home_url home_content_text=all_sections_text level_type="section" upper_level="" scope=scope lens=lens report=report %}
+              {% include "courses/_content_nav_menu.html" with levels=first_levels labelledby="firstLevelMenu" home_content_url=sections_home_url home_content_text=all_sections_text home_content_text_translated=translated_all_sections_text level_type="section" upper_level="" scope=scope lens=lens report=report %}
           </div>
         </li>
         {% if second_levels %}

@@ -104,7 +104,8 @@ define(function(require) {
                 _.findWhere(filterValues, {name: selectedFilterValue}).selected = true;
             }
             if (this.options.filterKey === 'ignore_segments') {
-                this.options.selectDisplayName = 'Hide Inactive Learners';
+                // Translators: inactive meaning that these learners have not interacted with the course recently.
+                this.options.selectDisplayName = gettext('Hide Inactive Learners');
             }
             if ('ignore_segments' in this.options.collection.getActiveFilterFields()) {
                 hideInactive = true;

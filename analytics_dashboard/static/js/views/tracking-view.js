@@ -137,18 +137,16 @@ define(['backbone', 'jquery', 'underscore', 'utils/utils'],
                     parts = ['scope', 'lens', 'report', 'depth'];
                 // collapse target scope, lens, report, and depth to a target_page dict
                 if ('target-scope' in properties) {
+                    properties.target_page = {};
                     parts.forEach(function(part) {
                         properties.target_page[part] = properties['target-' + part] || '';
                         if (part !== '' && part !== undefined) {
                             targetNameParts.push(part);
                         }
+                        delete properties['target-' + part];
                     });
                     properties.target_page.name = targetNameParts.join('_');
                 }
-                delete properties['target-scope'];
-                delete properties['target-lens'];
-                delete properties['target-report'];
-                delete properties['target-depth'];
 
                 // convert hyphens to underscores for menu_depth and link_name
                 if ('menu-depth' in properties) {

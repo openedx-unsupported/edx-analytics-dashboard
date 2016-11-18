@@ -171,7 +171,7 @@ class NavAssertMixin(object):
 
     def assertNavs(self, actual_navs, expected_navs, active_nav_label):
         for item in expected_navs:
-            if item['label'] == active_nav_label:
+            if item['text'] == active_nav_label:
                 item['active'] = True
                 item['href'] = '#'
             else:
@@ -227,7 +227,8 @@ class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
         expected = {
             'icon': 'fa-child',
             'href': reverse('courses:enrollment:activity', kwargs={'course_id': course_id}),
-            'label': _('Enrollment'),
+            'text': 'Enrollment',
+            'translated_text': _('Enrollment'),
             'name': 'enrollment',
             'fragment': '',
             'scope': 'course',
@@ -242,7 +243,8 @@ class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
         expected = [
             {
                 'name': 'activity',
-                'label': _('Activity'),
+                'text': 'Activity',
+                'translated_text': _('Activity'),
                 'href': reverse('courses:enrollment:activity', kwargs=reverse_kwargs),
                 'scope': 'course',
                 'lens': 'enrollment',
@@ -251,7 +253,8 @@ class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
             },
             {
                 'name': 'demographics',
-                'label': _('Demographics'),
+                'text': 'Demographics',
+                'translated_text': _('Demographics'),
                 'href': reverse('courses:enrollment:demographics_age', kwargs=reverse_kwargs),
                 'scope': 'course',
                 'lens': 'enrollment',
@@ -260,7 +263,8 @@ class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
             },
             {
                 'name': 'geography',
-                'label': _('Geography'),
+                'text': 'Geography',
+                'translated_text': _('Geography'),
                 'href': reverse('courses:enrollment:geography', kwargs=reverse_kwargs),
                 'scope': 'course',
                 'lens': 'enrollment',
@@ -297,7 +301,8 @@ class CourseEnrollmentDemographicsMixin(CourseEnrollmentViewTestMixin):
         expected = [
             {
                 'name': 'age',
-                'label': _('Age'),
+                'text': 'Age',
+                'translated_text': _('Age'),
                 'href': reverse('courses:enrollment:demographics_age', kwargs=reverse_kwargs),
                 'scope': 'course',
                 'lens': 'enrollment',
@@ -306,7 +311,8 @@ class CourseEnrollmentDemographicsMixin(CourseEnrollmentViewTestMixin):
             },
             {
                 'name': 'education',
-                'label': _('Education'),
+                'text': 'Education',
+                'translated_text': _('Education'),
                 'href': reverse('courses:enrollment:demographics_education', kwargs=reverse_kwargs),
                 'scope': 'course',
                 'lens': 'enrollment',
@@ -315,7 +321,8 @@ class CourseEnrollmentDemographicsMixin(CourseEnrollmentViewTestMixin):
             },
             {
                 'name': 'gender',
-                'label': _('Gender'),
+                'text': 'Gender',
+                'translated_text': _('Gender'),
                 'href': reverse('courses:enrollment:demographics_gender', kwargs=reverse_kwargs),
                 'scope': 'course',
                 'lens': 'enrollment',

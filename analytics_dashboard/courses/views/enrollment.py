@@ -2,8 +2,9 @@ import logging
 
 from django.contrib.humanize.templatetags.humanize import intcomma
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _, ugettext_noop
 from analyticsclient.exceptions import NotFoundError
+from core.utils import translate_dict_values
 
 from courses.presenters.enrollment import CourseEnrollmentPresenter, CourseEnrollmentDemographicsPresenter
 from courses.views import CourseTemplateWithNavView
@@ -19,7 +20,7 @@ class EnrollmentTemplateView(CourseTemplateWithNavView):
     secondary_nav_items = [
         {
             'name': 'activity',
-            'label': _('Activity'),
+            'text': ugettext_noop('Activity'),
             'view': 'courses:enrollment:activity',
             'scope': 'course',
             'lens': 'enrollment',
@@ -28,7 +29,7 @@ class EnrollmentTemplateView(CourseTemplateWithNavView):
         },
         {
             'name': 'demographics',
-            'label': _('Demographics'),
+            'text': ugettext_noop('Demographics'),
             'view': 'courses:enrollment:demographics_age',
             'scope': 'course',
             'lens': 'enrollment',
@@ -37,7 +38,7 @@ class EnrollmentTemplateView(CourseTemplateWithNavView):
         },
         {
             'name': 'geography',
-            'label': _('Geography'),
+            'text': ugettext_noop('Geography'),
             'view': 'courses:enrollment:geography',
             'scope': 'course',
             'lens': 'enrollment',
@@ -45,6 +46,7 @@ class EnrollmentTemplateView(CourseTemplateWithNavView):
             'depth': ''
         },
     ]
+    translate_dict_values(secondary_nav_items, ('text',))
     active_primary_nav_item = 'enrollment'
 
 
@@ -56,7 +58,7 @@ class EnrollmentDemographicsTemplateView(EnrollmentTemplateView):
     tertiary_nav_items = [
         {
             'name': 'age',
-            'label': _('Age'),
+            'text': ugettext_noop('Age'),
             'view': 'courses:enrollment:demographics_age',
             'scope': 'course',
             'lens': 'enrollment',
@@ -65,7 +67,7 @@ class EnrollmentDemographicsTemplateView(EnrollmentTemplateView):
         },
         {
             'name': 'education',
-            'label': _('Education'),
+            'text': ugettext_noop('Education'),
             'view': 'courses:enrollment:demographics_education',
             'scope': 'course',
             'lens': 'enrollment',
@@ -74,7 +76,7 @@ class EnrollmentDemographicsTemplateView(EnrollmentTemplateView):
         },
         {
             'name': 'gender',
-            'label': _('Gender'),
+            'text': ugettext_noop('Gender'),
             'view': 'courses:enrollment:demographics_gender',
             'scope': 'course',
             'lens': 'enrollment',
@@ -82,6 +84,7 @@ class EnrollmentDemographicsTemplateView(EnrollmentTemplateView):
             'depth': 'gender'
         }
     ]
+    translate_dict_values(tertiary_nav_items, ('text',))
 
     # Translators: Do not translate UTC.
     update_message = _('Demographic student data was last updated %(update_date)s at %(update_time)s UTC.')
