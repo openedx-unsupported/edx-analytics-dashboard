@@ -58,7 +58,7 @@
                         {% captureas tip_text %}
                             {# Translators: This text describes a bar chart displayed. #}
                             {% blocktrans trimmed %}
-                                This chart shows the most common answers submitted by students, ordered by frequency.
+                                This chart shows the most common answers submitted by learners, ordered by frequency.
                             {% endblocktrans %}
                         {% endcaptureas %}
                         {% include "chart_tooltip.html" with tip_text=tip_text track_category="bar" %}
@@ -114,7 +114,7 @@
                    data-track-event="edx.bi.csv.downloaded"
                    data-track-category="performance_answer_distribution">
                     <span class="ico fa fa-download" aria-hidden="true"></span> {% trans "Download CSV" %}
-                    <span class="sr-only">{% trans "Student Submission Counts" %}</span>
+                    <span class="sr-only">{% trans "Learner Submission Counts" %}</span>
                 </a>
             {% endif %}
         </div>

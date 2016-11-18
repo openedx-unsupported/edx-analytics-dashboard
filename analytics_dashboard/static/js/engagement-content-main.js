@@ -17,7 +17,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             },
             {
                 key: 'any',
-                title: gettext('Active Students'),
+                title: gettext('Active Learners'),
                 color: '#8DA0CB',
                 className: 'text-right',
                 type: 'number'
@@ -45,7 +45,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
             },
             {
                 key: 'active_percent',
-                title: gettext('Percent of Current Students'),
+                title: gettext('Percent of Current Learners'),
                 color: '#FFFFFF',
                 className: 'text-right',
                 type: 'percent'
@@ -78,7 +78,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                 key: 'weekEnding'
             },
             y: {
-                title: 'Students',
+                title: 'Learners',
                 key: 'count'
             },
             // Translators: <%=value%> will be replaced with a date.

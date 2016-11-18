@@ -123,7 +123,7 @@ class CourseEngagementActivityPresenter(BasePresenter):
             for key in self.get_activity_types():
                 if summary.get(key):
                     # Translators: '{percentage}' in as a placeholder for the percentage value.
-                    percent_str = _("{percentage} of current students")
+                    percent_str = _("{percentage} of current learners")
                     summary[key + '_percent_str'] = percent_str.format(
                         percentage=metric_percentage(summary[key] / float(summary_enrollment))
                     )

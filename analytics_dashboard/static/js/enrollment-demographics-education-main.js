@@ -29,7 +29,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                     modelAttribute: 'education',
                     columns: [
                         {key: 'educationLevel', title: gettext('Educational Background')},
-                        {key: 'count', title: gettext('Number of Students'), type: 'number', className: 'text-right'}
+                        {key: 'count', title: gettext('Number of Learners'), type: 'number', className: 'text-right'}
                     ],
                     sorting: ['-count']
                 });

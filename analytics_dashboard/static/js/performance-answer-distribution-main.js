@@ -56,7 +56,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                     }],
                     x: {key: answerField},
                     y: {key: 'count'},
-                    // Translators: <%=value%> will be replaced by a student response to a question asked in a course.
+                    // Translators: <%=value%> will be replaced by a learner response to a question asked in a course.
                     interactiveTooltipHeaderTemplate: _.template(gettext('Answer: <%=value%>'))
                 });
                 performanceAnswerChart.renderIfDataAvailable();

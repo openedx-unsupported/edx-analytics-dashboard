@@ -308,7 +308,7 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformancePageTestsMixin):
 
     def _test_heading_question(self):
         element = self.page.q(css='.section-heading')
-        self.assertEqual(element.text[0], u'How did students answer this problem?')
+        self.assertEqual(element.text[0], u'How did learners answer this problem?')
 
     def _test_problem_description(self):
         section_selector = '.module-description'
@@ -332,7 +332,7 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformancePageTestsMixin):
 
         container_selector = '.analytics-chart-container'
         element = self.page.q(css=container_selector + ' i')
-        expected_tooltip = 'This chart shows the most common answers submitted by students, ordered by frequency.'
+        expected_tooltip = 'This chart shows the most common answers submitted by learners, ordered by frequency.'
         self.assertEqual(element[0].get_attribute('data-original-title'), expected_tooltip)
 
     def _test_table(self):
