@@ -7,12 +7,16 @@
     {% url "courses:performance:learning_outcomes" course_id=course_id %}
 {% endblock %}
 
+{% block scope_name %}course{% endblock %}
+{% block lens_name %}performance{% endblock %}
+{% block report_name %}outcomes{% endblock %}
+
 {% block select_first_level %}
     {% trans "Select Outcome" %}
 {% endblock %}
 
 {% block select_first_level_all %}
-  {% trans "All Outcomes" %}
+  {% trans "All Outcomes" noop %}
 {% endblock %}
 
 {% block select_second_level %}

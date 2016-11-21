@@ -40,9 +40,14 @@ class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):  # pylint: disa
         expected = {
             'icon': 'fa-bar-chart',
             'href': reverse('courses:engagement:content', kwargs={'course_id': course_id}),
-            'label': _('Engagement'),
+            'text': 'Engagement',
+            'translated_text': _('Engagement'),
             'name': 'engagement',
-            'fragment': ''
+            'fragment': '',
+            'scope': 'course',
+            'lens': 'engagement',
+            'report': 'content',
+            'depth': ''
         }
         self.assertDictEqual(nav, expected)
 
@@ -53,13 +58,23 @@ class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):  # pylint: disa
                 'active': True,
                 'href': '#',
                 'name': 'content',
-                'label': _('Content'),
+                'text': 'Content',
+                'translated_text': _('Content'),
+                'scope': 'course',
+                'lens': 'engagement',
+                'report': 'content',
+                'depth': ''
             },
             {
                 'active': True,
                 'href': '#',
                 'name': 'videos',
-                'label': _('Videos'),
+                'text': 'Videos',
+                'translated_text': _('Videos'),
+                'scope': 'course',
+                'lens': 'engagement',
+                'report': 'videos',
+                'depth': ''
             },
         ]
 

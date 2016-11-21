@@ -19,7 +19,7 @@
         <div class="col col-12 sm-col-12">
             <div class="tertiary-nav">
                 <ul class="nav navbar-nav">
-                    {% include "submenu_navigation.html" with nav_items=tertiary_nav_items%}
+                    {% include "submenu_navigation.html" with nav_items=tertiary_nav_items depth="depth" %}
                 </ul>
                 <div class="section-heading">
                     <span class="section-heading-note small">{% trans "How old are my learners?" %}</span>

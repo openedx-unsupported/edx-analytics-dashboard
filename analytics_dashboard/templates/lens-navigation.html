@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load dashboard_extras %}
 {% comment %}
 Partial for displaying the lens navigation and the sections within the lenses.
 {% endcomment %}
@@ -9,8 +10,15 @@ Partial for displaying the lens navigation and the sections within the lenses.
     <div class="grid-container">
       <ul class="nav navbar-nav">
         <li>
-          {#  Translators: This refers to the homepage of a course. #}
-          <a href="{% url 'courses:home' course_id=course_id %}" class="course-label link-label">{% trans "Course Home" %}</a>
+          {% captureas course_home_url %}{% url 'courses:home' course_id=course_id %}{% endcaptureas %}
+          <a href="{{ course_home_url }}" class="course-label link-label"
+              data-track-type="click" data-track-event="edx.bi.ui.menu.navigated"
+              data-track-text="Course Home" data-track-url="{{ course_home_url }}"
+              data-track-target-scope="course" data-track-target-lens="home" data-track-menu-depth="home"
+              data-track-link-name="course_home">
+            {#  Translators: This refers to the homepage of a course. #}
+            {% trans "Course Home" %}
+          </a>
         </li>
         <li class="dropdown">
           <button class="dropdown-toggle navbar-link" data-toggle="dropdown" id="lensPrimaryMenu"
@@ -18,7 +26,7 @@ Partial for displaying the lens navigation and the sections within the lenses.
             <span class="link-label">
               <span class="sr-only">{% trans "Navigation Menu." %}</span>
               <span class="ico fa {{ primary_nav_item.icon }}" aria-hidden="true"></span>
-              {{ primary_nav_item.label }}
+              {{ primary_nav_item.translated_text }}
               {# Translators: This refers to the active tab/navigation item. #}
               <span class="sr-only">({% trans "Active" %})</span>
               <span class="ico ico-indicator fa fa-caret-down" aria-hidden="true"></span>
@@ -28,9 +36,15 @@ Partial for displaying the lens navigation and the sections within the lenses.
           <ul id="lensDropdownMenu" class="dropdown-menu" aria-labelledby="lensPrimaryMenu" tabindex="-1">
             {% for item in primary_nav_items %}
               <li>
-                <a href="{{ item.href }}{{ item.fragment }}">
+                {% captureas lens_url %}{{ item.href }}{{ item.fragment }}{% endcaptureas %}
+                <a href="{{ lens_url }}" data-track-type="click"
+                    data-track-event="edx.bi.ui.menu.navigated"
+                    data-track-text="{{ item.text }}" data-track-url="{{ lens_url }}"
+                    data-track-target-scope="{{ item.scope }}" data-track-target-lens="{{ item.lens }}"
+                    data-track-target-report="{{ item.report }}" data-track-target-depth="{{ item.depth }}"
+                    data-track-menu-depth="lens" data-track-link-name="{{ item.lens }}">
                   <span class="link-label">
-                    <span class="ico fa {{ item.icon }}" aria-hidden="true"></span> {{ item.label }}
+                    <span class="ico fa {{ item.icon }}" aria-hidden="true"></span> {{ item.translated_text }}
                   </span>
                 </a>
               </li>
@@ -38,7 +52,7 @@ Partial for displaying the lens navigation and the sections within the lenses.
           </ul>
         </li>
 
-        {% include "submenu_navigation.html" with nav_items=secondary_nav_items%}
+        {% include "submenu_navigation.html" with nav_items=secondary_nav_items lens=primary_nav_item.lens depth="report" %}
       </ul>
     </div>
   </nav>

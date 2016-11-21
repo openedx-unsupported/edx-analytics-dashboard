@@ -13,7 +13,7 @@ from django.core.urlresolvers import reverse
 from django.http import Http404
 from django.utils import dateformat
 from django.utils.functional import cached_property
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _, ugettext_noop
 from django.views.generic import TemplateView
 from edx_rest_api_client.exceptions import (HttpClientError, SlumberBaseException)
 from opaque_keys.edx.keys import CourseKey
@@ -24,12 +24,12 @@ from analyticsclient.client import Client
 from analyticsclient.exceptions import (ClientError, NotFoundError)
 
 from core.exceptions import ServiceUnavailableError
-from core.utils import CourseStructureApiClient, sanitize_cache_key
+from core.utils import CourseStructureApiClient, sanitize_cache_key, translate_dict_values
 
 from courses import permissions
 from courses.presenters.performance import CourseReportDownloadPresenter
 from courses.serializers import LazyEncoder
-from courses.utils import is_feature_enabled
+from courses.utils import is_feature_enabled, get_page_name
 
 from help.views import ContextSensitiveHelpMixin
 
@@ -131,10 +131,16 @@ class TrackedViewMixin(object):
     """
 
     # Page name used for usage tracking/analytics
-    page_name = None
+    page_name = {
+        'scope': '',
+        'lens': '',
+        'report': '',
+        'depth': '',
+    }
 
     def get_context_data(self, **kwargs):
         context = super(TrackedViewMixin, self).get_context_data(**kwargs)
+        self.page_name['name'] = get_page_name(self.page_name)
         context['js_data'] = context.get('js_data', {})
         context['js_data'].update({
             'tracking': {
@@ -284,36 +290,54 @@ class CourseNavBarMixin(object):
         items = [
             {
                 'name': 'enrollment',
-                'label': _('Enrollment'),
+                'text': ugettext_noop('Enrollment'),
                 'view': 'courses:enrollment:activity',
                 'icon': 'fa-child',
-                'fragment': ''
+                'fragment': '',
+                'scope': 'course',
+                'lens': 'enrollment',
+                'report': 'activity',
+                'depth': ''
             },
             {
                 'name': 'engagement',
-                'label': _('Engagement'),
+                'text': ugettext_noop('Engagement'),
                 'view': 'courses:engagement:content',
                 'icon': 'fa-bar-chart',
-                'fragment': ''
+                'fragment': '',
+                'scope': 'course',
+                'lens': 'engagement',
+                'report': 'content',
+                'depth': ''
             },
             {
                 'name': 'performance',
-                'label': _('Performance'),
+                'text': ugettext_noop('Performance'),
                 'view': 'courses:performance:graded_content',
                 'icon': 'fa-check-square-o',
                 'switch': 'enable_course_api',
-                'fragment': ''
+                'fragment': '',
+                'scope': 'course',
+                'lens': 'performance',
+                'report': 'graded',
+                'depth': ''
             },
             {
                 'name': 'learners',
-                'label': _('Learners'),
+                'text': ugettext_noop('Learners'),
                 'view': 'courses:learners:learners',
                 'icon': 'fa-users',
                 'flag': 'display_learner_analytics',
-                'fragment': '#?ignore_segments=inactive'
+                'fragment': '#?ignore_segments=inactive',
+                'scope': 'course',
+                'lens': 'learners',
+                'report': 'roster',
+                'depth': ''
             }
 
         ]
+
+        translate_dict_values(items, ('text',))
 
         # Remove disabled items
         items = [item for item in items if is_feature_enabled(item, request)]
@@ -431,7 +455,10 @@ class CourseTemplateView(ContextSensitiveHelpMixin, CourseContextMixin, CourseVi
     @property
     def help_token(self):
         # Rather than duplicate the definition, simply return the page name.
-        return self.page_name
+        page_name = get_page_name(self.page_name)
+        if not page_name:
+            page_name = 'default'
+        return page_name
 
     def get_last_updated_message(self, last_updated):
         if last_updated:
@@ -451,7 +478,12 @@ class CourseTemplateWithNavView(CourseNavBarMixin, CourseTemplateView):
 
 class CourseHome(CourseTemplateWithNavView):
     template_name = 'courses/home.html'
-    page_name = 'course_home'
+    page_name = {
+        'scope': 'course',
+        'lens': 'home',
+        'report': '',
+        'depth': ''
+    }
     page_title = _('Course Home')
 
     def get_table_items(self, request):
@@ -463,34 +495,54 @@ class CourseHome(CourseTemplateWithNavView):
             'heading': _('Who are my learners?'),
             'items': [
                 {
-                    'title': _('How many learners are in my course?'),
+                    'title': ugettext_noop('How many learners are in my course?'),
                     'view': 'courses:enrollment:activity',
                     'breadcrumbs': [_('Activity')],
-                    'fragment': ''
+                    'fragment': '',
+                    'scope': 'course',
+                    'lens': 'enrollment',
+                    'report': 'activity',
+                    'depth': ''
                 },
                 {
-                    'title': _('How old are my learners?'),
+                    'title': ugettext_noop('How old are my learners?'),
                     'view': 'courses:enrollment:demographics_age',
                     'breadcrumbs': [_('Demographics'), _('Age')],
-                    'fragment': ''
+                    'fragment': '',
+                    'scope': 'course',
+                    'lens': 'enrollment',
+                    'report': 'demographics',
+                    'depth': 'age'
                 },
                 {
-                    'title': _('What level of education do my learners have?'),
+                    'title': ugettext_noop('What level of education do my learners have?'),
                     'view': 'courses:enrollment:demographics_education',
                     'breadcrumbs': [_('Demographics'), _('Education')],
-                    'fragment': ''
+                    'fragment': '',
+                    'scope': 'course',
+                    'lens': 'enrollment',
+                    'report': 'demographics',
+                    'depth': 'education'
                 },
                 {
-                    'title': _('What is the learner gender breakdown?'),
+                    'title': ugettext_noop('What is the learner gender breakdown?'),
                     'view': 'courses:enrollment:demographics_gender',
                     'breadcrumbs': [_('Demographics'), _('Gender')],
-                    'fragment': ''
+                    'fragment': '',
+                    'scope': 'course',
+                    'lens': 'enrollment',
+                    'report': 'demographics',
+                    'depth': 'gender'
                 },
                 {
-                    'title': _('Where are my learners?'),
+                    'title': ugettext_noop('Where are my learners?'),
                     'view': 'courses:enrollment:geography',
                     'breadcrumbs': [_('Geography')],
-                    'fragment': ''
+                    'fragment': '',
+                    'scope': 'course',
+                    'lens': 'enrollment',
+                    'report': 'geography',
+                    'depth': ''
                 },
             ],
         }
@@ -502,42 +554,62 @@ class CourseHome(CourseTemplateWithNavView):
             'heading': _('What are learners doing in my course?'),
             'items': [
                 {
-                    'title': _('How many learners are interacting with my course?'),
+                    'title': ugettext_noop('How many learners are interacting with my course?'),
                     'view': 'courses:engagement:content',
                     'breadcrumbs': [_('Content')],
-                    'fragment': ''
+                    'fragment': '',
+                    'scope': 'course',
+                    'lens': 'engagement',
+                    'report': 'content',
+                    'depth': ''
                 }
             ]
         }
         if switch_is_active('enable_engagement_videos_pages'):
             engagement_items['items'].append({
-                'title': _('How did learners interact with course videos?'),
+                'title': ugettext_noop('How did learners interact with course videos?'),
                 'view': 'courses:engagement:videos',
                 'breadcrumbs': [_('Videos')],
-                'fragment': ''
+                'fragment': '',
+                'scope': 'course',
+                'lens': 'engagement',
+                'report': 'videos',
+                'depth': ''
             })
 
         items.append(engagement_items)
 
         if self.course_api_enabled:
             subitems = [{
-                'title': _('How are learners doing on graded course assignments?'),
+                'title': ugettext_noop('How are learners doing on graded course assignments?'),
                 'view': 'courses:performance:graded_content',
                 'breadcrumbs': [_('Graded Content')],
-                'fragment': ''
+                'fragment': '',
+                'scope': 'course',
+                'lens': 'performance',
+                'report': 'graded',
+                'depth': ''
             }, {
-                'title': _('How are learners doing on ungraded exercises?'),
+                'title': ugettext_noop('How are learners doing on ungraded exercises?'),
                 'view': 'courses:performance:ungraded_content',
                 'breadcrumbs': [_('Ungraded Problems')],
-                'fragment': ''
+                'fragment': '',
+                'scope': 'course',
+                'lens': 'performance',
+                'report': 'ungraded',
+                'depth': ''
             }]
 
             if switch_is_active('enable_performance_learning_outcome'):
                 subitems.append({
-                    'title': _('What is the breakdown for course learning outcomes?'),
+                    'title': ugettext_noop('What is the breakdown for course learning outcomes?'),
                     'view': 'courses:performance:learning_outcomes',
                     'breadcrumbs': [_('Learning Outcomes')],
-                    'fragment': ''
+                    'fragment': '',
+                    'scope': 'course',
+                    'lens': 'performance',
+                    'report': 'outcomes',
+                    'depth': ''
                 })
 
             if switch_is_active('enable_problem_response_download'):
@@ -550,7 +622,7 @@ class CourseHome(CourseTemplateWithNavView):
                 if 'download_url' in info:
                     # A problem response report CSV is available:
                     subitems.append({
-                        'title': _('How are learners responding to questions?'),
+                        'title': ugettext_noop('How are learners responding to questions?'),
                         'view': 'courses:csv:performance_problem_responses',
                         'breadcrumbs': [_('Problem Response Report')],
                         'format': 'csv',
@@ -570,10 +642,14 @@ class CourseHome(CourseTemplateWithNavView):
                 'heading': _('What are individual learners doing?'),
                 'items': [
                     {
-                        'title': _("Who is engaged? Who isn't?"),
+                        'title': ugettext_noop("Who is engaged? Who isn't?"),
                         'view': 'courses:learners:learners',
                         'breadcrumbs': [_('All Learners')],
-                        'fragment': '#?ignore_segments=inactive'
+                        'fragment': '#?ignore_segments=inactive',
+                        'scope': 'course',
+                        'lens': 'learners',
+                        'report': 'roster',
+                        'depth': ''
                     },
                     # TODO: this is commented out until we complete the deep linking work, AN-6671
                     # {
@@ -596,6 +672,10 @@ class CourseHome(CourseTemplateWithNavView):
                     # }
                 ]
             })
+
+        translate_dict_values(items, ('name',))
+        for item in items:
+            translate_dict_values(item['items'], ('title',))
 
         return items
 
@@ -647,21 +727,24 @@ class CourseHome(CourseTemplateWithNavView):
 
         if settings.LMS_COURSE_SHORTCUT_BASE_URL:
             external_tools.append({
-                'title': _('Instructor Dashboard'),
+                'title': ugettext_noop('Instructor Dashboard'),
                 'url': "{}/{}/instructor".format(settings.LMS_COURSE_SHORTCUT_BASE_URL, self.course_id),
                 'icon': 'fa-dashboard',
             })
             external_tools.append({
-                'title': _('Courseware'),
+                'title': ugettext_noop('Courseware'),
                 'url': "{}/{}/courseware".format(settings.LMS_COURSE_SHORTCUT_BASE_URL, self.course_id),
                 'icon': 'fa-pencil-square-o',
             })
         if settings.CMS_COURSE_SHORTCUT_BASE_URL:
             external_tools.append({
-                'title': 'Studio',  # As a brand name, "Studio" is not translated.
+                'title': 'Studio',
+                'translated_title': 'Studio',  # As a brand name, "Studio" is not translated.
                 'url': "{}/{}".format(settings.CMS_COURSE_SHORTCUT_BASE_URL, self.course_id),
                 'icon': 'fa-sliders',
             })
+
+        translate_dict_values(external_tools, ('title',))
         context['external_course_tools'] = external_tools
 
         return context
@@ -669,7 +752,12 @@ class CourseHome(CourseTemplateWithNavView):
 
 class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LazyEncoderMixin, TemplateView):
     template_name = 'courses/index.html'
-    page_name = 'course_index'
+    page_name = {
+        'scope': 'insights',
+        'lens': 'home',
+        'report': '',
+        'depth': ''
+    }
 
     def get_context_data(self, **kwargs):
         context = super(CourseIndex, self).get_context_data(**kwargs)

@@ -171,7 +171,7 @@ class NavAssertMixin(object):
 
     def assertNavs(self, actual_navs, expected_navs, active_nav_label):
         for item in expected_navs:
-            if item['label'] == active_nav_label:
+            if item['text'] == active_nav_label:
                 item['active'] = True
                 item['href'] = '#'
             else:
@@ -227,21 +227,50 @@ class CourseEnrollmentViewTestMixin(CourseViewTestMixin):
         expected = {
             'icon': 'fa-child',
             'href': reverse('courses:enrollment:activity', kwargs={'course_id': course_id}),
-            'label': _('Enrollment'),
+            'text': 'Enrollment',
+            'translated_text': _('Enrollment'),
             'name': 'enrollment',
-            'fragment': ''
+            'fragment': '',
+            'scope': 'course',
+            'lens': 'enrollment',
+            'report': 'activity',
+            'depth': ''
         }
         self.assertDictEqual(nav, expected)
 
     def assertSecondaryNavs(self, nav, course_id):
         reverse_kwargs = {'course_id': course_id}
         expected = [
-            {'name': 'activity', 'label': _('Activity'),
-             'href': reverse('courses:enrollment:activity', kwargs=reverse_kwargs)},
-            {'name': 'demographics', 'label': _('Demographics'),
-             'href': reverse('courses:enrollment:demographics_age', kwargs=reverse_kwargs)},
-            {'name': 'geography', 'label': _('Geography'),
-             'href': reverse('courses:enrollment:geography', kwargs=reverse_kwargs)}
+            {
+                'name': 'activity',
+                'text': 'Activity',
+                'translated_text': _('Activity'),
+                'href': reverse('courses:enrollment:activity', kwargs=reverse_kwargs),
+                'scope': 'course',
+                'lens': 'enrollment',
+                'report': 'activity',
+                'depth': ''
+            },
+            {
+                'name': 'demographics',
+                'text': 'Demographics',
+                'translated_text': _('Demographics'),
+                'href': reverse('courses:enrollment:demographics_age', kwargs=reverse_kwargs),
+                'scope': 'course',
+                'lens': 'enrollment',
+                'report': 'demographics',
+                'depth': 'age'
+            },
+            {
+                'name': 'geography',
+                'text': 'Geography',
+                'translated_text': _('Geography'),
+                'href': reverse('courses:enrollment:geography', kwargs=reverse_kwargs),
+                'scope': 'course',
+                'lens': 'enrollment',
+                'report': 'geography',
+                'depth': ''
+            }
         ]
 
         self.assertNavs(nav, expected, self.active_secondary_nav_label)
@@ -270,12 +299,36 @@ class CourseEnrollmentDemographicsMixin(CourseEnrollmentViewTestMixin):
     def assertTertiaryNavs(self, nav, course_id):
         reverse_kwargs = {'course_id': course_id}
         expected = [
-            {'name': 'age', 'label': _('Age'),
-             'href': reverse('courses:enrollment:demographics_age', kwargs=reverse_kwargs)},
-            {'name': 'education', 'label': _('Education'),
-             'href': reverse('courses:enrollment:demographics_education', kwargs=reverse_kwargs)},
-            {'name': 'gender', 'label': _('Gender'),
-             'href': reverse('courses:enrollment:demographics_gender', kwargs=reverse_kwargs)}
+            {
+                'name': 'age',
+                'text': 'Age',
+                'translated_text': _('Age'),
+                'href': reverse('courses:enrollment:demographics_age', kwargs=reverse_kwargs),
+                'scope': 'course',
+                'lens': 'enrollment',
+                'report': 'demographics',
+                'depth': 'age'
+            },
+            {
+                'name': 'education',
+                'text': 'Education',
+                'translated_text': _('Education'),
+                'href': reverse('courses:enrollment:demographics_education', kwargs=reverse_kwargs),
+                'scope': 'course',
+                'lens': 'enrollment',
+                'report': 'demographics',
+                'depth': 'education'
+            },
+            {
+                'name': 'gender',
+                'text': 'Gender',
+                'translated_text': _('Gender'),
+                'href': reverse('courses:enrollment:demographics_gender', kwargs=reverse_kwargs),
+                'scope': 'course',
+                'lens': 'enrollment',
+                'report': 'demographics',
+                'depth': 'gender'
+            }
         ]
         self.assertNavs(nav, expected, self.active_tertiary_nav_label)
 
