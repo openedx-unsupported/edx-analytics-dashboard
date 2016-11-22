@@ -15,15 +15,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-04 11:13-0400\n"
-"PO-Revision-Date: 2016-09-28 12:15+0000\n"
-"Last-Translator: qualityalltext <quality@alltext.co.il>\n"
+"POT-Creation-Date: 2016-11-22 10:20-0500\n"
+"PO-Revision-Date: 2016-11-22 15:21+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Hebrew (http://www.transifex.com/open-edx/edx-platform/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: core/templates/core/landing.html templates/_skip_link.html
+msgid "Skip to content"
+msgstr ""
 
 #: core/templates/core/landing.html
 msgid "Login"
@@ -34,12 +38,12 @@ msgid "Insights to help course teams improve courses."
 msgstr "תובנות המסייעות לצוות הקורס לשפר את הקורסים."
 
 #: core/templates/core/landing.html
-msgid "Who are my students?"
-msgstr "מי הם הסטודנטים שלי?"
+msgid "Who are my learners?"
+msgstr "מי הם הלומדים שלי?"
 
 #: core/templates/core/landing.html
-msgid "Target your course to fit the backgrounds of your students."
-msgstr "התאם את הקורס כך שיתאים לרקע הסטודנטים שלך."
+msgid "Target your course to fit the backgrounds of your learners."
+msgstr "התאם את הקורס לרקע הלומדים שלך."
 
 #: core/templates/core/landing.html
 #: courses/templates/courses/enrollment_geography.html
@@ -47,28 +51,26 @@ msgid "Enrollment"
 msgstr "רישום"
 
 #: core/templates/core/landing.html
-msgid "What are students engaging with in my course?"
-msgstr "במה מעורבים הסטודנטים בקורס שלי?"
+msgid "What are learners engaging with in my course?"
+msgstr "במה פעילים הלומדים שלי בקורס?"
 
 #: core/templates/core/landing.html
 msgid ""
-"Improve frequently accessed content, or point students at underused "
+"Improve frequently accessed content, or point learners at underused "
 "resources."
-msgstr ""
-"שפר תוכן שניגשים אליו בתדירות גבוהה או כוון סטודנטים למשאבים שנעשה בהם שימוש"
-" מופחת. "
+msgstr "שפר לעתים קרובות גישה לתוכן או הפנה לומדים למקורות שאינם נפוצים."
 
 #: core/templates/core/landing.html
 msgid "Engagement"
 msgstr "מעורבות"
 
 #: core/templates/core/landing.html
-msgid "How well is my content supporting student learning?"
-msgstr "באיזו מידה תומך התוכן שלי בלמידה של הסטודנטים?"
+msgid "How well is my content supporting learners?"
+msgstr "כיצד התוכן שלי תומך בלומדים?"
 
 #: core/templates/core/landing.html
-msgid "Adjust your course based on where students are struggling."
-msgstr "התאם את הקורס שלך בהתאם לקשיי הסטודנטים."
+msgid "Adjust your course based on where learners are struggling."
+msgstr "התאם את הקורס שלך במקומות שבהם מתקשים הלומדים."
 
 #: core/templates/core/landing.html
 msgid "Performance"
@@ -107,6 +109,10 @@ msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
 msgstr ""
 "%(link_start)sמרכז התמיכה שלנו%(link_end)s  יכול לסייע לך באיתור פתרונות."
+
+#: courses/templates/courses/_base_content_nav.html
+msgid "%(all_sections_text)s"
+msgstr ""
 
 #: courses/templates/courses/_graded_content_nav.html
 msgid "Select Assignment Type"
@@ -178,11 +184,9 @@ msgstr "סרטון וידאו הבא"
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid ""
-"This chart shows the most common answers submitted by students, ordered by "
+"This chart shows the most common answers submitted by learners, ordered by "
 "frequency."
-msgstr ""
-"טבלה זו מציגה את התשובות הנפוצות ביותר שהגישו הסטודנטים, על פי תדירות "
-"ההופעה."
+msgstr "טבלה זו מראה את שכיחות תשובות הנפוצות שהוגשו בידי הלומדים."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -218,57 +222,56 @@ msgid "Download CSV"
 msgstr "הורד CSV"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
-msgid "Student Submission Counts"
-msgstr "ספירת הגשות סטודנטים"
+msgid "Learner Submission Counts"
+msgstr "מספר הגשות לומדים"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
-msgid "Students (Self-Reported)"
-msgstr "סטודנטים (דיווח עצמי)"
+msgid "Learners (Self-Reported)"
+msgstr "לומדים (דיווח עצמי)"
 
 #: courses/templates/courses/engagement_content.html
-msgid "Weekly Student Engagement"
-msgstr "מעורבות שבועית של סטודנטים"
+msgid "Weekly Learner Engagement"
+msgstr "פעילות שבועית של לומדים"
 
 #: courses/templates/courses/engagement_content.html
-msgid "How many students are interacting with my course?"
-msgstr "כמה סטודנטים נמצאים באינטרקציה עם הקורס שלי?"
+msgid "How many learners are interacting with my course?"
+msgstr "כמה לומדים נמצאים בפעילות אינטראקטיבית בקורס שלי?"
 
 #: courses/templates/courses/engagement_content.html
-msgid "Students"
-msgstr "סטודנטים"
+msgid "Learners"
+msgstr "לומדים"
 
 #: courses/templates/courses/engagement_content.html
 msgid ""
-"The number of active students, and the number of students who engaged in "
+"The number of active learners, and the number of learners who engaged in "
 "specific activities, over time."
 msgstr ""
-"מספר הסטודנטים הפעילים ומספר הסטודנטים שהפגינו מעורבות במשימות מסוימות, "
-"לאורך ציר הזמן."
+"מספר הלומדים הפעילים ומספר הלומדים הנמצאים בפעילויות מסוימות לאורך זמן."
 
 #: courses/templates/courses/engagement_content.html
-msgid "Student Activity Metrics"
-msgstr "מדדי פעילות סטודנטים"
+msgid "Learner Activity Metrics"
+msgstr "מדדים לפעילות לומד"
 
 #: courses/templates/courses/engagement_content.html
-msgid "Active Students Last Week"
-msgstr "סטודנטים פעילים בשבוע שעבר"
+msgid "Active Learners Last Week"
+msgstr "לומדים פעילים בשבוע שעבר"
 
 #: courses/templates/courses/engagement_content.html
-msgid "Students who visited at least one page in the course content."
-msgstr "סטודנטים שביקרו לפחות בעמוד תוכן אחד בקורס. "
+msgid "Learners who visited at least one page in the course content."
+msgstr "לומדים שביקרו לפחות בעמוד אחד בתוכן הקורס."
 
-#. Translators: This is a label indicating the number of students who watched
+#. Translators: This is a label indicating the number of learners who watched
 #. a video.
 #: courses/templates/courses/engagement_content.html
 msgid "Watched a Video Last Week"
 msgstr "צפו בסרטון וידאו בשבוע שעבר"
 
 #: courses/templates/courses/engagement_content.html
-msgid "Students who played one or more videos."
-msgstr "סטודנטים שצפו בסרטון וידאו אחד או יותר."
+msgid "Learners who played one or more videos."
+msgstr "לומדים שצפו בסרטון וידאו אחד או יותר."
 
-#. Translators: This is a label indicating the number of students who tried a
+#. Translators: This is a label indicating the number of learners who tried a
 #. problem.
 #: courses/templates/courses/engagement_content.html
 msgid "Tried a Problem Last Week"
@@ -276,19 +279,20 @@ msgstr "ניסו לפתור בעיה בשבוע שעבר"
 
 #: courses/templates/courses/engagement_content.html
 msgid ""
-"Students who submitted an answer for a standard problem. Not all problem "
+"Learners who submitted an answer for a standard problem. Not all problem "
 "types are included."
-msgstr "סטודנטים שהגישו תשובה לבעיה רגילה. לא כל סוגי הבעיות כלולים."
+msgstr "לומדים שהגישו תשובה לבעיה סטנדרטית. לא כל סוגי הבעיות כלולות."
 
-#. Translators: This is a label indicating the number of students who posted
+#. Translators: This is a label indicating the number of learners who posted
 #. in a forum discussion.
 #: courses/templates/courses/engagement_content.html
-msgid "Posted in a Discussion Last Week"
-msgstr "כתבו בפורום הדיונים בשבוע שעבר"
+msgid "Participated in Discussions Last Week"
+msgstr "השתתף בדיונים בשבוע שעבר"
 
 #: courses/templates/courses/engagement_content.html
-msgid "Students who contributed to any discussion topic."
-msgstr "סטודנטים שתרמו לנושאי דיון בפורומים."
+msgid ""
+"Learners who added a post, response, or comment to any course discussion."
+msgstr "לומדים שהוסיפו פוסט, תגובה או הערה לדיון קורס כלשהו."
 
 #: courses/templates/courses/engagement_content.html
 #: courses/templates/courses/engagement_content.html
@@ -303,8 +307,8 @@ msgid "Video Views"
 msgstr "צפיות בסרטון וידאו"
 
 #: courses/templates/courses/engagement_video_by_section.html
-msgid "How did students interact with videos in this section?"
-msgstr "כיצד יוכלו הסטודנטים ליצור אינטראקציה בעזרת סרטוני הווידאו בפרק זה?"
+msgid "How did learners interact with videos in this section?"
+msgstr "כיצד ביצעו הלומדים אינטראקציה עם סרטוני הווידאו בפרק זה?"
 
 #: courses/templates/courses/engagement_video_by_section.html
 msgid ""
@@ -317,20 +321,20 @@ msgstr ""
 "הגבוה על מנת להתעמק בעניין ולהבין מדוע."
 
 #: courses/templates/courses/engagement_video_by_subsection.html
-msgid "How did students interact with videos in this subsection?"
-msgstr "כיצד הסטודנטים מגיבים לסרטוני וידאו שבתת פרק זה?"
+msgid "How did learners interact with videos in this subsection?"
+msgstr "כיצד ביצעו הלומדים אינטראקציה עם סרטוני הווידאו בתת פרק זה?"
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
-"Click to understand where students drop off and which parts they replay."
+"Click to understand where learners drop off and which parts they replay."
 msgstr ""
-"כל עמודה מציגה את מספר הצפיות השלמות והחלקיות עבור סרטון וידאו זה. לחצו על "
-"מנת להבין היכן הסטודנטים הפסיקו לראות ובאילו חלקים הם צפו שוב."
+"כל עמודה מראה את מספר הצפיות המלאות והחלקיות של סרטון וידאו זה. לחץ על מנת "
+"לדעת היכן הפסיקו הלומדים ועל איזה מקטעים חזרו עליהם."
 
 #: courses/templates/courses/engagement_video_course.html
-msgid "How did students interact with course videos?"
-msgstr "כיצד הגיבו הסטודנטים לסרטוני הווידאו של הקורס?"
+msgid "How did learners interact with course videos?"
+msgstr "כיצד ביצעו הלומדים אינטראקציה עם סרטוני הקורס?"
 
 #: courses/templates/courses/engagement_video_course.html
 msgid ""
@@ -353,10 +357,10 @@ msgstr "מה היו דפוסי הצפייה בסרטון וידאו זה?"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid ""
-"The number of students who watched each segment of the video, and the number"
+"The number of learners who watched each segment of the video, and the number"
 " of replays for each segment."
 msgstr ""
-"מספר הסטודנטים שצפו בכל קטע של הסרטון ומספר ההקרנות החוזרות של כל קטע."
+"מספר הלומדים שצפו בכל מקטע של סרטון הווידאו ומספר הניגונים החוזרים לכל מקטע."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Collapse Preview"
@@ -375,36 +379,36 @@ msgid "Completion Rate"
 msgstr "קצב השלמה"
 
 #: courses/templates/courses/engagement_video_timeline.html
-msgid "Estimated percentage of students who watched the entire video."
-msgstr "אחוז מוערך של סטודנטים שצפו בסרטון הווידאו כולו."
+msgid "Estimated percentage of learners who watched the entire video."
+msgstr "אחוז מוערך של לומדים שצפו בסרטון הווידאו במלואו."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Started Video"
 msgstr "סרטון הווידאו התחיל"
 
 #: courses/templates/courses/engagement_video_timeline.html
-msgid "Students who started watching the video."
-msgstr "סטודנטים שהחלו לצפות בסרטון הווידאו."
+msgid "Learners who started watching the video."
+msgstr "לומדים שהחלו לצפות בסרטון וידאו."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Finished Video"
 msgstr "סרטון הווידאו הסתיים"
 
 #: courses/templates/courses/engagement_video_timeline.html
-msgid "Students who watched the video to the end."
-msgstr "סטודנטים שצפו בסרטון הווידאו עד סופו."
+msgid "Learners who watched the video to the end."
+msgstr "לומדים שצפו בסרטון הווידאו עד סופו."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Video Viewing Over Time"
 msgstr "צפייה בסרטון הווידאו לאורך ציר הזמן"
 
 #: courses/templates/courses/enrollment_activity.html
-msgid "Daily Student Enrollment"
-msgstr "רישום סטודנטים יומי"
+msgid "Daily Learner Enrollment"
+msgstr "הרשמה יומית של לומדים"
 
 #: courses/templates/courses/enrollment_activity.html
-msgid "How many students are in my course?"
-msgstr "כמה סטודנטים יש בקורס שלי?"
+msgid "How many learners are in my course?"
+msgstr "מה מספר הלומדים בקורס שלי?"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollments"
@@ -422,30 +426,30 @@ msgstr ""
 msgid "Enrollment Metrics"
 msgstr "מדדי הרשמה"
 
-#. Translators: This is a label to identify the number of students who ever
+#. Translators: This is a label to identify the number of learners who ever
 #. enrolled in the course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Total Enrollment"
 msgstr "סה\"כ הרשמה"
 
-#. Translators: This is a label indicating the number of students in a course.
+#. Translators: This is a label indicating the number of learners in a course.
 #: courses/templates/courses/enrollment_activity.html
-msgid "Students who ever enrolled in the course."
-msgstr "סטודנטים שנרשמו אי פעם לקורס זה."
+msgid "Learners who ever enrolled in the course."
+msgstr "לומדים שנרשמו אי פעם לקורס."
 
-#. Translators: This is a label to identify current student enrollment.
+#. Translators: This is a label to identify current learner enrollment.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Current Enrollment"
 msgstr "הרשמה נוכחית"
 
-#. Translators: This is a label indicating the number of students enrolled in
+#. Translators: This is a label indicating the number of learners enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
-msgid "Students currently enrolled in the course."
-msgstr "סטודנטים הרשומים כרגע לקורס."
+msgid "Learners currently enrolled in the course."
+msgstr "לומדים הרשומים כעת בקורס."
 
 #. Translators: This is a label indicating the change in the number of
-#. students enrolled in a course since the previous week.
+#. learners enrolled in a course since the previous week.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Change in Last Week"
 msgstr "שינוי בשבוע האחרון"
@@ -454,19 +458,19 @@ msgstr "שינוי בשבוע האחרון"
 msgid "Net difference in current enrollment in the last week."
 msgstr "הבדל נטו בהרשמה הנוכחית בשבוע האחרון."
 
-#. Translators: This is a label to identify enrollment of students on the
+#. Translators: This is a label to identify enrollment of learners on the
 #. verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Verified Enrollment"
 msgstr "הרשמות למסלול מאומת"
 
-#. Translators: This is a label indicating the number of students enrolled in
+#. Translators: This is a label indicating the number of learners enrolled in
 #. a course on the verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
-"Number of currently enrolled students pursuing a verified certificate of "
+"Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
-msgstr "מספר הסטודנטים הרשומים כרגע במסלול תעודת הישגים מאומתת."
+msgstr "מספר הלומדים הרשומים כעת והמעוניינים בתעודה מאומתת על הישגיהם."
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html
@@ -477,8 +481,8 @@ msgid "Enrollment Over Time"
 msgstr "הרשמות לאורך ציר הזמן"
 
 #: courses/templates/courses/enrollment_demographics_age.html
-msgid "How old are my students?"
-msgstr "מה גילם של הסטודנטים שלי?"
+msgid "How old are my learners?"
+msgstr "מה גילם של הלומדים שלי?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -486,142 +490,141 @@ msgstr "מה גילם של הסטודנטים שלי?"
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
-"students who provided a year of birth."
+"learners who provided a year of birth."
 msgstr ""
-"היסטוגרמת גיל זו מציגה מידע שמחושב מה%(value)s%% של סטודנטים רשומים שציינו "
-"שנת לידה."
+"היסטוגרמת הגיל המציגה נתונים מחושבת על פי  %(value)s%%  הלומדים הנרשמים "
+"שציינו שנת לידה."
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Metrics"
 msgstr "מדדי גיל"
 
 #. Translators: This is a label to identify the median age of enrolled
-#. students.
+#. learners.
 #: courses/templates/courses/enrollment_demographics_age.html
-msgid "Median Student Age"
-msgstr "גיל סטודנט חציוני"
+msgid "Median Learner Age"
+msgstr "הגיל הממוצע של הלומדים"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
-"The midpoint of the student ages, computed from the provided year of birth."
-msgstr "גיל ממוצע של הסטודנטים, מחושב מתוך שנת הלידה שצויינה."
+"The midpoint of the learner ages, computed from the provided year of birth."
+msgstr "ממוצע גיל הלומדים המחושב משנת הלידה שצוינה."
 
-#. Translators: This is a label to identify the number of students in the age
+#. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
-msgid "Students 25 and Under"
-msgstr "סטודנטים בגילאי 25 ומטה"
+msgid "Learners 25 and Under"
+msgstr "לומדים בני 25 ומטה"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
-"The percentage of students aged 25 years or younger (of those who provided a"
+"The percentage of learners aged 25 years or younger (of those who provided a"
 " year of birth)."
-msgstr "אחוז הסטודנטים בגילאי 25 ומטה (מתוך אלו שציינו את שנת הלידה)."
+msgstr "אחוז הלומדים בני 25 ומטה (מבין אלה שציינו שנת לידה)."
 
-#. Translators: This is a label to identify the number of students in the age
+#. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
-msgid "Students 26 to 40"
-msgstr "סטודנטים בגילאי 26 עד 40."
+msgid "Learners 26 to 40"
+msgstr "לומדים בני 26 עד 40"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
-"The percentage of students aged from 26 to 40 years (of those who provided a"
+"The percentage of learners aged from 26 to 40 years (of those who provided a"
 " year of birth)."
-msgstr "אחוז הסטודנטים בגילאי 26 עד 40 (מתוך אלו שציינו את שנת הלידה). "
+msgstr "אחוז הלומדים בני גיל 26 עד 40 (מבין אלה שציינו שנת לידה)."
 
-#. Translators: This is a label to identify the number of students in the age
+#. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
-msgid "Students 41 and Over"
-msgstr "סטודנטים בגילאי 41 ומעלה"
+msgid "Learners 41 and Over"
+msgstr "לומדים בני 41 ומעלה"
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
-"The percentage of students aged 41 years or older (of those who provided a "
+"The percentage of learners aged 41 years or older (of those who provided a "
 "year of birth)."
-msgstr "אחוז הסטודנטים בגילאי 41 ומעלה (מתוך אלו שציינו שנת לידה)"
+msgstr "אחוז הלומדים בני 41 ומעלה (מבין אלה שציינו שנת לידה)."
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Breakdown"
 msgstr "התפלגות גילאים"
 
 #: courses/templates/courses/enrollment_demographics_education.html
-msgid "What level of education do my students have?"
-msgstr "מהי רמת ההשכלה של הסטודנטים שלי?"
+msgid "What level of education do my learners have?"
+msgstr "מהי רמת ההשכלה של הלומדים שלי?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
 #. language.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
-"This graph presents data for the %(value)s%% of enrolled students who "
+"This graph presents data for the %(value)s%% of enrolled learners who "
 "provided a highest level of education completed."
 msgstr ""
-"גרף זה מייצג את הנתונים עבור %(value)s%% מהסטודנטים הרשומים שציינו את רמת "
-"ההשכלה הגבוהה ביותר אותה השלימו."
+"גרף זה מציג נתונים ל- %(value)s%%  הלומדים הנרשמים שציינו את רמת ההשכלה "
+"הגבוהה שהשיגו."
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Education Metrics"
 msgstr "מדדי השכלה"
 
-#. Translators: This is a label to identify student educational background.
+#. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "High School Diploma or Less"
 msgstr "תעודת גמר תיכון ומטה"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
-"The percentage of students who selected Secondary/high school, Junior "
+"The percentage of learners who selected Secondary/high school, Junior "
 "secondary/junior high/middle school, or Elementary/primary school as their "
 "highest level of education completed."
 msgstr ""
-"אחוז הסטודנטים שבחר תיכון, חטיבת ביניים או יסודי כרמת ההשכלה הגבוהה ביותר "
-"שהשלימו. "
+"אחוז הלומדים שבחרו בית ספר יסודי/חטיבת ביניים/תיכון כרמה הגבוהה ביותר של  "
+"השכלה נרכשת."
 
-#. Translators: This is a label to identify student educational background.
+#. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "College Degree"
 msgstr "תואר אקדמי"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
-"The percentage of students who selected Bachelor's degree or Associate "
+"The percentage of learners who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
 msgstr ""
-"אחוז הסטודנטים שבחרו תואר ראשון או תואר הנדסאי כרמת ההשכלה הגבוהה ביותר "
-"שהשלימו."
+"אחוז הלומדים שבחרו תואר ראשון או תואר מקביל כרמה הגבוהה ביותר של השכלה "
+"נרכשת."
 
-#. Translators: This is a label to identify student educational background.
+#. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Advanced Degree"
 msgstr "תואר מתקדם"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
-"The percentage of students who selected Doctorate or Master's or "
+"The percentage of learners who selected Doctorate or Master's or "
 "professional degree as their highest level of education completed."
 msgstr ""
-"אחוז הסטודנטים שבחרו דוקטורט, תואר שני או תואר מקצועי כרמת ההשכלה הגבוהה "
-"ביותר שהשלימו."
+"אחוז הלומדים שבחרו תואר דוקטור, תואר שני או תואר מקצועי כרמה הגבוהה ביותר של"
+" השכלה נרכשת."
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Educational Breakdown"
 msgstr "התפלגות ההשכלה"
 
 #: courses/templates/courses/enrollment_demographics_gender.html
-msgid "What is the student gender breakdown?"
-msgstr "מהי ההתפלגות המגדרית של הסטודנטים?"
+msgid "What is the learner gender breakdown?"
+msgstr "מהו מגדר הלומד?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
 #. language.
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid ""
-"This graph presents data for the %(value)s%% of enrolled students who "
+"This graph presents data for the %(value)s%% of enrolled learners who "
 "specified their gender."
-msgstr ""
-"גרף זה מציג מידע עבור ה %(value)s%% של סטודנטים רשומים שפירטו את מגדרם."
+msgstr "גרף זה מציין נתונים על %(value)s%% הלומדים הנרשמים שציינו את מגדרם."
 
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "Gender Breakdown Over Time"
@@ -632,8 +635,8 @@ msgid "Geographic Distribution"
 msgstr "תפוצה גיאוגרפית"
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Where are my students?"
-msgstr "היכן הסטודנטים שלי?"
+msgid "Where are my learners?"
+msgstr "היכן הלומדים שלי?"
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Enrollment by Country"
@@ -643,51 +646,51 @@ msgstr "הרשמה לפי מדינה"
 msgid "Geography Metrics"
 msgstr "מדדים גיאוגרפים"
 
-#. Translators: This string represents the number of countries where students
+#. Translators: This string represents the number of countries where learners
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Total Countries Represented"
 msgstr "סה\"כ המדינות המיוצגות"
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Countries with at least one student."
-msgstr "מדינות בעלי סטודנט אחד לפחות."
+msgid "Countries with at least one learner."
+msgstr "מדינות בהן קיים לומד אחד לפחות."
 
 #. Translators: This string represents the country with the greatest number of
-#. enrolled students.
+#. enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Top Country by Enrollment"
 msgstr "המדינה המובילה בהרשמה"
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the largest number of students."
-msgstr "המדינה בעלת מספר הנרשמים הגבוה ביותר "
+msgid "Country with the largest number of learners."
+msgstr "מדינה בעלת המספר הרב של לומדים."
 
 #. Translators: This string represents the country with the second-greatest
-#. number of enrolled students.
+#. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Second Country by Enrollment"
 msgstr "המדינה השניה בהרשמה"
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the second largest number of students."
-msgstr "מדינה בעלת מספר הסטודנטים השני בגודלו"
+msgid "Country with the second largest number of learners."
+msgstr "המדינה השנייה בעלת המספר הרב של לומדים."
 
 #. Translators: This string represents the country with the third-greatest
-#. number of enrolled students.
+#. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Third Country by Enrollment"
 msgstr "מדינה שלישית בהרשמה"
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the third largest number of students."
-msgstr "המדינה בעלת מספר הנרשמים השלישי בגודלו"
+msgid "Country with the third largest number of learners."
+msgstr "המדינה השלישית בעלת המספר הרב של לומדים."
 
-#. Translators: This string represents the percentage of students in a course.
+#. Translators: This string represents the percentage of learners in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
 #: courses/templates/courses/enrollment_geography.html
-msgid "%(percent)s%% of students"
-msgstr "%(percent)s%% מתוך הסטודנטים"
+msgid "%(percent)s%% of learners"
+msgstr "%(percent)s%%לומדים"
 
 #: courses/templates/courses/enrollment_geography.html
 #: courses/templates/courses/enrollment_geography.html
@@ -701,7 +704,8 @@ msgstr "התפלגות גיאוגרפית"
 msgid "Application"
 msgstr "אפליקציה"
 
-#: courses/templates/courses/home.html
+#. Translators: This refers to the homepage of a course.
+#: courses/templates/courses/home.html templates/lens-navigation.html
 msgid "Course Home"
 msgstr "עמוד הבית של הקורס"
 
@@ -760,21 +764,21 @@ msgstr ""
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
-msgid "How did students answer this problem?"
-msgstr "כיצד השיבו סטודנטים על בעיה זו?"
+msgid "How did learners answer this problem?"
+msgstr "כיצד ענו הלומדים על בעיה זו?"
 
 #: courses/templates/courses/performance_assignment.html
-msgid "How are students doing on this assignment?"
-msgstr "כיצד מתקדמים הסטודנטים במטלה זו?"
+msgid "How are learners doing on this assignment?"
+msgstr "כיצד מתמודדים הלומדים עם משימה זו?"
 
 #: courses/templates/courses/performance_assignment.html
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid ""
 "These bars show the correct and incorrect submission counts for each "
-"problem. Only the last submission from each student is counted."
+"problem. Only the last submission from each learner is counted."
 msgstr ""
-"עמודות אלו מראות את מספר ההגשות הנכונות והלא נכונות עבור כל בעיה. רק ההגשה "
-"האחרונה מכל סטודנט נחשבת."
+"עמודות אלו מראות את מספר ההגשות הנכונות והשגויות לכל בעיה. רק ההגשה האחרונה "
+"של כל לומד נחשבת."
 
 #: courses/templates/courses/performance_assignment.html
 #: courses/templates/courses/performance_learning_outcomes_section.html
@@ -811,20 +815,20 @@ msgstr "%(policy_ratio)s%%"
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
 "\n"
-"      How are students doing on the %(type)s?\n"
+"      How are learners doing on the %(type)s?\n"
 "    "
 msgstr ""
 "\n"
-"כיצד מצליחים הסטודנטים ב%(type)s?"
+"כיצד מתמודדים הלומדים ב-%(type)s?"
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
-"problems in the assignment. Only the last submission from each student is "
+"problems in the assignment. Only the last submission from each learner is "
 "counted."
 msgstr ""
-"כל עמודה מציגה את המספר הממוצע של הגשות נכונות ושגויות של בעיות במטלה. רק "
-"ההגשה האחרונה מכל סטודנט נחשבת."
+"כל עמודה מראה את המספר הממוצע של הגשות נכונות ושגויות לבעיות במשימה זו. רק "
+"ההגשה האחרונה של כל לומד נחשבת."
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid "Assignment Submissions"
@@ -832,8 +836,8 @@ msgstr "הגשות משימה"
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 #: courses/templates/courses/performance_learning_outcomes_section.html
-msgid "Measured by learning outcome, how are students performing?"
-msgstr "מה מצב ביצועי הסטודנטים בהתחשב בתוצאת הלמידה?"
+msgid "Measured by learning outcome, how are learners performing?"
+msgstr "איך הביצוע של הלומדים, על פי תוצאת הלומד?"
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 msgid ""
@@ -854,36 +858,36 @@ msgstr ""
 "הנוכחית."
 
 #: courses/templates/courses/performance_ungraded_by_section.html
-msgid "How are students doing on this section?"
-msgstr "כיצד מתמודדים הסטודנטים בפרק זה?"
+msgid "How are learners doing on this section?"
+msgstr "כיצד מתמודדים הלומדים עם פרק זה?"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
-"each subsection. Only the last submission from each student is counted."
+"each subsection. Only the last submission from each learner is counted."
 msgstr ""
-"כל עמודה מציגה את המספר הממוצע של הגשות נכונות ושגויות עבור כל תת פרק. רק "
-"ההגשה האחרונה מכל סטודנט נחשבת."
+"כל עמודה מראה את המספר הממוצע של הגשות נכונות ושגויות לכל תת פרק. רק ההגשה "
+"האחרונה של כל לומד נחשבת. "
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "Subsection Submissions"
 msgstr "הגשות עבור תת פרק"
 
 #: courses/templates/courses/performance_ungraded_by_subsection.html
-msgid "How are students doing on this subsection?"
-msgstr "כיצד מתקדמים הסטודנטים בתת פרק זה?"
+msgid "How are learners doing on this subsection?"
+msgstr "כיצד מתמודדים הלומדים עם תת פרק זה?"
 
 #: courses/templates/courses/performance_ungraded_content.html
-msgid "How are students doing on ungraded exercises?"
-msgstr "כיצד מתקדמים הסטודנטים בתרגילים שאינם מדורגים?"
+msgid "How are learners doing on ungraded exercises?"
+msgstr "כיצד מתמודדים הלומדים עם תרגילים ללא ציון?"
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
-"each section. Only the last submission from each student is counted."
+"each section. Only the last submission from each learner is counted."
 msgstr ""
-"כל עמודה מציגה את המספר הממוצע של הגשות נכונות ושגויות עבור כל פרק. רק ההגשה"
-" האחרונה מכל סטודנט נחשבת."
+"כל עמודה מראה את המספר הממוצע של הגשות נכונות ושגויות לכל פרק. רק ההגשה "
+"האחרונה של כל לומד נחשבת."
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid "Section Submissions"

@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-22 10:24-0400\n"
-"PO-Revision-Date: 2016-09-22 14:25+0000\n"
+"POT-Creation-Date: 2016-11-22 10:20-0500\n"
+"PO-Revision-Date: 2016-11-22 15:21+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Polish (http://www.transifex.com/open-edx/edx-platform/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -24,6 +24,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: core/templates/core/landing.html templates/_skip_link.html
+msgid "Skip to content"
+msgstr ""
 
 #: core/templates/core/landing.html
 msgid "Login"
@@ -34,11 +38,11 @@ msgid "Insights to help course teams improve courses."
 msgstr "Uwagi ułatwiające twórcom udoskonalanie kursów. "
 
 #: core/templates/core/landing.html
-msgid "Who are my students?"
-msgstr "Kim są moi studenci?"
+msgid "Who are my learners?"
+msgstr ""
 
 #: core/templates/core/landing.html
-msgid "Target your course to fit the backgrounds of your students."
+msgid "Target your course to fit the backgrounds of your learners."
 msgstr ""
 
 #: core/templates/core/landing.html
@@ -47,12 +51,12 @@ msgid "Enrollment"
 msgstr "Rekrutacja"
 
 #: core/templates/core/landing.html
-msgid "What are students engaging with in my course?"
-msgstr "Kim są studenci, którzy zapisali się na mój kurs?"
+msgid "What are learners engaging with in my course?"
+msgstr ""
 
 #: core/templates/core/landing.html
 msgid ""
-"Improve frequently accessed content, or point students at underused "
+"Improve frequently accessed content, or point learners at underused "
 "resources."
 msgstr ""
 
@@ -61,12 +65,12 @@ msgid "Engagement"
 msgstr "Zaangażowanie"
 
 #: core/templates/core/landing.html
-msgid "How well is my content supporting student learning?"
-msgstr "Jak dobrze moje treści wspierają uczących się?"
+msgid "How well is my content supporting learners?"
+msgstr ""
 
 #: core/templates/core/landing.html
-msgid "Adjust your course based on where students are struggling."
-msgstr "Dopasuj swój kurs tak, by studenci nie mieli z nim problemów."
+msgid "Adjust your course based on where learners are struggling."
+msgstr ""
 
 #: core/templates/core/landing.html
 msgid "Performance"
@@ -99,6 +103,10 @@ msgstr "Potrzebujesz pomocy?"
 #: core/templates/core/landing.html
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
+msgstr ""
+
+#: courses/templates/courses/_base_content_nav.html
+msgid "%(all_sections_text)s"
 msgstr ""
 
 #: courses/templates/courses/_graded_content_nav.html
@@ -169,11 +177,9 @@ msgstr "Następny film"
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid ""
-"This chart shows the most common answers submitted by students, ordered by "
+"This chart shows the most common answers submitted by learners, ordered by "
 "frequency."
 msgstr ""
-"Ten diagram przedstawia najczęściej pojawiające się odpowiedzi studentów, "
-"posortowane po częstotliwości występowania."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -205,57 +211,55 @@ msgid "Download CSV"
 msgstr "Pobierz CSV"
 
 #: courses/templates/courses/base_performance_answer_distribution.html
-msgid "Student Submission Counts"
+msgid "Learner Submission Counts"
 msgstr ""
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
-msgid "Students (Self-Reported)"
-msgstr "Studenci (wg zgłoszeń)"
+msgid "Learners (Self-Reported)"
+msgstr ""
 
 #: courses/templates/courses/engagement_content.html
-msgid "Weekly Student Engagement"
-msgstr "Tygodniowe zaangażowanie studentów"
+msgid "Weekly Learner Engagement"
+msgstr ""
 
 #: courses/templates/courses/engagement_content.html
-msgid "How many students are interacting with my course?"
-msgstr "Jak wielu studentów bierze udział w kursie?"
+msgid "How many learners are interacting with my course?"
+msgstr ""
 
 #: courses/templates/courses/engagement_content.html
-msgid "Students"
-msgstr "Studentów"
+msgid "Learners"
+msgstr "Studenci"
 
 #: courses/templates/courses/engagement_content.html
 msgid ""
-"The number of active students, and the number of students who engaged in "
+"The number of active learners, and the number of learners who engaged in "
 "specific activities, over time."
 msgstr ""
-"Liczba aktywnych studentów oraz liczba studentów zaangażowanych w określone "
-"czynności, w przedziale czasu."
 
 #: courses/templates/courses/engagement_content.html
-msgid "Student Activity Metrics"
-msgstr "Pomiar aktywności studentów"
+msgid "Learner Activity Metrics"
+msgstr ""
 
 #: courses/templates/courses/engagement_content.html
-msgid "Active Students Last Week"
-msgstr "Aktywnych studentów w zeszłym tygodniu"
+msgid "Active Learners Last Week"
+msgstr ""
 
 #: courses/templates/courses/engagement_content.html
-msgid "Students who visited at least one page in the course content."
-msgstr "Studenci, którzy odwiedzili przynajmniej jedną stronę z kursu."
+msgid "Learners who visited at least one page in the course content."
+msgstr ""
 
-#. Translators: This is a label indicating the number of students who watched
+#. Translators: This is a label indicating the number of learners who watched
 #. a video.
 #: courses/templates/courses/engagement_content.html
 msgid "Watched a Video Last Week"
 msgstr "Obejrzeli wideo w poprzednim tygodniu"
 
 #: courses/templates/courses/engagement_content.html
-msgid "Students who played one or more videos."
-msgstr "Studenci, którzy obejrzeli jeden lub więcej filmów."
+msgid "Learners who played one or more videos."
+msgstr ""
 
-#. Translators: This is a label indicating the number of students who tried a
+#. Translators: This is a label indicating the number of learners who tried a
 #. problem.
 #: courses/templates/courses/engagement_content.html
 msgid "Tried a Problem Last Week"
@@ -263,21 +267,20 @@ msgstr "Podeszli do ćwiczenia"
 
 #: courses/templates/courses/engagement_content.html
 msgid ""
-"Students who submitted an answer for a standard problem. Not all problem "
+"Learners who submitted an answer for a standard problem. Not all problem "
 "types are included."
 msgstr ""
-"Studenci, którzy wprowadzili odpowiedź na podstawowe pytanie. Lista nie "
-"zawiera wszystkich ćwiczeń."
 
-#. Translators: This is a label indicating the number of students who posted
+#. Translators: This is a label indicating the number of learners who posted
 #. in a forum discussion.
 #: courses/templates/courses/engagement_content.html
-msgid "Posted in a Discussion Last Week"
-msgstr "Założyli nowy temat na forum"
+msgid "Participated in Discussions Last Week"
+msgstr ""
 
 #: courses/templates/courses/engagement_content.html
-msgid "Students who contributed to any discussion topic."
-msgstr "Studenci, którzy zamieścili wpis w dowolnym temacie."
+msgid ""
+"Learners who added a post, response, or comment to any course discussion."
+msgstr ""
 
 #: courses/templates/courses/engagement_content.html
 #: courses/templates/courses/engagement_content.html
@@ -292,7 +295,7 @@ msgid "Video Views"
 msgstr ""
 
 #: courses/templates/courses/engagement_video_by_section.html
-msgid "How did students interact with videos in this section?"
+msgid "How did learners interact with videos in this section?"
 msgstr ""
 
 #: courses/templates/courses/engagement_video_by_section.html
@@ -303,17 +306,17 @@ msgid ""
 msgstr ""
 
 #: courses/templates/courses/engagement_video_by_subsection.html
-msgid "How did students interact with videos in this subsection?"
+msgid "How did learners interact with videos in this subsection?"
 msgstr ""
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
-"Click to understand where students drop off and which parts they replay."
+"Click to understand where learners drop off and which parts they replay."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_course.html
-msgid "How did students interact with course videos?"
+msgid "How did learners interact with course videos?"
 msgstr ""
 
 #: courses/templates/courses/engagement_video_course.html
@@ -334,7 +337,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid ""
-"The number of students who watched each segment of the video, and the number"
+"The number of learners who watched each segment of the video, and the number"
 " of replays for each segment."
 msgstr ""
 
@@ -355,7 +358,7 @@ msgid "Completion Rate"
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
-msgid "Estimated percentage of students who watched the entire video."
+msgid "Estimated percentage of learners who watched the entire video."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
@@ -363,7 +366,7 @@ msgid "Started Video"
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
-msgid "Students who started watching the video."
+msgid "Learners who started watching the video."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
@@ -371,7 +374,7 @@ msgid "Finished Video"
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
-msgid "Students who watched the video to the end."
+msgid "Learners who watched the video to the end."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
@@ -379,12 +382,12 @@ msgid "Video Viewing Over Time"
 msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
-msgid "Daily Student Enrollment"
-msgstr "Dzienny poziom zapisów"
+msgid "Daily Learner Enrollment"
+msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
-msgid "How many students are in my course?"
-msgstr "Ilu studentów jest na moim kursie?"
+msgid "How many learners are in my course?"
+msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollments"
@@ -400,30 +403,30 @@ msgstr ""
 msgid "Enrollment Metrics"
 msgstr "Statystyki zapisów"
 
-#. Translators: This is a label to identify the number of students who ever
+#. Translators: This is a label to identify the number of learners who ever
 #. enrolled in the course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Total Enrollment"
 msgstr "Łącznie uczestników"
 
-#. Translators: This is a label indicating the number of students in a course.
+#. Translators: This is a label indicating the number of learners in a course.
 #: courses/templates/courses/enrollment_activity.html
-msgid "Students who ever enrolled in the course."
+msgid "Learners who ever enrolled in the course."
 msgstr ""
 
-#. Translators: This is a label to identify current student enrollment.
+#. Translators: This is a label to identify current learner enrollment.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Current Enrollment"
 msgstr "Obecna rekrutacja"
 
-#. Translators: This is a label indicating the number of students enrolled in
+#. Translators: This is a label indicating the number of learners enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
-msgid "Students currently enrolled in the course."
+msgid "Learners currently enrolled in the course."
 msgstr ""
 
 #. Translators: This is a label indicating the change in the number of
-#. students enrolled in a course since the previous week.
+#. learners enrolled in a course since the previous week.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Change in Last Week"
 msgstr "Zmiana w poprzednim tygodniu"
@@ -432,17 +435,17 @@ msgstr "Zmiana w poprzednim tygodniu"
 msgid "Net difference in current enrollment in the last week."
 msgstr ""
 
-#. Translators: This is a label to identify enrollment of students on the
+#. Translators: This is a label to identify enrollment of learners on the
 #. verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Verified Enrollment"
 msgstr "Ścieżka zweryfikowana"
 
-#. Translators: This is a label indicating the number of students enrolled in
+#. Translators: This is a label indicating the number of learners enrolled in
 #. a course on the verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
-"Number of currently enrolled students pursuing a verified certificate of "
+"Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
 msgstr ""
 
@@ -455,8 +458,8 @@ msgid "Enrollment Over Time"
 msgstr "Zapisy w przedziale czasu"
 
 #: courses/templates/courses/enrollment_demographics_age.html
-msgid "How old are my students?"
-msgstr "Ile lat mają moi studenci?"
+msgid "How old are my learners?"
+msgstr ""
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -464,151 +467,131 @@ msgstr "Ile lat mają moi studenci?"
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
-"students who provided a year of birth."
+"learners who provided a year of birth."
 msgstr ""
-"Ten histogram wieku przedstawia dane dla %(value)s%% spośród studentów, "
-"którzy podali w profilu rok urodzenia."
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Metrics"
 msgstr "Statystyki wieku"
 
 #. Translators: This is a label to identify the median age of enrolled
-#. students.
+#. learners.
 #: courses/templates/courses/enrollment_demographics_age.html
-msgid "Median Student Age"
-msgstr "Mediana wieku studentów"
+msgid "Median Learner Age"
+msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
-"The midpoint of the student ages, computed from the provided year of birth."
+"The midpoint of the learner ages, computed from the provided year of birth."
 msgstr ""
-"Średnia wieku studentów na podstawie wprowadzonych do profili dat urodzenia."
 
-#. Translators: This is a label to identify the number of students in the age
+#. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
-msgid "Students 25 and Under"
-msgstr "Studenci w wieku poniżej 25 lat"
+msgid "Learners 25 and Under"
+msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
-"The percentage of students aged 25 years or younger (of those who provided a"
+"The percentage of learners aged 25 years or younger (of those who provided a"
 " year of birth)."
 msgstr ""
-"Procentowa ilość studentów mających 25 lat lub mniej (spośród wszystkich "
-"studentów, którzy podali rok urodzenia)."
 
-#. Translators: This is a label to identify the number of students in the age
+#. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
-msgid "Students 26 to 40"
-msgstr "Studenci w wieku 26 - 40 lat."
+msgid "Learners 26 to 40"
+msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
-"The percentage of students aged from 26 to 40 years (of those who provided a"
+"The percentage of learners aged from 26 to 40 years (of those who provided a"
 " year of birth)."
 msgstr ""
-"Procentowa ilość studentów mających od 26 do 40 lat (spośród wszystkich "
-"studentów, którzy podali rok urodzenia)."
 
-#. Translators: This is a label to identify the number of students in the age
+#. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
-msgid "Students 41 and Over"
-msgstr "Studenci w wieku 41 lat lub więcej"
+msgid "Learners 41 and Over"
+msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
-"The percentage of students aged 41 years or older (of those who provided a "
+"The percentage of learners aged 41 years or older (of those who provided a "
 "year of birth)."
 msgstr ""
-"Procentowa ilość studentów mających 41 lat lub powyżej (spośród wszystkich "
-"studentów, którzy podali rok urodzenia)."
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid "Age Breakdown"
 msgstr "Rozkład wieku"
 
 #: courses/templates/courses/enrollment_demographics_education.html
-msgid "What level of education do my students have?"
-msgstr "Jaki poziom edukacji mają moi studenci?"
+msgid "What level of education do my learners have?"
+msgstr ""
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
 #. language.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
-"This graph presents data for the %(value)s%% of enrolled students who "
+"This graph presents data for the %(value)s%% of enrolled learners who "
 "provided a highest level of education completed."
 msgstr ""
-"Ten wykres przedstawia dane dla %(value)s%% spośród studentów, którzy podali"
-" w profilu poziom swojej edukacji."
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Education Metrics"
 msgstr "Statystyki edukacji"
 
-#. Translators: This is a label to identify student educational background.
+#. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "High School Diploma or Less"
 msgstr "Matura lub niższy"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
-"The percentage of students who selected Secondary/high school, Junior "
+"The percentage of learners who selected Secondary/high school, Junior "
 "secondary/junior high/middle school, or Elementary/primary school as their "
 "highest level of education completed."
 msgstr ""
-"Procentowa liczba studentów, którzy wskazali maturę, ukończenie szkoły "
-"średniej, ukończenie gimnazjum lub ukończenie szkoły podstawowej jako "
-"najwyższy poziom  posiadanej edukacji."
 
-#. Translators: This is a label to identify student educational background.
+#. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "College Degree"
 msgstr "Podstawowe wykształcenie wyższe"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
-"The percentage of students who selected Bachelor's degree or Associate "
+"The percentage of learners who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
 msgstr ""
-"Procentowa liczba studentów, którzy wskazali licencjat lub szkołę policealną"
-" jako najwyższy poziom posiadanej edukacji."
 
-#. Translators: This is a label to identify student educational background.
+#. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Advanced Degree"
 msgstr "Zaawansowane wykształcenie wyższe"
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
-"The percentage of students who selected Doctorate or Master's or "
+"The percentage of learners who selected Doctorate or Master's or "
 "professional degree as their highest level of education completed."
 msgstr ""
-"Procentowa liczba studentów, którzy wskazali magisterium lub doktorat jako "
-"najwyższy poziom posiadanej edukacji."
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Educational Breakdown"
 msgstr "Rozkład edukacji"
 
 #: courses/templates/courses/enrollment_demographics_gender.html
-msgid "What is the student gender breakdown?"
-msgstr "Jaka jest płeć moich studentów?"
+msgid "What is the learner gender breakdown?"
+msgstr ""
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
 #. language.
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid ""
-"This graph presents data for the %(value)s%% of enrolled students who "
+"This graph presents data for the %(value)s%% of enrolled learners who "
 "specified their gender."
 msgstr ""
-"Ten wykres przedstawia dane dla %(value)s%% spośród studentów, którzy podali"
-" w profilu swoją płeć."
 
 #: courses/templates/courses/enrollment_demographics_gender.html
 msgid "Gender Breakdown Over Time"
@@ -619,8 +602,8 @@ msgid "Geographic Distribution"
 msgstr "Rozkład geograficzny"
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Where are my students?"
-msgstr "Gdzie mieszkają moi studenci?"
+msgid "Where are my learners?"
+msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
 msgid "Enrollment by Country"
@@ -630,51 +613,51 @@ msgstr "Rekrutacja według kraju"
 msgid "Geography Metrics"
 msgstr "Dane geograficzne"
 
-#. Translators: This string represents the number of countries where students
+#. Translators: This string represents the number of countries where learners
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Total Countries Represented"
 msgstr "Suma krajów"
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Countries with at least one student."
-msgstr "Kraje z przynajmniej jednym studentem."
+msgid "Countries with at least one learner."
+msgstr ""
 
 #. Translators: This string represents the country with the greatest number of
-#. enrolled students.
+#. enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Top Country by Enrollment"
 msgstr "Czołowy krajów wg liczby studentów"
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the largest number of students."
-msgstr "Kraj o największej liczbie studentów"
+msgid "Country with the largest number of learners."
+msgstr ""
 
 #. Translators: This string represents the country with the second-greatest
-#. number of enrolled students.
+#. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Second Country by Enrollment"
 msgstr "Drugi kraj o największej liczbie studentów"
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the second largest number of students."
-msgstr "Kraj z drugą największą liczbą studentów."
+msgid "Country with the second largest number of learners."
+msgstr ""
 
 #. Translators: This string represents the country with the third-greatest
-#. number of enrolled students.
+#. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Third Country by Enrollment"
 msgstr "Trzeci kraj o największej liczbie studentów"
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the third largest number of students."
-msgstr "Kraj z trzecią największą liczbą studentów."
+msgid "Country with the third largest number of learners."
+msgstr ""
 
-#. Translators: This string represents the percentage of students in a course.
+#. Translators: This string represents the percentage of learners in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
 #: courses/templates/courses/enrollment_geography.html
-msgid "%(percent)s%% of students"
-msgstr "%(percent)s%% studentów"
+msgid "%(percent)s%% of learners"
+msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
 #: courses/templates/courses/enrollment_geography.html
@@ -688,7 +671,8 @@ msgstr "Rozkład geograficzny"
 msgid "Application"
 msgstr "Aplikacja"
 
-#: courses/templates/courses/home.html
+#. Translators: This refers to the homepage of a course.
+#: courses/templates/courses/home.html templates/lens-navigation.html
 msgid "Course Home"
 msgstr ""
 
@@ -743,18 +727,18 @@ msgstr ""
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
-msgid "How did students answer this problem?"
+msgid "How did learners answer this problem?"
 msgstr ""
 
 #: courses/templates/courses/performance_assignment.html
-msgid "How are students doing on this assignment?"
+msgid "How are learners doing on this assignment?"
 msgstr ""
 
 #: courses/templates/courses/performance_assignment.html
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid ""
 "These bars show the correct and incorrect submission counts for each "
-"problem. Only the last submission from each student is counted."
+"problem. Only the last submission from each learner is counted."
 msgstr ""
 
 #: courses/templates/courses/performance_assignment.html
@@ -790,14 +774,14 @@ msgstr ""
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
 "\n"
-"      How are students doing on the %(type)s?\n"
+"      How are learners doing on the %(type)s?\n"
 "    "
 msgstr ""
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
-"problems in the assignment. Only the last submission from each student is "
+"problems in the assignment. Only the last submission from each learner is "
 "counted."
 msgstr ""
 
@@ -807,7 +791,7 @@ msgstr ""
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 #: courses/templates/courses/performance_learning_outcomes_section.html
-msgid "Measured by learning outcome, how are students performing?"
+msgid "Measured by learning outcome, how are learners performing?"
 msgstr ""
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
@@ -827,13 +811,13 @@ msgid ""
 msgstr ""
 
 #: courses/templates/courses/performance_ungraded_by_section.html
-msgid "How are students doing on this section?"
+msgid "How are learners doing on this section?"
 msgstr ""
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
-"each subsection. Only the last submission from each student is counted."
+"each subsection. Only the last submission from each learner is counted."
 msgstr ""
 
 #: courses/templates/courses/performance_ungraded_by_section.html
@@ -841,17 +825,17 @@ msgid "Subsection Submissions"
 msgstr ""
 
 #: courses/templates/courses/performance_ungraded_by_subsection.html
-msgid "How are students doing on this subsection?"
-msgstr "Jak moi studenci radzą sobie z tą podsekcją?"
+msgid "How are learners doing on this subsection?"
+msgstr ""
 
 #: courses/templates/courses/performance_ungraded_content.html
-msgid "How are students doing on ungraded exercises?"
-msgstr "Jak moi studenci radzą sobie z niepunktowanymi ćwiczeniami?"
+msgid "How are learners doing on ungraded exercises?"
+msgstr ""
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
-"each section. Only the last submission from each student is counted."
+"each section. Only the last submission from each learner is counted."
 msgstr ""
 
 #: courses/templates/courses/performance_ungraded_content.html
