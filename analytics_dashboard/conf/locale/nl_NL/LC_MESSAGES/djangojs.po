@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-22 10:24-0400\n"
-"PO-Revision-Date: 2016-09-22 14:25+0000\n"
+"POT-Creation-Date: 2016-11-22 10:20-0500\n"
+"PO-Revision-Date: 2016-11-22 15:22+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/open-edx/edx-platform/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -106,6 +106,7 @@ msgid "Segments to Ignore"
 msgstr "Segmenten om te negeren"
 
 #: static/apps/learners/common/collections/learners.js
+#: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Cohort"
 msgstr "Cohort"
@@ -208,6 +209,14 @@ msgid "Activity Over Time"
 msgstr ""
 
 #: static/apps/learners/detail/views/learner-detail.js
+msgid "Enrollment"
+msgstr "Inschrijving"
+
+#: static/apps/learners/detail/views/learner-detail.js
+msgid "Last Accessed"
+msgstr ""
+
+#: static/apps/learners/detail/views/learner-detail.js
 #: static/apps/learners/detail/views/learner-summary-field.js
 #: static/apps/learners/roster/views/activity-date-range.js
 #: static/dist/apps/learners/app/learners-main.js
@@ -248,6 +257,7 @@ msgstr ""
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/learners-main.js
+#: static/js/engagement-content-main.js
 msgid "Active Learners"
 msgstr ""
 
@@ -353,6 +363,10 @@ msgstr ""
 #: static/apps/learners/roster/views/filter.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "All"
+msgstr ""
+
+#: static/apps/learners/roster/views/filter.js
+msgid "Hide Inactive Learners"
 msgstr ""
 
 #: static/apps/learners/roster/views/paging-footer.js
@@ -475,7 +489,6 @@ msgid "Week Ending"
 msgstr "Week Eindigt"
 
 #: static/dist/js/engagement-content-main.js
-#: static/js/engagement-content-main.js
 msgid "Active Students"
 msgstr "Actieve Studenten"
 
@@ -491,11 +504,10 @@ msgstr "Een opgave geprobeerd"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
-msgid "Posted in Forum"
-msgstr "Een bericht op forum geplaatst"
+msgid "Participated in Discussions"
+msgstr ""
 
 #: static/dist/js/engagement-content-main.js
-#: static/js/engagement-content-main.js
 msgid "Percent of Current Students"
 msgstr "Procent van huidige studenten"
 
@@ -610,9 +622,6 @@ msgstr ""
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-education-main.js
-#: static/js/enrollment-demographics-age-main.js
-#: static/js/enrollment-demographics-age-main.js
-#: static/js/enrollment-demographics-education-main.js
 msgid "Number of Students"
 msgstr "Aantal Studenten"
 
@@ -674,7 +683,6 @@ msgid "Not Reported"
 msgstr "Niet Gemeld"
 
 #: static/dist/js/enrollment-geography-main.js
-#: static/js/enrollment-geography-main.js
 msgid ""
 "Student location is determined from IP address. This map shows where "
 "students most recently connected."
@@ -774,3 +782,19 @@ msgstr "Moeilijkheidsgraad"
 #: static/js/performance-problems-main.js
 msgid "Total"
 msgstr "Totaal"
+
+#: static/js/engagement-content-main.js
+msgid "Percent of Current Learners"
+msgstr ""
+
+#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-education-main.js
+msgid "Number of Learners"
+msgstr ""
+
+#: static/js/enrollment-geography-main.js
+msgid ""
+"Learner location is determined from IP address. This map shows where "
+"learners most recently connected."
+msgstr ""

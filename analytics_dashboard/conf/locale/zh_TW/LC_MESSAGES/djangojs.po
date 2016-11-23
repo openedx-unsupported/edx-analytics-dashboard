@@ -22,9 +22,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-18 11:45-0400\n"
-"PO-Revision-Date: 2016-10-18 01:58+0000\n"
-"Last-Translator: Rainy Chang <7100014011s@gmail.com>\n"
+"POT-Creation-Date: 2016-11-22 10:20-0500\n"
+"PO-Revision-Date: 2016-11-22 15:22+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/open-edx/edx-platform/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,144 +33,150 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: static/apps/learners/app/controller.js
-#: static/dist/apps/learners/app/controller.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Invalid Parameters"
 msgstr "無效的參數"
 
 #: static/apps/learners/app/controller.js
-#: static/dist/apps/learners/app/controller.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Sorry, we couldn't find any learners who matched that query."
 msgstr "很抱歉，我們無法找到任何符合查詢的學習者。"
 
 #: static/apps/learners/app/controller.js
-#: static/dist/apps/learners/app/controller.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Return to the Learners page."
 msgstr "返回學習者頁面。"
 
 #: static/apps/learners/app/controller.js
-#: static/dist/apps/learners/app/controller.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Learners"
 msgstr "學生"
 
 #: static/apps/learners/app/controller.js
-#: static/dist/apps/learners/app/controller.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Learner Details"
 msgstr "學習者資料"
 
 #: static/apps/learners/app/controller.js
-#: static/dist/apps/learners/app/controller.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Sorry, we couldn't find the page you're looking for."
 msgstr "很抱歉，我們無法找到您所請求的網址。"
 
 #: static/apps/learners/app/controller.js
-#: static/dist/apps/learners/app/controller.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Page Not Found"
 msgstr "找不到頁面"
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/common/collections/learners.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Name (Username)"
 msgstr "名稱 (用戶名)"
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/common/collections/learners.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Problems Tried"
 msgstr "題目嘗試次數"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/apps/learners/detail/views/engagement-table.js
 #: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/detail/views/engagement-table.js
-#: static/dist/apps/learners/detail/views/engagement-timeline.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Problems Correct"
 msgstr "回答正確"
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/common/collections/learners.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Attempts per Problem Correct"
 msgstr "每題正確所需之嘗試次數。"
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/common/collections/learners.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/js/engagement-video-content-main.js
 #: static/js/engagement-video-content-main.js
 msgid "Videos"
 msgstr "影片"
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/common/collections/learners.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Discussions"
 msgstr "討論"
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/common/collections/learners.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Segments"
 msgstr "段落"
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/common/collections/learners.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Segments to Ignore"
 msgstr "忽略的段落"
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/common/collections/learners.js
+#: static/apps/learners/detail/views/learner-detail.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Cohort"
 msgstr "學習夥伴"
 
 #: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/common/collections/learners.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Enrollment Mode"
 msgstr "註冊模式"
 
 #: static/apps/learners/common/utils.js
-#: static/dist/apps/learners/common/utils.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "504: Server error"
 msgstr "504: 伺服器發生錯誤"
 
 #: static/apps/learners/common/utils.js
-#: static/dist/apps/learners/common/utils.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
 msgstr "您的請求花費太多時間處理，請重新載入此頁面"
 
 #: static/apps/learners/common/utils.js
-#: static/dist/apps/learners/common/utils.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Server error"
 msgstr "伺服器錯誤"
 
 #: static/apps/learners/common/utils.js static/apps/learners/common/utils.js
-#: static/dist/apps/learners/common/utils.js
-#: static/dist/apps/learners/common/utils.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Your request could not be processed. Reload the page to try again."
 msgstr "您的要求無法被執行，請重新載入此頁面"
 
 #: static/apps/learners/common/utils.js
-#: static/dist/apps/learners/common/utils.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Network error"
 msgstr "網路錯誤"
 
 #: static/apps/learners/common/views/download-data.js
-#: static/dist/apps/learners/common/views/download-data.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/download-form/apps/learners/common/views/download-data.js
 #: static/download-form/apps/learners/common/views/download-data.js
 msgid "Download CSV"
 msgstr "下載CSV"
 
 #: static/apps/learners/common/views/download-data.js
-#: static/dist/apps/learners/common/views/download-data.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/download-form/apps/learners/common/views/download-data.js
 #: static/download-form/apps/learners/common/views/download-data.js
 msgid "Download search results to CSV"
 msgstr "下載搜尋結果到CSV"
 
 #: static/apps/learners/common/views/loading-view.js
-#: static/dist/apps/learners/common/views/loading-view.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Loading..."
 msgstr "載入中..."
 
 #: static/apps/learners/detail/views/engagement-table.js
 #: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/detail/views/engagement-table.js
-#: static/dist/apps/learners/detail/views/engagement-timeline.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/js/enrollment-activity-main.js
+#: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-activity-main.js
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Date"
@@ -178,233 +184,246 @@ msgstr "日期"
 
 #: static/apps/learners/detail/views/engagement-table.js
 #: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/detail/views/engagement-table.js
-#: static/dist/apps/learners/detail/views/engagement-timeline.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Discussion Contributions"
 msgstr "參與的討論"
 
 #: static/apps/learners/detail/views/engagement-table.js
 #: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/detail/views/engagement-table.js
-#: static/dist/apps/learners/detail/views/engagement-timeline.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Videos Viewed"
 msgstr "影片已觀看"
 
 #: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/detail/views/engagement-timeline.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Value"
 msgstr "值"
 
 #: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/detail/views/learner-detail.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Engagement Activity"
 msgstr "參與活動"
 
 #: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/detail/views/learner-detail.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Daily Activity"
 msgstr "每日活動"
 
 #: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/detail/views/learner-detail.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Activity Over Time"
 msgstr "隨著時間的活動"
 
 #: static/apps/learners/detail/views/learner-detail.js
+msgid "Enrollment"
+msgstr "註冊"
+
+#: static/apps/learners/detail/views/learner-detail.js
+msgid "Last Accessed"
+msgstr ""
+
+#: static/apps/learners/detail/views/learner-detail.js
 #: static/apps/learners/detail/views/learner-summary-field.js
 #: static/apps/learners/roster/views/activity-date-range.js
-#: static/dist/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/detail/views/learner-summary-field.js
-#: static/dist/apps/learners/roster/views/activity-date-range.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "n/a"
 msgstr "無"
 
 #: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/detail/views/learner-detail.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Check back daily for up-to-date data."
 msgstr "每天上線查看最新資料."
 
 #: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/detail/views/learner-detail.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "No course activity data is available for this learner."
 msgstr "無法取得這個學習者的課程活動紀錄"
 
 #: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/detail/views/learner-detail.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "No learner data is available."
 msgstr "無法獲得學習者資料"
 
 #: static/apps/learners/detail/views/learner-return.js
-#: static/dist/apps/learners/detail/views/learner-return.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Return to Learners"
 msgstr "返回學習者"
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Cohort: <%= filterVal %>"
 msgstr "同伴: <%= filterVal %>"
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Enrollment Track: <%= filterVal %>"
 msgstr "註冊紀錄: <%= filterVal %>"
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/learners/app/learners-main.js
+#: static/js/engagement-content-main.js
 msgid "Active Learners"
 msgstr "活躍的學習者"
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Filters In Use:"
 msgstr "使用過濾"
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Click to remove this filter"
 msgstr "按下以取消這個過濾條件"
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Clear"
 msgstr "清除"
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Click to remove all filters"
 msgstr "按下以取消所有過濾條件"
 
 #: static/apps/learners/roster/views/activity-date-range.js
-#: static/dist/apps/learners/roster/views/activity-date-range.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Activity between <%- startDate %> - <%- endDate %>"
 msgstr "在 <%- startDate %> - <%- endDate %>之間的活動"
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/roster/views/base-header-cell.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "The name and username of this learner. Click to sort by username."
 msgstr "此學習者的名稱和用戶名。 點擊用戶名進行排序。"
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/roster/views/base-header-cell.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Number of unique problems this learner attempted."
 msgstr "此學生嘗試的不同問題數量"
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/roster/views/base-header-cell.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Number of unique problems the learner answered correctly."
 msgstr "此學生回答正確的不同問題數量"
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/roster/views/base-header-cell.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Number of unique videos this learner played."
 msgstr "此學生已播放的不同影片數量。"
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/roster/views/base-header-cell.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid ""
 "Average number of attempts per correct problem. Learners with a relatively "
 "high value compared to their peers may be struggling."
 msgstr "每題答對所需之平均嘗試次數。此值高於其他人可能表示其在學習上較為辛苦。"
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/roster/views/base-header-cell.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid ""
 "Number of contributions by this learner, including posts, responses, and "
 "comments."
 msgstr "此學生的貢獻度，包含了文章發表，回應以及評論。"
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/roster/views/base-header-cell.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "sort ascending"
 msgstr "升序排序"
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/roster/views/base-header-cell.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "sort descending"
 msgstr "降序排序"
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/roster/views/base-header-cell.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "click to sort"
 msgstr "點擊以排序"
 
 #: static/apps/learners/roster/views/controls.js
-#: static/dist/apps/learners/roster/views/controls.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Find a learner"
 msgstr "搜尋學生"
 
 #: static/apps/learners/roster/views/controls.js
-#: static/dist/apps/learners/roster/views/controls.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Cohort Groups"
 msgstr "學習夥伴組別"
 
 #: static/apps/learners/roster/views/controls.js
-#: static/dist/apps/learners/roster/views/controls.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Enrollment Tracks"
 msgstr "註冊紀錄"
 
 #: static/apps/learners/roster/views/controls.js
-#: static/dist/apps/learners/roster/views/controls.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Inactive Learners"
 msgstr "不活躍的學習者"
 
 #: static/apps/learners/roster/views/filter.js
-#: static/dist/apps/learners/roster/views/filter.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "<%= name %> (<%= numLearners %>)"
 msgstr "<%= name %> (<%= numLearners %>)"
 
 #: static/apps/learners/roster/views/filter.js
-#: static/dist/apps/learners/roster/views/filter.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "All"
 msgstr "所有的"
 
+#: static/apps/learners/roster/views/filter.js
+msgid "Hide Inactive Learners"
+msgstr ""
+
 #: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/learners/roster/views/paging-footer.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "first page"
 msgstr "第一頁"
 
 #: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/learners/roster/views/paging-footer.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "previous page"
 msgstr "上一頁"
 
 #: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/learners/roster/views/paging-footer.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "next page"
 msgstr "下一頁"
 
 #: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/learners/roster/views/paging-footer.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "last page"
 msgstr "最後一頁"
 
 #: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/learners/roster/views/paging-footer.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "page"
 msgstr "頁面"
 
 #: static/apps/learners/roster/views/results.js
-#: static/dist/apps/learners/roster/views/results.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "No learners matched your criteria."
 msgstr "無學生符合搜尋條件。"
 
 #: static/apps/learners/roster/views/results.js
-#: static/dist/apps/learners/roster/views/results.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Try a different search."
 msgstr "嘗試不同搜尋。"
 
 #: static/apps/learners/roster/views/results.js
-#: static/dist/apps/learners/roster/views/results.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Try clearing the filters."
 msgstr "嘗試清除過濾條件。"
 
 #: static/apps/learners/roster/views/results.js
-#: static/dist/apps/learners/roster/views/results.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "No learner data is currently available for your course."
 msgstr "目前在您的課程中未有學生資料。"
 
 #: static/apps/learners/roster/views/results.js
-#: static/dist/apps/learners/roster/views/results.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid ""
 "No learners are enrolled, or course activity data has not yet been "
 "processed. Data is updated every day, so check back regularly for up-to-date"
@@ -412,199 +431,58 @@ msgid ""
 msgstr "沒有學生登錄或是課程的資料尚未處理。課程資料每天都會上傳，請定期檢查以確保資料是最新的。"
 
 #: static/apps/learners/roster/views/roster.js
-#: static/dist/apps/learners/roster/views/roster.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Learner roster controls"
 msgstr "學習者名冊控制"
 
 #: static/apps/learners/roster/views/search.js
-#: static/dist/apps/learners/roster/views/search.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Search learners"
 msgstr "搜尋學生"
 
 #: static/apps/learners/roster/views/search.js
-#: static/dist/apps/learners/roster/views/search.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "search"
 msgstr "搜尋"
 
 #: static/apps/learners/roster/views/search.js
-#: static/dist/apps/learners/roster/views/search.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "clear search"
 msgstr "清除搜尋"
 
 #: static/apps/learners/roster/views/table.js
-#: static/dist/apps/learners/roster/views/table.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "N/A"
 msgstr "不適用"
 
 #: static/apps/learners/roster/views/table.js
-#: static/dist/apps/learners/roster/views/table.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Learner Roster"
 msgstr "學生名冊"
 
-#: static/js/engagement-content-main.js
-msgid "Week Ending"
-msgstr "本週結束"
+#: static/dist/js/common.js static/js/utils/utils.js
+msgid "..."
+msgstr "..."
 
-#: static/js/engagement-content-main.js
-msgid "Active Students"
-msgstr "活動中的學生"
+#: static/dist/js/common.js static/dist/js/engagement-video-content-main.js
+#: static/dist/js/engagement-videos-main.js
+#: static/dist/js/enrollment-demographics-education-main.js
+#: static/dist/js/enrollment-demographics-gender-main.js
+#: static/dist/js/performance-answer-distribution-main.js
+#: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-learning-outcomes-content-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js
+#: static/dist/js/performance-problems-main.js
+#: static/js/views/data-table-view.js static/js/views/discrete-bar-view.js
+msgid "(empty)"
+msgstr "(略)"
 
-#: static/js/engagement-content-main.js
-msgid "Watched a Video"
-msgstr "觀看影片"
-
-#: static/js/engagement-content-main.js
-msgid "Tried a Problem"
-msgstr "試試這問題"
-
-#: static/js/engagement-content-main.js
-msgid "Posted in Forum"
-msgstr "張貼在討論區"
-
-#: static/js/engagement-content-main.js
-msgid "Percent of Current Students"
-msgstr "正確的學生百分比"
-
-#: static/js/engagement-content-main.js
-msgid "Week Ending <%=value%>"
-msgstr "本週結束"
-
-#: static/js/engagement-video-content-main.js
-msgid "Average Complete Views"
-msgstr "平均已觀看數"
-
-#: static/js/engagement-video-content-main.js
-msgid "Average Incomplete Views"
-msgstr "平均尚未觀看數"
-
-#: static/js/engagement-video-content-main.js
-#: static/js/engagement-videos-main.js static/js/performance-content-main.js
-#: static/js/performance-learning-outcomes-content-main.js
-#: static/js/performance-learning-outcomes-section-main.js
-#: static/js/performance-problems-main.js
-msgid "Order"
-msgstr "序"
-
-#: static/js/engagement-video-content-main.js
-#: static/js/engagement-videos-main.js
-msgid "Completion Percentage"
-msgstr "完成度"
-
-#: static/js/engagement-video-timeline-main.js
-msgid "Unique Viewers"
-msgstr "未重複瀏覽者"
-
-#: static/js/engagement-video-timeline-main.js
-msgid "Replays"
-msgstr "重播"
-
-#: static/js/engagement-video-timeline-main.js
-msgid "Time"
-msgstr "時間"
-
-#: static/js/engagement-videos-main.js
-msgid "Complete Views"
-msgstr "完成瀏覽"
-
-#: static/js/engagement-videos-main.js
-msgid "Incomplete Views"
-msgstr "未完成瀏覽"
-
-#: static/js/enrollment-activity-main.js
-#: static/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-geography-main.js
-msgid "Current Enrollment"
-msgstr "當前註冊"
-
-#: static/js/enrollment-activity-main.js
-msgid "Honor"
-msgstr "榮譽"
-
-#: static/js/enrollment-activity-main.js
-msgid "Audit"
-msgstr "旁聽"
-
-#: static/js/enrollment-activity-main.js
-msgid "Verified"
-msgstr "已驗證"
-
-#: static/js/enrollment-activity-main.js
-msgid "Professional"
-msgstr "專業的"
-
-#: static/js/enrollment-activity-main.js
-msgid "Verified with Credit"
-msgstr "已驗證學分"
-
-#: static/js/enrollment-demographics-age-main.js
-#: static/js/enrollment-demographics-age-main.js
-#: static/js/enrollment-demographics-education-main.js
-msgid "Number of Students"
-msgstr "學生數量"
-
-#: static/js/enrollment-demographics-age-main.js
-msgid "Age: <%=value%>"
-msgstr "年齡: <%=value%>"
-
-#: static/js/enrollment-demographics-age-main.js
-msgid "Age"
-msgstr "年齡"
-
-#: static/js/enrollment-demographics-age-main.js
-msgid "Percent of Total"
-msgstr "總共的百分比"
-
-#: static/js/enrollment-demographics-education-main.js
-#: static/js/enrollment-demographics-gender-main.js
-msgid "Percentage"
-msgstr "百分比"
-
-#: static/js/enrollment-demographics-education-main.js
-msgid "Education: <%=value%>"
-msgstr "教育程度: <%=value%>"
-
-#: static/js/enrollment-demographics-education-main.js
-msgid "Educational Background"
-msgstr "學歷"
-
-#: static/js/enrollment-demographics-gender-main.js
-msgid "Gender: <%=value%>"
-msgstr "性別: <%=value%>"
-
-#: static/js/enrollment-demographics-gender-main.js
-msgid "Female"
-msgstr "女性"
-
-#: static/js/enrollment-demographics-gender-main.js
-msgid "Male"
-msgstr "男性"
-
-#: static/js/enrollment-demographics-gender-main.js
-msgid "Other"
-msgstr "其他"
-
-#: static/js/enrollment-demographics-gender-main.js
-msgid "Not Reported"
-msgstr "無報告"
-
-#: static/js/enrollment-geography-main.js
-msgid ""
-"Student location is determined from IP address. This map shows where "
-"students most recently connected."
-msgstr "學生的位置由IP位址來決定。此地圖說明了哪些是學生最近連線的地方。"
-
-#: static/js/enrollment-geography-main.js
-msgid "Country"
-msgstr "國家"
-
-#: static/js/enrollment-geography-main.js
-msgid "Percent"
-msgstr "百分比"
-
-#: static/js/performance-answer-distribution-main.js
-msgid "Answer"
-msgstr "答案"
-
+#: static/dist/js/common.js
+#: static/dist/js/performance-answer-distribution-main.js
+#: static/dist/js/performance-answer-distribution-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js
+#: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
 #: static/js/performance-learning-outcomes-section-main.js
@@ -613,14 +491,240 @@ msgstr "答案"
 msgid "Correct"
 msgstr "正確"
 
+#: static/dist/js/engagement-content-main.js
+#: static/js/engagement-content-main.js
+msgid "Week Ending"
+msgstr "本週結束"
+
+#: static/dist/js/engagement-content-main.js
+msgid "Active Students"
+msgstr "活動中的學生"
+
+#: static/dist/js/engagement-content-main.js
+#: static/js/engagement-content-main.js
+msgid "Watched a Video"
+msgstr "觀看影片"
+
+#: static/dist/js/engagement-content-main.js
+#: static/js/engagement-content-main.js
+msgid "Tried a Problem"
+msgstr "試試這問題"
+
+#: static/dist/js/engagement-content-main.js
+#: static/js/engagement-content-main.js
+msgid "Participated in Discussions"
+msgstr ""
+
+#: static/dist/js/engagement-content-main.js
+msgid "Percent of Current Students"
+msgstr "正確的學生百分比"
+
+#: static/dist/js/engagement-content-main.js
+#: static/js/engagement-content-main.js
+msgid "Week Ending <%=value%>"
+msgstr "本週結束"
+
+#. Translators: <%=value%> will be replaced by a number followed by a
+#. percentage.
+#. For example, "400 (29%)" */
+#: static/dist/js/engagement-video-content-main.js
+#: static/dist/js/engagement-videos-main.js
+#: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-learning-outcomes-content-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js
+#: static/dist/js/performance-problems-main.js
+#: static/js/views/stacked-bar-view.js
+msgid "<%=value%> (<%=percent%>)"
+msgstr "<%=value%> (<%=percent%>)"
+
+#: static/dist/js/engagement-video-content-main.js
+#: static/js/engagement-video-content-main.js
+msgid "Average Complete Views"
+msgstr "平均已觀看數"
+
+#: static/dist/js/engagement-video-content-main.js
+#: static/js/engagement-video-content-main.js
+msgid "Average Incomplete Views"
+msgstr "平均尚未觀看數"
+
+#: static/dist/js/engagement-video-content-main.js
+#: static/dist/js/engagement-videos-main.js
+#: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-learning-outcomes-content-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js
+#: static/dist/js/performance-problems-main.js
+#: static/js/engagement-video-content-main.js
+#: static/js/engagement-videos-main.js static/js/performance-content-main.js
+#: static/js/performance-learning-outcomes-content-main.js
+#: static/js/performance-learning-outcomes-section-main.js
+#: static/js/performance-problems-main.js
+msgid "Order"
+msgstr "序"
+
+#: static/dist/js/engagement-video-content-main.js
+#: static/dist/js/engagement-videos-main.js
+#: static/js/engagement-video-content-main.js
+#: static/js/engagement-videos-main.js
+msgid "Completion Percentage"
+msgstr "完成度"
+
+#: static/dist/js/engagement-video-timeline-main.js
+#: static/js/engagement-video-timeline-main.js
+msgid "Unique Viewers"
+msgstr "未重複瀏覽者"
+
+#: static/dist/js/engagement-video-timeline-main.js
+#: static/js/engagement-video-timeline-main.js
+msgid "Replays"
+msgstr "重播"
+
+#: static/dist/js/engagement-video-timeline-main.js
+#: static/js/engagement-video-timeline-main.js
+msgid "Time"
+msgstr "時間"
+
+#: static/dist/js/engagement-videos-main.js
+#: static/js/engagement-videos-main.js
+msgid "Complete Views"
+msgstr "完成瀏覽"
+
+#: static/dist/js/engagement-videos-main.js
+#: static/js/engagement-videos-main.js
+msgid "Incomplete Views"
+msgstr "未完成瀏覽"
+
+#: static/dist/js/enrollment-activity-main.js
+#: static/dist/js/enrollment-demographics-gender-main.js
+#: static/dist/js/enrollment-geography-main.js
+#: static/js/enrollment-activity-main.js
+#: static/js/enrollment-demographics-gender-main.js
+#: static/js/enrollment-geography-main.js
+msgid "Current Enrollment"
+msgstr "當前註冊"
+
+#: static/dist/js/enrollment-activity-main.js
+#: static/js/enrollment-activity-main.js
+msgid "Honor"
+msgstr "榮譽"
+
+#: static/dist/js/enrollment-activity-main.js
+#: static/js/enrollment-activity-main.js
+msgid "Audit"
+msgstr "旁聽"
+
+#: static/dist/js/enrollment-activity-main.js
+#: static/js/enrollment-activity-main.js
+msgid "Verified"
+msgstr "已驗證"
+
+#: static/dist/js/enrollment-activity-main.js
+#: static/js/enrollment-activity-main.js
+msgid "Professional"
+msgstr "專業的"
+
+#: static/dist/js/enrollment-activity-main.js
+#: static/js/enrollment-activity-main.js
+msgid "Verified with Credit"
+msgstr "已驗證學分"
+
+#: static/dist/js/enrollment-demographics-age-main.js
+#: static/dist/js/enrollment-demographics-age-main.js
+#: static/dist/js/enrollment-demographics-education-main.js
+msgid "Number of Students"
+msgstr "學生數量"
+
+#: static/dist/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-age-main.js
+msgid "Age: <%=value%>"
+msgstr "年齡: <%=value%>"
+
+#: static/dist/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-age-main.js
+msgid "Age"
+msgstr "年齡"
+
+#: static/dist/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-age-main.js
+msgid "Percent of Total"
+msgstr "總共的百分比"
+
+#: static/dist/js/enrollment-demographics-education-main.js
+#: static/dist/js/enrollment-demographics-gender-main.js
+#: static/js/enrollment-demographics-education-main.js
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Percentage"
+msgstr "百分比"
+
+#: static/dist/js/enrollment-demographics-education-main.js
+#: static/js/enrollment-demographics-education-main.js
+msgid "Education: <%=value%>"
+msgstr "教育程度: <%=value%>"
+
+#: static/dist/js/enrollment-demographics-education-main.js
+#: static/js/enrollment-demographics-education-main.js
+msgid "Educational Background"
+msgstr "學歷"
+
+#: static/dist/js/enrollment-demographics-gender-main.js
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Gender: <%=value%>"
+msgstr "性別: <%=value%>"
+
+#: static/dist/js/enrollment-demographics-gender-main.js
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Female"
+msgstr "女性"
+
+#: static/dist/js/enrollment-demographics-gender-main.js
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Male"
+msgstr "男性"
+
+#: static/dist/js/enrollment-demographics-gender-main.js
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Other"
+msgstr "其他"
+
+#: static/dist/js/enrollment-demographics-gender-main.js
+#: static/js/enrollment-demographics-gender-main.js
+msgid "Not Reported"
+msgstr "無報告"
+
+#: static/dist/js/enrollment-geography-main.js
+msgid ""
+"Student location is determined from IP address. This map shows where "
+"students most recently connected."
+msgstr "學生的位置由IP位址來決定。此地圖說明了哪些是學生最近連線的地方。"
+
+#: static/dist/js/enrollment-geography-main.js
+#: static/js/enrollment-geography-main.js
+msgid "Country"
+msgstr "國家"
+
+#: static/dist/js/enrollment-geography-main.js
+#: static/js/enrollment-geography-main.js
+msgid "Percent"
+msgstr "百分比"
+
+#: static/dist/js/performance-answer-distribution-main.js
+#: static/js/performance-answer-distribution-main.js
+msgid "Answer"
+msgstr "答案"
+
+#: static/dist/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
 msgid "Submission Count"
 msgstr "提交數字"
 
+#: static/dist/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
 msgid "Variant"
 msgstr "差別"
 
+#: static/dist/js/performance-answer-distribution-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js
+#: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
 #: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-learning-outcomes-section-main.js
@@ -628,28 +732,39 @@ msgstr "差別"
 msgid "Incorrect"
 msgstr "不正確"
 
+#: static/dist/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
 msgid "Answer: <%=value%>"
 msgstr "答案: <%=value%>"
 
+#: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-learning-outcomes-content-main.js
 #: static/js/performance-content-main.js
 #: static/js/performance-learning-outcomes-content-main.js
 msgid "Average Correct"
 msgstr "平均正確數"
 
+#: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-learning-outcomes-content-main.js
 #: static/js/performance-content-main.js
 #: static/js/performance-learning-outcomes-content-main.js
 msgid "Average Incorrect"
 msgstr "平均錯誤數"
 
+#: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
 msgid "Problems"
 msgstr "問題"
 
+#: static/dist/js/performance-content-main.js
 #: static/js/performance-content-main.js
 msgid "Average Submissions Per Problem"
 msgstr "各問題提交平均數"
 
+#: static/dist/js/performance-content-main.js
+#: static/dist/js/performance-learning-outcomes-content-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js
+#: static/dist/js/performance-problems-main.js
 #: static/js/performance-content-main.js
 #: static/js/performance-learning-outcomes-content-main.js
 #: static/js/performance-learning-outcomes-section-main.js
@@ -657,30 +772,35 @@ msgstr "各問題提交平均數"
 msgid "Percentage Correct"
 msgstr "答對百分比"
 
+#: static/dist/js/performance-learning-outcomes-content-main.js
 #: static/js/performance-learning-outcomes-content-main.js
 msgid "Average Submissions per Problem"
 msgstr "各問題平均提交數量"
 
+#: static/dist/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-learning-outcomes-section-main.js
 msgid "Difficulty"
 msgstr "困難"
 
+#: static/dist/js/performance-learning-outcomes-section-main.js
+#: static/dist/js/performance-problems-main.js
 #: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Total"
 msgstr "總數"
 
-#: static/js/utils/utils.js
-msgid "..."
-msgstr "..."
+#: static/js/engagement-content-main.js
+msgid "Percent of Current Learners"
+msgstr ""
 
-#: static/js/views/data-table-view.js static/js/views/discrete-bar-view.js
-msgid "(empty)"
-msgstr "(略)"
+#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-education-main.js
+msgid "Number of Learners"
+msgstr ""
 
-#. Translators: <%=value%> will be replaced by a number followed by a
-#. percentage.
-#. For example, "400 (29%)" */
-#: static/js/views/stacked-bar-view.js
-msgid "<%=value%> (<%=percent%>)"
-msgstr "<%=value%> (<%=percent%>)"
+#: static/js/enrollment-geography-main.js
+msgid ""
+"Learner location is determined from IP address. This map shows where "
+"learners most recently connected."
+msgstr ""

@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-22 10:24-0400\n"
-"PO-Revision-Date: 2016-09-22 14:25+0000\n"
+"POT-Creation-Date: 2016-11-22 10:20-0500\n"
+"PO-Revision-Date: 2016-11-22 15:22+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/open-edx/edx-platform/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -106,6 +106,7 @@ msgid "Segments to Ignore"
 msgstr "इन भागों को नज़रअन्दाज़ करें"
 
 #: static/apps/learners/common/collections/learners.js
+#: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Cohort"
 msgstr "सहयोग"
@@ -212,6 +213,14 @@ msgid "Activity Over Time"
 msgstr "समय के साथ गतिविधि"
 
 #: static/apps/learners/detail/views/learner-detail.js
+msgid "Enrollment"
+msgstr "नामांकन"
+
+#: static/apps/learners/detail/views/learner-detail.js
+msgid "Last Accessed"
+msgstr ""
+
+#: static/apps/learners/detail/views/learner-detail.js
 #: static/apps/learners/detail/views/learner-summary-field.js
 #: static/apps/learners/roster/views/activity-date-range.js
 #: static/dist/apps/learners/app/learners-main.js
@@ -252,6 +261,7 @@ msgstr "नामाकंन ट्रैक्स : <%= filterVal %>"
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/learners-main.js
+#: static/js/engagement-content-main.js
 msgid "Active Learners"
 msgstr ""
 
@@ -364,6 +374,10 @@ msgstr ""
 #: static/dist/apps/learners/app/learners-main.js
 msgid "All"
 msgstr "सब"
+
+#: static/apps/learners/roster/views/filter.js
+msgid "Hide Inactive Learners"
+msgstr ""
 
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/learners-main.js
@@ -488,7 +502,6 @@ msgid "Week Ending"
 msgstr "सप्ताहांत"
 
 #: static/dist/js/engagement-content-main.js
-#: static/js/engagement-content-main.js
 msgid "Active Students"
 msgstr "सक्रिय विद्यार्थी"
 
@@ -504,11 +517,10 @@ msgstr "एक समस्या को हल करने का प्रय
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
-msgid "Posted in Forum"
-msgstr "वाक्पीठ में प्रकाशित किया"
+msgid "Participated in Discussions"
+msgstr ""
 
 #: static/dist/js/engagement-content-main.js
-#: static/js/engagement-content-main.js
 msgid "Percent of Current Students"
 msgstr "वर्तमान छात्रों का प्रतिशत"
 
@@ -623,9 +635,6 @@ msgstr "श्रेय द्वारा सत्यापित"
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-education-main.js
-#: static/js/enrollment-demographics-age-main.js
-#: static/js/enrollment-demographics-age-main.js
-#: static/js/enrollment-demographics-education-main.js
 msgid "Number of Students"
 msgstr "छात्रों की संख्या"
 
@@ -687,7 +696,6 @@ msgid "Not Reported"
 msgstr "सूचित नहीं किया गया"
 
 #: static/dist/js/enrollment-geography-main.js
-#: static/js/enrollment-geography-main.js
 msgid ""
 "Student location is determined from IP address. This map shows where "
 "students most recently connected."
@@ -787,3 +795,19 @@ msgstr ""
 #: static/js/performance-problems-main.js
 msgid "Total"
 msgstr "कुल"
+
+#: static/js/engagement-content-main.js
+msgid "Percent of Current Learners"
+msgstr ""
+
+#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-education-main.js
+msgid "Number of Learners"
+msgstr ""
+
+#: static/js/enrollment-geography-main.js
+msgid ""
+"Learner location is determined from IP address. This map shows where "
+"learners most recently connected."
+msgstr ""

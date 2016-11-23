@@ -22,8 +22,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-22 10:24-0400\n"
-"PO-Revision-Date: 2016-09-22 14:25+0000\n"
+"POT-Creation-Date: 2016-11-22 10:20-0500\n"
+"PO-Revision-Date: 2016-11-22 15:22+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/open-edx/edx-platform/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -114,6 +114,7 @@ msgid "Segments to Ignore"
 msgstr "忽略的部分"
 
 #: static/apps/learners/common/collections/learners.js
+#: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Cohort"
 msgstr "群组"
@@ -216,6 +217,14 @@ msgid "Activity Over Time"
 msgstr "操作超时"
 
 #: static/apps/learners/detail/views/learner-detail.js
+msgid "Enrollment"
+msgstr "选课"
+
+#: static/apps/learners/detail/views/learner-detail.js
+msgid "Last Accessed"
+msgstr ""
+
+#: static/apps/learners/detail/views/learner-detail.js
 #: static/apps/learners/detail/views/learner-summary-field.js
 #: static/apps/learners/roster/views/activity-date-range.js
 #: static/dist/apps/learners/app/learners-main.js
@@ -256,6 +265,7 @@ msgstr "课程注册进程。"
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/learners-main.js
+#: static/js/engagement-content-main.js
 msgid "Active Learners"
 msgstr "活跃的学员"
 
@@ -356,12 +366,16 @@ msgstr "不活跃的学员"
 #: static/apps/learners/roster/views/filter.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "<%= name %> (<%= numLearners %>)"
-msgstr ""
+msgstr "<%= name %> (<%= numLearners %>)"
 
 #: static/apps/learners/roster/views/filter.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "All"
 msgstr "所有"
+
+#: static/apps/learners/roster/views/filter.js
+msgid "Hide Inactive Learners"
+msgstr ""
 
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/learners-main.js
@@ -483,7 +497,6 @@ msgid "Week Ending"
 msgstr "一周结束日"
 
 #: static/dist/js/engagement-content-main.js
-#: static/js/engagement-content-main.js
 msgid "Active Students"
 msgstr "活跃学生数"
 
@@ -499,11 +512,10 @@ msgstr "尝试过解决问题"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
-msgid "Posted in Forum"
-msgstr "在论坛中发过帖"
+msgid "Participated in Discussions"
+msgstr ""
 
 #: static/dist/js/engagement-content-main.js
-#: static/js/engagement-content-main.js
 msgid "Percent of Current Students"
 msgstr "学生百分比"
 
@@ -618,9 +630,6 @@ msgstr "信用认证"
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-education-main.js
-#: static/js/enrollment-demographics-age-main.js
-#: static/js/enrollment-demographics-age-main.js
-#: static/js/enrollment-demographics-education-main.js
 msgid "Number of Students"
 msgstr "学生数目"
 
@@ -682,7 +691,6 @@ msgid "Not Reported"
 msgstr "未报告"
 
 #: static/dist/js/enrollment-geography-main.js
-#: static/js/enrollment-geography-main.js
 msgid ""
 "Student location is determined from IP address. This map shows where "
 "students most recently connected."
@@ -780,3 +788,19 @@ msgstr "难度"
 #: static/js/performance-problems-main.js
 msgid "Total"
 msgstr "总计"
+
+#: static/js/engagement-content-main.js
+msgid "Percent of Current Learners"
+msgstr ""
+
+#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-education-main.js
+msgid "Number of Learners"
+msgstr ""
+
+#: static/js/enrollment-geography-main.js
+msgid ""
+"Learner location is determined from IP address. This map shows where "
+"learners most recently connected."
+msgstr ""

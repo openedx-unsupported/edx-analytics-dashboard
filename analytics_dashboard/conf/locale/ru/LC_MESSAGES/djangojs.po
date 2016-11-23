@@ -5,6 +5,7 @@
 # Translators:
 # Dmitriy <polevaiabrest@gmail.com>, 2014
 # Dmitry Oshkalo <dmitry.oshkalo@gmail.com>, 2015
+# SpaceOyster, 2016
 # Liubov Fomicheva <liubov.nelapa@gmail.com>, 2015
 # Madina Kanlybaeva <madika.kanlybaeva@mail.ru>, 2016
 # Maruschin Eugene <maruschin@gmail.com>, 2016
@@ -18,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-22 10:24-0400\n"
-"PO-Revision-Date: 2016-09-22 14:25+0000\n"
+"POT-Creation-Date: 2016-11-22 10:20-0500\n"
+"PO-Revision-Date: 2016-11-22 15:22+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Russian (http://www.transifex.com/open-edx/edx-platform/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -111,6 +112,7 @@ msgid "Segments to Ignore"
 msgstr "Игнорирование сегмента"
 
 #: static/apps/learners/common/collections/learners.js
+#: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Cohort"
 msgstr "Группа"
@@ -164,7 +166,7 @@ msgstr "Скачать в CSV"
 #: static/dist/download-form/apps/learners/common/views/download-data.js
 #: static/download-form/apps/learners/common/views/download-data.js
 msgid "Download search results to CSV"
-msgstr ""
+msgstr "Скачать результаты поиска в CSV"
 
 #: static/apps/learners/common/views/loading-view.js
 #: static/dist/apps/learners/app/learners-main.js
@@ -217,6 +219,14 @@ msgid "Activity Over Time"
 msgstr "Динамика активности"
 
 #: static/apps/learners/detail/views/learner-detail.js
+msgid "Enrollment"
+msgstr "Регистрация на курс"
+
+#: static/apps/learners/detail/views/learner-detail.js
+msgid "Last Accessed"
+msgstr ""
+
+#: static/apps/learners/detail/views/learner-detail.js
 #: static/apps/learners/detail/views/learner-summary-field.js
 #: static/apps/learners/roster/views/activity-date-range.js
 #: static/dist/apps/learners/app/learners-main.js
@@ -257,6 +267,7 @@ msgstr "Ссылка регистрации: <%= filterVal %>"
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/learners-main.js
+#: static/js/engagement-content-main.js
 msgid "Active Learners"
 msgstr "Активные слушатели"
 
@@ -370,6 +381,10 @@ msgstr "<%= name %> (<%= numLearners %>)"
 #: static/dist/apps/learners/app/learners-main.js
 msgid "All"
 msgstr "Все"
+
+#: static/apps/learners/roster/views/filter.js
+msgid "Hide Inactive Learners"
+msgstr ""
 
 #: static/apps/learners/roster/views/paging-footer.js
 #: static/dist/apps/learners/app/learners-main.js
@@ -494,7 +509,6 @@ msgid "Week Ending"
 msgstr "Неделя, заканчивающаяся"
 
 #: static/dist/js/engagement-content-main.js
-#: static/js/engagement-content-main.js
 msgid "Active Students"
 msgstr "Активные обучающиеся"
 
@@ -510,11 +524,10 @@ msgstr "Пытавшиеся выполнить задание"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
-msgid "Posted in Forum"
-msgstr "Оставили сообщение на форуме"
+msgid "Participated in Discussions"
+msgstr "Приняли участие в Обсуждении"
 
 #: static/dist/js/engagement-content-main.js
-#: static/js/engagement-content-main.js
 msgid "Percent of Current Students"
 msgstr "Процент обучающихся"
 
@@ -629,9 +642,6 @@ msgstr "Подтверждённые с зачётом"
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-education-main.js
-#: static/js/enrollment-demographics-age-main.js
-#: static/js/enrollment-demographics-age-main.js
-#: static/js/enrollment-demographics-education-main.js
 msgid "Number of Students"
 msgstr "Количество обучающихся"
 
@@ -693,7 +703,6 @@ msgid "Not Reported"
 msgstr "Нет отчета"
 
 #: static/dist/js/enrollment-geography-main.js
-#: static/js/enrollment-geography-main.js
 msgid ""
 "Student location is determined from IP address. This map shows where "
 "students most recently connected."
@@ -793,3 +802,19 @@ msgstr "Сложность"
 #: static/js/performance-problems-main.js
 msgid "Total"
 msgstr "Итого"
+
+#: static/js/engagement-content-main.js
+msgid "Percent of Current Learners"
+msgstr ""
+
+#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-education-main.js
+msgid "Number of Learners"
+msgstr ""
+
+#: static/js/enrollment-geography-main.js
+msgid ""
+"Learner location is determined from IP address. This map shows where "
+"learners most recently connected."
+msgstr ""
