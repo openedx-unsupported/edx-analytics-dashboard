@@ -362,5 +362,99 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                 test.showTooltip();
                 test.expectNoEventToHaveBeenEmitted();
             });
+
+            it('should transform target HTML data attributes', function() {
+                var test = setupTest();
+
+                test.sandbox.attr('data-track-target-scope', 'course');
+                test.sandbox.attr('data-track-target-lens', 'mylens');
+                test.sandbox.attr('data-track-target-report', 'myreport');
+                test.sandbox.attr('data-track-target-depth', 'mydepth');
+                test.showTooltip();
+
+                test.expectEventEmitted(
+                    'trackingEvent', {
+                        label: 'course_mylens_myreport',
+                        courseId: 'my/course/id',
+                        org: 'org',
+                        param: 'my-param',
+                        foo: 'bar',
+                        current_page: {
+                            scope: 'course',
+                            lens: 'mylens',
+                            report: 'myreport',
+                            depth: '',
+                            name: 'course_mylens_myreport'
+                        },
+                        target_page: {
+                            scope: 'course',
+                            lens: 'mylens',
+                            report: 'myreport',
+                            depth: 'mydepth',
+                            name: 'course_mylens_myreport_mydepth'
+                        }
+                    }
+                );
+            });
+
+            it('should transform target HTML data attributes (with name parts missing)', function() {
+                var test = setupTest();
+
+                test.sandbox.attr('data-track-target-scope', 'course');
+                test.sandbox.attr('data-track-target-lens', 'mylens');
+                test.showTooltip();
+
+                test.expectEventEmitted(
+                    'trackingEvent', {
+                        label: 'course_mylens_myreport',
+                        courseId: 'my/course/id',
+                        org: 'org',
+                        param: 'my-param',
+                        foo: 'bar',
+                        current_page: {
+                            scope: 'course',
+                            lens: 'mylens',
+                            report: 'myreport',
+                            depth: '',
+                            name: 'course_mylens_myreport'
+                        },
+                        target_page: {
+                            scope: 'course',
+                            lens: 'mylens',
+                            report: '',
+                            depth: '',
+                            name: 'course_mylens'
+                        }
+                    }
+                );
+            });
+
+            it('should transform link-name and menu-depth HTML data attributes', function() {
+                var test = setupTest();
+
+                test.sandbox.attr('data-track-menu-depth', 'lens');
+                test.sandbox.attr('data-track-link-name', 'mylens');
+                test.showTooltip();
+
+                test.expectEventEmitted(
+                    'trackingEvent', {
+                        label: 'course_mylens_myreport',
+                        courseId: 'my/course/id',
+                        org: 'org',
+                        param: 'my-param',
+                        foo: 'bar',
+                        current_page: {
+                            scope: 'course',
+                            lens: 'mylens',
+                            report: 'myreport',
+                            depth: '',
+                            name: 'course_mylens_myreport'
+                        },
+                        menu_depth: 'lens',
+                        link_name: 'mylens',
+                        category: 'lens+mylens'
+                    }
+                );
+            });
         });
     });
