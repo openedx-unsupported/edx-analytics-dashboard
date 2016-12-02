@@ -428,5 +428,33 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                     }
                 );
             });
+
+            it('should transform link-name and menu-depth HTML data attributes', function() {
+                var test = setupTest();
+
+                test.sandbox.attr('data-track-menu-depth', 'lens');
+                test.sandbox.attr('data-track-link-name', 'mylens');
+                test.showTooltip();
+
+                test.expectEventEmitted(
+                    'trackingEvent', {
+                        label: 'course_mylens_myreport',
+                        courseId: 'my/course/id',
+                        org: 'org',
+                        param: 'my-param',
+                        foo: 'bar',
+                        current_page: {
+                            scope: 'course',
+                            lens: 'mylens',
+                            report: 'myreport',
+                            depth: '',
+                            name: 'course_mylens_myreport'
+                        },
+                        menu_depth: 'lens',
+                        link_name: 'mylens',
+                        category: 'lens+mylens'
+                    }
+                );
+            });
         });
     });
