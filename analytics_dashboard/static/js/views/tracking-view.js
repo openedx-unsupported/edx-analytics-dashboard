@@ -134,14 +134,16 @@ define(['backbone', 'jquery', 'underscore', 'utils/utils'],
             transformPropertiesFromHTMLAttributes: function(props) {
                 var properties = props,
                     targetNameParts = [],
-                    parts = ['scope', 'lens', 'report', 'depth'];
+                    parts = ['scope', 'lens', 'report', 'depth'],
+                    partVal;
                 // collapse target scope, lens, report, and depth to a target_page dict
                 if ('target-scope' in properties) {
                     properties.target_page = {};
                     parts.forEach(function(part) {
-                        properties.target_page[part] = properties['target-' + part] || '';
-                        if (part !== '' && part !== undefined) {
-                            targetNameParts.push(part);
+                        partVal = properties['target-' + part] || '';
+                        properties.target_page[part] = partVal;
+                        if (partVal !== '' && partVal !== undefined) {
+                            targetNameParts.push(partVal);
                         }
                         delete properties['target-' + part];
                     });
