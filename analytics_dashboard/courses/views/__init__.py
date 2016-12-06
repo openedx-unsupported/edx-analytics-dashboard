@@ -770,10 +770,14 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LazyEnco
 
         context['js_data']['course'] = {
             'course_list_url': 'http://example.com',
-            'course_list_json': [
+            'course_list_json': []
+        }
+
+        for i in range(100):
+            context['js_data']['course']['course_list_json'].extend([
                 {
                     "created": "2016-11-30T213233",
-                    "course_id": "edX/DemoX/Demo_Course",
+                    "course_id": "edX/DemoX/Demo_Course" + str(i),
                     "catalog_course_title": "Demo Course",
                     "catalog_course": "Demo_Course",
                     "start_date": "2016-10-19T21:32:33.989782Z",
@@ -813,7 +817,7 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LazyEnco
                 },
                 {
                     "created": "2016-11-30T213233",
-                    "course_id": "edX/DemoX/Foo_Course",
+                    "course_id": "edX/DemoX/Foo_Course" + str(i),
                     "catalog_course_title": "Foo Course",
                     "catalog_course": "Foo_Course",
                     "start_date": "2016-11-19T21:32:33.989782Z",
@@ -851,8 +855,7 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LazyEnco
                         }
                     }
                 },
-            ]
-        }
+            ])
 
         courses_list = self._create_course_list(courses)
         context['courses'] = courses_list

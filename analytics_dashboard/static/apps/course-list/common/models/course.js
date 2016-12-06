@@ -58,11 +58,6 @@ define(function(require) {
             return Backbone.Model.prototype.url.call(this) + '?course_ids=' + encodeURIComponent(this.get('course_id'));
         },
 
-        fetch: function(options) {
-            return Backbone.Model.prototype.fetch.call(this, options)
-                .fail(CourseListUtils.handleAjaxFailure.bind(this));
-        },
-
         /**
          * Returns true if the course_id has been set.  False otherwise.
          */

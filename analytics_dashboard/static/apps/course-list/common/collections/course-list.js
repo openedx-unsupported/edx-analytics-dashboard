@@ -31,22 +31,9 @@ define(function(require) {
             this.registerFilterableField('availability', gettext('Availability'));
         },
 
-        fetch: function(options) {
-            // Note to self: I need to create a client-side only version of this collection. It will be bootstrapped and
-            // then do no more fetching. It's not clear how to do this. Do I override they fetching methods like this SO
-            // answer suggests? http://stackoverflow.com/a/18347250 Or, is there a cleaner way? How do others use the
-            // ClientSideFilter with a collection?
-            return PagingCollection.prototype.fetch.call(this, options)
-                .fail(CourseListUtils.handleAjaxFailure.bind(this));
-        },
-
         state: {
             pageSize: 25
         },
-
-        // queryParams: {
-            // course_id: function() { return this.courseId; }
-        // },
 
         // Shim code follows for backgrid.paginator 0.3.5
         // compatibility, which expects the backbone.pageable

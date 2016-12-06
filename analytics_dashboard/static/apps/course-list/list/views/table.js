@@ -11,9 +11,14 @@ define(function(require) {
         BaseHeaderCell = require('course-list/list/views/base-header-cell'),
         PagingFooter = require('course-list/list/views/paging-footer'),
         courseListTableTemplate = require('text!course-list/list/templates/table.underscore'),
+        Utils = require('utils/utils'),
 
         INTEGER_COLUMNS = ['count', 'cumulative_count', 'count_change_7_days', 'verified_enrollment'],
+        DATE_COLUMNS = ['start_date', 'end_date'],
         CourseListTableView;
+
+    // This attached to Backgrid.Extensions.MomentCell
+    require('backgrid-moment-cell');
 
     CourseListTableView = Marionette.LayoutView.extend({
         template: _.template(courseListTableTemplate),
@@ -44,8 +49,13 @@ define(function(require) {
                         sortType: 'toggle',
                         headerCell: BaseHeaderCell
                     };
-                    if (key in INTEGER_COLUMNS) {
+                    if (INTEGER_COLUMNS.indexOf(key) !== -1) {
                         column.cell = 'integer';
+                    } else if (DATE_COLUMNS.indexOf(key) !== -1) {
+                        column.cell = Backgrid.Extension.MomentCell.extend({
+                            displayLang: Utils.getMomentLocale(),
+                            displayFormat: 'LL'
+                        });
                     } else {
                         column.cell = 'string';
                     }

@@ -16,6 +16,7 @@ require.config({
         backgrid: 'bower_components/backgrid/lib/backgrid',
         'backgrid-filter': 'bower_components/backgrid-filter/backgrid-filter.min',
         'backgrid-paginator': 'bower_components/backgrid-paginator/backgrid-paginator.min',
+        'backgrid-moment-cell': 'bower_components/backgrid-moment-cell/backgrid-moment-cell.min',
         bootstrap: 'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap',
         bootstrap_accessibility: 'bower_components/bootstrapaccessibilityplugin/plugins/js/bootstrap-accessibility',
         models: 'js/models',
@@ -81,6 +82,9 @@ require.config({
         },
         'backgrid-paginator': {
             deps: ['backbone', 'underscore', 'jquery', 'backgrid']
+        },
+        'backgrid-moment-cell': {
+            deps: ['backbone', 'underscore', 'moment', 'backgrid']
         },
         dataTablesBootstrap: {
             deps: ['jquery', 'datatables']
