@@ -12,7 +12,7 @@ define(function(require) {
         PagingFooter = require('course-list/list/views/paging-footer'),
         courseListTableTemplate = require('text!course-list/list/templates/table.underscore'),
 
-        INTEGER_COLUMNS = ['count', 'cumulative_count', 'count_change_7_days'],
+        INTEGER_COLUMNS = ['count', 'cumulative_count', 'count_change_7_days', 'verified_enrollment'],
         CourseListTableView;
 
     CourseListTableView = Marionette.LayoutView.extend({
@@ -31,6 +31,7 @@ define(function(require) {
             });
         },
         onBeforeShow: function() {
+            this.collection.flattenVerified();
             this.showChildView('table', new Backgrid.Grid({
                 className: 'table table-striped dataTable',  // Combine bootstrap and datatables styling
                 collection: this.options.collection,

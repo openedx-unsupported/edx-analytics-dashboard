@@ -26,6 +26,7 @@ define(function(require) {
             this.registerSortableField('count', gettext('Enrollment Count'));
             this.registerSortableField('cumulative_count', gettext('Cumulative Enrollment Count'));
             this.registerSortableField('count_change_7_days', gettext('Enrollment Change in Last 7 Days'));
+            this.registerSortableField('verified_enrollment', gettext('Verified Enrollment'));
 
             this.registerFilterableField('availability', gettext('Availability'));
         },
@@ -56,6 +57,13 @@ define(function(require) {
 
         hasNext: function() {
             return this.hasNextPage();
+        },
+
+        /**
+         * For every model in this collection, call the flattenVerified function.
+         */
+        flattenVerified: function() {
+            return this.invoke('flattenVerified');
         },
 
         /**

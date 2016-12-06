@@ -783,7 +783,7 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LazyEnco
                     "count": 1381,
                     "cumulative_count": 1662,
                     "count_change_7_days": 64,
-                    "modes": {
+                    "enrollment_modes": {
                         "audit": {
                             "count": 207,
                             "cumulative_count": 253,
@@ -823,7 +823,7 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LazyEnco
                     "count": 234,
                     "cumulative_count": 304,
                     "count_change_7_days": 2,
-                    "modes": {
+                    "enrollment_modes": {
                         "audit": {
                             "count": 100,
                             "cumulative_count": 102,
