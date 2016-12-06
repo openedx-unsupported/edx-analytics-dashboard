@@ -1,0 +1,4 @@
+<a href="#" title="<%- title %>" class="btn btn-link <% if (isDisabled) { %> disabled <% } %>">
+    <span class="sr-only"><%-srText %></span>
+    <span aria-hidden="<%- isHiddenFromSr %>"><%= nonSrText %></span>
+</a>
