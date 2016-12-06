@@ -2,51 +2,37 @@
 {% load i18n %}
 {% load staticfiles %}
 {% load dashboard_extras %}
-{% load firstof from future %}
+{% load rjs %}
 
 {% block view-name %}view-course-list{% endblock view-name %}
 
 {% block title %}{% trans "Courses" %} {{ block.super }}{% endblock title %}
 
-{% block header-text %}
-  <h3>
-    {% blocktrans with username=request.user.username %}Welcome, {{ username }}!{% endblocktrans %}
-  </h3>
-{% endblock %}
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="stylesheet" href="/static/bower_components/backgrid-paginator/backgrid-paginator.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/bower_components/nprogress/nprogress.css" type="text/css">
+{% endblock stylesheets %}
 
-{% block intro-text %}
-  {% blocktrans %}Here are the courses you currently have access to in {{ application_name }}:{% endblocktrans %}
-{% endblock intro-text %}
+{% block javascript %}
+    {{ block.super }}
+    <script src="{% static_rjs 'apps/course-list/app/course-list-main.js' %}"></script>
+{% endblock javascript %}
 
 {% block content %}
-  <div class="row">
-    <div class="col col-12 sm-col-12 md-col-8">
-      <div class="course-list">
-        {% for course in courses %}
-          <div class="course">
-            <a href="{% url 'courses:home' course_id=course.key %}">
-              <span class="course-name">{% firstof course.name course.key|format_course_key %}</span>
-            </a>
-
-            {% if course.name %}
-              <div class="course-key">{{ course.key|format_course_key:" / " }}</div>
-            {% endif %}
+  {% block child_content %}
+      <section class="view-section">
+          <div class="course-list-app-container grid-container">
+              {% include "loading.html" %}
           </div>
-        {% endfor %}
-      </div>
-    </div>
-
-    <div class="col col-12 sm-col-12 md-col-4">
-      <div class="help-msg">
-        <h4>{% blocktrans %}New to {{ application_name }}?{% endblocktrans %}</h4>
-
-        {% captureas email_link %}
-          <a class="feedback-email" href="mailto:{{ feedback_email }}?Subject=Feedback">
-            {{ feedback_email }}</a>{% endcaptureas %}
-
-        <p class="info-text">{% blocktrans trimmed %} Click Help in the upper-right corner to get more information
-          about {{ application_name }}. Send us feedback at {{ email_link }}.{% endblocktrans %}</p>
-      </div>
-    </div>
-  </div>
+      </section>
+  {% endblock %}
+  {% block data_messaging %}
+    {% if update_message %}
+      <div class="data-update-message">{{ update_message }}</div>
+    {% endif %}
+    {% if data_information_message %}
+      <div class="data-information-message">{{ data_information_message }}</div>
+    {% endif %}
+  {% endblock %}
 {% endblock %}

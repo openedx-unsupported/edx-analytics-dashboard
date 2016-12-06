@@ -768,6 +768,92 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LazyEnco
             # The user is probably not a course administrator and should not be using this application.
             raise PermissionDenied
 
+        context['js_data']['course'] = {
+            'course_list_url': 'http://example.com',
+            'course_list_json': [
+                {
+                    "created": "2016-11-30T213233",
+                    "course_id": "edX/DemoX/Demo_Course",
+                    "catalog_course_title": "Demo Course",
+                    "catalog_course": "Demo_Course",
+                    "start_date": "2016-10-19T21:32:33.989782Z",
+                    "end_date": "2017-02-08T21:32:33.989803Z",
+                    "pacing_type": "self_paced",
+                    "availability": "Current",
+                    "count": 1381,
+                    "cumulative_count": 1662,
+                    "count_change_7_days": 64,
+                    "modes": {
+                        "audit": {
+                            "count": 207,
+                            "cumulative_count": 253,
+                            "count_change_7_days": 36
+                        },
+                        "credit": {
+                            "count": 207,
+                            "cumulative_count": 225,
+                            "count_change_7_days": 11
+                        },
+                        "verified": {
+                            "count": 484,
+                            "cumulative_count": 573,
+                            "count_change_7_days": 37
+                        },
+                        "honor": {
+                            "count": 345,
+                            "cumulative_count": 402,
+                            "count_change_7_days": 25
+                        },
+                        "professional": {
+                            "count": 138,
+                            "cumulative_count": 209,
+                            "count_change_7_days": -45
+                        }
+                    }
+                },
+                {
+                    "created": "2016-11-30T213233",
+                    "course_id": "edX/DemoX/Foo_Course",
+                    "catalog_course_title": "Foo Course",
+                    "catalog_course": "Foo_Course",
+                    "start_date": "2016-11-19T21:32:33.989782Z",
+                    "end_date": "2017-03-08T21:32:33.989803Z",
+                    "pacing_type": "instructor_paced",
+                    "availability": "Archived",
+                    "count": 234,
+                    "cumulative_count": 304,
+                    "count_change_7_days": 2,
+                    "modes": {
+                        "audit": {
+                            "count": 100,
+                            "cumulative_count": 102,
+                            "count_change_7_days": 2
+                        },
+                        "credit": {
+                            "count": 130,
+                            "cumulative_count": 140,
+                            "count_change_7_days": 0
+                        },
+                        "verified": {
+                            "count": 20,
+                            "cumulative_count": 43,
+                            "count_change_7_days": -1
+                        },
+                        "honor": {
+                            "count": 1,
+                            "cumulative_count": 1,
+                            "count_change_7_days": 0
+                        },
+                        "professional": {
+                            "count": 56,
+                            "cumulative_count": 56,
+                            "count_change_7_days": 1
+                        }
+                    }
+                },
+            ]
+        }
+
         courses_list = self._create_course_list(courses)
         context['courses'] = courses_list
         context['page_data'] = self.get_page_data(context)

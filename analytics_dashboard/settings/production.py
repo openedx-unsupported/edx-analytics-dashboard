@@ -5,18 +5,18 @@ from analytics_dashboard.settings.yaml_config import *
 from analytics_dashboard.settings.logger import get_logger_config
 
 # Enable offline compression of CSS/JS
-COMPRESS_ENABLED = True
-COMPRESS_OFFLINE = True
+#  COMPRESS_ENABLED = True
+#  COMPRESS_OFFLINE = True
 
 # Use r.js to combine RequireJS files
-RJS_OPTIMIZATION_ENABLED = True
+#  RJS_OPTIMIZATION_ENABLED = True
 
 # Minify CSS
-COMPRESS_CSS_FILTERS += [
-    'compressor.filters.cssmin.CSSMinFilter',
-]
+#  COMPRESS_CSS_FILTERS += [
+    #  'compressor.filters.cssmin.CSSMinFilter',
+#  ]
 
-LOGGING = get_logger_config()
+LOGGING = get_logger_config(debug=True)
 
 
 # ######### HOST CONFIGURATION
@@ -42,3 +42,11 @@ FULL_APPLICATION_NAME = u'{0} {1}'.format(PLATFORM_NAME, APPLICATION_NAME)
 # Depends on DOCUMENTATION_LOAD_ERROR_URL, so evaluate at the end
 DOCUMENTATION_LOAD_ERROR_MESSAGE = 'This data may not be available for your course. ' \
                                    '<a href="{error_documentation_link}" target="_blank">Read more</a>.'.format(error_documentation_link=DOCUMENTATION_LOAD_ERROR_URL)
+
+DATA_API_URL = 'https://stage-edx-analyticsapi.edx.org/api/v0'
+DATA_API_AUTH_TOKEN = 'deXF3yOjOcCabCcCmz3cANgCpOgTSzpq'
+
+#  GRADING_POLICY_API_URL = 'https://courses.stage.edx.org/api/grades/v0'
+ENABLE_AUTO_AUTH = True
+DEBUG = True
+SEGMENT_IO_KEY = 'tp8kn38gax'

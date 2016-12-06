@@ -1,0 +1,28 @@
+<% if (!_.isEmpty(filterValues)) { %>
+<% var filterId = 'filter-' + filterKey; %>
+<hr>
+<% if (!(filterKey === 'ignore_segments')) { %>
+	<label for="<%- filterId %>">
+	    <%- selectDisplayName %>
+	</label>
+	<select id="<%- filterId %>" class="form-control">
+	    <% _.each(filterValues, function (filterValue) { %>
+	        <option value="<%- filterValue.name %>" <% if (filterValue.selected) { %> selected <% } %>>
+	            <%- filterValue.displayName %>
+	        </option>
+	    <% }); %>
+	</select>
+<% } %>
+
+<% if (filterKey === 'ignore_segments') { %>
+<div id="<%- filterId %>">
+	<% _.each(filterValues, function (filterValue) { %>
+		<% if (filterValue.name === 'inactive') { %>
+			<input id="<%- filterValue.name %>" type="checkbox" value="<%- filterValue.name %>" <% if (hideInactive) { %> checked <% } %>>
+			<label for="<%- filterValue.name %>"> <%- selectDisplayName %> </label><br>
+		<% } %>
+	<% }); %>
+</div>
+<% } %>
+
+<% } %>
