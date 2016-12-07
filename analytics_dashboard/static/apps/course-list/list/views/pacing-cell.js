@@ -9,7 +9,7 @@ define(function(require) {
 
         pacingCellTemplate = require('text!course-list/list/templates/pacing-cell.underscore'),
 
-        PACING_DISPLAY_NAMES = {self_paced: 'Self Paced', instructor_paced: 'Instructor Paced'},
+        PACING_DISPLAY_NAMES = {self_paced: 'Self Paced', instructor_paced: 'Instructor Paced', '': '--'},
 
         PacingCell;
 

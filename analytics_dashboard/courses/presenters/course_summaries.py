@@ -1,5 +1,8 @@
 from courses.presenters import BasePresenter
 
+NON_NULL_STRING_FIELDS = ['course_id', 'catalog_course', 'catalog_course_title', 'start_date', 'end_date',
+                          'pacing_type', 'availability']
+
 
 class CourseSummariesPresenter(BasePresenter):
     """ Presenter for the course enrollment data. """
@@ -13,4 +16,10 @@ class CourseSummariesPresenter(BasePresenter):
         # specified courses are returned and we fill in the blanks too in case we
         # don't have data
 
+        api_response = [{field: ('' if val is None and field in NON_NULL_STRING_FIELDS else val)
+                         for field, val in summary.items()}
+                        for summary in api_response]
+
+        # By default, sort summaries by enrollment count descending
+        api_response = sorted(api_response, key=lambda summary: summary['count'], reverse=True)
         return api_response

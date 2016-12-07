@@ -63,23 +63,7 @@ define(function(require) {
 
             try {
                 this.options.courseListCollection.setStateFromQueryString(queryString);
-                if (this.options.courseListCollection.isStale) {
-                    // Show a loading spinner while we fetch new collection data
-                    this.options.rootView.showChildView('main', loadingView);
-
-                    fetch = this.options.courseListCollection.fetch({reset: true});
-                    if (fetch) {
-                        fetch.complete(function(response) {
-                            // fetch doesn't empty the collection on 404 by default
-                            if (response && response.status === 404) {
-                                this.options.courseListCollection.reset();
-                            }
-                        });
-                    }
-                } else {
-                    // Immediately show the list with the currently loaded collection data
-                    this.options.rootView.showChildView('main', listView);
-                }
+                this.options.rootView.showChildView('main', listView);
             } catch (e) {
                 // These JS errors occur when trying to parse invalid URL parameters
                 if (e instanceof RangeError || e instanceof TypeError) {
@@ -95,7 +79,7 @@ define(function(require) {
 
             this.options.pageModel.set('title', gettext('Course List'));
             this.onCourseListCollectionUpdated(this.options.courseListCollection);
-            this.options.courseListCollection.trigger('loaded', {navigate_trigger: false});
+            this.options.courseListCollection.trigger('loaded');
 
             // track the "page" view
             this.options.trackingModel.set('page', {

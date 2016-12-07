@@ -19,7 +19,6 @@ define(function(require) {
             this.downloadUrl = options.downloadUrl;
 
             this.registerSortableField('catalog_course_title', gettext('Course Name'));
-            this.registerSortableField('course_id', gettext('Course ID'));
             this.registerSortableField('start_date', gettext('Start Date'));
             this.registerSortableField('end_date', gettext('End Date'));
             this.registerSortableField('pacing_type', gettext('Pacing Type'));
@@ -32,7 +31,9 @@ define(function(require) {
         },
 
         state: {
-            pageSize: 25
+            pageSize: 25,
+            sortKey: 'count',
+            order: 1
         },
 
         // Shim code follows for backgrid.paginator 0.3.5
@@ -79,9 +80,6 @@ define(function(require) {
         /**
          * Decodes a query string into arguments and sets the state of the collection to what the arguments describe.
          * The query string argument should have already had the prefix '?' stripped (the AppRouter does this).
-         *
-         * Will set the collection's isStale boolean to whether the new state differs from the old state (so the caller
-         * knows that the collection is stale and needs to do a fetch).
          */
         setStateFromQueryString: function(queryString) {
             var params = Utils.parseQueryString(queryString),
@@ -92,7 +90,7 @@ define(function(require) {
                 if (key === 'page') {
                     page = parseInt(val, 10);
                     if (page !== this.state.currentPage) {
-                        this.isStale = true;
+                        this.getPage(page);
                     }
                     this.state.currentPage = page;
                 } else if (key === 'sortKey') {
@@ -102,7 +100,7 @@ define(function(require) {
                 } else {
                     if (key in this.filterableFields || key === 'text_search') {
                         if (val !== this.getFilterFieldValue(key)) {
-                            this.isStale = true;
+                            // TODO: need to trigger the filter here
                         }
                         this.setFilterField(key, val);
                     }
@@ -112,8 +110,8 @@ define(function(require) {
             // Set the sort state if sortKey or order from the queryString are different from the current state
             if (sortKey && sortKey in this.sortableFields) {
                 if (sortKey !== this.state.sortKey || order !== this.state.order) {
-                    this.isStale = true;
-                    this.setSorting(sortKey, order);
+                    this.setSorting(sortKey, order, {full: true});
+                    this.fullCollection.sort();
                 }
             }
         }
