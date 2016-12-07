@@ -22,6 +22,7 @@ define(function(require) {
                 count: 0,
                 cumulative_count: 0,
                 count_change_7_days: 0,
+                verified_enrollment: 0,
                 enrollment_modes: {
                     audit: {
                         count: 0,
@@ -52,6 +53,15 @@ define(function(require) {
             };
         },
 
+
+        /**
+         * Backgrid will only work on models that are one level deep, so we must flatten the data structure to access
+         * the verified enrollment count from the table.
+         */
+        initialize: function() {
+            this.set({verified_enrollment: this.get('enrollment_modes').verified.count});
+        },
+
         idAttribute: 'course_id',
 
         url: function() {
@@ -63,14 +73,6 @@ define(function(require) {
          */
         hasData: function() {
             return !_(this.get('course_id')).isEmpty();
-        },
-
-        /**
-         * Backgrid will only work on models that are one level deep, so we must flatten the data structure to access
-         * the verified enrollment count from the table.
-         */
-        flattenVerified: function() {
-            this.set({verified_enrollment: this.get('enrollment_modes').verified.count});
         }
     });
 

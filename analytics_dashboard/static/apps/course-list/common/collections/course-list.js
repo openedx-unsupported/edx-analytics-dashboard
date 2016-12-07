@@ -47,13 +47,6 @@ define(function(require) {
         },
 
         /**
-         * For every model in this collection, call the flattenVerified function.
-         */
-        flattenVerified: function() {
-            return this.invoke('flattenVerified');
-        },
-
-        /**
          * The following two methods encode and decode the state of the collection to a query string. This query string
          * is different than queryParams, which we send to the API server during a fetch. Here, the string encodes the
          * current user view on the collection including page number, filters applied, search query, and sorting. The

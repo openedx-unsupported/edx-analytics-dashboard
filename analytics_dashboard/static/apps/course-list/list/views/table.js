@@ -9,6 +9,7 @@ define(function(require) {
         Marionette = require('marionette'),
 
         BaseHeaderCell = require('course-list/list/views/base-header-cell'),
+        PacingCell = require('course-list/list/views/pacing-cell'),
         PagingFooter = require('course-list/list/views/paging-footer'),
         courseListTableTemplate = require('text!course-list/list/templates/table.underscore'),
         Utils = require('utils/utils'),
@@ -36,7 +37,6 @@ define(function(require) {
             });
         },
         onBeforeShow: function() {
-            this.collection.flattenVerified();
             this.showChildView('table', new Backgrid.Grid({
                 className: 'table table-striped dataTable',  // Combine bootstrap and datatables styling
                 collection: this.options.collection,
@@ -56,6 +56,8 @@ define(function(require) {
                             displayLang: Utils.getMomentLocale(),
                             displayFormat: 'LL'
                         });
+                    } else if (key === 'pacing_type') {
+                        column.cell = PacingCell;
                     } else {
                         column.cell = 'string';
                     }
