@@ -1,5 +1,8 @@
 from courses.presenters import BasePresenter
 
+NON_NULL_STRING_FIELDS = ['course_id', 'catalog_course', 'catalog_course_title', 'start_date', 'end_date',
+                          'pacing_type', 'availability']
+
 
 class CourseSummariesPresenter(BasePresenter):
     """ Presenter for the course enrollment data. """
@@ -12,5 +15,9 @@ class CourseSummariesPresenter(BasePresenter):
         # TODO: need to filter the responses so that only the ones that match our
         # specified courses are returned and we fill in the blanks too in case we
         # don't have data
+
+        api_response = [{field: ('' if val is None else val) for field, val in summary.items()
+                         if field in NON_NULL_STRING_FIELDS}
+                        for summary in api_response]
 
         return api_response

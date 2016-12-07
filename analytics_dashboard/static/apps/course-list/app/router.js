@@ -27,19 +27,14 @@ define(function(require) {
             this.options = options || {};
             this.courseListCollection = options.controller.options.courseListCollection;
             this.listenTo(this.courseListCollection, 'loaded', this.updateUrl);
-            this.listenTo(this.courseListCollection, 'backgrid:sort', this.updateUrl);
-            this.listenTo(this.courseListCollection, 'pageable:state:change', this.updateUrl);
+            this.listenTo(this.courseListCollection, 'backgrid:refresh', this.updateUrl);
             Marionette.AppRouter.prototype.initialize.call(this, options);
         },
 
         // Called on CourseListCollection update. Converts the state of the collection (including any filters,
         // searchers, sorts, or page numbers) into a url and then navigates the router to that url.
-        updateUrl: function(options) {
-            var trigger = true;
-            if (options.navigate_trigger !== undefined) {
-                trigger = options.navigate_trigger;
-            }
-            this.navigate(this.courseListCollection.getQueryString(), {replace: true, trigger: trigger});
+        updateUrl: function() {
+            this.navigate(this.courseListCollection.getQueryString(), {replace: true, trigger: false});
         }
     });
 

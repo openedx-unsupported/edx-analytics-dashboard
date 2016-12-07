@@ -9,6 +9,7 @@ define(function(require) {
         Marionette = require('marionette'),
 
         BaseHeaderCell = require('course-list/list/views/base-header-cell'),
+        CourseIdAndNameCell = require('course-list/list/views/course-id-and-name-cell'),
         PacingCell = require('course-list/list/views/pacing-cell'),
         PagingFooter = require('course-list/list/views/paging-footer'),
         courseListTableTemplate = require('text!course-list/list/templates/table.underscore'),
@@ -54,8 +55,17 @@ define(function(require) {
                     } else if (DATE_COLUMNS.indexOf(key) !== -1) {
                         column.cell = Backgrid.Extension.MomentCell.extend({
                             displayLang: Utils.getMomentLocale(),
-                            displayFormat: 'LL'
+                            displayFormat: 'L',
+                            render: function() {
+                                var result = Backgrid.Extension.MomentCell.prototype.render.call(this, arguments);
+                                if (result.el.textContent === 'Invalid date') {
+                                    result.el.textContent = '--';
+                                }
+                                return result;
+                            }
                         });
+                    } else if (key === 'catalog_course_title') {
+                        column.cell = CourseIdAndNameCell;
                     } else if (key === 'pacing_type') {
                         column.cell = PacingCell;
                     } else {
