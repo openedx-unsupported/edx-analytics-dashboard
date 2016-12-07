@@ -59,7 +59,6 @@ The following switches are available:
 | enable_ccx_courses                   | Display CCX Courses in the course listing page.       |
 | enable_engagement_videos_pages       | Enable engagement video pages.                        |
 | enable_video_preview                 | Enable video preview.                                 |
-| display_names_for_course_index       | Display course names on course index page.            |
 | display_course_name_in_nav           | Display course name in navigation bar.                |
 | enable_performance_learning_outcome  | Enable performance section with learning outcome breakdown (functionality based on tagging questions in Studio) | 
 | enable_learner_download              | Display Download CSV button on Learner List page.     |
