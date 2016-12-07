@@ -769,7 +769,7 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LazyEnco
             raise PermissionDenied
 
         context['js_data']['course'] = {
-            'course_list_url': 'http://example.com',
+            'course_list_url': '/courses/',
             'course_list_json': []
         }
 

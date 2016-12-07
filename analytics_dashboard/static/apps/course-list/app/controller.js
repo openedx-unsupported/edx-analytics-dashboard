@@ -95,6 +95,7 @@ define(function(require) {
 
             this.options.pageModel.set('title', gettext('Course List'));
             this.onCourseListCollectionUpdated(this.options.courseListCollection);
+            this.options.courseListCollection.trigger('loaded', {navigate_trigger: false});
 
             // track the "page" view
             this.options.trackingModel.set('page', {
