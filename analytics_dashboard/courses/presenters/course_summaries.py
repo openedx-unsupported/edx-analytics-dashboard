@@ -16,8 +16,8 @@ class CourseSummariesPresenter(BasePresenter):
         # specified courses are returned and we fill in the blanks too in case we
         # don't have data
 
-        api_response = [{field: ('' if val is None else val) for field, val in summary.items()
-                         if field in NON_NULL_STRING_FIELDS}
+        api_response = [{field: ('' if val is None and field in NON_NULL_STRING_FIELDS else val)
+                         for field, val in summary.items()}
                         for summary in api_response]
 
         return api_response
