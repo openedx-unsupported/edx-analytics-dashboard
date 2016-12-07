@@ -70,7 +70,6 @@ validate: validate_python validate_js
 demo:
 	python manage.py waffle_switch show_engagement_forum_activity off --create
 	python manage.py waffle_switch enable_course_api off --create
-	python manage.py waffle_switch display_names_for_course_index off --create
 	python manage.py waffle_switch display_course_name_in_nav off --create
 
 compile_translations:

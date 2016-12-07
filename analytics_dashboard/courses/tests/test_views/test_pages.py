@@ -134,8 +134,6 @@ class CourseIndexViewTests(CourseAPIMixin, ViewTestMixin, CoursePermissionsExcep
         self.assertEqual(response.status_code, 403)
 
     @httpretty.activate
-    @override_switch('enable_course_api', active=True)
-    @override_switch('display_names_for_course_index', active=True)
     def test_get_with_course_api(self):
         """ Verify that the view properly retrieves data from the course API. """
         self.mock_course_list()

@@ -13,13 +13,13 @@ from analyticsclient.exceptions import NotFoundError
 from core.templatetags.dashboard_extras import metric_percentage
 from courses import utils
 from courses.exceptions import NoVideosError
-from courses.presenters import (BasePresenter, CourseAPIPresenterMixin)
+from courses.presenters import (CoursePresenter, CourseAPIPresenterMixin)
 
 
 logger = logging.getLogger(__name__)
 
 
-class CourseEngagementActivityPresenter(BasePresenter):
+class CourseEngagementActivityPresenter(CoursePresenter):
     """
     Presenter for the engagement activity page.
     """
@@ -144,7 +144,7 @@ class CourseEngagementActivityPresenter(BasePresenter):
         return summary, trends
 
 
-class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, BasePresenter):
+class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, CoursePresenter):
 
     def blocks_have_data(self, videos):
         if videos:

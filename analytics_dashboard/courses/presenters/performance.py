@@ -13,7 +13,7 @@ from core.utils import (CourseStructureApiClient, sanitize_cache_key)
 from common.course_structure import CourseStructure
 from courses import utils
 from courses.exceptions import (BaseCourseError, NoAnswerSubmissionsError)
-from courses.presenters import (BasePresenter, CourseAPIPresenterMixin)
+from courses.presenters import (CoursePresenter, CourseAPIPresenterMixin)
 
 
 logger = logging.getLogger(__name__)
@@ -31,7 +31,7 @@ AnswerDistributionEntry = namedtuple('AnswerDistributionEntry', [
 ])
 
 
-class CoursePerformancePresenter(CourseAPIPresenterMixin, BasePresenter):
+class CoursePerformancePresenter(CourseAPIPresenterMixin, CoursePresenter):
     """
     Presenter for the performance page.
     """
@@ -395,7 +395,7 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, BasePresenter):
         return False
 
 
-class TagsDistributionPresenter(CourseAPIPresenterMixin, BasePresenter):
+class TagsDistributionPresenter(CourseAPIPresenterMixin, CoursePresenter):
     """
     Presenter for the tags distribution page.
     """
@@ -606,7 +606,7 @@ class TagsDistributionPresenter(CourseAPIPresenterMixin, BasePresenter):
         return result
 
 
-class CourseReportDownloadPresenter(BasePresenter):
+class CourseReportDownloadPresenter(CoursePresenter):
     """
     Presenter that can fetch temporary CSV download URLs from the data API
     """

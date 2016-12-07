@@ -9,7 +9,7 @@ import analyticsclient.constants.education_level as EDUCATION_LEVEL
 import analyticsclient.constants.gender as GENDER
 
 import courses.utils as utils
-from courses.presenters import BasePresenter
+from courses.presenters import CoursePresenter
 
 
 logger = logging.getLogger(__name__)
@@ -76,7 +76,7 @@ EDUCATION_ORDER = {
 }
 
 
-class CourseEnrollmentPresenter(BasePresenter):
+class CourseEnrollmentPresenter(CoursePresenter):
     """ Presenter for the course enrollment data. """
 
     NUMBER_TOP_COUNTRIES = 3
@@ -276,7 +276,7 @@ class CourseEnrollmentPresenter(BasePresenter):
         return data
 
 
-class CourseEnrollmentDemographicsPresenter(BasePresenter):
+class CourseEnrollmentDemographicsPresenter(CoursePresenter):
     """ Presenter for course enrollment demographic data. """
 
     # ages at this and above will be binned
