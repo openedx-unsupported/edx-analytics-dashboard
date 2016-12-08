@@ -20,6 +20,12 @@ GAP_START = 2
 GAP_END = 4
 
 
+class CourseSamples(object):
+    """Example course IDs for testing with."""
+    DEMO_COURSE_ID = 'course-v1:edX+DemoX+Demo_2014'
+    DEPRECATED_DEMO_COURSE_ID = 'edX/DemoX/Demo_Course'
+
+
 def get_mock_api_enrollment_data(course_id):
     data = []
     start_date = datetime.date(year=2014, month=1, day=1)
