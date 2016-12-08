@@ -2,14 +2,14 @@ from django.test import TestCase
 from django.test.utils import override_settings
 import mock
 
-from courses.tests.test_views import DEPRECATED_DEMO_COURSE_ID
+from courses.tests.utils import CourseSamples
 from courses.views import CourseValidMixin
 
 
 class CourseValidMixinTests(TestCase):
     def setUp(self):
         self.mixin = CourseValidMixin()
-        self.mixin.course_id = DEPRECATED_DEMO_COURSE_ID
+        self.mixin.course_id = CourseSamples.DEPRECATED_DEMO_COURSE_ID
 
     @override_settings(LMS_COURSE_VALIDATION_BASE_URL=None)
     def test_no_validation_url(self):

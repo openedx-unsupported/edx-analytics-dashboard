@@ -4,10 +4,17 @@ from django.test import TestCase
 import mock
 
 from analyticsclient.exceptions import NotFoundError
-from courses.tests.test_views import ViewTestMixin, DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID
-from courses.tests.utils import convert_list_of_dicts_to_csv, get_mock_api_enrollment_geography_data, \
-    get_mock_api_enrollment_data, get_mock_api_course_activity, get_mock_api_enrollment_age_data, \
-    get_mock_api_enrollment_education_data, get_mock_api_enrollment_gender_data
+from courses.tests.test_views import ViewTestMixin
+from courses.tests.utils import (
+    convert_list_of_dicts_to_csv,
+    CourseSamples,
+    get_mock_api_course_activity,
+    get_mock_api_enrollment_age_data,
+    get_mock_api_enrollment_data,
+    get_mock_api_enrollment_education_data,
+    get_mock_api_enrollment_gender_data,
+    get_mock_api_enrollment_geography_data,
+)
 
 
 @ddt
@@ -24,7 +31,7 @@ class CourseCSVTestMixin(ViewTestMixin):
         self.assertResponseContentType(response, 'text/csv')
 
         # Check filename
-        csv_prefix = u'edX-DemoX-Demo_2014' if course_id == DEMO_COURSE_ID else u'edX-DemoX-Demo_Course'
+        csv_prefix = u'edX-DemoX-Demo_2014' if course_id == CourseSamples.DEMO_COURSE_ID else u'edX-DemoX-Demo_Course'
         filename = '{0}--{1}.csv'.format(csv_prefix, self.base_file_name)
         self.assertResponseFilename(response, filename)
 
@@ -41,13 +48,13 @@ class CourseCSVTestMixin(ViewTestMixin):
         with mock.patch(self.api_method, return_value=csv_data):
             self.assertIsValidCSV(course_id, csv_data)
 
-    @data(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
+    @data(CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
     def test_response_no_data(self, course_id):
         # Create an "empty" CSV that only has headers
         csv_data = convert_list_of_dicts_to_csv([], self.column_headings)
         self._test_csv(course_id, csv_data)
 
-    @data(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
+    @data(CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
     def test_response(self, course_id):
         csv_data = self.get_mock_data(course_id)
         csv_data = convert_list_of_dicts_to_csv(csv_data)

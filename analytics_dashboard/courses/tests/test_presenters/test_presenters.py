@@ -24,7 +24,7 @@ from common.tests.course_fixtures import (
 )
 
 from courses.exceptions import NoVideosError
-from courses.presenters import BasePresenter
+from courses.presenters import CoursePresenter
 from courses.presenters.engagement import (CourseEngagementActivityPresenter, CourseEngagementVideoPresenter)
 from courses.presenters.enrollment import (CourseEnrollmentPresenter, CourseEnrollmentDemographicsPresenter)
 from courses.presenters.performance import (
@@ -39,13 +39,13 @@ from courses.tests.factories import (CourseEngagementDataFactory, CoursePerforma
 
 class BasePresenterTests(TestCase):
     def setUp(self):
-        self.presenter = BasePresenter('edX/DemoX/Demo_Course')
+        self.presenter = CoursePresenter('edX/DemoX/Demo_Course')
 
     def test_init(self):
-        presenter = BasePresenter('edX/DemoX/Demo_Course')
+        presenter = CoursePresenter('edX/DemoX/Demo_Course')
         self.assertEqual(presenter.client.timeout, settings.ANALYTICS_API_DEFAULT_TIMEOUT)
 
-        presenter = BasePresenter('edX/DemoX/Demo_Course', timeout=15)
+        presenter = CoursePresenter('edX/DemoX/Demo_Course', timeout=15)
         self.assertEqual(presenter.client.timeout, 15)
 
     def test_parse_api_date(self):
