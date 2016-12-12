@@ -20,4 +20,6 @@ class CourseSummariesPresenter(BasePresenter):
                          for field, val in summary.items()}
                         for summary in api_response]
 
+        # By default, sort summaries by enrollment count descending
+        api_response = sorted(api_response, key=lambda summary: summary['count'], reverse=True)
         return api_response

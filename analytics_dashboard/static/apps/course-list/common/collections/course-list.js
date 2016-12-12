@@ -31,7 +31,9 @@ define(function(require) {
         },
 
         state: {
-            pageSize: 25
+            pageSize: 25,
+            sortKey: 'count',
+            order: 1
         },
 
         // Shim code follows for backgrid.paginator 0.3.5
