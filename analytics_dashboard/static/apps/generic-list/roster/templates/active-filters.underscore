@@ -1,0 +1,22 @@
+<% if (hasActiveFilters) { %>
+    <span id="active-filters-title"><%- activeFiltersTitle %></span>
+    <ul class="active-filters list-inline" aria-describedby="active-filters-title">
+        <% _.mapObject(activeFilters, function (filterVal, filterKey) { %>
+            <li class="filter filter-<%- filterKey %>">
+                <button class="action-clear-filter btn btn-default" data-filter-key="<%- filterKey %>">
+                    <%- filterVal.displayName %> &nbsp; <span class="fa fa-times" aria-hidden="true"></span>
+                    <span class="sr-only"><%- removeFilterMessage %></span>
+                </button>
+            </li>
+        <% }); %>
+
+        <li>
+            <button class="action-clear-all-filters btn btn-link">
+                <%- clearFiltersMessage %>
+                <span class="sr-only"><%- clearFiltersSrMessage %></span>
+            </button>
+        </li>
+    </ul>
+<% } else { %>
+&nbsp;
+<% } %>

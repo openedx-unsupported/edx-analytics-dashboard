@@ -12,7 +12,7 @@ define(function(require) {
         Marionette = require('marionette'),
 
         // ActiveFiltersView = require('course-list/list/views/active-filters'),
-        DownloadDataView = require('course-list/common/views/download-data'),
+        DownloadDataView = require('generic-list/common/views/download-data'),
         CourseListResultsView = require('course-list/list/views/results'),
         CourseListUtils = require('course-list/common/utils'),
         // ListControlsView = require('course-list/list/views/controls'),
