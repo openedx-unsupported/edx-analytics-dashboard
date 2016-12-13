@@ -11,11 +11,11 @@ define(function(require) {
     var _ = require('underscore'),
         Marionette = require('marionette'),
 
-        ActiveFiltersView = require('course-list/list/views/active-filters'),
+        // ActiveFiltersView = require('course-list/list/views/active-filters'),
         DownloadDataView = require('course-list/common/views/download-data'),
         CourseListResultsView = require('course-list/list/views/results'),
         CourseListUtils = require('course-list/common/utils'),
-        ListControlsView = require('course-list/list/views/controls'),
+        // ListControlsView = require('course-list/list/views/controls'),
         listTemplate = require('text!course-list/list/templates/list.underscore'),
 
         CourseListView;
@@ -35,10 +35,10 @@ define(function(require) {
         template: _.template(listTemplate),
 
         regions: {
-            activeFilters: '.course-list-active-filters',
+            // activeFilters: '.course-list-active-filters',
             activityDateRange: '.activity-date-range',
             downloadData: '.course-list-download-data',
-            controls: '.course-list-table-controls',
+            // controls: '.course-list-table-controls',
             results: '.course-list-results'
         },
 
@@ -56,19 +56,19 @@ define(function(require) {
         },
 
         onBeforeShow: function() {
-            this.showChildView('activeFilters', new ActiveFiltersView({
-                collection: this.options.collection
-            }));
+            // this.showChildView('activeFilters', new ActiveFiltersView({
+                // collection: this.options.collection
+            // }));
             this.showChildView('downloadData', new DownloadDataView({
                 collection: this.options.collection,
                 trackingModel: this.options.trackingModel,
                 trackCategory: 'course_list'
             }));
-            this.showChildView('controls', new ListControlsView({
-                collection: this.options.collection,
-                courseMetadata: this.options.courseMetadata,
-                trackingModel: this.options.trackingModel
-            }));
+            // this.showChildView('controls', new ListControlsView({
+                // collection: this.options.collection,
+                // courseMetadata: this.options.courseMetadata,
+                // trackingModel: this.options.trackingModel
+            // }));
             this.showChildView('results', new CourseListResultsView({
                 collection: this.options.collection,
                 courseMetadata: this.options.courseMetadata,
