@@ -9,78 +9,55 @@ define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
-        Marionette = require('marionette'),
+        ListView = require('generic-list/list/views/list'),
 
-        ActiveFiltersView = require('course-list/list/views/active-filters'),
-        DownloadDataView = require('course-list/common/views/download-data'),
+        // TODO: implement filter and sort controls
+        // ActiveFiltersView = require('course-list/list/views/active-filters'),
+        DownloadDataView = require('generic-list/common/views/download-data'),
         CourseListResultsView = require('course-list/list/views/results'),
-        CourseListUtils = require('course-list/common/utils'),
-        ListControlsView = require('course-list/list/views/controls'),
+        // ListControlsView = require('course-list/list/views/controls'),
         listTemplate = require('text!course-list/list/templates/list.underscore'),
 
         CourseListView;
 
-    // Load modules without exports
-    require('backgrid-filter');
-    require('bootstrap');
-    require('bootstrap_accessibility');  // adds the aria-describedby to tooltips
-
-    /**
-     * Wraps up the search view, table view, and pagination footer
-     * view.
-     */
-    CourseListView = Marionette.LayoutView.extend({
+    CourseListView = ListView.extend({
         className: 'course-list',
 
         template: _.template(listTemplate),
 
         regions: {
-            activeFilters: '.course-list-active-filters',
-            activityDateRange: '.activity-date-range',
+            // activeFilters: '.course-list-active-filters',
             downloadData: '.course-list-download-data',
-            controls: '.course-list-table-controls',
+            // controls: '.course-list-table-controls',
             results: '.course-list-results'
         },
 
         initialize: function(options) {
-            var eventTransformers;
+            ListView.prototype.initialize.call(this, options);
 
-            this.options = options || {};
+            this.childViews = [
+                {
+                    region: 'downloadData',
+                    class: DownloadDataView,
+                    options: {
+                        collection: this.options.collection,
+                        trackingModel: this.options.trackingModel,
+                        trackCategory: 'course_list'
+                    }
+                },
+                {
+                    region: 'results',
+                    class: CourseListResultsView,
+                    options: {
+                        collection: this.options.collection,
+                        courseMetadata: this.options.courseMetadata,
+                        hasData: this.options.hasData,
+                        trackingModel: this.options.trackingModel
+                    }
+                }
+            ];
 
-            eventTransformers = {
-                serverError: CourseListUtils.EventTransformers.serverErrorToAppError,
-                networkError: CourseListUtils.EventTransformers.networkErrorToAppError,
-                sync: CourseListUtils.EventTransformers.syncToClearError
-            };
-            CourseListUtils.mapEvents(this.options.collection, eventTransformers, this);
-        },
-
-        onBeforeShow: function() {
-            this.showChildView('activeFilters', new ActiveFiltersView({
-                collection: this.options.collection
-            }));
-            this.showChildView('downloadData', new DownloadDataView({
-                collection: this.options.collection,
-                trackingModel: this.options.trackingModel,
-                trackCategory: 'course_list'
-            }));
-            this.showChildView('controls', new ListControlsView({
-                collection: this.options.collection,
-                courseMetadata: this.options.courseMetadata,
-                trackingModel: this.options.trackingModel
-            }));
-            this.showChildView('results', new CourseListResultsView({
-                collection: this.options.collection,
-                courseMetadata: this.options.courseMetadata,
-                hasData: this.options.hasData,
-                trackingModel: this.options.trackingModel
-            }));
-        },
-
-        templateHelpers: function() {
-            return {
-                controlsLabel: gettext('Course list controls')
-            };
+            this.controlsLabel = gettext('Course list controls');
         }
     });
 

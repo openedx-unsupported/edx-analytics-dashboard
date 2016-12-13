@@ -14,7 +14,7 @@ define(function(require) {
         LearnersController = require('learners/app/controller'),
         LearnersRootView = require('learners/app/views/root'),
         LearnersRouter = require('learners/app/router'),
-        PageModel = require('learners/common/models/page'),
+        PageModel = require('generic-list/common/models/page'),
 
         LearnersApp;
 

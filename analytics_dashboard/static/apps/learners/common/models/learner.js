@@ -4,7 +4,7 @@ define(function(require) {
     var _ = require('underscore'),
         Backbone = require('backbone'),
 
-        LearnerUtils = require('learners/common/utils'),
+        ListUtils = require('generic-list/common/utils'),
 
         LearnerModel;
 
@@ -47,7 +47,7 @@ define(function(require) {
 
         fetch: function(options) {
             return Backbone.Model.prototype.fetch.call(this, options)
-                .fail(LearnerUtils.handleAjaxFailure.bind(this));
+                .fail(ListUtils.handleAjaxFailure.bind(this));
         },
 
         parse: function(response) {

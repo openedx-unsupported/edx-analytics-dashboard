@@ -8,7 +8,7 @@ define(function(require) {
     var _ = require('underscore'),
         Marionette = require('marionette'),
 
-        AlertView = require('learners/common/views/alert-view'),
+        AlertView = require('generic-list/common/views/alert-view'),
         LearnerTableView = require('learners/roster/views/table'),
 
         LearnerResultsView;

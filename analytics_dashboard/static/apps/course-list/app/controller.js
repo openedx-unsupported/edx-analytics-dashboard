@@ -12,12 +12,8 @@ define(function(require) {
     var Backbone = require('backbone'),
         Marionette = require('marionette'),
         NProgress = require('nprogress'),
-        _ = require('underscore'),
 
         CourseListView = require('course-list/list/views/course-list'),
-        LoadingView = require('course-list/common/views/loading-view'),
-
-        listLoadingTemplate = require('text!course-list/list/templates/list-loading.underscore'),
 
         CourseListController;
 
@@ -50,16 +46,10 @@ define(function(require) {
 
         showCourseListPage: function(queryString) {
             var listView = new CourseListView({
-                    collection: this.options.courseListCollection,
-                    hasData: this.options.hasData,
-                    trackingModel: this.options.trackingModel
-                }),
-                loadingView = new LoadingView({
-                    model: this.options.courseListCollection,
-                    template: _.template(listLoadingTemplate),
-                    successView: listView
-                }),
-                fetch;
+                collection: this.options.courseListCollection,
+                hasData: this.options.hasData,
+                trackingModel: this.options.trackingModel
+            });
 
             try {
                 this.options.courseListCollection.setStateFromQueryString(queryString);
@@ -70,6 +60,7 @@ define(function(require) {
                     this.options.rootView.showAlert('error', gettext('Invalid Parameters'),
                         gettext('Sorry, we couldn\'t find any courses that matched that query.'),
                         {url: '#', text: gettext('Return to the Course List page.')});
+                    console.error(e);
                 } else {
                     throw e;
                 }
