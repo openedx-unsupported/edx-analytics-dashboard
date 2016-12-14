@@ -9,32 +9,50 @@ define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
+        Marionette = require('marionette'),
 
-        ListView = require('generic-list/list/views/list'),
-        ActiveDateRangeView = require('learners/roster/views/activity-date-range'),
         ActiveFiltersView = require('learners/roster/views/active-filters'),
         DownloadDataView = require('generic-list/common/views/download-data'),
         LearnerResultsView = require('learners/roster/views/results'),
+        ListUtils = require('generic-list/common/utils'),
         RosterControlsView = require('learners/roster/views/controls'),
-        rosterTemplate = require('text!learners/roster/templates/roster.underscore'),
+        listTemplate = require('text!generic-list/list/templates/list.underscore'),
 
-        LearnerRosterView;
+        ListView;
 
-    LearnerRosterView = ListView.extend({
-        className: 'learner-roster',
+    // Load modules without exports
+    require('backgrid-filter');
+    require('bootstrap');
+    require('bootstrap_accessibility');  // adds the aria-describedby to tooltips
 
-        template: _.template(rosterTemplate),
+    /**
+     * Wraps up the search view, table view, and pagination footer
+     * view.
+     */
+    ListView = Marionette.LayoutView.extend({
+        className: 'generic-list',
+
+        template: _.template(listTemplate),
 
         regions: {
-            activeFilters: '.learners-active-filters',
-            activityDateRange: '.activity-date-range',
-            downloadData: '.learners-download-data',
-            controls: '.learners-table-controls',
-            results: '.learners-results'
+            activeFilters: '.active-filters',
+            downloadData: '.download-data',
+            controls: '.table-controls',
+            results: '.results'
         },
 
         initialize: function(options) {
-            ListView.prototype.intialize.call(this, options);
+            var eventTransformers;
+
+            this.options = options || {};
+
+            eventTransformers = {
+                serverError: ListUtils.EventTransformers.serverErrorToAppError,
+                networkError: ListUtils.EventTransformers.networkErrorToAppError,
+                sync: ListUtils.EventTransformers.syncToClearError
+            };
+            ListUtils.mapEvents(this.options.collection, eventTransformers, this);
+            ListUtils.mapEvents(this.options.courseMetadata, eventTransformers, this);
 
             this.childViews = [
                 {
@@ -45,19 +63,12 @@ define(function(require) {
                     }
                 },
                 {
-                    region: 'activeDateRange',
-                    class: ActiveDateRangeView,
-                    options: {
-                        collection: this.options.courseMetadata
-                    }
-                },
-                {
                     region: 'downloadData',
                     class: DownloadDataView,
                     options: {
                         collection: this.options.collection,
                         trackingModel: this.options.trackingModel,
-                        trackCategory: 'learner_roster'
+                        trackCategory: 'generic_list'
                     }
                 },
                 {
@@ -82,8 +93,20 @@ define(function(require) {
             ];
 
             this.controlsLabel = gettext('Learner roster controls');
+        },
+
+        onBeforeShow: function() {
+            _.each(this.childViews, _.bind(function(child) {
+                this.showChildView(child.region, new child.class(child.options));
+            }, this));
+        },
+
+        templateHelpers: function() {
+            return {
+                controlsLabel: this.controlsLabel
+            };
         }
     });
 
-    return LearnerRosterView;
+    return ListView;
 });

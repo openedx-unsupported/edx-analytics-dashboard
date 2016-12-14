@@ -60,6 +60,7 @@ define(function(require) {
                     this.options.rootView.showAlert('error', gettext('Invalid Parameters'),
                         gettext('Sorry, we couldn\'t find any courses that matched that query.'),
                         {url: '#', text: gettext('Return to the Course List page.')});
+                    console.error(e);
                 } else {
                     throw e;
                 }
