@@ -7,21 +7,9 @@ define(function(require) {
     var _ = require('underscore'),
         Backgrid = require('backgrid'),
 
-        baseHeaderCellTemplate = require('text!learners/roster/templates/base-header-cell.underscore'),
+        baseHeaderCellTemplate = require('text!generic-list/list/templates/base-header-cell.underscore'),
 
-        BaseHeaderCell,
-        tooltips;
-
-    tooltips = {
-        username: gettext('The name and username of this learner. Click to sort by username.'),
-        problems_attempted: gettext('Number of unique problems this learner attempted.'),
-        problems_completed: gettext('Number of unique problems the learner answered correctly.'),
-        videos_viewed: gettext('Number of unique videos this learner played.'),
-        // eslint-disable-next-line max-len
-        problem_attempts_per_completed: gettext('Average number of attempts per correct problem. Learners with a relatively high value compared to their peers may be struggling.'),
-        // eslint-disable-next-line max-len
-        discussion_contributions: gettext('Number of contributions by this learner, including posts, responses, and comments.')
-    };
+        BaseHeaderCell;
 
     BaseHeaderCell = Backgrid.HeaderCell.extend({
         attributes: {
@@ -30,12 +18,17 @@ define(function(require) {
 
         template: _.template(baseHeaderCellTemplate),
 
+        tooltips: {
+            // Inherit and fill out.
+        },
+        container: '.list-table',
+
         initialize: function() {
             Backgrid.HeaderCell.prototype.initialize.apply(this, arguments);
             this.collection.on('backgrid:sort', this.onSort, this);
             // Set up the tooltip
-            this.$el.attr('title', tooltips[this.column.get('name')]);
-            this.$el.tooltip({container: '.learners-table'});
+            this.$el.attr('title', this.tooltips[this.column.get('name')]);
+            this.$el.tooltip({container: this.container});
         },
 
         render: function() {
