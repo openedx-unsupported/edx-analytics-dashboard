@@ -10,7 +10,7 @@ define(function(require) {
         model: CourseModel,
 
         initialize: function(models, options) {
-            ListCollection.prototype.initialize.call(this, options);
+            ListCollection.prototype.initialize.call(this, models, options);
 
             this.registerSortableField('catalog_course_title', gettext('Course Name'));
             this.registerSortableField('start_date', gettext('Start Date'));

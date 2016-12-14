@@ -2,7 +2,7 @@ define(function(require) {
     'use strict';
 
     var PagingCollection = require('uitk/pagination/paging-collection'),
-        Model = require('generic-list/common/models/model'),
+        Model = require('generic-list/common/models/list-item'),
         ListUtils = require('generic-list/common/utils'),
         Utils = require('utils/utils'),
         _ = require('underscore'),

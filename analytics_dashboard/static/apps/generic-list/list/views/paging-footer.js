@@ -9,7 +9,7 @@ define(function(require) {
         _ = require('underscore'),
         Backgrid = require('backgrid'),
 
-        pageHandleTemplate = require('text!learners/roster/templates/page-handle.underscore'),
+        pageHandleTemplate = require('text!generic-list/list/templates/page-handle.underscore'),
 
         PagingFooter;
 
@@ -29,6 +29,8 @@ define(function(require) {
         initialize: function(options) {
             Backgrid.Extension.Paginator.prototype.initialize.call(this, options);
             this.options = options || {};
+            this.$appFocusable = $('#app-focusable');
+            this.trackPageEventName = 'edx.bi.list.paged';
         },
         render: function() {
             var trackingModel = this.options.trackingModel;
@@ -72,11 +74,11 @@ define(function(require) {
             changePage: function() {
                 Backgrid.Extension.PageHandle.prototype.changePage.apply(this, arguments);
                 if (!this.$el.hasClass('active') && !this.$el.hasClass('disabled')) {
-                    $('#app-focusable').focus();
+                    this.$appFocusable.focus();
                 } else {
                     this.$('a').focus();
                 }
-                this.trackingModel.trigger('segment:track', 'edx.bi.roster.paged', {
+                this.trackingModel.trigger('segment:track', this.trackPageEventName, {
                     category: this.pageIndex
                 });
             }
