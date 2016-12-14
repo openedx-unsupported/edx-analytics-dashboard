@@ -3,9 +3,9 @@ define(function(require) {
 
     var $ = require('jquery'),
 
-        LearnerUtils = require('learners/common/utils');
+        ListUtils = require('generic-list/common/utils');
 
-    describe('LearnerUtils', function() {
+    describe('ListUtils', function() {
         describe('handleAjaxFailure', function() {
             var server;
 
@@ -23,7 +23,7 @@ define(function(require) {
                 var spy = {trigger: function() {}};
                 spyOn(spy, 'trigger');
                 $.ajax('/resource/')
-                    .fail(LearnerUtils.handleAjaxFailure.bind(spy))
+                    .fail(ListUtils.handleAjaxFailure.bind(spy))
                     .always(function() {
                         expect(spy.trigger).not.toHaveBeenCalled();
                         done();
@@ -36,7 +36,7 @@ define(function(require) {
                     spy = {trigger: function() {}};
                 spyOn(spy, 'trigger');
                 $.ajax({url: '/resource/', dataType: 'json'})
-                    .fail(LearnerUtils.handleAjaxFailure.bind(spy))
+                    .fail(ListUtils.handleAjaxFailure.bind(spy))
                     .always(function() {
                         expect(spy.trigger).toHaveBeenCalledWith('serverError', 500, fakeServerResponse);
                         done();
@@ -48,7 +48,7 @@ define(function(require) {
                 var spy = {trigger: function() {}};
                 spyOn(spy, 'trigger');
                 $.ajax({url: '/resource/', timeout: 1})
-                    .fail(LearnerUtils.handleAjaxFailure.bind(spy))
+                    .fail(ListUtils.handleAjaxFailure.bind(spy))
                     .always(function() {
                         expect(spy.trigger).toHaveBeenCalledWith('networkError', 'timeout');
                         done();

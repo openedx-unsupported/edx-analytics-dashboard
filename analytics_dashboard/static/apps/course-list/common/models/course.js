@@ -4,8 +4,6 @@ define(function(require) {
     var _ = require('underscore'),
         Backbone = require('backbone'),
 
-        CourseListUtils = require('course-list/common/utils'),
-
         CourseModel;
 
     CourseModel = Backbone.Model.extend({

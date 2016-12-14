@@ -3,7 +3,7 @@ define(function(require) {
 
     var Backbone = require('backbone'),
 
-        LearnerUtils = require('learners/common/utils'),
+        ListUtils = require('generic-list/common/utils'),
 
         EngagementTimelineModel;
 
@@ -35,7 +35,7 @@ define(function(require) {
 
         fetch: function() {
             return Backbone.Model.prototype.fetch.apply(this, arguments)
-                .fail(LearnerUtils.handleAjaxFailure.bind(this));
+                .fail(ListUtils.handleAjaxFailure.bind(this));
         },
 
         hasData: function() {

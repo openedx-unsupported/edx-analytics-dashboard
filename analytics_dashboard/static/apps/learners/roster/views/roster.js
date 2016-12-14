@@ -15,7 +15,7 @@ define(function(require) {
         ActiveFiltersView = require('learners/roster/views/active-filters'),
         DownloadDataView = require('generic-list/common/views/download-data'),
         LearnerResultsView = require('learners/roster/views/results'),
-        LearnerUtils = require('learners/common/utils'),
+        ListUtils = require('generic-list/common/utils'),
         RosterControlsView = require('learners/roster/views/controls'),
         rosterTemplate = require('text!learners/roster/templates/roster.underscore'),
 
@@ -49,12 +49,12 @@ define(function(require) {
             this.options = options || {};
 
             eventTransformers = {
-                serverError: LearnerUtils.EventTransformers.serverErrorToAppError,
-                networkError: LearnerUtils.EventTransformers.networkErrorToAppError,
-                sync: LearnerUtils.EventTransformers.syncToClearError
+                serverError: ListUtils.EventTransformers.serverErrorToAppError,
+                networkError: ListUtils.EventTransformers.networkErrorToAppError,
+                sync: ListUtils.EventTransformers.syncToClearError
             };
-            LearnerUtils.mapEvents(this.options.collection, eventTransformers, this);
-            LearnerUtils.mapEvents(this.options.courseMetadata, eventTransformers, this);
+            ListUtils.mapEvents(this.options.collection, eventTransformers, this);
+            ListUtils.mapEvents(this.options.courseMetadata, eventTransformers, this);
         },
 
         onBeforeShow: function() {

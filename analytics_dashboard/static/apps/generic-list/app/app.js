@@ -9,7 +9,7 @@ define(function(require) {
 
         initModels = require('load/init-page'),
 
-        Collection = require('generic-list/common/collections/collection'),
+        ListCollection = require('generic-list/common/collections/collection'),
         Controller = require('generic-list/app/controller'),
         RootView = require('generic-list/app/views/root'),
         Router = require('generic-list/app/router'),
@@ -36,7 +36,7 @@ define(function(require) {
                 collection,
                 rootView;
 
-            collection = new Collection(this.listJson, {
+            collection = new ListCollection(this.listJson, {
                 url: this.listUrl,
                 downloadUrl: this.listDownloadUrl
             });

@@ -1,22 +1,16 @@
 define(function(require) {
     'use strict';
 
-    var PagingCollection = require('uitk/pagination/paging-collection'),
+    var ListCollection = require('generic-list/common/collections/collection'),
         CourseModel = require('course-list/common/models/course'),
-        CourseListUtils = require('course-list/common/utils'),
-        Utils = require('utils/utils'),
-        _ = require('underscore'),
 
         CourseListCollection;
 
-    CourseListCollection = PagingCollection.extend({
+    CourseListCollection = ListCollection.extend({
         model: CourseModel,
 
         initialize: function(models, options) {
-            PagingCollection.prototype.initialize.call(this, options);
-
-            this.url = options.url;
-            this.downloadUrl = options.downloadUrl;
+            ListCollection.prototype.initialize.call(this, options);
 
             this.registerSortableField('catalog_course_title', gettext('Course Name'));
             this.registerSortableField('start_date', gettext('Start Date'));
@@ -34,86 +28,6 @@ define(function(require) {
             pageSize: 25,
             sortKey: 'count',
             order: 1
-        },
-
-        // Shim code follows for backgrid.paginator 0.3.5
-        // compatibility, which expects the backbone.pageable
-        // (pre-backbone.paginator) API.
-        hasPrevious: function() {
-            return this.hasPreviousPage();
-        },
-
-        hasNext: function() {
-            return this.hasNextPage();
-        },
-
-        /**
-         * The following two methods encode and decode the state of the collection to a query string. This query string
-         * is different than queryParams, which we send to the API server during a fetch. Here, the string encodes the
-         * current user view on the collection including page number, filters applied, search query, and sorting. The
-         * string is then appended on to the fragment identifier portion of the URL.
-         *
-         * e.g. http://.../courses/#?text_search=foo&sortKey=username&order=desc&page=1
-         */
-
-        // Encodes the state of the collection into a query string that can be appended onto the URL.
-        getQueryString: function() {
-            var params = this.getActiveFilterFields(true),
-                orderedParams = [];
-
-            // Order the parameters: filters & search, sortKey, order, and then page.
-
-            // Because the active filter fields object is not ordered, these are the only params of orderedParams that
-            // don't have a defined order besides being before sortKey, order, and page.
-            _.mapObject(params, function(val, key) {
-                orderedParams.push({key: key, val: val});
-            });
-
-            if (this.state.sortKey !== null) {
-                orderedParams.push({key: 'sortKey', val: this.state.sortKey});
-                orderedParams.push({key: 'order', val: this.state.order === 1 ? 'desc' : 'asc'});
-            }
-            orderedParams.push({key: 'page', val: this.state.currentPage});
-            return Utils.toQueryString(orderedParams);
-        },
-
-        /**
-         * Decodes a query string into arguments and sets the state of the collection to what the arguments describe.
-         * The query string argument should have already had the prefix '?' stripped (the AppRouter does this).
-         */
-        setStateFromQueryString: function(queryString) {
-            var params = Utils.parseQueryString(queryString),
-                order = -1,
-                page, sortKey;
-
-            _.mapObject(params, function(val, key) {
-                if (key === 'page') {
-                    page = parseInt(val, 10);
-                    if (page !== this.state.currentPage) {
-                        this.getPage(page);
-                    }
-                    this.state.currentPage = page;
-                } else if (key === 'sortKey') {
-                    sortKey = val;
-                } else if (key === 'order') {
-                    order = val === 'desc' ? 1 : -1;
-                } else {
-                    if (key in this.filterableFields || key === 'text_search') {
-                        if (val !== this.getFilterFieldValue(key)) {
-                            // TODO: need to trigger the filter here
-                        }
-                        this.setFilterField(key, val);
-                    }
-                }
-            }, this);
-
-            // Set the sort state if sortKey or order from the queryString are different from the current state
-            if (sortKey && sortKey in this.sortableFields) {
-                if (sortKey !== this.state.sortKey || order !== this.state.order) {
-                    this.setSorting(sortKey, order, {full: true});
-                    this.fullCollection.sort();
-                }
-            }
         }
     });
 

@@ -4,7 +4,7 @@ define(function(require) {
     var _ = require('underscore'),
         Marionette = require('marionette'),
 
-        LearnerUtils = require('learners/common/utils'),
+        ListUtils = require('generic-list/common/utils'),
         Utils = require('utils/utils'),
 
         AlertView = require('generic-list/common/views/alert-view'),
@@ -44,17 +44,17 @@ define(function(require) {
         initialize: function(options) {
             Marionette.LayoutView.prototype.initialize.call(this, options);
             this.options = options || {};
-            LearnerUtils.mapEvents(this.options.engagementTimelineModel, {
+            ListUtils.mapEvents(this.options.engagementTimelineModel, {
                 serverError: this.timelineServerErrorToAppError,
-                networkError: LearnerUtils.EventTransformers.networkErrorToAppError,
-                sync: LearnerUtils.EventTransformers.syncToClearError
+                networkError: ListUtils.EventTransformers.networkErrorToAppError,
+                sync: ListUtils.EventTransformers.syncToClearError
             }, this);
             this.listenTo(this, 'engagementTimelineUnavailable', this.showTimelineUnavailable);
 
-            LearnerUtils.mapEvents(this.options.learnerModel, {
+            ListUtils.mapEvents(this.options.learnerModel, {
                 serverError: this.learnerServerErrorToAppError,
-                networkError: LearnerUtils.EventTransformers.networkErrorToAppError,
-                sync: LearnerUtils.EventTransformers.syncToClearError
+                networkError: ListUtils.EventTransformers.networkErrorToAppError,
+                sync: ListUtils.EventTransformers.syncToClearError
             }, this);
             this.listenTo(this, 'learnerUnavailable', this.showLearnerUnavailable);
         },
@@ -139,7 +139,7 @@ define(function(require) {
                     description: gettext('Check back daily for up-to-date data.')
                 }];
             } else {
-                return LearnerUtils.EventTransformers.serverErrorToAppError(status);
+                return ListUtils.EventTransformers.serverErrorToAppError(status);
             }
         },
 

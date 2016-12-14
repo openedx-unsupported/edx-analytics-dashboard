@@ -735,7 +735,7 @@ define(function(require) {
                     getRosterView({courseMetadataModel: this.courseMetadata});
                     spyOn($.fn, 'focus');
                     expectCanFilterBy(filterFieldName, this.firstFilterOption);
-                    expect($('#learner-app-focusable').focus).toHaveBeenCalled();
+                    expect($('#app-focusable').focus).toHaveBeenCalled();
                 });
 
                 it('handles server errors', function() {
@@ -1076,7 +1076,7 @@ define(function(require) {
                 // clicking it, we should set focus to the top of the
                 // table.
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(2, 2)));
-                expect($('#learner-app-focusable').focus).toHaveBeenCalled();
+                expect($('#app-focusable').focus).toHaveBeenCalled();
             });
 
             it('sets focus to the top after searching', function() {
@@ -1084,7 +1084,7 @@ define(function(require) {
                 getRosterView();
                 spyOn($.fn, 'focus');
                 executeSearch(searchString);
-                expect($('#learner-app-focusable').focus).toHaveBeenCalled();
+                expect($('#app-focusable').focus).toHaveBeenCalled();
             });
 
             it('does not violate the axe-core ruleset', function(done) {

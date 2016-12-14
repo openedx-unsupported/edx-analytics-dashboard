@@ -14,7 +14,7 @@ define(function(require) {
         // ActiveFiltersView = require('course-list/list/views/active-filters'),
         DownloadDataView = require('generic-list/common/views/download-data'),
         CourseListResultsView = require('course-list/list/views/results'),
-        CourseListUtils = require('course-list/common/utils'),
+        ListUtils = require('course-list/common/utils'),
         // ListControlsView = require('course-list/list/views/controls'),
         listTemplate = require('text!course-list/list/templates/list.underscore'),
 
@@ -48,11 +48,11 @@ define(function(require) {
             this.options = options || {};
 
             eventTransformers = {
-                serverError: CourseListUtils.EventTransformers.serverErrorToAppError,
-                networkError: CourseListUtils.EventTransformers.networkErrorToAppError,
-                sync: CourseListUtils.EventTransformers.syncToClearError
+                serverError: ListUtils.EventTransformers.serverErrorToAppError,
+                networkError: ListUtils.EventTransformers.networkErrorToAppError,
+                sync: ListUtils.EventTransformers.syncToClearError
             };
-            CourseListUtils.mapEvents(this.options.collection, eventTransformers, this);
+            ListUtils.mapEvents(this.options.collection, eventTransformers, this);
         },
 
         onBeforeShow: function() {

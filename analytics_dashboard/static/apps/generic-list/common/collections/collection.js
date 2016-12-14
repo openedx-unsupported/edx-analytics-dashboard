@@ -2,47 +2,30 @@ define(function(require) {
     'use strict';
 
     var PagingCollection = require('uitk/pagination/paging-collection'),
-        LearnerModel = require('learners/common/models/learner'),
-        LearnerUtils = require('learners/common/utils'),
+        Model = require('generic-list/common/models/model'),
+        ListUtils = require('generic-list/common/utils'),
         Utils = require('utils/utils'),
         _ = require('underscore'),
 
-        LearnerCollection;
+        ListCollection;
 
-    LearnerCollection = PagingCollection.extend({
-        model: LearnerModel,
+    ListCollection = PagingCollection.extend({
+        model: Model,
 
         initialize: function(models, options) {
             PagingCollection.prototype.initialize.call(this, options);
 
             this.url = options.url;
             this.downloadUrl = options.downloadUrl;
-            this.courseId = options.courseId;
-
-            this.registerSortableField('username', gettext('Name (Username)'));
-            this.registerSortableField('problems_attempted', gettext('Problems Tried'));
-            this.registerSortableField('problems_completed', gettext('Problems Correct'));
-            this.registerSortableField('problem_attempts_per_completed', gettext('Attempts per Problem Correct'));
-            this.registerSortableField('videos_viewed', gettext('Videos'));
-            this.registerSortableField('discussion_contributions', gettext('Discussions'));
-
-            this.registerFilterableField('segments', gettext('Segments'));
-            this.registerFilterableField('ignore_segments', gettext('Segments to Ignore'));
-            this.registerFilterableField('cohort', gettext('Cohort'));
-            this.registerFilterableField('enrollment_mode', gettext('Enrollment Mode'));
         },
 
         fetch: function(options) {
             return PagingCollection.prototype.fetch.call(this, options)
-                .fail(LearnerUtils.handleAjaxFailure.bind(this));
+                .fail(ListUtils.handleAjaxFailure.bind(this));
         },
 
         state: {
             pageSize: 25
-        },
-
-        queryParams: {
-            course_id: function() { return this.courseId; }
         },
 
         // Shim code follows for backgrid.paginator 0.3.5
@@ -62,7 +45,7 @@ define(function(require) {
          * current user view on the collection including page number, filters applied, search query, and sorting. The
          * string is then appended on to the fragment identifier portion of the URL.
          *
-         * e.g. http://.../learners/#?text_search=foo&sortKey=username&order=desc&page=1
+         * e.g. http://.../#?text_search=foo&sortKey=username&order=desc&page=1
          */
 
         // Encodes the state of the collection into a query string that can be appended onto the URL.
@@ -129,5 +112,5 @@ define(function(require) {
         }
     });
 
-    return LearnerCollection;
+    return ListCollection;
 });
