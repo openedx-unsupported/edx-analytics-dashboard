@@ -12,7 +12,7 @@ define(function(require) {
         LearnerEngagementTimelineView = require('learners/detail/views/engagement-timeline'),
         LearnerNameView = require('learners/detail/views/learner-names'),
         LearnerSummaryFieldView = require('learners/detail/views/learner-summary-field'),
-        LoadingView = require('learners/common/views/loading-view'),
+        LoadingView = require('generic-list/common/views/loading-view'),
         chartLoadingTemplate = require('text!learners/detail/templates/chart-loading.underscore'),
         tableLoadingTemplate = require('text!learners/detail/templates/table-loading.underscore'),
         learnerDetailTemplate = require('text!learners/detail/templates/learner-detail.underscore');

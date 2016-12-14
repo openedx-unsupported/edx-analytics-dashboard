@@ -6,12 +6,12 @@ define(function(require) {
 
     var _ = require('underscore'),
 
-        RootView = require('generic-list/app/views/root')
+        RootView = require('generic-list/app/views/root'),
         rootTemplate = require('text!course-list/app/templates/root.underscore'),
 
         CourseListRootView;
 
-    CourseListRootView = RootView({
+    CourseListRootView = RootView.extend({
         template: _.template(rootTemplate),
 
         regions: {

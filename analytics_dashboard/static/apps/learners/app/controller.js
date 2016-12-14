@@ -18,7 +18,7 @@ define(function(require) {
         LearnerDetailView = require('learners/detail/views/learner-detail'),
         LearnerModel = require('learners/common/models/learner'),
         LearnerRosterView = require('learners/roster/views/roster'),
-        LoadingView = require('learners/common/views/loading-view'),
+        LoadingView = require('generic-list/common/views/loading-view'),
         ReturnLinkView = require('learners/detail/views/learner-return'),
 
         rosterLoadingTemplate = require('text!learners/roster/templates/roster-loading.underscore'),
