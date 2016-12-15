@@ -1,5 +1,9 @@
 /**
  * A layout view to manage app page rendering.
+ *
+ * Options:
+ *  - pageModel: PageModel object
+ *  - appClass: CSS class to prepend in root template HTML
  */
 define(function(require) {
     'use strict';
@@ -16,11 +20,17 @@ define(function(require) {
     RootView = Marionette.LayoutView.extend({
         template: _.template(rootTemplate),
 
-        regions: {
-            alert: '.alert-region',
-            header: '.header-region',
-            main: '.main-region',
-            navigation: '.navigation-region'
+        templateHelpers: function() {
+            return this.options;
+        },
+
+        regions: function(options) {
+            return {
+                alert: _.template('.<%= appClass %>-alert-region')(options),
+                header: _.template('.<%= appClass %>-header-region')(options),
+                main: _.template('.<%= appClass %>-main-region')(options),
+                navigation: _.template('.<%= appClass %>-navigation-region')(options)
+            };
         },
 
         childEvents: {
