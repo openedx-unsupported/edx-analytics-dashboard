@@ -1,7 +1,7 @@
 define(function(require) {
     'use strict';
 
-    var AlertView = require('generic-view/common/views/alert-view');
+    var AlertView = require('components/alert/views/alert-view');
 
     describe('AlertView', function() {
         it('throws exception for invalid alert types', function() {

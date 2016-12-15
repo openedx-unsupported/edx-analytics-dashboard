@@ -7,7 +7,7 @@ define(function(require) {
         ListUtils = require('generic-list/common/utils'),
         Utils = require('utils/utils'),
 
-        AlertView = require('generic-list/common/views/alert-view'),
+        AlertView = require('components/alert/views/alert-view'),
         LearnerEngagementTableView = require('learners/detail/views/engagement-table'),
         LearnerEngagementTimelineView = require('learners/detail/views/engagement-timeline'),
         LearnerNameView = require('learners/detail/views/learner-names'),

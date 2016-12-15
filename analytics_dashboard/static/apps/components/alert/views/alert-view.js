@@ -7,7 +7,7 @@ define(function(require) {
     var _ = require('underscore'),
         Marionette = require('marionette'),
 
-        alertTemplate = require('text!generic-list/common/templates/alert.underscore'),
+        alertTemplate = require('text!../templates/alert.underscore'),
 
         AlertView;
 

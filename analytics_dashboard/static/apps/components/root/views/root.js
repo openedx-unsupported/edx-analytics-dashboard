@@ -11,7 +11,7 @@ define(function(require) {
     var _ = require('underscore'),
         Marionette = require('marionette'),
 
-        AlertView = require('generic-list/common/views/alert-view'),
+        AlertView = require('components/alert/views/alert-view'),
         HeaderView = require('components/header/views/header'),
         rootTemplate = require('text!components/root/templates/root.underscore'),
 
