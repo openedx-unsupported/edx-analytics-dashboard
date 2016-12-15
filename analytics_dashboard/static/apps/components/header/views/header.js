@@ -7,7 +7,7 @@ define(function(require) {
     var _ = require('underscore'),
         Marionette = require('marionette'),
 
-        headerTemplate = require('text!generic-list/app/templates/header.underscore'),
+        headerTemplate = require('text!../templates/header.underscore'),
 
         HeaderView;
 

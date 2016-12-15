@@ -6,7 +6,7 @@ define(function(require) {
 
     var _ = require('underscore'),
 
-        RootView = require('generic-list/app/views/root'),
+        RootView = require('components/root/views/root'),
         rootTemplate = require('text!learners/app/templates/root.underscore'),
 
         LearnersRootView;

@@ -8,8 +8,8 @@ define(function(require) {
         Marionette = require('marionette'),
 
         AlertView = require('generic-list/common/views/alert-view'),
-        HeaderView = require('generic-list/app/views/header'),
-        rootTemplate = require('text!generic-list/app/templates/root.underscore'),
+        HeaderView = require('components/header/views/header'),
+        rootTemplate = require('text!components/root/templates/root.underscore'),
 
         RootView;
 
