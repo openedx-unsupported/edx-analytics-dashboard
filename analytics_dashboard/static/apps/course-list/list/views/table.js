@@ -6,7 +6,7 @@ define(function(require) {
 
     var _ = require('underscore'),
         Backgrid = require('backgrid'),
-        ListTableView = require('generic-list/list/views/table'),
+        ListTableView = require('components/generic-list/list/views/table'),
 
         BaseHeaderCell = require('course-list/list/views/base-header-cell'),
         CourseIdAndNameCell = require('course-list/list/views/course-id-and-name-cell'),

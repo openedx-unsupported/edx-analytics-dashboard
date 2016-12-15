@@ -3,8 +3,8 @@ define(function(require) {
 
     var Backbone = require('backbone'),
         Marionette = require('marionette'),
-        RootView = require('generic-list/app/views/root'),
-        PageModel = require('generic-list/common/models/page');
+        RootView = require('components/root/views/root'),
+        PageModel = require('components/root/common/models/page');
 
     describe('RootView', function() {
         beforeEach(function() {

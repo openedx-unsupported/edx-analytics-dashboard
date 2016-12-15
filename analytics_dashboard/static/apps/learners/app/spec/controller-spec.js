@@ -7,7 +7,7 @@ define(function(require) {
         LearnerCollection = require('learners/common/collections/learners'),
         LearnersController = require('learners/app/controller'),
         LearnersRootView = require('learners/app/views/root'),
-        PageModel = require('generic-list/common/models/page'),
+        PageModel = require('components/generic-list/common/models/page'),
         TrackingModel = require('models/tracking-model');
 
     describe('LearnersController', function() {

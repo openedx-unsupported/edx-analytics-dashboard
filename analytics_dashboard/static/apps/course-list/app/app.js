@@ -13,7 +13,7 @@ define(function(require) {
         CourseListController = require('course-list/app/controller'),
         CourseListRootView = require('components/root/views/root'),
         CourseListRouter = require('course-list/app/router'),
-        PageModel = require('generic-list/common/models/page'),
+        PageModel = require('components/generic-list/common/models/page'),
 
         CourseListApp;
 

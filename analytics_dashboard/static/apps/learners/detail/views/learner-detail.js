@@ -4,17 +4,17 @@ define(function(require) {
     var _ = require('underscore'),
         Marionette = require('marionette'),
 
-        ListUtils = require('generic-list/common/utils'),
+        ListUtils = require('components/utils/utils'),
         Utils = require('utils/utils'),
 
-        AlertView = require('generic-list/common/views/alert-view'),
+        AlertView = require('components/alert/views/alert-view'),
         LearnerEngagementTableView = require('learners/detail/views/engagement-table'),
         LearnerEngagementTimelineView = require('learners/detail/views/engagement-timeline'),
         LearnerNameView = require('learners/detail/views/learner-names'),
         LearnerSummaryFieldView = require('learners/detail/views/learner-summary-field'),
-        LoadingView = require('generic-list/common/views/loading-view'),
-        chartLoadingTemplate = require('text!learners/detail/templates/chart-loading.underscore'),
-        tableLoadingTemplate = require('text!learners/detail/templates/table-loading.underscore'),
+        LoadingView = require('components/loading/views/loading-view'),
+        chartLoadingTemplate = require('text!components/loading/templates/chart-loading.underscore'),
+        tableLoadingTemplate = require('text!components/loading/templates/table-loading.underscore'),
         learnerDetailTemplate = require('text!learners/detail/templates/learner-detail.underscore');
 
     return Marionette.LayoutView.extend({
