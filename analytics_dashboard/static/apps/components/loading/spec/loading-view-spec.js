@@ -4,7 +4,7 @@ define(function(require) {
     var _ = require('underscore'),
         Backbone = require('backbone'),
 
-        LoadingView = require('generic-list/common/views/loading-view');
+        LoadingView = require('components/loading/views/loading-view');
 
     describe('LoadingView', function() {
         var fixtureClass = '.loading-fixture';
