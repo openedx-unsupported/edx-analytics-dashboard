@@ -12,7 +12,7 @@ define(function(require) {
         CourseMetadataModel = require('learners/common/models/course-metadata'),
         LearnerCollection = require('learners/common/collections/learners'),
         LearnersController = require('learners/app/controller'),
-        LearnersRootView = require('learners/app/views/root'),
+        LearnersRootView = require('components/root/views/root'),
         LearnersRouter = require('learners/app/router'),
         PageModel = require('generic-list/common/models/page'),
 
@@ -69,7 +69,8 @@ define(function(require) {
 
             rootView = new LearnersRootView({
                 el: $(this.options.containerSelector),
-                pageModel: pageModel
+                pageModel: pageModel,
+                appClass: 'learners'
             }).render();
 
             new LearnersRouter({ // eslint-disable-line no-new

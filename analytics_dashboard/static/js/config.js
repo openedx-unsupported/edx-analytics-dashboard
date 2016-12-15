@@ -48,6 +48,7 @@ require.config({
         learners: 'apps/learners',
         'course-list': 'apps/course-list',
         'generic-list': 'apps/generic-list',
+        components: 'apps/components',
         'axe-core': 'bower_components/axe-core/axe.min',
         sinon: 'bower_components/sinon/lib/sinon',
         nprogress: 'bower_components/nprogress/nprogress'

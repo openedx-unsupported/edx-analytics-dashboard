@@ -11,7 +11,7 @@ define(function(require) {
 
         CourseListCollection = require('course-list/common/collections/course-list'),
         CourseListController = require('course-list/app/controller'),
-        CourseListRootView = require('course-list/app/views/root'),
+        CourseListRootView = require('components/root/views/root'),
         CourseListRouter = require('course-list/app/router'),
         PageModel = require('generic-list/common/models/page'),
 
@@ -41,7 +41,8 @@ define(function(require) {
 
             rootView = new CourseListRootView({
                 el: $(this.options.containerSelector),
-                pageModel: pageModel
+                pageModel: pageModel,
+                appClass: 'course-list'
             }).render();
 
             new CourseListRouter({ // eslint-disable-line no-new
