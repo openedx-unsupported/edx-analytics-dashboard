@@ -9,13 +9,9 @@ define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
+        CourseListResultsView = require('course-list/list/views/results'),
         ListView = require('generic-list/list/views/list'),
 
-        // TODO: implement filter and sort controls
-        // ActiveFiltersView = require('course-list/list/views/active-filters'),
-        DownloadDataView = require('generic-list/common/views/download-data'),
-        CourseListResultsView = require('course-list/list/views/results'),
-        // ListControlsView = require('course-list/list/views/controls'),
         listTemplate = require('text!course-list/list/templates/list.underscore'),
 
         CourseListView;
@@ -26,9 +22,6 @@ define(function(require) {
         template: _.template(listTemplate),
 
         regions: {
-            // activeFilters: '.course-list-active-filters',
-            downloadData: '.course-list-download-data',
-            // controls: '.course-list-table-controls',
             results: '.course-list-results'
         },
 
@@ -36,15 +29,6 @@ define(function(require) {
             ListView.prototype.initialize.call(this, options);
 
             this.childViews = [
-                {
-                    region: 'downloadData',
-                    class: DownloadDataView,
-                    options: {
-                        collection: this.options.collection,
-                        trackingModel: this.options.trackingModel,
-                        trackCategory: 'course_list'
-                    }
-                },
                 {
                     region: 'results',
                     class: CourseListResultsView,

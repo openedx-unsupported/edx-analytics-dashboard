@@ -13,7 +13,7 @@ define(function(require) {
         ListView = require('generic-list/list/views/list'),
         ActiveDateRangeView = require('learners/roster/views/activity-date-range'),
         ActiveFiltersView = require('learners/roster/views/active-filters'),
-        DownloadDataView = require('generic-list/common/views/download-data'),
+        DownloadDataView = require('components/download/views/download-data'),
         LearnerResultsView = require('learners/roster/views/results'),
         RosterControlsView = require('learners/roster/views/controls'),
         rosterTemplate = require('text!learners/roster/templates/roster.underscore'),

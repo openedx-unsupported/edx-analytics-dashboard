@@ -1,9 +1,6 @@
 /**
  * Renders a sortable, filterable, and searchable paginated table of
  * learners for the Learner Analytics app.
- *
- * Requires the following values in the options hash:
- * - options.collection - an instance of LearnerCollection
  */
 define(function(require) {
     'use strict';
@@ -11,11 +8,7 @@ define(function(require) {
     var _ = require('underscore'),
         Marionette = require('marionette'),
 
-        ActiveFiltersView = require('learners/roster/views/active-filters'),
-        DownloadDataView = require('generic-list/common/views/download-data'),
-        LearnerResultsView = require('learners/roster/views/results'),
         ListUtils = require('generic-list/common/utils'),
-        RosterControlsView = require('learners/roster/views/controls'),
         listTemplate = require('text!generic-list/list/templates/list.underscore'),
 
         ListView;
@@ -34,13 +27,6 @@ define(function(require) {
 
         template: _.template(listTemplate),
 
-        regions: {
-            activeFilters: '.active-filters',
-            downloadData: '.download-data',
-            controls: '.table-controls',
-            results: '.results'
-        },
-
         initialize: function(options) {
             var eventTransformers;
 
@@ -53,46 +39,6 @@ define(function(require) {
             };
             ListUtils.mapEvents(this.options.collection, eventTransformers, this);
             ListUtils.mapEvents(this.options.courseMetadata, eventTransformers, this);
-
-            this.childViews = [
-                {
-                    region: 'activeFilters',
-                    class: ActiveFiltersView,
-                    options: {
-                        collection: this.options.collection
-                    }
-                },
-                {
-                    region: 'downloadData',
-                    class: DownloadDataView,
-                    options: {
-                        collection: this.options.collection,
-                        trackingModel: this.options.trackingModel,
-                        trackCategory: 'generic_list'
-                    }
-                },
-                {
-                    region: 'controls',
-                    class: RosterControlsView,
-                    options: {
-                        collection: this.options.collection,
-                        courseMetadata: this.options.courseMetadata,
-                        trackingModel: this.options.trackingModel
-                    }
-                },
-                {
-                    region: 'results',
-                    class: LearnerResultsView,
-                    options: {
-                        collection: this.options.collection,
-                        courseMetadata: this.options.courseMetadata,
-                        hasData: this.options.hasData,
-                        trackingModel: this.options.trackingModel
-                    }
-                }
-            ];
-
-            this.controlsLabel = gettext('Learner roster controls');
         },
 
         onBeforeShow: function() {

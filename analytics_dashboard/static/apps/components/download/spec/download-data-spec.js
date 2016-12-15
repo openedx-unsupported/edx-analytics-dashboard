@@ -3,7 +3,7 @@ define(function(require) {
 
     var _ = require('underscore'),
         TrackingModel = require('models/tracking-model'),
-        DownloadDataView = require('generic-list/common/views/download-data'),
+        DownloadDataView = require('components/download/views/download-data'),
         LearnerCollection = require('learners/common/collections/learners');
 
     describe('DownloadDataView', function() {
