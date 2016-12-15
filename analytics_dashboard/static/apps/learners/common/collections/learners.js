@@ -11,7 +11,7 @@ define(function(require) {
         model: LearnerModel,
 
         initialize: function(models, options) {
-            ListCollection.prototype.initialize.call(this, options);
+            ListCollection.prototype.initialize.call(this, models, options);
 
             this.courseId = options.courseId;
 

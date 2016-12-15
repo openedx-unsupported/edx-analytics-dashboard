@@ -34,7 +34,7 @@ define(function(require) {
         },
 
         initialize: function(options) {
-            ListView.prototype.intialize.call(this, options);
+            ListView.prototype.initialize.call(this, options);
 
             this.childViews = [
                 {
@@ -45,10 +45,10 @@ define(function(require) {
                     }
                 },
                 {
-                    region: 'activeDateRange',
+                    region: 'activityDateRange',
                     class: ActiveDateRangeView,
                     options: {
-                        collection: this.options.courseMetadata
+                        model: this.options.courseMetadata
                     }
                 },
                 {

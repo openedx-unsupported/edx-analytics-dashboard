@@ -43,6 +43,7 @@ define(function(require) {
                         // collection: this.options.collection,
                         // filterKey: 'availability',
                         // filterValues: {Current: 0, Archived: 0},
+                        // filterInput: 'select',
                         // selectDisplayName: gettext('Current Courses'),
                         // trackingModel: this.options.trackingModel
                     // }

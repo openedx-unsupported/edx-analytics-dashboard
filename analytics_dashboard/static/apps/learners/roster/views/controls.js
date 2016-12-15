@@ -44,6 +44,7 @@ define(function(require) {
                         collection: this.options.collection,
                         filterKey: 'cohort',
                         filterValues: this.options.courseMetadata.get('cohorts'),
+                        filterInput: 'select',
                         selectDisplayName: gettext('Cohort Groups'),
                         trackingModel: this.options.trackingModel
                     }
@@ -55,6 +56,7 @@ define(function(require) {
                         collection: this.options.collection,
                         filterKey: 'enrollment_mode',
                         filterValues: this.options.courseMetadata.get('enrollment_modes'),
+                        filterInput: 'select',
                         selectDisplayName: gettext('Enrollment Tracks'),
                         trackingModel: this.options.trackingModel
                     }
@@ -66,7 +68,9 @@ define(function(require) {
                         collection: this.options.collection,
                         filterKey: 'ignore_segments',
                         filterValues: this.options.courseMetadata.get('segments'),
-                        selectDisplayName: gettext('Inactive Learners'),
+                        filterInput: 'checkbox',
+                        // Translators: inactive meaning that these learners have not interacted with the course recently.
+                        selectDisplayName: gettext('Hide Inactive Learners'),
                         trackingModel: this.options.trackingModel
                     }
                 }
