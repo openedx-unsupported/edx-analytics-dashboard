@@ -4,7 +4,7 @@
 Enrollment Activity
 #############################
 
-How many students are enrolled in my course? Enrollment activity data helps you
+How many learners are enrolled in my course? Enrollment activity data helps you
 monitor how many people are enrolling in your course and how that number
 changes over time.
 
@@ -24,13 +24,13 @@ and a report that you can view or download. Descriptions follow; for detailed
 information about the computations, see :ref:`Reference`.
 
 ======================================
-Daily Student Enrollment Chart
+Daily Learner Enrollment Chart
 ======================================
 
-The daily student enrollment chart is a stacked area chart: the filled area
+The daily learner enrollment chart is a stacked area chart: the filled area
 represents the number of learners enrolled in the course on a particular date.
 For courses that offer more than one enrollment option or track, different
-colors represent the number of students who were enrolled with each option.
+colors represent the number of learners who were enrolled with each option.
 
 The chart includes each of the enrollment options and tracks that are offered
 for your course. Moving your cursor over the chart shows a tooltip with the
@@ -47,8 +47,10 @@ certainly the course creator and other course team members) on the day the
 course was created in Studio.
 
 .. image:: ../images/enrollment_chart.png
- :alt: A chart with the periods when the rate of enrollment increased
-       circled.
+ :alt: A chart with the period when the rate of enrollment increased circled
+       and the tooltip showing the number of enrolled students on a specific
+       date.
+ :width: 600
 
 The chart reveals different time periods when the rate of new enrollments
 increased rapidly, or "spiked" (circled). The team for this course might have
@@ -58,13 +60,14 @@ After the first spike, which coincided with the course start date on 15 April,
 enrollment continued to increase and an additional spike occurred over a month
 later.
 
-The second example shows the Daily Student Enrollment chart for a small,
+The second example shows the Daily Learner Enrollment chart for a small,
 private online course. In this course, the course team used the instructor
-dashboard in the LMS to enroll almost all of the students in just a few
+dashboard in the LMS to enroll almost all of the learners in just a few
 days.
 
 .. image:: ../images/enrollment_chart_SPOC.png
  :alt: A chart with a nearly vertical line for a fast increase in enrollment.
+ :width: 600
 
 See the :ref:`Reference` for a detailed description of how enrollment values
 are determined.
@@ -73,15 +76,15 @@ are determined.
 Total Enrollment Metric
 ======================================
 
-This count reports the number of students who have ever enrolled in the
+This count reports the number of learners who have ever enrolled in the
 course.
 
 ======================================
 Current Enrollment Metric
 ======================================
 
-This count reports the number of students who have enrolled in the course, less
-any students who have unenrolled.
+This count reports the number of learners who have enrolled in the course, less
+any learners who have unenrolled.
 
 ======================================
 Change in Last Week Metric
@@ -94,7 +97,7 @@ end of the day yesterday and at the end of the day one week ago.
 Verified Enrollment Metric
 ======================================
 
-This count reports the number of currently enrolled students who have elected
+This count reports the number of currently enrolled learners who have elected
 to pursue a verified certificate for the course.
 
 ======================================
@@ -146,8 +149,6 @@ large jump in the number of enrollments in the summer of 2013, in the days
 after edX CEO Anant Agarwal was interviewed on the July 24 edition of *The
 Colbert Report*, a satirical late-night comedy show hosted by Stephen Colbert.
 
-.. boy would I love to include a chart of this! what is the actionable insight for this story? It's so great, I'd like to use it, but is there a way to make it showcase a decision or change? Maybe use it to lead in to "the students you have aren't necessarily reflective of the students you *could* have"? (courtesy of John Hess)
-
 ===========================
 Latecomers Welcome
 ===========================
@@ -156,6 +157,6 @@ After their course started, a team expected that enrollment would level off and
 then begin a gradual decline. While they did see an overall decline in the
 number of enrollments, they also noticed that occasional small spikes in
 enrollment continued to occur, even several weeks into the course. To give
-these recently-enrolled students time to catch up, the team chose to adjust the
+these recently-enrolled learners time to catch up, the team chose to adjust the
 course to be more self-paced. They shifted due dates in unreleased units later,
 and extended the end date to keep course content open longer.

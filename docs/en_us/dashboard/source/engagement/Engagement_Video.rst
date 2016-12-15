@@ -40,7 +40,7 @@ To access data about a video component, follow these steps.
 
 #. Select the course.
 
-#. Select **How did students interact with course videos?** Alternatively,
+#. Select **How did learners interact with course videos?** Alternatively,
    select **Engagement** and then **Video**. A stacked bar chart shows the
    number of complete and incomplete views, averaged by the number of videos in
    each section.
@@ -108,7 +108,7 @@ another stacked bar chart appears for the subsections in that section.
 .. image:: ../images/video_subsections.png
  :width: 800
  :alt: A stacked bar chart for four subsections. In one subsection, only two
-     thirds of the students who started videos finished watching them.
+     thirds of the learners who started videos finished watching them.
 
 This chart helps you focus your investigation on the third subsection, in which
 the completion percentage dropped to 68%. After you select that subsection, the
@@ -213,7 +213,7 @@ The course teams might be curious to learn why learners chose to skip over part
 of a video or to stop watching it completely. Analyzing the content of a video
 with the objectivity that you gain from edX Insights can help you find content
 that is not well matched to its audience. Perhaps you included an interview
-that is pertinent for a residential student, but that your MOOC participants
+that is pertinent for a residential learner, but that your MOOC participants
 find less interesting than other material. Or perhaps the video included
 repetition that most of your learners did not need to grasp a concept.
 

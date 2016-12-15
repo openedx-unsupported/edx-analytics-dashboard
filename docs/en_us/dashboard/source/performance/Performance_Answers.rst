@@ -4,8 +4,8 @@
 Graded Content Submissions
 #############################
 
-How are students answering questions? In edX Insights, graded content
-submissions show you the responses that students submit for graded problems,
+How are learners answering questions? In edX Insights, graded content
+submissions show you the responses that learners submit for graded problems,
 and help you evaluate what they find difficult. To illustrate, this section
 presents the Analytics in Action section first.
 
@@ -17,19 +17,19 @@ presents the Analytics in Action section first.
 Analytics in Action: Interpreting Graded Submissions
 *******************************************************
 
-A review of the distribution of student answer submissions for a graded
-problem can lead to discoveries about your students and about your course.
+A review of the distribution of learner answer submissions for a graded
+problem can lead to discoveries about your learners and about your course.
 
-* You can assess how difficult the problem is for students to answer correctly.
+* You can assess how difficult the problem is for learners to answer correctly.
 
 * You can detect common mistakes.
 
-* You can understand student misconceptions.
+* You can understand learner misconceptions.
 
 * You can find errors in problem components.
 
 In addition, you can use the stacked bar chart presented for each course
-assignment type and assignment to identify where students are submitting
+assignment type and assignment to identify where learners are submitting
 relatively more incorrect answers.
 
 ===============================================
@@ -38,11 +38,11 @@ Researching Unexpected Difficulties
 
 For problem types that provide both the question and a set of possible answers
 (checkboxes, dropdown, and multiple choice), submission data helps you assess
-how difficult it is for students to identify and submit the correct answer.
-The submissions chart provides a visual contrast of the number of students
+how difficult it is for learners to identify and submit the correct answer.
+The submissions chart provides a visual contrast of the number of learners
 who select incorrect answers with the number who answer correctly.
 
-If the proportion of students who answer the problem incorrectly surprises
+If the proportion of learners who answer the problem incorrectly surprises
 you, research can reveal a variety of causes. Your investigation might begin
 with some of these questions.
 
@@ -52,13 +52,13 @@ with some of these questions.
 * Does the course outline include relevant course content before the problem,
   or after it?
 
-* Are all of the course prerequisites presented to potential students?
+* Are all of the course prerequisites presented to potential learners?
 
-* Does the problem rely on student access to a video or textbook? Are there
+* Does the problem rely on learner access to a video or textbook? Are there
   transcripts for the videos, and can the textbook files be read by a screen
   reader?
 
-* Are students relying on conventional wisdom to answer the question instead
+* Are learners relying on conventional wisdom to answer the question instead
   of newly acquired knowledge?
 
 The results of your investigation can guide changes to future course runs.
@@ -70,8 +70,8 @@ Investigating Similar Responses
 For open-ended problem types that provide only the question (numerical, text,
 and math expression input), submission data can help you identify similar
 responses. In the Submission Counts report, you have access to every answer
-submitted by a student. The chart, however, presents only the 12 most
-frequently submitted responses. Your initial investigation into how students
+submitted by a learner. The chart, however, presents only the 12 most
+frequently submitted responses. Your initial investigation into how learners
 answer a question can begin with this set of 12.
 
 For example, the edX Demo course includes a text input problem that has a
@@ -93,7 +93,7 @@ A review of the Submissions Count report reveals several more variations,
 including "antartika", "Antartide", and "el continente Antártico". You realize
 that these answers also indicate the continent of Antarctica, but in languages
 other than English. Seeing answers such as these in the report might reassure
-you that more students understand the question and the relevant course
+you that more learners understand the question and the relevant course
 material than is indicated by the correct answer count. You might decide
 to reconfigure the problem so that correct answers in other languages also
 evaluate as correct. Alternatively, you might decide to revise the question to
@@ -107,14 +107,14 @@ Before the release date of each section, you encourage your beta testers to
 answer every question and to submit both correct and incorrect answers.
 You then use edX Insights to review the answers that your testers submit for
 each problem. You verify that each problem is set up as you intend, and
-correct any oversights before students can encounter them.
+correct any oversights before learners can encounter them.
 
 In this way, you can use edX Insights to validate the grading configuration,
 and to proofread the display names, accessible labels, and text that you have
 provided for the graded assignment types, assignments, problems, questions,
 and answers.
 
-For example, the first time you use edX Insights to look at student
+For example, the first time you use edX Insights to look at learner
 performance, you choose the "Homework" assignment type. In the chart of the
 homework assignments, you see the nine assignments that you expect. However,
 you notice that for your first two homework assignments, you forgot to include
@@ -148,7 +148,7 @@ of the problems that it includes.
 
 .. MITx/9.01x/3T2014/performance/graded_content/assignments/i4x%3A//MITx/9.01x/sequential/19aa8209e5474d52aab965f0f1649270/
 
-Because students also see problem display names in the LMS, you might decide to
+Because learners also see problem display names in the LMS, you might decide to
 go back to Studio and provide identifying display names for the problems before
 you publish the subsection.
 
@@ -158,7 +158,7 @@ you publish the subsection.
 Selecting the Assignment Type, Assignment, and Problem
 *******************************************************
 
-To access data about the answers that students submit for a graded problem
+To access data about the answers that learners submit for a graded problem
 component, you make these selections.
 
 Step 1: Select a graded course assignment type.
@@ -192,7 +192,7 @@ Step 2: Select an Assignment
 ==============================
 
 After you select one of the course assignment types, edX Insights displays a
-stacked bar chart that summarizes student performance on each assignment of
+stacked bar chart that summarizes learner performance on each assignment of
 that type.
 
 .. image:: ../images/assignment.png
@@ -217,7 +217,7 @@ Step 3: Select a Problem
 =========================
 
 After you select an assignment, edX Insights displays a stacked bar chart that
-summarizes student performance on each problem in that assignment. In this
+summarizes learner performance on each problem in that assignment. In this
 example from the edX Demo course, the selected homework assignment includes
 just one problem.
 
@@ -266,38 +266,38 @@ computations, see :ref:`Reference`.
 Submissions Chart
 ==================
 
-The bars on this chart represent the number of enrolled students who submitted
+The bars on this chart represent the number of enrolled learners who submitted
 a particular answer to a question in a problem component. The x-axis includes
 the most frequently submitted answers, up to a maximum of 12. Due to space
 limitations, the answer text that is used to label the x-axis might be
 truncated. Moving your cursor over each bar shows a longer version of the
 answer.
 
-To review the problem component in the LMS as a student sees it, select **View
+To review the problem component in the LMS as a learner sees it, select **View
 Live** and then at the top of the page use the **View this course as** option
-to select Student. The LMS displays the page that contains this problem in
-Student View. For more information, see `View Your Live Course`_.
+to select Learner. The LMS displays the page that contains this problem in
+Learner View. For more information, see `View Your Live Course`_.
 
 All submitted answers, and complete answer values, are available for review in
 tabular format at the bottom of the page and can also be downloaded.
 
 Examples of the graded content submissions chart follow. In the first example,
-most students selected the correct answer for a multiple choice problem.
+most learners selected the correct answer for a multiple choice problem.
 
 .. image:: ../images/answer_dist_easy.png
-   :alt: A bar chart showing that most students selected the correct answer
+   :alt: A bar chart showing that most learners selected the correct answer
        out of four choices.
 
 .. edX/DemoX.1/2014/performance/graded_content/assignments/i4x%3A//edX/DemoX.1/sequential/9c1aacbb2795470e8473b059b59c3344/problems/i4x%3A//edX/DemoX.1/problem/466f474fa4d045a8b7bde1b911e095ca/parts/i4x-edX-DemoX_1-problem-466f474fa4d045a8b7bde1b911e095ca_3_1/answer_distribution/
 
 The second example shows the graph of the top 12 answers submitted for a
-numerical input problem. Most students left the answer for this question
-blank, or "(empty)", which was marked incorrect. Other answers that students
+numerical input problem. Most learners left the answer for this question
+blank, or "(empty)", which was marked incorrect. Other answers that learners
 submitted, both correct and incorrect, are also graphed. The
 Submission Counts report includes a row for every submitted answer.
 
 .. image:: ../images/answer_dist_hard.png
-   :alt: A bar chart showing that most students submitted incorrect answers
+   :alt: A bar chart showing that most learners submitted incorrect answers
        with bars for the 12 most frequent answers.
 
 .. MITx/EECS.6.002x/3T2013/performance/graded_content/assignments/i4x%3A//MITx/EECS.6.002x/sequential/Homework_10/problems/i4x%3A//MITx/EECS.6.002x/problem/H10P3_An_L_Network/parts/i4x-MITx-EECS_6_002x-problem-H10P3_An_L_Network_3_1/answer_distribution/
@@ -309,9 +309,9 @@ Submission Counts Report
 =========================
 
 A report with a row for each problem-answer combination submitted by your
-students is available for review or download. The report columns show each
+learners is available for review or download. The report columns show each
 submitted answer, identify the correct answer or answers, and provide the
-number of students who submitted that answer.
+number of learners who submitted that answer.
 
 To download the Submission Counts report in a comma-separated value
 file, select **Download CSV**.
@@ -328,7 +328,7 @@ report for the first part appears. To select a different part, you use the
 
 For problems that use the **Randomization** feature in Studio, the report has
 one row for each problem-variant-answer combination selected by at least one
-student. For more information about this randomization option, see
+learner. For more information about this randomization option, see
 `Randomization`_.
 
 See the :ref:`Reference` for a detailed description of each column.
