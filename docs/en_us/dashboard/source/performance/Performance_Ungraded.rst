@@ -125,7 +125,7 @@ problems in edX Insights can help you answer questions like these.
 
 * For open-ended questions, such as text input, what did learners submit?
 
-The illustration that follows shows the number of students who selected each
+The illustration that follows shows the number of learners who selected each
 of the choices offered for a multiple choice question. The chart includes one
 bar for each answer.
 
@@ -134,7 +134,7 @@ bar for each answer.
  result, the bar charts for these questions appear in a single color.
 
 .. image:: ../images/survey_ungraded.png
- :alt: A chart showing that students chose a wide range of answers, all marked
+ :alt: A chart showing that learners chose a wide range of answers, all marked
      incorrect.
 
 .. BerkeleyX/GG101x/1T2014/performance/ungraded_content/sections/i4x%3A//BerkeleyX/GG101x/chapter/d13fe70f7ca44a8f85f2d38efdc8d86c/subsections/i4x%3A//BerkeleyX/GG101x/sequential/0c8e4c5cdb3a4329a9a12f2e33c1fd76/problems/i4x%3A//BerkeleyX/GG101x/problem/89d1916b958341129ad23fd75a09df48/parts/i4x-BerkeleyX-GG101x-problem-89d1916b958341129ad23fd75a09df48_2_1/answer_distribution/
