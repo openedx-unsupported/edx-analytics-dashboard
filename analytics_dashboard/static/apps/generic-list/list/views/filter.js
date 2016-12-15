@@ -27,10 +27,10 @@ define(function(require) {
         // It is assumed that there can never be a filter with an empty
         // name, therefore it's safe to use the empty string as a
         // property in this object.  The API interprets this as "all
-        // learners, unfiltered".
+        // items, unfiltered".
         catchAllFilterValue: '',
 
-        className: 'learners-filter',
+        className: 'list-filter',
 
         template: _.template(filterTemplate),
 
@@ -39,13 +39,11 @@ define(function(require) {
          *
          * @param options an options object which must include the following
          * key/values:
-         *      - collection (LearnersCollection): the learners collection to
-         *        filter.
-         *      - filterKey (string): the field to be filtered by on the learner
-         *        collection.
+         *      - collection: the collection to filter.
+         *      - filterKey (string): the field to be filtered by on the collection.
          *      - filterValues (Object): the set of valid values that the
          *        filterKey can take on, represented as a mapping from
-         *        filter values to the number of learners matching the applied
+         *        filter values to the number of items matching the applied
          *        filter.
          *      - selectDisplayName (string): a *translated* string that will
          *        appear as the label for this filter.
@@ -65,36 +63,37 @@ define(function(require) {
             // 'displayName' is the user-facing representation of the filter
             // which combines the filter with the number of users belonging to
             // it.
-            var hideInactive = false,
-                filterValues,
+            var filterValues,
                 selectedFilterValue;
             filterValues = _.chain(this.options.filterValues)
                 .pairs()
                 .map(function(filterPair) {
                     var name = filterPair[0],
-                        numLearners = filterPair[1];
+                        numResults = filterPair[1];
                     return {
                         name: name,
                         displayName: _.template(
                             // eslint-disable-next-line max-len
-                            // Translators: 'name' here refers to the name of the filter, while 'numLearners' refers to the number of learners belonging to that filter.
-                            gettext('<%= name %> (<%= numLearners %>)')
+                            // Translators: 'name' here refers to the name of the filter, while 'numResults' refers to the number of items belonging to that filter.
+                            gettext('<%= name %> (<%= numResults %>)')
                         )({
                             name: name,
-                            numLearners: Utils.localizeNumber(numLearners, 0)
+                            numLearners: Utils.localizeNumber(numResults, 0)
                         })
                     };
                 })
                 .sortBy('name')
                 .value();
 
-            if (filterValues.length) {
+            if (filterValues.length && this.options.filterInput === 'select') {
                 filterValues.unshift({
                     name: this.catchAllFilterValue,
                     // Translators: "All" refers to viewing all the learners in a course.
                     displayName: gettext('All')
                 });
 
+                // FIXME: The following code isn't working correctly. getActiveFilterFields seems to return an object,
+                // not an array.
                 // Assumes that you can only filter by one filterKey at a time.
                 selectedFilterValue = _.chain(filterValues)
                     .pluck('name')
@@ -103,31 +102,31 @@ define(function(require) {
                     .value() || this.catchAllFilterValue;
                 _.findWhere(filterValues, {name: selectedFilterValue}).selected = true;
             }
-            if (this.options.filterKey === 'ignore_segments') {
-                // Translators: inactive meaning that these learners have not interacted with the course recently.
-                this.options.selectDisplayName = gettext('Hide Inactive Learners');
-            }
-            if ('ignore_segments' in this.options.collection.getActiveFilterFields()) {
-                hideInactive = true;
-            }
             return {
                 filterKey: this.options.filterKey,
                 filterValues: filterValues,
-                hideInactive: hideInactive,
                 selectDisplayName: this.options.selectDisplayName
             };
         },
 
         onCheckboxFilter: function(event) {
-            if ($(event.currentTarget).find('input:checkbox:checked').length) {
-                this.collection.setFilterField('ignore_segments', 'inactive');
+            var $inputs = $(event.currentTarget).find('input:checkbox:checked'),
+                filterKey = $(event.currentTarget).attr('id').slice(7), // chop off "filter-" prefix
+                appliedFilters = [],
+                filterValue = '';
+            if ($inputs.length) {
+                _.each($inputs, _.bind(function(input) {
+                    appliedFilters.push($(input).attr('id'));
+                }, this));
+                filterValue = appliedFilters.join(',');
+                this.collection.setFilterField(filterKey, filterValue);
             } else {
-                this.collection.unsetFilterField('ignore_segments');
+                this.collection.unsetFilterField(filterKey);
             }
             this.collection.refresh();
             $('#app-focusable').focus();
-            this.options.trackingModel.trigger('segment:track', 'edx.bi.roster.filtered', {
-                category: 'inactive'
+            this.options.trackingModel.trigger('segment:track', 'edx.bi.list.filtered', {
+                category: filterValue
             });
         },
 
