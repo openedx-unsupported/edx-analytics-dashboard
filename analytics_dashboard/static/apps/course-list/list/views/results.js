@@ -20,7 +20,7 @@ define(function(require) {
         },
         initialize: function(options) {
             this.options = options || {};
-            this.listenTo(this.options.collection, 'sync', this.onCourseListCollectionUpdated);
+            this.listenTo(this.options.collection, 'backgrid:refresh', this.onCourseListCollectionUpdated);
         },
         onBeforeShow: function() {
             this.onCourseListCollectionUpdated(this.options.collection);
