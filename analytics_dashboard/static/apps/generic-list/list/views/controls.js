@@ -7,56 +7,41 @@ define(function(require) {
     var _ = require('underscore'),
         Marionette = require('marionette'),
 
-        Filter = require('learners/roster/views/filter'),
-        LearnerSearch = require('learners/roster/views/search'),
-        rosterControlsTemplate = require('text!learners/roster/templates/controls.underscore'),
+        ListSearch = require('generic-list/list/views/search'),
+        rosterControlsTemplate = require('text!generic-list/list/templates/controls.underscore'),
 
-        RosterControlsView;
+        ListControlsView;
 
-    RosterControlsView = Marionette.LayoutView.extend({
+    ListControlsView = Marionette.LayoutView.extend({
         template: _.template(rosterControlsTemplate),
 
         regions: {
-            search: '.learners-search-container',
-            cohortFilter: '.learners-cohort-filter-container',
-            enrollmentTrackFilter: '.learners-enrollment-track-filter-container',
-            activeFilter: '.learners-active-filter-container'
+            search: '.search-container'
         },
 
         initialize: function(options) {
             this.options = options || {};
+
+            this.childViews = [
+                {
+                    region: 'search',
+                    class: ListSearch,
+                    options: {
+                        collection: this.options.collection,
+                        name: 'text_search',
+                        placeholder: gettext('Search'),
+                        trackingModel: this.options.trackingModel
+                    }
+                }
+            ];
         },
 
         onBeforeShow: function() {
-            this.showChildView('search', new LearnerSearch({
-                collection: this.options.collection,
-                name: 'text_search',
-                placeholder: gettext('Find a learner'),
-                trackingModel: this.options.trackingModel
-            }));
-            this.showChildView('cohortFilter', new Filter({
-                collection: this.options.collection,
-                filterKey: 'cohort',
-                filterValues: this.options.courseMetadata.get('cohorts'),
-                selectDisplayName: gettext('Cohort Groups'),
-                trackingModel: this.options.trackingModel
-            }));
-            this.showChildView('enrollmentTrackFilter', new Filter({
-                collection: this.options.collection,
-                filterKey: 'enrollment_mode',
-                filterValues: this.options.courseMetadata.get('enrollment_modes'),
-                selectDisplayName: gettext('Enrollment Tracks'),
-                trackingModel: this.options.trackingModel
-            }));
-            this.showChildView('activeFilter', new Filter({
-                collection: this.options.collection,
-                filterKey: 'ignore_segments',
-                filterValues: this.options.courseMetadata.get('segments'),
-                selectDisplayName: gettext('Inactive Learners'),
-                trackingModel: this.options.trackingModel
-            }));
+            _.each(this.childViews, _.bind(function(child) {
+                this.showChildView(child.region, new child.class(child.options));
+            }, this));
         }
     });
 
-    return RosterControlsView;
+    return ListControlsView;
 });

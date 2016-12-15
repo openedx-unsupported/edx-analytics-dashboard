@@ -5,15 +5,15 @@ define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
-        Marionette = require('marionette'),
+        ListControlsView = require('generic-list/list/views/controls'),
 
-        Filter = require('course-list/list/views/filter'),
+        // CourseListFilter = require('course-list/list/views/filter'),
         CourseListSearch = require('course-list/list/views/search'),
         listControlsTemplate = require('text!course-list/list/templates/controls.underscore'),
 
-        ListControlsView;
+        CourseListControlsView;
 
-    ListControlsView = Marionette.LayoutView.extend({
+    CourseListControlsView = ListControlsView.extend({
         template: _.template(listControlsTemplate),
 
         regions: {
@@ -23,24 +23,33 @@ define(function(require) {
 
         initialize: function(options) {
             this.options = options || {};
-        },
 
-        onBeforeShow: function() {
-            this.showChildView('search', new CourseListSearch({
-                collection: this.options.collection,
-                name: 'text_search',
-                placeholder: gettext('Find a course'),
-                trackingModel: this.options.trackingModel
-            }));
-            // this.showChildView('availabilityFilter', new Filter({
-                // collection: this.options.collection,
-                // filterKey: 'availability',
-                // filterValues: {Current: 0, Archived: 0}, // TODO: actually get this data
-                // selectDisplayName: gettext('Current Courses'),
-                // trackingModel: this.options.trackingModel
-            // }));
+            this.childViews = [
+                {
+                    region: 'search',
+                    class: CourseListSearch,
+                    options: {
+                        collection: this.options.collection,
+                        name: 'text_search',
+                        placeholder: gettext('Find a course'),
+                        trackingModel: this.options.trackingModel
+                    }
+                }
+                // TODO: add availability filter once we have real filter values
+                // {
+                    // region: 'availibilityFilter',
+                    // class: CourseListFilter,
+                    // options: {
+                        // collection: this.options.collection,
+                        // filterKey: 'availability',
+                        // filterValues: {Current: 0, Archived: 0},
+                        // selectDisplayName: gettext('Current Courses'),
+                        // trackingModel: this.options.trackingModel
+                    // }
+                // }
+            ];
         }
     });
 
-    return ListControlsView;
+    return CourseListControlsView;
 });
