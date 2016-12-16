@@ -2,7 +2,6 @@ define(function(require) {
     'use strict';
 
     var PagingCollection = require('uitk/pagination/paging-collection'),
-        Model = require('generic-list/common/models/list-item'),
         ListUtils = require('components/utils/utils'),
         Utils = require('utils/utils'),
         _ = require('underscore'),
@@ -10,7 +9,6 @@ define(function(require) {
         ListCollection;
 
     ListCollection = PagingCollection.extend({
-        model: Model,
 
         initialize: function(models, options) {
             PagingCollection.prototype.initialize.call(this, options);
