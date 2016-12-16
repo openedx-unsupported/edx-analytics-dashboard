@@ -4,7 +4,7 @@ define(function(require) {
     var _ = require('underscore'),
         Marionette = require('marionette'),
 
-        ListUtils = require('generic-list/common/utils'),
+        ListUtils = require('components/utils/utils'),
         Utils = require('utils/utils'),
 
         AlertView = require('components/alert/views/alert-view'),

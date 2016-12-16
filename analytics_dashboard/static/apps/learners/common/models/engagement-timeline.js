@@ -3,7 +3,7 @@ define(function(require) {
 
     var Backbone = require('backbone'),
 
-        ListUtils = require('generic-list/common/utils'),
+        ListUtils = require('components/utils/utils'),
 
         EngagementTimelineModel;
 

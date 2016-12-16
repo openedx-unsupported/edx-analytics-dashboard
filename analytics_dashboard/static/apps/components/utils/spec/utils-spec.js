@@ -3,7 +3,7 @@ define(function(require) {
 
     var $ = require('jquery'),
 
-        ListUtils = require('generic-list/common/utils');
+        ListUtils = require('../utils');
 
     describe('ListUtils', function() {
         describe('handleAjaxFailure', function() {

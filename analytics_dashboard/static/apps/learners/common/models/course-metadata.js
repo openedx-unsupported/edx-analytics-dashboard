@@ -4,7 +4,7 @@ define(function(require) {
     var _ = require('underscore'),
         Backbone = require('backbone'),
 
-        ListUtils = require('generic-list/common/utils'),
+        ListUtils = require('components/utils/utils'),
 
         CourseMetadataModel;
 
