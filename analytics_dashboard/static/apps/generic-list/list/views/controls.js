@@ -7,12 +7,9 @@ define(function(require) {
     var _ = require('underscore'),
         Marionette = require('marionette'),
 
-        rosterControlsTemplate = require('text!generic-list/list/templates/controls.underscore'),
-
         ListControlsView;
 
     ListControlsView = Marionette.LayoutView.extend({
-        template: _.template(rosterControlsTemplate),
 
         initialize: function(options) {
             this.options = options || {};

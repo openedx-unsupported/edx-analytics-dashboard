@@ -9,7 +9,6 @@ define(function(require) {
         Marionette = require('marionette'),
 
         ListUtils = require('components/utils/utils'),
-        listTemplate = require('text!generic-list/list/templates/list.underscore'),
 
         ListView;
 
@@ -24,8 +23,6 @@ define(function(require) {
      */
     ListView = Marionette.LayoutView.extend({
         className: 'generic-list',
-
-        template: _.template(listTemplate),
 
         initialize: function(options) {
             var eventTransformers;
