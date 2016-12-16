@@ -7,7 +7,6 @@ define(function(require) {
     var _ = require('underscore'),
         Marionette = require('marionette'),
 
-        ListSearch = require('generic-list/list/views/search'),
         rosterControlsTemplate = require('text!generic-list/list/templates/controls.underscore'),
 
         ListControlsView;
@@ -15,25 +14,8 @@ define(function(require) {
     ListControlsView = Marionette.LayoutView.extend({
         template: _.template(rosterControlsTemplate),
 
-        regions: {
-            search: '.search-container'
-        },
-
         initialize: function(options) {
             this.options = options || {};
-
-            this.childViews = [
-                {
-                    region: 'search',
-                    class: ListSearch,
-                    options: {
-                        collection: this.options.collection,
-                        name: 'text_search',
-                        placeholder: gettext('Search'),
-                        trackingModel: this.options.trackingModel
-                    }
-                }
-            ];
         },
 
         onBeforeShow: function() {
