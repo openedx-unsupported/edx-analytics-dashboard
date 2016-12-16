@@ -10,7 +10,7 @@ define(function(require) {
 
     var _ = require('underscore'),
 
-        ListView = require('generic-list/list/views/list'),
+        ListView = require('components/generic-list/list/views/list'),
         ActiveDateRangeView = require('learners/roster/views/activity-date-range'),
         ActiveFiltersView = require('learners/roster/views/active-filters'),
         DownloadDataView = require('components/download/views/download-data'),

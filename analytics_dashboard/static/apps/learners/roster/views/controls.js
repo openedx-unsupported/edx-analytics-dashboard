@@ -5,7 +5,7 @@ define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
-        ListControlsView = require('generic-list/list/views/controls'),
+        ListControlsView = require('components/generic-list/list/views/controls'),
 
         LearnerFilter = require('learners/roster/views/filter'),
         LearnerSearch = require('learners/roster/views/search'),

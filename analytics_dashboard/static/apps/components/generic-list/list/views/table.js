@@ -10,7 +10,7 @@ define(function(require) {
 
         BaseHeaderCell = require('learners/roster/views/base-header-cell'),
         PagingFooter = require('learners/roster/views/paging-footer'),
-        listTableTemplate = require('text!generic-list/list/templates/table.underscore'),
+        listTableTemplate = require('text!../templates/table.underscore'),
 
         ListTableView;
 

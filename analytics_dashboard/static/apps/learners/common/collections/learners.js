@@ -1,7 +1,7 @@
 define(function(require) {
     'use strict';
 
-    var ListCollection = require('generic-list/common/collections/collection'),
+    var ListCollection = require('components/generic-list/common/collections/collection'),
         LearnerModel = require('learners/common/models/learner'),
         _ = require('underscore'),
 

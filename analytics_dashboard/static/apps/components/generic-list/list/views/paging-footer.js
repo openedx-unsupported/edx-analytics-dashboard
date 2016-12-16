@@ -9,7 +9,7 @@ define(function(require) {
         _ = require('underscore'),
         Backgrid = require('backgrid'),
 
-        pageHandleTemplate = require('text!generic-list/list/templates/page-handle.underscore'),
+        pageHandleTemplate = require('text!../templates/page-handle.underscore'),
 
         PagingFooter;
 

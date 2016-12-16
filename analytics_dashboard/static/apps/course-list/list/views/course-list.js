@@ -10,7 +10,7 @@ define(function(require) {
 
     var _ = require('underscore'),
         CourseListResultsView = require('course-list/list/views/results'),
-        ListView = require('generic-list/list/views/list'),
+        ListView = require('components/generic-list/list/views/list'),
 
         listTemplate = require('text!course-list/list/templates/list.underscore'),
 

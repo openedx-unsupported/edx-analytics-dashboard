@@ -1,7 +1,7 @@
 define(function(require) {
     'use strict';
 
-    var BaseHeaderCell = require('generic-list/list/views/base-header-cell'),
+    var BaseHeaderCell = require('components/generic-list/list/views/base-header-cell'),
 
         LearnersBaseHeaderCell;
 

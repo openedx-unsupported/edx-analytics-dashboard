@@ -2,7 +2,7 @@ define(function(require) {
     'use strict';
 
     var $ = require('jquery'),
-        PagingFooter = require('generic-list/list/views/paging-footer'),
+        PagingFooter = require('components/generic-list/list/views/paging-footer'),
 
         LearnersPagingFooter;
 
