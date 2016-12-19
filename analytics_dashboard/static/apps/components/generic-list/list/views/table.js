@@ -1,5 +1,5 @@
 /**
- * Displays a table of learners and a pagination control.
+ * Displays a table of items and a pagination control.
  */
 define(function(require) {
     'use strict';
@@ -8,8 +8,8 @@ define(function(require) {
         Backgrid = require('backgrid'),
         Marionette = require('marionette'),
 
-        BaseHeaderCell = require('learners/roster/views/base-header-cell'),
-        PagingFooter = require('learners/roster/views/paging-footer'),
+        BaseHeaderCell = require('./base-header-cell'),
+        PagingFooter = require('./paging-footer'),
         listTableTemplate = require('text!../templates/table.underscore'),
 
         ListTableView;

@@ -117,6 +117,7 @@ define(function(require) {
             it('decodes the sort', function() {
                 state.sortKey = 'username';
                 state.order = 1;
+                list.registerSortableField('username', 'Name (Username)');
                 list.setStateFromQueryString('sortKey=username&order=desc');
                 expect(list.state).toEqual(state);
                 expect(list.getActiveFilterFields()).toEqual({});

@@ -6,7 +6,7 @@ define(function(require) {
         CourseMetadataModel = require('learners/common/models/course-metadata'),
         LearnerCollection = require('learners/common/collections/learners'),
         LearnersController = require('learners/app/controller'),
-        LearnersRootView = require('learners/app/views/root'),
+        RootView = require('components/root/views/root'),
         PageModel = require('components/generic-list/common/models/page'),
         TrackingModel = require('models/tracking-model');
 
@@ -44,9 +44,10 @@ define(function(require) {
 
             server = sinon.fakeServer.create();
             setFixtures('<div class="root-view"><div class="main"></div></div>');
-            this.rootView = new LearnersRootView({
+            this.rootView = new RootView({
                 el: '.root-view',
-                pageModel: pageModel
+                pageModel: pageModel,
+                appClass: 'learners'
             });
             this.rootView.render();
             // The learner roster view looks at the first learner in
