@@ -8,24 +8,35 @@
 
 {% block title %}{% trans "Courses" %} {{ block.super }}{% endblock title %}
 
+
+{% block header-text %}
+  <h3>
+    {% blocktrans with username=request.user.username %}Welcome, {{ username }}!{% endblocktrans %}
+  </h3>
+{% endblock %}
+
+{% block intro-text %}
+  {% blocktrans %}Here are the courses you currently have access to in {{ application_name }}:{% endblocktrans %}
+{% endblock intro-text %}
+
 {% block stylesheets %}
-    {{ block.super }}
-    <link rel="stylesheet" href="/static/bower_components/backgrid-paginator/backgrid-paginator.min.css" type="text/css">
-    <link rel="stylesheet" href="/static/bower_components/nprogress/nprogress.css" type="text/css">
+  {{ block.super }}
+  <link rel="stylesheet" href="/static/bower_components/backgrid-paginator/backgrid-paginator.min.css" type="text/css">
+  <link rel="stylesheet" href="/static/bower_components/nprogress/nprogress.css" type="text/css">
 {% endblock stylesheets %}
 
 {% block javascript %}
-    {{ block.super }}
-    <script src="{% static_rjs 'apps/course-list/app/course-list-main.js' %}"></script>
+  {{ block.super }}
+  <script src="{% static_rjs 'apps/course-list/app/course-list-main.js' %}"></script>
 {% endblock javascript %}
 
 {% block content %}
   {% block child_content %}
-      <section class="view-section">
-          <div class="course-list-app-container grid-container">
-              {% include "loading.html" %}
-          </div>
-      </section>
+    <section class="view-section">
+      <div class="course-list-app-container grid-container">
+        {% include "loading.html" %}
+      </div>
+    </section>
   {% endblock %}
   {% block data_messaging %}
     {% if update_message %}

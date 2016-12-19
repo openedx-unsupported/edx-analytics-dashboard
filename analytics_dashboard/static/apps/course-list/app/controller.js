@@ -46,16 +46,40 @@ define(function(require) {
 
         showCourseListPage: function(queryString) {
             var listView = new CourseListView({
-                collection: this.options.courseListCollection,
-                hasData: this.options.hasData,
-                trackingModel: this.options.trackingModel
-            });
+                    collection: this.options.courseListCollection,
+                    hasData: this.options.hasData,
+                    trackingModel: this.options.trackingModel
+                }),
+                collection = this.options.courseListCollection,
+                currentPage;
 
             try {
-                this.options.courseListCollection.setStateFromQueryString(queryString);
+                collection.setStateFromQueryString(queryString);
                 this.options.rootView.showChildView('main', listView);
+                if (collection.isStale) {
+                    // There was a querystring sort parameter that was different from the default collection sorting, so
+                    // we have to sort the table.
+                    // We don't just do collection.fullCollection.sort() here because we've attached custom sortValue
+                    // options to the columns via Backgrid to handle null values and we must call the sort function on
+                    // the Backgrid table object for those custom sortValues to have an effect.
+                    // Also, for some unknown reason, the Backgrid sort overwrites the currentPage, so we will save and
+                    // restore the currentPage after the sort completes.
+                    currentPage = collection.state.currentPage;
+                    listView.getRegion('results').currentView
+                            .getRegion('main').currentView.table.currentView
+                            .sort(collection.state.sortKey,
+                                  collection.state.order === 1 ? 'descending' : 'ascending');
+
+                    // Not using collection.setPage() here because it appears to have a bug.
+                    // This about the same as what setPage() does internally.
+                    collection.getPage(currentPage - (1 - collection.state.firstPage), {reset: true});
+
+                    collection.isStale = false;
+                }
             } catch (e) {
                 // These JS errors occur when trying to parse invalid URL parameters
+                // FIXME: they also catch a whole lot of other kinds of errors where the alert message doesn't make much
+                // sense.
                 if (e instanceof RangeError || e instanceof TypeError) {
                     this.options.rootView.showAlert('error', gettext('Invalid Parameters'),
                         gettext('Sorry, we couldn\'t find any courses that matched that query.'),
@@ -69,8 +93,8 @@ define(function(require) {
             this.options.rootView.getRegion('navigation').empty();
 
             this.options.pageModel.set('title', gettext('Course List'));
-            this.onCourseListCollectionUpdated(this.options.courseListCollection);
-            this.options.courseListCollection.trigger('loaded');
+            this.onCourseListCollectionUpdated(collection);
+            collection.trigger('loaded');
 
             // track the "page" view
             this.options.trackingModel.set('page', {

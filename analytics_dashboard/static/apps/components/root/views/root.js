@@ -41,13 +41,15 @@ define(function(require) {
         },
 
         initialize: function(options) {
-            this.options = options || {};
+            this.options = _.defaults({displayHeader: true}, options);
         },
 
         onRender: function() {
-            this.showChildView('header', new HeaderView({
-                model: this.options.pageModel
-            }));
+            if (this.displayHeader) {
+                this.showChildView('header', new HeaderView({
+                    model: this.options.pageModel
+                }));
+            }
         },
 
         onAppError: function(childView, options) {

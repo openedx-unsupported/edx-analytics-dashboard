@@ -83,7 +83,9 @@ define(function(require) {
         initialize: function(options) {
             ListTableView.prototype.initialize.call(this, options);
             this.trackSortEventName = 'edx.bi.roster.sorted';
+            this.trackPageEventName = 'edx.bi.roster.paged';
             this.tableName = gettext('Learner Roster');
+            this.appClass = 'learners';
         },
         buildColumns: function() {
             var options = this.options;
@@ -93,7 +95,17 @@ define(function(require) {
                     name: key,
                     editable: false,
                     sortable: true,
-                    sortType: 'toggle'
+                    sortType: 'toggle',
+                    sortValue: function(model, colName) {
+                        var sortVal = model.get(colName);
+                        if (sortVal === null || sortVal === undefined || sortVal === '') {
+                            // Force null values to the end of the ascending sorted list
+                            // NOTE: only works for sorting string value columns
+                            return 'z';
+                        } else {
+                            return 'a ' + sortVal;
+                        }
+                    }
                 };
 
                 if (key === 'username') {

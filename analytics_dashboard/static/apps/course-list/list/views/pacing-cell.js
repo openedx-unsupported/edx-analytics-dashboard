@@ -20,6 +20,7 @@ define(function(require) {
             var pacing = this.model.get('pacing_type');
             pacing = PACING_DISPLAY_NAMES[pacing] || pacing;
             this.$el.html(this.template({pacing: pacing}));
+            this.$el.attr('aria-label', 'None defined');
             return this;
         }
     });

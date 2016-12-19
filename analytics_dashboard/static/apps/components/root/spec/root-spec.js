@@ -4,7 +4,7 @@ define(function(require) {
     var Backbone = require('backbone'),
         Marionette = require('marionette'),
         RootView = require('components/root/views/root'),
-        PageModel = require('components/root/common/models/page');
+        PageModel = require('components/generic-list/common/models/page');
 
     describe('RootView', function() {
         beforeEach(function() {
@@ -14,7 +14,8 @@ define(function(require) {
                 pageModel: new PageModel({
                     title: 'Testing Title',
                     lastUpdated: new Date(2016, 1, 28)
-                })
+                }),
+                appClass: 'test'
             }).render();
         });
 
@@ -24,21 +25,21 @@ define(function(require) {
                     this.$el.html('example view');
                 }
             }))());
-            expect(this.rootView.$('.main-region').html()).toContainText('example view');
+            expect(this.rootView.$('.test-main-region').html()).toContainText('example view');
         });
 
         it('renders a header title and date', function() {
-            expect(this.rootView.$('.header-region').html()).toContainText('Testing Title');
-            expect(this.rootView.$('.header-region').html()).not.toContainText('February 28, 2016');
+            expect(this.rootView.$('.test-header-region').html()).toContainText('Testing Title');
+            expect(this.rootView.$('.test-header-region').html()).not.toContainText('February 28, 2016');
         });
 
         it('renders and clears alerts', function() {
             var childView = new Marionette.View();
             this.rootView.showChildView('main', childView);
             childView.triggerMethod('appError', {title: 'This is the error copy'});
-            expect(this.rootView.$('.alert-region')).toHaveText('This is the error copy');
+            expect(this.rootView.$('.test-alert-region')).toHaveText('This is the error copy');
             this.rootView.triggerMethod('clearError', 'This is the error copy');
-            expect(this.rootView.$('.alert-region')).not.toHaveText('This is the error copy');
+            expect(this.rootView.$('.test-alert-region')).not.toHaveText('This is the error copy');
         });
     });
 });

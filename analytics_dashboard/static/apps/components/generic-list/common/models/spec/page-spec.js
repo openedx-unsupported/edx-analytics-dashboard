@@ -1,7 +1,7 @@
 define(function(require) {
     'use strict';
 
-    var PageModel = require('../page'),
+    var PageModel = require('components/generic-list/common/models/page'),
         $ = require('jquery');
 
     describe('PageModel', function() {

@@ -1,5 +1,5 @@
 /**
- * Displays a table of learners and a pagination control.
+ * Displays a table of items and a pagination control.
  */
 define(function(require) {
     'use strict';
@@ -8,9 +8,9 @@ define(function(require) {
         Backgrid = require('backgrid'),
         Marionette = require('marionette'),
 
-        BaseHeaderCell = require('learners/roster/views/base-header-cell'),
-        PagingFooter = require('learners/roster/views/paging-footer'),
-        listTableTemplate = require('text!../templates/table.underscore'),
+        BaseHeaderCell = require('./base-header-cell'),
+        PagingFooter = require('./paging-footer'),
+        listTableTemplate = require('text!components/generic-list/list/templates/table.underscore'),
 
         ListTableView;
 
@@ -24,7 +24,9 @@ define(function(require) {
             this.options = options || {};
             this.collection.on('backgrid:sort', this.onSort, this);
             this.trackSortEventName = 'edx.bi.list.sorted';
+            this.trackPageEventName = 'edx.bi.list.paged';
             this.tableName = gettext('Generic List');
+            this.appClass = '';
         },
         onSort: function(column, direction) {
             this.options.trackingModel.trigger('segment:track', this.trackSortEventName, {
@@ -39,7 +41,9 @@ define(function(require) {
             }));
             this.showChildView('paginator', new PagingFooter({
                 collection: this.options.collection,
-                trackingModel: this.options.trackingModel
+                trackingModel: this.options.trackingModel,
+                appClass: this.appClass,
+                trackPageEventName: this.trackPageEventName
             }));
             // Accessibility hacks
             this.$('table').prepend('<caption class="sr-only">' + this.tableName + '</caption>');
@@ -52,6 +56,16 @@ define(function(require) {
                     editable: false,
                     sortable: true,
                     sortType: 'toggle',
+                    sortValue: function(model, colName) {
+                        var sortVal = model.get(colName);
+                        if (sortVal === null || sortVal === undefined || sortVal === '') {
+                            // Force null values to the end of the ascending sorted list
+                            // NOTE: only works for sorting string value columns
+                            return 'z';
+                        } else {
+                            return 'a ' + sortVal;
+                        }
+                    },
                     headerCell: BaseHeaderCell,
                     cell: 'string'
                 };

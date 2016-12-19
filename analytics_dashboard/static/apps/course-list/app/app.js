@@ -42,7 +42,8 @@ define(function(require) {
             rootView = new CourseListRootView({
                 el: $(this.options.containerSelector),
                 pageModel: pageModel,
-                appClass: 'course-list'
+                appClass: 'course-list',
+                displayHeader: false
             }).render();
 
             new CourseListRouter({ // eslint-disable-line no-new

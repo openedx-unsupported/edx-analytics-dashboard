@@ -88,7 +88,7 @@ define(function(require) {
                 .sortBy('name')
                 .value();
 
-            if (filterValues.length) {
+            if (filterValues.length && this.options.filterInput === 'select') {
                 filterValues.unshift({
                     name: this.catchAllFilterValue,
                     // Translators: "All" refers to viewing all the learners in a course.
@@ -118,16 +118,36 @@ define(function(require) {
             };
         },
 
+        // onCheckboxFilter: function(event) {
+            // if ($(event.currentTarget).find('input:checkbox:checked').length) {
+                // this.collection.setFilterField('ignore_segments', 'inactive');
+            // } else {
+                // this.collection.unsetFilterField('ignore_segments');
+            // }
+            // this.collection.refresh();
+            // $('#learner-app-focusable').focus();
+            // this.options.trackingModel.trigger('segment:track', 'edx.bi.roster.filtered', {
+                // category: 'inactive'
+            // });
+        // },
         onCheckboxFilter: function(event) {
-            if ($(event.currentTarget).find('input:checkbox:checked').length) {
-                this.collection.setFilterField('ignore_segments', 'inactive');
+            var $inputs = $(event.currentTarget).find('input:checkbox:checked'),
+                filterKey = $(event.currentTarget).attr('id').slice(7), // chop off "filter-" prefix
+                appliedFilters = [],
+                filterValue = '';
+            if ($inputs.length) {
+                _.each($inputs, _.bind(function(input) {
+                    appliedFilters.push($(input).attr('id'));
+                }, this));
+                filterValue = appliedFilters.join(',');
+                this.collection.setFilterField(filterKey, filterValue);
             } else {
-                this.collection.unsetFilterField('ignore_segments');
+                this.collection.unsetFilterField(filterKey);
             }
             this.collection.refresh();
             $('#learner-app-focusable').focus();
             this.options.trackingModel.trigger('segment:track', 'edx.bi.roster.filtered', {
-                category: 'inactive'
+                category: filterValue
             });
         },
 

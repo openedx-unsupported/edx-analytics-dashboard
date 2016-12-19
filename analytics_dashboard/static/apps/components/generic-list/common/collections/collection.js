@@ -105,6 +105,8 @@ define(function(require) {
                 if (sortKey !== this.state.sortKey || order !== this.state.order) {
                     this.isStale = true;
                     this.setSorting(sortKey, order);
+                    // NOTE: if in client mode, the sort function still needs to be called on the collection.
+                    // And, if in server mode, a fetch needs to happen to retrieve the sorted results.
                 }
             }
         }

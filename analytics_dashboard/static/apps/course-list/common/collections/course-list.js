@@ -15,17 +15,17 @@ define(function(require) {
             this.registerSortableField('catalog_course_title', gettext('Course Name'));
             this.registerSortableField('start_date', gettext('Start Date'));
             this.registerSortableField('end_date', gettext('End Date'));
-            this.registerSortableField('pacing_type', gettext('Pacing Type'));
-            this.registerSortableField('count', gettext('Enrollment Count'));
-            this.registerSortableField('cumulative_count', gettext('Cumulative Enrollment Count'));
-            this.registerSortableField('count_change_7_days', gettext('Enrollment Change in Last 7 Days'));
+            this.registerSortableField('cumulative_count', gettext('Total Enrollment'));
+            this.registerSortableField('count', gettext('Current Enrollment'));
+            this.registerSortableField('count_change_7_days', gettext('Change Last Week'));
             this.registerSortableField('verified_enrollment', gettext('Verified Enrollment'));
 
             this.registerFilterableField('availability', gettext('Availability'));
+            this.registerFilterableField('pacing_type', gettext('Pacing Type'));
         },
 
         state: {
-            pageSize: 25,
+            pageSize: 100,
             sortKey: 'count',
             order: 1
         }

@@ -30,7 +30,9 @@ define(function(require) {
         initialize: function(options) {
             ListTableView.prototype.initialize.call(this, options);
             this.trackSortEventName = 'edx.bi.course_list.sorted';
+            this.trackPageEventName = 'edx.bi.course_list.paged';
             this.tableName = gettext('Course List');
+            this.appClass = 'course-list';
         },
         buildColumns: function() {
             return _.map(this.options.collection.sortableFields, function(val, key) {
@@ -40,18 +42,31 @@ define(function(require) {
                     editable: false,
                     sortable: true,
                     sortType: 'toggle',
+                    sortValue: function(model, colName) {
+                        var sortVal = model.get(colName);
+                        if (sortVal === null || sortVal === undefined || sortVal === '') {
+                            // Force null values to the end of the ascending sorted list
+                            // NOTE: only works for sorting string value columns
+                            return 'z';
+                        } else {
+                            return 'a ' + sortVal;
+                        }
+                    },
                     headerCell: BaseHeaderCell
                 };
                 if (INTEGER_COLUMNS.indexOf(key) !== -1) {
                     column.cell = 'integer';
+                    column.sortValue = key; // reset to normal sorting for integer columns
                 } else if (DATE_COLUMNS.indexOf(key) !== -1) {
                     column.cell = Backgrid.Extension.MomentCell.extend({
                         displayLang: Utils.getMomentLocale(),
                         displayFormat: 'L',
                         render: function() {
                             var result = Backgrid.Extension.MomentCell.prototype.render.call(this, arguments);
+                            // Null values are rendered by MomentCell as "Invalid date". Convert to a nicer string:
                             if (result.el.textContent === 'Invalid date') {
                                 result.el.textContent = '--';
+                                $(result.el).attr('aria-label', 'None defined');
                             }
                             return result;
                         }
@@ -59,6 +74,9 @@ define(function(require) {
                 } else if (key === 'catalog_course_title') {
                     column.cell = CourseIdAndNameCell;
                 } else if (key === 'pacing_type') {
+                    // NOTE: pacing type is a filterable field now, which means it is not displayed as a column in the
+                    // table. However, I'm keeping this here (along with the pacing-cell.js/underscore) in case we will
+                    // ever want to display it again in the future. If we are sure that will never happen, then delete.
                     column.cell = PacingCell;
                 } else {
                     column.cell = 'string';

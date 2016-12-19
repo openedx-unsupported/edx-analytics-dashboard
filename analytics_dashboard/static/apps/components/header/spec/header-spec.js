@@ -3,7 +3,7 @@ define(function(require) {
 
     var Backbone = require('backbone'),
 
-        HeaderView = require('learners/app/views/header');
+        HeaderView = require('components/header/views/header');
 
     describe('HeaderView', function() {
         var fixture;

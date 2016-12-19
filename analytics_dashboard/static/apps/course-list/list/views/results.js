@@ -20,7 +20,12 @@ define(function(require) {
         },
         initialize: function(options) {
             this.options = options || {};
-            this.listenTo(this.options.collection, 'backgrid:refresh', this.onCourseListCollectionUpdated);
+            // Unlike the 'sync' event, the backgrid:refresh event sends an object with the collection inside. It's
+            // necessary to extract the collection and pass that to the onCourseListCollectionUpdated function for
+            // it to work properly.
+            this.listenTo(this.options.collection, 'backgrid:refresh', _.bind(function(eventObject) {
+                this.onCourseListCollectionUpdated(eventObject.collection);
+            }, this));
         },
         onBeforeShow: function() {
             this.onCourseListCollectionUpdated(this.options.collection);

@@ -7,7 +7,7 @@ define(function(require) {
     var _ = require('underscore'),
         Backgrid = require('backgrid'),
 
-        baseHeaderCellTemplate = require('text!../templates/base-header-cell.underscore'),
+        baseHeaderCellTemplate = require('text!components/generic-list/list/templates/base-header-cell.underscore'),
 
         BaseHeaderCell;
 
@@ -34,7 +34,7 @@ define(function(require) {
         render: function() {
             var directionWord;
             if (this.collection.state.sortKey && this.collection.state.sortKey === this.column.attributes.name) {
-                directionWord = this.collection.state.order ? 'descending' : 'ascending';
+                directionWord = this.collection.state.order === 1 ? 'descending' : 'ascending';
                 this.column.attributes.direction = directionWord;
             }
 
