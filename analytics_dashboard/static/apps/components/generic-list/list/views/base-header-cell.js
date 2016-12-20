@@ -7,7 +7,7 @@ define(function(require) {
     var _ = require('underscore'),
         Backgrid = require('backgrid'),
 
-        baseHeaderCellTemplate = require('text!../templates/base-header-cell.underscore'),
+        baseHeaderCellTemplate = require('text!components/generic-list/list/templates/base-header-cell.underscore'),
 
         BaseHeaderCell;
 

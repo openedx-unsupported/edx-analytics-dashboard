@@ -83,7 +83,9 @@ define(function(require) {
         initialize: function(options) {
             ListTableView.prototype.initialize.call(this, options);
             this.trackSortEventName = 'edx.bi.roster.sorted';
+            this.trackPageEventName = 'edx.bi.roster.paged';
             this.tableName = gettext('Learner Roster');
+            this.appClass = 'learners';
         },
         buildColumns: function() {
             var options = this.options;

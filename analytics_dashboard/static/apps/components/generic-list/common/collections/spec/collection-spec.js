@@ -3,7 +3,7 @@ define(function(require) {
 
     var URI = require('URI'),
 
-        ListCollection = require('../collection');
+        ListCollection = require('components/generic-list/common/collections/collection');
 
     describe('ListCollection', function() {
         var list,

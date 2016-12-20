@@ -30,7 +30,9 @@ define(function(require) {
         initialize: function(options) {
             ListTableView.prototype.initialize.call(this, options);
             this.trackSortEventName = 'edx.bi.course_list.sorted';
+            this.trackPageEventName = 'edx.bi.course_list.paged';
             this.tableName = gettext('Course List');
+            this.appClass = 'course-list';
         },
         buildColumns: function() {
             return _.map(this.options.collection.sortableFields, function(val, key) {

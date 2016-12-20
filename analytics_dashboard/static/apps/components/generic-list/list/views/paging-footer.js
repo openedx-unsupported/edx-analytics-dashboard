@@ -9,7 +9,7 @@ define(function(require) {
         _ = require('underscore'),
         Backgrid = require('backgrid'),
 
-        pageHandleTemplate = require('text!../templates/page-handle.underscore'),
+        pageHandleTemplate = require('text!components/generic-list/list/templates/page-handle.underscore'),
 
         PagingFooter;
 
@@ -29,19 +29,35 @@ define(function(require) {
         initialize: function(options) {
             Backgrid.Extension.Paginator.prototype.initialize.call(this, options);
             this.options = options || {};
-            this.$appFocusable = $('#app-focusable');
-            this.trackPageEventName = 'edx.bi.list.paged';
+            this.appFocusable = $('#' + options.appClass + '-focusable');
+            this.trackPageEventName = options.trackPageEventName || 'edx.bi.list.paged';
         },
         render: function() {
-            var trackingModel = this.options.trackingModel;
+            var trackingModel = this.options.trackingModel,
+                appFocusable = this.appFocusable,
+                trackPageEventName = this.trackPageEventName;
             Backgrid.Extension.Paginator.prototype.render.call(this);
 
-            // pass the tracking model to the page handles so that they can trigger
-            // tracking event
+            // Pass the tracking model to the page handles so that they can trigger tracking event. Also passes the
+            // focusable div that jumps the user to the top of the page and the tracking event name.
+            // We have to do it in this awkward way because the pageHandle class cannot access the `this` scope of this
+            // overall PagingFooter class.
             _(this.handles).each(function(handle) {
-                handle.trackingModel = trackingModel; // eslint-disable-line no-param-reassign
+                /* eslint-disable no-param-reassign */
+                handle.trackingModel = trackingModel;
+                handle.appFocusable = appFocusable;
+                handle.trackPageEventName = trackPageEventName;
+                /* eslint-enable no-param-reassign */
             });
         },
+
+        /**
+         * NOTE: this PageHandle class is a subclass of PagingFooter. The `changePage` function is called internally by
+         * Backgrid when the page handle is clicked by the user. We add some side-effects to the `changePage` function
+         * here: sending a tracking event and refocusing the browser to the top of the table. This subclass needs
+         * variables from the encompassing PagingFooter class in order to perform those side-effects and we pass them
+         * down from the PagingFooter in its render function above.
+         */
         pageHandle: Backgrid.Extension.PageHandle.extend({
             template: _.template(pageHandleTemplate),
             trackingModel: undefined,  // set by PagingFooter
@@ -74,7 +90,7 @@ define(function(require) {
             changePage: function() {
                 Backgrid.Extension.PageHandle.prototype.changePage.apply(this, arguments);
                 if (!this.$el.hasClass('active') && !this.$el.hasClass('disabled')) {
-                    this.$appFocusable.focus();
+                    this.appFocusable.focus();
                 } else {
                     this.$('a').focus();
                 }

@@ -10,7 +10,7 @@ define(function(require) {
 
         BaseHeaderCell = require('./base-header-cell'),
         PagingFooter = require('./paging-footer'),
-        listTableTemplate = require('text!../templates/table.underscore'),
+        listTableTemplate = require('text!components/generic-list/list/templates/table.underscore'),
 
         ListTableView;
 
@@ -24,7 +24,9 @@ define(function(require) {
             this.options = options || {};
             this.collection.on('backgrid:sort', this.onSort, this);
             this.trackSortEventName = 'edx.bi.list.sorted';
+            this.trackPageEventName = 'edx.bi.list.paged';
             this.tableName = gettext('Generic List');
+            this.appClass = '';
         },
         onSort: function(column, direction) {
             this.options.trackingModel.trigger('segment:track', this.trackSortEventName, {
@@ -39,7 +41,9 @@ define(function(require) {
             }));
             this.showChildView('paginator', new PagingFooter({
                 collection: this.options.collection,
-                trackingModel: this.options.trackingModel
+                trackingModel: this.options.trackingModel,
+                appClass: this.appClass,
+                trackPageEventName: this.trackPageEventName
             }));
             // Accessibility hacks
             this.$('table').prepend('<caption class="sr-only">' + this.tableName + '</caption>');
