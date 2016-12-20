@@ -57,17 +57,17 @@ Individual course-centric enrollment geography view.
             {% for datum in top_countries %}
               <div class="col col-12 sm-col-12 md-col-3" data-stat-type="top-country-{{ forloop.counter }}">
                 {% if forloop.first %}
-                  {# Translators: This string represents the country with the greatest number of enrolled learners. #}
-                  {% trans "Top Country by Enrollment" as label %}
-                  {% trans "Country with the largest number of learners." as tooltip %}
+                  {# Translators: This string represents the country or region with the greatest number of enrolled learners. #}
+                  {% trans "Top Country or Region by Enrollment" as label %}
+                  {% trans "Country or region with the largest number of learners." as tooltip %}
                 {% elif forloop.counter == 2 %}
-                  {# Translators: This string represents the country with the second-greatest number of enrolled learners. #}
-                  {% trans "Second Country by Enrollment" as label %}
-                  {% trans "Country with the second largest number of learners." as tooltip %}
+                  {# Translators: This string represents the country or region with the second-greatest number of enrolled learners. #}
+                  {% trans "Second Country or Region by Enrollment" as label %}
+                  {% trans "Country or region with the second largest number of learners." as tooltip %}
                 {% elif forloop.counter == 3 %}
-                  {# Translators: This string represents the country with the third-greatest number of enrolled learners. #}
-                  {% trans "Third Country by Enrollment" as label %}
-                  {% trans "Country with the third largest number of learners." as tooltip %}
+                  {# Translators: This string represents the country or region with the third-greatest number of enrolled learners. #}
+                  {% trans "Third Country or Region by Enrollment" as label %}
+                  {% trans "Country or region with the third largest number of learners." as tooltip %}
                 {% endif %}
 
                 {% captureas subheading %}

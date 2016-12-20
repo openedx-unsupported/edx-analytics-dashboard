@@ -23,7 +23,7 @@ require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
                     model: page.models.courseModel,
                     modelAttribute: 'enrollmentByCountry',
                     columns: [
-                        {key: 'countryName', title: gettext('Country')},
+                        {key: 'countryName', title: gettext('Country or Region')},
                         {key: 'percent', title: gettext('Percent'), className: 'text-right', type: 'percent'},
                         // Translators: The noun count (e.g. number of learners)
                         {key: 'count', title: gettext('Current Enrollment'), className: 'text-right', type: 'number'}
