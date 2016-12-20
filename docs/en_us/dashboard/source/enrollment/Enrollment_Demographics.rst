@@ -15,7 +15,7 @@ Responses to these questions are optional. Learners can update this information
 at any time on the `Account Settings`_ page.
 
 .. note:: EdX Insights does not use the values that learners select from the
- **Country** list to determine learner location. See :ref:`Location
+ **Country or Region** list to determine learner location. See :ref:`Location
  Computations`.
 
 In edX Insights, after you select **Enrollment** and then **Demographics**, you

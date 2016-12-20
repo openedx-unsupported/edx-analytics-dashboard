@@ -272,7 +272,7 @@ For information about viewing geographic data in edX Insights, see
 **Geographic Distribution map**
 
 * The number of users and the percentage of the current course enrollment is
-  provided for each country.
+  provided for each country or region.
 
 * Users with IP addresses that cannot be located, or that result in a "non-
   country" code such as A1 (Anonymous Proxy), A2 (Satellite Provider), or O1
@@ -283,17 +283,17 @@ For information about viewing geographic data in edX Insights, see
   discrepancies between the current number of learners reported by the
   Enrollment Activity and Enrollment Geography sections of edX Insights.
 
-**Total Countries Represented metric**
+**Total Countries or Regions Represented metric**
 
 * The sum of the unique country codes identified from user IP addresses.
 
 * This total does not include "non-country" ISO codes such as A1, A2, or O1.
 
-**Top Country by Enrollment metric**
+**Top Country or Region by Enrollment metric**
 
-The country in which the largest number of users is located. The countries in
-which the second and third largest numbers of users are located are identified
-as well.
+The country or region in which the largest number of users is located. The
+countries or regions in which the second and third largest numbers of users are
+located are identified as well.
 
 .. _Engagement Computations:
 
