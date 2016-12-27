@@ -404,8 +404,10 @@ body.view-dashboard {
 .course-home-table-outer {
   columns: 3;
   -moz-columns: 3;
+  -webkit-columns: 3;
   column-width: $bp-screen-lg / 3;
   -moz-column-width: $bp-screen-lg / 3;
+  -webkit-column-width: $bp-screen-lg / 3;
 
   header.heading-outer {
     display: table;
