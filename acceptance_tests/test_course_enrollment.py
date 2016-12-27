@@ -172,7 +172,7 @@ class CourseEnrollmentGeographyTests(CoursePageTestsMixin, WebAppTest):
         """ Verify the geolocation enrollment table is loaded. """
 
         table_section_selector = "div[data-role=enrollment-location-table]"
-        self.assertTable(table_section_selector, ['Country', 'Percent', 'Current Enrollment'],
+        self.assertTable(table_section_selector, ['Country or Region', 'Percent', 'Current Enrollment'],
                          'a[data-role=enrollment-location-csv]')
 
         rows = self.page.browser.find_elements_by_css_selector('{} tbody tr'.format(table_section_selector))
