@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-22 10:20-0500\n"
-"PO-Revision-Date: 2016-11-22 15:22+0000\n"
+"POT-Creation-Date: 2016-12-27 15:58-0500\n"
+"PO-Revision-Date: 2016-12-27 21:00+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/open-edx/edx-platform/language/nb/)\n"
 "MIME-Version: 1.0\n"
@@ -23,6 +23,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: static/apps/learners/app/controller.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Invalid Parameters"
 msgstr ""
@@ -48,11 +49,13 @@ msgid "Learner Details"
 msgstr ""
 
 #: static/apps/learners/app/controller.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Sorry, we couldn't find the page you're looking for."
 msgstr ""
 
 #: static/apps/learners/app/controller.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Page Not Found"
 msgstr "Side ikke funnet"
@@ -70,8 +73,6 @@ msgstr ""
 #: static/apps/learners/common/collections/learners.js
 #: static/apps/learners/detail/views/engagement-table.js
 #: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/learners-main.js
-#: static/dist/apps/learners/app/learners-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Problems Correct"
 msgstr ""
@@ -115,11 +116,13 @@ msgid "Enrollment Mode"
 msgstr "Påmeldingsmodus"
 
 #: static/apps/learners/common/utils.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "504: Server error"
 msgstr ""
 
 #: static/apps/learners/common/utils.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
@@ -127,43 +130,45 @@ msgid ""
 msgstr ""
 
 #: static/apps/learners/common/utils.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Server error"
 msgstr ""
 
-#: static/apps/learners/common/utils.js static/apps/learners/common/utils.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/common/utils.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Your request could not be processed. Reload the page to try again."
 msgstr ""
 
 #: static/apps/learners/common/utils.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Network error"
 msgstr ""
 
 #: static/apps/learners/common/views/download-data.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 #: static/dist/download-form/apps/learners/common/views/download-data.js
-#: static/download-form/apps/learners/common/views/download-data.js
 msgid "Download CSV"
 msgstr "Last ned CVS"
 
 #: static/apps/learners/common/views/download-data.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 #: static/dist/download-form/apps/learners/common/views/download-data.js
-#: static/download-form/apps/learners/common/views/download-data.js
 msgid "Download search results to CSV"
 msgstr ""
 
 #: static/apps/learners/common/views/loading-view.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Loading..."
 msgstr "Laster..."
 
 #: static/apps/learners/detail/views/engagement-table.js
 #: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/learners-main.js
 #: static/dist/apps/learners/app/learners-main.js
 #: static/dist/js/enrollment-activity-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
@@ -175,13 +180,11 @@ msgstr "Dato"
 #: static/apps/learners/detail/views/engagement-table.js
 #: static/apps/learners/detail/views/engagement-timeline.js
 #: static/dist/apps/learners/app/learners-main.js
-#: static/dist/apps/learners/app/learners-main.js
 msgid "Discussion Contributions"
 msgstr ""
 
 #: static/apps/learners/detail/views/engagement-table.js
 #: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/learners-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Videos Viewed"
 msgstr ""
@@ -207,18 +210,18 @@ msgid "Activity Over Time"
 msgstr ""
 
 #: static/apps/learners/detail/views/learner-detail.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Enrollment"
 msgstr "Påmeldt"
 
 #: static/apps/learners/detail/views/learner-detail.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Last Accessed"
 msgstr ""
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/apps/learners/detail/views/learner-summary-field.js
 #: static/apps/learners/roster/views/activity-date-range.js
-#: static/dist/apps/learners/app/learners-main.js
-#: static/dist/apps/learners/app/learners-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "n/a"
 msgstr ""
@@ -255,26 +258,31 @@ msgstr ""
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/learners-main.js
+#: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Active Learners"
 msgstr ""
 
 #: static/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Filters In Use:"
 msgstr ""
 
 #: static/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Click to remove this filter"
 msgstr ""
 
 #: static/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Clear"
 msgstr "Fjern"
 
 #: static/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Click to remove all filters"
 msgstr ""
@@ -319,16 +327,19 @@ msgid ""
 msgstr ""
 
 #: static/apps/learners/roster/views/base-header-cell.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "sort ascending"
 msgstr ""
 
 #: static/apps/learners/roster/views/base-header-cell.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "sort descending"
 msgstr ""
 
 #: static/apps/learners/roster/views/base-header-cell.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "click to sort"
 msgstr ""
@@ -359,35 +370,42 @@ msgid "<%= name %> (<%= numLearners %>)"
 msgstr ""
 
 #: static/apps/learners/roster/views/filter.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "All"
 msgstr ""
 
 #: static/apps/learners/roster/views/filter.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Hide Inactive Learners"
 msgstr ""
 
 #: static/apps/learners/roster/views/paging-footer.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "first page"
 msgstr ""
 
 #: static/apps/learners/roster/views/paging-footer.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "previous page"
 msgstr "forrige side"
 
 #: static/apps/learners/roster/views/paging-footer.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "next page"
 msgstr "neste side"
 
 #: static/apps/learners/roster/views/paging-footer.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "last page"
 msgstr ""
 
 #: static/apps/learners/roster/views/paging-footer.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "page"
 msgstr ""
@@ -398,11 +416,13 @@ msgid "No learners matched your criteria."
 msgstr ""
 
 #: static/apps/learners/roster/views/results.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Try a different search."
 msgstr ""
 
 #: static/apps/learners/roster/views/results.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Try clearing the filters."
 msgstr ""
@@ -431,11 +451,13 @@ msgid "Search learners"
 msgstr ""
 
 #: static/apps/learners/roster/views/search.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "search"
 msgstr "søk"
 
 #: static/apps/learners/roster/views/search.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "clear search"
 msgstr ""
@@ -448,6 +470,92 @@ msgstr "Ikke tilgjengelig"
 #: static/apps/learners/roster/views/table.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Learner Roster"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Course Name"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Course ID"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Start Date"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "End Date"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Pacing Type"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Enrollment Count"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Cumulative Enrollment Count"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Enrollment Change in Last 7 Days"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Verified Enrollment"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Availability"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Current Courses"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Course List"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "No courses matched your criteria."
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "No course data is currently available for your course."
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid ""
+"No courses are enrolled, or course activity data has not yet been processed."
+" Data is updated every day, so check back regularly for up-to-date metrics."
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "<%= name %> (<%= numCourses %>)"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Search courses"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Find a course"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Course list controls"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Sorry, we couldn't find any courses that matched that query."
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Return to the Course List page."
 msgstr ""
 
 #: static/dist/js/common.js static/js/utils/utils.js
@@ -469,13 +577,9 @@ msgstr "(tom)"
 
 #: static/dist/js/common.js
 #: static/dist/js/performance-answer-distribution-main.js
-#: static/dist/js/performance-answer-distribution-main.js
-#: static/dist/js/performance-learning-outcomes-section-main.js
 #: static/dist/js/performance-learning-outcomes-section-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
-#: static/js/performance-answer-distribution-main.js
-#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js static/js/views/data-table-view.js
 msgid "Correct"
@@ -485,10 +589,6 @@ msgstr "Riktig"
 #: static/js/engagement-content-main.js
 msgid "Week Ending"
 msgstr "Uken som slutter den"
-
-#: static/dist/js/engagement-content-main.js
-msgid "Active Students"
-msgstr "Aktive studenter"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
@@ -506,8 +606,9 @@ msgid "Participated in Discussions"
 msgstr ""
 
 #: static/dist/js/engagement-content-main.js
-msgid "Percent of Current Students"
-msgstr "Prosent av nåværende studenter"
+#: static/js/engagement-content-main.js
+msgid "Percent of Current Learners"
+msgstr ""
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
@@ -618,10 +719,11 @@ msgid "Verified with Credit"
 msgstr ""
 
 #: static/dist/js/enrollment-demographics-age-main.js
-#: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-education-main.js
-msgid "Number of Students"
-msgstr "Antall studenter"
+#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-education-main.js
+msgid "Number of Learners"
+msgstr ""
 
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/js/enrollment-demographics-age-main.js
@@ -681,12 +783,11 @@ msgid "Not Reported"
 msgstr "Ikke rapportert"
 
 #: static/dist/js/enrollment-geography-main.js
+#: static/js/enrollment-geography-main.js
 msgid ""
-"Student location is determined from IP address. This map shows where "
-"students most recently connected."
+"Learner location is determined from IP address. This map shows where "
+"learners most recently connected."
 msgstr ""
-"Studentens lokasjon bestemmes utifra IP-adressen. Dette kartet viser hvor "
-"studenter nylig har koblet seg til."
 
 #: static/dist/js/enrollment-geography-main.js
 #: static/js/enrollment-geography-main.js
@@ -715,10 +816,8 @@ msgstr "Variant"
 
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-learning-outcomes-section-main.js
-#: static/dist/js/performance-learning-outcomes-section-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
-#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Incorrect"
@@ -780,19 +879,3 @@ msgstr ""
 #: static/js/performance-problems-main.js
 msgid "Total"
 msgstr "Total"
-
-#: static/js/engagement-content-main.js
-msgid "Percent of Current Learners"
-msgstr ""
-
-#: static/js/enrollment-demographics-age-main.js
-#: static/js/enrollment-demographics-age-main.js
-#: static/js/enrollment-demographics-education-main.js
-msgid "Number of Learners"
-msgstr ""
-
-#: static/js/enrollment-geography-main.js
-msgid ""
-"Learner location is determined from IP address. This map shows where "
-"learners most recently connected."
-msgstr ""

@@ -37,7 +37,6 @@ msgstr ""
 #: core/templates/core/landing.html
 #: courses/templates/courses/enrollment_geography.html
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/__init__.py
 msgid "Enrollment"
 msgstr ""
 
@@ -53,7 +52,6 @@ msgstr ""
 
 #: core/templates/core/landing.html
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
-#: courses/views/__init__.py
 msgid "Engagement"
 msgstr ""
 
@@ -67,7 +65,6 @@ msgstr ""
 
 #: core/templates/core/landing.html
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/__init__.py
 msgid "Performance"
 msgstr "Ўзлаштириш"
 
@@ -76,6 +73,7 @@ msgid "Join the Open Source Community"
 msgstr ""
 
 #: core/templates/core/landing.html
+#, python-format
 msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
@@ -86,6 +84,7 @@ msgid "Research at edX"
 msgstr ""
 
 #: core/templates/core/landing.html
+#, python-format
 msgid ""
 "We are committed to advancing teaching and learning through research. "
 "%(link_start)sLearn more%(link_end)s."
@@ -96,6 +95,7 @@ msgid "Need Help?"
 msgstr "Ёрдам керакми?"
 
 #: core/templates/core/landing.html
+#, python-format
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
 msgstr ""
@@ -103,6 +103,7 @@ msgstr ""
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
 #: core/templatetags/dashboard_extras.py
+#, python-brace-format
 msgid "{statistic}%"
 msgstr ""
 
@@ -116,13 +117,12 @@ msgstr "Эркак"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py courses/presenters/enrollment.py
+#: courses/presenters/enrollment.py
 msgid "Other"
 msgstr "Бошқа"
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py courses/presenters/enrollment.py
 #: courses/presenters/enrollment.py
 msgid "Unknown"
 msgstr "Номаълум"
@@ -186,26 +186,32 @@ msgid "Submissions"
 msgstr ""
 
 #: courses/presenters/performance.py
+#, python-brace-format
 msgid "Submissions for Part {part_number}: {part_description}"
 msgstr ""
 
 #: courses/presenters/performance.py
+#, python-brace-format
 msgid "Part {part_number}: {part_description}"
 msgstr ""
 
 #: courses/presenters/performance.py
+#, python-brace-format
 msgid "Submissions: {part_description}"
 msgstr ""
 
 #: courses/presenters/performance.py
+#, python-brace-format
 msgid "{part_description}"
 msgstr ""
 
 #: courses/presenters/performance.py
+#, python-brace-format
 msgid "Submissions for Part {part_number}"
 msgstr ""
 
 #: courses/presenters/performance.py
+#, python-brace-format
 msgid "Part {part_number}"
 msgstr ""
 
@@ -220,6 +226,7 @@ msgid "All Assignments"
 msgstr ""
 
 #: courses/templates/courses/_graded_content_nav.html
+#, python-format
 msgid ""
 "\n"
 "        Select %(level)s\n"
@@ -265,6 +272,7 @@ msgstr ""
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html
+#, python-format
 msgid ""
 "Due to the number of possible variants for randomized problems, charts are "
 "not available. %(read_more_link_start)sRead more%(read_more_link_end)s."
@@ -364,7 +372,6 @@ msgid "Students who contributed to any discussion topic."
 msgstr ""
 
 #: courses/templates/courses/engagement_content.html
-#: courses/templates/courses/engagement_content.html
 msgid "Content Engagement Breakdown"
 msgstr ""
 
@@ -408,7 +415,6 @@ msgid ""
 "drill down and understand why."
 msgstr ""
 
-#: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Total Video Views"
 msgstr ""
@@ -530,7 +536,6 @@ msgid ""
 msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
-#: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_demographics_age.html
 #: courses/templates/courses/enrollment_demographics_education.html
 #: courses/templates/courses/enrollment_demographics_gender.html
@@ -546,6 +551,7 @@ msgstr ""
 #. the appropriate location (before/after the value placeholder) for your
 #. language.
 #: courses/templates/courses/enrollment_demographics_age.html
+#, python-format
 msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
 "students who provided a year of birth."
@@ -615,6 +621,7 @@ msgstr ""
 #. the appropriate location (before/after the value placeholder) for your
 #. language.
 #: courses/templates/courses/enrollment_demographics_education.html
+#, python-format
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled students who "
 "provided a highest level of education completed."
@@ -671,6 +678,7 @@ msgstr ""
 #. the appropriate location (before/after the value placeholder) for your
 #. language.
 #: courses/templates/courses/enrollment_demographics_gender.html
+#, python-format
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled students who "
 "specified their gender."
@@ -740,10 +748,10 @@ msgstr ""
 #. Translators: This string represents the percentage of students in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
 #: courses/templates/courses/enrollment_geography.html
+#, python-format
 msgid "%(percent)s%% of students"
 msgstr ""
 
-#: courses/templates/courses/enrollment_geography.html
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geographic Breakdown"
 msgstr ""
@@ -771,6 +779,7 @@ msgid "Courses"
 msgstr ""
 
 #: courses/templates/courses/index.html
+#, python-format
 msgid "Welcome, %(username)s!"
 msgstr ""
 
@@ -779,10 +788,12 @@ msgid "Here are the courses you currently have access to in Insights:"
 msgstr ""
 
 #: courses/templates/courses/index.html
+#, python-format
 msgid "New to %(application_name)s?"
 msgstr ""
 
 #: courses/templates/courses/index.html
+#, python-format
 msgid ""
 "Click Help in the upper-right corner to get more information about "
 "%(application_name)s. Send us feedback at %(email_link)s."
@@ -822,6 +833,7 @@ msgstr ""
 #. Translators: This describes the percent an assignment contributes to that
 #. of a learner's grade (e.g. Exam: 60% of the grading policy.).
 #: courses/templates/courses/performance_graded_content.html
+#, python-format
 msgid ""
 "\n"
 "                %(assignment_type)s: %(policy_ratio)s%% of the grading policy\n"
@@ -830,10 +842,12 @@ msgstr ""
 
 #. Translators: This describes the percent of a learner's grade (e.g. 60%).
 #: courses/templates/courses/performance_graded_content.html
+#, python-format
 msgid "%(policy_ratio)s%%"
 msgstr ""
 
 #: courses/templates/courses/performance_graded_content_by_type.html
+#, python-format
 msgid ""
 "\n"
 "      How are students doing on the %(type)s?\n"
@@ -887,7 +901,6 @@ msgstr ""
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
 #: courses/templates/courses/permissions-retrieval-failed.html
-#: courses/templates/courses/permissions-retrieval-failed.html
 msgid "Permissions Retrieval Failed"
 msgstr ""
 
@@ -907,7 +920,6 @@ msgid "Activity"
 msgstr ""
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
-#: courses/views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Demographics"
 msgstr ""
@@ -944,12 +956,12 @@ msgid "Videos"
 msgstr ""
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/performance.py courses/views/performance.py
+#: courses/views/performance.py
 msgid "Graded Content"
 msgstr ""
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/performance.py courses/views/performance.py
+#: courses/views/performance.py
 msgid "Ungraded Problems"
 msgstr ""
 
@@ -971,6 +983,7 @@ msgstr ""
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
+#, python-format
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
@@ -982,6 +995,7 @@ msgstr ""
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
+#, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr ""
 
@@ -1003,6 +1017,7 @@ msgstr ""
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
+#, python-format
 msgid ""
 "Demographic student data was last updated %(update_date)s at %(update_time)s"
 " UTC."
@@ -1021,6 +1036,7 @@ msgstr ""
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
+#, python-format
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
@@ -1044,6 +1060,7 @@ msgstr ""
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
+#, python-format
 msgid ""
 "Geographic student data was last updated %(update_date)s at %(update_time)s "
 "UTC."
@@ -1051,6 +1068,7 @@ msgstr ""
 
 #. Translators: Do not translate UTC.
 #: courses/views/performance.py
+#, python-format
 msgid ""
 "Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
@@ -1068,15 +1086,16 @@ msgstr ""
 msgid "No submissions received for these assignments."
 msgstr ""
 
-#: courses/views/performance.py courses/views/performance.py
+#: courses/views/performance.py
 msgid "Performance: Problem Submissions"
 msgstr ""
 
 #: courses/views/performance.py
+#, python-format
 msgid "Graded Content: %(assignment_type)s"
 msgstr ""
 
-#: courses/views/performance.py courses/views/performance.py
+#: courses/views/performance.py
 msgid "Problem Name"
 msgstr ""
 
@@ -1135,6 +1154,7 @@ msgstr ""
 #. a support group (e.g. edX Support, or MITx Support). Reorder the
 #. placeholder as you see fit.
 #: templates/base-error.html
+#, python-format
 msgid "Contact %(platform_name)s Support"
 msgstr ""
 
@@ -1143,6 +1163,7 @@ msgid "Feedback"
 msgstr ""
 
 #: templates/footer.html
+#, python-format
 msgid ""
 "We want this dashboard to work for you! Need help? "
 "%(support_link_start)sVisit our support forum%(support_link_end)s. Comments "
@@ -1159,6 +1180,7 @@ msgstr ""
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html
+#, python-format
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
 "            reserved. "

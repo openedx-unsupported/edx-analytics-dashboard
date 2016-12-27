@@ -9,12 +9,13 @@
 # jeon <bluerespect@nate.com>, 2014
 # gscavanger0209 <gscavanger@gmail.com>, 2016
 # Kevin Min <gr326887@graded.br>, 2015
+# kmooc <shevious@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-22 10:20-0500\n"
-"PO-Revision-Date: 2016-11-22 15:22+0000\n"
+"POT-Creation-Date: 2016-12-27 15:58-0500\n"
+"PO-Revision-Date: 2016-12-27 21:00+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/open-edx/edx-platform/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -24,6 +25,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: static/apps/learners/app/controller.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Invalid Parameters"
 msgstr "유효하지 않은 매개변수"
@@ -31,29 +33,31 @@ msgstr "유효하지 않은 매개변수"
 #: static/apps/learners/app/controller.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Sorry, we couldn't find any learners who matched that query."
-msgstr ""
+msgstr "죄송합니다, 해당 문의에 대한 학습자를 찾지 못했습니다."
 
 #: static/apps/learners/app/controller.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Return to the Learners page."
-msgstr ""
+msgstr "학습자 페이지로 돌아가기."
 
 #: static/apps/learners/app/controller.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Learners"
-msgstr ""
+msgstr "학습자"
 
 #: static/apps/learners/app/controller.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Learner Details"
-msgstr ""
+msgstr "학습자 정보"
 
 #: static/apps/learners/app/controller.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Sorry, we couldn't find the page you're looking for."
-msgstr ""
+msgstr "죄송합니다, 페이지를 찾을 수 없었습니다."
 
 #: static/apps/learners/app/controller.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Page Not Found"
 msgstr "페이지를 찾을 수 없습니다."
@@ -61,26 +65,24 @@ msgstr "페이지를 찾을 수 없습니다."
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Name (Username)"
-msgstr ""
+msgstr "이름 (사용자 이름)"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Problems Tried"
-msgstr ""
+msgstr "문제 시도"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/apps/learners/detail/views/engagement-table.js
 #: static/apps/learners/detail/views/engagement-timeline.js
 #: static/dist/apps/learners/app/learners-main.js
-#: static/dist/apps/learners/app/learners-main.js
-#: static/dist/apps/learners/app/learners-main.js
 msgid "Problems Correct"
-msgstr ""
+msgstr "정답"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Attempts per Problem Correct"
-msgstr ""
+msgstr "각 정답별 시도 횟수"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/learners-main.js
@@ -97,12 +99,12 @@ msgstr "토론"
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Segments"
-msgstr ""
+msgstr "부분"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Segments to Ignore"
-msgstr ""
+msgstr "무시할 부분"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/apps/learners/detail/views/learner-detail.js
@@ -113,58 +115,62 @@ msgstr "학습 집단"
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Enrollment Mode"
-msgstr ""
+msgstr "수강 등록 모드"
 
 #: static/apps/learners/common/utils.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "504: Server error"
 msgstr "504: 서버 오류"
 
 #: static/apps/learners/common/utils.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
-msgstr ""
+msgstr "요청 처리 시간을 초과하였습니다. 새로고침을 클릭하세요."
 
 #: static/apps/learners/common/utils.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Server error"
 msgstr "서버 오류"
 
-#: static/apps/learners/common/utils.js static/apps/learners/common/utils.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/common/utils.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Your request could not be processed. Reload the page to try again."
-msgstr ""
+msgstr "요청을 처리할 수 없었습니다. 새로고침을 클릭해주세요."
 
 #: static/apps/learners/common/utils.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Network error"
 msgstr "네트워크 오류"
 
 #: static/apps/learners/common/views/download-data.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 #: static/dist/download-form/apps/learners/common/views/download-data.js
-#: static/download-form/apps/learners/common/views/download-data.js
 msgid "Download CSV"
 msgstr "CSV 다운로드 "
 
 #: static/apps/learners/common/views/download-data.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 #: static/dist/download-form/apps/learners/common/views/download-data.js
-#: static/download-form/apps/learners/common/views/download-data.js
 msgid "Download search results to CSV"
-msgstr ""
+msgstr "CSV 검색 결과 다운로드"
 
 #: static/apps/learners/common/views/loading-view.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Loading..."
 msgstr "로딩중..."
 
 #: static/apps/learners/detail/views/engagement-table.js
 #: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/learners-main.js
 #: static/dist/apps/learners/app/learners-main.js
 #: static/dist/js/enrollment-activity-main.js
 #: static/dist/js/enrollment-demographics-gender-main.js
@@ -176,16 +182,14 @@ msgstr "날짜"
 #: static/apps/learners/detail/views/engagement-table.js
 #: static/apps/learners/detail/views/engagement-timeline.js
 #: static/dist/apps/learners/app/learners-main.js
-#: static/dist/apps/learners/app/learners-main.js
 msgid "Discussion Contributions"
-msgstr ""
+msgstr "게시판 참여"
 
 #: static/apps/learners/detail/views/engagement-table.js
 #: static/apps/learners/detail/views/engagement-timeline.js
 #: static/dist/apps/learners/app/learners-main.js
-#: static/dist/apps/learners/app/learners-main.js
 msgid "Videos Viewed"
-msgstr ""
+msgstr "재생한 동영상"
 
 #: static/apps/learners/detail/views/engagement-timeline.js
 #: static/dist/apps/learners/app/learners-main.js
@@ -195,31 +199,31 @@ msgstr "값"
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Engagement Activity"
-msgstr ""
+msgstr "참여 활동"
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Daily Activity"
-msgstr ""
+msgstr "일간 활동"
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Activity Over Time"
-msgstr ""
+msgstr "그동안의 활동"
 
 #: static/apps/learners/detail/views/learner-detail.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Enrollment"
 msgstr "수강신청"
 
 #: static/apps/learners/detail/views/learner-detail.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Last Accessed"
-msgstr ""
+msgstr "마지막 접속"
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/apps/learners/detail/views/learner-summary-field.js
 #: static/apps/learners/roster/views/activity-date-range.js
-#: static/dist/apps/learners/app/learners-main.js
-#: static/dist/apps/learners/app/learners-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "n/a"
 msgstr ""
@@ -227,132 +231,140 @@ msgstr ""
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Check back daily for up-to-date data."
-msgstr ""
+msgstr "새로운 데이터가 있는지 매일 확인하세요."
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "No course activity data is available for this learner."
-msgstr ""
+msgstr "이 학습자에 대한 강좌 활동 정보가 없습니다"
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "No learner data is available."
-msgstr ""
+msgstr "학습자 정보가 없습니다."
 
 #: static/apps/learners/detail/views/learner-return.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Return to Learners"
-msgstr ""
+msgstr "학습자로 돌아가기"
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Cohort: <%= filterVal %>"
-msgstr ""
+msgstr "학습 집단: <%= filterVal %>"
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Enrollment Track: <%= filterVal %>"
-msgstr ""
+msgstr "등록 과정: <%= filterVal %>"
 
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/learners-main.js
+#: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Active Learners"
-msgstr ""
+msgstr "활동중인 학습자"
 
 #: static/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Filters In Use:"
-msgstr ""
+msgstr "사용중인 검색 조건:"
 
 #: static/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Click to remove this filter"
-msgstr ""
+msgstr "검색 조건을 제거하려면 클릭하세요"
 
 #: static/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Clear"
 msgstr "지우기"
 
 #: static/apps/learners/roster/views/active-filters.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Click to remove all filters"
-msgstr ""
+msgstr "모든 검색 조건을 제거하려면 클릭하세요"
 
 #: static/apps/learners/roster/views/activity-date-range.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Activity between <%- startDate %> - <%- endDate %>"
-msgstr ""
+msgstr "<%- startDate %> - <%- endDate %> 간의 활동"
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "The name and username of this learner. Click to sort by username."
-msgstr ""
+msgstr "이 학습자의 이름과 사용자 이름입니다. 사용자 이름으로 정렬하려면 클릭하세요"
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Number of unique problems this learner attempted."
-msgstr ""
+msgstr "학습자가 푼 문제 숫자입니다."
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Number of unique problems the learner answered correctly."
-msgstr ""
+msgstr "학습자가 맞춘 문제 숫자입니다."
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Number of unique videos this learner played."
-msgstr ""
+msgstr "학습자가 재생한 동영상의 숫자입니다."
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid ""
 "Average number of attempts per correct problem. Learners with a relatively "
 "high value compared to their peers may be struggling."
-msgstr ""
+msgstr "정답별 평균 시도 횟수입니다. 상대적으로 이 값이 높은 학습자는 현재 어려움을 겪고 있을 수 있습니다."
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid ""
 "Number of contributions by this learner, including posts, responses, and "
 "comments."
-msgstr ""
+msgstr "글, 답변 및 댓글 등 이 학습자의 모든 게시판 활동입니다."
 
 #: static/apps/learners/roster/views/base-header-cell.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "sort ascending"
-msgstr ""
+msgstr "오름차순 정렬"
 
 #: static/apps/learners/roster/views/base-header-cell.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "sort descending"
-msgstr ""
+msgstr "내림차순 정렬"
 
 #: static/apps/learners/roster/views/base-header-cell.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "click to sort"
-msgstr ""
+msgstr "정렬하려면 클릭하세요"
 
 #: static/apps/learners/roster/views/controls.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Find a learner"
-msgstr ""
+msgstr "학습자 찾기"
 
 #: static/apps/learners/roster/views/controls.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Cohort Groups"
-msgstr ""
+msgstr "학습 집단"
 
 #: static/apps/learners/roster/views/controls.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Enrollment Tracks"
-msgstr ""
+msgstr "등록 과정"
 
 #: static/apps/learners/roster/views/controls.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Inactive Learners"
-msgstr ""
+msgstr "비활성화 학습자"
 
 #: static/apps/learners/roster/views/filter.js
 #: static/dist/apps/learners/app/learners-main.js
@@ -360,35 +372,42 @@ msgid "<%= name %> (<%= numLearners %>)"
 msgstr ""
 
 #: static/apps/learners/roster/views/filter.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "All"
-msgstr ""
+msgstr "모두"
 
 #: static/apps/learners/roster/views/filter.js
+#: static/dist/apps/learners/app/learners-main.js
 msgid "Hide Inactive Learners"
-msgstr ""
+msgstr "비활성화 학습자 감추기"
 
 #: static/apps/learners/roster/views/paging-footer.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "first page"
 msgstr "첫 페이지"
 
 #: static/apps/learners/roster/views/paging-footer.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "previous page"
 msgstr "이전 페이지"
 
 #: static/apps/learners/roster/views/paging-footer.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "next page"
 msgstr "다음 페이지"
 
 #: static/apps/learners/roster/views/paging-footer.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "last page"
 msgstr "마지막 페이지"
 
 #: static/apps/learners/roster/views/paging-footer.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "page"
 msgstr "페이지"
@@ -396,22 +415,24 @@ msgstr "페이지"
 #: static/apps/learners/roster/views/results.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "No learners matched your criteria."
-msgstr ""
+msgstr "조건에 맞는 학습자가 없습니다."
 
 #: static/apps/learners/roster/views/results.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Try a different search."
-msgstr ""
+msgstr "다른 검색을 시도해보세요."
 
 #: static/apps/learners/roster/views/results.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Try clearing the filters."
-msgstr ""
+msgstr "검색 조건을 없애보세요."
 
 #: static/apps/learners/roster/views/results.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "No learner data is currently available for your course."
-msgstr ""
+msgstr "강좌에 대한 학습자 정보가 없습니다."
 
 #: static/apps/learners/roster/views/results.js
 #: static/dist/apps/learners/app/learners-main.js
@@ -420,26 +441,29 @@ msgid ""
 "processed. Data is updated every day, so check back regularly for up-to-date"
 " metrics."
 msgstr ""
+"등록한 학습자가 없거나 강좌 활동 자료가 업데이트되지 않았습니다. 매일 자료가 업데이트되며 주기적으로 확인하는 것이 좋습니다."
 
 #: static/apps/learners/roster/views/roster.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Learner roster controls"
-msgstr ""
+msgstr "학습자 목록 설정"
 
 #: static/apps/learners/roster/views/search.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Search learners"
-msgstr ""
+msgstr "학습자 검색"
 
 #: static/apps/learners/roster/views/search.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "search"
 msgstr "검색"
 
 #: static/apps/learners/roster/views/search.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "clear search"
-msgstr ""
+msgstr "검색 결과 지우기"
 
 #: static/apps/learners/roster/views/table.js
 #: static/dist/apps/learners/app/learners-main.js
@@ -449,6 +473,92 @@ msgstr "N/A"
 #: static/apps/learners/roster/views/table.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Learner Roster"
+msgstr "학습자 목록"
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Course Name"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Course ID"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Start Date"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "End Date"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Pacing Type"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Enrollment Count"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Cumulative Enrollment Count"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Enrollment Change in Last 7 Days"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Verified Enrollment"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Availability"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Current Courses"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Course List"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "No courses matched your criteria."
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "No course data is currently available for your course."
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid ""
+"No courses are enrolled, or course activity data has not yet been processed."
+" Data is updated every day, so check back regularly for up-to-date metrics."
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "<%= name %> (<%= numCourses %>)"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Search courses"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Find a course"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Course list controls"
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Sorry, we couldn't find any courses that matched that query."
+msgstr ""
+
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Return to the Course List page."
 msgstr ""
 
 #: static/dist/js/common.js static/js/utils/utils.js
@@ -470,13 +580,9 @@ msgstr "(비어있음)"
 
 #: static/dist/js/common.js
 #: static/dist/js/performance-answer-distribution-main.js
-#: static/dist/js/performance-answer-distribution-main.js
-#: static/dist/js/performance-learning-outcomes-section-main.js
 #: static/dist/js/performance-learning-outcomes-section-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
-#: static/js/performance-answer-distribution-main.js
-#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js static/js/views/data-table-view.js
 msgid "Correct"
@@ -486,10 +592,6 @@ msgstr "정답"
 #: static/js/engagement-content-main.js
 msgid "Week Ending"
 msgstr "주간"
-
-#: static/dist/js/engagement-content-main.js
-msgid "Active Students"
-msgstr "참여 학습자"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
@@ -504,11 +606,12 @@ msgstr "문제 풀기"
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Participated in Discussions"
-msgstr ""
+msgstr "게시판에 참여하였습니다"
 
 #: static/dist/js/engagement-content-main.js
-msgid "Percent of Current Students"
-msgstr ""
+#: static/js/engagement-content-main.js
+msgid "Percent of Current Learners"
+msgstr "현재 학습자 비율"
 
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
@@ -531,12 +634,12 @@ msgstr "<%=value%> (<%=percent%>)"
 #: static/dist/js/engagement-video-content-main.js
 #: static/js/engagement-video-content-main.js
 msgid "Average Complete Views"
-msgstr ""
+msgstr "동영상을 끝까지 재생한 평균 횟수"
 
 #: static/dist/js/engagement-video-content-main.js
 #: static/js/engagement-video-content-main.js
 msgid "Average Incomplete Views"
-msgstr ""
+msgstr "동영상을 끝까지 재생하지 않은 평균 횟수"
 
 #: static/dist/js/engagement-video-content-main.js
 #: static/dist/js/engagement-videos-main.js
@@ -616,13 +719,14 @@ msgstr "전문과정"
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Verified with Credit"
-msgstr ""
+msgstr "학점 인증"
 
 #: static/dist/js/enrollment-demographics-age-main.js
-#: static/dist/js/enrollment-demographics-age-main.js
 #: static/dist/js/enrollment-demographics-education-main.js
-msgid "Number of Students"
-msgstr "학습자 수"
+#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-education-main.js
+msgid "Number of Learners"
+msgstr "학습자 숫자"
 
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/js/enrollment-demographics-age-main.js
@@ -682,10 +786,11 @@ msgid "Not Reported"
 msgstr "보고되지 않았습니다."
 
 #: static/dist/js/enrollment-geography-main.js
+#: static/js/enrollment-geography-main.js
 msgid ""
-"Student location is determined from IP address. This map shows where "
-"students most recently connected."
-msgstr "IP 주소로 나타난 학습자 위치입니다. 본 지도는 학습자가 최근에 주로 접속한 곳을 보여줍니다."
+"Learner location is determined from IP address. This map shows where "
+"learners most recently connected."
+msgstr "학습자 위치 정보를 IP주소를 통해 얻었습니다. 이 지도는 학습자가 가장 최근에 접속한 위치를 보여줍니다."
 
 #: static/dist/js/enrollment-geography-main.js
 #: static/js/enrollment-geography-main.js
@@ -714,10 +819,8 @@ msgstr "답변 버전"
 
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-learning-outcomes-section-main.js
-#: static/dist/js/performance-learning-outcomes-section-main.js
 #: static/dist/js/performance-problems-main.js
 #: static/js/performance-answer-distribution-main.js
-#: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-problems-main.js
 msgid "Incorrect"
@@ -766,12 +869,12 @@ msgstr "정답 비율"
 #: static/dist/js/performance-learning-outcomes-content-main.js
 #: static/js/performance-learning-outcomes-content-main.js
 msgid "Average Submissions per Problem"
-msgstr ""
+msgstr "문제별 평균 제출 수"
 
 #: static/dist/js/performance-learning-outcomes-section-main.js
 #: static/js/performance-learning-outcomes-section-main.js
 msgid "Difficulty"
-msgstr ""
+msgstr "난이도"
 
 #: static/dist/js/performance-learning-outcomes-section-main.js
 #: static/dist/js/performance-problems-main.js
@@ -779,19 +882,3 @@ msgstr ""
 #: static/js/performance-problems-main.js
 msgid "Total"
 msgstr "합계"
-
-#: static/js/engagement-content-main.js
-msgid "Percent of Current Learners"
-msgstr ""
-
-#: static/js/enrollment-demographics-age-main.js
-#: static/js/enrollment-demographics-age-main.js
-#: static/js/enrollment-demographics-education-main.js
-msgid "Number of Learners"
-msgstr ""
-
-#: static/js/enrollment-geography-main.js
-msgid ""
-"Learner location is determined from IP address. This map shows where "
-"learners most recently connected."
-msgstr ""
