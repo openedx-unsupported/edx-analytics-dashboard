@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-18 13:48-0500\n"
+"POT-Creation-Date: 2016-12-27 15:58-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,6 +15,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: \n"
+
+#: core/templates/core/landing.html templates/_skip_link.html
+msgid "Skip to content"
+msgstr ""
 
 #: core/templates/core/landing.html
 msgid "Login"
@@ -25,11 +29,11 @@ msgid "Insights to help course teams improve courses."
 msgstr ""
 
 #: core/templates/core/landing.html courses/views/__init__.py
-msgid "Who are my students?"
+msgid "Who are my learners?"
 msgstr ""
 
 #: core/templates/core/landing.html
-msgid "Target your course to fit the backgrounds of your students."
+msgid "Target your course to fit the backgrounds of your learners."
 msgstr ""
 
 #: core/templates/core/landing.html
@@ -39,12 +43,12 @@ msgid "Enrollment"
 msgstr ""
 
 #: core/templates/core/landing.html
-msgid "What are students engaging with in my course?"
+msgid "What are learners engaging with in my course?"
 msgstr ""
 
 #: core/templates/core/landing.html
 msgid ""
-"Improve frequently accessed content, or point students at underused "
+"Improve frequently accessed content, or point learners at underused "
 "resources."
 msgstr ""
 
@@ -54,11 +58,11 @@ msgid "Engagement"
 msgstr ""
 
 #: core/templates/core/landing.html
-msgid "How well is my content supporting student learning?"
+msgid "How well is my content supporting learners?"
 msgstr ""
 
 #: core/templates/core/landing.html
-msgid "Adjust your course based on where students are struggling."
+msgid "Adjust your course based on where learners are struggling."
 msgstr ""
 
 #: core/templates/core/landing.html
@@ -108,7 +112,7 @@ msgstr ""
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: courses/presenters/engagement.py
 #, python-brace-format
-msgid "{percentage} of current students"
+msgid "{percentage} of current learners"
 msgstr ""
 
 #: courses/presenters/enrollment.py
@@ -293,7 +297,7 @@ msgstr ""
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid ""
-"This chart shows the most common answers submitted by students, ordered by "
+"This chart shows the most common answers submitted by learners, ordered by "
 "frequency."
 msgstr ""
 
@@ -328,55 +332,56 @@ msgid "Download CSV"
 msgstr ""
 
 #: courses/templates/courses/base_performance_answer_distribution.html
-msgid "Student Submission Counts"
+msgid "Learner Submission Counts"
 msgstr ""
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html
-msgid "Students (Self-Reported)"
+msgid "Learners (Self-Reported)"
 msgstr ""
 
 #: courses/templates/courses/engagement_content.html
-msgid "Weekly Student Engagement"
+msgid "Weekly Learner Engagement"
 msgstr ""
 
 #: courses/templates/courses/engagement_content.html courses/views/__init__.py
-msgid "How many students are interacting with my course?"
+msgid "How many learners are interacting with my course?"
 msgstr ""
 
-#: courses/templates/courses/engagement_content.html
-msgid "Students"
+#: courses/templates/courses/engagement_content.html courses/views/__init__.py
+#: courses/views/learners.py
+msgid "Learners"
 msgstr ""
 
 #: courses/templates/courses/engagement_content.html
 msgid ""
-"The number of active students, and the number of students who engaged in "
+"The number of active learners, and the number of learners who engaged in "
 "specific activities, over time."
 msgstr ""
 
 #: courses/templates/courses/engagement_content.html
-msgid "Student Activity Metrics"
+msgid "Learner Activity Metrics"
 msgstr ""
 
 #: courses/templates/courses/engagement_content.html
-msgid "Active Students Last Week"
+msgid "Active Learners Last Week"
 msgstr ""
 
 #: courses/templates/courses/engagement_content.html
-msgid "Students who visited at least one page in the course content."
+msgid "Learners who visited at least one page in the course content."
 msgstr ""
 
-#. Translators: This is a label indicating the number of students who watched
+#. Translators: This is a label indicating the number of learners who watched
 #. a video.
 #: courses/templates/courses/engagement_content.html
 msgid "Watched a Video Last Week"
 msgstr ""
 
 #: courses/templates/courses/engagement_content.html
-msgid "Students who played one or more videos."
+msgid "Learners who played one or more videos."
 msgstr ""
 
-#. Translators: This is a label indicating the number of students who tried a
+#. Translators: This is a label indicating the number of learners who tried a
 #. problem.
 #: courses/templates/courses/engagement_content.html
 msgid "Tried a Problem Last Week"
@@ -384,11 +389,11 @@ msgstr ""
 
 #: courses/templates/courses/engagement_content.html
 msgid ""
-"Students who submitted an answer for a standard problem. Not all problem "
+"Learners who submitted an answer for a standard problem. Not all problem "
 "types are included."
 msgstr ""
 
-#. Translators: This is a label indicating the number of students who posted
+#. Translators: This is a label indicating the number of learners who posted
 #. in a forum discussion.
 #: courses/templates/courses/engagement_content.html
 msgid "Participated in Discussions Last Week"
@@ -411,7 +416,7 @@ msgid "Video Views"
 msgstr ""
 
 #: courses/templates/courses/engagement_video_by_section.html
-msgid "How did students interact with videos in this section?"
+msgid "How did learners interact with videos in this section?"
 msgstr ""
 
 #: courses/templates/courses/engagement_video_by_section.html
@@ -422,18 +427,18 @@ msgid ""
 msgstr ""
 
 #: courses/templates/courses/engagement_video_by_subsection.html
-msgid "How did students interact with videos in this subsection?"
+msgid "How did learners interact with videos in this subsection?"
 msgstr ""
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
-"Click to understand where students drop off and which parts they replay."
+"Click to understand where learners drop off and which parts they replay."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_course.html
 #: courses/views/__init__.py
-msgid "How did students interact with course videos?"
+msgid "How did learners interact with course videos?"
 msgstr ""
 
 #: courses/templates/courses/engagement_video_course.html
@@ -453,7 +458,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid ""
-"The number of students who watched each segment of the video, and the number"
+"The number of learners who watched each segment of the video, and the number"
 " of replays for each segment."
 msgstr ""
 
@@ -474,7 +479,7 @@ msgid "Completion Rate"
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
-msgid "Estimated percentage of students who watched the entire video."
+msgid "Estimated percentage of learners who watched the entire video."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
@@ -482,7 +487,7 @@ msgid "Started Video"
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
-msgid "Students who started watching the video."
+msgid "Learners who started watching the video."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
@@ -490,7 +495,7 @@ msgid "Finished Video"
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
-msgid "Students who watched the video to the end."
+msgid "Learners who watched the video to the end."
 msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html
@@ -498,12 +503,12 @@ msgid "Video Viewing Over Time"
 msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
-msgid "Daily Student Enrollment"
+msgid "Daily Learner Enrollment"
 msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
 #: courses/views/__init__.py
-msgid "How many students are in my course?"
+msgid "How many learners are in my course?"
 msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html
@@ -520,30 +525,30 @@ msgstr ""
 msgid "Enrollment Metrics"
 msgstr ""
 
-#. Translators: This is a label to identify the number of students who ever
+#. Translators: This is a label to identify the number of learners who ever
 #. enrolled in the course.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Total Enrollment"
 msgstr ""
 
-#. Translators: This is a label indicating the number of students in a course.
+#. Translators: This is a label indicating the number of learners in a course.
 #: courses/templates/courses/enrollment_activity.html
-msgid "Students who ever enrolled in the course."
+msgid "Learners who ever enrolled in the course."
 msgstr ""
 
-#. Translators: This is a label to identify current student enrollment.
+#. Translators: This is a label to identify current learner enrollment.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Current Enrollment"
 msgstr ""
 
-#. Translators: This is a label indicating the number of students enrolled in
+#. Translators: This is a label indicating the number of learners enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html
-msgid "Students currently enrolled in the course."
+msgid "Learners currently enrolled in the course."
 msgstr ""
 
 #. Translators: This is a label indicating the change in the number of
-#. students enrolled in a course since the previous week.
+#. learners enrolled in a course since the previous week.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Change in Last Week"
 msgstr ""
@@ -552,17 +557,17 @@ msgstr ""
 msgid "Net difference in current enrollment in the last week."
 msgstr ""
 
-#. Translators: This is a label to identify enrollment of students on the
+#. Translators: This is a label to identify enrollment of learners on the
 #. verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid "Verified Enrollment"
 msgstr ""
 
-#. Translators: This is a label indicating the number of students enrolled in
+#. Translators: This is a label indicating the number of learners enrolled in
 #. a course on the verified track.
 #: courses/templates/courses/enrollment_activity.html
 msgid ""
-"Number of currently enrolled students pursuing a verified certificate of "
+"Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
 msgstr ""
 
@@ -575,7 +580,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_age.html
 #: courses/views/__init__.py
-msgid "How old are my students?"
+msgid "How old are my learners?"
 msgstr ""
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
@@ -585,7 +590,7 @@ msgstr ""
 #, python-format
 msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
-"students who provided a year of birth."
+"learners who provided a year of birth."
 msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_age.html
@@ -593,49 +598,49 @@ msgid "Age Metrics"
 msgstr ""
 
 #. Translators: This is a label to identify the median age of enrolled
-#. students.
+#. learners.
 #: courses/templates/courses/enrollment_demographics_age.html
-msgid "Median Student Age"
+msgid "Median Learner Age"
 msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
-"The midpoint of the student ages, computed from the provided year of birth."
+"The midpoint of the learner ages, computed from the provided year of birth."
 msgstr ""
 
-#. Translators: This is a label to identify the number of students in the age
+#. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
-msgid "Students 25 and Under"
+msgid "Learners 25 and Under"
 msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
-"The percentage of students aged 25 years or younger (of those who provided a"
+"The percentage of learners aged 25 years or younger (of those who provided a"
 " year of birth)."
 msgstr ""
 
-#. Translators: This is a label to identify the number of students in the age
+#. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
-msgid "Students 26 to 40"
+msgid "Learners 26 to 40"
 msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
-"The percentage of students aged from 26 to 40 years (of those who provided a"
+"The percentage of learners aged from 26 to 40 years (of those who provided a"
 " year of birth)."
 msgstr ""
 
-#. Translators: This is a label to identify the number of students in the age
+#. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html
-msgid "Students 41 and Over"
+msgid "Learners 41 and Over"
 msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_age.html
 msgid ""
-"The percentage of students aged 41 years or older (of those who provided a "
+"The percentage of learners aged 41 years or older (of those who provided a "
 "year of birth)."
 msgstr ""
 
@@ -645,7 +650,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_education.html
 #: courses/views/__init__.py
-msgid "What level of education do my students have?"
+msgid "What level of education do my learners have?"
 msgstr ""
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
@@ -654,7 +659,7 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_education.html
 #, python-format
 msgid ""
-"This graph presents data for the %(value)s%% of enrolled students who "
+"This graph presents data for the %(value)s%% of enrolled learners who "
 "provided a highest level of education completed."
 msgstr ""
 
@@ -662,37 +667,37 @@ msgstr ""
 msgid "Education Metrics"
 msgstr ""
 
-#. Translators: This is a label to identify student educational background.
+#. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "High School Diploma or Less"
 msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
-"The percentage of students who selected Secondary/high school, Junior "
+"The percentage of learners who selected Secondary/high school, Junior "
 "secondary/junior high/middle school, or Elementary/primary school as their "
 "highest level of education completed."
 msgstr ""
 
-#. Translators: This is a label to identify student educational background.
+#. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "College Degree"
 msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
-"The percentage of students who selected Bachelor's degree or Associate "
+"The percentage of learners who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
 msgstr ""
 
-#. Translators: This is a label to identify student educational background.
+#. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid "Advanced Degree"
 msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_education.html
 msgid ""
-"The percentage of students who selected Doctorate or Master's or "
+"The percentage of learners who selected Doctorate or Master's or "
 "professional degree as their highest level of education completed."
 msgstr ""
 
@@ -702,7 +707,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_gender.html
 #: courses/views/__init__.py
-msgid "What is the student gender breakdown?"
+msgid "What is the learner gender breakdown?"
 msgstr ""
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
@@ -711,7 +716,7 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_gender.html
 #, python-format
 msgid ""
-"This graph presents data for the %(value)s%% of enrolled students who "
+"This graph presents data for the %(value)s%% of enrolled learners who "
 "specified their gender."
 msgstr ""
 
@@ -725,7 +730,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
 #: courses/views/__init__.py
-msgid "Where are my students?"
+msgid "Where are my learners?"
 msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
@@ -736,51 +741,51 @@ msgstr ""
 msgid "Geography Metrics"
 msgstr ""
 
-#. Translators: This string represents the number of countries where students
+#. Translators: This string represents the number of countries where learners
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Total Countries Represented"
 msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Countries with at least one student."
+msgid "Countries with at least one learner."
 msgstr ""
 
 #. Translators: This string represents the country with the greatest number of
-#. enrolled students.
+#. enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Top Country by Enrollment"
 msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the largest number of students."
+msgid "Country with the largest number of learners."
 msgstr ""
 
 #. Translators: This string represents the country with the second-greatest
-#. number of enrolled students.
+#. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Second Country by Enrollment"
 msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the second largest number of students."
+msgid "Country with the second largest number of learners."
 msgstr ""
 
 #. Translators: This string represents the country with the third-greatest
-#. number of enrolled students.
+#. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
 msgid "Third Country by Enrollment"
 msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the third largest number of students."
+msgid "Country with the third largest number of learners."
 msgstr ""
 
-#. Translators: This string represents the percentage of students in a course.
+#. Translators: This string represents the percentage of learners in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
 #: courses/templates/courses/enrollment_geography.html
 #, python-format
-msgid "%(percent)s%% of students"
+msgid "%(percent)s%% of learners"
 msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
@@ -856,18 +861,18 @@ msgstr ""
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
 #: courses/templates/courses/performance_ungraded_answer_distribution.html
-msgid "How did students answer this problem?"
+msgid "How did learners answer this problem?"
 msgstr ""
 
 #: courses/templates/courses/performance_assignment.html
-msgid "How are students doing on this assignment?"
+msgid "How are learners doing on this assignment?"
 msgstr ""
 
 #: courses/templates/courses/performance_assignment.html
 #: courses/templates/courses/performance_ungraded_by_subsection.html
 msgid ""
 "These bars show the correct and incorrect submission counts for each "
-"problem. Only the last submission from each student is counted."
+"problem. Only the last submission from each learner is counted."
 msgstr ""
 
 #: courses/templates/courses/performance_assignment.html
@@ -906,14 +911,14 @@ msgstr ""
 #, python-format
 msgid ""
 "\n"
-"      How are students doing on the %(type)s?\n"
+"      How are learners doing on the %(type)s?\n"
 "    "
 msgstr ""
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
-"problems in the assignment. Only the last submission from each student is "
+"problems in the assignment. Only the last submission from each learner is "
 "counted."
 msgstr ""
 
@@ -923,7 +928,7 @@ msgstr ""
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 #: courses/templates/courses/performance_learning_outcomes_section.html
-msgid "Measured by learning outcome, how are students performing?"
+msgid "Measured by learning outcome, how are learners performing?"
 msgstr ""
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
@@ -943,13 +948,13 @@ msgid ""
 msgstr ""
 
 #: courses/templates/courses/performance_ungraded_by_section.html
-msgid "How are students doing on this section?"
+msgid "How are learners doing on this section?"
 msgstr ""
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
-"each subsection. Only the last submission from each student is counted."
+"each subsection. Only the last submission from each learner is counted."
 msgstr ""
 
 #: courses/templates/courses/performance_ungraded_by_section.html
@@ -957,18 +962,18 @@ msgid "Subsection Submissions"
 msgstr ""
 
 #: courses/templates/courses/performance_ungraded_by_subsection.html
-msgid "How are students doing on this subsection?"
+msgid "How are learners doing on this subsection?"
 msgstr ""
 
 #: courses/templates/courses/performance_ungraded_content.html
 #: courses/views/__init__.py
-msgid "How are students doing on ungraded exercises?"
+msgid "How are learners doing on ungraded exercises?"
 msgstr ""
 
 #: courses/templates/courses/performance_ungraded_content.html
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
-"each section. Only the last submission from each student is counted."
+"each section. Only the last submission from each learner is counted."
 msgstr ""
 
 #: courses/templates/courses/performance_ungraded_content.html
@@ -1047,16 +1052,12 @@ msgstr ""
 msgid "Learning Outcomes"
 msgstr ""
 
-#: courses/views/__init__.py courses/views/learners.py
-msgid "Learners"
+#: courses/views/__init__.py
+msgid "What are learners doing in my course?"
 msgstr ""
 
 #: courses/views/__init__.py
-msgid "What are students doing in my course?"
-msgstr ""
-
-#: courses/views/__init__.py
-msgid "How are students doing on graded course assignments?"
+msgid "How are learners doing on graded course assignments?"
 msgstr ""
 
 #: courses/views/__init__.py
@@ -1064,7 +1065,7 @@ msgid "What is the breakdown for course learning outcomes?"
 msgstr ""
 
 #: courses/views/__init__.py
-msgid "How are students responding to questions?"
+msgid "How are learners responding to questions?"
 msgstr ""
 
 #: courses/views/__init__.py
@@ -1072,7 +1073,7 @@ msgid "Problem Response Report"
 msgstr ""
 
 #: courses/views/__init__.py
-msgid "How are students doing on course assignments?"
+msgid "How are learners doing on course assignments?"
 msgstr ""
 
 #: courses/views/__init__.py
@@ -1097,7 +1098,8 @@ msgstr ""
 msgid "Course Name"
 msgstr ""
 
-#. Translators: 'In Progress' and 'Ended' refer to whether students are
+#. Translators: 'In Progress' and 'Ended' refer to whether learners are
+#. actively using the course or it is over.
 #: courses/views/__init__.py
 msgid "In Progress"
 msgstr ""
@@ -1173,7 +1175,7 @@ msgstr ""
 #: courses/views/enrollment.py
 #, python-format
 msgid ""
-"Demographic student data was last updated %(update_date)s at %(update_time)s"
+"Demographic learner data was last updated %(update_date)s at %(update_time)s"
 " UTC."
 msgstr ""
 
@@ -1216,7 +1218,7 @@ msgstr ""
 #: courses/views/enrollment.py
 #, python-format
 msgid ""
-"Geographic student data was last updated %(update_date)s at %(update_time)s "
+"Geographic learner data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr ""
 
