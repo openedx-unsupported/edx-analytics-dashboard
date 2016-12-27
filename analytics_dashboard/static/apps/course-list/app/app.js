@@ -14,6 +14,7 @@ define(function(require) {
         CourseListRootView = require('components/root/views/root'),
         CourseListRouter = require('course-list/app/router'),
         PageModel = require('components/generic-list/common/models/page'),
+        SkipLinkView = require('components/skip-link/views/skip-link-view'),
 
         CourseListApp;
 
@@ -32,6 +33,10 @@ define(function(require) {
             var pageModel = new PageModel(),
                 courseListCollection,
                 rootView;
+
+            new SkipLinkView({
+                el: 'body'
+            }).render();
 
             courseListCollection = new CourseListCollection(this.options.courseListJson, {
                 url: this.options.courseListUrl,

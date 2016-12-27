@@ -8,6 +8,7 @@ from django.test import TestCase
 from courses.tests.test_views import ViewTestMixin
 from courses.exceptions import PermissionsRetrievalFailedError
 from courses.tests.test_middleware import CoursePermissionsExceptionMixin
+import courses.tests.utils as utils
 from courses.tests.utils import CourseSamples
 
 
@@ -20,7 +21,7 @@ class CourseSummariesViewTests(ViewTestMixin, CoursePermissionsExceptionMixin, T
         self.grant_permission(self.user, CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
 
     def get_mock_data(self, course_ids):
-        return [{'course_id': course_id} for course_id in course_ids]
+        return [{'course_id': course_id} for course_id in course_ids], utils.CREATED_DATETIME
 
     def assertCourseListEquals(self, courses):
         response = self.client.get(self.path())
@@ -28,7 +29,7 @@ class CourseSummariesViewTests(ViewTestMixin, CoursePermissionsExceptionMixin, T
         self.assertListEqual(response.context['courses'], courses)
 
     def expected_summaries(self, course_ids):
-        return self.get_mock_data(course_ids)
+        return self.get_mock_data(course_ids)[0]
 
     @data(
         [CourseSamples.DEMO_COURSE_ID],

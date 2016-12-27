@@ -39,11 +39,6 @@
     </section>
   {% endblock %}
   {% block data_messaging %}
-    {% if update_message %}
-      <div class="data-update-message">{{ update_message }}</div>
-    {% endif %}
-    {% if data_information_message %}
-      <div class="data-information-message">{{ data_information_message }}</div>
-    {% endif %}
+    {% include "courses/_data_last_updated.html" with update_message=update_message data_information_message=data_information_message %}
   {% endblock %}
 {% endblock %}

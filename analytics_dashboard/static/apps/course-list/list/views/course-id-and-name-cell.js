@@ -13,7 +13,7 @@ define(function(require) {
         CourseIdAndNameCell;
 
     CourseIdAndNameCell = Backgrid.Cell.extend({
-        className: 'learner-name-username-cell',
+        className: 'course-name-cell',
         template: _.template(courseIdAndNameCellTemplate),
         render: function() {
             this.$el.html(this.template(this.model.toJSON()));

@@ -69,7 +69,8 @@ define(function(require) {
                         filterKey: 'ignore_segments',
                         filterValues: this.options.courseMetadata.get('segments'),
                         filterInput: 'checkbox',
-                        // Translators: inactive meaning that these learners have not interacted with the course recently.
+                        // Translators: inactive meaning that these learners have not interacted with the course
+                        // recently.
                         selectDisplayName: gettext('Hide Inactive Learners'),
                         trackingModel: this.options.trackingModel
                     }

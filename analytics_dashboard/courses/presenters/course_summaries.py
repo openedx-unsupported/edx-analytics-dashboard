@@ -32,6 +32,14 @@ class CourseSummariesPresenter(BasePresenter):
             cache.set(self.CACHE_KEY, all_summaries)
         return all_summaries
 
+    def _get_last_updated(self, summaries):
+        # all the create times should be the same, so just use the first one
+        if summaries:
+            summary = summaries[0]
+            return self.parse_api_datetime(summary['created'])
+        else:
+            return None
+
     def get_course_summaries(self, course_ids=None):
         """
         Returns course summaries that match those listed in course_ids.  If
@@ -42,4 +50,4 @@ class CourseSummariesPresenter(BasePresenter):
 
         # sort by count by default
         filtered_summaries = sorted(filtered_summaries, key=lambda summary: summary['count'], reverse=True)
-        return filtered_summaries
+        return filtered_summaries, self._get_last_updated(filtered_summaries)

@@ -9,6 +9,8 @@ _multiprocess_can_split_ = True
 
 
 class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
+    test_skip_link_url = False
+
     def setUp(self):
         super(CourseIndexTests, self).setUp()
         self.page = CourseIndexPage(self.browser)
@@ -21,18 +23,32 @@ class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
         """
         Course list should contain a link to the test course.
         """
-        course_id = TEST_COURSE_ID
-        course_name = self.get_course_name_or_id(course_id)
+        # text after the new line is only visible to screen readers
+        columns = [
+            'Course Name \nclick to sort',
+            'Start Date \nclick to sort',
+            'End Date \nclick to sort',
+            'Total Enrollment \nclick to sort',
+            'Current Enrollment \nsort descending',
+            'Change Last Week \nclick to sort',
+            'Verified Enrollment \nclick to sort'
+        ]
+        self.assertTable('.course-list-table', columns)
 
-        # Validate that we have a list of course names
-        course_names = self.page.q(css='.course-list .course a .course-name')
-        self.assertTrue(course_names.present)
+        # Validate that we have a list of courses
+        course_ids = self.page.q(css='.course-list .course-id')
+        self.assertTrue(course_ids.present)
 
-        # The element should list the test course name.
-        self.assertIn(course_name, course_names.text)
+        # The element should list the test course id.
+        self.assertIn(TEST_COURSE_ID, course_ids.text)
 
-        # Validate the course link
-        index = course_names.text.index(course_name)
-        course_links = self.page.q(css='.course-list .course a')
-        href = course_links.attrs('href')[index]
-        self.assertTrue(href.endswith(u'/courses/{}/'.format(course_id)))
+        # Validate the course links
+        course_links = self.page.q(css='.course-list .course-name-cell a').attrs('href')
+
+        import pprint
+        pprint.pprint(course_links)
+
+        for link, course_id in zip(course_links, course_ids):
+            pprint.pprint(link)
+            pprint.pprint(u'/courses/{}/'.format(course_id.text))
+            self.assertTrue(link.endswith(u'/courses/{}'.format(course_id.text)))

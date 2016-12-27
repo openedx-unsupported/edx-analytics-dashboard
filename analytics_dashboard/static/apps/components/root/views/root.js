@@ -45,7 +45,7 @@ define(function(require) {
         },
 
         onRender: function() {
-            if (this.displayHeader) {
+            if (this.options.displayHeader) {
                 this.showChildView('header', new HeaderView({
                     model: this.options.pageModel
                 }));

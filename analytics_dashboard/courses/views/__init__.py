@@ -448,17 +448,7 @@ class CourseView(LoginRequiredMixin, CourseValidMixin, CoursePermissionMixin, Te
         return context
 
 
-class CourseTemplateView(ContextSensitiveHelpMixin, CourseContextMixin, CourseView):
-    update_message = None
-
-    @property
-    def help_token(self):
-        # Rather than duplicate the definition, simply return the page name.
-        page_name = get_page_name(self.page_name)
-        if not page_name:
-            page_name = 'default'
-        return page_name
-
+class LastUpdatedView(object):
     def get_last_updated_message(self, last_updated):
         if last_updated:
             return self.update_message % self.format_last_updated_date_and_time(last_updated)
@@ -469,6 +459,18 @@ class CourseTemplateView(ContextSensitiveHelpMixin, CourseContextMixin, CourseVi
     def format_last_updated_date_and_time(d):
         return {'update_date': dateformat.format(d, settings.DATE_FORMAT),
                 'update_time': dateformat.format(d, settings.TIME_FORMAT)}
+
+
+class CourseTemplateView(LastUpdatedView, ContextSensitiveHelpMixin, CourseContextMixin, CourseView):
+    update_message = None
+
+    @property
+    def help_token(self):
+        # Rather than duplicate the definition, simply return the page name.
+        page_name = get_page_name(self.page_name)
+        if not page_name:
+            page_name = 'default'
+        return page_name
 
 
 class CourseTemplateWithNavView(CourseNavBarMixin, CourseTemplateView):

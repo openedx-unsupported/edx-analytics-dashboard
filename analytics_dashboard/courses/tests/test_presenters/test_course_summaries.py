@@ -10,6 +10,7 @@ from django.test import (
 )
 
 from courses.presenters.course_summaries import CourseSummariesPresenter
+from courses.tests import utils
 from courses.tests.utils import CourseSamples
 
 
@@ -59,7 +60,7 @@ class CourseSummariesPresenterTests(TestCase):
                     'count_change_7_days': 0
                 }
             },
-            'created': '2016-12-02T213123',
+            'created': utils.CREATED_DATETIME_STRING,
         }, {
             'course_id': CourseSamples.DEMO_COURSE_ID,
             'catalog_course_title': 'Demo Course',
@@ -98,7 +99,7 @@ class CourseSummariesPresenterTests(TestCase):
                     'count_change_7_days': 0
                 }
             },
-            'created': '2016-12-02T213123',
+            'created': utils.CREATED_DATETIME_STRING,
         }]
 
     def get_expected_summaries(self, course_ids=None):
@@ -135,5 +136,6 @@ class CourseSummariesPresenterTests(TestCase):
 
         with mock.patch('analyticsclient.course_summaries.CourseSummaries.course_summaries',
                         mock.Mock(return_value=self.mock_api_response)):
-            actual_summaries = presenter.get_course_summaries(course_ids=course_ids)
+            actual_summaries, last_updated = presenter.get_course_summaries(course_ids=course_ids)
             self.assertListEqual(actual_summaries, self.get_expected_summaries(course_ids))
+            self.assertEqual(last_updated, utils.CREATED_DATETIME)

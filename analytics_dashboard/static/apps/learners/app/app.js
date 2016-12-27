@@ -15,6 +15,7 @@ define(function(require) {
         LearnersRootView = require('components/root/views/root'),
         LearnersRouter = require('learners/app/router'),
         PageModel = require('components/generic-list/common/models/page'),
+        SkipLinkView = require('components/skip-link/views/skip-link-view'),
 
         LearnersApp;
 
@@ -54,6 +55,10 @@ define(function(require) {
                 courseMetadata,
                 learnerCollection,
                 rootView;
+
+            new SkipLinkView({
+                el: 'body'
+            }).render();
 
             learnerCollection = new LearnerCollection(this.options.learnerListJson, {
                 url: this.options.learnerListUrl,

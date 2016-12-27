@@ -3,7 +3,6 @@ define(function(require) {
 
     var ListCollection = require('components/generic-list/common/collections/collection'),
         LearnerModel = require('learners/common/models/learner'),
-        _ = require('underscore'),
 
         LearnerCollection;
 
@@ -30,7 +29,7 @@ define(function(require) {
 
         queryParams: {
             course_id: function() { return this.courseId; }
-        },
+        }
     });
 
     return LearnerCollection;
