@@ -87,7 +87,7 @@ dummy_translations:
 generate_fake_translations: extract_translations dummy_translations compile_translations
 
 pull_translations:
-	cd analytics_dashboard && tx pull -a
+	cd analytics_dashboard && tx pull -af
 
 update_translations: pull_translations generate_fake_translations
 
