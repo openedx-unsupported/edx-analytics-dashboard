@@ -8,6 +8,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.views import defaults
 from django.views.generic import RedirectView
 from django.views.i18n import javascript_catalog
+from django.contrib.staticfiles import views as static_views
 
 # pylint suggests importing analytics_dashboard.core, which causes errors in our AMI
 # pylint: disable=relative-import
@@ -66,4 +67,9 @@ if settings.DEBUG:  # pragma: no cover
 
         urlpatterns += [
             url(r'^__debug__/', include(debug_toolbar.urls)),
+        ]
+
+    if settings.ENABLE_INSECURE_STATIC_FILES:
+        urlpatterns += [
+            url(r'^static/(?P<path>.*)$', static_views.serve),
         ]

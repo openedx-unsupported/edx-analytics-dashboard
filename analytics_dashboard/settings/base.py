@@ -24,6 +24,7 @@ path.append(DJANGO_ROOT)
 ########## DEBUG CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = False
+ENABLE_INSECURE_STATIC_FILES = False
 ########## END DEBUG CONFIGURATION
 
 
