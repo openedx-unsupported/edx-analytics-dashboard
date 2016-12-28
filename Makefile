@@ -73,9 +73,11 @@ demo:
 	python manage.py waffle_switch display_names_for_course_index off --create
 	python manage.py waffle_switch display_course_name_in_nav off --create
 
+# compiles the *.po & *.mo files
 compile_translations:
 	cd analytics_dashboard && i18n_tool generate -v
 
+# creates the django-partial.po & django-partial.mo files
 extract_translations:
 	cd analytics_dashboard && i18n_tool extract -v
 
@@ -88,6 +90,13 @@ pull_translations:
 	cd analytics_dashboard && tx pull -a
 
 update_translations: pull_translations generate_fake_translations
+
+# check if translation files are up-to-date
+detect_changed_source_translations:
+	cd analytics_dashboard && i18n_tool changed
+
+# extract, compile, and check if translation files are up-to-date
+validate_translations: extract_translations compile_translations detect_changed_source_translations
 
 static_no_compress:
 	$(NODE_BIN)/r.js -o build.js

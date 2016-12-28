@@ -110,12 +110,14 @@ Navigate to a page and verify that you see fake translations. If you see plain E
 properly translated.
 
 ###Updating Translations###
-Once development is complete, translation source files (.po) must be generated. The command below handle this.
+Once development is complete, translation source files (.po) must be generated. The command below will generate the
+necessary source files and verify that an updated is needed:
 
-        $ cd analytics_dashboard && i18n_tool extract
+        $ make validate_translations
 
-The generated files located in `analytics_dashboard/conf/locale/en/LC_MESSAGES` should be uploaded to
-the [analytics-dashboard](https://www.transifex.com/projects/p/edx-platform/resource/analytics-dashboard/) and
+If not [automated](https://docs.transifex.com/projects/updating-content#automatic-updates), the generated files located
+in `analytics_dashboard/conf/locale/en/LC_MESSAGES` should be uploaded to the
+[analytics-dashboard](https://www.transifex.com/projects/p/edx-platform/resource/analytics-dashboard/) and
 [analytics-dashboard-js](https://www.transifex.com/projects/p/edx-platform/resource/analytics-dashboard-js/) resources
 at Transifex where translators will begin the translation process. This task can be completed using the [Transifex
 Client](http://docs.transifex.com/developer/client/):
