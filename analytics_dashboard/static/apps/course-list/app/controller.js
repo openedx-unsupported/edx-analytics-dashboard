@@ -109,7 +109,6 @@ define(function(require) {
         },
 
         showNotFoundPage: function() {
-            // TODO: Implement this page in https://openedx.atlassian.net/browse/AN-6697
             var message = gettext("Sorry, we couldn't find the page you're looking for."),
                 notFoundView;
 

@@ -5,7 +5,6 @@ require(['vendor/domReady!', 'jquery', 'load/init-page',
         app = new CourseListApp({
             containerSelector: '.course-list-app-container',
             courseListJson: modelData.get('course_list_json'),
-            courseListUrl: modelData.get('course_list_url'),
             courseListDownloadUrl: modelData.get('course_list_download_url')
         });
 

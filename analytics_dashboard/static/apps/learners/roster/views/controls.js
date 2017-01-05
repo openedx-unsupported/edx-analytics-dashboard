@@ -5,7 +5,7 @@ define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
-        ListControlsView = require('components/generic-list/list/views/controls'),
+        ParentView = require('components/generic-list/common/views/parent-view'),
 
         LearnerFilter = require('learners/roster/views/filter'),
         LearnerSearch = require('learners/roster/views/search'),
@@ -13,7 +13,7 @@ define(function(require) {
 
         RosterControlsView;
 
-    RosterControlsView = ListControlsView.extend({
+    RosterControlsView = ParentView.extend({
         template: _.template(rosterControlsTemplate),
 
         regions: {

@@ -48,8 +48,6 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
         })
 
         data = {
-            # TODO: this is not needed
-            'course_list_url': 'http://example.com',
             'course_list_json': summaries,
         }
         context['js_data']['course'] = data

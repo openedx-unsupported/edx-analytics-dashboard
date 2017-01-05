@@ -5,9 +5,7 @@
 define(function(require) {
     'use strict';
 
-    var _ = require('underscore'),
-        Marionette = require('marionette'),
-
+    var ParentView = require('components/generic-list/common/views/parent-view'),
         ListUtils = require('components/utils/utils'),
 
         ListView;
@@ -21,7 +19,7 @@ define(function(require) {
      * Wraps up the search view, table view, and pagination footer
      * view.
      */
-    ListView = Marionette.LayoutView.extend({
+    ListView = ParentView.extend({
         className: 'generic-list',
 
         initialize: function(options) {
@@ -36,12 +34,6 @@ define(function(require) {
             };
             ListUtils.mapEvents(this.options.collection, eventTransformers, this);
             ListUtils.mapEvents(this.options.courseMetadata, eventTransformers, this);
-        },
-
-        onBeforeShow: function() {
-            _.each(this.childViews, _.bind(function(child) {
-                this.showChildView(child.region, new child.class(child.options));
-            }, this));
         },
 
         templateHelpers: function() {

@@ -10,7 +10,6 @@ define(function(require) {
 
         BaseHeaderCell = require('course-list/list/views/base-header-cell'),
         CourseIdAndNameCell = require('course-list/list/views/course-id-and-name-cell'),
-        PacingCell = require('course-list/list/views/pacing-cell'),
         courseListTableTemplate = require('text!course-list/list/templates/table.underscore'),
         Utils = require('utils/utils'),
 
@@ -73,11 +72,6 @@ define(function(require) {
                     });
                 } else if (key === 'catalog_course_title') {
                     column.cell = CourseIdAndNameCell;
-                } else if (key === 'pacing_type') {
-                    // NOTE: pacing type is a filterable field now, which means it is not displayed as a column in the
-                    // table. However, I'm keeping this here (along with the pacing-cell.js/underscore) in case we will
-                    // ever want to display it again in the future. If we are sure that will never happen, then delete.
-                    column.cell = PacingCell;
                 } else {
                     column.cell = 'string';
                 }

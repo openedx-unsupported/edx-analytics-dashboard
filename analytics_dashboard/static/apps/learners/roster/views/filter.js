@@ -118,18 +118,6 @@ define(function(require) {
             };
         },
 
-        // onCheckboxFilter: function(event) {
-            // if ($(event.currentTarget).find('input:checkbox:checked').length) {
-                // this.collection.setFilterField('ignore_segments', 'inactive');
-            // } else {
-                // this.collection.unsetFilterField('ignore_segments');
-            // }
-            // this.collection.refresh();
-            // $('#learner-app-focusable').focus();
-            // this.options.trackingModel.trigger('segment:track', 'edx.bi.roster.filtered', {
-                // category: 'inactive'
-            // });
-        // },
         onCheckboxFilter: function(event) {
             var $inputs = $(event.currentTarget).find('input:checkbox:checked'),
                 filterKey = $(event.currentTarget).attr('id').slice(7), // chop off "filter-" prefix
