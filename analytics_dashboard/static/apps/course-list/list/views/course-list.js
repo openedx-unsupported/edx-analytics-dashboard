@@ -9,6 +9,8 @@ define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
+        ActiveFiltersView = require('course-list/list/views/active-filters'),
+        CourseListControlsView = require('course-list/list/views/controls'),
         CourseListResultsView = require('course-list/list/views/results'),
         ListView = require('components/generic-list/list/views/list'),
 
@@ -29,6 +31,21 @@ define(function(require) {
             ListView.prototype.initialize.call(this, options);
 
             this.childViews = [
+                {
+                    region: 'activeFilters',
+                    class: ActiveFiltersView,
+                    options: {
+                        collection: this.options.collection
+                    }
+                },
+                {
+                    region: 'controls',
+                    class: CourseListControlsView,
+                    options: {
+                        collection: this.options.collection,
+                        trackingModel: this.options.trackingModel
+                    }
+                },
                 {
                     region: 'results',
                     class: CourseListResultsView,
