@@ -11,7 +11,6 @@ define(function(require) {
 
     var Backbone = require('backbone'),
         Marionette = require('marionette'),
-        NProgress = require('nprogress'),
 
         CourseListView = require('course-list/list/views/course-list'),
 
@@ -30,8 +29,6 @@ define(function(require) {
          * been triggered. Executes before the route method does.
          */
         onShowPage: function() {
-            // Show a loading bar
-            NProgress.done(true);
             // Clear any existing alert
             this.options.rootView.triggerMethod('clearError');
         },
@@ -48,6 +45,9 @@ define(function(require) {
             var listView = new CourseListView({
                     collection: this.options.courseListCollection,
                     hasData: this.options.hasData,
+                    tableName: gettext('Course List'),
+                    trackSubject: 'course_list',
+                    appClass: 'course-list',
                     trackingModel: this.options.trackingModel
                 }),
                 collection = this.options.courseListCollection,

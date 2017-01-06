@@ -63,6 +63,7 @@ define(function(require) {
                 courseMetadata: defaultOptions.courseMetadataModel ||
                     new CourseMetadataModel(defaultOptions.courseMetadata, {parse: true}),
                 el: '.' + fixtureClass,
+                trackSubject: 'roster',
                 hasData: true,
                 trackingModel: new TrackingModel()
             }).render();

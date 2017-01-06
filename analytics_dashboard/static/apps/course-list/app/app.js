@@ -4,7 +4,6 @@ define(function(require) {
     var $ = require('jquery'),
         Backbone = require('backbone'),
         Marionette = require('marionette'),
-        NProgress = require('nprogress'),
         _ = require('underscore'),
 
         initModels = require('load/init-page'),
@@ -21,9 +20,6 @@ define(function(require) {
     CourseListApp = Marionette.Application.extend({
         /**
          * Initializes the course-list analytics app.
-         *
-         * @param options specifies the following values:
-         * TODO: complete.
          */
         initialize: function(options) {
             this.options = options || {};
@@ -39,7 +35,6 @@ define(function(require) {
             }).render();
 
             courseListCollection = new CourseListCollection(this.options.courseListJson, {
-                url: this.options.courseListUrl,
                 downloadUrl: this.options.courseListDownloadUrl,
                 mode: 'client'
             });
@@ -57,23 +52,11 @@ define(function(require) {
                     hasData: _.isObject(this.options.courseListJson),
                     pageModel: pageModel,
                     rootView: rootView,
-                    courseListUrl: this.options.courseListUrl,
                     trackingModel: initModels.models.trackingModel
                 })
             });
 
-            // If we haven't been provided with any data, fetch it now
-            // from the server.
-            if (!this.options.courseListJson) {
-                courseListCollection.setPage(1);
-            }
-
             Backbone.history.start();
-
-            // Loading progress bar via nprogress
-            NProgress.configure({showSpinner: false});
-            $(document).ajaxStart(function() { NProgress.start(); });
-            $(document).ajaxStop(function() { NProgress.done(); });
         }
     });
 

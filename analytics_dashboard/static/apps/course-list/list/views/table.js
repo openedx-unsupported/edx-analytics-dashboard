@@ -8,7 +8,6 @@ define(function(require) {
         Backgrid = require('backgrid'),
         ListTableView = require('components/generic-list/list/views/table'),
 
-        BaseHeaderCell = require('course-list/list/views/base-header-cell'),
         CourseIdAndNameCell = require('course-list/list/views/course-id-and-name-cell'),
         courseListTableTemplate = require('text!course-list/list/templates/table.underscore'),
         Utils = require('utils/utils'),
@@ -26,33 +25,9 @@ define(function(require) {
             table: '.course-list-table',
             paginator: '.course-list-paging-footer'
         },
-        initialize: function(options) {
-            ListTableView.prototype.initialize.call(this, options);
-            this.trackSortEventName = 'edx.bi.course_list.sorted';
-            this.trackPageEventName = 'edx.bi.course_list.paged';
-            this.tableName = gettext('Course List');
-            this.appClass = 'course-list';
-        },
         buildColumns: function() {
             return _.map(this.options.collection.sortableFields, function(val, key) {
-                var column = {
-                    label: val.displayName,
-                    name: key,
-                    editable: false,
-                    sortable: true,
-                    sortType: 'toggle',
-                    sortValue: function(model, colName) {
-                        var sortVal = model.get(colName);
-                        if (sortVal === null || sortVal === undefined || sortVal === '') {
-                            // Force null values to the end of the ascending sorted list
-                            // NOTE: only works for sorting string value columns
-                            return 'z';
-                        } else {
-                            return 'a ' + sortVal;
-                        }
-                    },
-                    headerCell: BaseHeaderCell
-                };
+                var column = this.createDefaultColumn(val.displayName, key);
                 if (INTEGER_COLUMNS.indexOf(key) !== -1) {
                     column.cell = 'integer';
                     column.sortValue = key; // reset to normal sorting for integer columns
@@ -65,7 +40,7 @@ define(function(require) {
                             // Null values are rendered by MomentCell as "Invalid date". Convert to a nicer string:
                             if (result.el.textContent === 'Invalid date') {
                                 result.el.textContent = '--';
-                                $(result.el).attr('aria-label', 'None defined');
+                                $(result.el).attr('aria-label', gettext('Date not available'));
                             }
                             return result;
                         }
@@ -77,7 +52,7 @@ define(function(require) {
                 }
 
                 return column;
-            });
+            }, this);
         }
     });
 

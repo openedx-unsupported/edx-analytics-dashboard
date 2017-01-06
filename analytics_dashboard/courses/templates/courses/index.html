@@ -10,7 +10,7 @@
 
 
 {% block header-text %}
-  <h3>
+  <h3 class="row">
     {% blocktrans with username=request.user.username %}Welcome, {{ username }}!{% endblocktrans %}
   </h3>
 {% endblock %}
@@ -22,7 +22,6 @@
 {% block stylesheets %}
   {{ block.super }}
   <link rel="stylesheet" href="/static/bower_components/backgrid-paginator/backgrid-paginator.min.css" type="text/css">
-  <link rel="stylesheet" href="/static/bower_components/nprogress/nprogress.css" type="text/css">
 {% endblock stylesheets %}
 
 {% block javascript %}

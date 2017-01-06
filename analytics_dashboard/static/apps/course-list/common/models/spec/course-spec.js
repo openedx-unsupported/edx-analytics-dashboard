@@ -1,14 +1,12 @@
 define(function(require) {
     'use strict';
 
-    var _ = require('underscore'),
-        Backbone = require('backbone'),
+    var CourseModel = require('course-list/common/models/course');
 
-        CourseModel;
-
-    CourseModel = Backbone.Model.extend({
-        defaults: function() {
-            return {
+    describe('CourseModel', function() {
+        it('should have all the expected fields', function() {
+            var course = new CourseModel();
+            expect(course.attributes).toEqual({
                 created: '',
                 course_id: '',
                 catalog_course_title: '',
@@ -48,27 +46,26 @@ define(function(require) {
                         count_change_7_days: 0
                     }
                 }
-            };
-        },
+            });
+        });
 
+        it('should populate verified_enrollment from the verified count', function() {
+            var learner = new CourseModel({
+                enrollment_modes: {
+                    verified: {
+                        count: 90210
+                    }
+                }
+            });
+            expect(learner.get('verified_enrollment')).toEqual(90210);
+        });
 
-        /**
-         * Backgrid will only work on models that are one level deep, so we must flatten the data structure to access
-         * the verified enrollment count from the table.
-         */
-        initialize: function() {
-            this.set({verified_enrollment: this.get('enrollment_modes').verified.count});
-        },
+        it('should use course_id to determine if data is available', function() {
+            var course = new CourseModel();
+            expect(course.hasData()).toBe(false);
 
-        idAttribute: 'course_id',
-
-        /**
-         * Returns true if the course_id has been set.  False otherwise.
-         */
-        hasData: function() {
-            return !_(this.get('course_id')).isEmpty();
-        }
+            course.set('course_id', 'edx/demo/course');
+            expect(course.hasData()).toBe(true);
+        });
     });
-
-    return CourseModel;
 });

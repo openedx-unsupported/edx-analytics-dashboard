@@ -34,11 +34,9 @@ define(function(require) {
             if (collection.length && this.options.hasData) {
                 // Don't re-render the courses table view if one already exists.
                 if (!(this.getRegion('main').currentView instanceof CourseListTableView)) {
-                    this.showChildView('main', new CourseListTableView({
-                        collection: collection,
-                        courseMetadata: this.options.courseMetadata,
-                        trackingModel: this.options.trackingModel
-                    }));
+                    this.showChildView('main', new CourseListTableView(_.defaults({
+                        collection: collection
+                    }, this.options)));
                 }
             } else {
                 this.showChildView('main', this.createAlertView(collection));

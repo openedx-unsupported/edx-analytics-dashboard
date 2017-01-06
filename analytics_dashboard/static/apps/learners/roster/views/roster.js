@@ -76,7 +76,10 @@ define(function(require) {
                         collection: this.options.collection,
                         courseMetadata: this.options.courseMetadata,
                         hasData: this.options.hasData,
-                        trackingModel: this.options.trackingModel
+                        trackingModel: this.options.trackingModel,
+                        tableName: this.options.tableName,
+                        trackSubject: this.options.trackSubject,
+                        appClass: this.options.appClass
                     }
                 }
             ];

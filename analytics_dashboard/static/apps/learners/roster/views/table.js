@@ -80,34 +80,10 @@ define(function(require) {
             table: '.learners-table',
             paginator: '.learners-paging-footer'
         },
-        initialize: function(options) {
-            ListTableView.prototype.initialize.call(this, options);
-            this.trackSortEventName = 'edx.bi.roster.sorted';
-            this.trackPageEventName = 'edx.bi.roster.paged';
-            this.tableName = gettext('Learner Roster');
-            this.appClass = 'learners';
-        },
         buildColumns: function() {
             var options = this.options;
             return _.map(this.options.collection.sortableFields, function(val, key) {
-                var column = {
-                    label: val.displayName,
-                    name: key,
-                    editable: false,
-                    sortable: true,
-                    sortType: 'toggle',
-                    sortValue: function(model, colName) {
-                        var sortVal = model.get(colName);
-                        if (sortVal === null || sortVal === undefined || sortVal === '') {
-                            // Force null values to the end of the ascending sorted list
-                            // NOTE: only works for sorting string value columns
-                            return 'z';
-                        } else {
-                            return 'a ' + sortVal;
-                        }
-                    }
-                };
-
+                var column = this.createDefaultColumn(val.displayName, key);
                 if (key === 'username') {
                     column.cell = NameAndUsernameCell;
                     column.headerCell = BaseHeaderCell;
@@ -120,7 +96,7 @@ define(function(require) {
                 }
 
                 return column;
-            });
+            }, this);
         }
     });
 

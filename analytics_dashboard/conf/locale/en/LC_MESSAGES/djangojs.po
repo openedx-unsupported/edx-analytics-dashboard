@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-05 17:15-0500\n"
+"POT-Creation-Date: 2017-01-06 14:22-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,23 +26,18 @@ msgstr ""
 msgid "Download search results to CSV"
 msgstr ""
 
-#. Translators: "sort ascending" describes the current sort state to the user.
 #: static/apps/components/generic-list/list/views/base-header-cell.js
 #: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "sort ascending"
 msgstr ""
 
-#. Translators: "sort descending" describes the current sort state to the
-#. user.
 #: static/apps/components/generic-list/list/views/base-header-cell.js
 #: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "sort descending"
 msgstr ""
 
-#. Translators: "click to sort" tells the user that they can click this link
-#. to sort by the current field.
 #: static/apps/components/generic-list/list/views/base-header-cell.js
 #: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
@@ -85,14 +80,11 @@ msgstr ""
 msgid "Generic List"
 msgstr ""
 
-#. Translators: This message indicates content is loading in the page.
 #: static/apps/components/loading/views/loading-view.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Loading..."
 msgstr ""
 
-#. Translators: "504" is a number representing a server error, so please leave
-#. it as "504".
 #: static/apps/components/utils/utils.js
 #: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
@@ -126,6 +118,11 @@ msgid "Network error"
 msgstr ""
 
 #: static/apps/course-list/app/controller.js
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Course List"
+msgstr ""
+
+#: static/apps/course-list/app/controller.js
 #: static/apps/learners/app/controller.js
 #: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
@@ -140,12 +137,6 @@ msgstr ""
 #: static/apps/course-list/app/controller.js
 #: static/dist/apps/course-list/app/course-list-main.js
 msgid "Return to the Course List page."
-msgstr ""
-
-#: static/apps/course-list/app/controller.js
-#: static/apps/course-list/list/views/table.js
-#: static/dist/apps/course-list/app/course-list-main.js
-msgid "Course List"
 msgstr ""
 
 #: static/apps/course-list/app/controller.js
@@ -182,7 +173,6 @@ msgstr ""
 msgid "Total Enrollment"
 msgstr ""
 
-#. Translators: The noun count (e.g. number of learners)
 #: static/apps/course-list/common/collections/course-list.js
 #: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/js/enrollment-activity-main.js
@@ -248,6 +238,16 @@ msgstr ""
 msgid ""
 "No courses are enrolled, or course activity data has not yet been processed."
 " Data is updated every day, so check back regularly for up-to-date metrics."
+msgstr ""
+
+#: static/apps/course-list/list/views/table.js
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Date not available"
+msgstr ""
+
+#: static/apps/learners/app/controller.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid "Learner Roster"
 msgstr ""
 
 #: static/apps/learners/app/controller.js
@@ -352,7 +352,6 @@ msgstr ""
 msgid "Value"
 msgstr ""
 
-#. Translators: e.g. Learner engagement activity
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Engagement Activity"
@@ -378,7 +377,6 @@ msgstr ""
 msgid "Last Accessed"
 msgstr ""
 
-#. Translators: 'n/a' means 'not available'
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/apps/learners/detail/views/learner-summary-field.js
 #: static/apps/learners/roster/views/activity-date-range.js
@@ -406,15 +404,11 @@ msgstr ""
 msgid "Return to Learners"
 msgstr ""
 
-#. Translators: this is a label describing a selection that the user
-#. initiated.
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Cohort: <%= filterVal %>"
 msgstr ""
 
-#. Translators: this is a label describing a selection that the user
-#. initiated.
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Enrollment Track: <%= filterVal %>"
@@ -437,7 +431,6 @@ msgstr ""
 msgid "Click to remove this filter"
 msgstr ""
 
-#. Translators: "Clear" in this context means "remove all of the filters"
 #: static/apps/learners/roster/views/active-filters.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Clear"
@@ -502,28 +495,17 @@ msgstr ""
 msgid "Enrollment Tracks"
 msgstr ""
 
-#. Translators: inactive meaning that these learners have not interacted with
-#. the course
-#. recently.
-#. Translators: inactive meaning that these learners have not interacted with
-#. the course recently.
-#. Translators: inactive meaning that these learners have not interacted with
-#. the course
-#. recently.
 #: static/apps/learners/roster/views/controls.js
 #: static/apps/learners/roster/views/filter.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Hide Inactive Learners"
 msgstr ""
 
-#. Translators: 'name' here refers to the name of the filter, while
-#. 'numLearners' refers to the number of learners belonging to that filter.
 #: static/apps/learners/roster/views/filter.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "<%= name %> (<%= numLearners %>)"
 msgstr ""
 
-#. Translators: "All" refers to viewing all the learners in a course.
 #: static/apps/learners/roster/views/filter.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "All"
@@ -567,30 +549,15 @@ msgstr ""
 msgid "clear search"
 msgstr ""
 
-#. Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate
-#. accordingly.
 #: static/apps/learners/roster/views/table.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "N/A"
-msgstr ""
-
-#: static/apps/learners/roster/views/table.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "Learner Roster"
 msgstr ""
 
 #: static/dist/js/common.js static/js/utils/utils.js
 msgid "..."
 msgstr ""
 
-#. Translators: (empty) is displayed in a table and indicates no label/value.
-#. Keep text in the parenthesis or an equivalent symbol.
-#. Translators: (empty) is displayed as a label in a chart and indicates that
-#. no label was provided.
-#. Translators: (empty) is displayed in a table and indicates no label/value.
-#. Keep text in the parenthesis or an equivalent symbol.
-#. Translators: (empty) is displayed as a label in a chart and indicates that
-#. no label was provided.
 #: static/dist/js/common.js static/dist/js/engagement-video-content-main.js
 #: static/dist/js/engagement-videos-main.js
 #: static/dist/js/enrollment-demographics-education-main.js
@@ -604,7 +571,6 @@ msgstr ""
 msgid "(empty)"
 msgstr ""
 
-#. Translators: "Correct" is displayed in a table..
 #: static/dist/js/common.js
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/dist/js/performance-learning-outcomes-section-main.js
@@ -640,7 +606,6 @@ msgstr ""
 msgid "Percent of Current Learners"
 msgstr ""
 
-#. Translators: <%=value%> will be replaced with a date.
 #: static/dist/js/engagement-content-main.js
 #: static/js/engagement-content-main.js
 msgid "Week Ending <%=value%>"
@@ -648,7 +613,7 @@ msgstr ""
 
 #. Translators: <%=value%> will be replaced by a number followed by a
 #. percentage.
-#. For example, "400 (29%)"
+#. For example, "400 (29%)" */
 #: static/dist/js/engagement-video-content-main.js
 #: static/dist/js/engagement-videos-main.js
 #: static/dist/js/performance-content-main.js
@@ -715,8 +680,6 @@ msgstr ""
 msgid "Incomplete Views"
 msgstr ""
 
-#. Translators: this describe the learner's enrollment track (e.g. Honor
-#. certificate)
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Honor"
@@ -737,8 +700,6 @@ msgstr ""
 msgid "Professional"
 msgstr ""
 
-#. Translators: this label indicates the learner has registered for academic
-#. credit
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
 msgid "Verified with Credit"
@@ -751,7 +712,6 @@ msgstr ""
 msgid "Number of Learners"
 msgstr ""
 
-#. Translators: <%=value%> will be replaced with an age.
 #: static/dist/js/enrollment-demographics-age-main.js
 #: static/js/enrollment-demographics-age-main.js
 msgid "Age: <%=value%>"
@@ -774,8 +734,6 @@ msgstr ""
 msgid "Percentage"
 msgstr ""
 
-#. Translators: <%=value%> will be replaced with a level of education (e.g.
-#. Doctorate).
 #: static/dist/js/enrollment-demographics-education-main.js
 #: static/js/enrollment-demographics-education-main.js
 msgid "Education: <%=value%>"
@@ -786,8 +744,6 @@ msgstr ""
 msgid "Educational Background"
 msgstr ""
 
-#. Translators: <%=value%> will be replaced with a level of gender (e.g.
-#. Female).
 #: static/dist/js/enrollment-demographics-gender-main.js
 #: static/js/enrollment-demographics-gender-main.js
 msgid "Gender: <%=value%>"
@@ -854,8 +810,6 @@ msgstr ""
 msgid "Incorrect"
 msgstr ""
 
-#. Translators: <%=value%> will be replaced by a learner response to a
-#. question asked in a course.
 #: static/dist/js/performance-answer-distribution-main.js
 #: static/js/performance-answer-distribution-main.js
 msgid "Answer: <%=value%>"

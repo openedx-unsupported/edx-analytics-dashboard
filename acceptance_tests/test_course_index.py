@@ -45,10 +45,5 @@ class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
         # Validate the course links
         course_links = self.page.q(css='.course-list .course-name-cell a').attrs('href')
 
-        import pprint
-        pprint.pprint(course_links)
-
         for link, course_id in zip(course_links, course_ids):
-            pprint.pprint(link)
-            pprint.pprint(u'/courses/{}/'.format(course_id.text))
             self.assertTrue(link.endswith(u'/courses/{}'.format(course_id.text)))

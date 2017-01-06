@@ -274,6 +274,19 @@ $lens-nav-margin: 15px;
       color: $edx-gray;
     }
   }
+
+  .integer-cell {
+    text-align: right;
+  }
+
+  .course-list-table th.sortable {
+    min-width: 100px;
+  }
+
+  .course-id {
+    color: $edx-gray;
+  }
+
 }
 
 body.view-course-list {
@@ -913,18 +926,4 @@ body.view-dashboard {
     -ms-overflow-style: -ms-autohiding-scrollbar;
     -webkit-overflow-scrolling: touch;
   }
-}
-
-
-
-.integer-cell {
-  text-align: right;
-}
-
-.course-list-table th.sortable {
-  min-width: 100px;
-}
-
-.course-id {
-  color: $edx-gray;
 }

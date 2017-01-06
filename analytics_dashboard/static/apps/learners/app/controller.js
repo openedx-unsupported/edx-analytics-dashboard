@@ -56,6 +56,9 @@ define(function(require) {
             var rosterView = new LearnerRosterView({
                     collection: this.options.learnerCollection,
                     courseMetadata: this.options.courseMetadata,
+                    tableName: gettext('Learner Roster'),
+                    trackSubject: 'roster',
+                    appClass: 'learners',
                     hasData: this.options.hasData,
                     trackingModel: this.options.trackingModel
                 }),
