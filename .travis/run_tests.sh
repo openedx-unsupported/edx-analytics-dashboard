@@ -29,10 +29,8 @@ make validate
 make generate_fake_translations
 
 # The following tests need insights running. We have to do it here
-# because we can't run the production version without rsyslog
-# and we can't run `runserver` until after the development requiremnts
-# have been installed(This is not generally true but insights needs nose
-# to startup runserver.)
+# because we need to wait till all the requirements have been installed
+# otherwise the server will startup with potentially the wrong libraries.
 /edx/bin/python.insights /edx/bin/manage.insights runserver 0.0.0.0:9000 --noreload --traceback > dashboard.log 2>&1 &
 xvfb-run make accept
 xvfb-run make a11y
