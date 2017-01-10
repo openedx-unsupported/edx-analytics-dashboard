@@ -2,13 +2,13 @@
 host = https://www.transifex.com
 
 [edx-platform.analytics-dashboard]
-file_filter = conf/locale/<lang>/LC_MESSAGES/django-partial.po
-source_file = conf/locale/en/LC_MESSAGES/django-partial.po
+file_filter = conf/locale/<lang>/LC_MESSAGES/django.po
+source_file = conf/locale/en/LC_MESSAGES/django.po
 source_lang = en
 type = PO
 
 [edx-platform.analytics-dashboard-js]
-file_filter = conf/locale/<lang>/LC_MESSAGES/djangojs-partial.po
-source_file = conf/locale/en/LC_MESSAGES/djangojs-partial.po
+file_filter = conf/locale/<lang>/LC_MESSAGES/djangojs.po
+source_file = conf/locale/en/LC_MESSAGES/djangojs.po
 source_lang = en
 type = PO
