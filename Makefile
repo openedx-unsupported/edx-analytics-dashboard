@@ -35,13 +35,16 @@ test_python_no_compress: clean
 	--cover-package=analytics_dashboard --cover-package=common --cover-branches --cover-html --cover-html-dir=$(COVERAGE)/html/ \
 	--with-ignore-docstrings --cover-xml --cover-xml-file=$(COVERAGE)/coverage.xml
 
-test_compress:
+test_compress: static_no_compress
 	python manage.py compress --settings=analytics_dashboard.settings.test
 
 test_python: test_compress test_python_no_compress
 
 accept:
-	./scripts/runTests.sh acceptance_tests
+ifeq ("${DISPLAY_LEARNER_ANALYTICS}", "True")
+	./manage.py waffle_flag enable_learner_analytics on --create --everyone
+endif
+	nosetests -v acceptance_tests -e NUM_PROCESSES=1 --exclude-dir=acceptance_tests/course_validation
 
 # local acceptance tests are typically run with by passing in environment variables on the commandline
 # e.g. API_SERVER_URL="http://localhost:9001/api/v0" API_AUTH_TOKEN="edx" make accept_local
@@ -49,7 +52,10 @@ accept_local:
 	nosetests -v acceptance_tests --exclude-dir=acceptance_tests/course_validation
 
 a11y:
-	BOKCHOY_A11Y_CUSTOM_RULES_FILE=./node_modules/edx-custom-a11y-rules/lib/custom_a11y_rules.js SELENIUM_BROWSER=phantomjs ./scripts/runTests.sh a11y_tests
+ifeq ("${DISPLAY_LEARNER_ANALYTICS}", "True")
+	./manage.py waffle_flag enable_learner_analytics on --create --everyone
+endif
+	BOKCHOY_A11Y_CUSTOM_RULES_FILE=./node_modules/edx-custom-a11y-rules/lib/custom_a11y_rules.js SELENIUM_BROWSER=phantomjs nosetests -v a11y_tests -e NUM_PROCESSES=1 --exclude-dir=acceptance_tests/course_validation
 
 course_validation:
 	python -m acceptance_tests.course_validation.generate_report
