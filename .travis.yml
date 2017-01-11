@@ -12,7 +12,7 @@ env:
   DOCKER_COMPOSE_VERSION: "1.9.0"
 
 before_install:
-    # Instal a newer version of docker-compose
+    # Install a newer version of docker-compose
     # Remove once dockers default is this version: https://docs.travis-ci.com/user/docker/#Using-Docker-Compose
     - sudo rm /usr/local/bin/docker-compose
     - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
