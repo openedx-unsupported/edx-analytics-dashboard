@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Anderson Franca <anderson.frca@gmail.com>, 2016
 # Camila Rosado <camilacsrosado@gmail.com>, 2016
@@ -28,8 +28,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-27 15:58-0500\n"
-"PO-Revision-Date: 2016-12-27 21:00+0000\n"
+"POT-Creation-Date: 2016-12-27 17:00-0500\n"
+"PO-Revision-Date: 2016-12-27 22:03+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/open-edx/edx-platform/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -39,7 +39,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: static/apps/learners/app/controller.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Invalid Parameters"
 msgstr "Parâmetros inválidos"
@@ -65,14 +64,11 @@ msgid "Learner Details"
 msgstr "Detalhes do estudante"
 
 #: static/apps/learners/app/controller.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Sorry, we couldn't find the page you're looking for."
-msgstr ""
-"Desculpe, não conseguimos encontrar a página que você está procurando."
+msgstr "Desculpe, não conseguimos encontrar a página que você está procurando."
 
 #: static/apps/learners/app/controller.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Page Not Found"
 msgstr "Página não encontrada"
@@ -133,56 +129,43 @@ msgid "Enrollment Mode"
 msgstr "Modo de matrícula"
 
 #: static/apps/learners/common/utils.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "504: Server error"
 msgstr "504: Erro no servidor"
 
 #: static/apps/learners/common/utils.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
-msgstr ""
-"O processamento do seu pedido levou muito tempo para ser completada. "
-"Recarregue a página e tente novamente. "
+msgstr "O processamento do seu pedido levou muito tempo para ser completada. Recarregue a página e tente novamente. "
 
 #: static/apps/learners/common/utils.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Server error"
 msgstr "Erro de servidor"
 
 #: static/apps/learners/common/utils.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Your request could not be processed. Reload the page to try again."
-msgstr ""
-"Seu pedido não pode ser processado. Recarregue a págna e tente novamente."
+msgstr "Seu pedido não pode ser processado. Recarregue a págna e tente novamente."
 
 #: static/apps/learners/common/utils.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Network error"
 msgstr "Erro de conexão"
 
 #: static/apps/learners/common/views/download-data.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
-#: static/dist/download-form/apps/learners/common/views/download-data.js
 msgid "Download CSV"
 msgstr "Baixar CSV"
 
 #: static/apps/learners/common/views/download-data.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
-#: static/dist/download-form/apps/learners/common/views/download-data.js
 msgid "Download search results to CSV"
 msgstr "Baixar resultados de busca no formato CSV"
 
 #: static/apps/learners/common/views/loading-view.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Loading..."
 msgstr "Carregando..."
@@ -254,9 +237,7 @@ msgstr "Verifique diariamente para dados atualizados. "
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "No course activity data is available for this learner."
-msgstr ""
-"Nenhum dado de atividade para este curso está disponível para este "
-"estudante."
+msgstr "Nenhum dado de atividade para este curso está disponível para este estudante."
 
 #: static/apps/learners/detail/views/learner-detail.js
 #: static/dist/apps/learners/app/learners-main.js
@@ -286,25 +267,21 @@ msgid "Active Learners"
 msgstr "Estudantes ativos"
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Filters In Use:"
 msgstr "filtros em uso"
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Click to remove this filter"
 msgstr "Clique para remover o filtro"
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Clear"
 msgstr "Limpar"
 
 #: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Click to remove all filters"
 msgstr "Clique para remover todos os filtros"
@@ -339,34 +316,26 @@ msgstr "Número de vídeos únicos que este estudante executou."
 msgid ""
 "Average number of attempts per correct problem. Learners with a relatively "
 "high value compared to their peers may be struggling."
-msgstr ""
-"Número médio de tentativas por problema correto. Estudantes com um valor "
-"relativamente alto comparado com o de seus colegas podem estar tento "
-"dificuldade."
+msgstr "Número médio de tentativas por problema correto. Estudantes com um valor relativamente alto comparado com o de seus colegas podem estar tento dificuldade."
 
 #: static/apps/learners/roster/views/base-header-cell.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid ""
 "Number of contributions by this learner, including posts, responses, and "
 "comments."
-msgstr ""
-"Número de contribuições deste estudante, incluindo postagens, respostas e "
-"comentários."
+msgstr "Número de contribuições deste estudante, incluindo postagens, respostas e comentários."
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "sort ascending"
 msgstr "Ordenação crescente"
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "sort descending"
 msgstr "Ordenação decrescente"
 
 #: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "click to sort"
 msgstr "Clique para ordenar"
@@ -397,7 +366,6 @@ msgid "<%= name %> (<%= numLearners %>)"
 msgstr ""
 
 #: static/apps/learners/roster/views/filter.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "All"
 msgstr "Tudo"
@@ -408,31 +376,26 @@ msgid "Hide Inactive Learners"
 msgstr ""
 
 #: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "first page"
 msgstr "Primeira página "
 
 #: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "previous page"
 msgstr "Página anterior"
 
 #: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "next page"
 msgstr "Próxima página"
 
 #: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "last page"
 msgstr "Última página "
 
 #: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "page"
 msgstr "Página "
@@ -443,13 +406,11 @@ msgid "No learners matched your criteria."
 msgstr "Nenhum estudante satisfez os seus critérios."
 
 #: static/apps/learners/roster/views/results.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Try a different search."
 msgstr "Tente uma pesquisa diferente"
 
 #: static/apps/learners/roster/views/results.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Try clearing the filters."
 msgstr "Tente limpar os filtros."
@@ -465,10 +426,7 @@ msgid ""
 "No learners are enrolled, or course activity data has not yet been "
 "processed. Data is updated every day, so check back regularly for up-to-date"
 " metrics."
-msgstr ""
-"Não há alunos matriculados, ou nenhuma atividade foi computada nesse curso. "
-"As informações são atualizadas diariamente, portanto, cheque regularmente "
-"para obter métricas atualizadas. "
+msgstr "Não há alunos matriculados, ou nenhuma atividade foi computada nesse curso. As informações são atualizadas diariamente, portanto, cheque regularmente para obter métricas atualizadas. "
 
 #: static/apps/learners/roster/views/roster.js
 #: static/dist/apps/learners/app/learners-main.js
@@ -481,13 +439,11 @@ msgid "Search learners"
 msgstr "Pesquisar estudantes"
 
 #: static/apps/learners/roster/views/search.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "search"
 msgstr "procurar"
 
 #: static/apps/learners/roster/views/search.js
-#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "clear search"
 msgstr "Limpar pesquisa"
@@ -501,92 +457,6 @@ msgstr "N/A"
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Learner Roster"
 msgstr "Lista de Alunos"
-
-#: static/dist/apps/course-list/app/course-list-main.js
-msgid "Course Name"
-msgstr ""
-
-#: static/dist/apps/course-list/app/course-list-main.js
-msgid "Course ID"
-msgstr ""
-
-#: static/dist/apps/course-list/app/course-list-main.js
-msgid "Start Date"
-msgstr ""
-
-#: static/dist/apps/course-list/app/course-list-main.js
-msgid "End Date"
-msgstr ""
-
-#: static/dist/apps/course-list/app/course-list-main.js
-msgid "Pacing Type"
-msgstr ""
-
-#: static/dist/apps/course-list/app/course-list-main.js
-msgid "Enrollment Count"
-msgstr ""
-
-#: static/dist/apps/course-list/app/course-list-main.js
-msgid "Cumulative Enrollment Count"
-msgstr ""
-
-#: static/dist/apps/course-list/app/course-list-main.js
-msgid "Enrollment Change in Last 7 Days"
-msgstr ""
-
-#: static/dist/apps/course-list/app/course-list-main.js
-msgid "Verified Enrollment"
-msgstr ""
-
-#: static/dist/apps/course-list/app/course-list-main.js
-msgid "Availability"
-msgstr ""
-
-#: static/dist/apps/course-list/app/course-list-main.js
-msgid "Current Courses"
-msgstr ""
-
-#: static/dist/apps/course-list/app/course-list-main.js
-msgid "Course List"
-msgstr ""
-
-#: static/dist/apps/course-list/app/course-list-main.js
-msgid "No courses matched your criteria."
-msgstr ""
-
-#: static/dist/apps/course-list/app/course-list-main.js
-msgid "No course data is currently available for your course."
-msgstr ""
-
-#: static/dist/apps/course-list/app/course-list-main.js
-msgid ""
-"No courses are enrolled, or course activity data has not yet been processed."
-" Data is updated every day, so check back regularly for up-to-date metrics."
-msgstr ""
-
-#: static/dist/apps/course-list/app/course-list-main.js
-msgid "<%= name %> (<%= numCourses %>)"
-msgstr ""
-
-#: static/dist/apps/course-list/app/course-list-main.js
-msgid "Search courses"
-msgstr ""
-
-#: static/dist/apps/course-list/app/course-list-main.js
-msgid "Find a course"
-msgstr ""
-
-#: static/dist/apps/course-list/app/course-list-main.js
-msgid "Course list controls"
-msgstr ""
-
-#: static/dist/apps/course-list/app/course-list-main.js
-msgid "Sorry, we couldn't find any courses that matched that query."
-msgstr ""
-
-#: static/dist/apps/course-list/app/course-list-main.js
-msgid "Return to the Course List page."
-msgstr ""
 
 #: static/dist/js/common.js static/js/utils/utils.js
 msgid "..."
@@ -821,8 +691,8 @@ msgstr ""
 
 #: static/dist/js/enrollment-geography-main.js
 #: static/js/enrollment-geography-main.js
-msgid "Country"
-msgstr "País"
+msgid "Country or Region"
+msgstr "País ou região"
 
 #: static/dist/js/enrollment-geography-main.js
 #: static/js/enrollment-geography-main.js

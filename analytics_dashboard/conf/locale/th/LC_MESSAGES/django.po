@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Jirayu Chamamahattana <mman2x@gmail.com>, 2015
 # Kamthorn Krairaksa <kamthorn@gmail.com>, 2014
@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-27 15:58-0500\n"
-"PO-Revision-Date: 2016-12-27 20:59+0000\n"
+"POT-Creation-Date: 2016-12-27 17:00-0500\n"
+"PO-Revision-Date: 2016-12-27 22:02+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Thai (http://www.transifex.com/open-edx/edx-platform/language/th/)\n"
 "MIME-Version: 1.0\n"
@@ -91,9 +91,7 @@ msgstr "เข้าร่วมกับชุมชนโอเพ่นซอ
 msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr ""
-"ผลการวิเคราะห์ข้อมูลของ edX และข้อมูลลอง edX "
-"ในเชิงลึกนั้นเป็นข้อมูลที่เปิดเผย %(link_start)s เรียนรู้เพิ่ม %(link_end)s."
+msgstr "ผลการวิเคราะห์ข้อมูลของ edX และข้อมูลลอง edX ในเชิงลึกนั้นเป็นข้อมูลที่เปิดเผย %(link_start)s เรียนรู้เพิ่ม %(link_end)s."
 
 #: core/templates/core/landing.html
 msgid "Research at edX"
@@ -104,9 +102,7 @@ msgstr "งานวิจัยที่ edX"
 msgid ""
 "We are committed to advancing teaching and learning through research. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr ""
-"เราเห็นพ้องสอนขั้นสูงและเรียนรู้ผ่านการค้นคว้า "
-"%(link_start)sเรียนรู้เพิ่ม%(link_end)s"
+msgstr "เราเห็นพ้องสอนขั้นสูงและเรียนรู้ผ่านการค้นคว้า %(link_start)sเรียนรู้เพิ่ม%(link_end)s"
 
 #: core/templates/core/landing.html
 msgid "Need Help?"
@@ -116,15 +112,14 @@ msgstr "ต้องการความช่วยเหลือ?"
 #, python-format
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
-msgstr ""
-"%(link_start)sศูนย์ความช่วยเหลือของเรา%(link_end)s สามารถช่วยคุณหาทางออกได้"
+msgstr "%(link_start)sศูนย์ความช่วยเหลือของเรา%(link_end)s สามารถช่วยคุณหาทางออกได้"
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
 #: core/templatetags/dashboard_extras.py
 #, python-brace-format
 msgid "{statistic}%"
-msgstr ""
+msgstr "{statistic}%"
 
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: courses/presenters/engagement.py
@@ -134,75 +129,75 @@ msgstr ""
 
 #: courses/presenters/enrollment.py
 msgid "Female"
-msgstr ""
+msgstr "ผู้หญิง"
 
 #: courses/presenters/enrollment.py
 msgid "Male"
-msgstr ""
+msgstr "ผู้ชาย"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Other"
-msgstr ""
+msgstr "อื่นๆ"
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Unknown"
-msgstr ""
+msgstr "ไม่ทราบค่า"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "None"
-msgstr ""
+msgstr "ไม่ระบุ"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
 #: courses/presenters/enrollment.py courses/tests/test_serializers.py
 msgid "Primary"
-msgstr ""
+msgstr "ประถมศึกษา"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: courses/presenters/enrollment.py
 msgid "Middle"
-msgstr ""
+msgstr "มัธยมต้น"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Secondary"
-msgstr ""
+msgstr "มัธยมศึกษา"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Associate"
-msgstr ""
+msgstr "อนุปริญญา"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Bachelor's"
-msgstr ""
+msgstr "ปริญญาตรี"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Master's"
-msgstr ""
+msgstr "ปริญญาโท"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Doctorate"
-msgstr ""
+msgstr "ปริญญาเอก"
 
 #. Translators: This is a placeholder for enrollment data collected without a
 #. known geolocation.
 #: courses/presenters/enrollment.py
 msgid "Unknown Country"
-msgstr ""
+msgstr "ไม่ทราบประเทศ"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/presenters/performance.py
@@ -213,32 +208,32 @@ msgstr "ส่งคำตอบ"
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Submissions for Part {part_number}: {part_description}"
-msgstr ""
+msgstr "ส่งคำตอบสำหรับ {part_number}: {part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Part {part_number}: {part_description}"
-msgstr ""
+msgstr "ส่วน {part_number}: {part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Submissions: {part_description}"
-msgstr ""
+msgstr "ส่งคำตอบ: {part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "{part_description}"
-msgstr ""
+msgstr "{part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Submissions for Part {part_number}"
-msgstr ""
+msgstr "ส่งคำตอบสำหรับส่วน {part_number}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Part {part_number}"
-msgstr ""
+msgstr "ส่วน {part_number}"
 
 #: courses/templates/courses/_base_content_nav.html
 #, python-format
@@ -261,10 +256,7 @@ msgid ""
 "\n"
 "        Select %(level)s\n"
 "    "
-msgstr ""
-"\n"
-"        เลือก %(level)s\n"
-"    "
+msgstr "\n        เลือก %(level)s\n    "
 
 #: courses/templates/courses/_graded_content_nav.html
 #: courses/templates/courses/_tags_content_nav.html
@@ -327,9 +319,7 @@ msgstr ""
 msgid ""
 "Due to the number of possible variants for randomized problems, charts are "
 "not available. %(read_more_link_start)sRead more%(read_more_link_end)s."
-msgstr ""
-"ตามตัวเลขความแปรปรวนที่เป็นไปได้ของการสุ่มคำถาม แผนภูมิจึงยังใช้ไม่ได้ "
-"%(read_more_link_start)sอ่านเพิ่มเติม%(read_more_link_end)s"
+msgstr "ตามตัวเลขความแปรปรวนที่เป็นไปได้ของการสุ่มคำถาม แผนภูมิจึงยังใช้ไม่ได้ %(read_more_link_start)sอ่านเพิ่มเติม%(read_more_link_end)s"
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -446,9 +436,7 @@ msgid ""
 "Each bar shows the average number of complete and incomplete views for "
 "videos in that subsection. Click on bars with low totals or a high "
 "incomplete rate to drill down and understand why."
-msgstr ""
-"แผนภูมิแท่งเหล่านี้แสดงจำนวนคำตอบที่ส่งเข้ามาทั้งผิดและถูกแยกตามคำถาม "
-"โดยจะนับเฉพาะครั้งสุดท้ายที่นักเรียนส่งคำตอบเข้ามาเท่านั้น"
+msgstr "แผนภูมิแท่งเหล่านี้แสดงจำนวนคำตอบที่ส่งเข้ามาทั้งผิดและถูกแยกตามคำถาม โดยจะนับเฉพาะครั้งสุดท้ายที่นักเรียนส่งคำตอบเข้ามาเท่านั้น"
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did learners interact with videos in this subsection?"
@@ -470,8 +458,7 @@ msgid ""
 "Each bar shows the average number of complete and incomplete views for "
 "videos in that section. Click on bars with low totals or a high incomplete "
 "rate to drill down and understand why."
-msgstr ""
-"แผนภูมิแท่งเหล่านี้แสดงจำนวนเฉลี่ยของการเข้าชมวิดิโอทั้งเสร็จสิ้นและไม่เสร็จสิ้นในเซคชั่นนั้นๆคลิกที่แทบที่มียอดต่ำหรืออัตราการไม่เสร็จสิ้นสูงเพื่อเจาะลึกและทำความเข้าใจ"
+msgstr "แผนภูมิแท่งเหล่านี้แสดงจำนวนเฉลี่ยของการเข้าชมวิดิโอทั้งเสร็จสิ้นและไม่เสร็จสิ้นในเซคชั่นนั้นๆคลิกที่แทบที่มียอดต่ำหรืออัตราการไม่เสร็จสิ้นสูงเพื่อเจาะลึกและทำความเข้าใจ"
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Total Video Views"
@@ -544,9 +531,7 @@ msgstr "ลงทะเบียนเรียน"
 msgid ""
 "This graph displays the current enrollment for the course as of the end of "
 "each day. This includes new enrollments as well as unenrollments."
-msgstr ""
-"กราฟนี้แสดงการลงทะเบียนปัจจุบันสำหรับหลักสูตร ณ จุดสิ้นสุดในแต่ละวัน "
-"ซึ่งรวมถึงการลงทะเบียนใหม่และการไม่ลงทะเบียน"
+msgstr "กราฟนี้แสดงการลงทะเบียนปัจจุบันสำหรับหลักสูตร ณ จุดสิ้นสุดในแต่ละวัน ซึ่งรวมถึงการลงทะเบียนใหม่และการไม่ลงทะเบียน"
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollment Metrics"
@@ -771,41 +756,41 @@ msgstr "ระดับเชิงภูมิศาสตร์"
 #. Translators: This string represents the number of countries where learners
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Total Countries Represented"
-msgstr "แสดงประเทศทั้งหมด"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Countries with at least one learner."
+msgid "Total Countries or Regions Represented"
 msgstr ""
 
-#. Translators: This string represents the country with the greatest number of
-#. enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Top Country by Enrollment"
-msgstr "ประเทศที่ลงทะเบียนอันดับต้น"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Country with the largest number of learners."
+msgid "Countries or regions with at least one learner."
 msgstr ""
 
-#. Translators: This string represents the country with the second-greatest
+#. Translators: This string represents the country or region with the greatest
 #. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Second Country by Enrollment"
-msgstr "ประเทศที่ลงทะเบียนอันดับที่สอง"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Country with the second largest number of learners."
+msgid "Top Country or Region by Enrollment"
 msgstr ""
 
-#. Translators: This string represents the country with the third-greatest
-#. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Third Country by Enrollment"
-msgstr "ประเทศที่ลงทะเบียนอันดับที่สาม"
+msgid "Country or region with the largest number of learners."
+msgstr ""
+
+#. Translators: This string represents the country or region with the second-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Second Country or Region by Enrollment"
+msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the third largest number of learners."
+msgid "Country or region with the second largest number of learners."
+msgstr ""
+
+#. Translators: This string represents the country or region with the third-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Third Country or Region by Enrollment"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country or region with the third largest number of learners."
 msgstr ""
 
 #. Translators: This string represents the percentage of learners in a course.
@@ -883,9 +868,7 @@ msgstr "%(application_name)sมาใหม่?"
 msgid ""
 "Click Help in the upper-right corner to get more information about "
 "%(application_name)s. Send us feedback at %(email_link)s."
-msgstr ""
-"คลิก ช่วยเหลือ ตรงมุมขวาบน เพื่อทราบข้อมูลเกี่ยวกับ %(application_name)s "
-"ส่งผลตอบกลับมาที่ %(email_link)s"
+msgstr "คลิก ช่วยเหลือ ตรงมุมขวาบน เพื่อทราบข้อมูลเกี่ยวกับ %(application_name)s ส่งผลตอบกลับมาที่ %(email_link)s"
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
@@ -928,10 +911,7 @@ msgid ""
 "\n"
 "                %(assignment_type)s: %(policy_ratio)s%% of the grading policy\n"
 "              "
-msgstr ""
-"\n"
-"                %(assignment_type)s: %(policy_ratio)s%% ของเงื่อนไขการออกเกรด\n"
-"              "
+msgstr "\n                %(assignment_type)s: %(policy_ratio)s%% ของเงื่อนไขการออกเกรด\n              "
 
 #. Translators: This describes the percent of a learner's grade (e.g. 60%).
 #: courses/templates/courses/performance_graded_content.html
@@ -967,8 +947,7 @@ msgstr ""
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each outcome."
-msgstr ""
-"แผนภูมิแท่งเหล่านี้แสดงจำนวนเฉลี่ยของคำตอบทั้งถูกและผิดในการส่งคำตอบสำหรับแต่ละผลลัพธ์"
+msgstr "แผนภูมิแท่งเหล่านี้แสดงจำนวนเฉลี่ยของคำตอบทั้งถูกและผิดในการส่งคำตอบสำหรับแต่ละผลลัพธ์"
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 msgid "Outcome Submissions"
@@ -978,9 +957,7 @@ msgstr "การส่งผลลัพธ์"
 msgid ""
 "Each bar shows the correct and incorrect number of submissions for each "
 "problem for the current outcome."
-msgstr ""
-"แผนภูมิแท่งเหล่านี้แสดงจำนวนคำตอบที่ถูกและผิด "
-"ในการส่งคำตอบสำหรับโจทย์แต่ละข้อสำหรับผลลัพธ์ปัจจุบัน"
+msgstr "แผนภูมิแท่งเหล่านี้แสดงจำนวนคำตอบที่ถูกและผิด ในการส่งคำตอบสำหรับโจทย์แต่ละข้อสำหรับผลลัพธ์ปัจจุบัน"
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are learners doing on this section?"
@@ -1025,9 +1002,7 @@ msgstr "การอนุญาตกู้คืนล้มเหลว"
 msgid ""
 "There was a problem retrieving course permissions for your account. Please "
 "try again. If you continue to experience issues, please let us know."
-msgstr ""
-"มีปัญหาในการกู้การอนุญาตหลักสูตรจากบัญชีของคุณ กรุณาลองอีกครั้ง "
-"ถ้าคุณยังคงประสบปัญหาอีก กรุณาแจ้งให้เราทราบ"
+msgstr "มีปัญหาในการกู้การอนุญาตหลักสูตรจากบัญชีของคุณ กรุณาลองอีกครั้ง ถ้าคุณยังคงประสบปัญหาอีก กรุณาแจ้งให้เราทราบ"
 
 #: courses/templates/courses/permissions-retrieval-failed.html
 msgid "Try Again"
@@ -1036,53 +1011,53 @@ msgstr "ลองใหม่"
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Activity"
-msgstr ""
+msgstr "กิจกรรม"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Demographics"
-msgstr ""
+msgstr "สถิติประชากร"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Geography"
-msgstr ""
+msgstr "ภูมิศาสตร์"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Age"
-msgstr ""
+msgstr "อายุ"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Education"
-msgstr ""
+msgstr "การศึกษา"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Gender"
-msgstr ""
+msgstr "เพศ"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Content"
-msgstr ""
+msgstr "เนื้อหา"
 
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Videos"
-msgstr ""
+msgstr "วีดิโอ"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py
 msgid "Graded Content"
-msgstr ""
+msgstr "เนื้อหาการออกเกรด"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py
 msgid "Ungraded Problems"
-msgstr ""
+msgstr "ปัญหาการไม่ออกเกรด"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py
@@ -1115,64 +1090,64 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "What are individual learners doing?"
-msgstr ""
+msgstr "ผู้เรียนแต่ละคนกำลังทำอะไร"
 
 #: courses/views/__init__.py
 msgid "Who is engaged? Who isn't?"
-msgstr ""
+msgstr "ใครหมั้นแล้ว ใครไม่ได้หมั้น"
 
 #: courses/views/__init__.py
 msgid "All Learners"
-msgstr ""
+msgstr "ผู้เรียนทุกคน"
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: courses/views/__init__.py
 msgid "Course ID"
-msgstr ""
+msgstr "รหัสหลักสูตร"
 
 #: courses/views/__init__.py
 msgid "Course Name"
-msgstr ""
+msgstr "ชื่อหลักสูตร"
 
 #. Translators: 'In Progress' and 'Ended' refer to whether learners are
 #. actively using the course or it is over.
 #: courses/views/__init__.py
 msgid "In Progress"
-msgstr ""
+msgstr "อยู่ในระหว่างดำเนินการ"
 
 #: courses/views/__init__.py
 msgid "Ended"
-msgstr ""
+msgstr "สิ้นสุด"
 
 #. Translators: This refers to a course that has not yet begun.
 #: courses/views/__init__.py
 msgid "Not Started Yet"
-msgstr ""
+msgstr "ยังไม่เริ่ม"
 
 #: courses/views/__init__.py
 msgid "Start Date"
-msgstr ""
+msgstr "วันที่เริ่ม"
 
 #: courses/views/__init__.py
 msgid "End Date"
-msgstr ""
+msgstr "วันที่จบ"
 
 #: courses/views/__init__.py
 msgid "Status"
-msgstr ""
+msgstr "สถานะ"
 
 #: courses/views/__init__.py
 msgid "Instructor Dashboard"
-msgstr ""
+msgstr "แดชบอร์ดอาจารย์ผู้สอน"
 
 #: courses/views/__init__.py
 msgid "Courseware"
-msgstr ""
+msgstr "บทเรียน"
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
-msgstr ""
+msgstr "เนื้อหาข้อตกลง"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
@@ -1180,33 +1155,33 @@ msgstr ""
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "ปรับปรุงข้อมูลข้อตกลงหลักสูตรล่าสุดวันที่ %(update_date)s เวลา %(update_time)s UTC."
 
 #: courses/views/engagement.py
 msgid "Engagement Videos"
-msgstr ""
+msgstr "วิดิโอข้อตกลง"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
+msgstr "ปรับปรุงวิดิโอข้อตกลงล่าสุดวันที่ %(update_date)s เวลา %(update_time)s UTC."
 
 #: courses/views/engagement.py
 msgid "Looks like no one has watched any videos in these sections."
-msgstr ""
+msgstr "ไม่มีบุคคลดูวิดิโอใดๆในเซคชั่นนี้"
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Section Name"
-msgstr ""
+msgstr "ชื่อหัวข้อ"
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Subsection Name"
-msgstr ""
+msgstr "ชื่อหัวข้อย่อย"
 
 #: courses/views/engagement.py
 msgid "Video Name"
-msgstr ""
+msgstr "ชื่อวิดีโอ"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1221,11 +1196,11 @@ msgstr ""
 #: courses/views/enrollment.py
 msgid ""
 "All above demographic data was self-reported at the time of registration."
-msgstr ""
+msgstr "ข้อมูลสถิติเชิงประชากรทั้งหมดนี้ถูกรายงานโดยตัวเองเมื่อลงทะเบียน"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Activity"
-msgstr ""
+msgstr "กิจกรรมการลงทะเบียน"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1233,23 +1208,23 @@ msgstr ""
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "ปรับปรุงข้อมูลกิจกรรมการลงทะเบียนล่าสุด วันที่ %(update_date)s เวลา %(update_time)s UTC."
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Age"
-msgstr ""
+msgstr "สถิติการลงทะเบียนโดย อายุ"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Education"
-msgstr ""
+msgstr "สถิติการลงทะเบียนโดย การศึกษา"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Gender"
-msgstr ""
+msgstr "สถิติการลงทะเบียนโดย เพศสภาพ"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Geography"
-msgstr ""
+msgstr "การลงทะเบียนเชิงภูมิศาสตร์"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1265,32 +1240,32 @@ msgstr ""
 msgid ""
 "Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "ข้อมูลคำตอบที่ส่งมาอัปเดตแล้วเมื่อ %(update_date)s เวลา %(update_time)s UTC"
 
 #: courses/views/performance.py
 msgid "Assignment Name"
-msgstr ""
+msgstr "ชื่องาน:"
 
 #: courses/views/performance.py
 msgid "No submissions received for these exercises."
-msgstr ""
+msgstr "ไม่ได้รับการส่งคำตอบสำหรับแบบฝึกหัดนี้"
 
 #: courses/views/performance.py
 msgid "No submissions received for these assignments."
-msgstr ""
+msgstr "ยังไม่ได้รับคำตอบสำหรับงานที่มอบหมาย"
 
 #: courses/views/performance.py
 msgid "Performance: Problem Submissions"
-msgstr ""
+msgstr "ปฏิบัติการ: ส่งคำถาม"
 
 #: courses/views/performance.py
 #, python-format
 msgid "Graded Content: %(assignment_type)s"
-msgstr ""
+msgstr "เนื้อหาการออกเกรด: %(assignment_type)s"
 
 #: courses/views/performance.py
 msgid "Problem Name"
-msgstr ""
+msgstr "ชื่อปัญหา"
 
 #: courses/views/performance.py
 #, python-format
@@ -1305,11 +1280,11 @@ msgstr ""
 
 #: settings/base.py
 msgid "Terms of Service"
-msgstr ""
+msgstr "เงื่อนไขการให้บริการ"
 
 #: settings/base.py
 msgid "Privacy Policy"
-msgstr ""
+msgstr "นโยบายความเป็นส่วนตัว"
 
 #: templates/403.html
 msgid "Access Denied"
@@ -1320,9 +1295,7 @@ msgid ""
 "You do not have permission to view this page. If you believe you should have"
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
-msgstr ""
-"คุณไม่ได้รับอนุญาตให้ดูหน้านี้ "
-"หากคุณคิดว่าคุณควรเข้าถึงหน้านี้ลองออกจากระบบและเข้าสู่ระบบเพื่อเข้าถึงการอนุญาตอีกครั้ง"
+msgstr "คุณไม่ได้รับอนุญาตให้ดูหน้านี้ หากคุณคิดว่าคุณควรเข้าถึงหน้านี้ลองออกจากระบบและเข้าสู่ระบบเพื่อเข้าถึงการอนุญาตอีกครั้ง"
 
 #: templates/403.html
 msgid "Logout then Login"
@@ -1336,8 +1309,7 @@ msgstr "ไม่พบหน้าที่ต้องการเปิด"
 msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
-msgstr ""
-"เราไม่พบหน้าที่คุณต้องการ กรุณาตรวจสอบความถูกต้องของ URL หรือลองใหม่อีกครั้ง"
+msgstr "เราไม่พบหน้าที่คุณต้องการ กรุณาตรวจสอบความถูกต้องของ URL หรือลองใหม่อีกครั้ง"
 
 #: templates/500.html
 msgid "An Error Occurred"
@@ -1347,9 +1319,7 @@ msgstr "เกิดข้อผิดพลาด"
 msgid ""
 "Our servers weren't able to complete your request. Please try again by "
 "refreshing this page or retracing your steps."
-msgstr ""
-"เซฟเวอร์ของเราไม่สามารถทำตามคำขอของคุณได้สมบูรณ์ "
-"กรุณารีเฟชรหน้านี้ใหม่หรือย้อนขั้นตอนอีกครั้ง"
+msgstr "เซฟเวอร์ของเราไม่สามารถทำตามคำขอของคุณได้สมบูรณ์ กรุณารีเฟชรหน้านี้ใหม่หรือย้อนขั้นตอนอีกครั้ง"
 
 #: templates/503.html
 msgid "We're having trouble loading this page. Please try again in a minute."
@@ -1385,11 +1355,7 @@ msgid ""
 "We want this dashboard to work for you! Need help? "
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
-msgstr ""
-"เราอยากให้แดชบอร์ดนี้ใช้งานได้ดีเพื่อคุณ "
-"ต้องการความช่วยเหลือ?%(support_link_start)s "
-"ติดต่อทีมสนับสนุนของหลักสูตร%(support_link_end)s แสดงความคิดเห็นหรือแนะนำ "
-"ทางอีเมล์ %(email_link)s"
+msgstr "เราอยากให้แดชบอร์ดนี้ใช้งานได้ดีเพื่อคุณ ต้องการความช่วยเหลือ?%(support_link_start)s ติดต่อทีมสนับสนุนของหลักสูตร%(support_link_end)s แสดงความคิดเห็นหรือแนะนำ ทางอีเมล์ %(email_link)s"
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html
@@ -1397,9 +1363,7 @@ msgstr ""
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
 "            reserved. "
-msgstr ""
-" %(current_year)s %(platform_name)s, except where noted, all rights\n"
-"            reserved. "
+msgstr " %(current_year)s %(platform_name)s, except where noted, all rights\n            reserved. "
 
 #: templates/header.html
 msgid "Toggle navigation"

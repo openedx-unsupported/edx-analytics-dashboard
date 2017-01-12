@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Anne <a.vangulick@hotmail.com>, 2014
 # Bert Carremans <bert.carremans@gmail.com>, 2016
@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-27 15:58-0500\n"
-"PO-Revision-Date: 2016-12-27 20:59+0000\n"
+"POT-Creation-Date: 2016-12-27 17:00-0500\n"
+"PO-Revision-Date: 2016-12-27 22:02+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/open-edx/edx-platform/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -90,9 +90,7 @@ msgstr "Word lid van de Open Source Community"
 msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr ""
-"The edX analytics data pipeline en edX Insights zijn open source. "
-"%(link_start)sMeer weten%(link_end)s."
+msgstr "The edX analytics data pipeline en edX Insights zijn open source. %(link_start)sMeer weten%(link_end)s."
 
 #: core/templates/core/landing.html
 msgid "Research at edX"
@@ -103,9 +101,7 @@ msgstr "Onderzoek bij edX"
 msgid ""
 "We are committed to advancing teaching and learning through research. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr ""
-"We zijn geëngageerd om lesgeven en leren vooruit te brengen door onderzoek. "
-"%(link_start)sMeer weten%(link_end)s."
+msgstr "We zijn geëngageerd om lesgeven en leren vooruit te brengen door onderzoek. %(link_start)sMeer weten%(link_end)s."
 
 #: core/templates/core/landing.html
 msgid "Need Help?"
@@ -115,16 +111,14 @@ msgstr "Hulp nodig?"
 #, python-format
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
-msgstr ""
-"%(link_start)sOns support center%(link_end)s kan je helpen oplossingen te "
-"vinden."
+msgstr "%(link_start)sOns support center%(link_end)s kan je helpen oplossingen te vinden."
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
 #: core/templatetags/dashboard_extras.py
 #, python-brace-format
 msgid "{statistic}%"
-msgstr ""
+msgstr "{statistic}%"
 
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: courses/presenters/engagement.py
@@ -134,75 +128,75 @@ msgstr ""
 
 #: courses/presenters/enrollment.py
 msgid "Female"
-msgstr ""
+msgstr "Vrouw"
 
 #: courses/presenters/enrollment.py
 msgid "Male"
-msgstr ""
+msgstr "Man"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Other"
-msgstr ""
+msgstr "Anders"
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Unknown"
-msgstr ""
+msgstr "Onbekend"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "None"
-msgstr ""
+msgstr "Geen"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
 #: courses/presenters/enrollment.py courses/tests/test_serializers.py
 msgid "Primary"
-msgstr ""
+msgstr "Lagere school"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: courses/presenters/enrollment.py
 msgid "Middle"
-msgstr ""
+msgstr "Midden"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Secondary"
-msgstr ""
+msgstr "Voortgezet onderwijs"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Associate"
-msgstr ""
+msgstr "Associate"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Bachelor's"
-msgstr ""
+msgstr "Bachelor's"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Master's"
-msgstr ""
+msgstr "Master's"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Doctorate"
-msgstr ""
+msgstr "Doctoraat"
 
 #. Translators: This is a placeholder for enrollment data collected without a
 #. known geolocation.
 #: courses/presenters/enrollment.py
 msgid "Unknown Country"
-msgstr ""
+msgstr "Land Onbekend"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/presenters/performance.py
@@ -213,32 +207,32 @@ msgstr "Inzendingen"
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Submissions for Part {part_number}: {part_description}"
-msgstr ""
+msgstr "Inzendingen voor Onderdeel {part_number}: {part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Part {part_number}: {part_description}"
-msgstr ""
+msgstr "Onderdeel {part_number}: {part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Submissions: {part_description}"
-msgstr ""
+msgstr "Inzendingen: {part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "{part_description}"
-msgstr ""
+msgstr "{part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Submissions for Part {part_number}"
-msgstr ""
+msgstr "Inzendingen voor Onderdeel {part_number}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Part {part_number}"
-msgstr ""
+msgstr "Onderdeel {part_number}"
 
 #: courses/templates/courses/_base_content_nav.html
 #, python-format
@@ -261,9 +255,7 @@ msgid ""
 "\n"
 "        Select %(level)s\n"
 "    "
-msgstr ""
-"\n"
-"Selecteer %(level)s"
+msgstr "\nSelecteer %(level)s"
 
 #: courses/templates/courses/_graded_content_nav.html
 #: courses/templates/courses/_tags_content_nav.html
@@ -326,19 +318,14 @@ msgstr ""
 msgid ""
 "Due to the number of possible variants for randomized problems, charts are "
 "not available. %(read_more_link_start)sRead more%(read_more_link_end)s."
-msgstr ""
-"Vanwege de grote hoeveelheid aan varianten van gerandomiseerde opgaven is "
-"het niet mogelijk grafieken te maken.%(read_more_link_start)sMeer "
-"lezen%(read_more_link_end)s."
+msgstr "Vanwege de grote hoeveelheid aan varianten van gerandomiseerde opgaven is het niet mogelijk grafieken te maken.%(read_more_link_start)sMeer lezen%(read_more_link_end)s."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid ""
 "Review all submission variants below, or click Download CSV to review them "
 "offline."
-msgstr ""
-"Bekijk hieronder alle ingezonde varianten of click Download CSV om deze "
-"offline te bekijken. "
+msgstr "Bekijk hieronder alle ingezonde varianten of click Download CSV om deze offline te bekijken. "
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Submission Counts"
@@ -448,11 +435,7 @@ msgid ""
 "Each bar shows the average number of complete and incomplete views for "
 "videos in that subsection. Click on bars with low totals or a high "
 "incomplete rate to drill down and understand why."
-msgstr ""
-"Elke balk toont het gemiddelde aantal volledige en onvolledige "
-"bezichtigingen voor video's in die subsectie. Klik op balken met lage "
-"totalen of met een hoge onvolledigheidsratio om in te zoomen en te begrijpen"
-" waarom."
+msgstr "Elke balk toont het gemiddelde aantal volledige en onvolledige bezichtigingen voor video's in die subsectie. Klik op balken met lage totalen of met een hoge onvolledigheidsratio om in te zoomen en te begrijpen waarom."
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did learners interact with videos in this subsection?"
@@ -474,10 +457,7 @@ msgid ""
 "Each bar shows the average number of complete and incomplete views for "
 "videos in that section. Click on bars with low totals or a high incomplete "
 "rate to drill down and understand why."
-msgstr ""
-"Elke balk toont het gemiddelde aantal volledige en onvolledige "
-"bezichtigingen voor video's in die sectie. Klik op balken met lage totalen "
-"of met een hoge onvolledigheidsratio om in te zoomen en te begrijpen waarom."
+msgstr "Elke balk toont het gemiddelde aantal volledige en onvolledige bezichtigingen voor video's in die sectie. Klik op balken met lage totalen of met een hoge onvolledigheidsratio om in te zoomen en te begrijpen waarom."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Total Video Views"
@@ -550,10 +530,7 @@ msgstr "Inschrijvingen"
 msgid ""
 "This graph displays the current enrollment for the course as of the end of "
 "each day. This includes new enrollments as well as unenrollments."
-msgstr ""
-"Deze grafiek laat de huidige hoeveelheid inschrijvingen voor de cursus zien "
-"aan het einde van elke dag. Dit houdt nieuwe inschrijvingen en "
-"uitschrijvingen in."
+msgstr "Deze grafiek laat de huidige hoeveelheid inschrijvingen voor de cursus zien aan het einde van elke dag. Dit houdt nieuwe inschrijvingen en uitschrijvingen in."
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollment Metrics"
@@ -778,41 +755,41 @@ msgstr "Geografie Metrieken"
 #. Translators: This string represents the number of countries where learners
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Total Countries Represented"
-msgstr "Totaal Vertegenwoordigde Landen"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Countries with at least one learner."
+msgid "Total Countries or Regions Represented"
 msgstr ""
 
-#. Translators: This string represents the country with the greatest number of
-#. enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Top Country by Enrollment"
-msgstr "1e Land op basis van Inschrijving"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Country with the largest number of learners."
+msgid "Countries or regions with at least one learner."
 msgstr ""
 
-#. Translators: This string represents the country with the second-greatest
+#. Translators: This string represents the country or region with the greatest
 #. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Second Country by Enrollment"
-msgstr "2e Land op basis van Inschrijving"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Country with the second largest number of learners."
+msgid "Top Country or Region by Enrollment"
 msgstr ""
 
-#. Translators: This string represents the country with the third-greatest
-#. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Third Country by Enrollment"
-msgstr "3e Land op basis van Inschrijving"
+msgid "Country or region with the largest number of learners."
+msgstr ""
+
+#. Translators: This string represents the country or region with the second-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Second Country or Region by Enrollment"
+msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the third largest number of learners."
+msgid "Country or region with the second largest number of learners."
+msgstr ""
+
+#. Translators: This string represents the country or region with the third-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Third Country or Region by Enrollment"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country or region with the third largest number of learners."
 msgstr ""
 
 #. Translators: This string represents the percentage of learners in a course.
@@ -878,9 +855,7 @@ msgstr "Welkom, %(username)s!"
 #, python-format
 msgid ""
 "Here are the courses you currently have access to in %(application_name)s:"
-msgstr ""
-"Hier zijn de cursussen waar je momenteel toegang toe hebt in "
-"%(application_name)s:"
+msgstr "Hier zijn de cursussen waar je momenteel toegang toe hebt in %(application_name)s:"
 
 #: courses/templates/courses/index.html
 #, python-format
@@ -892,9 +867,7 @@ msgstr "Nieuw bij %(application_name)s?"
 msgid ""
 "Click Help in the upper-right corner to get more information about "
 "%(application_name)s. Send us feedback at %(email_link)s."
-msgstr ""
-"Klik Help in de rechterbovenhoek voor meer informatie over "
-"%(application_name)s. Stuur ons feedback op %(email_link)s. "
+msgstr "Klik Help in de rechterbovenhoek voor meer informatie over %(application_name)s. Stuur ons feedback op %(email_link)s. "
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
@@ -927,9 +900,7 @@ msgstr "Welk takentype wil U onderzoeken?"
 msgid ""
 "Click an assignment type to view more detail information about the "
 "assignments."
-msgstr ""
-"Klik op een opdrachttype om meer detailinformatie te zien over de "
-"opdrachten."
+msgstr "Klik op een opdrachttype om meer detailinformatie te zien over de opdrachten."
 
 #. Translators: This describes the percent an assignment contributes to that
 #. of a learner's grade (e.g. Exam: 60% of the grading policy.).
@@ -939,10 +910,7 @@ msgid ""
 "\n"
 "                %(assignment_type)s: %(policy_ratio)s%% of the grading policy\n"
 "              "
-msgstr ""
-"\n"
-"                %(assignment_type)s: %(policy_ratio)s%% van het scoringsbeleid\n"
-"              "
+msgstr "\n                %(assignment_type)s: %(policy_ratio)s%% van het scoringsbeleid\n              "
 
 #. Translators: This describes the percent of a learner's grade (e.g. 60%).
 #: courses/templates/courses/performance_graded_content.html
@@ -978,9 +946,7 @@ msgstr ""
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each outcome."
-msgstr ""
-"Elke balk toont het gemiddelde aantal correcte en incorrecte inzendingen "
-"voor elke sectie. Enkel de laatste inzending van elke student is geteld. "
+msgstr "Elke balk toont het gemiddelde aantal correcte en incorrecte inzendingen voor elke sectie. Enkel de laatste inzending van elke student is geteld. "
 
 #: courses/templates/courses/performance_learning_outcomes_content.html
 msgid "Outcome Submissions"
@@ -990,9 +956,7 @@ msgstr "Inzendingen"
 msgid ""
 "Each bar shows the correct and incorrect number of submissions for each "
 "problem for the current outcome."
-msgstr ""
-"Elke balk toont het gemiddelde aantal correcte en incorrecte inzendingen "
-"voor elke sectie. Enkel de laatste inzending van elke student is geteld. "
+msgstr "Elke balk toont het gemiddelde aantal correcte en incorrecte inzendingen voor elke sectie. Enkel de laatste inzending van elke student is geteld. "
 
 #: courses/templates/courses/performance_ungraded_by_section.html
 msgid "How are learners doing on this section?"
@@ -1037,9 +1001,7 @@ msgstr "Ophalen Permissies Mislukt"
 msgid ""
 "There was a problem retrieving course permissions for your account. Please "
 "try again. If you continue to experience issues, please let us know."
-msgstr ""
-"Er was een probleem om uw cursus permissies van uw account op te halen. "
-"Probeer het a.u.b. opnieuw. Als het probleem blijft, laat het ons dan weten."
+msgstr "Er was een probleem om uw cursus permissies van uw account op te halen. Probeer het a.u.b. opnieuw. Als het probleem blijft, laat het ons dan weten."
 
 #: courses/templates/courses/permissions-retrieval-failed.html
 msgid "Try Again"
@@ -1048,53 +1010,53 @@ msgstr "Opnieuw proberen"
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Activity"
-msgstr ""
+msgstr "Activiteit"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Demographics"
-msgstr ""
+msgstr "Demografie"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Geography"
-msgstr ""
+msgstr "Geografie"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Age"
-msgstr ""
+msgstr "Leeftijd"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Education"
-msgstr ""
+msgstr "Opleiding"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Gender"
-msgstr ""
+msgstr "Geslacht"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Content"
-msgstr ""
+msgstr "Inhoud"
 
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Videos"
-msgstr ""
+msgstr "Video's"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py
 msgid "Graded Content"
-msgstr ""
+msgstr "Gekwoteerde oefening"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py
 msgid "Ungraded Problems"
-msgstr ""
+msgstr "Niet gekwoteerde oefening"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py
@@ -1127,7 +1089,7 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "What are individual learners doing?"
-msgstr ""
+msgstr "Wat zijn individuele leerlingen aan het doen?"
 
 #: courses/views/__init__.py
 msgid "Who is engaged? Who isn't?"
@@ -1135,56 +1097,56 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "All Learners"
-msgstr ""
+msgstr "Alle leerlingen"
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: courses/views/__init__.py
 msgid "Course ID"
-msgstr ""
+msgstr "Cursus ID"
 
 #: courses/views/__init__.py
 msgid "Course Name"
-msgstr ""
+msgstr "Naam cursus"
 
 #. Translators: 'In Progress' and 'Ended' refer to whether learners are
 #. actively using the course or it is over.
 #: courses/views/__init__.py
 msgid "In Progress"
-msgstr ""
+msgstr "In Behandeling"
 
 #: courses/views/__init__.py
 msgid "Ended"
-msgstr ""
+msgstr "Beëindigd"
 
 #. Translators: This refers to a course that has not yet begun.
 #: courses/views/__init__.py
 msgid "Not Started Yet"
-msgstr ""
+msgstr "Nog niet gestart"
 
 #: courses/views/__init__.py
 msgid "Start Date"
-msgstr ""
+msgstr "Start Datum"
 
 #: courses/views/__init__.py
 msgid "End Date"
-msgstr ""
+msgstr "Einddatum"
 
 #: courses/views/__init__.py
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: courses/views/__init__.py
 msgid "Instructor Dashboard"
-msgstr ""
+msgstr "Instructeur Dashboard"
 
 #: courses/views/__init__.py
 msgid "Courseware"
-msgstr ""
+msgstr "Cursusmateriaal"
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
-msgstr ""
+msgstr "Betrokkenheid bij de inhoud"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
@@ -1192,33 +1154,33 @@ msgstr ""
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Cursus deelname-activiteit gegevens zijn het laatst bijgewerkt op %(update_date)s om %(update_time)s UTC."
 
 #: courses/views/engagement.py
 msgid "Engagement Videos"
-msgstr ""
+msgstr "Betrokkenheid Videos"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
+msgstr "Deze video is laatst bijgewerkt op %(update_date)s om %(update_time)s UTC."
 
 #: courses/views/engagement.py
 msgid "Looks like no one has watched any videos in these sections."
-msgstr ""
+msgstr "Het lijkt erop dat niemand de video's heeft bekeken van deze secties."
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Section Name"
-msgstr ""
+msgstr "Sectie naam"
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Subsection Name"
-msgstr ""
+msgstr "Naam subsectie"
 
 #: courses/views/engagement.py
 msgid "Video Name"
-msgstr ""
+msgstr "Video naam"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1233,11 +1195,11 @@ msgstr ""
 #: courses/views/enrollment.py
 msgid ""
 "All above demographic data was self-reported at the time of registration."
-msgstr ""
+msgstr "Alle bovenstaande demografische gegevens zijn zelf-gerapporteerd tijdens registratie."
 
 #: courses/views/enrollment.py
 msgid "Enrollment Activity"
-msgstr ""
+msgstr "Inschrijvingsactiviteit"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1245,23 +1207,23 @@ msgstr ""
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "Inschrijving activiteit gegevens zijn het laatst bijgewerkt op %(update_date)s om %(update_time)s UTC."
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Age"
-msgstr ""
+msgstr "Inschrijving Demografie naar Leeftijd"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Education"
-msgstr ""
+msgstr "Inschrijving Demografie naar Opleiding"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Gender"
-msgstr ""
+msgstr "Inschrijving Demografie naar Geslacht"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Geography"
-msgstr ""
+msgstr "Inschrijving volgens geografie"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1277,32 +1239,32 @@ msgstr ""
 msgid ""
 "Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Inzendingsdata voor probleem is laatst aangepast op %(update_date)s om %(update_time)s UTC."
 
 #: courses/views/performance.py
 msgid "Assignment Name"
-msgstr ""
+msgstr "Toegewezen Naam"
 
 #: courses/views/performance.py
 msgid "No submissions received for these exercises."
-msgstr ""
+msgstr "Geen inzendingen ontvangen voor deze oefeningen."
 
 #: courses/views/performance.py
 msgid "No submissions received for these assignments."
-msgstr ""
+msgstr "Geen inzendingen ontvangen voor deze opdrachten."
 
 #: courses/views/performance.py
 msgid "Performance: Problem Submissions"
-msgstr ""
+msgstr "Prestatie: Probleem Inzendingen"
 
 #: courses/views/performance.py
 #, python-format
 msgid "Graded Content: %(assignment_type)s"
-msgstr ""
+msgstr "Gekwoteerde inhoud: %(assignment_type)s"
 
 #: courses/views/performance.py
 msgid "Problem Name"
-msgstr ""
+msgstr "Probleem Naam"
 
 #: courses/views/performance.py
 #, python-format
@@ -1317,11 +1279,11 @@ msgstr ""
 
 #: settings/base.py
 msgid "Terms of Service"
-msgstr ""
+msgstr "Gebruiksvoorwaarden"
 
 #: settings/base.py
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Privacybeleid"
 
 #: templates/403.html
 msgid "Access Denied"
@@ -1332,10 +1294,7 @@ msgid ""
 "You do not have permission to view this page. If you believe you should have"
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
-msgstr ""
-"U heeft geen permissie om deze pagina te bekijken. Als u van menig bent dat "
-"u toegang zou moeten hebben, probeer dan uit te loggen, en weer in te loggen"
-" om uw permissies te verversen."
+msgstr "U heeft geen permissie om deze pagina te bekijken. Als u van menig bent dat u toegang zou moeten hebben, probeer dan uit te loggen, en weer in te loggen om uw permissies te verversen."
 
 #: templates/403.html
 msgid "Logout then Login"
@@ -1349,9 +1308,7 @@ msgstr "Pagina Niet Gevonden"
 msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
-msgstr ""
-"De pagina die u zoekt kan niet gevonden worden. Controleer of de URL correct"
-" is, probeer het opnieuw als de URL niet correct is."
+msgstr "De pagina die u zoekt kan niet gevonden worden. Controleer of de URL correct is, probeer het opnieuw als de URL niet correct is."
 
 #: templates/500.html
 msgid "An Error Occurred"
@@ -1361,15 +1318,11 @@ msgstr "Er is een fout opgetreden"
 msgid ""
 "Our servers weren't able to complete your request. Please try again by "
 "refreshing this page or retracing your steps."
-msgstr ""
-"Onze servers hebben uw verzoek niet kunnen verwerken. Probeer het opnieuw "
-"door deze pagina te verversen of door uw handelingen te controleren."
+msgstr "Onze servers hebben uw verzoek niet kunnen verwerken. Probeer het opnieuw door deze pagina te verversen of door uw handelingen te controleren."
 
 #: templates/503.html
 msgid "We're having trouble loading this page. Please try again in a minute."
-msgstr ""
-"We hebben problemen om deze pagina te laden. Probeert U  over een paar "
-"minuten alstublieft opnieuw."
+msgstr "We hebben problemen om deze pagina te laden. Probeert U  over een paar minuten alstublieft opnieuw."
 
 #: templates/503.html
 msgid "(Technical details: 503 Service Unavailable.)"
@@ -1381,9 +1334,7 @@ msgstr "Sluit"
 
 #: templates/base-error.html
 msgid "Use our support tool to ask questions or share feedback."
-msgstr ""
-"Gebruik ons hulpmiddel voor ondersteuning om vragen te stellen of feedback "
-"te delen."
+msgstr "Gebruik ons hulpmiddel voor ondersteuning om vragen te stellen of feedback te delen."
 
 #. Translators: This intention here is that a user clicks a button to contact
 #. a support group (e.g. edX Support, or MITx Support). Reorder the
@@ -1403,10 +1354,7 @@ msgid ""
 "We want this dashboard to work for you! Need help? "
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
-msgstr ""
-"We willen dat dit dashboard werkt voor jou! Hulp nodig? "
-"%(support_link_start)sContacteer cursus team support%(support_link_end)s. "
-"Opmerkingen of suggesties? Email %(email_link)s."
+msgstr "We willen dat dit dashboard werkt voor jou! Hulp nodig? %(support_link_start)sContacteer cursus team support%(support_link_end)s. Opmerkingen of suggesties? Email %(email_link)s."
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html
@@ -1414,9 +1362,7 @@ msgstr ""
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
 "            reserved. "
-msgstr ""
-"%(current_year)s %(platform_name)s, tenzij anders vermeld, alle rechten\n"
-"voorbehouden."
+msgstr "%(current_year)s %(platform_name)s, tenzij anders vermeld, alle rechten\nvoorbehouden."
 
 #: templates/header.html
 msgid "Toggle navigation"

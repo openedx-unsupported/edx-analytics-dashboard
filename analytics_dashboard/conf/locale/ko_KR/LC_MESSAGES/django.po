@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # kmooc <shevious@gmail.com>, 2015
 # shevious <shevious@yahoo.com>, 2015
@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-27 15:58-0500\n"
-"PO-Revision-Date: 2016-12-27 21:00+0000\n"
+"POT-Creation-Date: 2016-12-27 17:00-0500\n"
+"PO-Revision-Date: 2016-12-27 22:02+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/open-edx/edx-platform/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -92,8 +92,7 @@ msgstr "오픈 소스 커뮤니티에 참여하세요."
 msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr ""
-"edX의 데이터 분석 파이프라인과 edX 인사이트는 오픈소스입니다. %(link_start)s자세히 알아보기%(link_end)s."
+msgstr "edX의 데이터 분석 파이프라인과 edX 인사이트는 오픈소스입니다. %(link_start)s자세히 알아보기%(link_end)s."
 
 #: core/templates/core/landing.html
 msgid "Research at edX"
@@ -121,7 +120,7 @@ msgstr "%(link_start)s지원센터%(link_end)s에서 해결방법을 찾을 수 
 #: core/templatetags/dashboard_extras.py
 #, python-brace-format
 msgid "{statistic}%"
-msgstr ""
+msgstr "{statistic}%"
 
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: courses/presenters/engagement.py
@@ -131,75 +130,75 @@ msgstr ""
 
 #: courses/presenters/enrollment.py
 msgid "Female"
-msgstr ""
+msgstr "여성"
 
 #: courses/presenters/enrollment.py
 msgid "Male"
-msgstr ""
+msgstr "남자"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Other"
-msgstr ""
+msgstr "기타"
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Unknown"
-msgstr ""
+msgstr "알 수 없음"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "None"
-msgstr ""
+msgstr "없음"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
 #: courses/presenters/enrollment.py courses/tests/test_serializers.py
 msgid "Primary"
-msgstr ""
+msgstr "초등학교"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: courses/presenters/enrollment.py
 msgid "Middle"
-msgstr ""
+msgstr "중학교"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Secondary"
-msgstr ""
+msgstr "고등학교"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Associate"
-msgstr ""
+msgstr "전문학사"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Bachelor's"
-msgstr ""
+msgstr "학사"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Master's"
-msgstr ""
+msgstr "석사"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Doctorate"
-msgstr ""
+msgstr "박사"
 
 #. Translators: This is a placeholder for enrollment data collected without a
 #. known geolocation.
 #: courses/presenters/enrollment.py
 msgid "Unknown Country"
-msgstr ""
+msgstr "알 수 없는 국가"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/presenters/performance.py
@@ -210,32 +209,32 @@ msgstr "제출"
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Submissions for Part {part_number}: {part_description}"
-msgstr ""
+msgstr "{part_number}영역을 위한 제출: {part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Part {part_number}: {part_description}"
-msgstr ""
+msgstr "{part_number}영역: {part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Submissions: {part_description}"
-msgstr ""
+msgstr "제출: {part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "{part_description}"
-msgstr ""
+msgstr "{part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Submissions for Part {part_number}"
-msgstr ""
+msgstr "{part_number} 영역의 제출"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Part {part_number}"
-msgstr ""
+msgstr "{part_number} 영역"
 
 #: courses/templates/courses/_base_content_nav.html
 #, python-format
@@ -258,9 +257,7 @@ msgid ""
 "\n"
 "        Select %(level)s\n"
 "    "
-msgstr ""
-"\n"
-"선택 %(level)s"
+msgstr "\n선택 %(level)s"
 
 #: courses/templates/courses/_graded_content_nav.html
 #: courses/templates/courses/_tags_content_nav.html
@@ -323,9 +320,7 @@ msgstr "이 차트는 빈도수에 따라 학습자가 가장 많이 제출한 �
 msgid ""
 "Due to the number of possible variants for randomized problems, charts are "
 "not available. %(read_more_link_start)sRead more%(read_more_link_end)s."
-msgstr ""
-"무작위로 발생한 문제의 다수의 유형으로 인해 차트를 만들 수 없습니다. %(read_more_link_start)s더 알아보기Read "
-"more%(read_more_link_end)s."
+msgstr "무작위로 발생한 문제의 다수의 유형으로 인해 차트를 만들 수 없습니다. %(read_more_link_start)s더 알아보기Read more%(read_more_link_end)s."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html
@@ -442,9 +437,7 @@ msgid ""
 "Each bar shows the average number of complete and incomplete views for "
 "videos in that subsection. Click on bars with low totals or a high "
 "incomplete rate to drill down and understand why."
-msgstr ""
-"각 바는 해당 소주제에 대해 동영상 평균 조회 숫자를 끝까지 재생한 숫자와 재생하지 않응 숫자를 구분하여 나타냅니다. 끝까지 재생하지 "
-"않은 비율이 높거나 조회 수가 낮은 바를 클릭해 이유를 읽어보세요."
+msgstr "각 바는 해당 소주제에 대해 동영상 평균 조회 숫자를 끝까지 재생한 숫자와 재생하지 않응 숫자를 구분하여 나타냅니다. 끝까지 재생하지 않은 비율이 높거나 조회 수가 낮은 바를 클릭해 이유를 읽어보세요."
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did learners interact with videos in this subsection?"
@@ -454,9 +447,7 @@ msgstr "학습자의 소주제 내 동영상 활용 방법"
 msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
 "Click to understand where learners drop off and which parts they replay."
-msgstr ""
-"각 바는 해당 소주제에 대해 동영상 평균 조회 숫자를 끝까지 재생한 숫자와 재생하지 않응 숫자를 구분하여 나타냅니다. 이 곳을 클릭하여 "
-"끝까지 재생하지 않은 이유에 대해 알아보세요."
+msgstr "각 바는 해당 소주제에 대해 동영상 평균 조회 숫자를 끝까지 재생한 숫자와 재생하지 않응 숫자를 구분하여 나타냅니다. 이 곳을 클릭하여 끝까지 재생하지 않은 이유에 대해 알아보세요."
 
 #: courses/templates/courses/engagement_video_course.html
 #: courses/views/__init__.py
@@ -468,9 +459,7 @@ msgid ""
 "Each bar shows the average number of complete and incomplete views for "
 "videos in that section. Click on bars with low totals or a high incomplete "
 "rate to drill down and understand why."
-msgstr ""
-"각 바는 해당 소주제에 대해 동영상 평균 조회 숫자를 끝까지 재생한 숫자와 재생하지 않응 숫자를 구분하여 나타냅니다. 끝까지 재생하지 "
-"않은 비율이 높거나 조회 수가 낮은 바를 클릭해 이유를 읽어보세요."
+msgstr "각 바는 해당 소주제에 대해 동영상 평균 조회 숫자를 끝까지 재생한 숫자와 재생하지 않응 숫자를 구분하여 나타냅니다. 끝까지 재생하지 않은 비율이 높거나 조회 수가 낮은 바를 클릭해 이유를 읽어보세요."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Total Video Views"
@@ -768,42 +757,42 @@ msgstr "지역 지표 "
 #. Translators: This string represents the number of countries where learners
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Total Countries Represented"
-msgstr "총 참여하는 국가수 "
+msgid "Total Countries or Regions Represented"
+msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Countries with at least one learner."
-msgstr "하나 이상의 학습자가 있는 국가."
+msgid "Countries or regions with at least one learner."
+msgstr ""
 
-#. Translators: This string represents the country with the greatest number of
-#. enrolled learners.
-#: courses/templates/courses/enrollment_geography.html
-msgid "Top Country by Enrollment"
-msgstr "가장 많은 학습자가 등록되어 있는 국가"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Country with the largest number of learners."
-msgstr "가장 많은 학습자가 있는 국가."
-
-#. Translators: This string represents the country with the second-greatest
+#. Translators: This string represents the country or region with the greatest
 #. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Second Country by Enrollment"
-msgstr "두번째로 많은 학습자가 등록되어 있는 국가"
+msgid "Top Country or Region by Enrollment"
+msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the second largest number of learners."
-msgstr "두번째로 많은 학습자가 있는 국가."
+msgid "Country or region with the largest number of learners."
+msgstr ""
 
-#. Translators: This string represents the country with the third-greatest
-#. number of enrolled learners.
+#. Translators: This string represents the country or region with the second-
+#. greatest number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Third Country by Enrollment"
-msgstr "세번째로 많은 학습자가 등록되어 있는 국가"
+msgid "Second Country or Region by Enrollment"
+msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the third largest number of learners."
-msgstr "세번째로 많은 학습자가 있는 국가."
+msgid "Country or region with the second largest number of learners."
+msgstr ""
+
+#. Translators: This string represents the country or region with the third-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Third Country or Region by Enrollment"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country or region with the third largest number of learners."
+msgstr ""
 
 #. Translators: This string represents the percentage of learners in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
@@ -880,9 +869,7 @@ msgstr "%(application_name)s에 처음이십니까?"
 msgid ""
 "Click Help in the upper-right corner to get more information about "
 "%(application_name)s. Send us feedback at %(email_link)s."
-msgstr ""
-"오른쪽 위 모서리에 있는 도움말 버튼을 클릭해서 %(application_name)s에 대한 더 많은 내용을 얻으십시요. 그리고 "
-"%(email_link)s으로 피드백을 보내주시기를 바랍니다. "
+msgstr "오른쪽 위 모서리에 있는 도움말 버튼을 클릭해서 %(application_name)s에 대한 더 많은 내용을 얻으십시요. 그리고 %(email_link)s으로 피드백을 보내주시기를 바랍니다. "
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
@@ -925,9 +912,7 @@ msgid ""
 "\n"
 "                %(assignment_type)s: %(policy_ratio)s%% of the grading policy\n"
 "              "
-msgstr ""
-"\n"
-"%(assignment_type)s: 성적 규정의 %(policy_ratio)s%% "
+msgstr "\n%(assignment_type)s: 성적 규정의 %(policy_ratio)s%% "
 
 #. Translators: This describes the percent of a learner's grade (e.g. 60%).
 #: courses/templates/courses/performance_graded_content.html
@@ -941,9 +926,7 @@ msgid ""
 "\n"
 "      How are learners doing on the %(type)s?\n"
 "    "
-msgstr ""
-"\n"
-"%(type)s 학습자 성과 상태"
+msgstr "\n%(type)s 학습자 성과 상태"
 
 #: courses/templates/courses/performance_graded_content_by_type.html
 msgid ""
@@ -1020,8 +1003,7 @@ msgstr "인증서를 가져오는 것을 실패했습니다. "
 msgid ""
 "There was a problem retrieving course permissions for your account. Please "
 "try again. If you continue to experience issues, please let us know."
-msgstr ""
-"귀하의 계정에서 강좌 권한을 찾는데 문제가 발생했습니다. 잠시 후에 다시 시도하세요. 만약 이 문제가 계속되면 관리자에게 연락바랍니다. "
+msgstr "귀하의 계정에서 강좌 권한을 찾는데 문제가 발생했습니다. 잠시 후에 다시 시도하세요. 만약 이 문제가 계속되면 관리자에게 연락바랍니다. "
 
 #: courses/templates/courses/permissions-retrieval-failed.html
 msgid "Try Again"
@@ -1030,58 +1012,58 @@ msgstr "다시 시도하세요."
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Activity"
-msgstr ""
+msgstr "활동"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Demographics"
-msgstr ""
+msgstr "학습자 통계"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Geography"
-msgstr ""
+msgstr "위치"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Age"
-msgstr ""
+msgstr "나이"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Education"
-msgstr ""
+msgstr "교육"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Gender"
-msgstr ""
+msgstr "성별"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Content"
-msgstr ""
+msgstr "콘텐츠"
 
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Videos"
-msgstr ""
+msgstr "동영상"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py
 msgid "Graded Content"
-msgstr ""
+msgstr "채점된 콘텐츠"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py
 msgid "Ungraded Problems"
-msgstr ""
+msgstr "채점되지 않은 문제"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py
 msgid "Learning Outcomes"
-msgstr ""
+msgstr "학습 성과"
 
 #: courses/views/__init__.py
 msgid "What are learners doing in my course?"
@@ -1117,27 +1099,27 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "All Learners"
-msgstr ""
+msgstr "전체 학습자"
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: courses/views/__init__.py
 msgid "Course ID"
-msgstr ""
+msgstr "강좌 ID"
 
 #: courses/views/__init__.py
 msgid "Course Name"
-msgstr ""
+msgstr "강좌 이름"
 
 #. Translators: 'In Progress' and 'Ended' refer to whether learners are
 #. actively using the course or it is over.
 #: courses/views/__init__.py
 msgid "In Progress"
-msgstr ""
+msgstr "진행중"
 
 #: courses/views/__init__.py
 msgid "Ended"
-msgstr ""
+msgstr "종료되어었습니다."
 
 #. Translators: This refers to a course that has not yet begun.
 #: courses/views/__init__.py
@@ -1146,7 +1128,7 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "Start Date"
-msgstr ""
+msgstr "시작일"
 
 #: courses/views/__init__.py
 msgid "End Date"
@@ -1154,19 +1136,19 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "Status"
-msgstr ""
+msgstr "상태"
 
 #: courses/views/__init__.py
 msgid "Instructor Dashboard"
-msgstr ""
+msgstr "교수자 대시보드"
 
 #: courses/views/__init__.py
 msgid "Courseware"
-msgstr ""
+msgstr "강좌 내용"
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
-msgstr ""
+msgstr "참여 내용"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
@@ -1174,33 +1156,33 @@ msgstr ""
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "학습자의 참여 자료는 %(update_date)s %(update_time)s UTC에 마지막으로 업데이트가 되었습니다."
 
 #: courses/views/engagement.py
 msgid "Engagement Videos"
-msgstr ""
+msgstr "참여 동영상"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
+msgstr "동영상 자료가  %(update_time)s UTC의 %(update_date)s에 업데이트 되었습니다."
 
 #: courses/views/engagement.py
 msgid "Looks like no one has watched any videos in these sections."
-msgstr ""
+msgstr "이 주제에서는 동영상을 아무도 시청하지 않은 것으로 보입니다. "
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Section Name"
-msgstr ""
+msgstr "주제명"
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Subsection Name"
-msgstr ""
+msgstr "소주제명"
 
 #: courses/views/engagement.py
 msgid "Video Name"
-msgstr ""
+msgstr "동영상 명"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1215,11 +1197,11 @@ msgstr ""
 #: courses/views/enrollment.py
 msgid ""
 "All above demographic data was self-reported at the time of registration."
-msgstr ""
+msgstr "학습자의 배경 정보는 가입과정에서 학습자가 스스로 입력 하였습니다. "
 
 #: courses/views/enrollment.py
 msgid "Enrollment Activity"
-msgstr ""
+msgstr "등록 활동"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1227,23 +1209,23 @@ msgstr ""
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "등록 활동 데이터는 %(update_date)s %(update_time)s UTC에 마지막으로 업데이트가 되었습니다."
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Age"
-msgstr ""
+msgstr "등록생들의 나이 통계 데이터"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Education"
-msgstr ""
+msgstr "등록생들의 최고교육과정 통계 데이터"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Gender"
-msgstr ""
+msgstr "등록생들의 성별 통계 데이터 "
 
 #: courses/views/enrollment.py
 msgid "Enrollment Geography"
-msgstr ""
+msgstr "등록생들의 지리적 위치 "
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1259,32 +1241,32 @@ msgstr ""
 msgid ""
 "Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "문제 제출 자료가 %(update_time)s UTC의 %(update_date)s에 업데이트 되었습니다."
 
 #: courses/views/performance.py
 msgid "Assignment Name"
-msgstr ""
+msgstr "과제 명"
 
 #: courses/views/performance.py
 msgid "No submissions received for these exercises."
-msgstr ""
+msgstr "연습과 관련된 제출이 없습니다."
 
 #: courses/views/performance.py
 msgid "No submissions received for these assignments."
-msgstr ""
+msgstr "과제와 관련된 제출이 없습니다."
 
 #: courses/views/performance.py
 msgid "Performance: Problem Submissions"
-msgstr ""
+msgstr "수행: 문제 제출"
 
 #: courses/views/performance.py
 #, python-format
 msgid "Graded Content: %(assignment_type)s"
-msgstr ""
+msgstr "채점된 콘텐츠: %(assignment_type)s"
 
 #: courses/views/performance.py
 msgid "Problem Name"
-msgstr ""
+msgstr "문제 이름"
 
 #: courses/views/performance.py
 #, python-format
@@ -1299,11 +1281,11 @@ msgstr ""
 
 #: settings/base.py
 msgid "Terms of Service"
-msgstr ""
+msgstr "서비스 규정"
 
 #: settings/base.py
 msgid "Privacy Policy"
-msgstr ""
+msgstr "개인정보 보호 정책"
 
 #: templates/403.html
 msgid "Access Denied"
@@ -1374,9 +1356,7 @@ msgid ""
 "We want this dashboard to work for you! Need help? "
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
-msgstr ""
-"이 대시보드에 대해 도움이 필요하다면 %(support_link_start)s강좌 운영팀에 문의%(support_link_end)s "
-"하세요. 기타 의견이 있으시다면 이메일 %(email_link)s 을 보내주세요."
+msgstr "이 대시보드에 대해 도움이 필요하다면 %(support_link_start)s강좌 운영팀에 문의%(support_link_end)s 하세요. 기타 의견이 있으시다면 이메일 %(email_link)s 을 보내주세요."
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html
