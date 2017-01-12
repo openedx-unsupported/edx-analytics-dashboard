@@ -9,7 +9,8 @@
 define(function(require) {
     'use strict';
 
-    var Backbone = require('backbone'),
+    var $ = require('jquery'),
+        Backbone = require('backbone'),
         Marionette = require('marionette'),
 
         CourseListView = require('course-list/list/views/course-list'),
@@ -57,8 +58,9 @@ define(function(require) {
                 collection.setStateFromQueryString(queryString);
                 this.options.rootView.showChildView('main', listView);
                 if (collection.isStale) {
-                    // There was a querystring sort parameter that was different from the default collection sorting, so
-                    // we have to sort the table.
+                    // There was a querystring sort parameter that was different from the current collection state, so
+                    // we have to sort and/or search the table.
+
                     // We don't just do collection.fullCollection.sort() here because we've attached custom sortValue
                     // options to the columns via Backgrid to handle null values and we must call the sort function on
                     // the Backgrid table object for those custom sortValues to have an effect.
@@ -69,6 +71,12 @@ define(function(require) {
                             .getRegion('main').currentView.table.currentView
                             .sort(collection.state.sortKey,
                                   collection.state.order === 1 ? 'descending' : 'ascending');
+
+                    if (collection.getSearchString() !== '') {
+                        listView.getRegion('controls').currentView
+                                .getRegion('search').currentView
+                                .search();
+                    }
 
                     // Not using collection.setPage() here because it appears to have a bug.
                     // This about the same as what setPage() does internally.

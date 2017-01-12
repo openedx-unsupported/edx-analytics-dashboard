@@ -256,39 +256,6 @@ $lens-nav-margin: 15px;
   }
 }
 
-.course-list {
-  margin-top: 10px;
-  margin-bottom: 15px;
-  background: white;
-
-  .course {
-    padding: 15px;
-    border: 1px solid $gray;
-    border-width: 1px 1px 0 0;
-
-    .course-name {
-      font-size: $font-size-large;
-    }
-
-    .course-key {
-      color: $edx-gray;
-    }
-  }
-
-  .integer-cell {
-    text-align: right;
-  }
-
-  .course-list-table th.sortable {
-    min-width: 100px;
-  }
-
-  .course-id {
-    color: $edx-gray;
-  }
-
-}
-
 body.view-course-list {
   #content {
     margin-top: 25px;
@@ -925,5 +892,85 @@ body.view-dashboard {
     overflow-x: auto;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     -webkit-overflow-scrolling: touch;
+  }
+}
+
+.course-list {
+  .integer-cell {
+    text-align: right;
+  }
+
+  .course-id {
+    color: $edx-gray;
+  }
+
+  .filter-padding {
+    padding-bottom: 10px;
+  }
+
+  .course-list-active-filters {
+    min-height: 43px;
+    padding-bottom: 10px;
+
+    .active-filters {
+      display: inline-block;
+    }
+  }
+
+  .section-action {
+    text-align: right;
+    padding-bottom: 5px;
+  }
+
+  th {
+
+    font-weight: 600;
+
+    a {
+      // update header colors
+      color: $text-color;
+    }
+
+    i {
+      // makes the sort icons gray
+      color: $gray;
+      display: inline;
+    }
+
+  }
+  
+  .course-list-table-controls {
+    padding-bottom: 20px;
+
+    .course-list-search {
+      .wrapper-search-input {
+        position: relative;
+
+        .clear {
+          position: absolute;
+          right: 0px;
+          top: 0px;
+          z-index: 99;
+          color: $edx-gray;
+
+          &:hover {
+            color: $edx-gray-d2;
+          }
+        }
+      }
+
+      .search {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  .backgrid-paginator {
+
+    ul {
+      // remove default padding around the paging controls
+      padding: 0;
+    }
+
   }
 }

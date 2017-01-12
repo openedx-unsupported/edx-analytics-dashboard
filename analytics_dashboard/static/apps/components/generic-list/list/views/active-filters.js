@@ -19,18 +19,28 @@ define(function(require) {
 
         initialize: function(options) {
             this.options = options || {};
-            this.listenTo(this.options.collection, 'sync', this.render);
+            if (this.options.mode === 'client') {
+                this.listenTo(this.options.collection, 'backgrid:refresh', this.render);
+            } else {
+                this.listenTo(this.options.collection, 'sync', this.render);
+            }
         },
 
         getFormattedActiveFilters: function(activeFilters) {
-            return _.mapObject(activeFilters, function(filterVal, filterKey) {
+            return _.mapObject(activeFilters, _.bind(function(filterVal, filterKey) {
                 var formattedFilterVal = (filterKey === 'text_search') ?
                     '"' + filterVal + '"' : filterVal.charAt(0).toUpperCase() + filterVal.slice(1),
                     filterDisplayName = this.options.collection.filterDisplayName(filterKey);
-                return {
-                    displayName: filterDisplayName + ': ' + formattedFilterVal
-                };
-            });
+                if (filterDisplayName !== '') {
+                    return {
+                        displayName: filterDisplayName + ': ' + formattedFilterVal
+                    };
+                } else {
+                    return {
+                        displayName: formattedFilterVal
+                    };
+                }
+            }, this));
         },
 
         templateHelpers: function() {
@@ -57,12 +67,17 @@ define(function(require) {
             filterKey = $(event.currentTarget).data('filter-key');
             this.options.collection.unsetFilterField(filterKey);
             this.options.collection.refresh();
+            // Send a signal to the course-list view (it bubbles up) so that other controls recieve the state update
+            this.$el.trigger('clearFilter', filterKey);
         },
 
         clearAllFilters: function(event) {
+            var filterKeys = this.options.collection.getActiveFilterFields(true);
             event.preventDefault();
             this.options.collection.unsetAllFilterFields();
             this.options.collection.refresh();
+            // Send a signal to the course-list view (it bubbles up) so that other controls recieve the state update
+            this.$el.trigger('clearAllFilters', filterKeys);
         }
     });
 

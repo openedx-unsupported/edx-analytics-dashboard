@@ -1,0 +1,22 @@
+<div class="input-group">
+    <div class="wrapper-search-input">
+        <label for="search-course-list" class="hidden"><%- labelText %></label>
+        <input id="search-course-list"
+            class="form-control"
+            type="search"
+            <% if (placeholder) { %> placeholder="<%- placeholder %>" <% } %>
+            name="<%- name %>"
+            <% if (value) { %> value="<%- value %>" <% } %>
+        />
+        <button type="button" class="clear btn" data-backgrid-action="clear">
+            <span class="fa fa-times" aria-hidden="true"></span>
+            <span class="sr-only"><%- clearSearchText %></span>
+        </button>
+    </div>
+    <span class="input-group-btn">
+        <button type="button" class="search btn btn-primary">
+            <span class="fa fa-search" aria-hidden="true"></span>
+            <span class="sr-only"><%- executeSearchText %></span>
+        </button>
+    </span>
+</div>
