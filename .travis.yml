@@ -8,7 +8,7 @@ services:
 
 env:
   # Make sure to update this string on every Insights or Data API release
-  DATA_API_VERSION: "0.20.0-rc.3"
+  DATA_API_VERSION: "0.20.1-rc.3"
   DOCKER_COMPOSE_VERSION: "1.9.0"
 
 before_install:
@@ -31,6 +31,10 @@ after_success:
     - pip install -U codecov
     - docker exec insights_testing /edx/app/insights/edx_analytics_dashboard/.travis/run_coverage.sh
     - codecov
+
+after_failure:
+    # Print the list of running containers to rule out a killed container as a cause of failure
+    - docker ps
 
 deploy:
     - provider: s3

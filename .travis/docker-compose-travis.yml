@@ -3,7 +3,7 @@ version: "2.1"
 services:
   es:
     image: elasticsearch:1.5.2
-  analytics_api:
+  analyticsapi:
     image: edxops/analytics_api:${DATA_API_VERSION:-latest}
     container_name: analytics_api
     environment:
@@ -23,7 +23,7 @@ services:
       TRAVIS_PULL_REQUEST:
       DATADOG_API_KEY:
       # Rest of the environment variables for testing.
-      API_SERVER_URL: http://analytics_api/api/v0
+      API_SERVER_URL: http://analyticsapi/api/v0
       API_AUTH_TOKEN: edx
       LMS_HOSTNAME: lms
       LMS_PASSWORD: pass
@@ -34,4 +34,4 @@ services:
       DISPLAY_LEARNER_ANALYTICS: "True"
     depends_on:
       - "es"
-      - "analytics_api"
+      - "analyticsapi"
