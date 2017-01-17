@@ -1,15 +1,15 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Od-Erdene <oderdene.ch@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-27 15:58-0500\n"
-"PO-Revision-Date: 2016-12-27 20:59+0000\n"
+"POT-Creation-Date: 2016-12-27 17:00-0500\n"
+"PO-Revision-Date: 2016-12-27 22:02+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Mongolian (http://www.transifex.com/open-edx/edx-platform/language/mn/)\n"
 "MIME-Version: 1.0\n"
@@ -119,17 +119,17 @@ msgstr ""
 
 #: courses/presenters/enrollment.py
 msgid "Female"
-msgstr ""
+msgstr "Эмэгтэй"
 
 #: courses/presenters/enrollment.py
 msgid "Male"
-msgstr ""
+msgstr "Эрэгтэй"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Other"
-msgstr ""
+msgstr "Бусад"
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
@@ -140,7 +140,7 @@ msgstr ""
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "None"
-msgstr ""
+msgstr "Хоосон"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
@@ -746,41 +746,41 @@ msgstr ""
 #. Translators: This string represents the number of countries where learners
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Total Countries Represented"
+msgid "Total Countries or Regions Represented"
 msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Countries with at least one learner."
+msgid "Countries or regions with at least one learner."
 msgstr ""
 
-#. Translators: This string represents the country with the greatest number of
-#. enrolled learners.
-#: courses/templates/courses/enrollment_geography.html
-msgid "Top Country by Enrollment"
-msgstr ""
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Country with the largest number of learners."
-msgstr ""
-
-#. Translators: This string represents the country with the second-greatest
+#. Translators: This string represents the country or region with the greatest
 #. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Second Country by Enrollment"
+msgid "Top Country or Region by Enrollment"
 msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the second largest number of learners."
+msgid "Country or region with the largest number of learners."
 msgstr ""
 
-#. Translators: This string represents the country with the third-greatest
-#. number of enrolled learners.
+#. Translators: This string represents the country or region with the second-
+#. greatest number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Third Country by Enrollment"
+msgid "Second Country or Region by Enrollment"
 msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the third largest number of learners."
+msgid "Country or region with the second largest number of learners."
+msgstr ""
+
+#. Translators: This string represents the country or region with the third-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Third Country or Region by Enrollment"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country or region with the third largest number of learners."
 msgstr ""
 
 #. Translators: This string represents the percentage of learners in a course.
@@ -1026,7 +1026,7 @@ msgstr ""
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Gender"
-msgstr ""
+msgstr "Хүйс"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
@@ -1094,11 +1094,11 @@ msgstr ""
 #. identifies the course
 #: courses/views/__init__.py
 msgid "Course ID"
-msgstr ""
+msgstr "Хичээлийн АйДи"
 
 #: courses/views/__init__.py
 msgid "Course Name"
-msgstr ""
+msgstr "Хичээлийн нэр"
 
 #. Translators: 'In Progress' and 'Ended' refer to whether learners are
 #. actively using the course or it is over.
@@ -1117,7 +1117,7 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "Start Date"
-msgstr ""
+msgstr "Эхлэх хугацаа"
 
 #: courses/views/__init__.py
 msgid "End Date"
@@ -1125,15 +1125,15 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "Status"
-msgstr ""
+msgstr "Статус "
 
 #: courses/views/__init__.py
 msgid "Instructor Dashboard"
-msgstr ""
+msgstr "Багшийн Хяналтын самбар "
 
 #: courses/views/__init__.py
 msgid "Courseware"
-msgstr ""
+msgstr "Хичээлийн тухай"
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
@@ -1255,7 +1255,7 @@ msgstr ""
 
 #: courses/views/performance.py
 msgid "Problem Name"
-msgstr ""
+msgstr "Асуудлын Нэр "
 
 #: courses/views/performance.py
 #, python-format
@@ -1270,11 +1270,11 @@ msgstr ""
 
 #: settings/base.py
 msgid "Terms of Service"
-msgstr ""
+msgstr "Үйлчилгээний нөхцөл"
 
 #: settings/base.py
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Нууцлалын бодлого"
 
 #: templates/403.html
 msgid "Access Denied"

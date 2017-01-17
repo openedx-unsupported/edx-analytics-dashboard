@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # amelia gircsis <amelia_gircsis@yahoo.com>, 2016
 # Dragos Ardeleanu <office@itc-media.com>, 2014
@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-27 15:58-0500\n"
-"PO-Revision-Date: 2016-12-27 20:59+0000\n"
+"POT-Creation-Date: 2016-12-27 17:00-0500\n"
+"PO-Revision-Date: 2016-12-27 22:02+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Romanian (http://www.transifex.com/open-edx/edx-platform/language/ro/)\n"
 "MIME-Version: 1.0\n"
@@ -31,8 +31,7 @@ msgstr "Autentificare"
 
 #: core/templates/core/landing.html
 msgid "Insights to help course teams improve courses."
-msgstr ""
-"Perspective pentru a ajuta echipele de curs să îmbunătăţească cursurile. "
+msgstr "Perspective pentru a ajuta echipele de curs să îmbunătăţească cursurile. "
 
 #: core/templates/core/landing.html courses/views/__init__.py
 msgid "Who are my learners?"
@@ -85,9 +84,7 @@ msgstr "Alătură-te Comunităţii Open Source."
 msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr ""
-"Conducta de date analitice edX şi perspectivele edX sunt “open "
-"source“%(link_start)sÎnvaţă mai mult%(link_end)s.   "
+msgstr "Conducta de date analitice edX şi perspectivele edX sunt “open source“%(link_start)sÎnvaţă mai mult%(link_end)s.   "
 
 #: core/templates/core/landing.html
 msgid "Research at edX"
@@ -125,75 +122,75 @@ msgstr ""
 
 #: courses/presenters/enrollment.py
 msgid "Female"
-msgstr ""
+msgstr "Feminin"
 
 #: courses/presenters/enrollment.py
 msgid "Male"
-msgstr ""
+msgstr "Masculin"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Other"
-msgstr ""
+msgstr "Altele"
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Unknown"
-msgstr ""
+msgstr "Necunoscut"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "None"
-msgstr ""
+msgstr "Nimic"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
 #: courses/presenters/enrollment.py courses/tests/test_serializers.py
 msgid "Primary"
-msgstr ""
+msgstr "Principal"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: courses/presenters/enrollment.py
 msgid "Middle"
-msgstr ""
+msgstr "Mijloc"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Secondary"
-msgstr ""
+msgstr "Secundar"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Associate"
-msgstr ""
+msgstr "Asociat"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Bachelor's"
-msgstr ""
+msgstr "Licenţă"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Master's"
-msgstr ""
+msgstr "Master"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Doctorate"
-msgstr ""
+msgstr "Doctorat"
 
 #. Translators: This is a placeholder for enrollment data collected without a
 #. known geolocation.
 #: courses/presenters/enrollment.py
 msgid "Unknown Country"
-msgstr ""
+msgstr "Țară neidentificată"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/presenters/performance.py
@@ -752,41 +749,41 @@ msgstr ""
 #. Translators: This string represents the number of countries where learners
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Total Countries Represented"
-msgstr "Total țări reprezentate"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Countries with at least one learner."
-msgstr ""
-
-#. Translators: This string represents the country with the greatest number of
-#. enrolled learners.
-#: courses/templates/courses/enrollment_geography.html
-msgid "Top Country by Enrollment"
+msgid "Total Countries or Regions Represented"
 msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the largest number of learners."
+msgid "Countries or regions with at least one learner."
 msgstr ""
 
-#. Translators: This string represents the country with the second-greatest
+#. Translators: This string represents the country or region with the greatest
 #. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Second Country by Enrollment"
+msgid "Top Country or Region by Enrollment"
 msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the second largest number of learners."
+msgid "Country or region with the largest number of learners."
 msgstr ""
 
-#. Translators: This string represents the country with the third-greatest
-#. number of enrolled learners.
+#. Translators: This string represents the country or region with the second-
+#. greatest number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Third Country by Enrollment"
+msgid "Second Country or Region by Enrollment"
 msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the third largest number of learners."
+msgid "Country or region with the second largest number of learners."
+msgstr ""
+
+#. Translators: This string represents the country or region with the third-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Third Country or Region by Enrollment"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country or region with the third largest number of learners."
 msgstr ""
 
 #. Translators: This string represents the percentage of learners in a course.
@@ -1007,43 +1004,43 @@ msgstr "Încearcă iar"
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Activity"
-msgstr ""
+msgstr "Activitate"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Demographics"
-msgstr ""
+msgstr "Demografice"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Geography"
-msgstr ""
+msgstr "Geografie"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Age"
-msgstr ""
+msgstr "Vârstă"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Education"
-msgstr ""
+msgstr "Educație"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Gender"
-msgstr ""
+msgstr "Genul"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Content"
-msgstr ""
+msgstr "Conţinut"
 
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Videos"
-msgstr ""
+msgstr "Video-uri"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py
@@ -1104,13 +1101,13 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "Course Name"
-msgstr ""
+msgstr "Numele cursului"
 
 #. Translators: 'In Progress' and 'Ended' refer to whether learners are
 #. actively using the course or it is over.
 #: courses/views/__init__.py
 msgid "In Progress"
-msgstr ""
+msgstr "În Progres"
 
 #: courses/views/__init__.py
 msgid "Ended"
@@ -1131,7 +1128,7 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: courses/views/__init__.py
 msgid "Instructor Dashboard"
@@ -1139,11 +1136,11 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "Courseware"
-msgstr ""
+msgstr "Materiale curs"
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
-msgstr ""
+msgstr "Angajament de conţinut"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
@@ -1196,7 +1193,7 @@ msgstr ""
 
 #: courses/views/enrollment.py
 msgid "Enrollment Activity"
-msgstr ""
+msgstr "Activitate de înscriere"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1220,7 +1217,7 @@ msgstr ""
 
 #: courses/views/enrollment.py
 msgid "Enrollment Geography"
-msgstr ""
+msgstr "Înscriere geografică"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1261,7 +1258,7 @@ msgstr ""
 
 #: courses/views/performance.py
 msgid "Problem Name"
-msgstr ""
+msgstr "Numele problemei"
 
 #: courses/views/performance.py
 #, python-format
@@ -1276,11 +1273,11 @@ msgstr ""
 
 #: settings/base.py
 msgid "Terms of Service"
-msgstr ""
+msgstr "Termenii de serviciu"
 
 #: settings/base.py
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Polița de intimite"
 
 #: templates/403.html
 msgid "Access Denied"

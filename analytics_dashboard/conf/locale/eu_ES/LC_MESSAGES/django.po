@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Abel <abelcama@gmail.com>, 2015
 # Abel <abelcama@gmail.com>, 2015
@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-27 15:58-0500\n"
-"PO-Revision-Date: 2016-12-27 20:59+0000\n"
+"POT-Creation-Date: 2016-12-27 17:00-0500\n"
+"PO-Revision-Date: 2016-12-27 22:02+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Basque (Spain) (http://www.transifex.com/open-edx/edx-platform/language/eu_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -111,7 +111,7 @@ msgstr ""
 #: core/templatetags/dashboard_extras.py
 #, python-brace-format
 msgid "{statistic}%"
-msgstr ""
+msgstr "{statistic}%"
 
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: courses/presenters/engagement.py
@@ -121,45 +121,45 @@ msgstr ""
 
 #: courses/presenters/enrollment.py
 msgid "Female"
-msgstr ""
+msgstr "Emakumezkoa"
 
 #: courses/presenters/enrollment.py
 msgid "Male"
-msgstr ""
+msgstr "Gizonezkoa"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Other"
-msgstr ""
+msgstr "Bestelako bat"
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Unknown"
-msgstr ""
+msgstr "Ezezaguna"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "None"
-msgstr ""
+msgstr "Bat ere ez"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
 #: courses/presenters/enrollment.py courses/tests/test_serializers.py
 msgid "Primary"
-msgstr ""
+msgstr "Lehen hezkuntza"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: courses/presenters/enrollment.py
 msgid "Middle"
-msgstr ""
+msgstr "Erdia"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Secondary"
-msgstr ""
+msgstr "Bigarren Hezkuntza"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
@@ -171,25 +171,25 @@ msgstr ""
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Bachelor's"
-msgstr ""
+msgstr "Lizentzia"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Master's"
-msgstr ""
+msgstr "Masterra"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Doctorate"
-msgstr ""
+msgstr "Doktoregoa"
 
 #. Translators: This is a placeholder for enrollment data collected without a
 #. known geolocation.
 #: courses/presenters/enrollment.py
 msgid "Unknown Country"
-msgstr ""
+msgstr "Herrialde ezezaguna"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/presenters/performance.py
@@ -200,32 +200,32 @@ msgstr "Bidalketak"
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Submissions for Part {part_number}: {part_description}"
-msgstr ""
+msgstr "{part_number} atalerako bidalkeatk: {part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Part {part_number}: {part_description}"
-msgstr ""
+msgstr "{part_number} atala: {part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Submissions: {part_description}"
-msgstr ""
+msgstr "Bidalketak: {part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "{part_description}"
-msgstr ""
+msgstr "{part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Submissions for Part {part_number}"
-msgstr ""
+msgstr "Bidalketak atal honetarako: {part_number}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Part {part_number}"
-msgstr ""
+msgstr "Atala {part_number}"
 
 #: courses/templates/courses/_base_content_nav.html
 #, python-format
@@ -248,10 +248,7 @@ msgid ""
 "\n"
 "        Select %(level)s\n"
 "    "
-msgstr ""
-"\n"
-"        Aukeratu %(level)s\n"
-"    "
+msgstr "\n        Aukeratu %(level)s\n    "
 
 #: courses/templates/courses/_graded_content_nav.html
 #: courses/templates/courses/_tags_content_nav.html
@@ -431,10 +428,7 @@ msgid ""
 "Each bar shows the average number of complete and incomplete views for "
 "videos in that subsection. Click on bars with low totals or a high "
 "incomplete rate to drill down and understand why."
-msgstr ""
-"Barra bakoitzak azpiatal honetako bideoak osorik eta zatika zenbat aldiz "
-"ikusi diren erakusten du. Sakatu denerako txikia edo zatikako altua duten "
-"barrei zer gertatu den eta zergatik jakiteko."
+msgstr "Barra bakoitzak azpiatal honetako bideoak osorik eta zatika zenbat aldiz ikusi diren erakusten du. Sakatu denerako txikia edo zatikako altua duten barrei zer gertatu den eta zergatik jakiteko."
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did learners interact with videos in this subsection?"
@@ -456,10 +450,7 @@ msgid ""
 "Each bar shows the average number of complete and incomplete views for "
 "videos in that section. Click on bars with low totals or a high incomplete "
 "rate to drill down and understand why."
-msgstr ""
-"Barra bakoitzak atal honetako bideoak osorik eta zatika zenbat aldiz ikusi "
-"diren erakusten du. Sakatu denerako txikia edo zatikako altua duten barrei "
-"zer gertatu den eta zergatik jakiteko."
+msgstr "Barra bakoitzak atal honetako bideoak osorik eta zatika zenbat aldiz ikusi diren erakusten du. Sakatu denerako txikia edo zatikako altua duten barrei zer gertatu den eta zergatik jakiteko."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Total Video Views"
@@ -757,41 +748,41 @@ msgstr ""
 #. Translators: This string represents the number of countries where learners
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Total Countries Represented"
+msgid "Total Countries or Regions Represented"
 msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Countries with at least one learner."
+msgid "Countries or regions with at least one learner."
 msgstr ""
 
-#. Translators: This string represents the country with the greatest number of
-#. enrolled learners.
-#: courses/templates/courses/enrollment_geography.html
-msgid "Top Country by Enrollment"
-msgstr ""
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Country with the largest number of learners."
-msgstr ""
-
-#. Translators: This string represents the country with the second-greatest
+#. Translators: This string represents the country or region with the greatest
 #. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Second Country by Enrollment"
+msgid "Top Country or Region by Enrollment"
 msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the second largest number of learners."
+msgid "Country or region with the largest number of learners."
 msgstr ""
 
-#. Translators: This string represents the country with the third-greatest
-#. number of enrolled learners.
+#. Translators: This string represents the country or region with the second-
+#. greatest number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Third Country by Enrollment"
+msgid "Second Country or Region by Enrollment"
 msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the third largest number of learners."
+msgid "Country or region with the second largest number of learners."
+msgstr ""
+
+#. Translators: This string represents the country or region with the third-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Third Country or Region by Enrollment"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country or region with the third largest number of learners."
 msgstr ""
 
 #. Translators: This string represents the percentage of learners in a course.
@@ -1012,43 +1003,43 @@ msgstr "Saiatu berriz"
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Activity"
-msgstr ""
+msgstr "Jarduera"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Demographics"
-msgstr ""
+msgstr "Demografia"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Geography"
-msgstr ""
+msgstr "Geografia"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Age"
-msgstr ""
+msgstr "Adina"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Education"
-msgstr ""
+msgstr "Hezkuntza"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Gender"
-msgstr ""
+msgstr "Sexua"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Content"
-msgstr ""
+msgstr "Edukia"
 
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Videos"
-msgstr ""
+msgstr "Bideoak"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py
@@ -1105,17 +1096,17 @@ msgstr ""
 #. identifies the course
 #: courses/views/__init__.py
 msgid "Course ID"
-msgstr ""
+msgstr "Ikastaroaren IDa"
 
 #: courses/views/__init__.py
 msgid "Course Name"
-msgstr ""
+msgstr "Ikastaroaren izena"
 
 #. Translators: 'In Progress' and 'Ended' refer to whether learners are
 #. actively using the course or it is over.
 #: courses/views/__init__.py
 msgid "In Progress"
-msgstr ""
+msgstr "Lanean"
 
 #: courses/views/__init__.py
 msgid "Ended"
@@ -1124,31 +1115,31 @@ msgstr ""
 #. Translators: This refers to a course that has not yet begun.
 #: courses/views/__init__.py
 msgid "Not Started Yet"
-msgstr ""
+msgstr "Oraindik hasi gabea"
 
 #: courses/views/__init__.py
 msgid "Start Date"
-msgstr ""
+msgstr "Hasiera-data"
 
 #: courses/views/__init__.py
 msgid "End Date"
-msgstr ""
+msgstr "Amaiera-data"
 
 #: courses/views/__init__.py
 msgid "Status"
-msgstr ""
+msgstr "Egoera"
 
 #: courses/views/__init__.py
 msgid "Instructor Dashboard"
-msgstr ""
+msgstr "Irakaslearen aginte-panela"
 
 #: courses/views/__init__.py
 msgid "Courseware"
-msgstr ""
+msgstr "Ikasgunea"
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
-msgstr ""
+msgstr "Jarduna edukietan"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
@@ -1156,11 +1147,11 @@ msgstr ""
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Ikastaroko jardunaren azken eguneraketa %(update_date)s egunean izan zen %(update_time)s UTC orduan."
 
 #: courses/views/engagement.py
 msgid "Engagement Videos"
-msgstr ""
+msgstr "Jarduna bideoetan"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
@@ -1174,15 +1165,15 @@ msgstr ""
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Section Name"
-msgstr ""
+msgstr "Atalaren izena"
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Subsection Name"
-msgstr ""
+msgstr "Azpiatalaren izena"
 
 #: courses/views/engagement.py
 msgid "Video Name"
-msgstr ""
+msgstr "Bideoaren izena"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1245,7 +1236,7 @@ msgstr ""
 
 #: courses/views/performance.py
 msgid "Assignment Name"
-msgstr ""
+msgstr "Zereginaren izena"
 
 #: courses/views/performance.py
 msgid "No submissions received for these exercises."
@@ -1266,7 +1257,7 @@ msgstr ""
 
 #: courses/views/performance.py
 msgid "Problem Name"
-msgstr ""
+msgstr "Ariketaren izena"
 
 #: courses/views/performance.py
 #, python-format
@@ -1281,11 +1272,11 @@ msgstr ""
 
 #: settings/base.py
 msgid "Terms of Service"
-msgstr ""
+msgstr "Zerbitzu-baldintzak"
 
 #: settings/base.py
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Pribatutasun-politika"
 
 #: templates/403.html
 msgid "Access Denied"
@@ -1324,9 +1315,7 @@ msgstr ""
 
 #: templates/503.html
 msgid "We're having trouble loading this page. Please try again in a minute."
-msgstr ""
-"Hainbat arazo ditugu orri hau igotzeko. Mesedez, saiatu berriz minutu bat "
-"barru."
+msgstr "Hainbat arazo ditugu orri hau igotzeko. Mesedez, saiatu berriz minutu bat barru."
 
 #: templates/503.html
 msgid "(Technical details: 503 Service Unavailable.)"

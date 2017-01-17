@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Adam Banasiak <inactive+adamba@transifex.com>, 2014-2015
 # Adam Banasiak <adam@cku.elblag.pl>, 2015
@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-27 15:58-0500\n"
-"PO-Revision-Date: 2016-12-27 20:59+0000\n"
+"POT-Creation-Date: 2016-12-27 17:00-0500\n"
+"PO-Revision-Date: 2017-01-10 13:04+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Polish (http://www.transifex.com/open-edx/edx-platform/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -116,7 +116,7 @@ msgstr ""
 #: core/templatetags/dashboard_extras.py
 #, python-brace-format
 msgid "{statistic}%"
-msgstr ""
+msgstr "{statistic}%"
 
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: courses/presenters/engagement.py
@@ -126,75 +126,75 @@ msgstr ""
 
 #: courses/presenters/enrollment.py
 msgid "Female"
-msgstr ""
+msgstr "Kobieta"
 
 #: courses/presenters/enrollment.py
 msgid "Male"
-msgstr ""
+msgstr "Mężczyzna"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Other"
-msgstr ""
+msgstr "Inne"
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Unknown"
-msgstr ""
+msgstr "Nieznany"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "None"
-msgstr ""
+msgstr "Wcale"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
 #: courses/presenters/enrollment.py courses/tests/test_serializers.py
 msgid "Primary"
-msgstr ""
+msgstr "Podstawowe"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: courses/presenters/enrollment.py
 msgid "Middle"
-msgstr ""
+msgstr "Wypośrodkuj"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Secondary"
-msgstr ""
+msgstr "Średnie"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Associate"
-msgstr ""
+msgstr "Policealne"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Bachelor's"
-msgstr ""
+msgstr "Licencjat"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Master's"
-msgstr ""
+msgstr "Magisterium"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Doctorate"
-msgstr ""
+msgstr "Doktor"
 
 #. Translators: This is a placeholder for enrollment data collected without a
 #. known geolocation.
 #: courses/presenters/enrollment.py
 msgid "Unknown Country"
-msgstr ""
+msgstr "Kraj nieznany"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/presenters/performance.py
@@ -753,41 +753,41 @@ msgstr "Dane geograficzne"
 #. Translators: This string represents the number of countries where learners
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Total Countries Represented"
-msgstr "Suma krajów"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Countries with at least one learner."
+msgid "Total Countries or Regions Represented"
 msgstr ""
 
-#. Translators: This string represents the country with the greatest number of
-#. enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Top Country by Enrollment"
-msgstr "Czołowy krajów wg liczby studentów"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Country with the largest number of learners."
+msgid "Countries or regions with at least one learner."
 msgstr ""
 
-#. Translators: This string represents the country with the second-greatest
+#. Translators: This string represents the country or region with the greatest
 #. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Second Country by Enrollment"
-msgstr "Drugi kraj o największej liczbie studentów"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Country with the second largest number of learners."
+msgid "Top Country or Region by Enrollment"
 msgstr ""
 
-#. Translators: This string represents the country with the third-greatest
-#. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Third Country by Enrollment"
-msgstr "Trzeci kraj o największej liczbie studentów"
+msgid "Country or region with the largest number of learners."
+msgstr ""
+
+#. Translators: This string represents the country or region with the second-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Second Country or Region by Enrollment"
+msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the third largest number of learners."
+msgid "Country or region with the second largest number of learners."
+msgstr ""
+
+#. Translators: This string represents the country or region with the third-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Third Country or Region by Enrollment"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country or region with the third largest number of learners."
 msgstr ""
 
 #. Translators: This string represents the percentage of learners in a course.
@@ -1008,43 +1008,43 @@ msgstr "Spróbuj ponownie"
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Activity"
-msgstr ""
+msgstr "Aktywność"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Demographics"
-msgstr ""
+msgstr "Demografia"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Geography"
-msgstr ""
+msgstr "Geografia"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Age"
-msgstr ""
+msgstr "Wiek"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Education"
-msgstr ""
+msgstr "Edukacja"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Gender"
-msgstr ""
+msgstr "Płeć"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Content"
-msgstr ""
+msgstr "Treść"
 
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Videos"
-msgstr ""
+msgstr "Filmów"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py
@@ -1059,7 +1059,7 @@ msgstr ""
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py
 msgid "Learning Outcomes"
-msgstr ""
+msgstr "Cele nauki"
 
 #: courses/views/__init__.py
 msgid "What are learners doing in my course?"
@@ -1095,23 +1095,23 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "All Learners"
-msgstr ""
+msgstr "Wszyscy studenci"
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: courses/views/__init__.py
 msgid "Course ID"
-msgstr ""
+msgstr "ID kursu"
 
 #: courses/views/__init__.py
 msgid "Course Name"
-msgstr ""
+msgstr "Nazwa kursu"
 
 #. Translators: 'In Progress' and 'Ended' refer to whether learners are
 #. actively using the course or it is over.
 #: courses/views/__init__.py
 msgid "In Progress"
-msgstr ""
+msgstr "W trakcie"
 
 #: courses/views/__init__.py
 msgid "Ended"
@@ -1124,7 +1124,7 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "Start Date"
-msgstr ""
+msgstr "Data rozpoczęcia"
 
 #: courses/views/__init__.py
 msgid "End Date"
@@ -1132,15 +1132,15 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "Status"
-msgstr ""
+msgstr "Stan"
 
 #: courses/views/__init__.py
 msgid "Instructor Dashboard"
-msgstr ""
+msgstr "Panel instruktora"
 
 #: courses/views/__init__.py
 msgid "Courseware"
-msgstr ""
+msgstr "Materiały szkoleniowe"
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
@@ -1170,11 +1170,11 @@ msgstr ""
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Section Name"
-msgstr ""
+msgstr "Nazwa sekcj"
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Subsection Name"
-msgstr ""
+msgstr "Nazwa podsekcji"
 
 #: courses/views/engagement.py
 msgid "Video Name"
@@ -1197,7 +1197,7 @@ msgstr ""
 
 #: courses/views/enrollment.py
 msgid "Enrollment Activity"
-msgstr ""
+msgstr "Aktywność rekrutacyjna"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1205,7 +1205,7 @@ msgstr ""
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "Dane dotyczące aktywności zapisów zostały zaktualizowane %(update_date)s o %(update_time)s UTC."
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Age"
@@ -1221,7 +1221,7 @@ msgstr ""
 
 #: courses/views/enrollment.py
 msgid "Enrollment Geography"
-msgstr ""
+msgstr "Geografia rekrutacji"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1241,15 +1241,15 @@ msgstr ""
 
 #: courses/views/performance.py
 msgid "Assignment Name"
-msgstr ""
+msgstr "Nazwa zadania"
 
 #: courses/views/performance.py
 msgid "No submissions received for these exercises."
-msgstr ""
+msgstr "Nie otrzymano żadnych zgłoszeń odnośnie tych ćwiczeń."
 
 #: courses/views/performance.py
 msgid "No submissions received for these assignments."
-msgstr ""
+msgstr "Nie otrzymano żadnych zgłoszeń odnośnie tych zadań."
 
 #: courses/views/performance.py
 msgid "Performance: Problem Submissions"
@@ -1262,7 +1262,7 @@ msgstr ""
 
 #: courses/views/performance.py
 msgid "Problem Name"
-msgstr ""
+msgstr "Nazwa ćwiczenia"
 
 #: courses/views/performance.py
 #, python-format
@@ -1277,11 +1277,11 @@ msgstr ""
 
 #: settings/base.py
 msgid "Terms of Service"
-msgstr ""
+msgstr "Warunki korzystania z Serwisu"
 
 #: settings/base.py
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Polityka prywatności"
 
 #: templates/403.html
 msgid "Access Denied"
@@ -1292,10 +1292,7 @@ msgid ""
 "You do not have permission to view this page. If you believe you should have"
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
-msgstr ""
-"Nie posiadasz uprawnień, by wyświetlić tą stronę. Jeśli uważasz, że "
-"powinieneś mieć dostęp do tej strony, spróbuj wylogować się i zalogować "
-"ponownie by odświeżyć twoje uprawnienia."
+msgstr "Nie posiadasz uprawnień, by wyświetlić tą stronę. Jeśli uważasz, że powinieneś mieć dostęp do tej strony, spróbuj wylogować się i zalogować ponownie by odświeżyć twoje uprawnienia."
 
 #: templates/403.html
 msgid "Logout then Login"
@@ -1309,9 +1306,7 @@ msgstr "Strony nie znaleziono"
 msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
-msgstr ""
-"Nie możemy znaleźć strony, której szukasz. Upewnij się, że URL jest "
-"prawidłowy, a jeśli nie, spróbuj ponownie."
+msgstr "Nie możemy znaleźć strony, której szukasz. Upewnij się, że URL jest prawidłowy, a jeśli nie, spróbuj ponownie."
 
 #: templates/500.html
 msgid "An Error Occurred"
@@ -1321,9 +1316,7 @@ msgstr "Wystapił błąd"
 msgid ""
 "Our servers weren't able to complete your request. Please try again by "
 "refreshing this page or retracing your steps."
-msgstr ""
-"Nasz serwery nie były w stanie wypełnić twojego zlecenia. Spróbuj ponownie, "
-"odświeżając tą stronę lub powtarzając poprzednie kroki."
+msgstr "Nasz serwery nie były w stanie wypełnić twojego zlecenia. Spróbuj ponownie, odświeżając tą stronę lub powtarzając poprzednie kroki."
 
 #: templates/503.html
 msgid "We're having trouble loading this page. Please try again in a minute."
@@ -1339,8 +1332,7 @@ msgstr "Zamknij"
 
 #: templates/base-error.html
 msgid "Use our support tool to ask questions or share feedback."
-msgstr ""
-"Użyj naszego narzędzia pomocy, aby zadać pytanie lub podzielić się opinią."
+msgstr "Użyj naszego narzędzia pomocy, aby zadać pytanie lub podzielić się opinią."
 
 #. Translators: This intention here is that a user clicks a button to contact
 #. a support group (e.g. edX Support, or MITx Support). Reorder the

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # adem ÖZGÜR <admozgur@gmail.com>, 2015
 # ali selek <aliselek01@gmail.com>, 2015
@@ -20,8 +20,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-27 15:58-0500\n"
-"PO-Revision-Date: 2016-12-27 20:59+0000\n"
+"POT-Creation-Date: 2016-12-27 17:00-0500\n"
+"PO-Revision-Date: 2016-12-27 22:02+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/open-edx/edx-platform/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -40,9 +40,7 @@ msgstr "Giriş"
 
 #: core/templates/core/landing.html
 msgid "Insights to help course teams improve courses."
-msgstr ""
-"Ders geliştirici ekiplerin daha iyi sonuçlar elde edebilmeleri için "
-"öneriler."
+msgstr "Ders geliştirici ekiplerin daha iyi sonuçlar elde edebilmeleri için öneriler."
 
 #: core/templates/core/landing.html courses/views/__init__.py
 msgid "Who are my learners?"
@@ -95,9 +93,7 @@ msgstr "Açık Kaynak Topluluğuna Katıl"
 msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr ""
-"The edX analiz ver hattı ve edX Insights açık kaynaktır. %(link_start)sDaha "
-"fazlası%(link_end)s."
+msgstr "The edX analiz ver hattı ve edX Insights açık kaynaktır. %(link_start)sDaha fazlası%(link_end)s."
 
 #: core/templates/core/landing.html
 msgid "Research at edX"
@@ -108,9 +104,7 @@ msgstr "edX'de araştır"
 msgid ""
 "We are committed to advancing teaching and learning through research. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr ""
-"Araştırmaya dayalı ileri eğitim ve öğretimde karalıyız. %(link_start)sDaha "
-"fazlası%(link_end)s."
+msgstr "Araştırmaya dayalı ileri eğitim ve öğretimde karalıyız. %(link_start)sDaha fazlası%(link_end)s."
 
 #: core/templates/core/landing.html
 msgid "Need Help?"
@@ -120,16 +114,14 @@ msgstr "Yardım ister misiniz?"
 #, python-format
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
-msgstr ""
-"%(link_start)sDestek merkezimiz%(link_end)s çözüm bulmanıza yardımcı "
-"olabilir."
+msgstr "%(link_start)sDestek merkezimiz%(link_end)s çözüm bulmanıza yardımcı olabilir."
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
 #: core/templatetags/dashboard_extras.py
 #, python-brace-format
 msgid "{statistic}%"
-msgstr ""
+msgstr "{statistic}%"
 
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: courses/presenters/engagement.py
@@ -139,75 +131,75 @@ msgstr ""
 
 #: courses/presenters/enrollment.py
 msgid "Female"
-msgstr ""
+msgstr "Kadın"
 
 #: courses/presenters/enrollment.py
 msgid "Male"
-msgstr ""
+msgstr "Erkek"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Other"
-msgstr ""
+msgstr "Diğer"
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Unknown"
-msgstr ""
+msgstr "Bilinmeyen neden"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "None"
-msgstr ""
+msgstr "Hiçbiri"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
 #: courses/presenters/enrollment.py courses/tests/test_serializers.py
 msgid "Primary"
-msgstr ""
+msgstr "Birincil"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: courses/presenters/enrollment.py
 msgid "Middle"
-msgstr ""
+msgstr "Orta"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Secondary"
-msgstr ""
+msgstr "İkincil"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Associate"
-msgstr ""
+msgstr "Ortak"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Bachelor's"
-msgstr ""
+msgstr "Lisans derecesi"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Master's"
-msgstr ""
+msgstr "Yüksek Lisans Derecesi"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Doctorate"
-msgstr ""
+msgstr "Doktora Derecesi"
 
 #. Translators: This is a placeholder for enrollment data collected without a
 #. known geolocation.
 #: courses/presenters/enrollment.py
 msgid "Unknown Country"
-msgstr ""
+msgstr "Bilinmeyen Ülke"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/presenters/performance.py
@@ -218,32 +210,32 @@ msgstr "Öneriler"
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Submissions for Part {part_number}: {part_description}"
-msgstr ""
+msgstr " {part_number} bölümü için öneriler: {part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Part {part_number}: {part_description}"
-msgstr ""
+msgstr "Bölüm  {part_number}: {part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Submissions: {part_description}"
-msgstr ""
+msgstr "Öneriler: {part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "{part_description}"
-msgstr ""
+msgstr "{part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Submissions for Part {part_number}"
-msgstr ""
+msgstr "{part_number} bölümü için öneriler"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Part {part_number}"
-msgstr ""
+msgstr "Bölüm {part_number}"
 
 #: courses/templates/courses/_base_content_nav.html
 #, python-format
@@ -266,9 +258,7 @@ msgid ""
 "\n"
 "        Select %(level)s\n"
 "    "
-msgstr ""
-"\n"
-"Seç %(level)s"
+msgstr "\nSeç %(level)s"
 
 #: courses/templates/courses/_graded_content_nav.html
 #: courses/templates/courses/_tags_content_nav.html
@@ -331,19 +321,14 @@ msgstr ""
 msgid ""
 "Due to the number of possible variants for randomized problems, charts are "
 "not available. %(read_more_link_start)sRead more%(read_more_link_end)s."
-msgstr ""
-"Randomize sorunlar için olası seçeneklerin sayısı nedeniyle, grafikler "
-"mevcut değildir. %(read_more_link_start)sDaha fazla "
-"okuyun%(read_more_link_end)s."
+msgstr "Randomize sorunlar için olası seçeneklerin sayısı nedeniyle, grafikler mevcut değildir. %(read_more_link_start)sDaha fazla okuyun%(read_more_link_end)s."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid ""
 "Review all submission variants below, or click Download CSV to review them "
 "offline."
-msgstr ""
-"Aşağıdaki tüm önerilen seçenekleri gözden geçirin, veya CSV İndir e, onları "
-"çevrimdışı olarak gözden geçirmek için tıklayın."
+msgstr "Aşağıdaki tüm önerilen seçenekleri gözden geçirin, veya CSV İndir e, onları çevrimdışı olarak gözden geçirmek için tıklayın."
 
 #: courses/templates/courses/base_performance_answer_distribution.html
 msgid "Submission Counts"
@@ -453,10 +438,7 @@ msgid ""
 "Each bar shows the average number of complete and incomplete views for "
 "videos in that subsection. Click on bars with low totals or a high "
 "incomplete rate to drill down and understand why."
-msgstr ""
-"Her çubuk o kısımdaki videolar için tam ve eksik görüşlerin ortalama "
-"sayısını gösterir.Düşük toplamları ya da  tamamlanmamış yüksek oranı ile "
-"nedeni derinlemesine anlamak için çubuklara tıklayın."
+msgstr "Her çubuk o kısımdaki videolar için tam ve eksik görüşlerin ortalama sayısını gösterir.Düşük toplamları ya da  tamamlanmamış yüksek oranı ile nedeni derinlemesine anlamak için çubuklara tıklayın."
 
 #: courses/templates/courses/engagement_video_by_subsection.html
 msgid "How did learners interact with videos in this subsection?"
@@ -478,10 +460,7 @@ msgid ""
 "Each bar shows the average number of complete and incomplete views for "
 "videos in that section. Click on bars with low totals or a high incomplete "
 "rate to drill down and understand why."
-msgstr ""
-"Her çubuk o kısımdaki videolar için tam ve eksik görüşlerin ortalama "
-"sayısını gösterir.Düşük toplamları ya da  tamamlanmamış yüksek oranı ile "
-"nedeni derinlemesine anlamak için çubuklara tıklayın."
+msgstr "Her çubuk o kısımdaki videolar için tam ve eksik görüşlerin ortalama sayısını gösterir.Düşük toplamları ya da  tamamlanmamış yüksek oranı ile nedeni derinlemesine anlamak için çubuklara tıklayın."
 
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Total Video Views"
@@ -554,9 +533,7 @@ msgstr "Kayıtlanmalar"
 msgid ""
 "This graph displays the current enrollment for the course as of the end of "
 "each day. This includes new enrollments as well as unenrollments."
-msgstr ""
-"Bu grafik her günün sonu itibariyle ders için geçerli kaydı görüntüler. Bu, "
-"yeni kayıtları kayıt olmayanlarla birlikte içerir."
+msgstr "Bu grafik her günün sonu itibariyle ders için geçerli kaydı görüntüler. Bu, yeni kayıtları kayıt olmayanlarla birlikte içerir."
 
 #: courses/templates/courses/enrollment_activity.html
 msgid "Enrollment Metrics"
@@ -781,41 +758,41 @@ msgstr "Coğrafi Metrikler"
 #. Translators: This string represents the number of countries where learners
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Total Countries Represented"
-msgstr "Toplamda Gösterilen Ülkeler"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Countries with at least one learner."
+msgid "Total Countries or Regions Represented"
 msgstr ""
 
-#. Translators: This string represents the country with the greatest number of
-#. enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Top Country by Enrollment"
-msgstr "Kayıtlanmaya göre Birinci Ülke"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Country with the largest number of learners."
+msgid "Countries or regions with at least one learner."
 msgstr ""
 
-#. Translators: This string represents the country with the second-greatest
+#. Translators: This string represents the country or region with the greatest
 #. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Second Country by Enrollment"
-msgstr "Kayıtlanmaya göre İkinci Ülke"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Country with the second largest number of learners."
+msgid "Top Country or Region by Enrollment"
 msgstr ""
 
-#. Translators: This string represents the country with the third-greatest
-#. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Third Country by Enrollment"
-msgstr "Kayıtlanmaya göre Üçüncü Ülke"
+msgid "Country or region with the largest number of learners."
+msgstr ""
+
+#. Translators: This string represents the country or region with the second-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Second Country or Region by Enrollment"
+msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the third largest number of learners."
+msgid "Country or region with the second largest number of learners."
+msgstr ""
+
+#. Translators: This string represents the country or region with the third-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Third Country or Region by Enrollment"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country or region with the third largest number of learners."
 msgstr ""
 
 #. Translators: This string represents the percentage of learners in a course.
@@ -881,8 +858,7 @@ msgstr "Hoşgeldiniz, %(username)s!"
 #, python-format
 msgid ""
 "Here are the courses you currently have access to in %(application_name)s:"
-msgstr ""
-"Şu an %(application_name)s içinde giriş hakkınız bulunan bütün dersler:"
+msgstr "Şu an %(application_name)s içinde giriş hakkınız bulunan bütün dersler:"
 
 #: courses/templates/courses/index.html
 #, python-format
@@ -894,9 +870,7 @@ msgstr "Yeni %(application_name)s?"
 msgid ""
 "Click Help in the upper-right corner to get more information about "
 "%(application_name)s. Send us feedback at %(email_link)s."
-msgstr ""
-"%(application_name)s hakkında daha fazla bilgi almak için sağ üst köşedeki Yardım'ı tıklatın.\n"
-"%(email_link)s konumunda bize geri bildirim gönderin."
+msgstr "%(application_name)s hakkında daha fazla bilgi almak için sağ üst köşedeki Yardım'ı tıklatın.\n%(email_link)s konumunda bize geri bildirim gönderin."
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
@@ -929,9 +903,7 @@ msgstr "Hangi atama türünü araştırmak istiyorsunuz?"
 msgid ""
 "Click an assignment type to view more detail information about the "
 "assignments."
-msgstr ""
-"Atamalar hakkında daha ayrıntılı bilgi görüntülemek için bir atama türünü "
-"tıklatın."
+msgstr "Atamalar hakkında daha ayrıntılı bilgi görüntülemek için bir atama türünü tıklatın."
 
 #. Translators: This describes the percent an assignment contributes to that
 #. of a learner's grade (e.g. Exam: 60% of the grading policy.).
@@ -941,9 +913,7 @@ msgid ""
 "\n"
 "                %(assignment_type)s: %(policy_ratio)s%% of the grading policy\n"
 "              "
-msgstr ""
-"\n"
-"%(assignment_type)s: notlandırma koşullarının %(policy_ratio)s%%"
+msgstr "\n%(assignment_type)s: notlandırma koşullarının %(policy_ratio)s%%"
 
 #. Translators: This describes the percent of a learner's grade (e.g. 60%).
 #: courses/templates/courses/performance_graded_content.html
@@ -1034,9 +1004,7 @@ msgstr "İzin Alma Başarısız"
 msgid ""
 "There was a problem retrieving course permissions for your account. Please "
 "try again. If you continue to experience issues, please let us know."
-msgstr ""
-"Hesabınız için kurs izinlerini alınırken bir sorun oluştu.Lütfen tekrar "
-"deneyiniz. Eğer sorunlar yaşamaya devam ederseniz, lütfen bize bildirin."
+msgstr "Hesabınız için kurs izinlerini alınırken bir sorun oluştu.Lütfen tekrar deneyiniz. Eğer sorunlar yaşamaya devam ederseniz, lütfen bize bildirin."
 
 #: courses/templates/courses/permissions-retrieval-failed.html
 msgid "Try Again"
@@ -1045,58 +1013,58 @@ msgstr "Yeniden Deneyiniz"
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Activity"
-msgstr ""
+msgstr "Faaliyet"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Demographics"
-msgstr ""
+msgstr "Demografik "
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Geography"
-msgstr ""
+msgstr "Çoğrafi Konum"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Age"
-msgstr ""
+msgstr "Yaş"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Education"
-msgstr ""
+msgstr "Eğitim"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Gender"
-msgstr ""
+msgstr "Cinsiyet"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Content"
-msgstr ""
+msgstr "İçerik"
 
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Videos"
-msgstr ""
+msgstr "Videolar"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py
 msgid "Graded Content"
-msgstr ""
+msgstr "Puanlanmış İçerik"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py
 msgid "Ungraded Problems"
-msgstr ""
+msgstr "Puanlanmamış Problemler"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py
 msgid "Learning Outcomes"
-msgstr ""
+msgstr "Öğrenme Çıktıları"
 
 #: courses/views/__init__.py
 msgid "What are learners doing in my course?"
@@ -1124,7 +1092,7 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "What are individual learners doing?"
-msgstr ""
+msgstr "Bireysel öğrenciler neler yapıyor?"
 
 #: courses/views/__init__.py
 msgid "Who is engaged? Who isn't?"
@@ -1132,56 +1100,56 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "All Learners"
-msgstr ""
+msgstr "Tüm Öğrenciler"
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: courses/views/__init__.py
 msgid "Course ID"
-msgstr ""
+msgstr "Kurs Kimliği (ID)"
 
 #: courses/views/__init__.py
 msgid "Course Name"
-msgstr ""
+msgstr "Kurs İsmi"
 
 #. Translators: 'In Progress' and 'Ended' refer to whether learners are
 #. actively using the course or it is over.
 #: courses/views/__init__.py
 msgid "In Progress"
-msgstr ""
+msgstr "İşlem sürüyor"
 
 #: courses/views/__init__.py
 msgid "Ended"
-msgstr ""
+msgstr "Bitti"
 
 #. Translators: This refers to a course that has not yet begun.
 #: courses/views/__init__.py
 msgid "Not Started Yet"
-msgstr ""
+msgstr "Henüz başlamadı"
 
 #: courses/views/__init__.py
 msgid "Start Date"
-msgstr ""
+msgstr "Başlama Tarihi"
 
 #: courses/views/__init__.py
 msgid "End Date"
-msgstr ""
+msgstr "Bitiş Tarihi"
 
 #: courses/views/__init__.py
 msgid "Status"
-msgstr ""
+msgstr "Durum"
 
 #: courses/views/__init__.py
 msgid "Instructor Dashboard"
-msgstr ""
+msgstr "Eğitmen / Ana Panel"
 
 #: courses/views/__init__.py
 msgid "Courseware"
-msgstr ""
+msgstr "Ders İçerikleri"
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
-msgstr ""
+msgstr "Taahhüt İçeriği"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
@@ -1189,33 +1157,33 @@ msgstr ""
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Ders taahhüt verisi en son %(update_date)s tarihinde %(update_time)s UTC saatinde güncellendi."
 
 #: courses/views/engagement.py
 msgid "Engagement Videos"
-msgstr ""
+msgstr "Taahhüt Videoları"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
+msgstr "Video verisi en son %(update_date)s tarihinde %(update_time)s UTC saatinde güncellendi."
 
 #: courses/views/engagement.py
 msgid "Looks like no one has watched any videos in these sections."
-msgstr ""
+msgstr "Hiç kimse bu bölümlerden herhangi videoları izlemiş gibi görünmüyor."
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Section Name"
-msgstr ""
+msgstr "Bölüm Adı"
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Subsection Name"
-msgstr ""
+msgstr "Alt bölüm Adı"
 
 #: courses/views/engagement.py
 msgid "Video Name"
-msgstr ""
+msgstr "Video Adı"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1230,11 +1198,11 @@ msgstr ""
 #: courses/views/enrollment.py
 msgid ""
 "All above demographic data was self-reported at the time of registration."
-msgstr ""
+msgstr "Yukarıdaki tüm demografik veriler kayıt sırasında kendini bildirildi."
 
 #: courses/views/enrollment.py
 msgid "Enrollment Activity"
-msgstr ""
+msgstr "Kayıtlanma Etkinliği"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1242,23 +1210,23 @@ msgstr ""
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "Kayıt aktivite verisi en son %(update_date)s tarihinde %(update_time)s UTC saatinde güncellendi."
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Age"
-msgstr ""
+msgstr "Yaşa Göre Kayıt İstatistikleri"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Education"
-msgstr ""
+msgstr "Eğitime Göre Kayıt İstatistikleri"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Gender"
-msgstr ""
+msgstr "Cinsiyete Göre Kayıt İstatistikleri"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Geography"
-msgstr ""
+msgstr "Kayıt Konumu"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1274,32 +1242,32 @@ msgstr ""
 msgid ""
 "Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Problem gönderim verisi en son %(update_date)s tarihinde %(update_time)s UTC saatinde güncellendi."
 
 #: courses/views/performance.py
 msgid "Assignment Name"
-msgstr ""
+msgstr "Ödev İsmi"
 
 #: courses/views/performance.py
 msgid "No submissions received for these exercises."
-msgstr ""
+msgstr "Hiçbir gönderimler bu alıştırmalar için alınmadı."
 
 #: courses/views/performance.py
 msgid "No submissions received for these assignments."
-msgstr ""
+msgstr "Hiçbir gönderimler bu atamalar için alınmadı."
 
 #: courses/views/performance.py
 msgid "Performance: Problem Submissions"
-msgstr ""
+msgstr "Performans: Problem Yüklemeleri"
 
 #: courses/views/performance.py
 #, python-format
 msgid "Graded Content: %(assignment_type)s"
-msgstr ""
+msgstr "Puanlanmış İçerik: %(assignment_type)s"
 
 #: courses/views/performance.py
 msgid "Problem Name"
-msgstr ""
+msgstr "Problem Adı"
 
 #: courses/views/performance.py
 #, python-format
@@ -1314,11 +1282,11 @@ msgstr ""
 
 #: settings/base.py
 msgid "Terms of Service"
-msgstr ""
+msgstr "Kullanım Koşulları"
 
 #: settings/base.py
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Gizlilik İlkeleri"
 
 #: templates/403.html
 msgid "Access Denied"
@@ -1329,10 +1297,7 @@ msgid ""
 "You do not have permission to view this page. If you believe you should have"
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
-msgstr ""
-"Bu sayfayı görüntülemek için izniniz yok. Eğer inanıyorsanız bu sayfaya "
-"erişiminiz vardır, izinlerinizi yenilemek için oturumu kapatıp tekrar açmayı"
-" deneyin."
+msgstr "Bu sayfayı görüntülemek için izniniz yok. Eğer inanıyorsanız bu sayfaya erişiminiz vardır, izinlerinizi yenilemek için oturumu kapatıp tekrar açmayı deneyin."
 
 #: templates/403.html
 msgid "Logout then Login"
@@ -1346,9 +1311,7 @@ msgstr "Sayfa Bulunamadı"
 msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
-msgstr ""
-"Bakındığınız sayfa bulunamadı.Adresin doğru olduğundan emin olun veya tekrar"
-" deneyin."
+msgstr "Bakındığınız sayfa bulunamadı.Adresin doğru olduğundan emin olun veya tekrar deneyin."
 
 #: templates/500.html
 msgid "An Error Occurred"
@@ -1358,15 +1321,11 @@ msgstr "Bir Hata Oluştu"
 msgid ""
 "Our servers weren't able to complete your request. Please try again by "
 "refreshing this page or retracing your steps."
-msgstr ""
-"Bizim sunucularımız isteğinizi tamamlamak için yeterli değildir. Bu sayfayı "
-"yenileyerek veya adımlarınızın üzerinden geçerek tekrar deneyin."
+msgstr "Bizim sunucularımız isteğinizi tamamlamak için yeterli değildir. Bu sayfayı yenileyerek veya adımlarınızın üzerinden geçerek tekrar deneyin."
 
 #: templates/503.html
 msgid "We're having trouble loading this page. Please try again in a minute."
-msgstr ""
-"Bu sayfayı yüklerken problem yaşıyoruz. Bir dakika içerisinde tekrar "
-"deneyiniz."
+msgstr "Bu sayfayı yüklerken problem yaşıyoruz. Bir dakika içerisinde tekrar deneyiniz."
 
 #: templates/503.html
 msgid "(Technical details: 503 Service Unavailable.)"
@@ -1398,10 +1357,7 @@ msgid ""
 "We want this dashboard to work for you! Need help? "
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
-msgstr ""
-"Bu panelin senin için çalışmasını istiyoruz! Yardıma mı ihtiyacın var? "
-"%(support_link_start)sDers ekip desteği ile iletişime "
-"geç%(support_link_end)s. Yorumlar ya da Öneriler? Eposta %(email_link)s."
+msgstr "Bu panelin senin için çalışmasını istiyoruz! Yardıma mı ihtiyacın var? %(support_link_start)sDers ekip desteği ile iletişime geç%(support_link_end)s. Yorumlar ya da Öneriler? Eposta %(email_link)s."
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html
@@ -1409,9 +1365,7 @@ msgstr ""
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
 "            reserved. "
-msgstr ""
-"%(current_year)s %(platform_name)s, nereye not alındığı dışında, tüm hakları\n"
-"saklıdır."
+msgstr "%(current_year)s %(platform_name)s, nereye not alındığı dışında, tüm hakları\nsaklıdır."
 
 #: templates/header.html
 msgid "Toggle navigation"

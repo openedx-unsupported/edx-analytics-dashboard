@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Antal Lakos <lakos.antal@gmail.com>, 2016
 # Charles Nehez <knehez@gmail.com>, 2015
@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-27 15:58-0500\n"
-"PO-Revision-Date: 2016-12-27 20:59+0000\n"
+"POT-Creation-Date: 2016-12-27 17:00-0500\n"
+"PO-Revision-Date: 2016-12-27 22:02+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Hungarian (http://www.transifex.com/open-edx/edx-platform/language/hu/)\n"
 "MIME-Version: 1.0\n"
@@ -31,9 +31,7 @@ msgstr "Bejelentkezés"
 
 #: core/templates/core/landing.html
 msgid "Insights to help course teams improve courses."
-msgstr ""
-"Az egyre jobb tanfolyamok érdekében segítünk a kurzusfejlesztőknek "
-"információkat szerezni"
+msgstr "Az egyre jobb tanfolyamok érdekében segítünk a kurzusfejlesztőknek információkat szerezni"
 
 #: core/templates/core/landing.html courses/views/__init__.py
 msgid "Who are my learners?"
@@ -107,15 +105,14 @@ msgstr "Segítségre van szükséged?"
 #, python-format
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
-msgstr ""
-"%(link_start)sA terméktámogatás%(link_end)s segíthet megtalálni a megoldást"
+msgstr "%(link_start)sA terméktámogatás%(link_end)s segíthet megtalálni a megoldást"
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
 #: core/templatetags/dashboard_extras.py
 #, python-brace-format
 msgid "{statistic}%"
-msgstr ""
+msgstr "{statistic}%"
 
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: courses/presenters/engagement.py
@@ -125,75 +122,75 @@ msgstr ""
 
 #: courses/presenters/enrollment.py
 msgid "Female"
-msgstr ""
+msgstr "Nő"
 
 #: courses/presenters/enrollment.py
 msgid "Male"
-msgstr ""
+msgstr "Férfi"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Other"
-msgstr ""
+msgstr "Egyéb"
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Unknown"
-msgstr ""
+msgstr "Ismeretlen"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "None"
-msgstr ""
+msgstr "Nincs"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
 #: courses/presenters/enrollment.py courses/tests/test_serializers.py
 msgid "Primary"
-msgstr ""
+msgstr "Elsődleges"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: courses/presenters/enrollment.py
 msgid "Middle"
-msgstr ""
+msgstr "Közép"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Secondary"
-msgstr ""
+msgstr "Másodlagos"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Associate"
-msgstr ""
+msgstr "Összekapcsolás"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Bachelor's"
-msgstr ""
+msgstr "Bachelor"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Master's"
-msgstr ""
+msgstr "Mester"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Doctorate"
-msgstr ""
+msgstr "Doktori fokozat"
 
 #. Translators: This is a placeholder for enrollment data collected without a
 #. known geolocation.
 #: courses/presenters/enrollment.py
 msgid "Unknown Country"
-msgstr ""
+msgstr "Ismeretlen ország"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/presenters/performance.py
@@ -204,32 +201,32 @@ msgstr "Beadandók"
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Submissions for Part {part_number}: {part_description}"
-msgstr ""
+msgstr "Beadandók a t {part_number}: {part_description} részhez"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Part {part_number}: {part_description}"
-msgstr ""
+msgstr "Rész {part_number}: {part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Submissions: {part_description}"
-msgstr ""
+msgstr "Beadandók: {part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "{part_description}"
-msgstr ""
+msgstr "{part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Submissions for Part {part_number}"
-msgstr ""
+msgstr "Beadandók a {part_number} részhez"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Part {part_number}"
-msgstr ""
+msgstr "Rész {part_number}"
 
 #: courses/templates/courses/_base_content_nav.html
 #, python-format
@@ -752,41 +749,41 @@ msgstr "Földrajzi mérték"
 #. Translators: This string represents the number of countries where learners
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Total Countries Represented"
-msgstr "Az összes képviselt ország"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Countries with at least one learner."
+msgid "Total Countries or Regions Represented"
 msgstr ""
 
-#. Translators: This string represents the country with the greatest number of
-#. enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Top Country by Enrollment"
-msgstr "Ország, ahonnan a legtöbben iratkoztak be"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Country with the largest number of learners."
+msgid "Countries or regions with at least one learner."
 msgstr ""
 
-#. Translators: This string represents the country with the second-greatest
+#. Translators: This string represents the country or region with the greatest
 #. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Second Country by Enrollment"
-msgstr "Beiratkozás szerinti második ország"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Country with the second largest number of learners."
+msgid "Top Country or Region by Enrollment"
 msgstr ""
 
-#. Translators: This string represents the country with the third-greatest
-#. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Third Country by Enrollment"
-msgstr "Beiratkozás szerinti harmadik ország"
+msgid "Country or region with the largest number of learners."
+msgstr ""
+
+#. Translators: This string represents the country or region with the second-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Second Country or Region by Enrollment"
+msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the third largest number of learners."
+msgid "Country or region with the second largest number of learners."
+msgstr ""
+
+#. Translators: This string represents the country or region with the third-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Third Country or Region by Enrollment"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country or region with the third largest number of learners."
 msgstr ""
 
 #. Translators: This string represents the percentage of learners in a course.
@@ -998,10 +995,7 @@ msgstr "Jogosultság lekérése sikertelen"
 msgid ""
 "There was a problem retrieving course permissions for your account. Please "
 "try again. If you continue to experience issues, please let us know."
-msgstr ""
-"Hiba történt a fiókodhoz rendelt kurzus jogok lekérése közben. Kérlek "
-"próbáld meg újra. Ha sikerül folytatnod, akkor oszd meg velünk a "
-"tapasztalataid."
+msgstr "Hiba történt a fiókodhoz rendelt kurzus jogok lekérése közben. Kérlek próbáld meg újra. Ha sikerül folytatnod, akkor oszd meg velünk a tapasztalataid."
 
 #: courses/templates/courses/permissions-retrieval-failed.html
 msgid "Try Again"
@@ -1010,43 +1004,43 @@ msgstr "Próbáld meg újra"
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Activity"
-msgstr ""
+msgstr "Aktivitás"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Demographics"
-msgstr ""
+msgstr "Demográfiai"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Geography"
-msgstr ""
+msgstr "Földrajzi hely szerint"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Age"
-msgstr ""
+msgstr "Életkor"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Education"
-msgstr ""
+msgstr "Oktatás"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Gender"
-msgstr ""
+msgstr "Nem"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Content"
-msgstr ""
+msgstr "Tartalom"
 
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Videos"
-msgstr ""
+msgstr "Videók"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py
@@ -1097,23 +1091,23 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "All Learners"
-msgstr ""
+msgstr "Összes tanuló"
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: courses/views/__init__.py
 msgid "Course ID"
-msgstr ""
+msgstr "Kurzus azonosító"
 
 #: courses/views/__init__.py
 msgid "Course Name"
-msgstr ""
+msgstr "Kurzus neve"
 
 #. Translators: 'In Progress' and 'Ended' refer to whether learners are
 #. actively using the course or it is over.
 #: courses/views/__init__.py
 msgid "In Progress"
-msgstr ""
+msgstr "Folyamatban"
 
 #: courses/views/__init__.py
 msgid "Ended"
@@ -1126,7 +1120,7 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "Start Date"
-msgstr ""
+msgstr "Kezdő dátum"
 
 #: courses/views/__init__.py
 msgid "End Date"
@@ -1134,19 +1128,19 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "Status"
-msgstr ""
+msgstr "Állapot"
 
 #: courses/views/__init__.py
 msgid "Instructor Dashboard"
-msgstr ""
+msgstr "Előadói irányítópult"
 
 #: courses/views/__init__.py
 msgid "Courseware"
-msgstr ""
+msgstr "Tananyag"
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
-msgstr ""
+msgstr "Tartalom terheltsége"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
@@ -1154,7 +1148,7 @@ msgstr ""
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "A kurzus terheltségi adatai  %(update_date)s, %(update_time)s UTC-kor kerültek frissítésre."
 
 #: courses/views/engagement.py
 msgid "Engagement Videos"
@@ -1172,15 +1166,15 @@ msgstr ""
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Section Name"
-msgstr ""
+msgstr "Fejezet neve"
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Subsection Name"
-msgstr ""
+msgstr "Alfejezet neve"
 
 #: courses/views/engagement.py
 msgid "Video Name"
-msgstr ""
+msgstr "Video neve"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1195,11 +1189,11 @@ msgstr ""
 #: courses/views/enrollment.py
 msgid ""
 "All above demographic data was self-reported at the time of registration."
-msgstr ""
+msgstr "A fenti demográfiai adatok a regisztrációnál megadottak alapján készült."
 
 #: courses/views/enrollment.py
 msgid "Enrollment Activity"
-msgstr ""
+msgstr "Beiratkozási aktivitás"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1207,23 +1201,23 @@ msgstr ""
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "A feliratkozási adatok frissítése utoljára %(update_date)s,  %(update_time)s UTC -kor történt meg."
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Age"
-msgstr ""
+msgstr "Feliratkozottak demográfiai adatai kor szerint"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Education"
-msgstr ""
+msgstr "Feliratkozottak demográfiai adatai iskolai végzettség szerint"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Gender"
-msgstr ""
+msgstr "Feliratkozottak demográfiai adatai életkor szerint"
 
 #: courses/views/enrollment.py
 msgid "Enrollment Geography"
-msgstr ""
+msgstr "Beiratkozás földrajzi hely szerint"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1243,7 +1237,7 @@ msgstr ""
 
 #: courses/views/performance.py
 msgid "Assignment Name"
-msgstr ""
+msgstr "Feladat neve"
 
 #: courses/views/performance.py
 msgid "No submissions received for these exercises."
@@ -1264,7 +1258,7 @@ msgstr ""
 
 #: courses/views/performance.py
 msgid "Problem Name"
-msgstr ""
+msgstr "Feladat neve"
 
 #: courses/views/performance.py
 #, python-format
@@ -1279,11 +1273,11 @@ msgstr ""
 
 #: settings/base.py
 msgid "Terms of Service"
-msgstr ""
+msgstr "Szolgáltatási feltételek"
 
 #: settings/base.py
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Adatvédelem"
 
 #: templates/403.html
 msgid "Access Denied"
@@ -1294,9 +1288,7 @@ msgid ""
 "You do not have permission to view this page. If you believe you should have"
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
-msgstr ""
-"Nincs jogod megnézni ezt az oldalt. Ha úgy gondolod, hogy van jogod hozzá, "
-"akkor jelentkezz ki és vissza, hogy a jogosultságok frissítésre kerüljenek."
+msgstr "Nincs jogod megnézni ezt az oldalt. Ha úgy gondolod, hogy van jogod hozzá, akkor jelentkezz ki és vissza, hogy a jogosultságok frissítésre kerüljenek."
 
 #: templates/403.html
 msgid "Logout then Login"
@@ -1310,9 +1302,7 @@ msgstr "Az oldal nem található"
 msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
-msgstr ""
-"Nem találjuk az általad keresett oldalt. Győződj meg róla, hogy a beírt URL "
-"helyes, ha nem, akkor ne próbálkozz újra."
+msgstr "Nem találjuk az általad keresett oldalt. Győződj meg róla, hogy a beírt URL helyes, ha nem, akkor ne próbálkozz újra."
 
 #: templates/500.html
 msgid "An Error Occurred"
@@ -1322,9 +1312,7 @@ msgstr "Hiba történt"
 msgid ""
 "Our servers weren't able to complete your request. Please try again by "
 "refreshing this page or retracing your steps."
-msgstr ""
-"A szervereink nem tudták feldolgozni a kérésed. Kérlek frissítsd az oldalt, "
-"vagy ismételd meg a legutóbbi lépéseket."
+msgstr "A szervereink nem tudták feldolgozni a kérésed. Kérlek frissítsd az oldalt, vagy ismételd meg a legutóbbi lépéseket."
 
 #: templates/503.html
 msgid "We're having trouble loading this page. Please try again in a minute."
@@ -1340,9 +1328,7 @@ msgstr "Bezárás"
 
 #: templates/base-error.html
 msgid "Use our support tool to ask questions or share feedback."
-msgstr ""
-"Használd a támogató eszközöket kérdés feltevéshez, vagy oszd meg a "
-"visszajelzésed."
+msgstr "Használd a támogató eszközöket kérdés feltevéshez, vagy oszd meg a visszajelzésed."
 
 #. Translators: This intention here is that a user clicks a button to contact
 #. a support group (e.g. edX Support, or MITx Support). Reorder the
@@ -1370,9 +1356,7 @@ msgstr ""
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
 "            reserved. "
-msgstr ""
-"%(current_year)s %(platform_name)s, minden jog fenntartva\n"
-" kivéve, ahol mást írunk."
+msgstr "%(current_year)s %(platform_name)s, minden jog fenntartva\n kivéve, ahol mást írunk."
 
 #: templates/header.html
 msgid "Toggle navigation"

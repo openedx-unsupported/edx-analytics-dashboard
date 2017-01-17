@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # cblackburn <cblackburn@edx.org>, 2014
 # ddd <desislavdkv@gmail.com>, 2014
@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-27 15:58-0500\n"
-"PO-Revision-Date: 2016-12-27 20:59+0000\n"
+"POT-Creation-Date: 2016-12-27 17:00-0500\n"
+"PO-Revision-Date: 2016-12-27 22:02+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/open-edx/edx-platform/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -111,7 +111,7 @@ msgstr ""
 #: core/templatetags/dashboard_extras.py
 #, python-brace-format
 msgid "{statistic}%"
-msgstr ""
+msgstr "{statistic}%"
 
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: courses/presenters/engagement.py
@@ -121,45 +121,45 @@ msgstr ""
 
 #: courses/presenters/enrollment.py
 msgid "Female"
-msgstr ""
+msgstr "Жена"
 
 #: courses/presenters/enrollment.py
 msgid "Male"
-msgstr ""
+msgstr "Мъж"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Other"
-msgstr ""
+msgstr "Друго"
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Unknown"
-msgstr ""
+msgstr "Непознат"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "None"
-msgstr ""
+msgstr "Няма"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
 #: courses/presenters/enrollment.py courses/tests/test_serializers.py
 msgid "Primary"
-msgstr ""
+msgstr "Начално образование"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: courses/presenters/enrollment.py
 msgid "Middle"
-msgstr ""
+msgstr "Средно образование"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Secondary"
-msgstr ""
+msgstr "Професионално образование"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
@@ -171,25 +171,25 @@ msgstr ""
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Bachelor's"
-msgstr ""
+msgstr "Бакалавърска степен"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Master's"
-msgstr ""
+msgstr "Магистърска степен"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Doctorate"
-msgstr ""
+msgstr "Докторска степен"
 
 #. Translators: This is a placeholder for enrollment data collected without a
 #. known geolocation.
 #: courses/presenters/enrollment.py
 msgid "Unknown Country"
-msgstr ""
+msgstr "Няма посочена"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/presenters/performance.py
@@ -748,41 +748,41 @@ msgstr ""
 #. Translators: This string represents the number of countries where learners
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Total Countries Represented"
+msgid "Total Countries or Regions Represented"
 msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Countries with at least one learner."
+msgid "Countries or regions with at least one learner."
 msgstr ""
 
-#. Translators: This string represents the country with the greatest number of
-#. enrolled learners.
-#: courses/templates/courses/enrollment_geography.html
-msgid "Top Country by Enrollment"
-msgstr ""
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Country with the largest number of learners."
-msgstr ""
-
-#. Translators: This string represents the country with the second-greatest
+#. Translators: This string represents the country or region with the greatest
 #. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Second Country by Enrollment"
+msgid "Top Country or Region by Enrollment"
 msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the second largest number of learners."
+msgid "Country or region with the largest number of learners."
 msgstr ""
 
-#. Translators: This string represents the country with the third-greatest
-#. number of enrolled learners.
+#. Translators: This string represents the country or region with the second-
+#. greatest number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Third Country by Enrollment"
+msgid "Second Country or Region by Enrollment"
 msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the third largest number of learners."
+msgid "Country or region with the second largest number of learners."
+msgstr ""
+
+#. Translators: This string represents the country or region with the third-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Third Country or Region by Enrollment"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country or region with the third largest number of learners."
 msgstr ""
 
 #. Translators: This string represents the percentage of learners in a course.
@@ -860,9 +860,7 @@ msgstr "Нов в %(application_name)s?"
 msgid ""
 "Click Help in the upper-right corner to get more information about "
 "%(application_name)s. Send us feedback at %(email_link)s."
-msgstr ""
-"Натисни ПОМОЩ в горния-десен ъгъл, за да получиш повече информация относно "
-"%(application_name)s. Може да ни изпратите feedback на адрес %(email_link)s."
+msgstr "Натисни ПОМОЩ в горния-десен ъгъл, за да получиш повече информация относно %(application_name)s. Може да ни изпратите feedback на адрес %(email_link)s."
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
@@ -996,9 +994,7 @@ msgstr "Нямате права"
 msgid ""
 "There was a problem retrieving course permissions for your account. Please "
 "try again. If you continue to experience issues, please let us know."
-msgstr ""
-"Имаше проблем с зададените ви права за курса. Моля опитайте отново. Ако "
-"проблемът продължава да съществува, моля да ни уведомите."
+msgstr "Имаше проблем с зададените ви права за курса. Моля опитайте отново. Ако проблемът продължава да съществува, моля да ни уведомите."
 
 #: courses/templates/courses/permissions-retrieval-failed.html
 msgid "Try Again"
@@ -1007,43 +1003,43 @@ msgstr "Опитай отново"
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Activity"
-msgstr ""
+msgstr "Дейност"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Demographics"
-msgstr ""
+msgstr "Демография"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Geography"
-msgstr ""
+msgstr "География"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Age"
-msgstr ""
+msgstr "Възраст"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Education"
-msgstr ""
+msgstr "Образование"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Gender"
-msgstr ""
+msgstr "Пол"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Content"
-msgstr ""
+msgstr "Съдържание"
 
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Videos"
-msgstr ""
+msgstr "Клипове"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py
@@ -1100,17 +1096,17 @@ msgstr ""
 #. identifies the course
 #: courses/views/__init__.py
 msgid "Course ID"
-msgstr ""
+msgstr "Идентификационен номер на курс"
 
 #: courses/views/__init__.py
 msgid "Course Name"
-msgstr ""
+msgstr "Име на курса"
 
 #. Translators: 'In Progress' and 'Ended' refer to whether learners are
 #. actively using the course or it is over.
 #: courses/views/__init__.py
 msgid "In Progress"
-msgstr ""
+msgstr "В прогрес"
 
 #: courses/views/__init__.py
 msgid "Ended"
@@ -1131,7 +1127,7 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "Status"
-msgstr ""
+msgstr "Статус"
 
 #: courses/views/__init__.py
 msgid "Instructor Dashboard"
@@ -1192,11 +1188,11 @@ msgstr ""
 #: courses/views/enrollment.py
 msgid ""
 "All above demographic data was self-reported at the time of registration."
-msgstr ""
+msgstr "По-горните демографски данни се предоставени от записаните по време на регистрацията."
 
 #: courses/views/enrollment.py
 msgid "Enrollment Activity"
-msgstr ""
+msgstr "Записвания"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1240,7 +1236,7 @@ msgstr ""
 
 #: courses/views/performance.py
 msgid "Assignment Name"
-msgstr ""
+msgstr "Име на задание"
 
 #: courses/views/performance.py
 msgid "No submissions received for these exercises."
@@ -1276,11 +1272,11 @@ msgstr ""
 
 #: settings/base.py
 msgid "Terms of Service"
-msgstr ""
+msgstr "Правила за ползване"
 
 #: settings/base.py
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Декларация за поверителност"
 
 #: templates/403.html
 msgid "Access Denied"
@@ -1291,10 +1287,7 @@ msgid ""
 "You do not have permission to view this page. If you believe you should have"
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
-msgstr ""
-"Нямате права за да видите тази страница. Ако мислите че трябва да имате "
-"достъп до тази страница, опитайте да влезете и излезете от профила си или се"
-" опитайте да презаредите страницата."
+msgstr "Нямате права за да видите тази страница. Ако мислите че трябва да имате достъп до тази страница, опитайте да влезете и излезете от профила си или се опитайте да презаредите страницата."
 
 #: templates/403.html
 msgid "Logout then Login"
@@ -1308,9 +1301,7 @@ msgstr "Страницата не е открита"
 msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
-msgstr ""
-"Съжаляваме, но в момента страницата която искате да достъпите е неактивна. "
-"Проверете въведения URL или се опитайте да презаредите страницата."
+msgstr "Съжаляваме, но в момента страницата която искате да достъпите е неактивна. Проверете въведения URL или се опитайте да презаредите страницата."
 
 #: templates/500.html
 msgid "An Error Occurred"
@@ -1320,9 +1311,7 @@ msgstr "Възникна грешка"
 msgid ""
 "Our servers weren't able to complete your request. Please try again by "
 "refreshing this page or retracing your steps."
-msgstr ""
-"Сървърите ни не можаха да обработят заявката. Моля опитайте отново да "
-"презаредите страницата."
+msgstr "Сървърите ни не можаха да обработят заявката. Моля опитайте отново да презаредите страницата."
 
 #: templates/503.html
 msgid "We're having trouble loading this page. Please try again in a minute."

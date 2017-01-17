@@ -78,13 +78,14 @@ demo:
 	python manage.py waffle_switch enable_course_api off --create
 	python manage.py waffle_switch display_course_name_in_nav off --create
 
-# compiles the *.po & *.mo files
+# compiles djangojs and django .po and .mo files
 compile_translations:
-	cd analytics_dashboard && i18n_tool generate -v
+	python manage.py compilemessages
 
-# creates the django-partial.po & django-partial.mo files
+# creates the source django & djangojs files
 extract_translations:
-	cd analytics_dashboard && i18n_tool extract -v
+	cd analytics_dashboard && python ../manage.py makemessages -l en -v1 --ignore="docs/*" --ignore="src/*" --ignore="i18n/*" --ignore="assets/*" -d django
+	cd analytics_dashboard && python ../manage.py makemessages -l en -v1 --ignore="docs/*" --ignore="src/*" --ignore="i18n/*" --ignore="assets/*" -d djangojs
 
 dummy_translations:
 	cd analytics_dashboard && i18n_tool dummy -v
@@ -102,6 +103,7 @@ detect_changed_source_translations:
 
 # extract, compile, and check if translation files are up-to-date
 validate_translations: extract_translations compile_translations detect_changed_source_translations
+	cd analytics_dashboard && i18n_tool validate
 
 static_no_compress:
 	$(NODE_BIN)/r.js -o build.js
