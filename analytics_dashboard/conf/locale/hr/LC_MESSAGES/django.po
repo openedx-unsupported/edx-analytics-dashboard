@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Taarna, 2015
 # Leona Grujić <bearhtma1@gmail.com>, 2015
@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-27 15:58-0500\n"
-"PO-Revision-Date: 2016-12-27 20:59+0000\n"
+"POT-Creation-Date: 2016-12-27 17:00-0500\n"
+"PO-Revision-Date: 2016-12-27 22:02+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Croatian (http://www.transifex.com/open-edx/edx-platform/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -122,28 +122,28 @@ msgstr ""
 
 #: courses/presenters/enrollment.py
 msgid "Female"
-msgstr ""
+msgstr "Žensko"
 
 #: courses/presenters/enrollment.py
 msgid "Male"
-msgstr ""
+msgstr "Muško"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Other"
-msgstr ""
+msgstr "Drugo"
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Unknown"
-msgstr ""
+msgstr "Nepoznato"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "None"
-msgstr ""
+msgstr "Ništa"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
@@ -155,7 +155,7 @@ msgstr ""
 #. School Degree).
 #: courses/presenters/enrollment.py
 msgid "Middle"
-msgstr ""
+msgstr "Sredina"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
@@ -749,41 +749,41 @@ msgstr "Geografski podaci"
 #. Translators: This string represents the number of countries where learners
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Total Countries Represented"
-msgstr "Ukupan broj država"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Countries with at least one learner."
+msgid "Total Countries or Regions Represented"
 msgstr ""
 
-#. Translators: This string represents the country with the greatest number of
-#. enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Top Country by Enrollment"
-msgstr "Država s najviše upisanih"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Country with the largest number of learners."
+msgid "Countries or regions with at least one learner."
 msgstr ""
 
-#. Translators: This string represents the country with the second-greatest
+#. Translators: This string represents the country or region with the greatest
 #. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Second Country by Enrollment"
-msgstr "Druga po redu država s najviše upisanih"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Country with the second largest number of learners."
+msgid "Top Country or Region by Enrollment"
 msgstr ""
 
-#. Translators: This string represents the country with the third-greatest
-#. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Third Country by Enrollment"
-msgstr "Treća po redu država s najviše upisanih"
+msgid "Country or region with the largest number of learners."
+msgstr ""
+
+#. Translators: This string represents the country or region with the second-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Second Country or Region by Enrollment"
+msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the third largest number of learners."
+msgid "Country or region with the second largest number of learners."
+msgstr ""
+
+#. Translators: This string represents the country or region with the third-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Third Country or Region by Enrollment"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country or region with the third largest number of learners."
 msgstr ""
 
 #. Translators: This string represents the percentage of learners in a course.
@@ -995,9 +995,7 @@ msgstr "Dobivanje informacija o odobrenjima nije uspjelo"
 msgid ""
 "There was a problem retrieving course permissions for your account. Please "
 "try again. If you continue to experience issues, please let us know."
-msgstr ""
-"Pojavio se problem s dobivanje informacija o odobrenjima za tvoj račun. "
-"Pokušaj ponovno. Javi nam ako se problemi nastave."
+msgstr "Pojavio se problem s dobivanje informacija o odobrenjima za tvoj račun. Pokušaj ponovno. Javi nam ako se problemi nastave."
 
 #: courses/templates/courses/permissions-retrieval-failed.html
 msgid "Try Again"
@@ -1006,22 +1004,22 @@ msgstr "Pokušaj ponovno"
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Activity"
-msgstr ""
+msgstr "Aktivnost"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Demographics"
-msgstr ""
+msgstr "Demografija"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Geography"
-msgstr ""
+msgstr "Geografija"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Age"
-msgstr ""
+msgstr "Dob"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
@@ -1031,13 +1029,13 @@ msgstr ""
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Gender"
-msgstr ""
+msgstr "Spol"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Content"
-msgstr ""
+msgstr "Sadržaj"
 
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
@@ -1109,7 +1107,7 @@ msgstr ""
 #. actively using the course or it is over.
 #: courses/views/__init__.py
 msgid "In Progress"
-msgstr ""
+msgstr "U tijeku"
 
 #: courses/views/__init__.py
 msgid "Ended"
@@ -1130,7 +1128,7 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: courses/views/__init__.py
 msgid "Instructor Dashboard"
@@ -1142,7 +1140,7 @@ msgstr ""
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
-msgstr ""
+msgstr "Sadržaj aktivnosti"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py
@@ -1150,7 +1148,7 @@ msgstr ""
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Podaci o aktivnosti u kolegiju posljednji su put ažurirani %(update_date)s u %(update_time)s UTC."
 
 #: courses/views/engagement.py
 msgid "Engagement Videos"
@@ -1195,7 +1193,7 @@ msgstr ""
 
 #: courses/views/enrollment.py
 msgid "Enrollment Activity"
-msgstr ""
+msgstr "Upisna aktivnost"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1203,7 +1201,7 @@ msgstr ""
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "Podaci o upisnoj aktivnosti posljednji su put ažurirani %(update_date)s u %(update_time)s UTC."
 
 #: courses/views/enrollment.py
 msgid "Enrollment Demographics by Age"
@@ -1219,7 +1217,7 @@ msgstr ""
 
 #: courses/views/enrollment.py
 msgid "Enrollment Geography"
-msgstr ""
+msgstr "Lokacije upisanih"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1275,11 +1273,11 @@ msgstr ""
 
 #: settings/base.py
 msgid "Terms of Service"
-msgstr ""
+msgstr "Uvjeti uporabe"
 
 #: settings/base.py
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Pravila o zaštiti privatnosti"
 
 #: templates/403.html
 msgid "Access Denied"
@@ -1290,10 +1288,7 @@ msgid ""
 "You do not have permission to view this page. If you believe you should have"
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
-msgstr ""
-"Nemate odobrenje za otvaranje ove stranice. Ako mislite da biste trebali "
-"imati pristup ovoj stranici, pokušajte se odjaviti i prijaviti kako bi se "
-"Vaša odobrenja ponovno učitala."
+msgstr "Nemate odobrenje za otvaranje ove stranice. Ako mislite da biste trebali imati pristup ovoj stranici, pokušajte se odjaviti i prijaviti kako bi se Vaša odobrenja ponovno učitala."
 
 #: templates/403.html
 msgid "Logout then Login"
@@ -1307,9 +1302,7 @@ msgstr "Stranica nije pronađena"
 msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
-msgstr ""
-"Ne možemo pronaći stranicu koju tražite. Provjerite je li URL točan. Ako "
-"nije, pokušajte ponovno."
+msgstr "Ne možemo pronaći stranicu koju tražite. Provjerite je li URL točan. Ako nije, pokušajte ponovno."
 
 #: templates/500.html
 msgid "An Error Occurred"
@@ -1319,15 +1312,11 @@ msgstr "Pojavila se greška"
 msgid ""
 "Our servers weren't able to complete your request. Please try again by "
 "refreshing this page or retracing your steps."
-msgstr ""
-"Naši serveri nisu uspjeli ispuniti Vaš zahtjev. Pokušajte ponovno učitati "
-"ovu stranicu ili se vratiti nekoliko koraka unatrag."
+msgstr "Naši serveri nisu uspjeli ispuniti Vaš zahtjev. Pokušajte ponovno učitati ovu stranicu ili se vratiti nekoliko koraka unatrag."
 
 #: templates/503.html
 msgid "We're having trouble loading this page. Please try again in a minute."
-msgstr ""
-"Imamo problema s učitavanjem ove stranice. Molimo pokušajte ponovno za "
-"minutu."
+msgstr "Imamo problema s učitavanjem ove stranice. Molimo pokušajte ponovno za minutu."
 
 #: templates/503.html
 msgid "(Technical details: 503 Service Unavailable.)"
@@ -1339,9 +1328,7 @@ msgstr "Zatvori"
 
 #: templates/base-error.html
 msgid "Use our support tool to ask questions or share feedback."
-msgstr ""
-"Za postavljanje pitanja ili slanje povratnih informacija, upotrijebi naš "
-"alat za podršku."
+msgstr "Za postavljanje pitanja ili slanje povratnih informacija, upotrijebi naš alat za podršku."
 
 #. Translators: This intention here is that a user clicks a button to contact
 #. a support group (e.g. edX Support, or MITx Support). Reorder the
@@ -1369,9 +1356,7 @@ msgstr ""
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
 "            reserved. "
-msgstr ""
-"%(current_year)s %(platform_name)s, sva prava pridržano, osim ako je "
-"drugačije naznačeno."
+msgstr "%(current_year)s %(platform_name)s, sva prava pridržano, osim ako je drugačije naznačeno."
 
 #: templates/header.html
 msgid "Toggle navigation"

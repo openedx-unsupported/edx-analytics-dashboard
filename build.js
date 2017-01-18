@@ -79,6 +79,10 @@
         {
             name: 'js/performance-learning-outcomes-section-main',
             exclude: ['js/common']
+        },
+        {
+            name: 'apps/course-list/app/course-list-main',
+            exclude: ['js/common']
         }
     ]
 });

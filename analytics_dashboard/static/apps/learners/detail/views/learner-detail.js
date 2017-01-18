@@ -4,17 +4,17 @@ define(function(require) {
     var _ = require('underscore'),
         Marionette = require('marionette'),
 
-        LearnerUtils = require('learners/common/utils'),
+        ListUtils = require('components/utils/utils'),
         Utils = require('utils/utils'),
 
-        AlertView = require('learners/common/views/alert-view'),
+        AlertView = require('components/alert/views/alert-view'),
         LearnerEngagementTableView = require('learners/detail/views/engagement-table'),
         LearnerEngagementTimelineView = require('learners/detail/views/engagement-timeline'),
         LearnerNameView = require('learners/detail/views/learner-names'),
         LearnerSummaryFieldView = require('learners/detail/views/learner-summary-field'),
-        LoadingView = require('learners/common/views/loading-view'),
-        chartLoadingTemplate = require('text!learners/detail/templates/chart-loading.underscore'),
-        tableLoadingTemplate = require('text!learners/detail/templates/table-loading.underscore'),
+        LoadingView = require('components/loading/views/loading-view'),
+        chartLoadingTemplate = require('text!components/loading/templates/chart-loading.underscore'),
+        tableLoadingTemplate = require('text!components/loading/templates/table-loading.underscore'),
         learnerDetailTemplate = require('text!learners/detail/templates/learner-detail.underscore');
 
     return Marionette.LayoutView.extend({
@@ -44,17 +44,17 @@ define(function(require) {
         initialize: function(options) {
             Marionette.LayoutView.prototype.initialize.call(this, options);
             this.options = options || {};
-            LearnerUtils.mapEvents(this.options.engagementTimelineModel, {
+            ListUtils.mapEvents(this.options.engagementTimelineModel, {
                 serverError: this.timelineServerErrorToAppError,
-                networkError: LearnerUtils.EventTransformers.networkErrorToAppError,
-                sync: LearnerUtils.EventTransformers.syncToClearError
+                networkError: ListUtils.EventTransformers.networkErrorToAppError,
+                sync: ListUtils.EventTransformers.syncToClearError
             }, this);
             this.listenTo(this, 'engagementTimelineUnavailable', this.showTimelineUnavailable);
 
-            LearnerUtils.mapEvents(this.options.learnerModel, {
+            ListUtils.mapEvents(this.options.learnerModel, {
                 serverError: this.learnerServerErrorToAppError,
-                networkError: LearnerUtils.EventTransformers.networkErrorToAppError,
-                sync: LearnerUtils.EventTransformers.syncToClearError
+                networkError: ListUtils.EventTransformers.networkErrorToAppError,
+                sync: ListUtils.EventTransformers.syncToClearError
             }, this);
             this.listenTo(this, 'learnerUnavailable', this.showLearnerUnavailable);
         },
@@ -139,7 +139,7 @@ define(function(require) {
                     description: gettext('Check back daily for up-to-date data.')
                 }];
             } else {
-                return LearnerUtils.EventTransformers.serverErrorToAppError(status);
+                return ListUtils.EventTransformers.serverErrorToAppError(status);
             }
         },
 

@@ -15,11 +15,13 @@ from waffle.testutils import override_switch
 
 from core.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin
 from courses.permissions import set_user_course_permissions, revoke_user_course_permissions
-from courses.tests.utils import set_empty_permissions, get_mock_api_enrollment_data, mock_course_name
+from courses.tests.utils import (
+    CourseSamples,
+    get_mock_api_enrollment_data,
+    mock_course_name,
+    set_empty_permissions,
+)
 
-
-DEMO_COURSE_ID = 'course-v1:edX+DemoX+Demo_2014'
-DEPRECATED_DEMO_COURSE_ID = 'edX/DemoX/Demo_Course'
 
 logger = logging.getLogger(__name__)
 
@@ -67,20 +69,6 @@ class CourseAPIMixin(object):
             body.update(extra)
         self.mock_course_api(path, body)
 
-    @property
-    def course_api_course_list(self):
-        return {
-            'pagination': {
-                'next': None,
-            },
-            'results': [{'id': course_key, 'name': 'Test ' + course_key}
-                        for course_key in [DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID]],
-        }
-
-    def mock_course_list(self):
-        path = '{api}/courses/'.format(api=settings.COURSE_API_URL)
-        self.mock_course_api(path, self.course_api_course_list)
-
 
 class PermissionsTestMixin(object):
     def tearDown(self):
@@ -109,10 +97,10 @@ class AuthTestMixin(MockApiTestMixin, PermissionsTestMixin, RedirectTestCaseMixi
 
     def setUp(self):
         super(AuthTestMixin, self).setUp()
-        self.grant_permission(self.user, DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
+        self.grant_permission(self.user, CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
         self.login()
 
-    @data(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
+    @data(CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
     def test_authentication(self, course_id):
         """
         Users must be logged in to view the page.
@@ -130,7 +118,7 @@ class AuthTestMixin(MockApiTestMixin, PermissionsTestMixin, RedirectTestCaseMixi
                 response = self.client.get(self.path(course_id=course_id))
                 self.assertRedirectsNoFollow(response, settings.LOGIN_URL, next=self.path(course_id=course_id))
 
-    @data(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
+    @data(CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
     @mock.patch('courses.permissions.refresh_user_course_permissions', mock.Mock(side_effect=set_empty_permissions))
     def test_authorization(self, course_id):
         """
@@ -195,7 +183,7 @@ class CourseViewTestMixin(CourseAPIMixin, NavAssertMixin, ViewTestMixin):
         raise NotImplementedError
 
     @httpretty.activate
-    @data(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
+    @data(CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
     @override_switch('enable_course_api', active=True)
     @override_switch('display_course_name_in_nav', active=True)
     def test_valid_course(self, course_id):
@@ -205,7 +193,7 @@ class CourseViewTestMixin(CourseAPIMixin, NavAssertMixin, ViewTestMixin):
     def assertValidMissingDataContext(self, context):
         raise NotImplementedError
 
-    @data(DEMO_COURSE_ID, DEPRECATED_DEMO_COURSE_ID)
+    @data(CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
     def test_missing_data(self, course_id):
         with mock.patch(self.presenter_method, mock.Mock(side_effect=NotFoundError)):
             response = self.client.get(self.path(course_id=course_id))
@@ -375,7 +363,7 @@ class CourseStructureViewMixin(NavAssertMixin, ViewTestMixin):
         Additional assertions should be added to validate page content.
         """
 
-        course_id = DEMO_COURSE_ID
+        course_id = CourseSamples.DEMO_COURSE_ID
 
         # Mock the course details
         self.mock_course_detail(course_id)
@@ -414,7 +402,7 @@ class CourseStructureViewMixin(NavAssertMixin, ViewTestMixin):
         # We need to break the methods that we normally patch.
         self.stop_patching()
 
-        course_id = DEMO_COURSE_ID
+        course_id = CourseSamples.DEMO_COURSE_ID
         self.mock_course_detail(course_id)
 
         path = self.path(course_id=course_id)

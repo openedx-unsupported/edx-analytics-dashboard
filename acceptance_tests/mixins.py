@@ -86,7 +86,20 @@ class AssertMixin(object):
         element = self.page.q(css=selector)
         self.assertEqual(element.text[0], DASHBOARD_FEEDBACK_EMAIL)
 
-    def assertTable(self, table_selector, columns, download_selector):
+    def fulfill_loading_promise(self, css_selector):
+        """
+        Ensure the info contained by `css_selector` is loaded via AJAX.
+
+        Arguments
+            css_selector (string)   --  CSS selector of the parent element that will contain the loading message.
+        """
+
+        EmptyPromise(
+            lambda: 'Loading...' not in self.page.q(css=css_selector + ' .loading-container').text,
+            "Loading finished."
+        ).fulfill()
+
+    def assertTable(self, table_selector, columns, download_selector=None):
         # Ensure the table is loaded via AJAX
         self.fulfill_loading_promise(table_selector)
 
@@ -105,7 +118,8 @@ class AssertMixin(object):
         rows = self.page.browser.find_elements_by_css_selector('{} tbody tr'.format(table_selector))
         self.assertGreater(len(rows), 0)
 
-        self.assertValidHref(download_selector)
+        if download_selector is not None:
+            self.assertValidHref(download_selector)
 
     def assertRowTextEquals(self, cols, expected_texts):
         """
@@ -164,6 +178,9 @@ class FooterFeedbackMixin(FooterMixin):
 
 
 class PrimaryNavMixin(CourseApiMixin):
+    # set to True if the URL fragement should be checked when testing the skip link
+    test_skip_link_url = True
+
     def _test_user_menu(self):
         """
         Verify the user menu functions properly.
@@ -191,7 +208,7 @@ class PrimaryNavMixin(CourseApiMixin):
         course_name = self.get_course_name_or_id(course_id)
         self.assertEqual(element.text[0], course_name)
 
-    def _test_skip_link(self):
+    def _test_skip_link(self, test_url):
         active_element = self.driver.switch_to.active_element
         skip_link = self.page.q(css='.skip-link').results[0]
         skip_link_ref = '#' + skip_link.get_attribute('href').split('#')[-1]
@@ -202,11 +219,12 @@ class PrimaryNavMixin(CourseApiMixin):
         active_element = self.driver.switch_to.active_element
         active_element.send_keys(Keys.ENTER)
 
-        url_hash = self.driver.execute_script('return window.location.hash;')
-        self.assertEqual(url_hash, skip_link_ref)
+        if test_url:
+            url_hash = self.driver.execute_script('return window.location.hash;')
+            self.assertEqual(url_hash, skip_link_ref)
 
     def test_page(self):
-        self._test_skip_link()
+        self._test_skip_link(self.test_skip_link_url)
         self._test_user_menu()
         self._test_active_course()
 
@@ -330,19 +348,6 @@ class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterLegalMixin, FooterFeed
 
     def format_last_updated_date_and_time(self, d):
         return {'update_date': d.strftime(self.DASHBOARD_DATE_FORMAT), 'update_time': self._format_last_updated_time(d)}
-
-    def fulfill_loading_promise(self, css_selector):
-        """
-        Ensure the info contained by `css_selector` is loaded via AJAX.
-
-        Arguments
-            css_selector (string)   --  CSS selector of the parent element that will contain the loading message.
-        """
-
-        EmptyPromise(
-            lambda: 'Loading...' not in self.page.q(css=css_selector + ' .loading-container').text,
-            "Loading finished."
-        ).fulfill()
 
     def build_display_percentage(self, count, total, zero_percent_default='0.0%'):
         if total and count:

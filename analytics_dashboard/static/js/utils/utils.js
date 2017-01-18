@@ -32,20 +32,25 @@ define(['moment', 'underscore', 'utils/globalization'], function(moment, _, Glob
             return properties;
         },
 
+
+        getMomentLocale: function() {
+            // moment accepts 'zh-cn' rather than 'zh' and 'zh-tw' rather than 'zh-hant'
+            if (window.language === 'zh') {
+                return 'zh-cn';
+            } else if (window.language === 'zh-Hant') {
+                return 'zh-tw';
+            } else {
+                return window.language;
+            }
+        },
+
         /**
          * Takes a standard string date and returns a formatted date.
          * @param {(string|Date)} date (ex. 2014-01-31 or Date object)
          * @returns {string} Returns a formatted date (ex. January 31, 2014)
          */
         formatDate: function(date) {
-            // moment accepts 'zh-cn' rather than 'zh' and 'zh-tw' rather than 'zh-hant'
-            if (window.language === 'zh') {
-                moment.locale('zh-cn');
-            } else if (window.language === 'zh-Hant') {
-                moment.locale('zh-tw');
-            } else {
-                moment.locale(window.language);
-            }
+            moment.locale(this.getMomentLocale());
             return moment.utc(date).format('LL');
         },
 

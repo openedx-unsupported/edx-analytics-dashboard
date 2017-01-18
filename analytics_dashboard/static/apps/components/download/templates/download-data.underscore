@@ -1,0 +1,10 @@
+<% if (hasDownloadData) { %>
+    <div class="section-action">
+        <a class="btn btn-default action-download-data" role="button"
+           href="<%- downloadUrl %>" data-role="list-data-csv" data-track-type="click"
+           data-track-event="edx.bi.csv.downloaded" data-track-category="<%- trackCategory %>">
+          <span class="ico fa fa-download" aria-hidden="true"></span> <%- downloadDataTitle %>
+          <span class="sr-only"><%- downloadDataMessage %></span>
+        </a>
+    </div>
+<% } %>

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Arta Dilo <a_dilo@hotmail.com>, 2015
 # Faton Nuha <faton11@live.com>, 2014-2016
@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-27 15:58-0500\n"
-"PO-Revision-Date: 2016-12-27 20:59+0000\n"
+"POT-Creation-Date: 2016-12-27 17:00-0500\n"
+"PO-Revision-Date: 2016-12-27 22:02+0000\n"
 "Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Albanian (http://www.transifex.com/open-edx/edx-platform/language/sq/)\n"
 "MIME-Version: 1.0\n"
@@ -83,9 +83,7 @@ msgstr "Bashkoju Komunitetit Open Source"
 msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr ""
-"EdX analytics data pipeline dhe edX Insights janë open source. "
-"%(link_start)sMëso më shumë%(link_end)s."
+msgstr "EdX analytics data pipeline dhe edX Insights janë open source. %(link_start)sMëso më shumë%(link_end)s."
 
 #: core/templates/core/landing.html
 msgid "Research at edX"
@@ -96,9 +94,7 @@ msgstr "Kërkimi shkencor në edX"
 msgid ""
 "We are committed to advancing teaching and learning through research. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr ""
-"Ne jemi të përkushtuar në përmirësimin e mësimit dhe dijes nëpërmjet "
-"kërkimit. %(link_start)sMëso më shumë%(link_end)s."
+msgstr "Ne jemi të përkushtuar në përmirësimin e mësimit dhe dijes nëpërmjet kërkimit. %(link_start)sMëso më shumë%(link_end)s."
 
 #: core/templates/core/landing.html
 msgid "Need Help?"
@@ -108,16 +104,14 @@ msgstr "Ju nevojitet ndihmë?"
 #, python-format
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
-msgstr ""
-"%(link_start)sQendra jonë e suportit%(link_end)s mund t´ju ndihmojë në "
-"gjetjen e zgjidhjeve."
+msgstr "%(link_start)sQendra jonë e suportit%(link_end)s mund t´ju ndihmojë në gjetjen e zgjidhjeve."
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
 #: core/templatetags/dashboard_extras.py
 #, python-brace-format
 msgid "{statistic}%"
-msgstr ""
+msgstr "{statistic}%"
 
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: courses/presenters/engagement.py
@@ -127,75 +121,75 @@ msgstr ""
 
 #: courses/presenters/enrollment.py
 msgid "Female"
-msgstr ""
+msgstr "Femër"
 
 #: courses/presenters/enrollment.py
 msgid "Male"
-msgstr ""
+msgstr "Mashkull"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Other"
-msgstr ""
+msgstr "Tjetër"
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Unknown"
-msgstr ""
+msgstr "I panjohur"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "None"
-msgstr ""
+msgstr "Asgjë"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
 #: courses/presenters/enrollment.py courses/tests/test_serializers.py
 msgid "Primary"
-msgstr ""
+msgstr "Fillore"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: courses/presenters/enrollment.py
 msgid "Middle"
-msgstr ""
+msgstr "9-vjeçare"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py
 msgid "Secondary"
-msgstr ""
+msgstr "Dytësore"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Associate"
-msgstr ""
+msgstr "Associate"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Bachelor's"
-msgstr ""
+msgstr "Bachelor"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Master's"
-msgstr ""
+msgstr "Master"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
 #: courses/presenters/enrollment.py
 msgid "Doctorate"
-msgstr ""
+msgstr "Doktoraturë"
 
 #. Translators: This is a placeholder for enrollment data collected without a
 #. known geolocation.
 #: courses/presenters/enrollment.py
 msgid "Unknown Country"
-msgstr ""
+msgstr "Shtet i panjohur"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/presenters/performance.py
@@ -206,32 +200,32 @@ msgstr "Dorëzimet"
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Submissions for Part {part_number}: {part_description}"
-msgstr ""
+msgstr "Dorëzimet për Pjesën {part_number}: {part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Part {part_number}: {part_description}"
-msgstr ""
+msgstr "Pjesa {part_number}: {part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Submissions: {part_description}"
-msgstr ""
+msgstr "Dorëzimet: {part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "{part_description}"
-msgstr ""
+msgstr "{part_description}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Submissions for Part {part_number}"
-msgstr ""
+msgstr "Dorëzimet për Pjesën {part_number}"
 
 #: courses/presenters/performance.py
 #, python-brace-format
 msgid "Part {part_number}"
-msgstr ""
+msgstr "Pjesa {part_number}"
 
 #: courses/templates/courses/_base_content_nav.html
 #, python-format
@@ -254,9 +248,7 @@ msgid ""
 "\n"
 "        Select %(level)s\n"
 "    "
-msgstr ""
-"\n"
-"Zgjedh %(level)s"
+msgstr "\nZgjedh %(level)s"
 
 #: courses/templates/courses/_graded_content_nav.html
 #: courses/templates/courses/_tags_content_nav.html
@@ -756,41 +748,41 @@ msgstr ""
 #. Translators: This string represents the number of countries where learners
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Total Countries Represented"
+msgid "Total Countries or Regions Represented"
 msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Countries with at least one learner."
+msgid "Countries or regions with at least one learner."
 msgstr ""
 
-#. Translators: This string represents the country with the greatest number of
-#. enrolled learners.
-#: courses/templates/courses/enrollment_geography.html
-msgid "Top Country by Enrollment"
-msgstr "Top Shtetet sipas Regjistrimit"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Country with the largest number of learners."
-msgstr ""
-
-#. Translators: This string represents the country with the second-greatest
+#. Translators: This string represents the country or region with the greatest
 #. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Second Country by Enrollment"
-msgstr "Shteti i dytë sipas Regjistrimit"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Country with the second largest number of learners."
+msgid "Top Country or Region by Enrollment"
 msgstr ""
 
-#. Translators: This string represents the country with the third-greatest
-#. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Third Country by Enrollment"
-msgstr "Shteti i tretë sipas Regjistrimit"
+msgid "Country or region with the largest number of learners."
+msgstr ""
+
+#. Translators: This string represents the country or region with the second-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Second Country or Region by Enrollment"
+msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Country with the third largest number of learners."
+msgid "Country or region with the second largest number of learners."
+msgstr ""
+
+#. Translators: This string represents the country or region with the third-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Third Country or Region by Enrollment"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country or region with the third largest number of learners."
 msgstr ""
 
 #. Translators: This string represents the percentage of learners in a course.
@@ -1011,7 +1003,7 @@ msgstr "Provo përsëri"
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Activity"
-msgstr ""
+msgstr "Aktiviteti"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
@@ -1021,33 +1013,33 @@ msgstr ""
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Geography"
-msgstr ""
+msgstr "Gjeografi"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Age"
-msgstr ""
+msgstr "Mosha"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Education"
-msgstr ""
+msgstr "Edukimi"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Gender"
-msgstr ""
+msgstr "Gjinia"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Content"
-msgstr ""
+msgstr "Kontent"
 
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
 #: courses/views/engagement.py
 msgid "Videos"
-msgstr ""
+msgstr "Videot"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
 #: courses/views/performance.py
@@ -1104,17 +1096,17 @@ msgstr ""
 #. identifies the course
 #: courses/views/__init__.py
 msgid "Course ID"
-msgstr ""
+msgstr "ID e kursit"
 
 #: courses/views/__init__.py
 msgid "Course Name"
-msgstr ""
+msgstr "Emri i kursit"
 
 #. Translators: 'In Progress' and 'Ended' refer to whether learners are
 #. actively using the course or it is over.
 #: courses/views/__init__.py
 msgid "In Progress"
-msgstr ""
+msgstr "Në progres"
 
 #: courses/views/__init__.py
 msgid "Ended"
@@ -1127,7 +1119,7 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "Start Date"
-msgstr ""
+msgstr "Data e fillimit"
 
 #: courses/views/__init__.py
 msgid "End Date"
@@ -1135,7 +1127,7 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "Status"
-msgstr ""
+msgstr "Statusi"
 
 #: courses/views/__init__.py
 msgid "Instructor Dashboard"
@@ -1143,7 +1135,7 @@ msgstr ""
 
 #: courses/views/__init__.py
 msgid "Courseware"
-msgstr ""
+msgstr "Kursi"
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
@@ -1165,23 +1157,23 @@ msgstr ""
 #: courses/views/engagement.py
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
+msgstr "Video data was last updated %(update_date)s at %(update_time)s UTC."
 
 #: courses/views/engagement.py
 msgid "Looks like no one has watched any videos in these sections."
-msgstr ""
+msgstr "Duket sikur askush nuk ka shikuar ndonjë video në këto seksione."
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Section Name"
-msgstr ""
+msgstr "Emri i seksionit"
 
 #: courses/views/engagement.py courses/views/performance.py
 msgid "Subsection Name"
-msgstr ""
+msgstr "Emri in nënseksionit"
 
 #: courses/views/engagement.py
 msgid "Video Name"
-msgstr ""
+msgstr "Emri i videos"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1200,7 +1192,7 @@ msgstr ""
 
 #: courses/views/enrollment.py
 msgid "Enrollment Activity"
-msgstr ""
+msgstr "Aktiviteti i Regjistrimit"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py
@@ -1244,7 +1236,7 @@ msgstr ""
 
 #: courses/views/performance.py
 msgid "Assignment Name"
-msgstr ""
+msgstr "Emri i detyrës"
 
 #: courses/views/performance.py
 msgid "No submissions received for these exercises."
@@ -1265,7 +1257,7 @@ msgstr ""
 
 #: courses/views/performance.py
 msgid "Problem Name"
-msgstr ""
+msgstr "Emri i problemit"
 
 #: courses/views/performance.py
 #, python-format
@@ -1280,11 +1272,11 @@ msgstr ""
 
 #: settings/base.py
 msgid "Terms of Service"
-msgstr ""
+msgstr "Kushtet e Përdorimit"
 
 #: settings/base.py
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Politikat e privatësisë"
 
 #: templates/403.html
 msgid "Access Denied"
@@ -1309,9 +1301,7 @@ msgstr "Faqja nuk u gjet"
 msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
-msgstr ""
-"Ne nuk mund të gjejm faqen që ju jeni duke shikuar. Ju lutem sigurohuni se "
-"URL është mirë dhe nëse nuk është provojeni përsëri."
+msgstr "Ne nuk mund të gjejm faqen që ju jeni duke shikuar. Ju lutem sigurohuni se URL është mirë dhe nëse nuk është provojeni përsëri."
 
 #: templates/500.html
 msgid "An Error Occurred"
@@ -1321,9 +1311,7 @@ msgstr ""
 msgid ""
 "Our servers weren't able to complete your request. Please try again by "
 "refreshing this page or retracing your steps."
-msgstr ""
-"Serverët tanë nuk janë të aftë të e kompletojnë kërkesën tuaj. Ju lutem "
-"provojeni përsëri duke e rifreskuar faqen ose duke ripërshkuar hapat tuaj."
+msgstr "Serverët tanë nuk janë të aftë të e kompletojnë kërkesën tuaj. Ju lutem provojeni përsëri duke e rifreskuar faqen ose duke ripërshkuar hapat tuaj."
 
 #: templates/503.html
 msgid "We're having trouble loading this page. Please try again in a minute."

@@ -1,0 +1,1394 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# George Goderdzishvili <biggeorgian@gmail.com>, 2016
+# Lasha Kokilashvili <lasha.kokilashvili@gmail.com>, 2015
+# Tamta Tchumburidze <tamtatioon@gmail.com>, 2016-2017
+msgid ""
+msgstr ""
+"Project-Id-Version: edx-platform\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-27 17:00-0500\n"
+"PO-Revision-Date: 2017-01-11 20:02+0000\n"
+"Last-Translator: Tamta Tchumburidze <tamtatioon@gmail.com>\n"
+"Language-Team: Georgian (http://www.transifex.com/open-edx/edx-platform/language/ka/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ka\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: core/templates/core/landing.html templates/_skip_link.html
+msgid "Skip to content"
+msgstr "შინაარსზე გადახტომა"
+
+#: core/templates/core/landing.html
+msgid "Login"
+msgstr "შესვლა"
+
+#: core/templates/core/landing.html
+msgid "Insights to help course teams improve courses."
+msgstr "კურსების გასაუმჯობესებლი რჩევები კურსის შემქმნელთა ჯგუფისთვის."
+
+#: core/templates/core/landing.html courses/views/__init__.py
+msgid "Who are my learners?"
+msgstr "ვინ არიან ჩემი მსმენელები?"
+
+#: core/templates/core/landing.html
+msgid "Target your course to fit the backgrounds of your learners."
+msgstr "მოარგეთ კურსი მსმენელთა ცოდნის დონეს."
+
+#: core/templates/core/landing.html
+#: courses/templates/courses/enrollment_geography.html
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+msgid "Enrollment"
+msgstr "ჩარიცხვა"
+
+#: core/templates/core/landing.html
+msgid "What are learners engaging with in my course?"
+msgstr "რაში ერთვებიან მოსწავლეები ჩემ კურსში?"
+
+#: core/templates/core/landing.html
+msgid ""
+"Improve frequently accessed content, or point learners at underused "
+"resources."
+msgstr "გააუმჯობესეთ პოპულარული შინაარსი, ან აჩვენეთ მოსწავლეებს გამოუყენებელი რესურსები."
+
+#: core/templates/core/landing.html
+#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
+msgid "Engagement"
+msgstr "ჩართვა"
+
+#: core/templates/core/landing.html
+msgid "How well is my content supporting learners?"
+msgstr "რამდენად კარგად ეხმარება ჩემი შინაარსი მოსწავლეებს?"
+
+#: core/templates/core/landing.html
+msgid "Adjust your course based on where learners are struggling."
+msgstr "კურსის გაუმჯობესებისას გაითვალისწინეთ, რომელი ნაწილებია  მსმენელებისთვის ყველაზე რთული."
+
+#: core/templates/core/landing.html
+#: courses/tests/test_views/test_performance.py courses/views/__init__.py
+msgid "Performance"
+msgstr "მაჩვენებლები"
+
+#: core/templates/core/landing.html
+msgid "Join the Open Source Community"
+msgstr "შეუერთდი მოხალისეთა გაერთიანებას"
+
+#: core/templates/core/landing.html
+#, python-format
+msgid ""
+"The edX analytics data pipeline and edX Insights are open source. "
+"%(link_start)sLearn more%(link_end)s."
+msgstr "edX ანალიზის მეთოდის მონაცემების არხი და edX ინფორმაციები ღია წყაროა. %(link_start)sშეიტყვეთ მეტი%(link_end)s."
+
+#: core/templates/core/landing.html
+msgid "Research at edX"
+msgstr "გამოიკვლიე edX-ზე"
+
+#: core/templates/core/landing.html
+#, python-format
+msgid ""
+"We are committed to advancing teaching and learning through research. "
+"%(link_start)sLearn more%(link_end)s."
+msgstr "ჩვენ ვემხრობით სწავლებისა და სწავლის განვითარებას კვლევების მეშვეობით. %(link_start)sშეიტყვეთ მეტი%(link_end)s"
+
+#: core/templates/core/landing.html
+msgid "Need Help?"
+msgstr "გჭირდებათ დახმარება?"
+
+#: core/templates/core/landing.html
+#, python-format
+msgid ""
+"%(link_start)sOur support center%(link_end)s can help you find solutions."
+msgstr "%(link_start)sჩვენს მხარდაჭერის ცენტრს%(link_end)s შეუძლია დაგეხმაროთ გადაწყვეტილებების პოვნაში."
+
+#. Translators: Simply move the percent symbol (%) to the correct location. Do
+#. NOT translate the word statistic.
+#: core/templatetags/dashboard_extras.py
+#, python-brace-format
+msgid "{statistic}%"
+msgstr "{statistic}%"
+
+#. Translators: '{percentage}' in as a placeholder for the percentage value.
+#: courses/presenters/engagement.py
+#, python-brace-format
+msgid "{percentage} of current learners"
+msgstr "მიმდინარე მსმენელების {percentage}"
+
+#: courses/presenters/enrollment.py
+msgid "Female"
+msgstr "მდედრობითი"
+
+#: courses/presenters/enrollment.py
+msgid "Male"
+msgstr "მამრობითი"
+
+#. Translators: Other gender
+#. Translators: This describes the learner's education level.
+#: courses/presenters/enrollment.py
+msgid "Other"
+msgstr "სხვა"
+
+#. Translators: Unknown gender
+#. Translators: This describes the learner's education level.
+#: courses/presenters/enrollment.py
+msgid "Unknown"
+msgstr "უცნობი"
+
+#. Translators: This describes the learner's education level.
+#: courses/presenters/enrollment.py
+msgid "None"
+msgstr "არცერთი"
+
+#. Translators: This describes the learner's education level (e.g. Elementary
+#. School Degree).
+#: courses/presenters/enrollment.py courses/tests/test_serializers.py
+msgid "Primary"
+msgstr "პირველადი"
+
+#. Translators: This describes the learner's education level  (e.g. Middle
+#. School Degree).
+#: courses/presenters/enrollment.py
+msgid "Middle"
+msgstr "შუაში"
+
+#. Translators: This describes the learner's education level.
+#: courses/presenters/enrollment.py
+msgid "Secondary"
+msgstr "მეორადი"
+
+#. Translators: This describes the learner's education level (e.g. Associate's
+#. Degree).
+#: courses/presenters/enrollment.py
+msgid "Associate"
+msgstr "ასოცირებული"
+
+#. Translators: This describes the learner's education level (e.g. Bachelor's
+#. Degree).
+#: courses/presenters/enrollment.py
+msgid "Bachelor's"
+msgstr "ბაკალავრის"
+
+#. Translators: This describes the learner's education level (e.g. Master's
+#. Degree).
+#: courses/presenters/enrollment.py
+msgid "Master's"
+msgstr "მაგისტრის"
+
+#. Translators: This describes the learner's education level (e.g. Doctorate
+#. Degree).
+#: courses/presenters/enrollment.py
+msgid "Doctorate"
+msgstr "დოქტორის ხარისხი"
+
+#. Translators: This is a placeholder for enrollment data collected without a
+#. known geolocation.
+#: courses/presenters/enrollment.py
+msgid "Unknown Country"
+msgstr "უცნობი ქვეყანა"
+
+#. Translators: This describes the data displayed in the chart below.
+#: courses/presenters/performance.py
+#: courses/templates/courses/submissions_chart_info.html
+msgid "Submissions"
+msgstr "ცდები"
+
+#: courses/presenters/performance.py
+#, python-brace-format
+msgid "Submissions for Part {part_number}: {part_description}"
+msgstr "ნაწილი {part_number} ის მცდელობები: {part_description}"
+
+#: courses/presenters/performance.py
+#, python-brace-format
+msgid "Part {part_number}: {part_description}"
+msgstr "ნაწილი {part_number}: {part_description}"
+
+#: courses/presenters/performance.py
+#, python-brace-format
+msgid "Submissions: {part_description}"
+msgstr "მცდელობები: {part_description}"
+
+#: courses/presenters/performance.py
+#, python-brace-format
+msgid "{part_description}"
+msgstr "{part_description}"
+
+#: courses/presenters/performance.py
+#, python-brace-format
+msgid "Submissions for Part {part_number}"
+msgstr "მცდელობები ნაწილისთვის {part_number}"
+
+#: courses/presenters/performance.py
+#, python-brace-format
+msgid "Part {part_number}"
+msgstr ""
+
+#: courses/templates/courses/_base_content_nav.html
+#, python-format
+msgid "%(all_sections_text)s"
+msgstr "%(all_sections_text)s"
+
+#: courses/templates/courses/_graded_content_nav.html
+msgid "Select Assignment Type"
+msgstr "აირჩიეთ დავალების ტიპი"
+
+#. Translators: This refers to all course assignment types (e.g. homework,
+#. exam, lab).
+#: courses/templates/courses/_graded_content_nav.html
+msgid "All Assignments"
+msgstr "ყველა დავალება"
+
+#: courses/templates/courses/_graded_content_nav.html
+#, python-format
+msgid ""
+"\n"
+"        Select %(level)s\n"
+"    "
+msgstr "\nაარჩიეთ %(level)s"
+
+#: courses/templates/courses/_graded_content_nav.html
+#: courses/templates/courses/_tags_content_nav.html
+#: courses/templates/courses/_ungraded_content_nav.html
+msgid "Select Problem"
+msgstr "აირჩიეთ ამოცანა"
+
+#. Translators: This text will be a direct link to the a specific
+#. module/problem.
+#: courses/templates/courses/_module_description.html
+#: courses/templates/courses/_video_preview.html
+msgid "View Live"
+msgstr "კურსის ნახვა"
+
+#: courses/templates/courses/_tags_content_nav.html
+msgid "Select Outcome"
+msgstr "აირჩიეთ შედეგი"
+
+#: courses/templates/courses/_tags_content_nav.html
+msgid "All Outcomes"
+msgstr "ყველა შედეგი"
+
+#: courses/templates/courses/_ungraded_content_nav.html
+#: courses/templates/courses/_video_content_nav.html
+msgid "Select Section"
+msgstr "აირჩიეთ განყოფილება"
+
+#: courses/templates/courses/_ungraded_content_nav.html
+#: courses/templates/courses/_video_content_nav.html
+msgid "All Sections"
+msgstr "ყველა განყოფილება"
+
+#: courses/templates/courses/_ungraded_content_nav.html
+#: courses/templates/courses/_video_content_nav.html
+msgid "Select Subsection"
+msgstr "აირჩიეთ ქვეგანყოფილება"
+
+#: courses/templates/courses/_video_content_nav.html
+msgid "Select Video"
+msgstr "აირჩიეთ ვიდეო"
+
+#: courses/templates/courses/_video_module_controls.html
+msgid "Previous Video"
+msgstr "წინა ვიდეო"
+
+#: courses/templates/courses/_video_module_controls.html
+msgid "Next Video"
+msgstr "შემდეგი ვიდეო"
+
+#. Translators: This text describes a bar chart displayed.
+#: courses/templates/courses/base_performance_answer_distribution.html
+msgid ""
+"This chart shows the most common answers submitted by learners, ordered by "
+"frequency."
+msgstr "ეს ცხრილი ასახავს მსმენელების გაცემულ ყველაზე გავრცელებულ პასუხებს, დახარისხებულს სიხშირის მიხედვით."
+
+#. Translators: Variants refers to versions of a problem/assignment.
+#: courses/templates/courses/base_performance_answer_distribution.html
+#, python-format
+msgid ""
+"Due to the number of possible variants for randomized problems, charts are "
+"not available. %(read_more_link_start)sRead more%(read_more_link_end)s."
+msgstr "შემთხვევითი ამოცანების შესაძლებელი ვარიანტების რაოდენობის გამო, დიაგრამები მიუწვდომელია. %(read_more_link_start)sშეიტყვეთ მეტი%(read_more_link_end)s."
+
+#. Translators: Variants refers to versions of a problem/assignment.
+#: courses/templates/courses/base_performance_answer_distribution.html
+msgid ""
+"Review all submission variants below, or click Download CSV to review them "
+"offline."
+msgstr "გადახედეთ მცდელობის ყველა ვარიანტს, ან კავშირგარეშე განხილვისთვის დააწკაპუნეთ CSV ჩამოტვირთვაზე."
+
+#: courses/templates/courses/base_performance_answer_distribution.html
+msgid "Submission Counts"
+msgstr "ცდების რაოდენობა"
+
+#: courses/templates/courses/base_performance_answer_distribution.html
+#: courses/templates/courses/engagement_content.html
+#: courses/templates/courses/engagement_video_timeline.html
+#: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_demographics_age.html
+#: courses/templates/courses/enrollment_demographics_education.html
+#: courses/templates/courses/enrollment_demographics_gender.html
+#: courses/templates/courses/enrollment_geography.html
+msgid "Download CSV"
+msgstr "ჩამოტვირთეთ CSV"
+
+#: courses/templates/courses/base_performance_answer_distribution.html
+msgid "Learner Submission Counts"
+msgstr "მსმენელთა ცდების რაოდენობა"
+
+#. Translators: This describes the data displayed in the chart below.
+#: courses/templates/courses/demographics_chart_info.html
+msgid "Learners (Self-Reported)"
+msgstr "მსმენელები (თვით-შეტყობინებული)"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Weekly Learner Engagement"
+msgstr "მსმენელთა ყოველკვირეული ჩართულობა"
+
+#: courses/templates/courses/engagement_content.html courses/views/__init__.py
+msgid "How many learners are interacting with my course?"
+msgstr "რამდენი მსმენელი ურთიერთქმედებს ჩემი კურსით?"
+
+#: courses/templates/courses/engagement_content.html courses/views/__init__.py
+#: courses/views/learners.py
+msgid "Learners"
+msgstr "მსმენელები"
+
+#: courses/templates/courses/engagement_content.html
+msgid ""
+"The number of active learners, and the number of learners who engaged in "
+"specific activities, over time."
+msgstr "აქტიური და განსაკუთრებულ აქტივობებში ჩართული მსმენელების რაოდენობა დროის მიხედვით."
+
+#: courses/templates/courses/engagement_content.html
+msgid "Learner Activity Metrics"
+msgstr "მსმენელის აქტივობის მონაცემები"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Active Learners Last Week"
+msgstr "ბოლო კვირის აქტიური მსმენელები"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Learners who visited at least one page in the course content."
+msgstr "მსმენელები, რომლებმაც კურსის შინაარსის ერთი გვერდი მაინც მოინახულეს."
+
+#. Translators: This is a label indicating the number of learners who watched
+#. a video.
+#: courses/templates/courses/engagement_content.html
+msgid "Watched a Video Last Week"
+msgstr "უყურა ვიდეოს წინა კვირას"
+
+#: courses/templates/courses/engagement_content.html
+msgid "Learners who played one or more videos."
+msgstr "მსმენელები, რომლებმაც ერთი, ან მეტი ვიდეო ნახეს."
+
+#. Translators: This is a label indicating the number of learners who tried a
+#. problem.
+#: courses/templates/courses/engagement_content.html
+msgid "Tried a Problem Last Week"
+msgstr "წინა კვირას შეასრულა ამოცანა"
+
+#: courses/templates/courses/engagement_content.html
+msgid ""
+"Learners who submitted an answer for a standard problem. Not all problem "
+"types are included."
+msgstr "მსმენელებმა, რომლებმაც პასუხი გასცეს სტანდარტულ ამოცანას. არ მოიცავს ამოცანების ყველა ტიპს."
+
+#. Translators: This is a label indicating the number of learners who posted
+#. in a forum discussion.
+#: courses/templates/courses/engagement_content.html
+msgid "Participated in Discussions Last Week"
+msgstr "მონაწილეობა მიიღო განხილვაში წინა კვირას"
+
+#: courses/templates/courses/engagement_content.html
+msgid ""
+"Learners who added a post, response, or comment to any course discussion."
+msgstr "მსმენელებმა რომლებმაც რომელიმე კურსის განხილვას დაამატეს პუბლიკაცია, პასუხი ან კომენტარი."
+
+#: courses/templates/courses/engagement_content.html
+msgid "Content Engagement Breakdown"
+msgstr "შინაარსში ჩართულობის განშლა"
+
+#. Translators: This describes the data displayed in the chart below. E.g. how
+#. many learners viewed a video.
+#: courses/templates/courses/engagement_grouped_content.html
+#: courses/templates/courses/views_chart_info.html
+msgid "Video Views"
+msgstr "ვიდეოს ნახვები"
+
+#: courses/templates/courses/engagement_video_by_section.html
+msgid "How did learners interact with videos in this section?"
+msgstr "როგორ ურთიერთქმედებენ მსმენელები ვიდეოებთან ამ ნაწილში?"
+
+#: courses/templates/courses/engagement_video_by_section.html
+msgid ""
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that subsection. Click on bars with low totals or a high "
+"incomplete rate to drill down and understand why."
+msgstr "თითოეული ზოლი აჩვენებს ქვეგანყოფილების ვიდეოების დასრულებული და დაუსრულებელი ნახვების საშუალო რაოდენობას. დააწკაპუნეთ მცირე ჯამიან, ან დაუსრულებლობის მაღალ სიხშირიან ზოლებზე, რათა დაწვრილებით შეისწავლოთ და გაიგოთ რატომ."
+
+#: courses/templates/courses/engagement_video_by_subsection.html
+msgid "How did learners interact with videos in this subsection?"
+msgstr "როგორ ურთიერთქმედებდნენ მსმენელები ვიდეოებთან ამ ნაწილში?"
+
+#: courses/templates/courses/engagement_video_by_subsection.html
+msgid ""
+"Each bar shows the counts of complete and incomplete views for that video. "
+"Click to understand where learners drop off and which parts they replay."
+msgstr "თითოეული ზოლი აჩვენებს შესაბამისი ქვეგანყოფილების ვიდეოების დასრულებული და არასრული ნახვების საშუალო რაოდენობას. დააწკაპუნეთ, რომ გაიგოთ სად მცირდება მსმენელთა რაოდენობა და რომელ ნაწილებს უშვებენ თავიდან."
+
+#: courses/templates/courses/engagement_video_course.html
+#: courses/views/__init__.py
+msgid "How did learners interact with course videos?"
+msgstr "როგორ ურთიერთქმედებდნენ მსმენელები ვიდეოებთან ამ ნაწილში?"
+
+#: courses/templates/courses/engagement_video_course.html
+msgid ""
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that section. Click on bars with low totals or a high incomplete "
+"rate to drill down and understand why."
+msgstr "თითოეული ზოლი აჩვენებს შესაბამისი ქვეგანყოფილების ვიდეოების დასრულებული და არასრული ნახვების საშუალო რაოდენობას. დააწკაპუნეთ მცირერიცხოვან, ან არასრული ნახვების ზოლებზე, რათა დაწვრილებით შეისწავლოთ და გაიგოთ რატომ."
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Total Video Views"
+msgstr "ვიდეოების ნახვების ჯამური მაჩვენებელი"
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "What were the viewing patterns for this video?"
+msgstr "როგორი იყო ამ ვიდეოს ნახვის დინამიკა?"
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid ""
+"The number of learners who watched each segment of the video, and the number"
+" of replays for each segment."
+msgstr "მსმენელების რაოდენობა რომლებმაც ნახეს ვიდეოს ყოველი მონაკვეთი და თავიდან გაშვებების რაოდენობა ყოველ სეგმენტზე."
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Collapse Preview"
+msgstr "გადახედვის არეს აკეცვა"
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Expand Preview"
+msgstr "გადახედვის არეს გაშლა"
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Video Metrics"
+msgstr "ვიდეოს მონაცემები"
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Completion Rate"
+msgstr "დასრულების მაჩვენებელი"
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Estimated percentage of learners who watched the entire video."
+msgstr "იმ მსმენელების დადგენილი პროცენტი, რომლებმაც მთლიანად უყურეს ვიდეოს."
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Started Video"
+msgstr "დაიწყო ვიდეო"
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Learners who started watching the video."
+msgstr "მსმენელები რომლებმაც ვიდეოს ყურება დაიწყეს."
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Finished Video"
+msgstr "დაასრულა ვიდეო"
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Learners who watched the video to the end."
+msgstr "მსმენელები რომლებმაც ვიდეოს ბოლომდე უყურეს."
+
+#: courses/templates/courses/engagement_video_timeline.html
+msgid "Video Viewing Over Time"
+msgstr "ვიდეოს ნახვა დროის მიხედვით"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid "Daily Learner Enrollment"
+msgstr "მსმენელთა ჩარიცხვები ყოველდღიურად"
+
+#: courses/templates/courses/enrollment_activity.html
+#: courses/views/__init__.py
+msgid "How many learners are in my course?"
+msgstr "რამდენი მსმენელია ჩემ კურსში?"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid "Enrollments"
+msgstr "ჩარიცხვები"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid ""
+"This graph displays the current enrollment for the course as of the end of "
+"each day. This includes new enrollments as well as unenrollments."
+msgstr "ეს გრაფა ყოველი დღის ბოლოს გამოსახავს კურსზე მიმდინარე ჩარიცხვებს. მოიცავს როგორც ახალ ჩარიცხვებს, ასევე, ამორიცხვებს."
+
+#: courses/templates/courses/enrollment_activity.html
+msgid "Enrollment Metrics"
+msgstr "ჩარიცხვის მონაცემები"
+
+#. Translators: This is a label to identify the number of learners who ever
+#. enrolled in the course.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Total Enrollment"
+msgstr "სულ ჩარიცხვები"
+
+#. Translators: This is a label indicating the number of learners in a course.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Learners who ever enrolled in the course."
+msgstr "მსმენელები, რომლებიც როდესმე ჩარიცხულან ამ კურსზე."
+
+#. Translators: This is a label to identify current learner enrollment.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Current Enrollment"
+msgstr "მიმდინარე ჩარიცხვა"
+
+#. Translators: This is a label indicating the number of learners enrolled in
+#. a course.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Learners currently enrolled in the course."
+msgstr "ამჟამად კურსზე ჩარიცხული მსმენელები."
+
+#. Translators: This is a label indicating the change in the number of
+#. learners enrolled in a course since the previous week.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Change in Last Week"
+msgstr "ცვლილება ბოლო კვირას"
+
+#: courses/templates/courses/enrollment_activity.html
+msgid "Net difference in current enrollment in the last week."
+msgstr "წინა კვირის მიმდინარე ჩარიცხვების ჯამური სხვაობა."
+
+#. Translators: This is a label to identify enrollment of learners on the
+#. verified track.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Verified Enrollment"
+msgstr "შემოწმებული ჩარიცხვა"
+
+#. Translators: This is a label indicating the number of learners enrolled in
+#. a course on the verified track.
+#: courses/templates/courses/enrollment_activity.html
+msgid ""
+"Number of currently enrolled learners pursuing a verified certificate of "
+"achievement."
+msgstr "ჩარიცხული მსმენელების რაოდენობა, რომლებსაც დამოწმებული სერტიფიკატის აღება სურთ."
+
+#: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/enrollment_demographics_age.html
+#: courses/templates/courses/enrollment_demographics_education.html
+#: courses/templates/courses/enrollment_demographics_gender.html
+msgid "Enrollment Over Time"
+msgstr "ჩარიცხვა დროის მიხედვით"
+
+#: courses/templates/courses/enrollment_demographics_age.html
+#: courses/views/__init__.py
+msgid "How old are my learners?"
+msgstr "რა ასაკის არიან ჩემი მსმენელები?"
+
+#. Translators: Maintain the double percentage symbols (%%) but move them to
+#. the appropriate location (before/after the value placeholder) for your
+#. language.
+#: courses/templates/courses/enrollment_demographics_age.html
+#, python-format
+msgid ""
+"This age histogram presents data computed for the %(value)s%% of enrolled "
+"learners who provided a year of birth."
+msgstr "ეს ასაკობრივი ჰისტოგრამა წარმოადგენს იმ ჩარიცხული მსმენელების %(value)s%% დათვლილ მონაცემებს, რომლებმაც დაბადების წელი მიუთითეს."
+
+#: courses/templates/courses/enrollment_demographics_age.html
+msgid "Age Metrics"
+msgstr "ასაკობრივი მონაცემები"
+
+#. Translators: This is a label to identify the median age of enrolled
+#. learners.
+#: courses/templates/courses/enrollment_demographics_age.html
+msgid "Median Learner Age"
+msgstr "მსმენელთა საშუალო ასაკი"
+
+#: courses/templates/courses/enrollment_demographics_age.html
+msgid ""
+"The midpoint of the learner ages, computed from the provided year of birth."
+msgstr "მსმენელთა საშუალო ასაკი, გამოთვლილი მითითებული დაბადების წლების მიხედვით ."
+
+#. Translators: This is a label to identify the number of learners in the age
+#. range.
+#: courses/templates/courses/enrollment_demographics_age.html
+msgid "Learners 25 and Under"
+msgstr "მსმენელები 25 წელს ქვემოთ"
+
+#: courses/templates/courses/enrollment_demographics_age.html
+msgid ""
+"The percentage of learners aged 25 years or younger (of those who provided a"
+" year of birth)."
+msgstr "25 და უფრო ახალგაზრდა მსმენელთა პროცენტი (რომლებმაც დაბადების წელი მიუთითეს)."
+
+#. Translators: This is a label to identify the number of learners in the age
+#. range.
+#: courses/templates/courses/enrollment_demographics_age.html
+msgid "Learners 26 to 40"
+msgstr "26-დან 40 წლის ჩათვლით მსმენელები"
+
+#: courses/templates/courses/enrollment_demographics_age.html
+msgid ""
+"The percentage of learners aged from 26 to 40 years (of those who provided a"
+" year of birth)."
+msgstr "26-დან 40 წლის ჩათვლით მსმენელები (რომლებმაც დაბადების წელი მიუთითეს)."
+
+#. Translators: This is a label to identify the number of learners in the age
+#. range.
+#: courses/templates/courses/enrollment_demographics_age.html
+msgid "Learners 41 and Over"
+msgstr "41 წელს ზევით მსმენელები"
+
+#: courses/templates/courses/enrollment_demographics_age.html
+msgid ""
+"The percentage of learners aged 41 years or older (of those who provided a "
+"year of birth)."
+msgstr "41 წელს ზევით მსმენელების პროცენტი (რომლებმაც დაბადების წელი მიუთითეს )."
+
+#: courses/templates/courses/enrollment_demographics_age.html
+msgid "Age Breakdown"
+msgstr "ასაკობრივი განშლა"
+
+#: courses/templates/courses/enrollment_demographics_education.html
+#: courses/views/__init__.py
+msgid "What level of education do my learners have?"
+msgstr "რა დონის განათლება აქვთ ჩემს მსმენელებს?"
+
+#. Translators: Maintain the double percentage symbols (%%) but move them to
+#. the appropriate location (before/after the value placeholder) for your
+#. language.
+#: courses/templates/courses/enrollment_demographics_education.html
+#, python-format
+msgid ""
+"This graph presents data for the %(value)s%% of enrolled learners who "
+"provided a highest level of education completed."
+msgstr "ეს გრაფა გამოსახავს იმ ჩარიცხული მსმენელების %(value)s%% დათვლილ მონაცემებს, რომლებმაც დაბადების წელი მიუთითეს."
+
+#: courses/templates/courses/enrollment_demographics_education.html
+msgid "Education Metrics"
+msgstr "განათლების მონაცემები"
+
+#. Translators: This is a label to identify learner educational background.
+#: courses/templates/courses/enrollment_demographics_education.html
+msgid "High School Diploma or Less"
+msgstr "სკოლის სრული ატესტატი, ან ნაკლები"
+
+#: courses/templates/courses/enrollment_demographics_education.html
+msgid ""
+"The percentage of learners who selected Secondary/high school, Junior "
+"secondary/junior high/middle school, or Elementary/primary school as their "
+"highest level of education completed."
+msgstr "მსმენელთა პროცენტი რომლებმაც არასრული/სრული სკოლა, უმცროსთა მეორადი/უმცროსთა სრული/საშუალო სკოლა ან ელემენტარული/მთავარი სკოლა აირჩეს მათი განათლების უმაღლეს დონედ."
+
+#. Translators: This is a label to identify learner educational background.
+#: courses/templates/courses/enrollment_demographics_education.html
+msgid "College Degree"
+msgstr "კოლეჯის ხარისხი"
+
+#: courses/templates/courses/enrollment_demographics_education.html
+msgid ""
+"The percentage of learners who selected Bachelor's degree or Associate "
+"degree as their highest level of education completed."
+msgstr "მსმენელთა პროცენტი რომლებმაც საკუთარი განათლების დონედ ბაკალავრის, ან ასოცირებულის ხარისხი აირჩიეს. "
+
+#. Translators: This is a label to identify learner educational background.
+#: courses/templates/courses/enrollment_demographics_education.html
+msgid "Advanced Degree"
+msgstr "სამეცნიერო ხარისხი"
+
+#: courses/templates/courses/enrollment_demographics_education.html
+msgid ""
+"The percentage of learners who selected Doctorate or Master's or "
+"professional degree as their highest level of education completed."
+msgstr "იმ მსმენელთა პროცენტი, რომლებმაც საკუთარი განათლების დონედ დოქტორანტის, მაგისტრის, ან პროფესიული ხარისხი აირჩიეს."
+
+#: courses/templates/courses/enrollment_demographics_education.html
+msgid "Educational Breakdown"
+msgstr "განათლების განშლა"
+
+#: courses/templates/courses/enrollment_demographics_gender.html
+#: courses/views/__init__.py
+msgid "What is the learner gender breakdown?"
+msgstr "როგორია მსმენელთა გენდერული განშლა?"
+
+#. Translators: Maintain the double percentage symbols (%%) but move them to
+#. the appropriate location (before/after the value placeholder) for your
+#. language.
+#: courses/templates/courses/enrollment_demographics_gender.html
+#, python-format
+msgid ""
+"This graph presents data for the %(value)s%% of enrolled learners who "
+"specified their gender."
+msgstr "ეს გრაფა გამოსახავს იმ ჩარიცხული მსმენელების %(value)s%% დათვლილ მონაცემებს, რომლებმაც სქესი მიუთითეს."
+
+#: courses/templates/courses/enrollment_demographics_gender.html
+msgid "Gender Breakdown Over Time"
+msgstr "გენდერული განშლა დროის მიხედვით"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Geographic Distribution"
+msgstr "გეოგრაფიული დისტრიბუცია"
+
+#: courses/templates/courses/enrollment_geography.html
+#: courses/views/__init__.py
+msgid "Where are my learners?"
+msgstr "სად არიან ჩემი მოსწავლეები?"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Enrollment by Country"
+msgstr "ჩარიცხვა ქვეყნის მიხედვით"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Geography Metrics"
+msgstr "გეოგრაფიული მონაცემები"
+
+#. Translators: This string represents the number of countries where learners
+#. are enrolled.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Total Countries or Regions Represented"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Countries or regions with at least one learner."
+msgstr ""
+
+#. Translators: This string represents the country or region with the greatest
+#. number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Top Country or Region by Enrollment"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country or region with the largest number of learners."
+msgstr ""
+
+#. Translators: This string represents the country or region with the second-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Second Country or Region by Enrollment"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country or region with the second largest number of learners."
+msgstr ""
+
+#. Translators: This string represents the country or region with the third-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Third Country or Region by Enrollment"
+msgstr ""
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country or region with the third largest number of learners."
+msgstr ""
+
+#. Translators: This string represents the percentage of learners in a course.
+#. Move the % symbol, if necessary, but keep the percent variable/placeholder.
+#: courses/templates/courses/enrollment_geography.html
+#, python-format
+msgid "%(percent)s%% of learners"
+msgstr "მსმენელების %(percent)s%%"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Geographic Breakdown"
+msgstr "გეოგრაფიული განშლა"
+
+#. Translators: Application here refers to the web site/application being used
+#. (e.g. the dashboard).
+#: courses/templates/courses/home.html templates/base_dashboard.html
+#: templates/footer.html templates/lens-navigation.html
+msgid "Application"
+msgstr "აპლიკაცია"
+
+#. Translators: This refers to the homepage of a course.
+#: courses/templates/courses/home.html courses/views/__init__.py
+#: templates/lens-navigation.html
+msgid "Course Home"
+msgstr "კურსის მთავარი გვერდი"
+
+#. Translators: This refers to the active tab/navigation item.
+#: courses/templates/courses/home.html templates/lens-navigation.html
+#: templates/submenu_navigation.html
+msgid "Active"
+msgstr "აქტიური"
+
+#. Translators: This indicates that the adjacent link will trigger a CSV
+#. download. '{{download_icon}}' will be replaced with an icon.
+#: courses/templates/courses/home.html
+#, python-format
+msgid ""
+"\n"
+"                    (%(download_icon)s CSV Download)\n"
+"                  "
+msgstr "\n (%(download_icon)s CSV ჩამოტვირთვა)"
+
+#: courses/templates/courses/home.html
+msgid "Basic Course Information"
+msgstr "ზოგადი ინფორმაცია კურსზე"
+
+#. Translators: This title describes a list of links to outside tools for this
+#. course.
+#: courses/templates/courses/home.html
+msgid "External Tools"
+msgstr "გარე ხელსაწყოები"
+
+#: courses/templates/courses/index.html
+msgid "Courses"
+msgstr "კურსები"
+
+#: courses/templates/courses/index.html
+#, python-format
+msgid "Welcome, %(username)s!"
+msgstr "მოგესალმებით,  %(username)s!"
+
+#: courses/templates/courses/index.html
+#, python-format
+msgid ""
+"Here are the courses you currently have access to in %(application_name)s:"
+msgstr "ეს არის კურსები რომლებზეც მიმდინარე წვდომა გაქვთ %(application_name)s:"
+
+#: courses/templates/courses/index.html
+#, python-format
+msgid "New to %(application_name)s?"
+msgstr "ახალი %(application_name)s?"
+
+#: courses/templates/courses/index.html
+#, python-format
+msgid ""
+"Click Help in the upper-right corner to get more information about "
+"%(application_name)s. Send us feedback at %(email_link)s."
+msgstr "%(application_name)s-ის შესახებ მეტი ინფორმაციის მისაღებად, დააწკაპუნეთ დახმარებას ზედა მარჯვენა კუთხეში. მოგვწერეთ გამოხმაურება %(email_link)s."
+
+#: courses/templates/courses/performance_answer_distribution.html
+#: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
+#: courses/templates/courses/performance_ungraded_answer_distribution.html
+msgid "How did learners answer this problem?"
+msgstr "როგორ პასუხობენ მოსწავლეები ამ ამოცანას?"
+
+#: courses/templates/courses/performance_assignment.html
+msgid "How are learners doing on this assignment?"
+msgstr "როგორ ასრულებენ მსმენელები ამ დავალებას?"
+
+#: courses/templates/courses/performance_assignment.html
+#: courses/templates/courses/performance_ungraded_by_subsection.html
+msgid ""
+"These bars show the correct and incorrect submission counts for each "
+"problem. Only the last submission from each learner is counted."
+msgstr "ეს ზოლები აჩვენებს სწორი და არასწორი ცდების რაოდენობას თითოეულ ამოცანაზე. თითოეული მსმენელისგან მხოლოდ ბოლო ცდა ჩაითვლება."
+
+#: courses/templates/courses/performance_assignment.html
+#: courses/templates/courses/performance_learning_outcomes_section.html
+#: courses/templates/courses/performance_ungraded_by_subsection.html
+msgid "Problem Submissions"
+msgstr "ამოცანების ჩაბარების მცდელობები"
+
+#: courses/templates/courses/performance_graded_content.html
+msgid "Which assignment type do you want to investigate?"
+msgstr "რომელი დავალების ტიპის გამოკვლევა გსურთ?"
+
+#: courses/templates/courses/performance_graded_content.html
+msgid ""
+"Click an assignment type to view more detail information about the "
+"assignments."
+msgstr "დავალების შესახებ მეტი ინფორმაციის სანახავად, დააწკაპუნეთ დავალების ტიპზე."
+
+#. Translators: This describes the percent an assignment contributes to that
+#. of a learner's grade (e.g. Exam: 60% of the grading policy.).
+#: courses/templates/courses/performance_graded_content.html
+#, python-format
+msgid ""
+"\n"
+"                %(assignment_type)s: %(policy_ratio)s%% of the grading policy\n"
+"              "
+msgstr "\n %(assignment_type)s: ხარისხის მინიჭების %(policy_ratio)s%%"
+
+#. Translators: This describes the percent of a learner's grade (e.g. 60%).
+#: courses/templates/courses/performance_graded_content.html
+#, python-format
+msgid "%(policy_ratio)s%%"
+msgstr "%(policy_ratio)s%%"
+
+#: courses/templates/courses/performance_graded_content_by_type.html
+#, python-format
+msgid ""
+"\n"
+"      How are learners doing on the %(type)s?\n"
+"    "
+msgstr "\nროგორ ასრულებენ მსმენელები %(type)s?"
+
+#: courses/templates/courses/performance_graded_content_by_type.html
+msgid ""
+"Each bar shows the average number of correct and incorrect submissions for "
+"problems in the assignment. Only the last submission from each learner is "
+"counted."
+msgstr "თითოეული ზოლი აჩვენებს დავალების ამოცანების სწორი და არასწორი ცდების საშუალო რაოდენობას. თითოეული მსმენელისგან მხოლოდ ბოლო ცდა ჩაითვლება."
+
+#: courses/templates/courses/performance_graded_content_by_type.html
+msgid "Assignment Submissions"
+msgstr "დავალების შესრულების ცდები"
+
+#: courses/templates/courses/performance_learning_outcomes_content.html
+#: courses/templates/courses/performance_learning_outcomes_section.html
+msgid "Measured by learning outcome, how are learners performing?"
+msgstr "სწავლის შედეგებიდან გამომდინარე, როგორია მსმენელთა მოსწრება?"
+
+#: courses/templates/courses/performance_learning_outcomes_content.html
+msgid ""
+"Each bar shows the average number of correct and incorrect submissions for "
+"each outcome."
+msgstr "თითოეული ზოლი აჩვენებს ყოველი შედეგის სწორი და არასწორი ცდების საშუალო რაოდენობას"
+
+#: courses/templates/courses/performance_learning_outcomes_content.html
+msgid "Outcome Submissions"
+msgstr "წარდგენილი შედეგები"
+
+#: courses/templates/courses/performance_learning_outcomes_section.html
+msgid ""
+"Each bar shows the correct and incorrect number of submissions for each "
+"problem for the current outcome."
+msgstr "თითოეული ზოლი აჩვენებს ყოველ ამოცანაზე სწორი და არასწორი ცდების მიმდინარე შედეგს."
+
+#: courses/templates/courses/performance_ungraded_by_section.html
+msgid "How are learners doing on this section?"
+msgstr "როგორ ართმევენ თავს მსმენელები ამ განყოფილებას?"
+
+#: courses/templates/courses/performance_ungraded_by_section.html
+msgid ""
+"Each bar shows the average number of correct and incorrect submissions for "
+"each subsection. Only the last submission from each learner is counted."
+msgstr "თითოეული ზოლი აჩვენებს ყოველი განყოფილების სწორი და არასწორი ცდების საშუალო რაოდენობას. თითოეული მსმენელისგან მხოლოდ ბოლო ცდა ჩაითვლება."
+
+#: courses/templates/courses/performance_ungraded_by_section.html
+msgid "Subsection Submissions"
+msgstr "ცდები ქვეგანყოფილებაში"
+
+#: courses/templates/courses/performance_ungraded_by_subsection.html
+msgid "How are learners doing on this subsection?"
+msgstr "როგორ ართმევენ თავს მსმენელები ამ ქვეგანყოფილებას?"
+
+#: courses/templates/courses/performance_ungraded_content.html
+#: courses/views/__init__.py
+msgid "How are learners doing on ungraded exercises?"
+msgstr "როგორ ართმევენ თავს მსმენელები შეუფასებელ სავარჯიშოებს?"
+
+#: courses/templates/courses/performance_ungraded_content.html
+msgid ""
+"Each bar shows the average number of correct and incorrect submissions for "
+"each section. Only the last submission from each learner is counted."
+msgstr "თითოეული ზოლი აჩვენებს ყოველი განყოფილების სწორი და არასწორი ცდების საშუალო რაოდენობას. ყოველი მსმენელისგან მხოლოდ ბოლო ცდა ჩაითვლება."
+
+#: courses/templates/courses/performance_ungraded_content.html
+msgid "Section Submissions"
+msgstr "პასუხები განყოფილებაში"
+
+#. Translators: This message is displayed when the website is unable to get
+#. the credentials for the user
+#: courses/templates/courses/permissions-retrieval-failed.html
+msgid "Permissions Retrieval Failed"
+msgstr "უფლებების მოძიება ვერ მოხერხდა"
+
+#: courses/templates/courses/permissions-retrieval-failed.html
+msgid ""
+"There was a problem retrieving course permissions for your account. Please "
+"try again. If you continue to experience issues, please let us know."
+msgstr "თქვენი ანგარიშისთვის კურსის უფლებების მოძიებისას წარმოიშვა პრობლემა. გთხოვთ სცადოთ თავიდან. ხარვეზების გამეორების შემთხვევაში, გთხოვთ გვაცნობოთ. "
+
+#: courses/templates/courses/permissions-retrieval-failed.html
+msgid "Try Again"
+msgstr "ისევ სცადეთ"
+
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/enrollment.py
+msgid "Activity"
+msgstr ""
+
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/enrollment.py
+msgid "Demographics"
+msgstr ""
+
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/enrollment.py
+msgid "Geography"
+msgstr ""
+
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/enrollment.py
+msgid "Age"
+msgstr "ასაკი"
+
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/enrollment.py
+msgid "Education"
+msgstr ""
+
+#: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/enrollment.py
+msgid "Gender"
+msgstr "სქესი"
+
+#. Translators: Content as in course content (e.g. things, not the feeling)
+#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
+#: courses/views/engagement.py
+msgid "Content"
+msgstr "შინაარსი"
+
+#: courses/tests/test_views/test_engagement.py courses/views/__init__.py
+#: courses/views/engagement.py
+msgid "Videos"
+msgstr "ვიდეოები"
+
+#: courses/tests/test_views/test_performance.py courses/views/__init__.py
+#: courses/views/performance.py
+msgid "Graded Content"
+msgstr ""
+
+#: courses/tests/test_views/test_performance.py courses/views/__init__.py
+#: courses/views/performance.py
+msgid "Ungraded Problems"
+msgstr ""
+
+#: courses/tests/test_views/test_performance.py courses/views/__init__.py
+#: courses/views/performance.py
+msgid "Learning Outcomes"
+msgstr "სწავლების შედეგები"
+
+#: courses/views/__init__.py
+msgid "What are learners doing in my course?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "How are learners doing on graded course assignments?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "What is the breakdown for course learning outcomes?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "How are learners responding to questions?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Problem Response Report"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "How are learners doing on course assignments?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "What are individual learners doing?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Who is engaged? Who isn't?"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "All Learners"
+msgstr "ყველა მოსწავლე"
+
+#. Translators: 'Course ID' is 'Course Identifier', the unique code that
+#. identifies the course
+#: courses/views/__init__.py
+msgid "Course ID"
+msgstr "კურსის ID"
+
+#: courses/views/__init__.py
+msgid "Course Name"
+msgstr "კურსის სახელი"
+
+#. Translators: 'In Progress' and 'Ended' refer to whether learners are
+#. actively using the course or it is over.
+#: courses/views/__init__.py
+msgid "In Progress"
+msgstr "მიმდინარეობს"
+
+#: courses/views/__init__.py
+msgid "Ended"
+msgstr ""
+
+#. Translators: This refers to a course that has not yet begun.
+#: courses/views/__init__.py
+msgid "Not Started Yet"
+msgstr ""
+
+#: courses/views/__init__.py
+msgid "Start Date"
+msgstr "დაწყების თარიღი"
+
+#: courses/views/__init__.py
+msgid "End Date"
+msgstr "დასრულების თარიღი"
+
+#: courses/views/__init__.py
+msgid "Status"
+msgstr "სტატუსი"
+
+#: courses/views/__init__.py
+msgid "Instructor Dashboard"
+msgstr "ინსტრუქტორის მართვის დაფა"
+
+#: courses/views/__init__.py
+msgid "Courseware"
+msgstr "შინაარსი"
+
+#: courses/views/engagement.py
+msgid "Engagement Content"
+msgstr ""
+
+#. Translators: Do not translate UTC.
+#: courses/views/engagement.py
+#, python-format
+msgid ""
+"Course engagement data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr ""
+
+#: courses/views/engagement.py
+msgid "Engagement Videos"
+msgstr ""
+
+#. Translators: Do not translate UTC.
+#: courses/views/engagement.py
+#, python-format
+msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
+msgstr ""
+
+#: courses/views/engagement.py
+msgid "Looks like no one has watched any videos in these sections."
+msgstr ""
+
+#: courses/views/engagement.py courses/views/performance.py
+msgid "Section Name"
+msgstr ""
+
+#: courses/views/engagement.py courses/views/performance.py
+msgid "Subsection Name"
+msgstr ""
+
+#: courses/views/engagement.py
+msgid "Video Name"
+msgstr ""
+
+#. Translators: Do not translate UTC.
+#: courses/views/enrollment.py
+#, python-format
+msgid ""
+"Demographic learner data was last updated %(update_date)s at %(update_time)s"
+" UTC."
+msgstr ""
+
+#. Translators: This sentence is displayed at the bottom of the page and
+#. describe the demographics data displayed.
+#: courses/views/enrollment.py
+msgid ""
+"All above demographic data was self-reported at the time of registration."
+msgstr ""
+
+#: courses/views/enrollment.py
+msgid "Enrollment Activity"
+msgstr ""
+
+#. Translators: Do not translate UTC.
+#: courses/views/enrollment.py
+#, python-format
+msgid ""
+"Enrollment activity data was last updated %(update_date)s at %(update_time)s"
+" UTC."
+msgstr ""
+
+#: courses/views/enrollment.py
+msgid "Enrollment Demographics by Age"
+msgstr ""
+
+#: courses/views/enrollment.py
+msgid "Enrollment Demographics by Education"
+msgstr ""
+
+#: courses/views/enrollment.py
+msgid "Enrollment Demographics by Gender"
+msgstr ""
+
+#: courses/views/enrollment.py
+msgid "Enrollment Geography"
+msgstr ""
+
+#. Translators: Do not translate UTC.
+#: courses/views/enrollment.py
+#, python-format
+msgid ""
+"Geographic learner data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr ""
+
+#. Translators: Do not translate UTC.
+#: courses/views/performance.py
+#, python-format
+msgid ""
+"Problem submission data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr ""
+
+#: courses/views/performance.py
+msgid "Assignment Name"
+msgstr ""
+
+#: courses/views/performance.py
+msgid "No submissions received for these exercises."
+msgstr ""
+
+#: courses/views/performance.py
+msgid "No submissions received for these assignments."
+msgstr ""
+
+#: courses/views/performance.py
+msgid "Performance: Problem Submissions"
+msgstr ""
+
+#: courses/views/performance.py
+#, python-format
+msgid "Graded Content: %(assignment_type)s"
+msgstr ""
+
+#: courses/views/performance.py
+msgid "Problem Name"
+msgstr "ამოცანის დასახელება"
+
+#: courses/views/performance.py
+#, python-format
+msgid ""
+"Tags distribution data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr ""
+
+#: courses/views/performance.py
+msgid "Performance: Learning Outcomes"
+msgstr ""
+
+#: settings/base.py
+msgid "Terms of Service"
+msgstr "მომსახურების პირობები"
+
+#: settings/base.py
+msgid "Privacy Policy"
+msgstr "კონფიდენციალურობის პოლიტიკა"
+
+#: templates/403.html
+msgid "Access Denied"
+msgstr "წვდომა აკრძალულია"
+
+#: templates/403.html
+msgid ""
+"You do not have permission to view this page. If you believe you should have"
+" access to this page, try logging out and logging in again to refresh your "
+"permissions."
+msgstr "თქვენ ამ გვერდის ნახვის უფლება არ გაქვთ. თუ მიგაჩნიათ, რომ ამ გვერდზე წვდომა უნდა გქონდეთ, თქვენი უფლებების გასაახლებლად, სცადეთ გამოსვლა და ხელახლა შესვლა."
+
+#: templates/403.html
+msgid "Logout then Login"
+msgstr "გამოდით და ხელახლა შედით"
+
+#: templates/404.html
+msgid "Page Not Found"
+msgstr "გვერდი ვერ მოიძებნა"
+
+#: templates/404.html
+msgid ""
+"We can't find the page you're looking for. Please make sure the URL is "
+"correct and if not try again."
+msgstr "თქვენ მიერ მოთხოვნილი გვერდის მოძიება ვერ მოხერხდა. გთხოვთ დარწმუნდით URL სისწორეში და სცადეთ თავიდან."
+
+#: templates/500.html
+msgid "An Error Occurred"
+msgstr "წარმოიშვა შეცდომა"
+
+#: templates/500.html
+msgid ""
+"Our servers weren't able to complete your request. Please try again by "
+"refreshing this page or retracing your steps."
+msgstr "ჩვენმა სერვერებმა ვერ შეძლეს თქვენი მოთხოვნის დასრულება. ხელახალი ცდისთვის, გთხოვთ განაახლოთ გვერდი, ან ხელახლა გაიმეოროთ თქვენი მოქმედებები."
+
+#: templates/503.html
+msgid "We're having trouble loading this page. Please try again in a minute."
+msgstr "გვერდის ჩატვირთვსისას წარმოგვექმნა პრობლემა. გთხოვთ, ხელახლა სცადოთ ერთი წუთის შემდეგ."
+
+#: templates/503.html
+msgid "(Technical details: 503 Service Unavailable.)"
+msgstr "(ტექნიკური მონაცემები: 503 სერვერი მიუწვდომელია.)"
+
+#: templates/_announcement.html
+msgid "Close"
+msgstr "დახურვა"
+
+#: templates/base-error.html
+msgid "Use our support tool to ask questions or share feedback."
+msgstr "გამოიყენეთ ჩენი მხარდაჭერის ხელსაწყო კითხვების დასასმელად და უკუკავშრის გასაზიარებლად."
+
+#. Translators: This intention here is that a user clicks a button to contact
+#. a support group (e.g. edX Support, or MITx Support). Reorder the
+#. placeholder as you see fit.
+#: templates/base-error.html
+#, python-format
+msgid "Contact %(platform_name)s Support"
+msgstr "დაუკავშირდით %(platform_name)s მხარდაჭერას"
+
+#: templates/footer.html
+msgid "Feedback"
+msgstr "გამოხმაურება"
+
+#: templates/footer.html
+#, python-format
+msgid ""
+"We want this dashboard to work for you! Need help? "
+"%(support_link_start)sContact course team support%(support_link_end)s. "
+"Comments or suggestions? Email %(email_link)s."
+msgstr "გვინდა რომ ეს მართვის დაფა შენთვის მუშაობდეს! გჭირდებათ დახმარება? %(support_link_start)s დაუკავშირდით კურსის მხარდამჭერ გუნდს %(support_link_end)s. გაქვთ კომენტარები, ან შეთავაზებები? მოგვწერეთ ელფოსტაზე %(email_link)s."
+
+#. Translators: The © symbol appears directly before this line.
+#: templates/footer.html
+#, python-format
+msgid ""
+" %(current_year)s %(platform_name)s, except where noted, all rights\n"
+"            reserved. "
+msgstr "%(current_year)s %(platform_name)s, გარდა მითითებული გამონაკლისებისა, \nყველა უფლება დაცულია."
+
+#: templates/header.html
+msgid "Toggle navigation"
+msgstr "ნავიგაციის გადართვა"
+
+#: templates/header.html
+msgid "Help"
+msgstr "დახმარება"
+
+#: templates/header.html
+msgid "Menu for"
+msgstr "მენიუ"
+
+#: templates/header.html
+msgid "Logout"
+msgstr "გამოსვლა"
+
+#: templates/lens-navigation.html
+msgid "Navigation Menu."
+msgstr "ნავიგაციის მენიუ."
+
+#: templates/loading.html
+msgid "Loading"
+msgstr "იტვირთება"
+
+#: templates/section_error.html
+msgid "We are unable to load this chart."
+msgstr "ვერ ვტვირთავთ ამ დიაგრამას."
+
+#: templates/section_error.html
+msgid "We are unable to load this table."
+msgstr "ვერ ვტვირთავთ ამ ცხრილს."
+
+#: templates/section_error.html
+msgid "We are unable to load these metrics."
+msgstr " ჩატვირთვა ვერ მოხერხდა."

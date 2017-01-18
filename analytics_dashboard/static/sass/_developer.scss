@@ -260,8 +260,6 @@ $lens-nav-margin: 15px;
   margin-top: 10px;
   margin-bottom: 15px;
   background: white;
-  border: 1px solid $gray;
-  border-width: 0 0 1px 1px;
 
   .course {
     padding: 15px;
@@ -276,6 +274,19 @@ $lens-nav-margin: 15px;
       color: $edx-gray;
     }
   }
+
+  .integer-cell {
+    text-align: right;
+  }
+
+  .course-list-table th.sortable {
+    min-width: 100px;
+  }
+
+  .course-id {
+    color: $edx-gray;
+  }
+
 }
 
 body.view-course-list {
