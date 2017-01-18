@@ -3,7 +3,14 @@ from django.conf import settings
 from django.conf.urls import url, include
 
 from courses import views
-from courses.views import enrollment, engagement, performance, csv, learners
+from courses.views import (
+    course_summaries,
+    csv,
+    enrollment,
+    engagement,
+    performance,
+    learners,
+)
 
 CONTENT_ID_PATTERN = r'(?P<content_id>(?:i4x://?[^/]+/[^/]+/[^/]+/[^@]+(?:@[^/]+)?)|(?:[^/]+))'
 PROBLEM_PART_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'problem_part_id')
@@ -127,6 +134,6 @@ COURSE_URLS = [
 
 app_name = 'courses'
 urlpatterns = [
-    url('^$', views.CourseIndex.as_view(), name='index'),
+    url('^$', course_summaries.CourseIndex.as_view(), name='index'),
     url(r'^{}/'.format(settings.COURSE_ID_PATTERN), include(COURSE_URLS))
 ]

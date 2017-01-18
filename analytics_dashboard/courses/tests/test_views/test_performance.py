@@ -17,7 +17,8 @@ from analyticsclient.exceptions import ClientError, NotFoundError
 
 from courses.tests import utils
 from courses.tests.factories import CoursePerformanceDataFactory, TagsDistributionDataFactory
-from courses.tests.test_views import (DEMO_COURSE_ID, CourseStructureViewMixin, CourseAPIMixin, PatchMixin)
+from courses.tests.test_views import (CourseStructureViewMixin, CourseAPIMixin, PatchMixin)
+from courses.tests.utils import CourseSamples
 
 
 logger = logging.getLogger(__name__)
@@ -30,7 +31,7 @@ class CoursePerformanceViewTestMixin(PatchMixin, CourseStructureViewMixin, Cours
     def setUp(self):
         super(CoursePerformanceViewTestMixin, self).setUp()
         self.factory = CoursePerformanceDataFactory()
-        self.factory.course_id = DEMO_COURSE_ID
+        self.factory.course_id = CourseSamples.DEMO_COURSE_ID
 
     def get_mock_data(self, course_id):
         # The subclasses don't need this.
@@ -104,7 +105,7 @@ class CoursePerformanceViewTestMixin(PatchMixin, CourseStructureViewMixin, Cours
         """
         # Nearly all course performance pages rely on retrieving the grading policy.
         # Break that endpoint to simulate an error.
-        course_id = DEMO_COURSE_ID
+        course_id = CourseSamples.DEMO_COURSE_ID
         api_path = self.GRADING_POLICY_API_TEMPLATE.format(course_id=course_id)
         self.mock_course_api(api_path, status=500)
 
@@ -206,7 +207,7 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformanceViewTestMixin):
 
     @httpretty.activate
     def _test_valid_course(self, rv):
-        course_id = DEMO_COURSE_ID
+        course_id = CourseSamples.DEMO_COURSE_ID
 
         # Mock the course details
         self.mock_course_detail(course_id)
@@ -262,7 +263,7 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformanceViewTestMixin):
         """
         The view should return HTTP 404 if the answer distribution data is missing.
         """
-        course_id = DEMO_COURSE_ID
+        course_id = CourseSamples.DEMO_COURSE_ID
 
         # Mock the course details
         self.mock_course_detail(course_id)
@@ -363,7 +364,7 @@ class CoursePerformanceGradedContentByTypeViewTests(CoursePerformanceGradedMixin
         Assignments might be missing if the assignment type is invalid or the course is incomplete.
         """
 
-        course_id = DEMO_COURSE_ID
+        course_id = CourseSamples.DEMO_COURSE_ID
 
         # Mock the course details
         self.mock_course_detail(course_id)
@@ -410,7 +411,7 @@ class CoursePerformanceAssignmentViewTests(CoursePerformanceGradedMixin, TestCas
         Assignments might be missing if the assignment type is invalid or the course is incomplete.
         """
 
-        course_id = DEMO_COURSE_ID
+        course_id = CourseSamples.DEMO_COURSE_ID
 
         # Mock the course details
         self.mock_course_detail(course_id)
@@ -426,8 +427,8 @@ class CoursePerformanceUngradedContentViewTests(CoursePerformanceUngradedMixin, 
     @httpretty.activate
     @patch('courses.presenters.performance.CoursePerformancePresenter.sections', Mock(return_value=None))
     def test_missing_sections(self):
-        self.mock_course_detail(DEMO_COURSE_ID)
-        response = self.client.get(self.path(course_id=DEMO_COURSE_ID))
+        self.mock_course_detail(CourseSamples.DEMO_COURSE_ID)
+        response = self.client.get(self.path(course_id=CourseSamples.DEMO_COURSE_ID))
         # base page will should return a 200 even if no sections found
         self.assertEqual(response.status_code, 200)
 
@@ -454,8 +455,8 @@ class CoursePerformanceUngradedSectionViewTests(CoursePerformanceUngradedMixin, 
     @httpretty.activate
     @patch('courses.presenters.performance.CoursePerformancePresenter.section', Mock(return_value=None))
     def test_missing_subsections(self):
-        self.mock_course_detail(DEMO_COURSE_ID)
-        response = self.client.get(self.path(course_id=DEMO_COURSE_ID, section_id='Invalid'))
+        self.mock_course_detail(CourseSamples.DEMO_COURSE_ID)
+        response = self.client.get(self.path(course_id=CourseSamples.DEMO_COURSE_ID, section_id='Invalid'))
         self.assertEqual(response.status_code, 404)
 
 
@@ -484,8 +485,9 @@ class CoursePerformanceUngradedSubsectionViewTests(CoursePerformanceUngradedMixi
     @httpretty.activate
     @patch('courses.presenters.performance.CoursePerformancePresenter.subsection', Mock(return_value=None))
     def test_missing_subsection(self):
-        self.mock_course_detail(DEMO_COURSE_ID)
-        response = self.client.get(self.path(course_id=DEMO_COURSE_ID, section_id='Invalid', subsection_id='Nope'))
+        self.mock_course_detail(CourseSamples.DEMO_COURSE_ID)
+        response = self.client.get(self.path(
+            course_id=CourseSamples.DEMO_COURSE_ID, section_id='Invalid', subsection_id='Nope'))
         self.assertEqual(response.status_code, 404)
 
 
@@ -498,7 +500,7 @@ class CoursePerformanceLearningOutcomesViewTestMixin(CoursePerformanceViewTestMi
     def setUp(self):
         super(CoursePerformanceLearningOutcomesViewTestMixin, self).setUp()
         self.tags_factory = TagsDistributionDataFactory(self.tags_factory_init_data)
-        self.tags_factory.course_id = DEMO_COURSE_ID
+        self.tags_factory.course_id = CourseSamples.DEMO_COURSE_ID
 
     def _check_invalid_course(self, expected_status_code=404):
         course_id = 'fakeOrg/soFake/Fake_Course'
@@ -655,7 +657,7 @@ class CoursePerformanceLearningOutcomesAnswersDistributionViewTests(
                    Mock(return_value=self.tags_factory.structure)):
             with patch('analyticsclient.course.Course.problems_and_tags',
                        Mock(return_value=self.tags_factory.problems_and_tags)):
-                course_id = DEMO_COURSE_ID
+                course_id = CourseSamples.DEMO_COURSE_ID
 
                 # Mock the course details
                 self.mock_course_detail(course_id)

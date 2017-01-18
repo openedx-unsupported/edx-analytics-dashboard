@@ -12,9 +12,10 @@ define(function(require) {
         CourseMetadataModel = require('learners/common/models/course-metadata'),
         LearnerCollection = require('learners/common/collections/learners'),
         LearnersController = require('learners/app/controller'),
-        LearnersRootView = require('learners/app/views/root'),
+        LearnersRootView = require('components/root/views/root'),
         LearnersRouter = require('learners/app/router'),
-        PageModel = require('learners/common/models/page'),
+        PageModel = require('components/generic-list/common/models/page'),
+        SkipLinkView = require('components/skip-link/views/skip-link-view'),
 
         LearnersApp;
 
@@ -55,6 +56,10 @@ define(function(require) {
                 learnerCollection,
                 rootView;
 
+            new SkipLinkView({
+                el: 'body'
+            }).render();
+
             learnerCollection = new LearnerCollection(this.options.learnerListJson, {
                 url: this.options.learnerListUrl,
                 downloadUrl: this.options.learnerListDownloadUrl,
@@ -69,7 +74,8 @@ define(function(require) {
 
             rootView = new LearnersRootView({
                 el: $(this.options.containerSelector),
-                pageModel: pageModel
+                pageModel: pageModel,
+                appClass: 'learners'
             }).render();
 
             new LearnersRouter({ // eslint-disable-line no-new

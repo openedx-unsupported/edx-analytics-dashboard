@@ -13,7 +13,8 @@ from django.test.utils import override_settings
 
 from waffle.testutils import override_flag, override_switch
 
-from courses.tests.test_views import DEMO_COURSE_ID, ViewTestMixin
+from courses.tests.test_views import ViewTestMixin
+from courses.tests.utils import CourseSamples
 
 
 @httpretty.activate
@@ -34,7 +35,7 @@ class LearnersViewTests(ViewTestMixin, TestCase):
             httpretty.GET,
             '{data_api_url}/course_learner_metadata/{course_id}/'.format(
                 data_api_url=settings.DATA_API_URL,
-                course_id=DEMO_COURSE_ID,
+                course_id=CourseSamples.DEMO_COURSE_ID,
             ),
             body=json.dumps(course_metadata_payload),
             status=course_metadata_status
@@ -42,13 +43,13 @@ class LearnersViewTests(ViewTestMixin, TestCase):
         self.addCleanup(httpretty.reset)
 
     def _get(self):
-        return self.client.get(self.path(course_id=DEMO_COURSE_ID))
+        return self.client.get(self.path(course_id=CourseSamples.DEMO_COURSE_ID))
 
     def _assert_context(self, response, expected_context_subset):
         default_expected_context_subset = {
             'learner_list_url': '/api/learner_analytics/v0/learners/',
             'course_learner_metadata_url': '/api/learner_analytics/v0/course_learner_metadata/{course_id}/'.format(
-                course_id=DEMO_COURSE_ID
+                course_id=CourseSamples.DEMO_COURSE_ID
             ),
         }
         self.assertDictContainsSubset(dict(expected_context_subset.items()), response.context)

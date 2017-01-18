@@ -5,7 +5,6 @@ import logging
 import re
 
 from braces.views import LoginRequiredMixin
-from ccx_keys.locator import CCXLocator
 from django.conf import settings
 from django.core.cache import cache
 from django.core.exceptions import PermissionDenied
@@ -449,17 +448,7 @@ class CourseView(LoginRequiredMixin, CourseValidMixin, CoursePermissionMixin, Te
         return context
 
 
-class CourseTemplateView(ContextSensitiveHelpMixin, CourseContextMixin, CourseView):
-    update_message = None
-
-    @property
-    def help_token(self):
-        # Rather than duplicate the definition, simply return the page name.
-        page_name = get_page_name(self.page_name)
-        if not page_name:
-            page_name = 'default'
-        return page_name
-
+class LastUpdatedView(object):
     def get_last_updated_message(self, last_updated):
         if last_updated:
             return self.update_message % self.format_last_updated_date_and_time(last_updated)
@@ -470,6 +459,18 @@ class CourseTemplateView(ContextSensitiveHelpMixin, CourseContextMixin, CourseVi
     def format_last_updated_date_and_time(d):
         return {'update_date': dateformat.format(d, settings.DATE_FORMAT),
                 'update_time': dateformat.format(d, settings.TIME_FORMAT)}
+
+
+class CourseTemplateView(LastUpdatedView, ContextSensitiveHelpMixin, CourseContextMixin, CourseView):
+    update_message = None
+
+    @property
+    def help_token(self):
+        # Rather than duplicate the definition, simply return the page name.
+        page_name = get_page_name(self.page_name)
+        if not page_name:
+            page_name = 'default'
+        return page_name
 
 
 class CourseTemplateWithNavView(CourseNavBarMixin, CourseTemplateView):
@@ -748,57 +749,6 @@ class CourseHome(CourseTemplateWithNavView):
         context['external_course_tools'] = external_tools
 
         return context
-
-
-class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LazyEncoderMixin, TemplateView):
-    template_name = 'courses/index.html'
-    page_name = {
-        'scope': 'insights',
-        'lens': 'home',
-        'report': '',
-        'depth': ''
-    }
-
-    def get_context_data(self, **kwargs):
-        context = super(CourseIndex, self).get_context_data(**kwargs)
-
-        courses = permissions.get_user_course_permissions(self.request.user)
-
-        if not courses:
-            # The user is probably not a course administrator and should not be using this application.
-            raise PermissionDenied
-
-        courses_list = self._create_course_list(courses)
-        context['courses'] = courses_list
-        context['page_data'] = self.get_page_data(context)
-
-        return context
-
-    def _create_course_list(self, course_ids):
-        info = []
-        course_data = {}
-
-        # ccx courses are hidden on the course listing page unless enabled
-        if not switch_is_active('enable_ccx_courses'):
-            # filter ccx courses
-            course_ids = [course_id for course_id in course_ids
-                          if not isinstance(CourseKey.from_string(course_id), CCXLocator)]
-
-        if self.course_api_enabled and switch_is_active('display_names_for_course_index'):
-
-            # Get data for all courses in a single API call.
-            _api_courses = self.get_courses()
-
-            # Create a lookup table from the data.
-            for course in _api_courses:
-                course_data[course['id']] = course['name']
-
-        for course_id in course_ids:
-            info.append({'key': course_id, 'name': course_data.get(course_id)})
-
-        info.sort(key=lambda course: (course.get('name', '') or course.get('key', '') or '').lower())
-
-        return info
 
 
 class CourseStructureExceptionMixin(object):

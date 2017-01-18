@@ -5,7 +5,7 @@ define(function(require) {
         LearnerCollection = require('learners/common/collections/learners'),
         LearnersController = require('learners/app/controller'),
         LearnersRouter = require('learners/app/router'),
-        PageModel = require('learners/common/models/page');
+        PageModel = require('components/generic-list/common/models/page');
 
     describe('LearnersRouter', function() {
         beforeEach(function() {

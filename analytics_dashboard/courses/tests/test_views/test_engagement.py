@@ -13,12 +13,12 @@ import analyticsclient.constants.activity_type as AT
 
 from courses.tests.factories import CourseEngagementDataFactory
 from courses.tests.test_views import (
-    DEMO_COURSE_ID,
     CourseViewTestMixin,
     PatchMixin,
     CourseStructureViewMixin,
     CourseAPIMixin)
 from courses.tests import utils
+from courses.tests.utils import CourseSamples
 
 
 @override_switch('enable_engagement_videos_pages', active=True)
@@ -198,8 +198,8 @@ class CourseEngagementVideoMixin(CourseEngagementViewTestMixin, CourseStructureV
     @patch('courses.presenters.engagement.CourseEngagementVideoPresenter.sections', Mock(return_value=dict()))
     def test_missing_sections(self):
         """ Every video page will use sections and will return 200 if sections aren't available. """
-        self.mock_course_detail(DEMO_COURSE_ID)
-        response = self.client.get(self.path(course_id=DEMO_COURSE_ID))
+        self.mock_course_detail(CourseSamples.DEMO_COURSE_ID)
+        response = self.client.get(self.path(course_id=CourseSamples.DEMO_COURSE_ID))
         # base page will should return a 200 even if no sections found
         self.assertEqual(response.status_code, 200)
 
@@ -229,8 +229,8 @@ class EngagementVideoCourseSectionTest(CourseEngagementVideoMixin, TestCase):
     @httpretty.activate
     @patch('courses.presenters.engagement.CourseEngagementVideoPresenter.section', Mock(return_value=None))
     def test_missing_section(self):
-        self.mock_course_detail(DEMO_COURSE_ID)
-        response = self.client.get(self.path(course_id=DEMO_COURSE_ID, section_id='Invalid'))
+        self.mock_course_detail(CourseSamples.DEMO_COURSE_ID)
+        response = self.client.get(self.path(course_id=CourseSamples.DEMO_COURSE_ID, section_id='Invalid'))
         self.assertEqual(response.status_code, 404)
 
 
@@ -258,8 +258,9 @@ class EngagementVideoCourseSubsectionTest(CourseEngagementVideoMixin, TestCase):
     @httpretty.activate
     @patch('courses.presenters.engagement.CourseEngagementVideoPresenter.subsection', Mock(return_value=None))
     def test_missing_subsection(self):
-        self.mock_course_detail(DEMO_COURSE_ID)
-        response = self.client.get(self.path(course_id=DEMO_COURSE_ID, section_id='Invalid', subsection_id='Nope'))
+        self.mock_course_detail(CourseSamples.DEMO_COURSE_ID)
+        response = self.client.get(self.path(
+            course_id=CourseSamples.DEMO_COURSE_ID, section_id='Invalid', subsection_id='Nope'))
         self.assertEqual(response.status_code, 404)
 
 
@@ -292,15 +293,15 @@ class EngagementVideoCourseTimelineTest(CourseEngagementVideoMixin, TestCase):
     @patch('courses.presenters.engagement.CourseEngagementVideoPresenter.subsection_child', Mock(return_value=None))
     def test_missing_video_module(self):
         """ Every video page will use sections and will return 200 if sections aren't available. """
-        self.mock_course_detail(DEMO_COURSE_ID)
-        response = self.client.get(self.path(course_id=DEMO_COURSE_ID))
+        self.mock_course_detail(CourseSamples.DEMO_COURSE_ID)
+        response = self.client.get(self.path(course_id=CourseSamples.DEMO_COURSE_ID))
         # base page will should return a 200 even if no sections found
         self.assertEqual(response.status_code, 404)
 
     @httpretty.activate
     @patch('courses.presenters.engagement.CourseEngagementVideoPresenter.get_video_timeline', Mock(return_value=None))
     def test_missing_video_data(self):
-        self.mock_course_detail(DEMO_COURSE_ID)
-        response = self.client.get(self.path(course_id=DEMO_COURSE_ID))
+        self.mock_course_detail(CourseSamples.DEMO_COURSE_ID)
+        response = self.client.get(self.path(course_id=CourseSamples.DEMO_COURSE_ID))
         # page will still be displayed, but with error messages
         self.assertEqual(response.status_code, 200)

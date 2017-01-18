@@ -8,7 +8,7 @@ define(function(require) {
     var _ = require('underscore'),
         Marionette = require('marionette'),
 
-        AlertView = require('learners/common/views/alert-view'),
+        AlertView = require('components/alert/views/alert-view'),
         LearnerTableView = require('learners/roster/views/table'),
 
         LearnerResultsView;
@@ -29,11 +29,9 @@ define(function(require) {
             if (collection.length && this.options.hasData) {
                 // Don't re-render the learner table view if one already exists.
                 if (!(this.getRegion('main').currentView instanceof LearnerTableView)) {
-                    this.showChildView('main', new LearnerTableView({
-                        collection: collection,
-                        courseMetadata: this.options.courseMetadata,
-                        trackingModel: this.options.trackingModel
-                    }));
+                    this.showChildView('main', new LearnerTableView(_.extend({
+                        collection: collection
+                    }, this.options)));
                 }
             } else {
                 this.showChildView('main', this.createAlertView(collection));
