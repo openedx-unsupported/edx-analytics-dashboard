@@ -66,18 +66,22 @@ define(function(require) {
             event.preventDefault();
             filterKey = $(event.currentTarget).data('filter-key');
             this.options.collection.unsetFilterField(filterKey);
-            this.options.collection.refresh();
             // Send a signal to the course-list view (it bubbles up) so that other controls recieve the state update
             this.$el.trigger('clearFilter', filterKey);
+            if (this.options.mode !== 'client') {
+                this.options.collection.refresh();
+            }
         },
 
         clearAllFilters: function(event) {
             var filterKeys = this.options.collection.getActiveFilterFields(true);
             event.preventDefault();
             this.options.collection.unsetAllFilterFields();
-            this.options.collection.refresh();
             // Send a signal to the course-list view (it bubbles up) so that other controls recieve the state update
             this.$el.trigger('clearAllFilters', filterKeys);
+            if (this.options.mode !== 'client') {
+                this.options.collection.refresh();
+            }
         }
     });
 

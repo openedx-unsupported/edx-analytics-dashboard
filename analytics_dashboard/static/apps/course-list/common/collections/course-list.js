@@ -1,7 +1,8 @@
 define(function(require) {
     'use strict';
 
-    var ListCollection = require('components/generic-list/common/collections/collection'),
+    var $ = require('jquery'),
+        ListCollection = require('components/generic-list/common/collections/collection'),
         CourseModel = require('course-list/common/models/course'),
 
         CourseListCollection;

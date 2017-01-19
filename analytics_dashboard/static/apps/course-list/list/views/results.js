@@ -20,26 +20,21 @@ define(function(require) {
         },
         initialize: function(options) {
             this.options = options || {};
-            // Unlike the 'sync' event, the backgrid:refresh event sends an object with the collection inside. It's
-            // necessary to extract the collection and pass that to the onCourseListCollectionUpdated function for
-            // it to work properly.
-            this.listenTo(this.options.collection, 'backgrid:refresh', _.bind(function(eventObject) {
-                this.onCourseListCollectionUpdated(eventObject.collection);
-            }, this));
+            this.listenTo(this.options.collection, 'backgrid:refresh', this.onCourseListCollectionUpdated);
         },
         onBeforeShow: function() {
             this.onCourseListCollectionUpdated(this.options.collection);
         },
-        onCourseListCollectionUpdated: function(collection) {
-            if (collection.length && this.options.hasData) {
+        onCourseListCollectionUpdated: function() {
+            if (this.options.collection.length && this.options.hasData) {
                 // Don't re-render the courses table view if one already exists.
                 if (!(this.getRegion('main').currentView instanceof CourseListTableView)) {
                     this.showChildView('main', new CourseListTableView(_.defaults({
-                        collection: collection
+                        collection: this.options.collection
                     }, this.options)));
                 }
             } else {
-                this.showChildView('main', this.createAlertView(collection));
+                this.showChildView('main', this.createAlertView(this.options.collection));
             }
         },
         createAlertView: function(collection) {

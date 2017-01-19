@@ -9,8 +9,7 @@
 define(function(require) {
     'use strict';
 
-    var $ = require('jquery'),
-        Backbone = require('backbone'),
+    var Backbone = require('backbone'),
         Marionette = require('marionette'),
 
         CourseListView = require('course-list/list/views/course-list'),
@@ -52,7 +51,8 @@ define(function(require) {
                     trackingModel: this.options.trackingModel
                 }),
                 collection = this.options.courseListCollection,
-                currentPage;
+                currentPage,
+                table;
 
             try {
                 collection.setStateFromQueryString(queryString);
@@ -67,10 +67,6 @@ define(function(require) {
                     // Also, for some unknown reason, the Backgrid sort overwrites the currentPage, so we will save and
                     // restore the currentPage after the sort completes.
                     currentPage = collection.state.currentPage;
-                    listView.getRegion('results').currentView
-                            .getRegion('main').currentView.table.currentView
-                            .sort(collection.state.sortKey,
-                                  collection.state.order === 1 ? 'descending' : 'ascending');
 
                     if (collection.getSearchString() !== '') {
                         listView.getRegion('controls').currentView
@@ -78,9 +74,17 @@ define(function(require) {
                                 .search();
                     }
 
-                    // Not using collection.setPage() here because it appears to have a bug.
-                    // This about the same as what setPage() does internally.
-                    collection.getPage(currentPage - (1 - collection.state.firstPage), {reset: true});
+                    table = listView.getRegion('results').currentView
+                                .getRegion('main').currentView.table;
+
+                    // `table` will be undefined if the search resulted in an error or no results alert instead of a
+                    // table of results.
+                    if (table !== undefined) {
+                        table.currentView.sort(collection.state.sortKey,
+                              collection.state.order === 1 ? 'descending' : 'ascending');
+                    }
+
+                    collection.setPage(currentPage);
 
                     collection.isStale = false;
                 }
@@ -100,7 +104,6 @@ define(function(require) {
             this.options.rootView.getRegion('navigation').empty();
 
             this.options.pageModel.set('title', gettext('Course List'));
-            this.onCourseListCollectionUpdated(collection);
             collection.trigger('loaded');
 
             // track the "page" view
