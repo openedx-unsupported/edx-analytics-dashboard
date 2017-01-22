@@ -36,9 +36,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-27 17:00-0500\n"
-"PO-Revision-Date: 2016-12-27 22:02+0000\n"
-"Last-Translator: Dennis Jen <djen@edx.org>\n"
+"POT-Creation-Date: 2017-01-06 14:22-0500\n"
+"PO-Revision-Date: 2017-01-19 08:23+0000\n"
+"Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/open-edx/edx-platform/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -861,7 +861,7 @@ msgstr "Informações básicas sobre o curso"
 msgid "External Tools"
 msgstr "Ferramentas Externas"
 
-#: courses/templates/courses/index.html
+#: courses/templates/courses/index.html courses/views/course_summaries.py
 msgid "Courses"
 msgstr "Cursos"
 
@@ -875,18 +875,6 @@ msgstr "Bem-vindo/a, %(username)s!"
 msgid ""
 "Here are the courses you currently have access to in %(application_name)s:"
 msgstr "Estes são os cursos que você já tem acesso no %(application_name)s:"
-
-#: courses/templates/courses/index.html
-#, python-format
-msgid "New to %(application_name)s?"
-msgstr "É novo no %(application_name)s?"
-
-#: courses/templates/courses/index.html
-#, python-format
-msgid ""
-"Click Help in the upper-right corner to get more information about "
-"%(application_name)s. Send us feedback at %(email_link)s."
-msgstr "Clique Ajuda no canto superior direito para obter mais informação sobre %(application_name)s. Envie seus comentários para %(email_link)s."
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
@@ -1162,6 +1150,13 @@ msgstr "Painel de controle do instrutor"
 #: courses/views/__init__.py
 msgid "Courseware"
 msgstr "Material didático"
+
+#. Translators: Do not translate UTC.
+#: courses/views/course_summaries.py
+#, python-format
+msgid ""
+"Course summary data was last updated %(update_date)s at %(update_time)s UTC."
+msgstr ""
 
 #: courses/views/engagement.py
 msgid "Engagement Content"

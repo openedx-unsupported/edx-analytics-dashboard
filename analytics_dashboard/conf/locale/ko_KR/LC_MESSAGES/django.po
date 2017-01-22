@@ -19,9 +19,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-27 17:00-0500\n"
-"PO-Revision-Date: 2016-12-27 22:02+0000\n"
-"Last-Translator: Dennis Jen <djen@edx.org>\n"
+"POT-Creation-Date: 2017-01-06 14:22-0500\n"
+"PO-Revision-Date: 2017-01-19 08:23+0000\n"
+"Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/open-edx/edx-platform/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -844,7 +844,7 @@ msgstr "강좌 기본 정보"
 msgid "External Tools"
 msgstr "외부 도구"
 
-#: courses/templates/courses/index.html
+#: courses/templates/courses/index.html courses/views/course_summaries.py
 msgid "Courses"
 msgstr "강좌"
 
@@ -858,18 +858,6 @@ msgstr "환영합니다 %(username)s님!"
 msgid ""
 "Here are the courses you currently have access to in %(application_name)s:"
 msgstr "%(application_name)s 에서 접속 권한이 있는 강좌:"
-
-#: courses/templates/courses/index.html
-#, python-format
-msgid "New to %(application_name)s?"
-msgstr "%(application_name)s에 처음이십니까?"
-
-#: courses/templates/courses/index.html
-#, python-format
-msgid ""
-"Click Help in the upper-right corner to get more information about "
-"%(application_name)s. Send us feedback at %(email_link)s."
-msgstr "오른쪽 위 모서리에 있는 도움말 버튼을 클릭해서 %(application_name)s에 대한 더 많은 내용을 얻으십시요. 그리고 %(email_link)s으로 피드백을 보내주시기를 바랍니다. "
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
@@ -1145,6 +1133,13 @@ msgstr "교수자 대시보드"
 #: courses/views/__init__.py
 msgid "Courseware"
 msgstr "강좌 내용"
+
+#. Translators: Do not translate UTC.
+#: courses/views/course_summaries.py
+#, python-format
+msgid ""
+"Course summary data was last updated %(update_date)s at %(update_time)s UTC."
+msgstr ""
 
 #: courses/views/engagement.py
 msgid "Engagement Content"

@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# George Goderdzishvili <biggeorgian@gmail.com>, 2016
+# Giorgi Goderdzishvili <biggeorgian@gmail.com>, 2016
 # Tamta Tchumburidze <tamtatioon@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-27 17:00-0500\n"
-"PO-Revision-Date: 2016-12-28 13:00+0000\n"
-"Last-Translator: George Goderdzishvili <biggeorgian@gmail.com>\n"
+"POT-Creation-Date: 2017-01-06 14:22-0500\n"
+"PO-Revision-Date: 2017-01-19 09:27+0000\n"
+"Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: Georgian (http://www.transifex.com/open-edx/edx-platform/language/ka/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,10 +19,239 @@ msgstr ""
 "Language: ka\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: static/apps/components/download/views/download-data.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid "Download CSV"
+msgstr "ჩამოტვირთეთ CSV"
+
+#: static/apps/components/download/views/download-data.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid "Download search results to CSV"
+msgstr "ჩამოტვირთეთ CSV-ს ძებნის შედეგები"
+
+#: static/apps/components/generic-list/list/views/base-header-cell.js
+#: static/dist/apps/course-list/app/course-list-main.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid "sort ascending"
+msgstr "დააწყე აღმავლობით"
+
+#: static/apps/components/generic-list/list/views/base-header-cell.js
+#: static/dist/apps/course-list/app/course-list-main.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid "sort descending"
+msgstr "დააწყვე დაღმავლობით"
+
+#: static/apps/components/generic-list/list/views/base-header-cell.js
+#: static/dist/apps/course-list/app/course-list-main.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid "click to sort"
+msgstr "დააწკაპუნე დასაწყობად"
+
+#: static/apps/components/generic-list/list/views/paging-footer.js
+#: static/dist/apps/course-list/app/course-list-main.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid "first page"
+msgstr "პირველი გვერდი"
+
+#: static/apps/components/generic-list/list/views/paging-footer.js
+#: static/dist/apps/course-list/app/course-list-main.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid "previous page"
+msgstr "წინა გვერდი"
+
+#: static/apps/components/generic-list/list/views/paging-footer.js
+#: static/dist/apps/course-list/app/course-list-main.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid "next page"
+msgstr "შემდეგი გვერდი"
+
+#: static/apps/components/generic-list/list/views/paging-footer.js
+#: static/dist/apps/course-list/app/course-list-main.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid "last page"
+msgstr "ბოლო გვერდი"
+
+#: static/apps/components/generic-list/list/views/paging-footer.js
+#: static/dist/apps/course-list/app/course-list-main.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid "page"
+msgstr "გვერდი"
+
+#: static/apps/components/generic-list/list/views/table.js
+#: static/dist/apps/course-list/app/course-list-main.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid "Generic List"
+msgstr ""
+
+#: static/apps/components/loading/views/loading-view.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid "Loading..."
+msgstr "იტვირთება..."
+
+#: static/apps/components/utils/utils.js
+#: static/dist/apps/course-list/app/course-list-main.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid "504: Server error"
+msgstr "504: სერვერის შეცდომა"
+
+#: static/apps/components/utils/utils.js
+#: static/dist/apps/course-list/app/course-list-main.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid ""
+"Processing your request took too long to complete. Reload the page to try "
+"again."
+msgstr "თქვენი მოთხოვნის დამუშავება დიდხანს გაგრძელდა. გადატვირთეთ გვერდი რომ სცადოთ თავიდან."
+
+#: static/apps/components/utils/utils.js
+#: static/dist/apps/course-list/app/course-list-main.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid "Server error"
+msgstr "სერვერის შეცდომა"
+
+#: static/apps/components/utils/utils.js
+#: static/dist/apps/course-list/app/course-list-main.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid "Your request could not be processed. Reload the page to try again."
+msgstr "თქვენი მოთხოვნა ვერ დამუშავდება. გადატვირთეთ გვერდი და სცადეთ თავიდან."
+
+#: static/apps/components/utils/utils.js
+#: static/dist/apps/course-list/app/course-list-main.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid "Network error"
+msgstr "ქსელის შეცდომა"
+
+#: static/apps/course-list/app/controller.js
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Course List"
+msgstr ""
+
+#: static/apps/course-list/app/controller.js
 #: static/apps/learners/app/controller.js
+#: static/dist/apps/course-list/app/course-list-main.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Invalid Parameters"
 msgstr "არასწორი პარამეტრები"
+
+#: static/apps/course-list/app/controller.js
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Sorry, we couldn't find any courses that matched that query."
+msgstr ""
+
+#: static/apps/course-list/app/controller.js
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Return to the Course List page."
+msgstr ""
+
+#: static/apps/course-list/app/controller.js
+#: static/apps/learners/app/controller.js
+#: static/dist/apps/course-list/app/course-list-main.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid "Sorry, we couldn't find the page you're looking for."
+msgstr "სამწუხაროდ ვერ მოვნახეთ გვერდი რომელსაც ეძებთ."
+
+#: static/apps/course-list/app/controller.js
+#: static/apps/learners/app/controller.js
+#: static/dist/apps/course-list/app/course-list-main.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid "Page Not Found"
+msgstr "გვერდი არ მოიძებნა"
+
+#: static/apps/course-list/common/collections/course-list.js
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Course Name"
+msgstr ""
+
+#: static/apps/course-list/common/collections/course-list.js
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Start Date"
+msgstr ""
+
+#: static/apps/course-list/common/collections/course-list.js
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "End Date"
+msgstr ""
+
+#: static/apps/course-list/common/collections/course-list.js
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Total Enrollment"
+msgstr ""
+
+#: static/apps/course-list/common/collections/course-list.js
+#: static/dist/apps/course-list/app/course-list-main.js
+#: static/dist/js/enrollment-activity-main.js
+#: static/dist/js/enrollment-demographics-gender-main.js
+#: static/dist/js/enrollment-geography-main.js
+#: static/js/enrollment-activity-main.js
+#: static/js/enrollment-demographics-gender-main.js
+#: static/js/enrollment-geography-main.js
+msgid "Current Enrollment"
+msgstr "მიმდინარე ჩარიცხვა"
+
+#: static/apps/course-list/common/collections/course-list.js
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Change Last Week"
+msgstr ""
+
+#: static/apps/course-list/common/collections/course-list.js
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Verified Enrollment"
+msgstr ""
+
+#: static/apps/course-list/common/collections/course-list.js
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Availability"
+msgstr ""
+
+#: static/apps/course-list/common/collections/course-list.js
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Pacing Type"
+msgstr ""
+
+#: static/apps/course-list/list/views/course-list.js
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Course list controls"
+msgstr ""
+
+#: static/apps/course-list/list/views/results.js
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "No courses matched your criteria."
+msgstr ""
+
+#: static/apps/course-list/list/views/results.js
+#: static/apps/learners/roster/views/results.js
+#: static/dist/apps/course-list/app/course-list-main.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid "Try a different search."
+msgstr "სცადეთ სხვა ძებნა."
+
+#: static/apps/course-list/list/views/results.js
+#: static/apps/learners/roster/views/results.js
+#: static/dist/apps/course-list/app/course-list-main.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid "Try clearing the filters."
+msgstr "სცადეთ ფილტრების გასუფთავება."
+
+#: static/apps/course-list/list/views/results.js
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "No course data is currently available for your course."
+msgstr ""
+
+#: static/apps/course-list/list/views/results.js
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid ""
+"No courses are enrolled, or course activity data has not yet been processed."
+" Data is updated every day, so check back regularly for up-to-date metrics."
+msgstr ""
+
+#: static/apps/course-list/list/views/table.js
+#: static/dist/apps/course-list/app/course-list-main.js
+msgid "Date not available"
+msgstr ""
+
+#: static/apps/learners/app/controller.js
+#: static/dist/apps/learners/app/learners-main.js
+msgid "Learner Roster"
+msgstr "მსმენელთა რეესტრი"
 
 #: static/apps/learners/app/controller.js
 #: static/dist/apps/learners/app/learners-main.js
@@ -43,16 +272,6 @@ msgstr "მსმენელები"
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Learner Details"
 msgstr "დაწვრილებით მსმენელზე"
-
-#: static/apps/learners/app/controller.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "Sorry, we couldn't find the page you're looking for."
-msgstr "სამწუხაროდ ვერ მოვნახეთ გვერდი რომელსაც ეძებთ."
-
-#: static/apps/learners/app/controller.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "Page Not Found"
-msgstr "გვერდი არ მოიძებნა"
 
 #: static/apps/learners/common/collections/learners.js
 #: static/dist/apps/learners/app/learners-main.js
@@ -108,48 +327,6 @@ msgstr "კოჰორტა"
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Enrollment Mode"
 msgstr "ჩარიცხვის რეჟიმი"
-
-#: static/apps/learners/common/utils.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "504: Server error"
-msgstr "504: სერვერის შეცდომა"
-
-#: static/apps/learners/common/utils.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid ""
-"Processing your request took too long to complete. Reload the page to try "
-"again."
-msgstr "თქვენი მოთხოვნის დამუშავება დიდხანს გაგრძელდა. გადატვირთეთ გვერდი რომ სცადოთ თავიდან."
-
-#: static/apps/learners/common/utils.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "Server error"
-msgstr "სერვერის შეცდომა"
-
-#: static/apps/learners/common/utils.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "Your request could not be processed. Reload the page to try again."
-msgstr "თქვენი მოთხოვნა ვერ დამუშავდება. გადატვირთეთ გვერდი და სცადეთ თავიდან."
-
-#: static/apps/learners/common/utils.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "Network error"
-msgstr "ქსელის შეცდომა"
-
-#: static/apps/learners/common/views/download-data.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "Download CSV"
-msgstr "ჩამოტვირთეთ CSV"
-
-#: static/apps/learners/common/views/download-data.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "Download search results to CSV"
-msgstr "ჩამოტვირთეთ CSV-ს ძებნის შედეგები"
-
-#: static/apps/learners/common/views/loading-view.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "Loading..."
-msgstr "იტვირთება..."
 
 #: static/apps/learners/detail/views/engagement-table.js
 #: static/apps/learners/detail/views/engagement-timeline.js
@@ -306,21 +483,6 @@ msgid ""
 "comments."
 msgstr "ამ მსმენელის წვლილი, გამოქვეყნებების, პასუხებისა და კომენტარების ჩათვლით,"
 
-#: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "sort ascending"
-msgstr "დააწყე აღმავლობით"
-
-#: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "sort descending"
-msgstr "დააწყვე დაღმავლობით"
-
-#: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "click to sort"
-msgstr "დააწკაპუნე დასაწყობად"
-
 #: static/apps/learners/roster/views/controls.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "Find a learner"
@@ -337,9 +499,10 @@ msgid "Enrollment Tracks"
 msgstr "ჩარიცხვის ბმულები"
 
 #: static/apps/learners/roster/views/controls.js
+#: static/apps/learners/roster/views/filter.js
 #: static/dist/apps/learners/app/learners-main.js
-msgid "Inactive Learners"
-msgstr "არააქტიური მსმენელები"
+msgid "Hide Inactive Learners"
+msgstr "არააქტიური მსმენელების დამალვა"
 
 #: static/apps/learners/roster/views/filter.js
 #: static/dist/apps/learners/app/learners-main.js
@@ -351,50 +514,10 @@ msgstr "<%= name %> (<%= numLearners %>)"
 msgid "All"
 msgstr "ყველა"
 
-#: static/apps/learners/roster/views/filter.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "Hide Inactive Learners"
-msgstr "არააქტიური მსმენელების დამალვა"
-
-#: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "first page"
-msgstr "პირველი გვერდი"
-
-#: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "previous page"
-msgstr "წინა გვერდი"
-
-#: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "next page"
-msgstr "შემდეგი გვერდი"
-
-#: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "last page"
-msgstr "ბოლო გვერდი"
-
-#: static/apps/learners/roster/views/paging-footer.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "page"
-msgstr "გვერდი"
-
 #: static/apps/learners/roster/views/results.js
 #: static/dist/apps/learners/app/learners-main.js
 msgid "No learners matched your criteria."
 msgstr "თქვენს კრიტერიუმებს არ ემთხვევა არცერთი მსმენელი."
-
-#: static/apps/learners/roster/views/results.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "Try a different search."
-msgstr "სცადეთ სხვა ძებნა."
-
-#: static/apps/learners/roster/views/results.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "Try clearing the filters."
-msgstr "სცადეთ ფილტრების გასუფთავება."
 
 #: static/apps/learners/roster/views/results.js
 #: static/dist/apps/learners/app/learners-main.js
@@ -433,11 +556,6 @@ msgstr "ძიების გასუფთავება"
 #: static/dist/apps/learners/app/learners-main.js
 msgid "N/A"
 msgstr "არ არის მონაცემები"
-
-#: static/apps/learners/roster/views/table.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "Learner Roster"
-msgstr "მსმენელთა რეესტრი"
 
 #: static/dist/js/common.js static/js/utils/utils.js
 msgid "..."
@@ -564,15 +682,6 @@ msgstr "დასრულებული ნახვები"
 #: static/js/engagement-videos-main.js
 msgid "Incomplete Views"
 msgstr "დაუსრულებელი ნახვები"
-
-#: static/dist/js/enrollment-activity-main.js
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/dist/js/enrollment-geography-main.js
-#: static/js/enrollment-activity-main.js
-#: static/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-geography-main.js
-msgid "Current Enrollment"
-msgstr "მიმდინარე ჩარიცხვა"
 
 #: static/dist/js/enrollment-activity-main.js
 #: static/js/enrollment-activity-main.js
