@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-27 17:00-0500\n"
-"PO-Revision-Date: 2016-12-27 22:02+0000\n"
-"Last-Translator: Dennis Jen <djen@edx.org>\n"
+"POT-Creation-Date: 2017-01-06 14:22-0500\n"
+"PO-Revision-Date: 2017-01-19 08:23+0000\n"
+"Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/open-edx/edx-platform/language/lt_LT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -834,7 +834,7 @@ msgstr "Pagrindinė kurso informacija"
 msgid "External Tools"
 msgstr ""
 
-#: courses/templates/courses/index.html
+#: courses/templates/courses/index.html courses/views/course_summaries.py
 msgid "Courses"
 msgstr "Kursai"
 
@@ -848,18 +848,6 @@ msgstr "Sveiki prisijungę, %(username)s!"
 msgid ""
 "Here are the courses you currently have access to in %(application_name)s:"
 msgstr ""
-
-#: courses/templates/courses/index.html
-#, python-format
-msgid "New to %(application_name)s?"
-msgstr "Pirmą kartą %(application_name)s?"
-
-#: courses/templates/courses/index.html
-#, python-format
-msgid ""
-"Click Help in the upper-right corner to get more information about "
-"%(application_name)s. Send us feedback at %(email_link)s."
-msgstr "Norėdami gauti daugiau informacijos apie %(application_name)s, spauskite \"Pagalba\" dešiniajame viršutiniame kampe. Atsiųskite mums atsiliepimą el. paštu %(email_link)s."
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
@@ -1135,6 +1123,13 @@ msgstr "Lektoriaus informacinis puslapis"
 #: courses/views/__init__.py
 msgid "Courseware"
 msgstr "Kurso medžiaga"
+
+#. Translators: Do not translate UTC.
+#: courses/views/course_summaries.py
+#, python-format
+msgid ""
+"Course summary data was last updated %(update_date)s at %(update_time)s UTC."
+msgstr ""
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
