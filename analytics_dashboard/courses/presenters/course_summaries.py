@@ -48,6 +48,8 @@ class CourseSummariesPresenter(BasePresenter):
         all_summaries = self._get_all_summaries()
         filtered_summaries = self.filter_summaries(all_summaries, course_ids)
 
-        # sort by count by default
-        filtered_summaries = sorted(filtered_summaries, key=lambda summary: summary['count'], reverse=True)
+        # sort by title by default with "None" values at the end
+        filtered_summaries = sorted(
+            filtered_summaries,
+            key=lambda x: (x['catalog_course_title'] is not None, x['catalog_course_title']))
         return filtered_summaries, self._get_last_updated(filtered_summaries)

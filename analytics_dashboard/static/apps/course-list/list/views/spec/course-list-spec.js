@@ -15,7 +15,7 @@ define(function(require) {
         TrackingModel = require('models/tracking-model');
 
 
-    describe('LearnerRosterView', function() {
+    describe('CourseListView', function() {
         var fixtureClass = 'course-list-view-fixture',
             clickPagingControl,
             getCourseListView;
@@ -113,15 +113,11 @@ define(function(require) {
             };
 
             executeSortTest = function(field, isInitial) {
-                if (isInitial) {
-                    expect(getSortingHeaderLink(field).find('span.fa')).toHaveClass('fa-sort-desc');
-                } else {
-                    expect(getSortingHeaderLink(field).find('span.fa')).toHaveClass('fa-sort');
-                }
+                expect(getSortingHeaderLink(field).find('span.fa')).toHaveClass(isInitial ? 'fa-sort-asc' : 'fa-sort');
                 clickSortingHeader(field);
-                expectSortCalled(field, 'asc');
+                expectSortCalled(field, isInitial ? 'desc' : 'asc');
                 clickSortingHeader(field);
-                expectSortCalled(field, 'desc');
+                expectSortCalled(field, isInitial ? 'asc' : 'desc');
             };
 
             expectSortCalled = function(sortField, sortValue) {
@@ -133,11 +129,11 @@ define(function(require) {
             });
 
             SpecHelpers.withConfiguration({
-                catalog_course_title: ['catalog_course_title'],
+                catalog_course_title: ['catalog_course_title', true],
                 start_date: ['start_date'],
                 end_date: ['end_date'],
                 cumulative_count: ['cumulative_count'],
-                count: ['count', true],
+                count: ['count'],
                 count_change_7_days: ['count_change_7_days'],
                 verified_enrollment: ['verified_enrollment']
             }, function(sortField, isInitial) {
@@ -160,8 +156,10 @@ define(function(require) {
             it('triggers a tracking event', function() {
                 var triggerSpy = spyOn(this.view.options.trackingModel, 'trigger'),
                     headerClasses = [
-                        'catalog_course_title',
                         'start_date',
+                        // default sort is by title ascending, which results in desc sort first, so
+                        // moving this test anywhere but first makes testing consistent
+                        'catalog_course_title',
                         'end_date',
                         'cumulative_count',
                         'count',

@@ -26,8 +26,8 @@ define(function(require) {
 
         state: {
             pageSize: 100,
-            sortKey: 'count',
-            order: 1
+            sortKey: 'catalog_course_title',
+            order: 0
         }
     });
 

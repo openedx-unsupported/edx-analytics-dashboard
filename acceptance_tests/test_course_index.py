@@ -25,11 +25,11 @@ class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
         """
         # text after the new line is only visible to screen readers
         columns = [
-            'Course Name \nclick to sort',
+            'Course Name \nsort ascending',
             'Start Date \nclick to sort',
             'End Date \nclick to sort',
             'Total Enrollment \nclick to sort',
-            'Current Enrollment \nsort descending',
+            'Current Enrollment \nclick to sort',
             'Change Last Week \nclick to sort',
             'Verified Enrollment \nclick to sort'
         ]
