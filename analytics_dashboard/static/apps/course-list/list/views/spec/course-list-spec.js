@@ -173,11 +173,11 @@ define(function(require) {
                         directions.reverse();
                     }
                     executeSortTest(column, this.isInitial);
-                    _.each(directions, function (direction) {
+                    _.each(directions, function(direction) {
                         expect(triggerSpy).toHaveBeenCalledWith('segment:track', 'edx.bi.course_list.sorted', {
                             category: column + direction
                         });
-                    })
+                    });
                 });
             });
         });

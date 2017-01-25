@@ -73,7 +73,7 @@ define(function(require) {
                 appClass: 'course-list'
             });
             this.rootView.render();
-            this.course = fakeCourse('course1', 'course');
+            this.course = fakeCourse('course1', 'Course');
             this.collection = new CourseListCollection([this.course], {mode: 'client'});
             this.controller = new CourseListController({
                 rootView: this.rootView,
@@ -104,9 +104,9 @@ define(function(require) {
         });
 
         it('should sort the list with sort parameters', function() {
-            var secondCourse = fakeCourse('course2', 'Another Course');
+            var secondCourse = fakeCourse('course2', 'X Course');
             this.collection.add(secondCourse);
-            this.controller.showCourseListPage('sortKey=catalog_course_title&order=asc');
+            this.controller.showCourseListPage('sortKey=catalog_course_title&order=desc');
             expect(this.collection.at(0).toJSON()).toEqual(secondCourse);
         });
     });
