@@ -153,27 +153,31 @@ define(function(require) {
                 expect(this.view.$('a[title="Page 1"]').parent('li')).toHaveClass('active');
             });
 
-            it('triggers a tracking event', function() {
-                var triggerSpy = spyOn(this.view.options.trackingModel, 'trigger'),
-                    headerClasses = [
-                        'start_date',
-                        // default sort is by title ascending, which results in desc sort first, so
-                        // moving this test anywhere but first makes testing consistent
-                        'catalog_course_title',
-                        'end_date',
-                        'cumulative_count',
-                        'count',
-                        'count_change_7_days',
-                        'verified_enrollment'
-                    ];
-                _.each(headerClasses, function(column) {
-                    executeSortTest(column);
-                    expect(triggerSpy).toHaveBeenCalledWith('segment:track', 'edx.bi.course_list.sorted', {
-                        category: column + '_asc'
-                    });
-                    expect(triggerSpy).toHaveBeenCalledWith('segment:track', 'edx.bi.course_list.sorted', {
-                        category: column + '_desc'
-                    });
+            SpecHelpers.withConfiguration({
+                catalog_course_title: ['catalog_course_title', true],
+                start_date: ['start_date'],
+                end_date: ['end_date'],
+                cumulative_count: ['cumulative_count'],
+                count: ['count'],
+                count_change_7_days: ['count_change_7_days'],
+                verified_enrollment: ['verified_enrollment']
+            }, function(column, isInitial) {
+                this.column = column;
+                this.isInitial = isInitial;
+            }, function() {
+                it('triggers a tracking event', function() {
+                    var directions = ['_asc', '_desc'],
+                        triggerSpy = spyOn(this.view.options.trackingModel, 'trigger'),
+                        column = this.column;
+                    if (this.isInitial) {
+                        directions.reverse();
+                    }
+                    executeSortTest(column, this.isInitial);
+                    _.each(directions, function (direction) {
+                        expect(triggerSpy).toHaveBeenCalledWith('segment:track', 'edx.bi.course_list.sorted', {
+                            category: column + direction
+                        });
+                    })
                 });
             });
         });
