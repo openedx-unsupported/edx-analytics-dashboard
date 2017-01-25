@@ -100,13 +100,53 @@ class CourseSummariesPresenterTests(TestCase):
                 }
             },
             'created': utils.CREATED_DATETIME_STRING,
+        }, {
+            'course_id': 'another/course/id',
+            'catalog_course_title': None,
+            'catalog_course': None,
+            'start_date': None,
+            'end_date': None,
+            'pacing_type': None,
+            'availability': None,
+            'count': 1,
+            'cumulative_count': 1,
+            'count_change_7_days': 0,
+            'enrollment_modes': {
+                'audit': {
+                    'count': 1,
+                    'cumulative_count': 1,
+                    'count_change_7_days': 0
+                },
+                'credit': {
+                    'count': 0,
+                    'cumulative_count': 0,
+                    'count_change_7_days': 0
+                },
+                'verified': {
+                    'count': 1,
+                    'cumulative_count': 1,
+                    'count_change_7_days': 0
+                },
+                'professional': {
+                    'count': 0,
+                    'cumulative_count': 0,
+                    'count_change_7_days': 0
+                },
+                'honor': {
+                    'count': 1,
+                    'cumulative_count': 1,
+                    'count_change_7_days': 0
+                }
+            },
+            'created': utils.CREATED_DATETIME_STRING,
         }]
 
     def get_expected_summaries(self, course_ids=None):
         ''''Expected results with default values, sorted, and filtered to course_ids.'''
         if course_ids is None:
             course_ids = [CourseSamples.DEMO_COURSE_ID,
-                          CourseSamples.DEPRECATED_DEMO_COURSE_ID]
+                          CourseSamples.DEPRECATED_DEMO_COURSE_ID,
+                          'another/course/id']
 
         summaries = [summary for summary in self.mock_api_response if summary['course_id'] in course_ids]
 
@@ -116,8 +156,10 @@ class CourseSummariesPresenterTests(TestCase):
                 if summary[field] is None:
                     summary[field] = ''
 
-        # sort by count
-        return sorted(summaries, key=lambda summary: summary['count'], reverse=True)
+        # sort by title
+        return sorted(
+            summaries,
+            key=lambda x: (x['catalog_course_title'] is not None, x['catalog_course_title']))
 
     @override_settings(CACHES={
         'default': {

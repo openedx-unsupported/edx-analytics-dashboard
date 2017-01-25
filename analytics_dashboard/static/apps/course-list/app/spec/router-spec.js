@@ -72,7 +72,7 @@ define(function(require) {
         it('URL fragment is updated on CourseListCollection loaded', function(done) {
             this.collection.state.currentPage = 2;
             this.collection.once('loaded', function() {
-                expect(Backbone.history.getFragment()).toBe('?sortKey=count&order=desc&page=2');
+                expect(Backbone.history.getFragment()).toBe('?sortKey=catalog_course_title&order=asc&page=2');
                 done();
             });
             this.collection.trigger('loaded');
@@ -81,7 +81,7 @@ define(function(require) {
         it('URL fragment is updated on CourseListCollection refresh', function(done) {
             this.collection.state.currentPage = 2;
             this.collection.once('backgrid:refresh', function() {
-                expect(Backbone.history.getFragment()).toBe('?sortKey=count&order=desc&page=2');
+                expect(Backbone.history.getFragment()).toBe('?sortKey=catalog_course_title&order=asc&page=2');
                 done();
             });
             this.collection.trigger('backgrid:refresh');
