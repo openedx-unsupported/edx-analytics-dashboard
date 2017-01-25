@@ -306,22 +306,16 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                     showTooltip: function() {
                         $sandbox.trigger('shown.bs.tooltip');
                     },
+                    triggerClick: function() {
+                        $sandbox.trigger('clicked.tracking');
+                    },
                     expectNoEventToHaveBeenEmitted: function() {
                         expect(view.segment.track).not.toHaveBeenCalled();
                     },
                     expectEventEmitted: function(eventType, properties) {
                         expect(view.segment.track).toHaveBeenCalledWith(eventType, properties);
-                    }
-                };
-            }
-
-            it('should emit an event when tooltips are shown', function() {
-                var test = setupTest();
-
-                test.showTooltip();
-
-                test.expectEventEmitted(
-                    'trackingEvent', {
+                    },
+                    expectedProperties: {
                         label: 'course_mylens_myreport',
                         courseId: 'my/course/id',
                         org: 'org',
@@ -335,31 +329,57 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                             name: 'course_mylens_myreport'
                         }
                     }
-                );
+                };
+            }
+
+            it('should emit an event when tooltips are shown', function() {
+                var test = setupTest();
+
+                test.showTooltip();
+
+                test.expectEventEmitted('trackingEvent', test.expectedProperties);
             });
 
-            it('should not emit an event when tooltips are shown when tracking is not enabled', function() {
+            it('should emit an event when tracked element is clicked', function() {
+                var test = setupTest();
+
+                test.triggerClick();
+
+                test.expectEventEmitted('trackingEvent', test.expectedProperties);
+            });
+
+
+            it('should not emit an event when tracking is not enabled', function() {
                 var test = setupTest();
 
                 test.trackingModel.unset('segmentApplicationId');
 
                 test.showTooltip();
                 test.expectNoEventToHaveBeenEmitted();
+
+                test.triggerClick();
+                test.expectNoEventToHaveBeenEmitted();
             });
 
-            it('should not emit an event when tooltips are shown when event type is empty', function() {
+            it('should not emit an event when event type is empty', function() {
                 var test = setupTest();
 
                 test.sandbox.attr('data-track-event', '');
                 test.showTooltip();
                 test.expectNoEventToHaveBeenEmitted();
+
+                test.triggerClick();
+                test.expectNoEventToHaveBeenEmitted();
             });
 
-            it('should not emit an event when tooltips are shown when event type is undefined', function() {
+            it('should not emit an event when event type is undefined', function() {
                 var test = setupTest();
 
                 test.sandbox.removeAttr('data-track-event');
                 test.showTooltip();
+                test.expectNoEventToHaveBeenEmitted();
+
+                test.triggerClick();
                 test.expectNoEventToHaveBeenEmitted();
             });
 
