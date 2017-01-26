@@ -1,7 +1,7 @@
 <div class="input-group">
     <div class="wrapper-search-input">
-        <label for="search-course-list" class="hidden"><%- labelText %></label>
-        <input id="search-course-list"
+      <label for="<%- id %>" class="hidden"><%- labelText %></label>
+        <input id="<%- id %>"
             class="form-control"
             type="search"
             <% if (placeholder) { %> placeholder="<%- placeholder %>" <% } %>

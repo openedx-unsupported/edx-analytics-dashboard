@@ -750,34 +750,7 @@ body.view-dashboard {
 }
 
 .learner-roster {
-
-  .learners-active-filters {
-    .active-filters {
-      display: inline-block;
-    }
-  }
-
-  .section-action {
-    text-align: right;
-    padding-bottom: 5px;
-  }
-
-  th {
-
-    font-weight: 600;
-
-    a {
-      // update header colors
-      color: $text-color;
-    }
-
-    i {
-      // makes the sort icons gray
-      color: $gray;
-      display: inline;
-    }
-
-  }
+  @include backgrid-table(learners);
 
   .learners-table-controls-col {
     position: relative;
@@ -799,32 +772,6 @@ body.view-dashboard {
     text-align: right;
   }
 
-  .learners-table-controls {
-    padding-bottom: 20px;
-
-    .learners-search {
-      .wrapper-search-input {
-        position: relative;
-
-        .clear {
-          position: absolute;
-          right: 0px;
-          top: 0px;
-          z-index: 99;
-          color: $edx-gray;
-
-          &:hover {
-            color: $edx-gray-d2;
-          }
-        }
-      }
-
-      .search {
-        margin-left: 5px;
-      }
-    }
-  }
-
   // color-blind safe colors for differentiating engagement categories
   $rank-bottom-color: rgb(217,95,2);
   $rank-top-color: rgb(27,158,119);
@@ -836,15 +783,6 @@ body.view-dashboard {
   .learner-cell-rank-top {
     color: $rank-top-color;
     font-weight: bolder;
-  }
-
-  .backgrid-paginator {
-
-    ul {
-      // remove default padding around the paging controls
-      padding: 0;
-    }
-
   }
 
   .activity-date-range {
@@ -896,81 +834,14 @@ body.view-dashboard {
 }
 
 .course-list {
-  .integer-cell {
-    text-align: right;
-  }
-
-  .course-id {
-    color: $edx-gray;
-  }
-
-  .filter-padding {
-    padding-bottom: 10px;
-  }
+  @include backgrid-table(course-list);
 
   .course-list-active-filters {
     min-height: 43px;
     padding-bottom: 10px;
-
-    .active-filters {
-      display: inline-block;
-    }
   }
 
-  .section-action {
-    text-align: right;
-    padding-bottom: 5px;
-  }
-
-  th {
-
-    font-weight: 600;
-
-    a {
-      // update header colors
-      color: $text-color;
-    }
-
-    i {
-      // makes the sort icons gray
-      color: $gray;
-      display: inline;
-    }
-
-  }
-  
-  .course-list-table-controls {
-    padding-bottom: 20px;
-
-    .course-list-search {
-      .wrapper-search-input {
-        position: relative;
-
-        .clear {
-          position: absolute;
-          right: 0px;
-          top: 0px;
-          z-index: 99;
-          color: $edx-gray;
-
-          &:hover {
-            color: $edx-gray-d2;
-          }
-        }
-      }
-
-      .search {
-        margin-left: 5px;
-      }
-    }
-  }
-
-  .backgrid-paginator {
-
-    ul {
-      // remove default padding around the paging controls
-      padding: 0;
-    }
-
+  .course-id {
+    color: $edx-gray;
   }
 }

@@ -33,29 +33,16 @@ define(function(require) {
 
         // Override PageableCollection's setPage() method because it has a bug where it assumes that backgrid getPage()
         // will always return a promise. It does not in client mode.
+        // Note: this function will only work in client mode. It should be removed if this collection is used
+        // in server mode.
         setPage: function(page) {
-            var oldPage = this.state.currentPage,
-                self = this,
-                deferred = $.Deferred(),
-                newPage = this.getPage(page - (1 - this.state.firstPage), {reset: true});
-            if (typeof newPage.then === 'function') { // is server mode
-                newPage.then(
-                    function() {
-                        self.isStale = false;
-                        self.trigger('page_changed');
-                        deferred.resolve();
-                    },
-                    function() {
-                        self.state.currentPage = oldPage;
-                        deferred.fail();
-                    }
-                );
-            } else { // is client mode
-                // getPage() will probably throw an exception if it fails in client mode, so assume succeeded
-                self.isStale = false;
-                self.trigger('page_changed');
-                deferred.resolve();
-            }
+            var deferred = $.Deferred();
+
+            this.getPage(page - (1 - this.state.firstPage), {reset: true});
+            // getPage() will probably throw an exception if it fails in client mode, so assume succeeded
+            this.isStale = false;
+            this.trigger('page_changed');
+            deferred.resolve();
             return deferred.promise();
         }
     });

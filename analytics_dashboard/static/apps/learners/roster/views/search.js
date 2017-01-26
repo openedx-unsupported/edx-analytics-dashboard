@@ -14,7 +14,7 @@ define(function(require) {
         _ = require('underscore'),
         Backgrid = require('backgrid'),
 
-        learnerSearchTemplate = require('text!learners/roster/templates/search.underscore'),
+        listSearchTemplate = require('text!components/generic-list/list/templates/search.underscore'),
 
         LearnerSearch;
 
@@ -33,7 +33,7 @@ define(function(require) {
                 });
         },
 
-        template: _.template(learnerSearchTemplate, null, {variable: null}),
+        template: _.template(listSearchTemplate, null, {variable: null}),
 
         initialize: function(options) {
             this.options = options || {};
@@ -48,6 +48,7 @@ define(function(require) {
         render: function() {
             this.value = this.options.collection.getSearchString();
             this.$el.empty().append(this.template({
+                id: 'search-learners',
                 name: this.name,
                 placeholder: this.placeholder,
                 value: this.value,

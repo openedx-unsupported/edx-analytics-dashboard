@@ -8,6 +8,8 @@ define(function(require) {
         LearnersActiveFiltersView;
 
     LearnersActiveFiltersView = ActiveFiltersView.extend({
+        // This function is re-implemented from ActiveFiltersView because the filter display names here are
+        // significantly different from the defaults.
         getFormattedActiveFilters: function(activeFilters) {
             return _.mapObject(activeFilters, function(filterVal, filterKey) {
                 var formattedFilterVal = (filterKey === 'text_search') ?

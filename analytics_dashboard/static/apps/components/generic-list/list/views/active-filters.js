@@ -30,16 +30,15 @@ define(function(require) {
             return _.mapObject(activeFilters, _.bind(function(filterVal, filterKey) {
                 var formattedFilterVal = (filterKey === 'text_search') ?
                     '"' + filterVal + '"' : filterVal.charAt(0).toUpperCase() + filterVal.slice(1),
-                    filterDisplayName = this.options.collection.filterDisplayName(filterKey);
-                if (filterDisplayName !== '') {
-                    return {
-                        displayName: filterDisplayName + ': ' + formattedFilterVal
-                    };
-                } else {
-                    return {
-                        displayName: formattedFilterVal
-                    };
-                }
+                    filterDisplayName = this.options.collection.filterDisplayName(filterKey),
+                    // Translators: this is a label describing a filter selection that the user initiated.
+                    displayName = _.template(gettext('<%= filterDisplayName %>: <%= filterVal %>'))({
+                        filterDisplayName: filterDisplayName,
+                        filterVal: formattedFilterVal
+                    });
+                return {
+                    displayName: filterDisplayName === '' ? formattedFilterVal : displayName
+                };
             }, this));
         },
 
@@ -65,23 +64,17 @@ define(function(require) {
             var filterKey;
             event.preventDefault();
             filterKey = $(event.currentTarget).data('filter-key');
-            this.options.collection.unsetFilterField(filterKey);
-            // Send a signal to the course-list view (it bubbles up) so that other controls recieve the state update
+            this.options.collection.clearFilter(filterKey);
+            // Send a signal to the parent view (it bubbles up) so that other controls recieve the state update
             this.$el.trigger('clearFilter', filterKey);
-            if (this.options.mode !== 'client') {
-                this.options.collection.refresh();
-            }
         },
 
         clearAllFilters: function(event) {
             var filterKeys = this.options.collection.getActiveFilterFields(true);
             event.preventDefault();
-            this.options.collection.unsetAllFilterFields();
-            // Send a signal to the course-list view (it bubbles up) so that other controls recieve the state update
+            this.options.collection.clearAllFilters();
+            // Send a signal to the parent view (it bubbles up) so that other controls recieve the state update
             this.$el.trigger('clearAllFilters', filterKeys);
-            if (this.options.mode !== 'client') {
-                this.options.collection.refresh();
-            }
         }
     });
 

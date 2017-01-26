@@ -23,7 +23,7 @@ define(function(require) {
             this.listenTo(this.options.collection, 'backgrid:refresh', this.onCourseListCollectionUpdated);
         },
         onBeforeShow: function() {
-            this.onCourseListCollectionUpdated(this.options.collection);
+            this.onCourseListCollectionUpdated();
         },
         onCourseListCollectionUpdated: function() {
             if (this.options.collection.length && this.options.hasData) {

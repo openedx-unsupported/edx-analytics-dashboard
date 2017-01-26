@@ -14,7 +14,7 @@ define(function(require) {
         _ = require('underscore'),
         Backgrid = require('backgrid'),
 
-        courseListSearchTemplate = require('text!course-list/list/templates/search.underscore'),
+        listSearchTemplate = require('text!components/generic-list/list/templates/search.underscore'),
 
         CourseListSearch;
 
@@ -38,7 +38,7 @@ define(function(require) {
 
         fields: ['catalog_course_title', 'course_id'],
 
-        template: _.template(courseListSearchTemplate, null, {variable: null}),
+        template: _.template(listSearchTemplate, null, {variable: null}),
 
         initialize: function(options) {
             this.options = options || {};
@@ -53,6 +53,7 @@ define(function(require) {
         render: function() {
             this.value = this.options.collection.getSearchString();
             this.$el.empty().append(this.template({
+                id: 'search-course-list',
                 name: this.name,
                 placeholder: this.placeholder,
                 value: this.value,

@@ -83,11 +83,7 @@ define(function(require) {
         },
 
         clearAllFilters: function(event, filters) {
-            if ('text_search' in filters) {
-                this.getRegion('controls').currentView
-                        .getRegion('search').currentView
-                        .clear(event);
-            }
+            _.map(Object.keys(filters), _.bind(this.clearFilter, this, event));
         }
     });
 

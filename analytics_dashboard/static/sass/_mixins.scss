@@ -35,3 +35,70 @@
     background-color: $navbar-default-link-disabled-bg;
   }
 }
+
+@mixin backgrid-table($app-name) {
+  .integer-cell {
+    text-align: right;
+  }
+
+  .filter-padding {
+    padding-bottom: 10px;
+  }
+
+  .#{$app-name}-active-filters {
+    .active-filters {
+      display: inline-block;
+    }
+  }
+
+  .section-action {
+    text-align: right;
+    padding-bottom: 5px;
+  }
+
+  th {
+
+    font-weight: 600;
+
+    a {
+      // update header colors
+      color: $text-color;
+    }
+
+  }
+  
+  .#{$app-name}-table-controls {
+    padding-bottom: 20px;
+
+    .#{$app-name}-search {
+      .wrapper-search-input {
+        position: relative;
+
+        .clear {
+          position: absolute;
+          right: 0px;
+          top: 0px;
+          z-index: 99;
+          color: $edx-gray;
+
+          &:hover {
+            color: $edx-gray-d2;
+          }
+        }
+      }
+
+      .search {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  .backgrid-paginator {
+
+    ul {
+      // remove default padding around the paging controls
+      padding: 0;
+    }
+
+  }
+}

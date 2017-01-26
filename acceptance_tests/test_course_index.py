@@ -32,13 +32,13 @@ class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
         """
         # text after the new line is only visible to screen readers
         columns = [
-            'Course Name\nclick to sort',
-            'Start Date\nclick to sort',
-            'End Date\nclick to sort',
-            'Total Enrollment\nclick to sort',
-            'Current Enrollment\nsort descending',
-            'Change Last Week\nclick to sort',
-            'Verified Enrollment\nclick to sort'
+            'Course Name \nsort ascending',
+            'Start Date \nclick to sort',
+            'End Date \nclick to sort',
+            'Total Enrollment \nclick to sort',
+            'Current Enrollment \nclick to sort',
+            'Change Last Week \nclick to sort',
+            'Verified Enrollment \nclick to sort'
         ]
         self.assertTable('.course-list-table', columns)
 
@@ -62,6 +62,11 @@ class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
         # Search bar is present
         search_bar = self.page.q(css='#search-course-list')
         self.assertTrue(search_bar.present)
+
+        # Clear any existing search first
+        self.clear_search()
+        # Make sure all courses show before performing a search
+        self.check_cleared()
 
         # Perform search
         search_input = self.driver.find_element_by_id('search-course-list')
@@ -93,6 +98,13 @@ class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
         self.assertTrue(alert.present)
         print alert.text[0]
         self.assertTrue('No courses matched your criteria' in alert.text[0])
+
+    def clear_search(self):
+        # Check that the clear button is present. AKA a search has been made.
+        clear_all_filters = self.page.q(css='ul.active-filters button.action-clear-all-filters')
+        if clear_all_filters.present:
+            # Press clear search input
+            clear_all_filters.first.click()
 
     def check_cleared(self):
         EmptyPromise(

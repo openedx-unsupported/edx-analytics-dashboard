@@ -109,6 +109,20 @@ define(function(require) {
                     // And, if in server mode, a fetch needs to happen to retrieve the sorted results.
                 }
             }
+        },
+
+        clearFilter: function(filterKey) {
+            this.unsetFilterField(filterKey);
+            if (this.mode === 'server') {
+                this.refresh();
+            }
+        },
+
+        clearAllFilters: function() {
+            this.unsetAllFilterFields();
+            if (this.mode === 'server') {
+                this.refresh();
+            }
         }
     });
 
