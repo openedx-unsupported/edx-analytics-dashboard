@@ -15,9 +15,15 @@ define(function(require) {
     CourseIdAndNameCell = Backgrid.Cell.extend({
         className: 'course-name-cell',
         template: _.template(courseIdAndNameCellTemplate),
+        events: {
+            click: 'emitTracking'
+        },
         render: function() {
             this.$el.html(this.template(this.model.toJSON()));
             return this;
+        },
+        emitTracking: function() {
+            this.$el.find('a').trigger('clicked.tracking');
         }
     });
 

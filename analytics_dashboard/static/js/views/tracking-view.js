@@ -19,7 +19,8 @@ define(['backbone', 'jquery', 'underscore', 'utils/utils'],
             segment: undefined,
 
             events: {
-                'shown.bs.tooltip': 'trackElementEvent'
+                'shown.bs.tooltip': 'trackElementEvent',
+                'clicked.tracking': 'trackElementEvent'
             },
 
             initialize: function(options) {
