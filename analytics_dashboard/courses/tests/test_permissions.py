@@ -5,6 +5,7 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.cache import cache
 from django.test import TestCase
+from django.test.utils import override_settings
 import mock
 from testfixtures import LogCapture
 from social.apps.django_app.default.models import UserSocialAuth
@@ -27,6 +28,25 @@ class PermissionsTests(TestCase):
     def tearDown(self):
         super(PermissionsTests, self).tearDown()
         cache.clear()
+
+    @override_settings(USER_TRACKING_CLAIM='user_tracking_id')
+    @mock.patch('auth_backends.backends.EdXOpenIdConnect.get_json',
+                mock.Mock(return_value={'user_tracking_id': 56789}))
+    def test_get_user_tracking_id(self):
+        G(UserSocialAuth, user=self.user, provider='edx-oidc', extra_data={'access_token': '1234'})
+        tracking_id = permissions.get_user_tracking_id(self.user)
+        self.assertEqual(tracking_id, 56789)
+
+    @override_settings(USER_TRACKING_CLAIM=None)
+    def test_no_user_tracking_id(self):
+        tracking_id = permissions.get_user_tracking_id(self.user)
+        self.assertEqual(tracking_id, None)
+
+    @mock.patch('courses.permissions._get_user_claims_values',
+                mock.Mock(side_effect=UserNotAssociatedWithBackendError))
+    def test_use_tracking_not_found(self):
+        tracking_id = permissions.get_user_tracking_id(self.user)
+        self.assertEqual(tracking_id, None)
 
     def test_set_user_course_permissions_invalid_arguments(self):
         """
