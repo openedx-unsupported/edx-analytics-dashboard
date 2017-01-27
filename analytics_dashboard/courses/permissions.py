@@ -24,6 +24,13 @@ def _get_course_permission_cache_keys(user):
     return key_courses, key_last_updated
 
 
+def _get_tracking_cache_key(user):
+    """
+    Return the cache keys used for user tracking_id
+    """
+    return 'user_tracking_id_{}'.format(user.id)
+
+
 def set_user_course_permissions(user, courses):
     """
     Sets which courses user is allowed to view.
@@ -86,18 +93,29 @@ def refresh_user_course_permissions(user):
 
 
 def get_user_tracking_id(user):
-    """ Returns the tracking ID associated with this user or None. """
+    """
+    Returns the tracking ID associated with this user or None. The tracking ID
+    is cached.
+    """
     claim = settings.USER_TRACKING_CLAIM
 
     if claim is None:
         return None
 
-    try:
-        data = _get_user_claims_values(user, [claim])
-    except UserNotAssociatedWithBackendError:
-        logger.warning('Authorization server did not return tracking claim. Defaulting to None.')
-        return None
-    return data.get(claim, None)
+    cache_key = _get_tracking_cache_key(user)
+    tracking_id = cache.get(cache_key)
+
+    if tracking_id is None:
+        # if tracking ID not found, then fetch and cache it
+        try:
+            data = _get_user_claims_values(user, [claim])
+            tracking_id = data.get(claim, None)
+            cache.set(cache_key, tracking_id)
+        except UserNotAssociatedWithBackendError:
+            logger.warning('Authorization server did not return tracking claim. Defaulting to None.')
+            return None
+
+    return tracking_id
 
 
 def _get_user_claims_values(user, claims):

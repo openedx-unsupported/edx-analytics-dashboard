@@ -34,8 +34,11 @@ class PermissionsTests(TestCase):
                 mock.Mock(return_value={'user_tracking_id': 56789}))
     def test_get_user_tracking_id(self):
         G(UserSocialAuth, user=self.user, provider='edx-oidc', extra_data={'access_token': '1234'})
-        tracking_id = permissions.get_user_tracking_id(self.user)
-        self.assertEqual(tracking_id, 56789)
+        actual_tracking_id = permissions.get_user_tracking_id(self.user)
+        expected_tracking_id = 56789
+        self.assertEqual(actual_tracking_id, expected_tracking_id)
+        # make sure tracking ID is cached
+        self.assertEqual(cache.get('user_tracking_id_{}'.format(self.user.id)), expected_tracking_id)
 
     @override_settings(USER_TRACKING_CLAIM=None)
     def test_no_user_tracking_id(self):
