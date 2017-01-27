@@ -1,8 +1,8 @@
 .. _Enrollment_Geography:
 
-#############################
+####################
 Enrollment Geography
-#############################
+####################
 
 Where are my learners from? Enrollment geography data helps you understand the
 global reach of your course.
@@ -15,17 +15,17 @@ Enrollment geography data is updated every day. Changes in the locations
 for enrolled learners through the end of the previous day (23:59 UTC) are
 included.
 
-********************************************
+*************************************
 Gaining Insight into Learner Location
-********************************************
+*************************************
 
 EdX Insights delivers data about learner location in a map, a set of metrics,
 and a report that you can view or download. Descriptions follow; for detailed
 information about the computations, see :ref:`Reference`.
 
-======================================
+===========================
 Geographic Distribution Map
-======================================
+===========================
 
 The map uses a color scale to indicate the percentage of current course
 enrollment represented by learners from each country or region. The darker the
@@ -42,36 +42,36 @@ country or region.
      learners.
  :width: 600
 
-======================================
+=============================================
 Total Countries or Regions Represented Metric
-======================================
+=============================================
 
 This metric reports the number of countries or regions  in which one or more
 learners are located.
 
-======================================
+==============================================
 Top Country or Region by Enrollment Percentage
-======================================
+==============================================
 
 This statistic reports the country or region with the highest percentage of learners.
 
-========================================
+=================================================
 Second Country or Region by Enrollment Percentage
-========================================
+=================================================
 
 This statistic reports the country or region with the second highest percentage of
 learners.
 
-======================================
+================================================
 Third Country or Region by Enrollment Percentage
-======================================
+================================================
 
 This statistic reports the country or region with the third highest percentage of
 learners.
 
-======================================
+===========================
 Geographic Breakdown Report
-======================================
+===========================
 
 .. the downloadable report will have country/total/percentage
 
@@ -106,9 +106,9 @@ determined.
 Analytics in Action: Interpreting Geographic Distribution
 *********************************************************
 
-=============================
+============================
 Teaching with a Global Reach
-=============================
+============================
 
 To make their courses more welcoming to a geographically and culturally diverse
 learner body, team members have changed their courses in a variety of ways.
@@ -131,9 +131,9 @@ learner body, team members have changed their courses in a variety of ways.
 
 .. * Another team provided a Hindi translation of their course introduction.
 
-=======================================================
+=====================================================
 Investing Based on Demonstrated Need, Not Predictions
-=======================================================
+=====================================================
 
 Delivering content, especially videos, to learners in every country or region in
 the world means meeting differing technological requirements. Instead of working
@@ -145,9 +145,9 @@ The team was able to use the actual number and percentage of learners from the
 affected country or region in their justification of the increased costs of
 creating the alternate video delivery channel.
 
-============================
+===================
 Fostering Community
-============================
+===================
 
 When learners enroll in a course and click through from the edX dashboard, they
 see the course **Home** page first. One professor welcomed learners into the
