@@ -51,11 +51,12 @@ endif
 accept_local:
 	nosetests -v acceptance_tests --exclude-dir=acceptance_tests/course_validation
 
+# TODO: remove me
 a11y:
 ifeq ("${DISPLAY_LEARNER_ANALYTICS}", "True")
 	./manage.py waffle_flag enable_learner_analytics on --create --everyone
 endif
-	BOKCHOY_A11Y_CUSTOM_RULES_FILE=./node_modules/edx-custom-a11y-rules/lib/custom_a11y_rules.js SELENIUM_BROWSER=phantomjs nosetests -v a11y_tests -e NUM_PROCESSES=1 --exclude-dir=acceptance_tests/course_validation
+	BOKCHOY_A11Y_CUSTOM_RULES_FILE=./node_modules/edx-custom-a11y-rules/lib/custom_a11y_rules.js SELENIUM_BROWSER=firefox nosetests -v a11y_tests -e NUM_PROCESSES=1 --exclude-dir=acceptance_tests/course_validation
 
 course_validation:
 	python -m acceptance_tests.course_validation.generate_report
