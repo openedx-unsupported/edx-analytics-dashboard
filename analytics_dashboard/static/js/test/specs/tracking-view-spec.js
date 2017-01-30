@@ -6,6 +6,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
             var USER_DETAILS = {
                 userTrackingID: 12345,
                 name: 'Ed Xavier',
+                username: 'edxavier',
                 email: 'edx@example.com',
                 ignoreInReporting: true
             };
@@ -45,6 +46,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
 
                 expect(view.segment.identify).toHaveBeenCalledWith(USER_DETAILS.userTrackingID, {
                     name: USER_DETAILS.name,
+                    username: USER_DETAILS.username,
                     email: USER_DETAILS.email,
                     ignoreInReporting: true
                 });

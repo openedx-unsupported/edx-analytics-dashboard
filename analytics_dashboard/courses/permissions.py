@@ -71,7 +71,7 @@ def refresh_user_course_permissions(user):
     Arguments
         user (User) --  User whose permissions should be refreshed
     """
-    # The authorized courses can come form different claims according to the user role. For example there could be a
+    # The authorized courses can come from different claims according to the user role. For example there could be a
     # list of courses the user has access as staff and another that the user has access as instructor. The variable
     # `settings.COURSE_PERMISSIONS_CLAIMS` is a list of the claims that contain the courses.
     claims = settings.COURSE_PERMISSIONS_CLAIMS
