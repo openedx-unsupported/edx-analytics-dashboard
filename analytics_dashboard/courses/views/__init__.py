@@ -188,6 +188,7 @@ class CourseContextMixin(CourseAPIMixin, TrackedViewMixin, LazyEncoderMixin):
             },
             'user': {
                 'username': user.get_username(),
+                'userTrackingID': permissions.get_user_tracking_id(self.request.user),
                 'name': user.get_full_name(),
                 'email': user.email,
                 'ignoreInReporting': self._ignore_in_reporting(user)

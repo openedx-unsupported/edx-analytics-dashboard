@@ -104,8 +104,9 @@ define(['backbone', 'jquery', 'underscore', 'utils/utils'],
             logUser: function() {
                 var self = this,
                     userModel = self.options.userModel;
-                self.segment.identify(userModel.get('username'), {
+                self.segment.identify(userModel.get('userTrackingID'), {
                     name: userModel.get('name'),
+                    username: userModel.get('username'),
                     email: userModel.get('email'),
                     ignoreInReporting: userModel.get('ignoreInReporting')
                 });
