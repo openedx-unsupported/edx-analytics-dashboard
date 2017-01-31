@@ -24,6 +24,13 @@ def _get_course_permission_cache_keys(user):
     return key_courses, key_last_updated
 
 
+def _get_tracking_cache_key(user):
+    """
+    Return the cache keys used for user tracking_id
+    """
+    return 'user_tracking_id_{}'.format(user.id)
+
+
 def set_user_course_permissions(user, courses):
     """
     Sets which courses user is allowed to view.
@@ -64,19 +71,15 @@ def refresh_user_course_permissions(user):
     Arguments
         user (User) --  User whose permissions should be refreshed
     """
-    backend = EdXOpenIdConnect(strategy=load_strategy())
-    user_social_auth = user.social_auth.filter(provider=backend.name).first()
-
-    if not user_social_auth:
-        raise UserNotAssociatedWithBackendError
-
-    access_token = user_social_auth.extra_data.get('access_token')
-    token_type = user_social_auth.extra_data.get('token_type', 'Bearer')
-
-    if not access_token:
-        raise InvalidAccessTokenError
-
-    courses = _get_user_courses(access_token, token_type, backend)
+    # The authorized courses can come from different claims according to the user role. For example there could be a
+    # list of courses the user has access as staff and another that the user has access as instructor. The variable
+    # `settings.COURSE_PERMISSIONS_CLAIMS` is a list of the claims that contain the courses.
+    claims = settings.COURSE_PERMISSIONS_CLAIMS
+    data = _get_user_claims_values(user, claims)
+    courses_set = set()
+    for claim in claims:
+        courses_set.update(data.get(claim, []))
+    courses = list(courses_set)
 
     # If the backend does not provide course permissions, assign no permissions and log a warning as there may be an
     # issue with the backend provider.
@@ -89,22 +92,52 @@ def refresh_user_course_permissions(user):
     return courses
 
 
-def _get_user_courses(access_token, token_type, backend):
-    """ Return a list of courses that the user has access to."""
-    # The authorized courses can come form different claims according to the user role. For example there could be a
-    # list of courses the user has access as staff and another that the user has access as instructor. The variable
-    # `settings.COURSE_PERMISSIONS_CLAIMS` is a list of the claims that contain the courses.
+def get_user_tracking_id(user):
+    """
+    Returns the tracking ID associated with this user or None. The tracking ID
+    is cached.
+    """
+    claim = settings.USER_TRACKING_CLAIM
+
+    if claim is None:
+        return None
+
+    cache_key = _get_tracking_cache_key(user)
+    tracking_id = cache.get(cache_key)
+
+    if tracking_id is None:
+        # if tracking ID not found, then fetch and cache it
+        try:
+            data = _get_user_claims_values(user, [claim])
+            tracking_id = data.get(claim, None)
+            cache.set(cache_key, tracking_id)
+        except UserNotAssociatedWithBackendError:
+            logger.warning('Authorization server did not return tracking claim. Defaulting to None.')
+            return None
+
+    return tracking_id
+
+
+def _get_user_claims_values(user, claims):
+    """ Return a list of values associate with the user claims. """
+    backend = EdXOpenIdConnect(strategy=load_strategy())
+    user_social_auth = user.social_auth.filter(provider=backend.name).first()
+
+    if not user_social_auth:
+        raise UserNotAssociatedWithBackendError
+
+    access_token = user_social_auth.extra_data.get('access_token')
+    token_type = user_social_auth.extra_data.get('token_type', 'Bearer')
+
+    if not access_token:
+        raise InvalidAccessTokenError
+
     try:
-        claims = settings.COURSE_PERMISSIONS_CLAIMS
         data = backend.get_user_claims(access_token, claims, token_type=token_type)
     except Exception as e:
         raise PermissionsRetrievalFailedError(e)
 
-    courses = set()
-    for claim in claims:
-        courses.update(data.get(claim, []))
-
-    return list(courses)
+    return data
 
 
 def get_user_course_permissions(user):

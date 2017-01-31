@@ -4,8 +4,9 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
 
         describe('Tracking View', function() {
             var USER_DETAILS = {
-                username: 'edX',
+                userTrackingID: 12345,
                 name: 'Ed Xavier',
+                username: 'edxavier',
                 email: 'edx@example.com',
                 ignoreInReporting: true
             };
@@ -43,8 +44,9 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
 
                 view.logUser();
 
-                expect(view.segment.identify).toHaveBeenCalledWith(USER_DETAILS.username, {
+                expect(view.segment.identify).toHaveBeenCalledWith(USER_DETAILS.userTrackingID, {
                     name: USER_DETAILS.name,
+                    username: USER_DETAILS.username,
                     email: USER_DETAILS.email,
                     ignoreInReporting: true
                 });

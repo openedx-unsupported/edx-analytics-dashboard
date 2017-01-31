@@ -393,6 +393,9 @@ ENABLE_COURSE_PERMISSIONS = True
 # What scopes and claims should be used to get courses
 EXTRA_SCOPE = ['permissions', 'course_staff']
 COURSE_PERMISSIONS_CLAIMS = ['staff_courses']
+
+# claim for the identifier to track users
+USER_TRACKING_CLAIM = 'user_tracking_id'
 ########## END AUTHENTICATION
 
 # The application and platform display names to be used in templates, emails, etc.
