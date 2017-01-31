@@ -51,7 +51,6 @@ endif
 accept_local:
 	nosetests -v acceptance_tests --exclude-dir=acceptance_tests/course_validation
 
-# TODO: remove me
 a11y:
 ifeq ("${DISPLAY_LEARNER_ANALYTICS}", "True")
 	./manage.py waffle_flag enable_learner_analytics on --create --everyone
