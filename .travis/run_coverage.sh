@@ -4,4 +4,6 @@
 
 coverage xml
 
+cd /edx/app/insights/edx_analytics_dashboard
+
 bash ./scripts/build-stats-to-datadog.sh
