@@ -96,7 +96,7 @@ define(function(require) {
         },
 
         resetFocus: function() {
-            $('#course-list-app-focusable').focus();
+            $('#course-list-focusable').focus();
         }
     });
 

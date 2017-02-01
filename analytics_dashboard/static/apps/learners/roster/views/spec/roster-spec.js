@@ -65,7 +65,8 @@ define(function(require) {
                 el: '.' + fixtureClass,
                 trackSubject: 'roster',
                 hasData: true,
-                trackingModel: new TrackingModel()
+                trackingModel: new TrackingModel(),
+                appClass: 'learners'
             }).render();
             rosterView.onBeforeShow();
             return rosterView;
