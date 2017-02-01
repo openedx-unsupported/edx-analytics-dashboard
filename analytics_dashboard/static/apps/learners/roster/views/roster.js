@@ -66,7 +66,9 @@ define(function(require) {
                     options: {
                         collection: this.options.collection,
                         courseMetadata: this.options.courseMetadata,
-                        trackingModel: this.options.trackingModel
+                        trackingModel: this.options.trackingModel,
+                        trackSubject: this.options.trackSubject,
+                        appClass: this.options.appClass
                     }
                 },
                 {
