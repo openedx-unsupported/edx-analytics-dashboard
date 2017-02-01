@@ -51,28 +51,40 @@ define(function(require) {
                     trackingModel: this.options.trackingModel
                 }),
                 collection = this.options.courseListCollection,
-                currentPage;
+                currentPage,
+                table;
 
             try {
                 collection.setStateFromQueryString(queryString);
                 this.options.rootView.showChildView('main', listView);
                 if (collection.isStale) {
-                    // There was a querystring sort parameter that was different from the default collection sorting, so
-                    // we have to sort the table.
+                    // There was a querystring sort parameter that was different from the current collection state, so
+                    // we have to sort and/or search the table.
+
                     // We don't just do collection.fullCollection.sort() here because we've attached custom sortValue
                     // options to the columns via Backgrid to handle null values and we must call the sort function on
                     // the Backgrid table object for those custom sortValues to have an effect.
                     // Also, for some unknown reason, the Backgrid sort overwrites the currentPage, so we will save and
                     // restore the currentPage after the sort completes.
                     currentPage = collection.state.currentPage;
-                    listView.getRegion('results').currentView
-                            .getRegion('main').currentView.table.currentView
-                            .sort(collection.state.sortKey,
-                                  collection.state.order === 1 ? 'descending' : 'ascending');
 
-                    // Not using collection.setPage() here because it appears to have a bug.
-                    // This about the same as what setPage() does internally.
-                    collection.getPage(currentPage - (1 - collection.state.firstPage), {reset: true});
+                    if (collection.getSearchString() !== '') {
+                        listView.getRegion('controls').currentView
+                                .getRegion('search').currentView
+                                .search();
+                    }
+
+                    table = listView.getRegion('results').currentView
+                                .getRegion('main').currentView.table;
+
+                    // `table` will be undefined if the search resulted in an error or no results alert instead of a
+                    // table of results.
+                    if (table !== undefined) {
+                        table.currentView.sort(collection.state.sortKey,
+                              collection.state.order === 1 ? 'descending' : 'ascending');
+                    }
+
+                    collection.setPage(currentPage);
 
                     collection.isStale = false;
                 }
@@ -92,7 +104,6 @@ define(function(require) {
             this.options.rootView.getRegion('navigation').empty();
 
             this.options.pageModel.set('title', gettext('Course List'));
-            this.onCourseListCollectionUpdated(collection);
             collection.trigger('loaded');
 
             // track the "page" view

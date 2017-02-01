@@ -1,6 +1,6 @@
 /**
  * Subclass of Backgrid.Extension.Filter which allows us to search
- * for learners.  Fixes accessibility issues with the Backgrid
+ * for courses.  Fixes accessibility issues with the Backgrid
  * filter component.
  *
  * This class is a hack in that it directly copies source code from
@@ -16,29 +16,34 @@ define(function(require) {
 
         listSearchTemplate = require('text!components/generic-list/list/templates/search.underscore'),
 
-        LearnerSearch;
+        CourseListSearch;
 
     require('backgrid-filter');
 
-    LearnerSearch = Backgrid.Extension.ServerSideFilter.extend({
+    CourseListSearch = Backgrid.Extension.ClientSideFilter.extend({
         className: function() {
-            return [Backgrid.Extension.ServerSideFilter.prototype.className, 'learners-search'].join(' ');
+            return [Backgrid.Extension.ClientSideFilter.prototype.className, 'course-list-search'].join(' ');
         },
 
         events: function() {
-            return _.extend(Backgrid.Extension.ServerSideFilter.prototype.events,
+            var superEvents = Backgrid.Extension.ClientSideFilter.prototype.events;
+            delete superEvents['keydown input[type=search]']; // Don't search on key down
+            return _.extend(superEvents,
                 {
                     'click .search': 'search',
                     'click .clear.btn': 'clear'
-                });
+                }
+            );
         },
+
+        fields: ['catalog_course_title', 'course_id'],
 
         template: _.template(listSearchTemplate, null, {variable: null}),
 
         initialize: function(options) {
             this.options = options || {};
-            this.listenTo(options.collection, 'sync', this.render);
-            Backgrid.Extension.ServerSideFilter.prototype.initialize.call(this, options);
+            this.listenTo(options.collection, 'backgrid:refresh', this.render);
+            Backgrid.Extension.ClientSideFilter.prototype.initialize.call(this, options);
         },
 
         clearButton: function() {
@@ -48,11 +53,11 @@ define(function(require) {
         render: function() {
             this.value = this.options.collection.getSearchString();
             this.$el.empty().append(this.template({
-                id: 'search-learners',
+                id: 'search-course-list',
                 name: this.name,
                 placeholder: this.placeholder,
                 value: this.value,
-                labelText: gettext('Search learners'),
+                labelText: gettext('Search courses'),
                 executeSearchText: gettext('search'),
                 clearSearchText: gettext('clear search')
             }));
@@ -63,34 +68,37 @@ define(function(require) {
 
         search: function(event) {
             var searchString = this.searchBox().val().trim();
-            event.preventDefault();
+            if (event) event.preventDefault();
             if (searchString === '') {
-                this.collection.unsetSearchString();
+                this.options.collection.unsetSearchString();
             } else {
-                this.collection.setSearchString(searchString);
-                this.options.trackingModel.trigger('segment:track', 'edx.bi.roster.searched', {
+                this.options.collection.setSearchString(searchString);
+                this.options.trackingModel.trigger('segment:track', 'edx.bi.course-list.searched', {
                     category: 'search'
                 });
             }
+            Backgrid.Extension.ClientSideFilter.prototype.search.call(this, event);
             this.execute();
         },
 
         clear: function(event) {
             event.preventDefault();
-            this.collection.unsetSearchString();
-            this.searchBox().val('');
+            this.options.collection.unsetSearchString();
+            Backgrid.Extension.ClientSideFilter.prototype.clear.call(this, event);
             this.execute();
         },
 
         execute: function() {
-            this.collection.refresh();
+            this.options.collection.refresh();
+            // Surprisingly calling refresh() does not emit a backgrid:refresh event. So do that here:
+            this.options.collection.trigger('backgrid:refresh', {collection: this.options.collection});
             this.resetFocus();
         },
 
         resetFocus: function() {
-            $('#learner-app-focusable').focus();
+            $('#course-list-app-focusable').focus();
         }
     });
 
-    return LearnerSearch;
+    return CourseListSearch;
 });

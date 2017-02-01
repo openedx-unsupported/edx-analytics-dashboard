@@ -1,15 +1,14 @@
 <div class="row">
-    <div class="col col-12 sm-col-12 md-col-8">
-        <div class="course-list-active-filters"></div>
-    </div>
-    <div class="col col-12 sm-col-12 md-col-4">
-        <div class="activity-date-range small"></div>
-    </div>
+  <div class="col col-12 sm-col-12 md-col-8 md-pre-2">
+    <div class="course-list-active-filters"></div>
+  </div>
 </div>
 <div class="row">
-    <div class="col col-12 course-list-results-col">
-        <div class="course-list-download-data"></div>
-        <div class="course-list-results"></div>
-    </div>
-    </div>
+  <div class="col col-12 sm-col-12 md-col-2 course-list-table-controls-col">
+    <section class="course-list-table-controls" aria-label="<%- controlsLabel %>"></section>
+  </div>
+  <div class="col col-12 sm-col-12 md-col-10 course-list-results-col">
+    <div class="course-list-download-data"></div>
+    <div class="course-list-results"></div>
+  </div>
 </div>

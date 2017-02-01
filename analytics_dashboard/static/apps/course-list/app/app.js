@@ -10,7 +10,7 @@ define(function(require) {
 
         CourseListCollection = require('course-list/common/collections/course-list'),
         CourseListController = require('course-list/app/controller'),
-        CourseListRootView = require('components/root/views/root'),
+        RootView = require('components/root/views/root'),
         CourseListRouter = require('course-list/app/router'),
         PageModel = require('components/generic-list/common/models/page'),
         SkipLinkView = require('components/skip-link/views/skip-link-view'),
@@ -39,7 +39,7 @@ define(function(require) {
                 mode: 'client'
             });
 
-            rootView = new CourseListRootView({
+            rootView = new RootView({
                 el: $(this.options.containerSelector),
                 pageModel: pageModel,
                 appClass: 'course-list',

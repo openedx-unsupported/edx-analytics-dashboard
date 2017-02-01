@@ -9,6 +9,8 @@ define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
+        ActiveFiltersView = require('components/generic-list/list/views/active-filters'),
+        CourseListControlsView = require('course-list/list/views/controls'),
         CourseListResultsView = require('course-list/list/views/results'),
         ListView = require('components/generic-list/list/views/list'),
 
@@ -22,13 +24,36 @@ define(function(require) {
         template: _.template(listTemplate),
 
         regions: {
+            activeFilters: '.course-list-active-filters',
+            controls: '.course-list-table-controls',
             results: '.course-list-results'
+        },
+
+        events: {
+            clearFilter: 'clearFilter',
+            clearAllFilters: 'clearAllFilters'
         },
 
         initialize: function(options) {
             ListView.prototype.initialize.call(this, options);
 
             this.childViews = [
+                {
+                    region: 'activeFilters',
+                    class: ActiveFiltersView,
+                    options: {
+                        collection: this.options.collection,
+                        mode: 'client'
+                    }
+                },
+                {
+                    region: 'controls',
+                    class: CourseListControlsView,
+                    options: {
+                        collection: this.options.collection,
+                        trackingModel: this.options.trackingModel
+                    }
+                },
                 {
                     region: 'results',
                     class: CourseListResultsView,
@@ -44,6 +69,21 @@ define(function(require) {
             ];
 
             this.controlsLabel = gettext('Course list controls');
+        },
+
+        // These two functions glue the search state stored in the search view to the activeFilters view which needs to
+        // mutate the search state in order to clear the search. This hack is what is necessary when state is stored way
+        // down at the bottom of the view hierarchy.
+        clearFilter: function(event, filter) {
+            if (filter === 'text_search') {
+                this.getRegion('controls').currentView
+                        .getRegion('search').currentView
+                        .clear(event);
+            }
+        },
+
+        clearAllFilters: function(event, filters) {
+            _.map(Object.keys(filters), _.bind(this.clearFilter, this, event));
         }
     });
 
