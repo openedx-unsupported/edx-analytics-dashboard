@@ -7,7 +7,8 @@ define(function(require) {
     var _ = require('underscore'),
         ParentView = require('components/generic-list/common/views/parent-view'),
 
-        LearnerFilter = require('learners/roster/views/filter'),
+        CheckboxFilter = require('components/filter/views/checkbox-filter'),
+        DropDownFilter = require('components/filter/views/drop-down-filter'),
         LearnerSearch = require('learners/roster/views/search'),
         rosterControlsTemplate = require('text!learners/roster/templates/controls.underscore'),
 
@@ -24,7 +25,15 @@ define(function(require) {
         },
 
         initialize: function(options) {
+            var defaultFilterOptions;
             this.options = options || {};
+
+            defaultFilterOptions = {
+                collection: this.options.collection,
+                trackingModel: this.options.trackingModel,
+                trackSubject: this.options.trackSubject,
+                appClass: this.options.appClass
+            };
 
             this.childViews = [
                 {
@@ -39,41 +48,32 @@ define(function(require) {
                 },
                 {
                     region: 'cohortFilter',
-                    class: LearnerFilter,
-                    options: {
-                        collection: this.options.collection,
+                    class: DropDownFilter,
+                    options: _({
                         filterKey: 'cohort',
                         filterValues: this.options.courseMetadata.get('cohorts'),
-                        filterInput: 'select',
                         selectDisplayName: gettext('Cohort Groups'),
-                        trackingModel: this.options.trackingModel
-                    }
+                    }).extend(defaultFilterOptions)
                 },
                 {
                     region: 'enrollmentTrackFilter',
-                    class: LearnerFilter,
-                    options: {
-                        collection: this.options.collection,
+                    class: DropDownFilter,
+                    options: _({
                         filterKey: 'enrollment_mode',
                         filterValues: this.options.courseMetadata.get('enrollment_modes'),
-                        filterInput: 'select',
-                        selectDisplayName: gettext('Enrollment Tracks'),
-                        trackingModel: this.options.trackingModel
-                    }
+                        selectDisplayName: gettext('Enrollment Tracks')
+                    }).extend(defaultFilterOptions)
                 },
                 {
                     region: 'activeFilter',
-                    class: LearnerFilter,
-                    options: {
-                        collection: this.options.collection,
+                    class: CheckboxFilter,
+                    options: _({
                         filterKey: 'ignore_segments',
                         filterValues: this.options.courseMetadata.get('segments'),
-                        filterInput: 'checkbox',
                         // Translators: inactive meaning that these learners have not interacted with the course
                         // recently.
                         selectDisplayName: gettext('Hide Inactive Learners'),
-                        trackingModel: this.options.trackingModel
-                    }
+                    }).extend(defaultFilterOptions)
                 }
             ];
         }
