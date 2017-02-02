@@ -73,7 +73,7 @@ define(function(require) {
                 this.options.collection.unsetSearchString();
             } else {
                 this.options.collection.setSearchString(searchString);
-                this.options.trackingModel.trigger('segment:track', 'edx.bi.course-list.searched', {
+                this.options.trackingModel.trigger('segment:track', 'edx.bi.course_list.searched', {
                     category: 'search'
                 });
             }
