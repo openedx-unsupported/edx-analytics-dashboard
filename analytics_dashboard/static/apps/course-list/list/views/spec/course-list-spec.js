@@ -289,7 +289,7 @@ define(function(require) {
                 // The second page link is not disabled, and after
                 // clicking it, we should set focus to the top of the
                 // table.
-                expect($('#course-list-app-focusable').focus).toHaveBeenCalled();
+                expect($('#course-list-focusable').focus).toHaveBeenCalled();
             });
 
             it('does not violate the axe-core ruleset', function(done) {
