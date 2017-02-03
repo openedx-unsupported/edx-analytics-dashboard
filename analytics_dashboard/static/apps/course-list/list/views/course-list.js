@@ -51,7 +51,9 @@ define(function(require) {
                     class: CourseListControlsView,
                     options: {
                         collection: this.options.collection,
-                        trackingModel: this.options.trackingModel
+                        trackingModel: this.options.trackingModel,
+                        trackSubject: this.options.trackSubject,
+                        appClass: this.options.appClass
                     }
                 },
                 {

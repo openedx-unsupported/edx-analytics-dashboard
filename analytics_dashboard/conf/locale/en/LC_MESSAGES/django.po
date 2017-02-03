@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-26 17:49-0500\n"
+"POT-Creation-Date: 2017-02-03 15:14-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,7 +28,7 @@ msgstr ""
 msgid "Insights to help course teams improve courses."
 msgstr ""
 
-#: core/templates/core/landing.html:42 courses/views/__init__.py:496
+#: core/templates/core/landing.html:42 courses/views/__init__.py:497
 msgid "Who are my learners?"
 msgstr ""
 
@@ -38,8 +38,8 @@ msgstr ""
 
 #: core/templates/core/landing.html:44
 #: courses/templates/courses/enrollment_geography.html:28
-#: courses/tests/test_views/__init__.py:219 courses/views/__init__.py:292
-#: courses/views/__init__.py:494
+#: courses/tests/test_views/__init__.py:219 courses/views/__init__.py:293
+#: courses/views/__init__.py:495
 msgid "Enrollment"
 msgstr ""
 
@@ -54,8 +54,8 @@ msgid ""
 msgstr ""
 
 #: core/templates/core/landing.html:49
-#: courses/tests/test_views/test_engagement.py:44 courses/views/__init__.py:303
-#: courses/views/__init__.py:553
+#: courses/tests/test_views/test_engagement.py:44
+#: courses/views/__init__.py:304 courses/views/__init__.py:554
 msgid "Engagement"
 msgstr ""
 
@@ -69,7 +69,7 @@ msgstr ""
 
 #: core/templates/core/landing.html:54
 #: courses/tests/test_views/test_performance.py:48
-#: courses/views/__init__.py:314 courses/views/__init__.py:633
+#: courses/views/__init__.py:315 courses/views/__init__.py:634
 msgid "Performance"
 msgstr ""
 
@@ -339,12 +339,12 @@ msgid "Weekly Learner Engagement"
 msgstr ""
 
 #: courses/templates/courses/engagement_content.html:24
-#: courses/views/__init__.py:558
+#: courses/views/__init__.py:559
 msgid "How many learners are interacting with my course?"
 msgstr ""
 
 #: courses/templates/courses/engagement_content.html:31
-#: courses/views/__init__.py:326 courses/views/__init__.py:641
+#: courses/views/__init__.py:327 courses/views/__init__.py:642
 #: courses/views/learners.py:20
 msgid "Learners"
 msgstr ""
@@ -430,7 +430,7 @@ msgid ""
 msgstr ""
 
 #: courses/templates/courses/engagement_video_course.html:5
-#: courses/views/__init__.py:571
+#: courses/views/__init__.py:572
 msgid "How did learners interact with course videos?"
 msgstr ""
 
@@ -501,7 +501,7 @@ msgid "Daily Learner Enrollment"
 msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html:25
-#: courses/views/__init__.py:499
+#: courses/views/__init__.py:500
 msgid "How many learners are in my course?"
 msgstr ""
 
@@ -569,7 +569,7 @@ msgid "Enrollment Over Time"
 msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_age.html:25
-#: courses/views/__init__.py:509
+#: courses/views/__init__.py:510
 msgid "How old are my learners?"
 msgstr ""
 
@@ -633,7 +633,7 @@ msgid "Age Breakdown"
 msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_education.html:25
-#: courses/views/__init__.py:519
+#: courses/views/__init__.py:520
 msgid "What level of education do my learners have?"
 msgstr ""
 
@@ -688,7 +688,7 @@ msgid "Educational Breakdown"
 msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_gender.html:25
-#: courses/views/__init__.py:529
+#: courses/views/__init__.py:530
 msgid "What is the learner gender breakdown?"
 msgstr ""
 
@@ -709,7 +709,7 @@ msgid "Geographic Distribution"
 msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html:22
-#: courses/views/__init__.py:539
+#: courses/views/__init__.py:540
 msgid "Where are my learners?"
 msgstr ""
 
@@ -775,7 +775,7 @@ msgid "Application"
 msgstr ""
 
 #. Translators: This refers to the homepage of a course.
-#: courses/templates/courses/home.html:15 courses/views/__init__.py:488
+#: courses/templates/courses/home.html:15 courses/views/__init__.py:489
 #: templates/lens-navigation.html:20
 msgid "Course Home"
 msgstr ""
@@ -927,7 +927,7 @@ msgid "How are learners doing on this subsection?"
 msgstr ""
 
 #: courses/templates/courses/performance_ungraded_content.html:7
-#: courses/views/__init__.py:594
+#: courses/views/__init__.py:595
 msgid "How are learners doing on ungraded exercises?"
 msgstr ""
 
@@ -957,142 +957,142 @@ msgstr ""
 msgid "Try Again"
 msgstr ""
 
-#: courses/tests/test_views/__init__.py:235 courses/views/__init__.py:501
+#: courses/tests/test_views/__init__.py:235 courses/views/__init__.py:502
 #: courses/views/enrollment.py:23
 msgid "Activity"
 msgstr ""
 
-#: courses/tests/test_views/__init__.py:245 courses/views/__init__.py:511
-#: courses/views/__init__.py:521 courses/views/__init__.py:531
+#: courses/tests/test_views/__init__.py:245 courses/views/__init__.py:512
+#: courses/views/__init__.py:522 courses/views/__init__.py:532
 #: courses/views/enrollment.py:32
 msgid "Demographics"
 msgstr ""
 
-#: courses/tests/test_views/__init__.py:255 courses/views/__init__.py:541
+#: courses/tests/test_views/__init__.py:255 courses/views/__init__.py:542
 #: courses/views/enrollment.py:41
 msgid "Geography"
 msgstr ""
 
-#: courses/tests/test_views/__init__.py:293 courses/views/__init__.py:511
+#: courses/tests/test_views/__init__.py:293 courses/views/__init__.py:512
 #: courses/views/enrollment.py:61
 msgid "Age"
 msgstr ""
 
-#: courses/tests/test_views/__init__.py:303 courses/views/__init__.py:521
+#: courses/tests/test_views/__init__.py:303 courses/views/__init__.py:522
 #: courses/views/enrollment.py:70
 msgid "Education"
 msgstr ""
 
-#: courses/tests/test_views/__init__.py:313 courses/views/__init__.py:531
+#: courses/tests/test_views/__init__.py:313 courses/views/__init__.py:532
 #: courses/views/enrollment.py:79
 msgid "Gender"
 msgstr ""
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
-#: courses/tests/test_views/test_engagement.py:62 courses/views/__init__.py:560
-#: courses/views/engagement.py:27
+#: courses/tests/test_views/test_engagement.py:62
+#: courses/views/__init__.py:561 courses/views/engagement.py:27
 msgid "Content"
 msgstr ""
 
-#: courses/tests/test_views/test_engagement.py:73 courses/views/__init__.py:573
-#: courses/views/engagement.py:36
+#: courses/tests/test_views/test_engagement.py:73
+#: courses/views/__init__.py:574 courses/views/engagement.py:36
 msgid "Videos"
 msgstr ""
 
 #: courses/tests/test_views/test_performance.py:65
-#: courses/views/__init__.py:587 courses/views/performance.py:38
+#: courses/views/__init__.py:588 courses/views/performance.py:38
 #: courses/views/performance.py:101
 msgid "Graded Content"
 msgstr ""
 
 #: courses/tests/test_views/test_performance.py:76
-#: courses/views/__init__.py:596 courses/views/performance.py:47
+#: courses/views/__init__.py:597 courses/views/performance.py:47
 #: courses/views/performance.py:86
 msgid "Ungraded Problems"
 msgstr ""
 
 #: courses/tests/test_views/test_performance.py:529
-#: courses/views/__init__.py:608 courses/views/performance.py:65
+#: courses/views/__init__.py:609 courses/views/performance.py:65
 msgid "Learning Outcomes"
 msgstr ""
 
-#: courses/views/__init__.py:555
+#: courses/views/__init__.py:556
 msgid "What are learners doing in my course?"
 msgstr ""
 
-#: courses/views/__init__.py:585
+#: courses/views/__init__.py:586
 msgid "How are learners doing on graded course assignments?"
 msgstr ""
 
-#: courses/views/__init__.py:606
+#: courses/views/__init__.py:607
 msgid "What is the breakdown for course learning outcomes?"
 msgstr ""
 
-#: courses/views/__init__.py:626
+#: courses/views/__init__.py:627
 msgid "How are learners responding to questions?"
 msgstr ""
 
-#: courses/views/__init__.py:628
+#: courses/views/__init__.py:629
 msgid "Problem Response Report"
 msgstr ""
 
-#: courses/views/__init__.py:635
+#: courses/views/__init__.py:636
 msgid "How are learners doing on course assignments?"
 msgstr ""
 
-#: courses/views/__init__.py:643
+#: courses/views/__init__.py:644
 msgid "What are individual learners doing?"
 msgstr ""
 
-#: courses/views/__init__.py:646
+#: courses/views/__init__.py:647
 msgid "Who is engaged? Who isn't?"
 msgstr ""
 
-#: courses/views/__init__.py:648
+#: courses/views/__init__.py:649
 msgid "All Learners"
 msgstr ""
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that identifies the course
-#: courses/views/__init__.py:696
+#: courses/views/__init__.py:697
 msgid "Course ID"
 msgstr ""
 
-#: courses/views/__init__.py:698
+#: courses/views/__init__.py:699
 msgid "Course Name"
 msgstr ""
 
 #. Translators: 'In Progress' and 'Ended' refer to whether learners are
 #. actively using the course or it is over.
-#: courses/views/__init__.py:715
+#: courses/views/__init__.py:716
 msgid "In Progress"
 msgstr ""
 
-#: courses/views/__init__.py:715
+#: courses/views/__init__.py:716
 msgid "Ended"
 msgstr ""
 
 #. Translators: This refers to a course that has not yet begun.
-#: courses/views/__init__.py:718
+#: courses/views/__init__.py:719
 msgid "Not Started Yet"
 msgstr ""
 
-#: courses/views/__init__.py:720
+#: courses/views/__init__.py:721
 msgid "Start Date"
 msgstr ""
 
-#: courses/views/__init__.py:721
+#: courses/views/__init__.py:722
 msgid "End Date"
 msgstr ""
 
-#: courses/views/__init__.py:722
+#: courses/views/__init__.py:723
 msgid "Status"
 msgstr ""
 
-#: courses/views/__init__.py:731
+#: courses/views/__init__.py:732
 msgid "Instructor Dashboard"
 msgstr ""
 
-#: courses/views/__init__.py:736
+#: courses/views/__init__.py:737
 msgid "Courseware"
 msgstr ""
 
@@ -1236,11 +1236,11 @@ msgstr ""
 msgid "Performance: Learning Outcomes"
 msgstr ""
 
-#: settings/base.py:453
+#: settings/base.py:456
 msgid "Terms of Service"
 msgstr ""
 
-#: settings/base.py:454
+#: settings/base.py:457
 msgid "Privacy Policy"
 msgstr ""
 
