@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-06 14:22-0500\n"
-"PO-Revision-Date: 2017-01-19 09:27+0000\n"
+"POT-Creation-Date: 2017-02-03 15:14-0500\n"
+"PO-Revision-Date: 2017-02-04 09:43+0000\n"
 "Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: Greek (http://www.transifex.com/open-edx/edx-platform/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -24,853 +24,913 @@ msgstr ""
 "Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: static/apps/components/download/views/download-data.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/components/download/views/download-data.js:25
+#: static/dist/apps/learners/app/learners-main.js:31277
 msgid "Download CSV"
 msgstr "Λήψη CSV"
 
-#: static/apps/components/download/views/download-data.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/components/download/views/download-data.js:26
+#: static/dist/apps/learners/app/learners-main.js:31278
 msgid "Download search results to CSV"
 msgstr ""
 
-#: static/apps/components/generic-list/list/views/base-header-cell.js
-#: static/dist/apps/course-list/app/course-list-main.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/components/filter/views/drop-down-filter.js:31
+#: static/dist/apps/learners/app/learners-main.js:32281
+msgid "All"
+msgstr "Όλοι"
+
+#: static/apps/components/filter/views/filter.js:88
+#: static/dist/apps/learners/app/learners-main.js:32167
+msgid "<%= name %> (<%= count %>)"
+msgstr ""
+
+#: static/apps/components/generic-list/list/views/active-filters.js:35
+#: static/dist/apps/course-list/app/course-list-main.js:1409
+#: static/dist/apps/learners/app/learners-main.js:31156
+msgid "<%= filterDisplayName %>: <%= filterVal %>"
+msgstr ""
+
+#: static/apps/components/generic-list/list/views/active-filters.js:55
+#: static/dist/apps/course-list/app/course-list-main.js:1429
+#: static/dist/apps/learners/app/learners-main.js:31176
+msgid "Filters In Use:"
+msgstr ""
+
+#: static/apps/components/generic-list/list/views/active-filters.js:56
+#: static/dist/apps/course-list/app/course-list-main.js:1430
+#: static/dist/apps/learners/app/learners-main.js:31177
+msgid "Click to remove this filter"
+msgstr "Κάντε κλικ για την αφαίρεση αυτού του φίλτρου"
+
+#: static/apps/components/generic-list/list/views/active-filters.js:58
+#: static/dist/apps/course-list/app/course-list-main.js:1432
+#: static/dist/apps/learners/app/learners-main.js:31179
+msgid "Clear"
+msgstr "Καθαρισμός"
+
+#: static/apps/components/generic-list/list/views/active-filters.js:59
+#: static/dist/apps/course-list/app/course-list-main.js:1433
+#: static/dist/apps/learners/app/learners-main.js:31180
+msgid "Click to remove all filters"
+msgstr "Κάντε κλικ για την αφαίρεση όλων των φίλτρων"
+
+#: static/apps/components/generic-list/list/views/base-header-cell.js:71
+#: static/dist/apps/course-list/app/course-list-main.js:4936
+#: static/dist/apps/learners/app/learners-main.js:31436
 msgid "sort ascending"
 msgstr "αύξουσα"
 
-#: static/apps/components/generic-list/list/views/base-header-cell.js
-#: static/dist/apps/course-list/app/course-list-main.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/components/generic-list/list/views/base-header-cell.js:73
+#: static/dist/apps/course-list/app/course-list-main.js:4938
+#: static/dist/apps/learners/app/learners-main.js:31438
 msgid "sort descending"
 msgstr "φθίνουσα"
 
-#: static/apps/components/generic-list/list/views/base-header-cell.js
-#: static/dist/apps/course-list/app/course-list-main.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/components/generic-list/list/views/base-header-cell.js:76
+#: static/dist/apps/course-list/app/course-list-main.js:4941
+#: static/dist/apps/learners/app/learners-main.js:31441
 msgid "click to sort"
 msgstr "κάντε κλικ για ταξινόμηση"
 
-#: static/apps/components/generic-list/list/views/paging-footer.js
-#: static/dist/apps/course-list/app/course-list-main.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/components/generic-list/list/views/paging-footer.js:69
+#: static/dist/apps/course-list/app/course-list-main.js:5203
+#: static/dist/apps/learners/app/learners-main.js:31703
 msgid "first page"
 msgstr "πρώτη σελίδα"
 
-#: static/apps/components/generic-list/list/views/paging-footer.js
-#: static/dist/apps/course-list/app/course-list-main.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/components/generic-list/list/views/paging-footer.js:71
+#: static/dist/apps/course-list/app/course-list-main.js:5205
+#: static/dist/apps/learners/app/learners-main.js:31705
 msgid "previous page"
 msgstr "προηγούμενη σελίδα"
 
-#: static/apps/components/generic-list/list/views/paging-footer.js
-#: static/dist/apps/course-list/app/course-list-main.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/components/generic-list/list/views/paging-footer.js:73
+#: static/dist/apps/course-list/app/course-list-main.js:5207
+#: static/dist/apps/learners/app/learners-main.js:31707
 msgid "next page"
 msgstr "επόμενη σελίδα"
 
-#: static/apps/components/generic-list/list/views/paging-footer.js
-#: static/dist/apps/course-list/app/course-list-main.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/components/generic-list/list/views/paging-footer.js:75
+#: static/dist/apps/course-list/app/course-list-main.js:5209
+#: static/dist/apps/learners/app/learners-main.js:31709
 msgid "last page"
 msgstr "τελευταία σελίδα"
 
-#: static/apps/components/generic-list/list/views/paging-footer.js
-#: static/dist/apps/course-list/app/course-list-main.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/components/generic-list/list/views/paging-footer.js:77
+#: static/dist/apps/course-list/app/course-list-main.js:5211
+#: static/dist/apps/learners/app/learners-main.js:31711
 msgid "page"
 msgstr "σελίδα"
 
-#: static/apps/components/generic-list/list/views/table.js
-#: static/dist/apps/course-list/app/course-list-main.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/components/generic-list/list/views/table.js:27
+#: static/dist/apps/course-list/app/course-list-main.js:5270
+#: static/dist/apps/learners/app/learners-main.js:31770
 msgid "Generic List"
 msgstr ""
 
-#: static/apps/components/loading/views/loading-view.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/components/loading/views/loading-view.js:20
+#: static/dist/apps/learners/app/learners-main.js:27681
 msgid "Loading..."
 msgstr "Φόρτωση..."
 
-#: static/apps/components/utils/utils.js
-#: static/dist/apps/course-list/app/course-list-main.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/components/utils/utils.js:61
+#: static/dist/apps/course-list/app/course-list-main.js:1078
+#: static/dist/apps/learners/app/learners-main.js:566
 msgid "504: Server error"
 msgstr "504: Σφάλμα διακομιστή"
 
-#: static/apps/components/utils/utils.js
-#: static/dist/apps/course-list/app/course-list-main.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/components/utils/utils.js:63
+#: static/dist/apps/course-list/app/course-list-main.js:1080
+#: static/dist/apps/learners/app/learners-main.js:568
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
 msgstr "Η επεξεργασία του αιτήματός σας διήρκεσε υπερβολικά για να ολοκληρωθεί. Ανανεώστε τη σελίδα, ώστε να προσπαθήσετε ξανά."
 
-#: static/apps/components/utils/utils.js
-#: static/dist/apps/course-list/app/course-list-main.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/components/utils/utils.js:67
+#: static/dist/apps/course-list/app/course-list-main.js:1084
+#: static/dist/apps/learners/app/learners-main.js:572
 msgid "Server error"
 msgstr "Σφάλμα διακομιστή"
 
-#: static/apps/components/utils/utils.js
-#: static/dist/apps/course-list/app/course-list-main.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/components/utils/utils.js:68
+#: static/apps/components/utils/utils.js:80
+#: static/dist/apps/course-list/app/course-list-main.js:1085
+#: static/dist/apps/course-list/app/course-list-main.js:1097
+#: static/dist/apps/learners/app/learners-main.js:573
+#: static/dist/apps/learners/app/learners-main.js:585
 msgid "Your request could not be processed. Reload the page to try again."
 msgstr "Δεν ήταν δυνατή η επεξεργασία του αιτήματός σας. Ανανεώστε τη σελίδα, ώστε να προσπαθήσετε ξανά."
 
-#: static/apps/components/utils/utils.js
-#: static/dist/apps/course-list/app/course-list-main.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/components/utils/utils.js:79
+#: static/dist/apps/course-list/app/course-list-main.js:1096
+#: static/dist/apps/learners/app/learners-main.js:584
 msgid "Network error"
 msgstr "Σφάλμα δικτύου"
 
-#: static/apps/course-list/app/controller.js
-#: static/dist/apps/course-list/app/course-list-main.js
+#: static/apps/course-list/app/controller.js:48
+#: static/apps/course-list/app/controller.js:106
+#: static/dist/apps/course-list/app/course-list-main.js:5802
+#: static/dist/apps/course-list/app/course-list-main.js:5860
 msgid "Course List"
 msgstr ""
 
-#: static/apps/course-list/app/controller.js
-#: static/apps/learners/app/controller.js
-#: static/dist/apps/course-list/app/course-list-main.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/course-list/app/controller.js:96
+#: static/apps/learners/app/controller.js:94
+#: static/dist/apps/course-list/app/course-list-main.js:5850
+#: static/dist/apps/learners/app/learners-main.js:32716
 msgid "Invalid Parameters"
 msgstr ""
 
-#: static/apps/course-list/app/controller.js
-#: static/dist/apps/course-list/app/course-list-main.js
+#: static/apps/course-list/app/controller.js:97
+#: static/dist/apps/course-list/app/course-list-main.js:5851
 msgid "Sorry, we couldn't find any courses that matched that query."
 msgstr ""
 
-#: static/apps/course-list/app/controller.js
-#: static/dist/apps/course-list/app/course-list-main.js
+#: static/apps/course-list/app/controller.js:98
+#: static/dist/apps/course-list/app/course-list-main.js:5852
 msgid "Return to the Course List page."
 msgstr ""
 
-#: static/apps/course-list/app/controller.js
-#: static/apps/learners/app/controller.js
-#: static/dist/apps/course-list/app/course-list-main.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/course-list/app/controller.js:123
+#: static/apps/learners/app/controller.js:176
+#: static/dist/apps/course-list/app/course-list-main.js:5877
+#: static/dist/apps/learners/app/learners-main.js:32798
 msgid "Sorry, we couldn't find the page you're looking for."
 msgstr "Λυπούμαστε, δεν μπορέσαμε να βρούμε την σελίδα την οποία αναζητάτε."
 
-#: static/apps/course-list/app/controller.js
-#: static/apps/learners/app/controller.js
-#: static/dist/apps/course-list/app/course-list-main.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/course-list/app/controller.js:126
+#: static/apps/learners/app/controller.js:179
+#: static/dist/apps/course-list/app/course-list-main.js:5880
+#: static/dist/apps/learners/app/learners-main.js:32801
 msgid "Page Not Found"
 msgstr "Η σελίδα δεν βρέθηκε"
 
-#: static/apps/course-list/common/collections/course-list.js
-#: static/dist/apps/course-list/app/course-list-main.js
+#: static/apps/course-list/common/collections/course-list.js:16
+#: static/dist/apps/course-list/app/course-list-main.js:1335
 msgid "Course Name"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js
-#: static/dist/apps/course-list/app/course-list-main.js
+#: static/apps/course-list/common/collections/course-list.js:17
+#: static/dist/apps/course-list/app/course-list-main.js:1336
 msgid "Start Date"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js
-#: static/dist/apps/course-list/app/course-list-main.js
+#: static/apps/course-list/common/collections/course-list.js:18
+#: static/dist/apps/course-list/app/course-list-main.js:1337
 msgid "End Date"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js
-#: static/dist/apps/course-list/app/course-list-main.js
+#: static/apps/course-list/common/collections/course-list.js:19
+#: static/dist/apps/course-list/app/course-list-main.js:1338
 msgid "Total Enrollment"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js
-#: static/dist/apps/course-list/app/course-list-main.js
-#: static/dist/js/enrollment-activity-main.js
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/dist/js/enrollment-geography-main.js
-#: static/js/enrollment-activity-main.js
-#: static/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-geography-main.js
+#: static/apps/course-list/common/collections/course-list.js:20
+#: static/dist/apps/course-list/app/course-list-main.js:1339
+#: static/dist/js/enrollment-activity-main.js:25422
+#: static/dist/js/enrollment-demographics-gender-main.js:25539
+#: static/dist/js/enrollment-geography-main.js:22484
+#: static/js/enrollment-activity-main.js:27
+#: static/js/enrollment-demographics-gender-main.js:32
+#: static/js/enrollment-geography-main.js:29
 msgid "Current Enrollment"
 msgstr "Τρέχουσα συμμετοχή"
 
-#: static/apps/course-list/common/collections/course-list.js
-#: static/dist/apps/course-list/app/course-list-main.js
+#: static/apps/course-list/common/collections/course-list.js:21
+#: static/dist/apps/course-list/app/course-list-main.js:1340
 msgid "Change Last Week"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js
-#: static/dist/apps/course-list/app/course-list-main.js
+#: static/apps/course-list/common/collections/course-list.js:22
+#: static/dist/apps/course-list/app/course-list-main.js:1341
 msgid "Verified Enrollment"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js
-#: static/dist/apps/course-list/app/course-list-main.js
+#: static/apps/course-list/common/collections/course-list.js:24
+#: static/dist/apps/course-list/app/course-list-main.js:1343
 msgid "Availability"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js
-#: static/dist/apps/course-list/app/course-list-main.js
+#: static/apps/course-list/common/collections/course-list.js:25
+#: static/dist/apps/course-list/app/course-list-main.js:1344
 msgid "Pacing Type"
 msgstr ""
 
-#: static/apps/course-list/list/views/course-list.js
-#: static/dist/apps/course-list/app/course-list-main.js
+#: static/apps/course-list/list/views/controls.js:32
+#: static/dist/apps/course-list/app/course-list-main.js:4776
+msgid "Find a course"
+msgstr ""
+
+#: static/apps/course-list/list/views/course-list.js:73
+#: static/dist/apps/course-list/app/course-list-main.js:5733
 msgid "Course list controls"
 msgstr ""
 
-#: static/apps/course-list/list/views/results.js
-#: static/dist/apps/course-list/app/course-list-main.js
+#: static/apps/course-list/list/views/results.js:47
+#: static/dist/apps/course-list/app/course-list-main.js:5585
 msgid "No courses matched your criteria."
 msgstr ""
 
-#: static/apps/course-list/list/views/results.js
-#: static/apps/learners/roster/views/results.js
-#: static/dist/apps/course-list/app/course-list-main.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/course-list/list/views/results.js:49
+#: static/apps/learners/roster/views/results.js:49
+#: static/dist/apps/course-list/app/course-list-main.js:5587
+#: static/dist/apps/learners/app/learners-main.js:32054
 msgid "Try a different search."
 msgstr "Δοκιμάστε διαφορετική αναζήτηση."
 
-#: static/apps/course-list/list/views/results.js
-#: static/apps/learners/roster/views/results.js
-#: static/dist/apps/course-list/app/course-list-main.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/course-list/list/views/results.js:52
+#: static/apps/learners/roster/views/results.js:52
+#: static/dist/apps/course-list/app/course-list-main.js:5590
+#: static/dist/apps/learners/app/learners-main.js:32057
 msgid "Try clearing the filters."
 msgstr "Δοκιμάστε να καθαρίστε τα φίλτρα."
 
-#: static/apps/course-list/list/views/results.js
-#: static/dist/apps/course-list/app/course-list-main.js
+#: static/apps/course-list/list/views/results.js:55
+#: static/dist/apps/course-list/app/course-list-main.js:5593
 msgid "No course data is currently available for your course."
 msgstr ""
 
-#: static/apps/course-list/list/views/results.js
-#: static/dist/apps/course-list/app/course-list-main.js
+#: static/apps/course-list/list/views/results.js:57
+#: static/dist/apps/course-list/app/course-list-main.js:5595
 msgid ""
 "No courses are enrolled, or course activity data has not yet been processed."
 " Data is updated every day, so check back regularly for up-to-date metrics."
 msgstr ""
 
-#: static/apps/course-list/list/views/table.js
-#: static/dist/apps/course-list/app/course-list-main.js
+#: static/apps/course-list/list/views/search.js:60
+#: static/dist/apps/course-list/app/course-list-main.js:4696
+msgid "Search courses"
+msgstr ""
+
+#: static/apps/course-list/list/views/search.js:61
+#: static/apps/learners/roster/views/search.js:56
+#: static/dist/apps/course-list/app/course-list-main.js:4697
+#: static/dist/apps/learners/app/learners-main.js:32371
+msgid "search"
+msgstr "αναζήτηση"
+
+#: static/apps/course-list/list/views/search.js:62
+#: static/apps/learners/roster/views/search.js:57
+#: static/dist/apps/course-list/app/course-list-main.js:4698
+#: static/dist/apps/learners/app/learners-main.js:32372
+msgid "clear search"
+msgstr "καθαρισμός αναζήτησης"
+
+#: static/apps/course-list/list/views/table.js:43
+#: static/dist/apps/course-list/app/course-list-main.js:5520
 msgid "Date not available"
 msgstr ""
 
-#: static/apps/learners/app/controller.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/app/controller.js:59
+#: static/dist/apps/learners/app/learners-main.js:32681
 msgid "Learner Roster"
 msgstr "Μητρώο μαθητή"
 
-#: static/apps/learners/app/controller.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/app/controller.js:95
+#: static/dist/apps/learners/app/learners-main.js:32717
 msgid "Sorry, we couldn't find any learners who matched that query."
 msgstr ""
 
-#: static/apps/learners/app/controller.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/app/controller.js:96
+#: static/dist/apps/learners/app/learners-main.js:32718
 msgid "Return to the Learners page."
 msgstr ""
 
-#: static/apps/learners/app/controller.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/app/controller.js:104
+#: static/dist/apps/learners/app/learners-main.js:32726
 msgid "Learners"
 msgstr "Μαθητές"
 
-#: static/apps/learners/app/controller.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/app/controller.js:136
+#: static/dist/apps/learners/app/learners-main.js:32758
 msgid "Learner Details"
 msgstr "Λεπτομέρειες μαθητή"
 
-#: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/common/collections/learners.js:17
+#: static/dist/apps/learners/app/learners-main.js:1950
 msgid "Name (Username)"
 msgstr "Όνομα (ψευδώνυμο)"
 
-#: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/common/collections/learners.js:18
+#: static/dist/apps/learners/app/learners-main.js:1951
 msgid "Problems Tried"
 msgstr "Προσπαθημένα προβλήματα"
 
-#: static/apps/learners/common/collections/learners.js
-#: static/apps/learners/detail/views/engagement-table.js
-#: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/common/collections/learners.js:19
+#: static/apps/learners/detail/views/engagement-table.js:33
+#: static/apps/learners/detail/views/engagement-timeline.js:35
+#: static/dist/apps/learners/app/learners-main.js:1952
+#: static/dist/apps/learners/app/learners-main.js:2130
+#: static/dist/apps/learners/app/learners-main.js:27554
 msgid "Problems Correct"
 msgstr "Σωστά προβλήματα"
 
-#: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/common/collections/learners.js:20
+#: static/dist/apps/learners/app/learners-main.js:1953
 msgid "Attempts per Problem Correct"
 msgstr "Προσπάθειες ανά σωστό πρόγραμμα"
 
-#: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/learners-main.js
-#: static/dist/js/engagement-video-content-main.js
-#: static/js/engagement-video-content-main.js
+#: static/apps/learners/common/collections/learners.js:21
+#: static/dist/apps/learners/app/learners-main.js:1954
+#: static/dist/js/engagement-video-content-main.js:25598
+#: static/js/engagement-video-content-main.js:33
 msgid "Videos"
 msgstr "Βίντεο"
 
-#: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/common/collections/learners.js:22
+#: static/dist/apps/learners/app/learners-main.js:1955
 msgid "Discussions"
 msgstr "Συζητήσεις"
 
-#: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/common/collections/learners.js:24
+#: static/dist/apps/learners/app/learners-main.js:1957
 msgid "Segments"
 msgstr "Τμήματα"
 
-#: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/common/collections/learners.js:25
+#: static/dist/apps/learners/app/learners-main.js:1958
 msgid "Segments to Ignore"
 msgstr "Τμήματα προς αγνόηση"
 
-#: static/apps/learners/common/collections/learners.js
-#: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/common/collections/learners.js:26
+#: static/apps/learners/detail/views/learner-detail.js:101
+#: static/dist/apps/learners/app/learners-main.js:1959
+#: static/dist/apps/learners/app/learners-main.js:27808
 msgid "Cohort"
 msgstr "Ακολουθία"
 
-#: static/apps/learners/common/collections/learners.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/common/collections/learners.js:27
+#: static/dist/apps/learners/app/learners-main.js:1960
 msgid "Enrollment Mode"
 msgstr "Λειτουργία συμμετοχής"
 
-#: static/apps/learners/detail/views/engagement-table.js
-#: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/learners-main.js
-#: static/dist/js/enrollment-activity-main.js
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-activity-main.js
-#: static/js/enrollment-demographics-gender-main.js
+#: static/apps/learners/detail/views/engagement-table.js:22
+#: static/apps/learners/detail/views/engagement-timeline.js:43
+#: static/dist/apps/learners/app/learners-main.js:2119
+#: static/dist/apps/learners/app/learners-main.js:27562
+#: static/dist/js/enrollment-activity-main.js:25417
+#: static/dist/js/enrollment-demographics-gender-main.js:25538
+#: static/js/enrollment-activity-main.js:22
+#: static/js/enrollment-demographics-gender-main.js:31
 msgid "Date"
 msgstr "Ημερομηνία"
 
-#: static/apps/learners/detail/views/engagement-table.js
-#: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/detail/views/engagement-table.js:27
+#: static/apps/learners/detail/views/engagement-timeline.js:31
+#: static/dist/apps/learners/app/learners-main.js:2124
+#: static/dist/apps/learners/app/learners-main.js:27550
 msgid "Discussion Contributions"
 msgstr "Συμβολές συζήτησης"
 
-#: static/apps/learners/detail/views/engagement-table.js
-#: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/detail/views/engagement-table.js:39
+#: static/apps/learners/detail/views/engagement-timeline.js:39
+#: static/dist/apps/learners/app/learners-main.js:2136
+#: static/dist/apps/learners/app/learners-main.js:27558
 msgid "Videos Viewed"
 msgstr "Προβεβλημένα βίντεο"
 
-#: static/apps/learners/detail/views/engagement-timeline.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/detail/views/engagement-timeline.js:47
+#: static/dist/apps/learners/app/learners-main.js:27566
 msgid "Value"
 msgstr "Τιμή"
 
-#: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/detail/views/learner-detail.js:28
+#: static/dist/apps/learners/app/learners-main.js:27735
 msgid "Engagement Activity"
 msgstr ""
 
-#: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/detail/views/learner-detail.js:29
+#: static/dist/apps/learners/app/learners-main.js:27736
 msgid "Daily Activity"
 msgstr ""
 
-#: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/detail/views/learner-detail.js:30
+#: static/dist/apps/learners/app/learners-main.js:27737
 msgid "Activity Over Time"
 msgstr ""
 
-#: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/detail/views/learner-detail.js:95
+#: static/dist/apps/learners/app/learners-main.js:27802
 msgid "Enrollment"
 msgstr "Εγγραφείτε"
 
-#: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/detail/views/learner-detail.js:106
+#: static/dist/apps/learners/app/learners-main.js:27813
 msgid "Last Accessed"
 msgstr ""
 
-#: static/apps/learners/detail/views/learner-detail.js
-#: static/apps/learners/detail/views/learner-summary-field.js
-#: static/apps/learners/roster/views/activity-date-range.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/detail/views/learner-detail.js:109
+#: static/apps/learners/detail/views/learner-summary-field.js:44
+#: static/apps/learners/roster/views/activity-date-range.js:16
+#: static/dist/apps/learners/app/learners-main.js:27647
+#: static/dist/apps/learners/app/learners-main.js:27816
+#: static/dist/apps/learners/app/learners-main.js:31109
 msgid "n/a"
 msgstr "δ/υ"
 
-#: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/detail/views/learner-detail.js:139
+#: static/dist/apps/learners/app/learners-main.js:27846
 msgid "Check back daily for up-to-date data."
 msgstr "Να ελέγχετε καθημερινά για ενημερωμένα δεδομένα."
 
-#: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/detail/views/learner-detail.js:149
+#: static/dist/apps/learners/app/learners-main.js:27856
 msgid "No course activity data is available for this learner."
 msgstr "Δεν υπάρχουν διαθέσιμα δεδομένα δραστηριότητας στο μάθημα για αυτόν το μαθητή."
 
-#: static/apps/learners/detail/views/learner-detail.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/detail/views/learner-detail.js:156
+#: static/dist/apps/learners/app/learners-main.js:27863
 msgid "No learner data is available."
 msgstr "Δεν υπάρχουν διαθέσιμα δεδομένα για το μαθητή."
 
-#: static/apps/learners/detail/views/learner-return.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/detail/views/learner-return.js:12
+#: static/dist/apps/learners/app/learners-main.js:32613
 msgid "Return to Learners"
 msgstr "Επιστροφή στους Μαθητές"
 
-#: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/roster/views/active-filters.js:19
+#: static/dist/apps/learners/app/learners-main.js:31223
 msgid "Cohort: <%= filterVal %>"
 msgstr ""
 
-#: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/roster/views/active-filters.js:23
+#: static/dist/apps/learners/app/learners-main.js:31227
 msgid "Enrollment Track: <%= filterVal %>"
 msgstr ""
 
-#: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/learners-main.js
-#: static/dist/js/engagement-content-main.js
-#: static/js/engagement-content-main.js
+#: static/apps/learners/roster/views/active-filters.js:28
+#: static/dist/apps/learners/app/learners-main.js:31232
+#: static/dist/js/engagement-content-main.js:25386
+#: static/js/engagement-content-main.js:20
 msgid "Active Learners"
 msgstr ""
 
-#: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "Filters In Use:"
-msgstr ""
-
-#: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "Click to remove this filter"
-msgstr "Κάντε κλικ για την αφαίρεση αυτού του φίλτρου"
-
-#: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "Clear"
-msgstr "Καθαρισμός"
-
-#: static/apps/learners/roster/views/active-filters.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "Click to remove all filters"
-msgstr "Κάντε κλικ για την αφαίρεση όλων των φίλτρων"
-
-#: static/apps/learners/roster/views/activity-date-range.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/roster/views/activity-date-range.js:11
+#: static/dist/apps/learners/app/learners-main.js:31104
 msgid "Activity between <%- startDate %> - <%- endDate %>"
 msgstr ""
 
-#: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/roster/views/base-header-cell.js:10
+#: static/dist/apps/learners/app/learners-main.js:31854
 msgid "The name and username of this learner. Click to sort by username."
 msgstr "Το όνομα και το ψευδώνυμο του σπουδαστή. Κάντε κλικ για ταξινόμηση βάσει ψευδώνυμου."
 
-#: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/roster/views/base-header-cell.js:11
+#: static/dist/apps/learners/app/learners-main.js:31855
 msgid "Number of unique problems this learner attempted."
 msgstr "Αριθμός μοναδικών προβλημάτων που προσπαθήθηκαν από αυτό το μαθητή."
 
-#: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/roster/views/base-header-cell.js:12
+#: static/dist/apps/learners/app/learners-main.js:31856
 msgid "Number of unique problems the learner answered correctly."
 msgstr "Ο αριθμός των μοναδικών προβλημάτων που απαντήθηκαν σωστά από το μαθητή."
 
-#: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/roster/views/base-header-cell.js:13
+#: static/dist/apps/learners/app/learners-main.js:31857
 msgid "Number of unique videos this learner played."
 msgstr "Ο αριθμός των μοναδικών βίντεο που αναπαρήγαγε αυτός ο μαθητής."
 
-#: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/roster/views/base-header-cell.js:15
+#: static/dist/apps/learners/app/learners-main.js:31859
 msgid ""
 "Average number of attempts per correct problem. Learners with a relatively "
 "high value compared to their peers may be struggling."
 msgstr "Μέσος όρος προσπαθειών ανά σωστό πρόβλημα. Οι μαθητές με σχετικά μεγαλύτερες τιμές σε σύγκριση με τους συμμαθητές τους που δυσκολεύονται."
 
-#: static/apps/learners/roster/views/base-header-cell.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/roster/views/base-header-cell.js:17
+#: static/dist/apps/learners/app/learners-main.js:31861
 msgid ""
 "Number of contributions by this learner, including posts, responses, and "
 "comments."
 msgstr "Ποσοστό συμβολής από αυτόν τον μαθητή, εξαιρουμένων των αναρτήσεων, των απαντήσεων και των σχολίων."
 
-#: static/apps/learners/roster/views/controls.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/roster/views/controls.js:45
+#: static/dist/apps/learners/app/learners-main.js:32460
 msgid "Find a learner"
 msgstr "Εύρεση μαθητή"
 
-#: static/apps/learners/roster/views/controls.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/roster/views/controls.js:55
+#: static/dist/apps/learners/app/learners-main.js:32470
 msgid "Cohort Groups"
 msgstr "Ομάδες ακολούθων"
 
-#: static/apps/learners/roster/views/controls.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/roster/views/controls.js:53
+msgid "cohort"
+msgstr ""
+
+#: static/apps/learners/roster/views/controls.js:64
+#: static/dist/apps/learners/app/learners-main.js:32479
 msgid "Enrollment Tracks"
 msgstr ""
 
-#: static/apps/learners/roster/views/controls.js
-#: static/apps/learners/roster/views/filter.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/roster/views/controls.js:62
+msgid "enrollment_mode"
+msgstr ""
+
+#: static/apps/learners/roster/views/controls.js:76
+#: static/dist/apps/learners/app/learners-main.js:32491
 msgid "Hide Inactive Learners"
 msgstr ""
 
-#: static/apps/learners/roster/views/filter.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "<%= name %> (<%= numLearners %>)"
+#: static/apps/learners/roster/views/controls.js:71
+msgid "ignore_segments"
 msgstr ""
 
-#: static/apps/learners/roster/views/filter.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "All"
-msgstr "Όλοι"
-
-#: static/apps/learners/roster/views/results.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/roster/views/results.js:47
+#: static/dist/apps/learners/app/learners-main.js:32052
 msgid "No learners matched your criteria."
 msgstr "Δεν βρέθηκαν μαθητές για τα κριτήριά σας."
 
-#: static/apps/learners/roster/views/results.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/roster/views/results.js:55
+#: static/dist/apps/learners/app/learners-main.js:32060
 msgid "No learner data is currently available for your course."
 msgstr "Δεν υπάρχουν διαθέσιμα δεδομένα μαθητή για το μάθημά σας."
 
-#: static/apps/learners/roster/views/results.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/roster/views/results.js:57
+#: static/dist/apps/learners/app/learners-main.js:32062
 msgid ""
 "No learners are enrolled, or course activity data has not yet been "
 "processed. Data is updated every day, so check back regularly for up-to-date"
 " metrics."
 msgstr "Κανείς δεν έχει δηλώσει συμμετοχή, ή δεν υπάρχουν δεδομένα δραστηριότητας, Τα δεδομένα ενημερώνονται καθημερινά, γι' αυτό να προσπαθείτε τακτικά για ενημερωμένες μετρήσεις."
 
-#: static/apps/learners/roster/views/roster.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/roster/views/roster.js:89
+#: static/dist/apps/learners/app/learners-main.js:32592
 msgid "Learner roster controls"
 msgstr ""
 
-#: static/apps/learners/roster/views/search.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/roster/views/search.js:55
+#: static/dist/apps/learners/app/learners-main.js:32370
 msgid "Search learners"
 msgstr "Αναζήτηση μαθητών"
 
-#: static/apps/learners/roster/views/search.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "search"
-msgstr "αναζήτηση"
-
-#: static/apps/learners/roster/views/search.js
-#: static/dist/apps/learners/app/learners-main.js
-msgid "clear search"
-msgstr "καθαρισμός αναζήτησης"
-
-#: static/apps/learners/roster/views/table.js
-#: static/dist/apps/learners/app/learners-main.js
+#: static/apps/learners/roster/views/table.js:40
+#: static/dist/apps/learners/app/learners-main.js:31940
 msgid "N/A"
 msgstr "ΔΥ"
 
-#: static/dist/js/common.js static/js/utils/utils.js
+#: static/dist/js/common.js:23030 static/js/utils/utils.js:93
 msgid "..."
 msgstr "..."
 
-#: static/dist/js/common.js static/dist/js/engagement-video-content-main.js
-#: static/dist/js/engagement-videos-main.js
-#: static/dist/js/enrollment-demographics-education-main.js
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/dist/js/performance-answer-distribution-main.js
-#: static/dist/js/performance-content-main.js
-#: static/dist/js/performance-learning-outcomes-content-main.js
-#: static/dist/js/performance-learning-outcomes-section-main.js
-#: static/dist/js/performance-problems-main.js
-#: static/js/views/data-table-view.js static/js/views/discrete-bar-view.js
+#: static/dist/js/common.js:39185
+#: static/dist/js/engagement-video-content-main.js:25482
+#: static/dist/js/engagement-videos-main.js:25482
+#: static/dist/js/enrollment-demographics-education-main.js:25482
+#: static/dist/js/enrollment-demographics-gender-main.js:25482
+#: static/dist/js/performance-answer-distribution-main.js:25482
+#: static/dist/js/performance-content-main.js:25482
+#: static/dist/js/performance-learning-outcomes-content-main.js:25482
+#: static/dist/js/performance-learning-outcomes-section-main.js:25482
+#: static/dist/js/performance-problems-main.js:25482
+#: static/js/views/data-table-view.js:198
+#: static/js/views/discrete-bar-view.js:21
 msgid "(empty)"
 msgstr "(άδειο)"
 
-#: static/dist/js/common.js
-#: static/dist/js/performance-answer-distribution-main.js
-#: static/dist/js/performance-learning-outcomes-section-main.js
-#: static/dist/js/performance-problems-main.js
-#: static/js/performance-answer-distribution-main.js
-#: static/js/performance-learning-outcomes-section-main.js
-#: static/js/performance-problems-main.js static/js/views/data-table-view.js
+#: static/dist/js/common.js:39202
+#: static/dist/js/performance-answer-distribution-main.js:25522
+#: static/dist/js/performance-answer-distribution-main.js:25550
+#: static/dist/js/performance-learning-outcomes-section-main.js:25576
+#: static/dist/js/performance-learning-outcomes-section-main.js:25602
+#: static/dist/js/performance-problems-main.js:25576
+#: static/js/performance-answer-distribution-main.js:15
+#: static/js/performance-answer-distribution-main.js:43
+#: static/js/performance-learning-outcomes-section-main.js:11
+#: static/js/performance-learning-outcomes-section-main.js:37
+#: static/js/performance-problems-main.js:11
+#: static/js/views/data-table-view.js:215
 msgid "Correct"
 msgstr "Σωστό"
 
-#: static/dist/js/engagement-content-main.js
-#: static/js/engagement-content-main.js
+#: static/dist/js/engagement-content-main.js:25381
+#: static/js/engagement-content-main.js:15
 msgid "Week Ending"
 msgstr "Τέλος εβδομάδας"
 
-#: static/dist/js/engagement-content-main.js
-#: static/js/engagement-content-main.js
+#: static/dist/js/engagement-content-main.js:25393
+#: static/js/engagement-content-main.js:27
 msgid "Watched a Video"
 msgstr "Παρακολούθησε ένα βίντεο"
 
-#: static/dist/js/engagement-content-main.js
-#: static/js/engagement-content-main.js
+#: static/dist/js/engagement-content-main.js:25400
+#: static/js/engagement-content-main.js:34
 msgid "Tried a Problem"
 msgstr "Προσπάθησε ένα Πρόβλημα"
 
-#: static/dist/js/engagement-content-main.js
-#: static/js/engagement-content-main.js
+#: static/dist/js/engagement-content-main.js:25407
+#: static/js/engagement-content-main.js:41
 msgid "Participated in Discussions"
 msgstr ""
 
-#: static/dist/js/engagement-content-main.js
-#: static/js/engagement-content-main.js
+#: static/dist/js/engagement-content-main.js:25414
+#: static/js/engagement-content-main.js:48
 msgid "Percent of Current Learners"
 msgstr ""
 
-#: static/dist/js/engagement-content-main.js
-#: static/js/engagement-content-main.js
+#: static/dist/js/engagement-content-main.js:25451
+#: static/js/engagement-content-main.js:85
 msgid "Week Ending <%=value%>"
 msgstr "Τέλος εβδομάδας <%=value%>"
 
 #. Translators: <%=value%> will be replaced by a number followed by a
 #. percentage.
 #. For example, "400 (29%)" */
-#: static/dist/js/engagement-video-content-main.js
-#: static/dist/js/engagement-videos-main.js
-#: static/dist/js/performance-content-main.js
-#: static/dist/js/performance-learning-outcomes-content-main.js
-#: static/dist/js/performance-learning-outcomes-section-main.js
-#: static/dist/js/performance-problems-main.js
-#: static/js/views/stacked-bar-view.js
+#: static/dist/js/engagement-video-content-main.js:25520
+#: static/dist/js/engagement-videos-main.js:25520
+#: static/dist/js/performance-content-main.js:25520
+#: static/dist/js/performance-learning-outcomes-content-main.js:25520
+#: static/dist/js/performance-learning-outcomes-section-main.js:25520
+#: static/dist/js/performance-problems-main.js:25520
+#: static/js/views/stacked-bar-view.js:13
 msgid "<%=value%> (<%=percent%>)"
 msgstr "<%=value%> (<%=percent%>)"
 
-#: static/dist/js/engagement-video-content-main.js
-#: static/js/engagement-video-content-main.js
+#: static/dist/js/engagement-video-content-main.js:25579
+#: static/js/engagement-video-content-main.js:14
 msgid "Average Complete Views"
 msgstr "Μέσος 'Ορος Ολοκληρωμένων θεάσεων"
 
-#: static/dist/js/engagement-video-content-main.js
-#: static/js/engagement-video-content-main.js
+#: static/dist/js/engagement-video-content-main.js:25588
+#: static/js/engagement-video-content-main.js:23
 msgid "Average Incomplete Views"
 msgstr "Μέσος Όρος Μη Ολοκληρωμένων Προβολών"
 
-#: static/dist/js/engagement-video-content-main.js
-#: static/dist/js/engagement-videos-main.js
-#: static/dist/js/performance-content-main.js
-#: static/dist/js/performance-learning-outcomes-content-main.js
-#: static/dist/js/performance-learning-outcomes-section-main.js
-#: static/dist/js/performance-problems-main.js
-#: static/js/engagement-video-content-main.js
-#: static/js/engagement-videos-main.js static/js/performance-content-main.js
-#: static/js/performance-learning-outcomes-content-main.js
-#: static/js/performance-learning-outcomes-section-main.js
-#: static/js/performance-problems-main.js
+#: static/dist/js/engagement-video-content-main.js:25596
+#: static/dist/js/engagement-videos-main.js:25594
+#: static/dist/js/performance-content-main.js:25593
+#: static/dist/js/performance-learning-outcomes-content-main.js:25593
+#: static/dist/js/performance-learning-outcomes-section-main.js:25593
+#: static/dist/js/performance-problems-main.js:25591
+#: static/js/engagement-video-content-main.js:31
+#: static/js/engagement-videos-main.js:29
+#: static/js/performance-content-main.js:28
+#: static/js/performance-learning-outcomes-content-main.js:28
+#: static/js/performance-learning-outcomes-section-main.js:28
+#: static/js/performance-problems-main.js:26
 msgid "Order"
 msgstr "Παραγγελία"
 
-#: static/dist/js/engagement-video-content-main.js
-#: static/dist/js/engagement-videos-main.js
-#: static/js/engagement-video-content-main.js
-#: static/js/engagement-videos-main.js
+#: static/dist/js/engagement-video-content-main.js:25606
+#: static/dist/js/engagement-videos-main.js:25603
+#: static/js/engagement-video-content-main.js:41
+#: static/js/engagement-videos-main.js:38
 msgid "Completion Percentage"
 msgstr "Ποσοστό ολοκλήρωσης"
 
-#: static/dist/js/engagement-video-timeline-main.js
-#: static/js/engagement-video-timeline-main.js
+#: static/dist/js/engagement-video-timeline-main.js:25539
+#: static/js/engagement-video-timeline-main.js:25
 msgid "Unique Viewers"
 msgstr "Μοναδικοί θεατές"
 
-#: static/dist/js/engagement-video-timeline-main.js
-#: static/js/engagement-video-timeline-main.js
+#: static/dist/js/engagement-video-timeline-main.js:25546
+#: static/js/engagement-video-timeline-main.js:32
 msgid "Replays"
 msgstr "Επαναλήψεις"
 
-#: static/dist/js/engagement-video-timeline-main.js
-#: static/js/engagement-video-timeline-main.js
+#: static/dist/js/engagement-video-timeline-main.js:25553
+#: static/js/engagement-video-timeline-main.js:39
 msgid "Time"
 msgstr "Χρόνος"
 
-#: static/dist/js/engagement-videos-main.js
-#: static/js/engagement-videos-main.js
+#: static/dist/js/engagement-videos-main.js:25579
+#: static/js/engagement-videos-main.js:14
 msgid "Complete Views"
 msgstr "Ολοκληρωμένες θεάσεις "
 
-#: static/dist/js/engagement-videos-main.js
-#: static/js/engagement-videos-main.js
+#: static/dist/js/engagement-videos-main.js:25587
+#: static/js/engagement-videos-main.js:22
 msgid "Incomplete Views"
 msgstr "Μη ολοκληρωμένες προβολές"
 
-#: static/dist/js/enrollment-activity-main.js
-#: static/js/enrollment-activity-main.js
+#: static/dist/js/enrollment-activity-main.js:25428
+#: static/js/enrollment-activity-main.js:33
 msgid "Honor"
 msgstr "Με Κώδικα Τιμής."
 
-#: static/dist/js/enrollment-activity-main.js
-#: static/js/enrollment-activity-main.js
+#: static/dist/js/enrollment-activity-main.js:25433
+#: static/js/enrollment-activity-main.js:38
 msgid "Audit"
 msgstr "Ακροατές"
 
-#: static/dist/js/enrollment-activity-main.js
-#: static/js/enrollment-activity-main.js
+#: static/dist/js/enrollment-activity-main.js:25438
+#: static/js/enrollment-activity-main.js:43
 msgid "Verified"
 msgstr "Πιστοποιημένοι χρήστες"
 
-#: static/dist/js/enrollment-activity-main.js
-#: static/js/enrollment-activity-main.js
+#: static/dist/js/enrollment-activity-main.js:25443
+#: static/js/enrollment-activity-main.js:48
 msgid "Professional"
 msgstr "Επαγγελματικό"
 
-#: static/dist/js/enrollment-activity-main.js
-#: static/js/enrollment-activity-main.js
+#: static/dist/js/enrollment-activity-main.js:25449
+#: static/js/enrollment-activity-main.js:54
 msgid "Verified with Credit"
 msgstr ""
 
-#: static/dist/js/enrollment-demographics-age-main.js
-#: static/dist/js/enrollment-demographics-education-main.js
-#: static/js/enrollment-demographics-age-main.js
-#: static/js/enrollment-demographics-education-main.js
+#: static/dist/js/enrollment-demographics-age-main.js:25504
+#: static/dist/js/enrollment-demographics-age-main.js:25519
+#: static/dist/js/enrollment-demographics-education-main.js:25539
+#: static/js/enrollment-demographics-age-main.js:19
+#: static/js/enrollment-demographics-age-main.js:34
+#: static/js/enrollment-demographics-education-main.js:32
 msgid "Number of Learners"
 msgstr ""
 
-#: static/dist/js/enrollment-demographics-age-main.js
-#: static/js/enrollment-demographics-age-main.js
+#: static/dist/js/enrollment-demographics-age-main.js:25511
+#: static/js/enrollment-demographics-age-main.js:26
 msgid "Age: <%=value%>"
 msgstr "Ηλικία <%=value%> "
 
-#: static/dist/js/enrollment-demographics-age-main.js
-#: static/js/enrollment-demographics-age-main.js
+#: static/dist/js/enrollment-demographics-age-main.js:25518
+#: static/js/enrollment-demographics-age-main.js:33
 msgid "Age"
 msgstr "Ηλικία"
 
-#: static/dist/js/enrollment-demographics-age-main.js
-#: static/js/enrollment-demographics-age-main.js
+#: static/dist/js/enrollment-demographics-age-main.js:25520
+#: static/js/enrollment-demographics-age-main.js:35
 msgid "Percent of Total"
 msgstr "Ποσοστό επί του συνόλου"
 
-#: static/dist/js/enrollment-demographics-education-main.js
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-demographics-education-main.js
-#: static/js/enrollment-demographics-gender-main.js
+#: static/dist/js/enrollment-demographics-education-main.js:25525
+#: static/dist/js/enrollment-demographics-gender-main.js:25524
+#: static/js/enrollment-demographics-education-main.js:18
+#: static/js/enrollment-demographics-gender-main.js:17
 msgid "Percentage"
 msgstr "Ποσοστό"
 
-#: static/dist/js/enrollment-demographics-education-main.js
-#: static/js/enrollment-demographics-education-main.js
+#: static/dist/js/enrollment-demographics-education-main.js:25531
+#: static/js/enrollment-demographics-education-main.js:24
 msgid "Education: <%=value%>"
 msgstr "Εκπαίδευση <%=value%>"
 
-#: static/dist/js/enrollment-demographics-education-main.js
-#: static/js/enrollment-demographics-education-main.js
+#: static/dist/js/enrollment-demographics-education-main.js:25538
+#: static/js/enrollment-demographics-education-main.js:31
 msgid "Educational Background"
 msgstr "Εκπαιδευτικό υπόβαθρο"
 
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-demographics-gender-main.js
+#: static/dist/js/enrollment-demographics-gender-main.js:25530
+#: static/js/enrollment-demographics-gender-main.js:23
 msgid "Gender: <%=value%>"
 msgstr "Φύλο <%=value%>"
 
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-demographics-gender-main.js
+#: static/dist/js/enrollment-demographics-gender-main.js:25540
+#: static/js/enrollment-demographics-gender-main.js:33
 msgid "Female"
 msgstr "Γυναίκα"
 
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-demographics-gender-main.js
+#: static/dist/js/enrollment-demographics-gender-main.js:25541
+#: static/js/enrollment-demographics-gender-main.js:34
 msgid "Male"
 msgstr "Άνδρας"
 
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-demographics-gender-main.js
+#: static/dist/js/enrollment-demographics-gender-main.js:25542
+#: static/js/enrollment-demographics-gender-main.js:35
 msgid "Other"
 msgstr "Άλλο"
 
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-demographics-gender-main.js
+#: static/dist/js/enrollment-demographics-gender-main.js:25543
+#: static/js/enrollment-demographics-gender-main.js:36
 msgid "Not Reported"
 msgstr "Δεν αναφέρθηκε"
 
-#: static/dist/js/enrollment-geography-main.js
-#: static/js/enrollment-geography-main.js
+#: static/dist/js/enrollment-geography-main.js:22473
+#: static/js/enrollment-geography-main.js:18
 msgid ""
 "Learner location is determined from IP address. This map shows where "
 "learners most recently connected."
 msgstr ""
 
-#: static/dist/js/enrollment-geography-main.js
-#: static/js/enrollment-geography-main.js
+#: static/dist/js/enrollment-geography-main.js:22481
+#: static/js/enrollment-geography-main.js:26
 msgid "Country or Region"
 msgstr "Χώρα ή Περιοχή"
 
-#: static/dist/js/enrollment-geography-main.js
-#: static/js/enrollment-geography-main.js
+#: static/dist/js/enrollment-geography-main.js:22482
+#: static/js/enrollment-geography-main.js:27
 msgid "Percent"
 msgstr "Ποσοστό"
 
-#: static/dist/js/performance-answer-distribution-main.js
-#: static/js/performance-answer-distribution-main.js
+#: static/dist/js/performance-answer-distribution-main.js:25519
+#: static/js/performance-answer-distribution-main.js:12
 msgid "Answer"
 msgstr "Απάντηση"
 
-#: static/dist/js/performance-answer-distribution-main.js
-#: static/js/performance-answer-distribution-main.js
+#: static/dist/js/performance-answer-distribution-main.js:25523
+#: static/js/performance-answer-distribution-main.js:16
 msgid "Submission Count"
 msgstr "Καταμέτρηση υποβολών"
 
-#: static/dist/js/performance-answer-distribution-main.js
-#: static/js/performance-answer-distribution-main.js
+#: static/dist/js/performance-answer-distribution-main.js:25537
+#: static/js/performance-answer-distribution-main.js:30
 msgid "Variant"
 msgstr "Μεταβλητή"
 
-#: static/dist/js/performance-answer-distribution-main.js
-#: static/dist/js/performance-learning-outcomes-section-main.js
-#: static/dist/js/performance-problems-main.js
-#: static/js/performance-answer-distribution-main.js
-#: static/js/performance-learning-outcomes-section-main.js
-#: static/js/performance-problems-main.js
+#: static/dist/js/performance-answer-distribution-main.js:25552
+#: static/dist/js/performance-learning-outcomes-section-main.js:25585
+#: static/dist/js/performance-learning-outcomes-section-main.js:25610
+#: static/dist/js/performance-problems-main.js:25584
+#: static/js/performance-answer-distribution-main.js:45
+#: static/js/performance-learning-outcomes-section-main.js:20
+#: static/js/performance-learning-outcomes-section-main.js:45
+#: static/js/performance-problems-main.js:19
 msgid "Incorrect"
 msgstr "Λάθος"
 
-#: static/dist/js/performance-answer-distribution-main.js
-#: static/js/performance-answer-distribution-main.js
+#: static/dist/js/performance-answer-distribution-main.js:25567
+#: static/js/performance-answer-distribution-main.js:60
 msgid "Answer: <%=value%>"
 msgstr "Απάντηση: <%=value%>"
 
-#: static/dist/js/performance-content-main.js
-#: static/dist/js/performance-learning-outcomes-content-main.js
-#: static/js/performance-content-main.js
-#: static/js/performance-learning-outcomes-content-main.js
+#: static/dist/js/performance-content-main.js:25576
+#: static/dist/js/performance-learning-outcomes-content-main.js:25576
+#: static/js/performance-content-main.js:11
+#: static/js/performance-learning-outcomes-content-main.js:11
 msgid "Average Correct"
 msgstr "Μέσος όρος σωστών"
 
-#: static/dist/js/performance-content-main.js
-#: static/dist/js/performance-learning-outcomes-content-main.js
-#: static/js/performance-content-main.js
-#: static/js/performance-learning-outcomes-content-main.js
+#: static/dist/js/performance-content-main.js:25585
+#: static/dist/js/performance-learning-outcomes-content-main.js:25585
+#: static/js/performance-content-main.js:20
+#: static/js/performance-learning-outcomes-content-main.js:20
 msgid "Average Incorrect"
 msgstr "Μέσος όρος λανθασμένων"
 
-#: static/dist/js/performance-content-main.js
-#: static/js/performance-content-main.js
+#: static/dist/js/performance-content-main.js:25595
+#: static/js/performance-content-main.js:30
 msgid "Problems"
 msgstr "Προβλήματα"
 
-#: static/dist/js/performance-content-main.js
-#: static/js/performance-content-main.js
+#: static/dist/js/performance-content-main.js:25604
+#: static/js/performance-content-main.js:39
 msgid "Average Submissions Per Problem"
 msgstr "Μέσος όρος υποβολών ανά πρόβλημα"
 
-#: static/dist/js/performance-content-main.js
-#: static/dist/js/performance-learning-outcomes-content-main.js
-#: static/dist/js/performance-learning-outcomes-section-main.js
-#: static/dist/js/performance-problems-main.js
-#: static/js/performance-content-main.js
-#: static/js/performance-learning-outcomes-content-main.js
-#: static/js/performance-learning-outcomes-section-main.js
-#: static/js/performance-problems-main.js
+#: static/dist/js/performance-content-main.js:25613
+#: static/dist/js/performance-learning-outcomes-content-main.js:25611
+#: static/dist/js/performance-learning-outcomes-section-main.js:25626
+#: static/dist/js/performance-problems-main.js:25608
+#: static/js/performance-content-main.js:48
+#: static/js/performance-learning-outcomes-content-main.js:46
+#: static/js/performance-learning-outcomes-section-main.js:61
+#: static/js/performance-problems-main.js:43
 msgid "Percentage Correct"
 msgstr "Ποσοστό σωστών"
 
-#: static/dist/js/performance-learning-outcomes-content-main.js
-#: static/js/performance-learning-outcomes-content-main.js
+#: static/dist/js/performance-learning-outcomes-content-main.js:25603
+#: static/js/performance-learning-outcomes-content-main.js:38
 msgid "Average Submissions per Problem"
 msgstr ""
 
-#: static/dist/js/performance-learning-outcomes-section-main.js
-#: static/js/performance-learning-outcomes-section-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js:25595
+#: static/js/performance-learning-outcomes-section-main.js:30
 msgid "Difficulty"
 msgstr ""
 
-#: static/dist/js/performance-learning-outcomes-section-main.js
-#: static/dist/js/performance-problems-main.js
-#: static/js/performance-learning-outcomes-section-main.js
-#: static/js/performance-problems-main.js
+#: static/dist/js/performance-learning-outcomes-section-main.js:25618
+#: static/dist/js/performance-problems-main.js:25600
+#: static/js/performance-learning-outcomes-section-main.js:53
+#: static/js/performance-problems-main.js:35
 msgid "Total"
 msgstr "Σύνολο"
