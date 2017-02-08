@@ -8,6 +8,7 @@ define(function(require) {
         Backgrid = require('backgrid'),
         ListTableView = require('components/generic-list/list/views/table'),
 
+        CourseListBaseHeaderCell = require('course-list/list/views/base-header-cell'),
         CourseIdAndNameCell = require('course-list/list/views/course-id-and-name-cell'),
         courseListTableTemplate = require('text!course-list/list/templates/table.underscore'),
         Utils = require('utils/utils'),
@@ -28,6 +29,7 @@ define(function(require) {
         buildColumns: function() {
             return _.map(this.options.collection.sortableFields, function(val, key) {
                 var column = this.createDefaultColumn(val.displayName, key);
+                column.headerCell = CourseListBaseHeaderCell;
                 if (INTEGER_COLUMNS.indexOf(key) !== -1) {
                     column.cell = 'integer';
                     column.sortValue = key; // reset to normal sorting for integer columns
