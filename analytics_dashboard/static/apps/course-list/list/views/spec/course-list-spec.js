@@ -23,7 +23,7 @@ define(function(require) {
         getCourseListView = function(options, pageSize) {
             var collection,
                 view,
-                defaultOptions = _.defaults({}, options);
+                defaultOptions = _.defaults({}, options, {filteringEnabled: true});
             collection = defaultOptions.collection || new CourseList([
                 // default course data
                 new CourseModel({
@@ -46,7 +46,7 @@ define(function(require) {
                     start_date: '2016-11-17T050000',
                     end_date: '2016-12-01T000000'
                 })],
-                _.extend({mode: 'client'}, defaultOptions.collectionOptions)
+                defaultOptions.collectionOptions
             );
 
             if (pageSize) {
@@ -59,7 +59,8 @@ define(function(require) {
                 hasData: true,
                 trackingModel: new TrackingModel(),
                 tableName: 'Course List',
-                appClass: 'course-list'
+                appClass: 'course-list',
+                filteringEnabled: defaultOptions.filteringEnabled
             }).render();
             view.onBeforeShow();
             return view;
@@ -95,6 +96,47 @@ define(function(require) {
                     Utils.localizeNumber(course.get('count_change_7_days')));
                 expect($(tr).find('td.verified_enrollment')).toContainText(
                     Utils.localizeNumber(course.get('verified_enrollment')));
+            });
+        });
+
+        describe('filteringEnabled', function() {
+            var filterSelectors = ['.course-list-availability-filter-container',
+                '.course-list-pacing-type-filter-container'];
+
+            it('shows filters', function() {
+                var view = getCourseListView({collectionOptions: {
+                    filterNameToDisplay: {
+                        pacing_type: {
+                            instructor_paced: 'Instructor-Paced',
+                            self_paced: 'Self-Paced'
+                        },
+                        availability: {
+                            Upcoming: 'Upcoming',
+                            Current: 'Current',
+                            Archived: 'Archived',
+                            unknown: 'Unknown'
+                        }
+                    }
+                }});
+
+                _(filterSelectors).each(function(selector) {
+                    expect(view.$el.find(selector).children().length).not.toBe(0);
+                });
+
+                _(['Archived', 'Current', 'Upcoming', 'Unknown']).each(function(expectedText) {
+                    expect(view.$el.find('#filter-availability')).toContainText(expectedText);
+                });
+
+                _(['Instructor-Paced', 'Self-Paced']).each(function(expectedText) {
+                    expect(view.$el.find('#filter-pacing_type')).toContainText(expectedText);
+                });
+            });
+
+            it('hides filters', function() {
+                var view = getCourseListView({filteringEnabled: false});
+                _(filterSelectors).each(function(selector) {
+                    expect(view.$el.find(selector).children().length).toBe(0);
+                });
             });
         });
 
@@ -290,6 +332,13 @@ define(function(require) {
                 // clicking it, we should set focus to the top of the
                 // table.
                 expect($('#course-list-focusable').focus).toHaveBeenCalled();
+            });
+
+            it('sets focus to result after skip link is clicked', function() {
+                var view = getCourseListView({}, 1);
+                spyOn($.fn, 'focus');
+                $('.skip-link').click();
+                expect(view.ui.skipTarget.focus).toHaveBeenCalled();
             });
 
             it('does not violate the axe-core ruleset', function(done) {

@@ -2,7 +2,10 @@ from bok_choy.promise import EmptyPromise
 from bok_choy.web_app_test import WebAppTest
 from selenium.webdriver.common.keys import Keys
 
-from acceptance_tests import TEST_COURSE_ID
+from acceptance_tests import (
+    ENABLE_COURSE_LIST_FILTERS,
+    TEST_COURSE_ID,
+)
 from acceptance_tests.mixins import AnalyticsDashboardWebAppTestMixin
 from acceptance_tests.pages import CourseIndexPage
 
@@ -25,6 +28,8 @@ class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
         self._test_clear_input()
         self._test_clear_active_filter()
         self._test_clear_all_filters()
+        if ENABLE_COURSE_LIST_FILTERS:
+            self._test_filters()
 
     def _test_course_list(self):
         """
@@ -161,3 +166,57 @@ class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
         clear_all_filters.first.click()
 
         self.check_cleared()
+
+    def _test_individual_filters(self):
+        """
+        Tests checking each option under each filter set.
+
+        The test course will only be displayed under "Upcoming" or "self_paced" filters.
+        """
+        # maps id of filter in DOM to display name shown in active filters
+        filters = {
+            "Archived": "Archived",
+            "Current": "Current",
+            "Upcoming": "Upcoming",
+            "unknown": "Unknown",
+            "instructor_paced": "Instructor-Paced",
+            "self_paced": "Self-Paced",
+        }
+        course_in_filters = ['Upcoming', 'self_paced']
+        for filter_id, display_name in filters.items():
+            self._test_filter(filter_id, display_name,
+                              course_in_filter=(True if filter_id in course_in_filters else False))
+
+    def _test_multiple_filters(self, filter_sequence):
+        """
+        Tests checking multiple filter options together and whether the course is shown after each filter application.
+
+        filter_sequence should be a list of tuples where each element, by index, is:
+            0. the filter id to apply
+            1. the filter display name
+            2. boolean for whether the test course is shown in the list after the filter is applied.
+        """
+        for index, filter in enumerate(filter_sequence):
+            id = filter[0]
+            name = filter[1]
+            course_shown = filter[2]
+            first_filter = index == 0
+            self._test_filter(id, name, course_in_filter=course_shown, clear_existing_filters=first_filter)
+
+    def _test_filters(self):
+        self._test_individual_filters()
+
+        # Filters ORed within a set
+        self._test_multiple_filters([
+            ('Archived', 'Archived', False),
+            ('Upcoming', 'Upcoming', True),
+            ('Current', 'Current', True),
+            ('unknown', 'Unknown', True),
+        ])
+
+        # Filters ANDed between sets
+        self._test_multiple_filters([
+            ('Upcoming', 'Upcoming', True),
+            ('self_paced', 'Self-Paced', False),
+            ('instructor_paced', 'Instructor-Paced', False),
+        ])

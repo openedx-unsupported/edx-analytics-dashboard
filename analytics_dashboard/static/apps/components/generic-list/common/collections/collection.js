@@ -15,6 +15,9 @@ define(function(require) {
 
             this.url = options.url;
             this.downloadUrl = options.downloadUrl;
+
+            // a map of the filterKey to filterValue to display name
+            this.filterNameToDisplay = options.filterNameToDisplay;
         },
 
         fetch: function(options) {
@@ -111,17 +114,41 @@ define(function(require) {
             }
         },
 
-        clearFilter: function(filterKey) {
-            this.unsetFilterField(filterKey);
-            if (this.mode === 'server') {
-                this.refresh();
+        clearFilter: function(filterKey, filterValue) {
+            var removedFilter = {},
+                currentValues = this.getFilterFieldValue(filterKey);
+
+            if (filterKey === PagingCollection.DefaultSearchKey || currentValues.split(',').length === 1) {
+                this.unsetFilterField(filterKey);
+            } else {
+                // there are multiple values associated with this key, so just remove the one
+                this.setFilterField(filterKey,
+                    _(currentValues.split(',')).without(filterValue).join(','));
             }
+
+            this.refresh();
+            removedFilter[filterKey] = filterValue;
+            this.trigger('backgrid:filtersCleared', removedFilter);
         },
 
         clearAllFilters: function() {
+            var originalFilters = this.getActiveFilterFields(true);
             this.unsetAllFilterFields();
-            if (this.mode === 'server') {
-                this.refresh();
+            this.refresh();
+            this.trigger('backgrid:filtersCleared', originalFilters);
+        },
+
+        /**
+         * Returns the display named used for the filter values.  Default is to return
+         * the filterValue.  Provide filterNameToDisplay as an option to enable this.
+         */
+        getFilterValueDisplayName: function(filterKey, filterValue) {
+            var filterNameToDisplay = this.filterNameToDisplay;
+            if (filterNameToDisplay && _(filterNameToDisplay).has(filterKey) &&
+                _(filterNameToDisplay[filterKey]).has(filterValue)) {
+                return filterNameToDisplay[filterKey][filterValue];
+            } else {
+                return filterValue.charAt(0).toUpperCase() + filterValue.slice(1);
             }
         }
     });

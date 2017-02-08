@@ -34,6 +34,8 @@ define(function(require) {
                     filterDisplayName = filterDisplayNames[filterKey];
                 }
                 return {
+                    name: filterVal,
+                    filterKey: filterKey,
                     displayName: filterDisplayName.charAt(0).toUpperCase() + filterDisplayName.slice(1)
                 };
             });

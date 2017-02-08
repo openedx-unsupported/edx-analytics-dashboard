@@ -63,6 +63,7 @@ The following switches are available:
 | enable_performance_learning_outcome  | Enable performance section with learning outcome breakdown (functionality based on tagging questions in Studio) | 
 | enable_learner_download              | Display Download CSV button on Learner List page.     |
 | enable_problem_response_download     | Enable downloadable CSV of problem responses          |
+| enable_course_filters                | Enable filters (e.g. pacing type) on courses page.    |
 
 [Waffle](http://waffle.readthedocs.org/en/latest/) flags are used to disable/enable
 functionality on request (e.g. turning on beta functionality for superusers). Create a

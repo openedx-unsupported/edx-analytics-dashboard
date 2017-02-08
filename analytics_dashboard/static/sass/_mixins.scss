@@ -90,6 +90,23 @@
       .search {
         margin-left: 5px;
       }
+
+    }
+
+    .#{$app-name}-filter {
+
+      padding-top: $padding-large-vertical * 2;
+
+      // bootstrap defaults are to bold the labels
+      label {
+        font-weight: normal;
+      }
+
+      // for the set of filters (e.g. label for the collection of checkboxes)
+      .filters-label {
+        font-weight: bold;
+      }
+
     }
   }
 

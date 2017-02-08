@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="col col-12 sm-col-12 md-col-8 md-pre-2">
-    <div class="course-list-active-filters"></div>
+  <div class="col col-12 sm-col-12 md-col-10 md-pre-2">
+    <div class="course-list-active-filters" aria-live="polite"></div>
   </div>
 </div>
 <div class="row">
@@ -9,6 +9,7 @@
   </div>
   <div class="col col-12 sm-col-12 md-col-10 course-list-results-col">
     <div class="course-list-download-data"></div>
-    <div class="course-list-results"></div>
+    <h5 class="sr-only"><%- resultsText %></h5>
+    <div id="resultsTarget" class="course-list-results" tabIndex="-1"></div>
   </div>
 </div>

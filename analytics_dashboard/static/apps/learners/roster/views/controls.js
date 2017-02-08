@@ -14,19 +14,36 @@ define(function(require) {
 
         RosterControlsView;
 
+    require('components/skip-link/behaviours/skip-link-behaviour');
+
     RosterControlsView = ParentView.extend({
         template: _.template(rosterControlsTemplate),
 
         regions: {
             search: '.learners-search-container',
+            skipLink: '.skip-link',
             cohortFilter: '.learners-cohort-filter-container',
             enrollmentTrackFilter: '.learners-enrollment-track-filter-container',
             activeFilter: '.learners-active-filter-container'
         },
 
+        ui: {
+            skipLink: '.skip-link'
+        },
+
+        behaviors: {
+            SkipLinkBehaviour: {}
+        },
+
+        templateHelpers: {
+            skipToResults: gettext('Skip to results')
+        },
+
         initialize: function(options) {
-            var defaultFilterOptions;
+            var defaultFilterOptions,
+                courseMetadata;
             this.options = options || {};
+            courseMetadata = this.options.courseMetadata;
 
             defaultFilterOptions = {
                 collection: this.options.collection,
@@ -45,38 +62,49 @@ define(function(require) {
                         placeholder: gettext('Find a learner'),
                         trackingModel: this.options.trackingModel
                     }
-                },
-                {
+                }
+            ];
+
+            if (!_(courseMetadata.get('cohorts')).isEmpty()) {
+                this.childViews = this.childViews.concat({
                     region: 'cohortFilter',
                     class: DropDownFilter,
                     options: _({
                         filterKey: 'cohort',
-                        filterValues: this.options.courseMetadata.get('cohorts'),
-                        selectDisplayName: gettext('Cohort Groups')
+                        filterValues: courseMetadata.getFilterOptions('cohorts'),
+                        sectionDisplayName: gettext('Cohort Groups')
                     }).defaults(defaultFilterOptions)
-                },
-                {
+                });
+            }
+
+            if (!_(courseMetadata.get('enrollment_modes')).isEmpty()) {
+                this.childViews = this.childViews.concat({
                     region: 'enrollmentTrackFilter',
                     class: DropDownFilter,
                     options: _({
                         filterKey: 'enrollment_mode',
-                        filterValues: this.options.courseMetadata.get('enrollment_modes'),
-                        selectDisplayName: gettext('Enrollment Tracks')
+                        filterValues: courseMetadata.getFilterOptions('enrollment_modes'),
+                        sectionDisplayName: gettext('Enrollment Tracks')
                     }).defaults(defaultFilterOptions)
-                },
-                {
+                });
+            }
+
+            if (!_(courseMetadata.get('segments')).isEmpty()) {
+                this.childViews = this.childViews.concat({
                     region: 'activeFilter',
                     class: CheckboxFilter,
                     options: _({
                         filterKey: 'ignore_segments',
                         // inactive is the only segment filter on the learner roster page
-                        filterValues: _(this.options.courseMetadata.get('segments')).pick('inactive'),
-                        // Translators: inactive meaning that these learners have not interacted with the course
-                        // recently.
-                        selectDisplayName: gettext('Hide Inactive Learners')
+                        filterValues: [{
+                            name: 'inactive',
+                            // Translators: inactive meaning that these learners have not interacted with the
+                            // course recently.
+                            displayName: gettext('Hide Inactive Learners')
+                        }]
                     }).defaults(defaultFilterOptions)
-                }
-            ];
+                });
+            }
         }
     });
 

@@ -58,6 +58,9 @@ define(function(require) {
          */
         initialize: function() {
             this.set({verified_enrollment: this.get('enrollment_modes').verified.count});
+            if (this.get('availability').length === 0) {
+                this.set('availability', 'unknown');
+            }
         },
 
         idAttribute: 'course_id',

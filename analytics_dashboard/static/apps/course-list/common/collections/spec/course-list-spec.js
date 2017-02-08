@@ -18,7 +18,8 @@ define(function(require) {
                     count: 10,
                     cumulative_count: 20,
                     count_change_7_days: 30,
-                    verified_enrollment: 40
+                    verified_enrollment: 40,
+                    availability: 'Current'
                 }),
                 new CourseModel({
                     catalog_course_title: 'zebra',
@@ -26,10 +27,27 @@ define(function(require) {
                     count: 0,
                     cumulative_count: 1000,
                     count_change_7_days: -10,
-                    verified_enrollment: 1000
+                    verified_enrollment: 1000,
+                    availability: 'Upcoming'
                 })
             ];
-            courseList = new CourseList(courses, {mode: 'client'});
+            courseList = new CourseList(courses);
+        });
+
+        describe('filtering', function() {
+            it('by availability', function() {
+                expect(courseList.models.length).toBe(2);
+
+                // filter results
+                courseList.setFilterField('availability', 'Current');
+                courseList.refresh();
+                expect(courseList.models.length).toBe(1);
+                expect(courseList.at(0).get('course_id')).toBe('Alpaca');
+
+                // unfiltered
+                courseList.clearAllFilters();
+                expect(courseList.models.length).toBe(2);
+            });
         });
 
         describe('registered sort field', function() {

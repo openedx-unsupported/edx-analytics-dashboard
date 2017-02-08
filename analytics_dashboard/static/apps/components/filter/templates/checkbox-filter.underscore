@@ -1,10 +1,12 @@
 <% if (!_.isEmpty(filterValues)) { %>
     <% var filterId = 'filter-' + filterKey; %>
-    <hr>
+    <% if (!_.isEmpty(sectionDisplayName)) { %>
+        <div class="filters-label"><%- sectionDisplayName %></div>
+    <% } %>
     <div id="<%- filterId %>">
         <% _.each(filterValues, function (filterValue) { %>
-            <input id="<%- filterValue.name %>" type="checkbox" value="<%- filterValue.name %>" <% if (isChecked) { %> checked <% } %>>
-            <label for="<%- filterValue.name %>"> <%- selectDisplayName %> </label><br>
+            <input id="<%- filterValue.name %>" type="checkbox" value="<%- filterValue.name %>" <% if (filterValue.isChecked) { %> checked <% } %>>
+            <label for="<%- filterValue.name %>"> <%- filterValue.displayName %> </label><br>
         <% }); %>
     </div>
 <% } %>

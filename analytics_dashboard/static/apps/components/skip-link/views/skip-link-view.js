@@ -12,28 +12,26 @@ define(function(require) {
 
     var Marionette = require('marionette');
 
+    require('components/skip-link/behaviours/skip-link-behaviour');
+    require('components/skip-link/behaviours/skip-target-behaviour');
+
     return Marionette.ItemView.extend({
 
         template: false,
 
         ui: {
-            skipLink: '.skip-link',
-            content: '#content'
+            skipLink: '#skip.skip-link',
+            skipTarget: '#content'
         },
 
-        events: {
-            'click @ui.skipLink': 'clicked'
+        behaviors: {
+            SkipTargetBehaviour: {},
+            SkipLinkBehaviour: {}
         },
 
         onRender: function() {
             // enables content to be focusable
-            this.ui.content.attr('tabindex', -1);
-        },
-
-        clicked: function(e) {
-            this.ui.content.focus();
-            this.ui.content[0].scrollIntoView();
-            e.preventDefault();
+            this.ui.skipTarget.attr('tabindex', -1);
         }
 
     });

@@ -1,6 +1,9 @@
 /**
  * Renders a sortable, filterable, and searchable paginated table of
  * learners for the Learner Analytics app.
+ *
+ * Add a DOM element with id=resultsTarget that the controls can set focus to for
+ * keyboard users.
  */
 define(function(require) {
     'use strict';
@@ -14,6 +17,7 @@ define(function(require) {
     require('backgrid-filter');
     require('bootstrap');
     require('bootstrap_accessibility');  // adds the aria-describedby to tooltips
+    require('components/skip-link/behaviours/skip-target-behaviour');
 
     /**
      * Wraps up the search view, table view, and pagination footer
@@ -21,6 +25,14 @@ define(function(require) {
      */
     ListView = ParentView.extend({
         className: 'generic-list',
+
+        ui: {
+            skipTarget: '#resultsTarget'
+        },
+
+        behaviors: {
+            SkipTargetBehaviour: {}
+        },
 
         initialize: function(options) {
             var eventTransformers;
@@ -38,7 +50,8 @@ define(function(require) {
 
         templateHelpers: function() {
             return {
-                controlsLabel: this.controlsLabel
+                controlsLabel: this.controlsLabel,
+                resultsText: gettext('Results')
             };
         }
     });

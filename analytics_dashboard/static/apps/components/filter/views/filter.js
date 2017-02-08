@@ -64,6 +64,7 @@ define(function(require) {
                 trackFilterEventName: ['edx', 'bi', this.options.trackSubject, 'filtered'].join('.')
             });
             this.listenTo(this.options.collection, 'sync', this.render);
+            this.listenTo(this.options.collection, 'backgrid:filtersCleared', this.render);
         },
 
         templateHelpers: function() {
@@ -76,21 +77,27 @@ define(function(require) {
             var filterValues;
 
             filterValues = _.chain(this.options.filterValues)
-                .pairs()
-                .map(function(filterPair) {
-                    var name = filterPair[0],
-                        count = filterPair[1];
-                    return {
-                        name: name,
-                        displayName: _.template(
-                            // eslint-disable-next-line max-len
-                            // Translators: 'name' here refers to the name of the filter, while 'count' refers to the number of items belonging to that filter.
-                            gettext('<%= name %> (<%= count %>)')
-                        )({
-                            name: name,
-                            count: Utils.localizeNumber(count, 0)
-                        })
+                .map(function(options) {
+                    var templateOptions = {
+                        name: options.name
                     };
+
+                    if (_(options).has('count')) {
+                        _(templateOptions).extend({
+                            displayName: _.template(
+                                // eslint-disable-next-line max-len
+                                // Translators: 'name' here refers to the name of the filter, while 'count' refers to the number of items belonging to that filter.
+                                gettext('<%= name %> (<%= count %>)')
+                            )({
+                                name: options.displayName,
+                                count: Utils.localizeNumber(options.count, 0)
+                            })
+                        });
+                    } else {
+                        templateOptions.displayName = options.displayName;
+                    }
+
+                    return templateOptions;
                 })
                 .sortBy('name')
                 .value();
@@ -98,7 +105,7 @@ define(function(require) {
             return {
                 filterKey: this.options.filterKey,
                 filterValues: filterValues,
-                selectDisplayName: this.options.selectDisplayName
+                sectionDisplayName: this.options.sectionDisplayName
             };
         },
 

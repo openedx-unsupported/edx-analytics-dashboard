@@ -43,7 +43,19 @@ define(function(require) {
         initialize: function(options) {
             this.options = options || {};
             this.listenTo(options.collection, 'backgrid:refresh', this.render);
-            Backgrid.Extension.ClientSideFilter.prototype.initialize.call(this, options);
+            this.listenTo(options.collection, 'backgrid:searchChanged', this.searchChanged);
+            this.listenTo(options.collection, 'backgrid:filtersCleared', this.filtersCleared);
+
+            // these lines are taken from backgrid-filter because we don't call
+            // ClientSideFilter's initialize()
+            this.fields = options.fields || this.fields;
+            this.wait = options.wait || this.wait;
+            this._debounceMethods(['search', 'clear']);  // eslint-disable-line no-underscore-dangle
+
+            // the ClientSideFilter creates a copy of the collection for storing and restoring
+            // the results and we want to manage the "shadowCollection" within the course-list
+            // collection.  Calling the parent (ServerSideFilter) of ClientSideFiter ensures this.
+            Backgrid.Extension.ServerSideFilter.prototype.initialize.call(this, options);
         },
 
         clearButton: function() {
@@ -67,36 +79,45 @@ define(function(require) {
         },
 
         search: function(event) {
-            var searchString = this.searchBox().val().trim();
-            if (event) event.preventDefault();
+            var searchString = this.searchBox().val().trim(),
+                matcher = _.bind(this.makeMatcher(this.query()), this);
+
+            if (event) {
+                event.preventDefault();
+            }
+
             if (searchString === '') {
-                this.options.collection.unsetSearchString();
+                this.clear(event);
             } else {
-                this.options.collection.setSearchString(searchString);
+                this.options.collection.setSearchString(searchString, matcher);
+            }
+        },
+
+        clear: function(event) {
+            if (event) {
+                event.preventDefault();
+            }
+            this.options.collection.unsetSearchString();
+            this.clearSearchBox();
+        },
+
+        /**
+         * Called when the search changes and triggers a tracking event if something is
+         * searched for.
+         */
+        searchChanged: function(options) {
+            if (options.searchTerm) {
                 this.options.trackingModel.trigger('segment:track', 'edx.bi.course_list.searched', {
                     category: 'search'
                 });
             }
-            Backgrid.Extension.ClientSideFilter.prototype.search.call(this, event);
-            this.execute();
-        },
-
-        clear: function(event) {
-            event.preventDefault();
-            this.options.collection.unsetSearchString();
-            Backgrid.Extension.ClientSideFilter.prototype.clear.call(this, event);
-            this.execute();
-        },
-
-        execute: function() {
-            this.options.collection.refresh();
-            // Surprisingly calling refresh() does not emit a backgrid:refresh event. So do that here:
-            this.options.collection.trigger('backgrid:refresh', {collection: this.options.collection});
-            this.resetFocus();
-        },
-
-        resetFocus: function() {
             $('#course-list-focusable').focus();
+        },
+
+        filtersCleared: function(filters) {
+            if (_(filters).has('text_search')) {
+                this.clear();
+            }
         }
     });
 
