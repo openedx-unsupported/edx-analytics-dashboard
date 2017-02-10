@@ -13,7 +13,7 @@ define(function(require) {
 
         CourseListControlsView;
 
-    require('components/skip-link/behaviours/skip-link-behaviour');
+    require('components/skip-link/behaviors/skip-link-behavior');
 
     CourseListControlsView = ParentView.extend({
         template: _.template(courseListControlsTemplate),
@@ -30,7 +30,7 @@ define(function(require) {
         },
 
         behaviors: {
-            SkipLinkBehaviour: {}
+            SkipLinkBehavior: {}
         },
 
         templateHelpers: {

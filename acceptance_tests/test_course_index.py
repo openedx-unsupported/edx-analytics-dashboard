@@ -69,7 +69,7 @@ class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
         self.assertTrue(search_bar.present)
 
         # Clear any existing search first
-        self.clear_search()
+        self.clear_all_filters()
         # Make sure all courses show before performing a search
         self.check_cleared()
 
@@ -83,7 +83,8 @@ class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
         search_input.send_keys(Keys.ENTER)
 
         # Search bar contains query
-        self.assertEqual(search_input.get_attribute('value'), 'search')
+        search_input = self.page.q(css='#search-course-list')
+        self.assertEqual(search_input.attrs('value'), ['search'])
 
         # Check that active filters show search value
         EmptyPromise(
@@ -101,11 +102,52 @@ class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
 
         alert = self.page.q(css='.list-main .alert-information')
         self.assertTrue(alert.present)
-        print alert.text[0]
         self.assertTrue('No courses matched your criteria' in alert.text[0])
 
-    def clear_search(self):
-        # Check that the clear button is present. AKA a search has been made.
+    def _test_filter(self, filter_id, display_name, course_in_filter=False, clear_existing_filters=True):
+        """
+        Tests that a user can check a filter option to filter the course list.
+        """
+        # Filter is present
+        filter_box = self.page.q(css='#' + filter_id)
+        self.assertTrue(filter_box.present)
+
+        if clear_existing_filters:
+            # Clear any existing filter first
+            self.clear_all_filters()
+            # Make sure all courses show before performing a filter
+            self.check_cleared()
+
+        # Perform filter
+        filter_box.click()
+
+        # Check that active filters show search value
+        EmptyPromise(
+            lambda: self.page.q(css='ul.active-filters').present,
+            "Search performed"
+        ).fulfill()
+        active_filters = self.page.q(css='ul.active-filters')
+        self.assertTrue(active_filters.present)
+        self.assertTrue(display_name in active_filters.text[0])
+
+        course_ids = self.page.q(css='.course-list .course-id')
+        num_results = self.page.q(css='.course-list .course-list-num-results .num-results')
+        num_results_sr = self.page.q(css='.course-list .num-results-sr')
+        if course_in_filter:
+            self.assertTrue(course_ids.present)
+            self.assertTrue('1' in num_results.text[0])
+            self.assertTrue('1' in num_results_sr.text[0])
+        else:
+            # No courses match filter, so alert should show
+            self.assertFalse(course_ids.present)
+            alert = self.page.q(css='.list-main .alert-information')
+            self.assertTrue(alert.present)
+            self.assertTrue('No courses matched your criteria' in alert.text[0])
+            self.assertTrue('0' in num_results.text[0])
+            self.assertTrue('0' in num_results_sr.text[0])
+
+    def clear_all_filters(self):
+        # Check that the clear button is present. AKA a search/filter has been made.
         clear_all_filters = self.page.q(css='ul.active-filters button.action-clear-all-filters')
         if clear_all_filters.present:
             # Press clear search input
@@ -121,7 +163,19 @@ class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
         search_input = self.driver.find_element_by_id('search-course-list')
         self.assertNotEqual(search_input.get_attribute('value'), 'search')
 
+        # Check that active filters are hidden
+        EmptyPromise(
+            lambda: not self.page.q(css='ul.active-filters').present,
+            "Active filters hidden"
+        ).fulfill()
+        active_filters = self.page.q(css='ul.active-filters')
+        self.assertFalse(active_filters.present)
+
         # Now that search is gone, the list should show with the test course
+        EmptyPromise(
+            lambda: (self.page.q(css='.course-list .course-id').present),
+            "Table unfiltered"
+        ).fulfill()
         course_ids = self.page.q(css='.course-list .course-id')
         self.assertTrue(course_ids.present)
         self.assertIn(TEST_COURSE_ID, course_ids.text)
@@ -196,12 +250,12 @@ class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
             1. the filter display name
             2. boolean for whether the test course is shown in the list after the filter is applied.
         """
-        for index, filter in enumerate(filter_sequence):
-            id = filter[0]
-            name = filter[1]
-            course_shown = filter[2]
+        for index, filter_data in enumerate(filter_sequence):
+            filter_id = filter_data[0]
+            name = filter_data[1]
+            course_shown = filter_data[2]
             first_filter = index == 0
-            self._test_filter(id, name, course_in_filter=course_shown, clear_existing_filters=first_filter)
+            self._test_filter(filter_id, name, course_in_filter=course_shown, clear_existing_filters=first_filter)
 
     def _test_filters(self):
         self._test_individual_filters()
@@ -217,6 +271,6 @@ class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
         # Filters ANDed between sets
         self._test_multiple_filters([
             ('Upcoming', 'Upcoming', True),
-            ('self_paced', 'Self-Paced', False),
             ('instructor_paced', 'Instructor-Paced', False),
+            ('self_paced', 'Self-Paced', True),
         ])

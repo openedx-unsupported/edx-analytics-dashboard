@@ -7,11 +7,11 @@ define(function(require) {
 
     var $ = require('jquery'),
         Marionette = require('marionette'),
-        registerBehaviour = require('components/utils/register-behaviour'),
+        registerBehavior = require('components/utils/register-behavior'),
 
-        SkipTargetBehaviour;
+        SkipTargetBehavior;
 
-    SkipTargetBehaviour = Marionette.Behavior.extend({
+    SkipTargetBehavior = Marionette.Behavior.extend({
 
         events: {
             skipLinkClicked: 'skipLinkClicked'
@@ -29,7 +29,7 @@ define(function(require) {
 
     });
 
-    registerBehaviour(SkipTargetBehaviour, 'SkipTargetBehaviour');
+    registerBehavior(SkipTargetBehavior, 'SkipTargetBehavior');
 
-    return SkipTargetBehaviour;
+    return SkipTargetBehavior;
 });

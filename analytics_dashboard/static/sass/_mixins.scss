@@ -48,7 +48,19 @@
   .#{$app-name}-active-filters {
     .active-filters {
       display: inline-block;
+      margin-bottom: 0px;
+
+      li {
+        padding-bottom: $padding-large-vertical;
+      }
     }
+  }
+
+  .#{$app-name}-num-results {
+    text-align: right;
+    margin-bottom: $padding-small-vertical;
+    margin-right: $padding-xs-horizontal;
+    font-size: $font-size-small;
   }
 
   .section-action {

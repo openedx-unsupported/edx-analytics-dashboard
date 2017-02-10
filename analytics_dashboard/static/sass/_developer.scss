@@ -798,6 +798,21 @@ body.view-dashboard {
 
   }
 
+  .learners-results-col {
+    @media (min-width: $bp-screen-md) {
+      .row .col:first-child {
+        margin-top: $padding-large-vertical * 1.6;
+      }
+    }
+
+    .learners-num-results {
+      text-align: left;
+      margin-bottom: 0px;
+      margin-left: $padding-xs-horizontal;
+      margin-right: 0px;
+    }
+  }
+
 }
 
 // styles for the learner details summary
@@ -838,7 +853,10 @@ body.view-dashboard {
 
   .course-list-active-filters {
     min-height: 43px;
-    padding-bottom: 10px;
+  }
+
+  .course-list-table-controls-col {
+    margin-top: $padding-large-vertical * 2.1;
   }
 
   .course-id {

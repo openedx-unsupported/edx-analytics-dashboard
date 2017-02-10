@@ -146,7 +146,6 @@ define(function(require) {
         refresh: function() {
             var filter = this.constructFilter();
             ListCollection.prototype.refresh.call(this);
-            // Surprisingly calling refresh() does not emit a backgrid:refresh event. So do that here:
             this.fullCollection.reset(filter.filter(this.shadowCollection), {reindex: false});
             this.trigger('backgrid:refresh', {collection: this});
         },

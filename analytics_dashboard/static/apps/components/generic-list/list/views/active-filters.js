@@ -3,16 +3,21 @@ define(function(require) {
 
     var $ = require('jquery'),
         _ = require('underscore'),
-        Marionette = require('marionette'),
+        ParentView = require('components/generic-list/common/views/parent-view'),
+        NumResultsView = require('components/generic-list/list/views/num-results'),
 
         ActiveFiltersView,
 
         activeFiltersTemplate = require('text!components/generic-list/list/templates/active-filters.underscore');
 
-    ActiveFiltersView = Marionette.ItemView.extend({
+    ActiveFiltersView = ParentView.extend({
         events: {
             'click .action-clear-filter': 'clearOneFilter',
             'click .action-clear-all-filters': 'clearAllFilters'
+        },
+
+        regions: {
+            numResultsSR: '.num-results-sr'
         },
 
         template: _.template(activeFiltersTemplate),
@@ -24,6 +29,20 @@ define(function(require) {
             } else {
                 this.listenTo(this.options.collection, 'sync', this.render);
             }
+
+            // We need a second NumResultsView underneath active filters because both the number of results text and
+            // the active filters need to be under the same aria-live region. This is because they are almost always
+            // changed together and screen reader behavior of two aria-live regions updating at the same time is not
+            // well-defined. This NumResultsView is placed within a hidden div so it is only read to screen readers.
+            this.childViews = [
+                {
+                    region: 'numResultsSR',
+                    class: NumResultsView,
+                    options: {
+                        collection: this.options.collection
+                    }
+                }
+            ];
         },
 
         getFormattedActiveFilters: function(activeFilters) {
@@ -84,6 +103,13 @@ define(function(require) {
         clearAllFilters: function(event) {
             event.preventDefault();
             this.options.collection.clearAllFilters();
+        },
+
+        render: function() {
+            ParentView.prototype.render.call(this);
+            if (this.options.showChildrenOnRender) {
+                this.showChildren();
+            }
         }
     });
 

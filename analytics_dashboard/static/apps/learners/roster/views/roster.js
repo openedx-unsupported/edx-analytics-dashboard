@@ -16,6 +16,7 @@ define(function(require) {
         DownloadDataView = require('components/download/views/download-data'),
         LearnerResultsView = require('learners/roster/views/results'),
         RosterControlsView = require('learners/roster/views/controls'),
+        NumResultsView = require('components/generic-list/list/views/num-results'),
         rosterTemplate = require('text!learners/roster/templates/roster.underscore'),
 
         LearnerRosterView;
@@ -30,7 +31,8 @@ define(function(require) {
             activityDateRange: '.activity-date-range',
             downloadData: '.learners-download-data',
             controls: '.learners-table-controls',
-            results: '.learners-results'
+            results: '.learners-results',
+            numResults: '.learners-num-results'
         },
 
         initialize: function(options) {
@@ -41,7 +43,8 @@ define(function(require) {
                     region: 'activeFilters',
                     class: ActiveFiltersView,
                     options: {
-                        collection: this.options.collection
+                        collection: this.options.collection,
+                        showChildrenOnRender: true
                     }
                 },
                 {
@@ -81,6 +84,14 @@ define(function(require) {
                         trackingModel: this.options.trackingModel,
                         tableName: this.options.tableName,
                         trackSubject: this.options.trackSubject,
+                        appClass: this.options.appClass
+                    }
+                },
+                {
+                    region: 'numResults',
+                    class: NumResultsView,
+                    options: {
+                        collection: this.options.collection,
                         appClass: this.options.appClass
                     }
                 }

@@ -1,12 +1,12 @@
 /**
- * Registered the Marionette behaviour so that the views can access them.
+ * Registered the Marionette behavior so that the views can access them.
  */
 define(function(require) {
     'use strict';
 
     var Marionette = require('marionette');
 
-    return function(behaviour, behaviourName) {
+    return function(behavior, behaviorName) {
         Marionette.Behaviors.behaviorsLookup = function() {
             return window.Behaviors;
         };
@@ -14,6 +14,6 @@ define(function(require) {
         if (!window.Behaviors) {
             window.Behaviors = {};
         }
-        window.Behaviors[behaviourName] = behaviour;
+        window.Behaviors[behaviorName] = behavior;
     };
 });

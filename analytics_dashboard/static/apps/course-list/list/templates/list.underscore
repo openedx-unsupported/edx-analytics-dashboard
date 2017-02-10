@@ -1,15 +1,18 @@
-<div class="row">
-  <div class="col col-12 sm-col-12 md-col-10 md-pre-2">
-    <div class="course-list-active-filters" aria-live="polite"></div>
-  </div>
-</div>
+<div class="course-list-active-filters" aria-live="polite"></div>
 <div class="row">
   <div class="col col-12 sm-col-12 md-col-2 course-list-table-controls-col">
     <section class="course-list-table-controls" aria-label="<%- controlsLabel %>"></section>
   </div>
   <div class="col col-12 sm-col-12 md-col-10 course-list-results-col">
-    <div class="course-list-download-data"></div>
-    <h5 class="sr-only"><%- resultsText %></h5>
+    <div class="row">
+      <div class="col col-12 sm-col-12 md-col-3 md-pre-9">
+        <div class="course-list-num-results"></div>
+      </div>
+      <div class="col col-12 sm-col-12 md-col-3">
+        <div class="course-list-download-data"></div>
+      </div>
+    </div>
+    <h5 class="sr-only"><%- resultsText %>"</h5>
     <div id="resultsTarget" class="course-list-results" tabIndex="-1"></div>
   </div>
 </div>

@@ -5,9 +5,13 @@ define(function(require) {
         ActiveFiltersView = require('components/generic-list/list/views/active-filters'),
         LearnerCollection = require('learners/common/collections/learners'),
 
+        learnersActiveFiltersTemplate = require('text!learners/roster/templates/active-filters.underscore'),
+
         LearnersActiveFiltersView;
 
     LearnersActiveFiltersView = ActiveFiltersView.extend({
+        template: _.template(learnersActiveFiltersTemplate),
+
         // This function is re-implemented from ActiveFiltersView because the filter display names here are
         // significantly different from the defaults.
         getFormattedActiveFilters: function(activeFilters) {

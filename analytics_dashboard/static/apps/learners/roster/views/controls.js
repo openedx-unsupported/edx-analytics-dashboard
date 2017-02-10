@@ -14,7 +14,7 @@ define(function(require) {
 
         RosterControlsView;
 
-    require('components/skip-link/behaviours/skip-link-behaviour');
+    require('components/skip-link/behaviors/skip-link-behavior');
 
     RosterControlsView = ParentView.extend({
         template: _.template(rosterControlsTemplate),
@@ -32,7 +32,7 @@ define(function(require) {
         },
 
         behaviors: {
-            SkipLinkBehaviour: {}
+            SkipLinkBehavior: {}
         },
 
         templateHelpers: {

@@ -8,11 +8,11 @@ define(function(require) {
     'use strict';
 
     var Marionette = require('marionette'),
-        registerBehaviour = require('components/utils/register-behaviour'),
+        registerBehavior = require('components/utils/register-behavior'),
 
-        SkipLinkBehaviour;
+        SkipLinkBehavior;
 
-    SkipLinkBehaviour = Marionette.Behavior.extend({
+    SkipLinkBehavior = Marionette.Behavior.extend({
 
         events: {
             'click @ui.skipLink': 'clicked'
@@ -24,7 +24,7 @@ define(function(require) {
         }
     });
 
-    registerBehaviour(SkipLinkBehaviour, 'SkipLinkBehaviour');
+    registerBehavior(SkipLinkBehavior, 'SkipLinkBehavior');
 
-    return SkipLinkBehaviour;
+    return SkipLinkBehavior;
 });

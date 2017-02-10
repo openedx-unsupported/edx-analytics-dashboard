@@ -12,8 +12,8 @@ define(function(require) {
 
     var Marionette = require('marionette');
 
-    require('components/skip-link/behaviours/skip-link-behaviour');
-    require('components/skip-link/behaviours/skip-target-behaviour');
+    require('components/skip-link/behaviors/skip-link-behavior');
+    require('components/skip-link/behaviors/skip-target-behavior');
 
     return Marionette.ItemView.extend({
 
@@ -25,8 +25,8 @@ define(function(require) {
         },
 
         behaviors: {
-            SkipTargetBehaviour: {},
-            SkipLinkBehaviour: {}
+            SkipTargetBehavior: {},
+            SkipLinkBehavior: {}
         },
 
         onRender: function() {

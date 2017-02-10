@@ -17,7 +17,7 @@ define(function(require) {
     require('backgrid-filter');
     require('bootstrap');
     require('bootstrap_accessibility');  // adds the aria-describedby to tooltips
-    require('components/skip-link/behaviours/skip-target-behaviour');
+    require('components/skip-link/behaviors/skip-target-behavior');
 
     /**
      * Wraps up the search view, table view, and pagination footer
@@ -31,7 +31,7 @@ define(function(require) {
         },
 
         behaviors: {
-            SkipTargetBehaviour: {}
+            SkipTargetBehavior: {}
         },
 
         initialize: function(options) {

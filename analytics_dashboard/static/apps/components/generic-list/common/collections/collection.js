@@ -126,21 +126,22 @@ define(function(require) {
                     _(currentValues.split(',')).without(filterValue).join(','));
             }
 
-            this.refresh();
             removedFilter[filterKey] = filterValue;
             this.trigger('backgrid:filtersCleared', removedFilter);
+            this.refresh();
         },
 
         clearAllFilters: function() {
             var originalFilters = this.getActiveFilterFields(true);
             this.unsetAllFilterFields();
-            this.refresh();
             this.trigger('backgrid:filtersCleared', originalFilters);
+            this.refresh();
         },
 
         /**
-         * Returns the display named used for the filter values.  Default is to return
-         * the filterValue.  Provide filterNameToDisplay as an option to enable this.
+         * Returns the display name used for the filter values.  Default is to return
+         * the filterValue.  Provide filterNameToDisplay as an option to the collection
+         * to override this behavior with a custom name to display for each value.
          */
         getFilterValueDisplayName: function(filterKey, filterValue) {
             var filterNameToDisplay = this.filterNameToDisplay;
@@ -150,6 +151,20 @@ define(function(require) {
             } else {
                 return filterValue.charAt(0).toUpperCase() + filterValue.slice(1);
             }
+        },
+
+        /*
+         * Returns current number of results after filters and search applied. Works in
+         * client and server mode.
+         **/
+        getResultCount: function() {
+            var count = 0;
+            if (this.fullCollection) {
+                count = this.fullCollection.length;
+            } else if (this.state.totalRecords) {
+                count = this.state.totalRecords;
+            }
+            return count;
         }
     });
 

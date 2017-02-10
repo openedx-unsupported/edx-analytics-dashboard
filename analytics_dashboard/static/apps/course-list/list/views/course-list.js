@@ -13,6 +13,7 @@ define(function(require) {
         CourseListControlsView = require('course-list/list/views/controls'),
         CourseListResultsView = require('course-list/list/views/results'),
         ListView = require('components/generic-list/list/views/list'),
+        NumResultsView = require('components/generic-list/list/views/num-results'),
 
         listTemplate = require('text!course-list/list/templates/list.underscore'),
 
@@ -26,7 +27,8 @@ define(function(require) {
         regions: {
             activeFilters: '.course-list-active-filters',
             controls: '.course-list-table-controls',
-            results: '.course-list-results'
+            results: '.course-list-results',
+            numResults: '.course-list-num-results'
         },
 
         initialize: function(options) {
@@ -37,7 +39,8 @@ define(function(require) {
                     region: 'activeFilters',
                     class: ActiveFiltersView,
                     options: {
-                        collection: this.options.collection
+                        collection: this.options.collection,
+                        showChildrenOnRender: true
                     }
                 },
                 {
@@ -60,6 +63,14 @@ define(function(require) {
                         tableName: this.options.tableName,
                         trackingModel: this.options.trackingModel,
                         trackSubject: this.options.trackSubject,
+                        appClass: this.options.appClass
+                    }
+                },
+                {
+                    region: 'numResults',
+                    class: NumResultsView,
+                    options: {
+                        collection: this.options.collection,
                         appClass: this.options.appClass
                     }
                 }

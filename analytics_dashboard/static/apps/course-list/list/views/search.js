@@ -50,7 +50,6 @@ define(function(require) {
             // ClientSideFilter's initialize()
             this.fields = options.fields || this.fields;
             this.wait = options.wait || this.wait;
-            this._debounceMethods(['search', 'clear']);  // eslint-disable-line no-underscore-dangle
 
             // the ClientSideFilter creates a copy of the collection for storing and restoring
             // the results and we want to manage the "shadowCollection" within the course-list
