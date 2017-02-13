@@ -107,9 +107,8 @@ validate_translations: extract_translations compile_translations detect_changed_
 
 static_no_compress:
 	$(NODE_BIN)/r.js -o build.js
-	# collectstatic creates way too much output with the cldr-data directory output so silence that directory
-	echo "Running collectstatic while silencing cldr-data/main/* ..."
-	python manage.py collectstatic --noinput | sed -n '/.*bower_components\/cldr-data\/main\/.*/!p'
+	# collectstatic creates way too much output so silence it with verbosity=0
+	python manage.py collectstatic --noinput -v 0
 
 static: static_no_compress
 	python manage.py compress
