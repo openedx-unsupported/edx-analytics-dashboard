@@ -1,6 +1,7 @@
-from ddt import ddt, data
+from ddt import ddt, data, unpack
 from django.core.urlresolvers import reverse
 from django.test import TestCase
+from django.utils import timezone
 import mock
 
 from analyticsclient.exceptions import NotFoundError
@@ -14,7 +15,10 @@ from courses.tests.utils import (
     get_mock_api_enrollment_education_data,
     get_mock_api_enrollment_gender_data,
     get_mock_api_enrollment_geography_data,
+    get_mock_course_summaries,
+    get_mock_course_summaries_csv,
 )
+from courses.views.course_summaries import CourseIndexCSV
 
 
 @ddt
@@ -181,3 +185,138 @@ class PerformanceProblemResponseCSVTests(ViewTestMixin, TestCase):
         with mock.patch(self.api_method, side_effect=NotFoundError):
             response = self.client.get(self.path(course_id=self.course_id))
             self.assertEqual(response.status_code, 404)
+
+
+@ddt
+class CourseIndexCSVTests(ViewTestMixin, TestCase):
+    viewname = 'courses:index_csv'
+    base_file_name = 'course-list'
+    api_method = 'analyticsclient.course_summaries.CourseSummaries.course_summaries'
+
+    def path(self, **kwargs):
+        # This endpoint does not include the course-id, so drop it (along with any other kwargs)
+        return reverse(self.viewname)
+
+    def get_mock_data(self, course_id):
+        return get_mock_course_summaries([course_id])
+
+    def assertIsValidCSV(self, csv_data):
+        response = self.client.get(self.path())
+        now = timezone.now().replace(microsecond=0)
+
+        # Check content type
+        self.assertResponseContentType(response, 'text/csv')
+
+        # Check filename
+        csv_prefix = now.isoformat()
+        filename = '{0}--{1}.csv'.format(csv_prefix, self.base_file_name)
+        self.assertResponseFilename(response, filename)
+
+        # Check data
+        self.assertEqual(response.content, csv_data)
+
+    def assertResponseContentType(self, response, content_type):
+        self.assertEqual(response['Content-Type'], content_type)
+
+    def assertResponseFilename(self, response, filename):
+        self.assertEqual(response['Content-Disposition'], 'attachment; filename="{0}"'.format(filename))
+
+    def _test_csv(self, course_id, mocked_api_response, csv_data):
+        csv_data = csv_data.format(course_id)
+
+        with mock.patch('courses.presenters.course_summaries.CourseSummariesPresenter.get_course_summaries',
+                        return_value=(mocked_api_response, None)):
+            self.assertIsValidCSV(csv_data)
+
+    @data(CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
+    def test_response(self, course_id):
+        self._test_csv(course_id, self.get_mock_data(course_id),
+                       get_mock_course_summaries_csv([course_id]))
+
+    @data(CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
+    def test_response_no_data(self, course_id):
+        # TODO: is a blank CSV okay? Should it return a header row with no data rows instead?
+        self._test_csv(course_id, [], '')
+
+    @data(
+        [{}, [], []],
+        [{
+            'audit': {
+                'count': 5,
+                'count_change_7_days': 1,
+            },
+            'credit': {
+                'count': 10,
+            },
+        }, [], [
+            ('audit.count', 5),
+            ('audit.count_change_7_days', 1),
+            ('credit.count', 10),
+        ]],
+        [{
+            'audit': {
+                'count': 5,
+                'count_change_7_days': 1,
+            },
+            'credit': {
+                'count': 10,
+            },
+        }, [
+            'enrollment_modes'
+        ], [
+            ('enrollment_modes.audit.count', 5),
+            ('enrollment_modes.audit.count_change_7_days', 1),
+            ('enrollment_modes.credit.count', 10),
+        ]],
+        [{
+            'audit': {
+                'count': 5,
+                'count_change_7_days': 1,
+            },
+            'credit': {
+                'count': 10,
+            },
+        }, [
+            'foo', 'bar', 'enrollment_modes'
+        ], [
+            ('foo.bar.enrollment_modes.audit.count', 5),
+            ('foo.bar.enrollment_modes.audit.count_change_7_days', 1),
+            ('foo.bar.enrollment_modes.credit.count', 10),
+        ]],
+        [{
+            'audit': {
+                'foo': {
+                    'bar': {
+                        'baz': {
+                            'count': 1
+                        }
+                    }
+                }
+            }
+        }, [], [
+            ('audit.foo.bar.baz.count', 1),
+        ]],
+    )
+    @unpack
+    def test_collapse_nested_dict(self, nested_dict, dot_separated_key, expected):
+        view = CourseIndexCSV()
+        collapsed = view.collapse_nested_dict(nested_dict, dot_separated_key)
+        self.assertListEqual(collapsed, expected)
+
+    @data(
+        [[], ''],
+        [
+            get_mock_course_summaries([CourseSamples.DEMO_COURSE_ID]),
+            get_mock_course_summaries_csv([CourseSamples.DEMO_COURSE_ID]),
+        ],
+        [
+            get_mock_course_summaries([CourseSamples.DEMO_COURSE_ID,
+                                       CourseSamples.DEPRECATED_DEMO_COURSE_ID]),
+            get_mock_course_summaries_csv([CourseSamples.DEMO_COURSE_ID,
+                                           CourseSamples.DEPRECATED_DEMO_COURSE_ID]),
+        ],
+    )
+    @unpack
+    def test_convert_to_csv(self, summaries, expected_csv):
+        view = CourseIndexCSV()
+        self.assertEqual(view.convert_to_csv(summaries), expected_csv)

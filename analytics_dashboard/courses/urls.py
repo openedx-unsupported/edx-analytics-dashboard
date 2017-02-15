@@ -135,5 +135,6 @@ COURSE_URLS = [
 app_name = 'courses'
 urlpatterns = [
     url('^$', course_summaries.CourseIndex.as_view(), name='index'),
-    url(r'^{}/'.format(settings.COURSE_ID_PATTERN), include(COURSE_URLS))
+    url(r'^{}/'.format(settings.COURSE_ID_PATTERN), include(COURSE_URLS)),
+    url(r'csv/course_list/$', course_summaries.CourseIndexCSV.as_view(), name='index_csv')
 ]
