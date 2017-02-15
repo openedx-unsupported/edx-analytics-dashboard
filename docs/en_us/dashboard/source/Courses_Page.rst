@@ -34,6 +34,9 @@ Computations`.  Note that the enrollment data that the computations include is
 the same as the summary metrics presented in the :ref:`Enrollment_Activity`
 report.
 
+If you want to view a specific course or courses, enter any part of the course
+name or course ID in the **Find a Course** field and click the search icon.
+
 .. note::
  On Edge, the summary table does not include course name, start date, or end
  date. 
