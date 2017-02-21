@@ -13,6 +13,7 @@ define(function(require) {
         CourseListControlsView = require('course-list/list/views/controls'),
         CourseListResultsView = require('course-list/list/views/results'),
         ListView = require('components/generic-list/list/views/list'),
+        NumResultsView = require('components/generic-list/list/views/num-results'),
 
         listTemplate = require('text!course-list/list/templates/list.underscore'),
 
@@ -26,12 +27,8 @@ define(function(require) {
         regions: {
             activeFilters: '.course-list-active-filters',
             controls: '.course-list-table-controls',
-            results: '.course-list-results'
-        },
-
-        events: {
-            clearFilter: 'clearFilter',
-            clearAllFilters: 'clearAllFilters'
+            results: '.course-list-results',
+            numResults: '.course-list-num-results'
         },
 
         initialize: function(options) {
@@ -43,7 +40,7 @@ define(function(require) {
                     class: ActiveFiltersView,
                     options: {
                         collection: this.options.collection,
-                        mode: 'client'
+                        showChildrenOnRender: true
                     }
                 },
                 {
@@ -53,7 +50,8 @@ define(function(require) {
                         collection: this.options.collection,
                         trackingModel: this.options.trackingModel,
                         trackSubject: this.options.trackSubject,
-                        appClass: this.options.appClass
+                        appClass: this.options.appClass,
+                        filteringEnabled: this.options.filteringEnabled
                     }
                 },
                 {
@@ -67,25 +65,18 @@ define(function(require) {
                         trackSubject: this.options.trackSubject,
                         appClass: this.options.appClass
                     }
+                },
+                {
+                    region: 'numResults',
+                    class: NumResultsView,
+                    options: {
+                        collection: this.options.collection,
+                        appClass: this.options.appClass
+                    }
                 }
             ];
 
             this.controlsLabel = gettext('Course list controls');
-        },
-
-        // These two functions glue the search state stored in the search view to the activeFilters view which needs to
-        // mutate the search state in order to clear the search. This hack is what is necessary when state is stored way
-        // down at the bottom of the view hierarchy.
-        clearFilter: function(event, filter) {
-            if (filter === 'text_search') {
-                this.getRegion('controls').currentView
-                        .getRegion('search').currentView
-                        .clear(event);
-            }
-        },
-
-        clearAllFilters: function(event, filters) {
-            _.map(Object.keys(filters), _.bind(this.clearFilter, this, event));
         }
     });
 

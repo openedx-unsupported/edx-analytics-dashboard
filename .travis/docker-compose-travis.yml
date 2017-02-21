@@ -32,6 +32,7 @@ services:
       ENABLE_OAUTH_TESTS: "False"
       ENABLE_ERROR_PAGE_TESTS: "False"
       DISPLAY_LEARNER_ANALYTICS: "True"
+      ENABLE_COURSE_LIST_FILTERS: "True"
     depends_on:
       - "es"
       - "analyticsapi"

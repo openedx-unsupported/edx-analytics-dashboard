@@ -32,6 +32,10 @@ define(function(require) {
         },
 
         onBeforeShow: function() {
+            this.showChildren();
+        },
+
+        showChildren: function() {
             _.each(this.childViews, _.bind(function(child) {
                 this.showChildView(child.region, new child.class(child.options));
             }, this));

@@ -5,6 +5,8 @@ from braces.views import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
 from django.utils.translation import ugettext_lazy as _
 
+from waffle import switch_is_active
+
 from courses import permissions
 from courses.views import (
     CourseAPIMixin,
@@ -49,6 +51,7 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
 
         data = {
             'course_list_json': summaries,
+            'enable_course_filters': switch_is_active('enable_course_filters')
         }
         context['js_data']['course'] = data
         context['page_data'] = self.get_page_data(context)

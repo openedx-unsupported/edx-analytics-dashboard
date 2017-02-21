@@ -14,7 +14,7 @@ define(function(require) {
                 start_date: '',
                 end_date: '',
                 pacing_type: '',
-                availability: '',
+                availability: 'unknown',
                 count: 0,
                 cumulative_count: 0,
                 count_change_7_days: 0,

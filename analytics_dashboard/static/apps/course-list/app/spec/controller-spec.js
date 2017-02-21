@@ -57,7 +57,7 @@ define(function(require) {
                     }
                 },
                 created: '',
-                availability: '',
+                availability: 'unknown',
                 count_change_7_days: 0,
                 verified_enrollment: 0
             };
@@ -74,7 +74,7 @@ define(function(require) {
             });
             this.rootView.render();
             this.course = fakeCourse('course1', 'Course');
-            this.collection = new CourseListCollection([this.course], {mode: 'client'});
+            this.collection = new CourseListCollection([this.course]);
             this.controller = new CourseListController({
                 rootView: this.rootView,
                 courseListCollection: this.collection,

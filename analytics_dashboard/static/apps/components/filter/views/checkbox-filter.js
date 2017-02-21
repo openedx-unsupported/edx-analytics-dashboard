@@ -18,12 +18,16 @@ define(function(require) {
          * Returns the default template options along with the checkbox state.
          */
         templateHelpers: function() {
-            var templateOptions = Filter.prototype.templateHelpers.call(this);
-            if (this.options.filterKey in this.options.collection.getActiveFilterFields()) {
-                templateOptions.isChecked = true;
-            } else {
-                templateOptions.isChecked = false;
-            }
+            var collection = this.options.collection,
+                templateOptions = Filter.prototype.templateHelpers.call(this);
+
+            _(templateOptions.filterValues).each(function(templateOption) {
+                var filterValues = collection.getFilterFieldValue(this.options.filterKey);
+                _(templateOption).extend({
+                    isChecked: !_(filterValues).isNull() && filterValues.indexOf(templateOption.name) > -1
+                });
+            }, this);
+
             return templateOptions;
         },
 
