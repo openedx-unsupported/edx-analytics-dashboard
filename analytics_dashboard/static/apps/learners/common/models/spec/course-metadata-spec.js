@@ -99,6 +99,26 @@ define(function(require) {
             expect(courseMetadata.get('engagement_ranges').date_range.end).toEqual('2016-06-01');
         });
 
+        describe('getFilterOptions', function() {
+            it('returns filter options in expected format', function() {
+                var courseMetadata = new CourseMetadataModel({
+                    cohorts: {
+                        chinchillas: 9876
+                    }
+                });
+                expect(courseMetadata.getFilterOptions('cohorts')).toEqual([{
+                    name: 'chinchillas',
+                    displayName: 'chinchillas',
+                    count: 9876
+                }]);
+            });
+
+            it('returns undefined when no filter is found', function() {
+                var courseMetadata = new CourseMetadataModel();
+                expect(courseMetadata.getFilterOptions('dogs')).toBe(undefined);
+            });
+        });
+
         describe('inMetricRange', function() {
             it('returns true when value is in range', function() {
                 var courseMetadata = new CourseMetadataModel();

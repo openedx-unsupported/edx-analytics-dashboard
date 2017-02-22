@@ -44,6 +44,9 @@ accept:
 ifeq ("${DISPLAY_LEARNER_ANALYTICS}", "True")
 	./manage.py waffle_flag enable_learner_analytics on --create --everyone
 endif
+ifeq ("${ENABLE_COURSE_LIST_FILTERS}", "True")
+	./manage.py waffle_switch enable_course_filters on --create
+endif
 	nosetests -v acceptance_tests -e NUM_PROCESSES=1 --exclude-dir=acceptance_tests/course_validation
 
 # local acceptance tests are typically run with by passing in environment variables on the commandline

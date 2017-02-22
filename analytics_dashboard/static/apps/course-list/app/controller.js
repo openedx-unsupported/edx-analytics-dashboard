@@ -48,7 +48,8 @@ define(function(require) {
                     tableName: gettext('Course List'),
                     trackSubject: 'course_list',
                     appClass: 'course-list',
-                    trackingModel: this.options.trackingModel
+                    trackingModel: this.options.trackingModel,
+                    filteringEnabled: this.options.filteringEnabled
                 }),
                 collection = this.options.courseListCollection,
                 currentPage,

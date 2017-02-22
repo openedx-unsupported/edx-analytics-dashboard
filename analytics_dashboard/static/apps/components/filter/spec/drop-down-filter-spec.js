@@ -20,8 +20,12 @@ define(function(require) {
                 trackSubject: 'tracking',
                 appClass: 'app',
                 filterKey: 'flowers',
-                filterValues: {tulips: 1000},
-                selectDisplayName: 'Drop Down Title'
+                filterValues: [{
+                    name: 'tulips',
+                    displayName: 'Flower: tulips',
+                    count: 1000
+                }],
+                sectionDisplayName: 'Drop Down Title'
             });
             dropDownFilter.render();
         });
@@ -29,9 +33,10 @@ define(function(require) {
         it('renders a drop down', function() {
             var items = dropDownFilter.$el.find('option');
             expect(fixture).toContainElement('#filter-flowers');
+            expect(dropDownFilter.$el.find('label')).toContainText('Drop Down Title');
             expect(items.length).toEqual(2);
             expect(items[0]).toContainText('All');
-            expect(items[1]).toContainText('tulips (1,000)');
+            expect(items[1]).toContainText('Flower: tulips (1,000)');
         });
 
         it('updates focus', function() {

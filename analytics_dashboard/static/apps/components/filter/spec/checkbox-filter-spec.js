@@ -20,8 +20,11 @@ define(function(require) {
                 trackSubject: 'tracking-subject',
                 appClass: 'app',
                 filterKey: 'trees',
-                filterValues: {dogwood: 1000},
-                selectDisplayName: 'Dogwood is a tree'
+                filterValues: [{
+                    name: 'dogwood',
+                    displayName: 'Dogwood is a tree'
+                }],
+                sectionDisplayName: 'Checkbox of Trees'
             });
             checkboxFilter.render();
         });
@@ -30,6 +33,7 @@ define(function(require) {
             expect(fixture).toContainElement('#filter-trees');
             expect(fixture).toContainElement('input#dogwood');
             expect($('#filter-trees label')).toContainText('Dogwood is a tree');
+            expect($('.filters-label')).toContainText('Checkbox of Trees');
         });
 
         it('updates focus', function() {

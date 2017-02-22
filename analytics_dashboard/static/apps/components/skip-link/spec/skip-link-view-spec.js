@@ -11,7 +11,7 @@ define(function(require) {
                 el: 'body',
                 template: false
             });
-            setFixtures('<a href="#content" class="skip-link">Testing</a><div id="content">a div</div>');
+            setFixtures('<a id="skip" href="#content" class="skip-link">Testing</a><div id="content">a div</div>');
 
             view.render();
 

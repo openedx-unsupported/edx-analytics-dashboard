@@ -24,6 +24,23 @@ define(function(require) {
             };
         },
 
+        /**
+         * Returns the filters values and options for the filter UI.
+         */
+        getFilterOptions: function(filter) {
+            if (this.has(filter)) {
+                return _(this.get(filter)).map(function(count, key) {
+                    return {
+                        name: key,
+                        displayName: key,
+                        count: count
+                    };
+                });
+            } else {
+                return undefined;
+            }
+        },
+
         renameEngagementRanges: function(engagementRanges) {
             var rankedEngagementRanges = {},
                 metrics = ['discussion_contributions', 'problem_attempts_per_completed',

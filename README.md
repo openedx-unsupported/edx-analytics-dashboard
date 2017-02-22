@@ -63,6 +63,7 @@ The following switches are available:
 | enable_performance_learning_outcome  | Enable performance section with learning outcome breakdown (functionality based on tagging questions in Studio) | 
 | enable_learner_download              | Display Download CSV button on Learner List page.     |
 | enable_problem_response_download     | Enable downloadable CSV of problem responses          |
+| enable_course_filters                | Enable filters (e.g. pacing type) on courses page.    |
 
 [Waffle](http://waffle.readthedocs.org/en/latest/) flags are used to disable/enable
 functionality on request (e.g. turning on beta functionality for superusers). Create a
@@ -238,7 +239,10 @@ when executing either of the commands above.
 | ENABLE_COURSE_API            | Indicates if the course API is enabled on the server being tested. Also, determines if course performance tests should be run. | False     |
 | GRADING_POLICY_API_URL       | URL where the grading policy API is served | (None)                           |
 | COURSE_API_URL               | URL where the course API is served         | (None)                           |
-| COURSE_API_KEY               | API key used to access the course API     | (None)                           |
+| COURSE_API_KEY               | API key used to access the course API      | (None)                           |
+| ENABLE_OAUTH_TESTS           | Test the OAUTH sign-in process             | true                             |
+| ENABLE_AUTO_AUTH             | Sign-in using auto-auth. (no LMS involved) | false                            |
+| ENABLE_COURSE_LIST_FILTERS   | Tests on filtering the course list         | false                            |
 
 
 Override example:

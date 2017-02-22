@@ -36,7 +36,18 @@ define(function(require) {
 
             courseListCollection = new CourseListCollection(this.options.courseListJson, {
                 downloadUrl: this.options.courseListDownloadUrl,
-                mode: 'client'
+                filterNameToDisplay: {
+                    pacing_type: {
+                        instructor_paced: gettext('Instructor-Paced'),
+                        self_paced: gettext('Self-Paced')
+                    },
+                    availability: {
+                        Upcoming: gettext('Upcoming'),
+                        Current: gettext('Current'),
+                        Archived: gettext('Archived'),
+                        unknown: gettext('Unknown')
+                    }
+                }
             });
 
             rootView = new RootView({
@@ -52,7 +63,8 @@ define(function(require) {
                     hasData: _.isObject(this.options.courseListJson),
                     pageModel: pageModel,
                     rootView: rootView,
-                    trackingModel: initModels.models.trackingModel
+                    trackingModel: initModels.models.trackingModel,
+                    filteringEnabled: this.options.filteringEnabled
                 })
             });
 
