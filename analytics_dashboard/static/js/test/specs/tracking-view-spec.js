@@ -11,7 +11,7 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
                 ignoreInReporting: true
             };
 
-            it('should call segment with application key and page', function() {
+            it('should call segment with application key', function() {
                 var view;
 
                 view = new TrackingView({
@@ -21,13 +21,11 @@ define(['jquery', 'models/course-model', 'models/tracking-model', 'models/user-m
 
                 // mock segment
                 view.segment = {
-                    load: jasmine.createSpy('load'),
-                    page: jasmine.createSpy('page')
+                    load: jasmine.createSpy('load')
                 };
                 view.initSegment('myKey');
 
                 expect(view.segment.load).toHaveBeenCalledWith('myKey');
-                expect(view.segment.page).toHaveBeenCalled();
             });
 
             it('should call segment with user information', function() {
