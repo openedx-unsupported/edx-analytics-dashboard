@@ -3,13 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Nurul Ferdous <nurul@ferdo.us>, 2017
+# tofael ahmed <topu.tofael@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-03 15:14-0500\n"
-"PO-Revision-Date: 2017-01-19 08:23+0000\n"
-"Last-Translator: Ned Batchelder <ned@edx.org>\n"
+"POT-Creation-Date: 2017-02-23 17:47-0500\n"
+"PO-Revision-Date: 2017-02-26 20:11+0000\n"
+"Last-Translator: tofael ahmed <topu.tofael@gmail.com>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/open-edx/edx-platform/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,19 +21,19 @@ msgstr ""
 
 #: core/templates/core/landing.html:15 templates/_skip_link.html:3
 msgid "Skip to content"
-msgstr ""
+msgstr "সরাসরি তথ‍্যতে যান"
 
 #: core/templates/core/landing.html:23
 msgid "Login"
-msgstr ""
+msgstr "লগিন"
 
 #: core/templates/core/landing.html:33
 msgid "Insights to help course teams improve courses."
-msgstr ""
+msgstr "অন্তর্দৃষ্টিগুলির সাহায্য করতে অবশ্যই দল কোর্স উন্নত"
 
 #: core/templates/core/landing.html:42 courses/views/__init__.py:497
 msgid "Who are my learners?"
-msgstr ""
+msgstr "কারা অামার ছাত্র?"
 
 #: core/templates/core/landing.html:43
 msgid "Target your course to fit the backgrounds of your learners."
@@ -42,7 +44,7 @@ msgstr ""
 #: courses/tests/test_views/__init__.py:219 courses/views/__init__.py:293
 #: courses/views/__init__.py:495
 msgid "Enrollment"
-msgstr ""
+msgstr "নিয়োগ "
 
 #: core/templates/core/landing.html:47
 msgid "What are learners engaging with in my course?"
@@ -58,7 +60,7 @@ msgstr ""
 #: courses/tests/test_views/test_engagement.py:44
 #: courses/views/__init__.py:304 courses/views/__init__.py:554
 msgid "Engagement"
-msgstr ""
+msgstr "প্রবৃত্তি"
 
 #: core/templates/core/landing.html:52
 msgid "How well is my content supporting learners?"
@@ -72,7 +74,7 @@ msgstr ""
 #: courses/tests/test_views/test_performance.py:48
 #: courses/views/__init__.py:315 courses/views/__init__.py:634
 msgid "Performance"
-msgstr ""
+msgstr "কর্মক্ষমতা"
 
 #: core/templates/core/landing.html:63
 msgid "Join the Open Source Community"
@@ -98,7 +100,7 @@ msgstr ""
 
 #: core/templates/core/landing.html:87
 msgid "Need Help?"
-msgstr ""
+msgstr "সাহায্য দরকার?"
 
 #: core/templates/core/landing.html:92
 #, python-format
@@ -117,21 +119,21 @@ msgstr ""
 #: courses/presenters/engagement.py:126
 #, python-brace-format
 msgid "{percentage} of current learners"
-msgstr ""
+msgstr "{percentage} বর্তমান শিক্ষার্থীদের"
 
 #: courses/presenters/enrollment.py:23
 msgid "Female"
-msgstr ""
+msgstr "মহিলা"
 
 #: courses/presenters/enrollment.py:24
 msgid "Male"
-msgstr ""
+msgstr "পুরুষ"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:26 courses/presenters/enrollment.py:45
 msgid "Other"
-msgstr ""
+msgstr "অন্যান্য "
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
@@ -143,75 +145,75 @@ msgstr "অজানা"
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:43
 msgid "None"
-msgstr ""
+msgstr "খালি "
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
 #: courses/presenters/enrollment.py:47 courses/tests/test_serializers.py:12
 msgid "Primary"
-msgstr ""
+msgstr "প্রাথমিক "
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: courses/presenters/enrollment.py:49
 msgid "Middle"
-msgstr ""
+msgstr "মধ্যম "
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:51
 msgid "Secondary"
-msgstr ""
+msgstr "গৌণ "
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
 #: courses/presenters/enrollment.py:53
 msgid "Associate"
-msgstr ""
+msgstr "সহযোগী "
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
 #: courses/presenters/enrollment.py:55
 msgid "Bachelor's"
-msgstr ""
+msgstr "স্নাতক "
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters/enrollment.py:57
 msgid "Master's"
-msgstr ""
+msgstr "মাস্টার্স "
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
 #: courses/presenters/enrollment.py:59
 msgid "Doctorate"
-msgstr ""
+msgstr "ডক্টরেট "
 
 #. Translators: This is a placeholder for enrollment data collected without a
 #. known geolocation.
 #: courses/presenters/enrollment.py:186
 msgid "Unknown Country"
-msgstr ""
+msgstr "অজানা দেশ "
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/presenters/performance.py:146
 #: courses/templates/courses/submissions_chart_info.html:4
 msgid "Submissions"
-msgstr ""
+msgstr "জমা"
 
 #: courses/presenters/performance.py:150
 #, python-brace-format
 msgid "Submissions for Part {part_number}: {part_description}"
-msgstr ""
+msgstr "অংশের জন্য জমা {part_number}: {part_description}"
 
 #: courses/presenters/performance.py:151
 #, python-brace-format
 msgid "Part {part_number}: {part_description}"
-msgstr ""
+msgstr "অংশ {part_number}: {part_description}"
 
 #: courses/presenters/performance.py:153
 #, python-brace-format
 msgid "Submissions: {part_description}"
-msgstr ""
+msgstr "জমা : {part_description}"
 
 #: courses/presenters/performance.py:154
 #, python-brace-format
@@ -221,12 +223,12 @@ msgstr ""
 #: courses/presenters/performance.py:157
 #, python-brace-format
 msgid "Submissions for Part {part_number}"
-msgstr ""
+msgstr "জমার জন্য অংশ {part_number}"
 
 #: courses/presenters/performance.py:158
 #, python-brace-format
 msgid "Part {part_number}"
-msgstr ""
+msgstr "অংশ {part_number}"
 
 #: courses/templates/courses/_base_content_nav.html:25
 #, python-format
@@ -235,13 +237,13 @@ msgstr ""
 
 #: courses/templates/courses/_graded_content_nav.html:16
 msgid "Select Assignment Type"
-msgstr ""
+msgstr "কাজের ধরন নির্বাচন "
 
 #. Translators: This refers to all course assignment types (e.g. homework,
 #. exam, lab).
 #: courses/templates/courses/_graded_content_nav.html:21
 msgid "All Assignments"
-msgstr ""
+msgstr "সকল বরাদ্দকৃত কাজ "
 
 #: courses/templates/courses/_graded_content_nav.html:25
 #, python-format
@@ -255,56 +257,56 @@ msgstr ""
 #: courses/templates/courses/_tags_content_nav.html:23
 #: courses/templates/courses/_ungraded_content_nav.html:28
 msgid "Select Problem"
-msgstr ""
+msgstr "সমস্যা নির্বাচন "
 
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
 #: courses/templates/courses/_module_description.html:14
 #: courses/templates/courses/_video_preview.html:9
 msgid "View Live"
-msgstr ""
+msgstr "সরাসরি দেখুন "
 
 #: courses/templates/courses/_tags_content_nav.html:15
 msgid "Select Outcome"
-msgstr ""
+msgstr "ফলাফল নির্বাচন "
 
 #: courses/templates/courses/_tags_content_nav.html:19
 msgid "All Outcomes"
-msgstr ""
+msgstr "সকল ফলাফল "
 
 #: courses/templates/courses/_ungraded_content_nav.html:16
 #: courses/templates/courses/_video_content_nav.html:16
 msgid "Select Section"
-msgstr ""
+msgstr "অধ্যায় নির্বাচন "
 
 #: courses/templates/courses/_ungraded_content_nav.html:20
 #: courses/templates/courses/_video_content_nav.html:20
 msgid "All Sections"
-msgstr ""
+msgstr "সকল অনুচ্ছেদ "
 
 #: courses/templates/courses/_ungraded_content_nav.html:24
 #: courses/templates/courses/_video_content_nav.html:24
 msgid "Select Subsection"
-msgstr ""
+msgstr "উপ-অনুচ্ছেদ নির্বাচন "
 
 #: courses/templates/courses/_video_content_nav.html:28
 msgid "Select Video"
-msgstr ""
+msgstr "ভিডিও নির্বাচন "
 
 #: courses/templates/courses/_video_module_controls.html:8
 msgid "Previous Video"
-msgstr ""
+msgstr "পূর্বের ভিডিও "
 
 #: courses/templates/courses/_video_module_controls.html:15
 msgid "Next Video"
-msgstr ""
+msgstr "পরের ভিডিও "
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html:60
 msgid ""
 "This chart shows the most common answers submitted by learners, ordered by "
 "frequency."
-msgstr ""
+msgstr "শিক্ষার্থীদের তৈরি এই তালিকা সাধারন উত্তরগুলোর এবং ক্রমানুসারে পুনরাবৃত্ত "
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html:82
@@ -323,7 +325,7 @@ msgstr ""
 
 #: courses/templates/courses/base_performance_answer_distribution.html:108
 msgid "Submission Counts"
-msgstr ""
+msgstr "জমার সংখা "
 
 #: courses/templates/courses/base_performance_answer_distribution.html:116
 #: courses/templates/courses/engagement_content.html:96
@@ -334,31 +336,31 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_gender.html:65
 #: courses/templates/courses/enrollment_geography.html:97
 msgid "Download CSV"
-msgstr ""
+msgstr "ডাউনলোড সিএসভি "
 
 #: courses/templates/courses/base_performance_answer_distribution.html:117
 msgid "Learner Submission Counts"
-msgstr ""
+msgstr "শিক্ষার্থীদের জমাকৃত সংখা "
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html:4
 msgid "Learners (Self-Reported)"
-msgstr ""
+msgstr "শিক্ষার্থীগণ (Self-Reported)"
 
 #: courses/templates/courses/engagement_content.html:23
 msgid "Weekly Learner Engagement"
-msgstr ""
+msgstr "সাপ্তাহিক শিক্ষার্থীদের সংযুক্ততা "
 
 #: courses/templates/courses/engagement_content.html:24
 #: courses/views/__init__.py:559
 msgid "How many learners are interacting with my course?"
-msgstr ""
+msgstr "কতজন শিক্ষার্থী আমার কোর্সের সাথে সংযুক্ত "
 
 #: courses/templates/courses/engagement_content.html:31
 #: courses/views/__init__.py:327 courses/views/__init__.py:642
 #: courses/views/learners.py:20
 msgid "Learners"
-msgstr ""
+msgstr "শিক্ষার্থীগণ "
 
 #: courses/templates/courses/engagement_content.html:32
 msgid ""
@@ -421,7 +423,7 @@ msgstr ""
 #: courses/templates/courses/engagement_grouped_content.html:17
 #: courses/templates/courses/views_chart_info.html:4
 msgid "Video Views"
-msgstr ""
+msgstr "ভিডিও দেখা হয়েছে "
 
 #: courses/templates/courses/engagement_video_by_section.html:5
 msgid "How did learners interact with videos in this section?"
@@ -442,50 +444,50 @@ msgstr ""
 msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
 "Click to understand where learners drop off and which parts they replay."
-msgstr ""
+msgstr "প্রতিটি বার ভিডিওটি কতবার সম্পূর্ণ এবং অসম্পূর্ণ বার দেখা হয়েছে তা দেখায় । বুঝার জন্য ক্লিক করুন যেখানে শিক্ষার্থীরা বুঝতে পারে না এবং কোন অংশ তারা পুনরায় দেখে ।"
 
 #: courses/templates/courses/engagement_video_course.html:5
 #: courses/views/__init__.py:572
 msgid "How did learners interact with course videos?"
-msgstr ""
+msgstr "কীভাবে শিক্ষার্থীরা কোর্স ভিডিওর সঙ্গে ইন্টারঅ্যাক্ট করবে?"
 
 #: courses/templates/courses/engagement_video_course.html:10
 msgid ""
 "Each bar shows the average number of complete and incomplete views for "
 "videos in that section. Click on bars with low totals or a high incomplete "
 "rate to drill down and understand why."
-msgstr ""
+msgstr "প্রতিটি বার ঐ বিভাগের ভিডিওর জন্য সম্পূর্ণ ও অসম্পূর্ণ মতামতের গড় সংখ্যা দেখায় । কম সমষ্টি অথবা অধিক অসম্পূর্ণ হারে বারগুলোয় ক্লিক করুন  অনুশিলনের জন্য এবং জানুন কেন । "
 
 #: courses/templates/courses/engagement_video_timeline.html:17
 #: courses/templates/courses/engagement_video_timeline.html:21
 msgid "Total Video Views"
-msgstr ""
+msgstr "সর্বমোট ভিডিও দেখা হয়েছে "
 
 #: courses/templates/courses/engagement_video_timeline.html:26
 msgid "What were the viewing patterns for this video?"
-msgstr ""
+msgstr "এই ভিডিও দেখার নিদর্শন কি ছিল?"
 
 #: courses/templates/courses/engagement_video_timeline.html:31
 msgid ""
 "The number of learners who watched each segment of the video, and the number"
 " of replays for each segment."
-msgstr ""
+msgstr "শিক্ষার্থীদের সংখা যারা ভিডিওর প্রতিটি অংশ , এবং প্রতিটি অংশের জন্য রিপ্লে দেখেছেন । "
 
 #: courses/templates/courses/engagement_video_timeline.html:37
 msgid "Collapse Preview"
-msgstr ""
+msgstr "পতন প্রিভিও "
 
 #: courses/templates/courses/engagement_video_timeline.html:38
 msgid "Expand Preview"
-msgstr ""
+msgstr "বিস্ত্রিত প্রিভিও "
 
 #: courses/templates/courses/engagement_video_timeline.html:55
 msgid "Video Metrics"
-msgstr ""
+msgstr "ভিডিওর ছন্দ "
 
 #: courses/templates/courses/engagement_video_timeline.html:61
 msgid "Completion Rate"
-msgstr ""
+msgstr "সম্পূর্ণতার হার"
 
 #: courses/templates/courses/engagement_video_timeline.html:62
 msgid "Estimated percentage of learners who watched the entire video."
@@ -493,84 +495,84 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html:66
 msgid "Started Video"
-msgstr ""
+msgstr "শুরু হওয়া ভিডিও "
 
 #: courses/templates/courses/engagement_video_timeline.html:67
 msgid "Learners who started watching the video."
-msgstr ""
+msgstr "শিক্ষার্থীগণ যারা এই ভিডিওটি দেখা শুরু করেছেন । "
 
 #: courses/templates/courses/engagement_video_timeline.html:71
 msgid "Finished Video"
-msgstr ""
+msgstr "পূর্বে দেখা ভিডিও "
 
 #: courses/templates/courses/engagement_video_timeline.html:72
 msgid "Learners who watched the video to the end."
-msgstr ""
+msgstr "শিক্ষার্থীগণ, যারা এই ভিডিওটি শেষ পর্যন্ত দেখেছেন । "
 
 #: courses/templates/courses/engagement_video_timeline.html:88
 msgid "Video Viewing Over Time"
-msgstr ""
+msgstr "সময়ের সাপেক্ষে ভিডিওটি দেখা হয়েছে "
 
 #: courses/templates/courses/enrollment_activity.html:24
 msgid "Daily Learner Enrollment"
-msgstr ""
+msgstr "প্রতিদিনের শিক্ষার্থীর তালিকাভুক্তি "
 
 #: courses/templates/courses/enrollment_activity.html:25
 #: courses/views/__init__.py:500
 msgid "How many learners are in my course?"
-msgstr ""
+msgstr "কতজন শিক্ষার্থী আমার কোর্সে রয়েছে? "
 
 #: courses/templates/courses/enrollment_activity.html:32
 msgid "Enrollments"
-msgstr ""
+msgstr "অন্তর্ভুক্ত করা "
 
 #: courses/templates/courses/enrollment_activity.html:33
 msgid ""
 "This graph displays the current enrollment for the course as of the end of "
 "each day. This includes new enrollments as well as unenrollments."
-msgstr ""
+msgstr "এই লেখচিত্রটি প্রতিটি দিনের শেষের বর্তমান তালিকাভুক্তি প্রদর্শন করে । নতুন তালিকাভুক্তির পাশাপাশি তালিকাচ্যুতিও প্রকাশ করে । "
 
 #: courses/templates/courses/enrollment_activity.html:49
 msgid "Enrollment Metrics"
-msgstr ""
+msgstr "অন্তর্ভুক্তির ছন্দ "
 
 #. Translators: This is a label to identify the number of learners who ever
 #. enrolled in the course.
 #: courses/templates/courses/enrollment_activity.html:59
 msgid "Total Enrollment"
-msgstr ""
+msgstr "সমস্ত অন্তর্ভুক্তি "
 
 #. Translators: This is a label indicating the number of learners in a course.
 #: courses/templates/courses/enrollment_activity.html:61
 msgid "Learners who ever enrolled in the course."
-msgstr ""
+msgstr "শিক্ষার্থীগণ যারা সবসময় কোর্সে অন্তর্ভুক্ত আছেন । "
 
 #. Translators: This is a label to identify current learner enrollment.
 #: courses/templates/courses/enrollment_activity.html:68
 msgid "Current Enrollment"
-msgstr ""
+msgstr "বর্তমান অন্তর্ভুক্তি "
 
 #. Translators: This is a label indicating the number of learners enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html:70
 msgid "Learners currently enrolled in the course."
-msgstr ""
+msgstr "শিক্ষার্থীগন যারা কোর্সে অন্তর্ভুক্ত আছেন । "
 
 #. Translators: This is a label indicating the change in the number of
 #. learners enrolled in a course since the previous week.
 #: courses/templates/courses/enrollment_activity.html:76
 msgid "Change in Last Week"
-msgstr ""
+msgstr "এই সপ্তাহে পরিবর্তিত "
 
 #: courses/templates/courses/enrollment_activity.html:77
 msgid "Net difference in current enrollment in the last week."
-msgstr ""
+msgstr "গত সপ্তাহের সাথে বর্তমান অন্তর্ভুক্তির সঠিক পার্থক্য ।"
 
 #. Translators: This is a label to identify enrollment of learners on the
 #. verified track.
 #: courses/templates/courses/enrollment_activity.html:84
 msgid "Verified Enrollment"
-msgstr ""
+msgstr "যাচাইকৃত অন্তর্ভুক্তি "
 
 #. Translators: This is a label indicating the number of learners enrolled in
 #. a course on the verified track.
@@ -578,7 +580,7 @@ msgstr ""
 msgid ""
 "Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
-msgstr ""
+msgstr "বর্তমানে অন্তর্ভুক্ত শিক্ষার্থীর সংখা যারা একটি কৃতিত্বের যাচাইকৃত সনদপত্র ক্রয় করেছেন । "
 
 #: courses/templates/courses/enrollment_activity.html:99
 #: courses/templates/courses/enrollment_activity.html:107
@@ -586,12 +588,12 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_education.html:101
 #: courses/templates/courses/enrollment_demographics_gender.html:66
 msgid "Enrollment Over Time"
-msgstr ""
+msgstr "সময়ের ভিত্তিতে নিয়োগ "
 
 #: courses/templates/courses/enrollment_demographics_age.html:25
 #: courses/views/__init__.py:510
 msgid "How old are my learners?"
-msgstr ""
+msgstr "আমার শিক্ষার্থীদের বয়স কত? "
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -601,67 +603,67 @@ msgstr ""
 msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
 "learners who provided a year of birth."
-msgstr ""
+msgstr "এই বয়সের বারলেখটি প্রদর্শন করছে গণনাকৃত তথ্য  %(value)s%% সংখ্যক শিক্ষার্থী যারা তাদের জন্ম সাল প্রদান করেছেন । "
 
 #: courses/templates/courses/enrollment_demographics_age.html:55
 msgid "Age Metrics"
-msgstr ""
+msgstr "বয়সের ছন্দ "
 
 #. Translators: This is a label to identify the median age of enrolled
 #. learners.
 #: courses/templates/courses/enrollment_demographics_age.html:64
 msgid "Median Learner Age"
-msgstr ""
+msgstr "শিক্ষার্থীদের মধ্য বয়স "
 
 #: courses/templates/courses/enrollment_demographics_age.html:65
 msgid ""
 "The midpoint of the learner ages, computed from the provided year of birth."
-msgstr ""
+msgstr "শিক্ষার্থীদের বয়সের অর্ধেক, গণনা করা হয়েছে শিক্ষার্থীদের জন্ম সাল থেকে । "
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html:71
 msgid "Learners 25 and Under"
-msgstr ""
+msgstr "25 অথবা এর কম বয়সের শিক্ষার্থীরা "
 
 #: courses/templates/courses/enrollment_demographics_age.html:72
 msgid ""
 "The percentage of learners aged 25 years or younger (of those who provided a"
 " year of birth)."
-msgstr ""
+msgstr "শিক্ষার্থীদের শতকরা হার যাদের বয়স 25 অথবা কম  (যারা জন্মসনদ দিয়েছেন) ।"
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html:78
 msgid "Learners 26 to 40"
-msgstr ""
+msgstr "শিক্ষার্থীদের বয়স 26 থেকে 40"
 
 #: courses/templates/courses/enrollment_demographics_age.html:79
 msgid ""
 "The percentage of learners aged from 26 to 40 years (of those who provided a"
 " year of birth)."
-msgstr ""
+msgstr "শিক্ষার্থীদের শতকরা হার যাদের বয়স 26 থেকে 40 বছর (যারা জন্মসনদ দিয়েছেন) ।"
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html:85
 msgid "Learners 41 and Over"
-msgstr ""
+msgstr "শিক্ষার্থীদের বয়স 41 অথবা বেশি "
 
 #: courses/templates/courses/enrollment_demographics_age.html:86
 msgid ""
 "The percentage of learners aged 41 years or older (of those who provided a "
 "year of birth)."
-msgstr ""
+msgstr "শিক্ষার্থীদের শতকরা হার যাদের বয়স 41 বছর বা তার বেশি (যারা জন্মসনদ দিয়েছেন) ।"
 
 #: courses/templates/courses/enrollment_demographics_age.html:100
 msgid "Age Breakdown"
-msgstr ""
+msgstr "বয়সের ভাঙ্গন "
 
 #: courses/templates/courses/enrollment_demographics_education.html:25
 #: courses/views/__init__.py:520
 msgid "What level of education do my learners have?"
-msgstr ""
+msgstr "আমার শিক্ষার্থীরা কোন পর্যায়ের শিক্ষা গ্রহন করেছে? "
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -671,54 +673,54 @@ msgstr ""
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled learners who "
 "provided a highest level of education completed."
-msgstr ""
+msgstr "এই লেখচিত্রটি প্রদর্শন করছে  %(value)s%% শিক্ষার্থীদের যারা সর্বোচ্চ পর্যায়ের শিক্ষা সমাপ্তকরনের তথ্য প্রদান করেছেন । "
 
 #: courses/templates/courses/enrollment_demographics_education.html:56
 msgid "Education Metrics"
-msgstr ""
+msgstr "ছন্দবিজ্ঞান শিক্ষা "
 
 #. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html:64
 msgid "High School Diploma or Less"
-msgstr ""
+msgstr "উচ্চ মাধ্যমিক বিদ্যালয় সনদ বা তার কম "
 
 #: courses/templates/courses/enrollment_demographics_education.html:65
 msgid ""
 "The percentage of learners who selected Secondary/high school, Junior "
 "secondary/junior high/middle school, or Elementary/primary school as their "
 "highest level of education completed."
-msgstr ""
+msgstr "শিক্ষার্থীদের শতকরা হার যারা মাধ্যমিক/উচ্চমাধ্যমিক বিদ্যালয় অথবা নিম্ন মাধ্যমিক বিদ্যালয় অথবা প্রাথমিক/ প্রাথমিক বিদ্যালয় তাদের সম্পন্নকৃত সর্বোচ্চ শিক্ষাগত যোগ্যতা হিসেবে । "
 
 #. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html:71
 msgid "College Degree"
-msgstr ""
+msgstr "কলেজ ডিগ্রি "
 
 #: courses/templates/courses/enrollment_demographics_education.html:72
 msgid ""
 "The percentage of learners who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
-msgstr ""
+msgstr "শিক্ষার্থীদের শতকরা হার যারা স্নাতক ডিগ্রি অথবা সহকারী ডিগ্রি তাদের সম্পন্নকৃত সর্বোচ্চ শিক্ষাগত যোগ্যতা হিসেবে । "
 
 #. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html:78
 msgid "Advanced Degree"
-msgstr ""
+msgstr "উচ্চতর ডিগ্রী"
 
 #: courses/templates/courses/enrollment_demographics_education.html:79
 msgid ""
 "The percentage of learners who selected Doctorate or Master's or "
 "professional degree as their highest level of education completed."
-msgstr ""
+msgstr "শিক্ষার্থীদের শতকরা হার যারা ডক্ট্ররেট অথবা স্নাতকোত্তর অথবা পেশাগত সনদ নির্ধারণ করেছেন সম্পন্নকৃত সর্বোচ্চ শিক্ষাগত যোগ্যতা হিসেবে । "
 
 #: courses/templates/courses/enrollment_demographics_education.html:91
 msgid "Educational Breakdown"
-msgstr ""
+msgstr "শিক্ষাগত ভাঙ্গন "
 
 #: courses/templates/courses/enrollment_demographics_gender.html:25
 #: courses/views/__init__.py:530
 msgid "What is the learner gender breakdown?"
-msgstr ""
+msgstr "শিক্ষার্থীদের জেন্ডার ভাঙ্গন কি? "
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -728,99 +730,99 @@ msgstr ""
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled learners who "
 "specified their gender."
-msgstr ""
+msgstr "এই তথ্যচিত্রটি তথ্য প্রদর্শন করছে  %(value)s%% সংখ্যক শিক্ষার্থী যারা তাদের জেন্ডার নির্ধারণ করেছেন ।"
 
 #: courses/templates/courses/enrollment_demographics_gender.html:56
 msgid "Gender Breakdown Over Time"
-msgstr ""
+msgstr "সময়ের ভিত্তিতে জেন্ডারের ভাঙ্গন "
 
 #: courses/templates/courses/enrollment_geography.html:21
 msgid "Geographic Distribution"
-msgstr ""
+msgstr "বিন্যাসের ভিত্তিতে ভৌগলিক অবস্থান "
 
 #: courses/templates/courses/enrollment_geography.html:22
 #: courses/views/__init__.py:540
 msgid "Where are my learners?"
-msgstr ""
+msgstr "আমার শিক্ষার্থীগণ কোথায়? "
 
 #: courses/templates/courses/enrollment_geography.html:27
 msgid "Enrollment by Country"
-msgstr ""
+msgstr "তালিকাভুক্তি / সংজুক্তির ভিত্তিতে দেশ "
 
 #: courses/templates/courses/enrollment_geography.html:45
 msgid "Geography Metrics"
-msgstr ""
+msgstr "ভৌগলিক ছন্দবিজ্ঞান "
 
 #. Translators: This string represents the number of countries where learners
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html:53
 msgid "Total Countries or Regions Represented"
-msgstr ""
+msgstr "প্রতিনিধিত্ত করছে এমন সব দেশ অথবা এলাকা "
 
 #: courses/templates/courses/enrollment_geography.html:54
 msgid "Countries or regions with at least one learner."
-msgstr ""
+msgstr "কমপক্ষে একজন শিক্ষার্থী রয়েছে এমন দেশ অথবা এলাকা"
 
 #. Translators: This string represents the country or region with the greatest
 #. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html:62
 msgid "Top Country or Region by Enrollment"
-msgstr ""
+msgstr "নিয়োগের ভিত্তিতে শীর্ষ দেশ অথবা এলাকা "
 
 #: courses/templates/courses/enrollment_geography.html:63
 msgid "Country or region with the largest number of learners."
-msgstr ""
+msgstr "শিক্ষার্থীর সংখা অনুযায়ী বৃহত্তম দেশ অথবা এলাকা ।"
 
 #. Translators: This string represents the country or region with the second-
 #. greatest number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html:66
 msgid "Second Country or Region by Enrollment"
-msgstr ""
+msgstr "নিয়োগের ভিত্তিতে দ্বিতীয় দেশ অথবা এলাকা "
 
 #: courses/templates/courses/enrollment_geography.html:67
 msgid "Country or region with the second largest number of learners."
-msgstr ""
+msgstr "শিক্ষার্থীর সংখা অনুযায়ী  দ্বিতীয় বৃহত্তম দেশ অথবা এলাকা "
 
 #. Translators: This string represents the country or region with the third-
 #. greatest number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html:70
 msgid "Third Country or Region by Enrollment"
-msgstr ""
+msgstr "নিয়োগের ভিত্তিতে তৃতীয় দেশ অথবা এলাকা "
 
 #: courses/templates/courses/enrollment_geography.html:71
 msgid "Country or region with the third largest number of learners."
-msgstr ""
+msgstr "শিক্ষার্থীর সংখা অনুযায়ী তৃতীয় বৃহত্তম দেশ অথবা এলাকা "
 
 #. Translators: This string represents the percentage of learners in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
 #: courses/templates/courses/enrollment_geography.html:77
 #, python-format
 msgid "%(percent)s%% of learners"
-msgstr ""
+msgstr "%(percent)s%% শিক্ষার্থীগণ "
 
 #: courses/templates/courses/enrollment_geography.html:91
 #: courses/templates/courses/enrollment_geography.html:98
 msgid "Geographic Breakdown"
-msgstr ""
+msgstr "ভৌগলিক ভাঙ্গন "
 
 #. Translators: Application here refers to the web site/application being used
 #. (e.g. the dashboard).
 #: courses/templates/courses/home.html:11 templates/base_dashboard.html:30
 #: templates/footer.html:5 templates/lens-navigation.html:9
 msgid "Application"
-msgstr ""
+msgstr "আবেদন "
 
 #. Translators: This refers to the homepage of a course.
 #: courses/templates/courses/home.html:15 courses/views/__init__.py:489
 #: templates/lens-navigation.html:20
 msgid "Course Home"
-msgstr ""
+msgstr "কোর্স হোম "
 
 #. Translators: This refers to the active tab/navigation item.
 #: courses/templates/courses/home.html:16 templates/lens-navigation.html:31
 #: templates/submenu_navigation.html:14
 msgid "Active"
-msgstr ""
+msgstr "সক্রিয় "
 
 #. Translators: This indicates that the adjacent link will trigger a CSV
 #. download. '{{download_icon}}' will be replaced with an icon.
@@ -830,65 +832,65 @@ msgid ""
 "\n"
 "                    (%(download_icon)s CSV Download)\n"
 "                  "
-msgstr ""
+msgstr "\n(%(download_icon)s সিএসভি ডাউনলোড)"
 
 #: courses/templates/courses/home.html:93
 msgid "Basic Course Information"
-msgstr ""
+msgstr "কোর্স সম্পর্কে প্রাথমিক তথ্য "
 
 #. Translators: This title describes a list of links to outside tools for this
 #. course.
 #: courses/templates/courses/home.html:106
 msgid "External Tools"
-msgstr ""
+msgstr "বাহ্যিক সরঞ্জাম সমূহ"
 
-#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:25
+#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:27
 msgid "Courses"
-msgstr ""
+msgstr "কোর্স সমূহ "
 
 #: courses/templates/courses/index.html:14
 #, python-format
 msgid "Welcome, %(username)s!"
-msgstr ""
+msgstr "স্বাগতম, %(username)s! "
 
 #: courses/templates/courses/index.html:19
 #, python-format
 msgid ""
 "Here are the courses you currently have access to in %(application_name)s:"
-msgstr ""
+msgstr "এই কোর্সগুলোতে বর্তমানে আপনার প্রবেশাধিকার রয়েছে  %(application_name)s:"
 
 #: courses/templates/courses/performance_answer_distribution.html:7
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html:5
 #: courses/templates/courses/performance_ungraded_answer_distribution.html:7
 msgid "How did learners answer this problem?"
-msgstr ""
+msgstr "শিক্ষার্থীরা এই সমস্যার উত্তর কেমন দিচ্ছে? "
 
 #: courses/templates/courses/performance_assignment.html:10
 msgid "How are learners doing on this assignment?"
-msgstr ""
+msgstr "এই প্রদানকৃত কাজে শিক্ষার্থীরা কেমন করছে? "
 
 #: courses/templates/courses/performance_assignment.html:15
 #: courses/templates/courses/performance_ungraded_by_subsection.html:15
 msgid ""
 "These bars show the correct and incorrect submission counts for each "
 "problem. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "এই বারগুলু প্রদর্শন করছে সঠিক এবং ভুল সংখ্যক জমা প্রতিটি সমস্যার জন্য । শুধুমাত্র সর্বশেষ জমা হিসাবে নেওয়া হয়েছে ।"
 
 #: courses/templates/courses/performance_assignment.html:19
 #: courses/templates/courses/performance_learning_outcomes_section.html:20
 #: courses/templates/courses/performance_ungraded_by_subsection.html:19
 msgid "Problem Submissions"
-msgstr ""
+msgstr "সমস্যা জমাকরন "
 
 #: courses/templates/courses/performance_graded_content.html:9
 msgid "Which assignment type do you want to investigate?"
-msgstr ""
+msgstr "কোন ধরনের প্রদানকৃত কাজ নিয়ে গবেষণা করতে চান? "
 
 #: courses/templates/courses/performance_graded_content.html:13
 msgid ""
 "Click an assignment type to view more detail information about the "
 "assignments."
-msgstr ""
+msgstr "বিস্তারিত দেখার জন্য প্রদানকৃত কাজের ধরনে ক্লিক করুন ।"
 
 #. Translators: This describes the percent an assignment contributes to that
 #. of a learner's grade (e.g. Exam: 60% of the grading policy.).
@@ -904,7 +906,7 @@ msgstr ""
 #: courses/templates/courses/performance_graded_content.html:34
 #, python-format
 msgid "%(policy_ratio)s%%"
-msgstr ""
+msgstr "%(policy_ratio)s%%"
 
 #: courses/templates/courses/performance_graded_content_by_type.html:8
 #, python-format
@@ -912,217 +914,217 @@ msgid ""
 "\n"
 "      How are learners doing on the %(type)s?\n"
 "    "
-msgstr ""
+msgstr "\nশিক্ষার্থীরা কেমন করছে  %(type)s?"
 
 #: courses/templates/courses/performance_graded_content_by_type.html:16
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "problems in the assignment. Only the last submission from each learner is "
 "counted."
-msgstr ""
+msgstr "প্রত্যেকটি বার প্রদর্শন করছে গড় সংখ্যক সঠিক এবং ভুল জমা, প্রদানকৃত কাজের সমস্যার জন্য । শুধুমাত্র শিক্ষার্থীদের সর্বশেষ জমা হিসাবে নেওয়া হয়েছে । "
 
 #: courses/templates/courses/performance_graded_content_by_type.html:20
 msgid "Assignment Submissions"
-msgstr ""
+msgstr "প্রদানকৃত কাজ জমাকরন "
 
 #: courses/templates/courses/performance_learning_outcomes_content.html:6
 #: courses/templates/courses/performance_learning_outcomes_section.html:6
 msgid "Measured by learning outcome, how are learners performing?"
-msgstr ""
+msgstr "পরিমাপ করা হচ্ছে শিখার ফল অনুযায়ী, শিক্ষার্থীরা কেমন দক্ষতা দেখাচ্ছে? "
 
 #: courses/templates/courses/performance_learning_outcomes_content.html:16
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each outcome."
-msgstr ""
+msgstr "প্রতিটি বার প্রদর্শন করছে গড় সংখ্যক সঠিক এবং ভুল জমা প্রত্যেকটি ফলাফলের জন্য । "
 
 #: courses/templates/courses/performance_learning_outcomes_content.html:20
 msgid "Outcome Submissions"
-msgstr ""
+msgstr "প্রদানকৃত কাজের ফল "
 
 #: courses/templates/courses/performance_learning_outcomes_section.html:16
 msgid ""
 "Each bar shows the correct and incorrect number of submissions for each "
 "problem for the current outcome."
-msgstr ""
+msgstr "বর্তমান সমস্যার জন্য প্রত্যেকটি বার ভুল এবং সঠিক সংখ্যক জমা প্রদর্শন করছে প্রতিটি সমস্যার ।  "
 
 #: courses/templates/courses/performance_ungraded_by_section.html:5
 msgid "How are learners doing on this section?"
-msgstr ""
+msgstr "শিক্ষার্থীরা এই অধ্যায়ে কেমন করছে? "
 
 #: courses/templates/courses/performance_ungraded_by_section.html:10
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each subsection. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "প্রতি উপধারার ভুল এবং সঠিক নাম্বারের গড় এই বারটি প্রদর্শন করছে । শিক্ষার্থীদের সর্বশেষ জমা শুধুমাত্র প্রদর্শিত হচ্ছে । "
 
 #: courses/templates/courses/performance_ungraded_by_section.html:14
 msgid "Subsection Submissions"
-msgstr ""
+msgstr "উপধারায় প্রদানকৃত কাজ সমূহ "
 
 #: courses/templates/courses/performance_ungraded_by_subsection.html:10
 msgid "How are learners doing on this subsection?"
-msgstr ""
+msgstr "শিক্ষার্থীরা এই উপধারায় কেমন করছে? "
 
 #: courses/templates/courses/performance_ungraded_content.html:7
 #: courses/views/__init__.py:595
 msgid "How are learners doing on ungraded exercises?"
-msgstr ""
+msgstr "সাজানো অনুশিলনে শিক্ষার্থীরা কেমন করছে? "
 
 #: courses/templates/courses/performance_ungraded_content.html:12
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each section. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "প্রতি অধ্যায়ের ভুল এবং সঠিক নাম্বারের গড় এই বারটি প্রদর্শন করছে । শিক্ষার্থীদের সর্বশেষ জমা শুধুমাত্র প্রদর্শিত হচ্ছে । "
 
 #: courses/templates/courses/performance_ungraded_content.html:16
 msgid "Section Submissions"
-msgstr ""
+msgstr "অধ্যায় জমা "
 
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
 #: courses/templates/courses/permissions-retrieval-failed.html:5
 #: courses/templates/courses/permissions-retrieval-failed.html:7
 msgid "Permissions Retrieval Failed"
-msgstr ""
+msgstr "অনুমতি উদ্ধারে ব্যর্থ "
 
 #: courses/templates/courses/permissions-retrieval-failed.html:9
 msgid ""
 "There was a problem retrieving course permissions for your account. Please "
 "try again. If you continue to experience issues, please let us know."
-msgstr ""
+msgstr "কোর্সের অনুমতি উদ্ধারে সমস্যা দেখা দিয়েছে ।  অনুগ্রহপূর্বক আবার চেষ্টা করুন । সমস্যা চলতে থাকলে , দয়া করে আমাদের জানান । "
 
 #: courses/templates/courses/permissions-retrieval-failed.html:14
 msgid "Try Again"
-msgstr ""
+msgstr "পুনরায় চেষ্টা করুন "
 
 #: courses/tests/test_views/__init__.py:235 courses/views/__init__.py:502
 #: courses/views/enrollment.py:23
 msgid "Activity"
-msgstr ""
+msgstr "কার্যক্রম "
 
 #: courses/tests/test_views/__init__.py:245 courses/views/__init__.py:512
 #: courses/views/__init__.py:522 courses/views/__init__.py:532
 #: courses/views/enrollment.py:32
 msgid "Demographics"
-msgstr ""
+msgstr "জনসংখ্যার উপাত্ত"
 
 #: courses/tests/test_views/__init__.py:255 courses/views/__init__.py:542
 #: courses/views/enrollment.py:41
 msgid "Geography"
-msgstr ""
+msgstr "ভূগোল"
 
 #: courses/tests/test_views/__init__.py:293 courses/views/__init__.py:512
 #: courses/views/enrollment.py:61
 msgid "Age"
-msgstr ""
+msgstr "বয়স "
 
 #: courses/tests/test_views/__init__.py:303 courses/views/__init__.py:522
 #: courses/views/enrollment.py:70
 msgid "Education"
-msgstr ""
+msgstr "শিক্ষা"
 
 #: courses/tests/test_views/__init__.py:313 courses/views/__init__.py:532
 #: courses/views/enrollment.py:79
 msgid "Gender"
-msgstr ""
+msgstr "লিঙ্গ "
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: courses/tests/test_views/test_engagement.py:62
 #: courses/views/__init__.py:561 courses/views/engagement.py:27
 msgid "Content"
-msgstr ""
+msgstr "বিষয়বস্তু "
 
 #: courses/tests/test_views/test_engagement.py:73
 #: courses/views/__init__.py:574 courses/views/engagement.py:36
 msgid "Videos"
-msgstr ""
+msgstr "ভিডিও "
 
 #: courses/tests/test_views/test_performance.py:65
 #: courses/views/__init__.py:588 courses/views/performance.py:38
 #: courses/views/performance.py:101
 msgid "Graded Content"
-msgstr ""
+msgstr "ক্রমানুসারে সাজানো বিষয়বস্তু "
 
 #: courses/tests/test_views/test_performance.py:76
 #: courses/views/__init__.py:597 courses/views/performance.py:47
 #: courses/views/performance.py:86
 msgid "Ungraded Problems"
-msgstr ""
+msgstr "ক্রমানুসারে না সাজানো সমস্যা "
 
 #: courses/tests/test_views/test_performance.py:529
 #: courses/views/__init__.py:609 courses/views/performance.py:65
 msgid "Learning Outcomes"
-msgstr ""
+msgstr "শিখার ফল "
 
 #: courses/views/__init__.py:556
 msgid "What are learners doing in my course?"
-msgstr ""
+msgstr "শিক্ষার্থীরা আমার কোর্সে কেমন শিখছে ? "
 
 #: courses/views/__init__.py:586
 msgid "How are learners doing on graded course assignments?"
-msgstr ""
+msgstr "ক্রমানুসারে সাজানো বরাদ্দকৃত কাজে শিক্ষার্থীরা কেমন করছে ? "
 
 #: courses/views/__init__.py:607
 msgid "What is the breakdown for course learning outcomes?"
-msgstr ""
+msgstr "কোর্সের শেখার ফলাফলের ভাঙ্গন কি ? "
 
 #: courses/views/__init__.py:627
 msgid "How are learners responding to questions?"
-msgstr ""
+msgstr "শিক্ষার্থীরা প্রশ্নের উত্তর কেমন সাড়া দিচ্ছে ? "
 
 #: courses/views/__init__.py:629
 msgid "Problem Response Report"
-msgstr ""
+msgstr "সমস্যার প্রতিক্রিয়ার প্রতিবেদন "
 
 #: courses/views/__init__.py:636
 msgid "How are learners doing on course assignments?"
-msgstr ""
+msgstr "শিক্ষার্থীরা কোর্সের বরাদ্দকৃত কাজে কেমন করছে ? "
 
 #: courses/views/__init__.py:644
 msgid "What are individual learners doing?"
-msgstr ""
+msgstr "পৃথক শিক্ষার্থীরা কি করছে ? "
 
 #: courses/views/__init__.py:647
 msgid "Who is engaged? Who isn't?"
-msgstr ""
+msgstr "কে সংযুক্ত ? কেও নয় কি ? "
 
 #: courses/views/__init__.py:649
 msgid "All Learners"
-msgstr ""
+msgstr "সকল শিক্ষার্থী "
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: courses/views/__init__.py:697
 msgid "Course ID"
-msgstr ""
+msgstr "কোর্স আইডি "
 
 #: courses/views/__init__.py:699
 msgid "Course Name"
-msgstr ""
+msgstr "কোর্সের নাম "
 
 #. Translators: 'In Progress' and 'Ended' refer to whether learners are
 #. actively using the course or it is over.
 #: courses/views/__init__.py:716
 msgid "In Progress"
-msgstr ""
+msgstr "চলমান "
 
 #: courses/views/__init__.py:716
 msgid "Ended"
-msgstr ""
+msgstr "শেষ "
 
 #. Translators: This refers to a course that has not yet begun.
 #: courses/views/__init__.py:719
 msgid "Not Started Yet"
-msgstr ""
+msgstr "এখনো শুরু হয় নি "
 
 #: courses/views/__init__.py:721
 msgid "Start Date"
-msgstr ""
+msgstr "শুরুর তারিখ "
 
 #: courses/views/__init__.py:722
 msgid "End Date"
-msgstr ""
+msgstr "শেষের তারিখ "
 
 #: courses/views/__init__.py:723
 msgid "Status"
@@ -1130,22 +1132,22 @@ msgstr "অবস্থা"
 
 #: courses/views/__init__.py:732
 msgid "Instructor Dashboard"
-msgstr ""
+msgstr "প্রদর্শকের ড্যাশবোর্ড "
 
 #: courses/views/__init__.py:737
 msgid "Courseware"
-msgstr ""
+msgstr "কোর্সওয়ার "
 
 #. Translators: Do not translate UTC.
-#: courses/views/course_summaries.py:34
+#: courses/views/course_summaries.py:36
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
+msgstr "কোর্সের সারসংক্ষেপ তথ্য সর্বশেষ সংশোধিত হয়েছে  %(update_date)s তারিখে  %(update_time)s টায় ইউ টি সি ।"
 
 #: courses/views/engagement.py:52
 msgid "Engagement Content"
-msgstr ""
+msgstr "সংযুক্ত বিষয়বস্তু "
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py:62
@@ -1153,33 +1155,33 @@ msgstr ""
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "কোর্সের সংযুক্তির তথ্য সর্বশেষ সংশোধিত হয়েছে  %(update_date)s তারিখে  %(update_time)s টায় ইউ টি সি "
 
 #: courses/views/engagement.py:88
 msgid "Engagement Videos"
-msgstr ""
+msgstr "সংযুক্ত ভিডিও সমূহ "
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py:93
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
+msgstr "ভিডিওর তথ্য সর্বশেষ সংশোধিত হয়েছে  %(update_date)s তারিখে  %(update_time)s টায় ইউ টি সি ।"
 
 #: courses/views/engagement.py:94
 msgid "Looks like no one has watched any videos in these sections."
-msgstr ""
+msgstr "এই বিভাগের কোন ভিডিও কেও দেখে নাই ।"
 
 #: courses/views/engagement.py:120 courses/views/performance.py:300
 msgid "Section Name"
-msgstr ""
+msgstr "অধ্যায়ের নাম "
 
 #: courses/views/engagement.py:140 courses/views/performance.py:322
 msgid "Subsection Name"
-msgstr ""
+msgstr "উপধারার নাম "
 
 #: courses/views/engagement.py:161
 msgid "Video Name"
-msgstr ""
+msgstr "ভিডিওর নাম "
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py:90
@@ -1187,18 +1189,18 @@ msgstr ""
 msgid ""
 "Demographic learner data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "জনতাত্ত্বিক শিক্ষার্থীর তথ্য সর্বশেষ সংশোধিত হয়েছে  %(update_date)s তারিখে  \n%(update_time)s টায় ইউ টি সি । "
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
 #: courses/views/enrollment.py:94
 msgid ""
 "All above demographic data was self-reported at the time of registration."
-msgstr ""
+msgstr "উপরের সকল জনতাত্ত্বিক তথ্য রেজিস্ট্রেশনের সময় স্ব-রিপোর্ট করা হয়েছিল"
 
 #: courses/views/enrollment.py:107
 msgid "Enrollment Activity"
-msgstr ""
+msgstr "তালিকারভুক্তির কার্যক্রম "
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py:117
@@ -1206,23 +1208,23 @@ msgstr ""
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "তালিকাভুক্তির কার্যক্রম সর্বশেষ সংশোধিত হয়েছে  %(update_date)s তারিখে  %(update_time)s টায় ইউ টি সি । "
 
 #: courses/views/enrollment.py:148
 msgid "Enrollment Demographics by Age"
-msgstr ""
+msgstr "বয়সের ভিত্তিতে জনসংখ্যার উপাত্ত তালিকাভুক্তি "
 
 #: courses/views/enrollment.py:186
 msgid "Enrollment Demographics by Education"
-msgstr ""
+msgstr "শিক্ষার ভিত্তিতে জনসংখ্যার উপাত্ত তালিকাভুক্তি "
 
 #: courses/views/enrollment.py:224
 msgid "Enrollment Demographics by Gender"
-msgstr ""
+msgstr "লিঙ্গের ভিত্তিতে জনসংখ্যার উপাত্ত তালিকাভুক্তি "
 
 #: courses/views/enrollment.py:262
 msgid "Enrollment Geography"
-msgstr ""
+msgstr "ভৌগলিক তালিকাভুক্তি"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py:272
@@ -1230,7 +1232,7 @@ msgstr ""
 msgid ""
 "Geographic learner data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "ভৌগলিক শিক্ষার্থীর তথ্য সর্বশেষ সংশোধিত হয়েছে  %(update_date)s তারিখে %(update_time)s টায় ইউ টি সি "
 
 #. Translators: Do not translate UTC.
 #: courses/views/performance.py:33
@@ -1238,29 +1240,29 @@ msgstr ""
 msgid ""
 "Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "জমাকৃত সমস্যার তথ্য সর্বশেষ সংশোধিত হয়েছে  %(update_date)s  তারিখে  %(update_time)s টায় ইউ টি সি "
 
 #: courses/views/performance.py:79
 msgid "Assignment Name"
-msgstr ""
+msgstr "কাজের নাম "
 
 #: courses/views/performance.py:90 courses/views/performance.py:370
 msgid "No submissions received for these exercises."
-msgstr ""
+msgstr "অনুশীলনের জন্য গৃহীত কোন কিছু জমা নেই "
 
 #: courses/views/performance.py:106
 msgid "No submissions received for these assignments."
-msgstr ""
+msgstr "বরাদ্দের জন্য গৃহীত কোন কিছু জমা নেই "
 
 #: courses/views/performance.py:195 courses/views/performance.py:362
 #: courses/views/performance.py:460
 msgid "Performance: Problem Submissions"
-msgstr ""
+msgstr "পারফরমেন্স: জমানো সমস্যা "
 
 #: courses/views/performance.py:257
 #, python-format
 msgid "Graded Content: %(assignment_type)s"
-msgstr ""
+msgstr "ক্রমানুসারে সাজানো বিষয়বস্তুঃ %(assignment_type)s"
 
 #: courses/views/performance.py:276 courses/views/performance.py:344
 msgid "Problem Name"
@@ -1271,34 +1273,34 @@ msgstr "সমস্যার নাম"
 msgid ""
 "Tags distribution data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "সর্বশেষ ট্যাগ বিতরন ডেটা  %(update_date)s at %(update_time)s ইউ টি এস"
 
 #: courses/views/performance.py:398 courses/views/performance.py:428
 msgid "Performance: Learning Outcomes"
-msgstr ""
+msgstr "কর্মক্ষমতাঃ শেখার ফলাফল"
 
 #: settings/base.py:456
 msgid "Terms of Service"
-msgstr ""
+msgstr "সেবা পাবার শর্ত "
 
 #: settings/base.py:457
 msgid "Privacy Policy"
-msgstr ""
+msgstr "গোপনীয়তার নীতি "
 
 #: templates/403.html:5 templates/403.html:8
 msgid "Access Denied"
-msgstr ""
+msgstr "প্রবেশ সংরক্ষিত "
 
 #: templates/403.html:10
 msgid ""
 "You do not have permission to view this page. If you believe you should have"
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
-msgstr ""
+msgstr "এই পেজটি দেখার অনুমতি নেই । আপনি যদি এই পেজটি দেখার অনুমতি প্রাপ্ত হন তাহলে লগ আউট করে পুনরায় লগ ইন করুন এবং অনমতি রিফ্রেশ করুন । "
 
 #: templates/403.html:17
 msgid "Logout then Login"
-msgstr ""
+msgstr "লগ আউট করুন এবং পুনরায় লগ ইন করুন "
 
 #: templates/404.html:5 templates/404.html:8
 msgid "Page Not Found"
@@ -1308,25 +1310,25 @@ msgstr "পৃষ্ঠা খুঁজে পাওয়া যায়নি
 msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
-msgstr ""
+msgstr "আপনার কাংখিত পেজটি খুজে পাওয়া যায় নি । দয়া করে ইউ আর এল টি সঠিক কি না যাচাই করুন এবং পুনরায় চেষ্টা করুন । "
 
 #: templates/500.html:5 templates/500.html:8
 msgid "An Error Occurred"
-msgstr ""
+msgstr "একটি সমস্যা হয়েছে"
 
 #: templates/500.html:10
 msgid ""
 "Our servers weren't able to complete your request. Please try again by "
 "refreshing this page or retracing your steps."
-msgstr ""
+msgstr "আমাদের সার্ভার আপনার রিকুয়েস্ট পূর্ণ করতে ব্যর্থ হয়েছে । অনুগ্রহপূর্বক পেজটি পুনরায় চালু করুন অথবা আগের ধাপের পুনরাবৃত্তি করুন "
 
 #: templates/503.html:5 templates/503.html:7
 msgid "We're having trouble loading this page. Please try again in a minute."
-msgstr ""
+msgstr "পেজটি লোড করতে সমস্যা হচ্ছে । কিছুক্ষন পরে আবার চেষ্টা করুন ।"
 
 #: templates/503.html:10
 msgid "(Technical details: 503 Service Unavailable.)"
-msgstr ""
+msgstr "(কারিগরি বিস্তারিতঃ 503 সেবা অপ্রাপ্য) "
 
 #: templates/_announcement.html:28
 msgid "Close"
@@ -1334,7 +1336,7 @@ msgstr "বন্ধ"
 
 #: templates/base-error.html:42
 msgid "Use our support tool to ask questions or share feedback."
-msgstr ""
+msgstr "আমাদের সমর্থন টুল ব্যাবহার করে প্রশ্ন করুন অথবা মন্তব্য করুন "
 
 #. Translators: This intention here is that a user clicks a button to contact
 #. a support group (e.g. edX Support, or MITx Support). Reorder the
@@ -1342,11 +1344,11 @@ msgstr ""
 #: templates/base-error.html:47
 #, python-format
 msgid "Contact %(platform_name)s Support"
-msgstr ""
+msgstr "যোগাযোগ  %(platform_name)s সমর্থন টীম "
 
 #: templates/footer.html:17
 msgid "Feedback"
-msgstr ""
+msgstr "প্রতিক্রিয়া "
 
 #: templates/footer.html:19
 #, python-format
@@ -1354,7 +1356,7 @@ msgid ""
 "We want this dashboard to work for you! Need help? "
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
-msgstr ""
+msgstr "আমরা চাচ্ছি এই ড্যাশবোর্ডটি আপনার কাজে ব্যাবহার হোক ! কোন সাহায্য লাগবে ?  %(support_link_start)s যোগাযোগ করুন সমর্থন দলের সাথে %(support_link_end)s । মন্তব্য কিংবা পরামর্শ থাকলে ইমেইল করুন %(email_link)s."
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html:42
@@ -1362,40 +1364,40 @@ msgstr ""
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
 "            reserved. "
-msgstr ""
+msgstr "%(current_year)s %(platform_name)s, যেখানে উল্লেখ করা নেই অন্য সবকিছুর সর্বস্বত্ব সংরক্ষিত."
 
 #: templates/header.html:14
 msgid "Toggle navigation"
-msgstr ""
+msgstr "টগল ন্যাভিগেশন "
 
 #: templates/header.html:41
 msgid "Help"
-msgstr ""
+msgstr "সাহায্য "
 
 #: templates/header.html:47
 msgid "Menu for"
-msgstr ""
+msgstr "মেনুর জন্য "
 
 #: templates/header.html:61
 msgid "Logout"
-msgstr ""
+msgstr "প্রস্থান"
 
 #: templates/lens-navigation.html:27
 msgid "Navigation Menu."
-msgstr ""
+msgstr "ন্যাভিগেশন তালিকা "
 
 #: templates/loading.html:7
 msgid "Loading"
-msgstr ""
+msgstr "প্রক্রিয়াধীন"
 
 #: templates/section_error.html:10
 msgid "We are unable to load this chart."
-msgstr ""
+msgstr "তালিকা প্রক্রিয়ায় আনতে ব্যার্থ"
 
 #: templates/section_error.html:12
 msgid "We are unable to load this table."
-msgstr ""
+msgstr "সারণি প্রক্রিয়ায় আনতে ব্যার্থ"
 
 #: templates/section_error.html:14
 msgid "We are unable to load these metrics."
-msgstr ""
+msgstr "ছন্দ প্রক্রিয়ায় আনতে ব্যার্থ"
