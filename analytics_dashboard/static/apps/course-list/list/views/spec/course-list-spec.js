@@ -99,6 +99,29 @@ define(function(require) {
             });
         });
 
+        it('renders concise and a11y text when no date is provided', function() {
+            var collection,
+                view;
+
+            collection = new CourseList([
+                new CourseModel({
+                    catalog_course_title: 'Alpaca',
+                    course_id: 'this/course/id',
+                    count: 10,
+                    cumulative_count: 20,
+                    count_change_7_days: 30,
+                    verified_enrollment: 40
+                })]
+            );
+            view = getCourseListView({collection: collection});
+
+            _(['td.start_date', 'td.end_date']).each(function(selector) {
+                var $date = view.$el.find(selector);
+                expect($date).toContainText('--');
+                expect($date.find('.sr-only')).toContainText('Date not available');
+            });
+        });
+
         describe('filteringEnabled', function() {
             var filterSelectors = ['.course-list-availability-filter-container',
                 '.course-list-pacing-type-filter-container'];
