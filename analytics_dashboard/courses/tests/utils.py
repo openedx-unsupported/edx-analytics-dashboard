@@ -764,14 +764,14 @@ def get_mock_course_summaries_csv(course_ids):
         'enrollment_modes.honor.cumulative_count,enrollment_modes.professional.count,' +
         'enrollment_modes.professional.count_change_7_days,enrollment_modes.professional.cumulative_count,' +
         'enrollment_modes.verified.count,enrollment_modes.verified.count_change_7_days,' +
-        'enrollment_modes.verified.cumulative_count,pacing_type,start_date'
+        'enrollment_modes.verified.cumulative_count,pacing_type,start_date\r\n'
     )
     mock_csv = ''
 
     for course_id in course_ids:
         mock_csv = mock_csv + (
-            '\nUpcoming,Demo_Course,Demo Course,1590,41,{},2017-02-21T182754,1835,2017-05-02T182754,238,-2,326,' +
-            '238,2,288,398,-28,449,159,34,162,557,35,610,self_paced,2017-01-10T182754'
+            'Upcoming,Demo_Course,Demo Course,1590,41,{},2017-02-21T182754,1835,2017-05-02T182754,238,-2,326,' +
+            '238,2,288,398,-28,449,159,34,162,557,35,610,self_paced,2017-01-10T182754\r\n'
         ).format(course_id)
 
     return mock_csv if mock_csv == '' else header + mock_csv

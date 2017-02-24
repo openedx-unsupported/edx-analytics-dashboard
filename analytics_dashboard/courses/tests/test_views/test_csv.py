@@ -1,4 +1,4 @@
-from ddt import ddt, data, unpack
+from ddt import ddt, data
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 from django.utils import timezone
@@ -18,7 +18,6 @@ from courses.tests.utils import (
     get_mock_course_summaries,
     get_mock_course_summaries_csv,
 )
-from courses.views.course_summaries import CourseIndexCSV
 
 
 @ddt
@@ -204,6 +203,11 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
         response = self.client.get(self.path())
         now = timezone.now().replace(microsecond=0)
 
+        if csv_data == '':
+            # This is a no-data case, check for 404 status (and nothing else)
+            self.assertEqual(response.status_code, 404)
+            return
+
         # Check content type
         self.assertResponseContentType(response, 'text/csv')
 
@@ -235,88 +239,4 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
 
     @data(CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
     def test_response_no_data(self, course_id):
-        # TODO: is a blank CSV okay? Should it return a header row with no data rows instead?
         self._test_csv(course_id, [], '')
-
-    @data(
-        [{}, [], []],
-        [{
-            'audit': {
-                'count': 5,
-                'count_change_7_days': 1,
-            },
-            'credit': {
-                'count': 10,
-            },
-        }, [], [
-            ('audit.count', 5),
-            ('audit.count_change_7_days', 1),
-            ('credit.count', 10),
-        ]],
-        [{
-            'audit': {
-                'count': 5,
-                'count_change_7_days': 1,
-            },
-            'credit': {
-                'count': 10,
-            },
-        }, [
-            'enrollment_modes'
-        ], [
-            ('enrollment_modes.audit.count', 5),
-            ('enrollment_modes.audit.count_change_7_days', 1),
-            ('enrollment_modes.credit.count', 10),
-        ]],
-        [{
-            'audit': {
-                'count': 5,
-                'count_change_7_days': 1,
-            },
-            'credit': {
-                'count': 10,
-            },
-        }, [
-            'foo', 'bar', 'enrollment_modes'
-        ], [
-            ('foo.bar.enrollment_modes.audit.count', 5),
-            ('foo.bar.enrollment_modes.audit.count_change_7_days', 1),
-            ('foo.bar.enrollment_modes.credit.count', 10),
-        ]],
-        [{
-            'audit': {
-                'foo': {
-                    'bar': {
-                        'baz': {
-                            'count': 1
-                        }
-                    }
-                }
-            }
-        }, [], [
-            ('audit.foo.bar.baz.count', 1),
-        ]],
-    )
-    @unpack
-    def test_collapse_nested_dict(self, nested_dict, dot_separated_key, expected):
-        view = CourseIndexCSV()
-        collapsed = view.collapse_nested_dict(nested_dict, dot_separated_key)
-        self.assertListEqual(collapsed, expected)
-
-    @data(
-        [[], ''],
-        [
-            get_mock_course_summaries([CourseSamples.DEMO_COURSE_ID]),
-            get_mock_course_summaries_csv([CourseSamples.DEMO_COURSE_ID]),
-        ],
-        [
-            get_mock_course_summaries([CourseSamples.DEMO_COURSE_ID,
-                                       CourseSamples.DEPRECATED_DEMO_COURSE_ID]),
-            get_mock_course_summaries_csv([CourseSamples.DEMO_COURSE_ID,
-                                           CourseSamples.DEPRECATED_DEMO_COURSE_ID]),
-        ],
-    )
-    @unpack
-    def test_convert_to_csv(self, summaries, expected_csv):
-        view = CourseIndexCSV()
-        self.assertEqual(view.convert_to_csv(summaries), expected_csv)
