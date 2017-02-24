@@ -1,7 +1,10 @@
+import urllib
+import mock
+
 from ddt import ddt, data
 from django.core.urlresolvers import reverse
 from django.test import TestCase
-import mock
+from django.utils import timezone
 
 from analyticsclient.exceptions import NotFoundError
 from courses.tests.test_views import ViewTestMixin
@@ -14,6 +17,8 @@ from courses.tests.utils import (
     get_mock_api_enrollment_education_data,
     get_mock_api_enrollment_gender_data,
     get_mock_api_enrollment_geography_data,
+    get_mock_course_summaries,
+    get_mock_course_summaries_csv,
 )
 
 
@@ -181,3 +186,59 @@ class PerformanceProblemResponseCSVTests(ViewTestMixin, TestCase):
         with mock.patch(self.api_method, side_effect=NotFoundError):
             response = self.client.get(self.path(course_id=self.course_id))
             self.assertEqual(response.status_code, 404)
+
+
+@ddt
+class CourseIndexCSVTests(ViewTestMixin, TestCase):
+    viewname = 'courses:index_csv'
+    base_file_name = 'course-list'
+    api_method = 'analyticsclient.course_summaries.CourseSummaries.course_summaries'
+
+    def path(self, **kwargs):
+        # This endpoint does not include the course-id, so drop it (along with any other kwargs)
+        return reverse(self.viewname)
+
+    def get_mock_data(self, course_id):
+        return get_mock_course_summaries([course_id])
+
+    def assertIsValidCSV(self, csv_data):
+        response = self.client.get(self.path())
+        now = timezone.now().replace(microsecond=0)
+
+        if csv_data == '':
+            # This is a no-data case, check for 404 status (and nothing else)
+            self.assertEqual(response.status_code, 404)
+            return
+
+        # Check content type
+        self.assertResponseContentType(response, 'text/csv')
+
+        # Check filename
+        csv_prefix = now.isoformat()
+        filename = '{0}--{1}.csv'.format(csv_prefix, self.base_file_name)
+        self.assertResponseFilename(response, filename)
+
+        # Check data
+        self.assertEqual(response.content, csv_data)
+
+    def assertResponseContentType(self, response, content_type):
+        self.assertEqual(response['Content-Type'], content_type)
+
+    def assertResponseFilename(self, response, filename):
+        self.assertEqual(response['Content-Disposition'], 'attachment; filename="{0}"'.format(urllib.quote(filename)))
+
+    def _test_csv(self, course_id, mocked_api_response, csv_data):
+        csv_data = csv_data.format(course_id)
+
+        with mock.patch('courses.presenters.course_summaries.CourseSummariesPresenter.get_course_summaries',
+                        return_value=(mocked_api_response, None)):
+            self.assertIsValidCSV(csv_data)
+
+    @data(CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
+    def test_response(self, course_id):
+        self._test_csv(course_id, self.get_mock_data(course_id),
+                       get_mock_course_summaries_csv([course_id]))
+
+    @data(CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
+    def test_response_no_data(self, course_id):
+        self._test_csv(course_id, [], '')
