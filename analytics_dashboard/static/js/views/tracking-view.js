@@ -43,6 +43,9 @@ define(['backbone', 'jquery', 'underscore', 'utils/utils'],
                     self.initSegment(trackId);
                     self.logUser();
 
+                    // this should be called after the user is logged
+                    self.segment.page(self.buildCourseProperties());
+
                     // now segment has been loaded, we can track events
                     self.listenTo(self.model, 'segment:track', self.track);
                     self.listenTo(self.model, 'segment:page', self.page);
@@ -93,9 +96,6 @@ define(['backbone', 'jquery', 'underscore', 'utils/utils'],
 
                 // provide our application key for logging
                 self.segment.load(applicationKey);
-
-                // this needs to be called once
-                self.segment.page(self.buildCourseProperties());
             },
 
             /**
