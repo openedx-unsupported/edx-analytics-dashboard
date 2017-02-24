@@ -17,8 +17,9 @@ define(function(require) {
     require('backgrid-paginator');
 
     PagingFooter = Backgrid.Extension.Paginator.extend({
+        tagName: 'nav',
         attributes: {
-            role: 'navigation'
+            'aria-label': 'Pagination'
         },
         controls: {
             rewind: {title: 'First', label: '<span class="fa fa-fast-backward" aria-hidden="true"></span>'},

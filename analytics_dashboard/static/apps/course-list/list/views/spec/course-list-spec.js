@@ -371,6 +371,12 @@ define(function(require) {
                     done();
                 });
             });
+
+            it('paging component is a nav tag with aria label', function() {
+                var view = getCourseListView(),
+                    $paginator = view.$el.find('nav.backgrid-paginator');
+                expect($paginator.attr('aria-label')).toEqual('Pagination');
+            });
         });
     });
 });
