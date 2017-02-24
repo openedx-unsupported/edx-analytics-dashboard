@@ -4,13 +4,15 @@
 define(function(require) {
     'use strict';
 
-    var _ = require('underscore'),
+    var $ = require('jquery'),
+        _ = require('underscore'),
         Backgrid = require('backgrid'),
         ListTableView = require('components/generic-list/list/views/table'),
 
         CourseListBaseHeaderCell = require('course-list/list/views/base-header-cell'),
         CourseIdAndNameCell = require('course-list/list/views/course-id-and-name-cell'),
         courseListTableTemplate = require('text!course-list/list/templates/table.underscore'),
+        notAvailableTemplate = require('text!course-list/list/templates/table-data-not-available.underscore'),
         Utils = require('utils/utils'),
 
         INTEGER_COLUMNS = ['count', 'cumulative_count', 'count_change_7_days', 'verified_enrollment'],
@@ -41,8 +43,10 @@ define(function(require) {
                             var result = Backgrid.Extension.MomentCell.prototype.render.call(this, arguments);
                             // Null values are rendered by MomentCell as "Invalid date". Convert to a nicer string:
                             if (result.el.textContent === 'Invalid date') {
-                                result.el.textContent = '--';
-                                $(result.el).attr('aria-label', gettext('Date not available'));
+                                // render the nicer text and screen reader only text
+                                $(result.el).html(_.template(notAvailableTemplate)({
+                                    srText: gettext('Date not available')
+                                }));
                             }
                             return result;
                         }
