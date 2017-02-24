@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-21 16:50-0500\n"
+"POT-Creation-Date: 2017-02-23 17:47-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,7 +86,7 @@ msgid "click to sort"
 msgstr ""
 
 #: static/apps/components/generic-list/list/views/list.js:54
-#: static/dist/apps/course-list/app/course-list-main.js:6336
+#: static/dist/apps/course-list/app/course-list-main.js:6369
 #: static/dist/apps/learners/app/learners-main.js:31218
 msgid "Results"
 msgstr ""
@@ -174,69 +174,69 @@ msgid "Network error"
 msgstr ""
 
 #: static/apps/course-list/app/app.js:41
-#: static/dist/apps/course-list/app/course-list-main.js:6868
+#: static/dist/apps/course-list/app/course-list-main.js:6901
 msgid "Instructor-Paced"
 msgstr ""
 
 #: static/apps/course-list/app/app.js:42
-#: static/dist/apps/course-list/app/course-list-main.js:6869
+#: static/dist/apps/course-list/app/course-list-main.js:6902
 msgid "Self-Paced"
 msgstr ""
 
 #: static/apps/course-list/app/app.js:45
-#: static/dist/apps/course-list/app/course-list-main.js:6872
+#: static/dist/apps/course-list/app/course-list-main.js:6905
 msgid "Upcoming"
 msgstr ""
 
 #: static/apps/course-list/app/app.js:46
-#: static/dist/apps/course-list/app/course-list-main.js:6873
+#: static/dist/apps/course-list/app/course-list-main.js:6906
 msgid "Current"
 msgstr ""
 
 #: static/apps/course-list/app/app.js:47
-#: static/dist/apps/course-list/app/course-list-main.js:6874
+#: static/dist/apps/course-list/app/course-list-main.js:6907
 msgid "Archived"
 msgstr ""
 
 #: static/apps/course-list/app/app.js:48
-#: static/dist/apps/course-list/app/course-list-main.js:6875
+#: static/dist/apps/course-list/app/course-list-main.js:6908
 msgid "Unknown"
 msgstr ""
 
 #: static/apps/course-list/app/controller.js:48
 #: static/apps/course-list/app/controller.js:107
-#: static/dist/apps/course-list/app/course-list-main.js:6479
-#: static/dist/apps/course-list/app/course-list-main.js:6538
+#: static/dist/apps/course-list/app/course-list-main.js:6512
+#: static/dist/apps/course-list/app/course-list-main.js:6571
 msgid "Course List"
 msgstr ""
 
 #: static/apps/course-list/app/controller.js:97
 #: static/apps/learners/app/controller.js:94
-#: static/dist/apps/course-list/app/course-list-main.js:6528
+#: static/dist/apps/course-list/app/course-list-main.js:6561
 #: static/dist/apps/learners/app/learners-main.js:33024
 msgid "Invalid Parameters"
 msgstr ""
 
 #: static/apps/course-list/app/controller.js:98
-#: static/dist/apps/course-list/app/course-list-main.js:6529
+#: static/dist/apps/course-list/app/course-list-main.js:6562
 msgid "Sorry, we couldn't find any courses that matched that query."
 msgstr ""
 
 #: static/apps/course-list/app/controller.js:99
-#: static/dist/apps/course-list/app/course-list-main.js:6530
+#: static/dist/apps/course-list/app/course-list-main.js:6563
 msgid "Return to the Course List page."
 msgstr ""
 
 #: static/apps/course-list/app/controller.js:124
 #: static/apps/learners/app/controller.js:176
-#: static/dist/apps/course-list/app/course-list-main.js:6555
+#: static/dist/apps/course-list/app/course-list-main.js:6588
 #: static/dist/apps/learners/app/learners-main.js:33106
 msgid "Sorry, we couldn't find the page you're looking for."
 msgstr ""
 
 #: static/apps/course-list/app/controller.js:127
 #: static/apps/learners/app/controller.js:179
-#: static/dist/apps/course-list/app/course-list-main.js:6558
+#: static/dist/apps/course-list/app/course-list-main.js:6591
 #: static/dist/apps/learners/app/learners-main.js:33109
 msgid "Page Not Found"
 msgstr ""
@@ -293,30 +293,37 @@ msgid "Pacing Type"
 msgstr ""
 
 #: static/apps/course-list/list/views/base-header-cell.js:11
+#: static/dist/apps/course-list/app/course-list-main.js:5992
 msgid "Course name advertised on edX site."
 msgstr ""
 
 #: static/apps/course-list/list/views/base-header-cell.js:12
+#: static/dist/apps/course-list/app/course-list-main.js:5993
 msgid "Start date advertised on edX site."
 msgstr ""
 
 #: static/apps/course-list/list/views/base-header-cell.js:13
+#: static/dist/apps/course-list/app/course-list-main.js:5994
 msgid "End date set in edX Studio."
 msgstr ""
 
 #: static/apps/course-list/list/views/base-header-cell.js:14
+#: static/dist/apps/course-list/app/course-list-main.js:5995
 msgid "Learners who ever enrolled in the course."
 msgstr ""
 
 #: static/apps/course-list/list/views/base-header-cell.js:15
+#: static/dist/apps/course-list/app/course-list-main.js:5996
 msgid "Learners currently enrolled in the course."
 msgstr ""
 
 #: static/apps/course-list/list/views/base-header-cell.js:16
+#: static/dist/apps/course-list/app/course-list-main.js:5997
 msgid "Net difference in current enrollment in the last week."
 msgstr ""
 
 #: static/apps/course-list/list/views/base-header-cell.js:18
+#: static/dist/apps/course-list/app/course-list-main.js:5999
 msgid ""
 "Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
@@ -345,36 +352,36 @@ msgid "pacing_type"
 msgstr ""
 
 #: static/apps/course-list/list/views/course-list.js:79
-#: static/dist/apps/course-list/app/course-list-main.js:6425
+#: static/dist/apps/course-list/app/course-list-main.js:6458
 msgid "Course list controls"
 msgstr ""
 
 #: static/apps/course-list/list/views/results.js:47
-#: static/dist/apps/course-list/app/course-list-main.js:6222
+#: static/dist/apps/course-list/app/course-list-main.js:6255
 msgid "No courses matched your criteria."
 msgstr ""
 
 #: static/apps/course-list/list/views/results.js:49
 #: static/apps/learners/roster/views/results.js:49
-#: static/dist/apps/course-list/app/course-list-main.js:6224
+#: static/dist/apps/course-list/app/course-list-main.js:6257
 #: static/dist/apps/learners/app/learners-main.js:32281
 msgid "Try a different search."
 msgstr ""
 
 #: static/apps/course-list/list/views/results.js:52
 #: static/apps/learners/roster/views/results.js:52
-#: static/dist/apps/course-list/app/course-list-main.js:6227
+#: static/dist/apps/course-list/app/course-list-main.js:6260
 #: static/dist/apps/learners/app/learners-main.js:32284
 msgid "Try clearing the filters."
 msgstr ""
 
 #: static/apps/course-list/list/views/results.js:55
-#: static/dist/apps/course-list/app/course-list-main.js:6230
+#: static/dist/apps/course-list/app/course-list-main.js:6263
 msgid "No course data is currently available for your course."
 msgstr ""
 
 #: static/apps/course-list/list/views/results.js:57
-#: static/dist/apps/course-list/app/course-list-main.js:6232
+#: static/dist/apps/course-list/app/course-list-main.js:6265
 msgid ""
 "No courses are enrolled, or course activity data has not yet been processed. "
 "Data is updated every day, so check back regularly for up-to-date metrics."
@@ -399,8 +406,8 @@ msgstr ""
 msgid "clear search"
 msgstr ""
 
-#: static/apps/course-list/list/views/table.js:45
-#: static/dist/apps/course-list/app/course-list-main.js:6157
+#: static/apps/course-list/list/views/table.js:48
+#: static/dist/apps/course-list/app/course-list-main.js:6189
 msgid "Date not available"
 msgstr ""
 
