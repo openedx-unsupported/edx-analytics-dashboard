@@ -1,8 +1,10 @@
+import urllib
+import mock
+
 from ddt import ddt, data
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 from django.utils import timezone
-import mock
 
 from analyticsclient.exceptions import NotFoundError
 from courses.tests.test_views import ViewTestMixin
@@ -223,7 +225,7 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
         self.assertEqual(response['Content-Type'], content_type)
 
     def assertResponseFilename(self, response, filename):
-        self.assertEqual(response['Content-Disposition'], 'attachment; filename="{0}"'.format(filename))
+        self.assertEqual(response['Content-Disposition'], 'attachment; filename="{0}"'.format(urllib.quote(filename)))
 
     def _test_csv(self, course_id, mocked_api_response, csv_data):
         csv_data = csv_data.format(course_id)

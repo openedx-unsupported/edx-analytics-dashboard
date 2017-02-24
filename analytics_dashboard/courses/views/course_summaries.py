@@ -4,7 +4,6 @@ from braces.views import LoginRequiredMixin
 
 from django.core.exceptions import PermissionDenied
 from django.http import Http404
-from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
 from waffle import switch_is_active
@@ -17,7 +16,7 @@ from courses.views import (
     TemplateView,
     TrackedViewMixin,
 )
-from courses.views.csv import CSVResponseMixin
+from courses.views.csv import DatetimeCSVResponseMixin
 from courses.presenters.course_summaries import CourseSummariesPresenter
 from rest_framework_csv.renderers import CSVRenderer
 
@@ -61,19 +60,12 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
         return context
 
 
-class CourseIndexCSV(CourseAPIMixin, LoginRequiredMixin, CSVResponseMixin, TemplateView):
+class CourseIndexCSV(CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixin, TemplateView):
 
     csv_filename_suffix = 'course-list'
     # Note: we are not using the DRF "renderer_classes" field here because this is a Django view, not a DRF view.
     # We will call the render function on the renderer directly instead.
     renderer = CSVRenderer()
-
-    def _get_filename(self):
-        """
-        Returns the filename for the CSV download.
-        """
-        now = timezone.now().replace(microsecond=0)
-        return u'{0}--{1}.csv'.format(now.isoformat(), self.csv_filename_suffix)
 
     def get_data(self):
         courses = permissions.get_user_course_permissions(self.request.user)

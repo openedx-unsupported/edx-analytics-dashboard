@@ -3,6 +3,7 @@ import logging
 import urllib
 
 from django.http import HttpResponse, HttpResponseRedirect
+from django.utils import timezone
 
 from analyticsclient.constants import data_format, demographic
 from analyticsclient.client import Client
@@ -15,6 +16,7 @@ logger = logging.getLogger(__name__)
 
 
 class CSVResponseMixin(object):
+    """An abstract class for defining mixins that will make a view return data in CSV format."""
     csv_filename_suffix = None
 
     # pylint: disable=unused-argument
@@ -26,28 +28,52 @@ class CSVResponseMixin(object):
     def get_data(self):
         raise NotImplementedError
 
+    @property
+    def csv_identifier(self):
+        """Unique string to identify an instance of the CSV output. Prefix of the CSV filename.
+
+        Type of CSV output is defined by csv_filename_suffix.
+        """
+        raise NotImplementedError
+
     def _get_filename(self):
-        course_key = self.course_key
-        course_id = '-'.join([course_key.org, course_key.course, course_key.run])
-        filename = u'{0}--{1}.csv'.format(course_id, self.csv_filename_suffix)
+        """Concatenates the unique csv_identifier with the general csv_filename_suffix for this class."""
+        filename = u'{0}--{1}.csv'.format(self.csv_identifier, self.csv_filename_suffix)
         return urllib.quote(filename)
 
 
-class CourseEnrollmentDemographicsAgeCSV(CSVResponseMixin, CourseView):
+# pylint: disable=W0223
+class CourseCSVResponseMixin(CSVResponseMixin):
+    """A CSVResponseMixin that implements csv_identifier to be the view's course id."""
+    @property
+    def csv_identifier(self):
+        course_key = self.course_key
+        return '-'.join([course_key.org, course_key.course, course_key.run])
+
+
+# pylint: disable=W0223
+class DatetimeCSVResponseMixin(CSVResponseMixin):
+    """A CSVResponseMixin that implements csv_identifier to be the current time in ISO format."""
+    @property
+    def csv_identifier(self):
+        return timezone.now().replace(microsecond=0).isoformat()
+
+
+class CourseEnrollmentDemographicsAgeCSV(CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = u'enrollment-by-birth-year'
 
     def get_data(self):
         return self.course.enrollment(demographic.BIRTH_YEAR, data_format=data_format.CSV),
 
 
-class CourseEnrollmentDemographicsEducationCSV(CSVResponseMixin, CourseView):
+class CourseEnrollmentDemographicsEducationCSV(CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = u'enrollment-by-education'
 
     def get_data(self):
         return self.course.enrollment(demographic.EDUCATION, data_format=data_format.CSV),
 
 
-class CourseEnrollmentDemographicsGenderCSV(CSVResponseMixin, CourseView):
+class CourseEnrollmentDemographicsGenderCSV(CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = u'enrollment-by-gender'
 
     def get_data(self):
@@ -55,14 +81,14 @@ class CourseEnrollmentDemographicsGenderCSV(CSVResponseMixin, CourseView):
         return self.course.enrollment(demographic.GENDER, end_date=end_date, data_format=data_format.CSV),
 
 
-class CourseEnrollmentByCountryCSV(CSVResponseMixin, CourseView):
+class CourseEnrollmentByCountryCSV(CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = u'enrollment-location'
 
     def get_data(self):
         return self.course.enrollment(demographic.LOCATION, data_format=data_format.CSV)
 
 
-class CourseEnrollmentCSV(CSVResponseMixin, CourseView):
+class CourseEnrollmentCSV(CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = u'enrollment'
 
     def get_data(self):
@@ -70,7 +96,7 @@ class CourseEnrollmentCSV(CSVResponseMixin, CourseView):
         return self.course.enrollment('mode', data_format=data_format.CSV, end_date=end_date)
 
 
-class CourseEngagementActivityTrendCSV(CSVResponseMixin, CourseView):
+class CourseEngagementActivityTrendCSV(CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = u'engagement-activity'
 
     def get_data(self):
@@ -78,7 +104,7 @@ class CourseEngagementActivityTrendCSV(CSVResponseMixin, CourseView):
         return self.course.activity(data_format=data_format.CSV, end_date=end_date)
 
 
-class CourseEngagementVideoTimelineCSV(CSVResponseMixin, CourseView):
+class CourseEngagementVideoTimelineCSV(CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = u'engagement-video-timeline'
 
     def get_data(self):
@@ -86,7 +112,7 @@ class CourseEngagementVideoTimelineCSV(CSVResponseMixin, CourseView):
         return modules.video_timeline(data_format=data_format.CSV)
 
 
-class PerformanceAnswerDistributionCSV(CSVResponseMixin, CourseView):
+class PerformanceAnswerDistributionCSV(CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = u'performance-answer-distribution'
 
     def get_data(self):
