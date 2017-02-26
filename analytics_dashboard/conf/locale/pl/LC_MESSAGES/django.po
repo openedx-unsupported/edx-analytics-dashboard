@@ -15,15 +15,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-03 15:14-0500\n"
-"PO-Revision-Date: 2017-01-19 08:23+0000\n"
+"POT-Creation-Date: 2017-02-23 17:47-0500\n"
+"PO-Revision-Date: 2017-02-22 18:01+0000\n"
 "Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: Polish (http://www.transifex.com/open-edx/edx-platform/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>=14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 #: core/templates/core/landing.html:15 templates/_skip_link.html:3
 msgid "Skip to content"
@@ -850,7 +850,7 @@ msgstr "Podstawowe informacje o kursie"
 msgid "External Tools"
 msgstr ""
 
-#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:25
+#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:27
 msgid "Courses"
 msgstr "Kursy"
 
@@ -1145,7 +1145,7 @@ msgid "Courseware"
 msgstr "Materiały szkoleniowe"
 
 #. Translators: Do not translate UTC.
-#: courses/views/course_summaries.py:34
+#: courses/views/course_summaries.py:36
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."

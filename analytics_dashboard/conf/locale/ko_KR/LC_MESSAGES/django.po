@@ -10,6 +10,7 @@
 # Jong-Dae Park <jdpark7@gmail.com>, 2015
 # Kevin Min <gr326887@graded.br>, 2015
 # Kunwoo Kim <crazyabtmath@naver.com>, 2015
+# lion kang <river@kotech.co.kr>, 2017
 # Nicole <dlruddk1112@gmail.com>, 2014
 # kmooc <shevious@gmail.com>, 2016
 # Sujin Lee <sujinlee.me@gmail.com>, 2014
@@ -19,9 +20,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-03 15:14-0500\n"
-"PO-Revision-Date: 2017-01-19 08:23+0000\n"
-"Last-Translator: Ned Batchelder <ned@edx.org>\n"
+"POT-Creation-Date: 2017-02-23 17:47-0500\n"
+"PO-Revision-Date: 2017-02-13 20:35+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/open-edx/edx-platform/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -129,7 +130,7 @@ msgstr "{statistic}%"
 #: courses/presenters/engagement.py:126
 #, python-brace-format
 msgid "{percentage} of current learners"
-msgstr ""
+msgstr "현재 학습자의 {percentage}"
 
 #: courses/presenters/enrollment.py:23
 msgid "Female"
@@ -767,41 +768,41 @@ msgstr "지역 지표 "
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html:53
 msgid "Total Countries or Regions Represented"
-msgstr ""
+msgstr "표현된 전체 국가 또는 지역"
 
 #: courses/templates/courses/enrollment_geography.html:54
 msgid "Countries or regions with at least one learner."
-msgstr ""
+msgstr "최소 한 명의 학습자가 있는 국가 또는 지역"
 
 #. Translators: This string represents the country or region with the greatest
 #. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html:62
 msgid "Top Country or Region by Enrollment"
-msgstr ""
+msgstr "등록된 최상위 국가 또는 지역"
 
 #: courses/templates/courses/enrollment_geography.html:63
 msgid "Country or region with the largest number of learners."
-msgstr ""
+msgstr "가장 많은 수의 학습자가 있는 국가 또는 지역."
 
 #. Translators: This string represents the country or region with the second-
 #. greatest number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html:66
 msgid "Second Country or Region by Enrollment"
-msgstr ""
+msgstr "두 번째 등록된 국가 또는 지역"
 
 #: courses/templates/courses/enrollment_geography.html:67
 msgid "Country or region with the second largest number of learners."
-msgstr ""
+msgstr "두 번째로 많은 수의 학습자가 있는 국가 또는 지역."
 
 #. Translators: This string represents the country or region with the third-
 #. greatest number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html:70
 msgid "Third Country or Region by Enrollment"
-msgstr ""
+msgstr "세 번째 등록된 국가 또는 지역"
 
 #: courses/templates/courses/enrollment_geography.html:71
 msgid "Country or region with the third largest number of learners."
-msgstr ""
+msgstr "세 번째로 많은 수의 학습자가 있는 국가 또는 지역"
 
 #. Translators: This string represents the percentage of learners in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
@@ -854,7 +855,7 @@ msgstr "강좌 기본 정보"
 msgid "External Tools"
 msgstr "외부 도구"
 
-#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:25
+#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:27
 msgid "Courses"
 msgstr "강좌"
 
@@ -1069,35 +1070,35 @@ msgstr "학습 성과"
 
 #: courses/views/__init__.py:556
 msgid "What are learners doing in my course?"
-msgstr ""
+msgstr "나의 강좌에서 학습자들은 무엇을 하고 있습니까?"
 
 #: courses/views/__init__.py:586
 msgid "How are learners doing on graded course assignments?"
-msgstr ""
+msgstr "학습자는 채점 된 학습 과제를 어떻게 수행합니까?"
 
 #: courses/views/__init__.py:607
 msgid "What is the breakdown for course learning outcomes?"
-msgstr ""
+msgstr "학습 결과에 대한 분석은 무엇입니까?"
 
 #: courses/views/__init__.py:627
 msgid "How are learners responding to questions?"
-msgstr ""
+msgstr "학습자는 질문에 어떻게 반응합니까?"
 
 #: courses/views/__init__.py:629
 msgid "Problem Response Report"
-msgstr ""
+msgstr "문제 답변 보고서"
 
 #: courses/views/__init__.py:636
 msgid "How are learners doing on course assignments?"
-msgstr ""
+msgstr "학습자는 과정 과제에서 어떻게 하고 있습니까?"
 
 #: courses/views/__init__.py:644
 msgid "What are individual learners doing?"
-msgstr ""
+msgstr "개별 학습자는 무엇을하고 있습니까?"
 
 #: courses/views/__init__.py:647
 msgid "Who is engaged? Who isn't?"
-msgstr ""
+msgstr "참여를 많이 한 학습자는 누구고 그렇지 않은 사람은 누구입니까?"
 
 #: courses/views/__init__.py:649
 msgid "All Learners"
@@ -1126,7 +1127,7 @@ msgstr "종료되어었습니다."
 #. Translators: This refers to a course that has not yet begun.
 #: courses/views/__init__.py:719
 msgid "Not Started Yet"
-msgstr ""
+msgstr "아직 시작되지 않았습니다."
 
 #: courses/views/__init__.py:721
 msgid "Start Date"
@@ -1134,7 +1135,7 @@ msgstr "시작일"
 
 #: courses/views/__init__.py:722
 msgid "End Date"
-msgstr ""
+msgstr "종료 일자"
 
 #: courses/views/__init__.py:723
 msgid "Status"
@@ -1149,7 +1150,7 @@ msgid "Courseware"
 msgstr "강좌 내용"
 
 #. Translators: Do not translate UTC.
-#: courses/views/course_summaries.py:34
+#: courses/views/course_summaries.py:36
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
@@ -1287,7 +1288,7 @@ msgstr ""
 
 #: courses/views/performance.py:398 courses/views/performance.py:428
 msgid "Performance: Learning Outcomes"
-msgstr ""
+msgstr "성과 : 학습 결과"
 
 #: settings/base.py:456
 msgid "Terms of Service"
