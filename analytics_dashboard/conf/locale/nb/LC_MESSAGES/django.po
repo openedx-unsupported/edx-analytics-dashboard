@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-03 15:14-0500\n"
-"PO-Revision-Date: 2017-01-31 22:21+0000\n"
+"POT-Creation-Date: 2017-02-23 17:47-0500\n"
+"PO-Revision-Date: 2017-02-14 14:14+0000\n"
 "Last-Translator: Frode Arntsen <frode.arntsen@bibsys.no>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/open-edx/edx-platform/language/nb/)\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr ""
 
 #: core/templates/core/landing.html:15 templates/_skip_link.html:3
 msgid "Skip to content"
-msgstr ""
+msgstr "Hopp til innhold"
 
 #: core/templates/core/landing.html:23
 msgid "Login"
@@ -37,7 +37,7 @@ msgstr "Innsikt for å hjelpe kursteamet å forbedre kursene. "
 
 #: core/templates/core/landing.html:42 courses/views/__init__.py:497
 msgid "Who are my learners?"
-msgstr ""
+msgstr "Hvem er mine kursdeltagere?"
 
 #: core/templates/core/landing.html:43
 msgid "Target your course to fit the backgrounds of your learners."
@@ -392,7 +392,7 @@ msgstr "Så en video forrige uke."
 
 #: courses/templates/courses/engagement_content.html:62
 msgid "Learners who played one or more videos."
-msgstr ""
+msgstr "Studenter som spilte av en eller flere videoer."
 
 #. Translators: This is a label indicating the number of learners who tried a
 #. problem.
@@ -848,7 +848,7 @@ msgstr "Grunnleggende kursinformasjon"
 msgid "External Tools"
 msgstr "Eksterne verktøy"
 
-#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:25
+#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:27
 msgid "Courses"
 msgstr "Kurs"
 
@@ -1143,7 +1143,7 @@ msgid "Courseware"
 msgstr "Kursinnhold"
 
 #. Translators: Do not translate UTC.
-#: courses/views/course_summaries.py:34
+#: courses/views/course_summaries.py:36
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."

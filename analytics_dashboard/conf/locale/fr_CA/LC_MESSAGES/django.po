@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-03 15:14-0500\n"
-"PO-Revision-Date: 2017-01-27 18:25+0000\n"
+"POT-Creation-Date: 2017-02-23 17:47-0500\n"
+"PO-Revision-Date: 2017-02-10 18:34+0000\n"
 "Last-Translator: Pierre Mailhot <pierre.mailhot@gmail.com>\n"
 "Language-Team: French (Canada) (http://www.transifex.com/open-edx/edx-platform/language/fr_CA/)\n"
 "MIME-Version: 1.0\n"
@@ -120,7 +120,7 @@ msgstr "{statistic} %"
 #: courses/presenters/engagement.py:126
 #, python-brace-format
 msgid "{percentage} of current learners"
-msgstr ""
+msgstr "{percentage} des apprenants actuels"
 
 #: courses/presenters/enrollment.py:23
 msgid "Female"
@@ -169,7 +169,7 @@ msgstr "Secondaire"
 #. Degree).
 #: courses/presenters/enrollment.py:53
 msgid "Associate"
-msgstr ""
+msgstr "Associé"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
@@ -204,32 +204,32 @@ msgstr "Soumissions"
 #: courses/presenters/performance.py:150
 #, python-brace-format
 msgid "Submissions for Part {part_number}: {part_description}"
-msgstr ""
+msgstr "Soumissions pour la pièce {part_number} : {part_description}"
 
 #: courses/presenters/performance.py:151
 #, python-brace-format
 msgid "Part {part_number}: {part_description}"
-msgstr ""
+msgstr "Pièce {part_number} : {part_description}"
 
 #: courses/presenters/performance.py:153
 #, python-brace-format
 msgid "Submissions: {part_description}"
-msgstr ""
+msgstr "Soumissions : {part_description}"
 
 #: courses/presenters/performance.py:154
 #, python-brace-format
 msgid "{part_description}"
-msgstr ""
+msgstr "{part_description}"
 
 #: courses/presenters/performance.py:157
 #, python-brace-format
 msgid "Submissions for Part {part_number}"
-msgstr ""
+msgstr "Soumissions pour la pièce {part_number}"
 
 #: courses/presenters/performance.py:158
 #, python-brace-format
 msgid "Part {part_number}"
-msgstr ""
+msgstr "Pièce {part_number}"
 
 #: courses/templates/courses/_base_content_nav.html:25
 #, python-format
@@ -758,41 +758,41 @@ msgstr "Métriques géographiques"
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html:53
 msgid "Total Countries or Regions Represented"
-msgstr ""
+msgstr "Total des pays ou régions représentés"
 
 #: courses/templates/courses/enrollment_geography.html:54
 msgid "Countries or regions with at least one learner."
-msgstr ""
+msgstr "Pays ou régions avec au moins un apprenant."
 
 #. Translators: This string represents the country or region with the greatest
 #. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html:62
 msgid "Top Country or Region by Enrollment"
-msgstr ""
+msgstr "Premier pays ou région par inscriptions"
 
 #: courses/templates/courses/enrollment_geography.html:63
 msgid "Country or region with the largest number of learners."
-msgstr ""
+msgstr "Pays ou région avec le plus grand nombre d'apprenant."
 
 #. Translators: This string represents the country or region with the second-
 #. greatest number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html:66
 msgid "Second Country or Region by Enrollment"
-msgstr ""
+msgstr "Second pays ou région par inscriptions"
 
 #: courses/templates/courses/enrollment_geography.html:67
 msgid "Country or region with the second largest number of learners."
-msgstr ""
+msgstr "Pays ou région avec le deuxième plus grand nombre d'apprenants."
 
 #. Translators: This string represents the country or region with the third-
 #. greatest number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html:70
 msgid "Third Country or Region by Enrollment"
-msgstr ""
+msgstr "Troisième pays ou région par inscriptions"
 
 #: courses/templates/courses/enrollment_geography.html:71
 msgid "Country or region with the third largest number of learners."
-msgstr ""
+msgstr "Pays ou région avec le troisième plus grand nombre d'apprenants."
 
 #. Translators: This string represents the percentage of learners in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
@@ -845,7 +845,7 @@ msgstr "Informations de base relatives au cours"
 msgid "External Tools"
 msgstr "Outils externes"
 
-#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:25
+#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:27
 msgid "Courses"
 msgstr "Cours"
 
@@ -1008,7 +1008,7 @@ msgstr "Activité"
 #: courses/views/__init__.py:522 courses/views/__init__.py:532
 #: courses/views/enrollment.py:32
 msgid "Demographics"
-msgstr ""
+msgstr "Données démographiques"
 
 #: courses/tests/test_views/__init__.py:255 courses/views/__init__.py:542
 #: courses/views/enrollment.py:41
@@ -1045,13 +1045,13 @@ msgstr "Vidéos"
 #: courses/views/__init__.py:588 courses/views/performance.py:38
 #: courses/views/performance.py:101
 msgid "Graded Content"
-msgstr ""
+msgstr "Contenu noté"
 
 #: courses/tests/test_views/test_performance.py:76
 #: courses/views/__init__.py:597 courses/views/performance.py:47
 #: courses/views/performance.py:86
 msgid "Ungraded Problems"
-msgstr ""
+msgstr "Contenu non noté"
 
 #: courses/tests/test_views/test_performance.py:529
 #: courses/views/__init__.py:609 courses/views/performance.py:65
@@ -1060,35 +1060,35 @@ msgstr "Résultats d'apprentissage"
 
 #: courses/views/__init__.py:556
 msgid "What are learners doing in my course?"
-msgstr ""
+msgstr "Que font les apprenants dans mon cours?"
 
 #: courses/views/__init__.py:586
 msgid "How are learners doing on graded course assignments?"
-msgstr ""
+msgstr "Comment les apprenants font-ils lors des devoirs notés?"
 
 #: courses/views/__init__.py:607
 msgid "What is the breakdown for course learning outcomes?"
-msgstr ""
+msgstr "Quelle est la répartition des résultats d'apprentissage du cours?"
 
 #: courses/views/__init__.py:627
 msgid "How are learners responding to questions?"
-msgstr ""
+msgstr "Comment les apprenants répondent-ils aux questions?"
 
 #: courses/views/__init__.py:629
 msgid "Problem Response Report"
-msgstr ""
+msgstr "Rapport de réponse au problème"
 
 #: courses/views/__init__.py:636
 msgid "How are learners doing on course assignments?"
-msgstr ""
+msgstr "Comment les apprenants font-ils lors des devoirs?"
 
 #: courses/views/__init__.py:644
 msgid "What are individual learners doing?"
-msgstr ""
+msgstr "Que font les apprenants individuels?"
 
 #: courses/views/__init__.py:647
 msgid "Who is engaged? Who isn't?"
-msgstr ""
+msgstr "Qui est engagé? Qui ne l'est pas?"
 
 #: courses/views/__init__.py:649
 msgid "All Learners"
@@ -1140,15 +1140,15 @@ msgid "Courseware"
 msgstr "Cours"
 
 #. Translators: Do not translate UTC.
-#: courses/views/course_summaries.py:34
+#: courses/views/course_summaries.py:36
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
+msgstr "Les données sommaires du cours ont été mises à jour pour la dernière fois %(update_date)s à %(update_time)s UTC."
 
 #: courses/views/engagement.py:52
 msgid "Engagement Content"
-msgstr ""
+msgstr "Contenu de l'engagement"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py:62
@@ -1156,21 +1156,21 @@ msgstr ""
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Les données d'engagement du cours ont été mises à jour pour la dernière fois %(update_date)s à %(update_time)s UTC."
 
 #: courses/views/engagement.py:88
 msgid "Engagement Videos"
-msgstr ""
+msgstr "Vidéos d'engagement"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py:93
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
+msgstr "Les données vidéo ont été mises à jour pour la dernière fois  %(update_date)s à %(update_time)s UTC."
 
 #: courses/views/engagement.py:94
 msgid "Looks like no one has watched any videos in these sections."
-msgstr ""
+msgstr "On dirait que personne n'a regardé de vidéos dans ces sections."
 
 #: courses/views/engagement.py:120 courses/views/performance.py:300
 msgid "Section Name"
@@ -1190,18 +1190,18 @@ msgstr "Nom de la vidéo"
 msgid ""
 "Demographic learner data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "Les données démographiques des apprenants ont été mises à jour pour la dernière fois %(update_date)s à %(update_time)s UTC."
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
 #: courses/views/enrollment.py:94
 msgid ""
 "All above demographic data was self-reported at the time of registration."
-msgstr ""
+msgstr "Toutes les données démographiques ci-dessus étaient autodéclarées au moment de l'inscription."
 
 #: courses/views/enrollment.py:107
 msgid "Enrollment Activity"
-msgstr ""
+msgstr "Activité d'inscriptions"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py:117
@@ -1209,23 +1209,23 @@ msgstr ""
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "Les données d'activité d'inscription ont été mises à jour pour la dernière fois %(update_date)s à %(update_time)s UTC."
 
 #: courses/views/enrollment.py:148
 msgid "Enrollment Demographics by Age"
-msgstr ""
+msgstr "Données démographiques des inscriptions selon l'âge"
 
 #: courses/views/enrollment.py:186
 msgid "Enrollment Demographics by Education"
-msgstr ""
+msgstr "Données démographiques des inscriptions selon l'éducation"
 
 #: courses/views/enrollment.py:224
 msgid "Enrollment Demographics by Gender"
-msgstr ""
+msgstr "Données démographiques des inscriptions selon le sexe"
 
 #: courses/views/enrollment.py:262
 msgid "Enrollment Geography"
-msgstr ""
+msgstr "Inscription selon les données géographiques"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py:272
@@ -1233,7 +1233,7 @@ msgstr ""
 msgid ""
 "Geographic learner data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Les données géographique des apprenants ont été mises à jour pour la dernière fois %(update_date)s à %(update_time)s UTC."
 
 #. Translators: Do not translate UTC.
 #: courses/views/performance.py:33
@@ -1241,29 +1241,29 @@ msgstr ""
 msgid ""
 "Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Les données de soumission des problèmes ont été mises à jour pour la dernière fois %(update_date)s à %(update_time)s UTC."
 
 #: courses/views/performance.py:79
 msgid "Assignment Name"
-msgstr ""
+msgstr "Nom du du devoir"
 
 #: courses/views/performance.py:90 courses/views/performance.py:370
 msgid "No submissions received for these exercises."
-msgstr ""
+msgstr "Aucune soumission reçue pour ces problèmes."
 
 #: courses/views/performance.py:106
 msgid "No submissions received for these assignments."
-msgstr ""
+msgstr "Aucune soumission reçue pour ces devoirs."
 
 #: courses/views/performance.py:195 courses/views/performance.py:362
 #: courses/views/performance.py:460
 msgid "Performance: Problem Submissions"
-msgstr ""
+msgstr "Rendement: Soumissions de problèmes"
 
 #: courses/views/performance.py:257
 #, python-format
 msgid "Graded Content: %(assignment_type)s"
-msgstr ""
+msgstr "Contenu noté : %(assignment_type)s"
 
 #: courses/views/performance.py:276 courses/views/performance.py:344
 msgid "Problem Name"
@@ -1274,11 +1274,11 @@ msgstr "Nom de l'exercice"
 msgid ""
 "Tags distribution data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Les données de distribution des balises ont été mises à jour pour la dernière fois %(update_date)s à %(update_time)s UTC."
 
 #: courses/views/performance.py:398 courses/views/performance.py:428
 msgid "Performance: Learning Outcomes"
-msgstr ""
+msgstr "Rendement: Résultats d'apprentissage"
 
 #: settings/base.py:456
 msgid "Terms of Service"
