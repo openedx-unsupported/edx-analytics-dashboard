@@ -127,6 +127,15 @@
     ul {
       // remove default padding around the paging controls
       padding: 0;
+
+      .disabled a {
+        color: $palette-grayscale-base;
+      }
+
+      .active a {
+        color: $palette-grayscale-base;
+        background-color: $palette-grayscale-x-back;
+      }
     }
 
   }
