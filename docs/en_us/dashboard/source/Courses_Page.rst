@@ -9,10 +9,10 @@ page. This page provides a dashboard view of all of your courses, including key
 information about your courses and top-level enrollment statistics. Which
 courses have the most learners enrolled? Which courses have the most learners
 working toward a verified certificate? You can quickly answer these questions
-using the **Courses** page. 
+using the **Courses** page.
 
 The courses page provides a table with the following information about each of
-your courses.  
+your courses.
 
 * Course Name
 * Course ID
@@ -23,23 +23,34 @@ your courses.
 * Change Last Week
 * Verified Enrollment
 
-.. image:: images/course_list.png
- :alt: The Insights Courses page table with five example courses.
+.. image:: images/CoursesPage_Filters.png
+ :alt: The Insights Courses page table with four example courses.
+
+.. note::
+ On Edge, the summary table does not include course name, start date, or end
+ date.
 
 To see the Insights view for a specific course, click the course name and ID.
-You can then access more data for that course. 
+You can then access more data for that course.
 
 For detailed information about the computations, see :ref:`Enrollment
 Computations`.  Note that the enrollment data that the computations include is
 the same as the summary metrics presented in the :ref:`Enrollment_Activity`
 report.
 
-If you want to view a specific course or courses, enter any part of the course
-name or course ID in the **Find a Course** field and click the search icon.
+************************
+Finding Specific Courses
+************************
 
-.. note::
- On Edge, the summary table does not include course name, start date, or end
- date. 
+If you want to find a specific course or courses, use the options in the left
+pane. You can search by course name, course ID, availability, and pacing type.
+
+* In the **Find a Course** field, enter any part of the course name or course
+  ID, and then click the search icon.
+* Under **Availability** or **Pacing Type**, select the options that you want
+  to include in your search. The list of courses updates automatically when you
+  select or clear an option.
+
 
 *******************************************
 Identifying Courses With Highest Enrollment
@@ -48,10 +59,10 @@ Identifying Courses With Highest Enrollment
 If you want to find courses with the highest enrollment, you can sort the table
 by either the “Total Enrollment” or “Current Enrollment” columns depending on
 your metric of interest. This will help you understand which courses attract
-the most learners. 
+the most learners.
 
 You can sort for “Verified Enrollment” to find courses with the highest number
-of verified learners. 
+of verified learners.
 
 ***********************************************
 Identifying Recent Changes in Course Enrollment
@@ -62,4 +73,4 @@ at recent changes in enrollment. If you sort by the “Change Last Week” colum
 in descending order, you can see the courses with the greatest increase in
 enrollment in the past week. You will need to draw on your knowledge of recent
 marketing efforts to interpret this data, and assess the impact of marketing
-efforts on course enrollments. 
+efforts on course enrollments.
