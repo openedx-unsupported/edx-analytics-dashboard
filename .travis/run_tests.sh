@@ -19,6 +19,10 @@ export PATH=$PATH:$PWD/node_modules/.bin
 # https://github.com/GeoNode/geonode/pull/1070
 echo '{ "allow_root": true }' > /root/.bowerrc
 
+# Output node.js version
+node --version
+npm --version
+
 make develop
 make migrate
 
