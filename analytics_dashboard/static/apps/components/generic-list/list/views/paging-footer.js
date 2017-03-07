@@ -75,7 +75,7 @@ define(function(require) {
                 } else if (this.isFastForward) {
                     srText = gettext('last page');
                 } else {
-                    srText = gettext('page') + ' ';
+                    srText = gettext('page');
                     isHiddenFromSr = false;
                 }
                 this.$el.html(this.template({
@@ -83,7 +83,12 @@ define(function(require) {
                     srText: srText,
                     isHiddenFromSr: isHiddenFromSr,
                     nonSrText: this.label,
-                    isDisabled: this.$el.hasClass('disabled')
+                    isDisabled: this.$el.hasClass('disabled'),
+                    // Translators: describes the state of a pagination button as not clickable
+                    disabledText: gettext('disabled'),
+                    isActive: this.$el.hasClass('active'),
+                    // Translators: describes a pagination button as representing the current page
+                    activeText: gettext('active')
                 }));
                 this.delegateEvents();
                 return this;
