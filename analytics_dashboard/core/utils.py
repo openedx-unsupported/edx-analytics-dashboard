@@ -74,3 +74,28 @@ def translate_dict_values(items, keys):
                 item['translated_' + key] = _(item[key])
                 did_translate = True
     return did_translate
+
+
+def remove_keys(d, keys):
+    """Delete keys from dictionary of nested dictionaries recursively.
+
+    keys can be either:
+
+        a) a tuple of strings representing the keys to remove from the top level of dict d
+        b) a dict of strings mapped to tuples specifying the keys to delete in each second level dict of d
+        c) a dict of any number of N nested dicts specifying the keys to delete in each Nth level dict of d
+
+    In cases b and c, an empty string ('') key mapped to a tuple specifies the keys to delete in the top level of
+    dict d.
+    """
+    for key, val in d.items():
+        if isinstance(val, dict):
+            remove_keys(val, keys[key])
+        else:
+            if isinstance(keys, dict):
+                if '' in keys and key in keys['']:
+                    del d[key]
+            else:
+                if key in keys:
+                    del d[key]
+    return d

@@ -9,7 +9,8 @@ from django.test.utils import override_settings
 from django.test import TestCase
 from django.utils.translation import ugettext_lazy as _
 
-from core.utils import CourseStructureApiClient, delete_auto_auth_users, sanitize_cache_key, translate_dict_values
+from core.utils import (CourseStructureApiClient, delete_auto_auth_users, sanitize_cache_key, translate_dict_values,
+                        remove_keys)
 
 
 User = get_user_model()
@@ -68,6 +69,34 @@ class UtilsTests(TestCase):
 
         with self.assertRaises(KeyError):
             translate_dict_values(list_of_dicts, ('bad',))
+
+    def test_remove_keys(self):
+        dict_of_dicts = {
+            'foo': {
+                'bar': {
+                    'baz': 1,
+                    'fizz': 2
+                }
+            },
+            'flat': 0
+        }
+        flat_dict = {
+            'foo': 1,
+            'bar': 2,
+            'baz': 3
+        }
+
+        flat_dict_no_foo = flat_dict.copy()
+        del flat_dict_no_foo['foo']
+        self.assertDictEqual(remove_keys(flat_dict, ('foo',)), flat_dict_no_foo)
+
+        dict_of_dicts_no_fizz = deepcopy(dict_of_dicts)
+        del dict_of_dicts_no_fizz['foo']['bar']['fizz']
+        self.assertDictEqual(remove_keys(dict_of_dicts, {'foo': {'bar': ('fizz',)}}), dict_of_dicts_no_fizz)
+
+        del dict_of_dicts_no_fizz['flat']
+        self.assertDictEqual(remove_keys(dict_of_dicts, {'foo': {'bar': ('fizz',)}, '': ('flat',)}),
+                             dict_of_dicts_no_fizz)
 
 
 @ddt
