@@ -56,11 +56,18 @@
     }
   }
 
-  .#{$app-name}-num-results {
-    text-align: right;
-    margin-bottom: $padding-small-vertical;
-    margin-right: $padding-xs-horizontal;
-    font-size: $font-size-small;
+  .#{$app-name}-results-col {
+    @media (min-width: $bp-screen-md) {
+      .row .col:first-child {
+        margin-top: $padding-large-vertical * 1.6;
+      }
+    }
+
+    .#{$app-name}-num-results {
+      text-align: left;
+      margin-left: $padding-xs-horizontal;
+      font-size: $font-size-small;
+    }
   }
 
   .section-action {
