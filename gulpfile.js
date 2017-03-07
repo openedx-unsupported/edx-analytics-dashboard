@@ -3,7 +3,7 @@
 
     var eslint = require('gulp-eslint'),
         gulp = require('gulp'),
-        karma = require('karma').server,
+        Server = require('karma').Server,
         path = require('path'),
         browserSync = require('browser-sync'),
         extend = require('util')._extend, // eslint-disable-line no-underscore-dangle
@@ -36,7 +36,7 @@
             singleRun: true,
             browsers: ['PhantomJS']
         };
-        karma.start(extend(defaultOptions, options), cb);
+        new Server(extend(defaultOptions, options), cb).start();
     }
 
     gulp.task('lint', function() {

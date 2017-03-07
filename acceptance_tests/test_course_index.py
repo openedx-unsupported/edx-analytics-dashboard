@@ -1,3 +1,4 @@
+import requests
 from bok_choy.promise import EmptyPromise
 from bok_choy.web_app_test import WebAppTest
 from selenium.webdriver.common.keys import Keys
@@ -30,6 +31,7 @@ class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
         self._test_clear_all_filters()
         if ENABLE_COURSE_LIST_FILTERS:
             self._test_filters()
+        self._test_download_csv()
 
     def _test_course_list(self):
         """
@@ -274,3 +276,22 @@ class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
             ('instructor_paced', 'Instructor-Paced', False),
             ('self_paced', 'Self-Paced', True),
         ])
+
+    def _test_download_csv(self):
+        # Download button is present
+        download_button = self.page.q(css='a.action-download-data')
+        self.assertTrue(download_button.present)
+
+        link = download_button.attrs('href')[0]
+
+        # Steal the cookies from the logged-in firefox browser and use them in a python-initiated request
+        kwargs = dict()
+        session_id = [{i['name']: i['value']} for i in self.browser.get_cookies() if i['name'] == u'sessionid']
+        if session_id:
+            kwargs.update({
+                'cookies': session_id[0]
+            })
+        response = requests.get(link, **kwargs)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.headers['content-type'], 'text/csv')

@@ -12,6 +12,7 @@ define(function(require) {
         ActiveFiltersView = require('components/generic-list/list/views/active-filters'),
         CourseListControlsView = require('course-list/list/views/controls'),
         CourseListResultsView = require('course-list/list/views/results'),
+        DownloadDataView = require('components/download/views/download-data'),
         ListView = require('components/generic-list/list/views/list'),
         NumResultsView = require('components/generic-list/list/views/num-results'),
 
@@ -27,6 +28,7 @@ define(function(require) {
         regions: {
             activeFilters: '.course-list-active-filters',
             controls: '.course-list-table-controls',
+            downloadData: '.course-list-download-data',
             results: '.course-list-results',
             numResults: '.course-list-num-results'
         },
@@ -52,6 +54,16 @@ define(function(require) {
                         trackSubject: this.options.trackSubject,
                         appClass: this.options.appClass,
                         filteringEnabled: this.options.filteringEnabled
+                    }
+                },
+                {
+                    region: 'downloadData',
+                    class: DownloadDataView,
+                    options: {
+                        collection: this.options.collection,
+                        trackingModel: this.options.trackingModel,
+                        trackCategory: 'course_list',
+                        downloadDataMessage: gettext('Download full course list to CSV')
                     }
                 },
                 {
