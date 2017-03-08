@@ -260,9 +260,21 @@ body.view-course-list {
   #content {
     margin-top: 25px;
 
+    .view-section {
+      margin-bottom: 0px;
+    }
+
+    .course-list-app-container {
+      margin-bottom: 40px;
+    }
+
+    .section-heading {
+      margin-bottom: 25px;
+    }
+
     .view-head {
       color: $edx-gray-d2;
-      margin-bottom: 0;
+      margin-bottom: 25px;
     }
 
     .intro-text {
