@@ -1,6 +1,5 @@
 from courses.presenters import BasePresenter
 from django.core.cache import cache
-from functools import reduce
 
 
 class CourseSummariesPresenter(BasePresenter):

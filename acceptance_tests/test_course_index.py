@@ -1,5 +1,5 @@
-import requests
 import locale
+import requests
 from bok_choy.promise import EmptyPromise
 from bok_choy.web_app_test import WebAppTest
 from selenium.webdriver.common.keys import Keys
