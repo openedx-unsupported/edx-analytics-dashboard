@@ -48,7 +48,7 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
 
         presenter = CourseSummariesPresenter()
 
-        summary, summaries, last_updated = presenter.get_course_summaries(courses)
+        summaries, last_updated = presenter.get_course_summaries(courses)
         context.update({
             'update_message': self.get_last_updated_message(last_updated)
         })
@@ -60,7 +60,7 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
         }
         context['js_data']['course'] = data
         context['page_data'] = self.get_page_data(context)
-        context['summary'] = summary
+        context['summary'] = presenter.get_course_summary_metrics(summaries)
         return context
 
 
