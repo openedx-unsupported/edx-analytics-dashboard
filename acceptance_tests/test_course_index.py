@@ -335,29 +335,30 @@ class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
 
     def assertMetricTileValid(self, stat_type, value, tooltip):
         selector = 'data-stat-type=%s' % stat_type
-        self.assertSummaryPointValueEquals(selector, value)
+        if value is not None:
+            self.assertSummaryPointValueEquals(selector, value)
         self.assertSummaryTooltipEquals(selector, tooltip)
 
     def _test_summary_metrics(self):
-        """Verify that the metric tiles display the correct information."""
-        # Because the generated data is random, this is the most accuracy that we can test on
-        min_enrollment = 1500
-        min_verified_enrollment = 525
-        min_change = -200
+        """Verify that the metric tiles display the correct information.
 
-        # Verify the current enrollment metric tile.
+        Test data must include at least one course with at least one verified enrollment which the
+        test user can access.
+        """
+        # Because the generated data is random, this is the most accuracy that we can test on
+        min_enrollment = 1
+        min_verified_enrollment = 1
+
         tooltip = u'Current enrollments across all of your courses.'
         self.assertMetricTileValid('current_enrollment', min_enrollment, tooltip)
 
-        # Verify the current enrollment metric tile.
         tooltip = u'Total enrollments across all of your courses.'
         self.assertMetricTileValid('total_enrollment', min_enrollment, tooltip)
 
-        # Verify the total enrollment change metric tile.
+        # Note: the value is not checked because any negative, zero, or positive number is valid
         i = 7
         tooltip = u'Total change in enrollment last week across all of your courses.'
-        self.assertMetricTileValid('enrollment_change_%s_days' % i, min_change, tooltip)
+        self.assertMetricTileValid('enrollment_change_%s_days' % i, None, tooltip)
 
-        # Verify the verified enrollment metric tile.
         tooltip = u'Verified enrollments across all of your courses.'
         self.assertMetricTileValid('verified_enrollment', min_verified_enrollment, tooltip)
