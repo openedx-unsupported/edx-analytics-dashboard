@@ -756,22 +756,19 @@ def get_mock_course_summaries(course_ids):
 
 def get_mock_course_summaries_csv(course_ids):
     header = (
-        'availability,catalog_course,catalog_course_title,count,count_change_7_days,course_id,created,' +
-        'cumulative_count,end_date,enrollment_modes.audit.count,enrollment_modes.audit.count_change_7_days,' +
-        'enrollment_modes.audit.cumulative_count,enrollment_modes.credit.count,' +
-        'enrollment_modes.credit.count_change_7_days,enrollment_modes.credit.cumulative_count,' +
-        'enrollment_modes.honor.count,enrollment_modes.honor.count_change_7_days,' +
+        'availability,catalog_course,catalog_course_title,count,count_change_7_days,course_id,' +
+        'cumulative_count,end_date,enrollment_modes.audit.count,enrollment_modes.audit.cumulative_count,' +
+        'enrollment_modes.credit.count,enrollment_modes.credit.cumulative_count,enrollment_modes.honor.count,' +
         'enrollment_modes.honor.cumulative_count,enrollment_modes.professional.count,' +
-        'enrollment_modes.professional.count_change_7_days,enrollment_modes.professional.cumulative_count,' +
-        'enrollment_modes.verified.count,enrollment_modes.verified.count_change_7_days,' +
+        'enrollment_modes.professional.cumulative_count,enrollment_modes.verified.count,' +
         'enrollment_modes.verified.cumulative_count,pacing_type,start_date\r\n'
     )
     mock_csv = ''
 
     for course_id in course_ids:
         mock_csv = mock_csv + (
-            'Upcoming,Demo_Course,Demo Course,1590,41,{},2017-02-21T182754,1835,2017-05-02T182754,238,-2,326,' +
-            '238,2,288,398,-28,449,159,34,162,557,35,610,self_paced,2017-01-10T182754\r\n'
+            'Upcoming,Demo_Course,Demo Course,1590,41,{},1835,2017-05-02T182754,238,326,238,288,398,449,159,162,' +
+            '557,610,self_paced,2017-01-10T182754\r\n'
         ).format(course_id)
 
     return mock_csv if mock_csv == '' else header + mock_csv
