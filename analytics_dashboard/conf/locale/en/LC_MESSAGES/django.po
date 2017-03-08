@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-07 16:06-0500\n"
+"POT-Creation-Date: 2017-03-08 16:08-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -520,7 +520,9 @@ msgid "Enrollment Metrics"
 msgstr ""
 
 #. Translators: This is a label to identify the number of learners who ever enrolled in the course.
+#. Translators: This is a label to identify the maximum number of learners ever in all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:59
+#: courses/templates/courses/index.html:32
 msgid "Total Enrollment"
 msgstr ""
 
@@ -530,7 +532,9 @@ msgid "Learners who ever enrolled in the course."
 msgstr ""
 
 #. Translators: This is a label to identify current learner enrollment.
+#. Translators: This is a label to identify the current number of learners in all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:68
+#: courses/templates/courses/index.html:39
 msgid "Current Enrollment"
 msgstr ""
 
@@ -540,7 +544,9 @@ msgid "Learners currently enrolled in the course."
 msgstr ""
 
 #. Translators: This is a label indicating the change in the number of learners enrolled in a course since the previous week.
+#. Translators: This is a label to identify the change in the number of learners in all of the instructor's courses in the last week.
 #: courses/templates/courses/enrollment_activity.html:76
+#: courses/templates/courses/index.html:46
 msgid "Change in Last Week"
 msgstr ""
 
@@ -549,7 +555,9 @@ msgid "Net difference in current enrollment in the last week."
 msgstr ""
 
 #. Translators: This is a label to identify enrollment of learners on the verified track.
+#. Translators: This is a label to identify the current number of verified learners in all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:84
+#: courses/templates/courses/index.html:53
 msgid "Verified Enrollment"
 msgstr ""
 
@@ -813,10 +821,26 @@ msgstr ""
 msgid "Welcome, %(username)s!"
 msgstr ""
 
-#: courses/templates/courses/index.html:19
+#: courses/templates/courses/index.html:23
 #, python-format
 msgid ""
-"Here are the courses you currently have access to in %(application_name)s:"
+"Across all courses you currently have access to in %(application_name)s:"
+msgstr ""
+
+#: courses/templates/courses/index.html:33
+msgid "Total enrollments across all of your courses."
+msgstr ""
+
+#: courses/templates/courses/index.html:40
+msgid "Current enrollments across all of your courses."
+msgstr ""
+
+#: courses/templates/courses/index.html:47
+msgid "Total change in enrollment last week across all of your courses."
+msgstr ""
+
+#: courses/templates/courses/index.html:54
+msgid "Verified enrollments across all of your courses."
 msgstr ""
 
 #: courses/templates/courses/performance_answer_distribution.html:7
