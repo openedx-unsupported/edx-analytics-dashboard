@@ -262,6 +262,10 @@ body.view-course-list {
 
     .view-section {
       margin-bottom: 0px;
+
+      .section-content {
+        margin-bottom: 0px;
+      }
     }
 
     .course-list-app-container {
@@ -269,12 +273,22 @@ body.view-course-list {
     }
 
     .section-heading {
-      margin-bottom: 25px;
+      margin-bottom: 10px;
+      margin-top: 0px;
+
+      .section-title {
+        margin-top: 0px;
+      }
     }
 
     .view-head {
       color: $edx-gray-d2;
       margin-bottom: 25px;
+
+      h2 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
     }
 
     .intro-text {
@@ -859,5 +873,4 @@ body.view-dashboard {
   .course-id {
     color: $edx-gray;
   }
-
 }
