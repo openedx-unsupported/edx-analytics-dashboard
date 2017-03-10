@@ -285,18 +285,13 @@ class AnalyticsDashboardWebAppTestMixin(FooterMixin, PrimaryNavMixin, ContextSen
         """
         return s.replace(' 0', ' ')
 
-
-class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterLegalMixin, FooterFeedbackMixin,
-                           AnalyticsDashboardWebAppTestMixin):
-    """ Mixin for common course page assertions and tests. """
-
-    DASHBOARD_DATE_FORMAT = '%B %d, %Y'
-    page = None
-
-    def setUp(self):
-        super(CoursePageTestsMixin, self).setUp()
-        self.api_date_format = self.analytics_api_client.DATE_FORMAT
-        self.api_datetime_format = self.analytics_api_client.DATETIME_FORMAT
+    @staticmethod
+    def format_number(value):
+        """ Format the given value for the current locale (e.g. include decimal separator). """
+        if isinstance(value, int):
+            return locale.format("%d", value, grouping=True)
+        else:
+            return locale.format("%.1f", value, grouping=True)
 
     def assertSummaryPointValueEquals(self, data_selector, value):
         """
@@ -335,6 +330,25 @@ class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterLegalMixin, FooterFeed
         self.assertTrue(tooltip_element.present)
         # the context of title gets move to "data-original-title"
         self.assertEqual(tooltip_element[0].get_attribute('data-original-title'), tip_text)
+
+    def assertMetricTileValid(self, stat_type, value, tooltip):
+        selector = 'data-stat-type=%s' % stat_type
+        if value is not None:
+            self.assertSummaryPointValueEquals(selector, self.format_number(value))
+        self.assertSummaryTooltipEquals(selector, tooltip)
+
+
+class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterLegalMixin, FooterFeedbackMixin,
+                           AnalyticsDashboardWebAppTestMixin):
+    """ Mixin for common course page assertions and tests. """
+
+    DASHBOARD_DATE_FORMAT = '%B %d, %Y'
+    page = None
+
+    def setUp(self):
+        super(CoursePageTestsMixin, self).setUp()
+        self.api_date_format = self.analytics_api_client.DATE_FORMAT
+        self.api_datetime_format = self.analytics_api_client.DATETIME_FORMAT
 
     def assertDataUpdateMessageEquals(self, value):
         element = self.page.q(css='div.data-update-message')
@@ -380,14 +394,6 @@ class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterLegalMixin, FooterFeed
         super(CoursePageTestsMixin, self).test_page()
         self._test_data_update_message()
         self._test_course_home_nav()
-
-    @staticmethod
-    def format_number(value):
-        """ Format the given value for the current locale (e.g. include decimal separator). """
-        if isinstance(value, int):
-            return locale.format("%d", value, grouping=True)
-        else:
-            return locale.format("%.1f", value, grouping=True)
 
 
 class CourseDemographicsPageTestsMixin(CoursePageTestsMixin):

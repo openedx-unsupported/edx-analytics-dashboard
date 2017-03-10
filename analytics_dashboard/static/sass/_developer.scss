@@ -257,8 +257,9 @@ $lens-nav-margin: 15px;
 }
 
 body.view-course-list {
+  $course-list-vertical-padding: $padding-large-vertical * 2.5;
   #content {
-    margin-top: 25px;
+    margin-top: $course-list-vertical-padding;
 
     .view-section {
       margin-bottom: 0px;
@@ -269,12 +270,11 @@ body.view-course-list {
     }
 
     .course-list-app-container {
-      margin-bottom: 40px;
+      margin-bottom: $padding-large-vertical * 4;
     }
 
     .section-heading {
-      margin-bottom: 10px;
-      margin-top: 0px;
+      margin-bottom: $padding-large-vertical;
 
       .section-title {
         margin-top: 0px;
@@ -283,27 +283,12 @@ body.view-course-list {
 
     .view-head {
       color: $edx-gray-d2;
-      margin-bottom: 25px;
+      margin-bottom: $course-list-vertical-padding;
 
       h2 {
         margin-top: 0px;
         margin-bottom: 0px;
       }
-    }
-
-    .intro-text {
-      color: $edx-gray-d1;
-    }
-
-    .view-intro {
-      .lead {
-        font-size: $font-size-base;
-      }
-    }
-
-    .info-text {
-      color: $edx-gray;
-      font-size: $font-size-small;
     }
 
     .help-msg {

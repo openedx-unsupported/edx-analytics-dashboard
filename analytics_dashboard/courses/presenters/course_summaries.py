@@ -1,5 +1,5 @@
-from courses.presenters import BasePresenter
 from django.core.cache import cache
+from courses.presenters import BasePresenter
 
 
 class CourseSummariesPresenter(BasePresenter):

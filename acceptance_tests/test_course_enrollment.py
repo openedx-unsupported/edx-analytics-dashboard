@@ -38,11 +38,6 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         return 'Enrollment activity data was last updated %(update_date)s at %(update_time)s UTC.' % \
                self.format_last_updated_date_and_time(last_updated)
 
-    def assertMetricTileValid(self, stat_type, value, tooltip):
-        selector = 'data-stat-type=%s' % stat_type
-        self.assertSummaryPointValueEquals(selector, self.format_number(value))
-        self.assertSummaryTooltipEquals(selector, tooltip)
-
     def _get_valid_enrollment_modes(self, trends):
         valid_modes = set()
         invalid_modes = set(enrollment_modes.ALL)

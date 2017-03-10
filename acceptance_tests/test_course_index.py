@@ -1,4 +1,3 @@
-import locale
 import requests
 from bok_choy.promise import EmptyPromise
 from bok_choy.web_app_test import WebAppTest
@@ -8,21 +7,21 @@ from acceptance_tests import (
     ENABLE_COURSE_LIST_FILTERS,
     TEST_COURSE_ID,
 )
-from acceptance_tests.mixins import AnalyticsDashboardWebAppTestMixin
+from acceptance_tests.mixins import AnalyticsDashboardWebAppTestMixin, AnalyticsApiClientMixin
 from acceptance_tests.pages import CourseIndexPage
 
 
-MAX_SUMMARY_POINT_VALUE_LENGTH = 13
 _multiprocess_can_split_ = True
 
 
-class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
+class CourseIndexTests(AnalyticsApiClientMixin, AnalyticsDashboardWebAppTestMixin, WebAppTest):
     test_skip_link_url = False
 
     def setUp(self):
         super(CourseIndexTests, self).setUp()
         self.page = CourseIndexPage(self.browser)
         self.maxDiff = None
+        self.course_summaries = self.analytics_api_client.course_summaries()
 
     def test_page(self):
         super(CourseIndexTests, self).test_page()
@@ -299,66 +298,27 @@ class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.headers['content-type'], 'text/csv')
 
-    def assertSummaryPointValueEquals(self, data_selector, value):
-        """
-        Compares the value in the summary card the "value" argument.
-
-        Arguments:
-            data_selector (String): Attribute selector (ex. data-stat-type=current_enrollment)
-            tip_text (String): expected value
-        """
-        element = self.page.q(css="div[{0}] .summary-point-number".format(data_selector))
-        self.assertTrue(element.present)
-        self.assertGreaterEqual(locale.atoi(element.text[0]), value)
-
-    def assertSummaryTooltipEquals(self, data_selector, tip_text):
-        """
-        Compares the tooltip in the summary card the "tip_text" argument.
-
-        Arguments:
-            data_selector (String): Attribute selector (ex. data-stat-type=current_enrollment)
-            tip_text (String): expected text
-        """
-        help_selector = "div[{0}] .summary-point-help".format(data_selector)
-        element = self.page.q(css=help_selector)
-        self.assertTrue(element.present)
-
-        # check to see if
-        screen_reader_element = self.page.q(css=help_selector + " > span[class=sr-only]")
-        self.assertTrue(screen_reader_element.present)
-        self.assertEqual(screen_reader_element.text[0], tip_text)
-
-        tooltip_element = self.page.q(css=help_selector + " > span[data-toggle='tooltip']")
-        self.assertTrue(tooltip_element.present)
-        # the context of title gets move to "data-original-title"
-        self.assertEqual(tooltip_element[0].get_attribute('data-original-title'), tip_text)
-
-    def assertMetricTileValid(self, stat_type, value, tooltip):
-        selector = 'data-stat-type=%s' % stat_type
-        if value is not None:
-            self.assertSummaryPointValueEquals(selector, value)
-        self.assertSummaryTooltipEquals(selector, tooltip)
-
     def _test_summary_metrics(self):
         """Verify that the metric tiles display the correct information.
 
         Test data must include at least one course with at least one verified enrollment which the
         test user can access.
         """
-        # Because the generated data is random, this is the most accuracy that we can test on
-        min_enrollment = 1
-        min_verified_enrollment = 1
+        course_summaries = self.course_summaries.course_summaries(course_ids=[TEST_COURSE_ID])
+        current_enrollment = course_summaries[0]['count']
+        total_enrollment = course_summaries[0]['cumulative_count']
+        i = 7
+        count_change_i_days = course_summaries[0]['count_change_%s_days' % i]
+        verified_enrollment = course_summaries[0]['enrollment_modes']['verified']['count']
 
         tooltip = u'Current enrollments across all of your courses.'
-        self.assertMetricTileValid('current_enrollment', min_enrollment, tooltip)
+        self.assertMetricTileValid('current_enrollment', current_enrollment, tooltip)
 
         tooltip = u'Total enrollments across all of your courses.'
-        self.assertMetricTileValid('total_enrollment', min_enrollment, tooltip)
+        self.assertMetricTileValid('total_enrollment', total_enrollment, tooltip)
 
-        # Note: the value is not checked because any negative, zero, or positive number is valid
-        i = 7
         tooltip = u'Total change in enrollment last week across all of your courses.'
-        self.assertMetricTileValid('enrollment_change_%s_days' % i, None, tooltip)
+        self.assertMetricTileValid('enrollment_change_%s_days' % i, count_change_i_days, tooltip)
 
         tooltip = u'Verified enrollments across all of your courses.'
-        self.assertMetricTileValid('verified_enrollment', min_verified_enrollment, tooltip)
+        self.assertMetricTileValid('verified_enrollment', verified_enrollment, tooltip)
