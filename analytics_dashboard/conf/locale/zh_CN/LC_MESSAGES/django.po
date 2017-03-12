@@ -10,7 +10,7 @@
 # chalow <charlotteouya@hotmail.com>, 2015
 # focusheart <focusheart@gmail.com>, 2015
 # Johnny Wei <johntzwei@yahoo.com>, 2015
-# jsgang <jsgang9@gmail.com>, 2014-2016
+# jsgang <jsgang9@gmail.com>, 2014-2017
 # Jun Hao Lin <xuxiao15994219982@gmail.com>, 2015
 # LIU NIAN <lauraqq@gmail.com>, 2015
 # meelo <bbvy@qq.com>, 2015
@@ -33,9 +33,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-23 17:47-0500\n"
-"PO-Revision-Date: 2017-02-20 06:24+0000\n"
-"Last-Translator: Ned Batchelder <ned@edx.org>\n"
+"POT-Creation-Date: 2017-03-07 16:06-0500\n"
+"PO-Revision-Date: 2017-03-11 23:14+0000\n"
+"Last-Translator: jsgang <jsgang9@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/open-edx/edx-platform/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,7 +45,7 @@ msgstr ""
 
 #: core/templates/core/landing.html:15 templates/_skip_link.html:3
 msgid "Skip to content"
-msgstr ""
+msgstr "跳过该内容"
 
 #: core/templates/core/landing.html:23
 msgid "Login"
@@ -57,7 +57,7 @@ msgstr "洞察数据以帮助课程团队提升课程质量。"
 
 #: core/templates/core/landing.html:42 courses/views/__init__.py:497
 msgid "Who are my learners?"
-msgstr ""
+msgstr "谁是我的学生"
 
 #: core/templates/core/landing.html:43
 msgid "Target your course to fit the backgrounds of your learners."
@@ -868,7 +868,7 @@ msgstr "课程基本信息"
 msgid "External Tools"
 msgstr "外部工具"
 
-#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:27
+#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:30
 msgid "Courses"
 msgstr "课程"
 
@@ -1163,7 +1163,7 @@ msgid "Courseware"
 msgstr "课件"
 
 #. Translators: Do not translate UTC.
-#: courses/views/course_summaries.py:36
+#: courses/views/course_summaries.py:39
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
