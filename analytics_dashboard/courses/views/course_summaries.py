@@ -60,6 +60,7 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
         }
         context['js_data']['course'] = data
         context['page_data'] = self.get_page_data(context)
+        context['summary'] = presenter.get_course_summary_metrics(summaries)
         return context
 
 

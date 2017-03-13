@@ -1,5 +1,4 @@
 from django.core.cache import cache
-
 from courses.presenters import BasePresenter
 
 
@@ -52,4 +51,17 @@ class CourseSummariesPresenter(BasePresenter):
         filtered_summaries = sorted(
             filtered_summaries,
             key=lambda x: (x['catalog_course_title'] is not None, x['catalog_course_title']))
+
         return filtered_summaries, self._get_last_updated(filtered_summaries)
+
+    def get_course_summary_metrics(self, summaries):
+        summary = {
+            'total_enrollment': reduce(lambda x, y: x + y.get('cumulative_count', 0), summaries, 0),
+            'current_enrollment': reduce(lambda x, y: x + y.get('count', 0), summaries, 0),
+            'enrollment_change_7_days': reduce(lambda x, y: x + y.get('count_change_7_days', 0), summaries, 0),
+            'verified_enrollment': reduce(lambda x, y: x + y.get('enrollment_modes', {}).get('verified',
+                                                                                             {}).get('count', 0),
+                                          summaries, 0),
+        }
+
+        return summary

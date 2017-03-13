@@ -10,14 +10,57 @@
 
 
 {% block header-text %}
-  <h3 class="row">
+  <h2 class="row">
     {% blocktrans with username=request.user.username %}Welcome, {{ username }}!{% endblocktrans %}
-  </h3>
+  </h2>
 {% endblock %}
 
-{% block intro-text %}
-  {% blocktrans %}Here are the courses you currently have access to in {{ application_name }}:{% endblocktrans %}
-{% endblock intro-text %}
+
+{% block summary-cards %}
+<section class="view-section row">
+    <div class="section-heading bordered">
+        <h3 class="section-title">
+            {% blocktrans %}Across all your courses:{% endblocktrans %}
+        </h3>
+    </div>
+
+    {% if summary %}
+        <div class="section-content" role="region">
+            <div class="row">
+                <div class="col col-12 sm-col-12 md-col-3" data-stat-type="total_enrollment">
+                    {# Translators: This is a label to identify the maximum number of learners ever in all of the instructor's courses. #}
+                    {% trans "Total Enrollment" as label %}
+                    {% trans "Total enrollments across all of your courses." as tooltip %}
+                    {% summary_point summary.total_enrollment label tooltip=tooltip %}
+                </div>
+
+                <div class="col col-12 sm-col-12 md-col-3" data-stat-type="current_enrollment">
+                    {# Translators: This is a label to identify the current number of learners in all of the instructor's courses. #}
+                    {% trans "Current Enrollment" as label %}
+                    {% trans "Current enrollments across all of your courses." as tooltip %}
+                    {% summary_point summary.current_enrollment label tooltip=tooltip %}
+                </div>
+
+                <div class="col col-12 sm-col-12 md-col-3" data-stat-type="enrollment_change_7_days">
+                    {# Translators: This is a label to identify the change in the number of learners in all of the instructor's courses in the last week. #}
+                    {% trans "Change in Last Week" as label %}
+                    {% trans "Total change in enrollment last week across all of your courses." as tooltip %}
+                    {% summary_point summary.enrollment_change_7_days label tooltip=tooltip %}
+                </div>
+
+                <div class="col col-12 sm-col-12 md-col-3" data-stat-type="verified_enrollment">
+                    {# Translators: This is a label to identify the current number of verified learners in all of the instructor's courses. #}
+                    {% trans "Verified Enrollment" as label %}
+                    {% trans "Verified enrollments across all of your courses." as tooltip %}
+                    {% summary_point summary.verified_enrollment label tooltip=tooltip %}
+                </div>
+            </div>
+        </div>
+    {% else %}
+        {% show_metrics_error %}
+    {% endif %}
+</section>
+{% endblock %}
 
 {% block stylesheets %}
   {{ block.super }}

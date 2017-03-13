@@ -7,20 +7,21 @@ from acceptance_tests import (
     ENABLE_COURSE_LIST_FILTERS,
     TEST_COURSE_ID,
 )
-from acceptance_tests.mixins import AnalyticsDashboardWebAppTestMixin
+from acceptance_tests.mixins import AnalyticsDashboardWebAppTestMixin, AnalyticsApiClientMixin
 from acceptance_tests.pages import CourseIndexPage
 
 
 _multiprocess_can_split_ = True
 
 
-class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
+class CourseIndexTests(AnalyticsApiClientMixin, AnalyticsDashboardWebAppTestMixin, WebAppTest):
     test_skip_link_url = False
 
     def setUp(self):
         super(CourseIndexTests, self).setUp()
         self.page = CourseIndexPage(self.browser)
         self.maxDiff = None
+        self.course_summaries = self.analytics_api_client.course_summaries()
 
     def test_page(self):
         super(CourseIndexTests, self).test_page()
@@ -29,6 +30,7 @@ class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
         self._test_clear_input()
         self._test_clear_active_filter()
         self._test_clear_all_filters()
+        self._test_summary_metrics()
         if ENABLE_COURSE_LIST_FILTERS:
             self._test_filters()
         self._test_download_csv()
@@ -295,3 +297,28 @@ class CourseIndexTests(AnalyticsDashboardWebAppTestMixin, WebAppTest):
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.headers['content-type'], 'text/csv')
+
+    def _test_summary_metrics(self):
+        """Verify that the metric tiles display the correct information.
+
+        Test data must include at least one course with at least one verified enrollment which the
+        test user can access.
+        """
+        course_summaries = self.course_summaries.course_summaries(course_ids=[TEST_COURSE_ID])
+        current_enrollment = course_summaries[0]['count']
+        total_enrollment = course_summaries[0]['cumulative_count']
+        i = 7
+        count_change_i_days = course_summaries[0]['count_change_%s_days' % i]
+        verified_enrollment = course_summaries[0]['enrollment_modes']['verified']['count']
+
+        tooltip = u'Current enrollments across all of your courses.'
+        self.assertMetricTileValid('current_enrollment', current_enrollment, tooltip)
+
+        tooltip = u'Total enrollments across all of your courses.'
+        self.assertMetricTileValid('total_enrollment', total_enrollment, tooltip)
+
+        tooltip = u'Total change in enrollment last week across all of your courses.'
+        self.assertMetricTileValid('enrollment_change_%s_days' % i, count_change_i_days, tooltip)
+
+        tooltip = u'Verified enrollments across all of your courses.'
+        self.assertMetricTileValid('verified_enrollment', verified_enrollment, tooltip)

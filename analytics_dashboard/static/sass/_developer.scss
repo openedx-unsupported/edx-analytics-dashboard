@@ -257,27 +257,38 @@ $lens-nav-margin: 15px;
 }
 
 body.view-course-list {
+  $course-list-vertical-padding: $padding-large-vertical * 2.5;
   #content {
-    margin-top: 25px;
+    margin-top: $course-list-vertical-padding;
 
-    .view-head {
-      color: $edx-gray-d2;
-      margin-bottom: 0;
-    }
+    .view-section {
+      margin-bottom: 0px;
 
-    .intro-text {
-      color: $edx-gray-d1;
-    }
-
-    .view-intro {
-      .lead {
-        font-size: $font-size-base;
+      .section-content {
+        margin-bottom: 0px;
       }
     }
 
-    .info-text {
-      color: $edx-gray;
-      font-size: $font-size-small;
+    .course-list-app-container {
+      margin-bottom: $padding-large-vertical * 4;
+    }
+
+    .section-heading {
+      margin-bottom: $padding-large-vertical;
+
+      .section-title {
+        margin-top: 0px;
+      }
+    }
+
+    .view-head {
+      color: $edx-gray-d2;
+      margin-bottom: $course-list-vertical-padding;
+
+      h2 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
     }
 
     .help-msg {
@@ -847,5 +858,4 @@ body.view-dashboard {
   .course-id {
     color: $edx-gray;
   }
-
 }

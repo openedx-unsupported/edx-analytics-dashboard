@@ -43,11 +43,8 @@
               {% endblock %}
             </div>
 
-            <div class="view-intro row">
-              <p class="lead text-muted intro-text">
-                {% block intro-text %}{% endblock intro-text %}
-              </p>
-            </div>
+            {% block summary-cards %}
+            {% endblock %}
 
             {% block content %}
             {% endblock content %}
