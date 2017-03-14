@@ -2,9 +2,11 @@ import json
 
 from django import template
 from django.conf import settings
+from django.http import Http404
 from django.template.defaultfilters import stringfilter
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
+from opaque_keys import InvalidKeyError
 from opaque_keys.edx.keys import CourseKey
 from slugify import slugify
 
@@ -109,7 +111,12 @@ def _get_base_error_context(content_type):
 @register.filter
 def format_course_key(course_key, separator=u'/'):
     if isinstance(course_key, basestring):
-        course_key = CourseKey.from_string(course_key)
+        try:
+            course_key = CourseKey.from_string(course_key)
+        except InvalidKeyError:
+            # This invalid key should have caused a 404 long before this point, but throw it again here just in-case so
+            # it doesn't result in a 500-level error.
+            raise Http404
 
     return separator.join([course_key.org, course_key.course, course_key.run])
 

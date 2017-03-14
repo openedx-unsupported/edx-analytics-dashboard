@@ -15,6 +15,7 @@ from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _, ugettext_noop
 from django.views.generic import TemplateView
 from edx_rest_api_client.exceptions import (HttpClientError, SlumberBaseException)
+from opaque_keys import InvalidKeyError
 from opaque_keys.edx.keys import CourseKey
 import requests
 from waffle import flag_is_active, switch_is_active
@@ -180,11 +181,17 @@ class CourseContextMixin(CourseAPIMixin, TrackedViewMixin, LazyEncoderMixin):
         context.update(self.get_default_data())
 
         user = self.request.user
+        try:
+            org = CourseKey.from_string(self.course_id).org
+        except InvalidKeyError:
+            # Note that the CourseValidMixin should also ensure that a 404 is thrown in this case
+            raise Http404
+
         context['js_data'] = context.get('js_data', {})
         context['js_data'].update({
             'course': {
                 'courseId': self.course_id,
-                'org': CourseKey.from_string(self.course_id).org
+                'org': org
             },
             'user': {
                 'username': user.get_username(),
