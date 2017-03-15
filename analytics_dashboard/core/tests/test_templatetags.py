@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 import json
 
-from django.http import Http404
 from django.template import Template, Context, TemplateSyntaxError
 from django.test import TestCase
 from opaque_keys.edx.keys import CourseKey
@@ -55,12 +54,6 @@ class DashboardExtraTests(TestCase):
 
             # Test with string
             self.assertEqual(format_course_key(course_id), expected)
-
-    def test_format_invalid_course_key(self):
-        values = ['edX/DemoX/Foo/Demo_Course', 'course-v1:edX+DemoX']
-        for bad_course_id in values:
-            with self.assertRaises(Http404):
-                format_course_key(bad_course_id)
 
     def test_metric_percentage(self):
         self.assertEqual(dashboard_extras.metric_percentage(0), '0%')
