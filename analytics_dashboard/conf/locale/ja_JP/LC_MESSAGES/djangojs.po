@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-07 16:06-0500\n"
+"POT-Creation-Date: 2017-03-13 13:53-0400\n"
 "PO-Revision-Date: 2017-03-08 09:39+0000\n"
 "Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/open-edx/edx-platform/language/ja_JP/)\n"
@@ -24,11 +24,13 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: static/apps/components/download/views/download-data.js:25
+#: static/dist/apps/course-list/app/course-list-main.js:6313
 #: static/dist/apps/learners/app/learners-main.js:31504
 msgid "Download CSV"
 msgstr "CSVダウンロード"
 
 #: static/apps/components/download/views/download-data.js:26
+#: static/dist/apps/course-list/app/course-list-main.js:6314
 #: static/dist/apps/learners/app/learners-main.js:31505
 msgid "Download search results to CSV"
 msgstr ""
@@ -104,7 +106,7 @@ msgid "click to sort"
 msgstr ""
 
 #: static/apps/components/generic-list/list/views/list.js:54
-#: static/dist/apps/course-list/app/course-list-main.js:6375
+#: static/dist/apps/course-list/app/course-list-main.js:6488
 #: static/dist/apps/learners/app/learners-main.js:31218
 msgid "Results"
 msgstr ""
@@ -211,69 +213,69 @@ msgid "Network error"
 msgstr ""
 
 #: static/apps/course-list/app/app.js:41
-#: static/dist/apps/course-list/app/course-list-main.js:6907
+#: static/dist/apps/course-list/app/course-list-main.js:7032
 msgid "Instructor-Paced"
 msgstr ""
 
 #: static/apps/course-list/app/app.js:42
-#: static/dist/apps/course-list/app/course-list-main.js:6908
+#: static/dist/apps/course-list/app/course-list-main.js:7033
 msgid "Self-Paced"
 msgstr ""
 
 #: static/apps/course-list/app/app.js:45
-#: static/dist/apps/course-list/app/course-list-main.js:6911
+#: static/dist/apps/course-list/app/course-list-main.js:7036
 msgid "Upcoming"
 msgstr ""
 
 #: static/apps/course-list/app/app.js:46
-#: static/dist/apps/course-list/app/course-list-main.js:6912
+#: static/dist/apps/course-list/app/course-list-main.js:7037
 msgid "Current"
 msgstr ""
 
 #: static/apps/course-list/app/app.js:47
-#: static/dist/apps/course-list/app/course-list-main.js:6913
+#: static/dist/apps/course-list/app/course-list-main.js:7038
 msgid "Archived"
 msgstr ""
 
 #: static/apps/course-list/app/app.js:48
-#: static/dist/apps/course-list/app/course-list-main.js:6914
+#: static/dist/apps/course-list/app/course-list-main.js:7039
 msgid "Unknown"
 msgstr ""
 
 #: static/apps/course-list/app/controller.js:48
 #: static/apps/course-list/app/controller.js:107
-#: static/dist/apps/course-list/app/course-list-main.js:6518
-#: static/dist/apps/course-list/app/course-list-main.js:6577
+#: static/dist/apps/course-list/app/course-list-main.js:6643
+#: static/dist/apps/course-list/app/course-list-main.js:6702
 msgid "Course List"
 msgstr ""
 
 #: static/apps/course-list/app/controller.js:97
 #: static/apps/learners/app/controller.js:94
-#: static/dist/apps/course-list/app/course-list-main.js:6567
+#: static/dist/apps/course-list/app/course-list-main.js:6692
 #: static/dist/apps/learners/app/learners-main.js:33030
 msgid "Invalid Parameters"
 msgstr ""
 
 #: static/apps/course-list/app/controller.js:98
-#: static/dist/apps/course-list/app/course-list-main.js:6568
+#: static/dist/apps/course-list/app/course-list-main.js:6693
 msgid "Sorry, we couldn't find any courses that matched that query."
 msgstr ""
 
 #: static/apps/course-list/app/controller.js:99
-#: static/dist/apps/course-list/app/course-list-main.js:6569
+#: static/dist/apps/course-list/app/course-list-main.js:6694
 msgid "Return to the Course List page."
 msgstr ""
 
 #: static/apps/course-list/app/controller.js:124
 #: static/apps/learners/app/controller.js:176
-#: static/dist/apps/course-list/app/course-list-main.js:6594
+#: static/dist/apps/course-list/app/course-list-main.js:6719
 #: static/dist/apps/learners/app/learners-main.js:33112
 msgid "Sorry, we couldn't find the page you're looking for."
 msgstr ""
 
 #: static/apps/course-list/app/controller.js:127
 #: static/apps/learners/app/controller.js:179
-#: static/dist/apps/course-list/app/course-list-main.js:6597
+#: static/dist/apps/course-list/app/course-list-main.js:6722
 #: static/dist/apps/learners/app/learners-main.js:33115
 msgid "Page Not Found"
 msgstr "ページが見つかりません"
@@ -390,11 +392,12 @@ msgid "pacing_type"
 msgstr ""
 
 #: static/apps/course-list/list/views/course-list.js:66
+#: static/dist/apps/course-list/app/course-list-main.js:6564
 msgid "Download full course list to CSV"
 msgstr ""
 
 #: static/apps/course-list/list/views/course-list.js:91
-#: static/dist/apps/course-list/app/course-list-main.js:6464
+#: static/dist/apps/course-list/app/course-list-main.js:6589
 msgid "Course list controls"
 msgstr ""
 

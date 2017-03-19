@@ -20,9 +20,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-07 16:06-0500\n"
-"PO-Revision-Date: 2017-02-13 20:35+0000\n"
-"Last-Translator: Dennis Jen <djen@edx.org>\n"
+"POT-Creation-Date: 2017-03-13 13:53-0400\n"
+"PO-Revision-Date: 2017-03-14 09:16+0000\n"
+"Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/open-edx/edx-platform/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -549,7 +549,10 @@ msgstr "등록 현황 통계"
 
 #. Translators: This is a label to identify the number of learners who ever
 #. enrolled in the course.
+#. Translators: This is a label to identify the maximum number of learners
+#. ever in all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:59
+#: courses/templates/courses/index.html:32
 msgid "Total Enrollment"
 msgstr "전체 등록 "
 
@@ -559,7 +562,10 @@ msgid "Learners who ever enrolled in the course."
 msgstr "강좌를 등록한 내역이 있는 학습자."
 
 #. Translators: This is a label to identify current learner enrollment.
+#. Translators: This is a label to identify the current number of learners in
+#. all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:68
+#: courses/templates/courses/index.html:39
 msgid "Current Enrollment"
 msgstr "현재 등록"
 
@@ -571,7 +577,10 @@ msgstr "현재 강좌에 등록되어 있는 학습자."
 
 #. Translators: This is a label indicating the change in the number of
 #. learners enrolled in a course since the previous week.
+#. Translators: This is a label to identify the change in the number of
+#. learners in all of the instructor's courses in the last week.
 #: courses/templates/courses/enrollment_activity.html:76
+#: courses/templates/courses/index.html:46
 msgid "Change in Last Week"
 msgstr "지난주 변동"
 
@@ -581,7 +590,10 @@ msgstr "1주일 동안 등록자 수"
 
 #. Translators: This is a label to identify enrollment of learners on the
 #. verified track.
+#. Translators: This is a label to identify the current number of verified
+#. learners in all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:84
+#: courses/templates/courses/index.html:53
 msgid "Verified Enrollment"
 msgstr "인증된 등록"
 
@@ -855,7 +867,7 @@ msgstr "강좌 기본 정보"
 msgid "External Tools"
 msgstr "외부 도구"
 
-#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:30
+#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:31
 msgid "Courses"
 msgstr "강좌"
 
@@ -864,11 +876,25 @@ msgstr "강좌"
 msgid "Welcome, %(username)s!"
 msgstr "환영합니다 %(username)s님!"
 
-#: courses/templates/courses/index.html:19
-#, python-format
-msgid ""
-"Here are the courses you currently have access to in %(application_name)s:"
-msgstr "%(application_name)s 에서 접속 권한이 있는 강좌:"
+#: courses/templates/courses/index.html:23
+msgid "Across all your courses:"
+msgstr ""
+
+#: courses/templates/courses/index.html:33
+msgid "Total enrollments across all of your courses."
+msgstr ""
+
+#: courses/templates/courses/index.html:40
+msgid "Current enrollments across all of your courses."
+msgstr ""
+
+#: courses/templates/courses/index.html:47
+msgid "Total change in enrollment last week across all of your courses."
+msgstr ""
+
+#: courses/templates/courses/index.html:54
+msgid "Verified enrollments across all of your courses."
+msgstr ""
 
 #: courses/templates/courses/performance_answer_distribution.html:7
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html:5
@@ -1150,7 +1176,7 @@ msgid "Courseware"
 msgstr "강좌 내용"
 
 #. Translators: Do not translate UTC.
-#: courses/views/course_summaries.py:39
+#: courses/views/course_summaries.py:40
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."

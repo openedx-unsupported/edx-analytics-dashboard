@@ -9,13 +9,14 @@
 # Franziska Hahn, 2016
 # Chamaeleon <Chamaeleon-@users.noreply.github.com>, 2016
 # Moritz Jannasch <moritz.jannasch@t-online.de>, 2016
+# Bin Trash, 2017
 # naturella <grafpm@bluewin.ch>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-07 16:06-0500\n"
-"PO-Revision-Date: 2017-01-19 08:23+0000\n"
+"POT-Creation-Date: 2017-03-13 13:53-0400\n"
+"PO-Revision-Date: 2017-03-14 09:16+0000\n"
 "Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: German (http://www.transifex.com/open-edx/edx-platform/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +27,7 @@ msgstr ""
 
 #: core/templates/core/landing.html:15 templates/_skip_link.html:3
 msgid "Skip to content"
-msgstr ""
+msgstr "Zum Inhalt Springen"
 
 #: core/templates/core/landing.html:23
 msgid "Login"
@@ -38,7 +39,7 @@ msgstr "Unterstützung für Kursteams um ihre Kurse zu verbessern."
 
 #: core/templates/core/landing.html:42 courses/views/__init__.py:497
 msgid "Who are my learners?"
-msgstr ""
+msgstr "Wer sind meine Lerner?"
 
 #: core/templates/core/landing.html:43
 msgid "Target your course to fit the backgrounds of your learners."
@@ -53,7 +54,7 @@ msgstr "Anmeldung"
 
 #: core/templates/core/landing.html:47
 msgid "What are learners engaging with in my course?"
-msgstr ""
+msgstr "Welche Lerner engagieren sich in meinem Kurs?"
 
 #: core/templates/core/landing.html:48
 msgid ""
@@ -69,7 +70,7 @@ msgstr "Beschäftigung"
 
 #: core/templates/core/landing.html:52
 msgid "How well is my content supporting learners?"
-msgstr ""
+msgstr "Wie gut unterstützen meine Inhalte den Lerner?"
 
 #: core/templates/core/landing.html:53
 msgid "Adjust your course based on where learners are struggling."
@@ -277,7 +278,7 @@ msgstr ""
 
 #: courses/templates/courses/_tags_content_nav.html:19
 msgid "All Outcomes"
-msgstr ""
+msgstr "Alle Ergebnisse"
 
 #: courses/templates/courses/_ungraded_content_nav.html:16
 #: courses/templates/courses/_video_content_nav.html:16
@@ -311,7 +312,7 @@ msgstr "Nächstes Videi"
 msgid ""
 "This chart shows the most common answers submitted by learners, ordered by "
 "frequency."
-msgstr ""
+msgstr "Dieses Diagramm zeigt die häufigsten Antworten der Lerner sortiert nach ihrer Häufigkeit."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html:82
@@ -543,7 +544,10 @@ msgstr "Anmeldungsstatistiken"
 
 #. Translators: This is a label to identify the number of learners who ever
 #. enrolled in the course.
+#. Translators: This is a label to identify the maximum number of learners
+#. ever in all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:59
+#: courses/templates/courses/index.html:32
 msgid "Total Enrollment"
 msgstr "Gesamte Anmeldungen"
 
@@ -553,7 +557,10 @@ msgid "Learners who ever enrolled in the course."
 msgstr ""
 
 #. Translators: This is a label to identify current learner enrollment.
+#. Translators: This is a label to identify the current number of learners in
+#. all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:68
+#: courses/templates/courses/index.html:39
 msgid "Current Enrollment"
 msgstr "Momentane Anmeldungen"
 
@@ -565,7 +572,10 @@ msgstr ""
 
 #. Translators: This is a label indicating the change in the number of
 #. learners enrolled in a course since the previous week.
+#. Translators: This is a label to identify the change in the number of
+#. learners in all of the instructor's courses in the last week.
 #: courses/templates/courses/enrollment_activity.html:76
+#: courses/templates/courses/index.html:46
 msgid "Change in Last Week"
 msgstr "Veränderungen der letzten Woche"
 
@@ -575,7 +585,10 @@ msgstr ""
 
 #. Translators: This is a label to identify enrollment of learners on the
 #. verified track.
+#. Translators: This is a label to identify the current number of verified
+#. learners in all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:84
+#: courses/templates/courses/index.html:53
 msgid "Verified Enrollment"
 msgstr "Bestätigte Anmeldungen"
 
@@ -849,7 +862,7 @@ msgstr ""
 msgid "External Tools"
 msgstr ""
 
-#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:30
+#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:31
 msgid "Courses"
 msgstr "Kurse"
 
@@ -858,10 +871,24 @@ msgstr "Kurse"
 msgid "Welcome, %(username)s!"
 msgstr ""
 
-#: courses/templates/courses/index.html:19
-#, python-format
-msgid ""
-"Here are the courses you currently have access to in %(application_name)s:"
+#: courses/templates/courses/index.html:23
+msgid "Across all your courses:"
+msgstr ""
+
+#: courses/templates/courses/index.html:33
+msgid "Total enrollments across all of your courses."
+msgstr ""
+
+#: courses/templates/courses/index.html:40
+msgid "Current enrollments across all of your courses."
+msgstr ""
+
+#: courses/templates/courses/index.html:47
+msgid "Total change in enrollment last week across all of your courses."
+msgstr ""
+
+#: courses/templates/courses/index.html:54
+msgid "Verified enrollments across all of your courses."
 msgstr ""
 
 #: courses/templates/courses/performance_answer_distribution.html:7
@@ -1144,7 +1171,7 @@ msgid "Courseware"
 msgstr "Kursunterlagen"
 
 #. Translators: Do not translate UTC.
-#: courses/views/course_summaries.py:39
+#: courses/views/course_summaries.py:40
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
@@ -1286,11 +1313,11 @@ msgstr ""
 
 #: settings/base.py:456
 msgid "Terms of Service"
-msgstr ""
+msgstr "Nutzungsbedingungen"
 
 #: settings/base.py:457
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Datenschutz-Bestimmungen"
 
 #: templates/403.html:5 templates/403.html:8
 msgid "Access Denied"
@@ -1315,21 +1342,21 @@ msgstr "Seite wurde nicht gefunden"
 msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
-msgstr ""
+msgstr "Die gesuchte Seite ist nicht verfügbar. Stell bitte sicher, dass die URL richtig ist und versuche es gegebenenfalls nochmal."
 
 #: templates/500.html:5 templates/500.html:8
 msgid "An Error Occurred"
-msgstr ""
+msgstr "Ein Fehler ist aufgetreten."
 
 #: templates/500.html:10
 msgid ""
 "Our servers weren't able to complete your request. Please try again by "
 "refreshing this page or retracing your steps."
-msgstr ""
+msgstr "Unsere Server konnten deine Anfrage nicht abschließen. Bitte versuche es erneut indem du die Seite neu lädst oder deine Schritte noch einmal nachvollziehst."
 
 #: templates/503.html:5 templates/503.html:7
 msgid "We're having trouble loading this page. Please try again in a minute."
-msgstr ""
+msgstr "Probleme beim Laden der Seite. Versuche es in einer Minute nochmal."
 
 #: templates/503.html:10
 msgid "(Technical details: 503 Service Unavailable.)"
@@ -1361,7 +1388,7 @@ msgid ""
 "We want this dashboard to work for you! Need help? "
 "%(support_link_start)sContact course team support%(support_link_end)s. "
 "Comments or suggestions? Email %(email_link)s."
-msgstr ""
+msgstr "Wir wollen, dass das Dashboard zu dir passt! Brauchst du Hilfe? %(support_link_start)sKontaktiere das Kurs-Team für Unterstützung%(support_link_ends)S. Anmerkungen oder Vorschläge? Schreib eine E-mail: %(email_link)s."
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html:42
@@ -1385,24 +1412,24 @@ msgstr ""
 
 #: templates/header.html:61
 msgid "Logout"
-msgstr ""
+msgstr "Abmelden"
 
 #: templates/lens-navigation.html:27
 msgid "Navigation Menu."
-msgstr ""
+msgstr "Navigationsmenü"
 
 #: templates/loading.html:7
 msgid "Loading"
-msgstr ""
+msgstr "Lädt"
 
 #: templates/section_error.html:10
 msgid "We are unable to load this chart."
-msgstr ""
+msgstr "Das Diagramm kann nicht geladen werden."
 
 #: templates/section_error.html:12
 msgid "We are unable to load this table."
-msgstr ""
+msgstr "Die Tabelle kann nicht geladen werden."
 
 #: templates/section_error.html:14
 msgid "We are unable to load these metrics."
-msgstr ""
+msgstr "Die Statistiken können nicht geladen werden."
