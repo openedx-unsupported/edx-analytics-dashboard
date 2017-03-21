@@ -39,7 +39,9 @@ edX Insights presents.
   and stores, see the `edX Research Guide`_.
 
 * For an introduction to the graphs, metrics, and reports that you can access
-  in edX Insights, see the following chapters.
+  in edX Insights, see the following topics.
+
+ * :ref:`Course_List`
 
  * :ref:`Enrollment_Activity`
 
@@ -55,7 +57,7 @@ edX Insights presents.
 
  * :ref:`Performance_Ungraded`
 
-Each of these chapters contains a section for anecdotal "Analytics in Action".
+Each of these topics contains a section for anecdotal "Analytics in Action".
 These sections showcase how collected data can reveal information about
 courses and learners, and how course teams might react to the information.
 
