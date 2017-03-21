@@ -79,9 +79,24 @@
 
     font-weight: 600;
 
-    a {
+    button {
       // update header colors
       color: $text-color;
+
+      // the following overrides the button styling with link styling
+      border: none;
+      background: none;
+      padding: 0;
+      text-align: left;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &:focus {
+        text-decoration: underline;
+        outline: 1px black dotted;
+      }
     }
 
   }
