@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-07 16:06-0500\n"
-"PO-Revision-Date: 2017-02-28 05:59+0000\n"
-"Last-Translator: Masud Ahmed <masud.ahmed92@gmail.com>\n"
+"POT-Creation-Date: 2017-03-13 13:53-0400\n"
+"PO-Revision-Date: 2017-03-14 09:16+0000\n"
+"Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/open-edx/edx-platform/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -539,7 +539,10 @@ msgstr "অন্তর্ভুক্তির ছন্দ "
 
 #. Translators: This is a label to identify the number of learners who ever
 #. enrolled in the course.
+#. Translators: This is a label to identify the maximum number of learners
+#. ever in all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:59
+#: courses/templates/courses/index.html:32
 msgid "Total Enrollment"
 msgstr "সমস্ত অন্তর্ভুক্তি "
 
@@ -549,7 +552,10 @@ msgid "Learners who ever enrolled in the course."
 msgstr "শিক্ষার্থীগণ যারা সবসময় কোর্সে অন্তর্ভুক্ত আছেন । "
 
 #. Translators: This is a label to identify current learner enrollment.
+#. Translators: This is a label to identify the current number of learners in
+#. all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:68
+#: courses/templates/courses/index.html:39
 msgid "Current Enrollment"
 msgstr "বর্তমান অন্তর্ভুক্তি "
 
@@ -561,7 +567,10 @@ msgstr "শিক্ষার্থীগন যারা কোর্সে অ
 
 #. Translators: This is a label indicating the change in the number of
 #. learners enrolled in a course since the previous week.
+#. Translators: This is a label to identify the change in the number of
+#. learners in all of the instructor's courses in the last week.
 #: courses/templates/courses/enrollment_activity.html:76
+#: courses/templates/courses/index.html:46
 msgid "Change in Last Week"
 msgstr "এই সপ্তাহে পরিবর্তিত "
 
@@ -571,7 +580,10 @@ msgstr "গত সপ্তাহের সাথে বর্তমান অ�
 
 #. Translators: This is a label to identify enrollment of learners on the
 #. verified track.
+#. Translators: This is a label to identify the current number of verified
+#. learners in all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:84
+#: courses/templates/courses/index.html:53
 msgid "Verified Enrollment"
 msgstr "যাচাইকৃত অন্তর্ভুক্তি "
 
@@ -845,7 +857,7 @@ msgstr "কোর্স সম্পর্কে প্রাথমিক তথ
 msgid "External Tools"
 msgstr "বাহ্যিক সরঞ্জাম সমূহ"
 
-#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:30
+#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:31
 msgid "Courses"
 msgstr "কোর্স সমূহ "
 
@@ -854,11 +866,25 @@ msgstr "কোর্স সমূহ "
 msgid "Welcome, %(username)s!"
 msgstr "স্বাগতম, %(username)s! "
 
-#: courses/templates/courses/index.html:19
-#, python-format
-msgid ""
-"Here are the courses you currently have access to in %(application_name)s:"
-msgstr "এই কোর্সগুলোতে বর্তমানে আপনার প্রবেশাধিকার রয়েছে  %(application_name)s:"
+#: courses/templates/courses/index.html:23
+msgid "Across all your courses:"
+msgstr ""
+
+#: courses/templates/courses/index.html:33
+msgid "Total enrollments across all of your courses."
+msgstr ""
+
+#: courses/templates/courses/index.html:40
+msgid "Current enrollments across all of your courses."
+msgstr ""
+
+#: courses/templates/courses/index.html:47
+msgid "Total change in enrollment last week across all of your courses."
+msgstr ""
+
+#: courses/templates/courses/index.html:54
+msgid "Verified enrollments across all of your courses."
+msgstr ""
 
 #: courses/templates/courses/performance_answer_distribution.html:7
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html:5
@@ -1140,7 +1166,7 @@ msgid "Courseware"
 msgstr "কোর্সওয়ার "
 
 #. Translators: Do not translate UTC.
-#: courses/views/course_summaries.py:39
+#: courses/views/course_summaries.py:40
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."

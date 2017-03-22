@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-07 16:06-0500\n"
-"PO-Revision-Date: 2017-01-19 08:23+0000\n"
+"POT-Creation-Date: 2017-03-13 13:53-0400\n"
+"PO-Revision-Date: 2017-03-14 09:16+0000\n"
 "Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: Turkish (http://www.transifex.com/open-edx/edx-platform/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -539,7 +539,10 @@ msgstr ""
 
 #. Translators: This is a label to identify the number of learners who ever
 #. enrolled in the course.
+#. Translators: This is a label to identify the maximum number of learners
+#. ever in all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:59
+#: courses/templates/courses/index.html:32
 msgid "Total Enrollment"
 msgstr ""
 
@@ -549,7 +552,10 @@ msgid "Learners who ever enrolled in the course."
 msgstr ""
 
 #. Translators: This is a label to identify current learner enrollment.
+#. Translators: This is a label to identify the current number of learners in
+#. all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:68
+#: courses/templates/courses/index.html:39
 msgid "Current Enrollment"
 msgstr ""
 
@@ -561,7 +567,10 @@ msgstr ""
 
 #. Translators: This is a label indicating the change in the number of
 #. learners enrolled in a course since the previous week.
+#. Translators: This is a label to identify the change in the number of
+#. learners in all of the instructor's courses in the last week.
 #: courses/templates/courses/enrollment_activity.html:76
+#: courses/templates/courses/index.html:46
 msgid "Change in Last Week"
 msgstr ""
 
@@ -571,7 +580,10 @@ msgstr ""
 
 #. Translators: This is a label to identify enrollment of learners on the
 #. verified track.
+#. Translators: This is a label to identify the current number of verified
+#. learners in all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:84
+#: courses/templates/courses/index.html:53
 msgid "Verified Enrollment"
 msgstr ""
 
@@ -845,7 +857,7 @@ msgstr ""
 msgid "External Tools"
 msgstr ""
 
-#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:30
+#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:31
 msgid "Courses"
 msgstr "Dersler"
 
@@ -854,10 +866,24 @@ msgstr "Dersler"
 msgid "Welcome, %(username)s!"
 msgstr ""
 
-#: courses/templates/courses/index.html:19
-#, python-format
-msgid ""
-"Here are the courses you currently have access to in %(application_name)s:"
+#: courses/templates/courses/index.html:23
+msgid "Across all your courses:"
+msgstr ""
+
+#: courses/templates/courses/index.html:33
+msgid "Total enrollments across all of your courses."
+msgstr ""
+
+#: courses/templates/courses/index.html:40
+msgid "Current enrollments across all of your courses."
+msgstr ""
+
+#: courses/templates/courses/index.html:47
+msgid "Total change in enrollment last week across all of your courses."
+msgstr ""
+
+#: courses/templates/courses/index.html:54
+msgid "Verified enrollments across all of your courses."
 msgstr ""
 
 #: courses/templates/courses/performance_answer_distribution.html:7
@@ -1140,7 +1166,7 @@ msgid "Courseware"
 msgstr ""
 
 #. Translators: Do not translate UTC.
-#: courses/views/course_summaries.py:39
+#: courses/views/course_summaries.py:40
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
