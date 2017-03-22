@@ -137,8 +137,8 @@ define(function(require) {
             _.chain(_.zip(learners, rosterView.$('tbody tr'))).each(function(learnerAndTr) {
                 var learner = learnerAndTr[0],
                     tr = learnerAndTr[1];
-                expect($(tr).find('td.learner-name-username-cell .name')).toContainText(learner.name);
-                expect($(tr).find('td.learner-name-username-cell .username')).toContainText(learner.username);
+                expect($(tr).find('th.learner-name-username-cell .name')).toContainText(learner.name);
+                expect($(tr).find('th.learner-name-username-cell .username')).toContainText(learner.username);
                 expect($(tr).find('td.discussion_contributions'))
                     .toContainText(learner.engagements.discussion_contributions);
                 expect($(tr).find('td.problems_attempted'))
@@ -1017,8 +1017,12 @@ define(function(require) {
                     collectionResponse: getResponseBody(1, 1),
                     collectionOptions: {parse: true}
                 });
-                rosterView.$('th').each(function(_index, $th) {
+                rosterView.$('thead th').each(function(_index, $th) {
                     expect($th).toHaveAttr('scope', 'col');
+                });
+
+                rosterView.$('tbody th').each(function(_index, $th) {
+                    expect($th).toHaveAttr('scope', 'row');
                 });
             });
 
@@ -1029,7 +1033,7 @@ define(function(require) {
                     }),
                     screenReaderTextSelector = '.sr-sorting-text',
                     sortColumnSelector = '.username.sortable';
-                rosterView.$('th').each(function(_index, th) {
+                rosterView.$('thead th').each(function(_index, th) {
                     expect($(th).find(screenReaderTextSelector)).toHaveText('click to sort');
                 });
                 rosterView.$(sortColumnSelector + ' > a').click();
