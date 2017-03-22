@@ -1033,7 +1033,12 @@ define(function(require) {
                     expect($(th).find(screenReaderTextSelector)).toHaveText('click to sort');
                 });
                 rosterView.$(sortColumnSelector).click();
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(2, 2)));
                 expect(rosterView.$(sortColumnSelector).find(screenReaderTextSelector)).toHaveText('sort ascending');
+
+                rosterView.$(sortColumnSelector).click();
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(2, 2)));
+                expect(rosterView.$(sortColumnSelector).find(screenReaderTextSelector)).toHaveText('sort descending');
             });
 
             it('the search input has a label', function() {

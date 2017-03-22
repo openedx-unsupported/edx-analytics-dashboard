@@ -84,6 +84,7 @@
       color: $text-color;
 
       // the following overrides the button styling with link styling
+      @extend a;
       border: none;
       background: none;
       padding: 0;
