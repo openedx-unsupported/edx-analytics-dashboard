@@ -1,6 +1,7 @@
 import logging
 
 import ddt
+from django.http import Http404
 from django.template.response import TemplateResponse
 from opaque_keys.edx.keys import CourseKey
 from testfixtures import LogCapture
@@ -42,6 +43,12 @@ class CourseMiddlewareTests(MiddlewareTestCase):
         self.middleware.process_view(request, '', None, {'course_id': course_id})
         self.assertEqual(request.course_id, course_id)
         self.assertEqual(request.course_key, course_key)
+
+    @ddt.data('edX/DemoX/Demo_Course/Foo', 'course-v1:edX+DemoX')
+    def test_invalid_course_id(self, course_id):
+        request = self.factory.get('/')
+        with self.assertRaises(Http404):
+            self.middleware.process_view(request, '', None, {'course_id': course_id})
 
 
 class CoursePermissionsExceptionMiddlewareTests(CoursePermissionsExceptionMixin, MiddlewareTestCase):

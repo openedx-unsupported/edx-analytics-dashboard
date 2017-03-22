@@ -259,8 +259,6 @@ $lens-nav-margin: 15px;
 body.view-course-list {
   $course-list-vertical-padding: $padding-large-vertical * 2.5;
   #content {
-    margin-top: $course-list-vertical-padding;
-
     .view-section {
       margin-bottom: 0px;
 
@@ -273,6 +271,10 @@ body.view-course-list {
       margin-bottom: $padding-large-vertical * 4;
     }
 
+    .course-list-header-region {
+      padding-top: $padding-large-vertical;
+    }
+
     .section-heading {
       margin-bottom: $padding-large-vertical;
 
@@ -282,13 +284,7 @@ body.view-course-list {
     }
 
     .view-head {
-      color: $edx-gray-d2;
-      margin-bottom: $course-list-vertical-padding;
-
-      h2 {
-        margin-top: 0px;
-        margin-bottom: 0px;
-      }
+      margin: 0;
     }
 
     .help-msg {
@@ -852,7 +848,7 @@ body.view-dashboard {
 .course-list {
   @include backgrid-table(course-list);
 
-  .course-list-active-filters {
+  .course-list-active-filters .col {
     min-height: 43px;
   }
 
