@@ -9,13 +9,6 @@
 {% block title %}{% trans "Courses" %} {{ block.super }}{% endblock title %}
 
 
-{% block header-text %}
-  <h2 class="row">
-    {% blocktrans with username=request.user.username %}Welcome, {{ username }}!{% endblocktrans %}
-  </h2>
-{% endblock %}
-
-
 {% block summary-cards %}
 <section class="view-section row">
     <div class="section-heading bordered">
