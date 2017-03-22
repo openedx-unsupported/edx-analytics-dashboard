@@ -858,4 +858,10 @@ body.view-dashboard {
   .course-id {
     color: $edx-gray;
   }
+
+  th.course-name-cell {
+    // override the th styling with td styling
+    @extend td;
+    font-weight: normal;
+  }
 }

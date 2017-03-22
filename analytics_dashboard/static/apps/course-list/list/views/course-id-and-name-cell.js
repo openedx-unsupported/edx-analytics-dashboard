@@ -13,6 +13,7 @@ define(function(require) {
         CourseIdAndNameCell;
 
     CourseIdAndNameCell = Backgrid.Cell.extend({
+        tagName: 'th',
         className: 'course-name-cell',
         template: _.template(courseIdAndNameCellTemplate),
         events: {
