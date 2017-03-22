@@ -13,10 +13,12 @@ define(function(require) {
         NameAndUsernameCell;
 
     NameAndUsernameCell = Backgrid.Cell.extend({
+        tagName: 'th',
         className: 'learner-name-username-cell',
         template: _.template(nameUsernameCellTemplate),
         render: function() {
             this.$el.html(this.template(this.model.toJSON()));
+            this.$el.attr('scope', 'row');
             return this;
         }
     });

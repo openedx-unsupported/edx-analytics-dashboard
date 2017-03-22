@@ -809,6 +809,11 @@ body.view-dashboard {
 
   }
 
+  th.learner-name-username-cell {
+    // override the th styling with td styling
+    @extend td;
+    font-weight: normal;
+  }
 }
 
 // styles for the learner details summary

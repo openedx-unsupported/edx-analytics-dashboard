@@ -21,6 +21,7 @@ define(function(require) {
         },
         render: function() {
             this.$el.html(this.template(this.model.toJSON()));
+            this.$el.attr('scope', 'row');
             return this;
         },
         emitTracking: function() {
