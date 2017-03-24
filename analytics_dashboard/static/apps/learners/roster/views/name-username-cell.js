@@ -6,21 +6,15 @@ define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
-        Backgrid = require('backgrid'),
 
+        RowHeaderCell = require('components/generic-list/list/views/row-header-cell'),
         nameUsernameCellTemplate = require('text!learners/roster/templates/name-username-cell.underscore'),
 
         NameAndUsernameCell;
 
-    NameAndUsernameCell = Backgrid.Cell.extend({
-        tagName: 'th',
+    NameAndUsernameCell = RowHeaderCell.extend({
         className: 'learner-name-username-cell',
-        template: _.template(nameUsernameCellTemplate),
-        render: function() {
-            this.$el.html(this.template(this.model.toJSON()));
-            this.$el.attr('scope', 'row');
-            return this;
-        }
+        template: _.template(nameUsernameCellTemplate)
     });
 
     return NameAndUsernameCell;
