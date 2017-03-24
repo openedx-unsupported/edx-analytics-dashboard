@@ -170,7 +170,7 @@ define(function(require) {
                 getSortingHeaderLink;
 
             getSortingHeaderLink = function(headerClass) {
-                return $('th.' + headerClass + ' a');
+                return $('th.' + headerClass + ' button');
             };
 
             clickSortingHeader = function(headerClass) {

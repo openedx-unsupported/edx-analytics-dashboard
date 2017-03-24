@@ -305,7 +305,7 @@ define(function(require) {
             var clickSortingHeader, executeSortTest, expectSortCalled, getSortingHeaderLink;
 
             getSortingHeaderLink = function(headerClass) {
-                return $('th.' + headerClass + ' a');
+                return $('th.' + headerClass + ' button');
             };
 
             clickSortingHeader = function(headerClass) {
@@ -1032,13 +1032,16 @@ define(function(require) {
                         collectionOptions: {parse: true}
                     }),
                     screenReaderTextSelector = '.sr-sorting-text',
-                    sortColumnSelector = '.username.sortable';
+                    sortColumnSelector = 'th.username.sortable button';
                 rosterView.$('thead th').each(function(_index, th) {
                     expect($(th).find(screenReaderTextSelector)).toHaveText('click to sort');
                 });
-                rosterView.$(sortColumnSelector + ' > a').click();
+                rosterView.$(sortColumnSelector).click();
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(2, 2)));
                 expect(rosterView.$(sortColumnSelector).find(screenReaderTextSelector)).toHaveText('sort ascending');
-                rosterView.$(sortColumnSelector + ' > a').click();
+
+                rosterView.$(sortColumnSelector).click();
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(2, 2)));
                 expect(rosterView.$(sortColumnSelector).find(screenReaderTextSelector)).toHaveText('sort descending');
             });
 
