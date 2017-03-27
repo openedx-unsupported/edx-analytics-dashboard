@@ -6,21 +6,17 @@ define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
-        Backgrid = require('backgrid'),
 
+        RowHeaderCell = require('components/generic-list/list/views/row-header-cell'),
         courseIdAndNameCellTemplate = require('text!course-list/list/templates/course-id-and-name-cell.underscore'),
 
         CourseIdAndNameCell;
 
-    CourseIdAndNameCell = Backgrid.Cell.extend({
+    CourseIdAndNameCell = RowHeaderCell.extend({
         className: 'course-name-cell',
         template: _.template(courseIdAndNameCellTemplate),
         events: {
             click: 'emitTracking'
-        },
-        render: function() {
-            this.$el.html(this.template(this.model.toJSON()));
-            return this;
         },
         emitTracking: function() {
             this.$el.find('a').trigger('clicked.tracking');
