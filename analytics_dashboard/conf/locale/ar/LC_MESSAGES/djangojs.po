@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-07 16:06-0500\n"
+"POT-Creation-Date: 2017-03-16 11:31-0400\n"
 "PO-Revision-Date: 2017-03-08 09:39+0000\n"
 "Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: Arabic (http://www.transifex.com/open-edx/edx-platform/language/ar/)\n"
@@ -32,11 +32,13 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 #: static/apps/components/download/views/download-data.js:25
+#: static/dist/apps/course-list/app/course-list-main.js:6313
 #: static/dist/apps/learners/app/learners-main.js:31504
 msgid "Download CSV"
 msgstr "تنزيل ملفات CSV"
 
 #: static/apps/components/download/views/download-data.js:26
+#: static/dist/apps/course-list/app/course-list-main.js:6314
 #: static/dist/apps/learners/app/learners-main.js:31505
 msgid "Download search results to CSV"
 msgstr "قم بتحميل نتائج البحث الي ملف CSV "
@@ -112,7 +114,7 @@ msgid "click to sort"
 msgstr "اضغط للترتيب"
 
 #: static/apps/components/generic-list/list/views/list.js:54
-#: static/dist/apps/course-list/app/course-list-main.js:6375
+#: static/dist/apps/course-list/app/course-list-main.js:6488
 #: static/dist/apps/learners/app/learners-main.js:31218
 msgid "Results"
 msgstr ""
@@ -219,69 +221,69 @@ msgid "Network error"
 msgstr "خطأ فى الشبكة"
 
 #: static/apps/course-list/app/app.js:41
-#: static/dist/apps/course-list/app/course-list-main.js:6907
+#: static/dist/apps/course-list/app/course-list-main.js:7032
 msgid "Instructor-Paced"
 msgstr ""
 
 #: static/apps/course-list/app/app.js:42
-#: static/dist/apps/course-list/app/course-list-main.js:6908
+#: static/dist/apps/course-list/app/course-list-main.js:7033
 msgid "Self-Paced"
 msgstr ""
 
 #: static/apps/course-list/app/app.js:45
-#: static/dist/apps/course-list/app/course-list-main.js:6911
+#: static/dist/apps/course-list/app/course-list-main.js:7036
 msgid "Upcoming"
 msgstr ""
 
 #: static/apps/course-list/app/app.js:46
-#: static/dist/apps/course-list/app/course-list-main.js:6912
+#: static/dist/apps/course-list/app/course-list-main.js:7037
 msgid "Current"
 msgstr ""
 
 #: static/apps/course-list/app/app.js:47
-#: static/dist/apps/course-list/app/course-list-main.js:6913
+#: static/dist/apps/course-list/app/course-list-main.js:7038
 msgid "Archived"
 msgstr ""
 
 #: static/apps/course-list/app/app.js:48
-#: static/dist/apps/course-list/app/course-list-main.js:6914
+#: static/dist/apps/course-list/app/course-list-main.js:7039
 msgid "Unknown"
 msgstr ""
 
 #: static/apps/course-list/app/controller.js:48
 #: static/apps/course-list/app/controller.js:107
-#: static/dist/apps/course-list/app/course-list-main.js:6518
-#: static/dist/apps/course-list/app/course-list-main.js:6577
+#: static/dist/apps/course-list/app/course-list-main.js:6643
+#: static/dist/apps/course-list/app/course-list-main.js:6702
 msgid "Course List"
 msgstr "قائمة الدورات التعليمية"
 
 #: static/apps/course-list/app/controller.js:97
 #: static/apps/learners/app/controller.js:94
-#: static/dist/apps/course-list/app/course-list-main.js:6567
+#: static/dist/apps/course-list/app/course-list-main.js:6692
 #: static/dist/apps/learners/app/learners-main.js:33030
 msgid "Invalid Parameters"
 msgstr "معلمات غير صالحة"
 
 #: static/apps/course-list/app/controller.js:98
-#: static/dist/apps/course-list/app/course-list-main.js:6568
+#: static/dist/apps/course-list/app/course-list-main.js:6693
 msgid "Sorry, we couldn't find any courses that matched that query."
 msgstr "عذراً، لم نتمكن من العثور على أي دورات تعليمية التي تطابق هذا البحث."
 
 #: static/apps/course-list/app/controller.js:99
-#: static/dist/apps/course-list/app/course-list-main.js:6569
+#: static/dist/apps/course-list/app/course-list-main.js:6694
 msgid "Return to the Course List page."
 msgstr "العودة إلى صفحة قائمة الدورات التعليمية."
 
 #: static/apps/course-list/app/controller.js:124
 #: static/apps/learners/app/controller.js:176
-#: static/dist/apps/course-list/app/course-list-main.js:6594
+#: static/dist/apps/course-list/app/course-list-main.js:6719
 #: static/dist/apps/learners/app/learners-main.js:33112
 msgid "Sorry, we couldn't find the page you're looking for."
 msgstr "المعذرة، لم نجد الصفحة التي تبحث عنها"
 
 #: static/apps/course-list/app/controller.js:127
 #: static/apps/learners/app/controller.js:179
-#: static/dist/apps/course-list/app/course-list-main.js:6597
+#: static/dist/apps/course-list/app/course-list-main.js:6722
 #: static/dist/apps/learners/app/learners-main.js:33115
 msgid "Page Not Found"
 msgstr "الصفحة التي طلبتها غير موجودة "
@@ -398,11 +400,12 @@ msgid "pacing_type"
 msgstr ""
 
 #: static/apps/course-list/list/views/course-list.js:66
+#: static/dist/apps/course-list/app/course-list-main.js:6564
 msgid "Download full course list to CSV"
 msgstr ""
 
 #: static/apps/course-list/list/views/course-list.js:91
-#: static/dist/apps/course-list/app/course-list-main.js:6464
+#: static/dist/apps/course-list/app/course-list-main.js:6589
 msgid "Course list controls"
 msgstr "ضوابط قائمة الدورات التعليمية"
 

@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-07 16:06-0500\n"
-"PO-Revision-Date: 2017-01-19 08:23+0000\n"
+"POT-Creation-Date: 2017-03-16 11:31-0400\n"
+"PO-Revision-Date: 2017-03-23 08:29+0000\n"
 "Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: Slovak (http://www.transifex.com/open-edx/edx-platform/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -541,7 +541,10 @@ msgstr "Dáta o zápisoch"
 
 #. Translators: This is a label to identify the number of learners who ever
 #. enrolled in the course.
+#. Translators: This is a label to identify the maximum number of learners
+#. ever in all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:59
+#: courses/templates/courses/index.html:25
 msgid "Total Enrollment"
 msgstr "Celkovo zapísaných"
 
@@ -551,7 +554,10 @@ msgid "Learners who ever enrolled in the course."
 msgstr ""
 
 #. Translators: This is a label to identify current learner enrollment.
+#. Translators: This is a label to identify the current number of learners in
+#. all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:68
+#: courses/templates/courses/index.html:32
 msgid "Current Enrollment"
 msgstr "Aktuálne zapísaných"
 
@@ -563,7 +569,10 @@ msgstr ""
 
 #. Translators: This is a label indicating the change in the number of
 #. learners enrolled in a course since the previous week.
+#. Translators: This is a label to identify the change in the number of
+#. learners in all of the instructor's courses in the last week.
 #: courses/templates/courses/enrollment_activity.html:76
+#: courses/templates/courses/index.html:39
 msgid "Change in Last Week"
 msgstr "Zmeny za minulý týždeň"
 
@@ -573,7 +582,10 @@ msgstr "Čistý rozdiel v počte aktuálne zapísaných za posledný týždeň."
 
 #. Translators: This is a label to identify enrollment of learners on the
 #. verified track.
+#. Translators: This is a label to identify the current number of verified
+#. learners in all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:84
+#: courses/templates/courses/index.html:46
 msgid "Verified Enrollment"
 msgstr "Overený zápis"
 
@@ -847,20 +859,29 @@ msgstr "Základné informácie o kurze"
 msgid "External Tools"
 msgstr "Externé nástroje"
 
-#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:30
+#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:31
 msgid "Courses"
 msgstr "Kurzy"
 
-#: courses/templates/courses/index.html:14
-#, python-format
-msgid "Welcome, %(username)s!"
-msgstr "Vitajte, %(username)s!"
+#: courses/templates/courses/index.html:16
+msgid "Across all your courses:"
+msgstr ""
 
-#: courses/templates/courses/index.html:19
-#, python-format
-msgid ""
-"Here are the courses you currently have access to in %(application_name)s:"
-msgstr "Tu sú kurzy, ku ktorým máte aktuálne prístup v %(application_name)s:"
+#: courses/templates/courses/index.html:26
+msgid "Total enrollments across all of your courses."
+msgstr ""
+
+#: courses/templates/courses/index.html:33
+msgid "Current enrollments across all of your courses."
+msgstr ""
+
+#: courses/templates/courses/index.html:40
+msgid "Total change in enrollment last week across all of your courses."
+msgstr ""
+
+#: courses/templates/courses/index.html:47
+msgid "Verified enrollments across all of your courses."
+msgstr ""
 
 #: courses/templates/courses/performance_answer_distribution.html:7
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html:5
@@ -1142,7 +1163,7 @@ msgid "Courseware"
 msgstr "Výuka"
 
 #. Translators: Do not translate UTC.
-#: courses/views/course_summaries.py:39
+#: courses/views/course_summaries.py:40
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
