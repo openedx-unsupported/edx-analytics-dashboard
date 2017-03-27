@@ -23,9 +23,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-07 16:06-0500\n"
-"PO-Revision-Date: 2017-03-10 00:59+0000\n"
-"Last-Translator: Juan Camilo Montoya Franco <juan.montoya@edunext.co>\n"
+"POT-Creation-Date: 2017-03-16 11:31-0400\n"
+"PO-Revision-Date: 2017-03-23 08:29+0000\n"
+"Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: Spanish (Latin America) (http://www.transifex.com/open-edx/edx-platform/language/es_419/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -552,7 +552,10 @@ msgstr "Métricas de inscripciones"
 
 #. Translators: This is a label to identify the number of learners who ever
 #. enrolled in the course.
+#. Translators: This is a label to identify the maximum number of learners
+#. ever in all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:59
+#: courses/templates/courses/index.html:25
 msgid "Total Enrollment"
 msgstr "Total de inscritos"
 
@@ -562,7 +565,10 @@ msgid "Learners who ever enrolled in the course."
 msgstr "Estudiantes que alguna vez se inscribieron en el curso."
 
 #. Translators: This is a label to identify current learner enrollment.
+#. Translators: This is a label to identify the current number of learners in
+#. all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:68
+#: courses/templates/courses/index.html:32
 msgid "Current Enrollment"
 msgstr "Inscripción Actual"
 
@@ -574,7 +580,10 @@ msgstr "Estudiantes inscritos actualmente en el curso."
 
 #. Translators: This is a label indicating the change in the number of
 #. learners enrolled in a course since the previous week.
+#. Translators: This is a label to identify the change in the number of
+#. learners in all of the instructor's courses in the last week.
 #: courses/templates/courses/enrollment_activity.html:76
+#: courses/templates/courses/index.html:39
 msgid "Change in Last Week"
 msgstr "Cambios en la última semana"
 
@@ -584,7 +593,10 @@ msgstr "Diferencia neta en las inscripciones en la última semana."
 
 #. Translators: This is a label to identify enrollment of learners on the
 #. verified track.
+#. Translators: This is a label to identify the current number of verified
+#. learners in all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:84
+#: courses/templates/courses/index.html:46
 msgid "Verified Enrollment"
 msgstr "Inscripciones verificadas"
 
@@ -858,20 +870,29 @@ msgstr "Información básica del curso"
 msgid "External Tools"
 msgstr "Herramientas externas"
 
-#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:30
+#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:31
 msgid "Courses"
 msgstr "Cursos"
 
-#: courses/templates/courses/index.html:14
-#, python-format
-msgid "Welcome, %(username)s!"
-msgstr "Bienvenido, %(username)s!"
+#: courses/templates/courses/index.html:16
+msgid "Across all your courses:"
+msgstr ""
 
-#: courses/templates/courses/index.html:19
-#, python-format
-msgid ""
-"Here are the courses you currently have access to in %(application_name)s:"
-msgstr "Aquí están los cursos que actualmente tienen acceso en %(application_name)s:"
+#: courses/templates/courses/index.html:26
+msgid "Total enrollments across all of your courses."
+msgstr ""
+
+#: courses/templates/courses/index.html:33
+msgid "Current enrollments across all of your courses."
+msgstr ""
+
+#: courses/templates/courses/index.html:40
+msgid "Total change in enrollment last week across all of your courses."
+msgstr ""
+
+#: courses/templates/courses/index.html:47
+msgid "Verified enrollments across all of your courses."
+msgstr ""
 
 #: courses/templates/courses/performance_answer_distribution.html:7
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html:5
@@ -1153,7 +1174,7 @@ msgid "Courseware"
 msgstr "Contenidos"
 
 #. Translators: Do not translate UTC.
-#: courses/views/course_summaries.py:39
+#: courses/views/course_summaries.py:40
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
