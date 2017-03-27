@@ -159,7 +159,7 @@ class CourseSummariesPresenterTests(TestCase):
         # sort by title
         return sorted(
             summaries,
-            key=lambda x: (x['catalog_course_title'] is not None, x['catalog_course_title']))
+            key=lambda x: (not x['catalog_course_title'], x['catalog_course_title']))
 
     @override_settings(CACHES={
         'default': {
