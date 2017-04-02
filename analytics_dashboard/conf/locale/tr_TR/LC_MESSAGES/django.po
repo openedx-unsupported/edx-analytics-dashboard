@@ -15,14 +15,15 @@
 # İlker IŞIK <m.ilkerisik@hotmail.com>, 2015
 # Kubilay <kubilayinceoren10@gmail.com>, 2015
 # Muammer Aktas <maktas@harmonytx.org>, 2015
+# TahaK <mustafataha93@gmail.com>, 2017
 # nasozby <nasozby@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-16 11:31-0400\n"
-"PO-Revision-Date: 2017-03-23 08:29+0000\n"
-"Last-Translator: Ned Batchelder <ned@edx.org>\n"
+"PO-Revision-Date: 2017-03-29 20:14+0000\n"
+"Last-Translator: TahaK <mustafataha93@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/open-edx/edx-platform/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +33,7 @@ msgstr ""
 
 #: core/templates/core/landing.html:15 templates/_skip_link.html:3
 msgid "Skip to content"
-msgstr ""
+msgstr "İçeriğe atla"
 
 #: core/templates/core/landing.html:23
 msgid "Login"
@@ -44,11 +45,11 @@ msgstr "Ders geliştirici ekiplerin daha iyi sonuçlar elde edebilmeleri için �
 
 #: core/templates/core/landing.html:42 courses/views/__init__.py:497
 msgid "Who are my learners?"
-msgstr ""
+msgstr "Öğrencilerim kimler?"
 
 #: core/templates/core/landing.html:43
 msgid "Target your course to fit the backgrounds of your learners."
-msgstr ""
+msgstr "Dersinizi öğrencilerinizin arka planlarına uyacak şekilde belirleyin."
 
 #: core/templates/core/landing.html:44
 #: courses/templates/courses/enrollment_geography.html:28
@@ -59,13 +60,13 @@ msgstr "Kayıt"
 
 #: core/templates/core/landing.html:47
 msgid "What are learners engaging with in my course?"
-msgstr ""
+msgstr "Öğrenciler dersimde neler ile etkileşim içerisindeler?"
 
 #: core/templates/core/landing.html:48
 msgid ""
 "Improve frequently accessed content, or point learners at underused "
 "resources."
-msgstr ""
+msgstr "Sıkça erişilen içeriği iyileştirin ya da öğrencileri az kullanılan kaynaklara yönlendirin"
 
 #: core/templates/core/landing.html:49
 #: courses/tests/test_views/test_engagement.py:44
@@ -75,11 +76,11 @@ msgstr "Taahhüt"
 
 #: core/templates/core/landing.html:52
 msgid "How well is my content supporting learners?"
-msgstr ""
+msgstr "İçeriğim öğrencileri ne kadar desteklemektedir?"
 
 #: core/templates/core/landing.html:53
 msgid "Adjust your course based on where learners are struggling."
-msgstr ""
+msgstr "Öğrencilerin bocaladıkları yerlere göre kursunuzu düzenleyin."
 
 #: core/templates/core/landing.html:54
 #: courses/tests/test_views/test_performance.py:48
@@ -130,7 +131,7 @@ msgstr "{statistic}%"
 #: courses/presenters/engagement.py:126
 #, python-brace-format
 msgid "{percentage} of current learners"
-msgstr ""
+msgstr "mevcut öğrencilerin {percentage}"
 
 #: courses/presenters/enrollment.py:23
 msgid "Female"
@@ -244,7 +245,7 @@ msgstr "Bölüm {part_number}"
 #: courses/templates/courses/_base_content_nav.html:25
 #, python-format
 msgid "%(all_sections_text)s"
-msgstr ""
+msgstr "%(all_sections_text)ler"
 
 #: courses/templates/courses/_graded_content_nav.html:16
 msgid "Select Assignment Type"
