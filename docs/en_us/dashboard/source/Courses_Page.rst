@@ -1,18 +1,50 @@
 .. _Courses_Page:
 
-#############
-Courses Page
-#############
+#######################
+Overview of All Courses
+#######################
 
-Generally, when you access Insights, you start on the edX Insights **Courses**
-page. This page provides a dashboard view of all of your courses, including key
-information about your courses and top-level enrollment statistics. Which
-courses have the most learners enrolled? Which courses have the most learners
-working toward a verified certificate? You can quickly answer these questions
-using the **Courses** page.
+Insights provides enrollment information about all of your courses in aggregate
+as well as detailed information about enrollment, engagement, and other metrics
+for each individual course. You find aggregate enrollment information, and
+access individual courses, on the **Courses** page.
 
-The courses page provides a Course List table with the following information
-about each of your courses.
+You can access the **Courses** page in the following ways.
+
+* Sign in to Insights. The **Courses** page opens automatically.
+* At the top of any Insights page, select **Insights**.
+
+.. _Viewing Aggregate Enrollment Counts:
+
+***********************************
+Viewing Aggregate Enrollment Counts
+***********************************
+
+To view aggregate enrollment counts for your courses, open the **Courses** page
+by signing in to Insights, or by selecting **Insights** at the top of any page.
+
+At the top of the **Courses** page, cards show the following top-level
+metrics across all of your courses.
+
+* **Total Enrollment**: The number of past and current enrollments across all
+  of your courses. Learners who have unenrolled in a course do not affect this
+  number.
+* **Current Enrollment**: The number of current enrollments in all of your
+  courses.
+* **Change in Last Week**: The net increase or decrease of enrollments across
+  all of your courses over the past seven days.
+* **Verified Enrollment**: The number of enrollments in the verified enrollment
+  track across all of your courses.
+
+.. _Course_List:
+
+*********************************
+Viewing Course Enrollment Metrics
+*********************************
+
+The **Courses** page allows you to view enrollment metrics for all of your
+courses in one place. On the **Courses** page, the Course List table provides
+the following information about each course.
 
 * Course Name
 * Course ID
@@ -23,57 +55,28 @@ about each of your courses.
 * Change Last Week
 * Verified Enrollment
 
-.. image:: images/CoursesPage_Filters.png
- :width: 600
- :alt: The Course List table on the Courses page, showing four example courses.
-
 .. note::
- On Edge, the summary table does not include the course name, start date, or
- end date.
+ On Edge, the Course List table does not include the course name, start date,
+ or end date.
 
-.. _Course_List:
+For a quick view of information that's important to you, click the title of any
+column to sort the Course List table by that column.
 
-*******************************************
-Gaining Insight into Course Data
-*******************************************
-
-For a quick view of information that's important to you, you can sort the
-Course List table by any column. To sort by a specific column, click the title
-of that column.
-
-To see the Insights view for a specific course, click the course name and ID.
-You can then access more data for that course.
-
-************************
-Finding Specific Courses
-************************
-
-If you want to find a specific course or courses, use the options in the left
-pane. You can search by course name, course ID, availability, and pacing type,
-as well as any combination of options.
-
-* In the **Find a Course** field, enter any part of the course name or course
-  ID, and then click the search icon.
-* Under **Availability** or **Pacing Type**, select the options that you want
-  to include in your search. The list of courses updates automatically when you
-  select or clear an option.
-
-
-*******************************************
-Identifying Courses With Highest Enrollment
-*******************************************
+============================================
+Identify Courses With the Highest Enrollment
+============================================
 
 If you want to find courses with the highest enrollment, you can sort the table
-by either the “Total Enrollment” or “Current Enrollment” columns depending on
-your metric of interest. This will help you understand which courses attract
-the most learners.
+by either the “Total Enrollment” or “Current Enrollment” columns, depending on
+the metric that you are interested in. This will help you understand which
+courses attract the most learners.
 
-You can sort for “Verified Enrollment” to find courses with the highest number
-of verified learners.
+You can sort by the “Verified Enrollment” column to find courses with the
+highest number of verified learners.
 
-***********************************************
-Identifying Recent Changes in Course Enrollment
-***********************************************
+===============================================
+Identify Recent Enrollment Changes for a Course
+===============================================
 
 If you are running course marketing campaigns, you may be interested in looking
 at recent changes in enrollment. If you sort by the “Change Last Week” column
@@ -82,14 +85,32 @@ enrollment in the past week. You will need to draw on your knowledge of recent
 marketing efforts to interpret this data, and assess the impact of marketing
 efforts on course enrollments.
 
-*************************
-The Course Summary Report
-*************************
+=================================
+Access Data for a Specific Course
+=================================
 
-Statistics for all of your courses are available for review or download. In
-addition to the information that is available on the **Courses** page, the
-Course Summary report includes columns for course availability and pacing type,
-as well as two different counts for every enrollment mode.
+To access Insights data for a specific course or courses, locate the name of
+the course in the Course List table, and then select the course name.
+
+To locate a course in the Course List table, you can use the options in the
+left pane to limit the courses that the table lists. You can search by course
+name or course ID, and you can filter by availability and pacing type. You can
+also combine any of these options.
+
+* In the **Find a Course** field, enter any part of the course name or course
+  ID, and then click the search icon.
+* Under **Availability** or **Pacing Type**, select the options that you want
+  to include in your search. The list of courses updates automatically when you
+  select or clear an option.
+
+************************************************
+Viewing Detailed Enrollment Data for All Courses
+************************************************
+
+A Course Summary report that shows detailed information for all of your courses
+is available for download. This report includes columns for course availability
+and pacing type, two different counts for every enrollment mode, and other
+information.
 
 To download the Course Summary report in a comma-separated value (CSV) file,
 select **Download CSV**. The CSV file contains the following columns.
@@ -115,7 +136,7 @@ select **Download CSV**. The CSV file contains the following columns.
 * pacing_type
 * start_date
 
-For detailed information about the computations, see :ref:`Enrollment
-Computations`. Note that the enrollment data that the computations include is
-the same as the summary metrics presented in the :ref:`Enrollment_Activity`
-report.
+For detailed information about the computations in this report, see
+:ref:`Enrollment Computations`. Note that the enrollment data that the
+computations include is the same as the summary metrics presented in the
+:ref:`Enrollment_Activity` report.
