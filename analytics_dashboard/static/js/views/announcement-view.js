@@ -22,6 +22,11 @@ define(['backbone', 'jquery'], function(Backbone, $) {
             $.ajaxSetup({
                 beforeSend: function(xhr) {
                     xhr.setRequestHeader('X-CSRFToken', self.csrftoken);
+                },
+                // Prevent XSS attack in jQuery 2.X:
+                // https://github.com/jquery/jquery/issues/2432#issuecomment-140038536
+                contents: {
+                    javascript: false
                 }
             });
 
