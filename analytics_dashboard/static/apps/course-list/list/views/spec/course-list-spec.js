@@ -82,9 +82,9 @@ define(function(require) {
             _.chain(_.zip(view.collection.models, view.$('tbody tr'))).each(function(courseAndTr) {
                 var course = courseAndTr[0],
                     tr = courseAndTr[1];
-                expect($(tr).find('td.course-name-cell .course-name')).toContainText(
+                expect($(tr).find('th.course-name-cell .course-name')).toContainText(
                     course.get('catalog_course_title'));
-                expect($(tr).find('td.course-name-cell .course-id')).toContainText(course.get('course_id'));
+                expect($(tr).find('th.course-name-cell .course-id')).toContainText(course.get('course_id'));
                 expect($(tr).find('td.start_date')).toContainText(
                     moment.utc(course.get('start_date').split('T')[0]).format('L'));
                 expect($(tr).find('td.end_date')).toContainText(
@@ -170,7 +170,7 @@ define(function(require) {
                 getSortingHeaderLink;
 
             getSortingHeaderLink = function(headerClass) {
-                return $('th.' + headerClass + ' a');
+                return $('th.' + headerClass + ' button');
             };
 
             clickSortingHeader = function(headerClass) {
@@ -325,8 +325,12 @@ define(function(require) {
 
             it('all <th> elements have scope attributes', function() {
                 var view = getCourseListView();
-                view.$('th').each(function(_index, $th) {
+                view.$('thead th').each(function(_index, $th) {
                     expect($th).toHaveAttr('scope', 'col');
+                });
+
+                view.$('tbody th').each(function(_index, $th) {
+                    expect($th).toHaveAttr('scope', 'row');
                 });
             });
 
