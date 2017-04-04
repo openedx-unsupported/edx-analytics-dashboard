@@ -1,8 +1,8 @@
 .. _Overview:
 
-#############
-Overview
-#############
+########################
+Overview of EdX Insights
+########################
 
 EdX Insights makes information about courses available to course team members
 who have the Staff or Admin role. EdX Insights provides these
