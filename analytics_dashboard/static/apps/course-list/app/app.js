@@ -9,6 +9,7 @@ define(function(require) {
         initModels = require('load/init-page'),
 
         CourseListCollection = require('course-list/common/collections/course-list'),
+        ProgramsCollection = require('course-list/common/collections/programs'),
         CourseListController = require('course-list/app/controller'),
         RootView = require('components/root/views/root'),
         CourseListRouter = require('course-list/app/router'),
@@ -28,11 +29,14 @@ define(function(require) {
         onStart: function() {
             var pageModel = new PageModel(),
                 courseListCollection,
+                programsCollection,
                 rootView;
 
             new SkipLinkView({
                 el: 'body'
             }).render();
+
+            programsCollection = new ProgramsCollection(this.options.programsJson);
 
             courseListCollection = new CourseListCollection(this.options.courseListJson, {
                 downloadUrl: this.options.courseListDownloadUrl,
@@ -46,8 +50,11 @@ define(function(require) {
                         Current: gettext('Current'),
                         Archived: gettext('Archived'),
                         unknown: gettext('Unknown')
-                    }
-                }
+                    },
+                    // Will be filled in dynamically by the initialize() function from the programsCollection models:
+                    program_ids: {}
+                },
+                programsCollection: programsCollection
             });
 
             rootView = new RootView({

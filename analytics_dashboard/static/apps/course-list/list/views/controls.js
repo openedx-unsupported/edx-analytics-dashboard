@@ -22,7 +22,8 @@ define(function(require) {
             search: '.course-list-search-container',
             skipLink: '.skip-link',
             availabilityFilter: '.course-list-availability-filter-container',
-            pacingTypeFilter: '.course-list-pacing-type-filter-container'
+            pacingTypeFilter: '.course-list-pacing-type-filter-container',
+            programsFilter: '.course-list-programs-filter-container'
         },
 
         ui: {
@@ -75,6 +76,14 @@ define(function(require) {
                         filterKey: 'pacing_type',
                         filterValues: this.options.collection.getFilterValues('pacing_type'),
                         sectionDisplayName: this.options.collection.filterDisplayName('pacing_type')
+                    }).defaults(defaultFilterOptions)
+                }, {
+                    region: 'programsFilter',
+                    class: CheckboxFilter,
+                    options: _({
+                        filterKey: 'program_ids',
+                        filterValues: this.options.collection.getFilterValues('program_ids'),
+                        sectionDisplayName: this.options.collection.filterDisplayName('program_ids')
                     }).defaults(defaultFilterOptions)
                 }]);
             }

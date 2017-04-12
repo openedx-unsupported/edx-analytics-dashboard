@@ -165,6 +165,18 @@ define(function(require) {
                 count = this.state.totalRecords;
             }
             return count;
+        },
+
+        /**
+         * Adds the given field to the list of fields that can be
+         * filtered on and sets the fieldType to 'array'.
+         * @param fieldName name of the field for the server API
+         * @param displayName name of the field to display to the
+         *     user
+         */
+        registerFilterableArrayField: function(fieldName, displayName) {
+            this.addField(this.filterableFields, fieldName, displayName);
+            this.filterableFields[fieldName].fieldType = 'array';
         }
     });
 
