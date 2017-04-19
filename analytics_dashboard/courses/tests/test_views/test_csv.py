@@ -19,6 +19,7 @@ from courses.tests.utils import (
     get_mock_api_enrollment_geography_data,
     get_mock_course_summaries,
     get_mock_course_summaries_csv,
+    get_mock_programs,
 )
 
 
@@ -194,6 +195,16 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
     base_file_name = 'course-list'
     api_method = 'analyticsclient.course_summaries.CourseSummaries.course_summaries'
 
+    def setUp(self):
+        self.programs_patch = mock.patch('courses.presenters.programs.ProgramsPresenter.get_programs')
+        programs_api = self.programs_patch.start()
+        programs_api.return_value = get_mock_programs()
+        super(CourseIndexCSVTests, self).setUp()
+
+    def tearDown(self):
+        self.programs_patch.stop()
+        super(CourseIndexCSVTests, self).tearDown()
+
     def path(self, **kwargs):
         # This endpoint does not include the course-id, so drop it (along with any other kwargs)
         return reverse(self.viewname)
@@ -230,7 +241,8 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
     def _test_csv(self, course_id, mocked_api_response, csv_data):
         csv_data = csv_data.format(course_id)
 
-        with mock.patch('courses.presenters.course_summaries.CourseSummariesPresenter.get_course_summaries',
+        presenter_method = 'courses.presenters.course_summaries.CourseSummariesPresenter.get_course_summaries'
+        with mock.patch(presenter_method,
                         return_value=(mocked_api_response, None)):
             self.assertIsValidCSV(csv_data)
 

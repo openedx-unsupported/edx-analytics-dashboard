@@ -9,12 +9,25 @@ class ProgramsPresenter(BasePresenter):
     NON_NULL_STRING_FIELDS = ['program_id', 'program_type', 'program_title']
 
     @staticmethod
-    def filter_programs(all_programs, program_ids=None):
-        """Filter results to just the program IDs specified."""
+    def filter_programs(all_programs, program_ids=None, course_ids=None):
+        """Filter results to just the program IDs specified and then to just the programs that have
+           a course in the given course_ids list.
+        """
         if program_ids is None:
-            return all_programs
+            programs = all_programs
         else:
-            return [program for program in all_programs if program['program_id'] in program_ids]
+            programs = [program for program in all_programs if program['program_id'] in program_ids]
+
+        # Now apply course_ids filter
+        if course_ids is None:
+            return programs
+        else:
+            filtered_programs = []
+            for program in programs:
+                for course_id in course_ids:
+                    if course_id in program['course_ids']:
+                        filtered_programs.append(program)
+            return filtered_programs
 
     def _get_all_programs(self):
         """
@@ -30,13 +43,13 @@ class ProgramsPresenter(BasePresenter):
             cache.set(self.CACHE_KEY, all_programs)
         return all_programs
 
-    def get_programs(self, program_ids=None):
+    def get_programs(self, program_ids=None, course_ids=None):
         """
         Returns programs that match those listed in program_ids.  If
         no program IDs provided, all programs will be returned.
         """
         all_programs = self._get_all_programs()
-        filtered_programs = self.filter_programs(all_programs, program_ids)
+        filtered_programs = self.filter_programs(all_programs, program_ids=program_ids, course_ids=course_ids)
 
         # sort by title by default with "None" values at the end
         filtered_programs = sorted(

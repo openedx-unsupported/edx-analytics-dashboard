@@ -23,6 +23,9 @@ class CourseSummariesViewTests(ViewTestMixin, CoursePermissionsExceptionMixin, T
     def get_mock_data(self, course_ids):
         return [{'course_id': course_id} for course_id in course_ids], utils.CREATED_DATETIME
 
+    def get_programs_mock_data(self, course_ids):
+        return [{'program_id': 'Demo_Program', 'course_ids': course_ids}]
+
     def assertCourseListEquals(self, courses):
         response = self.client.get(self.path())
         self.assertEqual(response.status_code, 200)
@@ -30,6 +33,9 @@ class CourseSummariesViewTests(ViewTestMixin, CoursePermissionsExceptionMixin, T
 
     def expected_summaries(self, course_ids):
         return self.get_mock_data(course_ids)[0]
+
+    def expected_programs(self, course_ids):
+        return self.get_programs_mock_data(course_ids)
 
     @data(
         [CourseSamples.DEMO_COURSE_ID],
@@ -41,13 +47,17 @@ class CourseSummariesViewTests(ViewTestMixin, CoursePermissionsExceptionMixin, T
         Test data is returned in the correct hierarchy.
         """
         presenter_method = 'courses.presenters.course_summaries.CourseSummariesPresenter.get_course_summaries'
+        programs_presenter_method = 'courses.presenters.programs.ProgramsPresenter.get_programs'
         mock_data = self.get_mock_data(course_ids)
+        programs_mock_data = self.get_programs_mock_data(course_ids)
         with mock.patch(presenter_method, return_value=mock_data):
-            response = self.client.get(self.path())
-            self.assertEqual(response.status_code, 200)
-            context = response.context
-            page_data = json.loads(context['page_data'])
-            self.assertListEqual(page_data['course']['course_list_json'], self.expected_summaries(course_ids))
+            with mock.patch(programs_presenter_method, return_value=programs_mock_data):
+                response = self.client.get(self.path())
+                self.assertEqual(response.status_code, 200)
+                context = response.context
+                page_data = json.loads(context['page_data'])
+                self.assertListEqual(page_data['course']['course_list_json'], self.expected_summaries(course_ids))
+                self.assertListEqual(page_data['course']['programs_json'], self.expected_programs(course_ids))
 
     def test_get_unauthorized(self):
         """ The view should raise an error if the user has no course permissions. """

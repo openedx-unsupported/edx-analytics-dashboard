@@ -2,6 +2,7 @@ import StringIO
 import copy
 import csv
 import datetime
+import uuid
 
 from analyticsclient.client import Client
 from analyticsclient.constants import enrollment_modes, UNKNOWN_COUNTRY_CODE
@@ -24,6 +25,14 @@ class CourseSamples(object):
     """Example course IDs for testing with."""
     DEMO_COURSE_ID = 'course-v1:edX+DemoX+Demo_2014'
     DEPRECATED_DEMO_COURSE_ID = 'edX/DemoX/Demo_Course'
+
+
+class ProgramSamples(object):
+    """Example program IDs for testing with."""
+    DEMO_PROGRAM_ID = str(uuid.uuid4())
+    DEMO_PROGRAM2_ID = str(uuid.uuid4())
+    DEMO_PROGRAM3_ID = str(uuid.uuid4())
+    DEMO_PROGRAM4_ID = str(uuid.uuid4())
 
 
 def get_mock_api_enrollment_data(course_id):
@@ -761,14 +770,56 @@ def get_mock_course_summaries_csv(course_ids):
         'enrollment_modes.credit.count,enrollment_modes.credit.cumulative_count,enrollment_modes.honor.count,' +
         'enrollment_modes.honor.cumulative_count,enrollment_modes.professional.count,' +
         'enrollment_modes.professional.cumulative_count,enrollment_modes.verified.count,' +
-        'enrollment_modes.verified.cumulative_count,pacing_type,start_date\r\n'
+        'enrollment_modes.verified.cumulative_count,pacing_type,program_ids.0,program_ids.1,start_date\r\n'
     )
+    programs = get_mock_programs()
     mock_csv = ''
 
     for course_id in course_ids:
+        associated_programs = []
+        for program in programs:
+            if course_id in program['course_ids']:
+                associated_programs.append(program)
+
+        first_program = ''
+        second_program = ''
+        if len(associated_programs) > 1:
+            first_program = associated_programs[0]['program_id']
+            second_program = associated_programs[1]['program_id']
+        elif len(associated_programs) > 0:
+            first_program = associated_programs[0]['program_id']
+
         mock_csv = mock_csv + (
             'Upcoming,Demo_Course,Demo Course,1590,41,{},1835,2017-05-02T182754,238,326,238,288,398,449,159,162,' +
-            '557,610,self_paced,2017-01-10T182754\r\n'
-        ).format(course_id)
+            '557,610,self_paced,{},{},2017-01-10T182754\r\n'
+        ).format(course_id, first_program, second_program)
 
     return mock_csv if mock_csv == '' else header + mock_csv
+
+
+def get_mock_programs():
+        return [{
+            'program_title': 'Demo Program',
+            'program_type': 'Demo',
+            'course_ids': [CourseSamples.DEMO_COURSE_ID],
+            'program_id': ProgramSamples.DEMO_PROGRAM_ID,
+            'created': CREATED_DATETIME_STRING,
+        }, {
+            'program_title': 'Demo Program2',
+            'program_type': 'Demo',
+            'course_ids': [CourseSamples.DEPRECATED_DEMO_COURSE_ID],
+            'program_id': ProgramSamples.DEMO_PROGRAM2_ID,
+            'created': CREATED_DATETIME_STRING,
+        }, {
+            'program_title': 'Demo Program3',
+            'program_type': 'Demo',
+            'course_ids': [],
+            'program_id': ProgramSamples.DEMO_PROGRAM3_ID,
+            'created': CREATED_DATETIME_STRING,
+        }, {
+            'program_title': 'Demo Program4',
+            'program_type': 'Demo',
+            'course_ids': [CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID, 'another/course/id'],
+            'program_id': ProgramSamples.DEMO_PROGRAM4_ID,
+            'created': CREATED_DATETIME_STRING,
+        }]
