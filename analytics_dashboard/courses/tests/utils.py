@@ -798,28 +798,28 @@ def get_mock_course_summaries_csv(course_ids):
 
 
 def get_mock_programs():
-        return [{
-            'program_title': 'Demo Program',
-            'program_type': 'Demo',
-            'course_ids': [CourseSamples.DEMO_COURSE_ID],
-            'program_id': ProgramSamples.DEMO_PROGRAM_ID,
-            'created': CREATED_DATETIME_STRING,
-        }, {
-            'program_title': 'Demo Program2',
-            'program_type': 'Demo',
-            'course_ids': [CourseSamples.DEPRECATED_DEMO_COURSE_ID],
-            'program_id': ProgramSamples.DEMO_PROGRAM2_ID,
-            'created': CREATED_DATETIME_STRING,
-        }, {
-            'program_title': 'Demo Program3',
-            'program_type': 'Demo',
-            'course_ids': [],
-            'program_id': ProgramSamples.DEMO_PROGRAM3_ID,
-            'created': CREATED_DATETIME_STRING,
-        }, {
-            'program_title': 'Demo Program4',
-            'program_type': 'Demo',
-            'course_ids': [CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID, 'another/course/id'],
-            'program_id': ProgramSamples.DEMO_PROGRAM4_ID,
-            'created': CREATED_DATETIME_STRING,
-        }]
+    return [{
+        'program_title': 'Demo Program',
+        'program_type': 'Demo',
+        'course_ids': [CourseSamples.DEMO_COURSE_ID],
+        'program_id': ProgramSamples.DEMO_PROGRAM_ID,
+        'created': CREATED_DATETIME_STRING,
+    }, {
+        'program_title': 'Demo Program2',
+        'program_type': 'Demo',
+        'course_ids': [CourseSamples.DEPRECATED_DEMO_COURSE_ID],
+        'program_id': ProgramSamples.DEMO_PROGRAM2_ID,
+        'created': CREATED_DATETIME_STRING,
+    }, {
+        'program_title': 'Demo Program3',
+        'program_type': 'Demo',
+        'course_ids': [],
+        'program_id': ProgramSamples.DEMO_PROGRAM3_ID,
+        'created': CREATED_DATETIME_STRING,
+    }, {
+        'program_title': 'Demo Program4',
+        'program_type': 'Demo',
+        'course_ids': [CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID, 'another/course/id'],
+        'program_id': ProgramSamples.DEMO_PROGRAM4_ID,
+        'created': CREATED_DATETIME_STRING,
+    }]

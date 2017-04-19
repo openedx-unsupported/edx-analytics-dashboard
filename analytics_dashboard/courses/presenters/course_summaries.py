@@ -16,6 +16,7 @@ class CourseSummariesPresenter(BasePresenter):
         if course_ids is None:
             return all_summaries
         else:
+            #  return all_summaries
             return [summary for summary in all_summaries if summary['course_id'] in course_ids]
 
     def _get_all_summaries(self):

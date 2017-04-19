@@ -277,6 +277,7 @@ class CourseIndexTests(AnalyticsApiClientMixin, AnalyticsDashboardWebAppTestMixi
             ('Upcoming', 'Upcoming', True),
             ('instructor_paced', 'Instructor-Paced', False),
             ('self_paced', 'Self-Paced', True),
+            ('Demo_Program', 'Demo Program', True),
         ])
 
     def _test_download_csv(self):
