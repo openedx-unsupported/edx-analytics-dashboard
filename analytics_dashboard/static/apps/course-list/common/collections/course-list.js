@@ -8,6 +8,7 @@ define(function(require) {
         _ = require('underscore'),
         Backbone = require('backbone'),
         ListCollection = require('components/generic-list/common/collections/collection'),
+        ProgramsCollection = require('course-list/common/collections/programs'),
         CourseModel = require('course-list/common/models/course'),
         FieldFilter = require('course-list/common/filters/field-filter'),
         ArrayFieldFilter = require('course-list/common/filters/array-field-filter'),
@@ -50,7 +51,7 @@ define(function(require) {
                 this.remove(model, ops);
             });
 
-            this.programsCollection = options.programsCollection;
+            this.programsCollection = options.programsCollection || new ProgramsCollection([]);
             // add program_ids to programs array on every course
             this.programsCollection.each(_.bind(function(program) {
                 var courseIds = program.get('course_ids');
@@ -65,6 +66,11 @@ define(function(require) {
 
                 // Also append this program's ID and display name to filterNameToDisplay
                 // (so that the active filters will display the program title, not the ID)
+                if (this.filterNameToDisplay === undefined) {
+                    this.filterNameToDisplay = {program_ids: {}};
+                } else if (this.filterNameToDisplay.program_ids === undefined) {
+                    this.filterNameToDisplay.program_ids = {};
+                }
                 this.filterNameToDisplay.program_ids[program.get('program_id')] = program.get('program_title');
             }, this));
 

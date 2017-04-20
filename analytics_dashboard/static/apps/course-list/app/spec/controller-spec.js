@@ -59,7 +59,8 @@ define(function(require) {
                 created: '',
                 availability: 'unknown',
                 count_change_7_days: 0,
-                verified_enrollment: 0
+                verified_enrollment: 0,
+                program_ids: []
             };
         };
 
