@@ -26,7 +26,8 @@ module.exports = {
         'learners-main': './analytics_dashboard/static/apps/learners/app/learners-main',
         'performance-learning-outcomes-content-main': './analytics_dashboard/static/js/performance-learning-outcomes-content-main',
         'performance-learning-outcomes-section-main': './analytics_dashboard/static/js/performance-learning-outcomes-section-main',
-        'course-list-main': './analytics_dashboard/static/apps/course-list/app/course-list-main'
+        'course-list-main': './analytics_dashboard/static/apps/course-list/app/course-list-main',
+        globalization: './analytics_dashboard/static/js/utils/globalization'
     },
 
     resolve: {
@@ -52,7 +53,15 @@ module.exports = {
         }),
         extractCSS,
         extractSCSS,
-        // new webpack.optimize.CommonsChunkPlugin({names: 'common-chunks'})
+        // split about the globalization functionality into a chunk that can be loaded via cache
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'globalization',
+            minChunks: Infinity
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'manifest',
+            minChunks: Infinity
+        }),
         new webpack.optimize.AggressiveMergingPlugin(),
         new webpack.optimize.UglifyJsPlugin()
     ],

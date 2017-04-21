@@ -72,6 +72,10 @@
       </script>
     {% endif %}
 
+    {# webpack loading #}
+    {% render_bundle 'manifest' %}
+    {# shared globalization functionality #}
+    {% render_bundle 'globalization' %}
     {% render_bundle 'application-main' %}
 
 
