@@ -23,6 +23,14 @@ DATABASES = {
 }
 ########## END DATABASE CONFIGURATION
 
+########## CACHE CONFIGURATION
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    }
+}
+########## END CACHE CONFIGURATION
+
 ########## DATA API CONFIGURATION
 DATA_API_URL = os.getenv("API_SERVER_URL", DATA_API_URL)
 ########## END DATA API CONFIGURATION
