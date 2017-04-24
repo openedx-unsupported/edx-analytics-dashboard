@@ -104,8 +104,8 @@ class CourseIndexCSV(CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixi
         summaries = [remove_keys(summary, self.exclude_fields) for summary in summaries]
         # Add list of associated program IDs to each summary entry
         for summary in summaries:
-            summary['program_ids'] = [program['program_id'] for program in programs
-                                      if summary['course_id'] in program['course_ids']]
+            summary['program_ids'] = ' '.join([program['program_id'] for program in programs
+                                               if summary['course_id'] in program['course_ids']])
 
         summaries_csv = self.renderer.render(summaries)
         return summaries_csv
