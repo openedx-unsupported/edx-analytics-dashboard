@@ -21,6 +21,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'TIMEOUT': 3600,  # 1 hour default timeout
     }
 }
 ########## END CACHE CONFIGURATION
