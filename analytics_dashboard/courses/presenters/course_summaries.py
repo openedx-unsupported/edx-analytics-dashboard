@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.core.cache import cache
 from courses.presenters import BasePresenter
 
@@ -28,7 +29,7 @@ class CourseSummariesPresenter(BasePresenter):
             all_summaries = [
                 {field: ('' if val is None and field in self.NON_NULL_STRING_FIELDS else val)
                  for field, val in summary.items()} for summary in all_summaries]
-            cache.set(self.CACHE_KEY, all_summaries)
+            cache.set(self.CACHE_KEY, all_summaries, settings.COURSE_SUMMARIES_CACHE_TIMEOUT)
         return all_summaries
 
     def _get_last_updated(self, summaries):

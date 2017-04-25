@@ -480,3 +480,7 @@ COURSE_ID_PATTERN = r'(?P<course_id>[^/+]+[/+][^/+]+[/+][^/]+)'
 # Default (None) includes all available fields, in alphabetical order.
 LEARNER_API_LIST_DOWNLOAD_FIELDS = None
 ########## END LEARNER_API_LIST_DOWNLOAD_FIELDS
+
+########## CACHE CONFIGURATION
+COURSE_SUMMARIES_CACHE_TIMEOUT = 3600  # 1 hour timeout
+########## END CACHE CONFIGURATION
