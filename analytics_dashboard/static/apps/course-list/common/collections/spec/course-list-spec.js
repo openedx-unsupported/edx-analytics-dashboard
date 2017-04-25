@@ -90,6 +90,12 @@ define(function(require) {
                 expect(courseList.models.length).toBe(1);
                 expect(courseList.at(0).get('course_id')).toBe('zebra');
             });
+
+            it('by program with no courses', function() {
+                courseList.setFilterField('program_ids', '789');
+                courseList.refresh();
+                expect(courseList.models.length).toBe(0);
+            });
         });
 
         describe('registered sort field', function() {
