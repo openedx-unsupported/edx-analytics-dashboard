@@ -209,8 +209,8 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
         # This endpoint does not include the course-id, so drop it (along with any other kwargs)
         return reverse(self.viewname)
 
-    def get_mock_data(self, course_id):
-        return get_mock_course_summaries([course_id])
+    def get_mock_data(self, course_ids):
+        return get_mock_course_summaries(course_ids)
 
     def assertIsValidCSV(self, csv_data):
         response = self.client.get(self.path())
@@ -238,19 +238,19 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
     def assertResponseFilename(self, response, filename):
         self.assertEqual(response['Content-Disposition'], 'attachment; filename="{0}"'.format(urllib.quote(filename)))
 
-    def _test_csv(self, course_id, mocked_api_response, csv_data):
-        csv_data = csv_data.format(course_id)
-
+    def _test_csv(self, mocked_api_response, csv_data):
         presenter_method = 'courses.presenters.course_summaries.CourseSummariesPresenter.get_course_summaries'
         with mock.patch(presenter_method,
                         return_value=(mocked_api_response, None)):
             self.assertIsValidCSV(csv_data)
 
-    @data(CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
-    def test_response(self, course_id):
-        self._test_csv(course_id, self.get_mock_data(course_id),
-                       get_mock_course_summaries_csv([course_id]))
+    @data(
+        [CourseSamples.DEMO_COURSE_ID],
+        [CourseSamples.DEPRECATED_DEMO_COURSE_ID],
+        [CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID],
+    )
+    def test_response(self, course_ids):
+        self._test_csv(self.get_mock_data(course_ids), get_mock_course_summaries_csv(course_ids))
 
-    @data(CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
-    def test_response_no_data(self, course_id):
-        self._test_csv(course_id, [], '')
+    def test_response_no_data(self):
+        self._test_csv([], '')
