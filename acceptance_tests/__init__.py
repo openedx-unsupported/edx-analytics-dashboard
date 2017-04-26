@@ -19,8 +19,8 @@ RESEARCH_URL = os.environ.get('RESEARCH_URL', 'http://example.com/')
 SHOW_LANDING_RESEARCH = str2bool(os.environ.get('SHOW_LANDING_RESEARCH', True))
 
 # Analytics data API settings
-API_SERVER_URL = os.environ['API_SERVER_URL']
-API_AUTH_TOKEN = os.environ['API_AUTH_TOKEN']
+API_SERVER_URL = os.environ.get('API_SERVER_URL', 'http://localhost:9001')
+API_AUTH_TOKEN = os.environ.get('API_AUTH_TOKEN', 'edx')
 
 # Test configuration
 ENABLE_AUTO_AUTH = str2bool(os.environ.get('ENABLE_AUTO_AUTH', False))
@@ -81,3 +81,10 @@ DISPLAY_LEARNER_ANALYTICS = str2bool(os.environ.get('DISPLAY_LEARNER_ANALYTICS',
 
 # Learner analytics
 ENABLE_COURSE_LIST_FILTERS = str2bool(os.environ.get('ENABLE_COURSE_LIST_FILTERS', False))
+
+# Soapbox Messages tests constants
+SOAPBOX_GLOBAL_MESSAGE = 'Test global message'
+SOAPBOX_SINGLE_PAGE_MESSAGE = 'Test single-page message'
+SOAPBOX_INACTIVE_MESSAGE = 'Test inactive message'
+SOAPBOX_SINGLE_PAGE_VIEW = 'insights_home'
+SOAPBOX_SINGLE_PAGE_PATH = 'courses/'
