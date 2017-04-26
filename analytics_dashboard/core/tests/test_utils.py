@@ -2,6 +2,7 @@ import uuid
 
 from copy import deepcopy
 from ddt import ddt
+from mock import call, MagicMock, patch
 
 from django.conf import settings
 from django.contrib.auth import get_user_model
@@ -10,13 +11,31 @@ from django.test import TestCase
 from django.utils.translation import ugettext_lazy as _
 
 from core.utils import (CourseStructureApiClient, delete_auto_auth_users, sanitize_cache_key, translate_dict_values,
-                        remove_keys)
+                        remove_keys, Message)
 
 
 User = get_user_model()
 
 
 class UtilsTests(TestCase):
+    def setUp(self):
+        self.acceptance_tests_mock = MagicMock()
+        self.acceptance_tests_mock.SOAPBOX_INACTIVE_MESSAGE = 'inactive'
+        self.acceptance_tests_mock.SOAPBOX_GLOBAL_MESSAGE = 'global'
+        self.acceptance_tests_mock.SOAPBOX_SINGLE_PAGE_MESSAGE = 'single-page'
+        self.acceptance_tests_mock.SOAPBOX_SINGLE_PAGE_VIEW = 'view'
+        modules = {
+            'acceptance_tests': self.acceptance_tests_mock,
+        }
+        self.module_patcher = patch.dict('sys.modules', modules)
+        self.module_patcher.start()
+        from core.utils import create_fake_soapbox_messages, delete_fake_soapbox_messages
+        self.create_messages = create_fake_soapbox_messages
+        self.delete_messages = delete_fake_soapbox_messages
+
+    def tearDown(self):
+        self.module_patcher.stop()
+
     def test_delete_auto_auth_users(self):
         # Create an auto-auth user
         username = password = settings.AUTO_AUTH_USERNAME_PREFIX + uuid.uuid4().hex[0:20]
@@ -97,6 +116,31 @@ class UtilsTests(TestCase):
         del dict_of_dicts_no_fizz['flat']
         self.assertDictEqual(remove_keys(dict_of_dicts, {'foo': {'bar': ('fizz',)}, '': ('flat',)}),
                              dict_of_dicts_no_fizz)
+
+    @patch.object(Message, 'objects')
+    def test_create_fake_soapbox_messages(self, objects_mock):
+        self.create_messages()
+        calls = [
+            call(message=self.acceptance_tests_mock.SOAPBOX_GLOBAL_MESSAGE, is_active=True, is_global=True),
+            call(message=self.acceptance_tests_mock.SOAPBOX_SINGLE_PAGE_MESSAGE, is_active=True, is_global=False,
+                 url=self.acceptance_tests_mock.SOAPBOX_SINGLE_PAGE_VIEW),
+            call(message=self.acceptance_tests_mock.SOAPBOX_INACTIVE_MESSAGE, is_active=False, is_global=True),
+        ]
+        objects_mock.get_or_create.assert_has_calls(calls)
+
+    @patch.object(Message, 'objects')
+    def test_delete_fake_soapbox_messages(self, objects_mock):
+        self.delete_messages()
+        calls = [
+            call(message=self.acceptance_tests_mock.SOAPBOX_GLOBAL_MESSAGE, is_active=True, is_global=True),
+            call().delete(),
+            call(message=self.acceptance_tests_mock.SOAPBOX_SINGLE_PAGE_MESSAGE, is_active=True, is_global=False,
+                 url=self.acceptance_tests_mock.SOAPBOX_SINGLE_PAGE_VIEW),
+            call().delete(),
+            call(message=self.acceptance_tests_mock.SOAPBOX_INACTIVE_MESSAGE, is_active=False, is_global=True),
+            call().delete(),
+        ]
+        objects_mock.get.assert_has_calls(calls)
 
 
 @ddt
