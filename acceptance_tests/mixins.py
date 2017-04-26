@@ -1,14 +1,13 @@
-import locale
 import datetime
+import locale
 from unittest import skip
 
 from bok_choy.promise import EmptyPromise
-from analyticsclient.client import Client
 from selenium.webdriver.common.keys import Keys
 
 from acceptance_tests import (
-    API_SERVER_URL,
     API_AUTH_TOKEN,
+    API_SERVER_URL,
     COURSE_API_KEY,
     COURSE_API_URL,
     DASHBOARD_FEEDBACK_EMAIL,
@@ -16,11 +15,15 @@ from acceptance_tests import (
     DOC_BASE_URL,
     ENABLE_AUTO_AUTH,
     ENABLE_COURSE_API,
-    LMS_USERNAME,
     LMS_PASSWORD,
+    LMS_USERNAME,
+    SOAPBOX_GLOBAL_MESSAGE,
+    SOAPBOX_SINGLE_PAGE_MESSAGE,
+    SOAPBOX_SINGLE_PAGE_PATH,
     SUPPORT_EMAIL,
 )
 from acceptance_tests.pages import LMSLoginPage
+from analyticsclient.client import Client
 from common.clients import CourseStructureApiClient
 
 
@@ -270,8 +273,26 @@ class ContextSensitiveHelpMixin(object):
         self.assertHrefEqual('#help', self.help_url)
 
 
+class SoapboxMessagesMixin(object):
+    soapbox_selector = "div[class=announcement-container]"
+
+    def _test_soapbox_messages(self):
+        # make sure we have the correct soapbox messages displayed
+        element = self.page.q(css=self.soapbox_selector)
+        self.assertTrue(element.present)
+        self.assertTrue(SOAPBOX_GLOBAL_MESSAGE in element.text)
+
+        if self.page.path == SOAPBOX_SINGLE_PAGE_PATH:
+            element = self.page.q(css=self.soapbox_selector)
+            self.assertTrue(SOAPBOX_SINGLE_PAGE_MESSAGE in element.text)
+
+    def test_page(self):
+        super(SoapboxMessagesMixin, self).test_page()
+        self._test_soapbox_messages()
+
+
 class AnalyticsDashboardWebAppTestMixin(FooterMixin, PrimaryNavMixin, ContextSensitiveHelpMixin, AssertMixin,
-                                        LoginMixin):
+                                        LoginMixin, SoapboxMessagesMixin):
     def test_page(self):
         self.login()
         self.page.visit()

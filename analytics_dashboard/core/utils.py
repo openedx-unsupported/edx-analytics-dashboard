@@ -1,5 +1,6 @@
 from hashlib import md5
 
+from soapbox.models import Message
 from waffle import switch_is_active
 
 from django.conf import settings
@@ -99,3 +100,18 @@ def remove_keys(d, keys):
                 if key in keys:
                     del d[key]
     return d
+
+
+def create_fake_soapbox_messages():
+    # Importing here so acceptance_tests/__init__.py doesn't start checking for env vars on every management command.
+    from acceptance_tests import SOAPBOX_GLOBAL_MESSAGE, SOAPBOX_SINGLE_PAGE_MESSAGE, SOAPBOX_SINGLE_PAGE_VIEW
+    Message.objects.get_or_create(message=SOAPBOX_GLOBAL_MESSAGE, is_active=True, is_global=True)
+    Message.objects.get_or_create(message=SOAPBOX_SINGLE_PAGE_MESSAGE, is_active=True, is_global=False,
+                                  url=SOAPBOX_SINGLE_PAGE_VIEW)
+
+
+def delete_fake_soapbox_messages():
+    from acceptance_tests import SOAPBOX_GLOBAL_MESSAGE, SOAPBOX_SINGLE_PAGE_MESSAGE, SOAPBOX_SINGLE_PAGE_VIEW
+    Message.objects.get(message=SOAPBOX_GLOBAL_MESSAGE, is_active=True, is_global=True).delete()
+    Message.objects.get(message=SOAPBOX_SINGLE_PAGE_MESSAGE, is_active=True, is_global=False,
+                        url=SOAPBOX_SINGLE_PAGE_VIEW).delete()
