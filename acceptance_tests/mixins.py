@@ -18,6 +18,7 @@ from acceptance_tests import (
     LMS_PASSWORD,
     LMS_USERNAME,
     SOAPBOX_GLOBAL_MESSAGE,
+    SOAPBOX_INACTIVE_MESSAGE,
     SOAPBOX_SINGLE_PAGE_MESSAGE,
     SOAPBOX_SINGLE_PAGE_PATH,
     SUPPORT_EMAIL,
@@ -281,6 +282,7 @@ class SoapboxMessagesMixin(object):
         element = self.page.q(css=self.soapbox_selector)
         self.assertTrue(element.present)
         self.assertTrue(SOAPBOX_GLOBAL_MESSAGE in element.text)
+        self.assertFalse(SOAPBOX_INACTIVE_MESSAGE in element.text)
 
         if self.page.path == SOAPBOX_SINGLE_PAGE_PATH:
             element = self.page.q(css=self.soapbox_selector)

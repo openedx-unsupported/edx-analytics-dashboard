@@ -85,5 +85,6 @@ ENABLE_COURSE_LIST_FILTERS = str2bool(os.environ.get('ENABLE_COURSE_LIST_FILTERS
 # Soapbox Messages tests constants
 SOAPBOX_GLOBAL_MESSAGE = 'Test global message'
 SOAPBOX_SINGLE_PAGE_MESSAGE = 'Test single-page message'
+SOAPBOX_INACTIVE_MESSAGE = 'Test inactive message'
 SOAPBOX_SINGLE_PAGE_VIEW = 'insights_home'
 SOAPBOX_SINGLE_PAGE_PATH = 'courses/'

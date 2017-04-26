@@ -104,14 +104,18 @@ def remove_keys(d, keys):
 
 def create_fake_soapbox_messages():
     # Importing here so acceptance_tests/__init__.py doesn't start checking for env vars on every management command.
-    from acceptance_tests import SOAPBOX_GLOBAL_MESSAGE, SOAPBOX_SINGLE_PAGE_MESSAGE, SOAPBOX_SINGLE_PAGE_VIEW
+    from acceptance_tests import (SOAPBOX_INACTIVE_MESSAGE, SOAPBOX_GLOBAL_MESSAGE, SOAPBOX_SINGLE_PAGE_MESSAGE,
+                                  SOAPBOX_SINGLE_PAGE_VIEW)
     Message.objects.get_or_create(message=SOAPBOX_GLOBAL_MESSAGE, is_active=True, is_global=True)
     Message.objects.get_or_create(message=SOAPBOX_SINGLE_PAGE_MESSAGE, is_active=True, is_global=False,
                                   url=SOAPBOX_SINGLE_PAGE_VIEW)
+    Message.objects.get_or_create(message=SOAPBOX_INACTIVE_MESSAGE, is_active=False, is_global=True)
 
 
 def delete_fake_soapbox_messages():
-    from acceptance_tests import SOAPBOX_GLOBAL_MESSAGE, SOAPBOX_SINGLE_PAGE_MESSAGE, SOAPBOX_SINGLE_PAGE_VIEW
+    from acceptance_tests import (SOAPBOX_INACTIVE_MESSAGE, SOAPBOX_GLOBAL_MESSAGE, SOAPBOX_SINGLE_PAGE_MESSAGE,
+                                  SOAPBOX_SINGLE_PAGE_VIEW)
     Message.objects.get(message=SOAPBOX_GLOBAL_MESSAGE, is_active=True, is_global=True).delete()
     Message.objects.get(message=SOAPBOX_SINGLE_PAGE_MESSAGE, is_active=True, is_global=False,
                         url=SOAPBOX_SINGLE_PAGE_VIEW).delete()
+    Message.objects.get(message=SOAPBOX_INACTIVE_MESSAGE, is_active=False, is_global=True).delete()
