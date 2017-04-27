@@ -31,7 +31,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # TODO: the namespace arg is deprecated, but python-social-auth urls.py doesn't specify app_name so we are stuck
     # using namespace. Once python-social-auth is updated to fix that, remove the namespace arg.
-    url('', include('social.apps.django_app.urls', namespace='social')),
+    url('', include('social_django.urls', namespace='social')),
     url(r'^accounts/login/$',
         RedirectView.as_view(url=reverse_lazy('social:begin', args=['edx-oidc']), permanent=False, query_string=True),
         name='login'),
