@@ -186,7 +186,7 @@ MIDDLEWARE_CLASSES = (
     'core.middleware.ServiceUnavailableExceptionMiddleware',
     'courses.middleware.CourseMiddleware',
     'courses.middleware.CoursePermissionsExceptionMiddleware',
-    'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
     'help.middleware.HelpURLMiddleware',
 )
 ########## END MIDDLEWARE CONFIGURATION
@@ -231,6 +231,7 @@ LOCAL_APPS = (
 THIRD_PARTY_APPS = (
     'release_util',
     'rest_framework',
+    'social_django',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -328,8 +329,6 @@ TIME_FORMAT = 'g:i A'
 
 ########## AUTHENTICATION
 AUTH_USER_MODEL = 'core.User'
-
-INSTALLED_APPS += ('social.apps.django_app.default',)
 
 # Allow authentication via edX OAuth2/OpenID Connect
 AUTHENTICATION_BACKENDS = (
