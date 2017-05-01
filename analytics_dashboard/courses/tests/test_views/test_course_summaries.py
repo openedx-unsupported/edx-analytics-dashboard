@@ -4,6 +4,7 @@ from ddt import data, ddt
 import mock
 
 from django.test import TestCase
+from waffle.testutils import override_switch
 
 from courses.tests.test_views import ViewTestMixin
 from courses.exceptions import PermissionsRetrievalFailedError
@@ -37,6 +38,7 @@ class CourseSummariesViewTests(ViewTestMixin, CoursePermissionsExceptionMixin, T
     def expected_programs(self, course_ids):
         return self.get_programs_mock_data(course_ids)
 
+    @override_switch('enable_course_filters', active=True)
     @data(
         [CourseSamples.DEMO_COURSE_ID],
         [CourseSamples.DEPRECATED_DEMO_COURSE_ID],
@@ -46,18 +48,23 @@ class CourseSummariesViewTests(ViewTestMixin, CoursePermissionsExceptionMixin, T
         """
         Test data is returned in the correct hierarchy.
         """
+        permissions_method = 'courses.views.course_summaries.permissions.get_user_course_permissions'
         presenter_method = 'courses.presenters.course_summaries.CourseSummariesPresenter.get_course_summaries'
         programs_presenter_method = 'courses.presenters.programs.ProgramsPresenter.get_programs'
         mock_data = self.get_mock_data(course_ids)
         programs_mock_data = self.get_programs_mock_data(course_ids)
-        with mock.patch(presenter_method, return_value=mock_data):
-            with mock.patch(programs_presenter_method, return_value=programs_mock_data):
-                response = self.client.get(self.path())
-                self.assertEqual(response.status_code, 200)
-                context = response.context
-                page_data = json.loads(context['page_data'])
-                self.assertListEqual(page_data['course']['course_list_json'], self.expected_summaries(course_ids))
-                self.assertListEqual(page_data['course']['programs_json'], self.expected_programs(course_ids))
+
+        with mock.patch(permissions_method, return_value=course_ids):
+            with mock.patch(presenter_method, return_value=mock_data) as summaries_presenter:
+                with mock.patch(programs_presenter_method, return_value=programs_mock_data) as programs_presenter:
+                    response = self.client.get(self.path())
+                    self.assertEqual(response.status_code, 200)
+                    context = response.context
+                    page_data = json.loads(context['page_data'])
+                    self.assertListEqual(page_data['course']['course_list_json'], self.expected_summaries(course_ids))
+                    self.assertListEqual(page_data['course']['programs_json'], self.expected_programs(course_ids))
+                    summaries_presenter.assert_called_with(course_ids)
+                    programs_presenter.assert_called_with(course_ids)
 
     def test_get_unauthorized(self):
         """ The view should raise an error if the user has no course permissions. """

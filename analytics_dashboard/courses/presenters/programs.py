@@ -5,7 +5,7 @@ from django.core.cache import cache
 class ProgramsPresenter(BasePresenter):
     """ Presenter for the programs metadata. """
 
-    CACHE_KEY = 'programs3'
+    CACHE_KEY = 'programs'
     NON_NULL_STRING_FIELDS = ['program_id', 'program_type', 'program_title']
 
     @staticmethod
@@ -51,7 +51,7 @@ class ProgramsPresenter(BasePresenter):
         all_programs = self._get_all_programs()
         filtered_programs = self.filter_programs(all_programs, program_ids=program_ids, course_ids=course_ids)
 
-        # sort by title by default with "None" values at the end
+        # sort by title by default with blank values at the end
         filtered_programs = sorted(
             filtered_programs,
             key=lambda x: (not x['program_title'], x['program_title']))

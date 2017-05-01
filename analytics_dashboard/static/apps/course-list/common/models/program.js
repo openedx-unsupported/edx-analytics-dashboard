@@ -17,7 +17,6 @@ define(function(require) {
             };
         },
 
-
         idAttribute: 'program_id',
 
         /**

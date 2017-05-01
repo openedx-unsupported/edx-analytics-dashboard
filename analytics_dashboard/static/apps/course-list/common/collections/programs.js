@@ -10,6 +10,5 @@ define(function(require) {
         model: ProgramModel
     });
 
-
     return ProgramsCollection;
 });
