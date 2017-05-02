@@ -5,6 +5,7 @@ from ddt import ddt, data
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 from django.utils import timezone
+from waffle.testutils import override_switch
 
 from analyticsclient.exceptions import NotFoundError
 from courses.tests.test_views import ViewTestMixin
@@ -244,6 +245,7 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
                         return_value=(mocked_api_response, None)):
             self.assertIsValidCSV(csv_data)
 
+    @override_switch('enable_course_filters', active=True)
     @data(
         [CourseSamples.DEMO_COURSE_ID],
         [CourseSamples.DEPRECATED_DEMO_COURSE_ID],
