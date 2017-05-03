@@ -42,6 +42,7 @@ class ProgramsPresenterTests(TestCase):
                 for course_id in course_ids:
                     if course_id in program['course_ids']:
                         filtered_programs.append(program)
+                        break
 
         # fill in with defaults
         for program in filtered_programs:

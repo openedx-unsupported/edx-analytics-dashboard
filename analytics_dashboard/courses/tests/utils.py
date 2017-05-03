@@ -770,7 +770,7 @@ def get_mock_course_summaries_csv(course_ids):
         'enrollment_modes.credit.count,enrollment_modes.credit.cumulative_count,enrollment_modes.honor.count,' +
         'enrollment_modes.honor.cumulative_count,enrollment_modes.professional.count,' +
         'enrollment_modes.professional.cumulative_count,enrollment_modes.verified.count,' +
-        'enrollment_modes.verified.cumulative_count,pacing_type,program_ids,start_date\r\n'
+        'enrollment_modes.verified.cumulative_count,pacing_type,program_ids,program_titles,start_date\r\n'
     )
     programs = get_mock_programs()
     mock_csv = ''
@@ -784,15 +784,16 @@ def get_mock_course_summaries_csv(course_ids):
         first_program = ''
         second_program = ''
         if len(associated_programs) > 1:
-            first_program = associated_programs[0]['program_id']
-            second_program = associated_programs[1]['program_id']
+            first_program = associated_programs[0]
+            second_program = associated_programs[1]
         elif len(associated_programs) > 0:
-            first_program = associated_programs[0]['program_id']
+            first_program = associated_programs[0]
 
         mock_csv = mock_csv + (
             'Upcoming,Demo_Course,Demo Course,1590,41,{},1835,2017-05-02T182754,238,326,238,288,398,449,159,162,' +
-            '557,610,self_paced,{}{}{},2017-01-10T182754\r\n'
-        ).format(course_id, first_program, ' ' if second_program else '', second_program)
+            '557,610,self_paced,{}{}{},{}{}{},2017-01-10T182754\r\n'
+        ).format(course_id, first_program['program_id'], ' | ' if second_program else '', second_program['program_id'],
+                 first_program['program_title'], ' | ' if second_program else '', second_program['program_title'])
 
     return mock_csv if mock_csv == '' else header + mock_csv
 

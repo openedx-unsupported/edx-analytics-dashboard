@@ -27,6 +27,7 @@ class ProgramsPresenter(BasePresenter):
                 for course_id in course_ids:
                     if course_id in program['course_ids']:
                         filtered_programs.append(program)
+                        break
             return filtered_programs
 
     def _get_all_programs(self):
