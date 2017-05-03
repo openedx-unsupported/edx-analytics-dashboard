@@ -61,14 +61,15 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
             'enable_course_filters': enable_course_filters,
             'course_list_download_url': reverse('courses:index_csv'),
         }
-        context['js_data']['course'] = data
-        context['page_data'] = self.get_page_data(context)
-        context['summary'] = summaries_presenter.get_course_summary_metrics(summaries)
 
         if enable_course_filters:
             programs_presenter = ProgramsPresenter()
             programs = programs_presenter.get_programs(courses)
-            context['js_data']['course']['programs_json'] = programs
+            data['programs_json'] = programs
+
+        context['js_data']['course'] = data
+        context['page_data'] = self.get_page_data(context)
+        context['summary'] = summaries_presenter.get_course_summary_metrics(summaries)
 
         return context
 
