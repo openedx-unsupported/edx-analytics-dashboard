@@ -64,7 +64,7 @@ class CourseSummariesViewTests(ViewTestMixin, CoursePermissionsExceptionMixin, T
                     self.assertListEqual(page_data['course']['course_list_json'], self.expected_summaries(course_ids))
                     self.assertListEqual(page_data['course']['programs_json'], self.expected_programs(course_ids))
                     summaries_presenter.assert_called_with(course_ids)
-                    programs_presenter.assert_called_with(course_ids)
+                    programs_presenter.assert_called_with(course_ids=course_ids)
 
     def test_get_unauthorized(self):
         """ The view should raise an error if the user has no course permissions. """

@@ -64,7 +64,7 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
 
         if enable_course_filters:
             programs_presenter = ProgramsPresenter()
-            programs = programs_presenter.get_programs(courses)
+            programs = programs_presenter.get_programs(course_ids=courses)
             data['programs_json'] = programs
 
         context['js_data']['course'] = data
@@ -112,7 +112,7 @@ class CourseIndexCSV(CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixi
         if enable_course_filters:
             # Add list of associated program IDs to each summary entry
             programs_presenter = ProgramsPresenter()
-            programs = programs_presenter.get_programs(courses)
+            programs = programs_presenter.get_programs(course_ids=courses)
             for summary in summaries:
                 summary['program_ids'] = ' '.join([program['program_id'] for program in programs
                                                    if summary['course_id'] in program['course_ids']])

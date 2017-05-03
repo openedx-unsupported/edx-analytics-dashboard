@@ -200,10 +200,15 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
         self.programs_patch = mock.patch('courses.presenters.programs.ProgramsPresenter.get_programs')
         programs_api = self.programs_patch.start()
         programs_api.return_value = get_mock_programs()
+        self.summaries_patch = mock.patch('courses.presenters.course_summaries.CourseSummariesPresenter.get_course_summaries')
+        summaries_api = self.summaries_patch.start()
+        summaries_api.return_value = (self.get_mock_data([CourseSamples.DEMO_COURSE_ID,
+                                                          CourseSamples.DEPRECATED_DEMO_COURSE_ID]), 'timestamp')
         super(CourseIndexCSVTests, self).setUp()
 
     def tearDown(self):
         self.programs_patch.stop()
+        self.summaries_patch.stop()
         super(CourseIndexCSVTests, self).tearDown()
 
     def path(self, **kwargs):
