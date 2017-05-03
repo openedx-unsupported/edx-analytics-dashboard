@@ -776,10 +776,7 @@ def get_mock_course_summaries_csv(course_ids):
     mock_csv = ''
 
     for course_id in course_ids:
-        associated_programs = []
-        for program in programs:
-            if course_id in program['course_ids']:
-                associated_programs.append(program)
+        associated_programs = [program for program in programs if course_id in set(program['course_ids'])]
 
         first_program = ''
         second_program = ''
