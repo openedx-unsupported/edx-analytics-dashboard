@@ -99,7 +99,7 @@ define(function(require) {
 
                     return templateOptions;
                 })
-                .sortBy('name')
+                .sortBy(function(value) { return value.displayName.toLowerCase(); })
                 .value();
 
             return {

@@ -5,6 +5,7 @@ from ddt import ddt, data
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 from django.utils import timezone
+from waffle.testutils import override_switch
 
 from analyticsclient.exceptions import NotFoundError
 from courses.tests.test_views import ViewTestMixin
@@ -19,6 +20,7 @@ from courses.tests.utils import (
     get_mock_api_enrollment_geography_data,
     get_mock_course_summaries,
     get_mock_course_summaries_csv,
+    get_mock_programs,
 )
 
 
@@ -194,12 +196,28 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
     base_file_name = 'course-list'
     api_method = 'analyticsclient.course_summaries.CourseSummaries.course_summaries'
 
+    def setUp(self):
+        self.programs_patch = mock.patch('courses.presenters.programs.ProgramsPresenter.get_programs')
+        programs_api = self.programs_patch.start()
+        programs_api.return_value = get_mock_programs()
+        self.summaries_patch = mock.patch('courses.presenters.course_summaries.CourseSummariesPresenter'
+                                          '.get_course_summaries')
+        summaries_api = self.summaries_patch.start()
+        summaries_api.return_value = (self.get_mock_data([CourseSamples.DEMO_COURSE_ID,
+                                                          CourseSamples.DEPRECATED_DEMO_COURSE_ID]), 'timestamp')
+        super(CourseIndexCSVTests, self).setUp()
+
+    def tearDown(self):
+        self.programs_patch.stop()
+        self.summaries_patch.stop()
+        super(CourseIndexCSVTests, self).tearDown()
+
     def path(self, **kwargs):
         # This endpoint does not include the course-id, so drop it (along with any other kwargs)
         return reverse(self.viewname)
 
-    def get_mock_data(self, course_id):
-        return get_mock_course_summaries([course_id])
+    def get_mock_data(self, course_ids):
+        return get_mock_course_summaries(course_ids)
 
     def assertIsValidCSV(self, csv_data):
         response = self.client.get(self.path())
@@ -227,18 +245,20 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
     def assertResponseFilename(self, response, filename):
         self.assertEqual(response['Content-Disposition'], 'attachment; filename="{0}"'.format(urllib.quote(filename)))
 
-    def _test_csv(self, course_id, mocked_api_response, csv_data):
-        csv_data = csv_data.format(course_id)
-
-        with mock.patch('courses.presenters.course_summaries.CourseSummariesPresenter.get_course_summaries',
+    def _test_csv(self, mocked_api_response, csv_data):
+        presenter_method = 'courses.presenters.course_summaries.CourseSummariesPresenter.get_course_summaries'
+        with mock.patch(presenter_method,
                         return_value=(mocked_api_response, None)):
             self.assertIsValidCSV(csv_data)
 
-    @data(CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
-    def test_response(self, course_id):
-        self._test_csv(course_id, self.get_mock_data(course_id),
-                       get_mock_course_summaries_csv([course_id]))
+    @override_switch('enable_course_filters', active=True)
+    @data(
+        [CourseSamples.DEMO_COURSE_ID],
+        [CourseSamples.DEPRECATED_DEMO_COURSE_ID],
+        [CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID],
+    )
+    def test_response(self, course_ids):
+        self._test_csv(self.get_mock_data(course_ids), get_mock_course_summaries_csv(course_ids))
 
-    @data(CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
-    def test_response_no_data(self, course_id):
-        self._test_csv(course_id, [], '')
+    def test_response_no_data(self):
+        self._test_csv([], '')

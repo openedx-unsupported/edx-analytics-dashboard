@@ -20,6 +20,7 @@ from courses.views import (
 )
 from courses.views.csv import DatetimeCSVResponseMixin
 from courses.presenters.course_summaries import CourseSummariesPresenter
+from courses.presenters.programs import ProgramsPresenter
 from rest_framework_csv.renderers import CSVRenderer
 
 logger = logging.getLogger(__name__)
@@ -46,21 +47,30 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
             # The user is probably not a course administrator and should not be using this application.
             raise PermissionDenied
 
-        presenter = CourseSummariesPresenter()
+        enable_course_filters = switch_is_active('enable_course_filters')
 
-        summaries, last_updated = presenter.get_course_summaries(courses)
+        summaries_presenter = CourseSummariesPresenter()
+        summaries, last_updated = summaries_presenter.get_course_summaries(courses)
+
         context.update({
             'update_message': self.get_last_updated_message(last_updated)
         })
 
         data = {
             'course_list_json': summaries,
-            'enable_course_filters': switch_is_active('enable_course_filters'),
+            'enable_course_filters': enable_course_filters,
             'course_list_download_url': reverse('courses:index_csv'),
         }
+
+        if enable_course_filters:
+            programs_presenter = ProgramsPresenter()
+            programs = programs_presenter.get_programs(course_ids=courses)
+            data['programs_json'] = programs
+
         context['js_data']['course'] = data
         context['page_data'] = self.get_page_data(context)
-        context['summary'] = presenter.get_course_summary_metrics(summaries)
+        context['summary'] = summaries_presenter.get_course_summary_metrics(summaries)
+
         return context
 
 
@@ -87,13 +97,26 @@ class CourseIndexCSV(CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixi
             # The user is probably not a course administrator and should not be using this application.
             raise PermissionDenied
 
+        enable_course_filters = switch_is_active('enable_course_filters')
+
         presenter = CourseSummariesPresenter()
         summaries, _ = presenter.get_course_summaries(courses)
+
         if not summaries:
             # Instead of returning a useless blank CSV, return a 404 error
             raise Http404
 
-        # Exclude specified fields from each summary entry and render them to a CSV
+        # Exclude specified fields from each summary entry
         summaries = [remove_keys(summary, self.exclude_fields) for summary in summaries]
+
+        if enable_course_filters:
+            # Add list of associated program IDs to each summary entry
+            programs_presenter = ProgramsPresenter()
+            programs = programs_presenter.get_programs(course_ids=courses)
+            for summary in summaries:
+                summary_programs = [program for program in programs if summary['course_id'] in program['course_ids']]
+                summary['program_ids'] = ' | '.join([program['program_id'] for program in summary_programs])
+                summary['program_titles'] = ' | '.join([program['program_title'] for program in summary_programs])
+
         summaries_csv = self.renderer.render(summaries)
         return summaries_csv

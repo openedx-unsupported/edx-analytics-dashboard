@@ -8,8 +8,10 @@ define(function(require) {
         _ = require('underscore'),
         Backbone = require('backbone'),
         ListCollection = require('components/generic-list/common/collections/collection'),
+        ProgramsCollection = require('course-list/common/collections/programs'),
         CourseModel = require('course-list/common/models/course'),
         FieldFilter = require('course-list/common/filters/field-filter'),
+        ArrayFieldFilter = require('course-list/common/filters/array-field-filter'),
         FilterSet = require('course-list/common/filters/filter-set'),
         SearchFilter = require('course-list/common/filters/search-filter'),
 
@@ -49,6 +51,29 @@ define(function(require) {
                 this.remove(model, ops);
             });
 
+            this.programsCollection = options.programsCollection || new ProgramsCollection([]);
+            // add program_ids to programs array on every course
+            this.programsCollection.each(_.bind(function(program) {
+                var courseIds = program.get('course_ids');
+                _.each(courseIds, function(courseId) {
+                    var course = this.shadowCollection.get(courseId);
+                    if (course !== undefined) {
+                        course.set({
+                            program_ids: course.get('program_ids').concat(program.get('program_id'))
+                        });
+                    }
+                }, this);
+
+                // Also append this program's ID and display name to filterNameToDisplay
+                // (so that the active filters will display the program title, not the ID)
+                if (this.filterNameToDisplay === undefined) {
+                    this.filterNameToDisplay = {program_ids: {}};
+                } else if (this.filterNameToDisplay.program_ids === undefined) {
+                    this.filterNameToDisplay.program_ids = {};
+                }
+                this.filterNameToDisplay.program_ids[program.get('program_id')] = program.get('program_title');
+            }, this));
+
             this.registerSortableField('catalog_course_title', gettext('Course Name'));
             this.registerSortableField('start_date', gettext('Start Date'));
             this.registerSortableField('end_date', gettext('End Date'));
@@ -59,6 +84,7 @@ define(function(require) {
 
             this.registerFilterableField('availability', gettext('Availability'));
             this.registerFilterableField('pacing_type', gettext('Pacing Type'));
+            this.registerFilterableArrayField('program_ids', gettext('Programs'));
         },
 
         state: {
@@ -81,10 +107,15 @@ define(function(require) {
             _(activeFilterFields).each(function(value, key) {
                 var activeFilters;
                 activeFilters = _(value.split(',')).map(function(field) {
-                    return new FieldFilter(key, field);
-                });
+                    if ('fieldType' in this.filterableFields[key] &&
+                            this.filterableFields[key].fieldType === 'array') {
+                        return new ArrayFieldFilter(key, field);
+                    } else {
+                        return new FieldFilter(key, field);
+                    }
+                }, this);
                 filters.push(new FilterSet('OR', activeFilters));
-            });
+            }, this);
 
             return new FilterSet('AND', filters);
         },
@@ -137,8 +168,17 @@ define(function(require) {
                 }, {
                     name: 'unknown',
                     displayName: this.getFilterValueDisplayName('availability', 'unknown')
-                }]
+                }],
+                program_ids: []
             };
+
+            // Dynamically create list of program filters from programsCollection models
+            this.programsCollection.each(function(program) {
+                filters.program_ids.push({
+                    name: program.get('program_id'),
+                    displayName: program.get('program_title')
+                });
+            }, this);
 
             return filters[filterType];
         },

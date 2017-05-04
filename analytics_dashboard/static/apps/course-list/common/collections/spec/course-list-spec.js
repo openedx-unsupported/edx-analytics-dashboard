@@ -4,13 +4,35 @@ define(function(require) {
     var SpecHelpers = require('uitk/utils/spec-helpers/spec-helpers'),
 
         CourseModel = require('course-list/common/models/course'),
-        CourseList = require('course-list/common/collections/course-list');
+        ProgramModel = require('course-list/common/models/program'),
+        CourseList = require('course-list/common/collections/course-list'),
+        ProgramsCollection = require('course-list/common/collections/programs');
 
 
     describe('CourseList', function() {
         var courseList;
 
         beforeEach(function() {
+            var programsCollection = new ProgramsCollection([
+                new ProgramModel({
+                    program_id: '123',
+                    program_title: 'Alpaca Program',
+                    program_type: 'Camelid',
+                    course_ids: ['Alpaca']
+                }),
+                new ProgramModel({
+                    program_id: '456',
+                    program_title: 'Zebra Program',
+                    program_type: 'Horse',
+                    course_ids: ['zebra']
+                }),
+                new ProgramModel({
+                    program_id: '789',
+                    program_title: 'Courseless Program',
+                    program_type: 'Courseless',
+                    course_ids: []
+                })]
+            );
             var courses = [
                 new CourseModel({
                     catalog_course_title: 'Alpaca',
@@ -19,7 +41,8 @@ define(function(require) {
                     cumulative_count: 20,
                     count_change_7_days: 30,
                     verified_enrollment: 40,
-                    availability: 'Current'
+                    availability: 'Current',
+                    pacing_type: 'self_paced'
                 }),
                 new CourseModel({
                     catalog_course_title: 'zebra',
@@ -28,25 +51,50 @@ define(function(require) {
                     cumulative_count: 1000,
                     count_change_7_days: -10,
                     verified_enrollment: 1000,
-                    availability: 'Upcoming'
+                    availability: 'Upcoming',
+                    pacing_tpye: 'instructor_paced'
                 })
             ];
-            courseList = new CourseList(courses);
+            courseList = new CourseList(courses, {programsCollection: programsCollection});
         });
 
         describe('filtering', function() {
-            it('by availability', function() {
+            beforeEach(function() {
+                // should be unfiltered
                 expect(courseList.models.length).toBe(2);
+            });
 
-                // filter results
+            afterEach(function() {
+                // unfilter
+                courseList.clearAllFilters();
+                expect(courseList.models.length).toBe(2);
+            });
+
+            it('by availability', function() {
                 courseList.setFilterField('availability', 'Current');
                 courseList.refresh();
                 expect(courseList.models.length).toBe(1);
                 expect(courseList.at(0).get('course_id')).toBe('Alpaca');
+            });
 
-                // unfiltered
-                courseList.clearAllFilters();
-                expect(courseList.models.length).toBe(2);
+            it('by pacing type', function() {
+                courseList.setFilterField('pacing_type', 'self_paced');
+                courseList.refresh();
+                expect(courseList.models.length).toBe(1);
+                expect(courseList.at(0).get('course_id')).toBe('Alpaca');
+            });
+
+            it('by program', function() {
+                courseList.setFilterField('program_ids', '456');
+                courseList.refresh();
+                expect(courseList.models.length).toBe(1);
+                expect(courseList.at(0).get('course_id')).toBe('zebra');
+            });
+
+            it('by program with no courses', function() {
+                courseList.setFilterField('program_ids', '789');
+                courseList.refresh();
+                expect(courseList.models.length).toBe(0);
             });
         });
 

@@ -10,8 +10,10 @@ define(function(require) {
         Utils = require('utils/utils'),
 
         CourseList = require('course-list/common/collections/course-list'),
+        ProgramsCollection = require('course-list/common/collections/programs'),
         CourseListView = require('course-list/list/views/course-list'),
         CourseModel = require('course-list/common/models/course'),
+        ProgramModel = require('course-list/common/models/program'),
         TrackingModel = require('models/tracking-model');
 
 
@@ -22,8 +24,36 @@ define(function(require) {
 
         getCourseListView = function(options, pageSize) {
             var collection,
+                programsCollection,
                 view,
                 defaultOptions = _.defaults({}, options, {filteringEnabled: true});
+
+            programsCollection = defaultOptions.programsCollection || new ProgramsCollection([
+                new ProgramModel({
+                    program_id: '123',
+                    program_title: 'Alpaca Program',
+                    program_type: 'Camelid',
+                    course_ids: ['this/course/id']
+                }),
+                new ProgramModel({
+                    program_id: '456',
+                    program_title: 'Zebra Program',
+                    program_type: 'Horse',
+                    course_ids: ['another-course-id']
+                }),
+                new ProgramModel({
+                    program_id: '789',
+                    program_title: 'Courseless Program',
+                    program_type: 'Courseless',
+                    course_ids: []
+                })],
+                defaultOptions.programCollectionOptions
+            );
+            if (defaultOptions.collectionOptions === undefined) {
+                defaultOptions.collectionOptions = {};
+            }
+            defaultOptions.collectionOptions.programsCollection = programsCollection;
+
             collection = defaultOptions.collection || new CourseList([
                 // default course data
                 new CourseModel({
@@ -52,6 +82,7 @@ define(function(require) {
             if (pageSize) {
                 collection.setPageSize(pageSize);
             }
+
             view = new CourseListView({
                 collection: collection,
                 el: '.' + fixtureClass,
@@ -111,7 +142,8 @@ define(function(require) {
                     cumulative_count: 20,
                     count_change_7_days: 30,
                     verified_enrollment: 40
-                })]
+                })],
+                {programsCollection: new ProgramsCollection([])}
             );
             view = getCourseListView({collection: collection});
 
@@ -123,8 +155,11 @@ define(function(require) {
         });
 
         describe('filteringEnabled', function() {
-            var filterSelectors = ['.course-list-availability-filter-container',
-                '.course-list-pacing-type-filter-container'];
+            var filterSelectors = [
+                '.course-list-availability-filter-container',
+                '.course-list-pacing-type-filter-container',
+                '.course-list-programs-filter-container'
+            ];
 
             it('shows filters', function() {
                 var view = getCourseListView({collectionOptions: {
@@ -152,6 +187,10 @@ define(function(require) {
 
                 _(['Instructor-Paced', 'Self-Paced']).each(function(expectedText) {
                     expect(view.$el.find('#filter-pacing_type')).toContainText(expectedText);
+                });
+
+                _(['Alpaca Program', 'Zebra Program']).each(function(expectedText) {
+                    expect(view.$el.find('#filter-program_ids')).toContainText(expectedText);
                 });
             });
 

@@ -47,7 +47,8 @@ define(function(require) {
                         cumulative_count: 0,
                         count_change_7_days: 0
                     }
-                }
+                },
+                program_ids: []
             };
         },
 
