@@ -38,12 +38,12 @@ metrics across all of your courses.
 
 .. _Course_List:
 
-*********************************
-Viewing Course Enrollment Metrics
-*********************************
+********************************************
+Viewing Individual Course Enrollment Metrics
+********************************************
 
-The **Courses** page allows you to view enrollment metrics for all of your
-courses in one place. On the **Courses** page, the Course List table provides
+On the **Courses** page, you can view enrollment metrics for all of your
+courses in one place. This page contains the Course List table, which provides
 the following information about each course.
 
 * Course Name
@@ -103,6 +103,17 @@ also combine any of these options.
   to include in your search. The list of courses updates automatically when you
   select or clear an option.
 
+====================================
+Access Data for Courses in a Program
+====================================
+
+To access Insights data for the courses in one or more specific programs, such
+as XSeries and MicroMasters programs, locate **Programs** in the left pane, and
+then select the program or programs that you want. The courses in the program
+or programs then appear in the Course List table. You can use the Programs
+filter in conjunction with other filters or searches to find the specific
+courses that you are interested in.
+
 ************************************************
 Viewing Detailed Enrollment Data for All Courses
 ************************************************
@@ -113,7 +124,13 @@ and pacing type, two different counts for every enrollment mode, and other
 information.
 
 To download the Course Summary report in a comma-separated value (CSV) file,
-select **Download CSV**. The CSV file contains the following columns.
+select **Download CSV**.
+
+.. note::
+  The Course Summary report contains information for all of your courses, even
+  if you select filters when you view the Course List table.
+
+The CSV file contains the following columns.
 
 * availability (shows whether the course is archived, current, or upcoming)
 * catalog_course (shows the unique identifier for the course)
@@ -134,6 +151,8 @@ select **Download CSV**. The CSV file contains the following columns.
 * enrollment_modes.verified.count
 * enrollment_modes.verified.cumulative_count
 * pacing_type
+* program_ids
+* program_titles
 * start_date
 
 For detailed information about the computations in this report, see
