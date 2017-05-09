@@ -2,6 +2,7 @@ var path = require('path'),
     webpack = require('webpack'),
     BundleTracker = require('webpack-bundle-tracker'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
+    BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin,
     isProd = (process.env.NODE_ENV === ('production' || 'prod')),
 
     extractCSS = new ExtractTextPlugin('styles-css.css'),
@@ -27,6 +28,7 @@ module.exports = {
         'performance-learning-outcomes-content-main': './analytics_dashboard/static/js/performance-learning-outcomes-content-main',
         'performance-learning-outcomes-section-main': './analytics_dashboard/static/js/performance-learning-outcomes-section-main',
         'course-list-main': './analytics_dashboard/static/apps/course-list/app/course-list-main',
+        globalization: './analytics_dashboard/static/js/utils/globalization'
     },
 
     resolve: {
@@ -34,7 +36,11 @@ module.exports = {
                   'analytics_dashboard/static/apps'],
         alias: {
             marionette: 'backbone.marionette',
-            cldr: 'cldrjs/dist/cldr' // needed by globalize internally
+            cldr: 'cldrjs/dist/cldr', // needed by globalize internally
+            // dedupe copies of modules in bundles by forcing all dependencies to use our copy of the module they need:
+            moment: path.resolve('./node_modules/moment'),
+            jquery: path.resolve('./node_modules/jquery'),
+            backbone: path.resolve('./node_modules/backbone')
         }
     },
 
@@ -54,11 +60,20 @@ module.exports = {
         }),
         extractCSS,
         extractSCSS,
+        new webpack.optimize.AggressiveMergingPlugin({minSizeReduce: 1.1}),
         new webpack.optimize.CommonsChunkPlugin({
-            // Extracts every 3rd-party module common among all bundles into one "vendor" chunk
+            // Extracts code and json files for globalize.js into a separate bundle for efficient caching.
+            names: 'globalization',
+            minChunks: Infinity
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            // Extracts every 3rd-party module common among all bundles into one "vendor" chunk (excluding the modules
+            // in the globalization bundle)
             name: 'vendor',
             minChunks(module, count) {
-                return module.context && module.context.indexOf('node_modules') !== -1;
+                return module.context && module.context.indexOf('node_modules') !== -1 &&
+                       module.context.indexOf('cldr') === -1 &&
+                       module.context.indexOf('globalize') === -1;
             },
         }),
         new webpack.optimize.CommonsChunkPlugin({
@@ -67,15 +82,18 @@ module.exports = {
             // compile (we don't want its hash to change without vendor lib changes, because that would bust the cache).
             name: 'manifest',
         }),
-        new webpack.optimize.UglifyJsPlugin(),
-        new webpack.optimize.AggressiveMergingPlugin()
+        // enable this to see a pretty tree map of modules in each bundle and how much size they take up
+        // new BundleAnalyzerPlugin({
+            // analyzerMode: 'static'
+        // }),
+        new webpack.optimize.UglifyJsPlugin()
     ],
 
     module: {
         rules: [
-            {test: /\.json$/, use: 'json-loader'},
+            // {test: /\.json$/, use: 'json-loader'},
             {test: /\.underscore$/, use: 'raw-loader'},
-            {test: /\.(png|woff|woff2|eot|ttf|svg)$/, use: 'file-loader?name=assets/fonts/[name].[ext]'},
+            {test: /\.(png|woff|woff2|eot|ttf|svg)$/, use: 'file-loader?name=fonts/[name].[ext]'},
             {test: /\.scss$/, use: extractSCSS.extract({
                 fallback: 'style-loader',
                 use: [{
@@ -92,7 +110,7 @@ module.exports = {
             })},
             {test: /\.css$/, use: extractCSS.extract({
                 fallback: 'style-loader',
-                use: {
+                loader: {
                     loader: 'css-loader',
                     query: {
                         minimize: true
