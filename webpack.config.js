@@ -92,39 +92,64 @@ module.exports = {
     module: {
         rules: [
             // {test: /\.json$/, use: 'json-loader'},
-            {test: /\.underscore$/, use: 'raw-loader'},
-            {test: /\.(png|woff|woff2|eot|ttf|svg)$/, use: 'file-loader?name=fonts/[name].[ext]'},
-            {test: /\.scss$/, use: extractSCSS.extract({
-                fallback: 'style-loader',
-                use: [{
-                    loader: 'css-loader',
-                    query: {
-                        minimize: true
+            {
+                test: /\.underscore$/,
+                use: 'raw-loader',
+                include: path.join(__dirname, 'analytics_dashboard/static'),
+                exclude: /node_modules/
+            },
+            {
+                test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+                use: 'file-loader?name=fonts/[name].[ext]',
+                include: [
+                    path.join(__dirname, 'analytics_dashboard/static'),
+                    path.join(__dirname, 'node_modules')
+                ]
+            },
+            {
+                test: /\.scss$/,
+                use: extractSCSS.extract({
+                    fallback: 'style-loader',
+                    use: [{
+                        loader: 'css-loader',
+                        query: {
+                            minimize: true
+                        }
+                    }, {
+                        loader: 'fast-sass-loader',
+                        query: {
+                            minimize: true
+                        }
+                    }]
+                }),
+                exclude: /node_modules/
+            },
+            {
+                test: /\.css$/,
+                use: extractCSS.extract({
+                    fallback: 'style-loader',
+                    use: {
+                        loader: 'css-loader',
+                        query: {
+                            minimize: true
+                        }
                     }
-                }, {
-                    loader: 'sass-loader',
-                    query: {
-                        minimize: true
-                    }
-                }]
-            })},
-            {test: /\.css$/, use: extractCSS.extract({
-                fallback: 'style-loader',
-                loader: {
-                    loader: 'css-loader',
-                    query: {
-                        minimize: true
-                    }
-                }
-            })}
-        ]
+                }),
+                include: [
+                    path.join(__dirname, 'analytics_dashboard/static'),
+                    path.join(__dirname, 'node_modules')
+                ]
+            }
+        ],
+        noParse: [/cldr-data|underscore/]
     },
 
     devServer: {
+        compress: true,
         headers: {
             'Access-Control-Allow-Origin': '*',
-            // webpack does not process all images, proxy them through to django static files
         }, 
+        // webpack does not process all images, proxy them through to django static files
         proxy: {
             // This assumes that the developer is running the django dev server on the default host and port
             '/static/images': 'http://localhost:9000'

@@ -2,7 +2,7 @@
  * This is the first script called by the performance answer distribution page.
  */
 
-require(['vendor/domReady', 'load/init-page'], function(doc, page) {
+require(['load/init-page'], function(page) {
     'use strict';
 
     require(['underscore', 'views/data-table-view', 'views/discrete-bar-view'],

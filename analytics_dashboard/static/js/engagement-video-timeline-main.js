@@ -2,7 +2,7 @@
  * This is the first script called by the video timeline page and displays a
  * video timeline chart and data table.
  */
-require(['vendor/domReady', 'load/init-page'], function(doc, page) {
+require(['load/init-page'], function(page) {
     'use strict';
 
     require([

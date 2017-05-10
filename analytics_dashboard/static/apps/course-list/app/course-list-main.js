@@ -1,7 +1,7 @@
 require('backgrid-paginator/backgrid-paginator.min.css');
 
-require(['vendor/domReady', 'jquery', 'load/init-page',
-         'apps/course-list/app/app'], function(doc, $, page, CourseListApp) {
+require(['jquery', 'load/init-page',
+         'apps/course-list/app/app'], function($, page, CourseListApp) {
     'use strict';
     var modelData = page.models.courseModel,
         app = new CourseListApp({

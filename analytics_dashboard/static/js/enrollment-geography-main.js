@@ -3,7 +3,7 @@
  * the libraries and kicks off the application.
  */
 
-require(['vendor/domReady', 'load/init-page'], function(doc, page) {
+require(['load/init-page'], function(page) {
     'use strict';
 
     // this is your page specific code

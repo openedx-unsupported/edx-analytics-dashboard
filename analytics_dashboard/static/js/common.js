@@ -7,7 +7,6 @@ require([
     'backbone',
     'bootstrap-sass',
     'bootstrap-accessibility-plugin',
-    'vendor/domReady',
     'load/init-page',
     'js/application-main'
 ], function($) {
