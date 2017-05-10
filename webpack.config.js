@@ -154,5 +154,9 @@ module.exports = {
             // This assumes that the developer is running the django dev server on the default host and port
             '/static/images': 'http://localhost:9000'
         }
-    }
+    },
+
+    // Source-map generation method. 'eval' is the fastest, but shouldn't be used in production (it increases file sizes
+    // a lot). If source-maps are desired in production, 'source-map' should be used (slowest, but highest quality).
+    devtool: 'eval'
 };
