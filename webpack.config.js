@@ -46,7 +46,7 @@ module.exports = {
 
     output: {
         path: path.resolve('./assets/bundles/'),
-        publicPath: '/static/bundles/',
+        publicPath: 'http://localhost:8080/assets/bundles/',
         filename: '[name]-[hash].js'
     },
 
@@ -118,5 +118,16 @@ module.exports = {
                 }
             })}
         ]
+    },
+
+    devServer: {
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            // webpack does not process all images, proxy them through to django static files
+        }, 
+        proxy: {
+            // This assumes that the developer is running the django dev server on the default host and port
+            '/static/images': 'http://localhost:9000'
+        }
     }
 };
