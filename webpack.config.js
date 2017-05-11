@@ -136,9 +136,9 @@ module.exports = {
             minChunks: Infinity
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            // Extracts every 3rd-party module common among all bundles into one "vendor" chunk (excluding the modules
-            // in the globalization bundle)
-            name: 'vendor',
+            // Extracts every 3rd-party module common among all bundles into one chunk (excluding the modules in the
+            // globalization bundle)
+            name: 'manifest',
             minChunks(module, count) {
                 return module.context && module.context.indexOf('node_modules') !== -1 &&
                        module.context.indexOf('cldr') === -1 &&
@@ -152,9 +152,9 @@ module.exports = {
             name: 'manifest',
         }),
         // Enable this plugin to see a pretty tree map of modules in each bundle and how much size they take up.
-        // new BundleAnalyzerPlugin({
-            // analyzerMode: 'static'
-        // }),
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'static'
+        }),
     ],
 
     devServer: {

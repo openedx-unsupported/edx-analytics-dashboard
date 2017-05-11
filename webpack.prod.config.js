@@ -4,6 +4,7 @@ var path = require('path'),
     webpack = require('webpack'),
     BundleTracker = require('webpack-bundle-tracker'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
+    BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin,
 
     extractCSS = new ExtractTextPlugin('styles-css.css'),
     extractSCSS = new ExtractTextPlugin('styles-scss.css');
@@ -157,9 +158,9 @@ module.exports = {
             minChunks: Infinity
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            // Extracts every 3rd-party module common among all bundles into one "vendor" chunk (excluding the modules
-            // in the globalization bundle)
-            name: 'vendor',
+            // Extracts every 3rd-party module common among all bundles into one chunk (excluding the modules in the
+            // globalization bundle)
+            name: 'manifest',
             minChunks(module, count) {
                 return module.context && module.context.indexOf('node_modules') !== -1 &&
                        module.context.indexOf('cldr') === -1 &&
@@ -171,6 +172,10 @@ module.exports = {
             // compile. We extract this so that the hash on the above vendor chunk does not change on every webpack
             // compile (we don't want its hash to change without vendor lib changes, because that would bust the cache).
             name: 'manifest',
+        }),
+        // Enable this plugin to see a pretty tree map of modules in each bundle and how much size they take up.
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'static'
         }),
         new webpack.optimize.UglifyJsPlugin()  // aka. minify
     ],
