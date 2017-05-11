@@ -1,19 +1,16 @@
-// Bundles static assets for loading in development environments.
-// Optimizes for fast re-build time at the expense of a large bundle size.
+// Bundles static assets for loading in production environments.
+// Optimizes for small resulting bundle size at the expense of a long build time.
 var path = require('path'),
     webpack = require('webpack'),
     BundleTracker = require('webpack-bundle-tracker'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
-    BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+    extractCSS = new ExtractTextPlugin('styles-css.css'),
+    extractSCSS = new ExtractTextPlugin('styles-scss.css');
 
 module.exports = {
     context: __dirname,
     entry: {
-        // Bundle the client for the webpack-dev-server and specify url to the server
-        devServer: 'webpack-dev-server/client?http://localhost:8080',
-        // Bundle the client for hot reloading. 'only-' means to only hot reload for successful updates.
-        hotReload: 'webpack/hot/only-dev-server',
-
         // Application entry points
         'application-main': './analytics_dashboard/static/js/application-main',
         'engagement-content-main': './analytics_dashboard/static/js/engagement-content-main',
@@ -58,8 +55,8 @@ module.exports = {
     output: {
         // Output bundles directly to the Django static assets directory
         path: path.resolve('./assets/bundles/'),
-        // Tells clients to load bundles from the dev-server
-        publicPath: 'http://localhost:8080/assets/bundles/',
+        // Tells clients to load bundles through Django (there's no dev-server in production)
+        publicPath: '/static/bundles/',
         filename: '[name]-[hash].js'
     },
 
@@ -85,24 +82,45 @@ module.exports = {
                     path.join(__dirname, 'node_modules')
                 ]
             },
-            // We are not extracting CSS from the javascript bundles in development because extracting prevents
-            // hot-reloading from working, it increases build time, and we don't care about flash-of-unstyled-content
-            // issues in development.
+            // Webpack, by default, includes all CSS in the javascript bundles. Unfortunately, that means:
+            // a) The CSS won't be cached by browsers separately (a javascript change will force CSS re-download)
+            // b) Since CSS is applied asyncronously, it causes an ugly flash-of-unstyled-content.
+            //
+            // To avoid these problems, we extract the CSS from the bundles into separate CSS files that can be included
+            // as <link> tags in the HTML <head> manually by our Django tempaltes.
+            //
+            // We will not do this in development because it prevents hot-reloading from working and it increases build
+            // time.
             {
                 test: /\.scss$/,
-                use: [{
-                    loader: 'style-loader',  // creates style nodes from JS strings
-                }, {
-                    loader: 'css-loader', // translates CSS into CommonJS
-                }, {
-                    loader: 'fast-sass-loader',  // compiles Sass to CSS. If this breaks, just use sass-loader
-                }],
+                use: extractSCSS.extract({
+                    fallback: 'style-loader',
+                    use: [{
+                        loader: 'css-loader',  // creates the style nodes from JS strings
+                        query: {
+                            minimize: true
+                        }
+                    }, {
+                        loader: 'fast-sass-loader',  // compiles Sass to CSS. If this breaks, just use sass-loader
+                        query: {
+                            minimize: true
+                        }
+                    }]
+                }),
                 exclude: /node_modules/
             },
             // Not all of our dependencies use Sass. We need an additional rule for requiring or including CSS files.
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
+                use: extractCSS.extract({
+                    fallback: 'style-loader',
+                    use: {
+                        loader: 'css-loader',
+                        query: {
+                            minimize: true
+                        }
+                    }
+                }),
                 include: [
                     path.join(__dirname, 'analytics_dashboard/static'),
                     path.join(__dirname, 'node_modules')
@@ -127,9 +145,12 @@ module.exports = {
             $: 'jquery',
             jQuery: 'jquery'
         }),
+        extractCSS,
+        extractSCSS,
         // AggressiveMergingPlugin in conjunction with these CommonChunkPlugins turns many GBs worth of individual
         // chunks into one or two large chunks that entry chunks reference. It reduces output bundle size a lot.
         new webpack.optimize.AggressiveMergingPlugin({minSizeReduce: 1.1}),
+        // The order of these CommonChunkPlugin instances is important
         new webpack.optimize.CommonsChunkPlugin({
             // Extracts code and json files for globalize.js into a separate bundle for efficient caching.
             names: 'globalization',
@@ -151,28 +172,9 @@ module.exports = {
             // compile (we don't want its hash to change without vendor lib changes, because that would bust the cache).
             name: 'manifest',
         }),
-        // Enable this plugin to see a pretty tree map of modules in each bundle and how much size they take up.
-        // new BundleAnalyzerPlugin({
-            // analyzerMode: 'static'
-        // }),
+        new webpack.optimize.UglifyJsPlugin()  // aka. minify
     ],
 
-    devServer: {
-        compress: true,
-        hot: true,  // enable hot reloading on the server
-        // Since the dev-server runs on a different port, browsers will complain about CORS violations unless we
-        // explicitly tell them it's okay with this header.
-        headers: {
-            'Access-Control-Allow-Origin': '*',
-        }, 
-        // Webpack does not process all images in Insights, so proxy all image requests through to django static files
-        proxy: {
-            // This assumes that the developer is running the django dev server on the default host and port
-            '/static/images': 'http://localhost:9000'
-        }
-    },
-
-    // Source-map generation method. 'eval' is the fastest, but shouldn't be used in production (it increases file sizes
-    // a lot). If source-maps are desired in production, 'source-map' should be used (slowest, but highest quality).
-    devtool: 'eval'
+    // Source-map generation method. 'source-map' is the slowest, but also the highest quality.
+    devtool: 'source-map'
 };
