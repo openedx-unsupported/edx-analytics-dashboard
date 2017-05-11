@@ -135,11 +135,13 @@
       // bootstrap defaults are to bold the labels
       label {
         font-weight: normal;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
         display: inline-block;
         margin: 0;
+        margin-bottom: $padding-base-vertical;
+
+        // indent all lines that wrap so that they're aligned with the text instead of the checkbox
+        text-indent: -$padding-large-horizontal;
+        padding-left: $padding-large-horizontal;
       }
 
       // for the set of filters (e.g. label for the collection of checkboxes)
