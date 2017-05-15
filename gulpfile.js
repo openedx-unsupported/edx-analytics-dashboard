@@ -5,7 +5,6 @@
         gulp = require('gulp'),
         Server = require('karma').Server,
         path = require('path'),
-        browserSync = require('browser-sync'),
         extend = require('util')._extend, // eslint-disable-line no-underscore-dangle
         paths = {
             spec: [
@@ -14,7 +13,6 @@
                 'analytics_dashboard/static/apps/**/*.js'
             ],
             lint: [
-                'build.js',
                 'gulpfile.js',
                 'analytics_dashboard/static/js/**/*.js',
                 'analytics_dashboard/static/js/test/**/*.js',
@@ -68,20 +66,5 @@
     // type 'gulp watch' to continuously run linting and tests
     gulp.task('watch', function() {
         gulp.watch(paths.spec, ['test', 'lint']);
-    });
-
-    // Proxy to django server (assuming that we're using port 8000 and
-    // localhost)
-    gulp.task('browser-sync', function() {
-        // there is a little delay before reloading b/c the sass files need to
-        // recompile, but we can't necessarily watch the generated directory
-        // because django creates a new css file that browser-sync doesn't
-        // know of and I can't figure out how to make it watch an entire
-        // directory
-        browserSync.init(null, {
-            proxy: 'localhost:9000',
-            files: paths.lint.concat(paths.templates).concat(paths.sass),
-            reloadDelay: 1000
-        });
     });
 }());

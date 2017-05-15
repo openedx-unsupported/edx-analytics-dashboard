@@ -108,18 +108,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
 )
-
-COMPRESS_PRECOMPILERS = (
-    ('text/x-scss', 'django_libsass.SassCompiler'),
-)
-
-COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter']
-COMPRESS_JS_FILTERS = ['compressor.filters.closure.ClosureCompilerFilter']
-COMPRESS_CLOSURE_COMPILER_BINARY = 'java -jar scripts/closure-compiler.jar'
-COMPRESS_CLOSURE_JS_ARGUMENTS = {'compilation_level': 'ADVANCED_OPTIMIZATIONS',}
-COMPRESS_CLOSURE_COMPILER_ARGUMENTS = "--language_in=ECMASCRIPT5"
 ########## END STATIC FILE CONFIGURATION
 
 
@@ -218,14 +207,12 @@ DJANGO_APPS = (
     'waffle',
     'django_countries',
     'pinax.announcements',
-    'compressor',
 )
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
     'core',
     'courses',
-    'django_rjs',
     'help',
     'soapbox',
 )

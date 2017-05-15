@@ -34,8 +34,8 @@ test_python_no_compress: clean
 	--cover-package=analytics_dashboard --cover-package=common --cover-branches --cover-html --cover-html-dir=$(COVERAGE)/html/ \
 	--with-ignore-docstrings --cover-xml --cover-xml-file=$(COVERAGE)/coverage.xml
 
-test_compress: static_no_compress
-	python manage.py compress --settings=analytics_dashboard.settings.test
+test_compress: static
+	# No longer does anything. Kept for legacy support.
 
 test_python: test_compress test_python_no_compress
 
@@ -111,11 +111,11 @@ detect_changed_source_translations:
 validate_translations: extract_translations compile_translations detect_changed_source_translations
 	cd analytics_dashboard && i18n_tool validate
 
-static_no_compress:
-	$(NODE_BIN)/r.js -o build.js --logLevel=0
+static_no_compress: static
+	# No longer does anything. Kept for legacy support.
+
+static:
+	$(NODE_BIN)/webpack --config webpack.prod.config.js
 	# collectstatic creates way too much output with the cldr-data directory output so silence that directory
 	echo "Running collectstatic while silencing cldr-data/main/* ..."
 	python manage.py collectstatic --noinput | sed -n '/.*node_modules\/cldr-data\/main\/.*/!p'
-
-static: static_no_compress
-	python manage.py compress

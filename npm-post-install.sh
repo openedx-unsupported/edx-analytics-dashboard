@@ -59,26 +59,3 @@ if [ ! -f ${STATIC_FONTS_PATH}/OpenSans ]; then
 else
   echo "Font files already copied."
 fi
-
-# Vendor static files that are needed during runtime need to be copied to the django static root.
-# COLLECTED_MODULES=('cldr-data' 'bootstrap-sass' 'font-awesome' 'edx-pattern-library' 'bootstrap-accessibility-plugin' 'nvd3' 'bourbon' 'requirejs')
-# DJANGO_STATIC_NPM_PATH=analytics_dashboard/static/node_modules
-# mkdir -p $DJANGO_STATIC_NPM_PATH
-
-# echo "Copying node_modules to Django static directory..."
-# for module in "${COLLECTED_MODULES[@]}"
-# do
-  # if [ ! -d ${DJANGO_STATIC_NPM_PATH}/$module ]; then
-    # echo "Copying $module..."
-    # cp -rf ${NPM_PATH}/$module ${DJANGO_STATIC_NPM_PATH}/$module
-  # else
-    # echo "$module already copied."
-  # fi
-# done
-# echo "Done copying."
-
-
-# echo "Copying node_modules to Django static directory..."
-# cd ${DJANGO_STATIC_PATH}
-# ln -s ../../${NPM_PATH} ${NPM_PATH}
-# echo "Done copying."

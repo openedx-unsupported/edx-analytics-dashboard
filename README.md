@@ -138,16 +138,10 @@ Note that only the following files (for each language) should be committed to th
 
 Asset Pipeline
 --------------
-Static files are managed via [django-compressor](http://django-compressor.readthedocs.org/) and [RequireJS](http://requirejs.org/).
-RequireJS (and r.js) are used to manage JavaScript dependencies. django-compressor compiles SASS, minifies JavaScript (
-using [Closure Compiler](https://developers.google.com/closure/compiler/)), and handles naming files to facilitate
-cache busting during deployment.
+Static files are managed via [webpack](https://webpack.js.org/).
 
-Both tools should operate seamlessly in a local development environment. When deploying to production, call
-`make static` to compile all static assets and move them to the proper location to be served.
-
-When creating new pages that utilize RequireJS dependencies, remember to use the `static_rjs` templatetag to load
-the script, and to add a new module to `build.js`.
+TODO: fill in how to run the dev server for development locally here as well as
+how to compile assets for production.
 
 Theming and Branding
 --------------------
