@@ -48,6 +48,10 @@ module.exports = {
             marionette: 'backbone.marionette',
             // Internal Globalize.js code seems to expect 'cldr' to refer to this file in cldrjs.
             cldr: 'cldrjs/dist/cldr',
+            
+            // Aliases used in tests
+            uitk: 'edx-ui-toolkit/src/js',
+            URI: 'urijs/src/URI',
 
             // Dedupe copies of modules in bundles by forcing all dependencies to use our copy of the module they need:
             moment: path.resolve('./node_modules/moment'),
