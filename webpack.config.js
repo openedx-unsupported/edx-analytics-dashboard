@@ -27,7 +27,6 @@ module.exports = {
         'performance-learning-outcomes-content-main': './analytics_dashboard/static/js/performance-learning-outcomes-content-main',
         'performance-learning-outcomes-section-main': './analytics_dashboard/static/js/performance-learning-outcomes-section-main',
         'course-list-main': './analytics_dashboard/static/apps/course-list/app/course-list-main',
-        globalization: './analytics_dashboard/static/js/utils/globalization'
     },
 
     resolve: {
@@ -46,24 +45,30 @@ module.exports = {
     },
 
     plugins: [
-        new BundleTracker({filename: './webpack-stats.json'}),
+        new BundleTracker({
+            filename: './webpack-stats.json'
+        }),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery'
         }),
         extractCSS,
         extractSCSS,
-        // split about the globalization functionality into a chunk that can be loaded via cache
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'globalization',
-            minChunks: Infinity
+            // Extracts every 3rd-party module common among all bundles into one "vendor" chunk
+            name: 'vendor',
+            minChunks(module, count) {
+                return module.context && module.context.indexOf('node_modules') !== -1;
+            },
         }),
         new webpack.optimize.CommonsChunkPlugin({
+            // This chunk should only include the webpack runtime code. The runtime code changes on every webpack
+            // compile. We extract this so that the hash on the above vendor chunk does not change on every webpack
+            // compile (we don't want its hash to change without vendor lib changes, because that would bust the cache).
             name: 'manifest',
-            minChunks: Infinity
         }),
-        new webpack.optimize.AggressiveMergingPlugin(),
-        new webpack.optimize.UglifyJsPlugin()
+        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.AggressiveMergingPlugin()
     ],
 
     module: {
@@ -72,8 +77,8 @@ module.exports = {
             {test: /\.underscore$/, use: 'raw-loader'},
             {test: /\.(png|woff|woff2|eot|ttf|svg)$/, use: 'file-loader?name=assets/fonts/[name].[ext]'},
             {test: /\.scss$/, use: extractSCSS.extract({
-                fallbackLoader: 'style-loader',
-                loader: [{
+                fallback: 'style-loader',
+                use: [{
                     loader: 'css-loader',
                     query: {
                         minimize: true
@@ -86,8 +91,8 @@ module.exports = {
                 }]
             })},
             {test: /\.css$/, use: extractCSS.extract({
-                fallbackLoader: 'style-loader',
-                loader: {
+                fallback: 'style-loader',
+                use: {
                     loader: 'css-loader',
                     query: {
                         minimize: true
