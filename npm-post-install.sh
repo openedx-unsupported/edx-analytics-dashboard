@@ -37,6 +37,28 @@ else
   echo "edX pattern library already compiled."
 fi
 
+# pre-compile the font-awesome sass because that's the only way I could get fonts working in webpack...
+if [ ! -f ${NPM_PATH}/font-awesome/scss/font-awesome-compiled.scss ]; then
+  echo "Pre-compiling font-awesome..."
+  sassc ${NPM_PATH}/font-awesome/scss/font-awesome.scss ${NPM_PATH}/font-awesome/scss/font-awesome-compiled.scss
+  echo "Done compiling."
+else
+  echo "font-awesome already compiled."
+fi
+# copy font files to insights static files (they are not included in the compiled sass)
+DJANGO_STATIC_PATH=analytics_dashboard/static
+STATIC_FONTS_PATH=analytics_dashboard/static/fonts
+PATTERN_LIBRARY_FONTS_PATH="${NPM_PATH}/edx-pattern-library/pattern-library/fonts"
+FONT_AWESOME_FONTS_PATH="${NPM_PATH}/font-awesome/fonts"
+if [ ! -f ${STATIC_FONTS_PATH}/OpenSans ]; then
+  echo "Copying font files to Django static fonts directory..."
+  cp -rf ${PATTERN_LIBRARY_FONTS_PATH}/OpenSans ${STATIC_FONTS_PATH}/
+  cp -rf ${FONT_AWESOME_FONTS_PATH}/* ${STATIC_FONTS_PATH}/
+  echo "Done copying."
+else
+  echo "Font files already copied."
+fi
+
 # Vendor static files that are needed during runtime need to be copied to the django static root.
 # COLLECTED_MODULES=('cldr-data' 'bootstrap-sass' 'font-awesome' 'edx-pattern-library' 'bootstrap-accessibility-plugin' 'nvd3' 'bourbon' 'requirejs')
 # DJANGO_STATIC_NPM_PATH=analytics_dashboard/static/node_modules
@@ -54,9 +76,8 @@ fi
 # done
 # echo "Done copying."
 
-DJANGO_STATIC_PATH=analytics_dashboard/static
 
-echo "Copying node_modules to Django static directory..."
-cd ${DJANGO_STATIC_PATH}
-ln -s ../../${NPM_PATH} ${NPM_PATH}
-echo "Done copying."
+# echo "Copying node_modules to Django static directory..."
+# cd ${DJANGO_STATIC_PATH}
+# ln -s ../../${NPM_PATH} ${NPM_PATH}
+# echo "Done copying."

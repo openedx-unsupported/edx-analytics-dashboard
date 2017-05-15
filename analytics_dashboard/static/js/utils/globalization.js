@@ -9,10 +9,10 @@ if (window.language === undefined) { // should only occur in test environments
  */
 define([
     'globalize',
-    'json!cldr-data/supplemental/likelySubtags.json',
-    'json!cldr-data/supplemental/numberingSystems.json',
-    'json!cldr-data/main/' + window.language + '/numbers.json',  // language fix already applied (e.g. en-gb is en-GB)
-    'globalize/number'
+    '!json-loader!cldr-data/supplemental/likelySubtags.json',
+    '!json-loader!cldr-data/supplemental/numberingSystems.json',
+    '!json-loader!cldr-data/main/' + window.language + '/numbers.json',  // language fix already applied (e.g. en-gb is en-GB)
+    'globalize/dist/globalize-runtime/number'
 ], function(Globalize, likelySubtags, numberingSystems, numbers) {
     'use strict';
 

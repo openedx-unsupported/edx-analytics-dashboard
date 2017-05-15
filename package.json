@@ -10,13 +10,14 @@
     "backgrid-filter": "^0.3.5",
     "backgrid-paginator": "^0.3.5",
     "backgrid-moment-cell": "^0.3.8",
-    "bootstrap-sass": "3.2.0+2",
+    "bootstrap-sass": "~3.3.7",
     "bootstrap-accessibility-plugin": "~1.0.2",
     "bower": "1.7.9",
     "cldr-data": "29.0.0",
     "cldr-data-downloader": "0.2.5",
+    "cldrjs": "0.4.8",
     "d3": "~3.5.3",
-    "datamaps": "~0.3.4",
+    "datamaps": "~0.5.8",
     "datatables": "~1.10.2",
     "edx-pattern-library": "0.16.6",
     "edx-ui-toolkit": "git://github.com/edx/edx-ui-toolkit#29759050aff2f4f3cb6921432855ad057bd69bb1",
@@ -38,15 +39,20 @@
   "devDependencies": {
     "axe-core": "^1.1.1",
     "browser-sync": "^1.1.2",
+    "css-loader": "^0.26.1",
     "edx-custom-a11y-rules": "edx/edx-custom-a11y-rules#ff77f203ef5d9534c6200cc141e9d150155d0e12",
     "eslint": "~2.13.1",
     "eslint-config-edx": "^1.2.0",
+    "exports-loader": "^0.6.3",
+    "extract-text-webpack-plugin": "^2.0.0-rc.2",
+    "file-loader": "^0.10.0",
     "gulp": "^3.8.8",
     "gulp-eslint": "^2.0.0",
-    "gulp-karma": "0.0.5",
+    "imports-loader": "^0.7.0",
     "jasmine": "~2.1.0",
     "jasmine-core": "^2.5.2",
     "jscs": "^1.10.0",
+    "json-loader": "^0.5.4",
     "karma": "^1.5.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-coverage": "^1.1.1",
@@ -57,12 +63,21 @@
     "karma-requirejs": "^1.1.0",
     "karma-sinon": "^1.0.5",
     "phantomjs-prebuilt": "^2.1.14",
-    "sinon": "1.17.7"
+    "node-sass": "^4.4.0",
+    "raw-loader": "^0.5.1",
+    "resolve-url-loader": "^1.6.1",
+    "sass-loader": "^4.1.1",
+    "sinon": "1.17.7",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^2.2.1",
+    "webpack-bundle-tracker": "^0.2.0"
   },
   "eslintConfig": {
     "extends": "eslint-config-edx"
   },
   "scripts": {
-    "postinstall": "./npm-post-install.sh"
+    "postinstall": "./npm-post-install.sh",
+    "start": "webpack --config mywebpack.config.js"
   }
 }

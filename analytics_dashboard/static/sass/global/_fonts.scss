@@ -1,54 +1,53 @@
 // Because the PL CSS is pre-compiled, the path to the actual location of the fonts
 // isn't set.  Override the paths here.
-$open-sans-font-path: '../node_modules/edx-pattern-library/pattern-library/fonts/OpenSans';
 @include font-face(
     'Open Sans',
-    '#{$open-sans-font-path}/OpenSans-Light-webfont',
+    '~edx-pattern-library/pattern-library/fonts/OpenSans/OpenSans-Light-webfont',
     300,
     $file-formats: woff woff2 ttf
 );
 @include font-face(
     'Open Sans',
-    '#{$open-sans-font-path}/OpenSans-LightItalic-webfont',
+    '~edx-pattern-library/pattern-library/fonts/OpenSans/OpenSans-LightItalic-webfont',
     300,
     italic,
     $file-formats: woff woff2 ttf
 );
 @include font-face(
     'Open Sans',
-    '#{$open-sans-font-path}/OpenSans-Regular-webfont',
+    '~edx-pattern-library/pattern-library/fonts/OpenSans/OpenSans-Regular-webfont',
     400,
     $file-formats: woff woff2 ttf
 );
 @include font-face(
     'Open Sans',
-    '#{$open-sans-font-path}/OpenSans-Italic-webfont',
+    '~edx-pattern-library/pattern-library/fonts/OpenSans/OpenSans-Italic-webfont',
     400,
     italic,
     $file-formats: woff woff2 ttf
 );
 @include font-face(
     'Open Sans',
-    '#{$open-sans-font-path}/OpenSans-Semibold-webfont',
+    '~edx-pattern-library/pattern-library/fonts/OpenSans/OpenSans-Semibold-webfont',
     600,
     $file-formats: woff woff2 ttf
 );
 @include font-face(
     'Open Sans',
-    '#{$open-sans-font-path}/OpenSans-SemiboldItalic-webfont',
+    '~edx-pattern-library/pattern-library/fonts/OpenSans/OpenSans-SemiboldItalic-webfont',
     600,
     italic,
     $file-formats: woff woff2 ttf
 );
 @include font-face(
     'Open Sans',
-    '#{$open-sans-font-path}/OpenSans-Bold-webfont',
+    '~edx-pattern-library/pattern-library/fonts/OpenSans/OpenSans-Bold-webfont',
     700,
     $file-formats: woff woff2 ttf
 );
 @include font-face(
     'Open Sans',
-    '#{$open-sans-font-path}/OpenSans-BoldItalic-webfont',
+    '~edx-pattern-library/pattern-library/fonts/OpenSans/OpenSans-BoldItalic-webfont',
     700,
     italic,
     $file-formats: woff woff2 ttf

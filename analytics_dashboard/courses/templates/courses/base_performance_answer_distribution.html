@@ -2,13 +2,13 @@
 {% load i18n %}
 {% load dashboard_extras %}
 {% load staticfiles %}
-{% load rjs %}
+{% load render_bundle from webpack_loader %}
 
 {% block view-name %}view-course-enrollment view-dashboard{% endblock view-name %}
 
 {% block javascript %}
 {{ block.super }}
-<script src="{% static_rjs 'js/performance-answer-distribution-main.js' %}"></script>
+    {% render_bundle 'performance-answer-distribution-main' %}
 {% endblock javascript %}
 
 

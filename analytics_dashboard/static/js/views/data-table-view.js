@@ -1,4 +1,4 @@
-define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/utils', 'views/attribute-listener-view'],
+define(['vendor/dataTables/dataTables.bootstrap', 'jquery', 'js-natural-sort/dist/naturalsort', 'underscore', 'utils/utils', 'views/attribute-listener-view'],
     function(dt, $, naturalSort, _, Utils, AttributeListenerView) {
         'use strict';
 

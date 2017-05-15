@@ -14,7 +14,7 @@ define(function(require) {
         _ = require('underscore'),
         Backgrid = require('backgrid'),
 
-        listSearchTemplate = require('text!components/generic-list/list/templates/search.underscore'),
+        listSearchTemplate = require('components/generic-list/list/templates/search.underscore'),
 
         CourseListSearch;
 

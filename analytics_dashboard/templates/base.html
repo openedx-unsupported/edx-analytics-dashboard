@@ -2,9 +2,8 @@
 Base template pages.
 {% endcomment %}
 
-{% load staticfiles %}
-{% load compress %}
 {% load dashboard_extras %}
+{% load get_files from webpack_loader %}
 
 <!DOCTYPE html>
 <!--[if lte IE 9]><html class="no-js lt-ie10" lang="en"><![endif]-->
@@ -21,14 +20,12 @@ Base template pages.
     adding additional stylesheets in your page when extending the base.
     {% endcomment %}
 
+	{% get_files 'application-main' 'css' as common_css %}
+    {% for css_file in common_css %}
+        <link rel="stylesheet" href="{{ css_file.publicPath }}" type="text/css">
+    {% endfor %}
+
     {% block stylesheets %}
-    {% compress css %}
-      <link rel="stylesheet" href="{% static 'sass/style-application.scss' %}" type="text/x-scss">
-      {% captureas theme_scss %}
-        {% settings_value 'THEME_SCSS' %}
-      {% endcaptureas %}
-      <link rel="stylesheet" href="{% static theme_scss %}" type="text/x-scss">
-    {% endcompress %}
     {% endblock %}
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->

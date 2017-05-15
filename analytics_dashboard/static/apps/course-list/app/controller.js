@@ -42,6 +42,7 @@ define(function(require) {
         },
 
         showCourseListPage: function(queryString) {
+            this.triggerMethod('showPage');
             var listView = new CourseListView({
                     collection: this.options.courseListCollection,
                     hasData: this.options.hasData,
@@ -121,6 +122,7 @@ define(function(require) {
         },
 
         showNotFoundPage: function() {
+            this.triggerMethod('showPage');
             var message = gettext("Sorry, we couldn't find the page you're looking for."),
                 notFoundView;
 

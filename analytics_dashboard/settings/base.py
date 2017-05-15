@@ -8,6 +8,7 @@ from sys import path
 ########## PATH CONFIGURATION
 # Absolute filesystem path to the Django project directory:
 DJANGO_ROOT = dirname(dirname(abspath(__file__)))
+BASE_DIR = DJANGO_ROOT
 
 # Absolute filesystem path to the top-level project folder:
 SITE_ROOT = dirname(DJANGO_ROOT)
@@ -100,6 +101,7 @@ STATIC_URL = '/static/'
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = (
     normpath(join(DJANGO_ROOT, 'static')),
+    normpath(join(BASE_DIR, 'assets')),
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
@@ -231,6 +233,7 @@ LOCAL_APPS = (
 THIRD_PARTY_APPS = (
     'release_util',
     'rest_framework',
+    'webpack_loader'
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -484,3 +487,12 @@ LEARNER_API_LIST_DOWNLOAD_FIELDS = None
 ########## CACHE CONFIGURATION
 COURSE_SUMMARIES_CACHE_TIMEOUT = 3600  # 1 hour timeout
 ########## END CACHE CONFIGURATION
+
+########## WEBPACK CONFIGURATION
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/',
+        'STATS_FILE': os.path.join(SITE_ROOT, 'webpack-stats.json'),
+    }
+}
+########## END WEBPACK CONFIGURATION

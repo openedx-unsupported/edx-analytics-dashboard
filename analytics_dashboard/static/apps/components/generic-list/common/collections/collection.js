@@ -1,7 +1,7 @@
 define(function(require) {
     'use strict';
 
-    var PagingCollection = require('uitk/pagination/paging-collection'),
+    var PagingCollection = require('edx-ui-toolkit/src/js/pagination/paging-collection'),
         ListUtils = require('components/utils/utils'),
         Utils = require('utils/utils'),
         _ = require('underscore'),

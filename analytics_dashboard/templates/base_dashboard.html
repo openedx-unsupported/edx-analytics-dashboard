@@ -5,7 +5,7 @@
 {% load staticfiles %}
 {% load compress %}
 {% load dashboard_extras %}
-{% load rjs %}
+{% load render_bundle from webpack_loader %}
 
 
 {% block body %}
@@ -72,23 +72,12 @@
       </script>
     {% endif %}
 
-    {% compress js %}
-      <script src="{% static 'node_modules/requirejs/require.js' %}"></script>
-      <script src="{% static_rjs 'js/config.js' %}"></script>
-
-      {# Note: django-compressor does not recognize the data-main attribute. Load the main script separately. #}
-      <script src="{% static_rjs 'js/common.js' %}"></script>
-    {% endcompress %}
+    {% render_bundle 'application-main' %}
 
 
-    {# Note: These blocks are purposely separated from the one above so that browsers cache the common JS instead of downloading a single, large file for each page. #}
-    {# The 'uncompressed_javascript' block should be used for small scripts that do not need to block the page load.  It's useful for factory javascript used to dynamically pass server data to the front via django templating, which does not work with offline compression. #}
-    {% block uncompressed_javascript %}
-    {% endblock uncompressed_javascript %}
-    {% compress js %}
-      {% block javascript %}
-      {% endblock javascript %}
-    {% endcompress %}
+    {# Note: This block is purposely separated from the one above so that browsers cache the common JS instead of downloading a single, large file for each page. #}
+    {% block javascript %}
+    {% endblock javascript %}
 
     <div id="footer-sock-push"></div>
   </div>

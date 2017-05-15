@@ -1,9 +1,10 @@
 {% extends "courses/engagement_grouped_content.html" %}
 {% load i18n %}
 {% load rjs %}
+{% load render_bundle from webpack_loader %}
 
 {% block engagement_javascript %}
-    <script src="{% static_rjs 'js/engagement-videos-main.js' %}"></script>
+    {% render_bundle 'engagement-videos-main' %}
 {% endblock engagement_javascript %}
 
 {% block content_nav %}

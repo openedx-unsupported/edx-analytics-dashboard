@@ -11,7 +11,7 @@ define(function(require) {
         BaseHeaderCell = require('learners/roster/views/base-header-cell'),
         NameAndUsernameCell = require('learners/roster/views/name-username-cell'),
         Utils = require('utils/utils'),
-        learnerTableTemplate = require('text!learners/roster/templates/table.underscore'),
+        learnerTableTemplate = require('learners/roster/templates/table.underscore'),
 
         createEngagementCell,
         EngagementHeaderCell,

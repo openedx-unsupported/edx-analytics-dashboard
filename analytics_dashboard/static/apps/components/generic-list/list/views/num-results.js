@@ -7,7 +7,7 @@ define(function(require) {
 
         NumResultsView,
 
-        numResultsTemplate = require('text!components/generic-list/list/templates/num-results.underscore');
+        numResultsTemplate = require('components/generic-list/list/templates/num-results.underscore');
 
     NumResultsView = Marionette.ItemView.extend({
         template: _.template(numResultsTemplate),

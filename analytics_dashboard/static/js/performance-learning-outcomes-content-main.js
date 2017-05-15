@@ -1,4 +1,4 @@
-require(['vendor/domReady!', 'load/init-page'], function(doc, page) {
+require(['vendor/domReady', 'load/init-page'], function(doc, page) {
     'use strict';
 
     require(['d3', 'underscore', 'views/data-table-view', 'views/stacked-bar-view'],

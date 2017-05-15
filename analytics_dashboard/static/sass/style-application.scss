@@ -16,18 +16,18 @@
 // --------------------
 // Note: to avoid slow sass compilation (see FEDX-240), we pre-compile the pattern library to css (saved as a .scss
 // file) in a bower post install script and import that here.
-@import "../node_modules/edx-pattern-library/pattern-library/sass/edx-pattern-library-ltr-compiled";
+@import "~edx-pattern-library/pattern-library/sass/edx-pattern-library-ltr-compiled";
 
 @import "bootstrap-components";
-@import "../node_modules/bootstrap-accessibility-plugin/plugins/css/bootstrap-accessibility";
-@import "../node_modules/font-awesome/scss/font-awesome";
+@import "~bootstrap-accessibility-plugin/plugins/css/bootstrap-accessibility";
+@import "~font-awesome/scss/font-awesome-compiled";
 @import "../vendor/dataTables/dataTables.bootstrap";
 @import "../vendor/dataTables/dataTables.fontAwesome";
-@import "../node_modules/nvd3/build/nv.d3";
+@import "~nvd3/build/nv.d3";
 
 // import edx pattern library variables so it's available to Insights styles
-@import '../node_modules/bourbon/app/assets/stylesheets/bourbon';
-@import "../node_modules/edx-pattern-library/pattern-library/sass/global/settings";
+@import '~bourbon/app/assets/stylesheets/bourbon';
+@import "~edx-pattern-library/pattern-library/sass/global/settings";
 
 // app styling
 // --------------------

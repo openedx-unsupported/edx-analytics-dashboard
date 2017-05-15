@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load staticfiles %}
 {% load dashboard_extras %}
-{% load rjs %}
+{% load render_bundle from webpack_loader %}
 
 {% comment %}
 Individual course-centric enrollment geography view.
@@ -12,7 +12,7 @@ Individual course-centric enrollment geography view.
 
 {% block javascript %}
   {{ block.super }}
-  <script src="{% static_rjs 'js/enrollment-geography-main.js' %}"></script>
+    {% render_bundle 'enrollment-geography-main' %}
 {% endblock javascript %}
 
 {% block child_content %}

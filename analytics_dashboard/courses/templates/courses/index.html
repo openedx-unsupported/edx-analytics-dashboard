@@ -2,7 +2,8 @@
 {% load i18n %}
 {% load staticfiles %}
 {% load dashboard_extras %}
-{% load rjs %}
+{% load render_bundle from webpack_loader %}
+{% load get_files from webpack_loader %}
 
 {% block view-name %}view-course-list{% endblock view-name %}
 
@@ -57,12 +58,15 @@
 
 {% block stylesheets %}
   {{ block.super }}
-  <link rel="stylesheet" href="/static/bower_components/backgrid-paginator/backgrid-paginator.min.css" type="text/css">
+	{% get_files 'learners-main' 'css' as common_css %}
+    {% for css_file in common_css %}
+        <link rel="stylesheet" href="{{ css_file.publicPath }}" type="text/css">
+    {% endfor %}
 {% endblock stylesheets %}
 
 {% block javascript %}
   {{ block.super }}
-  <script src="{% static_rjs 'apps/course-list/app/course-list-main.js' %}"></script>
+  {% render_bundle 'course-list-main' %}
 {% endblock javascript %}
 
 {% block content %}

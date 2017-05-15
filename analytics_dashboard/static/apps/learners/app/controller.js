@@ -21,7 +21,7 @@ define(function(require) {
         LoadingView = require('components/loading/views/loading-view'),
         ReturnLinkView = require('learners/detail/views/learner-return'),
 
-        rosterLoadingTemplate = require('text!components/loading/templates/plain-loading.underscore'),
+        rosterLoadingTemplate = require('components/loading/templates/plain-loading.underscore'),
 
         LearnersController;
 
@@ -68,6 +68,8 @@ define(function(require) {
                     successView: rosterView
                 }),
                 fetch;
+
+            this.triggerMethod('showPage');
 
             try {
                 this.options.learnerCollection.setStateFromQueryString(queryString);
@@ -128,6 +130,9 @@ define(function(require) {
                 }),
                 learnerModel = this.options.learnerCollection.get(username) || new LearnerModel(),
                 detailView;
+
+            this.triggerMethod('showPage');
+
             this.options.rootView.showChildView('navigation', new ReturnLinkView({
                 queryString: this.options.learnerCollection.getQueryString()
             }));
@@ -175,6 +180,8 @@ define(function(require) {
             // TODO: Implement this page in https://openedx.atlassian.net/browse/AN-6697
             var message = gettext("Sorry, we couldn't find the page you're looking for."),
                 notFoundView;
+
+            this.triggerMethod('showPage');
 
             this.options.pageModel.set('title', gettext('Page Not Found'));
 
