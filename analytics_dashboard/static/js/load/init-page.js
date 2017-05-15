@@ -2,7 +2,7 @@
  * Initializes page with the model and various UI elements that need JS hooks.
  */
 define([
-    'jquery', 'load/init-models', 'load/init-tooltips'
+    'jquery', 'load/init-models', 'load/init-tooltips', 'bootstrap-sass/assets/javascripts/bootstrap/dropdown'
 ], function($, models) {
     'use strict';
 
