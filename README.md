@@ -15,7 +15,7 @@ Prerequisites
 Getting Started
 ---------------
 1. Get the code (e.g. clone the repository).
-2. Install the Python/Node/Bower requirements:
+2. Install the Python/Node requirements:
 
         $ make develop
 

@@ -14,6 +14,8 @@ from django.contrib.staticfiles import views as static_views
 # pylint: disable=relative-import
 from core import views
 
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 
 admin.autodiscover()
 

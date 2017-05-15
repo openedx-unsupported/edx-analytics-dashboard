@@ -1,6 +1,6 @@
 // Because the PL CSS is pre-compiled, the path to the actual location of the fonts
 // isn't set.  Override the paths here.
-$open-sans-font-path: '../bower_components/edx-pattern-library/pattern-library/fonts/OpenSans';
+$open-sans-font-path: '../node_modules/edx-pattern-library/pattern-library/fonts/OpenSans';
 @include font-face(
     'Open Sans',
     '#{$open-sans-font-path}/OpenSans-Light-webfont',

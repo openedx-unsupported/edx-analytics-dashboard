@@ -15,7 +15,6 @@ requirements.py:
 
 requirements.js:
 	npm install
-	$(NODE_BIN)/bower install
 
 test.requirements: requirements
 	pip install -q -r requirements/test.txt --exists-action w
@@ -113,9 +112,10 @@ validate_translations: extract_translations compile_translations detect_changed_
 	cd analytics_dashboard && i18n_tool validate
 
 static_no_compress:
-	$(NODE_BIN)/r.js -o build.js
-	# collectstatic creates way too much output so silence it with verbosity=0
-	python manage.py collectstatic --noinput -v 0
+	$(NODE_BIN)/r.js -o build.js --logLevel=0
+	# collectstatic creates way too much output with the cldr-data directory output so silence that directory
+	echo "Running collectstatic while silencing cldr-data/main/* ..."
+	python manage.py collectstatic --noinput | sed -n '/.*node_modules\/cldr-data\/main\/.*/!p'
 
 static: static_no_compress
 	python manage.py compress
