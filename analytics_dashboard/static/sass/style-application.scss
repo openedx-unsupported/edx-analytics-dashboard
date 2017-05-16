@@ -16,7 +16,7 @@
 // --------------------
 // Note: to avoid slow sass compilation (see FEDX-240), we pre-compile the pattern library to css (saved as a .scss
 // file) in a npm post install script and import that here.
-@import "~edx-pattern-library/pattern-library/sass/edx-pattern-library-ltr-compiled.css";
+@import "~edx-pattern-library/pattern-library/sass/edx-pattern-library-ltr-compiled";
 
 @import "bootstrap-components";
 @import "~bootstrap-accessibility-plugin/plugins/css/bootstrap-accessibility";

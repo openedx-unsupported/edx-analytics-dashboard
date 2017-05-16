@@ -5,7 +5,8 @@ require('sass/style-application.scss');
 require('sass/themes/open-edx.scss');
 
 require(['views/data-table-view',
-         'views/announcement-view'],
+    'views/announcement-view',
+    'bootstrap-sass/assets/javascripts/bootstrap/dropdown'],
     function(DataTableView, AnnouncementView) {
         'use strict';
 

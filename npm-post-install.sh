@@ -33,7 +33,7 @@ done
 # pre-compile the pattern library to improve sass compilation performance
 if [ ! -f ${PATTERN_LIBRARY_SASS_PATH}/edx-pattern-library-ltr-compiled.scss ]; then
   echo "Pre-compiling edX pattern library..."
-  ${NPM_BIN}/node-sass ${PATTERN_LIBRARY_SASS_PATH}/edx-pattern-library-ltr.scss ${PATTERN_LIBRARY_SASS_PATH}/edx-pattern-library-ltr-compiled.css
+  ${NPM_BIN}/node-sass ${PATTERN_LIBRARY_SASS_PATH}/edx-pattern-library-ltr.scss ${PATTERN_LIBRARY_SASS_PATH}/edx-pattern-library-ltr-compiled.scss
   echo "Done compiling."
 else
   echo "edX pattern library already compiled."
