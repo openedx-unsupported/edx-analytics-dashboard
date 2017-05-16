@@ -100,10 +100,17 @@ module.exports = {
                         loader: 'style-loader' // creates style nodes from JS strings
                     },
                     {
-                        loader: 'css-loader' // translates CSS into CommonJS
+                        loader: 'css-loader', // translates CSS into CommonJS
+                        options: {
+                            sourceMap: true
+                        }
                     },
+                    // fast-sass-loader might be slightly faster, but lacks useful source-map generation
                     {
-                        loader: 'fast-sass-loader' // compiles Sass to CSS. If this breaks, just use sass-loader
+                        loader: 'sass-loader', // compiles Sass to CSS.
+                        options: {
+                            sourceMap: true
+                        }
                     }
                 ],
                 exclude: /node_modules/

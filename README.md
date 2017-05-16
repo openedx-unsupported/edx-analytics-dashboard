@@ -23,7 +23,11 @@ Getting Started
 
         $ make migrate
 
-4. Run the server:
+4. Run the webpack-dev-server:
+
+        $ npm start
+
+5. In a separate terminal run the Django development server:
 
         $ ./manage.py runserver 0.0.0.0:9000
 
@@ -33,6 +37,8 @@ Alternatively, you can launch the server using:
 
         $ ENABLE_DJANGO_TOOLBAR=1 ./manage.py runserver
 
+Visit http://localhost:9000 in your browser and then login through the LMS to
+access Insights (see **Authentication & Authorization** below for more details).
 
 Site-Wide Announcements
 -----------------------
@@ -140,8 +146,17 @@ Asset Pipeline
 --------------
 Static files are managed via [webpack](https://webpack.js.org/).
 
-TODO: fill in how to run the dev server for development locally here as well as
-how to compile assets for production.
+To run the webpack-dev-server, which will watch for changes to static files
+(`.js`, `.css`, `.sass`, `.underscore`, etc. files) and incrementally recompile
+webpack bundles and try to hot-reload them in your browser, run this in a
+terminal:
+
+    $ npm start
+
+Alternatively, you can compile production webpack bundles by running (runs
+webpack using the prod config and then exits):
+
+    $ make static
 
 Theming and Branding
 --------------------

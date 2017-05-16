@@ -103,14 +103,17 @@ module.exports = {
                     use: [
                         {
                             loader: 'css-loader', // creates the style nodes from JS strings
-                            query: {
-                                minimize: true
+                            options: {
+                                minimize: true,
+                                sourceMap: true
                             }
                         },
+                        // fast-sass-loader might be slightly faster, but lacks useful source-map generation
                         {
-                            loader: 'fast-sass-loader', // compiles Sass to CSS. If this breaks, just use sass-loader
-                            query: {
-                                minimize: true
+                            loader: 'sass-loader', // compiles Sass to CSS.
+                            options: {
+                                minimize: true,
+                                sourceMap: true
                             }
                         }
                     ]
@@ -124,8 +127,9 @@ module.exports = {
                     fallback: 'style-loader',
                     use: {
                         loader: 'css-loader',
-                        query: {
-                            minimize: true
+                        options: {
+                            minimize: true,
+                            sourceMap: true
                         }
                     }
                 }),
