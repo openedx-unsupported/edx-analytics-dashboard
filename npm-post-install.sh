@@ -54,7 +54,9 @@ PATTERN_LIBRARY_FONTS_PATH="${NPM_PATH}/edx-pattern-library/pattern-library/font
 FONT_AWESOME_FONTS_PATH="${NPM_PATH}/font-awesome/fonts"
 if [ ! -f ${STATIC_FONTS_PATH}/OpenSans ]; then
   echo "Copying font files to Django static fonts directory..."
-  cp -rf ${PATTERN_LIBRARY_FONTS_PATH}/OpenSans ${STATIC_FONTS_PATH}/
+  mkdir -p ${STATIC_FONTS_PATH}
+  mkdir -p ${STATIC_FONTS_PATH}/OpenSans
+  cp -rf ${PATTERN_LIBRARY_FONTS_PATH}/OpenSans/* ${STATIC_FONTS_PATH}/OpenSans/
   cp -rf ${FONT_AWESOME_FONTS_PATH}/* ${STATIC_FONTS_PATH}/
   echo "Done copying."
 else
