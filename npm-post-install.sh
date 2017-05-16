@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 NPM_PATH="node_modules"
+NPM_BIN="${NPM_PATH}/.bin"
 
 function CSS2SCSS() {
     filename=$1
@@ -32,7 +33,7 @@ done
 # pre-compile the pattern library to improve sass compilation performance
 if [ ! -f ${PATTERN_LIBRARY_SASS_PATH}/edx-pattern-library-ltr-compiled.scss ]; then
   echo "Pre-compiling edX pattern library..."
-  sassc ${PATTERN_LIBRARY_SASS_PATH}/edx-pattern-library-ltr.scss ${PATTERN_LIBRARY_SASS_PATH}/edx-pattern-library-ltr-compiled.scss
+  ${NPM_BIN}/node-sass ${PATTERN_LIBRARY_SASS_PATH}/edx-pattern-library-ltr.scss ${PATTERN_LIBRARY_SASS_PATH}/edx-pattern-library-ltr-compiled.scss
   echo "Done compiling."
 else
   echo "edX pattern library already compiled."
@@ -41,7 +42,7 @@ fi
 # pre-compile the font-awesome sass because that's the only way I could get fonts working in webpack...
 if [ ! -f ${NPM_PATH}/font-awesome/scss/font-awesome-compiled.scss ]; then
   echo "Pre-compiling font-awesome..."
-  sassc ${NPM_PATH}/font-awesome/scss/font-awesome.scss ${NPM_PATH}/font-awesome/scss/font-awesome-compiled.scss
+  ${NPM_BIN}/node-sass ${NPM_PATH}/font-awesome/scss/font-awesome.scss ${NPM_PATH}/font-awesome/scss/font-awesome-compiled.scss
   echo "Done compiling."
 else
   echo "font-awesome already compiled."

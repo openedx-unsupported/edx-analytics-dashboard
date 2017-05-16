@@ -181,9 +181,9 @@ module.exports = {
             name: 'manifest'
         }),
         // Enable this plugin to see a pretty tree map of modules in each bundle and how much size they take up.
-        new BundleAnalyzerPlugin({
-            analyzerMode: 'static'
-        }),
+        // new BundleAnalyzerPlugin({
+            // analyzerMode: 'static'
+        // }),
         new webpack.optimize.UglifyJsPlugin() // aka. minify
     ],
 

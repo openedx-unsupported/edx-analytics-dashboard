@@ -14,7 +14,7 @@ requirements.py:
 	pip install -q -r requirements/base.txt --exists-action w
 
 requirements.js:
-	npm install
+	npm install --unsafe-perm
 
 test.requirements: requirements
 	pip install -q -r requirements/test.txt --exists-action w

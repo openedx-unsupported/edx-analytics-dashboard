@@ -15,10 +15,6 @@ ln -s /opt/firefox/firefox /usr/bin/firefox
 cd /edx/app/insights/edx_analytics_dashboard
 export PATH=$PATH:$PWD/node_modules/.bin
 
-# Make it so bower can run without sudo.
-# https://github.com/GeoNode/geonode/pull/1070
-echo '{ "allow_root": true }' > /root/.bowerrc
-
 # Output node.js version
 node --version
 npm --version
