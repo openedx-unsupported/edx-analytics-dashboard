@@ -4,6 +4,7 @@ Base template pages.
 
 {% load dashboard_extras %}
 {% load get_files from webpack_loader %}
+{% load render_bundle from webpack_loader %}
 
 <!DOCTYPE html>
 <!--[if lte IE 9]><html class="no-js lt-ie10" lang="en"><![endif]-->
@@ -20,7 +21,7 @@ Base template pages.
     adding additional stylesheets in your page when extending the base.
     {% endcomment %}
 
-	{% get_files 'application-main' 'css' as common_css %}
+	  {% get_files 'application-main' 'css' as common_css %}
     {% for css_file in common_css %}
         <link rel="stylesheet" href="{{ css_file.publicPath }}" type="text/css">
     {% endfor %}
@@ -36,4 +37,11 @@ Base template pages.
 </head>
 
 {% block body %}{% endblock %}
+
+{% block javascript %}
+  {# webpack loading #}
+  {% render_bundle 'manifest' %}
+  {% render_bundle 'globalization' %}
+  {% render_bundle 'application-main' %}
+{% endblock javascript %}
 </html>

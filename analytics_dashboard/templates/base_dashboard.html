@@ -4,7 +4,6 @@
 {% load i18n %}
 {% load staticfiles %}
 {% load dashboard_extras %}
-{% load render_bundle from webpack_loader %}
 
 
 {% block body %}
@@ -70,16 +69,6 @@
         var initModelData = {{ page_data|safe }};
       </script>
     {% endif %}
-
-    {# webpack loading #}
-    {% render_bundle 'manifest' %}
-    {% render_bundle 'globalization' %}
-    {% render_bundle 'application-main' %}
-
-
-    {# Note: This block is purposely separated from the one above so that browsers cache the common JS instead of downloading a single, large file for each page. #}
-    {% block javascript %}
-    {% endblock javascript %}
 
     <div id="footer-sock-push"></div>
   </div>
