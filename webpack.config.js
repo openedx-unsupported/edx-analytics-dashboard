@@ -3,7 +3,6 @@
 var path = require('path'),
     webpack = require('webpack'),
     BundleTracker = require('webpack-bundle-tracker'),
-    ExtractTextPlugin = require('extract-text-webpack-plugin'),
     BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
