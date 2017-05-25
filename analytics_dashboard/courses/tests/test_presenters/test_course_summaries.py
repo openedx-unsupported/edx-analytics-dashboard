@@ -33,31 +33,37 @@ class CourseSummariesPresenterTests(TestCase):
             'count': 4,
             'cumulative_count': 4,
             'count_change_7_days': 4,
+            'passing_users': 2,
             'enrollment_modes': {
                 'audit': {
                     'count': 4,
                     'cumulative_count': 4,
-                    'count_change_7_days': 4
+                    'count_change_7_days': 4,
+                    'passing_users': 2,
                 },
                 'credit': {
                     'count': 0,
                     'cumulative_count': 0,
-                    'count_change_7_days': 0
+                    'count_change_7_days': 0,
+                    'passing_users': 0,
                 },
                 'verified': {
                     'count': 0,
                     'cumulative_count': 0,
-                    'count_change_7_days': 0
+                    'count_change_7_days': 0,
+                    'passing_users': 0,
                 },
                 'professional': {
                     'count': 0,
                     'cumulative_count': 0,
-                    'count_change_7_days': 0
+                    'count_change_7_days': 0,
+                    'passing_users': 0,
                 },
                 'honor': {
                     'count': 0,
                     'cumulative_count': 0,
-                    'count_change_7_days': 0
+                    'count_change_7_days': 0,
+                    'passing_users': 0,
                 }
             },
             'created': utils.CREATED_DATETIME_STRING,
@@ -72,31 +78,37 @@ class CourseSummariesPresenterTests(TestCase):
             'count': 3884,
             'cumulative_count': 5106,
             'count_change_7_days': 0,
+            'passing_users': 912,
             'enrollment_modes': {
                 'audit': {
                     'count': 832,
                     'cumulative_count': 1007,
-                    'count_change_7_days': 0
+                    'count_change_7_days': 0,
+                    'passing_users': 800,
                 },
                 'credit': {
                     'count': 0,
                     'cumulative_count': 0,
-                    'count_change_7_days': 0
+                    'count_change_7_days': 0,
+                    'passing_users': 0,
                 },
                 'verified': {
                     'count': 12,
                     'cumulative_count': 12,
-                    'count_change_7_days': 0
+                    'count_change_7_days': 0,
+                    'passing_users': 12,
                 },
                 'professional': {
                     'count': 0,
                     'cumulative_count': 0,
-                    'count_change_7_days': 0
+                    'count_change_7_days': 0,
+                    'passing_users': 0,
                 },
                 'honor': {
                     'count': 3040,
                     'cumulative_count': 4087,
-                    'count_change_7_days': 0
+                    'count_change_7_days': 0,
+                    'passing_users': 100,
                 }
             },
             'created': utils.CREATED_DATETIME_STRING,
@@ -115,27 +127,32 @@ class CourseSummariesPresenterTests(TestCase):
                 'audit': {
                     'count': 1,
                     'cumulative_count': 1,
-                    'count_change_7_days': 0
+                    'count_change_7_days': 0,
+                    'passing_users': 0,
                 },
                 'credit': {
                     'count': 0,
                     'cumulative_count': 0,
-                    'count_change_7_days': 0
+                    'count_change_7_days': 0,
+                    'passing_users': 0,
                 },
                 'verified': {
                     'count': 1,
                     'cumulative_count': 1,
-                    'count_change_7_days': 0
+                    'count_change_7_days': 0,
+                    'passing_users': 0,
                 },
                 'professional': {
                     'count': 0,
                     'cumulative_count': 0,
-                    'count_change_7_days': 0
+                    'count_change_7_days': 0,
+                    'passing_users': 0,
                 },
                 'honor': {
                     'count': 1,
                     'cumulative_count': 1,
-                    'count_change_7_days': 0
+                    'count_change_7_days': 0,
+                    'passing_users': 0,
                 }
             },
             'created': utils.CREATED_DATETIME_STRING,
