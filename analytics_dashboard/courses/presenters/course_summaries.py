@@ -27,8 +27,7 @@ class CourseSummariesPresenter(BasePresenter):
         """
         all_summaries = cache.get(self.CACHE_KEY)
         if all_summaries is None:
-            # seperate call to programs endpoint will be made to retrieve this info
-            exclude = ['programs']
+            exclude = ['programs'] # we make a separate call to the programs endpoint
             if not switch_is_active('enable_course_passing'):
                 exclude.append('passing_users')
             all_summaries = self.client.course_summaries().course_summaries(exclude=exclude)
