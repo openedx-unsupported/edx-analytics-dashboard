@@ -252,13 +252,48 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
             self.assertIsValidCSV(csv_data)
 
     @override_switch('enable_course_filters', active=True)
+    @override_switch('enable_course_passing', active=False)
     @data(
         [CourseSamples.DEMO_COURSE_ID],
         [CourseSamples.DEPRECATED_DEMO_COURSE_ID],
         [CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID],
     )
-    def test_response(self, course_ids):
-        self._test_csv(self.get_mock_data(course_ids), get_mock_course_summaries_csv(course_ids))
+    def test_response_with_programs(self, course_ids):
+        summaries_csv = get_mock_course_summaries_csv(course_ids, has_programs=True)
+        self._test_csv(get_mock_course_summaries(course_ids, exclude=['passing_users']), summaries_csv)
+
+    @override_switch('enable_course_filters', active=False)
+    @override_switch('enable_course_passing', active=False)
+    @data(
+        [CourseSamples.DEMO_COURSE_ID],
+        [CourseSamples.DEPRECATED_DEMO_COURSE_ID],
+        [CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID],
+    )
+    def test_response_minimal(self, course_ids):
+        summaries_csv = get_mock_course_summaries_csv(course_ids)
+        self._test_csv(get_mock_course_summaries(course_ids, exclude=['passing_users']), summaries_csv)
+
+    @override_switch('enable_course_filters', active=False)
+    @override_switch('enable_course_passing', active=True)
+    @data(
+        [CourseSamples.DEMO_COURSE_ID],
+        [CourseSamples.DEPRECATED_DEMO_COURSE_ID],
+        [CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID],
+    )
+    def test_response_with_passing(self, course_ids):
+        summaries_csv = get_mock_course_summaries_csv(course_ids, has_passing=True)
+        self._test_csv(get_mock_course_summaries(course_ids), summaries_csv)
+
+    @override_switch('enable_course_filters', active=True)
+    @override_switch('enable_course_passing', active=True)
+    @data(
+        [CourseSamples.DEMO_COURSE_ID],
+        [CourseSamples.DEPRECATED_DEMO_COURSE_ID],
+        [CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID],
+    )
+    def test_response_with_all(self, course_ids):
+        summaries_csv = get_mock_course_summaries_csv(course_ids, has_programs=True, has_passing=True)
+        self._test_csv(get_mock_course_summaries(course_ids), summaries_csv)
 
     def test_response_no_data(self):
         self._test_csv([], '')

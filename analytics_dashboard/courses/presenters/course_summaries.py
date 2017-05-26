@@ -1,5 +1,7 @@
 from django.conf import settings
 from django.core.cache import cache
+from waffle import switch_is_active
+
 from courses.presenters import BasePresenter
 
 
@@ -25,7 +27,10 @@ class CourseSummariesPresenter(BasePresenter):
         """
         all_summaries = cache.get(self.CACHE_KEY)
         if all_summaries is None:
-            all_summaries = self.client.course_summaries().course_summaries()
+            exclude = ['programs']  # we make a separate call to the programs endpoint
+            if not switch_is_active('enable_course_passing'):
+                exclude.append('passing_users')
+            all_summaries = self.client.course_summaries().course_summaries(exclude=exclude)
             all_summaries = [
                 {field: ('' if val is None and field in self.NON_NULL_STRING_FIELDS else val)
                  for field, val in summary.items()} for summary in all_summaries]
