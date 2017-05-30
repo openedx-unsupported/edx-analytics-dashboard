@@ -393,10 +393,11 @@ class TagsDistributionDataFactory(CourseStructureFactory):
     def get_expected_available_tags(self):
         tags = {}
         for item in self.tags_data_per_homework_assigment:
-            for key, val in item['tags'].iteritems():
-                if key not in tags:
-                    tags[key] = set()
-                tags[key].add(val)
+            for key, vals in item['tags'].iteritems():
+                for val in vals:
+                    if key not in tags:
+                        tags[key] = set()
+                    tags[key].add(val)
         return tags
 
     def get_expected_learning_outcome_tags_content_nav(self, key):
@@ -415,25 +416,25 @@ class TagsDistributionDataFactory(CourseStructureFactory):
 
         for val in self.tags_data_per_homework_assigment:
             if tag_key in val['tags']:
-                tag_value = val['tags'][tag_key]
-                if tag_value not in expected:
-                    index += 1
-                    expected[tag_value] = {
-                        "id": tag_value,
-                        "index": index,
-                        "name": tag_value,
-                        "total_submissions": 0,
-                        "correct_submissions": 0,
-                        "incorrect_submissions": 0,
-                        "num_modules": 0
-                    }
+                for tag_value in val['tags'][tag_key]:
+                    if tag_value not in expected:
+                        index += 1
+                        expected[tag_value] = {
+                            "id": tag_value,
+                            "index": index,
+                            "name": tag_value,
+                            "total_submissions": 0,
+                            "correct_submissions": 0,
+                            "incorrect_submissions": 0,
+                            "num_modules": 0
+                        }
 
-                incorrect_submissions = val["total_submissions"] - val["correct_submissions"]
+                    incorrect_submissions = val["total_submissions"] - val["correct_submissions"]
 
-                expected[tag_value]["total_submissions"] += val["total_submissions"] * k
-                expected[tag_value]["correct_submissions"] += val["correct_submissions"] * k
-                expected[tag_value]["incorrect_submissions"] += incorrect_submissions * k
-                expected[tag_value]["num_modules"] += k
+                    expected[tag_value]["total_submissions"] += val["total_submissions"] * k
+                    expected[tag_value]["correct_submissions"] += val["correct_submissions"] * k
+                    expected[tag_value]["incorrect_submissions"] += incorrect_submissions * k
+                    expected[tag_value]["num_modules"] += k
 
         url_template = '/courses/{}/performance/learning_outcomes/{}/'
 
@@ -458,33 +459,43 @@ class TagsDistributionDataFactory(CourseStructureFactory):
 
         url_template = '/courses/{}/performance/learning_outcomes/{}/problems/{}/'
 
+        def _get_tags_info(av_tags, tags):
+            """
+            Helper function to return information about all tags connected with the current item.
+            """
+            data = {}
+            if av_tags:
+                for av_tag_key in av_tags:
+                    if av_tag_key in tags and tags[av_tag_key]:
+                        data[av_tag_key] = u', '.join(tags[av_tag_key])
+                    else:
+                        data[av_tag_key] = None
+            return data
+
         for i in xrange(1, self._count_of_homework_assignments + 1):
             num = 0
             for val in self.tags_data_per_homework_assigment:
                 num += 1
-                if tag_key in val['tags'] and val['tags'][tag_key] == tag_value:
-                    display_name = 'Homework %d Problem %d' % (i, num)
-                    incorrect_submissions = val["total_submissions"] - val["correct_submissions"]
-                    new_item_id = 'i4x://edX/DemoX/problem/%s' % hashlib.md5(display_name).hexdigest()
-                    index += 1
-                    new_item = {
-                        'id': new_item_id,
-                        'index': index,
-                        'name': ', '.join(['Demo Course', 'Homework %d' % i, display_name]),
-                        'total_submissions': val['total_submissions'],
-                        'correct_submissions': val['correct_submissions'],
-                        'incorrect_submissions': incorrect_submissions,
-                        'correct_percent': utils.math.calculate_percent(val['correct_submissions'],
-                                                                        val['total_submissions']),
-                        'incorrect_percent': utils.math.calculate_percent(incorrect_submissions,
-                                                                          val['total_submissions']),
-                        'url': url_template.format(self.course_id, slugify(tag_value), new_item_id)
-                    }
-                    if available_tags:
-                        for av_tag_key in available_tags:
-                            if av_tag_key in val['tags']:
-                                new_item[av_tag_key] = val['tags'][av_tag_key]
-                            else:
-                                new_item[av_tag_key] = None
-                    expected.append(new_item)
+                if tag_key in val['tags']:
+                    for val_tag_value in val['tags'][tag_key]:
+                        if val_tag_value == tag_value:
+                            display_name = 'Homework %d Problem %d' % (i, num)
+                            incorrect_submissions = val["total_submissions"] - val["correct_submissions"]
+                            new_item_id = 'i4x://edX/DemoX/problem/%s' % hashlib.md5(display_name).hexdigest()
+                            index += 1
+                            new_item = {
+                                'id': new_item_id,
+                                'index': index,
+                                'name': ', '.join(['Demo Course', 'Homework %d' % i, display_name]),
+                                'total_submissions': val['total_submissions'],
+                                'correct_submissions': val['correct_submissions'],
+                                'incorrect_submissions': incorrect_submissions,
+                                'correct_percent': utils.math.calculate_percent(val['correct_submissions'],
+                                                                                val['total_submissions']),
+                                'incorrect_percent': utils.math.calculate_percent(incorrect_submissions,
+                                                                                  val['total_submissions']),
+                                'url': url_template.format(self.course_id, slugify(tag_value), new_item_id)
+                            }
+                            new_item.update(_get_tags_info(available_tags, val['tags']))
+                            expected.append(new_item)
         return expected

@@ -545,9 +545,9 @@ class CoursePerformanceLearningOutcomesViewTestMixin(CoursePerformanceViewTestMi
 class CoursePerformanceLearningOutcomesContentViewTests(CoursePerformanceLearningOutcomesViewTestMixin, TestCase):
     viewname = 'courses:performance:learning_outcomes'
     tags_factory_init_data = [{"total_submissions": 21, "correct_submissions": 5,
-                               "tags": {"difficulty": "Hard", "learning_outcome": "Learned a few things"}},
+                               "tags": {"difficulty": ["Hard"], "learning_outcome": ["Learned a few things"]}},
                               {"total_submissions": 11, "correct_submissions": 10,
-                               "tags": {"difficulty": "Easy", "learning_outcome": "Learned nothing"}}]
+                               "tags": {"difficulty": ["Easy"], "learning_outcome": ["Learned nothing"]}}]
 
     @httpretty.activate
     def test_invalid_course(self):
@@ -568,17 +568,17 @@ class CoursePerformanceLearningOutcomesContentViewTests(CoursePerformanceLearnin
 class CoursePerformanceLearningOutcomesSectionViewTests(CoursePerformanceLearningOutcomesViewTestMixin, TestCase):
     viewname = 'courses:performance:learning_outcomes_section'
     tags_factory_init_data = [{"total_submissions": 41, "correct_submissions": 10,
-                               "tags": {"difficulty": "Hard", "learning_outcome": "Learned a few things"}},
+                               "tags": {"difficulty": ["Hard"], "learning_outcome": ["Learned a few things"]}},
                               {"total_submissions": 25, "correct_submissions": 25,
-                               "tags": {"difficulty": "Easy", "learning_outcome": "Learned nothing"}},
+                               "tags": {"difficulty": ["Easy"], "learning_outcome": ["Learned nothing"]}},
                               {"total_submissions": 17, "correct_submissions": 16,
-                               "tags": {"learning_outcome": "Learned everything"}},
+                               "tags": {"learning_outcome": ["Learned everything"]}},
                               {"total_submissions": 10, "correct_submissions": 5,
-                               "tags": {"difficulty": "Hard"}},
+                               "tags": {"difficulty": ["Hard"]}},
                               {"total_submissions": 35, "correct_submissions": 31,
-                               "tags": {"learning_outcome": "Learned nothing"}},
+                               "tags": {"learning_outcome": ["Learned nothing"]}},
                               {"total_submissions": 105, "correct_submissions": 10,
-                               "tags": {"difficulty": "Hard", "learning_outcome": "Learned everything"}}]
+                               "tags": {"difficulty": ["Hard"], "learning_outcome": ["Learned everything"]}}]
 
     def path(self, **kwargs):
         kwargs.update({
@@ -612,17 +612,17 @@ class CoursePerformanceLearningOutcomesAnswersDistributionViewTests(
     viewname = 'courses:performance:learning_outcomes_answers_distribution'
 
     tags_factory_init_data = [{"total_submissions": 41, "correct_submissions": 10,
-                               "tags": {"difficulty": "Hard", "learning_outcome": "Learned a few things"}},
+                               "tags": {"difficulty": ["Hard"], "learning_outcome": ["Learned a few things"]}},
                               {"total_submissions": 25, "correct_submissions": 25,
-                               "tags": {"difficulty": "Easy", "learning_outcome": "Learned nothing"}},
+                               "tags": {"difficulty": ["Easy"], "learning_outcome": ["Learned nothing"]}},
                               {"total_submissions": 17, "correct_submissions": 16,
-                               "tags": {"learning_outcome": "Learned everything"}},
+                               "tags": {"learning_outcome": ["Learned everything"]}},
                               {"total_submissions": 10, "correct_submissions": 5,
-                               "tags": {"difficulty": "Hard"}},
+                               "tags": {"difficulty": ["Hard"]}},
                               {"total_submissions": 35, "correct_submissions": 31,
-                               "tags": {"learning_outcome": "Learned nothing"}},
+                               "tags": {"learning_outcome": ["Learned nothing"]}},
                               {"total_submissions": 105, "correct_submissions": 10,
-                               "tags": {"difficulty": "Hard", "learning_outcome": "Learned everything"}}]
+                               "tags": {"difficulty": ["Hard"], "learning_outcome": ["Learned everything"]}}]
 
     def path(self, **kwargs):
         kwargs.update({
