@@ -360,9 +360,8 @@ class TagsDistributionDataFactory(CourseStructureFactory):
     def _get_block_id(self, block_type, block_format=None, display_name=None, graded=True, children=None):
         if display_name:
             return hashlib.md5(display_name).hexdigest()
-        else:
-            return super(TagsDistributionDataFactory, self)._get_block_id(block_type, block_format, display_name,
-                                                                          graded, children)
+        return super(TagsDistributionDataFactory, self)._get_block_id(block_type, block_format, display_name,
+                                                                      graded, children)
 
     def _generate_tags_structure(self):
         reg = re.compile(r'Homework (\d) Problem (\d)')
@@ -406,8 +405,7 @@ class TagsDistributionDataFactory(CourseStructureFactory):
         if key in expected_available_tags:
             return [{'id': v, 'name': v, 'url': url_template.format(self.course_id, slugify(v))}
                     for v in expected_available_tags[key]]
-        else:
-            return []
+        return []
 
     def get_expected_tags_distribution(self, tag_key):
         index = 0

@@ -21,8 +21,7 @@ class ProgramsPresenter(BasePresenter):
         # Now apply course_ids filter
         if course_ids is None:
             return programs
-        else:
-            return [program for program in programs if not set(program['course_ids']).isdisjoint(course_ids)]
+        return [program for program in programs if not set(program['course_ids']).isdisjoint(course_ids)]
 
     def _get_all_programs(self):
         """

@@ -843,7 +843,7 @@ def get_mock_course_summaries_csv(course_ids, has_programs=False, has_passing=Fa
             if len(associated_programs) > 1:
                 first_program = associated_programs[0]
                 second_program = associated_programs[1]
-            elif len(associated_programs) > 0:
+            elif associated_programs:
                 first_program = associated_programs[0]
             for program_field in ['program_id', 'program_title']:
                 program_data = program_data + '{}{}{}'.format(

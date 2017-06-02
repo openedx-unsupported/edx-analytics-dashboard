@@ -53,8 +53,7 @@ class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, Web
                 if total_enrollment % 2 == 0:
                     next_age = current_year - data[index + 1]['birth_year']
                     return (next_age + age) * 0.5
-                else:
-                    return age
+                return age
 
         return None
 

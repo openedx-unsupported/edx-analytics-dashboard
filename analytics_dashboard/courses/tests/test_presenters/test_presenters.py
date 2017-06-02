@@ -237,7 +237,7 @@ class CourseEngagementVideoPresenterTests(TestCase):
         }
 
         for grade_status in ['graded', 'ungraded']:
-            sequential_fixture = SequentialFixture(graded=grade_status is 'graded').add_children(
+            sequential_fixture = SequentialFixture(graded=(grade_status == 'graded')).add_children(
                 VerticalFixture().add_children(
                     VideoFixture()
                 )

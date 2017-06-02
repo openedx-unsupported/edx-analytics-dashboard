@@ -7,7 +7,7 @@ from django.contrib import admin
 from django.core.urlresolvers import reverse_lazy
 from django.views import defaults
 from django.views.generic import RedirectView
-from django.views.i18n import javascript_catalog
+from django.views.i18n import JavaScriptCatalog
 from django.contrib.staticfiles import views as static_views
 
 # pylint suggests importing analytics_dashboard.core, which causes errors in our AMI
@@ -17,14 +17,10 @@ from core import views
 
 admin.autodiscover()
 
-js_info_dict = {
-    'packages': ('core', 'courses',),
-}
-
 urlpatterns = [
     url(r'^$', views.LandingView.as_view(), name='landing'),
     url(r'^api-auth/', include('rest_framework.urls')),
-    url(r'^jsi18n/$', javascript_catalog, js_info_dict),
+    url(r'^jsi18n/$', JavaScriptCatalog.as_view(packages=['core', 'courses']), name='javascript-catalog'),
     url(r'^status/$', views.status, name='status'),
     url(r'^health/$', views.health, name='health'),
     url(r'^courses/', include('courses.urls')),

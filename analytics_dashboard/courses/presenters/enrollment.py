@@ -112,7 +112,7 @@ class CourseEnrollmentPresenter(CoursePresenter):
                     invalid_modes.remove(candidate)
                     valid_modes.add(candidate)
 
-            if len(invalid_modes) == 0:
+            if not invalid_modes:
                 break
 
         return valid_modes
@@ -388,8 +388,7 @@ class CourseEnrollmentDemographicsPresenter(CoursePresenter):
                     # be the case that at the loop can be advanced
                     next_age = current_year - api_response[index + 1]['birth_year']
                     return (next_age + age) * 0.5
-                else:
-                    return age
+                return age
 
         return None
 

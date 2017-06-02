@@ -337,8 +337,7 @@ class CourseAPIPresenterMixin(object):
             sibling_index = block_index + sibling_offset
             if sibling_index < 0:
                 return None
-            else:
-                return siblings[sibling_index]
+            return siblings[sibling_index]
         except (StopIteration, IndexError):
             # StopIteration: requested video not found in the course structure
             # IndexError: No such video with the requested offset

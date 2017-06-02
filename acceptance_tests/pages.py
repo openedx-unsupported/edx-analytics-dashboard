@@ -32,9 +32,6 @@ class DashboardPage(PageObject):  # pylint: disable=abstract-method
 class LandingPage(DashboardPage):
     path = ''
 
-    def __init__(self, browser):
-        super(LandingPage, self).__init__(browser)
-
     def is_browser_on_page(self):
         return self.browser.current_url == self.page_url
 
@@ -197,9 +194,6 @@ class CourseEngagementVideoTimelinePage(CoursePage):
 
 class CourseIndexPage(DashboardPage):
     path = 'courses/'
-
-    def __init__(self, browser):
-        super(CourseIndexPage, self).__init__(browser)
 
     def is_browser_on_page(self):
         return self.browser.title.startswith('Courses')
