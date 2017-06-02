@@ -286,8 +286,7 @@ SEGMENT_IO_KEY = None
 SEGMENT_IGNORE_EMAIL_REGEX = None
 ########## END SEGMENT.IO
 
-########## FEEDBACK AND SUPPORT -- These values should be overridden for production deployments.
-FEEDBACK_EMAIL = 'override.this.email@example.com'
+########## SUPPORT -- Ths value should be overridden for production deployments.
 SUPPORT_EMAIL = 'support@example.com'
 HELP_URL = None
 ########## END FEEDBACK
