@@ -3,15 +3,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Innocent Masue <translations_7@camara.ie>, 2017
+# Isihaka Issa <translations_8@camara.ie>, 2017
+# JOHN MASANDA <translations_6@camara.ie>, 2017
 # Masoud Mohamed Ali <masoudali@camara.org>, 2016
+# Mathieu Lacasse <mathieulacasse@camara.org>, 2017
 # swaleh amin <mkupuofirstnameswaleh@yahoo.com>, 2016
+# swalehe manture <translations_3@camara.ie>, 2017
+# YAHAYA MWAVURIZI <translations_1@camara.ie>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-19 14:20-0400\n"
-"PO-Revision-Date: 2017-05-17 06:03+0000\n"
-"Last-Translator: Mathieu Lacasse <mathieulacasse@camara.org>\n"
+"PO-Revision-Date: 2017-06-02 13:27+0000\n"
+"Last-Translator: YAHAYA MWAVURIZI <translations_1@camara.ie>\n"
 "Language-Team: Swahili (Kenya) (http://www.transifex.com/open-edx/edx-platform/language/sw_KE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +27,7 @@ msgstr ""
 
 #: core/templates/core/landing.html:15 templates/_skip_link.html:3
 msgid "Skip to content"
-msgstr ""
+msgstr "Nenda kwenye maudhui"
 
 #: core/templates/core/landing.html:23
 msgid "Login"
@@ -29,15 +35,15 @@ msgstr "Ingia mtandaoni"
 
 #: core/templates/core/landing.html:33
 msgid "Insights to help course teams improve courses."
-msgstr "Kina cha kusaidia kikosi kuboreka kwenye fanni."
+msgstr "Ujuzi wa kusaidia kikosi kuboresha fani."
 
 #: core/templates/core/landing.html:42 courses/views/__init__.py:497
 msgid "Who are my learners?"
-msgstr ""
+msgstr "Wanafunzi wangu ni akina nani?"
 
 #: core/templates/core/landing.html:43
 msgid "Target your course to fit the backgrounds of your learners."
-msgstr ""
+msgstr "Wenga malengo ya kozi yako ili yakidhi  mahitaji ya wanafunzi wako."
 
 #: core/templates/core/landing.html:44
 #: courses/templates/courses/enrollment_geography.html:28
@@ -48,7 +54,7 @@ msgstr "Usajili"
 
 #: core/templates/core/landing.html:47
 msgid "What are learners engaging with in my course?"
-msgstr ""
+msgstr "Wanafunzi wangu wanajifunza nini kwenye kozi yangu?"
 
 #: core/templates/core/landing.html:48
 msgid ""
@@ -74,11 +80,11 @@ msgstr ""
 #: courses/tests/test_views/test_performance.py:48
 #: courses/views/__init__.py:315 courses/views/__init__.py:634
 msgid "Performance"
-msgstr "Uajibikaji"
+msgstr "Utendaji"
 
 #: core/templates/core/landing.html:63
 msgid "Join the Open Source Community"
-msgstr "Ungana na jamii ya mtandao huru"
+msgstr "Jiunge na Jamuiya ya Mtandao Huru"
 
 #: core/templates/core/landing.html:68
 #, python-format
@@ -100,7 +106,7 @@ msgstr "Tumejitolea kukuuza mafundisho na mafunzo kupitia utafiti.\n%(link_start
 
 #: core/templates/core/landing.html:87
 msgid "Need Help?"
-msgstr "Unahitaji usaidizi?"
+msgstr "Unahitaji Msaada?"
 
 #: core/templates/core/landing.html:92
 #, python-format
@@ -127,7 +133,7 @@ msgstr "Mwanamke"
 
 #: courses/presenters/enrollment.py:24
 msgid "Male"
-msgstr "Mwanamume"
+msgstr "Mwanaume"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
@@ -145,13 +151,13 @@ msgstr "Haijulikani"
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:43
 msgid "None"
-msgstr "Hamna"
+msgstr "Hakuna"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
 #: courses/presenters/enrollment.py:47 courses/tests/test_serializers.py:12
 msgid "Primary"
-msgstr "shule ya msingi"
+msgstr "Msingi"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
@@ -268,11 +274,11 @@ msgstr "Tazama tukio kwa muda Litendekapo"
 
 #: courses/templates/courses/_tags_content_nav.html:15
 msgid "Select Outcome"
-msgstr ""
+msgstr "Chagua Matokeo"
 
 #: courses/templates/courses/_tags_content_nav.html:19
 msgid "All Outcomes"
-msgstr ""
+msgstr "Matokeo Yote"
 
 #: courses/templates/courses/_ungraded_content_nav.html:16
 #: courses/templates/courses/_video_content_nav.html:16
@@ -295,7 +301,7 @@ msgstr "Chagua Video"
 
 #: courses/templates/courses/_video_module_controls.html:8
 msgid "Previous Video"
-msgstr "Video Iliopita"
+msgstr "Video Iliyopita"
 
 #: courses/templates/courses/_video_module_controls.html:15
 msgid "Next Video"
@@ -321,11 +327,11 @@ msgstr "Kulingana na idadi ya tofauti ziwezekanazo kwa matatizo yaliopo, chati\n
 msgid ""
 "Review all submission variants below, or click Download CSV to review them "
 "offline."
-msgstr "Pitia tena kwa makini tofauti za ufikishaji hapo chini, au bofya Ushukishaji CSV uzipitie tena nje ya mtandao."
+msgstr "Pitia wasilisho mbalimbali hapo chini, au bofya Pakuwa CSV ili kuyapitia nje ya mtandao."
 
 #: courses/templates/courses/base_performance_answer_distribution.html:108
 msgid "Submission Counts"
-msgstr "Ufikishaji Hisabu/Idadi"
+msgstr "Idadi ya wasilisho"
 
 #: courses/templates/courses/base_performance_answer_distribution.html:116
 #: courses/templates/courses/engagement_content.html:96
@@ -336,7 +342,7 @@ msgstr "Ufikishaji Hisabu/Idadi"
 #: courses/templates/courses/enrollment_demographics_gender.html:65
 #: courses/templates/courses/enrollment_geography.html:97
 msgid "Download CSV"
-msgstr "Shukisha CSV"
+msgstr "Pakua CSV"
 
 #: courses/templates/courses/base_performance_answer_distribution.html:117
 msgid "Learner Submission Counts"
@@ -406,12 +412,12 @@ msgstr ""
 #. in a forum discussion.
 #: courses/templates/courses/engagement_content.html:76
 msgid "Participated in Discussions Last Week"
-msgstr ""
+msgstr "Nilishiriki Kwenye Majadiliano Wiki Iliyopita"
 
 #: courses/templates/courses/engagement_content.html:77
 msgid ""
 "Learners who added a post, response, or comment to any course discussion."
-msgstr ""
+msgstr "Wanafunzi walioweka chapisho, jibu, au maoni kwenye majadiliano yoyote ya kozi."
 
 #: courses/templates/courses/engagement_content.html:89
 #: courses/templates/courses/engagement_content.html:97
@@ -548,7 +554,7 @@ msgstr "Usajili kwa Jumla"
 #. Translators: This is a label indicating the number of learners in a course.
 #: courses/templates/courses/enrollment_activity.html:61
 msgid "Learners who ever enrolled in the course."
-msgstr ""
+msgstr "Wanafunzi waliowahi kuandikishwa kwenye kozi."
 
 #. Translators: This is a label to identify current learner enrollment.
 #. Translators: This is a label to identify the current number of learners in
@@ -556,13 +562,13 @@ msgstr ""
 #: courses/templates/courses/enrollment_activity.html:68
 #: courses/templates/courses/index.html:32
 msgid "Current Enrollment"
-msgstr "Usajili wa hivi sasa"
+msgstr "Usajili wa Sasa"
 
 #. Translators: This is a label indicating the number of learners enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html:70
 msgid "Learners currently enrolled in the course."
-msgstr ""
+msgstr "Wanafunzi ambao kwa sasa wameandikishwa kwenye kozi."
 
 #. Translators: This is a label indicating the change in the number of
 #. learners enrolled in a course since the previous week.
@@ -600,7 +606,7 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_education.html:101
 #: courses/templates/courses/enrollment_demographics_gender.html:66
 msgid "Enrollment Over Time"
-msgstr "Usajili wa Masaa ya Ziada"
+msgstr "Udahili kwa kipindi fulani"
 
 #: courses/templates/courses/enrollment_demographics_age.html:25
 #: courses/views/__init__.py:510
@@ -619,7 +625,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_age.html:55
 msgid "Age Metrics"
-msgstr "Idadi ya waliopeana umri wao"
+msgstr "Ukomo wa matumizi"
 
 #. Translators: This is a label to identify the median age of enrolled
 #. learners.
@@ -670,7 +676,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_age.html:100
 msgid "Age Breakdown"
-msgstr "Vigao vya Umri"
+msgstr "Umri"
 
 #: courses/templates/courses/enrollment_demographics_education.html:25
 #: courses/views/__init__.py:520
@@ -689,12 +695,12 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_education.html:56
 msgid "Education Metrics"
-msgstr "Idadi ya Viwango vya Masomo"
+msgstr "Idadi ya Masomo"
 
 #. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html:64
 msgid "High School Diploma or Less"
-msgstr "Diploma ya Shule ya Upili au Chini ya hapo"
+msgstr "Cheti cha Sekondari au "
 
 #: courses/templates/courses/enrollment_demographics_education.html:65
 msgid ""
@@ -706,7 +712,7 @@ msgstr ""
 #. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html:71
 msgid "College Degree"
-msgstr "Shahada ya Chuo cha Taaluma"
+msgstr "Shahada"
 
 #: courses/templates/courses/enrollment_demographics_education.html:72
 msgid ""
@@ -717,7 +723,7 @@ msgstr ""
 #. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html:78
 msgid "Advanced Degree"
-msgstr "Shahada ya Uendelezaji katika fanni"
+msgstr "Shahada "
 
 #: courses/templates/courses/enrollment_demographics_education.html:79
 msgid ""
@@ -750,7 +756,7 @@ msgstr "Mgao wa jinsia kwa Masaa ya Ziada"
 
 #: courses/templates/courses/enrollment_geography.html:21
 msgid "Geographic Distribution"
-msgstr "Usambazaji wa Kijografia"
+msgstr "Ugawaji wa Kijografia"
 
 #: courses/templates/courses/enrollment_geography.html:22
 #: courses/views/__init__.py:540
@@ -759,7 +765,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html:27
 msgid "Enrollment by Country"
-msgstr "Usajili kwa kiTaifa/Nchi"
+msgstr "Uandikishaji kwa Nchi"
 
 #: courses/templates/courses/enrollment_geography.html:45
 msgid "Geography Metrics"
@@ -862,7 +868,7 @@ msgstr "Fanni"
 
 #: courses/templates/courses/index.html:16
 msgid "Across all your courses:"
-msgstr ""
+msgstr "Kwenye kozi zako zote:"
 
 #: courses/templates/courses/index.html:26
 msgid "Total enrollments across all of your courses."
@@ -884,7 +890,7 @@ msgstr ""
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html:5
 #: courses/templates/courses/performance_ungraded_answer_distribution.html:7
 msgid "How did learners answer this problem?"
-msgstr ""
+msgstr "Wanafunzi walijibu vipi swali hili ?"
 
 #: courses/templates/courses/performance_assignment.html:10
 msgid "How are learners doing on this assignment?"
@@ -990,7 +996,7 @@ msgstr ""
 #: courses/templates/courses/performance_ungraded_content.html:7
 #: courses/views/__init__.py:595
 msgid "How are learners doing on ungraded exercises?"
-msgstr ""
+msgstr "Vipi wanafunzi wanafanya mazoezi yasiyopangwa kwenye madaraja?"
 
 #: courses/templates/courses/performance_ungraded_content.html:12
 msgid ""
@@ -1054,7 +1060,7 @@ msgstr "Jinsia"
 #: courses/tests/test_views/test_engagement.py:62
 #: courses/views/__init__.py:561 courses/views/engagement.py:27
 msgid "Content"
-msgstr "Yaliomo/Maudhui"
+msgstr "Yaliyomo"
 
 #: courses/tests/test_views/test_engagement.py:73
 #: courses/views/__init__.py:574 courses/views/engagement.py:36
@@ -1157,7 +1163,7 @@ msgstr "Mkufunzi Dashboard"
 
 #: courses/views/__init__.py:737
 msgid "Courseware"
-msgstr "Kitengo cha kompyuta kinacho funza watumiaji kozi au ujuzi fulani"
+msgstr "Maudhui ya kozi"
 
 #. Translators: Do not translate UTC.
 #: courses/views/course_summaries.py:41
