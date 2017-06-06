@@ -514,7 +514,13 @@ dl {
   }
 }
 
-// pattern-library override hack. FIXME when PL is imported via sass and $grid-max-width can be configured
+// set insights to only be constrained at very large screen sizes
 .grid-container {
-  max-width: 1170px;
+  max-width: 1800px;
+}
+
+// without setting the margins to 0, there will be a tiny bit of spacing at the sides
+.grid-manual .row {
+  margin-right: 0;
+  margin-left: 0;
 }
