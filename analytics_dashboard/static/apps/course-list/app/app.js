@@ -54,7 +54,8 @@ define(function(require) {
                     // Will be filled in dynamically by the initialize() function from the programsCollection models:
                     program_ids: {}
                 },
-                programsCollection: programsCollection
+                programsCollection: programsCollection,
+                passingUsersEnabled: this.options.passingUsersEnabled
             });
 
             rootView = new RootView({

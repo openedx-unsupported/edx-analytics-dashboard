@@ -79,8 +79,9 @@ ENABLE_VIDEO_PREVIEW = str2bool(os.environ.get('ENABLE_VIDEO_PREVIEW', False))
 # Learner analytics
 DISPLAY_LEARNER_ANALYTICS = str2bool(os.environ.get('DISPLAY_LEARNER_ANALYTICS', False))
 
-# Learner analytics
+# Course listing
 ENABLE_COURSE_LIST_FILTERS = str2bool(os.environ.get('ENABLE_COURSE_LIST_FILTERS', False))
+ENABLE_COURSE_LIST_PASSING = str2bool(os.environ.get('ENABLE_COURSE_LIST_PASSING', False))
 
 # Soapbox Messages tests constants
 SOAPBOX_GLOBAL_MESSAGE = 'Test global message'
