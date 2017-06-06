@@ -31,8 +31,8 @@ urlpatterns = [
     url(r'^accounts/login/$',
         RedirectView.as_view(url=reverse_lazy('social:begin', args=['edx-oidc']), permanent=False, query_string=True),
         name='login'),
-    url(r'^accounts/logout/$', views.logout, name='logout'),
-    url(r'^accounts/logout_then_login/$', views.logout_then_login, name='logout_then_login'),
+    url(r'^accounts/logout/$', views.InsightsLogoutView.as_view(), name='logout'),
+    url(r'^accounts/logout_then_login/$', views.insights_logout_then_login, name='logout_then_login'),
     url(r'^test/auto_auth/$', views.AutoAuth.as_view(), name='auto_auth'),
     url(r'^announcements/', include('pinax.announcements.urls', namespace='pinax_announcements')),
 ]

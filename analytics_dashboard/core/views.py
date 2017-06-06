@@ -2,9 +2,9 @@ import json
 import logging
 import uuid
 
-import django
 from django.conf import settings
-from django.contrib.auth import get_user_model, login, authenticate, REDIRECT_FIELD_NAME
+from django.contrib.auth import get_user_model, login, authenticate
+from django.contrib.auth.views import LogoutView, logout_then_login
 from django.db import connection, DatabaseError
 from django.http import HttpResponse, Http404
 from django.shortcuts import redirect
@@ -99,26 +99,24 @@ class AutoAuth(View):
         return redirect('/')
 
 
-def logout(request, next_page='/', template_name=None,
-           redirect_field_name=REDIRECT_FIELD_NAME, extra_context=None):
-    """
-    Revoke user permissions and logout
-    """
+class InsightsLogoutView(LogoutView):
+    def get(self, request, *args, **kwargs):
+        """
+        Revoke user permissions and logout
+        """
+        # Revoke permissions
+        permissions.revoke_user_course_permissions(request.user)
 
-    # Revoke permissions
-    permissions.revoke_user_course_permissions(request.user)
-
-    # Back to the standard logout flow
-    return django.contrib.auth.views.logout(request, next_page, template_name, redirect_field_name,
-                                            extra_context)
+        # Back to the standard logout flow
+        return super(LogoutView, self).get(request, *args, **kwargs)
 
 
-def logout_then_login(request, login_url=reverse_lazy('login'), extra_context=None):
+def insights_logout_then_login(request, login_url=reverse_lazy('login')):
     """
     Logout then login
     """
     permissions.revoke_user_course_permissions(request.user)
-    return django.contrib.auth.views.logout_then_login(request, login_url, extra_context)
+    return logout_then_login(request, login_url=login_url)
 
 
 class ServiceUnavailableView(TemplateView):
