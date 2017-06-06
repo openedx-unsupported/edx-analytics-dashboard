@@ -100,7 +100,7 @@ class AutoAuth(View):
 
 
 class InsightsLogoutView(LogoutView):
-    def get(self, request, *args, **kwargs):
+    def dispatch(self, request, *args, **kwargs):
         """
         Revoke user permissions and logout
         """
@@ -108,7 +108,7 @@ class InsightsLogoutView(LogoutView):
         permissions.revoke_user_course_permissions(request.user)
 
         # Back to the standard logout flow
-        return super(LogoutView, self).get(request, *args, **kwargs)
+        return super(InsightsLogoutView, self).dispatch(request, *args, **kwargs)
 
 
 def insights_logout_then_login(request, login_url=reverse_lazy('login')):
