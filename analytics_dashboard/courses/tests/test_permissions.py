@@ -8,7 +8,7 @@ from django.test import TestCase
 from django.test.utils import override_settings
 import mock
 from testfixtures import LogCapture
-from social.apps.django_app.default.models import UserSocialAuth
+from social_django.models import UserSocialAuth
 from django_dynamic_fixture import G
 
 from courses.exceptions import UserNotAssociatedWithBackendError, InvalidAccessTokenError, \
