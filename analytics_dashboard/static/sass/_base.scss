@@ -393,11 +393,14 @@ dl {
 // --------------------
 .view-dashboard, .view-course-list {
   .main {
-    padding: ($padding-large-vertical*2) ($padding-large-horizontal*3);
+    padding: ($padding-large-vertical*2) $padding-small-horizontal;
   }
 
   // CASE: larger than small screen breakpoint
   @media (min-width: $screen-sm-min) {
+    .main {
+      padding: ($padding-large-vertical*2) ($padding-large-horizontal*3);
+    }
 
     .sidebar {
       position: fixed;
