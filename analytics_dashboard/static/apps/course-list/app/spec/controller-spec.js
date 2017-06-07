@@ -29,6 +29,7 @@ define(function(require) {
                 pacing_type: Math.random() > 0.5 ? 'instructor_paced' : 'self_paced',
                 count: count,
                 cumulative_count: parseInt(count + (count / 2), 10),
+                passing_users: 0,
                 enrollment_modes: {
                     audit: {
                         count: 0,

@@ -50,7 +50,9 @@ define(function(require) {
                 defaultOptions.programCollectionOptions
             );
             if (defaultOptions.collectionOptions === undefined) {
-                defaultOptions.collectionOptions = {};
+                defaultOptions.collectionOptions = {
+                    passingUsersEnabled: true
+                };
             }
             defaultOptions.collectionOptions.programsCollection = programsCollection;
 
@@ -63,6 +65,7 @@ define(function(require) {
                     cumulative_count: 20,
                     count_change_7_days: 30,
                     verified_enrollment: 40,
+                    passing_users: 50,
                     start_date: '2015-02-17T050000',
                     end_date: '2015-03-31T000000'
                 }),
@@ -73,6 +76,7 @@ define(function(require) {
                     cumulative_count: 1000,
                     count_change_7_days: -10,
                     verified_enrollment: 1000,
+                    passing_users: 2000,
                     start_date: '2016-11-17T050000',
                     end_date: '2016-12-01T000000'
                 })],
@@ -127,6 +131,8 @@ define(function(require) {
                     Utils.localizeNumber(course.get('count_change_7_days')));
                 expect($(tr).find('td.verified_enrollment')).toContainText(
                     Utils.localizeNumber(course.get('verified_enrollment')));
+                expect($(tr).find('td.passing_users')).toContainText(
+                    Utils.localizeNumber(course.get('passing_users')));
             });
         });
 
@@ -202,6 +208,22 @@ define(function(require) {
             });
         });
 
+        describe('passingUsersEnabled setting', function() {
+            it('shows column', function() {
+                var view = getCourseListView({
+                    collectionOptions: {passingUsersEnabled: true}
+                });
+                expect(view.$('.passing_users')).toContainText('Passing Learners');
+            });
+
+            it('hides column', function() {
+                var view = getCourseListView({
+                    collectionOptions: {passingUsersEnabled: false}
+                });
+                expect(view.$('.passing_users')).not.toBeInDOM();
+            });
+        });
+
         describe('sorting', function() {
             var clickSortingHeader,
                 executeSortTest,
@@ -264,7 +286,8 @@ define(function(require) {
                 cumulative_count: ['cumulative_count'],
                 count: ['count'],
                 count_change_7_days: ['count_change_7_days'],
-                verified_enrollment: ['verified_enrollment']
+                verified_enrollment: ['verified_enrollment'],
+                passing_users: ['passing_users']
             }, function(column, isInitial) {
                 this.column = column;
                 this.isInitial = isInitial;

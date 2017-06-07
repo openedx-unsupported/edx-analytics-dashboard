@@ -7,7 +7,8 @@ require(['vendor/domReady!', 'jquery', 'load/init-page',
             courseListJson: modelData.get('course_list_json'),
             programsJson: modelData.get('programs_json'),
             courseListDownloadUrl: modelData.get('course_list_download_url'),
-            filteringEnabled: modelData.get('enable_course_filters')
+            filteringEnabled: modelData.get('enable_course_filters'),
+            passingUsersEnabled: modelData.get('enable_passing_users')
         });
 
     app.start();

@@ -15,7 +15,7 @@ define(function(require) {
         notAvailableTemplate = require('text!course-list/list/templates/table-data-not-available.underscore'),
         Utils = require('utils/utils'),
 
-        INTEGER_COLUMNS = ['count', 'cumulative_count', 'count_change_7_days', 'verified_enrollment'],
+        INTEGER_COLUMNS = ['count', 'cumulative_count', 'count_change_7_days', 'verified_enrollment', 'passing_users'],
         DATE_COLUMNS = ['start_date', 'end_date'],
         CourseListTableView;
 
