@@ -47,6 +47,9 @@ endif
 ifeq ("${ENABLE_COURSE_LIST_FILTERS}", "True")
 	./manage.py waffle_switch enable_course_filters on --create
 endif
+ifeq ("${ENABLE_COURSE_LIST_PASSING}", "True")
+	./manage.py waffle_switch enable_course_passing on --create
+endif
 	./manage.py create_acceptance_test_soapbox_messages
 	nosetests -v acceptance_tests -e NUM_PROCESSES=1 --exclude-dir=acceptance_tests/course_validation
 	./manage.py delete_acceptance_test_soapbox_messages

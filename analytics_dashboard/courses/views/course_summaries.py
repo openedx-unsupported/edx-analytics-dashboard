@@ -47,8 +47,6 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
             # The user is probably not a course administrator and should not be using this application.
             raise PermissionDenied
 
-        enable_course_filters = switch_is_active('enable_course_filters')
-
         summaries_presenter = CourseSummariesPresenter()
         summaries, last_updated = summaries_presenter.get_course_summaries(courses)
 
@@ -56,9 +54,11 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
             'update_message': self.get_last_updated_message(last_updated)
         })
 
+        enable_course_filters = switch_is_active('enable_course_filters')
         data = {
             'course_list_json': summaries,
             'enable_course_filters': enable_course_filters,
+            'enable_passing_users': switch_is_active('enable_course_passing'),
             'course_list_download_url': reverse('courses:index_csv'),
         }
 

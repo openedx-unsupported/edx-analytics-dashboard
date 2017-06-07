@@ -33,6 +33,7 @@ services:
       ENABLE_ERROR_PAGE_TESTS: "False"
       DISPLAY_LEARNER_ANALYTICS: "True"
       ENABLE_COURSE_LIST_FILTERS: "True"
+      ENABLE_COURSE_LIST_PASSING: "True"
     depends_on:
       - "es"
       - "analyticsapi"

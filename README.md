@@ -244,6 +244,7 @@ when executing either of the commands above.
 | ENABLE_OAUTH_TESTS           | Test the OAUTH sign-in process             | true                             |
 | ENABLE_AUTO_AUTH             | Sign-in using auto-auth. (no LMS involved) | false                            |
 | ENABLE_COURSE_LIST_FILTERS   | Tests on filtering the course list         | false                            |
+| ENABLE_COURSE_LIST_PASSING   | Tests on the passing learners column in the course list | false               |
 
 
 Override example:
