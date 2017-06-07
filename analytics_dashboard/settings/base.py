@@ -186,7 +186,7 @@ MIDDLEWARE_CLASSES = (
     'core.middleware.ServiceUnavailableExceptionMiddleware',
     'courses.middleware.CourseMiddleware',
     'courses.middleware.CoursePermissionsExceptionMiddleware',
-    'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
     'help.middleware.HelpURLMiddleware',
 )
 ########## END MIDDLEWARE CONFIGURATION
@@ -231,6 +231,7 @@ LOCAL_APPS = (
 THIRD_PARTY_APPS = (
     'release_util',
     'rest_framework',
+    'social_django'
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -328,8 +329,6 @@ TIME_FORMAT = 'g:i A'
 ########## AUTHENTICATION
 AUTH_USER_MODEL = 'core.User'
 
-INSTALLED_APPS += ('social.apps.django_app.default',)
-
 # Allow authentication via edX OAuth2/OpenID Connect
 AUTHENTICATION_BACKENDS = (
     'auth_backends.backends.EdXOpenIdConnect',
@@ -341,29 +340,7 @@ SOCIAL_AUTH_REDIRECT_IS_HTTPS = False
 
 SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'email']
 
-SOCIAL_AUTH_PIPELINE = (
-    'social.pipeline.social_auth.social_details',
-    'social.pipeline.social_auth.social_uid',
-    'social.pipeline.social_auth.auth_allowed',
-    'social.pipeline.social_auth.social_user',
-
-    # By default python-social-auth will simply create a new user/username if the username
-    # from the provider conflicts with an existing username in this system. This custom pipeline function
-    # loads existing users instead of creating new ones.
-    'auth_backends.pipeline.get_user_if_exists',
-    'social.pipeline.user.get_username',
-    'social.pipeline.user.create_user',
-    'social.pipeline.social_auth.associate_user',
-    'social.pipeline.social_auth.load_extra_data',
-    'social.pipeline.user.user_details'
-)
-
-SOCIAL_AUTH_USER_FIELDS = ['username', 'email', 'first_name', 'last_name']
-
-# Always raise auth exceptions so that they are properly logged. Otherwise, the PSA middleware will redirect to an
-# auth error page and attempt to display the error message to the user (via Django's message framework). We do not
-# want the uer to see the message; but, we do want our downstream exception handlers to log the message.
-SOCIAL_AUTH_RAISE_EXCEPTIONS = True
+SOCIAL_AUTH_STRATEGY = 'auth_backends.strategies.EdxDjangoStrategy'
 
 # Set these to the correct values for your OAuth2/OpenID Connect provider
 SOCIAL_AUTH_EDX_OIDC_KEY = None
