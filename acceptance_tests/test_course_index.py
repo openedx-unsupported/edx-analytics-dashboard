@@ -24,6 +24,7 @@ class CourseIndexTests(AnalyticsApiClientMixin, AnalyticsDashboardWebAppTestMixi
         self.course_summaries = self.analytics_api_client.course_summaries()
 
     def test_page(self):
+        self.assertTrue(False)
         super(CourseIndexTests, self).test_page()
         self._test_course_list()
         self._test_search()
