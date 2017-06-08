@@ -31,7 +31,7 @@ class CourseStructureTests(TestCase):
                         'name': block['display_name'],
                         'children': []
                     })
-                if len(grandchildren) > 0:
+                if grandchildren:
                     child_block['children'] = grandchildren
 
             block = {

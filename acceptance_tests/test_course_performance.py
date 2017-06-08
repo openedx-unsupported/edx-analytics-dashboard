@@ -48,14 +48,12 @@ class CoursePerformancePageTestsMixin(CoursePageTestsMixin):
     def _format_number_or_hyphen(self, value):
         if value:
             return self.format_number(value)
-        else:
-            return '-'
+        return '-'
 
     def _build_display_percentage_or_hyphen(self, correct, total):
         if correct:
             return self.build_display_percentage(correct, total)
-        else:
-            return '-'
+        return '-'
 
     def _get_problems_dict(self):
         # Retrieve the submissions from the Analytics Data API and create a lookup table.

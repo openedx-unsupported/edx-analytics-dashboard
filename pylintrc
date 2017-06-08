@@ -16,7 +16,7 @@ persistent=yes
 
 # List of plugins (as comma separated values of python modules names) to load,
 # usually to register additional checkers.
-load-plugins=
+load-plugins=pylint.extensions.redefined_variable_type
 
 [MESSAGES CONTROL]
 
@@ -65,6 +65,10 @@ disable=
 
 # We can decide if names are invalid on our own
     invalid-name,
+
+# We frequently override methods with *args, **kwargs as arguments because we
+# don't care about the arguments, but this warning complains about that.
+    arguments-differ,
 
 [REPORTS]
 

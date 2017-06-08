@@ -17,8 +17,7 @@ class CourseSummariesPresenter(BasePresenter):
         """Filter results to just the course IDs specified."""
         if course_ids is None:
             return all_summaries
-        else:
-            return [summary for summary in all_summaries if summary['course_id'] in course_ids]
+        return [summary for summary in all_summaries if summary['course_id'] in course_ids]
 
     def _get_all_summaries(self):
         """
@@ -42,8 +41,7 @@ class CourseSummariesPresenter(BasePresenter):
         if summaries:
             summary = summaries[0]
             return self.parse_api_datetime(summary['created'])
-        else:
-            return None
+        return None
 
     def get_course_summaries(self, course_ids=None):
         """

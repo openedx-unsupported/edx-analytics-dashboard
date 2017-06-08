@@ -63,7 +63,7 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, CoursePresenter):
         questions = self._build_questions(api_response)
 
         filtered_active_question = [i for i in questions if i['part_id'] == problem_part_id]
-        if len(filtered_active_question) == 0:
+        if not filtered_active_question:
             raise NotFoundError
         else:
             active_question = filtered_active_question[0]['question']
@@ -239,7 +239,7 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, CoursePresenter):
 
     def post_process_adding_data_to_blocks(self, data, parent_block, child_block, url_func=None):
         # not all problems have submissions
-        if len(data['part_ids']) > 0:
+        if data['part_ids']:
             utils.sorting.natural_sort(data['part_ids'])
             if url_func:
                 data['url'] = url_func(parent_block, child_block, data)
@@ -368,8 +368,7 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, CoursePresenter):
         filtered = [assignment for assignment in self.assignments() if assignment['id'] == assignment_id]
         if filtered:
             return filtered[0]
-        else:
-            return None
+        return None
 
     @property
     def section_type_template(self):

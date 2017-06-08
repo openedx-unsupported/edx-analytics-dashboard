@@ -223,7 +223,7 @@ class CoursePerformanceReportGenerator(ReportGeneratorBase):
                 path = 'performance/graded_content/{}'.format(slugify(assignment_type))
                 path = self.build_course_path(path)
                 status, elapsed = self.get_http_status_and_load_time(self.get_dashboard_url(path))
-                valid = (has_submissions and status == 200) or not has_submissions
+                valid = (status == 200 if has_submissions else True)
                 course_valid &= valid
 
                 data = {

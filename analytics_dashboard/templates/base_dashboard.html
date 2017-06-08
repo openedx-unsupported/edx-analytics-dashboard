@@ -60,7 +60,7 @@
     {% endcomment %}
 
     {# Translation support for JavaScript strings. #}
-    <script type="text/javascript" src="{% url 'django.views.i18n.javascript_catalog' %}"></script>
+    <script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
     <script type="text/javascript">
       window.language = "{{ LANGUAGE_CODE|languade_code_to_cldr }}";
     </script>

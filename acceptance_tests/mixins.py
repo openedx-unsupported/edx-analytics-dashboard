@@ -313,8 +313,7 @@ class AnalyticsDashboardWebAppTestMixin(FooterMixin, PrimaryNavMixin, ContextSen
         """ Format the given value for the current locale (e.g. include decimal separator). """
         if isinstance(value, int):
             return locale.format("%d", value, grouping=True)
-        else:
-            return locale.format("%.1f", value, grouping=True)
+        return locale.format("%.1f", value, grouping=True)
 
     def assertSummaryPointValueEquals(self, data_selector, value):
         """
@@ -390,8 +389,7 @@ class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterLegalMixin, FooterFeed
         if total and count:
             percent = count / float(total) * 100.0
             return '{:.1f}%'.format(percent) if percent >= 1.0 else '< 1%'
-        else:
-            return zero_percent_default
+        return zero_percent_default
 
     def _get_data_update_message(self):
         raise NotImplementedError

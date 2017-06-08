@@ -1,4 +1,4 @@
-"""Common settings and globals."""
+next_page='/'"""Common settings and globals."""
 import ConfigParser
 
 import os
@@ -362,6 +362,7 @@ AUTO_AUTH_USERNAME_PREFIX = 'AUTO_AUTH_'
 COURSE_PERMISSIONS_TIMEOUT = 900
 
 LOGIN_REDIRECT_URL = '/courses/'
+LOGOUT_REDIRECT_URL = '/'
 
 # Determines if course permissions should be checked before rendering course views.
 ENABLE_COURSE_PERMISSIONS = True
