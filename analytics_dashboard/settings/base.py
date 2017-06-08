@@ -176,6 +176,7 @@ TEMPLATES = [
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -229,9 +230,10 @@ LOCAL_APPS = (
 )
 
 THIRD_PARTY_APPS = (
+    'corsheaders',
     'release_util',
     'rest_framework',
-    'social_django'
+    'social_django',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
