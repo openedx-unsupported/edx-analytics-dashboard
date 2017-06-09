@@ -24,7 +24,12 @@ class CourseIndexTests(AnalyticsApiClientMixin, AnalyticsDashboardWebAppTestMixi
         self.maxDiff = None
         self.course_summaries = self.analytics_api_client.course_summaries()
 
+    @staticmethod
+    def _return_false():
+        return False
+
     def test_page(self):
+        self.assertTrue(self._return_false())
         super(CourseIndexTests, self).test_page()
         self._test_course_list()
         self._test_search()
