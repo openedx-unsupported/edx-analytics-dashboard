@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-19 14:20-0400\n"
-"PO-Revision-Date: 2017-03-23 08:29+0000\n"
+"POT-Creation-Date: 2017-06-07 12:34-0400\n"
+"PO-Revision-Date: 2017-06-06 21:51+0000\n"
 "Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: French (Canada) (http://www.transifex.com/open-edx/edx-platform/language/fr_CA/)\n"
 "MIME-Version: 1.0\n"
@@ -1301,11 +1301,11 @@ msgstr "Les données de distribution des balises ont été mises à jour pour la
 msgid "Performance: Learning Outcomes"
 msgstr "Rendement: Résultats d'apprentissage"
 
-#: settings/base.py:456
+#: settings/base.py:455
 msgid "Terms of Service"
 msgstr "Conditions générales du service"
 
-#: settings/base.py:457
+#: settings/base.py:456
 msgid "Privacy Policy"
 msgstr "Politique de confidentialité"
 
@@ -1368,20 +1368,15 @@ msgstr "Utilisez notre outil de support pour poser des questions ou partager vos
 msgid "Contact %(platform_name)s Support"
 msgstr "Contacter le support %(platform_name)s"
 
-#: templates/footer.html:17
-msgid "Feedback"
-msgstr "Rétroaction"
-
-#: templates/footer.html:19
+#: templates/footer.html:16
 #, python-format
 msgid ""
 "We want this dashboard to work for you! Need help? "
-"%(support_link_start)sContact course team support%(support_link_end)s. "
-"Comments or suggestions? Email %(email_link)s."
-msgstr "Nous voulons que ce tableau de bord vous soit utile! Vous avez besoin d'aide? %(support_link_start)sContactez le soutien de l'équipe de cours%(support_link_end)s. Des suggestions ou des commentaires? Envoyez un courriel à %(email_link)s."
+"%(support_link_start)sContact course team support%(support_link_end)s."
+msgstr ""
 
 #. Translators: The © symbol appears directly before this line.
-#: templates/footer.html:42
+#: templates/footer.html:39
 #, python-format
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
