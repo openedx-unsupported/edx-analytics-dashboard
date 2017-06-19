@@ -5,6 +5,7 @@
     "url": "git://github.com/edx/edx-analytics-dashboard"
   },
   "dependencies": {
+    "babel-runtime": "^6.23.0",
     "backbone": "~1.1.2",
     "backbone.marionette": "~2.4.4",
     "backgrid": "^0.3.5",
@@ -38,6 +39,12 @@
   },
   "devDependencies": {
     "axe-core": "^1.1.1",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-es2015": "^6.24.1",
     "compression-webpack-plugin": "^0.4.0",
     "css-loader": "^0.26.1",
     "edx-custom-a11y-rules": "edx/edx-custom-a11y-rules#ff77f203ef5d9534c6200cc141e9d150155d0e12",

@@ -73,6 +73,25 @@ module.exports = {
     module: {
         // Specify file-by-file rules to Webpack. Some file-types need a particular kind of loader.
         rules: [
+            // The babel-loader transforms newer ES2015 syntax to older ES5 for legacy browsers.
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            ['env', {
+                                'targets': {
+                                    'browsers': ['last 2 versions', 'ie >= 11']
+                                }
+                            }]
+                        ],
+                        plugins: ['babel-plugin-syntax-dynamic-import'],
+                        cacheDirectory: true
+                    }
+                }
+            },
             // raw-loader just inlines files as a string in the javascript bundles
             {
                 test: /\.underscore$/,

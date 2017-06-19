@@ -1,10 +1,12 @@
-require('backgrid-paginator/backgrid-paginator.min.css');
+import 'backgrid-paginator/backgrid-paginator.min.css';
 
-require(['jquery', 'load/init-page',
-         'apps/course-list/app/app'], function($, page, CourseListApp) {
-    'use strict';
-    var modelData = page.models.courseModel,
-        app = new CourseListApp({
+Promise.all([
+    import('jquery'),
+    import('load/init-page'),
+    import('apps/course-list/app/app'),
+]).then(([$, page, {CourseListApp}]) => {
+    const modelData = page.models.courseModel;
+    const app = new CourseListApp({
             containerSelector: '.course-list-app-container',
             courseListJson: modelData.get('course_list_json'),
             programsJson: modelData.get('programs_json'),
