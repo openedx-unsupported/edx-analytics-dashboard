@@ -14,64 +14,62 @@ import PageModel from 'components/generic-list/common/models/page';
 import SkipLinkView from 'components/skip-link/views/skip-link-view';
 
 
-export class CourseListApp extends Marionette.Application {
-    /**
-     * Initializes the course-list analytics app.
-     */
-    constructor(options) {
-        super();
-        this.options = options || {};
-    }
+export default class CourseListApp extends Marionette.Application {
+  /**
+   * Initializes the course-list analytics app.
+   */
+  constructor(options) {
+    super();
+    this.options = options || {};
+  }
 
-    onStart() {
-        var pageModel = new PageModel(),
-            courseListCollection,
-            programsCollection,
-            rootView;
+  onStart() {
+    const pageModel = new PageModel();
 
-        new SkipLinkView({
-            el: 'body'
-        }).render();
+    new SkipLinkView({
+      el: 'body',
+    }).render();
 
-        programsCollection = new ProgramsCollection(this.options.programsJson);
+    const programsCollection = new ProgramsCollection(this.options.programsJson);
 
-        courseListCollection = new CourseListCollection(this.options.courseListJson, {
-            downloadUrl: this.options.courseListDownloadUrl,
-            filterNameToDisplay: {
-                pacing_type: {
-                    instructor_paced: gettext('Instructor-Paced'),
-                    self_paced: gettext('Self-Paced')
-                },
-                availability: {
-                    Upcoming: gettext('Upcoming'),
-                    Current: gettext('Current'),
-                    Archived: gettext('Archived'),
-                    unknown: gettext('Unknown')
-                },
-                // Will be filled in dynamically by the initialize() function from the programsCollection models:
-                program_ids: {}
-            },
-            programsCollection: programsCollection
-        });
+    const courseListCollection = new CourseListCollection(this.options.courseListJson, {
+      downloadUrl: this.options.courseListDownloadUrl,
+      filterNameToDisplay: {
+        pacing_type: {
+          instructor_paced: gettext('Instructor-Paced'),
+          self_paced: gettext('Self-Paced'),
+        },
+        availability: {
+          Upcoming: gettext('Upcoming'),
+          Current: gettext('Current'),
+          Archived: gettext('Archived'),
+          unknown: gettext('Unknown'),
+        },
+        // Will be filled in dynamically by the initialize() function from the
+        // programsCollection models:
+        program_ids: {},
+      },
+      programsCollection,
+    });
 
-        rootView = new RootView({
-            el: $(this.options.containerSelector),
-            pageModel: pageModel,
-            appClass: 'course-list',
-            displayHeader: false
-        }).render();
+    const rootView = new RootView({
+      el: $(this.options.containerSelector),
+      pageModel,
+      appClass: 'course-list',
+      displayHeader: false,
+    }).render();
 
-        new CourseListRouter({ // eslint-disable-line no-new
-            controller: new CourseListController({
-                courseListCollection: courseListCollection,
-                hasData: _.isObject(this.options.courseListJson),
-                pageModel: pageModel,
-                rootView: rootView,
-                trackingModel: initModels.models.trackingModel,
-                filteringEnabled: this.options.filteringEnabled
-            })
-        });
+    new CourseListRouter({ // eslint-disable-line no-new
+      controller: new CourseListController({
+        courseListCollection,
+        hasData: _.isObject(this.options.courseListJson),
+        pageModel,
+        rootView,
+        trackingModel: initModels.models.trackingModel,
+        filteringEnabled: this.options.filteringEnabled,
+      }),
+    });
 
-        Backbone.history.start();
-    }
-};
+    Backbone.history.start();
+  }
+}

@@ -8,8 +8,8 @@ require(['load/init-page'], function(page) {
 
     // this is your page specific code
     require(['underscore',
-            'views/data-table-view',
-            'views/stacked-trends-view'],
+        'views/data-table-view',
+        'views/stacked-trends-view'],
     function(_, DataTableView, StackedTrendsView) {
         var colors = ['#4BB4FB', '#898C8F', '#009CD3', '#B72667', '#442255', '#1E8142'],
             numericColumn = {

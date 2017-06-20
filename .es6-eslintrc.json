@@ -1,5 +1,11 @@
 {
-    "extends": "eslint-config-edx-es5",
+    "extends": "eslint-config-edx",
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "sourceType": "module",
+        "allowImportExportEverywhere": true,
+        "plugins": ["syntax-dynamic-import"]
+    },
     "globals": {
         "gettext": true, // added by django for i18n
         "setFixtures": true,  // added globally by jasmine-jquery
@@ -7,13 +13,7 @@
         "requirejs": true
     },
     "settings": {
-        "import/resolver": {
-            "node": {
-                "extensions": [".js", ".json"],
-                "moduleDirectory": ["node_modules", "analytics_dashboard/static",
-                                    "analytics_dashboard/static/js"]
-            }
-        },
+        "import/resolver": "webpack",
         "import/core-modules": ["jquery", "underscore", "backbone", "backbone.paginator", "backbone.wreqr",
                                 "backbone.babysitter", "backgrid", "backgrid-filter", "backgrid-paginator", "bootstrap",
                                 "bootstrap_accessibility", "models", "collections", "views", "utils", "load",

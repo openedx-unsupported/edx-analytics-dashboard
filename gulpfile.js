@@ -16,7 +16,15 @@
                 'gulpfile.js',
                 'analytics_dashboard/static/js/**/*.js',
                 'analytics_dashboard/static/js/test/**/*.js',
-                'analytics_dashboard/static/apps/**/*.js'
+                'analytics_dashboard/static/apps/**/*.js',
+                // TODO: Temporarily using different config file for these es6 modules.
+                // Update this list to include modules newly converted to es6, and add them to lintES6.
+                '!analytics_dashboard/static/apps/course-list/app/app.js',
+                '!analytics_dashboard/static/apps/course-list/app/course-list-main.js'
+            ],
+            lintES6: [
+                'analytics_dashboard/static/apps/course-list/app/app.js',
+                'analytics_dashboard/static/apps/course-list/app/course-list-main.js'
             ],
             templates: [
                 'analytics_dashboard/analytics_dashboard/templates/analytics_dashboard/*.html',
@@ -38,8 +46,13 @@
     }
 
     gulp.task('lint', function() {
-        return gulp.src(paths.lint)
+        gulp.src(paths.lint)
             .pipe(eslint())
+            .pipe(eslint.format())
+            .pipe(eslint.failAfterError());
+
+        return gulp.src(paths.lintES6)
+            .pipe(eslint({configFile: '.es6-eslintrc.json'}))
             .pipe(eslint.format())
             .pipe(eslint.failAfterError());
     });

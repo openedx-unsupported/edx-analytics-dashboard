@@ -40,7 +40,9 @@
   "devDependencies": {
     "axe-core": "^1.1.1",
     "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
     "babel-loader": "^7.0.0",
+    "babel-plugin-dynamic-import-node": "^1.0.2",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.5.2",
@@ -48,13 +50,16 @@
     "compression-webpack-plugin": "^0.4.0",
     "css-loader": "^0.26.1",
     "edx-custom-a11y-rules": "edx/edx-custom-a11y-rules#ff77f203ef5d9534c6200cc141e9d150155d0e12",
-    "eslint": "~2.13.1",
-    "eslint-config-edx": "^1.2.0",
+    "eslint": "^3.19.0",
+    "eslint-config-edx": "^2.0.1",
+    "eslint-config-edx-es5": "^3.0.0",
+    "eslint-import-resolver-webpack": "^0.8.1",
+    "eslint-loader": "^1.8.0",
     "extract-text-webpack-plugin": "^2.0.0-rc.2",
     "fast-sass-loader": "^1.2.4",
     "file-loader": "^0.10.0",
     "gulp": "^3.8.8",
-    "gulp-eslint": "^2.0.0",
+    "gulp-eslint": "^3.0.0",
     "jasmine": "~2.1.0",
     "jasmine-core": "^2.5.2",
     "jscs": "^1.10.0",
@@ -79,9 +84,6 @@
     "webpack-bundle-analyzer": "^2.8.1",
     "webpack-bundle-tracker": "^0.2.0",
     "webpack-dev-server": "^2.4.5"
-  },
-  "eslintConfig": {
-    "extends": "eslint-config-edx"
   },
   "scripts": {
     "postinstall": "./npm-post-install.sh",
