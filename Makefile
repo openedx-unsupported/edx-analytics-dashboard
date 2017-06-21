@@ -93,8 +93,8 @@ compile_translations:
 
 # creates the source django & djangojs files
 extract_translations:
-	cd analytics_dashboard && python ../manage.py makemessages -l en -v1 --ignore="docs/*" --ignore="src/*" --ignore="i18n/*" --ignore="assets/*" -d django
-	cd analytics_dashboard && python ../manage.py makemessages -l en -v1 --ignore="docs/*" --ignore="src/*" --ignore="i18n/*" --ignore="assets/*" -d djangojs
+	cd analytics_dashboard && python ../manage.py makemessages -l en -v1 --ignore="docs/*" --ignore="src/*" --ignore="i18n/*" --ignore="assets/*" --ignore="static/bundles/*" -d django
+	cd analytics_dashboard && python ../manage.py makemessages -l en -v1 --ignore="docs/*" --ignore="src/*" --ignore="i18n/*" --ignore="assets/*" --ignore="static/bundles/*" -d djangojs
 
 dummy_translations:
 	cd analytics_dashboard && i18n_tool dummy -v
