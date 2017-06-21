@@ -29,7 +29,7 @@
 # Mike Job <mikejobrn@gmail.com>, 2015
 # Monica Farias <monifar.tp@gmail.com>, 2015-2016
 # Pedro Guimarães Martins <pedrogmartins7@gmail.com>, 2014
-# Renata Barboza-Murray, 2015-2016
+# Renata Barboza, 2015-2016
 # Sergio Silva <sergiohrs@gmail.com>, 2016
 # Thiago Ponte <thiagoponte@gmail.com>, 2014
 # Tiago da Silva Pinto <tiagosilva.anps@gmail.com>, 2016
@@ -37,8 +37,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-19 14:20-0400\n"
-"PO-Revision-Date: 2017-04-10 21:42+0000\n"
+"POT-Creation-Date: 2017-06-07 12:34-0400\n"
+"PO-Revision-Date: 2017-06-12 16:30+0000\n"
 "Last-Translator: Anderson Franca <anderson.frca@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/open-edx/edx-platform/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -1328,11 +1328,11 @@ msgstr "As etiquetas de distribuição foram atualizados pela última vez %(upda
 msgid "Performance: Learning Outcomes"
 msgstr "Desempenho: Resultados de aprendizado."
 
-#: settings/base.py:456
+#: settings/base.py:455
 msgid "Terms of Service"
 msgstr "Termos do Serviço"
 
-#: settings/base.py:457
+#: settings/base.py:456
 msgid "Privacy Policy"
 msgstr "Política de Privacidade"
 
@@ -1395,20 +1395,15 @@ msgstr "Use nossa ferramenta de suporte para fazer perguntas e adicionar seus co
 msgid "Contact %(platform_name)s Support"
 msgstr "Fale com Suporte %(platform_name)s"
 
-#: templates/footer.html:17
-msgid "Feedback"
-msgstr "Comentários"
-
-#: templates/footer.html:19
+#: templates/footer.html:16
 #, python-format
 msgid ""
 "We want this dashboard to work for you! Need help? "
-"%(support_link_start)sContact course team support%(support_link_end)s. "
-"Comments or suggestions? Email %(email_link)s."
-msgstr "Queremos que esse painel de controle funcione para você! Precisa de ajuda? %(support_link_start)sContate a equipe de suporte do curso%(support_link_end)s. Comentários ou sugestões? E-mail %(email_link)s."
+"%(support_link_start)sContact course team support%(support_link_end)s."
+msgstr "Queremos que esse painel de controle trabalhe para você! Precisa de ajuda? 1%(support_link_start)s Entre em contato com o time de suporte 2 %(support_link_end)s"
 
 #. Translators: The © symbol appears directly before this line.
-#: templates/footer.html:42
+#: templates/footer.html:39
 #, python-format
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"

@@ -716,7 +716,14 @@ def get_mock_video_data(course_fixture, excluded_module_ids=None):
     ]
 
 
-def get_mock_course_summaries(course_ids):
+def get_mock_course_summaries(course_ids, exclude=None):
+    """
+    Returns mock course summary api data.
+
+    Arguments
+        course_ids -- IDs of courses to return mock data for
+        exclude    -- Array of fields to exclude.
+    """
     mock_course_summaries = []
     for course_id in course_ids:
         mock_course_summaries.append({
@@ -731,68 +738,131 @@ def get_mock_course_summaries(course_ids):
             "count": 1590,
             "cumulative_count": 1835,
             "count_change_7_days": 41,
+            "passing_users": 606,
             "enrollment_modes": {
                 "audit": {
                     "count": 238,
                     "cumulative_count": 326,
-                    "count_change_7_days": -2
+                    "count_change_7_days": -2,
+                    "passing_users": 1,
                 },
                 "credit": {
                     "count": 238,
                     "cumulative_count": 288,
-                    "count_change_7_days": 2
+                    "count_change_7_days": 2,
+                    "passing_users": 200,
                 },
                 "verified": {
                     "count": 557,
                     "cumulative_count": 610,
-                    "count_change_7_days": 35
+                    "count_change_7_days": 35,
+                    "passing_users": 300,
                 },
                 "professional": {
                     "count": 159,
                     "cumulative_count": 162,
-                    "count_change_7_days": 34
+                    "count_change_7_days": 34,
+                    "passing_users": 100,
                 },
                 "honor": {
                     "count": 398,
                     "cumulative_count": 449,
-                    "count_change_7_days": -28
+                    "count_change_7_days": -28,
+                    "passing_users": 5,
                 }
             }
         })
 
+    if exclude:
+        # remove all the excluded fields (e.g. passing_users) from the mocked api response
+        for field in exclude:
+            for summary in mock_course_summaries:
+                summary.pop(field, None)
+                for mode in summary['enrollment_modes']:
+                    summary['enrollment_modes'][mode].pop(field, None)
+
     return mock_course_summaries
 
 
-def get_mock_course_summaries_csv(course_ids):
+def get_mock_course_summaries_csv(course_ids, has_programs=False, has_passing=False):
+    modes = ['audit', 'credit', 'honor', 'professional', 'verified']
+    mode_count_fields = ['count', 'cumulative_count']
+    if has_passing:
+        mode_count_fields.append('passing_users')
     header = (
         'availability,catalog_course,catalog_course_title,count,count_change_7_days,course_id,' +
-        'cumulative_count,end_date,enrollment_modes.audit.count,enrollment_modes.audit.cumulative_count,' +
-        'enrollment_modes.credit.count,enrollment_modes.credit.cumulative_count,enrollment_modes.honor.count,' +
-        'enrollment_modes.honor.cumulative_count,enrollment_modes.professional.count,' +
-        'enrollment_modes.professional.cumulative_count,enrollment_modes.verified.count,' +
-        'enrollment_modes.verified.cumulative_count,pacing_type,program_ids,program_titles,start_date\r\n'
+        'cumulative_count,end_date,' +
+        '{enrollment_modes}'
+        'pacing_type,{passing_field}{program_fields}start_date'
+    ).format(
+        # e.g. enrollment_modes.audit.count,enrollment_modes.audit.cumulative_count
+        enrollment_modes=','.join(
+            ','.join('enrollment_modes.' + mode + '.' + field
+                     for field in mode_count_fields)
+            for mode in modes) + ',',
+        passing_field='passing_users,' if has_passing else '',
+        program_fields='program_ids,program_titles,' if has_programs else '',
     )
+    rows = [header]
+
     programs = get_mock_programs()
-    mock_csv = ''
+
+    # pre-populated course data with arguments for course ID and program data (optional)
+    row_template = (
+        'Upcoming,Demo_Course,Demo Course,1590,41,{course_id},1835,2017-05-02T182754,' +
+        '238,326,{passing_audit}' +
+        '238,288,{passing_credit}' +
+        '398,449,{passing_honor}' +
+        '159,162,{passing_professional}' +
+        '557,610,{passing_verified}' +
+        'self_paced,{passing_users}{program_data}2017-01-10T182754'
+    )
+
+    passing_users = ''
+    passing_audit = ''
+    passing_credit = ''
+    passing_honor = ''
+    passing_professional = ''
+    passing_verified = ''
+
+    if has_passing:
+        passing_users = '606,'
+        passing_audit = '1,'
+        passing_credit = '200,'
+        passing_honor = '5,'
+        passing_professional = '100,'
+        passing_verified = '300,'
 
     for course_id in course_ids:
-        associated_programs = [program for program in programs if course_id in set(program['course_ids'])]
+        program_data = ''
+        if has_programs:
+            associated_programs = [program for program in programs if course_id in set(program['course_ids'])]
 
-        first_program = ''
-        second_program = ''
-        if len(associated_programs) > 1:
-            first_program = associated_programs[0]
-            second_program = associated_programs[1]
-        elif len(associated_programs) > 0:
-            first_program = associated_programs[0]
+            first_program = ''
+            second_program = ''
+            if len(associated_programs) > 1:
+                first_program = associated_programs[0]
+                second_program = associated_programs[1]
+            elif associated_programs:
+                first_program = associated_programs[0]
+            for program_field in ['program_id', 'program_title']:
+                program_data = program_data + '{}{}{}'.format(
+                    first_program[program_field], ' | ' if second_program else '', second_program[program_field]
+                ) + ','
 
-        mock_csv = mock_csv + (
-            'Upcoming,Demo_Course,Demo Course,1590,41,{},1835,2017-05-02T182754,238,326,238,288,398,449,159,162,' +
-            '557,610,self_paced,{}{}{},{}{}{},2017-01-10T182754\r\n'
-        ).format(course_id, first_program['program_id'], ' | ' if second_program else '', second_program['program_id'],
-                 first_program['program_title'], ' | ' if second_program else '', second_program['program_title'])
+        rows.append(row_template.format(
+            course_id=course_id,
+            passing_users=passing_users,
+            passing_audit=passing_audit,
+            passing_credit=passing_credit,
+            passing_honor=passing_honor,
+            passing_professional=passing_professional,
+            passing_verified=passing_verified,
+            program_data=program_data,
+        ))
 
-    return mock_csv if mock_csv == '' else header + mock_csv
+    row_end = '\r\n'
+    return row_end.join(rows) + row_end if len(rows) > 1 else ''
 
 
 def get_mock_programs():

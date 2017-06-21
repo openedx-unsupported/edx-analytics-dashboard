@@ -433,7 +433,7 @@ class PerformanceLearningOutcomesSection(PerformanceLearningOutcomesMixin):
 
         if self.has_part_id_param and self.part_id is None and self.problem_id:
             assignments = self.presenter.course_module_data()
-            if self.problem_id in assignments and len(assignments[self.problem_id]['part_ids']) > 0:
+            if self.problem_id in assignments and assignments[self.problem_id]['part_ids']:
                 self.part_id = assignments[self.problem_id]['part_ids'][0]
 
         modules_marked_with_tag = self.tags_presenter.get_modules_marked_with_tag('learning_outcome',

@@ -11,6 +11,7 @@
 # spentamanyu <i.delamo@gmail.com>, 2014
 # jorge jorge marrero <jjorgewill@gmail.com>, 2016
 # Mariangeles Fernandez <mariangelesfm@gmail.com>, 2015
+# Miguel Angel Cordova <miguel.angel.cordova.uned@gmail.com>, 2017
 # miguel <mgarcia0094@gmail.com>, 2015
 # Nacho Díaz <nachotheix@gmail.com>, 2014
 # Óscar Arce Ruiz <oscararceruiz@hotmail.com>, 2014
@@ -25,8 +26,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-19 14:20-0400\n"
-"PO-Revision-Date: 2017-03-23 08:29+0000\n"
+"POT-Creation-Date: 2017-06-07 12:34-0400\n"
+"PO-Revision-Date: 2017-06-06 21:51+0000\n"
 "Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/open-edx/edx-platform/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +38,7 @@ msgstr ""
 
 #: core/templates/core/landing.html:15 templates/_skip_link.html:3
 msgid "Skip to content"
-msgstr ""
+msgstr "Pasar al contenido"
 
 #: core/templates/core/landing.html:23
 msgid "Login"
@@ -49,7 +50,7 @@ msgstr "Perspectivas para ayudar a los equipos del curso a mejorarlos."
 
 #: core/templates/core/landing.html:42 courses/views/__init__.py:497
 msgid "Who are my learners?"
-msgstr ""
+msgstr "¿Quiénes son mis alumnos?"
 
 #: core/templates/core/landing.html:43
 msgid "Target your course to fit the backgrounds of your learners."
@@ -365,12 +366,12 @@ msgstr ""
 
 #: courses/templates/courses/engagement_content.html:23
 msgid "Weekly Learner Engagement"
-msgstr ""
+msgstr "Inscripciones semanales"
 
 #: courses/templates/courses/engagement_content.html:24
 #: courses/views/__init__.py:559
 msgid "How many learners are interacting with my course?"
-msgstr ""
+msgstr "¿Cuántos alumnos están interactuando en mi curso?"
 
 #: courses/templates/courses/engagement_content.html:31
 #: courses/views/__init__.py:327 courses/views/__init__.py:642
@@ -1316,11 +1317,11 @@ msgstr ""
 msgid "Performance: Learning Outcomes"
 msgstr ""
 
-#: settings/base.py:456
+#: settings/base.py:455
 msgid "Terms of Service"
 msgstr "Condiciones del servicio"
 
-#: settings/base.py:457
+#: settings/base.py:456
 msgid "Privacy Policy"
 msgstr "Política de privacidad"
 
@@ -1383,20 +1384,15 @@ msgstr "Usa nuestra herramienta de ayuda para preguntar o compartir opiniones."
 msgid "Contact %(platform_name)s Support"
 msgstr "Contacta con la ayuda de %(platform_name)s "
 
-#: templates/footer.html:17
-msgid "Feedback"
-msgstr "Comentarios"
-
-#: templates/footer.html:19
+#: templates/footer.html:16
 #, python-format
 msgid ""
 "We want this dashboard to work for you! Need help? "
-"%(support_link_start)sContact course team support%(support_link_end)s. "
-"Comments or suggestions? Email %(email_link)s."
-msgstr "¡Queremos que este panel te resulte útil! ¿Necesitas ayuda?\n%(support_link_start)sContacta con nuestro equipo de soporte del curso%(support_link_end)s. ¿Comentarios o sugerencias? Correo electrónico %(email_link)s."
+"%(support_link_start)sContact course team support%(support_link_end)s."
+msgstr ""
 
 #. Translators: The © symbol appears directly before this line.
-#: templates/footer.html:42
+#: templates/footer.html:39
 #, python-format
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
@@ -1421,7 +1417,7 @@ msgstr "Salir"
 
 #: templates/lens-navigation.html:27
 msgid "Navigation Menu."
-msgstr ""
+msgstr "Menú de navegación"
 
 #: templates/loading.html:7
 msgid "Loading"

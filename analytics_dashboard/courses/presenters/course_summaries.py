@@ -1,5 +1,7 @@
 from django.conf import settings
 from django.core.cache import cache
+from waffle import switch_is_active
+
 from courses.presenters import BasePresenter
 
 
@@ -15,8 +17,7 @@ class CourseSummariesPresenter(BasePresenter):
         """Filter results to just the course IDs specified."""
         if course_ids is None:
             return all_summaries
-        else:
-            return [summary for summary in all_summaries if summary['course_id'] in course_ids]
+        return [summary for summary in all_summaries if summary['course_id'] in course_ids]
 
     def _get_all_summaries(self):
         """
@@ -25,7 +26,10 @@ class CourseSummariesPresenter(BasePresenter):
         """
         all_summaries = cache.get(self.CACHE_KEY)
         if all_summaries is None:
-            all_summaries = self.client.course_summaries().course_summaries()
+            exclude = ['programs']  # we make a separate call to the programs endpoint
+            if not switch_is_active('enable_course_passing'):
+                exclude.append('passing_users')
+            all_summaries = self.client.course_summaries().course_summaries(exclude=exclude)
             all_summaries = [
                 {field: ('' if val is None and field in self.NON_NULL_STRING_FIELDS else val)
                  for field, val in summary.items()} for summary in all_summaries]
@@ -37,8 +41,7 @@ class CourseSummariesPresenter(BasePresenter):
         if summaries:
             summary = summaries[0]
             return self.parse_api_datetime(summary['created'])
-        else:
-            return None
+        return None
 
     def get_course_summaries(self, course_ids=None):
         """

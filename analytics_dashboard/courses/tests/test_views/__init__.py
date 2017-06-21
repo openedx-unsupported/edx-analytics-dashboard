@@ -10,7 +10,8 @@ from django.contrib.humanize.templatetags.humanize import intcomma
 from django.utils.translation import ugettext_lazy as _
 import httpretty
 import mock
-from mock import patch, Mock, _is_started
+from mock import patch, Mock
+from mock.mock import _is_started
 from waffle.testutils import override_switch
 
 from core.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin

@@ -5,6 +5,7 @@ from selenium.webdriver.common.keys import Keys
 
 from acceptance_tests import (
     ENABLE_COURSE_LIST_FILTERS,
+    ENABLE_COURSE_LIST_PASSING,
     TEST_COURSE_ID,
 )
 from acceptance_tests.mixins import AnalyticsDashboardWebAppTestMixin, AnalyticsApiClientMixin
@@ -47,8 +48,11 @@ class CourseIndexTests(AnalyticsApiClientMixin, AnalyticsDashboardWebAppTestMixi
             'Total Enrollment \nclick to sort',
             'Current Enrollment \nclick to sort',
             'Change Last Week \nclick to sort',
-            'Verified Enrollment \nclick to sort'
+            'Verified Enrollment \nclick to sort',
         ]
+        if ENABLE_COURSE_LIST_PASSING:
+            columns.append('Passing Learners \nclick to sort')
+
         self.assertTable('.course-list-table', columns)
 
         # Validate that we have a list of courses

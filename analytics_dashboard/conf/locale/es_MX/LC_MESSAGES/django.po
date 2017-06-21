@@ -6,15 +6,17 @@
 # Edder Antonio León Hernández <e.solid007@gmail.com>, 2016
 # Felix Antonio Valdez Noverola <felix@itesm.mx>, 2015
 # Guillermo Valle Mendoza <gvamen@hotmail.com>, 2016
+# Jose Antonio Sanchez Romero <isc.antonio.sr@gmail.com>, 2017
 # Mecabotware <mecabotware.ideas@gmail.com>, 2015
+# Miguel Angel Medina Mondragon <miguel@circulosiete.com>, 2017
 # Valeria Susarrey Rios <v_a_l_e_r_y@hotmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-19 14:20-0400\n"
-"PO-Revision-Date: 2017-03-23 08:29+0000\n"
-"Last-Translator: Ned Batchelder <ned@edx.org>\n"
+"POT-Creation-Date: 2017-06-07 12:34-0400\n"
+"PO-Revision-Date: 2017-06-16 18:56+0000\n"
+"Last-Translator: Jose Antonio Sanchez Romero <isc.antonio.sr@gmail.com>\n"
 "Language-Team: Spanish (Mexico) (http://www.transifex.com/open-edx/edx-platform/language/es_MX/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +26,7 @@ msgstr ""
 
 #: core/templates/core/landing.html:15 templates/_skip_link.html:3
 msgid "Skip to content"
-msgstr ""
+msgstr "Saltar al contenido principal"
 
 #: core/templates/core/landing.html:23
 msgid "Login"
@@ -36,7 +38,7 @@ msgstr "Sugerencias para ayudar a los equipos a mejorar los cursos"
 
 #: core/templates/core/landing.html:42 courses/views/__init__.py:497
 msgid "Who are my learners?"
-msgstr ""
+msgstr "¿Quiénes son mis estudiantes?"
 
 #: core/templates/core/landing.html:43
 msgid "Target your course to fit the backgrounds of your learners."
@@ -71,7 +73,7 @@ msgstr ""
 
 #: core/templates/core/landing.html:53
 msgid "Adjust your course based on where learners are struggling."
-msgstr ""
+msgstr "Ajusta tu curso basado en lo que los estudiantes tienen problemas."
 
 #: core/templates/core/landing.html:54
 #: courses/tests/test_views/test_performance.py:48
@@ -154,36 +156,36 @@ msgstr "Ninguno"
 #. School Degree).
 #: courses/presenters/enrollment.py:47 courses/tests/test_serializers.py:12
 msgid "Primary"
-msgstr ""
+msgstr "Principal"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: courses/presenters/enrollment.py:49
 msgid "Middle"
-msgstr ""
+msgstr "Intermedio"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:51
 msgid "Secondary"
-msgstr ""
+msgstr "Secundario"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
 #: courses/presenters/enrollment.py:53
 msgid "Associate"
-msgstr ""
+msgstr "Asociado"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
 #: courses/presenters/enrollment.py:55
 msgid "Bachelor's"
-msgstr ""
+msgstr "Bachillerato"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters/enrollment.py:57
 msgid "Master's"
-msgstr ""
+msgstr "Maestria"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
@@ -195,7 +197,7 @@ msgstr "Doctorado"
 #. known geolocation.
 #: courses/presenters/enrollment.py:186
 msgid "Unknown Country"
-msgstr ""
+msgstr "País desconocido"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/presenters/performance.py:146
@@ -260,14 +262,14 @@ msgstr ""
 #: courses/templates/courses/_tags_content_nav.html:23
 #: courses/templates/courses/_ungraded_content_nav.html:28
 msgid "Select Problem"
-msgstr ""
+msgstr "Seleccionar problema"
 
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
 #: courses/templates/courses/_module_description.html:14
 #: courses/templates/courses/_video_preview.html:9
 msgid "View Live"
-msgstr ""
+msgstr "Ver en vivo"
 
 #: courses/templates/courses/_tags_content_nav.html:15
 msgid "Select Outcome"
@@ -1303,11 +1305,11 @@ msgstr ""
 msgid "Performance: Learning Outcomes"
 msgstr ""
 
-#: settings/base.py:456
+#: settings/base.py:455
 msgid "Terms of Service"
 msgstr "Términos de Servicio"
 
-#: settings/base.py:457
+#: settings/base.py:456
 msgid "Privacy Policy"
 msgstr "Políticas de Privacidad"
 
@@ -1370,20 +1372,15 @@ msgstr ""
 msgid "Contact %(platform_name)s Support"
 msgstr ""
 
-#: templates/footer.html:17
-msgid "Feedback"
-msgstr "Comentarios."
-
-#: templates/footer.html:19
+#: templates/footer.html:16
 #, python-format
 msgid ""
 "We want this dashboard to work for you! Need help? "
-"%(support_link_start)sContact course team support%(support_link_end)s. "
-"Comments or suggestions? Email %(email_link)s."
+"%(support_link_start)sContact course team support%(support_link_end)s."
 msgstr ""
 
 #. Translators: The © symbol appears directly before this line.
-#: templates/footer.html:42
+#: templates/footer.html:39
 #, python-format
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"

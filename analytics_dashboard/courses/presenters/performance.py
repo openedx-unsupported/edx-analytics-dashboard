@@ -63,7 +63,7 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, CoursePresenter):
         questions = self._build_questions(api_response)
 
         filtered_active_question = [i for i in questions if i['part_id'] == problem_part_id]
-        if len(filtered_active_question) == 0:
+        if not filtered_active_question:
             raise NotFoundError
         else:
             active_question = filtered_active_question[0]['question']
@@ -239,7 +239,7 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, CoursePresenter):
 
     def post_process_adding_data_to_blocks(self, data, parent_block, child_block, url_func=None):
         # not all problems have submissions
-        if len(data['part_ids']) > 0:
+        if data['part_ids']:
             utils.sorting.natural_sort(data['part_ids'])
             if url_func:
                 data['url'] = url_func(parent_block, child_block, data)
@@ -368,8 +368,7 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, CoursePresenter):
         filtered = [assignment for assignment in self.assignments() if assignment['id'] == assignment_id]
         if filtered:
             return filtered[0]
-        else:
-            return None
+        return None
 
     @property
     def section_type_template(self):
@@ -463,10 +462,11 @@ class TagsDistributionPresenter(CourseAPIPresenterMixin, CoursePresenter):
             self.available_tags = {}
 
             for item in tags_distribution_data.values():
-                for tag_key, tag_value in item['tags'].iteritems():
+                for tag_key, tag_values in item['tags'].iteritems():
                     if tag_key not in self.available_tags:
                         self.available_tags[tag_key] = set()
-                    self.available_tags[tag_key].add(tag_value)
+                    for tag_value in tag_values:
+                        self.available_tags[tag_key].add(tag_value)
         return self.available_tags
 
     def get_tags_content_nav(self, key, selected=None):
@@ -508,7 +508,7 @@ class TagsDistributionPresenter(CourseAPIPresenterMixin, CoursePresenter):
             """
             updated_structure[node_id] = origin_structure[node_id]
             updated_structure[node_id]['parent'] = parent_id if parent_id else None
-            for child_id in origin_structure[node_id]["children"]:
+            for child_id in origin_structure[node_id].get("children", []):
                 _update_node(updated_structure, origin_structure, child_id, origin_structure[node_id]['id'])
 
         updated_structure = OrderedDict()
@@ -525,22 +525,23 @@ class TagsDistributionPresenter(CourseAPIPresenterMixin, CoursePresenter):
 
         for item in tags_distribution_data.values():
             if key in item['tags']:
-                tag_value = item['tags'][key]
-                if tag_value not in result:
-                    index += 1
-                    result[tag_value] = {
-                        'id': tag_value,
-                        'index': index,
-                        'name': tag_value,
-                        'num_modules': 0,
-                        'total_submissions': 0,
-                        'correct_submissions': 0,
-                        'incorrect_submissions': 0
-                    }
-                result[tag_value]['num_modules'] += 1
-                result[tag_value]['total_submissions'] += item['total_submissions']
-                result[tag_value]['correct_submissions'] += item['correct_submissions']
-                result[tag_value]['incorrect_submissions'] += item['incorrect_submissions']
+                tag_values = item['tags'][key]
+                for tag_value in tag_values:
+                    if tag_value not in result:
+                        index += 1
+                        result[tag_value] = {
+                            'id': tag_value,
+                            'index': index,
+                            'name': tag_value,
+                            'num_modules': 0,
+                            'total_submissions': 0,
+                            'correct_submissions': 0,
+                            'incorrect_submissions': 0
+                        }
+                    result[tag_value]['num_modules'] += 1
+                    result[tag_value]['total_submissions'] += item['total_submissions']
+                    result[tag_value]['correct_submissions'] += item['correct_submissions']
+                    result[tag_value]['incorrect_submissions'] += item['incorrect_submissions']
 
         for tag_val, item in result.iteritems():
             item.update({
@@ -562,30 +563,40 @@ class TagsDistributionPresenter(CourseAPIPresenterMixin, CoursePresenter):
         available_tags = self.get_available_tags()
         intermediate = OrderedDict()
 
+        def _get_tags_info(av_tags, tags):
+            """
+            Helper function to return information about all tags connected with the current item.
+            """
+            data = {}
+            for av_tag_key in av_tags:
+                if av_tag_key in tags and tags[av_tag_key]:
+                    data[av_tag_key] = u', '.join(tags[av_tag_key])
+                else:
+                    data[av_tag_key] = None
+            return data
+
         for item in tags_distribution_data.values():
-            if tag_key in item['tags'] and tag_value == slugify(item['tags'][tag_key]):
-                val = {
-                    'id': item['id'],
-                    'name': item['id'],
-                    'total_submissions': item['total_submissions'],
-                    'correct_submissions': item['correct_submissions'],
-                    'incorrect_submissions': item['incorrect_submissions'],
-                    'correct_percent': utils.math.calculate_percent(item['correct_submissions'],
-                                                                    item['total_submissions']),
-                    'incorrect_percent': utils.math.calculate_percent(item['incorrect_submissions'],
-                                                                      item['total_submissions']),
-                    'url': reverse('courses:performance:learning_outcomes_answers_distribution',
-                                   kwargs={'course_id': self.course_id,
-                                           'tag_value': tag_value,
-                                           'problem_id': item['id']})
-                }
-                if available_tags:
-                    for av_tag_key in available_tags:
-                        if av_tag_key in item['tags']:
-                            val[av_tag_key] = item['tags'][av_tag_key]
-                        else:
-                            val[av_tag_key] = None
-                intermediate[item['id']] = val
+            if tag_key in item['tags']:
+                for item_tag_val in item['tags'][tag_key]:
+                    if tag_value == slugify(item_tag_val):
+                        val = {
+                            'id': item['id'],
+                            'name': item['id'],
+                            'total_submissions': item['total_submissions'],
+                            'correct_submissions': item['correct_submissions'],
+                            'incorrect_submissions': item['incorrect_submissions'],
+                            'correct_percent': utils.math.calculate_percent(item['correct_submissions'],
+                                                                            item['total_submissions']),
+                            'incorrect_percent': utils.math.calculate_percent(item['incorrect_submissions'],
+                                                                              item['total_submissions']),
+                            'url': reverse('courses:performance:learning_outcomes_answers_distribution',
+                                           kwargs={'course_id': self.course_id,
+                                                   'tag_value': tag_value,
+                                                   'problem_id': item['id']})
+                        }
+                        if available_tags:
+                            val.update(_get_tags_info(available_tags, item['tags']))
+                        intermediate[item['id']] = val
 
         result = []
         index = 0

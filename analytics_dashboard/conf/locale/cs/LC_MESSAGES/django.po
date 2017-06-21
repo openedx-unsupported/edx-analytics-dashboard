@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-19 14:20-0400\n"
-"PO-Revision-Date: 2017-05-09 10:36+0000\n"
+"POT-Creation-Date: 2017-06-07 12:34-0400\n"
+"PO-Revision-Date: 2017-06-06 21:51+0000\n"
 "Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: Czech (http://www.transifex.com/open-edx/edx-platform/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -139,12 +139,12 @@ msgstr "Jiné"
 #: courses/presenters/enrollment.py:28 courses/presenters/enrollment.py:63
 #: courses/presenters/enrollment.py:460
 msgid "Unknown"
-msgstr ""
+msgstr "Neznámé"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:43
 msgid "None"
-msgstr ""
+msgstr "Žádné"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
@@ -156,7 +156,7 @@ msgstr ""
 #. School Degree).
 #: courses/presenters/enrollment.py:49
 msgid "Middle"
-msgstr ""
+msgstr "Střed"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:51
@@ -1117,7 +1117,7 @@ msgstr ""
 #. identifies the course
 #: courses/views/__init__.py:697
 msgid "Course ID"
-msgstr ""
+msgstr "ID kurzu"
 
 #: courses/views/__init__.py:699
 msgid "Course Name"
@@ -1127,7 +1127,7 @@ msgstr "Název kurzu"
 #. actively using the course or it is over.
 #: courses/views/__init__.py:716
 msgid "In Progress"
-msgstr ""
+msgstr "Ve zpracování"
 
 #: courses/views/__init__.py:716
 msgid "Ended"
@@ -1152,7 +1152,7 @@ msgstr "Stav"
 
 #: courses/views/__init__.py:732
 msgid "Instructor Dashboard"
-msgstr ""
+msgstr "Nástěnka učitele"
 
 #: courses/views/__init__.py:737
 msgid "Courseware"
@@ -1299,11 +1299,11 @@ msgstr ""
 msgid "Performance: Learning Outcomes"
 msgstr ""
 
-#: settings/base.py:456
+#: settings/base.py:455
 msgid "Terms of Service"
 msgstr "Smluvní podmínky"
 
-#: settings/base.py:457
+#: settings/base.py:456
 msgid "Privacy Policy"
 msgstr "Pravidla ochrany osobních údajů"
 
@@ -1366,20 +1366,15 @@ msgstr ""
 msgid "Contact %(platform_name)s Support"
 msgstr ""
 
-#: templates/footer.html:17
-msgid "Feedback"
-msgstr ""
-
-#: templates/footer.html:19
+#: templates/footer.html:16
 #, python-format
 msgid ""
 "We want this dashboard to work for you! Need help? "
-"%(support_link_start)sContact course team support%(support_link_end)s. "
-"Comments or suggestions? Email %(email_link)s."
+"%(support_link_start)sContact course team support%(support_link_end)s."
 msgstr ""
 
 #. Translators: The © symbol appears directly before this line.
-#: templates/footer.html:42
+#: templates/footer.html:39
 #, python-format
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"

@@ -15,7 +15,8 @@ define(function(require) {
             count: gettext('Learners currently enrolled in the course.'),
             count_change_7_days: gettext('Net difference in current enrollment in the last week.'),
             // eslint-disable-next-line max-len
-            verified_enrollment: gettext('Number of currently enrolled learners pursuing a verified certificate of achievement.')
+            verified_enrollment: gettext('Number of currently enrolled learners pursuing a verified certificate of achievement.'),
+            passing_users: gettext('Learners who have earned a passing grade.')
         }
     });
 

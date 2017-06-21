@@ -82,6 +82,10 @@ define(function(require) {
             this.registerSortableField('count_change_7_days', gettext('Change Last Week'));
             this.registerSortableField('verified_enrollment', gettext('Verified Enrollment'));
 
+            if (options.passingUsersEnabled) {
+                this.registerSortableField('passing_users', gettext('Passing Learners'));
+            }
+
             this.registerFilterableField('availability', gettext('Availability'));
             this.registerFilterableField('pacing_type', gettext('Pacing Type'));
             this.registerFilterableArrayField('program_ids', gettext('Programs'));

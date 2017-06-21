@@ -41,10 +41,13 @@ test_python: test_compress test_python_no_compress
 
 accept:
 ifeq ("${DISPLAY_LEARNER_ANALYTICS}", "True")
-	./manage.py waffle_flag enable_learner_analytics on --create --everyone
+	./manage.py waffle_flag enable_learner_analytics --create --everyone
 endif
 ifeq ("${ENABLE_COURSE_LIST_FILTERS}", "True")
 	./manage.py waffle_switch enable_course_filters on --create
+endif
+ifeq ("${ENABLE_COURSE_LIST_PASSING}", "True")
+	./manage.py waffle_switch enable_course_passing on --create
 endif
 	./manage.py create_acceptance_test_soapbox_messages
 	nosetests -v acceptance_tests -e NUM_PROCESSES=1 --exclude-dir=acceptance_tests/course_validation
@@ -59,7 +62,7 @@ accept_local:
 
 a11y:
 ifeq ("${DISPLAY_LEARNER_ANALYTICS}", "True")
-	./manage.py waffle_flag enable_learner_analytics on --create --everyone
+	./manage.py waffle_flag enable_learner_analytics --create --everyone
 endif
 	BOKCHOY_A11Y_CUSTOM_RULES_FILE=./node_modules/edx-custom-a11y-rules/lib/custom_a11y_rules.js SELENIUM_BROWSER=firefox nosetests -v a11y_tests -e NUM_PROCESSES=1 --exclude-dir=acceptance_tests/course_validation
 

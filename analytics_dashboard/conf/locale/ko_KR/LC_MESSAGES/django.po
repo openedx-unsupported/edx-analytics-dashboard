@@ -20,8 +20,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-19 14:20-0400\n"
-"PO-Revision-Date: 2017-03-23 08:29+0000\n"
+"POT-Creation-Date: 2017-06-07 12:34-0400\n"
+"PO-Revision-Date: 2017-06-06 21:51+0000\n"
 "Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/open-edx/edx-platform/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -1311,11 +1311,11 @@ msgstr ""
 msgid "Performance: Learning Outcomes"
 msgstr "성과 : 학습 결과"
 
-#: settings/base.py:456
+#: settings/base.py:455
 msgid "Terms of Service"
 msgstr "서비스 규정"
 
-#: settings/base.py:457
+#: settings/base.py:456
 msgid "Privacy Policy"
 msgstr "개인정보 보호 정책"
 
@@ -1378,20 +1378,15 @@ msgstr "부디 저희 EDx의 서포트 도구를 이용해서 질문을 하시�
 msgid "Contact %(platform_name)s Support"
 msgstr "%(platform_name)s에 도움 요청 "
 
-#: templates/footer.html:17
-msgid "Feedback"
-msgstr "피드백"
-
-#: templates/footer.html:19
+#: templates/footer.html:16
 #, python-format
 msgid ""
 "We want this dashboard to work for you! Need help? "
-"%(support_link_start)sContact course team support%(support_link_end)s. "
-"Comments or suggestions? Email %(email_link)s."
-msgstr "이 대시보드에 대해 도움이 필요하다면 %(support_link_start)s강좌 운영팀에 문의%(support_link_end)s 하세요. 기타 의견이 있으시다면 이메일 %(email_link)s 을 보내주세요."
+"%(support_link_start)sContact course team support%(support_link_end)s."
+msgstr ""
 
 #. Translators: The © symbol appears directly before this line.
-#: templates/footer.html:42
+#: templates/footer.html:39
 #, python-format
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"

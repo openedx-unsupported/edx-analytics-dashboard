@@ -155,8 +155,7 @@ class LazyEncoderMixin(object):
         """ Returns JSON serialized data with lazy translations converted. """
         if 'js_data' in context:
             return json.dumps(context['js_data'], cls=LazyEncoder)
-        else:
-            return None
+        return None
 
 
 class CourseContextMixin(CourseAPIMixin, TrackedViewMixin, LazyEncoderMixin):
@@ -235,9 +234,8 @@ class CourseValidMixin(object):
 
             # pylint: disable=no-member
             return response.status_code == requests.codes.ok
-        else:
-            # all courses valid if LMS url isn't specified
-            return True
+        # all courses valid if LMS url isn't specified
+        return True
 
     def dispatch(self, request, *args, **kwargs):
         if self.is_valid_course():
@@ -453,8 +451,7 @@ class LastUpdatedView(object):
     def get_last_updated_message(self, last_updated):
         if last_updated:
             return self.update_message % self.format_last_updated_date_and_time(last_updated)
-        else:
-            return None
+        return None
 
     @staticmethod
     def format_last_updated_date_and_time(d):

@@ -70,6 +70,7 @@ The following switches are available:
 | enable_learner_download              | Display Download CSV button on Learner List page.     |
 | enable_problem_response_download     | Enable downloadable CSV of problem responses          |
 | enable_course_filters                | Enable filters (e.g. pacing type) on courses page.    |
+| enable_course_passing                | Enable passing column on courses page.                |
 
 [Waffle](http://waffle.readthedocs.org/en/latest/) flags are used to disable/enable
 functionality on request (e.g. turning on beta functionality for superusers). Create a
@@ -252,6 +253,7 @@ when executing either of the commands above.
 | ENABLE_OAUTH_TESTS           | Test the OAUTH sign-in process             | true                             |
 | ENABLE_AUTO_AUTH             | Sign-in using auto-auth. (no LMS involved) | false                            |
 | ENABLE_COURSE_LIST_FILTERS   | Tests on filtering the course list         | false                            |
+| ENABLE_COURSE_LIST_PASSING   | Tests on the passing learners column in the course list | false               |
 
 
 Override example:

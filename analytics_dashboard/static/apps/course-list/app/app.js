@@ -50,6 +50,7 @@ export default class CourseListApp extends Marionette.Application {
         program_ids: {},
       },
       programsCollection,
+      passingUsersEnabled: this.options.passingUsersEnabled,
     });
 
     const rootView = new RootView({
