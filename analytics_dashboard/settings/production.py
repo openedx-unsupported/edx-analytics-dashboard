@@ -45,5 +45,5 @@ DOCUMENTATION_LOAD_ERROR_MESSAGE = 'This data may not be available for your cour
                                    '<a href="{error_documentation_link}" target="_blank">Read more</a>.'.format(error_documentation_link=DOCUMENTATION_LOAD_ERROR_URL)
 
 # Use Cloudfront CDN for assets
-if INSIGHTS_CLOUDFRONT:
-    STATIC_URL = 'https://' + INSIGHTS_CLOUDFRONT + '/'
+if CLOUDFRONT_DOMAIN:
+    STATIC_URL = 'https://' + CLOUDFRONT_DOMAIN + '/static/'
