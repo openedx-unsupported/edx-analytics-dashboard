@@ -1,25 +1,28 @@
 from ddt import (
     data,
-    ddt,
-    unpack
+    ddt
 )
 import mock
 
-from django.test import TestCase
+from django.test import (
+    override_settings,
+    TestCase
+)
 
 from courses.presenters.course_summaries import CourseSummariesPresenter
 from courses.tests import utils
 from courses.tests.utils import CourseSamples
 
 
-_ANOTHER_DEPRECATED_COURSE_ID = 'another/course/id'
-
-
 @ddt
 class CourseSummariesPresenterTests(TestCase):
 
-    _API_SUMMARIES = {
-        CourseSamples.DEPRECATED_DEMO_COURSE_ID: {
+    @property
+    def mock_api_response(self):
+        '''
+        Returns a mocked API response for two courses including some null fields.
+        '''
+        return [{
             'course_id': CourseSamples.DEPRECATED_DEMO_COURSE_ID,
             'catalog_course_title': 'Deprecated demo course',
             'catalog_course': 'edX+demo.1x',
@@ -64,8 +67,7 @@ class CourseSummariesPresenterTests(TestCase):
                 }
             },
             'created': utils.CREATED_DATETIME_STRING,
-        },
-        CourseSamples.DEMO_COURSE_ID: {
+        }, {
             'course_id': CourseSamples.DEMO_COURSE_ID,
             'catalog_course_title': 'Demo Course',
             'catalog_course': None,
@@ -110,16 +112,15 @@ class CourseSummariesPresenterTests(TestCase):
                 }
             },
             'created': utils.CREATED_DATETIME_STRING,
-        },
-        _ANOTHER_DEPRECATED_COURSE_ID: {
-            'course_id': _ANOTHER_DEPRECATED_COURSE_ID,
+        }, {
+            'course_id': 'another/course/id',
             'catalog_course_title': None,
             'catalog_course': None,
             'start_date': None,
             'end_date': None,
-            'pacing_type': 'instructor_paced',
+            'pacing_type': None,
             'availability': None,
-            'count': None,
+            'count': 1,
             'cumulative_count': 1,
             'count_change_7_days': 0,
             'enrollment_modes': {
@@ -155,75 +156,45 @@ class CourseSummariesPresenterTests(TestCase):
                 }
             },
             'created': utils.CREATED_DATETIME_STRING,
-        },
-    }
+        }]
 
-    _PRESENTER_SUMMARIES = {
-        CourseSamples.DEPRECATED_DEMO_COURSE_ID:
-            _API_SUMMARIES[CourseSamples.DEPRECATED_DEMO_COURSE_ID],
-        CourseSamples.DEMO_COURSE_ID:
-            _API_SUMMARIES[CourseSamples.DEMO_COURSE_ID],
-        _ANOTHER_DEPRECATED_COURSE_ID:
-            _API_SUMMARIES[_ANOTHER_DEPRECATED_COURSE_ID],
-    }
-    _PRESENTER_SUMMARIES[CourseSamples.DEMO_COURSE_ID].update({
-        'catalog_course': '',
-        'start_date': '',
-        'end_date': '',
-        'pacing_type': '',
-        'availability': '',
-    })
-    _PRESENTER_SUMMARIES[_ANOTHER_DEPRECATED_COURSE_ID].update({
-        'catalog_course': '',
-        'catalog_course_title': '',
-        'start_date': '',
-        'end_date': '',
-        'availability': '',
-    })
+    def get_expected_summaries(self, course_ids=None):
+        ''''Expected results with default values, sorted, and filtered to course_ids.'''
+        if course_ids is None:
+            course_ids = [CourseSamples.DEMO_COURSE_ID,
+                          CourseSamples.DEPRECATED_DEMO_COURSE_ID,
+                          'another/course/id']
 
+        summaries = [summary for summary in self.mock_api_response if summary['course_id'] in course_ids]
+
+        # fill in with defaults
+        for summary in summaries:
+            for field in CourseSummariesPresenter.NON_NULL_STRING_FIELDS:
+                if summary[field] is None:
+                    summary[field] = ''
+
+        # sort by title
+        return sorted(
+            summaries,
+            key=lambda x: (not x['catalog_course_title'], x['catalog_course_title']))
+
+    @override_settings(CACHES={
+        'default': {
+            'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        }
+    })
     @data(
-        (
-            None,
-            [
-                CourseSamples.DEMO_COURSE_ID,
-                CourseSamples.DEPRECATED_DEMO_COURSE_ID,
-                _ANOTHER_DEPRECATED_COURSE_ID,
-            ],
-        ),
-        (
-            [
-                CourseSamples.DEPRECATED_DEMO_COURSE_ID,
-                CourseSamples.DEMO_COURSE_ID,
-            ],
-            [
-                CourseSamples.DEMO_COURSE_ID,
-                CourseSamples.DEPRECATED_DEMO_COURSE_ID,
-            ],
-        ),
+        None,
+        [CourseSamples.DEMO_COURSE_ID],
+        [CourseSamples.DEPRECATED_DEMO_COURSE_ID],
+        [CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID],
     )
-    @unpack
-    def test_get_summaries(self, input_course_ids, ouptut_course_ids):
+    def test_get_summaries(self, course_ids):
+        ''''Test courses filtered from API response.'''
         presenter = CourseSummariesPresenter()
-        if input_course_ids:
-            mock_api_response = [
-                self._API_SUMMARIES[course_id] for course_id in input_course_ids
-            ]
-        else:
-            mock_api_response = self._API_SUMMARIES.values()
-        expected_summaries = [
-            self._PRESENTER_SUMMARIES[course_id] for course_id in ouptut_course_ids
-        ]
 
         with mock.patch('analyticsclient.course_summaries.CourseSummaries.course_summaries',
-                        mock.Mock(return_value=mock_api_response)):
-            actual_summaries, last_updated = presenter.get_course_summaries(course_ids=input_course_ids)
-            self.assertListEqual(actual_summaries, expected_summaries)
+                        mock.Mock(return_value=self.mock_api_response)):
+            actual_summaries, last_updated = presenter.get_course_summaries(course_ids=course_ids)
+            self.assertListEqual(actual_summaries, self.get_expected_summaries(course_ids))
             self.assertEqual(last_updated, utils.CREATED_DATETIME)
-
-    def test_no_summaries(self):
-        presenter = CourseSummariesPresenter()
-        with mock.patch('analyticsclient.course_summaries.CourseSummaries.course_summaries',
-                        mock.Mock(return_value=[])):
-            summaries, last_updated = presenter.get_course_summaries()
-            self.assertListEqual(summaries, [])
-            self.assertIsNone(last_updated)
