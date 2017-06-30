@@ -461,3 +461,7 @@ LEARNER_API_LIST_DOWNLOAD_FIELDS = None
 ########## CACHE CONFIGURATION
 COURSE_SUMMARIES_CACHE_TIMEOUT = 3600  # 1 hour timeout
 ########## END CACHE CONFIGURATION
+
+########## CDN CONFIGURATION
+CDN_DOMAIN = None  # production will not use a CDN for static assets if this is set to a falsy value
+########## END CDN CONFIGURATION
