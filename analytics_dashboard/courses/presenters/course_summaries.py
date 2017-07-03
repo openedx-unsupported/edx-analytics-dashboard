@@ -19,7 +19,7 @@ class CourseSummariesPresenter(BasePresenter):
             return all_summaries
         return [summary for summary in all_summaries if summary['course_id'] in course_ids]
 
-    def _get_all_summaries(self):
+    def _get_summaries(self, course_ids=None):
         """
         Returns all course summaries. If not cached, summaries will be fetched
         from the analytics data API.
@@ -48,15 +48,20 @@ class CourseSummariesPresenter(BasePresenter):
         Returns course summaries that match those listed in course_ids.  If
         no course IDs provided, all data will be returned.
         """
-        all_summaries = self._get_all_summaries()
-        filtered_summaries = self.filter_summaries(all_summaries, course_ids)
+        if len(course_ids) > 100:
+            # Request all courses from the Analytics API and filter here
+            all_summaries = self._get_summaries()
+            summaries = self.filter_summaries(all_summaries, course_ids)
+        else:
+            # Request courses only in ID list from the Analytics API
+            summaries = self._get_summaries(course_ids=course_ids)
 
         # sort by title by default with "None" values at the end
-        filtered_summaries = sorted(
-            filtered_summaries,
+        summaries = sorted(
+            summaries,
             key=lambda x: (not x['catalog_course_title'], x['catalog_course_title']))
 
-        return filtered_summaries, self._get_last_updated(filtered_summaries)
+        return summaries, self._get_last_updated(summaries)
 
     def get_course_summary_metrics(self, summaries):
         summary = {
