@@ -54,7 +54,6 @@ define(function(require) {
                 collection = this.options.courseListCollection,
                 currentPage,
                 table;
-            this.triggerMethod('showPage');
 
             try {
                 collection.setStateFromQueryString(queryString);
@@ -124,7 +123,6 @@ define(function(require) {
         showNotFoundPage: function() {
             var message = gettext("Sorry, we couldn't find the page you're looking for."),
                 notFoundView;
-            this.triggerMethod('showPage');
 
             this.options.pageModel.set('title', gettext('Page Not Found'));
 

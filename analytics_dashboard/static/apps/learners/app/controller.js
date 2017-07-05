@@ -69,8 +69,6 @@ define(function(require) {
                 }),
                 fetch;
 
-            this.triggerMethod('showPage');
-
             try {
                 this.options.learnerCollection.setStateFromQueryString(queryString);
                 if (this.options.learnerCollection.isStale) {
@@ -131,8 +129,6 @@ define(function(require) {
                 learnerModel = this.options.learnerCollection.get(username) || new LearnerModel(),
                 detailView;
 
-            this.triggerMethod('showPage');
-
             this.options.rootView.showChildView('navigation', new ReturnLinkView({
                 queryString: this.options.learnerCollection.getQueryString()
             }));
@@ -180,8 +176,6 @@ define(function(require) {
             // TODO: Implement this page in https://openedx.atlassian.net/browse/AN-6697
             var message = gettext("Sorry, we couldn't find the page you're looking for."),
                 notFoundView;
-
-            this.triggerMethod('showPage');
 
             this.options.pageModel.set('title', gettext('Page Not Found'));
 
