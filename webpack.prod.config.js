@@ -5,7 +5,6 @@ var path = require('path'),
     BundleTracker = require('webpack-bundle-tracker'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
     BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin,
-    CompressionPlugin = require('compression-webpack-plugin'),
     extractCSS = new ExtractTextPlugin('styles-css.css'),
     extractSCSS = new ExtractTextPlugin('styles-scss.css');
 
@@ -210,15 +209,6 @@ module.exports = {
         // analyzerMode: 'static'
         // }),
         new webpack.optimize.UglifyJsPlugin(), // aka. minify
-        // Compresses large output assets and emits them alongside the normal files, but with a .gz extension.
-        new CompressionPlugin({
-            asset: '[path].gz[query]',
-            algorithm: 'gzip',
-            test: /\.(js|html|css|map|woff|woff2|ttf|eot)$/,
-            threshold: 1024,
-            minRatio: 0.9,
-            level: 9
-        })
     ],
 
     // Source-map generation method. 'source-map' is the slowest, but also the highest quality.
