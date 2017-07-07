@@ -14,7 +14,9 @@ module.exports = Merge.smart(commonConfig, {
 
     output: {
         // Tells clients to load bundles from the dev-server
-        publicPath: 'http://localhost:8080/static/bundles/'
+        publicPath: 'http://localhost:8080/static/bundles/',
+        // Bundle names will change every build. [hash] is faster than [chunkhash].
+        filename: '[name]-[hash].js'
     },
 
     module: {

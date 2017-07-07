@@ -60,9 +60,10 @@ module.exports = {
     output: {
         // Output bundles directly to the Django static assets directory
         path: path.resolve('./analytics_dashboard/static/bundles/'),
-        // Tells clients to load bundles from the dev-server
+        // Tells clients to load bundles from the static route (uses CDN in production)
         publicPath: '/static/bundles/',
-        filename: '[name]-[hash].js'
+        // Bundle names will not change between builds if the content stays identical
+        filename: '[name]-[chunkhash].js'
     },
 
     module: {
