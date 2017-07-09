@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-07 12:34-0400\n"
-"PO-Revision-Date: 2017-06-29 13:32+0000\n"
+"PO-Revision-Date: 2017-07-06 13:42+0000\n"
 "Last-Translator: YAHAYA MWAVURIZI <translations_1@camara.ie>\n"
 "Language-Team: Swahili (Kenya) (http://www.transifex.com/open-edx/edx-platform/language/sw_KE/)\n"
 "MIME-Version: 1.0\n"
@@ -477,7 +477,7 @@ msgstr "Ni mifumo ipi ya maono ya video hii?"
 msgid ""
 "The number of learners who watched each segment of the video, and the number"
 " of replays for each segment."
-msgstr ""
+msgstr "Idadi ya wanafunzi walioangalia sehemu ya video, na idadi ya marudio ya kila sehemu ya video."
 
 #: courses/templates/courses/engagement_video_timeline.html:37
 msgid "Collapse Preview"
@@ -1275,21 +1275,21 @@ msgstr "Jina la Jaribio"
 
 #: courses/views/performance.py:90 courses/views/performance.py:370
 msgid "No submissions received for these exercises."
-msgstr "Hakuna ufikishaji umepokelewa kwa mazoezi haya."
+msgstr "Hakuna mawasilisho yaliyopokelewa kwa ajili ya mazoezi haya."
 
 #: courses/views/performance.py:106
 msgid "No submissions received for these assignments."
-msgstr "Hamna ufikishaji umepokelewa kwa mitihani toto."
+msgstr "Hamna mawasilisho yalipokelewa kwa ajili ya mazoezi haya."
 
 #: courses/views/performance.py:195 courses/views/performance.py:362
 #: courses/views/performance.py:460
 msgid "Performance: Problem Submissions"
-msgstr "Matokeo: Ufikishaji Tatizo"
+msgstr "Utendaji: Uwasilishaji wa Swali"
 
 #: courses/views/performance.py:257
 #, python-format
 msgid "Graded Content: %(assignment_type)s"
-msgstr "Yaliyomo kwa Ubora: %(assignment_type)s"
+msgstr "Maudhui Yaliyopangwa: %(assignment_type)s"
 
 #: courses/views/performance.py:276 courses/views/performance.py:344
 msgid "Problem Name"
@@ -1300,11 +1300,11 @@ msgstr "Jina la Tatizo"
 msgid ""
 "Tags distribution data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Taarifa za mgawanyo wa vitambulisho imesasishwa kwa mara ya mwisho tarehe %(update_date)s kwenye %(update_time)s UTC."
 
 #: courses/views/performance.py:398 courses/views/performance.py:428
 msgid "Performance: Learning Outcomes"
-msgstr ""
+msgstr "Utendaji: Matokeo ya Ujifunzaji"
 
 #: settings/base.py:455
 msgid "Terms of Service"
@@ -1312,18 +1312,18 @@ msgstr "Masharti ya Huduma"
 
 #: settings/base.py:456
 msgid "Privacy Policy"
-msgstr "Kanuni za Binafsi"
+msgstr "Kanuni za Faragha"
 
 #: templates/403.html:5 templates/403.html:8
 msgid "Access Denied"
-msgstr "Ruhusa ya utumizi Imenyimwa"
+msgstr "Ruhusa ya utumizi Haikutolewa"
 
 #: templates/403.html:10
 msgid ""
 "You do not have permission to view this page. If you believe you should have"
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
-msgstr "Huna ruhusa kutazama ukurasa huu. Ukiamini unastahili kuwa na ruhusa kwa ukurasa huu, jaribu kutoka na kuingia tena mtandaoni ukiburudisha ruhusa ulizopewa."
+msgstr "Huna ruhusa kutazama ukurasa huu. Ukiamini unastahili kuwa na ruhusa kwa ukurasa huu, jaribu kutoka na kuingia tena mtandaoni ukionesha upya ruhusa ulizopewa."
 
 #: templates/403.html:17
 msgid "Logout then Login"
@@ -1341,7 +1341,7 @@ msgstr "Hatuwezi kuupata ukurasa unaotafuta. Tafadhali hakikisha URL iko sawa na
 
 #: templates/500.html:5 templates/500.html:8
 msgid "An Error Occurred"
-msgstr "Kulitokea hitlafu"
+msgstr "Kumetokea hitilafu"
 
 #: templates/500.html:10
 msgid ""
@@ -1363,7 +1363,7 @@ msgstr "Funga"
 
 #: templates/base-error.html:42
 msgid "Use our support tool to ask questions or share feedback."
-msgstr "Tumia kifaa chetu cha usaidizi kuulizia masuali au kutumia pamoja majibisho."
+msgstr "Tumia kifaa chetu cha usaidizi kuulizia maswali au kutumia pamoja mrejesho."
 
 #. Translators: This intention here is that a user clicks a button to contact
 #. a support group (e.g. edX Support, or MITx Support). Reorder the
@@ -1371,14 +1371,14 @@ msgstr "Tumia kifaa chetu cha usaidizi kuulizia masuali au kutumia pamoja majibi
 #: templates/base-error.html:47
 #, python-format
 msgid "Contact %(platform_name)s Support"
-msgstr "Wasiliana %(platform_name)s Saidia"
+msgstr "Fanya mawasiliano kwa msaada wa %(platform_name)s "
 
 #: templates/footer.html:16
 #, python-format
 msgid ""
 "We want this dashboard to work for you! Need help? "
 "%(support_link_start)sContact course team support%(support_link_end)s."
-msgstr ""
+msgstr "Tunataka dashibodi ikusaidie! Unahitaji msaada? %(support_link_start)s Wasiliana timu ya msaada ya kozi%(support_link_end)s."
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html:39
@@ -1386,7 +1386,7 @@ msgstr ""
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
 "            reserved. "
-msgstr "%(current_year)s %(platform_name)s, isipokuwa ilipo arifiwa, haki miliki zote            zimedhibitiwa. "
+msgstr "%(current_year)s %(platform_name)s, isipokuwa ilipoarifiwa, haki miliki zote            zimedhibitiwa. "
 
 #: templates/header.html:14
 msgid "Toggle navigation"
@@ -1394,11 +1394,11 @@ msgstr "Uhamiaji kutoka sehemu moja ya tendekazi za kompyuta mpaka kwa nyingine 
 
 #: templates/header.html:41
 msgid "Help"
-msgstr "Usaidizi/Msaada"
+msgstr "Msaada"
 
 #: templates/header.html:47
 msgid "Menu for"
-msgstr ""
+msgstr "Menyu kwa ajili ya"
 
 #: templates/header.html:61
 msgid "Logout"
@@ -1406,7 +1406,7 @@ msgstr "Toka mtandaoni"
 
 #: templates/lens-navigation.html:27
 msgid "Navigation Menu."
-msgstr ""
+msgstr "Menyu ya Uabiri."
 
 #: templates/loading.html:7
 msgid "Loading"
@@ -1418,7 +1418,7 @@ msgstr "Hatuwezi kupakia chati hii."
 
 #: templates/section_error.html:12
 msgid "We are unable to load this table."
-msgstr "Hatuwezi kupakia meza hii."
+msgstr "Hatuwezi kupakia jedwali hili."
 
 #: templates/section_error.html:14
 msgid "We are unable to load these metrics."
