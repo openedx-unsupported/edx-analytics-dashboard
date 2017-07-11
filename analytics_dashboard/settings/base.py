@@ -466,4 +466,4 @@ COURSE_SUMMARIES_CACHE_TIMEOUT = 3600  # 1 hour timeout
 CDN_DOMAIN = None  # production will not use a CDN for static assets if this is set to a falsy value
 ########## END CDN CONFIGURATION
 
-COURSE_SUMMARIES_IDS_CUTOFF = 100
+COURSE_SUMMARIES_IDS_CUTOFF = 500
