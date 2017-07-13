@@ -13,7 +13,6 @@ import CourseListRouter from 'course-list/app/router';
 import PageModel from 'components/generic-list/common/models/page';
 import SkipLinkView from 'components/skip-link/views/skip-link-view';
 
-
 export default class CourseListApp extends Marionette.Application {
   /**
    * Initializes the course-list analytics app.
@@ -60,7 +59,8 @@ export default class CourseListApp extends Marionette.Application {
       displayHeader: false,
     }).render();
 
-    new CourseListRouter({ // eslint-disable-line no-new
+    // eslint-disable-next-line no-new
+    new CourseListRouter({
       controller: new CourseListController({
         courseListCollection,
         hasData: _.isObject(this.options.courseListJson),

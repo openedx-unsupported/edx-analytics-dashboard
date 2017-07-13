@@ -93,13 +93,11 @@ define(function(require) {
                     sortKey = val;
                 } else if (key === 'order') {
                     order = val === 'desc' ? 1 : -1;
-                } else {
-                    if (key in this.filterableFields || key === 'text_search') {
-                        if (val !== this.getFilterFieldValue(key)) {
-                            this.isStale = true;
-                        }
-                        this.setFilterField(key, val);
+                } else if (key in this.filterableFields || key === 'text_search') {
+                    if (val !== this.getFilterFieldValue(key)) {
+                        this.isStale = true;
                     }
+                    this.setFilterField(key, val);
                 }
             }, this);
 

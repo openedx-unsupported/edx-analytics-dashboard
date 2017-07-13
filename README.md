@@ -159,6 +159,21 @@ webpack using the prod config and then exits):
 
     $ make static
 
+Before committing new JavaScript, make sure it conforms to our style guide by
+running [eslint](http://eslint.org/), and fixing any errors.
+
+    $ npm run lint -s
+
+You can also try automatically fixing the errors and applying an additional
+level of standardized formatting with
+[prettier](https://github.com/prettier/prettier) by running
+[prettier-eslint](https://github.com/prettier/prettier-eslint).
+
+    $ npm run format
+
+Note: this will only format a subset of the JavaScript, we haven't converted the
+formatting of all of our files yet. Edit the directory list in `package.json`.
+
 Theming and Branding
 --------------------
 We presently have support for basic branding of the logo displayed in the header and on error pages. This is facilitated

@@ -14,15 +14,15 @@ define(function(require) {
             '*notFound': 'showNotFoundPage'
         },
 
-        // This method is run before the route methods are run.		
-         execute: function(callback, args, name) {		
-             if (name.indexOf('show') === 0) {		
-                 this.options.controller.triggerMethod('showPage');		
-             }		
-             if (callback) {		
-                 callback.apply(this, args);		
-             }		
-         },
+        // This method is run before the route methods are run.
+        execute: function(callback, args, name) {
+            if (name.indexOf('show') === 0) {
+                this.options.controller.triggerMethod('showPage');
+            }
+            if (callback) {
+                callback.apply(this, args);
+            }
+        },
 
         initialize: function(options) {
             this.options = options || {};

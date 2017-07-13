@@ -116,7 +116,8 @@ define(['jquery', 'd3', 'datamaps', 'underscore', 'utils/utils', 'views/attribut
                     .attr('transform', function(d, i) {
                         // move the legend color swatches to be arranged vertically
                         var x = swatch.width,
-                            y = canvasHeight - swatch.height * ranges.length + i * swatch.height - margins.bottom;
+                            y = ((canvasHeight - (swatch.height * ranges.length)) +
+                                (i * swatch.height)) - margins.bottom;
                         return 'translate(' + [x, y].join(',') + ')';
                     });
 

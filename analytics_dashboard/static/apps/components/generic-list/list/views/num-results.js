@@ -35,9 +35,7 @@ define(function(require) {
         },
 
         renderIfNotDestroyed: function() {
-            if (this.isDestroyed) {
-                return;
-            } else {
+            if (!this.isDestroyed) {
                 this.render();
             }
         }

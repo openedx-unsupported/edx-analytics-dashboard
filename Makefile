@@ -78,7 +78,7 @@ validate_python: test.requirements test_python quality
 #FIXME validate_js: requirements.js
 validate_js:
 	$(NODE_BIN)/gulp test
-	$(NODE_BIN)/gulp lint
+	npm run lint -s
 
 validate: validate_python validate_js
 

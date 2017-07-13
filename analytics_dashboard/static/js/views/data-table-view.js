@@ -90,7 +90,7 @@ define(['datatables-bootstrap3-plugin/media/js/datatables-bootstrap3', 'jquery',
                     }
 
                     defs.push(def);
-                    iColumn++;
+                    iColumn += 1;
                 });
                 return defs;
             },
@@ -154,7 +154,7 @@ define(['datatables-bootstrap3-plugin/media/js/datatables-bootstrap3', 'jquery',
                     if (type === 'display' && !isNaN(value)) {
                         display = Utils.localizeNumber(value);
                         if (value >= maxNumber) {
-                            display = display + '+';
+                            display += '+';
                         }
                     }
                     return display;

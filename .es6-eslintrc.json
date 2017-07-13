@@ -6,6 +6,9 @@
         "allowImportExportEverywhere": true,
         "plugins": ["syntax-dynamic-import"]
     },
+    "plugins": [
+        "import"
+    ],
     "globals": {
         "gettext": true, // added by django for i18n
         "setFixtures": true,  // added globally by jasmine-jquery
@@ -13,18 +16,7 @@
         "requirejs": true
     },
     "settings": {
-        "import/resolver": "webpack",
-        "import/core-modules": ["jquery", "underscore", "backbone", "backbone.paginator", "backbone.wreqr",
-                                "backbone.babysitter", "backgrid", "backgrid-filter", "backgrid-paginator", "bootstrap",
-                                "bootstrap_accessibility", "models", "collections", "views", "utils", "load",
-                                "datatables", "dataTablesBootstrap", "naturalSort", "d3", "nvd3", "topojson",
-                                "datamaps", "moment", "text", "json", "cldr", "cldr-data", "globalize", "globalization",
-                                "marionette", "uitk", "URI", "IPv6", "punycode", "SecondLevelDomains", "learners",
-                                "axe-core", "sinon", "nprogress",
-                                "vendor/domReady!", "globalize/number", "boot",
-                                "uitk/disclosure/disclosure-view",
-                                "json!cldr-data/supplemental/likelySubtags.json",
-                                "json!cldr-data/supplemental/numberingSystems.json"]
+        "import/resolver": "webpack"
     },
     "rules": {
         "import/no-unresolved": ["error", {"amd": true}],
