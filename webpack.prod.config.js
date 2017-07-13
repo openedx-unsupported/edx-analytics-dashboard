@@ -87,7 +87,7 @@ module.exports = Merge.smart(commonConfig, {
     plugins: [
         extractCSS,
         extractSCSS,
-        new webpack.optimize.UglifyJsPlugin() // aka. minify
+        new webpack.optimize.UglifyJsPlugin({sourceMap: true}) // aka. minify
     ],
 
     // Source-map generation method. 'source-map' is the slowest, but also the highest quality.
