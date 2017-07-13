@@ -2,7 +2,8 @@
 // Optimizes for fast re-build time at the expense of a large bundle size.
 var Merge = require('webpack-merge'),
     path = require('path'),
-    commonConfig = require('./webpack.common.config.js');
+    commonConfig = require('./webpack.common.config.js'),
+    djangoDevServer = process.env.DJANGO_DEV_SERVER || 'http://localhost:8110';
 
 module.exports = Merge.smart(commonConfig, {
     entry: {
@@ -86,7 +87,7 @@ module.exports = Merge.smart(commonConfig, {
         // Webpack does not process all images in Insights, so proxy all image requests through to django static files
         proxy: {
             // This assumes that the developer is running the django dev server on the default host and port
-            '/static/images': 'http://localhost:9000'
+            '/static/images': djangoDevServer
         }
     },
 

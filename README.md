@@ -27,9 +27,15 @@ Getting Started
 
         $ npm start
 
+If you plan on running the Django development server on a different port or
+host, make sure to set the `DJANGO_DEV_SERVER` environmental variable. For
+example:
+
+        $ DJANGO_DEV_SERVER='http://localhost:9000' npm start
+
 5. In a separate terminal run the Django development server:
 
-        $ ./manage.py runserver 0.0.0.0:9000
+        $ ./manage.py runserver 0.0.0.0:8110
 
 By default the Django Default Toolbar is disabled. To enable it set the environmental variable ENABLE_DJANGO_TOOLBAR.
 
