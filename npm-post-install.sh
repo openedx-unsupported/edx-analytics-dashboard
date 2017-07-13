@@ -12,7 +12,7 @@ function CSS2SCSS() {
     fi
 }
 
-# "Convert" the CSS to SCSS since SASS can only import .scss files.
+# Rename the CSS to SCSS since SASS can only import .scss files.
 CSS2SCSS ${NPM_PATH}/bootstrap-accessibility-plugin/plugins/css/bootstrap-accessibility
 CSS2SCSS ${NPM_PATH}/nvd3/build/nv.d3
 
