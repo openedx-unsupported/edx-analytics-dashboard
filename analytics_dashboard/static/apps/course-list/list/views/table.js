@@ -11,8 +11,8 @@ define(function(require) {
 
         CourseListBaseHeaderCell = require('course-list/list/views/base-header-cell'),
         CourseIdAndNameCell = require('course-list/list/views/course-id-and-name-cell'),
-        courseListTableTemplate = require('text!course-list/list/templates/table.underscore'),
-        notAvailableTemplate = require('text!course-list/list/templates/table-data-not-available.underscore'),
+        courseListTableTemplate = require('course-list/list/templates/table.underscore'),
+        notAvailableTemplate = require('course-list/list/templates/table-data-not-available.underscore'),
         Utils = require('utils/utils'),
 
         INTEGER_COLUMNS = ['count', 'cumulative_count', 'count_change_7_days', 'verified_enrollment', 'passing_users'],

@@ -13,9 +13,9 @@ define(function(require) {
         LearnerNameView = require('learners/detail/views/learner-names'),
         LearnerSummaryFieldView = require('learners/detail/views/learner-summary-field'),
         LoadingView = require('components/loading/views/loading-view'),
-        chartLoadingTemplate = require('text!components/loading/templates/chart-loading.underscore'),
-        tableLoadingTemplate = require('text!components/loading/templates/table-loading.underscore'),
-        learnerDetailTemplate = require('text!learners/detail/templates/learner-detail.underscore');
+        chartLoadingTemplate = require('components/loading/templates/chart-loading.underscore'),
+        tableLoadingTemplate = require('components/loading/templates/table-loading.underscore'),
+        learnerDetailTemplate = require('learners/detail/templates/learner-detail.underscore');
 
     return Marionette.LayoutView.extend({
         className: 'learner-detail-container',

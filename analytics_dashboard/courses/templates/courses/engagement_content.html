@@ -4,7 +4,7 @@
 {% load staticfiles %}
 {% load waffle_tags %}
 {% load dashboard_extras %}
-{% load rjs %}
+{% load render_bundle from webpack_loader %}
 
 {% comment %}
 Individual course-centric engagement content view.
@@ -14,7 +14,7 @@ Individual course-centric engagement content view.
 
 {% block javascript %}
   {{ block.super }}
-  <script src="{% static_rjs 'js/engagement-content-main.js' %}"></script>
+  {% render_bundle 'engagement-content-main' %}
 {% endblock javascript %}
 
 {% block child_content %}

@@ -15,7 +15,7 @@ Prerequisites
 Getting Started
 ---------------
 1. Get the code (e.g. clone the repository).
-2. Install the Python/Node/Bower requirements:
+2. Install the Python/Node requirements:
 
         $ make develop
 
@@ -23,9 +23,19 @@ Getting Started
 
         $ make migrate
 
-4. Run the server:
+4. Run the webpack-dev-server:
 
-        $ ./manage.py runserver 0.0.0.0:9000
+        $ npm start
+
+If you plan on running the Django development server on a different port or
+host, make sure to set the `DJANGO_DEV_SERVER` environmental variable. For
+example:
+
+        $ DJANGO_DEV_SERVER='http://localhost:9000' npm start
+
+5. In a separate terminal run the Django development server:
+
+        $ ./manage.py runserver 0.0.0.0:8110
 
 By default the Django Default Toolbar is disabled. To enable it set the environmental variable ENABLE_DJANGO_TOOLBAR.
 
@@ -33,6 +43,8 @@ Alternatively, you can launch the server using:
 
         $ ENABLE_DJANGO_TOOLBAR=1 ./manage.py runserver
 
+Visit http://localhost:9000 in your browser and then login through the LMS to
+access Insights (see **Authentication & Authorization** below for more details).
 
 Site-Wide Announcements
 -----------------------
@@ -139,16 +151,34 @@ Note that only the following files (for each language) should be committed to th
 
 Asset Pipeline
 --------------
-Static files are managed via [django-compressor](http://django-compressor.readthedocs.org/) and [RequireJS](http://requirejs.org/).
-RequireJS (and r.js) are used to manage JavaScript dependencies. django-compressor compiles SASS, minifies JavaScript (
-using [Closure Compiler](https://developers.google.com/closure/compiler/)), and handles naming files to facilitate
-cache busting during deployment.
+Static files are managed via [webpack](https://webpack.js.org/).
 
-Both tools should operate seamlessly in a local development environment. When deploying to production, call
-`make static` to compile all static assets and move them to the proper location to be served.
+To run the webpack-dev-server, which will watch for changes to static files
+(`.js`, `.css`, `.sass`, `.underscore`, etc. files) and incrementally recompile
+webpack bundles and try to hot-reload them in your browser, run this in a
+terminal:
 
-When creating new pages that utilize RequireJS dependencies, remember to use the `static_rjs` templatetag to load
-the script, and to add a new module to `build.js`.
+    $ npm start
+
+Alternatively, you can compile production webpack bundles by running (runs
+webpack using the prod config and then exits):
+
+    $ make static
+
+Before committing new JavaScript, make sure it conforms to our style guide by
+running [eslint](http://eslint.org/), and fixing any errors.
+
+    $ npm run lint -s
+
+You can also try automatically fixing the errors and applying an additional
+level of standardized formatting with
+[prettier](https://github.com/prettier/prettier) by running
+[prettier-eslint](https://github.com/prettier/prettier-eslint).
+
+    $ npm run format
+
+Note: this will only format a subset of the JavaScript, we haven't converted the
+formatting of all of our files yet. Edit the directory list in `package.json`.
 
 Theming and Branding
 --------------------

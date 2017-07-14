@@ -7,7 +7,7 @@ define(function(require) {
         LearnerEngagementTableView;
 
     LearnerEngagementTableView = Marionette.LayoutView.extend({
-        template: _.template(require('text!learners/detail/templates/engagement-table.underscore')),
+        template: _.template(require('learners/detail/templates/engagement-table.underscore')),
         regions: {
             main: '.learner-engagement-table.analytics-table'
         },

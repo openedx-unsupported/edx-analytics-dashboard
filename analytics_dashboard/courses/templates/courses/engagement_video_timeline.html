@@ -2,13 +2,13 @@
 
 {% load dashboard_extras %}
 {% load i18n %}
-{% load rjs %}
+{% load render_bundle from webpack_loader %}
 
 {% block view-name %}view-course-engagement-video-timeline view-dashboard{% endblock view-name %}
 
 {% block javascript %}
     {{ block.super }}
-    <script src="{% static_rjs 'js/engagement-video-timeline-main.js' %}"></script>
+    {% render_bundle 'engagement-video-timeline-main' %}
 {% endblock javascript %}
 
 {% block hover_category %}engagement_video_timeline{% endblock hover_category %}

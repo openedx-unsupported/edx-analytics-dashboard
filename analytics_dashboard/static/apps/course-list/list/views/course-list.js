@@ -16,7 +16,7 @@ define(function(require) {
         ListView = require('components/generic-list/list/views/list'),
         NumResultsView = require('components/generic-list/list/views/num-results'),
 
-        listTemplate = require('text!course-list/list/templates/list.underscore'),
+        listTemplate = require('course-list/list/templates/list.underscore'),
 
         CourseListView;
 
