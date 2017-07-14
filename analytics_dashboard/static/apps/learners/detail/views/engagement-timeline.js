@@ -5,7 +5,7 @@ define(function(require) {
         Marionette = require('marionette'),
 
         TrendsView = require('views/trends-view'),
-        engagementTimelineTemplate = require('text!learners/detail/templates/engagement-timeline.underscore'),
+        engagementTimelineTemplate = require('learners/detail/templates/engagement-timeline.underscore'),
 
         LearnerEngagementTimelineView;
 

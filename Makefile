@@ -14,8 +14,7 @@ requirements.py:
 	pip install -q -r requirements/base.txt --exists-action w
 
 requirements.js:
-	npm install
-	$(NODE_BIN)/bower install
+	npm install --unsafe-perm
 
 test.requirements: requirements
 	pip install -q -r requirements/test.txt --exists-action w
@@ -35,8 +34,8 @@ test_python_no_compress: clean
 	--cover-package=analytics_dashboard --cover-package=common --cover-branches --cover-html --cover-html-dir=$(COVERAGE)/html/ \
 	--with-ignore-docstrings --cover-xml --cover-xml-file=$(COVERAGE)/coverage.xml
 
-test_compress: static_no_compress
-	python manage.py compress --settings=analytics_dashboard.settings.test
+test_compress: static
+	# No longer does anything. Kept for legacy support.
 
 test_python: test_compress test_python_no_compress
 
@@ -79,7 +78,7 @@ validate_python: test.requirements test_python quality
 #FIXME validate_js: requirements.js
 validate_js:
 	$(NODE_BIN)/gulp test
-	$(NODE_BIN)/gulp lint
+	npm run lint -s
 
 validate: validate_python validate_js
 
@@ -94,8 +93,8 @@ compile_translations:
 
 # creates the source django & djangojs files
 extract_translations:
-	cd analytics_dashboard && python ../manage.py makemessages -l en -v1 --ignore="docs/*" --ignore="src/*" --ignore="i18n/*" --ignore="assets/*" -d django
-	cd analytics_dashboard && python ../manage.py makemessages -l en -v1 --ignore="docs/*" --ignore="src/*" --ignore="i18n/*" --ignore="assets/*" -d djangojs
+	cd analytics_dashboard && python ../manage.py makemessages -l en -v1 --ignore="docs/*" --ignore="src/*" --ignore="i18n/*" --ignore="assets/*" --ignore="static/bundles/*" -d django
+	cd analytics_dashboard && python ../manage.py makemessages -l en -v1 --ignore="docs/*" --ignore="src/*" --ignore="i18n/*" --ignore="assets/*" --ignore="static/bundles/*" -d djangojs
 
 dummy_translations:
 	cd analytics_dashboard && i18n_tool dummy -v
@@ -115,10 +114,11 @@ detect_changed_source_translations:
 validate_translations: extract_translations compile_translations detect_changed_source_translations
 	cd analytics_dashboard && i18n_tool validate
 
-static_no_compress:
-	$(NODE_BIN)/r.js -o build.js
-	# collectstatic creates way too much output so silence it with verbosity=0
-	python manage.py collectstatic --noinput -v 0
+static_no_compress: static
+	# No longer does anything. Kept for legacy support.
 
-static: static_no_compress
-	python manage.py compress
+static:
+	$(NODE_BIN)/webpack --config webpack.prod.config.js
+	# collectstatic creates way too much output with the cldr-data directory output so silence that directory
+	echo "Running collectstatic while silencing cldr-data/main/* ..."
+	python manage.py collectstatic --noinput | sed -n '/.*node_modules\/cldr-data\/main\/.*/!p'

@@ -1,7 +1,7 @@
 {% extends "courses/base_grouped_content.html" %}
 
 {% load i18n %}
-{% load rjs %}
+{% load render_bundle from webpack_loader %}
 
 {% block view-name %}view-course-engagement-video-content view-dashboard{% endblock view-name %}
 
@@ -9,7 +9,7 @@
     {{ block.super }}
     {# override for custom JS loading #}
     {% block engagement_javascript %}
-        <script src="{% static_rjs 'js/engagement-video-content-main.js' %}"></script>
+        {% render_bundle 'engagement-video-content-main' %}
     {% endblock engagement_javascript %}
 {% endblock javascript %}
 

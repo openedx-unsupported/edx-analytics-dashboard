@@ -9,7 +9,7 @@ define(function(require) {
 
         CheckboxFilter = require('components/filter/views/checkbox-filter'),
         CourseListSearch = require('course-list/list/views/search'),
-        courseListControlsTemplate = require('text!course-list/list/templates/controls.underscore'),
+        courseListControlsTemplate = require('course-list/list/templates/controls.underscore'),
 
         CourseListControlsView;
 

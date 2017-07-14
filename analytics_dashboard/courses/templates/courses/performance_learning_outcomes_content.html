@@ -1,6 +1,6 @@
 {% extends "courses/base_performance_learning_outcomes.html" %}
 {% load i18n %}
-{% load rjs %}
+{% load render_bundle from webpack_loader %}
 
 {% block content_nav %}
     {% trans "Measured by learning outcome, how are learners performing?" as heading_note %}
@@ -9,7 +9,7 @@
 
 {% block javascript %}
     {{ block.super }}
-    <script src="{% static_rjs 'js/performance-learning-outcomes-content-main.js' %}"></script>
+    {% render_bundle 'performance-learning-outcomes-content-main' %}
 {% endblock javascript %}
 
 {% block chart_tip_text %}

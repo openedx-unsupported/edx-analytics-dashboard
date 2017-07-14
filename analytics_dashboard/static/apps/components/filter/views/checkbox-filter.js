@@ -7,7 +7,7 @@ define(function(require) {
     var $ = require('jquery'),
         _ = require('underscore'),
 
-        filterTemplate = require('text!components/filter/templates/checkbox-filter.underscore'),
+        filterTemplate = require('components/filter/templates/checkbox-filter.underscore'),
         Filter = require('components/filter/views/filter');
 
     return Filter.extend({

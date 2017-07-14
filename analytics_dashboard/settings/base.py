@@ -8,6 +8,7 @@ from sys import path
 ########## PATH CONFIGURATION
 # Absolute filesystem path to the Django project directory:
 DJANGO_ROOT = dirname(dirname(abspath(__file__)))
+BASE_DIR = DJANGO_ROOT
 
 # Absolute filesystem path to the top-level project folder:
 SITE_ROOT = dirname(DJANGO_ROOT)
@@ -106,18 +107,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
 )
-
-COMPRESS_PRECOMPILERS = (
-    ('text/x-scss', 'django_libsass.SassCompiler'),
-)
-
-COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter']
-COMPRESS_JS_FILTERS = ['compressor.filters.closure.ClosureCompilerFilter']
-COMPRESS_CLOSURE_COMPILER_BINARY = 'java -jar scripts/closure-compiler.jar'
-COMPRESS_CLOSURE_JS_ARGUMENTS = {'compilation_level': 'ADVANCED_OPTIMIZATIONS',}
-COMPRESS_CLOSURE_COMPILER_ARGUMENTS = "--language_in=ECMASCRIPT5"
 ########## END STATIC FILE CONFIGURATION
 
 
@@ -216,14 +206,12 @@ DJANGO_APPS = (
     'waffle',
     'django_countries',
     'pinax.announcements',
-    'compressor',
 )
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
     'core',
     'courses',
-    'django_rjs',
     'help',
     'soapbox',
 )
@@ -231,7 +219,8 @@ LOCAL_APPS = (
 THIRD_PARTY_APPS = (
     'release_util',
     'rest_framework',
-    'social_django'
+    'social_django',
+    'webpack_loader'
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -380,9 +369,6 @@ PLATFORM_NAME = 'Your Platform Name Here'
 APPLICATION_NAME = 'Insights'
 FULL_APPLICATION_NAME = '{0} {1}'.format(PLATFORM_NAME, APPLICATION_NAME)
 
-RJS_OUTPUT_DIR = 'dist'
-RJS_OPTIMIZATION_ENABLED = False
-
 
 ########## DOCS/HELP CONFIGURATION
 DOCS_ROOT = join(SITE_ROOT, 'docs')
@@ -461,6 +447,15 @@ LEARNER_API_LIST_DOWNLOAD_FIELDS = None
 ########## CACHE CONFIGURATION
 COURSE_SUMMARIES_CACHE_TIMEOUT = 3600  # 1 hour timeout
 ########## END CACHE CONFIGURATION
+
+########## WEBPACK CONFIGURATION
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/',
+        'STATS_FILE': os.path.join(SITE_ROOT, 'webpack-stats.json'),
+    }
+}
+########## END WEBPACK CONFIGURATION
 
 ########## CDN CONFIGURATION
 CDN_DOMAIN = None  # production will not use a CDN for static assets if this is set to a falsy value
