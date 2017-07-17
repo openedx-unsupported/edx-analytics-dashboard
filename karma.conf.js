@@ -82,7 +82,7 @@ module.exports = function(config) {
                     jquery: path.resolve('./node_modules/jquery'),
                     backbone: path.resolve('./node_modules/backbone')
                 }
-            },
+            }Dynamic require theme scss from env var,
 
             output: {
                 path: path.resolve('./assets/bundles/'),
@@ -141,6 +141,12 @@ module.exports = function(config) {
                     // the text so tests can be run if modules reference gettext
                     gettext: 'test/browser-shims/gettext',
                     ngettext: 'test/browser-shims/ngettext'
+                }),
+                // This defines the theme that the SCSS should be building with. For test, this is always open-edx
+                new webpack.DefinePlugin({
+                    'process.env': {
+                        'THEME_SCSS': 'sass/themes/open-edx.scss'
+                    }
                 })
             ]
         },
