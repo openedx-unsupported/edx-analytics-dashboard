@@ -21,7 +21,7 @@ define(function(require) {
         LoadingView = require('components/loading/views/loading-view'),
         ReturnLinkView = require('learners/detail/views/learner-return'),
 
-        rosterLoadingTemplate = require('text!components/loading/templates/plain-loading.underscore'),
+        rosterLoadingTemplate = require('components/loading/templates/plain-loading.underscore'),
 
         LearnersController;
 
@@ -128,6 +128,7 @@ define(function(require) {
                 }),
                 learnerModel = this.options.learnerCollection.get(username) || new LearnerModel(),
                 detailView;
+
             this.options.rootView.showChildView('navigation', new ReturnLinkView({
                 queryString: this.options.learnerCollection.getQueryString()
             }));

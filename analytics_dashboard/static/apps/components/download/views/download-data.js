@@ -6,7 +6,7 @@ define(function(require) {
         Marionette = require('marionette'),
 
         Utils = require('utils/utils'),
-        downloadDataTemplate = require('text!components/download/templates/download-data.underscore'),
+        downloadDataTemplate = require('components/download/templates/download-data.underscore'),
         DownloadDataView;
 
     DownloadDataView = Marionette.ItemView.extend({

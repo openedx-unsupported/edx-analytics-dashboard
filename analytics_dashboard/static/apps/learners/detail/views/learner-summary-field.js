@@ -4,7 +4,7 @@ define(function(require) {
     var _ = require('underscore'),
         Marionette = require('marionette'),
 
-        template = require('text!learners/detail/templates/learner-summary-field.underscore'),
+        template = require('learners/detail/templates/learner-summary-field.underscore'),
 
         LearnerSummaryFieldView;
 

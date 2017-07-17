@@ -8,7 +8,7 @@ define(function(require) {
 
         ActiveFiltersView,
 
-        activeFiltersTemplate = require('text!components/generic-list/list/templates/active-filters.underscore');
+        activeFiltersTemplate = require('components/generic-list/list/templates/active-filters.underscore');
 
     ActiveFiltersView = ParentView.extend({
         events: {

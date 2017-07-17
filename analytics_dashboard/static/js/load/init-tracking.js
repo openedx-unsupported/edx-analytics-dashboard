@@ -8,6 +8,7 @@
 define(['jquery', 'underscore', 'views/clickable-view', 'views/hoverable-view', 'views/tracking-view', 'utils/utils'],
     function($, _, ClickableView, HoverableView, TrackingView, Utils) {
         'use strict';
+
         var instrumentEvents = function(eventType, trackingViewClass, models) {
             _($('[data-track-type="' + eventType + '"]')).each(function(track) {
                 // get the properties that we want to send back for with

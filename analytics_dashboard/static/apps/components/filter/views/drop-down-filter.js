@@ -7,7 +7,7 @@ define(function(require) {
     var $ = require('jquery'),
         _ = require('underscore'),
 
-        filterTemplate = require('text!components/filter/templates/drop-down-filter.underscore'),
+        filterTemplate = require('components/filter/templates/drop-down-filter.underscore'),
         Filter = require('components/filter/views/filter');
 
     return Filter.extend({

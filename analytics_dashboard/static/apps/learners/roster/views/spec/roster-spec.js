@@ -37,7 +37,7 @@ define(function(require) {
             var results,
                 page = pageNum || 1;
             if (numPages) {
-                results = _.range(perPage * (page - 1), perPage * (page - 1) + perPage).map(function(index) {
+                results = _.range(perPage * (page - 1), (perPage * (page - 1)) + perPage).map(function(index) {
                     return {name: 'user ' + index, username: 'user_' + index};
                 });
             } else {
@@ -620,7 +620,7 @@ define(function(require) {
                     expectedRequestSubset[filterKey] = filterValue;
                     expect(getLastRequestParams()).toEqual(jasmine.objectContaining(expectedRequestSubset));
                 } else {
-                    expect(getLastRequestParams().hasOwnProperty(filterKey)).toBe(false);
+                    expect(Object.prototype.hasOwnProperty.call(getLastRequestParams(), 'filterKey')).toBe(false);
                 }
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(1, 1)));
                 expect($('option[value="' + filterValue + '"]')).toBeSelected();

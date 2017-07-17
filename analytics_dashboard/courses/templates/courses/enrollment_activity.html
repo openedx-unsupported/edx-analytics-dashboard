@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load dashboard_extras %}
 {% load staticfiles %}
-{% load rjs %}
+{% load render_bundle from webpack_loader %}
 {% load waffle_tags %}
 
 {% comment %}
@@ -13,7 +13,7 @@ Individual course-centric enrollment activity view.
 
 {% block javascript %}
   {{ block.super }}
-  <script src="{% static_rjs 'js/enrollment-activity-main.js' %}"></script>
+  {% render_bundle 'enrollment-activity-main' %}
 {% endblock javascript %}
 
 

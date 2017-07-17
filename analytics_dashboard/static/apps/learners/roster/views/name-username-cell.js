@@ -8,7 +8,7 @@ define(function(require) {
     var _ = require('underscore'),
 
         RowHeaderCell = require('components/generic-list/list/views/row-header-cell'),
-        nameUsernameCellTemplate = require('text!learners/roster/templates/name-username-cell.underscore'),
+        nameUsernameCellTemplate = require('learners/roster/templates/name-username-cell.underscore'),
 
         NameAndUsernameCell;
 

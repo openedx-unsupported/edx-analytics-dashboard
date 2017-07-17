@@ -1,4 +1,5 @@
-define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/utils', 'views/attribute-listener-view'],
+define(['datatables-bootstrap3-plugin/media/js/datatables-bootstrap3', 'jquery', 'js-natural-sort/dist/naturalsort',
+    'underscore', 'utils/utils', 'views/attribute-listener-view'],
     function(dt, $, naturalSort, _, Utils, AttributeListenerView) {
         'use strict';
 
@@ -89,7 +90,7 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
                     }
 
                     defs.push(def);
-                    iColumn++;
+                    iColumn += 1;
                 });
                 return defs;
             },
@@ -153,7 +154,7 @@ define(['dataTablesBootstrap', 'jquery', 'naturalSort', 'underscore', 'utils/uti
                     if (type === 'display' && !isNaN(value)) {
                         display = Utils.localizeNumber(value);
                         if (value >= maxNumber) {
-                            display = display + '+';
+                            display += '+';
                         }
                     }
                     return display;
