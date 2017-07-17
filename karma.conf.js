@@ -6,6 +6,7 @@ var path = require('path'),
 
 module.exports = function(config) {
     'use strict';
+
     config.set({
         // base path that will be used to resolve all patterns (eg. files, exclude)
         basePath: '',
@@ -82,7 +83,7 @@ module.exports = function(config) {
                     jquery: path.resolve('./node_modules/jquery'),
                     backbone: path.resolve('./node_modules/backbone')
                 }
-            }Dynamic require theme scss from env var,
+            },
 
             output: {
                 path: path.resolve('./assets/bundles/'),
@@ -145,7 +146,7 @@ module.exports = function(config) {
                 // This defines the theme that the SCSS should be building with. For test, this is always open-edx
                 new webpack.DefinePlugin({
                     'process.env': {
-                        'THEME_SCSS': 'sass/themes/open-edx.scss'
+                        THEME_SCSS: 'sass/themes/open-edx.scss'
                     }
                 })
             ]
