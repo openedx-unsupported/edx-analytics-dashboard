@@ -104,6 +104,12 @@ module.exports = {
             $: 'jquery',
             jQuery: 'jquery'
         }),
+        // This defines the theme that the SCSS should be building with
+        new webpack.DefinePlugin({
+            'process.env': {
+                'THEME_SCSS': JSON.stringify(process.env.THEME_SCSS || 'sass/themes/open-edx.scss')
+            }
+        }),
         // AggressiveMergingPlugin in conjunction with these CommonChunkPlugins turns many GBs worth of individual
         // chunks into one or two large chunks that entry chunks reference. It reduces output bundle size a lot.
         new webpack.optimize.AggressiveMergingPlugin({minSizeReduce: 1.1}),

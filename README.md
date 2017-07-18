@@ -185,7 +185,9 @@ Theming and Branding
 We presently have support for basic branding of the logo displayed in the header and on error pages. This is facilitated
 by including an additional SCSS file specifying the path and dimensions of the logo. The default Open edX theme located
 at `static/sass/themes/open-edx.scss` is a good starting point for those interested in changing the logo. Once your
-customizations are complete, update the value of the setting `THEME_SCSS` with the path to your new SCSS file.
+customizations are complete, update the value of the yaml configuration setting `INSIGHTS_THEME_SCSS` with the path to
+your new SCSS file. If running Webpack manually, you will have to set the environmental variable `THEME_SCSS` to your
+file before running Webpack.
 
 Developers may also choose to further customize the site by changing the variables loaded by SCSS. This is most easily
 accomplished via the steps below. This will allow for easily changing basic colors and spacing.

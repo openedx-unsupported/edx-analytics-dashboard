@@ -379,12 +379,6 @@ with open(join(DOCS_ROOT, "config.ini")) as config_file:
     DOCS_CONFIG.readfp(config_file)
 ########## END DOCS/HELP CONFIGURATION
 
-
-########## THEME CONFIGURATION
-# Path of the SCSS file to use for the site's theme
-THEME_SCSS = 'sass/themes/open-edx.scss'
-########## END THEME CONFIGURATION
-
 ########## COURSE API
 COURSE_API_URL = None
 GRADING_POLICY_API_URL = None

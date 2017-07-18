@@ -6,6 +6,7 @@ var path = require('path'),
 
 module.exports = function(config) {
     'use strict';
+
     config.set({
         // base path that will be used to resolve all patterns (eg. files, exclude)
         basePath: '',
@@ -141,6 +142,12 @@ module.exports = function(config) {
                     // the text so tests can be run if modules reference gettext
                     gettext: 'test/browser-shims/gettext',
                     ngettext: 'test/browser-shims/ngettext'
+                }),
+                // This defines the theme that the SCSS should be building with. For test, this is always open-edx
+                new webpack.DefinePlugin({
+                    'process.env': {
+                        THEME_SCSS: 'sass/themes/open-edx.scss'
+                    }
                 })
             ]
         },
