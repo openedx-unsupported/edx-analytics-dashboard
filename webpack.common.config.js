@@ -107,7 +107,7 @@ module.exports = {
         // This defines the theme that the SCSS should be building with
         new webpack.DefinePlugin({
             'process.env': {
-                'THEME_SCSS': JSON.stringify(process.env.THEME_SCSS) || 'sass/themes/open-edx.scss'
+                'THEME_SCSS': JSON.stringify(process.env.THEME_SCSS || 'sass/themes/open-edx.scss')
             }
         }),
         // AggressiveMergingPlugin in conjunction with these CommonChunkPlugins turns many GBs worth of individual
