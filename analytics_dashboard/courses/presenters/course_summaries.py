@@ -19,22 +19,33 @@ class CourseSummariesPresenter(BasePresenter):
             return all_summaries
         return [summary for summary in all_summaries if summary['course_id'] in course_ids]
 
-    def _get_all_summaries(self):
+    def _get_summaries(self, course_ids=None):
+        """Returns list of course summaries.
+
+        If requesting full list and it's not cached or requesting a subset of course_summaries with the course_ids
+        parameter, summaries will be fetched from the analytics data API.
         """
-        Returns all course summaries. If not cached, summaries will be fetched
-        from the analytics data API.
-        """
-        all_summaries = cache.get(self.CACHE_KEY)
-        if all_summaries is None:
+        summaries = None
+        if course_ids is None:
+            # we only cache the full list of summaries
+            summaries = cache.get(self.CACHE_KEY)
+        if summaries is None:
             exclude = ['programs']  # we make a separate call to the programs endpoint
             if not switch_is_active('enable_course_passing'):
                 exclude.append('passing_users')
-            all_summaries = self.client.course_summaries().course_summaries(exclude=exclude)
-            all_summaries = [
-                {field: ('' if val is None and field in self.NON_NULL_STRING_FIELDS else val)
-                 for field, val in summary.items()} for summary in all_summaries]
-            cache.set(self.CACHE_KEY, all_summaries, settings.COURSE_SUMMARIES_CACHE_TIMEOUT)
-        return all_summaries
+            summaries = self.client.course_summaries().course_summaries(course_ids=course_ids, exclude=exclude)
+            summaries = [
+                {
+                    field: (
+                        '' if val is None and field in self.NON_NULL_STRING_FIELDS
+                        else val
+                    )
+                    for field, val in summary.items()
+                } for summary in summaries
+            ]
+            if course_ids is None:
+                cache.set(self.CACHE_KEY, summaries, settings.COURSE_SUMMARIES_CACHE_TIMEOUT)
+        return summaries
 
     def _get_last_updated(self, summaries):
         # all the create times should be the same, so just use the first one
@@ -48,15 +59,20 @@ class CourseSummariesPresenter(BasePresenter):
         Returns course summaries that match those listed in course_ids.  If
         no course IDs provided, all data will be returned.
         """
-        all_summaries = self._get_all_summaries()
-        filtered_summaries = self.filter_summaries(all_summaries, course_ids)
+        if course_ids and len(course_ids) > settings.COURSE_SUMMARIES_IDS_CUTOFF:
+            # Request all courses from the Analytics API and filter here
+            all_summaries = self._get_summaries()
+            summaries = self.filter_summaries(all_summaries, course_ids)
+        else:
+            # Request courses only in ID list from the Analytics API
+            summaries = self._get_summaries(course_ids=course_ids)
 
         # sort by title by default with "None" values at the end
-        filtered_summaries = sorted(
-            filtered_summaries,
+        summaries = sorted(
+            summaries,
             key=lambda x: (not x['catalog_course_title'], x['catalog_course_title']))
 
-        return filtered_summaries, self._get_last_updated(filtered_summaries)
+        return summaries, self._get_last_updated(summaries)
 
     def get_course_summary_metrics(self, summaries):
         summary = {

@@ -1,5 +1,9 @@
-require(['vendor/domReady!', 'jquery', 'load/init-page', 'apps/learners/app/app'], function(doc, $, page, LearnersApp) {
+require('backgrid-paginator/backgrid-paginator.min.css');
+require('nprogress/nprogress.css');
+
+require(['jquery', 'load/init-page', 'apps/learners/app/app'], function($, page, LearnersApp) {
     'use strict';
+
     var modelData = page.models.courseModel,
         app = new LearnersApp({
             courseId: modelData.get('courseId'),

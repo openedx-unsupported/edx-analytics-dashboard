@@ -5,7 +5,7 @@ define(function(require) {
         Marionette = require('marionette');
 
     return Marionette.ItemView.extend({
-        template: _.template(require('text!learners/detail/templates/learner-names.underscore')),
+        template: _.template(require('learners/detail/templates/learner-names.underscore')),
         events: {
             'click .learner-email a': 'onEmailClick'
         },

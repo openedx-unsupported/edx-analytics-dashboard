@@ -33,8 +33,3 @@ COURSE_API_KEY = 'test_course_api_key'
 DATA_API_URL = 'http://data-api-host/api/v0'
 
 LOGGING = get_logger_config(debug=DEBUG, dev_env=True, local_loglevel='DEBUG')
-
-# Use production settings for asset compression so that asset compilation can be tested on the CI server.
-COMPRESS_ENABLED = True
-COMPRESS_OFFLINE = True
-RJS_OPTIMIZATION_ENABLED = True

@@ -3,7 +3,8 @@
 {% load dashboard_extras %}
 {% load i18n %}
 {% load staticfiles %}
-{% load rjs %}
+{% load render_bundle from webpack_loader %}
+{% load get_files from webpack_loader %}
 
 {% comment %}
 View of individual learners within a course.
@@ -13,13 +14,15 @@ View of individual learners within a course.
 
 {% block stylesheets %}
     {{ block.super }}
-    <link rel="stylesheet" href="/static/bower_components/backgrid-paginator/backgrid-paginator.min.css" type="text/css">
-    <link rel="stylesheet" href="/static/bower_components/nprogress/nprogress.css" type="text/css">
+	{% get_files 'learners-main' 'css' as common_css %}
+    {% for css_file in common_css %}
+        <link rel="stylesheet" href="{{ css_file.publicPath }}" type="text/css">
+    {% endfor %}
 {% endblock stylesheets %}
 
 {% block javascript %}
     {{ block.super }}
-    <script src="{% static_rjs 'apps/learners/app/learners-main.js' %}"></script>
+    {% render_bundle 'learners-main' %}
 {% endblock javascript %}
 
 {% block child_content %}

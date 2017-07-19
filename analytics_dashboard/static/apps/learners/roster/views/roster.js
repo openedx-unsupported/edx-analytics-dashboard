@@ -10,6 +10,7 @@ define(function(require) {
 
     var _ = require('underscore'),
 
+        ListUtils = require('components/utils/utils'),
         ListView = require('components/generic-list/list/views/list'),
         ActiveDateRangeView = require('learners/roster/views/activity-date-range'),
         ActiveFiltersView = require('learners/roster/views/active-filters'),
@@ -17,7 +18,7 @@ define(function(require) {
         LearnerResultsView = require('learners/roster/views/results'),
         RosterControlsView = require('learners/roster/views/controls'),
         NumResultsView = require('components/generic-list/list/views/num-results'),
-        rosterTemplate = require('text!learners/roster/templates/roster.underscore'),
+        rosterTemplate = require('learners/roster/templates/roster.underscore'),
 
         LearnerRosterView;
 
@@ -36,7 +37,16 @@ define(function(require) {
         },
 
         initialize: function(options) {
+            var eventTransformers;
+
             ListView.prototype.initialize.call(this, options);
+
+            eventTransformers = {
+                serverError: ListUtils.EventTransformers.serverErrorToAppError,
+                networkError: ListUtils.EventTransformers.networkErrorToAppError,
+                sync: ListUtils.EventTransformers.syncToClearError
+            };
+            ListUtils.mapEvents(this.options.courseMetadata, eventTransformers, this);
 
             this.childViews = [
                 {

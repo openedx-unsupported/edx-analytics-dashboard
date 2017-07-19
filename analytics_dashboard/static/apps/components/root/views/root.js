@@ -13,7 +13,7 @@ define(function(require) {
 
         AlertView = require('components/alert/views/alert-view'),
         HeaderView = require('components/header/views/header'),
-        rootTemplate = require('text!components/root/templates/root.underscore'),
+        rootTemplate = require('components/root/templates/root.underscore'),
 
         RootView;
 
