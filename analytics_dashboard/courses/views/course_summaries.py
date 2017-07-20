@@ -19,6 +19,7 @@ from courses.views import (
     TrackedViewMixin,
 )
 from courses.views.csv import DatetimeCSVResponseMixin
+from courses.presenters.course_aggregate_data import CourseAggregateDataPresenter
 from courses.presenters.course_summaries import CourseSummariesPresenter
 from courses.presenters.programs import ProgramsPresenter
 from rest_framework_csv.renderers import CSVRenderer
@@ -42,21 +43,15 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
 
     def get_context_data(self, **kwargs):
         context = super(CourseIndex, self).get_context_data(**kwargs)
-        courses = permissions.get_user_course_permissions(self.request.user)
-        if not courses:
+        course_ids = permissions.get_user_course_permissions(self.request.user)
+        if not course_ids:
             # The user is probably not a course administrator and should not be using this application.
             raise PermissionDenied
 
-        summaries_presenter = CourseSummariesPresenter()
-        summaries, last_updated = summaries_presenter.get_course_summaries(courses)
-
-        context.update({
-            'update_message': self.get_last_updated_message(last_updated)
-        })
-
         enable_course_filters = switch_is_active('enable_course_filters')
         data = {
-            'course_list_json': summaries,
+            'update_message': '',
+            'course_list_json': [], #summaries,
             'enable_course_filters': enable_course_filters,
             'enable_passing_users': switch_is_active('enable_course_passing'),
             'course_list_download_url': reverse('courses:index_csv'),
@@ -69,7 +64,10 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
 
         context['js_data']['course'] = data
         context['page_data'] = self.get_page_data(context)
-        context['summary'] = summaries_presenter.get_course_summary_metrics(summaries)
+
+        aggregate_data_presenter = CourseAggregateDataPresenter()
+        aggregate_data = aggregate_data_presenter.get_course_aggregate_data(course_ids)
+        context['summary'] = aggregate_data
 
         return context
 

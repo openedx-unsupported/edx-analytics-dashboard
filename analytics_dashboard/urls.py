@@ -38,7 +38,8 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    url(r'^api/learner_analytics/', include('learner_analytics_api.urls'))
+    url(r'^api/learner_analytics/', include('learner_analytics_api.urls')),
+    url(r'^api/course_summaries/', include('course_summaries_api.urls')),
 ]
 
 
