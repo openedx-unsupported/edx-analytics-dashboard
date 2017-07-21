@@ -32,6 +32,7 @@ export default class CourseListApp extends Marionette.Application {
     const programsCollection = new ProgramsCollection(this.options.programsJson);
 
     const courseListCollection = new CourseListCollection(this.options.courseListJson, {
+      url: '/api/course_summaries/v0/course_summaries/',
       downloadUrl: this.options.courseListDownloadUrl,
       filterNameToDisplay: {
         pacing_type: {

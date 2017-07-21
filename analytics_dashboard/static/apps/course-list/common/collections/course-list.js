@@ -24,7 +24,7 @@ define(function(require) {
 
     CourseListCollection = ListCollection.extend({
 
-        mode: 'client',
+        mode: 'server',
 
         model: CourseModel,
 
@@ -43,13 +43,13 @@ define(function(require) {
             ListCollection.prototype.initialize.call(this, models, options);
 
             // original collection are saved for filtering and restoring when filters are unset
-            this.shadowCollection = new ShadowCourseListCollection(models);
+            /*this.shadowCollection = new ShadowCourseListCollection(models);
             this.shadowCollection.listenTo(this, 'add', function(model, collection, ops) {
                 this.add(model, ops);
             });
             this.shadowCollection.listenTo(this, 'remove', function(model, collection, ops) {
                 this.remove(model, ops);
-            });
+            });*/
 
             this.programsCollection = options.programsCollection || new ProgramsCollection([]);
             // add program_ids to programs array on every course
@@ -190,10 +190,11 @@ define(function(require) {
         refresh: function() {
             var filter = this.constructFilter();
             ListCollection.prototype.refresh.call(this);
-            this.fullCollection.reset(filter.filter(this.shadowCollection), {reindex: false});
+            //this.fullCollection.reset(filter.filter(this.shadowCollection), {reindex: false});
             this.trigger('backgrid:refresh', {collection: this});
-        },
+        }/*,
 
+        /*
         // Override PageableCollection's setPage() method because it has a bug where it assumes that backgrid getPage()
         // will always return a promise. It does not in client mode.
         // Note: this function will only work in client mode. It should be removed if this collection is used
@@ -208,6 +209,7 @@ define(function(require) {
             deferred.resolve();
             return deferred.promise();
         }
+        */
     });
 
     return CourseListCollection;

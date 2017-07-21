@@ -18,9 +18,9 @@ from courses.views import (
     TemplateView,
     TrackedViewMixin,
 )
+from course_summaries_api.v0.presenters import CourseSummariesPresenter
 from courses.views.csv import DatetimeCSVResponseMixin
 from courses.presenters.course_aggregate_data import CourseAggregateDataPresenter
-from courses.presenters.course_summaries import CourseSummariesPresenter
 from courses.presenters.programs import ProgramsPresenter
 from rest_framework_csv.renderers import CSVRenderer
 
@@ -47,11 +47,16 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
         if not course_ids:
             # The user is probably not a course administrator and should not be using this application.
             raise PermissionDenied
+        course_ids = None  # @@TODO remove
+        courses = None  # @@TODO remove
 
         enable_course_filters = switch_is_active('enable_course_filters')
+        summaries_data = (
+            CourseSummariesPresenter().get_course_summaries_response(**kwargs)
+        )
         data = {
             'update_message': '',
-            'course_list_json': [], #summaries,
+            'course_list_json': summaries_data['results'],
             'enable_course_filters': enable_course_filters,
             'enable_passing_users': switch_is_active('enable_course_passing'),
             'course_list_download_url': reverse('courses:index_csv'),

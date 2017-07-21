@@ -9,7 +9,8 @@ class CourseSummariesPresenter(BasePresenter):
         summaries_data = summaries_client.course_summaries(course_ids, **kwargs)
         summaries = summaries_data.get('results')
         last_updated = self._get_last_updated(summaries) if summaries else None
-        return summaries_data, last_updated
+        summaries_data.update({'last_updated': last_updated})
+        return summaries_data
 
     @classmethod
     def _get_last_updated(cls, summaries):
