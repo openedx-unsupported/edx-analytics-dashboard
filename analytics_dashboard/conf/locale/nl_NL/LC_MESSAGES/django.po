@@ -10,8 +10,9 @@
 # devette <inactive+devette@transifex.com>, 2014
 # Jelmer Bouman <jelmer_bouman@hotmail.com>, 2015
 # joachim_gregoor <joachim.gregoor@pxl.be>, 2014
+# Kenny Verbeke <kenny.verbeke@gmail.com>, 2017
 # Lynn <lynn_girl@live.nl>, 2015
-# Mattijs Joosten <mattijsjoosten@yahoo.com>, 2017
+# Tonkiro <mattijsjoosten@yahoo.com>, 2017
 # Tom Boeckx <s2mash@yahoo.com>, 2016
 # Vikki Quigley, 2016
 msgid ""
@@ -19,8 +20,8 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2017-06-06 21:51+0000\n"
-"Last-Translator: Ned Batchelder <ned@edx.org>\n"
+"PO-Revision-Date: 2017-07-20 06:48+0000\n"
+"Last-Translator: Kenny Verbeke <kenny.verbeke@gmail.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/open-edx/edx-platform/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -73,11 +74,11 @@ msgstr "Betrokkenheid"
 
 #: core/templates/core/landing.html:52
 msgid "How well is my content supporting learners?"
-msgstr ""
+msgstr "Hoe goed ondersteunt mijn inhoud de leerlingen?"
 
 #: core/templates/core/landing.html:53
 msgid "Adjust your course based on where learners are struggling."
-msgstr ""
+msgstr "Pas je cursus aan gebaseerd op waar studenten moeite mee hebben. "
 
 #: core/templates/core/landing.html:54
 #: courses/tests/test_views/test_performance.py:48
@@ -128,7 +129,7 @@ msgstr "{statistic}%"
 #: courses/presenters/engagement.py:126
 #, python-brace-format
 msgid "{percentage} of current learners"
-msgstr ""
+msgstr "{percentage} van de leerlingen"
 
 #: courses/presenters/enrollment.py:23
 msgid "Female"
@@ -242,7 +243,7 @@ msgstr "Onderdeel {part_number}"
 #: courses/templates/courses/_base_content_nav.html:25
 #, python-format
 msgid "%(all_sections_text)s"
-msgstr ""
+msgstr "%(all_sections_text)s"
 
 #: courses/templates/courses/_graded_content_nav.html:16
 msgid "Select Assignment Type"
@@ -315,7 +316,7 @@ msgstr "Volgende video"
 msgid ""
 "This chart shows the most common answers submitted by learners, ordered by "
 "frequency."
-msgstr ""
+msgstr "Deze grafiek toont de meest voorkomende antwoorden gegeven door leerlingen, geordend op frequentie van gebruik."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html:82
@@ -349,21 +350,21 @@ msgstr "Download CSV"
 
 #: courses/templates/courses/base_performance_answer_distribution.html:117
 msgid "Learner Submission Counts"
-msgstr ""
+msgstr "Aantal inzendingen door leerlingen"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html:4
 msgid "Learners (Self-Reported)"
-msgstr ""
+msgstr "Leerlingen (zelf-gerapporteerd)"
 
 #: courses/templates/courses/engagement_content.html:23
 msgid "Weekly Learner Engagement"
-msgstr ""
+msgstr "Wekelijkse betrokkenheid van leerlingen"
 
 #: courses/templates/courses/engagement_content.html:24
 #: courses/views/__init__.py:556
 msgid "How many learners are interacting with my course?"
-msgstr ""
+msgstr "Hoeveel leerlingen zijn actief bezig met mijn cursus?"
 
 #: courses/templates/courses/engagement_content.html:31
 #: courses/views/__init__.py:325 courses/views/__init__.py:639
@@ -375,19 +376,19 @@ msgstr "Leerlingen"
 msgid ""
 "The number of active learners, and the number of learners who engaged in "
 "specific activities, over time."
-msgstr ""
+msgstr "De hoeveelheid actieve leerlingen en de hoeveelheid leerlingen die zich bezig hebben gehouden met specifieke activiteiten, in de loop der tijd."
 
 #: courses/templates/courses/engagement_content.html:48
 msgid "Learner Activity Metrics"
-msgstr ""
+msgstr "Gegevens over de activiteit van leerlingen"
 
 #: courses/templates/courses/engagement_content.html:54
 msgid "Active Learners Last Week"
-msgstr ""
+msgstr "Actieve leerligen afgelopen week"
 
 #: courses/templates/courses/engagement_content.html:55
 msgid "Learners who visited at least one page in the course content."
-msgstr ""
+msgstr "Leerlingen die ten minste één pagina van de cursusinhoud hebben bezocht."
 
 #. Translators: This is a label indicating the number of learners who watched
 #. a video.
@@ -397,7 +398,7 @@ msgstr "Afgelopen week een video bekeken"
 
 #: courses/templates/courses/engagement_content.html:62
 msgid "Learners who played one or more videos."
-msgstr ""
+msgstr "Leerlingen die één of meer videos hebben afgespeeld."
 
 #. Translators: This is a label indicating the number of learners who tried a
 #. problem.
@@ -409,18 +410,18 @@ msgstr "Afgelopen week een opgave geprobeerd"
 msgid ""
 "Learners who submitted an answer for a standard problem. Not all problem "
 "types are included."
-msgstr ""
+msgstr "Leerlingen die een antwoord voor een standaardopgave hebben ingeleverd. Niet alle soorten opgaves zijn hierbij inbegrepen."
 
 #. Translators: This is a label indicating the number of learners who posted
 #. in a forum discussion.
 #: courses/templates/courses/engagement_content.html:76
 msgid "Participated in Discussions Last Week"
-msgstr ""
+msgstr "Deelgenomen aan een discussie in de voorbije week"
 
 #: courses/templates/courses/engagement_content.html:77
 msgid ""
 "Learners who added a post, response, or comment to any course discussion."
-msgstr ""
+msgstr "Leerlingen die een bericht, een antwoord, een commentaar of een discussie hebben aangemaakt"
 
 #: courses/templates/courses/engagement_content.html:89
 #: courses/templates/courses/engagement_content.html:97
@@ -436,7 +437,7 @@ msgstr "Video views"
 
 #: courses/templates/courses/engagement_video_by_section.html:5
 msgid "How did learners interact with videos in this section?"
-msgstr ""
+msgstr "Hoe gingen leerlingen om met video in deze sectie?"
 
 #: courses/templates/courses/engagement_video_by_section.html:10
 msgid ""
@@ -447,18 +448,18 @@ msgstr "Elke balk toont het gemiddelde aantal volledige en onvolledige bezichtig
 
 #: courses/templates/courses/engagement_video_by_subsection.html:10
 msgid "How did learners interact with videos in this subsection?"
-msgstr ""
+msgstr "Hoe gingen leerlingen om met video in deze subsectie?"
 
 #: courses/templates/courses/engagement_video_by_subsection.html:15
 msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
 "Click to understand where learners drop off and which parts they replay."
-msgstr ""
+msgstr "Elke balk toont het aantal volledige en onvolledige bezichtigingen voor de betreffende video. Klik om te begrijpen waar studenten stoppen met kijken en welke onderdelen ze herbekijken."
 
 #: courses/templates/courses/engagement_video_course.html:5
 #: courses/views/__init__.py:569
 msgid "How did learners interact with course videos?"
-msgstr ""
+msgstr "Hoe gingen leerlingen om met video's in deze cursus?"
 
 #: courses/templates/courses/engagement_video_course.html:10
 msgid ""
@@ -480,7 +481,7 @@ msgstr "Wat waren de kijkpatronen voor deze video?"
 msgid ""
 "The number of learners who watched each segment of the video, and the number"
 " of replays for each segment."
-msgstr ""
+msgstr "Het aantal leerlingen die elk onderdeel van een video bekeken hebben en het aantal keren dat ze delen opnieuw bekeken."
 
 #: courses/templates/courses/engagement_video_timeline.html:37
 msgid "Collapse Preview"
@@ -500,7 +501,7 @@ msgstr "Voltooingsgraad"
 
 #: courses/templates/courses/engagement_video_timeline.html:62
 msgid "Estimated percentage of learners who watched the entire video."
-msgstr ""
+msgstr "Geschatte percentage van leerlingen die de volledige video bekeken hebben."
 
 #: courses/templates/courses/engagement_video_timeline.html:66
 msgid "Started Video"
@@ -508,7 +509,7 @@ msgstr "Gestarte video"
 
 #: courses/templates/courses/engagement_video_timeline.html:67
 msgid "Learners who started watching the video."
-msgstr ""
+msgstr "Leerlingen die gestart zijn met het bekijken van de video."
 
 #: courses/templates/courses/engagement_video_timeline.html:71
 msgid "Finished Video"
@@ -516,7 +517,7 @@ msgstr "Beëindigde video"
 
 #: courses/templates/courses/engagement_video_timeline.html:72
 msgid "Learners who watched the video to the end."
-msgstr ""
+msgstr "Leerlingen die de video tot het einde hebben bekeken."
 
 #: courses/templates/courses/engagement_video_timeline.html:88
 msgid "Video Viewing Over Time"
@@ -524,12 +525,12 @@ msgstr "Video Bezichtigingen Over Tijd"
 
 #: courses/templates/courses/enrollment_activity.html:24
 msgid "Daily Learner Enrollment"
-msgstr ""
+msgstr "Dagelijkse inschrijvingen"
 
 #: courses/templates/courses/enrollment_activity.html:25
 #: courses/views/__init__.py:497
 msgid "How many learners are in my course?"
-msgstr ""
+msgstr "Hoeveel leerlingen zitten er in mijn cursus?"
 
 #: courses/templates/courses/enrollment_activity.html:32
 msgid "Enrollments"
@@ -557,7 +558,7 @@ msgstr "Totaal inschrijvingen"
 #. Translators: This is a label indicating the number of learners in a course.
 #: courses/templates/courses/enrollment_activity.html:61
 msgid "Learners who ever enrolled in the course."
-msgstr ""
+msgstr "Leerlingen die ooit eens ingeschreven waren voor deze cursus."
 
 #. Translators: This is a label to identify current learner enrollment.
 #. Translators: This is a label to identify the current number of learners in
@@ -571,7 +572,7 @@ msgstr "Huidige inschrijving"
 #. a course.
 #: courses/templates/courses/enrollment_activity.html:70
 msgid "Learners currently enrolled in the course."
-msgstr ""
+msgstr "Leerlingen die momenteel ingeschreven zijn voor de cursus."
 
 #. Translators: This is a label indicating the change in the number of
 #. learners enrolled in a course since the previous week.
@@ -601,7 +602,7 @@ msgstr "Gecontroleerde Inschrijving"
 msgid ""
 "Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
-msgstr ""
+msgstr "Het aantal leerlingen die momenteel ingeschreven zijn om een geverifieerd certificaat te behalen."
 
 #: courses/templates/courses/enrollment_activity.html:99
 #: courses/templates/courses/enrollment_activity.html:107
@@ -614,7 +615,7 @@ msgstr "Inschrijvingen in de loop der tijd"
 #: courses/templates/courses/enrollment_demographics_age.html:26
 #: courses/views/__init__.py:507
 msgid "How old are my learners?"
-msgstr ""
+msgstr "Wat is de leeftijd van mijn leerlingen?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -624,7 +625,7 @@ msgstr ""
 msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
 "learners who provided a year of birth."
-msgstr ""
+msgstr "Dit leeftijdshistogram geeft data weer die berekend zijn voor de %(value)s%% van de ingeschreven leerlingen die hun geboortedatum hebben opgegeven."
 
 #: courses/templates/courses/enrollment_demographics_age.html:56
 msgid "Age Metrics"
@@ -634,7 +635,7 @@ msgstr "Leeftijd Metrieken"
 #. learners.
 #: courses/templates/courses/enrollment_demographics_age.html:65
 msgid "Median Learner Age"
-msgstr ""
+msgstr "Mediaan van leeftijd van leerlingen"
 
 #: courses/templates/courses/enrollment_demographics_age.html:66
 msgid ""
