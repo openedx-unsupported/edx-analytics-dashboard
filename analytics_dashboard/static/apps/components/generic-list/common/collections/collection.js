@@ -154,7 +154,7 @@ define(function(require) {
         /*
          * Returns current number of results after filters and search applied. Works in
          * client and server mode.
-         **/
+         */
         getResultCount: function() {
             var count = 0;
             if (this.fullCollection) {
