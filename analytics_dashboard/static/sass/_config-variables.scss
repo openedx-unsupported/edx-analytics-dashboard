@@ -285,3 +285,6 @@ $fa-font-path: "~font-awesome/fonts";
 $open-sans-font-path: '~edx-pattern-library/pattern-library/fonts/OpenSans';
 
 $navbar-padding: 30px;
+
+// Ignore Bourbon deprecation warnings spamming our logs
+$output-bourbon-deprecation-warnings: false !default;

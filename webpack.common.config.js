@@ -45,7 +45,7 @@ module.exports = {
             marionette: 'backbone.marionette',
             // Internal Globalize.js code seems to expect 'cldr' to refer to this file in cldrjs.
             cldr: 'cldrjs/dist/cldr',
-            
+
             // Aliases used in tests
             uitk: 'edx-ui-toolkit/src/js',
             URI: 'urijs/src/URI',

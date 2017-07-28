@@ -99,4 +99,5 @@ module.exports = Merge.smart(commonConfig, {
     // Source-map generation method. 'eval' is the fastest, but shouldn't be used in production (it increases file sizes
     // a lot). If source-maps are desired in production, 'source-map' should be used (slowest, but highest quality).
     devtool: 'eval'
+    // devtool: 'cheap-module-source-map' // use this instead for better (but slightly slower) source-maps
 });
