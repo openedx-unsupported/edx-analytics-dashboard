@@ -37,7 +37,10 @@ define(function(require) {
 
         showChildren: function() {
             _.each(this.childViews, _.bind(function(child) {
-                this.showChildView(child.region, new child.class(child.options));
+                // es2015 uses default as the constructor function
+                var childView = _.isFunction(child.class, 'class') ?
+                    new child.class(child.options) : new child.class.default(child.options);
+                this.showChildView(child.region, childView);
             }, this));
         }
     });

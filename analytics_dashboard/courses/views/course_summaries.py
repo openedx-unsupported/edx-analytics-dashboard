@@ -47,16 +47,10 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
         if not course_ids:
             # The user is probably not a course administrator and should not be using this application.
             raise PermissionDenied
-        course_ids = None  # @@TODO remove
-        courses = None  # @@TODO remove
 
         enable_course_filters = switch_is_active('enable_course_filters')
-        summaries_data = (
-            CourseSummariesPresenter().get_course_summaries_response(**kwargs)
-        )
         data = {
             'update_message': '',
-            'course_list_json': summaries_data['results'],
             'enable_course_filters': enable_course_filters,
             'enable_passing_users': switch_is_active('enable_course_passing'),
             'course_list_download_url': reverse('courses:index_csv'),
@@ -64,7 +58,7 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
 
         if enable_course_filters:
             programs_presenter = ProgramsPresenter()
-            programs = programs_presenter.get_programs(course_ids=courses)
+            programs = programs_presenter.get_programs(course_ids=course_ids)
             data['programs_json'] = programs
 
         context['js_data']['course'] = data
@@ -103,7 +97,7 @@ class CourseIndexCSV(CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixi
         enable_course_filters = switch_is_active('enable_course_filters')
 
         presenter = CourseSummariesPresenter()
-        summaries, _ = presenter.get_course_summaries(courses)
+        summaries = presenter.get_all_course_summaries(courses)
 
         if not summaries:
             # Instead of returning a useless blank CSV, return a 404 error

@@ -5,7 +5,7 @@ import urllib
 from django.http import HttpResponse, HttpResponseRedirect
 from django.utils import timezone
 
-from analyticsclient.constants import data_format, demographic
+from analyticsclient.constants import data_formats, demographics
 from analyticsclient.client import Client
 
 from courses.presenters.performance import CourseReportDownloadPresenter
@@ -63,14 +63,14 @@ class CourseEnrollmentDemographicsAgeCSV(CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = u'enrollment-by-birth-year'
 
     def get_data(self):
-        return self.course.enrollment(demographic.BIRTH_YEAR, data_format=data_format.CSV),
+        return self.course.enrollment(demographics.BIRTH_YEAR, data_format=data_formats.CSV),
 
 
 class CourseEnrollmentDemographicsEducationCSV(CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = u'enrollment-by-education'
 
     def get_data(self):
-        return self.course.enrollment(demographic.EDUCATION, data_format=data_format.CSV),
+        return self.course.enrollment(demographics.EDUCATION, data_format=data_formats.CSV),
 
 
 class CourseEnrollmentDemographicsGenderCSV(CourseCSVResponseMixin, CourseView):
@@ -78,14 +78,14 @@ class CourseEnrollmentDemographicsGenderCSV(CourseCSVResponseMixin, CourseView):
 
     def get_data(self):
         end_date = datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
-        return self.course.enrollment(demographic.GENDER, end_date=end_date, data_format=data_format.CSV),
+        return self.course.enrollment(demographics.GENDER, end_date=end_date, data_format=data_formats.CSV),
 
 
 class CourseEnrollmentByCountryCSV(CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = u'enrollment-location'
 
     def get_data(self):
-        return self.course.enrollment(demographic.LOCATION, data_format=data_format.CSV)
+        return self.course.enrollment(demographics.LOCATION, data_format=data_formats.CSV)
 
 
 class CourseEnrollmentCSV(CourseCSVResponseMixin, CourseView):
@@ -93,7 +93,7 @@ class CourseEnrollmentCSV(CourseCSVResponseMixin, CourseView):
 
     def get_data(self):
         end_date = datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
-        return self.course.enrollment('mode', data_format=data_format.CSV, end_date=end_date)
+        return self.course.enrollment('mode', data_format=data_formats.CSV, end_date=end_date)
 
 
 class CourseEngagementActivityTrendCSV(CourseCSVResponseMixin, CourseView):
@@ -101,7 +101,7 @@ class CourseEngagementActivityTrendCSV(CourseCSVResponseMixin, CourseView):
 
     def get_data(self):
         end_date = datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
-        return self.course.activity(data_format=data_format.CSV, end_date=end_date)
+        return self.course.activity(data_format=data_formats.CSV, end_date=end_date)
 
 
 class CourseEngagementVideoTimelineCSV(CourseCSVResponseMixin, CourseView):
@@ -109,7 +109,7 @@ class CourseEngagementVideoTimelineCSV(CourseCSVResponseMixin, CourseView):
 
     def get_data(self):
         modules = self.client.modules(self.course_id, self.kwargs['pipeline_video_id'])
-        return modules.video_timeline(data_format=data_format.CSV)
+        return modules.video_timeline(data_format=data_formats.CSV)
 
 
 class PerformanceAnswerDistributionCSV(CourseCSVResponseMixin, CourseView):
@@ -117,7 +117,7 @@ class PerformanceAnswerDistributionCSV(CourseCSVResponseMixin, CourseView):
 
     def get_data(self):
         modules = self.client.modules(self.course_id, self.kwargs['content_id'])
-        return modules.answer_distribution(data_format=data_format.CSV)
+        return modules.answer_distribution(data_format=data_formats.CSV)
 
 
 class PerformanceProblemResponseCSV(CourseView):

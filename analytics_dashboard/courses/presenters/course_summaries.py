@@ -73,15 +73,3 @@ class CourseSummariesPresenter(BasePresenter):
             key=lambda x: (not x['catalog_course_title'], x['catalog_course_title']))
 
         return summaries, self._get_last_updated(summaries)
-
-    def get_course_summary_metrics(self, summaries):
-        summary = {
-            'total_enrollment': reduce(lambda x, y: x + y.get('cumulative_count', 0), summaries, 0),
-            'current_enrollment': reduce(lambda x, y: x + y.get('count', 0), summaries, 0),
-            'enrollment_change_7_days': reduce(lambda x, y: x + y.get('count_change_7_days', 0), summaries, 0),
-            'verified_enrollment': reduce(lambda x, y: x + y.get('enrollment_modes', {}).get('verified',
-                                                                                             {}).get('count', 0),
-                                          summaries, 0),
-        }
-
-        return summary

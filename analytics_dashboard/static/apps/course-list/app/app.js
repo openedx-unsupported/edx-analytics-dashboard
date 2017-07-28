@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import Backbone from 'backbone';
 import Marionette from 'marionette';
+import NProgress from 'nprogress';
 import _ from 'underscore';
 
 import initModels from 'load/init-page';
@@ -73,5 +74,16 @@ export default class CourseListApp extends Marionette.Application {
     });
 
     Backbone.history.start();
+
+    // If we haven't been provided with any data, fetch it now
+    // from the server.
+    if (!this.options.courseListJson) {
+      courseListCollection.setPage(1);
+    }
+
+    // Loading progress bar via nprogress
+    NProgress.configure({ showSpinner: false });
+    $(document).ajaxStart(() => { NProgress.start(); });
+    $(document).ajaxStop(() => { NProgress.done(); });
   }
 }

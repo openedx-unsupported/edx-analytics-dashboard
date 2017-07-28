@@ -1,6 +1,4 @@
 from django.core.exceptions import PermissionDenied
-#from django.views.generic import View
-#from django.http import JsonResponse
 
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.response import Response
@@ -23,7 +21,7 @@ class CourseSummariesAPIView(RetrieveAPIView):
         if not course_ids:
             # The user is probably not a course administrator and should not be using this application.
             raise PermissionDenied
-        kwargs['course_ids'] = None #course_ids
+        kwargs['course_ids'] = course_ids
 
         get_keys = set(request.GET.keys())
         for list_param in self.list_params & get_keys:
@@ -35,14 +33,6 @@ class CourseSummariesAPIView(RetrieveAPIView):
                 kwargs[int_param] = int(request.GET.get(int_param))
             except ValueError:
                 pass
-
-        # @@TODO better handle these inconsistencies
-        if 'order_by' in kwargs:
-            kwargs['sort_key'] = kwargs['order_by']
-            del kwargs['order_by']
-        if 'sort_order' in kwargs:
-            kwargs['order'] = kwargs['sort_order']
-            del kwargs['sort_order']
 
         summaries_data = (
             CourseSummariesPresenter().get_course_summaries_response(**kwargs)

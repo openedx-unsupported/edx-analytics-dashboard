@@ -7,9 +7,9 @@ class CourseListRouter extends Marionette.AppRouter {
     super(options);
     this.options = options || {};
     this.courseListCollection = options.controller.options.courseListCollection;
-    this.listenTo(this.courseListCollection, 'loaded', this.updateUrl);
-    this.listenTo(this.courseListCollection, 'backgrid:refresh', this.updateUrl);
-    // Marionette.AppRouter.prototype.initialize.call(this, options);
+    // this.listenTo(this.courseListCollection, 'loaded', this.updateUrl);
+    this.listenTo(this.courseListCollection, 'sync', this.updateUrl);
+    Marionette.AppRouter.prototype.initialize.call(this, options);
   }
 
   // This method is run before the route methods are run.

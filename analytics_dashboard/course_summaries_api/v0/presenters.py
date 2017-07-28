@@ -12,6 +12,11 @@ class CourseSummariesPresenter(BasePresenter):
         summaries_data.update({'last_updated': last_updated})
         return summaries_data
 
+    def get_all_course_summaries(self, course_ids=None, **kwargs):
+        """ Retrieves all course summaries. Only use this for the CSV. """
+        summaries_client = self.client.course_summaries()
+        return summaries_client.course_summaries(course_ids, **dict(kwargs, request_all=True))
+
     @classmethod
     def _get_last_updated(cls, summaries):
         # all the create times should be the same, so just use the first one

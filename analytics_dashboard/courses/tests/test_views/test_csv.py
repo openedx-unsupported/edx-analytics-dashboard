@@ -200,11 +200,11 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
         self.programs_patch = mock.patch('courses.presenters.programs.ProgramsPresenter.get_programs')
         programs_api = self.programs_patch.start()
         programs_api.return_value = get_mock_programs()
-        self.summaries_patch = mock.patch('courses.presenters.course_summaries.CourseSummariesPresenter'
-                                          '.get_course_summaries')
+        self.summaries_patch = mock.patch('course_summaries_api.v0.presenters.CourseSummariesPresenter'
+                                          '.get_all_course_summaries')
         summaries_api = self.summaries_patch.start()
-        summaries_api.return_value = (self.get_mock_data([CourseSamples.DEMO_COURSE_ID,
-                                                          CourseSamples.DEPRECATED_DEMO_COURSE_ID]), 'timestamp')
+        summaries_api.return_value = self.get_mock_data(
+            [CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID])
         super(CourseIndexCSVTests, self).setUp()
 
     def tearDown(self):

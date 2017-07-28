@@ -38,6 +38,18 @@ class CourseSummariesViewTests(ViewTestMixin, CoursePermissionsExceptionMixin, T
     def expected_programs(self, course_ids):
         return self.get_programs_mock_data(course_ids)
 
+    def get_mock_aggregate_data(self):
+        return {
+            'current_enrollment': 196513,
+            'verified_enrollment': None,
+            'total_enrollment': 251620,
+            'enrollment_change_7_days': -18
+        }
+
+    def expected_aggregate_data(self):
+        """ Expected aggregate summary data is exactly the same as the mocked data. """
+        return self.get_mock_aggregate_data()
+
     @override_switch('enable_course_filters', active=True)
     @data(
         [CourseSamples.DEMO_COURSE_ID],
@@ -49,19 +61,19 @@ class CourseSummariesViewTests(ViewTestMixin, CoursePermissionsExceptionMixin, T
         Test data is returned in the correct hierarchy.
         """
         permissions_method = 'courses.views.course_summaries.permissions.get_user_course_permissions'
-        presenter_method = 'courses.presenters.course_summaries.CourseSummariesPresenter.get_course_summaries'
-        programs_presenter_method = 'courses.presenters.programs.ProgramsPresenter.get_programs'
-        mock_data = self.get_mock_data(course_ids)
+        aggregate_summaries_method = 'courses.presenters.course_aggregate_data.CourseAggregateDataPresenter.get_course_aggregate_data'
+        programs_method = 'courses.presenters.programs.ProgramsPresenter.get_programs'
+        aggregate_mock_data = self.get_mock_aggregate_data()
         programs_mock_data = self.get_programs_mock_data(course_ids)
 
         with mock.patch(permissions_method, return_value=course_ids):
-            with mock.patch(presenter_method, return_value=mock_data) as summaries_presenter:
-                with mock.patch(programs_presenter_method, return_value=programs_mock_data) as programs_presenter:
+            with mock.patch(aggregate_summaries_method, return_value=aggregate_mock_data) as summaries_presenter:
+                with mock.patch(programs_method, return_value=programs_mock_data) as programs_presenter:
                     response = self.client.get(self.path())
                     self.assertEqual(response.status_code, 200)
                     context = response.context
+                    self.assertDictEqual(context['summary'], self.expected_aggregate_data())
                     page_data = json.loads(context['page_data'])
-                    self.assertListEqual(page_data['course']['course_list_json'], self.expected_summaries(course_ids))
                     self.assertListEqual(page_data['course']['programs_json'], self.expected_programs(course_ids))
                     summaries_presenter.assert_called_with(course_ids)
                     programs_presenter.assert_called_with(course_ids=course_ids)
