@@ -38,27 +38,3 @@ if [ ! -f ${PATTERN_LIBRARY_SASS_PATH}/edx-pattern-library-ltr-compiled.scss ]; 
 else
   echo "edX pattern library already compiled."
 fi
-
-# pre-compile the font-awesome sass because that's the only way I could get fonts working in webpack...
-if [ ! -f ${NPM_PATH}/font-awesome/scss/font-awesome-compiled.scss ]; then
-  echo "Pre-compiling font-awesome..."
-  ${NPM_BIN}/node-sass ${NPM_PATH}/font-awesome/scss/font-awesome.scss ${NPM_PATH}/font-awesome/scss/font-awesome-compiled.scss
-  echo "Done compiling."
-else
-  echo "font-awesome already compiled."
-fi
-# copy font files to insights static files (they are not included in the compiled sass)
-DJANGO_STATIC_PATH=analytics_dashboard/static
-STATIC_FONTS_PATH=analytics_dashboard/static/fonts
-PATTERN_LIBRARY_FONTS_PATH="${NPM_PATH}/edx-pattern-library/pattern-library/fonts"
-FONT_AWESOME_FONTS_PATH="${NPM_PATH}/font-awesome/fonts"
-if [ ! -f ${STATIC_FONTS_PATH}/OpenSans ]; then
-  echo "Copying font files to Django static fonts directory..."
-  mkdir -p ${STATIC_FONTS_PATH}
-  mkdir -p ${STATIC_FONTS_PATH}/OpenSans
-  cp -rf ${PATTERN_LIBRARY_FONTS_PATH}/OpenSans/* ${STATIC_FONTS_PATH}/OpenSans/
-  cp -rf ${FONT_AWESOME_FONTS_PATH}/* ${STATIC_FONTS_PATH}/
-  echo "Done copying."
-else
-  echo "Font files already copied."
-fi

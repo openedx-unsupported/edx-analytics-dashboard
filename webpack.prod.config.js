@@ -53,6 +53,11 @@ module.exports = Merge.smart(commonConfig, {
                                 sourceMap: true
                             }
                         },
+                        // converts relative font url paths in the pre-compiled pattern-library sass to webpack-friendly
+                        // paths by locating fonts from the source in node_modules.
+                        {
+                            loader: 'resolve-url-loader'
+                        },
                         // fast-sass-loader might be slightly faster, but lacks useful source-map generation
                         {
                             loader: 'sass-loader', // compiles Sass to CSS.
@@ -70,13 +75,18 @@ module.exports = Merge.smart(commonConfig, {
                 test: /\.css$/,
                 use: extractCSS.extract({
                     fallback: 'style-loader',
-                    use: {
-                        loader: 'css-loader',
-                        options: {
-                            minimize: true,
-                            sourceMap: true
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                minimize: true,
+                                sourceMap: true
+                            }
+                        },
+                        {
+                            loader: 'resolve-url-loader'
                         }
-                    }
+                    ]
                 }),
                 include: [path.join(__dirname, 'analytics_dashboard/static'), path.join(__dirname, 'node_modules')]
             }
