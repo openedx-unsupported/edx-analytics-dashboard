@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2017-07-21 07:32+0000\n"
+"PO-Revision-Date: 2017-07-28 05:30+0000\n"
 "Last-Translator: Kyoto University <edxkyotoux@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/open-edx/edx-platform/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -57,7 +57,7 @@ msgstr "受講登録"
 
 #: core/templates/core/landing.html:47
 msgid "What are learners engaging with in my course?"
-msgstr "受講者はどんなことに取り組んでいる？"
+msgstr "この講座で受講者は何に取り組んでいる？"
 
 #: core/templates/core/landing.html:48
 msgid ""
@@ -69,11 +69,11 @@ msgstr "アクセス数の多いコンテンツを改良する、あるいは未
 #: courses/tests/test_views/test_engagement.py:44
 #: courses/views/__init__.py:302 courses/views/__init__.py:551
 msgid "Engagement"
-msgstr "参加"
+msgstr "取り組み"
 
 #: core/templates/core/landing.html:52
 msgid "How well is my content supporting learners?"
-msgstr "本コンテンツがどれくらい受講者を支援できているか？"
+msgstr "このコンテンツがどれくらい受講者をサポートできているか？"
 
 #: core/templates/core/landing.html:53
 msgid "Adjust your course based on where learners are struggling."
@@ -98,7 +98,7 @@ msgstr "edX analytics data pipelineとedX Insightsはオープンソースです
 
 #: core/templates/core/landing.html:75
 msgid "Research at edX"
-msgstr "edXでリサーチ"
+msgstr "edXにおけるリサーチ"
 
 #: core/templates/core/landing.html:80
 #, python-format
@@ -323,7 +323,7 @@ msgstr "この図は受講者が提出した解答を多い順に示していま
 msgid ""
 "Due to the number of possible variants for randomized problems, charts are "
 "not available. %(read_more_link_start)sRead more%(read_more_link_end)s."
-msgstr "ランダム問題のための変数のため、表は有効ではありません。 %(read_more_link_start)s詳細%(read_more_link_end)s"
+msgstr "ランダム問題のための変数のため、表は有効ではありません。 %(read_more_link_start)s詳細はこちら%(read_more_link_end)s"
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html:87
@@ -403,7 +403,7 @@ msgstr "１つ以上の動画を再生した受講者"
 #. problem.
 #: courses/templates/courses/engagement_content.html:68
 msgid "Tried a Problem Last Week"
-msgstr "先週問題にトライした受講者数"
+msgstr "先週問題にトライした"
 
 #: courses/templates/courses/engagement_content.html:69
 msgid ""
@@ -436,7 +436,7 @@ msgstr "ビデオ視聴数"
 
 #: courses/templates/courses/engagement_video_by_section.html:5
 msgid "How did learners interact with videos in this section?"
-msgstr "受講者がこの章のビデオにどのように取り組んだか？"
+msgstr "受講者がこの章の動画をどのように視聴したか？"
 
 #: courses/templates/courses/engagement_video_by_section.html:10
 msgid ""
@@ -447,7 +447,7 @@ msgstr "各棒グラフはその節の各ビデオを最後まで見た人・見
 
 #: courses/templates/courses/engagement_video_by_subsection.html:10
 msgid "How did learners interact with videos in this subsection?"
-msgstr "受講者がこの節のビデオにどのように取り組んだか？"
+msgstr "受講者がこの節の動画をどのように視聴したか？"
 
 #: courses/templates/courses/engagement_video_by_subsection.html:15
 msgid ""
@@ -458,7 +458,7 @@ msgstr "棒グラフはそのビデオを最後まで見た人・見なかった
 #: courses/templates/courses/engagement_video_course.html:5
 #: courses/views/__init__.py:569
 msgid "How did learners interact with course videos?"
-msgstr "受講者が講座ビデオにどのように取り組んだか？"
+msgstr "受講者がこの講座の動画をどのように視聴したか？"
 
 #: courses/templates/courses/engagement_video_course.html:10
 msgid ""
@@ -484,11 +484,11 @@ msgstr "このビデオの各部分を視聴した受講者の数および各部
 
 #: courses/templates/courses/engagement_video_timeline.html:37
 msgid "Collapse Preview"
-msgstr ""
+msgstr "プレビューを閉じる"
 
 #: courses/templates/courses/engagement_video_timeline.html:38
 msgid "Expand Preview"
-msgstr ""
+msgstr "プレビューを見る"
 
 #: courses/templates/courses/engagement_video_timeline.html:55
 msgid "Video Metrics"
@@ -496,11 +496,11 @@ msgstr "動画視聴状況"
 
 #: courses/templates/courses/engagement_video_timeline.html:61
 msgid "Completion Rate"
-msgstr "最後見た人の割合"
+msgstr "最後まで見た人の割合"
 
 #: courses/templates/courses/engagement_video_timeline.html:62
 msgid "Estimated percentage of learners who watched the entire video."
-msgstr "ビデオを最後まで見た受講者の推定割合。"
+msgstr "ビデオを最後まで見た受講者の推定％。"
 
 #: courses/templates/courses/engagement_video_timeline.html:66
 msgid "Started Video"
@@ -639,7 +639,7 @@ msgstr "受講者の年齢の中間値"
 #: courses/templates/courses/enrollment_demographics_age.html:66
 msgid ""
 "The midpoint of the learner ages, computed from the provided year of birth."
-msgstr "受講者の年齢における中間値、これは入力された誕生年から計算されています。"
+msgstr "受講者の年齢における中間値。入力された誕生年から計算されています。"
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
@@ -651,7 +651,7 @@ msgstr "25歳以下の受講者"
 msgid ""
 "The percentage of learners aged 25 years or younger (of those who provided a"
 " year of birth)."
-msgstr "25歳以下の受講者の割合(誕生年を入力したユーザーのみが対象)"
+msgstr "25歳以下の受講者の割合(誕生年を入力したユーザー数を分母とする)"
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
@@ -663,7 +663,7 @@ msgstr "26歳から40歳までの受講者"
 msgid ""
 "The percentage of learners aged from 26 to 40 years (of those who provided a"
 " year of birth)."
-msgstr "26歳から40歳までの受講者の割合(誕生年を入力したユーザーのみが対象)"
+msgstr "26歳から40歳までの受講者の割合(誕生年を入力したユーザー数を分母とする)"
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
@@ -675,7 +675,7 @@ msgstr "41歳以上の受講者"
 msgid ""
 "The percentage of learners aged 41 years or older (of those who provided a "
 "year of birth)."
-msgstr "41歳以上の受講者の割合(誕生年を入力したユーザーのみが対象)"
+msgstr "41歳以上の受講者の割合(誕生年を入力したユーザー数を分母とする)"
 
 #: courses/templates/courses/enrollment_demographics_age.html:101
 msgid "Age Breakdown"
@@ -684,7 +684,7 @@ msgstr "年齢構成"
 #: courses/templates/courses/enrollment_demographics_education.html:25
 #: courses/views/__init__.py:517
 msgid "What level of education do my learners have?"
-msgstr "受講者の学歴について"
+msgstr "受講者の学歴は？"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -694,16 +694,16 @@ msgstr "受講者の学歴について"
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled learners who "
 "provided a highest level of education completed."
-msgstr "このグラフは、最終学歴を入力した%(value)s%%の受講登録者から計算された結果を示しています。"
+msgstr "このグラフは、最終学歴を入力した%(value)s%%の受講登録者のデータを示しています。"
 
 #: courses/templates/courses/enrollment_demographics_education.html:56
 msgid "Education Metrics"
-msgstr "学歴構成"
+msgstr "学歴内訳"
 
 #. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html:64
 msgid "High School Diploma or Less"
-msgstr "高卒もしくはそれ以下"
+msgstr "高卒以下"
 
 #: courses/templates/courses/enrollment_demographics_education.html:65
 msgid ""
@@ -715,7 +715,7 @@ msgstr "高校卒、中学卒、小学校卒を最終学歴として選択した
 #. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html:71
 msgid "College Degree"
-msgstr "学歴"
+msgstr "大卒"
 
 #: courses/templates/courses/enrollment_demographics_education.html:72
 msgid ""
@@ -726,7 +726,7 @@ msgstr "大学学部卒、短大卒を最終学歴として選択した受講者
 #. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html:78
 msgid "Advanced Degree"
-msgstr "高学歴"
+msgstr "大学院卒"
 
 #: courses/templates/courses/enrollment_demographics_education.html:79
 msgid ""
@@ -736,12 +736,12 @@ msgstr "大学院卒（修士、博士）を最終学歴として選択した受
 
 #: courses/templates/courses/enrollment_demographics_education.html:91
 msgid "Educational Breakdown"
-msgstr "学歴"
+msgstr "学歴の分析"
 
 #: courses/templates/courses/enrollment_demographics_gender.html:25
 #: courses/views/__init__.py:527
 msgid "What is the learner gender breakdown?"
-msgstr "受講者の性別について"
+msgstr "受講者の性別は？"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -751,7 +751,7 @@ msgstr "受講者の性別について"
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled learners who "
 "specified their gender."
-msgstr "このグラフは、性別を入力した%(value)s%%の受講登録者からの計算結果を示しています。"
+msgstr "このグラフは、性別を入力した%(value)s%%の受講登録者のデータを示しています。"
 
 #: courses/templates/courses/enrollment_demographics_gender.html:56
 msgid "Gender Breakdown Over Time"
@@ -778,41 +778,41 @@ msgstr "受講生の国・地域"
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html:53
 msgid "Total Countries or Regions Represented"
-msgstr "受講者の国または地域の総数"
+msgstr "受講者の国・地域の総数"
 
 #: courses/templates/courses/enrollment_geography.html:54
 msgid "Countries or regions with at least one learner."
-msgstr "１名以上受講している国または地域"
+msgstr "１名以上受講している国・地域"
 
 #. Translators: This string represents the country or region with the greatest
 #. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html:62
 msgid "Top Country or Region by Enrollment"
-msgstr "受講生が１番多い国または地域"
+msgstr "受講生が１番多い国・地域"
 
 #: courses/templates/courses/enrollment_geography.html:63
 msgid "Country or region with the largest number of learners."
-msgstr "受講者が１番多い国または地域。"
+msgstr "受講者が１番多い国・地域。"
 
 #. Translators: This string represents the country or region with the second-
 #. greatest number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html:66
 msgid "Second Country or Region by Enrollment"
-msgstr "受講生が２番目に多い国または地域"
+msgstr "受講生が２番目に多い国・地域"
 
 #: courses/templates/courses/enrollment_geography.html:67
 msgid "Country or region with the second largest number of learners."
-msgstr "受講者が２番目に多い国または地域。"
+msgstr "受講者が２番目に多い国・地域。"
 
 #. Translators: This string represents the country or region with the third-
 #. greatest number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html:70
 msgid "Third Country or Region by Enrollment"
-msgstr "受講生が３番目に多い国または地域"
+msgstr "受講生が３番目に多い国・地域"
 
 #: courses/templates/courses/enrollment_geography.html:71
 msgid "Country or region with the third largest number of learners."
-msgstr "受講者が３番目に多い国または地域。"
+msgstr "受講者が３番目に多い国・地域。"
 
 #. Translators: This string represents the percentage of learners in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
@@ -831,7 +831,7 @@ msgstr "内訳"
 #: courses/templates/courses/home.html:11 templates/base_dashboard.html:28
 #: templates/footer.html:5 templates/lens-navigation.html:9
 msgid "Application"
-msgstr "利用"
+msgstr "アプリケーション"
 
 #. Translators: This refers to the homepage of a course.
 #: courses/templates/courses/home.html:15 courses/views/__init__.py:486
@@ -872,29 +872,29 @@ msgstr "講座一覧"
 
 #: courses/templates/courses/index.html:17
 msgid "Across all your courses:"
-msgstr ""
+msgstr "あなたの全ての講座内："
 
 #: courses/templates/courses/index.html:27
 msgid "Total enrollments across all of your courses."
-msgstr ""
+msgstr "あなたの全講座の総登録者数"
 
 #: courses/templates/courses/index.html:34
 msgid "Current enrollments across all of your courses."
-msgstr ""
+msgstr "あなたの全講座の現在の登録者数"
 
 #: courses/templates/courses/index.html:41
 msgid "Total change in enrollment last week across all of your courses."
-msgstr "あなたの講座の先週の登録者数変化"
+msgstr "あなたの全講座の先週の登録者数変化"
 
 #: courses/templates/courses/index.html:48
 msgid "Verified enrollments across all of your courses."
-msgstr "あなたの講座の認証付き登録者数"
+msgstr "あなたの全講座の認証付き登録者数"
 
 #: courses/templates/courses/performance_answer_distribution.html:7
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html:5
 #: courses/templates/courses/performance_ungraded_answer_distribution.html:7
 msgid "How did learners answer this problem?"
-msgstr "どのように受講者がこの問題に答えたのか？"
+msgstr "受講者がどのようにこの問題に答えたのか？"
 
 #: courses/templates/courses/performance_assignment.html:10
 msgid "How are learners doing on this assignment?"
@@ -921,7 +921,7 @@ msgstr "どの課題タイプを調査したいですか？"
 msgid ""
 "Click an assignment type to view more detail information about the "
 "assignments."
-msgstr "詳細を見るには課題のタイプをクリックしてください。"
+msgstr "詳細を見るには課題タイプをクリックしてください。"
 
 #. Translators: This describes the percent an assignment contributes to that
 #. of a learner's grade (e.g. Exam: 60% of the grading policy.).
@@ -945,7 +945,7 @@ msgid ""
 "\n"
 "      How are learners doing on the %(type)s?\n"
 "    "
-msgstr ""
+msgstr "\n %(type)sに関して受講者はどのようにしている？\n    "
 
 #: courses/templates/courses/performance_graded_content_by_type.html:15
 msgid ""
@@ -967,7 +967,7 @@ msgstr "学習成果からみて、受講者のパフォーマンスは？"
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each outcome."
-msgstr "棒グラフは各結果の正解と不正解の平均投稿数を表しています。"
+msgstr "棒グラフは各成果の正解と不正解の平均投稿数を表しています。"
 
 #: courses/templates/courses/performance_learning_outcomes_content.html:20
 msgid "Outcome Submissions"
@@ -977,7 +977,7 @@ msgstr ""
 msgid ""
 "Each bar shows the correct and incorrect number of submissions for each "
 "problem for the current outcome."
-msgstr "棒グラフは現在の結果の各問題の正解と不正解の平均投稿数を表しています。"
+msgstr "棒グラフは現在の成果の各問題の正解と不正解の平均投稿数を表しています。"
 
 #: courses/templates/courses/performance_ungraded_by_section.html:5
 msgid "How are learners doing on this section?"
@@ -991,7 +991,7 @@ msgstr "棒グラフは各節の正解と不正解の平均投稿数を表して
 
 #: courses/templates/courses/performance_ungraded_by_section.html:14
 msgid "Subsection Submissions"
-msgstr "各節の提出数"
+msgstr "節の提出状況"
 
 #: courses/templates/courses/performance_ungraded_by_subsection.html:10
 msgid "How are learners doing on this subsection?"
@@ -1010,7 +1010,7 @@ msgstr "棒グラフは各章の正解と不正解の平均投稿数を表して
 
 #: courses/templates/courses/performance_ungraded_content.html:16
 msgid "Section Submissions"
-msgstr "章の送信状況"
+msgstr "章の提出状況"
 
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
@@ -1023,27 +1023,27 @@ msgstr "アクセス権の取得に失敗"
 msgid ""
 "There was a problem retrieving course permissions for your account. Please "
 "try again. If you continue to experience issues, please let us know."
-msgstr "あなたのアカウントに対する講座のアクセス権の取得に問題が発生しました。もう一度実行してください。この問題が継続する場合はおしらせください。"
+msgstr "あなたのアカウントに関する講座アクセス権の取得に問題が発生しました。再試行してください。この問題が継続する場合はお知らせください。"
 
 #: courses/templates/courses/permissions-retrieval-failed.html:14
 msgid "Try Again"
-msgstr "もう一度お試しください"
+msgstr "再試行してください"
 
 #: courses/tests/test_views/__init__.py:236 courses/views/__init__.py:499
 #: courses/views/enrollment.py:23
 msgid "Activity"
-msgstr "登録状況"
+msgstr "取組"
 
 #: courses/tests/test_views/__init__.py:246 courses/views/__init__.py:509
 #: courses/views/__init__.py:519 courses/views/__init__.py:529
 #: courses/views/enrollment.py:32
 msgid "Demographics"
-msgstr "統計"
+msgstr "受講者データ"
 
 #: courses/tests/test_views/__init__.py:256 courses/views/__init__.py:539
 #: courses/views/enrollment.py:41
 msgid "Geography"
-msgstr "地域"
+msgstr "国・地域"
 
 #: courses/tests/test_views/__init__.py:294 courses/views/__init__.py:509
 #: courses/views/enrollment.py:61
@@ -1053,7 +1053,7 @@ msgstr "年齢"
 #: courses/tests/test_views/__init__.py:304 courses/views/__init__.py:519
 #: courses/views/enrollment.py:70
 msgid "Education"
-msgstr "教育"
+msgstr "学歴"
 
 #: courses/tests/test_views/__init__.py:314 courses/views/__init__.py:529
 #: courses/views/enrollment.py:79
@@ -1075,18 +1075,18 @@ msgstr "ビデオ"
 #: courses/views/__init__.py:585 courses/views/performance.py:38
 #: courses/views/performance.py:101
 msgid "Graded Content"
-msgstr "採点済みコンテンツ"
+msgstr "採点対象コンテンツ"
 
 #: courses/tests/test_views/test_performance.py:76
 #: courses/views/__init__.py:594 courses/views/performance.py:47
 #: courses/views/performance.py:86
 msgid "Ungraded Problems"
-msgstr "採点外の問題"
+msgstr "採点対象外の問題"
 
 #: courses/tests/test_views/test_performance.py:529
 #: courses/views/__init__.py:606 courses/views/performance.py:65
 msgid "Learning Outcomes"
-msgstr "受講成果"
+msgstr "学習成果"
 
 #: courses/views/__init__.py:553
 msgid "What are learners doing in my course?"
@@ -1094,11 +1094,11 @@ msgstr "受講者は本講座で何をしているのか？"
 
 #: courses/views/__init__.py:583
 msgid "How are learners doing on graded course assignments?"
-msgstr "受講者は採点対象の講座課題をどのようにしているのか？"
+msgstr "受講者は採点対象の課題をどのようにしているのか？"
 
 #: courses/views/__init__.py:604
 msgid "What is the breakdown for course learning outcomes?"
-msgstr "講座の学習成果の分析とは？"
+msgstr "学習成果の分析は？"
 
 #: courses/views/__init__.py:624
 msgid "How are learners responding to questions?"
@@ -1110,15 +1110,15 @@ msgstr "問題回答レポート"
 
 #: courses/views/__init__.py:633
 msgid "How are learners doing on course assignments?"
-msgstr "受講者はどのように講座の課題をしているのか？"
+msgstr "受講者はどのように課題を行っているのか？"
 
 #: courses/views/__init__.py:641
 msgid "What are individual learners doing?"
-msgstr "受講者は何をしているのか？"
+msgstr "それぞれの受講者は何をしているのか？"
 
 #: courses/views/__init__.py:644
 msgid "Who is engaged? Who isn't?"
-msgstr ""
+msgstr "誰が取り組んでいて、誰が取り組んでいないのか？"
 
 #: courses/views/__init__.py:646
 msgid "All Learners"
@@ -1128,7 +1128,7 @@ msgstr "全受講者"
 #. identifies the course
 #: courses/views/__init__.py:694
 msgid "Course ID"
-msgstr "講座番号"
+msgstr "講座ID"
 
 #: courses/views/__init__.py:696
 msgid "Course Name"
@@ -1163,7 +1163,7 @@ msgstr "状態"
 
 #: courses/views/__init__.py:729
 msgid "Instructor Dashboard"
-msgstr "講師用マイページ"
+msgstr "教員用ダッシュボード"
 
 #: courses/views/__init__.py:734
 msgid "Courseware"
@@ -1174,7 +1174,7 @@ msgstr "学習する"
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr "講座のまとめデータの最終アップデートは%(update_date)s  %(update_time)s （UTC）です。"
+msgstr "講座のサマリーデータは%(update_date)s  %(update_time)s （UTC）に更新されました。"
 
 #: courses/views/engagement.py:52
 msgid "Engagement Content"
@@ -1186,7 +1186,7 @@ msgstr "参加コンテンツ"
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr "講座参加データの最終アップデートは%(update_date)s  %(update_time)s （UTC）です。"
+msgstr "講座参加データは%(update_date)s  %(update_time)s （UTC）に更新されました。"
 
 #: courses/views/engagement.py:88
 msgid "Engagement Videos"
@@ -1196,7 +1196,7 @@ msgstr "参加ビデオ"
 #: courses/views/engagement.py:93
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr "ビデオデータは %(update_date)s の %(update_time)s に更新されました。"
+msgstr "ビデオデータは %(update_date)s  %(update_time)s（UTC）に更新されました。"
 
 #: courses/views/engagement.py:94
 msgid "Looks like no one has watched any videos in these sections."
@@ -1204,15 +1204,15 @@ msgstr "この章のビデオは誰にも視聴されていないようです。
 
 #: courses/views/engagement.py:120 courses/views/performance.py:300
 msgid "Section Name"
-msgstr "章の名称"
+msgstr "章名"
 
 #: courses/views/engagement.py:140 courses/views/performance.py:322
 msgid "Subsection Name"
-msgstr "節の名称"
+msgstr "節名"
 
 #: courses/views/engagement.py:161
 msgid "Video Name"
-msgstr "ビデオの名称"
+msgstr "ビデオ名"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py:90
@@ -1220,14 +1220,14 @@ msgstr "ビデオの名称"
 msgid ""
 "Demographic learner data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr "受講者統計データの最終アップデートは%(update_date)s  %(update_time)s （UTC）です。"
+msgstr "受講者統計データは%(update_date)s  %(update_time)s （UTC）に更新されました。"
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
 #: courses/views/enrollment.py:94
 msgid ""
 "All above demographic data was self-reported at the time of registration."
-msgstr "上記の統計情報は登録時に自動報告されたものです。"
+msgstr "上記の統計データは登録時に自己報告されたものです。"
 
 #: courses/views/enrollment.py:107
 msgid "Enrollment Activity"
@@ -1239,23 +1239,23 @@ msgstr "登録状況"
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr "受講登録状況の最終アップデートは%(update_date)s  %(update_time)s （UTC）です。"
+msgstr "受講登録状況は%(update_date)s  %(update_time)s （UTC）に更新されました。"
 
 #: courses/views/enrollment.py:148
 msgid "Enrollment Demographics by Age"
-msgstr "年齢による受講状況統計"
+msgstr "年齢による受講状況データ"
 
 #: courses/views/enrollment.py:186
 msgid "Enrollment Demographics by Education"
-msgstr "学歴による受講状況統計"
+msgstr "学歴による受講状況データ"
 
 #: courses/views/enrollment.py:224
 msgid "Enrollment Demographics by Gender"
-msgstr "性別による受講状況統計"
+msgstr "性別による受講状況データ"
 
 #: courses/views/enrollment.py:262
 msgid "Enrollment Geography"
-msgstr "地理的受講状況"
+msgstr "国・地域による受講状況"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py:272
@@ -1263,7 +1263,7 @@ msgstr "地理的受講状況"
 msgid ""
 "Geographic learner data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr "受講者データの最終アップデートは%(update_date)s  %(update_time)s （UTC）です。"
+msgstr "国・地域による受講者データは%(update_date)s  %(update_time)s （UTC）に更新されました。"
 
 #. Translators: Do not translate UTC.
 #: courses/views/performance.py:33
@@ -1271,11 +1271,11 @@ msgstr "受講者データの最終アップデートは%(update_date)s  %(updat
 msgid ""
 "Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr "問題提出データの最終アップデートは%(update_date)s  %(update_time)s （UTC）です。"
+msgstr "問題提出データは%(update_date)s  %(update_time)s （UTC）に更新されました。"
 
 #: courses/views/performance.py:79
 msgid "Assignment Name"
-msgstr "課題の名称"
+msgstr "課題名"
 
 #: courses/views/performance.py:90 courses/views/performance.py:370
 msgid "No submissions received for these exercises."
@@ -1304,7 +1304,7 @@ msgstr "問題名"
 msgid ""
 "Tags distribution data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr "データの最終アップデートは %(update_date)s  %(update_time)s UTCです。"
+msgstr "データは %(update_date)s  %(update_time)s （UTC）に更新されました。"
 
 #: courses/views/performance.py:398 courses/views/performance.py:428
 msgid "Performance: Learning Outcomes"
@@ -1327,7 +1327,7 @@ msgid ""
 "You do not have permission to view this page. If you believe you should have"
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
-msgstr "このページを参照するためのアクセス権がありません。このページにアクセスできることが想定される場合は、一度ログアウトして再度ログインしてアクセス権を更新してください。"
+msgstr "このページを閲覧するためのアクセス権がありません。このページにアクセスできることが想定される場合は、アクセス権の更新のため、ログアウトして再度ログインしてください。"
 
 #: templates/403.html:17
 msgid "Logout then Login"
@@ -1335,13 +1335,13 @@ msgstr "ログアウトしてログイン"
 
 #: templates/404.html:5 templates/404.html:8
 msgid "Page Not Found"
-msgstr "ページが見つかりません"
+msgstr "お探しのページが見つかりません"
 
 #: templates/404.html:10
 msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
-msgstr "お探しのページが見つかりません。URLが間違いないか確認し再操作してください。"
+msgstr "お探しのページが見つかりません。URLが間違いないか確認し、再試行してください。"
 
 #: templates/500.html:5 templates/500.html:8
 msgid "An Error Occurred"
@@ -1367,7 +1367,7 @@ msgstr "閉じる"
 
 #: templates/base-error.html:42
 msgid "Use our support tool to ask questions or share feedback."
-msgstr "サポートツールを使いフィードバックや質問をしてください。"
+msgstr "サポートツールを使って、質問やフィードバックをシェアしてください。"
 
 #. Translators: This intention here is that a user clicks a button to contact
 #. a support group (e.g. edX Support, or MITx Support). Reorder the
@@ -1382,7 +1382,7 @@ msgstr "%(platform_name)s のサポートへ問い合わせる"
 msgid ""
 "We want this dashboard to work for you! Need help? "
 "%(support_link_start)sContact course team support%(support_link_end)s."
-msgstr ""
+msgstr "このダッシュボードが皆さんのお役に立てるよう、ヘルプが必要な方は %(support_link_start)s講座チームサポートへお問い合わせください%(support_link_end)s。"
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html:39
@@ -1394,7 +1394,7 @@ msgstr " %(current_year)s %(platform_name)s、明記されている場合を除�
 
 #: templates/header.html:13
 msgid "Toggle navigation"
-msgstr "ナビゲーションをトグル"
+msgstr "操作バー"
 
 #: templates/header.html:40
 msgid "Help"
