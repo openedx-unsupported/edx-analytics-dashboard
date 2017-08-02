@@ -45,7 +45,7 @@ module.exports = {
             marionette: 'backbone.marionette',
             // Internal Globalize.js code seems to expect 'cldr' to refer to this file in cldrjs.
             cldr: 'cldrjs/dist/cldr',
-            
+
             // Aliases used in tests
             uitk: 'edx-ui-toolkit/src/js',
             URI: 'urijs/src/URI',
@@ -103,6 +103,12 @@ module.exports = {
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery'
+        }),
+        // This defines the theme that the SCSS should be building with
+        new webpack.DefinePlugin({
+            'process.env': {
+                'THEME_SCSS': JSON.stringify(process.env.THEME_SCSS || 'sass/themes/open-edx.scss')
+            }
         }),
         // AggressiveMergingPlugin in conjunction with these CommonChunkPlugins turns many GBs worth of individual
         // chunks into one or two large chunks that entry chunks reference. It reduces output bundle size a lot.

@@ -54,13 +54,15 @@ the following information about each course.
 * Current Enrollment
 * Change Last Week
 * Verified Enrollment
+* Passing Learners
+
+For a quick view of information that is important to you, click the title of
+any column to sort the Course List table by that column.
+
 
 .. note::
  On Edge, the Course List table does not include the course name, start date,
  or end date.
-
-For a quick view of information that's important to you, click the title of any
-column to sort the Course List table by that column.
 
 ============================================
 Identify Courses With the Highest Enrollment
@@ -84,6 +86,14 @@ in descending order, you can see the courses with the greatest increase in
 enrollment in the past week. You will need to draw on your knowledge of recent
 marketing efforts to interpret this data, and assess the impact of marketing
 efforts on course enrollments.
+
+============================================================
+Identify Courses With the Highest Number of Passing Learners
+============================================================
+
+If you want to find courses with the highest number of learners who currently
+have a passing grade in the course, you can sort the table by the “Passing
+Learners” column.
 
 =================================
 Access Data for a Specific Course
@@ -151,6 +161,7 @@ The CSV file contains the following columns.
 * enrollment_modes.verified.count
 * enrollment_modes.verified.cumulative_count
 * pacing_type
+* passing_users
 * program_ids
 * program_titles
 * start_date

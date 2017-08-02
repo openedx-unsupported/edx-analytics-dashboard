@@ -2,7 +2,7 @@
  * Load scripts needed across the application.
  */
 require('sass/style-application.scss');
-require('sass/themes/open-edx.scss');
+require(process.env.THEME_SCSS);
 
 require(['views/data-table-view',
     'views/announcement-view',
