@@ -5,10 +5,15 @@ import PageModel from 'components/generic-list/common/models/page';
 import TrackingModel from 'models/tracking-model';
 
 describe('CourseListController', () => {
+  let rootView;
+  let course;
+  let collection;
+  let controller;
+
   // convenience method for asserting that we are on the course list page
-  function expectCourseListPage(controller) {
-    expect(controller.options.rootView.$('.course-list')).toBeInDOM();
-    expect(controller.options.rootView.$('.course-list-header-region').html()).toContainText(
+  function expectCourseListPage(courseListController) {
+    expect(courseListController.options.rootView.$('.course-list')).toBeInDOM();
+    expect(courseListController.options.rootView.$('.course-list-header-region').html()).toContainText(
       'Course List',
     );
   }
@@ -65,17 +70,17 @@ describe('CourseListController', () => {
     const pageModel = new PageModel();
 
     setFixtures('<div class="root-view"><div class="main"></div></div>');
-    this.rootView = new RootView({
+    rootView = new RootView({
       el: '.root-view',
       pageModel,
       appClass: 'course-list',
     });
-    this.rootView.render();
-    this.course = fakeCourse('course1', 'Course');
-    this.collection = new CourseListCollection([this.course]);
-    this.controller = new CourseListController({
-      rootView: this.rootView,
-      courseListCollection: this.collection,
+    rootView.render();
+    course = fakeCourse('course1', 'Course');
+    collection = new CourseListCollection([course]);
+    controller = new CourseListController({
+      rootView,
+      courseListCollection: collection,
       hasData: true,
       pageModel,
       trackingModel: new TrackingModel(),
@@ -83,29 +88,29 @@ describe('CourseListController', () => {
   });
 
   it('should show the course list page', () => {
-    this.controller.showCourseListPage();
-    expectCourseListPage(this.controller);
+    controller.showCourseListPage();
+    expectCourseListPage(controller);
   });
 
   it('should show invalid parameters alert with invalid URL parameters', () => {
-    this.controller.showCourseListPage('text_search=foo=');
-    expect(this.controller.options.rootView.$('.course-list-alert-region').html()).toContainText(
+    controller.showCourseListPage('text_search=foo=');
+    expect(controller.options.rootView.$('.course-list-alert-region').html()).toContainText(
       'Invalid Parameters',
     );
-    expect(this.controller.options.rootView.$('.course-list-main-region').html()).toBe('');
+    expect(controller.options.rootView.$('.course-list-main-region').html()).toBe('');
   });
 
   it('should show the not found page', () => {
-    this.controller.showNotFoundPage();
+    controller.showNotFoundPage();
     // eslint-disable-next-line max-len
-    expect(this.rootView.$el.html()).toContainText(
+    expect(rootView.$el.html()).toContainText(
       "Sorry, we couldn't find the page you're looking for.",
     );
   });
   it('should sort the list with sort parameters', () => {
     const secondCourse = fakeCourse('course2', 'X Course');
-    this.collection.add(secondCourse);
-    this.controller.showCourseListPage('sortKey=catalog_course_title&order=desc');
-    expect(this.collection.at(0).toJSON()).toEqual(secondCourse);
+    collection.add(secondCourse);
+    controller.showCourseListPage('sortKey=catalog_course_title&order=desc');
+    expect(collection.at(0).toJSON()).toEqual(secondCourse);
   });
 });

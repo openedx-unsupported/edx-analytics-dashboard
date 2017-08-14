@@ -5,82 +5,87 @@ import CourseListRouter from 'course-list/app/router';
 import PageModel from 'components/generic-list/common/models/page';
 
 describe('CourseListRouter', () => {
+  let course;
+  let collection;
+  let controller;
+  let router;
+
   beforeEach(() => {
     Backbone.history.start({ silent: true });
-    this.course = {
+    course = {
       last_updated: new Date(2016, 1, 28),
     };
-    this.collection = new CourseListCollection([this.course]);
-    this.controller = new CourseListController({
-      courseListCollection: this.collection,
+    collection = new CourseListCollection([course]);
+    controller = new CourseListController({
+      courseListCollection: collection,
       pageModel: new PageModel(),
     });
-    spyOn(this.controller, 'showCourseListPage').and.stub();
-    spyOn(this.controller, 'showNotFoundPage').and.stub();
-    spyOn(this.controller, 'onShowPage').and.stub();
-    this.router = new CourseListRouter({
-      controller: this.controller,
+    spyOn(controller, 'showCourseListPage').and.stub();
+    spyOn(controller, 'showNotFoundPage').and.stub();
+    spyOn(controller, 'onShowPage').and.stub();
+    router = new CourseListRouter({
+      controller,
     });
   });
 
   afterEach(() => {
     // Clear previous route
-    this.router.navigate('');
+    router.navigate('');
     Backbone.history.stop();
   });
 
   it('triggers a showPage event for pages beginning with "show"', () => {
-    this.router.navigate('foo', { trigger: true });
-    expect(this.controller.onShowPage).toHaveBeenCalled();
-    this.router.navigate('/', { trigger: true });
-    expect(this.controller.onShowPage).toHaveBeenCalled();
+    router.navigate('foo', { trigger: true });
+    expect(controller.onShowPage).toHaveBeenCalled();
+    router.navigate('/', { trigger: true });
+    expect(controller.onShowPage).toHaveBeenCalled();
   });
 
   describe('showCourseListPage', () => {
     beforeEach(() => {
       // Backbone won't trigger a route unless we were on a previous url
-      this.router.navigate('initial-fragment', { trigger: false });
+      router.navigate('initial-fragment', { trigger: false });
     });
 
     it('should trigger on an empty URL fragment', () => {
-      this.router.navigate('', { trigger: true });
-      expect(this.controller.showCourseListPage).toHaveBeenCalled();
+      router.navigate('', { trigger: true });
+      expect(controller.showCourseListPage).toHaveBeenCalled();
     });
 
     it('should trigger on a single forward slash', () => {
-      this.router.navigate('/', { trigger: true });
-      expect(this.controller.showCourseListPage).toHaveBeenCalled();
+      router.navigate('/', { trigger: true });
+      expect(controller.showCourseListPage).toHaveBeenCalled();
     });
 
     it('should trigger on a URL fragment with a querystring', () => {
       const querystring = 'text_search=some_course';
-      this.router.navigate(`?${querystring}`, { trigger: true });
-      expect(this.controller.showCourseListPage).toHaveBeenCalledWith(querystring, null);
+      router.navigate(`?${querystring}`, { trigger: true });
+      expect(controller.showCourseListPage).toHaveBeenCalledWith(querystring, null);
     });
   });
 
   describe('showNotFoundPage', () => {
     it('should trigger on unmatched URLs', () => {
-      this.router.navigate('this/does/not/match', { trigger: true });
-      expect(this.controller.showNotFoundPage).toHaveBeenCalledWith('this/does/not/match', null);
+      router.navigate('this/does/not/match', { trigger: true });
+      expect(controller.showNotFoundPage).toHaveBeenCalledWith('this/does/not/match', null);
     });
   });
 
   it('URL fragment is updated on CourseListCollection loaded', (done) => {
-    this.collection.state.currentPage = 2;
-    this.collection.once('loaded', () => {
+    collection.state.currentPage = 2;
+    collection.once('loaded', () => {
       expect(Backbone.history.getFragment()).toBe('?sortKey=catalog_course_title&order=asc&page=2');
       done();
     });
-    this.collection.trigger('loaded');
+    collection.trigger('loaded');
   });
 
   it('URL fragment is updated on CourseListCollection refresh', (done) => {
-    this.collection.state.currentPage = 2;
-    this.collection.once('backgrid:refresh', () => {
+    collection.state.currentPage = 2;
+    collection.once('backgrid:refresh', () => {
       expect(Backbone.history.getFragment()).toBe('?sortKey=catalog_course_title&order=asc&page=2');
       done();
     });
-    this.collection.trigger('backgrid:refresh');
+    collection.trigger('backgrid:refresh');
   });
 });
