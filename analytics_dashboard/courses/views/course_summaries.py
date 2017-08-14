@@ -97,6 +97,7 @@ class CourseIndexCSV(CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixi
         enable_course_filters = switch_is_active('enable_course_filters')
 
         presenter = CourseSummariesPresenter()
+        logger.info("Downloading course summaries for '{num_courses}'.".format(len(courses)))
         summaries = presenter.get_all_course_summaries(courses)
 
         if not summaries:
