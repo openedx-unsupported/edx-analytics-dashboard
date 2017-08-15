@@ -28,11 +28,10 @@ module.exports = function(config) {
             {pattern: 'analytics_dashboard/static/js/models/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/js/views/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/js/utils/**/*.js', included: false},
-            {pattern: 'analytics_dashboard/static/apps/**/*.js', included: false},
             {pattern: 'analytics_dashboard/static/apps/**/*.underscore', included: false},
 
             // actual tests
-            {pattern: 'analytics_dashboard/static/js/test/specs/*.js', watched: false}
+            {pattern: 'analytics_dashboard/static/js/test/specs/spec-runner.js'}
         ],
 
         exclude: [
@@ -45,7 +44,7 @@ module.exports = function(config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            'analytics_dashboard/static/js/test/specs/*.js': ['webpack']
+            'analytics_dashboard/static/js/test/specs/spec-runner.js': ['webpack', 'sourcemap']
         },
 
         // plugins required for running the karma tests
@@ -57,7 +56,8 @@ module.exports = function(config) {
             'karma-coverage',
             'karma-sinon',
             'karma-chrome-launcher',
-            'karma-webpack'
+            'karma-webpack',
+            'karma-sourcemap-loader'
         ],
 
         webpack: {
@@ -106,6 +106,32 @@ module.exports = function(config) {
                             path.join(__dirname, 'node_modules')
                         ]
                     },
+                    // The babel-loader transforms newer ES2015 syntax to older ES5 for legacy browsers.
+                    {
+                        test: /\.js$/,
+                        exclude: /(node_modules|bower_components)/,
+                        use: {
+                            loader: 'babel-loader',
+                            options: {
+                                presets: [
+                                    ['env', {
+                                        targets: {
+                                            browsers: ['last 2 versions', 'ie >= 11']
+                                        }
+                                    }]
+                                ],
+                                plugins: [
+                                    'babel-plugin-syntax-dynamic-import',
+                                    ['istanbul', {
+                                        exclude: [
+                                            '**/*spec.js'
+                                        ]
+                                    }]
+                                ],
+                                cacheDirectory: true
+                            }
+                        }
+                    },
                     {
                         test: /\.scss$/,
                         use: [
@@ -149,19 +175,14 @@ module.exports = function(config) {
                         THEME_SCSS: 'sass/themes/open-edx.scss'
                     }
                 })
-            ]
+            ],
+
+            devtool: 'inline-source-map'
         },
 
         webpackMiddleware: {
-            // silences webpack log output
-            noInfo: true,
-            stats: {
-                assets: false,
-                chunks: false,
-                hash: false,
-                timings: false,
-                version: false
-            }
+            // silences most webpack log output
+            noInfo: true
         },
 
         // test results reporter to use
