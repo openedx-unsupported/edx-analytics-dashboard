@@ -42,12 +42,14 @@ export default class CourseListController extends Marionette.Object {
     if (collection.length) {
       this.options.pageModel.set('lastUpdated', collection.at(0).get('last_updated'));
     }
-    this.options.rootView.triggerMethod('clearError');
+    // TODO: can I get rid of this?
+    // this.options.rootView.triggerMethod('clearError');
   }
 
   showCourseListPage(queryString) {
+    const collection = this.options.courseListCollection;
     const listView = new CourseListView({
-      collection: this.options.courseListCollection,
+      collection,
       hasData: this.options.hasData,
       tableName: gettext('Course List'),
       trackSubject: 'course_list',
@@ -56,11 +58,11 @@ export default class CourseListController extends Marionette.Object {
       filteringEnabled: this.options.filteringEnabled,
     });
 
-    const collection = this.options.courseListCollection;
-
     try {
       collection.setStateFromQueryString(queryString);
-      if (collection.isStale || collection.getResultCount() === 0) {
+      // TODO: remove?
+      // if (collection.isStale || collection.getResultCount() === 0) {
+      if (collection.isStale) {
         const loadingView = new LoadingView({
           model: collection,
           template: _.template(LoadingTemplate),
@@ -141,7 +143,7 @@ export default class CourseListController extends Marionette.Object {
     this.options.rootView.showAlert(
       'error',
       gettext('Server error'),
-      gettext('Your request could not be processed. Reload the page to try again.')
+      gettext('Your request could not be processed. Reload the page to try again.'),
     );
   }
 

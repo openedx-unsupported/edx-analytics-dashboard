@@ -13,27 +13,31 @@ import Backgrid from 'backgrid';
 import listSearchTemplate from 'components/search/templates/search.underscore';
 
 // this needs to be imported in order for the filter extension to be included
+// eslint-disable-next-line no-unused-vars
 import backgridFilter from 'backgrid-filter';
 
 export default class Search extends Backgrid.Extension.ServerSideFilter {
+// eslint-disable-next-line class-methods-use-this
   className() {
     return [
       Backgrid.Extension.ServerSideFilter.prototype.className,
-      'search-form'
+      'search-form',
     ].join(' ');
   }
 
+// eslint-disable-next-line class-methods-use-this
   events() {
     return _.extend(Backgrid.Extension.ServerSideFilter.prototype.events,
       {
         'click .search': 'search',
-        'click .clear.btn': 'clear'
-      }
+        'click .clear.btn': 'clear',
+      },
     );
   }
 
+// eslint-disable-next-line class-methods-use-this
   template() {
-    return _.template(listSearchTemplate, null, {variable: null})
+    return _.template(listSearchTemplate, null, { variable: null });
   }
 
   constructor(options) {
@@ -41,13 +45,13 @@ export default class Search extends Backgrid.Extension.ServerSideFilter {
     this.options = options || {};
 
     this.options = _.defaults({}, options, {
-        searchLabelText: gettext('Search'),
-        trackSubject: 'search',
-        focusableSelector: '',
-        appClass: ''
+      searchLabelText: gettext('Search'),
+      trackSubject: 'search',
+      focusableSelector: '',
+      appClass: '',
     });
     this.options = _.defaults(this.options, {
-        trackSearchEventName: ['edx', 'bi', this.options.trackSubject, 'searched'].join('.')
+      trackSearchEventName: ['edx', 'bi', this.options.trackSubject, 'searched'].join('.'),
     });
   }
 
@@ -62,15 +66,17 @@ export default class Search extends Backgrid.Extension.ServerSideFilter {
   }
 
   render() {
+    const appClass = this.options.appClass;
+    const template = this.template();
     this.value = this.options.collection.getSearchString();
-    this.$el.empty().append(this.template()({
-        id: 'search-' + this.options.appClass,
-        name: this.name,
-        placeholder: this.placeholder,
-        value: this.value,
-        labelText: this.options.searchLabelText,
-        executeSearchText: gettext('search'),
-        clearSearchText: gettext('clear search')
+    this.$el.empty().append(template({
+      id: `search-${appClass}`,
+      name: this.name,
+      placeholder: this.placeholder,
+      value: this.value,
+      labelText: this.options.searchLabelText,
+      executeSearchText: gettext('search'),
+      clearSearchText: gettext('clear search'),
     }));
     this.showClearButtonMaybe();
     this.delegateEvents();
@@ -81,12 +87,12 @@ export default class Search extends Backgrid.Extension.ServerSideFilter {
     const searchString = this.searchBox().val().trim();
     event.preventDefault();
     if (searchString === '') {
-        this.collection.unsetSearchString();
+      this.collection.unsetSearchString();
     } else {
-        this.collection.setSearchString(searchString);
-        this.options.trackingModel.trigger('segment:track', this.options.trackSearchEventName, {
-            category: 'search'
-        });
+      this.collection.setSearchString(searchString);
+      this.options.trackingModel.trigger('segment:track', this.options.trackSearchEventName, {
+        category: 'search',
+      });
     }
     this.execute();
   }

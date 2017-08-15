@@ -61,7 +61,7 @@ define(function(require) {
                         focusableSelector: '#learner-app-focusable',
                         searchLabelText: gettext('Search learners'),
                         placeholder: gettext('Find a learner')
-                    })
+                    }).defaults(defaultFilterOptions)
                 }
             ];
 

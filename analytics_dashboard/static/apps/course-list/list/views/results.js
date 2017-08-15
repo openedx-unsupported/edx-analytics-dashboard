@@ -26,7 +26,7 @@ define(function(require) {
             this.onCourseListCollectionUpdated(this.options.collection);
         },
         onCourseListCollectionUpdated: function(collection) {
-            if (collection.getResultCount() > 0) {
+            if (collection.length) {
                 // Don't re-render the courses table view if one already exists.
                 if (!(this.getRegion('main').currentView instanceof CourseListTableView)) {
                     this.showChildView('main', new CourseListTableView(_.defaults({

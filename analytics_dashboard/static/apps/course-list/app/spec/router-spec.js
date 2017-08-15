@@ -9,13 +9,17 @@ describe('CourseListRouter', () => {
   let collection;
   let controller;
   let router;
+  let server;
 
   beforeEach(() => {
+    // Safeguard if history hasn't been stopped
+    Backbone.history.stop();
     Backbone.history.start({ silent: true });
+    server = sinon.fakeServer.create();
     course = {
       last_updated: new Date(2016, 1, 28),
     };
-    collection = new CourseListCollection([course]);
+    collection = new CourseListCollection([course], { url: 'http://example.com' });
     controller = new CourseListController({
       courseListCollection: collection,
       pageModel: new PageModel(),
@@ -32,6 +36,7 @@ describe('CourseListRouter', () => {
     // Clear previous route
     router.navigate('');
     Backbone.history.stop();
+    server.restore();
   });
 
   it('triggers a showPage event for pages beginning with "show"', () => {
@@ -71,21 +76,13 @@ describe('CourseListRouter', () => {
     });
   });
 
-  it('URL fragment is updated on CourseListCollection loaded', (done) => {
+  it('URL fragment is updated on CourseListCollection sync', (done) => {
     collection.state.currentPage = 2;
-    collection.once('loaded', () => {
+    collection.fetch({ reset: true });
+    collection.once('sync', () => {
       expect(Backbone.history.getFragment()).toBe('?sortKey=catalog_course_title&order=asc&page=2');
       done();
     });
-    collection.trigger('loaded');
-  });
-
-  it('URL fragment is updated on CourseListCollection refresh', (done) => {
-    collection.state.currentPage = 2;
-    collection.once('backgrid:refresh', () => {
-      expect(Backbone.history.getFragment()).toBe('?sortKey=catalog_course_title&order=asc&page=2');
-      done();
-    });
-    collection.trigger('backgrid:refresh');
+    server.requests[0].respond(200, {}, JSON.stringify([course]));
   });
 });
