@@ -1,7 +1,9 @@
-from django.conf import settings
 import datetime
 
+from django.conf import settings
+
 from analyticsclient.client import Client
+
 
 class BasePresenter(object):
 

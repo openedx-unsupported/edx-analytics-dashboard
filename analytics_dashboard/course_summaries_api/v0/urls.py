@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-import views
+from . import views
 
 app_name = 'course_summaries_api'
 urlpatterns = [

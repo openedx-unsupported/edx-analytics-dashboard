@@ -18,10 +18,10 @@ from courses.views import (
     TemplateView,
     TrackedViewMixin,
 )
-from course_summaries_api.v0.presenters import CourseSummariesPresenter
-from courses.views.csv import DatetimeCSVResponseMixin
 from courses.presenters.course_totals import CourseTotalsDataPresenter
 from courses.presenters.programs import ProgramsPresenter
+from courses.views.csv import DatetimeCSVResponseMixin
+from course_summaries_api.v0.presenters import CourseSummariesPresenter
 from rest_framework_csv.renderers import CSVRenderer
 
 logger = logging.getLogger(__name__)
@@ -97,7 +97,7 @@ class CourseIndexCSV(CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixi
         enable_course_filters = switch_is_active('enable_course_filters')
 
         presenter = CourseSummariesPresenter()
-        logger.info("Downloading course summaries for '{num_courses}'.".format(num_courses=len(courses)))
+        logger.info("Downloading course summaries for '%i'.", len(courses))
         summaries = presenter.get_course_summaries_unpaginated(courses)
 
         if not summaries:
