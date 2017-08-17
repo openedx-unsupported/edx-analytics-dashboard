@@ -61,13 +61,13 @@ class CourseSummariesViewTests(ViewTestMixin, CoursePermissionsExceptionMixin, T
         Test data is returned in the correct hierarchy.
         """
         permissions_method = 'courses.views.course_summaries.permissions.get_user_course_permissions'
-        aggregate_summaries_method = 'courses.presenters.course_aggregate_data.CourseAggregateDataPresenter.get_course_aggregate_data'
+        totals_summaries_method = 'courses.presenters.course_totals.CourseTotalsPresenter.get_course_aggregate_data'
         programs_method = 'courses.presenters.programs.ProgramsPresenter.get_programs'
         aggregate_mock_data = self.get_mock_aggregate_data()
         programs_mock_data = self.get_programs_mock_data(course_ids)
 
         with mock.patch(permissions_method, return_value=course_ids):
-            with mock.patch(aggregate_summaries_method, return_value=aggregate_mock_data) as summaries_presenter:
+            with mock.patch(totals_summaries_method, return_value=aggregate_mock_data) as summaries_presenter:
                 with mock.patch(programs_method, return_value=programs_mock_data) as programs_presenter:
                     response = self.client.get(self.path())
                     self.assertEqual(response.status_code, 200)

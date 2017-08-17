@@ -20,7 +20,7 @@ from courses.views import (
 )
 from course_summaries_api.v0.presenters import CourseSummariesPresenter
 from courses.views.csv import DatetimeCSVResponseMixin
-from courses.presenters.course_aggregate_data import CourseAggregateDataPresenter
+from courses.presenters.course_totals import CourseTotalsDataPresenter
 from courses.presenters.programs import ProgramsPresenter
 from rest_framework_csv.renderers import CSVRenderer
 
@@ -64,9 +64,9 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
         context['js_data']['course'] = data
         context['page_data'] = self.get_page_data(context)
 
-        aggregate_data_presenter = CourseAggregateDataPresenter()
-        aggregate_data = aggregate_data_presenter.get_course_aggregate_data(course_ids)
-        context['summary'] = aggregate_data
+        totals_data_presenter = CourseTotalsDataPresenter()
+        totals_data = totals_data_presenter.get_course_totals(course_ids)
+        context['summary'] = totals_data
 
         return context
 
