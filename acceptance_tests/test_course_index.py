@@ -315,10 +315,10 @@ class CourseIndexTests(AnalyticsApiClientMixin, AnalyticsDashboardWebAppTestMixi
         test user can access.
         """
         totals = self.analytics_api_client.course_totals().course_totals([TEST_COURSE_ID])
-        current_enrollment = totals['current_enrollment']
-        total_enrollment = totals['total_enrollment']
+        current_enrollment = totals['count']
+        total_enrollment = totals['cumulative_count']
         i = 7
-        count_change_i_days = totals['enrollment_change_%s_days' % i]
+        count_change_i_days = totals['count_change_%s_days' % i]
         verified_enrollment = totals['verified_enrollment']
 
         tooltip = u'Current enrollments across all of your courses.'
