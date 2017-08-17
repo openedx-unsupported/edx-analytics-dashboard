@@ -42,8 +42,6 @@ export default class CourseListController extends Marionette.Object {
     if (collection.length) {
       this.options.pageModel.set('lastUpdated', collection.at(0).get('last_updated'));
     }
-    // TODO: can I get rid of this?
-    // this.options.rootView.triggerMethod('clearError');
   }
 
   showCourseListPage(queryString) {
