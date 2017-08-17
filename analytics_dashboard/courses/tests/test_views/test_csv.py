@@ -260,7 +260,7 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
     )
     def test_response_with_programs(self, course_ids):
         summaries_csv = get_mock_course_summaries_csv(course_ids, has_programs=True)
-        self._test_csv(get_mock_course_summaries(course_ids, exclude=['passing_users']), summaries_csv)
+        self._test_csv(get_mock_course_summaries(course_ids, exclude=['passing_users', 'verified_enrollment']), summaries_csv)
 
     @override_switch('enable_course_filters', active=False)
     @override_switch('enable_course_passing', active=False)
@@ -271,7 +271,7 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
     )
     def test_response_minimal(self, course_ids):
         summaries_csv = get_mock_course_summaries_csv(course_ids)
-        self._test_csv(get_mock_course_summaries(course_ids, exclude=['passing_users']), summaries_csv)
+        self._test_csv(get_mock_course_summaries(course_ids, exclude=['passing_users', 'verified_enrollment']), summaries_csv)
 
     @override_switch('enable_course_filters', active=False)
     @override_switch('enable_course_passing', active=True)

@@ -770,7 +770,8 @@ def get_mock_course_summaries(course_ids, exclude=None):
                     "count_change_7_days": -28,
                     "passing_users": 5,
                 }
-            }
+            },
+            "verified_enrollment": 557,
         })
 
     if exclude:

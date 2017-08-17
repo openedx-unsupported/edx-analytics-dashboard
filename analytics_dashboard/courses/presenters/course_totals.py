@@ -1,7 +1,7 @@
 from courses.presenters import BasePresenter
 
 
-class CourseTotalsDataPresenter(BasePresenter):
+class CourseTotalsPresenter(BasePresenter):
     """
     Total enrollment statistics across multiple courses.
     """

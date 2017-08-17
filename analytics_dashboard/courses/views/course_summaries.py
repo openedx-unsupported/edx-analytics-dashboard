@@ -18,7 +18,7 @@ from courses.views import (
     TemplateView,
     TrackedViewMixin,
 )
-from courses.presenters.course_totals import CourseTotalsDataPresenter
+from courses.presenters.course_totals import CourseTotalsPresenter
 from courses.presenters.programs import ProgramsPresenter
 from courses.views.csv import DatetimeCSVResponseMixin
 from course_summaries_api.v0.presenters import CourseSummariesPresenter
@@ -64,7 +64,7 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
         context['js_data']['course'] = data
         context['page_data'] = self.get_page_data(context)
 
-        totals_data_presenter = CourseTotalsDataPresenter()
+        totals_data_presenter = CourseTotalsPresenter()
         totals_data = totals_data_presenter.get_course_totals(course_ids)
         context['summary'] = totals_data
 
@@ -78,14 +78,14 @@ class CourseIndexCSV(CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixi
     # We will call the render function on the renderer directly instead.
     renderer = CSVRenderer()
     exclude_fields = {
-        '': ('created',),
+        '': ('created', 'verified_enrollment',),
         'enrollment_modes': {
             'audit': ('count_change_7_days',),
             'credit': ('count_change_7_days',),
             'honor': ('count_change_7_days',),
             'professional': ('count_change_7_days',),
             'verified': ('count_change_7_days',),
-        }
+        },
     }
 
     def get_data(self):
