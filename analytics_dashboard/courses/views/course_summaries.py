@@ -78,7 +78,7 @@ class CourseIndexCSV(CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixi
     # We will call the render function on the renderer directly instead.
     renderer = CSVRenderer()
     exclude_fields = {
-        '': ('created', 'verified_enrollment',),
+        '': ('created', 'verified_enrollment', 'programs',),
         'enrollment_modes': {
             'audit': ('count_change_7_days',),
             'credit': ('count_change_7_days',),
@@ -115,6 +115,5 @@ class CourseIndexCSV(CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixi
                 summary_programs = [program for program in programs if summary['course_id'] in program['course_ids']]
                 summary['program_ids'] = ' | '.join([program['program_id'] for program in summary_programs])
                 summary['program_titles'] = ' | '.join([program['program_title'] for program in summary_programs])
-
         summaries_csv = self.renderer.render(summaries)
         return summaries_csv

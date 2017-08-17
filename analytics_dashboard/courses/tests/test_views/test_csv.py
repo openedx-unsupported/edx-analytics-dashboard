@@ -246,9 +246,9 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
         self.assertEqual(response['Content-Disposition'], 'attachment; filename="{0}"'.format(urllib.quote(filename)))
 
     def _test_csv(self, mocked_api_response, csv_data):
-        presenter_method = 'courses.presenters.course_summaries.CourseSummariesPresenter.get_course_summaries'
+        presenter_method = 'course_summaries_api.v0.presenters.CourseSummariesPresenter.get_course_summaries_unpaginated'
         with mock.patch(presenter_method,
-                        return_value=(mocked_api_response, None)):
+                        return_value=mocked_api_response):
             self.assertIsValidCSV(csv_data)
 
     @override_switch('enable_course_filters', active=True)
