@@ -10,9 +10,9 @@ from .presenters import CourseSummariesPresenter
 
 class CourseSummariesAPIView(RetrieveAPIView):
 
-    list_params = set(['availability', 'pacing_type', 'program_ids'])
-    string_params = set(['text_search', 'order_by', 'sort_order'])
-    int_params = set(['page', 'page_size'])
+    list_params = frozenset(['availability', 'pacing_type', 'program_ids'])
+    string_params = frozenset(['text_search', 'order_by', 'sort_order'])
+    int_params = frozenset(['page', 'page_size'])
 
     def get(self, request):
         kwargs = {}
@@ -23,7 +23,7 @@ class CourseSummariesAPIView(RetrieveAPIView):
             raise PermissionDenied
         kwargs['course_ids'] = course_ids
 
-        get_keys = set(request.GET.keys())
+        get_keys = frozenset(request.GET.keys())
         for list_param in self.list_params & get_keys:
             kwargs[list_param] = request.GET.get(list_param).split(',')
         for string_param in self.string_params & get_keys:
@@ -35,6 +35,6 @@ class CourseSummariesAPIView(RetrieveAPIView):
                 pass
 
         summaries_data = (
-            CourseSummariesPresenter().get_course_summaries_response(**kwargs)
+            CourseSummariesPresenter().get_course_summaries_page(**kwargs)
         )
         return Response(data=summaries_data, status=200)

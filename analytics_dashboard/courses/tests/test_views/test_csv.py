@@ -201,7 +201,7 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
         programs_api = self.programs_patch.start()
         programs_api.return_value = get_mock_programs()
         self.summaries_patch = mock.patch('course_summaries_api.v0.presenters.CourseSummariesPresenter'
-                                          '.get_all_course_summaries')
+                                          '.get_course_summaries_unpaginated')
         summaries_api = self.summaries_patch.start()
         summaries_api.return_value = self.get_mock_data(
             [CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID])

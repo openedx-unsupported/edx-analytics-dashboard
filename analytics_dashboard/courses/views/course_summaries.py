@@ -98,7 +98,7 @@ class CourseIndexCSV(CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixi
 
         presenter = CourseSummariesPresenter()
         logger.info("Downloading course summaries for '{num_courses}'.".format(num_courses=len(courses)))
-        summaries = presenter.get_all_course_summaries(courses)
+        summaries = presenter.get_course_summaries_unpaginated(courses)
 
         if not summaries:
             # Instead of returning a useless blank CSV, return a 404 error
