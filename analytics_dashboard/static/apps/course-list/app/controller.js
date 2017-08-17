@@ -60,9 +60,7 @@ export default class CourseListController extends Marionette.Object {
 
     try {
       collection.setStateFromQueryString(queryString);
-      // TODO: remove?
-      // if (collection.isStale || collection.getResultCount() === 0) {
-      if (collection.isStale) {
+      if (collection.isStale || collection.length === 0) {
         const loadingView = new LoadingView({
           model: collection,
           template: _.template(LoadingTemplate),
