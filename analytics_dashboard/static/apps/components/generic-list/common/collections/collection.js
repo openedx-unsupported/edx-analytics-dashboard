@@ -151,7 +151,7 @@ define(function(require) {
             }
         },
 
-        /*
+        /**
          * Returns current number of results after filters and search applied. Works in
          * client and server mode.
          */

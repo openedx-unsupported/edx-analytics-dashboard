@@ -6,16 +6,21 @@
  * - CourseListCollection: A `CourseListCollection` instance.
  * - rootView: A `CourseListRootView` instance.
  */
+import _ from 'underscore';
 import Backbone from 'backbone';
 import Marionette from 'marionette';
+import NProgress from 'nprogress';
 
 import CourseListView from 'course-list/list/views/course-list';
+import LoadingTemplate from 'components/loading/templates/plain-loading.underscore';
+import LoadingView from 'components/loading/views/loading-view';
 
 export default class CourseListController extends Marionette.Object {
   constructor(options) {
     super();
     this.options = options || {};
     this.listenTo(this.options.courseListCollection, 'sync', this.onCourseListCollectionUpdated);
+    this.listenTo(this.options.courseListCollection, 'error', this.showError);
     this.onCourseListCollectionUpdated(this.options.courseListCollection);
   }
 
@@ -25,6 +30,8 @@ export default class CourseListController extends Marionette.Object {
      * been triggered. Executes before the route method does.
      */
   onShowPage() {
+    // clear loading bar
+    NProgress.done(true);
     // Clear any existing alert
     this.options.rootView.triggerMethod('clearError');
   }
@@ -38,8 +45,9 @@ export default class CourseListController extends Marionette.Object {
   }
 
   showCourseListPage(queryString) {
+    const collection = this.options.courseListCollection;
     const listView = new CourseListView({
-      collection: this.options.courseListCollection,
+      collection,
       hasData: this.options.hasData,
       tableName: gettext('Course List'),
       trackSubject: 'course_list',
@@ -47,48 +55,32 @@ export default class CourseListController extends Marionette.Object {
       trackingModel: this.options.trackingModel,
       filteringEnabled: this.options.filteringEnabled,
     });
-    const collection = this.options.courseListCollection;
-    let currentPage;
-    let table;
 
     try {
       collection.setStateFromQueryString(queryString);
-      this.options.rootView.showChildView('main', listView);
-      if (collection.isStale) {
-        // There was a querystring sort parameter that was different from the current collection
-        // state, so we have to sort and/or search the table.
+      if (collection.isStale || collection.length === 0) {
+        const loadingView = new LoadingView({
+          model: collection,
+          template: _.template(LoadingTemplate),
+          successView: listView,
+        });
+        this.options.rootView.showChildView('main', loadingView);
 
-        // We don't just do collection.fullCollection.sort() here because we've attached custom
-        // sortValue options to the columns via Backgrid to handle null values and we must call the
-        // sort function on the Backgrid table object for those custom sortValues to have an effect.
-        // Also, for some unknown reason, the Backgrid sort overwrites the currentPage, so we will
-        // save and
-        // restore the currentPage after the sort completes.
-        currentPage = collection.state.currentPage;
-
-        if (collection.getSearchString() !== '') {
-          listView.getRegion('controls').currentView.getRegion('search').currentView.search();
+        const fetch = collection.fetch({ reset: true });
+        if (fetch) {
+          fetch.complete((response) => {
+            if (response && response.status === 404) {
+              collection.reset();
+            }
+          });
         }
-
-        table = listView.getRegion('results').currentView.getRegion('main').currentView.table;
-
-        // `table` will be undefined if the search resulted in an error or no results alert instead
-        // of a table of results.
-        if (table !== undefined) {
-          table.currentView.sort(
-            collection.state.sortKey,
-            collection.state.order === 1 ? 'descending' : 'ascending',
-          );
-        }
-
-        collection.setPage(currentPage);
-
-        collection.isStale = false;
+      } else {
+        this.options.rootView.showChildView('main', listView);
       }
     } catch (e) {
       // These JS errors occur when trying to parse invalid URL parameters
       // FIXME: they also catch a whole lot of other kinds of errors where the alert message doesn't
-      // make much sense.
+      // make much sense
       if (e instanceof RangeError || e instanceof TypeError) {
         this.options.rootView.showAlert(
           'error',
@@ -142,4 +134,13 @@ export default class CourseListController extends Marionette.Object {
     });
     this.options.trackingModel.trigger('segment:page');
   }
+
+  showError() {
+    this.options.rootView.showAlert(
+      'error',
+      gettext('Server error'),
+      gettext('Your request could not be processed. Reload the page to try again.'),
+    );
+  }
+
 }

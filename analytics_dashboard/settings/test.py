@@ -30,6 +30,6 @@ GRADING_POLICY_API_URL = 'http://grading-policy-api-host'
 COURSE_API_URL = 'http://course-api-host'
 COURSE_API_KEY = 'test_course_api_key'
 
-DATA_API_URL = 'http://data-api-host/api/v0'
+DATA_API_URL = 'http://data-api-host/api/v1'
 
 LOGGING = get_logger_config(debug=DEBUG, dev_env=True, local_loglevel='DEBUG')

@@ -20,21 +20,21 @@ define(function(require) {
         },
         initialize: function(options) {
             this.options = options || {};
-            this.listenTo(this.options.collection, 'backgrid:refresh', this.onCourseListCollectionUpdated);
+            this.listenTo(this.options.collection, 'sync', this.onCourseListCollectionUpdated);
         },
         onBeforeShow: function() {
-            this.onCourseListCollectionUpdated();
+            this.onCourseListCollectionUpdated(this.options.collection);
         },
-        onCourseListCollectionUpdated: function() {
-            if (this.options.collection.length && this.options.hasData) {
+        onCourseListCollectionUpdated: function(collection) {
+            if (collection.length) {
                 // Don't re-render the courses table view if one already exists.
                 if (!(this.getRegion('main').currentView instanceof CourseListTableView)) {
                     this.showChildView('main', new CourseListTableView(_.defaults({
-                        collection: this.options.collection
+                        collection: collection
                     }, this.options)));
                 }
             } else {
-                this.showChildView('main', this.createAlertView(this.options.collection));
+                this.showChildView('main', this.createAlertView(collection));
             }
         },
         createAlertView: function(collection) {

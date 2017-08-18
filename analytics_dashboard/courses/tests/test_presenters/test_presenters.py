@@ -12,7 +12,7 @@ from slugify import slugify
 import mock
 from waffle.testutils import override_switch
 
-import analyticsclient.constants.activity_type as AT
+import analyticsclient.constants.activity_types as AT
 from analyticsclient.constants import enrollment_modes
 
 from common.tests.course_fixtures import (

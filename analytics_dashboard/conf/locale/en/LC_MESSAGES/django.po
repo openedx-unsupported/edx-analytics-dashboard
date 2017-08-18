@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-21 18:32-0400\n"
+"POT-Creation-Date: 2017-08-14 21:01-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,8 +55,8 @@ msgid ""
 msgstr ""
 
 #: core/templates/core/landing.html:49
-#: courses/tests/test_views/test_engagement.py:44 courses/views/__init__.py:302
-#: courses/views/__init__.py:551
+#: courses/tests/test_views/test_engagement.py:44
+#: courses/views/__init__.py:302 courses/views/__init__.py:551
 msgid "Engagement"
 msgstr ""
 
@@ -813,7 +813,8 @@ msgstr ""
 msgid "External Tools"
 msgstr ""
 
-#: courses/templates/courses/index.html:10 courses/views/course_summaries.py:32
+#: courses/templates/courses/index.html:10
+#: courses/views/course_summaries.py:33
 msgid "Courses"
 msgstr ""
 
@@ -1007,13 +1008,13 @@ msgid "Gender"
 msgstr ""
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
-#: courses/tests/test_views/test_engagement.py:62 courses/views/__init__.py:558
-#: courses/views/engagement.py:27
+#: courses/tests/test_views/test_engagement.py:62
+#: courses/views/__init__.py:558 courses/views/engagement.py:27
 msgid "Content"
 msgstr ""
 
-#: courses/tests/test_views/test_engagement.py:73 courses/views/__init__.py:571
-#: courses/views/engagement.py:36
+#: courses/tests/test_views/test_engagement.py:73
+#: courses/views/__init__.py:571 courses/views/engagement.py:36
 msgid "Videos"
 msgstr ""
 
@@ -1115,7 +1116,7 @@ msgid "Courseware"
 msgstr ""
 
 #. Translators: Do not translate UTC.
-#: courses/views/course_summaries.py:41
+#: courses/views/course_summaries.py:42
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
@@ -1254,11 +1255,11 @@ msgstr ""
 msgid "Performance: Learning Outcomes"
 msgstr ""
 
-#: settings/base.py:419
+#: settings/base.py:413
 msgid "Terms of Service"
 msgstr ""
 
-#: settings/base.py:420
+#: settings/base.py:414
 msgid "Privacy Policy"
 msgstr ""
 

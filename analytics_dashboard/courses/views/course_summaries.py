@@ -18,9 +18,10 @@ from courses.views import (
     TemplateView,
     TrackedViewMixin,
 )
-from courses.views.csv import DatetimeCSVResponseMixin
-from courses.presenters.course_summaries import CourseSummariesPresenter
+from courses.presenters.course_totals import CourseTotalsPresenter
 from courses.presenters.programs import ProgramsPresenter
+from courses.views.csv import DatetimeCSVResponseMixin
+from course_summaries_api.v0.presenters import CourseSummariesPresenter
 from rest_framework_csv.renderers import CSVRenderer
 
 logger = logging.getLogger(__name__)
@@ -42,21 +43,14 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
 
     def get_context_data(self, **kwargs):
         context = super(CourseIndex, self).get_context_data(**kwargs)
-        courses = permissions.get_user_course_permissions(self.request.user)
-        if not courses:
+        course_ids = permissions.get_user_course_permissions(self.request.user)
+        if not course_ids:
             # The user is probably not a course administrator and should not be using this application.
             raise PermissionDenied
 
-        summaries_presenter = CourseSummariesPresenter()
-        summaries, last_updated = summaries_presenter.get_course_summaries(courses)
-
-        context.update({
-            'update_message': self.get_last_updated_message(last_updated)
-        })
-
         enable_course_filters = switch_is_active('enable_course_filters')
         data = {
-            'course_list_json': summaries,
+            'update_message': '',
             'enable_course_filters': enable_course_filters,
             'enable_passing_users': switch_is_active('enable_course_passing'),
             'course_list_download_url': reverse('courses:index_csv'),
@@ -64,12 +58,15 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
 
         if enable_course_filters:
             programs_presenter = ProgramsPresenter()
-            programs = programs_presenter.get_programs(course_ids=courses)
+            programs = programs_presenter.get_programs(course_ids=course_ids)
             data['programs_json'] = programs
 
         context['js_data']['course'] = data
         context['page_data'] = self.get_page_data(context)
-        context['summary'] = summaries_presenter.get_course_summary_metrics(summaries)
+
+        totals_data_presenter = CourseTotalsPresenter()
+        totals_data = totals_data_presenter.get_course_totals(course_ids)
+        context['summary'] = totals_data
 
         return context
 
@@ -81,14 +78,14 @@ class CourseIndexCSV(CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixi
     # We will call the render function on the renderer directly instead.
     renderer = CSVRenderer()
     exclude_fields = {
-        '': ('created',),
+        '': ('created', 'verified_enrollment', 'programs',),
         'enrollment_modes': {
             'audit': ('count_change_7_days',),
             'credit': ('count_change_7_days',),
             'honor': ('count_change_7_days',),
             'professional': ('count_change_7_days',),
             'verified': ('count_change_7_days',),
-        }
+        },
     }
 
     def get_data(self):
@@ -100,7 +97,8 @@ class CourseIndexCSV(CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixi
         enable_course_filters = switch_is_active('enable_course_filters')
 
         presenter = CourseSummariesPresenter()
-        summaries, _ = presenter.get_course_summaries(courses)
+        logger.info("Downloading course summaries for '%i'.", len(courses))
+        summaries = presenter.get_course_summaries_unpaginated(courses)
 
         if not summaries:
             # Instead of returning a useless blank CSV, return a 404 error
@@ -117,6 +115,5 @@ class CourseIndexCSV(CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixi
                 summary_programs = [program for program in programs if summary['course_id'] in program['course_ids']]
                 summary['program_ids'] = ' | '.join([program['program_id'] for program in summary_programs])
                 summary['program_titles'] = ' | '.join([program['program_title'] for program in summary_programs])
-
         summaries_csv = self.renderer.render(summaries)
         return summaries_csv

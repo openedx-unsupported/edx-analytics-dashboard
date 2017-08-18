@@ -261,7 +261,7 @@ when executing either of the commands above.
 | Variable                     | Purpose                                    | Default Value                    |
 |------------------------------|--------------------------------------------|----------------------------------|
 | DASHBOARD_SERVER_URL         | URL where the dashboard is served          | http://127.0.0.1:9000            |
-| API_SERVER_URL               | URL where the analytics API is served      | http://127.0.0.1:9001/api/v0     |
+| API_SERVER_URL               | URL where the analytics API is served      | http://127.0.0.1:9001/api/v1     |
 | API_AUTH_TOKEN               | Analytics API authentication token         | edx                              |
 | DASHBOARD_FEEDBACK_EMAIL     | Feedback email in the footer               | override.this.email@example.com  |
 | TEST_USERNAME                | Username used to login to the app          | edx                              |

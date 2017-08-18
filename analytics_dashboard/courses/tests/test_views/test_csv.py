@@ -200,11 +200,11 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
         self.programs_patch = mock.patch('courses.presenters.programs.ProgramsPresenter.get_programs')
         programs_api = self.programs_patch.start()
         programs_api.return_value = get_mock_programs()
-        self.summaries_patch = mock.patch('courses.presenters.course_summaries.CourseSummariesPresenter'
-                                          '.get_course_summaries')
+        self.summaries_patch = mock.patch('course_summaries_api.v0.presenters.CourseSummariesPresenter'
+                                          '.get_course_summaries_unpaginated')
         summaries_api = self.summaries_patch.start()
-        summaries_api.return_value = (self.get_mock_data([CourseSamples.DEMO_COURSE_ID,
-                                                          CourseSamples.DEPRECATED_DEMO_COURSE_ID]), 'timestamp')
+        summaries_api.return_value = self.get_mock_data(
+            [CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID])
         super(CourseIndexCSVTests, self).setUp()
 
     def tearDown(self):
@@ -246,9 +246,12 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
         self.assertEqual(response['Content-Disposition'], 'attachment; filename="{0}"'.format(urllib.quote(filename)))
 
     def _test_csv(self, mocked_api_response, csv_data):
-        presenter_method = 'courses.presenters.course_summaries.CourseSummariesPresenter.get_course_summaries'
+        presenter_method = (
+            'course_summaries_api.v0.presenters.CourseSummariesPresenter'
+            '.get_course_summaries_unpaginated'
+        )
         with mock.patch(presenter_method,
-                        return_value=(mocked_api_response, None)):
+                        return_value=mocked_api_response):
             self.assertIsValidCSV(csv_data)
 
     @override_switch('enable_course_filters', active=True)
@@ -260,7 +263,13 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
     )
     def test_response_with_programs(self, course_ids):
         summaries_csv = get_mock_course_summaries_csv(course_ids, has_programs=True)
-        self._test_csv(get_mock_course_summaries(course_ids, exclude=['passing_users']), summaries_csv)
+        self._test_csv(
+            get_mock_course_summaries(
+                course_ids,
+                exclude=['passing_users', 'verified_enrollment']
+            ),
+            summaries_csv
+        )
 
     @override_switch('enable_course_filters', active=False)
     @override_switch('enable_course_passing', active=False)
@@ -271,7 +280,13 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
     )
     def test_response_minimal(self, course_ids):
         summaries_csv = get_mock_course_summaries_csv(course_ids)
-        self._test_csv(get_mock_course_summaries(course_ids, exclude=['passing_users']), summaries_csv)
+        self._test_csv(
+            get_mock_course_summaries(
+                course_ids,
+                exclude=['passing_users', 'verified_enrollment']
+            ),
+            summaries_csv
+        )
 
     @override_switch('enable_course_filters', active=False)
     @override_switch('enable_course_passing', active=True)
