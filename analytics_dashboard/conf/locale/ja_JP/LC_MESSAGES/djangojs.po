@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2017-08-07 07:42+0000\n"
-"Last-Translator: Kyoto University <edxkyotoux@gmail.com>\n"
+"POT-Creation-Date: 2017-08-14 21:01-0400\n"
+"PO-Revision-Date: 2017-08-18 22:55+0000\n"
+"Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/open-edx/edx-platform/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,19 +32,14 @@ msgstr "CSVをダウンロード"
 msgid "Download search results to CSV"
 msgstr "検索結果をCSVにダウンロードする"
 
-#. Translators: "All" refers to viewing all items (e.g. all courses).
 #: static/apps/components/filter/views/drop-down-filter.js:31
 msgid "All"
 msgstr "すべて"
 
-#. Translators: 'name' here refers to the name of the filter, while 'count'
-#. refers to the number of items belonging to that filter.
 #: static/apps/components/filter/views/filter.js:90
 msgid "<%= name %> (<%= count %>)"
 msgstr "フィルタ名<%= name %> (アイテム数<%= count %>)"
 
-#. Translators: this is a label describing a filter selection that the user
-#. initiated.
 #: static/apps/components/generic-list/list/views/active-filters.js:62
 msgid "<%= filterDisplayName %>: <%= filterVal %>"
 msgstr "<%= filterDisplayName %>: <%= filterVal %>"
@@ -57,7 +52,6 @@ msgstr "使用中のフィルタ"
 msgid "Click to remove this filter"
 msgstr "クリックしてフィルタを解除"
 
-#. Translators: "Clear" in this context means "remove all of the filters"
 #: static/apps/components/generic-list/list/views/active-filters.js:90
 msgid "Clear"
 msgstr "すべてのフィルタを解除"
@@ -66,19 +60,14 @@ msgstr "すべてのフィルタを解除"
 msgid "Click to remove all filters"
 msgstr "クリックしてすべてのフィルタを解除"
 
-#. Translators: "sort ascending" describes the current sort state to the user.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:71
 msgid "sort ascending"
 msgstr "昇順"
 
-#. Translators: "sort descending" describes the current sort state to the
-#. user.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:73
 msgid "sort descending"
 msgstr "降順"
 
-#. Translators: "click to sort" tells the user that they can click this link
-#. to sort by the current field.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:76
 msgid "click to sort"
 msgstr "クリックして並べ替え"
@@ -87,8 +76,6 @@ msgstr "クリックして並べ替え"
 msgid "Results"
 msgstr "結果"
 
-#. Translators: 'count' refers to the number of results contained in the
-#. table.
 #: static/apps/components/generic-list/list/views/num-results.js:30
 msgid "Number of results: <%= count %>"
 msgstr "結果数：<%= count %>"
@@ -113,12 +100,10 @@ msgstr "最後のページ"
 msgid "page"
 msgstr "ページ"
 
-#. Translators: describes the state of a pagination button as not clickable
 #: static/apps/components/generic-list/list/views/paging-footer.js:88
 msgid "disabled"
 msgstr "不可"
 
-#. Translators: describes a pagination button as representing the current page
 #: static/apps/components/generic-list/list/views/paging-footer.js:91
 msgid "active"
 msgstr "現在"
@@ -127,133 +112,143 @@ msgstr "現在"
 msgid "Generic List"
 msgstr ""
 
-#. Translators: This message indicates content is loading in the page.
 #: static/apps/components/loading/views/loading-view.js:20
 msgid "Loading..."
 msgstr "読み込み中..."
 
-#. Translators: "504" is a number representing a server error, so please leave
-#. it as "504".
-#: static/apps/components/utils/utils.js:61
+#: static/apps/components/search/views/search.js:44
+msgid "Search"
+msgstr ""
+
+#: static/apps/components/search/views/search.js:72
+msgid "search"
+msgstr "検索"
+
+#: static/apps/components/search/views/search.js:73
+msgid "clear search"
+msgstr "検索をクリア"
+
+#: static/apps/components/utils/utils.js:62
 msgid "504: Server error"
 msgstr "504：サーバーエラー"
 
-#: static/apps/components/utils/utils.js:63
+#: static/apps/components/utils/utils.js:64
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
 msgstr "処理に時間がかかり過ぎています。ページを再読込して再試行してください。"
 
-#: static/apps/components/utils/utils.js:67
+#: static/apps/components/utils/utils.js:68
+#: static/apps/course-list/app/controller.js:143
 msgid "Server error"
 msgstr "サーバーエラー"
 
-#: static/apps/components/utils/utils.js:68
-#: static/apps/components/utils/utils.js:80
+#: static/apps/components/utils/utils.js:69
+#: static/apps/components/utils/utils.js:81
+#: static/apps/course-list/app/controller.js:144
 msgid "Your request could not be processed. Reload the page to try again."
 msgstr "リクエストが処理できませんでした。ページを再読込して、再試行してください。"
 
-#: static/apps/components/utils/utils.js:79
+#: static/apps/components/utils/utils.js:80
 msgid "Network error"
 msgstr "ネットワークエラー"
 
-#: static/apps/course-list/app/app.js:39
+#: static/apps/course-list/app/app.js:40
 msgid "Instructor-Paced"
 msgstr "Instructor-Paced"
 
-#: static/apps/course-list/app/app.js:40
+#: static/apps/course-list/app/app.js:41
 msgid "Self-Paced"
 msgstr "Self-Paced"
 
-#: static/apps/course-list/app/app.js:43
+#: static/apps/course-list/app/app.js:44
 msgid "Upcoming"
 msgstr "開講予定"
 
-#: static/apps/course-list/app/app.js:44
+#: static/apps/course-list/app/app.js:45
 msgid "Current"
 msgstr "開講中"
 
-#: static/apps/course-list/app/app.js:45
+#: static/apps/course-list/app/app.js:46
 msgid "Archived"
 msgstr "アーカイブ中"
 
-#: static/apps/course-list/app/app.js:46
+#: static/apps/course-list/app/app.js:47
 msgid "Unknown"
 msgstr "不明"
 
-#: static/apps/course-list/app/controller.js:48
-#: static/apps/course-list/app/controller.js:108
+#: static/apps/course-list/app/controller.js:52
+#: static/apps/course-list/app/controller.js:100
 msgid "Course List"
 msgstr "講座一覧"
 
-#: static/apps/course-list/app/controller.js:98
-#: static/apps/learners/app/controller.js:96
+#: static/apps/course-list/app/controller.js:89
+#: static/apps/learners/app/controller.js:94
 msgid "Invalid Parameters"
 msgstr "不正なパラメータ"
 
-#: static/apps/course-list/app/controller.js:99
+#: static/apps/course-list/app/controller.js:90
 msgid "Sorry, we couldn't find any courses that matched that query."
 msgstr "申し訳ありませんが、適切な講座が見つかりませんでした。"
 
-#: static/apps/course-list/app/controller.js:100
+#: static/apps/course-list/app/controller.js:91
 msgid "Return to the Course List page."
 msgstr "講座一覧へ戻る"
 
-#: static/apps/course-list/app/controller.js:125
-#: static/apps/learners/app/controller.js:181
+#: static/apps/course-list/app/controller.js:117
+#: static/apps/learners/app/controller.js:177
 msgid "Sorry, we couldn't find the page you're looking for."
 msgstr "申し訳ありませんが、お探しのページが見つかりませんでした。"
 
-#: static/apps/course-list/app/controller.js:129
-#: static/apps/learners/app/controller.js:186
+#: static/apps/course-list/app/controller.js:119
+#: static/apps/learners/app/controller.js:180
 msgid "Page Not Found"
 msgstr "お探しのページが見つかりません"
 
-#: static/apps/course-list/common/collections/course-list.js:77
+#: static/apps/course-list/common/collections/course-list.js:34
 msgid "Course Name"
 msgstr "講座名"
 
-#: static/apps/course-list/common/collections/course-list.js:78
+#: static/apps/course-list/common/collections/course-list.js:35
 msgid "Start Date"
 msgstr "開始日"
 
-#: static/apps/course-list/common/collections/course-list.js:79
+#: static/apps/course-list/common/collections/course-list.js:36
 msgid "End Date"
 msgstr "終了日"
 
-#: static/apps/course-list/common/collections/course-list.js:80
+#: static/apps/course-list/common/collections/course-list.js:37
 msgid "Total Enrollment"
 msgstr "総登録者数"
 
-#. Translators: The noun count (e.g. number of learners)
-#: static/apps/course-list/common/collections/course-list.js:81
+#: static/apps/course-list/common/collections/course-list.js:38
 #: static/js/enrollment-activity-main.js:27
 #: static/js/enrollment-demographics-gender-main.js:32
 #: static/js/enrollment-geography-main.js:29
 msgid "Current Enrollment"
 msgstr "現在の受講状況"
 
-#: static/apps/course-list/common/collections/course-list.js:82
+#: static/apps/course-list/common/collections/course-list.js:39
 msgid "Change Last Week"
 msgstr "先週の変動"
 
-#: static/apps/course-list/common/collections/course-list.js:83
+#: static/apps/course-list/common/collections/course-list.js:40
 msgid "Verified Enrollment"
 msgstr "認証付き登録"
 
-#: static/apps/course-list/common/collections/course-list.js:86
+#: static/apps/course-list/common/collections/course-list.js:43
 msgid "Passing Learners"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js:89
+#: static/apps/course-list/common/collections/course-list.js:46
 msgid "Availability"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js:90
+#: static/apps/course-list/common/collections/course-list.js:47
 msgid "Pacing Type"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js:91
+#: static/apps/course-list/common/collections/course-list.js:48
 msgid "Programs"
 msgstr "プログラム"
 
@@ -297,8 +292,17 @@ msgid "Skip to results"
 msgstr "結果へ"
 
 #: static/apps/course-list/list/views/controls.js:58
+msgid "Search courses"
+msgstr "検索結果"
+
+#: static/apps/course-list/list/views/controls.js:59
 msgid "Find a course"
 msgstr "講座を探す"
+
+#: static/apps/course-list/list/views/controls.js:56
+#: static/apps/learners/roster/views/controls.js:60
+msgid "text_search"
+msgstr ""
 
 #: static/apps/course-list/list/views/controls.js:68
 msgid "availability"
@@ -344,20 +348,6 @@ msgid ""
 " Data is updated every day, so check back regularly for up-to-date metrics."
 msgstr "講座を登録されていないか、講座データがまだ処理されていません。データは毎日更新されますので、定期的に確認してください。"
 
-#: static/apps/course-list/list/views/search.js:71
-msgid "Search courses"
-msgstr "検索結果"
-
-#: static/apps/course-list/list/views/search.js:72
-#: static/apps/learners/roster/views/search.js:56
-msgid "search"
-msgstr "検索"
-
-#: static/apps/course-list/list/views/search.js:73
-#: static/apps/learners/roster/views/search.js:57
-msgid "clear search"
-msgstr "検索をクリア"
-
 #: static/apps/course-list/list/views/table.js:48
 msgid "Date not available"
 msgstr "データが取得できません"
@@ -366,19 +356,19 @@ msgstr "データが取得できません"
 msgid "Learner Roster"
 msgstr "受講者名簿"
 
-#: static/apps/learners/app/controller.js:97
+#: static/apps/learners/app/controller.js:95
 msgid "Sorry, we couldn't find any learners who matched that query."
 msgstr "申し訳ありませんが、該当する受講者を見つけることができませんでした。"
 
-#: static/apps/learners/app/controller.js:98
+#: static/apps/learners/app/controller.js:96
 msgid "Return to the Learners page."
 msgstr "受講者ページに戻る。"
 
-#: static/apps/learners/app/controller.js:106
+#: static/apps/learners/app/controller.js:104
 msgid "Learners"
 msgstr "受講者"
 
-#: static/apps/learners/app/controller.js:141
+#: static/apps/learners/app/controller.js:137
 msgid "Learner Details"
 msgstr "受講者詳細"
 
@@ -447,7 +437,6 @@ msgstr "視聴した動画"
 msgid "Value"
 msgstr "値"
 
-#. Translators: e.g. Learner engagement activity
 #: static/apps/learners/detail/views/learner-detail.js:28
 msgid "Engagement Activity"
 msgstr "取り組み"
@@ -468,7 +457,6 @@ msgstr "受講登録"
 msgid "Last Accessed"
 msgstr "最新アクセス"
 
-#. Translators: 'n/a' means 'not available'
 #: static/apps/learners/detail/views/learner-detail.js:109
 #: static/apps/learners/detail/views/learner-summary-field.js:44
 #: static/apps/learners/roster/views/activity-date-range.js:16
@@ -491,14 +479,10 @@ msgstr "受講者データがありません。"
 msgid "Return to Learners"
 msgstr "受講者へ戻る"
 
-#. Translators: this is a label describing a selection that the user
-#. initiated.
 #: static/apps/learners/roster/views/active-filters.js:23
 msgid "Cohort: <%= filterVal %>"
 msgstr "群：<%= filterVal %>"
 
-#. Translators: this is a label describing a selection that the user
-#. initiated.
 #: static/apps/learners/roster/views/active-filters.js:27
 msgid "Enrollment Track: <%= filterVal %>"
 msgstr ""
@@ -541,6 +525,10 @@ msgid ""
 msgstr "この受講者の投稿、返信、コメントなどの数。"
 
 #: static/apps/learners/roster/views/controls.js:62
+msgid "Search learners"
+msgstr "受講者を検索"
+
+#: static/apps/learners/roster/views/controls.js:63
 msgid "Find a learner"
 msgstr "受講者を探す"
 
@@ -560,9 +548,6 @@ msgstr "能力別編成コースの受講"
 msgid "enrollment_mode"
 msgstr ""
 
-#. Translators: inactive meaning that these learners have not interacted with
-#. the
-#. course recently.
 #: static/apps/learners/roster/views/controls.js:103
 msgid "Hide Inactive Learners"
 msgstr "アクティブでない受講者を非表示"
@@ -590,12 +575,6 @@ msgstr "受講者がいないか、取組データがまだ処理できていま
 msgid "Learner roster controls"
 msgstr ""
 
-#: static/apps/learners/roster/views/search.js:55
-msgid "Search learners"
-msgstr "受講者を検索"
-
-#. Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate
-#. accordingly.
 #: static/apps/learners/roster/views/table.js:40
 msgid "N/A"
 msgstr "なし"
@@ -620,7 +599,6 @@ msgstr "ディスカッションに参加した"
 msgid "Percent of Current Learners"
 msgstr "現受講者の割合"
 
-#. Translators: <%=value%> will be replaced with a date.
 #: static/js/engagement-content-main.js:85
 msgid "Week Ending <%=value%>"
 msgstr "最終週 <%=value%>"
@@ -667,8 +645,6 @@ msgstr "視聴完了"
 msgid "Incomplete Views"
 msgstr "視聴未完了"
 
-#. Translators: this describe the learner's enrollment track (e.g. Honor
-#. certificate)
 #: static/js/enrollment-activity-main.js:33
 msgid "Honor"
 msgstr "倫理"
@@ -685,8 +661,6 @@ msgstr "認証済み"
 msgid "Professional"
 msgstr "専門家"
 
-#. Translators: this label indicates the learner has registered for academic
-#. credit
 #: static/js/enrollment-activity-main.js:54
 msgid "Verified with Credit"
 msgstr ""
@@ -697,7 +671,6 @@ msgstr ""
 msgid "Number of Learners"
 msgstr "受講者数"
 
-#. Translators: <%=value%> will be replaced with an age.
 #: static/js/enrollment-demographics-age-main.js:26
 msgid "Age: <%=value%>"
 msgstr "年齢：<%=value%>"
@@ -715,8 +688,6 @@ msgstr "全体比"
 msgid "Percentage"
 msgstr "パーセンテージ"
 
-#. Translators: <%=value%> will be replaced with a level of education (e.g.
-#. Doctorate).
 #: static/js/enrollment-demographics-education-main.js:24
 msgid "Education: <%=value%>"
 msgstr "学歴：<%=value%>"
@@ -725,8 +696,6 @@ msgstr "学歴：<%=value%>"
 msgid "Educational Background"
 msgstr "学歴"
 
-#. Translators: <%=value%> will be replaced with a level of gender (e.g.
-#. Female).
 #: static/js/enrollment-demographics-gender-main.js:23
 msgid "Gender: <%=value%>"
 msgstr "性別：<%=value%>"
@@ -765,7 +734,6 @@ msgstr "パーセント"
 msgid "Answer"
 msgstr "解答"
 
-#. Translators: "Correct" is displayed in a table..
 #: static/js/performance-answer-distribution-main.js:15
 #: static/js/performance-answer-distribution-main.js:43
 #: static/js/performance-learning-outcomes-section-main.js:11
@@ -790,8 +758,6 @@ msgstr "別の解答"
 msgid "Incorrect"
 msgstr "不正解"
 
-#. Translators: <%=value%> will be replaced by a learner response to a
-#. question asked in a course.
 #: static/js/performance-answer-distribution-main.js:60
 msgid "Answer: <%=value%>"
 msgstr "解答： <%=value%>"
@@ -838,10 +804,6 @@ msgstr "合計"
 msgid "..."
 msgstr "..."
 
-#. Translators: (empty) is displayed in a table and indicates no label/value.
-#. Keep text in the parenthesis or an equivalent symbol.
-#. Translators: (empty) is displayed as a label in a chart and indicates that
-#. no label was provided.
 #: static/js/views/data-table-view.js:199
 #: static/js/views/discrete-bar-view.js:21
 msgid "(empty)"
@@ -849,7 +811,7 @@ msgstr "(なし)"
 
 #. Translators: <%=value%> will be replaced by a number followed by a
 #. percentage.
-#. For example, "400 (29%)"
+#. For example, "400 (29%)" */
 #: static/js/views/stacked-bar-view.js:13
 msgid "<%=value%> (<%=percent%>)"
 msgstr "<%=value%> (<%=percent%>)"
