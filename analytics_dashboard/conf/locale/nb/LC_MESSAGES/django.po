@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2017-08-11 11:15+0000\n"
+"POT-Creation-Date: 2017-08-14 21:01-0400\n"
+"PO-Revision-Date: 2017-08-15 12:49+0000\n"
 "Last-Translator: Frode Arntsen <frode.arntsen@bibsys.no>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/open-edx/edx-platform/language/nb/)\n"
 "MIME-Version: 1.0\n"
@@ -503,7 +503,7 @@ msgstr "Startet video"
 
 #: courses/templates/courses/engagement_video_timeline.html:67
 msgid "Learners who started watching the video."
-msgstr ""
+msgstr "Kursdeltagere som har startet å se videoen."
 
 #: courses/templates/courses/engagement_video_timeline.html:71
 msgid "Finished Video"
@@ -511,7 +511,7 @@ msgstr "Ferdigsett video"
 
 #: courses/templates/courses/engagement_video_timeline.html:72
 msgid "Learners who watched the video to the end."
-msgstr ""
+msgstr "Kursdeltagere som så hele videoen."
 
 #: courses/templates/courses/engagement_video_timeline.html:88
 msgid "Video Viewing Over Time"
@@ -519,16 +519,16 @@ msgstr "Videovisninger over tid"
 
 #: courses/templates/courses/enrollment_activity.html:24
 msgid "Daily Learner Enrollment"
-msgstr ""
+msgstr "Daglig kurspåmelding"
 
 #: courses/templates/courses/enrollment_activity.html:25
 #: courses/views/__init__.py:497
 msgid "How many learners are in my course?"
-msgstr ""
+msgstr "Hvor mange kursdeltagere er det i mitt kurs?"
 
 #: courses/templates/courses/enrollment_activity.html:32
 msgid "Enrollments"
-msgstr "Innmeldinger"
+msgstr "Påmeldinger"
 
 #: courses/templates/courses/enrollment_activity.html:33
 msgid ""
@@ -547,7 +547,7 @@ msgstr "Innmeldingsstatistikk"
 #: courses/templates/courses/enrollment_activity.html:59
 #: courses/templates/courses/index.html:26
 msgid "Total Enrollment"
-msgstr "Total antall innmeldinger"
+msgstr "Total antall påmeldinger"
 
 #. Translators: This is a label indicating the number of learners in a course.
 #: courses/templates/courses/enrollment_activity.html:61
@@ -566,7 +566,7 @@ msgstr "Påmeldinger så langt"
 #. a course.
 #: courses/templates/courses/enrollment_activity.html:70
 msgid "Learners currently enrolled in the course."
-msgstr ""
+msgstr "Kursdeltagere påmeldt kurset."
 
 #. Translators: This is a label indicating the change in the number of
 #. learners enrolled in a course since the previous week.
@@ -698,7 +698,7 @@ msgstr "Utdanningsstatistikk"
 #. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html:64
 msgid "High School Diploma or Less"
-msgstr "Videregående skole vitnemål eller mindre"
+msgstr "Vitnemål fra videregående skole eller lavere"
 
 #: courses/templates/courses/enrollment_demographics_education.html:65
 msgid ""
@@ -721,7 +721,7 @@ msgstr ""
 #. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html:78
 msgid "Advanced Degree"
-msgstr "Høyere/avanser grad"
+msgstr "Høyere grad"
 
 #: courses/templates/courses/enrollment_demographics_education.html:79
 msgid ""
@@ -763,7 +763,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html:27
 msgid "Enrollment by Country"
-msgstr "Innmeldinger etter land"
+msgstr "Påmeldinger etter land"
 
 #: courses/templates/courses/enrollment_geography.html:45
 msgid "Geography Metrics"
@@ -861,7 +861,7 @@ msgid "External Tools"
 msgstr "Eksterne verktøy"
 
 #: courses/templates/courses/index.html:10
-#: courses/views/course_summaries.py:32
+#: courses/views/course_summaries.py:33
 msgid "Courses"
 msgstr "Kurs"
 
@@ -1117,7 +1117,7 @@ msgstr ""
 
 #: courses/views/__init__.py:646
 msgid "All Learners"
-msgstr ""
+msgstr "Alle kursdelatgere"
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
@@ -1165,7 +1165,7 @@ msgid "Courseware"
 msgstr "Kursinnhold"
 
 #. Translators: Do not translate UTC.
-#: courses/views/course_summaries.py:41
+#: courses/views/course_summaries.py:42
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
@@ -1305,11 +1305,11 @@ msgstr ""
 msgid "Performance: Learning Outcomes"
 msgstr ""
 
-#: settings/base.py:419
+#: settings/base.py:413
 msgid "Terms of Service"
 msgstr "Bruksvilkår for tjenesten"
 
-#: settings/base.py:420
+#: settings/base.py:414
 msgid "Privacy Policy"
 msgstr "Erklæring om personvern"
 
