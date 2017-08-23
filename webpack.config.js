@@ -6,13 +6,6 @@ var Merge = require('webpack-merge'),
     djangoDevServer = process.env.DJANGO_DEV_SERVER || 'http://localhost:8110';
 
 module.exports = Merge.smart(commonConfig, {
-    entry: {
-        // Bundle the client for the webpack-dev-server and specify url to the server
-        devServer: 'webpack-dev-server/client?http://localhost:8080',
-        // Bundle the client for hot reloading. 'only-' means to only hot reload for successful updates.
-        hotReload: 'webpack/hot/only-dev-server'
-    },
-
     output: {
         // Tells clients to load bundles from the dev-server
         publicPath: 'http://localhost:8080/static/bundles/',
@@ -83,7 +76,6 @@ module.exports = Merge.smart(commonConfig, {
 
     devServer: {
         compress: true,
-        hot: true, // enable hot reloading on the server
         // Since the dev-server runs on a different port, browsers will complain about CORS violations unless we
         // explicitly tell them it's okay with this header.
         headers: {
