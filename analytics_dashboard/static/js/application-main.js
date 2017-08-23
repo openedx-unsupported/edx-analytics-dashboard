@@ -1,6 +1,7 @@
 /**
  * Load scripts needed across the application.
  */
+require('babel-polyfill');  // EDUCATOR-1184: this defines Promise for IE11
 require('sass/style-application.scss');
 require(process.env.THEME_SCSS);
 
