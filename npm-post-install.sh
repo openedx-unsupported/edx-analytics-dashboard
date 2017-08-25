@@ -3,19 +3,6 @@
 NPM_PATH="node_modules"
 NPM_BIN="${NPM_PATH}/.bin"
 
-function CSS2SCSS() {
-    filename=$1
-    css_filename=${filename}.css
-
-    if [ -f ${css_filename} ]; then
-        mv ${css_filename} ${filename}.scss
-    fi
-}
-
-# Rename the CSS to SCSS since SASS can only import .scss files.
-CSS2SCSS ${NPM_PATH}/bootstrap-accessibility-plugin/plugins/css/bootstrap-accessibility
-CSS2SCSS ${NPM_PATH}/nvd3/build/nv.d3
-
 # Download the CLDR data for all locales
 CLDR_DATA_PATH=${NPM_PATH}/cldr-data
 node ./node_modules/cldr-data-downloader/bin/download.js -i ${CLDR_DATA_PATH}/urls.json -o ${CLDR_DATA_PATH}
