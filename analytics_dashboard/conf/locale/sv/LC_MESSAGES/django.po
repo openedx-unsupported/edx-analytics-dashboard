@@ -5,13 +5,14 @@
 # Translators:
 # Emil Molander, 2015
 # Jenny Furstenbach <jenny.furstenbach@gmail.com>, 2016
+# Rickard Löfström <rickard.lofstrom@cambio.se>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-14 21:01-0400\n"
-"PO-Revision-Date: 2017-08-03 16:01+0000\n"
-"Last-Translator: Ned Batchelder <ned@edx.org>\n"
+"PO-Revision-Date: 2017-09-05 20:06+0000\n"
+"Last-Translator: Dennis Jen <djen@edx.org>\n"
 "Language-Team: Swedish (http://www.transifex.com/open-edx/edx-platform/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgstr ""
 
 #: core/templates/core/landing.html:15 templates/_skip_link.html:3
 msgid "Skip to content"
-msgstr ""
+msgstr "Hoppa till innehåll"
 
 #: core/templates/core/landing.html:23
 msgid "Login"
@@ -29,32 +30,32 @@ msgstr "Logga in"
 
 #: core/templates/core/landing.html:33
 msgid "Insights to help course teams improve courses."
-msgstr "Insights hjälper dig att förbättra kurserna."
+msgstr "Insikter för att hjälpa kursenheter att förbättra kurser."
 
 #: core/templates/core/landing.html:42 courses/views/__init__.py:494
 msgid "Who are my learners?"
-msgstr ""
+msgstr "Vem är mina elever?"
 
 #: core/templates/core/landing.html:43
 msgid "Target your course to fit the backgrounds of your learners."
-msgstr ""
+msgstr "Mål din kurs för att passa bakom dina elever."
 
 #: core/templates/core/landing.html:44
 #: courses/templates/courses/enrollment_geography.html:28
 #: courses/tests/test_views/__init__.py:220 courses/views/__init__.py:291
 #: courses/views/__init__.py:492
 msgid "Enrollment"
-msgstr "Kursregistrering"
+msgstr "Inskrivning"
 
 #: core/templates/core/landing.html:47
 msgid "What are learners engaging with in my course?"
-msgstr ""
+msgstr "Vad handlar eleverna om i min kurs?"
 
 #: core/templates/core/landing.html:48
 msgid ""
 "Improve frequently accessed content, or point learners at underused "
 "resources."
-msgstr ""
+msgstr "Förbättra ofta tillgång till innehåll, eller peka på elever på underutnyttjade resurser."
 
 #: core/templates/core/landing.html:49
 #: courses/tests/test_views/test_engagement.py:44
@@ -64,62 +65,62 @@ msgstr "Engagemang"
 
 #: core/templates/core/landing.html:52
 msgid "How well is my content supporting learners?"
-msgstr ""
+msgstr "Hur bra är mitt innehåll stödjande för elever?"
 
 #: core/templates/core/landing.html:53
 msgid "Adjust your course based on where learners are struggling."
-msgstr ""
+msgstr "Justera din kurs baserat på var studenterna kämpar."
 
 #: core/templates/core/landing.html:54
 #: courses/tests/test_views/test_performance.py:48
 #: courses/views/__init__.py:313 courses/views/__init__.py:631
 msgid "Performance"
-msgstr "Prestation"
+msgstr "Prestanda"
 
 #: core/templates/core/landing.html:63
 msgid "Join the Open Source Community"
-msgstr "Delta i open source-communityn"
+msgstr "Gå med i Open Source Community"
 
 #: core/templates/core/landing.html:68
 #, python-format
 msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr "EdX analysverktyg är open source. %(link_start)sLär dig mer%(link_end)s."
+msgstr ""
 
 #: core/templates/core/landing.html:75
 msgid "Research at edX"
-msgstr "Forskning på edX"
+msgstr "Forskning vid edX"
 
 #: core/templates/core/landing.html:80
 #, python-format
 msgid ""
 "We are committed to advancing teaching and learning through research. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr "Vi är fast beslutna att främja undervisning och lärande genom forskning. %(link_start)sLär dig mer%(link_end)s."
+msgstr ""
 
 #: core/templates/core/landing.html:87
 msgid "Need Help?"
-msgstr "Behöver du hjälp?"
+msgstr "Behövs hjälp?"
 
 #: core/templates/core/landing.html:92
 #, python-format
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
-msgstr "%(link_start)sVårt supportcenter%(link_end)s kan hjälpa dig att finna lösningar."
+msgstr ""
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
 #: core/templatetags/dashboard_extras.py:27
 #, python-brace-format
 msgid "{statistic}%"
-msgstr "{statistic}%"
+msgstr "{statistisk}%"
 
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: courses/presenters/engagement.py:126
 #, python-brace-format
 msgid "{percentage} of current learners"
-msgstr ""
+msgstr "{procent} av nuvarande elever"
 
 #: courses/presenters/enrollment.py:23
 msgid "Female"
@@ -127,13 +128,13 @@ msgstr "Kvinna"
 
 #: courses/presenters/enrollment.py:24
 msgid "Male"
-msgstr "Man"
+msgstr "Manlig"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:26 courses/presenters/enrollment.py:45
 msgid "Other"
-msgstr "Annat"
+msgstr "Andra"
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
@@ -151,42 +152,42 @@ msgstr "Ingen"
 #. School Degree).
 #: courses/presenters/enrollment.py:47 courses/tests/test_serializers.py:12
 msgid "Primary"
-msgstr "Grundskolans tidigare år"
+msgstr "Primär"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: courses/presenters/enrollment.py:49
 msgid "Middle"
-msgstr "Grundskolans senare år"
+msgstr "Mitten"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:51
 msgid "Secondary"
-msgstr "Gymnasieskola"
+msgstr "Sekundär"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
 #: courses/presenters/enrollment.py:53
 msgid "Associate"
-msgstr "Yrkesexamen"
+msgstr "Associera"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
 #: courses/presenters/enrollment.py:55
 msgid "Bachelor's"
-msgstr "Kandidatexamen"
+msgstr "Kandidat"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters/enrollment.py:57
 msgid "Master's"
-msgstr "Master- eller magisterexamen"
+msgstr "master~~POS=TRUNC"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
 #: courses/presenters/enrollment.py:59
 msgid "Doctorate"
-msgstr "Doktorsexamen"
+msgstr "doktorsexamen"
 
 #. Translators: This is a placeholder for enrollment data collected without a
 #. known geolocation.
@@ -198,12 +199,12 @@ msgstr "Okänt land"
 #: courses/presenters/performance.py:146
 #: courses/templates/courses/submissions_chart_info.html:4
 msgid "Submissions"
-msgstr "Inlämningar"
+msgstr "Inskickade"
 
 #: courses/presenters/performance.py:150
 #, python-brace-format
 msgid "Submissions for Part {part_number}: {part_description}"
-msgstr "Inlämning för Del {part_number}: {part_description}"
+msgstr "Inlämnanden för del {part_number}: {part_description}"
 
 #: courses/presenters/performance.py:151
 #, python-brace-format
@@ -213,22 +214,22 @@ msgstr "Del {part_number}: {part_description}"
 #: courses/presenters/performance.py:153
 #, python-brace-format
 msgid "Submissions: {part_description}"
-msgstr "Inlämningar: {part_description}"
+msgstr "Inlägg: {part_description}"
 
 #: courses/presenters/performance.py:154
 #, python-brace-format
 msgid "{part_description}"
-msgstr ""
+msgstr "{Beskrivning av del}"
 
 #: courses/presenters/performance.py:157
 #, python-brace-format
 msgid "Submissions for Part {part_number}"
-msgstr ""
+msgstr "Inlämnanden för del {part_number}"
 
 #: courses/presenters/performance.py:158
 #, python-brace-format
 msgid "Part {part_number}"
-msgstr ""
+msgstr "Del {part_number}"
 
 #: courses/templates/courses/_base_content_nav.html:25
 #, python-format
@@ -237,13 +238,13 @@ msgstr ""
 
 #: courses/templates/courses/_graded_content_nav.html:16
 msgid "Select Assignment Type"
-msgstr ""
+msgstr "Välj Uppgiftstyp"
 
 #. Translators: This refers to all course assignment types (e.g. homework,
 #. exam, lab).
 #: courses/templates/courses/_graded_content_nav.html:21
 msgid "All Assignments"
-msgstr ""
+msgstr "Alla uppdrag"
 
 #: courses/templates/courses/_graded_content_nav.html:25
 #, python-format
@@ -264,38 +265,38 @@ msgstr "Välj problem"
 #: courses/templates/courses/_module_description.html:14
 #: courses/templates/courses/_video_preview.html:9
 msgid "View Live"
-msgstr ""
+msgstr "Visa Live"
 
 #: courses/templates/courses/_tags_content_nav.html:15
 msgid "Select Outcome"
-msgstr ""
+msgstr "Välj Resultat"
 
 #: courses/templates/courses/_tags_content_nav.html:19
 msgid "All Outcomes"
-msgstr ""
+msgstr "Alla utfall"
 
 #: courses/templates/courses/_ungraded_content_nav.html:16
 #: courses/templates/courses/_video_content_nav.html:16
 msgid "Select Section"
-msgstr ""
+msgstr "Välj avsnitt"
 
 #: courses/templates/courses/_ungraded_content_nav.html:20
 #: courses/templates/courses/_video_content_nav.html:20
 msgid "All Sections"
-msgstr ""
+msgstr "Alla sektioner"
 
 #: courses/templates/courses/_ungraded_content_nav.html:24
 #: courses/templates/courses/_video_content_nav.html:24
 msgid "Select Subsection"
-msgstr ""
+msgstr "Välj underavsnitt"
 
 #: courses/templates/courses/_video_content_nav.html:28
 msgid "Select Video"
-msgstr "Välj video"
+msgstr "Välj Video"
 
 #: courses/templates/courses/_video_module_controls.html:8
 msgid "Previous Video"
-msgstr "Förra videon"
+msgstr "Föregående video"
 
 #: courses/templates/courses/_video_module_controls.html:15
 msgid "Next Video"
@@ -306,7 +307,7 @@ msgstr "Nästa video"
 msgid ""
 "This chart shows the most common answers submitted by learners, ordered by "
 "frequency."
-msgstr ""
+msgstr "Detta diagram visar de vanligaste svaren som lämnats in av eleverna, ordnade efter frekvens."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html:82
@@ -321,11 +322,11 @@ msgstr ""
 msgid ""
 "Review all submission variants below, or click Download CSV to review them "
 "offline."
-msgstr ""
+msgstr "Granska alla inlämningsvarianter nedan, eller klicka på Hämta CSV för att granska dem offline."
 
 #: courses/templates/courses/base_performance_answer_distribution.html:108
 msgid "Submission Counts"
-msgstr ""
+msgstr "Inlämningsantal"
 
 #: courses/templates/courses/base_performance_answer_distribution.html:116
 #: courses/templates/courses/engagement_content.html:96
@@ -336,205 +337,205 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_gender.html:65
 #: courses/templates/courses/enrollment_geography.html:97
 msgid "Download CSV"
-msgstr "Ladda ner CSV-fil"
+msgstr "Hämta CSV"
 
 #: courses/templates/courses/base_performance_answer_distribution.html:117
 msgid "Learner Submission Counts"
-msgstr ""
+msgstr "Inlämningsantal för lärare"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html:4
 msgid "Learners (Self-Reported)"
-msgstr ""
+msgstr "Elever (självrapporterad)"
 
 #: courses/templates/courses/engagement_content.html:23
 msgid "Weekly Learner Engagement"
-msgstr ""
+msgstr "Veckans lärarförlovning"
 
 #: courses/templates/courses/engagement_content.html:24
 #: courses/views/__init__.py:556
 msgid "How many learners are interacting with my course?"
-msgstr ""
+msgstr "Hur många elever interagerar med min kurs?"
 
 #: courses/templates/courses/engagement_content.html:31
 #: courses/views/__init__.py:325 courses/views/__init__.py:639
 #: courses/views/learners.py:20
 msgid "Learners"
-msgstr ""
+msgstr "Eleverna"
 
 #: courses/templates/courses/engagement_content.html:32
 msgid ""
 "The number of active learners, and the number of learners who engaged in "
 "specific activities, over time."
-msgstr ""
+msgstr "Antalet aktiva elever, och antalet elever som engagerat sig i specifika aktiviteter, över tiden."
 
 #: courses/templates/courses/engagement_content.html:48
 msgid "Learner Activity Metrics"
-msgstr ""
+msgstr "Learner Activity Metrics"
 
 #: courses/templates/courses/engagement_content.html:54
 msgid "Active Learners Last Week"
-msgstr ""
+msgstr "Aktiva lärare förra veckan"
 
 #: courses/templates/courses/engagement_content.html:55
 msgid "Learners who visited at least one page in the course content."
-msgstr ""
+msgstr "Elever som besökte minst en sida i kursinnehållet."
 
 #. Translators: This is a label indicating the number of learners who watched
 #. a video.
 #: courses/templates/courses/engagement_content.html:61
 msgid "Watched a Video Last Week"
-msgstr "Tittade på en video förra veckan"
+msgstr "Kollar på en video förra veckan"
 
 #: courses/templates/courses/engagement_content.html:62
 msgid "Learners who played one or more videos."
-msgstr ""
+msgstr "Elever som spelade en eller flera videor."
 
 #. Translators: This is a label indicating the number of learners who tried a
 #. problem.
 #: courses/templates/courses/engagement_content.html:68
 msgid "Tried a Problem Last Week"
-msgstr "Svarade på ett problem förra veckan"
+msgstr "Försökte ett problem förra veckan"
 
 #: courses/templates/courses/engagement_content.html:69
 msgid ""
 "Learners who submitted an answer for a standard problem. Not all problem "
 "types are included."
-msgstr ""
+msgstr "Elever som lämnat ett svar för ett standardproblem. Alla problemtyper ingår inte."
 
 #. Translators: This is a label indicating the number of learners who posted
 #. in a forum discussion.
 #: courses/templates/courses/engagement_content.html:76
 msgid "Participated in Discussions Last Week"
-msgstr ""
+msgstr "Deltog i diskussioner förra veckan"
 
 #: courses/templates/courses/engagement_content.html:77
 msgid ""
 "Learners who added a post, response, or comment to any course discussion."
-msgstr ""
+msgstr "Elever som lagt till ett inlägg, svar eller kommentar till någon diskussion."
 
 #: courses/templates/courses/engagement_content.html:89
 #: courses/templates/courses/engagement_content.html:97
 msgid "Content Engagement Breakdown"
-msgstr "Fördelning av deltagande i innehållet"
+msgstr "Innehållsförlovningsuppdelning"
 
 #. Translators: This describes the data displayed in the chart below. E.g. how
 #. many learners viewed a video.
 #: courses/templates/courses/engagement_grouped_content.html:17
 #: courses/templates/courses/views_chart_info.html:4
 msgid "Video Views"
-msgstr ""
+msgstr "Videovyer"
 
 #: courses/templates/courses/engagement_video_by_section.html:5
 msgid "How did learners interact with videos in this section?"
-msgstr ""
+msgstr "Hur interagerade eleverna med videoklipp i det här avsnittet?"
 
 #: courses/templates/courses/engagement_video_by_section.html:10
 msgid ""
 "Each bar shows the average number of complete and incomplete views for "
 "videos in that subsection. Click on bars with low totals or a high "
 "incomplete rate to drill down and understand why."
-msgstr ""
+msgstr "Varje stapel visar det genomsnittliga antalet fullständiga och ofullständiga vyer för videoklipp i det underavsnittet. Klicka på staplar med låga totals eller en hög ofullständig kurs för att borra ner och förstå varför."
 
 #: courses/templates/courses/engagement_video_by_subsection.html:10
 msgid "How did learners interact with videos in this subsection?"
-msgstr ""
+msgstr "Hur interagerade eleverna med videoklipp i denna underavdelning?"
 
 #: courses/templates/courses/engagement_video_by_subsection.html:15
 msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
 "Click to understand where learners drop off and which parts they replay."
-msgstr ""
+msgstr "Varje stapel visar antalet kompletta och ofullständiga vyer för den videon. Klicka för att förstå var eleverna släpper och vilka delar de spelar om."
 
 #: courses/templates/courses/engagement_video_course.html:5
 #: courses/views/__init__.py:569
 msgid "How did learners interact with course videos?"
-msgstr ""
+msgstr "Hur interagerade eleverna med kursvideor?"
 
 #: courses/templates/courses/engagement_video_course.html:10
 msgid ""
 "Each bar shows the average number of complete and incomplete views for "
 "videos in that section. Click on bars with low totals or a high incomplete "
 "rate to drill down and understand why."
-msgstr ""
+msgstr "Varje stapel visar det genomsnittliga antalet fullständiga och ofullständiga vyer för videoklipp i den sektionen. Klicka på staplar med låga totals eller en hög ofullständig kurs för att borra ner och förstå varför."
 
 #: courses/templates/courses/engagement_video_timeline.html:17
 #: courses/templates/courses/engagement_video_timeline.html:21
 msgid "Total Video Views"
-msgstr ""
+msgstr "Totala videovyer"
 
 #: courses/templates/courses/engagement_video_timeline.html:26
 msgid "What were the viewing patterns for this video?"
-msgstr ""
+msgstr "Vad var visningsmönstren för den här videon?"
 
 #: courses/templates/courses/engagement_video_timeline.html:31
 msgid ""
 "The number of learners who watched each segment of the video, and the number"
 " of replays for each segment."
-msgstr ""
+msgstr "Antalet elever som tittade på varje segment av videon och antalet repliker för varje segment."
 
 #: courses/templates/courses/engagement_video_timeline.html:37
 msgid "Collapse Preview"
-msgstr ""
+msgstr "Dölj förhandsgranskning"
 
 #: courses/templates/courses/engagement_video_timeline.html:38
 msgid "Expand Preview"
-msgstr ""
+msgstr "Expand Förhandsgranska"
 
 #: courses/templates/courses/engagement_video_timeline.html:55
 msgid "Video Metrics"
-msgstr ""
+msgstr "Video Metrics"
 
 #: courses/templates/courses/engagement_video_timeline.html:61
 msgid "Completion Rate"
-msgstr ""
+msgstr "Slutföringsfrekvens"
 
 #: courses/templates/courses/engagement_video_timeline.html:62
 msgid "Estimated percentage of learners who watched the entire video."
-msgstr ""
+msgstr "Beräknad andel av elever som tittade på hela videon."
 
 #: courses/templates/courses/engagement_video_timeline.html:66
 msgid "Started Video"
-msgstr ""
+msgstr "Startad video"
 
 #: courses/templates/courses/engagement_video_timeline.html:67
 msgid "Learners who started watching the video."
-msgstr ""
+msgstr "Elever som började titta på videon."
 
 #: courses/templates/courses/engagement_video_timeline.html:71
 msgid "Finished Video"
-msgstr ""
+msgstr "Avslutad video"
 
 #: courses/templates/courses/engagement_video_timeline.html:72
 msgid "Learners who watched the video to the end."
-msgstr ""
+msgstr "Elever som tittade på videon till slutet."
 
 #: courses/templates/courses/engagement_video_timeline.html:88
 msgid "Video Viewing Over Time"
-msgstr ""
+msgstr "Videovisning över tiden"
 
 #: courses/templates/courses/enrollment_activity.html:24
 msgid "Daily Learner Enrollment"
-msgstr ""
+msgstr "Daglig lärarregistrering"
 
 #: courses/templates/courses/enrollment_activity.html:25
 #: courses/views/__init__.py:497
 msgid "How many learners are in my course?"
-msgstr ""
+msgstr "Hur många elever är i min kurs?"
 
 #: courses/templates/courses/enrollment_activity.html:32
 msgid "Enrollments"
-msgstr "Registreringar"
+msgstr "inskrivningar"
 
 #: courses/templates/courses/enrollment_activity.html:33
 msgid ""
 "This graph displays the current enrollment for the course as of the end of "
 "each day. This includes new enrollments as well as unenrollments."
-msgstr ""
+msgstr "Denna graf visar aktuell inskrivning för kursen per slutet av varje dag. Detta inkluderar nya inskrivningar såväl som unenrollments."
 
 #: courses/templates/courses/enrollment_activity.html:49
 msgid "Enrollment Metrics"
-msgstr "Registreringsstatistik"
+msgstr "Inskrivningsmetod"
 
 #. Translators: This is a label to identify the number of learners who ever
 #. enrolled in the course.
@@ -543,12 +544,12 @@ msgstr "Registreringsstatistik"
 #: courses/templates/courses/enrollment_activity.html:59
 #: courses/templates/courses/index.html:26
 msgid "Total Enrollment"
-msgstr "Totalt antal registrerade"
+msgstr "Total inskrivning"
 
 #. Translators: This is a label indicating the number of learners in a course.
 #: courses/templates/courses/enrollment_activity.html:61
 msgid "Learners who ever enrolled in the course."
-msgstr ""
+msgstr "Elever som någonsin deltagit i kursen."
 
 #. Translators: This is a label to identify current learner enrollment.
 #. Translators: This is a label to identify the current number of learners in
@@ -556,13 +557,13 @@ msgstr ""
 #: courses/templates/courses/enrollment_activity.html:68
 #: courses/templates/courses/index.html:33
 msgid "Current Enrollment"
-msgstr ""
+msgstr "Nuvarande Inskrivning"
 
 #. Translators: This is a label indicating the number of learners enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html:70
 msgid "Learners currently enrolled in the course."
-msgstr ""
+msgstr "Eleverna skrev för närvarande in i kursen."
 
 #. Translators: This is a label indicating the change in the number of
 #. learners enrolled in a course since the previous week.
@@ -571,11 +572,11 @@ msgstr ""
 #: courses/templates/courses/enrollment_activity.html:76
 #: courses/templates/courses/index.html:40
 msgid "Change in Last Week"
-msgstr "Förändring sedan förra veckan"
+msgstr "Förändring i förra veckan"
 
 #: courses/templates/courses/enrollment_activity.html:77
 msgid "Net difference in current enrollment in the last week."
-msgstr ""
+msgstr "Netto skillnad i nuvarande anmälan under den senaste veckan."
 
 #. Translators: This is a label to identify enrollment of learners on the
 #. verified track.
@@ -584,7 +585,7 @@ msgstr ""
 #: courses/templates/courses/enrollment_activity.html:84
 #: courses/templates/courses/index.html:47
 msgid "Verified Enrollment"
-msgstr "Verifierade registreringar"
+msgstr "Verifierad registrering"
 
 #. Translators: This is a label indicating the number of learners enrolled in
 #. a course on the verified track.
@@ -592,7 +593,7 @@ msgstr "Verifierade registreringar"
 msgid ""
 "Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
-msgstr ""
+msgstr "Antal för närvarande inskrivna elever som utför ett verifierat prestationsbevis."
 
 #: courses/templates/courses/enrollment_activity.html:99
 #: courses/templates/courses/enrollment_activity.html:107
@@ -600,12 +601,12 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_education.html:101
 #: courses/templates/courses/enrollment_demographics_gender.html:66
 msgid "Enrollment Over Time"
-msgstr "Registreringar över tid"
+msgstr "Inskrivning över tiden"
 
 #: courses/templates/courses/enrollment_demographics_age.html:26
 #: courses/views/__init__.py:507
 msgid "How old are my learners?"
-msgstr ""
+msgstr "Hur gamla är mina elever?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -625,57 +626,57 @@ msgstr "Åldersstatistik"
 #. learners.
 #: courses/templates/courses/enrollment_demographics_age.html:65
 msgid "Median Learner Age"
-msgstr ""
+msgstr "Median Learner Age"
 
 #: courses/templates/courses/enrollment_demographics_age.html:66
 msgid ""
 "The midpoint of the learner ages, computed from the provided year of birth."
-msgstr ""
+msgstr "Medelvärdet för den studerande åldras, beräknat från det angivna året för födelsen."
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html:72
 msgid "Learners 25 and Under"
-msgstr ""
+msgstr "Eleverna 25 och Under"
 
 #: courses/templates/courses/enrollment_demographics_age.html:73
 msgid ""
 "The percentage of learners aged 25 years or younger (of those who provided a"
 " year of birth)."
-msgstr ""
+msgstr "Andelen elever i åldern 25 år eller yngre (av dem som gav ett födelseår)."
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html:79
 msgid "Learners 26 to 40"
-msgstr ""
+msgstr "Eleverna 26 till 40"
 
 #: courses/templates/courses/enrollment_demographics_age.html:80
 msgid ""
 "The percentage of learners aged from 26 to 40 years (of those who provided a"
 " year of birth)."
-msgstr ""
+msgstr "Andelen elever i åldern 26 till 40 år (av dem som gav ett födelseår)."
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html:86
 msgid "Learners 41 and Over"
-msgstr ""
+msgstr "Eleverna 41 och över"
 
 #: courses/templates/courses/enrollment_demographics_age.html:87
 msgid ""
 "The percentage of learners aged 41 years or older (of those who provided a "
 "year of birth)."
-msgstr ""
+msgstr "Andelen elever i åldrarna 41 år eller äldre (av dem som gav ett födelseår)."
 
 #: courses/templates/courses/enrollment_demographics_age.html:101
 msgid "Age Breakdown"
-msgstr "Åldersstatistik"
+msgstr "Åldersuppdelning"
 
 #: courses/templates/courses/enrollment_demographics_education.html:25
 #: courses/views/__init__.py:517
 msgid "What level of education do my learners have?"
-msgstr ""
+msgstr "Vilken utbildningsnivå har mina elever?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -689,19 +690,19 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_education.html:56
 msgid "Education Metrics"
-msgstr "Utbildningsstatistik"
+msgstr "Utbildningsmetod"
 
 #. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html:64
 msgid "High School Diploma or Less"
-msgstr "Gymnasieexamen eller lägre"
+msgstr "Högskola Diplom eller Mindre"
 
 #: courses/templates/courses/enrollment_demographics_education.html:65
 msgid ""
 "The percentage of learners who selected Secondary/high school, Junior "
 "secondary/junior high/middle school, or Elementary/primary school as their "
 "highest level of education completed."
-msgstr ""
+msgstr "Procentandelen av elever som valde gymnasieskolan, gymnasieskolan eller gymnasieskolan eller grundskolan som högsta utbildningsnivå."
 
 #. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html:71
@@ -712,27 +713,27 @@ msgstr "Högskoleexamen"
 msgid ""
 "The percentage of learners who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
-msgstr ""
+msgstr "Procentandelen av elever som valt bachelorgrad eller associerad examen som sin högsta utbildningsnivå."
 
 #. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html:78
 msgid "Advanced Degree"
-msgstr "Högskoleexamen"
+msgstr "Högre examen"
 
 #: courses/templates/courses/enrollment_demographics_education.html:79
 msgid ""
 "The percentage of learners who selected Doctorate or Master's or "
 "professional degree as their highest level of education completed."
-msgstr ""
+msgstr "Procentandelen av elever som valt doktorsexamen eller magisterexamen eller yrkeshögskoleexamen som sin högsta utbildningsnivå."
 
 #: courses/templates/courses/enrollment_demographics_education.html:91
 msgid "Educational Breakdown"
-msgstr "Utbildningsöversikt"
+msgstr "Utbildningsuppdelning"
 
 #: courses/templates/courses/enrollment_demographics_gender.html:25
 #: courses/views/__init__.py:527
 msgid "What is the learner gender breakdown?"
-msgstr ""
+msgstr "Vad är elevens uppdelning av kön?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -746,64 +747,64 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_gender.html:56
 msgid "Gender Breakdown Over Time"
-msgstr "Könsfördelning över tid."
+msgstr "Könssammanställning över tiden"
 
 #: courses/templates/courses/enrollment_geography.html:21
 msgid "Geographic Distribution"
-msgstr "Geografisk fördelning"
+msgstr "Geografisk distribution"
 
 #: courses/templates/courses/enrollment_geography.html:22
 #: courses/views/__init__.py:537
 msgid "Where are my learners?"
-msgstr ""
+msgstr "Var är mina elever?"
 
 #: courses/templates/courses/enrollment_geography.html:27
 msgid "Enrollment by Country"
-msgstr "Registreringar per land"
+msgstr "Inskrivning per land"
 
 #: courses/templates/courses/enrollment_geography.html:45
 msgid "Geography Metrics"
-msgstr "Geografisk statistik"
+msgstr "Geografi Metrics"
 
 #. Translators: This string represents the number of countries where learners
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html:53
 msgid "Total Countries or Regions Represented"
-msgstr ""
+msgstr "Totala länder eller regioner representerade"
 
 #: courses/templates/courses/enrollment_geography.html:54
 msgid "Countries or regions with at least one learner."
-msgstr ""
+msgstr "Länder eller regioner med minst en elev."
 
 #. Translators: This string represents the country or region with the greatest
 #. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html:62
 msgid "Top Country or Region by Enrollment"
-msgstr ""
+msgstr "Toppland eller region genom registrering"
 
 #: courses/templates/courses/enrollment_geography.html:63
 msgid "Country or region with the largest number of learners."
-msgstr ""
+msgstr "Land eller region med det största antalet elever."
 
 #. Translators: This string represents the country or region with the second-
 #. greatest number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html:66
 msgid "Second Country or Region by Enrollment"
-msgstr ""
+msgstr "Andra landet eller regionen genom registrering"
 
 #: courses/templates/courses/enrollment_geography.html:67
 msgid "Country or region with the second largest number of learners."
-msgstr ""
+msgstr "Land eller region med näst största antal elever."
 
 #. Translators: This string represents the country or region with the third-
 #. greatest number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html:70
 msgid "Third Country or Region by Enrollment"
-msgstr ""
+msgstr "Tredje landet eller regionen genom anmälan"
 
 #: courses/templates/courses/enrollment_geography.html:71
 msgid "Country or region with the third largest number of learners."
-msgstr ""
+msgstr "Land eller region med det tredje största antalet elever."
 
 #. Translators: This string represents the percentage of learners in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
@@ -815,26 +816,26 @@ msgstr ""
 #: courses/templates/courses/enrollment_geography.html:91
 #: courses/templates/courses/enrollment_geography.html:98
 msgid "Geographic Breakdown"
-msgstr "Geografisk fördelning"
+msgstr "Geografisk uppdelning"
 
 #. Translators: Application here refers to the web site/application being used
 #. (e.g. the dashboard).
 #: courses/templates/courses/home.html:11 templates/base_dashboard.html:28
 #: templates/footer.html:5 templates/lens-navigation.html:9
 msgid "Application"
-msgstr "Applikation"
+msgstr "Ansökan"
 
 #. Translators: This refers to the homepage of a course.
 #: courses/templates/courses/home.html:15 courses/views/__init__.py:486
 #: templates/lens-navigation.html:20
 msgid "Course Home"
-msgstr "Kursens hem"
+msgstr "Kurshemsida"
 
 #. Translators: This refers to the active tab/navigation item.
 #: courses/templates/courses/home.html:16 templates/lens-navigation.html:31
 #: templates/submenu_navigation.html:14
 msgid "Active"
-msgstr "Aktiv"
+msgstr "Aktiva"
 
 #. Translators: This indicates that the adjacent link will trigger a CSV
 #. download. '{{download_icon}}' will be replaced with an icon.
@@ -848,13 +849,13 @@ msgstr ""
 
 #: courses/templates/courses/home.html:93
 msgid "Basic Course Information"
-msgstr "Allmän kursinformation"
+msgstr "Grundkursinformation"
 
 #. Translators: This title describes a list of links to outside tools for this
 #. course.
 #: courses/templates/courses/home.html:106
 msgid "External Tools"
-msgstr ""
+msgstr "Externa verktyg"
 
 #: courses/templates/courses/index.html:10
 #: courses/views/course_summaries.py:33
@@ -863,56 +864,56 @@ msgstr "Kurser"
 
 #: courses/templates/courses/index.html:17
 msgid "Across all your courses:"
-msgstr ""
+msgstr "Över alla dina kurser:"
 
 #: courses/templates/courses/index.html:27
 msgid "Total enrollments across all of your courses."
-msgstr ""
+msgstr "Totala inskrivningar på alla dina kurser."
 
 #: courses/templates/courses/index.html:34
 msgid "Current enrollments across all of your courses."
-msgstr ""
+msgstr "Nuvarande anmälningar över alla dina kurser."
 
 #: courses/templates/courses/index.html:41
 msgid "Total change in enrollment last week across all of your courses."
-msgstr ""
+msgstr "Total förändring av anmälan förra veckan över alla dina kurser."
 
 #: courses/templates/courses/index.html:48
 msgid "Verified enrollments across all of your courses."
-msgstr ""
+msgstr "Verifierade inskrivningar över alla dina kurser."
 
 #: courses/templates/courses/performance_answer_distribution.html:7
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html:5
 #: courses/templates/courses/performance_ungraded_answer_distribution.html:7
 msgid "How did learners answer this problem?"
-msgstr ""
+msgstr "Hur svarade eleverna på det här problemet?"
 
 #: courses/templates/courses/performance_assignment.html:10
 msgid "How are learners doing on this assignment?"
-msgstr ""
+msgstr "Hur gör eleverna på den här uppgiften?"
 
 #: courses/templates/courses/performance_assignment.html:15
 #: courses/templates/courses/performance_ungraded_by_subsection.html:15
 msgid ""
 "These bars show the correct and incorrect submission counts for each "
 "problem. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "Dessa staplar visar rätt och felaktigt inlämningsantal för varje problem. Endast den sista inlämningen från varje elev räknas."
 
 #: courses/templates/courses/performance_assignment.html:19
 #: courses/templates/courses/performance_learning_outcomes_section.html:20
 #: courses/templates/courses/performance_ungraded_by_subsection.html:19
 msgid "Problem Submissions"
-msgstr ""
+msgstr "Probleminslag"
 
 #: courses/templates/courses/performance_graded_content.html:9
 msgid "Which assignment type do you want to investigate?"
-msgstr ""
+msgstr "Vilken uppgiftstyp vill du undersöka?"
 
 #: courses/templates/courses/performance_graded_content.html:13
 msgid ""
 "Click an assignment type to view more detail information about the "
 "assignments."
-msgstr ""
+msgstr "Klicka på en uppgiftstyp för att visa mer detaljerad information om uppdragen."
 
 #. Translators: This describes the percent an assignment contributes to that
 #. of a learner's grade (e.g. Exam: 60% of the grading policy.).
@@ -943,78 +944,78 @@ msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "problems in the assignment. Only the last submission from each learner is "
 "counted."
-msgstr ""
+msgstr "Varje stapel visar det genomsnittliga antalet korrekta och felaktiga inlägg för problem i uppdraget. Endast den sista inlämningen från varje elev räknas."
 
 #: courses/templates/courses/performance_graded_content_by_type.html:19
 msgid "Assignment Submissions"
-msgstr ""
+msgstr "Inlämningsuppgifter"
 
 #: courses/templates/courses/performance_learning_outcomes_content.html:6
 #: courses/templates/courses/performance_learning_outcomes_section.html:6
 msgid "Measured by learning outcome, how are learners performing?"
-msgstr ""
+msgstr "Mätas utifrån lärandesultat, hur går det med eleverna?"
 
 #: courses/templates/courses/performance_learning_outcomes_content.html:16
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each outcome."
-msgstr ""
+msgstr "Varje stapel visar det genomsnittliga antalet korrekta och felaktiga inlägg för varje utfall."
 
 #: courses/templates/courses/performance_learning_outcomes_content.html:20
 msgid "Outcome Submissions"
-msgstr ""
+msgstr "Resultat Inkomster"
 
 #: courses/templates/courses/performance_learning_outcomes_section.html:16
 msgid ""
 "Each bar shows the correct and incorrect number of submissions for each "
 "problem for the current outcome."
-msgstr ""
+msgstr "Varje stapel visar rätt och felaktigt antal inlägg för varje problem för det aktuella resultatet."
 
 #: courses/templates/courses/performance_ungraded_by_section.html:5
 msgid "How are learners doing on this section?"
-msgstr ""
+msgstr "Hur gör eleverna på det här avsnittet?"
 
 #: courses/templates/courses/performance_ungraded_by_section.html:10
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each subsection. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "Varje stapel visar det genomsnittliga antalet korrekta och felaktiga inlägg för varje underavdelning. Endast den sista inlämningen från varje elev räknas."
 
 #: courses/templates/courses/performance_ungraded_by_section.html:14
 msgid "Subsection Submissions"
-msgstr ""
+msgstr "Underavdelningar"
 
 #: courses/templates/courses/performance_ungraded_by_subsection.html:10
 msgid "How are learners doing on this subsection?"
-msgstr ""
+msgstr "Hur gör eleverna på denna underavdelning?"
 
 #: courses/templates/courses/performance_ungraded_content.html:7
 #: courses/views/__init__.py:592
 msgid "How are learners doing on ungraded exercises?"
-msgstr ""
+msgstr "Hur gör eleverna på ograderade övningar?"
 
 #: courses/templates/courses/performance_ungraded_content.html:12
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each section. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "Varje stapel visar det genomsnittliga antalet korrekta och felaktiga inlägg för varje sektion. Endast den sista inlämningen från varje elev räknas."
 
 #: courses/templates/courses/performance_ungraded_content.html:16
 msgid "Section Submissions"
-msgstr ""
+msgstr "Sektion Inlämningar"
 
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
 #: courses/templates/courses/permissions-retrieval-failed.html:5
 #: courses/templates/courses/permissions-retrieval-failed.html:7
 msgid "Permissions Retrieval Failed"
-msgstr "Misslyckades med att hämta tillstånd"
+msgstr "Hämtning av behörigheter misslyckades"
 
 #: courses/templates/courses/permissions-retrieval-failed.html:9
 msgid ""
 "There was a problem retrieving course permissions for your account. Please "
 "try again. If you continue to experience issues, please let us know."
-msgstr "Det uppstod ett problem vid hämtningen av kurstillstånden för ditt konto. Försök igen. Om du får detta fel även i fortsättningen, vänligen tala om det för oss."
+msgstr "Det gick inte att hämta kursbehörigheter för ditt konto. Var god försök igen. Om du fortsätter att uppleva problem, vänligen meddela oss det."
 
 #: courses/templates/courses/permissions-retrieval-failed.html:14
 msgid "Try Again"
@@ -1060,93 +1061,93 @@ msgstr "Innehåll"
 #: courses/tests/test_views/test_engagement.py:73
 #: courses/views/__init__.py:571 courses/views/engagement.py:36
 msgid "Videos"
-msgstr ""
+msgstr "videoklipp"
 
 #: courses/tests/test_views/test_performance.py:65
 #: courses/views/__init__.py:585 courses/views/performance.py:38
 #: courses/views/performance.py:101
 msgid "Graded Content"
-msgstr ""
+msgstr "Graderat innehåll"
 
 #: courses/tests/test_views/test_performance.py:76
 #: courses/views/__init__.py:594 courses/views/performance.py:47
 #: courses/views/performance.py:86
 msgid "Ungraded Problems"
-msgstr ""
+msgstr "Oradradade problem"
 
 #: courses/tests/test_views/test_performance.py:529
 #: courses/views/__init__.py:606 courses/views/performance.py:65
 msgid "Learning Outcomes"
-msgstr ""
+msgstr "Lärandemål"
 
 #: courses/views/__init__.py:553
 msgid "What are learners doing in my course?"
-msgstr ""
+msgstr "Vad gör eleverna i min kurs?"
 
 #: courses/views/__init__.py:583
 msgid "How are learners doing on graded course assignments?"
-msgstr ""
+msgstr "Hur gör eleverna på betygsatta kursuppdrag?"
 
 #: courses/views/__init__.py:604
 msgid "What is the breakdown for course learning outcomes?"
-msgstr ""
+msgstr "Vad är uppdelningen för kursens lärandesultat?"
 
 #: courses/views/__init__.py:624
 msgid "How are learners responding to questions?"
-msgstr ""
+msgstr "Hur svarar eleverna på frågor?"
 
 #: courses/views/__init__.py:626
 msgid "Problem Response Report"
-msgstr ""
+msgstr "Problem Respons Report"
 
 #: courses/views/__init__.py:633
 msgid "How are learners doing on course assignments?"
-msgstr ""
+msgstr "Hur gör eleverna på kursuppdrag?"
 
 #: courses/views/__init__.py:641
 msgid "What are individual learners doing?"
-msgstr ""
+msgstr "Vad gör enskilda elever?"
 
 #: courses/views/__init__.py:644
 msgid "Who is engaged? Who isn't?"
-msgstr ""
+msgstr "Vem är förlovad? Vem är inte?"
 
 #: courses/views/__init__.py:646
 msgid "All Learners"
-msgstr ""
+msgstr "Alla lärare"
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: courses/views/__init__.py:694
 msgid "Course ID"
-msgstr "Kurs-ID"
+msgstr "Kursens ID"
 
 #: courses/views/__init__.py:696
 msgid "Course Name"
-msgstr "Kursens namn"
+msgstr "KURSNAMN"
 
 #. Translators: 'In Progress' and 'Ended' refer to whether learners are
 #. actively using the course or it is over.
 #: courses/views/__init__.py:713
 msgid "In Progress"
-msgstr ""
+msgstr "Pågående"
 
 #: courses/views/__init__.py:713
 msgid "Ended"
-msgstr ""
+msgstr "slutade"
 
 #. Translators: This refers to a course that has not yet begun.
 #: courses/views/__init__.py:716
 msgid "Not Started Yet"
-msgstr ""
+msgstr "Inte igång än"
 
 #: courses/views/__init__.py:718
 msgid "Start Date"
-msgstr "Startdatum"
+msgstr "Start datum"
 
 #: courses/views/__init__.py:719
 msgid "End Date"
-msgstr ""
+msgstr "Slutdatum"
 
 #: courses/views/__init__.py:720
 msgid "Status"
@@ -1154,11 +1155,11 @@ msgstr "Status"
 
 #: courses/views/__init__.py:729
 msgid "Instructor Dashboard"
-msgstr ""
+msgstr "Instructor Dashboard"
 
 #: courses/views/__init__.py:734
 msgid "Courseware"
-msgstr "Kursmaterial"
+msgstr "kursmaterial"
 
 #. Translators: Do not translate UTC.
 #: courses/views/course_summaries.py:42
@@ -1169,7 +1170,7 @@ msgstr ""
 
 #: courses/views/engagement.py:52
 msgid "Engagement Content"
-msgstr "Engagemang"
+msgstr "Förlovningsinnehåll"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py:62
@@ -1177,11 +1178,11 @@ msgstr "Engagemang"
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr "Engagemangsdatan uppdaterades senast %(update_date)s klockan %(update_time)s UTC."
+msgstr ""
 
 #: courses/views/engagement.py:88
 msgid "Engagement Videos"
-msgstr ""
+msgstr "Förlovningsvideoer"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py:93
@@ -1191,19 +1192,19 @@ msgstr ""
 
 #: courses/views/engagement.py:94
 msgid "Looks like no one has watched any videos in these sections."
-msgstr ""
+msgstr "Det verkar som att ingen har tittat på några videoklipp i dessa avsnitt."
 
 #: courses/views/engagement.py:120 courses/views/performance.py:300
 msgid "Section Name"
-msgstr ""
+msgstr "Avsnittsnamn"
 
 #: courses/views/engagement.py:140 courses/views/performance.py:322
 msgid "Subsection Name"
-msgstr ""
+msgstr "Underavsnitt Namn"
 
 #: courses/views/engagement.py:161
 msgid "Video Name"
-msgstr ""
+msgstr "Videonamn"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py:90
@@ -1218,11 +1219,11 @@ msgstr ""
 #: courses/views/enrollment.py:94
 msgid ""
 "All above demographic data was self-reported at the time of registration."
-msgstr "Alla ovanstående demografiska data är självrapporterade vid registreringen."
+msgstr "Alla ovanstående demografiska data var självrapporterade vid registreringstillfället."
 
 #: courses/views/enrollment.py:107
 msgid "Enrollment Activity"
-msgstr "Registreringsaktivitet"
+msgstr "Inskrivningsaktivitet"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py:117
@@ -1230,23 +1231,23 @@ msgstr "Registreringsaktivitet"
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr "Registreringsaktivitetsdatan uppdaterades senast %(update_date)s klockan %(update_time)s UTC."
+msgstr ""
 
 #: courses/views/enrollment.py:148
 msgid "Enrollment Demographics by Age"
-msgstr "Registreringsdemografi efter ålder"
+msgstr "Inskrivning Demografi efter ålder"
 
 #: courses/views/enrollment.py:186
 msgid "Enrollment Demographics by Education"
-msgstr "Registreringsdemografi efter utbildningsnivå"
+msgstr "Inskrivning Demografi genom utbildning"
 
 #: courses/views/enrollment.py:224
 msgid "Enrollment Demographics by Gender"
-msgstr "Registreringsdemografi efter kön"
+msgstr "Inskrivning Demografi efter kön"
 
 #: courses/views/enrollment.py:262
 msgid "Enrollment Geography"
-msgstr "Registreringsgeografi"
+msgstr "Inskrivningsgeografi"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py:272
@@ -1266,20 +1267,20 @@ msgstr ""
 
 #: courses/views/performance.py:79
 msgid "Assignment Name"
-msgstr "Uppgiftens nam"
+msgstr "Uppdragsnamn"
 
 #: courses/views/performance.py:90 courses/views/performance.py:370
 msgid "No submissions received for these exercises."
-msgstr ""
+msgstr "Inga inlämningar mottagna för dessa övningar."
 
 #: courses/views/performance.py:106
 msgid "No submissions received for these assignments."
-msgstr ""
+msgstr "Inga inlagor mottagna för dessa uppdrag."
 
 #: courses/views/performance.py:195 courses/views/performance.py:362
 #: courses/views/performance.py:460
 msgid "Performance: Problem Submissions"
-msgstr ""
+msgstr "Prestanda: Probleminslag"
 
 #: courses/views/performance.py:257
 #, python-format
@@ -1288,7 +1289,7 @@ msgstr ""
 
 #: courses/views/performance.py:276 courses/views/performance.py:344
 msgid "Problem Name"
-msgstr "Problemets nam"
+msgstr "Problemnamn"
 
 #: courses/views/performance.py:369
 #, python-format
@@ -1299,7 +1300,7 @@ msgstr ""
 
 #: courses/views/performance.py:398 courses/views/performance.py:428
 msgid "Performance: Learning Outcomes"
-msgstr ""
+msgstr "Prestanda: Lärandemål"
 
 #: settings/base.py:413
 msgid "Terms of Service"
@@ -1307,58 +1308,58 @@ msgstr "Användarvillkor"
 
 #: settings/base.py:414
 msgid "Privacy Policy"
-msgstr "Sekretess"
+msgstr "Integritetspolicy"
 
 #: templates/403.html:5 templates/403.html:8
 msgid "Access Denied"
-msgstr "Åtkomst nekas."
+msgstr "Tillträde beviljas ej"
 
 #: templates/403.html:10
 msgid ""
 "You do not have permission to view this page. If you believe you should have"
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
-msgstr "Du har inte tillstånd att se denna sida. Om du anser att du borde ha tillgång till denna sida, försök att logga ut och logga in igen för att uppdatera dina tillstånd."
+msgstr "Du har inte behörighet att visa den här sidan. Om du tror att du ska ha tillgång till den här sidan kan du försöka logga ut och logga in igen för att uppdatera dina behörigheter."
 
 #: templates/403.html:17
 msgid "Logout then Login"
-msgstr "Logga ut och logga in igen"
+msgstr "Logga ut sedan Logga in"
 
 #: templates/404.html:5 templates/404.html:8
 msgid "Page Not Found"
-msgstr "Sidan kan inte hittas"
+msgstr "Sidan hittas inte"
 
 #: templates/404.html:10
 msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
-msgstr "Vi kan inte hitta sidan du letar efter. Kontrollera adressen och försök igen."
+msgstr "Vi kan inte hitta den sida du letar efter. Se till att webbadressen är korrekt och om inte försök igen."
 
 #: templates/500.html:5 templates/500.html:8
 msgid "An Error Occurred"
-msgstr "Ett problem uppstod"
+msgstr "Ett fel uppstod"
 
 #: templates/500.html:10
 msgid ""
 "Our servers weren't able to complete your request. Please try again by "
 "refreshing this page or retracing your steps."
-msgstr "Våra servrar kan inte tillgodose din begäran. Försök igen genom att uppdatera sidan eller gå tillbaka."
+msgstr "Våra servrar kunde inte slutföra din förfrågan. Vänligen försök igen genom att uppdatera den här sidan eller omskolning av dina steg."
 
 #: templates/503.html:5 templates/503.html:7
 msgid "We're having trouble loading this page. Please try again in a minute."
-msgstr ""
+msgstr "Vi har problem med att ladda den här sidan. Försök igen om en minut."
 
 #: templates/503.html:10
 msgid "(Technical details: 503 Service Unavailable.)"
-msgstr ""
+msgstr "(Tekniska detaljer: 503 Service Otillgänglig.)"
 
 #: templates/_announcement.html:28
 msgid "Close"
-msgstr "Stäng"
+msgstr "Stänga"
 
 #: templates/base-error.html:42
 msgid "Use our support tool to ask questions or share feedback."
-msgstr "Använd vårt supportverktyg för att ställa frågor eller ge oss feedback."
+msgstr "Använd vårt supportverktyg för att ställa frågor eller dela feedback."
 
 #. Translators: This intention here is that a user clicks a button to contact
 #. a support group (e.g. edX Support, or MITx Support). Reorder the
@@ -1366,7 +1367,7 @@ msgstr "Använd vårt supportverktyg för att ställa frågor eller ge oss feedb
 #: templates/base-error.html:47
 #, python-format
 msgid "Contact %(platform_name)s Support"
-msgstr "Kontakta supporten för %(platform_name)s."
+msgstr ""
 
 #: templates/footer.html:16
 #, python-format
@@ -1381,19 +1382,19 @@ msgstr ""
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
 "            reserved. "
-msgstr "%(current_year)s %(platform_name)s, alla rättigheter förbehålls, förutom där annat anges."
+msgstr ""
 
 #: templates/header.html:13
 msgid "Toggle navigation"
-msgstr "Aktivera navigationen"
+msgstr "Växla navigering"
 
 #: templates/header.html:40
 msgid "Help"
-msgstr "Hjälp"
+msgstr "Hjälpa"
 
 #: templates/header.html:46
 msgid "Menu for"
-msgstr ""
+msgstr "Meny för"
 
 #: templates/header.html:60
 msgid "Logout"
@@ -1401,20 +1402,20 @@ msgstr "Logga ut"
 
 #: templates/lens-navigation.html:27
 msgid "Navigation Menu."
-msgstr ""
+msgstr "Navigationsmeny."
 
 #: templates/loading.html:7
 msgid "Loading"
-msgstr "Laddar"
+msgstr "Läser in"
 
 #: templates/section_error.html:10
 msgid "We are unable to load this chart."
-msgstr "Vi kan inte ladda diagrammet."
+msgstr "Vi kan inte ladda ner det här diagrammet."
 
 #: templates/section_error.html:12
 msgid "We are unable to load this table."
-msgstr "Vi kan inte ladda tabellen."
+msgstr "Vi kan inte ladda den här tabellen."
 
 #: templates/section_error.html:14
 msgid "We are unable to load these metrics."
-msgstr "Vi kan inte ladda statistiken."
+msgstr "Vi kan inte ladda dessa mätvärden."
