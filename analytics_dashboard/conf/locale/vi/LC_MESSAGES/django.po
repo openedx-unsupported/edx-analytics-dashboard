@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-14 21:01-0400\n"
-"PO-Revision-Date: 2017-08-25 08:37+0000\n"
+"PO-Revision-Date: 2017-08-30 03:23+0000\n"
 "Last-Translator: Hoà Lê Thanh <hoa.lethanh@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/open-edx/edx-platform/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -1006,7 +1006,7 @@ msgstr "Các học viên làm gì với những bài tập chưa phân loại?"
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each section. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "Những cột trên cho biết trung bình số lượng bài gửi chính xác hay không chính xác cho mỗi vấn đề trong bài tập. Chỉ có bài gửi cuối cùng từ mỗi học viên mới được tính."
 
 #: courses/templates/courses/performance_ungraded_content.html:16
 msgid "Section Submissions"
@@ -1086,31 +1086,31 @@ msgstr "Các vấn đề chưa được chấm"
 #: courses/tests/test_views/test_performance.py:529
 #: courses/views/__init__.py:606 courses/views/performance.py:65
 msgid "Learning Outcomes"
-msgstr ""
+msgstr "Kết quả Học tập"
 
 #: courses/views/__init__.py:553
 msgid "What are learners doing in my course?"
-msgstr ""
+msgstr "Học viên đang học như thế nào trong các khóa học của tôi?"
 
 #: courses/views/__init__.py:583
 msgid "How are learners doing on graded course assignments?"
-msgstr ""
+msgstr "Các học viên làm bài tập như thế nào?"
 
 #: courses/views/__init__.py:604
 msgid "What is the breakdown for course learning outcomes?"
-msgstr ""
+msgstr "Sự cố về kết quả học tập của khoá học là gì?"
 
 #: courses/views/__init__.py:624
 msgid "How are learners responding to questions?"
-msgstr ""
+msgstr "Học sinh trả lời các câu hỏi như thế nào?"
 
 #: courses/views/__init__.py:626
 msgid "Problem Response Report"
-msgstr ""
+msgstr "Báo cáo Phản hồi Sự cố"
 
 #: courses/views/__init__.py:633
 msgid "How are learners doing on course assignments?"
-msgstr ""
+msgstr "Các học viên làm bài tập như thế nào?"
 
 #: courses/views/__init__.py:641
 msgid "What are individual learners doing?"
@@ -1174,7 +1174,7 @@ msgstr "Chương trình học"
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
+msgstr "Dữ liệu tóm tắt khóa học cập nhật lần cuối vào %(update_date)s, %(update_time)s UTC."
 
 #: courses/views/engagement.py:52
 msgid "Engagement Content"
@@ -1220,7 +1220,7 @@ msgstr "Tên Video"
 msgid ""
 "Demographic learner data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "Dữ liệu về nhân khẩu của các học viên được cập nhật lần cuối vào %(update_date)s, %(update_time)s UTC."
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
@@ -1263,7 +1263,7 @@ msgstr "Vị Trí Địa Lý của Học Viên"
 msgid ""
 "Geographic learner data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Dữ liệu về phân bổ địa lý của các học viên được cập nhật lần cuối vào %(update_date)s, %(update_time)s UTC."
 
 #. Translators: Do not translate UTC.
 #: courses/views/performance.py:33
@@ -1304,11 +1304,11 @@ msgstr "Tên câu hỏi"
 msgid ""
 "Tags distribution data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Dữ liệu về Tags được cập nhật lần cuối vào %(update_date)s ,  %(update_time)s UTC."
 
 #: courses/views/performance.py:398 courses/views/performance.py:428
 msgid "Performance: Learning Outcomes"
-msgstr ""
+msgstr "Hiệu suất: Kết quả Học tập"
 
 #: settings/base.py:413
 msgid "Terms of Service"
@@ -1382,7 +1382,7 @@ msgstr "Liên hệ %(platform_name)s để được trợ giúp"
 msgid ""
 "We want this dashboard to work for you! Need help? "
 "%(support_link_start)sContact course team support%(support_link_end)s."
-msgstr ""
+msgstr "Chúng tôi muốn bảng điều khiển phù hợp với bạn! Cần hỗ trợ? %(support_link_start)sLiên hệ nhóm hỗ trợ khóa học%(support_link_end)s."
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html:39
@@ -1402,7 +1402,7 @@ msgstr "Trợ Giúp"
 
 #: templates/header.html:46
 msgid "Menu for"
-msgstr ""
+msgstr "Trình đơn cho"
 
 #: templates/header.html:60
 msgid "Logout"
@@ -1410,7 +1410,7 @@ msgstr "Đăng xuất"
 
 #: templates/lens-navigation.html:27
 msgid "Navigation Menu."
-msgstr ""
+msgstr "Thanh Menu."
 
 #: templates/loading.html:7
 msgid "Loading"
