@@ -1,9 +1,7 @@
 define(function(require) {
     'use strict';
 
-    var URI = require('URI'),
-
-        SpecHelpers = require('uitk/utils/spec-helpers/spec-helpers'),
+    var SpecHelpers = require('uitk/utils/spec-helpers/spec-helpers'),
 
         CourseModel = require('course-list/common/models/course'),
         ProgramModel = require('course-list/common/models/program'),
@@ -12,23 +10,7 @@ define(function(require) {
 
 
     describe('CourseList', function() {
-        var courseList,
-            getUriForLastRequest,
-            lastRequest,
-            server,
-            url;
-
-        lastRequest = function() {
-            return server.requests[server.requests.length - 1];
-        };
-
-        getUriForLastRequest = function() {
-            return new URI(lastRequest().url);
-        };
-
-        afterEach(function() {
-            server.restore();
-        });
+        var courseList;
 
         beforeEach(function() {
             var programsCollection = new ProgramsCollection([
@@ -73,34 +55,46 @@ define(function(require) {
                     pacing_tpye: 'instructor_paced'
                 })
             ];
-            courseList = new CourseList(courses, {
-                programsCollection: programsCollection,
-                url: 'test-url',
-                parse: true
-            });
-            server = sinon.fakeServer.create();
+            courseList = new CourseList(courses, {programsCollection: programsCollection});
         });
 
-        describe('filtering updates URI', function() {
+        describe('filtering', function() {
+            beforeEach(function() {
+                // should be unfiltered
+                expect(courseList.models.length).toBe(2);
+            });
+
             afterEach(function() {
                 // unfilter
                 courseList.clearAllFilters();
+                expect(courseList.models.length).toBe(2);
             });
 
-            it('with multiple filters', function() {
+            it('by availability', function() {
                 courseList.setFilterField('availability', 'Current');
-                courseList.setFilterField('pacing_type', 'self_paced');
-
                 courseList.refresh();
-                url = getUriForLastRequest(server);
-                expect(url.path()).toEqual('test-url');
-                expect(url.query(true)).toEqual({
-                    page: '1',
-                    page_size: '100',
-                    availability: 'Current',
-                    pacing_type: 'self_paced',
-                    order_by: 'catalog_course_title'  // the default order
-                });
+                expect(courseList.models.length).toBe(1);
+                expect(courseList.at(0).get('course_id')).toBe('Alpaca');
+            });
+
+            it('by pacing type', function() {
+                courseList.setFilterField('pacing_type', 'self_paced');
+                courseList.refresh();
+                expect(courseList.models.length).toBe(1);
+                expect(courseList.at(0).get('course_id')).toBe('Alpaca');
+            });
+
+            it('by program', function() {
+                courseList.setFilterField('program_ids', '456');
+                courseList.refresh();
+                expect(courseList.models.length).toBe(1);
+                expect(courseList.at(0).get('course_id')).toBe('zebra');
+            });
+
+            it('by program with no courses', function() {
+                courseList.setFilterField('program_ids', '789');
+                courseList.refresh();
+                expect(courseList.models.length).toBe(0);
             });
         });
 

@@ -1,7 +1,7 @@
 from collections import OrderedDict
 import datetime
 
-from analyticsclient.constants import demographics, UNKNOWN_COUNTRY_CODE, enrollment_modes
+from analyticsclient.constants import demographic, UNKNOWN_COUNTRY_CODE, enrollment_modes
 from bok_choy.web_app_test import WebAppTest
 
 from acceptance_tests.mixins import CoursePageTestsMixin
@@ -128,7 +128,7 @@ class CourseEnrollmentGeographyTests(CoursePageTestsMixin, WebAppTest):
         super(CourseEnrollmentGeographyTests, self).setUp()
         self.page = CourseEnrollmentGeographyPage(self.browser)
         self.course = self.analytics_api_client.courses(self.page.course_id)
-        self.enrollment_data = sorted(self.course.enrollment(demographics.LOCATION),
+        self.enrollment_data = sorted(self.course.enrollment(demographic.LOCATION),
                                       key=lambda item: item['count'], reverse=True)
 
     def test_page(self):
@@ -138,7 +138,7 @@ class CourseEnrollmentGeographyTests(CoursePageTestsMixin, WebAppTest):
         self._test_metrics()
 
     def _get_data_update_message(self):
-        current_enrollment = self.course.enrollment(demographics.LOCATION)[0]
+        current_enrollment = self.course.enrollment(demographic.LOCATION)[0]
         last_updated = datetime.datetime.strptime(current_enrollment['created'], self.api_datetime_format)
         return 'Geographic learner data was last updated %(update_date)s at %(update_time)s UTC.' % \
                self.format_last_updated_date_and_time(last_updated)

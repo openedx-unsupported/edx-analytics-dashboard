@@ -7,7 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 from waffle import switch_is_active
 
 from analyticsclient.client import Client
-import analyticsclient.constants.activity_types as AT
+import analyticsclient.constants.activity_type as AT
 from analyticsclient.exceptions import NotFoundError
 
 from core.templatetags.dashboard_extras import metric_percentage

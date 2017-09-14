@@ -40,11 +40,6 @@ class CourseIndexTests(AnalyticsApiClientMixin, AnalyticsDashboardWebAppTestMixi
         """
         Course list should contain a link to the test course.
         """
-        EmptyPromise(
-            lambda: self.page.q(css='th.catalog_course_title').present,
-            "Course listing loaded"
-        ).fulfill()
-
         # text after the new line is only visible to screen readers
         columns = [
             'Course Name \nsort ascending',
@@ -89,7 +84,7 @@ class CourseIndexTests(AnalyticsApiClientMixin, AnalyticsDashboardWebAppTestMixi
         # Perform search
         search_input = self.driver.find_element_by_id('search-course-list')
         search_input.send_keys(Keys.CONTROL, 'a')  # in-case there is a previous search
-        search_input.send_keys('no_courses_match_this')
+        search_input.send_keys('search')
         # Check that clear icon shows up
         clear = self.page.q(css='button.clear')
         self.assertTrue(clear.present)
@@ -97,7 +92,7 @@ class CourseIndexTests(AnalyticsApiClientMixin, AnalyticsDashboardWebAppTestMixi
 
         # Search bar contains query
         search_input = self.page.q(css='#search-course-list')
-        self.assertEqual(search_input.attrs('value'), ['no_courses_match_this'])
+        self.assertEqual(search_input.attrs('value'), ['search'])
 
         # Check that active filters show search value
         EmptyPromise(
@@ -107,7 +102,7 @@ class CourseIndexTests(AnalyticsApiClientMixin, AnalyticsDashboardWebAppTestMixi
         active_filters = self.page.q(css='ul.active-filters')
         self.assertTrue(active_filters.present)
         search_active_filter = self.page.q(css='ul.active-filters li.filter-text_search')
-        self.assertTrue('no_courses_match_this' in search_active_filter.text[0])
+        self.assertTrue('search' in search_active_filter.text[0])
 
         # No courses match search query, so alert should show
         course_ids = self.page.q(css='.course-list .course-id')
@@ -314,12 +309,12 @@ class CourseIndexTests(AnalyticsApiClientMixin, AnalyticsDashboardWebAppTestMixi
         Test data must include at least one course with at least one verified enrollment which the
         test user can access.
         """
-        totals = self.analytics_api_client.course_totals().course_totals([TEST_COURSE_ID])
-        current_enrollment = totals['count']
-        total_enrollment = totals['cumulative_count']
+        course_summaries = self.course_summaries.course_summaries(course_ids=[TEST_COURSE_ID])
+        current_enrollment = course_summaries[0]['count']
+        total_enrollment = course_summaries[0]['cumulative_count']
         i = 7
-        count_change_i_days = totals['count_change_%s_days' % i]
-        verified_enrollment = totals['verified_enrollment']
+        count_change_i_days = course_summaries[0]['count_change_%s_days' % i]
+        verified_enrollment = course_summaries[0]['enrollment_modes']['verified']['count']
 
         tooltip = u'Current enrollments across all of your courses.'
         self.assertMetricTileValid('current_enrollment', current_enrollment, tooltip)

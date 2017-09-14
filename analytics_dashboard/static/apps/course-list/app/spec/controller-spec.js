@@ -9,7 +9,6 @@ describe('CourseListController', () => {
   let course;
   let collection;
   let controller;
-  let server;
 
   // convenience method for asserting that we are on the course list page
   function expectCourseListPage(courseListController) {
@@ -69,7 +68,6 @@ describe('CourseListController', () => {
 
   beforeEach(() => {
     const pageModel = new PageModel();
-    server = sinon.fakeServer.create();
 
     setFixtures('<div class="root-view"><div class="main"></div></div>');
     rootView = new RootView({
@@ -79,7 +77,7 @@ describe('CourseListController', () => {
     });
     rootView.render();
     course = fakeCourse('course1', 'Course');
-    collection = new CourseListCollection([course], { parse: true, url: 'http://example.com' });
+    collection = new CourseListCollection([course]);
     controller = new CourseListController({
       rootView,
       courseListCollection: collection,
@@ -87,10 +85,6 @@ describe('CourseListController', () => {
       pageModel,
       trackingModel: new TrackingModel(),
     });
-  });
-
-  afterEach(() => {
-    server.restore();
   });
 
   it('should show the course list page', () => {
@@ -113,20 +107,10 @@ describe('CourseListController', () => {
       "Sorry, we couldn't find the page you're looking for.",
     );
   });
-
-  it('should sort the list with sort parameters', (done) => {
+  it('should sort the list with sort parameters', () => {
     const secondCourse = fakeCourse('course2', 'X Course');
+    collection.add(secondCourse);
     controller.showCourseListPage('sortKey=catalog_course_title&order=desc');
-    // this is called when the server returns a result
-    collection.once('sync', () => {
-      expect(collection.at(0).toJSON()).toEqual(secondCourse);
-      expectCourseListPage(controller);
-      done();
-    }, this, done);
-    // loading page when the URL changes
-    expect(controller.options.rootView.$('.course-list-main-region').html()).toContainText('Loading...');
-    // return the two course result
-    server.requests[server.requests.length - 1].respond(200, {},
-        JSON.stringify({ results: [secondCourse, course] }));
+    expect(collection.at(0).toJSON()).toEqual(secondCourse);
   });
 });

@@ -9,8 +9,6 @@ define(function(require) {
 
     describe('LearnersRouter', function() {
         beforeEach(function() {
-            // Safeguard if history hasn't been stopped
-            Backbone.history.stop();
             Backbone.history.start({silent: true});
             this.server = sinon.fakeServer.create();
             this.user = {

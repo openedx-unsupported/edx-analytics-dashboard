@@ -6,7 +6,6 @@ define(function(require) {
         axe = require('axe-core'),
         moment = require('moment'),
         SpecHelpers = require('uitk/utils/spec-helpers/spec-helpers'),
-        URI = require('URI'),
 
         Utils = require('utils/utils'),
 
@@ -21,43 +20,13 @@ define(function(require) {
     describe('CourseListView', function() {
         var fixtureClass = 'course-list-view-fixture',
             clickPagingControl,
-            getCourseListView,
-            getLastRequest,
-            getLastRequestParams,
-            getResponseBody,
-            perPage = 100,
-            server;
-
-        getLastRequest = function() {
-            return server.requests[server.requests.length - 1];
-        };
-
-        getLastRequestParams = function() {
-            return (new URI(getLastRequest().url)).query(true);
-        };
-
-        getResponseBody = function(numPages, pageNum) {
-            var results,
-                page = pageNum || 1;
-            if (numPages) {
-                results = _.range(perPage * (page - 1), (perPage * (page - 1)) + perPage).map(function(index) {
-                    return {course_id: 'course ID ' + index, catalog_course_title: 'Course Title - ' + index};
-                });
-            } else {
-                results = [];
-            }
-            return {
-                count: numPages * perPage,
-                num_pages: numPages,
-                results: results
-            };
-        };
+            getCourseListView;
 
         getCourseListView = function(options, pageSize) {
             var collection,
                 programsCollection,
                 view,
-                defaultOptions = _.defaults({}, options, {url: 'test-url', filteringEnabled: true});
+                defaultOptions = _.defaults({}, options, {filteringEnabled: true});
 
             programsCollection = defaultOptions.programsCollection || new ProgramsCollection([
                 new ProgramModel({
@@ -78,7 +47,7 @@ define(function(require) {
                     program_type: 'Courseless',
                     course_ids: []
                 })],
-                _.defaults({}, defaultOptions.programCollectionOptions)
+                defaultOptions.programCollectionOptions
             );
             if (defaultOptions.collectionOptions === undefined) {
                 defaultOptions.collectionOptions = {
@@ -87,36 +56,31 @@ define(function(require) {
             }
             defaultOptions.collectionOptions.programsCollection = programsCollection;
 
-            collection = defaultOptions.collection || new CourseList({
-                results: [
-                    // default course data
-                    {
-                        catalog_course_title: 'Alpaca',
-                        course_id: 'this/course/id',
-                        count: 10,
-                        cumulative_count: 20,
-                        count_change_7_days: 30,
-                        verified_enrollment: 40,
-                        passing_users: 50,
-                        start_date: '2015-02-17T050000',
-                        end_date: '2015-03-31T000000'
-                    },
-                    {
-                        catalog_course_title: 'zebra',
-                        course_id: 'another-course-id',
-                        count: 0,
-                        cumulative_count: 1000,
-                        count_change_7_days: -10,
-                        verified_enrollment: 1000,
-                        passing_users: 2000,
-                        start_date: '2016-11-17T050000',
-                        end_date: '2016-12-01T000000'
-                    }
-                ]},
-                _.defaults({}, defaultOptions.collectionOptions, {
-                    url: 'test-url',
-                    parse: true
-                })
+            collection = defaultOptions.collection || new CourseList([
+                // default course data
+                new CourseModel({
+                    catalog_course_title: 'Alpaca',
+                    course_id: 'this/course/id',
+                    count: 10,
+                    cumulative_count: 20,
+                    count_change_7_days: 30,
+                    verified_enrollment: 40,
+                    passing_users: 50,
+                    start_date: '2015-02-17T050000',
+                    end_date: '2015-03-31T000000'
+                }),
+                new CourseModel({
+                    catalog_course_title: 'zebra',
+                    course_id: 'another-course-id',
+                    count: 0,
+                    cumulative_count: 1000,
+                    count_change_7_days: -10,
+                    verified_enrollment: 1000,
+                    passing_users: 2000,
+                    start_date: '2016-11-17T050000',
+                    end_date: '2016-12-01T000000'
+                })],
+                defaultOptions.collectionOptions
             );
 
             if (pageSize) {
@@ -142,12 +106,7 @@ define(function(require) {
         };
 
         beforeEach(function() {
-            server = sinon.fakeServer.create();
             setFixtures('<div class="' + fixtureClass + '"></div>');
-        });
-
-        afterEach(function() {
-            server.restore();
         });
 
         it('renders a list of courses with number and date formatted', function() {
@@ -282,11 +241,8 @@ define(function(require) {
             executeSortTest = function(field, isInitial) {
                 expect(getSortingHeaderLink(field).find('span.fa')).toHaveClass(isInitial ? 'fa-sort-asc' : 'fa-sort');
                 clickSortingHeader(field);
-                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(1, 1)));
                 expectSortCalled(field, isInitial ? 'desc' : 'asc');
-
                 clickSortingHeader(field);
-                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(1, 1)));
                 expectSortCalled(field, isInitial ? 'asc' : 'desc');
             };
 
@@ -316,25 +272,10 @@ define(function(require) {
             });
 
             it('goes to the first page after applying a sort', function() {
-                // Create a two page course view
-                var collection = new CourseList(
-                    getResponseBody(2, 1),
-                    {url: 'test-url', parse: true}
-                );
-                this.view = getCourseListView({collection: collection}, 100);
-                expect(this.view.$('a[title="Page 1"]').parent('li')).toHaveClass('active');
-
+                this.view = getCourseListView({}, 1);
                 clickPagingControl('Page 2');
-                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(2, 2)));
                 expect(this.view.$('a[title="Page 2"]').parent('li')).toHaveClass('active');
-
                 clickSortingHeader('catalog_course_title');
-                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(2, 2)));
-                expect(getLastRequestParams()).toEqual(jasmine.objectContaining({
-                    page: '1',
-                    order_by: 'catalog_course_title'
-                }));
-                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(2, 1)));
                 expect(this.view.$('a[title="Page 1"]').parent('li')).toHaveClass('active');
             });
 
@@ -373,11 +314,8 @@ define(function(require) {
                 expectLinkStates;
 
             createTwoPageView = function() {
-                var collection = new CourseList(
-                    getResponseBody(2, 1),
-                    {url: 'test-url', parse: true}
-                );
-                return getCourseListView({collection: collection}, 100);
+                var view = getCourseListView({}, 1);
+                return view;
             };
 
             expectLinkStates = function(view, activeLinkTitle, disabledLinkTitles) {
@@ -402,7 +340,6 @@ define(function(require) {
                     triggerSpy = spyOn(view.options.trackingModel, 'trigger');
                 // navigate to page 2
                 clickPagingControl('Next');
-                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(2, 2)));
                 expect(triggerSpy).toHaveBeenCalledWith('segment:track', 'edx.bi.course_list.paged', {
                     category: 2
                 });
@@ -411,7 +348,6 @@ define(function(require) {
             it('can jump to a particular page', function() {
                 var view = createTwoPageView();
                 clickPagingControl('Page 2');
-                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(2, 2)));
                 expectLinkStates(view, 'Page 2', ['Next', 'Last']);
             });
 
@@ -419,11 +355,9 @@ define(function(require) {
                 var view = createTwoPageView();
 
                 clickPagingControl('Next');
-                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(2, 2)));
                 expectLinkStates(view, 'Page 2', ['Next', 'Last']);
 
                 clickPagingControl('Previous');
-                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(2, 1)));
                 expectLinkStates(view, 'Page 1', ['First', 'Previous']);
             });
 

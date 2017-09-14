@@ -23,7 +23,7 @@ services:
       TRAVIS_PULL_REQUEST:
       DATADOG_API_KEY:
       # Rest of the environment variables for testing.
-      API_SERVER_URL: http://analyticsapi/api/v1
+      API_SERVER_URL: http://analyticsapi/api/v0
       API_AUTH_TOKEN: edx
       LMS_HOSTNAME: lms
       LMS_PASSWORD: pass
