@@ -1,5 +1,4 @@
 import 'backgrid-paginator/backgrid-paginator.min.css';
-import 'nprogress/nprogress.css';
 
 Promise.all([
   import('load/init-page'),

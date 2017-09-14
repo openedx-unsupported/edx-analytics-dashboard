@@ -9,7 +9,7 @@ define(function(require) {
 
         CheckboxFilter = require('components/filter/views/checkbox-filter'),
         DropDownFilter = require('components/filter/views/drop-down-filter'),
-        LearnerSearch = require('components/search/views/search'),
+        LearnerSearch = require('learners/roster/views/search'),
         rosterControlsTemplate = require('learners/roster/templates/controls.underscore'),
 
         RosterControlsView;
@@ -56,12 +56,12 @@ define(function(require) {
                 {
                     region: 'search',
                     class: LearnerSearch,
-                    options: _({
+                    options: {
+                        collection: this.options.collection,
                         name: 'text_search',
-                        focusableSelector: '#learner-app-focusable',
-                        searchLabelText: gettext('Search learners'),
-                        placeholder: gettext('Find a learner')
-                    }).defaults(defaultFilterOptions)
+                        placeholder: gettext('Find a learner'),
+                        trackingModel: this.options.trackingModel
+                    }
                 }
             ];
 

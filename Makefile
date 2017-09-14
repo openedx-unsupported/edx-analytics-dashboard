@@ -54,7 +54,7 @@ endif
 	./manage.py delete_acceptance_test_soapbox_messages
 
 # local acceptance tests are typically run with by passing in environment variables on the commandline
-# e.g. API_SERVER_URL="http://localhost:9001/api/v1" API_AUTH_TOKEN="edx" make accept_local
+# e.g. API_SERVER_URL="http://localhost:9001/api/v0" API_AUTH_TOKEN="edx" make accept_local
 accept_local:
 	./manage.py create_acceptance_test_soapbox_messages
 	nosetests -v acceptance_tests --exclude-dir=acceptance_tests/course_validation

@@ -4,7 +4,6 @@ define(function(require) {
     var _ = require('underscore'),
         Backbone = require('backbone'),
 
-        ListUtils = require('components/utils/utils'),
         CourseModel;
 
     CourseModel = Backbone.Model.extend({
@@ -61,14 +60,9 @@ define(function(require) {
          */
         initialize: function() {
             this.set({verified_enrollment: this.get('enrollment_modes').verified.count});
-            if (!this.get('availability')) {
+            if (this.get('availability').length === 0) {
                 this.set('availability', 'unknown');
             }
-        },
-
-        fetch: function(options) {
-            return Backbone.Model.prototype.fetch.call(this, options)
-                .fail(ListUtils.handleAjaxFailure.bind(this));
         },
 
         idAttribute: 'course_id',

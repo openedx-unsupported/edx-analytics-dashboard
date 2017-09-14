@@ -8,7 +8,7 @@ define(function(require) {
         ParentView = require('components/generic-list/common/views/parent-view'),
 
         CheckboxFilter = require('components/filter/views/checkbox-filter'),
-        CourseListSearch = require('components/search/views/search'),
+        CourseListSearch = require('course-list/list/views/search'),
         courseListControlsTemplate = require('course-list/list/templates/controls.underscore'),
 
         CourseListControlsView;
@@ -52,12 +52,12 @@ define(function(require) {
             this.childViews = [{
                 region: 'search',
                 class: CourseListSearch,
-                options: _({
+                options: {
+                    collection: this.options.collection,
                     name: 'text_search',
-                    focusableSelector: '#course-list-focusable',
-                    searchLabelText: gettext('Search courses'),
-                    placeholder: gettext('Find a course')
-                }).defaults(defaultFilterOptions)
+                    placeholder: gettext('Find a course'),
+                    trackingModel: this.options.trackingModel
+                }
             }];
 
             if (this.options.filteringEnabled) {

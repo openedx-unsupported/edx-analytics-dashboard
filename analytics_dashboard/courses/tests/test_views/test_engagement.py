@@ -9,7 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from waffle.testutils import override_switch
 
-import analyticsclient.constants.activity_types as AT
+import analyticsclient.constants.activity_type as AT
 
 from courses.tests.factories import CourseEngagementDataFactory
 from courses.tests.test_views import (

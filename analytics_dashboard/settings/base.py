@@ -295,7 +295,7 @@ DOCUMENTATION_LOAD_ERROR_MESSAGE = '<a href="{error_documentation_link}" target=
 
 
 ########## DATA API CONFIGURATION
-DATA_API_URL = 'http://127.0.0.1:9001/api/v1'
+DATA_API_URL = 'http://127.0.0.1:9001/api/v0'
 DATA_API_AUTH_TOKEN = 'edx'
 ########## END DATA API CONFIGURATION
 

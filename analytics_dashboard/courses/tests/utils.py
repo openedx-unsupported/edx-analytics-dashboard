@@ -6,9 +6,9 @@ import uuid
 
 from analyticsclient.client import Client
 from analyticsclient.constants import enrollment_modes, UNKNOWN_COUNTRY_CODE
-import analyticsclient.constants.activity_types as AT
-import analyticsclient.constants.education_levels as EDUCATION_LEVEL
-import analyticsclient.constants.genders as GENDER
+import analyticsclient.constants.activity_type as AT
+import analyticsclient.constants.education_level as EDUCATION_LEVEL
+import analyticsclient.constants.gender as GENDER
 
 from courses.permissions import set_user_course_permissions
 from courses.presenters.performance import AnswerDistributionEntry
@@ -770,8 +770,7 @@ def get_mock_course_summaries(course_ids, exclude=None):
                     "count_change_7_days": -28,
                     "passing_users": 5,
                 }
-            },
-            "verified_enrollment": 557,
+            }
         })
 
     if exclude:
