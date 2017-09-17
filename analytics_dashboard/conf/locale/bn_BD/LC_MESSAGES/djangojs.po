@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-14 21:01-0400\n"
-"PO-Revision-Date: 2017-08-18 22:55+0000\n"
+"POT-Creation-Date: 2017-06-21 18:32-0400\n"
+"PO-Revision-Date: 2017-09-14 22:42+0000\n"
 "Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/open-edx/edx-platform/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
@@ -27,14 +27,19 @@ msgstr "ডাউনলোড সিএসভি "
 msgid "Download search results to CSV"
 msgstr " অনুসন্ধানের ফলাফল সিএসভি তে ডাউনলোড করুন "
 
+#. Translators: "All" refers to viewing all items (e.g. all courses).
 #: static/apps/components/filter/views/drop-down-filter.js:31
 msgid "All"
 msgstr "সকল"
 
+#. Translators: 'name' here refers to the name of the filter, while 'count'
+#. refers to the number of items belonging to that filter.
 #: static/apps/components/filter/views/filter.js:90
 msgid "<%= name %> (<%= count %>)"
 msgstr "<%= name %> (<%= count %>)"
 
+#. Translators: this is a label describing a filter selection that the user
+#. initiated.
 #: static/apps/components/generic-list/list/views/active-filters.js:62
 msgid "<%= filterDisplayName %>: <%= filterVal %>"
 msgstr "<%= filterDisplayName %>: <%= filterVal %>"
@@ -47,6 +52,7 @@ msgstr "ছাঁকনির ব্যবহার"
 msgid "Click to remove this filter"
 msgstr "শ্রেনিবিভাগ মুছতে ক্লিক করুন"
 
+#. Translators: "Clear" in this context means "remove all of the filters"
 #: static/apps/components/generic-list/list/views/active-filters.js:90
 msgid "Clear"
 msgstr "মুছে ফেলুন"
@@ -55,14 +61,19 @@ msgstr "মুছে ফেলুন"
 msgid "Click to remove all filters"
 msgstr "সকল শ্রেনিবিভাগ মুছে ফেলুন"
 
+#. Translators: "sort ascending" describes the current sort state to the user.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:71
 msgid "sort ascending"
 msgstr "ক্রমানুসারে নির্বাচন"
 
+#. Translators: "sort descending" describes the current sort state to the
+#. user.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:73
 msgid "sort descending"
 msgstr "বিপরীত ক্রমানুসারে নির্বাচন"
 
+#. Translators: "click to sort" tells the user that they can click this link
+#. to sort by the current field.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:76
 msgid "click to sort"
 msgstr "শ্রেণিবিন্যাস করুন"
@@ -71,6 +82,8 @@ msgstr "শ্রেণিবিন্যাস করুন"
 msgid "Results"
 msgstr "ফলাফল"
 
+#. Translators: 'count' refers to the number of results contained in the
+#. table.
 #: static/apps/components/generic-list/list/views/num-results.js:30
 msgid "Number of results: <%= count %>"
 msgstr "ফলাফলের সংখ্যা "
@@ -95,10 +108,12 @@ msgstr "শেষ পাতা"
 msgid "page"
 msgstr "পাতা"
 
+#. Translators: describes the state of a pagination button as not clickable
 #: static/apps/components/generic-list/list/views/paging-footer.js:88
 msgid "disabled"
 msgstr "অক্ষম"
 
+#. Translators: describes a pagination button as representing the current page
 #: static/apps/components/generic-list/list/views/paging-footer.js:91
 msgid "active"
 msgstr "সক্রিয়"
@@ -107,143 +122,133 @@ msgstr "সক্রিয়"
 msgid "Generic List"
 msgstr "সাধারন তালিকা"
 
+#. Translators: This message indicates content is loading in the page.
 #: static/apps/components/loading/views/loading-view.js:20
 msgid "Loading..."
 msgstr "লোড হচ্ছে"
 
-#: static/apps/components/search/views/search.js:44
-msgid "Search"
-msgstr ""
-
-#: static/apps/components/search/views/search.js:72
-msgid "search"
-msgstr "অনুসন্ধান"
-
-#: static/apps/components/search/views/search.js:73
-msgid "clear search"
-msgstr "আবার অনুসন্ধান"
-
-#: static/apps/components/utils/utils.js:62
+#. Translators: "504" is a number representing a server error, so please leave
+#. it as "504".
+#: static/apps/components/utils/utils.js:61
 msgid "504: Server error"
 msgstr "সার্ভার সমস্যা"
 
-#: static/apps/components/utils/utils.js:64
+#: static/apps/components/utils/utils.js:63
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
 msgstr "আপনার অনুরুধ করা পেজটি প্রদর্শিত হতে বিলম্ব হচ্ছে । দয়া করে পেজ টি তে আবার ক্লিক করুন"
 
-#: static/apps/components/utils/utils.js:68
-#: static/apps/course-list/app/controller.js:143
+#: static/apps/components/utils/utils.js:67
 msgid "Server error"
 msgstr "সার্ভার সমস্যা"
 
-#: static/apps/components/utils/utils.js:69
-#: static/apps/components/utils/utils.js:81
-#: static/apps/course-list/app/controller.js:144
+#: static/apps/components/utils/utils.js:68
+#: static/apps/components/utils/utils.js:80
 msgid "Your request could not be processed. Reload the page to try again."
 msgstr "আপনার অনুরুধ করা পেজটি প্রদর্শিত হচ্ছে না । দয়া করে পেজ টি তে আবার চেষ্টা করুন"
 
-#: static/apps/components/utils/utils.js:80
+#: static/apps/components/utils/utils.js:79
 msgid "Network error"
 msgstr "নেটওয়ার্ক সমস্যা"
 
-#: static/apps/course-list/app/app.js:40
+#: static/apps/course-list/app/app.js:39
 msgid "Instructor-Paced"
 msgstr "প্রশিক্ষক বিন্যস্ত"
 
-#: static/apps/course-list/app/app.js:41
+#: static/apps/course-list/app/app.js:40
 msgid "Self-Paced"
 msgstr "স্ব-বিন্যস্ত"
 
-#: static/apps/course-list/app/app.js:44
+#: static/apps/course-list/app/app.js:43
 msgid "Upcoming"
 msgstr "পরবর্তী"
 
-#: static/apps/course-list/app/app.js:45
+#: static/apps/course-list/app/app.js:44
 msgid "Current"
 msgstr "বর্তমান"
 
-#: static/apps/course-list/app/app.js:46
+#: static/apps/course-list/app/app.js:45
 msgid "Archived"
 msgstr "সংরক্ষন"
 
-#: static/apps/course-list/app/app.js:47
+#: static/apps/course-list/app/app.js:46
 msgid "Unknown"
 msgstr "অপরিচিত"
 
-#: static/apps/course-list/app/controller.js:52
-#: static/apps/course-list/app/controller.js:100
+#: static/apps/course-list/app/controller.js:48
+#: static/apps/course-list/app/controller.js:108
 msgid "Course List"
 msgstr "কোর্স তালিকা"
 
-#: static/apps/course-list/app/controller.js:89
-#: static/apps/learners/app/controller.js:94
+#: static/apps/course-list/app/controller.js:98
+#: static/apps/learners/app/controller.js:96
 msgid "Invalid Parameters"
 msgstr "ভুল প্যারামিটার"
 
-#: static/apps/course-list/app/controller.js:90
+#: static/apps/course-list/app/controller.js:99
 msgid "Sorry, we couldn't find any courses that matched that query."
 msgstr "দুঃখিত,  অনুরোধ করা কোর্স  মিলছে না "
 
-#: static/apps/course-list/app/controller.js:91
+#: static/apps/course-list/app/controller.js:100
 msgid "Return to the Course List page."
 msgstr "কোর্স তালিকা পৃষ্ঠায় ফিরে যান"
 
-#: static/apps/course-list/app/controller.js:117
-#: static/apps/learners/app/controller.js:177
+#: static/apps/course-list/app/controller.js:125
+#: static/apps/learners/app/controller.js:181
 msgid "Sorry, we couldn't find the page you're looking for."
 msgstr "দুঃখিত, আমরা আপনি যে পৃষ্ঠাটি নাই "
 
-#: static/apps/course-list/app/controller.js:119
-#: static/apps/learners/app/controller.js:180
+#: static/apps/course-list/app/controller.js:129
+#: static/apps/learners/app/controller.js:186
 msgid "Page Not Found"
 msgstr "পৃষ্ঠা খুঁজে পাওয়া যায়নি"
 
-#: static/apps/course-list/common/collections/course-list.js:34
+#: static/apps/course-list/common/collections/course-list.js:77
 msgid "Course Name"
 msgstr "কোর্সের নাম "
 
-#: static/apps/course-list/common/collections/course-list.js:35
+#: static/apps/course-list/common/collections/course-list.js:78
 msgid "Start Date"
 msgstr "শুরুর তারিখ "
 
-#: static/apps/course-list/common/collections/course-list.js:36
+#: static/apps/course-list/common/collections/course-list.js:79
 msgid "End Date"
 msgstr "শেষ তারিখ "
 
-#: static/apps/course-list/common/collections/course-list.js:37
+#: static/apps/course-list/common/collections/course-list.js:80
 msgid "Total Enrollment"
 msgstr "সমস্ত অন্তর্ভুক্তি "
 
-#: static/apps/course-list/common/collections/course-list.js:38
+#. Translators: The noun count (e.g. number of learners)
+#: static/apps/course-list/common/collections/course-list.js:81
 #: static/js/enrollment-activity-main.js:27
 #: static/js/enrollment-demographics-gender-main.js:32
 #: static/js/enrollment-geography-main.js:29
 msgid "Current Enrollment"
 msgstr "বর্তমান অন্তর্ভুক্তি "
 
-#: static/apps/course-list/common/collections/course-list.js:39
+#: static/apps/course-list/common/collections/course-list.js:82
 msgid "Change Last Week"
 msgstr "গত সপ্তাহ পরিবর্তিত  সম্পন্ন হইয়াছে"
 
-#: static/apps/course-list/common/collections/course-list.js:40
+#: static/apps/course-list/common/collections/course-list.js:83
 msgid "Verified Enrollment"
 msgstr "যাচাইকৃত অন্তর্ভুক্তি "
 
-#: static/apps/course-list/common/collections/course-list.js:43
+#: static/apps/course-list/common/collections/course-list.js:86
 msgid "Passing Learners"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js:46
+#: static/apps/course-list/common/collections/course-list.js:89
 msgid "Availability"
 msgstr "পাওয়া যাবে"
 
-#: static/apps/course-list/common/collections/course-list.js:47
+#: static/apps/course-list/common/collections/course-list.js:90
 msgid "Pacing Type"
 msgstr "পদার্পণ প্রকার"
 
-#: static/apps/course-list/common/collections/course-list.js:48
+#: static/apps/course-list/common/collections/course-list.js:91
 msgid "Programs"
 msgstr ""
 
@@ -287,17 +292,8 @@ msgid "Skip to results"
 msgstr "ফলাফল দেখাও"
 
 #: static/apps/course-list/list/views/controls.js:58
-msgid "Search courses"
-msgstr "কোর্স অনুসন্ধান"
-
-#: static/apps/course-list/list/views/controls.js:59
 msgid "Find a course"
 msgstr "কোর্স খুঁজুন"
-
-#: static/apps/course-list/list/views/controls.js:56
-#: static/apps/learners/roster/views/controls.js:60
-msgid "text_search"
-msgstr ""
 
 #: static/apps/course-list/list/views/controls.js:68
 msgid "availability"
@@ -343,6 +339,20 @@ msgid ""
 " Data is updated every day, so check back regularly for up-to-date metrics."
 msgstr "কোন কোর্সে ভর্তি করা হয়নি, বা কোর্স কার্যকলাপ তথ্য এখনো প্রক্রিয়াভুক্ত করা হয়নি। প্রতিদিন তথ্য আপডেট করা হয়, তাই আপ-টু-ডেট বৈশিষ্ট্যের মান ফিরে পেতে নিয়মিত চেক করুন।"
 
+#: static/apps/course-list/list/views/search.js:71
+msgid "Search courses"
+msgstr "কোর্স অনুসন্ধান"
+
+#: static/apps/course-list/list/views/search.js:72
+#: static/apps/learners/roster/views/search.js:56
+msgid "search"
+msgstr "অনুসন্ধান"
+
+#: static/apps/course-list/list/views/search.js:73
+#: static/apps/learners/roster/views/search.js:57
+msgid "clear search"
+msgstr "আবার অনুসন্ধান"
+
 #: static/apps/course-list/list/views/table.js:48
 msgid "Date not available"
 msgstr "তারিখ নাই"
@@ -351,19 +361,19 @@ msgstr "তারিখ নাই"
 msgid "Learner Roster"
 msgstr "রোস্টার শিক্ষার্থী"
 
-#: static/apps/learners/app/controller.js:95
+#: static/apps/learners/app/controller.js:97
 msgid "Sorry, we couldn't find any learners who matched that query."
 msgstr "দুঃখিত, আমরা কোনো শিক্ষার্থী  যে প্রশ্নের সাথে মিলেছে এমন  খুঁজে পাইনি"
 
-#: static/apps/learners/app/controller.js:96
+#: static/apps/learners/app/controller.js:98
 msgid "Return to the Learners page."
 msgstr "লার্নার্স পৃষ্ঠায় প্রত্যাবর্তন"
 
-#: static/apps/learners/app/controller.js:104
+#: static/apps/learners/app/controller.js:106
 msgid "Learners"
 msgstr "শিক্ষার্থীগণ "
 
-#: static/apps/learners/app/controller.js:137
+#: static/apps/learners/app/controller.js:141
 msgid "Learner Details"
 msgstr "লার্নার বিস্তারিত"
 
@@ -432,6 +442,7 @@ msgstr "দেখা ভিডিও "
 msgid "Value"
 msgstr "মূল্য"
 
+#. Translators: e.g. Learner engagement activity
 #: static/apps/learners/detail/views/learner-detail.js:28
 msgid "Engagement Activity"
 msgstr "সম্প্রিত করার কর্মকাণ্ড"
@@ -452,6 +463,7 @@ msgstr "নিয়োগ "
 msgid "Last Accessed"
 msgstr "সর্বশেষ প্রবেশ"
 
+#. Translators: 'n/a' means 'not available'
 #: static/apps/learners/detail/views/learner-detail.js:109
 #: static/apps/learners/detail/views/learner-summary-field.js:44
 #: static/apps/learners/roster/views/activity-date-range.js:16
@@ -474,10 +486,14 @@ msgstr "কোন শিক্ষার্থীর তথ্য পাওয়
 msgid "Return to Learners"
 msgstr "লার্নার্স  এ ফিরুন"
 
+#. Translators: this is a label describing a selection that the user
+#. initiated.
 #: static/apps/learners/roster/views/active-filters.js:23
 msgid "Cohort: <%= filterVal %>"
 msgstr "দল: <%= filterVal %>"
 
+#. Translators: this is a label describing a selection that the user
+#. initiated.
 #: static/apps/learners/roster/views/active-filters.js:27
 msgid "Enrollment Track: <%= filterVal %>"
 msgstr "তালিকাভুক্ত ট্র্যাক: <%= filterVal %>"
@@ -520,10 +536,6 @@ msgid ""
 msgstr "এই শিক্ষার্থী দ্বারা অবদান হল পোস্ট, প্রতিক্রিয়া, এবং মন্তব্য সহকারে। "
 
 #: static/apps/learners/roster/views/controls.js:62
-msgid "Search learners"
-msgstr "শিক্ষার্থী অনুসন্ধান "
-
-#: static/apps/learners/roster/views/controls.js:63
 msgid "Find a learner"
 msgstr "শিক্ষার্থী খুঁজুন"
 
@@ -543,6 +555,9 @@ msgstr "তালিকাভুক্তি ট্র্যাক"
 msgid "enrollment_mode"
 msgstr "তালিকাভুক্তি মোড"
 
+#. Translators: inactive meaning that these learners have not interacted with
+#. the
+#. course recently.
 #: static/apps/learners/roster/views/controls.js:103
 msgid "Hide Inactive Learners"
 msgstr "নিষ্ক্রিয় লার্নার্স লুকান"
@@ -570,6 +585,12 @@ msgstr "কোন কোর্সে ভর্তি করা হয়নি, 
 msgid "Learner roster controls"
 msgstr "লার্নার রোস্টারে নিয়ন্ত্রণগুলি"
 
+#: static/apps/learners/roster/views/search.js:55
+msgid "Search learners"
+msgstr "শিক্ষার্থী অনুসন্ধান "
+
+#. Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate
+#. accordingly.
 #: static/apps/learners/roster/views/table.js:40
 msgid "N/A"
 msgstr "N/A "
@@ -594,6 +615,7 @@ msgstr "আলোচনায় অংশগ্রহণ"
 msgid "Percent of Current Learners"
 msgstr "বর্তমান লার্নার্স শতাংশ"
 
+#. Translators: <%=value%> will be replaced with a date.
 #: static/js/engagement-content-main.js:85
 msgid "Week Ending <%=value%>"
 msgstr "সপ্তাহটি শেষ"
@@ -640,6 +662,8 @@ msgstr "সম্পূর্ণ দেখেছে"
 msgid "Incomplete Views"
 msgstr "অসম্পূর্ণ দেখেছে"
 
+#. Translators: this describe the learner's enrollment track (e.g. Honor
+#. certificate)
 #: static/js/enrollment-activity-main.js:33
 msgid "Honor"
 msgstr "সম্মান"
@@ -656,6 +680,8 @@ msgstr "যাচাই"
 msgid "Professional"
 msgstr "পেশাদারী"
 
+#. Translators: this label indicates the learner has registered for academic
+#. credit
 #: static/js/enrollment-activity-main.js:54
 msgid "Verified with Credit"
 msgstr "ক্রেডিট এর সাথে যাচাইকৃত"
@@ -666,6 +692,7 @@ msgstr "ক্রেডিট এর সাথে যাচাইকৃত"
 msgid "Number of Learners"
 msgstr "লার্নার্স সংখ্যা"
 
+#. Translators: <%=value%> will be replaced with an age.
 #: static/js/enrollment-demographics-age-main.js:26
 msgid "Age: <%=value%>"
 msgstr "বয়স"
@@ -683,6 +710,8 @@ msgstr "মোট শতাংশ"
 msgid "Percentage"
 msgstr "শতকরা হার"
 
+#. Translators: <%=value%> will be replaced with a level of education (e.g.
+#. Doctorate).
 #: static/js/enrollment-demographics-education-main.js:24
 msgid "Education: <%=value%>"
 msgstr "শিক্ষা"
@@ -691,6 +720,8 @@ msgstr "শিক্ষা"
 msgid "Educational Background"
 msgstr "শিক্ষাগত যোগ্যতা"
 
+#. Translators: <%=value%> will be replaced with a level of gender (e.g.
+#. Female).
 #: static/js/enrollment-demographics-gender-main.js:23
 msgid "Gender: <%=value%>"
 msgstr "লিঙ্গ"
@@ -729,6 +760,7 @@ msgstr "শতাংশ"
 msgid "Answer"
 msgstr "উত্তর"
 
+#. Translators: "Correct" is displayed in a table..
 #: static/js/performance-answer-distribution-main.js:15
 #: static/js/performance-answer-distribution-main.js:43
 #: static/js/performance-learning-outcomes-section-main.js:11
@@ -753,6 +785,8 @@ msgstr "বৈকল্পিক"
 msgid "Incorrect"
 msgstr "ভুল"
 
+#. Translators: <%=value%> will be replaced by a learner response to a
+#. question asked in a course.
 #: static/js/performance-answer-distribution-main.js:60
 msgid "Answer: <%=value%>"
 msgstr "উত্তর"
@@ -799,6 +833,10 @@ msgstr "মোট"
 msgid "..."
 msgstr "..."
 
+#. Translators: (empty) is displayed in a table and indicates no label/value.
+#. Keep text in the parenthesis or an equivalent symbol.
+#. Translators: (empty) is displayed as a label in a chart and indicates that
+#. no label was provided.
 #: static/js/views/data-table-view.js:199
 #: static/js/views/discrete-bar-view.js:21
 msgid "(empty)"
@@ -806,7 +844,7 @@ msgstr "(খালি)"
 
 #. Translators: <%=value%> will be replaced by a number followed by a
 #. percentage.
-#. For example, "400 (29%)" */
+#. For example, "400 (29%)"
 #: static/js/views/stacked-bar-view.js:13
 msgid "<%=value%> (<%=percent%>)"
 msgstr "<%=value%> (<%=percent%>)"

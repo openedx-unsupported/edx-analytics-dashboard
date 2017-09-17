@@ -5,6 +5,7 @@
 # Translators:
 # Dinh Hung Tu <inactive+dinhhungtu@transifex.com>, 2015
 # Duong Nguyen <supermanikin@yahoo.com>, 2015
+# Hoà Lê Thanh <hoa.lethanh@gmail.com>, 2017
 # Nguyen Don Binh <donbinhvn@gmail.com>, 2014
 # NGUYEN HOANG AN <neyugn2909@gmail.com>, 2014-2015
 # Nguyen Nhat Quang <technicalmanager@gmail.com>, 2016
@@ -14,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-14 21:01-0400\n"
-"PO-Revision-Date: 2017-08-25 07:54+0000\n"
+"POT-Creation-Date: 2017-06-21 18:32-0400\n"
+"PO-Revision-Date: 2017-09-14 22:42+0000\n"
 "Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/open-edx/edx-platform/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -30,239 +31,244 @@ msgstr "Tải về tệp CSV"
 
 #: static/apps/components/download/views/download-data.js:26
 msgid "Download search results to CSV"
-msgstr ""
+msgstr "Tải kết quá tìm kiếm lưu tệp CSV"
 
+#. Translators: "All" refers to viewing all items (e.g. all courses).
 #: static/apps/components/filter/views/drop-down-filter.js:31
 msgid "All"
-msgstr ""
+msgstr "Tất cả"
 
+#. Translators: 'name' here refers to the name of the filter, while 'count'
+#. refers to the number of items belonging to that filter.
 #: static/apps/components/filter/views/filter.js:90
 msgid "<%= name %> (<%= count %>)"
-msgstr ""
+msgstr "<%= name %> (<%= count %>)"
 
+#. Translators: this is a label describing a filter selection that the user
+#. initiated.
 #: static/apps/components/generic-list/list/views/active-filters.js:62
 msgid "<%= filterDisplayName %>: <%= filterVal %>"
-msgstr ""
+msgstr "<%= filterDisplayName %>: <%= filterVal %>"
 
 #: static/apps/components/generic-list/list/views/active-filters.js:87
 msgid "Filters In Use:"
-msgstr ""
+msgstr "Những bộ lọc Đang Sử dụng:"
 
 #: static/apps/components/generic-list/list/views/active-filters.js:88
 msgid "Click to remove this filter"
-msgstr ""
+msgstr "Bấm để huỷ bỏ bộ lọc này"
 
+#. Translators: "Clear" in this context means "remove all of the filters"
 #: static/apps/components/generic-list/list/views/active-filters.js:90
 msgid "Clear"
 msgstr "Xóa"
 
 #: static/apps/components/generic-list/list/views/active-filters.js:91
 msgid "Click to remove all filters"
-msgstr ""
+msgstr "Bấm để huỷ tất cả bộ lọc"
 
+#. Translators: "sort ascending" describes the current sort state to the user.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:71
 msgid "sort ascending"
-msgstr ""
+msgstr "sắp xếp tăng dần"
 
+#. Translators: "sort descending" describes the current sort state to the
+#. user.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:73
 msgid "sort descending"
-msgstr ""
+msgstr "sắp xếp giảm dần"
 
+#. Translators: "click to sort" tells the user that they can click this link
+#. to sort by the current field.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:76
 msgid "click to sort"
-msgstr ""
+msgstr "bấm để sắp xếp"
 
 #: static/apps/components/generic-list/list/views/list.js:51
 msgid "Results"
-msgstr ""
+msgstr "Kết quả"
 
+#. Translators: 'count' refers to the number of results contained in the
+#. table.
 #: static/apps/components/generic-list/list/views/num-results.js:30
 msgid "Number of results: <%= count %>"
-msgstr ""
+msgstr "Số kết quả: <%= count %>"
 
 #: static/apps/components/generic-list/list/views/paging-footer.js:70
 msgid "first page"
-msgstr ""
+msgstr "trang đầu"
 
 #: static/apps/components/generic-list/list/views/paging-footer.js:72
 msgid "previous page"
-msgstr ""
+msgstr "trang trước"
 
 #: static/apps/components/generic-list/list/views/paging-footer.js:74
 msgid "next page"
-msgstr ""
+msgstr "trang sau"
 
 #: static/apps/components/generic-list/list/views/paging-footer.js:76
 msgid "last page"
-msgstr ""
+msgstr "trang cuối"
 
 #: static/apps/components/generic-list/list/views/paging-footer.js:78
 msgid "page"
-msgstr ""
+msgstr "trang"
 
+#. Translators: describes the state of a pagination button as not clickable
 #: static/apps/components/generic-list/list/views/paging-footer.js:88
 msgid "disabled"
-msgstr ""
+msgstr "vô hiệu hóa"
 
+#. Translators: describes a pagination button as representing the current page
 #: static/apps/components/generic-list/list/views/paging-footer.js:91
 msgid "active"
-msgstr ""
+msgstr "kích hoạt"
 
 #: static/apps/components/generic-list/list/views/table.js:27
 msgid "Generic List"
-msgstr ""
+msgstr "Danh sách Chung"
 
+#. Translators: This message indicates content is loading in the page.
 #: static/apps/components/loading/views/loading-view.js:20
 msgid "Loading..."
 msgstr "Đang tải..."
 
-#: static/apps/components/search/views/search.js:44
-msgid "Search"
-msgstr ""
-
-#: static/apps/components/search/views/search.js:72
-msgid "search"
-msgstr "tìm"
-
-#: static/apps/components/search/views/search.js:73
-msgid "clear search"
-msgstr ""
-
-#: static/apps/components/utils/utils.js:62
+#. Translators: "504" is a number representing a server error, so please leave
+#. it as "504".
+#: static/apps/components/utils/utils.js:61
 msgid "504: Server error"
-msgstr ""
+msgstr "504: Lỗi máy chủ"
 
-#: static/apps/components/utils/utils.js:64
+#: static/apps/components/utils/utils.js:63
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
-msgstr ""
+msgstr "Xử lý yêu cầu của bạn mất quá nhiều thời gian để hoàn thành. Tải lại trang để thử lại."
+
+#: static/apps/components/utils/utils.js:67
+msgid "Server error"
+msgstr "Lỗi máy chủ"
 
 #: static/apps/components/utils/utils.js:68
-#: static/apps/course-list/app/controller.js:143
-msgid "Server error"
-msgstr ""
-
-#: static/apps/components/utils/utils.js:69
-#: static/apps/components/utils/utils.js:81
-#: static/apps/course-list/app/controller.js:144
-msgid "Your request could not be processed. Reload the page to try again."
-msgstr ""
-
 #: static/apps/components/utils/utils.js:80
+msgid "Your request could not be processed. Reload the page to try again."
+msgstr "Không thể xử lý yêu cầu của bạn. Tải lại trang để thử lại."
+
+#: static/apps/components/utils/utils.js:79
 msgid "Network error"
-msgstr ""
+msgstr "Lỗi mạng"
+
+#: static/apps/course-list/app/app.js:39
+msgid "Instructor-Paced"
+msgstr "Có hướng dẫn"
 
 #: static/apps/course-list/app/app.js:40
-msgid "Instructor-Paced"
-msgstr ""
-
-#: static/apps/course-list/app/app.js:41
 msgid "Self-Paced"
-msgstr ""
+msgstr "Tự học"
+
+#: static/apps/course-list/app/app.js:43
+msgid "Upcoming"
+msgstr "Sắp tới"
 
 #: static/apps/course-list/app/app.js:44
-msgid "Upcoming"
-msgstr ""
+msgid "Current"
+msgstr "Hiện hành"
 
 #: static/apps/course-list/app/app.js:45
-msgid "Current"
-msgstr ""
+msgid "Archived"
+msgstr "Đã lưu trữ"
 
 #: static/apps/course-list/app/app.js:46
-msgid "Archived"
-msgstr ""
-
-#: static/apps/course-list/app/app.js:47
 msgid "Unknown"
-msgstr ""
+msgstr "Không biết"
 
-#: static/apps/course-list/app/controller.js:52
-#: static/apps/course-list/app/controller.js:100
+#: static/apps/course-list/app/controller.js:48
+#: static/apps/course-list/app/controller.js:108
 msgid "Course List"
-msgstr ""
+msgstr "Các khóa học"
 
-#: static/apps/course-list/app/controller.js:89
-#: static/apps/learners/app/controller.js:94
+#: static/apps/course-list/app/controller.js:98
+#: static/apps/learners/app/controller.js:96
 msgid "Invalid Parameters"
 msgstr "Tham số không hợp lệ"
 
-#: static/apps/course-list/app/controller.js:90
+#: static/apps/course-list/app/controller.js:99
 msgid "Sorry, we couldn't find any courses that matched that query."
-msgstr ""
+msgstr "Rất tiếc, chúng tôi không tìm thấy bất kỳ khóa học nào khớp với yêu cầu của bạn."
 
-#: static/apps/course-list/app/controller.js:91
+#: static/apps/course-list/app/controller.js:100
 msgid "Return to the Course List page."
-msgstr ""
+msgstr "Trở lại trang Các khoá học"
 
-#: static/apps/course-list/app/controller.js:117
-#: static/apps/learners/app/controller.js:177
+#: static/apps/course-list/app/controller.js:125
+#: static/apps/learners/app/controller.js:181
 msgid "Sorry, we couldn't find the page you're looking for."
 msgstr "Xin lỗi, chúng tôi không thể tìm thấy trang bạn đang tìm kiếm."
 
-#: static/apps/course-list/app/controller.js:119
-#: static/apps/learners/app/controller.js:180
+#: static/apps/course-list/app/controller.js:129
+#: static/apps/learners/app/controller.js:186
 msgid "Page Not Found"
 msgstr "Không tìm thấy trang"
 
-#: static/apps/course-list/common/collections/course-list.js:34
+#: static/apps/course-list/common/collections/course-list.js:77
 msgid "Course Name"
-msgstr ""
+msgstr "Tên Khóa Học"
 
-#: static/apps/course-list/common/collections/course-list.js:35
+#: static/apps/course-list/common/collections/course-list.js:78
 msgid "Start Date"
-msgstr ""
+msgstr "Ngày Bắt đầu"
 
-#: static/apps/course-list/common/collections/course-list.js:36
+#: static/apps/course-list/common/collections/course-list.js:79
 msgid "End Date"
-msgstr ""
+msgstr "Ngày Kết thúc"
 
-#: static/apps/course-list/common/collections/course-list.js:37
+#: static/apps/course-list/common/collections/course-list.js:80
 msgid "Total Enrollment"
-msgstr ""
+msgstr "Tổng số Ghi danh"
 
-#: static/apps/course-list/common/collections/course-list.js:38
+#. Translators: The noun count (e.g. number of learners)
+#: static/apps/course-list/common/collections/course-list.js:81
 #: static/js/enrollment-activity-main.js:27
 #: static/js/enrollment-demographics-gender-main.js:32
 #: static/js/enrollment-geography-main.js:29
 msgid "Current Enrollment"
 msgstr "Lượng Ghi Danh Hiện Tại"
 
-#: static/apps/course-list/common/collections/course-list.js:39
+#: static/apps/course-list/common/collections/course-list.js:82
 msgid "Change Last Week"
-msgstr ""
+msgstr "Thay đổi tuần vừa rồi"
 
-#: static/apps/course-list/common/collections/course-list.js:40
+#: static/apps/course-list/common/collections/course-list.js:83
 msgid "Verified Enrollment"
-msgstr ""
+msgstr "Ghi Danh Đã xác thực"
 
-#: static/apps/course-list/common/collections/course-list.js:43
+#: static/apps/course-list/common/collections/course-list.js:86
 msgid "Passing Learners"
-msgstr ""
+msgstr "Passing Learners"
 
-#: static/apps/course-list/common/collections/course-list.js:46
+#: static/apps/course-list/common/collections/course-list.js:89
 msgid "Availability"
-msgstr ""
+msgstr "Có sẵn"
 
-#: static/apps/course-list/common/collections/course-list.js:47
+#: static/apps/course-list/common/collections/course-list.js:90
 msgid "Pacing Type"
-msgstr ""
+msgstr "Phương thức Học tập"
 
-#: static/apps/course-list/common/collections/course-list.js:48
+#: static/apps/course-list/common/collections/course-list.js:91
 msgid "Programs"
-msgstr ""
+msgstr "Chương trình học"
 
 #: static/apps/course-list/list/views/base-header-cell.js:11
 msgid "Course name advertised on edX site."
-msgstr ""
+msgstr "Tên khóa học được quảng cáo trên trang edX."
 
 #: static/apps/course-list/list/views/base-header-cell.js:12
 msgid "Start date advertised on edX site."
-msgstr ""
+msgstr "Ngày bắt đầu được quảng cáo trên trang edX."
 
 #: static/apps/course-list/list/views/base-header-cell.js:13
 msgid "End date set in edX Studio."
-msgstr ""
+msgstr "Ngày kết thúc được đặt trong edx Studio."
 
 #: static/apps/course-list/list/views/base-header-cell.js:14
 msgid "Learners who ever enrolled in the course."
@@ -274,7 +280,7 @@ msgstr "Các học viên hiện đang theo học khóa học."
 
 #: static/apps/course-list/list/views/base-header-cell.js:16
 msgid "Net difference in current enrollment in the last week."
-msgstr ""
+msgstr "Thay đổi số ghi danh hiện tại so với tuần trước."
 
 #: static/apps/course-list/list/views/base-header-cell.js:18
 msgid ""
@@ -284,91 +290,96 @@ msgstr "Số học viên đang theo học đăng ký lấy chứng chỉ."
 
 #: static/apps/course-list/list/views/base-header-cell.js:19
 msgid "Learners who have earned a passing grade."
-msgstr ""
+msgstr "Những học viên đã đạt kết quả."
 
 #: static/apps/course-list/list/views/controls.js:38
 #: static/apps/learners/roster/views/controls.js:39
 msgid "Skip to results"
-msgstr ""
+msgstr "Vào thẳng kết quả"
 
 #: static/apps/course-list/list/views/controls.js:58
-msgid "Search courses"
-msgstr ""
-
-#: static/apps/course-list/list/views/controls.js:59
 msgid "Find a course"
-msgstr ""
-
-#: static/apps/course-list/list/views/controls.js:56
-#: static/apps/learners/roster/views/controls.js:60
-msgid "text_search"
-msgstr ""
+msgstr "Tìm một khóa học"
 
 #: static/apps/course-list/list/views/controls.js:68
 msgid "availability"
-msgstr ""
+msgstr "Có sẵn"
 
 #: static/apps/course-list/list/views/controls.js:76
 msgid "pacing_type"
-msgstr ""
+msgstr "pacing_type"
 
 #: static/apps/course-list/list/views/controls.js:84
 msgid "program_ids"
-msgstr ""
+msgstr "program_ids"
 
 #: static/apps/course-list/list/views/course-list.js:66
 msgid "Download full course list to CSV"
-msgstr ""
+msgstr "Tải kết quá tìm kiếm lưu tệp CSV"
 
 #: static/apps/course-list/list/views/course-list.js:91
 msgid "Course list controls"
-msgstr ""
+msgstr "Kiểm soát danh sách khóa học"
 
 #: static/apps/course-list/list/views/results.js:47
 msgid "No courses matched your criteria."
-msgstr ""
+msgstr "Không có khóa học nào phù hợp với tiêu chí của bạn."
 
 #: static/apps/course-list/list/views/results.js:49
 #: static/apps/learners/roster/views/results.js:49
 msgid "Try a different search."
-msgstr ""
+msgstr "Hãy thử tìm nội dung khác."
 
 #: static/apps/course-list/list/views/results.js:52
 #: static/apps/learners/roster/views/results.js:52
 msgid "Try clearing the filters."
-msgstr ""
+msgstr "Hãy thử xóa bộ lọc."
 
 #: static/apps/course-list/list/views/results.js:55
 msgid "No course data is currently available for your course."
-msgstr ""
+msgstr "Không có dữ liệu khóa học nào sẵn sàng cho khóa học của bạn."
 
 #: static/apps/course-list/list/views/results.js:57
 msgid ""
 "No courses are enrolled, or course activity data has not yet been processed."
 " Data is updated every day, so check back regularly for up-to-date metrics."
-msgstr ""
+msgstr "Không có khóa học nào được ghi danh, hoặc dữ liệu hoạt động của khóa học chưa được xử lý. Dữ liệu được cập nhật hàng ngày, vì vậy hãy kiểm tra lại thường xuyên các số liệu cập nhật."
+
+#: static/apps/course-list/list/views/search.js:71
+msgid "Search courses"
+msgstr "Tìm kiếm các khóa học"
+
+#: static/apps/course-list/list/views/search.js:72
+#: static/apps/learners/roster/views/search.js:56
+msgid "search"
+msgstr "tìm"
+
+#: static/apps/course-list/list/views/search.js:73
+#: static/apps/learners/roster/views/search.js:57
+msgid "clear search"
+msgstr "xoá"
 
 #: static/apps/course-list/list/views/table.js:48
 msgid "Date not available"
-msgstr ""
+msgstr "Ngày không sẵn sàng"
 
 #: static/apps/learners/app/controller.js:59
 msgid "Learner Roster"
-msgstr ""
+msgstr "Danh sách Học viên"
 
-#: static/apps/learners/app/controller.js:95
+#: static/apps/learners/app/controller.js:97
 msgid "Sorry, we couldn't find any learners who matched that query."
 msgstr "Xin lỗi, chúng tôi không tìm thấy học viện nào thỏa mãn điêu kiện truy vấn"
 
-#: static/apps/learners/app/controller.js:96
+#: static/apps/learners/app/controller.js:98
 msgid "Return to the Learners page."
 msgstr "Trở lại trang Học viên."
 
-#: static/apps/learners/app/controller.js:104
+#: static/apps/learners/app/controller.js:106
 msgid "Learners"
 msgstr "Học viên"
 
-#: static/apps/learners/app/controller.js:137
+#: static/apps/learners/app/controller.js:141
 msgid "Learner Details"
 msgstr "Chi tiết học viên"
 
@@ -378,17 +389,17 @@ msgstr "Tên (Tên đăng nhập)"
 
 #: static/apps/learners/common/collections/learners.js:18
 msgid "Problems Tried"
-msgstr ""
+msgstr "Những Bài tập Đã thử làm"
 
 #: static/apps/learners/common/collections/learners.js:19
 #: static/apps/learners/detail/views/engagement-table.js:33
 #: static/apps/learners/detail/views/engagement-timeline.js:35
 msgid "Problems Correct"
-msgstr ""
+msgstr "Những Bài tập Đã làm đúng"
 
 #: static/apps/learners/common/collections/learners.js:20
 msgid "Attempts per Problem Correct"
-msgstr ""
+msgstr "Số lần thử cho Bài tập Đã làm đúng"
 
 #: static/apps/learners/common/collections/learners.js:21
 #: static/js/engagement-video-content-main.js:33
@@ -401,11 +412,11 @@ msgstr "Thảo Luận"
 
 #: static/apps/learners/common/collections/learners.js:24
 msgid "Segments"
-msgstr ""
+msgstr "Phân đoạn"
 
 #: static/apps/learners/common/collections/learners.js:25
 msgid "Segments to Ignore"
-msgstr ""
+msgstr "Phân đoạn để Bỏ qua"
 
 #: static/apps/learners/common/collections/learners.js:26
 #: static/apps/learners/detail/views/learner-detail.js:101
@@ -414,7 +425,7 @@ msgstr "nhóm"
 
 #: static/apps/learners/common/collections/learners.js:27
 msgid "Enrollment Mode"
-msgstr ""
+msgstr "Các Đăng ký"
 
 #: static/apps/learners/detail/views/engagement-table.js:22
 #: static/apps/learners/detail/views/engagement-timeline.js:43
@@ -426,28 +437,29 @@ msgstr "Ngày"
 #: static/apps/learners/detail/views/engagement-table.js:27
 #: static/apps/learners/detail/views/engagement-timeline.js:31
 msgid "Discussion Contributions"
-msgstr ""
+msgstr "Đóng góp ý kiến"
 
 #: static/apps/learners/detail/views/engagement-table.js:39
 #: static/apps/learners/detail/views/engagement-timeline.js:39
 msgid "Videos Viewed"
-msgstr ""
+msgstr "Những Video Đã xem"
 
 #: static/apps/learners/detail/views/engagement-timeline.js:47
 msgid "Value"
 msgstr "Giá trị"
 
+#. Translators: e.g. Learner engagement activity
 #: static/apps/learners/detail/views/learner-detail.js:28
 msgid "Engagement Activity"
-msgstr ""
+msgstr "Hoạt động Tương tác"
 
 #: static/apps/learners/detail/views/learner-detail.js:29
 msgid "Daily Activity"
-msgstr ""
+msgstr "Hoạt động Hàng ngày"
 
 #: static/apps/learners/detail/views/learner-detail.js:30
 msgid "Activity Over Time"
-msgstr ""
+msgstr "Hoạt động Theo Thời gian"
 
 #: static/apps/learners/detail/views/learner-detail.js:95
 msgid "Enrollment"
@@ -455,126 +467,136 @@ msgstr "Ghi danh"
 
 #: static/apps/learners/detail/views/learner-detail.js:106
 msgid "Last Accessed"
-msgstr ""
+msgstr "Lần cuối Truy cập"
 
+#. Translators: 'n/a' means 'not available'
 #: static/apps/learners/detail/views/learner-detail.js:109
 #: static/apps/learners/detail/views/learner-summary-field.js:44
 #: static/apps/learners/roster/views/activity-date-range.js:16
 msgid "n/a"
-msgstr ""
+msgstr "không áp dụng"
 
 #: static/apps/learners/detail/views/learner-detail.js:139
 msgid "Check back daily for up-to-date data."
-msgstr ""
+msgstr "Kiểm tra lại hàng ngày để cập nhật dữ liệu."
 
 #: static/apps/learners/detail/views/learner-detail.js:149
 msgid "No course activity data is available for this learner."
-msgstr ""
+msgstr "Không có dữ liệu về hoạt động của khóa học cho học viên này."
 
 #: static/apps/learners/detail/views/learner-detail.js:156
 msgid "No learner data is available."
-msgstr ""
+msgstr "Không có dữ liệu người học."
 
 #: static/apps/learners/detail/views/learner-return.js:12
 msgid "Return to Learners"
-msgstr ""
+msgstr "Trở lại Danh sác học viên"
 
+#. Translators: this is a label describing a selection that the user
+#. initiated.
 #: static/apps/learners/roster/views/active-filters.js:23
 msgid "Cohort: <%= filterVal %>"
-msgstr ""
+msgstr "Nhóm: <%= filterVal %>"
 
+#. Translators: this is a label describing a selection that the user
+#. initiated.
 #: static/apps/learners/roster/views/active-filters.js:27
 msgid "Enrollment Track: <%= filterVal %>"
-msgstr ""
+msgstr "Kiểm tra Đăng ký: <%= filterVal %>"
 
 #: static/apps/learners/roster/views/active-filters.js:32
 #: static/js/engagement-content-main.js:20
 msgid "Active Learners"
-msgstr ""
+msgstr "Học viên Tích cực"
 
 #: static/apps/learners/roster/views/activity-date-range.js:11
 msgid "Activity between <%- startDate %> - <%- endDate %>"
-msgstr ""
+msgstr "Hoạt động giữa <%- startDate %> - <%- endDate %>"
 
 #: static/apps/learners/roster/views/base-header-cell.js:10
 msgid "The name and username of this learner. Click to sort by username."
-msgstr ""
+msgstr "Tên và tên đăng nhập của người học này. Bấm để sắp xếp theo tên người dùng."
 
 #: static/apps/learners/roster/views/base-header-cell.js:11
 msgid "Number of unique problems this learner attempted."
-msgstr ""
+msgstr "Số bài tập duy nhất chỉ người học này thử làm."
 
 #: static/apps/learners/roster/views/base-header-cell.js:12
 msgid "Number of unique problems the learner answered correctly."
-msgstr ""
+msgstr "Số bài tập duy nhất chỉ người học này trả lời đúng."
 
 #: static/apps/learners/roster/views/base-header-cell.js:13
 msgid "Number of unique videos this learner played."
-msgstr ""
+msgstr "Số video duy nhất chỉ người học này xem."
 
 #: static/apps/learners/roster/views/base-header-cell.js:15
 msgid ""
 "Average number of attempts per correct problem. Learners with a relatively "
 "high value compared to their peers may be struggling."
-msgstr ""
+msgstr "Trung bình số lần thử cho mỗi bài tập làm chính xác. Những học viên có số lần thử cao đang gặp khó khăn trong việc làm bài."
 
 #: static/apps/learners/roster/views/base-header-cell.js:17
 msgid ""
 "Number of contributions by this learner, including posts, responses, and "
 "comments."
-msgstr ""
+msgstr "Số lượng đóng góp của người học này, bao gồm các bài viết, phản hồi và nhận xét."
 
 #: static/apps/learners/roster/views/controls.js:62
-msgid "Search learners"
-msgstr ""
-
-#: static/apps/learners/roster/views/controls.js:63
 msgid "Find a learner"
-msgstr ""
+msgstr "Tìm học viên"
 
 #: static/apps/learners/roster/views/controls.js:75
 msgid "Cohort Groups"
-msgstr ""
+msgstr "Nhóm Hội"
 
 #: static/apps/learners/roster/views/controls.js:73
 msgid "cohort"
-msgstr ""
+msgstr "nhóm"
 
 #: static/apps/learners/roster/views/controls.js:87
 msgid "Enrollment Tracks"
-msgstr ""
+msgstr "Kiểm tra Đăng ký"
 
 #: static/apps/learners/roster/views/controls.js:85
 msgid "enrollment_mode"
-msgstr ""
+msgstr "enrollment_mode"
 
+#. Translators: inactive meaning that these learners have not interacted with
+#. the
+#. course recently.
 #: static/apps/learners/roster/views/controls.js:103
 msgid "Hide Inactive Learners"
-msgstr ""
+msgstr "Ẩn những Học viên Không tham gia"
 
 #: static/apps/learners/roster/views/controls.js:97
 msgid "ignore_segments"
-msgstr ""
+msgstr "ignore_segments"
 
 #: static/apps/learners/roster/views/results.js:47
 msgid "No learners matched your criteria."
-msgstr ""
+msgstr "Không học viên nào khớp với tiêu chí của bạn."
 
 #: static/apps/learners/roster/views/results.js:55
 msgid "No learner data is currently available for your course."
-msgstr ""
+msgstr "Không có dữ liệu học viên nào hiện có cho khóa học của bạn."
 
 #: static/apps/learners/roster/views/results.js:57
 msgid ""
 "No learners are enrolled, or course activity data has not yet been "
 "processed. Data is updated every day, so check back regularly for up-to-date"
 " metrics."
-msgstr ""
+msgstr "Không có học viên nào ghi danh, hoặc dữ liệu hoạt động của khóa học chưa được xử lý. Dữ liệu được cập nhật hàng ngày, vì vậy hãy kiểm tra lại thường xuyên các số liệu cập nhật."
 
 #: static/apps/learners/roster/views/roster.js:110
 msgid "Learner roster controls"
-msgstr ""
+msgstr "Kiểm soát học viên"
 
+#: static/apps/learners/roster/views/search.js:55
+msgid "Search learners"
+msgstr "Tìm kiếm học viên"
+
+#. Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate
+#. accordingly.
 #: static/apps/learners/roster/views/table.js:40
 msgid "N/A"
 msgstr "Không áp dụng"
@@ -593,12 +615,13 @@ msgstr "Đã Thử Làm Bài"
 
 #: static/js/engagement-content-main.js:41
 msgid "Participated in Discussions"
-msgstr ""
+msgstr "Tham gia Thảo luận"
 
 #: static/js/engagement-content-main.js:48
 msgid "Percent of Current Learners"
-msgstr ""
+msgstr "Phần trăm Học viên Hiện tại"
 
+#. Translators: <%=value%> will be replaced with a date.
 #: static/js/engagement-content-main.js:85
 msgid "Week Ending <%=value%>"
 msgstr "Ngày hết tuần <%=value%>"
@@ -645,6 +668,8 @@ msgstr "Các lượt xem hoàn toàn"
 msgid "Incomplete Views"
 msgstr "Các lượt xem không hoàn toàn"
 
+#. Translators: this describe the learner's enrollment track (e.g. Honor
+#. certificate)
 #: static/js/enrollment-activity-main.js:33
 msgid "Honor"
 msgstr "Danh dự"
@@ -661,16 +686,19 @@ msgstr "Đã xác thực"
 msgid "Professional"
 msgstr "Nghiệp Vụ"
 
+#. Translators: this label indicates the learner has registered for academic
+#. credit
 #: static/js/enrollment-activity-main.js:54
 msgid "Verified with Credit"
-msgstr ""
+msgstr "Đã xác minh bằng Tín dụng"
 
 #: static/js/enrollment-demographics-age-main.js:19
 #: static/js/enrollment-demographics-age-main.js:34
 #: static/js/enrollment-demographics-education-main.js:32
 msgid "Number of Learners"
-msgstr ""
+msgstr "Số Học viên"
 
+#. Translators: <%=value%> will be replaced with an age.
 #: static/js/enrollment-demographics-age-main.js:26
 msgid "Age: <%=value%>"
 msgstr "Tuổi: <%=value%>"
@@ -688,6 +716,8 @@ msgstr "Tổng "
 msgid "Percentage"
 msgstr "Tỉ lệ"
 
+#. Translators: <%=value%> will be replaced with a level of education (e.g.
+#. Doctorate).
 #: static/js/enrollment-demographics-education-main.js:24
 msgid "Education: <%=value%>"
 msgstr "Trình độ: <%=value%>"
@@ -696,6 +726,8 @@ msgstr "Trình độ: <%=value%>"
 msgid "Educational Background"
 msgstr "Quá Trình Học Tập"
 
+#. Translators: <%=value%> will be replaced with a level of gender (e.g.
+#. Female).
 #: static/js/enrollment-demographics-gender-main.js:23
 msgid "Gender: <%=value%>"
 msgstr "Giới tính: <%=value%>"
@@ -720,7 +752,7 @@ msgstr "Chưa Nhập Thông Tin"
 msgid ""
 "Learner location is determined from IP address. This map shows where "
 "learners most recently connected."
-msgstr ""
+msgstr "Vị trí học được xác định từ địa chỉ IP. Bản đồ này cho biết nơi mà người học gần đây nhất đã kết nối."
 
 #: static/js/enrollment-geography-main.js:26
 msgid "Country or Region"
@@ -734,6 +766,7 @@ msgstr "Phần trăm"
 msgid "Answer"
 msgstr "Trả lời"
 
+#. Translators: "Correct" is displayed in a table..
 #: static/js/performance-answer-distribution-main.js:15
 #: static/js/performance-answer-distribution-main.js:43
 #: static/js/performance-learning-outcomes-section-main.js:11
@@ -758,6 +791,8 @@ msgstr "Phiên bản"
 msgid "Incorrect"
 msgstr "Sai"
 
+#. Translators: <%=value%> will be replaced by a learner response to a
+#. question asked in a course.
 #: static/js/performance-answer-distribution-main.js:60
 msgid "Answer: <%=value%>"
 msgstr "Trả lời:  <%=value%>"
@@ -789,11 +824,11 @@ msgstr "Phần trăm chính xác"
 
 #: static/js/performance-learning-outcomes-content-main.js:38
 msgid "Average Submissions per Problem"
-msgstr ""
+msgstr "Số lần gửi Trung bình cho mỗi Bài tập"
 
 #: static/js/performance-learning-outcomes-section-main.js:30
 msgid "Difficulty"
-msgstr ""
+msgstr "Độ khó"
 
 #: static/js/performance-learning-outcomes-section-main.js:53
 #: static/js/performance-problems-main.js:35
@@ -804,6 +839,10 @@ msgstr "Tổng cộng"
 msgid "..."
 msgstr "..."
 
+#. Translators: (empty) is displayed in a table and indicates no label/value.
+#. Keep text in the parenthesis or an equivalent symbol.
+#. Translators: (empty) is displayed as a label in a chart and indicates that
+#. no label was provided.
 #: static/js/views/data-table-view.js:199
 #: static/js/views/discrete-bar-view.js:21
 msgid "(empty)"
@@ -811,7 +850,7 @@ msgstr "(trống)"
 
 #. Translators: <%=value%> will be replaced by a number followed by a
 #. percentage.
-#. For example, "400 (29%)" */
+#. For example, "400 (29%)"
 #: static/js/views/stacked-bar-view.js:13
 msgid "<%=value%> (<%=percent%>)"
 msgstr "<%=value%> (<%=percent%>)"

@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Antal Lakos <lakos.antal@gmail.com>, 2016
+# Antal Lakos <lakos.antal@gmail.com>, 2016-2017
 # Charles Nehez <knehez@gmail.com>, 2015
 # Keleti László <lkeleti@wininvestor.hu>, 2014
 # Oliver Hornyak <ohornyak@gmail.com>, 2015
@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-14 21:01-0400\n"
-"PO-Revision-Date: 2017-08-03 16:01+0000\n"
-"Last-Translator: Ned Batchelder <ned@edx.org>\n"
+"POT-Creation-Date: 2017-06-21 18:32-0400\n"
+"PO-Revision-Date: 2017-08-28 23:26+0000\n"
+"Last-Translator: Antal Lakos <lakos.antal@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/open-edx/edx-platform/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: core/templates/core/landing.html:15 templates/_skip_link.html:3
 msgid "Skip to content"
-msgstr ""
+msgstr "Ugrás a tartalomra"
 
 #: core/templates/core/landing.html:23
 msgid "Login"
@@ -35,11 +35,11 @@ msgstr "Az egyre jobb tanfolyamok érdekében segítünk a kurzusfejlesztőknek 
 
 #: core/templates/core/landing.html:42 courses/views/__init__.py:494
 msgid "Who are my learners?"
-msgstr ""
+msgstr "Kik a tanulóim?"
 
 #: core/templates/core/landing.html:43
 msgid "Target your course to fit the backgrounds of your learners."
-msgstr ""
+msgstr "A tanulóid háttértudásához célozd a kurzusodat."
 
 #: core/templates/core/landing.html:44
 #: courses/templates/courses/enrollment_geography.html:28
@@ -50,7 +50,7 @@ msgstr "Feliratkozás"
 
 #: core/templates/core/landing.html:47
 msgid "What are learners engaging with in my course?"
-msgstr ""
+msgstr "A tanulóim a kurzusom melyik részével foglalkoznak?"
 
 #: core/templates/core/landing.html:48
 msgid ""
@@ -859,7 +859,7 @@ msgid "External Tools"
 msgstr ""
 
 #: courses/templates/courses/index.html:10
-#: courses/views/course_summaries.py:33
+#: courses/views/course_summaries.py:32
 msgid "Courses"
 msgstr "Kurzusok"
 
@@ -1163,7 +1163,7 @@ msgid "Courseware"
 msgstr "Tananyag"
 
 #. Translators: Do not translate UTC.
-#: courses/views/course_summaries.py:42
+#: courses/views/course_summaries.py:41
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
@@ -1303,11 +1303,11 @@ msgstr ""
 msgid "Performance: Learning Outcomes"
 msgstr ""
 
-#: settings/base.py:413
+#: settings/base.py:419
 msgid "Terms of Service"
 msgstr "Szolgáltatási feltételek"
 
-#: settings/base.py:414
+#: settings/base.py:420
 msgid "Privacy Policy"
 msgstr "Adatvédelem"
 

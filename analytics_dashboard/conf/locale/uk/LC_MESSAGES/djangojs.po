@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-14 21:01-0400\n"
-"PO-Revision-Date: 2017-08-18 22:55+0000\n"
+"POT-Creation-Date: 2017-06-21 18:32-0400\n"
+"PO-Revision-Date: 2017-09-14 22:42+0000\n"
 "Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/open-edx/edx-platform/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -30,14 +30,19 @@ msgstr "Завантажити CSV"
 msgid "Download search results to CSV"
 msgstr ""
 
+#. Translators: "All" refers to viewing all items (e.g. all courses).
 #: static/apps/components/filter/views/drop-down-filter.js:31
 msgid "All"
 msgstr ""
 
+#. Translators: 'name' here refers to the name of the filter, while 'count'
+#. refers to the number of items belonging to that filter.
 #: static/apps/components/filter/views/filter.js:90
 msgid "<%= name %> (<%= count %>)"
 msgstr ""
 
+#. Translators: this is a label describing a filter selection that the user
+#. initiated.
 #: static/apps/components/generic-list/list/views/active-filters.js:62
 msgid "<%= filterDisplayName %>: <%= filterVal %>"
 msgstr ""
@@ -50,6 +55,7 @@ msgstr ""
 msgid "Click to remove this filter"
 msgstr ""
 
+#. Translators: "Clear" in this context means "remove all of the filters"
 #: static/apps/components/generic-list/list/views/active-filters.js:90
 msgid "Clear"
 msgstr "Очистити"
@@ -58,14 +64,19 @@ msgstr "Очистити"
 msgid "Click to remove all filters"
 msgstr ""
 
+#. Translators: "sort ascending" describes the current sort state to the user.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:71
 msgid "sort ascending"
 msgstr ""
 
+#. Translators: "sort descending" describes the current sort state to the
+#. user.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:73
 msgid "sort descending"
 msgstr ""
 
+#. Translators: "click to sort" tells the user that they can click this link
+#. to sort by the current field.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:76
 msgid "click to sort"
 msgstr ""
@@ -74,6 +85,8 @@ msgstr ""
 msgid "Results"
 msgstr ""
 
+#. Translators: 'count' refers to the number of results contained in the
+#. table.
 #: static/apps/components/generic-list/list/views/num-results.js:30
 msgid "Number of results: <%= count %>"
 msgstr ""
@@ -98,10 +111,12 @@ msgstr ""
 msgid "page"
 msgstr ""
 
+#. Translators: describes the state of a pagination button as not clickable
 #: static/apps/components/generic-list/list/views/paging-footer.js:88
 msgid "disabled"
 msgstr ""
 
+#. Translators: describes a pagination button as representing the current page
 #: static/apps/components/generic-list/list/views/paging-footer.js:91
 msgid "active"
 msgstr ""
@@ -110,143 +125,133 @@ msgstr ""
 msgid "Generic List"
 msgstr ""
 
+#. Translators: This message indicates content is loading in the page.
 #: static/apps/components/loading/views/loading-view.js:20
 msgid "Loading..."
 msgstr "Завантаження..."
 
-#: static/apps/components/search/views/search.js:44
-msgid "Search"
-msgstr ""
-
-#: static/apps/components/search/views/search.js:72
-msgid "search"
-msgstr "шукати"
-
-#: static/apps/components/search/views/search.js:73
-msgid "clear search"
-msgstr ""
-
-#: static/apps/components/utils/utils.js:62
+#. Translators: "504" is a number representing a server error, so please leave
+#. it as "504".
+#: static/apps/components/utils/utils.js:61
 msgid "504: Server error"
 msgstr ""
 
-#: static/apps/components/utils/utils.js:64
+#: static/apps/components/utils/utils.js:63
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
 msgstr ""
 
-#: static/apps/components/utils/utils.js:68
-#: static/apps/course-list/app/controller.js:143
+#: static/apps/components/utils/utils.js:67
 msgid "Server error"
 msgstr ""
 
-#: static/apps/components/utils/utils.js:69
-#: static/apps/components/utils/utils.js:81
-#: static/apps/course-list/app/controller.js:144
+#: static/apps/components/utils/utils.js:68
+#: static/apps/components/utils/utils.js:80
 msgid "Your request could not be processed. Reload the page to try again."
 msgstr ""
 
-#: static/apps/components/utils/utils.js:80
+#: static/apps/components/utils/utils.js:79
 msgid "Network error"
 msgstr ""
 
-#: static/apps/course-list/app/app.js:40
+#: static/apps/course-list/app/app.js:39
 msgid "Instructor-Paced"
 msgstr ""
 
-#: static/apps/course-list/app/app.js:41
+#: static/apps/course-list/app/app.js:40
 msgid "Self-Paced"
 msgstr ""
 
-#: static/apps/course-list/app/app.js:44
+#: static/apps/course-list/app/app.js:43
 msgid "Upcoming"
 msgstr ""
 
-#: static/apps/course-list/app/app.js:45
+#: static/apps/course-list/app/app.js:44
 msgid "Current"
 msgstr ""
 
-#: static/apps/course-list/app/app.js:46
+#: static/apps/course-list/app/app.js:45
 msgid "Archived"
 msgstr ""
 
-#: static/apps/course-list/app/app.js:47
+#: static/apps/course-list/app/app.js:46
 msgid "Unknown"
 msgstr ""
 
-#: static/apps/course-list/app/controller.js:52
-#: static/apps/course-list/app/controller.js:100
+#: static/apps/course-list/app/controller.js:48
+#: static/apps/course-list/app/controller.js:108
 msgid "Course List"
 msgstr ""
 
-#: static/apps/course-list/app/controller.js:89
-#: static/apps/learners/app/controller.js:94
+#: static/apps/course-list/app/controller.js:98
+#: static/apps/learners/app/controller.js:96
 msgid "Invalid Parameters"
 msgstr ""
 
-#: static/apps/course-list/app/controller.js:90
+#: static/apps/course-list/app/controller.js:99
 msgid "Sorry, we couldn't find any courses that matched that query."
 msgstr ""
 
-#: static/apps/course-list/app/controller.js:91
+#: static/apps/course-list/app/controller.js:100
 msgid "Return to the Course List page."
 msgstr ""
 
-#: static/apps/course-list/app/controller.js:117
-#: static/apps/learners/app/controller.js:177
+#: static/apps/course-list/app/controller.js:125
+#: static/apps/learners/app/controller.js:181
 msgid "Sorry, we couldn't find the page you're looking for."
 msgstr ""
 
-#: static/apps/course-list/app/controller.js:119
-#: static/apps/learners/app/controller.js:180
+#: static/apps/course-list/app/controller.js:129
+#: static/apps/learners/app/controller.js:186
 msgid "Page Not Found"
 msgstr "Сторінку не знайдено"
 
-#: static/apps/course-list/common/collections/course-list.js:34
+#: static/apps/course-list/common/collections/course-list.js:77
 msgid "Course Name"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js:35
+#: static/apps/course-list/common/collections/course-list.js:78
 msgid "Start Date"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js:36
+#: static/apps/course-list/common/collections/course-list.js:79
 msgid "End Date"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js:37
+#: static/apps/course-list/common/collections/course-list.js:80
 msgid "Total Enrollment"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js:38
+#. Translators: The noun count (e.g. number of learners)
+#: static/apps/course-list/common/collections/course-list.js:81
 #: static/js/enrollment-activity-main.js:27
 #: static/js/enrollment-demographics-gender-main.js:32
 #: static/js/enrollment-geography-main.js:29
 msgid "Current Enrollment"
 msgstr "Поточна кількість підписок на курс"
 
-#: static/apps/course-list/common/collections/course-list.js:39
+#: static/apps/course-list/common/collections/course-list.js:82
 msgid "Change Last Week"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js:40
+#: static/apps/course-list/common/collections/course-list.js:83
 msgid "Verified Enrollment"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js:43
+#: static/apps/course-list/common/collections/course-list.js:86
 msgid "Passing Learners"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js:46
+#: static/apps/course-list/common/collections/course-list.js:89
 msgid "Availability"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js:47
+#: static/apps/course-list/common/collections/course-list.js:90
 msgid "Pacing Type"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js:48
+#: static/apps/course-list/common/collections/course-list.js:91
 msgid "Programs"
 msgstr ""
 
@@ -290,16 +295,7 @@ msgid "Skip to results"
 msgstr ""
 
 #: static/apps/course-list/list/views/controls.js:58
-msgid "Search courses"
-msgstr ""
-
-#: static/apps/course-list/list/views/controls.js:59
 msgid "Find a course"
-msgstr ""
-
-#: static/apps/course-list/list/views/controls.js:56
-#: static/apps/learners/roster/views/controls.js:60
-msgid "text_search"
 msgstr ""
 
 #: static/apps/course-list/list/views/controls.js:68
@@ -346,6 +342,20 @@ msgid ""
 " Data is updated every day, so check back regularly for up-to-date metrics."
 msgstr ""
 
+#: static/apps/course-list/list/views/search.js:71
+msgid "Search courses"
+msgstr ""
+
+#: static/apps/course-list/list/views/search.js:72
+#: static/apps/learners/roster/views/search.js:56
+msgid "search"
+msgstr "шукати"
+
+#: static/apps/course-list/list/views/search.js:73
+#: static/apps/learners/roster/views/search.js:57
+msgid "clear search"
+msgstr ""
+
 #: static/apps/course-list/list/views/table.js:48
 msgid "Date not available"
 msgstr ""
@@ -354,19 +364,19 @@ msgstr ""
 msgid "Learner Roster"
 msgstr ""
 
-#: static/apps/learners/app/controller.js:95
+#: static/apps/learners/app/controller.js:97
 msgid "Sorry, we couldn't find any learners who matched that query."
 msgstr ""
 
-#: static/apps/learners/app/controller.js:96
+#: static/apps/learners/app/controller.js:98
 msgid "Return to the Learners page."
 msgstr ""
 
-#: static/apps/learners/app/controller.js:104
+#: static/apps/learners/app/controller.js:106
 msgid "Learners"
 msgstr ""
 
-#: static/apps/learners/app/controller.js:137
+#: static/apps/learners/app/controller.js:141
 msgid "Learner Details"
 msgstr ""
 
@@ -435,6 +445,7 @@ msgstr ""
 msgid "Value"
 msgstr "Значення"
 
+#. Translators: e.g. Learner engagement activity
 #: static/apps/learners/detail/views/learner-detail.js:28
 msgid "Engagement Activity"
 msgstr ""
@@ -455,6 +466,7 @@ msgstr "Зарахування на курс"
 msgid "Last Accessed"
 msgstr ""
 
+#. Translators: 'n/a' means 'not available'
 #: static/apps/learners/detail/views/learner-detail.js:109
 #: static/apps/learners/detail/views/learner-summary-field.js:44
 #: static/apps/learners/roster/views/activity-date-range.js:16
@@ -477,10 +489,14 @@ msgstr ""
 msgid "Return to Learners"
 msgstr ""
 
+#. Translators: this is a label describing a selection that the user
+#. initiated.
 #: static/apps/learners/roster/views/active-filters.js:23
 msgid "Cohort: <%= filterVal %>"
 msgstr ""
 
+#. Translators: this is a label describing a selection that the user
+#. initiated.
 #: static/apps/learners/roster/views/active-filters.js:27
 msgid "Enrollment Track: <%= filterVal %>"
 msgstr ""
@@ -523,10 +539,6 @@ msgid ""
 msgstr ""
 
 #: static/apps/learners/roster/views/controls.js:62
-msgid "Search learners"
-msgstr ""
-
-#: static/apps/learners/roster/views/controls.js:63
 msgid "Find a learner"
 msgstr ""
 
@@ -546,6 +558,9 @@ msgstr ""
 msgid "enrollment_mode"
 msgstr ""
 
+#. Translators: inactive meaning that these learners have not interacted with
+#. the
+#. course recently.
 #: static/apps/learners/roster/views/controls.js:103
 msgid "Hide Inactive Learners"
 msgstr ""
@@ -573,6 +588,12 @@ msgstr ""
 msgid "Learner roster controls"
 msgstr ""
 
+#: static/apps/learners/roster/views/search.js:55
+msgid "Search learners"
+msgstr ""
+
+#. Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate
+#. accordingly.
 #: static/apps/learners/roster/views/table.js:40
 msgid "N/A"
 msgstr "Недоступний"
@@ -597,6 +618,7 @@ msgstr ""
 msgid "Percent of Current Learners"
 msgstr ""
 
+#. Translators: <%=value%> will be replaced with a date.
 #: static/js/engagement-content-main.js:85
 msgid "Week Ending <%=value%>"
 msgstr "Закінчення тижня <%=value%>"
@@ -643,6 +665,8 @@ msgstr "Повних показів"
 msgid "Incomplete Views"
 msgstr "Неповних показів"
 
+#. Translators: this describe the learner's enrollment track (e.g. Honor
+#. certificate)
 #: static/js/enrollment-activity-main.js:33
 msgid "Honor"
 msgstr "Честь"
@@ -659,6 +683,8 @@ msgstr "Верифікований"
 msgid "Professional"
 msgstr "Професійний"
 
+#. Translators: this label indicates the learner has registered for academic
+#. credit
 #: static/js/enrollment-activity-main.js:54
 msgid "Verified with Credit"
 msgstr ""
@@ -669,6 +695,7 @@ msgstr ""
 msgid "Number of Learners"
 msgstr ""
 
+#. Translators: <%=value%> will be replaced with an age.
 #: static/js/enrollment-demographics-age-main.js:26
 msgid "Age: <%=value%>"
 msgstr "Вік: <%=value%>"
@@ -686,6 +713,8 @@ msgstr "Відсоток від загальної кількості"
 msgid "Percentage"
 msgstr "Відсоток"
 
+#. Translators: <%=value%> will be replaced with a level of education (e.g.
+#. Doctorate).
 #: static/js/enrollment-demographics-education-main.js:24
 msgid "Education: <%=value%>"
 msgstr "Освіта: <%=value%>"
@@ -694,6 +723,8 @@ msgstr "Освіта: <%=value%>"
 msgid "Educational Background"
 msgstr "Освіта"
 
+#. Translators: <%=value%> will be replaced with a level of gender (e.g.
+#. Female).
 #: static/js/enrollment-demographics-gender-main.js:23
 msgid "Gender: <%=value%>"
 msgstr "Стать: <%=value%>"
@@ -732,6 +763,7 @@ msgstr "В процентах"
 msgid "Answer"
 msgstr "Відповідь"
 
+#. Translators: "Correct" is displayed in a table..
 #: static/js/performance-answer-distribution-main.js:15
 #: static/js/performance-answer-distribution-main.js:43
 #: static/js/performance-learning-outcomes-section-main.js:11
@@ -756,6 +788,8 @@ msgstr "Варіант"
 msgid "Incorrect"
 msgstr "Неправильно"
 
+#. Translators: <%=value%> will be replaced by a learner response to a
+#. question asked in a course.
 #: static/js/performance-answer-distribution-main.js:60
 msgid "Answer: <%=value%>"
 msgstr "Відповідь: <%=value%>"
@@ -802,6 +836,10 @@ msgstr "Всього"
 msgid "..."
 msgstr "..."
 
+#. Translators: (empty) is displayed in a table and indicates no label/value.
+#. Keep text in the parenthesis or an equivalent symbol.
+#. Translators: (empty) is displayed as a label in a chart and indicates that
+#. no label was provided.
 #: static/js/views/data-table-view.js:199
 #: static/js/views/discrete-bar-view.js:21
 msgid "(empty)"
@@ -809,7 +847,7 @@ msgstr "(пусто)"
 
 #. Translators: <%=value%> will be replaced by a number followed by a
 #. percentage.
-#. For example, "400 (29%)" */
+#. For example, "400 (29%)"
 #: static/js/views/stacked-bar-view.js:13
 msgid "<%=value%> (<%=percent%>)"
 msgstr "<%=value%> (<%=percent%>)"
