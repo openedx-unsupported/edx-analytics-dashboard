@@ -7,6 +7,7 @@
 # Denis <prohibiti@gmail.com>, 2015
 # Eugenia <sakovets93@gmail.com>, 2014
 # Tetiana Korshun, 2014
+# Natalia Vynogradenko <tannaha@gmail.com>, 2017
 # Zoriana Zaiats, 2015
 # Tetiana Korshun, 2014
 # Volodymyr Buberenko <v.buberenko@gmail.com>, 2016
@@ -18,9 +19,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-14 21:01-0400\n"
-"PO-Revision-Date: 2017-08-03 16:01+0000\n"
-"Last-Translator: Ned Batchelder <ned@edx.org>\n"
+"POT-Creation-Date: 2017-06-21 18:32-0400\n"
+"PO-Revision-Date: 2017-10-04 13:41+0000\n"
+"Last-Translator: Natalia Vynogradenko <tannaha@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/open-edx/edx-platform/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,7 +54,7 @@ msgstr ""
 #: courses/tests/test_views/__init__.py:220 courses/views/__init__.py:291
 #: courses/views/__init__.py:492
 msgid "Enrollment"
-msgstr "Зарахування на курс"
+msgstr "Запис на курс"
 
 #: core/templates/core/landing.html:47
 msgid "What are learners engaging with in my course?"
@@ -369,7 +370,7 @@ msgstr ""
 #: courses/views/__init__.py:325 courses/views/__init__.py:639
 #: courses/views/learners.py:20
 msgid "Learners"
-msgstr ""
+msgstr "Учні"
 
 #: courses/templates/courses/engagement_content.html:32
 msgid ""
@@ -571,7 +572,7 @@ msgstr "Поточна кількість підписок на курс"
 #. a course.
 #: courses/templates/courses/enrollment_activity.html:70
 msgid "Learners currently enrolled in the course."
-msgstr ""
+msgstr "Кількість зареєстрованих учнів на цьому курсі"
 
 #. Translators: This is a label indicating the change in the number of
 #. learners enrolled in a course since the previous week.
@@ -866,7 +867,7 @@ msgid "External Tools"
 msgstr "Зовнішні інструменти"
 
 #: courses/templates/courses/index.html:10
-#: courses/views/course_summaries.py:33
+#: courses/views/course_summaries.py:32
 msgid "Courses"
 msgstr "Курси"
 
@@ -1170,7 +1171,7 @@ msgid "Courseware"
 msgstr "Навчальна програма"
 
 #. Translators: Do not translate UTC.
-#: courses/views/course_summaries.py:42
+#: courses/views/course_summaries.py:41
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
@@ -1310,11 +1311,11 @@ msgstr ""
 msgid "Performance: Learning Outcomes"
 msgstr ""
 
-#: settings/base.py:413
+#: settings/base.py:419
 msgid "Terms of Service"
 msgstr "Умови надання послуг"
 
-#: settings/base.py:414
+#: settings/base.py:420
 msgid "Privacy Policy"
 msgstr "Політика конфіденційності"
 

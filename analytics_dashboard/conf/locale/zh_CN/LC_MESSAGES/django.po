@@ -27,6 +27,7 @@
 # wanghe <1636807295@qq.com>, 2014
 # Wu fangyuan <wufangyuan@gmail.com>, 2014
 # Xuejia Tong <snowytong@hotmail.com>, 2016
+# Yichen Zhou <zyc219@aliyun.com>, 2017
 # Yixiong Zhang <oursonvie@qq.com>, 2017
 # Zihui Cheng <z7cheng@ucsd.edu>, 2015
 # 张逸涵 <jeanzhang970128@gmail.com>, 2014
@@ -36,9 +37,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-14 21:01-0400\n"
-"PO-Revision-Date: 2017-08-21 06:06+0000\n"
-"Last-Translator: Henry Zhao <shzhaotc@gmail.com>\n"
+"POT-Creation-Date: 2017-06-21 18:32-0400\n"
+"PO-Revision-Date: 2017-09-23 20:11+0000\n"
+"Last-Translator: Yichen Zhou <zyc219@aliyun.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/open-edx/edx-platform/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -372,7 +373,7 @@ msgstr "学生提交次数"
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html:4
 msgid "Learners (Self-Reported)"
-msgstr ""
+msgstr "(已填了写相应字段的)学生数"
 
 #: courses/templates/courses/engagement_content.html:23
 msgid "Weekly Learner Engagement"
@@ -381,7 +382,7 @@ msgstr "学生每周参与情况"
 #: courses/templates/courses/engagement_content.html:24
 #: courses/views/__init__.py:556
 msgid "How many learners are interacting with my course?"
-msgstr ""
+msgstr "有多少学生参与我的课程互动？"
 
 #: courses/templates/courses/engagement_content.html:31
 #: courses/views/__init__.py:325 courses/views/__init__.py:639
@@ -405,7 +406,7 @@ msgstr "上周的活跃人数"
 
 #: courses/templates/courses/engagement_content.html:55
 msgid "Learners who visited at least one page in the course content."
-msgstr ""
+msgstr "至少访问了一页课程内容的学生数量。"
 
 #. Translators: This is a label indicating the number of learners who watched
 #. a video.
@@ -415,7 +416,7 @@ msgstr "上周观看过视频"
 
 #: courses/templates/courses/engagement_content.html:62
 msgid "Learners who played one or more videos."
-msgstr ""
+msgstr "播放了一段或多段视频的学生数量。"
 
 #. Translators: This is a label indicating the number of learners who tried a
 #. problem.
@@ -427,7 +428,7 @@ msgstr "上周尝试回答过问题"
 msgid ""
 "Learners who submitted an answer for a standard problem. Not all problem "
 "types are included."
-msgstr ""
+msgstr "针对至少一个标准问题提交过答案的学生数量。没有包含全部问题类型。"
 
 #. Translators: This is a label indicating the number of learners who posted
 #. in a forum discussion.
@@ -884,7 +885,7 @@ msgid "External Tools"
 msgstr "外部工具"
 
 #: courses/templates/courses/index.html:10
-#: courses/views/course_summaries.py:33
+#: courses/views/course_summaries.py:32
 msgid "Courses"
 msgstr "课程"
 
@@ -1188,7 +1189,7 @@ msgid "Courseware"
 msgstr "课件"
 
 #. Translators: Do not translate UTC.
-#: courses/views/course_summaries.py:42
+#: courses/views/course_summaries.py:41
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
@@ -1328,11 +1329,11 @@ msgstr ""
 msgid "Performance: Learning Outcomes"
 msgstr ""
 
-#: settings/base.py:413
+#: settings/base.py:419
 msgid "Terms of Service"
 msgstr "服务条款"
 
-#: settings/base.py:414
+#: settings/base.py:420
 msgid "Privacy Policy"
 msgstr "隐私政策"
 

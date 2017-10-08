@@ -4,14 +4,15 @@
 # 
 # Translators:
 # Abel Camacho <abelcama@gmail.com>, 2015
+# Abel Camacho <abelcama@gmail.com>, 2017
 # Abel Camacho <abelcama@gmail.com>, 2015
 # Maite Goñi <mgoni@mondragon.edu>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-14 21:01-0400\n"
-"PO-Revision-Date: 2017-08-03 16:01+0000\n"
+"POT-Creation-Date: 2017-06-21 18:32-0400\n"
+"PO-Revision-Date: 2017-09-23 20:11+0000\n"
 "Last-Translator: Abel Camacho <abelcama@gmail.com>\n"
 "Language-Team: Basque (Spain) (http://www.transifex.com/open-edx/edx-platform/language/eu_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +23,7 @@ msgstr ""
 
 #: core/templates/core/landing.html:15 templates/_skip_link.html:3
 msgid "Skip to content"
-msgstr ""
+msgstr "Egin jauzi edukira"
 
 #: core/templates/core/landing.html:23
 msgid "Login"
@@ -34,7 +35,7 @@ msgstr ""
 
 #: core/templates/core/landing.html:42 courses/views/__init__.py:494
 msgid "Who are my learners?"
-msgstr ""
+msgstr "Nortzuk dira nire ikasleak?"
 
 #: core/templates/core/landing.html:43
 msgid "Target your course to fit the backgrounds of your learners."
@@ -169,7 +170,7 @@ msgstr "Bigarren Hezkuntza"
 #. Degree).
 #: courses/presenters/enrollment.py:53
 msgid "Associate"
-msgstr ""
+msgstr "Lotu"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
@@ -234,7 +235,7 @@ msgstr "Atala {part_number}"
 #: courses/templates/courses/_base_content_nav.html:25
 #, python-format
 msgid "%(all_sections_text)s"
-msgstr ""
+msgstr "%(all_sections_text)s"
 
 #: courses/templates/courses/_graded_content_nav.html:16
 msgid "Select Assignment Type"
@@ -269,11 +270,11 @@ msgstr ""
 
 #: courses/templates/courses/_tags_content_nav.html:15
 msgid "Select Outcome"
-msgstr ""
+msgstr "Aukeratu ikas-emaitza"
 
 #: courses/templates/courses/_tags_content_nav.html:19
 msgid "All Outcomes"
-msgstr ""
+msgstr "Ikas-emaitza guztiak"
 
 #: courses/templates/courses/_ungraded_content_nav.html:16
 #: courses/templates/courses/_video_content_nav.html:16
@@ -484,7 +485,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html:55
 msgid "Video Metrics"
-msgstr ""
+msgstr "Bideoaren estatistikak"
 
 #: courses/templates/courses/engagement_video_timeline.html:61
 msgid "Completion Rate"
@@ -649,7 +650,7 @@ msgstr ""
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html:79
 msgid "Learners 26 to 40"
-msgstr ""
+msgstr "Ikasleak: 26 - 40"
 
 #: courses/templates/courses/enrollment_demographics_age.html:80
 msgid ""
@@ -764,7 +765,7 @@ msgstr "Matrikulazioak herrialdearen arabera"
 
 #: courses/templates/courses/enrollment_geography.html:45
 msgid "Geography Metrics"
-msgstr ""
+msgstr "Estatistika geografikoak"
 
 #. Translators: This string represents the number of countries where learners
 #. are enrolled.
@@ -855,10 +856,10 @@ msgstr "Ikastaroaren oinarrizko informazioa"
 #. course.
 #: courses/templates/courses/home.html:106
 msgid "External Tools"
-msgstr ""
+msgstr "Kanpoko tresnak"
 
 #: courses/templates/courses/index.html:10
-#: courses/views/course_summaries.py:33
+#: courses/views/course_summaries.py:32
 msgid "Courses"
 msgstr "Ikastaroak"
 
@@ -1114,7 +1115,7 @@ msgstr ""
 
 #: courses/views/__init__.py:646
 msgid "All Learners"
-msgstr ""
+msgstr "Ikasle guztiak"
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
@@ -1162,7 +1163,7 @@ msgid "Courseware"
 msgstr "Ikasgunea"
 
 #. Translators: Do not translate UTC.
-#: courses/views/course_summaries.py:42
+#: courses/views/course_summaries.py:41
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
@@ -1302,11 +1303,11 @@ msgstr ""
 msgid "Performance: Learning Outcomes"
 msgstr ""
 
-#: settings/base.py:413
+#: settings/base.py:419
 msgid "Terms of Service"
 msgstr "Zerbitzu-baldintzak"
 
-#: settings/base.py:414
+#: settings/base.py:420
 msgid "Privacy Policy"
 msgstr "Pribatutasun-politika"
 

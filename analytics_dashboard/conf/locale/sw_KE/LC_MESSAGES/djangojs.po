@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-14 21:01-0400\n"
-"PO-Revision-Date: 2017-08-18 22:55+0000\n"
+"POT-Creation-Date: 2017-06-21 18:32-0400\n"
+"PO-Revision-Date: 2017-09-23 22:12+0000\n"
 "Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: Swahili (Kenya) (http://www.transifex.com/open-edx/edx-platform/language/sw_KE/)\n"
 "MIME-Version: 1.0\n"
@@ -31,14 +31,19 @@ msgstr "Pakua CSV"
 msgid "Download search results to CSV"
 msgstr "Pakua matokeo ya utafutaji kozi kwenye CSV"
 
+#. Translators: "All" refers to viewing all items (e.g. all courses).
 #: static/apps/components/filter/views/drop-down-filter.js:31
 msgid "All"
 msgstr "Zote"
 
+#. Translators: 'name' here refers to the name of the filter, while 'count'
+#. refers to the number of items belonging to that filter.
 #: static/apps/components/filter/views/filter.js:90
 msgid "<%= name %> (<%= count %>)"
 msgstr "<%= name %> (<%= count %>)"
 
+#. Translators: this is a label describing a filter selection that the user
+#. initiated.
 #: static/apps/components/generic-list/list/views/active-filters.js:62
 msgid "<%= filterDisplayName %>: <%= filterVal %>"
 msgstr "<%= filterDisplayName %>: <%= filterVal %>"
@@ -51,6 +56,7 @@ msgstr "Kuchuja wakati wa Kutumia:"
 msgid "Click to remove this filter"
 msgstr "Bofya kuondoa kichujio hiki"
 
+#. Translators: "Clear" in this context means "remove all of the filters"
 #: static/apps/components/generic-list/list/views/active-filters.js:90
 msgid "Clear"
 msgstr "Safisha/Ondoa"
@@ -59,14 +65,19 @@ msgstr "Safisha/Ondoa"
 msgid "Click to remove all filters"
 msgstr "Bofya kuondoa vichujo vyote"
 
+#. Translators: "sort ascending" describes the current sort state to the user.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:71
 msgid "sort ascending"
 msgstr "Panga kuanzia ndogo mpaka kubwa"
 
+#. Translators: "sort descending" describes the current sort state to the
+#. user.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:73
 msgid "sort descending"
 msgstr "Panga kuanzia kubwa  mpaka ndogo"
 
+#. Translators: "click to sort" tells the user that they can click this link
+#. to sort by the current field.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:76
 msgid "click to sort"
 msgstr "Bofya upange"
@@ -75,6 +86,8 @@ msgstr "Bofya upange"
 msgid "Results"
 msgstr "Matokeo"
 
+#. Translators: 'count' refers to the number of results contained in the
+#. table.
 #: static/apps/components/generic-list/list/views/num-results.js:30
 msgid "Number of results: <%= count %>"
 msgstr "Idadi ya matokeo: <%= count %>"
@@ -99,10 +112,12 @@ msgstr "Ukurasa wa mwisho"
 msgid "page"
 msgstr "ukurasa"
 
+#. Translators: describes the state of a pagination button as not clickable
 #: static/apps/components/generic-list/list/views/paging-footer.js:88
 msgid "disabled"
 msgstr "imelemazwa"
 
+#. Translators: describes a pagination button as representing the current page
 #: static/apps/components/generic-list/list/views/paging-footer.js:91
 msgid "active"
 msgstr "hai/amilifu"
@@ -111,143 +126,133 @@ msgstr "hai/amilifu"
 msgid "Generic List"
 msgstr "Orodha ya Jumla"
 
+#. Translators: This message indicates content is loading in the page.
 #: static/apps/components/loading/views/loading-view.js:20
 msgid "Loading..."
 msgstr "Kupakia ujumbe"
 
-#: static/apps/components/search/views/search.js:44
-msgid "Search"
-msgstr ""
-
-#: static/apps/components/search/views/search.js:72
-msgid "search"
-msgstr "tafuta"
-
-#: static/apps/components/search/views/search.js:73
-msgid "clear search"
-msgstr "Ondoa utafutaji "
-
-#: static/apps/components/utils/utils.js:62
+#. Translators: "504" is a number representing a server error, so please leave
+#. it as "504".
+#: static/apps/components/utils/utils.js:61
 msgid "504: Server error"
 msgstr "504: Kosa la Seva"
 
-#: static/apps/components/utils/utils.js:64
+#: static/apps/components/utils/utils.js:63
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
 msgstr "Ushughulikiaji wa ombi lako umechukua muda mrefu kukamilika. Pakua upya ukurasa ili ujaribu tena."
 
-#: static/apps/components/utils/utils.js:68
-#: static/apps/course-list/app/controller.js:143
+#: static/apps/components/utils/utils.js:67
 msgid "Server error"
 msgstr "Kosa la seva"
 
-#: static/apps/components/utils/utils.js:69
-#: static/apps/components/utils/utils.js:81
-#: static/apps/course-list/app/controller.js:144
+#: static/apps/components/utils/utils.js:68
+#: static/apps/components/utils/utils.js:80
 msgid "Your request could not be processed. Reload the page to try again."
 msgstr "Ombi lako halikuweza kushughulikiwa. Pakia upya ukurasa kujaribu tena."
 
-#: static/apps/components/utils/utils.js:80
+#: static/apps/components/utils/utils.js:79
 msgid "Network error"
 msgstr "Hitilafu ya mtandao"
 
-#: static/apps/course-list/app/app.js:40
+#: static/apps/course-list/app/app.js:39
 msgid "Instructor-Paced"
 msgstr "Kozi yenye mpangilio"
 
-#: static/apps/course-list/app/app.js:41
+#: static/apps/course-list/app/app.js:40
 msgid "Self-Paced"
 msgstr "Mafunzo bila usimamizi wa mwalimu"
 
-#: static/apps/course-list/app/app.js:44
+#: static/apps/course-list/app/app.js:43
 msgid "Upcoming"
 msgstr "Ijayo"
 
-#: static/apps/course-list/app/app.js:45
+#: static/apps/course-list/app/app.js:44
 msgid "Current"
 msgstr "Sasa"
 
-#: static/apps/course-list/app/app.js:46
+#: static/apps/course-list/app/app.js:45
 msgid "Archived"
 msgstr "Iliyohifadhiwa"
 
-#: static/apps/course-list/app/app.js:47
+#: static/apps/course-list/app/app.js:46
 msgid "Unknown"
 msgstr "Isiyojulikana"
 
-#: static/apps/course-list/app/controller.js:52
-#: static/apps/course-list/app/controller.js:100
+#: static/apps/course-list/app/controller.js:48
+#: static/apps/course-list/app/controller.js:108
 msgid "Course List"
 msgstr "Orodha ya kozi"
 
-#: static/apps/course-list/app/controller.js:89
-#: static/apps/learners/app/controller.js:94
+#: static/apps/course-list/app/controller.js:98
+#: static/apps/learners/app/controller.js:96
 msgid "Invalid Parameters"
 msgstr "Vigezo Batili"
 
-#: static/apps/course-list/app/controller.js:90
+#: static/apps/course-list/app/controller.js:99
 msgid "Sorry, we couldn't find any courses that matched that query."
 msgstr "Samahani, hatukupata kozi zinazolingana na swali hilo."
 
-#: static/apps/course-list/app/controller.js:91
+#: static/apps/course-list/app/controller.js:100
 msgid "Return to the Course List page."
 msgstr "Rudi kwenye ukurasa wa Orodha ya Kozi."
 
-#: static/apps/course-list/app/controller.js:117
-#: static/apps/learners/app/controller.js:177
+#: static/apps/course-list/app/controller.js:125
+#: static/apps/learners/app/controller.js:181
 msgid "Sorry, we couldn't find the page you're looking for."
 msgstr "Samahani, ukurasa unaotafuta haupatikani. "
 
-#: static/apps/course-list/app/controller.js:119
-#: static/apps/learners/app/controller.js:180
+#: static/apps/course-list/app/controller.js:129
+#: static/apps/learners/app/controller.js:186
 msgid "Page Not Found"
 msgstr "Ukurasa Haupatikani"
 
-#: static/apps/course-list/common/collections/course-list.js:34
+#: static/apps/course-list/common/collections/course-list.js:77
 msgid "Course Name"
 msgstr "Jina la Kozi"
 
-#: static/apps/course-list/common/collections/course-list.js:35
+#: static/apps/course-list/common/collections/course-list.js:78
 msgid "Start Date"
 msgstr "Tarehe ya Kuanza"
 
-#: static/apps/course-list/common/collections/course-list.js:36
+#: static/apps/course-list/common/collections/course-list.js:79
 msgid "End Date"
 msgstr "Tarehe ya Kumaliza"
 
-#: static/apps/course-list/common/collections/course-list.js:37
+#: static/apps/course-list/common/collections/course-list.js:80
 msgid "Total Enrollment"
 msgstr "Jumla ya Usajili"
 
-#: static/apps/course-list/common/collections/course-list.js:38
+#. Translators: The noun count (e.g. number of learners)
+#: static/apps/course-list/common/collections/course-list.js:81
 #: static/js/enrollment-activity-main.js:27
 #: static/js/enrollment-demographics-gender-main.js:32
 #: static/js/enrollment-geography-main.js:29
 msgid "Current Enrollment"
 msgstr "Usajili wa Sasa"
 
-#: static/apps/course-list/common/collections/course-list.js:39
+#: static/apps/course-list/common/collections/course-list.js:82
 msgid "Change Last Week"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js:40
+#: static/apps/course-list/common/collections/course-list.js:83
 msgid "Verified Enrollment"
 msgstr "Usajili Uliohakikiwa"
 
-#: static/apps/course-list/common/collections/course-list.js:43
+#: static/apps/course-list/common/collections/course-list.js:86
 msgid "Passing Learners"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js:46
+#: static/apps/course-list/common/collections/course-list.js:89
 msgid "Availability"
 msgstr "Upatikanaji"
 
-#: static/apps/course-list/common/collections/course-list.js:47
+#: static/apps/course-list/common/collections/course-list.js:90
 msgid "Pacing Type"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js:48
+#: static/apps/course-list/common/collections/course-list.js:91
 msgid "Programs"
 msgstr "Programu"
 
@@ -291,17 +296,8 @@ msgid "Skip to results"
 msgstr "'Ruka' kwenda kwenye matokeo"
 
 #: static/apps/course-list/list/views/controls.js:58
-msgid "Search courses"
-msgstr "Tafuta kozi"
-
-#: static/apps/course-list/list/views/controls.js:59
 msgid "Find a course"
 msgstr "Tafuta kozi"
-
-#: static/apps/course-list/list/views/controls.js:56
-#: static/apps/learners/roster/views/controls.js:60
-msgid "text_search"
-msgstr ""
 
 #: static/apps/course-list/list/views/controls.js:68
 msgid "availability"
@@ -347,6 +343,20 @@ msgid ""
 " Data is updated every day, so check back regularly for up-to-date metrics."
 msgstr "Hakuna kozi zilizoandikishwa, au taarifa ya shughuli za kozi hazijatayarishwa. Taarifa zinasasishwa kila siku, hivyo angalia mara kwa mara upate taarifa mpya."
 
+#: static/apps/course-list/list/views/search.js:71
+msgid "Search courses"
+msgstr "Tafuta kozi"
+
+#: static/apps/course-list/list/views/search.js:72
+#: static/apps/learners/roster/views/search.js:56
+msgid "search"
+msgstr "tafuta"
+
+#: static/apps/course-list/list/views/search.js:73
+#: static/apps/learners/roster/views/search.js:57
+msgid "clear search"
+msgstr "Ondoa utafutaji "
+
 #: static/apps/course-list/list/views/table.js:48
 msgid "Date not available"
 msgstr "Tarehe haipo"
@@ -355,19 +365,19 @@ msgstr "Tarehe haipo"
 msgid "Learner Roster"
 msgstr "Orodha ya kazi za 'mwanafunzi'"
 
-#: static/apps/learners/app/controller.js:95
+#: static/apps/learners/app/controller.js:97
 msgid "Sorry, we couldn't find any learners who matched that query."
 msgstr "Samahani, hatukuweza kumpata mwanafunzi aliyelingani na suala hili."
 
-#: static/apps/learners/app/controller.js:96
+#: static/apps/learners/app/controller.js:98
 msgid "Return to the Learners page."
 msgstr "Rudi kwenye ukurasa wa Wanafunzi."
 
-#: static/apps/learners/app/controller.js:104
+#: static/apps/learners/app/controller.js:106
 msgid "Learners"
 msgstr "Wanafunzi"
 
-#: static/apps/learners/app/controller.js:137
+#: static/apps/learners/app/controller.js:141
 msgid "Learner Details"
 msgstr "Taarifa za 'Mwanafunzi'"
 
@@ -436,6 +446,7 @@ msgstr "Video zilizo Tizamwa"
 msgid "Value"
 msgstr "Thamani"
 
+#. Translators: e.g. Learner engagement activity
 #: static/apps/learners/detail/views/learner-detail.js:28
 msgid "Engagement Activity"
 msgstr ""
@@ -456,6 +467,7 @@ msgstr "Usajili"
 msgid "Last Accessed"
 msgstr "Mara ya Mwisho Kukaguliwa"
 
+#. Translators: 'n/a' means 'not available'
 #: static/apps/learners/detail/views/learner-detail.js:109
 #: static/apps/learners/detail/views/learner-summary-field.js:44
 #: static/apps/learners/roster/views/activity-date-range.js:16
@@ -478,10 +490,14 @@ msgstr ""
 msgid "Return to Learners"
 msgstr "Rudi kwa Wanafunzi"
 
+#. Translators: this is a label describing a selection that the user
+#. initiated.
 #: static/apps/learners/roster/views/active-filters.js:23
 msgid "Cohort: <%= filterVal %>"
 msgstr ""
 
+#. Translators: this is a label describing a selection that the user
+#. initiated.
 #: static/apps/learners/roster/views/active-filters.js:27
 msgid "Enrollment Track: <%= filterVal %>"
 msgstr ""
@@ -524,10 +540,6 @@ msgid ""
 msgstr "Idadi ya wachangiaji kwa huyu mwanafunzi, ikiwa ni pamoja na machapisho, majibu, na maoni."
 
 #: static/apps/learners/roster/views/controls.js:62
-msgid "Search learners"
-msgstr "Tafuta wanafunzi"
-
-#: static/apps/learners/roster/views/controls.js:63
 msgid "Find a learner"
 msgstr "Tafuta mwanafunzi"
 
@@ -547,6 +559,9 @@ msgstr "Makundi rika ya Usajili"
 msgid "enrollment_mode"
 msgstr "mtindo wa usajili"
 
+#. Translators: inactive meaning that these learners have not interacted with
+#. the
+#. course recently.
 #: static/apps/learners/roster/views/controls.js:103
 msgid "Hide Inactive Learners"
 msgstr "'Ficha' Wanafunzi Wasioshiriki kikamilifu"
@@ -574,6 +589,12 @@ msgstr "Hakuna wanafunzi waliosajiliwa, au taarifa za shughuli za kozi hazijatay
 msgid "Learner roster controls"
 msgstr "Kanuni za kusimamia shughuli za 'mwanafunzi'"
 
+#: static/apps/learners/roster/views/search.js:55
+msgid "Search learners"
+msgstr "Tafuta wanafunzi"
+
+#. Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate
+#. accordingly.
 #: static/apps/learners/roster/views/table.js:40
 msgid "N/A"
 msgstr "Haihusiki"
@@ -598,6 +619,7 @@ msgstr "Nilishiriki kwenye Majadiliano"
 msgid "Percent of Current Learners"
 msgstr "Asilimia ya Wanafunzi Waliopo sasa"
 
+#. Translators: <%=value%> will be replaced with a date.
 #: static/js/engagement-content-main.js:85
 msgid "Week Ending <%=value%>"
 msgstr "Kumalizika kwa Wiki <%=value%>"
@@ -644,6 +666,8 @@ msgstr "Maoni Yote"
 msgid "Incomplete Views"
 msgstr "Maoni hayajakamilika"
 
+#. Translators: this describe the learner's enrollment track (e.g. Honor
+#. certificate)
 #: static/js/enrollment-activity-main.js:33
 msgid "Honor"
 msgstr "Heshima"
@@ -660,6 +684,8 @@ msgstr "\"Thibitishwa\""
 msgid "Professional"
 msgstr "Mtaalamu"
 
+#. Translators: this label indicates the learner has registered for academic
+#. credit
 #: static/js/enrollment-activity-main.js:54
 msgid "Verified with Credit"
 msgstr ""
@@ -670,6 +696,7 @@ msgstr ""
 msgid "Number of Learners"
 msgstr ""
 
+#. Translators: <%=value%> will be replaced with an age.
 #: static/js/enrollment-demographics-age-main.js:26
 msgid "Age: <%=value%>"
 msgstr "Umri: <%=value%>"
@@ -687,6 +714,8 @@ msgstr "Asilimia ya Jumla"
 msgid "Percentage"
 msgstr "Asilimia"
 
+#. Translators: <%=value%> will be replaced with a level of education (e.g.
+#. Doctorate).
 #: static/js/enrollment-demographics-education-main.js:24
 msgid "Education: <%=value%>"
 msgstr "Elimu: <%=value%>"
@@ -695,6 +724,8 @@ msgstr "Elimu: <%=value%>"
 msgid "Educational Background"
 msgstr "Historia ya Elimu"
 
+#. Translators: <%=value%> will be replaced with a level of gender (e.g.
+#. Female).
 #: static/js/enrollment-demographics-gender-main.js:23
 msgid "Gender: <%=value%>"
 msgstr "Jinsia: <%=value%>"
@@ -733,6 +764,7 @@ msgstr "Asilimia"
 msgid "Answer"
 msgstr "Jibu"
 
+#. Translators: "Correct" is displayed in a table..
 #: static/js/performance-answer-distribution-main.js:15
 #: static/js/performance-answer-distribution-main.js:43
 #: static/js/performance-learning-outcomes-section-main.js:11
@@ -757,6 +789,8 @@ msgstr "Tofauti"
 msgid "Incorrect"
 msgstr "Siyo sahihi"
 
+#. Translators: <%=value%> will be replaced by a learner response to a
+#. question asked in a course.
 #: static/js/performance-answer-distribution-main.js:60
 msgid "Answer: <%=value%>"
 msgstr "Jibu: <%=value%>"
@@ -803,6 +837,10 @@ msgstr "Jumla"
 msgid "..."
 msgstr "..."
 
+#. Translators: (empty) is displayed in a table and indicates no label/value.
+#. Keep text in the parenthesis or an equivalent symbol.
+#. Translators: (empty) is displayed as a label in a chart and indicates that
+#. no label was provided.
 #: static/js/views/data-table-view.js:199
 #: static/js/views/discrete-bar-view.js:21
 msgid "(empty)"
@@ -810,7 +848,7 @@ msgstr "(empty)"
 
 #. Translators: <%=value%> will be replaced by a number followed by a
 #. percentage.
-#. For example, "400 (29%)" */
+#. For example, "400 (29%)"
 #: static/js/views/stacked-bar-view.js:13
 msgid "<%=value%> (<%=percent%>)"
 msgstr "<%=value%> (<%=percent%>)"
