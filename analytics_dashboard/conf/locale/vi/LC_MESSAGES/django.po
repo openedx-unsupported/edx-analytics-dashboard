@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-14 21:01-0400\n"
-"PO-Revision-Date: 2017-08-25 08:37+0000\n"
+"POT-Creation-Date: 2017-06-21 18:32-0400\n"
+"PO-Revision-Date: 2017-10-06 11:56+0000\n"
 "Last-Translator: Hoà Lê Thanh <hoa.lethanh@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/open-edx/edx-platform/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -53,7 +53,7 @@ msgstr "Định hướng khóa học của bạn phù hợp với kiến thức 
 #: courses/tests/test_views/__init__.py:220 courses/views/__init__.py:291
 #: courses/views/__init__.py:492
 msgid "Enrollment"
-msgstr "Ghi danh"
+msgstr "Đăng ký"
 
 #: core/templates/core/landing.html:47
 msgid "What are learners engaging with in my course?"
@@ -524,7 +524,7 @@ msgstr "Video được xem quá thời gian"
 
 #: courses/templates/courses/enrollment_activity.html:24
 msgid "Daily Learner Enrollment"
-msgstr "Học Viên Ghi Danh Mỗi Ngày"
+msgstr "Học Viên Đăng ký Mỗi Ngày"
 
 #: courses/templates/courses/enrollment_activity.html:25
 #: courses/views/__init__.py:497
@@ -533,17 +533,17 @@ msgstr "Có bao nhiêu  học viên trong khóa học của tôi?"
 
 #: courses/templates/courses/enrollment_activity.html:32
 msgid "Enrollments"
-msgstr "Ghi danh"
+msgstr "Đăng ký"
 
 #: courses/templates/courses/enrollment_activity.html:33
 msgid ""
 "This graph displays the current enrollment for the course as of the end of "
 "each day. This includes new enrollments as well as unenrollments."
-msgstr "Biểu đồ này biểu thị toàn bộ số ghi danh cho khóa học tính đến cuối mỗi ngày. Tổng số ghi danh bao gồm lượng ghi danh mới lẫn lượng đã ghi danh rồi hủy."
+msgstr "Biểu đồ này biểu thị toàn bộ số đăng ký cho khóa học tính đến cuối mỗi ngày. Tổng số đăng ký bao gồm lượng đăng ký mới lẫn lượng đã đăng ký rồi hủy."
 
 #: courses/templates/courses/enrollment_activity.html:49
 msgid "Enrollment Metrics"
-msgstr "Thống Kê Ghi Danh"
+msgstr "Chỉ số Đăng ký"
 
 #. Translators: This is a label to identify the number of learners who ever
 #. enrolled in the course.
@@ -552,7 +552,7 @@ msgstr "Thống Kê Ghi Danh"
 #: courses/templates/courses/enrollment_activity.html:59
 #: courses/templates/courses/index.html:26
 msgid "Total Enrollment"
-msgstr "Tổng Số Ghi Danh"
+msgstr "Tổng Số Đăng ký"
 
 #. Translators: This is a label indicating the number of learners in a course.
 #: courses/templates/courses/enrollment_activity.html:61
@@ -565,7 +565,7 @@ msgstr "Những người đã từng tham gia khóa học."
 #: courses/templates/courses/enrollment_activity.html:68
 #: courses/templates/courses/index.html:33
 msgid "Current Enrollment"
-msgstr "Lượng Ghi Danh Hiện Tại"
+msgstr "Đăng ký Hiện Tại"
 
 #. Translators: This is a label indicating the number of learners enrolled in
 #. a course.
@@ -584,7 +584,7 @@ msgstr "Thay đổi tuần vừa rồi"
 
 #: courses/templates/courses/enrollment_activity.html:77
 msgid "Net difference in current enrollment in the last week."
-msgstr "Tổng sự thay đổi trong ghi danh hiện tại so với tuần trước."
+msgstr "Sự chênh lệch thuần trong số học sinh đăng ký hiện tại trong tuần trước."
 
 #. Translators: This is a label to identify enrollment of learners on the
 #. verified track.
@@ -593,7 +593,7 @@ msgstr "Tổng sự thay đổi trong ghi danh hiện tại so với tuần trư
 #: courses/templates/courses/enrollment_activity.html:84
 #: courses/templates/courses/index.html:47
 msgid "Verified Enrollment"
-msgstr "Ghi Danh theo hệ Giấy Chứng Nhận Xác Thực"
+msgstr "Đăng ký hệ Chứng chỉ Xác minh"
 
 #. Translators: This is a label indicating the number of learners enrolled in
 #. a course on the verified track.
@@ -609,7 +609,7 @@ msgstr "Số học viên đang theo học đăng ký lấy chứng chỉ."
 #: courses/templates/courses/enrollment_demographics_education.html:101
 #: courses/templates/courses/enrollment_demographics_gender.html:66
 msgid "Enrollment Over Time"
-msgstr "Ghi danh quá hạn"
+msgstr "Đăng ký Quá Thời gian"
 
 #: courses/templates/courses/enrollment_demographics_age.html:26
 #: courses/views/__init__.py:507
@@ -768,7 +768,7 @@ msgstr "Những học viên của tôi ở đâu?"
 
 #: courses/templates/courses/enrollment_geography.html:27
 msgid "Enrollment by Country"
-msgstr "Ghi Danh theo các Quốc Gia"
+msgstr "Đăng ký theo Quốc Gia"
 
 #: courses/templates/courses/enrollment_geography.html:45
 msgid "Geography Metrics"
@@ -788,7 +788,7 @@ msgstr "Các quốc gia với ít nhất 1 học viên."
 #. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html:62
 msgid "Top Country or Region by Enrollment"
-msgstr "Quốc gia có số học sinh tham gia học nhiều nhất"
+msgstr "Quốc gia có số học sinh tham gia đăng ký nhiều nhất"
 
 #: courses/templates/courses/enrollment_geography.html:63
 msgid "Country or region with the largest number of learners."
@@ -798,7 +798,7 @@ msgstr "Quốc gia với số lượng học viên lớn nhất."
 #. greatest number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html:66
 msgid "Second Country or Region by Enrollment"
-msgstr "Quốc gia có số lượng tham gia đứng thứ 2"
+msgstr "Quốc gia có số lượng đăng ký đứng thứ 2"
 
 #: courses/templates/courses/enrollment_geography.html:67
 msgid "Country or region with the second largest number of learners."
@@ -808,7 +808,7 @@ msgstr "Quốc gia với số lượng học viên đứng thứ hai."
 #. greatest number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html:70
 msgid "Third Country or Region by Enrollment"
-msgstr "Quốc gia có số lượng tham gia đứng thứ 3"
+msgstr "Quốc gia có số lượng đăng ký đứng thứ 3"
 
 #: courses/templates/courses/enrollment_geography.html:71
 msgid "Country or region with the third largest number of learners."
@@ -866,7 +866,7 @@ msgid "External Tools"
 msgstr "Những công cụ bên ngoài"
 
 #: courses/templates/courses/index.html:10
-#: courses/views/course_summaries.py:33
+#: courses/views/course_summaries.py:32
 msgid "Courses"
 msgstr "Khóa học"
 
@@ -876,19 +876,19 @@ msgstr "Xem qua tất cả các khóa học của bạn:"
 
 #: courses/templates/courses/index.html:27
 msgid "Total enrollments across all of your courses."
-msgstr "Tổng số đăng ký học trong tất cả các khóa học của bạn."
+msgstr "Tổng số đăng ký trong tất cả các khóa học của bạn."
 
 #: courses/templates/courses/index.html:34
 msgid "Current enrollments across all of your courses."
-msgstr "Số đã đăng ký trong tất cả các khóa học của bạn."
+msgstr "Số đăng ký hiện tại trong tất cả các khóa học của bạn."
 
 #: courses/templates/courses/index.html:41
 msgid "Total change in enrollment last week across all of your courses."
-msgstr "Tổng số thay đổi trong đăng ký học vào tuần trước trong tất cả các khóa học của bạn."
+msgstr "Tổng số thay đổi trong đăng ký vào tuần trước trong tất cả các khóa học của bạn."
 
 #: courses/templates/courses/index.html:48
 msgid "Verified enrollments across all of your courses."
-msgstr "Xác nhận những đăng ký vào tất cả các khóa học của bạn."
+msgstr "Những đăng ký đã xác minh trong tất cả các khóa học của bạn."
 
 #: courses/templates/courses/performance_answer_distribution.html:7
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html:5
@@ -1006,7 +1006,7 @@ msgstr "Các học viên làm gì với những bài tập chưa phân loại?"
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each section. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "Những cột trên cho biết trung bình số lượng bài gửi chính xác hay không chính xác cho mỗi vấn đề trong bài tập. Chỉ có bài gửi cuối cùng từ mỗi học viên mới được tính."
 
 #: courses/templates/courses/performance_ungraded_content.html:16
 msgid "Section Submissions"
@@ -1086,31 +1086,31 @@ msgstr "Các vấn đề chưa được chấm"
 #: courses/tests/test_views/test_performance.py:529
 #: courses/views/__init__.py:606 courses/views/performance.py:65
 msgid "Learning Outcomes"
-msgstr ""
+msgstr "Kết quả Học tập"
 
 #: courses/views/__init__.py:553
 msgid "What are learners doing in my course?"
-msgstr ""
+msgstr "Học viên đang học như thế nào trong các khóa học của tôi?"
 
 #: courses/views/__init__.py:583
 msgid "How are learners doing on graded course assignments?"
-msgstr ""
+msgstr "Các học viên làm bài tập như thế nào?"
 
 #: courses/views/__init__.py:604
 msgid "What is the breakdown for course learning outcomes?"
-msgstr ""
+msgstr "Sự cố về kết quả học tập của khoá học là gì?"
 
 #: courses/views/__init__.py:624
 msgid "How are learners responding to questions?"
-msgstr ""
+msgstr "Học sinh trả lời các câu hỏi như thế nào?"
 
 #: courses/views/__init__.py:626
 msgid "Problem Response Report"
-msgstr ""
+msgstr "Báo cáo Phản hồi Sự cố"
 
 #: courses/views/__init__.py:633
 msgid "How are learners doing on course assignments?"
-msgstr ""
+msgstr "Các học viên làm bài tập như thế nào?"
 
 #: courses/views/__init__.py:641
 msgid "What are individual learners doing?"
@@ -1170,11 +1170,11 @@ msgid "Courseware"
 msgstr "Chương trình học"
 
 #. Translators: Do not translate UTC.
-#: courses/views/course_summaries.py:42
+#: courses/views/course_summaries.py:41
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
+msgstr "Dữ liệu tóm tắt khóa học cập nhật lần cuối vào %(update_date)s, %(update_time)s UTC."
 
 #: courses/views/engagement.py:52
 msgid "Engagement Content"
@@ -1220,7 +1220,7 @@ msgstr "Tên Video"
 msgid ""
 "Demographic learner data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "Dữ liệu về nhân khẩu của các học viên được cập nhật lần cuối vào %(update_date)s, %(update_time)s UTC."
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
@@ -1231,7 +1231,7 @@ msgstr "Các thông tin nhân khẩu trên được học viên tự điền và
 
 #: courses/views/enrollment.py:107
 msgid "Enrollment Activity"
-msgstr "Hoạt Động Ghi Danh"
+msgstr "Hoạt Động Đăng ký"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py:117
@@ -1239,23 +1239,23 @@ msgstr "Hoạt Động Ghi Danh"
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr "Dữ liệu về hoạt động ghi danh được cập nhật lần cuối vào lúc %(update_date)s at %(update_time)s UTC."
+msgstr "Dữ liệu về hoạt động đăng ký được cập nhật lần cuối vào lúc %(update_date)s at %(update_time)s UTC."
 
 #: courses/views/enrollment.py:148
 msgid "Enrollment Demographics by Age"
-msgstr "Thông tin nhân khẩu học của các đăng kí theo Tuổi"
+msgstr "Đăng kí theo Tuổi"
 
 #: courses/views/enrollment.py:186
 msgid "Enrollment Demographics by Education"
-msgstr "Thông tin nhân khẩu học của đăng ký theo trình độ học vấn"
+msgstr "Đăng ký theo Trình độ học vấn"
 
 #: courses/views/enrollment.py:224
 msgid "Enrollment Demographics by Gender"
-msgstr "Thông tin nhân khẩu học của đăng ký theo giới tính"
+msgstr "Đăng ký theo Giới tính"
 
 #: courses/views/enrollment.py:262
 msgid "Enrollment Geography"
-msgstr "Vị Trí Địa Lý của Học Viên"
+msgstr "Tuyển sinh theo Địa lý "
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py:272
@@ -1263,7 +1263,7 @@ msgstr "Vị Trí Địa Lý của Học Viên"
 msgid ""
 "Geographic learner data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Dữ liệu về phân bổ địa lý của các học viên được cập nhật lần cuối vào %(update_date)s, %(update_time)s UTC."
 
 #. Translators: Do not translate UTC.
 #: courses/views/performance.py:33
@@ -1304,17 +1304,17 @@ msgstr "Tên câu hỏi"
 msgid ""
 "Tags distribution data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Dữ liệu về Tags được cập nhật lần cuối vào %(update_date)s ,  %(update_time)s UTC."
 
 #: courses/views/performance.py:398 courses/views/performance.py:428
 msgid "Performance: Learning Outcomes"
-msgstr ""
+msgstr "Hiệu suất: Kết quả Học tập"
 
-#: settings/base.py:413
+#: settings/base.py:419
 msgid "Terms of Service"
 msgstr "Điều khoản sử dụng"
 
-#: settings/base.py:414
+#: settings/base.py:420
 msgid "Privacy Policy"
 msgstr "Chính sách bảo mật"
 
@@ -1382,7 +1382,7 @@ msgstr "Liên hệ %(platform_name)s để được trợ giúp"
 msgid ""
 "We want this dashboard to work for you! Need help? "
 "%(support_link_start)sContact course team support%(support_link_end)s."
-msgstr ""
+msgstr "Chúng tôi muốn bảng điều khiển phù hợp với bạn! Cần hỗ trợ? %(support_link_start)sLiên hệ nhóm hỗ trợ khóa học%(support_link_end)s."
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html:39
@@ -1402,7 +1402,7 @@ msgstr "Trợ Giúp"
 
 #: templates/header.html:46
 msgid "Menu for"
-msgstr ""
+msgstr "Trình đơn cho"
 
 #: templates/header.html:60
 msgid "Logout"
@@ -1410,7 +1410,7 @@ msgstr "Đăng xuất"
 
 #: templates/lens-navigation.html:27
 msgid "Navigation Menu."
-msgstr ""
+msgstr "Thanh Menu."
 
 #: templates/loading.html:7
 msgid "Loading"

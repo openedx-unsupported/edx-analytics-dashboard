@@ -22,8 +22,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-14 21:01-0400\n"
-"PO-Revision-Date: 2017-08-18 22:55+0000\n"
+"POT-Creation-Date: 2017-06-21 18:32-0400\n"
+"PO-Revision-Date: 2017-09-23 20:11+0000\n"
 "Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/open-edx/edx-platform/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -40,14 +40,19 @@ msgstr "下载CSV文档"
 msgid "Download search results to CSV"
 msgstr "下载搜索结果到CSV"
 
+#. Translators: "All" refers to viewing all items (e.g. all courses).
 #: static/apps/components/filter/views/drop-down-filter.js:31
 msgid "All"
 msgstr "所有"
 
+#. Translators: 'name' here refers to the name of the filter, while 'count'
+#. refers to the number of items belonging to that filter.
 #: static/apps/components/filter/views/filter.js:90
 msgid "<%= name %> (<%= count %>)"
 msgstr "<%= name %> (<%= count %>)"
 
+#. Translators: this is a label describing a filter selection that the user
+#. initiated.
 #: static/apps/components/generic-list/list/views/active-filters.js:62
 msgid "<%= filterDisplayName %>: <%= filterVal %>"
 msgstr "<%= filterDisplayName %>: <%= filterVal %>"
@@ -60,6 +65,7 @@ msgstr "正在使用的过滤"
 msgid "Click to remove this filter"
 msgstr "单击以删除此筛选器。"
 
+#. Translators: "Clear" in this context means "remove all of the filters"
 #: static/apps/components/generic-list/list/views/active-filters.js:90
 msgid "Clear"
 msgstr "清除"
@@ -68,14 +74,19 @@ msgstr "清除"
 msgid "Click to remove all filters"
 msgstr "单击以删除所有筛选器"
 
+#. Translators: "sort ascending" describes the current sort state to the user.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:71
 msgid "sort ascending"
 msgstr "递增"
 
+#. Translators: "sort descending" describes the current sort state to the
+#. user.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:73
 msgid "sort descending"
 msgstr "递减"
 
+#. Translators: "click to sort" tells the user that they can click this link
+#. to sort by the current field.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:76
 msgid "click to sort"
 msgstr "点击排序"
@@ -84,6 +95,8 @@ msgstr "点击排序"
 msgid "Results"
 msgstr "结果"
 
+#. Translators: 'count' refers to the number of results contained in the
+#. table.
 #: static/apps/components/generic-list/list/views/num-results.js:30
 msgid "Number of results: <%= count %>"
 msgstr ""
@@ -108,10 +121,12 @@ msgstr "最后一页"
 msgid "page"
 msgstr "页"
 
+#. Translators: describes the state of a pagination button as not clickable
 #: static/apps/components/generic-list/list/views/paging-footer.js:88
 msgid "disabled"
 msgstr "禁用"
 
+#. Translators: describes a pagination button as representing the current page
 #: static/apps/components/generic-list/list/views/paging-footer.js:91
 msgid "active"
 msgstr "激活"
@@ -120,143 +135,133 @@ msgstr "激活"
 msgid "Generic List"
 msgstr ""
 
+#. Translators: This message indicates content is loading in the page.
 #: static/apps/components/loading/views/loading-view.js:20
 msgid "Loading..."
 msgstr "载入中..."
 
-#: static/apps/components/search/views/search.js:44
-msgid "Search"
-msgstr ""
-
-#: static/apps/components/search/views/search.js:72
-msgid "search"
-msgstr "搜索"
-
-#: static/apps/components/search/views/search.js:73
-msgid "clear search"
-msgstr "清空搜索"
-
-#: static/apps/components/utils/utils.js:62
+#. Translators: "504" is a number representing a server error, so please leave
+#. it as "504".
+#: static/apps/components/utils/utils.js:61
 msgid "504: Server error"
 msgstr "504：服务器错误（网关超时）"
 
-#: static/apps/components/utils/utils.js:64
+#: static/apps/components/utils/utils.js:63
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
 msgstr "您的请求过程耗时过长，请刷新页面重试。"
 
-#: static/apps/components/utils/utils.js:68
-#: static/apps/course-list/app/controller.js:143
+#: static/apps/components/utils/utils.js:67
 msgid "Server error"
 msgstr "服务器错误"
 
-#: static/apps/components/utils/utils.js:69
-#: static/apps/components/utils/utils.js:81
-#: static/apps/course-list/app/controller.js:144
+#: static/apps/components/utils/utils.js:68
+#: static/apps/components/utils/utils.js:80
 msgid "Your request could not be processed. Reload the page to try again."
 msgstr "请求被终止，请重载本页。"
 
-#: static/apps/components/utils/utils.js:80
+#: static/apps/components/utils/utils.js:79
 msgid "Network error"
 msgstr "网络连接错误"
 
-#: static/apps/course-list/app/app.js:40
+#: static/apps/course-list/app/app.js:39
 msgid "Instructor-Paced"
 msgstr ""
 
-#: static/apps/course-list/app/app.js:41
+#: static/apps/course-list/app/app.js:40
 msgid "Self-Paced"
 msgstr ""
 
-#: static/apps/course-list/app/app.js:44
+#: static/apps/course-list/app/app.js:43
 msgid "Upcoming"
 msgstr "即将到来"
 
-#: static/apps/course-list/app/app.js:45
+#: static/apps/course-list/app/app.js:44
 msgid "Current"
 msgstr "当前"
 
-#: static/apps/course-list/app/app.js:46
+#: static/apps/course-list/app/app.js:45
 msgid "Archived"
 msgstr "存档"
 
-#: static/apps/course-list/app/app.js:47
+#: static/apps/course-list/app/app.js:46
 msgid "Unknown"
 msgstr ""
 
-#: static/apps/course-list/app/controller.js:52
-#: static/apps/course-list/app/controller.js:100
+#: static/apps/course-list/app/controller.js:48
+#: static/apps/course-list/app/controller.js:108
 msgid "Course List"
 msgstr "课程列表"
 
-#: static/apps/course-list/app/controller.js:89
-#: static/apps/learners/app/controller.js:94
+#: static/apps/course-list/app/controller.js:98
+#: static/apps/learners/app/controller.js:96
 msgid "Invalid Parameters"
 msgstr "无效参数"
 
-#: static/apps/course-list/app/controller.js:90
+#: static/apps/course-list/app/controller.js:99
 msgid "Sorry, we couldn't find any courses that matched that query."
 msgstr ""
 
-#: static/apps/course-list/app/controller.js:91
+#: static/apps/course-list/app/controller.js:100
 msgid "Return to the Course List page."
 msgstr ""
 
-#: static/apps/course-list/app/controller.js:117
-#: static/apps/learners/app/controller.js:177
+#: static/apps/course-list/app/controller.js:125
+#: static/apps/learners/app/controller.js:181
 msgid "Sorry, we couldn't find the page you're looking for."
 msgstr "抱歉，无法寻找您搜索的页面"
 
-#: static/apps/course-list/app/controller.js:119
-#: static/apps/learners/app/controller.js:180
+#: static/apps/course-list/app/controller.js:129
+#: static/apps/learners/app/controller.js:186
 msgid "Page Not Found"
 msgstr "页面未找到"
 
-#: static/apps/course-list/common/collections/course-list.js:34
+#: static/apps/course-list/common/collections/course-list.js:77
 msgid "Course Name"
 msgstr "课程名称"
 
-#: static/apps/course-list/common/collections/course-list.js:35
+#: static/apps/course-list/common/collections/course-list.js:78
 msgid "Start Date"
 msgstr "开始日期"
 
-#: static/apps/course-list/common/collections/course-list.js:36
+#: static/apps/course-list/common/collections/course-list.js:79
 msgid "End Date"
 msgstr "结束日期"
 
-#: static/apps/course-list/common/collections/course-list.js:37
+#: static/apps/course-list/common/collections/course-list.js:80
 msgid "Total Enrollment"
 msgstr "所有选修的学生"
 
-#: static/apps/course-list/common/collections/course-list.js:38
+#. Translators: The noun count (e.g. number of learners)
+#: static/apps/course-list/common/collections/course-list.js:81
 #: static/js/enrollment-activity-main.js:27
 #: static/js/enrollment-demographics-gender-main.js:32
 #: static/js/enrollment-geography-main.js:29
 msgid "Current Enrollment"
 msgstr "当前注册"
 
-#: static/apps/course-list/common/collections/course-list.js:39
+#: static/apps/course-list/common/collections/course-list.js:82
 msgid "Change Last Week"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js:40
+#: static/apps/course-list/common/collections/course-list.js:83
 msgid "Verified Enrollment"
 msgstr "认证的选修学生"
 
-#: static/apps/course-list/common/collections/course-list.js:43
+#: static/apps/course-list/common/collections/course-list.js:86
 msgid "Passing Learners"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js:46
+#: static/apps/course-list/common/collections/course-list.js:89
 msgid "Availability"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js:47
+#: static/apps/course-list/common/collections/course-list.js:90
 msgid "Pacing Type"
 msgstr ""
 
-#: static/apps/course-list/common/collections/course-list.js:48
+#: static/apps/course-list/common/collections/course-list.js:91
 msgid "Programs"
 msgstr ""
 
@@ -300,17 +305,8 @@ msgid "Skip to results"
 msgstr ""
 
 #: static/apps/course-list/list/views/controls.js:58
-msgid "Search courses"
-msgstr "搜素课程"
-
-#: static/apps/course-list/list/views/controls.js:59
 msgid "Find a course"
 msgstr "查找一门课程"
-
-#: static/apps/course-list/list/views/controls.js:56
-#: static/apps/learners/roster/views/controls.js:60
-msgid "text_search"
-msgstr ""
 
 #: static/apps/course-list/list/views/controls.js:68
 msgid "availability"
@@ -356,6 +352,20 @@ msgid ""
 " Data is updated every day, so check back regularly for up-to-date metrics."
 msgstr ""
 
+#: static/apps/course-list/list/views/search.js:71
+msgid "Search courses"
+msgstr "搜素课程"
+
+#: static/apps/course-list/list/views/search.js:72
+#: static/apps/learners/roster/views/search.js:56
+msgid "search"
+msgstr "搜索"
+
+#: static/apps/course-list/list/views/search.js:73
+#: static/apps/learners/roster/views/search.js:57
+msgid "clear search"
+msgstr "清空搜索"
+
 #: static/apps/course-list/list/views/table.js:48
 msgid "Date not available"
 msgstr "无效的日期"
@@ -364,19 +374,19 @@ msgstr "无效的日期"
 msgid "Learner Roster"
 msgstr "学生名单"
 
-#: static/apps/learners/app/controller.js:95
+#: static/apps/learners/app/controller.js:97
 msgid "Sorry, we couldn't find any learners who matched that query."
 msgstr "对不起，我们找不到任何与该查询相匹配的学习者。"
 
-#: static/apps/learners/app/controller.js:96
+#: static/apps/learners/app/controller.js:98
 msgid "Return to the Learners page."
 msgstr "返回学习页面。"
 
-#: static/apps/learners/app/controller.js:104
+#: static/apps/learners/app/controller.js:106
 msgid "Learners"
 msgstr "学习者"
 
-#: static/apps/learners/app/controller.js:137
+#: static/apps/learners/app/controller.js:141
 msgid "Learner Details"
 msgstr "学习者详细信息"
 
@@ -445,6 +455,7 @@ msgstr "已观看的视频"
 msgid "Value"
 msgstr "值"
 
+#. Translators: e.g. Learner engagement activity
 #: static/apps/learners/detail/views/learner-detail.js:28
 msgid "Engagement Activity"
 msgstr "参与活动"
@@ -465,6 +476,7 @@ msgstr "选课"
 msgid "Last Accessed"
 msgstr ""
 
+#. Translators: 'n/a' means 'not available'
 #: static/apps/learners/detail/views/learner-detail.js:109
 #: static/apps/learners/detail/views/learner-summary-field.js:44
 #: static/apps/learners/roster/views/activity-date-range.js:16
@@ -487,10 +499,14 @@ msgstr "学习者数据不可用。"
 msgid "Return to Learners"
 msgstr "返回学习者。"
 
+#. Translators: this is a label describing a selection that the user
+#. initiated.
 #: static/apps/learners/roster/views/active-filters.js:23
 msgid "Cohort: <%= filterVal %>"
 msgstr ""
 
+#. Translators: this is a label describing a selection that the user
+#. initiated.
 #: static/apps/learners/roster/views/active-filters.js:27
 msgid "Enrollment Track: <%= filterVal %>"
 msgstr ""
@@ -533,10 +549,6 @@ msgid ""
 msgstr "该用户的贡献值，如发帖，回帖，评论等。"
 
 #: static/apps/learners/roster/views/controls.js:62
-msgid "Search learners"
-msgstr "寻找学习者"
-
-#: static/apps/learners/roster/views/controls.js:63
 msgid "Find a learner"
 msgstr "寻找一个学习者"
 
@@ -556,6 +568,9 @@ msgstr "选课记录"
 msgid "enrollment_mode"
 msgstr ""
 
+#. Translators: inactive meaning that these learners have not interacted with
+#. the
+#. course recently.
 #: static/apps/learners/roster/views/controls.js:103
 msgid "Hide Inactive Learners"
 msgstr ""
@@ -583,6 +598,12 @@ msgstr "没有学习者注册，或者课程还没有开通。数据每日更新
 msgid "Learner roster controls"
 msgstr "控制学生名单"
 
+#: static/apps/learners/roster/views/search.js:55
+msgid "Search learners"
+msgstr "寻找学习者"
+
+#. Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate
+#. accordingly.
 #: static/apps/learners/roster/views/table.js:40
 msgid "N/A"
 msgstr "不适用"
@@ -607,6 +628,7 @@ msgstr ""
 msgid "Percent of Current Learners"
 msgstr ""
 
+#. Translators: <%=value%> will be replaced with a date.
 #: static/js/engagement-content-main.js:85
 msgid "Week Ending <%=value%>"
 msgstr "一周结束日为<%=value%>"
@@ -653,6 +675,8 @@ msgstr "完成观看的次数"
 msgid "Incomplete Views"
 msgstr "未完成观看的次数"
 
+#. Translators: this describe the learner's enrollment track (e.g. Honor
+#. certificate)
 #: static/js/enrollment-activity-main.js:33
 msgid "Honor"
 msgstr "荣誉"
@@ -669,6 +693,8 @@ msgstr "已认证的"
 msgid "Professional"
 msgstr "专业的"
 
+#. Translators: this label indicates the learner has registered for academic
+#. credit
 #: static/js/enrollment-activity-main.js:54
 msgid "Verified with Credit"
 msgstr "信用认证"
@@ -679,6 +705,7 @@ msgstr "信用认证"
 msgid "Number of Learners"
 msgstr ""
 
+#. Translators: <%=value%> will be replaced with an age.
 #: static/js/enrollment-demographics-age-main.js:26
 msgid "Age: <%=value%>"
 msgstr "年龄：<%=value%>"
@@ -696,6 +723,8 @@ msgstr "占总数的百分比"
 msgid "Percentage"
 msgstr "百分比"
 
+#. Translators: <%=value%> will be replaced with a level of education (e.g.
+#. Doctorate).
 #: static/js/enrollment-demographics-education-main.js:24
 msgid "Education: <%=value%>"
 msgstr "受教育程度：<%=value%>"
@@ -704,6 +733,8 @@ msgstr "受教育程度：<%=value%>"
 msgid "Educational Background"
 msgstr "教育背景"
 
+#. Translators: <%=value%> will be replaced with a level of gender (e.g.
+#. Female).
 #: static/js/enrollment-demographics-gender-main.js:23
 msgid "Gender: <%=value%>"
 msgstr "性别：<%=value%>"
@@ -742,6 +773,7 @@ msgstr "百分比"
 msgid "Answer"
 msgstr "答案"
 
+#. Translators: "Correct" is displayed in a table..
 #: static/js/performance-answer-distribution-main.js:15
 #: static/js/performance-answer-distribution-main.js:43
 #: static/js/performance-learning-outcomes-section-main.js:11
@@ -766,6 +798,8 @@ msgstr "变体"
 msgid "Incorrect"
 msgstr "不正确"
 
+#. Translators: <%=value%> will be replaced by a learner response to a
+#. question asked in a course.
 #: static/js/performance-answer-distribution-main.js:60
 msgid "Answer: <%=value%>"
 msgstr "答案：<%=value%>"
@@ -812,6 +846,10 @@ msgstr "总计"
 msgid "..."
 msgstr "..."
 
+#. Translators: (empty) is displayed in a table and indicates no label/value.
+#. Keep text in the parenthesis or an equivalent symbol.
+#. Translators: (empty) is displayed as a label in a chart and indicates that
+#. no label was provided.
 #: static/js/views/data-table-view.js:199
 #: static/js/views/discrete-bar-view.js:21
 msgid "(empty)"
@@ -819,7 +857,7 @@ msgstr "(空)"
 
 #. Translators: <%=value%> will be replaced by a number followed by a
 #. percentage.
-#. For example, "400 (29%)" */
+#. For example, "400 (29%)"
 #: static/js/views/stacked-bar-view.js:13
 msgid "<%=value%> (<%=percent%>)"
 msgstr "<%=value%> (<%=percent%>)"
