@@ -14,14 +14,15 @@
 # Pablo Fernández Ferreira <fernandezferreira@gmail.com>, 2016
 # Paco López <pacol@db.uc3m.es>, 2015
 # Rocío Pérez Venero <perezvenero.rocio@gmail.com>, 2015
+# URJConline <online.mooc@urjc.es>, 2017
 # Valeria Freire <valtodopds@hotmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2017-09-23 20:11+0000\n"
-"Last-Translator: Ned Batchelder <ned@edx.org>\n"
+"PO-Revision-Date: 2017-10-10 11:18+0000\n"
+"Last-Translator: URJConline <online.mooc@urjc.es>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/open-edx/edx-platform/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,13 +47,13 @@ msgstr "Todos"
 #. refers to the number of items belonging to that filter.
 #: static/apps/components/filter/views/filter.js:90
 msgid "<%= name %> (<%= count %>)"
-msgstr ""
+msgstr "<%= name %> (<%= count %>)"
 
 #. Translators: this is a label describing a filter selection that the user
 #. initiated.
 #: static/apps/components/generic-list/list/views/active-filters.js:62
 msgid "<%= filterDisplayName %>: <%= filterVal %>"
-msgstr ""
+msgstr "<%= filterDisplayName %>: <%= filterVal %>"
 
 #: static/apps/components/generic-list/list/views/active-filters.js:87
 msgid "Filters In Use:"
@@ -96,7 +97,7 @@ msgstr "Resultados"
 #. table.
 #: static/apps/components/generic-list/list/views/num-results.js:30
 msgid "Number of results: <%= count %>"
-msgstr ""
+msgstr "Número de resultados: <%= count %>"
 
 #: static/apps/components/generic-list/list/views/paging-footer.js:70
 msgid "first page"
@@ -121,16 +122,16 @@ msgstr "página"
 #. Translators: describes the state of a pagination button as not clickable
 #: static/apps/components/generic-list/list/views/paging-footer.js:88
 msgid "disabled"
-msgstr ""
+msgstr "Deshabilitado "
 
 #. Translators: describes a pagination button as representing the current page
 #: static/apps/components/generic-list/list/views/paging-footer.js:91
 msgid "active"
-msgstr ""
+msgstr "Activo"
 
 #: static/apps/components/generic-list/list/views/table.js:27
 msgid "Generic List"
-msgstr ""
+msgstr "Lista genérica "
 
 #. Translators: This message indicates content is loading in the page.
 #: static/apps/components/loading/views/loading-view.js:20
@@ -164,11 +165,11 @@ msgstr "Error de red"
 
 #: static/apps/course-list/app/app.js:39
 msgid "Instructor-Paced"
-msgstr ""
+msgstr "Instructor-Paced"
 
 #: static/apps/course-list/app/app.js:40
 msgid "Self-Paced"
-msgstr ""
+msgstr "Self-Paced"
 
 #: static/apps/course-list/app/app.js:43
 msgid "Upcoming"
@@ -184,12 +185,12 @@ msgstr "Archivado"
 
 #: static/apps/course-list/app/app.js:46
 msgid "Unknown"
-msgstr ""
+msgstr "Desconocido"
 
 #: static/apps/course-list/app/controller.js:48
 #: static/apps/course-list/app/controller.js:108
 msgid "Course List"
-msgstr ""
+msgstr "Lista del curso"
 
 #: static/apps/course-list/app/controller.js:98
 #: static/apps/learners/app/controller.js:96
@@ -198,11 +199,11 @@ msgstr "Parametros Inválidos"
 
 #: static/apps/course-list/app/controller.js:99
 msgid "Sorry, we couldn't find any courses that matched that query."
-msgstr ""
+msgstr "Lo sentimos, no pudimos encontrar cursos que coincidan con esa consulta."
 
 #: static/apps/course-list/app/controller.js:100
 msgid "Return to the Course List page."
-msgstr ""
+msgstr "Volver a la página de lista de cursos"
 
 #: static/apps/course-list/app/controller.js:125
 #: static/apps/learners/app/controller.js:181
@@ -216,7 +217,7 @@ msgstr "No se encontró la página"
 
 #: static/apps/course-list/common/collections/course-list.js:77
 msgid "Course Name"
-msgstr ""
+msgstr "Nombre del curso"
 
 #: static/apps/course-list/common/collections/course-list.js:78
 msgid "Start Date"
@@ -228,7 +229,7 @@ msgstr "Fecha de finalización"
 
 #: static/apps/course-list/common/collections/course-list.js:80
 msgid "Total Enrollment"
-msgstr ""
+msgstr "Inscripciones totales"
 
 #. Translators: The noun count (e.g. number of learners)
 #: static/apps/course-list/common/collections/course-list.js:81
@@ -240,94 +241,94 @@ msgstr "Inscripción actual"
 
 #: static/apps/course-list/common/collections/course-list.js:82
 msgid "Change Last Week"
-msgstr ""
+msgstr "Cambiar semana pasada"
 
 #: static/apps/course-list/common/collections/course-list.js:83
 msgid "Verified Enrollment"
-msgstr ""
+msgstr "Inscripción verificada"
 
 #: static/apps/course-list/common/collections/course-list.js:86
 msgid "Passing Learners"
-msgstr ""
+msgstr "Pasando estudiantes"
 
 #: static/apps/course-list/common/collections/course-list.js:89
 msgid "Availability"
-msgstr ""
+msgstr "Disponibilidad"
 
 #: static/apps/course-list/common/collections/course-list.js:90
 msgid "Pacing Type"
-msgstr ""
+msgstr "Tipo de estimulación"
 
 #: static/apps/course-list/common/collections/course-list.js:91
 msgid "Programs"
-msgstr ""
+msgstr "Programas"
 
 #: static/apps/course-list/list/views/base-header-cell.js:11
 msgid "Course name advertised on edX site."
-msgstr ""
+msgstr "Nombre del curso anunciado en el sitio edX."
 
 #: static/apps/course-list/list/views/base-header-cell.js:12
 msgid "Start date advertised on edX site."
-msgstr ""
+msgstr "Fecha de inicio anunciada en el sitio de edX."
 
 #: static/apps/course-list/list/views/base-header-cell.js:13
 msgid "End date set in edX Studio."
-msgstr ""
+msgstr "Fecha de fin anunciada en el sitio de edX."
 
 #: static/apps/course-list/list/views/base-header-cell.js:14
 msgid "Learners who ever enrolled in the course."
-msgstr ""
+msgstr "Estudiantes que se inscribieron en el curso."
 
 #: static/apps/course-list/list/views/base-header-cell.js:15
 msgid "Learners currently enrolled in the course."
-msgstr ""
+msgstr "Estudiantes matriculados en este curso."
 
 #: static/apps/course-list/list/views/base-header-cell.js:16
 msgid "Net difference in current enrollment in the last week."
-msgstr ""
+msgstr "Diferencia neta en la matrícula actual en la última semana."
 
 #: static/apps/course-list/list/views/base-header-cell.js:18
 msgid ""
 "Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
-msgstr ""
+msgstr "Número de estudiantes actualmente matriculados que buscan un certificado verificado."
 
 #: static/apps/course-list/list/views/base-header-cell.js:19
 msgid "Learners who have earned a passing grade."
-msgstr ""
+msgstr "Estudiantes que han obtenido un grado de aprobación."
 
 #: static/apps/course-list/list/views/controls.js:38
 #: static/apps/learners/roster/views/controls.js:39
 msgid "Skip to results"
-msgstr ""
+msgstr "Omitir resultados"
 
 #: static/apps/course-list/list/views/controls.js:58
 msgid "Find a course"
-msgstr ""
+msgstr "Buscar un curso"
 
 #: static/apps/course-list/list/views/controls.js:68
 msgid "availability"
-msgstr ""
+msgstr "Disponibilidad "
 
 #: static/apps/course-list/list/views/controls.js:76
 msgid "pacing_type"
-msgstr ""
+msgstr "pacing_type"
 
 #: static/apps/course-list/list/views/controls.js:84
 msgid "program_ids"
-msgstr ""
+msgstr "program_ids"
 
 #: static/apps/course-list/list/views/course-list.js:66
 msgid "Download full course list to CSV"
-msgstr ""
+msgstr "Descargar la lista completa de cursos en CSV"
 
 #: static/apps/course-list/list/views/course-list.js:91
 msgid "Course list controls"
-msgstr ""
+msgstr "Controles de la lista de cursos"
 
 #: static/apps/course-list/list/views/results.js:47
 msgid "No courses matched your criteria."
-msgstr ""
+msgstr "No hay cursos que coincidan con tus criterios."
 
 #: static/apps/course-list/list/views/results.js:49
 #: static/apps/learners/roster/views/results.js:49
@@ -341,17 +342,17 @@ msgstr "Intente borrando los filtros."
 
 #: static/apps/course-list/list/views/results.js:55
 msgid "No course data is currently available for your course."
-msgstr ""
+msgstr "Actualmente no hay datos disponibles para su curso."
 
 #: static/apps/course-list/list/views/results.js:57
 msgid ""
 "No courses are enrolled, or course activity data has not yet been processed."
 " Data is updated every day, so check back regularly for up-to-date metrics."
-msgstr ""
+msgstr "No hay cursos matriculados, o los datos de la actividad del curso aún no han sido procesados. Los datos se actualizan todos los días, así que compruebe regularmente las métricas actualizadas."
 
 #: static/apps/course-list/list/views/search.js:71
 msgid "Search courses"
-msgstr ""
+msgstr "Buscar cursos"
 
 #: static/apps/course-list/list/views/search.js:72
 #: static/apps/learners/roster/views/search.js:56
@@ -365,7 +366,7 @@ msgstr "borrado de búsqueda"
 
 #: static/apps/course-list/list/views/table.js:48
 msgid "Date not available"
-msgstr ""
+msgstr "Fecha no disponible"
 
 #: static/apps/learners/app/controller.js:59
 msgid "Learner Roster"
@@ -471,7 +472,7 @@ msgstr "Inscripciones"
 
 #: static/apps/learners/detail/views/learner-detail.js:106
 msgid "Last Accessed"
-msgstr ""
+msgstr "Ultimo acceso"
 
 #. Translators: 'n/a' means 'not available'
 #: static/apps/learners/detail/views/learner-detail.js:109
@@ -555,7 +556,7 @@ msgstr "grupos de personas"
 
 #: static/apps/learners/roster/views/controls.js:73
 msgid "cohort"
-msgstr ""
+msgstr "Cohorte"
 
 #: static/apps/learners/roster/views/controls.js:87
 msgid "Enrollment Tracks"
@@ -563,18 +564,18 @@ msgstr "Pistas de Inscripciones"
 
 #: static/apps/learners/roster/views/controls.js:85
 msgid "enrollment_mode"
-msgstr ""
+msgstr "enrollment_mode"
 
 #. Translators: inactive meaning that these learners have not interacted with
 #. the
 #. course recently.
 #: static/apps/learners/roster/views/controls.js:103
 msgid "Hide Inactive Learners"
-msgstr ""
+msgstr "Ocultar estudiantes inactivos"
 
 #: static/apps/learners/roster/views/controls.js:97
 msgid "ignore_segments"
-msgstr ""
+msgstr "ignore_segments"
 
 #: static/apps/learners/roster/views/results.js:47
 msgid "No learners matched your criteria."
@@ -619,11 +620,11 @@ msgstr "Intentó resolver un ejercicio"
 
 #: static/js/engagement-content-main.js:41
 msgid "Participated in Discussions"
-msgstr ""
+msgstr "Participó en las discusiones"
 
 #: static/js/engagement-content-main.js:48
 msgid "Percent of Current Learners"
-msgstr ""
+msgstr "Porcentaje de estudiantes actuales"
 
 #. Translators: <%=value%> will be replaced with a date.
 #: static/js/engagement-content-main.js:85
@@ -700,7 +701,7 @@ msgstr "Verificado con Crédito"
 #: static/js/enrollment-demographics-age-main.js:34
 #: static/js/enrollment-demographics-education-main.js:32
 msgid "Number of Learners"
-msgstr ""
+msgstr "Número de estudiantes"
 
 #. Translators: <%=value%> will be replaced with an age.
 #: static/js/enrollment-demographics-age-main.js:26
@@ -756,7 +757,7 @@ msgstr "Sin información"
 msgid ""
 "Learner location is determined from IP address. This map shows where "
 "learners most recently connected."
-msgstr ""
+msgstr "Ubicación del alumno; esto se basa en la localización de la dirección IP. Este mapa muestra dónde los alumnos se conectaron por última vez. "
 
 #: static/js/enrollment-geography-main.js:26
 msgid "Country or Region"
