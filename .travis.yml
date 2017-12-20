@@ -3,8 +3,9 @@ language:
 python:
   - "2.7"
 sudo: required
+group: deprecated-2017Q4
 services:
-  - docker 
+  - docker
 
 env:
   # Make sure to update this string on every Insights or Data API release
