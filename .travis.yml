@@ -13,6 +13,9 @@ env:
   DOCKER_COMPOSE_VERSION: "1.9.0"
 
 before_install:
+    # Fix intermittent "resource temporarily unavailable" and "write" errors failing the Travis builds.
+    # See: https://github.com/travis-ci/travis-ci/issues/8920
+    - python -c "import fcntl; fcntl.fcntl(1, fcntl.F_SETFL, 0)"
     # Install a newer version of docker-compose
     # Remove once dockers default is this version: https://docs.travis-ci.com/user/docker/#Using-Docker-Compose
     - sudo rm /usr/local/bin/docker-compose
