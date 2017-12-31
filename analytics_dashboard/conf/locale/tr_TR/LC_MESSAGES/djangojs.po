@@ -4,6 +4,7 @@
 # 
 # Translators:
 # adem ÖZGÜR <admozgur@gmail.com>, 2015
+# Ali Işıngör <ali@artistanbul.io>, 2017
 # ali selek <aliselek01@gmail.com>, 2015
 # Emrah Emirtekin <eemirtekin@gmail.com>, 2015
 # Erdoğan Şahin, 2016
@@ -17,8 +18,8 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2017-12-24 18:44+0000\n"
-"Last-Translator: Ned Batchelder <ned@edx.org>\n"
+"PO-Revision-Date: 2017-12-27 13:19+0000\n"
+"Last-Translator: Ali Işıngör <ali@artistanbul.io>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/open-edx/edx-platform/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +33,7 @@ msgstr "CSV İndir"
 
 #: static/apps/components/download/views/download-data.js:26
 msgid "Download search results to CSV"
-msgstr ""
+msgstr "Arama sonuçlarını CSV olarak kaydet"
 
 #. Translators: "All" refers to viewing all items (e.g. all courses).
 #: static/apps/components/filter/views/drop-down-filter.js:31
@@ -53,11 +54,11 @@ msgstr ""
 
 #: static/apps/components/generic-list/list/views/active-filters.js:87
 msgid "Filters In Use:"
-msgstr ""
+msgstr "Kullanılan Filtreler:"
 
 #: static/apps/components/generic-list/list/views/active-filters.js:88
 msgid "Click to remove this filter"
-msgstr ""
+msgstr "Filtreyi kaldırmak için tıklayın"
 
 #. Translators: "Clear" in this context means "remove all of the filters"
 #: static/apps/components/generic-list/list/views/active-filters.js:90
@@ -66,7 +67,7 @@ msgstr "Temizle"
 
 #: static/apps/components/generic-list/list/views/active-filters.js:91
 msgid "Click to remove all filters"
-msgstr ""
+msgstr "Tüm filtreleri kaldırmak için tıklayın"
 
 #. Translators: "sort ascending" describes the current sort state to the user.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:71
@@ -87,13 +88,13 @@ msgstr "sıralamak için tıklayın"
 
 #: static/apps/components/generic-list/list/views/list.js:51
 msgid "Results"
-msgstr ""
+msgstr "Sonuçlar"
 
 #. Translators: 'count' refers to the number of results contained in the
 #. table.
 #: static/apps/components/generic-list/list/views/num-results.js:30
 msgid "Number of results: <%= count %>"
-msgstr ""
+msgstr "Sonuçların sayısı: <%= count %>"
 
 #: static/apps/components/generic-list/list/views/paging-footer.js:70
 msgid "first page"
@@ -118,16 +119,16 @@ msgstr "sayfa"
 #. Translators: describes the state of a pagination button as not clickable
 #: static/apps/components/generic-list/list/views/paging-footer.js:88
 msgid "disabled"
-msgstr ""
+msgstr "pasif"
 
 #. Translators: describes a pagination button as representing the current page
 #: static/apps/components/generic-list/list/views/paging-footer.js:91
 msgid "active"
-msgstr ""
+msgstr "aktif"
 
 #: static/apps/components/generic-list/list/views/table.js:27
 msgid "Generic List"
-msgstr ""
+msgstr "Genel Liste"
 
 #. Translators: This message indicates content is loading in the page.
 #: static/apps/components/loading/views/loading-view.js:20
@@ -138,7 +139,7 @@ msgstr "Yüklüyor..."
 #. it as "504".
 #: static/apps/components/utils/utils.js:61
 msgid "504: Server error"
-msgstr ""
+msgstr "504: Sunucu hatası"
 
 #: static/apps/components/utils/utils.js:63
 msgid ""
@@ -148,16 +149,16 @@ msgstr "Yapılan işlemi tamamlamak çok uzun sürdü. Sayfayı yenileyip tekrar
 
 #: static/apps/components/utils/utils.js:67
 msgid "Server error"
-msgstr ""
+msgstr "Sunucu hatası"
 
 #: static/apps/components/utils/utils.js:68
 #: static/apps/components/utils/utils.js:80
 msgid "Your request could not be processed. Reload the page to try again."
-msgstr ""
+msgstr "İsteğiniz işlenemiyor. Tekrar denemek için sayfayı yeniden yükleyin."
 
 #: static/apps/components/utils/utils.js:79
 msgid "Network error"
-msgstr ""
+msgstr "Ağ hatası"
 
 #: static/apps/course-list/app/app.js:39
 msgid "Instructor-Paced"
@@ -177,16 +178,16 @@ msgstr ""
 
 #: static/apps/course-list/app/app.js:45
 msgid "Archived"
-msgstr ""
+msgstr "Arşivlenmiş"
 
 #: static/apps/course-list/app/app.js:46
 msgid "Unknown"
-msgstr ""
+msgstr "Bilinmeyen"
 
 #: static/apps/course-list/app/controller.js:48
 #: static/apps/course-list/app/controller.js:108
 msgid "Course List"
-msgstr ""
+msgstr "Ders Listesi"
 
 #: static/apps/course-list/app/controller.js:98
 #: static/apps/learners/app/controller.js:96
@@ -199,7 +200,7 @@ msgstr ""
 
 #: static/apps/course-list/app/controller.js:100
 msgid "Return to the Course List page."
-msgstr ""
+msgstr "Ders Listesi sayfasına geri dön."
 
 #: static/apps/course-list/app/controller.js:125
 #: static/apps/learners/app/controller.js:181
@@ -213,7 +214,7 @@ msgstr "Sayfa Bulunamadı"
 
 #: static/apps/course-list/common/collections/course-list.js:77
 msgid "Course Name"
-msgstr ""
+msgstr "Ders Adı"
 
 #: static/apps/course-list/common/collections/course-list.js:78
 msgid "Start Date"
@@ -225,7 +226,7 @@ msgstr "Bitiş Tarihi"
 
 #: static/apps/course-list/common/collections/course-list.js:80
 msgid "Total Enrollment"
-msgstr ""
+msgstr "Toplam Kayıtlanma"
 
 #. Translators: The noun count (e.g. number of learners)
 #: static/apps/course-list/common/collections/course-list.js:81
@@ -241,7 +242,7 @@ msgstr ""
 
 #: static/apps/course-list/common/collections/course-list.js:83
 msgid "Verified Enrollment"
-msgstr ""
+msgstr "Onaylanmış Kayıtlanma"
 
 #: static/apps/course-list/common/collections/course-list.js:86
 msgid "Passing Learners"
@@ -257,7 +258,7 @@ msgstr ""
 
 #: static/apps/course-list/common/collections/course-list.js:91
 msgid "Programs"
-msgstr ""
+msgstr "Programlar"
 
 #: static/apps/course-list/list/views/base-header-cell.js:11
 msgid "Course name advertised on edX site."
@@ -277,7 +278,7 @@ msgstr "Derse hiç kayıt yaptırmayan öğrenciler."
 
 #: static/apps/course-list/list/views/base-header-cell.js:15
 msgid "Learners currently enrolled in the course."
-msgstr ""
+msgstr "Mevcut olarak derse kayıtlı öğrenciler."
 
 #: static/apps/course-list/list/views/base-header-cell.js:16
 msgid "Net difference in current enrollment in the last week."
@@ -386,7 +387,7 @@ msgstr "Öğrenci Bilgileri"
 
 #: static/apps/learners/common/collections/learners.js:17
 msgid "Name (Username)"
-msgstr ""
+msgstr "Ad (Kullanıcı adı)"
 
 #: static/apps/learners/common/collections/learners.js:18
 msgid "Problems Tried"
@@ -409,7 +410,7 @@ msgstr "Videolar"
 
 #: static/apps/learners/common/collections/learners.js:22
 msgid "Discussions"
-msgstr "Tarişmalar(forum)"
+msgstr "Forum"
 
 #: static/apps/learners/common/collections/learners.js:24
 msgid "Segments"
@@ -491,7 +492,7 @@ msgstr ""
 
 #: static/apps/learners/detail/views/learner-return.js:12
 msgid "Return to Learners"
-msgstr ""
+msgstr "Öğrencilere Dön"
 
 #. Translators: this is a label describing a selection that the user
 #. initiated.
@@ -508,7 +509,7 @@ msgstr ""
 #: static/apps/learners/roster/views/active-filters.js:32
 #: static/js/engagement-content-main.js:20
 msgid "Active Learners"
-msgstr ""
+msgstr "Aktif Öğrenciler"
 
 #: static/apps/learners/roster/views/activity-date-range.js:11
 msgid "Activity between <%- startDate %> - <%- endDate %>"
@@ -544,7 +545,7 @@ msgstr ""
 
 #: static/apps/learners/roster/views/controls.js:62
 msgid "Find a learner"
-msgstr ""
+msgstr "Öğrenci bul"
 
 #: static/apps/learners/roster/views/controls.js:75
 msgid "Cohort Groups"
@@ -594,7 +595,7 @@ msgstr ""
 
 #: static/apps/learners/roster/views/search.js:55
 msgid "Search learners"
-msgstr ""
+msgstr "Öğrencileri ara"
 
 #. Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate
 #. accordingly.
@@ -673,7 +674,7 @@ msgstr "Tamamlanmayan Görüntülemeler"
 #. certificate)
 #: static/js/enrollment-activity-main.js:33
 msgid "Honor"
-msgstr "Onur"
+msgstr "Etik"
 
 #: static/js/enrollment-activity-main.js:38
 msgid "Audit"
@@ -681,7 +682,7 @@ msgstr "Gözlemle"
 
 #: static/js/enrollment-activity-main.js:43
 msgid "Verified"
-msgstr "Onaylandı"
+msgstr "Onaylanmış"
 
 #: static/js/enrollment-activity-main.js:48
 msgid "Professional"
@@ -697,7 +698,7 @@ msgstr ""
 #: static/js/enrollment-demographics-age-main.js:34
 #: static/js/enrollment-demographics-education-main.js:32
 msgid "Number of Learners"
-msgstr ""
+msgstr "Öğrencilerin Sayısı"
 
 #. Translators: <%=value%> will be replaced with an age.
 #: static/js/enrollment-demographics-age-main.js:26
@@ -757,7 +758,7 @@ msgstr ""
 
 #: static/js/enrollment-geography-main.js:26
 msgid "Country or Region"
-msgstr "Ülke yada Bölge"
+msgstr "Ülke ya da Bölge"
 
 #: static/js/enrollment-geography-main.js:27
 msgid "Percent"
@@ -829,7 +830,7 @@ msgstr ""
 
 #: static/js/performance-learning-outcomes-section-main.js:30
 msgid "Difficulty"
-msgstr ""
+msgstr "Zorluk"
 
 #: static/js/performance-learning-outcomes-section-main.js:53
 #: static/js/performance-problems-main.js:35
