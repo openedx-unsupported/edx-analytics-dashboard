@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Changyue Wang <peterwang.dut@gmail.com>, 2015
+# focusheart <focusheart@gmail.com>, 2017
 # jsgang <jsgang9@gmail.com>, 2015-2017
 # Jun Hao Lin <xuxiao15994219982@gmail.com>, 2015
 # justin mao <hatmatrix42@gmail.com>, 2016
@@ -23,8 +24,8 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2017-09-23 20:11+0000\n"
-"Last-Translator: Ned Batchelder <ned@edx.org>\n"
+"PO-Revision-Date: 2017-12-29 07:17+0000\n"
+"Last-Translator: focusheart <focusheart@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/open-edx/edx-platform/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -99,7 +100,7 @@ msgstr "结果"
 #. table.
 #: static/apps/components/generic-list/list/views/num-results.js:30
 msgid "Number of results: <%= count %>"
-msgstr ""
+msgstr "结果数量：<%= count %>"
 
 #: static/apps/components/generic-list/list/views/paging-footer.js:70
 msgid "first page"
@@ -133,7 +134,7 @@ msgstr "激活"
 
 #: static/apps/components/generic-list/list/views/table.js:27
 msgid "Generic List"
-msgstr ""
+msgstr "通用列表"
 
 #. Translators: This message indicates content is loading in the page.
 #: static/apps/components/loading/views/loading-view.js:20
@@ -167,11 +168,11 @@ msgstr "网络连接错误"
 
 #: static/apps/course-list/app/app.js:39
 msgid "Instructor-Paced"
-msgstr ""
+msgstr "讲师进度"
 
 #: static/apps/course-list/app/app.js:40
 msgid "Self-Paced"
-msgstr ""
+msgstr "自定进度"
 
 #: static/apps/course-list/app/app.js:43
 msgid "Upcoming"
@@ -187,7 +188,7 @@ msgstr "存档"
 
 #: static/apps/course-list/app/app.js:46
 msgid "Unknown"
-msgstr ""
+msgstr "未知"
 
 #: static/apps/course-list/app/controller.js:48
 #: static/apps/course-list/app/controller.js:108
@@ -201,11 +202,11 @@ msgstr "无效参数"
 
 #: static/apps/course-list/app/controller.js:99
 msgid "Sorry, we couldn't find any courses that matched that query."
-msgstr ""
+msgstr "对不起，我们找不到任何与该查询相匹配的课程。"
 
 #: static/apps/course-list/app/controller.js:100
 msgid "Return to the Course List page."
-msgstr ""
+msgstr "返回课程列表页面。"
 
 #: static/apps/course-list/app/controller.js:125
 #: static/apps/learners/app/controller.js:181
@@ -243,7 +244,7 @@ msgstr "当前注册"
 
 #: static/apps/course-list/common/collections/course-list.js:82
 msgid "Change Last Week"
-msgstr ""
+msgstr "过去一周的变化"
 
 #: static/apps/course-list/common/collections/course-list.js:83
 msgid "Verified Enrollment"
@@ -251,58 +252,58 @@ msgstr "认证的选修学生"
 
 #: static/apps/course-list/common/collections/course-list.js:86
 msgid "Passing Learners"
-msgstr ""
+msgstr "及格的学生"
 
 #: static/apps/course-list/common/collections/course-list.js:89
 msgid "Availability"
-msgstr ""
+msgstr "可用性"
 
 #: static/apps/course-list/common/collections/course-list.js:90
 msgid "Pacing Type"
-msgstr ""
+msgstr "进度类型"
 
 #: static/apps/course-list/common/collections/course-list.js:91
 msgid "Programs"
-msgstr ""
+msgstr "项目"
 
 #: static/apps/course-list/list/views/base-header-cell.js:11
 msgid "Course name advertised on edX site."
-msgstr ""
+msgstr "edX 网站公告的课程名称"
 
 #: static/apps/course-list/list/views/base-header-cell.js:12
 msgid "Start date advertised on edX site."
-msgstr ""
+msgstr "edX 网站公告的开始日期"
 
 #: static/apps/course-list/list/views/base-header-cell.js:13
 msgid "End date set in edX Studio."
-msgstr ""
+msgstr "edX Studio 内设定的结束日期"
 
 #: static/apps/course-list/list/views/base-header-cell.js:14
 msgid "Learners who ever enrolled in the course."
-msgstr ""
+msgstr "曾选修过此课程的学生。"
 
 #: static/apps/course-list/list/views/base-header-cell.js:15
 msgid "Learners currently enrolled in the course."
-msgstr ""
+msgstr "当前在选修该课程的学生。"
 
 #: static/apps/course-list/list/views/base-header-cell.js:16
 msgid "Net difference in current enrollment in the last week."
-msgstr ""
+msgstr "最近一周选课学生数没有变化。"
 
 #: static/apps/course-list/list/views/base-header-cell.js:18
 msgid ""
 "Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
-msgstr ""
+msgstr "当前选课的学生当中申请成绩认证证书的人数。"
 
 #: static/apps/course-list/list/views/base-header-cell.js:19
 msgid "Learners who have earned a passing grade."
-msgstr ""
+msgstr "已获得及格分数的学生。"
 
 #: static/apps/course-list/list/views/controls.js:38
 #: static/apps/learners/roster/views/controls.js:39
 msgid "Skip to results"
-msgstr ""
+msgstr "跳到结果"
 
 #: static/apps/course-list/list/views/controls.js:58
 msgid "Find a course"
@@ -310,27 +311,27 @@ msgstr "查找一门课程"
 
 #: static/apps/course-list/list/views/controls.js:68
 msgid "availability"
-msgstr ""
+msgstr "可用性"
 
 #: static/apps/course-list/list/views/controls.js:76
 msgid "pacing_type"
-msgstr ""
+msgstr "pacing_type"
 
 #: static/apps/course-list/list/views/controls.js:84
 msgid "program_ids"
-msgstr ""
+msgstr "program_ids"
 
 #: static/apps/course-list/list/views/course-list.js:66
 msgid "Download full course list to CSV"
-msgstr ""
+msgstr "下载完成课程列表到 CSV 文件"
 
 #: static/apps/course-list/list/views/course-list.js:91
 msgid "Course list controls"
-msgstr ""
+msgstr "课程列表控制"
 
 #: static/apps/course-list/list/views/results.js:47
 msgid "No courses matched your criteria."
-msgstr ""
+msgstr "没有符合你的标准的课程"
 
 #: static/apps/course-list/list/views/results.js:49
 #: static/apps/learners/roster/views/results.js:49
@@ -344,13 +345,13 @@ msgstr "尝试清除已选项。"
 
 #: static/apps/course-list/list/views/results.js:55
 msgid "No course data is currently available for your course."
-msgstr ""
+msgstr "你的课程当前没有可用的课程数据。"
 
 #: static/apps/course-list/list/views/results.js:57
 msgid ""
 "No courses are enrolled, or course activity data has not yet been processed."
 " Data is updated every day, so check back regularly for up-to-date metrics."
-msgstr ""
+msgstr "尚未注册任何课程，或者课程活动数据尚未发布。数据每天都会更新，所以请时常检查最新的统计指标。"
 
 #: static/apps/course-list/list/views/search.js:71
 msgid "Search courses"
@@ -474,7 +475,7 @@ msgstr "选课"
 
 #: static/apps/learners/detail/views/learner-detail.js:106
 msgid "Last Accessed"
-msgstr ""
+msgstr "最后访问"
 
 #. Translators: 'n/a' means 'not available'
 #: static/apps/learners/detail/views/learner-detail.js:109
@@ -503,13 +504,13 @@ msgstr "返回学习者。"
 #. initiated.
 #: static/apps/learners/roster/views/active-filters.js:23
 msgid "Cohort: <%= filterVal %>"
-msgstr ""
+msgstr "学生组: <%= filterVal %>"
 
 #. Translators: this is a label describing a selection that the user
 #. initiated.
 #: static/apps/learners/roster/views/active-filters.js:27
 msgid "Enrollment Track: <%= filterVal %>"
-msgstr ""
+msgstr "选课记录: <%= filterVal %>"
 
 #: static/apps/learners/roster/views/active-filters.js:32
 #: static/js/engagement-content-main.js:20
@@ -518,7 +519,7 @@ msgstr "活跃的学员"
 
 #: static/apps/learners/roster/views/activity-date-range.js:11
 msgid "Activity between <%- startDate %> - <%- endDate %>"
-msgstr ""
+msgstr "<%- startDate %> 至 <%- endDate %> 期间的活动"
 
 #: static/apps/learners/roster/views/base-header-cell.js:10
 msgid "The name and username of this learner. Click to sort by username."
@@ -558,7 +559,7 @@ msgstr "学习小组"
 
 #: static/apps/learners/roster/views/controls.js:73
 msgid "cohort"
-msgstr ""
+msgstr "群组"
 
 #: static/apps/learners/roster/views/controls.js:87
 msgid "Enrollment Tracks"
@@ -566,18 +567,18 @@ msgstr "选课记录"
 
 #: static/apps/learners/roster/views/controls.js:85
 msgid "enrollment_mode"
-msgstr ""
+msgstr "入学模式"
 
 #. Translators: inactive meaning that these learners have not interacted with
 #. the
 #. course recently.
 #: static/apps/learners/roster/views/controls.js:103
 msgid "Hide Inactive Learners"
-msgstr ""
+msgstr "隐藏不活跃的学生"
 
 #: static/apps/learners/roster/views/controls.js:97
 msgid "ignore_segments"
-msgstr ""
+msgstr "ignore_segments"
 
 #: static/apps/learners/roster/views/results.js:47
 msgid "No learners matched your criteria."
@@ -622,11 +623,11 @@ msgstr "尝试过解决问题"
 
 #: static/js/engagement-content-main.js:41
 msgid "Participated in Discussions"
-msgstr ""
+msgstr "参与讨论"
 
 #: static/js/engagement-content-main.js:48
 msgid "Percent of Current Learners"
-msgstr ""
+msgstr "当前学生百分比"
 
 #. Translators: <%=value%> will be replaced with a date.
 #: static/js/engagement-content-main.js:85
@@ -703,7 +704,7 @@ msgstr "信用认证"
 #: static/js/enrollment-demographics-age-main.js:34
 #: static/js/enrollment-demographics-education-main.js:32
 msgid "Number of Learners"
-msgstr ""
+msgstr "学生数目"
 
 #. Translators: <%=value%> will be replaced with an age.
 #: static/js/enrollment-demographics-age-main.js:26
@@ -759,7 +760,7 @@ msgstr "未报告"
 msgid ""
 "Learner location is determined from IP address. This map shows where "
 "learners most recently connected."
-msgstr ""
+msgstr "学生们的所在地由其 IP 地址得到，这张地图展示了最近学生们访问网站的地点。"
 
 #: static/js/enrollment-geography-main.js:26
 msgid "Country or Region"
