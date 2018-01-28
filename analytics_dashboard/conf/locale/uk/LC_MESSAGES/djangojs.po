@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Denis <prohibiti@gmail.com>, 2015
+# Dmytro Halko <dgalko@edpro.com.ua>, 2018
 # Eugenia <sakovets93@gmail.com>, 2014
 # Irene Korotkova <irca.gav@gmail.com>, 2017
 # Natalia Vynogradenko <tannaha@gmail.com>, 2018
@@ -15,8 +16,8 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2018-01-19 11:12+0000\n"
-"Last-Translator: Natalia Vynogradenko <tannaha@gmail.com>\n"
+"PO-Revision-Date: 2018-01-26 11:45+0000\n"
+"Last-Translator: Dmytro Halko <dgalko@edpro.com.ua>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/open-edx/edx-platform/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,7 +31,7 @@ msgstr "Завантажити CSV-файл"
 
 #: static/apps/components/download/views/download-data.js:26
 msgid "Download search results to CSV"
-msgstr ""
+msgstr "Завантажити результати пошуку в CSV"
 
 #. Translators: "All" refers to viewing all items (e.g. all courses).
 #: static/apps/components/filter/views/drop-down-filter.js:31
@@ -51,11 +52,11 @@ msgstr ""
 
 #: static/apps/components/generic-list/list/views/active-filters.js:87
 msgid "Filters In Use:"
-msgstr ""
+msgstr "Використовувані фільтри:"
 
 #: static/apps/components/generic-list/list/views/active-filters.js:88
 msgid "Click to remove this filter"
-msgstr ""
+msgstr "Натисніть, щоб видалити цей фільтр"
 
 #. Translators: "Clear" in this context means "remove all of the filters"
 #: static/apps/components/generic-list/list/views/active-filters.js:90
@@ -64,38 +65,38 @@ msgstr "Очистити"
 
 #: static/apps/components/generic-list/list/views/active-filters.js:91
 msgid "Click to remove all filters"
-msgstr ""
+msgstr "Натисніть, щоб видалити всі фільтри"
 
 #. Translators: "sort ascending" describes the current sort state to the user.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:71
 msgid "sort ascending"
-msgstr ""
+msgstr "висхідне сортування"
 
 #. Translators: "sort descending" describes the current sort state to the
 #. user.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:73
 msgid "sort descending"
-msgstr ""
+msgstr "спадне сортування"
 
 #. Translators: "click to sort" tells the user that they can click this link
 #. to sort by the current field.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:76
 msgid "click to sort"
-msgstr ""
+msgstr "натисніть для сортування"
 
 #: static/apps/components/generic-list/list/views/list.js:51
 msgid "Results"
-msgstr ""
+msgstr "Результати"
 
 #. Translators: 'count' refers to the number of results contained in the
 #. table.
 #: static/apps/components/generic-list/list/views/num-results.js:30
 msgid "Number of results: <%= count %>"
-msgstr ""
+msgstr "Кількість результатів:<%= count %>"
 
 #: static/apps/components/generic-list/list/views/paging-footer.js:70
 msgid "first page"
-msgstr ""
+msgstr "перша сторінка"
 
 #: static/apps/components/generic-list/list/views/paging-footer.js:72
 msgid "previous page"
@@ -107,25 +108,25 @@ msgstr "наступна сторінка"
 
 #: static/apps/components/generic-list/list/views/paging-footer.js:76
 msgid "last page"
-msgstr ""
+msgstr "остання сторінка"
 
 #: static/apps/components/generic-list/list/views/paging-footer.js:78
 msgid "page"
-msgstr ""
+msgstr "сторінка"
 
 #. Translators: describes the state of a pagination button as not clickable
 #: static/apps/components/generic-list/list/views/paging-footer.js:88
 msgid "disabled"
-msgstr ""
+msgstr "вимкнено"
 
 #. Translators: describes a pagination button as representing the current page
 #: static/apps/components/generic-list/list/views/paging-footer.js:91
 msgid "active"
-msgstr ""
+msgstr "активний"
 
 #: static/apps/components/generic-list/list/views/table.js:27
 msgid "Generic List"
-msgstr ""
+msgstr "Загальний список"
 
 #. Translators: This message indicates content is loading in the page.
 #: static/apps/components/loading/views/loading-view.js:20
@@ -136,26 +137,26 @@ msgstr "Завантаження..."
 #. it as "504".
 #: static/apps/components/utils/utils.js:61
 msgid "504: Server error"
-msgstr ""
+msgstr "Помилка сервера 504"
 
 #: static/apps/components/utils/utils.js:63
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
-msgstr ""
+msgstr "Обробка вашого запиту зайняла надто багато часу. Перезавантажте сторінку, щоб повторити спробу."
 
 #: static/apps/components/utils/utils.js:67
 msgid "Server error"
-msgstr ""
+msgstr "Помилка сервера"
 
 #: static/apps/components/utils/utils.js:68
 #: static/apps/components/utils/utils.js:80
 msgid "Your request could not be processed. Reload the page to try again."
-msgstr ""
+msgstr "Ваш запит не може бути оброблений. Перезавантажте сторінку, щоб повторити спробу."
 
 #: static/apps/components/utils/utils.js:79
 msgid "Network error"
-msgstr ""
+msgstr "Помилка мережі"
 
 #: static/apps/course-list/app/app.js:39
 msgid "Instructor-Paced"
@@ -167,15 +168,15 @@ msgstr ""
 
 #: static/apps/course-list/app/app.js:43
 msgid "Upcoming"
-msgstr ""
+msgstr "Незабаром"
 
 #: static/apps/course-list/app/app.js:44
 msgid "Current"
-msgstr ""
+msgstr "Поточні"
 
 #: static/apps/course-list/app/app.js:45
 msgid "Archived"
-msgstr ""
+msgstr "В архіві"
 
 #: static/apps/course-list/app/app.js:46
 msgid "Unknown"
@@ -184,7 +185,7 @@ msgstr ""
 #: static/apps/course-list/app/controller.js:48
 #: static/apps/course-list/app/controller.js:108
 msgid "Course List"
-msgstr ""
+msgstr "Перелік курсів"
 
 #: static/apps/course-list/app/controller.js:98
 #: static/apps/learners/app/controller.js:96
@@ -193,7 +194,7 @@ msgstr ""
 
 #: static/apps/course-list/app/controller.js:99
 msgid "Sorry, we couldn't find any courses that matched that query."
-msgstr ""
+msgstr "На жаль, ми не знайшли курсів, які відповідали цьому запиту."
 
 #: static/apps/course-list/app/controller.js:100
 msgid "Return to the Course List page."
@@ -211,19 +212,19 @@ msgstr "Сторінку не знайдено"
 
 #: static/apps/course-list/common/collections/course-list.js:77
 msgid "Course Name"
-msgstr ""
+msgstr "Назва курсу"
 
 #: static/apps/course-list/common/collections/course-list.js:78
 msgid "Start Date"
-msgstr ""
+msgstr "Дата початку"
 
 #: static/apps/course-list/common/collections/course-list.js:79
 msgid "End Date"
-msgstr ""
+msgstr "Дата завершення"
 
 #: static/apps/course-list/common/collections/course-list.js:80
 msgid "Total Enrollment"
-msgstr ""
+msgstr "Загальна кількість учасників"
 
 #. Translators: The noun count (e.g. number of learners)
 #: static/apps/course-list/common/collections/course-list.js:81
@@ -298,7 +299,7 @@ msgstr ""
 
 #: static/apps/course-list/list/views/controls.js:58
 msgid "Find a course"
-msgstr ""
+msgstr "Шукати курс"
 
 #: static/apps/course-list/list/views/controls.js:68
 msgid "availability"
@@ -314,7 +315,7 @@ msgstr ""
 
 #: static/apps/course-list/list/views/course-list.js:66
 msgid "Download full course list to CSV"
-msgstr ""
+msgstr "Завантажити повний список курсів у форматі CSV"
 
 #: static/apps/course-list/list/views/course-list.js:91
 msgid "Course list controls"
@@ -322,17 +323,17 @@ msgstr ""
 
 #: static/apps/course-list/list/views/results.js:47
 msgid "No courses matched your criteria."
-msgstr ""
+msgstr "Немає курсів, що відповідають вашим критеріям."
 
 #: static/apps/course-list/list/views/results.js:49
 #: static/apps/learners/roster/views/results.js:49
 msgid "Try a different search."
-msgstr ""
+msgstr "Спробуйте інший пошук."
 
 #: static/apps/course-list/list/views/results.js:52
 #: static/apps/learners/roster/views/results.js:52
 msgid "Try clearing the filters."
-msgstr ""
+msgstr "Спробуйте очистити фільтри."
 
 #: static/apps/course-list/list/views/results.js:55
 msgid "No course data is currently available for your course."
