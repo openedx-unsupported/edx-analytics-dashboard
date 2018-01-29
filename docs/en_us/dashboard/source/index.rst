@@ -10,7 +10,9 @@ Using edX Insights
 
    front_matter/index
    Overview
+   Courses_Page
    enrollment/index
    engagement/index
    performance/index
+   learners/index
    Reference

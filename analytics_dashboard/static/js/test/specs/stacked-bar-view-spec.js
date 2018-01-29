@@ -1,8 +1,8 @@
 define(['underscore', 'models/course-model', 'views/stacked-bar-view'], function(_, CourseModel, StackedBarView) {
     'use strict';
 
-    describe('Stacked bar view', function () {
-        it('should format labels for display', function () {
+    describe('Stacked bar view', function() {
+        it('should format labels for display', function() {
             var model = new CourseModel(),
                 view = new StackedBarView({
                     model: model,
@@ -20,8 +20,8 @@ define(['underscore', 'models/course-model', 'views/stacked-bar-view'], function
                             color: '#CA0061'
                         }
                     ],
-                    x: { key: 'id', displayKey: 'name' },
-                    y: { key: 'count' },
+                    x: {key: 'id', displayKey: 'name'},
+                    y: {key: 'count'},
                     click: function() {}
                 }),
                 data = [
@@ -42,6 +42,7 @@ define(['underscore', 'models/course-model', 'views/stacked-bar-view'], function
                 xLabelMapping;
 
             view.render = jasmine.createSpy('render');
+            view.renderIfDataAvailable();
             expect(view.render).not.toHaveBeenCalled();
 
             // mock getChart (otherwise, an error is thrown)
@@ -76,7 +77,7 @@ define(['underscore', 'models/course-model', 'views/stacked-bar-view'], function
             expect(assembledData[1].color).toBe('#CA0061');
         });
 
-        it('should have default options', function () {
+        it('should have default options', function() {
             var view = new StackedBarView({model: new CourseModel(), modelAttribute: 'data'}),
                 trend = {
                     value: 200,
@@ -84,6 +85,7 @@ define(['underscore', 'models/course-model', 'views/stacked-bar-view'], function
                     point: {percent: 0.1239}
                 },
                 expectedTooltip = '200 (12.4%)';
+            view.renderIfDataAvailable();
             expect(_.isFunction(view.options.click)).toBe(true);
             expect(view.options.truncateXTicks).toBe(true);
             expect(view.options.barSelector).toBe('.nv-bar');
@@ -92,6 +94,5 @@ define(['underscore', 'models/course-model', 'views/stacked-bar-view'], function
             expect(view.options.y).toEqual({key: 'count'});
             expect(view.options.interactiveTooltipValueTemplate(trend)).toBe(expectedTooltip);
         });
-
     });
 });

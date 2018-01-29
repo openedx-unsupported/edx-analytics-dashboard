@@ -1,5 +1,6 @@
 {% extends "courses/base-course.html" %}
 {% load i18n %}
+{% load dashboard_extras %}
 
 {% block view-name %}view-course-home view-dashboard{% endblock view-name %}
 
@@ -8,19 +9,25 @@
 
   {#  Translators: Application here refers to the web site/application being used (e.g. the dashboard). #}
   <nav class="navbar navbar-default lens-nav" role="navigation" aria-label="{% trans "Application" %}">
-    <div class="container ">
+    <div class="grid-container">
       <ul class="nav navbar-nav">
         <li class="active nav-section">
-          <a href="#"><span class="link-label">{% trans "Course Home" %}</span></a>
+          <div class="course-label">{% trans "Course Home" %}</div>
           <span class="sr-only">({% trans "Active" %})</span>
         </li>
 
         {% for item in primary_nav_items %}
           <li>
-            <a href="{{ item.href }}"><span class="link-label">
-                {% if item.icon %}<i class="ico fa {{ item.icon }}" aria-hidden="true"></i>{% endif %}
-              {{ item.label }}
-            </span></a>
+              {% captureas lens_url %}{{ item.href }}{{ item.fragment }}{% endcaptureas %}
+              <a href="{{ lens_url }}" data-track-type="click"
+                  data-track-event="edx.bi.ui.menu.navigated" data-track-text="{{ item.text }}"
+                  data-track-url="{{ lens_url }}" data-track-target-scope="{{ item.scope }}"
+                  data-track-target-lens="{{ item.lens }}" data-track-target-report="{{ item.report }}"
+                  data-track-target-depth="{{ item.depth }}" data-track-menu-depth="lens"
+                  data-track-link-name="{{ item.lens }}"><span class="link-label">
+                  {% if item.icon %}<span class="ico fa {{ item.icon }}" aria-hidden="true"></span>{% endif %}
+                {{ item.translated_text }}
+              </span></a>
           </li>
         {% endfor %}
       </ul>
@@ -29,30 +36,44 @@
 {% endblock %}
 
 {% block child_content %}
-  <div class="row course-home-table-outer">
+  <div class="course-home-table-outer">
     {% for column in table_items %}
-      <div class="col-sm-4">
+      <div class="course-home-section">
         <header class="heading-outer">
           <div class="heading">{{ column.heading }}</div>
         </header>
 
         <div class="course-home-table">
           <div class="item name">
-            <i class="ico fa {{ column.icon }}" aria-hidden="true"></i> {{ column.name }}
+            <span class="ico fa {{ column.icon }}" aria-hidden="true"></span> {{ column.translated_name }}
           </div>
 
           {% for item in column.items %}
             <div class="item">
-              <div class="title"><a href="{% url item.view course_id=course_id %}">{{ item.title }}</a></div>
+              {% captureas report_url %}{% url item.view course_id=course_id %}{{ item.fragment }}{% endcaptureas %}
+              <div class="title"><a href="{{ report_url }}"
+                data-track-type="click" data-track-event="edx.bi.course.question_clicked"
+                data-track-category="{{ column.name|lower }}" data-track-question="{{ item.title }}"
+                data-track-url="{{ report_url }}" data-track-target-scope="{{ item.scope }}"
+                data-track-target-lens="{{ item.lens }}" data-track-target-report="{{ item.report }}"
+                data-track-target-depth="{{ item.depth }}">
+                {{ item.translated_title }}
+              </a></div>
               <div class="breadcrumbs">
-                <i class="ico fa {{ column.icon }}" aria-hidden="true"></i>
-                <i class="ico fa fa-caret-right" aria-hidden="true"></i>
+                <span class="ico fa {{ column.icon }}" aria-hidden="true"></span>
+                <span class="ico fa fa-caret-right" aria-hidden="true"></span>
                 {% for breadcrumb in item.breadcrumbs %}
                   {{ breadcrumb }}
                   {% if not forloop.last %}
-                    <i class="ico fa fa-caret-right" aria-hidden="true"></i>
+                    <span class="ico fa fa-caret-right" aria-hidden="true"></span>
                   {% endif %}
                 {% endfor %}
+                {% if item.format == "csv" %}
+                  {# Translators: This indicates that the adjacent link will trigger a CSV download. '{{download_icon}}' will be replaced with an icon. #}
+                  {% blocktrans with download_icon='<span class="ico fa fa-download" aria-hidden="true"></span>' %}
+                    ({{download_icon}} CSV Download)
+                  {% endblocktrans %}
+                {% endif %}
               </div>
             </div>
           {% endfor %}
@@ -60,4 +81,36 @@
       </div>
     {% endfor %}
   </div>
+
+  {% if course_overview or external_course_tools %}
+    <div class="row">
+      <div class="col col-12 sm-col-12"><hr></div>
+    </div>
+
+    <div class="row">
+      <div class="col col-12 sm-col-12 md-col-8">
+        {% if course_overview %}
+          <h4 class="section-title">{% trans "Basic Course Information" %}</h4>
+          <table class="table course-overview" role="presentation">
+            <tbody>
+              {% for label, value in course_overview %}
+                <tr><th>{{label}}</th><td>{{value|safe}}</td></tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% endif %}
+      </div>
+      {% if external_course_tools %}
+        <div class="col col-12 sm-col-12 md-col-4">
+          {# Translators: This title describes a list of links to outside tools for this course. #}
+          <h4 class="section-title">{% trans "External Tools" %}</h4>  
+          <ul class="course-external-tools">
+            {% for tool in external_course_tools %}
+              <li><a href="{{tool.url}}"><span class="ico fa {{tool.icon}}" aria-hidden="true"></span>{{tool.title}}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
 {% endblock %}

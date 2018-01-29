@@ -2,51 +2,82 @@
 {% load i18n %}
 {% load staticfiles %}
 {% load dashboard_extras %}
-{% load firstof from future %}
+{% load render_bundle from webpack_loader %}
+{% load get_files from webpack_loader %}
 
 {% block view-name %}view-course-list{% endblock view-name %}
 
 {% block title %}{% trans "Courses" %} {{ block.super }}{% endblock title %}
 
-{% block header-text %}
-  <h3>
-    {% blocktrans with username=request.user.username %}Welcome, {{ username }}!{% endblocktrans %}
-  </h3>
+
+{% block summary-cards %}
+<section class="view-section row">
+    <div class="section-heading bordered">
+        <h3 class="section-title">
+            {% blocktrans %}Across all your courses:{% endblocktrans %}
+        </h3>
+    </div>
+
+    {% if summary %}
+        <div class="section-content" role="region">
+            <div class="row">
+                <div class="col col-12 sm-col-12 md-col-3" data-stat-type="total_enrollment">
+                    {# Translators: This is a label to identify the maximum number of learners ever in all of the instructor's courses. #}
+                    {% trans "Total Enrollment" as label %}
+                    {% trans "Total enrollments across all of your courses." as tooltip %}
+                    {% summary_point summary.total_enrollment label tooltip=tooltip %}
+                </div>
+
+                <div class="col col-12 sm-col-12 md-col-3" data-stat-type="current_enrollment">
+                    {# Translators: This is a label to identify the current number of learners in all of the instructor's courses. #}
+                    {% trans "Current Enrollment" as label %}
+                    {% trans "Current enrollments across all of your courses." as tooltip %}
+                    {% summary_point summary.current_enrollment label tooltip=tooltip %}
+                </div>
+
+                <div class="col col-12 sm-col-12 md-col-3" data-stat-type="enrollment_change_7_days">
+                    {# Translators: This is a label to identify the change in the number of learners in all of the instructor's courses in the last week. #}
+                    {% trans "Change in Last Week" as label %}
+                    {% trans "Total change in enrollment last week across all of your courses." as tooltip %}
+                    {% summary_point summary.enrollment_change_7_days label tooltip=tooltip %}
+                </div>
+
+                <div class="col col-12 sm-col-12 md-col-3" data-stat-type="verified_enrollment">
+                    {# Translators: This is a label to identify the current number of verified learners in all of the instructor's courses. #}
+                    {% trans "Verified Enrollment" as label %}
+                    {% trans "Verified enrollments across all of your courses." as tooltip %}
+                    {% summary_point summary.verified_enrollment label tooltip=tooltip %}
+                </div>
+            </div>
+        </div>
+    {% else %}
+        {% show_metrics_error %}
+    {% endif %}
+</section>
 {% endblock %}
 
-{% block intro-text %}
-  {% blocktrans %}Here are the courses you currently have access to in {{ application_name }}:{% endblocktrans %}
-{% endblock intro-text %}
+{% block stylesheets %}
+  {{ block.super }}
+	{% get_files 'learners-main' 'css' as common_css %}
+    {% for css_file in common_css %}
+        <link rel="stylesheet" href="{{ css_file.publicPath }}" type="text/css">
+    {% endfor %}
+{% endblock stylesheets %}
+
+{% block javascript %}
+  {{ block.super }}
+  {% render_bundle 'course-list-main' %}
+{% endblock javascript %}
 
 {% block content %}
-  <div class="row">
-    <div class="col-md-8">
-      <div class="course-list">
-        {% for course in courses %}
-          <div class="course">
-            <a href="{% url 'courses:home' course_id=course.key %}">
-              <span class="course-name">{% firstof course.name course.key|format_course_key %}</span>
-            </a>
-
-            {% if course.name %}
-              <div class="course-key">{{ course.key|format_course_key:" / " }}</div>
-            {% endif %}
-          </div>
-        {% endfor %}
+  {% block child_content %}
+    <section class="view-section">
+      <div class="course-list-app-container grid-container">
+        {% include "loading.html" %}
       </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="help-msg">
-        <h4>{% blocktrans %}New to {{ application_name }}?{% endblocktrans %}</h4>
-
-        {% captureas email_link %}
-          <a class="feedback-email" href="mailto:{{ feedback_email }}?Subject=Feedback">
-            {{ feedback_email }}</a>{% endcaptureas %}
-
-        <p class="info-text">{% blocktrans trimmed %} Click Help in the upper-right corner to get more information
-          about {{ application_name }}. Send us feedback at {{ email_link }}.{% endblocktrans %}</p>
-      </div>
-    </div>
-  </div>
+    </section>
+  {% endblock %}
+  {% block data_messaging %}
+    {% include "courses/_data_last_updated.html" with update_message=update_message data_information_message=data_information_message %}
+  {% endblock %}
 {% endblock %}

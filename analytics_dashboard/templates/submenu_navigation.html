@@ -2,9 +2,13 @@
 
 {% for item in nav_items %}
 <li class="{% if item.active %}active{% endif %} nav-section">
-    <a href="{{ item.href }}">
+    <a href="{{ item.href }}" data-track-type="click" data-track-event="edx.bi.ui.menu.navigated"
+        data-track-text="{{ item.text }}" data-track-url="{{ item.href }}"
+        data-track-target-scope="{{ item.scope }}" data-track-target-lens="{{ item.lens }}"
+        data-track-target-report="{{ item.report }}" data-track-target-depth="{{ item.depth }}"
+        data-track-menu-depth="{{ depth }}" data-track-link-name="{{ item.name }}">
         <span class="link-label">
-            {{ item.label }}
+            {{ item.translated_text }}
             {% if item.active %}
                 {# Translators: This refers to the active tab/navigation item. #}
                 <span class="sr-only">({% trans "Active" %})</span>

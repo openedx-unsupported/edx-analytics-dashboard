@@ -2,12 +2,16 @@
 
 {% load dashboard_extras %}
 {% load i18n %}
-{% load rjs %}
+{% load render_bundle from webpack_loader %}
+
+{% block view-name %}view-course-engagement-video-timeline view-dashboard{% endblock view-name %}
 
 {% block javascript %}
     {{ block.super }}
-    <script src="{% static_rjs 'js/engagement-video-timeline-main.js' %}"></script>
+    {% render_bundle 'engagement-video-timeline-main' %}
 {% endblock javascript %}
+
+{% block hover_category %}engagement_video_timeline{% endblock hover_category %}
 
 {% block table_title %}
     {% trans "Total Video Views" %}
@@ -24,7 +28,7 @@
 {% endblock %}
 
 {% block chart_tip_text %}
-    {% trans "The number of students who watched each segment of the video, and the number of replays for each segment." %}
+    {% trans "The number of learners who watched each segment of the video, and the number of replays for each segment." %}
 {% endblock %}
 
 {% block module_meta %}
@@ -53,19 +57,19 @@
 
         {% if summary_metrics %}
             <div class="row">
-                <div class="col-xs-12 col-sm-3" data-type="watched-percent">
+                <div class="col col-12 sm-col-12 md-col-3" data-type="watched-percent">
                     {% trans "Completion Rate" as label %}
-                    {% trans "Estimated percentage of students who watched the entire video." as tooltip %}
+                    {% trans "Estimated percentage of learners who watched the entire video." as tooltip %}
                     {% summary_point summary_metrics.end_percent|metric_percentage label tooltip=tooltip %}
                 </div>
-                <div class="col-xs-12 col-sm-3" data-type="started-video">
+                <div class="col col-12 sm-col-12 md-col-3" data-type="started-video">
                     {% trans "Started Video" as label %}
-                    {% trans "Students who started watching the video." as tooltip %}
+                    {% trans "Learners who started watching the video." as tooltip %}
                     {% summary_point summary_metrics.users_at_start label tooltip=tooltip %}
                 </div>
-                <div class="col-xs-12 col-sm-3" data-type="finished-video">
+                <div class="col col-12 sm-col-12 md-col-3" data-type="finished-video">
                     {% trans "Finished Video" as label %}
-                    {% trans "Students who watched the video to the end." as tooltip %}
+                    {% trans "Learners who watched the video to the end." as tooltip %}
                     {% summary_point summary_metrics.users_at_end label tooltip=tooltip %}
                 </div>
             </div>
@@ -79,8 +83,8 @@
     <div class="section-actions">
         <a href="{% url 'courses:csv:engagement_video_timeline' course_id=course_id pipeline_video_id=summary_metrics.pipeline_video_id %}"
             class="btn btn-default pull-right" data-role="engagement-csv" data-track-type="click"
-            data-track-event="edx.bi.csv.downloaded" data-track-category="video-timeline">
-            <i class="ico fa fa-download" aria-hidden="true"></i> {% trans "Download CSV" %}
+            data-track-event="edx.bi.csv.downloaded" data-track-category="video_timeline">
+            <span class="ico fa fa-download" aria-hidden="true"></span> {% trans "Download CSV" %}
             <span class="sr-only">{% trans "Video Viewing Over Time" %}</span>
         </a>
     </div>

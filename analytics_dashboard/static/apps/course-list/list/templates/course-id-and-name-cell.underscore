@@ -1,0 +1,12 @@
+<a href="/courses/<%- course_id %>"
+    data-track-type="click" data-track-event="edx.bi.ui.menu.navigated"
+    data-track-text="<%- catalog_course_title %> | <%- course_id %>"
+    data-track-url="/courses/<%- course_id %>" data-track-target-scope="course"
+    data-track-target-lens="home" data-track-menu-depth="insights" data-track-link-name="course_row">
+  <div class="course-name">
+    <%- catalog_course_title %>
+  </div>
+  <div class="course-id">
+    <%- course_id %>
+  </div>
+</a>

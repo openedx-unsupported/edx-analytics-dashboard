@@ -43,6 +43,7 @@ assets/
 node_modules/
 analytics_dashboard/static/bower_components/
 analytics_dashboard/static/dist/
+analytics_dashboard/static/bundles/
 .coverage
 nosetests.xml
 reports/
@@ -63,3 +64,6 @@ conf/locale/en/LC_MESSAGES/*.mo
 conf/locale/fake*/LC_MESSAGES/*.po
 conf/locale/fake*/LC_MESSAGES/*.mo
 conf/locale/messages.mo
+
+# Webpack
+webpack-stats.json

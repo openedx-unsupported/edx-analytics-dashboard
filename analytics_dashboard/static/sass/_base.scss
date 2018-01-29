@@ -17,6 +17,16 @@
 // --------------------
 html {
   height: 100%;
+  // Note: This scales down the pattern-library default font-size from 16px to 14px. Since the PL uses rem units, this
+  // also affects other sizing, like making the width of the grid narrower.
+  // When we import the PL via sass, we should reconsider setting the global font size like this in favor of setting the
+  // grid width directly by setting a config variable.
+  font-size: 14px;
+}
+
+// Fix bug in Safari: remove outline around main element with tabindex="-1".
+main {
+  outline: none;
 }
 
 a {
@@ -36,9 +46,20 @@ a {
   @extend a;
 }
 
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-top: 1px solid $gray-l2;
+  border-bottom: 0;
+}
+
 hr.has-emphasis {
   margin-top: $padding-base-vertical;
   border-color: $gray-dark;
+}
+
+dl {
+  margin: 0;
 }
 
 // extends
@@ -61,7 +82,7 @@ hr.has-emphasis {
   @extend %hd-titlecased;
   display: inline-block;
   vertical-align: middle;
-  color: $edx-blue-s3;
+  color: $palette-primary-accent;
   font-weight: 600;
   font-family: 'Avenir Next', Helvetica, Arial, sans-serif;
 }
@@ -74,16 +95,20 @@ hr.has-emphasis {
 
 .navbar-brand {
   padding: 25px 50px; // needed for logo to render properly
+  height: inherit;
+
+  // STATE: hover
+  &:hover, &:active {
+    .navbar-brand-app {
+      color: $palette-primary-base;
+    }
+  }
 
   .navbar-brand-app {
     @include transition(color ease-in-out .25s);
     @extend %hd-titlecased;
     @extend %brand-app;
 
-    // STATE: hover
-    &:hover, &:active {
-      color: $link-color;
-    }
   }
 }
 
@@ -131,6 +156,23 @@ hr.has-emphasis {
   }
 }
 
+.skip-link {
+  &:active, &:focus, &:hover {
+      position: relative;
+      top: auto;
+      width: auto; 
+      height: auto; 
+      margin: 0;
+  }
+  position: absolute;
+  top: -1000px;
+  height: 1px;
+  width: 1px;
+  text-align: left;
+  overflow: hidden;
+}
+    
+
 // ui: views
 // --------------------
 .view-head {
@@ -152,10 +194,14 @@ hr.has-emphasis {
     margin-bottom: $padding-base-vertical;
 
     &.bordered {
-      border-bottom: $edx-gray-l1 1px solid;
+      border-bottom: $gray-l1 1px solid;
       padding-bottom: $padding-base-vertical;
       margin-bottom: $padding-large-vertical;
     }
+  }
+
+  .section-heading-note {
+    color: $edx-gray-d2;
   }
 
   // CASE: larger than small screen breakpoint
@@ -177,10 +223,8 @@ hr.has-emphasis {
         margin-top: $font-size-base;
       }
 
-      .section-heading-note {
-        color: $edx-gray;
-      }
     }
+
   }
 
   .section-nav {
@@ -330,25 +374,33 @@ hr.has-emphasis {
 
   .legal {
     padding-top: ($padding-large-vertical*2);
+    margin-left: $padding-small-horizontal;
+    margin-right: $padding-small-horizontal;
+    a {
+      color: $palette-primary-accent;
+    }
   }
 
   .feedback {
     border-top: solid 2px $edx-blue;
     background-color: white;
     text-align: center;
-    padding: ($padding-large-vertical*2) 0;
+    padding: ($padding-large-vertical*2) $padding-small-horizontal;
   }
 }
 
 // view: dashboard
 // --------------------
-.view-dashboard {
+.view-dashboard, .view-course-list {
   .main {
-    padding: ($padding-large-vertical*2) ($padding-large-horizontal*3);
+    padding: ($padding-large-vertical*2) $padding-small-horizontal;
   }
 
   // CASE: larger than small screen breakpoint
   @media (min-width: $screen-sm-min) {
+    .main {
+      padding: ($padding-large-vertical*2) ($padding-large-horizontal*3);
+    }
 
     .sidebar {
       position: fixed;
@@ -463,4 +515,15 @@ hr.has-emphasis {
       width: 700px;
     }
   }
+}
+
+// set insights to only be constrained at very large screen sizes
+.grid-container {
+  max-width: 1800px;
+}
+
+// without setting the margins to 0, there will be a tiny bit of spacing at the sides
+.grid-manual .row {
+  margin-right: 0;
+  margin-left: 0;
 }

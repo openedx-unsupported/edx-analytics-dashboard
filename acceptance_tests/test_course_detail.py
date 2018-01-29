@@ -36,30 +36,30 @@ class CourseHomeTests(CoursePageTestsMixin, WebAppTest):
             {
                 'name': 'Enrollment',
                 'icon': 'fa-child',
-                'heading': 'Who are my students?',
+                'heading': 'Who are my learners?',
                 'items': [
                     {
-                        'title': 'How many students are in my course?',
+                        'title': 'How many learners are in my course?',
                         'view': 'courses:enrollment:activity',
                         'breadcrumbs': ['Activity']
                     },
                     {
-                        'title': 'How old are my students?',
+                        'title': 'How old are my learners?',
                         'view': 'courses:enrollment:demographics_age',
                         'breadcrumbs': ['Demographics', 'Age']
                     },
                     {
-                        'title': 'What level of education do my students have?',
+                        'title': 'What level of education do my learners have?',
                         'view': 'courses:enrollment:demographics_education',
                         'breadcrumbs': ['Demographics', 'Education']
                     },
                     {
-                        'title': 'What is the student gender breakdown?',
+                        'title': 'What is the learner gender breakdown?',
                         'view': 'courses:enrollment:demographics_gender',
                         'breadcrumbs': ['Demographics', 'Gender']
                     },
                     {
-                        'title': 'Where are my students?',
+                        'title': 'Where are my learners?',
                         'view': 'courses:enrollment:geography',
                         'breadcrumbs': ['Geography']
                     },
@@ -70,10 +70,10 @@ class CourseHomeTests(CoursePageTestsMixin, WebAppTest):
         engagement = {
             'name': 'Engagement',
             'icon': 'fa-bar-chart',
-            'heading': 'What are students doing in my course?',
+            'heading': 'What are learners doing in my course?',
             'items': [
                 {
-                    'title': 'How many students are interacting with my course?',
+                    'title': 'How many learners are interacting with my course?',
                     'view': 'courses:engagement:content',
                     'breadcrumbs': ['Content']
                 }
@@ -81,7 +81,7 @@ class CourseHomeTests(CoursePageTestsMixin, WebAppTest):
         }
         if ENABLE_COURSE_API:
             engagement['items'].append({
-                'title': 'How did students interact with course videos?',
+                'title': 'How did learners interact with course videos?',
                 'view': 'courses:engagement:videos',
                 'breadcrumbs': ['Videos']
             })
@@ -91,10 +91,10 @@ class CourseHomeTests(CoursePageTestsMixin, WebAppTest):
             table_items.append({
                 'name': 'Performance',
                 'icon': 'fa-check-square-o',
-                'heading': 'How are students doing on course assignments?',
+                'heading': 'How are learners doing on course assignments?',
                 'items': [
                     {
-                        'title': 'How are students doing on graded course assignments?',
+                        'title': 'How are learners doing on graded course assignments?',
                         'view': 'courses:performance:graded_content',
                         'breadcrumbs': ['Graded Content']
                     }
@@ -117,7 +117,7 @@ class CourseHomeTests(CoursePageTestsMixin, WebAppTest):
             self.assertEqual(name.text, item['name'])
 
             # If this element doesn't exist an exception will be thrown
-            name.find_element_by_css_selector('i.ico.fa.%s' % item['icon'])
+            name.find_element_by_css_selector('span.ico.fa.%s' % item['icon'])
 
             # Retrieve the individual table rows
             rows = table.find_elements_by_css_selector('.item')
@@ -137,5 +137,5 @@ class CourseHomeTests(CoursePageTestsMixin, WebAppTest):
 
                 # Check the breadcrumbs
                 breadcrumbs = element.find_element_by_css_selector('.breadcrumbs')
-                breadcrumbs.find_element_by_css_selector('i.ico.fa.%s' % item['icon'])
+                breadcrumbs.find_element_by_css_selector('span.ico.fa.%s' % item['icon'])
                 self.assertEqual(breadcrumbs.text, ' '.join(row['breadcrumbs']))

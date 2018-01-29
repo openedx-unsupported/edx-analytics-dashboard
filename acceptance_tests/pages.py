@@ -32,9 +32,6 @@ class DashboardPage(PageObject):  # pylint: disable=abstract-method
 class LandingPage(DashboardPage):
     path = ''
 
-    def __init__(self, browser):
-        super(LandingPage, self).__init__(browser)
-
     def is_browser_on_page(self):
         return self.browser.current_url == self.page_url
 
@@ -198,9 +195,6 @@ class CourseEngagementVideoTimelinePage(CoursePage):
 class CourseIndexPage(DashboardPage):
     path = 'courses/'
 
-    def __init__(self, browser):
-        super(CourseIndexPage, self).__init__(browser)
-
     def is_browser_on_page(self):
         return self.browser.title.startswith('Courses')
 
@@ -299,6 +293,16 @@ class CoursePerformanceAnswerDistributionPage(CoursePage):
     def is_browser_on_page(self):
         return super(CoursePerformanceAnswerDistributionPage, self).is_browser_on_page() and \
                self.browser.title.startswith('Performance: Problem Submissions')
+
+
+class CourseLearnersPage(CoursePage):
+    def __init__(self, browser, course_id=None):
+        super(CourseLearnersPage, self).__init__(browser, course_id)
+        self.page_url += '/learners/'
+
+    def is_browser_on_page(self):
+        return super(CourseLearnersPage, self).is_browser_on_page() \
+            and self.browser.title.startswith('Learners')
 
 
 class ErrorPage(DashboardPage):

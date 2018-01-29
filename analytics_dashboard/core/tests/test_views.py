@@ -1,23 +1,22 @@
-from calendar import timegm
 import json
-import datetime
+import logging
+from testfixtures import LogCapture
+
+import mock
 
 from django.core.cache import cache
-from django.test.utils import override_settings
-import httpretty
-import jwt
-import mock
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import DatabaseError
-from django_dynamic_fixture import G
-from django.core.urlresolvers import reverse, reverse_lazy
 from django.test import TestCase
-from analyticsclient.exceptions import ClientError
-from social.exceptions import AuthException
-from social.utils import parse_qs
+from django.test.utils import override_settings
+from django.utils.http import urlquote
+from django_dynamic_fixture import G
 
-from auth_backends.backends import EdXOpenIdConnect
+from analyticsclient.exceptions import TimeoutError
+
+from core.views import OK, UNAVAILABLE
 from courses.permissions import set_user_course_permissions, user_can_view_course, get_user_course_permissions
 
 
@@ -46,7 +45,7 @@ class UserTestCaseMixin(object):
     def assertUserLoggedIn(self, user):
         """ Verifies that the specified user is logged in with the test client. """
 
-        self.assertEqual(self.client.session['_auth_user_id'], user.pk)
+        self.assertEqual(int(self.client.session['_auth_user_id']), user.pk)
 
     def setUp(self):
         super(UserTestCaseMixin, self).setUp()
@@ -56,22 +55,24 @@ class UserTestCaseMixin(object):
 class RedirectTestCaseMixin(object):
     def assertRedirectsNoFollow(self, response, expected_url, status_code=302, **querystringkwargs):
         if querystringkwargs:
-            expected_url += '?{}'.format('&'.join('%s=%s' % (key, value) for (key, value) in querystringkwargs.items()))
+            expected_url += '?{}'.format('&'.join('%s=%s' % (key, urlquote(value))
+                                                  for (key, value) in querystringkwargs.items()))
 
-        self.assertEqual(response['Location'], 'http://testserver{}'.format(expected_url))
+        self.assertEqual(response['Location'], '{}'.format(expected_url))
         self.assertEqual(response.status_code, status_code)
 
 
 class ViewTests(TestCase):
-    def assertUnhealthyAPI(self):
+    def verify_health_response(self, expected_status_code, overall_status, database_connection, analytics_api):
+        """Verify that the health endpoint returns the expected response."""
         response = self.client.get(reverse('health'))
-        self.assertEqual(response.status_code, 503)
+        self.assertEqual(response.status_code, expected_status_code)
         self.assertEqual(response['content-type'], 'application/json')
         expected = {
-            u'overall_status': u'UNAVAILABLE',
+            u'overall_status': overall_status,
             u'detailed_status': {
-                u'database_connection': u'OK',
-                u'analytics_api': u'UNAVAILABLE'
+                u'database_connection': database_connection,
+                u'analytics_api': analytics_api
             }
         }
         self.assertDictEqual(json.loads(response.content), expected)
@@ -81,43 +82,64 @@ class ViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     @mock.patch('analyticsclient.status.Status.healthy', mock.PropertyMock(return_value=True))
-    def test_health(self):
-        response = self.client.get(reverse('health'))
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(response['content-type'], 'application/json')
-
-        expected = {
-            u'overall_status': u'OK',
-            u'detailed_status': {
-                u'database_connection': u'OK',
-                u'analytics_api': u'OK'
-            }
-        }
-        self.assertDictEqual(json.loads(response.content), expected)
+    def test_healthy(self):
+        with LogCapture(level=logging.ERROR) as l:
+            self.verify_health_response(
+                expected_status_code=200, overall_status=OK, database_connection=OK, analytics_api=OK
+            )
+            l.check()
 
     @mock.patch('analyticsclient.status.Status.healthy', mock.PropertyMock(return_value=True))
-    @mock.patch('django.db.backends.BaseDatabaseWrapper.cursor', mock.Mock(side_effect=DatabaseError))
+    @mock.patch('django.db.backends.base.base.BaseDatabaseWrapper.cursor',
+                mock.Mock(side_effect=DatabaseError('example error')))
     def test_health_database_outage(self):
-        response = self.client.get(reverse('health'))
-        self.assertEqual(response.status_code, 503)
-        self.assertEqual(response['content-type'], 'application/json')
-
-        expected = {
-            u'overall_status': u'UNAVAILABLE',
-            u'detailed_status': {
-                u'database_connection': u'UNAVAILABLE',
-                u'analytics_api': u'OK'
-            }
-        }
-        self.assertDictEqual(json.loads(response.content), expected)
+        with LogCapture(level=logging.ERROR) as l:
+            self.verify_health_response(
+                expected_status_code=503, overall_status=UNAVAILABLE, database_connection=UNAVAILABLE, analytics_api=OK
+            )
+            l.check(('analytics_dashboard.core.views', 'ERROR', 'Insights database is not reachable: example error'))
 
     @mock.patch('analyticsclient.status.Status.healthy', mock.PropertyMock(return_value=False))
     def test_health_analytics_api_unhealthy(self):
-        self.assertUnhealthyAPI()
+        with LogCapture(level=logging.ERROR) as l:
+            self.verify_health_response(
+                expected_status_code=503, overall_status=UNAVAILABLE, database_connection=OK, analytics_api=UNAVAILABLE
+            )
+            l.check(('analytics_dashboard.core.views', 'ERROR', 'Analytics API health check failed from dashboard'))
 
-    @mock.patch('analyticsclient.status.Status.healthy', mock.PropertyMock(side_effect=ClientError))
+    @mock.patch('analyticsclient.status.Status.healthy', mock.PropertyMock(side_effect=TimeoutError('example error')))
     def test_health_analytics_api_unreachable(self):
-        self.assertUnhealthyAPI()
+        with LogCapture(level=logging.ERROR) as l:
+            self.verify_health_response(
+                expected_status_code=503, overall_status=UNAVAILABLE, database_connection=OK, analytics_api=UNAVAILABLE
+            )
+            l.check((
+                'analytics_dashboard.core.views',
+                'ERROR',
+                'Analytics API health check timed out from dashboard: example error'
+            ))
+
+    @mock.patch('analyticsclient.status.Status.healthy', mock.PropertyMock(return_value=False))
+    @mock.patch('django.db.backends.base.base.BaseDatabaseWrapper.cursor',
+                mock.Mock(side_effect=DatabaseError('example error')))
+    def test_health_both_unavailable(self):
+        with LogCapture(level=logging.ERROR) as l:
+            self.verify_health_response(
+                expected_status_code=503, overall_status=UNAVAILABLE,
+                database_connection=UNAVAILABLE, analytics_api=UNAVAILABLE
+            )
+            l.check(
+                (
+                    'analytics_dashboard.core.views',
+                    'ERROR',
+                    'Insights database is not reachable: example error'
+                ),
+                (
+                    'analytics_dashboard.core.views',
+                    'ERROR',
+                    'Analytics API health check failed from dashboard'
+                )
+            )
 
 
 class LoginViewTests(RedirectTestCaseMixin, TestCase):
@@ -170,148 +192,6 @@ class LogoutViewTests(RedirectTestCaseMixin, UserTestCaseMixin, TestCase):
     def test_logout_then_login(self):
         response = self.assertViewClearsPermissions('logout_then_login')
         self.assertRedirectsNoFollow(response, reverse('login'))
-
-
-@override_settings(SOCIAL_AUTH_EDX_OIDC_KEY='123',
-                   SOCIAL_AUTH_EDX_OIDC_SECRET='abc',
-                   SOCIAL_AUTH_EDX_OIDC_ID_TOKEN_DECRYPTION_KEY='abc')
-class OpenIdConnectTests(UserTestCaseMixin, RedirectTestCaseMixin, TestCase):
-    DEFAULT_USERNAME = 'edx'
-    backend_name = 'edx-oidc'
-    backend_class = EdXOpenIdConnect
-    user_is_administrator = False
-
-    def setUp(self):
-        super(OpenIdConnectTests, self).setUp()
-        self.oauth2_init_path = reverse('social:begin', args=[self.backend_name])
-
-    def _access_token_body(self, request, _url, headers, username):
-        nonce = parse_qs(request.body).get('nonce')
-        body = json.dumps(self.get_access_token_response(nonce, username))
-        return 200, headers, body
-
-    # pylint: disable=unused-argument
-    def get_access_token_response(self, nonce, username):
-        client_secret = settings.SOCIAL_AUTH_EDX_OIDC_SECRET
-        access_token = {
-            'access_token': '12345',
-            'refresh_token': 'abcde',
-            'expires_in': 900,
-            'preferred_username': username,
-            'id_token': jwt.encode(self.get_id_token(nonce, username), client_secret).decode('utf-8')
-        }
-        return access_token
-
-    def get_id_token(self, nonce, username):
-        client_key = settings.SOCIAL_AUTH_EDX_OIDC_KEY
-        now = datetime.datetime.utcnow()
-        expiration_datetime = now + datetime.timedelta(seconds=30)
-        issue_datetime = now
-
-        id_token = {
-            'iss': EdXOpenIdConnect.ID_TOKEN_ISSUER,
-            'nonce': nonce,
-            'aud': client_key,
-            'azp': client_key,
-            'exp': timegm(expiration_datetime.utctimetuple()),
-            'iat': timegm(issue_datetime.utctimetuple()),
-            'sub': '1234',
-            'preferred_username': username,
-            'email': 'edx@example.org',
-            'name': 'Ed Xavier',
-            'given_name': 'Ed',
-            'family_name': 'Xavier',
-            'locale': 'en_US',
-            'administrator': self.user_is_administrator
-        }
-
-        return id_token
-
-    @httpretty.activate
-    def _check_oauth2_handshake(self, username=DEFAULT_USERNAME, failure=False):
-        """ Performs an OAuth2 handshake to login a user.
-
-        Arguments:
-            username -- Username of the user to login (or create if one does not exist)
-            failure  -- Determines if handshake should fail
-        """
-
-        # Generate an OAuth2 request
-        response = self.client.get(self.oauth2_init_path)
-        self.assertEqual(response.status_code, 302)
-        state = self.client.session['{}_state'.format(self.backend_name)]
-
-        # Mock the access token POST body
-        httpretty.register_uri(httpretty.POST, self.backend_class.ACCESS_TOKEN_URL,
-                               body=lambda request, url, headers: self._access_token_body(request, url, headers,
-                                                                                          username))
-
-        # Send the response to this application's OAuth2 consumer URL
-        oauth2_complete_path = '{0}?state={1}'.format(reverse('social:complete', args=[self.backend_name]), state)
-
-        if failure:
-            oauth2_complete_path += '&error=access_denied'
-            self.assertRaises(AuthException, self.client.get, oauth2_complete_path)
-        else:
-            response = self.client.get(oauth2_complete_path)
-            self.assertEqual(response.status_code, 302)
-            self.assertEqual(response['Location'], 'http://testserver{}'.format(settings.LOGIN_REDIRECT_URL))
-
-    def test_new_user(self):
-        """
-        A new user should be created if the username from the OAuth2 provider is not linked to an existing account.
-        """
-
-        original_user_count = User.objects.count()
-
-        self._check_oauth2_handshake()
-
-        # Verify new user created
-        self.assertEqual(User.objects.count(), original_user_count + 1)
-        user = self.get_latest_user()
-        self.assertEqual(user.username, self.DEFAULT_USERNAME)
-
-        self.assertUserLoggedIn(user)
-
-    def test_existing_user(self):
-        """
-        Verify system logs in a user (and does not create a new account) when the username from the OAuth2 provider
-        matches an existing account in the system.
-        """
-        user = self.user
-
-        original_user_count = User.objects.count()
-
-        self._check_oauth2_handshake(user.username)
-
-        # Verify no new users created
-        self.assertEqual(User.objects.count(), original_user_count)
-
-        self.assertUserLoggedIn(user)
-
-    def test_access_denied(self):
-        self._check_oauth2_handshake(failure=True)
-
-    def test_user_details(self):
-        # Create a new user
-        self.test_new_user()
-        user = self.get_latest_user()
-
-        # Validate the user's details
-        self.assertEqual(user.username, 'edx')
-        self.assertEqual(user.email, 'edx@example.org')
-        self.assertEqual(user.first_name, 'Ed')
-        self.assertEqual(user.last_name, 'Xavier')
-        self.assertEqual(user.language, 'en-us')
-
-    def test_administrator(self):
-        # Create an administrator via OAuth2
-        self.user_is_administrator = True
-        self._check_oauth2_handshake()
-
-        user = self.get_latest_user()
-        self.assertTrue(user.is_superuser)
-        self.assertTrue(user.is_staff)
 
 
 class AutoAuthTests(UserTestCaseMixin, TestCase):

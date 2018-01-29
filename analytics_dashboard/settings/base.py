@@ -1,4 +1,4 @@
-"""Common settings and globals."""
+next_page='/'"""Common settings and globals."""
 import ConfigParser
 
 import os
@@ -8,6 +8,7 @@ from sys import path
 ########## PATH CONFIGURATION
 # Absolute filesystem path to the Django project directory:
 DJANGO_ROOT = dirname(dirname(abspath(__file__)))
+BASE_DIR = DJANGO_ROOT
 
 # Absolute filesystem path to the top-level project folder:
 SITE_ROOT = dirname(DJANGO_ROOT)
@@ -24,9 +25,7 @@ path.append(DJANGO_ROOT)
 ########## DEBUG CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = False
-
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
-TEMPLATE_DEBUG = DEBUG
+ENABLE_INSECURE_STATIC_FILES = False
 ########## END DEBUG CONFIGURATION
 
 
@@ -108,17 +107,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
 )
-
-COMPRESS_PRECOMPILERS = (
-    ('text/x-scss', 'django_libsass.SassCompiler'),
-)
-
-COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter']
-COMPRESS_JS_FILTERS = ['compressor.filters.closure.ClosureCompilerFilter']
-COMPRESS_CLOSURE_COMPILER_BINARY = 'java -jar scripts/closure-compiler.jar'
-COMPRESS_CLOSURE_JS_ARGUMENTS = {'compilation_level': 'ADVANCED_OPTIMIZATIONS', }
 ########## END STATIC FILE CONFIGURATION
 
 
@@ -145,34 +134,30 @@ FIXTURE_DIRS = (
 
 
 ########## TEMPLATE CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#template-context-processors
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
-    'django.core.context_processors.static',
-    'django.core.context_processors.tz',
-    'django.contrib.messages.context_processors.messages',
-    'django.core.context_processors.request',
-    'core.context_processors.common',
-)
-
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-)
-
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
-TEMPLATE_DIRS = (
-    normpath(join(DJANGO_ROOT, 'templates')),
-)
-
-ALLOWED_INCLUDE_ROOTS = (
-    normpath(join(DJANGO_ROOT, 'templates')),
-)
-
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#templates
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True,
+        'DIRS': [
+            normpath(join(DJANGO_ROOT, 'templates')),
+        ],
+        'OPTIONS': {
+            'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
+                'core.context_processors.common',
+            ],
+            'debug': True,
+        }
+    }
+]
 ########## END TEMPLATE CONFIGURATION
 
 
@@ -191,7 +176,7 @@ MIDDLEWARE_CLASSES = (
     'core.middleware.ServiceUnavailableExceptionMiddleware',
     'courses.middleware.CourseMiddleware',
     'courses.middleware.CoursePermissionsExceptionMiddleware',
-    'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
     'help.middleware.HelpURLMiddleware',
 )
 ########## END MIDDLEWARE CONFIGURATION
@@ -220,21 +205,26 @@ DJANGO_APPS = (
     'django.contrib.admin',
     'waffle',
     'django_countries',
-    'announcements',
-    'compressor',
+    'pinax.announcements',
 )
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
     'core',
     'courses',
-    'django_rjs',
     'help',
     'soapbox',
 )
 
+THIRD_PARTY_APPS = (
+    'release_util',
+    'rest_framework',
+    'social_django',
+    'webpack_loader'
+)
+
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
-INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
+INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 ########## END APP CONFIGURATION
 
 
@@ -286,11 +276,8 @@ SEGMENT_IO_KEY = None
 SEGMENT_IGNORE_EMAIL_REGEX = None
 ########## END SEGMENT.IO
 
-########## FEEDBACK AND SUPPORT -- These values should be overridden for production deployments.
-FEEDBACK_EMAIL = 'override.this.email@example.com'
+########## SUPPORT -- Ths value should be overridden for production deployments.
 SUPPORT_EMAIL = 'support@example.com'
-PRIVACY_POLICY_URL = 'http://example.com/'
-TERMS_OF_SERVICE_URL = 'http://example.com/'
 HELP_URL = None
 ########## END FEEDBACK
 
@@ -318,13 +305,18 @@ LMS_COURSE_VALIDATION_BASE_URL = None
 # used to construct the shortcut link to course modules
 LMS_COURSE_SHORTCUT_BASE_URL = None
 
-# Used to determine how dates are displayed in templates
+# used to construct the shortcut link to view/edit a course in Studio
+CMS_COURSE_SHORTCUT_BASE_URL = None
+
+# Used to determine how dates and time are displayed in templates
+# The strings are intended for use with the django.utils.dateformat
+# module, which uses the PHP's date() style. Format details are
+# described at http://www.php.net/date.
 DATE_FORMAT = 'F d, Y'
+TIME_FORMAT = 'g:i A'
 
 ########## AUTHENTICATION
 AUTH_USER_MODEL = 'core.User'
-
-INSTALLED_APPS += ('social.apps.django_app.default',)
 
 # Allow authentication via edX OAuth2/OpenID Connect
 AUTHENTICATION_BACKENDS = (
@@ -337,29 +329,7 @@ SOCIAL_AUTH_REDIRECT_IS_HTTPS = False
 
 SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'email']
 
-SOCIAL_AUTH_PIPELINE = (
-    'social.pipeline.social_auth.social_details',
-    'social.pipeline.social_auth.social_uid',
-    'social.pipeline.social_auth.auth_allowed',
-    'social.pipeline.social_auth.social_user',
-
-    # By default python-social-auth will simply create a new user/username if the username
-    # from the provider conflicts with an existing username in this system. This custom pipeline function
-    # loads existing users instead of creating new ones.
-    'auth_backends.pipeline.get_user_if_exists',
-    'social.pipeline.user.get_username',
-    'social.pipeline.user.create_user',
-    'social.pipeline.social_auth.associate_user',
-    'social.pipeline.social_auth.load_extra_data',
-    'social.pipeline.user.user_details'
-)
-
-SOCIAL_AUTH_USER_FIELDS = ['username', 'email', 'first_name', 'last_name']
-
-# Always raise auth exceptions so that they are properly logged. Otherwise, the PSA middleware will redirect to an
-# auth error page and attempt to display the error message to the user (via Django's message framework). We do not
-# want the uer to see the message; but, we do want our downstream exception handlers to log the message.
-SOCIAL_AUTH_RAISE_EXCEPTIONS = True
+SOCIAL_AUTH_STRATEGY = 'auth_backends.strategies.EdxDjangoStrategy'
 
 # Set these to the correct values for your OAuth2/OpenID Connect provider
 SOCIAL_AUTH_EDX_OIDC_KEY = None
@@ -381,6 +351,7 @@ AUTO_AUTH_USERNAME_PREFIX = 'AUTO_AUTH_'
 COURSE_PERMISSIONS_TIMEOUT = 900
 
 LOGIN_REDIRECT_URL = '/courses/'
+LOGOUT_REDIRECT_URL = '/'
 
 # Determines if course permissions should be checked before rendering course views.
 ENABLE_COURSE_PERMISSIONS = True
@@ -388,15 +359,15 @@ ENABLE_COURSE_PERMISSIONS = True
 # What scopes and claims should be used to get courses
 EXTRA_SCOPE = ['permissions', 'course_staff']
 COURSE_PERMISSIONS_CLAIMS = ['staff_courses']
+
+# claim for the identifier to track users
+USER_TRACKING_CLAIM = 'user_tracking_id'
 ########## END AUTHENTICATION
 
 # The application and platform display names to be used in templates, emails, etc.
 PLATFORM_NAME = 'Your Platform Name Here'
 APPLICATION_NAME = 'Insights'
 FULL_APPLICATION_NAME = '{0} {1}'.format(PLATFORM_NAME, APPLICATION_NAME)
-
-RJS_OUTPUT_DIR = 'dist'
-RJS_OPTIMIZATION_ENABLED = False
 
 
 ########## DOCS/HELP CONFIGURATION
@@ -408,14 +379,9 @@ with open(join(DOCS_ROOT, "config.ini")) as config_file:
     DOCS_CONFIG.readfp(config_file)
 ########## END DOCS/HELP CONFIGURATION
 
-
-########## THEME CONFIGURATION
-# Path of the SCSS file to use for the site's theme
-THEME_SCSS = 'sass/themes/open-edx.scss'
-########## END THEME CONFIGURATION
-
 ########## COURSE API
 COURSE_API_URL = None
+GRADING_POLICY_API_URL = None
 
 # If no key is specified, the authenticated user's OAuth2 access token will be used.
 COURSE_API_KEY = None
@@ -424,3 +390,69 @@ COURSE_API_KEY = None
 ########## MODULE_PREVIEW
 MODULE_PREVIEW_URL = None
 ########## END MODULE_PREVIEW
+
+########## EXTERNAL SERVICE TIMEOUTS
+# Time in seconds that Insights should wait on external services
+# before giving up.  These values should be overridden in
+# configuration.
+ANALYTICS_API_DEFAULT_TIMEOUT = 5
+LMS_DEFAULT_TIMEOUT = 5
+########## END EXTERNAL SERVICE TIMEOUTS
+
+_ = lambda s: s
+
+########## LINKS THAT SHOULD BE SHOWN IN FOOTER
+# Example:
+# FOOTER_LINKS = (
+#     {'url': 'https://www.edx.org', 'text': 'About edX', 'data_role': None},
+#     {'url': 'https://www.edx.org/contact-us', 'text': 'Contact Us', 'data_role': None},
+#     {'url': 'http://example.com', 'text': 'Terms of Service', 'data_role': 'tos'},
+#     {'url': 'http://example.com', 'text': 'Privacy Policy', 'data_role': 'privacy-policy'},
+# )
+FOOTER_LINKS = (
+    {'url': 'http://example.com/', 'text': _('Terms of Service'), 'data_role': 'tos'},
+    {'url': 'http://example.com/', 'text': _('Privacy Policy'), 'data_role': 'privacy-policy'},
+)
+########## END LINKS THAT SHOULD BE SHOWN IN FOOTER
+
+########## REST FRAMEWORK CONFIGURATION
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
+}
+########## END REST FRAMEWORK CONFIGURATION
+
+########## COURSE_ID_PATTERN
+# Regex used to capture course_ids from URLs
+COURSE_ID_PATTERN = r'(?P<course_id>[^/+]+[/+][^/+]+[/+][^/]+)'
+########## END COURSE_ID_PATTERN
+
+########## LEARNER_API_LIST_DOWNLOAD_FIELDS
+# Comma-delimited list of field names to include in the Learner List CSV download
+# e.g., # "username,segments,cohort,engagements.videos_viewed,last_updated"
+# Default (None) includes all available fields, in alphabetical order.
+LEARNER_API_LIST_DOWNLOAD_FIELDS = None
+########## END LEARNER_API_LIST_DOWNLOAD_FIELDS
+
+########## CACHE CONFIGURATION
+COURSE_SUMMARIES_CACHE_TIMEOUT = 3600  # 1 hour timeout
+########## END CACHE CONFIGURATION
+
+########## WEBPACK CONFIGURATION
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/',
+        'STATS_FILE': os.path.join(SITE_ROOT, 'webpack-stats.json'),
+    }
+}
+########## END WEBPACK CONFIGURATION
+
+########## CDN CONFIGURATION
+CDN_DOMAIN = None  # production will not use a CDN for static assets if this is set to a falsy value
+########## END CDN CONFIGURATION
+
+COURSE_SUMMARIES_IDS_CUTOFF = 500

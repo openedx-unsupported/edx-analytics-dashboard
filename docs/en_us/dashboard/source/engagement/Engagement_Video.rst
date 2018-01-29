@@ -40,7 +40,7 @@ To access data about a video component, follow these steps.
 
 #. Select the course.
 
-#. Select **How did students interact with course videos?** Alternatively,
+#. Select **How did learners interact with course videos?** Alternatively,
    select **Engagement** and then **Video**. A stacked bar chart shows the
    number of complete and incomplete views, averaged by the number of videos in
    each section.
@@ -108,7 +108,7 @@ another stacked bar chart appears for the subsections in that section.
 .. image:: ../images/video_subsections.png
  :width: 800
  :alt: A stacked bar chart for four subsections. In one subsection, only two
-     thirds of the students who started videos finished watching them.
+     thirds of the learners who started videos finished watching them.
 
 This chart helps you focus your investigation on the third subsection, in which
 the completion percentage dropped to 68%. After you select that subsection, the
@@ -139,27 +139,27 @@ happens at the 40 second mark.
  :alt: A chart showing a noticeable increase in the number of replays 40
   seconds into the video.
 
-To find out what that segment of the video contains, you select **View Live**
-to open the video component in the LMS. In this video, you realize that a
-single word, right at 00:40, is difficult to understand. However, because the
-transcript for the video is accurate, you might decide that no further action
-is needed in this case.
+To find out what that segment of the video contains, you select **Expand
+Preview** to open the video player for that video. In this video, you realize
+that a single word, right at 00:40, is difficult to understand. However,
+because the transcript for the video is accurate, you might decide that no
+further action is needed in this case.
 
-In Insights, you might then select **Next** to review the data for the next
-video component in the courseware. In that video, the stacked area graph shows
-that learners replayed certain segments of the video, particularly near the
-end, more often than others.
+You might then select **Next** to review the data for the next video component
+in the courseware. In that video, the stacked area graph shows that learners
+replayed certain segments of the video, particularly near the end, more often
+than others.
 
 .. image:: ../images/video_frequent_replays.png
  :width: 800
  :alt: A chart showing significant increases in the number of replays during
      the last three minutes of the video.
 
-After you review specific segments of that video in the LMS, you might decide
-that the increased number of replays was an indicator of the complexity of the
-material being covered. You might decide to spend some extra time answering
-questions in the discussion topic for that unit, or provide a course handout
-with additional references on the material covered for learners who want them.
+After you preview that video, you might decide that the increased number of
+replays was an indicator of the complexity of the material being covered. You
+might decide to spend some extra time answering questions in the discussion
+topic for that unit, or provide a course handout with additional references on
+the material covered for learners who want them.
 
 ==========================================
 Establishing an Engagement Baseline
@@ -213,7 +213,7 @@ The course teams might be curious to learn why learners chose to skip over part
 of a video or to stop watching it completely. Analyzing the content of a video
 with the objectivity that you gain from edX Insights can help you find content
 that is not well matched to its audience. Perhaps you included an interview
-that is pertinent for a residential student, but that your MOOC participants
+that is pertinent for a residential learner, but that your MOOC participants
 find less interesting than other material. Or perhaps the video included
 repetition that most of your learners did not need to grasp a concept.
 

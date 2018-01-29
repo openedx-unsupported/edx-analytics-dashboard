@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col col-12 sm-col-12 md-col-8">
+    <div class="learners-active-filters" aria-live="polite"></div>
+  </div>
+  <div class="col col-12 sm-col-12 md-col-4">
+    <div class="activity-date-range small"></div>
+  </div>
+</div>
+<div class="row">
+  <div class="col col-12 sm-col-12 md-col-4 learners-table-controls-col">
+    <section class="learners-table-controls" aria-label="<%- controlsLabel %>"></section>
+  </div>
+  <div class="col col-12 sm-col-12 md-col-8 learners-results-col">
+    <div class="row">
+      <div class="col col-12 sm-col-12 md-col-3">
+        <div class="learners-num-results"></div>
+      </div>
+      <div class="col col-12 sm-col-12 md-col-3 md-pre-6">
+        <div class="learners-download-data"></div>
+      </div>
+    </div>
+    <h5 class="sr-only"><%- resultsText %>"</h5>
+    <div id="resultsTarget" class="learners-results" tabIndex="-1"></div>
+  </div>
+</div>

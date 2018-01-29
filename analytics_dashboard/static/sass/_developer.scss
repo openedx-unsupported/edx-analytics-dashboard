@@ -22,10 +22,20 @@
   }
 }
 
+#main-nav .navbar-nav li > button {
+  padding-top: $navbar-padding;
+  padding-bottom: $navbar-padding;
+  padding-right: $navbar-padding;
+}
+
 button.chart-info {
   padding-left: 0;
   padding-top: 0;
   border: none;
+}
+
+.clear.btn {
+  background: transparent;
 }
 
 .chart-tooltip {
@@ -38,15 +48,15 @@ button.chart-info {
   background-color: white;
   border: $description-border-color 1px solid;
 
+  $chart-height: 305px;
   .analytics-chart {
-    height: 305px; // Update the height of the graph in trends-view.js to be this height minus 5px.
+    height: $chart-height; // Update the height of the graph in trends-view.js to be this height minus 5px.
     padding-top: $padding-large-vertical;
   }
 
-  // shorten the chart so just a message (e.g. error message) is displayed
-  .message-only-chart {
-    height: inherit; // allows container height to adjust for long messages
-    min-height: 38px;
+  // the answer distribution chart is a bit shorter
+  #performance-chart-view.analytics-chart {
+    height: $chart-height - 18px;
   }
 
   .nvd3 {
@@ -62,28 +72,16 @@ button.chart-info {
 
       &.nv-x {
         text {
-          fill: $edx-gray-l1;
+          fill: $palette-grayscale-accent;
           font-size: $font-size-small;
         }
 
         .x-axis-background {
-          fill: $gray-d2;
+          fill: $palette-grayscale-dark;
         }
       }
     }
   }
-}
-
-%vertical-align {
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.loading-container {
-  @extend %vertical-align;
 }
 
 .chart-message-container {
@@ -94,41 +92,6 @@ button.chart-info {
   }
 }
 
-.error-section-container {
-  padding: $padding-large-horizontal $padding-large-vertical;
-  padding-bottom: $padding-large-horizontal * 2;
-  margin-bottom: $padding-large-horizontal * 2;
-  background-color: $error-background-color;
-  border-top: 4px solid $error-section-highlight-color;
-
-  i.error {
-    color: $error-section-highlight-color;
-    font-size: $font-size-large * 2;
-  }
-
-  .short-message {
-    font-size: $font-size-large;
-    font-weight: 700;
-    padding-bottom: $padding-small-horizontal;
-  }
-}
-
-.white-background {
-  background-color: white;
-}
-
-// this keeps the gray borders from touching the top band at a 45 degree angle
-.error-section-container:before {
-  border: $description-border;
-  border-top: none;
-  content: "";
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
 // Ensure that the map fits for different screens sizes
 // --------------------
 .world-map {
@@ -136,41 +99,43 @@ button.chart-info {
   margin: 0 auto;
 
   width: 100%;
-  height: 450px;
+  max-height: 450px;
 
   background-color: white;
-  border: $edx-gray 1px solid;
+  border: $description-border-color 1px solid;
+  
+  // Reason for !important: need to override Datamap style added directly to element via JS.
+  // (they set it to 60%, but that makes too much vertical space for the height of the map)
+  padding-bottom: 41% !important;
 
   .chart-tooltip {
     position: absolute;
     right: 0;
+    z-index: 1;
   }
 }
 
-@media (max-width: $screen-md) {
+@media (max-width: $bp-screen-lg) {
   .world-map {
-    height: 250px;
+    max-height: 250px;
   }
 }
 
-@media (max-width: $screen-sm) {
+@media (max-width: $bp-screen-md) {
   .world-map {
-    height: 300px;
+    max-height: 300px;
   }
 }
 
 // --------------------
 
-.dataTables_length {
-  label {
-    // this gives the length selection component of the data table some breathing room
-    padding-top: $padding-large-vertical;
-  }
-}
-
 .navbar-nav {
 
+  margin: 0;
+  display: inline-block;
+
   .nav-section.active {
+    margin-bottom: 0px;
     color: $navbar-default-link-active-color;
     border-bottom: 6px solid $navbar-default-link-active-color;
   }
@@ -178,13 +143,33 @@ button.chart-info {
   .nav-section {
     @include a-background(transparent);
   }
+
+  li > button {
+    line-height: 20px;
+    border: none;
+    background: transparent;
+  }
+
+  li > button:focus {
+    outline: dotted 1px #000;
+  }
 }
 
 // lens navigation consists of a drop down and the lens sections in a navigation
-$lens-background-color: $gray-d2;
-$lens-nav-text-color: $gray-l1;
+$lens-background-color: $palette-grayscale-dark;
+$lens-nav-text-color: $palette-grayscale-accent;
 $lens-nav-height: 55px;
 $lens-box-model: border-box;
+$lens-padding-top: 18px;
+$lens-nav-margin: 15px;
+
+.course-label {
+  padding-top: $lens-padding-top;
+  padding-bottom: 0px;
+  margin-left: $lens-nav-margin;
+  margin-right: $lens-nav-margin;
+  min-height: $lens-nav-height;
+}
 
 .lens-nav {
   background-color: $lens-background-color;
@@ -197,7 +182,7 @@ $lens-box-model: border-box;
 
   // aligns the navbar with the logo
   ul.navbar-nav {
-    margin-left: 15px;
+    margin-left: $lens-nav-margin;
   }
 
   .navbar-nav {
@@ -205,7 +190,8 @@ $lens-box-model: border-box;
     .dropdown {
       padding-right: 10px;
 
-      a {
+      a, button {
+        background: transparent;
         text-transform: uppercase;
         color: $navbar-default-link-active-color;
       }
@@ -217,6 +203,7 @@ $lens-box-model: border-box;
         li > a {
           // the default size is a big large
           min-height: 20px;
+          color: $dropdown-link-color;
         }
       }
     }
@@ -225,8 +212,12 @@ $lens-box-model: border-box;
     li > a {
       color: $lens-nav-text-color;
       min-height: $lens-nav-height;
-      padding-top: 18px;
+      padding-top: $lens-padding-top;
       padding-bottom: 0px;
+    }
+
+    li > button {
+      min-height: $lens-nav-height;
     }
 
     .nav-section {
@@ -265,50 +256,35 @@ $lens-box-model: border-box;
   }
 }
 
-.course-list {
-  margin-top: 10px;
-  margin-bottom: 15px;
-  background: white;
-  border: 1px solid $edx-gray;
-  border-width: 0 0 1px 1px;
-
-  .course {
-    padding: 15px;
-    border: 1px solid $edx-gray;
-    border-width: 1px 1px 0 0;
-
-    .course-name {
-      font-size: $font-size-large;
-    }
-
-    .course-key {
-      color: $edx-gray;
-    }
-  }
-}
-
 body.view-course-list {
+  $course-list-vertical-padding: $padding-large-vertical * 2.5;
   #content {
-    margin-top: 25px;
+    .view-section {
+      margin-bottom: 0px;
 
-    .view-head {
-      color: $edx-gray-d2;
-      margin-bottom: 0;
-    }
-
-    .intro-text {
-      color: $edx-gray-d1;
-    }
-
-    .view-intro {
-      .lead {
-        font-size: $font-size-base;
+      .section-content {
+        margin-bottom: 0px;
       }
     }
 
-    .info-text {
-      color: $edx-gray;
-      font-size: $font-size-small;
+    .course-list-app-container {
+      margin-bottom: $padding-large-vertical * 4;
+    }
+
+    .course-list-header-region {
+      padding-top: $padding-large-vertical;
+    }
+
+    .section-heading {
+      margin-bottom: $padding-large-vertical;
+
+      .section-title {
+        margin-top: 0px;
+      }
+    }
+
+    .view-head {
+      margin: 0;
     }
 
     .help-msg {
@@ -318,30 +294,10 @@ body.view-course-list {
   }
 }
 
-// DataTables
-// align the headings with the text in the rows
-table.dataTable thead > tr > th {
-  padding-left: 6px;
-  padding-right: 6px;
-}
-
-// Icon spacing and position the arrows next to the header labels
-table.dataTable thead th.sorting:after,
-table.dataTable thead th.sorting_asc:after,
-table.dataTable thead th.sorting_desc:after {
-  position: relative;
-  top: 0px;
-  right: 0px;
-  display: inline;
-  padding-left: 8px;
-  font-family: FontAwesome;
-  color: $edx-gray;
-}
-
-//Sort Icon Color
-table.dataTable thead th.sorting_asc:after,
-table.dataTable thead th.sorting_desc:after {
-  color: $edx-blue;
+body.view-dashboard {
+  .view-head {
+    margin-bottom: 0;
+  }
 }
 
 .page-title-outer {
@@ -349,7 +305,7 @@ table.dataTable thead th.sorting_desc:after {
     @extend .text-muted;
     font-size: ($font-size-h1 * 0.5);
 
-    @media (min-width: $screen-md-min) {
+    @media (min-width: $bp-screen-lg - 1) {
       text-align: right;
       margin-top: ($line-height-computed * 1.5);
     }
@@ -359,20 +315,23 @@ table.dataTable thead th.sorting_desc:after {
 .data-information-message {
   @extend .small;
   padding-top: $padding-base-vertical;
+  padding-bottom: $padding-base-vertical;
   margin-top: $padding-large-vertical;
 }
 
 .data-update-message {
   @extend .data-information-message;
-  border-top: $edx-gray-l1 1px solid;
+  border-top: $gray-l1 1px solid;
 }
 
 .announcement-container {
-  background-color: $gray-d2;
+  background-color: $palette-grayscale-dark;
   border-bottom: solid 1px $edx-blue;
   padding-bottom: $padding-large-vertical * 1.5;
   padding-top: $padding-large-vertical;
-  color: $gray;
+  padding-left: $padding-small-horizontal;
+  padding-right: $padding-small-horizontal;
+  color: $palette-grayscale-accent;
   font-size: $font-size-small;
 
   .dismiss {
@@ -386,16 +345,55 @@ table.dataTable thead th.sorting_desc:after {
     color: $edx-blue;
     text-align: right;
     font-size: $font-size-h2;
+    margin-left: $padding-small-horizontal;
+
+    @media (max-width: $bp-screen-md - 1) {
+      display: none;
+    }
   }
 
   h1 {
-    color: $white;
+    color: $white-t3;
     font-size: $font-size-large;
     padding-bottom: $padding-small-vertical;
   }
 }
 
+.table.course-overview {
+  th, td {
+    border: none;
+  }
+
+  th {
+    font-weight: normal;
+    white-space: nowrap;
+  }
+
+  td {
+    width: 99%; // Expand as much as possible
+  }
+}
+
+.course-external-tools {
+  list-style: none;
+  padding: 0;
+  margin-left: 0;
+
+  li {
+    padding: 8px 10px;
+  }
+
+  .ico { margin-right: 6px; }
+}
+
 .course-home-table-outer {
+  columns: 3;
+  -moz-columns: 3;
+  -webkit-columns: 3;
+  column-width: $bp-screen-lg / 3;
+  -moz-column-width: $bp-screen-lg / 3;
+  -webkit-column-width: $bp-screen-lg / 3;
+
   header.heading-outer {
     display: table;
     height: $font-size-large * 4;
@@ -410,25 +408,32 @@ table.dataTable thead th.sorting_desc:after {
       color: $edx-blue;
 
       // increase line height for med-small screens so headers are same level for long lines
-      @media (max-width: $screen-md-max) and (min-width: $screen-sm-min) {
+      @media (max-width: $bp-screen-lg) and (min-width: $bp-screen-md - 1) {
         min-height: $font-size-large * 3.5;
       }
     }
+  
+  }
+
+  .course-home-section {
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    padding-bottom: $padding-large-vertical;
   }
 
   .course-home-table {
-    border: 1px solid $edx-gray-l1;
+    border: 1px solid $description-border-color;
     border-width: 0 0 1px 1px;
-    margin-bottom: $padding-large-vertical;
 
     .item {
       background: white;
       padding: $padding-large-vertical;
-      border: 1px solid $edx-gray-l1;
+      border: 1px solid $description-border-color;
       border-width: 1px 1px 0 0;
 
       &.name {
-        color: $edx-gray;
+        color: $edx-gray-l1;
         font-size: $font-size-large;
       }
 
@@ -437,7 +442,7 @@ table.dataTable thead th.sorting_desc:after {
       }
 
       .breadcrumbs {
-        color: $edx-gray;
+        color: $edx-gray-l1;
         font-size: $font-size-small;
       }
     }
@@ -462,7 +467,7 @@ table.dataTable thead th.sorting_desc:after {
       height: 400px;
 
       // cover image will be smaller on smaller displays
-      @media (max-width: $screen-md-min) {
+      @media (max-width: $bp-screen-lg - 1) {
         height: 200px;
       }
 
@@ -489,7 +494,7 @@ table.dataTable thead th.sorting_desc:after {
 .landing {
 
   p {
-    color: $gray-l2;
+    color: $gray-lighter;
   }
 
   // match the login button style to that of the LMS
@@ -529,7 +534,7 @@ table.dataTable thead th.sorting_desc:after {
 
     // adjust the display when the screen is small so that the lens questions are
     // displayed stacked
-    @media (max-width: $screen-md-min) {
+    @media (max-width: $bp-screen-lg - 1) {
       min-height: inherit;
       padding-top: $padding-large-horizontal * 1.5;
       padding-bottom: $padding-large-horizontal;
@@ -588,16 +593,12 @@ table.dataTable thead th.sorting_desc:after {
 // description and controls at the top and bottom of the chart
 .chart-marginals {
   border: $description-border;
-  padding: $padding-small-horizontal 0;
+  padding: $padding-small-horizontal $padding-small-horizontal;
   background-color: $white;
 
   p {
     // shifts it down so that it's even with the adjacent button
     padding-top: 8px;
-  }
-
-  a.disabled {
-    @extend disabled-link;
   }
 }
 
@@ -612,28 +613,28 @@ table.dataTable thead th.sorting_desc:after {
   border-top: none;
 }
 
-.module-preview-collapsible {
+.module-preview-disclosure {
   // the video preview height can be variable, so use media queries to mimic height changes
   .video-preview {
     width: 100%;
     height: 700px;
     border: 0;
 
-    @media screen and (min-width: $screen-sm-min) {
+    @media screen and (min-width: $bp-screen-md - 1) {
       height: 670px;
     }
 
-    @media screen and (min-width: $screen-md-min) {
+    @media screen and (min-width: $bp-screen-lg - 1) {
       height: 770px;
     }
   }
 
-  .collapsible-toggle-text {
+  .disclosure-toggle {
     // moving the text down just a tad so that it's in line with the next/previous buttons
     padding-top: 8px;
   }
 
-  .collapsible-content {
+  .disclosure-target {
     // initially collapsed
     display: none;
   }
@@ -666,7 +667,7 @@ table.dataTable thead th.sorting_desc:after {
     padding: 5px;
 
     .policy-item-box {
-      background-color: $edx-blue-l1;
+      background-color: $edx-blue-l2;
       margin-bottom: $padding-base-vertical;
       height: 50px;
       line-height: 50px;
@@ -733,7 +734,7 @@ table.dataTable thead th.sorting_desc:after {
 
           &:hover {
             // Override the transparent background set by the .navbar-nav selector.
-            background: $dropdown-link-hover-bg;
+            background: $navbar-default-link-active-bg;
           }
         }
 
@@ -742,5 +743,126 @@ table.dataTable thead th.sorting_desc:after {
         }
       }
     }
+  }
+
+  .section-heading {
+    margin-top: 10px;
+    margin-bottom: 6px;
+  }
+}
+
+// Learner App
+.learners-app-container {
+  margin-bottom: $padding-large-horizontal;
+}
+
+.learner-roster {
+  @include backgrid-table(learners);
+
+  .learners-table-controls-col {
+    position: relative;
+     
+    @media (min-width: $bp-screen-md) {
+      left: percentage(2/3);
+    }
+  }
+
+  .learners-results-col {
+    position: relative;
+
+    @media (min-width: $bp-screen-md) {
+      right: percentage(1/3);
+    }
+  }
+
+  .learner-engagement-cell {
+    text-align: right;
+  }
+
+  // color-blind safe colors for differentiating engagement categories
+  $rank-bottom-color: rgb(217,95,2);
+  $rank-top-color: rgb(27,158,119);
+  .learner-cell-rank-bottom {
+    text-decoration: underline;
+    color: $rank-bottom-color;
+  }
+
+  .learner-cell-rank-top {
+    color: $rank-top-color;
+    font-weight: bolder;
+  }
+
+  .activity-date-range {
+    color: $edx-gray-d2;
+
+    // padding keeps the element from shifting when active filters are selected
+    padding-top: $padding-large-vertical * 1.5;
+    padding-bottom: $padding-large-vertical * 1.5;
+
+    @media (min-width: $bp-screen-md) {
+      float: right;
+    }
+
+  }
+
+  th.learner-name-username-cell {
+    // override the th styling with td styling
+    @extend td;
+    font-weight: normal;
+  }
+}
+
+// styles for the learner details summary
+.learner-summary-container {
+
+  .learner-name {
+    font-size: $font-size-large;
+  }
+
+  // e.g. "enrollment" or "cohort"
+  .learner-summary-field {
+    color: $edx-gray-d2;
+  }
+
+  .col {
+    margin-bottom: $padding-large-vertical;
+  }
+
+}
+
+.table-responsive {
+  .row {
+    padding: 0 10px;
+  }
+
+  @media (min-width: $bp-screen-md) {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    overflow-x: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.course-list {
+  @include backgrid-table(course-list);
+
+  .course-list-active-filters .col {
+    min-height: 43px;
+  }
+
+  .course-list-table-controls-col {
+    margin-top: $padding-large-vertical * 2.1;
+  }
+
+  .course-id {
+    color: $edx-gray;
+  }
+
+  th.course-name-cell {
+    // override the th styling with td styling
+    @extend td;
+    font-weight: normal;
   }
 }

@@ -1,4 +1,4 @@
-Part of [edX code](http://code.edx.org/)
+Part of [Open edX](https://open.edx.org/)
 
 edX Analytics Dashboard [![BuildStatus](https://travis-ci.org/edx/edx-analytics-dashboard.svg?branch=master)](https://travis-ci.org/edx/edx-analytics-dashboard) [![CoverageStatus](https://img.shields.io/coveralls/edx/edx-analytics-dashboard.svg)](https://coveralls.io/r/edx/edx-analytics-dashboard?branch=master)
 =======================
@@ -8,13 +8,14 @@ Prerequisites
 -------------
 * Python 2.7.x (not tested with Python 3.x)
 * [gettext](http://www.gnu.org/software/gettext/)
-* [npm](https://www.npmjs.org/) 
+* [node](https://nodejs.org) 5.2.x
+* [npm](https://www.npmjs.org/)
 * [JDK 7+](http://openjdk.java.net/)
 
 Getting Started
 ---------------
 1. Get the code (e.g. clone the repository).
-2. Install the Python/Node/Bower requirements:
+2. Install the Python/Node requirements:
 
         $ make develop
 
@@ -22,9 +23,19 @@ Getting Started
 
         $ make migrate
 
-4. Run the server:
+4. Run the webpack-dev-server:
 
-        $ ./manage.py runserver 0.0.0.0:9000
+        $ npm start
+
+If you plan on running the Django development server on a different port or
+host, make sure to set the `DJANGO_DEV_SERVER` environmental variable. For
+example:
+
+        $ DJANGO_DEV_SERVER='http://localhost:9000' npm start
+
+5. In a separate terminal run the Django development server:
+
+        $ ./manage.py runserver 0.0.0.0:8110
 
 By default the Django Default Toolbar is disabled. To enable it set the environmental variable ENABLE_DJANGO_TOOLBAR.
 
@@ -32,45 +43,64 @@ Alternatively, you can launch the server using:
 
         $ ENABLE_DJANGO_TOOLBAR=1 ./manage.py runserver
 
+Visit http://localhost:9000 in your browser and then login through the LMS to
+access Insights (see **Authentication & Authorization** below for more details).
 
 Site-Wide Announcements
 -----------------------
-Site-wide announcements are facilitated by [django-announcements](http://django-announcements.readthedocs.org/en/latest/).
+Site-wide announcements are facilitated by
+[pinax-announcements](https://github.com/pinax/pinax-announcements/blob/master/docs/index.md).
 Use the admin site to manage announcements and dismissals.
 
 Feature Gating
 --------------
 Need a fallback to disable a feature? Create a [Waffle](http://waffle.readthedocs.org/en/latest/)
-[switch](http://waffle.readthedocs.org/en/latest/types.html#switches):
+[switch](http://waffle.readthedocs.org/en/latest/types/switch.html):
 
-        $ ./manage.py switch feature_name [on/off] --create
+        $ ./manage.py waffle_switch name-of-my-switch on --create
 
 See the [Waffle documentation](http://waffle.readthedocs.org/en/latest/) for
 details on utilizing features in code and templates.
 
 The following switches are available:
 
-| Switch                            | Purpose                                                  |
-|-----------------------------------|----------------------------------------------------------|
-| show_engagement_forum_activity    | Show the forum activity on the course engagement page    |
-| enable_course_api                 | Retrieve course details from the course API              |
-| enable_ccx_courses                | Display CCX Courses in the course listing page.          |
-| enable_engagement_videos_pages    | Enable engagement video pages.                           |
-| enable_video_preview              | Enable video preview.                                    |
-| display_names_for_course_index    | Display course names on course index page.               |
-| display_course_name_in_nav        | Display course name in navigation bar.                   |
+| Switch                               | Purpose                                               |
+|--------------------------------------|-------------------------------------------------------|
+| show_engagement_forum_activity       | Show the forum activity on the course engagement page |
+| enable_course_api                    | Retrieve course details from the course API           |
+| enable_ccx_courses                   | Display CCX Courses in the course listing page.       |
+| enable_engagement_videos_pages       | Enable engagement video pages.                        |
+| enable_video_preview                 | Enable video preview.                                 |
+| display_course_name_in_nav           | Display course name in navigation bar.                |
+| enable_performance_learning_outcome  | Enable performance section with learning outcome breakdown (functionality based on tagging questions in Studio) | 
+| enable_learner_download              | Display Download CSV button on Learner List page.     |
+| enable_problem_response_download     | Enable downloadable CSV of problem responses          |
+| enable_course_filters                | Enable filters (e.g. pacing type) on courses page.    |
+| enable_course_passing                | Enable passing column on courses page.                |
+
+[Waffle](http://waffle.readthedocs.org/en/latest/) flags are used to disable/enable
+functionality on request (e.g. turning on beta functionality for superusers). Create a
+[flag](http://waffle.readthedocs.io/en/latest/usage/cli.html#flags):
+
+        $ ./manage.py waffle_flag name-of-my-flag --everyone --create
+
+The following flags are available:
+
+| Flag                           | Purpose                                               |
+|--------------------------------|-------------------------------------------------------|
+| display_learner_analytics      | Display Learner Analytics links                       |
 
 Authentication & Authorization
 ------------------------------
-By default, this application relies on an external OAuth2/Open ID Connect provider 
-(contained within the [LMS](https://github.com/edx/edx-platform)) for authentication and authorization. If you are a 
+By default, this application relies on an external OAuth2/Open ID Connect provider
+(contained within the [LMS](https://github.com/edx/edx-platform)) for authentication and authorization. If you are a
 developer, and do not want to setup edx-platform, you can get around this requirement by doing the following:
 
 1. Set `ENABLE_AUTO_AUTH` to `True` in your settings file. (This is the default value in `settings/local.py`).
 2. Set `ENABLE_COURSE_PERMISSIONS` to `False` in your settings file.
 3. Visit `http://localhost:9000/test/auto_auth/` to create and login as a new user.
 
-Note: When using Open ID Connect, the dashboard and provider must be accessed via different host names 
+Note: When using Open ID Connect, the dashboard and provider must be accessed via different host names
 (e.g. dashboard.example.org and provider.example.org) in order to avoid issues with session cookies being overwritten.
 
 Note 2: Seeing signature expired errors upon login? Make sure the clocks of your dashboard and OAuth servers are synced
@@ -83,23 +113,25 @@ In order to work with translations you must have you must have [gettext](http://
  should be available via your preferred package manager (e.g. `yum`, `apt-get`, `brew`, or `ports`).
 ###Development###
 When adding or updating code, you should ensure all necessary strings are marked for translation. We have provided a
-command that will generate dummy translations to help with this. This will create an "Esperanto" translation that is 
+command that will generate dummy translations to help with this. This will create an "Esperanto" translation that is
 actually over-accented English.
 
         $ make generate_fake_translations
 
-Restart your server after running the command above and update your browser's language preference to Esperanto (eo). 
-Navigate to a page and verify that you see fake translations. If you see plain English instead, your code is not being 
+Restart your server after running the command above and update your browser's language preference to Esperanto (eo).
+Navigate to a page and verify that you see fake translations. If you see plain English instead, your code is not being
 properly translated.
 
 ###Updating Translations###
-Once development is complete, translation source files (.po) must be generated. The command below handle this.
+Once development is complete, translation source files (.po) must be generated. The command below will generate the
+necessary source files and verify that an updated is needed:
 
-        $ cd analytics_dashboard && i18n_tool extract
-        
-The generated files located in `analytics_dashboard/conf/locale/en/LC_MESSAGES` should be uploaded to 
-the [analytics-dashboard](https://www.transifex.com/projects/p/edx-platform/resource/analytics-dashboard/) and
-[analytics-dashboard-js](https://www.transifex.com/projects/p/edx-platform/resource/analytics-dashboard-js/) resources 
+        $ make validate_translations
+
+If not [automated](https://docs.transifex.com/projects/updating-content#automatic-updates), the generated files located
+in `analytics_dashboard/conf/locale/en/LC_MESSAGES` should be uploaded to the
+[analytics-dashboard](https://www.transifex.com/projects/p/edx-platform/resource/analytics-dashboard/) and
+[analytics-dashboard-js](https://www.transifex.com/projects/p/edx-platform/resource/analytics-dashboard-js/) resources
 at Transifex where translators will begin the translation process. This task can be completed using the [Transifex
 Client](http://docs.transifex.com/developer/client/):
 
@@ -119,23 +151,43 @@ Note that only the following files (for each language) should be committed to th
 
 Asset Pipeline
 --------------
-Static files are managed via [django-compressor](http://django-compressor.readthedocs.org/) and [RequireJS](http://requirejs.org/).
-RequireJS (and r.js) are used to manage JavaScript dependencies. django-compressor compiles SASS, minifies JavaScript (
-using [Closure Compiler](https://developers.google.com/closure/compiler/)), and handles naming files to facilitate 
-cache busting during deployment.
+Static files are managed via [webpack](https://webpack.js.org/).
 
-Both tools should operate seamlessly in a local development environment. When deploying to production, call
-`make static` to compile all static assets and move them to the proper location to be served.
+To run the webpack-dev-server, which will watch for changes to static files
+(`.js`, `.css`, `.sass`, `.underscore`, etc. files) and incrementally recompile
+webpack bundles and try to hot-reload them in your browser, run this in a
+terminal:
 
-When creating new pages that utilize RequireJS dependencies, remember to use the `static_rjs` templatetag to load
-the script, and to add a new module to `build.js`.
+    $ npm start
+
+Alternatively, you can compile production webpack bundles by running (runs
+webpack using the prod config and then exits):
+
+    $ make static
+
+Before committing new JavaScript, make sure it conforms to our style guide by
+running [eslint](http://eslint.org/), and fixing any errors.
+
+    $ npm run lint -s
+
+You can also try automatically fixing the errors and applying an additional
+level of standardized formatting with
+[prettier](https://github.com/prettier/prettier) by running
+[prettier-eslint](https://github.com/prettier/prettier-eslint).
+
+    $ npm run format
+
+Note: this will only format a subset of the JavaScript, we haven't converted the
+formatting of all of our files yet. Edit the directory list in `package.json`.
 
 Theming and Branding
 --------------------
 We presently have support for basic branding of the logo displayed in the header and on error pages. This is facilitated
 by including an additional SCSS file specifying the path and dimensions of the logo. The default Open edX theme located
 at `static/sass/themes/open-edx.scss` is a good starting point for those interested in changing the logo. Once your
-customizations are complete, update the value of the setting `THEME_SCSS` with the path to your new SCSS file.
+customizations are complete, update the value of the yaml configuration setting `INSIGHTS_THEME_SCSS` with the path to
+your new SCSS file. If running Webpack manually, you will have to set the environmental variable `THEME_SCSS` to your
+file before running Webpack.
 
 Developers may also choose to further customize the site by changing the variables loaded by SCSS. This is most easily
 accomplished via the steps below. This will allow for easily changing basic colors and spacing.
@@ -174,7 +226,7 @@ The complete unit test and quality suite can be run with:
 
         $ make validate
 
-The Python portion of this project uses `nose` to find and run tests. `pep8` and `pylint` are used to verify code 
+The Python portion of this project uses `nose` to find and run tests. `pep8` and `pylint` are used to verify code
 quality. All three can be run with the command below:
 
         $ make validate_python
@@ -183,10 +235,10 @@ quality. All three can be run with the command below:
 JavaScript tests and linting can be run with the following command:
 
         $ make validate_js
-        
+
 #### Continuous Integration (CI) Reports
-The commands above will generate coverage reports the `build` directory. Python reports are located in `build/coverage`. 
- JavaScript reports are in `build/coverage-js`. Both should have a [Cobertura](http://cobertura.github.io/cobertura/) 
+The commands above will generate coverage reports the `build` directory. Python reports are located in `build/coverage`.
+ JavaScript reports are in `build/coverage-js`. Both should have a [Cobertura](http://cobertura.github.io/cobertura/)
  `coverage.xml` file and an `html` directory with a human-readable HTML site.
 
 
@@ -218,8 +270,13 @@ when executing either of the commands above.
 | APPLICATION_NAME             | Name of this application                   | Insights                         |
 | SUPPORT_EMAIL                | Email where error pages should link        | support@example.com              |
 | ENABLE_COURSE_API            | Indicates if the course API is enabled on the server being tested. Also, determines if course performance tests should be run. | False     |
+| GRADING_POLICY_API_URL       | URL where the grading policy API is served | (None)                           |
 | COURSE_API_URL               | URL where the course API is served         | (None)                           |
-| COURSE_API_KEY               | API key used to access the course  API     | (None)                           |
+| COURSE_API_KEY               | API key used to access the course API      | (None)                           |
+| ENABLE_OAUTH_TESTS           | Test the OAUTH sign-in process             | true                             |
+| ENABLE_AUTO_AUTH             | Sign-in using auto-auth. (no LMS involved) | false                            |
+| ENABLE_COURSE_LIST_FILTERS   | Tests on filtering the course list         | false                            |
+| ENABLE_COURSE_LIST_PASSING   | Tests on the passing learners column in the course list | false               |
 
 
 Override example:
@@ -240,5 +297,5 @@ Please do not report security issues in public. Please email security@edx.org.
 
 Mailing List and IRC Channel
 ----------------------------
-You can discuss this code on the [edx-code Google Group](https://groups.google.com/forum/#!forum/edx-code) or in the 
+You can discuss this code on the [edx-code Google Group](https://groups.google.com/forum/#!forum/edx-code) or in the
 `edx-code` IRC channel on Freenode.

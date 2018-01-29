@@ -1,0 +1,11 @@
+{% extends "courses/performance_answer_distribution.html" %}
+{% load i18n %}
+
+{% block content_nav %}
+    {% trans "How did learners answer this problem?" as heading_note %}
+    {% include "courses/_tags_content_nav.html" with active="second_level" first_levels=js_data.first_level_content_nav selected_first_level=js_data.first_level_selected second_levels=js_data.second_level_content_nav selected_second_level=js_data.second_level_selected heading_note=heading_note %}
+{% endblock %}
+
+{% block problem_part_url %}
+    {% url 'courses:performance:learning_outcomes_answers_distribution_with_part' tag_value=selected_tag_value course_id=course_id problem_id=problem_id problem_part_id=question.part_id %}
+{% endblock %}

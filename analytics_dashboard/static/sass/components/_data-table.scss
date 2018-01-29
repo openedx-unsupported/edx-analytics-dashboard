@@ -1,0 +1,54 @@
+// use custom table styles rather than PL
+
+.dataTables_length {
+  label {
+    // this gives the length selection component of the data table some breathing room
+    padding-top: $padding-large-vertical;
+  }
+}
+
+table.dataTable {
+
+  width: 100%;
+
+  // this is a hack to override the PL text alignment
+  th.text-right {
+    text-align: right;
+  }
+
+  thead > tr:first-child > th {
+    border: none;
+  }
+
+  td {
+    border: none;
+  }
+
+  // DataTables
+  // align the headings with the text in the rows
+  thead > tr > th {
+    $padding: 6px;
+    padding-left: $padding;
+    padding-right: $padding;
+  }
+
+  // Icon spacing and position the arrows next to the header labels
+  thead th.sorting:after,
+  thead th.sorting_asc:after,
+  thead th.sorting_desc:after {
+    position: relative;
+    top: 0px;
+    right: 0px;
+    display: inline;
+    padding-left: 8px;
+    font-family: FontAwesome;
+    color: $edx-gray;
+  }
+
+  //Sort Icon Color
+  thead th.sorting_asc:after,
+  thead th.sorting_desc:after {
+    color: $edx-blue;
+  }
+
+}

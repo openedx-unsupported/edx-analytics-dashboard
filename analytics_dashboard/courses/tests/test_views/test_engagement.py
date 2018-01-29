@@ -1,31 +1,33 @@
 from ddt import ddt
+import httpretty
 import mock
 from mock import patch, Mock
-import httpretty
 
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
+from waffle.testutils import override_switch
+
 import analyticsclient.constants.activity_type as AT
 
 from courses.tests.factories import CourseEngagementDataFactory
 from courses.tests.test_views import (
-    DEMO_COURSE_ID,
     CourseViewTestMixin,
     PatchMixin,
     CourseStructureViewMixin,
     CourseAPIMixin)
 from courses.tests import utils
+from courses.tests.utils import CourseSamples
 
 
+@override_switch('enable_engagement_videos_pages', active=True)
 class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):  # pylint: disable=abstract-method
     api_method = 'analyticsclient.course.Course.activity'
     active_secondary_nav_label = None
 
     def setUp(self):
         super(CourseEngagementViewTestMixin, self).setUp()
-        self.toggle_switch('enable_engagement_videos_pages', True)
         # This view combines the activity API with the enrollment API, so we need to mock both.
         patcher = mock.patch('analyticsclient.course.Course.enrollment', return_value=utils.mock_course_enrollment())
         patcher.start()
@@ -38,8 +40,14 @@ class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):  # pylint: disa
         expected = {
             'icon': 'fa-bar-chart',
             'href': reverse('courses:engagement:content', kwargs={'course_id': course_id}),
-            'label': _('Engagement'),
-            'name': 'engagement'
+            'text': 'Engagement',
+            'translated_text': _('Engagement'),
+            'name': 'engagement',
+            'fragment': '',
+            'scope': 'course',
+            'lens': 'engagement',
+            'report': 'content',
+            'depth': ''
         }
         self.assertDictEqual(nav, expected)
 
@@ -50,13 +58,23 @@ class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):  # pylint: disa
                 'active': True,
                 'href': '#',
                 'name': 'content',
-                'label': _('Content'),
+                'text': 'Content',
+                'translated_text': _('Content'),
+                'scope': 'course',
+                'lens': 'engagement',
+                'report': 'content',
+                'depth': ''
             },
             {
                 'active': True,
                 'href': '#',
                 'name': 'videos',
-                'label': _('Videos'),
+                'text': 'Videos',
+                'translated_text': _('Videos'),
+                'scope': 'course',
+                'lens': 'engagement',
+                'report': 'videos',
+                'depth': ''
             },
         ]
 
@@ -65,6 +83,7 @@ class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):  # pylint: disa
         self.assertListEqual(nav, expected)
 
 
+@override_switch('enable_engagement_videos_pages', active=True)
 @ddt
 class CourseEngagementContentViewTests(CourseViewTestMixin, CourseEngagementViewTestMixin, TestCase):
     viewname = 'courses:engagement:content'
@@ -129,6 +148,7 @@ class CourseEngagementContentViewTests(CourseViewTestMixin, CourseEngagementView
         self.assertIsNone(context['js_data']['course']['engagementTrends'])
 
 
+@override_switch('enable_engagement_videos_pages', active=True)
 @ddt
 class CourseEngagementVideoMixin(CourseEngagementViewTestMixin, CourseStructureViewMixin):
     active_secondary_nav_label = 'Video'
@@ -144,7 +164,7 @@ class CourseEngagementVideoMixin(CourseEngagementViewTestMixin, CourseStructureV
 
     @httpretty.activate
     def test_invalid_course(self):
-        self._test_invalid_course('course_structures/{}/')
+        self._test_invalid_course(self.COURSE_BLOCKS_API_TEMPLATE)
 
     def setUp(self):
         super(CourseEngagementVideoMixin, self).setUp()
@@ -178,8 +198,8 @@ class CourseEngagementVideoMixin(CourseEngagementViewTestMixin, CourseStructureV
     @patch('courses.presenters.engagement.CourseEngagementVideoPresenter.sections', Mock(return_value=dict()))
     def test_missing_sections(self):
         """ Every video page will use sections and will return 200 if sections aren't available. """
-        self.mock_course_detail(DEMO_COURSE_ID)
-        response = self.client.get(self.path(course_id=DEMO_COURSE_ID))
+        self.mock_course_detail(CourseSamples.DEMO_COURSE_ID)
+        response = self.client.get(self.path(course_id=CourseSamples.DEMO_COURSE_ID))
         # base page will should return a 200 even if no sections found
         self.assertEqual(response.status_code, 200)
 
@@ -209,8 +229,8 @@ class EngagementVideoCourseSectionTest(CourseEngagementVideoMixin, TestCase):
     @httpretty.activate
     @patch('courses.presenters.engagement.CourseEngagementVideoPresenter.section', Mock(return_value=None))
     def test_missing_section(self):
-        self.mock_course_detail(DEMO_COURSE_ID)
-        response = self.client.get(self.path(course_id=DEMO_COURSE_ID, section_id='Invalid'))
+        self.mock_course_detail(CourseSamples.DEMO_COURSE_ID)
+        response = self.client.get(self.path(course_id=CourseSamples.DEMO_COURSE_ID, section_id='Invalid'))
         self.assertEqual(response.status_code, 404)
 
 
@@ -238,8 +258,9 @@ class EngagementVideoCourseSubsectionTest(CourseEngagementVideoMixin, TestCase):
     @httpretty.activate
     @patch('courses.presenters.engagement.CourseEngagementVideoPresenter.subsection', Mock(return_value=None))
     def test_missing_subsection(self):
-        self.mock_course_detail(DEMO_COURSE_ID)
-        response = self.client.get(self.path(course_id=DEMO_COURSE_ID, section_id='Invalid', subsection_id='Nope'))
+        self.mock_course_detail(CourseSamples.DEMO_COURSE_ID)
+        response = self.client.get(self.path(
+            course_id=CourseSamples.DEMO_COURSE_ID, section_id='Invalid', subsection_id='Nope'))
         self.assertEqual(response.status_code, 404)
 
 
@@ -272,15 +293,15 @@ class EngagementVideoCourseTimelineTest(CourseEngagementVideoMixin, TestCase):
     @patch('courses.presenters.engagement.CourseEngagementVideoPresenter.subsection_child', Mock(return_value=None))
     def test_missing_video_module(self):
         """ Every video page will use sections and will return 200 if sections aren't available. """
-        self.mock_course_detail(DEMO_COURSE_ID)
-        response = self.client.get(self.path(course_id=DEMO_COURSE_ID))
+        self.mock_course_detail(CourseSamples.DEMO_COURSE_ID)
+        response = self.client.get(self.path(course_id=CourseSamples.DEMO_COURSE_ID))
         # base page will should return a 200 even if no sections found
         self.assertEqual(response.status_code, 404)
 
     @httpretty.activate
     @patch('courses.presenters.engagement.CourseEngagementVideoPresenter.get_video_timeline', Mock(return_value=None))
     def test_missing_video_data(self):
-        self.mock_course_detail(DEMO_COURSE_ID)
-        response = self.client.get(self.path(course_id=DEMO_COURSE_ID))
+        self.mock_course_detail(CourseSamples.DEMO_COURSE_ID)
+        response = self.client.get(self.path(course_id=CourseSamples.DEMO_COURSE_ID))
         # page will still be displayed, but with error messages
         self.assertEqual(response.status_code, 200)

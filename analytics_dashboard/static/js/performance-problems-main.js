@@ -1,8 +1,8 @@
-require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
+require(['load/init-page'], function(page) {
     'use strict';
 
     require(['d3', 'underscore', 'views/data-table-view', 'views/stacked-bar-view'],
-        function (d3, _, DataTableView, StackedBarView) {
+        function(d3, _, DataTableView, StackedBarView) {
             var model = page.models.courseModel,
                 graphSubmissionColumns = [
                     {
@@ -24,7 +24,9 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                 ],
                 tableColumns = [
                     {key: 'index', title: gettext('Order'), type: 'number', className: 'text-right'},
-                    {key: 'name', title: model.get('contentTableHeading'), type: 'hasNull'}                ];
+                    {key: 'name', title: model.get('contentTableHeading'), type: 'hasNull'}],
+                performanceProblemsChart,
+                performanceProblemsTable;
 
             tableColumns = tableColumns.concat(graphSubmissionColumns);
 
@@ -44,15 +46,16 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
             });
 
             if (model.get('hasData')) {
-                new StackedBarView({
+                performanceProblemsChart = new StackedBarView({
                     el: '#chart-view',
                     model: model,
                     modelAttribute: 'primaryContent',
                     trends: graphSubmissionColumns
                 });
+                performanceProblemsChart.renderIfDataAvailable();
             }
 
-            new DataTableView({
+            performanceProblemsTable = new DataTableView({
                 el: '[data-role=data-table]',
                 model: model,
                 modelAttribute: 'primaryContent',
@@ -60,5 +63,6 @@ require(['vendor/domReady!', 'load/init-page'], function (doc, page) {
                 sorting: ['index'],
                 replaceZero: '-'
             });
+            performanceProblemsTable.renderIfDataAvailable();
         });
 });

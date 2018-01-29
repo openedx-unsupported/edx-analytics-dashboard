@@ -6,7 +6,6 @@ For Your Information
    :numbered:
    :maxdepth: 2
 
-   change_log
    read_me
    preface
    browsers

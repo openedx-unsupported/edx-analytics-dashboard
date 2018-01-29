@@ -1,25 +1,24 @@
 import logging
 
-import slumber
-from slumber.exceptions import HttpClientError
-
-from common.auth import BearerAuth
+from edx_rest_api_client.client import EdxRestApiClient
+from edx_rest_api_client.exceptions import HttpClientError
 
 
 logger = logging.getLogger(__name__)
 
 
-class CourseStructureApiClient(slumber.API):
+class CourseStructureApiClient(EdxRestApiClient):
     """
-    Course Structure API Client
+    This class is a sub-class of the edX Rest API Client
+    (https://github.com/edx/edx-rest-api-client).
 
-    This class is a sub-class slumber.API (http://slumber.readthedocs.org/en/latest/). Details
-    about the API itself can be found at https://openedx.atlassian.net/wiki/display/AN/Course+Structure+API.
+    Details about the API itself can be found at
+    https://openedx.atlassian.net/wiki/display/AN/Course+Structure+API.
     """
     DATETIME_FORMAT = "%Y-%m-%dT%H:%M:%SZ"
 
-    def __init__(self, url, access_token):
-        super(CourseStructureApiClient, self).__init__(url, auth=BearerAuth(access_token))
+    def __init__(self, url, access_token, timeout):
+        super(CourseStructureApiClient, self).__init__(url, oauth_access_token=access_token, timeout=timeout)
 
     @property
     def all_courses(self):

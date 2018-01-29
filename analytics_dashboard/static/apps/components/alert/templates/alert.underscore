@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="alert <%- containerClass %>" role="alert" aria-labelledby="alert-title" tabindex="-1">
+        <span class="icon alert-icon fa <%- iconClass %>" aria-hidden="true"></span>
+
+        <div class="alert-message">
+            <h3 class="alert-title" id="alert-title">
+                <%- title %>
+            </h3>
+            <p class="alert-copy-with-title">
+                <% if (body) { %>
+                    <%- body %>
+                <% } %>
+                <% if (suggestions.length) { %>
+                    <ul class="suggestions">
+                        <% suggestions.map(function (suggestion) { %>
+                            <li><%- suggestion %></li>
+                        <% }); %>
+                    </ul>
+                <% } %>
+                <% if (link) { %>
+                    <div class="link">
+                        <a href="<%- link.url %>"><%- link.text %></a>
+                    </div>
+                <% } %>
+            </p>
+        </div>
+    </div>
+</div>

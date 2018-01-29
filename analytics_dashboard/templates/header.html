@@ -1,12 +1,13 @@
 {% load i18n %}
-{% load firstof from future %}
+{% load dashboard_extras %}
 
 {% comment %}
 Partial: App-wide header element
 {% endcomment %}
 
-<header class="navbar navbar-default" role="banner" aria-label="main" id="nav">
-  <div class="container">
+{% include "_skip_link.html" with content_id="content" %}
+<header class="navbar navbar-default" id="nav">
+  <div class="grid-container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
         <span class="sr-only">{% trans 'Toggle navigation' %}</span>
@@ -19,7 +20,13 @@ Partial: App-wide header element
       {% if course_id %}
       <ul class="nav navbar-nav">
         <li>
-          <a href="{% url 'courses:home' course_id=course_id %}" class="navbar-link active-course-name">{% firstof course_name course_id %}</a>
+            {% captureas course_home_url %}{% url 'courses:home' course_id=course_id %}{% endcaptureas %}
+            <a href="{{ course_home_url }}" class="navbar-link active-course-name"
+                data-track-type="click" data-track-event="edx.bi.ui.menu.navigated"
+                data-track-text="{% firstof course_name course_id %}"
+                data-track-url="{{ course_home_url }}" data-track-target-scope="course"
+                data-track-target-lens="home" data-track-menu-depth="home" data-track-link-name="course_title">
+                {% firstof course_name course_id %}</a>
         </li>
       </ul>
       {% endif %}
@@ -34,16 +41,23 @@ Partial: App-wide header element
           </li>
         {% endif %}
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle active-user navbar-link" data-toggle="dropdown" role="button"
-             id="userMenu">
-            <i class="ico-user fa fa-graduation-cap" aria-hidden="true"></i>
+          <button class="dropdown-toggle active-user navbar-link" data-toggle="dropdown"
+             aria-controls="userDropdownMenu" id="userMenu">
+            <span class="sr-only">{% trans "Menu for" %}</span>
+            <span class="ico-user fa fa-graduation-cap" aria-hidden="true"></span>
             <span class="active-user-name">{{ request.user.username }}</span>
-            <i class="ico ico-indicator fa fa-caret-down"></i>
-          </a>
+            <span class="ico ico-indicator fa fa-caret-down" aria-hidden="true"></span>
+          </button>
 
-          <ul class="dropdown-menu active-user-nav" role="menu" aria-labelledby="userMenu">
+          <ul id="userDropdownMenu" class="dropdown-menu active-user-nav" tabindex="-1"
+              aria-labelledby="userMenu">
             <li>
-              <a class="active-user-nav-logout" href="{% url 'logout' %}">{% trans "Logout" %}</a>
+              {% captureas logout_url %}{% url 'logout' %}{% endcaptureas %}
+              <a class="active-user-nav-logout" href="{{ logout_url }}" data-track-type="click"
+                  data-track-event="edx.bi.ui.menu.navigated" data-track-text="Logout"
+                  data-track-url="{{ logout_url }}" data-track-target-scope="insights"
+                  data-track-target-lens="logout" data-track-menu-depth="home" data-track-link-name="logout">
+                  {% trans "Logout" %}</a>
             </li>
           </ul>
         </li>

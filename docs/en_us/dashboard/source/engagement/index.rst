@@ -1,13 +1,17 @@
 .. _Engagement Index:
 
-#############################
-Student Engagement
-#############################
+################################
+Learner Engagement
+################################
 
-To learn about what students are doing in your course, from the edX Insights
-menu select **Engagement**. Select **Content** to investigate how many
-students are interacting with course content overall, and what they are doing.
-For data specifically about the videos in your course, select **Video**.
+To gain an overall understanding of what learners are doing in your course,
+select **Engagement** on the **Course Home** page for the course. Select
+**Content** to investigate how many learners are interacting with course
+content overall, and what they are doing. For data specifically about the
+videos in your course, select **Video**.
+
+To open the **Course Home** page for any course, sign in to Insights, and then
+select the name of the course in the Course List table on the **Courses** page.
 
 .. toctree::
    :maxdepth: 1
@@ -15,6 +19,3 @@ For data specifically about the videos in your course, select **Video**.
    Engagement_Content
    Engagement_Video
 
-.. .. image:: ../images/engage_content.png
- :alt: The top portion of the Engagnement with Content page, showing a chart 
-       plotting activity trends  

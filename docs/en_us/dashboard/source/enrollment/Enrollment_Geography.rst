@@ -1,10 +1,10 @@
 .. _Enrollment_Geography:
 
-#############################
+####################
 Enrollment Geography
-#############################
+####################
 
-Where are my students from? Enrollment geography data helps you understand the
+Where are my learners from? Enrollment geography data helps you understand the
 global reach of your course.
 
 .. contents::
@@ -12,69 +12,72 @@ global reach of your course.
    :depth: 2
 
 Enrollment geography data is updated every day. Changes in the locations
-for enrolled students through the end of the previous day (23:59 UTC) are
+for enrolled learners through the end of the previous day (23:59 UTC) are
 included.
 
-********************************************
-Gaining Insight into Student Location
-********************************************
+*************************************
+Gaining Insight into Learner Location
+*************************************
 
-EdX Insights delivers data about student location in a map, a set of metrics,
+EdX Insights delivers data about learner location in a map, a set of metrics,
 and a report that you can view or download. Descriptions follow; for detailed
 information about the computations, see :ref:`Reference`.
 
-======================================
+===========================
 Geographic Distribution Map
-======================================
+===========================
 
 The map uses a color scale to indicate the percentage of current course
-enrollment represented by students from each country. The darker the shade, the
-higher the enrollment percentage. You can view the current enrollment count for
-each country by moving your mouse over the map.
+enrollment represented by learners from each country or region. The darker the
+shade, the higher the enrollment percentage. You can view the current enrollment
+count for each country or region by moving your mouse over the map.
 
-In this example, the country with the highest number of enrolled students is
-the United States. The cursor is pointing to Brazil, and a tooltip shows the
-percentage of students enrolled in the course from that country.
+In this example, the country or region with the highest number of enrolled
+learners is the United States. The cursor is pointing to Brazil, and a tooltip
+shows the number and percentage of learners enrolled in the course from that
+country or region.
 
 .. image:: ../images/geography_chart.png
- :alt: Map showing the tooltip for the country of Brazil.
+ :alt: Map showing the tooltip for the country of Brazil, which has 341
+     learners.
+ :width: 600
 
-======================================
-Total Countries Represented Metric
-======================================
+=============================================
+Total Countries or Regions Represented Metric
+=============================================
 
-This metric reports the number of countries in which one or more students are
-located.
+This metric reports the number of countries or regions  in which one or more
+learners are located.
 
-======================================
-Top Country by Enrollment Percentage
-======================================
+==============================================
+Top Country or Region by Enrollment Percentage
+==============================================
 
-This statistic reports the country with the highest percentage of students.
+This statistic reports the country or region with the highest percentage of learners.
 
-========================================
-Second Country by Enrollment Percentage
-========================================
+=================================================
+Second Country or Region by Enrollment Percentage
+=================================================
 
-This statistic reports the country with the second highest percentage of
-students.
+This statistic reports the country or region with the second highest percentage of
+learners.
 
-======================================
-Third Country by Enrollment Percentage
-======================================
+================================================
+Third Country or Region by Enrollment Percentage
+================================================
 
-This statistic reports the country with the third highest percentage of
-students.
+This statistic reports the country or region with the third highest percentage of
+learners.
 
-======================================
+===========================
 Geographic Breakdown Report
-======================================
+===========================
 
 .. the downloadable report will have country/total/percentage
 
-The columns in this report show each **Country** and its **Percentage** and
-**Current Enrollment**. Students whose location cannot be determined are
-reported in the "Unknown" category.
+The columns in this report show each **Country or Region** and its
+**Percentage** and **Current Enrollment**. Learners whose location cannot be
+determined are reported in the "Unknown" category.
 
 To download the Enrollment Over Time report in a comma-separated value file,
 click **Download CSV**. The CSV file contains the following columns:
@@ -103,58 +106,52 @@ determined.
 Analytics in Action: Interpreting Geographic Distribution
 *********************************************************
 
-=============================
+============================
 Teaching with a Global Reach
-=============================
+============================
 
 To make their courses more welcoming to a geographically and culturally diverse
-student body, team members have changed their courses in a variety of ways.
+learner body, team members have changed their courses in a variety of ways.
 
-* A team in the United States realized that they had almost as many students
-  from India enrolled as from their own country. To provide the same experience
-  to students participating across a time difference of more than nine hours,
-  the team adjusted their schedules so that discussion moderation coverage
-  covered more hours in each day.
+* A team in the United States realized that they had almost as many learners
+  from India enrolled as from their own country or region. To provide the same
+  experience to learners participating across a time difference of more than
+  nine hours, the team adjusted their schedules so that discussion moderation
+  coverage covered more hours in each day.
 
-* After he identified the top few countries where students in his course were
-  located, one professor made a quick change to some of the homework problems.
-  Instead of using first names that are only common among American and European
-  students in the problem text and examples, he sprinkled in names that would
-  be familiar to students in India, Colombia, and China.
+* After he identified the top few countries or regions where learners in his
+  course were located, one professor made a quick change to some of the homework
+  problems. Instead of using first names that are only common among American and
+  European learners in the problem text and examples, he sprinkled in names that
+  would be familiar to learners in India, Colombia, and China.
 
   The same professor also checked the scheduled due dates for his course
   assignments, and found that it made sense to change a due date that fell on
   a major festival day in India.
 
-.. Same story, pre-anonymized: * After he learned the top few countries where students in his Circuits and Electronics course were located, Professor Anant Agarwal made a quick change to some of the homework problems. Instead of using first names that are only common among American and European students in examples, he sprinkled in names that would be familiar to students in India, Colombia, and China. Professor Agarwal also checked the scheduled due dates for the course assignments, and found that it made sense to change a due date that fell on a major festival day in India.
-
 .. * Another team provided a Hindi translation of their course introduction.
 
-=======================================================
+=====================================================
 Investing Based on Demonstrated Need, Not Predictions
-=======================================================
+=====================================================
 
-Delivering content, especially videos, to students in every country in the
-world means meeting differing technological requirements. Instead of working to
-make every video available to a global audience before the course started, one
-team took more of a wait-and-see approach. In the months leading up to the
-course start date, the team tracked the number of students who, based on
+Delivering content, especially videos, to learners in every country or region in
+the world means meeting differing technological requirements. Instead of working
+to make every video available to a global audience before the course started,
+one team took more of a wait-and-see approach. In the months leading up to the
+course start date, the team tracked the number of learners who, based on
 location, could only access videos if they were hosted on a third-party site.
-The team was able to use the actual number and percentage of students from the
-affected country in their justification of the increased costs of creating the
-alternate video delivery channel.
+The team was able to use the actual number and percentage of learners from the
+affected country or region in their justification of the increased costs of
+creating the alternate video delivery channel.
 
-============================
+===================
 Fostering Community
-============================
+===================
 
-When students enroll in a course and click through from the edX dashboard, they
-see the Course Info page first. One professor welcomed students into the course
-community by including enrollment data from previous iterations of his course.
-By showcasing the size and geographic reach of the course in this way, the
-professor used the "wow" factor of his MOOC to capture interest and escalate
-enthusiasm.
-
-.. ^ is there a way to make this stronger?
-
-.. "I'd like to share some important details with you about our community. Since its launch in March 2013, HeroesX has enrolled over 60,000 individuals from over 170 countries, and this third session is growing every day. ...HeroesX is special because it brings together individual participants working independently from all over the world". - Gregory Nagy, September 2, 2014 (hold off on specifically quoting per Michele)
+When learners enroll in a course and click through from the edX dashboard, they
+see the course **Home** page first. One professor welcomed learners into the
+course community by including enrollment data from previous iterations of his
+course. By showcasing the size and geographic reach of the course in this way,
+the professor used the "wow" factor of his MOOC to capture interest and
+escalate enthusiasm.

@@ -1,8 +1,9 @@
 import datetime
+import logging
 import math
+
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
-import logging
 from waffle import switch_is_active
 
 from analyticsclient.client import Client
@@ -12,13 +13,13 @@ from analyticsclient.exceptions import NotFoundError
 from core.templatetags.dashboard_extras import metric_percentage
 from courses import utils
 from courses.exceptions import NoVideosError
-from courses.presenters import (BasePresenter, CourseAPIPresenterMixin)
+from courses.presenters import (CoursePresenter, CourseAPIPresenterMixin)
 
 
 logger = logging.getLogger(__name__)
 
 
-class CourseEngagementActivityPresenter(BasePresenter):
+class CourseEngagementActivityPresenter(CoursePresenter):
     """
     Presenter for the engagement activity page.
     """
@@ -104,13 +105,25 @@ class CourseEngagementActivityPresenter(BasePresenter):
                 week['active_percent'] = num_active / float(week['enrollment'])
             else:
                 week['active_percent'] = None  # Avoid divide-by-zero but add an entry for this column so it appears
-        most_recent = trends[-1]
-        summary_enrollment = enrollment_by_day.get(most_recent['weekEnding'])
+
+        # Find the latest weekEnding in the trends that we have enrollment data for.
+        # (should usually be trends[-1] unless the enrollment data somehow got behind)
+        summary_enrollment = None
+        trends_step_back = 1
+        while not summary_enrollment:
+            if trends_step_back > len(trends):
+                # No enrollment data for any of the dates in the activity trend data.
+                # This should never be executed because of the has_enrollment_data check above.
+                return
+            most_recent = trends[-trends_step_back]
+            summary_enrollment = enrollment_by_day.get(most_recent['weekEnding'])
+            trends_step_back += 1
+
         if summary_enrollment:
             for key in self.get_activity_types():
                 if summary.get(key):
                     # Translators: '{percentage}' in as a placeholder for the percentage value.
-                    percent_str = _("{percentage} of current students")
+                    percent_str = _("{percentage} of current learners")
                     summary[key + '_percent_str'] = percent_str.format(
                         percentage=metric_percentage(summary[key] / float(summary_enrollment))
                     )
@@ -121,8 +134,7 @@ class CourseEngagementActivityPresenter(BasePresenter):
         """
         Retrieve recent summary and all historical trend data.
         """
-        # setting the end date (exclusive) to the next day retrieves data as soon as it's available
-        end_date = (datetime.datetime.utcnow() + datetime.timedelta(days=1)).strftime(Client.DATE_FORMAT)
+        end_date = datetime.datetime.utcnow().strftime(Client.DATETIME_FORMAT)
         api_trends = self.course.activity(start_date=None, end_date=end_date)
         summary = self._build_summary(api_trends)
         trends = self._build_trend(api_trends)
@@ -132,7 +144,7 @@ class CourseEngagementActivityPresenter(BasePresenter):
         return summary, trends
 
 
-class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, BasePresenter):
+class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, CoursePresenter):
 
     def blocks_have_data(self, videos):
         if videos:

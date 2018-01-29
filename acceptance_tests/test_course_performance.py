@@ -48,14 +48,12 @@ class CoursePerformancePageTestsMixin(CoursePageTestsMixin):
     def _format_number_or_hyphen(self, value):
         if value:
             return self.format_number(value)
-        else:
-            return '-'
+        return '-'
 
     def _build_display_percentage_or_hyphen(self, correct, total):
         if correct:
             return self.build_display_percentage(correct, total)
-        else:
-            return '-'
+        return '-'
 
     def _get_problems_dict(self):
         # Retrieve the submissions from the Analytics Data API and create a lookup table.
@@ -63,15 +61,15 @@ class CoursePerformancePageTestsMixin(CoursePageTestsMixin):
         return {problem['module_id']: problem for problem in problems}
 
     def _get_assignments(self, assignment_type=None):
-        structure = self.course_api_client.course_structures(self.page.course_id).get()
-        assignments = CourseStructure.course_structure_to_assignments(structure, graded=True,
+        blocks = self.course_api_client.blocks().get()
+        assignments = CourseStructure.course_structure_to_assignments(blocks, graded=True,
                                                                       assignment_type=assignment_type)
 
         return self._build_submissions(assignments, self._get_problems_dict())
 
     def _get_sections(self):
-        structure = self.course_api_client.course_structures(self.page.course_id).get()
-        sections = CourseStructure.course_structure_to_sections(structure, 'problem', graded=False)
+        blocks = self.course_api_client.blocks().get()
+        sections = CourseStructure.course_structure_to_sections(blocks, 'problem', graded=False)
         problems = self._get_problems_dict()
         for section in sections:
             self._build_submissions(section['children'], problems)
@@ -308,7 +306,7 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformancePageTestsMixin):
 
     def _test_heading_question(self):
         element = self.page.q(css='.section-heading')
-        self.assertEqual(element.text[0], u'How did students answer this problem?')
+        self.assertEqual(element.text[0], u'How did learners answer this problem?')
 
     def _test_problem_description(self):
         section_selector = '.module-description'
@@ -332,7 +330,7 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformancePageTestsMixin):
 
         container_selector = '.analytics-chart-container'
         element = self.page.q(css=container_selector + ' i')
-        expected_tooltip = 'This chart shows the most common answers submitted by students, ordered by frequency.'
+        expected_tooltip = 'This chart shows the most common answers submitted by learners, ordered by frequency.'
         self.assertEqual(element[0].get_attribute('data-original-title'), expected_tooltip)
 
     def _test_table(self):
@@ -353,7 +351,7 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformancePageTestsMixin):
                 actual.append(col.text)
 
             expected = [answer[value_field] if answer[value_field] else u'(empty)']
-            correct = '-'
+            correct = u'-'
             if answer['correct']:
                 correct = u'Correct'
             expected.append(correct)

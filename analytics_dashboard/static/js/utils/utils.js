@@ -1,4 +1,4 @@
-define(['moment', 'underscore', 'utils/globalization'], function (moment, _, Globalize) {
+define(['moment', 'underscore', 'utils/globalization'], function(moment, _, Globalize) {
     'use strict';
 
     var utils = {
@@ -11,21 +11,20 @@ define(['moment', 'underscore', 'utils/globalization'], function (moment, _, Glo
          * @param blackList Exclude attributes in this array of strings.
          * @returns Hash of found attributes.
          */
-        getNodeProperties: function (nodeAttributes, startsWithAndStrip, blackList) {
-            var properties = {};
+        getNodeProperties: function(nodeAttributes, startsWithAndStrip, blackList) {
+            var properties = {},
+                // fill in defaults
+                startsWithAndStripDefault = startsWithAndStrip || '',
+                blackListDefault = blackList || [];
 
-            // fill in defaults
-            startsWithAndStrip = startsWithAndStrip || '';
-            blackList = blackList || [];
-
-            _(_(nodeAttributes.length).range()).each(function (i) {
+            _(_(nodeAttributes.length).range()).each(function(i) {
                 var nodeName = nodeAttributes.item(i).nodeName,
                     strippedName;
                 // filter the attributes to just the ones that start with our
                 // selection and aren't in our blacklist
-                if (nodeName.indexOf(startsWithAndStrip) === 0 && !_(blackList).contains(nodeName)) {
+                if (nodeName.indexOf(startsWithAndStripDefault) === 0 && !_(blackListDefault).contains(nodeName)) {
                     // remove the
-                    strippedName = nodeName.replace(startsWithAndStrip, '');
+                    strippedName = nodeName.replace(startsWithAndStripDefault, '');
                     properties[strippedName] =
                         nodeAttributes.item(i).value;
                 }
@@ -33,14 +32,26 @@ define(['moment', 'underscore', 'utils/globalization'], function (moment, _, Glo
             return properties;
         },
 
+
+        getMomentLocale: function() {
+            // moment accepts 'zh-cn' rather than 'zh' and 'zh-tw' rather than 'zh-hant'
+            if (window.language === 'zh') {
+                return 'zh-cn';
+            } else if (window.language === 'zh-Hant') {
+                return 'zh-tw';
+            } else {
+                return window.language;
+            }
+        },
+
         /**
          * Takes a standard string date and returns a formatted date.
-         * @param {string} date (ex. 2014-01-31)
+         * @param {(string|Date)} date (ex. 2014-01-31 or Date object)
          * @returns {string} Returns a formatted date (ex. January 31, 2014)
          */
-        formatDate: function (date) {
-            moment.locale(window.language);
-            return moment(date).format('LL');
+        formatDate: function(date) {
+            moment.locale(this.getMomentLocale());
+            return moment.utc(date).format('LL');
         },
 
         /**
@@ -48,7 +59,7 @@ define(['moment', 'underscore', 'utils/globalization'], function (moment, _, Glo
          * @param value {number}
          * @returns {string}
          */
-        localizeNumber: function (value, fractionDigits) {
+        localizeNumber: function(value, fractionDigits) {
             var options = {
                 minimumFractionDigits: fractionDigits,
                 maximumFractionDigits: fractionDigits
@@ -61,7 +72,7 @@ define(['moment', 'underscore', 'utils/globalization'], function (moment, _, Glo
          * @param value {number}
          * @returns {string}
          */
-        formatDisplayPercentage: function (value) {
+        formatDisplayPercentage: function(value) {
             var display = '< 1%';
             if (value >= 0.01 || value === 0) {
                 display = Globalize.formatNumber(value, {
@@ -92,10 +103,69 @@ define(['moment', 'underscore', 'utils/globalization'], function (moment, _, Glo
                 seconds = totalSeconds - (minutes * 60);
             return _([minutes, seconds]).map(function(time) {
                 if (time < 10) {
-                    time = '0' + time;
+                    return '0' + time;
                 }
                 return time;
             }).join(':');
+        },
+
+        /**
+         * Converts the querystring portion of the URL into an object
+         * mapping keys to argument values.
+         *
+         * Examples:
+         * - 'foo=bar&baz=quux' -> {foo: 'bar', baz: 'quux'}
+         * - 'foo=bar&' -> {foo: 'bar'}
+         * - 'foo=bar&baz' -> {foo: 'bar', baz: ''}
+         * - 'foo=bar&baz=' -> {foo: 'bar', baz: ''}
+         * - '' -> {}
+         * - null -> {}
+         *
+         * @param queryString {string}
+         * @returns {object}
+         */
+        parseQueryString: function(queryString) {
+            if (queryString) {
+                return _(decodeURI(queryString).split('&')).map(function(namedVal) {
+                    var keyValPair = namedVal.split('='),
+                        params = {};
+                    if (keyValPair.length === 1 && keyValPair[0]) {  // No value
+                        params[keyValPair[0]] = '';
+                    } else if (keyValPair.length === 2) {
+                        params[keyValPair[0]] = decodeURIComponent(keyValPair[1]);
+                    } else if (keyValPair.length > 2) {  // Have something like foo=bar=...
+                        throw new TypeError('Each "&"-separated substring must either be a key or a key-value pair');
+                    }
+                    return params;
+                }).reduce(function(memo, keyValPair) {
+                    return _.extend(memo, keyValPair);
+                });
+            } else {
+                return {};
+            }
+        },
+
+        /**
+         * Concatenates the given parameter key/values to a querystring.
+         *
+         * Examples:
+         * - {foo: 'bar', baz: 'quux'} -> 'foo=bar&baz=quux'
+         * - {foo: 'bar'} => 'foo=bar&'
+         * - {foo: 'bar', baz: ''} -> 'foo=bar&baz'
+         * - {foo: 'bar', baz: ''} -> 'foo=bar&baz='
+         * - {} -> ''
+         *
+         * @param params {object}
+         * @returns {string}
+         */
+        toQueryString: function(params, sep) {
+            var separator = (sep === undefined ? '?' : sep),
+                fragment = params.map(function(param) {
+                    return encodeURIComponent(param.key) + '=' + encodeURIComponent(param.val);
+                }).join('&');
+
+            // Prefix query string params with '?', but return an empty string if there are no params.
+            return fragment === '' ? fragment : (separator + fragment);
         }
     };
 

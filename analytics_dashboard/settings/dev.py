@@ -8,9 +8,6 @@ from analytics_dashboard.settings.logger import get_logger_config
 ########## DEBUG CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = True
-
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
-TEMPLATE_DEBUG = DEBUG
 ########## END DEBUG CONFIGURATION
 
 
@@ -23,7 +20,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#caches
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'
     }
 }
 ########## END CACHE CONFIGURATION
@@ -53,6 +50,7 @@ INSTALLED_APPS += (
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 LMS_COURSE_SHORTCUT_BASE_URL = 'https://example.com/courses'
+CMS_COURSE_SHORTCUT_BASE_URL = 'https://studio.example.com/course'
 
 ########## BRANDING
 PLATFORM_NAME = 'Open edX'
@@ -85,10 +83,18 @@ HELP_URL = '#'
 SEGMENT_IO_KEY = os.environ.get('SEGMENT_WRITE_KEY')
 ########## END SEGMENT.IO
 
-COURSE_API_URL = 'http://127.0.0.1:8000/api/course_structure/v0/'
+GRADING_POLICY_API_URL = 'http://127.0.0.1:8000/api/grades/v0/'
+COURSE_API_URL = 'http://127.0.0.1:8000/api/courses/v1/'
 
 LOGGING = get_logger_config(debug=DEBUG, dev_env=True, local_loglevel='DEBUG')
 
 ########## MODULE_PREVIEW
 MODULE_PREVIEW_URL = 'http://127.0.0.1:8000/xblock'
 ########## END MODULE_PREVIEW
+
+########## REST FRAMEWORK CONFIGURATION
+REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = (
+    'rest_framework.renderers.JSONRenderer',
+    'rest_framework.renderers.BrowsableAPIRenderer',
+)
+########## END REST FRAMEWORK CONFIGURATION

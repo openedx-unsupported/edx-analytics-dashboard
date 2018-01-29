@@ -64,16 +64,16 @@ class CourseEngagementContentTests(CourseEngagementPageTestsMixin, WebAppTest):
 
     def _test_engagement_metrics(self):
         """ Verify the metrics tiles display the correct information. """
-        end_date = datetime.datetime.utcnow().strftime(self.analytics_api_client.DATE_FORMAT)
+        end_date = datetime.datetime.utcnow().strftime(self.analytics_api_client.DATETIME_FORMAT)
         recent_activity = self.course.activity(end_date=end_date)[-1]
 
         # Verify the activity values
         activity_types = [at.ANY, at.ATTEMPTED_PROBLEM, at.PLAYED_VIDEO]
         expected_tooltips = {
-            at.ANY: u'Students who visited at least one page in the course content.',
-            at.ATTEMPTED_PROBLEM: u'Students who submitted an answer for a standard problem. '
+            at.ANY: u'Learners who visited at least one page in the course content.',
+            at.ATTEMPTED_PROBLEM: u'Learners who submitted an answer for a standard problem. '
                                   u'Not all problem types are included.',
-            at.PLAYED_VIDEO: u'Students who played one or more videos.'
+            at.PLAYED_VIDEO: u'Learners who played one or more videos.'
         }
         for activity_type in activity_types:
             data_selector = 'data-activity-type={0}'.format(activity_type)
@@ -85,17 +85,17 @@ class CourseEngagementContentTests(CourseEngagementPageTestsMixin, WebAppTest):
         date_time_format = self.analytics_api_client.DATETIME_FORMAT
 
         end_date = datetime.datetime.utcnow()
-        end_date_string = end_date.strftime(self.analytics_api_client.DATE_FORMAT)
+        end_date_string = end_date.strftime(self.analytics_api_client.DATETIME_FORMAT)
 
         trend_activity = self.course.activity(start_date=None, end_date=end_date_string)
         trend_activity = sorted(trend_activity, reverse=True, key=lambda item: item['interval_end'])
 
         table_selector = 'div[data-role=engagement-table] table'
 
-        headings = [u'Week Ending', u'Active Students', u'Watched a Video', u'Tried a Problem']
+        headings = [u'Week Ending', u'Active Learners', u'Watched a Video', u'Tried a Problem']
         if ENABLE_FORUM_POSTS:
-            headings.append(u'Posted in Forum')
-        headings.append(u'Percent of Current Students')
+            headings.append(u'Participated in Discussions')
+        headings.append(u'Percent of Current Learners')
 
         self.assertTableColumnHeadingsEqual(table_selector, headings)
 
@@ -166,7 +166,7 @@ class CourseEngagementVideoMixin(CourseEngagementPageTestsMixin):
 
 @skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test the video pages.')
 class CourseEngagementVideoContentTests(CourseEngagementVideoMixin, WebAppTest):
-    expected_heading = u'How did students interact with course videos?'
+    expected_heading = u'How did learners interact with course videos?'
     expected_tooltip = u'Each bar shows the average number of complete and incomplete views for videos in that ' \
                        u'section. Click on bars with low totals or a high incomplete rate to drill down and ' \
                        u'understand why.'
@@ -181,7 +181,7 @@ class CourseEngagementVideoContentTests(CourseEngagementVideoMixin, WebAppTest):
 
 @skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test the video pages.')
 class CourseEngagementVideoSectionTests(CourseEngagementVideoMixin, WebAppTest):
-    expected_heading = u'How did students interact with videos in this section?'
+    expected_heading = u'How did learners interact with videos in this section?'
     expected_tooltip = u'Each bar shows the average number of complete and incomplete views for videos in that ' \
                        u'subsection. Click on bars with low totals or a high incomplete rate to drill down and ' \
                        u'understand why.'
@@ -196,9 +196,9 @@ class CourseEngagementVideoSectionTests(CourseEngagementVideoMixin, WebAppTest):
 
 @skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test the video pages.')
 class CourseEngagementVideoSubsectionTests(CourseEngagementVideoMixin, WebAppTest):
-    expected_heading = u'How did students interact with videos in this subsection?'
+    expected_heading = u'How did learners interact with videos in this subsection?'
     expected_tooltip = u'Each bar shows the counts of complete and incomplete views for that video. ' \
-                       u'Click to understand where students drop off and which parts they replay.'
+                       u'Click to understand where learners drop off and which parts they replay.'
     expected_table_columns = [u'Order', u'Video Name', u'Complete Views', u'Incomplete Views',
                               u'Completion Percentage']
 
@@ -211,7 +211,7 @@ class CourseEngagementVideoSubsectionTests(CourseEngagementVideoMixin, WebAppTes
 @skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test the video pages.')
 class CourseEngagementVideoTimelineTests(CourseEngagementVideoMixin, WebAppTest):
     expected_heading = u'What were the viewing patterns for this video?'
-    expected_tooltip = u'The number of students who watched each segment of the video, and the ' \
+    expected_tooltip = u'The number of learners who watched each segment of the video, and the ' \
                        u'number of replays for each segment.'
     expected_table_columns = [u'Time', u'Unique Viewers', u'Replays']
     expected_table_heading = u'Total Video Views'
@@ -247,19 +247,19 @@ class CourseEngagementVideoTimelineTests(CourseEngagementVideoMixin, WebAppTest)
 
         expected_metrics = [
             {
-                'tooltip': 'Estimated percentage of students who watched the entire video.',
+                'tooltip': 'Estimated percentage of learners who watched the entire video.',
                 'data_type': 'watched-percent',
                 'metric_value': self.build_display_percentage(
                     video['users_at_end'], max(video['users_at_start'], video['users_at_end']),
                     zero_percent_default='0%')
             },
             {
-                'tooltip': 'Students who started watching the video.',
+                'tooltip': 'Learners who started watching the video.',
                 'data_type': 'started-video',
                 'metric_value': self.format_number(video['users_at_start'])
             },
             {
-                'tooltip': 'Students who watched the video to the end.',
+                'tooltip': 'Learners who watched the video to the end.',
                 'data_type': 'finished-video',
                 'metric_value': self.format_number(video['users_at_end'])
             }

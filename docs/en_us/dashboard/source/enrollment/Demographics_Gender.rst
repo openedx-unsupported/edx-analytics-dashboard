@@ -12,51 +12,44 @@ balance changes over time.
    :local:
    :depth: 2
 
-Student demographic data is updated every day to include changes in enrollment
+Learner demographic data is updated every day to include changes in enrollment
 through 23:59 UTC the previous day.
 
 ********************************************
-Gaining Insight into Student Gender
+Gaining Insight into Learner Gender
 ********************************************
 
-Students can identify themselves with a gender by selecting **Female**,
-**Male**, or **Other** when they register for an account on edx.org or
-edge.edx.org. Student gender data is provided in a chart and a report that you
-can view or download. Descriptions follow; for detailed information about the
-computations, see
+Learners can identify themselves with a gender by selecting **Female**,
+**Male**, or **Other/Prefer Not to Say** when they register for an account on
+edx.org or edge.edx.org. Learner gender data is provided in a chart and a
+report that you can view or download. Descriptions follow; for detailed
+information about the computations, see
 :ref:`Reference`.
 
 ======================================
-Self-Reported Student Gender Chart
+Self-Reported Learner Gender Chart
 ======================================
 
 The bars on this chart represent the most recently calculated percentage of
-enrolled learners who reported a gender of **Female**, **Male**, or **Other**.
-Moving your cursor over the chart shows the percentage for that gender,
-calculated to one decimal place.
+enrolled learners who reported a gender of **Female**, **Male**, or
+**Other/Prefer Not to Say**. Moving your cursor over the chart shows the
+percentage for each selection, calculated to one decimal place.
 
-Student gender data is also available for review in tabular format and can be
+Learner gender data is also available for review in tabular format and can be
 downloaded.
 
-Examples of this chart for two different courses follow.
+An example of this chart follows.
 
-.. image:: ../images/gender_chart_even.png
-   :alt: A bar chart showing 46% female and 53% male.
+.. image:: ../images/gender_chart.png
+   :alt: A bar chart showing 35.6% female, 63.5% male, and 0.9% other.
+   :width: 600
 
-.. RiceX/AdvBIOx/2014T3/enrollment/demographics/gender/
+This chart is for a science course, and learners' median age is 25. The course
+team might use the percentages of enrolled men and women as a starting point
+for an investigation into how learners learn about their course and make the
+decision to enroll in the course.
 
-.. image:: ../images/gender_chart_disparate.png
-   :alt: A bar chart showing 16% female and 82% male.
-
-.. MITx/8.MReVx/2T2014/enrollment/demographics/gender/
-
-Both of these charts are for science courses, and those courses have the same
-median age, 25. Each of these course teams might use information about the
-percentages of enrolled men and women as a starting point for an investigation
-into how students learn about their course offering and make the decision to
-enroll in the course.
-
-See the :ref:`Reference` for a detailed description of how student gender
+See the :ref:`Reference` for a detailed description of how learner gender
 values are computed.
 
 ======================================
@@ -91,7 +84,7 @@ Researching an Unanticipated Disparity
 ===============================================
 
 Not long before launch, the team for a math MOOC checked the demographics for
-the students who had enrolled. They were surprised to observe a gender
+the learners who had enrolled. They were surprised to observe a gender
 imbalance that was far more acute than they had ever seen in their on-campus
 version of the class.
 
