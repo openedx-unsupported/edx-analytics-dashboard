@@ -1,0 +1,27 @@
+{
+    "extends": "eslint-config-edx",
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "sourceType": "module",
+        "allowImportExportEverywhere": true,
+        "plugins": ["syntax-dynamic-import"]
+    },
+    "plugins": [
+        "import"
+    ],
+    "globals": {
+        "gettext": true, // added by django for i18n
+        "setFixtures": true,  // added globally by jasmine-jquery
+        "sinon": true, // used for mocking
+        "requirejs": true
+    },
+    "settings": {
+        "import/resolver": "webpack"
+    },
+    "rules": {
+        "import/no-unresolved": ["error", {"amd": true}],
+        "global-require" : "off"
+        // global-require turned off due to https://github.com/eslint/eslint/issues/4812. Fixed in v3.1.1
+        // consider turning rule on after upgrading to ESLint 3.1.1
+    }
+}

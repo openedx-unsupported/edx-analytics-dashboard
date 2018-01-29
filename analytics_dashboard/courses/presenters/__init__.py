@@ -1,14 +1,13 @@
 import abc
+from collections import OrderedDict
 import datetime
 import logging
-from urlparse import urljoin
 
 from django.conf import settings
 from django.core.cache import cache
 from analyticsclient.client import Client
-from common.clients import CourseStructureApiClient
 from common.course_structure import CourseStructure
-from core.utils import sanitize_cache_key
+from core.utils import CourseStructureApiClient, sanitize_cache_key
 
 from courses.exceptions import BaseCourseError
 
@@ -17,17 +16,11 @@ logger = logging.getLogger(__name__)
 
 
 class BasePresenter(object):
-    """
-    This is the base class for the pages and sets up the analytics client
-    for the presenters to use to access the data API.
-    """
 
-    def __init__(self, course_id, timeout=10):
+    def __init__(self, timeout=settings.ANALYTICS_API_DEFAULT_TIMEOUT):
         self.client = Client(base_url=settings.DATA_API_URL,
                              auth_token=settings.DATA_API_AUTH_TOKEN,
                              timeout=timeout)
-        self.course_id = course_id
-        self.course = self.client.courses(self.course_id)
 
     def get_current_date(self):
         return datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
@@ -51,6 +44,17 @@ class BasePresenter(object):
         return sum(datum['count'] for datum in data)
 
 
+class CoursePresenter(BasePresenter):
+    """
+    This is the base class for the course pages and sets up the analytics client
+    for the presenters to use to access the data API.
+    """
+    def __init__(self, course_id, timeout=settings.ANALYTICS_API_DEFAULT_TIMEOUT):
+        super(CoursePresenter, self).__init__(timeout)
+        self.course_id = course_id
+        self.course = self.client.courses(self.course_id)
+
+
 class CourseAPIPresenterMixin(object):
     """
     This mixin provides access to the course structure API and processes the hierarchy
@@ -60,7 +64,7 @@ class CourseAPIPresenterMixin(object):
 
     _last_updated = None
 
-    def __init__(self, access_token, course_id, timeout=10):
+    def __init__(self, access_token, course_id, timeout=settings.LMS_DEFAULT_TIMEOUT):
         super(CourseAPIPresenterMixin, self).__init__(course_id, timeout)
         self.course_api_client = CourseStructureApiClient(settings.COURSE_API_URL, access_token)
 
@@ -68,10 +72,15 @@ class CourseAPIPresenterMixin(object):
         """ Retrieves course structure from the course API. """
         key = self.get_cache_key('structure')
         structure = cache.get(key)
-
         if not structure:
             logger.debug('Retrieving structure for course: %s', self.course_id)
-            structure = self.course_api_client.course_structures(self.course_id).get()
+            blocks_kwargs = {
+                'course_id': self.course_id,
+                'depth': 'all',
+                'all_blocks': 'true',
+                'requested_fields': 'children,format,graded',
+            }
+            structure = self.course_api_client.blocks().get(**blocks_kwargs)
             cache.set(key, structure)
 
         return structure
@@ -190,7 +199,7 @@ class CourseAPIPresenterMixin(object):
             module_data = self.fetch_course_module_data()
 
             # Create a lookup table so that submission data can be quickly retrieved by downstream consumers.
-            table = {}
+            table = OrderedDict()
             last_updated = datetime.datetime.min
 
             for datum in module_data:
@@ -223,7 +232,7 @@ class CourseAPIPresenterMixin(object):
             module_data = self._course_module_data()
         except BaseCourseError as e:
             logger.warning(e)
-            module_data = {}
+            module_data = OrderedDict()
 
         for parent_block in parent_blocks:
             parent_block['num_modules'] = len(parent_block['children'])
@@ -328,8 +337,7 @@ class CourseAPIPresenterMixin(object):
             sibling_index = block_index + sibling_offset
             if sibling_index < 0:
                 return None
-            else:
-                return siblings[sibling_index]
+            return siblings[sibling_index]
         except (StopIteration, IndexError):
             # StopIteration: requested video not found in the course structure
             # IndexError: No such video with the requested offset

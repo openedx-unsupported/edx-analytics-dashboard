@@ -2,7 +2,10 @@
 {% load i18n %}
 {% load dashboard_extras %}
 
-<a class="{{ class_prefix }}-brand" href="/">
+{% captureas insights_url %}/{% endcaptureas %}
+<a class="{{ class_prefix }}-brand" href="{{ insights_url }}" data-track-type="click"
+    data-track-event="edx.bi.ui.menu.navigated" data-track-url="{{ insights_url }}" data-track-target-scope="insights"
+    data-track-target-lens="home" data-track-menu-depth="home" data-track-link-name="logo">
   <div class="{{ class_prefix }}-brand-logo" alt="{% settings_value 'PLATFORM_NAME' %}"></div>
   <span class="{{ class_prefix }}-brand-app">{% settings_value 'APPLICATION_NAME' %}</span>
 </a>

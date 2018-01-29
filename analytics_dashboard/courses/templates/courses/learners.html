@@ -1,0 +1,34 @@
+{% extends "courses/base-course.html" %}
+
+{% load dashboard_extras %}
+{% load i18n %}
+{% load staticfiles %}
+{% load render_bundle from webpack_loader %}
+{% load get_files from webpack_loader %}
+
+{% comment %}
+View of individual learners within a course.
+{% endcomment %}
+
+{% block view-name %}view-learners view-dashboard{% endblock view-name %}
+
+{% block stylesheets %}
+    {{ block.super }}
+	{% get_files 'learners-main' 'css' as common_css %}
+    {% for css_file in common_css %}
+        <link rel="stylesheet" href="{{ css_file.publicPath }}" type="text/css">
+    {% endfor %}
+{% endblock stylesheets %}
+
+{% block javascript %}
+    {{ block.super }}
+    {% render_bundle 'learners-main' %}
+{% endblock javascript %}
+
+{% block child_content %}
+    <section class="view-section">
+        <div class="learners-app-container grid-container">
+            {% include "loading.html" %}
+        </div>
+    </section>
+{% endblock %}

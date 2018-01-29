@@ -13,7 +13,7 @@
 
 {% block buttons %}
   <a href="{% url 'logout_then_login' %}" class="btn btn-lg btn-primary">
-    <i class="ico fa fa-sign-in" aria-hidden="true"></i>
+    <span class="ico fa fa-sign-in" aria-hidden="true"></span>
     {% trans "Logout then Login" %}
   </a>
   {{ block.super }}

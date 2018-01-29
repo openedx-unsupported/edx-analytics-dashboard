@@ -1,0 +1,39 @@
+version: "2.1"
+
+services:
+  es:
+    image: elasticsearch:1.5.2
+  analyticsapi:
+    image: edxops/analytics_api:${DATA_API_VERSION:-latest}
+    container_name: analytics_api
+    environment:
+      ELASTICSEARCH_LEARNERS_HOST: 'http://es:9200/'
+      ELASTICSEARCH_LEARNERS_INDEX: 'learner'
+      ELASTICSEARCH_LEARNERS_UPDATE_INDEX: 'index_update'
+    command: /edx/app/analytics_api/venvs/analytics_api/bin/python /edx/app/analytics_api/analytics_api/manage.py runserver 0.0.0.0:80
+  insights:
+    image: edxops/insights:latest
+    container_name: insights_testing
+    volumes:
+      - ..:/edx/app/insights/edx_analytics_dashboard
+    command: tail -f /dev/null
+    environment:
+      # Pull these from the host environment.
+      TRAVIS_BRANCH:
+      TRAVIS_PULL_REQUEST:
+      DATADOG_API_KEY:
+      # Rest of the environment variables for testing.
+      API_SERVER_URL: http://analyticsapi/api/v0
+      API_AUTH_TOKEN: edx
+      LMS_HOSTNAME: lms
+      LMS_PASSWORD: pass
+      LMS_USERNAME: user
+      ENABLE_AUTO_AUTH: "True"
+      ENABLE_OAUTH_TESTS: "False"
+      ENABLE_ERROR_PAGE_TESTS: "False"
+      DISPLAY_LEARNER_ANALYTICS: "True"
+      ENABLE_COURSE_LIST_FILTERS: "True"
+      ENABLE_COURSE_LIST_PASSING: "True"
+    depends_on:
+      - "es"
+      - "analyticsapi"

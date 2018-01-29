@@ -112,8 +112,37 @@ $shadow-l2: rgba($black-t,0.05);
 $shadow-d1: rgba($black-t,0.4);
 $shadow-d2: rgba($black-t,0.6);
 
+// FIXME: copy-and-pasted from the edx-pattern-library. Delete me when we import it via sass.
+// colors: palettes
+$palette-primary-dark: rgba(6, 86, 131, 100);
+$palette-primary-base: rgba(0, 117, 180, 100);
+$palette-primary-accent: rgba(41, 145, 195, 100);
+$palette-primary-back: rgba(204, 227, 240, 100);
+$palette-primary-x-back: rgba(242, 248, 251, 100);
+$palette-secondary-dark: rgba(152, 44, 98, 100);
+$palette-secondary-base: rgba(194, 56, 125, 100);
+$palette-secondary-accent: rgba(224, 155, 190, 100);
+$palette-secondary-back: rgba(243, 215, 229, 100);
+$palette-secondary-x-back: rgba(252, 245, 248, 100);
+$palette-grayscale-dark: rgba(17, 17, 17, 100);
+$palette-grayscale-base: rgba(65, 65, 65, 100);
+$palette-grayscale-accent: rgba(160, 160, 160, 100);
+$palette-grayscale-back: rgba(217, 217, 217, 100);
+$palette-grayscale-x-back: rgba(245, 245, 245, 100);
+$palette-success-text: $green;
+$palette-success-accent: lighten($green, 5%);
+$palette-success-back: desaturate(lighten($green, 70%), 45%);
+$palette-error-text: $red;
+$palette-error-accent: lighten($red, 5%);
+$palette-error-back: lighten($red, 60%);
+$palette-warning-accent: $yellow;
+$palette-warning-back: lighten($yellow, 40%);
+$palette-information-text: $blue;
+$palette-information-accent: lighten($blue, 5%);
+$palette-information-back: lighten($blue, 58%);
+
 // edx-centric colors
-$edx-blue: rgb(58, 162, 224);
+$edx-blue: $palette-primary-base;
 $edx-blue-l1: lighten($edx-blue,20%);
 $edx-blue-l2: lighten($edx-blue,30%);
 $edx-blue-d1: darken($edx-blue,20%);
@@ -129,7 +158,7 @@ $edx-blue-t1: rgba($edx-blue,0.25);
 $edx-blue-t2: rgba($edx-blue,0.50);
 $edx-blue-t3: rgba($edx-blue,0.75);
 
-$edx-pink: rgb(182,37,104);
+$edx-pink: $palette-secondary-base;
 $edx-pink-l1: lighten($edx-pink,20%);
 $edx-pink-l2: lighten($edx-pink,30%);
 $edx-pink-d1: darken($edx-pink,20%);
@@ -145,7 +174,7 @@ $edx-pink-t1: rgba($edx-pink,0.25);
 $edx-pink-t2: rgba($edx-pink,0.50);
 $edx-pink-t3: rgba($edx-pink,0.75);
 
-$edx-gray: rgb(164, 165, 168);
+$edx-gray: $palette-grayscale-base;
 $edx-gray-l1: lighten($edx-gray,20%);
 $edx-gray-l2: lighten($edx-gray,30%);
 $edx-gray-d1: darken($edx-gray,20%);
@@ -165,13 +194,13 @@ $edx-gray-t3: rgba($edx-gray,0.75);
 $color-primary: $edx-blue;
 $color-secondary: $edx-blue-l1;
 $color-tertiary: $edx-blue-l2;
-$color-success: $green;
-$color-warning: $yellow;
-$color-error: $red;
-$color-status: $blue;
+$color-success: $palette-success-text;
+$color-warning: $palette-warning-accent;
+$color-error: $palette-error-text;
+$color-status: $palette-information-text;
 $color-input: $blue-s1;
-$color-create: $green;
-$color-delete: $red;
+$color-create: $palette-success-text;
+$color-delete: $palette-error-text;
 $color-support: $orange;
 
 // fonts
@@ -193,14 +222,14 @@ $brand-info: $color-status;
 $brand-warning: $color-warning;
 $brand-danger: $color-error;
 
-// scaffoling
+// scaffolding
 $body-bg: $edx-gray-l2;
 $text-color: $gray-d2;
-// $link-color: ;
-// $link-hover-color: ;
+$link-color: $palette-primary-accent;
+$link-hover-color: $palette-primary-base;
 
 // grid
-$grid-gutter-width: 40px;
+// $grid-gutter-width: 40px;
 
 // typography
 $font-family-base: $f-sans-serif;
@@ -220,11 +249,11 @@ $border-radius-large: 4px;
 // navbar
 $navbar-height: 80px;
 $navbar-default-color: black;
-$navbar-default-bg: $white-t;
-$navbar-default-link-color: $edx-gray-d2;
-$navbar-default-link-hover-color: $edx-blue-s2;
+$navbar-default-bg: $white;
+$navbar-default-link-color: $edx-gray;
+$navbar-default-link-hover-color: $palette-primary-accent;
 $navbar-default-link-hover-bg: transparent;
-$navbar-default-link-active-color: $edx-blue-s1;
+$navbar-default-link-active-color: $palette-primary-accent;
 $navbar-default-link-active-bg: $white;
 $navbar-default-border: $gray-lighter;
 // $navbar-padding-horizontal: ;
@@ -246,12 +275,16 @@ $sock-height: 59px;
 $footer-sock-height: $footer-height + $sock-height;
 
 // gray box around description/information sections
-$description-border-color: $edx-gray-l1;
+$description-border-color: $gray-l2;
 $description-border: 1px solid $description-border-color;
 
-// loading error
-$error-background-color: rgb(242, 242, 242);
-$error-section-highlight-color: rgb(195, 53, 59);
-
 // FontAwesome font directory
-$fa-font-path: "/static/bower_components/font-awesome/fonts";
+$fa-font-path: "~font-awesome/fonts";
+
+// Pattern-library OpenSans font directory
+$open-sans-font-path: '~edx-pattern-library/pattern-library/fonts/OpenSans';
+
+$navbar-padding: 30px;
+
+// Ignore Bourbon deprecation warnings spamming our logs
+$output-bourbon-deprecation-warnings: false !default;

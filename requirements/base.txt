@@ -1,33 +1,31 @@
-PyJWT==1.0.0
-South==1.0					# Apache License
-awesome-slugify==1.6.2      # GPLv3
-bpython==0.12				# MIT License
-Django==1.7.4				# BSD License
-django-appconf==0.6
-django-braces==1.2.2		# BSD
-django_compressor==1.4		# MIT
-django-countries==3.1.1     # MIT
-django-libsass==0.2			# BSD
-django-model-utils==1.5.0 	# BSD
-django-soapbox==1.1         # BSD
-django-waffle==0.10			# BSD
+awesome-slugify==1.6.5      # GPLv3
+bpython==0.16				# MIT License
+Django==1.11.5				# BSD License
+django-appconf==1.0.2
+django-braces==1.11.0		# BSD
+django-countries==4.5       # MIT
+django-model-utils==2.6.1 	# BSD
+django-webpack-loader==0.4.1 # MIT
+djangorestframework==3.6.3  # BSD
+djangorestframework-csv==2.0.0 # BSD
+# Dependency of djangorestframework
+django-crispy-forms==1.6.1  # MIT
+django-soapbox==1.3         # BSD
+django-waffle==0.12.0		# BSD
+pinax-announcements==2.0.4   # MIT
+edx-auth-backends==1.1.2
+edx-django-release-util==0.3.1
+edx-i18n-tools==0.3.8
+edx-rest-api-client==1.7.1  # Apache
 
-# other versions cause a segment fault when running compression
-libsass==0.5.1              # MIT
+libsass==0.11.1              # MIT
 
-logutils==0.3.3				# BSD
-slumber==0.6.2
+logutils==0.3.4.1			 # BSD
 
-# versions above 0.2.3 introduce a breaking change
-python-social-auth==0.2.3
-edx-auth-backends==0.1.2    # AGPL
-
-# TODO Use the PyPi package once it is updated.
-git+https://github.com/pinax/django-announcements.git@f85e690705e038a62407abe54ac195f60760934b#egg=django-announcements # MIT
+requests==2.17.3            # Apache 2.0
 
 git+https://github.com/edx/django-lang-pref-middleware.git@0.1.0#egg=django-lang-pref-middleware
-git+https://github.com/edx/edx-analytics-data-api-client.git@0.6.1#egg=edx-analytics-data-api-client==0.6.1  # edX
-git+https://github.com/edx/i18n-tools.git@0d7847f9dfa2281640527b4dc51f5854f950f9b7#egg=i18n_tools
+git+https://github.com/edx/edx-analytics-data-api-client.git@0.12.0#egg=edx-analytics-data-api-client==0.12.0  # edX
 git+https://github.com/edx/opaque-keys.git@d45d0bd8d64c69531be69178b9505b5d38806ce0#egg=opaque-keys
 # custom opaque-key implementations for ccx
 git+https://github.com/jazkarta/ccx-keys.git@e6b03704b1bb97c1d2f31301ecb4e3a687c536ea#egg=ccx-keys

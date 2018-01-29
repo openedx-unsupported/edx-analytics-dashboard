@@ -2,8 +2,9 @@ import logging
 
 from django.contrib.humanize.templatetags.humanize import intcomma
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _, ugettext_noop
 from analyticsclient.exceptions import NotFoundError
+from core.utils import translate_dict_values
 
 from courses.presenters.enrollment import CourseEnrollmentPresenter, CourseEnrollmentDemographicsPresenter
 from courses.views import CourseTemplateWithNavView
@@ -17,10 +18,35 @@ class EnrollmentTemplateView(CourseTemplateWithNavView):
     Base view for course enrollment pages.
     """
     secondary_nav_items = [
-        {'name': 'activity', 'label': _('Activity'), 'view': 'courses:enrollment:activity'},
-        {'name': 'demographics', 'label': _('Demographics'), 'view': 'courses:enrollment:demographics_age'},
-        {'name': 'geography', 'label': _('Geography'), 'view': 'courses:enrollment:geography'},
+        {
+            'name': 'activity',
+            'text': ugettext_noop('Activity'),
+            'view': 'courses:enrollment:activity',
+            'scope': 'course',
+            'lens': 'enrollment',
+            'report': 'activity',
+            'depth': ''
+        },
+        {
+            'name': 'demographics',
+            'text': ugettext_noop('Demographics'),
+            'view': 'courses:enrollment:demographics_age',
+            'scope': 'course',
+            'lens': 'enrollment',
+            'report': 'demographics',
+            'depth': 'age'
+        },
+        {
+            'name': 'geography',
+            'text': ugettext_noop('Geography'),
+            'view': 'courses:enrollment:geography',
+            'scope': 'course',
+            'lens': 'enrollment',
+            'report': 'geography',
+            'depth': ''
+        },
     ]
+    translate_dict_values(secondary_nav_items, ('text',))
     active_primary_nav_item = 'enrollment'
 
 
@@ -30,13 +56,38 @@ class EnrollmentDemographicsTemplateView(EnrollmentTemplateView):
     """
     active_secondary_nav_item = 'demographics'
     tertiary_nav_items = [
-        {'name': 'age', 'label': _('Age'), 'view': 'courses:enrollment:demographics_age'},
-        {'name': 'education', 'label': _('Education'), 'view': 'courses:enrollment:demographics_education'},
-        {'name': 'gender', 'label': _('Gender'), 'view': 'courses:enrollment:demographics_gender'}
+        {
+            'name': 'age',
+            'text': ugettext_noop('Age'),
+            'view': 'courses:enrollment:demographics_age',
+            'scope': 'course',
+            'lens': 'enrollment',
+            'report': 'demographics',
+            'depth': 'age'
+        },
+        {
+            'name': 'education',
+            'text': ugettext_noop('Education'),
+            'view': 'courses:enrollment:demographics_education',
+            'scope': 'course',
+            'lens': 'enrollment',
+            'report': 'demographics',
+            'depth': 'education'
+        },
+        {
+            'name': 'gender',
+            'text': ugettext_noop('Gender'),
+            'view': 'courses:enrollment:demographics_gender',
+            'scope': 'course',
+            'lens': 'enrollment',
+            'report': 'demographics',
+            'depth': 'gender'
+        }
     ]
+    translate_dict_values(tertiary_nav_items, ('text',))
 
     # Translators: Do not translate UTC.
-    update_message = _('Demographic student data was last updated %(update_date)s at %(update_time)s UTC.')
+    update_message = _('Demographic learner data was last updated %(update_date)s at %(update_time)s UTC.')
 
     # pylint: disable=line-too-long
     # Translators: This sentence is displayed at the bottom of the page and describe the demographics data displayed.
@@ -54,7 +105,12 @@ class EnrollmentDemographicsTemplateView(EnrollmentTemplateView):
 class EnrollmentActivityView(EnrollmentTemplateView):
     template_name = 'courses/enrollment_activity.html'
     page_title = _('Enrollment Activity')
-    page_name = 'enrollment_activity'
+    page_name = {
+        'scope': 'course',
+        'lens': 'enrollment',
+        'report': 'activity',
+        'depth': ''
+    }
     active_secondary_nav_item = 'activity'
 
     # Translators: Do not translate UTC.
@@ -90,7 +146,12 @@ class EnrollmentActivityView(EnrollmentTemplateView):
 class EnrollmentDemographicsAgeView(EnrollmentDemographicsTemplateView):
     template_name = 'courses/enrollment_demographics_age.html'
     page_title = _('Enrollment Demographics by Age')
-    page_name = 'enrollment_demographics_age'
+    page_name = {
+        'scope': 'course',
+        'lens': 'enrollment',
+        'report': 'demographics',
+        'depth': 'age'
+    }
     active_tertiary_nav_item = 'age'
 
     def get_context_data(self, **kwargs):
@@ -123,7 +184,12 @@ class EnrollmentDemographicsAgeView(EnrollmentDemographicsTemplateView):
 class EnrollmentDemographicsEducationView(EnrollmentDemographicsTemplateView):
     template_name = 'courses/enrollment_demographics_education.html'
     page_title = _('Enrollment Demographics by Education')
-    page_name = 'enrollment_demographics_education'
+    page_name = {
+        'scope': 'course',
+        'lens': 'enrollment',
+        'report': 'demographics',
+        'depth': 'education'
+    }
     active_tertiary_nav_item = 'education'
 
     def get_context_data(self, **kwargs):
@@ -156,7 +222,12 @@ class EnrollmentDemographicsEducationView(EnrollmentDemographicsTemplateView):
 class EnrollmentDemographicsGenderView(EnrollmentDemographicsTemplateView):
     template_name = 'courses/enrollment_demographics_gender.html'
     page_title = _('Enrollment Demographics by Gender')
-    page_name = 'enrollment_demographics_gender'
+    page_name = {
+        'scope': 'course',
+        'lens': 'enrollment',
+        'report': 'demographics',
+        'depth': 'gender'
+    }
     active_tertiary_nav_item = 'gender'
 
     def get_context_data(self, **kwargs):
@@ -189,11 +260,16 @@ class EnrollmentDemographicsGenderView(EnrollmentDemographicsTemplateView):
 class EnrollmentGeographyView(EnrollmentTemplateView):
     template_name = 'courses/enrollment_geography.html'
     page_title = _('Enrollment Geography')
-    page_name = 'enrollment_geography'
+    page_name = {
+        'scope': 'course',
+        'lens': 'enrollment',
+        'report': 'geography',
+        'depth': ''
+    }
     active_secondary_nav_item = 'geography'
 
     # Translators: Do not translate UTC.
-    update_message = _('Geographic student data was last updated %(update_date)s at %(update_time)s UTC.')
+    update_message = _('Geographic learner data was last updated %(update_date)s at %(update_time)s UTC.')
 
     def get_context_data(self, **kwargs):
         context = super(EnrollmentGeographyView, self).get_context_data(**kwargs)

@@ -1,14 +1,30 @@
-import locale
 import datetime
+import locale
 from unittest import skip
 
 from bok_choy.promise import EmptyPromise
-from analyticsclient.client import Client
+from selenium.webdriver.common.keys import Keys
 
-from acceptance_tests import API_SERVER_URL, API_AUTH_TOKEN, DASHBOARD_FEEDBACK_EMAIL, SUPPORT_EMAIL, LMS_USERNAME, \
-    LMS_PASSWORD, DASHBOARD_SERVER_URL, ENABLE_AUTO_AUTH, DOC_BASE_URL, COURSE_API_URL, \
-    COURSE_API_KEY, ENABLE_COURSE_API
+from acceptance_tests import (
+    API_AUTH_TOKEN,
+    API_SERVER_URL,
+    COURSE_API_KEY,
+    COURSE_API_URL,
+    DASHBOARD_FEEDBACK_EMAIL,
+    DASHBOARD_SERVER_URL,
+    DOC_BASE_URL,
+    ENABLE_AUTO_AUTH,
+    ENABLE_COURSE_API,
+    LMS_PASSWORD,
+    LMS_USERNAME,
+    SOAPBOX_GLOBAL_MESSAGE,
+    SOAPBOX_INACTIVE_MESSAGE,
+    SOAPBOX_SINGLE_PAGE_MESSAGE,
+    SOAPBOX_SINGLE_PAGE_PATH,
+    SUPPORT_EMAIL,
+)
 from acceptance_tests.pages import LMSLoginPage
+from analyticsclient.client import Client
 from common.clients import CourseStructureApiClient
 
 
@@ -33,7 +49,7 @@ class CourseApiMixin(object):
         super(CourseApiMixin, self).setUp()
 
         if ENABLE_COURSE_API:
-            self.course_api_client = CourseStructureApiClient(COURSE_API_URL, COURSE_API_KEY)
+            self.course_api_client = CourseStructureApiClient(COURSE_API_URL, COURSE_API_KEY, 5)
 
     def get_course_name_or_id(self, course_id):
         """ Returns the course name if the course API is enabled; otherwise, the course ID. """
@@ -74,7 +90,20 @@ class AssertMixin(object):
         element = self.page.q(css=selector)
         self.assertEqual(element.text[0], DASHBOARD_FEEDBACK_EMAIL)
 
-    def assertTable(self, table_selector, columns, download_selector):
+    def fulfill_loading_promise(self, css_selector):
+        """
+        Ensure the info contained by `css_selector` is loaded via AJAX.
+
+        Arguments
+            css_selector (string)   --  CSS selector of the parent element that will contain the loading message.
+        """
+
+        EmptyPromise(
+            lambda: 'Loading...' not in self.page.q(css=css_selector + ' .loading-container').text,
+            "Loading finished."
+        ).fulfill()
+
+    def assertTable(self, table_selector, columns, download_selector=None):
         # Ensure the table is loaded via AJAX
         self.fulfill_loading_promise(table_selector)
 
@@ -93,7 +122,8 @@ class AssertMixin(object):
         rows = self.page.browser.find_elements_by_css_selector('{} tbody tr'.format(table_selector))
         self.assertGreater(len(rows), 0)
 
-        self.assertValidHref(download_selector)
+        if download_selector is not None:
+            self.assertValidHref(download_selector)
 
     def assertRowTextEquals(self, cols, expected_texts):
         """
@@ -152,11 +182,14 @@ class FooterFeedbackMixin(FooterMixin):
 
 
 class PrimaryNavMixin(CourseApiMixin):
+    # set to True if the URL fragement should be checked when testing the skip link
+    test_skip_link_url = True
+
     def _test_user_menu(self):
         """
         Verify the user menu functions properly.
         """
-        element = self.page.q(css='a.active-user.dropdown-toggle')
+        element = self.page.q(css='.active-user.dropdown-toggle')
         self.assertTrue(element.present)
         self.assertEqual(element.attrs('aria-expanded')[0], 'false')
 
@@ -179,7 +212,23 @@ class PrimaryNavMixin(CourseApiMixin):
         course_name = self.get_course_name_or_id(course_id)
         self.assertEqual(element.text[0], course_name)
 
+    def _test_skip_link(self, test_url):
+        active_element = self.driver.switch_to.active_element
+        skip_link = self.page.q(css='.skip-link').results[0]
+        skip_link_ref = '#' + skip_link.get_attribute('href').split('#')[-1]
+        target_element = self.page.q(css=skip_link_ref)
+        self.assertEqual(len(target_element), 1)
+
+        active_element.send_keys(Keys.TAB)
+        active_element = self.driver.switch_to.active_element
+        active_element.send_keys(Keys.ENTER)
+
+        if test_url:
+            url_hash = self.driver.execute_script('return window.location.hash;')
+            self.assertEqual(url_hash, skip_link_ref)
+
     def test_page(self):
+        self._test_skip_link(self.test_skip_link_url)
         self._test_user_menu()
         self._test_active_course()
 
@@ -225,8 +274,27 @@ class ContextSensitiveHelpMixin(object):
         self.assertHrefEqual('#help', self.help_url)
 
 
+class SoapboxMessagesMixin(object):
+    soapbox_selector = "div[class=announcement-container]"
+
+    def _test_soapbox_messages(self):
+        # make sure we have the correct soapbox messages displayed
+        element = self.page.q(css=self.soapbox_selector)
+        self.assertTrue(element.present)
+        self.assertTrue(SOAPBOX_GLOBAL_MESSAGE in element.text)
+        self.assertFalse(SOAPBOX_INACTIVE_MESSAGE in element.text)
+
+        if self.page.path == SOAPBOX_SINGLE_PAGE_PATH:
+            element = self.page.q(css=self.soapbox_selector)
+            self.assertTrue(SOAPBOX_SINGLE_PAGE_MESSAGE in element.text)
+
+    def test_page(self):
+        super(SoapboxMessagesMixin, self).test_page()
+        self._test_soapbox_messages()
+
+
 class AnalyticsDashboardWebAppTestMixin(FooterMixin, PrimaryNavMixin, ContextSensitiveHelpMixin, AssertMixin,
-                                        LoginMixin):
+                                        LoginMixin, SoapboxMessagesMixin):
     def test_page(self):
         self.login()
         self.page.visit()
@@ -240,18 +308,12 @@ class AnalyticsDashboardWebAppTestMixin(FooterMixin, PrimaryNavMixin, ContextSen
         """
         return s.replace(' 0', ' ')
 
-
-class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterLegalMixin, FooterFeedbackMixin,
-                           AnalyticsDashboardWebAppTestMixin):
-    """ Mixin for common course page assertions and tests. """
-
-    DASHBOARD_DATE_FORMAT = '%B %d, %Y'
-    page = None
-
-    def setUp(self):
-        super(CoursePageTestsMixin, self).setUp()
-        self.api_date_format = self.analytics_api_client.DATE_FORMAT
-        self.api_datetime_format = self.analytics_api_client.DATETIME_FORMAT
+    @staticmethod
+    def format_number(value):
+        """ Format the given value for the current locale (e.g. include decimal separator). """
+        if isinstance(value, int):
+            return locale.format("%d", value, grouping=True)
+        return locale.format("%.1f", value, grouping=True)
 
     def assertSummaryPointValueEquals(self, data_selector, value):
         """
@@ -286,10 +348,29 @@ class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterLegalMixin, FooterFeed
         self.assertTrue(screen_reader_element.present)
         self.assertEqual(screen_reader_element.text[0], tip_text)
 
-        tooltip_element = self.page.q(css=help_selector + " > i[data-toggle='tooltip']")
+        tooltip_element = self.page.q(css=help_selector + " > span[data-toggle='tooltip']")
         self.assertTrue(tooltip_element.present)
         # the context of title gets move to "data-original-title"
         self.assertEqual(tooltip_element[0].get_attribute('data-original-title'), tip_text)
+
+    def assertMetricTileValid(self, stat_type, value, tooltip):
+        selector = 'data-stat-type=%s' % stat_type
+        if value is not None:
+            self.assertSummaryPointValueEquals(selector, self.format_number(value))
+        self.assertSummaryTooltipEquals(selector, tooltip)
+
+
+class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterLegalMixin, FooterFeedbackMixin,
+                           AnalyticsDashboardWebAppTestMixin):
+    """ Mixin for common course page assertions and tests. """
+
+    DASHBOARD_DATE_FORMAT = '%B %d, %Y'
+    page = None
+
+    def setUp(self):
+        super(CoursePageTestsMixin, self).setUp()
+        self.api_date_format = self.analytics_api_client.DATE_FORMAT
+        self.api_datetime_format = self.analytics_api_client.DATETIME_FORMAT
 
     def assertDataUpdateMessageEquals(self, value):
         element = self.page.q(css='div.data-update-message')
@@ -304,25 +385,11 @@ class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterLegalMixin, FooterFeed
     def format_last_updated_date_and_time(self, d):
         return {'update_date': d.strftime(self.DASHBOARD_DATE_FORMAT), 'update_time': self._format_last_updated_time(d)}
 
-    def fulfill_loading_promise(self, css_selector):
-        """
-        Ensure the info contained by `css_selector` is loaded via AJAX.
-
-        Arguments
-            css_selector (string)   --  CSS selector of the parent element that will contain the loading message.
-        """
-
-        EmptyPromise(
-            lambda: 'Loading...' not in self.page.q(css=css_selector + ' .loading-container').text,
-            "Loading finished."
-        ).fulfill()
-
     def build_display_percentage(self, count, total, zero_percent_default='0.0%'):
         if total and count:
             percent = count / float(total) * 100.0
             return '{:.1f}%'.format(percent) if percent >= 1.0 else '< 1%'
-        else:
-            return zero_percent_default
+        return zero_percent_default
 
     def _get_data_update_message(self):
         raise NotImplementedError
@@ -332,6 +399,10 @@ class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterLegalMixin, FooterFeed
 
         message = self._get_data_update_message()
         self.assertDataUpdateMessageEquals(message)
+
+    def _test_course_home_nav(self):
+        element = self.page.q(css='.course-label')
+        self.assertEqual(element.text[0], 'Course Home')
 
     def test_page(self):
         """
@@ -343,14 +414,7 @@ class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterLegalMixin, FooterFeed
         """
         super(CoursePageTestsMixin, self).test_page()
         self._test_data_update_message()
-
-    @staticmethod
-    def format_number(value):
-        """ Format the given value for the current locale (e.g. include decimal separator). """
-        if isinstance(value, int):
-            return locale.format("%d", value, grouping=True)
-        else:
-            return locale.format("%.1f", value, grouping=True)
+        self._test_course_home_nav()
 
 
 class CourseDemographicsPageTestsMixin(CoursePageTestsMixin):
@@ -372,12 +436,13 @@ class CourseDemographicsPageTestsMixin(CoursePageTestsMixin):
         self.fulfill_loading_promise(self.chart_selector)
         self.assertElementHasContent(self.chart_selector)
 
+    # pylint: disable=unsubscriptable-object
     def _test_table(self):
         self.assertTable(self.table_section_selector, self.table_columns, self.table_download_selector)
 
         rows = self.page.browser.find_elements_by_css_selector('{} tbody tr'.format(self.table_section_selector))
         self.assertGreater(len(rows), 0)
-        sum_count = 0
+        sum_count = 0.0
         if self.demographic_data and 'count' in self.demographic_data[0]:
             sum_count = float(sum([datum['count'] for datum in self.demographic_data]))
 
@@ -398,5 +463,5 @@ class CourseDemographicsPageTestsMixin(CoursePageTestsMixin):
     def _build_data_update_message(self, api_response):
         current_data = api_response[0]
         last_updated = datetime.datetime.strptime(current_data['created'], self.api_datetime_format)
-        return 'Demographic student data was last updated %(update_date)s at %(update_time)s UTC.' % \
+        return 'Demographic learner data was last updated %(update_date)s at %(update_time)s UTC.' % \
                self.format_last_updated_date_and_time(last_updated)

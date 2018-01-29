@@ -24,7 +24,7 @@ class ReportGeneratorBase(object):
     def __init__(self, course_id, http_cookies=None):
         self.course_id = course_id
         self.analytics_api_client = Client(base_url=API_SERVER_URL, auth_token=API_AUTH_TOKEN, timeout=1000)
-        self.course_api_client = CourseStructureApiClient(COURSE_API_URL, COURSE_API_KEY)
+        self.course_api_client = CourseStructureApiClient(COURSE_API_URL, COURSE_API_KEY, 5)
         self.http_client = requests.Session()
         self.http_client.cookies = http_cookies
 
@@ -223,7 +223,7 @@ class CoursePerformanceReportGenerator(ReportGeneratorBase):
                 path = 'performance/graded_content/{}'.format(slugify(assignment_type))
                 path = self.build_course_path(path)
                 status, elapsed = self.get_http_status_and_load_time(self.get_dashboard_url(path))
-                valid = (has_submissions and status == 200) or not has_submissions
+                valid = (status == 200 if has_submissions else True)
                 course_valid &= valid
 
                 data = {

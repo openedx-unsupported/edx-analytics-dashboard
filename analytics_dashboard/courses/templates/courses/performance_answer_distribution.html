@@ -4,7 +4,7 @@
 {% block view-name %}view-course-enrollment view-dashboard{% endblock view-name %}
 
 {% block content_nav %}
-    {% trans "How did students answer this problem?" as heading_note %}
+    {% trans "How did learners answer this problem?" as heading_note %}
     {% include "courses/_graded_content_nav.html" with selected_third_level=problem selected_first_level=assignment_type first_levels=assignment_types second_levels=assignments selected_second_level=assignment selected_third_level=problem third_levels=assignment.children heading_note=heading_note %}
 {% endblock %}
 

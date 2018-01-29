@@ -1,9 +1,9 @@
 define(['views/clickable-view'], function(ClickableView) {
     'use strict';
 
-    describe('Clickable views', function () {
-        it('should fire event when clicked', function () {
-            var model = { trigger: jasmine.createSpy('trigger') },
+    describe('Clickable views', function() {
+        it('should fire event when clicked', function() {
+            var model = {trigger: jasmine.createSpy('trigger')},
                 view = new ClickableView({
                     model: model,
                     el: document.createElement('a'),
@@ -28,6 +28,5 @@ define(['views/clickable-view'], function(ClickableView) {
             expect(model.trigger)
                 .toHaveBeenCalledWith('segment:track', 'my:event', {'my-prop': 'a property'});
         });
-
     });
 });

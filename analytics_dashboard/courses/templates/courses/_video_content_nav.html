@@ -7,12 +7,17 @@
     {% url "courses:engagement:videos" course_id=course_id %}
 {% endblock %}
 
+{% block scope_name %}course{% endblock %}
+{% block lens_name %}engagement{% endblock %}
+{% block report_name %}videos{% endblock %}
+{% block third_level %}timeline{% endblock %}
+
 {% block select_first_level %}
     {% trans "Select Section" %}
 {% endblock %}
 
 {% block select_first_level_all %}
-  {% trans "All Sections" %}
+  {% trans "All Sections" noop %}
 {% endblock %}
 
 {% block select_second_level %}

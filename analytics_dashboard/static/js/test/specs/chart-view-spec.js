@@ -1,8 +1,8 @@
 define(['d3', 'models/course-model', 'views/chart-view'], function(d3, CourseModel, ChartView) {
     'use strict';
 
-    describe('Chart view', function () {
-        it('should assemble data for nvd3', function () {
+    describe('Chart view', function() {
+        it('should assemble data for nvd3', function() {
             var model = new CourseModel(),
                 view = new ChartView({
                     model: model,
@@ -35,6 +35,7 @@ define(['d3', 'models/course-model', 'views/chart-view'], function(d3, CourseMod
                 explicitXTicks;
 
             view.render = jasmine.createSpy('render');
+            view.renderIfDataAvailable();
             expect(view.render).not.toHaveBeenCalled();
 
             // mock getChart (otherwise, an error is thrown)
@@ -89,11 +90,10 @@ define(['d3', 'models/course-model', 'views/chart-view'], function(d3, CourseMod
             expect(explicitXTicks[0]).toBe('2014-01-01');
             expect(explicitXTicks[1]).toBe('2014-01-02');
         });
-
     });
 
-    describe('Chart view', function () {
-        it('should build x label mappings', function () {
+    describe('Chart view', function() {
+        it('should build x label mappings', function() {
             var model = new CourseModel(),
                 view = new ChartView({
                     model: model,
@@ -117,6 +117,7 @@ define(['d3', 'models/course-model', 'views/chart-view'], function(d3, CourseMod
                 mapping;
 
             view.render = jasmine.createSpy('render');
+            view.renderIfDataAvailable();
             expect(view.render).not.toHaveBeenCalled();
 
             // mock getChart (otherwise, an error is thrown)
@@ -155,15 +156,15 @@ define(['d3', 'models/course-model', 'views/chart-view'], function(d3, CourseMod
             expect(mapping.assignment_2).toBe('Assignment 2');
             expect(view.formatXTick('assignment_2')).toBe('Assignment 2');
         });
-
     });
 
-    describe('Chart view', function () {
-        it('should format y values', function () {
+    describe('Chart view', function() {
+        it('should format y values', function() {
             var view = new ChartView({
-                    el: document.createElement('div'),
-                    model: new CourseModel()
-                });
+                el: document.createElement('div'),
+                model: new CourseModel()
+            });
+            view.renderIfDataAvailable();
 
             expect(view.getYAxisFormat()(1000)).toBe('1000');
 
@@ -174,6 +175,5 @@ define(['d3', 'models/course-model', 'views/chart-view'], function(d3, CourseMod
             });
             expect(view.getYAxisFormat()(0.1024)).toBe('10.2%');
         });
-
     });
 });

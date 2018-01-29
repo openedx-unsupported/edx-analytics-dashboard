@@ -1,3 +1,5 @@
+import json
+
 from django import template
 from django.conf import settings
 from django.template.defaultfilters import stringfilter
@@ -80,15 +82,11 @@ def summary_point(value, label, subheading=None, tooltip=None, additional_value=
 
 
 @register.inclusion_tag('section_error.html')
-def show_chart_error(background_class=''):
+def show_chart_error():
     """
     Returns the error section with default context.
-
-    Arguments
-        background_class -- CSS class to add to the background style
-        (e.g. 'white-background').  Default background is gray.
     """
-    return _get_base_error_context('chart', background_class)
+    return _get_base_error_context('chart')
 
 
 @register.inclusion_tag('section_error.html')
@@ -101,11 +99,10 @@ def show_metrics_error():
     return _get_base_error_context('metrics')
 
 
-def _get_base_error_context(content_type, background_class=''):
+def _get_base_error_context(content_type):
     return {
         'content_type': content_type,
         'load_error_message': settings.DOCUMENTATION_LOAD_ERROR_MESSAGE,
-        'background_class': background_class
     }
 
 
@@ -121,3 +118,46 @@ def format_course_key(course_key, separator=u'/'):
 @stringfilter
 def unicode_slugify(value):
     return slugify(value)
+
+
+@register.filter
+def escape_json(data):
+    """
+    Escape a JSON string (or convert a dict to a JSON string, and then
+    escape it) for being embedded within an HTML template.
+    """
+    json_string = json.dumps(data) if isinstance(data, dict) else data
+    json_string = json_string.replace("&", "\\u0026")
+    json_string = json_string.replace(">", "\\u003e")
+    json_string = json_string.replace("<", "\\u003c")
+    return mark_safe(json_string)
+
+
+@register.filter
+def languade_code_to_cldr(language_code):
+    """
+    Returns language codes in the CLDR expected naming convention.  The CLDR
+    language codes in javascript are expected to have uppercase countries.
+    """
+    separator = '-'
+    tokens = language_code.split(separator)
+
+    if len(tokens) == 1:
+        return language_code
+
+    formatted_tokens = [tokens[0].lower()]
+    for token in tokens[1:]:
+        if len(token) == 2 or token in ['valencia', 'posix']:
+            formatted_tokens.append(token.upper())
+        else:
+            formatted_tokens.append(token.capitalize())
+
+    formatted_language_code = separator.join(formatted_tokens)
+
+    # special cases
+    if formatted_language_code.lower() in ['zh-tw', 'zh-hk', 'zh-mo', 'zh-hant']:
+        formatted_language_code = 'zh-Hant'
+    elif formatted_language_code.lower() in ['zh-cn', 'zh-sg', 'zh-hans']:
+        formatted_language_code = 'zh'
+
+    return formatted_language_code

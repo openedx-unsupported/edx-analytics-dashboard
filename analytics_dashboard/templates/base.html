@@ -2,9 +2,9 @@
 Base template pages.
 {% endcomment %}
 
-{% load staticfiles %}
-{% load compress %}
 {% load dashboard_extras %}
+{% load get_files from webpack_loader %}
+{% load render_bundle from webpack_loader %}
 
 <!DOCTYPE html>
 <!--[if lte IE 9]><html class="no-js lt-ie10" lang="en"><![endif]-->
@@ -13,6 +13,7 @@ Base template pages.
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" type="image/png" href="{{STATIC_URL}}/images/favicon.ico"/>
 
     <title>{% block title %}| {% settings_value 'FULL_APPLICATION_NAME' %}{% endblock title %}</title>
 
@@ -21,14 +22,12 @@ Base template pages.
     adding additional stylesheets in your page when extending the base.
     {% endcomment %}
 
+	  {% get_files 'application-main' 'css' as common_css %}
+    {% for css_file in common_css %}
+        <link rel="stylesheet" href="{{ css_file.publicPath }}" type="text/css">
+    {% endfor %}
+
     {% block stylesheets %}
-    {% compress css %}
-      <link rel="stylesheet" href="{% static 'sass/style-application.scss' %}" type="text/x-scss">
-      {% captureas theme_scss %}
-        {% settings_value 'THEME_SCSS' %}
-      {% endcaptureas %}
-      <link rel="stylesheet" href="{% static theme_scss %}" type="text/x-scss">
-    {% endcompress %}
     {% endblock %}
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -39,4 +38,11 @@ Base template pages.
 </head>
 
 {% block body %}{% endblock %}
+
+{% block javascript %}
+  {# webpack loading #}
+  {% render_bundle 'manifest' %}
+  {% render_bundle 'globalization' %}
+  {% render_bundle 'application-main' %}
+{% endblock javascript %}
 </html>

@@ -1,14 +1,15 @@
 define(['d3', 'models/course-model', 'views/world-map-view'], function(d3, CourseModel, WorldMapView) {
     'use strict';
 
-    describe('World map view', function () {
-        it('should have a popup template', function () {
+    describe('World map view', function() {
+        it('should have a popup template', function() {
             var model = new CourseModel(),
                 view = new WorldMapView({
                     model: model
                 }),
                 actual;
 
+            view.renderIfDataAvailable();
             actual = view.popupTemplate({
                 name: 'My Map',
                 value: 100,
@@ -17,7 +18,7 @@ define(['d3', 'models/course-model', 'views/world-map-view'], function(d3, Cours
             expect(actual).toBe('<div class="hoverinfo">My Map: 100 (100%)&rlm;</div>');
         });
 
-        it('should format data for Datamaps', function () {
+        it('should format data for Datamaps', function() {
             var rawData = [
                     {countryCode: 'USA', count: 100, percent: 0.3333},
                     {countryCode: 'ARG', count: 200, percent: 0.6666}],
@@ -29,21 +30,22 @@ define(['d3', 'models/course-model', 'views/world-map-view'], function(d3, Cours
                 actual,
                 expected;
 
+            view.renderIfDataAvailable();
             actual = view.formatData();
             expected = {
-                USA: { value: 100, fillKey: 'USA', percent: 0.3333 },
-                ARG: { value: 200, fillKey: 'ARG', percent: 0.6666 }
+                USA: {value: 100, fillKey: 'USA', percent: 0.3333, name: undefined},
+                ARG: {value: 200, fillKey: 'ARG', percent: 0.6666, name: undefined}
             };
             expect(actual).toEqual(expected);
         });
 
-        it('should fill in colors for countries', function () {
+        it('should fill in colors for countries', function() {
             var lowColor = '#000000',
                 highColor = '#ffffff',
                 countryData = {
-                    USA: { value: 0, fillKey: 'USA' },
-                    BLV: { value: 100, fillKey: 'BLV' },
-                    ARG: { value: 200, fillKey: 'ARG' }},
+                    USA: {value: 0, fillKey: 'USA'},
+                    BLV: {value: 100, fillKey: 'BLV'},
+                    ARG: {value: 200, fillKey: 'ARG'}},
                 view = new WorldMapView({
                     model: new CourseModel(),
                     lowColor: lowColor,
@@ -55,6 +57,7 @@ define(['d3', 'models/course-model', 'views/world-map-view'], function(d3, Cours
                     .domain([0, 200])
                     .range([lowColor, highColor]);
 
+            view.renderIfDataAvailable();
             actual = view.getFills(countryData, 200);
             expected = {
                 defaultFill: '#000000',
@@ -65,17 +68,18 @@ define(['d3', 'models/course-model', 'views/world-map-view'], function(d3, Cours
             expect(actual).toEqual(expected);
         });
 
-        it('should return the maximum value', function () {
+        it('should return the maximum value', function() {
             var countryData = {
-                    USA: { value: 0, fillKey: 'USA' },
-                    BLV: { value: 100, fillKey: 'BLV' },
-                    ARG: { value: 200, fillKey: 'ARG' }},
+                    USA: {value: 0, fillKey: 'USA'},
+                    BLV: {value: 100, fillKey: 'BLV'},
+                    ARG: {value: 200, fillKey: 'ARG'}},
                 view = new WorldMapView({
                     model: new CourseModel(),
                     modelAttribute: 'mapData'
                 }),
                 actual;
 
+            view.renderIfDataAvailable();
             actual = view.getCountryMax(countryData);
             expect(actual).toEqual(200);
         });

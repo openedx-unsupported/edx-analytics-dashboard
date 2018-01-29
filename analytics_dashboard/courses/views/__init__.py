@@ -1,10 +1,10 @@
 import copy
+from datetime import datetime
 import json
 import logging
 import re
 
 from braces.views import LoginRequiredMixin
-from ccx_keys.locator import CCXLocator
 from django.conf import settings
 from django.core.cache import cache
 from django.core.exceptions import PermissionDenied
@@ -12,24 +12,23 @@ from django.core.urlresolvers import reverse
 from django.http import Http404
 from django.utils import dateformat
 from django.utils.functional import cached_property
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _, ugettext_noop
 from django.views.generic import TemplateView
+from edx_rest_api_client.exceptions import (HttpClientError, SlumberBaseException)
 from opaque_keys.edx.keys import CourseKey
 import requests
-from slumber.exceptions import (HttpClientError, SlumberBaseException)
-from waffle import switch_is_active
+from waffle import flag_is_active, switch_is_active
 
 from analyticsclient.client import Client
 from analyticsclient.exceptions import (ClientError, NotFoundError)
 
-from common.clients import CourseStructureApiClient
-
 from core.exceptions import ServiceUnavailableError
-from core.utils import sanitize_cache_key
+from core.utils import CourseStructureApiClient, sanitize_cache_key, translate_dict_values
 
 from courses import permissions
+from courses.presenters.performance import CourseReportDownloadPresenter
 from courses.serializers import LazyEncoder
-from courses.utils import is_feature_enabled
+from courses.utils import is_feature_enabled, get_page_name
 
 from help.views import ContextSensitiveHelpMixin
 
@@ -57,7 +56,7 @@ class CourseAPIMixin(object):
 
         if self.course_api_enabled and request.user.is_authenticated():
             self.access_token = settings.COURSE_API_KEY or request.user.access_token
-            self.course_api = CourseStructureApiClient(settings.COURSE_API_URL, self.access_token).courses
+            self.course_api = CourseStructureApiClient(settings.COURSE_API_URL, self.access_token)
 
         return super(CourseAPIMixin, self).dispatch(request, *args, **kwargs)
 
@@ -79,7 +78,7 @@ class CourseAPIMixin(object):
         if not info:
             try:
                 logger.debug("Retrieving detail for course: %s", course_id)
-                info = self.course_api(course_id).get()
+                info = self.course_api.courses(course_id).get()
                 cache.set(key, info)
             except HttpClientError as e:
                 logger.error("Unable to retrieve course info for %s: %s", course_id, e)
@@ -100,7 +99,7 @@ class CourseAPIMixin(object):
             while page:
                 try:
                     logger.debug('Retrieving page %d of course info...', page)
-                    response = self.course_api.get(page=page, page_size=100)
+                    response = self.course_api.courses.get(page=page, page_size=100)
                     course_details = response['results']
 
                     # Cache the information so that it doesn't need to be retrieved later.
@@ -111,7 +110,7 @@ class CourseAPIMixin(object):
 
                     courses += course_details
 
-                    if response['next']:
+                    if response['pagination']['next']:
                         page += 1
                     else:
                         page = None
@@ -131,10 +130,16 @@ class TrackedViewMixin(object):
     """
 
     # Page name used for usage tracking/analytics
-    page_name = None
+    page_name = {
+        'scope': '',
+        'lens': '',
+        'report': '',
+        'depth': '',
+    }
 
     def get_context_data(self, **kwargs):
         context = super(TrackedViewMixin, self).get_context_data(**kwargs)
+        self.page_name['name'] = get_page_name(self.page_name)
         context['js_data'] = context.get('js_data', {})
         context['js_data'].update({
             'tracking': {
@@ -150,8 +155,7 @@ class LazyEncoderMixin(object):
         """ Returns JSON serialized data with lazy translations converted. """
         if 'js_data' in context:
             return json.dumps(context['js_data'], cls=LazyEncoder)
-        else:
-            return None
+        return None
 
 
 class CourseContextMixin(CourseAPIMixin, TrackedViewMixin, LazyEncoderMixin):
@@ -178,10 +182,12 @@ class CourseContextMixin(CourseAPIMixin, TrackedViewMixin, LazyEncoderMixin):
         context['js_data'] = context.get('js_data', {})
         context['js_data'].update({
             'course': {
-                'courseId': self.course_id
+                'courseId': self.course_id,
+                'org': CourseKey.from_string(self.course_id).org
             },
             'user': {
                 'username': user.get_username(),
+                'userTrackingID': permissions.get_user_tracking_id(self.request.user),
                 'name': user.get_full_name(),
                 'email': user.email,
                 'ignoreInReporting': self._ignore_in_reporting(user)
@@ -220,7 +226,7 @@ class CourseValidMixin(object):
             uri = '{0}/{1}/info'.format(settings.LMS_COURSE_VALIDATION_BASE_URL, self.course_id)
 
             try:
-                response = requests.get(uri, timeout=5)
+                response = requests.get(uri, timeout=settings.LMS_DEFAULT_TIMEOUT)
             except requests.exceptions.Timeout:
                 logger.error('Course validation timed out: %s', uri)
                 # consider the course valid if the LMS times out
@@ -228,9 +234,8 @@ class CourseValidMixin(object):
 
             # pylint: disable=no-member
             return response.status_code == requests.codes.ok
-        else:
-            # all courses valid if LMS url isn't specified
-            return True
+        # all courses valid if LMS url isn't specified
+        return True
 
     def dispatch(self, request, *args, **kwargs):
         if self.is_valid_course():
@@ -275,7 +280,7 @@ class CourseNavBarMixin(object):
     # Items that will populate the tertiary nav list. This value is optional.
     tertiary_nav_items = []
 
-    def get_primary_nav_items(self):
+    def get_primary_nav_items(self, request):
         """
         Return the primary nav items.
         """
@@ -283,40 +288,69 @@ class CourseNavBarMixin(object):
         items = [
             {
                 'name': 'enrollment',
-                'label': _('Enrollment'),
+                'text': ugettext_noop('Enrollment'),
                 'view': 'courses:enrollment:activity',
-                'icon': 'fa-child'
+                'icon': 'fa-child',
+                'fragment': '',
+                'scope': 'course',
+                'lens': 'enrollment',
+                'report': 'activity',
+                'depth': ''
             },
             {
                 'name': 'engagement',
-                'label': _('Engagement'),
+                'text': ugettext_noop('Engagement'),
                 'view': 'courses:engagement:content',
                 'icon': 'fa-bar-chart',
+                'fragment': '',
+                'scope': 'course',
+                'lens': 'engagement',
+                'report': 'content',
+                'depth': ''
             },
             {
                 'name': 'performance',
-                'label': _('Performance'),
+                'text': ugettext_noop('Performance'),
                 'view': 'courses:performance:graded_content',
                 'icon': 'fa-check-square-o',
                 'switch': 'enable_course_api',
+                'fragment': '',
+                'scope': 'course',
+                'lens': 'performance',
+                'report': 'graded',
+                'depth': ''
+            },
+            {
+                'name': 'learners',
+                'text': ugettext_noop('Learners'),
+                'view': 'courses:learners:learners',
+                'icon': 'fa-users',
+                'flag': 'display_learner_analytics',
+                'fragment': '#?ignore_segments=inactive',
+                'scope': 'course',
+                'lens': 'learners',
+                'report': 'roster',
+                'depth': ''
             }
 
         ]
 
+        translate_dict_values(items, ('text',))
+
         # Remove disabled items
-        items = filter(is_feature_enabled, items)
+        items = [item for item in items if is_feature_enabled(item, request)]
 
         # Clean each item
         map(self.clean_item, items)
 
         return items
 
-    def _build_nav_items(self, nav_items, active_item):
+    def _build_nav_items(self, nav_items, active_item, request):
         # Deep copy the list since it is a list of dictionaries
         items = copy.deepcopy(nav_items)
 
         # Process only the nav items that are enabled
-        items = filter(is_feature_enabled, items)
+        items = [item for item in items if is_feature_enabled(item, request)]
 
         for item in items:
             item['active'] = active_item == item['name']
@@ -324,17 +358,17 @@ class CourseNavBarMixin(object):
 
         return items
 
-    def get_secondary_nav_items(self):
+    def get_secondary_nav_items(self, request):
         """
         Return the secondary nav items.
         """
-        return self._build_nav_items(self.secondary_nav_items, self.active_secondary_nav_item)
+        return self._build_nav_items(self.secondary_nav_items, self.active_secondary_nav_item, request)
 
-    def get_tertiary_nav_items(self):
+    def get_tertiary_nav_items(self, request):
         """
         Return the tertiary nav items.
         """
-        return self._build_nav_items(self.tertiary_nav_items, self.active_tertiary_nav_item)
+        return self._build_nav_items(self.tertiary_nav_items, self.active_tertiary_nav_item, request)
 
     def clean_item(self, item):
         """
@@ -355,15 +389,17 @@ class CourseNavBarMixin(object):
     def get_context_data(self, **kwargs):
         context = super(CourseNavBarMixin, self).get_context_data(**kwargs)
 
-        primary_nav_items = self.get_primary_nav_items()
-        secondary_nav_items = self.get_secondary_nav_items()
-        tertiary_nav_items = self.get_tertiary_nav_items()
+        primary_nav_items = self.get_primary_nav_items(self.request)
+        secondary_nav_items = self.get_secondary_nav_items(self.request)
+        tertiary_nav_items = self.get_tertiary_nav_items(self.request)
 
         # Get the active primary item and remove it from the list
         primary_nav_item = None
         if self.active_primary_nav_item:
-            primary_nav_item = [i for i in primary_nav_items if i['name'] == self.active_primary_nav_item][0]
-            primary_nav_items.remove(primary_nav_item)
+            navs = [i for i in primary_nav_items if i['name'] == self.active_primary_nav_item]
+            if navs:
+                primary_nav_item = navs[0]
+                primary_nav_items.remove(primary_nav_item)
 
         context.update({
             'primary_nav_item': primary_nav_item,
@@ -406,28 +442,33 @@ class CourseView(LoginRequiredMixin, CourseValidMixin, CoursePermissionMixin, Te
     def get_context_data(self, **kwargs):
         context = super(CourseView, self).get_context_data(**kwargs)
         self.client = Client(base_url=settings.DATA_API_URL,
-                             auth_token=settings.DATA_API_AUTH_TOKEN, timeout=5)
+                             auth_token=settings.DATA_API_AUTH_TOKEN, timeout=settings.LMS_DEFAULT_TIMEOUT)
         self.course = self.client.courses(self.course_id)
         return context
 
 
-class CourseTemplateView(ContextSensitiveHelpMixin, CourseContextMixin, CourseView):
+class LastUpdatedView(object):
+    def get_last_updated_message(self, last_updated):
+        if last_updated:
+            return self.update_message % self.format_last_updated_date_and_time(last_updated)
+        return None
+
+    @staticmethod
+    def format_last_updated_date_and_time(d):
+        return {'update_date': dateformat.format(d, settings.DATE_FORMAT),
+                'update_time': dateformat.format(d, settings.TIME_FORMAT)}
+
+
+class CourseTemplateView(LastUpdatedView, ContextSensitiveHelpMixin, CourseContextMixin, CourseView):
     update_message = None
 
     @property
     def help_token(self):
         # Rather than duplicate the definition, simply return the page name.
-        return self.page_name
-
-    def get_last_updated_message(self, last_updated):
-        if last_updated:
-            return self.update_message % self.format_last_updated_date_and_time(last_updated)
-        else:
-            return None
-
-    @staticmethod
-    def format_last_updated_date_and_time(d):
-        return {'update_date': dateformat.format(d, settings.DATE_FORMAT), 'update_time': dateformat.format(d, 'g:i A')}
+        page_name = get_page_name(self.page_name)
+        if not page_name:
+            page_name = 'default'
+        return page_name
 
 
 class CourseTemplateWithNavView(CourseNavBarMixin, CourseTemplateView):
@@ -436,41 +477,71 @@ class CourseTemplateWithNavView(CourseNavBarMixin, CourseTemplateView):
 
 class CourseHome(CourseTemplateWithNavView):
     template_name = 'courses/home.html'
-    page_name = 'course_home'
+    page_name = {
+        'scope': 'course',
+        'lens': 'home',
+        'report': '',
+        'depth': ''
+    }
     page_title = _('Course Home')
 
-    def get_table_items(self):
+    def get_table_items(self, request):
         items = []
 
         enrollment_items = {
             'name': _('Enrollment'),
             'icon': 'fa-child',
-            'heading': _('Who are my students?'),
+            'heading': _('Who are my learners?'),
             'items': [
                 {
-                    'title': _('How many students are in my course?'),
+                    'title': ugettext_noop('How many learners are in my course?'),
                     'view': 'courses:enrollment:activity',
-                    'breadcrumbs': [_('Activity')]
+                    'breadcrumbs': [_('Activity')],
+                    'fragment': '',
+                    'scope': 'course',
+                    'lens': 'enrollment',
+                    'report': 'activity',
+                    'depth': ''
                 },
                 {
-                    'title': _('How old are my students?'),
+                    'title': ugettext_noop('How old are my learners?'),
                     'view': 'courses:enrollment:demographics_age',
-                    'breadcrumbs': [_('Demographics'), _('Age')]
+                    'breadcrumbs': [_('Demographics'), _('Age')],
+                    'fragment': '',
+                    'scope': 'course',
+                    'lens': 'enrollment',
+                    'report': 'demographics',
+                    'depth': 'age'
                 },
                 {
-                    'title': _('What level of education do my students have?'),
+                    'title': ugettext_noop('What level of education do my learners have?'),
                     'view': 'courses:enrollment:demographics_education',
-                    'breadcrumbs': [_('Demographics'), _('Education')]
+                    'breadcrumbs': [_('Demographics'), _('Education')],
+                    'fragment': '',
+                    'scope': 'course',
+                    'lens': 'enrollment',
+                    'report': 'demographics',
+                    'depth': 'education'
                 },
                 {
-                    'title': _('What is the student gender breakdown?'),
+                    'title': ugettext_noop('What is the learner gender breakdown?'),
                     'view': 'courses:enrollment:demographics_gender',
-                    'breadcrumbs': [_('Demographics'), _('Gender')]
+                    'breadcrumbs': [_('Demographics'), _('Gender')],
+                    'fragment': '',
+                    'scope': 'course',
+                    'lens': 'enrollment',
+                    'report': 'demographics',
+                    'depth': 'gender'
                 },
                 {
-                    'title': _('Where are my students?'),
+                    'title': ugettext_noop('Where are my learners?'),
                     'view': 'courses:enrollment:geography',
-                    'breadcrumbs': [_('Geography')]
+                    'breadcrumbs': [_('Geography')],
+                    'fragment': '',
+                    'scope': 'course',
+                    'lens': 'enrollment',
+                    'report': 'geography',
+                    'depth': ''
                 },
             ],
         }
@@ -479,99 +550,203 @@ class CourseHome(CourseTemplateWithNavView):
         engagement_items = {
             'name': _('Engagement'),
             'icon': 'fa-bar-chart',
-            'heading': _('What are students doing in my course?'),
+            'heading': _('What are learners doing in my course?'),
             'items': [
                 {
-                    'title': _('How many students are interacting with my course?'),
+                    'title': ugettext_noop('How many learners are interacting with my course?'),
                     'view': 'courses:engagement:content',
-                    'breadcrumbs': [_('Content')]
+                    'breadcrumbs': [_('Content')],
+                    'fragment': '',
+                    'scope': 'course',
+                    'lens': 'engagement',
+                    'report': 'content',
+                    'depth': ''
                 }
             ]
         }
         if switch_is_active('enable_engagement_videos_pages'):
             engagement_items['items'].append({
-                'title': _('How did students interact with course videos?'),
+                'title': ugettext_noop('How did learners interact with course videos?'),
                 'view': 'courses:engagement:videos',
-                'breadcrumbs': [_('Videos')]
+                'breadcrumbs': [_('Videos')],
+                'fragment': '',
+                'scope': 'course',
+                'lens': 'engagement',
+                'report': 'videos',
+                'depth': ''
             })
 
         items.append(engagement_items)
 
         if self.course_api_enabled:
+            subitems = [{
+                'title': ugettext_noop('How are learners doing on graded course assignments?'),
+                'view': 'courses:performance:graded_content',
+                'breadcrumbs': [_('Graded Content')],
+                'fragment': '',
+                'scope': 'course',
+                'lens': 'performance',
+                'report': 'graded',
+                'depth': ''
+            }, {
+                'title': ugettext_noop('How are learners doing on ungraded exercises?'),
+                'view': 'courses:performance:ungraded_content',
+                'breadcrumbs': [_('Ungraded Problems')],
+                'fragment': '',
+                'scope': 'course',
+                'lens': 'performance',
+                'report': 'ungraded',
+                'depth': ''
+            }]
+
+            if switch_is_active('enable_performance_learning_outcome'):
+                subitems.append({
+                    'title': ugettext_noop('What is the breakdown for course learning outcomes?'),
+                    'view': 'courses:performance:learning_outcomes',
+                    'breadcrumbs': [_('Learning Outcomes')],
+                    'fragment': '',
+                    'scope': 'course',
+                    'lens': 'performance',
+                    'report': 'outcomes',
+                    'depth': ''
+                })
+
+            if switch_is_active('enable_problem_response_download'):
+                try:
+                    info = CourseReportDownloadPresenter(self.course_id).get_report_info(
+                        report_name=CourseReportDownloadPresenter.PROBLEM_RESPONSES
+                    )
+                except NotFoundError:
+                    info = {}
+                if 'download_url' in info:
+                    # A problem response report CSV is available:
+                    subitems.append({
+                        'title': ugettext_noop('How are learners responding to questions?'),
+                        'view': 'courses:csv:performance_problem_responses',
+                        'breadcrumbs': [_('Problem Response Report')],
+                        'format': 'csv',
+                    })
+
             items.append({
                 'name': _('Performance'),
                 'icon': 'fa-check-square-o',
-                'heading': _('How are students doing on course assignments?'),
+                'heading': _('How are learners doing on course assignments?'),
+                'items': subitems
+            })
+
+        if flag_is_active(request, 'display_learner_analytics'):
+            items.append({
+                'name': _('Learners'),
+                'icon': 'fa-users',
+                'heading': _('What are individual learners doing?'),
                 'items': [
                     {
-                        'title': _('How are students doing on graded course assignments?'),
-                        'view': 'courses:performance:graded_content',
-                        'breadcrumbs': [_('Graded Content')]
+                        'title': ugettext_noop("Who is engaged? Who isn't?"),
+                        'view': 'courses:learners:learners',
+                        'breadcrumbs': [_('All Learners')],
+                        'fragment': '#?ignore_segments=inactive',
+                        'scope': 'course',
+                        'lens': 'learners',
+                        'report': 'roster',
+                        'depth': ''
                     },
-                    {
-                        'title': _('How are students doing on ungraded exercises?'),
-                        'view': 'courses:performance:ungraded_content',
-                        'breadcrumbs': [_('Ungraded Problems')]
-                    }
+                    # TODO: this is commented out until we complete the deep linking work, AN-6671
+                    # {
+                    #     'title': _('Who has been active recently?'),
+                    #     'view': 'courses:learners:learners',  # TODO: map this to the actual action in AN-6205
+                    #     # TODO: what would the breadcrumbs be?
+                    #     'breadcrumbs': [_('Learners')]
+                    # },
+                    # {
+                    #     'title': _('Who is most engaged in the discussions?'),
+                    #     'view': 'courses:learners:learners',  # TODO: map this to the actual action in AN-6205
+                    #     # TODO: what would the breadcrumbs be?
+                    #     'breadcrumbs': [_('Learners')]
+                    # },
+                    # {
+                    #     'title': _("Who hasn't watched videos recently?"),
+                    #     'view': 'courses:learners:learners',  # TODO: map this to the actual action in AN-6205
+                    #     # TODO: what would the breadcrumbs be?
+                    #     'breadcrumbs': [_('Learners')]
+                    # }
                 ]
             })
 
+        translate_dict_values(items, ('name',))
+        for item in items:
+            translate_dict_values(item['items'], ('title',))
+
         return items
 
+    # pylint: disable=redefined-variable-type
     def get_context_data(self, **kwargs):
         context = super(CourseHome, self).get_context_data(**kwargs)
         context.update({
-            'table_items': self.get_table_items()
+            'table_items': self.get_table_items(self.request)
         })
 
         context['page_data'] = self.get_page_data(context)
+
+        overview_data = []
+        if self.course_api_enabled:
+            if switch_is_active('display_course_name_in_nav'):
+                # Translators: 'Course ID' is 'Course Identifier', the unique code that identifies the course
+                overview_data.append((_('Course ID'), self.course_id))
+            else:
+                overview_data.append((_('Course Name'), self.course_info.get('name')))
+
+            def parse_course_date(date_str):
+                return datetime.strptime(date_str, CourseStructureApiClient.DATETIME_FORMAT) if date_str else None
+
+            def format_date(date):
+                return dateformat.format(date, settings.DATE_FORMAT) if date else "--"
+
+            start_date = parse_course_date(self.course_info.get('start'))
+            end_date = parse_course_date(self.course_info.get('end'))
+            todays_date = datetime.now()
+            status_str = '--'
+            if start_date:
+                if todays_date >= start_date:
+                    in_progress = (end_date is None or end_date > todays_date)
+                    # Translators: 'In Progress' and 'Ended' refer to whether learners are
+                    # actively using the course or it is over.
+                    status_str = _('In Progress') if in_progress else _('Ended')
+                else:
+                    # Translators: This refers to a course that has not yet begun.
+                    status_str = _('Not Started Yet')
+            overview_data += [
+                (_('Start Date'), format_date(start_date)),
+                (_('End Date'), format_date(end_date)),
+                (_('Status'), status_str),
+            ]
+
+        context['course_overview'] = overview_data
+
+        external_tools = []
+
+        if settings.LMS_COURSE_SHORTCUT_BASE_URL:
+            external_tools.append({
+                'title': ugettext_noop('Instructor Dashboard'),
+                'url': "{}/{}/instructor".format(settings.LMS_COURSE_SHORTCUT_BASE_URL, self.course_id),
+                'icon': 'fa-dashboard',
+            })
+            external_tools.append({
+                'title': ugettext_noop('Courseware'),
+                'url': "{}/{}/courseware".format(settings.LMS_COURSE_SHORTCUT_BASE_URL, self.course_id),
+                'icon': 'fa-pencil-square-o',
+            })
+        if settings.CMS_COURSE_SHORTCUT_BASE_URL:
+            external_tools.append({
+                'title': 'Studio',
+                'translated_title': 'Studio',  # As a brand name, "Studio" is not translated.
+                'url': "{}/{}".format(settings.CMS_COURSE_SHORTCUT_BASE_URL, self.course_id),
+                'icon': 'fa-sliders',
+            })
+
+        translate_dict_values(external_tools, ('title',))
+        context['external_course_tools'] = external_tools
+
         return context
-
-
-class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LazyEncoderMixin, TemplateView):
-    template_name = 'courses/index.html'
-    page_name = 'course_index'
-
-    def get_context_data(self, **kwargs):
-        context = super(CourseIndex, self).get_context_data(**kwargs)
-
-        courses = permissions.get_user_course_permissions(self.request.user)
-
-        if not courses:
-            # The user is probably not a course administrator and should not be using this application.
-            raise PermissionDenied
-
-        courses = self._create_course_list(courses)
-        context['courses'] = courses
-        context['page_data'] = self.get_page_data(context)
-
-        return context
-
-    def _create_course_list(self, course_ids):
-        info = []
-        course_data = {}
-
-        # ccx courses are hidden on the course listing page unless enabled
-        if not switch_is_active('enable_ccx_courses'):
-            # filter ccx courses
-            course_ids = [course_id for course_id in course_ids
-                          if not isinstance(CourseKey.from_string(course_id), CCXLocator)]
-
-        if self.course_api_enabled and switch_is_active('display_names_for_course_index'):
-
-            # Get data for all courses in a single API call.
-            _api_courses = self.get_courses()
-
-            # Create a lookup table from the data.
-            for course in _api_courses:
-                course_data[course['id']] = course['name']
-
-        for course_id in course_ids:
-            info.append({'key': course_id, 'name': course_data.get(course_id)})
-
-        info.sort(key=lambda course: (course.get('name', '') or course.get('key', '') or '').lower())
-
-        return info
 
 
 class CourseStructureExceptionMixin(object):

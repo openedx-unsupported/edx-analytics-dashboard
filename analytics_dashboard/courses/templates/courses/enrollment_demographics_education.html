@@ -2,13 +2,13 @@
 {% load i18n %}
 {% load dashboard_extras %}
 {% load staticfiles %}
-{% load rjs %}
+{% load render_bundle from webpack_loader %}
 
 {% block view-name %}view-course-enrollment view-dashboard{% endblock view-name %}
 
 {% block javascript %}
 {{ block.super }}
-<script src="{% static_rjs 'js/enrollment-demographics-education-main.js' %}"></script>
+    {% render_bundle 'enrollment-demographics-education-main' %}
 {% endblock javascript %}
 
 
@@ -16,13 +16,13 @@
 
 <section class="view-section" data-section="enrollment-basics" aria-hidden="true">
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col col-12 sm-col-12">
             <div class="tertiary-nav">
                 <ul class="nav navbar-nav">
-                    {% include "submenu_navigation.html" with nav_items=tertiary_nav_items%}
+                    {% include "submenu_navigation.html" with nav_items=tertiary_nav_items depth="depth" %}
                 </ul>
                 <div class="section-heading">
-                    <span class="section-heading-note small">{% trans "What level of education do my students have?" %}</span>
+                    <span class="section-heading-note small">{% trans "What level of education do my learners have?" %}</span>
                 </div>
             </div>
         </div>
@@ -35,10 +35,12 @@
                     {% include "courses/demographics_chart_info.html"%}
                     {% captureas tip_text %}
                       {# Translators: Maintain the double percentage symbols (%%) but move them to the appropriate location (before/after the value placeholder) for your language. #}
-                      {% blocktrans with value=chart_tooltip_value %}This graph presents data for the {{ value }}% of enrolled students who provided a highest level of education completed.{% endblocktrans %}
+                      {% blocktrans with value=chart_tooltip_value %}This graph presents data for the {{ value }}% of enrolled learners who provided a highest level of education completed.{% endblocktrans %}
                     {% endcaptureas %}
                     {% include "chart_tooltip.html" with tip_text=tip_text track_category="bar"%}
-                    <div id="enrollment-chart-view" class="analytics-chart">
+                    <div id="enrollment-chart-view" class="analytics-chart" data-track-type="hover"
+                        data-track-event="edx.bi.graph.interacted"
+                        data-track-category="enrollment_demographics_education">
                         {% include "loading.html" %}
                     </div>
                 </div>
@@ -57,24 +59,24 @@
     {% if summary %}
         <div class="section-content">
             <div class="row">
-                <div class="col-xs-12 col-sm-3" data-stat-type="education_high_school_or_less_enrollment">
-                    {# Translators: This is a label to identify student educational background. #}
+                <div class="col col-12 sm-col-12 md-col-3" data-stat-type="education_high_school_or_less_enrollment">
+                    {# Translators: This is a label to identify learner educational background. #}
                     {% trans "High School Diploma or Less" as label %}
-                    {% trans "The percentage of students who selected Secondary/high school, Junior secondary/junior high/middle school, or Elementary/primary school as their highest level of education completed." as tooltip %}
+                    {% trans "The percentage of learners who selected Secondary/high school, Junior secondary/junior high/middle school, or Elementary/primary school as their highest level of education completed." as tooltip %}
                     {% summary_point summary.high_school_or_less|metric_percentage label tooltip=tooltip %}
                 </div>
 
-                <div class="col-xs-12 col-sm-3" data-stat-type="education_college_enrollment">
-                    {# Translators: This is a label to identify student educational background. #}
+                <div class="col col-12 sm-col-12 md-col-3" data-stat-type="education_college_enrollment">
+                    {# Translators: This is a label to identify learner educational background. #}
                     {% trans "College Degree" as label %}
-                    {% trans "The percentage of students who selected Bachelor's degree or Associate degree as their highest level of education completed." as tooltip %}
+                    {% trans "The percentage of learners who selected Bachelor's degree or Associate degree as their highest level of education completed." as tooltip %}
                     {% summary_point summary.college|metric_percentage label tooltip=tooltip %}
                 </div>
 
-                <div class="col-xs-12 col-sm-3" data-stat-type="education_advanced_enrollment">
-                    {# Translators: This is a label to identify student educational background. #}
+                <div class="col col-12 sm-col-12 md-col-3" data-stat-type="education_advanced_enrollment">
+                    {# Translators: This is a label to identify learner educational background. #}
                     {% trans "Advanced Degree" as label %}
-                    {% trans "The percentage of students who selected Doctorate or Master's or professional degree as their highest level of education completed." as tooltip %}
+                    {% trans "The percentage of learners who selected Doctorate or Master's or professional degree as their highest level of education completed." as tooltip %}
                     {% summary_point summary.advanced|metric_percentage label tooltip=tooltip %}
                 </div>
             </div>
@@ -95,7 +97,7 @@
                    data-role="enrollment-csv" data-track-type="click"
                    data-track-event="edx.bi.csv.downloaded"
                    data-track-category="education">
-                    <i class="ico fa fa-download" aria-hidden="true"></i> {% trans "Download CSV" %}
+                    <span class="ico fa fa-download" aria-hidden="true"></span> {% trans "Download CSV" %}
                     <span class="sr-only">{% trans "Enrollment Over Time" %}</span>
                 </a>
             {% endif %}

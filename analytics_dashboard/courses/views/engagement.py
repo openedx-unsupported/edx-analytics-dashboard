@@ -2,11 +2,12 @@ import logging
 
 from django.conf import settings
 from django.http import Http404
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _, ugettext_noop
 
 from waffle import switch_is_active
 
 from analyticsclient.exceptions import NotFoundError
+from core.utils import translate_dict_values
 
 from courses.presenters.engagement import (CourseEngagementActivityPresenter, CourseEngagementVideoPresenter)
 from courses.views import (CourseStructureMixin, CourseStructureExceptionMixin, CourseTemplateWithNavView)
@@ -20,11 +21,28 @@ class EngagementTemplateView(CourseTemplateWithNavView):
     Base view for course engagement pages.
     """
     secondary_nav_items = [
-        # Translators: Content as in course content (e.g. things, not the feeling)
-        {'name': 'content', 'label': _('Content'), 'view': 'courses:engagement:content'},
-        {'name': 'videos', 'label': _('Videos'), 'view': 'courses:engagement:videos',
-         'switch': 'enable_engagement_videos_pages'},
+        {
+            'name': 'content',
+            # Translators: Content as in course content (e.g. things, not the feeling)
+            'text': ugettext_noop('Content'),
+            'view': 'courses:engagement:content',
+            'scope': 'course',
+            'lens': 'engagement',
+            'report': 'content',
+            'depth': ''
+        },
+        {
+            'name': 'videos',
+            'text': ugettext_noop('Videos'),
+            'view': 'courses:engagement:videos',
+            'switch': 'enable_engagement_videos_pages',
+            'scope': 'course',
+            'lens': 'engagement',
+            'report': 'videos',
+            'depth': ''
+        },
     ]
+    translate_dict_values(secondary_nav_items, ('text',))
     active_primary_nav_item = 'engagement'
     presenter = None
 
@@ -32,7 +50,12 @@ class EngagementTemplateView(CourseTemplateWithNavView):
 class EngagementContentView(EngagementTemplateView):
     template_name = 'courses/engagement_content.html'
     page_title = _('Engagement Content')
-    page_name = 'engagement_content'
+    page_name = {
+        'scope': 'course',
+        'lens': 'engagement',
+        'report': 'content',
+        'depth': ''
+    }
     active_secondary_nav_item = 'content'
 
     # Translators: Do not translate UTC.
@@ -84,7 +107,12 @@ class EngagementVideoContentTemplateView(CourseStructureMixin, CourseStructureEx
 
 class EngagementVideoCourse(EngagementVideoContentTemplateView):
     template_name = 'courses/engagement_video_course.html'
-    page_name = 'engagement_videos'
+    page_name = {
+        'scope': 'course',
+        'lens': 'engagement',
+        'report': 'videos',
+        'depth': ''
+    }
 
     def get_context_data(self, **kwargs):
         context = super(EngagementVideoCourse, self).get_context_data(**kwargs)
@@ -98,7 +126,12 @@ class EngagementVideoCourse(EngagementVideoContentTemplateView):
 
 class EngagementVideoSection(EngagementVideoContentTemplateView):
     template_name = 'courses/engagement_video_by_section.html'
-    page_name = 'engagement_videos'
+    page_name = {
+        'scope': 'course',
+        'lens': 'engagement',
+        'report': 'videos',
+        'depth': 'section'
+    }
 
     def get_context_data(self, **kwargs):
         context = super(EngagementVideoSection, self).get_context_data(**kwargs)
@@ -113,7 +146,12 @@ class EngagementVideoSection(EngagementVideoContentTemplateView):
 
 class EngagementVideoSubsection(EngagementVideoContentTemplateView):
     template_name = 'courses/engagement_video_by_subsection.html'
-    page_name = 'engagement_videos'
+    page_name = {
+        'scope': 'course',
+        'lens': 'engagement',
+        'report': 'videos',
+        'depth': 'subsection'
+    }
 
     def get_context_data(self, **kwargs):
         context = super(EngagementVideoSubsection, self).get_context_data(**kwargs)
@@ -130,7 +168,12 @@ class EngagementVideoSubsection(EngagementVideoContentTemplateView):
 
 class EngagementVideoTimeline(EngagementVideoContentTemplateView):
     template_name = 'courses/engagement_video_timeline.html'
-    page_name = 'engagement_videos'
+    page_name = {
+        'scope': 'course',
+        'lens': 'engagement',
+        'report': 'videos',
+        'depth': 'timeline'
+    }
     video_id = None
 
     def dispatch(self, request, *args, **kwargs):

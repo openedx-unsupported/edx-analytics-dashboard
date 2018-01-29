@@ -1,14 +1,16 @@
 {% extends "courses/base_grouped_content.html" %}
 
-{% load rjs %}
+{% load render_bundle from webpack_loader %}
 
 {% block javascript %}
     {{ block.super }}
     {# override for custom JS loading #}
     {% block performance_javascript %}
-        <script src="{% static_rjs 'js/performance-content-main.js' %}"></script>
+        {% render_bundle 'performance-content-main' %}
     {% endblock performance_javascript %}
 {% endblock javascript %}
+
+{% block hover_category %}performance_content{% endblock hover_category %}
 
 {% block chart_info %}
     {% include "courses/submissions_chart_info.html" %}

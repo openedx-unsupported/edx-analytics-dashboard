@@ -125,7 +125,7 @@ problems in edX Insights can help you answer questions like these.
 
 * For open-ended questions, such as text input, what did learners submit?
 
-The illustration that follows shows the number of students who selected each
+The illustration that follows shows the number of learners who selected each
 of the choices offered for a multiple choice question. The chart includes one
 bar for each answer.
 
@@ -134,7 +134,7 @@ bar for each answer.
  result, the bar charts for these questions appear in a single color.
 
 .. image:: ../images/survey_ungraded.png
- :alt: A chart showing that students chose a wide range of answers, all marked
+ :alt: A chart showing that learners chose a wide range of answers, all marked
      incorrect.
 
 .. BerkeleyX/GG101x/1T2014/performance/ungraded_content/sections/i4x%3A//BerkeleyX/GG101x/chapter/d13fe70f7ca44a8f85f2d38efdc8d86c/subsections/i4x%3A//BerkeleyX/GG101x/sequential/0c8e4c5cdb3a4329a9a12f2e33c1fd76/problems/i4x%3A//BerkeleyX/GG101x/problem/89d1916b958341129ad23fd75a09df48/parts/i4x-BerkeleyX-GG101x-problem-89d1916b958341129ad23fd75a09df48_2_1/answer_distribution/
@@ -283,9 +283,10 @@ To download the Submission Counts report in a comma-separated value
 file, select **Download CSV**.
 
 The report includes one row for each problem-answer combination submitted by a
-learner. For example, consider a dropdown problem that has five possible
+learner. Only the most recent attempt submitted by each learner is included in
+the count. For example, consider a dropdown problem that has five possible
 answers. The report or file contains up to five rows, one for each answer
-submitted by at least one learner.
+submitted by at least one learner in their last attempt to answer the problem.
 
 If the problem that you select includes more than one part, the chart and
 report for the first part appears. To select a different part, you use the

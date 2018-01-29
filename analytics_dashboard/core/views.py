@@ -2,16 +2,16 @@ import json
 import logging
 import uuid
 
-import django
 from django.conf import settings
-from django.contrib.auth import get_user_model, login, authenticate, REDIRECT_FIELD_NAME
+from django.contrib.auth import get_user_model, login, authenticate
+from django.contrib.auth.views import LogoutView, logout_then_login
 from django.db import connection, DatabaseError
 from django.http import HttpResponse, Http404
 from django.shortcuts import redirect
 from django.views.generic import View, TemplateView
 from django.core.urlresolvers import reverse_lazy
 from analyticsclient.client import Client
-from analyticsclient.exceptions import ClientError
+from analyticsclient.exceptions import TimeoutError
 
 from analytics_dashboard.courses import permissions
 
@@ -19,15 +19,16 @@ from analytics_dashboard.courses import permissions
 logger = logging.getLogger(__name__)
 User = get_user_model()
 
+# Health constants
+OK = u'OK'
+UNAVAILABLE = u'UNAVAILABLE'
+
 
 def status(_request):
     return HttpResponse()
 
 
 def health(_request):
-    OK = 'OK'
-    UNAVAILABLE = 'UNAVAILABLE'
-
     overall_status = analytics_api_status = database_status = UNAVAILABLE
 
     try:
@@ -36,16 +37,26 @@ def health(_request):
         cursor.fetchone()
         cursor.close()
         database_status = OK
-    except DatabaseError:  # pylint: disable=catching-non-exception
+    except DatabaseError as e:
+        logger.exception('Insights database is not reachable: %s', e)
         database_status = UNAVAILABLE
 
     try:
-        client = Client(base_url=settings.DATA_API_URL, auth_token=settings.DATA_API_AUTH_TOKEN)
-        if client.status.healthy:
-            analytics_api_status = OK
-    except ClientError as e:
-        logger.exception('API is not reachable from dashboard: %s', e)
+        client = Client(base_url=settings.DATA_API_URL, auth_token=settings.DATA_API_AUTH_TOKEN, timeout=0.35)
+        # Note: client.status.healthy sends a request to the health endpoint on
+        # the Analytics API.  The request may throw a TimeoutError.  Currently,
+        # other exceptions are caught by the client.status.healthy method
+        # itself, which will return False in those cases.
+        analytics_api_healthy = client.status.healthy
+    except TimeoutError as e:
+        logger.exception('Analytics API health check timed out from dashboard: %s', e)
         analytics_api_status = UNAVAILABLE
+    else:
+        if analytics_api_healthy:
+            analytics_api_status = OK
+        else:
+            logger.error('Analytics API health check failed from dashboard')
+            analytics_api_status = UNAVAILABLE
 
     overall_status = OK if (analytics_api_status == database_status == OK) else UNAVAILABLE
 
@@ -88,26 +99,24 @@ class AutoAuth(View):
         return redirect('/')
 
 
-def logout(request, next_page='/', template_name=None,
-           redirect_field_name=REDIRECT_FIELD_NAME, current_app=None, extra_context=None):
-    """
-    Revoke user permissions and logout
-    """
+class InsightsLogoutView(LogoutView):
+    def dispatch(self, request, *args, **kwargs):
+        """
+        Revoke user permissions and logout
+        """
+        # Revoke permissions
+        permissions.revoke_user_course_permissions(request.user)
 
-    # Revoke permissions
-    permissions.revoke_user_course_permissions(request.user)
-
-    # Back to the standard logout flow
-    return django.contrib.auth.views.logout(request, next_page, template_name, redirect_field_name, current_app,
-                                            extra_context)
+        # Back to the standard logout flow
+        return super(InsightsLogoutView, self).dispatch(request, *args, **kwargs)
 
 
-def logout_then_login(request, login_url=reverse_lazy('login'), current_app=None, extra_context=None):
+def insights_logout_then_login(request, login_url=reverse_lazy('login')):
     """
     Logout then login
     """
     permissions.revoke_user_course_permissions(request.user)
-    return django.contrib.auth.views.logout_then_login(request, login_url, current_app, extra_context)
+    return logout_then_login(request, login_url=login_url)
 
 
 class ServiceUnavailableView(TemplateView):
@@ -127,8 +136,7 @@ class LandingView(TemplateView):
         """ Non logged in users will be directed to the landing page. """
         if request.user.is_anonymous():
             return super(LandingView, self).dispatch(request, *args, **kwargs)
-        else:
-            return redirect('courses:index')
+        return redirect('courses:index')
 
     def get_context_data(self, **kwargs):
         context = super(LandingView, self).get_context_data(**kwargs)

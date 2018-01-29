@@ -8,12 +8,13 @@ DJANGO_SETTINGS_MODULE ?= "analytics_dashboard.settings.local"
 
 .PHONY: requirements clean
 
-requirements: requirements.js
+requirements: requirements.py requirements.js
+
+requirements.py:
 	pip install -q -r requirements/base.txt --exists-action w
 
 requirements.js:
-	npm install
-	$(NODE_BIN)/bower install
+	npm install --unsafe-perm
 
 test.requirements: requirements
 	pip install -q -r requirements/test.txt --exists-action w
@@ -21,33 +22,49 @@ test.requirements: requirements
 develop: test.requirements
 	pip install -q -r requirements/local.txt --exists-action w
 
-test.acceptance: develop
-	git clone https://github.com/edx/edx-analytics-data-api.git
-	pip install -q -r edx-analytics-data-api/requirements/base.txt
-
 migrate:
-	python manage.py migrate
+	python manage.py migrate --run-syncdb
 
 clean:
 	find . -name '*.pyc' -delete
 	coverage erase
 
-test_python: clean
-	python manage.py compress --settings=analytics_dashboard.settings.test
+test_python_no_compress: clean
 	python manage.py test analytics_dashboard common --settings=analytics_dashboard.settings.test --with-coverage \
 	--cover-package=analytics_dashboard --cover-package=common --cover-branches --cover-html --cover-html-dir=$(COVERAGE)/html/ \
 	--with-ignore-docstrings --cover-xml --cover-xml-file=$(COVERAGE)/coverage.xml
 
+test_compress: static
+	# No longer does anything. Kept for legacy support.
+
+test_python: test_compress test_python_no_compress
+
 accept:
-	./runTests.sh acceptance_tests
+ifeq ("${DISPLAY_LEARNER_ANALYTICS}", "True")
+	./manage.py waffle_flag enable_learner_analytics --create --everyone
+endif
+ifeq ("${ENABLE_COURSE_LIST_FILTERS}", "True")
+	./manage.py waffle_switch enable_course_filters on --create
+endif
+ifeq ("${ENABLE_COURSE_LIST_PASSING}", "True")
+	./manage.py waffle_switch enable_course_passing on --create
+endif
+	./manage.py create_acceptance_test_soapbox_messages
+	nosetests -v acceptance_tests -e NUM_PROCESSES=1 --exclude-dir=acceptance_tests/course_validation
+	./manage.py delete_acceptance_test_soapbox_messages
 
 # local acceptance tests are typically run with by passing in environment variables on the commandline
 # e.g. API_SERVER_URL="http://localhost:9001/api/v0" API_AUTH_TOKEN="edx" make accept_local
 accept_local:
+	./manage.py create_acceptance_test_soapbox_messages
 	nosetests -v acceptance_tests --exclude-dir=acceptance_tests/course_validation
+	./manage.py delete_acceptance_test_soapbox_messages
 
 a11y:
-	SELENIUM_BROWSER=phantomjs ./runTests.sh a11y_tests
+ifeq ("${DISPLAY_LEARNER_ANALYTICS}", "True")
+	./manage.py waffle_flag enable_learner_analytics --create --everyone
+endif
+	BOKCHOY_A11Y_CUSTOM_RULES_FILE=./node_modules/edx-custom-a11y-rules/lib/custom_a11y_rules.js SELENIUM_BROWSER=firefox nosetests -v a11y_tests -e NUM_PROCESSES=1 --exclude-dir=acceptance_tests/course_validation
 
 course_validation:
 	python -m acceptance_tests.course_validation.generate_report
@@ -58,25 +75,26 @@ quality:
 
 validate_python: test.requirements test_python quality
 
-validate_js: requirements.js
+#FIXME validate_js: requirements.js
+validate_js:
 	$(NODE_BIN)/gulp test
-	$(NODE_BIN)/gulp lint
-	$(NODE_BIN)/gulp jscs
+	npm run lint -s
 
 validate: validate_python validate_js
 
 demo:
-	python manage.py switch display_verified_enrollment on --create
-	python manage.py switch show_engagement_forum_activity off --create
-	python manage.py switch enable_course_api off --create
-	python manage.py switch display_names_for_course_index off --create
-	python manage.py switch display_course_name_in_nav off --create
+	python manage.py waffle_switch show_engagement_forum_activity off --create
+	python manage.py waffle_switch enable_course_api off --create
+	python manage.py waffle_switch display_course_name_in_nav off --create
 
+# compiles djangojs and django .po and .mo files
 compile_translations:
-	cd analytics_dashboard && i18n_tool generate -v
+	python manage.py compilemessages
 
+# creates the source django & djangojs files
 extract_translations:
-	cd analytics_dashboard && i18n_tool extract -v
+	cd analytics_dashboard && python ../manage.py makemessages -l en -v1 --ignore="docs/*" --ignore="src/*" --ignore="i18n/*" --ignore="assets/*" --ignore="static/bundles/*" -d django
+	cd analytics_dashboard && python ../manage.py makemessages -l en -v1 --ignore="docs/*" --ignore="src/*" --ignore="i18n/*" --ignore="assets/*" --ignore="static/bundles/*" -d djangojs
 
 dummy_translations:
 	cd analytics_dashboard && i18n_tool dummy -v
@@ -84,11 +102,23 @@ dummy_translations:
 generate_fake_translations: extract_translations dummy_translations compile_translations
 
 pull_translations:
-	cd analytics_dashboard && tx pull -a
+	cd analytics_dashboard && tx pull -af
 
 update_translations: pull_translations generate_fake_translations
 
+# check if translation files are up-to-date
+detect_changed_source_translations:
+	cd analytics_dashboard && i18n_tool changed
+
+# extract, compile, and check if translation files are up-to-date
+validate_translations: extract_translations compile_translations detect_changed_source_translations
+	cd analytics_dashboard && i18n_tool validate
+
+static_no_compress: static
+	# No longer does anything. Kept for legacy support.
+
 static:
-	$(NODE_BIN)/r.js -o build.js
-	python manage.py collectstatic --noinput
-	python manage.py compress
+	$(NODE_BIN)/webpack --config webpack.prod.config.js
+	# collectstatic creates way too much output with the cldr-data directory output so silence that directory
+	echo "Running collectstatic while silencing cldr-data/main/* ..."
+	python manage.py collectstatic --noinput | sed -n '/.*node_modules\/cldr-data\/main\/.*/!p'

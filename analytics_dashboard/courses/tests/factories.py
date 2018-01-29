@@ -1,9 +1,13 @@
-from slugify import slugify
-import urllib
+import hashlib
+import re
 import uuid
+
+from collections import OrderedDict
+from slugify import slugify
 
 from common.tests.factories import CourseStructureFactory
 from courses.tests.utils import CREATED_DATETIME_STRING
+from courses import utils
 
 
 class CoursePerformanceDataFactory(CourseStructureFactory):
@@ -25,7 +29,7 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                 part_id = '{}_1_2'.format(_id)
                 correct_percent = 1.0
                 if problem_index == 0:
-                    correct_percent = 0
+                    correct_percent = 0.0
                 url_template = '/courses/{}/performance/graded_content/assignments/{}/problems/' \
                                '{}/parts/{}/answer_distribution/'
                 problems.append({
@@ -38,8 +42,8 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                     'id': _id,
                     'name': block['display_name'],
                     'part_ids': [part_id],
-                    'url': urllib.quote(url_template.format(
-                        self.course_id, assignment['id'], _id, part_id))
+                    'url': url_template.format(
+                        self.course_id, assignment['id'], _id, part_id)
                 })
 
             num_problems = len(problems)
@@ -60,8 +64,8 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                 'average_submissions': num_problems / num_problems_float,
                 'average_correct_submissions': num_problems / num_problems_float,
                 'average_incorrect_submissions': 0.0,
-                'url': urllib.quote(url_template.format(
-                    self.course_id, assignment['id']))
+                'url': url_template.format(
+                    self.course_id, assignment['id'])
             }
 
             presented.append(presented_assignment)
@@ -97,7 +101,7 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
         return [
             {
                 'name': gp['assignment_type'],
-                'url': urllib.quote(url_template.format(self.course_id, slugify(gp['assignment_type'])))
+                'url': url_template.format(self.course_id, slugify(gp['assignment_type']))
 
             } for gp in policies
         ]
@@ -130,9 +134,9 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                         'name': block['display_name'],
                         'part_ids': [part_id],
                         'children': [],
-                        'url': urllib.quote(url_template.format(
+                        'url': url_template.format(
                             self.course_id, section['id'],
-                            subsection['id'], _id, part_id))
+                            subsection['id'], _id, part_id)
                     })
 
                 num_problems = len(problems)
@@ -152,9 +156,9 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                     'average_submissions': num_problems / num_problems_float,
                     'average_correct_submissions': num_problems / num_problems_float,
                     'average_incorrect_submissions': 0.0,
-                    'url': urllib.quote(url_template.format(
+                    'url': url_template.format(
                         self.course_id, section['id'],
-                        subsection['id']))
+                        subsection['id'])
                 }
                 subsections.append(presented_subsection)
 
@@ -175,8 +179,8 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                 'average_submissions': num_problems / num_problems_float,
                 'average_correct_submissions': num_problems / num_problems_float,
                 'average_incorrect_submissions': 0.0,
-                'url': urllib.quote(url_template.format(
-                    self.course_id, section['id']))
+                'url': url_template.format(
+                    self.course_id, section['id'])
             }
 
             presented.append(presented_sections)
@@ -214,9 +218,9 @@ class CourseEngagementDataFactory(CourseStructureFactory):
                         'id': _id,
                         'name': block['display_name'],
                         'children': [],
-                        'url': urllib.quote(url_template.format(
+                        'url': url_template.format(
                             self.course_id, section['id'],
-                            subsection['id'], _id)),
+                            subsection['id'], _id),
                         'pipeline_video_id': 'edX/DemoX/Demo_Course|i4x-edX_Demo_Course-video-{}'.format(
                             uuid.uuid4().hex)
                     })
@@ -231,9 +235,9 @@ class CourseEngagementDataFactory(CourseStructureFactory):
                     'num_modules': num_videos,
                     'users_at_start': 10,
                     'users_at_end': 0,
-                    'url': urllib.quote(url_template.format(
+                    'url': url_template.format(
                         self.course_id, section['id'],
-                        subsection['id']))
+                        subsection['id'])
                 }
                 subsections.append(presented_subsection)
 
@@ -246,8 +250,8 @@ class CourseEngagementDataFactory(CourseStructureFactory):
                 'num_modules': 1,
                 'users_at_start': 10,
                 'users_at_end': 0,
-                'url': urllib.quote(url_template.format(
-                    self.course_id, section['id']))
+                'url': url_template.format(
+                    self.course_id, section['id'])
             }
 
             presented.append(presented_sections)
@@ -335,3 +339,161 @@ class CourseEngagementDataFactory(CourseStructureFactory):
             }
         ]
         return videos
+
+
+class TagsDistributionDataFactory(CourseStructureFactory):
+
+    _count_of_homework_assignments = 0
+    _tags_structure = None
+
+    def __init__(self, tags_data_per_homework_assigment):
+        self._count_of_problems = len(tags_data_per_homework_assigment) + 1
+        self.tags_data_per_homework_assigment = tags_data_per_homework_assigment
+
+        super(TagsDistributionDataFactory, self).__init__()
+        for policy in self.grading_policy:
+            if policy['assignment_type'].startswith('Homework'):
+                self._count_of_homework_assignments = policy['count']
+                break
+        self._generate_tags_structure()
+
+    def _get_block_id(self, block_type, block_format=None, display_name=None, graded=True, children=None):
+        if display_name:
+            return hashlib.md5(display_name).hexdigest()
+        return super(TagsDistributionDataFactory, self)._get_block_id(block_type, block_format, display_name,
+                                                                      graded, children)
+
+    def _generate_tags_structure(self):
+        reg = re.compile(r'Homework (\d) Problem (\d)')
+        tags_data = {}
+
+        for k, item in self._structure['blocks'].iteritems():
+            if item['type'] == 'problem' and item['display_name'].startswith('Homework'):
+                m = reg.match(item['display_name'])
+                assig_num = int(m.group(1))
+                problem_num = int(m.group(2)) - 1
+                key = assig_num * 10 + problem_num
+                tags_data[key] = {
+                    "display_name": item['display_name'],
+                    "module_id": item['id'],
+                    "total_submissions": self.tags_data_per_homework_assigment[problem_num]['total_submissions'],
+                    "correct_submissions": self.tags_data_per_homework_assigment[problem_num]['correct_submissions'],
+                    "tags": self.tags_data_per_homework_assigment[problem_num]['tags'],
+                }
+        self._tags_structure = [tags_data[k] for k in sorted(tags_data)]
+
+    @property
+    def problems_and_tags(self):
+        """
+        Mock tags distribution data.
+        """
+        return self._tags_structure
+
+    def get_expected_available_tags(self):
+        tags = {}
+        for item in self.tags_data_per_homework_assigment:
+            for key, vals in item['tags'].iteritems():
+                for val in vals:
+                    if key not in tags:
+                        tags[key] = set()
+                    tags[key].add(val)
+        return tags
+
+    def get_expected_learning_outcome_tags_content_nav(self, key):
+        url_template = '/courses/{}/performance/learning_outcomes/{}/'
+        expected_available_tags = self.get_expected_available_tags()
+        if key in expected_available_tags:
+            return [{'id': v, 'name': v, 'url': url_template.format(self.course_id, slugify(v))}
+                    for v in expected_available_tags[key]]
+        return []
+
+    def get_expected_tags_distribution(self, tag_key):
+        index = 0
+        expected = OrderedDict()
+        k = self._count_of_homework_assignments
+
+        for val in self.tags_data_per_homework_assigment:
+            if tag_key in val['tags']:
+                for tag_value in val['tags'][tag_key]:
+                    if tag_value not in expected:
+                        index += 1
+                        expected[tag_value] = {
+                            "id": tag_value,
+                            "index": index,
+                            "name": tag_value,
+                            "total_submissions": 0,
+                            "correct_submissions": 0,
+                            "incorrect_submissions": 0,
+                            "num_modules": 0
+                        }
+
+                    incorrect_submissions = val["total_submissions"] - val["correct_submissions"]
+
+                    expected[tag_value]["total_submissions"] += val["total_submissions"] * k
+                    expected[tag_value]["correct_submissions"] += val["correct_submissions"] * k
+                    expected[tag_value]["incorrect_submissions"] += incorrect_submissions * k
+                    expected[tag_value]["num_modules"] += k
+
+        url_template = '/courses/{}/performance/learning_outcomes/{}/'
+
+        for tag_val, item in expected.iteritems():
+            item.update({
+                'average_submissions': (item['total_submissions'] * 1.0) / item['num_modules'],
+                'average_correct_submissions': (item['correct_submissions'] * 1.0) / item['num_modules'],
+                'average_incorrect_submissions': (item['incorrect_submissions'] * 1.0) / item['num_modules'],
+                'correct_percent': utils.math.calculate_percent(item['correct_submissions'],
+                                                                item['total_submissions']),
+                'incorrect_percent': utils.math.calculate_percent(item['incorrect_submissions'],
+                                                                  item['total_submissions']),
+                'url': url_template.format(self.course_id, slugify(tag_val))
+            })
+
+        return expected.values()
+
+    def get_expected_modules_marked_with_tag(self, tag_key, tag_value):
+        index = 0
+        expected = []
+        available_tags = self.get_expected_available_tags()
+
+        url_template = '/courses/{}/performance/learning_outcomes/{}/problems/{}/'
+
+        def _get_tags_info(av_tags, tags):
+            """
+            Helper function to return information about all tags connected with the current item.
+            """
+            data = {}
+            if av_tags:
+                for av_tag_key in av_tags:
+                    if av_tag_key in tags and tags[av_tag_key]:
+                        data[av_tag_key] = u', '.join(tags[av_tag_key])
+                    else:
+                        data[av_tag_key] = None
+            return data
+
+        for i in xrange(1, self._count_of_homework_assignments + 1):
+            num = 0
+            for val in self.tags_data_per_homework_assigment:
+                num += 1
+                if tag_key in val['tags']:
+                    for val_tag_value in val['tags'][tag_key]:
+                        if val_tag_value == tag_value:
+                            display_name = 'Homework %d Problem %d' % (i, num)
+                            incorrect_submissions = val["total_submissions"] - val["correct_submissions"]
+                            new_item_id = 'i4x://edX/DemoX/problem/%s' % hashlib.md5(display_name).hexdigest()
+                            index += 1
+                            new_item = {
+                                'id': new_item_id,
+                                'index': index,
+                                'name': ', '.join(['Demo Course', 'Homework %d' % i, display_name]),
+                                'total_submissions': val['total_submissions'],
+                                'correct_submissions': val['correct_submissions'],
+                                'incorrect_submissions': incorrect_submissions,
+                                'correct_percent': utils.math.calculate_percent(val['correct_submissions'],
+                                                                                val['total_submissions']),
+                                'incorrect_percent': utils.math.calculate_percent(incorrect_submissions,
+                                                                                  val['total_submissions']),
+                                'url': url_template.format(self.course_id, slugify(tag_value), new_item_id)
+                            }
+                            new_item.update(_get_tags_info(available_tags, val['tags']))
+                            expected.append(new_item)
+        return expected

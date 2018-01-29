@@ -17,7 +17,7 @@ class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, Web
     help_path = 'enrollment/Demographics_Age.html'
 
     demographic_type = demographic.BIRTH_YEAR
-    table_columns = ['Age', 'Number of Students', 'Percent of Total']
+    table_columns = ['Age', 'Number of Learners', 'Percent of Total']
 
     def setUp(self):
         super(CourseEnrollmentDemographicsAgeTests, self).setUp()
@@ -53,8 +53,7 @@ class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, Web
                 if total_enrollment % 2 == 0:
                     next_age = current_year - data[index + 1]['birth_year']
                     return (next_age + age) * 0.5
-                else:
-                    return age
+                return age
 
         return None
 
@@ -122,7 +121,7 @@ class CourseEnrollmentDemographicsGenderTests(CourseDemographicsPageTestsMixin, 
         self.course = self.analytics_api_client.courses(self.page.course_id)
 
         end_date = datetime.datetime.utcnow()
-        end_date_string = end_date.strftime(self.analytics_api_client.DATE_FORMAT)
+        end_date_string = end_date.strftime(self.analytics_api_client.DATETIME_FORMAT)
         response = self.course.enrollment(self.demographic_type, end_date=end_date_string)
         self.demographic_data = sorted(response, key=lambda x: datetime.datetime.strptime(x['date'], '%Y-%m-%d'),
                                        reverse=True)
@@ -164,7 +163,7 @@ class CourseEnrollmentDemographicsEducationTests(CourseDemographicsPageTestsMixi
     help_path = 'enrollment/Demographics_Education.html'
 
     demographic_type = demographic.EDUCATION
-    table_columns = ['Educational Background', 'Number of Students']
+    table_columns = ['Educational Background', 'Number of Learners']
 
     def setUp(self):
         super(CourseEnrollmentDemographicsEducationTests, self).setUp()
@@ -185,20 +184,20 @@ class CourseEnrollmentDemographicsEducationTests(CourseDemographicsPageTestsMixi
             {
                 'levels': ['primary', 'junior_secondary', 'secondary'],
                 'stat_type': 'education_high_school_or_less_enrollment',
-                'tooltip': 'The percentage of students who selected Secondary/high school, Junior secondary/junior '
+                'tooltip': 'The percentage of learners who selected Secondary/high school, Junior secondary/junior '
                            'high/middle school, or Elementary/primary school as their highest level of '
                            'education completed.'
             },
             {
                 'levels': ['associates', 'bachelors'],
                 'stat_type': 'education_college_enrollment',
-                'tooltip': "The percentage of students who selected Bachelor's degree or Associate degree as their "
+                'tooltip': "The percentage of learners who selected Bachelor's degree or Associate degree as their "
                            "highest level of education completed."
             },
             {
                 'levels': ['masters', 'doctorate'],
                 'stat_type': 'education_advanced_enrollment',
-                'tooltip': "The percentage of students who selected Doctorate or Master's or professional degree as "
+                'tooltip': "The percentage of learners who selected Doctorate or Master's or professional degree as "
                            "their highest level of education completed."
             }
         ]

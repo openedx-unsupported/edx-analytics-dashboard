@@ -1,0 +1,1426 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Innocent Masue <translations_7@camara.ie>, 2017
+# Isihaka Issa <translations_8@camara.ie>, 2017
+# JOHN MASANDA <translations_6@camara.ie>, 2017
+# Masoud Mohamed Ali <masoudali@camara.org>, 2016
+# Mathieu Lacasse <mathieulacasse@camara.org>, 2017
+# swaleh amin <mkupuofirstnameswaleh@yahoo.com>, 2016
+# swalehe manture <translations_3@camara.ie>, 2017
+# YAHAYA MWAVURIZI <translations_1@camara.ie>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: edx-platform\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-21 18:32-0400\n"
+"PO-Revision-Date: 2017-09-23 22:12+0000\n"
+"Last-Translator: YAHAYA MWAVURIZI <translations_1@camara.ie>\n"
+"Language-Team: Swahili (Kenya) (http://www.transifex.com/open-edx/edx-platform/language/sw_KE/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sw_KE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: core/templates/core/landing.html:15 templates/_skip_link.html:3
+msgid "Skip to content"
+msgstr "Nenda kwenye maudhui"
+
+#: core/templates/core/landing.html:23
+msgid "Login"
+msgstr "Ingia mtandaoni"
+
+#: core/templates/core/landing.html:33
+msgid "Insights to help course teams improve courses."
+msgstr "Ujuzi wa kusaidia kikosi kuboresha fani."
+
+#: core/templates/core/landing.html:42 courses/views/__init__.py:494
+msgid "Who are my learners?"
+msgstr "Wanafunzi wangu ni akina nani?"
+
+#: core/templates/core/landing.html:43
+msgid "Target your course to fit the backgrounds of your learners."
+msgstr "Wenga malengo ya kozi yako ili yakidhi  mahitaji ya wanafunzi wako."
+
+#: core/templates/core/landing.html:44
+#: courses/templates/courses/enrollment_geography.html:28
+#: courses/tests/test_views/__init__.py:220 courses/views/__init__.py:291
+#: courses/views/__init__.py:492
+msgid "Enrollment"
+msgstr "Usajili"
+
+#: core/templates/core/landing.html:47
+msgid "What are learners engaging with in my course?"
+msgstr "Wanafunzi wangu wanajifunza nini kwenye kozi yangu?"
+
+#: core/templates/core/landing.html:48
+msgid ""
+"Improve frequently accessed content, or point learners at underused "
+"resources."
+msgstr "Boresha maudhui yanayoangaliwa mara kwa mara, au chagua wanafunzi kutoka sehemu zisizo na kazi nyingi."
+
+#: core/templates/core/landing.html:49
+#: courses/tests/test_views/test_engagement.py:44
+#: courses/views/__init__.py:302 courses/views/__init__.py:551
+msgid "Engagement"
+msgstr "Shughuli"
+
+#: core/templates/core/landing.html:52
+msgid "How well is my content supporting learners?"
+msgstr "Kwa kiwango gani cha ubora maudhui yangu yanawasaidia wanafunzi?"
+
+#: core/templates/core/landing.html:53
+msgid "Adjust your course based on where learners are struggling."
+msgstr "Rekebisha kozi yako sehemu zile zilizongumu kwa wanafunzi."
+
+#: core/templates/core/landing.html:54
+#: courses/tests/test_views/test_performance.py:48
+#: courses/views/__init__.py:313 courses/views/__init__.py:631
+msgid "Performance"
+msgstr "Utendaji"
+
+#: core/templates/core/landing.html:63
+msgid "Join the Open Source Community"
+msgstr "Jiunge na Jamuiya ya Mtandao Huru"
+
+#: core/templates/core/landing.html:68
+#, python-format
+msgid ""
+"The edX analytics data pipeline and edX Insights are open source. "
+"%(link_start)sLearn more%(link_end)s."
+msgstr "Habari za utafiti wa edX kwenye mstari wa bomba na kina cha edX ni asli wazi. %(link_start)sJifunze zaidi%(link_end)s."
+
+#: core/templates/core/landing.html:75
+msgid "Research at edX"
+msgstr "Utafiti katika edX"
+
+#: core/templates/core/landing.html:80
+#, python-format
+msgid ""
+"We are committed to advancing teaching and learning through research. "
+"%(link_start)sLearn more%(link_end)s."
+msgstr "Tumedhamiria kuboresha ufundishaji na ujifunza kwa kupitia utafiti.\n%(link_start)s Jifunze mengi%(link_end)s."
+
+#: core/templates/core/landing.html:87
+msgid "Need Help?"
+msgstr "Unahitaji Msaada?"
+
+#: core/templates/core/landing.html:92
+#, python-format
+msgid ""
+"%(link_start)sOur support center%(link_end)s can help you find solutions."
+msgstr "%(link_start)sKituo chetu cha usaidizi%(link_end)s kinaweza kukusaidia kupata suluhisho."
+
+#. Translators: Simply move the percent symbol (%) to the correct location. Do
+#. NOT translate the word statistic.
+#: core/templatetags/dashboard_extras.py:27
+#, python-brace-format
+msgid "{statistic}%"
+msgstr "{statistic}%"
+
+#. Translators: '{percentage}' in as a placeholder for the percentage value.
+#: courses/presenters/engagement.py:126
+#, python-brace-format
+msgid "{percentage} of current learners"
+msgstr "{percentage} ya wanafunzi waliopo sasa"
+
+#: courses/presenters/enrollment.py:23
+msgid "Female"
+msgstr "Mwanamke"
+
+#: courses/presenters/enrollment.py:24
+msgid "Male"
+msgstr "Mwanaume"
+
+#. Translators: Other gender
+#. Translators: This describes the learner's education level.
+#: courses/presenters/enrollment.py:26 courses/presenters/enrollment.py:45
+msgid "Other"
+msgstr "Mwengine"
+
+#. Translators: Unknown gender
+#. Translators: This describes the learner's education level.
+#: courses/presenters/enrollment.py:28 courses/presenters/enrollment.py:63
+#: courses/presenters/enrollment.py:459
+msgid "Unknown"
+msgstr "Haijulikani"
+
+#. Translators: This describes the learner's education level.
+#: courses/presenters/enrollment.py:43
+msgid "None"
+msgstr "Hakuna"
+
+#. Translators: This describes the learner's education level (e.g. Elementary
+#. School Degree).
+#: courses/presenters/enrollment.py:47 courses/tests/test_serializers.py:12
+msgid "Primary"
+msgstr "Msingi"
+
+#. Translators: This describes the learner's education level  (e.g. Middle
+#. School Degree).
+#: courses/presenters/enrollment.py:49
+msgid "Middle"
+msgstr "Katikati"
+
+#. Translators: This describes the learner's education level.
+#: courses/presenters/enrollment.py:51
+msgid "Secondary"
+msgstr "Shule ya upili"
+
+#. Translators: This describes the learner's education level (e.g. Associate's
+#. Degree).
+#: courses/presenters/enrollment.py:53
+msgid "Associate"
+msgstr "Husisha"
+
+#. Translators: This describes the learner's education level (e.g. Bachelor's
+#. Degree).
+#: courses/presenters/enrollment.py:55
+msgid "Bachelor's"
+msgstr "Shahada ya Kwanza"
+
+#. Translators: This describes the learner's education level (e.g. Master's
+#. Degree).
+#: courses/presenters/enrollment.py:57
+msgid "Master's"
+msgstr "Shahada ya Pili"
+
+#. Translators: This describes the learner's education level (e.g. Doctorate
+#. Degree).
+#: courses/presenters/enrollment.py:59
+msgid "Doctorate"
+msgstr "Shahada ya Udaktari"
+
+#. Translators: This is a placeholder for enrollment data collected without a
+#. known geolocation.
+#: courses/presenters/enrollment.py:186
+msgid "Unknown Country"
+msgstr "Nchi  Isiyojulikana"
+
+#. Translators: This describes the data displayed in the chart below.
+#: courses/presenters/performance.py:146
+#: courses/templates/courses/submissions_chart_info.html:4
+msgid "Submissions"
+msgstr "Wasilisho"
+
+#: courses/presenters/performance.py:150
+#, python-brace-format
+msgid "Submissions for Part {part_number}: {part_description}"
+msgstr "Wasilisho kwa ajili ya Sehemu {part_number}: {part_description}"
+
+#: courses/presenters/performance.py:151
+#, python-brace-format
+msgid "Part {part_number}: {part_description}"
+msgstr "Sehemu {part_number}: {part_description}"
+
+#: courses/presenters/performance.py:153
+#, python-brace-format
+msgid "Submissions: {part_description}"
+msgstr "Wasilisho: {part_description}"
+
+#: courses/presenters/performance.py:154
+#, python-brace-format
+msgid "{part_description}"
+msgstr "{part_description}"
+
+#: courses/presenters/performance.py:157
+#, python-brace-format
+msgid "Submissions for Part {part_number}"
+msgstr "Kufikisha kwa baadhi {part_number}"
+
+#: courses/presenters/performance.py:158
+#, python-brace-format
+msgid "Part {part_number}"
+msgstr "Baadhi {part_number}"
+
+#: courses/templates/courses/_base_content_nav.html:25
+#, python-format
+msgid "%(all_sections_text)s"
+msgstr "%(all_sections_text)s"
+
+#: courses/templates/courses/_graded_content_nav.html:16
+msgid "Select Assignment Type"
+msgstr "Chagua Aina ya Zoezi"
+
+#. Translators: This refers to all course assignment types (e.g. homework,
+#. exam, lab).
+#: courses/templates/courses/_graded_content_nav.html:21
+msgid "All Assignments"
+msgstr "Mazoezi Yote"
+
+#: courses/templates/courses/_graded_content_nav.html:25
+#, python-format
+msgid ""
+"\n"
+"        Select %(level)s\n"
+"    "
+msgstr "\n        Chagua %(level)s"
+
+#: courses/templates/courses/_graded_content_nav.html:31
+#: courses/templates/courses/_tags_content_nav.html:23
+#: courses/templates/courses/_ungraded_content_nav.html:28
+msgid "Select Problem"
+msgstr "Chagua Tatizo"
+
+#. Translators: This text will be a direct link to the a specific
+#. module/problem.
+#: courses/templates/courses/_module_description.html:14
+#: courses/templates/courses/_video_preview.html:9
+msgid "View Live"
+msgstr "Angalia Mubashara"
+
+#: courses/templates/courses/_tags_content_nav.html:15
+msgid "Select Outcome"
+msgstr "Chagua Matokeo"
+
+#: courses/templates/courses/_tags_content_nav.html:19
+msgid "All Outcomes"
+msgstr "Matokeo Yote"
+
+#: courses/templates/courses/_ungraded_content_nav.html:16
+#: courses/templates/courses/_video_content_nav.html:16
+msgid "Select Section"
+msgstr "Chagua Kitengo"
+
+#: courses/templates/courses/_ungraded_content_nav.html:20
+#: courses/templates/courses/_video_content_nav.html:20
+msgid "All Sections"
+msgstr "Vitengo Vyote"
+
+#: courses/templates/courses/_ungraded_content_nav.html:24
+#: courses/templates/courses/_video_content_nav.html:24
+msgid "Select Subsection"
+msgstr "Chagua Kitengo toto"
+
+#: courses/templates/courses/_video_content_nav.html:28
+msgid "Select Video"
+msgstr "Chagua Video"
+
+#: courses/templates/courses/_video_module_controls.html:8
+msgid "Previous Video"
+msgstr "Video Iliyopita"
+
+#: courses/templates/courses/_video_module_controls.html:15
+msgid "Next Video"
+msgstr "Video Ijayo"
+
+#. Translators: This text describes a bar chart displayed.
+#: courses/templates/courses/base_performance_answer_distribution.html:60
+msgid ""
+"This chart shows the most common answers submitted by learners, ordered by "
+"frequency."
+msgstr ""
+
+#. Translators: Variants refers to versions of a problem/assignment.
+#: courses/templates/courses/base_performance_answer_distribution.html:82
+#, python-format
+msgid ""
+"Due to the number of possible variants for randomized problems, charts are "
+"not available. %(read_more_link_start)sRead more%(read_more_link_end)s."
+msgstr "Kulingana na idadi ya tofauti ziwezekanazo kwa matatizo yaliopo, chati\nhaziwezi kupatikana. %(read_more_link_start)ssoma zaidi%(read_more_link_end)s."
+
+#. Translators: Variants refers to versions of a problem/assignment.
+#: courses/templates/courses/base_performance_answer_distribution.html:87
+msgid ""
+"Review all submission variants below, or click Download CSV to review them "
+"offline."
+msgstr "Pitia wasilisho mbalimbali hapo chini, au bofya Pakuwa CSV ili kuyapitia nje ya mtandao."
+
+#: courses/templates/courses/base_performance_answer_distribution.html:108
+msgid "Submission Counts"
+msgstr "Idadi ya wasilisho"
+
+#: courses/templates/courses/base_performance_answer_distribution.html:116
+#: courses/templates/courses/engagement_content.html:96
+#: courses/templates/courses/engagement_video_timeline.html:87
+#: courses/templates/courses/enrollment_activity.html:106
+#: courses/templates/courses/enrollment_demographics_age.html:109
+#: courses/templates/courses/enrollment_demographics_education.html:100
+#: courses/templates/courses/enrollment_demographics_gender.html:65
+#: courses/templates/courses/enrollment_geography.html:97
+msgid "Download CSV"
+msgstr "Pakua CSV"
+
+#: courses/templates/courses/base_performance_answer_distribution.html:117
+msgid "Learner Submission Counts"
+msgstr ""
+
+#. Translators: This describes the data displayed in the chart below.
+#: courses/templates/courses/demographics_chart_info.html:4
+msgid "Learners (Self-Reported)"
+msgstr ""
+
+#: courses/templates/courses/engagement_content.html:23
+msgid "Weekly Learner Engagement"
+msgstr ""
+
+#: courses/templates/courses/engagement_content.html:24
+#: courses/views/__init__.py:556
+msgid "How many learners are interacting with my course?"
+msgstr "Wanafunzi wangapi wanasoma maudhui ya kozi yangu?"
+
+#: courses/templates/courses/engagement_content.html:31
+#: courses/views/__init__.py:325 courses/views/__init__.py:639
+#: courses/views/learners.py:20
+msgid "Learners"
+msgstr "Wanagenzi"
+
+#: courses/templates/courses/engagement_content.html:32
+msgid ""
+"The number of active learners, and the number of learners who engaged in "
+"specific activities, over time."
+msgstr ""
+
+#: courses/templates/courses/engagement_content.html:48
+msgid "Learner Activity Metrics"
+msgstr ""
+
+#: courses/templates/courses/engagement_content.html:54
+msgid "Active Learners Last Week"
+msgstr ""
+
+#: courses/templates/courses/engagement_content.html:55
+msgid "Learners who visited at least one page in the course content."
+msgstr ""
+
+#. Translators: This is a label indicating the number of learners who watched
+#. a video.
+#: courses/templates/courses/engagement_content.html:61
+msgid "Watched a Video Last Week"
+msgstr "Nilitizama Video Wiki Iliyopita"
+
+#: courses/templates/courses/engagement_content.html:62
+msgid "Learners who played one or more videos."
+msgstr ""
+
+#. Translators: This is a label indicating the number of learners who tried a
+#. problem.
+#: courses/templates/courses/engagement_content.html:68
+msgid "Tried a Problem Last Week"
+msgstr "Nilijaribu Tatizo Juma Lililopita"
+
+#: courses/templates/courses/engagement_content.html:69
+msgid ""
+"Learners who submitted an answer for a standard problem. Not all problem "
+"types are included."
+msgstr ""
+
+#. Translators: This is a label indicating the number of learners who posted
+#. in a forum discussion.
+#: courses/templates/courses/engagement_content.html:76
+msgid "Participated in Discussions Last Week"
+msgstr "Nilishiriki Kwenye Majadiliano Wiki Iliyopita"
+
+#: courses/templates/courses/engagement_content.html:77
+msgid ""
+"Learners who added a post, response, or comment to any course discussion."
+msgstr "Wanafunzi walioweka chapisho, jibu, au maoni kwenye majadiliano yoyote ya kozi."
+
+#: courses/templates/courses/engagement_content.html:89
+#: courses/templates/courses/engagement_content.html:97
+msgid "Content Engagement Breakdown"
+msgstr "Vigao Vya Yaliomo"
+
+#. Translators: This describes the data displayed in the chart below. E.g. how
+#. many learners viewed a video.
+#: courses/templates/courses/engagement_grouped_content.html:17
+#: courses/templates/courses/views_chart_info.html:4
+msgid "Video Views"
+msgstr "Maono ya Video"
+
+#: courses/templates/courses/engagement_video_by_section.html:5
+msgid "How did learners interact with videos in this section?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_section.html:10
+msgid ""
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that subsection. Click on bars with low totals or a high "
+"incomplete rate to drill down and understand why."
+msgstr "Kila ulingo unaonesha idadi wastani ya maonesho kamili na pungufu ya video katika kitengo toto hicho. Bofya ulingo wenye idadi ndogo au ilio na idadi ya juu zaidi ya upungufu uchimbe chini na uelewe kwa nini."
+
+#: courses/templates/courses/engagement_video_by_subsection.html:10
+msgid "How did learners interact with videos in this subsection?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_by_subsection.html:15
+msgid ""
+"Each bar shows the counts of complete and incomplete views for that video. "
+"Click to understand where learners drop off and which parts they replay."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_course.html:5
+#: courses/views/__init__.py:569
+msgid "How did learners interact with course videos?"
+msgstr ""
+
+#: courses/templates/courses/engagement_video_course.html:10
+msgid ""
+"Each bar shows the average number of complete and incomplete views for "
+"videos in that section. Click on bars with low totals or a high incomplete "
+"rate to drill down and understand why."
+msgstr "Kila ulingo unaonesha idadi wastani ya maonesho kamili na pungufu ya video katika kitengo hicho. Bofya lingo zenye idadi ndogo au zilizo na idadi ya juu zaidi za upungufu uchimbe chini na uelewe kwa nini."
+
+#: courses/templates/courses/engagement_video_timeline.html:17
+#: courses/templates/courses/engagement_video_timeline.html:21
+msgid "Total Video Views"
+msgstr "Jumla ya Maono ya Video"
+
+#: courses/templates/courses/engagement_video_timeline.html:26
+msgid "What were the viewing patterns for this video?"
+msgstr "Ni mifumo ipi ya maono ya video hii?"
+
+#: courses/templates/courses/engagement_video_timeline.html:31
+msgid ""
+"The number of learners who watched each segment of the video, and the number"
+" of replays for each segment."
+msgstr "Idadi ya wanafunzi walioangalia sehemu ya video, na idadi ya marudio ya kila sehemu ya video."
+
+#: courses/templates/courses/engagement_video_timeline.html:37
+msgid "Collapse Preview"
+msgstr "Angusha Utizamaji mwanzo"
+
+#: courses/templates/courses/engagement_video_timeline.html:38
+msgid "Expand Preview"
+msgstr "Panua Utizamaji mwanzo"
+
+#: courses/templates/courses/engagement_video_timeline.html:55
+msgid "Video Metrics"
+msgstr "Idadi ya Video"
+
+#: courses/templates/courses/engagement_video_timeline.html:61
+msgid "Completion Rate"
+msgstr "Makisio ya Umalizikaji"
+
+#: courses/templates/courses/engagement_video_timeline.html:62
+msgid "Estimated percentage of learners who watched the entire video."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html:66
+msgid "Started Video"
+msgstr "Video Ilio Anzishwa"
+
+#: courses/templates/courses/engagement_video_timeline.html:67
+msgid "Learners who started watching the video."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html:71
+msgid "Finished Video"
+msgstr "Video Iliomalizika"
+
+#: courses/templates/courses/engagement_video_timeline.html:72
+msgid "Learners who watched the video to the end."
+msgstr ""
+
+#: courses/templates/courses/engagement_video_timeline.html:88
+msgid "Video Viewing Over Time"
+msgstr "Masaa ya Ziada Kutazama Video"
+
+#: courses/templates/courses/enrollment_activity.html:24
+msgid "Daily Learner Enrollment"
+msgstr ""
+
+#: courses/templates/courses/enrollment_activity.html:25
+#: courses/views/__init__.py:497
+msgid "How many learners are in my course?"
+msgstr "Kuna wanafunzi wangapi kwenye kozi yangu?"
+
+#: courses/templates/courses/enrollment_activity.html:32
+msgid "Enrollments"
+msgstr "Usajili"
+
+#: courses/templates/courses/enrollment_activity.html:33
+msgid ""
+"This graph displays the current enrollment for the course as of the end of "
+"each day. This includes new enrollments as well as unenrollments."
+msgstr "Grafu hii inaangazia usajili wa wanafunzi katika fanni kwa kila\"\n\"mwisho wa siku. Hii inajumuisha usajili mpya na ambao bado."
+
+#: courses/templates/courses/enrollment_activity.html:49
+msgid "Enrollment Metrics"
+msgstr "Metriki za Usajili"
+
+#. Translators: This is a label to identify the number of learners who ever
+#. enrolled in the course.
+#. Translators: This is a label to identify the maximum number of learners
+#. ever in all of the instructor's courses.
+#: courses/templates/courses/enrollment_activity.html:59
+#: courses/templates/courses/index.html:26
+msgid "Total Enrollment"
+msgstr "Jumla ya Usajili"
+
+#. Translators: This is a label indicating the number of learners in a course.
+#: courses/templates/courses/enrollment_activity.html:61
+msgid "Learners who ever enrolled in the course."
+msgstr "Wanafunzi waliowahi kuandikishwa kwenye kozi."
+
+#. Translators: This is a label to identify current learner enrollment.
+#. Translators: This is a label to identify the current number of learners in
+#. all of the instructor's courses.
+#: courses/templates/courses/enrollment_activity.html:68
+#: courses/templates/courses/index.html:33
+msgid "Current Enrollment"
+msgstr "Usajili wa Sasa"
+
+#. Translators: This is a label indicating the number of learners enrolled in
+#. a course.
+#: courses/templates/courses/enrollment_activity.html:70
+msgid "Learners currently enrolled in the course."
+msgstr "Wanafunzi ambao kwa sasa wameandikishwa kwenye kozi."
+
+#. Translators: This is a label indicating the change in the number of
+#. learners enrolled in a course since the previous week.
+#. Translators: This is a label to identify the change in the number of
+#. learners in all of the instructor's courses in the last week.
+#: courses/templates/courses/enrollment_activity.html:76
+#: courses/templates/courses/index.html:40
+msgid "Change in Last Week"
+msgstr "Mabadiliko katika Juma Lililopita"
+
+#: courses/templates/courses/enrollment_activity.html:77
+msgid "Net difference in current enrollment in the last week."
+msgstr "Tafauti kamili ya usajili wa sasa kwenye juma lililopita."
+
+#. Translators: This is a label to identify enrollment of learners on the
+#. verified track.
+#. Translators: This is a label to identify the current number of verified
+#. learners in all of the instructor's courses.
+#: courses/templates/courses/enrollment_activity.html:84
+#: courses/templates/courses/index.html:47
+msgid "Verified Enrollment"
+msgstr "Usajili Uliohakikishwa"
+
+#. Translators: This is a label indicating the number of learners enrolled in
+#. a course on the verified track.
+#: courses/templates/courses/enrollment_activity.html:86
+msgid ""
+"Number of currently enrolled learners pursuing a verified certificate of "
+"achievement."
+msgstr ""
+
+#: courses/templates/courses/enrollment_activity.html:99
+#: courses/templates/courses/enrollment_activity.html:107
+#: courses/templates/courses/enrollment_demographics_age.html:110
+#: courses/templates/courses/enrollment_demographics_education.html:101
+#: courses/templates/courses/enrollment_demographics_gender.html:66
+msgid "Enrollment Over Time"
+msgstr "Udahili kwa kipindi fulani"
+
+#: courses/templates/courses/enrollment_demographics_age.html:26
+#: courses/views/__init__.py:507
+msgid "How old are my learners?"
+msgstr "Wanafunzi wangu wana umri gani?"
+
+#. Translators: Maintain the double percentage symbols (%%) but move them to
+#. the appropriate location (before/after the value placeholder) for your
+#. language.
+#: courses/templates/courses/enrollment_demographics_age.html:39
+#, python-format
+msgid ""
+"This age histogram presents data computed for the %(value)s%% of enrolled "
+"learners who provided a year of birth."
+msgstr ""
+
+#: courses/templates/courses/enrollment_demographics_age.html:56
+msgid "Age Metrics"
+msgstr "Ukomo wa matumizi"
+
+#. Translators: This is a label to identify the median age of enrolled
+#. learners.
+#: courses/templates/courses/enrollment_demographics_age.html:65
+msgid "Median Learner Age"
+msgstr ""
+
+#: courses/templates/courses/enrollment_demographics_age.html:66
+msgid ""
+"The midpoint of the learner ages, computed from the provided year of birth."
+msgstr ""
+
+#. Translators: This is a label to identify the number of learners in the age
+#. range.
+#: courses/templates/courses/enrollment_demographics_age.html:72
+msgid "Learners 25 and Under"
+msgstr "Wanafunzi wenye umri miaka 25 na Chini ya hapo"
+
+#: courses/templates/courses/enrollment_demographics_age.html:73
+msgid ""
+"The percentage of learners aged 25 years or younger (of those who provided a"
+" year of birth)."
+msgstr ""
+
+#. Translators: This is a label to identify the number of learners in the age
+#. range.
+#: courses/templates/courses/enrollment_demographics_age.html:79
+msgid "Learners 26 to 40"
+msgstr "Wanafunzi 26 hadi 40"
+
+#: courses/templates/courses/enrollment_demographics_age.html:80
+msgid ""
+"The percentage of learners aged from 26 to 40 years (of those who provided a"
+" year of birth)."
+msgstr ""
+
+#. Translators: This is a label to identify the number of learners in the age
+#. range.
+#: courses/templates/courses/enrollment_demographics_age.html:86
+msgid "Learners 41 and Over"
+msgstr "Wanafunzi 41 na Zaidi"
+
+#: courses/templates/courses/enrollment_demographics_age.html:87
+msgid ""
+"The percentage of learners aged 41 years or older (of those who provided a "
+"year of birth)."
+msgstr ""
+
+#: courses/templates/courses/enrollment_demographics_age.html:101
+msgid "Age Breakdown"
+msgstr "Umri"
+
+#: courses/templates/courses/enrollment_demographics_education.html:25
+#: courses/views/__init__.py:517
+msgid "What level of education do my learners have?"
+msgstr "Wanafunzi wengi wana kiwango gani cha elimu?"
+
+#. Translators: Maintain the double percentage symbols (%%) but move them to
+#. the appropriate location (before/after the value placeholder) for your
+#. language.
+#: courses/templates/courses/enrollment_demographics_education.html:38
+#, python-format
+msgid ""
+"This graph presents data for the %(value)s%% of enrolled learners who "
+"provided a highest level of education completed."
+msgstr ""
+
+#: courses/templates/courses/enrollment_demographics_education.html:56
+msgid "Education Metrics"
+msgstr "Idadi ya Masomo"
+
+#. Translators: This is a label to identify learner educational background.
+#: courses/templates/courses/enrollment_demographics_education.html:64
+msgid "High School Diploma or Less"
+msgstr "Cheti cha Sekondari au "
+
+#: courses/templates/courses/enrollment_demographics_education.html:65
+msgid ""
+"The percentage of learners who selected Secondary/high school, Junior "
+"secondary/junior high/middle school, or Elementary/primary school as their "
+"highest level of education completed."
+msgstr ""
+
+#. Translators: This is a label to identify learner educational background.
+#: courses/templates/courses/enrollment_demographics_education.html:71
+msgid "College Degree"
+msgstr "Shahada"
+
+#: courses/templates/courses/enrollment_demographics_education.html:72
+msgid ""
+"The percentage of learners who selected Bachelor's degree or Associate "
+"degree as their highest level of education completed."
+msgstr ""
+
+#. Translators: This is a label to identify learner educational background.
+#: courses/templates/courses/enrollment_demographics_education.html:78
+msgid "Advanced Degree"
+msgstr "Shahada "
+
+#: courses/templates/courses/enrollment_demographics_education.html:79
+msgid ""
+"The percentage of learners who selected Doctorate or Master's or "
+"professional degree as their highest level of education completed."
+msgstr ""
+
+#: courses/templates/courses/enrollment_demographics_education.html:91
+msgid "Educational Breakdown"
+msgstr "Vigawanyo vya Elimu"
+
+#: courses/templates/courses/enrollment_demographics_gender.html:25
+#: courses/views/__init__.py:527
+msgid "What is the learner gender breakdown?"
+msgstr ""
+
+#. Translators: Maintain the double percentage symbols (%%) but move them to
+#. the appropriate location (before/after the value placeholder) for your
+#. language.
+#: courses/templates/courses/enrollment_demographics_gender.html:38
+#, python-format
+msgid ""
+"This graph presents data for the %(value)s%% of enrolled learners who "
+"specified their gender."
+msgstr ""
+
+#: courses/templates/courses/enrollment_demographics_gender.html:56
+msgid "Gender Breakdown Over Time"
+msgstr "Ufafanuzi wa Jinsia"
+
+#: courses/templates/courses/enrollment_geography.html:21
+msgid "Geographic Distribution"
+msgstr "Ugawaji wa Kijografia"
+
+#: courses/templates/courses/enrollment_geography.html:22
+#: courses/views/__init__.py:537
+msgid "Where are my learners?"
+msgstr "Wanafunzi wangu wako wapi?"
+
+#: courses/templates/courses/enrollment_geography.html:27
+msgid "Enrollment by Country"
+msgstr "Uandikishaji kwa Nchi"
+
+#: courses/templates/courses/enrollment_geography.html:45
+msgid "Geography Metrics"
+msgstr "Idadi ya wanafunzi wa Jiografia"
+
+#. Translators: This string represents the number of countries where learners
+#. are enrolled.
+#: courses/templates/courses/enrollment_geography.html:53
+msgid "Total Countries or Regions Represented"
+msgstr "Jumla ya Nchi na Mikoa Iliyowakilishwa"
+
+#: courses/templates/courses/enrollment_geography.html:54
+msgid "Countries or regions with at least one learner."
+msgstr "Nchi au Mikoa yenye walau mwanafunzi mmoja."
+
+#. Translators: This string represents the country or region with the greatest
+#. number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html:62
+msgid "Top Country or Region by Enrollment"
+msgstr "Nchi au Mkoa ulioongoza katika Usajili"
+
+#: courses/templates/courses/enrollment_geography.html:63
+msgid "Country or region with the largest number of learners."
+msgstr "Nchi au mkoa wenye namba kubwa kabisa ya wanafunzi."
+
+#. Translators: This string represents the country or region with the second-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html:66
+msgid "Second Country or Region by Enrollment"
+msgstr "Nchi au Mkoa ulioshika nafasi ya Pili katika Usajili"
+
+#: courses/templates/courses/enrollment_geography.html:67
+msgid "Country or region with the second largest number of learners."
+msgstr "Nchi au Mkoa ulioshika nafasi ya pili kwa idadi kubwa ya wanafunzi."
+
+#. Translators: This string represents the country or region with the third-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html:70
+msgid "Third Country or Region by Enrollment"
+msgstr "Nchi au Mkoa ulioshika nafasi ya Tatu katika usajili"
+
+#: courses/templates/courses/enrollment_geography.html:71
+msgid "Country or region with the third largest number of learners."
+msgstr "Nchi au Mkoa ulioshika nafasi ya tatu kwa idadi ya wanafunzi."
+
+#. Translators: This string represents the percentage of learners in a course.
+#. Move the % symbol, if necessary, but keep the percent variable/placeholder.
+#: courses/templates/courses/enrollment_geography.html:77
+#, python-format
+msgid "%(percent)s%% of learners"
+msgstr "%(percent)s%% ya wanafunzi"
+
+#: courses/templates/courses/enrollment_geography.html:91
+#: courses/templates/courses/enrollment_geography.html:98
+msgid "Geographic Breakdown"
+msgstr "Migawanyo kwa kijografia"
+
+#. Translators: Application here refers to the web site/application being used
+#. (e.g. the dashboard).
+#: courses/templates/courses/home.html:11 templates/base_dashboard.html:28
+#: templates/footer.html:5 templates/lens-navigation.html:9
+msgid "Application"
+msgstr "Programu tumizi"
+
+#. Translators: This refers to the homepage of a course.
+#: courses/templates/courses/home.html:15 courses/views/__init__.py:486
+#: templates/lens-navigation.html:20
+msgid "Course Home"
+msgstr "Mwanzo wa Kozi"
+
+#. Translators: This refers to the active tab/navigation item.
+#: courses/templates/courses/home.html:16 templates/lens-navigation.html:31
+#: templates/submenu_navigation.html:14
+msgid "Active"
+msgstr "Amilifu"
+
+#. Translators: This indicates that the adjacent link will trigger a CSV
+#. download. '{{download_icon}}' will be replaced with an icon.
+#: courses/templates/courses/home.html:73
+#, python-format
+msgid ""
+"\n"
+"                    (%(download_icon)s CSV Download)\n"
+"                  "
+msgstr ""
+
+#: courses/templates/courses/home.html:93
+msgid "Basic Course Information"
+msgstr "Taarifa Muhimu ya \"Kozi\""
+
+#. Translators: This title describes a list of links to outside tools for this
+#. course.
+#: courses/templates/courses/home.html:106
+msgid "External Tools"
+msgstr "Zana za Nje"
+
+#: courses/templates/courses/index.html:10
+#: courses/views/course_summaries.py:32
+msgid "Courses"
+msgstr "Kozi"
+
+#: courses/templates/courses/index.html:17
+msgid "Across all your courses:"
+msgstr "Kwenye kozi zako zote:"
+
+#: courses/templates/courses/index.html:27
+msgid "Total enrollments across all of your courses."
+msgstr "Jumla ya usajili wote kwenye kozi zote."
+
+#: courses/templates/courses/index.html:34
+msgid "Current enrollments across all of your courses."
+msgstr "Usajili wote kwa sasa kwenye kozi zote."
+
+#: courses/templates/courses/index.html:41
+msgid "Total change in enrollment last week across all of your courses."
+msgstr "Mabadiliko ya jumla ya usajili kwa wiki iliyopita kwa kozi zote."
+
+#: courses/templates/courses/index.html:48
+msgid "Verified enrollments across all of your courses."
+msgstr "Usajili uliohakikiwa kwenye kozi zote."
+
+#: courses/templates/courses/performance_answer_distribution.html:7
+#: courses/templates/courses/performance_learning_outcomes_answer_distribution.html:5
+#: courses/templates/courses/performance_ungraded_answer_distribution.html:7
+msgid "How did learners answer this problem?"
+msgstr "Wanafunzi walijibu vipi swali hili ?"
+
+#: courses/templates/courses/performance_assignment.html:10
+msgid "How are learners doing on this assignment?"
+msgstr ""
+
+#: courses/templates/courses/performance_assignment.html:15
+#: courses/templates/courses/performance_ungraded_by_subsection.html:15
+msgid ""
+"These bars show the correct and incorrect submission counts for each "
+"problem. Only the last submission from each learner is counted."
+msgstr ""
+
+#: courses/templates/courses/performance_assignment.html:19
+#: courses/templates/courses/performance_learning_outcomes_section.html:20
+#: courses/templates/courses/performance_ungraded_by_subsection.html:19
+msgid "Problem Submissions"
+msgstr "Uwasilishaji wa Tatizo"
+
+#: courses/templates/courses/performance_graded_content.html:9
+msgid "Which assignment type do you want to investigate?"
+msgstr "Zoezi la aina gani unataka kulichunguza?"
+
+#: courses/templates/courses/performance_graded_content.html:13
+msgid ""
+"Click an assignment type to view more detail information about the "
+"assignments."
+msgstr "Bofya aina ya mtihani toto kutizama maelezo zaidi kuhusu mitihani toto."
+
+#. Translators: This describes the percent an assignment contributes to that
+#. of a learner's grade (e.g. Exam: 60% of the grading policy.).
+#: courses/templates/courses/performance_graded_content.html:22
+#, python-format
+msgid ""
+"\n"
+"                %(assignment_type)s: %(policy_ratio)s%% of the grading policy\n"
+"              "
+msgstr "\n%(assignment_type)s: %(policy_ratio)s%% ya sera ya kuweka alama"
+
+#. Translators: This describes the percent of a learner's grade (e.g. 60%).
+#: courses/templates/courses/performance_graded_content.html:34
+#, python-format
+msgid "%(policy_ratio)s%%"
+msgstr "%(policy_ratio)s%%"
+
+#: courses/templates/courses/performance_graded_content_by_type.html:7
+#, python-format
+msgid ""
+"\n"
+"      How are learners doing on the %(type)s?\n"
+"    "
+msgstr ""
+
+#: courses/templates/courses/performance_graded_content_by_type.html:15
+msgid ""
+"Each bar shows the average number of correct and incorrect submissions for "
+"problems in the assignment. Only the last submission from each learner is "
+"counted."
+msgstr ""
+
+#: courses/templates/courses/performance_graded_content_by_type.html:19
+msgid "Assignment Submissions"
+msgstr "Uwasilishaji wa \"Mazoezi\""
+
+#: courses/templates/courses/performance_learning_outcomes_content.html:6
+#: courses/templates/courses/performance_learning_outcomes_section.html:6
+msgid "Measured by learning outcome, how are learners performing?"
+msgstr ""
+
+#: courses/templates/courses/performance_learning_outcomes_content.html:16
+msgid ""
+"Each bar shows the average number of correct and incorrect submissions for "
+"each outcome."
+msgstr ""
+
+#: courses/templates/courses/performance_learning_outcomes_content.html:20
+msgid "Outcome Submissions"
+msgstr ""
+
+#: courses/templates/courses/performance_learning_outcomes_section.html:16
+msgid ""
+"Each bar shows the correct and incorrect number of submissions for each "
+"problem for the current outcome."
+msgstr ""
+
+#: courses/templates/courses/performance_ungraded_by_section.html:5
+msgid "How are learners doing on this section?"
+msgstr ""
+
+#: courses/templates/courses/performance_ungraded_by_section.html:10
+msgid ""
+"Each bar shows the average number of correct and incorrect submissions for "
+"each subsection. Only the last submission from each learner is counted."
+msgstr ""
+
+#: courses/templates/courses/performance_ungraded_by_section.html:14
+msgid "Subsection Submissions"
+msgstr "Mawasilisho ya \"Kipengele kidogo\""
+
+#: courses/templates/courses/performance_ungraded_by_subsection.html:10
+msgid "How are learners doing on this subsection?"
+msgstr ""
+
+#: courses/templates/courses/performance_ungraded_content.html:7
+#: courses/views/__init__.py:592
+msgid "How are learners doing on ungraded exercises?"
+msgstr "Vipi wanafunzi wanafanya mazoezi yasiyopangwa kwenye madaraja?"
+
+#: courses/templates/courses/performance_ungraded_content.html:12
+msgid ""
+"Each bar shows the average number of correct and incorrect submissions for "
+"each section. Only the last submission from each learner is counted."
+msgstr ""
+
+#: courses/templates/courses/performance_ungraded_content.html:16
+msgid "Section Submissions"
+msgstr "Mawasilisho ya \"Kipengele\""
+
+#. Translators: This message is displayed when the website is unable to get
+#. the credentials for the user
+#: courses/templates/courses/permissions-retrieval-failed.html:5
+#: courses/templates/courses/permissions-retrieval-failed.html:7
+msgid "Permissions Retrieval Failed"
+msgstr "Utoaji wa \"Idhini\" Umekataliwa"
+
+#: courses/templates/courses/permissions-retrieval-failed.html:9
+msgid ""
+"There was a problem retrieving course permissions for your account. Please "
+"try again. If you continue to experience issues, please let us know."
+msgstr "Kulikuepo tatizo kutoa idhini ya fanni kwa binafsi yako. Tafadhali jaribu tena. Kama utaendelea kupata shida, tafadhali tujulishe."
+
+#: courses/templates/courses/permissions-retrieval-failed.html:14
+msgid "Try Again"
+msgstr "Jaribu Tena"
+
+#: courses/tests/test_views/__init__.py:236 courses/views/__init__.py:499
+#: courses/views/enrollment.py:23
+msgid "Activity"
+msgstr "Shughuli"
+
+#: courses/tests/test_views/__init__.py:246 courses/views/__init__.py:509
+#: courses/views/__init__.py:519 courses/views/__init__.py:529
+#: courses/views/enrollment.py:32
+msgid "Demographics"
+msgstr "Fanni ya kujifunza elimu ya Idadi ya watu"
+
+#: courses/tests/test_views/__init__.py:256 courses/views/__init__.py:539
+#: courses/views/enrollment.py:41
+msgid "Geography"
+msgstr "Jiografia"
+
+#: courses/tests/test_views/__init__.py:294 courses/views/__init__.py:509
+#: courses/views/enrollment.py:61
+msgid "Age"
+msgstr "Umri"
+
+#: courses/tests/test_views/__init__.py:304 courses/views/__init__.py:519
+#: courses/views/enrollment.py:70
+msgid "Education"
+msgstr "Elimu"
+
+#: courses/tests/test_views/__init__.py:314 courses/views/__init__.py:529
+#: courses/views/enrollment.py:79
+msgid "Gender"
+msgstr "Jinsia"
+
+#. Translators: Content as in course content (e.g. things, not the feeling)
+#: courses/tests/test_views/test_engagement.py:62
+#: courses/views/__init__.py:558 courses/views/engagement.py:27
+msgid "Content"
+msgstr "Yaliyomo"
+
+#: courses/tests/test_views/test_engagement.py:73
+#: courses/views/__init__.py:571 courses/views/engagement.py:36
+msgid "Videos"
+msgstr "Video"
+
+#: courses/tests/test_views/test_performance.py:65
+#: courses/views/__init__.py:585 courses/views/performance.py:38
+#: courses/views/performance.py:101
+msgid "Graded Content"
+msgstr "Kuboresha Yaliomo"
+
+#: courses/tests/test_views/test_performance.py:76
+#: courses/views/__init__.py:594 courses/views/performance.py:47
+#: courses/views/performance.py:86
+msgid "Ungraded Problems"
+msgstr "Matatizo yisiyo tahiniwa"
+
+#: courses/tests/test_views/test_performance.py:529
+#: courses/views/__init__.py:606 courses/views/performance.py:65
+msgid "Learning Outcomes"
+msgstr "Matokeo ya Kujifunza / Kujifundisha"
+
+#: courses/views/__init__.py:553
+msgid "What are learners doing in my course?"
+msgstr ""
+
+#: courses/views/__init__.py:583
+msgid "How are learners doing on graded course assignments?"
+msgstr ""
+
+#: courses/views/__init__.py:604
+msgid "What is the breakdown for course learning outcomes?"
+msgstr ""
+
+#: courses/views/__init__.py:624
+msgid "How are learners responding to questions?"
+msgstr ""
+
+#: courses/views/__init__.py:626
+msgid "Problem Response Report"
+msgstr ""
+
+#: courses/views/__init__.py:633
+msgid "How are learners doing on course assignments?"
+msgstr ""
+
+#: courses/views/__init__.py:641
+msgid "What are individual learners doing?"
+msgstr "Wanagenzi / Wanafunzi binafsi wanafanya nini? "
+
+#: courses/views/__init__.py:644
+msgid "Who is engaged? Who isn't?"
+msgstr ""
+
+#: courses/views/__init__.py:646
+msgid "All Learners"
+msgstr "Wanagenzi / Wanafunzi wote"
+
+#. Translators: 'Course ID' is 'Course Identifier', the unique code that
+#. identifies the course
+#: courses/views/__init__.py:694
+msgid "Course ID"
+msgstr "Kitambulisho cha Kozi"
+
+#: courses/views/__init__.py:696
+msgid "Course Name"
+msgstr "Jina la Kozi"
+
+#. Translators: 'In Progress' and 'Ended' refer to whether learners are
+#. actively using the course or it is over.
+#: courses/views/__init__.py:713
+msgid "In Progress"
+msgstr "Ina Endelea"
+
+#: courses/views/__init__.py:713
+msgid "Ended"
+msgstr "Kumalizika"
+
+#. Translators: This refers to a course that has not yet begun.
+#: courses/views/__init__.py:716
+msgid "Not Started Yet"
+msgstr "Bado Kuanza"
+
+#: courses/views/__init__.py:718
+msgid "Start Date"
+msgstr "Tarehe ya Kuanza"
+
+#: courses/views/__init__.py:719
+msgid "End Date"
+msgstr "Tarehe ya Kumaliza"
+
+#: courses/views/__init__.py:720
+msgid "Status"
+msgstr "Hali ilivyo"
+
+#: courses/views/__init__.py:729
+msgid "Instructor Dashboard"
+msgstr "Mkufunzi Dashboard"
+
+#: courses/views/__init__.py:734
+msgid "Courseware"
+msgstr "Maudhui ya kozi"
+
+#. Translators: Do not translate UTC.
+#: courses/views/course_summaries.py:41
+#, python-format
+msgid ""
+"Course summary data was last updated %(update_date)s at %(update_time)s UTC."
+msgstr ""
+
+#: courses/views/engagement.py:52
+msgid "Engagement Content"
+msgstr "Yanayo mshughulisha/mvutia zaidi muhusika"
+
+#. Translators: Do not translate UTC.
+#: courses/views/engagement.py:62
+#, python-format
+msgid ""
+"Course engagement data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr "Yalio muhimu zaidi yalikamilishwa mwisho %(update_date)s kwa %(update_time)s UTC."
+
+#: courses/views/engagement.py:88
+msgid "Engagement Videos"
+msgstr "Yaliomuhimu zaidi kwa Video"
+
+#. Translators: Do not translate UTC.
+#: courses/views/engagement.py:93
+#, python-format
+msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
+msgstr "Video ilikamilishwa mwisho %(update_date)s kwa %(update_time)s UTC."
+
+#: courses/views/engagement.py:94
+msgid "Looks like no one has watched any videos in these sections."
+msgstr "Nikama hakuna alie tazama video katika vitengo hivi."
+
+#: courses/views/engagement.py:120 courses/views/performance.py:300
+msgid "Section Name"
+msgstr "Jina la Kitengo"
+
+#: courses/views/engagement.py:140 courses/views/performance.py:322
+msgid "Subsection Name"
+msgstr "Jina la Kitengo toto"
+
+#: courses/views/engagement.py:161
+msgid "Video Name"
+msgstr "Jina la Video"
+
+#. Translators: Do not translate UTC.
+#: courses/views/enrollment.py:90
+#, python-format
+msgid ""
+"Demographic learner data was last updated %(update_date)s at %(update_time)s"
+" UTC."
+msgstr ""
+
+#. Translators: This sentence is displayed at the bottom of the page and
+#. describe the demographics data displayed.
+#: courses/views/enrollment.py:94
+msgid ""
+"All above demographic data was self-reported at the time of registration."
+msgstr "Habari yote kuhusu idadi iliopo juu ilitolewa na watu binafsi wakati wa usajili."
+
+#: courses/views/enrollment.py:107
+msgid "Enrollment Activity"
+msgstr "Shughuli ya Usajili"
+
+#. Translators: Do not translate UTC.
+#: courses/views/enrollment.py:117
+#, python-format
+msgid ""
+"Enrollment activity data was last updated %(update_date)s at %(update_time)s"
+" UTC."
+msgstr "Harakati za usajili wa habari ulikamilishwa mwisho %(update_date)s kwa %(update_time)s UTC."
+
+#: courses/views/enrollment.py:148
+msgid "Enrollment Demographics by Age"
+msgstr "Usajili wa Idadi ki Umri"
+
+#: courses/views/enrollment.py:186
+msgid "Enrollment Demographics by Education"
+msgstr "Usajili wa Idadi ki Elimu"
+
+#: courses/views/enrollment.py:224
+msgid "Enrollment Demographics by Gender"
+msgstr "Usajili wa Idadi ki Jinsia"
+
+#: courses/views/enrollment.py:262
+msgid "Enrollment Geography"
+msgstr "Usajili Kijiografia"
+
+#. Translators: Do not translate UTC.
+#: courses/views/enrollment.py:272
+#, python-format
+msgid ""
+"Geographic learner data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr ""
+
+#. Translators: Do not translate UTC.
+#: courses/views/performance.py:33
+#, python-format
+msgid ""
+"Problem submission data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr "Habari ya ufikishaji ilikamilishwa mwisho %(update_date)s kwa %(update_time)s UTC."
+
+#: courses/views/performance.py:79
+msgid "Assignment Name"
+msgstr "Jina la Jaribio"
+
+#: courses/views/performance.py:90 courses/views/performance.py:370
+msgid "No submissions received for these exercises."
+msgstr "Hakuna mawasilisho yaliyopokelewa kwa ajili ya mazoezi haya."
+
+#: courses/views/performance.py:106
+msgid "No submissions received for these assignments."
+msgstr "Hamna mawasilisho yalipokelewa kwa ajili ya mazoezi haya."
+
+#: courses/views/performance.py:195 courses/views/performance.py:362
+#: courses/views/performance.py:460
+msgid "Performance: Problem Submissions"
+msgstr "Utendaji: Uwasilishaji wa Swali"
+
+#: courses/views/performance.py:257
+#, python-format
+msgid "Graded Content: %(assignment_type)s"
+msgstr "Maudhui Yaliyopangwa: %(assignment_type)s"
+
+#: courses/views/performance.py:276 courses/views/performance.py:344
+msgid "Problem Name"
+msgstr "Jina la Tatizo"
+
+#: courses/views/performance.py:369
+#, python-format
+msgid ""
+"Tags distribution data was last updated %(update_date)s at %(update_time)s "
+"UTC."
+msgstr "Taarifa za mgawanyo wa vitambulisho imesasishwa kwa mara ya mwisho tarehe %(update_date)s kwenye %(update_time)s UTC."
+
+#: courses/views/performance.py:398 courses/views/performance.py:428
+msgid "Performance: Learning Outcomes"
+msgstr "Utendaji: Matokeo ya Ujifunzaji"
+
+#: settings/base.py:419
+msgid "Terms of Service"
+msgstr "Masharti ya Huduma"
+
+#: settings/base.py:420
+msgid "Privacy Policy"
+msgstr "Kanuni za Faragha"
+
+#: templates/403.html:5 templates/403.html:8
+msgid "Access Denied"
+msgstr "Ruhusa ya utumizi Haikutolewa"
+
+#: templates/403.html:10
+msgid ""
+"You do not have permission to view this page. If you believe you should have"
+" access to this page, try logging out and logging in again to refresh your "
+"permissions."
+msgstr "Huna ruhusa kutazama ukurasa huu. Ukiamini unastahili kuwa na ruhusa kwa ukurasa huu, jaribu kutoka na kuingia tena mtandaoni ukionesha upya ruhusa ulizopewa."
+
+#: templates/403.html:17
+msgid "Logout then Login"
+msgstr "Toka mtandaoni kisha Ingia"
+
+#: templates/404.html:5 templates/404.html:8
+msgid "Page Not Found"
+msgstr "Ukurasa Haupatikani"
+
+#: templates/404.html:10
+msgid ""
+"We can't find the page you're looking for. Please make sure the URL is "
+"correct and if not try again."
+msgstr "Hatuwezi kuupata ukurasa unaotafuta. Tafadhali hakikisha URL iko sawa na kama sivyo jaribu tena."
+
+#: templates/500.html:5 templates/500.html:8
+msgid "An Error Occurred"
+msgstr "Kumetokea hitilafu"
+
+#: templates/500.html:10
+msgid ""
+"Our servers weren't able to complete your request. Please try again by "
+"refreshing this page or retracing your steps."
+msgstr "Sava zetu hazikuweza kukamilisha ombi lako. Tafadhali jaribu tena kwa kuburudisha ukurasa huu au rudia hatua unazofuata."
+
+#: templates/503.html:5 templates/503.html:7
+msgid "We're having trouble loading this page. Please try again in a minute."
+msgstr "Tuna taklifu kuupakia ukurasa huu. Tafadhali jaribu tena katika dakika moja."
+
+#: templates/503.html:10
+msgid "(Technical details: 503 Service Unavailable.)"
+msgstr "(Technical details: 503 Service Unavailable.)"
+
+#: templates/_announcement.html:28
+msgid "Close"
+msgstr "Funga"
+
+#: templates/base-error.html:42
+msgid "Use our support tool to ask questions or share feedback."
+msgstr "Tumia kifaa chetu cha usaidizi kuulizia maswali au kutumia pamoja mrejesho."
+
+#. Translators: This intention here is that a user clicks a button to contact
+#. a support group (e.g. edX Support, or MITx Support). Reorder the
+#. placeholder as you see fit.
+#: templates/base-error.html:47
+#, python-format
+msgid "Contact %(platform_name)s Support"
+msgstr "Fanya mawasiliano kwa msaada wa %(platform_name)s "
+
+#: templates/footer.html:16
+#, python-format
+msgid ""
+"We want this dashboard to work for you! Need help? "
+"%(support_link_start)sContact course team support%(support_link_end)s."
+msgstr "Tunataka dashibodi ikusaidie! Unahitaji msaada? %(support_link_start)s Wasiliana timu ya msaada ya kozi%(support_link_end)s."
+
+#. Translators: The © symbol appears directly before this line.
+#: templates/footer.html:39
+#, python-format
+msgid ""
+" %(current_year)s %(platform_name)s, except where noted, all rights\n"
+"            reserved. "
+msgstr "%(current_year)s %(platform_name)s, isipokuwa ilipoarifiwa, haki miliki zote            zimedhibitiwa. "
+
+#: templates/header.html:13
+msgid "Toggle navigation"
+msgstr "Uhamiaji kutoka sehemu moja ya tendekazi za kompyuta mpaka kwa nyingine na kurudi"
+
+#: templates/header.html:40
+msgid "Help"
+msgstr "Msaada"
+
+#: templates/header.html:46
+msgid "Menu for"
+msgstr "Menyu kwa ajili ya"
+
+#: templates/header.html:60
+msgid "Logout"
+msgstr "Toka mtandaoni"
+
+#: templates/lens-navigation.html:27
+msgid "Navigation Menu."
+msgstr "Menyu ya Uabiri."
+
+#: templates/loading.html:7
+msgid "Loading"
+msgstr "Kupakia ujumbe"
+
+#: templates/section_error.html:10
+msgid "We are unable to load this chart."
+msgstr "Hatuwezi kupakia chati hii."
+
+#: templates/section_error.html:12
+msgid "We are unable to load this table."
+msgstr "Hatuwezi kupakia jedwali hili."
+
+#: templates/section_error.html:14
+msgid "We are unable to load these metrics."
+msgstr "Hatuwezi kupakia idadi hizi."

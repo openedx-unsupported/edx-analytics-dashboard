@@ -1,0 +1,25 @@
+<section class="learner-summary-container">
+    <div class="row">
+        <div class="col col-12 sm-col-12 md-col-3 learner-names" />
+        <% _.each(['learner-enrollment', 'learner-cohort', 'learner-accessed'], function(learnerClass) { %>
+            <div class="col col-12 sm-col-12 md-col-3 <%- learnerClass %>"></div>
+        <% }); %>
+    </div>
+</section>
+
+<section class="view-section" data-section="learner-engagement" aria-hidden="true">
+    <div class="section-heading">
+        <h4 class="section-title"><%- activity %></h4>
+    </div>
+    <div class="section-content">
+        <div class="learner-engagement-timeline-container"></div>
+        <div id="table-section">
+            <div class="section-heading">
+                <h4 class="section-title"> <%- table %> </h4>
+            </div>
+            <div class="section-content section-data-table" data-role="engagement-table">
+                <div class="learner-engagement-table-container"></div>
+            </div>
+        </div>
+    </div>
+</section>

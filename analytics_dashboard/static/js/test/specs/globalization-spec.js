@@ -1,22 +1,11 @@
-/* jshint ignore:start */
-define(['utils/globalization'], function () {
+// eslint-disable-next-line import/no-unresolved
+define(['utils/globalization'], function(Globalization) {
     'use strict';
 
-    describe('fixLanguageCode', function () {
-        it('should default to English if an invalid argument is provided', function () {
-            expect(fixLanguageCode(null)).toEqual('en');
-            expect(fixLanguageCode('')).toEqual('en');
-            expect(fixLanguageCode(1)).toEqual('en');
-            expect(fixLanguageCode(true)).toEqual('en');
-        });
-
-        it('should return zh if the given language code is zh-cn', function () {
-            expect(fixLanguageCode('zh-cn')).toEqual('zh');
-        });
-
-        it('should return en if the given language code is not known to CLDR', function () {
-            expect(fixLanguageCode('not-real')).toEqual('en');
+    describe('Globalization', function() {
+        // globalization functionality (e.g. number formatting) is tested in utils-spec
+        it('should be returned', function() {
+            expect(Globalization).toBeDefined();
         });
     });
 });
-/* jshint ignore:end */

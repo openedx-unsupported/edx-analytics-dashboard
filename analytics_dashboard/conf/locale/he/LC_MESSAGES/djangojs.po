@@ -3,17 +3,23 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Avi Levy <avi@sysbind.co.il>, 2017
 # Bentsi Magidovich <magidovich@gmail.com>, 2015
+# e2f_HE c1 <e2f_HE_c1@outlook.com>, 2016-2017
+# e2f he_r1 <e2f_he_r1@outlook.com>, 2016
 # Naaman nov <naaman.nov@gmail.com>, 2015
 # Nadav Stark <nadav@yeda.org.il>, 2015
+# qualityalltext <quality@alltext.co.il>, 2016-2017
+# Yaron Shahrabani <sh.yaron@gmail.com>, 2015
+# Yoav Caspin <yoavc@pmo.gov.il>, 2016-2017
 # yuval zana, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-30 10:00-0400\n"
-"PO-Revision-Date: 2015-10-30 14:00+0000\n"
-"Last-Translator: Dennis Jen <djen@edx.org>\n"
+"POT-Creation-Date: 2017-06-21 18:32-0400\n"
+"PO-Revision-Date: 2017-09-23 20:11+0000\n"
+"Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: Hebrew (http://www.transifex.com/open-edx/edx-platform/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,325 +27,832 @@ msgstr ""
 "Language: he\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: static/dist/js/common.js static/js/utils/utils.js
-msgid "..."
-msgstr "..."
+#: static/apps/components/download/views/download-data.js:25
+msgid "Download CSV"
+msgstr "הורד CSV"
 
-#. Translators: (empty) is displayed as a label in a chart and indicates that
-#. no label was provided.
-#. Translators: (empty) is displayed as a label in a chart and indicates that
-#. no label was provided.
-#. Translators: (empty) is displayed as a label in a chart and indicates that
-#. no label was provided.
-#. Translators: (empty) is displayed as a label in a chart and indicates that
-#. no label was provided.
-#. Translators: (empty) is displayed as a label in a chart and indicates that
-#. no label was provided.
-#. Translators: (empty) is displayed as a label in a chart and indicates that
-#. no label was provided.
-#. Translators: (empty) is displayed as a label in a chart and indicates that
-#. no label was provided.
-#. Translators: (empty) is displayed as a label in a chart and indicates that
-#. no label was provided.
-#: static/dist/js/common.js static/dist/js/engagement-video-content-main.js
-#: static/dist/js/engagement-videos-main.js
-#: static/dist/js/enrollment-demographics-education-main.js
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/dist/js/performance-answer-distribution-main.js
-#: static/dist/js/performance-content-main.js
-#: static/dist/js/performance-problems-main.js
-#: static/js/views/data-table-view.js static/js/views/discrete-bar-view.js
-msgid "(empty)"
-msgstr "(ריק)"
+#: static/apps/components/download/views/download-data.js:26
+msgid "Download search results to CSV"
+msgstr "הורד תוצאות חיפוש ל-CSV"
 
-#. Translators: "Correct" is displayed in a table..
-#. Translators: "Correct" is displayed in a table..
-#: static/dist/js/common.js
-#: static/dist/js/performance-answer-distribution-main.js
-#: static/dist/js/performance-problems-main.js
-#: static/js/performance-answer-distribution-main.js
-#: static/js/performance-answer-distribution-main.js
-#: static/js/performance-problems-main.js static/js/views/data-table-view.js
-msgid "Correct"
-msgstr "נכון"
+#. Translators: "All" refers to viewing all items (e.g. all courses).
+#: static/apps/components/filter/views/drop-down-filter.js:31
+msgid "All"
+msgstr "הכל"
 
-#: static/dist/js/engagement-content-main.js
-#: static/js/engagement-content-main.js
+#. Translators: 'name' here refers to the name of the filter, while 'count'
+#. refers to the number of items belonging to that filter.
+#: static/apps/components/filter/views/filter.js:90
+msgid "<%= name %> (<%= count %>)"
+msgstr "<%= name %> (<%= count %>)"
+
+#. Translators: this is a label describing a filter selection that the user
+#. initiated.
+#: static/apps/components/generic-list/list/views/active-filters.js:62
+msgid "<%= filterDisplayName %>: <%= filterVal %>"
+msgstr "<%= filterDisplayName %>: <%= filterVal %>"
+
+#: static/apps/components/generic-list/list/views/active-filters.js:87
+msgid "Filters In Use:"
+msgstr "מסננים בשימוש:"
+
+#: static/apps/components/generic-list/list/views/active-filters.js:88
+msgid "Click to remove this filter"
+msgstr "לחץ להסרת מסנן זה"
+
+#. Translators: "Clear" in this context means "remove all of the filters"
+#: static/apps/components/generic-list/list/views/active-filters.js:90
+msgid "Clear"
+msgstr "נקה"
+
+#: static/apps/components/generic-list/list/views/active-filters.js:91
+msgid "Click to remove all filters"
+msgstr "לחץ להסרת כל המסננים"
+
+#. Translators: "sort ascending" describes the current sort state to the user.
+#: static/apps/components/generic-list/list/views/base-header-cell.js:71
+msgid "sort ascending"
+msgstr "מיין בסדר עולה"
+
+#. Translators: "sort descending" describes the current sort state to the
+#. user.
+#: static/apps/components/generic-list/list/views/base-header-cell.js:73
+msgid "sort descending"
+msgstr "מיין בסדר יורד"
+
+#. Translators: "click to sort" tells the user that they can click this link
+#. to sort by the current field.
+#: static/apps/components/generic-list/list/views/base-header-cell.js:76
+msgid "click to sort"
+msgstr "לחץ למיון"
+
+#: static/apps/components/generic-list/list/views/list.js:51
+msgid "Results"
+msgstr "תוצאות"
+
+#. Translators: 'count' refers to the number of results contained in the
+#. table.
+#: static/apps/components/generic-list/list/views/num-results.js:30
+msgid "Number of results: <%= count %>"
+msgstr "מספר תוצאות: <%= count %>"
+
+#: static/apps/components/generic-list/list/views/paging-footer.js:70
+msgid "first page"
+msgstr "עמוד ראשון"
+
+#: static/apps/components/generic-list/list/views/paging-footer.js:72
+msgid "previous page"
+msgstr "עמוד קודם"
+
+#: static/apps/components/generic-list/list/views/paging-footer.js:74
+msgid "next page"
+msgstr "העמוד הבא"
+
+#: static/apps/components/generic-list/list/views/paging-footer.js:76
+msgid "last page"
+msgstr "עמוד אחרון"
+
+#: static/apps/components/generic-list/list/views/paging-footer.js:78
+msgid "page"
+msgstr "עמוד"
+
+#. Translators: describes the state of a pagination button as not clickable
+#: static/apps/components/generic-list/list/views/paging-footer.js:88
+msgid "disabled"
+msgstr "מושבת"
+
+#. Translators: describes a pagination button as representing the current page
+#: static/apps/components/generic-list/list/views/paging-footer.js:91
+msgid "active"
+msgstr "פעיל"
+
+#: static/apps/components/generic-list/list/views/table.js:27
+msgid "Generic List"
+msgstr "רשימה גנרית"
+
+#. Translators: This message indicates content is loading in the page.
+#: static/apps/components/loading/views/loading-view.js:20
+msgid "Loading..."
+msgstr "טוען..."
+
+#. Translators: "504" is a number representing a server error, so please leave
+#. it as "504".
+#: static/apps/components/utils/utils.js:61
+msgid "504: Server error"
+msgstr "504: שגיאת שרת"
+
+#: static/apps/components/utils/utils.js:63
+msgid ""
+"Processing your request took too long to complete. Reload the page to try "
+"again."
+msgstr "עיבוד בקשתכם ארך זמן רב מדי ולא הושלם. הטעינו מחדש את העמוד ונסו שנית."
+
+#: static/apps/components/utils/utils.js:67
+msgid "Server error"
+msgstr "שגיאת שרת"
+
+#: static/apps/components/utils/utils.js:68
+#: static/apps/components/utils/utils.js:80
+msgid "Your request could not be processed. Reload the page to try again."
+msgstr "לא ניתן לעבד את בקשתך. הטען מחדש את העמוד ונסה שנית."
+
+#: static/apps/components/utils/utils.js:79
+msgid "Network error"
+msgstr "שגיאת מערכת."
+
+#: static/apps/course-list/app/app.js:39
+msgid "Instructor-Paced"
+msgstr "בהובלת מדריך"
+
+#: static/apps/course-list/app/app.js:40
+msgid "Self-Paced"
+msgstr "בקצב אישי"
+
+#: static/apps/course-list/app/app.js:43
+msgid "Upcoming"
+msgstr "בקרוב"
+
+#: static/apps/course-list/app/app.js:44
+msgid "Current"
+msgstr "נוכחי"
+
+#: static/apps/course-list/app/app.js:45
+msgid "Archived"
+msgstr "מאוחסן בארכיון"
+
+#: static/apps/course-list/app/app.js:46
+msgid "Unknown"
+msgstr "לא ידוע"
+
+#: static/apps/course-list/app/controller.js:48
+#: static/apps/course-list/app/controller.js:108
+msgid "Course List"
+msgstr "רשימת קורס"
+
+#: static/apps/course-list/app/controller.js:98
+#: static/apps/learners/app/controller.js:96
+msgid "Invalid Parameters"
+msgstr "הפרמטרים אינם חוקיים"
+
+#: static/apps/course-list/app/controller.js:99
+msgid "Sorry, we couldn't find any courses that matched that query."
+msgstr "מצטערים, לא נמצאו קורסים התואמים לשאילתא זו."
+
+#: static/apps/course-list/app/controller.js:100
+msgid "Return to the Course List page."
+msgstr "חזור לעמוד רשימת קורס."
+
+#: static/apps/course-list/app/controller.js:125
+#: static/apps/learners/app/controller.js:181
+msgid "Sorry, we couldn't find the page you're looking for."
+msgstr "מצטערים, לא ניתן למצוא את העמוד שאתה מחפש."
+
+#: static/apps/course-list/app/controller.js:129
+#: static/apps/learners/app/controller.js:186
+msgid "Page Not Found"
+msgstr "העמוד לא נמצא"
+
+#: static/apps/course-list/common/collections/course-list.js:77
+msgid "Course Name"
+msgstr "שם הקורס"
+
+#: static/apps/course-list/common/collections/course-list.js:78
+msgid "Start Date"
+msgstr "תאריך התחלה"
+
+#: static/apps/course-list/common/collections/course-list.js:79
+msgid "End Date"
+msgstr "תאריך סיום"
+
+#: static/apps/course-list/common/collections/course-list.js:80
+msgid "Total Enrollment"
+msgstr "סיכום הרשמה"
+
+#. Translators: The noun count (e.g. number of learners)
+#: static/apps/course-list/common/collections/course-list.js:81
+#: static/js/enrollment-activity-main.js:27
+#: static/js/enrollment-demographics-gender-main.js:32
+#: static/js/enrollment-geography-main.js:29
+msgid "Current Enrollment"
+msgstr "רישום נוכחי"
+
+#: static/apps/course-list/common/collections/course-list.js:82
+msgid "Change Last Week"
+msgstr "שינוי בשבוע האחרון"
+
+#: static/apps/course-list/common/collections/course-list.js:83
+msgid "Verified Enrollment"
+msgstr "הרשמה מאומתת"
+
+#: static/apps/course-list/common/collections/course-list.js:86
+msgid "Passing Learners"
+msgstr "לומדים עוברים"
+
+#: static/apps/course-list/common/collections/course-list.js:89
+msgid "Availability"
+msgstr "זמינות"
+
+#: static/apps/course-list/common/collections/course-list.js:90
+msgid "Pacing Type"
+msgstr "סוג קצב"
+
+#: static/apps/course-list/common/collections/course-list.js:91
+msgid "Programs"
+msgstr "תוכניות"
+
+#: static/apps/course-list/list/views/base-header-cell.js:11
+msgid "Course name advertised on edX site."
+msgstr "שם הקורס פורסם באתר edX."
+
+#: static/apps/course-list/list/views/base-header-cell.js:12
+msgid "Start date advertised on edX site."
+msgstr "תאריך ההתחלה פורסם באתר edX."
+
+#: static/apps/course-list/list/views/base-header-cell.js:13
+msgid "End date set in edX Studio."
+msgstr "תאריך הסיום הוגדר ב-edX Studio."
+
+#: static/apps/course-list/list/views/base-header-cell.js:14
+msgid "Learners who ever enrolled in the course."
+msgstr "לומדים שנרשמו אי פעם לקורס."
+
+#: static/apps/course-list/list/views/base-header-cell.js:15
+msgid "Learners currently enrolled in the course."
+msgstr "לומדים הרשומים כעת בקורס."
+
+#: static/apps/course-list/list/views/base-header-cell.js:16
+msgid "Net difference in current enrollment in the last week."
+msgstr "הבדל נטו בהרשמה הנוכחית בשבוע האחרון."
+
+#: static/apps/course-list/list/views/base-header-cell.js:18
+msgid ""
+"Number of currently enrolled learners pursuing a verified certificate of "
+"achievement."
+msgstr "מספר הלומדים הרשומים כעת והמעוניינים בתעודה מאומתת על הישגיהם."
+
+#: static/apps/course-list/list/views/base-header-cell.js:19
+msgid "Learners who have earned a passing grade."
+msgstr "לומדים שקיבלו ציון עבור."
+
+#: static/apps/course-list/list/views/controls.js:38
+#: static/apps/learners/roster/views/controls.js:39
+msgid "Skip to results"
+msgstr "דלג לתוצאות"
+
+#: static/apps/course-list/list/views/controls.js:58
+msgid "Find a course"
+msgstr "מצא קורס"
+
+#: static/apps/course-list/list/views/controls.js:68
+msgid "availability"
+msgstr "זמינות"
+
+#: static/apps/course-list/list/views/controls.js:76
+msgid "pacing_type"
+msgstr "סוג קצב"
+
+#: static/apps/course-list/list/views/controls.js:84
+msgid "program_ids"
+msgstr "מזהי_תוכנית"
+
+#: static/apps/course-list/list/views/course-list.js:66
+msgid "Download full course list to CSV"
+msgstr "הורד את רשימת הקורסים המלאה ל-CSV"
+
+#: static/apps/course-list/list/views/course-list.js:91
+msgid "Course list controls"
+msgstr "בקרות רשימת הקורס"
+
+#: static/apps/course-list/list/views/results.js:47
+msgid "No courses matched your criteria."
+msgstr "לא נמצא קורס התואם את הקריטריון המבוקש."
+
+#: static/apps/course-list/list/views/results.js:49
+#: static/apps/learners/roster/views/results.js:49
+msgid "Try a different search."
+msgstr "נסה חיפוש אחר."
+
+#: static/apps/course-list/list/views/results.js:52
+#: static/apps/learners/roster/views/results.js:52
+msgid "Try clearing the filters."
+msgstr "נסה להסיר את המסננים."
+
+#: static/apps/course-list/list/views/results.js:55
+msgid "No course data is currently available for your course."
+msgstr "מידע אודות הקורס אינו זמין עבור הקורס שלך."
+
+#: static/apps/course-list/list/views/results.js:57
+msgid ""
+"No courses are enrolled, or course activity data has not yet been processed."
+" Data is updated every day, so check back regularly for up-to-date metrics."
+msgstr "לא נרשמו קורסים או לא עובדו נתוני פעילות קורס. הנתונים מתעדכנים כל יום, לכן חזור ובדוק באופן קבוע מדדים מעודכנים."
+
+#: static/apps/course-list/list/views/search.js:71
+msgid "Search courses"
+msgstr "חפש קורסים"
+
+#: static/apps/course-list/list/views/search.js:72
+#: static/apps/learners/roster/views/search.js:56
+msgid "search"
+msgstr "חיפוש"
+
+#: static/apps/course-list/list/views/search.js:73
+#: static/apps/learners/roster/views/search.js:57
+msgid "clear search"
+msgstr "נקה חיפוש"
+
+#: static/apps/course-list/list/views/table.js:48
+msgid "Date not available"
+msgstr "התאריך אינו זמין"
+
+#: static/apps/learners/app/controller.js:59
+msgid "Learner Roster"
+msgstr "מספר הלומדים"
+
+#: static/apps/learners/app/controller.js:97
+msgid "Sorry, we couldn't find any learners who matched that query."
+msgstr "מצטערים, לא ניתן למצוא לומדים התואמים לחיפוש זה."
+
+#: static/apps/learners/app/controller.js:98
+msgid "Return to the Learners page."
+msgstr "חזור לעמוד הלומדים."
+
+#: static/apps/learners/app/controller.js:106
+msgid "Learners"
+msgstr "לומדים"
+
+#: static/apps/learners/app/controller.js:141
+msgid "Learner Details"
+msgstr "פִּרטי הלומדים"
+
+#: static/apps/learners/common/collections/learners.js:17
+msgid "Name (Username)"
+msgstr "שם (שם משתמש)"
+
+#: static/apps/learners/common/collections/learners.js:18
+msgid "Problems Tried"
+msgstr "בעיות אשר נוסו"
+
+#: static/apps/learners/common/collections/learners.js:19
+#: static/apps/learners/detail/views/engagement-table.js:33
+#: static/apps/learners/detail/views/engagement-timeline.js:35
+msgid "Problems Correct"
+msgstr "בעיות אשר תוקנו"
+
+#: static/apps/learners/common/collections/learners.js:20
+msgid "Attempts per Problem Correct"
+msgstr "ניסיונות לתשובה נכונה"
+
+#: static/apps/learners/common/collections/learners.js:21
+#: static/js/engagement-video-content-main.js:33
+msgid "Videos"
+msgstr "סרטוני וידאו"
+
+#: static/apps/learners/common/collections/learners.js:22
+msgid "Discussions"
+msgstr "דיונים"
+
+#: static/apps/learners/common/collections/learners.js:24
+msgid "Segments"
+msgstr "מקטעים"
+
+#: static/apps/learners/common/collections/learners.js:25
+msgid "Segments to Ignore"
+msgstr "מקטעים שיש להתעלם מהם"
+
+#: static/apps/learners/common/collections/learners.js:26
+#: static/apps/learners/detail/views/learner-detail.js:101
+msgid "Cohort"
+msgstr "קבוצת למידה"
+
+#: static/apps/learners/common/collections/learners.js:27
+msgid "Enrollment Mode"
+msgstr "מצב הרשמה"
+
+#: static/apps/learners/detail/views/engagement-table.js:22
+#: static/apps/learners/detail/views/engagement-timeline.js:43
+#: static/js/enrollment-activity-main.js:22
+#: static/js/enrollment-demographics-gender-main.js:31
+msgid "Date"
+msgstr "תאריך"
+
+#: static/apps/learners/detail/views/engagement-table.js:27
+#: static/apps/learners/detail/views/engagement-timeline.js:31
+msgid "Discussion Contributions"
+msgstr "תרומות לדיון"
+
+#: static/apps/learners/detail/views/engagement-table.js:39
+#: static/apps/learners/detail/views/engagement-timeline.js:39
+msgid "Videos Viewed"
+msgstr "סרטוני הווידאו שנצפו"
+
+#: static/apps/learners/detail/views/engagement-timeline.js:47
+msgid "Value"
+msgstr "ערך"
+
+#. Translators: e.g. Learner engagement activity
+#: static/apps/learners/detail/views/learner-detail.js:28
+msgid "Engagement Activity"
+msgstr "רמת פעילות"
+
+#: static/apps/learners/detail/views/learner-detail.js:29
+msgid "Daily Activity"
+msgstr "פעילות יומית"
+
+#: static/apps/learners/detail/views/learner-detail.js:30
+msgid "Activity Over Time"
+msgstr "פעילות לאורך ציר הזמן"
+
+#: static/apps/learners/detail/views/learner-detail.js:95
+msgid "Enrollment"
+msgstr "הרשמה"
+
+#: static/apps/learners/detail/views/learner-detail.js:106
+msgid "Last Accessed"
+msgstr "גישה אחרונה"
+
+#. Translators: 'n/a' means 'not available'
+#: static/apps/learners/detail/views/learner-detail.js:109
+#: static/apps/learners/detail/views/learner-summary-field.js:44
+#: static/apps/learners/roster/views/activity-date-range.js:16
+msgid "n/a"
+msgstr "לא זמין"
+
+#: static/apps/learners/detail/views/learner-detail.js:139
+msgid "Check back daily for up-to-date data."
+msgstr "חזור ובדוק באופן יומיומי את הנתונים המעודכנים. "
+
+#: static/apps/learners/detail/views/learner-detail.js:149
+msgid "No course activity data is available for this learner."
+msgstr "נתוני פעילות הקורס אינם זמינים עבור לומד זה."
+
+#: static/apps/learners/detail/views/learner-detail.js:156
+msgid "No learner data is available."
+msgstr "נתוני הלומד אינם זמינים."
+
+#: static/apps/learners/detail/views/learner-return.js:12
+msgid "Return to Learners"
+msgstr "חזור ל\"לומדים\""
+
+#. Translators: this is a label describing a selection that the user
+#. initiated.
+#: static/apps/learners/roster/views/active-filters.js:23
+msgid "Cohort: <%= filterVal %>"
+msgstr "קבוצות למידה: <%= filterVal %>"
+
+#. Translators: this is a label describing a selection that the user
+#. initiated.
+#: static/apps/learners/roster/views/active-filters.js:27
+msgid "Enrollment Track: <%= filterVal %>"
+msgstr "מסלול הרשמה: <%= filterVal %>"
+
+#: static/apps/learners/roster/views/active-filters.js:32
+#: static/js/engagement-content-main.js:20
+msgid "Active Learners"
+msgstr "לומדים פעילים"
+
+#: static/apps/learners/roster/views/activity-date-range.js:11
+msgid "Activity between <%- startDate %> - <%- endDate %>"
+msgstr "פעילות בין <%- startDate %> - <%- endDate %>"
+
+#: static/apps/learners/roster/views/base-header-cell.js:10
+msgid "The name and username of this learner. Click to sort by username."
+msgstr "שם ושם משתמש של לומד זה. לחץ למיון על פי שם משתמש."
+
+#: static/apps/learners/roster/views/base-header-cell.js:11
+msgid "Number of unique problems this learner attempted."
+msgstr "מספר הבעיות הייחודיות שלומד זה ניסה."
+
+#: static/apps/learners/roster/views/base-header-cell.js:12
+msgid "Number of unique problems the learner answered correctly."
+msgstr "מספר הבעיות הייחודיות שענה עליהן נכון הלומד."
+
+#: static/apps/learners/roster/views/base-header-cell.js:13
+msgid "Number of unique videos this learner played."
+msgstr "מספר סרטוני הוידאו הייחודיים שצפה בהם לומד זה."
+
+#: static/apps/learners/roster/views/base-header-cell.js:15
+msgid ""
+"Average number of attempts per correct problem. Learners with a relatively "
+"high value compared to their peers may be struggling."
+msgstr "מספר ניסיונות ממוצע לתשובה נכונה לבעיה. יתכן שתלמידים בעלי מספר גבוה יחסית, בהשוואה לעמיתיהם, מתקשים עם בעיה זו."
+
+#: static/apps/learners/roster/views/base-header-cell.js:17
+msgid ""
+"Number of contributions by this learner, including posts, responses, and "
+"comments."
+msgstr "מספר התרומות שביצע לומד זה כולל פוסטים, תגובות והערות."
+
+#: static/apps/learners/roster/views/controls.js:62
+msgid "Find a learner"
+msgstr "חפש אחר לומד"
+
+#: static/apps/learners/roster/views/controls.js:75
+msgid "Cohort Groups"
+msgstr "קבוצות למידה"
+
+#: static/apps/learners/roster/views/controls.js:73
+msgid "cohort"
+msgstr "קבוצת למידה"
+
+#: static/apps/learners/roster/views/controls.js:87
+msgid "Enrollment Tracks"
+msgstr "מסלולי הרשמה"
+
+#: static/apps/learners/roster/views/controls.js:85
+msgid "enrollment_mode"
+msgstr "מצב הרשמה"
+
+#. Translators: inactive meaning that these learners have not interacted with
+#. the
+#. course recently.
+#: static/apps/learners/roster/views/controls.js:103
+msgid "Hide Inactive Learners"
+msgstr "הסתר לומדים שאינם פעילים"
+
+#: static/apps/learners/roster/views/controls.js:97
+msgid "ignore_segments"
+msgstr "התעלם מקטעים"
+
+#: static/apps/learners/roster/views/results.js:47
+msgid "No learners matched your criteria."
+msgstr "לא נמצאו לומדים המתאימים לקריטריון."
+
+#: static/apps/learners/roster/views/results.js:55
+msgid "No learner data is currently available for your course."
+msgstr "נתוני לומד אינם זמינים כרגע עבור הקורס שלך."
+
+#: static/apps/learners/roster/views/results.js:57
+msgid ""
+"No learners are enrolled, or course activity data has not yet been "
+"processed. Data is updated every day, so check back regularly for up-to-date"
+" metrics."
+msgstr "לא נרשמו לומדים או שנתוני פעילות הקורס לא עובדו עדיין. הנתונים מתעדכנים כל יום, לכן חזור ובדוק באופן קבוע מדדים מעודכנים."
+
+#: static/apps/learners/roster/views/roster.js:110
+msgid "Learner roster controls"
+msgstr "מספר הלומדים"
+
+#: static/apps/learners/roster/views/search.js:55
+msgid "Search learners"
+msgstr "חפשו אחר לומדים"
+
+#. Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate
+#. accordingly.
+#: static/apps/learners/roster/views/table.js:40
+msgid "N/A"
+msgstr "לא זמין"
+
+#: static/js/engagement-content-main.js:15
 msgid "Week Ending"
-msgstr "שבוע מסתיים"
+msgstr "סיום השבוע"
 
-#: static/dist/js/engagement-content-main.js
-#: static/js/engagement-content-main.js
-msgid "Active Students"
-msgstr "תלמידים פעילים"
-
-#: static/dist/js/engagement-content-main.js
-#: static/js/engagement-content-main.js
+#: static/js/engagement-content-main.js:27
 msgid "Watched a Video"
-msgstr "צפה בוידיאו"
+msgstr "צפו בווידאו"
 
-#: static/dist/js/engagement-content-main.js
-#: static/js/engagement-content-main.js
+#: static/js/engagement-content-main.js:34
 msgid "Tried a Problem"
-msgstr "ניסה לפתור בעיה"
+msgstr "ניסו לפתור בעיה"
 
-#: static/dist/js/engagement-content-main.js
-#: static/js/engagement-content-main.js
-msgid "Posted in Forum"
-msgstr "פרסם בפורום"
+#: static/js/engagement-content-main.js:41
+msgid "Participated in Discussions"
+msgstr "השתתף בדיונים"
+
+#: static/js/engagement-content-main.js:48
+msgid "Percent of Current Learners"
+msgstr "אחוז הלומדים הנוכחי"
 
 #. Translators: <%=value%> will be replaced with a date.
-#: static/dist/js/engagement-content-main.js
-#: static/js/engagement-content-main.js
+#: static/js/engagement-content-main.js:85
 msgid "Week Ending <%=value%>"
-msgstr "שבוע מסתיים <%=value%>"
+msgstr "סיום השבוע <%=value%>"
 
-#. Translators: <%=value%> will be replaced by a number followed by a
-#. percentage.
-#. For example, "400 (29%)"
-#: static/dist/js/engagement-video-content-main.js
-#: static/dist/js/engagement-videos-main.js
-#: static/dist/js/performance-content-main.js
-#: static/dist/js/performance-problems-main.js
-#: static/js/views/stacked-bar-view.js
-msgid "<%=value%> (<%=percent%>)"
-msgstr "<%=value%> (<%=percent%>)"
-
-#: static/dist/js/engagement-video-content-main.js
-#: static/js/engagement-video-content-main.js
+#: static/js/engagement-video-content-main.js:14
 msgid "Average Complete Views"
 msgstr "ממוצע צפיות שהושלמו"
 
-#: static/dist/js/engagement-video-content-main.js
-#: static/js/engagement-video-content-main.js
+#: static/js/engagement-video-content-main.js:23
 msgid "Average Incomplete Views"
-msgstr "ממוצע צפיות שלא הושלמו"
+msgstr "ממוצע צפיות חלקיות"
 
-#: static/dist/js/engagement-video-content-main.js
-#: static/dist/js/engagement-videos-main.js
-#: static/dist/js/performance-content-main.js
-#: static/dist/js/performance-problems-main.js
-#: static/js/engagement-video-content-main.js
-#: static/js/engagement-videos-main.js static/js/performance-content-main.js
-#: static/js/performance-problems-main.js
+#: static/js/engagement-video-content-main.js:31
+#: static/js/engagement-videos-main.js:29
+#: static/js/performance-content-main.js:28
+#: static/js/performance-learning-outcomes-content-main.js:28
+#: static/js/performance-learning-outcomes-section-main.js:28
+#: static/js/performance-problems-main.js:26
 msgid "Order"
 msgstr "סדר"
 
-#: static/dist/js/engagement-video-content-main.js
-#: static/js/engagement-video-content-main.js
-msgid "Videos"
-msgstr "סרטונים"
-
-#: static/dist/js/engagement-video-content-main.js
-#: static/dist/js/engagement-videos-main.js
-#: static/js/engagement-video-content-main.js
-#: static/js/engagement-videos-main.js
+#: static/js/engagement-video-content-main.js:41
+#: static/js/engagement-videos-main.js:38
 msgid "Completion Percentage"
 msgstr "אחוז השלמה"
 
-#: static/dist/js/engagement-video-timeline-main.js
-#: static/js/engagement-video-timeline-main.js
+#: static/js/engagement-video-timeline-main.js:25
 msgid "Unique Viewers"
 msgstr "צופים יחודיים"
 
-#: static/dist/js/engagement-video-timeline-main.js
-#: static/js/engagement-video-timeline-main.js
+#: static/js/engagement-video-timeline-main.js:32
 msgid "Replays"
-msgstr "תגובות"
+msgstr "ניגונים מחדש"
 
-#: static/dist/js/engagement-video-timeline-main.js
-#: static/js/engagement-video-timeline-main.js
+#: static/js/engagement-video-timeline-main.js:39
 msgid "Time"
 msgstr "זמן"
 
-#: static/dist/js/engagement-videos-main.js
-#: static/js/engagement-videos-main.js
+#: static/js/engagement-videos-main.js:14
 msgid "Complete Views"
 msgstr "צפיות שהושלמו"
 
-#: static/dist/js/engagement-videos-main.js
-#: static/js/engagement-videos-main.js
+#: static/js/engagement-videos-main.js:22
 msgid "Incomplete Views"
-msgstr "צפיות שלא הושלמו"
+msgstr "צפיות חלקיות"
 
-#: static/dist/js/enrollment-demographics-age-main.js
-#: static/dist/js/enrollment-demographics-age-main.js
-#: static/dist/js/enrollment-demographics-education-main.js
-#: static/js/enrollment-demographics-age-main.js
-#: static/js/enrollment-demographics-age-main.js
-#: static/js/enrollment-demographics-education-main.js
-msgid "Number of Students"
-msgstr "מספר תלמידים"
+#. Translators: this describe the learner's enrollment track (e.g. Honor
+#. certificate)
+#: static/js/enrollment-activity-main.js:33
+msgid "Honor"
+msgstr "קוד אתי"
+
+#: static/js/enrollment-activity-main.js:38
+msgid "Audit"
+msgstr "שומע חופשי"
+
+#: static/js/enrollment-activity-main.js:43
+msgid "Verified"
+msgstr "מאומת"
+
+#: static/js/enrollment-activity-main.js:48
+msgid "Professional"
+msgstr "מקצועי"
+
+#. Translators: this label indicates the learner has registered for academic
+#. credit
+#: static/js/enrollment-activity-main.js:54
+msgid "Verified with Credit"
+msgstr "מאומת בנקודות זכות"
+
+#: static/js/enrollment-demographics-age-main.js:19
+#: static/js/enrollment-demographics-age-main.js:34
+#: static/js/enrollment-demographics-education-main.js:32
+msgid "Number of Learners"
+msgstr "מספר הלומדים"
 
 #. Translators: <%=value%> will be replaced with an age.
-#: static/dist/js/enrollment-demographics-age-main.js
-#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-age-main.js:26
 msgid "Age: <%=value%>"
 msgstr "גיל: <%=value%>"
 
-#: static/dist/js/enrollment-demographics-age-main.js
-#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-age-main.js:33
 msgid "Age"
 msgstr "גיל"
 
-#: static/dist/js/enrollment-demographics-age-main.js
-#: static/js/enrollment-demographics-age-main.js
+#: static/js/enrollment-demographics-age-main.js:35
 msgid "Percent of Total"
-msgstr "אחוז מסה\"כ"
+msgstr "אחוז מסה״כ"
 
-#: static/dist/js/enrollment-demographics-education-main.js
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-demographics-education-main.js
-#: static/js/enrollment-demographics-gender-main.js
+#: static/js/enrollment-demographics-education-main.js:18
+#: static/js/enrollment-demographics-gender-main.js:17
 msgid "Percentage"
 msgstr "אחוז"
 
 #. Translators: <%=value%> will be replaced with a level of education (e.g.
 #. Doctorate).
-#: static/dist/js/enrollment-demographics-education-main.js
-#: static/js/enrollment-demographics-education-main.js
+#: static/js/enrollment-demographics-education-main.js:24
 msgid "Education: <%=value%>"
 msgstr "השכלה: <%=value%>"
 
-#: static/dist/js/enrollment-demographics-education-main.js
-#: static/js/enrollment-demographics-education-main.js
+#: static/js/enrollment-demographics-education-main.js:31
 msgid "Educational Background"
-msgstr "לימודים קודמים"
+msgstr "רקע אקדמי"
 
 #. Translators: <%=value%> will be replaced with a level of gender (e.g.
 #. Female).
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-demographics-gender-main.js
+#: static/js/enrollment-demographics-gender-main.js:23
 msgid "Gender: <%=value%>"
-msgstr "מין: <%=value%>"
+msgstr "מגדר: <%=value%>"
 
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-activity-main.js
-#: static/js/enrollment-demographics-gender-main.js
-msgid "Date"
-msgstr "תאריך"
-
-#. Translators: The noun count (e.g. number of students)
-#. Translators: The noun count (e.g. number of students)
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/dist/js/enrollment-geography-main.js
-#: static/js/enrollment-activity-main.js
-#: static/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-geography-main.js
-msgid "Current Enrollment"
-msgstr "רישום נוכחי"
-
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-demographics-gender-main.js
+#: static/js/enrollment-demographics-gender-main.js:33
 msgid "Female"
 msgstr "נקבה"
 
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-demographics-gender-main.js
+#: static/js/enrollment-demographics-gender-main.js:34
 msgid "Male"
 msgstr "זכר"
 
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-demographics-gender-main.js
+#: static/js/enrollment-demographics-gender-main.js:35
 msgid "Other"
 msgstr "אחר"
 
-#: static/dist/js/enrollment-demographics-gender-main.js
-#: static/js/enrollment-demographics-gender-main.js
+#: static/js/enrollment-demographics-gender-main.js:36
 msgid "Not Reported"
 msgstr "לא מדווח"
 
-#: static/dist/js/enrollment-geography-main.js
-#: static/js/enrollment-geography-main.js
+#: static/js/enrollment-geography-main.js:18
 msgid ""
-"Student location is determined from IP address. This map shows where "
-"students most recently connected."
-msgstr ""
-"מיקום התלמיד נקבע באמצעות כתובת IP. מפה זו מראה מהיכן התחברו תלמידים "
-"לאחרונה."
+"Learner location is determined from IP address. This map shows where "
+"learners most recently connected."
+msgstr "מיקום הלומד נקבע באמצעות כתובת IP. מפה זו מראה היכן הלומדים התחברו לאחרונה."
 
-#: static/dist/js/enrollment-geography-main.js
-#: static/js/enrollment-geography-main.js
-msgid "Country"
-msgstr "מדינה"
+#: static/js/enrollment-geography-main.js:26
+msgid "Country or Region"
+msgstr "מדינה או אזור"
 
-#: static/dist/js/enrollment-geography-main.js
-#: static/js/enrollment-geography-main.js
+#: static/js/enrollment-geography-main.js:27
 msgid "Percent"
 msgstr "אחוז"
 
-#: static/dist/js/performance-answer-distribution-main.js
-#: static/js/performance-answer-distribution-main.js
+#: static/js/performance-answer-distribution-main.js:12
 msgid "Answer"
 msgstr "תשובה"
 
-#: static/dist/js/performance-answer-distribution-main.js
-#: static/js/performance-answer-distribution-main.js
+#. Translators: "Correct" is displayed in a table..
+#: static/js/performance-answer-distribution-main.js:15
+#: static/js/performance-answer-distribution-main.js:43
+#: static/js/performance-learning-outcomes-section-main.js:11
+#: static/js/performance-learning-outcomes-section-main.js:37
+#: static/js/performance-problems-main.js:11
+#: static/js/views/data-table-view.js:216
+msgid "Correct"
+msgstr "נכון"
+
+#: static/js/performance-answer-distribution-main.js:16
 msgid "Submission Count"
 msgstr "מספר ההגשות"
 
-#: static/dist/js/performance-answer-distribution-main.js
-#: static/js/performance-answer-distribution-main.js
+#: static/js/performance-answer-distribution-main.js:30
 msgid "Variant"
-msgstr "גירסה"
+msgstr "גרסה אחרת"
 
-#. Translators: <%=value%> will be replaced by a student response to a
-#. question asked in a course.
-#: static/dist/js/performance-answer-distribution-main.js
-#: static/js/performance-answer-distribution-main.js
-msgid "Answer: <%=value%>"
-msgstr "תשובה: <%=value%>"
-
-#: static/dist/js/performance-content-main.js
-#: static/js/performance-content-main.js
-msgid "Average Correct"
-msgstr "ממוצע תשובות נכונות"
-
-#: static/dist/js/performance-content-main.js
-#: static/js/performance-content-main.js
-msgid "Average Incorrect"
-msgstr "ממוצע תשובות לא נכונות"
-
-#: static/dist/js/performance-content-main.js
-#: static/js/performance-content-main.js
-msgid "Problems"
-msgstr "בעיות"
-
-#: static/dist/js/performance-content-main.js
-#: static/js/performance-content-main.js
-msgid "Average Submissions Per Problem"
-msgstr "ממוצע הגשות פר בעיה"
-
-#: static/dist/js/performance-content-main.js
-#: static/dist/js/performance-problems-main.js
-#: static/js/performance-content-main.js
-#: static/js/performance-problems-main.js
-msgid "Percentage Correct"
-msgstr "אחוז נכון"
-
-#: static/dist/js/performance-problems-main.js
-#: static/js/performance-answer-distribution-main.js
-#: static/js/performance-problems-main.js
+#: static/js/performance-answer-distribution-main.js:45
+#: static/js/performance-learning-outcomes-section-main.js:20
+#: static/js/performance-learning-outcomes-section-main.js:45
+#: static/js/performance-problems-main.js:19
 msgid "Incorrect"
 msgstr "שגוי"
 
-#: static/dist/js/performance-problems-main.js
-#: static/js/performance-problems-main.js
+#. Translators: <%=value%> will be replaced by a learner response to a
+#. question asked in a course.
+#: static/js/performance-answer-distribution-main.js:60
+msgid "Answer: <%=value%>"
+msgstr "תשובה: <%=value%>"
+
+#: static/js/performance-content-main.js:11
+#: static/js/performance-learning-outcomes-content-main.js:11
+msgid "Average Correct"
+msgstr "ממוצע תשובות נכונות"
+
+#: static/js/performance-content-main.js:20
+#: static/js/performance-learning-outcomes-content-main.js:20
+msgid "Average Incorrect"
+msgstr "ממוצע תשובות שגויות"
+
+#: static/js/performance-content-main.js:30
+msgid "Problems"
+msgstr "בעיות"
+
+#: static/js/performance-content-main.js:39
+msgid "Average Submissions Per Problem"
+msgstr "ממוצע הגשות לבעיה"
+
+#: static/js/performance-content-main.js:48
+#: static/js/performance-learning-outcomes-content-main.js:46
+#: static/js/performance-learning-outcomes-section-main.js:61
+#: static/js/performance-problems-main.js:43
+msgid "Percentage Correct"
+msgstr "אחוז נכון"
+
+#: static/js/performance-learning-outcomes-content-main.js:38
+msgid "Average Submissions per Problem"
+msgstr "ממוצע הגשות לבעיה"
+
+#: static/js/performance-learning-outcomes-section-main.js:30
+msgid "Difficulty"
+msgstr "קושי"
+
+#: static/js/performance-learning-outcomes-section-main.js:53
+#: static/js/performance-problems-main.js:35
 msgid "Total"
-msgstr "סה\"כ"
+msgstr "סה״כ"
 
-#: static/js/engagement-content-main.js
-msgid "Percent of Current Students"
-msgstr ""
+#: static/js/utils/utils.js:93
+msgid "..."
+msgstr "..."
 
-#: static/js/enrollment-activity-main.js
-msgid "Honor Code"
-msgstr "קוד אתי"
+#. Translators: (empty) is displayed in a table and indicates no label/value.
+#. Keep text in the parenthesis or an equivalent symbol.
+#. Translators: (empty) is displayed as a label in a chart and indicates that
+#. no label was provided.
+#: static/js/views/data-table-view.js:199
+#: static/js/views/discrete-bar-view.js:21
+msgid "(empty)"
+msgstr "(ריק)"
 
-#: static/js/enrollment-activity-main.js
-msgid "Verified"
-msgstr "מאומת"
-
-#: static/js/enrollment-activity-main.js
-msgid "Professional"
-msgstr "מקצועי"
+#. Translators: <%=value%> will be replaced by a number followed by a
+#. percentage.
+#. For example, "400 (29%)"
+#: static/js/views/stacked-bar-view.js:13
+msgid "<%=value%> (<%=percent%>)"
+msgstr "<%=value%> (<%=percent%>)"

@@ -19,8 +19,8 @@ RESEARCH_URL = os.environ.get('RESEARCH_URL', 'http://example.com/')
 SHOW_LANDING_RESEARCH = str2bool(os.environ.get('SHOW_LANDING_RESEARCH', True))
 
 # Analytics data API settings
-API_SERVER_URL = os.environ['API_SERVER_URL']
-API_AUTH_TOKEN = os.environ['API_AUTH_TOKEN']
+API_SERVER_URL = os.environ.get('API_SERVER_URL', 'http://localhost:9001')
+API_AUTH_TOKEN = os.environ.get('API_AUTH_TOKEN', 'edx')
 
 # Test configuration
 ENABLE_AUTO_AUTH = str2bool(os.environ.get('ENABLE_AUTO_AUTH', False))
@@ -62,16 +62,30 @@ TEST_VIDEO_ID = os.environ.get('TEST_VIDEO_ID',
 
 DOC_BASE_URL = os.environ.get('DOC_BASE_URL', 'http://edx-insights.readthedocs.org/en/latest')
 
-ENABLE_ENROLLMENT_MODES = str2bool(os.environ.get('ENABLE_ENROLLMENT_MODES', False))
 ENABLE_FORUM_POSTS = str2bool(os.environ.get('ENABLE_FORUM_POSTS', False))
 
 # Course API settings
 ENABLE_COURSE_API = str2bool(os.environ.get('ENABLE_COURSE_API', False))
 COURSE_API_URL = os.environ.get('COURSE_API_URL')
+GRADING_POLICY_API_URL = os.environ.get('GRADING_POLICY_API_URL')
 COURSE_API_KEY = os.environ.get('COURSE_API_KEY')
 
-if ENABLE_COURSE_API and not (COURSE_API_URL and COURSE_API_KEY):
+if ENABLE_COURSE_API and not (GRADING_POLICY_API_URL and COURSE_API_URL and COURSE_API_KEY):
     raise Exception('Course API details not supplied!')
 
 # Video preview
 ENABLE_VIDEO_PREVIEW = str2bool(os.environ.get('ENABLE_VIDEO_PREVIEW', False))
+
+# Learner analytics
+DISPLAY_LEARNER_ANALYTICS = str2bool(os.environ.get('DISPLAY_LEARNER_ANALYTICS', False))
+
+# Course listing
+ENABLE_COURSE_LIST_FILTERS = str2bool(os.environ.get('ENABLE_COURSE_LIST_FILTERS', False))
+ENABLE_COURSE_LIST_PASSING = str2bool(os.environ.get('ENABLE_COURSE_LIST_PASSING', False))
+
+# Soapbox Messages tests constants
+SOAPBOX_GLOBAL_MESSAGE = 'Test global message'
+SOAPBOX_SINGLE_PAGE_MESSAGE = 'Test single-page message'
+SOAPBOX_INACTIVE_MESSAGE = 'Test inactive message'
+SOAPBOX_SINGLE_PAGE_VIEW = 'insights_home'
+SOAPBOX_SINGLE_PAGE_PATH = 'courses/'

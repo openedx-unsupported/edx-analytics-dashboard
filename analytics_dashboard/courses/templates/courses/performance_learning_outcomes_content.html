@@ -1,0 +1,21 @@
+{% extends "courses/base_performance_learning_outcomes.html" %}
+{% load i18n %}
+{% load render_bundle from webpack_loader %}
+
+{% block content_nav %}
+    {% trans "Measured by learning outcome, how are learners performing?" as heading_note %}
+    {% include "courses/_tags_content_nav.html" with active="first_level" first_levels=js_data.first_level_content_nav heading_note=heading_note %}
+{% endblock %}
+
+{% block javascript %}
+    {{ block.super }}
+    {% render_bundle 'performance-learning-outcomes-content-main' %}
+{% endblock javascript %}
+
+{% block chart_tip_text %}
+    {% trans "Each bar shows the average number of correct and incorrect submissions for each outcome." %}
+{% endblock %}
+
+{% block table_title %}
+    {% trans "Outcome Submissions" %}
+{% endblock %}

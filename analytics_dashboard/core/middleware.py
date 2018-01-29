@@ -28,6 +28,6 @@ class ServiceUnavailableExceptionMiddleware(object):
     """
 
     def process_exception(self, request, exception):
-        if type(exception) is ServiceUnavailableError:
+        if isinstance(exception, ServiceUnavailableError):
             logger.exception(exception)
             return TemplateResponse(request, '503.html', status=503)

@@ -4,7 +4,7 @@
 {% load staticfiles %}
 {% load waffle_tags %}
 {% load dashboard_extras %}
-{% load rjs %}
+{% load render_bundle from webpack_loader %}
 
 {% comment %}
 Individual course-centric engagement content view.
@@ -14,24 +14,25 @@ Individual course-centric engagement content view.
 
 {% block javascript %}
   {{ block.super }}
-  <script src="{% static_rjs 'js/engagement-content-main.js' %}"></script>
+  {% render_bundle 'engagement-content-main' %}
 {% endblock javascript %}
 
 {% block child_content %}
   <section class="view-section" aria-hidden="true">
     <div class="section-heading">
-      <h4 class="section-title">{% trans "Weekly Student Engagement" %}</h4>
-      <span class="section-heading-note small">{% trans "How many students are interacting with my course?" %}</span>
+      <h4 class="section-title">{% trans "Weekly Learner Engagement" %}</h4>
+      <span class="section-heading-note small">{% trans "How many learners are interacting with my course?" %}</span>
     </div>
 
     {% if js_data.course.engagementTrends %}
         <div class="section-content section-data-graph">
           <div class="section-content section-data-viz">
                 <div class="analytics-chart-container">
-                    <div class="chart-info">{% trans "Students" %}</div>
-                    {% trans "The number of active students, and the number of students who engaged in specific activities, over time." as tip_text %}
+                    <div class="chart-info">{% trans "Learners" %}</div>
+                    {% trans "The number of active learners, and the number of learners who engaged in specific activities, over time." as tip_text %}
                     {% include "chart_tooltip.html" with tip_text=tip_text track_category="trend"%}
-                    <div id="engagement-trend-view" class="analytics-chart">
+                    <div id="engagement-trend-view" class="analytics-chart" data-track-type="hover"
+                        data-track-event="edx.bi.graph.interacted" data-track-category="engagement_content">
                         {% include "loading.html" %}
                     </div>
                 </div>
@@ -44,36 +45,36 @@ Individual course-centric engagement content view.
 
   <section class="view-section">
     <div class="section-heading bordered">
-      <h4 class="section-title">{% trans "Student Activity Metrics" %}</h4>
+      <h4 class="section-title">{% trans "Learner Activity Metrics" %}</h4>
     </div>
 
     {% if summary %}
         <div class="row">
-          <div class="col-xs-12 col-sm-3" data-activity-type="any">
-            {% trans "Active Students Last Week" as label %}
-            {% trans "Students who visited at least one page in the course content." as tooltip %}
+          <div class="col col-12 sm-col-12 md-col-3" data-activity-type="any">
+            {% trans "Active Learners Last Week" as label %}
+            {% trans "Learners who visited at least one page in the course content." as tooltip %}
             {% summary_point summary.any label tooltip=tooltip additional_value=summary.any_percent_str %}
           </div>
 
-          <div class="col-xs-12 col-sm-3" data-activity-type="played_video">
-            {# Translators: This is a label indicating the number of students who watched a video. #}
+          <div class="col col-12 sm-col-12 md-col-3" data-activity-type="played_video">
+            {# Translators: This is a label indicating the number of learners who watched a video. #}
             {% trans "Watched a Video Last Week" as label %}
-            {% trans "Students who played one or more videos." as tooltip %}
+            {% trans "Learners who played one or more videos." as tooltip %}
             {% summary_point summary.played_video label tooltip=tooltip additional_value=summary.played_video_percent_str %}
           </div>
 
-          <div class="col-xs-12 col-sm-3" data-activity-type="attempted_problem">
-            {# Translators: This is a label indicating the number of students who tried a problem. #}
+          <div class="col col-12 sm-col-12 md-col-3" data-activity-type="attempted_problem">
+            {# Translators: This is a label indicating the number of learners who tried a problem. #}
             {% trans "Tried a Problem Last Week" as label %}
-            {% trans "Students who submitted an answer for a standard problem. Not all problem types are included." as tooltip %}
+            {% trans "Learners who submitted an answer for a standard problem. Not all problem types are included." as tooltip %}
             {% summary_point summary.attempted_problem label tooltip=tooltip additional_value=summary.attempted_problem_percent_str %}
           </div>
 
           {% switch show_engagement_forum_activity %}
-            <div class="col-xs-12 col-sm-3" data-activity-type="posted_forum">
-              {# Translators: This is a label indicating the number of students who posted in a forum discussion. #}
-              {% trans "Posted in a Discussion Last Week" as label %}
-              {% trans "Students who contributed to any discussion topic." as tooltip %}
+            <div class="col col-12 sm-col-12 md-col-3" data-activity-type="posted_forum">
+              {# Translators: This is a label indicating the number of learners who posted in a forum discussion. #}
+              {% trans "Participated in Discussions Last Week" as label %}
+              {% trans "Learners who added a post, response, or comment to any course discussion." as tooltip %}
               {% summary_point summary.posted_forum label tooltip=tooltip additional_value=summary.posted_forum_percent_str %}
             </div>
           {% endswitch %}
@@ -92,7 +93,7 @@ Individual course-centric engagement content view.
             <a href="{% url 'courses:csv:engagement_activity_trend' course_id=course_id %}" class="btn btn-default"
                data-role="engagement-trend-csv" data-track-type="click"
                data-track-event="edx.bi.csv.downloaded" data-track-category="trend">
-              <i class="ico fa fa-download" aria-hidden="true"></i> {% trans "Download CSV" %}
+              <span class="ico fa fa-download" aria-hidden="true"></span> {% trans "Download CSV" %}
               <span class="sr-only">{% trans "Content Engagement Breakdown" %}</span>
             </a>
         {% endif %}

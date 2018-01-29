@@ -1,32 +1,37 @@
 import json
 import logging
 
-from analyticsclient.exceptions import ClientError, NotFoundError
 from ddt import ddt
+import httpretty
+from mock import patch, Mock
+
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 from django.utils.translation import ugettext_lazy as _
-import httpretty
-from mock import patch, Mock
+
+from slugify import slugify
+from waffle.testutils import override_switch
+
+from analyticsclient.exceptions import ClientError, NotFoundError
 
 from courses.tests import utils
-from courses.tests.factories import CoursePerformanceDataFactory
-from courses.tests.test_views import (DEMO_COURSE_ID, CourseStructureViewMixin, CourseAPIMixin, PatchMixin)
+from courses.tests.factories import CoursePerformanceDataFactory, TagsDistributionDataFactory
+from courses.tests.test_views import (CourseStructureViewMixin, CourseAPIMixin, PatchMixin)
+from courses.tests.utils import CourseSamples
 
 
 logger = logging.getLogger(__name__)
 
 
-@ddt
 # pylint: disable=abstract-method
+@ddt
 class CoursePerformanceViewTestMixin(PatchMixin, CourseStructureViewMixin, CourseAPIMixin):
 
     def setUp(self):
         super(CoursePerformanceViewTestMixin, self).setUp()
-        self.toggle_switch('enable_course_api', True)
         self.factory = CoursePerformanceDataFactory()
-        self.factory.course_id = DEMO_COURSE_ID
+        self.factory.course_id = CourseSamples.DEMO_COURSE_ID
 
     def get_mock_data(self, course_id):
         # The subclasses don't need this.
@@ -39,25 +44,41 @@ class CoursePerformanceViewTestMixin(PatchMixin, CourseStructureViewMixin, Cours
         expected = {
             'icon': 'fa-check-square-o',
             'href': reverse('courses:performance:graded_content', kwargs={'course_id': course_id}),
-            'label': _('Performance'),
-            'name': 'performance'
+            'text': 'Performance',
+            'translated_text': _('Performance'),
+            'name': 'performance',
+            'fragment': '',
+            'scope': 'course',
+            'lens': 'performance',
+            'report': 'graded',
+            'depth': ''
         }
         self.assertDictEqual(nav, expected)
 
-    def get_expected_secondary_nav(self, _course_id):
+    def get_expected_secondary_nav(self, course_id):
         """ Override this for each page. """
         return [
             {
-                'active': True,
+                'active': False,
                 'name': 'graded_content',
-                'label': _('Graded Content'),
-                'href': '#'
+                'text': 'Graded Content',
+                'translated_text': _('Graded Content'),
+                'href': reverse('courses:performance:graded_content', kwargs={'course_id': course_id}),
+                'scope': 'course',
+                'lens': 'performance',
+                'report': 'graded',
+                'depth': ''
             },
             {
-                'active': True,
+                'active': False,
                 'name': 'ungraded_content',
-                'label': _('Ungraded Problems'),
-                'href': '#'
+                'text': 'Ungraded Problems',
+                'translated_text': _('Ungraded Problems'),
+                'href': reverse('courses:performance:ungraded_content', kwargs={'course_id': course_id}),
+                'scope': 'course',
+                'lens': 'performance',
+                'report': 'ungraded',
+                'depth': ''
             }
         ]
 
@@ -84,8 +105,8 @@ class CoursePerformanceViewTestMixin(PatchMixin, CourseStructureViewMixin, Cours
         """
         # Nearly all course performance pages rely on retrieving the grading policy.
         # Break that endpoint to simulate an error.
-        course_id = DEMO_COURSE_ID
-        api_path = 'grading_policies/{}/'.format(course_id)
+        course_id = CourseSamples.DEMO_COURSE_ID
+        api_path = self.GRADING_POLICY_API_TEMPLATE.format(course_id=course_id)
         self.mock_course_api(api_path, status=500)
 
         self._test_api_error()
@@ -106,7 +127,7 @@ class CoursePerformanceGradedMixin(CoursePerformanceViewTestMixin):
 
     @httpretty.activate
     def test_invalid_course(self):
-        self._test_invalid_course('grading_policies/{}/')
+        self._test_invalid_course(self.GRADING_POLICY_API_TEMPLATE)
 
     def assertValidContext(self, context):
         """
@@ -123,9 +144,9 @@ class CoursePerformanceGradedMixin(CoursePerformanceViewTestMixin):
 
     def get_expected_secondary_nav(self, course_id):
         expected = super(CoursePerformanceGradedMixin, self).get_expected_secondary_nav(course_id)
-        expected[1].update({
-            'href': reverse('courses:performance:ungraded_content', kwargs={'course_id': course_id}),
-            'active': False
+        expected[0].update({
+            'href': '#',
+            'active': True,
         })
         return expected
 
@@ -153,7 +174,7 @@ class CoursePerformanceUngradedMixin(CoursePerformanceViewTestMixin):
 
     @httpretty.activate
     def test_invalid_course(self):
-        self._test_invalid_course('course_structures/{}/')
+        self._test_invalid_course(self.COURSE_BLOCKS_API_TEMPLATE)
 
     def assertValidContext(self, context):
         expected = {
@@ -164,9 +185,9 @@ class CoursePerformanceUngradedMixin(CoursePerformanceViewTestMixin):
 
     def get_expected_secondary_nav(self, course_id):
         expected = super(CoursePerformanceUngradedMixin, self).get_expected_secondary_nav(course_id)
-        expected[0].update({
-            'href': reverse('courses:performance:graded_content', kwargs={'course_id': course_id}),
-            'active': False
+        expected[1].update({
+            'href': '#',
+            'active': True,
         })
         return expected
 
@@ -186,7 +207,7 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformanceViewTestMixin):
 
     @httpretty.activate
     def _test_valid_course(self, rv):
-        course_id = DEMO_COURSE_ID
+        course_id = CourseSamples.DEMO_COURSE_ID
 
         # Mock the course details
         self.mock_course_detail(course_id)
@@ -242,7 +263,7 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformanceViewTestMixin):
         """
         The view should return HTTP 404 if the answer distribution data is missing.
         """
-        course_id = DEMO_COURSE_ID
+        course_id = CourseSamples.DEMO_COURSE_ID
 
         # Mock the course details
         self.mock_course_detail(course_id)
@@ -251,6 +272,7 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformanceViewTestMixin):
         self.assertEqual(response.status_code, 404)
 
 
+@override_switch('enable_course_api', active=True)
 @ddt
 class CoursePerformanceGradedAnswerDistributionViewTests(CoursePerformanceAnswerDistributionMixin,
                                                          CoursePerformanceGradedMixin, TestCase):
@@ -272,6 +294,7 @@ class CoursePerformanceGradedAnswerDistributionViewTests(CoursePerformanceAnswer
         self._test_valid_course(self.factory.presented_assignments[0]['children'][0])
 
 
+@override_switch('enable_course_api', active=True)
 @ddt
 class CoursePerformanceUngradedAnswerDistributionViewTests(CoursePerformanceAnswerDistributionMixin,
                                                            CoursePerformanceUngradedMixin, TestCase):
@@ -294,6 +317,7 @@ class CoursePerformanceUngradedAnswerDistributionViewTests(CoursePerformanceAnsw
         self._test_valid_course(self.factory.presented_assignments[0]['children'][0])
 
 
+@override_switch('enable_course_api', active=True)
 class CoursePerformanceGradedContentViewTests(CoursePerformanceGradedMixin, TestCase):
     viewname = 'courses:performance:graded_content'
 
@@ -308,6 +332,7 @@ class CoursePerformanceGradedContentViewTests(CoursePerformanceGradedMixin, Test
         self.assertDictContainsSubset(expected, context)
 
 
+@override_switch('enable_course_api', active=True)
 class CoursePerformanceGradedContentByTypeViewTests(CoursePerformanceGradedMixin, TestCase):
     viewname = 'courses:performance:graded_content_by_type'
 
@@ -339,7 +364,7 @@ class CoursePerformanceGradedContentByTypeViewTests(CoursePerformanceGradedMixin
         Assignments might be missing if the assignment type is invalid or the course is incomplete.
         """
 
-        course_id = DEMO_COURSE_ID
+        course_id = CourseSamples.DEMO_COURSE_ID
 
         # Mock the course details
         self.mock_course_detail(course_id)
@@ -348,6 +373,7 @@ class CoursePerformanceGradedContentByTypeViewTests(CoursePerformanceGradedMixin
         self.assertEqual(response.status_code, 200)
 
 
+@override_switch('enable_course_api', active=True)
 class CoursePerformanceAssignmentViewTests(CoursePerformanceGradedMixin, TestCase):
     viewname = 'courses:performance:assignment'
 
@@ -385,7 +411,7 @@ class CoursePerformanceAssignmentViewTests(CoursePerformanceGradedMixin, TestCas
         Assignments might be missing if the assignment type is invalid or the course is incomplete.
         """
 
-        course_id = DEMO_COURSE_ID
+        course_id = CourseSamples.DEMO_COURSE_ID
 
         # Mock the course details
         self.mock_course_detail(course_id)
@@ -394,18 +420,20 @@ class CoursePerformanceAssignmentViewTests(CoursePerformanceGradedMixin, TestCas
         self.assertEqual(response.status_code, 404)
 
 
+@override_switch('enable_course_api', active=True)
 class CoursePerformanceUngradedContentViewTests(CoursePerformanceUngradedMixin, TestCase):
     viewname = 'courses:performance:ungraded_content'
 
     @httpretty.activate
     @patch('courses.presenters.performance.CoursePerformancePresenter.sections', Mock(return_value=None))
     def test_missing_sections(self):
-        self.mock_course_detail(DEMO_COURSE_ID)
-        response = self.client.get(self.path(course_id=DEMO_COURSE_ID))
+        self.mock_course_detail(CourseSamples.DEMO_COURSE_ID)
+        response = self.client.get(self.path(course_id=CourseSamples.DEMO_COURSE_ID))
         # base page will should return a 200 even if no sections found
         self.assertEqual(response.status_code, 200)
 
 
+@override_switch('enable_course_api', active=True)
 class CoursePerformanceUngradedSectionViewTests(CoursePerformanceUngradedMixin, TestCase):
     viewname = 'courses:performance:ungraded_section'
 
@@ -427,11 +455,12 @@ class CoursePerformanceUngradedSectionViewTests(CoursePerformanceUngradedMixin, 
     @httpretty.activate
     @patch('courses.presenters.performance.CoursePerformancePresenter.section', Mock(return_value=None))
     def test_missing_subsections(self):
-        self.mock_course_detail(DEMO_COURSE_ID)
-        response = self.client.get(self.path(course_id=DEMO_COURSE_ID, section_id='Invalid'))
+        self.mock_course_detail(CourseSamples.DEMO_COURSE_ID)
+        response = self.client.get(self.path(course_id=CourseSamples.DEMO_COURSE_ID, section_id='Invalid'))
         self.assertEqual(response.status_code, 404)
 
 
+@override_switch('enable_course_api', active=True)
 class CoursePerformanceUngradedSubsectionViewTests(CoursePerformanceUngradedMixin, TestCase):
     viewname = 'courses:performance:ungraded_subsection'
 
@@ -456,6 +485,216 @@ class CoursePerformanceUngradedSubsectionViewTests(CoursePerformanceUngradedMixi
     @httpretty.activate
     @patch('courses.presenters.performance.CoursePerformancePresenter.subsection', Mock(return_value=None))
     def test_missing_subsection(self):
-        self.mock_course_detail(DEMO_COURSE_ID)
-        response = self.client.get(self.path(course_id=DEMO_COURSE_ID, section_id='Invalid', subsection_id='Nope'))
+        self.mock_course_detail(CourseSamples.DEMO_COURSE_ID)
+        response = self.client.get(self.path(
+            course_id=CourseSamples.DEMO_COURSE_ID, section_id='Invalid', subsection_id='Nope'))
         self.assertEqual(response.status_code, 404)
+
+
+@override_switch('enable_course_api', active=True)
+class CoursePerformanceLearningOutcomesViewTestMixin(CoursePerformanceViewTestMixin):
+
+    tags_factory = None
+    tags_factory_init_data = []
+
+    def setUp(self):
+        super(CoursePerformanceLearningOutcomesViewTestMixin, self).setUp()
+        self.tags_factory = TagsDistributionDataFactory(self.tags_factory_init_data)
+        self.tags_factory.course_id = CourseSamples.DEMO_COURSE_ID
+
+    def _check_invalid_course(self, expected_status_code=404):
+        course_id = 'fakeOrg/soFake/Fake_Course'
+        params = {'course_id': course_id}
+
+        self.grant_permission(self.user, course_id)
+        with patch('analyticsclient.course.Course.problems_and_tags',
+                   Mock(return_value=self.tags_factory.problems_and_tags)):
+            response = self.client.get(self.path(**params), follow=True)
+            self.assertEqual(response.status_code, expected_status_code)
+
+    def assertSecondaryNavs(self, secondary_nav_items, course_id):
+        expected = self.get_expected_secondary_nav(course_id)
+        expected[0].update({
+            'href': reverse('courses:performance:graded_content', kwargs={'course_id': course_id}),
+            'active': False
+        })
+        expected[1].update({
+            'href': reverse('courses:performance:ungraded_content', kwargs={'course_id': course_id}),
+            'active': False
+        })
+        expected.append({
+            'active': True,
+            'href': '#',
+            'text': 'Learning Outcomes',
+            'translated_text': _('Learning Outcomes'),
+            'name': 'learning_outcomes',
+            'scope': 'course',
+            'lens': 'performance',
+            'report': 'outcomes',
+            'depth': ''
+        })
+        self.assertListEqual(secondary_nav_items, expected)
+
+    def assertValidContext(self, context):
+        pass
+
+    def test_invalid_course(self):
+        pass
+
+
+class CoursePerformanceLearningOutcomesContentViewTests(CoursePerformanceLearningOutcomesViewTestMixin, TestCase):
+    viewname = 'courses:performance:learning_outcomes'
+    tags_factory_init_data = [{"total_submissions": 21, "correct_submissions": 5,
+                               "tags": {"difficulty": ["Hard"], "learning_outcome": ["Learned a few things"]}},
+                              {"total_submissions": 11, "correct_submissions": 10,
+                               "tags": {"difficulty": ["Easy"], "learning_outcome": ["Learned nothing"]}}]
+
+    @httpretty.activate
+    def test_invalid_course(self):
+        self._check_invalid_course(expected_status_code=200)
+
+    def assertValidContext(self, context):
+        expected_tags_distribution = self.tags_factory.get_expected_tags_distribution('learning_outcome')
+        self.assertEqual(context['js_data']['course']['tagsDistribution'], expected_tags_distribution)
+
+    @httpretty.activate
+    @override_switch('enable_performance_learning_outcome', active=True)
+    def test_valid_course(self):
+        with patch('analyticsclient.course.Course.problems_and_tags',
+                   Mock(return_value=self.tags_factory.problems_and_tags)):
+            super(CoursePerformanceLearningOutcomesContentViewTests, self).test_valid_course()
+
+
+class CoursePerformanceLearningOutcomesSectionViewTests(CoursePerformanceLearningOutcomesViewTestMixin, TestCase):
+    viewname = 'courses:performance:learning_outcomes_section'
+    tags_factory_init_data = [{"total_submissions": 41, "correct_submissions": 10,
+                               "tags": {"difficulty": ["Hard"], "learning_outcome": ["Learned a few things"]}},
+                              {"total_submissions": 25, "correct_submissions": 25,
+                               "tags": {"difficulty": ["Easy"], "learning_outcome": ["Learned nothing"]}},
+                              {"total_submissions": 17, "correct_submissions": 16,
+                               "tags": {"learning_outcome": ["Learned everything"]}},
+                              {"total_submissions": 10, "correct_submissions": 5,
+                               "tags": {"difficulty": ["Hard"]}},
+                              {"total_submissions": 35, "correct_submissions": 31,
+                               "tags": {"learning_outcome": ["Learned nothing"]}},
+                              {"total_submissions": 105, "correct_submissions": 10,
+                               "tags": {"difficulty": ["Hard"], "learning_outcome": ["Learned everything"]}}]
+
+    def path(self, **kwargs):
+        kwargs.update({
+            'tag_value': slugify('Learned nothing')
+        })
+        return super(CoursePerformanceLearningOutcomesSectionViewTests, self).path(**kwargs)
+
+    @httpretty.activate
+    @patch('courses.presenters.performance.TagsDistributionPresenter._get_structure', Mock(side_effect=NotFoundError))
+    def test_invalid_course(self):
+        self._check_invalid_course()
+
+    def assertValidContext(self, context):
+        expected_modules = self.tags_factory.get_expected_modules_marked_with_tag('learning_outcome', 'Learned nothing')
+        self.assertEqual(context['js_data']['course']['tagsDistribution'], expected_modules)
+
+    @httpretty.activate
+    @override_switch('enable_performance_learning_outcome', active=True)
+    def test_valid_course(self):
+        with patch('courses.presenters.performance.TagsDistributionPresenter._get_structure',
+                   Mock(return_value=self.tags_factory.structure)):
+            with patch('analyticsclient.course.Course.problems_and_tags',
+                       Mock(return_value=self.tags_factory.problems_and_tags)):
+                super(CoursePerformanceLearningOutcomesSectionViewTests, self).test_valid_course()
+
+
+class CoursePerformanceLearningOutcomesAnswersDistributionViewTests(
+        CoursePerformanceAnswerDistributionMixin,
+        CoursePerformanceLearningOutcomesViewTestMixin,
+        TestCase):
+    viewname = 'courses:performance:learning_outcomes_answers_distribution'
+
+    tags_factory_init_data = [{"total_submissions": 41, "correct_submissions": 10,
+                               "tags": {"difficulty": ["Hard"], "learning_outcome": ["Learned a few things"]}},
+                              {"total_submissions": 25, "correct_submissions": 25,
+                               "tags": {"difficulty": ["Easy"], "learning_outcome": ["Learned nothing"]}},
+                              {"total_submissions": 17, "correct_submissions": 16,
+                               "tags": {"learning_outcome": ["Learned everything"]}},
+                              {"total_submissions": 10, "correct_submissions": 5,
+                               "tags": {"difficulty": ["Hard"]}},
+                              {"total_submissions": 35, "correct_submissions": 31,
+                               "tags": {"learning_outcome": ["Learned nothing"]}},
+                              {"total_submissions": 105, "correct_submissions": 10,
+                               "tags": {"difficulty": ["Hard"], "learning_outcome": ["Learned everything"]}}]
+
+    def path(self, **kwargs):
+        kwargs.update({
+            'tag_value': slugify('Learned nothing'),
+            'problem_id': self.PROBLEM_ID
+        })
+        return super(CoursePerformanceLearningOutcomesAnswersDistributionViewTests, self).path(**kwargs)
+
+    @patch('courses.presenters.performance.TagsDistributionPresenter.get_modules_marked_with_tag',
+           Mock(return_value={}))
+    @patch('courses.presenters.performance.CoursePerformancePresenter.course_module_data', Mock(return_value={}))
+    def test_missing_distribution_data(self):
+        """
+        The view should return HTTP 404 if the answer distribution data is missing.
+        """
+        with patch('analyticsclient.course.Course.problems_and_tags',
+                   Mock(return_value=self.tags_factory.problems_and_tags)):
+            super(CoursePerformanceLearningOutcomesAnswersDistributionViewTests, self).test_missing_distribution_data()
+
+    @httpretty.activate
+    @patch('courses.presenters.performance.CoursePerformancePresenter.course_module_data', Mock(return_value={}))
+    @patch('courses.presenters.performance.TagsDistributionPresenter._get_structure', Mock(side_effect=NotFoundError))
+    def test_invalid_course(self):
+        self._check_invalid_course()
+
+    @httpretty.activate
+    @override_switch('enable_course_api', active=True)
+    @override_switch('enable_performance_learning_outcome', active=True)
+    @patch('courses.presenters.performance.CoursePerformancePresenter.course_module_data', Mock(return_value={}))
+    def test_valid_course(self):
+        with patch('courses.presenters.performance.TagsDistributionPresenter._get_structure',
+                   Mock(return_value=self.tags_factory.structure)):
+            with patch('analyticsclient.course.Course.problems_and_tags',
+                       Mock(return_value=self.tags_factory.problems_and_tags)):
+                course_id = CourseSamples.DEMO_COURSE_ID
+
+                # Mock the course details
+                self.mock_course_detail(course_id)
+                with patch('courses.presenters.performance.CoursePerformancePresenter.block',
+                           return_value=None):
+                    self.assertViewIsValid(course_id, self.PROBLEM_ID, self.TEXT_PROBLEM_PART_ID)
+
+    def assertValidContext(self, context):
+        expected_modules = self.tags_factory.get_expected_modules_marked_with_tag('learning_outcome', 'Learned nothing')
+        self.assertEqual(context['js_data']['course']['tagsDistribution'], expected_modules)
+
+    def assertViewIsValid(self, course_id, problem_id, problem_part_id):
+        # Mock the answer distribution and retrieve the view
+        rv = utils.get_presenter_answer_distribution(course_id, problem_part_id)
+        with patch(self.presenter_method, return_value=rv):
+            response = self.client.get(self.path(course_id=course_id))
+
+        context = response.context
+
+        self.assertEqual(response.status_code, 200)
+        self.assertValidContext(response.context)
+        self.assertPrimaryNav(response.context['primary_nav_item'], course_id)
+        self.assertSecondaryNavs(response.context['secondary_nav_items'], course_id)
+
+        self.assertListEqual(context['questions'], rv.questions)
+        self.assertDictContainsSubset(
+            {
+                'problem_id': problem_id,
+                'view_live_url': '{}/{}/jump_to/{}'.format(settings.LMS_COURSE_SHORTCUT_BASE_URL, course_id,
+                                                           problem_id),
+                'active_question': rv.active_question,
+                'questions': rv.questions
+            }, context)
+        self.assertDictContainsSubset(
+            {
+                'isRandom': rv.is_random,
+                'answerType': rv.answer_type,
+                'answerDistribution': rv.answer_distribution,
+                'answerDistributionLimited': rv.answer_distribution_limited,
+            }, json.loads(context['page_data'])['course'])

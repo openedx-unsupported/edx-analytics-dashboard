@@ -1,7 +1,7 @@
 {% load soapbox %}
-{% load announcements_tags %}
+{% load pinax_announcements_tags %}
 
-{% get_messages_for_page view.page_name as soapbox_messages %}
+{% get_messages_for_page view.page_name.name as soapbox_messages %}
 {% for message in soapbox_messages %}
   {% include "_announcement.html" with message=message %}
 {% endfor %}
