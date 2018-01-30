@@ -8,7 +8,8 @@
 # cblackburn <cblackburn@edx.org>, 2015
 # Enrique Centelles <ecentelles2003@yahoo.es>, 2014
 # Enrique Ros Carrión <enrique.ros.cp@gmail.com>, 2016
-# spentamanyu <i.delamo@gmail.com>, 2014
+# Francisco Javier Gallego Rosado <fgallego@grupoeuroformac.com>, 2018
+# spentamanyu <i.delamo@gmail.com>, 2014,2018
 # jorge jorge marrero <jjorgewill@gmail.com>, 2016
 # Mariangeles Fernandez <mariangelesfm@gmail.com>, 2015
 # Miguel Angel Cordova <miguel.angel.cordova.uned@gmail.com>, 2017
@@ -19,6 +20,7 @@
 # Pablo Fernández Ferreira <fernandezferreira@gmail.com>, 2016
 # Rocío Pérez Venero <perezvenero.rocio@gmail.com>, 2015
 # UAMx <uamx.dev@gmail.com>, 2014-2015
+# URJConline <online.mooc@urjc.es>, 2017
 # Valeria Freire <valtodopds@hotmail.com>, 2014
 # Verónica López Fernández <veronicalopezfernandez@gmail.com>, 2014
 # Walter Ronald Perez Estrada <wrpereze@unc.edu.pe>, 2015
@@ -27,8 +29,8 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2017-09-23 20:11+0000\n"
-"Last-Translator: Miguel Angel Cordova <miguel.angel.cordova.uned@gmail.com>\n"
+"PO-Revision-Date: 2018-01-23 08:01+0000\n"
+"Last-Translator: Francisco Javier Gallego Rosado <fgallego@grupoeuroformac.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/open-edx/edx-platform/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,7 +56,7 @@ msgstr "¿Quiénes son mis alumnos?"
 
 #: core/templates/core/landing.html:43
 msgid "Target your course to fit the backgrounds of your learners."
-msgstr ""
+msgstr "Dirija su curso para adaptarlo a los antecedentes de sus alumnos."
 
 #: core/templates/core/landing.html:44
 #: courses/templates/courses/enrollment_geography.html:28
@@ -65,13 +67,13 @@ msgstr "Inscripciones"
 
 #: core/templates/core/landing.html:47
 msgid "What are learners engaging with in my course?"
-msgstr ""
+msgstr "¿Qué están aprendiendo los estudiantes en mi curso?"
 
 #: core/templates/core/landing.html:48
 msgid ""
 "Improve frequently accessed content, or point learners at underused "
 "resources."
-msgstr ""
+msgstr "Mejorar el contenido con acceso frecuente, o apuntar a los alumnos a los recursos infrautilizados."
 
 #: core/templates/core/landing.html:49
 #: courses/tests/test_views/test_engagement.py:44
@@ -81,11 +83,11 @@ msgstr "Compromiso"
 
 #: core/templates/core/landing.html:52
 msgid "How well is my content supporting learners?"
-msgstr ""
+msgstr "¿Cómo está ayudando mi contenido al aprendizaje de los alumnos?"
 
 #: core/templates/core/landing.html:53
 msgid "Adjust your course based on where learners are struggling."
-msgstr ""
+msgstr "Ajusta tu curso basándote en los sitios donde los alumnos están teniendo problemas."
 
 #: core/templates/core/landing.html:54
 #: courses/tests/test_views/test_performance.py:48
@@ -174,7 +176,7 @@ msgstr "Primaria"
 #. School Degree).
 #: courses/presenters/enrollment.py:49
 msgid "Middle"
-msgstr "Escuela `media"
+msgstr "Escuela intermedia"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:51
@@ -250,7 +252,7 @@ msgstr "Parte {part_number}"
 #: courses/templates/courses/_base_content_nav.html:25
 #, python-format
 msgid "%(all_sections_text)s"
-msgstr ""
+msgstr "1 %(all_sections_text)s"
 
 #: courses/templates/courses/_graded_content_nav.html:16
 msgid "Select Assignment Type"
@@ -357,7 +359,7 @@ msgstr "Descargar CSV"
 
 #: courses/templates/courses/base_performance_answer_distribution.html:117
 msgid "Learner Submission Counts"
-msgstr ""
+msgstr "Número de entregas del alumno"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html:4
@@ -565,7 +567,7 @@ msgstr "Inscripción total"
 #. Translators: This is a label indicating the number of learners in a course.
 #: courses/templates/courses/enrollment_activity.html:61
 msgid "Learners who ever enrolled in the course."
-msgstr ""
+msgstr "Estudiantes que se inscribieron en el curso."
 
 #. Translators: This is a label to identify current learner enrollment.
 #. Translators: This is a label to identify the current number of learners in
@@ -579,7 +581,7 @@ msgstr "Inscripción actual"
 #. a course.
 #: courses/templates/courses/enrollment_activity.html:70
 msgid "Learners currently enrolled in the course."
-msgstr ""
+msgstr "Estudiantes matriculados en este curso."
 
 #. Translators: This is a label indicating the change in the number of
 #. learners enrolled in a course since the previous week.
@@ -609,7 +611,7 @@ msgstr "Inscripciones verificadas"
 msgid ""
 "Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
-msgstr ""
+msgstr "Número de estudiantes actualmente matriculados que buscan un certificado verificado."
 
 #: courses/templates/courses/enrollment_activity.html:99
 #: courses/templates/courses/enrollment_activity.html:107
