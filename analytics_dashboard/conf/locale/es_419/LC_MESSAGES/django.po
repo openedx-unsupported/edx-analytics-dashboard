@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2018-01-26 15:45+0000\n"
+"PO-Revision-Date: 2018-02-09 22:21+0000\n"
 "Last-Translator: Albeiro Gonzalez <albeiro.gonzalez@edunext.co>\n"
 "Language-Team: Spanish (Latin America) (http://www.transifex.com/open-edx/edx-platform/language/es_419/)\n"
 "MIME-Version: 1.0\n"
@@ -137,7 +137,7 @@ msgstr "{statistic}%"
 #: courses/presenters/engagement.py:126
 #, python-brace-format
 msgid "{percentage} of current learners"
-msgstr "{percentage} de estudiantes"
+msgstr "{percentage} de los estudiantes existentes"
 
 #: courses/presenters/enrollment.py:23
 msgid "Female"
@@ -175,7 +175,7 @@ msgstr "Primaria"
 #. School Degree).
 #: courses/presenters/enrollment.py:49
 msgid "Middle"
-msgstr "Media"
+msgstr "Educación media"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:51
@@ -186,7 +186,7 @@ msgstr "Secundaria"
 #. Degree).
 #: courses/presenters/enrollment.py:53
 msgid "Associate"
-msgstr "Asociado"
+msgstr "Técnico"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
@@ -198,7 +198,7 @@ msgstr "Licenciatura"
 #. Degree).
 #: courses/presenters/enrollment.py:57
 msgid "Master's"
-msgstr "Máster"
+msgstr "Maestría"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
@@ -295,7 +295,7 @@ msgstr "Todos los resultados"
 #: courses/templates/courses/_ungraded_content_nav.html:16
 #: courses/templates/courses/_video_content_nav.html:16
 msgid "Select Section"
-msgstr "Escoja la sección"
+msgstr "Seleccione la sección"
 
 #: courses/templates/courses/_ungraded_content_nav.html:20
 #: courses/templates/courses/_video_content_nav.html:20
@@ -317,7 +317,7 @@ msgstr "Video anterior"
 
 #: courses/templates/courses/_video_module_controls.html:15
 msgid "Next Video"
-msgstr "Video siguiente"
+msgstr "Siguiente Vídeo"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html:60
@@ -367,7 +367,7 @@ msgstr "Estudiantes (auto reportado)"
 
 #: courses/templates/courses/engagement_content.html:23
 msgid "Weekly Learner Engagement"
-msgstr "Participación Semanal de Estudiantes"
+msgstr "Participación Semanal de los estudiantes"
 
 #: courses/templates/courses/engagement_content.html:24
 #: courses/views/__init__.py:556
@@ -392,7 +392,7 @@ msgstr "Métricas de actividades de estudiantes"
 
 #: courses/templates/courses/engagement_content.html:54
 msgid "Active Learners Last Week"
-msgstr "Estudiantes activos durante la semana pasada"
+msgstr "Estudiantes activos durante la última semana"
 
 #: courses/templates/courses/engagement_content.html:55
 msgid "Learners who visited at least one page in the course content."
@@ -402,17 +402,17 @@ msgstr "Estudiantes que visitaron al menos una página del contenido del curso."
 #. a video.
 #: courses/templates/courses/engagement_content.html:61
 msgid "Watched a Video Last Week"
-msgstr "Vieron un video la última semana"
+msgstr "Estudiantes que vieron un vídeo en la última semana"
 
 #: courses/templates/courses/engagement_content.html:62
 msgid "Learners who played one or more videos."
-msgstr "Estudiantes que vieron al menos un video."
+msgstr "Estudiantes que reprodujeron al menos un vídeo."
 
 #. Translators: This is a label indicating the number of learners who tried a
 #. problem.
 #: courses/templates/courses/engagement_content.html:68
 msgid "Tried a Problem Last Week"
-msgstr "Trabajaron en problemas la útima semana"
+msgstr "Estudiantes que probaron un problema en la última semana"
 
 #: courses/templates/courses/engagement_content.html:69
 msgid ""
@@ -441,7 +441,7 @@ msgstr "Distribución del compromiso con los contenidos"
 #: courses/templates/courses/engagement_grouped_content.html:17
 #: courses/templates/courses/views_chart_info.html:4
 msgid "Video Views"
-msgstr "Visualizaciones de video"
+msgstr "Vistas de los vídeos"
 
 #: courses/templates/courses/engagement_video_by_section.html:5
 msgid "How did learners interact with videos in this section?"
@@ -452,7 +452,7 @@ msgid ""
 "Each bar shows the average number of complete and incomplete views for "
 "videos in that subsection. Click on bars with low totals or a high "
 "incomplete rate to drill down and understand why."
-msgstr "Cada barra muestra el promedio de visualizaciones completas e incompletas de videos en la subsección. Haga clic en las barras con tasas muy bajas para entrar en profundidad y entender el porque de estos comportamientos."
+msgstr "Cada barra muestra el promedio de vistas completas e incompletas de vídeos en la subsección. Haga clic en las barras con totales muy bajos para entrar en profundidad y entender el porque."
 
 #: courses/templates/courses/engagement_video_by_subsection.html:10
 msgid "How did learners interact with videos in this subsection?"
@@ -462,24 +462,24 @@ msgstr "¿Cómo interactuaron los estudiantes con los videos de esta subsección
 msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
 "Click to understand where learners drop off and which parts they replay."
-msgstr "Cada barra muestra la cantidad de visualizaciones completas e incompletas para el video. Haga clic en las barras para saber en qué parte del video los estudiantes salían y qué partes del video repetían."
+msgstr "Cada barra muestra la cantidad de vistas completas e incompletas para el vídeo. Haga clic en las barras para saber en qué parte del vídeo los estudiantes salieron y en qué partes del vídeo lo retomaban."
 
 #: courses/templates/courses/engagement_video_course.html:5
 #: courses/views/__init__.py:569
 msgid "How did learners interact with course videos?"
-msgstr "¿Cómo interactuaron los estudiantes con los videos del curso?"
+msgstr "¿Cómo fue la interacción de los estudiantes con los vídeos del curso?"
 
 #: courses/templates/courses/engagement_video_course.html:10
 msgid ""
 "Each bar shows the average number of complete and incomplete views for "
 "videos in that section. Click on bars with low totals or a high incomplete "
 "rate to drill down and understand why."
-msgstr "Cada barra muestra el promedio de visualizaciones completas e incompletas de videos en una sección. Haga clic en las barras con tasas muy bajas para entrar en profundidad y entender el porque de estos comportamientos."
+msgstr "Cada barra muestra el promedio de vistas completas e incompletas de vídeos en una sección. Haga clic en las barras con totales bajos o totales muy bajos para entrar en profundidad y entender el porque."
 
 #: courses/templates/courses/engagement_video_timeline.html:17
 #: courses/templates/courses/engagement_video_timeline.html:21
 msgid "Total Video Views"
-msgstr "Total de visualizaciones de video"
+msgstr "Total de vistas del video"
 
 #: courses/templates/courses/engagement_video_timeline.html:26
 msgid "What were the viewing patterns for this video?"
@@ -493,7 +493,7 @@ msgstr "El número de estudiantes que visualizó cada segmento del video, y el n
 
 #: courses/templates/courses/engagement_video_timeline.html:37
 msgid "Collapse Preview"
-msgstr "Colapsar vista previa"
+msgstr "Contraer vista previa"
 
 #: courses/templates/courses/engagement_video_timeline.html:38
 msgid "Expand Preview"
@@ -548,7 +548,7 @@ msgstr "Inscripciones"
 msgid ""
 "This graph displays the current enrollment for the course as of the end of "
 "each day. This includes new enrollments as well as unenrollments."
-msgstr "Este gráfico muestra las inscripciones vigentes para el curso al final de cada día. Incluye nuevas inscripciones, y también inscripciones eliminadas."
+msgstr "Este gráfico muestra las inscripciones vigentes para el curso al final de cada día. Incluye nuevas inscripciones así como inscripciones canceladas."
 
 #: courses/templates/courses/enrollment_activity.html:49
 msgid "Enrollment Metrics"
@@ -561,7 +561,7 @@ msgstr "Métricas de inscripciones"
 #: courses/templates/courses/enrollment_activity.html:59
 #: courses/templates/courses/index.html:26
 msgid "Total Enrollment"
-msgstr "Total de inscritos"
+msgstr "Numero total de inscripciones"
 
 #. Translators: This is a label indicating the number of learners in a course.
 #: courses/templates/courses/enrollment_activity.html:61
@@ -623,7 +623,7 @@ msgstr "Inscripciones sobre tiempo"
 #: courses/templates/courses/enrollment_demographics_age.html:26
 #: courses/views/__init__.py:507
 msgid "How old are my learners?"
-msgstr "¿Cuántos años tienen mis estudiantes?"
+msgstr "¿Que edad tienen mis estudiantes?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -633,7 +633,7 @@ msgstr "¿Cuántos años tienen mis estudiantes?"
 msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
 "learners who provided a year of birth."
-msgstr "Este histograma de edades presenta datos calculados para el %(value)s%% de estudiantes inscritos que proporcionaron un año de nacimiento."
+msgstr "Este histograma de edad presenta datos calculados para el %(value)s%% de estudiantes inscritos que proporcionaron su fecha de nacimiento."
 
 #: courses/templates/courses/enrollment_demographics_age.html:56
 msgid "Age Metrics"
@@ -643,12 +643,12 @@ msgstr "Métricas de edad"
 #. learners.
 #: courses/templates/courses/enrollment_demographics_age.html:65
 msgid "Median Learner Age"
-msgstr "Edad Mediana de Estudiantes"
+msgstr "Edad Mediana de los estudiantes"
 
 #: courses/templates/courses/enrollment_demographics_age.html:66
 msgid ""
 "The midpoint of the learner ages, computed from the provided year of birth."
-msgstr "Punto medio de las edades de los estudiantes, calculado con base en el año de nacimiento suministrado."
+msgstr "El punto medio de las edades de los estudiantes, calculado con base en el año de nacimiento suministrado."
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
@@ -660,7 +660,7 @@ msgstr "Estudiantes de 25 años y menos"
 msgid ""
 "The percentage of learners aged 25 years or younger (of those who provided a"
 " year of birth)."
-msgstr "Porcentaje de estudiantes con 25 años o menos (de los que suministraron su fecha de nacimiento)"
+msgstr "Porcentaje de estudiantes con 25 años o menos (porcentaje de los que suministraron su fecha de nacimiento)"
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
@@ -672,7 +672,7 @@ msgstr "Estudiantes entre 26 y 40 años de edad"
 msgid ""
 "The percentage of learners aged from 26 to 40 years (of those who provided a"
 " year of birth)."
-msgstr "Porcentaje de estudiantes con entre 26 y 40 años (de los que suministraron su fecha de nacimiento)"
+msgstr "Porcentaje de estudiantes entre 26 y 40 años (porcentaje de los que suministraron su fecha de nacimiento)"
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
@@ -684,7 +684,7 @@ msgstr "Estudiantes de 41 años o más"
 msgid ""
 "The percentage of learners aged 41 years or older (of those who provided a "
 "year of birth)."
-msgstr "Porcentaje de estudiantes con 41 años o más (de los que suministraron su fecha de nacimiento)"
+msgstr "Porcentaje de estudiantes con 41 años o más (porcentaje de los que suministraron su fecha de nacimiento)"
 
 #: courses/templates/courses/enrollment_demographics_age.html:101
 msgid "Age Breakdown"
@@ -703,7 +703,7 @@ msgstr "¿Cuál es el nivel de educación de mis estudiantes?"
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled learners who "
 "provided a highest level of education completed."
-msgstr "Este gráfico presenta los datos para el %(value)s%% de los estudiantes inscritos que proporcionaron el grado máximo de escolaridad completada."
+msgstr "Este gráfico presenta los datos para el %(value)s%% de los estudiantes inscritos que proporcionaron el máximo nivel de educación completado."
 
 #: courses/templates/courses/enrollment_demographics_education.html:56
 msgid "Education Metrics"
@@ -719,7 +719,7 @@ msgid ""
 "The percentage of learners who selected Secondary/high school, Junior "
 "secondary/junior high/middle school, or Elementary/primary school as their "
 "highest level of education completed."
-msgstr "Porcentaje de estudiantes que seleccionaron Educación primaria, media o secundaria como su máximo nivel de educación alcanzado."
+msgstr "Porcentaje de estudiantes que seleccionaron Educación secundaria, media o primaria como el máximo nivel académico completado."
 
 #. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html:71
@@ -730,7 +730,7 @@ msgstr "Diploma de pregrado"
 msgid ""
 "The percentage of learners who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
-msgstr "El porcentaje de estudiantes que seleccionaron licenciatura o grado asociado como su nivel académico más alto completado."
+msgstr "El porcentaje de estudiantes que seleccionaron licenciatura o grado técnico como el máximo nivel académico completado."
 
 #. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html:78
@@ -741,7 +741,7 @@ msgstr "Diploma de postgrado"
 msgid ""
 "The percentage of learners who selected Doctorate or Master's or "
 "professional degree as their highest level of education completed."
-msgstr "Porcentaje de estudiantes que seleccionaron Postgrado, Maestría o Doctorado como su máximo nivel de educación alcanzado."
+msgstr "Porcentaje de estudiantes que seleccionaron Postgrado, Maestría o Doctorado como el máximo nivel académico completado."
 
 #: courses/templates/courses/enrollment_demographics_education.html:91
 msgid "Educational Breakdown"
@@ -787,7 +787,7 @@ msgstr "Metricas Geográficas"
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html:53
 msgid "Total Countries or Regions Represented"
-msgstr "Total de países o regiones representados"
+msgstr "Numero total de países o regiones representadas"
 
 #: courses/templates/courses/enrollment_geography.html:54
 msgid "Countries or regions with at least one learner."
@@ -846,7 +846,7 @@ msgstr "Aplicación"
 #: courses/templates/courses/home.html:15 courses/views/__init__.py:486
 #: templates/lens-navigation.html:20
 msgid "Course Home"
-msgstr "Inicio de Curso"
+msgstr "Inicio"
 
 #. Translators: This refers to the active tab/navigation item.
 #: courses/templates/courses/home.html:16 templates/lens-navigation.html:31
@@ -1236,7 +1236,7 @@ msgstr "Los datos demográficos de los estudiantes fueron actualizados el %(upda
 #: courses/views/enrollment.py:94
 msgid ""
 "All above demographic data was self-reported at the time of registration."
-msgstr "Todos los dados demográficos arriba fueron reportados por los estudiantes durante el periodo de registro. "
+msgstr "Todos los datos demográficos anteriores fueron reportados por los estudiantes en el proceso de registro."
 
 #: courses/views/enrollment.py:107
 msgid "Enrollment Activity"
@@ -1391,7 +1391,7 @@ msgstr "Contacte el soporte de %(platform_name)s"
 msgid ""
 "We want this dashboard to work for you! Need help? "
 "%(support_link_start)sContact course team support%(support_link_end)s."
-msgstr "Queremos que este panel de control trabaje para ti. ¿Necesitas ayuda? %(support_link_start)sContacta al equipo de soporte técnico%(support_link_end)s."
+msgstr "Queremos que este panel de control sea útil para usted. ¿Necesita ayuda? %(support_link_start)sContacte al equipo de soporte técnico%(support_link_end)s."
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html:39
