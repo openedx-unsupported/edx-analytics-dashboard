@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2018-02-09 22:21+0000\n"
+"PO-Revision-Date: 2018-02-14 20:54+0000\n"
 "Last-Translator: Albeiro Gonzalez <albeiro.gonzalez@edunext.co>\n"
 "Language-Team: Spanish (Latin America) (http://www.transifex.com/open-edx/edx-platform/language/es_419/)\n"
 "MIME-Version: 1.0\n"
@@ -107,14 +107,14 @@ msgstr "El análisis de datos edX y las Perspectivas edX son de código abierto.
 
 #: core/templates/core/landing.html:75
 msgid "Research at edX"
-msgstr "Investigación de edX"
+msgstr "Investigación en edX"
 
 #: core/templates/core/landing.html:80
 #, python-format
 msgid ""
 "We are committed to advancing teaching and learning through research. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr "We are committed to advancing teaching and learning through research.%(link_start)s Conocer más %(link_end)s."
+msgstr "Estamos comprometidos a avanzar enseñando y aprendiendo a través de la investigación.%(link_start)s Conocer más %(link_end)s."
 
 #: core/templates/core/landing.html:87
 msgid "Need Help?"
@@ -124,7 +124,7 @@ msgstr "¿Necesita ayuda?"
 #, python-format
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
-msgstr "%(link_start)s Nuestro centro de soporte %(link_end)s puede ayudar a encontrar soluciones"
+msgstr "%(link_start)s Nuestro centro de soporte %(link_end)s puede ayudarle a encontrar soluciones"
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
@@ -255,7 +255,7 @@ msgstr "%(all_sections_text)s"
 
 #: courses/templates/courses/_graded_content_nav.html:16
 msgid "Select Assignment Type"
-msgstr "Escoja el tipo de tarea"
+msgstr "Seleccionar tipo de tarea"
 
 #. Translators: This refers to all course assignment types (e.g. homework,
 #. exam, lab).
@@ -275,7 +275,7 @@ msgstr "\n        Seleccionar %(level)s\n    "
 #: courses/templates/courses/_tags_content_nav.html:23
 #: courses/templates/courses/_ungraded_content_nav.html:28
 msgid "Select Problem"
-msgstr "Escoja un problema"
+msgstr "Seleccionar problema"
 
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
@@ -286,7 +286,7 @@ msgstr "Ver en vivo"
 
 #: courses/templates/courses/_tags_content_nav.html:15
 msgid "Select Outcome"
-msgstr "Seleccione resultado"
+msgstr "Seleccionar resultado"
 
 #: courses/templates/courses/_tags_content_nav.html:19
 msgid "All Outcomes"
@@ -295,7 +295,7 @@ msgstr "Todos los resultados"
 #: courses/templates/courses/_ungraded_content_nav.html:16
 #: courses/templates/courses/_video_content_nav.html:16
 msgid "Select Section"
-msgstr "Seleccione la sección"
+msgstr "Seleccionar sección"
 
 #: courses/templates/courses/_ungraded_content_nav.html:20
 #: courses/templates/courses/_video_content_nav.html:20
@@ -305,15 +305,15 @@ msgstr "Todas las secciones"
 #: courses/templates/courses/_ungraded_content_nav.html:24
 #: courses/templates/courses/_video_content_nav.html:24
 msgid "Select Subsection"
-msgstr "Escoja la subseción"
+msgstr "Seleccionar subsección"
 
 #: courses/templates/courses/_video_content_nav.html:28
 msgid "Select Video"
-msgstr "Seleccionar video"
+msgstr "Seleccionar vídeo"
 
 #: courses/templates/courses/_video_module_controls.html:8
 msgid "Previous Video"
-msgstr "Video anterior"
+msgstr "Vídeo anterior"
 
 #: courses/templates/courses/_video_module_controls.html:15
 msgid "Next Video"
@@ -332,14 +332,14 @@ msgstr "Esta gráfica muestra las respuestas más comunes enviadas por los estud
 msgid ""
 "Due to the number of possible variants for randomized problems, charts are "
 "not available. %(read_more_link_start)sRead more%(read_more_link_end)s."
-msgstr "Debido a el número de variables posibles para problemas de respuesta aleatoria, las gráficas no están disponibles. %(read_more_link_start)sLeer más%(read_more_link_end)s."
+msgstr "Debido a el número de posibles variables para problemas de respuesta aleatoria, las gráficas no están disponibles. %(read_more_link_start)sLeer más%(read_more_link_end)s."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html:87
 msgid ""
 "Review all submission variants below, or click Download CSV to review them "
 "offline."
-msgstr "Revise las variantes de entrega abajo, o descarge el archivo CSV para revisarlas sin conexión."
+msgstr "Revise todas las variantes de envío a continuación, o seleccione descargar CSV para revisarlas sin conexión."
 
 #: courses/templates/courses/base_performance_answer_distribution.html:108
 msgid "Submission Counts"
@@ -412,7 +412,7 @@ msgstr "Estudiantes que reprodujeron al menos un vídeo."
 #. problem.
 #: courses/templates/courses/engagement_content.html:68
 msgid "Tried a Problem Last Week"
-msgstr "Estudiantes que probaron un problema en la última semana"
+msgstr "Estudiantes que intentaron resolver un problema en la última semana"
 
 #: courses/templates/courses/engagement_content.html:69
 msgid ""
@@ -441,28 +441,28 @@ msgstr "Distribución del compromiso con los contenidos"
 #: courses/templates/courses/engagement_grouped_content.html:17
 #: courses/templates/courses/views_chart_info.html:4
 msgid "Video Views"
-msgstr "Vistas de los vídeos"
+msgstr "Numero de vistas de los vídeos"
 
 #: courses/templates/courses/engagement_video_by_section.html:5
 msgid "How did learners interact with videos in this section?"
-msgstr "¿Cómo interactuaron los estudiantes con los videos en esta sección?"
+msgstr "¿Cómo interactuaron los estudiantes con los vídeos en esta sección?"
 
 #: courses/templates/courses/engagement_video_by_section.html:10
 msgid ""
 "Each bar shows the average number of complete and incomplete views for "
 "videos in that subsection. Click on bars with low totals or a high "
 "incomplete rate to drill down and understand why."
-msgstr "Cada barra muestra el promedio de vistas completas e incompletas de vídeos en la subsección. Haga clic en las barras con totales muy bajos para entrar en profundidad y entender el porque."
+msgstr "Cada barra muestra el promedio de vistas completas e incompletas de vídeos en la subsección. Haga clic en las barras con totales muy bajos para entrar en profundidad y entender el motivo."
 
 #: courses/templates/courses/engagement_video_by_subsection.html:10
 msgid "How did learners interact with videos in this subsection?"
-msgstr "¿Cómo interactuaron los estudiantes con los videos de esta subsección?"
+msgstr "¿Cómo interactuaron los estudiantes con los vídeos de esta subsección?"
 
 #: courses/templates/courses/engagement_video_by_subsection.html:15
 msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
 "Click to understand where learners drop off and which parts they replay."
-msgstr "Cada barra muestra la cantidad de vistas completas e incompletas para el vídeo. Haga clic en las barras para saber en qué parte del vídeo los estudiantes salieron y en qué partes del vídeo lo retomaban."
+msgstr "Cada barra muestra la cantidad de vistas completas e incompletas para el vídeo. Haga clic en las barras para saber en qué parte del vídeo los estudiantes salieron y en qué parte del vídeo lo retomaron."
 
 #: courses/templates/courses/engagement_video_course.html:5
 #: courses/views/__init__.py:569
@@ -474,22 +474,22 @@ msgid ""
 "Each bar shows the average number of complete and incomplete views for "
 "videos in that section. Click on bars with low totals or a high incomplete "
 "rate to drill down and understand why."
-msgstr "Cada barra muestra el promedio de vistas completas e incompletas de vídeos en una sección. Haga clic en las barras con totales bajos o totales muy bajos para entrar en profundidad y entender el porque."
+msgstr "Cada barra muestra el promedio de vistas completas e incompletas de vídeos en la sección. Haga clic en las barras con totales bajos para entrar en profundidad y entender el motivo."
 
 #: courses/templates/courses/engagement_video_timeline.html:17
 #: courses/templates/courses/engagement_video_timeline.html:21
 msgid "Total Video Views"
-msgstr "Total de vistas del video"
+msgstr "Total de vistas del vídeo"
 
 #: courses/templates/courses/engagement_video_timeline.html:26
 msgid "What were the viewing patterns for this video?"
-msgstr "¿Cuáles fueron los patrones de visualización para este video?"
+msgstr "¿Cuáles fueron los patrones de visualización para este vídeo?"
 
 #: courses/templates/courses/engagement_video_timeline.html:31
 msgid ""
 "The number of learners who watched each segment of the video, and the number"
 " of replays for each segment."
-msgstr "El número de estudiantes que visualizó cada segmento del video, y el número de repeticiones para cada segmento."
+msgstr "El número de estudiantes que vio cada segmento del vídeo, y el número de repeticiones por cada segmento."
 
 #: courses/templates/courses/engagement_video_timeline.html:37
 msgid "Collapse Preview"
@@ -501,35 +501,35 @@ msgstr "Expandir vista previa"
 
 #: courses/templates/courses/engagement_video_timeline.html:55
 msgid "Video Metrics"
-msgstr "Métricas de video"
+msgstr "Métricas de vídeo"
 
 #: courses/templates/courses/engagement_video_timeline.html:61
 msgid "Completion Rate"
-msgstr "Tasa de completado"
+msgstr "Tasa de finalización"
 
 #: courses/templates/courses/engagement_video_timeline.html:62
 msgid "Estimated percentage of learners who watched the entire video."
-msgstr "Porcentaje estimado de estudiantes que vieron el video completo."
+msgstr "Porcentaje estimado de estudiantes que vieron el vídeo completo."
 
 #: courses/templates/courses/engagement_video_timeline.html:66
 msgid "Started Video"
-msgstr "Comenzaron el video"
+msgstr "Comenzaron el vídeo"
 
 #: courses/templates/courses/engagement_video_timeline.html:67
 msgid "Learners who started watching the video."
-msgstr "Estudiantes que comenzaron a ver el video."
+msgstr "Estudiantes que comenzaron a ver el vídeo."
 
 #: courses/templates/courses/engagement_video_timeline.html:71
 msgid "Finished Video"
-msgstr "Terminaron el video"
+msgstr "Terminaron el vídeo"
 
 #: courses/templates/courses/engagement_video_timeline.html:72
 msgid "Learners who watched the video to the end."
-msgstr "Estudiantes que vieron el video completo hasta el final."
+msgstr "Estudiantes que vieron el vídeo completo hasta el final."
 
 #: courses/templates/courses/engagement_video_timeline.html:88
 msgid "Video Viewing Over Time"
-msgstr "Video visto en el tiempo"
+msgstr "Vídeo visto en el tiempo"
 
 #: courses/templates/courses/enrollment_activity.html:24
 msgid "Daily Learner Enrollment"
@@ -618,7 +618,7 @@ msgstr "Número de estudiantes inscritos que solicitaron un certificado verifica
 #: courses/templates/courses/enrollment_demographics_education.html:101
 #: courses/templates/courses/enrollment_demographics_gender.html:66
 msgid "Enrollment Over Time"
-msgstr "Inscripciones sobre tiempo"
+msgstr "Inscripciones en el tiempo"
 
 #: courses/templates/courses/enrollment_demographics_age.html:26
 #: courses/views/__init__.py:507
@@ -703,7 +703,7 @@ msgstr "¿Cuál es el nivel de educación de mis estudiantes?"
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled learners who "
 "provided a highest level of education completed."
-msgstr "Este gráfico presenta los datos para el %(value)s%% de los estudiantes inscritos que proporcionaron el máximo nivel de educación completado."
+msgstr "Este gráfico presenta los datos para el %(value)s%% de los estudiantes inscritos que indicaron el máximo nivel académico completado."
 
 #: courses/templates/courses/enrollment_demographics_education.html:56
 msgid "Education Metrics"
@@ -745,7 +745,7 @@ msgstr "Porcentaje de estudiantes que seleccionaron Postgrado, Maestría o Docto
 
 #: courses/templates/courses/enrollment_demographics_education.html:91
 msgid "Educational Breakdown"
-msgstr "Detalles de nivel educativo"
+msgstr "Detalles del nivel académico"
 
 #: courses/templates/courses/enrollment_demographics_gender.html:25
 #: courses/views/__init__.py:527
@@ -907,7 +907,7 @@ msgstr "¿Cómo respondieron los estudiantes a este problema?"
 
 #: courses/templates/courses/performance_assignment.html:10
 msgid "How are learners doing on this assignment?"
-msgstr "¿Qué desempeño tienen los estudiantes en esta tarea?"
+msgstr "¿Cómo es el desempeño de los estudiantes en esta tarea?"
 
 #: courses/templates/courses/performance_assignment.html:15
 #: courses/templates/courses/performance_ungraded_by_subsection.html:15
@@ -920,7 +920,7 @@ msgstr "Estas barras muestran el número de respuestas correctas e incorrectas p
 #: courses/templates/courses/performance_learning_outcomes_section.html:20
 #: courses/templates/courses/performance_ungraded_by_subsection.html:19
 msgid "Problem Submissions"
-msgstr "Entrega de problemas"
+msgstr "Envíos de problema"
 
 #: courses/templates/courses/performance_graded_content.html:9
 msgid "Which assignment type do you want to investigate?"
@@ -965,7 +965,7 @@ msgstr "Cada barra muestra el número promedio de envíos correctos e incorrecto
 
 #: courses/templates/courses/performance_graded_content_by_type.html:19
 msgid "Assignment Submissions"
-msgstr "Entregas de tarea"
+msgstr "Envíos de tarea"
 
 #: courses/templates/courses/performance_learning_outcomes_content.html:6
 #: courses/templates/courses/performance_learning_outcomes_section.html:6
@@ -986,7 +986,7 @@ msgstr "Envíos por resultado"
 msgid ""
 "Each bar shows the correct and incorrect number of submissions for each "
 "problem for the current outcome."
-msgstr "Cada barra muestra el número promedio de envíos correctos e incorrectos para cada problema que hace parte del resultado."
+msgstr "Cada barra muestra el número de envíos correctos e incorrectos para cada problema que hace parte del resultado actual."
 
 #: courses/templates/courses/performance_ungraded_by_section.html:5
 msgid "How are learners doing on this section?"
@@ -1026,7 +1026,7 @@ msgstr "Envíos de sección"
 #: courses/templates/courses/permissions-retrieval-failed.html:5
 #: courses/templates/courses/permissions-retrieval-failed.html:7
 msgid "Permissions Retrieval Failed"
-msgstr "Permisos de recuperación falló"
+msgstr "Recuperación de Permisos falló"
 
 #: courses/templates/courses/permissions-retrieval-failed.html:9
 msgid ""
@@ -1078,7 +1078,7 @@ msgstr "Contenido"
 #: courses/tests/test_views/test_engagement.py:73
 #: courses/views/__init__.py:571 courses/views/engagement.py:36
 msgid "Videos"
-msgstr "Videos"
+msgstr "Vídeos"
 
 #: courses/tests/test_views/test_performance.py:65
 #: courses/views/__init__.py:585 courses/views/performance.py:38
@@ -1119,7 +1119,7 @@ msgstr "Reporte de respuestas a problemas"
 
 #: courses/views/__init__.py:633
 msgid "How are learners doing on course assignments?"
-msgstr "¿Qué desempeño tienen los estudiantes las tareas del curso?"
+msgstr "¿Qué desempeño tienen los estudiantes en las tareas del curso?"
 
 #: courses/views/__init__.py:641
 msgid "What are individual learners doing?"
@@ -1127,7 +1127,7 @@ msgstr "¿Qué están haciendo los estudiantes individuales?"
 
 #: courses/views/__init__.py:644
 msgid "Who is engaged? Who isn't?"
-msgstr "¿Quién está involucrado? ¿Quién no?"
+msgstr "¿Quién está comprometido? ¿Quién no?"
 
 #: courses/views/__init__.py:646
 msgid "All Learners"
@@ -1137,7 +1137,7 @@ msgstr "Todos los estudiantes"
 #. identifies the course
 #: courses/views/__init__.py:694
 msgid "Course ID"
-msgstr "Id de Curso"
+msgstr "ID del Curso"
 
 #: courses/views/__init__.py:696
 msgid "Course Name"
@@ -1156,7 +1156,7 @@ msgstr "Terminó"
 #. Translators: This refers to a course that has not yet begun.
 #: courses/views/__init__.py:716
 msgid "Not Started Yet"
-msgstr "No ha empezado aún"
+msgstr "Aún no ha empezado "
 
 #: courses/views/__init__.py:718
 msgid "Start Date"
@@ -1183,7 +1183,7 @@ msgstr "Contenidos"
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr "La última actualización de datos resumen del curso fue el %(update_date)s a las %(update_time)s UTC."
+msgstr "La última actualización de datos de resumen del curso fue el %(update_date)s a las %(update_time)s UTC."
 
 #: courses/views/engagement.py:52
 msgid "Engagement Content"
@@ -1199,17 +1199,17 @@ msgstr "La última actualización de los datos de participación en el curso fue
 
 #: courses/views/engagement.py:88
 msgid "Engagement Videos"
-msgstr "Participación sobre los videos"
+msgstr "Participación con los vídeos"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py:93
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr "La última actualización de datos de video fue el %(update_date)s a las %(update_time)s UTC."
+msgstr "La última actualización de datos de vídeo fue el %(update_date)s a las %(update_time)s UTC."
 
 #: courses/views/engagement.py:94
 msgid "Looks like no one has watched any videos in these sections."
-msgstr "Parece que nadie ha visto ninguno de los videos en estas secciones."
+msgstr "Parece que nadie ha visto ninguno de los vídeos en estas secciones."
 
 #: courses/views/engagement.py:120 courses/views/performance.py:300
 msgid "Section Name"
@@ -1221,7 +1221,7 @@ msgstr "Nombre de subsección"
 
 #: courses/views/engagement.py:161
 msgid "Video Name"
-msgstr "Nombre del video"
+msgstr "Nombre del vídeo"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py:90
@@ -1236,7 +1236,7 @@ msgstr "Los datos demográficos de los estudiantes fueron actualizados el %(upda
 #: courses/views/enrollment.py:94
 msgid ""
 "All above demographic data was self-reported at the time of registration."
-msgstr "Todos los datos demográficos anteriores fueron reportados por los estudiantes en el proceso de registro."
+msgstr "Todos los anteriores datos demográficos fueron reportados por los estudiantes en el proceso de registro."
 
 #: courses/views/enrollment.py:107
 msgid "Enrollment Activity"
@@ -1256,7 +1256,7 @@ msgstr "Información de inscripciones por grupo de edad"
 
 #: courses/views/enrollment.py:186
 msgid "Enrollment Demographics by Education"
-msgstr "Información de inscripciones por nivel educativo"
+msgstr "Información de inscripciones por nivel académico"
 
 #: courses/views/enrollment.py:224
 msgid "Enrollment Demographics by Gender"
@@ -1292,12 +1292,12 @@ msgstr "No se recibieron envíos para estos ejercicios."
 
 #: courses/views/performance.py:106
 msgid "No submissions received for these assignments."
-msgstr "No se ha recibido ninguna entrega de estas tareas."
+msgstr "No se ha recibido ningún envío de estas tareas."
 
 #: courses/views/performance.py:195 courses/views/performance.py:362
 #: courses/views/performance.py:460
 msgid "Performance: Problem Submissions"
-msgstr "Desempeño: Problemas enviados"
+msgstr "Desempeño: Envíos de problema"
 
 #: courses/views/performance.py:257
 #, python-format
@@ -1336,11 +1336,11 @@ msgid ""
 "You do not have permission to view this page. If you believe you should have"
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
-msgstr "No tienes permisos para ver esta página. Si crees que debes tener acceso a esta página, intenta desconectándote y conectándote de nuevo para refrescar tus permisos."
+msgstr "No tiene permisos para ver esta página. Si cree que debería tener acceso a esta página, intente cerrar sesión e iniciar sesión de nuevo para refrescar sus permisos."
 
 #: templates/403.html:17
 msgid "Logout then Login"
-msgstr "Desconectarse e Ingresar"
+msgstr "Cerrar sesión después Ingresar"
 
 #: templates/404.html:5 templates/404.html:8
 msgid "Page Not Found"
@@ -1350,17 +1350,17 @@ msgstr "No se encontró la página"
 msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
-msgstr "No podemos encontrar la página que estas buscando. Por favor asegúrate que el URL es correcto o si no intenta de nuevo."
+msgstr "No podemos encontrar la página que esta buscando. Por favor asegúrese que el URL es correcto o si no intente de nuevo."
 
 #: templates/500.html:5 templates/500.html:8
 msgid "An Error Occurred"
-msgstr "Un error ha ocurrido."
+msgstr "Ocurrió un error"
 
 #: templates/500.html:10
 msgid ""
 "Our servers weren't able to complete your request. Please try again by "
 "refreshing this page or retracing your steps."
-msgstr "Nuestros servidores no pudieron completar tu petición. Por favor intenta de nuevo refrescando esta página o repitiendo tus pasos."
+msgstr "Nuestros servidores no pudieron completar su petición. Por favor intente de nuevo refrescando esta página o repitiendo el proceso completo."
 
 #: templates/503.html:5 templates/503.html:7
 msgid "We're having trouble loading this page. Please try again in a minute."
@@ -1376,7 +1376,7 @@ msgstr "Cerrar"
 
 #: templates/base-error.html:42
 msgid "Use our support tool to ask questions or share feedback."
-msgstr "Use nuestro herramienta de soporte para preguntar y compartir la retroalimentación."
+msgstr "Use nuestra herramienta de soporte para hacer preguntas y compartir retroalimentación."
 
 #. Translators: This intention here is that a user clicks a button to contact
 #. a support group (e.g. edX Support, or MITx Support). Reorder the
@@ -1399,7 +1399,7 @@ msgstr "Queremos que este panel de control sea útil para usted. ¿Necesita ayud
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
 "            reserved. "
-msgstr " %(current_year)s %(platform_name)s, excepto donde se indique, todos los derechos\n            reservados. "
+msgstr " %(current_year)s %(platform_name)s, con excepción de las partes con otra indicación, todos los derechos\n            reservados. "
 
 #: templates/header.html:13
 msgid "Toggle navigation"
