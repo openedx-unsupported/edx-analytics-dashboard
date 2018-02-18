@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2018-02-09 22:05+0000\n"
+"PO-Revision-Date: 2018-02-14 21:23+0000\n"
 "Last-Translator: Albeiro Gonzalez <albeiro.gonzalez@edunext.co>\n"
 "Language-Team: Spanish (Latin America) (http://www.transifex.com/open-edx/edx-platform/language/es_419/)\n"
 "MIME-Version: 1.0\n"
@@ -40,7 +40,7 @@ msgstr "Descargar CSV"
 
 #: static/apps/components/download/views/download-data.js:26
 msgid "Download search results to CSV"
-msgstr "Descargar los resultados de búsqueda a CSV"
+msgstr "Descargar los resultados de búsqueda en formato CSV"
 
 #. Translators: "All" refers to viewing all items (e.g. all courses).
 #: static/apps/components/filter/views/drop-down-filter.js:31
@@ -113,7 +113,7 @@ msgstr "página previa"
 
 #: static/apps/components/generic-list/list/views/paging-footer.js:74
 msgid "next page"
-msgstr "próxima página"
+msgstr "Siguiente página"
 
 #: static/apps/components/generic-list/list/views/paging-footer.js:76
 msgid "last page"
@@ -203,7 +203,7 @@ msgstr "Parámetros inválidos"
 
 #: static/apps/course-list/app/controller.js:99
 msgid "Sorry, we couldn't find any courses that matched that query."
-msgstr "Disculpe, no pudimos encontrar ningún curso que corresponda con esa búsqueda."
+msgstr "Lo sentimos, no pudimos encontrar ningún curso que corresponda con esa búsqueda."
 
 #: static/apps/course-list/app/controller.js:100
 msgid "Return to the Course List page."
@@ -212,7 +212,7 @@ msgstr "Regresar a la página de Lista de Cursos."
 #: static/apps/course-list/app/controller.js:125
 #: static/apps/learners/app/controller.js:181
 msgid "Sorry, we couldn't find the page you're looking for."
-msgstr "Lo sentimos, no pudimos encontrar la página que buscas."
+msgstr "Lo sentimos, no pudimos encontrar la página que está buscando."
 
 #: static/apps/course-list/app/controller.js:129
 #: static/apps/learners/app/controller.js:186
@@ -245,7 +245,7 @@ msgstr "Numero actual de inscritos"
 
 #: static/apps/course-list/common/collections/course-list.js:82
 msgid "Change Last Week"
-msgstr "Cambio durante la semana pasada"
+msgstr "Cambios en la última semana"
 
 #: static/apps/course-list/common/collections/course-list.js:83
 msgid "Verified Enrollment"
@@ -324,7 +324,7 @@ msgstr "program_ids"
 
 #: static/apps/course-list/list/views/course-list.js:66
 msgid "Download full course list to CSV"
-msgstr "Descargar la lista completa de cursos a CSV"
+msgstr "Descargar la lista completa de cursos en formato CSV"
 
 #: static/apps/course-list/list/views/course-list.js:91
 msgid "Course list controls"
@@ -346,13 +346,13 @@ msgstr "Intente eliminando los filtros."
 
 #: static/apps/course-list/list/views/results.js:55
 msgid "No course data is currently available for your course."
-msgstr "No hay datos actualmente disponibles sobre su curso."
+msgstr "Actualmente no hay información disponible para su curso."
 
 #: static/apps/course-list/list/views/results.js:57
 msgid ""
 "No courses are enrolled, or course activity data has not yet been processed."
 " Data is updated every day, so check back regularly for up-to-date metrics."
-msgstr "No hay cursos inscritos, o los datos de la actividad del curso no se han procesado todavía.  Los datos se actualizan diariamente, entonces vuelva a chequear regularmente para acceder a las metricas actualizadas."
+msgstr "No hay cursos inscritos, o los datos de la actividad del curso no se han procesado todavía.  Los datos se actualizan diariamente, entonces revise regularmente para acceder a las métricas actualizadas."
 
 #: static/apps/course-list/list/views/search.js:71
 msgid "Search courses"
@@ -378,7 +378,7 @@ msgstr "Lista de estudiantes"
 
 #: static/apps/learners/app/controller.js:97
 msgid "Sorry, we couldn't find any learners who matched that query."
-msgstr "Lo sentimos, no pudimos encontrar ningún estudiante que coincidiera con esta petición. "
+msgstr "Lo sentimos, no pudimos encontrar ningún estudiante que coincidiera con esta búsqueda. "
 
 #: static/apps/learners/app/controller.js:98
 msgid "Return to the Learners page."
@@ -487,7 +487,7 @@ msgstr "n/a"
 
 #: static/apps/learners/detail/views/learner-detail.js:139
 msgid "Check back daily for up-to-date data."
-msgstr "Revise diariamente para tener la información más actualizada"
+msgstr "Revise diariamente para obtener información actualizada"
 
 #: static/apps/learners/detail/views/learner-detail.js:149
 msgid "No course activity data is available for this learner."
@@ -495,7 +495,7 @@ msgstr "No hay datos de actividad en el curso disponibles para este estudiante."
 
 #: static/apps/learners/detail/views/learner-detail.js:156
 msgid "No learner data is available."
-msgstr "No hay datos de estudiante disponibles."
+msgstr "No hay información disponible del estudiante ."
 
 #: static/apps/learners/detail/views/learner-return.js:12
 msgid "Return to Learners"
@@ -536,7 +536,7 @@ msgstr "Número de problemas únicos que el estudiante respondió correctamente.
 
 #: static/apps/learners/roster/views/base-header-cell.js:13
 msgid "Number of unique videos this learner played."
-msgstr "Número de videos únicos que este estudiante reprodujo. "
+msgstr "Número de vídeos únicos que este estudiante reprodujo. "
 
 #: static/apps/learners/roster/views/base-header-cell.js:15
 msgid ""
@@ -548,7 +548,7 @@ msgstr "Número promedio de intentos por problema correcto. Para los estudiantes
 msgid ""
 "Number of contributions by this learner, including posts, responses, and "
 "comments."
-msgstr "Número de contribuciones por parte de este estudiante, incluyendo entradas, respuestas, y comentarios. "
+msgstr "Número de contribuciones por parte de este estudiante, incluyendo publicaciones, respuestas, y comentarios. "
 
 #: static/apps/learners/roster/views/controls.js:62
 msgid "Find a learner"
@@ -587,14 +587,14 @@ msgstr "Ningún estudiante coincide con los criterios dados."
 
 #: static/apps/learners/roster/views/results.js:55
 msgid "No learner data is currently available for your course."
-msgstr "Actualmente no hay datos disponibles sobre los estudiantes de tu curso."
+msgstr "Actualmente no hay datos disponibles sobre los estudiantes de su curso."
 
 #: static/apps/learners/roster/views/results.js:57
 msgid ""
 "No learners are enrolled, or course activity data has not yet been "
 "processed. Data is updated every day, so check back regularly for up-to-date"
 " metrics."
-msgstr "No hay estudiantes inscritos, o los datos de la actividad del curso aún no han sido procesados. Los datos se actualizan todos los días, así que revise regularmente para ver los datos más actualizados."
+msgstr "No hay estudiantes inscritos, o los datos de la actividad del curso aún no han sido procesados. Los datos se actualizan todos los días, así que revise regularmente para ver los datos actualizados."
 
 #: static/apps/learners/roster/views/roster.js:110
 msgid "Learner roster controls"
@@ -620,7 +620,7 @@ msgstr "Estudiantes que vieron un vídeo"
 
 #: static/js/engagement-content-main.js:34
 msgid "Tried a Problem"
-msgstr "Problema resuelto"
+msgstr "Intentaron resolver un problema"
 
 #: static/js/engagement-content-main.js:41
 msgid "Participated in Discussions"
@@ -671,11 +671,11 @@ msgstr "Tiempo"
 
 #: static/js/engagement-videos-main.js:14
 msgid "Complete Views"
-msgstr "Visualizaciones completas"
+msgstr "Vistas completas"
 
 #: static/js/engagement-videos-main.js:22
 msgid "Incomplete Views"
-msgstr "Visualizaciones incompletas"
+msgstr "Vistas incompletas"
 
 #. Translators: this describe the learner's enrollment track (e.g. Honor
 #. certificate)
@@ -787,7 +787,7 @@ msgstr "Correcto"
 
 #: static/js/performance-answer-distribution-main.js:16
 msgid "Submission Count"
-msgstr "Recuento de Envío"
+msgstr "Conteo de envíos"
 
 #: static/js/performance-answer-distribution-main.js:30
 msgid "Variant"
