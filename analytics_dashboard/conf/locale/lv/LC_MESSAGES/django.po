@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Zane Mičule <ltmc.training@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2017-08-03 16:01+0000\n"
-"Last-Translator: Ned Batchelder <ned@edx.org>\n"
+"PO-Revision-Date: 2018-04-03 10:41+0000\n"
+"Last-Translator: Zane Mičule <ltmc.training@gmail.com>\n"
 "Language-Team: Latvian (http://www.transifex.com/open-edx/edx-platform/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,11 +20,11 @@ msgstr ""
 
 #: core/templates/core/landing.html:15 templates/_skip_link.html:3
 msgid "Skip to content"
-msgstr ""
+msgstr "Pāriet uz saturu"
 
 #: core/templates/core/landing.html:23
 msgid "Login"
-msgstr ""
+msgstr "Logins"
 
 #: core/templates/core/landing.html:33
 msgid "Insights to help course teams improve courses."
@@ -42,7 +43,7 @@ msgstr ""
 #: courses/tests/test_views/__init__.py:220 courses/views/__init__.py:291
 #: courses/views/__init__.py:492
 msgid "Enrollment"
-msgstr ""
+msgstr "Reģistrācija"
 
 #: core/templates/core/landing.html:47
 msgid "What are learners engaging with in my course?"
@@ -66,17 +67,17 @@ msgstr ""
 
 #: core/templates/core/landing.html:53
 msgid "Adjust your course based on where learners are struggling."
-msgstr ""
+msgstr "Pielāgojiet savu kursu atbilstoši apmācāmo vajadzībām."
 
 #: core/templates/core/landing.html:54
 #: courses/tests/test_views/test_performance.py:48
 #: courses/views/__init__.py:313 courses/views/__init__.py:631
 msgid "Performance"
-msgstr ""
+msgstr "Veikums"
 
 #: core/templates/core/landing.html:63
 msgid "Join the Open Source Community"
-msgstr ""
+msgstr "Pievienojieties Open Source kopienai. "
 
 #: core/templates/core/landing.html:68
 #, python-format
@@ -87,7 +88,7 @@ msgstr ""
 
 #: core/templates/core/landing.html:75
 msgid "Research at edX"
-msgstr ""
+msgstr "EdX pētniecības nodaļa"
 
 #: core/templates/core/landing.html:80
 #, python-format
@@ -98,7 +99,7 @@ msgstr ""
 
 #: core/templates/core/landing.html:87
 msgid "Need Help?"
-msgstr ""
+msgstr "Vajadzīga palīdzība?"
 
 #: core/templates/core/landing.html:92
 #, python-format
@@ -111,45 +112,45 @@ msgstr ""
 #: core/templatetags/dashboard_extras.py:27
 #, python-brace-format
 msgid "{statistic}%"
-msgstr ""
+msgstr "{statistic}%"
 
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: courses/presenters/engagement.py:126
 #, python-brace-format
 msgid "{percentage} of current learners"
-msgstr ""
+msgstr "{percentage} no pašreizējiem apmācāmajiem"
 
 #: courses/presenters/enrollment.py:23
 msgid "Female"
-msgstr ""
+msgstr "Sieviete"
 
 #: courses/presenters/enrollment.py:24
 msgid "Male"
-msgstr ""
+msgstr "Vīrietis"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:26 courses/presenters/enrollment.py:45
 msgid "Other"
-msgstr ""
+msgstr "Cits"
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:28 courses/presenters/enrollment.py:63
 #: courses/presenters/enrollment.py:459
 msgid "Unknown"
-msgstr ""
+msgstr "Nezināms"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:43
 msgid "None"
-msgstr ""
+msgstr "Neviens"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
 #: courses/presenters/enrollment.py:47 courses/tests/test_serializers.py:12
 msgid "Primary"
-msgstr ""
+msgstr "Pamatskola"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
@@ -160,43 +161,43 @@ msgstr ""
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:51
 msgid "Secondary"
-msgstr ""
+msgstr "Vidusskola"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
 #: courses/presenters/enrollment.py:53
 msgid "Associate"
-msgstr ""
+msgstr "Asociēts profesors"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
 #: courses/presenters/enrollment.py:55
 msgid "Bachelor's"
-msgstr ""
+msgstr "Bakalaura"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters/enrollment.py:57
 msgid "Master's"
-msgstr ""
+msgstr "Maģistra"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
 #: courses/presenters/enrollment.py:59
 msgid "Doctorate"
-msgstr ""
+msgstr "Doktora"
 
 #. Translators: This is a placeholder for enrollment data collected without a
 #. known geolocation.
 #: courses/presenters/enrollment.py:186
 msgid "Unknown Country"
-msgstr ""
+msgstr "Nezināma valsts"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/presenters/performance.py:146
 #: courses/templates/courses/submissions_chart_info.html:4
 msgid "Submissions"
-msgstr ""
+msgstr "Nodevumi"
 
 #: courses/presenters/performance.py:150
 #, python-brace-format
@@ -241,7 +242,7 @@ msgstr ""
 #. exam, lab).
 #: courses/templates/courses/_graded_content_nav.html:21
 msgid "All Assignments"
-msgstr ""
+msgstr "Visi uzdevumi"
 
 #: courses/templates/courses/_graded_content_nav.html:25
 #, python-format
@@ -249,7 +250,7 @@ msgid ""
 "\n"
 "        Select %(level)s\n"
 "    "
-msgstr ""
+msgstr "\nAtlasīt %(level)s"
 
 #: courses/templates/courses/_graded_content_nav.html:31
 #: courses/templates/courses/_tags_content_nav.html:23
@@ -459,7 +460,7 @@ msgstr ""
 #: courses/templates/courses/engagement_video_timeline.html:17
 #: courses/templates/courses/engagement_video_timeline.html:21
 msgid "Total Video Views"
-msgstr ""
+msgstr "Kopējais video skatījumu skaits"
 
 #: courses/templates/courses/engagement_video_timeline.html:26
 msgid "What were the viewing patterns for this video?"
@@ -1148,7 +1149,7 @@ msgstr ""
 
 #: courses/views/__init__.py:720
 msgid "Status"
-msgstr ""
+msgstr "Statuss"
 
 #: courses/views/__init__.py:729
 msgid "Instructor Dashboard"
@@ -1352,7 +1353,7 @@ msgstr ""
 
 #: templates/_announcement.html:28
 msgid "Close"
-msgstr ""
+msgstr "Aizvērt"
 
 #: templates/base-error.html:42
 msgid "Use our support tool to ask questions or share feedback."
@@ -1387,7 +1388,7 @@ msgstr ""
 
 #: templates/header.html:40
 msgid "Help"
-msgstr ""
+msgstr "Palīdzība"
 
 #: templates/header.html:46
 msgid "Menu for"
@@ -1395,7 +1396,7 @@ msgstr ""
 
 #: templates/header.html:60
 msgid "Logout"
-msgstr ""
+msgstr "Iziet"
 
 #: templates/lens-navigation.html:27
 msgid "Navigation Menu."
@@ -1403,7 +1404,7 @@ msgstr ""
 
 #: templates/loading.html:7
 msgid "Loading"
-msgstr ""
+msgstr "Ielādējas"
 
 #: templates/section_error.html:10
 msgid "We are unable to load this chart."
