@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Gereltuya Bayanmunkh <gereltuya.b@aplus.mn>, 2018
 # Od-Erdene <oderdene.ch@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2017-09-20 10:22+0000\n"
-"Last-Translator: Ned Batchelder <ned@edx.org>\n"
+"PO-Revision-Date: 2018-04-05 04:35+0000\n"
+"Last-Translator: Gereltuya Bayanmunkh <gereltuya.b@aplus.mn>\n"
 "Language-Team: Mongolian (http://www.transifex.com/open-edx/edx-platform/language/mn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 
 #: core/templates/core/landing.html:15 templates/_skip_link.html:3
 msgid "Skip to content"
-msgstr ""
+msgstr "Агуулга руу алгасах"
 
 #: core/templates/core/landing.html:23
 msgid "Login"
@@ -28,15 +29,15 @@ msgstr "Нэвтрэх"
 
 #: core/templates/core/landing.html:33
 msgid "Insights to help course teams improve courses."
-msgstr ""
+msgstr "Багуудыг хичээлээ сайжруулахад нь туслах ажиглалт."
 
 #: core/templates/core/landing.html:42 courses/views/__init__.py:494
 msgid "Who are my learners?"
-msgstr ""
+msgstr "Суралцагчид маань хэн бэ?"
 
 #: core/templates/core/landing.html:43
 msgid "Target your course to fit the backgrounds of your learners."
-msgstr ""
+msgstr "Суралцагчдынхаа боловсролд тохируулахаар хичээлээ чиглүүл."
 
 #: core/templates/core/landing.html:44
 #: courses/templates/courses/enrollment_geography.html:28
@@ -47,37 +48,37 @@ msgstr "Бүртгэл "
 
 #: core/templates/core/landing.html:47
 msgid "What are learners engaging with in my course?"
-msgstr ""
+msgstr "Хичээлийн маань юутай нь суралцагчид маань холбогдож байна вэ?"
 
 #: core/templates/core/landing.html:48
 msgid ""
 "Improve frequently accessed content, or point learners at underused "
 "resources."
-msgstr ""
+msgstr "Байнга үзэгддэг агуулгыг сайжруул, эсвэл дутуу хэрэглэгддэг материалууд дээр заавраар чиглүүл."
 
 #: core/templates/core/landing.html:49
 #: courses/tests/test_views/test_engagement.py:44
 #: courses/views/__init__.py:302 courses/views/__init__.py:551
 msgid "Engagement"
-msgstr ""
+msgstr "Холбоо тогтоох"
 
 #: core/templates/core/landing.html:52
 msgid "How well is my content supporting learners?"
-msgstr ""
+msgstr "Миний агуулга суралцагчдыг маань хэр сайн дэмжиж байна вэ?"
 
 #: core/templates/core/landing.html:53
 msgid "Adjust your course based on where learners are struggling."
-msgstr ""
+msgstr "Суралцагчид хаана бэрхшээлтэй тулгарч байгаад үндэслэж хичээлээ зас."
 
 #: core/templates/core/landing.html:54
 #: courses/tests/test_views/test_performance.py:48
 #: courses/views/__init__.py:313 courses/views/__init__.py:631
 msgid "Performance"
-msgstr ""
+msgstr "Гүйцэтгэл"
 
 #: core/templates/core/landing.html:63
 msgid "Join the Open Source Community"
-msgstr ""
+msgstr "Нээлттэй Эх сурвалжийн Бүлэгт элсээрэй"
 
 #: core/templates/core/landing.html:68
 #, python-format
@@ -88,7 +89,7 @@ msgstr ""
 
 #: core/templates/core/landing.html:75
 msgid "Research at edX"
-msgstr ""
+msgstr "edX-т судалгаа хийгээрэй"
 
 #: core/templates/core/landing.html:80
 #, python-format
@@ -112,13 +113,13 @@ msgstr ""
 #: core/templatetags/dashboard_extras.py:27
 #, python-brace-format
 msgid "{statistic}%"
-msgstr ""
+msgstr "{статистик}%"
 
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: courses/presenters/engagement.py:126
 #, python-brace-format
 msgid "{percentage} of current learners"
-msgstr ""
+msgstr "одоогийн суралцагчдын {хувь}"
 
 #: courses/presenters/enrollment.py:23
 msgid "Female"
@@ -139,7 +140,7 @@ msgstr "Бусад"
 #: courses/presenters/enrollment.py:28 courses/presenters/enrollment.py:63
 #: courses/presenters/enrollment.py:459
 msgid "Unknown"
-msgstr ""
+msgstr "Мэдэгдээгүй"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:43
@@ -150,64 +151,64 @@ msgstr "Хоосон"
 #. School Degree).
 #: courses/presenters/enrollment.py:47 courses/tests/test_serializers.py:12
 msgid "Primary"
-msgstr ""
+msgstr "Үндсэн"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: courses/presenters/enrollment.py:49
 msgid "Middle"
-msgstr ""
+msgstr "Дундах"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:51
 msgid "Secondary"
-msgstr ""
+msgstr "Хоёрдогч"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
 #: courses/presenters/enrollment.py:53
 msgid "Associate"
-msgstr ""
+msgstr "Хамтрагч"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
 #: courses/presenters/enrollment.py:55
 msgid "Bachelor's"
-msgstr ""
+msgstr "Бакалаврын"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters/enrollment.py:57
 msgid "Master's"
-msgstr ""
+msgstr "Магистрын"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
 #: courses/presenters/enrollment.py:59
 msgid "Doctorate"
-msgstr ""
+msgstr "Докторын"
 
 #. Translators: This is a placeholder for enrollment data collected without a
 #. known geolocation.
 #: courses/presenters/enrollment.py:186
 msgid "Unknown Country"
-msgstr ""
+msgstr "Мэдэгдээгүй улс"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/presenters/performance.py:146
 #: courses/templates/courses/submissions_chart_info.html:4
 msgid "Submissions"
-msgstr ""
+msgstr "Шалгуулсан зүйлс"
 
 #: courses/presenters/performance.py:150
 #, python-brace-format
 msgid "Submissions for Part {part_number}: {part_description}"
-msgstr ""
+msgstr "{хэсгийн_дугаар}-р хэсгийн шалгуулсан зүйлс: {хэсгийн_тайлбар}"
 
 #: courses/presenters/performance.py:151
 #, python-brace-format
 msgid "Part {part_number}: {part_description}"
-msgstr ""
+msgstr "{хэсгийн_дугаар}-р хэсэг: {хэсгийн_тайлбар}"
 
 #: courses/presenters/performance.py:153
 #, python-brace-format
