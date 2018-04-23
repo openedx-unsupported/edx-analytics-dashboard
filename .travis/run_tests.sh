@@ -19,6 +19,9 @@ export PATH=$PATH:$PWD/node_modules/.bin
 node --version
 npm --version
 
+# Pin pip version
+make pin_pip
+
 make develop
 make migrate
 
