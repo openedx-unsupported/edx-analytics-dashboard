@@ -8,6 +8,10 @@ DJANGO_SETTINGS_MODULE ?= "analytics_dashboard.settings.local"
 
 .PHONY: requirements clean
 
+# pin to 9.0.3 until tox-battery upgrades
+pin_pip:
+	pip install --upgrade pip==9.0.3
+
 requirements: requirements.py requirements.js
 
 requirements.py:
