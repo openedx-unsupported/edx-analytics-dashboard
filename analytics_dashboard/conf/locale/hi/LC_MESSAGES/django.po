@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Kumar Gaurav <kmrgaurav33@gmail.com>, 2016
-# Lata Verma <vermalata@hotmail.com>, 2016
+# Lata Verma <vermalata@hotmail.com>, 2016,2018
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2017-09-23 20:11+0000\n"
-"Last-Translator: Ned Batchelder <ned@edx.org>\n"
+"PO-Revision-Date: 2018-05-13 18:00+0000\n"
+"Last-Translator: Lata Verma <vermalata@hotmail.com>\n"
 "Language-Team: Hindi (http://www.transifex.com/open-edx/edx-platform/language/hi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,11 +33,11 @@ msgstr "पाठ्यक्रम में सुधार के लिए �
 
 #: core/templates/core/landing.html:42 courses/views/__init__.py:494
 msgid "Who are my learners?"
-msgstr ""
+msgstr "मेरे शिष्य कौन हैं?"
 
 #: core/templates/core/landing.html:43
 msgid "Target your course to fit the backgrounds of your learners."
-msgstr ""
+msgstr "अपने शिक्षार्थियों की पृष्ठभूमि को फिट करने के लिए अपने पाठ्यक्रम को लक्षित करें।"
 
 #: core/templates/core/landing.html:44
 #: courses/templates/courses/enrollment_geography.html:28
@@ -48,13 +48,13 @@ msgstr "नामांकन"
 
 #: core/templates/core/landing.html:47
 msgid "What are learners engaging with in my course?"
-msgstr ""
+msgstr "मेरे पाठ्यक्रम में शिष्य कहां दिलचस्पी दिखा रहे हैं?"
 
 #: core/templates/core/landing.html:48
 msgid ""
 "Improve frequently accessed content, or point learners at underused "
 "resources."
-msgstr ""
+msgstr "अक्सर अभिगमित विष्य वस्तु को बेहतर बनाऐं, या फिर विद्यार्थियों को कम इस्तेमाल किए संसाधनो की ओर इंगित करें।"
 
 #: core/templates/core/landing.html:49
 #: courses/tests/test_views/test_engagement.py:44
@@ -64,11 +64,11 @@ msgstr "अनुबंध"
 
 #: core/templates/core/landing.html:52
 msgid "How well is my content supporting learners?"
-msgstr ""
+msgstr "मेरी विष्य वस्तु शिक्षार्थियों को कितनी सहायक है?"
 
 #: core/templates/core/landing.html:53
 msgid "Adjust your course based on where learners are struggling."
-msgstr ""
+msgstr "अपने पाठ्यर्कम को इस आधार पर व्यवस्थित करें कि विद्यार्थी कहां संघर्ष कर रहा है?"
 
 #: core/templates/core/landing.html:54
 #: courses/tests/test_views/test_performance.py:48
@@ -78,25 +78,25 @@ msgstr "प्रदर्शन"
 
 #: core/templates/core/landing.html:63
 msgid "Join the Open Source Community"
-msgstr ""
+msgstr "ओपन सोर्स समुदाय में शामिल हों"
 
 #: core/templates/core/landing.html:68
 #, python-format
 msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr ""
+msgstr "edX एनालिटिक्स पाईपलाईन और edX इनसाईट्स ओपन सोर्स हैं। %(link_start)sऔर अधिक जानें %(link_end)s."
 
 #: core/templates/core/landing.html:75
 msgid "Research at edX"
-msgstr ""
+msgstr "edX पर तलाशें"
 
 #: core/templates/core/landing.html:80
 #, python-format
 msgid ""
 "We are committed to advancing teaching and learning through research. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr ""
+msgstr "हम शोध के माध्यम से शिक्षण और सीखने को आगे बढ़ाने के लिए प्रतिबद्ध हैं। 1%(link_start)sऔर अधिक जानें 2%(link_end)s."
 
 #: core/templates/core/landing.html:87
 msgid "Need Help?"
@@ -106,20 +106,20 @@ msgstr "मदद चाहिए?"
 #, python-format
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
-msgstr ""
+msgstr "1%(link_start)s हमारा समर्थन केंद्र  2%(link_end)s आपको समाधान खोजने में मदद कर सकता है।"
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
 #: core/templatetags/dashboard_extras.py:27
 #, python-brace-format
 msgid "{statistic}%"
-msgstr ""
+msgstr "{आंकड़े}%"
 
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: courses/presenters/engagement.py:126
 #, python-brace-format
 msgid "{percentage} of current learners"
-msgstr ""
+msgstr "{प्रतिशत} वर्तमान शिक्षार्थी "
 
 #: courses/presenters/enrollment.py:23
 msgid "Female"
@@ -151,36 +151,36 @@ msgstr "कोई नहीं\nकुछ भी नहीं"
 #. School Degree).
 #: courses/presenters/enrollment.py:47 courses/tests/test_serializers.py:12
 msgid "Primary"
-msgstr ""
+msgstr "मुख्य"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: courses/presenters/enrollment.py:49
 msgid "Middle"
-msgstr ""
+msgstr "मध्य"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:51
 msgid "Secondary"
-msgstr ""
+msgstr "माध्यमिक"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
 #: courses/presenters/enrollment.py:53
 msgid "Associate"
-msgstr ""
+msgstr "सहयोगी "
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
 #: courses/presenters/enrollment.py:55
 msgid "Bachelor's"
-msgstr ""
+msgstr "स्नातक"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters/enrollment.py:57
 msgid "Master's"
-msgstr ""
+msgstr "स्नातकोत्तर"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
@@ -192,43 +192,43 @@ msgstr "डॉक्टरेट"
 #. known geolocation.
 #: courses/presenters/enrollment.py:186
 msgid "Unknown Country"
-msgstr ""
+msgstr "अन्जान देश"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/presenters/performance.py:146
 #: courses/templates/courses/submissions_chart_info.html:4
 msgid "Submissions"
-msgstr ""
+msgstr "प्रस्तुतियाँ"
 
 #: courses/presenters/performance.py:150
 #, python-brace-format
 msgid "Submissions for Part {part_number}: {part_description}"
-msgstr ""
+msgstr "भाग {भाग_संख्या}: {भाग_उल्लेख} के लिए प्रस्तुती "
 
 #: courses/presenters/performance.py:151
 #, python-brace-format
 msgid "Part {part_number}: {part_description}"
-msgstr ""
+msgstr "भाग {भाग_संख्या}: {भाग_उल्लेख} "
 
 #: courses/presenters/performance.py:153
 #, python-brace-format
 msgid "Submissions: {part_description}"
-msgstr ""
+msgstr "प्रस्तुतियाँ: {भाग_उल्लेख} "
 
 #: courses/presenters/performance.py:154
 #, python-brace-format
 msgid "{part_description}"
-msgstr ""
+msgstr "{भाग_उल्लेख} "
 
 #: courses/presenters/performance.py:157
 #, python-brace-format
 msgid "Submissions for Part {part_number}"
-msgstr ""
+msgstr "भाग {भाग_संख्या} के लिए प्रस्तुती "
 
 #: courses/presenters/performance.py:158
 #, python-brace-format
 msgid "Part {part_number}"
-msgstr ""
+msgstr "भाग {भाग_संख्या} "
 
 #: courses/templates/courses/_base_content_nav.html:25
 #, python-format
@@ -251,7 +251,7 @@ msgid ""
 "\n"
 "        Select %(level)s\n"
 "    "
-msgstr ""
+msgstr "\nचुनाव करें %(level)s"
 
 #: courses/templates/courses/_graded_content_nav.html:31
 #: courses/templates/courses/_tags_content_nav.html:23
