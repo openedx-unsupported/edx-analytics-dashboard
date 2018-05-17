@@ -14,7 +14,10 @@ from analyticsclient.client import Client
 from analyticsclient.exceptions import TimeoutError
 
 from analytics_dashboard.courses import permissions
-
+try:
+    import newrelic.agent
+except ImportError:  # pragma: no cover
+    newrelic = None  # pylint: disable=invalid-name
 
 logger = logging.getLogger(__name__)
 User = get_user_model()
@@ -29,6 +32,8 @@ def status(_request):
 
 
 def health(_request):
+    if newrelic:  # pragma: no cover
+        newrelic.agent.ignore_transaction()
     overall_status = analytics_api_status = database_status = UNAVAILABLE
 
     try:
