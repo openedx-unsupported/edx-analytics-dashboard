@@ -9,6 +9,7 @@
 # neelawat <neelawat@gmail.com>, 2014
 # neelawat <neelawat@gmail.com>, 2014
 # Noppachai Eiamwasant <noporo@hotmail.com>, 2015
+# Pongkiat Jongtriluck <pongkiatc@yahoo.com>, 2018
 # Pornchai TummarATTAnanonT <yantaku@gmail.com>, 2015-2016
 # Sanyapong Kridakarn <sanyapong@kelanggreen.com>, 2016
 # Sira Nokyoongtong <gumaraa@gmail.com>, 2014
@@ -20,8 +21,8 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2017-09-23 20:11+0000\n"
-"Last-Translator: Supphachoke Suntiwichaya <mrchoke@gmail.com>\n"
+"PO-Revision-Date: 2018-05-12 03:57+0000\n"
+"Last-Translator: Pongkiat Jongtriluck <pongkiatc@yahoo.com>\n"
 "Language-Team: Thai (http://www.transifex.com/open-edx/edx-platform/language/th/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +32,7 @@ msgstr ""
 
 #: core/templates/core/landing.html:15 templates/_skip_link.html:3
 msgid "Skip to content"
-msgstr ""
+msgstr "ข้ามไปยังเนื้อหา"
 
 #: core/templates/core/landing.html:23
 msgid "Login"
@@ -43,11 +44,11 @@ msgstr "ทำความเข้าใจทีมช่วยเหลือ
 
 #: core/templates/core/landing.html:42 courses/views/__init__.py:494
 msgid "Who are my learners?"
-msgstr "มีใครบ้างในชั้นเรียน?"
+msgstr "ผู้เรียนของฉันเป็นใครบ้าง?"
 
 #: core/templates/core/landing.html:43
 msgid "Target your course to fit the backgrounds of your learners."
-msgstr "ตั้งเป้าหมายให้หลักสูตรของคุณให้เหมาะสมกับพื้นฐานของผู้เรียน"
+msgstr "ตั้งเป้าหมายหลักสูตรของคุณให้เหมาะสมกับพื้นฐานของผู้เรียน"
 
 #: core/templates/core/landing.html:44
 #: courses/templates/courses/enrollment_geography.html:28
@@ -58,13 +59,13 @@ msgstr "การลงทะเบียน"
 
 #: core/templates/core/landing.html:47
 msgid "What are learners engaging with in my course?"
-msgstr "ผู้เรียนกำลังมีส่วนร่วมอะไรบ้างในบทเรียน?"
+msgstr "ผู้เรียนกำลังมีส่วนร่วมอะไรบ้างในหลักสูตร?"
 
 #: core/templates/core/landing.html:48
 msgid ""
 "Improve frequently accessed content, or point learners at underused "
 "resources."
-msgstr ""
+msgstr "ปรับปรุงเนื้อหาที่มีการเข้าถึงบ่อย หรือชี้นำให้ผู้เรียนไปยังแหล่งข้อมูลที่ไม่ค่อยถูกใช้งาน"
 
 #: core/templates/core/landing.html:49
 #: courses/tests/test_views/test_engagement.py:44
@@ -74,7 +75,7 @@ msgstr "การเข้าร่วม"
 
 #: core/templates/core/landing.html:52
 msgid "How well is my content supporting learners?"
-msgstr ""
+msgstr "เนื้อหาของฉันสนับสนุนผู้เรียนได้ดีเพียงใด?"
 
 #: core/templates/core/landing.html:53
 msgid "Adjust your course based on where learners are struggling."
@@ -167,12 +168,12 @@ msgstr "ประถมศึกษา"
 #. School Degree).
 #: courses/presenters/enrollment.py:49
 msgid "Middle"
-msgstr "มัธยมต้น"
+msgstr "มัธยมศึกษาตอนต้น"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:51
 msgid "Secondary"
-msgstr "มัธยมศึกษา"
+msgstr "มัธยมศึกษาตอนปลาย"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
@@ -316,7 +317,7 @@ msgstr "วีดีโอถัดไป"
 msgid ""
 "This chart shows the most common answers submitted by learners, ordered by "
 "frequency."
-msgstr ""
+msgstr "แผนภาพนี้แสดงคำตอบที่นิยมตอบมากที่สุดจากผู้เรียน โดยเรียงลำดับตามความถี่"
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html:82
@@ -364,7 +365,7 @@ msgstr "การมีส่วนร่วมของผู้เรียน
 #: courses/templates/courses/engagement_content.html:24
 #: courses/views/__init__.py:556
 msgid "How many learners are interacting with my course?"
-msgstr ""
+msgstr "มีผู้เรียนจำนวนเท่าไรที่มีปฏิสัมพันธ์กับหลักสูตรของฉัน?"
 
 #: courses/templates/courses/engagement_content.html:31
 #: courses/views/__init__.py:325 courses/views/__init__.py:639
@@ -388,7 +389,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_content.html:55
 msgid "Learners who visited at least one page in the course content."
-msgstr ""
+msgstr "ผู้เรียนที่มีการเยี่ยมชมอย่างน้อย 1 หน้าของเนื้อหาในหลักสูตร"
 
 #. Translators: This is a label indicating the number of learners who watched
 #. a video.
@@ -398,7 +399,7 @@ msgstr "ดูวิดีโอในสัปดาห์ที่ผ่าน
 
 #: courses/templates/courses/engagement_content.html:62
 msgid "Learners who played one or more videos."
-msgstr ""
+msgstr "ผู้เรียนที่มีการดูวีดิทัศน์ 1 อันขึ้นไป"
 
 #. Translators: This is a label indicating the number of learners who tried a
 #. problem.
@@ -421,7 +422,7 @@ msgstr ""
 #: courses/templates/courses/engagement_content.html:77
 msgid ""
 "Learners who added a post, response, or comment to any course discussion."
-msgstr ""
+msgstr "ผู้เรียนซึ่งมีการเพิ่มโพสต์ การตอบ หรือเสนอแนะให้กับการอภิปรายในหลักสูตร"
 
 #: courses/templates/courses/engagement_content.html:89
 #: courses/templates/courses/engagement_content.html:97
@@ -459,7 +460,7 @@ msgstr ""
 #: courses/templates/courses/engagement_video_course.html:5
 #: courses/views/__init__.py:569
 msgid "How did learners interact with course videos?"
-msgstr ""
+msgstr "มีผู้เรียนจำนวนกี่คนที่มีปฏิสัมพันธ์กับวิดีทัศน์ของรายวิชา?"
 
 #: courses/templates/courses/engagement_video_course.html:10
 msgid ""
@@ -530,7 +531,7 @@ msgstr ""
 #: courses/templates/courses/enrollment_activity.html:25
 #: courses/views/__init__.py:497
 msgid "How many learners are in my course?"
-msgstr ""
+msgstr "มีผู้เรียนจำนวนกี่คนในรายวิชาของฉัน?"
 
 #: courses/templates/courses/enrollment_activity.html:32
 msgid "Enrollments"
@@ -558,7 +559,7 @@ msgstr "ลงทะเบียนเรียนทั้งหมด"
 #. Translators: This is a label indicating the number of learners in a course.
 #: courses/templates/courses/enrollment_activity.html:61
 msgid "Learners who ever enrolled in the course."
-msgstr ""
+msgstr "ผู้เรียนที่เคยลงทะเบียนในรายวิชานี้"
 
 #. Translators: This is a label to identify current learner enrollment.
 #. Translators: This is a label to identify the current number of learners in
@@ -572,7 +573,7 @@ msgstr "การลงทะเบียนปัจจุบัน"
 #. a course.
 #: courses/templates/courses/enrollment_activity.html:70
 msgid "Learners currently enrolled in the course."
-msgstr ""
+msgstr "ผู้เรียนที่ลงทะเบียนในรายวิชา ณ ปัจจุบัน"
 
 #. Translators: This is a label indicating the change in the number of
 #. learners enrolled in a course since the previous week.
@@ -615,7 +616,7 @@ msgstr "ลงทะเบียนล่วงเวลา"
 #: courses/templates/courses/enrollment_demographics_age.html:26
 #: courses/views/__init__.py:507
 msgid "How old are my learners?"
-msgstr ""
+msgstr "ผู้เรียนของฉันมีอายุเท่าไร?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -646,7 +647,7 @@ msgstr ""
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html:72
 msgid "Learners 25 and Under"
-msgstr ""
+msgstr "ผู้เรียนที่มีอายุตั้งแต่ 25 ปีลงไป"
 
 #: courses/templates/courses/enrollment_demographics_age.html:73
 msgid ""
@@ -658,7 +659,7 @@ msgstr ""
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html:79
 msgid "Learners 26 to 40"
-msgstr ""
+msgstr "ผู้เรียนที่มีอายุระหว่าง 26 ถึง 40 ปี"
 
 #: courses/templates/courses/enrollment_demographics_age.html:80
 msgid ""
@@ -670,7 +671,7 @@ msgstr ""
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html:86
 msgid "Learners 41 and Over"
-msgstr ""
+msgstr "ผู้เรียนที่มีอายุตั้งแต่ 41 ปีขึ้นไป"
 
 #: courses/templates/courses/enrollment_demographics_age.html:87
 msgid ""
@@ -685,7 +686,7 @@ msgstr "ล้มเลิกอายุ"
 #: courses/templates/courses/enrollment_demographics_education.html:25
 #: courses/views/__init__.py:517
 msgid "What level of education do my learners have?"
-msgstr ""
+msgstr "ผู้เรียนของฉันมีการศึกษาอยู่ในระดับใด?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -765,7 +766,7 @@ msgstr "สถิติการกระจายตัวทางภูมิ
 #: courses/templates/courses/enrollment_geography.html:22
 #: courses/views/__init__.py:537
 msgid "Where are my learners?"
-msgstr ""
+msgstr "ผู้เรียนของฉันอยู่ที่ใดบ้าง?"
 
 #: courses/templates/courses/enrollment_geography.html:27
 msgid "Enrollment by Country"
@@ -858,7 +859,7 @@ msgstr ""
 
 #: courses/templates/courses/home.html:93
 msgid "Basic Course Information"
-msgstr "รายละเอียดหลักสูตรขั้นพื้นฐาน"
+msgstr "รายละเอียดเบื้องต้นของรายวิชา"
 
 #. Translators: This title describes a list of links to outside tools for this
 #. course.
@@ -877,11 +878,11 @@ msgstr ""
 
 #: courses/templates/courses/index.html:27
 msgid "Total enrollments across all of your courses."
-msgstr ""
+msgstr "จำนวนการลงทะเบียนทั้งหมดในหลักสูตรทั้งหมดของคุณ"
 
 #: courses/templates/courses/index.html:34
 msgid "Current enrollments across all of your courses."
-msgstr ""
+msgstr "จำนวนการลงทะเบียนปัจจุบันในหลักสูตรทั้งหมดของคุณ"
 
 #: courses/templates/courses/index.html:41
 msgid "Total change in enrollment last week across all of your courses."
@@ -889,7 +890,7 @@ msgstr ""
 
 #: courses/templates/courses/index.html:48
 msgid "Verified enrollments across all of your courses."
-msgstr ""
+msgstr "จำนวนการลงทะเบียนที่ผ่านการตรวจสอบในหลักสูตรทั้งหมดของคุณ"
 
 #: courses/templates/courses/performance_answer_distribution.html:7
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html:5
@@ -1070,7 +1071,7 @@ msgstr "เนื้อหา"
 #: courses/tests/test_views/test_engagement.py:73
 #: courses/views/__init__.py:571 courses/views/engagement.py:36
 msgid "Videos"
-msgstr "วีดิโอ"
+msgstr "วิดีทัศน์"
 
 #: courses/tests/test_views/test_performance.py:65
 #: courses/views/__init__.py:585 courses/views/performance.py:38
@@ -1091,7 +1092,7 @@ msgstr ""
 
 #: courses/views/__init__.py:553
 msgid "What are learners doing in my course?"
-msgstr ""
+msgstr "ผู้เรียนทำอะไรบ้างในหลักสูตรของฉัน?"
 
 #: courses/views/__init__.py:583
 msgid "How are learners doing on graded course assignments?"
@@ -1111,15 +1112,15 @@ msgstr ""
 
 #: courses/views/__init__.py:633
 msgid "How are learners doing on course assignments?"
-msgstr ""
+msgstr "ผู้เรียนทำงานที่ได้รับมอบหมายในหลักสูตรอย่างไร?"
 
 #: courses/views/__init__.py:641
 msgid "What are individual learners doing?"
-msgstr "ผู้เรียนแต่ละคนกำลังทำอะไร"
+msgstr "ผู้เรียนแต่ละคนกำลังทำอะไร?"
 
 #: courses/views/__init__.py:644
 msgid "Who is engaged? Who isn't?"
-msgstr "ใครหมั้นแล้ว ใครไม่ได้หมั้น"
+msgstr "ใครมีส่วนร่วม? และใครที่ไม่มีส่วนร่วม?"
 
 #: courses/views/__init__.py:646
 msgid "All Learners"
@@ -1175,7 +1176,7 @@ msgstr "บทเรียน"
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
+msgstr "ข้อมูลสรุปหลักสูตรมีการปรับปรุงล่าสุดเมื่อ %(update_date)s เวลา %(update_time)sUTC."
 
 #: courses/views/engagement.py:52
 msgid "Engagement Content"
@@ -1187,7 +1188,7 @@ msgstr "การมีส่วนร่วมในเนื้อหา"
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr "ปรับปรุงข้อมูลข้อการมีส่วนร่วมหลักสูตรล่าสุดวันที่ %(update_date)s เวลา %(update_time)s UTC."
+msgstr "ข้อมูลการมีส่วนร่วมในหลักสูตรมีการปรับปรุงล่าสุดเมื่อ %(update_date)s เวลา %(update_time)s UTC."
 
 #: courses/views/engagement.py:88
 msgid "Engagement Videos"
