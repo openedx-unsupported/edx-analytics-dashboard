@@ -1,18 +1,37 @@
-.PHONY: requirements
-
 ROOT = $(shell echo "$$PWD")
 COVERAGE = $(ROOT)/build/coverage
 NODE_BIN=./node_modules/.bin
 
 DJANGO_SETTINGS_MODULE ?= "analytics_dashboard.settings.local"
 
-.PHONY: requirements clean
+.PHONY: requirements clean upgrade pin_pip
 
 # pin to 9.0.3 until tox-battery upgrades
+# 9.0.3 does not work on Sierra Mac OSX.  10.0.1 should be used instead.
 pin_pip:
 	pip install --upgrade pip==9.0.3
 
 requirements: requirements.py requirements.js
+
+upgrade: ## update the pip requirements files to use the latest releases satisfying our constraints
+	pip install -qr requirements/pip-tools.txt
+	pip-compile --upgrade -o requirements/pip-tools.txt requirements/pip-tools.in
+	pip-compile --upgrade -o requirements/base.txt requirements/base.in
+	pip-compile --upgrade -o requirements/doc.txt requirements/doc.in
+	pip-compile --upgrade -o requirements/local.txt requirements/local.in
+	pip-compile --upgrade -o requirements/optional.txt requirements/optional.in
+	pip-compile --upgrade -o requirements/production.txt requirements/production.in
+	pip-compile --upgrade -o requirements/test.txt requirements/test.in
+
+	# Post process all of the files generated above to replace the instructions for recreating them
+	scripts/post-pip-compile.sh \
+		requirements/pip-tools.txt \
+		requirements/base.txt \
+		requirements/doc.txt \
+		requirements/local.txt \
+		requirements/optional.txt \
+		requirements/production.txt \
+		requirements/test.txt
 
 requirements.py:
 	pip install -q -r requirements/base.txt --exists-action w
