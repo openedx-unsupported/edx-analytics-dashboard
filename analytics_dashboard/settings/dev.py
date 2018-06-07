@@ -63,7 +63,7 @@ FULL_APPLICATION_NAME = '{0} {1}'.format(PLATFORM_NAME, APPLICATION_NAME)
 # Set these to the correct values for your OAuth2/OpenID Connect provider
 SOCIAL_AUTH_EDX_OIDC_KEY = 'replace-me'
 SOCIAL_AUTH_EDX_OIDC_SECRET = 'replace-me'
-SOCIAL_AUTH_EDX_OIDC_URL_ROOT = 'http://127.0.0.1:8000/oauth2'
+SOCIAL_AUTH_EDX_OIDC_URL_ROOT = 'http://127.0.0.1:18000/oauth2'
 
 # This value should be the same as SOCIAL_AUTH_EDX_OIDC_SECRET
 SOCIAL_AUTH_EDX_OIDC_ID_TOKEN_DECRYPTION_KEY = SOCIAL_AUTH_EDX_OIDC_SECRET
@@ -83,13 +83,13 @@ HELP_URL = '#'
 SEGMENT_IO_KEY = os.environ.get('SEGMENT_WRITE_KEY')
 ########## END SEGMENT.IO
 
-GRADING_POLICY_API_URL = 'http://127.0.0.1:8000/api/grades/v0/'
-COURSE_API_URL = 'http://127.0.0.1:8000/api/courses/v1/'
+GRADING_POLICY_API_URL = 'http://127.0.0.1:18000/api/grades/v0/'
+COURSE_API_URL = 'http://127.0.0.1:18000/api/courses/v1/'
 
 LOGGING = get_logger_config(debug=DEBUG, dev_env=True, local_loglevel='DEBUG')
 
 ########## MODULE_PREVIEW
-MODULE_PREVIEW_URL = 'http://127.0.0.1:8000/xblock'
+MODULE_PREVIEW_URL = 'http://127.0.0.1:18000/xblock'
 ########## END MODULE_PREVIEW
 
 ########## REST FRAMEWORK CONFIGURATION
