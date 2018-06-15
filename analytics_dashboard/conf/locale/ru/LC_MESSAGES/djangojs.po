@@ -14,14 +14,16 @@
 # Razmik Badalyan <badalyanrazmik@gmail.com>, 2014
 # Weyedide <weyedide@gmail.com>, 2014-2016
 # Yana Malinovskaya <y.malinovskaya@itransition.com>, 2014
+# макс макс <m.a.balashov@yandex.ru>, 2018
+# макс макс <m.a.balashov@yandex.ru>, 2018
 # Тимур Чибиров <t4ancard@mail.ru>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2018-02-05 11:20+0000\n"
-"Last-Translator: Ned Batchelder <ned@edx.org>\n"
+"PO-Revision-Date: 2018-06-10 14:54+0000\n"
+"Last-Translator: макс макс <m.a.balashov@yandex.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/open-edx/edx-platform/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -96,7 +98,7 @@ msgstr "Результаты"
 #. table.
 #: static/apps/components/generic-list/list/views/num-results.js:30
 msgid "Number of results: <%= count %>"
-msgstr ""
+msgstr "Количество результатов: <%= count %>"
 
 #: static/apps/components/generic-list/list/views/paging-footer.js:70
 msgid "first page"
@@ -130,7 +132,7 @@ msgstr ""
 
 #: static/apps/components/generic-list/list/views/table.js:27
 msgid "Generic List"
-msgstr ""
+msgstr "Общий список"
 
 #. Translators: This message indicates content is loading in the page.
 #: static/apps/components/loading/views/loading-view.js:20
@@ -180,7 +182,7 @@ msgstr ""
 
 #: static/apps/course-list/app/app.js:45
 msgid "Archived"
-msgstr ""
+msgstr "Архивировано"
 
 #: static/apps/course-list/app/app.js:46
 msgid "Unknown"
@@ -189,7 +191,7 @@ msgstr ""
 #: static/apps/course-list/app/controller.js:48
 #: static/apps/course-list/app/controller.js:108
 msgid "Course List"
-msgstr ""
+msgstr "Список курсов"
 
 #: static/apps/course-list/app/controller.js:98
 #: static/apps/learners/app/controller.js:96
@@ -198,11 +200,11 @@ msgstr "Неверные параметры"
 
 #: static/apps/course-list/app/controller.js:99
 msgid "Sorry, we couldn't find any courses that matched that query."
-msgstr ""
+msgstr "К сожалению, мы не смогли найти курсы, соответствующие этому запросу."
 
 #: static/apps/course-list/app/controller.js:100
 msgid "Return to the Course List page."
-msgstr ""
+msgstr "Вернуться на страницу списка курсов."
 
 #: static/apps/course-list/app/controller.js:125
 #: static/apps/learners/app/controller.js:181
@@ -216,19 +218,19 @@ msgstr "Страница не найдена"
 
 #: static/apps/course-list/common/collections/course-list.js:77
 msgid "Course Name"
-msgstr ""
+msgstr "Название курса"
 
 #: static/apps/course-list/common/collections/course-list.js:78
 msgid "Start Date"
-msgstr ""
+msgstr "Дата начала"
 
 #: static/apps/course-list/common/collections/course-list.js:79
 msgid "End Date"
-msgstr ""
+msgstr "Дата окончания"
 
 #: static/apps/course-list/common/collections/course-list.js:80
 msgid "Total Enrollment"
-msgstr ""
+msgstr "Общий охват"
 
 #. Translators: The noun count (e.g. number of learners)
 #: static/apps/course-list/common/collections/course-list.js:81
@@ -252,7 +254,7 @@ msgstr ""
 
 #: static/apps/course-list/common/collections/course-list.js:89
 msgid "Availability"
-msgstr ""
+msgstr "Доступность"
 
 #: static/apps/course-list/common/collections/course-list.js:90
 msgid "Pacing Type"
@@ -260,7 +262,7 @@ msgstr ""
 
 #: static/apps/course-list/common/collections/course-list.js:91
 msgid "Programs"
-msgstr ""
+msgstr "Программы"
 
 #: static/apps/course-list/list/views/base-header-cell.js:11
 msgid "Course name advertised on edX site."
@@ -299,15 +301,15 @@ msgstr ""
 #: static/apps/course-list/list/views/controls.js:38
 #: static/apps/learners/roster/views/controls.js:39
 msgid "Skip to results"
-msgstr ""
+msgstr "Перейти к результатам"
 
 #: static/apps/course-list/list/views/controls.js:58
 msgid "Find a course"
-msgstr ""
+msgstr "Найти курс"
 
 #: static/apps/course-list/list/views/controls.js:68
 msgid "availability"
-msgstr ""
+msgstr "доступность"
 
 #: static/apps/course-list/list/views/controls.js:76
 msgid "pacing_type"
@@ -319,15 +321,15 @@ msgstr ""
 
 #: static/apps/course-list/list/views/course-list.js:66
 msgid "Download full course list to CSV"
-msgstr ""
+msgstr "Загрузить полный список курсов в CSV"
 
 #: static/apps/course-list/list/views/course-list.js:91
 msgid "Course list controls"
-msgstr ""
+msgstr "Элементы управления списком курсов"
 
 #: static/apps/course-list/list/views/results.js:47
 msgid "No courses matched your criteria."
-msgstr ""
+msgstr "Нет курсов, соответствующим Вашим критериям."
 
 #: static/apps/course-list/list/views/results.js:49
 #: static/apps/learners/roster/views/results.js:49
@@ -341,7 +343,7 @@ msgstr "Попробуйте очистить фильтры."
 
 #: static/apps/course-list/list/views/results.js:55
 msgid "No course data is currently available for your course."
-msgstr ""
+msgstr "В настоящее время в вашем курсе нет данных о курсе."
 
 #: static/apps/course-list/list/views/results.js:57
 msgid ""
