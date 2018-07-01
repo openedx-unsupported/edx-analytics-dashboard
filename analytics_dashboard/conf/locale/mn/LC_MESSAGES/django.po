@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Gereltuya Bayanmunkh <gereltuya.b@aplus.mn>, 2018
+# Munkhtsetseg <moogmonkhoo_n@yahoo.com>, 2018
 # Myagmarjav Enkhbileg <miigaa.lucky@gmail.com>, 2018
 # Od-Erdene <oderdene.ch@gmail.com>, 2016
 msgid ""
@@ -11,8 +12,8 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2018-06-05 02:36+0000\n"
-"Last-Translator: Myagmarjav Enkhbileg <miigaa.lucky@gmail.com>\n"
+"PO-Revision-Date: 2018-06-27 04:19+0000\n"
+"Last-Translator: Munkhtsetseg <moogmonkhoo_n@yahoo.com>\n"
 "Language-Team: Mongolian (http://www.transifex.com/open-edx/edx-platform/language/mn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,7 +46,7 @@ msgstr "Суралцагчдынхаа боловсролд тохируулах
 #: courses/tests/test_views/__init__.py:220 courses/views/__init__.py:291
 #: courses/views/__init__.py:492
 msgid "Enrollment"
-msgstr "Бүртгэл "
+msgstr "Элсэлт"
 
 #: core/templates/core/landing.html:47
 msgid "What are learners engaging with in my course?"
@@ -61,7 +62,7 @@ msgstr "Байнга үзэгддэг агуулгыг сайжруул, эсв�
 #: courses/tests/test_views/test_engagement.py:44
 #: courses/views/__init__.py:302 courses/views/__init__.py:551
 msgid "Engagement"
-msgstr "Холбоо тогтоох"
+msgstr "Гэрээ хэлэлцээр"
 
 #: core/templates/core/landing.html:52
 msgid "How well is my content supporting learners?"
@@ -114,7 +115,7 @@ msgstr ""
 #: core/templatetags/dashboard_extras.py:27
 #, python-brace-format
 msgid "{statistic}%"
-msgstr ""
+msgstr "{statistic}%"
 
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: courses/presenters/engagement.py:126
@@ -141,7 +142,7 @@ msgstr "Бусад"
 #: courses/presenters/enrollment.py:28 courses/presenters/enrollment.py:63
 #: courses/presenters/enrollment.py:459
 msgid "Unknown"
-msgstr "Мэдэгдээгүй"
+msgstr "Мэдэгдэхгүй"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:43
@@ -152,13 +153,13 @@ msgstr "Хоосон"
 #. School Degree).
 #: courses/presenters/enrollment.py:47 courses/tests/test_serializers.py:12
 msgid "Primary"
-msgstr "Үндсэн"
+msgstr "Анхдагч"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: courses/presenters/enrollment.py:49
 msgid "Middle"
-msgstr "Дундах"
+msgstr "Дундаж"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:51
@@ -169,7 +170,7 @@ msgstr "Хоёрдогч"
 #. Degree).
 #: courses/presenters/enrollment.py:53
 msgid "Associate"
-msgstr "Хамтрагч"
+msgstr "Холбоотой"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
@@ -193,7 +194,7 @@ msgstr "Докторын"
 #. known geolocation.
 #: courses/presenters/enrollment.py:186
 msgid "Unknown Country"
-msgstr "Мэдэгдээгүй улс"
+msgstr "Танигдахгүй улс"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/presenters/performance.py:146
@@ -337,7 +338,7 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_gender.html:65
 #: courses/templates/courses/enrollment_geography.html:97
 msgid "Download CSV"
-msgstr "CSV татаж авах"
+msgstr "CSV татах"
 
 #: courses/templates/courses/base_performance_answer_distribution.html:117
 msgid "Learner Submission Counts"
@@ -385,7 +386,7 @@ msgstr ""
 #. a video.
 #: courses/templates/courses/engagement_content.html:61
 msgid "Watched a Video Last Week"
-msgstr ""
+msgstr "Өнгөрсөн долоо хоногт үзэгдсэн видеонууд"
 
 #: courses/templates/courses/engagement_content.html:62
 msgid "Learners who played one or more videos."
@@ -395,7 +396,7 @@ msgstr ""
 #. problem.
 #: courses/templates/courses/engagement_content.html:68
 msgid "Tried a Problem Last Week"
-msgstr ""
+msgstr "Өнгөрсөн долоо хоногийн гарсан хүндрэл"
 
 #: courses/templates/courses/engagement_content.html:69
 msgid ""
@@ -417,7 +418,7 @@ msgstr ""
 #: courses/templates/courses/engagement_content.html:89
 #: courses/templates/courses/engagement_content.html:97
 msgid "Content Engagement Breakdown"
-msgstr ""
+msgstr "Агуулгын задаргаа"
 
 #. Translators: This describes the data displayed in the chart below. E.g. how
 #. many learners viewed a video.
@@ -525,7 +526,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html:32
 msgid "Enrollments"
-msgstr ""
+msgstr "Бүртгэл"
 
 #: courses/templates/courses/enrollment_activity.html:33
 msgid ""
@@ -535,7 +536,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html:49
 msgid "Enrollment Metrics"
-msgstr ""
+msgstr "Бүртгэлийн хэмжүүр"
 
 #. Translators: This is a label to identify the number of learners who ever
 #. enrolled in the course.
@@ -544,7 +545,7 @@ msgstr ""
 #: courses/templates/courses/enrollment_activity.html:59
 #: courses/templates/courses/index.html:26
 msgid "Total Enrollment"
-msgstr ""
+msgstr "Нийт бүртгэл"
 
 #. Translators: This is a label indicating the number of learners in a course.
 #: courses/templates/courses/enrollment_activity.html:61
@@ -572,7 +573,7 @@ msgstr ""
 #: courses/templates/courses/enrollment_activity.html:76
 #: courses/templates/courses/index.html:40
 msgid "Change in Last Week"
-msgstr ""
+msgstr "Өнгөрсөн долоо хоногийн өөрчлөлт"
 
 #: courses/templates/courses/enrollment_activity.html:77
 msgid "Net difference in current enrollment in the last week."
@@ -585,7 +586,7 @@ msgstr ""
 #: courses/templates/courses/enrollment_activity.html:84
 #: courses/templates/courses/index.html:47
 msgid "Verified Enrollment"
-msgstr ""
+msgstr "Шалгагдсан бүртгэл"
 
 #. Translators: This is a label indicating the number of learners enrolled in
 #. a course on the verified track.
@@ -601,7 +602,7 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_education.html:101
 #: courses/templates/courses/enrollment_demographics_gender.html:66
 msgid "Enrollment Over Time"
-msgstr ""
+msgstr "Бүртгэлийн хугацаа дууссан"
 
 #: courses/templates/courses/enrollment_demographics_age.html:26
 #: courses/views/__init__.py:507
@@ -620,7 +621,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_age.html:56
 msgid "Age Metrics"
-msgstr ""
+msgstr "Ygvys htbrooj"
 
 #. Translators: This is a label to identify the median age of enrolled
 #. learners.
@@ -671,7 +672,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_age.html:101
 msgid "Age Breakdown"
-msgstr ""
+msgstr "Насны задаргаа"
 
 #: courses/templates/courses/enrollment_demographics_education.html:25
 #: courses/views/__init__.py:517
@@ -690,12 +691,12 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_education.html:56
 msgid "Education Metrics"
-msgstr ""
+msgstr "Боловсролын хэмжээс"
 
 #. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html:64
 msgid "High School Diploma or Less"
-msgstr ""
+msgstr "Дээд сургуулийн дипломтой эсвэл үгүй"
 
 #: courses/templates/courses/enrollment_demographics_education.html:65
 msgid ""
@@ -707,7 +708,7 @@ msgstr ""
 #. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html:71
 msgid "College Degree"
-msgstr ""
+msgstr "Коллежийн зэрэг"
 
 #: courses/templates/courses/enrollment_demographics_education.html:72
 msgid ""
@@ -718,7 +719,7 @@ msgstr ""
 #. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html:78
 msgid "Advanced Degree"
-msgstr ""
+msgstr "Ахисан түвшний зэрэг"
 
 #: courses/templates/courses/enrollment_demographics_education.html:79
 msgid ""
@@ -728,7 +729,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_education.html:91
 msgid "Educational Breakdown"
-msgstr ""
+msgstr "Боловсролын задаргаа"
 
 #: courses/templates/courses/enrollment_demographics_gender.html:25
 #: courses/views/__init__.py:527
@@ -747,11 +748,11 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_gender.html:56
 msgid "Gender Breakdown Over Time"
-msgstr ""
+msgstr "Gender Breakdown Over Time"
 
 #: courses/templates/courses/enrollment_geography.html:21
 msgid "Geographic Distribution"
-msgstr ""
+msgstr "Газарзүйн байрлалын тархалт"
 
 #: courses/templates/courses/enrollment_geography.html:22
 #: courses/views/__init__.py:537
@@ -760,11 +761,11 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_geography.html:27
 msgid "Enrollment by Country"
-msgstr ""
+msgstr "Бүртгэл улсаар"
 
 #: courses/templates/courses/enrollment_geography.html:45
 msgid "Geography Metrics"
-msgstr ""
+msgstr "Geography Metrics"
 
 #. Translators: This string represents the number of countries where learners
 #. are enrolled.
@@ -800,7 +801,7 @@ msgstr ""
 #. greatest number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html:70
 msgid "Third Country or Region by Enrollment"
-msgstr ""
+msgstr "3дагч орон болон элсэлт хийсэн муж"
 
 #: courses/templates/courses/enrollment_geography.html:71
 msgid "Country or region with the third largest number of learners."
@@ -816,14 +817,14 @@ msgstr ""
 #: courses/templates/courses/enrollment_geography.html:91
 #: courses/templates/courses/enrollment_geography.html:98
 msgid "Geographic Breakdown"
-msgstr ""
+msgstr "Газарзүйн байрлалын задаргаа"
 
 #. Translators: Application here refers to the web site/application being used
 #. (e.g. the dashboard).
 #: courses/templates/courses/home.html:11 templates/base_dashboard.html:28
 #: templates/footer.html:5 templates/lens-navigation.html:9
 msgid "Application"
-msgstr ""
+msgstr "Application"
 
 #. Translators: This refers to the homepage of a course.
 #: courses/templates/courses/home.html:15 courses/views/__init__.py:486
@@ -835,7 +836,7 @@ msgstr ""
 #: courses/templates/courses/home.html:16 templates/lens-navigation.html:31
 #: templates/submenu_navigation.html:14
 msgid "Active"
-msgstr ""
+msgstr "Идэвхтэй"
 
 #. Translators: This indicates that the adjacent link will trigger a CSV
 #. download. '{{download_icon}}' will be replaced with an icon.
@@ -1009,43 +1010,43 @@ msgstr ""
 #: courses/templates/courses/permissions-retrieval-failed.html:5
 #: courses/templates/courses/permissions-retrieval-failed.html:7
 msgid "Permissions Retrieval Failed"
-msgstr ""
+msgstr "Хандалтын эрх хүрэхгүй"
 
 #: courses/templates/courses/permissions-retrieval-failed.html:9
 msgid ""
 "There was a problem retrieving course permissions for your account. Please "
 "try again. If you continue to experience issues, please let us know."
-msgstr ""
+msgstr "Таны эрх хичээлийг үзэх боломжгүй байна. Ахни оролдоно уу. Хэрвээ энэ асуудал ахин гарвал бидэнтэй холбогдоно уу."
 
 #: courses/templates/courses/permissions-retrieval-failed.html:14
 msgid "Try Again"
-msgstr ""
+msgstr "Ахин оролд"
 
 #: courses/tests/test_views/__init__.py:236 courses/views/__init__.py:499
 #: courses/views/enrollment.py:23
 msgid "Activity"
-msgstr ""
+msgstr "Үйл ажиллагаа"
 
 #: courses/tests/test_views/__init__.py:246 courses/views/__init__.py:509
 #: courses/views/__init__.py:519 courses/views/__init__.py:529
 #: courses/views/enrollment.py:32
 msgid "Demographics"
-msgstr ""
+msgstr "Хүн ам зүйн статистик мэдээ "
 
 #: courses/tests/test_views/__init__.py:256 courses/views/__init__.py:539
 #: courses/views/enrollment.py:41
 msgid "Geography"
-msgstr ""
+msgstr "Газарзүй "
 
 #: courses/tests/test_views/__init__.py:294 courses/views/__init__.py:509
 #: courses/views/enrollment.py:61
 msgid "Age"
-msgstr ""
+msgstr "Нас"
 
 #: courses/tests/test_views/__init__.py:304 courses/views/__init__.py:519
 #: courses/views/enrollment.py:70
 msgid "Education"
-msgstr ""
+msgstr "Боловсрол"
 
 #: courses/tests/test_views/__init__.py:314 courses/views/__init__.py:529
 #: courses/views/enrollment.py:79
@@ -1170,7 +1171,7 @@ msgstr ""
 
 #: courses/views/engagement.py:52
 msgid "Engagement Content"
-msgstr ""
+msgstr "Байгаа агуулга"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py:62
@@ -1178,7 +1179,7 @@ msgstr ""
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Хичээлд байгаа өгөгдөл өөрчлөгдсөн сүүлийн огноо %(update_date)s at %(update_time)s UTC."
 
 #: courses/views/engagement.py:88
 msgid "Engagement Videos"
@@ -1219,11 +1220,11 @@ msgstr ""
 #: courses/views/enrollment.py:94
 msgid ""
 "All above demographic data was self-reported at the time of registration."
-msgstr ""
+msgstr "Дээрх бүх хүн ам зүйн тоо баримт нь бүртгэлийн үед өөрөө мэдээлсэн байна."
 
 #: courses/views/enrollment.py:107
 msgid "Enrollment Activity"
-msgstr ""
+msgstr "Бүртгэлийн үйл ажиллагаа"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py:117
@@ -1231,23 +1232,23 @@ msgstr ""
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "Бүртгэлийн өгөгдлийн шинэчлэгдсэн сүүлийн хугацаа  %(update_date)s at %(update_time)s UTC."
 
 #: courses/views/enrollment.py:148
 msgid "Enrollment Demographics by Age"
-msgstr ""
+msgstr "Бүртгэлийн мэдээлэл насаар"
 
 #: courses/views/enrollment.py:186
 msgid "Enrollment Demographics by Education"
-msgstr ""
+msgstr "Бүртгэлийн мэдээлэл боловсролоор"
 
 #: courses/views/enrollment.py:224
 msgid "Enrollment Demographics by Gender"
-msgstr ""
+msgstr "Бүртгэлийн мэдээлэл хүйсээр "
 
 #: courses/views/enrollment.py:262
 msgid "Enrollment Geography"
-msgstr ""
+msgstr "Бүртгэл газарзүй байрлалаар"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py:272
@@ -1304,26 +1305,26 @@ msgstr ""
 
 #: settings/base.py:419
 msgid "Terms of Service"
-msgstr "Үйлчилгээний нөхцөл"
+msgstr "Ашиглах эрх"
 
 #: settings/base.py:420
 msgid "Privacy Policy"
-msgstr "Нууцлалын бодлого"
+msgstr "Хуулиар хамгаалагдсан"
 
 #: templates/403.html:5 templates/403.html:8
 msgid "Access Denied"
-msgstr ""
+msgstr "Нэвтрэх боломжгүй"
 
 #: templates/403.html:10
 msgid ""
 "You do not have permission to view this page. If you believe you should have"
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
-msgstr ""
+msgstr "Энэ хуудсыг үзэх таны эрх хүрэхгүй байна. Хэрвээ та үзэхийг хүсвэл эрхээ солиулах хэрэгтэй."
 
 #: templates/403.html:17
 msgid "Logout then Login"
-msgstr ""
+msgstr "Гарах ба Нэвтрэх"
 
 #: templates/404.html:5 templates/404.html:8
 msgid "Page Not Found"
@@ -1333,17 +1334,17 @@ msgstr "Хуудас олдохгүй байна"
 msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
-msgstr ""
+msgstr "Таны хайж байгаа хуудсыг олохгүй байна. URL хаягаа зөв эсэхийг шалгаад ахин оролдоно уу."
 
 #: templates/500.html:5 templates/500.html:8
 msgid "An Error Occurred"
-msgstr ""
+msgstr "Алдаа гарлаа."
 
 #: templates/500.html:10
 msgid ""
 "Our servers weren't able to complete your request. Please try again by "
 "refreshing this page or retracing your steps."
-msgstr ""
+msgstr "Манай сервер таны хүсэлтийг гүйцэтгэж чадахгүй байна. Хуудсаа сэргээгээд командаа ахин өгнө үү."
 
 #: templates/503.html:5 templates/503.html:7
 msgid "We're having trouble loading this page. Please try again in a minute."
@@ -1359,7 +1360,7 @@ msgstr "Хаах"
 
 #: templates/base-error.html:42
 msgid "Use our support tool to ask questions or share feedback."
-msgstr ""
+msgstr "Манай тусламжийн хэрэгслийг ашигла эсвэл хүсэлтээ шайрла."
 
 #. Translators: This intention here is that a user clicks a button to contact
 #. a support group (e.g. edX Support, or MITx Support). Reorder the
@@ -1367,7 +1368,7 @@ msgstr ""
 #: templates/base-error.html:47
 #, python-format
 msgid "Contact %(platform_name)s Support"
-msgstr ""
+msgstr "%(platform_name)s дэмжлэх авах холбоо барих хаяг"
 
 #: templates/footer.html:16
 #, python-format
@@ -1382,11 +1383,11 @@ msgstr ""
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
 "            reserved. "
-msgstr ""
+msgstr " %(current_year)s %(platform_name)s, except where noted, all rights\n            reserved. "
 
 #: templates/header.html:13
 msgid "Toggle navigation"
-msgstr ""
+msgstr "Toggle navigation"
 
 #: templates/header.html:40
 msgid "Help"
@@ -1398,7 +1399,7 @@ msgstr ""
 
 #: templates/header.html:60
 msgid "Logout"
-msgstr ""
+msgstr "Гарах"
 
 #: templates/lens-navigation.html:27
 msgid "Navigation Menu."
@@ -1410,12 +1411,12 @@ msgstr "Ачаалал"
 
 #: templates/section_error.html:10
 msgid "We are unable to load this chart."
-msgstr ""
+msgstr "Энэ графикийг ачаалж чадахгүй байна."
 
 #: templates/section_error.html:12
 msgid "We are unable to load this table."
-msgstr ""
+msgstr "Энэ хүснэгтийг ачаалж чадахгүй байна."
 
 #: templates/section_error.html:14
 msgid "We are unable to load these metrics."
-msgstr ""
+msgstr "Энэ хэмжээсийг ачаалж чадахгүй байна."
