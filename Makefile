@@ -13,6 +13,7 @@ pin_pip:
 
 requirements: requirements.py requirements.js
 
+export CUSTOM_COMPILE_COMMAND = make upgrade
 upgrade: ## update the pip requirements files to use the latest releases satisfying our constraints
 	pip install -qr requirements/pip-tools.txt
 	pip-compile --upgrade -o requirements/pip-tools.txt requirements/pip-tools.in
@@ -22,16 +23,6 @@ upgrade: ## update the pip requirements files to use the latest releases satisfy
 	pip-compile --upgrade -o requirements/optional.txt requirements/optional.in
 	pip-compile --upgrade -o requirements/production.txt requirements/production.in
 	pip-compile --upgrade -o requirements/test.txt requirements/test.in
-
-	# Post process all of the files generated above to replace the instructions for recreating them
-	scripts/post-pip-compile.sh \
-		requirements/pip-tools.txt \
-		requirements/base.txt \
-		requirements/doc.txt \
-		requirements/local.txt \
-		requirements/optional.txt \
-		requirements/production.txt \
-		requirements/test.txt
 
 requirements.py:
 	pip install -q -r requirements/base.txt --exists-action w

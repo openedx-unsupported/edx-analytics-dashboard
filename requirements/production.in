@@ -1,3 +1,6 @@
+# There should be no dependency in production that isn't in development, so rigorously review anything before putting
+# it in here.
+
 -r base.txt
 
 MySQL-python==1.2.5		# GPL License
