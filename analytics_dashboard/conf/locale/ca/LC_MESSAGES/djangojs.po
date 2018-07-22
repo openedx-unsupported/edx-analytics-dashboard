@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Juanjo Bote <juanjo.botev@ub.edu>, 2018
 # Roger Rue <rrue@claret-valls.org>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2018-05-10 16:26+0000\n"
-"Last-Translator: Elies Martos Robles <eliesmr4@gmail.com>\n"
+"PO-Revision-Date: 2018-07-22 20:00+0000\n"
+"Last-Translator: Juanjo Bote <juanjo.botev@ub.edu>\n"
 "Language-Team: Catalan (http://www.transifex.com/open-edx/edx-platform/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,102 +25,102 @@ msgstr "Descarregar CSV"
 
 #: static/apps/components/download/views/download-data.js:26
 msgid "Download search results to CSV"
-msgstr ""
+msgstr "Baixeu els resultats de la cerca a CSV"
 
 #. Translators: "All" refers to viewing all items (e.g. all courses).
 #: static/apps/components/filter/views/drop-down-filter.js:31
 msgid "All"
-msgstr ""
+msgstr "Tots"
 
 #. Translators: 'name' here refers to the name of the filter, while 'count'
 #. refers to the number of items belonging to that filter.
 #: static/apps/components/filter/views/filter.js:90
 msgid "<%= name %> (<%= count %>)"
-msgstr ""
+msgstr "<%= name %> (<%= count %>)"
 
 #. Translators: this is a label describing a filter selection that the user
 #. initiated.
 #: static/apps/components/generic-list/list/views/active-filters.js:62
 msgid "<%= filterDisplayName %>: <%= filterVal %>"
-msgstr ""
+msgstr "<%= filterDisplayName %>: <%= filterVal %>"
 
 #: static/apps/components/generic-list/list/views/active-filters.js:87
 msgid "Filters In Use:"
-msgstr ""
+msgstr "Filtres en ús:"
 
 #: static/apps/components/generic-list/list/views/active-filters.js:88
 msgid "Click to remove this filter"
-msgstr ""
+msgstr "Feu clic per eliminar aquest filtre"
 
 #. Translators: "Clear" in this context means "remove all of the filters"
 #: static/apps/components/generic-list/list/views/active-filters.js:90
 msgid "Clear"
-msgstr ""
+msgstr "Netejar"
 
 #: static/apps/components/generic-list/list/views/active-filters.js:91
 msgid "Click to remove all filters"
-msgstr ""
+msgstr "Feu clic per eliminar tots els filtres"
 
 #. Translators: "sort ascending" describes the current sort state to the user.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:71
 msgid "sort ascending"
-msgstr ""
+msgstr "ordena ascendent"
 
 #. Translators: "sort descending" describes the current sort state to the
 #. user.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:73
 msgid "sort descending"
-msgstr ""
+msgstr "ordena descendent"
 
 #. Translators: "click to sort" tells the user that they can click this link
 #. to sort by the current field.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:76
 msgid "click to sort"
-msgstr ""
+msgstr "feu clic per ordenar"
 
 #: static/apps/components/generic-list/list/views/list.js:51
 msgid "Results"
-msgstr ""
+msgstr "Resultats"
 
 #. Translators: 'count' refers to the number of results contained in the
 #. table.
 #: static/apps/components/generic-list/list/views/num-results.js:30
 msgid "Number of results: <%= count %>"
-msgstr ""
+msgstr "Nombre de resultats: <%= count %>"
 
 #: static/apps/components/generic-list/list/views/paging-footer.js:70
 msgid "first page"
-msgstr ""
+msgstr "primera pàgina"
 
 #: static/apps/components/generic-list/list/views/paging-footer.js:72
 msgid "previous page"
-msgstr ""
+msgstr "Pàgina anterior"
 
 #: static/apps/components/generic-list/list/views/paging-footer.js:74
 msgid "next page"
-msgstr ""
+msgstr "Pàgina següent"
 
 #: static/apps/components/generic-list/list/views/paging-footer.js:76
 msgid "last page"
-msgstr ""
+msgstr "Darrera pàgina"
 
 #: static/apps/components/generic-list/list/views/paging-footer.js:78
 msgid "page"
-msgstr ""
+msgstr "pàgina"
 
 #. Translators: describes the state of a pagination button as not clickable
 #: static/apps/components/generic-list/list/views/paging-footer.js:88
 msgid "disabled"
-msgstr ""
+msgstr "desactivat"
 
 #. Translators: describes a pagination button as representing the current page
 #: static/apps/components/generic-list/list/views/paging-footer.js:91
 msgid "active"
-msgstr ""
+msgstr "activat"
 
 #: static/apps/components/generic-list/list/views/table.js:27
 msgid "Generic List"
-msgstr ""
+msgstr "Llista genèrica"
 
 #. Translators: This message indicates content is loading in the page.
 #: static/apps/components/loading/views/loading-view.js:20
@@ -130,73 +131,73 @@ msgstr "Carregant...."
 #. it as "504".
 #: static/apps/components/utils/utils.js:61
 msgid "504: Server error"
-msgstr ""
+msgstr "504: Error del servidor"
 
 #: static/apps/components/utils/utils.js:63
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
-msgstr ""
+msgstr "El processament de la vostra sol·licitud triga massa a completar-se. Torneu a carregar la pàgina per tornar-ho a provar."
 
 #: static/apps/components/utils/utils.js:67
 msgid "Server error"
-msgstr ""
+msgstr "Error del servidor"
 
 #: static/apps/components/utils/utils.js:68
 #: static/apps/components/utils/utils.js:80
 msgid "Your request could not be processed. Reload the page to try again."
-msgstr ""
+msgstr "No s'ha pogut processar la vostra sol·licitud. Torneu a carregar la pàgina per tornar-ho a provar."
 
 #: static/apps/components/utils/utils.js:79
 msgid "Network error"
-msgstr ""
+msgstr "Error de connexió de la xarxa"
 
 #: static/apps/course-list/app/app.js:39
 msgid "Instructor-Paced"
-msgstr ""
+msgstr "Instructor-Ràpid"
 
 #: static/apps/course-list/app/app.js:40
 msgid "Self-Paced"
-msgstr ""
+msgstr "Autoportant"
 
 #: static/apps/course-list/app/app.js:43
 msgid "Upcoming"
-msgstr ""
+msgstr "Proper"
 
 #: static/apps/course-list/app/app.js:44
 msgid "Current"
-msgstr ""
+msgstr "Actual"
 
 #: static/apps/course-list/app/app.js:45
 msgid "Archived"
-msgstr ""
+msgstr "Arxivat"
 
 #: static/apps/course-list/app/app.js:46
 msgid "Unknown"
-msgstr ""
+msgstr "Desconegut"
 
 #: static/apps/course-list/app/controller.js:48
 #: static/apps/course-list/app/controller.js:108
 msgid "Course List"
-msgstr ""
+msgstr "Llista del curs"
 
 #: static/apps/course-list/app/controller.js:98
 #: static/apps/learners/app/controller.js:96
 msgid "Invalid Parameters"
-msgstr ""
+msgstr "Paràmetres incorrectes"
 
 #: static/apps/course-list/app/controller.js:99
 msgid "Sorry, we couldn't find any courses that matched that query."
-msgstr ""
+msgstr "No hem pogut trobar cap curs que coincideixi amb aquesta consulta."
 
 #: static/apps/course-list/app/controller.js:100
 msgid "Return to the Course List page."
-msgstr ""
+msgstr "Torneu a la pàgina de la llista de cursos."
 
 #: static/apps/course-list/app/controller.js:125
 #: static/apps/learners/app/controller.js:181
 msgid "Sorry, we couldn't find the page you're looking for."
-msgstr ""
+msgstr "No hem pogut trobar la pàgina que cerqueu."
 
 #: static/apps/course-list/app/controller.js:129
 #: static/apps/learners/app/controller.js:186
@@ -209,15 +210,15 @@ msgstr "Nom del curs"
 
 #: static/apps/course-list/common/collections/course-list.js:78
 msgid "Start Date"
-msgstr ""
+msgstr "Data d'inici"
 
 #: static/apps/course-list/common/collections/course-list.js:79
 msgid "End Date"
-msgstr ""
+msgstr "Data de fi"
 
 #: static/apps/course-list/common/collections/course-list.js:80
 msgid "Total Enrollment"
-msgstr ""
+msgstr "Inscripció completa"
 
 #. Translators: The noun count (e.g. number of learners)
 #: static/apps/course-list/common/collections/course-list.js:81
@@ -225,7 +226,7 @@ msgstr ""
 #: static/js/enrollment-demographics-gender-main.js:32
 #: static/js/enrollment-geography-main.js:29
 msgid "Current Enrollment"
-msgstr ""
+msgstr "Inscripció actual"
 
 #: static/apps/course-list/common/collections/course-list.js:82
 msgid "Change Last Week"
@@ -592,7 +593,7 @@ msgstr ""
 #. accordingly.
 #: static/apps/learners/roster/views/table.js:40
 msgid "N/A"
-msgstr ""
+msgstr "N/D"
 
 #: static/js/engagement-content-main.js:15
 msgid "Week Ending"
