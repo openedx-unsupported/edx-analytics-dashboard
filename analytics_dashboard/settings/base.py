@@ -164,6 +164,7 @@ TEMPLATES = [
 ########## MIDDLEWARE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#middleware-classes
 MIDDLEWARE_CLASSES = (
+    'edx_django_utils.cache.middleware.RequestCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -178,6 +179,8 @@ MIDDLEWARE_CLASSES = (
     'courses.middleware.CoursePermissionsExceptionMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
     'help.middleware.HelpURLMiddleware',
+    'edx_django_utils.cache.middleware.TieredCacheMiddleware',
+    'edx_rest_framework_extensions.middleware.RequestMetricsMiddleware',
 )
 ########## END MIDDLEWARE CONFIGURATION
 
