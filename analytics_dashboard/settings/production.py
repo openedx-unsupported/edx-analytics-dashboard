@@ -4,19 +4,6 @@ from analytics_dashboard.settings.base import *
 from analytics_dashboard.settings.yaml_config import *
 from analytics_dashboard.settings.logger import get_logger_config
 
-if not DEBUG:
-    # Enable offline compression of CSS/JS
-    COMPRESS_ENABLED = True
-    COMPRESS_OFFLINE = True
-
-    # Use r.js to combine RequireJS files
-    RJS_OPTIMIZATION_ENABLED = True
-
-# Minify CSS
-COMPRESS_CSS_FILTERS += [
-    'compressor.filters.cssmin.CSSMinFilter',
-]
-
 LOGGING = get_logger_config()
 
 

@@ -1,9 +1,9 @@
 {% extends "courses/performance_grouped_content.html" %}
 {% load i18n %}
-{% load rjs %}
+{% load render_bundle from webpack_loader %}
 
 {% block performance_javascript %}
-    <script src="{% static_rjs 'js/performance-problems-main.js' %}"></script>
+    {% render_bundle 'performance-problems-main' %}
 {% endblock performance_javascript %}
 
 {% block content_nav %}

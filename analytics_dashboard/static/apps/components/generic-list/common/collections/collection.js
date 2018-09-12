@@ -1,7 +1,7 @@
 define(function(require) {
     'use strict';
 
-    var PagingCollection = require('uitk/pagination/paging-collection'),
+    var PagingCollection = require('edx-ui-toolkit/src/js/pagination/paging-collection'),
         ListUtils = require('components/utils/utils'),
         Utils = require('utils/utils'),
         _ = require('underscore'),
@@ -93,13 +93,11 @@ define(function(require) {
                     sortKey = val;
                 } else if (key === 'order') {
                     order = val === 'desc' ? 1 : -1;
-                } else {
-                    if (key in this.filterableFields || key === 'text_search') {
-                        if (val !== this.getFilterFieldValue(key)) {
-                            this.isStale = true;
-                        }
-                        this.setFilterField(key, val);
+                } else if (key in this.filterableFields || key === 'text_search') {
+                    if (val !== this.getFilterFieldValue(key)) {
+                        this.isStale = true;
                     }
+                    this.setFilterField(key, val);
                 }
             }, this);
 
@@ -156,7 +154,7 @@ define(function(require) {
         /*
          * Returns current number of results after filters and search applied. Works in
          * client and server mode.
-         **/
+         */
         getResultCount: function() {
             var count = 0;
             if (this.fullCollection) {

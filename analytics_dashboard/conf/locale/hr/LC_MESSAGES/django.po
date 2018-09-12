@@ -4,16 +4,16 @@
 # 
 # Translators:
 # Taarna, 2015
-# Leona Grujić <bearhtma1@gmail.com>, 2015
+# Leona Grujić <bearhtma1@gmail.com>, 2015,2017
 # Marijana Z. <inactive+marijana_z@transifex.com>, 2014
 # Vedran Karačić <vedran@edx.org>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-07 12:34-0400\n"
-"PO-Revision-Date: 2017-06-06 21:51+0000\n"
-"Last-Translator: Ned Batchelder <ned@edx.org>\n"
+"POT-Creation-Date: 2017-06-21 18:32-0400\n"
+"PO-Revision-Date: 2017-09-20 10:22+0000\n"
+"Last-Translator: Leona Grujić <bearhtma1@gmail.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/open-edx/edx-platform/language/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,9 +33,9 @@ msgstr "Prijavi se"
 msgid "Insights to help course teams improve courses."
 msgstr "Ideje za pomoć timovima za poboljšanje tečaja"
 
-#: core/templates/core/landing.html:42 courses/views/__init__.py:497
+#: core/templates/core/landing.html:42 courses/views/__init__.py:494
 msgid "Who are my learners?"
-msgstr ""
+msgstr "Gdje su moji učenici?"
 
 #: core/templates/core/landing.html:43
 msgid "Target your course to fit the backgrounds of your learners."
@@ -43,38 +43,38 @@ msgstr ""
 
 #: core/templates/core/landing.html:44
 #: courses/templates/courses/enrollment_geography.html:28
-#: courses/tests/test_views/__init__.py:219 courses/views/__init__.py:293
-#: courses/views/__init__.py:495
+#: courses/tests/test_views/__init__.py:220 courses/views/__init__.py:291
+#: courses/views/__init__.py:492
 msgid "Enrollment"
 msgstr "Broj upisanih"
 
 #: core/templates/core/landing.html:47
 msgid "What are learners engaging with in my course?"
-msgstr ""
+msgstr "S čime se učenici susreću u mojem tečaju?"
 
 #: core/templates/core/landing.html:48
 msgid ""
 "Improve frequently accessed content, or point learners at underused "
 "resources."
-msgstr ""
+msgstr "Poboljšajte najčešće pristupane sadržaje, ili usmjerite učenike prema nedovoljno korištenim izvorima."
 
 #: core/templates/core/landing.html:49
 #: courses/tests/test_views/test_engagement.py:44
-#: courses/views/__init__.py:304 courses/views/__init__.py:554
+#: courses/views/__init__.py:302 courses/views/__init__.py:551
 msgid "Engagement"
 msgstr "Broj aktivnih"
 
 #: core/templates/core/landing.html:52
 msgid "How well is my content supporting learners?"
-msgstr ""
+msgstr "Koliku podršku moj sadržaj pruža učenicima?"
 
 #: core/templates/core/landing.html:53
 msgid "Adjust your course based on where learners are struggling."
-msgstr ""
+msgstr "Prilagodite svoj tečaj ovisno o područjima s kojima se učenici bore"
 
 #: core/templates/core/landing.html:54
 #: courses/tests/test_views/test_performance.py:48
-#: courses/views/__init__.py:315 courses/views/__init__.py:634
+#: courses/views/__init__.py:313 courses/views/__init__.py:631
 msgid "Performance"
 msgstr "Izvedba"
 
@@ -140,7 +140,7 @@ msgstr "Drugo"
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:28 courses/presenters/enrollment.py:63
-#: courses/presenters/enrollment.py:460
+#: courses/presenters/enrollment.py:459
 msgid "Unknown"
 msgstr "Nepoznato"
 
@@ -333,7 +333,7 @@ msgstr ""
 #: courses/templates/courses/engagement_content.html:96
 #: courses/templates/courses/engagement_video_timeline.html:87
 #: courses/templates/courses/enrollment_activity.html:106
-#: courses/templates/courses/enrollment_demographics_age.html:108
+#: courses/templates/courses/enrollment_demographics_age.html:109
 #: courses/templates/courses/enrollment_demographics_education.html:100
 #: courses/templates/courses/enrollment_demographics_gender.html:65
 #: courses/templates/courses/enrollment_geography.html:97
@@ -354,12 +354,12 @@ msgid "Weekly Learner Engagement"
 msgstr ""
 
 #: courses/templates/courses/engagement_content.html:24
-#: courses/views/__init__.py:559
+#: courses/views/__init__.py:556
 msgid "How many learners are interacting with my course?"
 msgstr ""
 
 #: courses/templates/courses/engagement_content.html:31
-#: courses/views/__init__.py:327 courses/views/__init__.py:642
+#: courses/views/__init__.py:325 courses/views/__init__.py:639
 #: courses/views/learners.py:20
 msgid "Learners"
 msgstr ""
@@ -449,7 +449,7 @@ msgid ""
 msgstr ""
 
 #: courses/templates/courses/engagement_video_course.html:5
-#: courses/views/__init__.py:572
+#: courses/views/__init__.py:569
 msgid "How did learners interact with course videos?"
 msgstr ""
 
@@ -520,7 +520,7 @@ msgid "Daily Learner Enrollment"
 msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html:25
-#: courses/views/__init__.py:500
+#: courses/views/__init__.py:497
 msgid "How many learners are in my course?"
 msgstr ""
 
@@ -543,7 +543,7 @@ msgstr "Podaci o upisanosti"
 #. Translators: This is a label to identify the maximum number of learners
 #. ever in all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:59
-#: courses/templates/courses/index.html:25
+#: courses/templates/courses/index.html:26
 msgid "Total Enrollment"
 msgstr "Ukupan broj upisanih"
 
@@ -556,7 +556,7 @@ msgstr ""
 #. Translators: This is a label to identify the current number of learners in
 #. all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:68
-#: courses/templates/courses/index.html:32
+#: courses/templates/courses/index.html:33
 msgid "Current Enrollment"
 msgstr ""
 
@@ -571,7 +571,7 @@ msgstr ""
 #. Translators: This is a label to identify the change in the number of
 #. learners in all of the instructor's courses in the last week.
 #: courses/templates/courses/enrollment_activity.html:76
-#: courses/templates/courses/index.html:39
+#: courses/templates/courses/index.html:40
 msgid "Change in Last Week"
 msgstr "Promjene u proteklom tjednu"
 
@@ -584,7 +584,7 @@ msgstr ""
 #. Translators: This is a label to identify the current number of verified
 #. learners in all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:84
-#: courses/templates/courses/index.html:46
+#: courses/templates/courses/index.html:47
 msgid "Verified Enrollment"
 msgstr ""
 
@@ -598,49 +598,49 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html:99
 #: courses/templates/courses/enrollment_activity.html:107
-#: courses/templates/courses/enrollment_demographics_age.html:109
+#: courses/templates/courses/enrollment_demographics_age.html:110
 #: courses/templates/courses/enrollment_demographics_education.html:101
 #: courses/templates/courses/enrollment_demographics_gender.html:66
 msgid "Enrollment Over Time"
 msgstr "Ukupna upisanost"
 
-#: courses/templates/courses/enrollment_demographics_age.html:25
-#: courses/views/__init__.py:510
+#: courses/templates/courses/enrollment_demographics_age.html:26
+#: courses/views/__init__.py:507
 msgid "How old are my learners?"
 msgstr ""
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
 #. language.
-#: courses/templates/courses/enrollment_demographics_age.html:38
+#: courses/templates/courses/enrollment_demographics_age.html:39
 #, python-format
 msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
 "learners who provided a year of birth."
 msgstr ""
 
-#: courses/templates/courses/enrollment_demographics_age.html:55
+#: courses/templates/courses/enrollment_demographics_age.html:56
 msgid "Age Metrics"
 msgstr ""
 
 #. Translators: This is a label to identify the median age of enrolled
 #. learners.
-#: courses/templates/courses/enrollment_demographics_age.html:64
+#: courses/templates/courses/enrollment_demographics_age.html:65
 msgid "Median Learner Age"
 msgstr ""
 
-#: courses/templates/courses/enrollment_demographics_age.html:65
+#: courses/templates/courses/enrollment_demographics_age.html:66
 msgid ""
 "The midpoint of the learner ages, computed from the provided year of birth."
 msgstr ""
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
-#: courses/templates/courses/enrollment_demographics_age.html:71
+#: courses/templates/courses/enrollment_demographics_age.html:72
 msgid "Learners 25 and Under"
 msgstr ""
 
-#: courses/templates/courses/enrollment_demographics_age.html:72
+#: courses/templates/courses/enrollment_demographics_age.html:73
 msgid ""
 "The percentage of learners aged 25 years or younger (of those who provided a"
 " year of birth)."
@@ -648,11 +648,11 @@ msgstr ""
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
-#: courses/templates/courses/enrollment_demographics_age.html:78
+#: courses/templates/courses/enrollment_demographics_age.html:79
 msgid "Learners 26 to 40"
 msgstr ""
 
-#: courses/templates/courses/enrollment_demographics_age.html:79
+#: courses/templates/courses/enrollment_demographics_age.html:80
 msgid ""
 "The percentage of learners aged from 26 to 40 years (of those who provided a"
 " year of birth)."
@@ -660,22 +660,22 @@ msgstr ""
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
-#: courses/templates/courses/enrollment_demographics_age.html:85
+#: courses/templates/courses/enrollment_demographics_age.html:86
 msgid "Learners 41 and Over"
 msgstr ""
 
-#: courses/templates/courses/enrollment_demographics_age.html:86
+#: courses/templates/courses/enrollment_demographics_age.html:87
 msgid ""
 "The percentage of learners aged 41 years or older (of those who provided a "
 "year of birth)."
 msgstr ""
 
-#: courses/templates/courses/enrollment_demographics_age.html:100
+#: courses/templates/courses/enrollment_demographics_age.html:101
 msgid "Age Breakdown"
 msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_education.html:25
-#: courses/views/__init__.py:520
+#: courses/views/__init__.py:517
 msgid "What level of education do my learners have?"
 msgstr ""
 
@@ -732,7 +732,7 @@ msgid "Educational Breakdown"
 msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_gender.html:25
-#: courses/views/__init__.py:530
+#: courses/views/__init__.py:527
 msgid "What is the learner gender breakdown?"
 msgstr ""
 
@@ -755,7 +755,7 @@ msgid "Geographic Distribution"
 msgstr "Geografska distribucija"
 
 #: courses/templates/courses/enrollment_geography.html:22
-#: courses/views/__init__.py:540
+#: courses/views/__init__.py:537
 msgid "Where are my learners?"
 msgstr ""
 
@@ -821,13 +821,13 @@ msgstr "Geografski podaci"
 
 #. Translators: Application here refers to the web site/application being used
 #. (e.g. the dashboard).
-#: courses/templates/courses/home.html:11 templates/base_dashboard.html:30
+#: courses/templates/courses/home.html:11 templates/base_dashboard.html:28
 #: templates/footer.html:5 templates/lens-navigation.html:9
 msgid "Application"
 msgstr "Aplikacija"
 
 #. Translators: This refers to the homepage of a course.
-#: courses/templates/courses/home.html:15 courses/views/__init__.py:489
+#: courses/templates/courses/home.html:15 courses/views/__init__.py:486
 #: templates/lens-navigation.html:20
 msgid "Course Home"
 msgstr ""
@@ -858,27 +858,28 @@ msgstr ""
 msgid "External Tools"
 msgstr ""
 
-#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:32
+#: courses/templates/courses/index.html:10
+#: courses/views/course_summaries.py:32
 msgid "Courses"
 msgstr "Kolegiji"
 
-#: courses/templates/courses/index.html:16
+#: courses/templates/courses/index.html:17
 msgid "Across all your courses:"
 msgstr ""
 
-#: courses/templates/courses/index.html:26
+#: courses/templates/courses/index.html:27
 msgid "Total enrollments across all of your courses."
 msgstr ""
 
-#: courses/templates/courses/index.html:33
+#: courses/templates/courses/index.html:34
 msgid "Current enrollments across all of your courses."
 msgstr ""
 
-#: courses/templates/courses/index.html:40
+#: courses/templates/courses/index.html:41
 msgid "Total change in enrollment last week across all of your courses."
 msgstr ""
 
-#: courses/templates/courses/index.html:47
+#: courses/templates/courses/index.html:48
 msgid "Verified enrollments across all of your courses."
 msgstr ""
 
@@ -931,7 +932,7 @@ msgstr ""
 msgid "%(policy_ratio)s%%"
 msgstr ""
 
-#: courses/templates/courses/performance_graded_content_by_type.html:8
+#: courses/templates/courses/performance_graded_content_by_type.html:7
 #, python-format
 msgid ""
 "\n"
@@ -939,14 +940,14 @@ msgid ""
 "    "
 msgstr ""
 
-#: courses/templates/courses/performance_graded_content_by_type.html:16
+#: courses/templates/courses/performance_graded_content_by_type.html:15
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "problems in the assignment. Only the last submission from each learner is "
 "counted."
 msgstr ""
 
-#: courses/templates/courses/performance_graded_content_by_type.html:20
+#: courses/templates/courses/performance_graded_content_by_type.html:19
 msgid "Assignment Submissions"
 msgstr ""
 
@@ -990,7 +991,7 @@ msgid "How are learners doing on this subsection?"
 msgstr ""
 
 #: courses/templates/courses/performance_ungraded_content.html:7
-#: courses/views/__init__.py:595
+#: courses/views/__init__.py:592
 msgid "How are learners doing on ungraded exercises?"
 msgstr ""
 
@@ -1021,143 +1022,143 @@ msgstr "Pojavio se problem s dobivanje informacija o odobrenjima za tvoj račun.
 msgid "Try Again"
 msgstr "Pokušaj ponovno"
 
-#: courses/tests/test_views/__init__.py:235 courses/views/__init__.py:502
+#: courses/tests/test_views/__init__.py:236 courses/views/__init__.py:499
 #: courses/views/enrollment.py:23
 msgid "Activity"
 msgstr "Aktivnost"
 
-#: courses/tests/test_views/__init__.py:245 courses/views/__init__.py:512
-#: courses/views/__init__.py:522 courses/views/__init__.py:532
+#: courses/tests/test_views/__init__.py:246 courses/views/__init__.py:509
+#: courses/views/__init__.py:519 courses/views/__init__.py:529
 #: courses/views/enrollment.py:32
 msgid "Demographics"
 msgstr "Demografija"
 
-#: courses/tests/test_views/__init__.py:255 courses/views/__init__.py:542
+#: courses/tests/test_views/__init__.py:256 courses/views/__init__.py:539
 #: courses/views/enrollment.py:41
 msgid "Geography"
 msgstr "Geografija"
 
-#: courses/tests/test_views/__init__.py:293 courses/views/__init__.py:512
+#: courses/tests/test_views/__init__.py:294 courses/views/__init__.py:509
 #: courses/views/enrollment.py:61
 msgid "Age"
 msgstr "Dob"
 
-#: courses/tests/test_views/__init__.py:303 courses/views/__init__.py:522
+#: courses/tests/test_views/__init__.py:304 courses/views/__init__.py:519
 #: courses/views/enrollment.py:70
 msgid "Education"
 msgstr ""
 
-#: courses/tests/test_views/__init__.py:313 courses/views/__init__.py:532
+#: courses/tests/test_views/__init__.py:314 courses/views/__init__.py:529
 #: courses/views/enrollment.py:79
 msgid "Gender"
 msgstr "Spol"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: courses/tests/test_views/test_engagement.py:62
-#: courses/views/__init__.py:561 courses/views/engagement.py:27
+#: courses/views/__init__.py:558 courses/views/engagement.py:27
 msgid "Content"
 msgstr "Sadržaj"
 
 #: courses/tests/test_views/test_engagement.py:73
-#: courses/views/__init__.py:574 courses/views/engagement.py:36
+#: courses/views/__init__.py:571 courses/views/engagement.py:36
 msgid "Videos"
 msgstr ""
 
 #: courses/tests/test_views/test_performance.py:65
-#: courses/views/__init__.py:588 courses/views/performance.py:38
+#: courses/views/__init__.py:585 courses/views/performance.py:38
 #: courses/views/performance.py:101
 msgid "Graded Content"
 msgstr ""
 
 #: courses/tests/test_views/test_performance.py:76
-#: courses/views/__init__.py:597 courses/views/performance.py:47
+#: courses/views/__init__.py:594 courses/views/performance.py:47
 #: courses/views/performance.py:86
 msgid "Ungraded Problems"
 msgstr ""
 
 #: courses/tests/test_views/test_performance.py:529
-#: courses/views/__init__.py:609 courses/views/performance.py:65
+#: courses/views/__init__.py:606 courses/views/performance.py:65
 msgid "Learning Outcomes"
 msgstr ""
 
-#: courses/views/__init__.py:556
+#: courses/views/__init__.py:553
 msgid "What are learners doing in my course?"
 msgstr ""
 
-#: courses/views/__init__.py:586
+#: courses/views/__init__.py:583
 msgid "How are learners doing on graded course assignments?"
 msgstr ""
 
-#: courses/views/__init__.py:607
+#: courses/views/__init__.py:604
 msgid "What is the breakdown for course learning outcomes?"
 msgstr ""
 
-#: courses/views/__init__.py:627
+#: courses/views/__init__.py:624
 msgid "How are learners responding to questions?"
 msgstr ""
 
-#: courses/views/__init__.py:629
+#: courses/views/__init__.py:626
 msgid "Problem Response Report"
 msgstr ""
 
-#: courses/views/__init__.py:636
+#: courses/views/__init__.py:633
 msgid "How are learners doing on course assignments?"
 msgstr ""
 
-#: courses/views/__init__.py:644
+#: courses/views/__init__.py:641
 msgid "What are individual learners doing?"
 msgstr ""
 
-#: courses/views/__init__.py:647
+#: courses/views/__init__.py:644
 msgid "Who is engaged? Who isn't?"
 msgstr ""
 
-#: courses/views/__init__.py:649
+#: courses/views/__init__.py:646
 msgid "All Learners"
 msgstr ""
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
-#: courses/views/__init__.py:697
+#: courses/views/__init__.py:694
 msgid "Course ID"
 msgstr ""
 
-#: courses/views/__init__.py:699
+#: courses/views/__init__.py:696
 msgid "Course Name"
 msgstr ""
 
 #. Translators: 'In Progress' and 'Ended' refer to whether learners are
 #. actively using the course or it is over.
-#: courses/views/__init__.py:716
+#: courses/views/__init__.py:713
 msgid "In Progress"
 msgstr "U tijeku"
 
-#: courses/views/__init__.py:716
+#: courses/views/__init__.py:713
 msgid "Ended"
 msgstr ""
 
 #. Translators: This refers to a course that has not yet begun.
-#: courses/views/__init__.py:719
+#: courses/views/__init__.py:716
 msgid "Not Started Yet"
 msgstr ""
 
-#: courses/views/__init__.py:721
+#: courses/views/__init__.py:718
 msgid "Start Date"
 msgstr ""
 
-#: courses/views/__init__.py:722
+#: courses/views/__init__.py:719
 msgid "End Date"
 msgstr ""
 
-#: courses/views/__init__.py:723
+#: courses/views/__init__.py:720
 msgid "Status"
 msgstr "Status"
 
-#: courses/views/__init__.py:732
+#: courses/views/__init__.py:729
 msgid "Instructor Dashboard"
 msgstr ""
 
-#: courses/views/__init__.py:737
+#: courses/views/__init__.py:734
 msgid "Courseware"
 msgstr ""
 
@@ -1302,11 +1303,11 @@ msgstr ""
 msgid "Performance: Learning Outcomes"
 msgstr ""
 
-#: settings/base.py:455
+#: settings/base.py:419
 msgid "Terms of Service"
 msgstr "Uvjeti uporabe"
 
-#: settings/base.py:456
+#: settings/base.py:420
 msgid "Privacy Policy"
 msgstr "Pravila o zaštiti privatnosti"
 
@@ -1384,19 +1385,19 @@ msgid ""
 "            reserved. "
 msgstr "%(current_year)s %(platform_name)s, sva prava pridržano, osim ako je drugačije naznačeno."
 
-#: templates/header.html:14
+#: templates/header.html:13
 msgid "Toggle navigation"
 msgstr "Uključi/isključi navigaciju"
 
-#: templates/header.html:41
+#: templates/header.html:40
 msgid "Help"
 msgstr "Pomoć"
 
-#: templates/header.html:47
+#: templates/header.html:46
 msgid "Menu for"
 msgstr ""
 
-#: templates/header.html:61
+#: templates/header.html:60
 msgid "Logout"
 msgstr "Odjavi se"
 

@@ -15,8 +15,6 @@ define(function(require) {
 
     // Load modules without exports
     require('backgrid-filter');
-    require('bootstrap');
-    require('bootstrap_accessibility');  // adds the aria-describedby to tooltips
     require('components/skip-link/behaviors/skip-target-behavior');
 
     /**
@@ -45,7 +43,6 @@ define(function(require) {
                 sync: ListUtils.EventTransformers.syncToClearError
             };
             ListUtils.mapEvents(this.options.collection, eventTransformers, this);
-            ListUtils.mapEvents(this.options.courseMetadata, eventTransformers, this);
         },
 
         templateHelpers: function() {

@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Andrew Lau <alau52@yahoo.com>, 2016-2017
-# SatoshiLiang <chihchengliang@gmail.com>, 2014
+# SatoshiLiang <inactive+SatoshiLiang@transifex.com>, 2014
 # Chih-Ching Tsai <stringpiggy@gmail.com>, 2015
 # Cyrus <wkchan4@gmail.com>, 2015
 # Derek <derekya@gmail.com>, 2015
@@ -15,16 +15,16 @@
 # LIU,SHU-HAO <jeremy55662004@gmail.com>, 2014
 # LIU,SHU-HAO <jeremy55662004@gmail.com>, 2014-2015
 # MOH CHIN LAM <chinlam91@gmail.com>, 2014-2015
-# Xaver Y.R. Chen <yrchen@atcity.org>, 2014-2016
+# Xaver Y.R. Chen <yrchen@atcity.org>, 2014-2017
 # Ya-chi Chang <yacchang@mail.fcu.edu.tw>, 2016
 # Zhen-Rong Chen <zhenrc@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-07 12:34-0400\n"
-"PO-Revision-Date: 2017-06-29 08:50+0000\n"
-"Last-Translator: Andrew Lau <alau52@yahoo.com>\n"
+"POT-Creation-Date: 2017-06-21 18:32-0400\n"
+"PO-Revision-Date: 2017-10-06 06:42+0000\n"
+"Last-Translator: Xaver Y.R. Chen <yrchen@atcity.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/open-edx/edx-platform/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,7 +34,7 @@ msgstr ""
 
 #: core/templates/core/landing.html:15 templates/_skip_link.html:3
 msgid "Skip to content"
-msgstr "直接的跳到主要內容"
+msgstr "跳到主要內容"
 
 #: core/templates/core/landing.html:23
 msgid "Login"
@@ -44,7 +44,7 @@ msgstr "登入"
 msgid "Insights to help course teams improve courses."
 msgstr "Insights可以幫助課程團隊來改善課程。"
 
-#: core/templates/core/landing.html:42 courses/views/__init__.py:497
+#: core/templates/core/landing.html:42 courses/views/__init__.py:494
 msgid "Who are my learners?"
 msgstr "誰是我的學生？"
 
@@ -54,8 +54,8 @@ msgstr "訂定您的課程來配合學生的背景。"
 
 #: core/templates/core/landing.html:44
 #: courses/templates/courses/enrollment_geography.html:28
-#: courses/tests/test_views/__init__.py:219 courses/views/__init__.py:293
-#: courses/views/__init__.py:495
+#: courses/tests/test_views/__init__.py:220 courses/views/__init__.py:291
+#: courses/views/__init__.py:492
 msgid "Enrollment"
 msgstr "註冊"
 
@@ -71,9 +71,9 @@ msgstr "改善常調閱的內容，或指出學生未充分利用的資源。"
 
 #: core/templates/core/landing.html:49
 #: courses/tests/test_views/test_engagement.py:44
-#: courses/views/__init__.py:304 courses/views/__init__.py:554
+#: courses/views/__init__.py:302 courses/views/__init__.py:551
 msgid "Engagement"
-msgstr "從事"
+msgstr "參與"
 
 #: core/templates/core/landing.html:52
 msgid "How well is my content supporting learners?"
@@ -85,7 +85,7 @@ msgstr "基於目前學生掙扎的部分來調整課程。"
 
 #: core/templates/core/landing.html:54
 #: courses/tests/test_views/test_performance.py:48
-#: courses/views/__init__.py:315 courses/views/__init__.py:634
+#: courses/views/__init__.py:313 courses/views/__init__.py:631
 msgid "Performance"
 msgstr "表現"
 
@@ -132,7 +132,7 @@ msgstr "{statistic}%"
 #: courses/presenters/engagement.py:126
 #, python-brace-format
 msgid "{percentage} of current learners"
-msgstr "現在學生的百分比 {percentage} %"
+msgstr "{percentage} 現在的學生"
 
 #: courses/presenters/enrollment.py:23
 msgid "Female"
@@ -151,7 +151,7 @@ msgstr "其他"
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:28 courses/presenters/enrollment.py:63
-#: courses/presenters/enrollment.py:460
+#: courses/presenters/enrollment.py:459
 msgid "Unknown"
 msgstr "未知"
 
@@ -164,18 +164,18 @@ msgstr "無"
 #. School Degree).
 #: courses/presenters/enrollment.py:47 courses/tests/test_serializers.py:12
 msgid "Primary"
-msgstr "小學"
+msgstr "國小"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: courses/presenters/enrollment.py:49
 msgid "Middle"
-msgstr "中間"
+msgstr "國中"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:51
 msgid "Secondary"
-msgstr "中學"
+msgstr "高中"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
@@ -199,7 +199,7 @@ msgstr "碩士"
 #. Degree).
 #: courses/presenters/enrollment.py:59
 msgid "Doctorate"
-msgstr "博士學位"
+msgstr "博士"
 
 #. Translators: This is a placeholder for enrollment data collected without a
 #. known geolocation.
@@ -334,7 +334,7 @@ msgstr "由於隨機問題可能變量的數量，圖表不可用。\n%(read_mor
 msgid ""
 "Review all submission variants below, or click Download CSV to review them "
 "offline."
-msgstr "審查下面所有提交的變量，或者點擊下載CSV來離線審查。"
+msgstr "審查下面所有提交的變動，或者點擊下載CSV來離線審查。"
 
 #: courses/templates/courses/base_performance_answer_distribution.html:108
 msgid "Submission Counts"
@@ -344,7 +344,7 @@ msgstr "提交數"
 #: courses/templates/courses/engagement_content.html:96
 #: courses/templates/courses/engagement_video_timeline.html:87
 #: courses/templates/courses/enrollment_activity.html:106
-#: courses/templates/courses/enrollment_demographics_age.html:108
+#: courses/templates/courses/enrollment_demographics_age.html:109
 #: courses/templates/courses/enrollment_demographics_education.html:100
 #: courses/templates/courses/enrollment_demographics_gender.html:65
 #: courses/templates/courses/enrollment_geography.html:97
@@ -358,19 +358,19 @@ msgstr "學生提交數"
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html:4
 msgid "Learners (Self-Reported)"
-msgstr "學生(自行回應)"
+msgstr "學生 (自行回報)"
 
 #: courses/templates/courses/engagement_content.html:23
 msgid "Weekly Learner Engagement"
 msgstr "每週學生的參與"
 
 #: courses/templates/courses/engagement_content.html:24
-#: courses/views/__init__.py:559
+#: courses/views/__init__.py:556
 msgid "How many learners are interacting with my course?"
-msgstr "有多少學生在此課程中互動？"
+msgstr "有多少學生與此課程互動？"
 
 #: courses/templates/courses/engagement_content.html:31
-#: courses/views/__init__.py:327 courses/views/__init__.py:642
+#: courses/views/__init__.py:325 courses/views/__init__.py:639
 #: courses/views/learners.py:20
 msgid "Learners"
 msgstr "學生"
@@ -379,7 +379,7 @@ msgstr "學生"
 msgid ""
 "The number of active learners, and the number of learners who engaged in "
 "specific activities, over time."
-msgstr "在一段時間，積極參與的學生的數量，和從事特定活動學生的數量，。"
+msgstr "在一段時間內，積極參與學生的數量，和從事特定活動學生的數量。"
 
 #: courses/templates/courses/engagement_content.html:48
 msgid "Learner Activity Metrics"
@@ -391,40 +391,40 @@ msgstr "上一週積極參與的學生"
 
 #: courses/templates/courses/engagement_content.html:55
 msgid "Learners who visited at least one page in the course content."
-msgstr "至少看一頁課程內容的學生。"
+msgstr "至少看過一頁課程內容的學生。"
 
 #. Translators: This is a label indicating the number of learners who watched
 #. a video.
 #: courses/templates/courses/engagement_content.html:61
 msgid "Watched a Video Last Week"
-msgstr "上週觀看的影片"
+msgstr "上一週至少觀看一部影片"
 
 #: courses/templates/courses/engagement_content.html:62
 msgid "Learners who played one or more videos."
-msgstr "播放一個或一個以上影片的學生"
+msgstr "播放一個或一個以上影片的學生。"
 
 #. Translators: This is a label indicating the number of learners who tried a
 #. problem.
 #: courses/templates/courses/engagement_content.html:68
 msgid "Tried a Problem Last Week"
-msgstr "在上一週試試看的問題"
+msgstr "上一週至少嘗試過一個問題"
 
 #: courses/templates/courses/engagement_content.html:69
 msgid ""
 "Learners who submitted an answer for a standard problem. Not all problem "
 "types are included."
-msgstr "對標準問題提交答案的學生。並不是所有問題類型都包括在內。"
+msgstr "對一般問題提交答案的學生，不過並不是所有問題類型都包括在內。"
 
 #. Translators: This is a label indicating the number of learners who posted
 #. in a forum discussion.
 #: courses/templates/courses/engagement_content.html:76
 msgid "Participated in Discussions Last Week"
-msgstr "上一週參與討論的"
+msgstr "上一週有參與討論"
 
 #: courses/templates/courses/engagement_content.html:77
 msgid ""
 "Learners who added a post, response, or comment to any course discussion."
-msgstr "發表文章、回應文章或於任何討論中留下評論的學生"
+msgstr "發表文章、回應文章或於任何討論中留下評論的學生。"
 
 #: courses/templates/courses/engagement_content.html:89
 #: courses/templates/courses/engagement_content.html:97
@@ -460,7 +460,7 @@ msgid ""
 msgstr "每個條狀圖顯示該小節完成影片的觀看,和未完成影片的觀看的統計數。點擊去了解學生在哪裡放棄了或是哪一部份重新播放。"
 
 #: courses/templates/courses/engagement_video_course.html:5
-#: courses/views/__init__.py:572
+#: courses/views/__init__.py:569
 msgid "How did learners interact with course videos?"
 msgstr "學生是如何跟此課程影片互動的？"
 
@@ -508,7 +508,7 @@ msgstr "估計看過整部影片的學生比例。"
 
 #: courses/templates/courses/engagement_video_timeline.html:66
 msgid "Started Video"
-msgstr "開始播放影片"
+msgstr "已被觀看的影片"
 
 #: courses/templates/courses/engagement_video_timeline.html:67
 msgid "Learners who started watching the video."
@@ -516,7 +516,7 @@ msgstr "已開始觀看影片的學生。"
 
 #: courses/templates/courses/engagement_video_timeline.html:71
 msgid "Finished Video"
-msgstr "結束播放影片"
+msgstr "完整看完的影片"
 
 #: courses/templates/courses/engagement_video_timeline.html:72
 msgid "Learners who watched the video to the end."
@@ -528,12 +528,12 @@ msgstr "隨著時間影片的觀看"
 
 #: courses/templates/courses/enrollment_activity.html:24
 msgid "Daily Learner Enrollment"
-msgstr "每日的學生註冊"
+msgstr "每日註冊的學生"
 
 #: courses/templates/courses/enrollment_activity.html:25
-#: courses/views/__init__.py:500
+#: courses/views/__init__.py:497
 msgid "How many learners are in my course?"
-msgstr "在我的課程裡有多少個學生呢?"
+msgstr "在我的課程裡有多少個學生呢？"
 
 #: courses/templates/courses/enrollment_activity.html:32
 msgid "Enrollments"
@@ -543,7 +543,7 @@ msgstr "註冊"
 msgid ""
 "This graph displays the current enrollment for the course as of the end of "
 "each day. This includes new enrollments as well as unenrollments."
-msgstr "此圖顯示了在每天結束時課程的總註冊量。總註冊包含新註冊和未註冊的。"
+msgstr "此圖顯示了每天課程的總註冊數，包含新註冊以及取消註冊。"
 
 #: courses/templates/courses/enrollment_activity.html:49
 msgid "Enrollment Metrics"
@@ -554,37 +554,37 @@ msgstr "註冊指標"
 #. Translators: This is a label to identify the maximum number of learners
 #. ever in all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:59
-#: courses/templates/courses/index.html:25
+#: courses/templates/courses/index.html:26
 msgid "Total Enrollment"
-msgstr "總註冊"
+msgstr "總註冊人次"
 
 #. Translators: This is a label indicating the number of learners in a course.
 #: courses/templates/courses/enrollment_activity.html:61
 msgid "Learners who ever enrolled in the course."
-msgstr "曾經選修課程的學生"
+msgstr "曾經選修此課程的學生。"
 
 #. Translators: This is a label to identify current learner enrollment.
 #. Translators: This is a label to identify the current number of learners in
 #. all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:68
-#: courses/templates/courses/index.html:32
+#: courses/templates/courses/index.html:33
 msgid "Current Enrollment"
-msgstr "當前註冊"
+msgstr "當前註冊人次"
 
 #. Translators: This is a label indicating the number of learners enrolled in
 #. a course.
 #: courses/templates/courses/enrollment_activity.html:70
 msgid "Learners currently enrolled in the course."
-msgstr "目前選修此課程的學生"
+msgstr "目前選修此課程的學生。"
 
 #. Translators: This is a label indicating the change in the number of
 #. learners enrolled in a course since the previous week.
 #. Translators: This is a label to identify the change in the number of
 #. learners in all of the instructor's courses in the last week.
 #: courses/templates/courses/enrollment_activity.html:76
-#: courses/templates/courses/index.html:39
+#: courses/templates/courses/index.html:40
 msgid "Change in Last Week"
-msgstr "上一週變更"
+msgstr "與前一週相比變更人次"
 
 #: courses/templates/courses/enrollment_activity.html:77
 msgid "Net difference in current enrollment in the last week."
@@ -595,9 +595,9 @@ msgstr "於過去一星期新增的學生"
 #. Translators: This is a label to identify the current number of verified
 #. learners in all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html:84
-#: courses/templates/courses/index.html:46
+#: courses/templates/courses/index.html:47
 msgid "Verified Enrollment"
-msgstr "註冊已驗證"
+msgstr "註冊已驗證人次"
 
 #. Translators: This is a label indicating the number of learners enrolled in
 #. a course on the verified track.
@@ -605,88 +605,88 @@ msgstr "註冊已驗證"
 msgid ""
 "Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
-msgstr "目前選修並目標為認證證書的學生人數"
+msgstr "目前選修並目標為認證證書的學生人數。"
 
 #: courses/templates/courses/enrollment_activity.html:99
 #: courses/templates/courses/enrollment_activity.html:107
-#: courses/templates/courses/enrollment_demographics_age.html:109
+#: courses/templates/courses/enrollment_demographics_age.html:110
 #: courses/templates/courses/enrollment_demographics_education.html:101
 #: courses/templates/courses/enrollment_demographics_gender.html:66
 msgid "Enrollment Over Time"
 msgstr "在註冊時間"
 
-#: courses/templates/courses/enrollment_demographics_age.html:25
-#: courses/views/__init__.py:510
+#: courses/templates/courses/enrollment_demographics_age.html:26
+#: courses/views/__init__.py:507
 msgid "How old are my learners?"
 msgstr "我的學生的年齡？"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
 #. language.
-#: courses/templates/courses/enrollment_demographics_age.html:38
+#: courses/templates/courses/enrollment_demographics_age.html:39
 #, python-format
 msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
 "learners who provided a year of birth."
-msgstr "這個年齡長條圖顯示%(value)s%% 註冊學生提供的出生年份。"
+msgstr "這個年齡長條圖顯示%(value)s%% 有提供出生年份的註冊學生。"
 
-#: courses/templates/courses/enrollment_demographics_age.html:55
+#: courses/templates/courses/enrollment_demographics_age.html:56
 msgid "Age Metrics"
 msgstr "年齡指標"
 
 #. Translators: This is a label to identify the median age of enrolled
 #. learners.
-#: courses/templates/courses/enrollment_demographics_age.html:64
+#: courses/templates/courses/enrollment_demographics_age.html:65
 msgid "Median Learner Age"
 msgstr "學生平均年齡"
 
-#: courses/templates/courses/enrollment_demographics_age.html:65
+#: courses/templates/courses/enrollment_demographics_age.html:66
 msgid ""
 "The midpoint of the learner ages, computed from the provided year of birth."
-msgstr "從那些有提供生日年份的學生,來計算年齡的中位數。"
+msgstr "此年齡的中位數，是來自於那些有提供出生年份的學生。"
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
-#: courses/templates/courses/enrollment_demographics_age.html:71
+#: courses/templates/courses/enrollment_demographics_age.html:72
 msgid "Learners 25 and Under"
 msgstr "學生小於25歲"
 
-#: courses/templates/courses/enrollment_demographics_age.html:72
+#: courses/templates/courses/enrollment_demographics_age.html:73
 msgid ""
 "The percentage of learners aged 25 years or younger (of those who provided a"
 " year of birth)."
-msgstr "學生年齡小於25歲的比例(那些有提供生日的人)。"
+msgstr "學生年齡小於25歲的比例 (那些有提供出生年份的人)。"
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
-#: courses/templates/courses/enrollment_demographics_age.html:78
+#: courses/templates/courses/enrollment_demographics_age.html:79
 msgid "Learners 26 to 40"
 msgstr "學生26歲到40歲"
 
-#: courses/templates/courses/enrollment_demographics_age.html:79
+#: courses/templates/courses/enrollment_demographics_age.html:80
 msgid ""
 "The percentage of learners aged from 26 to 40 years (of those who provided a"
 " year of birth)."
-msgstr "學生年齡介由26歲到40歲的比例 (那些有提供生日年份的人)。"
+msgstr "學生年齡介由26歲到40歲的比例 (那些有提供出生年份的人)。"
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
-#: courses/templates/courses/enrollment_demographics_age.html:85
+#: courses/templates/courses/enrollment_demographics_age.html:86
 msgid "Learners 41 and Over"
 msgstr "學生大於41歲"
 
-#: courses/templates/courses/enrollment_demographics_age.html:86
+#: courses/templates/courses/enrollment_demographics_age.html:87
 msgid ""
 "The percentage of learners aged 41 years or older (of those who provided a "
 "year of birth)."
-msgstr "學生年齡大於41歲的比例(那些有提供生日年份的人)。"
+msgstr "學生年齡大於41歲的比例 (那些有提供出生年份的人)。"
 
-#: courses/templates/courses/enrollment_demographics_age.html:100
+#: courses/templates/courses/enrollment_demographics_age.html:101
 msgid "Age Breakdown"
 msgstr "年齡分類"
 
 #: courses/templates/courses/enrollment_demographics_education.html:25
-#: courses/views/__init__.py:520
+#: courses/views/__init__.py:517
 msgid "What level of education do my learners have?"
 msgstr "我的學生的教育程度？"
 
@@ -743,9 +743,9 @@ msgid "Educational Breakdown"
 msgstr "教育程度"
 
 #: courses/templates/courses/enrollment_demographics_gender.html:25
-#: courses/views/__init__.py:530
+#: courses/views/__init__.py:527
 msgid "What is the learner gender breakdown?"
-msgstr "什麼是學生性別分類？"
+msgstr "我的學生的性別分類？"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -766,7 +766,7 @@ msgid "Geographic Distribution"
 msgstr " 地理分佈"
 
 #: courses/templates/courses/enrollment_geography.html:22
-#: courses/views/__init__.py:540
+#: courses/views/__init__.py:537
 msgid "Where are my learners?"
 msgstr "誰是我的學生？"
 
@@ -832,13 +832,13 @@ msgstr "地區分佈"
 
 #. Translators: Application here refers to the web site/application being used
 #. (e.g. the dashboard).
-#: courses/templates/courses/home.html:11 templates/base_dashboard.html:30
+#: courses/templates/courses/home.html:11 templates/base_dashboard.html:28
 #: templates/footer.html:5 templates/lens-navigation.html:9
 msgid "Application"
 msgstr "應用程式"
 
 #. Translators: This refers to the homepage of a course.
-#: courses/templates/courses/home.html:15 courses/views/__init__.py:489
+#: courses/templates/courses/home.html:15 courses/views/__init__.py:486
 #: templates/lens-navigation.html:20
 msgid "Course Home"
 msgstr "課程首頁"
@@ -869,29 +869,30 @@ msgstr "基本課程資訊"
 msgid "External Tools"
 msgstr "外部工具"
 
-#: courses/templates/courses/index.html:9 courses/views/course_summaries.py:32
+#: courses/templates/courses/index.html:10
+#: courses/views/course_summaries.py:32
 msgid "Courses"
 msgstr "課程"
 
-#: courses/templates/courses/index.html:16
+#: courses/templates/courses/index.html:17
 msgid "Across all your courses:"
-msgstr "跨越所有的課程："
+msgstr "您的所有課程："
 
-#: courses/templates/courses/index.html:26
+#: courses/templates/courses/index.html:27
 msgid "Total enrollments across all of your courses."
-msgstr "跨越所有課程的註冊量："
+msgstr "您所管理的全部課程總累積註冊量。"
 
-#: courses/templates/courses/index.html:33
+#: courses/templates/courses/index.html:34
 msgid "Current enrollments across all of your courses."
-msgstr "跨越所有課程的註冊數量："
+msgstr "您所管理的全部課程目前總註冊量。"
 
-#: courses/templates/courses/index.html:40
+#: courses/templates/courses/index.html:41
 msgid "Total change in enrollment last week across all of your courses."
-msgstr "上週註冊人數的總體變化,跨越所有課程："
+msgstr "您的所有課程上週註冊人數的總體變化。"
 
-#: courses/templates/courses/index.html:47
+#: courses/templates/courses/index.html:48
 msgid "Verified enrollments across all of your courses."
-msgstr "驗證的註冊數量,跨越所有課程："
+msgstr "您所管理的全部課程的總驗證註冊總量。"
 
 #: courses/templates/courses/performance_answer_distribution.html:7
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html:5
@@ -924,7 +925,7 @@ msgstr "您想要調查哪種問題類型？"
 msgid ""
 "Click an assignment type to view more detail information about the "
 "assignments."
-msgstr "點擊一個問題類型來查看更多有關此問題的資訊細節。"
+msgstr "點擊一個作業類型來查看更多有關此作業的細節資訊。"
 
 #. Translators: This describes the percent an assignment contributes to that
 #. of a learner's grade (e.g. Exam: 60% of the grading policy.).
@@ -942,7 +943,7 @@ msgstr "\n%(assignment_type)s: %(policy_ratio)s%% 評分策略"
 msgid "%(policy_ratio)s%%"
 msgstr "%(policy_ratio)s%%"
 
-#: courses/templates/courses/performance_graded_content_by_type.html:8
+#: courses/templates/courses/performance_graded_content_by_type.html:7
 #, python-format
 msgid ""
 "\n"
@@ -950,14 +951,14 @@ msgid ""
 "    "
 msgstr "\n學生在%(type)s是如何操作的呢？"
 
-#: courses/templates/courses/performance_graded_content_by_type.html:16
+#: courses/templates/courses/performance_graded_content_by_type.html:15
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "problems in the assignment. Only the last submission from each learner is "
 "counted."
 msgstr "每一長條會顯示功課問題之正確和錯誤答覆的平均數。 只計算每位學生最後之提交。"
 
-#: courses/templates/courses/performance_graded_content_by_type.html:20
+#: courses/templates/courses/performance_graded_content_by_type.html:19
 msgid "Assignment Submissions"
 msgstr "作業提交"
 
@@ -1001,9 +1002,9 @@ msgid "How are learners doing on this subsection?"
 msgstr "學生在這一章節做的如何呢?"
 
 #: courses/templates/courses/performance_ungraded_content.html:7
-#: courses/views/__init__.py:595
+#: courses/views/__init__.py:592
 msgid "How are learners doing on ungraded exercises?"
-msgstr "學生在這升級的練習做的如何呢?"
+msgstr "學生在尚未評分的練習表現如何呢？"
 
 #: courses/templates/courses/performance_ungraded_content.html:12
 msgid ""
@@ -1032,143 +1033,143 @@ msgstr "在檢視您的帳號權限時發生錯誤，請再試一次。若您持
 msgid "Try Again"
 msgstr "重試"
 
-#: courses/tests/test_views/__init__.py:235 courses/views/__init__.py:502
+#: courses/tests/test_views/__init__.py:236 courses/views/__init__.py:499
 #: courses/views/enrollment.py:23
 msgid "Activity"
 msgstr "活動"
 
-#: courses/tests/test_views/__init__.py:245 courses/views/__init__.py:512
-#: courses/views/__init__.py:522 courses/views/__init__.py:532
+#: courses/tests/test_views/__init__.py:246 courses/views/__init__.py:509
+#: courses/views/__init__.py:519 courses/views/__init__.py:529
 #: courses/views/enrollment.py:32
 msgid "Demographics"
 msgstr "人口統計資訊"
 
-#: courses/tests/test_views/__init__.py:255 courses/views/__init__.py:542
+#: courses/tests/test_views/__init__.py:256 courses/views/__init__.py:539
 #: courses/views/enrollment.py:41
 msgid "Geography"
 msgstr "地理"
 
-#: courses/tests/test_views/__init__.py:293 courses/views/__init__.py:512
+#: courses/tests/test_views/__init__.py:294 courses/views/__init__.py:509
 #: courses/views/enrollment.py:61
 msgid "Age"
 msgstr "年齡"
 
-#: courses/tests/test_views/__init__.py:303 courses/views/__init__.py:522
+#: courses/tests/test_views/__init__.py:304 courses/views/__init__.py:519
 #: courses/views/enrollment.py:70
 msgid "Education"
-msgstr "教育水準"
+msgstr "教育程度"
 
-#: courses/tests/test_views/__init__.py:313 courses/views/__init__.py:532
+#: courses/tests/test_views/__init__.py:314 courses/views/__init__.py:529
 #: courses/views/enrollment.py:79
 msgid "Gender"
 msgstr "性別"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: courses/tests/test_views/test_engagement.py:62
-#: courses/views/__init__.py:561 courses/views/engagement.py:27
+#: courses/views/__init__.py:558 courses/views/engagement.py:27
 msgid "Content"
 msgstr "內容"
 
 #: courses/tests/test_views/test_engagement.py:73
-#: courses/views/__init__.py:574 courses/views/engagement.py:36
+#: courses/views/__init__.py:571 courses/views/engagement.py:36
 msgid "Videos"
 msgstr "影片"
 
 #: courses/tests/test_views/test_performance.py:65
-#: courses/views/__init__.py:588 courses/views/performance.py:38
+#: courses/views/__init__.py:585 courses/views/performance.py:38
 #: courses/views/performance.py:101
 msgid "Graded Content"
 msgstr "評分內容"
 
 #: courses/tests/test_views/test_performance.py:76
-#: courses/views/__init__.py:597 courses/views/performance.py:47
+#: courses/views/__init__.py:594 courses/views/performance.py:47
 #: courses/views/performance.py:86
 msgid "Ungraded Problems"
-msgstr "更新問題"
+msgstr "未評分問題"
 
 #: courses/tests/test_views/test_performance.py:529
-#: courses/views/__init__.py:609 courses/views/performance.py:65
+#: courses/views/__init__.py:606 courses/views/performance.py:65
 msgid "Learning Outcomes"
 msgstr "學習成果"
 
-#: courses/views/__init__.py:556
+#: courses/views/__init__.py:553
 msgid "What are learners doing in my course?"
-msgstr "學生在我的課程中做的如何呢？"
+msgstr "學生在我的課程中做了什麼？"
 
-#: courses/views/__init__.py:586
+#: courses/views/__init__.py:583
 msgid "How are learners doing on graded course assignments?"
 msgstr "學生在評分的課程作業上做的如何？"
 
-#: courses/views/__init__.py:607
+#: courses/views/__init__.py:604
 msgid "What is the breakdown for course learning outcomes?"
-msgstr "課程學習成果的細目是什麼？"
+msgstr "課程學習成效的分析結果如何？"
 
-#: courses/views/__init__.py:627
+#: courses/views/__init__.py:624
 msgid "How are learners responding to questions?"
 msgstr "學生在問題的回應做的如何？"
 
-#: courses/views/__init__.py:629
+#: courses/views/__init__.py:626
 msgid "Problem Response Report"
 msgstr "問題應答反應報告"
 
-#: courses/views/__init__.py:636
+#: courses/views/__init__.py:633
 msgid "How are learners doing on course assignments?"
 msgstr "學生在評分的課程作業上做的如何？"
 
-#: courses/views/__init__.py:644
+#: courses/views/__init__.py:641
 msgid "What are individual learners doing?"
-msgstr "每一個学習者是作什麼的？"
+msgstr "每位學生們在做什麼？"
 
-#: courses/views/__init__.py:647
+#: courses/views/__init__.py:644
 msgid "Who is engaged? Who isn't?"
-msgstr "誰參與？誰沒有參與？（討論）"
+msgstr "誰有參與？誰沒有參與？"
 
-#: courses/views/__init__.py:649
+#: courses/views/__init__.py:646
 msgid "All Learners"
-msgstr "所有學習者"
+msgstr "所有學生"
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
-#: courses/views/__init__.py:697
+#: courses/views/__init__.py:694
 msgid "Course ID"
 msgstr "課程ID"
 
-#: courses/views/__init__.py:699
+#: courses/views/__init__.py:696
 msgid "Course Name"
 msgstr "課程名稱"
 
 #. Translators: 'In Progress' and 'Ended' refer to whether learners are
 #. actively using the course or it is over.
-#: courses/views/__init__.py:716
+#: courses/views/__init__.py:713
 msgid "In Progress"
 msgstr "正在進行中"
 
-#: courses/views/__init__.py:716
+#: courses/views/__init__.py:713
 msgid "Ended"
 msgstr "已經結束"
 
 #. Translators: This refers to a course that has not yet begun.
-#: courses/views/__init__.py:719
+#: courses/views/__init__.py:716
 msgid "Not Started Yet"
 msgstr "尚未開始"
 
-#: courses/views/__init__.py:721
+#: courses/views/__init__.py:718
 msgid "Start Date"
 msgstr "開始日期"
 
-#: courses/views/__init__.py:722
+#: courses/views/__init__.py:719
 msgid "End Date"
 msgstr "結束日期"
 
-#: courses/views/__init__.py:723
+#: courses/views/__init__.py:720
 msgid "Status"
 msgstr "狀態"
 
-#: courses/views/__init__.py:732
+#: courses/views/__init__.py:729
 msgid "Instructor Dashboard"
 msgstr "教師控制台"
 
-#: courses/views/__init__.py:737
+#: courses/views/__init__.py:734
 msgid "Courseware"
 msgstr "課程教材"
 
@@ -1177,11 +1178,11 @@ msgstr "課程教材"
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr "最新更新的課程總結數據 %(update_date)s在%(update_time)s國際標準時間。"
+msgstr "課程總結統計資料最後更新於%(update_date)s %(update_time)s。"
 
 #: courses/views/engagement.py:52
 msgid "Engagement Content"
-msgstr "從事內容"
+msgstr "參與內容"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py:62
@@ -1189,7 +1190,7 @@ msgstr "從事內容"
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr "最新更新課程參與資料 %(update_date)s在%(update_time)s國際標準時間。"
+msgstr "課程參與資料最後更新於%(update_date)s %(update_time)s。"
 
 #: courses/views/engagement.py:88
 msgid "Engagement Videos"
@@ -1199,7 +1200,7 @@ msgstr "參與影片"
 #: courses/views/engagement.py:93
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr "影片資料最新更新於%(update_date)s在 %(update_time)s 世界標準時間。"
+msgstr "影片資料最新更新於%(update_date)s %(update_time)s。"
 
 #: courses/views/engagement.py:94
 msgid "Looks like no one has watched any videos in these sections."
@@ -1211,7 +1212,7 @@ msgstr "章節名稱"
 
 #: courses/views/engagement.py:140 courses/views/performance.py:322
 msgid "Subsection Name"
-msgstr "小章名稱"
+msgstr "小節名稱"
 
 #: courses/views/engagement.py:161
 msgid "Video Name"
@@ -1223,18 +1224,18 @@ msgstr "影片名稱"
 msgid ""
 "Demographic learner data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr "最新的學生人口資料更新於%(update_date)s在%(update_time)s國際標準時間。"
+msgstr "學生人口統計資料最後更新於%(update_date)s %(update_time)s。"
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
 #: courses/views/enrollment.py:94
 msgid ""
 "All above demographic data was self-reported at the time of registration."
-msgstr "以上人口統計資訊都是在註冊時由使用者自行回報。"
+msgstr "以上人口統計資訊都是在註冊時由使用者自行填寫。"
 
 #: courses/views/enrollment.py:107
 msgid "Enrollment Activity"
-msgstr "註冊啟動"
+msgstr "註冊活動"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py:117
@@ -1242,15 +1243,15 @@ msgstr "註冊啟動"
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr "最新更新註冊活動資料%(update_date)s在%(update_time)s國際標準時間。"
+msgstr "註冊活動資料最後更新於%(update_date)s %(update_time)s。"
 
 #: courses/views/enrollment.py:148
 msgid "Enrollment Demographics by Age"
-msgstr "以年齡區分的註冊人口資訊"
+msgstr "依年齡區分的註冊人口統計資訊"
 
 #: courses/views/enrollment.py:186
 msgid "Enrollment Demographics by Education"
-msgstr "依照教育程度區分的註冊統計。"
+msgstr "依教育程度區分的註冊統計"
 
 #: courses/views/enrollment.py:224
 msgid "Enrollment Demographics by Gender"
@@ -1258,7 +1259,7 @@ msgstr "依性別區分的註冊統計"
 
 #: courses/views/enrollment.py:262
 msgid "Enrollment Geography"
-msgstr "註冊位置"
+msgstr "註冊地理位置"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py:272
@@ -1266,7 +1267,7 @@ msgstr "註冊位置"
 msgid ""
 "Geographic learner data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr "最新學生地理資料更新於%(update_date)s在%(update_time)s國際標準時間。"
+msgstr "學生地理資料最後更新於%(update_date)s %(update_time)s。"
 
 #. Translators: Do not translate UTC.
 #: courses/views/performance.py:33
@@ -1274,7 +1275,7 @@ msgstr "最新學生地理資料更新於%(update_date)s在%(update_time)s國際
 msgid ""
 "Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr "問題提交資料最後更新於 %(update_date)s at %(update_time)s UTC."
+msgstr "問題提交資料最後更新於%(update_date)s %(update_time)s。"
 
 #: courses/views/performance.py:79
 msgid "Assignment Name"
@@ -1282,16 +1283,16 @@ msgstr "作業名稱"
 
 #: courses/views/performance.py:90 courses/views/performance.py:370
 msgid "No submissions received for these exercises."
-msgstr "這些作業練習未被提交。"
+msgstr "這些練習尚未收到任何提交。"
 
 #: courses/views/performance.py:106
 msgid "No submissions received for these assignments."
-msgstr "這些作業未被提交。"
+msgstr "這些作業尚未收到任何提交。"
 
 #: courses/views/performance.py:195 courses/views/performance.py:362
 #: courses/views/performance.py:460
 msgid "Performance: Problem Submissions"
-msgstr "表現：問題提交"
+msgstr "效益：問題提交"
 
 #: courses/views/performance.py:257
 #, python-format
@@ -1307,17 +1308,17 @@ msgstr "問題名稱"
 msgid ""
 "Tags distribution data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr "最新更新的標籤分佈資料 %(update_date)s在%(update_time)s國際標準時間。"
+msgstr "標籤分佈資料最後更新於%(update_date)s %(update_time)s。"
 
 #: courses/views/performance.py:398 courses/views/performance.py:428
 msgid "Performance: Learning Outcomes"
-msgstr "效益:學習成果"
+msgstr "效益：學習成果"
 
-#: settings/base.py:455
+#: settings/base.py:419
 msgid "Terms of Service"
 msgstr "服務條款"
 
-#: settings/base.py:456
+#: settings/base.py:420
 msgid "Privacy Policy"
 msgstr "隱私權政策"
 
@@ -1330,7 +1331,7 @@ msgid ""
 "You do not have permission to view this page. If you believe you should have"
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
-msgstr "您沒有權限觀看此頁面。如果您認為自己應該能存取此頁面，請重新登出再登入來更新您的權限。"
+msgstr "您沒有權限觀看此頁面！如果您認為自己應該能存取此頁面，請登出再重新登入以更新您的權限。"
 
 #: templates/403.html:17
 msgid "Logout then Login"
@@ -1385,7 +1386,7 @@ msgstr "聯繫 %(platform_name)s 取得技術支援"
 msgid ""
 "We want this dashboard to work for you! Need help? "
 "%(support_link_start)sContact course team support%(support_link_end)s."
-msgstr "我們希望此數據板能對您有幫助！需要幫忙嗎？%(support_link_start)s聯繫課程支持團隊%(support_link_end)s。"
+msgstr "我們希望此儀表板能對您有幫助！需要幫忙嗎？%(support_link_start)s聯繫課程支援團隊%(support_link_end)s。"
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html:39
@@ -1393,21 +1394,21 @@ msgstr "我們希望此數據板能對您有幫助！需要幫忙嗎？%(support
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
 "            reserved. "
-msgstr "%(current_year)s %(platform_name)s，除非另有說明，版權\n所有。"
+msgstr "%(current_year)s %(platform_name)s，除非另有說明，版權所有"
 
-#: templates/header.html:14
+#: templates/header.html:13
 msgid "Toggle navigation"
 msgstr "切換導航"
 
-#: templates/header.html:41
+#: templates/header.html:40
 msgid "Help"
 msgstr "幫助"
 
-#: templates/header.html:47
+#: templates/header.html:46
 msgid "Menu for"
 msgstr "目錄"
 
-#: templates/header.html:61
+#: templates/header.html:60
 msgid "Logout"
 msgstr "登出"
 

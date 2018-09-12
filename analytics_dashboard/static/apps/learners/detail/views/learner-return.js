@@ -5,7 +5,7 @@ define(function(require) {
         Marionette = require('marionette');
 
     return Marionette.ItemView.extend({
-        template: _.template(require('text!learners/detail/templates/return-to-learners.underscore')),
+        template: _.template(require('learners/detail/templates/return-to-learners.underscore')),
 
         templateHelpers: function() {
             return {

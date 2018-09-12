@@ -5,7 +5,7 @@ define(function(require) {
         ActiveFiltersView = require('components/generic-list/list/views/active-filters'),
         LearnerCollection = require('learners/common/collections/learners'),
 
-        learnersActiveFiltersTemplate = require('text!learners/roster/templates/active-filters.underscore'),
+        learnersActiveFiltersTemplate = require('learners/roster/templates/active-filters.underscore'),
 
         LearnersActiveFiltersView;
 

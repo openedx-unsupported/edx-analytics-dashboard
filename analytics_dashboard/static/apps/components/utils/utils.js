@@ -1,4 +1,5 @@
-define(function(require) { // eslint-disable-line no-unused-vars
+// eslint-disable-next-line no-unused-vars
+define(function(require) {
     'use strict';
 
     var utils = {

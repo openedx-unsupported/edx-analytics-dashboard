@@ -1,21 +1,12 @@
 (function() {
     'use strict';
 
-    var eslint = require('gulp-eslint'),
-        gulp = require('gulp'),
+    var gulp = require('gulp'),
         Server = require('karma').Server,
         path = require('path'),
-        browserSync = require('browser-sync'),
         extend = require('util')._extend, // eslint-disable-line no-underscore-dangle
         paths = {
             spec: [
-                'analytics_dashboard/static/js/**/*.js',
-                'analytics_dashboard/static/js/test/**/*.js',
-                'analytics_dashboard/static/apps/**/*.js'
-            ],
-            lint: [
-                'build.js',
-                'gulpfile.js',
                 'analytics_dashboard/static/js/**/*.js',
                 'analytics_dashboard/static/js/test/**/*.js',
                 'analytics_dashboard/static/apps/**/*.js'
@@ -39,13 +30,6 @@
         new Server(extend(defaultOptions, options), cb).start();
     }
 
-    gulp.task('lint', function() {
-        return gulp.src(paths.lint)
-            .pipe(eslint())
-            .pipe(eslint.format())
-            .pipe(eslint.failAfterError());
-    });
-
     // this task runs the tests.  It doesn't give you very detailed results,
     // so you may need to run the jasmine test page directly:
     //      http://127.0.0.1:8000/static/js/test/spec-runner.html
@@ -63,25 +47,10 @@
     });
 
     // these are the default tasks when you run gulp
-    gulp.task('default', ['test', 'lint']);
+    gulp.task('default', ['test']);
 
-    // type 'gulp watch' to continuously run linting and tests
+    // type 'gulp watch' to continuously run tests
     gulp.task('watch', function() {
-        gulp.watch(paths.spec, ['test', 'lint']);
-    });
-
-    // Proxy to django server (assuming that we're using port 8000 and
-    // localhost)
-    gulp.task('browser-sync', function() {
-        // there is a little delay before reloading b/c the sass files need to
-        // recompile, but we can't necessarily watch the generated directory
-        // because django creates a new css file that browser-sync doesn't
-        // know of and I can't figure out how to make it watch an entire
-        // directory
-        browserSync.init(null, {
-            proxy: 'localhost:9000',
-            files: paths.lint.concat(paths.templates).concat(paths.sass),
-            reloadDelay: 1000
-        });
+        gulp.watch(paths.spec, ['test']);
     });
 }());
