@@ -34,7 +34,7 @@ def status(_request):
 def health(_request):
     if newrelic:  # pragma: no cover
         newrelic.agent.ignore_transaction()
-    overall_status = analytics_api_status = database_status = UNAVAILABLE
+    overall_status = database_status = UNAVAILABLE
 
     try:
         cursor = connection.cursor()
@@ -46,30 +46,12 @@ def health(_request):
         logger.exception('Insights database is not reachable: %s', e)
         database_status = UNAVAILABLE
 
-    try:
-        client = Client(base_url=settings.DATA_API_URL, auth_token=settings.DATA_API_AUTH_TOKEN, timeout=0.35)
-        # Note: client.status.healthy sends a request to the health endpoint on
-        # the Analytics API.  The request may throw a TimeoutError.  Currently,
-        # other exceptions are caught by the client.status.healthy method
-        # itself, which will return False in those cases.
-        analytics_api_healthy = client.status.healthy
-    except TimeoutError as e:
-        logger.exception('Analytics API health check timed out from dashboard: %s', e)
-        analytics_api_status = UNAVAILABLE
-    else:
-        if analytics_api_healthy:
-            analytics_api_status = OK
-        else:
-            logger.error('Analytics API health check failed from dashboard')
-            analytics_api_status = UNAVAILABLE
-
-    overall_status = OK if (analytics_api_status == database_status == OK) else UNAVAILABLE
+    overall_status = OK if (database_status == OK) else UNAVAILABLE
 
     data = {
         'overall_status': overall_status,
         'detailed_status': {
             'database_connection': database_status,
-            'analytics_api': analytics_api_status
         }
     }
 
