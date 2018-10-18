@@ -26,8 +26,10 @@ logutils==0.3.4.1			 # BSD
 
 requests==2.17.3            # Apache 2.0
 
+edx-opaque-keys
+
 git+https://github.com/edx/django-lang-pref-middleware.git@0.1.0#egg=django-lang-pref-middleware
 git+https://github.com/edx/edx-analytics-data-api-client.git@0.12.0#egg=edx-analytics-data-api-client==0.12.0  # edX
-edx-opaque-keys==0.4.4
+
 # custom opaque-key implementations for ccx
 git+https://github.com/jazkarta/ccx-keys.git@e6b03704b1bb97c1d2f31301ecb4e3a687c536ea#egg=ccx-keys
