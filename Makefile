@@ -20,10 +20,10 @@ requirements.py:
 requirements.js:
 	npm install --unsafe-perm
 
-test.requirements: requirements
+test.requirements:
 	pip install -q -r requirements/test.txt --exists-action w
 
-develop: test.requirements
+develop: requirements.js
 	pip install -q -r requirements/local.txt --exists-action w
 
 migrate:
@@ -126,3 +126,14 @@ static:
 	# collectstatic creates way too much output with the cldr-data directory output so silence that directory
 	echo "Running collectstatic while silencing cldr-data/main/* ..."
 	python manage.py collectstatic --noinput | sed -n '/.*node_modules\/cldr-data\/main\/.*/!p'
+
+export CUSTOM_COMPILE_COMMAND = make upgrade
+upgrade: ## update the requirements/*.txt files with the latest packages satisfying requirements/*.in
+	pip install -q -r requirements/pip_tools.txt
+	pip-compile --upgrade -o requirements/pip_tools.txt requirements/pip_tools.in
+	pip-compile --upgrade -o requirements/base.txt requirements/base.in
+	pip-compile --upgrade -o requirements/doc.txt requirements/doc.in
+	pip-compile --upgrade -o requirements/local.txt requirements/local.in
+	pip-compile --upgrade -o requirements/optional.txt requirements/optional.in
+	pip-compile --upgrade -o requirements/production.txt requirements/production.in
+	pip-compile --upgrade -o requirements/test.txt requirements/test.in

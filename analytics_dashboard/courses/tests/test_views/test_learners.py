@@ -1,16 +1,14 @@
 import json
 import logging
 
-from ddt import data, ddt
 import httpretty
 import mock
-from requests.exceptions import ConnectionError, Timeout
-from testfixtures import LogCapture
-
+from ddt import data, ddt
 from django.conf import settings
 from django.test import TestCase
 from django.test.utils import override_settings
-
+from requests.exceptions import ConnectionError, Timeout
+from testfixtures import LogCapture
 from waffle.testutils import override_flag, override_switch
 
 from courses.tests.test_views import ViewTestMixin
@@ -101,6 +99,7 @@ class LearnersViewTests(ViewTestMixin, TestCase):
         learners_payload = {'should_not': 'return this value'}
         course_metadata_payload = learners_payload
         self._register_uris(200, learners_payload, 200, course_metadata_payload)
+
         with mock.patch(
             'learner_analytics_api.v0.clients.LearnerApiResource.get',
             mock.Mock(side_effect=RequestExceptionClass)
