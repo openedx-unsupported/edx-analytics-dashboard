@@ -6,6 +6,7 @@ import httpretty
 import mock
 from requests.exceptions import ConnectionError, Timeout
 from testfixtures import LogCapture
+from opaque_keys.edx.keys import CourseKey
 
 from django.conf import settings
 from django.test import TestCase
@@ -101,6 +102,11 @@ class LearnersViewTests(ViewTestMixin, TestCase):
         learners_payload = {'should_not': 'return this value'}
         course_metadata_payload = learners_payload
         self._register_uris(200, learners_payload, 200, course_metadata_payload)
+        
+        from opaque_keys.edx.locator import LibraryLocator
+        course_key = CourseKey.from_string('library-v1:TestX+lib1')
+        self.assertIsInstance(course_key, LibraryLocator)
+
         with mock.patch(
             'learner_analytics_api.v0.clients.LearnerApiResource.get',
             mock.Mock(side_effect=RequestExceptionClass)
