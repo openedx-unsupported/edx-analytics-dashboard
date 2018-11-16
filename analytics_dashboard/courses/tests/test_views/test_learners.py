@@ -102,7 +102,6 @@ class LearnersViewTests(ViewTestMixin, TestCase):
         learners_payload = {'should_not': 'return this value'}
         course_metadata_payload = learners_payload
         self._register_uris(200, learners_payload, 200, course_metadata_payload)
-        
         from opaque_keys.edx.locator import LibraryLocator
         course_key = CourseKey.from_string('library-v1:TestX+lib1')
         self.assertIsInstance(course_key, LibraryLocator)
