@@ -11,10 +11,12 @@
 # Edward Qiu <bazingaedward@gmail.com>, 2017
 # focusheart <focusheart@gmail.com>, 2015,2017
 # Henry Zhao <shzhaotc@gmail.com>, 2017
+# ifLab <webmaster@iflab.org>, 2018
 # Johnny Wei <johntzwei@yahoo.com>, 2015
 # jsgang <jsgang9@gmail.com>, 2014-2017
 # Jun Hao Lin <xuxiao15994219982@gmail.com>, 2015
 # LIU NIAN <lauraqq@gmail.com>, 2015
+# liuxing3169 <liuxing3169@gmail.com>, 2018
 # meelo <bbvy@qq.com>, 2015
 # Wheathana <mr_wheat@sina.cn>, 2015
 # peipeixiang <inactive+peipeixiang@transifex.com>, 2014
@@ -40,8 +42,8 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2018-06-25 06:39+0000\n"
-"Last-Translator: 百杰 陈 <bj.chen@eliteu.com.cn>\n"
+"PO-Revision-Date: 2018-11-14 07:37+0000\n"
+"Last-Translator: liuxing3169 <liuxing3169@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/open-edx/edx-platform/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -63,7 +65,7 @@ msgstr "洞察数据以帮助课程团队提升课程质量。"
 
 #: core/templates/core/landing.html:42 courses/views/__init__.py:494
 msgid "Who are my learners?"
-msgstr "查看我的学生"
+msgstr "谁是我的学生？"
 
 #: core/templates/core/landing.html:43
 msgid "Target your course to fit the backgrounds of your learners."
@@ -149,7 +151,7 @@ msgstr "{statistic}% "
 #: courses/presenters/engagement.py:126
 #, python-brace-format
 msgid "{percentage} of current learners"
-msgstr "{percentage} 的学生"
+msgstr "当前学生的{percentage}"
 
 #: courses/presenters/enrollment.py:23
 msgid "Female"
@@ -441,7 +443,7 @@ msgstr "上周参与讨论"
 #: courses/templates/courses/engagement_content.html:77
 msgid ""
 "Learners who added a post, response, or comment to any course discussion."
-msgstr "在任意课程的讨论中中曾经发帖、回复或评论过的学生。"
+msgstr "在任意课程的讨论中曾经发帖、回复或评论过的学生。"
 
 #: courses/templates/courses/engagement_content.html:89
 #: courses/templates/courses/engagement_content.html:97
@@ -468,7 +470,7 @@ msgstr "每个柱形条显示了相应节中视频的平均观看次数（包括
 
 #: courses/templates/courses/engagement_video_by_subsection.html:10
 msgid "How did learners interact with videos in this subsection?"
-msgstr "学生是如何与本小节之中的视频交互的？"
+msgstr "本小节之中学生是如何和视频交互的？"
 
 #: courses/templates/courses/engagement_video_by_subsection.html:15
 msgid ""
@@ -1123,11 +1125,11 @@ msgstr "课程学习成果中的故障有哪些？"
 
 #: courses/views/__init__.py:624
 msgid "How are learners responding to questions?"
-msgstr "学生对问题的反映如何？"
+msgstr "学生对问题的作答如何？"
 
 #: courses/views/__init__.py:626
 msgid "Problem Response Report"
-msgstr "问题反映报告"
+msgstr "问题作答报告"
 
 #: courses/views/__init__.py:633
 msgid "How are learners doing on course assignments?"
