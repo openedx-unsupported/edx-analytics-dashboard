@@ -1,0 +1,9 @@
+# Pro-tip: Try not to put anything here. There should be no dependency in
+#	production that isn't in development.
+-r base.txt
+
+MySQL-python==1.2.5							# GPL License
+PyYAML										# MIT License
+gunicorn==0.17.4							# MIT
+python-memcached==1.58
+nodeenv==1.1.2								# BSD

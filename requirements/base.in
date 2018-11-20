@@ -1,0 +1,34 @@
+awesome-slugify==1.6.5					# GPLv3
+bpython==0.16							# MIT License
+Django==1.11.15							# BSD License
+django-appconf==1.0.2
+django-braces==1.11.0					# BSD
+django-countries==4.5					# MIT
+django-model-utils==2.6.1				# BSD
+django-webpack-loader==0.4.1			# MIT
+djangorestframework==3.6.3				# BSD
+djangorestframework-csv==2.0.0			# BSD
+django-lang-pref-middleware
+# Dependency of djangorestframework
+django-crispy-forms==1.6.1				# MIT
+django-soapbox==1.3						# BSD
+django-waffle==0.12.0					# BSD
+pinax-announcements==2.0.4				# MIT
+edx-auth-backends==1.1.3
+edx-ccx-keys==0.2.1
+edx-opaque-keys
+edx-django-release-util==0.3.1
+edx-django-utils==0.4.1
+edx-drf-extensions==1.6.1
+edx-i18n-tools==0.4.2
+edx-rest-api-client==1.8.2				# Apache
+libsass==0.11.1							# MIT
+logutils==0.3.4.1						# BSD
+requests								# Apache 2.0
+stevedore>=0.14.1,<2.0.0
+
+
+
+-e git+https://github.com/edx/django-lang-pref-middleware.git@0.1.0#egg=django-lang-pref-middleware
+-e git+https://github.com/edx/edx-analytics-data-api-client.git@0.12.0#egg=edx-analytics-data-api-client==0.12.0  # edX
+
