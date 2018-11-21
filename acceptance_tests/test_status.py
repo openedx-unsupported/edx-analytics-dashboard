@@ -17,7 +17,6 @@ class StatusTests(TestCase):
             'overall_status': self.POSITIVE_STATUS,
             'detailed_status': {
                 'database_connection': self.POSITIVE_STATUS,
-                'analytics_api': self.POSITIVE_STATUS
             }
         }
         self.assertDictEqual(response.json(), expected_status)

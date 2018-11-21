@@ -10,8 +10,6 @@ from django.http import HttpResponse, Http404
 from django.shortcuts import redirect
 from django.views.generic import View, TemplateView
 from django.core.urlresolvers import reverse_lazy
-from analyticsclient.client import Client
-from analyticsclient.exceptions import TimeoutError
 
 from analytics_dashboard.courses import permissions
 try:

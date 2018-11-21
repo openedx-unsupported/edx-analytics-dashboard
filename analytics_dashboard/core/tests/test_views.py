@@ -14,8 +14,6 @@ from django.test.utils import override_settings
 from django.utils.http import urlquote
 from django_dynamic_fixture import G
 
-from analyticsclient.exceptions import TimeoutError
-
 from core.views import OK, UNAVAILABLE
 from courses.permissions import set_user_course_permissions, user_can_view_course, get_user_course_permissions
 
@@ -63,7 +61,7 @@ class RedirectTestCaseMixin(object):
 
 
 class ViewTests(TestCase):
-    def verify_health_response(self, expected_status_code, overall_status, database_connection, analytics_api):
+    def verify_health_response(self, expected_status_code, overall_status, database_connection):
         """Verify that the health endpoint returns the expected response."""
         response = self.client.get(reverse('health'))
         self.assertEqual(response.status_code, expected_status_code)
@@ -72,7 +70,6 @@ class ViewTests(TestCase):
             u'overall_status': overall_status,
             u'detailed_status': {
                 u'database_connection': database_connection,
-                u'analytics_api': analytics_api
             }
         }
         self.assertDictEqual(json.loads(response.content), expected)
@@ -85,7 +82,7 @@ class ViewTests(TestCase):
     def test_healthy(self):
         with LogCapture(level=logging.ERROR) as l:
             self.verify_health_response(
-                expected_status_code=200, overall_status=OK, database_connection=OK, analytics_api=OK
+                expected_status_code=200, overall_status=OK, database_connection=OK
             )
             l.check()
 
@@ -95,51 +92,9 @@ class ViewTests(TestCase):
     def test_health_database_outage(self):
         with LogCapture(level=logging.ERROR) as l:
             self.verify_health_response(
-                expected_status_code=503, overall_status=UNAVAILABLE, database_connection=UNAVAILABLE, analytics_api=OK
+                expected_status_code=503, overall_status=UNAVAILABLE, database_connection=UNAVAILABLE
             )
             l.check(('analytics_dashboard.core.views', 'ERROR', 'Insights database is not reachable: example error'))
-
-    @mock.patch('analyticsclient.status.Status.healthy', mock.PropertyMock(return_value=False))
-    def test_health_analytics_api_unhealthy(self):
-        with LogCapture(level=logging.ERROR) as l:
-            self.verify_health_response(
-                expected_status_code=503, overall_status=UNAVAILABLE, database_connection=OK, analytics_api=UNAVAILABLE
-            )
-            l.check(('analytics_dashboard.core.views', 'ERROR', 'Analytics API health check failed from dashboard'))
-
-    @mock.patch('analyticsclient.status.Status.healthy', mock.PropertyMock(side_effect=TimeoutError('example error')))
-    def test_health_analytics_api_unreachable(self):
-        with LogCapture(level=logging.ERROR) as l:
-            self.verify_health_response(
-                expected_status_code=503, overall_status=UNAVAILABLE, database_connection=OK, analytics_api=UNAVAILABLE
-            )
-            l.check((
-                'analytics_dashboard.core.views',
-                'ERROR',
-                'Analytics API health check timed out from dashboard: example error'
-            ))
-
-    @mock.patch('analyticsclient.status.Status.healthy', mock.PropertyMock(return_value=False))
-    @mock.patch('django.db.backends.base.base.BaseDatabaseWrapper.cursor',
-                mock.Mock(side_effect=DatabaseError('example error')))
-    def test_health_both_unavailable(self):
-        with LogCapture(level=logging.ERROR) as l:
-            self.verify_health_response(
-                expected_status_code=503, overall_status=UNAVAILABLE,
-                database_connection=UNAVAILABLE, analytics_api=UNAVAILABLE
-            )
-            l.check(
-                (
-                    'analytics_dashboard.core.views',
-                    'ERROR',
-                    'Insights database is not reachable: example error'
-                ),
-                (
-                    'analytics_dashboard.core.views',
-                    'ERROR',
-                    'Analytics API health check failed from dashboard'
-                )
-            )
 
 
 class LoginViewTests(RedirectTestCaseMixin, TestCase):
