@@ -6,6 +6,10 @@ sudo: required
 services:
   - docker
 
+branches:
+  only:
+    - master
+
 env:
   # Make sure to update this string on every Insights or Data API release
   DATA_API_VERSION: "0.28.0"
