@@ -56,7 +56,7 @@ define(function(require) {
                 defaultOptions = _.defaults({}, options);
             collection = defaultOptions.collection || new LearnerCollection(
                 defaultOptions.collectionResponse,
-                _.extend({url: 'test-url'}, defaultOptions.collectionOptions)
+                _.extend({url: 'http://example.com'}, defaultOptions.collectionOptions)
             );
             rosterView = new LearnerRosterView({
                 collection: collection,
@@ -66,6 +66,10 @@ define(function(require) {
                 trackingModel: new TrackingModel()
             }).render();
             rosterView.onBeforeShow();
+            if (!defaultOptions.showDefaultFilters) {
+                rosterView.options.collection.unsetAllFilterFields();
+                rosterView.options.collection.refresh();
+            }
             return rosterView;
         };
 
@@ -482,10 +486,11 @@ define(function(require) {
             });
 
             it('does not enable pagination controls for unreachable pages', function() {
-                var rosterView = createTwoPageRoster();
+                var rosterView = createTwoPageRoster(),
+                    numServerRequests = server.requests.length;
                 // Verify no request, no view change
                 clickPagingControl('Previous');
-                expect(server.requests.length).toBe(0);
+                expect(server.requests.length).toBe(numServerRequests);
                 expectLinkStates(rosterView, 'Page 1', ['First', 'Previous']);
             });
 
@@ -521,13 +526,9 @@ define(function(require) {
             };
 
             it('renders the current search string', function() {
-                var collection,
-                    rosterView,
-                    searchString;
-                searchString = 'search string';
-                collection = new LearnerCollection();
-                collection.setSearchString(searchString);
-                rosterView = getRosterView({collection: collection});
+                var rosterView = getRosterView(),
+                    searchString = 'search string';
+                executeSearch(searchString);
                 expect(rosterView.$('#search-learners')).toHaveValue(searchString);
             });
 
@@ -657,16 +658,9 @@ define(function(require) {
                 this.firstFilterOption = _.keys(this.filterOptions)[0];
             }, function() {
                 it('renders the filter which is currently applied', function() {
-                    var collection,
-                        firstFilterOption,
-                        rosterView;
-                    firstFilterOption = this.firstFilterOption;
-                    collection = new LearnerCollection();
-                    collection.setFilterField(this.filterFieldName, firstFilterOption);
-                    rosterView = getRosterView({
-                        courseMetadataModel: this.courseMetadata,
-                        collection: collection
-                    });
+                    var firstFilterOption = this.firstFilterOption,
+                        rosterView = getRosterView({courseMetadataModel: this.courseMetadata});
+                    expectCanFilterBy(this.filterFieldName, firstFilterOption);
                     expect(rosterView.$('.learners-filter option[value="' + firstFilterOption + '"]')).toBeSelected();
                 });
 
@@ -859,9 +853,7 @@ define(function(require) {
             });
 
             it('renders an engagement filter', function() {
-                var rosterView = getRosterView();
-                rosterView.options.collection.setFilterField('ignore_segments', 'inactive');
-                rosterView.options.collection.refresh();
+                var rosterView = getRosterView({showDefaultFilters: true});
                 getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
                 expectActiveFilters(rosterView, {engagement: 'inactive'});
             });
@@ -953,6 +945,7 @@ define(function(require) {
         describe('no results', function() {
             it('renders a "no results" view when there is no learner data in the initial collection', function() {
                 var rosterView = getRosterView();
+                getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(0)));
                 expect(rosterView.$('.alert-info-container'))
                     .toContainText('No learner data is currently available for your course.');
             });
