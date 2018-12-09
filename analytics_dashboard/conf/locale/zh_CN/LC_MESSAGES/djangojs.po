@@ -5,6 +5,7 @@
 # Translators:
 # Changyue Wang <peterwang.dut@gmail.com>, 2015
 # focusheart <focusheart@gmail.com>, 2017
+# ifLab <webmaster@iflab.org>, 2018
 # jsgang <jsgang9@gmail.com>, 2015-2017
 # Jun Hao Lin <xuxiao15994219982@gmail.com>, 2015
 # justin mao <hatmatrix42@gmail.com>, 2016
@@ -24,8 +25,8 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2018-11-29 04:11+0000\n"
-"Last-Translator: 微 李 <w.li@eliteu.com.cn>\n"
+"PO-Revision-Date: 2018-12-09 04:55+0000\n"
+"Last-Translator: HYY <wingyin.wong@outlook.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/open-edx/edx-platform/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,11 +61,11 @@ msgstr "<%= filterDisplayName %>: <%= filterVal %>"
 
 #: static/apps/components/generic-list/list/views/active-filters.js:87
 msgid "Filters In Use:"
-msgstr "正在使用的过滤"
+msgstr "使用过滤器："
 
 #: static/apps/components/generic-list/list/views/active-filters.js:88
 msgid "Click to remove this filter"
-msgstr "单击以删除此筛选器。"
+msgstr "点击以移除这个过滤器。"
 
 #. Translators: "Clear" in this context means "remove all of the filters"
 #: static/apps/components/generic-list/list/views/active-filters.js:90
@@ -73,18 +74,18 @@ msgstr "清除"
 
 #: static/apps/components/generic-list/list/views/active-filters.js:91
 msgid "Click to remove all filters"
-msgstr "单击以删除所有筛选器"
+msgstr "点击以移除所有过滤器"
 
 #. Translators: "sort ascending" describes the current sort state to the user.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:71
 msgid "sort ascending"
-msgstr "递增"
+msgstr "升序排序"
 
 #. Translators: "sort descending" describes the current sort state to the
 #. user.
 #: static/apps/components/generic-list/list/views/base-header-cell.js:73
 msgid "sort descending"
-msgstr "递减"
+msgstr "降序排序"
 
 #. Translators: "click to sort" tells the user that they can click this link
 #. to sort by the current field.
@@ -160,7 +161,7 @@ msgstr "服务器错误"
 #: static/apps/components/utils/utils.js:68
 #: static/apps/components/utils/utils.js:80
 msgid "Your request could not be processed. Reload the page to try again."
-msgstr "请求被终止，请重载本页。"
+msgstr "您的请求无法处理。 重新加载页面以重试。"
 
 #: static/apps/components/utils/utils.js:79
 msgid "Network error"
@@ -248,11 +249,11 @@ msgstr "过去一周的变化"
 
 #: static/apps/course-list/common/collections/course-list.js:83
 msgid "Verified Enrollment"
-msgstr "认证的选修学生"
+msgstr "已经过身份认证的选修学生"
 
 #: static/apps/course-list/common/collections/course-list.js:86
 msgid "Passing Learners"
-msgstr "及格的学生"
+msgstr "通过的学员"
 
 #: static/apps/course-list/common/collections/course-list.js:89
 msgid "Availability"
@@ -268,23 +269,23 @@ msgstr "项目"
 
 #: static/apps/course-list/list/views/base-header-cell.js:11
 msgid "Course name advertised on edX site."
-msgstr "edX 网站公告的课程名称"
+msgstr "在edX网站上公布的课程名称。"
 
 #: static/apps/course-list/list/views/base-header-cell.js:12
 msgid "Start date advertised on edX site."
-msgstr "edX 网站公告的开始日期"
+msgstr "在edX网站上公布的开始日期。"
 
 #: static/apps/course-list/list/views/base-header-cell.js:13
 msgid "End date set in edX Studio."
-msgstr "edX Studio 内设定的结束日期"
+msgstr "在edX Studio 内设定的结束日期"
 
 #: static/apps/course-list/list/views/base-header-cell.js:14
 msgid "Learners who ever enrolled in the course."
-msgstr "曾选修过此课程的学生。"
+msgstr "曾选修过此课程的学员。"
 
 #: static/apps/course-list/list/views/base-header-cell.js:15
 msgid "Learners currently enrolled in the course."
-msgstr "当前在选修该课程的学生。"
+msgstr "当前选修该课程的学员。"
 
 #: static/apps/course-list/list/views/base-header-cell.js:16
 msgid "Net difference in current enrollment in the last week."
@@ -298,7 +299,7 @@ msgstr "当前选课的学生当中申请成绩认证证书的人数。"
 
 #: static/apps/course-list/list/views/base-header-cell.js:19
 msgid "Learners who have earned a passing grade."
-msgstr "已获得及格分数的学生。"
+msgstr "已获得及格分数的学员。"
 
 #: static/apps/course-list/list/views/controls.js:38
 #: static/apps/learners/roster/views/controls.js:39
@@ -323,35 +324,35 @@ msgstr "program_ids"
 
 #: static/apps/course-list/list/views/course-list.js:66
 msgid "Download full course list to CSV"
-msgstr "下载完成课程列表到 CSV 文件"
+msgstr "将完整课程列表下载到CSV"
 
 #: static/apps/course-list/list/views/course-list.js:91
 msgid "Course list controls"
-msgstr "课程列表控制"
+msgstr "课程列表控件"
 
 #: static/apps/course-list/list/views/results.js:47
 msgid "No courses matched your criteria."
-msgstr "没有符合你的标准的课程"
+msgstr "没有符合您条件的课程。"
 
 #: static/apps/course-list/list/views/results.js:49
 #: static/apps/learners/roster/views/results.js:49
 msgid "Try a different search."
-msgstr "尝试不同的搜寻方式。"
+msgstr "尝试不同的搜索。"
 
 #: static/apps/course-list/list/views/results.js:52
 #: static/apps/learners/roster/views/results.js:52
 msgid "Try clearing the filters."
-msgstr "尝试清除已选项。"
+msgstr "尝试清除过滤器。"
 
 #: static/apps/course-list/list/views/results.js:55
 msgid "No course data is currently available for your course."
-msgstr "你的课程当前没有可用的课程数据。"
+msgstr "目前没有适合您课程的课程数据。"
 
 #: static/apps/course-list/list/views/results.js:57
 msgid ""
 "No courses are enrolled, or course activity data has not yet been processed."
 " Data is updated every day, so check back regularly for up-to-date metrics."
-msgstr "尚未注册任何课程，或者课程活动数据尚未发布。数据每天都会更新，所以请时常检查最新的统计指标。"
+msgstr "没有注册课程，或者尚未处理课程活动数据。 数据每天都会更新，因此请定期查看最新指标。"
 
 #: static/apps/course-list/list/views/search.js:71
 msgid "Search courses"
@@ -369,7 +370,7 @@ msgstr "清空搜索"
 
 #: static/apps/course-list/list/views/table.js:48
 msgid "Date not available"
-msgstr "无效的日期"
+msgstr "日期不可用"
 
 #: static/apps/learners/app/controller.js:59
 msgid "Learner Roster"
@@ -377,7 +378,7 @@ msgstr "学生名单"
 
 #: static/apps/learners/app/controller.js:97
 msgid "Sorry, we couldn't find any learners who matched that query."
-msgstr "对不起，我们找不到任何与该查询相匹配的学习者。"
+msgstr "对不起，我们找不到任何与该查询相匹配的学员。"
 
 #: static/apps/learners/app/controller.js:98
 msgid "Return to the Learners page."
@@ -385,11 +386,11 @@ msgstr "返回学习页面。"
 
 #: static/apps/learners/app/controller.js:106
 msgid "Learners"
-msgstr "学习者"
+msgstr "学员"
 
 #: static/apps/learners/app/controller.js:141
 msgid "Learner Details"
-msgstr "学习者详细信息"
+msgstr "学员详细信息"
 
 #: static/apps/learners/common/collections/learners.js:17
 msgid "Name (Username)"
@@ -397,17 +398,17 @@ msgstr "名称 (用户名)"
 
 #: static/apps/learners/common/collections/learners.js:18
 msgid "Problems Tried"
-msgstr "尝试问题"
+msgstr "尝试过的问题"
 
 #: static/apps/learners/common/collections/learners.js:19
 #: static/apps/learners/detail/views/engagement-table.js:33
 #: static/apps/learners/detail/views/engagement-timeline.js:35
 msgid "Problems Correct"
-msgstr "解决问题"
+msgstr "问题正确"
 
 #: static/apps/learners/common/collections/learners.js:20
 msgid "Attempts per Problem Correct"
-msgstr "每解决问题的尝试（次数）"
+msgstr "每个问题的尝试都是正确的"
 
 #: static/apps/learners/common/collections/learners.js:21
 #: static/js/engagement-video-content-main.js:33
@@ -429,11 +430,11 @@ msgstr "忽略的部分"
 #: static/apps/learners/common/collections/learners.js:26
 #: static/apps/learners/detail/views/learner-detail.js:101
 msgid "Cohort"
-msgstr "群组"
+msgstr "队列"
 
 #: static/apps/learners/common/collections/learners.js:27
 msgid "Enrollment Mode"
-msgstr "招生（注册）模式"
+msgstr "选课模式"
 
 #: static/apps/learners/detail/views/engagement-table.js:22
 #: static/apps/learners/detail/views/engagement-timeline.js:43
@@ -445,7 +446,7 @@ msgstr "日期"
 #: static/apps/learners/detail/views/engagement-table.js:27
 #: static/apps/learners/detail/views/engagement-timeline.js:31
 msgid "Discussion Contributions"
-msgstr "（额外）讨论成绩"
+msgstr "讨论贡献"
 
 #: static/apps/learners/detail/views/engagement-table.js:39
 #: static/apps/learners/detail/views/engagement-timeline.js:39
@@ -486,25 +487,25 @@ msgstr "不适用"
 
 #: static/apps/learners/detail/views/learner-detail.js:139
 msgid "Check back daily for up-to-date data."
-msgstr "您可以每日查看以获得最新数据。"
+msgstr "每天回来查看最新数据。"
 
 #: static/apps/learners/detail/views/learner-detail.js:149
 msgid "No course activity data is available for this learner."
-msgstr "尚无可供此学习者使用的课程活动。"
+msgstr "此学员不可使用课程活动数据。"
 
 #: static/apps/learners/detail/views/learner-detail.js:156
 msgid "No learner data is available."
-msgstr "学习者数据不可用。"
+msgstr "学员数据不可用。"
 
 #: static/apps/learners/detail/views/learner-return.js:12
 msgid "Return to Learners"
-msgstr "返回学习者。"
+msgstr "返回学习者"
 
 #. Translators: this is a label describing a selection that the user
 #. initiated.
 #: static/apps/learners/roster/views/active-filters.js:23
 msgid "Cohort: <%= filterVal %>"
-msgstr "学生组: <%= filterVal %>"
+msgstr "学生队列: <%= filterVal %>"
 
 #. Translators: this is a label describing a selection that the user
 #. initiated.
@@ -527,31 +528,31 @@ msgstr "学员姓名以及课程用户名。点击，以用户名分类。"
 
 #: static/apps/learners/roster/views/base-header-cell.js:11
 msgid "Number of unique problems this learner attempted."
-msgstr "该用户尝试回答的问题数量。"
+msgstr "此学员尝试的独特问题数量。"
 
 #: static/apps/learners/roster/views/base-header-cell.js:12
 msgid "Number of unique problems the learner answered correctly."
-msgstr "该用户做出正确回答的问题数量。"
+msgstr "该学员做出正确回答的问题数量。"
 
 #: static/apps/learners/roster/views/base-header-cell.js:13
 msgid "Number of unique videos this learner played."
-msgstr "该用户播放过的视频个数"
+msgstr "该学员播放过的视频个数"
 
 #: static/apps/learners/roster/views/base-header-cell.js:15
 msgid ""
 "Average number of attempts per correct problem. Learners with a relatively "
 "high value compared to their peers may be struggling."
-msgstr "正确解答问题所用尝试次数的平均值。让学习者和他们的同伴在最大程度上产生竞争心理。"
+msgstr "每个正确问题的平均尝试次数。 与同龄人相比具有较高价值的学员可能会陷入困境。"
 
 #: static/apps/learners/roster/views/base-header-cell.js:17
 msgid ""
 "Number of contributions by this learner, including posts, responses, and "
 "comments."
-msgstr "该用户的贡献值，如发帖，回帖，评论等。"
+msgstr "此学员的贡献数量，包括帖子，回复和评论。"
 
 #: static/apps/learners/roster/views/controls.js:62
 msgid "Find a learner"
-msgstr "寻找一个学习者"
+msgstr "寻找一个学员"
 
 #: static/apps/learners/roster/views/controls.js:75
 msgid "Cohort Groups"
@@ -559,7 +560,7 @@ msgstr "学习小组"
 
 #: static/apps/learners/roster/views/controls.js:73
 msgid "cohort"
-msgstr "群组"
+msgstr "队列"
 
 #: static/apps/learners/roster/views/controls.js:87
 msgid "Enrollment Tracks"
@@ -567,7 +568,7 @@ msgstr "选课记录"
 
 #: static/apps/learners/roster/views/controls.js:85
 msgid "enrollment_mode"
-msgstr "入学模式"
+msgstr "选课模式"
 
 #. Translators: inactive meaning that these learners have not interacted with
 #. the
@@ -582,26 +583,26 @@ msgstr "ignore_segments"
 
 #: static/apps/learners/roster/views/results.js:47
 msgid "No learners matched your criteria."
-msgstr "没有学习者满足你的标准。"
+msgstr "没有学员符合您的标准。"
 
 #: static/apps/learners/roster/views/results.js:55
 msgid "No learner data is currently available for your course."
-msgstr "目前针对您的课程，没有合适的学习者资料。"
+msgstr "目前没有适合您课程的学员数据。"
 
 #: static/apps/learners/roster/views/results.js:57
 msgid ""
 "No learners are enrolled, or course activity data has not yet been "
 "processed. Data is updated every day, so check back regularly for up-to-date"
 " metrics."
-msgstr "没有学习者注册，或者课程还没有开通。数据每日更新，请定期检查最近的课程详情。"
+msgstr "没有学员注册，或者课程活动数据尚未处理。 数据每天都会更新，因此请定期查看最新指标。"
 
 #: static/apps/learners/roster/views/roster.js:110
 msgid "Learner roster controls"
-msgstr "控制学生名单"
+msgstr "学员名单控制"
 
 #: static/apps/learners/roster/views/search.js:55
 msgid "Search learners"
-msgstr "寻找学习者"
+msgstr "搜索学员"
 
 #. Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate
 #. accordingly.
@@ -704,7 +705,7 @@ msgstr "信用认证"
 #: static/js/enrollment-demographics-age-main.js:34
 #: static/js/enrollment-demographics-education-main.js:32
 msgid "Number of Learners"
-msgstr "学生数目"
+msgstr "学员数量"
 
 #. Translators: <%=value%> will be replaced with an age.
 #: static/js/enrollment-demographics-age-main.js:26
@@ -760,7 +761,7 @@ msgstr "未报告"
 msgid ""
 "Learner location is determined from IP address. This map shows where "
 "learners most recently connected."
-msgstr "学生们的所在地由其 IP 地址得到，这张地图展示了最近学生们访问网站的地点。"
+msgstr "学员位置由IP地址确定。 此地图显示学员最近连接的位置。"
 
 #: static/js/enrollment-geography-main.js:26
 msgid "Country or Region"
