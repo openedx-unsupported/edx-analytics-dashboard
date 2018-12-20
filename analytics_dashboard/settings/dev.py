@@ -83,7 +83,7 @@ HELP_URL = '#'
 SEGMENT_IO_KEY = os.environ.get('SEGMENT_WRITE_KEY')
 ########## END SEGMENT.IO
 
-GRADING_POLICY_API_URL = 'http://127.0.0.1:18000/api/grades/v0/'
+GRADING_POLICY_API_URL = 'http://127.0.0.1:18000/api/grades/v1/'
 COURSE_API_URL = 'http://127.0.0.1:18000/api/courses/v1/'
 
 LOGGING = get_logger_config(debug=DEBUG, dev_env=True, local_loglevel='DEBUG')
