@@ -35,7 +35,7 @@ class CourseAPIMixin(object):
     COURSE_BLOCKS_API_TEMPLATE = \
         settings.COURSE_API_URL + \
         '/blocks/?course_id={course_id}&requested_fields=children,graded&depth=all&all_blocks=true'
-    GRADING_POLICY_API_TEMPLATE = settings.GRADING_POLICY_API_URL + '/courses/{course_id}/policy/'
+    GRADING_POLICY_API_TEMPLATE = settings.GRADING_POLICY_API_URL + '/policy/courses/{course_id}/'
 
     def mock_course_api(self, url, body=None, **kwargs):
         """
