@@ -133,7 +133,8 @@ upgrade: ## update the requirements/*.txt files with the latest packages satisfy
 	pip-compile --upgrade -o requirements/pip_tools.txt requirements/pip_tools.in
 	pip-compile --upgrade -o requirements/base.txt requirements/base.in
 	pip-compile --upgrade -o requirements/doc.txt requirements/doc.in
+	pip-compile --upgrade -o requirements/test.txt requirements/test.in
 	pip-compile --upgrade -o requirements/local.txt requirements/local.in
 	pip-compile --upgrade -o requirements/optional.txt requirements/optional.in
 	pip-compile --upgrade -o requirements/production.txt requirements/production.in
-	pip-compile --upgrade -o requirements/test.txt requirements/test.in
+
