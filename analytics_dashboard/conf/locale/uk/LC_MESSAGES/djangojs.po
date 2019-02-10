@@ -12,13 +12,14 @@
 # Nikita <nikita.gritsenko@gmail.com>, 2014
 # olexiim <olexiim@gmail.com>, 2014-2015
 # Tetiana Korshun, 2014
+# Валентина Пицик <lushalusha007@gmail.com>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2018-09-02 16:57+0000\n"
-"Last-Translator: Radmila Segol <geroneja@yahoo.com>\n"
+"PO-Revision-Date: 2019-02-09 12:35+0000\n"
+"Last-Translator: Валентина Пицик <lushalusha007@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/open-edx/edx-platform/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,13 +44,13 @@ msgstr "Всі"
 #. refers to the number of items belonging to that filter.
 #: static/apps/components/filter/views/filter.js:90
 msgid "<%= name %> (<%= count %>)"
-msgstr ""
+msgstr "<%= name %> (<%= count %>)"
 
 #. Translators: this is a label describing a filter selection that the user
 #. initiated.
 #: static/apps/components/generic-list/list/views/active-filters.js:62
 msgid "<%= filterDisplayName %>: <%= filterVal %>"
-msgstr ""
+msgstr "<%= filterDisplayName %>: <%= filterVal %>"
 
 #: static/apps/components/generic-list/list/views/active-filters.js:87
 msgid "Filters In Use:"
@@ -161,11 +162,11 @@ msgstr "Помилка мережі"
 
 #: static/apps/course-list/app/app.js:39
 msgid "Instructor-Paced"
-msgstr ""
+msgstr " Темп Викладача"
 
 #: static/apps/course-list/app/app.js:40
 msgid "Self-Paced"
-msgstr ""
+msgstr "Самостійний Темп"
 
 #: static/apps/course-list/app/app.js:43
 msgid "Upcoming"
@@ -181,7 +182,7 @@ msgstr "В архіві"
 
 #: static/apps/course-list/app/app.js:46
 msgid "Unknown"
-msgstr ""
+msgstr "Невідомий"
 
 #: static/apps/course-list/app/controller.js:48
 #: static/apps/course-list/app/controller.js:108
@@ -191,7 +192,7 @@ msgstr "Перелік курсів"
 #: static/apps/course-list/app/controller.js:98
 #: static/apps/learners/app/controller.js:96
 msgid "Invalid Parameters"
-msgstr ""
+msgstr "Недійсні Параметри"
 
 #: static/apps/course-list/app/controller.js:99
 msgid "Sorry, we couldn't find any courses that matched that query."
@@ -199,12 +200,12 @@ msgstr "На жаль, ми не знайшли курсів, які відпо�
 
 #: static/apps/course-list/app/controller.js:100
 msgid "Return to the Course List page."
-msgstr ""
+msgstr "Повернутися до Сторінки Списку Курсу"
 
 #: static/apps/course-list/app/controller.js:125
 #: static/apps/learners/app/controller.js:181
 msgid "Sorry, we couldn't find the page you're looking for."
-msgstr ""
+msgstr "На жаль, не вдалося знайти потрібну вам сторінку."
 
 #: static/apps/course-list/app/controller.js:129
 #: static/apps/learners/app/controller.js:186
@@ -237,15 +238,15 @@ msgstr "Поточна кількість підписок на курс"
 
 #: static/apps/course-list/common/collections/course-list.js:82
 msgid "Change Last Week"
-msgstr ""
+msgstr "Зміни за Останній Тиждень"
 
 #: static/apps/course-list/common/collections/course-list.js:83
 msgid "Verified Enrollment"
-msgstr ""
+msgstr "Перевірений Запис"
 
 #: static/apps/course-list/common/collections/course-list.js:86
 msgid "Passing Learners"
-msgstr ""
+msgstr "Проходження Учнями"
 
 #: static/apps/course-list/common/collections/course-list.js:89
 msgid "Availability"
@@ -253,7 +254,7 @@ msgstr "Доступність"
 
 #: static/apps/course-list/common/collections/course-list.js:90
 msgid "Pacing Type"
-msgstr ""
+msgstr "Тип Проходження"
 
 #: static/apps/course-list/common/collections/course-list.js:91
 msgid "Programs"
@@ -261,19 +262,19 @@ msgstr "Програми"
 
 #: static/apps/course-list/list/views/base-header-cell.js:11
 msgid "Course name advertised on edX site."
-msgstr ""
+msgstr "Назва курсу рекламується на сайті edX."
 
 #: static/apps/course-list/list/views/base-header-cell.js:12
 msgid "Start date advertised on edX site."
-msgstr ""
+msgstr "Дата початкуоголошення на сайті edX."
 
 #: static/apps/course-list/list/views/base-header-cell.js:13
 msgid "End date set in edX Studio."
-msgstr ""
+msgstr "Кінцева дата встановлена в edX Studio."
 
 #: static/apps/course-list/list/views/base-header-cell.js:14
 msgid "Learners who ever enrolled in the course."
-msgstr ""
+msgstr "Учні, які колись навчалися на курсі."
 
 #: static/apps/course-list/list/views/base-header-cell.js:15
 msgid "Learners currently enrolled in the course."
@@ -281,17 +282,17 @@ msgstr "Кількість зареєстрованих учнів на цьом
 
 #: static/apps/course-list/list/views/base-header-cell.js:16
 msgid "Net difference in current enrollment in the last week."
-msgstr ""
+msgstr "Чиста різниця в поточного зарахування на протязі останнього тижня."
 
 #: static/apps/course-list/list/views/base-header-cell.js:18
 msgid ""
 "Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
-msgstr ""
+msgstr "Кількість студентів, які в даний час навчаються, які пройшли перевірку сертифіката успішності."
 
 #: static/apps/course-list/list/views/base-header-cell.js:19
 msgid "Learners who have earned a passing grade."
-msgstr ""
+msgstr "Учні, які заробили прохідну оцінку."
 
 #: static/apps/course-list/list/views/controls.js:38
 #: static/apps/learners/roster/views/controls.js:39
@@ -304,15 +305,15 @@ msgstr "Шукати курс"
 
 #: static/apps/course-list/list/views/controls.js:68
 msgid "availability"
-msgstr ""
+msgstr "Доступність"
 
 #: static/apps/course-list/list/views/controls.js:76
 msgid "pacing_type"
-msgstr ""
+msgstr "тип_проходження"
 
 #: static/apps/course-list/list/views/controls.js:84
 msgid "program_ids"
-msgstr ""
+msgstr "програма_ids"
 
 #: static/apps/course-list/list/views/course-list.js:66
 msgid "Download full course list to CSV"
@@ -320,7 +321,7 @@ msgstr "Завантажити повний список курсів у фор�
 
 #: static/apps/course-list/list/views/course-list.js:91
 msgid "Course list controls"
-msgstr ""
+msgstr "Список керуючих курсу"
 
 #: static/apps/course-list/list/views/results.js:47
 msgid "No courses matched your criteria."
@@ -338,17 +339,17 @@ msgstr "Спробуйте очистити фільтри."
 
 #: static/apps/course-list/list/views/results.js:55
 msgid "No course data is currently available for your course."
-msgstr ""
+msgstr "Наразі немає даних курсу для вашого курсу."
 
 #: static/apps/course-list/list/views/results.js:57
 msgid ""
 "No courses are enrolled, or course activity data has not yet been processed."
 " Data is updated every day, so check back regularly for up-to-date metrics."
-msgstr ""
+msgstr "Ніякі курси не зареєстровані, або дані про діяльність у курсі ще не оброблені. Дані оновлюються щодня, тому регулярно перевіряйте оновлення показників."
 
 #: static/apps/course-list/list/views/search.js:71
 msgid "Search courses"
-msgstr ""
+msgstr "Пошук курсів"
 
 #: static/apps/course-list/list/views/search.js:72
 #: static/apps/learners/roster/views/search.js:56
@@ -358,23 +359,23 @@ msgstr "шукати"
 #: static/apps/course-list/list/views/search.js:73
 #: static/apps/learners/roster/views/search.js:57
 msgid "clear search"
-msgstr ""
+msgstr "очистити пошук"
 
 #: static/apps/course-list/list/views/table.js:48
 msgid "Date not available"
-msgstr ""
+msgstr "Дати не доступні"
 
 #: static/apps/learners/app/controller.js:59
 msgid "Learner Roster"
-msgstr ""
+msgstr "Список Учня"
 
 #: static/apps/learners/app/controller.js:97
 msgid "Sorry, we couldn't find any learners who matched that query."
-msgstr ""
+msgstr "На жаль,  нам не вдалося знайти учасників, які б відповідали цьому запиту."
 
 #: static/apps/learners/app/controller.js:98
 msgid "Return to the Learners page."
-msgstr ""
+msgstr "Повернутися до сторінки Учня"
 
 #: static/apps/learners/app/controller.js:106
 msgid "Learners"
@@ -382,7 +383,7 @@ msgstr "Учні"
 
 #: static/apps/learners/app/controller.js:141
 msgid "Learner Details"
-msgstr ""
+msgstr "Подробиці Учня"
 
 #: static/apps/learners/common/collections/learners.js:17
 msgid "Name (Username)"
@@ -390,13 +391,13 @@ msgstr "Ім’я (Ім’я користувача)"
 
 #: static/apps/learners/common/collections/learners.js:18
 msgid "Problems Tried"
-msgstr ""
+msgstr "Спробувати Завдання"
 
 #: static/apps/learners/common/collections/learners.js:19
 #: static/apps/learners/detail/views/engagement-table.js:33
 #: static/apps/learners/detail/views/engagement-timeline.js:35
 msgid "Problems Correct"
-msgstr ""
+msgstr "Завдання Скоректовано"
 
 #: static/apps/learners/common/collections/learners.js:20
 msgid "Attempts per Problem Correct"
@@ -413,11 +414,11 @@ msgstr "Обговорення"
 
 #: static/apps/learners/common/collections/learners.js:24
 msgid "Segments"
-msgstr ""
+msgstr "Сегменти"
 
 #: static/apps/learners/common/collections/learners.js:25
 msgid "Segments to Ignore"
-msgstr ""
+msgstr "Сегменти для Ігнорування"
 
 #: static/apps/learners/common/collections/learners.js:26
 #: static/apps/learners/detail/views/learner-detail.js:101
@@ -443,7 +444,7 @@ msgstr "Внески до обговорення"
 #: static/apps/learners/detail/views/engagement-table.js:39
 #: static/apps/learners/detail/views/engagement-timeline.js:39
 msgid "Videos Viewed"
-msgstr ""
+msgstr "Показані Відео"
 
 #: static/apps/learners/detail/views/engagement-timeline.js:47
 msgid "Value"
@@ -452,7 +453,7 @@ msgstr "Значення"
 #. Translators: e.g. Learner engagement activity
 #: static/apps/learners/detail/views/learner-detail.js:28
 msgid "Engagement Activity"
-msgstr ""
+msgstr "Залучання до Діяльності"
 
 #: static/apps/learners/detail/views/learner-detail.js:29
 msgid "Daily Activity"
@@ -460,7 +461,7 @@ msgstr "Щоденна активність"
 
 #: static/apps/learners/detail/views/learner-detail.js:30
 msgid "Activity Over Time"
-msgstr ""
+msgstr "Понаднормова Діяльність"
 
 #: static/apps/learners/detail/views/learner-detail.js:95
 msgid "Enrollment"
@@ -475,60 +476,60 @@ msgstr "Останній доступ"
 #: static/apps/learners/detail/views/learner-summary-field.js:44
 #: static/apps/learners/roster/views/activity-date-range.js:16
 msgid "n/a"
-msgstr ""
+msgstr "n/a"
 
 #: static/apps/learners/detail/views/learner-detail.js:139
 msgid "Check back daily for up-to-date data."
-msgstr ""
+msgstr "Переглядайте щоденно для оновлених даних."
 
 #: static/apps/learners/detail/views/learner-detail.js:149
 msgid "No course activity data is available for this learner."
-msgstr ""
+msgstr "Для цього учня не доступні дані щодо діяльності курсів."
 
 #: static/apps/learners/detail/views/learner-detail.js:156
 msgid "No learner data is available."
-msgstr ""
+msgstr "Дані жодного учасника не доступні."
 
 #: static/apps/learners/detail/views/learner-return.js:12
 msgid "Return to Learners"
-msgstr ""
+msgstr "Повернутися до Учнів"
 
 #. Translators: this is a label describing a selection that the user
 #. initiated.
 #: static/apps/learners/roster/views/active-filters.js:23
 msgid "Cohort: <%= filterVal %>"
-msgstr ""
+msgstr "Когорта: <%= filterVal %>"
 
 #. Translators: this is a label describing a selection that the user
 #. initiated.
 #: static/apps/learners/roster/views/active-filters.js:27
 msgid "Enrollment Track: <%= filterVal %>"
-msgstr ""
+msgstr "Запис Доріжки: <%= filterVal %>"
 
 #: static/apps/learners/roster/views/active-filters.js:32
 #: static/js/engagement-content-main.js:20
 msgid "Active Learners"
-msgstr ""
+msgstr "Активні Учні"
 
 #: static/apps/learners/roster/views/activity-date-range.js:11
 msgid "Activity between <%- startDate %> - <%- endDate %>"
-msgstr ""
+msgstr "Діяльність між <%- startDate %> - <%- endDate %>"
 
 #: static/apps/learners/roster/views/base-header-cell.js:10
 msgid "The name and username of this learner. Click to sort by username."
-msgstr ""
+msgstr "Ім'я та ім'я користувача цього учня. Натиснути для сортування ім'я користувача."
 
 #: static/apps/learners/roster/views/base-header-cell.js:11
 msgid "Number of unique problems this learner attempted."
-msgstr ""
+msgstr "Кількість унікальних завдань, які пробував цей учень."
 
 #: static/apps/learners/roster/views/base-header-cell.js:12
 msgid "Number of unique problems the learner answered correctly."
-msgstr ""
+msgstr "Кількість унікальних завдань, які цей учень вирішив правильно."
 
 #: static/apps/learners/roster/views/base-header-cell.js:13
 msgid "Number of unique videos this learner played."
-msgstr ""
+msgstr "Кількість унікальних відео, які програвав цей учень."
 
 #: static/apps/learners/roster/views/base-header-cell.js:15
 msgid ""
@@ -540,15 +541,15 @@ msgstr "Середня кількість спроб на одну правил�
 msgid ""
 "Number of contributions by this learner, including posts, responses, and "
 "comments."
-msgstr ""
+msgstr "Кількість внесків цього учня, включаючи повідомлення, відповіді та коментарі."
 
 #: static/apps/learners/roster/views/controls.js:62
 msgid "Find a learner"
-msgstr ""
+msgstr "Знайти учня"
 
 #: static/apps/learners/roster/views/controls.js:75
 msgid "Cohort Groups"
-msgstr ""
+msgstr "Групи Когорту"
 
 #: static/apps/learners/roster/views/controls.js:73
 msgid "cohort"
@@ -560,41 +561,41 @@ msgstr "Завдання для реєстрації на курс"
 
 #: static/apps/learners/roster/views/controls.js:85
 msgid "enrollment_mode"
-msgstr ""
+msgstr "режим_реєстрації"
 
 #. Translators: inactive meaning that these learners have not interacted with
 #. the
 #. course recently.
 #: static/apps/learners/roster/views/controls.js:103
 msgid "Hide Inactive Learners"
-msgstr ""
+msgstr "Приовати Неактивних Учнів"
 
 #: static/apps/learners/roster/views/controls.js:97
 msgid "ignore_segments"
-msgstr ""
+msgstr "ігнорувати_сегменти"
 
 #: static/apps/learners/roster/views/results.js:47
 msgid "No learners matched your criteria."
-msgstr ""
+msgstr "Жодний учень не співпав за вашими критеріями"
 
 #: static/apps/learners/roster/views/results.js:55
 msgid "No learner data is currently available for your course."
-msgstr ""
+msgstr "Наразі для вашого курсу не доступні дані для учнів"
 
 #: static/apps/learners/roster/views/results.js:57
 msgid ""
 "No learners are enrolled, or course activity data has not yet been "
 "processed. Data is updated every day, so check back regularly for up-to-date"
 " metrics."
-msgstr ""
+msgstr "Жоден учень не зареєстрований, або дані про діяльність у курсі ще не оброблені. Дані оновлюються щодня, тому регулярно перевіряйте оновлення показників."
 
 #: static/apps/learners/roster/views/roster.js:110
 msgid "Learner roster controls"
-msgstr ""
+msgstr "Список  контролю учня"
 
 #: static/apps/learners/roster/views/search.js:55
 msgid "Search learners"
-msgstr ""
+msgstr "Знайти учнів"
 
 #. Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate
 #. accordingly.
@@ -616,11 +617,11 @@ msgstr "Пробували виконати завдання"
 
 #: static/js/engagement-content-main.js:41
 msgid "Participated in Discussions"
-msgstr ""
+msgstr "Участь в Обговореннях"
 
 #: static/js/engagement-content-main.js:48
 msgid "Percent of Current Learners"
-msgstr ""
+msgstr "Процент Поточних Учнів"
 
 #. Translators: <%=value%> will be replaced with a date.
 #: static/js/engagement-content-main.js:85
@@ -629,11 +630,11 @@ msgstr "Закінчення тижня <%=value%>"
 
 #: static/js/engagement-video-content-main.js:14
 msgid "Average Complete Views"
-msgstr ""
+msgstr "Середні Повні Перегляди"
 
 #: static/js/engagement-video-content-main.js:23
 msgid "Average Incomplete Views"
-msgstr ""
+msgstr "Середні Неповні Перегляди"
 
 #: static/js/engagement-video-content-main.js:31
 #: static/js/engagement-videos-main.js:29
@@ -691,13 +692,13 @@ msgstr "Професійний"
 #. credit
 #: static/js/enrollment-activity-main.js:54
 msgid "Verified with Credit"
-msgstr ""
+msgstr "Підтверджено за Кредитом"
 
 #: static/js/enrollment-demographics-age-main.js:19
 #: static/js/enrollment-demographics-age-main.js:34
 #: static/js/enrollment-demographics-education-main.js:32
 msgid "Number of Learners"
-msgstr ""
+msgstr "Кількість Учнів"
 
 #. Translators: <%=value%> will be replaced with an age.
 #: static/js/enrollment-demographics-age-main.js:26
@@ -753,7 +754,7 @@ msgstr "Скарг немає"
 msgid ""
 "Learner location is determined from IP address. This map shows where "
 "learners most recently connected."
-msgstr ""
+msgstr "Розташування учня визначається з IP-адреси.  Ця карта показує, де учні останнім часом підключалися."
 
 #: static/js/enrollment-geography-main.js:26
 msgid "Country or Region"
@@ -825,11 +826,11 @@ msgstr "Відсоток вірних відповідей"
 
 #: static/js/performance-learning-outcomes-content-main.js:38
 msgid "Average Submissions per Problem"
-msgstr ""
+msgstr "Середні Запити на Завдання"
 
 #: static/js/performance-learning-outcomes-section-main.js:30
 msgid "Difficulty"
-msgstr ""
+msgstr "Труднощі"
 
 #: static/js/performance-learning-outcomes-section-main.js:53
 #: static/js/performance-problems-main.js:35
