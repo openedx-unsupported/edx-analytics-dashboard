@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Anastasiia Bondarenko <anastasiia.bondarenko@raccoongang.com>, 2019
 # Andrey Kryachko, 2018
 # Anna Zizinska <zildress@gmail.com>, 2015
 # Denis <prohibiti@gmail.com>, 2015
@@ -25,8 +26,8 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2019-02-09 11:11+0000\n"
-"Last-Translator: Валентина Пицик <lushalusha007@gmail.com>\n"
+"PO-Revision-Date: 2019-02-25 15:58+0000\n"
+"Last-Translator: Anastasiia Bondarenko <anastasiia.bondarenko@raccoongang.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/open-edx/edx-platform/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -100,7 +101,7 @@ msgstr "Приєднуйся до відкритої спільноти розр
 msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr "Магістраль аналітичних даних edX і Наробки edX є загальнодоступними джерелами інформації. %(link_start)sДізнатися більше%(link_end)s."
+msgstr "Конвеєр аналітичних даних edX і Статистика edX є загальнодоступними джерелами інформації. %(link_start)sДізнатися більше%(link_end)s."
 
 #: core/templates/core/landing.html:75
 msgid "Research at edX"
@@ -111,7 +112,7 @@ msgstr "Дослідницька робота у edX"
 msgid ""
 "We are committed to advancing teaching and learning through research. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr "Щоб вдосконалити викладання й навчання, ми проводимо відповідні дослідження. %(link_start)sДізнатися більше%(link_end)s."
+msgstr "Ми прагнемо до вдосконалення викладання та навчання через дослідження. %(link_start)sДізнатися більше%(link_end)s."
 
 #: core/templates/core/landing.html:87
 msgid "Need Help?"
@@ -183,7 +184,7 @@ msgstr "Середня"
 #. Degree).
 #: courses/presenters/enrollment.py:53
 msgid "Associate"
-msgstr "Незакінчена вища"
+msgstr "Приєднувати "
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
@@ -355,7 +356,7 @@ msgstr "Завантажити CSV"
 
 #: courses/templates/courses/base_performance_answer_distribution.html:117
 msgid "Learner Submission Counts"
-msgstr "Підрахунок Учнів"
+msgstr "Кількість учнівськіх відправок на перевірку"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html:4
@@ -364,7 +365,7 @@ msgstr "Учні (Самостійно повідомляється)"
 
 #: courses/templates/courses/engagement_content.html:23
 msgid "Weekly Learner Engagement"
-msgstr "Щотижневе Зобов'язання Учня"
+msgstr "Щотижневе Залучення Учня"
 
 #: courses/templates/courses/engagement_content.html:24
 #: courses/views/__init__.py:556
@@ -403,7 +404,7 @@ msgstr "Переглядів за тиждень"
 
 #: courses/templates/courses/engagement_content.html:62
 msgid "Learners who played one or more videos."
-msgstr "Учні, які зіграли одне або більше відео."
+msgstr "Учні, які переглянули одне або більше відео."
 
 #. Translators: This is a label indicating the number of learners who tried a
 #. problem.
@@ -421,7 +422,7 @@ msgstr "Учні, які подали відповідь на стандартн
 #. in a forum discussion.
 #: courses/templates/courses/engagement_content.html:76
 msgid "Participated in Discussions Last Week"
-msgstr "Участь у Дискусіях Минулого Тижня"
+msgstr "Приймали участь у Дискусіях Минулого Тижня"
 
 #: courses/templates/courses/engagement_content.html:77
 msgid ""
@@ -438,7 +439,7 @@ msgstr "Розподіл Розташування Змісту"
 #: courses/templates/courses/engagement_grouped_content.html:17
 #: courses/templates/courses/views_chart_info.html:4
 msgid "Video Views"
-msgstr "Кількість показів відео"
+msgstr "Кількість переглядів відео"
 
 #: courses/templates/courses/engagement_video_by_section.html:5
 msgid "How did learners interact with videos in this section?"
@@ -476,7 +477,7 @@ msgstr "Кожна панель показує середню кількість
 #: courses/templates/courses/engagement_video_timeline.html:17
 #: courses/templates/courses/engagement_video_timeline.html:21
 msgid "Total Video Views"
-msgstr "Загальна кількість показів відео"
+msgstr "Загальна кількість переглядів відео"
 
 #: courses/templates/courses/engagement_video_timeline.html:26
 msgid "What were the viewing patterns for this video?"
@@ -502,7 +503,7 @@ msgstr "Показники відео"
 
 #: courses/templates/courses/engagement_video_timeline.html:61
 msgid "Completion Rate"
-msgstr "Оцінювання Завершенності"
+msgstr "Ступінь завершення"
 
 #: courses/templates/courses/engagement_video_timeline.html:62
 msgid "Estimated percentage of learners who watched the entire video."
@@ -558,7 +559,7 @@ msgstr "Дані про запис на курс"
 #: courses/templates/courses/enrollment_activity.html:59
 #: courses/templates/courses/index.html:26
 msgid "Total Enrollment"
-msgstr "Загальне число студентів "
+msgstr "Загальне число зарахування студентів "
 
 #. Translators: This is a label indicating the number of learners in a course.
 #: courses/templates/courses/enrollment_activity.html:61
@@ -620,7 +621,7 @@ msgstr "Зарахування в залежності від часу"
 #: courses/templates/courses/enrollment_demographics_age.html:26
 #: courses/views/__init__.py:507
 msgid "How old are my learners?"
-msgstr "Який вік більшості учнів?"
+msgstr "Який вік моїх учнів?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -878,7 +879,7 @@ msgstr "Курси"
 
 #: courses/templates/courses/index.html:17
 msgid "Across all your courses:"
-msgstr "Крізь усі ваших курси:"
+msgstr "Крізь усі ваші курси:"
 
 #: courses/templates/courses/index.html:27
 msgid "Total enrollments across all of your courses."
@@ -911,13 +912,13 @@ msgstr "Як учні роблять це завдання?"
 msgid ""
 "These bars show the correct and incorrect submission counts for each "
 "problem. Only the last submission from each learner is counted."
-msgstr "Ці панелі показують правильний і неправильний підрахунок подання для кожної задачі. Враховується лише останнє подання від кожного учня."
+msgstr "Ці стовбці показують правильний і неправильний підрахунок подання для кожної задачі. Враховується лише остання відповідь від кожного учня."
 
 #: courses/templates/courses/performance_assignment.html:19
 #: courses/templates/courses/performance_learning_outcomes_section.html:20
 #: courses/templates/courses/performance_ungraded_by_subsection.html:19
 msgid "Problem Submissions"
-msgstr "Відповіді Завдання"
+msgstr "Відповіді на завдання"
 
 #: courses/templates/courses/performance_graded_content.html:9
 msgid "Which assignment type do you want to investigate?"
@@ -958,7 +959,7 @@ msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "problems in the assignment. Only the last submission from each learner is "
 "counted."
-msgstr "Кожна панель показує середню кількість правильних та неправильних відповідей для задач у призначенні. Враховується лише остання відповідь від кожного учня."
+msgstr "Кожен стовбець показує середню кількість правильних та неправильних відповідей для задач у призначенні. Враховується лише остання відповідь від кожного учня."
 
 #: courses/templates/courses/performance_graded_content_by_type.html:19
 msgid "Assignment Submissions"
@@ -973,7 +974,7 @@ msgstr "Як вимірюють результати навчання, як ви
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each outcome."
-msgstr "Кожна панель показує середню кількість правильних та неправильних відповідей для кожного результату."
+msgstr "Кожен стовбець показує середню кількість правильних та неправильних відповідей для кожного результату."
 
 #: courses/templates/courses/performance_learning_outcomes_content.html:20
 msgid "Outcome Submissions"
@@ -983,7 +984,7 @@ msgstr "Результати Відповідей"
 msgid ""
 "Each bar shows the correct and incorrect number of submissions for each "
 "problem for the current outcome."
-msgstr "Кожна панель показує правильну та неправильну кількість відповідей для кожної задачі поточного результату."
+msgstr "Кожен стовбець показує правильну та неправильну кількість відповідей для кожної задачі поточного результату."
 
 #: courses/templates/courses/performance_ungraded_by_section.html:5
 msgid "How are learners doing on this section?"
@@ -993,7 +994,7 @@ msgstr "Як учні працюють у цьому розділі?"
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each subsection. Only the last submission from each learner is counted."
-msgstr "Кожна панель показує середню кількість правильних та неправильних відповідей для кожного підрозділу. Враховується лише остання відповідь від кожного учня."
+msgstr "Кожен стовбець показує середню кількість правильних та неправильних відповідей для кожного підрозділу. Враховується лише остання відповідь від кожного учня."
 
 #: courses/templates/courses/performance_ungraded_by_section.html:14
 msgid "Subsection Submissions"
@@ -1006,13 +1007,13 @@ msgstr "Як учні працюють у цьому підрозділі?"
 #: courses/templates/courses/performance_ungraded_content.html:7
 #: courses/views/__init__.py:592
 msgid "How are learners doing on ungraded exercises?"
-msgstr "Як учні справляються з неоновленими вправами?"
+msgstr "Як учні справляються з несортованими вправами?"
 
 #: courses/templates/courses/performance_ungraded_content.html:12
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each section. Only the last submission from each learner is counted."
-msgstr "Кожна панель показує середню кількість правильних і неправильних відповідей для кожного розділу. Враховується лише остання відповідь від кожного учня."
+msgstr "Кожен стовбець показує середню кількість правильних і неправильних відповідей для кожного розділу. Враховується лише остання відповідь від кожного учня."
 
 #: courses/templates/courses/performance_ungraded_content.html:16
 msgid "Section Submissions"
@@ -1029,7 +1030,7 @@ msgstr "Дозволи не отримано"
 msgid ""
 "There was a problem retrieving course permissions for your account. Please "
 "try again. If you continue to experience issues, please let us know."
-msgstr "Під час отримання дозволів на курс для вашого акаунту виникла проблема. Будь ласка, спробуйте ще.  Якщо ви продовжуєте зазнавати проблеми, повідомте нам про це."
+msgstr "Під час отримання дозволів на курс для вашого акаунту виникла проблема. Будь ласка, спробуйте ще.  Якщо ви продовжуєте отримувати проблеми, повідомте нам про це."
 
 #: courses/templates/courses/permissions-retrieval-failed.html:14
 msgid "Try Again"
@@ -1116,7 +1117,7 @@ msgstr "Звіт Відповідей"
 
 #: courses/views/__init__.py:633
 msgid "How are learners doing on course assignments?"
-msgstr "Як учні виконують курсові завдання?"
+msgstr "Як учні виконують завдання курсу?"
 
 #: courses/views/__init__.py:641
 msgid "What are individual learners doing?"
@@ -1233,11 +1234,11 @@ msgstr "Останні оновлені демографічні дані  уч�
 #: courses/views/enrollment.py:94
 msgid ""
 "All above demographic data was self-reported at the time of registration."
-msgstr "Всі вищевказані демографічні дані були повідомилені під час реєстрації."
+msgstr "Всі вищевказані демографічні дані були повідомлені під час реєстрації."
 
 #: courses/views/enrollment.py:107
 msgid "Enrollment Activity"
-msgstr "Активність з зарахувань"
+msgstr "Активність зарахувань"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py:117
@@ -1245,7 +1246,7 @@ msgstr "Активність з зарахувань"
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr "Дані активності з зарахувань на курс в останнє були оновленні %(update_date)s о %(update_time)s UTC."
+msgstr "Дані активності  зарахувань на курс в останнє були оновленні %(update_date)s о %(update_time)s UTC."
 
 #: courses/views/enrollment.py:148
 msgid "Enrollment Demographics by Age"
@@ -1269,7 +1270,7 @@ msgstr "Географія учасників"
 msgid ""
 "Geographic learner data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr "Останні оновлені географічні дані учнів%(update_date)sна%(update_time)sUTC."
+msgstr "Географічні дані студента в останнє були оновленні %(update_date)s о %(update_time)s UTC."
 
 #. Translators: Do not translate UTC.
 #: courses/views/performance.py:33
@@ -1294,7 +1295,7 @@ msgstr "Ніяких відповідей для цих призначінь н�
 #: courses/views/performance.py:195 courses/views/performance.py:362
 #: courses/views/performance.py:460
 msgid "Performance: Problem Submissions"
-msgstr "Продуктивність: Подання Задач"
+msgstr "Продуктивність: Відповідь на завдання"
 
 #: courses/views/performance.py:257
 #, python-format
