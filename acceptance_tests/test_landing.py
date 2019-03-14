@@ -16,7 +16,8 @@ class LandingTests(PageTestMixin, LoginMixin, LogoutMixin, FooterLegalMixin, Web
     def test_page(self):
         super(LandingTests, self).test_page()
         # landing page will not be viewable by logged in users
-        self.page.browser.get(self.page.path)
+        self.login()
+        self.page.browser.get(self.page.page_url)
         self.assertFalse(self.page.is_browser_on_page())
 
         # landing page only accessible to logged out users

@@ -432,7 +432,7 @@ define(function(require) {
 
             it('does not violate the axe-core ruleset', function(done) {
                 getCourseListView();
-                axe.a11yCheck($('.course-list-view-fixture')[0], function(result) {
+                axe.run($('.course-list-view-fixture')[0], function(error, result) {
                     expect(result.violations.length).toBe(0);
                     done();
                 });
