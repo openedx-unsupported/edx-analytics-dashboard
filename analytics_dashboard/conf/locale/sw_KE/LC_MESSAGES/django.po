@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Benedict Mfoi <benedictmfoi@camara.org>, 2019
 # Innocent Masue <translations_7@camara.ie>, 2017
 # Isihaka Issa <translations_8@camara.ie>, 2017
 # JOHN MASANDA <translations_6@camara.ie>, 2017
@@ -16,8 +17,8 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2017-09-23 22:12+0000\n"
-"Last-Translator: YAHAYA MWAVURIZI <translations_1@camara.ie>\n"
+"PO-Revision-Date: 2019-03-21 08:05+0000\n"
+"Last-Translator: Mikias Ephrem <mikiasephrem@camara.org>\n"
 "Language-Team: Swahili (Kenya) (http://www.transifex.com/open-edx/edx-platform/language/sw_KE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -293,7 +294,7 @@ msgstr "Vitengo Vyote"
 #: courses/templates/courses/_ungraded_content_nav.html:24
 #: courses/templates/courses/_video_content_nav.html:24
 msgid "Select Subsection"
-msgstr "Chagua Kitengo toto"
+msgstr "Kifungu kidogo"
 
 #: courses/templates/courses/_video_content_nav.html:28
 msgid "Select Video"
@@ -312,7 +313,7 @@ msgstr "Video Ijayo"
 msgid ""
 "This chart shows the most common answers submitted by learners, ordered by "
 "frequency."
-msgstr ""
+msgstr "Chati hii inaonyesha majibu ya kawaida yaliyowasilishwa na wanafunzi yamepangiliwa kwa mzunguko."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html:82
@@ -346,16 +347,16 @@ msgstr "Pakua CSV"
 
 #: courses/templates/courses/base_performance_answer_distribution.html:117
 msgid "Learner Submission Counts"
-msgstr ""
+msgstr "Idadi ya mawasilisho ya wanafunzi."
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html:4
 msgid "Learners (Self-Reported)"
-msgstr ""
+msgstr "Wanafunzi (taarifa binafsi)"
 
 #: courses/templates/courses/engagement_content.html:23
 msgid "Weekly Learner Engagement"
-msgstr ""
+msgstr "Ushiriki wa Wanafunzi kwa Wiki."
 
 #: courses/templates/courses/engagement_content.html:24
 #: courses/views/__init__.py:556
@@ -372,19 +373,19 @@ msgstr "Wanagenzi"
 msgid ""
 "The number of active learners, and the number of learners who engaged in "
 "specific activities, over time."
-msgstr ""
+msgstr "Idadi ya wanafunzi hai na idadi ya wanafunzi ambao wanajihusisha na shughuli maalum kwa muda."
 
 #: courses/templates/courses/engagement_content.html:48
 msgid "Learner Activity Metrics"
-msgstr ""
+msgstr "Kipimo cha kupima shughuli za wanafunzi."
 
 #: courses/templates/courses/engagement_content.html:54
 msgid "Active Learners Last Week"
-msgstr ""
+msgstr "Wanafunzi hai kwa wiki iliyopita."
 
 #: courses/templates/courses/engagement_content.html:55
 msgid "Learners who visited at least one page in the course content."
-msgstr ""
+msgstr "Wanafunzi ambao walitembelea angalau kurasa moja katika maudhui ya kozi."
 
 #. Translators: This is a label indicating the number of learners who watched
 #. a video.
@@ -394,7 +395,7 @@ msgstr "Nilitizama Video Wiki Iliyopita"
 
 #: courses/templates/courses/engagement_content.html:62
 msgid "Learners who played one or more videos."
-msgstr ""
+msgstr "Wanafunzi waliochezesha video moja au zaidi."
 
 #. Translators: This is a label indicating the number of learners who tried a
 #. problem.
@@ -406,7 +407,7 @@ msgstr "Nilijaribu Tatizo Juma Lililopita"
 msgid ""
 "Learners who submitted an answer for a standard problem. Not all problem "
 "types are included."
-msgstr ""
+msgstr "Wanafunzi waliowasilisha majibu ya matatizo yenye kiwango. Siyo matatizo  ya aina zote yalihusishwa."
 
 #. Translators: This is a label indicating the number of learners who posted
 #. in a forum discussion.
@@ -433,7 +434,7 @@ msgstr "Maono ya Video"
 
 #: courses/templates/courses/engagement_video_by_section.html:5
 msgid "How did learners interact with videos in this section?"
-msgstr ""
+msgstr "Jinsi gani wanafunzi waliweza kucheza na video katika kipengele hiki?"
 
 #: courses/templates/courses/engagement_video_by_section.html:10
 msgid ""
@@ -444,18 +445,18 @@ msgstr "Kila ulingo unaonesha idadi wastani ya maonesho kamili na pungufu ya vid
 
 #: courses/templates/courses/engagement_video_by_subsection.html:10
 msgid "How did learners interact with videos in this subsection?"
-msgstr ""
+msgstr "Jinsi gani wanafunzi wanachezea  na video katika kisehemu hiki kidogo?"
 
 #: courses/templates/courses/engagement_video_by_subsection.html:15
 msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
 "Click to understand where learners drop off and which parts they replay."
-msgstr ""
+msgstr "Kila mche unaonyesha idadi ya maono yaliyokamilika na yasiyokamilika ya video husika. Bonyeza ili kujua ni sehemu ipi wanafunzi wameacha kuicheza na sehemu ipi wameicheza."
 
 #: courses/templates/courses/engagement_video_course.html:5
 #: courses/views/__init__.py:569
 msgid "How did learners interact with course videos?"
-msgstr ""
+msgstr "Ni namna gani wanafunzi wamejihusisha na video ya kozi?"
 
 #: courses/templates/courses/engagement_video_course.html:10
 msgid ""
@@ -497,7 +498,7 @@ msgstr "Makisio ya Umalizikaji"
 
 #: courses/templates/courses/engagement_video_timeline.html:62
 msgid "Estimated percentage of learners who watched the entire video."
-msgstr ""
+msgstr "Asilimia iliyokadiriwa ya wanafunzi walioangalia video yote."
 
 #: courses/templates/courses/engagement_video_timeline.html:66
 msgid "Started Video"
@@ -505,7 +506,7 @@ msgstr "Video Ilio Anzishwa"
 
 #: courses/templates/courses/engagement_video_timeline.html:67
 msgid "Learners who started watching the video."
-msgstr ""
+msgstr "Wanafunzi walioanza kuangalia video."
 
 #: courses/templates/courses/engagement_video_timeline.html:71
 msgid "Finished Video"
@@ -513,7 +514,7 @@ msgstr "Video Iliomalizika"
 
 #: courses/templates/courses/engagement_video_timeline.html:72
 msgid "Learners who watched the video to the end."
-msgstr ""
+msgstr "Wanafunzi walioangalia video mpaka mwisho."
 
 #: courses/templates/courses/engagement_video_timeline.html:88
 msgid "Video Viewing Over Time"
@@ -521,7 +522,7 @@ msgstr "Masaa ya Ziada Kutazama Video"
 
 #: courses/templates/courses/enrollment_activity.html:24
 msgid "Daily Learner Enrollment"
-msgstr ""
+msgstr "Uandikishaji mwanafunzi kwa siku."
 
 #: courses/templates/courses/enrollment_activity.html:25
 #: courses/views/__init__.py:497
@@ -536,7 +537,7 @@ msgstr "Usajili"
 msgid ""
 "This graph displays the current enrollment for the course as of the end of "
 "each day. This includes new enrollments as well as unenrollments."
-msgstr "Grafu hii inaangazia usajili wa wanafunzi katika fanni kwa kila\"\n\"mwisho wa siku. Hii inajumuisha usajili mpya na ambao bado."
+msgstr "Grafu hii inaangazia usajili wa wanafunzi katika fanni kwa kila mwisho wa siku. Hii inajumuisha usajili mpya na ambao bado."
 
 #: courses/templates/courses/enrollment_activity.html:49
 msgid "Enrollment Metrics"
@@ -598,7 +599,7 @@ msgstr "Usajili Uliohakikishwa"
 msgid ""
 "Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
-msgstr ""
+msgstr "Idadi ya wanafunzi waliojiandikisha kupata cheti cha mafanikio kilichothibitishwa."
 
 #: courses/templates/courses/enrollment_activity.html:99
 #: courses/templates/courses/enrollment_activity.html:107
@@ -621,7 +622,7 @@ msgstr "Wanafunzi wangu wana umri gani?"
 msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
 "learners who provided a year of birth."
-msgstr ""
+msgstr "Katika histogramu hii ya umri unaonyesha taarifa zilizokokotolewa za 1%(value)s 2%% ya wanafunzi waliojiandikisha na walioweka umri wao wa kuzaliwa."
 
 #: courses/templates/courses/enrollment_demographics_age.html:56
 msgid "Age Metrics"
@@ -631,12 +632,12 @@ msgstr "Ukomo wa matumizi"
 #. learners.
 #: courses/templates/courses/enrollment_demographics_age.html:65
 msgid "Median Learner Age"
-msgstr ""
+msgstr "Wastani wa umri wa wanafunzi"
 
 #: courses/templates/courses/enrollment_demographics_age.html:66
 msgid ""
 "The midpoint of the learner ages, computed from the provided year of birth."
-msgstr ""
+msgstr "Hatua ya kati ya umri wa wanafunzi uliokokotolewa kutoka kwenye umri waliyoweka."
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
@@ -648,7 +649,7 @@ msgstr "Wanafunzi wenye umri miaka 25 na Chini ya hapo"
 msgid ""
 "The percentage of learners aged 25 years or younger (of those who provided a"
 " year of birth)."
-msgstr ""
+msgstr "Asilimia ya wanafunzi wenye umri wa miaka 25 au chini yake (kwa wale walioweka umri wao wa kuzaliwa)."
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
@@ -660,7 +661,7 @@ msgstr "Wanafunzi 26 hadi 40"
 msgid ""
 "The percentage of learners aged from 26 to 40 years (of those who provided a"
 " year of birth)."
-msgstr ""
+msgstr "Asilimia  ya wanafunzi wenye umri kati ya miaka 26 mpaka 40 (kwa wale walioweka umri wao wa kuzaliwa)."
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
@@ -672,7 +673,7 @@ msgstr "Wanafunzi 41 na Zaidi"
 msgid ""
 "The percentage of learners aged 41 years or older (of those who provided a "
 "year of birth)."
-msgstr ""
+msgstr "Asilimia ya wanafunzi wenye umri kati ya miaka 41 au zaidi (kwa wale walioweka umri wao wa kuzaliwa)."
 
 #: courses/templates/courses/enrollment_demographics_age.html:101
 msgid "Age Breakdown"
@@ -691,7 +692,7 @@ msgstr "Wanafunzi wengi wana kiwango gani cha elimu?"
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled learners who "
 "provided a highest level of education completed."
-msgstr ""
+msgstr "Grafu hii inaonyesha taarifa kwa 1%(value)s 2%% ya wanafunzi wa waliojiandikisha na walioweka kiwango cha elimu ya juu walichofikia."
 
 #: courses/templates/courses/enrollment_demographics_education.html:56
 msgid "Education Metrics"
@@ -707,7 +708,7 @@ msgid ""
 "The percentage of learners who selected Secondary/high school, Junior "
 "secondary/junior high/middle school, or Elementary/primary school as their "
 "highest level of education completed."
-msgstr ""
+msgstr "Asilimia ya wanafunzi walichagua sekondari/high shool  shule ya kati/sekondari au shule ya msingi kama kiwango cha elimu yao ya juu waliyofikia."
 
 #. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html:71
@@ -718,7 +719,7 @@ msgstr "Shahada"
 msgid ""
 "The percentage of learners who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
-msgstr ""
+msgstr "Asilimia ya wanafunzi waliochagua Shahada au Shahada mshirika kama kiwango cha elimu ya juu waliyofikia."
 
 #. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html:78
@@ -729,7 +730,7 @@ msgstr "Shahada "
 msgid ""
 "The percentage of learners who selected Doctorate or Master's or "
 "professional degree as their highest level of education completed."
-msgstr ""
+msgstr "Asilimia ya wanafunzi waliochagua Daktari au Shahada ya Udhamili au shahada ya taaluma kama kiwango cha juu cha elimu waliyofikia."
 
 #: courses/templates/courses/enrollment_demographics_education.html:91
 msgid "Educational Breakdown"
@@ -738,7 +739,7 @@ msgstr "Vigawanyo vya Elimu"
 #: courses/templates/courses/enrollment_demographics_gender.html:25
 #: courses/views/__init__.py:527
 msgid "What is the learner gender breakdown?"
-msgstr ""
+msgstr "Nini uwiano wa jinsia ya wanafunzi?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -748,7 +749,7 @@ msgstr ""
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled learners who "
 "specified their gender."
-msgstr ""
+msgstr "Grafu hii inawakilisha taarifa ya 1%(value)s 2%%  wanafunzi waliojiandikisha na waliweka aina ya jinsia zao."
 
 #: courses/templates/courses/enrollment_demographics_gender.html:56
 msgid "Gender Breakdown Over Time"
@@ -850,7 +851,7 @@ msgid ""
 "\n"
 "                    (%(download_icon)s CSV Download)\n"
 "                  "
-msgstr ""
+msgstr "\n                    (%(download_icon)s CSV Download)\n                  "
 
 #: courses/templates/courses/home.html:93
 msgid "Basic Course Information"
@@ -895,14 +896,14 @@ msgstr "Wanafunzi walijibu vipi swali hili ?"
 
 #: courses/templates/courses/performance_assignment.html:10
 msgid "How are learners doing on this assignment?"
-msgstr ""
+msgstr "Ni jinsi gani wanafunzi wanafanya kwenye assignment hii?"
 
 #: courses/templates/courses/performance_assignment.html:15
 #: courses/templates/courses/performance_ungraded_by_subsection.html:15
 msgid ""
 "These bars show the correct and incorrect submission counts for each "
 "problem. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "Miche hii inaonyesha mawasilisho yaliyo sahihi na yasiyo sahihi kwa kila tatizo. Wasilisho la mwisho tu la kila mwanafunzi ndiyo zinazohesabiwa."
 
 #: courses/templates/courses/performance_assignment.html:19
 #: courses/templates/courses/performance_learning_outcomes_section.html:20
@@ -942,14 +943,14 @@ msgid ""
 "\n"
 "      How are learners doing on the %(type)s?\n"
 "    "
-msgstr ""
+msgstr "\n     Wanafunzi wanaendeleaje katika  %(type)s?\n    "
 
 #: courses/templates/courses/performance_graded_content_by_type.html:15
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "problems in the assignment. Only the last submission from each learner is "
 "counted."
-msgstr ""
+msgstr "Kila mche unaonyesha wastani wa mawasilisho yaliyo sahihi na yasiyo sahihi ya maswali yaliyopo kwenye zoezi. Wasilisho la mwisho la kila mwanafunzi ndio linalohesabika."
 
 #: courses/templates/courses/performance_graded_content_by_type.html:19
 msgid "Assignment Submissions"
@@ -958,33 +959,33 @@ msgstr "Uwasilishaji wa \"Mazoezi\""
 #: courses/templates/courses/performance_learning_outcomes_content.html:6
 #: courses/templates/courses/performance_learning_outcomes_section.html:6
 msgid "Measured by learning outcome, how are learners performing?"
-msgstr ""
+msgstr "Kutokana na matokeo ya kujifunza, wanafunzi wanaendeleaje?"
 
 #: courses/templates/courses/performance_learning_outcomes_content.html:16
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each outcome."
-msgstr ""
+msgstr "Kila mche unaonyesha wastani wa mawasilisho yaliyo sahihi na yaliyosahihi ya kila tokeo."
 
 #: courses/templates/courses/performance_learning_outcomes_content.html:20
 msgid "Outcome Submissions"
-msgstr ""
+msgstr "Uwasilishaji wa Tokeo."
 
 #: courses/templates/courses/performance_learning_outcomes_section.html:16
 msgid ""
 "Each bar shows the correct and incorrect number of submissions for each "
 "problem for the current outcome."
-msgstr ""
+msgstr "Kila miche inaonyesha namba ya wastani ya mawasilisho yaliyo sahihi na yasiyo sahihi ya kila tatizo kwa matokeo ya sasa."
 
 #: courses/templates/courses/performance_ungraded_by_section.html:5
 msgid "How are learners doing on this section?"
-msgstr ""
+msgstr "Wanafunzi wanafanjaje katika kipengele hiki?"
 
 #: courses/templates/courses/performance_ungraded_by_section.html:10
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each subsection. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "Kila miche inaonyesha wastani wa mawasilisho yaliyo sahihi na yasiyo sahihi ya kila kipengele  kidogo. Wasilisho la mwisho pekee la kila mwanafunzi ndiyo litakalo hesabiwa."
 
 #: courses/templates/courses/performance_ungraded_by_section.html:14
 msgid "Subsection Submissions"
@@ -992,7 +993,7 @@ msgstr "Mawasilisho ya \"Kipengele kidogo\""
 
 #: courses/templates/courses/performance_ungraded_by_subsection.html:10
 msgid "How are learners doing on this subsection?"
-msgstr ""
+msgstr "Wanafunzi wanafanyaje katika kipengele hiki kidogo?"
 
 #: courses/templates/courses/performance_ungraded_content.html:7
 #: courses/views/__init__.py:592
@@ -1003,7 +1004,7 @@ msgstr "Vipi wanafunzi wanafanya mazoezi yasiyopangwa kwenye madaraja?"
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each section. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "Kila miche inaonyesha wastani wa mawasilisho yaliyo sahihi na yasiyo sahihi ya kila kipengele kidogo. Wasilisho la mwisho pekee la kila mwanafunzi ndiyo litakalo hesabiwa."
 
 #: courses/templates/courses/performance_ungraded_content.html:16
 msgid "Section Submissions"
@@ -1087,27 +1088,27 @@ msgstr "Matokeo ya Kujifunza / Kujifundisha"
 
 #: courses/views/__init__.py:553
 msgid "What are learners doing in my course?"
-msgstr ""
+msgstr "Wanafunzi wanaendeleaje katika kozi hii?"
 
 #: courses/views/__init__.py:583
 msgid "How are learners doing on graded course assignments?"
-msgstr ""
+msgstr "Wanafunzi wanaendeleaje kwenye kazi yenye daraja ya kozi hii?"
 
 #: courses/views/__init__.py:604
 msgid "What is the breakdown for course learning outcomes?"
-msgstr ""
+msgstr "Upi mgawanyo wa matokeo ya kujifunza ya kozi hii?"
 
 #: courses/views/__init__.py:624
 msgid "How are learners responding to questions?"
-msgstr ""
+msgstr "Ni vipi wanafunzi wanajibu maswali?"
 
 #: courses/views/__init__.py:626
 msgid "Problem Response Report"
-msgstr ""
+msgstr "Ripoti ya maswali yaliyojibiwa."
 
 #: courses/views/__init__.py:633
 msgid "How are learners doing on course assignments?"
-msgstr ""
+msgstr "Wanafunzi wanendeleaje kwenye kazi ya kozi ?"
 
 #: courses/views/__init__.py:641
 msgid "What are individual learners doing?"
@@ -1115,7 +1116,7 @@ msgstr "Wanagenzi / Wanafunzi binafsi wanafanya nini? "
 
 #: courses/views/__init__.py:644
 msgid "Who is engaged? Who isn't?"
-msgstr ""
+msgstr "Ni nani ameshiriki? Nani hakushiriki?"
 
 #: courses/views/__init__.py:646
 msgid "All Learners"
@@ -1171,7 +1172,7 @@ msgstr "Maudhui ya kozi"
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
+msgstr "Muhtasari wa kozi mara ya mwisho kusahihishwa\n%(update_date)s kwenye %(update_time)s UTC."
 
 #: courses/views/engagement.py:52
 msgid "Engagement Content"
@@ -1217,7 +1218,7 @@ msgstr "Jina la Video"
 msgid ""
 "Demographic learner data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "Mara ya mwisho kusahihisha Taarifa ya idadi ya wanafunzi %(update_date)s kwenye %(update_time)s UTC"
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
@@ -1260,7 +1261,7 @@ msgstr "Usajili Kijiografia"
 msgid ""
 "Geographic learner data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Mara ya mwisho kusahihisha taarifa za kijiografia za wanafunzi\n1%(update_date)s kwenye %(update_time)s UTC. "
 
 #. Translators: Do not translate UTC.
 #: courses/views/performance.py:33
