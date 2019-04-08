@@ -87,6 +87,16 @@ Individual course-centric enrollment activity view.
             {% summary_point summary.verified_enrollment label tooltip=tooltip %}
           </div>
         {% endif %}
+        {% if not summary.masters_enrollment == None %}
+          <div class="col col-12 sm-col-12 md-col-3" data-stat-type="masters_enrollment">
+            {# Translators: This is a label to identify enrollment of learners on the masters track. #}
+            {% trans "Master's Enrollment" as label %}
+            {# Translators: This is a label indicating the number of learners enrolled in a course on the masters track. #}
+            {% trans "Number of currently enrolled learners pursuing a master's degree." as tooltip %}
+            {% summary_point summary.masters_enrollment label tooltip=tooltip %}
+          </div>
+        {% endif %}
+
         </div>
       </div>
     {% else %}

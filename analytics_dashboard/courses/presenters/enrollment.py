@@ -4,9 +4,9 @@ import logging
 
 from django.utils.translation import ugettext_lazy as _
 from django_countries import countries
-from analyticsclient.constants import demographic, UNKNOWN_COUNTRY_CODE, enrollment_modes
-import analyticsclient.constants.education_level as EDUCATION_LEVEL
-import analyticsclient.constants.gender as GENDER
+from analyticsclient.constants import demographics, UNKNOWN_COUNTRY_CODE, enrollment_modes
+import analyticsclient.constants.education_levels as EDUCATION_LEVEL
+import analyticsclient.constants.genders as GENDER
 
 import courses.utils as utils
 from courses.presenters import CoursePresenter
@@ -198,7 +198,7 @@ class CourseEnrollmentPresenter(CoursePresenter):
         """
         Returns a list of course geography data and the updated date (ex. 2014-1-31).
         """
-        api_response = self.course.enrollment(demographic.LOCATION)
+        api_response = self.course.enrollment(demographics.LOCATION)
         data = []
         summary = {}
 
@@ -258,11 +258,13 @@ class CourseEnrollmentPresenter(CoursePresenter):
             # Add the first values to the returned data dictionary using the most-recent enrollment data
             current_enrollment = recent_enrollment['count']
             verified_enrollment = recent_enrollment.get(enrollment_modes.VERIFIED, 0)
+            masters_enrollment = recent_enrollment.get(enrollment_modes.MASTERS, 0)
 
             data.update({
                 'last_updated': last_enrollment_date,
                 'current_enrollment': current_enrollment,
                 'verified_enrollment': verified_enrollment,
+                'masters_enrollment': masters_enrollment,
                 'total_enrollment': recent_enrollment.get('cumulative_count', None),
             })
 
@@ -287,7 +289,7 @@ class CourseEnrollmentDemographicsPresenter(CoursePresenter):
         Returns the updated time, most recent gender counts, and breakdown of daily
         gender trends.
         """
-        api_response = self.course.enrollment(demographic.GENDER, end_date=self.get_current_date())
+        api_response = self.course.enrollment(demographics.GENDER, end_date=self.get_current_date())
         recent_genders = None
         trend = None
         last_updated = None
@@ -340,7 +342,7 @@ class CourseEnrollmentDemographicsPresenter(CoursePresenter):
         ages with counts and percentages and ages greater than MAX_AGE aggregated
         within MAX_AGE.
         """
-        api_response = self.course.enrollment(demographic.BIRTH_YEAR)
+        api_response = self.course.enrollment(demographics.BIRTH_YEAR)
         last_updated = None
         binned_ages = None
         summary = None
@@ -533,7 +535,7 @@ class CourseEnrollmentDemographicsPresenter(CoursePresenter):
         return api_response
 
     def get_education(self):
-        api_response = self.course.enrollment(demographic.EDUCATION)
+        api_response = self.course.enrollment(demographics.EDUCATION)
         education_levels = None
         education_summary = None
         last_updated = None

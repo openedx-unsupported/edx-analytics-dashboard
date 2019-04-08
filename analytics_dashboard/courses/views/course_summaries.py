@@ -88,6 +88,7 @@ class CourseIndexCSV(CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixi
             'honor': ('count_change_7_days',),
             'professional': ('count_change_7_days',),
             'verified': ('count_change_7_days',),
+            'masters': ('count_change_7_days',),
         }
     }
 

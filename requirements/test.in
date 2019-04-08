@@ -20,3 +20,5 @@ logilab-common==1.4.0
 selenium>=2.44.0,<3.0.0
 sure==1.4.6
 testfixtures==4.14.3
+astroid<2.0 ; python_version<="3.4"
+astroid>=2.0 ; python_version>="3.4"
