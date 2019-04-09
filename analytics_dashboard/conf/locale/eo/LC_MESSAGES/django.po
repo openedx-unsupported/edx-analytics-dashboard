@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-27 13:57-0500\n"
+"POT-Creation-Date: 2019-04-09 09:06-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: core/templates/core/landing.html templates/_skip_link.html
@@ -44,6 +44,7 @@ msgstr ""
 #: core/templates/core/landing.html
 #: courses/templates/courses/enrollment_geography.html
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/__init__.py
 msgid "Enrollment"
 msgstr "Énröllmént Ⱡ'σяєм ιρѕυм ∂σłσ#"
 
@@ -63,6 +64,7 @@ msgstr ""
 
 #: core/templates/core/landing.html
 #: courses/tests/test_views/test_engagement.py courses/views/__init__.py
+#: courses/views/__init__.py
 msgid "Engagement"
 msgstr "Éngägémént Ⱡ'σяєм ιρѕυм ∂σłσ#"
 
@@ -80,6 +82,7 @@ msgstr ""
 
 #: core/templates/core/landing.html
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
+#: courses/views/__init__.py
 msgid "Performance"
 msgstr "Pérförmänçé Ⱡ'σяєм ιρѕυм ∂σłσя #"
 
@@ -144,12 +147,13 @@ msgstr "Mälé Ⱡ'σяєм ι#"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
-#: courses/presenters/enrollment.py
+#: courses/presenters/enrollment.py courses/presenters/enrollment.py
 msgid "Other"
 msgstr "Öthér Ⱡ'σяєм ιρѕ#"
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
+#: courses/presenters/enrollment.py courses/presenters/enrollment.py
 #: courses/presenters/enrollment.py
 msgid "Unknown"
 msgstr "Ûnknöwn Ⱡ'σяєм ιρѕυм #"
@@ -382,7 +386,7 @@ msgstr ""
 "αмєт, ¢σηѕє¢тєтυя α#"
 
 #: courses/templates/courses/engagement_content.html courses/views/__init__.py
-#: courses/views/learners.py
+#: courses/views/__init__.py courses/views/learners.py
 msgid "Learners"
 msgstr "Léärnérs Ⱡ'σяєм ιρѕυм ∂#"
 
@@ -449,6 +453,7 @@ msgstr ""
 "Léärnérs whö äddéd ä pöst, réspönsé, ör çömmént tö äný çöürsé dïsçüssïön. "
 "Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕє¢тєтυя#"
 
+#: courses/templates/courses/engagement_content.html
 #: courses/templates/courses/engagement_content.html
 msgid "Content Engagement Breakdown"
 msgstr "Çöntént Éngägémént Bréäkdöwn Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕє¢#"
@@ -523,6 +528,7 @@ msgstr ""
 "∂σłσя ιη яєρяєнєη∂єяιт ιη νσłυρтαтє νєłιт єѕѕє ¢ιłłυм ∂σłσяє єυ ƒυgιαт ηυłłα"
 " ραяιαтυя. єχ¢єρтєυя ѕιηт σ¢¢αє¢αт ¢υρι∂αтαт ηση ρяσι∂єηт,#"
 
+#: courses/templates/courses/engagement_video_timeline.html
 #: courses/templates/courses/engagement_video_timeline.html
 msgid "Total Video Views"
 msgstr "Tötäl Vïdéö Vïéws Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмє#"
@@ -621,7 +627,10 @@ msgstr "Énröllmént Métrïçs Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αм
 
 #. Translators: This is a label to identify the number of learners who ever
 #. enrolled in the course.
+#. Translators: This is a label to identify the maximum number of learners
+#. ever in all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/index.html
 msgid "Total Enrollment"
 msgstr "Tötäl Énröllmént Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αм#"
 
@@ -633,7 +642,10 @@ msgstr ""
 "¢σηѕє¢тєтυя #"
 
 #. Translators: This is a label to identify current learner enrollment.
+#. Translators: This is a label to identify the current number of learners in
+#. all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/index.html
 msgid "Current Enrollment"
 msgstr "Çürrént Énröllmént Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт#"
 
@@ -647,7 +659,10 @@ msgstr ""
 
 #. Translators: This is a label indicating the change in the number of
 #. learners enrolled in a course since the previous week.
+#. Translators: This is a label to identify the change in the number of
+#. learners in all of the instructor's courses in the last week.
 #: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/index.html
 msgid "Change in Last Week"
 msgstr "Çhängé ïn Läst Wéék Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт,#"
 
@@ -659,7 +674,10 @@ msgstr ""
 
 #. Translators: This is a label to identify enrollment of learners on the
 #. verified track.
+#. Translators: This is a label to identify the current number of verified
+#. learners in all of the instructor's courses.
 #: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/index.html
 msgid "Verified Enrollment"
 msgstr "Vérïfïéd Énröllmént Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт,#"
 
@@ -673,6 +691,24 @@ msgstr ""
 "Nümßér öf çürréntlý énrölléd léärnérs pürsüïng ä vérïfïéd çértïfïçäté öf "
 "äçhïévémént. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕє¢#"
 
+#. Translators: This is a label to identify enrollment of learners on the
+#. masters track.
+#. Translators: This is a label to identify the current number of masters
+#. learners in all of the instructor's courses.
+#: courses/templates/courses/enrollment_activity.html
+#: courses/templates/courses/index.html
+msgid "Master's Enrollment"
+msgstr "Mästér's Énröllmént Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт,#"
+
+#. Translators: This is a label indicating the number of learners enrolled in
+#. a course on the masters track.
+#: courses/templates/courses/enrollment_activity.html
+msgid "Number of currently enrolled learners pursuing a master's degree."
+msgstr ""
+"Nümßér öf çürréntlý énrölléd léärnérs pürsüïng ä mästér's dégréé. Ⱡ'σяєм "
+"ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕє¢тєтυя α#"
+
+#: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_activity.html
 #: courses/templates/courses/enrollment_demographics_age.html
 #: courses/templates/courses/enrollment_demographics_education.html
@@ -876,50 +912,57 @@ msgstr "Géögräphý Métrïçs Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αм
 #. Translators: This string represents the number of countries where learners
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Total Countries Represented"
-msgstr "Tötäl Çöüntrïés Répréséntéd Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕє#"
+msgid "Total Countries or Regions Represented"
+msgstr ""
+"Tötäl Çöüntrïés ör Régïöns Répréséntéd Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, "
+"¢σηѕє¢тєтυя#"
 
 #: courses/templates/courses/enrollment_geography.html
-msgid "Countries with at least one learner."
+msgid "Countries or regions with at least one learner."
 msgstr ""
-"Çöüntrïés wïth ät léäst öné léärnér. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, "
+"Çöüntrïés ör régïöns wïth ät léäst öné léärnér. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт,"
+" ¢σηѕє¢тєтυя α#"
+
+#. Translators: This string represents the country or region with the greatest
+#. number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Top Country or Region by Enrollment"
+msgstr ""
+"Töp Çöüntrý ör Régïön ßý Énröllmént Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕє¢тєт#"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country or region with the largest number of learners."
+msgstr ""
+"Çöüntrý ör régïön wïth thé lärgést nümßér öf léärnérs. Ⱡ'σяєм ιρѕυм ∂σłσя "
+"ѕιт αмєт, ¢σηѕє¢тєтυя α#"
+
+#. Translators: This string represents the country or region with the second-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Second Country or Region by Enrollment"
+msgstr ""
+"Séçönd Çöüntrý ör Régïön ßý Énröllmént Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, "
+"¢σηѕє¢тєтυя#"
+
+#: courses/templates/courses/enrollment_geography.html
+msgid "Country or region with the second largest number of learners."
+msgstr ""
+"Çöüntrý ör régïön wïth thé séçönd lärgést nümßér öf léärnérs. Ⱡ'σяєм ιρѕυм "
+"∂σłσя ѕιт αмєт, ¢σηѕє¢тєтυя α#"
+
+#. Translators: This string represents the country or region with the third-
+#. greatest number of enrolled learners.
+#: courses/templates/courses/enrollment_geography.html
+msgid "Third Country or Region by Enrollment"
+msgstr ""
+"Thïrd Çöüntrý ör Régïön ßý Énröllmént Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, "
 "¢σηѕє¢тєтυ#"
 
-#. Translators: This string represents the country with the greatest number of
-#. enrolled learners.
 #: courses/templates/courses/enrollment_geography.html
-msgid "Top Country by Enrollment"
-msgstr "Töp Çöüntrý ßý Énröllmént Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕ#"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Country with the largest number of learners."
+msgid "Country or region with the third largest number of learners."
 msgstr ""
-"Çöüntrý wïth thé lärgést nümßér öf léärnérs. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, "
-"¢σηѕє¢тєтυя #"
-
-#. Translators: This string represents the country with the second-greatest
-#. number of enrolled learners.
-#: courses/templates/courses/enrollment_geography.html
-msgid "Second Country by Enrollment"
-msgstr "Séçönd Çöüntrý ßý Énröllmént Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕє¢#"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Country with the second largest number of learners."
-msgstr ""
-"Çöüntrý wïth thé séçönd lärgést nümßér öf léärnérs. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт "
-"αмєт, ¢σηѕє¢тєтυя α#"
-
-#. Translators: This string represents the country with the third-greatest
-#. number of enrolled learners.
-#: courses/templates/courses/enrollment_geography.html
-msgid "Third Country by Enrollment"
-msgstr "Thïrd Çöüntrý ßý Énröllmént Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕє#"
-
-#: courses/templates/courses/enrollment_geography.html
-msgid "Country with the third largest number of learners."
-msgstr ""
-"Çöüntrý wïth thé thïrd lärgést nümßér öf léärnérs. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт "
-"αмєт, ¢σηѕє¢тєтυя α#"
+"Çöüntrý ör régïön wïth thé thïrd lärgést nümßér öf léärnérs. Ⱡ'σяєм ιρѕυм "
+"∂σłσя ѕιт αмєт, ¢σηѕє¢тєтυя α#"
 
 #. Translators: This string represents the percentage of learners in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
@@ -928,6 +971,7 @@ msgstr ""
 msgid "%(percent)s%% of learners"
 msgstr "%(percent)s%% öf léärnérs Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмє#"
 
+#: courses/templates/courses/enrollment_geography.html
 #: courses/templates/courses/enrollment_geography.html
 msgid "Geographic Breakdown"
 msgstr "Géögräphïç Bréäkdöwn Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, #"
@@ -974,37 +1018,43 @@ msgstr "Bäsïç Çöürsé Ìnförmätïön Ⱡ'σяєм ιρѕυм ∂σłσя
 msgid "External Tools"
 msgstr "Éxtérnäl Tööls Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт#"
 
-#: courses/templates/courses/index.html
+#: courses/templates/courses/index.html courses/views/course_summaries.py
 msgid "Courses"
 msgstr "Çöürsés Ⱡ'σяєм ιρѕυм #"
 
 #: courses/templates/courses/index.html
-#, python-format
-msgid "Welcome, %(username)s!"
-msgstr "Wélçömé, %(username)s! Ⱡ'σяєм ιρѕυм ∂σłσя ѕι#"
+msgid "Across all your courses:"
+msgstr "Àçröss äll ýöür çöürsés: Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢ση#"
 
 #: courses/templates/courses/index.html
-#, python-format
-msgid ""
-"Here are the courses you currently have access to in %(application_name)s:"
+msgid "Total enrollments across all of your courses."
 msgstr ""
-"Héré äré thé çöürsés ýöü çürréntlý hävé äççéss tö ïn %(application_name)s: "
-"Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕє¢тєтυя α#"
+"Tötäl énröllménts äçröss äll öf ýöür çöürsés. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, "
+"¢σηѕє¢тєтυя #"
 
 #: courses/templates/courses/index.html
-#, python-format
-msgid "New to %(application_name)s?"
-msgstr "Néw tö %(application_name)s? Ⱡ'σяєм ιρѕυм ∂σłσя #"
-
-#: courses/templates/courses/index.html
-#, python-format
-msgid ""
-"Click Help in the upper-right corner to get more information about "
-"%(application_name)s. Send us feedback at %(email_link)s."
+msgid "Current enrollments across all of your courses."
 msgstr ""
-"Çlïçk Hélp ïn thé üppér-rïght çörnér tö gét möré ïnförmätïön äßöüt "
-"%(application_name)s. Sénd üs féédßäçk ät %(email_link)s. Ⱡ'σяєм ιρѕυм ∂σłσя"
-" ѕιт αмєт, #"
+"Çürrént énröllménts äçröss äll öf ýöür çöürsés. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт,"
+" ¢σηѕє¢тєтυя α#"
+
+#: courses/templates/courses/index.html
+msgid "Total change in enrollment last week across all of your courses."
+msgstr ""
+"Tötäl çhängé ïn énröllmént läst wéék äçröss äll öf ýöür çöürsés. Ⱡ'σяєм "
+"ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕє¢тєтυя α#"
+
+#: courses/templates/courses/index.html
+msgid "Verified enrollments across all of your courses."
+msgstr ""
+"Vérïfïéd énröllménts äçröss äll öf ýöür çöürsés. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт "
+"αмєт, ¢σηѕє¢тєтυя α#"
+
+#: courses/templates/courses/index.html
+msgid "Master's enrollments across all of your courses."
+msgstr ""
+"Mästér's énröllménts äçröss äll öf ýöür çöürsés. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт "
+"αмєт, ¢σηѕє¢тєтυя α#"
 
 #: courses/templates/courses/performance_answer_distribution.html
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html
@@ -1183,6 +1233,7 @@ msgstr "Séçtïön Süßmïssïöns Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт 
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
 #: courses/templates/courses/permissions-retrieval-failed.html
+#: courses/templates/courses/permissions-retrieval-failed.html
 msgid "Permissions Retrieval Failed"
 msgstr "Pérmïssïöns Rétrïéväl Fäïléd Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕє¢#"
 
@@ -1210,6 +1261,7 @@ msgid "Activity"
 msgstr "Àçtïvïtý Ⱡ'σяєм ιρѕυм ∂#"
 
 #: courses/tests/test_views/__init__.py courses/views/__init__.py
+#: courses/views/__init__.py courses/views/__init__.py
 #: courses/views/enrollment.py
 msgid "Demographics"
 msgstr "Démögräphïçs Ⱡ'σяєм ιρѕυм ∂σłσя ѕ#"
@@ -1246,12 +1298,12 @@ msgid "Videos"
 msgstr "Vïdéös Ⱡ'σяєм ιρѕυ#"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/performance.py
+#: courses/views/performance.py courses/views/performance.py
 msgid "Graded Content"
 msgstr "Grädéd Çöntént Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт#"
 
 #: courses/tests/test_views/test_performance.py courses/views/__init__.py
-#: courses/views/performance.py
+#: courses/views/performance.py courses/views/performance.py
 msgid "Ungraded Problems"
 msgstr "Ûngrädéd Prößléms Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмє#"
 
@@ -1351,6 +1403,15 @@ msgstr "Ìnstrüçtör Däshßöärd Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт 
 #: courses/views/__init__.py
 msgid "Courseware"
 msgstr "Çöürséwäré Ⱡ'σяєм ιρѕυм ∂σłσ#"
+
+#. Translators: Do not translate UTC.
+#: courses/views/course_summaries.py
+#, python-format
+msgid ""
+"Course summary data was last updated %(update_date)s at %(update_time)s UTC."
+msgstr ""
+"Çöürsé sümmärý dätä wäs läst üpdätéd %(update_date)s ät %(update_time)s ÛTÇ."
+" Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕє¢тєтυя α#"
 
 #: courses/views/engagement.py
 msgid "Engagement Content"
@@ -1472,7 +1533,7 @@ msgstr ""
 msgid "Assignment Name"
 msgstr "Àssïgnmént Nämé Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт α#"
 
-#: courses/views/performance.py
+#: courses/views/performance.py courses/views/performance.py
 msgid "No submissions received for these exercises."
 msgstr ""
 "Nö süßmïssïöns réçéïvéd för thésé éxérçïsés. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, "
@@ -1484,6 +1545,7 @@ msgstr ""
 "Nö süßmïssïöns réçéïvéd för thésé ässïgnménts. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, "
 "¢σηѕє¢тєтυя α#"
 
+#: courses/views/performance.py courses/views/performance.py
 #: courses/views/performance.py
 msgid "Performance: Problem Submissions"
 msgstr ""
@@ -1494,7 +1556,7 @@ msgstr ""
 msgid "Graded Content: %(assignment_type)s"
 msgstr "Grädéd Çöntént: %(assignment_type)s Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт,#"
 
-#: courses/views/performance.py
+#: courses/views/performance.py courses/views/performance.py
 msgid "Problem Name"
 msgstr "Prößlém Nämé Ⱡ'σяєм ιρѕυм ∂σłσя ѕ#"
 
@@ -1507,7 +1569,7 @@ msgstr ""
 "Tägs dïstrïßütïön dätä wäs läst üpdätéd %(update_date)s ät %(update_time)s "
 "ÛTÇ. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕє¢тєтυя α#"
 
-#: courses/views/performance.py
+#: courses/views/performance.py courses/views/performance.py
 msgid "Performance: Learning Outcomes"
 msgstr "Pérförmänçé: Léärnïng Öütçömés Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕє¢т#"
 
@@ -1519,7 +1581,7 @@ msgstr "Térms öf Sérvïçé Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αм#"
 msgid "Privacy Policy"
 msgstr "Prïväçý Pölïçý Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт#"
 
-#: templates/403.html
+#: templates/403.html templates/403.html
 msgid "Access Denied"
 msgstr "Àççéss Dénïéd Ⱡ'σяєм ιρѕυм ∂σłσя ѕι#"
 
@@ -1542,7 +1604,7 @@ msgstr ""
 msgid "Logout then Login"
 msgstr "Lögöüt thén Lögïn Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмє#"
 
-#: templates/404.html
+#: templates/404.html templates/404.html
 msgid "Page Not Found"
 msgstr "Pägé Nöt Föünd Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт#"
 
@@ -1554,7 +1616,7 @@ msgstr ""
 "Wé çän't fïnd thé pägé ýöü'ré löökïng för. Pléäsé mäké süré thé ÛRL ïs "
 "çörréçt änd ïf nöt trý ägäïn. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт#"
 
-#: templates/500.html
+#: templates/500.html templates/500.html
 msgid "An Error Occurred"
 msgstr "Àn Érrör Öççürréd Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмє#"
 
@@ -1566,7 +1628,7 @@ msgstr ""
 "Öür sérvérs wérén't äßlé tö çömplété ýöür réqüést. Pléäsé trý ägäïn ßý "
 "réfréshïng thïs pägé ör réträçïng ýöür stéps. Ⱡ'σяєм ιρѕυм ∂σ#"
 
-#: templates/503.html
+#: templates/503.html templates/503.html
 msgid "We're having trouble loading this page. Please try again in a minute."
 msgstr ""
 "Wé'ré hävïng tröüßlé löädïng thïs pägé. Pléäsé trý ägäïn ïn ä mïnüté. Ⱡ'σяєм"
@@ -1597,19 +1659,14 @@ msgid "Contact %(platform_name)s Support"
 msgstr "Çöntäçt %(platform_name)s Süppört Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт,#"
 
 #: templates/footer.html
-msgid "Feedback"
-msgstr "Féédßäçk Ⱡ'σяєм ιρѕυм ∂#"
-
-#: templates/footer.html
 #, python-format
 msgid ""
 "We want this dashboard to work for you! Need help? "
-"%(support_link_start)sContact course team support%(support_link_end)s. "
-"Comments or suggestions? Email %(email_link)s."
+"%(support_link_start)sContact course team support%(support_link_end)s."
 msgstr ""
 "Wé wänt thïs däshßöärd tö wörk för ýöü! Nééd hélp? "
 "%(support_link_start)sÇöntäçt çöürsé téäm süppört%(support_link_end)s. "
-"Çömménts ör süggéstïöns? Émäïl %(email_link)s. Ⱡ'σяєм ιρѕυ#"
+"Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕє¢#"
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html
