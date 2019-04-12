@@ -5,7 +5,6 @@
 #    make upgrade
 #
 -e git+https://github.com/edx/django-lang-pref-middleware.git@0.1.0#egg=django-lang-pref-middleware
--e git+https://github.com/edx/edx-analytics-data-api-client.git@0.12.0#egg=edx-analytics-data-api-client==0.12.0
 awesome-slugify==1.6.5
 blessings==1.7
 bpython==0.16
@@ -32,6 +31,7 @@ edx-drf-extensions==1.6.1
 edx-i18n-tools==0.4.2
 edx-opaque-keys==0.4.4
 edx-rest-api-client==1.8.2
+edx-analytics-data-api-client==0.15.3
 future==0.17.1
 greenlet==0.4.15
 gunicorn==0.17.4

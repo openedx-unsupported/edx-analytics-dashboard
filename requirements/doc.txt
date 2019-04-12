@@ -5,7 +5,6 @@
 #    make upgrade
 #
 -e git+https://github.com/edx/django-lang-pref-middleware.git@0.1.0#egg=django-lang-pref-middleware
--e git+https://github.com/edx/edx-analytics-data-api-client.git@0.15.3#egg=edx-analytics-data-api-client==0.15.3
 alabaster==0.7.12         # via sphinx
 awesome-slugify==1.6.5
 babel==2.6.0              # via sphinx
@@ -29,6 +28,7 @@ djangorestframework-csv==2.0.0
 djangorestframework-jwt==1.11.0
 djangorestframework==3.6.3
 docutils==0.14            # via sphinx
+edx-analytics-data-api-client==0.15.3
 edx-auth-backends==1.1.3
 edx-ccx-keys==0.2.1
 edx-django-release-util==0.3.1
@@ -47,7 +47,7 @@ libsass==0.11.1
 logutils==0.3.4.1
 markupsafe==1.1.1         # via jinja2
 oauthlib==3.0.1
-path.py==11.5.0
+path.py==11.5.2
 pathlib2==2.3.3
 pbr==5.1.3
 pinax-announcements==2.0.4
@@ -60,9 +60,9 @@ pyjwt==1.7.1
 pymongo==3.7.2
 python-dateutil==2.8.0
 python-openid==2.2.5
-pytz==2018.9
+pytz==2019.1
 pyyaml==5.1
-regex==2019.3.12
+regex==2019.4.10
 requests-oauthlib==1.2.0
 requests==2.21.0
 rest-condition==1.0.3
