@@ -128,9 +128,11 @@ class CourseEnrollmentPresenter(CoursePresenter):
             for mode in invalid_modes:
                 trend.pop(mode, None)
 
-        # hides verified enrollment counts in the summary card if it doesn't exist
+        # hides verified and master's enrollment counts in the summary card if it doesn't exist
         if enrollment_modes.VERIFIED not in valid_modes:
-            summary.pop('verified_enrollment')
+            summary.pop('verified_enrollment', 0)
+        if enrollment_modes.MASTERS not in valid_modes:
+            summary.pop('masters_enrollment', 0)
 
         return summary, trends
 
