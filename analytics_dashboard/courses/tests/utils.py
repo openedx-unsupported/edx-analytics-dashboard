@@ -6,9 +6,9 @@ import uuid
 
 from analyticsclient.client import Client
 from analyticsclient.constants import enrollment_modes, UNKNOWN_COUNTRY_CODE
-import analyticsclient.constants.activity_type as AT
-import analyticsclient.constants.education_level as EDUCATION_LEVEL
-import analyticsclient.constants.gender as GENDER
+import analyticsclient.constants.activity_types as AT
+import analyticsclient.constants.education_levels as EDUCATION_LEVEL
+import analyticsclient.constants.genders as GENDER
 
 from courses.permissions import set_user_course_permissions
 from courses.presenters.performance import AnswerDistributionEntry
@@ -68,10 +68,11 @@ def get_mock_api_enrollment_data_with_gaps(course_id):
 def get_mock_enrollment_summary():
     summary = {
         'last_updated': CREATED_DATETIME,
-        'current_enrollment': 150,
-        'total_enrollment': 300,
-        'enrollment_change_last_7_days': 35,
+        'current_enrollment': 180,
+        'total_enrollment': 360,
+        'enrollment_change_last_7_days': 42,
         'verified_enrollment': 30,
+        'masters_enrollment': 30,
     }
     return summary
 

@@ -48,6 +48,13 @@
                     {% trans "Verified enrollments across all of your courses." as tooltip %}
                     {% summary_point summary.verified_enrollment label tooltip=tooltip %}
                 </div>
+                <div class="col col-12 sm-col-12 md-col-3" data-stat-type="masters_enrollment">
+                    {# Translators: This is a label to identify the current number of masters learners in all of the instructor's courses. #}
+                    {% trans "Master's Enrollment" as label %}
+                    {% trans "Master's enrollments across all of your courses." as tooltip %}
+                    {% summary_point summary.masters_enrollment label tooltip=tooltip %}
+                </div>
+
             </div>
         </div>
     {% else %}

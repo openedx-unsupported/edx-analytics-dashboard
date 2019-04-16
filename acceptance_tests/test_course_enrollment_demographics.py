@@ -1,8 +1,8 @@
 import datetime
 
-from analyticsclient.constants import demographic
-import analyticsclient.constants.education_level as EDUCATION_LEVEL
-import analyticsclient.constants.gender as GENDER
+from analyticsclient.constants import demographics
+import analyticsclient.constants.education_levels as EDUCATION_LEVEL
+import analyticsclient.constants.genders as GENDER
 from bok_choy.web_app_test import WebAppTest
 
 from acceptance_tests.mixins import CourseDemographicsPageTestsMixin
@@ -16,7 +16,7 @@ _multiprocess_can_split_ = True
 class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, WebAppTest):
     help_path = 'enrollment/Demographics_Age.html'
 
-    demographic_type = demographic.BIRTH_YEAR
+    demographic_type = demographics.BIRTH_YEAR
     table_columns = ['Age', 'Number of Learners', 'Percent of Total']
 
     def setUp(self):
@@ -112,7 +112,7 @@ class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, Web
 class CourseEnrollmentDemographicsGenderTests(CourseDemographicsPageTestsMixin, WebAppTest):
     help_path = 'enrollment/Demographics_Gender.html'
 
-    demographic_type = demographic.GENDER
+    demographic_type = demographics.GENDER
     table_columns = ['Date', 'Current Enrollment', 'Female', 'Male', 'Other', 'Not Reported']
 
     def setUp(self):
@@ -162,7 +162,7 @@ class CourseEnrollmentDemographicsEducationTests(CourseDemographicsPageTestsMixi
 
     help_path = 'enrollment/Demographics_Education.html'
 
-    demographic_type = demographic.EDUCATION
+    demographic_type = demographics.EDUCATION
     table_columns = ['Educational Background', 'Number of Learners']
 
     def setUp(self):

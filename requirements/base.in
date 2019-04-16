@@ -20,15 +20,14 @@ edx-opaque-keys
 edx-django-release-util==0.3.1
 edx-django-utils==0.4.1
 edx-drf-extensions==1.6.1
+edx-analytics-data-api-client
 edx-i18n-tools==0.4.2
 edx-rest-api-client==1.8.2				# Apache
 libsass==0.11.1							# MIT
 logutils==0.3.4.1						# BSD
 requests								# Apache 2.0
 stevedore>=0.14.1,<2.0.0
-
-
+path.py<12.0                            # >=12.0 is python3 only
 
 -e git+https://github.com/edx/django-lang-pref-middleware.git@0.1.0#egg=django-lang-pref-middleware
--e git+https://github.com/edx/edx-analytics-data-api-client.git@0.12.0#egg=edx-analytics-data-api-client==0.12.0  # edX
 

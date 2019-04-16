@@ -1,7 +1,7 @@
 import datetime
 from unittest import skipUnless
 
-from analyticsclient.constants import activity_type as at
+from analyticsclient.constants import activity_types as at
 from bok_choy.web_app_test import WebAppTest
 from opaque_keys.edx.keys import UsageKey
 
