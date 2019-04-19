@@ -1097,11 +1097,12 @@ define(function(require) {
             });
 
             it('does not violate the axe-core ruleset', function(done) {
+                var config = {rules: {'skip-link': {enabled: false}}};
                 getRosterView({
                     collectionResponse: getResponseBody(1, 1),
                     collectionOptions: {parse: true}
                 });
-                axe.a11yCheck($('.roster-view-fixture')[0], function(result) {
+                axe.run($('.roster-view-fixture')[0], config, function(error, result) {
                     expect(result.violations.length).toBe(0);
                     done();
                 });
