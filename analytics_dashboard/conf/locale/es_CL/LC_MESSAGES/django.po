@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-21 18:32-0400\n"
-"PO-Revision-Date: 2014-08-25 20:09+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2019-04-16 09:16-0400\n"
+"PO-Revision-Date: 2019-04-16 19:45+0000\n"
+"Last-Translator: Ned Batchelder <ned@edx.org>\n"
 "Language-Team: Spanish (Chile) (http://www.transifex.com/open-edx/edx-platform/language/es_CL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -136,7 +136,7 @@ msgstr ""
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:28 courses/presenters/enrollment.py:63
-#: courses/presenters/enrollment.py:459
+#: courses/presenters/enrollment.py:463
 msgid "Unknown"
 msgstr ""
 
@@ -188,7 +188,7 @@ msgstr ""
 
 #. Translators: This is a placeholder for enrollment data collected without a
 #. known geolocation.
-#: courses/presenters/enrollment.py:186
+#: courses/presenters/enrollment.py:188
 msgid "Unknown Country"
 msgstr ""
 
@@ -328,7 +328,7 @@ msgstr ""
 #: courses/templates/courses/base_performance_answer_distribution.html:116
 #: courses/templates/courses/engagement_content.html:96
 #: courses/templates/courses/engagement_video_timeline.html:87
-#: courses/templates/courses/enrollment_activity.html:106
+#: courses/templates/courses/enrollment_activity.html:116
 #: courses/templates/courses/enrollment_demographics_age.html:109
 #: courses/templates/courses/enrollment_demographics_education.html:100
 #: courses/templates/courses/enrollment_demographics_gender.html:65
@@ -592,8 +592,23 @@ msgid ""
 "achievement."
 msgstr ""
 
-#: courses/templates/courses/enrollment_activity.html:99
-#: courses/templates/courses/enrollment_activity.html:107
+#. Translators: This is a label to identify enrollment of learners on the
+#. masters track.
+#. Translators: This is a label to identify the current number of masters
+#. learners in all of the instructor's courses.
+#: courses/templates/courses/enrollment_activity.html:93
+#: courses/templates/courses/index.html:53
+msgid "Master's Enrollment"
+msgstr ""
+
+#. Translators: This is a label indicating the number of learners enrolled in
+#. a course on the masters track.
+#: courses/templates/courses/enrollment_activity.html:95
+msgid "Number of currently enrolled learners pursuing a Master's degree."
+msgstr ""
+
+#: courses/templates/courses/enrollment_activity.html:109
+#: courses/templates/courses/enrollment_activity.html:117
 #: courses/templates/courses/enrollment_demographics_age.html:110
 #: courses/templates/courses/enrollment_demographics_education.html:101
 #: courses/templates/courses/enrollment_demographics_gender.html:66
@@ -877,6 +892,10 @@ msgstr ""
 
 #: courses/templates/courses/index.html:48
 msgid "Verified enrollments across all of your courses."
+msgstr ""
+
+#: courses/templates/courses/index.html:54
+msgid "Master's enrollments across all of your courses."
 msgstr ""
 
 #: courses/templates/courses/performance_answer_distribution.html:7
@@ -1299,11 +1318,11 @@ msgstr ""
 msgid "Performance: Learning Outcomes"
 msgstr ""
 
-#: settings/base.py:419
+#: settings/base.py:416
 msgid "Terms of Service"
 msgstr ""
 
-#: settings/base.py:420
+#: settings/base.py:417
 msgid "Privacy Policy"
 msgstr ""
 
