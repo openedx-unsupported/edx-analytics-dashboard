@@ -91,7 +91,10 @@ def remove_keys(d, keys):
     """
     for key, val in d.items():
         if isinstance(val, dict):
-            remove_keys(val, keys[key])
+            try:
+                remove_keys(val, keys[key])
+            except KeyError:
+                continue
         else:
             if isinstance(keys, dict):
                 if '' in keys and key in keys['']:
