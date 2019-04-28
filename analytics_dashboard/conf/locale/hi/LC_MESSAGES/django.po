@@ -6,14 +6,14 @@
 # Farhanah Sheets <fsheets@edx.org>, 2018
 # Gawrav Mehta <gawrav@traddle.in>, 2019
 # Kumar Gaurav <kmrgaurav33@gmail.com>, 2016
-# Lata Verma <vermalata@hotmail.com>, 2016,2018
+# Lata Verma <vermalata@hotmail.com>, 2016,2018-2019
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-16 09:16-0400\n"
-"PO-Revision-Date: 2019-04-16 19:45+0000\n"
-"Last-Translator: Ned Batchelder <ned@edx.org>\n"
+"PO-Revision-Date: 2019-04-26 22:35+0000\n"
+"Last-Translator: Lata Verma <vermalata@hotmail.com>\n"
 "Language-Team: Hindi (http://www.transifex.com/open-edx/edx-platform/language/hi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -235,7 +235,7 @@ msgstr "भाग {part_number} "
 #: courses/templates/courses/_base_content_nav.html:25
 #, python-format
 msgid "%(all_sections_text)s"
-msgstr ""
+msgstr "1%(all_sections_text)s"
 
 #: courses/templates/courses/_graded_content_nav.html:16
 msgid "Select Assignment Type"
@@ -316,7 +316,7 @@ msgstr "यह चार्ट शिक्षार्थियों द्व
 msgid ""
 "Due to the number of possible variants for randomized problems, charts are "
 "not available. %(read_more_link_start)sRead more%(read_more_link_end)s."
-msgstr ""
+msgstr "यादृच्छिक समस्याओं के लिए संभावित वेरिएंट की संख्या के कारण, चार्ट उपलब्ध नहीं हैं।\n1%(read_more_link_start)s और पढ़ें 2%(read_more_link_end)s."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html:87
@@ -342,21 +342,21 @@ msgstr "सी.एस.वी डाउनलोड करें"
 
 #: courses/templates/courses/base_performance_answer_distribution.html:117
 msgid "Learner Submission Counts"
-msgstr ""
+msgstr "विद्यार्थी  का सबमिशन मायने रखता है।"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html:4
 msgid "Learners (Self-Reported)"
-msgstr ""
+msgstr "विद्यार्थी  (आत्म सूचना दी)"
 
 #: courses/templates/courses/engagement_content.html:23
 msgid "Weekly Learner Engagement"
-msgstr ""
+msgstr "साप्ताहिक विद्यार्थी  अनुबंध "
 
 #: courses/templates/courses/engagement_content.html:24
 #: courses/views/__init__.py:556
 msgid "How many learners are interacting with my course?"
-msgstr ""
+msgstr "मेरे पाठ्यक्रम के साथ कितने शिक्षार्थी बातचीत कर रहे हैं?"
 
 #: courses/templates/courses/engagement_content.html:31
 #: courses/views/__init__.py:325 courses/views/__init__.py:639
@@ -603,13 +603,13 @@ msgstr "वर्तमान में नामांकित शिक्ष
 #: courses/templates/courses/enrollment_activity.html:93
 #: courses/templates/courses/index.html:53
 msgid "Master's Enrollment"
-msgstr ""
+msgstr "मास्टर नामांकन"
 
 #. Translators: This is a label indicating the number of learners enrolled in
 #. a course on the masters track.
 #: courses/templates/courses/enrollment_activity.html:95
 msgid "Number of currently enrolled learners pursuing a Master's degree."
-msgstr ""
+msgstr "मास्टर डिग्री पाने की कोशिश कितने वर्तमान नामांकित शिक्षार्थी कर रहे हैं?"
 
 #: courses/templates/courses/enrollment_activity.html:109
 #: courses/templates/courses/enrollment_activity.html:117
@@ -617,7 +617,7 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_education.html:101
 #: courses/templates/courses/enrollment_demographics_gender.html:66
 msgid "Enrollment Over Time"
-msgstr ""
+msgstr "समय की अवधि में नामांकन"
 
 #: courses/templates/courses/enrollment_demographics_age.html:26
 #: courses/views/__init__.py:507
