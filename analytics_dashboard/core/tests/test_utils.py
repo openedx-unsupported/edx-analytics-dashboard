@@ -97,6 +97,9 @@ class UtilsTests(TestCase):
                     'fizz': 2
                 }
             },
+            'burp': {
+                'baz': 1,
+            },
             'flat': 0
         }
         flat_dict = {
