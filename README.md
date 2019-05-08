@@ -8,16 +8,9 @@ Prerequisites
 -------------
 * Python 2.7.x (not tested with Python 3.x)
 * [gettext](http://www.gnu.org/software/gettext/)
-* [node](https://nodejs.org) 8.9.3
-* [npm](https://www.npmjs.org/) 5.5.1
+* [node](https://nodejs.org) 12.1.0
+* [npm](https://www.npmjs.org/) 6.9.0
 * [JDK 7+](http://openjdk.java.net/)
-
-Warning: You must have NPM version 5.5.1. Using another version might result in
-a different `package-lock.json` file. Committing those changes might break our
-deployments which use NPM 5.5.1 and expect no changes after running `npm
-install`. [nodeenv](https://github.com/ekalinin/nodeenv) or
-[n](https://github.com/tj/n) are tools that you can use to work on different
-Node.js and NPM versions than your system installed versions.
 
 We have a TODO to set-up the development environment with a Docker container so
 that you will not have to manage Node and NPM versions yourself.
@@ -82,7 +75,7 @@ The following switches are available:
 | enable_engagement_videos_pages       | Enable engagement video pages.                        |
 | enable_video_preview                 | Enable video preview.                                 |
 | display_course_name_in_nav           | Display course name in navigation bar.                |
-| enable_performance_learning_outcome  | Enable performance section with learning outcome breakdown (functionality based on tagging questions in Studio) | 
+| enable_performance_learning_outcome  | Enable performance section with learning outcome breakdown (functionality based on tagging questions in Studio) |
 | enable_learner_download              | Display Download CSV button on Learner List page.     |
 | enable_problem_response_download     | Enable downloadable CSV of problem responses          |
 | enable_course_filters                | Enable filters (e.g. pacing type) on courses page.    |
