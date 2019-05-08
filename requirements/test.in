@@ -1,7 +1,7 @@
 # Test dependencies go here.
 -r base.txt
 
-bok-choy
+bok-choy==0.7.0
 coverage==4.4.1
 ddt==1.1.1
 django-dynamic-fixture==1.9.5
@@ -17,7 +17,7 @@ pep257==0.7.0
 pep8==1.7.0
 pylint==1.7.1
 logilab-common==1.4.0
-selenium
+selenium>=2.44.0,<3.0.0
 sure==1.4.6
 testfixtures==4.14.3
 astroid<2.0 ; python_version<="3.4"
