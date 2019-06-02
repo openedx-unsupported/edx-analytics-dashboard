@@ -5,13 +5,15 @@
 # Translators:
 # Riina <ciairdabar@yahoo.com>, 2014-2015
 # Edukometrija <jolitad@mruni.eu>, 2015
+# Farhanah Sheets <fsheets@edx.org>, 2019
+# Rasa Šakarviene, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-16 09:16-0400\n"
-"PO-Revision-Date: 2019-04-16 19:45+0000\n"
-"Last-Translator: Ned Batchelder <ned@edx.org>\n"
+"PO-Revision-Date: 2019-05-28 13:52+0000\n"
+"Last-Translator: Farhanah Sheets <fsheets@edx.org>\n"
 "Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/open-edx/edx-platform/language/lt_LT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +23,7 @@ msgstr ""
 
 #: core/templates/core/landing.html:15 templates/_skip_link.html:3
 msgid "Skip to content"
-msgstr ""
+msgstr "Pereiti prie turinio."
 
 #: core/templates/core/landing.html:23
 msgid "Login"
@@ -33,7 +35,7 @@ msgstr "Įžvalgos, skirtos padėti kursų komandoms tobulinti kursus."
 
 #: core/templates/core/landing.html:42 courses/views/__init__.py:494
 msgid "Who are my learners?"
-msgstr ""
+msgstr "Kas yra mano mokiniai?"
 
 #: core/templates/core/landing.html:43
 msgid "Target your course to fit the backgrounds of your learners."
@@ -64,11 +66,11 @@ msgstr "Dalyvavimas"
 
 #: core/templates/core/landing.html:52
 msgid "How well is my content supporting learners?"
-msgstr ""
+msgstr "Ar mano turinys padeda kurso dalyviams mokytis?"
 
 #: core/templates/core/landing.html:53
 msgid "Adjust your course based on where learners are struggling."
-msgstr ""
+msgstr "Pakoreguokite kursą atsižvelgiant į tai, kas kurso dalyviams sunkiausia."
 
 #: core/templates/core/landing.html:54
 #: courses/tests/test_views/test_performance.py:48
@@ -119,7 +121,7 @@ msgstr "{statistic}%"
 #: courses/presenters/engagement.py:126
 #, python-brace-format
 msgid "{percentage} of current learners"
-msgstr ""
+msgstr "{percentage} nuo esamų studentų"
 
 #: courses/presenters/enrollment.py:23
 msgid "Female"
@@ -345,36 +347,36 @@ msgstr ""
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html:4
 msgid "Learners (Self-Reported)"
-msgstr ""
+msgstr "Kurso dalyviai (pranešę apie save)"
 
 #: courses/templates/courses/engagement_content.html:23
 msgid "Weekly Learner Engagement"
-msgstr ""
+msgstr "Kurso dalyvių dalyvavimas savaitėmis"
 
 #: courses/templates/courses/engagement_content.html:24
 #: courses/views/__init__.py:556
 msgid "How many learners are interacting with my course?"
-msgstr ""
+msgstr "Kiek dalyvių dalyvauja mano kurse?"
 
 #: courses/templates/courses/engagement_content.html:31
 #: courses/views/__init__.py:325 courses/views/__init__.py:639
 #: courses/views/learners.py:20
 msgid "Learners"
-msgstr ""
+msgstr "Besimokantys"
 
 #: courses/templates/courses/engagement_content.html:32
 msgid ""
 "The number of active learners, and the number of learners who engaged in "
 "specific activities, over time."
-msgstr ""
+msgstr "Aktyvių kurso dalyvių ir kurso dalyvių, atlikusių tam tikrą veiklą per tam tikrą laiką, skaičius."
 
 #: courses/templates/courses/engagement_content.html:48
 msgid "Learner Activity Metrics"
-msgstr ""
+msgstr "Kurso dalyvių aktyvumo metrika"
 
 #: courses/templates/courses/engagement_content.html:54
 msgid "Active Learners Last Week"
-msgstr ""
+msgstr "Aktyvūs praėjusios savaitės dalyviai"
 
 #: courses/templates/courses/engagement_content.html:55
 msgid "Learners who visited at least one page in the course content."
@@ -388,7 +390,7 @@ msgstr "Žiūrėjo vaizdo įrašą praėjusią savaitę"
 
 #: courses/templates/courses/engagement_content.html:62
 msgid "Learners who played one or more videos."
-msgstr ""
+msgstr "Besimokantieji, peržiūrėję vieną ar daugiau vaizdo įrašų"
 
 #. Translators: This is a label indicating the number of learners who tried a
 #. problem.
@@ -400,18 +402,18 @@ msgstr "Bandė spręsti užduotį praėjusią savaitę"
 msgid ""
 "Learners who submitted an answer for a standard problem. Not all problem "
 "types are included."
-msgstr ""
+msgstr "Besimokantieji pateikę standartinio tipo užduoties atsakymą. Ne visi užduočių tipai įtraukti."
 
 #. Translators: This is a label indicating the number of learners who posted
 #. in a forum discussion.
 #: courses/templates/courses/engagement_content.html:76
 msgid "Participated in Discussions Last Week"
-msgstr ""
+msgstr "Dalyvavę diskusijose praėjusią savaitę"
 
 #: courses/templates/courses/engagement_content.html:77
 msgid ""
 "Learners who added a post, response, or comment to any course discussion."
-msgstr ""
+msgstr "Kurso dalyviai, sukūrę žinutę, parašę atsakymą arba parašę komentarą kurioje nors diskusijoje."
 
 #: courses/templates/courses/engagement_content.html:89
 #: courses/templates/courses/engagement_content.html:97
@@ -427,7 +429,7 @@ msgstr "Vaizdo įrašo peržiūros"
 
 #: courses/templates/courses/engagement_video_by_section.html:5
 msgid "How did learners interact with videos in this section?"
-msgstr ""
+msgstr "Kaip dalyviai dirbo su vaizdo įrašais šioje temoje?"
 
 #: courses/templates/courses/engagement_video_by_section.html:10
 msgid ""
@@ -438,7 +440,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_by_subsection.html:10
 msgid "How did learners interact with videos in this subsection?"
-msgstr ""
+msgstr "Kaip dalyviai dirbo su vaizdo įrašais šioje potemėje?"
 
 #: courses/templates/courses/engagement_video_by_subsection.html:15
 msgid ""
@@ -620,7 +622,7 @@ msgstr "Registracija per tam tikrą laiką"
 #: courses/templates/courses/enrollment_demographics_age.html:26
 #: courses/views/__init__.py:507
 msgid "How old are my learners?"
-msgstr ""
+msgstr "Kokio amžiaus mano kurso dalyviai?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
