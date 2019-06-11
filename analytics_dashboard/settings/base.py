@@ -44,12 +44,16 @@ MANAGERS = ADMINS
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'dashboard',
+        'USER': 'rosencrantz',
+        'PASSWORD': 'secret',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'OPTIONS': {
+            'connect_timeout': 10,
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        }, 
     }
 }
 ########## END DATABASE CONFIGURATION
@@ -57,7 +61,7 @@ DATABASES = {
 
 ########## GENERAL CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#time-zone
-TIME_ZONE = 'America/New_York'
+TIME_ZONE = 'UTC'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
 LANGUAGE_CODE = 'en-us'
@@ -114,7 +118,7 @@ STATICFILES_FINDERS = (
 ########## SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 # Note: This key should only be used for development and testing.
-SECRET_KEY = os.environ.get("ANALYTICS_SECRET_KEY", "insecure-secret-key")
+SECRET_KEY = 'YOUR_SECRET_KEY_HERE'
 ########## END SECRET CONFIGURATION
 
 
@@ -271,7 +275,7 @@ WSGI_APPLICATION = '%s.wsgi.application' % SITE_NAME
 
 ########## SEGMENT.IO
 # 'None' disables tracking.  This will be turned on for test and production.
-SEGMENT_IO_KEY = None
+SEGMENT_IO_KEY = 'YOUR_KEY'
 
 # Regular expression used to identify users that should be ignored in reporting.
 # This value will be compiled and should be either a string (e.g. when importing with YAML) or
@@ -280,18 +284,25 @@ SEGMENT_IGNORE_EMAIL_REGEX = None
 ########## END SEGMENT.IO
 
 ########## SUPPORT -- Ths value should be overridden for production deployments.
-SUPPORT_EMAIL = 'support@example.com'
-HELP_URL = None
+SUPPORT_EMAIL = ''
+HELP_URL = 'http://127.0.0.1/en/latest'
 ########## END FEEDBACK
+
+########## EMAIL CONFIG
+EMAIL_HOST = 'smtp.example.com'
+EMAIL_HOST_PASSWORD = 'mail_password'
+EMAIL_HOST_USER = 'mail_user'
+EMAIL_PORT = 587
+########## END EMAIL CONFIG
 
 ########## LANDING PAGE -- URLs should be overridden for production deployments.
 SHOW_LANDING_RESEARCH = True
-RESEARCH_URL = 'http://example.com/'
-OPEN_SOURCE_URL = 'http://example.com/'
+RESEARCH_URL = 'https://www.edx.org/research-pedagogy'
+OPEN_SOURCE_URL = 'http://set-me-please'
 ########## END LANDING PAGE
 
 ########## DOCUMENTATION LINKS -- These values should be overridden for production deployments.
-DOCUMENTATION_LOAD_ERROR_URL = 'http://example.com/'
+DOCUMENTATION_LOAD_ERROR_URL = 'http://127.0.0.1/en/latest/Reference.html#error-conditions'
 # evaluated again at the end of production setting after DOCUMENTATION_LOAD_ERROR_URL has been set
 DOCUMENTATION_LOAD_ERROR_MESSAGE = '<a href="{error_documentation_link}" target="_blank">Read more</a>.'.format(error_documentation_link=DOCUMENTATION_LOAD_ERROR_URL)
 ########## END DOCUMENTATION LINKS
@@ -299,17 +310,17 @@ DOCUMENTATION_LOAD_ERROR_MESSAGE = '<a href="{error_documentation_link}" target=
 
 ########## DATA API CONFIGURATION
 DATA_API_URL = 'http://127.0.0.1:9001/api/v0'
-DATA_API_AUTH_TOKEN = 'edx'
+DATA_API_AUTH_TOKEN = 'chanchangemee'
 ########## END DATA API CONFIGURATION
 
 # used to determine if a course ID is valid
 LMS_COURSE_VALIDATION_BASE_URL = None
 
 # used to construct the shortcut link to course modules
-LMS_COURSE_SHORTCUT_BASE_URL = None
+LMS_COURSE_SHORTCUT_BASE_URL = 'URL_FOR_LMS_COURSE_LIST_PAGE'
 
 # used to construct the shortcut link to view/edit a course in Studio
-CMS_COURSE_SHORTCUT_BASE_URL = None
+CMS_COURSE_SHORTCUT_BASE_URL = 'http://127.0.0.1:8000/courses/'
 
 # Used to determine how dates and time are displayed in templates
 # The strings are intended for use with the django.utils.dateformat
@@ -335,12 +346,12 @@ SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'email']
 SOCIAL_AUTH_STRATEGY = 'auth_backends.strategies.EdxDjangoStrategy'
 
 # Set these to the correct values for your OAuth2/OpenID Connect provider
-SOCIAL_AUTH_EDX_OIDC_KEY = None
-SOCIAL_AUTH_EDX_OIDC_SECRET = None
-SOCIAL_AUTH_EDX_OIDC_URL_ROOT = None
+SOCIAL_AUTH_EDX_OIDC_KEY = 'YOUR_OAUTH2_KEY'
+SOCIAL_AUTH_EDX_OIDC_SECRET = 'secret'
+SOCIAL_AUTH_EDX_OIDC_URL_ROOT = 'http://127.0.0.1:8000/oauth2'
 
 # This value should be the same as SOCIAL_AUTH_EDX_OIDC_SECRET
-SOCIAL_AUTH_EDX_OIDC_ID_TOKEN_DECRYPTION_KEY = None
+SOCIAL_AUTH_EDX_OIDC_ID_TOKEN_DECRYPTION_KEY = 'secret'
 
 # Enables a special view that, when accessed, creates and logs in a new user.
 # This should NOT be enabled for production deployments!
@@ -368,7 +379,7 @@ USER_TRACKING_CLAIM = 'user_tracking_id'
 ########## END AUTHENTICATION
 
 # The application and platform display names to be used in templates, emails, etc.
-PLATFORM_NAME = 'Your Platform Name Here'
+PLATFORM_NAME = 'edx'
 APPLICATION_NAME = 'Insights'
 FULL_APPLICATION_NAME = '{0} {1}'.format(PLATFORM_NAME, APPLICATION_NAME)
 
@@ -384,14 +395,14 @@ with open(join(DOCS_ROOT, "config.ini")) as config_file:
 
 ########## COURSE API
 COURSE_API_URL = None
-GRADING_POLICY_API_URL = None
+GRADING_POLICY_API_URL = 'http://127.0.0.1:8000/api/grades/v1/'
 
 # If no key is specified, the authenticated user's OAuth2 access token will be used.
 COURSE_API_KEY = None
 ########## END COURSE API
 
 ########## MODULE_PREVIEW
-MODULE_PREVIEW_URL = None
+MODULE_PREVIEW_URL = 'http://127.0.0.1:8000/xblock'
 ########## END MODULE_PREVIEW
 
 ########## EXTERNAL SERVICE TIMEOUTS

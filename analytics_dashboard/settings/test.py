@@ -31,5 +31,16 @@ COURSE_API_URL = 'http://course-api-host'
 COURSE_API_KEY = 'test_course_api_key'
 
 DATA_API_URL = 'http://data-api-host/api/v0'
+DATA_API_AUTH_TOKEN = 'edx'
 
 LOGGING = get_logger_config(debug=DEBUG, dev_env=True, local_loglevel='DEBUG')
+
+SOCIAL_AUTH_EDX_OIDC_KEY = None
+SOCIAL_AUTH_EDX_OIDC_SECRET = None
+SOCIAL_AUTH_EDX_OIDC_ID_TOKEN_DECRYPTION_KEY = None
+
+MODULE_PREVIEW_URL = None
+
+SECRET_KEY = os.environ.get("ANALYTICS_SECRET_KEY", "insecure-secret-key")
+
+SEGMENT_IO_KEY = None
