@@ -98,3 +98,5 @@ REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = (
     'rest_framework.renderers.BrowsableAPIRenderer',
 )
 ########## END REST FRAMEWORK CONFIGURATION
+
+SESSION_COOKIE_NAME = None
