@@ -461,5 +461,4 @@ CDN_DOMAIN = None  # production will not use a CDN for static assets if this is 
 COURSE_SUMMARIES_IDS_CUTOFF = 500
 
 
-SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 SESSION_COOKIE_NAME = 'insights_sessionid'
