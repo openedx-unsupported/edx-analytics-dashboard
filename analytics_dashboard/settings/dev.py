@@ -98,3 +98,18 @@ REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = (
     'rest_framework.renderers.BrowsableAPIRenderer',
 )
 ########## END REST FRAMEWORK CONFIGURATION
+
+########## DATA API CONFIGURATION
+DATA_API_AUTH_TOKEN = 'edx'
+########## END DATA API CONFIGURATION
+
+########## SECRET CONFIGURATION
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
+# Note: This key should only be used for development and testing.
+SECRET_KEY = os.environ.get("ANALYTICS_SECRET_KEY", "insecure-secret-key")
+########## END SECRET CONFIGURATION
+
+########## SESSION COOKIE
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#session-cookie-name
+SESSION_COOKIE_NAME = 'sessionid'
+######### END SESSION COOKIE
