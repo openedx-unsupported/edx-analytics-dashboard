@@ -8,11 +8,17 @@ from django.dispatch import receiver
 from social_django.utils import load_strategy
 
 from auth_backends.backends import EdXOpenIdConnect
+from django.core.cache import cache
 
 from courses.exceptions import UserNotAssociatedWithBackendError, InvalidAccessTokenError, \
     PermissionsRetrievalFailedError
 
 logger = logging.getLogger(__name__)
+
+# This is the course-level role (defined in the edx-platform course_api
+# djangoapp) which we assume while querying the courses list API.  This limits
+# the result to courses that only the target user has staff access to.
+ROLE_FOR_ALLOWED_COURSES = 'staff'
 
 
 def _get_course_permission_cache_keys(user):
@@ -182,12 +188,49 @@ def user_can_view_course(user, course_id):
     return course_id in courses
 
 
+def _access_token():
+    """
+    Returns an access token for the Insights service user.
+
+    The access token is retrieved using the Insights OAuth credentials and the
+    client credentials grant.  The token is cached for the lifetime of the
+    token, as specified by the OAuth provider's response. The token type is
+    JWT.
+
+    Returns:
+        str: JWT access token
+    """
+    key = 'oauth2_access_token_{}'
+    access_token = cache.get(key)
+
+    if not access_token:
+        url = '{root}/access_token'.format(root=settings.BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL)
+        access_token, expiration_datetime = EdxRestApiClient.get_oauth_access_token(
+            url,
+            settings.BACKEND_SERVICE_EDX_OAUTH2_KEY,
+            settings.BACKEND_SERVICE_EDX_OAUTH2_SECRET,
+            token_type='jwt',
+        )
+        expires = (expiration_datetime - datetime.datetime.utcnow()).seconds
+        cache.set(key, access_token, expires)
+
+    return access_token
+
+
 # pylint: disable=unused-argument
-@receiver(EdXOpenIdConnect.auth_complete_signal)
-def on_auth_complete(sender, user, id_token, **kwargs):
-    """ Callback to cache course permissions if available in the IDToken. """
-    allowed_courses = set()
-    for name in settings.COURSE_PERMISSIONS_CLAIMS:
-        if name in id_token:
-            allowed_courses.update(id_token[name])
+@receiver(EdXOAuth2.auth_complete_signal)
+def on_auth_complete(sender, user, **kwargs):
+    """
+    Callback to fetch and cache course permissions.
+    """
+    access_token = _access_token()
+    client = EdxRestApiClient(
+        settings.COURSE_API_URL,
+        jwt=access_token,
+    )
+    courses = client.courses(
+        username=user.username,
+        role=ROLE_FOR_ALLOWED_COURSES,
+    )
+    allowed_courses = set(course['course_id'] for course in courses)
     set_user_course_permissions(user, allowed_courses)
