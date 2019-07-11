@@ -51,9 +51,9 @@ DATABASES = {
         'HOST': '127.0.0.1',
         'PORT': '3306',
         'OPTIONS': {
-	    'connect_timeout': 10,
-	    'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        }, 
+            'connect_timeout': 10,
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
     }
 }
 ########## END DATABASE CONFIGURATION
@@ -333,10 +333,11 @@ TIME_FORMAT = 'g:i A'
 ########## AUTHENTICATION
 AUTH_USER_MODEL = 'core.User'
 
-# Allow authentication via edX OAuth2/OpenID Connect
+# Allow authentication via edX OAuth2 and edX OAuth2/OpenID Connect
 AUTHENTICATION_BACKENDS = (
-    'auth_backends.backends.EdXOpenIdConnect',
+    'auth_backends.backends.EdXOAuth2',
     'django.contrib.auth.backends.ModelBackend',
+    'auth_backends.backends.EdXOpenIdConnect',
 )
 
 # Set to true if using SSL and running behind a proxy
@@ -346,6 +347,7 @@ SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'email']
 
 SOCIAL_AUTH_STRATEGY = 'auth_backends.strategies.EdxDjangoStrategy'
 
+# These OIDC variables are DEPRECATED.
 # Set these to the correct values for your OAuth2/OpenID Connect provider
 SOCIAL_AUTH_EDX_OIDC_KEY = 'YOUR_OAUTH2_KEY'
 SOCIAL_AUTH_EDX_OIDC_SECRET = 'secret'
@@ -355,6 +357,17 @@ SOCIAL_AUTH_EDX_OIDC_LOGOUT_URL = 'http://127.0.0.1:8000/logout'
 
 # This value should be the same as SOCIAL_AUTH_EDX_OIDC_SECRET
 SOCIAL_AUTH_EDX_OIDC_ID_TOKEN_DECRYPTION_KEY = 'secret'
+
+# Set these to the correct values for your OAuth2 provider (e.g., devstack)
+SOCIAL_AUTH_EDX_OAUTH2_KEY = "insights-sso-key"
+SOCIAL_AUTH_EDX_OAUTH2_SECRET = "insights-sso-secret"
+SOCIAL_AUTH_EDX_OAUTH2_ISSUER = "http://127.0.0.1:8000"
+SOCIAL_AUTH_EDX_OAUTH2_URL_ROOT = "http://127.0.0.1:8000"
+SOCIAL_AUTH_EDX_OAUTH2_LOGOUT_URL = "http://127.0.0.1:8000/logout"
+
+BACKEND_SERVICE_EDX_OAUTH2_KEY = "insights-backend-service-key"
+BACKEND_SERVICE_EDX_OAUTH2_SECRET = "insights-backend-service-secret"
+BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL = "http://127.0.0.1:8000/oauth2"
 
 # Enables a special view that, when accessed, creates and logs in a new user.
 # This should NOT be enabled for production deployments!
@@ -367,6 +380,7 @@ AUTO_AUTH_USERNAME_PREFIX = 'AUTO_AUTH_'
 # Maximum time (in seconds) before course permissions expire and need to be refreshed
 COURSE_PERMISSIONS_TIMEOUT = 900
 
+LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/courses/'
 LOGOUT_REDIRECT_URL = '/'
 

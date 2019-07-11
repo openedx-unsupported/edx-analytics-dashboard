@@ -258,7 +258,7 @@ class LoginMixin(object):
 
 class LogoutMixin(object):
     def logout(self):
-        url = '{}/accounts/logout/'.format(DASHBOARD_SERVER_URL)
+        url = '{}/logout/'.format(DASHBOARD_SERVER_URL)
         self.browser.get(url)
 
 

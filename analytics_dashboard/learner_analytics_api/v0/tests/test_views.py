@@ -54,6 +54,7 @@ class LearnerAPITestMixin(UserTestCaseMixin, PermissionsTestMixin):
 
     def test_no_course_permissions(self):
         self.login()
+        self.grant_permission(self.user, [])
         response = self.client.get('/api/learner_analytics/v0' + self.endpoint, self.required_query_params)
         self.assert_response_equals(response, self.no_permissions_status_code)
 

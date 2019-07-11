@@ -1,6 +1,7 @@
 import json
 import logging
 
+from datetime import datetime, timedelta
 from analyticsclient.exceptions import NotFoundError
 from ddt import ddt, data
 from django.core.cache import cache
@@ -120,11 +121,12 @@ class AuthTestMixin(MockApiTestMixin, PermissionsTestMixin, RedirectTestCaseMixi
                 self.assertRedirectsNoFollow(response, settings.LOGIN_URL, next=self.path(course_id=course_id))
 
     @data(CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
-    @mock.patch('courses.permissions.refresh_user_course_permissions', mock.Mock(side_effect=set_empty_permissions))
-    def test_authorization(self, course_id):
+    @mock.patch('courses.permissions.EdxRestApiClient')
+    def test_authorization(self, course_id, mock_client):
         """
         Users must be authorized to view a course in order to view the course pages.
         """
+        self._prepare_mock_client_to_return_empty_permissions(mock_client)
 
         if self.api_method:
             with mock.patch(self.api_method, return_value=self.get_mock_data(course_id)):
@@ -137,6 +139,12 @@ class AuthTestMixin(MockApiTestMixin, PermissionsTestMixin, RedirectTestCaseMixi
                 self.revoke_permissions(self.user)
                 response = self.client.get(self.path(course_id=course_id), follow=self.follow)
                 self.assertEqual(response.status_code, 403)
+
+    def _prepare_mock_client_to_return_empty_permissions(self, mock_client):
+        """ Provided a mock of EdxRestApiClient, prepare it to return empty permissions """
+        mock_client.return_value.courses.return_value = []
+        hour_expiration_datetime = datetime.utcnow() + timedelta(hours=1)
+        mock_client.get_oauth_access_token.return_value = ('test-access-token', hour_expiration_datetime)
 
 
 # pylint: disable=abstract-method

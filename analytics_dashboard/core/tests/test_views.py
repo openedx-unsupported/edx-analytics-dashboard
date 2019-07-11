@@ -103,7 +103,7 @@ class LoginViewTests(RedirectTestCaseMixin, TestCase):
         The login page should redirect users to the OAuth2 provider's login page.
         """
         response = self.client.get(settings.LOGIN_URL)
-        path = reverse('social:begin', args=['edx-oidc'])
+        path = reverse('social:begin', args=['edx-oauth2'])
         self.assertRedirectsNoFollow(response, path, status_code=302)
 
 
