@@ -16,8 +16,8 @@ define(function(require) {
                 naText = gettext('n/a');
 
             return {
-                startDate: _(dateRange).has('start') ? Utils.formatDate(dateRange.start) : naText,
-                endDate: _(dateRange).has('end') ? Utils.formatDate(dateRange.end) : naText
+                startDate: _(dateRange).has('start') && ! _.isNull(dateRange.start) ? Utils.formatDate(dateRange.start) : naText,
+                endDate: _(dateRange).has('end') && ! _.isNull(dateRange.end) ? Utils.formatDate(dateRange.end) : naText
             };
         }
     });
