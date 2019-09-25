@@ -15,7 +15,7 @@ PLATFORM_NAME = os.environ.get('PLATFORM_NAME', 'Open edX')
 APPLICATION_NAME = os.environ.get('APPLICATION_NAME', 'Insights')
 SUPPORT_EMAIL = os.environ.get('SUPPORT_EMAIL', 'support@example.com')
 OPEN_SOURCE_URL = os.environ.get('OPEN_SOURCE_URL', 'http://example.com/')
-RESEARCH_URL = os.environ.get('RESEARCH_URL', 'http://example.com/')
+RESEARCH_URL = os.environ.get('RESEARCH_URL', 'https://www.edx.org/research-pedagogy')
 SHOW_LANDING_RESEARCH = str2bool(os.environ.get('SHOW_LANDING_RESEARCH', True))
 
 # Analytics data API settings

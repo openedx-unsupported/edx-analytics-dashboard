@@ -298,7 +298,7 @@ EMAIL_PORT = 587
 
 ########## LANDING PAGE -- URLs should be overridden for production deployments.
 SHOW_LANDING_RESEARCH = True
-RESEARCH_URL = 'http://example.com/'
+RESEARCH_URL = 'https://www.edx.org/research-pedagogy'
 OPEN_SOURCE_URL = 'http://example.com/'
 ########## END LANDING PAGE
 
@@ -397,7 +397,7 @@ with open(join(DOCS_ROOT, "config.ini")) as config_file:
 ########## END DOCS/HELP CONFIGURATION
 
 ########## COURSE API
-COURSE_API_URL = None
+COURSE_API_URL = 'http://127.0.0.1:8000/api/courses/v1/'
 GRADING_POLICY_API_URL = 'http://127.0.0.1:8000/api/grades/v1/'
 
 # If no key is specified, the authenticated user's OAuth2 access token will be used.
@@ -459,7 +459,9 @@ LEARNER_API_LIST_DOWNLOAD_FIELDS = None
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#caches
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'KEY_PREFIX': 'default_env-default_deployment-insights',
+        'LOCATION': '127.0.0.1:11211',
     }
 }
 COURSE_SUMMARIES_CACHE_TIMEOUT = 3600  # 1 hour timeout
