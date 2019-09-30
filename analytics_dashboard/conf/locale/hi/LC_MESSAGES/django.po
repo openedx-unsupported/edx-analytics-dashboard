@@ -3,19 +3,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# abhishek tiwari <abhishek.tiwari@learniphi.com>, 2019
 # Farhanah Sheets <fsheets@edx.org>, 2018
 # Gawrav Mehta <gawrav@traddle.in>, 2019
 # Kanan Joshi <kanan.joshi@ia.ooo>, 2019
 # Kumar Gaurav <kmrgaurav33@gmail.com>, 2016
 # Lata Verma <vermalata@hotmail.com>, 2016,2018-2019
 # Palak Kansara <palak.kansara@ia.ooo>, 2019
+# Zainab Amir <zamir@edx.org>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-16 09:16-0400\n"
-"PO-Revision-Date: 2019-06-27 05:51+0000\n"
-"Last-Translator: Palak Kansara <palak.kansara@ia.ooo>\n"
+"PO-Revision-Date: 2019-09-30 08:02+0000\n"
+"Last-Translator: Zainab Amir <zamir@edx.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/open-edx/edx-platform/language/hi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -634,7 +636,7 @@ msgstr "मेरे छात्र कितने साल के हैं?
 msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
 "learners who provided a year of birth."
-msgstr ""
+msgstr "उम्र हिस्टोग्राम उन नामांकित शिक्षार्थियों के लिए %(value)s%%गणना किए गए डेटा को प्रस्तुत करता है जो जन्म के एक वर्ष प्रदान करते हैं|"
 
 #: courses/templates/courses/enrollment_demographics_age.html:56
 msgid "Age Metrics"
@@ -661,35 +663,35 @@ msgstr "लर्नर्स 25 और अंडर"
 msgid ""
 "The percentage of learners aged 25 years or younger (of those who provided a"
 " year of birth)."
-msgstr ""
+msgstr "25 वर्ष या उससे कम उम्र के शिक्षार्थियों का प्रतिशत (जन्म के वर्ष प्रदान करने वालों में से)"
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html:79
 msgid "Learners 26 to 40"
-msgstr ""
+msgstr "शिक्षार्थियों 26 से 40"
 
 #: courses/templates/courses/enrollment_demographics_age.html:80
 msgid ""
 "The percentage of learners aged from 26 to 40 years (of those who provided a"
 " year of birth)."
-msgstr ""
+msgstr "26 से 40 वर्ष की आयु के शिक्षार्थियों का प्रतिशत (जन्म के वर्ष प्रदान करने वालों में से)।"
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html:86
 msgid "Learners 41 and Over"
-msgstr ""
+msgstr "शिक्षार्थियों 41 और अधिक"
 
 #: courses/templates/courses/enrollment_demographics_age.html:87
 msgid ""
 "The percentage of learners aged 41 years or older (of those who provided a "
 "year of birth)."
-msgstr ""
+msgstr "41 वर्ष या उससे अधिक उम्र के शिक्षार्थियों का प्रतिशत (जन्म के वर्ष प्रदान करने वालों में से)।"
 
 #: courses/templates/courses/enrollment_demographics_age.html:101
 msgid "Age Breakdown"
-msgstr ""
+msgstr "उम्र का टूटना"
 
 #: courses/templates/courses/enrollment_demographics_education.html:25
 #: courses/views/__init__.py:517
@@ -704,39 +706,39 @@ msgstr "मेरे शिक्षार्थियों के पास �
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled learners who "
 "provided a highest level of education completed."
-msgstr ""
+msgstr "यह ग्राफ नामांकित शिक्षार्थियों के %(value)s और %% के लिए डेटा प्रस्तुत करता है, जिन्होंने शिक्षा का उच्चतम स्तर प्रदान किया।"
 
 #: courses/templates/courses/enrollment_demographics_education.html:56
 msgid "Education Metrics"
-msgstr ""
+msgstr "शिक्षा मेट्रिक्स"
 
 #. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html:64
 msgid "High School Diploma or Less"
-msgstr ""
+msgstr "हाई स्कूल डिप्लोमा या उससे कम"
 
 #: courses/templates/courses/enrollment_demographics_education.html:65
 msgid ""
 "The percentage of learners who selected Secondary/high school, Junior "
 "secondary/junior high/middle school, or Elementary/primary school as their "
 "highest level of education completed."
-msgstr ""
+msgstr "ऐसे शिक्षार्थियों का प्रतिशत जिन्होंने माध्यमिक / उच्च विद्यालय, जूनियर माध्यमिक / जूनियर हाई / मिडिल स्कूल, या प्राथमिक / प्राथमिक विद्यालय को अपनी शिक्षा के उच्चतम स्तर के रूप में चुना।"
 
 #. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html:71
 msgid "College Degree"
-msgstr ""
+msgstr "कॉलेज की डिग्री"
 
 #: courses/templates/courses/enrollment_demographics_education.html:72
 msgid ""
 "The percentage of learners who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
-msgstr ""
+msgstr "शिक्षार्थियों का प्रतिशत जिन्होंने स्नातक की डिग्री या सहभागी डिग्री को अपनी उच्चतम स्तर की शिक्षा के रूप में चुना।"
 
 #. Translators: This is a label to identify learner educational background.
 #: courses/templates/courses/enrollment_demographics_education.html:78
 msgid "Advanced Degree"
-msgstr ""
+msgstr "उच्च पदवी"
 
 #: courses/templates/courses/enrollment_demographics_education.html:79
 msgid ""
@@ -751,7 +753,7 @@ msgstr "शैक्षिक विश्लेषण "
 #: courses/templates/courses/enrollment_demographics_gender.html:25
 #: courses/views/__init__.py:527
 msgid "What is the learner gender breakdown?"
-msgstr ""
+msgstr "शिक्षार्थी लिंग का टूटना क्या है?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -765,7 +767,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_demographics_gender.html:56
 msgid "Gender Breakdown Over Time"
-msgstr ""
+msgstr "समय के साथ लिंग का टूटना"
 
 #: courses/templates/courses/enrollment_geography.html:21
 msgid "Geographic Distribution"
@@ -774,67 +776,67 @@ msgstr "भौगोलिक वितरण"
 #: courses/templates/courses/enrollment_geography.html:22
 #: courses/views/__init__.py:537
 msgid "Where are my learners?"
-msgstr ""
+msgstr "मेरे सीखने वाले कहां हैं?"
 
 #: courses/templates/courses/enrollment_geography.html:27
 msgid "Enrollment by Country"
-msgstr ""
+msgstr "देश द्वारा नामांकन"
 
 #: courses/templates/courses/enrollment_geography.html:45
 msgid "Geography Metrics"
-msgstr ""
+msgstr "भूगोल के मेट्रिक्स"
 
 #. Translators: This string represents the number of countries where learners
 #. are enrolled.
 #: courses/templates/courses/enrollment_geography.html:53
 msgid "Total Countries or Regions Represented"
-msgstr ""
+msgstr "कुल देशों या क्षेत्रों का प्रतिनिधित्व किया"
 
 #: courses/templates/courses/enrollment_geography.html:54
 msgid "Countries or regions with at least one learner."
-msgstr ""
+msgstr "कम से कम एक सीखने वाले देश या क्षेत्र।"
 
 #. Translators: This string represents the country or region with the greatest
 #. number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html:62
 msgid "Top Country or Region by Enrollment"
-msgstr ""
+msgstr "नामांकन द्वारा शीर्ष देश या क्षेत्र"
 
 #: courses/templates/courses/enrollment_geography.html:63
 msgid "Country or region with the largest number of learners."
-msgstr ""
+msgstr "शिक्षार्थियों की सबसे बड़ी संख्या वाला देश या क्षेत्र।"
 
 #. Translators: This string represents the country or region with the second-
 #. greatest number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html:66
 msgid "Second Country or Region by Enrollment"
-msgstr ""
+msgstr "नामांकन द्वारा दूसरा देश या क्षेत्र"
 
 #: courses/templates/courses/enrollment_geography.html:67
 msgid "Country or region with the second largest number of learners."
-msgstr ""
+msgstr "शिक्षार्थियों की दूसरी सबसे बड़ी संख्या वाला देश या क्षेत्र।"
 
 #. Translators: This string represents the country or region with the third-
 #. greatest number of enrolled learners.
 #: courses/templates/courses/enrollment_geography.html:70
 msgid "Third Country or Region by Enrollment"
-msgstr ""
+msgstr "तीसरा देश या क्षेत्र नामांकन द्वारा"
 
 #: courses/templates/courses/enrollment_geography.html:71
 msgid "Country or region with the third largest number of learners."
-msgstr ""
+msgstr "शिक्षार्थियों की तीसरी सबसे बड़ी संख्या वाला देश या क्षेत्र।"
 
 #. Translators: This string represents the percentage of learners in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
 #: courses/templates/courses/enrollment_geography.html:77
 #, python-format
 msgid "%(percent)s%% of learners"
-msgstr ""
+msgstr "शिक्षार्थियों का %(percent)s %%"
 
 #: courses/templates/courses/enrollment_geography.html:91
 #: courses/templates/courses/enrollment_geography.html:98
 msgid "Geographic Breakdown"
-msgstr ""
+msgstr "भौगोलिक टूट"
 
 #. Translators: Application here refers to the web site/application being used
 #. (e.g. the dashboard).
@@ -847,7 +849,7 @@ msgstr "आवेदन "
 #: courses/templates/courses/home.html:15 courses/views/__init__.py:486
 #: templates/lens-navigation.html:20
 msgid "Course Home"
-msgstr ""
+msgstr "पाठ्यक्रम घर"
 
 #. Translators: This refers to the active tab/navigation item.
 #: courses/templates/courses/home.html:16 templates/lens-navigation.html:31
@@ -873,7 +875,7 @@ msgstr "बुनियादी तौर पर पाठ्यक्रम �
 #. course.
 #: courses/templates/courses/home.html:106
 msgid "External Tools"
-msgstr ""
+msgstr "बाहरी उपकरण"
 
 #: courses/templates/courses/index.html:10
 #: courses/views/course_summaries.py:32
@@ -882,60 +884,60 @@ msgstr "पाठ्यक्रम"
 
 #: courses/templates/courses/index.html:17
 msgid "Across all your courses:"
-msgstr ""
+msgstr "अपने सभी पाठ्यक्रमों के पार:"
 
 #: courses/templates/courses/index.html:27
 msgid "Total enrollments across all of your courses."
-msgstr ""
+msgstr "आपके सभी पाठ्यक्रमों में कुल नामांकन।"
 
 #: courses/templates/courses/index.html:34
 msgid "Current enrollments across all of your courses."
-msgstr ""
+msgstr "आपके सभी पाठ्यक्रमों में वर्तमान नामांकन।"
 
 #: courses/templates/courses/index.html:41
 msgid "Total change in enrollment last week across all of your courses."
-msgstr ""
+msgstr "आपके सभी पाठ्यक्रमों में पिछले सप्ताह नामांकन में कुल परिवर्तन।"
 
 #: courses/templates/courses/index.html:48
 msgid "Verified enrollments across all of your courses."
-msgstr ""
+msgstr "आपके सभी पाठ्यक्रमों में सत्यापित नामांकन।"
 
 #: courses/templates/courses/index.html:54
 msgid "Master's enrollments across all of your courses."
-msgstr ""
+msgstr "आपके सभी पाठ्यक्रमों में मास्टर नामांकन।"
 
 #: courses/templates/courses/performance_answer_distribution.html:7
 #: courses/templates/courses/performance_learning_outcomes_answer_distribution.html:5
 #: courses/templates/courses/performance_ungraded_answer_distribution.html:7
 msgid "How did learners answer this problem?"
-msgstr ""
+msgstr "शिक्षार्थियों ने इस समस्या का उत्तर कैसे दिया?"
 
 #: courses/templates/courses/performance_assignment.html:10
 msgid "How are learners doing on this assignment?"
-msgstr ""
+msgstr "इस कार्य को सीखने वाले कैसे कर रहे हैं?"
 
 #: courses/templates/courses/performance_assignment.html:15
 #: courses/templates/courses/performance_ungraded_by_subsection.html:15
 msgid ""
 "These bars show the correct and incorrect submission counts for each "
 "problem. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "ये पट्टीयाँ प्रत्येक समस्या के लिए सही और गलत प्रस्तुतियाँ काउंट दिखाते हैं। प्रत्येक शिक्षार्थी से केवल अंतिम प्रस्तुतियाँ को ही गिना जाता है।"
 
 #: courses/templates/courses/performance_assignment.html:19
 #: courses/templates/courses/performance_learning_outcomes_section.html:20
 #: courses/templates/courses/performance_ungraded_by_subsection.html:19
 msgid "Problem Submissions"
-msgstr ""
+msgstr "समस्या प्रस्तुतियाँ"
 
 #: courses/templates/courses/performance_graded_content.html:9
 msgid "Which assignment type do you want to investigate?"
-msgstr ""
+msgstr "आप किस सौंपा गया काम प्रकार की जांच करना चाहते हैं?"
 
 #: courses/templates/courses/performance_graded_content.html:13
 msgid ""
 "Click an assignment type to view more detail information about the "
 "assignments."
-msgstr ""
+msgstr "सौंपा गया काम के बारे में अधिक विस्तार से जानकारी देखने के लिए सौंपा गया काम के प्रकार पर क्लिक करें।"
 
 #. Translators: This describes the percent an assignment contributes to that
 #. of a learner's grade (e.g. Exam: 60% of the grading policy.).
@@ -966,98 +968,98 @@ msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "problems in the assignment. Only the last submission from each learner is "
 "counted."
-msgstr ""
+msgstr "प्रत्येक पट्टी सौंपा गया काम के बारे में समस्याओं के लिए सही और गलत प्रस्तुतियाँ की औसत संख्या दिखाता है। प्रत्येक शिक्षार्थी से केवल अंतिम   प्रस्तुतियाँ को ही गिना जाता है।"
 
 #: courses/templates/courses/performance_graded_content_by_type.html:19
 msgid "Assignment Submissions"
-msgstr ""
+msgstr "सौंपा गया काम जमा करना"
 
 #: courses/templates/courses/performance_learning_outcomes_content.html:6
 #: courses/templates/courses/performance_learning_outcomes_section.html:6
 msgid "Measured by learning outcome, how are learners performing?"
-msgstr ""
+msgstr "सीखने के परिणामों से मापा जाता है कि शिक्षार्थी कैसा प्रदर्शन कर रहे हैं?"
 
 #: courses/templates/courses/performance_learning_outcomes_content.html:16
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each outcome."
-msgstr ""
+msgstr "प्रत्येक पट्टी प्रत्येक परिणाम के लिए सही और गलत सौंपा गया काम की औसत संख्या दिखाता है।"
 
 #: courses/templates/courses/performance_learning_outcomes_content.html:20
 msgid "Outcome Submissions"
-msgstr ""
+msgstr "सौंपा गया काम के परिणाम"
 
 #: courses/templates/courses/performance_learning_outcomes_section.html:16
 msgid ""
 "Each bar shows the correct and incorrect number of submissions for each "
 "problem for the current outcome."
-msgstr ""
+msgstr "प्रत्येक पट्टी वर्तमान परिणाम के लिए प्रत्येक समस्या के लिए सौंपा गया काम की सही और गलत संख्या दिखाता है"
 
 #: courses/templates/courses/performance_ungraded_by_section.html:5
 msgid "How are learners doing on this section?"
-msgstr ""
+msgstr "इस खंड पर शिक्षार्थी कैसे कर रहे हैं?"
 
 #: courses/templates/courses/performance_ungraded_by_section.html:10
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each subsection. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "प्रत्येक पट्टी प्रत्येक उपधारा के लिए सही और गलत प्रस्तुतियाँ की औसत संख्या दिखाता है। प्रत्येक शिक्षार्थी से केवल अंतिम सौंपा गया काम को ही गिना जाता है।"
 
 #: courses/templates/courses/performance_ungraded_by_section.html:14
 msgid "Subsection Submissions"
-msgstr ""
+msgstr "सदस्यता प्रस्तुतियाँ"
 
 #: courses/templates/courses/performance_ungraded_by_subsection.html:10
 msgid "How are learners doing on this subsection?"
-msgstr ""
+msgstr "इस उपधारा पर शिक्षार्थी कैसे काम कर रहे हैं?"
 
 #: courses/templates/courses/performance_ungraded_content.html:7
 #: courses/views/__init__.py:592
 msgid "How are learners doing on ungraded exercises?"
-msgstr ""
+msgstr "अनियंत्रित अभ्यास पर शिक्षार्थी कैसे कर रहे हैं?"
 
 #: courses/templates/courses/performance_ungraded_content.html:12
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each section. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "प्रत्येक पट्टी प्रत्येक अनुभाग के लिए सही और गलत सौंपा गया काम की औसत संख्या दिखाता है। प्रत्येक शिक्षार्थी से केवल अंतिम सौंपा गया काम को ही गिना जाता है।"
 
 #: courses/templates/courses/performance_ungraded_content.html:16
 msgid "Section Submissions"
-msgstr ""
+msgstr "अनुभाग प्रस्तुतियाँ"
 
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
 #: courses/templates/courses/permissions-retrieval-failed.html:5
 #: courses/templates/courses/permissions-retrieval-failed.html:7
 msgid "Permissions Retrieval Failed"
-msgstr ""
+msgstr "प्रतिभागी पुनर्प्राप्ति विफल"
 
 #: courses/templates/courses/permissions-retrieval-failed.html:9
 msgid ""
 "There was a problem retrieving course permissions for your account. Please "
 "try again. If you continue to experience issues, please let us know."
-msgstr ""
+msgstr "आपके खाते के लिए पाठ्यक्रम अनुमति प्राप्त करने में समस्या थी। कृपया पुन: प्रयास करें। यदि आप समस्याओं का अनुभव करना जारी रखते हैं, तो कृपया हमें बताएं।"
 
 #: courses/templates/courses/permissions-retrieval-failed.html:14
 msgid "Try Again"
-msgstr ""
+msgstr "पुनः प्रयास करें"
 
 #: courses/tests/test_views/__init__.py:236 courses/views/__init__.py:499
 #: courses/views/enrollment.py:23
 msgid "Activity"
-msgstr ""
+msgstr "पुनः प्रयास करें"
 
 #: courses/tests/test_views/__init__.py:246 courses/views/__init__.py:509
 #: courses/views/__init__.py:519 courses/views/__init__.py:529
 #: courses/views/enrollment.py:32
 msgid "Demographics"
-msgstr ""
+msgstr "जनसांख्यिकी"
 
 #: courses/tests/test_views/__init__.py:256 courses/views/__init__.py:539
 #: courses/views/enrollment.py:41
 msgid "Geography"
-msgstr ""
+msgstr "भूगोल-शास्र"
 
 #: courses/tests/test_views/__init__.py:294 courses/views/__init__.py:509
 #: courses/views/enrollment.py:61
@@ -1067,7 +1069,7 @@ msgstr "आयु"
 #: courses/tests/test_views/__init__.py:304 courses/views/__init__.py:519
 #: courses/views/enrollment.py:70
 msgid "Education"
-msgstr ""
+msgstr "शिक्षा"
 
 #: courses/tests/test_views/__init__.py:314 courses/views/__init__.py:529
 #: courses/views/enrollment.py:79
@@ -1089,54 +1091,54 @@ msgstr "वीडियोस "
 #: courses/views/__init__.py:585 courses/views/performance.py:38
 #: courses/views/performance.py:101
 msgid "Graded Content"
-msgstr ""
+msgstr "श्रेणीबद्ध की गई सामग्री"
 
 #: courses/tests/test_views/test_performance.py:76
 #: courses/views/__init__.py:594 courses/views/performance.py:47
 #: courses/views/performance.py:86
 msgid "Ungraded Problems"
-msgstr ""
+msgstr "अनियोजित समस्याएं"
 
 #: courses/tests/test_views/test_performance.py:529
 #: courses/views/__init__.py:606 courses/views/performance.py:65
 msgid "Learning Outcomes"
-msgstr ""
+msgstr "सिखने का फल"
 
 #: courses/views/__init__.py:553
 msgid "What are learners doing in my course?"
-msgstr ""
+msgstr "मेरे पाठ्यक्रम में शिक्षार्थी क्या कर रहे हैं?"
 
 #: courses/views/__init__.py:583
 msgid "How are learners doing on graded course assignments?"
-msgstr ""
+msgstr "शिक्षार्थी श्रेणीबद्ध कार्यप्रणाली सौंपा गया काम पर कैसे कर रहे हैं?"
 
 #: courses/views/__init__.py:604
 msgid "What is the breakdown for course learning outcomes?"
-msgstr ""
+msgstr "सीखने के परिणामों के लिए टूट - फूट क्या है?"
 
 #: courses/views/__init__.py:624
 msgid "How are learners responding to questions?"
-msgstr ""
+msgstr "शिक्षार्थी प्रश्नों के उत्तर कैसे दे रहे हैं?"
 
 #: courses/views/__init__.py:626
 msgid "Problem Response Report"
-msgstr ""
+msgstr "समस्या प्रतिक्रिया रिपोर्ट"
 
 #: courses/views/__init__.py:633
 msgid "How are learners doing on course assignments?"
-msgstr ""
+msgstr "शिक्षार्थी पाठ्यक्रम के कार्य कैसे कर रहे हैं?"
 
 #: courses/views/__init__.py:641
 msgid "What are individual learners doing?"
-msgstr ""
+msgstr "व्यक्तिगत शिक्षार्थी क्या कर रहे हैं?"
 
 #: courses/views/__init__.py:644
 msgid "Who is engaged? Who isn't?"
-msgstr ""
+msgstr "कौन लगा हुआ है? कौन नहीं है"
 
 #: courses/views/__init__.py:646
 msgid "All Learners"
-msgstr ""
+msgstr "सभी शिक्षार्थियों"
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
@@ -1156,12 +1158,12 @@ msgstr "प्रगति पर है"
 
 #: courses/views/__init__.py:713
 msgid "Ended"
-msgstr ""
+msgstr "समाप्त"
 
 #. Translators: This refers to a course that has not yet begun.
 #: courses/views/__init__.py:716
 msgid "Not Started Yet"
-msgstr ""
+msgstr "अभी तक शुरू नहीं हुआ"
 
 #: courses/views/__init__.py:718
 msgid "Start Date"
@@ -1192,7 +1194,7 @@ msgstr ""
 
 #: courses/views/engagement.py:52
 msgid "Engagement Content"
-msgstr ""
+msgstr "सगाई की सामग्री"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py:62
@@ -1204,7 +1206,7 @@ msgstr ""
 
 #: courses/views/engagement.py:88
 msgid "Engagement Videos"
-msgstr ""
+msgstr "सगाई के वीडियो"
 
 #. Translators: Do not translate UTC.
 #: courses/views/engagement.py:93
@@ -1214,7 +1216,7 @@ msgstr ""
 
 #: courses/views/engagement.py:94
 msgid "Looks like no one has watched any videos in these sections."
-msgstr ""
+msgstr "ऐसा लगता है कि इन खंडों में किसी ने कोई वीडियो नहीं देखा है।"
 
 #: courses/views/engagement.py:120 courses/views/performance.py:300
 msgid "Section Name"
@@ -1241,11 +1243,11 @@ msgstr ""
 #: courses/views/enrollment.py:94
 msgid ""
 "All above demographic data was self-reported at the time of registration."
-msgstr ""
+msgstr "सभी जनसांख्यिकीय डेटा पंजीकरण के समय स्व-रिपोर्ट किए गए थे।"
 
 #: courses/views/enrollment.py:107
 msgid "Enrollment Activity"
-msgstr ""
+msgstr "नामांकन गतिविधि"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py:117
@@ -1257,19 +1259,19 @@ msgstr ""
 
 #: courses/views/enrollment.py:148
 msgid "Enrollment Demographics by Age"
-msgstr ""
+msgstr "आयु द्वारा नामांकन जनसांख्यिकी"
 
 #: courses/views/enrollment.py:186
 msgid "Enrollment Demographics by Education"
-msgstr ""
+msgstr "शिक्षा द्वारा नामांकन जनसांख्यिकी"
 
 #: courses/views/enrollment.py:224
 msgid "Enrollment Demographics by Gender"
-msgstr ""
+msgstr "लिंग द्वारा नामांकन जनसांख्यिकी"
 
 #: courses/views/enrollment.py:262
 msgid "Enrollment Geography"
-msgstr ""
+msgstr "नामांकन भूगोल"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py:272
@@ -1289,20 +1291,20 @@ msgstr ""
 
 #: courses/views/performance.py:79
 msgid "Assignment Name"
-msgstr ""
+msgstr "सौंपा गया काम का नाम"
 
 #: courses/views/performance.py:90 courses/views/performance.py:370
 msgid "No submissions received for these exercises."
-msgstr ""
+msgstr "इन अभ्यासों के लिए कोई प्रस्तुतियाँ नहीं मिला।"
 
 #: courses/views/performance.py:106
 msgid "No submissions received for these assignments."
-msgstr ""
+msgstr "इन असाइनमेंट के लिए कोई प्रस्तुतियाँ  नहीं मिला है।"
 
 #: courses/views/performance.py:195 courses/views/performance.py:362
 #: courses/views/performance.py:460
 msgid "Performance: Problem Submissions"
-msgstr ""
+msgstr "प्रदर्शन: समस्या प्रस्तुतियाँ"
 
 #: courses/views/performance.py:257
 #, python-format
@@ -1322,7 +1324,7 @@ msgstr ""
 
 #: courses/views/performance.py:398 courses/views/performance.py:428
 msgid "Performance: Learning Outcomes"
-msgstr ""
+msgstr "प्रदर्शन: सीखना परिणाम"
 
 #: settings/base.py:416
 msgid "Terms of Service"
@@ -1341,7 +1343,7 @@ msgid ""
 "You do not have permission to view this page. If you believe you should have"
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
-msgstr ""
+msgstr "आपको इस पृष्ठ को देखने की अनुमति नहीं है। यदि आपको लगता है कि आपके पास इस पृष्ठ तक पहुंच होनी चाहिए, तो अपनी अनुमतियों को फिर से ताज़ा करने के लिए लॉग आउट करने की कोशिश करें।"
 
 #: templates/403.html:17
 msgid "Logout then Login"
@@ -1355,7 +1357,7 @@ msgstr "यह पेज मौजूद नहीं है"
 msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
-msgstr ""
+msgstr "हमें वह पृष्ठ नहीं मिल रहा है जिसकी आप तलाश कर रहे हैं। कृपया सुनिश्चित करें कि यूआरएल सही है और यदि पुन: प्रयास नहीं किया गया है।"
 
 #: templates/500.html:5 templates/500.html:8
 msgid "An Error Occurred"
@@ -1365,15 +1367,15 @@ msgstr "एक त्रुटि पाई गई"
 msgid ""
 "Our servers weren't able to complete your request. Please try again by "
 "refreshing this page or retracing your steps."
-msgstr ""
+msgstr "हमारे सर्वर आपके अनुरोध को पूरा करने में सक्षम नहीं थे। कृपया इस पृष्ठ को पुनश्चर्या करके या अपने चरणों को फिर से आज़माकर देखें।"
 
 #: templates/503.html:5 templates/503.html:7
 msgid "We're having trouble loading this page. Please try again in a minute."
-msgstr ""
+msgstr "हमें इस पृष्ठ को लोड करने में समस्या हो रही है। कृपया एक मिनट में पुनः प्रयास करें।"
 
 #: templates/503.html:10
 msgid "(Technical details: 503 Service Unavailable.)"
-msgstr ""
+msgstr "(तकनीकी विवरण: 503 सेवा अनुपलब्ध।)"
 
 #: templates/_announcement.html:28
 msgid "Close"
@@ -1381,7 +1383,7 @@ msgstr "बंद करें"
 
 #: templates/base-error.html:42
 msgid "Use our support tool to ask questions or share feedback."
-msgstr ""
+msgstr "प्रश्न पूछने या प्रतिक्रिया साझा करने के लिए हमारे समर्थन उपकरण का उपयोग करें।"
 
 #. Translators: This intention here is that a user clicks a button to contact
 #. a support group (e.g. edX Support, or MITx Support). Reorder the
@@ -1408,7 +1410,7 @@ msgstr ""
 
 #: templates/header.html:13
 msgid "Toggle navigation"
-msgstr ""
+msgstr "टॉगल से संचालित करना"
 
 #: templates/header.html:40
 msgid "Help"
@@ -1416,15 +1418,15 @@ msgstr "सहायता"
 
 #: templates/header.html:46
 msgid "Menu for"
-msgstr ""
+msgstr "के लिए सूची"
 
 #: templates/header.html:60
 msgid "Logout"
-msgstr ""
+msgstr "लॉग आउट"
 
 #: templates/lens-navigation.html:27
 msgid "Navigation Menu."
-msgstr ""
+msgstr "संचालन सूची।"
 
 #: templates/loading.html:7
 msgid "Loading"
@@ -1432,12 +1434,12 @@ msgstr "लोड हो रहा है"
 
 #: templates/section_error.html:10
 msgid "We are unable to load this chart."
-msgstr ""
+msgstr "हम इस चार्ट को लोड करने में असमर्थ हैं।"
 
 #: templates/section_error.html:12
 msgid "We are unable to load this table."
-msgstr ""
+msgstr "हम इस तालिका को लोड करने में असमर्थ हैं।"
 
 #: templates/section_error.html:14
 msgid "We are unable to load these metrics."
-msgstr ""
+msgstr "हम इन मैट्रिक्स को लोड करने में असमर्थ हैं।"
