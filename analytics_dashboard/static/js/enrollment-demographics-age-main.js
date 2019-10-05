@@ -14,7 +14,7 @@ require(['load/init-page'], function(page) {
                     el: '#enrollment-chart-view',
                     model: page.models.courseModel,
                     modelAttribute: 'ages',
-                    excludeData: ['Unknown'],
+                    excludeData: [gettext('Unknown')],
                     trends: [{
                         title: gettext('Number of Learners'),
                         color: 'rgb(58, 162, 224)',
