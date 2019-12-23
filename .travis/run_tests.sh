@@ -19,6 +19,9 @@ export PATH=$PATH:$PWD/node_modules/.bin
 node --version
 npm --version
 
+# HACK: remove package-lock.json because otherwise npm doesn't want to git clone (I WISH I KNEW WHY)
+rm package-lock.json
+
 # Pin pip version
 make pin_pip
 

@@ -47,7 +47,7 @@
     });
 
     // these are the default tasks when you run gulp
-    gulp.task('default', ['test']);
+    gulp.task('default', gulp.series('test'));
 
     // type 'gulp watch' to continuously run tests
     gulp.task('watch', function() {
