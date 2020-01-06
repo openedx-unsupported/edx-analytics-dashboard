@@ -1,9 +1,7 @@
 define(function(require) {
     'use strict';
 
-    var $ = require('jquery'),
-
-        CourseMetadataModel = require('learners/common/models/course-metadata'),
+    var CourseMetadataModel = require('learners/common/models/course-metadata'),
         LearnerCollection = require('learners/common/collections/learners'),
         LearnersController = require('learners/app/controller'),
         RootView = require('components/root/views/root'),
@@ -153,14 +151,6 @@ define(function(require) {
         // controller any time a route is hit which should change the
         // current page.
         describe('showPage event', function() {
-            it('renders the loading bar', function() {
-                jasmine.clock().install();
-                expect($('#nprogress')).not.toExist();
-                this.controller.triggerMethod('showPage');
-                expect($('#nprogress')).toExist();
-                jasmine.clock().uninstall();
-            });
-
             it('hides app-wide errors', function() {
                 this.controller.showLearnerDetailPage('learner');
                 server.requests[0].respond(200, {}, JSON.stringify(this.user));
