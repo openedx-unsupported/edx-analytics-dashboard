@@ -22,6 +22,13 @@ class InvalidAccessTokenError(PermissionsError):
     pass
 
 
+class AccessTokenRetrievalFailedError(PermissionsError):
+    """
+    Raise if access token retrieval fails (e.g. the backend is unreachable).
+    """
+    pass
+
+
 class PermissionsRetrievalFailedError(PermissionsError):
     """
     Raise if permissions retrieval fails (e.g. the backend is unreachable).

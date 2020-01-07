@@ -94,7 +94,7 @@ class LMSLoginPage(PageObject):
 
 
 class LoginPage(DashboardPage):
-    path = 'accounts/login'
+    path = 'login'
 
     def is_browser_on_page(self):
         return True

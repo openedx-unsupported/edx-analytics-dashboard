@@ -3,16 +3,26 @@ import logging
 
 from django.conf import settings
 from django.core.cache import cache
-from django.dispatch import receiver
 
 from social_django.utils import load_strategy
 
-from auth_backends.backends import EdXOpenIdConnect
+from auth_backends.backends import EdXOAuth2, EdXOpenIdConnect
+from edx_django_utils.monitoring import set_custom_metric
+from edx_rest_api_client.client import EdxRestApiClient
 
-from courses.exceptions import UserNotAssociatedWithBackendError, InvalidAccessTokenError, \
-    PermissionsRetrievalFailedError
+from courses.exceptions import (
+    AccessTokenRetrievalFailedError,
+    InvalidAccessTokenError,
+    PermissionsRetrievalFailedError,
+    UserNotAssociatedWithBackendError
+)
 
 logger = logging.getLogger(__name__)
+
+# This is the course-level role (defined in the edx-platform course_api
+# djangoapp) which we assume while querying the courses list API.  This limits
+# the result to courses that the target user only has staff access to.
+ROLE_FOR_ALLOWED_COURSES = 'staff'
 
 
 def _get_course_permission_cache_keys(user):
@@ -64,80 +74,80 @@ def revoke_user_course_permissions(user):
     cache.delete_many(_get_course_permission_cache_keys(user))
 
 
-def refresh_user_course_permissions(user):
-    """
-    Refresh user course permissions from the auth server.
-
-    Arguments
-        user (User) --  User whose permissions should be refreshed
-    """
-    # The authorized courses can come from different claims according to the user role. For example there could be a
-    # list of courses the user has access as staff and another that the user has access as instructor. The variable
-    # `settings.COURSE_PERMISSIONS_CLAIMS` is a list of the claims that contain the courses.
-    claims = settings.COURSE_PERMISSIONS_CLAIMS
-    data = _get_user_claims_values(user, claims)
-    courses_set = set()
-    for claim in claims:
-        courses_set.update(data.get(claim, []))
-    courses = list(courses_set)
-
-    # If the backend does not provide course permissions, assign no permissions and log a warning as there may be an
-    # issue with the backend provider.
-    if not courses:
-        logger.warning('Authorization server did not return course permissions. Defaulting to no course access.')
-        courses = []
-
-    set_user_course_permissions(user, courses)
-
-    return courses
-
-
 def get_user_tracking_id(user):
     """
     Returns the tracking ID associated with this user or None. The tracking ID
     is cached.
     """
+    cache_key = _get_tracking_cache_key(user)
+    tracking_id = cache.get(cache_key)
+
+    # if tracking ID was not found in cache, fetch and cache it
+    if tracking_id is None:
+        # first, attempt to get the tracking id from an oauth2 social_auth record
+        tracking_id = _get_lms_user_id_from_social_auth(user)
+
+        # if that doesn't yet exist, use the deprecated method using the OIDC backend
+        if tracking_id is None:
+            tracking_id = _deprecated_get_tracking_id_from_oidc_social_auth(user)
+            set_custom_metric('tracking_id_from_social_auth_provider', 'oidc')
+        else:
+            set_custom_metric('tracking_id_from_social_auth_provider', 'oauth2')
+
+        cache.set(cache_key, tracking_id)
+
+    set_custom_metric('tracking_id', tracking_id)
+    return tracking_id
+
+
+def _get_lms_user_id_from_social_auth(user):
+    """ Return the lms user id for the user if found. """
+    try:
+        return user.social_auth.filter(provider=EdXOAuth2.name).order_by('-id').first().extra_data.get(u'user_id')
+    except Exception:  # pylint: disable=broad-except
+        logger.warning(u'Exception retrieving lms_user_id from social_auth for user %s.', user.id, exc_info=True)
+    return None
+
+
+def _deprecated_get_tracking_id_from_oidc_social_auth(user):
+    """
+    Deprecated method for obtaining the tracking id from an OIDC provider.
+
+    Note: This can be removed when OIDC is removed.
+    """
+    def _get_user_claims_values(user, claims):
+        """ Return a list of values associate with the user claims. """
+        backend = EdXOpenIdConnect(strategy=load_strategy())
+        user_social_auth = user.social_auth.filter(provider=backend.name).first()
+
+        if not user_social_auth:
+            raise UserNotAssociatedWithBackendError
+
+        access_token = user_social_auth.extra_data.get('access_token')
+        token_type = user_social_auth.extra_data.get('token_type', 'Bearer')
+
+        if not access_token:
+            raise InvalidAccessTokenError
+
+        try:
+            data = backend.get_user_claims(access_token, claims, token_type=token_type)
+        except Exception as e:
+            raise PermissionsRetrievalFailedError(e)
+
+        return data
+
     claim = settings.USER_TRACKING_CLAIM
 
     if claim is None:
         return None
 
-    cache_key = _get_tracking_cache_key(user)
-    tracking_id = cache.get(cache_key)
-
-    if tracking_id is None:
-        # if tracking ID not found, then fetch and cache it
-        try:
-            data = _get_user_claims_values(user, [claim])
-            tracking_id = data.get(claim, None)
-            cache.set(cache_key, tracking_id)
-        except UserNotAssociatedWithBackendError:
-            logger.warning('Authorization server did not return tracking claim. Defaulting to None.')
-            return None
-
-    return tracking_id
-
-
-def _get_user_claims_values(user, claims):
-    """ Return a list of values associate with the user claims. """
-    backend = EdXOpenIdConnect(strategy=load_strategy())
-    user_social_auth = user.social_auth.filter(provider=backend.name).first()
-
-    if not user_social_auth:
-        raise UserNotAssociatedWithBackendError
-
-    access_token = user_social_auth.extra_data.get('access_token')
-    token_type = user_social_auth.extra_data.get('token_type', 'Bearer')
-
-    if not access_token:
-        raise InvalidAccessTokenError
-
     try:
-        data = backend.get_user_claims(access_token, claims, token_type=token_type)
-    except Exception as e:
-        raise PermissionsRetrievalFailedError(e)
-
-    return data
+        data = _get_user_claims_values(user, [claim])
+        tracking_id = data.get(claim, None)
+        return tracking_id
+    except UserNotAssociatedWithBackendError:
+        logger.warning('Authorization server did not return tracking claim. Defaulting to None for user %s.', user.id)
+        return None
 
 
 def get_user_course_permissions(user):
@@ -157,7 +167,7 @@ def get_user_course_permissions(user):
 
     # If data is not in the cache, refresh the permissions and validate against the new data.
     if not values.get(key_last_updated):
-        courses = refresh_user_course_permissions(user)
+        courses = _refresh_user_course_permissions(user)
 
     return courses
 
@@ -182,12 +192,58 @@ def user_can_view_course(user, course_id):
     return course_id in courses
 
 
-# pylint: disable=unused-argument
-@receiver(EdXOpenIdConnect.auth_complete_signal)
-def on_auth_complete(sender, user, id_token, **kwargs):
-    """ Callback to cache course permissions if available in the IDToken. """
-    allowed_courses = set()
-    for name in settings.COURSE_PERMISSIONS_CLAIMS:
-        if name in id_token:
-            allowed_courses.update(id_token[name])
+def _refresh_user_course_permissions(user):
+    """
+    Refresh user course permissions from the auth server.
+
+    Arguments
+        user (User) --  User whose permissions should be refreshed
+    """
+    access_token = _fetch_service_user_access_token()
+    try:
+        client = EdxRestApiClient(
+            settings.COURSE_API_URL,
+            jwt=access_token,
+        )
+        courses = client.courses(
+            username=user.username,
+            role=ROLE_FOR_ALLOWED_COURSES,
+        )
+        allowed_courses = list(set(course['id'] for course in courses))
+    except Exception as e:
+        raise PermissionsRetrievalFailedError(e)
+
     set_user_course_permissions(user, allowed_courses)
+
+    return allowed_courses
+
+
+def _fetch_service_user_access_token():
+    """
+    Returns an access token for the Insights service user.
+    The access token is retrieved using the Insights OAuth credentials and the
+    client credentials grant.  The token is cached for the lifetime of the
+    token, as specified by the OAuth provider's response. The token type is
+    JWT.
+
+    Returns:
+        str: JWT access token for the Insights service user.
+    """
+    key = 'oauth2_access_token'
+    access_token = cache.get(key)
+
+    if not access_token:
+        try:
+            url = '{root}/access_token'.format(root=settings.BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL)
+            access_token, expiration_datetime = EdxRestApiClient.get_oauth_access_token(
+                url,
+                settings.BACKEND_SERVICE_EDX_OAUTH2_KEY,
+                settings.BACKEND_SERVICE_EDX_OAUTH2_SECRET,
+                token_type='jwt',
+            )
+            expires = (expiration_datetime - datetime.datetime.utcnow()).total_seconds()
+            cache.set(key, access_token, expires)
+        except Exception as e:
+            raise AccessTokenRetrievalFailedError(e)
+
+    return access_token

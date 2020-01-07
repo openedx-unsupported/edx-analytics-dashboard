@@ -1,38 +1,54 @@
-import logging
+from datetime import datetime, timedelta
+import mock
 
-from auth_backends.backends import EdXOpenIdConnect
-from django.conf import settings
+import ddt
 from django.contrib.auth import get_user_model
 from django.core.cache import cache
 from django.test import TestCase
 from django.test.utils import override_settings
-import mock
-from testfixtures import LogCapture
 from social_django.models import UserSocialAuth
 from django_dynamic_fixture import G
 
-from courses.exceptions import UserNotAssociatedWithBackendError, InvalidAccessTokenError, \
-    PermissionsRetrievalFailedError
 from courses import permissions
-from courses.tests.utils import set_empty_permissions
+from courses.exceptions import (
+    AccessTokenRetrievalFailedError,
+    PermissionsRetrievalFailedError,
+)
 
 User = get_user_model()
 
 
+@ddt.ddt
 class PermissionsTests(TestCase):
+    TEST_ACCESS_TOKEN = 'test-access-token'
+
+    @classmethod
+    def setUpClass(cls):
+        super(PermissionsTests, cls).setUpClass()
+        cache.clear()
+
     def setUp(self):
         super(PermissionsTests, self).setUp()
         self.user = G(User)
         self.course_id = 'edX/DemoX/Demo_Course'
+        self.new_course_id = 'edX/DemoX/New_Demo_Course'
 
     def tearDown(self):
         super(PermissionsTests, self).tearDown()
         cache.clear()
 
+    def test_get_user_tracking_id_from_oauth2_provider(self):
+        expected_tracking_id = 56789
+        G(UserSocialAuth, user=self.user, provider='edx-oauth2', extra_data={'user_id': expected_tracking_id})
+        actual_tracking_id = permissions.get_user_tracking_id(self.user)
+        self.assertEqual(actual_tracking_id, expected_tracking_id)
+        # make sure tracking ID is cached
+        self.assertEqual(cache.get('user_tracking_id_{}'.format(self.user.id)), expected_tracking_id)
+
     @override_settings(USER_TRACKING_CLAIM='user_tracking_id')
     @mock.patch('auth_backends.backends.EdXOpenIdConnect.get_json',
                 mock.Mock(return_value={'user_tracking_id': 56789}))
-    def test_get_user_tracking_id(self):
+    def test_get_user_tracking_id_from_deprecated_oidc_provider(self):
         G(UserSocialAuth, user=self.user, provider='edx-oidc', extra_data={'access_token': '1234'})
         actual_tracking_id = permissions.get_user_tracking_id(self.user)
         expected_tracking_id = 56789
@@ -40,16 +56,11 @@ class PermissionsTests(TestCase):
         # make sure tracking ID is cached
         self.assertEqual(cache.get('user_tracking_id_{}'.format(self.user.id)), expected_tracking_id)
 
-    @override_settings(USER_TRACKING_CLAIM=None)
-    def test_no_user_tracking_id(self):
-        tracking_id = permissions.get_user_tracking_id(self.user)
-        self.assertEqual(tracking_id, None)
-
-    @mock.patch('courses.permissions._get_user_claims_values',
-                mock.Mock(side_effect=UserNotAssociatedWithBackendError))
-    def test_use_tracking_not_found(self):
-        tracking_id = permissions.get_user_tracking_id(self.user)
-        self.assertEqual(tracking_id, None)
+    @ddt.data('user_tracking_id', None)
+    def test_user_tracking_settings_with_no_user(self, user_tracking_claim_setting):
+        with override_settings(USER_TRACKING_CLAIM=user_tracking_claim_setting):
+            tracking_id = permissions.get_user_tracking_id(self.user)
+            self.assertEqual(tracking_id, None)
 
     def test_set_user_course_permissions_invalid_arguments(self):
         """
@@ -96,86 +107,127 @@ class PermissionsTests(TestCase):
         user.save()
 
         # With no permissions set, a superuser should still be able to view a course.
-        permissions.set_user_course_permissions(user, [])
+        permissions.set_user_course_permissions(self.user, [])
         self.assertTrue(permissions.user_can_view_course(user, self.course_id))
 
         # With permissions set, a superuser should be able to view a course
         # (although the individual permissions don't matter).
-        permissions.set_user_course_permissions(user, [self.course_id])
+        permissions.set_user_course_permissions(self.user, [self.course_id])
         self.assertTrue(permissions.user_can_view_course(user, self.course_id))
 
-    @mock.patch('courses.permissions.refresh_user_course_permissions', side_effect=set_empty_permissions)
-    def test_user_can_view_course_refresh(self, mock_refresh):
+    @mock.patch('courses.permissions.EdxRestApiClient')
+    def test_get_user_course_permissions(self, mock_client):
         """
-        Verify user_can_view_course refreshes permissions if they are not present in the cache.
+        Verify course permissions are retrieved and cached.
         """
+        mock_client.return_value.courses.return_value = [{'id': self.course_id}]
+        hour_expiration_datetime = datetime.utcnow() + timedelta(hours=1)
+        mock_client.get_oauth_access_token.return_value = (self.TEST_ACCESS_TOKEN, hour_expiration_datetime)
 
-        # If permissions have not been set, or have expired, they should be refreshed
-        self.assertFalse(permissions.user_can_view_course(self.user, self.course_id))
-        mock_refresh.assert_called_with(self.user)
-        self.assertFalse(permissions.user_can_view_course(self.user, self.course_id))
+        # Check permissions
+        expected_courses = [self.course_id]
+        self.assertEqual(permissions.get_user_course_permissions(self.user), expected_courses)
+        self.assertTrue(mock_client.mock_calls)
 
-    @mock.patch('auth_backends.backends.EdXOpenIdConnect.get_json',
-                mock.Mock(return_value={'staff_courses': ['edX/DemoX/Demo_Course']}))
-    def test_refresh_user_course_permissions(self):
+        # Check newly permitted course is not returned because the earlier permissions are cached
+        mock_client.reset_mock()
+        mock_client.return_value.courses.return_value = [{'id': self.new_course_id}]
+        self.assertEqual(permissions.get_user_course_permissions(self.user), expected_courses)
+        self.assertFalse(mock_client.mock_calls)
+
+        # Check original permissions again
+        mock_client.reset_mock()
+        expected_courses = [self.course_id]
+        self.assertEqual(permissions.get_user_course_permissions(self.user), expected_courses)
+        self.assertFalse(mock_client.mock_calls)
+
+    @mock.patch('courses.permissions.EdxRestApiClient')
+    def test_get_user_course_permissions_after_permission_timeout(self, mock_client):
         """
-        Verify course permissions are refreshed from the auth server.
+        Verify course permissions are retrieved multiple times when the permission cache times out.
         """
-        courses = [self.course_id]
+        mock_client.return_value.courses.return_value = [{'id': self.course_id}]
+        hour_expiration_datetime = datetime.utcnow() + timedelta(hours=1)
+        mock_client.get_oauth_access_token.return_value = (self.TEST_ACCESS_TOKEN, hour_expiration_datetime)
 
-        # Make sure the cache is completely empty
-        cache.clear()
+        with override_settings(COURSE_PERMISSIONS_TIMEOUT=0):
+            # Check permissions
+            expected_courses = [self.course_id]
+            self.assertEqual(permissions.get_user_course_permissions(self.user), expected_courses)
 
-        # If user is not associated with the edX OIDC backend, an exception should be raised.
-        self.assertRaises(UserNotAssociatedWithBackendError, permissions.refresh_user_course_permissions, self.user)
+            # Check permission succeeds for a newly permitted course because the earlier permission timed out
+            mock_client.return_value.courses.return_value = [{'id': self.new_course_id}]
+            expected_courses = [self.new_course_id]
+            self.assertEqual(permissions.get_user_course_permissions(self.user), expected_courses)
 
-        # Add backend association
-        usa = G(UserSocialAuth, user=self.user, provider='edx-oidc', extra_data={})
-
-        # An empty access token should raise an error
-        self.assertRaises(InvalidAccessTokenError, permissions.refresh_user_course_permissions, self.user)
-
-        # Set the access token
-        usa.extra_data = {'access_token': '1234'}
-        usa.save()
-
-        # Refreshing the permissions should populate the cache and return the updated permissions
-        actual = permissions.refresh_user_course_permissions(self.user)
-        self.assertListEqual(list(actual), courses)
-
-        # Verify the courses are stored in the cache
-        permissions_key = 'course_permissions_{}'.format(self.user.pk)
-        self.assertListEqual(cache.get(permissions_key), courses)
-
-        # Verify the updated time is stored in the cache
-        update_key = 'course_permissions_updated_at_{}'.format(self.user.pk)
-        self.assertIsNotNone(cache.get(update_key))
-
-        # Sanity check: verify the user can view the course
-        self.assertTrue(permissions.user_can_view_course(self.user, self.course_id))
-
-    @mock.patch('auth_backends.backends.EdXOpenIdConnect.get_json', mock.Mock(return_value={}))
-    def test_refresh_user_course_permissions_with_missing_permissions(self):
+    @mock.patch('courses.permissions.EdxRestApiClient')
+    def test_user_can_view_course_after_access_token_expiration(self, mock_client):
         """
-        If the authorization backend fails to return course permission data, a warning should be logged and the users
-        should be assumed to have no course permissions.
+        Verify during permission check the access token is updated only after it has expired.
         """
+        mock_client.return_value.courses.return_value = [{'id': self.course_id}]
+        expires_now_datetime = datetime.utcnow()
+        mock_client.get_oauth_access_token.return_value = (self.TEST_ACCESS_TOKEN, expires_now_datetime)
 
-        G(UserSocialAuth, user=self.user, provider='edx-oidc', extra_data={'access_token': '1234'})
+        with override_settings(COURSE_PERMISSIONS_TIMEOUT=0):
+            # Ensure the access token is requested the first time we check permission
+            permissions.get_user_course_permissions(self.user)
+            mock_client_expected_calls = self._get_access_token_client_calls() + self._get_permissions_client_calls()
+            self.assertEqual(mock_client.mock_calls, mock_client_expected_calls)
 
-        # Make sure the cache is completely empty
-        cache.clear()
+            # Ensure the access token is requested the second time since it was last set to expire immediately
+            mock_client.reset_mock()
+            hour_expiration_datetime = datetime.utcnow() + timedelta(hours=1)
+            mock_client.get_oauth_access_token.return_value = (self.TEST_ACCESS_TOKEN, hour_expiration_datetime)
+            permissions.get_user_course_permissions(self.user)
+            mock_client_expected_calls = self._get_access_token_client_calls() + self._get_permissions_client_calls()
+            self.assertEqual(mock_client.mock_calls, mock_client_expected_calls)
 
-        with LogCapture(level=logging.WARN) as l:
-            # Refresh permissions
-            actual = permissions.refresh_user_course_permissions(self.user)
+            # Ensure the access token is not requested the final time since it was last set to expire in an hour
+            mock_client.reset_mock()
+            permissions.get_user_course_permissions(self.user)
+            mock_client_expected_calls = self._get_permissions_client_calls()
+            self.assertEqual(mock_client.mock_calls, mock_client_expected_calls)
 
-            # Verify the correct permissions were returned
-            self.assertListEqual(actual, [])
+    def _get_access_token_client_calls(self):
+        return [
+            mock.call.get_oauth_access_token(
+                'http://provider-host/oauth2/access_token',
+                'test_backend_oauth2_key',
+                'test_backend_oauth2_secret',
+                token_type='jwt'
+            ),
+        ]
 
-            # Verify the warning was logged
-            l.check(('courses.permissions', 'WARNING',
-                     'Authorization server did not return course permissions. Defaulting to no course access.'), )
+    def _get_permissions_client_calls(self):
+        return [
+            mock.call('http://course-api-host/courses', jwt=self.TEST_ACCESS_TOKEN),
+            mock.call().courses(role='staff', username=self.user.username),
+        ]
+
+    @mock.patch('courses.permissions.EdxRestApiClient')
+    def test_user_can_view_course_with_access_token_failure(self, mock_client):
+        """
+        Verify proper error is raised when the access token request fails.
+        """
+        mock_client.get_oauth_access_token.side_effect = Exception
+
+        self.assertRaises(
+            AccessTokenRetrievalFailedError, permissions.user_can_view_course, self.user, 'test-course-id'
+        )
+
+    @mock.patch('courses.permissions.EdxRestApiClient')
+    def test_user_can_view_course_with_permissions_failure(self, mock_client):
+        """
+        Verify proper error is raised when the permissions api request fails.
+        """
+        mock_client.return_value.courses.side_effect = Exception
+        expires_now_datetime = datetime.utcnow()
+        mock_client.get_oauth_access_token.return_value = (self.TEST_ACCESS_TOKEN, expires_now_datetime)
+
+        self.assertRaises(
+            PermissionsRetrievalFailedError, permissions.user_can_view_course, self.user, 'test-course-id'
+        )
 
     def test_revoke_user_permissions(self):
         courses = [self.course_id]
@@ -192,29 +244,3 @@ class PermissionsTests(TestCase):
         permissions.revoke_user_course_permissions(self.user)
         self.assertIsNone(cache.get(permissions_key))
         self.assertIsNone(cache.get(update_key))
-
-    def test_get_user_course_permissions(self):
-        courses = [self.course_id]
-        with mock.patch('courses.permissions.refresh_user_course_permissions', return_value=courses):
-            self.assertListEqual(permissions.get_user_course_permissions(self.user), courses)
-
-        # Raise a PermissionsError if the backend is unavailable.
-        G(UserSocialAuth, user=self.user, provider='edx-oidc', extra_data={'access_token': '1234'})
-        with mock.patch('auth_backends.backends.EdXOpenIdConnect.get_json', side_effect=Exception):
-            self.assertRaises(PermissionsRetrievalFailedError, permissions.get_user_course_permissions, self.user)
-
-    def test_on_auth_complete(self):
-        """ Verify the function receives the auth_complete_signal signal, and updates course permissions. """
-        # No initial permissions
-        permissions.set_user_course_permissions(self.user, [])
-        self.assertFalse(permissions.user_can_view_course(self.user, self.course_id))
-
-        # Permissions can be granted
-        id_token = {claim: [self.course_id] for claim in settings.COURSE_PERMISSIONS_CLAIMS}
-        EdXOpenIdConnect.auth_complete_signal.send(None, user=self.user, id_token=id_token)
-        self.assertTrue(permissions.user_can_view_course(self.user, self.course_id))
-
-        # Permissions can be revoked
-        revoked_access_id_token = {claim: list() for claim in settings.COURSE_PERMISSIONS_CLAIMS}
-        EdXOpenIdConnect.auth_complete_signal.send(None, user=self.user, id_token=revoked_access_id_token)
-        self.assertFalse(permissions.user_can_view_course(self.user, self.course_id))
