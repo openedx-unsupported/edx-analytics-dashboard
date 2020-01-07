@@ -205,7 +205,7 @@ def _refresh_user_course_permissions(user):
             settings.COURSE_API_URL,
             jwt=access_token,
         )
-        courses = client.courses(
+        courses = client.courses().get(
             username=user.username,
             role=ROLE_FOR_ALLOWED_COURSES,
         )
