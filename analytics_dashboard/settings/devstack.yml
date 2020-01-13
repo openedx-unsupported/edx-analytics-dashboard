@@ -1,0 +1,24 @@
+---
+
+BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL: http://edx.devstack.lms:18000/oauth2
+COURSE_API_URL: http://edx.devstack.lms:18000/api/courses/v1/
+DATABASES:
+    default:
+        ATOMIC_REQUESTS: 'false'
+        CONN_MAX_AGE: 60
+        ENGINE: django.db.backends.mysql
+        HOST: edx.devstack.mysql
+        NAME: dashboard
+        OPTIONS:
+            connect_timeout: 10
+            init_command: SET sql_mode='STRICT_TRANS_TABLES'
+        PASSWORD: password
+        PORT: 3306
+        USER: dashboard001
+ENABLE_AUTO_AUTH: false
+GRADING_POLICY_API_URL: http://edx.devstack.lms:18000/api/grades/v1/
+SESSION_COOKIE_NAME: insights_sessionid
+SOCIAL_AUTH_EDX_OAUTH2_ISSUER: http://localhost:18000
+SOCIAL_AUTH_EDX_OAUTH2_LOGOUT_URL: http://localhost:18000/logout
+SOCIAL_AUTH_EDX_OAUTH2_PUBLIC_URL_ROOT: http://localhost:18000
+SOCIAL_AUTH_EDX_OAUTH2_URL_ROOT: http://edx.devstack.lms:18000
