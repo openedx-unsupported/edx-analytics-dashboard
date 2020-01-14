@@ -42,8 +42,9 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
 
     def get_context_data(self, **kwargs):
         context = super(CourseIndex, self).get_context_data(**kwargs)
-        courses = permissions.get_user_course_permissions(self.request.user)
-        if not courses:
+        user = self.request.user
+        courses = permissions.get_user_course_permissions(user)
+        if not courses and not (user.is_superuser or user.is_staff):
             # The user is probably not a course administrator and should not be using this application.
             raise PermissionDenied
 
@@ -93,8 +94,9 @@ class CourseIndexCSV(CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixi
     }
 
     def get_data(self):
-        courses = permissions.get_user_course_permissions(self.request.user)
-        if not courses:
+        user = self.request.user
+        courses = permissions.get_user_course_permissions(user)
+        if not courses and not (user.is_superuser or user.is_staff):
             # The user is probably not a course administrator and should not be using this application.
             raise PermissionDenied
 

@@ -120,7 +120,7 @@ class PermissionsTests(TestCase):
         """
         Verify course permissions are retrieved and cached.
         """
-        mock_client.return_value.courses.return_value.get.return_value = [{'id': self.course_id}]
+        self._setup_mock_client_courses_response(mock_client, [self.course_id])
         hour_expiration_datetime = datetime.utcnow() + timedelta(hours=1)
         mock_client.get_oauth_access_token.return_value = (self.TEST_ACCESS_TOKEN, hour_expiration_datetime)
 
@@ -131,7 +131,7 @@ class PermissionsTests(TestCase):
 
         # Check newly permitted course is not returned because the earlier permissions are cached
         mock_client.reset_mock()
-        mock_client.return_value.courses.return_value.get.return_value = [{'id': self.new_course_id}]
+        self._setup_mock_client_courses_response(mock_client, [self.new_course_id])
         self.assertEqual(permissions.get_user_course_permissions(self.user), expected_courses)
         self.assertFalse(mock_client.mock_calls)
 
@@ -146,7 +146,7 @@ class PermissionsTests(TestCase):
         """
         Verify course permissions are retrieved multiple times when the permission cache times out.
         """
-        mock_client.return_value.courses.return_value.get.return_value = [{'id': self.course_id}]
+        self._setup_mock_client_courses_response(mock_client, [self.course_id])
         hour_expiration_datetime = datetime.utcnow() + timedelta(hours=1)
         mock_client.get_oauth_access_token.return_value = (self.TEST_ACCESS_TOKEN, hour_expiration_datetime)
 
@@ -156,7 +156,7 @@ class PermissionsTests(TestCase):
             self.assertEqual(permissions.get_user_course_permissions(self.user), expected_courses)
 
             # Check permission succeeds for a newly permitted course because the earlier permission timed out
-            mock_client.return_value.courses.return_value.get.return_value = [{'id': self.new_course_id}]
+            self._setup_mock_client_courses_response(mock_client, [self.new_course_id])
             expected_courses = [self.new_course_id]
             self.assertEqual(permissions.get_user_course_permissions(self.user), expected_courses)
 
@@ -165,7 +165,7 @@ class PermissionsTests(TestCase):
         """
         Verify during permission check the access token is updated only after it has expired.
         """
-        mock_client.return_value.courses.return_value.get.return_value = [{'id': self.course_id}]
+        self._setup_mock_client_courses_response(mock_client, [self.course_id])
         expires_now_datetime = datetime.utcnow()
         mock_client.get_oauth_access_token.return_value = (self.TEST_ACCESS_TOKEN, expires_now_datetime)
 
@@ -203,7 +203,7 @@ class PermissionsTests(TestCase):
         return [
             mock.call('http://course-api-host/courses', jwt=self.TEST_ACCESS_TOKEN),
             mock.call().courses(),
-            mock.call().courses().get(role='staff', username=self.user.username),
+            mock.call().courses().get(page=1, page_size=100, role='staff', username=self.user.username),
         ]
 
     @mock.patch('courses.permissions.EdxRestApiClient')
@@ -245,3 +245,13 @@ class PermissionsTests(TestCase):
         permissions.revoke_user_course_permissions(self.user)
         self.assertIsNone(cache.get(permissions_key))
         self.assertIsNone(cache.get(update_key))
+
+    def _setup_mock_client_courses_response(self, mock_client, course_ids):
+        courses = [{'id': course_id} for course_id in course_ids]
+        response = {
+            'pagination': {
+                'next': None
+            },
+            'results': courses
+        }
+        mock_client.return_value.courses.return_value.get.return_value = response
