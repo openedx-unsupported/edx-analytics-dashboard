@@ -26,6 +26,7 @@ before_install:
 
     # Start up the relevant services
     - docker-compose -f .travis/docker-compose-travis.yml up -d
+    - docker exec analytics_api pip install --upgrade pip==9.0.3
     - docker exec analytics_api make -C /edx/app/analytics_api/analytics_api test.requirements
     - docker exec analytics_api make -C /edx/app/analytics_api/analytics_api travis
 
