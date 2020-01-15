@@ -18,13 +18,8 @@ class UserNotAssociatedWithBackendError(PermissionsError):
 class InvalidAccessTokenError(PermissionsError):
     """
     Raise if user has an empty or otherwise invalid access token.
-    """
-    pass
 
-
-class AccessTokenRetrievalFailedError(PermissionsError):
-    """
-    Raise if access token retrieval fails (e.g. the backend is unreachable).
+    Deprecated: This should removed when OIDC code is removed.
     """
     pass
 
