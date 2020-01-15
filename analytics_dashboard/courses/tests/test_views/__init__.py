@@ -142,7 +142,13 @@ class AuthTestMixin(MockApiTestMixin, PermissionsTestMixin, RedirectTestCaseMixi
 
     def _prepare_mock_client_to_return_empty_permissions(self, mock_client):
         """ Provided a mock of EdxRestApiClient, prepare it to return empty permissions """
-        mock_client.return_value.courses.return_value.get.return_value = []
+        mock_course_response = {
+            'pagination': {
+                'next': None
+            },
+            'results': []
+        }
+        mock_client.return_value.courses.return_value.get.return_value = mock_course_response
         hour_expiration_datetime = datetime.utcnow() + timedelta(hours=1)
         mock_client.get_oauth_access_token.return_value = ('test-access-token', hour_expiration_datetime)
 

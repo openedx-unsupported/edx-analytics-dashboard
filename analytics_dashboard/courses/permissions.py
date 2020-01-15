@@ -152,11 +152,14 @@ def _deprecated_get_tracking_id_from_oidc_social_auth(user):
 
 def get_user_course_permissions(user):
     """
-    Return list of courses accessible by user.
+    Return list of courses accessible by user or None to represent all courses.
 
     Arguments
         user (User) --  User for which course permissions should be returned
     """
+    # ensure we don't request course permissions for users which would return all courses
+    if user.is_superuser or user.is_staff:
+        return None
 
     key_courses, key_last_updated = _get_course_permission_cache_keys(user)
     keys = [key_courses, key_last_updated]
@@ -184,7 +187,7 @@ def user_can_view_course(user, course_id):
         bool -- True, if user can view course; otherwise, False.
     """
 
-    if user.is_superuser:
+    if user.is_superuser or user.is_staff:
         return True
 
     courses = get_user_course_permissions(user)
@@ -205,12 +208,31 @@ def _refresh_user_course_permissions(user):
             settings.COURSE_API_URL,
             jwt=access_token,
         )
-        courses = client.courses().get(
-            username=user.username,
-            role=ROLE_FOR_ALLOWED_COURSES,
-        )
+
+        courses = []
+        page = 1
+
+        while page:
+            logger.debug('Retrieving page %d of courses...', page)
+            response = client.courses().get(
+                username=user.username,
+                role=ROLE_FOR_ALLOWED_COURSES,
+                page=page,
+                page_size=100,
+            )
+
+            courses += response['results']
+
+            if response['pagination']['next']:
+                page += 1
+            else:
+                page = None
+                logger.debug('Completed retrieval of courses. Retrieved info for %d courses.', len(courses))
+
         allowed_courses = list(set(course['id'] for course in courses))
+
     except Exception as e:
+        logger.error("Unable to retrieve course permissions: %s", e)
         raise PermissionsRetrievalFailedError(e)
 
     set_user_course_permissions(user, allowed_courses)
