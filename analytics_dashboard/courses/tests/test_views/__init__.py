@@ -150,7 +150,7 @@ class AuthTestMixin(MockApiTestMixin, PermissionsTestMixin, RedirectTestCaseMixi
         }
         mock_client.return_value.courses.return_value.get.return_value = mock_course_response
         hour_expiration_datetime = datetime.utcnow() + timedelta(hours=1)
-        mock_client.get_oauth_access_token.return_value = ('test-access-token', hour_expiration_datetime)
+        mock_client.get_and_cache_jwt_oauth_access_token.return_value = ('test-access-token', hour_expiration_datetime)
 
 
 # pylint: disable=abstract-method

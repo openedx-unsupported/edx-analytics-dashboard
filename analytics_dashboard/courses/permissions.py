@@ -244,28 +244,17 @@ def _fetch_service_user_access_token():
     """
     Returns an access token for the Insights service user.
     The access token is retrieved using the Insights OAuth credentials and the
-    client credentials grant.  The token is cached for the lifetime of the
-    token, as specified by the OAuth provider's response. The token type is
-    JWT.
+    client credentials grant.
 
     Returns:
         str: JWT access token for the Insights service user.
     """
-    key = 'oauth2_access_token'
-    access_token = cache.get(key)
-
-    if not access_token:
-        try:
-            url = '{root}/access_token'.format(root=settings.BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL)
-            access_token, expiration_datetime = EdxRestApiClient.get_oauth_access_token(
-                url,
-                settings.BACKEND_SERVICE_EDX_OAUTH2_KEY,
-                settings.BACKEND_SERVICE_EDX_OAUTH2_SECRET,
-                token_type='jwt',
-            )
-            expires = (expiration_datetime - datetime.datetime.utcnow()).total_seconds()
-            cache.set(key, access_token, expires)
-        except Exception as e:
-            raise AccessTokenRetrievalFailedError(e)
-
-    return access_token
+    try:
+        access_token, _ = EdxRestApiClient.get_and_cache_jwt_oauth_access_token(
+            settings.BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL,
+            settings.BACKEND_SERVICE_EDX_OAUTH2_KEY,
+            settings.BACKEND_SERVICE_EDX_OAUTH2_SECRET,
+        )
+        return access_token
+    except Exception as e:
+        raise AccessTokenRetrievalFailedError(e)

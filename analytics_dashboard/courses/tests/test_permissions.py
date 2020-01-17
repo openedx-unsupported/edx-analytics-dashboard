@@ -122,7 +122,9 @@ class PermissionsTests(TestCase):
         """
         self._setup_mock_client_courses_response(mock_client, [self.course_id])
         hour_expiration_datetime = datetime.utcnow() + timedelta(hours=1)
-        mock_client.get_oauth_access_token.return_value = (self.TEST_ACCESS_TOKEN, hour_expiration_datetime)
+        mock_client.get_and_cache_jwt_oauth_access_token.return_value = (
+            self.TEST_ACCESS_TOKEN, hour_expiration_datetime
+        )
 
         # Check permissions
         expected_courses = [self.course_id]
@@ -148,7 +150,9 @@ class PermissionsTests(TestCase):
         """
         self._setup_mock_client_courses_response(mock_client, [self.course_id])
         hour_expiration_datetime = datetime.utcnow() + timedelta(hours=1)
-        mock_client.get_oauth_access_token.return_value = (self.TEST_ACCESS_TOKEN, hour_expiration_datetime)
+        mock_client.get_and_cache_jwt_oauth_access_token.return_value = (
+            self.TEST_ACCESS_TOKEN, hour_expiration_datetime
+        )
 
         with override_settings(COURSE_PERMISSIONS_TIMEOUT=0):
             # Check permissions
@@ -159,35 +163,6 @@ class PermissionsTests(TestCase):
             self._setup_mock_client_courses_response(mock_client, [self.new_course_id])
             expected_courses = [self.new_course_id]
             self.assertEqual(permissions.get_user_course_permissions(self.user), expected_courses)
-
-    @mock.patch('courses.permissions.EdxRestApiClient')
-    def test_user_can_view_course_after_access_token_expiration(self, mock_client):
-        """
-        Verify during permission check the access token is updated only after it has expired.
-        """
-        self._setup_mock_client_courses_response(mock_client, [self.course_id])
-        expires_now_datetime = datetime.utcnow()
-        mock_client.get_oauth_access_token.return_value = (self.TEST_ACCESS_TOKEN, expires_now_datetime)
-
-        with override_settings(COURSE_PERMISSIONS_TIMEOUT=0):
-            # Ensure the access token is requested the first time we check permission
-            permissions.get_user_course_permissions(self.user)
-            mock_client_expected_calls = self._get_access_token_client_calls() + self._get_permissions_client_calls()
-            self.assertEqual(mock_client.mock_calls, mock_client_expected_calls)
-
-            # Ensure the access token is requested the second time since it was last set to expire immediately
-            mock_client.reset_mock()
-            hour_expiration_datetime = datetime.utcnow() + timedelta(hours=1)
-            mock_client.get_oauth_access_token.return_value = (self.TEST_ACCESS_TOKEN, hour_expiration_datetime)
-            permissions.get_user_course_permissions(self.user)
-            mock_client_expected_calls = self._get_access_token_client_calls() + self._get_permissions_client_calls()
-            self.assertEqual(mock_client.mock_calls, mock_client_expected_calls)
-
-            # Ensure the access token is not requested the final time since it was last set to expire in an hour
-            mock_client.reset_mock()
-            permissions.get_user_course_permissions(self.user)
-            mock_client_expected_calls = self._get_permissions_client_calls()
-            self.assertEqual(mock_client.mock_calls, mock_client_expected_calls)
 
     def _get_access_token_client_calls(self):
         return [
@@ -211,7 +186,7 @@ class PermissionsTests(TestCase):
         """
         Verify proper error is raised when the access token request fails.
         """
-        mock_client.get_oauth_access_token.side_effect = Exception
+        mock_client.get_and_cache_jwt_oauth_access_token.side_effect = Exception
 
         self.assertRaises(
             AccessTokenRetrievalFailedError, permissions.user_can_view_course, self.user, 'test-course-id'
@@ -224,7 +199,7 @@ class PermissionsTests(TestCase):
         """
         mock_client.return_value.courses.side_effect = Exception
         expires_now_datetime = datetime.utcnow()
-        mock_client.get_oauth_access_token.return_value = (self.TEST_ACCESS_TOKEN, expires_now_datetime)
+        mock_client.get_and_cache_jwt_oauth_access_token.return_value = (self.TEST_ACCESS_TOKEN, expires_now_datetime)
 
         self.assertRaises(
             PermissionsRetrievalFailedError, permissions.user_can_view_course, self.user, 'test-course-id'
