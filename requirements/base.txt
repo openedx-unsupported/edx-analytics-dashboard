@@ -30,41 +30,42 @@ edx-analytics-data-api-client==0.15.3
 edx-auth-backends==2.0.2
 edx-ccx-keys==0.2.1
 edx-django-release-util==0.3.1
-edx-django-utils==0.4.1
+edx-django-utils==2.0.3
 edx-drf-extensions==1.6.1
 edx-i18n-tools==0.4.2
 edx-opaque-keys==0.4.4
-edx-rest-api-client==1.8.2
+edx-rest-api-client==3.0.0
 future==0.18.2            # via backports.os, pyjwkest
 greenlet==0.4.15          # via bpython
 idna==2.8                 # via requests
-importlib-metadata==1.3.0  # via path.py
+importlib-metadata==1.4.0  # via path.py
 libsass==0.11.1
 logutils==0.3.4.1
 more-itertools==5.0.0     # via zipp
+newrelic==5.4.1.134       # via edx-django-utils
 oauthlib==3.1.0           # via requests-oauthlib, social-auth-core
 path.py==11.5.2
 pathlib2==2.3.5           # via importlib-metadata
 pbr==5.4.4                # via stevedore
 pinax-announcements==2.0.4
 polib==1.1.0              # via edx-i18n-tools
-psutil==1.2.1             # via edx-drf-extensions
+psutil==1.2.1             # via edx-django-utils, edx-drf-extensions
 pycryptodomex==3.9.4      # via pyjwkest
 pygments==2.5.2           # via bpython
 pyjwkest==1.3.2           # via edx-drf-extensions, social-auth-core
 pyjwt==1.7.1              # via djangorestframework-jwt, edx-auth-backends, edx-rest-api-client, social-auth-core
-pymongo==3.10.0           # via edx-opaque-keys
+pymongo==3.10.1           # via edx-opaque-keys
 python-dateutil==2.8.1    # via edx-drf-extensions
 python-openid==2.2.5      # via social-auth-core
 pytz==2019.3              # via django
 pyyaml==5.3               # via edx-django-release-util, edx-i18n-tools
-regex==2020.1.7           # via awesome-slugify
+regex==2020.1.8           # via awesome-slugify
 requests-oauthlib==1.3.0  # via social-auth-core
 requests==2.22.0
 rest-condition==1.0.3     # via edx-drf-extensions
 scandir==1.10.0           # via pathlib2
 semantic-version==2.8.4   # via edx-drf-extensions
-six==1.13.0               # via blessings, bpython, djangorestframework-csv, edx-auth-backends, edx-ccx-keys, edx-django-release-util, edx-drf-extensions, edx-i18n-tools, edx-opaque-keys, libsass, more-itertools, pathlib2, pyjwkest, python-dateutil, social-auth-app-django, social-auth-core, stevedore
+six==1.14.0               # via blessings, bpython, djangorestframework-csv, edx-auth-backends, edx-ccx-keys, edx-django-release-util, edx-drf-extensions, edx-i18n-tools, edx-opaque-keys, libsass, more-itertools, pathlib2, pyjwkest, python-dateutil, social-auth-app-django, social-auth-core, stevedore
 slumber==0.7.1            # via edx-rest-api-client
 social-auth-app-django==1.2.0  # via edx-auth-backends
 social-auth-core[openidconnect]==1.7.0  # via edx-auth-backends, social-auth-app-django
@@ -72,6 +73,6 @@ stevedore==1.31.0
 typing==3.7.4.1           # via curtsies
 unicodecsv==0.14.1        # via djangorestframework-csv
 unidecode==0.4.21         # via awesome-slugify
-urllib3==1.25.7           # via requests
+urllib3==1.25.8           # via requests
 wcwidth==0.1.8            # via curtsies
-zipp==0.6.0               # via importlib-metadata
+zipp==1.0.0               # via importlib-metadata

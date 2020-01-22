@@ -18,7 +18,7 @@ class CourseStructureApiClient(EdxRestApiClient):
     DATETIME_FORMAT = "%Y-%m-%dT%H:%M:%SZ"
 
     def __init__(self, url, access_token, timeout):
-        super(CourseStructureApiClient, self).__init__(url, oauth_access_token=access_token, timeout=timeout)
+        super(CourseStructureApiClient, self).__init__(url, jwt=access_token, timeout=timeout)
 
     @property
     def all_courses(self):

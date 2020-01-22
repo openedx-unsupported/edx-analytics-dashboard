@@ -14,6 +14,7 @@ from django.utils import dateformat
 from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _, ugettext_noop
 from django.views.generic import TemplateView
+from edx_rest_api_client.client import EdxRestApiClient
 from edx_rest_api_client.exceptions import (HttpClientError, SlumberBaseException)
 from opaque_keys.edx.keys import CourseKey
 import requests
@@ -55,7 +56,11 @@ class CourseAPIMixin(object):
         self.course_api_enabled = switch_is_active('enable_course_api')
 
         if self.course_api_enabled and request.user.is_authenticated():
-            self.access_token = settings.COURSE_API_KEY or request.user.access_token
+            self.access_token = settings.COURSE_API_KEY or EdxRestApiClient.get_and_cache_jwt_oauth_access_token(
+                settings.BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL,
+                settings.BACKEND_SERVICE_EDX_OAUTH2_KEY,
+                settings.BACKEND_SERVICE_EDX_OAUTH2_SECRET,
+            )[0]
             self.course_api = CourseStructureApiClient(settings.COURSE_API_URL, self.access_token)
 
         return super(CourseAPIMixin, self).dispatch(request, *args, **kwargs)
