@@ -209,27 +209,27 @@ def _refresh_user_course_permissions(user):
             jwt=access_token,
         )
 
-        courses = []
+        course_ids = []
         page = 1
 
         while page:
             logger.debug('Retrieving page %d of courses...', page)
-            response = client.courses().get(
+            response = client.course_ids().get(
                 username=user.username,
                 role=ROLE_FOR_ALLOWED_COURSES,
                 page=page,
                 page_size=100,
             )
 
-            courses += response['results']
+            course_ids += response['results']
 
             if response['pagination']['next']:
                 page += 1
             else:
                 page = None
-                logger.debug('Completed retrieval of courses. Retrieved info for %d courses.', len(courses))
+                logger.debug('Completed retrieval of courses. Retrieved info for %d courses.', len(course_ids))
 
-        allowed_courses = list(set(course['id'] for course in courses))
+        allowed_courses = list(set(course_ids))
 
     except Exception as e:
         logger.error("Unable to retrieve course permissions: %s", e)

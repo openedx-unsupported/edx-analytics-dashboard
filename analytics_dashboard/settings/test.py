@@ -30,7 +30,7 @@ GRADING_POLICY_API_URL = 'http://grading-policy-api-host'
 BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL='http://provider-host/oauth2'
 BACKEND_SERVICE_EDX_OAUTH2_KEY='test_backend_oauth2_key'
 BACKEND_SERVICE_EDX_OAUTH2_SECRET='test_backend_oauth2_secret'
-COURSE_API_URL = 'http://course-api-host/courses'
+COURSE_API_URL = 'http://course-api-host/course_ids'
 COURSE_API_KEY = 'test_course_api_key'
 
 DATA_API_URL = 'http://data-api-host/api/v0'
