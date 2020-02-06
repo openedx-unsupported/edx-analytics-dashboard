@@ -1,19 +1,17 @@
-from datetime import datetime, timedelta
 import mock
 
 import ddt
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.cache import cache
 from django.test import TestCase
 from django.test.utils import override_settings
-from social_django.models import UserSocialAuth
 from django_dynamic_fixture import G
+from edx_django_utils.cache import TieredCache
+from social_django.models import UserSocialAuth
 
 from courses import permissions
-from courses.exceptions import (
-    AccessTokenRetrievalFailedError,
-    PermissionsRetrievalFailedError,
-)
+from courses.exceptions import PermissionsRetrievalFailedError
 
 User = get_user_model()
 
@@ -25,6 +23,7 @@ class PermissionsTests(TestCase):
     @classmethod
     def setUpClass(cls):
         super(PermissionsTests, cls).setUpClass()
+        TieredCache.dangerous_clear_all_tiers()
         cache.clear()
 
     def setUp(self):
@@ -35,6 +34,7 @@ class PermissionsTests(TestCase):
 
     def tearDown(self):
         super(PermissionsTests, self).tearDown()
+        TieredCache.dangerous_clear_all_tiers()
         cache.clear()
 
     def test_get_user_tracking_id_from_oauth2_provider(self):
@@ -115,18 +115,14 @@ class PermissionsTests(TestCase):
         permissions.set_user_course_permissions(self.user, [self.course_id])
         self.assertTrue(permissions.user_can_view_course(user, self.course_id))
 
-    @mock.patch('courses.permissions.EdxRestApiClient')
+    @mock.patch('courses.permissions.OAuthAPIClient')
     def test_get_user_course_permissions(self, mock_client):
         """
         Verify course permissions are retrieved and cached, even when paged.
         """
-        page_size = 100
-        course_ids = [str(x) for x in range(page_size + 50)]
+        page_size = 5
+        course_ids = [str(x) for x in range(page_size * 2)]
         expected_calls = self._setup_mock_course_ids_responses_and_expects(mock_client, course_ids, page_size=page_size)
-        hour_expiration_datetime = datetime.utcnow() + timedelta(hours=1)
-        mock_client.get_and_cache_jwt_oauth_access_token.return_value = (
-            self.TEST_ACCESS_TOKEN, hour_expiration_datetime
-        )
 
         # Check permissions
         self.assertItemsEqual(permissions.get_user_course_permissions(self.user), course_ids)
@@ -143,16 +139,12 @@ class PermissionsTests(TestCase):
         self.assertItemsEqual(permissions.get_user_course_permissions(self.user), course_ids)
         self.assertFalse(mock_client.mock_calls)
 
-    @mock.patch('courses.permissions.EdxRestApiClient')
+    @mock.patch('courses.permissions.OAuthAPIClient')
     def test_get_user_course_permissions_after_permission_timeout(self, mock_client):
         """
         Verify course permissions are retrieved multiple times when the permission cache times out.
         """
         self._setup_mock_course_ids_responses_and_expects(mock_client, [self.course_id])
-        hour_expiration_datetime = datetime.utcnow() + timedelta(hours=1)
-        mock_client.get_and_cache_jwt_oauth_access_token.return_value = (
-            self.TEST_ACCESS_TOKEN, hour_expiration_datetime
-        )
 
         with override_settings(COURSE_PERMISSIONS_TIMEOUT=0):
             # Check permissions
@@ -174,25 +166,12 @@ class PermissionsTests(TestCase):
             ),
         ]
 
-    @mock.patch('courses.permissions.EdxRestApiClient')
-    def test_user_can_view_course_with_access_token_failure(self, mock_client):
-        """
-        Verify proper error is raised when the access token request fails.
-        """
-        mock_client.get_and_cache_jwt_oauth_access_token.side_effect = Exception
-
-        self.assertRaises(
-            AccessTokenRetrievalFailedError, permissions.user_can_view_course, self.user, 'test-course-id'
-        )
-
-    @mock.patch('courses.permissions.EdxRestApiClient')
+    @mock.patch('courses.permissions.OAuthAPIClient')
     def test_user_can_view_course_with_permissions_failure(self, mock_client):
         """
         Verify proper error is raised when the permissions api request fails.
         """
-        mock_client.return_value.course_ids.side_effect = Exception
-        expires_now_datetime = datetime.utcnow()
-        mock_client.get_and_cache_jwt_oauth_access_token.return_value = (self.TEST_ACCESS_TOKEN, expires_now_datetime)
+        mock_client.return_value.get.side_effect = Exception
 
         self.assertRaises(
             PermissionsRetrievalFailedError, permissions.user_can_view_course, self.user, 'test-course-id'
@@ -226,7 +205,6 @@ class PermissionsTests(TestCase):
                 next_page_url = 'http://course-api-host/course_ids?page={}'.format(page + 1)
             response = {
                 'pagination': {
-
                     'next': next_page_url
                 },
                 'results': course_ids_for_page
@@ -234,20 +212,32 @@ class PermissionsTests(TestCase):
             paged_responses.append(response)
 
         # adds mock response for each page
-        mock_client.return_value.course_ids.return_value.get.side_effect = paged_responses
+        mock_client.return_value.get.return_value.json.side_effect = paged_responses
 
         # return expected calls for each page
-        return self._get_expected_permissions_client_calls(page_size, len(course_id_pages))
+        return self._get_expected_permissions_client_calls(len(course_id_pages))
 
-    def _get_expected_permissions_client_calls(self, page_size, expected_pages):
+    def _get_expected_permissions_client_calls(self, expected_pages):
         expected_calls = [
-            # Note: these auth calls will be filtered/removed when we switch to OAuthAPIClient
-            mock.call.get_and_cache_jwt_oauth_access_token(mock.ANY, mock.ANY, mock.ANY),
-            mock.call('http://course-api-host/course_ids', jwt=self.TEST_ACCESS_TOKEN),
+            # OAuthAPIClient auth request
+            mock.call(
+                settings.BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL,
+                settings.BACKEND_SERVICE_EDX_OAUTH2_KEY,
+                settings.BACKEND_SERVICE_EDX_OAUTH2_SECRET,
+            )
         ]
         for page in range(1, expected_pages + 1):
             expected_calls += [
-                mock.call().course_ids(),
-                mock.call().course_ids().get(page=page, page_size=page_size, role='staff', username=self.user.username),
+                mock.call().get(
+                    settings.COURSE_API_URL + 'course_ids/',
+                    params={
+                        'page': page,
+                        'page_size': 1000,
+                        'role': 'staff',
+                        'username': self.user.username
+                    }
+                ),
+                mock.call().get().json(),
+                mock.call().get().raise_for_status(),
             ]
         return expected_calls

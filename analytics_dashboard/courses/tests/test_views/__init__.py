@@ -35,7 +35,7 @@ class CourseAPIMixin(object):
     """
     COURSE_BLOCKS_API_TEMPLATE = \
         settings.COURSE_API_URL + \
-        '/blocks/?course_id={course_id}&requested_fields=children,graded&depth=all&all_blocks=true'
+        'blocks/?course_id={course_id}&requested_fields=children,graded&depth=all&all_blocks=true'
     GRADING_POLICY_API_TEMPLATE = settings.GRADING_POLICY_API_URL + '/policy/courses/{course_id}/'
 
     def mock_course_api(self, url, body=None, **kwargs):
@@ -65,7 +65,7 @@ class CourseAPIMixin(object):
         logger.debug('Mocking Course API URL: %s', url)
 
     def mock_course_detail(self, course_id, extra=None):
-        path = '{api}/courses/{course_id}/'.format(api=settings.COURSE_API_URL, course_id=course_id)
+        path = '{api}courses/{course_id}/'.format(api=settings.COURSE_API_URL, course_id=course_id)
         body = {'id': course_id, 'name': mock_course_name(course_id)}
         if extra:
             body.update(extra)
@@ -121,7 +121,7 @@ class AuthTestMixin(MockApiTestMixin, PermissionsTestMixin, RedirectTestCaseMixi
                 self.assertRedirectsNoFollow(response, settings.LOGIN_URL, next=self.path(course_id=course_id))
 
     @data(CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
-    @mock.patch('courses.permissions.EdxRestApiClient')
+    @mock.patch('courses.permissions.OAuthAPIClient')
     def test_authorization(self, course_id, mock_client):
         """
         Users must be authorized to view a course in order to view the course pages.
@@ -141,16 +141,13 @@ class AuthTestMixin(MockApiTestMixin, PermissionsTestMixin, RedirectTestCaseMixi
                 self.assertEqual(response.status_code, 403)
 
     def _prepare_mock_client_to_return_empty_permissions(self, mock_client):
-        """ Provided a mock of EdxRestApiClient, prepare it to return empty permissions """
-        mock_course_response = {
+        """ Provided a mock of OAuthAPIClient, prepare it to return empty permissions """
+        mock_client.get.return_value = {
             'pagination': {
                 'next': None
             },
             'results': []
         }
-        mock_client.return_value.course_ids.return_value.get.return_value = mock_course_response
-        hour_expiration_datetime = datetime.utcnow() + timedelta(hours=1)
-        mock_client.get_and_cache_jwt_oauth_access_token.return_value = ('test-access-token', hour_expiration_datetime)
 
 
 # pylint: disable=abstract-method

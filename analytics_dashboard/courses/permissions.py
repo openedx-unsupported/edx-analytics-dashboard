@@ -8,10 +8,9 @@ from social_django.utils import load_strategy
 
 from auth_backends.backends import EdXOAuth2, EdXOpenIdConnect
 from edx_django_utils.monitoring import set_custom_metric
-from edx_rest_api_client.client import EdxRestApiClient
+from edx_rest_api_client.client import OAuthAPIClient
 
 from courses.exceptions import (
-    AccessTokenRetrievalFailedError,
     InvalidAccessTokenError,
     PermissionsRetrievalFailedError,
     UserNotAssociatedWithBackendError
@@ -202,59 +201,49 @@ def _refresh_user_course_permissions(user):
     Arguments
         user (User) --  User whose permissions should be refreshed
     """
-    access_token = _fetch_service_user_access_token()
+    response_data = None
     try:
-        client = EdxRestApiClient(
-            settings.COURSE_API_URL,
-            jwt=access_token,
+        client = OAuthAPIClient(
+            settings.BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL,
+            settings.BACKEND_SERVICE_EDX_OAUTH2_KEY,
+            settings.BACKEND_SERVICE_EDX_OAUTH2_SECRET,
         )
-
         course_ids = []
         page = 1
 
         while page:
-            logger.debug('Retrieving page %d of courses...', page)
-            response = client.course_ids().get(
-                username=user.username,
-                role=ROLE_FOR_ALLOWED_COURSES,
-                page=page,
-                page_size=100,
+            logger.debug('Retrieving page %d of course_ids...', page)
+            response = client.get(
+                settings.COURSE_API_URL + 'course_ids/',
+                params={
+                    'username': user.username,
+                    'role': ROLE_FOR_ALLOWED_COURSES,
+                    'page': page,
+                    'page_size': 1000,
+                },
             )
+            response_data = response.json()
+            response.raise_for_status()  # response_data could be an error response
 
-            course_ids += response['results']
+            course_ids += response_data['results']
 
-            if response['pagination']['next']:
+            # ensure the next param is a string to avoid infinite loops for mock objects
+            if response_data['pagination']['next'] and isinstance(response_data['pagination']['next'], str):
                 page += 1
             else:
                 page = None
-                logger.debug('Completed retrieval of courses. Retrieved info for %d courses.', len(course_ids))
+                logger.debug('Completed retrieval of course_ids. Retrieved info for %d courses.', len(course_ids))
 
         allowed_courses = list(set(course_ids))
 
     except Exception as e:
-        logger.error("Unable to retrieve course permissions: %s", e)
+        logger.exception(
+            "Unable to retrieve course permissions for username=%s and response=%s",
+            user.username,
+            response_data
+        )
         raise PermissionsRetrievalFailedError(e)
 
     set_user_course_permissions(user, allowed_courses)
 
     return allowed_courses
-
-
-def _fetch_service_user_access_token():
-    """
-    Returns an access token for the Insights service user.
-    The access token is retrieved using the Insights OAuth credentials and the
-    client credentials grant.
-
-    Returns:
-        str: JWT access token for the Insights service user.
-    """
-    try:
-        access_token, _ = EdxRestApiClient.get_and_cache_jwt_oauth_access_token(
-            settings.BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL,
-            settings.BACKEND_SERVICE_EDX_OAUTH2_KEY,
-            settings.BACKEND_SERVICE_EDX_OAUTH2_SECRET,
-        )
-        return access_token
-    except Exception as e:
-        raise AccessTokenRetrievalFailedError(e)
