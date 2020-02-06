@@ -45,22 +45,9 @@ class PermissionsTests(TestCase):
         # make sure tracking ID is cached
         self.assertEqual(cache.get('user_tracking_id_{}'.format(self.user.id)), expected_tracking_id)
 
-    @override_settings(USER_TRACKING_CLAIM='user_tracking_id')
-    @mock.patch('auth_backends.backends.EdXOpenIdConnect.get_json',
-                mock.Mock(return_value={'user_tracking_id': 56789}))
-    def test_get_user_tracking_id_from_deprecated_oidc_provider(self):
-        G(UserSocialAuth, user=self.user, provider='edx-oidc', extra_data={'access_token': '1234'})
-        actual_tracking_id = permissions.get_user_tracking_id(self.user)
-        expected_tracking_id = 56789
-        self.assertEqual(actual_tracking_id, expected_tracking_id)
-        # make sure tracking ID is cached
-        self.assertEqual(cache.get('user_tracking_id_{}'.format(self.user.id)), expected_tracking_id)
-
-    @ddt.data('user_tracking_id', None)
-    def test_user_tracking_settings_with_no_user(self, user_tracking_claim_setting):
-        with override_settings(USER_TRACKING_CLAIM=user_tracking_claim_setting):
-            tracking_id = permissions.get_user_tracking_id(self.user)
-            self.assertEqual(tracking_id, None)
+    def test_user_tracking_settings_with_no_user(self):
+        tracking_id = permissions.get_user_tracking_id(self.user)
+        self.assertEqual(tracking_id, None)
 
     def test_set_user_course_permissions_invalid_arguments(self):
         """

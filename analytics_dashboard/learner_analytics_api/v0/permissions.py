@@ -1,7 +1,10 @@
+import logging
 from rest_framework.permissions import BasePermission
 
-from courses.exceptions import UserNotAssociatedWithBackendError
+from courses.exceptions import PermissionsRetrievalFailedError
 from courses.permissions import user_can_view_course
+
+logger = logging.getLogger(__name__)
 
 
 def user_can_view_learners_in_course(user, course_id):
@@ -11,7 +14,11 @@ def user_can_view_learners_in_course(user, course_id):
     """
     try:
         user_has_permission = user_can_view_course(user, course_id)
-    except UserNotAssociatedWithBackendError:
+    except PermissionsRetrievalFailedError:
+        logger.exception(
+            "Unable to retrieve course permissions for username=%s in v0",
+            user.username,
+        )
         user_has_permission = False
     return user_has_permission
 
