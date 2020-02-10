@@ -333,11 +333,10 @@ TIME_FORMAT = 'g:i A'
 ########## AUTHENTICATION
 AUTH_USER_MODEL = 'core.User'
 
-# Allow authentication via edX OAuth2 and edX OAuth2/OpenID Connect
+# Allow authentication via edX OAuth2
 AUTHENTICATION_BACKENDS = (
     'auth_backends.backends.EdXOAuth2',
     'django.contrib.auth.backends.ModelBackend',
-    'auth_backends.backends.EdXOpenIdConnect',
 )
 
 # Set to true if using SSL and running behind a proxy
@@ -346,17 +345,6 @@ SOCIAL_AUTH_REDIRECT_IS_HTTPS = False
 SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'email']
 
 SOCIAL_AUTH_STRATEGY = 'auth_backends.strategies.EdxDjangoStrategy'
-
-# These OIDC variables are DEPRECATED.
-# Set these to the correct values for your OAuth2/OpenID Connect provider
-SOCIAL_AUTH_EDX_OIDC_KEY = 'YOUR_OAUTH2_KEY'
-SOCIAL_AUTH_EDX_OIDC_SECRET = 'secret'
-SOCIAL_AUTH_EDX_OIDC_URL_ROOT = 'http://127.0.0.1:8000/oauth2'
-SOCIAL_AUTH_EDX_OIDC_ISSUER = 'http://127.0.0.1:8000/oauth2'
-SOCIAL_AUTH_EDX_OIDC_LOGOUT_URL = 'http://127.0.0.1:8000/logout'
-
-# This value should be the same as SOCIAL_AUTH_EDX_OIDC_SECRET
-SOCIAL_AUTH_EDX_OIDC_ID_TOKEN_DECRYPTION_KEY = 'secret'
 
 # Set these to the correct values for your OAuth2 provider (e.g., devstack)
 SOCIAL_AUTH_EDX_OAUTH2_KEY = "insights-sso-key"
@@ -387,12 +375,6 @@ LOGOUT_REDIRECT_URL = '/'
 # Determines if course permissions should be checked before rendering course views.
 ENABLE_COURSE_PERMISSIONS = True
 
-# What scopes and claims should be used to get courses
-EXTRA_SCOPE = ['permissions', 'course_staff']
-COURSE_PERMISSIONS_CLAIMS = ['staff_courses']
-
-# claim for the identifier to track users
-USER_TRACKING_CLAIM = 'user_tracking_id'
 ########## END AUTHENTICATION
 
 # The application and platform display names to be used in templates, emails, etc.

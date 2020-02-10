@@ -4,17 +4,11 @@ import logging
 from django.conf import settings
 from django.core.cache import cache
 
-from social_django.utils import load_strategy
-
-from auth_backends.backends import EdXOAuth2, EdXOpenIdConnect
+from auth_backends.backends import EdXOAuth2
 from edx_django_utils.monitoring import set_custom_metric
 from edx_rest_api_client.client import OAuthAPIClient
 
-from courses.exceptions import (
-    InvalidAccessTokenError,
-    PermissionsRetrievalFailedError,
-    UserNotAssociatedWithBackendError
-)
+from courses.exceptions import PermissionsRetrievalFailedError
 
 logger = logging.getLogger(__name__)
 
@@ -85,14 +79,6 @@ def get_user_tracking_id(user):
     if tracking_id is None:
         # first, attempt to get the tracking id from an oauth2 social_auth record
         tracking_id = _get_lms_user_id_from_social_auth(user)
-
-        # if that doesn't yet exist, use the deprecated method using the OIDC backend
-        if tracking_id is None:
-            tracking_id = _deprecated_get_tracking_id_from_oidc_social_auth(user)
-            set_custom_metric('tracking_id_from_social_auth_provider', 'oidc')
-        else:
-            set_custom_metric('tracking_id_from_social_auth_provider', 'oauth2')
-
         cache.set(cache_key, tracking_id)
 
     set_custom_metric('tracking_id', tracking_id)
@@ -104,49 +90,12 @@ def _get_lms_user_id_from_social_auth(user):
     try:
         return user.social_auth.filter(provider=EdXOAuth2.name).order_by('-id').first().extra_data.get(u'user_id')
     except Exception:  # pylint: disable=broad-except
-        logger.warning(u'Exception retrieving lms_user_id from social_auth for user %s.', user.id, exc_info=True)
+        logger.warning(
+            u'Exception retrieving lms_user_id from social_auth for user %s. Defaulting to None.',
+            user.id,
+            exc_info=True
+        )
     return None
-
-
-def _deprecated_get_tracking_id_from_oidc_social_auth(user):
-    """
-    Deprecated method for obtaining the tracking id from an OIDC provider.
-
-    Note: This can be removed when OIDC is removed.
-    """
-    def _get_user_claims_values(user, claims):
-        """ Return a list of values associate with the user claims. """
-        backend = EdXOpenIdConnect(strategy=load_strategy())
-        user_social_auth = user.social_auth.filter(provider=backend.name).first()
-
-        if not user_social_auth:
-            raise UserNotAssociatedWithBackendError
-
-        access_token = user_social_auth.extra_data.get('access_token')
-        token_type = user_social_auth.extra_data.get('token_type', 'Bearer')
-
-        if not access_token:
-            raise InvalidAccessTokenError
-
-        try:
-            data = backend.get_user_claims(access_token, claims, token_type=token_type)
-        except Exception as e:
-            raise PermissionsRetrievalFailedError(e)
-
-        return data
-
-    claim = settings.USER_TRACKING_CLAIM
-
-    if claim is None:
-        return None
-
-    try:
-        data = _get_user_claims_values(user, [claim])
-        tracking_id = data.get(claim, None)
-        return tracking_id
-    except UserNotAssociatedWithBackendError:
-        logger.warning('Authorization server did not return tracking claim. Defaulting to None for user %s.', user.id)
-        return None
 
 
 def get_user_course_permissions(user):

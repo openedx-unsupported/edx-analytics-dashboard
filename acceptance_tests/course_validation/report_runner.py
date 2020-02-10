@@ -191,7 +191,7 @@ def main():
     start = time.time()
     http_client = requests.Session()
 
-    # Log into Insights using either OIDC (via LMS) or auto auth.
+    # Log into Insights via LMS or auto auth.
     login(http_client)
 
     # Get courses on which to report

@@ -20,9 +20,6 @@ DATABASES = {
 }
 
 ENABLE_AUTO_AUTH = True
-SOCIAL_AUTH_EDX_OIDC_URL_ROOT = 'http://example.com'
-
-USER_TRACKING_CLAIM = None
 
 LMS_COURSE_SHORTCUT_BASE_URL = 'http://lms-host'
 CMS_COURSE_SHORTCUT_BASE_URL = 'http://cms-host'

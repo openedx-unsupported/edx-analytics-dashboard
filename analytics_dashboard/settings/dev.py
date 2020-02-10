@@ -60,14 +60,6 @@ FULL_APPLICATION_NAME = '{0} {1}'.format(PLATFORM_NAME, APPLICATION_NAME)
 
 
 ########## AUTHENTICATION/AUTHORIZATION
-# Set these to the correct values for your OAuth2/OpenID Connect provider
-SOCIAL_AUTH_EDX_OIDC_KEY = 'replace-me'
-SOCIAL_AUTH_EDX_OIDC_SECRET = 'replace-me'
-SOCIAL_AUTH_EDX_OIDC_URL_ROOT = 'http://127.0.0.1:18000/oauth2'
-
-# This value should be the same as SOCIAL_AUTH_EDX_OIDC_SECRET
-SOCIAL_AUTH_EDX_OIDC_ID_TOKEN_DECRYPTION_KEY = SOCIAL_AUTH_EDX_OIDC_SECRET
-
 ENABLE_AUTO_AUTH = True
 
 # Uncomment the line below to avoid having to worry about course permissions

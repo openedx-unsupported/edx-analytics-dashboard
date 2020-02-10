@@ -102,7 +102,7 @@ The following flags are available:
 
 Authentication & Authorization
 ------------------------------
-By default, this application relies on an external OAuth2/Open ID Connect provider
+By default, this application relies on an external OAuth2 provider
 (contained within the [LMS](https://github.com/edx/edx-platform)) for authentication and authorization. If you are a
 developer, and do not want to setup edx-platform, you can get around this requirement by doing the following:
 
@@ -110,8 +110,8 @@ developer, and do not want to setup edx-platform, you can get around this requir
 2. Set `ENABLE_COURSE_PERMISSIONS` to `False` in your settings file.
 3. Visit `http://localhost:9000/test/auto_auth/` to create and login as a new user.
 
-Note: When using Open ID Connect, the dashboard and provider must be accessed via different host names
-(e.g. dashboard.example.org and provider.example.org) in order to avoid issues with session cookies being overwritten.
+Note: When using OAuth2, the dashboard and provider must be accessed via different host names
+(e.g. dashboard.example.org and provider.example.org) in order to avoid issues with session cookies being overwritten. (This was true with the use of the removed Open ID Connect, but is untested since.)
 
 Note 2: Seeing signature expired errors upon login? Make sure the clocks of your dashboard and OAuth servers are synced
 with a centralized time server. If you are using a VM, the VM's clock may skew when the host is suspended. Restarting
