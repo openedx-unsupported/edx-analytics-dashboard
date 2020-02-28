@@ -34,9 +34,8 @@ clean:
 	coverage erase
 
 test_python_no_compress: clean
-	python manage.py test analytics_dashboard common --settings=analytics_dashboard.settings.test --with-coverage \
-	--cover-package=analytics_dashboard --cover-package=common --cover-branches --cover-html --cover-html-dir=$(COVERAGE)/html/ \
-	--with-ignore-docstrings --cover-xml --cover-xml-file=$(COVERAGE)/coverage.xml
+	pytest analytics_dashboard common --cov=analytics_dashboard --cov=common --cov-branch --cov-report=html:$(COVERAGE)/html/ \
+	--cov-report=xml:$(COVERAGE)/coverage.xml
 
 test_compress: static
 	# No longer does anything. Kept for legacy support.

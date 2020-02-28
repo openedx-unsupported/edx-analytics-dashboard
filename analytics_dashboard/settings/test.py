@@ -3,11 +3,6 @@ from __future__ import absolute_import
 from analytics_dashboard.settings.base import *
 from analytics_dashboard.settings.logger import get_logger_config
 
-########## TEST SETTINGS
-INSTALLED_APPS += (
-    'django_nose',
-)
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 ########## IN-MEMORY TEST DATABASE
 DATABASES = {
     "default": {
