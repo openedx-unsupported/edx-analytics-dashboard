@@ -1,5 +1,7 @@
 # Pro-tip: Try not to put anything here. There should be no dependency in
 #	production that isn't in development.
+-c constraints.txt
+
 -r base.txt
 
 mysqlclient<2.0.0                           # Constrained for Python 2

@@ -4,78 +4,78 @@
 #
 #    make upgrade
 #
--e git+https://github.com/edx/django-lang-pref-middleware.git@0.1.0#egg=django-lang-pref-middleware
-awesome-slugify==1.6.5
-backports.os==0.1.1
-blessings==1.7
-bpython==0.16
-certifi==2019.11.28
-chardet==3.0.4
-configparser==4.0.2
-contextlib2==0.6.0.post1
-curtsies==0.3.1
-django-appconf==1.0.2
-django-braces==1.11.0
-django-countries==4.5
-django-crispy-forms==1.6.1
-django-model-utils==2.6.1
-django-soapbox==1.3
-django-waffle==0.12.0
-django-webpack-loader==0.4.1
-django==1.11.28
-djangorestframework-csv==2.0.0
-djangorestframework-jwt==1.11.0
-djangorestframework==3.6.3
-edx-analytics-data-api-client==0.15.3
-edx-auth-backends==3.0.2
-edx-ccx-keys==0.2.1
-edx-django-release-util==0.3.1
-edx-django-utils==2.0.4
-edx-drf-extensions==1.6.1
-edx-i18n-tools==0.4.2
-edx-opaque-keys==0.4.4
-edx-rest-api-client==3.0.2
-future==0.18.2
-greenlet==0.4.15
-gunicorn==0.17.4
-idna==2.8
-importlib-metadata==1.5.0
-libsass==0.11.1
-logutils==0.3.4.1
-mysqlclient==1.4.6
-newrelic==5.6.0.135
-nodeenv==1.3.3
-oauthlib==3.1.0
-path.py==11.5.2
-pathlib2==2.3.5
-pbr==5.4.4
-pinax-announcements==2.0.4
-polib==1.1.0
-psutil==1.2.1
-pycryptodomex==3.9.6
-pygments==2.5.2
-pyjwkest==1.3.2
-pyjwt==1.7.1
-pymongo==3.10.1
-python-dateutil==2.8.1
-python-memcached==1.58
-python-openid==2.2.5
-pytz==2019.3
-pyyaml==5.3
-regex==2020.1.8
-requests-oauthlib==1.3.0
-requests==2.22.0
-rest-condition==1.0.3
-scandir==1.10.0
-semantic-version==2.8.4
-six==1.14.0
-slumber==0.7.1
-social-auth-app-django==3.1.0
-social-auth-core==3.2.0
-stevedore==1.31.0
-typing==3.7.4.1
-unicodecsv==0.14.1
-unidecode==0.4.21
-urllib3==1.25.8
-wcwidth==0.1.8
-zipp==1.1.0
+-e git+https://github.com/edx/django-lang-pref-middleware.git@0.1.0#egg=django-lang-pref-middleware  # via -r requirements/base.txt
+awesome-slugify==1.6.5    # via -r requirements/base.txt
+backports.os==0.1.1       # via -r requirements/base.txt, path.py
+blessings==1.7            # via -r requirements/base.txt, curtsies
+bpython==0.16             # via -r requirements/base.txt
+certifi==2019.11.28       # via -r requirements/base.txt, requests
+chardet==3.0.4            # via -r requirements/base.txt, requests
+configparser==4.0.2       # via -r requirements/base.txt, importlib-metadata
+contextlib2==0.6.0.post1  # via -r requirements/base.txt, importlib-metadata, zipp
+curtsies==0.3.1           # via -r requirements/base.txt, bpython
+django-appconf==1.0.2     # via -r requirements/base.txt
+django-braces==1.11.0     # via -r requirements/base.txt
+django-countries==4.5     # via -r requirements/base.txt
+django-crispy-forms==1.6.1  # via -r requirements/base.txt
+django-model-utils==2.6.1  # via -r requirements/base.txt
+django-soapbox==1.3       # via -r requirements/base.txt
+django-waffle==0.12.0     # via -r requirements/base.txt, edx-django-utils, edx-drf-extensions
+django-webpack-loader==0.4.1  # via -r requirements/base.txt
+django==1.11.28           # via -c requirements/constraints.txt, -r requirements/base.txt, django-model-utils, edx-auth-backends, edx-django-release-util, edx-django-utils, edx-drf-extensions, edx-i18n-tools, rest-condition
+djangorestframework-csv==2.0.0  # via -r requirements/base.txt
+djangorestframework-jwt==1.11.0  # via -r requirements/base.txt, edx-drf-extensions
+djangorestframework==3.6.3  # via -r requirements/base.txt, djangorestframework-csv, edx-drf-extensions, rest-condition
+edx-analytics-data-api-client==0.15.3  # via -r requirements/base.txt
+edx-auth-backends==3.0.2  # via -r requirements/base.txt
+edx-ccx-keys==0.2.1       # via -r requirements/base.txt
+edx-django-release-util==0.3.1  # via -r requirements/base.txt
+edx-django-utils==2.0.4   # via -c requirements/constraints.txt, -r requirements/base.txt, edx-drf-extensions, edx-rest-api-client
+edx-drf-extensions==3.0.0  # via -r requirements/base.txt
+edx-i18n-tools==0.4.2     # via -r requirements/base.txt
+edx-opaque-keys==0.4.4    # via -r requirements/base.txt, edx-ccx-keys, edx-drf-extensions
+edx-rest-api-client==3.0.2  # via -c requirements/constraints.txt, -r requirements/base.txt
+future==0.18.2            # via -r requirements/base.txt, backports.os, pyjwkest
+greenlet==0.4.15          # via -r requirements/base.txt, bpython
+gunicorn==0.17.4          # via -r requirements/production.in
+idna==2.9                 # via -r requirements/base.txt, requests
+importlib-metadata==1.5.0  # via -r requirements/base.txt, path.py
+libsass==0.11.1           # via -r requirements/base.txt
+logutils==0.3.4.1         # via -r requirements/base.txt
+mysqlclient==1.4.6        # via -r requirements/production.in
+newrelic==5.8.0.136       # via -r requirements/base.txt, edx-django-utils
+nodeenv==1.3.3            # via -r requirements/production.in
+oauthlib==3.1.0           # via -r requirements/base.txt, requests-oauthlib, social-auth-core
+path.py==11.5.2           # via -r requirements/base.txt, edx-i18n-tools
+pathlib2==2.3.5           # via -r requirements/base.txt, importlib-metadata
+pbr==5.4.4                # via -r requirements/base.txt, stevedore
+pinax-announcements==2.0.4  # via -r requirements/base.txt
+polib==1.1.0              # via -r requirements/base.txt, edx-i18n-tools
+psutil==1.2.1             # via -r requirements/base.txt, edx-django-utils, edx-drf-extensions
+pycryptodomex==3.9.7      # via -r requirements/base.txt, pyjwkest
+pygments==2.5.2           # via -r requirements/base.txt, bpython
+pyjwkest==1.3.2           # via -r requirements/base.txt, edx-drf-extensions
+pyjwt==1.7.1              # via -r requirements/base.txt, djangorestframework-jwt, edx-auth-backends, edx-rest-api-client, social-auth-core
+pymongo==3.10.1           # via -r requirements/base.txt, edx-opaque-keys
+python-dateutil==2.8.1    # via -r requirements/base.txt, edx-drf-extensions
+python-memcached==1.58    # via -r requirements/production.in
+python-openid==2.2.5      # via -r requirements/base.txt, social-auth-core
+pytz==2019.3              # via -r requirements/base.txt, django
+pyyaml==5.3               # via -r requirements/base.txt, -r requirements/production.in, edx-django-release-util, edx-i18n-tools
+regex==2020.2.20          # via -r requirements/base.txt, awesome-slugify
+requests-oauthlib==1.3.0  # via -r requirements/base.txt, social-auth-core
+requests==2.23.0          # via -r requirements/base.txt, bpython, edx-analytics-data-api-client, edx-drf-extensions, edx-rest-api-client, pyjwkest, requests-oauthlib, slumber, social-auth-core
+rest-condition==1.0.3     # via -r requirements/base.txt, edx-drf-extensions
+scandir==1.10.0           # via -r requirements/base.txt, pathlib2
+semantic-version==2.8.4   # via -r requirements/base.txt, edx-drf-extensions
+six==1.14.0               # via -r requirements/base.txt, blessings, bpython, djangorestframework-csv, edx-auth-backends, edx-ccx-keys, edx-django-release-util, edx-drf-extensions, edx-i18n-tools, edx-opaque-keys, libsass, pathlib2, pyjwkest, python-dateutil, python-memcached, social-auth-app-django, social-auth-core, stevedore
+slumber==0.7.1            # via -r requirements/base.txt, edx-rest-api-client
+social-auth-app-django==3.1.0  # via -r requirements/base.txt, edx-auth-backends
+social-auth-core==3.2.0   # via -r requirements/base.txt, edx-auth-backends, social-auth-app-django
+stevedore==1.32.0         # via -r requirements/base.txt, edx-opaque-keys
+typing==3.7.4.1           # via -r requirements/base.txt, curtsies
+unicodecsv==0.14.1        # via -r requirements/base.txt, djangorestframework-csv
+unidecode==0.4.21         # via -r requirements/base.txt, awesome-slugify
+urllib3==1.25.8           # via -r requirements/base.txt, requests
+wcwidth==0.1.8            # via -r requirements/base.txt, curtsies
+zipp==1.2.0               # via -r requirements/base.txt, importlib-metadata
