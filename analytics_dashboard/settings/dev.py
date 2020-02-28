@@ -45,11 +45,6 @@ if os.environ.get('ENABLE_DJANGO_TOOLBAR', '').lower() in ('true', 't', '1'):
 INTERNAL_IPS = ('127.0.0.1',)
 ########## END TOOLBAR CONFIGURATION
 
-INSTALLED_APPS += (
-    'django_nose',
-)
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-
 LMS_COURSE_SHORTCUT_BASE_URL = 'https://example.com/courses'
 CMS_COURSE_SHORTCUT_BASE_URL = 'https://studio.example.com/course'
 
