@@ -1,4 +1,5 @@
 from __future__ import absolute_import
+
 from django.core.management.base import BaseCommand
 
 from core.utils import create_fake_soapbox_messages

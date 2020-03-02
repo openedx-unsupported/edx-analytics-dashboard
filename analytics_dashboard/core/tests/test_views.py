@@ -1,23 +1,24 @@
 from __future__ import absolute_import
+
 import json
 import logging
-from testfixtures import LogCapture
 
 import mock
-
-from django.core.cache import cache
-from django.core.urlresolvers import reverse, reverse_lazy
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.core.cache import cache
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.db import DatabaseError
 from django.test import TestCase
 from django.test.utils import override_settings
 from django.utils.http import urlquote
 from django_dynamic_fixture import G
+from testfixtures import LogCapture
 
 from core.views import OK, UNAVAILABLE
-from courses.permissions import set_user_course_permissions, user_can_view_course, get_user_course_permissions
-
+from courses.permissions import (get_user_course_permissions,
+                                 set_user_course_permissions,
+                                 user_can_view_course)
 
 User = get_user_model()
 

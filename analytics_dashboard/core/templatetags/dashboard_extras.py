@@ -1,6 +1,8 @@
 from __future__ import absolute_import
+
 import json
 
+import six
 from django import template
 from django.conf import settings
 from django.template.defaultfilters import stringfilter
@@ -8,7 +10,6 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 from opaque_keys.edx.keys import CourseKey
 from slugify import slugify
-import six
 
 register = template.Library()
 

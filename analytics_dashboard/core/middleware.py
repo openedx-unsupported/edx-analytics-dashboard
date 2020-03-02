@@ -3,10 +3,11 @@ Middleware for Language Preferences
 """
 
 from __future__ import absolute_import
+
 import logging
-from lang_pref_middleware import middleware
 
 from django.template.response import TemplateResponse
+from lang_pref_middleware import middleware
 
 from core.exceptions import ServiceUnavailableError
 
