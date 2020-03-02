@@ -1,19 +1,22 @@
-import StringIO
+from __future__ import absolute_import
+
 import copy
 import csv
 import datetime
+import StringIO
 import uuid
 
-from analyticsclient.client import Client
-from analyticsclient.constants import enrollment_modes, UNKNOWN_COUNTRY_CODE
 import analyticsclient.constants.activity_types as AT
 import analyticsclient.constants.education_levels as EDUCATION_LEVEL
 import analyticsclient.constants.genders as GENDER
+import six
+from analyticsclient.client import Client
+from analyticsclient.constants import UNKNOWN_COUNTRY_CODE, enrollment_modes
+from six.moves import range
 
 from courses.permissions import set_user_course_permissions
 from courses.presenters.performance import AnswerDistributionEntry
 from courses.utils import get_encoded_module_id
-
 
 CREATED_DATETIME = datetime.datetime(year=2014, month=2, day=2)
 CREATED_DATETIME_STRING = CREATED_DATETIME.strftime(Client.DATETIME_FORMAT)
@@ -45,7 +48,7 @@ def get_mock_api_enrollment_data(course_id):
 
         datum = {
             'date': date.strftime(Client.DATE_FORMAT),
-            'course_id': unicode(course_id),
+            'course_id': six.text_type(course_id),
             'count': index * len(modes),
             'created': CREATED_DATETIME_STRING,
             'cumulative_count': index * len(modes) * 2
@@ -130,7 +133,7 @@ def get_mock_api_enrollment_geography_data(course_id):
     items = ((u'USA', u'United States', 500), (None, UNKNOWN_COUNTRY_CODE, 300),
              (u'GER', u'Germany', 100), (u'CAN', u'Canada', 100))
     for item in items:
-        data.append({'date': '2014-01-01', 'course_id': unicode(course_id), 'count': item[2],
+        data.append({'date': '2014-01-01', 'course_id': six.text_type(course_id), 'count': item[2],
                      'country': {'alpha3': item[0], 'name': item[1]}, 'created': CREATED_DATETIME_STRING})
 
     return data
@@ -481,7 +484,7 @@ def mock_engagement_activity_summary_and_trend_data():
 def get_mock_api_course_activity(course_id):
     return [
         {
-            'course_id': unicode(course_id),
+            'course_id': six.text_type(course_id),
             'interval_end': '2014-09-01T000000',
             AT.ANY: 1000,
             AT.ATTEMPTED_PROBLEM: None,
@@ -490,7 +493,7 @@ def get_mock_api_course_activity(course_id):
             'created': CREATED_DATETIME_STRING
         },
         {
-            'course_id': unicode(course_id),
+            'course_id': six.text_type(course_id),
             'interval_end': '2014-09-08T000000',
             AT.ANY: 100,
             AT.ATTEMPTED_PROBLEM: 301,
@@ -512,7 +515,7 @@ def mock_course_activity_week_ahead(start_date=None, end_date=None):
     activity = get_mock_api_course_activity(course_id)
     activity.append(
         {
-            'course_id': unicode(course_id),
+            'course_id': six.text_type(course_id),
             'interval_end': '2014-09-15T000000',
             AT.ANY: 500,
             AT.ATTEMPTED_PROBLEM: 701,

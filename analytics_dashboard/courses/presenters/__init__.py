@@ -1,16 +1,18 @@
+from __future__ import absolute_import
+
 import abc
-from collections import OrderedDict
 import datetime
 import logging
+from collections import OrderedDict
 
+import six
+from analyticsclient.client import Client
 from django.conf import settings
 from django.core.cache import cache
-from analyticsclient.client import Client
+
 from common.course_structure import CourseStructure
 from core.utils import CourseStructureApiClient, sanitize_cache_key
-
 from courses.exceptions import BaseCourseError
-
 
 logger = logging.getLogger(__name__)
 
@@ -55,12 +57,11 @@ class CoursePresenter(BasePresenter):
         self.course = self.client.courses(self.course_id)
 
 
-class CourseAPIPresenterMixin(object):
+class CourseAPIPresenterMixin(six.with_metaclass(abc.ABCMeta, object)):
     """
     This mixin provides access to the course structure API and processes the hierarchy
     for sections, subsections, modules, and leaves (e.g. videos, problems, etc.).
     """
-    __metaclass__ = abc.ABCMeta
 
     _last_updated = None
 
@@ -333,7 +334,7 @@ class CourseAPIPresenterMixin(object):
             if component.get('url')  # Only consider siblings with data, hence with URLs
         ]
         try:
-            block_index = (index for index, sibling in enumerate(siblings) if sibling['id'] == block_id).next()
+            block_index = next((index for index, sibling in enumerate(siblings) if sibling['id'] == block_id))
             sibling_index = block_index + sibling_offset
             if sibling_index < 0:
                 return None

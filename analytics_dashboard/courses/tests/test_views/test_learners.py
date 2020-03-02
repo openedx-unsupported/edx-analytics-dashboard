@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+
 import json
 import logging
 
@@ -50,9 +52,9 @@ class LearnersViewTests(ViewTestMixin, TestCase):
                 course_id=CourseSamples.DEMO_COURSE_ID
             ),
         }
-        self.assertDictContainsSubset(dict(expected_context_subset.items()), response.context)
+        self.assertDictContainsSubset(dict(list(expected_context_subset.items())), response.context)
         self.assertDictContainsSubset(
-            dict(default_expected_context_subset.items()),
+            dict(list(default_expected_context_subset.items())),
             response.context['js_data']['course']
         )
 

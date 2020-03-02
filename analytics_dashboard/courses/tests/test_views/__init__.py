@@ -1,29 +1,27 @@
+from __future__ import absolute_import
+
 import json
 import logging
-
 from datetime import datetime, timedelta
-from analyticsclient.exceptions import NotFoundError
-from ddt import ddt, data
-from django.core.cache import cache
-from django.core.urlresolvers import reverse
-from django.conf import settings
-from django.contrib.humanize.templatetags.humanize import intcomma
-from django.utils.translation import ugettext_lazy as _
+
 import httpretty
 import mock
-from mock import patch, Mock
+from analyticsclient.exceptions import NotFoundError
+from ddt import data, ddt
+from django.conf import settings
+from django.contrib.humanize.templatetags.humanize import intcomma
+from django.core.cache import cache
+from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext_lazy as _
+from mock import Mock, patch
 from mock.mock import _is_started
 from waffle.testutils import override_switch
 
 from core.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin
-from courses.permissions import set_user_course_permissions, revoke_user_course_permissions
-from courses.tests.utils import (
-    CourseSamples,
-    get_mock_api_enrollment_data,
-    mock_course_name,
-    set_empty_permissions,
-)
-
+from courses.permissions import (revoke_user_course_permissions,
+                                 set_user_course_permissions)
+from courses.tests.utils import (CourseSamples, get_mock_api_enrollment_data,
+                                 mock_course_name, set_empty_permissions)
 
 logger = logging.getLogger(__name__)
 

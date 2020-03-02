@@ -1,6 +1,7 @@
-import mock
+from __future__ import absolute_import
 
 import ddt
+import mock
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.cache import cache
@@ -8,6 +9,7 @@ from django.test import TestCase
 from django.test.utils import override_settings
 from django_dynamic_fixture import G
 from edx_django_utils.cache import TieredCache
+from six.moves import range
 from social_django.models import UserSocialAuth
 
 from courses import permissions

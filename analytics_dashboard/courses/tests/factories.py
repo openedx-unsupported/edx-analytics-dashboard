@@ -1,13 +1,17 @@
+from __future__ import absolute_import
+
 import hashlib
 import re
 import uuid
-
 from collections import OrderedDict
+
+import six
+from six.moves import range
 from slugify import slugify
 
 from common.tests.factories import CourseStructureFactory
-from courses.tests.utils import CREATED_DATETIME_STRING
 from courses import utils
+from courses.tests.utils import CREATED_DATETIME_STRING
 
 
 class CoursePerformanceDataFactory(CourseStructureFactory):
@@ -367,7 +371,7 @@ class TagsDistributionDataFactory(CourseStructureFactory):
         reg = re.compile(r'Homework (\d) Problem (\d)')
         tags_data = {}
 
-        for k, item in self._structure['blocks'].iteritems():
+        for k, item in six.iteritems(self._structure['blocks']):
             if item['type'] == 'problem' and item['display_name'].startswith('Homework'):
                 m = reg.match(item['display_name'])
                 assig_num = int(m.group(1))
@@ -392,7 +396,7 @@ class TagsDistributionDataFactory(CourseStructureFactory):
     def get_expected_available_tags(self):
         tags = {}
         for item in self.tags_data_per_homework_assigment:
-            for key, vals in item['tags'].iteritems():
+            for key, vals in six.iteritems(item['tags']):
                 for val in vals:
                     if key not in tags:
                         tags[key] = set()
@@ -436,7 +440,7 @@ class TagsDistributionDataFactory(CourseStructureFactory):
 
         url_template = '/courses/{}/performance/learning_outcomes/{}/'
 
-        for tag_val, item in expected.iteritems():
+        for tag_val, item in six.iteritems(expected):
             item.update({
                 'average_submissions': (item['total_submissions'] * 1.0) / item['num_modules'],
                 'average_correct_submissions': (item['correct_submissions'] * 1.0) / item['num_modules'],
@@ -448,7 +452,7 @@ class TagsDistributionDataFactory(CourseStructureFactory):
                 'url': url_template.format(self.course_id, slugify(tag_val))
             })
 
-        return expected.values()
+        return list(expected.values())
 
     def get_expected_modules_marked_with_tag(self, tag_key, tag_value):
         index = 0
@@ -470,7 +474,7 @@ class TagsDistributionDataFactory(CourseStructureFactory):
                         data[av_tag_key] = None
             return data
 
-        for i in xrange(1, self._count_of_homework_assignments + 1):
+        for i in range(1, self._count_of_homework_assignments + 1):
             num = 0
             for val in self.tags_data_per_homework_assigment:
                 num += 1

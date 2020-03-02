@@ -1,25 +1,25 @@
+from __future__ import absolute_import
+
 import json
 import logging
 
-from ddt import ddt
 import httpretty
-from mock import patch, Mock
-
+from analyticsclient.exceptions import ClientError, NotFoundError
+from ddt import ddt
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 from django.utils.translation import ugettext_lazy as _
-
+from mock import Mock, patch
 from slugify import slugify
 from waffle.testutils import override_switch
 
-from analyticsclient.exceptions import ClientError, NotFoundError
-
 from courses.tests import utils
-from courses.tests.factories import CoursePerformanceDataFactory, TagsDistributionDataFactory
-from courses.tests.test_views import (CourseStructureViewMixin, CourseAPIMixin, PatchMixin)
+from courses.tests.factories import (CoursePerformanceDataFactory,
+                                     TagsDistributionDataFactory)
+from courses.tests.test_views import (CourseAPIMixin, CourseStructureViewMixin,
+                                      PatchMixin)
 from courses.tests.utils import CourseSamples
-
 
 logger = logging.getLogger(__name__)
 

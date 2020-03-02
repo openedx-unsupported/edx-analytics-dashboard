@@ -1,16 +1,20 @@
+from __future__ import absolute_import
+
 import copy
 import datetime
 import logging
 
-from django.utils.translation import ugettext_lazy as _
-from django_countries import countries
-from analyticsclient.constants import demographics, UNKNOWN_COUNTRY_CODE, enrollment_modes
 import analyticsclient.constants.education_levels as EDUCATION_LEVEL
 import analyticsclient.constants.genders as GENDER
+import six
+from analyticsclient.constants import (UNKNOWN_COUNTRY_CODE, demographics,
+                                       enrollment_modes)
+from django.utils.translation import ugettext_lazy as _
+from django_countries import countries
+from six.moves import range
 
 import courses.utils as utils
 from courses.presenters import CoursePresenter
-
 
 logger = logging.getLogger(__name__)
 
@@ -190,7 +194,7 @@ class CourseEnrollmentPresenter(CoursePresenter):
                 country_code = datum['country']['alpha3']
 
                 try:
-                    datum['country']['name'] = unicode(_countries[datum['country']['alpha2']])
+                    datum['country']['name'] = six.text_type(_countries[datum['country']['alpha2']])
                 except KeyError:
                     logger.warning('Unable to locate %s in django_countries.', country_code)
 
@@ -469,7 +473,7 @@ class CourseEnrollmentDemographicsPresenter(CoursePresenter):
 
     def _calculate_sum(self, dictionary, keys):
         """ Returns the sum of the values from the keys specified. """
-        return sum([value for key, value in dictionary.iteritems() if value and key in keys])
+        return sum([value for key, value in six.iteritems(dictionary) if value and key in keys])
 
     def _calculate_known_total_enrollment(self, api_response, enrollment_key):
         known = [i for i in api_response if i[enrollment_key]]

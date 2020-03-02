@@ -1,23 +1,19 @@
-from ddt import ddt
-import httpretty
-import mock
-from mock import patch, Mock
-
-from django.test import TestCase
-from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext_lazy as _
-
-from waffle.testutils import override_switch
+from __future__ import absolute_import
 
 import analyticsclient.constants.activity_types as AT
+import httpretty
+import mock
+from ddt import ddt
+from django.core.urlresolvers import reverse
+from django.test import TestCase
+from django.utils.translation import ugettext_lazy as _
+from mock import Mock, patch
+from waffle.testutils import override_switch
 
-from courses.tests.factories import CourseEngagementDataFactory
-from courses.tests.test_views import (
-    CourseViewTestMixin,
-    PatchMixin,
-    CourseStructureViewMixin,
-    CourseAPIMixin)
 from courses.tests import utils
+from courses.tests.factories import CourseEngagementDataFactory
+from courses.tests.test_views import (CourseAPIMixin, CourseStructureViewMixin,
+                                      CourseViewTestMixin, PatchMixin)
 from courses.tests.utils import CourseSamples
 
 

@@ -1,39 +1,35 @@
-from __future__ import division
+from __future__ import absolute_import, division
+
 import copy
 import datetime
 
+import analyticsclient.constants.activity_types as AT
+import mock
+from analyticsclient.constants import enrollment_modes
+from ddt import data, ddt, unpack
 from django.conf import settings
 from django.core.cache import cache
 from django.core.urlresolvers import reverse
-from django.test import (override_settings, TestCase)
-
-from ddt import ddt, data, unpack
+from django.test import TestCase, override_settings
+from six.moves import zip
 from slugify import slugify
-import mock
 from waffle.testutils import override_switch
 
-import analyticsclient.constants.activity_types as AT
-from analyticsclient.constants import enrollment_modes
-
-from common.tests.course_fixtures import (
-    ChapterFixture,
-    CourseFixture,
-    SequentialFixture,
-    VerticalFixture,
-    VideoFixture
-)
-
+from common.tests.course_fixtures import (ChapterFixture, CourseFixture,
+                                          SequentialFixture, VerticalFixture,
+                                          VideoFixture)
 from courses.exceptions import NoVideosError
 from courses.presenters import CoursePresenter
-from courses.presenters.engagement import (CourseEngagementActivityPresenter, CourseEngagementVideoPresenter)
-from courses.presenters.enrollment import (CourseEnrollmentPresenter, CourseEnrollmentDemographicsPresenter)
-from courses.presenters.performance import (
-    CoursePerformancePresenter,
-    CourseReportDownloadPresenter,
-    TagsDistributionPresenter,
-)
+from courses.presenters.engagement import (CourseEngagementActivityPresenter,
+                                           CourseEngagementVideoPresenter)
+from courses.presenters.enrollment import (
+    CourseEnrollmentDemographicsPresenter, CourseEnrollmentPresenter)
+from courses.presenters.performance import (CoursePerformancePresenter,
+                                            CourseReportDownloadPresenter,
+                                            TagsDistributionPresenter)
 from courses.tests import utils
-from courses.tests.factories import (CourseEngagementDataFactory, CoursePerformanceDataFactory,
+from courses.tests.factories import (CourseEngagementDataFactory,
+                                     CoursePerformanceDataFactory,
                                      TagsDistributionDataFactory)
 
 

@@ -1,14 +1,16 @@
+from __future__ import absolute_import
+
 import logging
 
-from django.contrib.humanize.templatetags.humanize import intcomma
-
-from django.utils.translation import ugettext_lazy as _, ugettext_noop
 from analyticsclient.exceptions import NotFoundError
+from django.contrib.humanize.templatetags.humanize import intcomma
+from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_noop
+
 from core.utils import translate_dict_values
-
-from courses.presenters.enrollment import CourseEnrollmentPresenter, CourseEnrollmentDemographicsPresenter
+from courses.presenters.enrollment import (
+    CourseEnrollmentDemographicsPresenter, CourseEnrollmentPresenter)
 from courses.views import CourseTemplateWithNavView
-
 
 logger = logging.getLogger(__name__)
 

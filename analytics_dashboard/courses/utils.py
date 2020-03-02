@@ -1,7 +1,9 @@
+from __future__ import absolute_import
+
 import re
-from waffle import flag_is_active, switch_is_active
 
 from opaque_keys.edx.keys import UsageKey
+from waffle import flag_is_active, switch_is_active
 
 
 def is_feature_enabled(item, request):

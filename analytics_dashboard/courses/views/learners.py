@@ -1,15 +1,16 @@
+from __future__ import absolute_import
+
 import logging
-from urllib import urlencode
-from requests.exceptions import ConnectionError, Timeout
 
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
+from requests.exceptions import ConnectionError, Timeout
+from six.moves.urllib.parse import urlencode
 from waffle import switch_is_active
 
 from courses.views import CourseTemplateWithNavView
 from learner_analytics_api.v0.clients import LearnerAPIClient
-
 
 logger = logging.getLogger(__name__)
 

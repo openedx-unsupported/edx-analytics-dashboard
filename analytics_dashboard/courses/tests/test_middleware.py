@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+
 import logging
 
 import ddt
@@ -6,9 +8,11 @@ from django.template.response import TemplateResponse
 from opaque_keys.edx.keys import CourseKey
 from testfixtures import LogCapture
 
-from core.tests.test_middleware import MiddlewareTestCase, MiddlewareAssertionMixin
+from core.tests.test_middleware import (MiddlewareAssertionMixin,
+                                        MiddlewareTestCase)
 from courses.exceptions import PermissionsRetrievalFailedError
-from courses.middleware import CourseMiddleware, CoursePermissionsExceptionMiddleware
+from courses.middleware import (CourseMiddleware,
+                                CoursePermissionsExceptionMiddleware)
 
 
 class CoursePermissionsExceptionMixin(MiddlewareAssertionMixin):

@@ -1,9 +1,14 @@
+from __future__ import absolute_import
+
 import copy
-from datetime import datetime
 import json
 import logging
 import re
+from datetime import datetime
 
+import requests
+from analyticsclient.client import Client
+from analyticsclient.exceptions import ClientError, NotFoundError
 from braces.views import LoginRequiredMixin
 from django.conf import settings
 from django.core.cache import cache
@@ -12,27 +17,24 @@ from django.core.urlresolvers import reverse
 from django.http import Http404
 from django.utils import dateformat
 from django.utils.functional import cached_property
-from django.utils.translation import ugettext_lazy as _, ugettext_noop
+from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_noop
 from django.views.generic import TemplateView
 from edx_rest_api_client.client import EdxRestApiClient
-from edx_rest_api_client.exceptions import (HttpClientError, SlumberBaseException)
+from edx_rest_api_client.exceptions import (HttpClientError,
+                                            SlumberBaseException)
 from opaque_keys.edx.keys import CourseKey
-import requests
+from six.moves import map
 from waffle import flag_is_active, switch_is_active
 
-from analyticsclient.client import Client
-from analyticsclient.exceptions import (ClientError, NotFoundError)
-
 from core.exceptions import ServiceUnavailableError
-from core.utils import CourseStructureApiClient, sanitize_cache_key, translate_dict_values
-
+from core.utils import (CourseStructureApiClient, sanitize_cache_key,
+                        translate_dict_values)
 from courses import permissions
 from courses.presenters.performance import CourseReportDownloadPresenter
 from courses.serializers import LazyEncoder
-from courses.utils import is_feature_enabled, get_page_name
-
+from courses.utils import get_page_name, is_feature_enabled
 from help.views import ContextSensitiveHelpMixin
-
 
 logger = logging.getLogger(__name__)
 
@@ -346,7 +348,7 @@ class CourseNavBarMixin(object):
         items = [item for item in items if is_feature_enabled(item, request)]
 
         # Clean each item
-        map(self.clean_item, items)
+        list(map(self.clean_item, items))
 
         return items
 

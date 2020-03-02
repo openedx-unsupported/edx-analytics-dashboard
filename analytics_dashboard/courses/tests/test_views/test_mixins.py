@@ -1,6 +1,8 @@
+from __future__ import absolute_import
+
+import mock
 from django.test import TestCase
 from django.test.utils import override_settings
-import mock
 
 from courses.tests.utils import CourseSamples
 from courses.views import CourseValidMixin

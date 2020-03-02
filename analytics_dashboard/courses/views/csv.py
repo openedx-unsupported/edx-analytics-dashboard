@@ -1,16 +1,18 @@
+from __future__ import absolute_import
+
 import datetime
 import logging
-import urllib
 
+import six.moves.urllib.error
+import six.moves.urllib.parse
+import six.moves.urllib.request
+from analyticsclient.client import Client
+from analyticsclient.constants import data_formats, demographics
 from django.http import HttpResponse, HttpResponseRedirect
 from django.utils import timezone
 
-from analyticsclient.constants import data_formats, demographics
-from analyticsclient.client import Client
-
 from courses.presenters.performance import CourseReportDownloadPresenter
 from courses.views import CourseView
-
 
 logger = logging.getLogger(__name__)
 
@@ -39,7 +41,7 @@ class CSVResponseMixin(object):
     def _get_filename(self):
         """Concatenates the unique csv_identifier with the general csv_filename_suffix for this class."""
         filename = u'{0}--{1}.csv'.format(self.csv_identifier, self.csv_filename_suffix)
-        return urllib.quote(filename)
+        return six.moves.urllib.parse.quote(filename)
 
 
 # pylint: disable=W0223
