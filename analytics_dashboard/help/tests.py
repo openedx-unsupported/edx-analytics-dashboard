@@ -1,11 +1,12 @@
+from __future__ import absolute_import
+
 from django import http
 from django.template.response import TemplateResponse
 from django.test import TestCase
-from help import HELP_CONTEXT_TOKEN_NAME
 
+from help import HELP_CONTEXT_TOKEN_NAME
 from help.middleware import HelpURLMiddleware
 from help.utils import get_doc_url
-
 
 DOC_BASE_URL = 'http://edx-insights.readthedocs.org/en/latest'
 
