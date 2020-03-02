@@ -1,9 +1,13 @@
-next_page='/'"""Common settings and globals."""
-import ConfigParser
+from __future__ import absolute_import
 
 import os
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
+
+import six.moves.configparser
+
+next_page='/'"""Common settings and globals."""
+
 
 ########## PATH CONFIGURATION
 # Absolute filesystem path to the Django project directory:
@@ -389,7 +393,7 @@ DOCS_ROOT = join(SITE_ROOT, 'docs')
 
 # Load the docs config into memory when the server starts
 with open(join(DOCS_ROOT, "config.ini")) as config_file:
-    DOCS_CONFIG = ConfigParser.ConfigParser()
+    DOCS_CONFIG = six.moves.configparser.ConfigParser()
     DOCS_CONFIG.readfp(config_file)
 ########## END DOCS/HELP CONFIGURATION
 

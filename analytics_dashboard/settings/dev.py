@@ -1,9 +1,10 @@
 """Common developpment settings"""
+from __future__ import absolute_import
+
 import os
 
 from analytics_dashboard.settings.base import *
 from analytics_dashboard.settings.logger import get_logger_config
-
 
 ########## DEBUG CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
