@@ -1,7 +1,8 @@
-import requests
-from slumber import API, exceptions, Resource, serialize
+from __future__ import absolute_import
 
+import requests
 from django.conf import settings
+from slumber import API, Resource, exceptions, serialize
 
 
 class TokenAuth(requests.auth.AuthBase):
