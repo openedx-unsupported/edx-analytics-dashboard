@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 import json
 
 from django import template
@@ -7,6 +8,7 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 from opaque_keys.edx.keys import CourseKey
 from slugify import slugify
+import six
 
 register = template.Library()
 
@@ -108,7 +110,7 @@ def _get_base_error_context(content_type):
 
 @register.filter
 def format_course_key(course_key, separator=u'/'):
-    if isinstance(course_key, basestring):
+    if isinstance(course_key, six.string_types):
         course_key = CourseKey.from_string(course_key)
 
     return separator.join([course_key.org, course_key.course, course_key.run])
