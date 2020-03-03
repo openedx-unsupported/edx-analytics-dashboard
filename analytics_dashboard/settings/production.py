@@ -1,8 +1,12 @@
 """Production settings and globals."""
 
+from __future__ import absolute_import
+
+import six
+
 from analytics_dashboard.settings.base import *
-from analytics_dashboard.settings.yaml_config import *
 from analytics_dashboard.settings.logger import get_logger_config
+from analytics_dashboard.settings.yaml_config import *
 
 LOGGING = get_logger_config()
 
@@ -21,7 +25,7 @@ DB_OVERRIDES = dict(
     PORT=environ.get('DB_MIGRATION_PORT', DATABASES['default']['PORT']),
 )
 
-for override, value in DB_OVERRIDES.iteritems():
+for override, value in six.iteritems(DB_OVERRIDES):
     DATABASES['default'][override] = value
 
 # Re-declare the full application name in case the components have been overridden.
