@@ -1,6 +1,6 @@
 from __future__ import absolute_import
 
-from functools import reduce
+from functools import reduce  # pylint: disable=redefined-builtin
 
 from django.conf import settings
 from django.core.cache import cache

@@ -1,9 +1,7 @@
 from __future__ import absolute_import
 
 import mock
-import six.moves.urllib.error
-import six.moves.urllib.parse
-import six.moves.urllib.request
+import six
 from analyticsclient.exceptions import NotFoundError
 from ddt import data, ddt
 from django.core.urlresolvers import reverse

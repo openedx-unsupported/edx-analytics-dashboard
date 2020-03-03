@@ -3,9 +3,7 @@ from __future__ import absolute_import
 import datetime
 import logging
 
-import six.moves.urllib.error
-import six.moves.urllib.parse
-import six.moves.urllib.request
+import six
 from analyticsclient.client import Client
 from analyticsclient.constants import data_formats, demographics
 from django.http import HttpResponse, HttpResponseRedirect

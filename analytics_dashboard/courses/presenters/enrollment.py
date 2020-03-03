@@ -4,14 +4,13 @@ import copy
 import datetime
 import logging
 
-import analyticsclient.constants.education_levels as EDUCATION_LEVEL
-import analyticsclient.constants.genders as GENDER
 import six
-from analyticsclient.constants import (UNKNOWN_COUNTRY_CODE, demographics,
-                                       enrollment_modes)
+from analyticsclient.constants import UNKNOWN_COUNTRY_CODE, demographics
+from analyticsclient.constants import education_levels as EDUCATION_LEVEL
+from analyticsclient.constants import enrollment_modes
+from analyticsclient.constants import genders as GENDER
 from django.utils.translation import ugettext_lazy as _
 from django_countries import countries
-from six.moves import range
 
 import courses.utils as utils
 from courses.presenters import CoursePresenter
@@ -147,7 +146,7 @@ class CourseEnrollmentPresenter(CoursePresenter):
             end_date = self.parse_api_date(api_response[-1]['date'])
             days_apart = (end_date - start_date).days
 
-            for day_change in range(days_apart):
+            for day_change in six.moves.range(days_apart):
                 expected_date = start_date + datetime.timedelta(days=day_change)
                 current_date = self.parse_api_date(api_response[day_change]['date'])
 
@@ -439,7 +438,7 @@ class CourseEnrollmentDemographicsPresenter(CoursePresenter):
                        for datum in known_ages]
 
         # fill in ages with no counts for display
-        for age in range(self.MAX_AGE + 1):
+        for age in six.moves.range(self.MAX_AGE + 1):
             try:
                 binned = next(binned for binned in binned_ages if binned['age'] is age)
             except StopIteration:

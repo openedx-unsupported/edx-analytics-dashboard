@@ -6,13 +6,13 @@ import datetime
 import StringIO
 import uuid
 
-import analyticsclient.constants.activity_types as AT
-import analyticsclient.constants.education_levels as EDUCATION_LEVEL
-import analyticsclient.constants.genders as GENDER
 import six
 from analyticsclient.client import Client
-from analyticsclient.constants import UNKNOWN_COUNTRY_CODE, enrollment_modes
-from six.moves import range
+from analyticsclient.constants import UNKNOWN_COUNTRY_CODE
+from analyticsclient.constants import activity_types as AT
+from analyticsclient.constants import education_levels as EDUCATION_LEVEL
+from analyticsclient.constants import enrollment_modes
+from analyticsclient.constants import genders as GENDER
 
 from courses.permissions import set_user_course_permissions
 from courses.presenters.performance import AnswerDistributionEntry
@@ -43,7 +43,7 @@ def get_mock_api_enrollment_data(course_id):
     start_date = datetime.date(year=2014, month=1, day=1)
     modes = enrollment_modes.ALL
 
-    for index in range(31):
+    for index in six.moves.range(31):
         date = start_date + datetime.timedelta(days=index)
 
         datum = {
@@ -108,7 +108,7 @@ def get_mock_presenter_enrollment_trend_with_gaps_filled(course_id):
 
     datum = data[GAP_START - 1]
 
-    for i in range(GAP_START, GAP_END):
+    for i in six.moves.range(GAP_START, GAP_END):
         days = 1 + (i - GAP_START)
         item = copy.copy(datum)
         item['date'] = (parse_date(datum['date']) + datetime.timedelta(days=days)).strftime(Client.DATE_FORMAT)
@@ -243,7 +243,7 @@ def get_presenter_enrollment_binned_ages():
     oldest = current_year - 100
     binned = []
 
-    for year in range(oldest, current_year + 1):
+    for year in six.moves.range(oldest, current_year + 1):
         binned.append({'age': current_year - year, 'count': 0, 'percent': 0})
 
     # adjust 100+
@@ -552,7 +552,7 @@ def get_mock_api_course_enrollment(course_id):
             'count': 10000 + day,
             'created': CREATED_DATETIME_STRING
         }
-        for day in range(1, 10)
+        for day in six.moves.range(1, 10)
     ]
     return aug + sept
 
@@ -587,7 +587,7 @@ def get_mock_api_answer_distribution_multiple_questions_data(course_id):
         total_first_count = total_first_count + 1
     answers[0]['correct'] = True
 
-    for numeric_value in range(20):
+    for numeric_value in six.moves.range(20):
         answers.append({
             'answer_value': numeric_value,
             'correct': False,
@@ -606,7 +606,7 @@ def get_mock_api_answer_distribution_multiple_questions_data(course_id):
         total_first_count = total_first_count + 1
     answers[-1]['correct'] = True
 
-    for randomized in range(5):
+    for randomized in six.moves.range(5):
         answers.append({
             'answer_value': 0,
             'correct': True,
