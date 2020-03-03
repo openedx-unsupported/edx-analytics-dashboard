@@ -34,9 +34,8 @@ clean:
 	coverage erase
 
 test_python_no_compress: clean
-	python manage.py test analytics_dashboard common --settings=analytics_dashboard.settings.test --with-coverage \
-	--cover-package=analytics_dashboard --cover-package=common --cover-branches --cover-html --cover-html-dir=$(COVERAGE)/html/ \
-	--with-ignore-docstrings --cover-xml --cover-xml-file=$(COVERAGE)/coverage.xml
+	pytest analytics_dashboard common --cov=analytics_dashboard --cov=common --cov-branch --cov-report=html:$(COVERAGE)/html/ \
+	--cov-report=xml:$(COVERAGE)/coverage.xml
 
 test_compress: static
 	# No longer does anything. Kept for legacy support.
@@ -54,21 +53,21 @@ ifeq ("${ENABLE_COURSE_LIST_PASSING}", "True")
 	./manage.py waffle_switch enable_course_passing on --create
 endif
 	./manage.py create_acceptance_test_soapbox_messages
-	nosetests -v acceptance_tests -e NUM_PROCESSES=1 --exclude-dir=acceptance_tests/course_validation
+	pytest -v acceptance_tests -k 'not NUM_PROCESSES=1' --ignore=acceptance_tests/course_validation
 	./manage.py delete_acceptance_test_soapbox_messages
 
 # local acceptance tests are typically run with by passing in environment variables on the commandline
 # e.g. API_SERVER_URL="http://localhost:9001/api/v0" API_AUTH_TOKEN="edx" make accept_local
 accept_local:
 	./manage.py create_acceptance_test_soapbox_messages
-	nosetests -v acceptance_tests --exclude-dir=acceptance_tests/course_validation
+	pytest -v acceptance_tests --ignore=acceptance_tests/course_validation
 	./manage.py delete_acceptance_test_soapbox_messages
 
 a11y:
 ifeq ("${DISPLAY_LEARNER_ANALYTICS}", "True")
 	./manage.py waffle_flag enable_learner_analytics --create --everyone
 endif
-	BOKCHOY_A11Y_CUSTOM_RULES_FILE=./node_modules/edx-custom-a11y-rules/lib/custom_a11y_rules.js SELENIUM_BROWSER=firefox nosetests -v a11y_tests -e NUM_PROCESSES=1 --exclude-dir=acceptance_tests/course_validation
+	BOKCHOY_A11Y_CUSTOM_RULES_FILE=./node_modules/edx-custom-a11y-rules/lib/custom_a11y_rules.js SELENIUM_BROWSER=firefox pytest -v a11y_tests -k 'not NUM_PROCESSES=1' --ignore=acceptance_tests/course_validation
 
 course_validation:
 	python -m acceptance_tests.course_validation.generate_report
