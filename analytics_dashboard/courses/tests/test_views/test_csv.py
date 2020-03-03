@@ -243,7 +243,10 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
         self.assertEqual(response['Content-Type'], content_type)
 
     def assertResponseFilename(self, response, filename):
-        self.assertEqual(response['Content-Disposition'], 'attachment; filename="{0}"'.format(six.moves.urllib.parse.quote(filename)))
+        self.assertEqual(
+            response['Content-Disposition'],
+            'attachment; filename="{0}"'.format(six.moves.urllib.parse.quote(filename)),
+        )
 
     def _test_csv(self, mocked_api_response, csv_data):
         presenter_method = 'courses.presenters.course_summaries.CourseSummariesPresenter.get_course_summaries'

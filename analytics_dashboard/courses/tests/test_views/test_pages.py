@@ -34,7 +34,10 @@ class CourseHomeViewTests(CourseViewTestMixin, TestCase):
         response = self.client.get(path)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context['page_title'], 'Course Home')
-        performance_item = next(g for g in response.context['table_items'] if six.text_type(g['name']) == u'Performance')
+        performance_item = next(
+            g for g in response.context['table_items']
+            if six.text_type(g['name']) == u'Performance'
+        )
         performance_views = [item['view'] for item in performance_item['items']]
         self.assertEqual('courses:csv:performance_problem_responses' in performance_views, expected)
 
