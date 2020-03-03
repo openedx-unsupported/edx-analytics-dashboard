@@ -1,13 +1,15 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+from __future__ import absolute_import
+
 import json
 
-from django.template import Template, Context, TemplateSyntaxError
+from django.template import Context, Template, TemplateSyntaxError
 from django.test import TestCase
 from opaque_keys.edx.keys import CourseKey
 
-from core.templatetags.dashboard_extras import format_course_key
 from core.templatetags import dashboard_extras
+from core.templatetags.dashboard_extras import format_course_key
 
 
 class DashboardExtraTests(TestCase):

@@ -1,15 +1,15 @@
-from hashlib import md5
+from __future__ import absolute_import
 
-from soapbox.models import Message
-from waffle import switch_is_active
+from hashlib import md5
 
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.http import Http404
 from django.utils.translation import ugettext_lazy as _
+from soapbox.models import Message
+from waffle import switch_is_active
 
 from common import clients
-
 
 User = get_user_model()
 

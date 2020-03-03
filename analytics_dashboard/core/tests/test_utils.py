@@ -1,18 +1,19 @@
+from __future__ import absolute_import
+
 import uuid
-
 from copy import deepcopy
-from ddt import ddt
-from mock import call, MagicMock, patch
 
+from ddt import ddt
 from django.conf import settings
 from django.contrib.auth import get_user_model
-from django.test.utils import override_settings
 from django.test import TestCase
+from django.test.utils import override_settings
 from django.utils.translation import ugettext_lazy as _
+from mock import MagicMock, call, patch
 
-from core.utils import (CourseStructureApiClient, delete_auto_auth_users, sanitize_cache_key, translate_dict_values,
-                        remove_keys, Message)
-
+from core.utils import (CourseStructureApiClient, Message,
+                        delete_auto_auth_users, remove_keys,
+                        sanitize_cache_key, translate_dict_values)
 
 User = get_user_model()
 

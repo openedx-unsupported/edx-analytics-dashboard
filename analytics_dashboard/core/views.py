@@ -1,17 +1,20 @@
+from __future__ import absolute_import
+
 import json
 import logging
 import uuid
 
 from django.conf import settings
-from django.contrib.auth import get_user_model, login, authenticate
+from django.contrib.auth import authenticate, get_user_model, login
 from django.contrib.auth.views import LogoutView, logout_then_login
-from django.db import connection, DatabaseError
-from django.http import HttpResponse, Http404
-from django.shortcuts import redirect
-from django.views.generic import View, TemplateView
 from django.core.urlresolvers import reverse_lazy
+from django.db import DatabaseError, connection
+from django.http import Http404, HttpResponse
+from django.shortcuts import redirect
+from django.views.generic import TemplateView, View
 
 from analytics_dashboard.courses import permissions
+
 try:
     import newrelic.agent
 except ImportError:  # pragma: no cover

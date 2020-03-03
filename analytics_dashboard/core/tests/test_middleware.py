@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+
 import logging
 
 from django.template.response import TemplateResponse
@@ -7,7 +9,8 @@ from lang_pref_middleware.tests import LangPrefMiddlewareTestCaseMixin
 from testfixtures import LogCapture
 
 from core.exceptions import ServiceUnavailableError
-from core.middleware import ServiceUnavailableExceptionMiddleware, LanguagePreferenceMiddleware
+from core.middleware import (LanguagePreferenceMiddleware,
+                             ServiceUnavailableExceptionMiddleware)
 from core.models import User
 
 
