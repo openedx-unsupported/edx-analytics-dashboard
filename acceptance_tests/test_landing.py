@@ -1,9 +1,13 @@
+from __future__ import absolute_import
+
 from bok_choy.web_app_test import WebAppTest
+from six.moves import range
 
-from acceptance_tests import OPEN_SOURCE_URL, RESEARCH_URL, SUPPORT_EMAIL, SHOW_LANDING_RESEARCH
-from acceptance_tests.mixins import LoginMixin, LogoutMixin, FooterLegalMixin, PageTestMixin
+from acceptance_tests import (OPEN_SOURCE_URL, RESEARCH_URL,
+                              SHOW_LANDING_RESEARCH, SUPPORT_EMAIL)
+from acceptance_tests.mixins import (FooterLegalMixin, LoginMixin, LogoutMixin,
+                                     PageTestMixin)
 from acceptance_tests.pages import LandingPage
-
 
 _multiprocess_can_split_ = False
 

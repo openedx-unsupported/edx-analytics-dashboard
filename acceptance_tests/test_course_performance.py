@@ -1,17 +1,21 @@
+from __future__ import absolute_import
+
 import datetime
 from unittest import skipUnless
 
+import six
 from bok_choy.web_app_test import WebAppTest
 
 from acceptance_tests import ENABLE_COURSE_API
 from acceptance_tests.mixins import CoursePageTestsMixin
-from acceptance_tests.pages import CoursePerformanceUngradedContentPage, \
-    CoursePerformanceGradedContentPage, CoursePerformanceAnswerDistributionPage, \
-    CoursePerformanceGradedContentByTypePage, CoursePerformanceAssignmentPage, \
-    CoursePerformanceUngradedSectionPage, CoursePerformanceUngradedSubsectionPage, \
-    CoursePerformanceUngradedAnswerDistributionPage
+from acceptance_tests.pages import (
+    CoursePerformanceAnswerDistributionPage, CoursePerformanceAssignmentPage,
+    CoursePerformanceGradedContentByTypePage,
+    CoursePerformanceGradedContentPage,
+    CoursePerformanceUngradedAnswerDistributionPage,
+    CoursePerformanceUngradedContentPage, CoursePerformanceUngradedSectionPage,
+    CoursePerformanceUngradedSubsectionPage)
 from common.course_structure import CourseStructure
-
 
 _multiprocess_can_split_ = True
 
@@ -132,7 +136,7 @@ class CoursePerformancePageTestsMixin(CoursePageTestsMixin):
             self.assertRowTextEquals(cols, self.get_expected_row(index, block))
 
     def get_expected_row(self, index, block):
-        return [unicode(index + 1), block['name']]
+        return [six.text_type(index + 1), block['name']]
 
 
 # pylint: disable=abstract-method
@@ -142,16 +146,23 @@ class CoursePerformanceAveragedTableMixin(CoursePerformancePageTestsMixin):
         row = super(CoursePerformanceAveragedTableMixin, self).get_expected_row(index, block)
         num_modules_denominator = float(block.get('num_modules', 1))
         row += [
-            unicode(self._format_number_or_hyphen(block.get('num_modules', 0))),
-            unicode(self._format_number_or_hyphen(block['correct_submissions'] / num_modules_denominator
-                                                  if num_modules_denominator else None)),
-            unicode(self._format_number_or_hyphen(
+            six.text_type(self._format_number_or_hyphen(block.get('num_modules', 0))),
+            six.text_type(self._format_number_or_hyphen(
+                block['correct_submissions'] / num_modules_denominator
+                if num_modules_denominator else None
+            )),
+            six.text_type(self._format_number_or_hyphen(
                 (block['total_submissions'] - block['correct_submissions']) / num_modules_denominator
-                if num_modules_denominator else None)),
-            unicode(self._format_number_or_hyphen(block['total_submissions'] / num_modules_denominator
-                                                  if num_modules_denominator else None)),
-            unicode(self._build_display_percentage_or_hyphen(block['correct_submissions'],
-                                                             block['total_submissions']))
+                if num_modules_denominator else None
+            )),
+            six.text_type(self._format_number_or_hyphen(
+                block['total_submissions'] / num_modules_denominator
+                if num_modules_denominator else None
+            )),
+            six.text_type(self._build_display_percentage_or_hyphen(
+                block['correct_submissions'],
+                block['total_submissions']
+            ))
         ]
         return row
 
@@ -162,12 +173,14 @@ class CoursePerformanceModuleTableMixin(CoursePerformancePageTestsMixin):
     def get_expected_row(self, index, block):
         row = super(CoursePerformanceModuleTableMixin, self).get_expected_row(index, block)
         row += [
-            unicode(self._format_number_or_hyphen(block['correct_submissions'])),
-            unicode(self._format_number_or_hyphen(
+            six.text_type(self._format_number_or_hyphen(block['correct_submissions'])),
+            six.text_type(self._format_number_or_hyphen(
                 block['total_submissions'] - block['correct_submissions'])),
-            unicode(self._format_number_or_hyphen(block['total_submissions'])),
-            unicode(self._build_display_percentage_or_hyphen(block['correct_submissions'],
-                                                             block['total_submissions']))
+            six.text_type(self._format_number_or_hyphen(block['total_submissions'])),
+            six.text_type(self._build_display_percentage_or_hyphen(
+                block['correct_submissions'],
+                block['total_submissions']
+            ))
         ]
         return row
 

@@ -1,19 +1,21 @@
+from __future__ import absolute_import
+
 import datetime
 from unittest import skipUnless
 
 from analyticsclient.constants import activity_types as at
 from bok_choy.web_app_test import WebAppTest
 from opaque_keys.edx.keys import UsageKey
+from six.moves import range
 
-from acceptance_tests import (ENABLE_COURSE_API, ENABLE_FORUM_POSTS, ENABLE_VIDEO_PREVIEW)
+from acceptance_tests import (ENABLE_COURSE_API, ENABLE_FORUM_POSTS,
+                              ENABLE_VIDEO_PREVIEW)
 from acceptance_tests.mixins import CoursePageTestsMixin
-from acceptance_tests.pages import (
-    CourseEngagementContentPage,
-    CourseEngagementVideosContentPage,
-    CourseEngagementVideoSectionPage,
-    CourseEngagementVideoSubsectionPage,
-    CourseEngagementVideoTimelinePage)
-
+from acceptance_tests.pages import (CourseEngagementContentPage,
+                                    CourseEngagementVideosContentPage,
+                                    CourseEngagementVideoSectionPage,
+                                    CourseEngagementVideoSubsectionPage,
+                                    CourseEngagementVideoTimelinePage)
 
 _multiprocess_can_split_ = True
 

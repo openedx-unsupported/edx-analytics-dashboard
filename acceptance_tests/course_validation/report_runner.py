@@ -19,23 +19,29 @@ To execute this script run the following command from the parent directory of ac
     $ python -m acceptance_tests.course_validation.report_runner
 """
 
+from __future__ import absolute_import
+
 import datetime
 import io
 import json
 import logging
-from multiprocessing import Pool
-from os.path import abspath, dirname, join
 import time
 import traceback
+from multiprocessing import Pool
+from os.path import abspath, dirname, join
 
-from elasticsearch import Elasticsearch
 import requests
+import six
+from elasticsearch import Elasticsearch
 
-from acceptance_tests.course_validation import LMS_URL, LMS_USERNAME, LMS_PASSWORD, \
-    BASIC_AUTH_CREDENTIALS, COURSE_API_URL, COURSE_API_KEY, ENABLE_AUTO_AUTH, DASHBOARD_SERVER_URL
-from acceptance_tests.course_validation.report_generators import CoursePerformanceReportGenerator
+from acceptance_tests.course_validation import (BASIC_AUTH_CREDENTIALS,
+                                                COURSE_API_KEY, COURSE_API_URL,
+                                                DASHBOARD_SERVER_URL,
+                                                ENABLE_AUTO_AUTH, LMS_PASSWORD,
+                                                LMS_URL, LMS_USERNAME)
+from acceptance_tests.course_validation.report_generators import \
+    CoursePerformanceReportGenerator
 from common.clients import CourseStructureApiClient
-
 
 NUM_PROCESSES = 8
 TIMESTAMP = datetime.datetime.utcnow().strftime('%Y-%m-%d-%H-%M-%S')
@@ -88,7 +94,7 @@ def check_course(course_id):
         except Exception as e:  # pylint: disable=broad-except
             logger.error('Validation for course %s failed: %s\n%s', course_id, e, traceback.format_exc())
             valid = False
-            report = {'course_id': course_id, 'course_valid': False, 'error': unicode(e)}
+            report = {'course_id': course_id, 'course_valid': False, 'error': six.text_type(e)}
 
         # Dump the info to the log and Elasticsearch
         logger.info(json.dumps(report))
@@ -180,7 +186,7 @@ def get_courses():
         courses.sort(key=lambda course: course.lower())
 
         with io.open(filename, 'w', encoding='utf-8') as f:
-            f.write(unicode(json.dumps(courses, ensure_ascii=False)))
+            f.write(six.text_type(json.dumps(courses, ensure_ascii=False)))
 
     logger.info('Retrieved %s courses.', len(courses))
 
@@ -206,7 +212,7 @@ def main():
         with io.open(mappings_file, 'r', encoding='utf-8') as f:
             mappings = json.load(f)
 
-        for doc_type, body in mappings.iteritems():
+        for doc_type, body in six.iteritems(mappings):
             es.indices.put_mapping(index=index_name, doc_type=doc_type, body=body)
 
     def finish():

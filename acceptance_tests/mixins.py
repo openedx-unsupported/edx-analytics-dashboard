@@ -1,32 +1,23 @@
+from __future__ import absolute_import
+
 import datetime
 import locale
 from unittest import skip
 
+from analyticsclient.client import Client
 from bok_choy.promise import EmptyPromise
 from selenium.webdriver.common.keys import Keys
 
-from acceptance_tests import (
-    API_AUTH_TOKEN,
-    API_SERVER_URL,
-    COURSE_API_KEY,
-    COURSE_API_URL,
-    DASHBOARD_FEEDBACK_EMAIL,
-    DASHBOARD_SERVER_URL,
-    DOC_BASE_URL,
-    ENABLE_AUTO_AUTH,
-    ENABLE_COURSE_API,
-    LMS_PASSWORD,
-    LMS_USERNAME,
-    SOAPBOX_GLOBAL_MESSAGE,
-    SOAPBOX_INACTIVE_MESSAGE,
-    SOAPBOX_SINGLE_PAGE_MESSAGE,
-    SOAPBOX_SINGLE_PAGE_PATH,
-    SUPPORT_EMAIL,
-)
+from acceptance_tests import (API_AUTH_TOKEN, API_SERVER_URL, COURSE_API_KEY,
+                              COURSE_API_URL, DASHBOARD_FEEDBACK_EMAIL,
+                              DASHBOARD_SERVER_URL, DOC_BASE_URL,
+                              ENABLE_AUTO_AUTH, ENABLE_COURSE_API,
+                              LMS_PASSWORD, LMS_USERNAME,
+                              SOAPBOX_GLOBAL_MESSAGE, SOAPBOX_INACTIVE_MESSAGE,
+                              SOAPBOX_SINGLE_PAGE_MESSAGE,
+                              SOAPBOX_SINGLE_PAGE_PATH, SUPPORT_EMAIL)
 from acceptance_tests.pages import LMSLoginPage
-from analyticsclient.client import Client
 from common.clients import CourseStructureApiClient
-
 
 MAX_SUMMARY_POINT_VALUE_LENGTH = 13
 

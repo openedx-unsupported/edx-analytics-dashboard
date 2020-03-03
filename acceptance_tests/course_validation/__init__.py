@@ -1,7 +1,8 @@
+from __future__ import absolute_import
+
 import os
 
 from acceptance_tests import str2bool
-
 
 ENABLE_AUTO_AUTH = str2bool(os.environ.get('ENABLE_AUTO_AUTH', False))
 DASHBOARD_SERVER_URL = os.environ['DASHBOARD_SERVER_URL'].strip('/')

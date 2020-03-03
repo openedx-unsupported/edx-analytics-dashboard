@@ -1,18 +1,23 @@
+from __future__ import absolute_import
+
 import datetime
 import logging
 import traceback
 from os.path import join
 
-from analyticsclient.client import Client
 import requests
+from analyticsclient.client import Client
 from selenium import webdriver
 from slugify import slugify
 
-from acceptance_tests.course_validation import DASHBOARD_SERVER_URL, COURSE_API_URL, COURSE_API_KEY, API_SERVER_URL, \
-    API_AUTH_TOKEN, ENABLE_AUTO_AUTH, LMS_URL, LMS_USERNAME, LMS_PASSWORD, BASIC_AUTH_CREDENTIALS
+from acceptance_tests.course_validation import (API_AUTH_TOKEN, API_SERVER_URL,
+                                                BASIC_AUTH_CREDENTIALS,
+                                                COURSE_API_KEY, COURSE_API_URL,
+                                                DASHBOARD_SERVER_URL,
+                                                ENABLE_AUTO_AUTH, LMS_PASSWORD,
+                                                LMS_URL, LMS_USERNAME)
 from common.clients import CourseStructureApiClient
 from common.course_structure import CourseStructure
-
 
 logger = logging.getLogger(__name__)
 

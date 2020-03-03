@@ -1,10 +1,14 @@
+from __future__ import absolute_import
+
 from unittest import skipUnless
 
 from bok_choy.web_app_test import WebAppTest
 
-from acceptance_tests import PLATFORM_NAME, APPLICATION_NAME, SUPPORT_EMAIL, ENABLE_ERROR_PAGE_TESTS
-from acceptance_tests.pages import ServerErrorPage, NotFoundErrorPage, AccessDeniedErrorPage, \
-    ServiceUnavailableErrorPage
+from acceptance_tests import (APPLICATION_NAME, ENABLE_ERROR_PAGE_TESTS,
+                              PLATFORM_NAME, SUPPORT_EMAIL)
+from acceptance_tests.pages import (AccessDeniedErrorPage, NotFoundErrorPage,
+                                    ServerErrorPage,
+                                    ServiceUnavailableErrorPage)
 
 
 @skipUnless(ENABLE_ERROR_PAGE_TESTS, 'Error page tests are not enabled.')

@@ -2,15 +2,22 @@
 Tests for course analytics pages
 """
 
+from __future__ import absolute_import
+
 from bok_choy.page_object import PageObject
 from bok_choy.promise import EmptyPromise
 
-from acceptance_tests import (
-    DASHBOARD_SERVER_URL, BASIC_AUTH_PASSWORD, BASIC_AUTH_USERNAME, LMS_HOSTNAME,
-    TEST_COURSE_ID, TEST_GRADED_PROBLEM_ID, TEST_GRADED_PROBLEM_PART_ID, TEST_ASSIGNMENT_ID,
-    TEST_ASSIGNMENT_TYPE, TEST_UNGRADED_SECTION_ID, TEST_UNGRADED_SUBSECTION_ID,
-    TEST_UNGRADED_PROBLEM_ID, TEST_UNGRADED_PROBLEM_PART_ID, LMS_SSL_ENABLED,
-    TEST_VIDEO_SECTION_ID, TEST_VIDEO_SUBSECTION_ID, TEST_VIDEO_ID)
+from acceptance_tests import (BASIC_AUTH_PASSWORD, BASIC_AUTH_USERNAME,
+                              DASHBOARD_SERVER_URL, LMS_HOSTNAME,
+                              LMS_SSL_ENABLED, TEST_ASSIGNMENT_ID,
+                              TEST_ASSIGNMENT_TYPE, TEST_COURSE_ID,
+                              TEST_GRADED_PROBLEM_ID,
+                              TEST_GRADED_PROBLEM_PART_ID,
+                              TEST_UNGRADED_PROBLEM_ID,
+                              TEST_UNGRADED_PROBLEM_PART_ID,
+                              TEST_UNGRADED_SECTION_ID,
+                              TEST_UNGRADED_SUBSECTION_ID, TEST_VIDEO_ID,
+                              TEST_VIDEO_SECTION_ID, TEST_VIDEO_SUBSECTION_ID)
 
 
 class DashboardPage(PageObject):  # pylint: disable=abstract-method

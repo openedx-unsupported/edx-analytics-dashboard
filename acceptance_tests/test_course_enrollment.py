@@ -1,12 +1,16 @@
-from collections import OrderedDict
-import datetime
+from __future__ import absolute_import
 
-from analyticsclient.constants import demographics, UNKNOWN_COUNTRY_CODE, enrollment_modes
+import datetime
+from collections import OrderedDict
+
+import six
+from analyticsclient.constants import (UNKNOWN_COUNTRY_CODE, demographics,
+                                       enrollment_modes)
 from bok_choy.web_app_test import WebAppTest
 
 from acceptance_tests.mixins import CoursePageTestsMixin
-from acceptance_tests.pages import CourseEnrollmentActivityPage, CourseEnrollmentGeographyPage
-
+from acceptance_tests.pages import (CourseEnrollmentActivityPage,
+                                    CourseEnrollmentGeographyPage)
 
 _multiprocess_can_split_ = True
 
@@ -195,9 +199,9 @@ class CourseEnrollmentGeographyTests(CoursePageTestsMixin, WebAppTest):
         """ Verify the metrics tiles display the correct information. """
 
         enrollment_data = [datum for datum in self.enrollment_data if datum['country']['name'] != 'UNKNOWN']
-        self.assertSummaryPointValueEquals('data-stat-type=num-countries', unicode(len(enrollment_data)))
+        self.assertSummaryPointValueEquals('data-stat-type=num-countries', six.text_type(len(enrollment_data)))
 
-        for i in range(0, 3):
+        for i in six.moves.range(0, 3):
             country = enrollment_data[i]['country']['name']
             # FIXME: because django-countries is different between dashboard and api
             if country == 'United States':
