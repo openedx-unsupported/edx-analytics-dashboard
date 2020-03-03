@@ -2,8 +2,11 @@
 Tests for course analytics pages
 """
 
+from __future__ import absolute_import
+
 from bok_choy.page_object import PageObject
-from acceptance_tests import TEST_COURSE_ID, DASHBOARD_SERVER_URL
+
+from acceptance_tests import DASHBOARD_SERVER_URL, TEST_COURSE_ID
 
 
 class CoursePage(PageObject):

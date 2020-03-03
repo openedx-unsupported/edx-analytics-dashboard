@@ -13,9 +13,16 @@ middleware here, or combine a Django application with an application of another
 framework.
 
 """
+from __future__ import absolute_import
+
 import os
 from os.path import abspath, dirname
 from sys import path
+
+# This application object is used by any WSGI server configured to use this
+# file. This includes Django's development server, if the WSGI_APPLICATION
+# setting points here.
+from django.core.wsgi import get_wsgi_application
 
 SITE_ROOT = dirname(abspath(__file__))
 path.append(SITE_ROOT)
@@ -26,10 +33,6 @@ path.append(SITE_ROOT)
 # os.environ["DJANGO_SETTINGS_MODULE"] = "jajaja.settings"
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "analytics_dashboard.settings.production")
 
-# This application object is used by any WSGI server configured to use this
-# file. This includes Django's development server, if the WSGI_APPLICATION
-# setting points here.
-from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
 
 # Apply WSGI middleware here.

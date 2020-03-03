@@ -1,5 +1,9 @@
+from __future__ import absolute_import
+
 import copy
 import uuid
+
+from six.moves import range
 
 
 class CourseStructureFactory(object):

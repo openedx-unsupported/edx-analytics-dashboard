@@ -1,7 +1,10 @@
-from a11y_tests.mixins import CoursePageTestsMixin
-from a11y_tests.pages import CourseEnrollmentDemographicsAgePage
+from __future__ import absolute_import
+
 from bok_choy.promise import EmptyPromise
 from bok_choy.web_app_test import WebAppTest
+
+from a11y_tests.mixins import CoursePageTestsMixin
+from a11y_tests.pages import CourseEnrollmentDemographicsAgePage
 
 _multiprocess_can_split_ = True
 

@@ -1,18 +1,19 @@
 # pylint: disable=line-too-long,no-value-for-parameter
+from __future__ import absolute_import
+
 import os
 
 from auth_backends.urls import oauth2_urlpatterns
-from django.conf.urls import include, url
 from django.conf import settings
+from django.conf.urls import include, url
 from django.contrib import admin
+from django.contrib.staticfiles import views as static_views
 from django.views import defaults
 from django.views.i18n import JavaScriptCatalog
-from django.contrib.staticfiles import views as static_views
 
 # pylint suggests importing analytics_dashboard.core, which causes errors in our AMI
 # pylint: disable=relative-import
-from core import views
-
+from .core import views
 
 admin.autodiscover()
 

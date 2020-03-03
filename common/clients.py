@@ -1,8 +1,9 @@
+from __future__ import absolute_import
+
 import logging
 
 from edx_rest_api_client.client import EdxRestApiClient
 from edx_rest_api_client.exceptions import HttpClientError
-
 
 logger = logging.getLogger(__name__)
 
