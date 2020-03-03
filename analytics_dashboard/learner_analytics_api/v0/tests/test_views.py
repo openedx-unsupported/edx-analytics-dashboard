@@ -1,13 +1,13 @@
+from __future__ import absolute_import
+
 import json
 
 import ddt
 import httpretty
 import mock
-from requests.exceptions import ConnectTimeout
-
 from django.conf import settings
 from django.test import TestCase
-
+from requests.exceptions import ConnectTimeout
 from waffle.testutils import override_flag
 
 from core.tests.test_views import UserTestCaseMixin

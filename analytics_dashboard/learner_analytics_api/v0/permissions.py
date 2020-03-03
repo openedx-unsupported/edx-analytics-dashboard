@@ -1,4 +1,7 @@
+from __future__ import absolute_import
+
 import logging
+
 from rest_framework.permissions import BasePermission
 
 from courses.exceptions import PermissionsRetrievalFailedError

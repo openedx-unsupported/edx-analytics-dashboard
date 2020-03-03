@@ -1,5 +1,6 @@
-from requests.exceptions import ConnectTimeout
+from __future__ import absolute_import
 
+from requests.exceptions import ConnectTimeout
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.permissions import IsAuthenticated
