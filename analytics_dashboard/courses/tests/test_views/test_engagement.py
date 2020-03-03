@@ -11,8 +11,12 @@ from waffle.testutils import override_switch
 
 from courses.tests import utils
 from courses.tests.factories import CourseEngagementDataFactory
-from courses.tests.test_views import (CourseAPIMixin, CourseStructureViewMixin,
-                                      CourseViewTestMixin, PatchMixin)
+from courses.tests.test_views import (
+    CourseAPIMixin,
+    CourseStructureViewMixin,
+    CourseViewTestMixin,
+    PatchMixin,
+)
 from courses.tests.utils import CourseSamples
 
 

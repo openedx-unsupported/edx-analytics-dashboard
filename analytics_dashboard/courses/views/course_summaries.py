@@ -14,8 +14,13 @@ from core.utils import remove_keys
 from courses import permissions
 from courses.presenters.course_summaries import CourseSummariesPresenter
 from courses.presenters.programs import ProgramsPresenter
-from courses.views import (CourseAPIMixin, LastUpdatedView, LazyEncoderMixin,
-                           TemplateView, TrackedViewMixin)
+from courses.views import (
+    CourseAPIMixin,
+    LastUpdatedView,
+    LazyEncoderMixin,
+    TemplateView,
+    TrackedViewMixin,
+)
 from courses.views.csv import DatetimeCSVResponseMixin
 
 logger = logging.getLogger(__name__)

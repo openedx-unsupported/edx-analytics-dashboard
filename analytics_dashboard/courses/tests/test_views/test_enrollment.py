@@ -7,8 +7,10 @@ from ddt import ddt
 from django.test import TestCase
 
 from courses.tests import utils
-from courses.tests.test_views import (CourseEnrollmentDemographicsMixin,
-                                      CourseEnrollmentViewTestMixin)
+from courses.tests.test_views import (
+    CourseEnrollmentDemographicsMixin,
+    CourseEnrollmentViewTestMixin,
+)
 
 
 @ddt

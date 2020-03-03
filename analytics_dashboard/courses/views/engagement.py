@@ -10,10 +10,15 @@ from django.utils.translation import ugettext_noop
 from waffle import switch_is_active
 
 from core.utils import translate_dict_values
-from courses.presenters.engagement import (CourseEngagementActivityPresenter,
-                                           CourseEngagementVideoPresenter)
-from courses.views import (CourseStructureExceptionMixin, CourseStructureMixin,
-                           CourseTemplateWithNavView)
+from courses.presenters.engagement import (
+    CourseEngagementActivityPresenter,
+    CourseEngagementVideoPresenter,
+)
+from courses.views import (
+    CourseStructureExceptionMixin,
+    CourseStructureMixin,
+    CourseTemplateWithNavView,
+)
 
 logger = logging.getLogger(__name__)
 

@@ -5,8 +5,11 @@ from ddt import data, ddt, unpack
 from django.test import TestCase, override_settings
 
 from courses.presenters.programs import ProgramsPresenter
-from courses.tests.utils import (CourseSamples, ProgramSamples,
-                                 get_mock_programs)
+from courses.tests.utils import (
+    CourseSamples,
+    ProgramSamples,
+    get_mock_programs,
+)
 
 
 @ddt

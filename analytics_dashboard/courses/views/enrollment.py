@@ -9,7 +9,9 @@ from django.utils.translation import ugettext_noop
 
 from core.utils import translate_dict_values
 from courses.presenters.enrollment import (
-    CourseEnrollmentDemographicsPresenter, CourseEnrollmentPresenter)
+    CourseEnrollmentDemographicsPresenter,
+    CourseEnrollmentPresenter,
+)
 from courses.views import CourseTemplateWithNavView
 
 logger = logging.getLogger(__name__)

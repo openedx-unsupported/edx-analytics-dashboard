@@ -15,10 +15,15 @@ from slugify import slugify
 from waffle.testutils import override_switch
 
 from courses.tests import utils
-from courses.tests.factories import (CoursePerformanceDataFactory,
-                                     TagsDistributionDataFactory)
-from courses.tests.test_views import (CourseAPIMixin, CourseStructureViewMixin,
-                                      PatchMixin)
+from courses.tests.factories import (
+    CoursePerformanceDataFactory,
+    TagsDistributionDataFactory,
+)
+from courses.tests.test_views import (
+    CourseAPIMixin,
+    CourseStructureViewMixin,
+    PatchMixin,
+)
 from courses.tests.utils import CourseSamples
 
 logger = logging.getLogger(__name__)

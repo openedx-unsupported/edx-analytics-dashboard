@@ -5,8 +5,14 @@ from django.conf import settings
 from django.conf.urls import include, url
 
 from courses import views
-from courses.views import (course_summaries, csv, engagement, enrollment,
-                           learners, performance)
+from courses.views import (
+    course_summaries,
+    csv,
+    engagement,
+    enrollment,
+    learners,
+    performance,
+)
 
 CONTENT_ID_PATTERN = r'(?P<content_id>(?:i4x://?[^/]+/[^/]+/[^/]+/[^@]+(?:@[^/]+)?)|(?:[^/]+))'
 PROBLEM_PART_ID_PATTERN = CONTENT_ID_PATTERN.replace('content_id', 'problem_part_id')

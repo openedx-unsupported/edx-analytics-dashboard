@@ -21,15 +21,20 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ugettext_noop
 from django.views.generic import TemplateView
 from edx_rest_api_client.client import EdxRestApiClient
-from edx_rest_api_client.exceptions import (HttpClientError,
-                                            SlumberBaseException)
+from edx_rest_api_client.exceptions import (
+    HttpClientError,
+    SlumberBaseException,
+)
 from opaque_keys.edx.keys import CourseKey
 from six.moves import map
 from waffle import flag_is_active, switch_is_active
 
 from core.exceptions import ServiceUnavailableError
-from core.utils import (CourseStructureApiClient, sanitize_cache_key,
-                        translate_dict_values)
+from core.utils import (
+    CourseStructureApiClient,
+    sanitize_cache_key,
+    translate_dict_values,
+)
 from courses import permissions
 from courses.presenters.performance import CourseReportDownloadPresenter
 from courses.serializers import LazyEncoder

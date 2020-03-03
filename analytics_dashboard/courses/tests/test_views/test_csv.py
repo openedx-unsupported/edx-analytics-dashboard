@@ -10,16 +10,19 @@ from django.utils import timezone
 from waffle.testutils import override_switch
 
 from courses.tests.test_views import ViewTestMixin
-from courses.tests.utils import (CourseSamples, convert_list_of_dicts_to_csv,
-                                 get_mock_api_course_activity,
-                                 get_mock_api_enrollment_age_data,
-                                 get_mock_api_enrollment_data,
-                                 get_mock_api_enrollment_education_data,
-                                 get_mock_api_enrollment_gender_data,
-                                 get_mock_api_enrollment_geography_data,
-                                 get_mock_course_summaries,
-                                 get_mock_course_summaries_csv,
-                                 get_mock_programs)
+from courses.tests.utils import (
+    CourseSamples,
+    convert_list_of_dicts_to_csv,
+    get_mock_api_course_activity,
+    get_mock_api_enrollment_age_data,
+    get_mock_api_enrollment_data,
+    get_mock_api_enrollment_education_data,
+    get_mock_api_enrollment_gender_data,
+    get_mock_api_enrollment_geography_data,
+    get_mock_course_summaries,
+    get_mock_course_summaries_csv,
+    get_mock_programs,
+)
 
 
 @ddt

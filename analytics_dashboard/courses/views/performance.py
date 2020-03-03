@@ -11,10 +11,16 @@ from slugify import slugify
 from waffle import switch_is_active
 
 from core.utils import translate_dict_values
-from courses.presenters.performance import (CoursePerformancePresenter,
-                                            TagsDistributionPresenter)
-from courses.views import (CourseAPIMixin, CourseStructureExceptionMixin,
-                           CourseStructureMixin, CourseTemplateWithNavView)
+from courses.presenters.performance import (
+    CoursePerformancePresenter,
+    TagsDistributionPresenter,
+)
+from courses.views import (
+    CourseAPIMixin,
+    CourseStructureExceptionMixin,
+    CourseStructureMixin,
+    CourseTemplateWithNavView,
+)
 
 logger = logging.getLogger(__name__)
 

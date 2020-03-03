@@ -16,10 +16,15 @@ from mock.mock import _is_started
 from waffle.testutils import override_switch
 
 from core.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin
-from courses.permissions import (revoke_user_course_permissions,
-                                 set_user_course_permissions)
-from courses.tests.utils import (CourseSamples, get_mock_api_enrollment_data,
-                                 mock_course_name)
+from courses.permissions import (
+    revoke_user_course_permissions,
+    set_user_course_permissions,
+)
+from courses.tests.utils import (
+    CourseSamples,
+    get_mock_api_enrollment_data,
+    mock_course_name,
+)
 
 logger = logging.getLogger(__name__)
 

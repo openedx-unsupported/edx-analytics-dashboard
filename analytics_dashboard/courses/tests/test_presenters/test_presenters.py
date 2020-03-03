@@ -15,22 +15,34 @@ from six.moves import zip
 from slugify import slugify
 from waffle.testutils import override_switch
 
-from common.tests.course_fixtures import (ChapterFixture, CourseFixture,
-                                          SequentialFixture, VerticalFixture,
-                                          VideoFixture)
+from common.tests.course_fixtures import (
+    ChapterFixture,
+    CourseFixture,
+    SequentialFixture,
+    VerticalFixture,
+    VideoFixture,
+)
 from courses.exceptions import NoVideosError
 from courses.presenters import CoursePresenter
-from courses.presenters.engagement import (CourseEngagementActivityPresenter,
-                                           CourseEngagementVideoPresenter)
+from courses.presenters.engagement import (
+    CourseEngagementActivityPresenter,
+    CourseEngagementVideoPresenter,
+)
 from courses.presenters.enrollment import (
-    CourseEnrollmentDemographicsPresenter, CourseEnrollmentPresenter)
-from courses.presenters.performance import (CoursePerformancePresenter,
-                                            CourseReportDownloadPresenter,
-                                            TagsDistributionPresenter)
+    CourseEnrollmentDemographicsPresenter,
+    CourseEnrollmentPresenter,
+)
+from courses.presenters.performance import (
+    CoursePerformancePresenter,
+    CourseReportDownloadPresenter,
+    TagsDistributionPresenter,
+)
 from courses.tests import utils
-from courses.tests.factories import (CourseEngagementDataFactory,
-                                     CoursePerformanceDataFactory,
-                                     TagsDistributionDataFactory)
+from courses.tests.factories import (
+    CourseEngagementDataFactory,
+    CoursePerformanceDataFactory,
+    TagsDistributionDataFactory,
+)
 
 
 class BasePresenterTests(TestCase):
