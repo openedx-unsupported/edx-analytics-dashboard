@@ -9,9 +9,11 @@ from analyticsclient.constants import genders as GENDER
 from bok_choy.web_app_test import WebAppTest
 
 from acceptance_tests.mixins import CourseDemographicsPageTestsMixin
-from acceptance_tests.pages import (CourseEnrollmentDemographicsAgePage,
-                                    CourseEnrollmentDemographicsEducationPage,
-                                    CourseEnrollmentDemographicsGenderPage)
+from acceptance_tests.pages import (
+    CourseEnrollmentDemographicsAgePage,
+    CourseEnrollmentDemographicsEducationPage,
+    CourseEnrollmentDemographicsGenderPage,
+)
 
 _multiprocess_can_split_ = True
 

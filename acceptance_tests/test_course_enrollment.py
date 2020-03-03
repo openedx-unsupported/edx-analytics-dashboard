@@ -4,13 +4,18 @@ import datetime
 from collections import OrderedDict
 
 import six
-from analyticsclient.constants import (UNKNOWN_COUNTRY_CODE, demographics,
-                                       enrollment_modes)
+from analyticsclient.constants import (
+    UNKNOWN_COUNTRY_CODE,
+    demographics,
+    enrollment_modes,
+)
 from bok_choy.web_app_test import WebAppTest
 
 from acceptance_tests.mixins import CoursePageTestsMixin
-from acceptance_tests.pages import (CourseEnrollmentActivityPage,
-                                    CourseEnrollmentGeographyPage)
+from acceptance_tests.pages import (
+    CourseEnrollmentActivityPage,
+    CourseEnrollmentGeographyPage,
+)
 
 _multiprocess_can_split_ = True
 

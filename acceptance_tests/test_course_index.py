@@ -6,10 +6,15 @@ from bok_choy.web_app_test import WebAppTest
 from selenium.webdriver.common.keys import Keys
 from six.moves import zip
 
-from acceptance_tests import (ENABLE_COURSE_LIST_FILTERS,
-                              ENABLE_COURSE_LIST_PASSING, TEST_COURSE_ID)
-from acceptance_tests.mixins import (AnalyticsApiClientMixin,
-                                     AnalyticsDashboardWebAppTestMixin)
+from acceptance_tests import (
+    ENABLE_COURSE_LIST_FILTERS,
+    ENABLE_COURSE_LIST_PASSING,
+    TEST_COURSE_ID,
+)
+from acceptance_tests.mixins import (
+    AnalyticsApiClientMixin,
+    AnalyticsDashboardWebAppTestMixin,
+)
 from acceptance_tests.pages import CourseIndexPage
 
 _multiprocess_can_split_ = True

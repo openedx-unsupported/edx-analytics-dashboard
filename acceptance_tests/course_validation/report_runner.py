@@ -34,13 +34,19 @@ import requests
 import six
 from elasticsearch import Elasticsearch
 
-from acceptance_tests.course_validation import (BASIC_AUTH_CREDENTIALS,
-                                                COURSE_API_KEY, COURSE_API_URL,
-                                                DASHBOARD_SERVER_URL,
-                                                ENABLE_AUTO_AUTH, LMS_PASSWORD,
-                                                LMS_URL, LMS_USERNAME)
-from acceptance_tests.course_validation.report_generators import \
-    CoursePerformanceReportGenerator
+from acceptance_tests.course_validation import (
+    BASIC_AUTH_CREDENTIALS,
+    COURSE_API_KEY,
+    COURSE_API_URL,
+    DASHBOARD_SERVER_URL,
+    ENABLE_AUTO_AUTH,
+    LMS_PASSWORD,
+    LMS_URL,
+    LMS_USERNAME,
+)
+from acceptance_tests.course_validation.report_generators import (
+    CoursePerformanceReportGenerator,
+)
 from common.clients import CourseStructureApiClient
 
 NUM_PROCESSES = 8

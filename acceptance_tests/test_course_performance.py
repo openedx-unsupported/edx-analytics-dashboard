@@ -9,12 +9,15 @@ from bok_choy.web_app_test import WebAppTest
 from acceptance_tests import ENABLE_COURSE_API
 from acceptance_tests.mixins import CoursePageTestsMixin
 from acceptance_tests.pages import (
-    CoursePerformanceAnswerDistributionPage, CoursePerformanceAssignmentPage,
+    CoursePerformanceAnswerDistributionPage,
+    CoursePerformanceAssignmentPage,
     CoursePerformanceGradedContentByTypePage,
     CoursePerformanceGradedContentPage,
     CoursePerformanceUngradedAnswerDistributionPage,
-    CoursePerformanceUngradedContentPage, CoursePerformanceUngradedSectionPage,
-    CoursePerformanceUngradedSubsectionPage)
+    CoursePerformanceUngradedContentPage,
+    CoursePerformanceUngradedSectionPage,
+    CoursePerformanceUngradedSubsectionPage,
+)
 from common.course_structure import CourseStructure
 
 _multiprocess_can_split_ = True
