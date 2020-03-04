@@ -1,3 +1,6 @@
+import six
+
+
 class CourseStructure(object):
     @staticmethod
     def _filter_children(blocks, key, require_format=False, **kwargs):
@@ -18,7 +21,7 @@ class CourseStructure(object):
             kwargs[u'type'] = block_type
 
         matched = True
-        for name, value in kwargs.iteritems():
+        for name, value in six.iteritems(kwargs):
             matched &= (block.get(name, None) == value)
             if not matched:
                 break
@@ -88,7 +91,7 @@ class CourseStructure(object):
         blocks = structure[u'blocks']
         root = blocks[structure[u'root']]
         sections = CourseStructure._build_sections(blocks, root[u'id'],
-                                                   graded, [u'chapter', u'sequential', unicode(child_block_type)])
+                                                   graded, [u'chapter', u'sequential', six.text_type(child_block_type)])
         return sections
 
     @staticmethod

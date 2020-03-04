@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 #
 
-import sys, os
+from __future__ import absolute_import
+
 import datetime
+import os
+import sys
 
 # on_rtd is whether we are on readthedocs.org, this line of code grabbed from docs.readthedocs.org
 html_theme = 'edx_theme'
