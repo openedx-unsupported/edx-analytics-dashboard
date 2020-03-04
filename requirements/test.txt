@@ -24,7 +24,7 @@ curtsies==0.3.1           # via -r requirements/base.txt, bpython
 ddt==1.1.1                # via -r requirements/test.in
 django-appconf==1.0.2     # via -r requirements/base.txt
 django-braces==1.11.0     # via -r requirements/base.txt
-django-countries==4.5     # via -r requirements/base.txt
+django-countries==5.5     # via -c requirements/constraints.txt, -r requirements/base.txt
 django-crispy-forms==1.6.1  # via -r requirements/base.txt
 django-dynamic-fixture==1.9.5  # via -r requirements/test.in
 django-model-utils==2.6.1  # via -r requirements/base.txt
@@ -101,7 +101,7 @@ scandir==1.10.0           # via -r requirements/base.txt, pathlib2
 selenium==2.53.6          # via -r requirements/test.in, bok-choy, needle
 semantic-version==2.8.4   # via -r requirements/base.txt, edx-drf-extensions
 singledispatch==3.4.0.3   # via astroid, pylint
-six==1.14.0               # via -r requirements/base.txt, astroid, blessings, bok-choy, bpython, django-dynamic-fixture, djangorestframework-csv, edx-auth-backends, edx-ccx-keys, edx-django-release-util, edx-drf-extensions, edx-i18n-tools, edx-opaque-keys, libsass, logilab-common, mock, more-itertools, packaging, pathlib2, pyjwkest, pylint, pytest, python-dateutil, singledispatch, social-auth-app-django, social-auth-core, stevedore, sure, unittest2
+six==1.14.0               # via -r requirements/base.txt, astroid, blessings, bok-choy, bpython, django-countries, django-dynamic-fixture, djangorestframework-csv, edx-auth-backends, edx-ccx-keys, edx-django-release-util, edx-drf-extensions, edx-i18n-tools, edx-opaque-keys, libsass, logilab-common, mock, more-itertools, packaging, pathlib2, pyjwkest, pylint, pytest, python-dateutil, singledispatch, social-auth-app-django, social-auth-core, stevedore, sure, unittest2
 slumber==0.7.1            # via -r requirements/base.txt, edx-rest-api-client
 social-auth-app-django==3.1.0  # via -r requirements/base.txt, edx-auth-backends
 social-auth-core==3.2.0   # via -r requirements/base.txt, edx-auth-backends, social-auth-app-django
