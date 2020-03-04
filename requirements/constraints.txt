@@ -22,6 +22,9 @@ edx-rest-api-client<4.0.0
 # Already in python3 standard library
 futures; python_version == "2.7"
 
+# 3.10.0 drops Python 2.7 support
+djangorestframework<3.10.0
+
 # django-countries version 6.0.0 dropped support to Python 2.7
 django-countries<6.0.0
 
