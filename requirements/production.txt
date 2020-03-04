@@ -42,7 +42,7 @@ idna==2.9                 # via -r requirements/base.txt, requests
 importlib-metadata==1.5.0  # via -r requirements/base.txt, path.py
 libsass==0.11.1           # via -r requirements/base.txt
 logutils==0.3.4.1         # via -r requirements/base.txt
-mysqlclient==1.4.6        # via -r requirements/production.in
+mysqlclient==1.4.6        # via -c requirements/constraints.txt, -r requirements/production.in
 newrelic==5.8.0.136       # via -r requirements/base.txt, edx-django-utils
 nodeenv==1.3.3            # via -r requirements/production.in
 oauthlib==3.1.0           # via -r requirements/base.txt, requests-oauthlib, social-auth-core
