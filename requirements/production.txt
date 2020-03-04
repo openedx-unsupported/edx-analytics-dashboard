@@ -14,7 +14,7 @@ chardet==3.0.4            # via -r requirements/base.txt, requests
 configparser==4.0.2       # via -r requirements/base.txt, importlib-metadata
 contextlib2==0.6.0.post1  # via -r requirements/base.txt, importlib-metadata, zipp
 curtsies==0.3.1           # via -r requirements/base.txt, bpython
-django-appconf==1.0.2     # via -r requirements/base.txt
+django-appconf==1.0.3     # via -r requirements/base.txt
 django-braces==1.14.0     # via -r requirements/base.txt
 django-countries==5.5     # via -c requirements/constraints.txt, -r requirements/base.txt
 django-crispy-forms==1.8.1  # via -c requirements/constraints.txt, -r requirements/base.txt
@@ -22,7 +22,7 @@ django-model-utils==3.2.0  # via -c requirements/constraints.txt, -r requirement
 django-soapbox==1.3       # via -r requirements/base.txt
 django-waffle==0.12.0     # via -r requirements/base.txt, edx-django-utils, edx-drf-extensions
 django-webpack-loader==0.4.1  # via -r requirements/base.txt
-django==1.11.29           # via -c requirements/constraints.txt, -r requirements/base.txt, django-braces, django-model-utils, edx-auth-backends, edx-django-release-util, edx-django-utils, edx-drf-extensions, edx-i18n-tools, rest-condition
+django==1.11.29           # via -c requirements/constraints.txt, -r requirements/base.txt, django-appconf, django-braces, django-model-utils, edx-auth-backends, edx-django-release-util, edx-django-utils, edx-drf-extensions, edx-i18n-tools, rest-condition
 djangorestframework-csv==2.0.0  # via -r requirements/base.txt
 djangorestframework-jwt==1.11.0  # via -r requirements/base.txt, edx-drf-extensions
 djangorestframework==3.9.4  # via -c requirements/constraints.txt, -r requirements/base.txt, djangorestframework-csv, edx-drf-extensions, rest-condition
@@ -41,10 +41,10 @@ gunicorn==0.17.4          # via -r requirements/production.in
 idna==2.9                 # via -r requirements/base.txt, requests
 importlib-metadata==1.5.0  # via -r requirements/base.txt, path.py
 libsass==0.11.1           # via -r requirements/base.txt
-logutils==0.3.4.1         # via -r requirements/base.txt
+logutils==0.3.5           # via -r requirements/base.txt
 mysqlclient==1.4.6        # via -c requirements/constraints.txt, -r requirements/production.in
 newrelic==5.8.0.136       # via -r requirements/base.txt, edx-django-utils
-nodeenv==1.3.3            # via -r requirements/production.in
+nodeenv==1.3.5            # via -r requirements/production.in
 oauthlib==3.1.0           # via -r requirements/base.txt, requests-oauthlib, social-auth-core
 path.py==11.5.2           # via -r requirements/base.txt, edx-i18n-tools
 pathlib2==2.3.5           # via -r requirements/base.txt, importlib-metadata
@@ -68,7 +68,7 @@ requests==2.23.0          # via -r requirements/base.txt, bpython, edx-analytics
 rest-condition==1.0.3     # via -r requirements/base.txt, edx-drf-extensions
 scandir==1.10.0           # via -r requirements/base.txt, pathlib2
 semantic-version==2.8.4   # via -r requirements/base.txt, edx-drf-extensions
-six==1.14.0               # via -r requirements/base.txt, blessings, bpython, django-braces, django-countries, djangorestframework-csv, edx-auth-backends, edx-ccx-keys, edx-django-release-util, edx-drf-extensions, edx-i18n-tools, edx-opaque-keys, libsass, pathlib2, pyjwkest, python-dateutil, python-memcached, social-auth-app-django, social-auth-core, stevedore
+six==1.14.0               # via -r requirements/base.txt, blessings, bpython, django-appconf, django-braces, django-countries, djangorestframework-csv, edx-auth-backends, edx-ccx-keys, edx-django-release-util, edx-drf-extensions, edx-i18n-tools, edx-opaque-keys, libsass, pathlib2, pyjwkest, python-dateutil, python-memcached, social-auth-app-django, social-auth-core, stevedore
 slumber==0.7.1            # via -r requirements/base.txt, edx-rest-api-client
 social-auth-app-django==3.1.0  # via -r requirements/base.txt, edx-auth-backends
 social-auth-core==3.2.0   # via -r requirements/base.txt, edx-auth-backends, social-auth-app-django
