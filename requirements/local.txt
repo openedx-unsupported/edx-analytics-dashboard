@@ -25,7 +25,7 @@ curtsies==0.3.1           # via -r requirements/test.txt, bpython
 ddt==1.1.1                # via -r requirements/test.txt
 django-appconf==1.0.2     # via -r requirements/test.txt
 django-braces==1.11.0     # via -r requirements/test.txt
-django-countries==4.5     # via -r requirements/test.txt
+django-countries==5.5     # via -c requirements/constraints.txt, -r requirements/test.txt
 django-crispy-forms==1.6.1  # via -r requirements/test.txt
 django-debug-toolbar==1.8  # via -r requirements/local.in
 django-dynamic-fixture==3.0.3  # via -r requirements/test.txt
@@ -104,7 +104,7 @@ scandir==1.10.0           # via -r requirements/test.txt, pathlib2
 selenium==2.53.6          # via -r requirements/test.txt, bok-choy, needle
 semantic-version==2.8.4   # via -r requirements/test.txt, edx-drf-extensions
 singledispatch==3.4.0.3   # via -r requirements/test.txt, astroid, pylint
-six==1.14.0               # via -r requirements/pip_tools.txt, -r requirements/test.txt, astroid, blessings, bok-choy, bpython, django-dynamic-fixture, djangorestframework-csv, edx-auth-backends, edx-ccx-keys, edx-django-release-util, edx-drf-extensions, edx-i18n-tools, edx-opaque-keys, libsass, logilab-common, mock, more-itertools, packaging, pathlib2, pip-tools, pyjwkest, pylint, pytest, python-dateutil, singledispatch, social-auth-app-django, social-auth-core, stevedore, sure, transifex-client, unittest2
+six==1.14.0               # via -r requirements/pip_tools.txt, -r requirements/test.txt, astroid, blessings, bok-choy, bpython, django-countries, django-dynamic-fixture, djangorestframework-csv, edx-auth-backends, edx-ccx-keys, edx-django-release-util, edx-drf-extensions, edx-i18n-tools, edx-opaque-keys, libsass, logilab-common, mock, more-itertools, packaging, pathlib2, pip-tools, pyjwkest, pylint, pytest, python-dateutil, singledispatch, social-auth-app-django, social-auth-core, stevedore, sure, transifex-client, unittest2
 slumber==0.7.1            # via -r requirements/test.txt, edx-rest-api-client
 social-auth-app-django==3.1.0  # via -r requirements/test.txt, edx-auth-backends
 social-auth-core==3.2.0   # via -r requirements/test.txt, edx-auth-backends, social-auth-app-django
