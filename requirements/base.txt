@@ -15,14 +15,14 @@ configparser==4.0.2       # via importlib-metadata
 contextlib2==0.6.0.post1  # via importlib-metadata, zipp
 curtsies==0.3.1           # via bpython
 django-appconf==1.0.2     # via -r requirements/base.in
-django-braces==1.11.0     # via -r requirements/base.in
+django-braces==1.14.0     # via -r requirements/base.in
 django-countries==5.5     # via -c requirements/constraints.txt, -r requirements/base.in
 django-crispy-forms==1.6.1  # via -r requirements/base.in
 django-model-utils==2.6.1  # via -r requirements/base.in
 django-soapbox==1.3       # via -r requirements/base.in
 django-waffle==0.12.0     # via -r requirements/base.in, edx-django-utils, edx-drf-extensions
 django-webpack-loader==0.4.1  # via -r requirements/base.in
-django==1.11.29           # via -c requirements/constraints.txt, -r requirements/base.in, django-model-utils, edx-auth-backends, edx-django-release-util, edx-django-utils, edx-drf-extensions, edx-i18n-tools, rest-condition
+django==1.11.29           # via -c requirements/constraints.txt, -r requirements/base.in, django-braces, django-model-utils, edx-auth-backends, edx-django-release-util, edx-django-utils, edx-drf-extensions, edx-i18n-tools, rest-condition
 djangorestframework-csv==2.0.0  # via -r requirements/base.in
 djangorestframework-jwt==1.11.0  # via edx-drf-extensions
 djangorestframework==3.6.3  # via -r requirements/base.in, djangorestframework-csv, edx-drf-extensions, rest-condition
@@ -64,7 +64,7 @@ requests==2.23.0          # via -r requirements/base.in, bpython, edx-analytics-
 rest-condition==1.0.3     # via edx-drf-extensions
 scandir==1.10.0           # via pathlib2
 semantic-version==2.8.4   # via edx-drf-extensions
-six==1.14.0               # via blessings, bpython, django-countries, djangorestframework-csv, edx-auth-backends, edx-ccx-keys, edx-django-release-util, edx-drf-extensions, edx-i18n-tools, edx-opaque-keys, libsass, pathlib2, pyjwkest, python-dateutil, social-auth-app-django, social-auth-core, stevedore
+six==1.14.0               # via blessings, bpython, django-braces, django-countries, djangorestframework-csv, edx-auth-backends, edx-ccx-keys, edx-django-release-util, edx-drf-extensions, edx-i18n-tools, edx-opaque-keys, libsass, pathlib2, pyjwkest, python-dateutil, social-auth-app-django, social-auth-core, stevedore
 slumber==0.7.1            # via edx-rest-api-client
 social-auth-app-django==3.1.0  # via edx-auth-backends
 social-auth-core==3.2.0   # via edx-auth-backends, social-auth-app-django
