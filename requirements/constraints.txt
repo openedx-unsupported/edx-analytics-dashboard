@@ -31,5 +31,5 @@ django-crispy-forms<1.9.0
 # This only works on python 2.7.
 python-openid; python_version == "2.7"
 
-# Running in python3 astroid 2.3.3 has requirement wrapt==1.11.*
-wrapt>=1.12.0 ; python_version<"3"
+# Constraint from astroid 2.3.3
+wrapt==1.11.*
