@@ -30,7 +30,7 @@ logger = logging.getLogger(__name__)
 
 
 @override_switch('enable_course_api', active=True)
-class CourseAPIMixin(object):
+class CourseAPIMixin(TestCase):
     """
     Mixin with methods to help mock the course API.
     """

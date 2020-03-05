@@ -23,7 +23,7 @@ from courses.permissions import (get_user_course_permissions,
 User = get_user_model()
 
 
-class UserTestCaseMixin(object):
+class UserTestCaseMixin(TestCase):
     PASSWORD = 'password'
 
     def get_user(self):
