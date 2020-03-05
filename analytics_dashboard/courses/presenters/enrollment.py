@@ -1,16 +1,19 @@
+from __future__ import absolute_import
+
 import copy
 import datetime
 import logging
 
+import six
+from analyticsclient.constants import UNKNOWN_COUNTRY_CODE, demographics
+from analyticsclient.constants import education_levels as EDUCATION_LEVEL
+from analyticsclient.constants import enrollment_modes
+from analyticsclient.constants import genders as GENDER
 from django.utils.translation import ugettext_lazy as _
 from django_countries import countries
-from analyticsclient.constants import demographics, UNKNOWN_COUNTRY_CODE, enrollment_modes
-import analyticsclient.constants.education_levels as EDUCATION_LEVEL
-import analyticsclient.constants.genders as GENDER
 
 import courses.utils as utils
 from courses.presenters import CoursePresenter
-
 
 logger = logging.getLogger(__name__)
 
@@ -143,7 +146,7 @@ class CourseEnrollmentPresenter(CoursePresenter):
             end_date = self.parse_api_date(api_response[-1]['date'])
             days_apart = (end_date - start_date).days
 
-            for day_change in range(days_apart):
+            for day_change in six.moves.range(days_apart):
                 expected_date = start_date + datetime.timedelta(days=day_change)
                 current_date = self.parse_api_date(api_response[day_change]['date'])
 
@@ -190,7 +193,7 @@ class CourseEnrollmentPresenter(CoursePresenter):
                 country_code = datum['country']['alpha3']
 
                 try:
-                    datum['country']['name'] = unicode(_countries[datum['country']['alpha2']])
+                    datum['country']['name'] = six.text_type(_countries[datum['country']['alpha2']])
                 except KeyError:
                     logger.warning('Unable to locate %s in django_countries.', country_code)
 
@@ -435,7 +438,7 @@ class CourseEnrollmentDemographicsPresenter(CoursePresenter):
                        for datum in known_ages]
 
         # fill in ages with no counts for display
-        for age in range(self.MAX_AGE + 1):
+        for age in six.moves.range(self.MAX_AGE + 1):
             try:
                 binned = next(binned for binned in binned_ages if binned['age'] is age)
             except StopIteration:
@@ -469,7 +472,7 @@ class CourseEnrollmentDemographicsPresenter(CoursePresenter):
 
     def _calculate_sum(self, dictionary, keys):
         """ Returns the sum of the values from the keys specified. """
-        return sum([value for key, value in dictionary.iteritems() if value and key in keys])
+        return sum([value for key, value in six.iteritems(dictionary) if value and key in keys])
 
     def _calculate_known_total_enrollment(self, api_response, enrollment_key):
         known = [i for i in api_response if i[enrollment_key]]

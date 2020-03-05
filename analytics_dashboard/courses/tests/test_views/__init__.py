@@ -1,29 +1,30 @@
+from __future__ import absolute_import
+
 import json
 import logging
 
-from datetime import datetime, timedelta
+import httpretty
 from analyticsclient.exceptions import NotFoundError
-from ddt import ddt, data
-from django.core.cache import cache
-from django.core.urlresolvers import reverse
+from ddt import data, ddt
 from django.conf import settings
 from django.contrib.humanize.templatetags.humanize import intcomma
+from django.core.cache import cache
+from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
-import httpretty
-import mock
-from mock import patch, Mock
+from mock import Mock, patch
 from mock.mock import _is_started
 from waffle.testutils import override_switch
 
 from core.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin
-from courses.permissions import set_user_course_permissions, revoke_user_course_permissions
+from courses.permissions import (
+    revoke_user_course_permissions,
+    set_user_course_permissions,
+)
 from courses.tests.utils import (
     CourseSamples,
     get_mock_api_enrollment_data,
     mock_course_name,
-    set_empty_permissions,
 )
-
 
 logger = logging.getLogger(__name__)
 
@@ -109,7 +110,7 @@ class AuthTestMixin(MockApiTestMixin, PermissionsTestMixin, RedirectTestCaseMixi
         """
 
         if self.api_method:
-            with mock.patch(self.api_method, return_value=self.get_mock_data(course_id)):
+            with patch(self.api_method, return_value=self.get_mock_data(course_id)):
                 # Authenticated users should go to the course page
                 self.login()
                 response = self.client.get(self.path(course_id=course_id), follow=self.follow)
@@ -121,7 +122,7 @@ class AuthTestMixin(MockApiTestMixin, PermissionsTestMixin, RedirectTestCaseMixi
                 self.assertRedirectsNoFollow(response, settings.LOGIN_URL, next=self.path(course_id=course_id))
 
     @data(CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
-    @mock.patch('courses.permissions.OAuthAPIClient')
+    @patch('courses.permissions.OAuthAPIClient')
     def test_authorization(self, course_id, mock_client):
         """
         Users must be authorized to view a course in order to view the course pages.
@@ -129,7 +130,7 @@ class AuthTestMixin(MockApiTestMixin, PermissionsTestMixin, RedirectTestCaseMixi
         self._prepare_mock_client_to_return_empty_permissions(mock_client)
 
         if self.api_method:
-            with mock.patch(self.api_method, return_value=self.get_mock_data(course_id)):
+            with patch(self.api_method, return_value=self.get_mock_data(course_id)):
                 # Authorized users should be able to view the page
                 self.grant_permission(self.user, course_id)
                 response = self.client.get(self.path(course_id=course_id), follow=self.follow)
@@ -182,7 +183,7 @@ class NavAssertMixin(object):
 
 @ddt
 class CourseViewTestMixin(CourseAPIMixin, NavAssertMixin, ViewTestMixin):
-    @mock.patch('courses.views.CourseValidMixin.is_valid_course', mock.Mock(return_value=False))
+    @patch('courses.views.CourseValidMixin.is_valid_course', Mock(return_value=False))
     def test_invalid_course(self):
         course_id = 'fakeOrg/soFake/Fake_Course'
         self.grant_permission(self.user, course_id)
@@ -207,7 +208,7 @@ class CourseViewTestMixin(CourseAPIMixin, NavAssertMixin, ViewTestMixin):
 
     @data(CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
     def test_missing_data(self, course_id):
-        with mock.patch(self.presenter_method, mock.Mock(side_effect=NotFoundError)):
+        with patch(self.presenter_method, Mock(side_effect=NotFoundError)):
             response = self.client.get(self.path(course_id=course_id))
             context = response.context
 

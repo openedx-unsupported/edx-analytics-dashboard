@@ -1,16 +1,19 @@
+from __future__ import absolute_import
+
 import logging
 
 from braces.views import LoginRequiredMixin
-
 from django.core.exceptions import PermissionDenied
-from django.http import Http404
 from django.core.urlresolvers import reverse
+from django.http import Http404
 from django.utils.translation import ugettext_lazy as _
-
+from rest_framework_csv.renderers import CSVRenderer
 from waffle import switch_is_active
 
 from core.utils import remove_keys
 from courses import permissions
+from courses.presenters.course_summaries import CourseSummariesPresenter
+from courses.presenters.programs import ProgramsPresenter
 from courses.views import (
     CourseAPIMixin,
     LastUpdatedView,
@@ -19,9 +22,6 @@ from courses.views import (
     TrackedViewMixin,
 )
 from courses.views.csv import DatetimeCSVResponseMixin
-from courses.presenters.course_summaries import CourseSummariesPresenter
-from courses.presenters.programs import ProgramsPresenter
-from rest_framework_csv.renderers import CSVRenderer
 
 logger = logging.getLogger(__name__)
 

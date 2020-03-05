@@ -1,17 +1,24 @@
+from __future__ import absolute_import
+
 import logging
 
+from analyticsclient.exceptions import NotFoundError
 from django.conf import settings
 from django.http import Http404
-from django.utils.translation import ugettext_lazy as _, ugettext_noop
-
+from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_noop
 from waffle import switch_is_active
 
-from analyticsclient.exceptions import NotFoundError
 from core.utils import translate_dict_values
-
-from courses.presenters.engagement import (CourseEngagementActivityPresenter, CourseEngagementVideoPresenter)
-from courses.views import (CourseStructureMixin, CourseStructureExceptionMixin, CourseTemplateWithNavView)
-
+from courses.presenters.engagement import (
+    CourseEngagementActivityPresenter,
+    CourseEngagementVideoPresenter,
+)
+from courses.views import (
+    CourseStructureExceptionMixin,
+    CourseStructureMixin,
+    CourseTemplateWithNavView,
+)
 
 logger = logging.getLogger(__name__)
 

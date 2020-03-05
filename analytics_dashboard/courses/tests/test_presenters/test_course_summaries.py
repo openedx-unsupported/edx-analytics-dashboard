@@ -1,18 +1,15 @@
-from ddt import (
-    data,
-    ddt,
-    unpack
-)
-import mock
+from __future__ import absolute_import
 
+import mock
+from ddt import data, ddt, unpack
 from django.conf import settings
 from django.core.cache import cache
 from django.test import TestCase
+from six.moves import zip
 
 from courses.presenters.course_summaries import CourseSummariesPresenter
 from courses.tests import utils
 from courses.tests.utils import CourseSamples
-
 
 _ANOTHER_DEPRECATED_COURSE_ID = 'another/course/id'
 
@@ -219,7 +216,7 @@ class CourseSummariesPresenterTests(TestCase):
                 self._API_SUMMARIES[course_id] for course_id in input_course_ids
             ]
         else:
-            mock_api_response = self._API_SUMMARIES.values()
+            mock_api_response = list(self._API_SUMMARIES.values())
         expected_summaries = [
             self._PRESENTER_SUMMARIES[course_id] for course_id in ouptut_course_ids
         ]

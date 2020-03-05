@@ -1,20 +1,22 @@
-from collections import namedtuple, OrderedDict
-import logging
-from slugify import slugify
+from __future__ import absolute_import
 
+import logging
+from collections import OrderedDict, namedtuple
+
+import six
 from analyticsclient.exceptions import NotFoundError
 from django.conf import settings
 from django.core.cache import cache
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 from edx_rest_api_client.exceptions import HttpClientError
-from core.utils import (CourseStructureApiClient, sanitize_cache_key)
+from slugify import slugify
 
 from common.course_structure import CourseStructure
+from core.utils import CourseStructureApiClient, sanitize_cache_key
 from courses import utils
-from courses.exceptions import (BaseCourseError, NoAnswerSubmissionsError)
-from courses.presenters import (CoursePresenter, CourseAPIPresenterMixin)
-
+from courses.exceptions import BaseCourseError, NoAnswerSubmissionsError
+from courses.presenters import CourseAPIPresenterMixin, CoursePresenter
 
 logger = logging.getLogger(__name__)
 
@@ -129,7 +131,7 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, CoursePresenter):
                 'problem_name': problem_name
             }
 
-        for part_id, problem in part_id_to_problem.iteritems():
+        for part_id, problem in six.iteritems(part_id_to_problem):
             questions.append({
                 'part_id': part_id,
                 'question': problem['question'],
@@ -462,7 +464,7 @@ class TagsDistributionPresenter(CourseAPIPresenterMixin, CoursePresenter):
             self.available_tags = {}
 
             for item in tags_distribution_data.values():
-                for tag_key, tag_values in item['tags'].iteritems():
+                for tag_key, tag_values in six.iteritems(item['tags']):
                     if tag_key not in self.available_tags:
                         self.available_tags[tag_key] = set()
                     for tag_value in tag_values:
@@ -543,7 +545,7 @@ class TagsDistributionPresenter(CourseAPIPresenterMixin, CoursePresenter):
                     result[tag_value]['correct_submissions'] += item['correct_submissions']
                     result[tag_value]['incorrect_submissions'] += item['incorrect_submissions']
 
-        for tag_val, item in result.iteritems():
+        for tag_val, item in six.iteritems(result):
             item.update({
                 'average_submissions': (item['total_submissions'] * 1.0) / item['num_modules'],
                 'average_correct_submissions': (item['correct_submissions'] * 1.0) / item['num_modules'],
@@ -556,7 +558,7 @@ class TagsDistributionPresenter(CourseAPIPresenterMixin, CoursePresenter):
                                kwargs={'course_id': self.course_id,
                                        'tag_value': slugify(tag_val)})
             })
-        return result.values()
+        return list(result.values())
 
     def get_modules_marked_with_tag(self, tag_key, tag_value):
         tags_distribution_data = self._get_course_module_data()
@@ -603,7 +605,7 @@ class TagsDistributionPresenter(CourseAPIPresenterMixin, CoursePresenter):
 
         course_structure = self._get_course_structure()
 
-        for key, val in course_structure.iteritems():
+        for key, val in six.iteritems(course_structure):
             if key in intermediate:
                 first_parent = course_structure[val['parent']]
                 second_parent = course_structure[first_parent['parent']]

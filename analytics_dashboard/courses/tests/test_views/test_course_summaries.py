@@ -1,15 +1,16 @@
+from __future__ import absolute_import
+
 import json
 
-from ddt import data, ddt
 import mock
-
+from ddt import data, ddt
 from django.test import TestCase
 from waffle.testutils import override_switch
 
-from courses.tests.test_views import ViewTestMixin
+import courses.tests.utils as utils
 from courses.exceptions import PermissionsRetrievalFailedError
 from courses.tests.test_middleware import CoursePermissionsExceptionMixin
-import courses.tests.utils as utils
+from courses.tests.test_views import ViewTestMixin
 from courses.tests.utils import CourseSamples
 
 

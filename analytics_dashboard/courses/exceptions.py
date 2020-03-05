@@ -1,4 +1,8 @@
+from __future__ import absolute_import
+
 import abc
+
+import six
 
 
 class PermissionsError(Exception):
@@ -15,9 +19,7 @@ class PermissionsRetrievalFailedError(PermissionsError):
     pass
 
 
-class BaseCourseError(Exception):
-    __metaclass__ = abc.ABCMeta
-
+class BaseCourseError(six.with_metaclass(abc.ABCMeta, Exception)):
     course_id = None
 
     def __init__(self, *args, **kwargs):

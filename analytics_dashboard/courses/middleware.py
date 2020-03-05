@@ -2,11 +2,16 @@
 This file contains Django middleware. For more information visit
 https://docs.djangoproject.com/en/dev/topics/http/middleware/.
 """
+from __future__ import absolute_import
+
 import logging
+
+import six
 from django.http import Http404
 from django.template.response import TemplateResponse
 from opaque_keys import InvalidKeyError
 from opaque_keys.edx.keys import CourseKey
+
 from courses.exceptions import PermissionsRetrievalFailedError
 
 logger = logging.getLogger(__name__)
@@ -30,7 +35,7 @@ class CourseMiddleware(object):
                 # Raising an InvalidKeyError here causes a 500-level error which alerts devops. This should really be a
                 # 404 error because though the course requested cannot be found, the server is operating correctly.
                 raise Http404
-            request.course_id = unicode(request.course_key)
+            request.course_id = six.text_type(request.course_key)
 
         return None
 

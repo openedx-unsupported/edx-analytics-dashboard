@@ -1,20 +1,21 @@
+from __future__ import absolute_import
+
 import datetime
 import logging
 import math
 
+import analyticsclient.constants.activity_types as AT
+from analyticsclient.client import Client
+from analyticsclient.exceptions import NotFoundError
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
+from six.moves import range
 from waffle import switch_is_active
-
-from analyticsclient.client import Client
-import analyticsclient.constants.activity_types as AT
-from analyticsclient.exceptions import NotFoundError
 
 from core.templatetags.dashboard_extras import metric_percentage
 from courses import utils
 from courses.exceptions import NoVideosError
-from courses.presenters import (CoursePresenter, CourseAPIPresenterMixin)
-
+from courses.presenters import CourseAPIPresenterMixin, CoursePresenter
 
 logger = logging.getLogger(__name__)
 

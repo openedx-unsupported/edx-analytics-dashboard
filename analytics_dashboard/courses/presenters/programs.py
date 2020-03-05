@@ -1,5 +1,8 @@
-from courses.presenters import BasePresenter
+from __future__ import absolute_import
+
 from django.core.cache import cache
+
+from courses.presenters import BasePresenter
 
 
 class ProgramsPresenter(BasePresenter):

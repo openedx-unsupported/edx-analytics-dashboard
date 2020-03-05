@@ -1,13 +1,14 @@
 # pylint: disable=abstract-method
 
-from ddt import data, ddt
+from __future__ import absolute_import
+
 import httpretty
 import mock
-from waffle.testutils import override_switch
-
-from django.test import TestCase
-
+import six
 from analyticsclient.exceptions import NotFoundError
+from ddt import data, ddt
+from django.test import TestCase
+from waffle.testutils import override_switch
 
 from courses.tests.test_views import CourseViewTestMixin
 from courses.tests.utils import CourseSamples
@@ -33,7 +34,10 @@ class CourseHomeViewTests(CourseViewTestMixin, TestCase):
         response = self.client.get(path)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context['page_title'], 'Course Home')
-        performance_item = next(g for g in response.context['table_items'] if unicode(g['name']) == u'Performance')
+        performance_item = next(
+            g for g in response.context['table_items']
+            if six.text_type(g['name']) == u'Performance'
+        )
         performance_views = [item['view'] for item in performance_item['items']]
         self.assertEqual('courses:csv:performance_problem_responses' in performance_views, expected)
 

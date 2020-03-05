@@ -1,15 +1,17 @@
 # pylint: disable=no-value-for-parameter
+from __future__ import absolute_import
+
 from django.conf import settings
-from django.conf.urls import url, include
+from django.conf.urls import include, url
 
 from courses import views
 from courses.views import (
     course_summaries,
     csv,
-    enrollment,
     engagement,
-    performance,
+    enrollment,
     learners,
+    performance,
 )
 
 CONTENT_ID_PATTERN = r'(?P<content_id>(?:i4x://?[^/]+/[^/]+/[^/]+/[^@]+(?:@[^/]+)?)|(?:[^/]+))'

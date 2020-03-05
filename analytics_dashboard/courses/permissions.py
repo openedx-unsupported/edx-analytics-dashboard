@@ -1,10 +1,11 @@
+from __future__ import absolute_import
+
 import datetime
 import logging
 
+from auth_backends.backends import EdXOAuth2
 from django.conf import settings
 from django.core.cache import cache
-
-from auth_backends.backends import EdXOAuth2
 from edx_django_utils.monitoring import set_custom_metric
 from edx_rest_api_client.client import OAuthAPIClient
 

@@ -1,23 +1,22 @@
-from ddt import ddt
-import httpretty
-import mock
-from mock import patch, Mock
-
-from django.test import TestCase
-from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext_lazy as _
-
-from waffle.testutils import override_switch
+from __future__ import absolute_import
 
 import analyticsclient.constants.activity_types as AT
+import httpretty
+from ddt import ddt
+from django.core.urlresolvers import reverse
+from django.test import TestCase
+from django.utils.translation import ugettext_lazy as _
+from mock import Mock, patch
+from waffle.testutils import override_switch
 
+from courses.tests import utils
 from courses.tests.factories import CourseEngagementDataFactory
 from courses.tests.test_views import (
+    CourseAPIMixin,
+    CourseStructureViewMixin,
     CourseViewTestMixin,
     PatchMixin,
-    CourseStructureViewMixin,
-    CourseAPIMixin)
-from courses.tests import utils
+)
 from courses.tests.utils import CourseSamples
 
 
@@ -29,7 +28,7 @@ class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):  # pylint: disa
     def setUp(self):
         super(CourseEngagementViewTestMixin, self).setUp()
         # This view combines the activity API with the enrollment API, so we need to mock both.
-        patcher = mock.patch('analyticsclient.course.Course.enrollment', return_value=utils.mock_course_enrollment())
+        patcher = patch('analyticsclient.course.Course.enrollment', return_value=utils.mock_course_enrollment())
         patcher.start()
         self.addCleanup(patcher.stop)
 
@@ -100,7 +99,7 @@ class CourseEngagementContentViewTests(CourseViewTestMixin, CourseEngagementView
 
     def assertViewIsValid(self, course_id):
         rv = utils.mock_engagement_activity_summary_and_trend_data()
-        with mock.patch(self.presenter_method, mock.Mock(return_value=rv)):
+        with patch(self.presenter_method, Mock(return_value=rv)):
             response = self.client.get(self.path(course_id=course_id))
 
             # make sure that we get a 200

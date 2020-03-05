@@ -1,21 +1,26 @@
+from __future__ import absolute_import
+
 import copy
 import logging
 
 from django.conf import settings
 from django.http import Http404
-from django.utils.translation import ugettext_lazy as _, ugettext_noop
+from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_noop
 from slugify import slugify
 from waffle import switch_is_active
 
 from core.utils import translate_dict_values
-from courses.presenters.performance import CoursePerformancePresenter, TagsDistributionPresenter
-
+from courses.presenters.performance import (
+    CoursePerformancePresenter,
+    TagsDistributionPresenter,
+)
 from courses.views import (
-    CourseTemplateWithNavView,
     CourseAPIMixin,
+    CourseStructureExceptionMixin,
     CourseStructureMixin,
-    CourseStructureExceptionMixin)
-
+    CourseTemplateWithNavView,
+)
 
 logger = logging.getLogger(__name__)
 

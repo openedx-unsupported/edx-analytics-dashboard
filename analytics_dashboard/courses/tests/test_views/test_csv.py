@@ -1,17 +1,18 @@
-import urllib
-import mock
+from __future__ import absolute_import
 
-from ddt import ddt, data
+import mock
+import six
+from analyticsclient.exceptions import NotFoundError
+from ddt import data, ddt
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 from django.utils import timezone
 from waffle.testutils import override_switch
 
-from analyticsclient.exceptions import NotFoundError
 from courses.tests.test_views import ViewTestMixin
 from courses.tests.utils import (
-    convert_list_of_dicts_to_csv,
     CourseSamples,
+    convert_list_of_dicts_to_csv,
     get_mock_api_course_activity,
     get_mock_api_enrollment_age_data,
     get_mock_api_enrollment_data,
@@ -243,7 +244,10 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
         self.assertEqual(response['Content-Type'], content_type)
 
     def assertResponseFilename(self, response, filename):
-        self.assertEqual(response['Content-Disposition'], 'attachment; filename="{0}"'.format(urllib.quote(filename)))
+        self.assertEqual(
+            response['Content-Disposition'],
+            'attachment; filename="{0}"'.format(six.moves.urllib.parse.quote(filename)),
+        )
 
     def _test_csv(self, mocked_api_response, csv_data):
         presenter_method = 'courses.presenters.course_summaries.CourseSummariesPresenter.get_course_summaries'
