@@ -9,6 +9,7 @@ from django.test import TestCase
 from django.test.utils import override_settings
 from django_dynamic_fixture import G
 from edx_django_utils.cache import TieredCache
+from six import assertCountEqual
 from six.moves import range
 from social_django.models import UserSocialAuth
 
@@ -115,17 +116,17 @@ class PermissionsTests(TestCase):
 
         # Check permissions
         self.assertItemsEqual(permissions.get_user_course_permissions(self.user), course_ids)
-        self.assertEqual(expected_calls, mock_client.mock_calls)
+        assertCountEqual(self, expected_calls, mock_client.mock_calls)
 
         # Check newly permitted course is not returned because the earlier permissions are cached
         mock_client.reset_mock()
         self._setup_mock_course_ids_responses_and_expects(mock_client, [self.new_course_id])
-        self.assertItemsEqual(permissions.get_user_course_permissions(self.user), course_ids)
+        assertCountEqual(self, permissions.get_user_course_permissions(self.user), course_ids)
         self.assertFalse(mock_client.mock_calls)
 
         # Check original permissions again
         mock_client.reset_mock()
-        self.assertItemsEqual(permissions.get_user_course_permissions(self.user), course_ids)
+        assertCountEqual(self, permissions.get_user_course_permissions(self.user), course_ids)
         self.assertFalse(mock_client.mock_calls)
 
     @mock.patch('courses.permissions.OAuthAPIClient')

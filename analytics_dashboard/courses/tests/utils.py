@@ -3,7 +3,6 @@ from __future__ import absolute_import
 import copy
 import csv
 import datetime
-import StringIO
 import uuid
 
 import six
@@ -437,7 +436,7 @@ def get_presenter_education():
 
 
 def convert_list_of_dicts_to_csv(data, fieldnames=None):
-    output = StringIO.StringIO()
+    output = six.StringIO()
     fieldnames = fieldnames or sorted(data[0].keys())
 
     writer = csv.DictWriter(output, fieldnames)
