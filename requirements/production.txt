@@ -59,7 +59,7 @@ pyjwt==1.7.1              # via -r requirements/base.txt, djangorestframework-jw
 pymongo==3.10.1           # via -r requirements/base.txt, edx-opaque-keys
 python-dateutil==2.8.1    # via -r requirements/base.txt, edx-drf-extensions
 python-memcached==1.58    # via -r requirements/production.in
-python-openid==2.2.5      # via -r requirements/base.txt, social-auth-core
+python-openid==2.2.5 ; python_version == "2.7"  # via -c requirements/constraints.txt, -r requirements/base.txt, social-auth-core
 pytz==2019.3              # via -r requirements/base.txt, django
 pyyaml==5.3               # via -r requirements/base.txt, -r requirements/production.in, edx-django-release-util, edx-i18n-tools
 regex==2020.2.20          # via -r requirements/base.txt, awesome-slugify

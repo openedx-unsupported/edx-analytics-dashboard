@@ -90,7 +90,7 @@ pytest-cov==2.8.1         # via -r requirements/test.in
 pytest-django==3.8.0      # via -r requirements/test.in
 pytest==4.6.9             # via -r requirements/test.in, pytest-cov, pytest-django
 python-dateutil==2.8.1    # via -r requirements/base.txt, edx-drf-extensions
-python-openid==2.2.5      # via -r requirements/base.txt, social-auth-core
+python-openid==2.2.5 ; python_version == "2.7"  # via -c requirements/constraints.txt, -r requirements/base.txt, social-auth-core
 pytz==2019.3              # via -r requirements/base.txt, django
 pyyaml==5.3               # via -r requirements/base.txt, edx-django-release-util, edx-i18n-tools
 regex==2020.2.20          # via -r requirements/base.txt, awesome-slugify
@@ -115,7 +115,7 @@ unidecode==0.4.21         # via -r requirements/base.txt, awesome-slugify
 unittest2==1.1.0          # via -r requirements/test.in
 urllib3==1.25.8           # via -r requirements/base.txt, elasticsearch, requests
 wcwidth==0.1.8            # via -r requirements/base.txt, curtsies, pytest
-wrapt==1.12.0             # via astroid
+wrapt==1.11.2             # via -c requirements/constraints.txt, astroid
 zipp==1.2.0               # via -r requirements/base.txt, importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
