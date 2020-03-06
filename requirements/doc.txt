@@ -27,7 +27,7 @@ django-webpack-loader==0.4.1  # via -r requirements/base.txt
 django==1.11.29           # via -c requirements/constraints.txt, -r requirements/base.txt, django-braces, django-model-utils, edx-auth-backends, edx-django-release-util, edx-django-utils, edx-drf-extensions, edx-i18n-tools, rest-condition
 djangorestframework-csv==2.0.0  # via -r requirements/base.txt
 djangorestframework-jwt==1.11.0  # via -r requirements/base.txt, edx-drf-extensions
-djangorestframework==3.6.3  # via -r requirements/base.txt, djangorestframework-csv, edx-drf-extensions, rest-condition
+djangorestframework==3.9.4  # via -c requirements/constraints.txt, -r requirements/base.txt, djangorestframework-csv, edx-drf-extensions, rest-condition
 docutils==0.16            # via sphinx
 edx-analytics-data-api-client==0.15.3  # via -r requirements/base.txt
 edx-auth-backends==3.0.2  # via -r requirements/base.txt
