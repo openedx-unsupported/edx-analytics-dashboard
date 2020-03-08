@@ -14,7 +14,6 @@ from core.tests.test_views import UserTestCaseMixin
 from courses.tests.test_views import PermissionsTestMixin
 
 
-@override_flag('display_learner_analytics', active=True)
 @ddt.ddt
 class LearnerAPITestMixin(UserTestCaseMixin, PermissionsTestMixin):
     """
@@ -80,6 +79,7 @@ class LearnerAPITestMixin(UserTestCaseMixin, PermissionsTestMixin):
         self.assert_response_equals(response, status_code, body)
 
 
+@override_flag('display_learner_analytics', active=True)
 class LearnerDetailViewTestCase(LearnerAPITestMixin, TestCase):
     endpoint = '/learners/username/'
     required_query_params = {'course_id': 'edX/DemoX/Demo_Course'}
@@ -94,6 +94,7 @@ class LearnerDetailViewTestCase(LearnerAPITestMixin, TestCase):
         })
 
 
+@override_flag('display_learner_analytics', active=True)
 class LearnerListViewTestCase(LearnerAPITestMixin, TestCase):
     endpoint = '/learners/'
     required_query_params = {'course_id': 'edX/DemoX/Demo_Course'}
@@ -130,6 +131,7 @@ class LearnerListCSVTestCase(LearnerListViewTestCase):
         self.assertEquals(response['Content-Disposition'], content_disposition)
 
 
+@override_flag('display_learner_analytics', active=True)
 class EngagementTimelinesViewTestCase(LearnerAPITestMixin, TestCase):
     endpoint = '/engagement_timelines/username/'
     required_query_params = {'course_id': 'edX/DemoX/Demo_Course'}
@@ -145,6 +147,7 @@ class EngagementTimelinesViewTestCase(LearnerAPITestMixin, TestCase):
         })
 
 
+@override_flag('display_learner_analytics', active=True)
 class CourseLearnerMetadataViewTestCase(LearnerAPITestMixin, TestCase):
     endpoint = '/course_learner_metadata/edX/DemoX/Demo_Course/'
     no_permissions_status_code = 403

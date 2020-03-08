@@ -29,8 +29,7 @@ from courses.tests.utils import (
 logger = logging.getLogger(__name__)
 
 
-@override_switch('enable_course_api', active=True)
-class CourseAPIMixin(TestCase):
+class CourseAPIMixin(object):
     """
     Mixin with methods to help mock the course API.
     """
