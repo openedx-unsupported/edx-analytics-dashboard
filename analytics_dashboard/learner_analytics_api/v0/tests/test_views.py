@@ -45,7 +45,7 @@ class LearnerAPITestMixin(UserTestCaseMixin, PermissionsTestMixin):
     def assert_response_equals(self, response, expected_status_code, expected_body=None):
         self.assertEqual(response.status_code, expected_status_code)
         if expected_body is not None:
-            self.assertEqual(json.loads(response.content), expected_body)
+            self.assertEqual(json.loads(response.content.decode()), expected_body)
 
     def test_not_authenticated(self):
         response = self.client.get('/api/learner_analytics/v0' + self.endpoint, self.required_query_params)

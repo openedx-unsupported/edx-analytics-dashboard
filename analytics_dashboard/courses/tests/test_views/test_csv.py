@@ -44,7 +44,7 @@ class CourseCSVTestMixin(ViewTestMixin):
         self.assertResponseFilename(response, filename)
 
         # Check data
-        self.assertEqual(response.content, csv_data)
+        self.assertEqual(response.content.decode(), csv_data)
 
     def assertResponseContentType(self, response, content_type):
         self.assertEqual(response['Content-Type'], content_type)
@@ -238,7 +238,7 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
         self.assertResponseFilename(response, filename)
 
         # Check data
-        self.assertEqual(response.content, csv_data)
+        self.assertEqual(response.content.decode(), csv_data)
 
     def assertResponseContentType(self, response, content_type):
         self.assertEqual(response['Content-Type'], content_type)
