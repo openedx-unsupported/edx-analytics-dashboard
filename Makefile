@@ -3,6 +3,7 @@
 ROOT = $(shell echo "$$PWD")
 COVERAGE = $(ROOT)/build/coverage
 NODE_BIN=./node_modules/.bin
+PYTHON_ENV=py27
 
 DJANGO_SETTINGS_MODULE ?= "analytics_dashboard.settings.local"
 
@@ -41,6 +42,9 @@ test_compress: static
 	# No longer does anything. Kept for legacy support.
 
 test_python: test_compress test_python_no_compress
+
+a11y.requirements:
+	./.travis/a11y_reqs.sh
 
 accept:
 ifeq ("${DISPLAY_LEARNER_ANALYTICS}", "True")
@@ -136,4 +140,6 @@ upgrade: ## update the requirements/*.txt files with the latest packages satisfy
 	pip-compile --upgrade -o requirements/local.txt requirements/local.in
 	pip-compile --upgrade -o requirements/optional.txt requirements/optional.in
 	pip-compile --upgrade -o requirements/production.txt requirements/production.in
+	pip-compile --upgrade -o requirements/travis.txt requirements/travis.in
+
 
