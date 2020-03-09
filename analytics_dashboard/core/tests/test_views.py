@@ -74,7 +74,7 @@ class ViewTests(TestCase):
                 u'database_connection': database_connection,
             }
         }
-        self.assertDictEqual(json.loads(response.content), expected)
+        self.assertDictEqual(json.loads(response.content.decode()), expected)
 
     def test_status(self):
         response = self.client.get(reverse('status'))
