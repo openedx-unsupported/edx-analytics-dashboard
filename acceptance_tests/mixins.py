@@ -1,7 +1,10 @@
+from __future__ import absolute_import
+
 import datetime
 import locale
 from unittest import skip
 
+from analyticsclient.client import Client
 from bok_choy.promise import EmptyPromise
 from selenium.webdriver.common.keys import Keys
 
@@ -24,9 +27,7 @@ from acceptance_tests import (
     SUPPORT_EMAIL,
 )
 from acceptance_tests.pages import LMSLoginPage
-from analyticsclient.client import Client
 from common.clients import CourseStructureApiClient
-
 
 MAX_SUMMARY_POINT_VALUE_LENGTH = 13
 

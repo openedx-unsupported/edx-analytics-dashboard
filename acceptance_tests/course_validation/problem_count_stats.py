@@ -2,6 +2,8 @@
 Script that produces min-max-avg for problem counts across all courses.
 """
 
+from __future__ import absolute_import, print_function
+
 from elasticsearch import Elasticsearch
 
 es = Elasticsearch(retry_on_timeout=True)
@@ -26,7 +28,7 @@ res = es.search(index=index, doc_type='course_performance', body=body)
 
 num_courses = res['hits']['total']
 
-print "Courses: %d" % num_courses
+print("Courses: %d" % num_courses)
 
 data = {}
 for hit in res['hits']['hits']:
@@ -35,7 +37,7 @@ for hit in res['hits']['hits']:
 
 sum_counts = sum(data.values())
 
-print 'Max: %d' % max(data.values())
-print 'Avg: %d' % (sum_counts / num_courses)
-print 'Min: %d' % min(data.values())
-print 'Sum: %d' % sum_counts
+print('Max: %d' % max(data.values()))
+print('Avg: %d' % (sum_counts / num_courses))
+print('Min: %d' % min(data.values()))
+print('Sum: %d' % sum_counts)

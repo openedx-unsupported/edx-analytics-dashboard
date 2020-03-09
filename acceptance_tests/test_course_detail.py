@@ -1,9 +1,10 @@
+from __future__ import absolute_import
+
 from bok_choy.web_app_test import WebAppTest
 
 from acceptance_tests import ENABLE_COURSE_API
 from acceptance_tests.mixins import CoursePageTestsMixin
 from acceptance_tests.pages import CourseHomePage
-
 
 _multiprocess_can_split_ = True
 
