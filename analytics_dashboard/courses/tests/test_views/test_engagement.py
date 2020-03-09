@@ -20,7 +20,6 @@ from courses.tests.test_views import (
 from courses.tests.utils import CourseSamples
 
 
-@override_switch('enable_engagement_videos_pages', active=True)
 class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):  # pylint: disable=abstract-method
     api_method = 'analyticsclient.course.Course.activity'
     active_secondary_nav_label = None
@@ -83,6 +82,7 @@ class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):  # pylint: disa
 
 
 @override_switch('enable_engagement_videos_pages', active=True)
+@override_switch('enable_course_api', active=True)
 @ddt
 class CourseEngagementContentViewTests(CourseViewTestMixin, CourseEngagementViewTestMixin, TestCase):
     viewname = 'courses:engagement:content'
@@ -147,7 +147,6 @@ class CourseEngagementContentViewTests(CourseViewTestMixin, CourseEngagementView
         self.assertIsNone(context['js_data']['course']['engagementTrends'])
 
 
-@override_switch('enable_engagement_videos_pages', active=True)
 @ddt
 class CourseEngagementVideoMixin(CourseEngagementViewTestMixin, CourseStructureViewMixin):
     active_secondary_nav_label = 'Video'
@@ -203,10 +202,14 @@ class CourseEngagementVideoMixin(CourseEngagementViewTestMixin, CourseStructureV
         self.assertEqual(response.status_code, 200)
 
 
+@override_switch('enable_engagement_videos_pages', active=True)
+@override_switch('enable_course_api', active=True)
 class EngagementVideoCourseTest(CourseEngagementVideoMixin, TestCase):
     viewname = 'courses:engagement:videos'
 
 
+@override_switch('enable_engagement_videos_pages', active=True)
+@override_switch('enable_course_api', active=True)
 class EngagementVideoCourseSectionTest(CourseEngagementVideoMixin, TestCase):
     viewname = 'courses:engagement:video_section'
 
@@ -233,6 +236,8 @@ class EngagementVideoCourseSectionTest(CourseEngagementVideoMixin, TestCase):
         self.assertEqual(response.status_code, 404)
 
 
+@override_switch('enable_engagement_videos_pages', active=True)
+@override_switch('enable_course_api', active=True)
 class EngagementVideoCourseSubsectionTest(CourseEngagementVideoMixin, TestCase):
     viewname = 'courses:engagement:video_subsection'
 
@@ -263,6 +268,8 @@ class EngagementVideoCourseSubsectionTest(CourseEngagementVideoMixin, TestCase):
         self.assertEqual(response.status_code, 404)
 
 
+@override_switch('enable_engagement_videos_pages', active=True)
+@override_switch('enable_course_api', active=True)
 class EngagementVideoCourseTimelineTest(CourseEngagementVideoMixin, TestCase):
     viewname = 'courses:engagement:video_timeline'
 

@@ -496,7 +496,6 @@ class CoursePerformanceUngradedSubsectionViewTests(CoursePerformanceUngradedMixi
         self.assertEqual(response.status_code, 404)
 
 
-@override_switch('enable_course_api', active=True)
 class CoursePerformanceLearningOutcomesViewTestMixin(CoursePerformanceViewTestMixin):
 
     tags_factory = None
@@ -547,6 +546,7 @@ class CoursePerformanceLearningOutcomesViewTestMixin(CoursePerformanceViewTestMi
         pass
 
 
+@override_switch('enable_course_api', active=True)
 class CoursePerformanceLearningOutcomesContentViewTests(CoursePerformanceLearningOutcomesViewTestMixin, TestCase):
     viewname = 'courses:performance:learning_outcomes'
     tags_factory_init_data = [{"total_submissions": 21, "correct_submissions": 5,
@@ -570,6 +570,7 @@ class CoursePerformanceLearningOutcomesContentViewTests(CoursePerformanceLearnin
             super(CoursePerformanceLearningOutcomesContentViewTests, self).test_valid_course()
 
 
+@override_switch('enable_course_api', active=True)
 class CoursePerformanceLearningOutcomesSectionViewTests(CoursePerformanceLearningOutcomesViewTestMixin, TestCase):
     viewname = 'courses:performance:learning_outcomes_section'
     tags_factory_init_data = [{"total_submissions": 41, "correct_submissions": 10,
@@ -610,6 +611,7 @@ class CoursePerformanceLearningOutcomesSectionViewTests(CoursePerformanceLearnin
                 super(CoursePerformanceLearningOutcomesSectionViewTests, self).test_valid_course()
 
 
+@override_switch('enable_course_api', active=True)
 class CoursePerformanceLearningOutcomesAnswersDistributionViewTests(
         CoursePerformanceAnswerDistributionMixin,
         CoursePerformanceLearningOutcomesViewTestMixin,
