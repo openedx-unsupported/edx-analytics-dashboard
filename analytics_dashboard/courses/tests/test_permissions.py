@@ -115,7 +115,7 @@ class PermissionsTests(TestCase):
         expected_calls = self._setup_mock_course_ids_responses_and_expects(mock_client, course_ids, page_size=page_size)
 
         # Check permissions
-        self.assertItemsEqual(permissions.get_user_course_permissions(self.user), course_ids)
+        assertCountEqual(self, permissions.get_user_course_permissions(self.user), course_ids)
         assertCountEqual(self, expected_calls, mock_client.mock_calls)
 
         # Check newly permitted course is not returned because the earlier permissions are cached
