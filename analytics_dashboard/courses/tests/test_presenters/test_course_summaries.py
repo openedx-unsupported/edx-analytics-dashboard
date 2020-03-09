@@ -1,11 +1,11 @@
 from __future__ import absolute_import
 
 import mock
+import six
 from ddt import data, ddt, unpack
 from django.conf import settings
 from django.core.cache import cache
 from django.test import TestCase
-from six.moves import zip
 
 from courses.presenters.course_summaries import CourseSummariesPresenter
 from courses.tests import utils
@@ -224,8 +224,8 @@ class CourseSummariesPresenterTests(TestCase):
         with mock.patch('analyticsclient.course_summaries.CourseSummaries.course_summaries',
                         mock.Mock(return_value=mock_api_response)):
             actual_summaries, last_updated = presenter.get_course_summaries(course_ids=input_course_ids)
-            for actual, expected in zip(actual_summaries, expected_summaries):
-                self.assertItemsEqual(actual, expected)
+            for actual, expected in six.moves.zip(actual_summaries, expected_summaries):
+                six.assertCountEqual(self, actual, expected)
             self.assertEqual(last_updated, utils.CREATED_DATETIME)
 
     def test_no_summaries(self):
