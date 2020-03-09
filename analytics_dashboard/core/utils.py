@@ -89,7 +89,7 @@ def remove_keys(d, keys):
     In cases b and c, an empty string ('') key mapped to a tuple specifies the keys to delete in the top level of
     dict d.
     """
-    for key, val in d.items():
+    for key, val in list(d.items()):
         if isinstance(val, dict):
             try:
                 remove_keys(val, keys[key])
