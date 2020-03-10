@@ -355,7 +355,7 @@ class CourseEnrollmentDemographicsPresenter(CoursePresenter):
 
         if api_response:
             last_updated = self.parse_api_datetime(api_response[0]['created'])
-            api_response = sorted(api_response, key=lambda i: i['birth_year'], reverse=True)
+            api_response = sorted(api_response, key=lambda i: i['birth_year'] if i['birth_year'] else 0, reverse=True)
             summary = self._build_ages_summary(api_response)
             binned_ages = self._build_binned_ages(api_response)
             known_enrollment_percent = self._calculate_known_total_percent(api_response, 'birth_year')
