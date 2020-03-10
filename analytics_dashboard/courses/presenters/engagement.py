@@ -220,7 +220,7 @@ class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, CoursePresenter):
             })
 
         # including the URL enables navigation to child pages
-        if url_func > 0 and has_views:
+        if url_func and has_views:
             parent['url'] = url_func(parent)
 
     def build_section_url(self, section):
