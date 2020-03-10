@@ -65,5 +65,11 @@ conf/locale/fake*/LC_MESSAGES/*.po
 conf/locale/fake*/LC_MESSAGES/*.mo
 conf/locale/messages.mo
 
+# Unit test / coverage reports
+coverage/
+.coverage
+htmlcov
+.tox
+
 # Webpack
 webpack-stats.json

@@ -4,3 +4,13 @@ omit = analytics_dashboard/settings*
        *wsgi.py
        *migrations*
        *admin.py
+source = common, analytics_dashboard
+branch = True
+
+[report]
+
+[html]
+directory = ${COVERAGE_DIR}/html/
+
+[xml]
+output = ${COVERAGE_DIR}/coverage.xml

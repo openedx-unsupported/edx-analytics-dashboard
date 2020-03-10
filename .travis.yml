@@ -22,6 +22,11 @@ before_install:
     - docker exec analytics_api make -C /edx/app/analytics_api/analytics_api travis
     - docker exec insights_testing rm /edx/app/insights/edx_analytics_dashboard/package-lock.json
 
+install:
+      - docker exec -t -e TRAVIS=1 insights_testing bash -c "
+        cd /edx/app/insights/edx_analytics_dashboard/ &&
+        pip install -r requirements/travis.txt"
+
 script:
     - docker exec -t -e TRAVIS=1 insights_testing bash -c "
       cd /edx/app/insights/edx_analytics_dashboard/ &&
@@ -34,15 +39,19 @@ matrix:
     - python: 2.7
       env:
         TESTNAME=quality-and-js
-        TARGETS="requirements.js static_no_compress validate_translations quality validate-js generate_fake_translations"
+        TARGETS="requirements.js quality validate_js"
     - python: 2.7
       env:
         TESTNAME=a11y
-        TARGETS="a11y.requirements migrate accept a11y"
+        TARGETS="a11y.requirements migrate requirements.js static accept a11y"
+    - python: 2.7
+      env:
+        TESTNAME=test-i18n
+        TARGETS="validate_translations generate_fake_translations"
     - python: 2.7
       env:
         TESTNAME=test-python
-        TARGETS="test_python"
+        TARGETS="requirements.js test_python"
       after_success:
         - pip install -U codecov
         - docker exec insights_testing /edx/app/insights/edx_analytics_dashboard/.travis/run_coverage.sh

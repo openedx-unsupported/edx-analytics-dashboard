@@ -28,15 +28,14 @@ develop: requirements.js
 	pip install -q -r requirements/local.txt --exists-action w
 
 migrate:
-	python manage.py migrate --run-syncdb
+	tox -e $(PYTHON_ENV)-migrate
 
 clean:
 	find . -name '*.pyc' -delete
-	coverage erase
+	tox -e $(PYTHON_ENV)-clean
 
 test_python_no_compress: clean
-	pytest analytics_dashboard common --cov=analytics_dashboard --cov=common --cov-branch --cov-report=html:$(COVERAGE)/html/ \
-	--cov-report=xml:$(COVERAGE)/coverage.xml
+	tox -e $(PYTHON_ENV)-tests
 
 test_compress: static
 	# No longer does anything. Kept for legacy support.
@@ -46,19 +45,23 @@ test_python: test_compress test_python_no_compress
 a11y.requirements:
 	./.travis/a11y_reqs.sh
 
-accept:
+runserver_a11y:
+	tox -e $(PYTHON_ENV)-runserver_a11y > dashboard.log 2>&1 &
+
+accept: runserver_a11y
 ifeq ("${DISPLAY_LEARNER_ANALYTICS}", "True")
-	./manage.py waffle_flag enable_learner_analytics --create --everyone
+	tox -e $(PYTHON_ENV)-waffle_learner_analytics
 endif
 ifeq ("${ENABLE_COURSE_LIST_FILTERS}", "True")
-	./manage.py waffle_switch enable_course_filters on --create
+	tox -e $(PYTHON_ENV)-waffle_course_filters
 endif
 ifeq ("${ENABLE_COURSE_LIST_PASSING}", "True")
-	./manage.py waffle_switch enable_course_passing on --create
+	tox -e $(PYTHON_ENV)-waffle_course_passing
 endif
-	./manage.py create_acceptance_test_soapbox_messages
-	pytest -v acceptance_tests -k 'not NUM_PROCESSES=1' --ignore=acceptance_tests/course_validation
-	./manage.py delete_acceptance_test_soapbox_messages
+	tox -e $(PYTHON_ENV)-create_acceptance_test_soapbox_messages
+	tox -e $(PYTHON_ENV)-accept
+	tox -e $(PYTHON_ENV)-delete_acceptance_test_soapbox_messages
+	
 
 # local acceptance tests are typically run with by passing in environment variables on the commandline
 # e.g. API_SERVER_URL="http://localhost:9001/api/v0" API_AUTH_TOKEN="edx" make accept_local
@@ -69,16 +72,16 @@ accept_local:
 
 a11y:
 ifeq ("${DISPLAY_LEARNER_ANALYTICS}", "True")
-	./manage.py waffle_flag enable_learner_analytics --create --everyone
+	tox -e $(PYTHON_ENV)-waffle_learner_analytics
 endif
-	BOKCHOY_A11Y_CUSTOM_RULES_FILE=./node_modules/edx-custom-a11y-rules/lib/custom_a11y_rules.js SELENIUM_BROWSER=firefox pytest -v a11y_tests -k 'not NUM_PROCESSES=1' --ignore=acceptance_tests/course_validation
+	tox -e $(PYTHON_ENV)-a11y
 
 course_validation:
 	python -m acceptance_tests.course_validation.generate_report
 
 quality:
-	pycodestyle acceptance_tests analytics_dashboard common
-	PYTHONPATH=".:./analytics_dashboard:$PYTHONPATH" pylint --rcfile=pylintrc acceptance_tests analytics_dashboard common
+	tox -e $(PYTHON_ENV)-pycodestyle
+	tox -e $(PYTHON_ENV)-pylint
 
 validate_python: test.requirements test_python quality
 
@@ -96,15 +99,14 @@ demo:
 
 # compiles djangojs and django .po and .mo files
 compile_translations:
-	python manage.py compilemessages
+	tox -e $(PYTHON_ENV)-compile_translations
 
 # creates the source django & djangojs files
 extract_translations:
-	cd analytics_dashboard && python ../manage.py makemessages -l en -v1 --ignore="docs/*" --ignore="src/*" --ignore="i18n/*" --ignore="assets/*" --ignore="static/bundles/*" -d django
-	cd analytics_dashboard && python ../manage.py makemessages -l en -v1 --ignore="docs/*" --ignore="src/*" --ignore="i18n/*" --ignore="assets/*" --ignore="static/bundles/*" -d djangojs
+	tox -e $(PYTHON_ENV)-extract_translations
 
 dummy_translations:
-	cd analytics_dashboard && i18n_tool dummy -v
+	tox -e $(PYTHON_ENV)-dummy_translations
 
 generate_fake_translations: extract_translations dummy_translations compile_translations
 
@@ -115,20 +117,18 @@ update_translations: pull_translations generate_fake_translations
 
 # check if translation files are up-to-date
 detect_changed_source_translations:
-	cd analytics_dashboard && i18n_tool changed
+	tox -e $(PYTHON_ENV)-detect_changed_translations
 
 # extract, compile, and check if translation files are up-to-date
 validate_translations: extract_translations compile_translations detect_changed_source_translations
-	cd analytics_dashboard && i18n_tool validate
+	tox -e $(PYTHON_ENV)-validate_translations
 
 static_no_compress: static
 	# No longer does anything. Kept for legacy support.
 
 static:
 	$(NODE_BIN)/webpack --config webpack.prod.config.js
-	# collectstatic creates way too much output with the cldr-data directory output so silence that directory
-	echo "Running collectstatic while silencing cldr-data/main/* ..."
-	python manage.py collectstatic --noinput | sed -n '/.*node_modules\/cldr-data\/main\/.*/!p'
+	tox -e $(PYTHON_ENV)-static
 
 export CUSTOM_COMPILE_COMMAND = make upgrade
 upgrade: ## update the requirements/*.txt files with the latest packages satisfying requirements/*.in
