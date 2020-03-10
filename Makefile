@@ -1,7 +1,7 @@
 .PHONY: requirements
 
 ROOT = $(shell echo "$$PWD")
-COVERAGE = $(ROOT)/build/coverage
+COVERAGE_DIR = $(ROOT)/build/coverage
 NODE_BIN=./node_modules/.bin
 PYTHON_ENV=py27
 
@@ -14,6 +14,9 @@ pin_pip:
 	pip install --upgrade pip==9.0.3
 
 requirements: requirements.py requirements.js
+
+requirements.tox:
+	pip install -q -r requirements/tox.txt
 
 requirements.py:
 	pip install -q -r requirements/base.txt --exists-action w
@@ -30,17 +33,19 @@ develop: requirements.js
 migrate:
 	tox -e $(PYTHON_ENV)-migrate
 
-clean:
+clean: requirements.tox 
 	find . -name '*.pyc' -delete
 	tox -e $(PYTHON_ENV)-clean
 
 test_python_no_compress: clean
 	tox -e $(PYTHON_ENV)-tests
+	export COVERAGE_DIR=$(COVERAGE_DIR) && \
+	tox -e $(PYTHON_ENV)-coverage
 
 test_compress: static
 	# No longer does anything. Kept for legacy support.
 
-test_python: test_compress test_python_no_compress
+test_python: requirements.tox test_compress test_python_no_compress
 
 a11y.requirements:
 	./.travis/a11y_reqs.sh
@@ -79,7 +84,7 @@ endif
 course_validation:
 	python -m acceptance_tests.course_validation.generate_report
 
-quality:
+quality: requirements.tox
 	tox -e $(PYTHON_ENV)-pycodestyle
 	tox -e $(PYTHON_ENV)-pylint
 
@@ -98,14 +103,14 @@ demo:
 	python manage.py waffle_switch display_course_name_in_nav off --create
 
 # compiles djangojs and django .po and .mo files
-compile_translations:
+compile_translations: requirements.tox
 	tox -e $(PYTHON_ENV)-compile_translations
 
 # creates the source django & djangojs files
-extract_translations:
+extract_translations: requirements.tox
 	tox -e $(PYTHON_ENV)-extract_translations
 
-dummy_translations:
+dummy_translations: requirements.tox
 	tox -e $(PYTHON_ENV)-dummy_translations
 
 generate_fake_translations: extract_translations dummy_translations compile_translations
@@ -116,7 +121,7 @@ pull_translations:
 update_translations: pull_translations generate_fake_translations
 
 # check if translation files are up-to-date
-detect_changed_source_translations:
+detect_changed_source_translations: requirements.tox
 	tox -e $(PYTHON_ENV)-detect_changed_translations
 
 # extract, compile, and check if translation files are up-to-date
@@ -126,7 +131,7 @@ validate_translations: extract_translations compile_translations detect_changed_
 static_no_compress: static
 	# No longer does anything. Kept for legacy support.
 
-static:
+static: requirements.tox
 	$(NODE_BIN)/webpack --config webpack.prod.config.js
 	tox -e $(PYTHON_ENV)-static
 
@@ -140,6 +145,5 @@ upgrade: ## update the requirements/*.txt files with the latest packages satisfy
 	pip-compile --upgrade -o requirements/local.txt requirements/local.in
 	pip-compile --upgrade -o requirements/optional.txt requirements/optional.in
 	pip-compile --upgrade -o requirements/production.txt requirements/production.in
+	pip-compile --upgrade -o requirements/tox.txt requirements/tox.in
 	pip-compile --upgrade -o requirements/travis.txt requirements/travis.in
-
-
