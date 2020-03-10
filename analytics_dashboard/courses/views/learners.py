@@ -2,11 +2,11 @@ from __future__ import absolute_import
 
 import logging
 
+from six.moves.urllib.parse import urlencode
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
-from requests.exceptions import ConnectionError, Timeout
-from six.moves.urllib.parse import urlencode
+from requests.exceptions import ConnectionError, Timeout  # pylint: disable=redefined-builtin
 from waffle import switch_is_active
 
 from courses.views import CourseTemplateWithNavView

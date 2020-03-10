@@ -128,7 +128,7 @@ class LearnerListCSVTestCase(LearnerListViewTestCase):
             },
         )
         response = self.client.get('/api/learner_analytics/v0' + self.endpoint, self.required_query_params)
-        self.assertEquals(response['Content-Disposition'], content_disposition)
+        self.assertEqual(response['Content-Disposition'], content_disposition)
 
 
 @override_flag('display_learner_analytics', active=True)
