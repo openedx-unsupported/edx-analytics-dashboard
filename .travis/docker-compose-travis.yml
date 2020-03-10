@@ -10,7 +10,7 @@ services:
       ELASTICSEARCH_LEARNERS_HOST: 'http://es:9200/'
       ELASTICSEARCH_LEARNERS_INDEX: 'learner'
       ELASTICSEARCH_LEARNERS_UPDATE_INDEX: 'index_update'
-    command: /edx/app/analytics_api/venvs/analytics_api/bin/python /edx/app/analytics_api/analytics_api/manage.py runserver 0.0.0.0:80
+    command: /edx/app/analytics_api/venvs/analytics_api/bin/python /edx/app/analytics_api/analytics_api/manage.py runserver 0.0.0.0:80 --settings analyticsdataserver.settings.local
   insights:
     image: edxops/insights:latest
     container_name: insights_testing
