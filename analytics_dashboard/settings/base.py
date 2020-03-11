@@ -218,6 +218,7 @@ DJANGO_APPS = (
     'waffle',
     'django_countries',
     'pinax.announcements',
+    'rest_framework_jwt',
 )
 
 # Apps specific for this project go here.
@@ -505,3 +506,9 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 COURSE_SUMMARIES_IDS_CUTOFF = 500
 
 PRIVACY_POLICY_URL = 'http://example.com/privacy-policy'
+
+################################ Settings for JWTs ################################
+
+JWT_AUTH = {
+    'JWT_AUTH_HEADER_PREFIX': 'JWT',
+}
