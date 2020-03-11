@@ -34,7 +34,7 @@ def metric_percentage(value):
         if value < 0.01:
             percent = '< 1'
         else:
-            percent = '{0}'.format(round(value, 3) * 100)
+            percent = '{0:.1f}'.format(round(value, 3) * 100)
 
     # pylint: disable=no-member
     return percent_stat.format(statistic=percent)
