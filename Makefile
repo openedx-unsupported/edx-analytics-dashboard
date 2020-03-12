@@ -73,7 +73,7 @@ course_validation:
 	python -m acceptance_tests.course_validation.generate_report
 
 quality:
-	pep8 acceptance_tests analytics_dashboard common
+	pycodestyle acceptance_tests analytics_dashboard common
 	PYTHONPATH=".:./analytics_dashboard:$PYTHONPATH" pylint --rcfile=pylintrc acceptance_tests analytics_dashboard common
 
 validate_python: test.requirements test_python quality

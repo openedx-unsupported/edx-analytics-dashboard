@@ -52,10 +52,10 @@ class ServiceUnavaliableMiddlewareTests(MiddlewareAssertionMixin, MiddlewareTest
     def test_process_exception(self):
         request = self.factory.get('/')
         self.assertStandardExceptions(request)
-        with LogCapture(level=logging.WARN) as l:
+        with LogCapture(level=logging.WARN) as log_capture:
             exception = ServiceUnavailableError()
             response = self.middleware.process_exception(request, exception)
             self.assertIsServiceUnavailableErrorResponse(response)
 
             # Verify the exception was logged
-            l.check(('core.middleware', 'ERROR', str(exception)),)
+            log_capture.check(('core.middleware', 'ERROR', str(exception)),)

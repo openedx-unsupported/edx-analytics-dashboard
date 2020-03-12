@@ -82,21 +82,23 @@ class ViewTests(TestCase):
 
     @mock.patch('analyticsclient.status.Status.healthy', mock.PropertyMock(return_value=True))
     def test_healthy(self):
-        with LogCapture(level=logging.ERROR) as l:
+        with LogCapture(level=logging.ERROR) as log_capture:
             self.verify_health_response(
                 expected_status_code=200, overall_status=OK, database_connection=OK
             )
-            l.check()
+            log_capture.check()
 
     @mock.patch('analyticsclient.status.Status.healthy', mock.PropertyMock(return_value=True))
     @mock.patch('django.db.backends.base.base.BaseDatabaseWrapper.cursor',
                 mock.Mock(side_effect=DatabaseError('example error')))
     def test_health_database_outage(self):
-        with LogCapture(level=logging.ERROR) as l:
+        with LogCapture(level=logging.ERROR) as log_capture:
             self.verify_health_response(
                 expected_status_code=503, overall_status=UNAVAILABLE, database_connection=UNAVAILABLE
             )
-            l.check(('analytics_dashboard.core.views', 'ERROR', 'Insights database is not reachable: example error'))
+            log_capture.check(
+                ('analytics_dashboard.core.views', 'ERROR', 'Insights database is not reachable: example error')
+            )
 
 
 class LoginViewTests(RedirectTestCaseMixin, TestCase):
