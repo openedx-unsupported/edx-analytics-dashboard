@@ -363,7 +363,7 @@ class TagsDistributionDataFactory(CourseStructureFactory):
 
     def _get_block_id(self, block_type, block_format=None, display_name=None, graded=True, children=None):
         if display_name:
-            return hashlib.md5(display_name).hexdigest()
+            return hashlib.md5(display_name.encode('utf-8')).hexdigest()
         return super(TagsDistributionDataFactory, self)._get_block_id(block_type, block_format, display_name,
                                                                       graded, children)
 
@@ -483,7 +483,9 @@ class TagsDistributionDataFactory(CourseStructureFactory):
                         if val_tag_value == tag_value:
                             display_name = 'Homework %d Problem %d' % (i, num)
                             incorrect_submissions = val["total_submissions"] - val["correct_submissions"]
-                            new_item_id = 'i4x://edX/DemoX/problem/%s' % hashlib.md5(display_name).hexdigest()
+                            new_item_id = 'i4x://edX/DemoX/problem/%s' % hashlib.md5(
+                                display_name.encode('utf-8')
+                            ).hexdigest()
                             index += 1
                             new_item = {
                                 'id': new_item_id,
