@@ -6,7 +6,8 @@ from six.moves.urllib.parse import urlencode
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
-from requests.exceptions import ConnectionError, Timeout  # pylint: disable=redefined-builtin
+from requests.exceptions import ConnectionError as RequestsConnectionError
+from requests.exceptions import Timeout
 from waffle import switch_is_active
 
 from courses.views import CourseTemplateWithNavView
@@ -60,7 +61,7 @@ class LearnersView(CourseTemplateWithNavView):
         ]:
             try:
                 context[data_name] = request_function()
-            except (Timeout, ConnectionError, ValueError):
+            except (Timeout, RequestsConnectionError, ValueError):
                 # ValueError may be thrown by the call to .json()
                 logger.exception(error_message)
                 context[data_name] = error_message

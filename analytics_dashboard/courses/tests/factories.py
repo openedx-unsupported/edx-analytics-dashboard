@@ -371,7 +371,7 @@ class TagsDistributionDataFactory(CourseStructureFactory):
         reg = re.compile(r'Homework (\d) Problem (\d)')
         tags_data = {}
 
-        for k, item in six.iteritems(self._structure['blocks']):  # pylint: disable=unused-variable
+        for _, item in six.iteritems(self._structure['blocks']):
             if item['type'] == 'problem' and item['display_name'].startswith('Homework'):
                 m = reg.match(item['display_name'])
                 assig_num = int(m.group(1))

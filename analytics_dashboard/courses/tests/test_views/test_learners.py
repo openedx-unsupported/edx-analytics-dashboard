@@ -9,7 +9,8 @@ from ddt import data, ddt
 from django.conf import settings
 from django.test import TestCase
 from django.test.utils import override_settings
-from requests.exceptions import ConnectionError, Timeout  # pylint: disable=redefined-builtin
+from requests.exceptions import ConnectionError as RequestsConnectionError
+from requests.exceptions import Timeout
 from testfixtures import LogCapture
 from waffle.testutils import override_flag, override_switch
 
@@ -96,7 +97,7 @@ class LearnersViewTests(ViewTestMixin, TestCase):
         self.assertEqual(response.context['js_data']['course']['learner_list_download_url'],
                          '/api/learner_analytics/v0/learners.csv?fields=username%2Cemail')
 
-    @data(Timeout, ConnectionError, ValueError)
+    @data(Timeout, RequestsConnectionError, ValueError)
     def test_data_api_error(self, RequestExceptionClass):
         learners_payload = {'should_not': 'return this value'}
         course_metadata_payload = learners_payload
