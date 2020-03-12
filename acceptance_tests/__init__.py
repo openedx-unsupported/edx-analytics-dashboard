@@ -12,6 +12,7 @@ def str2bool(s):
     s = six.text_type(s)
     return s.lower() in (u"yes", u"true", u"t", u"1")
 
+
 # Dashboard settings
 DASHBOARD_SERVER_URL = os.environ.get('DASHBOARD_SERVER_URL', 'http://localhost:9000')
 DASHBOARD_FEEDBACK_EMAIL = os.environ.get('DASHBOARD_FEEDBACK_EMAIL', 'override.this.email@example.com')

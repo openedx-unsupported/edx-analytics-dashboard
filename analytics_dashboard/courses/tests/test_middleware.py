@@ -68,11 +68,11 @@ class CoursePermissionsExceptionMiddlewareTests(CoursePermissionsExceptionMixin,
         # Method should return None if exception argument is NOT PermissionsRetrievalFailedError.
         self.assertStandardExceptions(request)
 
-        with LogCapture(level=logging.WARN) as l:
+        with LogCapture(level=logging.WARN) as log_capture:
             # Method should only return a response for PermissionsRetrievalFailedError.
             exception = PermissionsRetrievalFailedError()
             response = self.middleware.process_exception(request, exception)
             self.assertIsPermissionsRetrievalFailedResponse(response)
 
             # Verify the exception was logged
-            l.check(('courses.middleware', 'ERROR', str(exception)),)
+            log_capture.check(('courses.middleware', 'ERROR', str(exception)),)
