@@ -37,7 +37,7 @@ edx-opaque-keys==2.0.1    # via -r requirements/base.txt, edx-ccx-keys, edx-drf-
 edx-rest-api-client==3.0.2  # via -c requirements/constraints.txt, -r requirements/base.txt
 future==0.18.2            # via -r requirements/base.txt, backports.os, pyjwkest
 greenlet==0.4.15          # via -r requirements/base.txt, bpython
-gunicorn==0.17.4          # via -r requirements/production.in
+gunicorn==19.10.0         # via -c requirements/constraints.txt, -r requirements/production.in
 idna==2.9                 # via -r requirements/base.txt, requests
 importlib-metadata==1.5.0  # via -r requirements/base.txt, path.py
 libsass==0.11.1           # via -r requirements/base.txt
