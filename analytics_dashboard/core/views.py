@@ -122,7 +122,7 @@ class LandingView(TemplateView):
 
     def dispatch(self, request, *args, **kwargs):
         """ Non logged in users will be directed to the landing page. """
-        if request.user.is_anonymous():
+        if request.user.is_anonymous:
             return super(LandingView, self).dispatch(request, *args, **kwargs)
         return redirect('courses:index')
 

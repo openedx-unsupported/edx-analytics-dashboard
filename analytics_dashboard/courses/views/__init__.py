@@ -62,7 +62,7 @@ class CourseAPIMixin(object):
     def dispatch(self, request, *args, **kwargs):
         self.course_api_enabled = switch_is_active('enable_course_api')
 
-        if self.course_api_enabled and request.user.is_authenticated():
+        if self.course_api_enabled and request.user.is_authenticated:
             self.access_token = settings.COURSE_API_KEY or EdxRestApiClient.get_and_cache_jwt_oauth_access_token(
                 settings.BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL,
                 settings.BACKEND_SERVICE_EDX_OAUTH2_KEY,
