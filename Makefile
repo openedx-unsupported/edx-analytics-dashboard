@@ -30,7 +30,7 @@ test.requirements:
 develop: requirements.js
 	pip install -q -r requirements/local.txt --exists-action w
 
-migrate:
+migrate: requirements.tox
 	tox -e $(PYTHON_ENV)-migrate
 
 clean: requirements.tox 
@@ -39,6 +39,8 @@ clean: requirements.tox
 
 test_python_no_compress: clean
 	tox -e $(PYTHON_ENV)-tests
+
+coverage:
 	export COVERAGE_DIR=$(COVERAGE_DIR) && \
 	tox -e $(PYTHON_ENV)-coverage
 
@@ -47,7 +49,7 @@ test_compress: static
 
 test_python: requirements.tox test_compress test_python_no_compress
 
-a11y.requirements:
+requirements.a11y:
 	./.travis/a11y_reqs.sh
 
 runserver_a11y:
@@ -75,7 +77,7 @@ accept_local:
 	pytest -v acceptance_tests --ignore=acceptance_tests/course_validation
 	./manage.py delete_acceptance_test_soapbox_messages
 
-a11y:
+a11y: requirements.tox
 ifeq ("${DISPLAY_LEARNER_ANALYTICS}", "True")
 	tox -e $(PYTHON_ENV)-waffle_learner_analytics
 endif
@@ -84,11 +86,18 @@ endif
 course_validation:
 	python -m acceptance_tests.course_validation.generate_report
 
-quality: requirements.tox
+run_check_isort: requirements.tox
+	tox -e $(PYTHON_ENV)-check_isort
+
+run_pycodestyle: requirements.tox
 	tox -e $(PYTHON_ENV)-pycodestyle
+
+run_pylint: requirements.tox
 	tox -e $(PYTHON_ENV)-pylint
 
-validate_python: test.requirements test_python quality
+quality: run_pylint run_pycodestyle
+
+validate_python: test_python quality
 
 #FIXME validate_js: requirements.js
 validate_js:
