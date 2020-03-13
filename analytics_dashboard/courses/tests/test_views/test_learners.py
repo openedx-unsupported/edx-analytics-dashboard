@@ -9,7 +9,8 @@ from ddt import data, ddt
 from django.conf import settings
 from django.test import TestCase
 from django.test.utils import override_settings
-from requests.exceptions import ConnectionError, Timeout
+from requests.exceptions import ConnectionError as RequestsConnectionError
+from requests.exceptions import Timeout
 from testfixtures import LogCapture
 from waffle.testutils import override_flag, override_switch
 
@@ -86,17 +87,17 @@ class LearnersViewTests(ViewTestMixin, TestCase):
     @override_settings(LEARNER_API_LIST_DOWNLOAD_FIELDS=None)
     def test_enable_learner_download_button(self):
         response = self.test_success()
-        self.assertEquals(response.context['js_data']['course']['learner_list_download_url'],
-                          '/api/learner_analytics/v0/learners.csv')
+        self.assertEqual(response.context['js_data']['course']['learner_list_download_url'],
+                         '/api/learner_analytics/v0/learners.csv')
 
     @override_switch('enable_learner_download', active=True)
     @override_settings(LEARNER_API_LIST_DOWNLOAD_FIELDS='username,email')
     def test_enable_learner_download_button_with_fields(self):
         response = self.test_success()
-        self.assertEquals(response.context['js_data']['course']['learner_list_download_url'],
-                          '/api/learner_analytics/v0/learners.csv?fields=username%2Cemail')
+        self.assertEqual(response.context['js_data']['course']['learner_list_download_url'],
+                         '/api/learner_analytics/v0/learners.csv?fields=username%2Cemail')
 
-    @data(Timeout, ConnectionError, ValueError)
+    @data(Timeout, RequestsConnectionError, ValueError)
     def test_data_api_error(self, RequestExceptionClass):
         learners_payload = {'should_not': 'return this value'}
         course_metadata_payload = learners_payload
