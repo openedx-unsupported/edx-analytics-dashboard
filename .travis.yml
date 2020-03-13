@@ -36,6 +36,8 @@ matrix:
       env:
         TESTNAME=quality-and-js
         TARGETS="requirements.js quality validate_js"
+      after_success:
+        - codecov --disable pycov
     - python: 2.7
       env:
         TESTNAME=a11y
