@@ -9,6 +9,9 @@ source = common, analytics_dashboard
 branch = True
 
 [report]
+# Regexes for lines to exclude from consideration
+exclude_lines =
+    raise NotImplementedError
 
 [html]
 directory = ${COVERAGE_DIR}/html/

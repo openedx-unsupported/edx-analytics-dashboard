@@ -17,18 +17,18 @@ before_install:
     # Start up the relevant services
     - docker-compose -f .travis/docker-compose-travis.yml up -d
     - docker exec analytics_api pip install --upgrade pip==9.0.3
-    - docker exec analytics_api make -C /edx/app/analytics_api/analytics_api test.requirements
     - docker exec analytics_api make -C /edx/app/analytics_api/analytics_api travis
-    - docker exec insights_testing rm /edx/app/insights/edx_analytics_dashboard/package-lock.json
+    # HACK: https://github.com/nodejs/docker-node/issues/1199
+    - rm package-lock.json
 
 install:
     - pip install -r requirements/travis.txt
+
 script:
     - docker exec -t -e TRAVIS=1 insights_testing bash -c "
       cd /edx/app/insights/edx_analytics_dashboard/ &&
       PATH=\$PATH:/edx/app/insights/nodeenvs/insights/bin:/snap/bin &&
-      make $TARGETS
-      "
+      make $TARGETS "
 
 matrix:
   include:

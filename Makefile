@@ -40,7 +40,7 @@ clean: requirements.tox
 test_python_no_compress: clean
 	tox -e $(PYTHON_ENV)-tests
 
-coverage:
+coverage: requirements.tox
 	export COVERAGE_DIR=$(COVERAGE_DIR) && \
 	tox -e $(PYTHON_ENV)-coverage
 
@@ -52,7 +52,7 @@ test_python: requirements.tox test_compress test_python_no_compress
 requirements.a11y:
 	./.travis/a11y_reqs.sh
 
-runserver_a11y:
+runserver_a11y: requirements.tox
 	tox -e $(PYTHON_ENV)-runserver_a11y > dashboard.log 2>&1 &
 
 accept: runserver_a11y
