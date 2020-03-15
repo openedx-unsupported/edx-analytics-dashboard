@@ -9,6 +9,7 @@ import logging
 import six
 from django.http import Http404
 from django.template.response import TemplateResponse
+from django.utils.deprecation import MiddlewareMixin
 from opaque_keys import InvalidKeyError
 from opaque_keys.edx.keys import CourseKey
 
@@ -17,7 +18,7 @@ from courses.exceptions import PermissionsRetrievalFailedError
 logger = logging.getLogger(__name__)
 
 
-class CourseMiddleware(object):
+class CourseMiddleware(MiddlewareMixin):
     """
     Adds course info to the request object.
     """
@@ -40,7 +41,7 @@ class CourseMiddleware(object):
         return None
 
 
-class CoursePermissionsExceptionMiddleware(object):
+class CoursePermissionsExceptionMiddleware(MiddlewareMixin):
     """
     Display an error template for PermissionsNotFoundError exceptions.
     """

@@ -7,6 +7,7 @@ from __future__ import absolute_import
 import logging
 
 from django.template.response import TemplateResponse
+from django.utils.deprecation import MiddlewareMixin
 from lang_pref_middleware import middleware
 
 from core.exceptions import ServiceUnavailableError
@@ -14,7 +15,7 @@ from core.exceptions import ServiceUnavailableError
 logger = logging.getLogger(__name__)
 
 
-class LanguagePreferenceMiddleware(middleware.LanguagePreferenceMiddleware):
+class LanguagePreferenceMiddleware(middleware.LanguagePreferenceMiddleware, MiddlewareMixin):
     def get_user_language_preference(self, user):
         """
         Retrieve the given user's language preference.
@@ -24,7 +25,7 @@ class LanguagePreferenceMiddleware(middleware.LanguagePreferenceMiddleware):
         return user.language
 
 
-class ServiceUnavailableExceptionMiddleware(object):
+class ServiceUnavailableExceptionMiddleware(MiddlewareMixin):
     """
     Display an error template for 502 errors.
     """

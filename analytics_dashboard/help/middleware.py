@@ -1,12 +1,13 @@
 from __future__ import absolute_import
 
+from django.utils.deprecation import MiddlewareMixin
 from rest_framework.response import Response
 
 from help import HELP_CONTEXT_TOKEN_NAME
 from help.utils import get_doc_url
 
 
-class HelpURLMiddleware(object):
+class HelpURLMiddleware(MiddlewareMixin):
     """
     Adds a "help_url" entry to the response context.
     """
