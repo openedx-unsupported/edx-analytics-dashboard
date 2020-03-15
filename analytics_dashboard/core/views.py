@@ -7,10 +7,10 @@ import uuid
 from django.conf import settings
 from django.contrib.auth import authenticate, get_user_model, login
 from django.contrib.auth.views import LogoutView, logout_then_login
-from django.core.urlresolvers import reverse_lazy
 from django.db import DatabaseError, connection
 from django.http import Http404, HttpResponse
 from django.shortcuts import redirect
+from django.urls import reverse_lazy
 from django.views.generic import TemplateView, View
 
 from analytics_dashboard.courses import permissions

@@ -7,7 +7,7 @@ import math
 import analyticsclient.constants.activity_types as AT
 from analyticsclient.client import Client
 from analyticsclient.exceptions import NotFoundError
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from six.moves import range
 from waffle import switch_is_active
