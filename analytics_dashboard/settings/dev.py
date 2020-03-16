@@ -35,9 +35,9 @@ if os.environ.get('ENABLE_DJANGO_TOOLBAR', '').lower() in ('true', 't', '1'):
         'debug_toolbar',
     )
 
-    MIDDLEWARE_CLASSES += (
+    MIDDLEWARE += [
         'debug_toolbar.middleware.DebugToolbarMiddleware',
-    )
+    ]
 
     DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
