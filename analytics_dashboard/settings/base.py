@@ -170,8 +170,8 @@ TEMPLATES = [
 
 
 ########## MIDDLEWARE CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#middleware-classes
-MIDDLEWARE = (
+# See: https://docs.djangoproject.com/en/1.11/ref/settings/#middleware-classes
+MIDDLEWARE = [
     'edx_django_utils.cache.middleware.RequestCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -190,7 +190,7 @@ MIDDLEWARE = (
     'edx_django_utils.cache.middleware.TieredCacheMiddleware',
     'edx_rest_framework_extensions.middleware.RequestMetricsMiddleware',
     'edx_rest_framework_extensions.auth.jwt.middleware.EnsureJWTAuthSettingsMiddleware',
-)
+]
 ########## END MIDDLEWARE CONFIGURATION
 
 
