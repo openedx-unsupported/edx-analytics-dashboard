@@ -3,8 +3,8 @@ from __future__ import absolute_import
 import analyticsclient.constants.activity_types as AT
 import httpretty
 from ddt import ddt
-from django.core.urlresolvers import reverse
 from django.test import TestCase
+from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from mock import Mock, patch
 from waffle.testutils import override_switch

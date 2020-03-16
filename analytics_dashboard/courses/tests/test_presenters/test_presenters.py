@@ -9,8 +9,8 @@ from analyticsclient.constants import enrollment_modes
 from ddt import data, ddt, unpack
 from django.conf import settings
 from django.core.cache import cache
-from django.core.urlresolvers import reverse
 from django.test import TestCase, override_settings
+from django.urls import reverse
 from six.moves import zip
 from slugify import slugify
 from waffle.testutils import override_switch

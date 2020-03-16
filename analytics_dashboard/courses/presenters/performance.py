@@ -7,7 +7,7 @@ import six
 from analyticsclient.exceptions import NotFoundError
 from django.conf import settings
 from django.core.cache import cache
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from edx_rest_api_client.exceptions import HttpClientError
 from slugify import slugify

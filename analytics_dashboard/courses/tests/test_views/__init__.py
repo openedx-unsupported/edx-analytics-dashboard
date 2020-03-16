@@ -9,7 +9,7 @@ from ddt import data, ddt
 from django.conf import settings
 from django.contrib.humanize.templatetags.humanize import intcomma
 from django.core.cache import cache
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from mock import Mock, patch
 from mock.mock import _is_started

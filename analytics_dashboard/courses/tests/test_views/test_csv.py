@@ -4,8 +4,8 @@ import mock
 import six
 from analyticsclient.exceptions import NotFoundError
 from ddt import data, ddt
-from django.core.urlresolvers import reverse
 from django.test import TestCase
+from django.urls import reverse
 from django.utils import timezone
 from waffle.testutils import override_switch
 

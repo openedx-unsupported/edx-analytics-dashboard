@@ -4,7 +4,7 @@ import logging
 
 from six.moves.urllib.parse import urlencode
 from django.conf import settings
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from requests.exceptions import ConnectionError as RequestsConnectionError
 from requests.exceptions import Timeout
