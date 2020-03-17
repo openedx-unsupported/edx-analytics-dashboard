@@ -1,8 +1,9 @@
 .PHONY: requirements
 
 ROOT = $(shell echo "$$PWD")
-COVERAGE = $(ROOT)/build/coverage
+COVERAGE_DIR = $(ROOT)/build/coverage
 NODE_BIN=./node_modules/.bin
+PYTHON_ENV=py27
 
 DJANGO_SETTINGS_MODULE ?= "analytics_dashboard.settings.local"
 
@@ -13,6 +14,9 @@ pin_pip:
 	pip install --upgrade pip==9.0.3
 
 requirements: requirements.py requirements.js
+
+requirements.tox:
+	pip install -q -r requirements/tox.txt
 
 requirements.py:
 	pip install -q -r requirements/base.txt --exists-action w
@@ -26,35 +30,45 @@ test.requirements:
 develop: requirements.js
 	pip install -q -r requirements/local.txt --exists-action w
 
-migrate:
-	python manage.py migrate --run-syncdb
+migrate: requirements.tox
+	tox -e $(PYTHON_ENV)-migrate
 
-clean:
+clean: requirements.tox 
 	find . -name '*.pyc' -delete
-	coverage erase
+	tox -e $(PYTHON_ENV)-clean
 
 test_python_no_compress: clean
-	pytest analytics_dashboard common --cov=analytics_dashboard --cov=common --cov-branch --cov-report=html:$(COVERAGE)/html/ \
-	--cov-report=xml:$(COVERAGE)/coverage.xml
+	tox -e $(PYTHON_ENV)-tests
+
+coverage: requirements.tox
+	export COVERAGE_DIR=$(COVERAGE_DIR) && \
+	tox -e $(PYTHON_ENV)-coverage
 
 test_compress: static
 	# No longer does anything. Kept for legacy support.
 
-test_python: test_compress test_python_no_compress
+test_python: requirements.tox test_compress test_python_no_compress
 
-accept:
+requirements.a11y:
+	./.travis/a11y_reqs.sh
+
+runserver_a11y: requirements.tox
+	tox -e $(PYTHON_ENV)-runserver_a11y > dashboard.log 2>&1 &
+
+accept: runserver_a11y
 ifeq ("${DISPLAY_LEARNER_ANALYTICS}", "True")
-	./manage.py waffle_flag enable_learner_analytics --create --everyone
+	tox -e $(PYTHON_ENV)-waffle_learner_analytics
 endif
 ifeq ("${ENABLE_COURSE_LIST_FILTERS}", "True")
-	./manage.py waffle_switch enable_course_filters on --create
+	tox -e $(PYTHON_ENV)-waffle_course_filters
 endif
 ifeq ("${ENABLE_COURSE_LIST_PASSING}", "True")
-	./manage.py waffle_switch enable_course_passing on --create
+	tox -e $(PYTHON_ENV)-waffle_course_passing
 endif
-	./manage.py create_acceptance_test_soapbox_messages
-	pytest -v acceptance_tests -k 'not NUM_PROCESSES=1' --ignore=acceptance_tests/course_validation
-	./manage.py delete_acceptance_test_soapbox_messages
+	tox -e $(PYTHON_ENV)-create_acceptance_test_soapbox_messages
+	tox -e $(PYTHON_ENV)-accept
+	tox -e $(PYTHON_ENV)-delete_acceptance_test_soapbox_messages
+	
 
 # local acceptance tests are typically run with by passing in environment variables on the commandline
 # e.g. API_SERVER_URL="http://localhost:9001/api/v0" API_AUTH_TOKEN="edx" make accept_local
@@ -63,20 +77,27 @@ accept_local:
 	pytest -v acceptance_tests --ignore=acceptance_tests/course_validation
 	./manage.py delete_acceptance_test_soapbox_messages
 
-a11y:
+a11y: requirements.tox
 ifeq ("${DISPLAY_LEARNER_ANALYTICS}", "True")
-	./manage.py waffle_flag enable_learner_analytics --create --everyone
+	tox -e $(PYTHON_ENV)-waffle_learner_analytics
 endif
-	BOKCHOY_A11Y_CUSTOM_RULES_FILE=./node_modules/edx-custom-a11y-rules/lib/custom_a11y_rules.js SELENIUM_BROWSER=firefox pytest -v a11y_tests -k 'not NUM_PROCESSES=1' --ignore=acceptance_tests/course_validation
+	tox -e $(PYTHON_ENV)-a11y
 
 course_validation:
 	python -m acceptance_tests.course_validation.generate_report
 
-quality:
-	pycodestyle acceptance_tests analytics_dashboard common
-	PYTHONPATH=".:./analytics_dashboard:$PYTHONPATH" pylint --rcfile=pylintrc acceptance_tests analytics_dashboard common
+run_check_isort: requirements.tox
+	tox -e $(PYTHON_ENV)-check_isort
 
-validate_python: test.requirements test_python quality
+run_pycodestyle: requirements.tox
+	tox -e $(PYTHON_ENV)-pycodestyle
+
+run_pylint: requirements.tox
+	tox -e $(PYTHON_ENV)-pylint
+
+quality: run_pylint run_pycodestyle
+
+validate_python: test_python quality
 
 #FIXME validate_js: requirements.js
 validate_js:
@@ -91,16 +112,15 @@ demo:
 	python manage.py waffle_switch display_course_name_in_nav off --create
 
 # compiles djangojs and django .po and .mo files
-compile_translations:
-	python manage.py compilemessages
+compile_translations: requirements.tox
+	tox -e $(PYTHON_ENV)-compile_translations
 
 # creates the source django & djangojs files
-extract_translations:
-	cd analytics_dashboard && python ../manage.py makemessages -l en -v1 --ignore="docs/*" --ignore="src/*" --ignore="i18n/*" --ignore="assets/*" --ignore="static/bundles/*" -d django
-	cd analytics_dashboard && python ../manage.py makemessages -l en -v1 --ignore="docs/*" --ignore="src/*" --ignore="i18n/*" --ignore="assets/*" --ignore="static/bundles/*" -d djangojs
+extract_translations: requirements.tox
+	tox -e $(PYTHON_ENV)-extract_translations
 
-dummy_translations:
-	cd analytics_dashboard && i18n_tool dummy -v
+dummy_translations: requirements.tox
+	tox -e $(PYTHON_ENV)-dummy_translations
 
 generate_fake_translations: extract_translations dummy_translations compile_translations
 
@@ -110,21 +130,19 @@ pull_translations:
 update_translations: pull_translations generate_fake_translations
 
 # check if translation files are up-to-date
-detect_changed_source_translations:
-	cd analytics_dashboard && i18n_tool changed
+detect_changed_source_translations: requirements.tox
+	tox -e $(PYTHON_ENV)-detect_changed_translations
 
 # extract, compile, and check if translation files are up-to-date
 validate_translations: extract_translations compile_translations detect_changed_source_translations
-	cd analytics_dashboard && i18n_tool validate
+	tox -e $(PYTHON_ENV)-validate_translations
 
 static_no_compress: static
 	# No longer does anything. Kept for legacy support.
 
-static:
+static: requirements.tox
 	$(NODE_BIN)/webpack --config webpack.prod.config.js
-	# collectstatic creates way too much output with the cldr-data directory output so silence that directory
-	echo "Running collectstatic while silencing cldr-data/main/* ..."
-	python manage.py collectstatic --noinput | sed -n '/.*node_modules\/cldr-data\/main\/.*/!p'
+	tox -e $(PYTHON_ENV)-static
 
 export CUSTOM_COMPILE_COMMAND = make upgrade
 upgrade: ## update the requirements/*.txt files with the latest packages satisfying requirements/*.in
@@ -136,4 +154,5 @@ upgrade: ## update the requirements/*.txt files with the latest packages satisfy
 	pip-compile --upgrade -o requirements/local.txt requirements/local.in
 	pip-compile --upgrade -o requirements/optional.txt requirements/optional.in
 	pip-compile --upgrade -o requirements/production.txt requirements/production.in
-
+	pip-compile --upgrade -o requirements/tox.txt requirements/tox.in
+	pip-compile --upgrade -o requirements/travis.txt requirements/travis.in

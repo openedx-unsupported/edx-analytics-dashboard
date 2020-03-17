@@ -17,16 +17,58 @@ before_install:
     # Start up the relevant services
     - docker-compose -f .travis/docker-compose-travis.yml up -d
     - docker exec analytics_api pip install --upgrade pip==9.0.3
-    - docker exec analytics_api make -C /edx/app/analytics_api/analytics_api test.requirements
     - docker exec analytics_api make -C /edx/app/analytics_api/analytics_api travis
+    # HACK: https://github.com/nodejs/docker-node/issues/1199
+    - rm package-lock.json
+
+install:
+    - pip install -r requirements/travis.txt
 
 script:
-    - docker exec insights_testing /edx/app/insights/edx_analytics_dashboard/.travis/run_tests.sh
+    - docker exec -t -e TRAVIS=1 insights_testing bash -c "
+      cd /edx/app/insights/edx_analytics_dashboard/ &&
+      PATH=\$PATH:/edx/app/insights/nodeenvs/insights/bin:/snap/bin &&
+      make $TARGETS "
 
-after_success:
-    - pip install -U codecov
-    - docker exec insights_testing /edx/app/insights/edx_analytics_dashboard/.travis/run_coverage.sh
-    - codecov
+matrix:
+  include:
+    - python: 2.7
+      env:
+        TESTNAME=quality-and-js
+        TARGETS="requirements.js quality validate_js"
+      after_success:
+        - codecov --disable pycov
+    - python: 2.7
+      env:
+        TESTNAME=a11y
+        TARGETS="requirements.a11y migrate requirements.js static accept a11y"
+    - python: 2.7
+      env:
+        TESTNAME=test-i18n
+        TARGETS="validate_translations generate_fake_translations"
+    - python: 2.7
+      env:
+        TESTNAME=test-python
+        TARGETS="requirements.js test_python"
+      after_success:
+        - docker exec insights_testing /edx/app/insights/edx_analytics_dashboard/.travis/run_coverage.sh
+        - codecov --disable pycov
+    - python: 3.5
+      env:
+        TESTNAME=quality-and-js-python-3.5
+        TARGETS="PYTHON_ENV=py35 requirements.js quality validate_js"
+    - python: 3.5
+      env:
+        TESTNAME=a11y
+        TARGETS="PYTHON_ENV=py35 requirements.a11y migrate requirements.js static accept a11y"
+    - python: 3.5
+      env:
+        TESTNAME=test-i18n-python-3.5
+        TARGETS="PYTHON_ENV=py35 validate_translations generate_fake_translations"
+    - python: 3.5
+      env:
+        TESTNAME=test-python-python-3.5
+        TARGETS="PYTHON_ENV=py35 requirements.js test_python"
 
 after_failure:
     # Print the list of running containers to rule out a killed container as a cause of failure

@@ -4,3 +4,17 @@ omit = analytics_dashboard/settings*
        *wsgi.py
        *migrations*
        *admin.py
+       *test*
+source = common, analytics_dashboard
+branch = True
+
+[report]
+# Regexes for lines to exclude from consideration
+exclude_lines =
+    raise NotImplementedError
+
+[html]
+directory = ${COVERAGE_DIR}/html/
+
+[xml]
+output = ${COVERAGE_DIR}/coverage.xml
