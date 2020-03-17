@@ -85,3 +85,4 @@ deploy:
       acl: public_read
       on:
         branch: master
+        condition: "$TESTNAME = test-python"
