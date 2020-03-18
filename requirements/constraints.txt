@@ -10,8 +10,8 @@
 
 # TODO: Many pinned dependencies should be unpinned and/or moved to this constraints file.
 
-# Django 2 drops Python 2.7 support
-Django<2.0.0
+# Code support django 2.2
+Django<3.0.0
 
 # Major version to 2.0.0 does not work with pylint<2.0.0
 astroid<2.0.0
@@ -55,8 +55,8 @@ gunicorn<20.0.0
 # 2.0.0 drops Python 2.7 support.
 mysqlclient<2.0.0
 
-# This only works on python 2.7.
-python-openid; python_version == "2.7"
+# 3.3.0 Generate incompatibilities with awesome-slugify.
+social-auth-core==3.2.0
 
 # Constraint from astroid 2.3.3
 wrapt==1.11.*
