@@ -31,7 +31,7 @@ urlpatterns = AUTH_URLS + [
     url(r'^health/$', views.health, name='health'),
     url(r'^courses/', include('courses.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^api-auth/', include(AUTH_URLS, namespace='rest_framework')),
+    url(r'^api-auth/', include((AUTH_URLS, 'auth_urls'), namespace='rest_framework')),
     url(r'^test/auto_auth/$', views.AutoAuth.as_view(), name='auto_auth'),
     url(r'^announcements/', include('pinax.announcements.urls', namespace='pinax_announcements')),
 ]
