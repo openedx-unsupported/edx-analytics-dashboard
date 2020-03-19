@@ -32,43 +32,45 @@ script:
 
 matrix:
   include:
-    - python: 2.7
+    - python: 3.5 
       env:
         TESTNAME=quality-and-js
         TARGETS="requirements.js quality validate_js"
       after_success:
         - codecov --disable pycov
-    - python: 2.7
+    - python: 3.5
       env:
         TESTNAME=a11y
         TARGETS="requirements.a11y migrate requirements.js static accept a11y"
-    - python: 2.7
+    - python: 3.5
       env:
         TESTNAME=test-i18n
         TARGETS="validate_translations generate_fake_translations"
-    - python: 2.7
+    - python: 3.5
       env:
         TESTNAME=test-python
         TARGETS="requirements.js test_python"
       after_success:
         - docker exec insights_testing /edx/app/insights/edx_analytics_dashboard/.travis/run_coverage.sh
         - codecov --disable pycov
-    - python: 3.5
+    - python: 3.6
       env:
         TESTNAME=quality-and-js-python-3.5
-        TARGETS="PYTHON_ENV=py35 requirements.js quality validate_js"
-    - python: 3.5
+        TARGETS="PYTHON_ENV=py36 requirements.js quality validate_js"
+    - python: 3.6
       env:
         TESTNAME=a11y
-        TARGETS="PYTHON_ENV=py35 requirements.a11y migrate requirements.js static accept a11y"
-    - python: 3.5
+        TARGETS="PYTHON_ENV=py36 requirements.a11y migrate requirements.js static accept a11y"
+    - python: 3.6
       env:
-        TESTNAME=test-i18n-python-3.5
-        TARGETS="PYTHON_ENV=py35 validate_translations generate_fake_translations"
-    - python: 3.5
+        TESTNAME=test-i18n-python-3.6
+        TARGETS="PYTHON_ENV=py36 validate_translations generate_fake_translations"
+    - python: 3.6
       env:
-        TESTNAME=test-python-python-3.5
-        TARGETS="PYTHON_ENV=py35 requirements.js test_python"
+        TESTNAME=test-python-3.6
+        TARGETS="PYTHON_ENV=py36 requirements.js test_python"
+  allow_failures:
+    - python: 3.6
 
 after_failure:
     # Print the list of running containers to rule out a killed container as a cause of failure
