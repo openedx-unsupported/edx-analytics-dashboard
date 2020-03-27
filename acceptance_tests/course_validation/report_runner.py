@@ -134,9 +134,9 @@ def login(http_client):
         if response.status_code == 200:
             logger.info('Login succeeded.')
             return
-        else:
-            logger.fatal(failure_msg)
-            raise Exception(failure_msg)
+
+        logger.fatal(failure_msg)
+        raise Exception(failure_msg)
 
     logger.info('Logging into LMS...')
 

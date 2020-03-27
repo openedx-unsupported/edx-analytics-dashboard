@@ -54,7 +54,8 @@ class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, Web
 
             if count_enrollments > half_enrollments:
                 return age
-            elif count_enrollments == half_enrollments:
+
+            if count_enrollments == half_enrollments:
                 if total_enrollment % 2 == 0:
                     next_age = current_year - data[index + 1]['birth_year']
                     return (next_age + age) * 0.5
