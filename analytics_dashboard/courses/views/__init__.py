@@ -44,7 +44,7 @@ from help.views import ContextSensitiveHelpMixin
 logger = logging.getLogger(__name__)
 
 
-class CourseAPIMixin(object):
+class CourseAPIMixin:
     access_token = None
     course_api_enabled = False
     course_api = None
@@ -136,7 +136,7 @@ class CourseAPIMixin(object):
         return courses
 
 
-class TrackedViewMixin(object):
+class TrackedViewMixin:
     """
     Adds tracking variables to the context passed to Javascript.
     """
@@ -162,7 +162,7 @@ class TrackedViewMixin(object):
         return context
 
 
-class LazyEncoderMixin(object):
+class LazyEncoderMixin:
     def get_page_data(self, context):
         """ Returns JSON serialized data with lazy translations converted. """
         if 'js_data' in context:
@@ -225,7 +225,7 @@ class CourseContextMixin(CourseAPIMixin, TrackedViewMixin, LazyEncoderMixin):
         return context
 
 
-class CourseValidMixin(object):
+class CourseValidMixin:
     """
     Mixin that checks the validity of a course ID against the LMS.
     """
@@ -256,7 +256,7 @@ class CourseValidMixin(object):
             raise Http404
 
 
-class CoursePermissionMixin(object):
+class CoursePermissionMixin:
     course_id = None
     user = None
 
@@ -270,7 +270,7 @@ class CoursePermissionMixin(object):
         return super(CoursePermissionMixin, self).dispatch(request, *args, **kwargs)
 
 
-class CourseNavBarMixin(object):
+class CourseNavBarMixin:
     """
     Mixin to add navbar items to context.
 
@@ -459,7 +459,7 @@ class CourseView(LoginRequiredMixin, CourseValidMixin, CoursePermissionMixin, Te
         return context
 
 
-class LastUpdatedView(object):
+class LastUpdatedView:
     def get_last_updated_message(self, last_updated):
         if last_updated:
             return self.update_message % self.format_last_updated_date_and_time(last_updated)
@@ -761,7 +761,7 @@ class CourseHome(CourseTemplateWithNavView):
         return context
 
 
-class CourseStructureExceptionMixin(object):
+class CourseStructureExceptionMixin:
     """
     Catches exceptions from the course structure API.  This mixin should be included before
     CourseAPIMixin.
@@ -785,7 +785,7 @@ class CourseStructureExceptionMixin(object):
             raise
 
 
-class CourseStructureMixin(object):
+class CourseStructureMixin:
     """
     Retrieves and sets section and subsection IDs and added the sections, subsections,
     and subsection children (e.g. videos, problems) to the context.

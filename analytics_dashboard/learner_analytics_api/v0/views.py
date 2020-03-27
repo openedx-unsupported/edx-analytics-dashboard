@@ -78,7 +78,7 @@ class BaseLearnerApiView(RetrieveAPIView):
         return super(BaseLearnerApiView, self).handle_exception(exc)
 
 
-class DownloadLearnerApiViewMixin(object):
+class DownloadLearnerApiViewMixin:
     """
     Requests text/csv data from the Learner Analytics API, and ensures that the REST framework returns it unparsed,
     including the response headers.
@@ -98,7 +98,7 @@ class DownloadLearnerApiViewMixin(object):
         return super(DownloadLearnerApiViewMixin, self).get_api_response(request, **kwargs)
 
 
-class NotFoundLearnerApiViewMixin(object):
+class NotFoundLearnerApiViewMixin:
     """
     Returns 404s rather than 403s when PermissionDenied exceptions are raised.
     """

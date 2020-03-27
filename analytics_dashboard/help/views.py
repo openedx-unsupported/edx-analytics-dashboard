@@ -3,7 +3,7 @@ from __future__ import absolute_import
 from help import HELP_CONTEXT_TOKEN_NAME
 
 
-class ContextSensitiveHelpMixin(object):
+class ContextSensitiveHelpMixin:
     """
     Adds page-specific data to enable context-sensitive help.
     """

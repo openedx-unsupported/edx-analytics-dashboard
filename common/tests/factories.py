@@ -6,7 +6,7 @@ import uuid
 from six.moves import range
 
 
-class CourseStructureFactory(object):
+class CourseStructureFactory:
     """ Factory that can be used to generate course structure. """
 
     assignment_types = ['Homework', 'Exam']

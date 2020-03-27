@@ -12,6 +12,6 @@ class User(AbstractUser):
     # preferences. Saving it in the session should be enough.
     language = models.CharField(max_length=255, null=True, choices=settings.LANGUAGES, default=None)
 
-    class Meta(object):
+    class Meta:
         get_latest_by = 'date_joined'
         db_table = 'analytics_dashboard_user'   # Legacy table name

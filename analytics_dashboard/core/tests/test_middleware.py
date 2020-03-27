@@ -23,7 +23,7 @@ class MiddlewareTestCase(TestCase):
         self.middleware = self.middleware_class()   # pylint: disable=not-callable
 
 
-class MiddlewareAssertionMixin(object):
+class MiddlewareAssertionMixin:
     def assertStandardExceptions(self, request):
         self.assertIsNone(self.middleware.process_exception(request, None))
         self.assertIsNone(self.middleware.process_exception(request, Exception))

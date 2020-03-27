@@ -15,7 +15,7 @@ from courses.views import CourseView
 logger = logging.getLogger(__name__)
 
 
-class CSVResponseMixin(object):
+class CSVResponseMixin:
     """An abstract class for defining mixins that will make a view return data in CSV format."""
     csv_filename_suffix = None
 
