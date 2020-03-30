@@ -4,9 +4,9 @@ from django import http
 from django.template.response import TemplateResponse
 from django.test import TestCase
 
-from help import HELP_CONTEXT_TOKEN_NAME
-from help.middleware import HelpURLMiddleware
-from help.utils import get_doc_url
+from analytics_dashboard.help import HELP_CONTEXT_TOKEN_NAME
+from analytics_dashboard.help.middleware import HelpURLMiddleware
+from analytics_dashboard.help.utils import get_doc_url
 
 DOC_BASE_URL = 'http://edx-insights.readthedocs.org/en/latest'
 

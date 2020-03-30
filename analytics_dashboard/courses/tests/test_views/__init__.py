@@ -15,12 +15,12 @@ from mock import Mock, patch
 from mock.mock import _is_started
 from waffle.testutils import override_switch
 
-from core.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin
-from courses.permissions import (
+from analytics_dashboard.core.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin
+from analytics_dashboard.courses.permissions import (
     revoke_user_course_permissions,
     set_user_course_permissions,
 )
-from courses.tests.utils import (
+from analytics_dashboard.courses.tests.utils import (
     CourseSamples,
     get_mock_api_enrollment_data,
     mock_course_name,
@@ -121,7 +121,7 @@ class AuthTestMixin(MockApiTestMixin, PermissionsTestMixin, RedirectTestCaseMixi
                 self.assertRedirectsNoFollow(response, settings.LOGIN_URL, next=self.path(course_id=course_id))
 
     @data(CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
-    @patch('courses.permissions.OAuthAPIClient')
+    @patch('analytics_dashboard.courses.permissions.OAuthAPIClient')
     def test_authorization(self, course_id, mock_client):
         """
         Users must be authorized to view a course in order to view the course pages.
@@ -182,7 +182,7 @@ class NavAssertMixin:
 
 @ddt
 class CourseViewTestMixin(CourseAPIMixin, NavAssertMixin, ViewTestMixin):
-    @patch('courses.views.CourseValidMixin.is_valid_course', Mock(return_value=False))
+    @patch('analytics_dashboard.courses.views.CourseValidMixin.is_valid_course', Mock(return_value=False))
     def test_invalid_course(self):
         course_id = 'fakeOrg/soFake/Fake_Course'
         self.grant_permission(self.user, course_id)

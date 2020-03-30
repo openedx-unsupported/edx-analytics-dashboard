@@ -6,7 +6,7 @@ from django.conf import settings
 from django.core.cache import cache
 from waffle import switch_is_active
 
-from courses.presenters import BasePresenter
+from analytics_dashboard.courses.presenters import BasePresenter
 
 
 class CourseSummariesPresenter(BasePresenter):

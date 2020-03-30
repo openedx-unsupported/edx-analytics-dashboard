@@ -4,7 +4,7 @@ from django.contrib.auth.models import AnonymousUser
 from django.test import RequestFactory, TestCase
 from waffle.testutils import override_flag, override_switch
 
-import courses.utils as utils
+import analytics_dashboard.courses.utils as utils
 
 
 class UtilsTest(TestCase):

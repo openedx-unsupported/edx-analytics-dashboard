@@ -22,23 +22,23 @@ from common.tests.course_fixtures import (
     VerticalFixture,
     VideoFixture,
 )
-from courses.exceptions import NoVideosError
-from courses.presenters import CoursePresenter
-from courses.presenters.engagement import (
+from analytics_dashboard.courses.exceptions import NoVideosError
+from analytics_dashboard.courses.presenters import CoursePresenter
+from analytics_dashboard.courses.presenters.engagement import (
     CourseEngagementActivityPresenter,
     CourseEngagementVideoPresenter,
 )
-from courses.presenters.enrollment import (
+from analytics_dashboard.courses.presenters.enrollment import (
     CourseEnrollmentDemographicsPresenter,
     CourseEnrollmentPresenter,
 )
-from courses.presenters.performance import (
+from analytics_dashboard.courses.presenters.performance import (
     CoursePerformancePresenter,
     CourseReportDownloadPresenter,
     TagsDistributionPresenter,
 )
-from courses.tests import utils
-from courses.tests.factories import (
+from analytics_dashboard.courses.tests import utils
+from analytics_dashboard.courses.tests.factories import (
     CourseEngagementDataFactory,
     CoursePerformanceDataFactory,
     TagsDistributionDataFactory,
@@ -927,7 +927,7 @@ class CoursePerformancePresenterTests(TestCase):
 
     def test_assignment_types(self):
         """ Verify the presenter returns the correct assignment types. """
-        with mock.patch('courses.presenters.performance.CoursePerformancePresenter.grading_policy',
+        with mock.patch('analytics_dashboard.courses.presenters.performance.CoursePerformancePresenter.grading_policy',
                         mock.Mock(return_value=self.factory.presented_grading_policy)):
             self.assertListEqual(self.presenter.assignment_types(), self.factory.presented_assignment_types)
 
@@ -958,7 +958,7 @@ class CoursePerformancePresenterTests(TestCase):
 
     def test_assignment(self):
         """ Verify the presenter returns a specific assignment. """
-        with mock.patch('courses.presenters.performance.CoursePerformancePresenter.assignments',
+        with mock.patch('analytics_dashboard.courses.presenters.performance.CoursePerformancePresenter.assignments',
                         mock.Mock(return_value=self.factory.presented_assignments)):
             # The method should return None if the assignment does not exist.
             self.assertIsNone(self.presenter.assignment(None))

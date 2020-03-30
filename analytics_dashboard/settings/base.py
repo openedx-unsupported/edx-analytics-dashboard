@@ -223,9 +223,9 @@ DJANGO_APPS = (
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
-    'core',
-    'courses',
-    'help',
+    'analytics_dashboard.core',
+    'analytics_dashboard.courses',
+    'analytics_dashboard.help',
     'soapbox',
 )
 

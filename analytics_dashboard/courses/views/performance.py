@@ -10,12 +10,12 @@ from django.utils.translation import ugettext_noop
 from slugify import slugify
 from waffle import switch_is_active
 
-from core.utils import translate_dict_values
-from courses.presenters.performance import (
+from analytics_dashboard.core.utils import translate_dict_values
+from analytics_dashboard.courses.presenters.performance import (
     CoursePerformancePresenter,
     TagsDistributionPresenter,
 )
-from courses.views import (
+from analytics_dashboard.courses.views import (
     CourseAPIMixin,
     CourseStructureExceptionMixin,
     CourseStructureMixin,

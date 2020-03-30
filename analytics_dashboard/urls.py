@@ -11,9 +11,7 @@ from django.contrib.staticfiles import views as static_views
 from django.views import defaults
 from django.views.i18n import JavaScriptCatalog
 
-# pylint suggests importing analytics_dashboard.core, which causes errors in our AMI
-# pylint: disable=relative-import
-from .core import views
+from analytics_dashboard.core import views
 
 admin.autodiscover()
 
@@ -26,7 +24,13 @@ AUTH_URLS = [
 
 urlpatterns = AUTH_URLS + [
     url(r'^$', views.LandingView.as_view(), name='landing'),
-    url(r'^jsi18n/$', JavaScriptCatalog.as_view(packages=['core', 'courses']), name='javascript-catalog'),
+    url(
+        r'^jsi18n/$',
+        JavaScriptCatalog.as_view(
+            packages=['analytics_dashboard.core', 'analytics_dashboard.courses']
+        ),
+        name='javascript-catalog',
+    ),
     url(r'^status/$', views.status, name='status'),
     url(r'^health/$', views.health, name='health'),
     url(r'^courses/', include('courses.urls')),

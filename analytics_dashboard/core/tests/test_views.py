@@ -15,10 +15,12 @@ from django.utils.http import urlquote
 from django_dynamic_fixture import G
 from testfixtures import LogCapture
 
-from core.views import OK, UNAVAILABLE
-from courses.permissions import (get_user_course_permissions,
-                                 set_user_course_permissions,
-                                 user_can_view_course)
+from analytics_dashboard.core.views import OK, UNAVAILABLE
+from analytics_dashboard.courses.permissions import (
+    get_user_course_permissions,
+    set_user_course_permissions,
+    user_can_view_course,
+)
 
 User = get_user_model()
 

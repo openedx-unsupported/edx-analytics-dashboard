@@ -6,8 +6,8 @@ import mock
 from ddt import ddt
 from django.test import TestCase
 
-from courses.tests import utils
-from courses.tests.test_views import (
+from analytics_dashboard.courses.tests import utils
+from analytics_dashboard.courses.tests.test_views import (
     CourseEnrollmentDemographicsMixin,
     CourseEnrollmentViewTestMixin,
 )
@@ -17,7 +17,8 @@ from courses.tests.test_views import (
 class CourseEnrollmentActivityViewTests(CourseEnrollmentViewTestMixin, TestCase):
     viewname = 'courses:enrollment:activity'
     active_secondary_nav_label = 'Activity'
-    presenter_method = 'courses.presenters.enrollment.CourseEnrollmentPresenter.get_summary_and_trend_data'
+    presenter_method = \
+        'analytics_dashboard.courses.presenters.enrollment.CourseEnrollmentPresenter.get_summary_and_trend_data'
 
     def assertViewIsValid(self, course_id):
         summary, enrollment_data = utils.get_mock_enrollment_summary_and_trend(course_id)
@@ -55,7 +56,8 @@ class CourseEnrollmentActivityViewTests(CourseEnrollmentViewTestMixin, TestCase)
 class CourseEnrollmentGeographyViewTests(CourseEnrollmentViewTestMixin, TestCase):
     viewname = 'courses:enrollment:geography'
     active_secondary_nav_label = 'Geography'
-    presenter_method = 'courses.presenters.enrollment.CourseEnrollmentPresenter.get_geography_data'
+    presenter_method = \
+        'analytics_dashboard.courses.presenters.enrollment.CourseEnrollmentPresenter.get_geography_data'
 
     def get_mock_data(self, course_id):
         return utils.get_mock_api_enrollment_geography_data(course_id)
@@ -86,7 +88,8 @@ class CourseEnrollmentGeographyViewTests(CourseEnrollmentViewTestMixin, TestCase
 class CourseEnrollmentDemographicsAge(CourseEnrollmentDemographicsMixin, TestCase):
     viewname = 'courses:enrollment:demographics_age'
     active_tertiary_nav_label = 'Age'
-    presenter_method = 'courses.presenters.enrollment.CourseEnrollmentDemographicsPresenter.get_ages'
+    presenter_method = \
+        'analytics_dashboard.courses.presenters.enrollment.CourseEnrollmentDemographicsPresenter.get_ages'
 
     def assertViewIsValid(self, course_id):
         last_updated, summary, binned_ages, known_percent = utils.get_presenter_ages()
@@ -124,7 +127,8 @@ class CourseEnrollmentDemographicsAge(CourseEnrollmentDemographicsMixin, TestCas
 class CourseEnrollmentDemographicsEducation(CourseEnrollmentDemographicsMixin, TestCase):
     viewname = 'courses:enrollment:demographics_education'
     active_tertiary_nav_label = 'Education'
-    presenter_method = 'courses.presenters.enrollment.CourseEnrollmentDemographicsPresenter.get_education'
+    presenter_method = \
+        'analytics_dashboard.courses.presenters.enrollment.CourseEnrollmentDemographicsPresenter.get_education'
 
     def assertViewIsValid(self, course_id):
         last_updated, summary, education_data, known_percent = utils.get_presenter_education()
@@ -162,7 +166,8 @@ class CourseEnrollmentDemographicsEducation(CourseEnrollmentDemographicsMixin, T
 class CourseEnrollmentDemographicsGender(CourseEnrollmentDemographicsMixin, TestCase):
     viewname = 'courses:enrollment:demographics_gender'
     active_tertiary_nav_label = 'Gender'
-    presenter_method = 'courses.presenters.enrollment.CourseEnrollmentDemographicsPresenter.get_gender'
+    presenter_method = \
+        'analytics_dashboard.courses.presenters.enrollment.CourseEnrollmentDemographicsPresenter.get_gender'
 
     def assertViewIsValid(self, course_id):
         last_updated, gender_data, trend, known_percent = utils.get_presenter_gender(course_id)

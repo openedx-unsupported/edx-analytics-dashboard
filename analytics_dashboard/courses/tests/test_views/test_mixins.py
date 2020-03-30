@@ -4,8 +4,8 @@ import mock
 from django.test import TestCase
 from django.test.utils import override_settings
 
-from courses.tests.utils import CourseSamples
-from courses.views import CourseValidMixin
+from analytics_dashboard.courses.tests.utils import CourseSamples
+from analytics_dashboard.courses.views import CourseValidMixin
 
 
 class CourseValidMixinTests(TestCase):

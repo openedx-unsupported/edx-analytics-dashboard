@@ -10,18 +10,18 @@ from django.utils.translation import ugettext_lazy as _
 from rest_framework_csv.renderers import CSVRenderer
 from waffle import switch_is_active
 
-from core.utils import remove_keys
-from courses import permissions
-from courses.presenters.course_summaries import CourseSummariesPresenter
-from courses.presenters.programs import ProgramsPresenter
-from courses.views import (
+from analytics_dashboard.core.utils import remove_keys
+from analytics_dashboard.courses import permissions
+from analytics_dashboard.courses.presenters.course_summaries import CourseSummariesPresenter
+from analytics_dashboard.courses.presenters.programs import ProgramsPresenter
+from analytics_dashboard.courses.views import (
     CourseAPIMixin,
     LastUpdatedView,
     LazyEncoderMixin,
     TemplateView,
     TrackedViewMixin,
 )
-from courses.views.csv import DatetimeCSVResponseMixin
+from analytics_dashboard.courses.views.csv import DatetimeCSVResponseMixin
 
 logger = logging.getLogger(__name__)
 

@@ -13,9 +13,9 @@ from analyticsclient.constants import education_levels as EDUCATION_LEVEL
 from analyticsclient.constants import enrollment_modes
 from analyticsclient.constants import genders as GENDER
 
-from courses.permissions import set_user_course_permissions
-from courses.presenters.performance import AnswerDistributionEntry
-from courses.utils import get_encoded_module_id
+from analytics_dashboard.courses.permissions import set_user_course_permissions
+from analytics_dashboard.courses.presenters.performance import AnswerDistributionEntry
+from analytics_dashboard.courses.utils import get_encoded_module_id
 
 CREATED_DATETIME = datetime.datetime(year=2014, month=2, day=2)
 CREATED_DATETIME_STRING = CREATED_DATETIME.strftime(Client.DATETIME_FORMAT)

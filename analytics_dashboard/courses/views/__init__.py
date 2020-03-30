@@ -29,17 +29,17 @@ from opaque_keys.edx.keys import CourseKey
 from six.moves import map
 from waffle import flag_is_active, switch_is_active
 
-from core.exceptions import ServiceUnavailableError
-from core.utils import (
+from analytics_dashboard.core.exceptions import ServiceUnavailableError
+from analytics_dashboard.core.utils import (
     CourseStructureApiClient,
     sanitize_cache_key,
     translate_dict_values,
 )
-from courses import permissions
-from courses.presenters.performance import CourseReportDownloadPresenter
-from courses.serializers import LazyEncoder
-from courses.utils import get_page_name, is_feature_enabled
-from help.views import ContextSensitiveHelpMixin
+from analytics_dashboard.courses import permissions
+from analytics_dashboard.courses.presenters.performance import CourseReportDownloadPresenter
+from analytics_dashboard.courses.serializers import LazyEncoder
+from analytics_dashboard.courses.utils import get_page_name, is_feature_enabled
+from analytics_dashboard.help.views import ContextSensitiveHelpMixin
 
 logger = logging.getLogger(__name__)
 

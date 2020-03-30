@@ -2,7 +2,7 @@ from __future__ import absolute_import
 
 from django.core.management.base import BaseCommand
 
-from core.utils import delete_fake_soapbox_messages
+from analytics_dashboard.core.utils import delete_fake_soapbox_messages
 
 
 class Command(BaseCommand):

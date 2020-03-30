@@ -13,8 +13,8 @@ from six import assertCountEqual
 from six.moves import range
 from social_django.models import UserSocialAuth
 
-from courses import permissions
-from courses.exceptions import PermissionsRetrievalFailedError
+from analytics_dashboard.courses import permissions
+from analytics_dashboard.courses.exceptions import PermissionsRetrievalFailedError
 
 User = get_user_model()
 
@@ -105,7 +105,7 @@ class PermissionsTests(TestCase):
         permissions.set_user_course_permissions(self.user, [self.course_id])
         self.assertTrue(permissions.user_can_view_course(user, self.course_id))
 
-    @mock.patch('courses.permissions.OAuthAPIClient')
+    @mock.patch('analytics_dashboard.courses.permissions.OAuthAPIClient')
     def test_get_user_course_permissions(self, mock_client):
         """
         Verify course permissions are retrieved and cached, even when paged.
@@ -129,7 +129,7 @@ class PermissionsTests(TestCase):
         assertCountEqual(self, permissions.get_user_course_permissions(self.user), course_ids)
         self.assertFalse(mock_client.mock_calls)
 
-    @mock.patch('courses.permissions.OAuthAPIClient')
+    @mock.patch('analytics_dashboard.courses.permissions.OAuthAPIClient')
     def test_get_user_course_permissions_after_permission_timeout(self, mock_client):
         """
         Verify course permissions are retrieved multiple times when the permission cache times out.
@@ -156,7 +156,7 @@ class PermissionsTests(TestCase):
             ),
         ]
 
-    @mock.patch('courses.permissions.OAuthAPIClient')
+    @mock.patch('analytics_dashboard.courses.permissions.OAuthAPIClient')
     def test_user_can_view_course_with_permissions_failure(self, mock_client):
         """
         Verify proper error is raised when the permissions api request fails.

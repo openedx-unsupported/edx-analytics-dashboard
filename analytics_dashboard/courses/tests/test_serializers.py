@@ -6,7 +6,7 @@ import six
 from django.test import TestCase
 from django.utils.translation import ugettext_lazy as _
 
-from courses.serializers import LazyEncoder
+from analytics_dashboard.courses.serializers import LazyEncoder
 
 
 class CourseEngagementPresenterTests(TestCase):

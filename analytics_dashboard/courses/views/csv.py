@@ -9,8 +9,8 @@ from analyticsclient.constants import data_formats, demographics
 from django.http import HttpResponse, HttpResponseRedirect
 from django.utils import timezone
 
-from courses.presenters.performance import CourseReportDownloadPresenter
-from courses.views import CourseView
+from analytics_dashboard.courses.presenters.performance import CourseReportDownloadPresenter
+from analytics_dashboard.courses.views import CourseView
 
 logger = logging.getLogger(__name__)
 

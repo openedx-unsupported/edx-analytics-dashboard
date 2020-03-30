@@ -11,8 +11,8 @@ from django.conf import settings
 from django.core.cache import cache
 
 from common.course_structure import CourseStructure
-from core.utils import CourseStructureApiClient, sanitize_cache_key
-from courses.exceptions import BaseCourseError
+from analytics_dashboard.core.utils import CourseStructureApiClient, sanitize_cache_key
+from analytics_dashboard.courses.exceptions import BaseCourseError
 
 logger = logging.getLogger(__name__)
 

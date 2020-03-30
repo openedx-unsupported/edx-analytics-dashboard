@@ -13,7 +13,7 @@ from django.utils.deprecation import MiddlewareMixin
 from opaque_keys import InvalidKeyError
 from opaque_keys.edx.keys import CourseKey
 
-from courses.exceptions import PermissionsRetrievalFailedError
+from analytics_dashboard.courses.exceptions import PermissionsRetrievalFailedError
 
 logger = logging.getLogger(__name__)
 

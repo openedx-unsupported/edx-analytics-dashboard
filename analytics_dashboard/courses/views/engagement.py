@@ -9,12 +9,12 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ugettext_noop
 from waffle import switch_is_active
 
-from core.utils import translate_dict_values
-from courses.presenters.engagement import (
+from analytics_dashboard.core.utils import translate_dict_values
+from analytics_dashboard.courses.presenters.engagement import (
     CourseEngagementActivityPresenter,
     CourseEngagementVideoPresenter,
 )
-from courses.views import (
+from analytics_dashboard.courses.views import (
     CourseStructureExceptionMixin,
     CourseStructureMixin,
     CourseTemplateWithNavView,

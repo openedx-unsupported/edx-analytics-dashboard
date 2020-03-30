@@ -7,12 +7,12 @@ from django.contrib.humanize.templatetags.humanize import intcomma
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ugettext_noop
 
-from core.utils import translate_dict_values
-from courses.presenters.enrollment import (
+from analytics_dashboard.core.utils import translate_dict_values
+from analytics_dashboard.courses.presenters.enrollment import (
     CourseEnrollmentDemographicsPresenter,
     CourseEnrollmentPresenter,
 )
-from courses.views import CourseTemplateWithNavView
+from analytics_dashboard.courses.views import CourseTemplateWithNavView
 
 logger = logging.getLogger(__name__)
 

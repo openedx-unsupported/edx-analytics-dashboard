@@ -12,8 +12,8 @@ from analyticsclient.constants import genders as GENDER
 from django.utils.translation import ugettext_lazy as _
 from django_countries import countries
 
-import courses.utils as utils
-from courses.presenters import CoursePresenter
+import analytics_dashboard.courses.utils as utils
+from analytics_dashboard.courses.presenters import CoursePresenter
 
 logger = logging.getLogger(__name__)
 
