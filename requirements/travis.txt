@@ -7,15 +7,15 @@
 appdirs==1.4.3            # via -r requirements/tox.txt, virtualenv
 certifi==2019.11.28       # via requests
 chardet==3.0.4            # via requests
-codecov==2.0.16           # via -r requirements/travis.in
+codecov==2.0.22           # via -r requirements/travis.in
 configparser==4.0.2       # via -r requirements/tox.txt, importlib-metadata
 contextlib2==0.6.0.post1  # via -r requirements/tox.txt, importlib-metadata, importlib-resources, virtualenv, zipp
-coverage==5.0.3           # via codecov
+coverage==5.0.4           # via codecov
 distlib==0.3.0            # via -r requirements/tox.txt, virtualenv
 filelock==3.0.12          # via -r requirements/tox.txt, tox, virtualenv
 idna==2.9                 # via requests
-importlib-metadata==1.5.0  # via -r requirements/tox.txt, importlib-resources, pluggy, tox, virtualenv
-importlib-resources==1.3.1  # via -r requirements/tox.txt, virtualenv
+importlib-metadata==1.6.0  # via -r requirements/tox.txt, importlib-resources, pluggy, tox, virtualenv
+importlib-resources==1.4.0  # via -r requirements/tox.txt, virtualenv
 packaging==20.3           # via -r requirements/tox.txt, tox
 pathlib2==2.3.5           # via -r requirements/tox.txt, importlib-metadata, importlib-resources, virtualenv
 pluggy==0.13.1            # via -r requirements/tox.txt, tox
@@ -27,8 +27,8 @@ singledispatch==3.4.0.3   # via -r requirements/tox.txt, importlib-resources
 six==1.14.0               # via -r requirements/tox.txt, packaging, pathlib2, singledispatch, tox, virtualenv
 toml==0.10.0              # via -r requirements/tox.txt, tox
 tox-battery==0.5.2        # via -r requirements/tox.txt
-tox==3.14.5               # via -r requirements/tox.txt, tox-battery
+tox==3.14.6               # via -r requirements/tox.txt, tox-battery
 typing==3.7.4.1           # via -r requirements/tox.txt, importlib-resources
 urllib3==1.25.8           # via requests
-virtualenv==20.0.10       # via -r requirements/tox.txt, tox
+virtualenv==20.0.15       # via -r requirements/tox.txt, tox
 zipp==1.2.0               # via -r requirements/tox.txt, importlib-metadata, importlib-resources

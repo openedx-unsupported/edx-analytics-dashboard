@@ -9,8 +9,8 @@ configparser==4.0.2       # via importlib-metadata
 contextlib2==0.6.0.post1  # via importlib-metadata, importlib-resources, virtualenv, zipp
 distlib==0.3.0            # via virtualenv
 filelock==3.0.12          # via tox, virtualenv
-importlib-metadata==1.5.0  # via importlib-resources, pluggy, tox, virtualenv
-importlib-resources==1.3.1  # via virtualenv
+importlib-metadata==1.6.0  # via importlib-resources, pluggy, tox, virtualenv
+importlib-resources==1.4.0  # via virtualenv
 packaging==20.3           # via tox
 pathlib2==2.3.5           # via importlib-metadata, importlib-resources, virtualenv
 pluggy==0.13.1            # via tox
@@ -21,7 +21,7 @@ singledispatch==3.4.0.3   # via importlib-resources
 six==1.14.0               # via packaging, pathlib2, tox, virtualenv
 toml==0.10.0              # via tox
 tox-battery==0.5.2        # via -r requirements/tox.in
-tox==3.14.5               # via -r requirements/tox.in, tox-battery
+tox==3.14.6               # via -r requirements/tox.in, tox-battery
 typing==3.7.4.1           # via importlib-resources
-virtualenv==20.0.10       # via tox
+virtualenv==20.0.15       # via tox
 zipp==1.2.0               # via importlib-metadata, importlib-resources

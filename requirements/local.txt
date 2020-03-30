@@ -14,13 +14,15 @@ backports.functools-lru-cache==1.6.1  # via -r requirements/test.txt, astroid, i
 backports.os==0.1.1       # via -r requirements/test.txt, path.py
 blessings==1.7            # via -r requirements/test.txt, curtsies
 bok-choy==0.7.0           # via -r requirements/test.txt
-bpython==0.18             # via -r requirements/test.txt
+bpython==0.19             # via -r requirements/test.txt
 certifi==2019.11.28       # via -r requirements/test.txt, requests
+cffi==1.14.0              # via -r requirements/test.txt, cryptography
 chardet==3.0.4            # via -r requirements/test.txt, requests
 click==7.1.1              # via -r requirements/pip_tools.txt, pip-tools
 configparser==4.0.2       # via -r requirements/test.txt, importlib-metadata, pylint
 contextlib2==0.6.0.post1  # via -r requirements/test.txt, importlib-metadata, zipp
 coverage==4.4.1           # via -r requirements/test.txt, pytest-cov
+cryptography==2.8         # via -r requirements/test.txt, social-auth-core
 curtsies==0.3.1           # via -r requirements/test.txt, bpython
 ddt==1.1.1                # via -r requirements/test.txt
 django-appconf==1.0.3     # via -r requirements/test.txt
@@ -28,7 +30,7 @@ django-braces==1.14.0     # via -r requirements/test.txt
 django-countries==5.5     # via -c requirements/constraints.txt, -r requirements/test.txt
 django-crispy-forms==1.8.1  # via -c requirements/constraints.txt, -r requirements/test.txt
 django-debug-toolbar==1.11  # via -c requirements/constraints.txt, -r requirements/local.in
-django-dynamic-fixture==3.0.3  # via -r requirements/test.txt
+django-dynamic-fixture==3.1.0  # via -r requirements/test.txt
 django-model-utils==3.2.0  # via -c requirements/constraints.txt, -r requirements/test.txt
 django-soapbox==1.5       # via -r requirements/test.txt
 django-waffle==0.18.0     # via -c requirements/constraints.txt, -r requirements/test.txt, edx-django-utils, edx-drf-extensions
@@ -39,22 +41,23 @@ djangorestframework==3.9.4  # via -c requirements/constraints.txt, -r requiremen
 drf-jwt==1.14.0           # via -c requirements/constraints.txt, -r requirements/test.txt, edx-drf-extensions
 edx-analytics-data-api-client==0.15.5  # via -r requirements/test.txt
 edx-auth-backends==3.0.2  # via -r requirements/test.txt
-edx-ccx-keys==1.0.0       # via -r requirements/test.txt
-edx-django-release-util==0.3.6  # via -r requirements/test.txt
+edx-ccx-keys==1.0.1       # via -r requirements/test.txt
+edx-django-release-util==0.4.1  # via -r requirements/test.txt
 edx-django-utils==2.0.4   # via -c requirements/constraints.txt, -r requirements/test.txt, edx-drf-extensions, edx-rest-api-client
-edx-drf-extensions==5.0.0  # via -r requirements/test.txt
+edx-drf-extensions==5.0.2  # via -r requirements/test.txt
 edx-i18n-tools==0.5.0     # via -r requirements/test.txt
-edx-opaque-keys==2.0.1    # via -r requirements/test.txt, edx-ccx-keys, edx-drf-extensions
+edx-opaque-keys==2.0.2    # via -r requirements/test.txt, edx-ccx-keys, edx-drf-extensions
 edx-rest-api-client==3.0.2  # via -c requirements/constraints.txt, -r requirements/test.txt
 elasticsearch==2.4.1      # via -r requirements/test.txt
-enum34==1.1.10            # via -r requirements/test.txt, astroid
+enum34==1.1.10            # via -r requirements/test.txt, astroid, cryptography
 funcsigs==1.0.2           # via -r requirements/test.txt, mock, pytest
 future==0.18.2            # via -r requirements/test.txt, backports.os, pyjwkest
 futures==3.3.0 ; python_version == "2.7"  # via -c requirements/constraints.txt, -r requirements/test.txt, isort
 greenlet==0.4.15          # via -r requirements/test.txt, bpython
 httpretty==0.8.14         # via -r requirements/test.txt
 idna==2.9                 # via -r requirements/test.txt, requests
-importlib-metadata==1.5.0  # via -r requirements/test.txt, path.py, pluggy, pytest
+importlib-metadata==1.6.0  # via -r requirements/test.txt, path.py, pluggy, pytest
+ipaddress==1.0.23         # via -r requirements/test.txt, cryptography
 isort==4.3.21             # via -r requirements/test.txt, pylint
 lazy-object-proxy==1.4.3  # via -r requirements/test.txt, astroid
 lazy==1.4                 # via -r requirements/test.txt, bok-choy
@@ -82,6 +85,7 @@ polib==1.1.0              # via -r requirements/test.txt, edx-i18n-tools
 psutil==1.2.1             # via -r requirements/test.txt, edx-django-utils
 py==1.8.1                 # via -r requirements/test.txt, pytest
 pycodestyle==2.5.0        # via -r requirements/test.txt
+pycparser==2.20           # via -r requirements/test.txt, cffi
 pycryptodomex==3.9.7      # via -r requirements/test.txt, pyjwkest
 pygments==2.5.2           # via -r requirements/test.txt, bpython
 pyjwkest==1.4.2           # via -r requirements/test.txt, edx-drf-extensions
@@ -95,7 +99,7 @@ pytest==4.6.9             # via -r requirements/test.txt, pytest-cov, pytest-dja
 python-dateutil==2.8.1    # via -r requirements/test.txt, edx-drf-extensions
 python-openid==2.2.5 ; python_version == "2.7"  # via -c requirements/constraints.txt, -r requirements/test.txt, social-auth-core
 pytz==2019.3              # via -r requirements/test.txt, django
-pyyaml==5.3               # via -r requirements/test.txt, edx-django-release-util, edx-i18n-tools
+pyyaml==5.3.1             # via -r requirements/test.txt, edx-django-release-util, edx-i18n-tools
 regex==2020.2.20          # via -r requirements/test.txt, awesome-slugify
 requests-oauthlib==1.3.0  # via -r requirements/test.txt, social-auth-core
 requests==2.23.0          # via -r requirements/test.txt, bpython, edx-analytics-data-api-client, edx-drf-extensions, edx-rest-api-client, pyjwkest, requests-oauthlib, slumber, social-auth-core
@@ -104,10 +108,10 @@ scandir==1.10.0           # via -r requirements/test.txt, pathlib2
 selenium==2.53.6          # via -r requirements/test.txt, bok-choy, needle
 semantic-version==2.8.4   # via -r requirements/test.txt, edx-drf-extensions
 singledispatch==3.4.0.3   # via -r requirements/test.txt, astroid, pylint
-six==1.14.0               # via -r requirements/pip_tools.txt, -r requirements/test.txt, astroid, blessings, bok-choy, bpython, django-appconf, django-braces, django-countries, django-dynamic-fixture, djangorestframework-csv, edx-auth-backends, edx-ccx-keys, edx-django-release-util, edx-drf-extensions, edx-i18n-tools, edx-opaque-keys, libsass, logilab-common, mock, more-itertools, packaging, pathlib2, pip-tools, pyjwkest, pylint, pytest, python-dateutil, singledispatch, social-auth-app-django, social-auth-core, stevedore, sure, transifex-client, unittest2
+six==1.14.0               # via -r requirements/pip_tools.txt, -r requirements/test.txt, astroid, blessings, bok-choy, bpython, cryptography, django-appconf, django-braces, django-countries, django-dynamic-fixture, djangorestframework-csv, edx-auth-backends, edx-ccx-keys, edx-django-release-util, edx-drf-extensions, edx-i18n-tools, edx-opaque-keys, libsass, logilab-common, mock, more-itertools, packaging, pathlib2, pip-tools, pyjwkest, pylint, pytest, python-dateutil, singledispatch, social-auth-app-django, social-auth-core, stevedore, sure, transifex-client, unittest2
 slumber==0.7.1            # via -r requirements/test.txt, edx-rest-api-client
 social-auth-app-django==3.1.0  # via -r requirements/test.txt, edx-auth-backends
-social-auth-core==3.2.0   # via -r requirements/test.txt, edx-auth-backends, social-auth-app-django
+social-auth-core==3.3.2   # via -r requirements/test.txt, edx-auth-backends, social-auth-app-django
 sqlparse==0.3.1           # via django-debug-toolbar
 stevedore==1.32.0         # via -r requirements/test.txt, edx-opaque-keys
 sure==1.4.11              # via -r requirements/test.txt
@@ -119,7 +123,7 @@ unicodecsv==0.14.1        # via -r requirements/test.txt, djangorestframework-cs
 unidecode==0.4.21         # via -r requirements/test.txt, awesome-slugify
 unittest2==1.1.0          # via -r requirements/test.txt
 urllib3==1.25.8           # via -r requirements/test.txt, elasticsearch, requests, transifex-client
-wcwidth==0.1.8            # via -r requirements/test.txt, curtsies, pytest
+wcwidth==0.1.9            # via -r requirements/test.txt, curtsies, pytest
 wrapt==1.11.2             # via -c requirements/constraints.txt, -r requirements/test.txt, astroid
 zipp==1.2.0               # via -r requirements/test.txt, importlib-metadata
 
