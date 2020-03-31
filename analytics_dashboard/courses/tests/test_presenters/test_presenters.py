@@ -401,9 +401,9 @@ class CourseEngagementVideoPresenterTests(TestCase):
             'index': 1,
             'average_start_only_users': 10,
             'average_users_at_end': 20,
-            'end_percent': 2/3,
+            'end_percent': 2 / 3,
             'start_only_users': 20,
-            'start_only_percent': 1/3,
+            'start_only_percent': 1 / 3,
         })
 
         self.presenter.attach_aggregated_data_to_parent(0, parent)
@@ -597,6 +597,9 @@ class CourseEngagementVideoPresenterTests(TestCase):
     })
     def test_sibling(self, fixture, start_block, offset, expected_sibling_block):
         """Tests the _sibling method of the `CourseAPIPresenterMixin`."""
+
+        # False positive https://github.com/PyCQA/pylint/issues/289
+        # pylint: disable=bad-continuation
         with mock.patch(
             'analyticsclient.course.Course.videos', mock.Mock(return_value=utils.get_mock_video_data(fixture))
         ):
@@ -627,6 +630,8 @@ class CourseEngagementVideoPresenterTests(TestCase):
                 )
             )
         )
+        # False positive https://github.com/PyCQA/pylint/issues/289
+        # pylint: disable=bad-continuation
         with mock.patch(
             'analyticsclient.course.Course.videos',
             mock.Mock(return_value=utils.get_mock_video_data(fixture, excluded_module_ids=[self.VIDEO_2['id']]))

@@ -34,3 +34,5 @@ class ServiceUnavailableExceptionMiddleware(MiddlewareMixin):
         if isinstance(exception, ServiceUnavailableError):
             logger.exception(exception)
             return TemplateResponse(request, '503.html', status=503)
+
+        return None

@@ -46,8 +46,8 @@ def feature_flagged(feature_flag):
         def dispatch(self, request, *args, **kwargs):
             if not switch_is_active(feature_flag):
                 raise Http404
-            else:
-                return super(cls, self).dispatch(request, *args, **kwargs)
+
+            return super(cls, self).dispatch(request, *args, **kwargs)
         cls.dispatch = dispatch
         return cls
     return decorator
@@ -107,8 +107,12 @@ def remove_keys(d, keys):
 
 def create_fake_soapbox_messages():
     # Importing here so acceptance_tests/__init__.py doesn't start checking for env vars on every management command.
-    from acceptance_tests import (SOAPBOX_INACTIVE_MESSAGE, SOAPBOX_GLOBAL_MESSAGE, SOAPBOX_SINGLE_PAGE_MESSAGE,
-                                  SOAPBOX_SINGLE_PAGE_VIEW)
+    from acceptance_tests import (
+        SOAPBOX_INACTIVE_MESSAGE,
+        SOAPBOX_GLOBAL_MESSAGE,
+        SOAPBOX_SINGLE_PAGE_MESSAGE,
+        SOAPBOX_SINGLE_PAGE_VIEW,
+    )
     Message.objects.get_or_create(message=SOAPBOX_GLOBAL_MESSAGE, is_active=True, is_global=True)
     Message.objects.get_or_create(message=SOAPBOX_SINGLE_PAGE_MESSAGE, is_active=True, is_global=False,
                                   url=SOAPBOX_SINGLE_PAGE_VIEW)
@@ -116,8 +120,12 @@ def create_fake_soapbox_messages():
 
 
 def delete_fake_soapbox_messages():
-    from acceptance_tests import (SOAPBOX_INACTIVE_MESSAGE, SOAPBOX_GLOBAL_MESSAGE, SOAPBOX_SINGLE_PAGE_MESSAGE,
-                                  SOAPBOX_SINGLE_PAGE_VIEW)
+    from acceptance_tests import (
+        SOAPBOX_INACTIVE_MESSAGE,
+        SOAPBOX_GLOBAL_MESSAGE,
+        SOAPBOX_SINGLE_PAGE_MESSAGE,
+        SOAPBOX_SINGLE_PAGE_VIEW,
+    )
     Message.objects.get(message=SOAPBOX_GLOBAL_MESSAGE, is_active=True, is_global=True).delete()
     Message.objects.get(message=SOAPBOX_SINGLE_PAGE_MESSAGE, is_active=True, is_global=False,
                         url=SOAPBOX_SINGLE_PAGE_VIEW).delete()

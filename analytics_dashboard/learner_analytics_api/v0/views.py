@@ -32,7 +32,6 @@ class BaseLearnerApiView(RetrieveAPIView):
         querysets/django models in this API, this method doesn't have to return
         anything.
         """
-        pass
 
     @property
     def course_id(self):
@@ -148,7 +147,6 @@ class LearnerListCSV(DownloadLearnerApiViewMixin, LearnerListView):
     Forwards text/csv requests to the Learner Analytics API's Learner List endpoint,
     and returns a simple text response.
     """
-    pass
 
 
 class EngagementTimelinesView(NotFoundLearnerApiViewMixin, BaseLearnerApiView):

@@ -67,8 +67,8 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, CoursePresenter):
         filtered_active_question = [i for i in questions if i['part_id'] == problem_part_id]
         if not filtered_active_question:
             raise NotFoundError
-        else:
-            active_question = filtered_active_question[0]['question']
+
+        active_question = filtered_active_question[0]['question']
 
         answer_distributions = self._build_answer_distribution(api_response, problem_part_id)
         problem_part_description = self._build_problem_description(problem_part_id, questions)
@@ -109,7 +109,7 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, CoursePresenter):
         """
         for ad in answer_distributions:
             variant = ad['variant']
-            if variant is not None and variant is not 1:
+            if variant is not None and variant != 1:
                 return True
         return False
 
