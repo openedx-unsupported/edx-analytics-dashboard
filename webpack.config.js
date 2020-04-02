@@ -81,6 +81,7 @@ module.exports = Merge.smart(commonConfig, {
         headers: {
             'Access-Control-Allow-Origin': '*'
         },
+        host: '0.0.0.0',
         // Webpack does not process all images in Insights, so proxy all image requests through to django static files
         proxy: {
             // This assumes that the developer is running the django dev server on the default host and port
