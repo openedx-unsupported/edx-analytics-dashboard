@@ -16,8 +16,9 @@ before_install:
 
     # Start up the relevant services
     - docker-compose -f .travis/docker-compose-travis.yml up -d
-    - docker exec analytics_api pip install --upgrade pip==9.0.3
-    - docker exec analytics_api make -C /edx/app/analytics_api/analytics_api travis
+    - docker exec analytics_api bash -c "
+      source /edx/app/analytics_api/venvs/analytics_api/bin/activate &&
+      make -C /edx/app/analytics_api/analytics_api travis"
     # HACK: https://github.com/nodejs/docker-node/issues/1199
     - rm package-lock.json
 
