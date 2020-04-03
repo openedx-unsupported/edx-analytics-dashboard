@@ -4,6 +4,7 @@
 #
 #    make upgrade
 #
+-e git+https://github.com/python-social-auth/social-app-django.git@ffa0fb99a80d11479bea2c4eae9a01ee835d52b9#egg=social-auth-app-django  # via -r requirements/test.txt
 argparse==1.4.0           # via -r requirements/test.txt, unittest2
 astroid==1.6.6            # via -c requirements/constraints.txt, -r requirements/test.txt, pylint
 attrs==19.3.0             # via -r requirements/test.txt, pytest
@@ -97,7 +98,6 @@ selenium==2.53.6          # via -r requirements/test.txt, bok-choy, needle
 semantic-version==2.8.4   # via -r requirements/test.txt, edx-drf-extensions
 six==1.14.0               # via -r requirements/pip_tools.txt, -r requirements/test.txt, astroid, blessings, bok-choy, bpython, django-braces, django-countries, django-dynamic-fixture, djangorestframework-csv, edx-auth-backends, edx-ccx-keys, edx-django-release-util, edx-drf-extensions, edx-i18n-tools, edx-opaque-keys, libsass, logilab-common, mock, packaging, pathlib2, pip-tools, pyjwkest, pylint, python-dateutil, social-auth-app-django, social-auth-core, stevedore, sure, transifex-client, unittest2
 slumber==0.7.1            # via -r requirements/test.txt, edx-rest-api-client
-social-auth-app-django==3.1.0  # via -r requirements/test.txt, edx-auth-backends
 social-auth-core==3.2.0   # via -c requirements/constraints.txt, -r requirements/test.txt, edx-auth-backends, social-auth-app-django
 sqlparse==0.3.1           # via -r requirements/test.txt, django, django-debug-toolbar
 stevedore==1.32.0         # via -r requirements/test.txt, edx-opaque-keys

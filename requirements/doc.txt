@@ -4,6 +4,7 @@
 #
 #    make upgrade
 #
+-e git+https://github.com/python-social-auth/social-app-django.git@ffa0fb99a80d11479bea2c4eae9a01ee835d52b9#egg=social-auth-app-django  # via -r requirements/base.txt
 alabaster==0.7.12         # via sphinx
 awesome-slugify==1.6.5    # via -r requirements/base.txt
 babel==2.8.0              # via sphinx
@@ -69,7 +70,6 @@ semantic-version==2.8.4   # via -r requirements/base.txt, edx-drf-extensions
 six==1.14.0               # via -r requirements/base.txt, blessings, bpython, django-braces, django-countries, djangorestframework-csv, edx-auth-backends, edx-ccx-keys, edx-django-release-util, edx-drf-extensions, edx-i18n-tools, edx-opaque-keys, libsass, pyjwkest, python-dateutil, social-auth-app-django, social-auth-core, sphinx, stevedore
 slumber==0.7.1            # via -r requirements/base.txt, edx-rest-api-client
 snowballstemmer==2.0.0    # via sphinx
-social-auth-app-django==3.1.0  # via -r requirements/base.txt, edx-auth-backends
 social-auth-core==3.2.0   # via -c requirements/constraints.txt, -r requirements/base.txt, edx-auth-backends, social-auth-app-django
 sphinx==1.4.5             # via -r requirements/doc.in, sphinx-rtd-theme
 sphinx_rtd_theme==0.1.9   # via -r requirements/doc.in

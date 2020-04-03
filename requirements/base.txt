@@ -4,6 +4,7 @@
 #
 #    make upgrade
 #
+-e git+https://github.com/python-social-auth/social-app-django.git@ffa0fb99a80d11479bea2c4eae9a01ee835d52b9#egg=social-auth-app-django  # via -r requirements/base.in
 awesome-slugify==1.6.5    # via -r requirements/base.in
 blessings==1.7            # via curtsies
 bpython==0.19             # via -r requirements/base.in
@@ -62,7 +63,6 @@ rest-condition==1.0.3     # via edx-drf-extensions
 semantic-version==2.8.4   # via edx-drf-extensions
 six==1.14.0               # via blessings, bpython, django-braces, django-countries, djangorestframework-csv, edx-auth-backends, edx-ccx-keys, edx-django-release-util, edx-drf-extensions, edx-i18n-tools, edx-opaque-keys, libsass, pyjwkest, python-dateutil, social-auth-app-django, social-auth-core, stevedore
 slumber==0.7.1            # via edx-rest-api-client
-social-auth-app-django==3.1.0  # via edx-auth-backends
 social-auth-core==3.2.0   # via -c requirements/constraints.txt, edx-auth-backends, social-auth-app-django
 sqlparse==0.3.1           # via django
 stevedore==1.32.0         # via -r requirements/base.in, edx-opaque-keys
