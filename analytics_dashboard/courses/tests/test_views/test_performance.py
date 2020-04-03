@@ -145,7 +145,7 @@ class CoursePerformanceGradedMixin(CoursePerformanceViewTestMixin):
             'assignments': self.factory.presented_assignments,
             'no_data_message': u'No submissions received for these assignments.'
         }
-        self.assertDictContainsSubset(expected, context)
+        utils.assert_dict_contains_subset(expected, context)
 
     def get_expected_secondary_nav(self, course_id):
         expected = super(CoursePerformanceGradedMixin, self).get_expected_secondary_nav(course_id)
@@ -186,7 +186,7 @@ class CoursePerformanceUngradedMixin(CoursePerformanceViewTestMixin):
             'sections': self.sections,
             'no_data_message': 'No submissions received for these exercises.'
         }
-        self.assertDictContainsSubset(expected, context)
+        utils.assert_dict_contains_subset(expected, context)
 
     def get_expected_secondary_nav(self, course_id):
         expected = super(CoursePerformanceUngradedMixin, self).get_expected_secondary_nav(course_id)
@@ -241,7 +241,7 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformanceViewTestMixin):
         self.assertValidContext(response.context)
 
         self.assertListEqual(context['questions'], rv.questions)
-        self.assertDictContainsSubset(
+        utils.assert_dict_contains_subset(
             {
                 'page_title': 'Performance: Problem Submissions',
                 'problem_id': problem_id,
@@ -251,7 +251,7 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformanceViewTestMixin):
                 'active_question': rv.active_question,
                 'questions': rv.questions
             }, context)
-        self.assertDictContainsSubset(
+        utils.assert_dict_contains_subset(
             {
                 'isRandom': rv.is_random,
                 'answerType': rv.answer_type,
@@ -334,7 +334,7 @@ class CoursePerformanceGradedContentViewTests(CoursePerformanceGradedMixin, Test
             'assignment_types': self.factory.presented_assignment_types,
             'grading_policy': self.factory.presented_grading_policy,
         }
-        self.assertDictContainsSubset(expected, context)
+        utils.assert_dict_contains_subset(expected, context)
 
 
 @override_switch('enable_course_api', active=True)
@@ -405,7 +405,7 @@ class CoursePerformanceAssignmentViewTests(CoursePerformanceGradedMixin, TestCas
             'assignment_type': self.assignment_type,
             'assignment': self.assignment,
         }
-        self.assertDictContainsSubset(expected, context)
+        utils.assert_dict_contains_subset(expected, context)
 
     @httpretty.activate
     @patch('courses.presenters.performance.CoursePerformancePresenter.assignment', Mock(return_value=None))
@@ -690,7 +690,7 @@ class CoursePerformanceLearningOutcomesAnswersDistributionViewTests(
         self.assertSecondaryNavs(response.context['secondary_nav_items'], course_id)
 
         self.assertListEqual(context['questions'], rv.questions)
-        self.assertDictContainsSubset(
+        utils.assert_dict_contains_subset(
             {
                 'problem_id': problem_id,
                 'view_live_url': '{}/{}/jump_to/{}'.format(settings.LMS_COURSE_SHORTCUT_BASE_URL, course_id,
@@ -698,7 +698,7 @@ class CoursePerformanceLearningOutcomesAnswersDistributionViewTests(
                 'active_question': rv.active_question,
                 'questions': rv.questions
             }, context)
-        self.assertDictContainsSubset(
+        utils.assert_dict_contains_subset(
             {
                 'isRandom': rv.is_random,
                 'answerType': rv.answer_type,
