@@ -97,7 +97,8 @@ class ViewTests(TestCase):
                 expected_status_code=503, overall_status=UNAVAILABLE, database_connection=UNAVAILABLE
             )
             log_capture.check(
-                ('analytics_dashboard.core.views', 'ERROR', 'Insights database is not reachable: example error')
+                ('analytics_dashboard.core.views', 'ERROR', 'Insights database is not reachable: example error'),
+                ('django.request', 'ERROR', 'Service Unavailable: /health/'),
             )
 
 

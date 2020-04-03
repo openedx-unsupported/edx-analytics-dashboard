@@ -326,7 +326,7 @@ class AnalyticsDashboardWebAppTestMixin(FooterMixin, PrimaryNavMixin, ContextSen
         """
         # Account for Django truncation
         if len(value) > MAX_SUMMARY_POINT_VALUE_LENGTH:
-            value = value[:(MAX_SUMMARY_POINT_VALUE_LENGTH - 3)] + '...'
+            value = value[:(MAX_SUMMARY_POINT_VALUE_LENGTH - 1)] + '…'
 
         element = self.page.q(css="div[{0}] .summary-point-number".format(data_selector))
         self.assertTrue(element.present)
