@@ -252,7 +252,7 @@ class CourseIndexTests(AnalyticsApiClientMixin, AnalyticsDashboardWebAppTestMixi
         course_in_filters = ['Upcoming', 'self_paced']
         for filter_id, display_name in filters.items():
             self._test_filter(filter_id, display_name,
-                              course_in_filter=(True if filter_id in course_in_filters else False))
+                              course_in_filter=filter_id in course_in_filters)
 
     def _test_multiple_filters(self, filter_sequence):
         """

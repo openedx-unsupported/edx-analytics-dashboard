@@ -209,7 +209,7 @@ class CoursePerformanceReportGenerator(ReportGeneratorBase):
 
         assignment_types = sorted(self._assignment_types())
         assignments = self._assignments()
-        actual_assignment_types = sorted(set([assignment['assignment_type'] for assignment in assignments]))
+        actual_assignment_types = sorted({assignment['assignment_type'] for assignment in assignments})
 
         expected = len(assignment_types)
         actual = len(actual_assignment_types)

@@ -213,6 +213,8 @@ class PrimaryNavMixin(CourseApiMixin):
         course_name = self.get_course_name_or_id(course_id)
         self.assertEqual(element.text[0], course_name)
 
+        return None
+
     def _test_skip_link(self, test_url):
         active_element = self.driver.switch_to.active_element
         skip_link = self.page.q(css='.skip-link').results[0]
