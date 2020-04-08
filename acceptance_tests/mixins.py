@@ -32,7 +32,7 @@ from common.clients import CourseStructureApiClient
 MAX_SUMMARY_POINT_VALUE_LENGTH = 13
 
 
-class AnalyticsApiClientMixin(object):
+class AnalyticsApiClientMixin:
     analytics_api_client = None
 
     def setUp(self):
@@ -43,7 +43,7 @@ class AnalyticsApiClientMixin(object):
         self.analytics_api_client = Client(api_url, auth_token=auth_token, timeout=10)
 
 
-class CourseApiMixin(object):
+class CourseApiMixin:
     course_api_client = None
 
     def setUp(self):
@@ -61,7 +61,7 @@ class CourseApiMixin(object):
         return course_name
 
 
-class AssertMixin(object):
+class AssertMixin:
     """ Shared asserts for convenience """
 
     def assertValidHref(self, selector):
@@ -136,7 +136,7 @@ class AssertMixin(object):
         self.assertListEqual(actual, expected_texts)
 
 
-class PageTestMixin(object):
+class PageTestMixin:
     def test_page(self):
         pass
 
@@ -234,7 +234,7 @@ class PrimaryNavMixin(CourseApiMixin):
         self._test_active_course()
 
 
-class LoginMixin(object):
+class LoginMixin:
     def setUp(self):
         super(LoginMixin, self).setUp()
         self.lms_login_page = LMSLoginPage(self.browser)
@@ -257,13 +257,13 @@ class LoginMixin(object):
         self.lms_login_page.login(LMS_USERNAME, LMS_PASSWORD)
 
 
-class LogoutMixin(object):
+class LogoutMixin:
     def logout(self):
         url = '{}/logout/'.format(DASHBOARD_SERVER_URL)
         self.browser.get(url)
 
 
-class ContextSensitiveHelpMixin(object):
+class ContextSensitiveHelpMixin:
     help_path = 'index.html'
 
     @property
@@ -275,7 +275,7 @@ class ContextSensitiveHelpMixin(object):
         self.assertHrefEqual('#help', self.help_url)
 
 
-class SoapboxMessagesMixin(object):
+class SoapboxMessagesMixin:
     soapbox_selector = "div[class=announcement-container]"
 
     def _test_soapbox_messages(self):

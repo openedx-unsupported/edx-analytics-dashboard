@@ -28,7 +28,7 @@ from common.course_structure import CourseStructure
 logger = logging.getLogger(__name__)
 
 
-class ReportGeneratorBase(object):
+class ReportGeneratorBase:
     REPORT_NAME = None
     course_id = None
 
@@ -72,7 +72,7 @@ class ReportGeneratorBase(object):
 # COURSE_PAGES = ['enrollment/activity', 'enrollment/geography', 'engagement/content', 'performance/graded_content']
 # API_REPORT_KEYS = ['api_enrollment_activity', 'api_enrollment_geography', 'api_activity', 'api_problems']
 #
-# class CourseReporter(object):
+# class CourseReporter:
 # course = None
 # course_id = None
 #

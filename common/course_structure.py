@@ -1,7 +1,7 @@
 import six
 
 
-class CourseStructure(object):
+class CourseStructure:
     @staticmethod
     def _filter_children(blocks, key, require_format=False, **kwargs):
         """

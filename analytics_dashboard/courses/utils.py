@@ -32,7 +32,7 @@ def get_page_name(page_name_object):
     return '_'.join([page_name_object[lvl] for lvl in ['scope', 'lens', 'report', 'depth'] if page_name_object[lvl]])
 
 
-class number(object):
+class number:
     @staticmethod
     def is_number(word):
         try:
@@ -42,13 +42,13 @@ class number(object):
             return False
 
 
-class math(object):
+class math:
     @staticmethod
     def calculate_percent(count, total):
         return count / float(total) if total > 0 else 0.0
 
 
-class sorting(object):
+class sorting:
     @staticmethod
     def _tryint(s):
         try:

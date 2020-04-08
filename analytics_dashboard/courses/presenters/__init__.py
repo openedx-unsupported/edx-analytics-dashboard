@@ -17,7 +17,7 @@ from courses.exceptions import BaseCourseError
 logger = logging.getLogger(__name__)
 
 
-class BasePresenter(object):
+class BasePresenter:
 
     def __init__(self, timeout=settings.ANALYTICS_API_DEFAULT_TIMEOUT):
         self.client = Client(base_url=settings.DATA_API_URL,

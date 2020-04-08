@@ -156,7 +156,7 @@ class PerformanceGradedContentTemplateView(PerformanceTemplateView):
         return context
 
 
-class PerformanceAnswerDistributionMixin(object):
+class PerformanceAnswerDistributionMixin:
     presenter = None
     course_id = None
     problem_id = None

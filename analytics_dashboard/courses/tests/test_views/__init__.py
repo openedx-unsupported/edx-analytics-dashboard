@@ -29,7 +29,7 @@ from courses.tests.utils import (
 logger = logging.getLogger(__name__)
 
 
-class CourseAPIMixin(object):
+class CourseAPIMixin:
     """
     Mixin with methods to help mock the course API.
     """
@@ -72,7 +72,7 @@ class CourseAPIMixin(object):
         self.mock_course_api(path, body)
 
 
-class PermissionsTestMixin(object):
+class PermissionsTestMixin:
     def tearDown(self):
         super(PermissionsTestMixin, self).tearDown()
         cache.clear()
@@ -84,7 +84,7 @@ class PermissionsTestMixin(object):
         revoke_user_course_permissions(user)
 
 
-class MockApiTestMixin(object):
+class MockApiTestMixin:
     api_method = None
 
     def get_mock_data(self, course_id):
@@ -159,7 +159,7 @@ class ViewTestMixin(AuthTestMixin):
         return reverse(self.viewname, kwargs=kwargs)
 
 
-class NavAssertMixin(object):
+class NavAssertMixin:
     def generate_course_name(self, course_id):
         return 'Test ' + course_id
 
@@ -333,7 +333,7 @@ class CourseEnrollmentDemographicsMixin(CourseEnrollmentViewTestMixin):
         self.assertNavs(nav, expected, self.active_tertiary_nav_label)
 
 
-class PatchMixin(object):
+class PatchMixin:
     patches = []
 
     def _patch(self, target, **mock_kwargs):

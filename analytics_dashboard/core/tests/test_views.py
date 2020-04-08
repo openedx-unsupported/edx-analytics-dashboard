@@ -23,7 +23,7 @@ from courses.permissions import (get_user_course_permissions,
 User = get_user_model()
 
 
-class UserTestCaseMixin(object):
+class UserTestCaseMixin:
     PASSWORD = 'password'
 
     def get_user(self):
@@ -52,7 +52,7 @@ class UserTestCaseMixin(object):
         self.user = self.get_user()
 
 
-class RedirectTestCaseMixin(object):
+class RedirectTestCaseMixin:
     def assertRedirectsNoFollow(self, response, expected_url, status_code=302, **querystringkwargs):
         if querystringkwargs:
             expected_url += '?{}'.format('&'.join('%s=%s' % (key, urlquote(value))

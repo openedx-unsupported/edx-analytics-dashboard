@@ -23,13 +23,13 @@ GAP_START = 2
 GAP_END = 4
 
 
-class CourseSamples(object):
+class CourseSamples:
     """Example course IDs for testing with."""
     DEMO_COURSE_ID = 'course-v1:edX+DemoX+Demo_2014'
     DEPRECATED_DEMO_COURSE_ID = 'edX/DemoX/Demo_Course'
 
 
-class ProgramSamples(object):
+class ProgramSamples:
     """Example program IDs for testing with."""
     DEMO_PROGRAM_ID = str(uuid.uuid4())
     DEMO_PROGRAM2_ID = str(uuid.uuid4())
