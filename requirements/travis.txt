@@ -5,7 +5,7 @@
 #    make upgrade
 #
 appdirs==1.4.3            # via -r requirements/tox.txt, virtualenv
-certifi==2019.11.28       # via requests
+certifi==2020.4.5.1       # via requests
 chardet==3.0.4            # via requests
 codecov==2.0.22           # via -r requirements/travis.in
 coverage==5.0.4           # via codecov
@@ -17,12 +17,12 @@ importlib-resources==1.4.0  # via -r requirements/tox.txt, virtualenv
 packaging==20.3           # via -r requirements/tox.txt, tox
 pluggy==0.13.1            # via -r requirements/tox.txt, tox
 py==1.8.1                 # via -r requirements/tox.txt, tox
-pyparsing==2.4.6          # via -r requirements/tox.txt, packaging
+pyparsing==2.4.7          # via -r requirements/tox.txt, packaging
 requests==2.23.0          # via codecov
 six==1.14.0               # via -r requirements/tox.txt, packaging, tox, virtualenv
 toml==0.10.0              # via -r requirements/tox.txt, tox
 tox-battery==0.5.2        # via -r requirements/tox.txt
 tox==3.14.6               # via -r requirements/tox.txt, tox-battery
 urllib3==1.25.8           # via requests
-virtualenv==20.0.15       # via -r requirements/tox.txt, tox
+virtualenv==20.0.16       # via -r requirements/tox.txt, tox
 zipp==1.2.0               # via -r requirements/tox.txt, importlib-metadata, importlib-resources
