@@ -389,7 +389,7 @@ class CourseEnrollmentDemographicsPresenter(CoursePresenter):
 
             if count_enrollments > half_enrollments:
                 return age
-            elif count_enrollments == half_enrollments:
+            if count_enrollments == half_enrollments:
                 if total_enrollment % 2 == 0:
                     # When no single median value, calculate the mean between the flanking ages.  It will always
                     # be the case that at the loop can be advanced

@@ -38,8 +38,6 @@ class CourseMiddleware(MiddlewareMixin):
                 raise Http404
             request.course_id = six.text_type(request.course_key)
 
-        return None
-
 
 class CoursePermissionsExceptionMiddleware(MiddlewareMixin):
     """
@@ -50,3 +48,5 @@ class CoursePermissionsExceptionMiddleware(MiddlewareMixin):
         if isinstance(exception, PermissionsRetrievalFailedError):
             logger.exception(exception)
             return TemplateResponse(request, 'courses/permissions-retrieval-failed.html', status=500)
+
+        return None

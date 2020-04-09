@@ -52,7 +52,7 @@ class CourseHomeViewTests(CourseViewTestMixin, TestCase):
         response = self.client.get(self.path(course_id=CourseSamples.DEMO_COURSE_ID))
         self.assertEqual(response.status_code, 200)
 
-        overview_data = {k: v for k, v in response.context['course_overview']}
+        overview_data = dict(response.context['course_overview'])
         self.assertEqual(overview_data.get('Start Date'), 'January 23, 2015')
         self.assertEqual(overview_data.get('Status'), 'In Progress')
         links = {link['title']: link['url'] for link in response.context['external_course_tools']}
@@ -71,7 +71,7 @@ class CourseHomeViewTests(CourseViewTestMixin, TestCase):
         })
         response = self.client.get(self.path(course_id=CourseSamples.DEMO_COURSE_ID))
         self.assertEqual(response.status_code, 200)
-        overview_data = {k: v for k, v in response.context['course_overview']}
+        overview_data = dict(response.context['course_overview'])
         self.assertEqual(overview_data.get('Start Date'), 'January 01, 2015')
         self.assertEqual(overview_data.get('End Date'), 'February 15, 2015')
         self.assertEqual(overview_data.get('Status'), 'Ended')

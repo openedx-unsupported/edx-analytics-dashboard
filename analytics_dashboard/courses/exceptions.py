@@ -9,14 +9,12 @@ class PermissionsError(Exception):
     """
     Base class for permissions errors.
     """
-    pass
 
 
 class PermissionsRetrievalFailedError(PermissionsError):
     """
     Raise if permissions retrieval fails (e.g. the backend is unreachable).
     """
-    pass
 
 
 class BaseCourseError(six.with_metaclass(abc.ABCMeta, Exception)):

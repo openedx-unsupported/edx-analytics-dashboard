@@ -252,8 +252,8 @@ class CourseValidMixin:
     def dispatch(self, request, *args, **kwargs):
         if self.is_valid_course():
             return super(CourseValidMixin, self).dispatch(request, *args, **kwargs)
-        else:
-            raise Http404
+
+        raise Http404
 
 
 class CoursePermissionMixin:
@@ -777,7 +777,7 @@ class CourseStructureExceptionMixin:
                 if response.status_code == 404:
                     logger.info('Course API data not found for %s: %s', self.course_id, e)
                     raise Http404
-                elif response.status_code == 503:
+                if response.status_code == 503:
                     raise ServiceUnavailableError
 
             # Not a 404. Continue raising the error.

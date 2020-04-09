@@ -89,17 +89,14 @@ class CourseAPIPresenterMixin(six.with_metaclass(abc.ABCMeta, object)):
     @abc.abstractproperty
     def section_type_template(self):
         """ Template for key generation to store/retrieve and cached structure data. E.g. "video_{}_{}" """
-        pass
 
     @abc.abstractproperty
     def all_sections_key(self):
         """ Cache key for storing/retrieving structure for all sections. """
-        pass
 
     @abc.abstractproperty
     def module_type(self):
         """ Module type to retrieve structure for. E.g. video, problem. """
-        pass
 
     @property
     def module_graded_type(self):
@@ -165,7 +162,6 @@ class CourseAPIPresenterMixin(six.with_metaclass(abc.ABCMeta, object)):
     @abc.abstractmethod
     def attach_aggregated_data_to_parent(self, index, parent, url_func=None):
         """ Adds aggregate data from the child modules to the parent. """
-        pass
 
     @abc.abstractproperty
     def default_block_data(self):
@@ -173,14 +169,12 @@ class CourseAPIPresenterMixin(six.with_metaclass(abc.ABCMeta, object)):
         Returns a dictionary of default data for a block.  Typically, this would be the expected fields
         with empty/zero values.
         """
-        pass
 
     @abc.abstractmethod
     def fetch_course_module_data(self):
         """
         Fetch course module data from the data API.  Use _course_module_data() for cached data.
         """
-        pass
 
     @abc.abstractmethod
     def attach_computed_data(self, module_data):
@@ -188,7 +182,6 @@ class CourseAPIPresenterMixin(six.with_metaclass(abc.ABCMeta, object)):
         Called by _course_module_data() to attach computed data (e.g. percentages, new IDs, etc.) to
         data returned from the analytics data api.
         """
-        pass
 
     def _course_module_data(self):
         """ Retrieves course problems (from cache or course API) and calls process_module_data to attach data. """
@@ -257,7 +250,6 @@ class CourseAPIPresenterMixin(six.with_metaclass(abc.ABCMeta, object)):
             child: Block that will be processed.
             url_func: URL generating function if needed to attach a URL to the child.
         """
-        pass
 
     def build_section_url(self, _section):
         return None
@@ -361,7 +353,6 @@ class CourseAPIPresenterMixin(six.with_metaclass(abc.ABCMeta, object)):
     @abc.abstractmethod
     def blocks_have_data(self, blocks):
         """ Returns whether blocks contains any displayable data. """
-        pass
 
     @property
     def last_updated(self):

@@ -63,14 +63,14 @@ class CourseEnrollmentDemographicsAgeCSV(CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = u'enrollment-by-birth-year'
 
     def get_data(self):
-        return self.course.enrollment(demographics.BIRTH_YEAR, data_format=data_formats.CSV),
+        return self.course.enrollment(demographics.BIRTH_YEAR, data_format=data_formats.CSV)
 
 
 class CourseEnrollmentDemographicsEducationCSV(CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = u'enrollment-by-education'
 
     def get_data(self):
-        return self.course.enrollment(demographics.EDUCATION, data_format=data_formats.CSV),
+        return self.course.enrollment(demographics.EDUCATION, data_format=data_formats.CSV)
 
 
 class CourseEnrollmentDemographicsGenderCSV(CourseCSVResponseMixin, CourseView):
@@ -78,7 +78,7 @@ class CourseEnrollmentDemographicsGenderCSV(CourseCSVResponseMixin, CourseView):
 
     def get_data(self):
         end_date = datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
-        return self.course.enrollment(demographics.GENDER, end_date=end_date, data_format=data_formats.CSV),
+        return self.course.enrollment(demographics.GENDER, end_date=end_date, data_format=data_formats.CSV)
 
 
 class CourseEnrollmentByCountryCSV(CourseCSVResponseMixin, CourseView):
