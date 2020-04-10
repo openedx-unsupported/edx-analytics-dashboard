@@ -3,7 +3,7 @@ from __future__ import absolute_import, division
 import copy
 import datetime
 
-import mock
+import unittest.mock as mock
 from analyticsclient.constants import activity_types as AT
 from analyticsclient.constants import enrollment_modes
 from ddt import data, ddt, unpack

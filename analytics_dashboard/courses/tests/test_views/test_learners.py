@@ -3,8 +3,8 @@ from __future__ import absolute_import
 import json
 import logging
 
+import unittest.mock as mock
 import httpretty
-import mock
 from ddt import data, ddt
 from django.conf import settings
 from django.test import TestCase

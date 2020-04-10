@@ -5,7 +5,6 @@
 #    make upgrade
 #
 -e git+https://github.com/python-social-auth/social-app-django.git@ffa0fb99a80d11479bea2c4eae9a01ee835d52b9#egg=social-auth-app-django  # via -r requirements/test.txt
-argparse==1.4.0           # via -r requirements/test.txt, unittest2
 astroid==1.6.6            # via -c requirements/constraints.txt, -r requirements/test.txt, pylint
 attrs==19.3.0             # via -r requirements/test.txt, pytest
 awesome-slugify==1.6.5    # via -r requirements/test.txt
@@ -15,7 +14,7 @@ bpython==0.19             # via -r requirements/test.txt
 certifi==2020.4.5.1       # via -r requirements/test.txt, requests
 chardet==3.0.4            # via -r requirements/test.txt, requests
 click==7.1.1              # via -r requirements/pip_tools.txt, pip-tools
-coverage==5.0.4           # via -r requirements/test.txt, pytest-cov
+coverage==5.1             # via -r requirements/test.txt, pytest-cov
 curtsies==0.3.1           # via -r requirements/test.txt, bpython
 ddt==1.3.1                # via -r requirements/test.txt
 defusedxml==0.6.0         # via -r requirements/test.txt, python3-openid, social-auth-core
@@ -53,11 +52,8 @@ isort==4.3.21             # via -r requirements/test.txt, pylint
 lazy-object-proxy==1.4.3  # via -r requirements/test.txt, astroid
 lazy==1.4                 # via -r requirements/test.txt, bok-choy
 libsass==0.11.1           # via -r requirements/test.txt
-linecache2==1.0.0         # via -r requirements/test.txt, traceback2
-logilab-common==1.5.2     # via -r requirements/test.txt
 logutils==0.3.5           # via -r requirements/test.txt
 mccabe==0.6.1             # via -r requirements/test.txt, pylint
-mock==3.0.5               # via -r requirements/test.txt, sure
 more-itertools==8.2.0     # via -r requirements/test.txt, pytest
 needle==0.5.0             # via -r requirements/test.txt, bok-choy
 newrelic==5.10.0.138      # via -r requirements/test.txt, edx-django-utils
@@ -67,7 +63,6 @@ packaging==20.3           # via -r requirements/test.txt, pytest
 path.py==11.5.2           # via -r requirements/test.txt, edx-i18n-tools
 pathlib2==2.3.5           # via -r requirements/test.txt, pytest
 pbr==5.4.5                # via -r requirements/test.txt, stevedore
-pep257==0.7.0             # via -r requirements/test.txt
 pillow==7.1.1             # via -r requirements/test.txt, needle
 pinax-announcements==3.0.2  # via -r requirements/test.txt
 pip-tools==4.5.1          # via -r requirements/pip_tools.txt
@@ -77,6 +72,7 @@ psutil==1.2.1             # via -r requirements/test.txt, edx-django-utils
 py==1.8.1                 # via -r requirements/test.txt, pytest
 pycodestyle==2.5.0        # via -r requirements/test.txt
 pycryptodomex==3.9.7      # via -r requirements/test.txt, pyjwkest
+pydocstyle==5.0.2         # via -r requirements/test.txt
 pygments==2.6.1           # via -r requirements/test.txt, bpython
 pyjwkest==1.4.2           # via -r requirements/test.txt, edx-drf-extensions
 pyjwt==1.7.1              # via -r requirements/test.txt, drf-jwt, edx-auth-backends, edx-rest-api-client, social-auth-core
@@ -96,22 +92,17 @@ requests==2.23.0          # via -r requirements/test.txt, bpython, edx-analytics
 rest-condition==1.0.3     # via -r requirements/test.txt, edx-drf-extensions
 selenium==2.53.6          # via -r requirements/test.txt, bok-choy, needle
 semantic-version==2.8.4   # via -r requirements/test.txt, edx-drf-extensions
-six==1.14.0               # via -r requirements/pip_tools.txt, -r requirements/test.txt, astroid, blessings, bok-choy, bpython, django-braces, django-countries, django-dynamic-fixture, djangorestframework-csv, edx-auth-backends, edx-ccx-keys, edx-django-release-util, edx-drf-extensions, edx-i18n-tools, edx-opaque-keys, libsass, mock, packaging, pathlib2, pip-tools, pyjwkest, pylint, python-dateutil, social-auth-app-django, social-auth-core, stevedore, sure, transifex-client, unittest2
+six==1.14.0               # via -r requirements/pip_tools.txt, -r requirements/test.txt, astroid, blessings, bok-choy, bpython, django-braces, django-countries, django-dynamic-fixture, djangorestframework-csv, edx-auth-backends, edx-ccx-keys, edx-django-release-util, edx-drf-extensions, edx-i18n-tools, edx-opaque-keys, libsass, packaging, pathlib2, pip-tools, pyjwkest, pylint, python-dateutil, social-auth-app-django, social-auth-core, stevedore, transifex-client
 slumber==0.7.1            # via -r requirements/test.txt, edx-rest-api-client
+snowballstemmer==2.0.0    # via -r requirements/test.txt, pydocstyle
 social-auth-core==3.2.0   # via -c requirements/constraints.txt, -r requirements/test.txt, edx-auth-backends, social-auth-app-django
 sqlparse==0.3.1           # via -r requirements/test.txt, django, django-debug-toolbar
 stevedore==1.32.0         # via -r requirements/test.txt, edx-opaque-keys
-sure==1.4.11              # via -r requirements/test.txt
 testfixtures==6.14.0      # via -r requirements/test.txt
-traceback2==1.4.0         # via -r requirements/test.txt, unittest2
 transifex-client==0.12.4  # via -r requirements/local.in
 unicodecsv==0.14.1        # via -r requirements/test.txt, djangorestframework-csv
 unidecode==0.4.21         # via -r requirements/test.txt, awesome-slugify
-unittest2==1.1.0          # via -r requirements/test.txt
 urllib3==1.25.8           # via -r requirements/test.txt, elasticsearch, requests, transifex-client
 wcwidth==0.1.9            # via -r requirements/test.txt, curtsies, pytest
 wrapt==1.11.2             # via -c requirements/constraints.txt, -r requirements/test.txt, astroid
 zipp==1.2.0               # via -r requirements/test.txt, importlib-metadata
-
-# The following packages are considered to be unsafe in a requirements file:
-# setuptools

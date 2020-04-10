@@ -2,9 +2,9 @@ from __future__ import absolute_import
 
 import json
 
+import unittest.mock as mock
 import ddt
 import httpretty
-import mock
 from django.conf import settings
 from django.test import TestCase
 from requests.exceptions import ConnectTimeout

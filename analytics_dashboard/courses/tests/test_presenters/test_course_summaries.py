@@ -1,6 +1,6 @@
 from __future__ import absolute_import
 
-import mock
+import unittest.mock as mock
 import six
 from ddt import data, ddt, unpack
 from django.conf import settings

@@ -2,7 +2,7 @@ from __future__ import absolute_import
 
 import json
 
-import mock
+import unittest.mock as mock
 from ddt import data, ddt
 from django.test import TestCase
 from waffle.testutils import override_switch
