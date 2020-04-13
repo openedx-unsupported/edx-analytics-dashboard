@@ -15,7 +15,7 @@ from testfixtures import LogCapture
 from waffle.testutils import override_flag, override_switch
 
 from courses.tests.test_views import ViewTestMixin
-from courses.tests.utils import CourseSamples
+from courses.tests.utils import assert_dict_contains_subset, CourseSamples
 
 
 @httpretty.activate
@@ -53,10 +53,10 @@ class LearnersViewTests(ViewTestMixin, TestCase):
                 course_id=CourseSamples.DEMO_COURSE_ID
             ),
         }
-        self.assertDictContainsSubset(dict(list(expected_context_subset.items())), response.context)
-        self.assertDictContainsSubset(
+        assert_dict_contains_subset(response.context, dict(list(expected_context_subset.items())))
+        assert_dict_contains_subset(
+            response.context['js_data']['course'],
             dict(list(default_expected_context_subset.items())),
-            response.context['js_data']['course']
         )
 
     def get_mock_data(self, *args, **kwargs):

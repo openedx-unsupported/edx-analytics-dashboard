@@ -894,3 +894,19 @@ def get_mock_programs():
         'program_id': ProgramSamples.DEMO_PROGRAM4_ID,
         'created': CREATED_DATETIME_STRING,
     }]
+
+
+def assert_dict_contains_subset(dictionary, subset):
+    """
+    This is an alternative method to replace assertDictContainsSubset that
+    was deprecated for python 3.
+    This was inspired by
+    https://stackoverflow.com/questions/20050913/python-unittests-assertdictcontainssubset-recommended-alternative?rq=1
+    """
+    assert_message = 'The dict {} is not a subset of {}'.format(
+        subset,
+        dictionary,
+    )
+
+    extracted_content = dict([(key, dictionary.get(key)) for key in subset.keys() if key in dictionary])
+    assert subset == extracted_content, assert_message
