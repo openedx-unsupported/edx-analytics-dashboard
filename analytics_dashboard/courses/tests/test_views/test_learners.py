@@ -53,10 +53,10 @@ class LearnersViewTests(ViewTestMixin, TestCase):
                 course_id=CourseSamples.DEMO_COURSE_ID
             ),
         }
-        assert_dict_contains_subset(dict(list(expected_context_subset.items())), response.context)
+        assert_dict_contains_subset(response.context, dict(list(expected_context_subset.items())))
         assert_dict_contains_subset(
+            response.context['js_data']['course'],
             dict(list(default_expected_context_subset.items())),
-            response.context['js_data']['course']
         )
 
     def get_mock_data(self, *args, **kwargs):

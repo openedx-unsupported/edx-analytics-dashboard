@@ -190,7 +190,7 @@ class CourseEngagementVideoMixin(CourseEngagementViewTestMixin, CourseStructureV
         expected = {
             'sections': self.sections,
         }
-        utils.assert_dict_contains_subset(expected, context)
+        utils.assert_dict_contains_subset(context, expected)
 
     @httpretty.activate
     @patch('courses.presenters.engagement.CourseEngagementVideoPresenter.sections', Mock(return_value=dict()))

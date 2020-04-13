@@ -290,7 +290,7 @@ class CourseEngagementVideoPresenterTests(TestCase):
                 expected = [{'id': utils.get_encoded_module_id(video_id), 'url': expected_url}]
                 self.assertEqual(len(actual_videos), len(expected))
                 for index, actual_video in enumerate(actual_videos):
-                    utils.assert_dict_contains_subset(expected[index], actual_video)
+                    utils.assert_dict_contains_subset(actual_video, expected[index])
 
     def test_module_id_to_data_id(self):
         opaque_key_id = 'i4x-edX-DemoX-video-0b9e39477cf34507a7a48f74be381fdd'
@@ -305,7 +305,7 @@ class CourseEngagementVideoPresenterTests(TestCase):
             return '{}-{}'.format(parent_block, child_block)
         user_data = {'users_at_start': 10}
         self.presenter.post_process_adding_data_to_blocks(user_data, 'parent', 'child', url_func)
-        utils.assert_dict_contains_subset({'url': 'parent-child'}, user_data)
+        utils.assert_dict_contains_subset(user_data, {'url': 'parent-child'})
 
         empty_data = {}
         self.presenter.post_process_adding_data_to_blocks(empty_data, 'parent', 'child', None)
@@ -468,7 +468,7 @@ class CourseEngagementVideoPresenterTests(TestCase):
     def assertTimeline(self, expected_timeline, actual_timeline):
         self.assertEqual(len(expected_timeline), len(actual_timeline))
         for expected, actual in zip(expected_timeline, actual_timeline):
-            utils.assert_dict_contains_subset(actual, expected)
+            utils.assert_dict_contains_subset(expected, actual)
 
     def test_build_live_url(self):
         actual_view_live_url = self.presenter.build_view_live_url('a-url', self.VIDEO_ID)
@@ -980,7 +980,7 @@ class CoursePerformancePresenterTests(TestCase):
                 'name': problem['name'],
                 'children': []
             }
-            utils.assert_dict_contains_subset(expected, actual)
+            utils.assert_dict_contains_subset(actual, expected)
 
     def test_sections(self):
         """ Verify the presenter returns a specific assignment. """

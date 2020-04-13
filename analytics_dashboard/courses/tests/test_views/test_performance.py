@@ -145,7 +145,7 @@ class CoursePerformanceGradedMixin(CoursePerformanceViewTestMixin):
             'assignments': self.factory.presented_assignments,
             'no_data_message': u'No submissions received for these assignments.'
         }
-        utils.assert_dict_contains_subset(expected, context)
+        utils.assert_dict_contains_subset(context, expected)
 
     def get_expected_secondary_nav(self, course_id):
         expected = super(CoursePerformanceGradedMixin, self).get_expected_secondary_nav(course_id)
@@ -186,7 +186,7 @@ class CoursePerformanceUngradedMixin(CoursePerformanceViewTestMixin):
             'sections': self.sections,
             'no_data_message': 'No submissions received for these exercises.'
         }
-        utils.assert_dict_contains_subset(expected, context)
+        utils.assert_dict_contains_subset(context, expected)
 
     def get_expected_secondary_nav(self, course_id):
         expected = super(CoursePerformanceUngradedMixin, self).get_expected_secondary_nav(course_id)
@@ -242,6 +242,7 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformanceViewTestMixin):
 
         self.assertListEqual(context['questions'], rv.questions)
         utils.assert_dict_contains_subset(
+            context,
             {
                 'page_title': 'Performance: Problem Submissions',
                 'problem_id': problem_id,
@@ -250,14 +251,17 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformanceViewTestMixin):
                                                            problem_id),
                 'active_question': rv.active_question,
                 'questions': rv.questions
-            }, context)
+            },
+        )
         utils.assert_dict_contains_subset(
+            json.loads(context['page_data'])['course'],
             {
                 'isRandom': rv.is_random,
                 'answerType': rv.answer_type,
                 'answerDistribution': rv.answer_distribution,
                 'answerDistributionLimited': rv.answer_distribution_limited,
-            }, json.loads(context['page_data'])['course'])
+            },
+        )
 
         self.assertPrimaryNav(response.context['primary_nav_item'], course_id)
         self.assertSecondaryNavs(response.context['secondary_nav_items'], course_id)
@@ -334,7 +338,7 @@ class CoursePerformanceGradedContentViewTests(CoursePerformanceGradedMixin, Test
             'assignment_types': self.factory.presented_assignment_types,
             'grading_policy': self.factory.presented_grading_policy,
         }
-        utils.assert_dict_contains_subset(expected, context)
+        utils.assert_dict_contains_subset(context, expected)
 
 
 @override_switch('enable_course_api', active=True)
@@ -405,7 +409,7 @@ class CoursePerformanceAssignmentViewTests(CoursePerformanceGradedMixin, TestCas
             'assignment_type': self.assignment_type,
             'assignment': self.assignment,
         }
-        utils.assert_dict_contains_subset(expected, context)
+        utils.assert_dict_contains_subset(context, expected)
 
     @httpretty.activate
     @patch('courses.presenters.performance.CoursePerformancePresenter.assignment', Mock(return_value=None))
@@ -691,17 +695,21 @@ class CoursePerformanceLearningOutcomesAnswersDistributionViewTests(
 
         self.assertListEqual(context['questions'], rv.questions)
         utils.assert_dict_contains_subset(
+            context,
             {
                 'problem_id': problem_id,
                 'view_live_url': '{}/{}/jump_to/{}'.format(settings.LMS_COURSE_SHORTCUT_BASE_URL, course_id,
                                                            problem_id),
                 'active_question': rv.active_question,
                 'questions': rv.questions
-            }, context)
+            },
+        )
         utils.assert_dict_contains_subset(
+            json.loads(context['page_data'])['course'],
             {
                 'isRandom': rv.is_random,
                 'answerType': rv.answer_type,
                 'answerDistribution': rv.answer_distribution,
                 'answerDistributionLimited': rv.answer_distribution_limited,
-            }, json.loads(context['page_data'])['course'])
+            },
+        )

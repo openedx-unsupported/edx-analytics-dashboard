@@ -896,7 +896,7 @@ def get_mock_programs():
     }]
 
 
-def assert_dict_contains_subset(subset, dictionary):
+def assert_dict_contains_subset(dictionary, subset):
     """
     This is an alternative method to replace assertDictContainsSubset that
     was deprecated for python 3.
