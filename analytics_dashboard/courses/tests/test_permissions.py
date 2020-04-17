@@ -1,7 +1,7 @@
 from __future__ import absolute_import
 
+import unittest.mock as mock
 import ddt
-import mock
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.cache import cache

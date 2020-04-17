@@ -3,6 +3,7 @@ from __future__ import absolute_import
 import json
 import logging
 
+from unittest.mock import _is_started, Mock, patch
 import httpretty
 from analyticsclient.exceptions import NotFoundError
 from ddt import data, ddt
@@ -11,8 +12,6 @@ from django.contrib.humanize.templatetags.humanize import intcomma
 from django.core.cache import cache
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
-from mock import Mock, patch
-from mock.mock import _is_started
 from waffle.testutils import override_switch
 
 from core.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin

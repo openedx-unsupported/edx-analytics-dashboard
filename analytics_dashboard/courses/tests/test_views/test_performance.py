@@ -3,6 +3,7 @@ from __future__ import absolute_import
 import json
 import logging
 
+from unittest.mock import Mock, patch
 import httpretty
 from analyticsclient.exceptions import ClientError, NotFoundError
 from ddt import ddt
@@ -10,7 +11,6 @@ from django.conf import settings
 from django.test import TestCase
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
-from mock import Mock, patch
 from slugify import slugify
 from waffle.testutils import override_switch
 

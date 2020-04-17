@@ -2,7 +2,7 @@ from __future__ import absolute_import
 
 import json
 
-import mock
+import unittest.mock as mock
 from ddt import ddt
 from django.test import TestCase
 

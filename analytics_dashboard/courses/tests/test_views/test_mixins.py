@@ -1,6 +1,6 @@
 from __future__ import absolute_import
 
-import mock
+import unittest.mock as mock
 from django.test import TestCase
 from django.test.utils import override_settings
 

@@ -1,6 +1,6 @@
 from __future__ import absolute_import
 
-import mock
+import unittest.mock as mock
 import six
 from analyticsclient.exceptions import NotFoundError
 from ddt import data, ddt
