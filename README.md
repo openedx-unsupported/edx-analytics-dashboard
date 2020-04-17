@@ -6,7 +6,7 @@ Dashboard to display course analytics to course teams
 
 Prerequisites
 -------------
-* Python 2.7.x (not tested with Python 3.x)
+* Python 3.5.x
 * [gettext](http://www.gnu.org/software/gettext/)
 * [node](https://nodejs.org) 12.11.1
 * [npm](https://www.npmjs.org/) 6.11.3
