@@ -7,11 +7,11 @@ from ddt import data, ddt
 from django.test import TestCase
 from waffle.testutils import override_switch
 
-import courses.tests.utils as utils
-from courses.exceptions import PermissionsRetrievalFailedError
-from courses.tests.test_middleware import CoursePermissionsExceptionMixin
-from courses.tests.test_views import ViewTestMixin
-from courses.tests.utils import CourseSamples
+import analytics_dashboard.courses.tests.utils as utils
+from analytics_dashboard.courses.exceptions import PermissionsRetrievalFailedError
+from analytics_dashboard.courses.tests.test_middleware import CoursePermissionsExceptionMixin
+from analytics_dashboard.courses.tests.test_views import ViewTestMixin
+from analytics_dashboard.courses.tests.utils import CourseSamples
 
 
 @ddt
@@ -49,9 +49,11 @@ class CourseSummariesViewTests(ViewTestMixin, CoursePermissionsExceptionMixin, T
         """
         Test data is returned in the correct hierarchy.
         """
-        permissions_method = 'courses.views.course_summaries.permissions.get_user_course_permissions'
-        presenter_method = 'courses.presenters.course_summaries.CourseSummariesPresenter.get_course_summaries'
-        programs_presenter_method = 'courses.presenters.programs.ProgramsPresenter.get_programs'
+        permissions_method = \
+            'analytics_dashboard.courses.views.course_summaries.permissions.get_user_course_permissions'
+        presenter_method = \
+            'analytics_dashboard.courses.presenters.course_summaries.CourseSummariesPresenter.get_course_summaries'
+        programs_presenter_method = 'analytics_dashboard.courses.presenters.programs.ProgramsPresenter.get_programs'
         mock_data = self.get_mock_data(course_ids)
         programs_mock_data = self.get_programs_mock_data(course_ids)
 
@@ -73,7 +75,7 @@ class CourseSummariesViewTests(ViewTestMixin, CoursePermissionsExceptionMixin, T
         response = self.client.get(self.path())
         self.assertEqual(response.status_code, 403)
 
-    @mock.patch('courses.permissions.get_user_course_permissions',
+    @mock.patch('analytics_dashboard.courses.permissions.get_user_course_permissions',
                 mock.Mock(side_effect=PermissionsRetrievalFailedError))
     def test_get_with_permissions_error(self):
         response = self.client.get(self.path())

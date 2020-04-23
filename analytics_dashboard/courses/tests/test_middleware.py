@@ -8,12 +8,12 @@ from django.template.response import TemplateResponse
 from opaque_keys.edx.keys import CourseKey
 from testfixtures import LogCapture
 
-from core.tests.test_middleware import (
+from analytics_dashboard.core.tests.test_middleware import (
     MiddlewareAssertionMixin,
     MiddlewareTestCase,
 )
-from courses.exceptions import PermissionsRetrievalFailedError
-from courses.middleware import (
+from analytics_dashboard.courses.exceptions import PermissionsRetrievalFailedError
+from analytics_dashboard.courses.middleware import (
     CourseMiddleware,
     CoursePermissionsExceptionMiddleware,
 )
@@ -75,4 +75,4 @@ class CoursePermissionsExceptionMiddlewareTests(CoursePermissionsExceptionMixin,
             self.assertIsPermissionsRetrievalFailedResponse(response)
 
             # Verify the exception was logged
-            log_capture.check(('courses.middleware', 'ERROR', str(exception)),)
+            log_capture.check(('analytics_dashboard.courses.middleware', 'ERROR', str(exception)),)

@@ -9,15 +9,15 @@ from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from waffle.testutils import override_switch
 
-from courses.tests import utils
-from courses.tests.factories import CourseEngagementDataFactory
-from courses.tests.test_views import (
+from analytics_dashboard.courses.tests import utils
+from analytics_dashboard.courses.tests.factories import CourseEngagementDataFactory
+from analytics_dashboard.courses.tests.test_views import (
     CourseAPIMixin,
     CourseStructureViewMixin,
     CourseViewTestMixin,
     PatchMixin,
 )
-from courses.tests.utils import CourseSamples
+from analytics_dashboard.courses.tests.utils import CourseSamples
 
 
 class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):  # pylint: disable=abstract-method
@@ -86,7 +86,8 @@ class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):  # pylint: disa
 @ddt
 class CourseEngagementContentViewTests(CourseViewTestMixin, CourseEngagementViewTestMixin, TestCase):
     viewname = 'courses:engagement:content'
-    presenter_method = 'courses.presenters.engagement.CourseEngagementActivityPresenter.get_summary_and_trend_data'
+    presenter_method = \
+        'analytics_dashboard.courses.presenters.engagement.CourseEngagementActivityPresenter.get_summary_and_trend_data'
     active_secondary_nav_label = 'Content'
 
     def get_expected_secondary_nav(self, course_id):
@@ -168,21 +169,25 @@ class CourseEngagementVideoMixin(CourseEngagementViewTestMixin, CourseStructureV
         super(CourseEngagementVideoMixin, self).setUp()
         self.factory = CourseEngagementDataFactory()
         self.sections = self.factory.presented_sections
-        self._patch('courses.presenters.engagement.CourseEngagementVideoPresenter.sections',
+        self._patch('analytics_dashboard.courses.presenters.engagement.CourseEngagementVideoPresenter.sections',
                     return_value=self.sections)
-        self._patch('courses.presenters.engagement.CourseEngagementVideoPresenter.section',
+        self._patch('analytics_dashboard.courses.presenters.engagement.CourseEngagementVideoPresenter.section',
                     return_value=self.sections[0])
-        self._patch('courses.presenters.engagement.CourseEngagementVideoPresenter.subsections',
+        self._patch('analytics_dashboard.courses.presenters.engagement.CourseEngagementVideoPresenter.subsections',
                     return_value=self.sections[0]['children'])
-        self._patch('courses.presenters.engagement.CourseEngagementVideoPresenter.subsection',
+        self._patch('analytics_dashboard.courses.presenters.engagement.CourseEngagementVideoPresenter.subsection',
                     return_value=self.sections[0]['children'][0])
-        self._patch('courses.presenters.engagement.CourseEngagementVideoPresenter.subsection_children',
-                    return_value=self.sections[0]['children'][0]['children'])
-        self._patch('courses.presenters.engagement.CourseEngagementVideoPresenter.get_video_timeline',
-                    return_value=self.factory.get_presented_video_timeline())
-        self._patch('courses.presenters.engagement.CourseEngagementVideoPresenter.block',
+        self._patch(
+            'analytics_dashboard.courses.presenters.engagement.CourseEngagementVideoPresenter.subsection_children',
+            return_value=self.sections[0]['children'][0]['children']
+        )
+        self._patch(
+            'analytics_dashboard.courses.presenters.engagement.CourseEngagementVideoPresenter.get_video_timeline',
+            return_value=self.factory.get_presented_video_timeline()
+        )
+        self._patch('analytics_dashboard.courses.presenters.engagement.CourseEngagementVideoPresenter.block',
                     return_value=self.sections[0]['children'][0]['children'][0])
-        self._patch('courses.presenters.engagement.CourseEngagementVideoPresenter.subsection_child',
+        self._patch('analytics_dashboard.courses.presenters.engagement.CourseEngagementVideoPresenter.subsection_child',
                     return_value=self.sections[0]['children'][0]['children'][0])
         self.start_patching()
 
@@ -193,7 +198,10 @@ class CourseEngagementVideoMixin(CourseEngagementViewTestMixin, CourseStructureV
         utils.assert_dict_contains_subset(context, expected)
 
     @httpretty.activate
-    @patch('courses.presenters.engagement.CourseEngagementVideoPresenter.sections', Mock(return_value=dict()))
+    @patch(
+        'analytics_dashboard.courses.presenters.engagement.CourseEngagementVideoPresenter.sections',
+        Mock(return_value=dict()),
+    )
     def test_missing_sections(self):
         """ Every video page will use sections and will return 200 if sections aren't available. """
         self.mock_course_detail(CourseSamples.DEMO_COURSE_ID)
@@ -229,7 +237,10 @@ class EngagementVideoCourseSectionTest(CourseEngagementVideoMixin, TestCase):
         self.assertListEqual(self.sections[0]['children'], context['subsections'])
 
     @httpretty.activate
-    @patch('courses.presenters.engagement.CourseEngagementVideoPresenter.section', Mock(return_value=None))
+    @patch(
+        'analytics_dashboard.courses.presenters.engagement.CourseEngagementVideoPresenter.section',
+        Mock(return_value=None),
+    )
     def test_missing_section(self):
         self.mock_course_detail(CourseSamples.DEMO_COURSE_ID)
         response = self.client.get(self.path(course_id=CourseSamples.DEMO_COURSE_ID, section_id='Invalid'))
@@ -260,7 +271,10 @@ class EngagementVideoCourseSubsectionTest(CourseEngagementVideoMixin, TestCase):
         self.assertEqual(section['children'][0], context['subsection'])
 
     @httpretty.activate
-    @patch('courses.presenters.engagement.CourseEngagementVideoPresenter.subsection', Mock(return_value=None))
+    @patch(
+        'analytics_dashboard.courses.presenters.engagement.CourseEngagementVideoPresenter.subsection',
+        Mock(return_value=None),
+    )
     def test_missing_subsection(self):
         self.mock_course_detail(CourseSamples.DEMO_COURSE_ID)
         response = self.client.get(self.path(
@@ -296,7 +310,10 @@ class EngagementVideoCourseTimelineTest(CourseEngagementVideoMixin, TestCase):
                              context['js_data']['course']['videoTimeline'])
 
     @httpretty.activate
-    @patch('courses.presenters.engagement.CourseEngagementVideoPresenter.subsection_child', Mock(return_value=None))
+    @patch(
+        'analytics_dashboard.courses.presenters.engagement.CourseEngagementVideoPresenter.subsection_child',
+        Mock(return_value=None),
+    )
     def test_missing_video_module(self):
         """ Every video page will use sections and will return 200 if sections aren't available. """
         self.mock_course_detail(CourseSamples.DEMO_COURSE_ID)
@@ -305,7 +322,10 @@ class EngagementVideoCourseTimelineTest(CourseEngagementVideoMixin, TestCase):
         self.assertEqual(response.status_code, 404)
 
     @httpretty.activate
-    @patch('courses.presenters.engagement.CourseEngagementVideoPresenter.get_video_timeline', Mock(return_value=None))
+    @patch(
+        'analytics_dashboard.courses.presenters.engagement.CourseEngagementVideoPresenter.get_video_timeline',
+        Mock(return_value=None),
+    )
     def test_missing_video_data(self):
         self.mock_course_detail(CourseSamples.DEMO_COURSE_ID)
         response = self.client.get(self.path(course_id=CourseSamples.DEMO_COURSE_ID))

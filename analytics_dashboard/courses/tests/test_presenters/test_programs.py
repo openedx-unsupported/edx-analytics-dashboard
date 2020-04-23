@@ -4,8 +4,8 @@ import unittest.mock as mock
 from ddt import data, ddt, unpack
 from django.test import TestCase, override_settings
 
-from courses.presenters.programs import ProgramsPresenter
-from courses.tests.utils import (
+from analytics_dashboard.courses.presenters.programs import ProgramsPresenter
+from analytics_dashboard.courses.tests.utils import (
     CourseSamples,
     ProgramSamples,
     get_mock_programs,

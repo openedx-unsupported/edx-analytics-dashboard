@@ -4,8 +4,8 @@ import logging
 
 from rest_framework.permissions import BasePermission
 
-from courses.exceptions import PermissionsRetrievalFailedError
-from courses.permissions import user_can_view_course
+from analytics_dashboard.courses.exceptions import PermissionsRetrievalFailedError
+from analytics_dashboard.courses.permissions import user_can_view_course
 
 logger = logging.getLogger(__name__)
 

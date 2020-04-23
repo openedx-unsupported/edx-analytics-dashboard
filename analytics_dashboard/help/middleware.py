@@ -3,8 +3,8 @@ from __future__ import absolute_import
 from django.utils.deprecation import MiddlewareMixin
 from rest_framework.response import Response
 
-from help import HELP_CONTEXT_TOKEN_NAME
-from help.utils import get_doc_url
+from analytics_dashboard.help import HELP_CONTEXT_TOKEN_NAME
+from analytics_dashboard.help.utils import get_doc_url
 
 
 class HelpURLMiddleware(MiddlewareMixin):

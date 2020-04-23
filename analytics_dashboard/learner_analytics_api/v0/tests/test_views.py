@@ -10,8 +10,8 @@ from django.test import TestCase
 from requests.exceptions import ConnectTimeout
 from waffle.testutils import override_flag
 
-from core.tests.test_views import UserTestCaseMixin
-from courses.tests.test_views import PermissionsTestMixin
+from analytics_dashboard.core.tests.test_views import UserTestCaseMixin
+from analytics_dashboard.courses.tests.test_views import PermissionsTestMixin
 
 
 @ddt.ddt

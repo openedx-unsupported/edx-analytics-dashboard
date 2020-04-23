@@ -13,10 +13,10 @@ from edx_rest_api_client.exceptions import HttpClientError
 from slugify import slugify
 
 from common.course_structure import CourseStructure
-from core.utils import CourseStructureApiClient, sanitize_cache_key
-from courses import utils
-from courses.exceptions import BaseCourseError, NoAnswerSubmissionsError
-from courses.presenters import CourseAPIPresenterMixin, CoursePresenter
+from analytics_dashboard.core.utils import CourseStructureApiClient, sanitize_cache_key
+from analytics_dashboard.courses import utils
+from analytics_dashboard.courses.exceptions import BaseCourseError, NoAnswerSubmissionsError
+from analytics_dashboard.courses.presenters import CourseAPIPresenterMixin, CoursePresenter
 
 logger = logging.getLogger(__name__)
 

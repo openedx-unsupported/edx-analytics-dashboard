@@ -12,10 +12,10 @@ from django.utils.translation import ugettext_lazy as _
 from six.moves import range
 from waffle import switch_is_active
 
-from core.templatetags.dashboard_extras import metric_percentage
-from courses import utils
-from courses.exceptions import NoVideosError
-from courses.presenters import CourseAPIPresenterMixin, CoursePresenter
+from analytics_dashboard.core.templatetags.dashboard_extras import metric_percentage
+from analytics_dashboard.courses import utils
+from analytics_dashboard.courses.exceptions import NoVideosError
+from analytics_dashboard.courses.presenters import CourseAPIPresenterMixin, CoursePresenter
 
 logger = logging.getLogger(__name__)
 

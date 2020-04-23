@@ -14,17 +14,17 @@ from django.utils.translation import ugettext_lazy as _
 from slugify import slugify
 from waffle.testutils import override_switch
 
-from courses.tests import utils
-from courses.tests.factories import (
+from analytics_dashboard.courses.tests import utils
+from analytics_dashboard.courses.tests.factories import (
     CoursePerformanceDataFactory,
     TagsDistributionDataFactory,
 )
-from courses.tests.test_views import (
+from analytics_dashboard.courses.tests.test_views import (
     CourseAPIMixin,
     CourseStructureViewMixin,
     PatchMixin,
 )
-from courses.tests.utils import CourseSamples
+from analytics_dashboard.courses.tests.utils import CourseSamples
 
 logger = logging.getLogger(__name__)
 
@@ -124,9 +124,9 @@ class CoursePerformanceGradedMixin(CoursePerformanceViewTestMixin):
 
     def setUp(self):
         super(CoursePerformanceGradedMixin, self).setUp()
-        self._patch('courses.presenters.performance.CoursePerformancePresenter.assignments',
+        self._patch('analytics_dashboard.courses.presenters.performance.CoursePerformancePresenter.assignments',
                     return_value=self.factory.presented_assignments)
-        self._patch('courses.presenters.performance.CoursePerformancePresenter.grading_policy',
+        self._patch('analytics_dashboard.courses.presenters.performance.CoursePerformancePresenter.grading_policy',
                     return_value=self.factory.presented_grading_policy)
         self.start_patching()
 
@@ -165,15 +165,15 @@ class CoursePerformanceUngradedMixin(CoursePerformanceViewTestMixin):
     def setUp(self):
         super(CoursePerformanceUngradedMixin, self).setUp()
         self.sections = self.factory.presented_sections
-        self._patch('courses.presenters.performance.CoursePerformancePresenter.sections',
+        self._patch('analytics_dashboard.courses.presenters.performance.CoursePerformancePresenter.sections',
                     return_value=self.sections)
-        self._patch('courses.presenters.performance.CoursePerformancePresenter.section',
+        self._patch('analytics_dashboard.courses.presenters.performance.CoursePerformancePresenter.section',
                     return_value=self.sections[0])
-        self._patch('courses.presenters.performance.CoursePerformancePresenter.subsections',
+        self._patch('analytics_dashboard.courses.presenters.performance.CoursePerformancePresenter.subsections',
                     return_value=self.sections[0]['children'])
-        self._patch('courses.presenters.performance.CoursePerformancePresenter.subsection',
+        self._patch('analytics_dashboard.courses.presenters.performance.CoursePerformancePresenter.subsection',
                     return_value=self.sections[0]['children'][0])
-        self._patch('courses.presenters.performance.CoursePerformancePresenter.subsection_children',
+        self._patch('analytics_dashboard.courses.presenters.performance.CoursePerformancePresenter.subsection_children',
                     return_value=self.sections[0]['children'][0]['children'])
         self.start_patching()
 
@@ -205,7 +205,8 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformanceViewTestMixin):
     NUMERIC_PROBLEM_PART_ID = 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_3_1'
     RANDOMIZED_PROBLEM_PART_ID = 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_3_1'
 
-    presenter_method = 'courses.presenters.performance.CoursePerformancePresenter.get_answer_distribution'
+    presenter_method = \
+        'analytics_dashboard.courses.presenters.performance.CoursePerformancePresenter.get_answer_distribution'
 
     def test_valid_course(self):
         pass
@@ -218,7 +219,7 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformanceViewTestMixin):
         self.mock_course_detail(course_id)
 
         # Mock the problem response used to populate the navbar.
-        with patch('courses.presenters.performance.CoursePerformancePresenter.block',
+        with patch('analytics_dashboard.courses.presenters.performance.CoursePerformancePresenter.block',
                    return_value=rv):
             # API returns different data (e.g. text answers, numeric answers, and randomized answers), resulting in
             # different renderings for these problem part IDs.
@@ -462,7 +463,10 @@ class CoursePerformanceUngradedSectionViewTests(CoursePerformanceUngradedMixin, 
         self.assertListEqual(self.sections[0]['children'], context['subsections'])
 
     @httpretty.activate
-    @patch('courses.presenters.performance.CoursePerformancePresenter.section', Mock(return_value=None))
+    @patch(
+        'analytics_dashboard.courses.presenters.performance.CoursePerformancePresenter.section',
+        Mock(return_value=None),
+    )
     def test_missing_subsections(self):
         self.mock_course_detail(CourseSamples.DEMO_COURSE_ID)
         response = self.client.get(self.path(course_id=CourseSamples.DEMO_COURSE_ID, section_id='Invalid'))
@@ -492,7 +496,10 @@ class CoursePerformanceUngradedSubsectionViewTests(CoursePerformanceUngradedMixi
         self.assertEqual(section['children'][0], context['subsection'])
 
     @httpretty.activate
-    @patch('courses.presenters.performance.CoursePerformancePresenter.subsection', Mock(return_value=None))
+    @patch(
+        'analytics_dashboard.courses.presenters.performance.CoursePerformancePresenter.subsection',
+        Mock(return_value=None),
+    )
     def test_missing_subsection(self):
         self.mock_course_detail(CourseSamples.DEMO_COURSE_ID)
         response = self.client.get(self.path(
@@ -597,7 +604,10 @@ class CoursePerformanceLearningOutcomesSectionViewTests(CoursePerformanceLearnin
         return super(CoursePerformanceLearningOutcomesSectionViewTests, self).path(**kwargs)
 
     @httpretty.activate
-    @patch('courses.presenters.performance.TagsDistributionPresenter._get_structure', Mock(side_effect=NotFoundError))
+    @patch(
+        'analytics_dashboard.courses.presenters.performance.TagsDistributionPresenter._get_structure',
+        Mock(side_effect=NotFoundError),
+    )
     def test_invalid_course(self):
         self._check_invalid_course()
 
@@ -608,7 +618,7 @@ class CoursePerformanceLearningOutcomesSectionViewTests(CoursePerformanceLearnin
     @httpretty.activate
     @override_switch('enable_performance_learning_outcome', active=True)
     def test_valid_course(self):
-        with patch('courses.presenters.performance.TagsDistributionPresenter._get_structure',
+        with patch('analytics_dashboard.courses.presenters.performance.TagsDistributionPresenter._get_structure',
                    Mock(return_value=self.tags_factory.structure)):
             with patch('analyticsclient.course.Course.problems_and_tags',
                        Mock(return_value=self.tags_factory.problems_and_tags)):
@@ -642,9 +652,12 @@ class CoursePerformanceLearningOutcomesAnswersDistributionViewTests(
         })
         return super(CoursePerformanceLearningOutcomesAnswersDistributionViewTests, self).path(**kwargs)
 
-    @patch('courses.presenters.performance.TagsDistributionPresenter.get_modules_marked_with_tag',
+    @patch('analytics_dashboard.courses.presenters.performance.TagsDistributionPresenter.get_modules_marked_with_tag',
            Mock(return_value={}))
-    @patch('courses.presenters.performance.CoursePerformancePresenter.course_module_data', Mock(return_value={}))
+    @patch(
+        'analytics_dashboard.courses.presenters.performance.CoursePerformancePresenter.course_module_data',
+        Mock(return_value={}),
+    )
     def test_missing_distribution_data(self):
         """
         The view should return HTTP 404 if the answer distribution data is missing.
@@ -654,17 +667,26 @@ class CoursePerformanceLearningOutcomesAnswersDistributionViewTests(
             super(CoursePerformanceLearningOutcomesAnswersDistributionViewTests, self).test_missing_distribution_data()
 
     @httpretty.activate
-    @patch('courses.presenters.performance.CoursePerformancePresenter.course_module_data', Mock(return_value={}))
-    @patch('courses.presenters.performance.TagsDistributionPresenter._get_structure', Mock(side_effect=NotFoundError))
+    @patch(
+        'analytics_dashboard.courses.presenters.performance.CoursePerformancePresenter.course_module_data',
+        Mock(return_value={}),
+    )
+    @patch(
+        'analytics_dashboard.courses.presenters.performance.TagsDistributionPresenter._get_structure',
+        Mock(side_effect=NotFoundError),
+    )
     def test_invalid_course(self):
         self._check_invalid_course()
 
     @httpretty.activate
     @override_switch('enable_course_api', active=True)
     @override_switch('enable_performance_learning_outcome', active=True)
-    @patch('courses.presenters.performance.CoursePerformancePresenter.course_module_data', Mock(return_value={}))
+    @patch(
+        'analytics_dashboard.courses.presenters.performance.CoursePerformancePresenter.course_module_data',
+        Mock(return_value={}),
+    )
     def test_valid_course(self):
-        with patch('courses.presenters.performance.TagsDistributionPresenter._get_structure',
+        with patch('analytics_dashboard.courses.presenters.performance.TagsDistributionPresenter._get_structure',
                    Mock(return_value=self.tags_factory.structure)):
             with patch('analyticsclient.course.Course.problems_and_tags',
                        Mock(return_value=self.tags_factory.problems_and_tags)):
@@ -672,7 +694,7 @@ class CoursePerformanceLearningOutcomesAnswersDistributionViewTests(
 
                 # Mock the course details
                 self.mock_course_detail(course_id)
-                with patch('courses.presenters.performance.CoursePerformancePresenter.block',
+                with patch('analytics_dashboard.courses.presenters.performance.CoursePerformancePresenter.block',
                            return_value=None):
                     self.assertViewIsValid(course_id, self.PROBLEM_ID, self.TEXT_PROBLEM_PART_ID)
 

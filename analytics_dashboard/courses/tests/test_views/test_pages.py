@@ -10,8 +10,8 @@ from ddt import data, ddt
 from django.test import TestCase
 from waffle.testutils import override_switch
 
-from courses.tests.test_views import CourseViewTestMixin
-from courses.tests.utils import CourseSamples
+from analytics_dashboard.courses.tests.test_views import CourseViewTestMixin
+from analytics_dashboard.courses.tests.utils import CourseSamples
 
 
 @ddt
@@ -88,7 +88,7 @@ class CourseHomeViewTests(CourseViewTestMixin, TestCase):
     @httpretty.activate
     @override_switch('enable_course_api', active=True)
     @override_switch('enable_problem_response_download', active=True)
-    @mock.patch('courses.presenters.performance.CourseReportDownloadPresenter.get_report_info')
+    @mock.patch('analytics_dashboard.courses.presenters.performance.CourseReportDownloadPresenter.get_report_info')
     def test_performance_problem_response_link_enabled(self, available, mock_get_report_info):
         """
         When enabled, ensure the problem response link is shown only if a report is available

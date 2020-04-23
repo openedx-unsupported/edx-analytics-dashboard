@@ -8,8 +8,8 @@ from django.template import Context, Template, TemplateSyntaxError
 from django.test import TestCase
 from opaque_keys.edx.keys import CourseKey
 
-from core.templatetags import dashboard_extras
-from core.templatetags.dashboard_extras import format_course_key
+from analytics_dashboard.core.templatetags import dashboard_extras
+from analytics_dashboard.core.templatetags.dashboard_extras import format_course_key
 
 
 class DashboardExtraTests(TestCase):

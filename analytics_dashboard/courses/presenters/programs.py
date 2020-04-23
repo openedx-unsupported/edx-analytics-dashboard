@@ -2,7 +2,7 @@ from __future__ import absolute_import
 
 from django.core.cache import cache
 
-from courses.presenters import BasePresenter
+from analytics_dashboard.courses.presenters import BasePresenter
 
 
 class ProgramsPresenter(BasePresenter):

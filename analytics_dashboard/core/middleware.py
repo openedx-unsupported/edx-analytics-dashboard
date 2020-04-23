@@ -10,7 +10,7 @@ from django.template.response import TemplateResponse
 from django.utils.deprecation import MiddlewareMixin
 from lang_pref_middleware import middleware
 
-from core.exceptions import ServiceUnavailableError
+from analytics_dashboard.core.exceptions import ServiceUnavailableError
 
 logger = logging.getLogger(__name__)
 

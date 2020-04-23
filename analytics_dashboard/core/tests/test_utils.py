@@ -11,9 +11,14 @@ from django.test import TestCase
 from django.test.utils import override_settings
 from django.utils.translation import ugettext_lazy as _
 
-from core.utils import (CourseStructureApiClient, Message,
-                        delete_auto_auth_users, remove_keys,
-                        sanitize_cache_key, translate_dict_values)
+from analytics_dashboard.core.utils import (
+    CourseStructureApiClient,
+    Message,
+    delete_auto_auth_users,
+    remove_keys,
+    sanitize_cache_key,
+    translate_dict_values,
+)
 
 User = get_user_model()
 
@@ -30,7 +35,7 @@ class UtilsTests(TestCase):
         }
         self.module_patcher = patch.dict('sys.modules', modules)
         self.module_patcher.start()
-        from core.utils import create_fake_soapbox_messages, delete_fake_soapbox_messages
+        from analytics_dashboard.core.utils import create_fake_soapbox_messages, delete_fake_soapbox_messages
         self.create_messages = create_fake_soapbox_messages
         self.delete_messages = delete_fake_soapbox_messages
 

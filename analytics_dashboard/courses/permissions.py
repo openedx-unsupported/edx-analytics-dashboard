@@ -9,7 +9,7 @@ from django.core.cache import cache
 from edx_django_utils.monitoring import set_custom_metric
 from edx_rest_api_client.client import OAuthAPIClient
 
-from courses.exceptions import PermissionsRetrievalFailedError
+from analytics_dashboard.courses.exceptions import PermissionsRetrievalFailedError
 
 logger = logging.getLogger(__name__)
 

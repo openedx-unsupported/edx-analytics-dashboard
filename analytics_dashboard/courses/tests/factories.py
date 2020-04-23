@@ -10,8 +10,8 @@ from six.moves import range
 from slugify import slugify
 
 from common.tests.factories import CourseStructureFactory
-from courses import utils
-from courses.tests.utils import CREATED_DATETIME_STRING
+from analytics_dashboard.courses import utils
+from analytics_dashboard.courses.tests.utils import CREATED_DATETIME_STRING
 
 
 class CoursePerformanceDataFactory(CourseStructureFactory):

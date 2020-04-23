@@ -9,8 +9,8 @@ from django.urls import reverse
 from django.utils import timezone
 from waffle.testutils import override_switch
 
-from courses.tests.test_views import ViewTestMixin
-from courses.tests.utils import (
+from analytics_dashboard.courses.tests.test_views import ViewTestMixin
+from analytics_dashboard.courses.tests.utils import (
     CourseSamples,
     convert_list_of_dicts_to_csv,
     get_mock_api_course_activity,
@@ -198,11 +198,14 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
     api_method = 'analyticsclient.course_summaries.CourseSummaries.course_summaries'
 
     def setUp(self):
-        self.programs_patch = mock.patch('courses.presenters.programs.ProgramsPresenter.get_programs')
+        self.programs_patch = mock.patch(
+            'analytics_dashboard.courses.presenters.programs.ProgramsPresenter.get_programs',
+        )
         programs_api = self.programs_patch.start()
         programs_api.return_value = get_mock_programs()
-        self.summaries_patch = mock.patch('courses.presenters.course_summaries.CourseSummariesPresenter'
-                                          '.get_course_summaries')
+        self.summaries_patch = mock.patch(
+            'analytics_dashboard.courses.presenters.course_summaries.CourseSummariesPresenter.get_course_summaries'
+        )
         summaries_api = self.summaries_patch.start()
         summaries_api.return_value = (self.get_mock_data([CourseSamples.DEMO_COURSE_ID,
                                                           CourseSamples.DEPRECATED_DEMO_COURSE_ID]), 'timestamp')
@@ -250,7 +253,8 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
         )
 
     def _test_csv(self, mocked_api_response, csv_data):
-        presenter_method = 'courses.presenters.course_summaries.CourseSummariesPresenter.get_course_summaries'
+        presenter_method = \
+            'analytics_dashboard.courses.presenters.course_summaries.CourseSummariesPresenter.get_course_summaries'
         with mock.patch(presenter_method,
                         return_value=(mocked_api_response, None)):
             self.assertIsValidCSV(csv_data)

@@ -14,8 +14,8 @@ from requests.exceptions import Timeout
 from testfixtures import LogCapture
 from waffle.testutils import override_flag, override_switch
 
-from courses.tests.test_views import ViewTestMixin
-from courses.tests.utils import assert_dict_contains_subset, CourseSamples
+from analytics_dashboard.courses.tests.test_views import ViewTestMixin
+from analytics_dashboard.courses.tests.utils import assert_dict_contains_subset, CourseSamples
 
 
 @httpretty.activate
@@ -103,9 +103,11 @@ class LearnersViewTests(ViewTestMixin, TestCase):
         course_metadata_payload = learners_payload
         self._register_uris(200, learners_payload, 200, course_metadata_payload)
 
+        # False positive https://github.com/PyCQA/pylint/issues/289
+        # pylint: disable=bad-continuation
         with mock.patch(
-            'learner_analytics_api.v0.clients.LearnerApiResource.get',
-            mock.Mock(side_effect=RequestExceptionClass)
+            'analytics_dashboard.learner_analytics_api.v0.clients.LearnerApiResource.get',
+            mock.Mock(side_effect=RequestExceptionClass),
         ):
             with LogCapture(level=logging.ERROR) as lc:
                 response = self._get()
@@ -114,6 +116,14 @@ class LearnersViewTests(ViewTestMixin, TestCase):
                     'course_learner_metadata_json': 'Failed to reach the Course Learner Metadata endpoint'
                 })
                 lc.check(
-                    ('courses.views.learners', 'ERROR', 'Failed to reach the Learner List endpoint'),
-                    ('courses.views.learners', 'ERROR', 'Failed to reach the Course Learner Metadata endpoint')
+                    (
+                        'analytics_dashboard.courses.views.learners',
+                        'ERROR',
+                        'Failed to reach the Learner List endpoint',
+                    ),
+                    (
+                        'analytics_dashboard.courses.views.learners',
+                        'ERROR',
+                        'Failed to reach the Course Learner Metadata endpoint',
+                    ),
                 )

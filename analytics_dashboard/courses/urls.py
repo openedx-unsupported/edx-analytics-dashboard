@@ -4,8 +4,8 @@ from __future__ import absolute_import
 from django.conf import settings
 from django.conf.urls import include, url
 
-from courses import views
-from courses.views import (
+from analytics_dashboard.courses import views
+from analytics_dashboard.courses.views import (
     course_summaries,
     csv,
     engagement,

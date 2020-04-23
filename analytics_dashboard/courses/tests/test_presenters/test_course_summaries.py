@@ -7,9 +7,9 @@ from django.conf import settings
 from django.core.cache import cache
 from django.test import TestCase
 
-from courses.presenters.course_summaries import CourseSummariesPresenter
-from courses.tests import utils
-from courses.tests.utils import CourseSamples
+from analytics_dashboard.courses.presenters.course_summaries import CourseSummariesPresenter
+from analytics_dashboard.courses.tests import utils
+from analytics_dashboard.courses.tests.utils import CourseSamples
 
 _ANOTHER_DEPRECATED_COURSE_ID = 'another/course/id'
 

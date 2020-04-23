@@ -8,10 +8,12 @@ from django_dynamic_fixture import G
 from lang_pref_middleware.tests import LangPrefMiddlewareTestCaseMixin
 from testfixtures import LogCapture
 
-from core.exceptions import ServiceUnavailableError
-from core.middleware import (LanguagePreferenceMiddleware,
-                             ServiceUnavailableExceptionMiddleware)
-from core.models import User
+from analytics_dashboard.core.exceptions import ServiceUnavailableError
+from analytics_dashboard.core.middleware import (
+    LanguagePreferenceMiddleware,
+    ServiceUnavailableExceptionMiddleware,
+)
+from analytics_dashboard.core.models import User
 
 
 class MiddlewareTestCase(TestCase):
@@ -58,4 +60,4 @@ class ServiceUnavaliableMiddlewareTests(MiddlewareAssertionMixin, MiddlewareTest
             self.assertIsServiceUnavailableErrorResponse(response)
 
             # Verify the exception was logged
-            log_capture.check(('core.middleware', 'ERROR', str(exception)),)
+            log_capture.check(('analytics_dashboard.core.middleware', 'ERROR', str(exception)),)
