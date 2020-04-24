@@ -908,5 +908,5 @@ def assert_dict_contains_subset(dictionary, subset):
         dictionary,
     )
 
-    extracted_content = dict([(key, dictionary.get(key)) for key in subset.keys() if key in dictionary])
+    extracted_content = {key: dictionary.get(key) for key in subset.keys() if key in dictionary}
     assert subset == extracted_content, assert_message

@@ -35,6 +35,7 @@ class UtilsTests(TestCase):
         }
         self.module_patcher = patch.dict('sys.modules', modules)
         self.module_patcher.start()
+        # pylint: disable=import-outside-toplevel
         from analytics_dashboard.core.utils import create_fake_soapbox_messages, delete_fake_soapbox_messages
         self.create_messages = create_fake_soapbox_messages
         self.delete_messages = delete_fake_soapbox_messages
