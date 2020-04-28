@@ -40,7 +40,7 @@ idna==2.9                 # via requests
 importlib-metadata==1.6.0  # via path.py
 libsass==0.11.1           # via -r requirements/base.in
 logutils==0.3.5           # via -r requirements/base.in
-newrelic==5.10.0.138      # via edx-django-utils
+newrelic==5.12.0.140      # via edx-django-utils
 oauthlib==3.1.0           # via requests-oauthlib, social-auth-core
 path.py==11.5.2           # via -r requirements/base.in, edx-i18n-tools
 pbr==5.4.5                # via stevedore
@@ -68,6 +68,6 @@ sqlparse==0.3.1           # via django
 stevedore==1.32.0         # via -r requirements/base.in, edx-opaque-keys
 unicodecsv==0.14.1        # via djangorestframework-csv
 unidecode==0.4.21         # via awesome-slugify
-urllib3==1.25.8           # via requests
+urllib3==1.25.9           # via requests
 wcwidth==0.1.9            # via curtsies
 zipp==1.2.0               # via importlib-metadata
