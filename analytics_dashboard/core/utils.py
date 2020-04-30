@@ -107,7 +107,7 @@ def remove_keys(d, keys):
 
 def create_fake_soapbox_messages():
     # Importing here so acceptance_tests/__init__.py doesn't start checking for env vars on every management command.
-    from acceptance_tests import (
+    from acceptance_tests import (  # pylint: disable=import-outside-toplevel
         SOAPBOX_INACTIVE_MESSAGE,
         SOAPBOX_GLOBAL_MESSAGE,
         SOAPBOX_SINGLE_PAGE_MESSAGE,
@@ -120,7 +120,7 @@ def create_fake_soapbox_messages():
 
 
 def delete_fake_soapbox_messages():
-    from acceptance_tests import (
+    from acceptance_tests import (  # pylint: disable=import-outside-toplevel
         SOAPBOX_INACTIVE_MESSAGE,
         SOAPBOX_GLOBAL_MESSAGE,
         SOAPBOX_SINGLE_PAGE_MESSAGE,

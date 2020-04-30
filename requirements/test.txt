@@ -5,7 +5,7 @@
 #    make upgrade
 #
 -e git+https://github.com/python-social-auth/social-app-django.git@ffa0fb99a80d11479bea2c4eae9a01ee835d52b9#egg=social-auth-app-django  # via -r requirements/base.txt
-astroid==1.6.6            # via -c requirements/constraints.txt, -r requirements/test.in, pylint
+astroid==2.3.3            # via -r requirements/test.in, pylint
 attrs==19.3.0             # via pytest
 awesome-slugify==1.6.5    # via -r requirements/base.txt
 blessings==1.7            # via -r requirements/base.txt, curtsies
@@ -73,7 +73,7 @@ pydocstyle==5.0.2         # via -r requirements/test.in
 pygments==2.6.1           # via -r requirements/base.txt, bpython
 pyjwkest==1.4.2           # via -r requirements/base.txt, edx-drf-extensions
 pyjwt==1.7.1              # via -r requirements/base.txt, drf-jwt, edx-auth-backends, edx-rest-api-client, social-auth-core
-pylint==1.7.1             # via -r requirements/test.in
+pylint==2.4.4             # via -r requirements/test.in
 pymongo==3.10.1           # via -r requirements/base.txt, edx-opaque-keys
 pyparsing==2.4.7          # via packaging
 pytest-cov==2.8.1         # via -r requirements/test.in
@@ -89,13 +89,14 @@ requests==2.23.0          # via -r requirements/base.txt, bpython, edx-analytics
 rest-condition==1.0.3     # via -r requirements/base.txt, edx-drf-extensions
 selenium==2.53.6          # via -r requirements/test.in, bok-choy, needle
 semantic-version==2.8.4   # via -r requirements/base.txt, edx-drf-extensions
-six==1.14.0               # via -r requirements/base.txt, astroid, blessings, bok-choy, bpython, django-braces, django-countries, django-dynamic-fixture, djangorestframework-csv, edx-auth-backends, edx-ccx-keys, edx-django-release-util, edx-drf-extensions, edx-i18n-tools, edx-opaque-keys, libsass, packaging, pathlib2, pyjwkest, pylint, python-dateutil, social-auth-app-django, social-auth-core, stevedore
+six==1.14.0               # via -r requirements/base.txt, astroid, blessings, bok-choy, bpython, django-braces, django-countries, django-dynamic-fixture, djangorestframework-csv, edx-auth-backends, edx-ccx-keys, edx-django-release-util, edx-drf-extensions, edx-i18n-tools, edx-opaque-keys, libsass, packaging, pathlib2, pyjwkest, python-dateutil, social-auth-app-django, social-auth-core, stevedore
 slumber==0.7.1            # via -r requirements/base.txt, edx-rest-api-client
 snowballstemmer==2.0.0    # via pydocstyle
 social-auth-core==3.2.0   # via -c requirements/constraints.txt, -r requirements/base.txt, edx-auth-backends, social-auth-app-django
 sqlparse==0.3.1           # via -r requirements/base.txt, django
 stevedore==1.32.0         # via -r requirements/base.txt, edx-opaque-keys
 testfixtures==6.14.0      # via -r requirements/test.in
+typed-ast==1.4.1          # via astroid
 unicodecsv==0.14.1        # via -r requirements/base.txt, djangorestframework-csv
 unidecode==0.4.21         # via -r requirements/base.txt, awesome-slugify
 urllib3==1.25.8           # via -r requirements/base.txt, elasticsearch, requests
