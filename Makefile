@@ -156,3 +156,20 @@ upgrade: ## update the requirements/*.txt files with the latest packages satisfy
 	pip-compile --upgrade -o requirements/production.txt requirements/production.in
 	pip-compile --upgrade -o requirements/tox.txt requirements/tox.in
 	pip-compile --upgrade -o requirements/travis.txt requirements/travis.in
+
+docker_build:
+	docker build . -f Dockerfile -t openedx/analytics-dashboard
+	docker build . -f Dockerfile --target newrelic -t openedx/analytics-dashboard:latest-newrelic
+
+travis_docker_tag: docker_build
+	docker tag openedx/analytics-dashboard openedx/analytics-dashboard:$$TRAVIS_COMMIT
+	docker tag openedx/analytics-dashboard:latest-newrelic openedx/analytics-dashboard:$$TRAVIS_COMMIT-newrelic
+
+travis_docker_auth:
+	echo "$$DOCKER_PASSWORD" | docker login -u "$$DOCKER_USERNAME" --password-stdin
+
+travis_docker_push: travis_docker_tag travis_docker_auth ## push to docker hub
+	docker push 'openedx/analytics-dashboard:latest'
+	docker push "openedx/analytics-dashboard:$$TRAVIS_COMMIT"
+	docker push 'openedx/analytics-dashboard:latest-newrelic'
+	docker push "openedx/analytics-dashboard:$$TRAVIS_COMMIT-newrelic"
