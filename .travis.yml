@@ -9,12 +9,17 @@ env:
   global:
   - DATA_API_VERSION: latest
   - DOCKER_USERNAME=edxbuilder
+    # encrypted DOCKER_PASSWORD
   - secure: ZnwVkXEPIwCFpU5tp85Uxw3TRqS7KhZjkzKEq18tlvN96Ux1ztF9ZeXH6Lz7HK9BXN3m2Z4LCdNYiDkYml90PBjePjLgjmfUmJUcJQsgzhY9ITpuTYlvikHaKa+gVgBOPXsTZJqM2nmCW8WhgoYIl4Y2GnVSh9XdZGvEfiXyNXk=
 before_install:
+  # Fix intermittent "resource temporarily unavailable" and "write" errors failing the Travis builds.
+  # See: https://github.com/travis-ci/travis-ci/issues/8920
 - python -c "import fcntl; fcntl.fcntl(1, fcntl.F_SETFL, 0)"
+  # Start up the relevant services
 - docker-compose -f .travis/docker-compose-travis.yml up -d
 - docker exec analytics_api bash -c " source /edx/app/analytics_api/venvs/analytics_api/bin/activate
   && make -C /edx/app/analytics_api/analytics_api travis"
+  # Start up the relevant services
 - rm package-lock.json
 install:
 - pip install -r requirements/travis.txt
@@ -39,6 +44,7 @@ matrix:
     - docker exec insights_testing /edx/app/insights/edx_analytics_dashboard/.travis/run_coverage.sh
     - codecov --disable pycov
 after_failure:
+  # Print the list of running containers to rule out a killed container as a cause of failure
 - docker ps
 deploy:
 - provider: s3
