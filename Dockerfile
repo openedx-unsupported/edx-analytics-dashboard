@@ -1,4 +1,4 @@
-FROM ubuntu:xenial as openedx
+FROM ubuntu:xenial as app
 
 RUN apt update && \
   apt install -y git-core language-pack-en python3.5 python3-pip python3-dev libmysqlclient-dev && \
@@ -22,7 +22,7 @@ RUN useradd -m --shell /bin/false app
 USER app
 COPY . /edx/app/analytics_dashboard
 
-FROM openedx as edx.org
+FROM app as newrelic
 RUN pip3 install newrelic
 CMD newrelic-admin run-program gunicorn -b 127.0.0.1:8110 --workers 2 --timeout=300 analytics_dashboard.wsgi:application
 
