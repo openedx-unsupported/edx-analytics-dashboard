@@ -4,6 +4,7 @@ ROOT = $(shell echo "$$PWD")
 COVERAGE_DIR = $(ROOT)/build/coverage
 NODE_BIN=./node_modules/.bin
 PYTHON_ENV=py35
+DJANGO_VERSION=django22
 
 DJANGO_SETTINGS_MODULE ?= "analytics_dashboard.settings.local"
 
@@ -31,18 +32,18 @@ develop: requirements.js
 	pip install -q -r requirements/local.txt --exists-action w
 
 migrate: requirements.tox
-	tox -e $(PYTHON_ENV)-migrate
+	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-migrate
 
 clean: requirements.tox 
 	find . -name '*.pyc' -delete
-	tox -e $(PYTHON_ENV)-clean
+	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-clean
 
 test_python_no_compress: clean
-	tox -e $(PYTHON_ENV)-tests
+	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-tests
 
 coverage: requirements.tox
 	export COVERAGE_DIR=$(COVERAGE_DIR) && \
-	tox -e $(PYTHON_ENV)-coverage
+	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-coverage
 
 test_compress: static
 	# No longer does anything. Kept for legacy support.
@@ -53,21 +54,21 @@ requirements.a11y:
 	./.travis/a11y_reqs.sh
 
 runserver_a11y: requirements.tox
-	tox -e $(PYTHON_ENV)-runserver_a11y > dashboard.log 2>&1 &
+	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-runserver_a11y > dashboard.log 2>&1 &
 
 accept: runserver_a11y
 ifeq ("${DISPLAY_LEARNER_ANALYTICS}", "True")
-	tox -e $(PYTHON_ENV)-waffle_learner_analytics
+	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-waffle_learner_analytics
 endif
 ifeq ("${ENABLE_COURSE_LIST_FILTERS}", "True")
-	tox -e $(PYTHON_ENV)-waffle_course_filters
+	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-waffle_course_filters
 endif
 ifeq ("${ENABLE_COURSE_LIST_PASSING}", "True")
-	tox -e $(PYTHON_ENV)-waffle_course_passing
+	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-waffle_course_passing
 endif
-	tox -e $(PYTHON_ENV)-create_acceptance_test_soapbox_messages
-	tox -e $(PYTHON_ENV)-accept
-	tox -e $(PYTHON_ENV)-delete_acceptance_test_soapbox_messages
+	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-create_acceptance_test_soapbox_messages
+	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-accept
+	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-delete_acceptance_test_soapbox_messages
 	
 
 # local acceptance tests are typically run with by passing in environment variables on the commandline
@@ -79,21 +80,21 @@ accept_local:
 
 a11y: requirements.tox
 ifeq ("${DISPLAY_LEARNER_ANALYTICS}", "True")
-	tox -e $(PYTHON_ENV)-waffle_learner_analytics
+	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-waffle_learner_analytics
 endif
-	tox -e $(PYTHON_ENV)-a11y
+	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-a11y
 
 course_validation:
 	python -m acceptance_tests.course_validation.generate_report
 
 run_check_isort: requirements.tox
-	tox -e $(PYTHON_ENV)-check_isort
+	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-check_isort
 
 run_pycodestyle: requirements.tox
-	tox -e $(PYTHON_ENV)-pycodestyle
+	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-pycodestyle
 
 run_pylint: requirements.tox
-	tox -e $(PYTHON_ENV)-pylint
+	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-pylint
 
 quality: run_pylint run_pycodestyle
 
@@ -113,14 +114,14 @@ demo:
 
 # compiles djangojs and django .po and .mo files
 compile_translations: requirements.tox
-	tox -e $(PYTHON_ENV)-compile_translations
+	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-compile_translations
 
 # creates the source django & djangojs files
 extract_translations: requirements.tox
-	tox -e $(PYTHON_ENV)-extract_translations
+	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-extract_translations
 
 dummy_translations: requirements.tox
-	tox -e $(PYTHON_ENV)-dummy_translations
+	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-dummy_translations
 
 generate_fake_translations: extract_translations dummy_translations compile_translations
 
@@ -131,18 +132,18 @@ update_translations: pull_translations generate_fake_translations
 
 # check if translation files are up-to-date
 detect_changed_source_translations: requirements.tox
-	tox -e $(PYTHON_ENV)-detect_changed_translations
+	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-detect_changed_translations
 
 # extract, compile, and check if translation files are up-to-date
 validate_translations: extract_translations compile_translations detect_changed_source_translations
-	tox -e $(PYTHON_ENV)-validate_translations
+	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-validate_translations
 
 static_no_compress: static
 	# No longer does anything. Kept for legacy support.
 
 static: requirements.tox
 	$(NODE_BIN)/webpack --config webpack.prod.config.js
-	tox -e $(PYTHON_ENV)-static
+	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-static
 
 export CUSTOM_COMPILE_COMMAND = make upgrade
 upgrade: ## update the requirements/*.txt files with the latest packages satisfying requirements/*.in
@@ -156,3 +157,8 @@ upgrade: ## update the requirements/*.txt files with the latest packages satisfy
 	pip-compile --upgrade -o requirements/production.txt requirements/production.in
 	pip-compile --upgrade -o requirements/tox.txt requirements/tox.in
 	pip-compile --upgrade -o requirements/travis.txt requirements/travis.in
+	# Let tox control the Django version for tests
+	grep -e "^django==" requirements/base.txt > requirements/django.txt
+	sed '/^[dD]jango==/d' requirements/test.txt > requirements/test.tmp
+	mv requirements/test.tmp requirements/test.txt
+

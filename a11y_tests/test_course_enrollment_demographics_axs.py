@@ -29,6 +29,8 @@ class CourseEnrollmentDemographicsAgeTests(CoursePageTestsMixin, WebAppTest):
                 'skip-link',  # TODO: AN-6185
                 'link-href',  # TODO: AN-6186
                 'icon-aria-hidden',  # TODO: AN-6187
+                'page-has-heading-one',
+                'aria-hidden-focus',
             ],
         })
 

@@ -1,7 +1,7 @@
 language:
   - python
 python:
-  - "2.7"
+  - 3.5
 sudo: required
 services:
   - docker
@@ -33,27 +33,35 @@ script:
 
 matrix:
   include:
-    - python: 3.5
-      env:
+    - env:
         TESTNAME=quality-and-js
         TARGETS="requirements.js quality validate_js"
       after_success:
         - codecov --disable pycov
-    - python: 3.5
-      env:
+    - env:
         TESTNAME=a11y
         TARGETS="requirements.a11y migrate requirements.js static accept a11y"
-    - python: 3.5
-      env:
+    - env:
         TESTNAME=test-i18n
         TARGETS="validate_translations generate_fake_translations"
-    - python: 3.5
-      env:
+    - env:
         TESTNAME=test-python
         TARGETS="requirements.js test_python"
       after_success:
         - docker exec insights_testing /edx/app/insights/edx_analytics_dashboard/.travis/run_coverage.sh
         - codecov --disable pycov
+    - python: 3.8
+      env:
+        TESTNAME=a11y-python38
+        TARGETS="PYTHON_ENV=py38 requirements.a11y migrate requirements.js static accept a11y"
+    - python: 3.8
+      env:
+        TESTNAME=test-python-38
+        TARGETS="PYTHON_ENV=py38 requirements.js test_python"
+  allow_failures:
+    - python: 3.8
+
+
 
 after_failure:
     # Print the list of running containers to rule out a killed container as a cause of failure

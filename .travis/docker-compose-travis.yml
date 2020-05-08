@@ -34,6 +34,8 @@ services:
       DISPLAY_LEARNER_ANALYTICS: "True"
       ENABLE_COURSE_LIST_FILTERS: "True"
       ENABLE_COURSE_LIST_PASSING: "True"
+      SELENIUM_BROWSER: "firefox"
+      BOKCHOY_HEADLESS: "true"
     depends_on:
       - "es"
       - "analyticsapi"
