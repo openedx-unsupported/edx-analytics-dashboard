@@ -58,10 +58,6 @@ matrix:
       env:
         TESTNAME=test-python-38
         TARGETS="PYTHON_ENV=py38 requirements.js test_python"
-  allow_failures:
-    - python: 3.8
-
-
 
 after_failure:
     # Print the list of running containers to rule out a killed container as a cause of failure
