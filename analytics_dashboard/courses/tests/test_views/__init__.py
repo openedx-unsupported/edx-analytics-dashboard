@@ -3,7 +3,7 @@ from __future__ import absolute_import
 import json
 import logging
 
-from unittest.mock import _is_started, Mock, patch
+from unittest.mock import Mock, patch
 import httpretty
 from analyticsclient.exceptions import NotFoundError
 from ddt import data, ddt
@@ -343,8 +343,15 @@ class PatchMixin:
             _patch.start()
 
     def stop_patching(self):
-        for _patch in self.patches:
-            if _is_started(_patch):
+        # TODO: Just for the compatibility with python 3.5.
+        # Can be removed once support is dropped
+        try:
+            from unittest.mock import _is_started  # pylint: disable=import-outside-toplevel
+            for _patch in self.patches:
+                if _is_started(_patch):
+                    _patch.stop()
+        except ImportError:
+            for _patch in self.patches:
                 _patch.stop()
 
     def clear_patches(self):
