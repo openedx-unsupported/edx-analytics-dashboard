@@ -2,8 +2,6 @@
 Middleware for Language Preferences
 """
 
-from __future__ import absolute_import
-
 import logging
 
 from django.template.response import TemplateResponse

@@ -1,4 +1,4 @@
-from __future__ import absolute_import
+
 
 import unittest.mock as mock
 from ddt import data, ddt, unpack

@@ -2,8 +2,6 @@
 Script that produces min-max-avg for problem counts across all courses.
 """
 
-from __future__ import absolute_import, print_function
-
 from elasticsearch import Elasticsearch
 
 es = Elasticsearch(retry_on_timeout=True)

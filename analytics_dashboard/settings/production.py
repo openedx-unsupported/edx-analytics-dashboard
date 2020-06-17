@@ -1,9 +1,5 @@
 """Production settings and globals."""
 
-from __future__ import absolute_import
-
-import six
-
 from analytics_dashboard.settings.base import *
 from analytics_dashboard.settings.logger import get_logger_config
 from analytics_dashboard.settings.yaml_config import *

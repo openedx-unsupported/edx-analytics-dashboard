@@ -2,8 +2,6 @@
 Tests for course analytics pages
 """
 
-from __future__ import absolute_import
-
 from bok_choy.page_object import PageObject
 from bok_choy.promise import EmptyPromise
 
@@ -317,7 +315,7 @@ class CourseLearnersPage(CoursePage):
 
     def is_browser_on_page(self):
         return super(CourseLearnersPage, self).is_browser_on_page() \
-            and self.browser.title.startswith('Learners')
+               and self.browser.title.startswith('Learners')
 
 
 class ErrorPage(DashboardPage):

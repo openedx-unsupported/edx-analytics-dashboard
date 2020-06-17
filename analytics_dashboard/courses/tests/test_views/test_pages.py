@@ -1,7 +1,4 @@
 # pylint: disable=abstract-method
-
-from __future__ import absolute_import
-
 import unittest.mock as mock
 import httpretty
 import six

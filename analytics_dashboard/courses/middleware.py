@@ -2,7 +2,7 @@
 This file contains Django middleware. For more information visit
 https://docs.djangoproject.com/en/dev/topics/http/middleware/.
 """
-from __future__ import absolute_import
+
 
 import logging
 

@@ -19,8 +19,6 @@ To execute this script run the following command from the parent directory of ac
     $ python -m acceptance_tests.course_validation.report_runner
 """
 
-from __future__ import absolute_import
-
 import datetime
 import io
 import json

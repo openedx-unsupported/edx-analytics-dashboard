@@ -1,7 +1,5 @@
 """Logging configuration"""
 
-from __future__ import absolute_import
-
 import os
 import platform
 import sys
@@ -15,7 +13,6 @@ def get_logger_config(log_dir='/var/tmp',
                       debug=False,
                       local_loglevel='INFO',
                       service_variant='insights'):
-
     """
 
     Return the appropriate logging config dictionary. You should assign the
@@ -37,14 +34,13 @@ def get_logger_config(log_dir='/var/tmp',
                      "[%(name)s][env:{logging_env}] %(levelname)s "
                      "[{hostname}  %(process)d] [%(filename)s:%(lineno)d] "
                      "- %(message)s").format(
-                        service_variant=service_variant,
-                        logging_env=logging_env, hostname=hostname)
+        service_variant=service_variant,
+        logging_env=logging_env, hostname=hostname)
 
     if debug:
         handlers = ['console']
     else:
         handlers = ['local']
-
 
     logger_config = {
         'version': 1,

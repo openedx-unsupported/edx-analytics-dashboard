@@ -1,4 +1,4 @@
-from __future__ import absolute_import
+
 
 from unittest.mock import Mock, patch
 import analyticsclient.constants.activity_types as AT

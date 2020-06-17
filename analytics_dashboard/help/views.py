@@ -1,4 +1,4 @@
-from __future__ import absolute_import
+
 
 from analytics_dashboard.help import HELP_CONTEXT_TOKEN_NAME
 

@@ -1,4 +1,4 @@
-from __future__ import absolute_import
+
 
 from requests.exceptions import ConnectTimeout
 from rest_framework.exceptions import PermissionDenied
