@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 #
 
-from __future__ import absolute_import
-
 import datetime
 import os
 import sys
@@ -17,25 +15,26 @@ html_favicon = '../../_themes/edx_theme/static/css/favicon.ico'
 sys.path.append(os.path.abspath('../../../'))
 sys.path.append(os.path.abspath('../../'))
 
-#from docs.shared.conf import *
+# from docs.shared.conf import *
 
 sys.path.insert(0, os.path.abspath('.'))
 
 master_doc = 'index'
 
 # Add any paths that contain templates here, relative to this directory.
-#templates_path.append('source/_templates')
+# templates_path.append('source/_templates')
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-#html_static_path.append('source/_static')
+# html_static_path.append('source/_static')
 
 
 # General information about the project.
 project = 'Using edX Insights'
 
-copyright = '{year}, edX Inc. and licensed under a Creative Commons Attribution-ShareAlike 4.0 International License unless otherwise specified'.format(year=datetime.datetime.now().year)
+copyright = '{year}, edX Inc. and licensed under a Creative Commons Attribution-ShareAlike 4.0 International License unless otherwise specified'.format(
+    year=datetime.datetime.now().year)
 
 # The short X.Y version.
 version = ''

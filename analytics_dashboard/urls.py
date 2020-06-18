@@ -1,5 +1,5 @@
 # pylint: disable=line-too-long,no-value-for-parameter
-from __future__ import absolute_import
+
 
 import os
 

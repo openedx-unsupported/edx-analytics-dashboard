@@ -3,7 +3,6 @@
 From https://github.com/ryan-roemer/sphinx-bootstrap-theme.
 
 """
-from __future__ import absolute_import
 
 import os
 

@@ -1,4 +1,4 @@
-from __future__ import absolute_import
+
 
 from django.contrib.auth import get_user_model
 from django.core.management.base import BaseCommand

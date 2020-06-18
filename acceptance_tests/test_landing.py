@@ -1,4 +1,4 @@
-from __future__ import absolute_import
+
 
 from bok_choy.web_app_test import WebAppTest
 from six.moves import range

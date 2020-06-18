@@ -1,4 +1,4 @@
-from __future__ import absolute_import
+
 
 from django import http
 from django.template.response import TemplateResponse

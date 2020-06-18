@@ -1,4 +1,4 @@
-from __future__ import absolute_import
+
 
 from django.utils.deprecation import MiddlewareMixin
 from rest_framework.response import Response
