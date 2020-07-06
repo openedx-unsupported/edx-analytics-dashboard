@@ -13,8 +13,8 @@
 # Code support django 2.2
 Django<3.0.0
 
-# django22 tests are failing. Constraint taken from https://github.com/edx/edx-drf-extensions version 5.0.2
-drf-jwt<1.15.0
+# Latest version has dropped support for Python 3.5
+pinax-announcements<4.0.0
 
 # pip20+ requires for greater version of pip-tools. But installing 19.3.1 in all our containers and VMs.
 pip-tools<5.0.0
@@ -24,3 +24,6 @@ pylint==2.4.4
 
 # 3.3.0 Generate incompatibilities with awesome-slugify.
 social-auth-core==3.2.0
+
+# Newer versions cause build failure on Travis with `ERROR: Cannot find command 'git' - do you have 'git' installed and in your PATH?`
+tox==3.14.6

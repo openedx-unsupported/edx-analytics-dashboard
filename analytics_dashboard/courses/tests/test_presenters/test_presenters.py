@@ -803,8 +803,8 @@ class ListWithName(list):
     pass
 
 
-def annotated(l, name):
-    alist = ListWithName(l)
+def annotated(list_, name):
+    alist = ListWithName(list_)
     setattr(alist, '__name__', name)
     return alist
 

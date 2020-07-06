@@ -10,26 +10,22 @@ DJANGO_SETTINGS_MODULE ?= "analytics_dashboard.settings.local"
 
 .PHONY: requirements clean
 
-# pin to 9.0.3 until tox-battery upgrades
-pin_pip:
-	pip install --upgrade pip==9.0.3
-
 requirements: requirements.py requirements.js
 
 requirements.tox:
-	pip install -q -r requirements/tox.txt
+	pip3 install -q -r requirements/tox.txt
 
 requirements.py:
-	pip install -q -r requirements/base.txt --exists-action w
+	pip3 install -q -r requirements/base.txt --exists-action w
 
 requirements.js:
 	npm install --unsafe-perm
 
 test.requirements:
-	pip install -q -r requirements/test.txt --exists-action w
+	pip3 install -q -r requirements/test.txt --exists-action w
 
 develop: requirements.js
-	pip install -q -r requirements/local.txt --exists-action w
+	pip3 install -q -r requirements/local.txt --exists-action w
 
 migrate: requirements.tox
 	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-migrate
@@ -147,7 +143,7 @@ static: requirements.tox
 
 export CUSTOM_COMPILE_COMMAND = make upgrade
 upgrade: ## update the requirements/*.txt files with the latest packages satisfying requirements/*.in
-	pip install -q -r requirements/pip_tools.txt
+	pip3 install -q -r requirements/pip_tools.txt
 	pip-compile --upgrade -o requirements/pip_tools.txt requirements/pip_tools.in
 	pip-compile --upgrade -o requirements/base.txt requirements/base.in
 	pip-compile --upgrade -o requirements/doc.txt requirements/doc.in
