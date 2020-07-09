@@ -3,7 +3,6 @@
 import datetime
 from collections import OrderedDict
 
-import six
 from analyticsclient.constants import (
     UNKNOWN_COUNTRY_CODE,
     demographics,
@@ -204,9 +203,9 @@ class CourseEnrollmentGeographyTests(CoursePageTestsMixin, WebAppTest):
         """ Verify the metrics tiles display the correct information. """
 
         enrollment_data = [datum for datum in self.enrollment_data if datum['country']['name'] != 'UNKNOWN']
-        self.assertSummaryPointValueEquals('data-stat-type=num-countries', six.text_type(len(enrollment_data)))
+        self.assertSummaryPointValueEquals('data-stat-type=num-countries', str(len(enrollment_data)))
 
-        for i in six.moves.range(0, 3):
+        for i in range(0, 3):
             country = enrollment_data[i]['country']['name']
             # FIXME: because django-countries is different between dashboard and api
             if country == 'United States':

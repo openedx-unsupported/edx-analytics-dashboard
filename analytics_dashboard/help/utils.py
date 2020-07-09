@@ -2,7 +2,7 @@
 
 import logging
 
-import six.moves.configparser
+import configparser
 from django.conf import settings
 
 log = logging.getLogger(__name__)
@@ -18,7 +18,7 @@ def _get_config_value_with_default(section_name, option, default_option="default
     """
     try:
         return settings.DOCS_CONFIG.get(section_name, option)
-    except (six.moves.configparser.NoOptionError, AttributeError):
+    except (configparser.NoOptionError, AttributeError):
         log.debug("Didn't find a configuration option for '%s' section and '%s' option", section_name, option)
         return settings.DOCS_CONFIG.get(section_name, default_option)
 

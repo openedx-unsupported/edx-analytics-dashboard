@@ -2,7 +2,6 @@
 
 import datetime
 
-import six
 from analyticsclient.constants import demographics
 from analyticsclient.constants import education_levels as EDUCATION_LEVEL
 from analyticsclient.constants import genders as GENDER
@@ -103,7 +102,7 @@ class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, Web
 
         for metric in age_metrics:
             selector = 'data-stat-type={}'.format(metric['stat_type'])
-            self.assertSummaryPointValueEquals(selector, six.text_type(metric['value']))
+            self.assertSummaryPointValueEquals(selector, str(metric['value']))
 
     def _test_table_row(self, datum, column, sum_count):
         expected_percent_display = self.build_display_percentage(datum['count'], sum_count)
@@ -136,19 +135,19 @@ class CourseEnrollmentDemographicsGenderTests(CourseDemographicsPageTestsMixin, 
         genders = [GENDER.FEMALE, GENDER.MALE, GENDER.OTHER, GENDER.UNKNOWN]
         expected_date = datetime.datetime.strptime(datum['date'], self.api_date_format).strftime("%B %d, %Y")
         expected_date = self.date_strip_leading_zeroes(expected_date)
-        gender_total = sum([value for key, value in six.iteritems(datum) if value and key in genders])
+        gender_total = sum([value for key, value in datum.items() if value and key in genders])
 
         expected = [expected_date, self.format_number(gender_total)]
         for gender in genders:
             expected.append(self.format_number(datum.get(gender, 0) or 0))
 
         actual = []
-        for i in six.moves.range(6):
+        for i in range(6):
             actual.append(column[i].text)
 
         self.assertListEqual(actual, expected)
 
-        for i in six.moves.range(1, 6):
+        for i in range(1, 6):
             self.assertIn('text-right', column[i].get_attribute('class'))
 
 

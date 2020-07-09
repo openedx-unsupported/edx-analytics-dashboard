@@ -2,7 +2,7 @@
 
 import logging
 
-from six.moves.urllib.parse import urlencode
+from urllib.parse import urlencode
 from django.conf import settings
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _

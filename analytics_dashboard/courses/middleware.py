@@ -6,7 +6,6 @@ https://docs.djangoproject.com/en/dev/topics/http/middleware/.
 
 import logging
 
-import six
 from django.http import Http404
 from django.template.response import TemplateResponse
 from django.utils.deprecation import MiddlewareMixin
@@ -36,7 +35,7 @@ class CourseMiddleware(MiddlewareMixin):
                 # Raising an InvalidKeyError here causes a 500-level error which alerts devops. This should really be a
                 # 404 error because though the course requested cannot be found, the server is operating correctly.
                 raise Http404
-            request.course_id = six.text_type(request.course_key)
+            request.course_id = str(request.course_key)
 
 
 class CoursePermissionsExceptionMiddleware(MiddlewareMixin):

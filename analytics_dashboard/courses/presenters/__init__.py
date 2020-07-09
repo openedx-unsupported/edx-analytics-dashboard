@@ -5,7 +5,6 @@ import datetime
 import logging
 from collections import OrderedDict
 
-import six
 from analyticsclient.client import Client
 from django.conf import settings
 from django.core.cache import cache
@@ -57,7 +56,7 @@ class CoursePresenter(BasePresenter):
         self.course = self.client.courses(self.course_id)
 
 
-class CourseAPIPresenterMixin(six.with_metaclass(abc.ABCMeta, object)):
+class CourseAPIPresenterMixin(metaclass=abc.ABCMeta):
     """
     This mixin provides access to the course structure API and processes the hierarchy
     for sections, subsections, modules, and leaves (e.g. videos, problems, etc.).

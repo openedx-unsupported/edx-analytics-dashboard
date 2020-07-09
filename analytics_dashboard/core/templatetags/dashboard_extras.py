@@ -2,7 +2,6 @@
 
 import json
 
-import six
 from django import template
 from django.conf import settings
 from django.template.defaultfilters import stringfilter
@@ -111,7 +110,7 @@ def _get_base_error_context(content_type):
 
 @register.filter
 def format_course_key(course_key, separator=u'/'):
-    if isinstance(course_key, six.string_types):
+    if isinstance(course_key, str):
         course_key = CourseKey.from_string(course_key)
 
     return separator.join([course_key.org, course_key.course, course_key.run])

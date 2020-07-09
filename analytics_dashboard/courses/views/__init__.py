@@ -24,7 +24,6 @@ from edx_rest_api_client.exceptions import (
     SlumberBaseException,
 )
 from opaque_keys.edx.keys import CourseKey
-from six.moves import map
 from waffle import flag_is_active, switch_is_active
 
 from analytics_dashboard.core.exceptions import ServiceUnavailableError

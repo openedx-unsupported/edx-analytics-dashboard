@@ -4,7 +4,6 @@ import requests
 from bok_choy.promise import EmptyPromise
 from bok_choy.web_app_test import WebAppTest
 from selenium.webdriver.common.keys import Keys
-from six.moves import zip
 
 from acceptance_tests import (
     ENABLE_COURSE_LIST_FILTERS,

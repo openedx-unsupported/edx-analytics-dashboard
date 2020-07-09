@@ -1,7 +1,7 @@
 
 
 import unittest.mock as mock
-import six
+import urllib
 from analyticsclient.exceptions import NotFoundError
 from ddt import data, ddt
 from django.test import TestCase
@@ -249,7 +249,7 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
     def assertResponseFilename(self, response, filename):
         self.assertEqual(
             response['Content-Disposition'],
-            'attachment; filename="{0}"'.format(six.moves.urllib.parse.quote(filename)),
+            'attachment; filename="{0}"'.format(urllib.parse.quote(filename)),
         )
 
     def _test_csv(self, mocked_api_response, csv_data):

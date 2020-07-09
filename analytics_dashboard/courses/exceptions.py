@@ -2,8 +2,6 @@
 
 import abc
 
-import six
-
 
 class PermissionsError(Exception):
     """
@@ -17,7 +15,7 @@ class PermissionsRetrievalFailedError(PermissionsError):
     """
 
 
-class BaseCourseError(six.with_metaclass(abc.ABCMeta, Exception)):
+class BaseCourseError(Exception, metaclass=abc.ABCMeta):
     course_id = None
 
     def __init__(self, *args, **kwargs):
@@ -25,7 +23,8 @@ class BaseCourseError(six.with_metaclass(abc.ABCMeta, Exception)):
         super(BaseCourseError, self).__init__(*args, **kwargs)
         self.message = self.message_template.format(self.course_id)
 
-    @abc.abstractproperty
+    @property
+    @abc.abstractmethod
     def message_template(self):
         pass
 

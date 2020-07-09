@@ -1,7 +1,6 @@
 # pylint: disable=abstract-method
 import unittest.mock as mock
 import httpretty
-import six
 from analyticsclient.exceptions import NotFoundError
 from ddt import data, ddt
 from django.test import TestCase
@@ -33,7 +32,7 @@ class CourseHomeViewTests(CourseViewTestMixin, TestCase):
         self.assertEqual(response.context['page_title'], 'Course Home')
         performance_item = next(
             g for g in response.context['table_items']
-            if six.text_type(g['name']) == u'Performance'
+            if str(g['name']) == u'Performance'
         )
         performance_views = [item['view'] for item in performance_item['items']]
         self.assertEqual('courses:csv:performance_problem_responses' in performance_views, expected)
