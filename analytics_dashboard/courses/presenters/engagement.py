@@ -9,7 +9,6 @@ from analyticsclient.client import Client
 from analyticsclient.exceptions import NotFoundError
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
-from six.moves import range
 from waffle import switch_is_active
 
 from analytics_dashboard.core.templatetags.dashboard_extras import metric_percentage

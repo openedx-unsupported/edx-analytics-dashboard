@@ -3,8 +3,6 @@
 import copy
 import uuid
 
-from six.moves import range
-
 
 class CourseStructureFactory:
     """ Factory that can be used to generate course structure. """

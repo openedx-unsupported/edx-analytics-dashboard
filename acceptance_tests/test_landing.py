@@ -1,7 +1,6 @@
 
 
 from bok_choy.web_app_test import WebAppTest
-from six.moves import range
 
 from acceptance_tests import (
     OPEN_SOURCE_URL,

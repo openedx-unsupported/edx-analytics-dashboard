@@ -1,7 +1,6 @@
 
 
 import unittest.mock as mock
-import six
 from ddt import data, ddt, unpack
 from django.conf import settings
 from django.core.cache import cache
@@ -224,8 +223,8 @@ class CourseSummariesPresenterTests(TestCase):
         with mock.patch('analyticsclient.course_summaries.CourseSummaries.course_summaries',
                         mock.Mock(return_value=mock_api_response)):
             actual_summaries, last_updated = presenter.get_course_summaries(course_ids=input_course_ids)
-            for actual, expected in six.moves.zip(actual_summaries, expected_summaries):
-                six.assertCountEqual(self, actual, expected)
+            for actual, expected in zip(actual_summaries, expected_summaries):
+                self.assertCountEqual(actual, expected)
             self.assertEqual(last_updated, utils.CREATED_DATETIME)
 
     def test_no_summaries(self):

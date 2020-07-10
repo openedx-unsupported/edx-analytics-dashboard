@@ -4,7 +4,7 @@ import os
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
 
-import six.moves.configparser
+from configparser import ConfigParser
 
 next_page='/'"""Common settings and globals."""
 
@@ -394,7 +394,7 @@ DOCS_ROOT = join(SITE_ROOT, 'docs')
 
 # Load the docs config into memory when the server starts
 with open(join(DOCS_ROOT, "config.ini")) as config_file:
-    DOCS_CONFIG = six.moves.configparser.ConfigParser()
+    DOCS_CONFIG = ConfigParser()
     DOCS_CONFIG.readfp(config_file)
 ########## END DOCS/HELP CONFIGURATION
 

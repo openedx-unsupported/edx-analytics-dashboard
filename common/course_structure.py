@@ -1,4 +1,3 @@
-import six
 
 
 class CourseStructure:
@@ -21,7 +20,7 @@ class CourseStructure:
             kwargs[u'type'] = block_type
 
         matched = True
-        for name, value in six.iteritems(kwargs):
+        for name, value in kwargs.items():
             matched &= (block.get(name, None) == value)
             if not matched:
                 break
@@ -91,7 +90,7 @@ class CourseStructure:
         blocks = structure[u'blocks']
         root = blocks[structure[u'root']]
         sections = CourseStructure._build_sections(blocks, root[u'id'],
-                                                   graded, [u'chapter', u'sequential', six.text_type(child_block_type)])
+                                                   graded, [u'chapter', u'sequential', str(child_block_type)])
         return sections
 
     @staticmethod

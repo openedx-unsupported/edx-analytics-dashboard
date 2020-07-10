@@ -5,8 +5,6 @@ import re
 import uuid
 from collections import OrderedDict
 
-import six
-from six.moves import range
 from slugify import slugify
 
 from common.tests.factories import CourseStructureFactory
@@ -371,7 +369,7 @@ class TagsDistributionDataFactory(CourseStructureFactory):
         reg = re.compile(r'Homework (\d) Problem (\d)')
         tags_data = {}
 
-        for _, item in six.iteritems(self._structure['blocks']):
+        for _, item in self._structure['blocks'].items():
             if item['type'] == 'problem' and item['display_name'].startswith('Homework'):
                 m = reg.match(item['display_name'])
                 assig_num = int(m.group(1))
@@ -396,7 +394,7 @@ class TagsDistributionDataFactory(CourseStructureFactory):
     def get_expected_available_tags(self):
         tags = {}
         for item in self.tags_data_per_homework_assigment:
-            for key, vals in six.iteritems(item['tags']):
+            for key, vals in item['tags'].items():
                 for val in vals:
                     if key not in tags:
                         tags[key] = set()
@@ -440,7 +438,7 @@ class TagsDistributionDataFactory(CourseStructureFactory):
 
         url_template = '/courses/{}/performance/learning_outcomes/{}/'
 
-        for tag_val, item in six.iteritems(expected):
+        for tag_val, item in expected.items():
             item.update({
                 'average_submissions': (item['total_submissions'] * 1.0) / item['num_modules'],
                 'average_correct_submissions': (item['correct_submissions'] * 1.0) / item['num_modules'],

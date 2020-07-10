@@ -4,8 +4,8 @@ import copy
 import csv
 import datetime
 import uuid
+from io import StringIO
 
-import six
 from analyticsclient.client import Client
 from analyticsclient.constants import UNKNOWN_COUNTRY_CODE
 from analyticsclient.constants import activity_types as AT
@@ -42,12 +42,12 @@ def get_mock_api_enrollment_data(course_id):
     start_date = datetime.date(year=2014, month=1, day=1)
     modes = enrollment_modes.ALL
 
-    for index in six.moves.range(31):
+    for index in range(31):
         date = start_date + datetime.timedelta(days=index)
 
         datum = {
             'date': date.strftime(Client.DATE_FORMAT),
-            'course_id': six.text_type(course_id),
+            'course_id': str(course_id),
             'count': index * len(modes),
             'created': CREATED_DATETIME_STRING,
             'cumulative_count': index * len(modes) * 2
@@ -107,7 +107,7 @@ def get_mock_presenter_enrollment_trend_with_gaps_filled(course_id):
 
     datum = data[GAP_START - 1]
 
-    for i in six.moves.range(GAP_START, GAP_END):
+    for i in range(GAP_START, GAP_END):
         days = 1 + (i - GAP_START)
         item = copy.copy(datum)
         item['date'] = (parse_date(datum['date']) + datetime.timedelta(days=days)).strftime(Client.DATE_FORMAT)
@@ -132,7 +132,7 @@ def get_mock_api_enrollment_geography_data(course_id):
     items = ((u'USA', u'United States', 500), (None, UNKNOWN_COUNTRY_CODE, 300),
              (u'GER', u'Germany', 100), (u'CAN', u'Canada', 100))
     for item in items:
-        data.append({'date': '2014-01-01', 'course_id': six.text_type(course_id), 'count': item[2],
+        data.append({'date': '2014-01-01', 'course_id': str(course_id), 'count': item[2],
                      'country': {'alpha3': item[0], 'name': item[1]}, 'created': CREATED_DATETIME_STRING})
 
     return data
@@ -242,7 +242,7 @@ def get_presenter_enrollment_binned_ages():
     oldest = current_year - 100
     binned = []
 
-    for year in six.moves.range(oldest, current_year + 1):
+    for year in range(oldest, current_year + 1):
         binned.append({'age': current_year - year, 'count': 0, 'percent': 0})
 
     # adjust 100+
@@ -436,7 +436,7 @@ def get_presenter_education():
 
 
 def convert_list_of_dicts_to_csv(data, fieldnames=None):
-    output = six.StringIO()
+    output = StringIO()
     fieldnames = fieldnames or sorted(data[0].keys())
 
     writer = csv.DictWriter(output, fieldnames)
@@ -483,7 +483,7 @@ def mock_engagement_activity_summary_and_trend_data():
 def get_mock_api_course_activity(course_id):
     return [
         {
-            'course_id': six.text_type(course_id),
+            'course_id': str(course_id),
             'interval_end': '2014-09-01T000000',
             AT.ANY: 1000,
             AT.ATTEMPTED_PROBLEM: None,
@@ -492,7 +492,7 @@ def get_mock_api_course_activity(course_id):
             'created': CREATED_DATETIME_STRING
         },
         {
-            'course_id': six.text_type(course_id),
+            'course_id': str(course_id),
             'interval_end': '2014-09-08T000000',
             AT.ANY: 100,
             AT.ATTEMPTED_PROBLEM: 301,
@@ -514,7 +514,7 @@ def mock_course_activity_week_ahead(start_date=None, end_date=None):
     activity = get_mock_api_course_activity(course_id)
     activity.append(
         {
-            'course_id': six.text_type(course_id),
+            'course_id': str(course_id),
             'interval_end': '2014-09-15T000000',
             AT.ANY: 500,
             AT.ATTEMPTED_PROBLEM: 701,
@@ -551,7 +551,7 @@ def get_mock_api_course_enrollment(course_id):
             'count': 10000 + day,
             'created': CREATED_DATETIME_STRING
         }
-        for day in six.moves.range(1, 10)
+        for day in range(1, 10)
     ]
     return aug + sept
 
@@ -586,7 +586,7 @@ def get_mock_api_answer_distribution_multiple_questions_data(course_id):
         total_first_count = total_first_count + 1
     answers[0]['correct'] = True
 
-    for numeric_value in six.moves.range(20):
+    for numeric_value in range(20):
         answers.append({
             'answer_value': numeric_value,
             'correct': False,
@@ -605,7 +605,7 @@ def get_mock_api_answer_distribution_multiple_questions_data(course_id):
         total_first_count = total_first_count + 1
     answers[-1]['correct'] = True
 
-    for randomized in six.moves.range(5):
+    for randomized in range(5):
         answers.append({
             'answer_value': 0,
             'correct': True,

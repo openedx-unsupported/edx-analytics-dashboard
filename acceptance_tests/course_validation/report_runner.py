@@ -29,7 +29,6 @@ from multiprocessing import Pool
 from os.path import abspath, dirname, join
 
 import requests
-import six
 from elasticsearch import Elasticsearch
 
 from acceptance_tests.course_validation import (
@@ -98,7 +97,7 @@ def check_course(course_id):
         except Exception as e:  # pylint: disable=broad-except
             logger.error('Validation for course %s failed: %s\n%s', course_id, e, traceback.format_exc())
             valid = False
-            report = {'course_id': course_id, 'course_valid': False, 'error': six.text_type(e)}
+            report = {'course_id': course_id, 'course_valid': False, 'error': str(e)}
 
         # Dump the info to the log and Elasticsearch
         logger.info(json.dumps(report))
@@ -190,7 +189,7 @@ def get_courses():
         courses.sort(key=lambda course: course.lower())
 
         with io.open(filename, 'w', encoding='utf-8') as f:
-            f.write(six.text_type(json.dumps(courses, ensure_ascii=False)))
+            f.write(str(json.dumps(courses, ensure_ascii=False)))
 
     logger.info('Retrieved %s courses.', len(courses))
 
@@ -216,7 +215,7 @@ def main():
         with io.open(mappings_file, 'r', encoding='utf-8') as f:
             mappings = json.load(f)
 
-        for doc_type, body in six.iteritems(mappings):
+        for doc_type, body in mappings.items():
             es.indices.put_mapping(index=index_name, doc_type=doc_type, body=body)
 
     def finish():

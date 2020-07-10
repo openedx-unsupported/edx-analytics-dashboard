@@ -3,14 +3,11 @@
 import locale
 import os
 
-import six
-
 locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 
 
 def str2bool(s):
-    s = six.text_type(s)
-    return s.lower() in (u"yes", u"true", u"t", u"1")
+    return str(s).lower() in (u"yes", u"true", u"t", u"1")
 
 
 # Dashboard settings
