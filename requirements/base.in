@@ -29,8 +29,8 @@ edx-rest-api-client						# Apache
 libsass==0.11.1							# MIT
 logutils        						# BSD
 requests								# Apache 2.0
-stevedore>=0.14.1,<2.0.0
-path.py<12.0                            # >=12.0 is python3 only
+stevedore
+path.py
 
 # This can be removed once an official social-auth-app-django Pypi release with Django 2.2 support is available in the future.
 -e git+https://github.com/python-social-auth/social-app-django.git@ffa0fb99a80d11479bea2c4eae9a01ee835d52b9#egg=social-auth-app-django
