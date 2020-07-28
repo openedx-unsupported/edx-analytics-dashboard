@@ -9,7 +9,7 @@ awesome-slugify==1.6.5    # via -r requirements/base.in
 blessings==1.7            # via curtsies
 bpython==0.19             # via -r requirements/base.in
 certifi==2020.6.20        # via requests
-cffi==1.14.0              # via cryptography
+cffi==1.14.1              # via cryptography
 chardet==3.0.4            # via requests
 cryptography==3.0         # via pyjwt
 curtsies==0.3.4           # via bpython
@@ -31,7 +31,7 @@ edx-analytics-data-api-client==0.16.1  # via -r requirements/base.in
 edx-auth-backends==3.1.0  # via -r requirements/base.in
 edx-ccx-keys==1.1.0       # via -r requirements/base.in
 edx-django-release-util==0.4.4  # via -r requirements/base.in
-edx-django-utils==3.3.0   # via -r requirements/base.in, edx-drf-extensions, edx-rest-api-client
+edx-django-utils==3.5.0   # via -r requirements/base.in, edx-drf-extensions, edx-rest-api-client
 edx-drf-extensions==6.1.1  # via -r requirements/base.in
 edx-i18n-tools==0.5.3     # via -r requirements/base.in
 edx-opaque-keys==2.1.1    # via -r requirements/base.in, edx-ccx-keys, edx-drf-extensions
@@ -44,7 +44,7 @@ libsass==0.11.1           # via -r requirements/base.in
 logutils==0.3.5           # via -r requirements/base.in
 newrelic==5.14.1.144      # via edx-django-utils
 oauthlib==3.1.0           # via requests-oauthlib, social-auth-core
-path.py==12.4.0           # via -r requirements/base.in, edx-i18n-tools
+path.py==12.5.0           # via -r requirements/base.in, edx-i18n-tools
 path==13.1.0              # via path.py
 pbr==5.4.5                # via stevedore
 pinax-announcements==3.0.2  # via -c requirements/constraints.txt, -r requirements/base.in
@@ -72,6 +72,6 @@ sqlparse==0.3.1           # via django
 stevedore==1.32.0         # via -r requirements/base.in, edx-opaque-keys
 unicodecsv==0.14.1        # via djangorestframework-csv
 unidecode==0.4.21         # via awesome-slugify
-urllib3==1.25.9           # via requests
+urllib3==1.25.10          # via requests
 wcwidth==0.2.5            # via curtsies
 zipp==1.2.0               # via importlib-metadata
