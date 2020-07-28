@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
--e git+https://github.com/python-social-auth/social-app-django.git@ffa0fb99a80d11479bea2c4eae9a01ee835d52b9#egg=social-auth-app-django  # via -r requirements/test.txt
+-e git+https://github.com/python-social-auth/social-app-django.git@ffa0fb99a80d11479bea2c4eae9a01ee835d52b9#egg=social-auth-app-django  # via -r requirements/test.txt, edx-auth-backends
 astroid==2.4.2            # via -r requirements/test.txt, pylint
 attrs==19.3.0             # via -r requirements/test.txt, pytest
 awesome-slugify==1.6.5    # via -r requirements/test.txt
