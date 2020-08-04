@@ -11,9 +11,9 @@ babel==2.8.0              # via sphinx
 blessings==1.7            # via -r requirements/base.txt, curtsies
 bpython==0.19             # via -r requirements/base.txt
 certifi==2020.6.20        # via -r requirements/base.txt, requests
-cffi==1.14.0              # via -r requirements/base.txt, cryptography
+cffi==1.14.1              # via -r requirements/base.txt, cryptography
 chardet==3.0.4            # via -r requirements/base.txt, requests
-cryptography==2.9.2       # via -r requirements/base.txt, pyjwt
+cryptography==3.0         # via -r requirements/base.txt, pyjwt
 curtsies==0.3.4           # via -r requirements/base.txt, bpython
 defusedxml==0.6.0         # via -r requirements/base.txt, python3-openid, social-auth-core
 django-appconf==1.0.4     # via -r requirements/base.txt
@@ -25,7 +25,7 @@ django-model-utils==4.0.0  # via -r requirements/base.txt
 django-soapbox==1.6       # via -r requirements/base.txt
 django-waffle==1.0.0      # via -r requirements/base.txt, edx-django-utils, edx-drf-extensions
 django-webpack-loader==0.7.0  # via -r requirements/base.txt
-django==2.2.14            # via -c requirements/constraints.txt, -r requirements/base.txt, django-appconf, django-braces, django-lang-pref-middleware, django-model-utils, django-soapbox, djangorestframework, drf-jwt, edx-auth-backends, edx-django-release-util, edx-django-utils, edx-drf-extensions, edx-i18n-tools, pinax-announcements, rest-condition
+django==2.2.15            # via -c requirements/constraints.txt, -r requirements/base.txt, django-appconf, django-braces, django-lang-pref-middleware, django-model-utils, django-soapbox, djangorestframework, drf-jwt, edx-auth-backends, edx-django-release-util, edx-django-utils, edx-drf-extensions, edx-i18n-tools, pinax-announcements, rest-condition
 djangorestframework-csv==2.1.0  # via -r requirements/base.txt
 djangorestframework==3.11.0  # via -r requirements/base.txt, djangorestframework-csv, drf-jwt, edx-drf-extensions, rest-condition
 docutils==0.16            # via sphinx
@@ -34,7 +34,7 @@ edx-analytics-data-api-client==0.16.1  # via -r requirements/base.txt
 edx-auth-backends==3.1.0  # via -r requirements/base.txt
 edx-ccx-keys==1.1.0       # via -r requirements/base.txt
 edx-django-release-util==0.4.4  # via -r requirements/base.txt
-edx-django-utils==3.3.0   # via -r requirements/base.txt, edx-drf-extensions, edx-rest-api-client
+edx-django-utils==3.5.0   # via -r requirements/base.txt, edx-drf-extensions, edx-rest-api-client
 edx-drf-extensions==6.1.1  # via -r requirements/base.txt
 edx-i18n-tools==0.5.3     # via -r requirements/base.txt
 edx-opaque-keys==2.1.1    # via -r requirements/base.txt, edx-ccx-keys, edx-drf-extensions
@@ -50,7 +50,7 @@ logutils==0.3.5           # via -r requirements/base.txt
 markupsafe==1.1.1         # via jinja2
 newrelic==5.14.1.144      # via -r requirements/base.txt, edx-django-utils
 oauthlib==3.1.0           # via -r requirements/base.txt, requests-oauthlib, social-auth-core
-path.py==12.4.0           # via -r requirements/base.txt, edx-i18n-tools
+path.py==12.5.0           # via -r requirements/base.txt, edx-i18n-tools
 path==13.1.0              # via -r requirements/base.txt, path.py
 pbr==5.4.5                # via -r requirements/base.txt, stevedore
 pinax-announcements==3.0.2  # via -c requirements/constraints.txt, -r requirements/base.txt
@@ -61,7 +61,7 @@ pycryptodomex==3.9.8      # via -r requirements/base.txt, pyjwkest
 pygments==2.6.1           # via -r requirements/base.txt, bpython, sphinx
 pyjwkest==1.4.2           # via -r requirements/base.txt, edx-drf-extensions
 pyjwt[crypto]==1.7.1      # via -r requirements/base.txt, drf-jwt, edx-auth-backends, edx-rest-api-client, social-auth-core
-pymongo==3.10.1           # via -r requirements/base.txt, edx-opaque-keys
+pymongo==3.11.0           # via -r requirements/base.txt, edx-opaque-keys
 python-dateutil==2.8.1    # via -r requirements/base.txt, edx-drf-extensions
 python3-openid==3.2.0     # via -r requirements/base.txt, social-auth-core
 pytz==2020.1              # via -r requirements/base.txt, babel, django
@@ -81,6 +81,6 @@ sqlparse==0.3.1           # via -r requirements/base.txt, django
 stevedore==1.32.0         # via -r requirements/base.txt, edx-opaque-keys
 unicodecsv==0.14.1        # via -r requirements/base.txt, djangorestframework-csv
 unidecode==0.4.21         # via -r requirements/base.txt, awesome-slugify
-urllib3==1.25.9           # via -r requirements/base.txt, requests
+urllib3==1.25.10          # via -r requirements/base.txt, requests
 wcwidth==0.2.5            # via -r requirements/base.txt, curtsies
 zipp==1.2.0               # via -r requirements/base.txt, importlib-metadata
