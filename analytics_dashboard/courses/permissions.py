@@ -152,6 +152,7 @@ def _refresh_user_course_permissions(user):
         user (User) --  User whose permissions should be refreshed
     """
     response_data = None
+    response = None
     try:
         client = OAuthAPIClient(
             settings.BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL,
@@ -186,14 +187,14 @@ def _refresh_user_course_permissions(user):
                 logger.debug('Completed retrieval of course_ids. Retrieved info for %d courses.', len(course_ids))
 
         allowed_courses = list(set(course_ids))
-
-    except Exception as e:
+    except Exception as exception:
         logger.exception(
-            "Unable to retrieve course permissions for username=%s and response=%s",
+            "Unable to retrieve course permissions for username=%s and response_data=%s response=%s",
             user.username,
-            response_data
+            response_data,
+            response
         )
-        raise PermissionsRetrievalFailedError(e)
+        raise PermissionsRetrievalFailedError(exception)
 
     set_user_course_permissions(user, allowed_courses)
 

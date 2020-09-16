@@ -60,11 +60,21 @@ class CourseAPIMixin:
         self.course_api_enabled = switch_is_active('enable_course_api')
 
         if self.course_api_enabled and request.user.is_authenticated:
-            self.access_token = settings.COURSE_API_KEY or EdxRestApiClient.get_and_cache_jwt_oauth_access_token(
-                settings.BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL,
-                settings.BACKEND_SERVICE_EDX_OAUTH2_KEY,
-                settings.BACKEND_SERVICE_EDX_OAUTH2_SECRET,
-            )[0]
+            try:
+                self.access_token = settings.COURSE_API_KEY or EdxRestApiClient.get_and_cache_jwt_oauth_access_token(
+                    settings.BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL,
+                    settings.BACKEND_SERVICE_EDX_OAUTH2_KEY,
+                    settings.BACKEND_SERVICE_EDX_OAUTH2_SECRET,
+                )[0]
+            except requests.exceptions.Timeout:
+                # retry with timeout None to avoid timeout error and log the error.
+                logger.exception('Request timeout on oauth_accesss_token')
+                self.access_token = settings.COURSE_API_KEY or EdxRestApiClient.get_and_cache_jwt_oauth_access_token(
+                    settings.BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL,
+                    settings.BACKEND_SERVICE_EDX_OAUTH2_KEY,
+                    settings.BACKEND_SERVICE_EDX_OAUTH2_SECRET,
+                    timeout=None
+                )[0]
             self.course_api = CourseStructureApiClient(settings.COURSE_API_URL, self.access_token)
 
         return super(CourseAPIMixin, self).dispatch(request, *args, **kwargs)
