@@ -224,7 +224,7 @@ class PermissionsTests(TestCase):
                         'role': 'staff',
                         'username': self.user.username
                     },
-                    timeout=(3.05, 15)
+                    timeout=(3.05, 55)
                 ),
                 mock.call().get().json(),
                 mock.call().get().raise_for_status(),

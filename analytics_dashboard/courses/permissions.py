@@ -171,7 +171,7 @@ def _refresh_user_course_permissions(user):
                     'page': page,
                     'page_size': 1000,
                 },
-                timeout=(3.05, 15),  # the course_ids API can be slow, so use a higher READ timeout
+                timeout=(3.05, 55),  # the course_ids API can be slow, so use a higher READ timeout
             )
             response_data = response.json()
             response.raise_for_status()  # response_data could be an error response
