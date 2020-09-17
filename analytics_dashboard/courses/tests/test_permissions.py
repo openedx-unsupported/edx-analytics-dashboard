@@ -223,7 +223,8 @@ class PermissionsTests(TestCase):
                         'page_size': 1000,
                         'role': 'staff',
                         'username': self.user.username
-                    }
+                    },
+                    timeout=(3.05, 15)
                 ),
                 mock.call().get().json(),
                 mock.call().get().raise_for_status(),
