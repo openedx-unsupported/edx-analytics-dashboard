@@ -64,6 +64,7 @@ class CourseAPIMixin:
                 settings.BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL,
                 settings.BACKEND_SERVICE_EDX_OAUTH2_KEY,
                 settings.BACKEND_SERVICE_EDX_OAUTH2_SECRET,
+                timeout=(3.05, 55),
             )[0]
             self.course_api = CourseStructureApiClient(settings.COURSE_API_URL, self.access_token)
 
