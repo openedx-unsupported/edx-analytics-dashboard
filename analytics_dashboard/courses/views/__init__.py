@@ -60,14 +60,17 @@ class CourseAPIMixin:
         self.course_api_enabled = switch_is_active('enable_course_api')
 
         if self.course_api_enabled and request.user.is_authenticated:
-            self.access_token = settings.COURSE_API_KEY or EdxRestApiClient.get_and_cache_jwt_oauth_access_token(
-                settings.BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL,
-                settings.BACKEND_SERVICE_EDX_OAUTH2_KEY,
-                settings.BACKEND_SERVICE_EDX_OAUTH2_SECRET,
-                timeout=(3.05, 55),
-            )[0]
-            self.course_api = CourseStructureApiClient(settings.COURSE_API_URL, self.access_token)
-
+            try:
+                self.access_token = settings.COURSE_API_KEY or EdxRestApiClient.get_and_cache_jwt_oauth_access_token(
+                    settings.BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL,
+                    settings.BACKEND_SERVICE_EDX_OAUTH2_KEY,
+                    settings.BACKEND_SERVICE_EDX_OAUTH2_SECRET,
+                    timeout=(3.05, 55),
+                )[0]
+                self.course_api = CourseStructureApiClient(settings.COURSE_API_URL, self.access_token)
+            except Exception as exception:
+                logger.exception("Error logging in user %s", request.user)
+                raise exception
         return super(CourseAPIMixin, self).dispatch(request, *args, **kwargs)
 
     def _course_detail_cache_key(self, course_id):
