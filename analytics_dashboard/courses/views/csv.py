@@ -1,5 +1,3 @@
-
-
 import datetime
 import logging
 import urllib
@@ -22,7 +20,7 @@ class CSVResponseMixin:
     # pylint: disable=unused-argument
     def render_to_response(self, context, **response_kwargs):
         response = HttpResponse(self.get_data(), content_type='text/csv', **response_kwargs)
-        response['Content-Disposition'] = u'attachment; filename="{0}"'.format(self._get_filename())
+        response['Content-Disposition'] = f'attachment; filename="{self._get_filename()}"'
         return response
 
     def get_data(self):
@@ -38,7 +36,7 @@ class CSVResponseMixin:
 
     def _get_filename(self):
         """Concatenates the unique csv_identifier with the general csv_filename_suffix for this class."""
-        filename = u'{0}--{1}.csv'.format(self.csv_identifier, self.csv_filename_suffix)
+        filename = f'{self.csv_identifier}--{self.csv_filename_suffix}.csv'
         return urllib.parse.quote(filename)
 
 
@@ -60,21 +58,21 @@ class DatetimeCSVResponseMixin(CSVResponseMixin):
 
 
 class CourseEnrollmentDemographicsAgeCSV(CourseCSVResponseMixin, CourseView):
-    csv_filename_suffix = u'enrollment-by-birth-year'
+    csv_filename_suffix = 'enrollment-by-birth-year'
 
     def get_data(self):
         return self.course.enrollment(demographics.BIRTH_YEAR, data_format=data_formats.CSV)
 
 
 class CourseEnrollmentDemographicsEducationCSV(CourseCSVResponseMixin, CourseView):
-    csv_filename_suffix = u'enrollment-by-education'
+    csv_filename_suffix = 'enrollment-by-education'
 
     def get_data(self):
         return self.course.enrollment(demographics.EDUCATION, data_format=data_formats.CSV)
 
 
 class CourseEnrollmentDemographicsGenderCSV(CourseCSVResponseMixin, CourseView):
-    csv_filename_suffix = u'enrollment-by-gender'
+    csv_filename_suffix = 'enrollment-by-gender'
 
     def get_data(self):
         end_date = datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
@@ -82,14 +80,14 @@ class CourseEnrollmentDemographicsGenderCSV(CourseCSVResponseMixin, CourseView):
 
 
 class CourseEnrollmentByCountryCSV(CourseCSVResponseMixin, CourseView):
-    csv_filename_suffix = u'enrollment-location'
+    csv_filename_suffix = 'enrollment-location'
 
     def get_data(self):
         return self.course.enrollment(demographics.LOCATION, data_format=data_formats.CSV)
 
 
 class CourseEnrollmentCSV(CourseCSVResponseMixin, CourseView):
-    csv_filename_suffix = u'enrollment'
+    csv_filename_suffix = 'enrollment'
 
     def get_data(self):
         end_date = datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
@@ -97,7 +95,7 @@ class CourseEnrollmentCSV(CourseCSVResponseMixin, CourseView):
 
 
 class CourseEngagementActivityTrendCSV(CourseCSVResponseMixin, CourseView):
-    csv_filename_suffix = u'engagement-activity'
+    csv_filename_suffix = 'engagement-activity'
 
     def get_data(self):
         end_date = datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
@@ -105,7 +103,7 @@ class CourseEngagementActivityTrendCSV(CourseCSVResponseMixin, CourseView):
 
 
 class CourseEngagementVideoTimelineCSV(CourseCSVResponseMixin, CourseView):
-    csv_filename_suffix = u'engagement-video-timeline'
+    csv_filename_suffix = 'engagement-video-timeline'
 
     def get_data(self):
         modules = self.client.modules(self.course_id, self.kwargs['pipeline_video_id'])
@@ -113,7 +111,7 @@ class CourseEngagementVideoTimelineCSV(CourseCSVResponseMixin, CourseView):
 
 
 class PerformanceAnswerDistributionCSV(CourseCSVResponseMixin, CourseView):
-    csv_filename_suffix = u'performance-answer-distribution'
+    csv_filename_suffix = 'performance-answer-distribution'
 
     def get_data(self):
         modules = self.client.modules(self.course_id, self.kwargs['content_id'])

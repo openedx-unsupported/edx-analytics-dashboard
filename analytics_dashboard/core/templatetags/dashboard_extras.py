@@ -1,5 +1,3 @@
-
-
 import json
 
 from django import template
@@ -33,7 +31,7 @@ def metric_percentage(value):
         if value < 0.01:
             percent = '< 1'
         else:
-            percent = '{0:.1f}'.format(round(value, 3) * 100)
+            percent = '{:.1f}'.format(round(value, 3) * 100)
 
     # pylint: disable=no-member
     return percent_stat.format(statistic=percent)
@@ -109,7 +107,7 @@ def _get_base_error_context(content_type):
 
 
 @register.filter
-def format_course_key(course_key, separator=u'/'):
+def format_course_key(course_key, separator='/'):
     if isinstance(course_key, str):
         course_key = CourseKey.from_string(course_key)
 

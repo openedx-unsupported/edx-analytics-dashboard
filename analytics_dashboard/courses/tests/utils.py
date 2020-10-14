@@ -1,5 +1,3 @@
-
-
 import copy
 import csv
 import datetime
@@ -129,8 +127,8 @@ def get_mock_presenter_enrollment_summary_small():
 
 def get_mock_api_enrollment_geography_data(course_id):
     data = []
-    items = ((u'USA', u'United States', 500), (None, UNKNOWN_COUNTRY_CODE, 300),
-             (u'GER', u'Germany', 100), (u'CAN', u'Canada', 100))
+    items = (('USA', 'United States', 500), (None, UNKNOWN_COUNTRY_CODE, 300),
+             ('GER', 'Germany', 100), ('CAN', 'Canada', 100))
     for item in items:
         data.append({'date': '2014-01-01', 'course_id': str(course_id), 'count': item[2],
                      'country': {'alpha3': item[0], 'name': item[1]}, 'created': CREATED_DATETIME_STRING})
@@ -505,12 +503,12 @@ def get_mock_api_course_activity(course_id):
 
 # pylint: disable=unused-argument
 def mock_course_activity(start_date=None, end_date=None):
-    return get_mock_api_course_activity(u'edX/DemoX/Demo_Course')
+    return get_mock_api_course_activity('edX/DemoX/Demo_Course')
 
 
 # pylint: disable=unused-argument
 def mock_course_activity_week_ahead(start_date=None, end_date=None):
-    course_id = u'edX/DemoX/Demo_Course'
+    course_id = 'edX/DemoX/Demo_Course'
     activity = get_mock_api_course_activity(course_id)
     activity.append(
         {
@@ -547,7 +545,7 @@ def get_mock_api_course_enrollment(course_id):
     sept = [
         {
             'course_id': course_id,
-            'date': '2014-09-{:02d}'.format(day),
+            'date': f'2014-09-{day:02d}',
             'count': 10000 + day,
             'created': CREATED_DATETIME_STRING
         }
@@ -559,7 +557,7 @@ def get_mock_api_course_enrollment(course_id):
 # pylint: disable=unused-argument
 def mock_course_enrollment(start_date=None, end_date=None):
     """ Mock API enrollment data """
-    return get_mock_api_course_enrollment(u'edX/DemoX/Demo_Course')
+    return get_mock_api_course_enrollment('edX/DemoX/Demo_Course')
 
 
 def get_mock_api_answer_distribution_multiple_questions_data(course_id):
@@ -635,20 +633,20 @@ def get_presenter_performance_answer_distribution_multiple_questions():
     return [
         {
             'part_id': 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_2_1',
-            'question': u'Submissions for Part 1: Is this a text problem?',
-            'short_description': u'Part 1: Is this a text problem?',
+            'question': 'Submissions for Part 1: Is this a text problem?',
+            'short_description': 'Part 1: Is this a text problem?',
             'problem_name': 'Example problem'
         },
         {
             'part_id': 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_3_1',
-            'question': u'Submissions for Part 2: Is this a numeric problem?',
-            'short_description': u'Part 2: Is this a numeric problem?',
+            'question': 'Submissions for Part 2: Is this a numeric problem?',
+            'short_description': 'Part 2: Is this a numeric problem?',
             'problem_name': 'Example problem'
         },
         {
             'part_id': 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_4_1',
-            'question': u'Submissions for Part 3: Is this a randomized problem?',
-            'short_description': u'Part 3: Is this a randomized problem?',
+            'question': 'Submissions for Part 3: Is this a randomized problem?',
+            'short_description': 'Part 3: Is this a randomized problem?',
             'problem_name': 'Example problem'
         }
     ]
@@ -658,8 +656,8 @@ def get_presenter_performance_answer_distribution_single_question():
     return [
         {
             'part_id': 'i4x-edX-DemoX_1-problem-5e3c6d6934494d87b3a025676c7517c1_2_1',
-            'question': u'Submissions: Is this a text problem?',
-            'short_description': u'Is this a text problem?',
+            'question': 'Submissions: Is this a text problem?',
+            'short_description': 'Is this a text problem?',
             'problem_name': 'Example problem'
         }
     ]

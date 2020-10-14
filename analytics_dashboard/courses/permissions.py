@@ -1,5 +1,3 @@
-
-
 import datetime
 import logging
 
@@ -23,8 +21,8 @@ def _get_course_permission_cache_keys(user):
     """
     Return the cache keys used for user-course permissions
     """
-    key_last_updated = 'course_permissions_updated_at_{}'.format(user.id)
-    key_courses = 'course_permissions_{}'.format(user.id)
+    key_last_updated = f'course_permissions_updated_at_{user.id}'
+    key_courses = f'course_permissions_{user.id}'
     return key_courses, key_last_updated
 
 
@@ -32,7 +30,7 @@ def _get_tracking_cache_key(user):
     """
     Return the cache keys used for user tracking_id
     """
-    return 'user_tracking_id_{}'.format(user.id)
+    return f'user_tracking_id_{user.id}'
 
 
 def set_user_course_permissions(user, courses):
@@ -89,10 +87,10 @@ def get_user_tracking_id(user):
 def _get_lms_user_id_from_social_auth(user):
     """ Return the lms user id for the user if found. """
     try:
-        return user.social_auth.filter(provider=EdXOAuth2.name).order_by('-id').first().extra_data.get(u'user_id')
+        return user.social_auth.filter(provider=EdXOAuth2.name).order_by('-id').first().extra_data.get('user_id')
     except Exception:  # pylint: disable=broad-except
         logger.warning(
-            u'Exception retrieving lms_user_id from social_auth for user %s. Defaulting to None.',
+            'Exception retrieving lms_user_id from social_auth for user %s. Defaulting to None.',
             user.id,
             exc_info=True
         )

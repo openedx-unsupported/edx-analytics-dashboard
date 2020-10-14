@@ -1,5 +1,3 @@
-
-
 import unittest.mock as mock
 from ddt import data, ddt, unpack
 from django.conf import settings

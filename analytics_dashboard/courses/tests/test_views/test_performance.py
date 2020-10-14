@@ -1,5 +1,3 @@
-
-
 import json
 import logging
 
@@ -34,7 +32,7 @@ logger = logging.getLogger(__name__)
 class CoursePerformanceViewTestMixin(PatchMixin, CourseStructureViewMixin, CourseAPIMixin):
 
     def setUp(self):
-        super(CoursePerformanceViewTestMixin, self).setUp()
+        super().setUp()
         self.factory = CoursePerformanceDataFactory()
         self.factory.course_id = CourseSamples.DEMO_COURSE_ID
 
@@ -123,7 +121,7 @@ class CoursePerformanceGradedMixin(CoursePerformanceViewTestMixin):
     active_secondary_nav_label = 'Graded Content'
 
     def setUp(self):
-        super(CoursePerformanceGradedMixin, self).setUp()
+        super().setUp()
         self._patch('analytics_dashboard.courses.presenters.performance.CoursePerformancePresenter.assignments',
                     return_value=self.factory.presented_assignments)
         self._patch('analytics_dashboard.courses.presenters.performance.CoursePerformancePresenter.grading_policy',
@@ -143,12 +141,12 @@ class CoursePerformanceGradedMixin(CoursePerformanceViewTestMixin):
         expected = {
             'assignment_types': self.factory.presented_assignment_types,
             'assignments': self.factory.presented_assignments,
-            'no_data_message': u'No submissions received for these assignments.'
+            'no_data_message': 'No submissions received for these assignments.'
         }
         utils.assert_dict_contains_subset(context, expected)
 
     def get_expected_secondary_nav(self, course_id):
-        expected = super(CoursePerformanceGradedMixin, self).get_expected_secondary_nav(course_id)
+        expected = super().get_expected_secondary_nav(course_id)
         expected[0].update({
             'href': '#',
             'active': True,
@@ -163,7 +161,7 @@ class CoursePerformanceUngradedMixin(CoursePerformanceViewTestMixin):
     sections = None
 
     def setUp(self):
-        super(CoursePerformanceUngradedMixin, self).setUp()
+        super().setUp()
         self.sections = self.factory.presented_sections
         self._patch('analytics_dashboard.courses.presenters.performance.CoursePerformancePresenter.sections',
                     return_value=self.sections)
@@ -189,7 +187,7 @@ class CoursePerformanceUngradedMixin(CoursePerformanceViewTestMixin):
         utils.assert_dict_contains_subset(context, expected)
 
     def get_expected_secondary_nav(self, course_id):
-        expected = super(CoursePerformanceUngradedMixin, self).get_expected_secondary_nav(course_id)
+        expected = super().get_expected_secondary_nav(course_id)
         expected[1].update({
             'href': '#',
             'active': True,
@@ -291,14 +289,14 @@ class CoursePerformanceGradedAnswerDistributionViewTests(CoursePerformanceAnswer
     def path(self, **kwargs):
         # Use default kwargs for tests that don't necessarily care about the specific argument values.
         default_kwargs = {
-            'assignment_id': self.factory.assignments[0][u'id'],
+            'assignment_id': self.factory.assignments[0]['id'],
             'problem_id': self.PROBLEM_ID,
             'problem_part_id': self.TEXT_PROBLEM_PART_ID
         }
         default_kwargs.update(kwargs)
         kwargs = default_kwargs
 
-        return super(CoursePerformanceGradedAnswerDistributionViewTests, self).path(**kwargs)
+        return super().path(**kwargs)
 
     def test_valid_course(self):
         self._test_valid_course(self.factory.presented_assignments[0]['children'][0])
@@ -321,7 +319,7 @@ class CoursePerformanceUngradedAnswerDistributionViewTests(CoursePerformanceAnsw
         default_kwargs.update(kwargs)
         kwargs = default_kwargs
 
-        return super(CoursePerformanceUngradedAnswerDistributionViewTests, self).path(**kwargs)
+        return super().path(**kwargs)
 
     def test_valid_course(self):
         self._test_valid_course(self.factory.presented_assignments[0]['children'][0])
@@ -347,7 +345,7 @@ class CoursePerformanceGradedContentByTypeViewTests(CoursePerformanceGradedMixin
     viewname = 'courses:performance:graded_content_by_type'
 
     def setUp(self):
-        super(CoursePerformanceGradedContentByTypeViewTests, self).setUp()
+        super().setUp()
         self.assignment_type = self.factory.presented_assignment_types[0]
 
     def path(self, **kwargs):
@@ -358,10 +356,10 @@ class CoursePerformanceGradedContentByTypeViewTests(CoursePerformanceGradedMixin
         default_kwargs.update(kwargs)
         kwargs = default_kwargs
 
-        return super(CoursePerformanceGradedContentByTypeViewTests, self).path(**kwargs)
+        return super().path(**kwargs)
 
     def assertValidContext(self, context):
-        super(CoursePerformanceGradedContentByTypeViewTests, self).assertValidContext(context)
+        super().assertValidContext(context)
         self.assertEqual(self.assignment_type, context['assignment_type'])
 
     @httpretty.activate
@@ -388,7 +386,7 @@ class CoursePerformanceAssignmentViewTests(CoursePerformanceGradedMixin, TestCas
     viewname = 'courses:performance:assignment'
 
     def setUp(self):
-        super(CoursePerformanceAssignmentViewTests, self).setUp()
+        super().setUp()
         self.assignment = self.factory.presented_assignments[0]
         self.assignment_type = self.factory.presented_assignment_types[0]
 
@@ -400,10 +398,10 @@ class CoursePerformanceAssignmentViewTests(CoursePerformanceGradedMixin, TestCas
         default_kwargs.update(kwargs)
         kwargs = default_kwargs
 
-        return super(CoursePerformanceAssignmentViewTests, self).path(**kwargs)
+        return super().path(**kwargs)
 
     def assertValidContext(self, context):
-        super(CoursePerformanceAssignmentViewTests, self).assertValidContext(context)
+        super().assertValidContext(context)
 
         self.assertListEqual(context['assignment']['children'], self.assignment['children'])
         expected = {
@@ -455,10 +453,10 @@ class CoursePerformanceUngradedSectionViewTests(CoursePerformanceUngradedMixin, 
         default_kwargs.update(kwargs)
         kwargs = default_kwargs
 
-        return super(CoursePerformanceUngradedSectionViewTests, self).path(**kwargs)
+        return super().path(**kwargs)
 
     def assertValidContext(self, context):
-        super(CoursePerformanceUngradedSectionViewTests, self).assertValidContext(context)
+        super().assertValidContext(context)
         self.assertEqual(self.sections[0], context['section'])
         self.assertListEqual(self.sections[0]['children'], context['subsections'])
 
@@ -486,10 +484,10 @@ class CoursePerformanceUngradedSubsectionViewTests(CoursePerformanceUngradedMixi
         default_kwargs.update(kwargs)
         kwargs = default_kwargs
 
-        return super(CoursePerformanceUngradedSubsectionViewTests, self).path(**kwargs)
+        return super().path(**kwargs)
 
     def assertValidContext(self, context):
-        super(CoursePerformanceUngradedSubsectionViewTests, self).assertValidContext(context)
+        super().assertValidContext(context)
         section = self.sections[0]
         self.assertEqual(section, context['section'])
         self.assertListEqual(section['children'], context['subsections'])
@@ -513,7 +511,7 @@ class CoursePerformanceLearningOutcomesViewTestMixin(CoursePerformanceViewTestMi
     tags_factory_init_data = []
 
     def setUp(self):
-        super(CoursePerformanceLearningOutcomesViewTestMixin, self).setUp()
+        super().setUp()
         self.tags_factory = TagsDistributionDataFactory(self.tags_factory_init_data)
         self.tags_factory.course_id = CourseSamples.DEMO_COURSE_ID
 
@@ -578,7 +576,7 @@ class CoursePerformanceLearningOutcomesContentViewTests(CoursePerformanceLearnin
     def test_valid_course(self):
         with patch('analyticsclient.course.Course.problems_and_tags',
                    Mock(return_value=self.tags_factory.problems_and_tags)):
-            super(CoursePerformanceLearningOutcomesContentViewTests, self).test_valid_course()
+            super().test_valid_course()
 
 
 @override_switch('enable_course_api', active=True)
@@ -601,7 +599,7 @@ class CoursePerformanceLearningOutcomesSectionViewTests(CoursePerformanceLearnin
         kwargs.update({
             'tag_value': slugify('Learned nothing')
         })
-        return super(CoursePerformanceLearningOutcomesSectionViewTests, self).path(**kwargs)
+        return super().path(**kwargs)
 
     @httpretty.activate
     @patch(
@@ -622,7 +620,7 @@ class CoursePerformanceLearningOutcomesSectionViewTests(CoursePerformanceLearnin
                    Mock(return_value=self.tags_factory.structure)):
             with patch('analyticsclient.course.Course.problems_and_tags',
                        Mock(return_value=self.tags_factory.problems_and_tags)):
-                super(CoursePerformanceLearningOutcomesSectionViewTests, self).test_valid_course()
+                super().test_valid_course()
 
 
 @override_switch('enable_course_api', active=True)
@@ -650,7 +648,7 @@ class CoursePerformanceLearningOutcomesAnswersDistributionViewTests(
             'tag_value': slugify('Learned nothing'),
             'problem_id': self.PROBLEM_ID
         })
-        return super(CoursePerformanceLearningOutcomesAnswersDistributionViewTests, self).path(**kwargs)
+        return super().path(**kwargs)
 
     @patch('analytics_dashboard.courses.presenters.performance.TagsDistributionPresenter.get_modules_marked_with_tag',
            Mock(return_value={}))
@@ -664,7 +662,7 @@ class CoursePerformanceLearningOutcomesAnswersDistributionViewTests(
         """
         with patch('analyticsclient.course.Course.problems_and_tags',
                    Mock(return_value=self.tags_factory.problems_and_tags)):
-            super(CoursePerformanceLearningOutcomesAnswersDistributionViewTests, self).test_missing_distribution_data()
+            super().test_missing_distribution_data()
 
     @httpretty.activate
     @patch(

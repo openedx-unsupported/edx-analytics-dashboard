@@ -51,10 +51,10 @@ ENGAGEMENT_URLS = ([
     url(r'^videos/$', engagement.EngagementVideoCourse.as_view(), name='videos'),
     # ordering of the URLS is important for routing the the section, subsection, etc. correctly
     url(video_timeline_regex, engagement.EngagementVideoTimeline.as_view(), name='video_timeline'),
-    url(r'^videos/sections/{}/subsections/{}/$'.format(SECTION_ID_PATTERN, SUBSECTION_ID_PATTERN),
+    url(fr'^videos/sections/{SECTION_ID_PATTERN}/subsections/{SUBSECTION_ID_PATTERN}/$',
         engagement.EngagementVideoSubsection.as_view(),
         name='video_subsection'),
-    url(r'^videos/sections/{}/$'.format(SECTION_ID_PATTERN),
+    url(fr'^videos/sections/{SECTION_ID_PATTERN}/$',
         engagement.EngagementVideoSection.as_view(),
         name='video_section'),
 ], 'engagement')
@@ -63,10 +63,10 @@ PERFORMANCE_URLS = ([
     url(r'^ungraded_content/$', performance.PerformanceUngradedContent.as_view(), name='ungraded_content'),
     url(ungraded_answer_distribution_regex, performance.PerformanceUngradedAnswerDistribution.as_view(),
         name='ungraded_answer_distribution'),
-    url(r'^ungraded_content/sections/{}/subsections/{}/$'.format(SECTION_ID_PATTERN, SUBSECTION_ID_PATTERN),
+    url(fr'^ungraded_content/sections/{SECTION_ID_PATTERN}/subsections/{SUBSECTION_ID_PATTERN}/$',
         performance.PerformanceUngradedSubsection.as_view(),
         name='ungraded_subsection'),
-    url(r'^ungraded_content/sections/{}/$'.format(SECTION_ID_PATTERN),
+    url(fr'^ungraded_content/sections/{SECTION_ID_PATTERN}/$',
         performance.PerformanceUngradedSection.as_view(),
         name='ungraded_section'),
     url(r'^graded_content/$', performance.PerformanceGradedContent.as_view(), name='graded_content'),
@@ -77,16 +77,16 @@ PERFORMANCE_URLS = ([
 
     # This MUST come AFTER the answer distribution pattern; otherwise, the answer distribution pattern
     # will be interpreted as an assignment pattern.
-    url(r'^graded_content/assignments/{}/$'.format(ASSIGNMENT_ID_PATTERN),
+    url(fr'^graded_content/assignments/{ASSIGNMENT_ID_PATTERN}/$',
         performance.PerformanceAssignment.as_view(),
         name='assignment'),
     url(r'^learning_outcomes/$',
         performance.PerformanceLearningOutcomesContent.as_view(),
         name='learning_outcomes'),
-    url(r'^learning_outcomes/{}/$'.format(TAG_VALUE_ID_PATTERN),
+    url(fr'^learning_outcomes/{TAG_VALUE_ID_PATTERN}/$',
         performance.PerformanceLearningOutcomesSection.as_view(),
         name='learning_outcomes_section'),
-    url(r'^learning_outcomes/{}/problems/{}/$'.format(TAG_VALUE_ID_PATTERN, PROBLEM_ID_PATTERN),
+    url(fr'^learning_outcomes/{TAG_VALUE_ID_PATTERN}/problems/{PROBLEM_ID_PATTERN}/$',
         performance.PerformanceLearningOutcomesAnswersDistribution.as_view(),
         name='learning_outcomes_answers_distribution'),
     url(r'^learning_outcomes/{}/problems/{}/{}/$'.format(TAG_VALUE_ID_PATTERN, PROBLEM_ID_PATTERN,
@@ -110,7 +110,7 @@ CSV_URLS = ([
     url(r'^engagement/activity_trend/$',
         csv.CourseEngagementActivityTrendCSV.as_view(),
         name='engagement_activity_trend'),
-    url(r'^engagement/videos/{}/$'.format(PIPELINE_VIDEO_ID),
+    url(fr'^engagement/videos/{PIPELINE_VIDEO_ID}/$',
         csv.CourseEngagementVideoTimelineCSV.as_view(),
         name='engagement_video_timeline'),
     url(r'^performance/graded_content/problems/{}/answer_distribution/{}/$'.format(CONTENT_ID_PATTERN,
@@ -137,6 +137,6 @@ COURSE_URLS = [
 app_name = 'courses'
 urlpatterns = [
     url('^$', course_summaries.CourseIndex.as_view(), name='index'),
-    url(r'^{}/'.format(settings.COURSE_ID_PATTERN), include(COURSE_URLS)),
+    url(fr'^{settings.COURSE_ID_PATTERN}/', include(COURSE_URLS)),
     url(r'csv/course_list/$', course_summaries.CourseIndexCSV.as_view(), name='index_csv')
 ]

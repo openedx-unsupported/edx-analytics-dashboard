@@ -1,5 +1,3 @@
-
-
 import uuid
 from copy import deepcopy
 

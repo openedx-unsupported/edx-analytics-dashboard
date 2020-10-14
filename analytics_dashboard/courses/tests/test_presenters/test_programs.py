@@ -1,5 +1,3 @@
-
-
 import unittest.mock as mock
 from ddt import data, ddt, unpack
 from django.test import TestCase, override_settings
@@ -16,7 +14,7 @@ from analytics_dashboard.courses.tests.utils import (
 class ProgramsPresenterTests(TestCase):
     def setUp(self):
         self.maxDiff = None
-        super(ProgramsPresenterTests, self).setUp()
+        super().setUp()
 
     @property
     def mock_api_response(self):

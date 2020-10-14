@@ -1,5 +1,3 @@
-
-
 from django.core.management.base import BaseCommand
 
 from analytics_dashboard.core.utils import create_fake_soapbox_messages

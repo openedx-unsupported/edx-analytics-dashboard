@@ -1,4 +1,3 @@
-
 from functools import reduce  # pylint: disable=redefined-builtin
 
 from django.conf import settings

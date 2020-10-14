@@ -1,5 +1,3 @@
-
-
 import json
 
 import unittest.mock as mock
@@ -19,7 +17,7 @@ class CourseSummariesViewTests(ViewTestMixin, CoursePermissionsExceptionMixin, T
     viewname = 'courses:index'
 
     def setUp(self):
-        super(CourseSummariesViewTests, self).setUp()
+        super().setUp()
         self.grant_permission(self.user, CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
 
     def get_mock_data(self, course_ids):

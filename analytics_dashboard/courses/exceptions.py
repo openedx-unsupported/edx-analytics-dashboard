@@ -1,5 +1,3 @@
-
-
 import abc
 
 
@@ -20,7 +18,7 @@ class BaseCourseError(Exception, metaclass=abc.ABCMeta):
 
     def __init__(self, *args, **kwargs):
         self.course_id = kwargs.pop('course_id')
-        super(BaseCourseError, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.message = self.message_template.format(self.course_id)
 
     @property

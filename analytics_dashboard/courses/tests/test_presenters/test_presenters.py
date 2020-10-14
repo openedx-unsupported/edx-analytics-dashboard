@@ -1,5 +1,3 @@
-
-
 import copy
 import datetime
 
@@ -59,7 +57,7 @@ class BasePresenterTests(TestCase):
         self.assertEqual(self.presenter.parse_api_date('2014-01-01'), datetime.date(year=2014, month=1, day=1))
 
     def test_parse_api_datetime(self):
-        self.assertEqual(self.presenter.parse_api_datetime(u'2014-09-18T145957'),
+        self.assertEqual(self.presenter.parse_api_datetime('2014-09-18T145957'),
                          datetime.datetime(year=2014, month=9, day=18, hour=14, minute=59, second=57))
 
     def test_strip_time(self):
@@ -73,7 +71,7 @@ class BasePresenterTests(TestCase):
 class CourseEngagementActivityPresenterTests(TestCase):
 
     def setUp(self):
-        super(CourseEngagementActivityPresenterTests, self).setUp()
+        super().setUp()
         self.course_id = 'this/course/id'
         self.presenter = CourseEngagementActivityPresenter(self.course_id)
 
@@ -138,10 +136,10 @@ class CourseEngagementActivityPresenterTests(TestCase):
         del expected_summary['interval_end']
         del expected_summary['course_id']
         expected_summary.update({
-            'attempted_problem_percent_str': u"3.0% of current learners",
+            'attempted_problem_percent_str': "3.0% of current learners",
             'posted_forum_percent_str': "--",
-            'played_video_percent_str': u"10.0% of current learners",
-            'any_percent_str': u"< 1% of current learners",
+            'played_video_percent_str': "10.0% of current learners",
+            'any_percent_str': "< 1% of current learners",
         })
 
         if not include_forum_data:
@@ -158,10 +156,10 @@ class CourseEngagementActivityPresenterTests(TestCase):
     def get_expected_summary_long(self, include_forum_data):
         expected_summary = self.get_expected_summary(utils.mock_course_activity_week_ahead, include_forum_data)
         expected_summary.update({
-            'attempted_problem_percent_str': u"7.0% of current learners",
-            'posted_forum_percent_str': u"< 1% of current learners",
-            'played_video_percent_str': u"15.0% of current learners",
-            'any_percent_str': u"5.0% of current learners",
+            'attempted_problem_percent_str': "7.0% of current learners",
+            'posted_forum_percent_str': "< 1% of current learners",
+            'played_video_percent_str': "15.0% of current learners",
+            'any_percent_str': "5.0% of current learners",
         })
 
         if not include_forum_data:
@@ -219,7 +217,7 @@ class CourseEngagementVideoPresenterTests(TestCase):
     VIDEO_3 = VideoFixture()
 
     def setUp(self):
-        super(CourseEngagementVideoPresenterTests, self).setUp()
+        super().setUp()
         self.course_id = 'this/course/id'
         self.presenter = CourseEngagementVideoPresenter(settings.COURSE_API_KEY, self.course_id)
 
@@ -301,7 +299,7 @@ class CourseEngagementVideoPresenterTests(TestCase):
 
     def test_post_process_adding_data_to_blocks(self):
         def url_func(parent_block, child_block):
-            return '{}-{}'.format(parent_block, child_block)
+            return f'{parent_block}-{child_block}'
         user_data = {'users_at_start': 10}
         self.presenter.post_process_adding_data_to_blocks(user_data, 'parent', 'child', url_func)
         utils.assert_dict_contains_subset(user_data, {'url': 'parent-child'})
@@ -471,7 +469,7 @@ class CourseEngagementVideoPresenterTests(TestCase):
 
     def test_build_live_url(self):
         actual_view_live_url = self.presenter.build_view_live_url('a-url', self.VIDEO_ID)
-        self.assertEqual('a-url/{}/jump_to/{}'.format(self.course_id, self.VIDEO_ID), actual_view_live_url)
+        self.assertEqual(f'a-url/{self.course_id}/jump_to/{self.VIDEO_ID}', actual_view_live_url)
         self.assertEqual(None, self.presenter.build_view_live_url(None, self.VIDEO_ID))
 
     @data(
@@ -948,10 +946,10 @@ class CoursePerformancePresenterTests(TestCase):
                 for assignment_type in self.factory.presented_assignment_types:
                     cache.clear()
                     expected = [assignment for assignment in expected_assignments if
-                                assignment[u'assignment_type'] == assignment_type['name']]
+                                assignment['assignment_type'] == assignment_type['name']]
 
                     for index, assignment in enumerate(expected):
-                        assignment[u'index'] = index + 1
+                        assignment['index'] = index + 1
 
                     self.assertListEqual(self.presenter.assignments(assignment_type), expected)
 
@@ -965,7 +963,7 @@ class CoursePerformancePresenterTests(TestCase):
 
             # The method should return an individual assignment if the ID exists.
             assignment = self.factory.presented_assignments[0]
-            self.assertDictEqual(self.presenter.assignment(assignment[u'id']), assignment)
+            self.assertDictEqual(self.presenter.assignment(assignment['id']), assignment)
 
     def test_problem(self):
         """ Verify the presenter returns a specific problem. """

@@ -1,5 +1,4 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
 
 
 import json
@@ -43,7 +42,7 @@ class DashboardExtraTests(TestCase):
         self.assertTextCaptured('42')
 
     def test_captureas_unicode(self):
-        self.assertTextCaptured(u'★❤')
+        self.assertTextCaptured('★❤')
 
     def test_format_course_key(self):
         values = [('edX/DemoX/Demo_Course', 'edX/DemoX/Demo_Course'),
@@ -65,7 +64,7 @@ class DashboardExtraTests(TestCase):
 
     def test_unicode_slugify(self):
         self.assertEqual(dashboard_extras.unicode_slugify('hello world'), 'hello-world')
-        self.assertEqual(dashboard_extras.unicode_slugify(u'straße road'), u'strasse-road')
+        self.assertEqual(dashboard_extras.unicode_slugify('straße road'), 'strasse-road')
 
     def test_escape_json(self):
         data_as_dict = {'user_bio': '</script><script>alert("&hellip;"!)</script>'}

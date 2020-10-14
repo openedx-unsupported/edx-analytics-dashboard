@@ -1,5 +1,3 @@
-
-
 from django.contrib.auth.models import AnonymousUser
 from django.test import RequestFactory, TestCase
 from waffle.testutils import override_flag, override_switch

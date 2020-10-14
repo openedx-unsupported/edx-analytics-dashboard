@@ -1,5 +1,3 @@
-
-
 import json
 import logging
 
@@ -28,7 +26,7 @@ class LearnersViewTests(ViewTestMixin, TestCase):
     def _register_uris(self, learners_status, learners_payload, course_metadata_status, course_metadata_payload):
         httpretty.register_uri(
             httpretty.GET,
-            '{data_api_url}/learners/'.format(data_api_url=settings.DATA_API_URL),
+            f'{settings.DATA_API_URL}/learners/',
             body=json.dumps(learners_payload),
             status=learners_status
         )

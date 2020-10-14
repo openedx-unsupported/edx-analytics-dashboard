@@ -1,5 +1,3 @@
-
-
 import unittest.mock as mock
 import urllib
 from analyticsclient.exceptions import NotFoundError
@@ -39,8 +37,8 @@ class CourseCSVTestMixin(ViewTestMixin):
         self.assertResponseContentType(response, 'text/csv')
 
         # Check filename
-        csv_prefix = u'edX-DemoX-Demo_2014' if course_id == CourseSamples.DEMO_COURSE_ID else u'edX-DemoX-Demo_Course'
-        filename = '{0}--{1}.csv'.format(csv_prefix, self.base_file_name)
+        csv_prefix = 'edX-DemoX-Demo_2014' if course_id == CourseSamples.DEMO_COURSE_ID else 'edX-DemoX-Demo_Course'
+        filename = f'{csv_prefix}--{self.base_file_name}.csv'
         self.assertResponseFilename(response, filename)
 
         # Check data
@@ -50,7 +48,7 @@ class CourseCSVTestMixin(ViewTestMixin):
         self.assertEqual(response['Content-Type'], content_type)
 
     def assertResponseFilename(self, response, filename):
-        self.assertEqual(response['Content-Disposition'], 'attachment; filename="{0}"'.format(filename))
+        self.assertEqual(response['Content-Disposition'], f'attachment; filename="{filename}"')
 
     def _test_csv(self, course_id, csv_data):
         with mock.patch(self.api_method, return_value=csv_data):
@@ -209,12 +207,12 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
         summaries_api = self.summaries_patch.start()
         summaries_api.return_value = (self.get_mock_data([CourseSamples.DEMO_COURSE_ID,
                                                           CourseSamples.DEPRECATED_DEMO_COURSE_ID]), 'timestamp')
-        super(CourseIndexCSVTests, self).setUp()
+        super().setUp()
 
     def tearDown(self):
         self.programs_patch.stop()
         self.summaries_patch.stop()
-        super(CourseIndexCSVTests, self).tearDown()
+        super().tearDown()
 
     def path(self, **kwargs):
         # This endpoint does not include the course-id, so drop it (along with any other kwargs)
@@ -237,7 +235,7 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
 
         # Check filename
         csv_prefix = now.isoformat()
-        filename = '{0}--{1}.csv'.format(csv_prefix, self.base_file_name)
+        filename = f'{csv_prefix}--{self.base_file_name}.csv'
         self.assertResponseFilename(response, filename)
 
         # Check data
@@ -249,7 +247,7 @@ class CourseIndexCSVTests(ViewTestMixin, TestCase):
     def assertResponseFilename(self, response, filename):
         self.assertEqual(
             response['Content-Disposition'],
-            'attachment; filename="{0}"'.format(urllib.parse.quote(filename)),
+            'attachment; filename="{}"'.format(urllib.parse.quote(filename)),
         )
 
     def _test_csv(self, mocked_api_response, csv_data):

@@ -1,5 +1,3 @@
-
-
 import logging
 
 from django.template.response import TemplateResponse
@@ -20,7 +18,7 @@ class MiddlewareTestCase(TestCase):
     middleware_class = None
 
     def setUp(self):
-        super(MiddlewareTestCase, self).setUp()
+        super().setUp()
         self.factory = RequestFactory()
         self.middleware = self.middleware_class()   # pylint: disable=not-callable
 

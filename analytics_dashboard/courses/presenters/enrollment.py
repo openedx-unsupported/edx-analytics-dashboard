@@ -1,5 +1,3 @@
-
-
 import copy
 import datetime
 import logging

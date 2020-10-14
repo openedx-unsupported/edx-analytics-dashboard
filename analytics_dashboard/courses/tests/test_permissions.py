@@ -1,5 +1,3 @@
-
-
 import unittest.mock as mock
 import ddt
 from django.conf import settings
@@ -23,18 +21,18 @@ class PermissionsTests(TestCase):
 
     @classmethod
     def setUpClass(cls):
-        super(PermissionsTests, cls).setUpClass()
+        super().setUpClass()
         TieredCache.dangerous_clear_all_tiers()
         cache.clear()
 
     def setUp(self):
-        super(PermissionsTests, self).setUp()
+        super().setUp()
         self.user = G(User)
         self.course_id = 'edX/DemoX/Demo_Course'
         self.new_course_id = 'edX/DemoX/New_Demo_Course'
 
     def tearDown(self):
-        super(PermissionsTests, self).tearDown()
+        super().tearDown()
         TieredCache.dangerous_clear_all_tiers()
         cache.clear()
 
@@ -44,7 +42,7 @@ class PermissionsTests(TestCase):
         actual_tracking_id = permissions.get_user_tracking_id(self.user)
         self.assertEqual(actual_tracking_id, expected_tracking_id)
         # make sure tracking ID is cached
-        self.assertEqual(cache.get('user_tracking_id_{}'.format(self.user.id)), expected_tracking_id)
+        self.assertEqual(cache.get(f'user_tracking_id_{self.user.id}'), expected_tracking_id)
 
     def test_user_tracking_settings_with_no_user(self):
         tracking_id = permissions.get_user_tracking_id(self.user)
@@ -62,10 +60,10 @@ class PermissionsTests(TestCase):
         courses = []
 
         permissions.set_user_course_permissions(self.user, courses)
-        permissions_key = 'course_permissions_{}'.format(self.user.pk)
+        permissions_key = f'course_permissions_{self.user.pk}'
         self.assertListEqual(cache.get(permissions_key), courses)
 
-        update_key = 'course_permissions_updated_at_{}'.format(self.user.pk)
+        update_key = f'course_permissions_updated_at_{self.user.pk}'
         last_updated = cache.get(update_key)
         self.assertIsNotNone(last_updated)
 
@@ -167,8 +165,8 @@ class PermissionsTests(TestCase):
 
     def test_revoke_user_permissions(self):
         courses = [self.course_id]
-        permissions_key = 'course_permissions_{}'.format(self.user.pk)
-        update_key = 'course_permissions_updated_at_{}'.format(self.user.pk)
+        permissions_key = f'course_permissions_{self.user.pk}'
+        update_key = f'course_permissions_updated_at_{self.user.pk}'
 
         # Set permissions and verify cache is updated
         permissions.set_user_course_permissions(self.user, courses)

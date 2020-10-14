@@ -1,5 +1,3 @@
-
-
 from unittest.mock import Mock, patch
 import analyticsclient.constants.activity_types as AT
 import httpretty
@@ -25,7 +23,7 @@ class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):  # pylint: disa
     active_secondary_nav_label = None
 
     def setUp(self):
-        super(CourseEngagementViewTestMixin, self).setUp()
+        super().setUp()
         # This view combines the activity API with the enrollment API, so we need to mock both.
         patcher = patch('analyticsclient.course.Course.enrollment', return_value=utils.mock_course_enrollment())
         patcher.start()
@@ -91,7 +89,7 @@ class CourseEngagementContentViewTests(CourseViewTestMixin, CourseEngagementView
     active_secondary_nav_label = 'Content'
 
     def get_expected_secondary_nav(self, course_id):
-        expected = super(CourseEngagementContentViewTests, self).get_expected_secondary_nav(course_id)
+        expected = super().get_expected_secondary_nav(course_id)
         expected[1].update({
             'href': reverse('courses:engagement:videos', kwargs={'course_id': course_id}),
             'active': False
@@ -154,7 +152,7 @@ class CourseEngagementVideoMixin(CourseEngagementViewTestMixin, CourseStructureV
     sections = None
 
     def get_expected_secondary_nav(self, course_id):
-        expected = super(CourseEngagementVideoMixin, self).get_expected_secondary_nav(course_id)
+        expected = super().get_expected_secondary_nav(course_id)
         expected[0].update({
             'href': reverse('courses:engagement:content', kwargs={'course_id': course_id}),
             'active': False
@@ -166,7 +164,7 @@ class CourseEngagementVideoMixin(CourseEngagementViewTestMixin, CourseStructureV
         self._test_invalid_course(self.COURSE_BLOCKS_API_TEMPLATE)
 
     def setUp(self):
-        super(CourseEngagementVideoMixin, self).setUp()
+        super().setUp()
         self.factory = CourseEngagementDataFactory()
         self.sections = self.factory.presented_sections
         self._patch('analytics_dashboard.courses.presenters.engagement.CourseEngagementVideoPresenter.sections',
@@ -229,10 +227,10 @@ class EngagementVideoCourseSectionTest(CourseEngagementVideoMixin, TestCase):
         default_kwargs.update(kwargs)
         kwargs = default_kwargs
 
-        return super(EngagementVideoCourseSectionTest, self).path(**kwargs)
+        return super().path(**kwargs)
 
     def assertValidContext(self, context):
-        super(EngagementVideoCourseSectionTest, self).assertValidContext(context)
+        super().assertValidContext(context)
         self.assertEqual(self.sections[0], context['section'])
         self.assertListEqual(self.sections[0]['children'], context['subsections'])
 
@@ -261,10 +259,10 @@ class EngagementVideoCourseSubsectionTest(CourseEngagementVideoMixin, TestCase):
         default_kwargs.update(kwargs)
         kwargs = default_kwargs
 
-        return super(EngagementVideoCourseSubsectionTest, self).path(**kwargs)
+        return super().path(**kwargs)
 
     def assertValidContext(self, context):
-        super(EngagementVideoCourseSubsectionTest, self).assertValidContext(context)
+        super().assertValidContext(context)
         section = self.sections[0]
         self.assertEqual(section, context['section'])
         self.assertListEqual(section['children'], context['subsections'])
@@ -296,10 +294,10 @@ class EngagementVideoCourseTimelineTest(CourseEngagementVideoMixin, TestCase):
         }
         default_kwargs.update(kwargs)
         kwargs = default_kwargs
-        return super(EngagementVideoCourseTimelineTest, self).path(**kwargs)
+        return super().path(**kwargs)
 
     def assertValidContext(self, context):
-        super(EngagementVideoCourseTimelineTest, self).assertValidContext(context)
+        super().assertValidContext(context)
         section = self.sections[0]
         self.assertEqual(section, context['section'])
         self.assertListEqual(section['children'], context['subsections'])
