@@ -1,5 +1,3 @@
-
-
 import re
 
 from opaque_keys.edx.keys import UsageKey

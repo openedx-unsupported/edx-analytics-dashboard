@@ -1,5 +1,3 @@
-
-
 import logging
 
 from urllib.parse import urlencode
@@ -28,7 +26,7 @@ class LearnersView(CourseTemplateWithNavView):
     }
 
     def get_context_data(self, **kwargs):
-        context = super(LearnersView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['js_data']['course'].update({
             'learner_list_url': reverse('learner_analytics_api:v0:LearnerList'),
             'course_learner_metadata_url': reverse(

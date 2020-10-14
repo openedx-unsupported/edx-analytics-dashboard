@@ -1,5 +1,3 @@
-
-
 import json
 import logging
 
@@ -50,17 +48,17 @@ class UserTestCaseMixin:
         self.assertEqual(int(self.client.session['_auth_user_id']), user.pk)
 
     def setUp(self):
-        super(UserTestCaseMixin, self).setUp()
+        super().setUp()
         self.user = self.get_user()
 
 
 class RedirectTestCaseMixin:
     def assertRedirectsNoFollow(self, response, expected_url, status_code=302, **querystringkwargs):
         if querystringkwargs:
-            expected_url += '?{}'.format('&'.join('%s=%s' % (key, urlquote(value))
+            expected_url += '?{}'.format('&'.join('{}={}'.format(key, urlquote(value))
                                                   for (key, value) in querystringkwargs.items()))
 
-        self.assertEqual(response['Location'], '{}'.format(expected_url))
+        self.assertEqual(response['Location'], f'{expected_url}')
         self.assertEqual(response.status_code, status_code)
 
 
@@ -71,9 +69,9 @@ class ViewTests(TestCase):
         self.assertEqual(response.status_code, expected_status_code)
         self.assertEqual(response['content-type'], 'application/json')
         expected = {
-            u'overall_status': overall_status,
-            u'detailed_status': {
-                u'database_connection': database_connection,
+            'overall_status': overall_status,
+            'detailed_status': {
+                'database_connection': database_connection,
             }
         }
         self.assertDictEqual(json.loads(response.content.decode()), expected)
@@ -127,8 +125,8 @@ class LogoutViewTests(RedirectTestCaseMixin, UserTestCaseMixin, TestCase):
         user = self.user
         course_id = 'edX/DemoX/Demo_Course'
         courses = [course_id]
-        permissions_key = 'course_permissions_{}'.format(user.pk)
-        update_key = 'course_permissions_updated_at_{}'.format(user.pk)
+        permissions_key = f'course_permissions_{user.pk}'
+        update_key = f'course_permissions_updated_at_{user.pk}'
 
         # Set permissions and verify cache is updated
         set_user_course_permissions(user, courses)

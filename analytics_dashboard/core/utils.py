@@ -1,5 +1,3 @@
-
-
 from hashlib import md5
 
 from django.conf import settings
@@ -34,7 +32,7 @@ class CourseStructureApiClient(clients.CourseStructureApiClient):
     defaults the client timeout to `settings.LMS_DEFAULT_TIMEOUT`.
     """
     def __init__(self, url, access_token, timeout=settings.LMS_DEFAULT_TIMEOUT):
-        super(CourseStructureApiClient, self).__init__(url, access_token=access_token, timeout=timeout)
+        super().__init__(url, access_token=access_token, timeout=timeout)
 
 
 def feature_flagged(feature_flag):

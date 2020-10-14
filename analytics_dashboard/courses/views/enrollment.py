@@ -1,5 +1,3 @@
-
-
 import logging
 
 from analyticsclient.exceptions import NotFoundError
@@ -99,7 +97,7 @@ class EnrollmentDemographicsTemplateView(EnrollmentTemplateView):
 
     def format_percentage(self, value):
         if value is None:
-            formatted_percent = u'0'
+            formatted_percent = '0'
         else:
             formatted_percent = intcomma(round(value, 3) * 100)
 
@@ -122,7 +120,7 @@ class EnrollmentActivityView(EnrollmentTemplateView):
 
     # pylint: disable=line-too-long
     def get_context_data(self, **kwargs):
-        context = super(EnrollmentActivityView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
 
         presenter = CourseEnrollmentPresenter(self.course_id)
 
@@ -159,7 +157,7 @@ class EnrollmentDemographicsAgeView(EnrollmentDemographicsTemplateView):
     active_tertiary_nav_item = 'age'
 
     def get_context_data(self, **kwargs):
-        context = super(EnrollmentDemographicsAgeView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         presenter = CourseEnrollmentDemographicsPresenter(self.course_id)
         binned_ages = None
         summary = None
@@ -197,7 +195,7 @@ class EnrollmentDemographicsEducationView(EnrollmentDemographicsTemplateView):
     active_tertiary_nav_item = 'education'
 
     def get_context_data(self, **kwargs):
-        context = super(EnrollmentDemographicsEducationView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         presenter = CourseEnrollmentDemographicsPresenter(self.course_id)
         binned_education = None
         summary = None
@@ -235,7 +233,7 @@ class EnrollmentDemographicsGenderView(EnrollmentDemographicsTemplateView):
     active_tertiary_nav_item = 'gender'
 
     def get_context_data(self, **kwargs):
-        context = super(EnrollmentDemographicsGenderView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         presenter = CourseEnrollmentDemographicsPresenter(self.course_id)
         gender_data = None
         trend = None
@@ -276,7 +274,7 @@ class EnrollmentGeographyView(EnrollmentTemplateView):
     update_message = _('Geographic learner data was last updated %(update_date)s at %(update_time)s UTC.')
 
     def get_context_data(self, **kwargs):
-        context = super(EnrollmentGeographyView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
 
         presenter = CourseEnrollmentPresenter(self.course_id)
 

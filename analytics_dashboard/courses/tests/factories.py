@@ -1,5 +1,3 @@
-
-
 import hashlib
 import re
 import uuid
@@ -28,7 +26,7 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                 block = self._structure['blocks'][child]
 
                 _id = block['id']
-                part_id = '{}_1_2'.format(_id)
+                part_id = f'{_id}_1_2'
                 correct_percent = 1.0
                 if problem_index == 0:
                     correct_percent = 0.0
@@ -121,7 +119,7 @@ class CoursePerformanceDataFactory(CourseStructureFactory):
                     block = self._structure['blocks'][child]
 
                     _id = block['id']
-                    part_id = '{}_1_2'.format(_id)
+                    part_id = f'{_id}_1_2'
                     correct_percent = 1.0
                     url_template = '/courses/{}/performance/ungraded_content/sections/{}/subsections/' \
                                    '{}/problems/{}/parts/{}/answer_distribution/'
@@ -194,7 +192,7 @@ class CourseEngagementDataFactory(CourseStructureFactory):
 
     def _generate_subsection_children(self, assignment_type, display_name, video_index, graded):
         video = self._generate_block('video', assignment_type,
-                                     '{} Video {}'.format(display_name, video_index),
+                                     f'{display_name} Video {video_index}',
                                      graded)
         self._structure['blocks'][video['id']] = video
         return video
@@ -352,7 +350,7 @@ class TagsDistributionDataFactory(CourseStructureFactory):
         self._count_of_problems = len(tags_data_per_homework_assigment) + 1
         self.tags_data_per_homework_assigment = tags_data_per_homework_assigment
 
-        super(TagsDistributionDataFactory, self).__init__()
+        super().__init__()
         for policy in self.grading_policy:
             if policy['assignment_type'].startswith('Homework'):
                 self._count_of_homework_assignments = policy['count']
@@ -362,8 +360,8 @@ class TagsDistributionDataFactory(CourseStructureFactory):
     def _get_block_id(self, block_type, block_format=None, display_name=None, graded=True, children=None):
         if display_name:
             return hashlib.md5(display_name.encode('utf-8')).hexdigest()
-        return super(TagsDistributionDataFactory, self)._get_block_id(block_type, block_format, display_name,
-                                                                      graded, children)
+        return super()._get_block_id(block_type, block_format, display_name,
+                                     graded, children)
 
     def _generate_tags_structure(self):
         reg = re.compile(r'Homework (\d) Problem (\d)')
@@ -467,7 +465,7 @@ class TagsDistributionDataFactory(CourseStructureFactory):
             if av_tags:
                 for av_tag_key in av_tags:
                     if av_tag_key in tags and tags[av_tag_key]:
-                        data[av_tag_key] = u', '.join(tags[av_tag_key])
+                        data[av_tag_key] = ', '.join(tags[av_tag_key])
                     else:
                         data[av_tag_key] = None
             return data

@@ -1,5 +1,3 @@
-
-
 import json
 import logging
 import uuid
@@ -24,8 +22,8 @@ logger = logging.getLogger(__name__)
 User = get_user_model()
 
 # Health constants
-OK = u'OK'
-UNAVAILABLE = u'UNAVAILABLE'
+OK = 'OK'
+UNAVAILABLE = 'UNAVAILABLE'
 
 
 def status(_request):
@@ -96,7 +94,7 @@ class InsightsLogoutView(LogoutView):
         permissions.revoke_user_course_permissions(request.user)
 
         # Back to the standard logout flow
-        return super(InsightsLogoutView, self).dispatch(request, *args, **kwargs)
+        return super().dispatch(request, *args, **kwargs)
 
 
 def insights_logout_then_login(request, login_url=reverse_lazy('login')):
@@ -123,11 +121,11 @@ class LandingView(TemplateView):
     def dispatch(self, request, *args, **kwargs):
         """ Non logged in users will be directed to the landing page. """
         if request.user.is_anonymous:
-            return super(LandingView, self).dispatch(request, *args, **kwargs)
+            return super().dispatch(request, *args, **kwargs)
         return redirect('courses:index')
 
     def get_context_data(self, **kwargs):
-        context = super(LandingView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['research_url'] = settings.RESEARCH_URL
         context['open_source_url'] = settings.OPEN_SOURCE_URL
         context['show_research'] = settings.SHOW_LANDING_RESEARCH and settings.RESEARCH_URL

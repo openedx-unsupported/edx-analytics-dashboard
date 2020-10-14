@@ -1,5 +1,3 @@
-
-
 import logging
 
 from braces.views import LoginRequiredMixin
@@ -41,7 +39,7 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
     update_message = _('Course summary data was last updated %(update_date)s at %(update_time)s UTC.')
 
     def get_context_data(self, **kwargs):
-        context = super(CourseIndex, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         user = self.request.user
         courses = permissions.get_user_course_permissions(user)
         if not courses and not (user.is_superuser or user.is_staff):

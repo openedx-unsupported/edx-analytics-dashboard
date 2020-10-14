@@ -1,5 +1,3 @@
-
-
 import logging
 from collections import OrderedDict, namedtuple
 
@@ -44,7 +42,7 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, CoursePresenter):
     MIN_POLICY_DISPLAY_PERCENT = 5
 
     def __init__(self, access_token, course_id, timeout=settings.LMS_DEFAULT_TIMEOUT):
-        super(CoursePerformancePresenter, self).__init__(access_token, course_id, timeout)
+        super().__init__(access_token, course_id, timeout)
         self.grading_policy_client = CourseStructureApiClient(settings.GRADING_POLICY_API_URL, access_token)
 
     def course_module_data(self):
@@ -260,11 +258,11 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, CoursePresenter):
         """ Returns the assignments (and problems) for the represented course. """
 
         assignment_type_name = None if assignment_type is None else assignment_type['name']
-        assignment_type_key = self.get_cache_key(u'assignments_{}'.format(assignment_type_name))
+        assignment_type_key = self.get_cache_key(f'assignments_{assignment_type_name}')
         assignments = cache.get(assignment_type_key)
 
         if not assignments:
-            all_assignments_key = self.get_cache_key(u'assignments')
+            all_assignments_key = self.get_cache_key('assignments')
             assignments = cache.get(all_assignments_key)
 
             if not assignments:
@@ -373,11 +371,11 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, CoursePresenter):
 
     @property
     def section_type_template(self):
-        return u'ungraded_sections_{}_{}'
+        return 'ungraded_sections_{}_{}'
 
     @property
     def all_sections_key(self):
-        return u'ungraded_sections'
+        return 'ungraded_sections'
 
     @property
     def module_type(self):
@@ -404,11 +402,11 @@ class TagsDistributionPresenter(CourseAPIPresenterMixin, CoursePresenter):
 
     @property
     def section_type_template(self):
-        return u'tags_problem_sections_{}_{}'
+        return 'tags_problem_sections_{}_{}'
 
     @property
     def all_sections_key(self):
-        return u'tags_problem_sections'
+        return 'tags_problem_sections'
 
     @property
     def module_type(self):
@@ -419,7 +417,7 @@ class TagsDistributionPresenter(CourseAPIPresenterMixin, CoursePresenter):
         return None
 
     def get_cache_key(self, name):
-        return sanitize_cache_key(u'{}_{}'.format(self.course_id, name))
+        return sanitize_cache_key(f'{self.course_id}_{name}')
 
     def fetch_course_module_data(self):
         try:
@@ -571,7 +569,7 @@ class TagsDistributionPresenter(CourseAPIPresenterMixin, CoursePresenter):
             data = {}
             for av_tag_key in av_tags:
                 if av_tag_key in tags and tags[av_tag_key]:
-                    data[av_tag_key] = u', '.join(tags[av_tag_key])
+                    data[av_tag_key] = ', '.join(tags[av_tag_key])
                 else:
                     data[av_tag_key] = None
             return data
@@ -611,8 +609,8 @@ class TagsDistributionPresenter(CourseAPIPresenterMixin, CoursePresenter):
 
                 index += 1
                 intermediate[key]['index'] = index
-                intermediate[key]['name'] = u', '.join([second_parent['display_name'], first_parent['display_name'],
-                                                        val['display_name']])
+                intermediate[key]['name'] = ', '.join([second_parent['display_name'], first_parent['display_name'],
+                                                       val['display_name']])
                 result.append(intermediate[key])
 
         return result

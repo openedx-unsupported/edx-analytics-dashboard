@@ -1,5 +1,3 @@
-
-
 import datetime
 import logging
 import math
@@ -155,11 +153,11 @@ class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, CoursePresenter):
 
     @property
     def section_type_template(self):
-        return u'video_sections_{}_{}'
+        return 'video_sections_{}_{}'
 
     @property
     def all_sections_key(self):
-        return u'video_sections'
+        return 'video_sections'
 
     @property
     def module_type(self):

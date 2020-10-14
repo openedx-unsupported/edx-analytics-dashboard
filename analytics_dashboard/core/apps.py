@@ -1,5 +1,3 @@
-
-
 import re
 
 from django.apps import AppConfig
@@ -11,7 +9,7 @@ class AnalyticsDashboardConfig(AppConfig):
     verbose_name = 'Analytics Dashboard'
 
     def ready(self):
-        super(AnalyticsDashboardConfig, self).ready()
+        super().ready()
 
         self._compile_segment_ignore_email_regex()
 

@@ -1,5 +1,3 @@
-
-
 import logging
 
 from analyticsclient.exceptions import NotFoundError
@@ -69,7 +67,7 @@ class EngagementContentView(EngagementTemplateView):
     update_message = _('Course engagement data was last updated %(update_date)s at %(update_time)s UTC.')
 
     def get_context_data(self, **kwargs):
-        context = super(EngagementContentView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         self.presenter = CourseEngagementActivityPresenter(self.course_id)
 
         summary = None
@@ -102,7 +100,7 @@ class EngagementVideoContentTemplateView(CourseStructureMixin, CourseStructureEx
 
     def get_context_data(self, **kwargs):
         self.presenter = CourseEngagementVideoPresenter(self.access_token, self.course_id)
-        context = super(EngagementVideoContentTemplateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context.update({
             'sections': self.presenter.sections(),
             'update_message': self.get_last_updated_message(self.presenter.last_updated),
@@ -122,7 +120,7 @@ class EngagementVideoCourse(EngagementVideoContentTemplateView):
     }
 
     def get_context_data(self, **kwargs):
-        context = super(EngagementVideoCourse, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         self.set_primary_content(context, self.presenter.sections())
         context['js_data']['course']['contentTableHeading'] = _('Section Name')
         context.update({
@@ -141,7 +139,7 @@ class EngagementVideoSection(EngagementVideoContentTemplateView):
     }
 
     def get_context_data(self, **kwargs):
-        context = super(EngagementVideoSection, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         sub_sections = self.presenter.subsections(self.section_id)
         self.set_primary_content(context, sub_sections)
         context['js_data']['course']['contentTableHeading'] = _('Subsection Name')
@@ -161,7 +159,7 @@ class EngagementVideoSubsection(EngagementVideoContentTemplateView):
     }
 
     def get_context_data(self, **kwargs):
-        context = super(EngagementVideoSubsection, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         videos = self.presenter.subsection_children(self.section_id, self.subsection_id)
         self.set_primary_content(context, videos)
         context['js_data']['course'].update({
@@ -185,10 +183,10 @@ class EngagementVideoTimeline(EngagementVideoContentTemplateView):
 
     def dispatch(self, request, *args, **kwargs):
         self.video_id = kwargs.get('video_id', None)
-        return super(EngagementVideoTimeline, self).dispatch(request, *args, **kwargs)
+        return super().dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
-        context = super(EngagementVideoTimeline, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
 
         video_data_id = self.presenter.module_id_to_data_id({'id': self.video_id})
         video_module = self.presenter.subsection_child(self.section_id, self.subsection_id, video_data_id)

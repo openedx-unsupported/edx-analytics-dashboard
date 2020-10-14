@@ -1,5 +1,3 @@
-
-
 from django.core.cache import cache
 
 from analytics_dashboard.courses.presenters import BasePresenter

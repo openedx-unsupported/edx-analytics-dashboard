@@ -1,5 +1,3 @@
-
-
 import copy
 import logging
 
@@ -76,7 +74,7 @@ class PerformanceTemplateView(CourseStructureExceptionMixin, CourseTemplateWithN
                 })
                 translate_dict_values(self.secondary_nav_items, ('text',))
 
-        context_data = super(PerformanceTemplateView, self).get_context_data(**kwargs)
+        context_data = super().get_context_data(**kwargs)
         self.presenter = CoursePerformancePresenter(self.access_token, self.course_id)
 
         context_data['no_data_message'] = self.no_data_message
@@ -95,7 +93,7 @@ class PerformanceUngradedContentTemplateView(CourseStructureMixin, PerformanceTe
     no_data_message = _('No submissions received for these exercises.')
 
     def get_context_data(self, **kwargs):
-        context = super(PerformanceUngradedContentTemplateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context.update({
             'update_message': self.get_last_updated_message(self.presenter.last_updated)
         })
@@ -112,7 +110,7 @@ class PerformanceGradedContentTemplateView(PerformanceTemplateView):
 
     def dispatch(self, request, *args, **kwargs):
         self.assignment_id = kwargs.get('assignment_id')
-        return super(PerformanceGradedContentTemplateView, self).dispatch(request, *args, **kwargs)
+        return super().dispatch(request, *args, **kwargs)
 
     def _deslugify_assignment_type(self):
         """
@@ -126,7 +124,7 @@ class PerformanceGradedContentTemplateView(PerformanceTemplateView):
                 break
 
     def get_context_data(self, **kwargs):
-        context = super(PerformanceGradedContentTemplateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['assignment_types'] = self.presenter.assignment_types()
 
         if self.assignment_id:
@@ -165,10 +163,10 @@ class PerformanceAnswerDistributionMixin:
     def dispatch(self, request, *args, **kwargs):
         self.problem_id = kwargs.get('problem_id', None)
         self.part_id = kwargs.get('problem_part_id', None)
-        return super(PerformanceAnswerDistributionMixin, self).dispatch(request, *args, **kwargs)
+        return super().dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
-        context = super(PerformanceAnswerDistributionMixin, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
 
         answer_distribution_entry = self.presenter.get_answer_distribution(self.problem_id, self.part_id)
 
@@ -216,7 +214,7 @@ class PerformanceGradedContent(PerformanceGradedContentTemplateView):
     }
 
     def get_context_data(self, **kwargs):
-        context = super(PerformanceGradedContent, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         grading_policy = self.presenter.grading_policy()
 
         context.update({
@@ -240,10 +238,10 @@ class PerformanceGradedContentByType(PerformanceGradedContentTemplateView):
 
     def dispatch(self, request, *args, **kwargs):
         self.assignment_type = {'name': kwargs['assignment_type']}
-        return super(PerformanceGradedContentByType, self).dispatch(request, *args, **kwargs)
+        return super().dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
-        context = super(PerformanceGradedContentByType, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
 
         assignment_type = self.assignment_type
         assignments = self.presenter.assignments(assignment_type)
@@ -275,7 +273,7 @@ class PerformanceAssignment(PerformanceGradedContentTemplateView):
     }
 
     def get_context_data(self, **kwargs):
-        context = super(PerformanceAssignment, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
 
         context['js_data']['course'].update({
             'contentTableHeading': _('Problem Name'),
@@ -299,7 +297,7 @@ class PerformanceUngradedContent(PerformanceUngradedContentTemplateView):
     }
 
     def get_context_data(self, **kwargs):
-        context = super(PerformanceUngradedContent, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
 
         self.set_primary_content(context, self.presenter.sections())
         context['js_data']['course']['contentTableHeading'] = _('Section Name')
@@ -320,7 +318,7 @@ class PerformanceUngradedSection(PerformanceUngradedContentTemplateView):
     }
 
     def get_context_data(self, **kwargs):
-        context = super(PerformanceUngradedSection, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
 
         sub_sections = self.presenter.subsections(self.section_id)
         self.set_primary_content(context, sub_sections)
@@ -342,7 +340,7 @@ class PerformanceUngradedSubsection(PerformanceUngradedContentTemplateView):
     }
 
     def get_context_data(self, **kwargs):
-        context = super(PerformanceUngradedSubsection, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
 
         problems = self.presenter.subsection_children(self.section_id, self.subsection_id)
         self.set_primary_content(context, problems)
@@ -375,7 +373,7 @@ class PerformanceLearningOutcomesMixin(PerformanceTemplateView):
     no_data_message = _('No submissions received for these exercises.')
 
     def get_context_data(self, **kwargs):
-        context = super(PerformanceLearningOutcomesMixin, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
 
         self.selected_tag_value = kwargs.get('tag_value', None)
         self.tags_presenter = TagsDistributionPresenter(self.access_token, self.course_id)
@@ -403,7 +401,7 @@ class PerformanceLearningOutcomesContent(PerformanceLearningOutcomesMixin):
     page_title = _('Performance: Learning Outcomes')
 
     def get_context_data(self, **kwargs):
-        context = super(PerformanceLearningOutcomesContent, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
 
         tags_distribution = self.tags_presenter.get_tags_distribution('learning_outcome')
 
@@ -434,7 +432,7 @@ class PerformanceLearningOutcomesSection(PerformanceLearningOutcomesMixin):
     has_part_id_param = False
 
     def get_context_data(self, **kwargs):
-        context = super(PerformanceLearningOutcomesSection, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
 
         if self.has_part_id_param and self.part_id is None and self.problem_id:
             assignments = self.presenter.course_module_data()
@@ -472,7 +470,7 @@ class PerformanceLearningOutcomesAnswersDistribution(PerformanceAnswerDistributi
     has_part_id_param = True
 
     def get_context_data(self, **kwargs):
-        context = super(PerformanceLearningOutcomesAnswersDistribution, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
 
         second_level_selected_item = None
         for nav_item in context['js_data']['second_level_content_nav']:

@@ -1,5 +1,3 @@
-
-
 import abc
 import datetime
 import logging
@@ -51,7 +49,7 @@ class CoursePresenter(BasePresenter):
     for the presenters to use to access the data API.
     """
     def __init__(self, course_id, timeout=settings.ANALYTICS_API_DEFAULT_TIMEOUT):
-        super(CoursePresenter, self).__init__(timeout)
+        super().__init__(timeout)
         self.course_id = course_id
         self.course = self.client.courses(self.course_id)
 
@@ -65,7 +63,7 @@ class CourseAPIPresenterMixin(metaclass=abc.ABCMeta):
     _last_updated = None
 
     def __init__(self, access_token, course_id, timeout=settings.LMS_DEFAULT_TIMEOUT):
-        super(CourseAPIPresenterMixin, self).__init__(course_id, timeout)
+        super().__init__(course_id, timeout)
         self.course_api_client = CourseStructureApiClient(settings.COURSE_API_URL, access_token)
 
     def _get_structure(self):
@@ -107,7 +105,7 @@ class CourseAPIPresenterMixin(metaclass=abc.ABCMeta):
 
     def get_cache_key(self, name):
         """ Returns sanitized key for caching. """
-        return sanitize_cache_key(u'{}_{}'.format(self.course_id, name))
+        return sanitize_cache_key(f'{self.course_id}_{name}')
 
     def course_structure(self, section_id=None, subsection_id=None):
         """
@@ -206,7 +204,7 @@ class CourseAPIPresenterMixin(metaclass=abc.ABCMeta):
                     last_updated = max(last_updated, created)
 
             if last_updated is not datetime.datetime.min:
-                _key = self.get_cache_key('{}_last_updated'.format(self.module_type))
+                _key = self.get_cache_key(f'{self.module_type}_last_updated')
                 cache.set(_key, last_updated)
                 self._last_updated = last_updated
 
@@ -357,7 +355,7 @@ class CourseAPIPresenterMixin(metaclass=abc.ABCMeta):
     def last_updated(self):
         """ Returns when data was last updated according to the data api. """
         if not self._last_updated:
-            key = self.get_cache_key('{}_last_updated'.format(self.module_type))
+            key = self.get_cache_key(f'{self.module_type}_last_updated')
             self._last_updated = cache.get(key)
 
         return self._last_updated
@@ -366,7 +364,7 @@ class CourseAPIPresenterMixin(metaclass=abc.ABCMeta):
         """ Returns URL to view the module on the LMS. """
         view_live_url = None
         if base_url:
-            view_live_url = u'{0}/{1}/jump_to/{2}'.format(base_url, self.course_id, module_id)
+            view_live_url = f'{base_url}/{self.course_id}/jump_to/{module_id}'
         return view_live_url
 
     def build_render_xblock_url(self, base_url, module_id):

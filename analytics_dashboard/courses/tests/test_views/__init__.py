@@ -1,5 +1,3 @@
-
-
 import json
 import logging
 
@@ -64,7 +62,7 @@ class CourseAPIMixin:
         logger.debug('Mocking Course API URL: %s', url)
 
     def mock_course_detail(self, course_id, extra=None):
-        path = '{api}courses/{course_id}/'.format(api=settings.COURSE_API_URL, course_id=course_id)
+        path = f'{settings.COURSE_API_URL}courses/{course_id}/'
         body = {'id': course_id, 'name': mock_course_name(course_id)}
         if extra:
             body.update(extra)
@@ -73,7 +71,7 @@ class CourseAPIMixin:
 
 class PermissionsTestMixin:
     def tearDown(self):
-        super(PermissionsTestMixin, self).tearDown()
+        super().tearDown()
         cache.clear()
 
     def grant_permission(self, user, *courses):
@@ -97,7 +95,7 @@ class AuthTestMixin(MockApiTestMixin, PermissionsTestMixin, RedirectTestCaseMixi
     success_status = 200
 
     def setUp(self):
-        super(AuthTestMixin, self).setUp()
+        super().setUp()
         self.grant_permission(self.user, CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
         self.login()
 
@@ -284,7 +282,7 @@ class CourseEnrollmentDemographicsMixin(CourseEnrollmentViewTestMixin):
 
     def format_tip_percent(self, value):
         if value is None:
-            formatted_percent = u'0'
+            formatted_percent = '0'
         else:
             formatted_percent = intcomma(round(value, 3) * 100)
 
@@ -359,12 +357,12 @@ class PatchMixin:
         self.patches = []
 
     def setUp(self):
-        super(PatchMixin, self).setUp()
+        super().setUp()
         # Ensure patches from previous test failures are removed and de-referenced
         self.clear_patches()
 
     def tearDown(self):
-        super(PatchMixin, self).tearDown()
+        super().tearDown()
         self.clear_patches()
 
 

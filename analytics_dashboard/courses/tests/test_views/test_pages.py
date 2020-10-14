@@ -32,7 +32,7 @@ class CourseHomeViewTests(CourseViewTestMixin, TestCase):
         self.assertEqual(response.context['page_title'], 'Course Home')
         performance_item = next(
             g for g in response.context['table_items']
-            if str(g['name']) == u'Performance'
+            if str(g['name']) == 'Performance'
         )
         performance_views = [item['view'] for item in performance_item['items']]
         self.assertEqual('courses:csv:performance_problem_responses' in performance_views, expected)
@@ -54,9 +54,9 @@ class CourseHomeViewTests(CourseViewTestMixin, TestCase):
         links = {link['title']: link['url'] for link in response.context['external_course_tools']}
         self.assertEqual(len(links), 3)
         self.assertEqual(links.get('Instructor Dashboard'),
-                         'http://lms-host/{}/instructor'.format(CourseSamples.DEMO_COURSE_ID))
-        self.assertEqual(links.get('Courseware'), 'http://lms-host/{}/courseware'.format(CourseSamples.DEMO_COURSE_ID))
-        self.assertEqual(links.get('Studio'), 'http://cms-host/{}'.format(CourseSamples.DEMO_COURSE_ID))
+                         f'http://lms-host/{CourseSamples.DEMO_COURSE_ID}/instructor')
+        self.assertEqual(links.get('Courseware'), f'http://lms-host/{CourseSamples.DEMO_COURSE_ID}/courseware')
+        self.assertEqual(links.get('Studio'), f'http://cms-host/{CourseSamples.DEMO_COURSE_ID}')
 
     @httpretty.activate
     @override_switch('enable_course_api', active=True)

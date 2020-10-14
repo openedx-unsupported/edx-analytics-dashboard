@@ -68,10 +68,10 @@ class CourseAPIMixin:
             )[0]
             self.course_api = CourseStructureApiClient(settings.COURSE_API_URL, self.access_token)
 
-        return super(CourseAPIMixin, self).dispatch(request, *args, **kwargs)
+        return super().dispatch(request, *args, **kwargs)
 
     def _course_detail_cache_key(self, course_id):
-        return sanitize_cache_key(u'course_{}_details'.format(course_id))
+        return sanitize_cache_key(f'course_{course_id}_details')
 
     def get_course_info(self, course_id):
         """
@@ -98,7 +98,7 @@ class CourseAPIMixin:
 
     def get_courses(self):
         # Check the cache for the user's courses
-        key = sanitize_cache_key(u'user_{}_courses'.format(self.request.user.pk))
+        key = sanitize_cache_key(f'user_{self.request.user.pk}_courses')
         courses = cache.get(key)
 
         # If no cached courses, iterate over the data from the course API.
@@ -148,7 +148,7 @@ class TrackedViewMixin:
     }
 
     def get_context_data(self, **kwargs):
-        context = super(TrackedViewMixin, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         self.page_name['name'] = get_page_name(self.page_name)
         context['js_data'] = context.get('js_data', {})
         context['js_data'].update({
@@ -185,7 +185,7 @@ class CourseContextMixin(CourseAPIMixin, TrackedViewMixin, LazyEncoderMixin):
         return False
 
     def get_context_data(self, **kwargs):
-        context = super(CourseContextMixin, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context.update(self.get_default_data())
 
         user = self.request.user
@@ -233,7 +233,7 @@ class CourseValidMixin:
     def is_valid_course(self):
 
         if settings.LMS_COURSE_VALIDATION_BASE_URL:
-            uri = '{0}/{1}/info'.format(settings.LMS_COURSE_VALIDATION_BASE_URL, self.course_id)
+            uri = f'{settings.LMS_COURSE_VALIDATION_BASE_URL}/{self.course_id}/info'
 
             try:
                 response = requests.get(uri, timeout=settings.LMS_DEFAULT_TIMEOUT)
@@ -249,7 +249,7 @@ class CourseValidMixin:
 
     def dispatch(self, request, *args, **kwargs):
         if self.is_valid_course():
-            return super(CourseValidMixin, self).dispatch(request, *args, **kwargs)
+            return super().dispatch(request, *args, **kwargs)
 
         raise Http404
 
@@ -265,7 +265,7 @@ class CoursePermissionMixin:
         if settings.ENABLE_COURSE_PERMISSIONS and not self.can_view():
             raise PermissionDenied
 
-        return super(CoursePermissionMixin, self).dispatch(request, *args, **kwargs)
+        return super().dispatch(request, *args, **kwargs)
 
 
 class CourseNavBarMixin:
@@ -397,7 +397,7 @@ class CourseNavBarMixin:
         item.pop('switch', None)
 
     def get_context_data(self, **kwargs):
-        context = super(CourseNavBarMixin, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
 
         primary_nav_items = self.get_primary_nav_items(self.request)
         secondary_nav_items = self.get_secondary_nav_items(self.request)
@@ -441,7 +441,7 @@ class CourseView(LoginRequiredMixin, CourseValidMixin, CoursePermissionMixin, Te
         # some views will catch the NotFoundError to set data to a state that
         # the template can rendering a loading error message for the section
         try:
-            return super(CourseView, self).dispatch(request, *args, **kwargs)
+            return super().dispatch(request, *args, **kwargs)
         except NotFoundError as e:
             logger.error('The requested data from the Analytics Data API was not found: %s', e)
             raise Http404
@@ -450,7 +450,7 @@ class CourseView(LoginRequiredMixin, CourseValidMixin, CoursePermissionMixin, Te
             raise
 
     def get_context_data(self, **kwargs):
-        context = super(CourseView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         self.client = Client(base_url=settings.DATA_API_URL,
                              auth_token=settings.DATA_API_AUTH_TOKEN, timeout=settings.LMS_DEFAULT_TIMEOUT)
         self.course = self.client.courses(self.course_id)
@@ -690,7 +690,7 @@ class CourseHome(CourseTemplateWithNavView):
 
     # pylint: disable=redefined-variable-type
     def get_context_data(self, **kwargs):
-        context = super(CourseHome, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context.update({
             'table_items': self.get_table_items(self.request)
         })
@@ -737,19 +737,19 @@ class CourseHome(CourseTemplateWithNavView):
         if settings.LMS_COURSE_SHORTCUT_BASE_URL:
             external_tools.append({
                 'title': ugettext_noop('Instructor Dashboard'),
-                'url': "{}/{}/instructor".format(settings.LMS_COURSE_SHORTCUT_BASE_URL, self.course_id),
+                'url': f"{settings.LMS_COURSE_SHORTCUT_BASE_URL}/{self.course_id}/instructor",
                 'icon': 'fa-dashboard',
             })
             external_tools.append({
                 'title': ugettext_noop('Courseware'),
-                'url': "{}/{}/courseware".format(settings.LMS_COURSE_SHORTCUT_BASE_URL, self.course_id),
+                'url': f"{settings.LMS_COURSE_SHORTCUT_BASE_URL}/{self.course_id}/courseware",
                 'icon': 'fa-pencil-square-o',
             })
         if settings.CMS_COURSE_SHORTCUT_BASE_URL:
             external_tools.append({
                 'title': 'Studio',
                 'translated_title': 'Studio',  # As a brand name, "Studio" is not translated.
-                'url': "{}/{}".format(settings.CMS_COURSE_SHORTCUT_BASE_URL, self.course_id),
+                'url': f"{settings.CMS_COURSE_SHORTCUT_BASE_URL}/{self.course_id}",
                 'icon': 'fa-sliders',
             })
 
@@ -767,7 +767,7 @@ class CourseStructureExceptionMixin:
 
     def dispatch(self, request, *args, **kwargs):
         try:
-            return super(CourseStructureExceptionMixin, self).dispatch(request, *args, **kwargs)
+            return super().dispatch(request, *args, **kwargs)
         except SlumberBaseException as e:
             # Return the appropriate response if a 404 occurred.
             response = getattr(e, 'response')
@@ -798,10 +798,10 @@ class CourseStructureMixin:
     def dispatch(self, request, *args, **kwargs):
         self.section_id = kwargs.get('section_id', None)
         self.subsection_id = kwargs.get('subsection_id', None)
-        return super(CourseStructureMixin, self).dispatch(request, *args, **kwargs)
+        return super().dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
-        context = super(CourseStructureMixin, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context.update({
             'sections': self.presenter.sections(),
         })
