@@ -1,5 +1,3 @@
-
-
 from bok_choy.web_app_test import WebAppTest
 
 from acceptance_tests import (
@@ -21,11 +19,11 @@ _multiprocess_can_split_ = False
 
 class LandingTests(PageTestMixin, LoginMixin, LogoutMixin, FooterLegalMixin, WebAppTest):
     def setUp(self):
-        super(LandingTests, self).setUp()
+        super().setUp()
         self.page = LandingPage(self.browser)
 
     def test_page(self):
-        super(LandingTests, self).test_page()
+        super().test_page()
         # landing page will not be viewable by logged in users
         self.assertFalse(self.page.is_browser_on_page())
 
@@ -77,7 +75,7 @@ class LandingTests(PageTestMixin, LoginMixin, LogoutMixin, FooterLegalMixin, Web
         self.assertTrue(action_link_elements.present)
         self.assertEqual(len(action_link_elements), num_actions)
 
-        expected_links = [OPEN_SOURCE_URL, RESEARCH_URL, 'mailto:{}'.format(SUPPORT_EMAIL)]
+        expected_links = [OPEN_SOURCE_URL, RESEARCH_URL, f'mailto:{SUPPORT_EMAIL}']
         for i in range(num_actions):
             self.assertEqual(header_elements[i].text, expected_headers[i])
             self.assertEqual(action_link_elements.attrs('href')[i], expected_links[i])

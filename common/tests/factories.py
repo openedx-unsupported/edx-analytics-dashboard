@@ -1,5 +1,3 @@
-
-
 import copy
 import uuid
 
@@ -74,7 +72,7 @@ class CourseStructureFactory:
         """ Overwrite if you want other subsection types (e.g. videos) """
         problem = self._generate_block('problem',
                                        assignment_type,
-                                       '{} Problem {}'.format(display_name, problem_index),
+                                       f'{display_name} Problem {problem_index}',
                                        graded)
         self._structure['blocks'][problem['id']] = problem
         return problem
@@ -102,7 +100,7 @@ class CourseStructureFactory:
             assignment_type = gp['assignment_type']
 
             for assignment_index in range(1, count + 1):
-                display_name = '{} {}'.format(assignment_type, assignment_index)
+                display_name = f'{assignment_type} {assignment_index}'
                 graded_children = []
 
                 # Generate the graded children

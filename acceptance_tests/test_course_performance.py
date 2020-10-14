@@ -1,5 +1,3 @@
-
-
 import datetime
 from unittest import skipUnless
 
@@ -28,7 +26,7 @@ class CoursePerformancePageTestsMixin(CoursePageTestsMixin):
     table_selector = 'div[data-role="data-table"]'
 
     def test_page(self):
-        super(CoursePerformancePageTestsMixin, self).test_page()
+        super().test_page()
         self._test_chart()
         self._test_table()
 
@@ -83,7 +81,7 @@ class CoursePerformancePageTestsMixin(CoursePageTestsMixin):
 
     def _find_child_block(self, blocks, child_id):
         for block in blocks:
-            if block[u'id'] == child_id:
+            if block['id'] == child_id:
                 return block
         return None
 
@@ -145,7 +143,7 @@ class CoursePerformancePageTestsMixin(CoursePageTestsMixin):
 class CoursePerformanceAveragedTableMixin(CoursePerformancePageTestsMixin):
 
     def get_expected_row(self, index, block):
-        row = super(CoursePerformanceAveragedTableMixin, self).get_expected_row(index, block)
+        row = super().get_expected_row(index, block)
         num_modules_denominator = float(block.get('num_modules', 1))
         row += [
             str(self._format_number_or_hyphen(block.get('num_modules', 0))),
@@ -173,7 +171,7 @@ class CoursePerformanceAveragedTableMixin(CoursePerformancePageTestsMixin):
 class CoursePerformanceModuleTableMixin(CoursePerformancePageTestsMixin):
 
     def get_expected_row(self, index, block):
-        row = super(CoursePerformanceModuleTableMixin, self).get_expected_row(index, block)
+        row = super().get_expected_row(index, block)
         row += [
             str(self._format_number_or_hyphen(block['correct_submissions'])),
             str(self._format_number_or_hyphen(
@@ -205,12 +203,12 @@ class CoursePerformanceGradedContentTests(CoursePerformancePageTestsMixin, WebAp
 
         for item in policy:
             weight = item['weight']
-            item['weight_as_percentage'] = u'{:.0f}%'.format(weight * 100)
+            item['weight_as_percentage'] = '{:.0f}%'.format(weight * 100)
 
         return policy
 
     def setUp(self):
-        super(CoursePerformanceGradedContentTests, self).setUp()
+        super().setUp()
         self.page = CoursePerformanceGradedContentPage(self.browser)
         self.grading_policy = self._get_grading_policy()
 
@@ -226,7 +224,7 @@ class CoursePerformanceGradedContentTests(CoursePerformancePageTestsMixin, WebAp
 
             # Verify the URL to view the assignments is correct.
             actual = element.find_element_by_css_selector('a').get_attribute('href')
-            expected = u'{}{}/'.format(self.page.page_url, assignment_type)
+            expected = f'{self.page.page_url}{assignment_type}/'
             self.assertEqual(actual, expected)
 
             # Verify the displayed weight
@@ -254,7 +252,7 @@ class CoursePerformanceGradedContentByTypeTests(CoursePerformanceAveragedTableMi
     """
 
     def setUp(self):
-        super(CoursePerformanceGradedContentByTypeTests, self).setUp()
+        super().setUp()
         self.page = CoursePerformanceGradedContentByTypePage(self.browser)
         self.assignment_type = self.page.assignment_type
         self.course = self.analytics_api_client.courses(self.page.course_id)
@@ -262,9 +260,9 @@ class CoursePerformanceGradedContentByTypeTests(CoursePerformanceAveragedTableMi
 
     def _test_table(self):
         self.assertTableColumnHeadingsEqual(self.table_selector,
-                                            [u'Order', u'Assignment Name', u'Problems',
-                                             u'Average Correct', u'Average Incorrect',
-                                             u'Average Submissions Per Problem', u'Percentage Correct'])
+                                            ['Order', 'Assignment Name', 'Problems',
+                                             'Average Correct', 'Average Incorrect',
+                                             'Average Submissions Per Problem', 'Percentage Correct'])
         self.assertBlockRows(self.assignments)
 
 
@@ -277,13 +275,13 @@ class CoursePerformanceAssignmentTests(CoursePerformanceModuleTableMixin, WebApp
     def _get_assignment(self):
         assignments = self._get_assignments()
         for assignment in assignments:
-            if assignment[u'id'] == self.assignment_id:
+            if assignment['id'] == self.assignment_id:
                 return assignment
 
         raise AttributeError('Assignment not found!')
 
     def setUp(self):
-        super(CoursePerformanceAssignmentTests, self).setUp()
+        super().setUp()
         self.page = CoursePerformanceAssignmentPage(self.browser)
         self.assignment_id = self.page.assignment_id
         self.course = self.analytics_api_client.courses(self.page.course_id)
@@ -292,7 +290,7 @@ class CoursePerformanceAssignmentTests(CoursePerformanceModuleTableMixin, WebApp
     def _test_table(self):
         # Check the column headings
         self.assertTableColumnHeadingsEqual(self.table_selector, [
-            u'Order', u'Problem Name', u'Correct', u'Incorrect', u'Total', u'Percentage Correct'])
+            'Order', 'Problem Name', 'Correct', 'Incorrect', 'Total', 'Percentage Correct'])
         self.assertBlockRows(self.assignment['children'])
 
 
@@ -303,7 +301,7 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformancePageTestsMixin):
     answer_distribution = None
 
     def setUp(self):
-        super(CoursePerformanceAnswerDistributionMixin, self).setUp()
+        super().setUp()
         self.page = self.get_page()
         self.course = self.analytics_api_client.courses(self.page.course_id)
         self.module = self.analytics_api_client.modules(self.page.course_id, self.page.problem_id)
@@ -315,13 +313,13 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformancePageTestsMixin):
         raise NotImplementedError
 
     def test_page(self):
-        super(CoursePerformanceAnswerDistributionMixin, self).test_page()
+        super().test_page()
         self._test_heading_question()
         self._test_problem_description()
 
     def _test_heading_question(self):
         element = self.page.q(css='.section-heading')
-        self.assertEqual(element.text[0], u'How did learners answer this problem?')
+        self.assertEqual(element.text[0], 'How did learners answer this problem?')
 
     def _test_problem_description(self):
         section_selector = '.module-description'
@@ -353,7 +351,7 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformancePageTestsMixin):
         self.assertTable(table_section_selector, ['Answer', 'Correct', 'Submission Count'],
                          'a[data-role=performance-csv]')
 
-        rows = self.page.browser.find_elements_by_css_selector('{} tbody tr'.format(table_section_selector))
+        rows = self.page.browser.find_elements_by_css_selector(f'{table_section_selector} tbody tr')
 
         value_field = 'answer_value'
 
@@ -365,10 +363,10 @@ class CoursePerformanceAnswerDistributionMixin(CoursePerformancePageTestsMixin):
             for col in columns:
                 actual.append(col.text)
 
-            expected = [answer[value_field] if answer[value_field] else u'(empty)']
-            correct = u'-'
+            expected = [answer[value_field] if answer[value_field] else '(empty)']
+            correct = '-'
             if answer['correct']:
-                correct = u'Correct'
+                correct = 'Correct'
             expected.append(correct)
             expected.append(self.format_number(answer['last_response_count']))
 
@@ -394,16 +392,16 @@ class CoursePerformanceUngradedAnswerDistributionTests(CoursePerformanceAnswerDi
 class CoursePerformanceUngradedContentTests(CoursePerformanceAveragedTableMixin, WebAppTest):
 
     def setUp(self):
-        super(CoursePerformanceUngradedContentTests, self).setUp()
+        super().setUp()
         self.page = CoursePerformanceUngradedContentPage(self.browser)
         self.course = self.analytics_api_client.courses(self.page.course_id)
         self.sections = self._get_sections()
 
     def _test_table(self):
         self.assertTableColumnHeadingsEqual(self.table_selector,
-                                            [u'Order', u'Section Name', u'Problems', u'Average Correct',
-                                             u'Average Incorrect', u'Average Submissions Per Problem',
-                                             u'Percentage Correct'])
+                                            ['Order', 'Section Name', 'Problems', 'Average Correct',
+                                             'Average Incorrect', 'Average Submissions Per Problem',
+                                             'Percentage Correct'])
         self.assertBlockRows(self.sections)
 
 
@@ -411,16 +409,16 @@ class CoursePerformanceUngradedContentTests(CoursePerformanceAveragedTableMixin,
 class CoursePerformanceUngradedSectionTests(CoursePerformanceAveragedTableMixin, WebAppTest):
 
     def setUp(self):
-        super(CoursePerformanceUngradedSectionTests, self).setUp()
+        super().setUp()
         self.page = CoursePerformanceUngradedSectionPage(self.browser)
         self.course = self.analytics_api_client.courses(self.page.course_id)
         self.section = self._find_child_block(self._get_sections(), self.page.section_id)
 
     def _test_table(self):
         self.assertTableColumnHeadingsEqual(self.table_selector,
-                                            [u'Order', u'Subsection Name', u'Problems', u'Average Correct',
-                                             u'Average Incorrect', u'Average Submissions Per Problem',
-                                             u'Percentage Correct'])
+                                            ['Order', 'Subsection Name', 'Problems', 'Average Correct',
+                                             'Average Incorrect', 'Average Submissions Per Problem',
+                                             'Percentage Correct'])
         self.assertBlockRows(self.section['children'])
 
 
@@ -428,13 +426,13 @@ class CoursePerformanceUngradedSectionTests(CoursePerformanceAveragedTableMixin,
 class CoursePerformanceUngradedSubsectionTests(CoursePerformanceModuleTableMixin, WebAppTest):
 
     def setUp(self):
-        super(CoursePerformanceUngradedSubsectionTests, self).setUp()
+        super().setUp()
         self.page = CoursePerformanceUngradedSubsectionPage(self.browser)
         self.course = self.analytics_api_client.courses(self.page.course_id)
         subsections = self._find_child_block(self._get_sections(), self.page.section_id)['children']
         self.problems = self._find_child_block(subsections, self.page.subsection_id)['children']
 
     def _test_table(self):
-        self.assertTableColumnHeadingsEqual(self.table_selector, [u'Order', u'Problem Name', u'Correct',
-                                                                  u'Incorrect', u'Total', u'Percentage Correct'])
+        self.assertTableColumnHeadingsEqual(self.table_selector, ['Order', 'Problem Name', 'Correct',
+                                                                  'Incorrect', 'Total', 'Percentage Correct'])
         self.assertBlockRows(self.problems)

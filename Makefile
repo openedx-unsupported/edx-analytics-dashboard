@@ -3,7 +3,7 @@
 ROOT = $(shell echo "$$PWD")
 COVERAGE_DIR = $(ROOT)/build/coverage
 NODE_BIN=./node_modules/.bin
-PYTHON_ENV=py35
+PYTHON_ENV=py38
 DJANGO_VERSION=django22
 
 DJANGO_SETTINGS_MODULE ?= "analytics_dashboard.settings.local"
@@ -30,7 +30,7 @@ develop: requirements.js
 migrate: requirements.tox
 	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-migrate
 
-clean: requirements.tox 
+clean: requirements.tox
 	find . -name '*.pyc' -delete
 	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-clean
 
@@ -65,7 +65,7 @@ endif
 	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-create_acceptance_test_soapbox_messages
 	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-accept
 	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-delete_acceptance_test_soapbox_messages
-	
+
 
 # local acceptance tests are typically run with by passing in environment variables on the commandline
 # e.g. API_SERVER_URL="http://localhost:9001/api/v0" API_AUTH_TOKEN="edx" make accept_local

@@ -1,5 +1,3 @@
-
-
 from bok_choy.web_app_test import WebAppTest
 
 from acceptance_tests import ENABLE_COURSE_API
@@ -12,12 +10,12 @@ _multiprocess_can_split_ = True
 # pylint: disable=abstract-method
 class CourseHomeTests(CoursePageTestsMixin, WebAppTest):
     def setUp(self):
-        super(CourseHomeTests, self).setUp()
+        super().setUp()
         self.page = CourseHomePage(self.browser)
         self.course = self.analytics_api_client.courses(self.page.course_id)
 
     def test_page(self):
-        super(CourseHomeTests, self).test_page()
+        super().test_page()
         self._test_table()
 
     def _test_data_update_message(self):
@@ -29,7 +27,7 @@ class CourseHomeTests(CoursePageTestsMixin, WebAppTest):
         Generates a URL path from the specified view name.
         """
         return '/' + view.replace('_', '/') \
-            .replace('courses:', 'courses/{}/'.format(self.page.course_id)) \
+            .replace('courses:', f'courses/{self.page.course_id}/') \
             .replace(':', '/') + '/'
 
     def _test_table(self):
@@ -134,7 +132,7 @@ class CourseHomeTests(CoursePageTestsMixin, WebAppTest):
                 self.assertEqual(title.text, row['title'])
                 expected = self._view_to_href(row['view'])
                 actual = title.find_element_by_css_selector('a').get_attribute('href')
-                self.assertTrue(actual.endswith(expected), '{} should end with {}'.format(actual, expected))
+                self.assertTrue(actual.endswith(expected), f'{actual} should end with {expected}')
 
                 # Check the breadcrumbs
                 breadcrumbs = element.find_element_by_css_selector('.breadcrumbs')

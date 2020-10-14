@@ -1,7 +1,7 @@
 language:
   - python
 python:
-  - 3.5
+  - 3.8
 sudo: required
 services:
   - docker
@@ -51,14 +51,6 @@ matrix:
       after_success:
         - docker exec insights_testing /edx/app/insights/edx_analytics_dashboard/.travis/run_coverage.sh
         - codecov --disable pycov
-    - python: 3.8
-      env:
-        TESTNAME=a11y-python38
-        TARGETS="PYTHON_ENV=py38 requirements.a11y migrate requirements.js static accept a11y"
-    - python: 3.8
-      env:
-        TESTNAME=test-python-38
-        TARGETS="PYTHON_ENV=py38 requirements.js test_python"
 
 after_failure:
     # Print the list of running containers to rule out a killed container as a cause of failure

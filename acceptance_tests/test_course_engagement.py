@@ -1,5 +1,3 @@
-
-
 import datetime
 from unittest import skipUnless
 
@@ -30,7 +28,7 @@ class CourseEngagementPageTestsMixin(CoursePageTestsMixin):
     chart_selector = None
 
     def test_page(self):
-        super(CourseEngagementPageTestsMixin, self).test_page()
+        super().test_page()
         self._test_chart()
         self._test_table()
 
@@ -54,12 +52,12 @@ class CourseEngagementContentTests(CourseEngagementPageTestsMixin, WebAppTest):
         """
         Instantiate the page object.
         """
-        super(CourseEngagementContentTests, self).setUp()
+        super().setUp()
         self.page = CourseEngagementContentPage(self.browser)
         self.course = self.analytics_api_client.courses(self.page.course_id)
 
     def test_page(self):
-        super(CourseEngagementContentTests, self).test_page()
+        super().test_page()
         self._test_engagement_metrics()
 
     def _get_data_update_message(self):
@@ -76,13 +74,13 @@ class CourseEngagementContentTests(CourseEngagementPageTestsMixin, WebAppTest):
         # Verify the activity values
         activity_types = [at.ANY, at.ATTEMPTED_PROBLEM, at.PLAYED_VIDEO]
         expected_tooltips = {
-            at.ANY: u'Learners who visited at least one page in the course content.',
-            at.ATTEMPTED_PROBLEM: u'Learners who submitted an answer for a standard problem. '
-                                  u'Not all problem types are included.',
-            at.PLAYED_VIDEO: u'Learners who played one or more videos.'
+            at.ANY: 'Learners who visited at least one page in the course content.',
+            at.ATTEMPTED_PROBLEM: 'Learners who submitted an answer for a standard problem. '
+                                  'Not all problem types are included.',
+            at.PLAYED_VIDEO: 'Learners who played one or more videos.'
         }
         for activity_type in activity_types:
-            data_selector = 'data-activity-type={0}'.format(activity_type)
+            data_selector = f'data-activity-type={activity_type}'
             self.assertSummaryPointValueEquals(data_selector, self.format_number(recent_activity[activity_type]))
             self.assertSummaryTooltipEquals(data_selector, expected_tooltips[activity_type])
 
@@ -98,10 +96,10 @@ class CourseEngagementContentTests(CourseEngagementPageTestsMixin, WebAppTest):
 
         table_selector = 'div[data-role=engagement-table] table'
 
-        headings = [u'Week Ending', u'Active Learners', u'Watched a Video', u'Tried a Problem']
+        headings = ['Week Ending', 'Active Learners', 'Watched a Video', 'Tried a Problem']
         if ENABLE_FORUM_POSTS:
-            headings.append(u'Participated in Discussions')
-        headings.append(u'Percent of Current Learners')
+            headings.append('Participated in Discussions')
+        headings.append('Percent of Current Learners')
 
         self.assertTableColumnHeadingsEqual(table_selector, headings)
 
@@ -134,13 +132,13 @@ class CourseEngagementContentTests(CourseEngagementPageTestsMixin, WebAppTest):
 class CourseEngagementVideoMixin(CourseEngagementPageTestsMixin):
     help_path = 'engagement/Engagement_Video.html'
     chart_selector = '#chart-view'
-    expected_table_heading = u'Video Views'
+    expected_table_heading = 'Video Views'
     expected_heading = None
     expected_tooltip = None
     expected_table_columns = None
 
     def test_page(self):
-        super(CourseEngagementVideoMixin, self).test_page()
+        super().test_page()
         self._test_heading_question()
 
     def _get_data_update_message(self):
@@ -160,7 +158,7 @@ class CourseEngagementVideoMixin(CourseEngagementPageTestsMixin):
         self.assertTableColumnHeadingsEqual('div[data-role="data-table"]', self.expected_table_columns)
 
     def _test_chart(self):
-        super(CourseEngagementVideoMixin, self)._test_chart()
+        super()._test_chart()
         container_selector = '.analytics-chart-container'
         element = self.page.q(css=container_selector + ' i')
         self.assertEqual(element[0].get_attribute('data-original-title'), self.expected_tooltip)
@@ -172,63 +170,63 @@ class CourseEngagementVideoMixin(CourseEngagementPageTestsMixin):
 
 @skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test the video pages.')
 class CourseEngagementVideoContentTests(CourseEngagementVideoMixin, WebAppTest):
-    expected_heading = u'How did learners interact with course videos?'
-    expected_tooltip = u'Each bar shows the average number of complete and incomplete views for videos in that ' \
-                       u'section. Click on bars with low totals or a high incomplete rate to drill down and ' \
-                       u'understand why.'
-    expected_table_columns = [u'Order', u'Section Name', u'Videos', u'Average Complete Views',
-                              u'Average Incomplete Views', u'Completion Percentage']
+    expected_heading = 'How did learners interact with course videos?'
+    expected_tooltip = 'Each bar shows the average number of complete and incomplete views for videos in that ' \
+                       'section. Click on bars with low totals or a high incomplete rate to drill down and ' \
+                       'understand why.'
+    expected_table_columns = ['Order', 'Section Name', 'Videos', 'Average Complete Views',
+                              'Average Incomplete Views', 'Completion Percentage']
 
     def setUp(self):
-        super(CourseEngagementVideoContentTests, self).setUp()
+        super().setUp()
         self.page = CourseEngagementVideosContentPage(self.browser)
         self.course = self.analytics_api_client.courses(self.page.course_id)
 
 
 @skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test the video pages.')
 class CourseEngagementVideoSectionTests(CourseEngagementVideoMixin, WebAppTest):
-    expected_heading = u'How did learners interact with videos in this section?'
-    expected_tooltip = u'Each bar shows the average number of complete and incomplete views for videos in that ' \
-                       u'subsection. Click on bars with low totals or a high incomplete rate to drill down and ' \
-                       u'understand why.'
-    expected_table_columns = [u'Order', u'Subsection Name', u'Videos', u'Average Complete Views',
-                              u'Average Incomplete Views', u'Completion Percentage']
+    expected_heading = 'How did learners interact with videos in this section?'
+    expected_tooltip = 'Each bar shows the average number of complete and incomplete views for videos in that ' \
+                       'subsection. Click on bars with low totals or a high incomplete rate to drill down and ' \
+                       'understand why.'
+    expected_table_columns = ['Order', 'Subsection Name', 'Videos', 'Average Complete Views',
+                              'Average Incomplete Views', 'Completion Percentage']
 
     def setUp(self):
-        super(CourseEngagementVideoSectionTests, self).setUp()
+        super().setUp()
         self.page = CourseEngagementVideoSectionPage(self.browser)
         self.course = self.analytics_api_client.courses(self.page.course_id)
 
 
 @skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test the video pages.')
 class CourseEngagementVideoSubsectionTests(CourseEngagementVideoMixin, WebAppTest):
-    expected_heading = u'How did learners interact with videos in this subsection?'
-    expected_tooltip = u'Each bar shows the counts of complete and incomplete views for that video. ' \
-                       u'Click to understand where learners drop off and which parts they replay.'
-    expected_table_columns = [u'Order', u'Video Name', u'Complete Views', u'Incomplete Views',
-                              u'Completion Percentage']
+    expected_heading = 'How did learners interact with videos in this subsection?'
+    expected_tooltip = 'Each bar shows the counts of complete and incomplete views for that video. ' \
+                       'Click to understand where learners drop off and which parts they replay.'
+    expected_table_columns = ['Order', 'Video Name', 'Complete Views', 'Incomplete Views',
+                              'Completion Percentage']
 
     def setUp(self):
-        super(CourseEngagementVideoSubsectionTests, self).setUp()
+        super().setUp()
         self.page = CourseEngagementVideoSubsectionPage(self.browser)
         self.course = self.analytics_api_client.courses(self.page.course_id)
 
 
 @skipUnless(ENABLE_COURSE_API, 'Course API must be enabled to test the video pages.')
 class CourseEngagementVideoTimelineTests(CourseEngagementVideoMixin, WebAppTest):
-    expected_heading = u'What were the viewing patterns for this video?'
-    expected_tooltip = u'The number of learners who watched each segment of the video, and the ' \
-                       u'number of replays for each segment.'
-    expected_table_columns = [u'Time', u'Unique Viewers', u'Replays']
-    expected_table_heading = u'Total Video Views'
+    expected_heading = 'What were the viewing patterns for this video?'
+    expected_tooltip = 'The number of learners who watched each segment of the video, and the ' \
+                       'number of replays for each segment.'
+    expected_table_columns = ['Time', 'Unique Viewers', 'Replays']
+    expected_table_heading = 'Total Video Views'
 
     def setUp(self):
-        super(CourseEngagementVideoTimelineTests, self).setUp()
+        super().setUp()
         self.page = CourseEngagementVideoTimelinePage(self.browser)
         self.course = self.analytics_api_client.courses(self.page.course_id)
 
     def test_page(self):
-        super(CourseEngagementVideoTimelineTests, self).test_page()
+        super().test_page()
         self._test_metrics()
         if ENABLE_VIDEO_PREVIEW:
             self._test_video_preview()
@@ -272,6 +270,6 @@ class CourseEngagementVideoTimelineTests(CourseEngagementVideoMixin, WebAppTest)
         ]
 
         for expected in expected_metrics:
-            data_selector = 'data-type={0}'.format(expected['data_type'])
+            data_selector = 'data-type={}'.format(expected['data_type'])
             self.assertSummaryPointValueEquals(data_selector, expected['metric_value'])
             self.assertSummaryTooltipEquals(data_selector, expected['tooltip'])

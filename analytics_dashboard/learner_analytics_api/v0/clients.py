@@ -1,5 +1,3 @@
-
-
 import requests
 from django.conf import settings
 from slumber import API, Resource, exceptions, serialize
@@ -11,7 +9,7 @@ class TokenAuth(requests.auth.AuthBase):
         self.token = token
 
     def __call__(self, r):
-        r.headers['Authorization'] = 'Token {}'.format(self.token)
+        r.headers['Authorization'] = f'Token {self.token}'
         return r
 
 
@@ -40,7 +38,7 @@ class LearnerApiResource(Resource):
         # Doesn't hide 400s and 500s, however timeouts will still
         # raise a requests.exceptions.ConnectTimeout.
         try:
-            response = super(LearnerApiResource, self)._request(*args, **kwargs)
+            response = super()._request(*args, **kwargs)
         except exceptions.SlumberHttpBaseException as e:
             response = e.response
         return response
@@ -65,7 +63,7 @@ class LearnerAPIClient(API):
                 TextSerializer(),
             ]
         )
-        super(LearnerAPIClient, self).__init__(
+        super().__init__(
             settings.DATA_API_URL,
             session=session,
             auth=TokenAuth(settings.DATA_API_AUTH_TOKEN),

@@ -1,5 +1,3 @@
-
-
 import datetime
 import logging
 import traceback
@@ -50,11 +48,11 @@ class ReportGeneratorBase:
 
     def build_course_path(self, path):
         path = path.strip('/')
-        return '/courses/{}/{}/'.format(self.course_id, path)
+        return f'/courses/{self.course_id}/{path}/'
 
     def get_dashboard_url(self, path):
         path = path.strip('/')
-        return '{}/{}/'.format(DASHBOARD_SERVER_URL, path)
+        return f'{DASHBOARD_SERVER_URL}/{path}/'
 
     def generate_report(self):
         """
@@ -283,7 +281,7 @@ class CoursePerformanceScreenshotReporter(CoursePerformanceReportGenerator):
     REPORT_NAME = 'course_performance_screenshot'
 
     def __init__(self, course_id, http_cookies=None):
-        super(CoursePerformanceScreenshotReporter, self).__init__(course_id, http_cookies)
+        super().__init__(course_id, http_cookies)
         self.driver = webdriver.Firefox()
 
     def _take_screenshot(self, url_path):
@@ -310,9 +308,9 @@ class CoursePerformanceScreenshotReporter(CoursePerformanceReportGenerator):
             if BASIC_AUTH_CREDENTIALS:
                 username = BASIC_AUTH_CREDENTIALS[0]
                 password = BASIC_AUTH_CREDENTIALS[1]
-                url = url.replace('://', '://{}:{}@'.format(username, password))
+                url = url.replace('://', f'://{username}:{password}@')
 
-            self.driver.get('{}/login'.format(url))
+            self.driver.get(f'{url}/login')
             self.driver.find_element_by_id('login-email').send_keys(LMS_USERNAME)
             self.driver.find_element_by_id('login-password').send_keys(LMS_PASSWORD)
             self.driver.find_element_by_css_selector('button.login-button').click()

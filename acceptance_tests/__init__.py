@@ -1,5 +1,3 @@
-
-
 import locale
 import os
 
@@ -7,7 +5,7 @@ locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 
 
 def str2bool(s):
-    return str(s).lower() in (u"yes", u"true", u"t", u"1")
+    return str(s).lower() in ("yes", "true", "t", "1")
 
 
 # Dashboard settings
@@ -40,27 +38,27 @@ LMS_SSL_ENABLED = str2bool(os.environ.get('LMS_SSL_ENABLED', True))
 if ENABLE_OAUTH_TESTS and not (LMS_HOSTNAME and LMS_USERNAME and LMS_PASSWORD):
     raise Exception('LMS settings must be set in order to test OAuth.')
 
-TEST_COURSE_ID = os.environ.get('TEST_COURSE_ID', u'edX/DemoX/Demo_Course')
+TEST_COURSE_ID = os.environ.get('TEST_COURSE_ID', 'edX/DemoX/Demo_Course')
 TEST_ASSIGNMENT_TYPE = os.environ.get('TEST_ASSIGNMENT_TYPE', 'Homework')
-TEST_ASSIGNMENT_ID = os.environ.get('TEST_ASSIGNMENT_ID', u'i4x://edX/DemoX/sequential/basic_questions')
+TEST_ASSIGNMENT_ID = os.environ.get('TEST_ASSIGNMENT_ID', 'i4x://edX/DemoX/sequential/basic_questions')
 TEST_GRADED_PROBLEM_ID = os.environ.get('TEST_GRADED_PROBLEM_ID',
-                                        u'i4x://edX/DemoX/problem/a0effb954cca4759994f1ac9e9434bf4')
+                                        'i4x://edX/DemoX/problem/a0effb954cca4759994f1ac9e9434bf4')
 TEST_GRADED_PROBLEM_PART_ID = os.environ.get('TEST_GRADED_PROBLEM_PART_ID',
-                                             u'i4x-edX-DemoX-problem-a0effb954cca4759994f1ac9e9434bf4_2_1')
+                                             'i4x-edX-DemoX-problem-a0effb954cca4759994f1ac9e9434bf4_2_1')
 TEST_UNGRADED_SECTION_ID = os.environ.get('TEST_UNGRADED_SECTION_ID',
-                                          u'i4x://edX/DemoX/chapter/interactive_demonstrations')
+                                          'i4x://edX/DemoX/chapter/interactive_demonstrations')
 TEST_UNGRADED_SUBSECTION_ID = os.environ.get('TEST_UNGRADED_SUBSECTION_ID',
-                                             u'i4x://edX/DemoX/sequential/19a30717eff543078a5d94ae9d6c18a5')
+                                             'i4x://edX/DemoX/sequential/19a30717eff543078a5d94ae9d6c18a5')
 TEST_UNGRADED_PROBLEM_ID = os.environ.get('TEST_UNGRADED_PROBLEM_ID',
-                                          u'i4x://edX/DemoX/problem/303034da25524878a2e66fb57c91cf85')
+                                          'i4x://edX/DemoX/problem/303034da25524878a2e66fb57c91cf85')
 TEST_UNGRADED_PROBLEM_PART_ID = os.environ.get('TEST_UNGRADED_PROBLEM_PART_ID',
-                                               u'i4x-edX-DemoX-problem-303034da25524878a2e66fb57c91cf85_2_1')
+                                               'i4x-edX-DemoX-problem-303034da25524878a2e66fb57c91cf85_2_1')
 TEST_VIDEO_SECTION_ID = os.environ.get('TEST_VIDEO_SECTION_ID',
-                                       u'i4x://edX/DemoX/chapter/interactive_demonstrations')
+                                       'i4x://edX/DemoX/chapter/interactive_demonstrations')
 TEST_VIDEO_SUBSECTION_ID = os.environ.get('TEST_VIDEO_SUBSECTION_ID',
-                                          u'i4x://edX/DemoX/sequential/19a30717eff543078a5d94ae9d6c18a5')
+                                          'i4x://edX/DemoX/sequential/19a30717eff543078a5d94ae9d6c18a5')
 TEST_VIDEO_ID = os.environ.get('TEST_VIDEO_ID',
-                               u'i4x://edX/DemoX/video/7e9b434e6de3435ab99bd3fb25bde807')
+                               'i4x://edX/DemoX/video/7e9b434e6de3435ab99bd3fb25bde807')
 
 DOC_BASE_URL = os.environ.get('DOC_BASE_URL', 'http://edx-insights.readthedocs.org/en/latest')
 

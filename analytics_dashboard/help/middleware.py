@@ -1,5 +1,3 @@
-
-
 from django.utils.deprecation import MiddlewareMixin
 from rest_framework.response import Response
 

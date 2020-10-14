@@ -1,5 +1,3 @@
-
-
 import os
 
 from acceptance_tests import str2bool

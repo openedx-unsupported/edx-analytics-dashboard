@@ -1,5 +1,3 @@
-
-
 import requests
 from bok_choy.promise import EmptyPromise
 from bok_choy.web_app_test import WebAppTest
@@ -23,13 +21,13 @@ class CourseIndexTests(AnalyticsApiClientMixin, AnalyticsDashboardWebAppTestMixi
     test_skip_link_url = False
 
     def setUp(self):
-        super(CourseIndexTests, self).setUp()
+        super().setUp()
         self.page = CourseIndexPage(self.browser)
         self.maxDiff = None
         self.course_summaries = self.analytics_api_client.course_summaries()
 
     def test_page(self):
-        super(CourseIndexTests, self).test_page()
+        super().test_page()
         self._test_course_list()
         self._test_search()
         self._test_clear_input()
@@ -70,7 +68,7 @@ class CourseIndexTests(AnalyticsApiClientMixin, AnalyticsDashboardWebAppTestMixi
         course_links = self.page.q(css='.course-list .course-name-cell a').attrs('href')
 
         for link, course_id in zip(course_links, course_ids):
-            self.assertTrue(link.endswith(u'/courses/{}'.format(course_id.text)))
+            self.assertTrue(link.endswith(f'/courses/{course_id.text}'))
 
     def _test_search(self):
         """
@@ -297,7 +295,7 @@ class CourseIndexTests(AnalyticsApiClientMixin, AnalyticsDashboardWebAppTestMixi
 
         # Steal the cookies from the logged-in firefox browser and use them in a python-initiated request
         kwargs = dict()
-        session_id = [{i['name']: i['value']} for i in self.browser.get_cookies() if i['name'] == u'sessionid']
+        session_id = [{i['name']: i['value']} for i in self.browser.get_cookies() if i['name'] == 'sessionid']
         if session_id:
             kwargs.update({
                 'cookies': session_id[0]
@@ -320,14 +318,14 @@ class CourseIndexTests(AnalyticsApiClientMixin, AnalyticsDashboardWebAppTestMixi
         count_change_i_days = course_summaries[0]['count_change_%s_days' % i]
         verified_enrollment = course_summaries[0]['enrollment_modes']['verified']['count']
 
-        tooltip = u'Current enrollments across all of your courses.'
+        tooltip = 'Current enrollments across all of your courses.'
         self.assertMetricTileValid('current_enrollment', current_enrollment, tooltip)
 
-        tooltip = u'Total enrollments across all of your courses.'
+        tooltip = 'Total enrollments across all of your courses.'
         self.assertMetricTileValid('total_enrollment', total_enrollment, tooltip)
 
-        tooltip = u'Total change in enrollment last week across all of your courses.'
+        tooltip = 'Total change in enrollment last week across all of your courses.'
         self.assertMetricTileValid('enrollment_change_%s_days' % i, count_change_i_days, tooltip)
 
-        tooltip = u'Verified enrollments across all of your courses.'
+        tooltip = 'Verified enrollments across all of your courses.'
         self.assertMetricTileValid('verified_enrollment', verified_enrollment, tooltip)

@@ -1,5 +1,3 @@
-
-
 from unittest import skipUnless
 
 from bok_choy.web_app_test import WebAppTest
@@ -30,11 +28,11 @@ class ErrorPagesTests(WebAppTest):
             page.visit()
 
             # Check the title
-            expected = u'{0} | {1} {2}'.format(page.error_title, PLATFORM_NAME, APPLICATION_NAME)
+            expected = f'{page.error_title} | {PLATFORM_NAME} {APPLICATION_NAME}'
             self.assertEqual(expected, self.browser.title)
 
             # Check the support link
             element = page.q(css='a[data-role=support-email]')
             self.assertTrue(element.present)
             href = element.attrs('href')[0]
-            self.assertEqual(href, 'mailto:{}'.format(SUPPORT_EMAIL))
+            self.assertEqual(href, f'mailto:{SUPPORT_EMAIL}')

@@ -20,7 +20,6 @@ To execute this script run the following command from the parent directory of ac
 """
 
 import datetime
-import io
 import json
 import logging
 import time
@@ -64,7 +63,7 @@ def _setup_logging():
     msg_format = '%(asctime)s - %(levelname)s - %(message)s'
 
     logging.basicConfig(
-        filename='{}-course_report.log'.format(TIMESTAMP),
+        filename=f'{TIMESTAMP}-course_report.log',
         format=msg_format,
         level=level)
 
@@ -126,7 +125,7 @@ def login(http_client):
 
     if ENABLE_AUTO_AUTH:
         logger.info('Logging into dashboard with auto auth...')
-        response = http_client.get('{}/test/auto_auth/'.format(DASHBOARD_SERVER_URL))
+        response = http_client.get(f'{DASHBOARD_SERVER_URL}/test/auto_auth/')
 
         if response.status_code == 200:
             logger.info('Login succeeded.')
@@ -140,8 +139,8 @@ def login(http_client):
     if BASIC_AUTH_CREDENTIALS:
         http_client.auth = BASIC_AUTH_CREDENTIALS
 
-    lms_login = '{}/login'.format(LMS_URL)
-    lms_login_ajax = '{}/login_ajax'.format(LMS_URL)
+    lms_login = f'{LMS_URL}/login'
+    lms_login_ajax = f'{LMS_URL}/login_ajax'
 
     # Make a call to the login page to get cookies (esp. CSRF token)
     http_client.get(lms_login)
@@ -175,7 +174,7 @@ def get_courses():
     filename = 'courses.json'
 
     try:
-        with io.open(filename, 'r', encoding='utf-8') as f:
+        with open(filename, 'r', encoding='utf-8') as f:
             courses = json.load(f)
     except Exception as e:  # pylint: disable=broad-except
         logger.warning('Failed to read courses from file: %s', e)
@@ -188,7 +187,7 @@ def get_courses():
         courses = [course['id'] for course in courses]
         courses.sort(key=lambda course: course.lower())
 
-        with io.open(filename, 'w', encoding='utf-8') as f:
+        with open(filename, 'w', encoding='utf-8') as f:
             f.write(str(json.dumps(courses, ensure_ascii=False)))
 
     logger.info('Retrieved %s courses.', len(courses))
@@ -212,7 +211,7 @@ def main():
 
         # Create the mappings
         mappings_file = join(dirname(abspath(__file__)), 'mappings.json')
-        with io.open(mappings_file, 'r', encoding='utf-8') as f:
+        with open(mappings_file, 'r', encoding='utf-8') as f:
             mappings = json.load(f)
 
         for doc_type, body in mappings.items():
