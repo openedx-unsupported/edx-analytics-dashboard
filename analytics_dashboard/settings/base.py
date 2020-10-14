@@ -1,5 +1,3 @@
-
-
 import os
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
@@ -311,7 +309,7 @@ OPEN_SOURCE_URL = 'http://example.com/'
 ########## DOCUMENTATION LINKS -- These values should be overridden for production deployments.
 DOCUMENTATION_LOAD_ERROR_URL = 'http://127.0.0.1/en/latest/Reference.html#error-conditions'
 # evaluated again at the end of production setting after DOCUMENTATION_LOAD_ERROR_URL has been set
-DOCUMENTATION_LOAD_ERROR_MESSAGE = '<a href="{error_documentation_link}" target="_blank">Read more</a>.'.format(error_documentation_link=DOCUMENTATION_LOAD_ERROR_URL)
+DOCUMENTATION_LOAD_ERROR_MESSAGE = f'<a href="{DOCUMENTATION_LOAD_ERROR_URL}" target="_blank">Read more</a>.'
 ########## END DOCUMENTATION LINKS
 
 
@@ -386,7 +384,7 @@ ENABLE_COURSE_PERMISSIONS = True
 # The application and platform display names to be used in templates, emails, etc.
 PLATFORM_NAME = 'edx'
 APPLICATION_NAME = 'Insights'
-FULL_APPLICATION_NAME = '{0} {1}'.format(PLATFORM_NAME, APPLICATION_NAME)
+FULL_APPLICATION_NAME = f'{PLATFORM_NAME} {APPLICATION_NAME}'
 
 
 ########## DOCS/HELP CONFIGURATION

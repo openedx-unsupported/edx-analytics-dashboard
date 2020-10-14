@@ -1,5 +1,3 @@
-
-
 from unittest import TestCase
 
 import requests
@@ -8,10 +6,10 @@ from acceptance_tests import DASHBOARD_SERVER_URL
 
 
 class StatusTests(TestCase):
-    POSITIVE_STATUS = u'OK'
+    POSITIVE_STATUS = 'OK'
 
     def test_health(self):
-        response = requests.get('{}/health'.format(DASHBOARD_SERVER_URL))
+        response = requests.get(f'{DASHBOARD_SERVER_URL}/health')
 
         self.assertEqual(response.status_code, 200)
 
@@ -24,6 +22,6 @@ class StatusTests(TestCase):
         self.assertDictEqual(response.json(), expected_status)
 
     def test_status(self):
-        response = requests.get('{}/status'.format(DASHBOARD_SERVER_URL))
+        response = requests.get(f'{DASHBOARD_SERVER_URL}/status')
 
         self.assertEqual(response.status_code, 200)

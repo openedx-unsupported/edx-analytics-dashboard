@@ -1,5 +1,3 @@
-
-
 import datetime
 
 from analyticsclient.constants import demographics
@@ -24,7 +22,7 @@ class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, Web
     table_columns = ['Age', 'Number of Learners', 'Percent of Total']
 
     def setUp(self):
-        super(CourseEnrollmentDemographicsAgeTests, self).setUp()
+        super().setUp()
         self.page = CourseEnrollmentDemographicsAgePage(self.browser)
         self.course = self.analytics_api_client.courses(self.page.course_id)
 
@@ -35,7 +33,7 @@ class CourseEnrollmentDemographicsAgeTests(CourseDemographicsPageTestsMixin, Web
         self.demographic_data_without_none = [datum for datum in self.demographic_data if datum['birth_year']]
 
     def test_page(self):
-        super(CourseEnrollmentDemographicsAgeTests, self).test_page()
+        super().test_page()
         self._test_metrics()
 
     def _calculate_median_age(self, current_year):
@@ -121,7 +119,7 @@ class CourseEnrollmentDemographicsGenderTests(CourseDemographicsPageTestsMixin, 
     table_columns = ['Date', 'Current Enrollment', 'Female', 'Male', 'Other', 'Not Reported']
 
     def setUp(self):
-        super(CourseEnrollmentDemographicsGenderTests, self).setUp()
+        super().setUp()
         self.page = CourseEnrollmentDemographicsGenderPage(self.browser)
         self.course = self.analytics_api_client.courses(self.page.course_id)
 
@@ -171,14 +169,14 @@ class CourseEnrollmentDemographicsEducationTests(CourseDemographicsPageTestsMixi
     table_columns = ['Educational Background', 'Number of Learners']
 
     def setUp(self):
-        super(CourseEnrollmentDemographicsEducationTests, self).setUp()
+        super().setUp()
         self.page = CourseEnrollmentDemographicsEducationPage(self.browser)
         self.course = self.analytics_api_client.courses(self.page.course_id)
         self.demographic_data = sorted(self.course.enrollment(self.demographic_type),
                                        key=lambda item: item['count'], reverse=True)
 
     def test_page(self):
-        super(CourseEnrollmentDemographicsEducationTests, self).test_page()
+        super().test_page()
         self._test_metrics()
 
     def _test_metrics(self):

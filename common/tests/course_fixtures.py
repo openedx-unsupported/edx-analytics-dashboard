@@ -1,4 +1,3 @@
-
 import uuid
 
 
@@ -79,7 +78,7 @@ class CourseStructureAPIFixtureMixin:
 class CourseFixture(CourseStructureAPIFixtureMixin):
     """Represents a course as returned by the Course Structure API."""
     def __init__(self, *args, **kwargs):
-        super(CourseFixture, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self._type = 'course'
         self.org = kwargs.get('org', 'test_org')
         self.course = kwargs.get('course', 'test_course')
@@ -101,7 +100,7 @@ class ChapterFixture(CourseStructureAPIFixtureMixin):
     """Represents a chapter as returned by the Course Structure API."""
 
     def __init__(self, *args, **kwargs):
-        super(ChapterFixture, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self._type = 'chapter'
 
 
@@ -109,7 +108,7 @@ class SequentialFixture(CourseStructureAPIFixtureMixin):
     """Represents a sequential as returned by the Course Structure API."""
 
     def __init__(self, *args, **kwargs):
-        super(SequentialFixture, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.graded = kwargs.get('graded', False)
         self._assignment_type = kwargs.get('assignment_type')
         self._type = 'sequential'
@@ -119,7 +118,7 @@ class VerticalFixture(CourseStructureAPIFixtureMixin):
     """Represents a vertical as returned by the Course Structure API."""
 
     def __init__(self, *args, **kwargs):
-        super(VerticalFixture, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self._type = 'vertical'
 
 
@@ -127,5 +126,5 @@ class VideoFixture(CourseStructureAPIFixtureMixin):
     """Represents a video as returned by the Course Structure API."""
 
     def __init__(self, *args, **kwargs):
-        super(VideoFixture, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self._type = 'video'

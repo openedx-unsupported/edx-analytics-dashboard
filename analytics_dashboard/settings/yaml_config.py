@@ -1,5 +1,3 @@
-
-
 from os import environ
 
 import yaml

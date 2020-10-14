@@ -1,5 +1,3 @@
-
-
 from unittest import TestCase
 
 from common.course_structure import CourseStructure

@@ -1,5 +1,3 @@
-from __future__ import absolute_import
-
 from acceptance_tests.mixins import AnalyticsApiClientMixin, LoginMixin
 
 
@@ -10,6 +8,6 @@ class CoursePageTestsMixin(LoginMixin, AnalyticsApiClientMixin):
     page = None
 
     def setUp(self):
-        super(CoursePageTestsMixin, self).setUp()
+        super().setUp()
         self.api_date_format = self.analytics_api_client.DATE_FORMAT
         self.api_datetime_format = self.analytics_api_client.DATETIME_FORMAT

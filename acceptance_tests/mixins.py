@@ -1,5 +1,3 @@
-
-
 import datetime
 import locale
 from unittest import skip
@@ -36,7 +34,7 @@ class AnalyticsApiClientMixin:
     analytics_api_client = None
 
     def setUp(self):
-        super(AnalyticsApiClientMixin, self).setUp()
+        super().setUp()
 
         api_url = API_SERVER_URL
         auth_token = API_AUTH_TOKEN
@@ -47,7 +45,7 @@ class CourseApiMixin:
     course_api_client = None
 
     def setUp(self):
-        super(CourseApiMixin, self).setUp()
+        super().setUp()
 
         if ENABLE_COURSE_API:
             self.course_api_client = CourseStructureApiClient(COURSE_API_URL, COURSE_API_KEY, 5)
@@ -120,7 +118,7 @@ class AssertMixin:
         # check the headings
         self.assertTableColumnHeadingsEqual(table_selector, columns)
 
-        rows = self.page.browser.find_elements_by_css_selector('{} tbody tr'.format(table_selector))
+        rows = self.page.browser.find_elements_by_css_selector(f'{table_selector} tbody tr')
         self.assertGreater(len(rows), 0)
 
         if download_selector is not None:
@@ -150,30 +148,30 @@ class FooterMixin(AssertMixin):
         self.assertTrue(element.present)
 
     def test_page(self):
-        super(FooterMixin, self).test_page()
+        super().test_page()
         self._test_footer()
 
 
 class FooterLegalMixin(FooterMixin):
     def _test_footer(self):
-        super(FooterLegalMixin, self)._test_footer()
+        super()._test_footer()
 
         # Verify the terms of service link is present
         selector = self.footer_selector + " a[data-role=tos]"
         element = self.page.q(css=selector)
         self.assertTrue(element.present)
-        self.assertEqual(element.text[0], u'Terms of Service')
+        self.assertEqual(element.text[0], 'Terms of Service')
 
         # Verify the privacy policy link is present
         selector = self.footer_selector + " a[data-role=privacy-policy]"
         element = self.page.q(css=selector)
         self.assertTrue(element.present)
-        self.assertEqual(element.text[0], u'Privacy Policy')
+        self.assertEqual(element.text[0], 'Privacy Policy')
 
 
 class FooterFeedbackMixin(FooterMixin):
     def _test_footer(self):
-        super(FooterFeedbackMixin, self)._test_footer()
+        super()._test_footer()
         # check that we have an email
         self.assertValidFeedbackLink(self.footer_selector + " a[class=feedback-email]")
 
@@ -238,7 +236,7 @@ class PrimaryNavMixin(CourseApiMixin):
 
 class LoginMixin:
     def setUp(self):
-        super(LoginMixin, self).setUp()
+        super().setUp()
         self.lms_login_page = LMSLoginPage(self.browser)
 
     def login(self):
@@ -248,7 +246,7 @@ class LoginMixin:
             self.login_with_lms()
 
     def login_with_auto_auth(self):
-        url = '{}/test/auto_auth/'.format(DASHBOARD_SERVER_URL)
+        url = f'{DASHBOARD_SERVER_URL}/test/auto_auth/'
         self.browser.get(url)
 
     def login_with_lms(self):
@@ -261,7 +259,7 @@ class LoginMixin:
 
 class LogoutMixin:
     def logout(self):
-        url = '{}/logout/'.format(DASHBOARD_SERVER_URL)
+        url = f'{DASHBOARD_SERVER_URL}/logout/'
         self.browser.get(url)
 
 
@@ -270,7 +268,7 @@ class ContextSensitiveHelpMixin:
 
     @property
     def help_url(self):
-        return '{0}/{1}'.format(DOC_BASE_URL, self.help_path)
+        return f'{DOC_BASE_URL}/{self.help_path}'
 
     def test_page(self):
         # Validate the help link
@@ -292,7 +290,7 @@ class SoapboxMessagesMixin:
             self.assertTrue(SOAPBOX_SINGLE_PAGE_MESSAGE in element.text)
 
     def test_page(self):
-        super(SoapboxMessagesMixin, self).test_page()
+        super().test_page()
         self._test_soapbox_messages()
 
 
@@ -330,7 +328,7 @@ class AnalyticsDashboardWebAppTestMixin(FooterMixin, PrimaryNavMixin, ContextSen
         if len(value) > MAX_SUMMARY_POINT_VALUE_LENGTH:
             value = value[:(MAX_SUMMARY_POINT_VALUE_LENGTH - 1)] + '…'
 
-        element = self.page.q(css="div[{0}] .summary-point-number".format(data_selector))
+        element = self.page.q(css=f"div[{data_selector}] .summary-point-number")
         self.assertTrue(element.present)
         self.assertEqual(element.text[0], value)
 
@@ -342,7 +340,7 @@ class AnalyticsDashboardWebAppTestMixin(FooterMixin, PrimaryNavMixin, ContextSen
             data_selector (String): Attribute selector (ex. data-stat-type=current_enrollment)
             tip_text (String): expected text
         """
-        help_selector = "div[{0}] .summary-point-help".format(data_selector)
+        help_selector = f"div[{data_selector}] .summary-point-help"
         element = self.page.q(css=help_selector)
         self.assertTrue(element.present)
 
@@ -371,7 +369,7 @@ class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterLegalMixin, FooterFeed
     page = None
 
     def setUp(self):
-        super(CoursePageTestsMixin, self).setUp()
+        super().setUp()
         self.api_date_format = self.analytics_api_client.DATE_FORMAT
         self.api_datetime_format = self.analytics_api_client.DATETIME_FORMAT
 
@@ -391,7 +389,7 @@ class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterLegalMixin, FooterFeed
     def build_display_percentage(self, count, total, zero_percent_default='0.0%'):
         if total and count:
             percent = count / float(total) * 100.0
-            return '{:.1f}%'.format(percent) if percent >= 1.0 else '< 1%'
+            return f'{percent:.1f}%' if percent >= 1.0 else '< 1%'
         return zero_percent_default
 
     def _get_data_update_message(self):
@@ -415,7 +413,7 @@ class CoursePageTestsMixin(AnalyticsApiClientMixin, FooterLegalMixin, FooterFeed
         pass, execution of this parent method will leave the browser on the page being tested.
         :return:
         """
-        super(CoursePageTestsMixin, self).test_page()
+        super().test_page()
         self._test_data_update_message()
         self._test_course_home_nav()
 
@@ -430,7 +428,7 @@ class CourseDemographicsPageTestsMixin(CoursePageTestsMixin):
     demographic_data = None
 
     def test_page(self):
-        super(CourseDemographicsPageTestsMixin, self).test_page()
+        super().test_page()
         self._test_data_information_message()
         self._test_chart()
         self._test_table()
@@ -443,7 +441,7 @@ class CourseDemographicsPageTestsMixin(CoursePageTestsMixin):
     def _test_table(self):
         self.assertTable(self.table_section_selector, self.table_columns, self.table_download_selector)
 
-        rows = self.page.browser.find_elements_by_css_selector('{} tbody tr'.format(self.table_section_selector))
+        rows = self.page.browser.find_elements_by_css_selector(f'{self.table_section_selector} tbody tr')
         self.assertGreater(len(rows), 0)
         sum_count = 0.0
         if self.demographic_data and 'count' in self.demographic_data[0]:

@@ -1,5 +1,3 @@
-
-
 import datetime
 from collections import OrderedDict
 
@@ -23,7 +21,7 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
     help_path = 'enrollment/Enrollment_Activity.html'
 
     def setUp(self):
-        super(CourseEnrollmentActivityTests, self).setUp()
+        super().setUp()
         self.page = CourseEnrollmentActivityPage(self.browser)
         self.course = self.analytics_api_client.courses(self.page.course_id)
 
@@ -36,7 +34,7 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         return self.course.enrollment('mode', start_date=None, end_date=end_date_string)
 
     def test_page(self):
-        super(CourseEnrollmentActivityTests, self).test_page()
+        super().test_page()
         self._test_enrollment_metrics_and_graph()
         self._test_enrollment_trend_table()
 
@@ -68,13 +66,13 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         enrollment = enrollment_data[-1]['count']
 
         # Verify the current enrollment metric tile.
-        tooltip = u'Learners currently enrolled in the course.'
+        tooltip = 'Learners currently enrolled in the course.'
         self.assertMetricTileValid('current_enrollment', enrollment, tooltip)
 
         # Verify the total enrollment change metric tile.
         i = 7
         enrollment = enrollment - enrollment_data[-(i + 1)]['count']
-        tooltip = u'Net difference in current enrollment in the last week.'
+        tooltip = 'Net difference in current enrollment in the last week.'
         self.assertMetricTileValid('enrollment_change_last_%s_days' % i, enrollment, tooltip)
 
         valid_modes = self._get_valid_enrollment_modes(enrollment_data)
@@ -82,7 +80,7 @@ class CourseEnrollmentActivityTests(CoursePageTestsMixin, WebAppTest):
         if enrollment_modes.VERIFIED in valid_modes:
             # Verify the verified enrollment metric tile.
             verified_enrollment = enrollment_data[-1][enrollment_modes.VERIFIED]
-            tooltip = u'Number of currently enrolled learners pursuing a verified certificate of achievement.'
+            tooltip = 'Number of currently enrolled learners pursuing a verified certificate of achievement.'
             self.assertMetricTileValid('verified_enrollment', verified_enrollment, tooltip)
 
         # Verify *something* rendered where the graph should be. We cannot easily verify what rendered
@@ -133,14 +131,14 @@ class CourseEnrollmentGeographyTests(CoursePageTestsMixin, WebAppTest):
     help_path = 'enrollment/Enrollment_Geography.html'
 
     def setUp(self):
-        super(CourseEnrollmentGeographyTests, self).setUp()
+        super().setUp()
         self.page = CourseEnrollmentGeographyPage(self.browser)
         self.course = self.analytics_api_client.courses(self.page.course_id)
         self.enrollment_data = sorted(self.course.enrollment(demographics.LOCATION),
                                       key=lambda item: item['count'], reverse=True)
 
     def test_page(self):
-        super(CourseEnrollmentGeographyTests, self).test_page()
+        super().test_page()
         self._test_enrollment_country_map()
         self._test_enrollment_country_table()
         self._test_metrics()
@@ -178,7 +176,7 @@ class CourseEnrollmentGeographyTests(CoursePageTestsMixin, WebAppTest):
         self.assertTable(table_section_selector, ['Country or Region', 'Percent', 'Current Enrollment'],
                          'a[data-role=enrollment-location-csv]')
 
-        rows = self.page.browser.find_elements_by_css_selector('{} tbody tr'.format(table_section_selector))
+        rows = self.page.browser.find_elements_by_css_selector(f'{table_section_selector} tbody tr')
         sum_count = float(sum([datum['count'] for datum in self.enrollment_data]))
 
         for i, row in enumerate(rows):
@@ -189,10 +187,10 @@ class CourseEnrollmentGeographyTests(CoursePageTestsMixin, WebAppTest):
 
             country_name = enrollment['country']['name']
             if country_name == UNKNOWN_COUNTRY_CODE:
-                country_name = u'Unknown Country'
+                country_name = 'Unknown Country'
             # FIXME: because django-countries is different between dashboard and api
             elif country_name == 'United States':
-                country_name = u'United States of America'
+                country_name = 'United States of America'
 
             expected = [country_name, expected_percent_display, self.format_number(enrollment['count'])]
             actual = [columns[0].text, columns[1].text, columns[2].text]
@@ -209,5 +207,5 @@ class CourseEnrollmentGeographyTests(CoursePageTestsMixin, WebAppTest):
             country = enrollment_data[i]['country']['name']
             # FIXME: because django-countries is different between dashboard and api
             if country == 'United States':
-                country = u'United Sta...'
-            self.assertSummaryPointValueEquals('data-stat-type=top-country-{0}'.format((i + 1)), country)
+                country = 'United Sta...'
+            self.assertSummaryPointValueEquals('data-stat-type=top-country-{}'.format(i + 1), country)

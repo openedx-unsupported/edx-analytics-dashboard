@@ -1,5 +1,3 @@
-
-
 class CourseStructure:
     @staticmethod
     def _filter_children(blocks, key, require_format=False, **kwargs):
@@ -15,9 +13,9 @@ class CourseStructure:
         """
         block = blocks[key]
 
-        block_type = kwargs.pop(u'block_type', None)
+        block_type = kwargs.pop('block_type', None)
         if block_type:
-            kwargs[u'type'] = block_type
+            kwargs['type'] = block_type
 
         matched = True
         for name, value in kwargs.items():
@@ -27,14 +25,14 @@ class CourseStructure:
 
         if matched:
             if require_format:
-                if u'format' in block and block[u'format']:
+                if 'format' in block and block['format']:
                     return [block]
             else:
                 return [block]
 
         children = []
-        if u'children' in block:
-            for child in block[u'children']:
+        if 'children' in block:
+            for child in block['children']:
                 children += CourseStructure._filter_children(blocks, child, require_format=require_format, **kwargs)
 
         return children
@@ -45,8 +43,8 @@ class CourseStructure:
         Returns the assignments and nested problems from the given course structure.
         """
 
-        blocks = structure[u'blocks']
-        root = blocks[structure[u'root']]
+        blocks = structure['blocks']
+        root = blocks[structure['root']]
 
         # Break down the course structure into assignments and nested problems, returning only the data
         # we absolutely need.
@@ -57,13 +55,13 @@ class CourseStructure:
         }
 
         if assignment_type:
-            kwargs[u'format'] = assignment_type
+            kwargs['format'] = assignment_type
 
-        filtered = CourseStructure._filter_children(blocks, root[u'id'], require_format=True, **kwargs)
+        filtered = CourseStructure._filter_children(blocks, root['id'], require_format=True, **kwargs)
 
         for assignment in filtered:
-            filtered_children = CourseStructure._filter_children(blocks, assignment[u'id'], graded=graded,
-                                                                 block_type=u'problem', require_format=False)
+            filtered_children = CourseStructure._filter_children(blocks, assignment['id'], graded=graded,
+                                                                 block_type='problem', require_format=False)
             problems = []
             for problem in filtered_children:
                 problems.append({
@@ -87,10 +85,10 @@ class CourseStructure:
         within 'children' attributes.
         """
 
-        blocks = structure[u'blocks']
-        root = blocks[structure[u'root']]
-        sections = CourseStructure._build_sections(blocks, root[u'id'],
-                                                   graded, [u'chapter', u'sequential', str(child_block_type)])
+        blocks = structure['blocks']
+        root = blocks[structure['root']]
+        sections = CourseStructure._build_sections(blocks, root['id'],
+                                                   graded, ['chapter', 'sequential', str(child_block_type)])
         return sections
 
     @staticmethod
@@ -110,7 +108,7 @@ class CourseStructure:
                                                                   **filter_kwargs)
 
             for section in structure_sections:
-                children = CourseStructure._build_sections(blocks, section[u'id'], graded, block_types)
+                children = CourseStructure._build_sections(blocks, section['id'], graded, block_types)
                 sections.append({
                     'id': section['id'],
                     'name': section['display_name'],

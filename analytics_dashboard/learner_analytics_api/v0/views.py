@@ -1,5 +1,3 @@
-
-
 from requests.exceptions import ConnectTimeout
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.generics import RetrieveAPIView
@@ -23,7 +21,7 @@ class BaseLearnerApiView(RetrieveAPIView):
     include_headers = False
 
     def __init__(self, *args, **kwargs):
-        super(BaseLearnerApiView, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.client = LearnerAPIClient(serializer_type=self.serializer_type)
 
     def get_queryset(self):
@@ -74,7 +72,7 @@ class BaseLearnerApiView(RetrieveAPIView):
                 data={'developer_message': 'Learner Analytics API timed out.', 'error_code': 'analytics_api_timeout'},
                 status=504
             )
-        return super(BaseLearnerApiView, self).handle_exception(exc)
+        return super().handle_exception(exc)
 
 
 class DownloadLearnerApiViewMixin:
@@ -94,7 +92,7 @@ class DownloadLearnerApiViewMixin:
         """
         request.META['Accept'] = self.content_type
         request.accepted_renderer = TextRenderer()
-        return super(DownloadLearnerApiViewMixin, self).get_api_response(request, **kwargs)
+        return super().get_api_response(request, **kwargs)
 
 
 class NotFoundLearnerApiViewMixin:
@@ -115,7 +113,7 @@ class NotFoundLearnerApiViewMixin:
                 data={'developer_message': self.not_found_developer_message, 'error_code': self.not_found_error_code},
                 status=404
             )
-        return super(NotFoundLearnerApiViewMixin, self).handle_exception(exc)
+        return super().handle_exception(exc)
 
 
 class LearnerDetailView(NotFoundLearnerApiViewMixin, BaseLearnerApiView):
@@ -127,7 +125,7 @@ class LearnerDetailView(NotFoundLearnerApiViewMixin, BaseLearnerApiView):
     @property
     def not_found_developer_message(self):
         message = 'Learner {} not found'.format(self.kwargs.get('username', ''))
-        message += 'for course {}.'.format(self.course_id) if self.course_id else '.'
+        message += f'for course {self.course_id}.' if self.course_id else '.'
         return message
 
     def get_api_response(self, request, username, **kwargs):
@@ -159,7 +157,7 @@ class EngagementTimelinesView(NotFoundLearnerApiViewMixin, BaseLearnerApiView):
     @property
     def not_found_developer_message(self):
         message = 'Learner {} engagement timeline not found'.format(self.kwargs.get('username', ''))
-        message += 'for course {}.'.format(self.course_id) if self.course_id else '.'
+        message += f'for course {self.course_id}.' if self.course_id else '.'
         return message
 
     def get_api_response(self, request, username, **kwargs):

@@ -1,5 +1,3 @@
-
-
 import logging
 
 from edx_rest_api_client.client import EdxRestApiClient
@@ -19,7 +17,7 @@ class CourseStructureApiClient(EdxRestApiClient):
     DATETIME_FORMAT = "%Y-%m-%dT%H:%M:%SZ"
 
     def __init__(self, url, access_token, timeout):
-        super(CourseStructureApiClient, self).__init__(url, jwt=access_token, timeout=timeout)
+        super().__init__(url, jwt=access_token, timeout=timeout)
 
     @property
     def all_courses(self):

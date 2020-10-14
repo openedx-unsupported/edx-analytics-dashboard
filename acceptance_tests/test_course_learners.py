@@ -1,5 +1,3 @@
-
-
 from unittest import skipUnless
 
 from bok_choy.web_app_test import WebAppTest
@@ -15,7 +13,7 @@ class CourseLearnersTests(CoursePageTestsMixin, WebAppTest):
     help_path = 'learners/Learner_Activity.html'
 
     def setUp(self):
-        super(CourseLearnersTests, self).setUp()
+        super().setUp()
         self.page = CourseLearnersPage(self.browser)
 
     def _test_data_update_message(self):

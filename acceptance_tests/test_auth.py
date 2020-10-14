@@ -1,5 +1,3 @@
-
-
 from unittest import skipUnless
 
 from bok_choy.web_app_test import WebAppTest
@@ -15,7 +13,7 @@ class OAuth2FlowTests(LoginMixin, WebAppTest):
         """
         Instantiate the page objects.
         """
-        super(OAuth2FlowTests, self).setUp()
+        super().setUp()
 
         self.insights_login_page = LoginPage(self.browser)
 

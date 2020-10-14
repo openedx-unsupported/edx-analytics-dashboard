@@ -1,5 +1,3 @@
-
-
 from django import http
 from django.template.response import TemplateResponse
 from django.test import TestCase
@@ -12,7 +10,7 @@ DOC_BASE_URL = 'http://edx-insights.readthedocs.org/en/latest'
 
 
 def build_doc_url(path):
-    return '{0}/{1}'.format(DOC_BASE_URL, path)
+    return f'{DOC_BASE_URL}/{path}'
 
 
 DOC_INDEX = build_doc_url('index.html')

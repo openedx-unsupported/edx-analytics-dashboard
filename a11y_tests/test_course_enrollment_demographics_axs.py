@@ -1,5 +1,3 @@
-from __future__ import absolute_import
-
 from bok_choy.promise import EmptyPromise
 from bok_choy.web_app_test import WebAppTest
 
@@ -15,7 +13,7 @@ class CourseEnrollmentDemographicsAgeTests(CoursePageTestsMixin, WebAppTest):
     """
 
     def setUp(self):
-        super(CourseEnrollmentDemographicsAgeTests, self).setUp()
+        super().setUp()
         self.page = CourseEnrollmentDemographicsAgePage(self.browser)
 
     def test_a11y(self):
