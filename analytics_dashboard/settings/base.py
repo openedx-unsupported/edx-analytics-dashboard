@@ -455,6 +455,10 @@ COURSE_ID_PATTERN = r'(?P<course_id>[^/+]+[/+][^/+]+[/+][^/]+)'
 LEARNER_API_LIST_DOWNLOAD_FIELDS = None
 ########## END LEARNER_API_LIST_DOWNLOAD_FIELDS
 
+########## BLOCK_LEARNER_ANALYTICS_ORG_LIST
+BLOCK_LEARNER_ANALYTICS_ORG_LIST = []
+########## END BLOCK_LEARNER_ANALYTICS_ORG_LIST
+
 ########## CACHE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#caches
 CACHES = {
