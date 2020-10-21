@@ -703,7 +703,7 @@ class CourseHome(CourseTemplateWithNavView):
         if course_org in settings.BLOCK_LEARNER_ANALYTICS_ORG_LIST:
             user = self.request.user.get_username()
             logger.info(
-                'Removing learner analytics from the %s course home page user %s', 
+                'Removing learner analytics from the %s course home page user %s',
                 self.course_id, user
             )
             context['primary_nav_items'] = [
@@ -712,7 +712,6 @@ class CourseHome(CourseTemplateWithNavView):
             context['table_items'] = [
                 item for item in context['table_items'] if item['name'] != _('Learners')
             ]
-
 
         overview_data = []
         if self.course_api_enabled:
