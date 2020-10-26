@@ -697,6 +697,23 @@ class CourseHome(CourseTemplateWithNavView):
 
         context['page_data'] = self.get_page_data(context)
 
+        # Some orgs do not wish to allow access to learner analytics.
+        # See https://openedx.atlassian.net/browse/DENG-536
+        course_org = CourseKey.from_string(self.course_id).org
+        if course_org in settings.BLOCK_LEARNER_ANALYTICS_ORG_LIST:
+            user = self.request.user.get_username()
+            logger.info(
+                'Removing learner analytics from the %s course home page user %s', 
+                self.course_id, user
+            )
+            context['primary_nav_items'] = [
+                item for item in context['primary_nav_items'] if item['name'] != 'learners'
+            ]
+            context['table_items'] = [
+                item for item in context['table_items'] if item['name'] != _('Learners')
+            ]
+
+
         overview_data = []
         if self.course_api_enabled:
             if switch_is_active('display_course_name_in_nav'):
