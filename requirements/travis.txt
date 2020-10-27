@@ -7,13 +7,11 @@
 appdirs==1.4.4            # via -r requirements/tox.txt, virtualenv
 certifi==2020.6.20        # via requests
 chardet==3.0.4            # via requests
-codecov==2.1.8            # via -r requirements/travis.in
-coverage==5.2             # via codecov
+codecov==2.1.10           # via -r requirements/travis.in
+coverage==5.3             # via codecov
 distlib==0.3.1            # via -r requirements/tox.txt, virtualenv
 filelock==3.0.12          # via -r requirements/tox.txt, tox, virtualenv
 idna==2.10                # via requests
-importlib-metadata==1.7.0  # via -r requirements/tox.txt, pluggy, tox, virtualenv
-importlib-resources==3.0.0  # via -r requirements/tox.txt, virtualenv
 packaging==20.4           # via -r requirements/tox.txt, tox
 pluggy==0.13.1            # via -r requirements/tox.txt, tox
 py==1.9.0                 # via -r requirements/tox.txt, tox
@@ -23,6 +21,5 @@ six==1.15.0               # via -r requirements/tox.txt, packaging, tox, virtual
 toml==0.10.1              # via -r requirements/tox.txt, tox
 tox-battery==0.6.1        # via -r requirements/tox.txt
 tox==3.14.6               # via -c requirements/constraints.txt, -r requirements/tox.txt, tox-battery
-urllib3==1.25.9           # via requests
-virtualenv==20.0.27       # via -r requirements/tox.txt, tox
-zipp==1.2.0               # via -r requirements/tox.txt, importlib-metadata, importlib-resources
+urllib3==1.25.11          # via requests
+virtualenv==20.1.0        # via -r requirements/tox.txt, tox
