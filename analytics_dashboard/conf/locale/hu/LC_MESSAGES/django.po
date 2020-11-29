@@ -7,13 +7,14 @@
 # Charles Nehez <knehez@gmail.com>, 2015
 # Keleti László <lkeleti@wininvestor.hu>, 2014
 # Oliver Hornyak <ohornyak@gmail.com>, 2015
+# Csokán András <andrejmoltok@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-16 09:16-0400\n"
-"PO-Revision-Date: 2019-04-16 19:45+0000\n"
-"Last-Translator: Ned Batchelder <ned@edx.org>\n"
+"PO-Revision-Date: 2020-11-22 19:27+0000\n"
+"Last-Translator: Csokán András <andrejmoltok@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/open-edx/edx-platform/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -56,7 +57,7 @@ msgstr "A tanulóim a kurzusom melyik részével foglalkoznak?"
 msgid ""
 "Improve frequently accessed content, or point learners at underused "
 "resources."
-msgstr ""
+msgstr "Gyakran használt tartalmak fejlesztése, vagy\ntanulók alul-használt forrásokra való hivatkozása."
 
 #: core/templates/core/landing.html:49
 #: courses/tests/test_views/test_engagement.py:44
@@ -66,11 +67,11 @@ msgstr "Terheltség"
 
 #: core/templates/core/landing.html:52
 msgid "How well is my content supporting learners?"
-msgstr ""
+msgstr "Mennyire hasznos a tartalmam a tanulók számára?"
 
 #: core/templates/core/landing.html:53
 msgid "Adjust your course based on where learners are struggling."
-msgstr ""
+msgstr "Összpontosítsd a kurzusodat arra a hiányosságra, amiben a tanulók szűkölködnek."
 
 #: core/templates/core/landing.html:54
 #: courses/tests/test_views/test_performance.py:48
@@ -87,7 +88,7 @@ msgstr "Csatlakozz a nyílt forráskód közösséghez"
 msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr ""
+msgstr "Az edX analitikai adat vezetéke és az edX Insigths nyílt forrásúak. %(link_start)sTudj meg többet %(link_end)s."
 
 #: core/templates/core/landing.html:75
 msgid "Research at edX"
@@ -98,7 +99,7 @@ msgstr "Kutatás az edXnél"
 msgid ""
 "We are committed to advancing teaching and learning through research. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr ""
+msgstr "Elkötelezettek vagyunk a fejlődő oktatásért és a kutatáson alapuló tanulásért. %(link_start)sTudj meg többet%(link_end)s."
 
 #: core/templates/core/landing.html:87
 msgid "Need Help?"
@@ -121,7 +122,7 @@ msgstr "{statistic}%"
 #: courses/presenters/engagement.py:126
 #, python-brace-format
 msgid "{percentage} of current learners"
-msgstr ""
+msgstr "Jelenlegi tanulók {percentage} -a"
 
 #: courses/presenters/enrollment.py:23
 msgid "Female"
@@ -235,7 +236,7 @@ msgstr "Rész {part_number}"
 #: courses/templates/courses/_base_content_nav.html:25
 #, python-format
 msgid "%(all_sections_text)s"
-msgstr ""
+msgstr "%(all_sections_text)s"
 
 #: courses/templates/courses/_graded_content_nav.html:16
 msgid "Select Assignment Type"
@@ -253,13 +254,13 @@ msgid ""
 "\n"
 "        Select %(level)s\n"
 "    "
-msgstr ""
+msgstr "\n       Kiválaszt %(level)s"
 
 #: courses/templates/courses/_graded_content_nav.html:31
 #: courses/templates/courses/_tags_content_nav.html:23
 #: courses/templates/courses/_ungraded_content_nav.html:28
 msgid "Select Problem"
-msgstr ""
+msgstr "Feladat Kiválasztás"
 
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
@@ -270,45 +271,45 @@ msgstr "Élő nézet"
 
 #: courses/templates/courses/_tags_content_nav.html:15
 msgid "Select Outcome"
-msgstr ""
+msgstr "Kimenet Kiválasztás"
 
 #: courses/templates/courses/_tags_content_nav.html:19
 msgid "All Outcomes"
-msgstr ""
+msgstr "Összes Kimenetel"
 
 #: courses/templates/courses/_ungraded_content_nav.html:16
 #: courses/templates/courses/_video_content_nav.html:16
 msgid "Select Section"
-msgstr ""
+msgstr "Részleg Kiválasztás "
 
 #: courses/templates/courses/_ungraded_content_nav.html:20
 #: courses/templates/courses/_video_content_nav.html:20
 msgid "All Sections"
-msgstr ""
+msgstr "Összes Részleg"
 
 #: courses/templates/courses/_ungraded_content_nav.html:24
 #: courses/templates/courses/_video_content_nav.html:24
 msgid "Select Subsection"
-msgstr ""
+msgstr "Alrészleg Kiválasztás"
 
 #: courses/templates/courses/_video_content_nav.html:28
 msgid "Select Video"
-msgstr ""
+msgstr "Videó Kiválasztás "
 
 #: courses/templates/courses/_video_module_controls.html:8
 msgid "Previous Video"
-msgstr ""
+msgstr "Előző Videó"
 
 #: courses/templates/courses/_video_module_controls.html:15
 msgid "Next Video"
-msgstr ""
+msgstr "Következő Videó"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html:60
 msgid ""
 "This chart shows the most common answers submitted by learners, ordered by "
 "frequency."
-msgstr ""
+msgstr "Ez a diagram megmutatja tanulók által beküldött legáltalánosabb válaszokat, gyakorisági sorrendben."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html:82
@@ -316,7 +317,7 @@ msgstr ""
 msgid ""
 "Due to the number of possible variants for randomized problems, charts are "
 "not available. %(read_more_link_start)sRead more%(read_more_link_end)s."
-msgstr ""
+msgstr "A véletlenszerű feladatok nagyszámú változatai miatt, a diagram nem elérhető. %(read_more_link_start)sOlvass tovább%(read_more_link_end)s."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html:87
