@@ -6,105 +6,103 @@
 #
 -e git+https://github.com/python-social-auth/social-app-django.git@ffa0fb99a80d11479bea2c4eae9a01ee835d52b9#egg=social-auth-app-django  # via -r requirements/test.txt
 astroid==2.3.3            # via -r requirements/test.txt, pylint
-attrs==19.3.0             # via -r requirements/test.txt, pytest
+attrs==20.3.0             # via -r requirements/test.txt, pytest
 awesome-slugify==1.6.5    # via -r requirements/test.txt
 blessings==1.7            # via -r requirements/test.txt, curtsies
 bok-choy==1.1.1           # via -r requirements/test.txt
-bpython==0.19             # via -r requirements/test.txt
-certifi==2020.6.20        # via -r requirements/test.txt, requests
-cffi==1.14.0              # via -r requirements/test.txt, cryptography
+bpython==0.20.1           # via -r requirements/test.txt
+certifi==2020.11.8        # via -r requirements/test.txt, requests
+cffi==1.14.4              # via -r requirements/test.txt, cryptography
 chardet==3.0.4            # via -r requirements/test.txt, requests
 click==7.1.2              # via -r requirements/pip_tools.txt, pip-tools
-coverage==5.2             # via -r requirements/test.txt, pytest-cov
-cryptography==2.9.2       # via -r requirements/test.txt, pyjwt
+coverage==5.3             # via -r requirements/test.txt, pytest-cov
+cryptography==3.2.1       # via -r requirements/test.txt, pyjwt
 curtsies==0.3.4           # via -r requirements/test.txt, bpython
 ddt==1.4.1                # via -r requirements/test.txt
 defusedxml==0.6.0         # via -r requirements/test.txt, python3-openid, social-auth-core
 django-appconf==1.0.4     # via -r requirements/test.txt
 django-braces==1.14.0     # via -r requirements/test.txt
-django-countries==6.1.2   # via -r requirements/test.txt
-django-crispy-forms==1.9.2  # via -r requirements/test.txt
-django-debug-toolbar==2.2  # via -r requirements/local.in
-django-dynamic-fixture==3.1.0  # via -r requirements/test.txt
+django-countries==6.1.3   # via -r requirements/test.txt
+django-crispy-forms==1.10.0  # via -r requirements/test.txt
+django-crum==0.7.9        # via -r requirements/test.txt, edx-django-utils
+django-debug-toolbar==3.1.1  # via -r requirements/local.in
+django-dynamic-fixture==3.1.1  # via -r requirements/test.txt
 django-lang-pref-middleware==0.3.0  # via -r requirements/test.txt
-django-model-utils==4.0.0  # via -r requirements/test.txt
-django-soapbox==1.6       # via -r requirements/test.txt
-django-waffle==1.0.0      # via -r requirements/test.txt, edx-django-utils, edx-drf-extensions
+django-model-utils==4.1.0  # via -r requirements/test.txt
+django-soapbox==1.6.1     # via -r requirements/test.txt
+django-waffle==2.0.0      # via -r requirements/test.txt, edx-django-utils, edx-drf-extensions
 django-webpack-loader==0.7.0  # via -r requirements/test.txt
-django==2.2.17            # via -c requirements/constraints.txt, -r requirements/test.txt, django-appconf, django-braces, django-debug-toolbar, django-lang-pref-middleware, django-model-utils, django-soapbox, djangorestframework, drf-jwt, edx-auth-backends, edx-django-release-util, edx-django-utils, edx-drf-extensions, edx-i18n-tools, pinax-announcements, rest-condition
+django==2.2.17            # via -c requirements/constraints.txt, -r requirements/test.txt, django-appconf, django-braces, django-crum, django-debug-toolbar, django-lang-pref-middleware, django-model-utils, django-soapbox, djangorestframework, drf-jwt, edx-auth-backends, edx-django-release-util, edx-django-utils, edx-drf-extensions, edx-i18n-tools, pinax-announcements, rest-condition
 djangorestframework-csv==2.1.0  # via -r requirements/test.txt
-djangorestframework==3.11.0  # via -r requirements/test.txt, djangorestframework-csv, drf-jwt, edx-drf-extensions, rest-condition
-drf-jwt==1.16.2           # via -r requirements/test.txt, edx-drf-extensions
+djangorestframework==3.12.2  # via -r requirements/test.txt, djangorestframework-csv, drf-jwt, edx-drf-extensions, rest-condition
+drf-jwt==1.17.2           # via -r requirements/test.txt, edx-drf-extensions
 edx-analytics-data-api-client==0.16.1  # via -r requirements/test.txt
 edx-auth-backends==3.1.0  # via -r requirements/test.txt
 edx-ccx-keys==1.1.0       # via -r requirements/test.txt
 edx-django-release-util==0.4.4  # via -r requirements/test.txt
-edx-django-utils==3.3.0   # via -r requirements/test.txt, edx-drf-extensions, edx-rest-api-client
-edx-drf-extensions==6.1.1  # via -r requirements/test.txt
+edx-django-utils==3.13.0  # via -r requirements/test.txt, edx-drf-extensions, edx-rest-api-client
+edx-drf-extensions==6.2.0  # via -r requirements/test.txt
 edx-i18n-tools==0.5.3     # via -r requirements/test.txt
 edx-opaque-keys==2.1.1    # via -r requirements/test.txt, edx-ccx-keys, edx-drf-extensions
 edx-rest-api-client==5.2.1  # via -r requirements/test.txt
 elasticsearch==2.4.1      # via -r requirements/test.txt
 future==0.18.2            # via -r requirements/test.txt, pyjwkest
-greenlet==0.4.16          # via -r requirements/test.txt, bpython
-httpretty==1.0.2          # via -r requirements/test.txt
+greenlet==0.4.17          # via -r requirements/test.txt, bpython
+httpretty==1.0.3          # via -r requirements/test.txt
 idna==2.10                # via -r requirements/test.txt, requests
-importlib-metadata==1.7.0  # via -r requirements/test.txt, path, pluggy, pytest
+iniconfig==1.1.1          # via -r requirements/test.txt, pytest
 isort==4.3.21             # via -r requirements/test.txt, pylint
 lazy-object-proxy==1.4.3  # via -r requirements/test.txt, astroid
 lazy==1.4                 # via -r requirements/test.txt, bok-choy
 libsass==0.11.1           # via -r requirements/test.txt
 logutils==0.3.5           # via -r requirements/test.txt
 mccabe==0.6.1             # via -r requirements/test.txt, pylint
-more-itertools==8.4.0     # via -r requirements/test.txt, pytest
-newrelic==5.14.1.144      # via -r requirements/test.txt, edx-django-utils
+newrelic==5.22.1.152      # via -r requirements/test.txt, edx-django-utils
 oauthlib==3.1.0           # via -r requirements/test.txt, requests-oauthlib, social-auth-core
-packaging==20.4           # via -r requirements/test.txt, pytest
-path.py==12.4.0           # via -r requirements/test.txt, edx-i18n-tools
-path==13.1.0              # via -r requirements/test.txt, path.py
-pathlib2==2.3.5           # via -r requirements/test.txt, pytest
-pbr==5.4.5                # via -r requirements/test.txt, stevedore
+packaging==20.7           # via -r requirements/test.txt, pytest
+path.py==12.5.0           # via -r requirements/test.txt, edx-i18n-tools
+path==15.0.0              # via -r requirements/test.txt, path.py
+pbr==5.5.1                # via -r requirements/test.txt, stevedore
 pinax-announcements==3.0.2  # via -c requirements/constraints.txt, -r requirements/test.txt
 pip-tools==4.5.1          # via -c requirements/constraints.txt, -r requirements/pip_tools.txt
 pluggy==0.13.1            # via -r requirements/test.txt, pytest
 polib==1.1.0              # via -r requirements/test.txt, edx-i18n-tools
-psutil==1.2.1             # via -r requirements/test.txt, edx-django-utils
+psutil==5.7.3             # via -r requirements/test.txt, edx-django-utils
 py==1.9.0                 # via -r requirements/test.txt, pytest
 pycodestyle==2.6.0        # via -r requirements/test.txt
 pycparser==2.20           # via -r requirements/test.txt, cffi
-pycryptodomex==3.9.8      # via -r requirements/test.txt, pyjwkest
-pydocstyle==5.0.2         # via -r requirements/test.txt
-pygments==2.6.1           # via -r requirements/test.txt, bpython
+pycryptodomex==3.9.9      # via -r requirements/test.txt, pyjwkest
+pydocstyle==5.1.1         # via -r requirements/test.txt
+pygments==2.7.2           # via -r requirements/test.txt, bpython
 pyjwkest==1.4.2           # via -r requirements/test.txt, edx-drf-extensions
 pyjwt[crypto]==1.7.1      # via -r requirements/test.txt, drf-jwt, edx-auth-backends, edx-rest-api-client, social-auth-core
 pylint==2.4.4             # via -c requirements/constraints.txt, -r requirements/test.txt
-pymongo==3.10.1           # via -r requirements/test.txt, edx-opaque-keys
+pymongo==3.11.1           # via -r requirements/test.txt, edx-opaque-keys
 pyparsing==2.4.7          # via -r requirements/test.txt, packaging
-pytest-cov==2.10.0        # via -r requirements/test.txt
-pytest-django==3.9.0      # via -r requirements/test.txt
-pytest==5.4.3             # via -r requirements/test.txt, pytest-cov, pytest-django
+pytest-cov==2.10.1        # via -r requirements/test.txt
+pytest-django==4.1.0      # via -r requirements/test.txt
+pytest==6.1.2             # via -r requirements/test.txt, pytest-cov, pytest-django
 python-dateutil==2.8.1    # via -r requirements/test.txt, edx-drf-extensions
 python3-openid==3.2.0     # via -r requirements/test.txt, social-auth-core
-pytz==2020.1              # via -r requirements/test.txt, django
+pytz==2020.4              # via -r requirements/test.txt, django
 pyyaml==5.3.1             # via -r requirements/test.txt, edx-django-release-util, edx-i18n-tools
-regex==2020.7.14          # via -r requirements/test.txt, awesome-slugify
+regex==2020.11.13         # via -r requirements/test.txt, awesome-slugify
 requests-oauthlib==1.3.0  # via -r requirements/test.txt, social-auth-core
-requests==2.24.0          # via -r requirements/test.txt, bpython, edx-analytics-data-api-client, edx-drf-extensions, edx-rest-api-client, pyjwkest, requests-oauthlib, slumber, social-auth-core
+requests==2.25.0          # via -r requirements/test.txt, bpython, edx-analytics-data-api-client, edx-drf-extensions, edx-rest-api-client, pyjwkest, requests-oauthlib, slumber, social-auth-core
 rest-condition==1.0.3     # via -r requirements/test.txt, edx-drf-extensions
 selenium==3.141.0         # via -r requirements/test.txt, bok-choy
 semantic-version==2.8.5   # via -r requirements/test.txt, edx-drf-extensions
-six==1.15.0               # via -r requirements/pip_tools.txt, -r requirements/test.txt, astroid, blessings, bok-choy, bpython, cryptography, django-braces, django-dynamic-fixture, djangorestframework-csv, edx-auth-backends, edx-ccx-keys, edx-django-release-util, edx-drf-extensions, edx-i18n-tools, edx-opaque-keys, libsass, packaging, pathlib2, pip-tools, pyjwkest, python-dateutil, social-auth-app-django, social-auth-core, stevedore, transifex-client
+six==1.15.0               # via -r requirements/pip_tools.txt, -r requirements/test.txt, astroid, blessings, bok-choy, bpython, cryptography, django-braces, django-dynamic-fixture, djangorestframework-csv, edx-auth-backends, edx-ccx-keys, edx-django-release-util, edx-drf-extensions, edx-i18n-tools, edx-opaque-keys, libsass, pip-tools, pyjwkest, python-dateutil, social-auth-app-django, social-auth-core, transifex-client
 slumber==0.7.1            # via -r requirements/test.txt, edx-rest-api-client
 snowballstemmer==2.0.0    # via -r requirements/test.txt, pydocstyle
 social-auth-core==3.2.0   # via -c requirements/constraints.txt, -r requirements/test.txt, edx-auth-backends, social-auth-app-django
-sqlparse==0.3.1           # via -r requirements/test.txt, django, django-debug-toolbar
-stevedore==1.32.0         # via -r requirements/test.txt, edx-opaque-keys
-testfixtures==6.14.1      # via -r requirements/test.txt
+sqlparse==0.4.1           # via -r requirements/test.txt, django, django-debug-toolbar
+stevedore==3.3.0          # via -r requirements/test.txt, edx-django-utils, edx-opaque-keys
+testfixtures==6.15.0      # via -r requirements/test.txt
+toml==0.10.2              # via -r requirements/test.txt, pytest
 transifex-client==0.12.4  # via -r requirements/local.in
-typed-ast==1.4.1          # via -r requirements/test.txt, astroid
 unicodecsv==0.14.1        # via -r requirements/test.txt, djangorestframework-csv
 unidecode==0.4.21         # via -r requirements/test.txt, awesome-slugify
-urllib3==1.25.9           # via -r requirements/test.txt, elasticsearch, requests, selenium, transifex-client
-wcwidth==0.2.5            # via -r requirements/test.txt, curtsies, pytest
+urllib3==1.26.2           # via -r requirements/test.txt, elasticsearch, requests, selenium, transifex-client
+wcwidth==0.2.5            # via -r requirements/test.txt, bpython, curtsies
 wrapt==1.11.2             # via -r requirements/test.txt, astroid
-zipp==1.2.0               # via -r requirements/test.txt, importlib-metadata
