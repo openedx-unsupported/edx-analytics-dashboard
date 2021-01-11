@@ -174,7 +174,7 @@ def get_courses():
     filename = 'courses.json'
 
     try:
-        with open(filename, 'r', encoding='utf-8') as f:
+        with open(filename, encoding='utf-8') as f:
             courses = json.load(f)
     except Exception as e:  # pylint: disable=broad-except
         logger.warning('Failed to read courses from file: %s', e)
@@ -211,7 +211,7 @@ def main():
 
         # Create the mappings
         mappings_file = join(dirname(abspath(__file__)), 'mappings.json')
-        with open(mappings_file, 'r', encoding='utf-8') as f:
+        with open(mappings_file, encoding='utf-8') as f:
             mappings = json.load(f)
 
         for doc_type, body in mappings.items():
