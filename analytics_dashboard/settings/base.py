@@ -172,6 +172,7 @@ TEMPLATES = [
 MIDDLEWARE = [
     'edx_django_utils.cache.middleware.RequestCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'core.middleware.language_header_preempt_middleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',

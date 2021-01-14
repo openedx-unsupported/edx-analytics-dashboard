@@ -9,8 +9,24 @@ from django.utils.deprecation import MiddlewareMixin
 from lang_pref_middleware import middleware
 
 from analytics_dashboard.core.exceptions import ServiceUnavailableError
+from analytics_dashboard.settings.waffle import IGNORE_ACCEPT_LANGUAGE
 
 logger = logging.getLogger(__name__)
+
+
+def language_header_preempt_middleware(get_response):
+    """
+    If the appropriate waffle flag is present, ignore the 'Accept-Language' header.
+    """
+    def middleware(request):
+        """
+        Prepared middleware closure for Accept-Language header check.
+        """
+        if IGNORE_ACCEPT_LANGUAGE.is_enabled() and 'HTTP_ACCEPT_LANGUAGE' in request.META:
+            del request.META['HTTP_ACCEPT_LANGUAGE']
+        return get_response(request)
+
+    return middleware
 
 
 class LanguagePreferenceMiddleware(middleware.LanguagePreferenceMiddleware, MiddlewareMixin):
