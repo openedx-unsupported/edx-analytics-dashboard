@@ -4,14 +4,15 @@
 # 
 # Translators:
 # Jiří Šedý <jsedy7@gmail.com>, 2015
+# Kristýna Kučerová <kristyna.kucerova@gmail.com>, 2020
 # Kristyna Matejkova <Kristy.Matejkova@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-16 09:16-0400\n"
-"PO-Revision-Date: 2019-04-16 19:45+0000\n"
-"Last-Translator: Ned Batchelder <ned@edx.org>\n"
+"PO-Revision-Date: 2021-01-12 09:03+0000\n"
+"Last-Translator: Edx Filozofický <edx-support@phil.muni.cz>\n"
 "Language-Team: Czech (http://www.transifex.com/open-edx/edx-platform/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -106,7 +107,7 @@ msgstr "Potřebujete pomoc?"
 #, python-format
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
-msgstr ""
+msgstr "%(link_start)sNaše centrum podpory%(link_end)s Vám může pomoci nalézt řešení."
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
@@ -119,7 +120,7 @@ msgstr ""
 #: courses/presenters/engagement.py:126
 #, python-brace-format
 msgid "{percentage} of current learners"
-msgstr ""
+msgstr "{percentage} aktuálních studentů"
 
 #: courses/presenters/enrollment.py:23
 msgid "Female"
@@ -151,7 +152,7 @@ msgstr "Žádné"
 #. School Degree).
 #: courses/presenters/enrollment.py:47 courses/tests/test_serializers.py:12
 msgid "Primary"
-msgstr ""
+msgstr "Primární"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
@@ -162,7 +163,7 @@ msgstr "Střed"
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:51
 msgid "Secondary"
-msgstr ""
+msgstr "Sekundární"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
@@ -174,13 +175,13 @@ msgstr ""
 #. Degree).
 #: courses/presenters/enrollment.py:55
 msgid "Bachelor's"
-msgstr "Bakaláři"
+msgstr "Bakalářský"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters/enrollment.py:57
 msgid "Master's"
-msgstr ""
+msgstr "Magisterský"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
@@ -198,22 +199,22 @@ msgstr "Neznámá země"
 #: courses/presenters/performance.py:146
 #: courses/templates/courses/submissions_chart_info.html:4
 msgid "Submissions"
-msgstr ""
+msgstr "Řešení"
 
 #: courses/presenters/performance.py:150
 #, python-brace-format
 msgid "Submissions for Part {part_number}: {part_description}"
-msgstr ""
+msgstr "Řešení pro část {part_number}: {part_description}"
 
 #: courses/presenters/performance.py:151
 #, python-brace-format
 msgid "Part {part_number}: {part_description}"
-msgstr ""
+msgstr "Část {part_number}: {part_description}"
 
 #: courses/presenters/performance.py:153
 #, python-brace-format
 msgid "Submissions: {part_description}"
-msgstr ""
+msgstr "Řešení: {part_description}"
 
 #: courses/presenters/performance.py:154
 #, python-brace-format
@@ -237,13 +238,13 @@ msgstr ""
 
 #: courses/templates/courses/_graded_content_nav.html:16
 msgid "Select Assignment Type"
-msgstr ""
+msgstr "Vyberte typ zadání"
 
 #. Translators: This refers to all course assignment types (e.g. homework,
 #. exam, lab).
 #: courses/templates/courses/_graded_content_nav.html:21
 msgid "All Assignments"
-msgstr ""
+msgstr "Všechna zadání"
 
 #: courses/templates/courses/_graded_content_nav.html:25
 #, python-format
@@ -257,56 +258,56 @@ msgstr ""
 #: courses/templates/courses/_tags_content_nav.html:23
 #: courses/templates/courses/_ungraded_content_nav.html:28
 msgid "Select Problem"
-msgstr ""
+msgstr "Vybrat problém"
 
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
 #: courses/templates/courses/_module_description.html:14
 #: courses/templates/courses/_video_preview.html:9
 msgid "View Live"
-msgstr ""
+msgstr "Zobrazit Živě"
 
 #: courses/templates/courses/_tags_content_nav.html:15
 msgid "Select Outcome"
-msgstr ""
+msgstr "Vybrat výsledek"
 
 #: courses/templates/courses/_tags_content_nav.html:19
 msgid "All Outcomes"
-msgstr ""
+msgstr "Všechny výsledky"
 
 #: courses/templates/courses/_ungraded_content_nav.html:16
 #: courses/templates/courses/_video_content_nav.html:16
 msgid "Select Section"
-msgstr ""
+msgstr "Vybrat sekci"
 
 #: courses/templates/courses/_ungraded_content_nav.html:20
 #: courses/templates/courses/_video_content_nav.html:20
 msgid "All Sections"
-msgstr ""
+msgstr "Všechny sekce"
 
 #: courses/templates/courses/_ungraded_content_nav.html:24
 #: courses/templates/courses/_video_content_nav.html:24
 msgid "Select Subsection"
-msgstr ""
+msgstr "Vybrat podsekci"
 
 #: courses/templates/courses/_video_content_nav.html:28
 msgid "Select Video"
-msgstr ""
+msgstr "Vybrat video"
 
 #: courses/templates/courses/_video_module_controls.html:8
 msgid "Previous Video"
-msgstr ""
+msgstr "Předchozí video"
 
 #: courses/templates/courses/_video_module_controls.html:15
 msgid "Next Video"
-msgstr ""
+msgstr "Následující video"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html:60
 msgid ""
 "This chart shows the most common answers submitted by learners, ordered by "
 "frequency."
-msgstr ""
+msgstr "Tento graf zobrazuje nejčastější odpovědi od studentů, seřazené dle frekvence."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html:82
@@ -314,7 +315,7 @@ msgstr ""
 msgid ""
 "Due to the number of possible variants for randomized problems, charts are "
 "not available. %(read_more_link_start)sRead more%(read_more_link_end)s."
-msgstr ""
+msgstr "Kvůli množství možných variant v náhodně generovaných problémech jsou grafy nedostupné. %(read_more_link_start)s Přečíst více%(read_more_link_end)s."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html:87
