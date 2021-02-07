@@ -7,13 +7,15 @@
 # Charles Nehez <knehez@gmail.com>, 2015
 # Keleti László <lkeleti@wininvestor.hu>, 2014
 # Oliver Hornyak <ohornyak@gmail.com>, 2015
+# Csokán András, 2020
+# Soma H <s.hajdok@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-16 09:16-0400\n"
-"PO-Revision-Date: 2019-04-16 19:45+0000\n"
-"Last-Translator: Ned Batchelder <ned@edx.org>\n"
+"PO-Revision-Date: 2020-12-28 21:49+0000\n"
+"Last-Translator: Soma H <s.hajdok@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/open-edx/edx-platform/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -56,7 +58,7 @@ msgstr "A tanulóim a kurzusom melyik részével foglalkoznak?"
 msgid ""
 "Improve frequently accessed content, or point learners at underused "
 "resources."
-msgstr ""
+msgstr "Gyakran használt tartalmak fejlesztése, vagy\ntanulók alul-használt forrásokra való hivatkozása."
 
 #: core/templates/core/landing.html:49
 #: courses/tests/test_views/test_engagement.py:44
@@ -66,11 +68,11 @@ msgstr "Terheltség"
 
 #: core/templates/core/landing.html:52
 msgid "How well is my content supporting learners?"
-msgstr ""
+msgstr "Mennyire hasznos a tartalmam a tanulók számára?"
 
 #: core/templates/core/landing.html:53
 msgid "Adjust your course based on where learners are struggling."
-msgstr ""
+msgstr "Összpontosítsd a kurzusodat arra a hiányosságra, amiben a tanulók szűkölködnek."
 
 #: core/templates/core/landing.html:54
 #: courses/tests/test_views/test_performance.py:48
@@ -87,7 +89,7 @@ msgstr "Csatlakozz a nyílt forráskód közösséghez"
 msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr ""
+msgstr "Az edX analitikai adat vezetéke és az edX Insigths nyílt forrásúak. %(link_start)sTudj meg többet %(link_end)s."
 
 #: core/templates/core/landing.html:75
 msgid "Research at edX"
@@ -98,7 +100,7 @@ msgstr "Kutatás az edXnél"
 msgid ""
 "We are committed to advancing teaching and learning through research. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr ""
+msgstr "Elkötelezettek vagyunk a fejlődő oktatásért és a kutatáson alapuló tanulásért. %(link_start)sTudj meg többet%(link_end)s."
 
 #: core/templates/core/landing.html:87
 msgid "Need Help?"
@@ -121,7 +123,7 @@ msgstr "{statistic}%"
 #: courses/presenters/engagement.py:126
 #, python-brace-format
 msgid "{percentage} of current learners"
-msgstr ""
+msgstr "Jelenlegi tanulók {percentage} -a"
 
 #: courses/presenters/enrollment.py:23
 msgid "Female"
@@ -153,36 +155,36 @@ msgstr "Nincs"
 #. School Degree).
 #: courses/presenters/enrollment.py:47 courses/tests/test_serializers.py:12
 msgid "Primary"
-msgstr "Elsődleges"
+msgstr "Általános iskolai végzettség"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: courses/presenters/enrollment.py:49
 msgid "Middle"
-msgstr "Közép"
+msgstr "Középiskolai végzettség"
 
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:51
 msgid "Secondary"
-msgstr "Másodlagos"
+msgstr "Érettségi"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
 #: courses/presenters/enrollment.py:53
 msgid "Associate"
-msgstr "Összekapcsolás"
+msgstr "\t2 éves felsőfokú végzettség"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
 #: courses/presenters/enrollment.py:55
 msgid "Bachelor's"
-msgstr "Bachelor"
+msgstr "BSC diploma"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: courses/presenters/enrollment.py:57
 msgid "Master's"
-msgstr "Mester"
+msgstr "MSC diploma"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
@@ -205,12 +207,12 @@ msgstr "Beadandók"
 #: courses/presenters/performance.py:150
 #, python-brace-format
 msgid "Submissions for Part {part_number}: {part_description}"
-msgstr "Beadandók a t {part_number}: {part_description} részhez"
+msgstr "Beadandók a következőhöz {part_number}. rész: {part_description}"
 
 #: courses/presenters/performance.py:151
 #, python-brace-format
 msgid "Part {part_number}: {part_description}"
-msgstr "Rész {part_number}: {part_description}"
+msgstr "{part_number}. rész: {part_description}"
 
 #: courses/presenters/performance.py:153
 #, python-brace-format
@@ -230,22 +232,22 @@ msgstr "Beadandók a {part_number} részhez"
 #: courses/presenters/performance.py:158
 #, python-brace-format
 msgid "Part {part_number}"
-msgstr "Rész {part_number}"
+msgstr "{part_number}. rész"
 
 #: courses/templates/courses/_base_content_nav.html:25
 #, python-format
 msgid "%(all_sections_text)s"
-msgstr ""
+msgstr "%(all_sections_text)s"
 
 #: courses/templates/courses/_graded_content_nav.html:16
 msgid "Select Assignment Type"
-msgstr "Válaszz feladattípust"
+msgstr "Feladattípus kiválasztása"
 
 #. Translators: This refers to all course assignment types (e.g. homework,
 #. exam, lab).
 #: courses/templates/courses/_graded_content_nav.html:21
 msgid "All Assignments"
-msgstr "Összes feladat"
+msgstr "Minden feladat"
 
 #: courses/templates/courses/_graded_content_nav.html:25
 #, python-format
@@ -253,13 +255,13 @@ msgid ""
 "\n"
 "        Select %(level)s\n"
 "    "
-msgstr ""
+msgstr "\n       %(level)s kiválasztása"
 
 #: courses/templates/courses/_graded_content_nav.html:31
 #: courses/templates/courses/_tags_content_nav.html:23
 #: courses/templates/courses/_ungraded_content_nav.html:28
 msgid "Select Problem"
-msgstr ""
+msgstr "Példa kiválasztása"
 
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
@@ -270,45 +272,45 @@ msgstr "Élő nézet"
 
 #: courses/templates/courses/_tags_content_nav.html:15
 msgid "Select Outcome"
-msgstr ""
+msgstr "Kimenetel kiválasztása"
 
 #: courses/templates/courses/_tags_content_nav.html:19
 msgid "All Outcomes"
-msgstr ""
+msgstr "Minden kimenetel"
 
 #: courses/templates/courses/_ungraded_content_nav.html:16
 #: courses/templates/courses/_video_content_nav.html:16
 msgid "Select Section"
-msgstr ""
+msgstr "Fejezet kiválasztása"
 
 #: courses/templates/courses/_ungraded_content_nav.html:20
 #: courses/templates/courses/_video_content_nav.html:20
 msgid "All Sections"
-msgstr ""
+msgstr "Minden fejezet"
 
 #: courses/templates/courses/_ungraded_content_nav.html:24
 #: courses/templates/courses/_video_content_nav.html:24
 msgid "Select Subsection"
-msgstr ""
+msgstr "Alfejezet kiválasztása"
 
 #: courses/templates/courses/_video_content_nav.html:28
 msgid "Select Video"
-msgstr ""
+msgstr "Videó kiválasztása"
 
 #: courses/templates/courses/_video_module_controls.html:8
 msgid "Previous Video"
-msgstr ""
+msgstr "Előző videó"
 
 #: courses/templates/courses/_video_module_controls.html:15
 msgid "Next Video"
-msgstr ""
+msgstr "Következő videó"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html:60
 msgid ""
 "This chart shows the most common answers submitted by learners, ordered by "
 "frequency."
-msgstr ""
+msgstr "Ez a diagram mutatja tanulók által beküldött legnépszerűbb válaszokat, gyakorisági sorrendben."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html:82
@@ -316,18 +318,18 @@ msgstr ""
 msgid ""
 "Due to the number of possible variants for randomized problems, charts are "
 "not available. %(read_more_link_start)sRead more%(read_more_link_end)s."
-msgstr ""
+msgstr "A véletlenszerű feladatok nagyszámú változatai miatt a diagram nem elérhető. %(read_more_link_start)sOlvass tovább%(read_more_link_end)s."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: courses/templates/courses/base_performance_answer_distribution.html:87
 msgid ""
 "Review all submission variants below, or click Download CSV to review them "
 "offline."
-msgstr ""
+msgstr "Ellenőrizd a beadott változatokat itt lent, vagy kattints a \"CSV letöltése\" gombra, ha offline szeretnéd ellenőrizni!"
 
 #: courses/templates/courses/base_performance_answer_distribution.html:108
 msgid "Submission Counts"
-msgstr ""
+msgstr "Beküldések száma"
 
 #: courses/templates/courses/base_performance_answer_distribution.html:116
 #: courses/templates/courses/engagement_content.html:96
@@ -342,45 +344,45 @@ msgstr "CSV letöltése"
 
 #: courses/templates/courses/base_performance_answer_distribution.html:117
 msgid "Learner Submission Counts"
-msgstr ""
+msgstr "Tanulói beküldések száma"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/templates/courses/demographics_chart_info.html:4
 msgid "Learners (Self-Reported)"
-msgstr ""
+msgstr "Tanulók (önbevallás alapján)"
 
 #: courses/templates/courses/engagement_content.html:23
 msgid "Weekly Learner Engagement"
-msgstr ""
+msgstr "Bevont tanulók, hetente"
 
 #: courses/templates/courses/engagement_content.html:24
 #: courses/views/__init__.py:556
 msgid "How many learners are interacting with my course?"
-msgstr ""
+msgstr "Hány tanuló foglalkozik a kurzusommal?"
 
 #: courses/templates/courses/engagement_content.html:31
 #: courses/views/__init__.py:325 courses/views/__init__.py:639
 #: courses/views/learners.py:20
 msgid "Learners"
-msgstr ""
+msgstr "Tanulók"
 
 #: courses/templates/courses/engagement_content.html:32
 msgid ""
 "The number of active learners, and the number of learners who engaged in "
 "specific activities, over time."
-msgstr ""
+msgstr "Az aktív tanulók száma, és a különféle kurzusmunkákban résztvevő tanulók száma, időre vetítve."
 
 #: courses/templates/courses/engagement_content.html:48
 msgid "Learner Activity Metrics"
-msgstr ""
+msgstr "Tanulók részvételi statisztikái"
 
 #: courses/templates/courses/engagement_content.html:54
 msgid "Active Learners Last Week"
-msgstr ""
+msgstr "Aktív tanulók az elmúlt héten"
 
 #: courses/templates/courses/engagement_content.html:55
 msgid "Learners who visited at least one page in the course content."
-msgstr ""
+msgstr "Tanulók, akik legalább egy oldalt meglátogattak a kurzustartalmak közül."
 
 #. Translators: This is a label indicating the number of learners who watched
 #. a video.
@@ -390,7 +392,7 @@ msgstr "Múlt héten nézett videók"
 
 #: courses/templates/courses/engagement_content.html:62
 msgid "Learners who played one or more videos."
-msgstr ""
+msgstr "Tanulók, akik megtekintettek egy vagy több videót."
 
 #. Translators: This is a label indicating the number of learners who tried a
 #. problem.
