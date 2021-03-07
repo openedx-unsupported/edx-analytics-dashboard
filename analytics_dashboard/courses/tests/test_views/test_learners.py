@@ -7,17 +7,21 @@ from ddt import data, ddt
 from django.conf import settings
 from django.test import TestCase
 from django.test.utils import override_settings
+from edx_toggles.toggles.testutils import override_waffle_flag
 from requests.exceptions import ConnectionError as RequestsConnectionError
 from requests.exceptions import Timeout
 from testfixtures import LogCapture
-from waffle.testutils import override_flag, override_switch
+from waffle.testutils import override_switch
 
 from analytics_dashboard.courses.tests.test_views import ViewTestMixin
 from analytics_dashboard.courses.tests.utils import assert_dict_contains_subset, CourseSamples
+from analytics_dashboard.courses.waffle import (
+    DISPLAY_LEARNER_ANALYTICS,
+)
 
 
 @httpretty.activate
-@override_flag('display_learner_analytics', active=True)
+@override_waffle_flag(DISPLAY_LEARNER_ANALYTICS, active=True)
 @ddt
 class LearnersViewTests(ViewTestMixin, TestCase):
     TABLE_ERROR_TEXT = 'We are unable to load this table.'
@@ -72,7 +76,7 @@ class LearnersViewTests(ViewTestMixin, TestCase):
         self.assertNotContains(response, self.TABLE_ERROR_TEXT)
         return response
 
-    @override_flag('display_learner_analytics', active=False)
+    @override_waffle_flag(DISPLAY_LEARNER_ANALYTICS, active=False)
     def test_success_if_hidden(self):
         self.test_success()
 

@@ -24,7 +24,7 @@ from edx_rest_api_client.exceptions import (
     SlumberBaseException,
 )
 from opaque_keys.edx.keys import CourseKey
-from waffle import flag_is_active, switch_is_active
+from waffle import switch_is_active
 
 from analytics_dashboard.core.exceptions import ServiceUnavailableError
 from analytics_dashboard.core.utils import (
@@ -36,6 +36,9 @@ from analytics_dashboard.courses import permissions
 from analytics_dashboard.courses.presenters.performance import CourseReportDownloadPresenter
 from analytics_dashboard.courses.serializers import LazyEncoder
 from analytics_dashboard.courses.utils import get_page_name, is_feature_enabled
+from analytics_dashboard.courses.waffle import (
+    DISPLAY_LEARNER_ANALYTICS,
+)
 from analytics_dashboard.help.views import ContextSensitiveHelpMixin
 
 logger = logging.getLogger(__name__)
@@ -495,7 +498,7 @@ class CourseHome(CourseTemplateWithNavView):
     }
     page_title = _('Course Home')
 
-    def get_table_items(self, request):
+    def get_table_items(self):
         items = []
 
         enrollment_items = {
@@ -644,7 +647,7 @@ class CourseHome(CourseTemplateWithNavView):
                 'items': subitems
             })
 
-        if flag_is_active(request, 'display_learner_analytics'):
+        if DISPLAY_LEARNER_ANALYTICS.is_enabled():
             items.append({
                 'name': _('Learners'),
                 'icon': 'fa-users',
@@ -692,7 +695,7 @@ class CourseHome(CourseTemplateWithNavView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update({
-            'table_items': self.get_table_items(self.request)
+            'table_items': self.get_table_items()
         })
 
         context['page_data'] = self.get_page_data(context)
