@@ -5,11 +5,14 @@ import ddt
 import httpretty
 from django.conf import settings
 from django.test import TestCase
+from edx_toggles.toggles.testutils import override_waffle_flag
 from requests.exceptions import ConnectTimeout
-from waffle.testutils import override_flag
 
 from analytics_dashboard.core.tests.test_views import UserTestCaseMixin
 from analytics_dashboard.courses.tests.test_views import PermissionsTestMixin
+from analytics_dashboard.courses.waffle import (
+    DISPLAY_LEARNER_ANALYTICS,
+)
 
 
 @ddt.ddt
@@ -77,7 +80,7 @@ class LearnerAPITestMixin(UserTestCaseMixin, PermissionsTestMixin):
         self.assert_response_equals(response, status_code, body)
 
 
-@override_flag('display_learner_analytics', active=True)
+@override_waffle_flag(DISPLAY_LEARNER_ANALYTICS, active=True)
 class LearnerDetailViewTestCase(LearnerAPITestMixin, TestCase):
     endpoint = '/learners/username/'
     required_query_params = {'course_id': 'edX/DemoX/Demo_Course'}
@@ -92,7 +95,7 @@ class LearnerDetailViewTestCase(LearnerAPITestMixin, TestCase):
         })
 
 
-@override_flag('display_learner_analytics', active=True)
+@override_waffle_flag(DISPLAY_LEARNER_ANALYTICS, active=True)
 class LearnerListViewTestCase(LearnerAPITestMixin, TestCase):
     endpoint = '/learners/'
     required_query_params = {'course_id': 'edX/DemoX/Demo_Course'}
@@ -129,7 +132,7 @@ class LearnerListCSVTestCase(LearnerListViewTestCase):
         self.assertEqual(response['Content-Disposition'], content_disposition)
 
 
-@override_flag('display_learner_analytics', active=True)
+@override_waffle_flag(DISPLAY_LEARNER_ANALYTICS, active=True)
 class EngagementTimelinesViewTestCase(LearnerAPITestMixin, TestCase):
     endpoint = '/engagement_timelines/username/'
     required_query_params = {'course_id': 'edX/DemoX/Demo_Course'}
@@ -145,7 +148,7 @@ class EngagementTimelinesViewTestCase(LearnerAPITestMixin, TestCase):
         })
 
 
-@override_flag('display_learner_analytics', active=True)
+@override_waffle_flag(DISPLAY_LEARNER_ANALYTICS, active=True)
 class CourseLearnerMetadataViewTestCase(LearnerAPITestMixin, TestCase):
     endpoint = '/course_learner_metadata/edX/DemoX/Demo_Course/'
     no_permissions_status_code = 403
