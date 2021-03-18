@@ -14,5 +14,9 @@ from edx_toggles.toggles import NonNamespacedWaffleFlag
 #   activity and their enrollment in a course. This was a rollout flag and we recommend you enable this feature.
 # .. toggle_warnings: Requires the `ModuleEngagementWorkflowTask` to be run to populate the charts.
 # .. toggle_use_cases: temporary
+# .. toggle_creation_date: 2016-04-15
+# .. toggle_target_removal_date: 2016-07-15
+# .. toggle_tickets: https://github.com/edx/edx-analytics-dashboard/pull/440,
+#   https://github.com/edx/edx-analytics-dashboard/pull/522
 DISPLAY_LEARNER_ANALYTICS = NonNamespacedWaffleFlag(
     'display_learner_analytics', __name__)
