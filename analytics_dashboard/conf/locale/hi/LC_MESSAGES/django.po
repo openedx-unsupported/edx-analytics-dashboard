@@ -9,6 +9,7 @@
 # Kanan Joshi <kanan.joshi@ia.ooo>, 2019
 # Kumar Gaurav <kmrgaurav33@gmail.com>, 2016
 # Lata Verma <vermalata@hotmail.com>, 2016,2018-2019
+# Manish Manish <manish@manprax.com>, 2021
 # Palak Kansara <palak.kansara@ia.ooo>, 2019
 # Zainab Amir <zamir@edx.org>, 2019
 msgid ""
@@ -16,8 +17,8 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-16 09:16-0400\n"
-"PO-Revision-Date: 2019-09-30 08:02+0000\n"
-"Last-Translator: Zainab Amir <zamir@edx.org>\n"
+"PO-Revision-Date: 2021-01-14 09:29+0000\n"
+"Last-Translator: Manish Manish <manish@manprax.com>\n"
 "Language-Team: Hindi (http://www.transifex.com/open-edx/edx-platform/language/hi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -763,7 +764,7 @@ msgstr "शिक्षार्थी लिंग का टूटना क�
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled learners who "
 "specified their gender."
-msgstr ""
+msgstr "यह ग्राफ डाटा प्रेसेंट करता है%(value)s%% किसी एनरोल्ल्द लरनेर्स के लिए जिसने अपने जेंडर को स्पेसिफ़ाए किया है| "
 
 #: courses/templates/courses/enrollment_demographics_gender.html:56
 msgid "Gender Breakdown Over Time"
@@ -865,7 +866,7 @@ msgid ""
 "\n"
 "                    (%(download_icon)s CSV Download)\n"
 "                  "
-msgstr ""
+msgstr "\n(%(download_icon)sअस सी वी डौंलोद)"
 
 #: courses/templates/courses/home.html:93
 msgid "Basic Course Information"
@@ -947,13 +948,13 @@ msgid ""
 "\n"
 "                %(assignment_type)s: %(policy_ratio)s%% of the grading policy\n"
 "              "
-msgstr ""
+msgstr "\n%(assignment_type)s:%(policy_ratio)s%%ऑफ थे ग्रेडिंग पॉलिसी "
 
 #. Translators: This describes the percent of a learner's grade (e.g. 60%).
 #: courses/templates/courses/performance_graded_content.html:34
 #, python-format
 msgid "%(policy_ratio)s%%"
-msgstr ""
+msgstr "%(policy_ratio)s%%"
 
 #: courses/templates/courses/performance_graded_content_by_type.html:7
 #, python-format
@@ -961,7 +962,7 @@ msgid ""
 "\n"
 "      How are learners doing on the %(type)s?\n"
 "    "
-msgstr ""
+msgstr "\nलेयरनेर्स कैसे कर रहे है ऑन %(type)s?"
 
 #: courses/templates/courses/performance_graded_content_by_type.html:15
 msgid ""
@@ -1190,7 +1191,7 @@ msgstr "पाठ्यक्रम"
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
+msgstr "कोर्स सुममारी डाटा आखरी अपडेट किया गया था%(update_date)s अट%(update_time)s UTC |"
 
 #: courses/views/engagement.py:52
 msgid "Engagement Content"
@@ -1202,7 +1203,7 @@ msgstr "सगाई की सामग्री"
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "कोर्स इंगेज्मेंत डाटा आखिरी अपडेट हुआ था %(update_date)sअट%(update_time)s UTC |"
 
 #: courses/views/engagement.py:88
 msgid "Engagement Videos"
@@ -1212,7 +1213,7 @@ msgstr "सगाई के वीडियो"
 #: courses/views/engagement.py:93
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
+msgstr "विडियो डाटा आखिरी अपडेट हुआ था %(update_date)sअट%(update_time)s UTC |"
 
 #: courses/views/engagement.py:94
 msgid "Looks like no one has watched any videos in these sections."
@@ -1236,7 +1237,7 @@ msgstr "वीडियो नाम"
 msgid ""
 "Demographic learner data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "डेमोग्राफिक लेयर्नर आखिरी अपडेट हुआ था %(update_date)sअट%(update_time)s UTC|"
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
@@ -1255,7 +1256,7 @@ msgstr "नामांकन गतिविधि"
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "एनरोलद एक्टिविटी आखिरी अपडेट हुआ था%(update_date)s अट %(update_time)sUTC |"
 
 #: courses/views/enrollment.py:148
 msgid "Enrollment Demographics by Age"
@@ -1279,7 +1280,7 @@ msgstr "नामांकन भूगोल"
 msgid ""
 "Geographic learner data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "जिओग्राफिक लेयर्नर आखिरी अपडेट हुआ था %(update_date)sअट %(update_time)sUTC |"
 
 #. Translators: Do not translate UTC.
 #: courses/views/performance.py:33
@@ -1287,7 +1288,7 @@ msgstr ""
 msgid ""
 "Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "प्रॉबलम सबमिस्न डाटा आखिरी अपडेट हुआ था%(update_date)s अट%(update_time)s UTC | "
 
 #: courses/views/performance.py:79
 msgid "Assignment Name"
@@ -1309,7 +1310,7 @@ msgstr "प्रदर्शन: समस्या प्रस्तुति
 #: courses/views/performance.py:257
 #, python-format
 msgid "Graded Content: %(assignment_type)s"
-msgstr ""
+msgstr "ग्रदेड कंटैंट %(assignment_type)s"
 
 #: courses/views/performance.py:276 courses/views/performance.py:344
 msgid "Problem Name"
@@ -1320,7 +1321,7 @@ msgstr "समस्या का नाम"
 msgid ""
 "Tags distribution data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "तागस डिस्टिबुस्न डाटा आखिरी अपडेट हुआ था%(update_date)s अट%(update_time)s UTC |"
 
 #: courses/views/performance.py:398 courses/views/performance.py:428
 msgid "Performance: Learning Outcomes"
@@ -1391,14 +1392,14 @@ msgstr "प्रश्न पूछने या प्रतिक्रिय
 #: templates/base-error.html:47
 #, python-format
 msgid "Contact %(platform_name)s Support"
-msgstr ""
+msgstr "कांटैक्ट%(platform_name)s सपोर्ट "
 
 #: templates/footer.html:16
 #, python-format
 msgid ""
 "We want this dashboard to work for you! Need help? "
 "%(support_link_start)sContact course team support%(support_link_end)s."
-msgstr ""
+msgstr "हम चाहते है की यह डैशबोर्ड आपके लिए काम करे! आपको मदद की आवयस्कता है?%(support_link_start)s कोर्स टीम सपोर्ट को कांटैक्ट करे %(support_link_end)s|"
 
 #. Translators: The © symbol appears directly before this line.
 #: templates/footer.html:39
@@ -1406,7 +1407,7 @@ msgstr ""
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
 "            reserved. "
-msgstr ""
+msgstr "%(current_year)s%(platform_name)s, एक्ष्सेप्त वेयर नोटेड, सभी राइट्स \nरिज़र्व्ड "
 
 #: templates/header.html:13
 msgid "Toggle navigation"
