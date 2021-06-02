@@ -1,0 +1,12 @@
+$brand-logo-path: '/static/images/logo.png';
+$brand-logo-width: 98px;
+$brand-logo-height: 49px;
+
+@import "open-edx";
+
+.navbar-brand {
+  .navbar-brand-app {
+    // No padding is needed for the Isha logo.
+    padding-top: 0;
+  }
+}
