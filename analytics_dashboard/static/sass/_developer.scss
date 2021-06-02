@@ -12,7 +12,7 @@
   @extend .pull-left;
   padding-left: $padding-small-horizontal;
   padding-top: $padding-large-vertical;
-  color: $edx-blue;
+  color: $isha-primary-color;
   font-size: $font-size-small;
 
   // controls in the chart info section are floated left, so push the menu
@@ -66,7 +66,7 @@ button.chart-info {
         fill: $edx-gray;
 
         .nv-axislabel {
-          fill: $edx-blue;
+          fill: $isha-primary-color;
         }
       }
 
@@ -102,7 +102,7 @@ button.chart-info {
   max-height: 450px;
 
   background-color: white;
-  border: $description-border-color 1px solid;
+  border:  1px solid rgba(0, 0, 0, 0.1);
   
   // Reason for !important: need to override Datamap style added directly to element via JS.
   // (they set it to 60%, but that makes too much vertical space for the height of the map)
@@ -136,8 +136,8 @@ button.chart-info {
 
   .nav-section.active {
     margin-bottom: 0px;
-    color: $navbar-default-link-active-color;
-    border-bottom: 6px solid $navbar-default-link-active-color;
+    color: $white;
+    border-bottom: 6px solid $white;
   }
 
   .nav-section {
@@ -156,8 +156,8 @@ button.chart-info {
 }
 
 // lens navigation consists of a drop down and the lens sections in a navigation
-$lens-background-color: $palette-grayscale-dark;
-$lens-nav-text-color: $palette-grayscale-accent;
+$lens-background-color: $isha-primary-color;
+$lens-nav-text-color: $white;
 $lens-nav-height: 55px;
 $lens-box-model: border-box;
 $lens-padding-top: 18px;
@@ -210,7 +210,7 @@ $lens-nav-margin: 15px;
 
     // style the nav secondary items
     li > a {
-      color: $lens-nav-text-color;
+      color: $isha-secondary-color;
       min-height: $lens-nav-height;
       padding-top: $lens-padding-top;
       padding-bottom: 0px;
@@ -232,7 +232,7 @@ $lens-nav-margin: 15px;
   padding-left: $padding-large-horizontal;
 
   li > a {
-    color: $lens-nav-text-color;
+    color: $isha-secondary-color;
     padding-top: 0px;
     padding-bottom: $padding-small-vertical;
 
@@ -326,7 +326,7 @@ body.view-dashboard {
 
 .announcement-container {
   background-color: $palette-grayscale-dark;
-  border-bottom: solid 1px $edx-blue;
+  border-bottom: solid 1px $isha-primary-color;
   padding-bottom: $padding-large-vertical * 1.5;
   padding-top: $padding-large-vertical;
   padding-left: $padding-small-horizontal;
@@ -342,7 +342,7 @@ body.view-dashboard {
   }
 
   .icon {
-    color: $edx-blue;
+    color: $isha-primary-color;
     text-align: right;
     font-size: $font-size-h2;
     margin-left: $padding-small-horizontal;
@@ -405,7 +405,7 @@ body.view-dashboard {
       display: table-cell;
       vertical-align: bottom;
       font-size: $font-size-large;
-      color: $edx-blue;
+      color: $isha-primary-color;
 
       // increase line height for med-small screens so headers are same level for long lines
       @media (max-width: $bp-screen-lg) and (min-width: $bp-screen-md - 1) {
@@ -423,22 +423,23 @@ body.view-dashboard {
   }
 
   .course-home-table {
-    border: 1px solid $description-border-color;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-width: 0 0 1px 1px;
 
     .item {
-      background: white;
+      background: #F6F5F3;
       padding: $padding-large-vertical;
-      border: 1px solid $description-border-color;
+      border: 1px solid rgba(0, 0, 0, 0.1);
       border-width: 1px 1px 0 0;
 
       &.name {
-        color: $edx-gray-l1;
+        color: $isha-primary-color;
         font-size: $font-size-large;
       }
 
       .title {
         margin-bottom: $padding-base-vertical;
+         color: $isha-primary-color;
       }
 
       .breadcrumbs {
@@ -456,7 +457,7 @@ body.view-dashboard {
     display: block;
     position: relative;
     overflow: hidden;
-    border-top: 4px solid $edx-blue-s1;
+    border-top: 4px solid $isha-primary-color;
     height: 100%;
 
     .cover {
@@ -527,7 +528,7 @@ body.view-dashboard {
 
   .lens-question {
     font-size: $font-size-large;
-    color: $edx-blue-s1;
+    color: $isha-primary-color;
     min-height: 60px;
     text-align: center;
     vertical-align: bottom;
@@ -667,7 +668,7 @@ body.view-dashboard {
     padding: 5px;
 
     .policy-item-box {
-      background-color: $edx-blue-l2;
+      background-color: $isha-primary-color;
       margin-bottom: $padding-base-vertical;
       height: 50px;
       line-height: 50px;
@@ -866,3 +867,24 @@ body.view-dashboard {
     font-weight: normal;
   }
 }
+
+.btn-primary {
+    color: #fff;
+    background-color: $isha-primary-color;
+    border-color: $isha-primary-color ;
+    &:hover{
+       background-color: $isha-primary-color;
+    border-color: $isha-primary-color ;
+    opacity: 0.8;
+
+    }
+}
+
+.navbar-brand .navbar-brand-logo {
+    width: 76px;
+    height: 38px;
+}
+.navbar-brand {
+  
+    padding: 20px 15px;
+  }

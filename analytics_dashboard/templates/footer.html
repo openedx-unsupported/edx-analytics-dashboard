@@ -26,7 +26,7 @@
         <div class="col col-12 sm-col-12 md-col-6">
           {% if footer_links %}
             {% for link in footer_links %}
-            <a href="{{ link.url }}" target="_blank" {% if link.data_role %}data-role="{{ link.data_role }}"{% endif %}>
+            <a href="{{ link.url }}" style="display: none;" target="_blank" {% if link.data_role %}data-role="{{ link.data_role }}"{% endif %}>
               {% trans link.text %}
             </a>
             &nbsp;
@@ -36,8 +36,7 @@
         <div class="col col-12 sm-col-12 md-col-6 text-right">
           {% captureas current_year %}{% now "Y" %}{% endcaptureas %}
           {# Translators: The © symbol appears directly before this line. #}
-          <p class="copyright">© {% blocktrans %} {{ current_year }} {{ platform_name }}, except where noted, all rights
-            reserved. {% endblocktrans %}</p>
+         <p class="copyright"> Powered by <a href="https://www.sambaash.com/">Sambaash® OmniLearn™️</a> on <a href="http://openedx.org/">Open edX</a></p>
         </div>
       </div>
     </div>

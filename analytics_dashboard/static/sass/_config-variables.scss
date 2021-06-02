@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap');
 // config: variables
 // ====================
 // NOTE: these variables override Bootstrap-centric variables.
@@ -6,6 +7,9 @@
 // + application - bootstrap overrides
 
 // colors
+//Isha colors
+$isha-primary-color: #cf472d;
+$isha-secondary-color: #333333;
 // --------------------
 // basic
 $black: rgb(10,10,10);                                                                              // system black
@@ -115,8 +119,8 @@ $shadow-d2: rgba($black-t,0.6);
 // FIXME: copy-and-pasted from the edx-pattern-library. Delete me when we import it via sass.
 // colors: palettes
 $palette-primary-dark: rgba(6, 86, 131, 100);
-$palette-primary-base: rgba(0, 117, 180, 100);
-$palette-primary-accent: rgba(41, 145, 195, 100);
+$palette-primary-base: $isha-primary-color;
+$palette-primary-accent: $isha-primary-color;
 $palette-primary-back: rgba(204, 227, 240, 100);
 $palette-primary-x-back: rgba(242, 248, 251, 100);
 $palette-secondary-dark: rgba(152, 44, 98, 100);
@@ -191,9 +195,9 @@ $edx-gray-t2: rgba($edx-gray,0.50);
 $edx-gray-t3: rgba($edx-gray,0.75);
 
 // general color application
-$color-primary: $edx-blue;
-$color-secondary: $edx-blue-l1;
-$color-tertiary: $edx-blue-l2;
+$color-primary: $isha-primary-color;
+$color-secondary: $isha-secondary-color;
+$color-tertiary: $isha-secondary-color;
 $color-success: $palette-success-text;
 $color-warning: $palette-warning-accent;
 $color-error: $palette-error-text;
@@ -204,8 +208,8 @@ $color-delete: $palette-error-text;
 $color-support: $orange;
 
 // fonts
-$f-sans-serif: 'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif;
-$f-sans-serif-alt: 'Montserrat','Avenir Next', Helvetica, Arial, sans-serif;
+$f-sans-serif: 'Nunito Sans', sans-serif;
+$f-sans-serif-alt: 'Nunito Sans', sans-serif;
 
 
 // application - bootstrap overrides (from http://getbootstrap.com/customize/#less-variables)
@@ -223,10 +227,10 @@ $brand-warning: $color-warning;
 $brand-danger: $color-error;
 
 // scaffolding
-$body-bg: $edx-gray-l2;
-$text-color: $gray-d2;
-$link-color: $palette-primary-accent;
-$link-hover-color: $palette-primary-base;
+$body-bg: #f9f7f0;
+$text-color: #333333;
+$link-color: $isha-primary-color;
+$link-hover-color: $isha-primary-color;
 
 // grid
 // $grid-gutter-width: 40px;
@@ -248,12 +252,12 @@ $border-radius-large: 4px;
 
 // navbar
 $navbar-height: 80px;
-$navbar-default-color: black;
-$navbar-default-bg: $white;
-$navbar-default-link-color: $edx-gray;
-$navbar-default-link-hover-color: $palette-primary-accent;
+$navbar-default-color: #333333;
+$navbar-default-bg: #F6F5F3;
+$navbar-default-link-color: $isha-primary-color;
+$navbar-default-link-hover-color: $isha-primary-color;
 $navbar-default-link-hover-bg: transparent;
-$navbar-default-link-active-color: $palette-primary-accent;
+$navbar-default-link-active-color: $isha-primary-color;
 $navbar-default-link-active-bg: $white;
 $navbar-default-border: $gray-lighter;
 // $navbar-padding-horizontal: ;
@@ -261,8 +265,8 @@ $navbar-default-border: $gray-lighter;
 // $navbar-default-border: ;
 
 // dropdowns
-$dropdown-link-color: $edx-blue-s1;
-$dropdown-link-hover-color: $edx-blue-s2;
+$dropdown-link-color: $isha-primary-color;
+$dropdown-link-hover-color: $isha-primary-color;
 
 // tooltips
 $tooltip-max-width: 300px;
@@ -288,3 +292,5 @@ $navbar-padding: 30px;
 
 // Ignore Bourbon deprecation warnings spamming our logs
 $output-bourbon-deprecation-warnings: false !default;
+
+
