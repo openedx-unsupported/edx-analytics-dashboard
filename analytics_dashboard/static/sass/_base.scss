@@ -296,7 +296,7 @@ dl {
 
   // STATE: hover + active
   &:hover, &:active {
-    box-shadow: 0 1px 1px $edx-blue-t2;
+    box-shadow: 0 1px 1px $isha-primary-color;
     @include scale(1.0);
 
     .summary-point-number {
@@ -359,7 +359,7 @@ dl {
 
     // STATE: hover
     &:hover, &:active {
-      background: $edx-blue-t0;
+      background: $isha-primary-color;
     }
   }
 }
@@ -382,7 +382,7 @@ dl {
   }
 
   .feedback {
-    border-top: solid 2px $edx-blue;
+    border-top: solid 2px $isha-primary-color;
     background-color: white;
     text-align: center;
     padding: ($padding-large-vertical*2) $padding-small-horizontal;
