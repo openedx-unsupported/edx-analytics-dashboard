@@ -16,11 +16,13 @@
             {% include "_skip_link.html" with content_id="content" %}
             <header class="navbar navbar-default" id="nav">
                 <div class="grid-container grid-manual">
-                    <div class="navbar-header">
+                    <div class="navbar-header landing-nav">
                         {% include 'brand.html' with class_prefix='navbar' %}
                     </div>
-                    <div class="login-button-container">
-                        <a href="{% url 'login' %}"><button type="button" class="btn btn-default pull-right">{% trans "Login" %}</button></a>
+                    <div class="login-button-container landingbtn-wrap pull-right">
+                        <a href="{% url 'login' %}"><button type="button" class="btn btn-default ">{% trans "Login" %}</button></a>
+                        <img class="logo-rightside" src="{% static 'images/logo-right.png" alt="OmniLearn Home Page">
+                        <img class="logo-rightsideMobile" src="{% static 'images/logo-mobile.png" alt="OmniLearn Home Page">
                     </div>
                 </div>
                 <!-- / container -->
