@@ -9,7 +9,7 @@ Partial: App-wide header element
 <header class="navbar navbar-default" id="nav">
   <div class="grid-container">
     <div class="navbar-header insightHeadcustom">
-       <img class="logo-rightsideMobile" src="{% static 'images/images/logo-mobile.png" alt="OmniLearn Home Page">
+       <img class="logo-rightsideMobile" src="{% static 'images/logo-mobile.png' %}" alt="OmniLearn Insight Page">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
         <span class="sr-only">{% trans 'Toggle navigation' %}</span>
         <span class="icon-bar"></span>
@@ -61,6 +61,10 @@ Partial: App-wide header element
                   {% trans "Logout" %}</a>
             </li>
           </ul>
+        </li>
+         <li>
+          <img class="logo-rightside-insight" src="{% static 'images/logo-right.png' %}" alt="OmniLearn Insight Page">
+    
         </li>
       </ul>
     </div>
