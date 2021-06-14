@@ -193,7 +193,7 @@ $lens-nav-margin: 15px;
       a, button {
         background: transparent;
         text-transform: uppercase;
-        color: $navbar-default-link-active-color;
+        color: #FFFFFF;
       }
 
       // this prevents the drop down from overlapping with the menu
@@ -210,10 +210,13 @@ $lens-nav-margin: 15px;
 
     // style the nav secondary items
     li > a {
-      color: $isha-secondary-color;
+      color: $white;
       min-height: $lens-nav-height;
       padding-top: $lens-padding-top;
       padding-bottom: 0px;
+      &:hover{
+            color: #d4d3d3;
+      }
     }
 
     li > button {
@@ -883,8 +886,8 @@ body.view-dashboard {
 }
 
 .navbar-brand .navbar-brand-logo {
-    width: 76px;
-    height: 38px;
+       width: 86px !important;
+    height: 43px !important;
 }
 .navbar-brand {
   
@@ -895,8 +898,9 @@ body.view-dashboard {
 }
 .navbar-toggle
 {
-  margin-left: 15px;
-  margin-right: 0px;
+      margin-left: 15px !important;
+    margin-right: 0 !important;
+    float: left !important;
 }
 
 //Landing Page Header css
@@ -1031,4 +1035,13 @@ img.logo-rightside-insight {
 }
 .navbar-collapse.insignNavc.collapse .custNavhel {
     display: block;
+}
+
+.course-list .section-data-table tbody tr:active:nth-child(odd)>th.course-name-cell, .course-list .section-data-table tbody tr:hover:nth-child(odd)>th.course-name-cell, .learner-roster .section-data-table tbody tr:active:nth-child(odd)>th.learner-name-username-cell, .learner-roster .section-data-table tbody tr:hover:nth-child(odd)>th.learner-name-username-cell, .section-data-table tbody .course-list tr:active:nth-child(odd)>th.course-name-cell, .section-data-table tbody .course-list tr:hover:nth-child(odd)>th.course-name-cell, .section-data-table tbody .learner-roster tr:active:nth-child(odd)>th.learner-name-username-cell, .section-data-table tbody .learner-roster tr:hover:nth-child(odd)>th.learner-name-username-cell, .section-data-table tbody tr:active:nth-child(2n), .section-data-table tbody tr:active:nth-child(odd)>td, .section-data-table tbody tr:hover:nth-child(2n), .section-data-table tbody tr:hover:nth-child(odd)>td {
+    background: $navheg-bg !important;
+}
+.alert-copy-with-title .course-list thead tr th button, .alert-copy-with-title .learner-roster thead tr th button, .alert-copy-with-title .nav>li>a, .alert-copy-with-title a, .alert-copy .course-list thead tr th button, .alert-copy .learner-roster thead tr th button, .alert-copy .nav>li>a, .alert-copy a, .btn-link, .copy-base .course-list thead tr th button, .copy-base .learner-roster thead tr th button, .copy-base .nav>li>a, .copy-base a, .copy-large .course-list thead tr th button, .copy-large .learner-roster thead tr th button, .copy-large .nav>li>a, .copy-large a, .copy-lead .course-list thead tr th button, .copy-lead .learner-roster thead tr th button, .copy-lead .nav>li>a, .copy-lead a, .copy-meta .course-list thead tr th button, .copy-meta .learner-roster thead tr th button, .copy-meta .nav>li>a, .copy-meta a, .copy-micro .course-list thead tr th button, .copy-micro .learner-roster thead tr th button, .copy-micro .nav>li>a, .copy-micro a, .course-list thead tr th .alert-copy-with-title button, .course-list thead tr th .alert-copy button, .course-list thead tr th .copy-base button, .course-list thead tr th .copy-large button, .course-list thead tr th .copy-lead button, .course-list thead tr th .copy-meta button, .course-list thead tr th .copy-micro button, .course-list thead tr th .table-simplified caption button, .course-list thead tr th .table caption button, .course-list thead tr th button, .learner-roster thead tr th .alert-copy-with-title button, .learner-roster thead tr th .alert-copy button, .learner-roster thead tr th .copy-base button, .learner-roster thead tr th .copy-large button, .learner-roster thead tr th .copy-lead button, .learner-roster thead tr th .copy-meta button, .learner-roster thead tr th .copy-micro button, .learner-roster thead tr th .table-simplified caption button, .learner-roster thead tr th .table caption button, .learner-roster thead tr th button, .link, .nav>li>a, .table-simplified caption .course-list thead tr th button, .table-simplified caption .learner-roster thead tr th button, .table-simplified caption a, .table-sortable .sortable .action-sort, .table caption .course-list thead tr th button, .table caption .learner-roster thead tr th button, .table caption a, a {
+  
+    color: $isha-primary-color !important;
+  
 }
