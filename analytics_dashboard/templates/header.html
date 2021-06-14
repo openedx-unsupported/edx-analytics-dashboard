@@ -8,7 +8,8 @@ Partial: App-wide header element
 {% include "_skip_link.html" with content_id="content" %}
 <header class="navbar navbar-default" id="nav">
   <div class="grid-container">
-    <div class="navbar-header">
+    <div class="navbar-header insightHeadcustom">
+       <img class="logo-rightsideMobile" src="/static/images/logo-mobile.png" alt="OmniLearn Insight Page">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
         <span class="sr-only">{% trans 'Toggle navigation' %}</span>
         <span class="icon-bar"></span>
@@ -33,7 +34,7 @@ Partial: App-wide header element
     </div>
 
     <div class="collapse navbar-collapse" id="main-nav">
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right custNavhel">
         {% if help_url %}
           <li>
             <a id="help" class="navbar-link " data-track-type="click" data-track-event="edx.bi.help.clicked"
@@ -60,6 +61,10 @@ Partial: App-wide header element
                   {% trans "Logout" %}</a>
             </li>
           </ul>
+        </li>
+         <li>
+          <img class="logo-rightside-insight" src="/static/images/logo-right.png" alt="OmniLearn Insight Page">
+    
         </li>
       </ul>
     </div>

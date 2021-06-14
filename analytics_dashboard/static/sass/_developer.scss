@@ -457,7 +457,7 @@ body.view-dashboard {
     display: block;
     position: relative;
     overflow: hidden;
-    border-top: 4px solid $isha-primary-color;
+    border-top: 1px solid $isha-primary-color;
     height: 100%;
 
     .cover {
@@ -517,7 +517,9 @@ body.view-dashboard {
   }
 
   .login-button-container {
-    padding-top: 25px;
+        padding-top: 18px;
+    margin-right: 2%;
+    float: right;
   }
 
   // into tagline section directly below the cover image
@@ -888,3 +890,145 @@ body.view-dashboard {
   
     padding: 20px 15px;
   }
+  p.copyright {
+    padding-bottom: 15px;
+}
+.navbar-toggle
+{
+  margin-left: 15px;
+  margin-right: 0px;
+}
+
+//Landing Page Header css
+.landingbtn-wrap .logo-rightside {
+    display: inline-block;
+    width: 200px;
+        margin-left: 20px;
+}
+.landingbtn-wrap .logo-rightsideMobile {
+    width: 190px;
+    float: right;
+    margin-left: 10px;
+    display:none;
+}
+
+@media screen and (max-width: 667px)
+{
+.landingbtn-wrap .logo-rightsideMobile {
+    display: block;
+    
+}
+.landingbtn-wrap .logo-rightside {
+    display: none;
+}
+.global-header .header-logo {
+    display: none !important;
+}
+.navbar-header.landing-nav {
+    display:none !important;
+}
+.landing .login-button-container {
+    padding-top: 20px;
+    padding-bottom:20px
+}
+}
+
+@media only screen and (max-width: 1027px) and (min-width: 668px)
+{
+.landingbtn-wrap .logo-rightsideMobile {
+    display: inline;
+}
+.landingbtn-wrap .logo-rightside {
+    display: none;
+}
+.navbar-header.landing-nav {
+    display:none !important;
+}
+.landing .login-button-container {
+    padding-top: 20px;
+    padding-bottom:20px
+}
+}
+
+//After Login header styling
+@media screen and (max-width: 667px)
+{
+    a.navbar-brand.insight-brand  {
+    display: none;
+}
+
+
+.navbar-header.insightHeadcustom img {
+    width: 190px;
+    float: right;
+    margin-left: 0;
+    margin-right: 15px;
+    padding: 23px 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+    display:block !important;
+}
+img.logo-rightside-insight
+{
+    display:none !important;
+}
+
+}
+
+@media only screen and (max-width: 1027px) and (min-width: 668px)
+{
+    a.navbar-brand.insight-brand  {
+    display: none;
+}
+
+
+.navbar-header.insightHeadcustom img {
+    width: 190px;
+    float: right;
+    margin-left: 0;
+    margin-right: 15px;
+    padding: 23px 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+    display:block  !important;
+}
+img.logo-rightside-insight
+{
+    display:none !important;
+}
+
+}
+
+
+.grid-container {
+    max-width: 1800px;
+    width: 100%;
+    /* margin: 0 auto; */
+}
+
+
+.navbar-header.insightHeadcustom img {
+   
+    display:none;
+}
+
+
+
+img.logo-rightside-insight {
+    display: inline-block;
+    width: 200px;
+    padding: 25px 10px;
+}
+
+
+
+.navbar-collapse.insignNavc {
+    height: auto !important;
+}
+
+.navbar-collapse.insignNavc.collapse.in .custNavhel {
+    display: none;
+}
+.navbar-collapse.insignNavc.collapse .custNavhel {
+    display: block;
+}
