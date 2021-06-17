@@ -101,47 +101,37 @@
 
             <div id="footer-push"></div>
         </div>
-       <footer class="footer" aria-label="{% trans "Application" %}">
-  <!-- {% if show_feedback %}
-  <div class="feedback">
-    <div class="grid-container grid-manual">
-      <div class="row">
-        <div class="col col-12">
+     <footer class="footer" aria-label="Application">
+  
+  
+          <div class="legal">
+            <div class="grid-container grid-manual">
+              <div class="row">
+                <div class="col col-12 sm-col-12 md-col-6">
+                  
+                    
+                    <a href="http://example.com/" style="display: none;" target="_blank" data-role="tos">
+                      Terms of Service
+                    </a>
+                    &nbsp;
+                    
+                    <a href="http://example.com/" style="display: none;" target="_blank" data-role="privacy-policy">
+                      Privacy Policy
+                    </a>
+                    &nbsp;
+                    
+                  
+                </div>
+                <div class="col col-12 sm-col-12 md-col-6 text-right">
+                  
+                  
 
-          {% captureas support_link_start %}
-            <a class="support-email" href="mailto:{% settings_value 'SUPPORT_EMAIL' %}">{% endcaptureas %}
-          {% captureas support_link_end %}</a>{% endcaptureas %}
+                 <p class="copyright"> Powered by <a href="https://www.sambaash.com/products/omnilearn" target="_blank">Sambaash® OmniLearn™️</a> on <a href="http://openedx.org/" target="_blank">Open edX</a></p>
 
-          {% blocktrans trimmed %}We want this dashboard to work for you! Need help? {{ support_link_start }}Contact course team support{{ support_link_end }}.{% endblocktrans %}
-
-        </div>
-      </div>
-    </div>
-  </div> -->
-  {% endif %}
-  <div class="legal">
-    <div class="grid-container grid-manual">
-      <div class="row">
-        <div class="col col-12 sm-col-12 md-col-6">
-          {% if footer_links %}
-            {% for link in footer_links %}
-            <a href="{{ link.url }}" style="display: none;" target="_blank" {% if link.data_role %}data-role="{{ link.data_role }}"{% endif %}>
-              {% trans link.text %}
-            </a>
-            &nbsp;
-            {% endfor %}
-          {% endif %}
-        </div>
-        <div class="col col-12 sm-col-12 md-col-6 text-right">
-          {% captureas current_year %}{% now "Y" %}{% endcaptureas %}
-          {# Translators: The © symbol appears directly before this line. #}
-
-         <p class="copyright"> Powered by <a href="https://www.sambaash.com/products/omnilearn" target="_blank">Sambaash® OmniLearn™️</a> on <a href="http://openedx.org/" target="_blank">Open edX</a></p>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
     </body>
 {% endblock body %}
