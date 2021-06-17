@@ -163,6 +163,10 @@ $lens-box-model: border-box;
 $lens-padding-top: 18px;
 $lens-nav-margin: 15px;
 
+.depth-0, .zebra-stripe>:nth-child(odd), body {
+    background: $navheg-bg !important;
+}
+
 .course-label {
   padding-top: $lens-padding-top;
   padding-bottom: 0px;
@@ -1085,8 +1089,13 @@ img.logo-rightside-insight {
    background: $navheg-bg!important;
    a{
     text-decoration-color: $isha-primary-color !important;
+    .course-list .course-id:hover {
+          color: $isha-primary-color !important;;
+      }
    }
 }
+
+
 
 
 
