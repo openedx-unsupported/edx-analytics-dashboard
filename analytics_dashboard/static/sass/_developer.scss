@@ -900,7 +900,7 @@ body.view-dashboard {
     padding: 20px 15px;
   }
   p.copyright {
-    padding-bottom: 15px;
+    padding-bottom: 0;
 }
 .navbar-toggle
 {
@@ -1046,6 +1046,50 @@ img.logo-rightside-insight {
 .course-list .section-data-table tbody tr:active:nth-child(odd)>th.course-name-cell, .course-list .section-data-table tbody tr:hover:nth-child(odd)>th.course-name-cell, .learner-roster .section-data-table tbody tr:active:nth-child(odd)>th.learner-name-username-cell, .learner-roster .section-data-table tbody tr:hover:nth-child(odd)>th.learner-name-username-cell, .section-data-table tbody .course-list tr:active:nth-child(odd)>th.course-name-cell, .section-data-table tbody .course-list tr:hover:nth-child(odd)>th.course-name-cell, .section-data-table tbody .learner-roster tr:active:nth-child(odd)>th.learner-name-username-cell, .section-data-table tbody .learner-roster tr:hover:nth-child(odd)>th.learner-name-username-cell, .section-data-table tbody tr:active:nth-child(2n), .section-data-table tbody tr:active:nth-child(odd)>td, .section-data-table tbody tr:hover:nth-child(2n), .section-data-table tbody tr:hover:nth-child(odd)>td {
     background: $navheg-bg!important;
 }
+
+.view-section .course-list .section-data-table tbody tr:active:nth-child(odd)>th.course-name-cell,
+.view-section .course-list .section-data-table tbody tr:hover:nth-child(odd)>th.course-name-cell,
+.view-section .learner-roster .section-data-table tbody tr:active:nth-child(odd)>th.learner-name-username-cell,
+.view-section .learner-roster .section-data-table tbody tr:hover:nth-child(odd)>th.learner-name-username-cell,
+.view-section .section-data-table tbody .course-list tr:active:nth-child(odd)>th.course-name-cell,
+.view-section .section-data-table tbody .course-list tr:hover:nth-child(odd)>th.course-name-cell,
+.view-section .section-data-table tbody .learner-roster tr:active:nth-child(odd)>th.learner-name-username-cell,
+.view-section .section-data-table tbody .learner-roster tr:hover:nth-child(odd)>th.learner-name-username-cell,
+.view-section .section-data-table tbody tr:active:nth-child(2n),
+.view-section .section-data-table tbody tr:active:nth-child(odd)>td,
+.view-section .section-data-table tbody tr:hover:nth-child(2n),
+.view-section .section-data-table tbody tr:hover:nth-child(odd)>td .view-section .course-list .section-data-table tbody tr:active:nth-child(odd)>th.course-name-cell,
+.course-list .section-data-table tbody tr:hover:nth-child(odd)>th.course-name-cell,
+.view-section .learner-roster .section-data-table tbody tr:active:nth-child(odd)>th.learner-name-username-cell,
+.view-section .learner-roster .section-data-table tbody tr:hover:nth-child(odd)>th.learner-name-username-cell,
+.view-section .section-data-table tbody .course-list tr:active:nth-child(odd)>th.course-name-cell,
+.view-section .section-data-table tbody .course-list tr:hover:nth-child(odd)>th.course-name-cell,
+.view-section .section-data-table tbody .learner-roster tr:active:nth-child(odd)>th.learner-name-username-cell,
+.view-section .section-data-table tbody .learner-roster tr:hover:nth-child(odd)>th.learner-name-username-cell,
+.view-section .section-data-table tbody tr:active:nth-child(2n),
+.view-section .section-data-table tbody tr:active:nth-child(odd)>td,
+.view-section .section-data-table tbody tr:hover:nth-child(2n),
+.view-section .section-data-table tbody tr:hover:nth-child(odd)>td .view-section .course-list .section-data-table tbody tr:active:nth-child(odd)>th.course-name-cell,
+.course-list .section-data-table tbody tr:hover:nth-child(odd)>th.course-name-cell,
+.view-section .learner-roster .section-data-table tbody tr:active:nth-child(odd)>th.learner-name-username-cell,
+.view-section .learner-roster .section-data-table tbody tr:hover:nth-child(odd)>th.learner-name-username-cell,
+.view-section .section-data-table tbody .course-list tr:active:nth-child(odd)>th.course-name-cell,
+.view-section .section-data-table tbody .course-list tr:hover:nth-child(odd)>th.course-name-cell,
+.view-section .section-data-table tbody .learner-roster tr:active:nth-child(odd)>th.learner-name-username-cell,
+.view-section .section-data-table tbody .learner-roster tr:hover:nth-child(odd)>th.learner-name-username-cell,
+.view-section .section-data-table tbody tr:active:nth-child(2n),
+.view-section .section-data-table tbody tr:active:nth-child(odd)>td,
+.view-section .section-data-table tbody tr:hover:nth-child(2n),
+.view-section .section-data-table tbody tr:hover:nth-child(odd)>td
+{
+   background: $navheg-bg!important;
+   a{
+    text-decoration-color: $isha-primary-color !important;
+   }
+}
+
+
+
 .course-home-table-outer .course-home-table .item .title a {
     margin-bottom: 6px;
     color: $isha-primary-color !important;
@@ -1054,4 +1098,12 @@ img.logo-rightside-insight {
 {
   color: $isha-primary-color !important;
 
+}
+
+#footer-sock, #footer-sock-push {
+    height: auto !important;
+}
+#wrap-content-push-footer, #wrap-content-push-footer-sock {
+   
+    margin: 0 auto 0 !important;
 }
