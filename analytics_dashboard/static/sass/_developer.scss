@@ -8,6 +8,29 @@
 // }
 @import "mixins";
 
+body {
+  
+    font-family: Nunito Sans,sans-serif !important;
+}
+
+.navbar-brand .navbar-brand-app, .view-system .masthead-brand-app {
+
+    font-family: Nunito Sans,sans-serif !important;
+}
+.navbar-brand .navbar-brand-app {
+    padding-top: 0px !important;
+}
+.navbar-brand .navbar-brand-app, .view-system .masthead-brand-app
+{
+    font-family: Nunito Sans,sans-serif !important;
+    text-transform: uppercase;
+    letter-spacing: normal !important;
+}
+.lens-nav .navbar-nav .dropdown button {
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    text-transform: capitalize !important;
+}
 .chart-info {
   @extend .pull-left;
   padding-left: $padding-small-horizontal;
