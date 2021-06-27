@@ -3,22 +3,24 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# 김수연 <amelia9981@ajou.ac.kr>, 2020
 # Dennis Jen <djen@edx.org>, 2017
 # kmooc <shevious@gmail.com>, 2015
 # shevious <shevious@yahoo.com>, 2015
-# Jay Oh <theanswer.jay@gmail.com>, 2016
+# Jay Oh <theanswer.jay@gmail.com>, 2016,2020
 # jeon <bluerespect@nate.com>, 2014
 # gscavanger0209 <gscavanger@gmail.com>, 2016
 # Gu Hong Min <placidmoon1@gmail.com>, 2015
 # Shane Oh <ohshane71@gmail.com>, 2017
 # kmooc <shevious@gmail.com>, 2016
+# Sihoo Park <realpetertdm@gmail.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-16 09:16-0400\n"
-"PO-Revision-Date: 2017-10-22 10:11+0000\n"
-"Last-Translator: Shane Oh <ohshane71@gmail.com>\n"
+"PO-Revision-Date: 2021-04-06 11:12+0000\n"
+"Last-Translator: Sihoo Park <realpetertdm@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/open-edx/edx-platform/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,13 +45,13 @@ msgstr "모두"
 #. refers to the number of items belonging to that filter.
 #: static/apps/components/filter/views/filter.js:90
 msgid "<%= name %> (<%= count %>)"
-msgstr ""
+msgstr "<%=name %> (<%= count %>)"
 
 #. Translators: this is a label describing a filter selection that the user
 #. initiated.
 #: static/apps/components/generic-list/list/views/active-filters.js:62
 msgid "<%= filterDisplayName %>: <%= filterVal %>"
-msgstr ""
+msgstr "<%= filterDisplayName %>: <%= filterVal %>"
 
 #: static/apps/components/generic-list/list/views/active-filters.js:87
 msgid "Filters In Use:"
@@ -87,13 +89,13 @@ msgstr "정렬하려면 클릭하세요"
 
 #: static/apps/components/generic-list/list/views/list.js:51
 msgid "Results"
-msgstr ""
+msgstr "결과"
 
 #. Translators: 'count' refers to the number of results contained in the
 #. table.
 #: static/apps/components/generic-list/list/views/num-results.js:30
 msgid "Number of results: <%= count %>"
-msgstr ""
+msgstr "결과 수: <%= count %>"
 
 #: static/apps/components/generic-list/list/views/paging-footer.js:70
 msgid "first page"
@@ -127,7 +129,7 @@ msgstr "활성화됨"
 
 #: static/apps/components/generic-list/list/views/table.js:27
 msgid "Generic List"
-msgstr ""
+msgstr "포괄적인 리스트"
 
 #. Translators: This message indicates content is loading in the page.
 #: static/apps/components/loading/views/loading-view.js:20
@@ -161,32 +163,32 @@ msgstr "네트워크 오류"
 
 #: static/apps/course-list/app/app.js:38
 msgid "Instructor-Paced"
-msgstr ""
+msgstr "고정 일정"
 
 #: static/apps/course-list/app/app.js:39
 msgid "Self-Paced"
-msgstr ""
+msgstr "자율 일정"
 
 #: static/apps/course-list/app/app.js:42
 msgid "Upcoming"
-msgstr ""
+msgstr "곧 생성됩니다"
 
 #: static/apps/course-list/app/app.js:43
 msgid "Current"
-msgstr ""
+msgstr "현재"
 
 #: static/apps/course-list/app/app.js:44
 msgid "Archived"
-msgstr ""
+msgstr "저장된"
 
 #: static/apps/course-list/app/app.js:45
 msgid "Unknown"
-msgstr ""
+msgstr "알 수 없음"
 
 #: static/apps/course-list/app/controller.js:44
 #: static/apps/course-list/app/controller.js:106
 msgid "Course List"
-msgstr ""
+msgstr "강좌 리스트"
 
 #: static/apps/course-list/app/controller.js:95
 #: static/apps/learners/app/controller.js:94
@@ -195,11 +197,11 @@ msgstr "유효하지 않은 매개변수"
 
 #: static/apps/course-list/app/controller.js:96
 msgid "Sorry, we couldn't find any courses that matched that query."
-msgstr ""
+msgstr "죄송합니다, 해당 검색어에 관련된 강좌를 찾지 못했습니다."
 
 #: static/apps/course-list/app/controller.js:97
 msgid "Return to the Course List page."
-msgstr ""
+msgstr "강좌 리스트 페이지로 돌아가기."
 
 #: static/apps/course-list/app/controller.js:123
 #: static/apps/learners/app/controller.js:177
@@ -225,7 +227,7 @@ msgstr "종료 일자"
 
 #: static/apps/course-list/common/collections/course-list.js:80
 msgid "Total Enrollment"
-msgstr ""
+msgstr "전체 등록생"
 
 #. Translators: The noun count (e.g. number of learners)
 #: static/apps/course-list/common/collections/course-list.js:81
@@ -237,94 +239,94 @@ msgstr "현재 수강신청"
 
 #: static/apps/course-list/common/collections/course-list.js:82
 msgid "Change Last Week"
-msgstr ""
+msgstr "지난주 변동"
 
 #: static/apps/course-list/common/collections/course-list.js:83
 msgid "Verified Enrollment"
-msgstr ""
+msgstr "인증된 등록"
 
 #: static/apps/course-list/common/collections/course-list.js:86
 msgid "Passing Learners"
-msgstr ""
+msgstr "통과한 학습자들"
 
 #: static/apps/course-list/common/collections/course-list.js:89
 msgid "Availability"
-msgstr ""
+msgstr "사용 가능"
 
 #: static/apps/course-list/common/collections/course-list.js:90
 msgid "Pacing Type"
-msgstr ""
+msgstr "일정 유형"
 
 #: static/apps/course-list/common/collections/course-list.js:91
 msgid "Programs"
-msgstr ""
+msgstr "프로그램"
 
 #: static/apps/course-list/list/views/base-header-cell.js:11
 msgid "Course name advertised on edX site."
-msgstr ""
+msgstr "edX 사이트에 올라온 강의 이름"
 
 #: static/apps/course-list/list/views/base-header-cell.js:12
 msgid "Start date advertised on edX site."
-msgstr ""
+msgstr "edX 사이트에 올라온 시작 날짜"
 
 #: static/apps/course-list/list/views/base-header-cell.js:13
 msgid "End date set in edX Studio."
-msgstr ""
+msgstr "edX 스튜디오에서 설정된 종료일."
 
 #: static/apps/course-list/list/views/base-header-cell.js:14
 msgid "Learners who ever enrolled in the course."
-msgstr ""
+msgstr "강좌를 등록한 내역이 있는 학습자."
 
 #: static/apps/course-list/list/views/base-header-cell.js:15
 msgid "Learners currently enrolled in the course."
-msgstr ""
+msgstr "현재 강좌에 등록되어 있는 학습자."
 
 #: static/apps/course-list/list/views/base-header-cell.js:16
 msgid "Net difference in current enrollment in the last week."
-msgstr ""
+msgstr "1주일 동안 등록자 변동."
 
 #: static/apps/course-list/list/views/base-header-cell.js:18
 msgid ""
 "Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
-msgstr ""
+msgstr "인증 이수증 과정에 등록한 학습자 수."
 
 #: static/apps/course-list/list/views/base-header-cell.js:19
 msgid "Learners who have earned a passing grade."
-msgstr ""
+msgstr "통과가능한 성적을 받은 학습자들"
 
 #: static/apps/course-list/list/views/controls.js:38
 #: static/apps/learners/roster/views/controls.js:39
 msgid "Skip to results"
-msgstr ""
+msgstr "결과로 바로가기"
 
 #: static/apps/course-list/list/views/controls.js:58
 msgid "Find a course"
-msgstr ""
+msgstr "강좌 찾기"
 
 #: static/apps/course-list/list/views/controls.js:68
 msgid "availability"
-msgstr ""
+msgstr "사용 가능"
 
 #: static/apps/course-list/list/views/controls.js:76
 msgid "pacing_type"
-msgstr ""
+msgstr "일정 종류"
 
 #: static/apps/course-list/list/views/controls.js:84
 msgid "program_ids"
-msgstr ""
+msgstr "프로그램 ID"
 
 #: static/apps/course-list/list/views/course-list.js:66
 msgid "Download full course list to CSV"
-msgstr ""
+msgstr "전체 강좌 리스트 CSV형식으로 다운로드"
 
 #: static/apps/course-list/list/views/course-list.js:91
 msgid "Course list controls"
-msgstr ""
+msgstr "강좌 리스트 편집"
 
 #: static/apps/course-list/list/views/results.js:47
 msgid "No courses matched your criteria."
-msgstr ""
+msgstr "귀하의 검색에 부합하는 강좌가 없습니다."
 
 #: static/apps/course-list/list/views/results.js:49
 #: static/apps/learners/roster/views/results.js:49
@@ -338,17 +340,17 @@ msgstr "검색 조건을 없애보세요."
 
 #: static/apps/course-list/list/views/results.js:55
 msgid "No course data is currently available for your course."
-msgstr ""
+msgstr "귀하의 강좌에 대한 강좌 정보를 현재는 찾을 수 없습니다."
 
 #: static/apps/course-list/list/views/results.js:57
 msgid ""
 "No courses are enrolled, or course activity data has not yet been processed."
 " Data is updated every day, so check back regularly for up-to-date metrics."
-msgstr ""
+msgstr "어떤 강의도 등록되지 않았거나, 강의 활동 정보가 아직 진행되지 않았습니다. 정보는 매일 업데이트 되므로, 규치적으로 새로운 정보가 업데이트되는 것을 확인해 주세요."
 
 #: static/apps/course-list/list/views/search.js:71
 msgid "Search courses"
-msgstr ""
+msgstr "강좌 찾기"
 
 #: static/apps/course-list/list/views/search.js:72
 #: static/apps/learners/roster/views/search.js:56
@@ -362,7 +364,7 @@ msgstr "검색 결과 지우기"
 
 #: static/apps/course-list/list/views/table.js:48
 msgid "Date not available"
-msgstr ""
+msgstr "정보가 이용가능하지 않습니다."
 
 #: static/apps/learners/app/controller.js:59
 msgid "Learner Roster"
@@ -552,7 +554,7 @@ msgstr "학습 집단"
 
 #: static/apps/learners/roster/views/controls.js:73
 msgid "cohort"
-msgstr ""
+msgstr "학습 집단"
 
 #: static/apps/learners/roster/views/controls.js:87
 msgid "Enrollment Tracks"
@@ -560,7 +562,7 @@ msgstr "등록 과정"
 
 #: static/apps/learners/roster/views/controls.js:85
 msgid "enrollment_mode"
-msgstr ""
+msgstr "강좌 등록 모드"
 
 #. Translators: inactive meaning that these learners have not interacted with
 #. the
@@ -571,7 +573,7 @@ msgstr "비활성화 학습자 감추기"
 
 #: static/apps/learners/roster/views/controls.js:97
 msgid "ignore_segments"
-msgstr ""
+msgstr "무시할_영역"
 
 #: static/apps/learners/roster/views/results.js:47
 msgid "No learners matched your criteria."
@@ -739,7 +741,7 @@ msgstr "여자"
 
 #: static/js/enrollment-demographics-gender-main.js:34
 msgid "Male"
-msgstr "남성"
+msgstr "남자"
 
 #: static/js/enrollment-demographics-gender-main.js:35
 msgid "Other"
