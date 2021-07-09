@@ -30,7 +30,7 @@ certifi==2021.5.30
     # via
     #   -r requirements/test.txt
     #   requests
-cffi==1.14.5
+cffi==1.14.6
     # via
     #   -r requirements/test.txt
     #   cryptography
@@ -89,7 +89,7 @@ django-debug-toolbar==3.2.1
     # via -r requirements/local.in
 django-dynamic-fixture==3.1.1
     # via -r requirements/test.txt
-django-lang-pref-middleware==1.0.0
+django-lang-pref-middleware==1.1.0
     # via -r requirements/test.txt
 django-model-utils==4.1.1
     # via -r requirements/test.txt
@@ -101,8 +101,10 @@ django-waffle==2.2.0
     #   edx-django-utils
     #   edx-drf-extensions
     #   edx-toggles
-django-webpack-loader==1.0.0
-    # via -r requirements/test.txt
+django-webpack-loader==0.7.0
+    # via
+    #   -c requirements/constraints.txt
+    #   -r requirements/test.txt
 django==2.2.24
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
@@ -140,7 +142,7 @@ drf-jwt==1.19.0
     #   edx-drf-extensions
 edx-analytics-data-api-client==0.17.0
     # via -r requirements/test.txt
-edx-auth-backends==3.3.3
+edx-auth-backends==3.4.0
     # via -r requirements/test.txt
 edx-ccx-keys==1.2.1
     # via -r requirements/test.txt
@@ -156,7 +158,7 @@ edx-drf-extensions==6.5.0
     # via -r requirements/test.txt
 edx-i18n-tools==0.5.3
     # via -r requirements/test.txt
-edx-opaque-keys==2.2.1
+edx-opaque-keys==2.2.2
     # via
     #   -r requirements/test.txt
     #   edx-ccx-keys
@@ -213,7 +215,7 @@ more-itertools==8.8.0
     # via
     #   -r requirements/test.txt
     #   pytest
-newrelic==6.4.1.158
+newrelic==6.4.4.161
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -222,7 +224,7 @@ oauthlib==3.1.1
     #   -r requirements/test.txt
     #   requests-oauthlib
     #   social-auth-core
-packaging==20.9
+packaging==21.0
     # via
     #   -r requirements/test.txt
     #   pytest
@@ -244,7 +246,7 @@ pep517==0.10.0
     #   pip-tools
 pinax-announcements==4.0.0
     # via -r requirements/test.txt
-pip-tools==6.1.0
+pip-tools==6.2.0
     # via -r requirements/pip_tools.txt
 pluggy==0.13.1
     # via
@@ -337,7 +339,7 @@ pyyaml==5.4.1
     #   code-annotations
     #   edx-django-release-util
     #   edx-i18n-tools
-regex==2021.4.4
+regex==2021.7.6
     # via
     #   -r requirements/test.txt
     #   awesome-slugify
@@ -435,7 +437,7 @@ unidecode==0.4.21
     # via
     #   -r requirements/test.txt
     #   awesome-slugify
-urllib3==1.26.5
+urllib3==1.26.6
     # via
     #   -r requirements/test.txt
     #   elasticsearch
@@ -446,6 +448,10 @@ wcwidth==0.2.5
     # via
     #   -r requirements/test.txt
     #   pytest
+wheel==0.36.2
+    # via
+    #   -r requirements/pip_tools.txt
+    #   pip-tools
 wrapt==1.11.2
     # via
     #   -r requirements/test.txt
@@ -453,3 +459,4 @@ wrapt==1.11.2
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip
+# setuptools

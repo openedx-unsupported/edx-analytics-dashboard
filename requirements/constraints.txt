@@ -21,3 +21,6 @@ social-auth-core==3.2.0
 
 # Newer versions cause build failure on Travis with `ERROR: Cannot find command 'git' - do you have 'git' installed and in your PATH?`
 tox==3.14.6
+
+# Newer version of django-webpack-loader is not compatible with npm webpack-bundle-tracker > 0.4.3
+django-webpack-loader==0.7.0

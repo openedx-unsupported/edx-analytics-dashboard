@@ -24,7 +24,7 @@ certifi==2021.5.30
     # via
     #   -r requirements/base.txt
     #   requests
-cffi==1.14.5
+cffi==1.14.6
     # via
     #   -r requirements/base.txt
     #   cryptography
@@ -71,7 +71,7 @@ django-crum==0.7.9
     #   -r requirements/base.txt
     #   edx-django-utils
     #   edx-toggles
-django-lang-pref-middleware==1.0.0
+django-lang-pref-middleware==1.1.0
     # via -r requirements/base.txt
 django-model-utils==4.1.1
     # via -r requirements/base.txt
@@ -83,8 +83,10 @@ django-waffle==2.2.0
     #   edx-django-utils
     #   edx-drf-extensions
     #   edx-toggles
-django-webpack-loader==1.0.0
-    # via -r requirements/base.txt
+django-webpack-loader==0.7.0
+    # via
+    #   -c requirements/constraints.txt
+    #   -r requirements/base.txt
 django==2.2.24
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
@@ -114,10 +116,8 @@ djangorestframework==3.12.4
     #   drf-jwt
     #   edx-drf-extensions
     #   rest-condition
-docutils==0.16
-    # via
-    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
-    #   sphinx
+docutils==0.17.1
+    # via sphinx
 drf-jwt==1.19.0
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
@@ -125,7 +125,7 @@ drf-jwt==1.19.0
     #   edx-drf-extensions
 edx-analytics-data-api-client==0.17.0
     # via -r requirements/base.txt
-edx-auth-backends==3.3.3
+edx-auth-backends==3.4.0
     # via -r requirements/base.txt
 edx-ccx-keys==1.2.1
     # via -r requirements/base.txt
@@ -141,7 +141,7 @@ edx-drf-extensions==6.5.0
     # via -r requirements/base.txt
 edx-i18n-tools==0.5.3
     # via -r requirements/base.txt
-edx-opaque-keys==2.2.1
+edx-opaque-keys==2.2.2
     # via
     #   -r requirements/base.txt
     #   edx-ccx-keys
@@ -177,7 +177,7 @@ markupsafe==2.0.1
     # via
     #   -r requirements/base.txt
     #   jinja2
-newrelic==6.4.1.158
+newrelic==6.4.4.161
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -264,7 +264,7 @@ pyyaml==5.4.1
     #   code-annotations
     #   edx-django-release-util
     #   edx-i18n-tools
-regex==2021.4.4
+regex==2021.7.6
     # via
     #   -r requirements/base.txt
     #   awesome-slugify
@@ -348,7 +348,7 @@ unidecode==0.4.21
     # via
     #   -r requirements/base.txt
     #   awesome-slugify
-urllib3==1.26.5
+urllib3==1.26.6
     # via
     #   -r requirements/base.txt
     #   requests
