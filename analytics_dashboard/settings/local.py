@@ -23,3 +23,32 @@ DATABASES = {
 ########## DATA API CONFIGURATION
 DATA_API_URL = os.getenv("API_SERVER_URL", DATA_API_URL)
 ########## END DATA API CONFIGURATION
+
+ENABLE_AUTO_AUTH = True
+ENABLE_COURSE_PERMISSIONS = False
+SOCIAL_AUTH_EDX_OAUTH2_KEY = "insights-sso-key"
+SOCIAL_AUTH_EDX_OAUTH2_SECRET = "insights-sso-secret"
+SOCIAL_AUTH_EDX_OAUTH2_ISSUER = "http://localhost:18000"
+SOCIAL_AUTH_EDX_OAUTH2_URL_ROOT = "http://localhost:18000"
+SOCIAL_AUTH_EDX_OAUTH2_LOGOUT_URL = "http://localhost:18000/logout"
+
+BACKEND_SERVICE_EDX_OAUTH2_KEY = "insights-backend-service-key"
+BACKEND_SERVICE_EDX_OAUTH2_SECRET = "insights-backend-service-secret"
+BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL = "http://localhost:18000/oauth2"
+
+
+COURSE_API_URL = 'http://localhost:18000/api/courses/v1/'
+GRADING_POLICY_API_URL = 'http://localhost:18000/api/grades/v1/'
+
+# If no key is specified, the authenticated user's OAuth2 access token will be used.
+COURSE_API_KEY = None
+########## END COURSE API
+
+########## MODULE_PREVIEW
+MODULE_PREVIEW_URL = 'http://localhost:18000/xblock'
+########## END MODULE_PREVIEW
+
+JWT_AUTH = {
+    'JWT_AUTH_HEADER_PREFIX': 'JWT',
+}
+DATA_API_AUTH_TOKEN = 'edx'
