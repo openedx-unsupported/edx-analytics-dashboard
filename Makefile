@@ -157,4 +157,3 @@ upgrade: ## update the requirements/*.txt files with the latest packages satisfy
 	grep -e "^django==" requirements/base.txt > requirements/django.txt
 	sed '/^[dD]jango==/d' requirements/test.txt > requirements/test.tmp
 	mv requirements/test.tmp requirements/test.txt
-
