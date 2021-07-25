@@ -6,16 +6,18 @@
 # Beatriz Sousa <beatriz.sousa@bridgelk.com>, 2018
 # Cátia Lopes <catia.lopes@bridgelk.com>, 2018-2019
 # Edson Michaqye <olenvoltd@gmail.com>, 2016
-# Manuela Silva <manuelarodsilva@gmail.com>, 2018
-# Manuela Silva <manuelarodsilva@gmail.com>, 2016
+# Filipa Macieira <filipa.macieira@fccn.pt>, 2021
+# Manuela Silva <mmsrs@sky.com>, 2018
+# Manuela Silva <mmsrs@sky.com>, 2016
 # MS, 2016,2018
+# Rui Ribeiro <info@nau.edu.pt>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-16 09:16-0400\n"
-"PO-Revision-Date: 2019-05-16 20:43+0000\n"
-"Last-Translator: Cátia Lopes <catia.lopes@bridgelk.com>\n"
+"PO-Revision-Date: 2021-04-23 17:40+0000\n"
+"Last-Translator: Filipa Macieira <filipa.macieira@fccn.pt>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/open-edx/edx-platform/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -270,7 +272,7 @@ msgstr "Data de fim definida no edX Studio."
 
 #: static/apps/course-list/list/views/base-header-cell.js:14
 msgid "Learners who ever enrolled in the course."
-msgstr "Estudantes que já estão inscritos no curso."
+msgstr "Estudantes que já se inscreveram no curso. "
 
 #: static/apps/course-list/list/views/base-header-cell.js:15
 msgid "Learners currently enrolled in the course."
@@ -309,7 +311,7 @@ msgstr "pacing_type"
 
 #: static/apps/course-list/list/views/controls.js:84
 msgid "program_ids"
-msgstr "program_ids"
+msgstr "programa_ids"
 
 #: static/apps/course-list/list/views/course-list.js:66
 msgid "Download full course list to CSV"
@@ -363,7 +365,7 @@ msgstr "Data não disponível"
 
 #: static/apps/learners/app/controller.js:59
 msgid "Learner Roster"
-msgstr "Estudantes"
+msgstr "Lista de Estudantes"
 
 #: static/apps/learners/app/controller.js:95
 msgid "Sorry, we couldn't find any learners who matched that query."
@@ -435,12 +437,12 @@ msgstr "Data"
 #: static/apps/learners/detail/views/engagement-table.js:27
 #: static/apps/learners/detail/views/engagement-timeline.js:31
 msgid "Discussion Contributions"
-msgstr "Contribuições para o debate"
+msgstr "Contribuições para o Debate"
 
 #: static/apps/learners/detail/views/engagement-table.js:39
 #: static/apps/learners/detail/views/engagement-timeline.js:39
 msgid "Videos Viewed"
-msgstr "Vídeos visualizados"
+msgstr "Vídeos Visualizados"
 
 #: static/apps/learners/detail/views/engagement-timeline.js:47
 msgid "Value"
@@ -457,7 +459,7 @@ msgstr "Atividade Diária"
 
 #: static/apps/learners/detail/views/learner-detail.js:30
 msgid "Activity Over Time"
-msgstr "Atividade ao longo do tempo"
+msgstr "Atividade ao Longo do Tempo"
 
 #: static/apps/learners/detail/views/learner-detail.js:95
 msgid "Enrollment"
@@ -465,7 +467,7 @@ msgstr "Inscrição"
 
 #: static/apps/learners/detail/views/learner-detail.js:106
 msgid "Last Accessed"
-msgstr "Acedido pela última vez"
+msgstr "Último Acesso"
 
 #. Translators: 'n/a' means 'not available'
 #: static/apps/learners/detail/views/learner-detail.js:109
@@ -525,7 +527,7 @@ msgstr "Número de problemas que o estudante respondeu corretamente."
 
 #: static/apps/learners/roster/views/base-header-cell.js:13
 msgid "Number of unique videos this learner played."
-msgstr "Número de vídeos que este estudante desempenhou."
+msgstr "Número de vídeos únicos que este estudante visualizou."
 
 #: static/apps/learners/roster/views/base-header-cell.js:15
 msgid ""
@@ -557,18 +559,18 @@ msgstr "Modos de Inscrição"
 
 #: static/apps/learners/roster/views/controls.js:85
 msgid "enrollment_mode"
-msgstr "enrollment_mode"
+msgstr "modo_de_inscrição"
 
 #. Translators: inactive meaning that these learners have not interacted with
 #. the
 #. course recently.
 #: static/apps/learners/roster/views/controls.js:103
 msgid "Hide Inactive Learners"
-msgstr "Ocultar Estudantes Sem Atividade"
+msgstr "Ocultar Estudantes Inactivos"
 
 #: static/apps/learners/roster/views/controls.js:97
 msgid "ignore_segments"
-msgstr "ignore_segments"
+msgstr "ignorar_segmentos"
 
 #: static/apps/learners/roster/views/results.js:47
 msgid "No learners matched your criteria."
@@ -583,11 +585,11 @@ msgid ""
 "No learners are enrolled, or course activity data has not yet been "
 "processed. Data is updated every day, so check back regularly for up-to-date"
 " metrics."
-msgstr "Nenhum estudante está inscrito ou os dados da atividade do curso ainda não foram processados. Os dados são atualizados diariamente, por isso volte a verificar regularmente as métricas atualizadas."
+msgstr "Nenhum estudante está inscrito, ou os dados das actividades do curso ainda não foram processados. Os dados são actualizados diariamente, por isso, verifique regularmente se existem métricas actualizadas."
 
 #: static/apps/learners/roster/views/roster.js:110
 msgid "Learner roster controls"
-msgstr "Controlos da Lista de Estudantes"
+msgstr "Controlos da lista de estudantes"
 
 #: static/apps/learners/roster/views/search.js:55
 msgid "Search learners"
@@ -601,7 +603,7 @@ msgstr "N/A"
 
 #: static/js/engagement-content-main.js:15
 msgid "Week Ending"
-msgstr "Fim-da-semana"
+msgstr "Fim-de-semana"
 
 #: static/js/engagement-content-main.js:27
 msgid "Watched a Video"
@@ -609,7 +611,7 @@ msgstr "Assistiu a um vídeo"
 
 #: static/js/engagement-content-main.js:34
 msgid "Tried a Problem"
-msgstr "Tentou resolver um problema"
+msgstr "Tentou um Problema"
 
 #: static/js/engagement-content-main.js:41
 msgid "Participated in Discussions"
@@ -622,7 +624,7 @@ msgstr "Percentagem de Estudantes atuais"
 #. Translators: <%=value%> will be replaced with a date.
 #: static/js/engagement-content-main.js:85
 msgid "Week Ending <%=value%>"
-msgstr "Fim-de-semana <% = valor% >"
+msgstr "Fim-de-semana <%=value% >"
 
 #: static/js/engagement-video-content-main.js:14
 msgid "Average Complete Views"
@@ -648,11 +650,11 @@ msgstr "Percentagem de Conclusões"
 
 #: static/js/engagement-video-timeline-main.js:25
 msgid "Unique Viewers"
-msgstr "Espectadores"
+msgstr "Visualizadores Únicos"
 
 #: static/js/engagement-video-timeline-main.js:32
 msgid "Replays"
-msgstr "Voltar a ver"
+msgstr "Repetições"
 
 #: static/js/engagement-video-timeline-main.js:39
 msgid "Time"
@@ -750,7 +752,7 @@ msgstr "Não foi Reportado"
 msgid ""
 "Learner location is determined from IP address. This map shows where "
 "learners most recently connected."
-msgstr "A localização de estudantes é estabelecida a partir do endereço IP. Este mapa mostra onde os estudantes estiveram mais recentemente conectados."
+msgstr "A localização do aluno é determinada a partir do endereço IP. Este mapa mostra onde os estudantes se ligaram mais recentemente."
 
 #: static/js/enrollment-geography-main.js:26
 msgid "Country or Region"
