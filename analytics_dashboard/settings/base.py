@@ -514,3 +514,8 @@ PRIVACY_POLICY_URL = 'http://example.com/privacy-policy'
 JWT_AUTH = {
     'JWT_AUTH_HEADER_PREFIX': 'JWT',
 }
+
+# Required for Django 3.2 upgrade
+# See https://openedx.atlassian.net/wiki/spaces/AC/pages/3066626061/Django+3.2+Upgrade+Key+Changes
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+DEFAULT_HASHING_ALGORITHM = 'sha1'

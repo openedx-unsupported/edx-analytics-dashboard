@@ -7,9 +7,6 @@
 # link to other information that will help people in the future to remove the
 # pin when possible.  Writing an issue against the offending project and
 # linking to it here is good.
-
-# Common constraints for edx repos
--c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
  
 # TODO: Many pinned dependencies should be unpinned and/or moved to this constraints file.
 
@@ -24,3 +21,6 @@ tox==3.14.6
 
 # Newer version of django-webpack-loader is not compatible with npm webpack-bundle-tracker > 0.4.3
 django-webpack-loader==0.7.0
+
+# Newer versions causing tests failures in multiple repos.
+pyjwt[crypto]==1.7.1
