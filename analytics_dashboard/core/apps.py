@@ -7,6 +7,7 @@ from django.conf import settings
 class AnalyticsDashboardConfig(AppConfig):
     name = 'analytics_dashboard'
     verbose_name = 'Analytics Dashboard'
+    default = False
 
     def ready(self):
         super().ready()
