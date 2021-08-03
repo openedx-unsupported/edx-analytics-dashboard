@@ -20,7 +20,7 @@ certifi==2021.5.30
     # via requests
 cffi==1.14.6
     # via cryptography
-charset-normalizer==2.0.3
+charset-normalizer==2.0.4
     # via requests
 click==8.0.1
     # via code-annotations
@@ -38,7 +38,7 @@ defusedxml==0.7.1
     # via
     #   python3-openid
     #   social-auth-core
-django==3.2.5
+django==3.2.6
     # via
     #   -r requirements/base.in
     #   django-appconf
@@ -137,7 +137,7 @@ logutils==0.3.5
     # via -r requirements/base.in
 markupsafe==2.0.1
     # via jinja2
-newrelic==6.4.4.161
+newrelic==6.6.0.162
     # via edx-django-utils
 oauthlib==3.1.1
     # via
