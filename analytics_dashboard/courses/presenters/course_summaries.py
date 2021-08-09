@@ -1,5 +1,3 @@
-from functools import reduce  # pylint: disable=redefined-builtin
-
 from analyticsclient.constants import enrollment_modes
 from django.conf import settings
 from django.core.cache import cache
@@ -78,16 +76,25 @@ class CourseSummariesPresenter(BasePresenter):
         return summaries, self._get_last_updated(summaries)
 
     def get_course_summary_metrics(self, summaries):
+        total = 0
+        current = 0
+        week_change = 0
+        verified = 0
+        masters = 0
+        for s in summaries:
+            total += s.get('cumulative_count', 0)
+            current += s.get('count', 0)
+            week_change += s.get('count_change_7_days', 0)
+            modes = s.get('enrollment_modes', {})
+            verified += modes.get(enrollment_modes.VERIFIED, {}).get('count', 0)
+            masters += modes.get(enrollment_modes.MASTERS, {}).get('count', 0)
+
         summary = {
-            'total_enrollment': reduce(lambda x, y: x + y.get('cumulative_count', 0), summaries, 0),
-            'current_enrollment': reduce(lambda x, y: x + y.get('count', 0), summaries, 0),
-            'enrollment_change_7_days': reduce(lambda x, y: x + y.get('count_change_7_days', 0), summaries, 0),
-            'verified_enrollment': reduce(lambda x, y: x + y.get('enrollment_modes', {}).get(enrollment_modes.VERIFIED,
-                                                                                             {}).get('count', 0),
-                                          summaries, 0),
-            'masters_enrollment': reduce(lambda x, y: x + y.get('enrollment_modes', {}).get(enrollment_modes.MASTERS,
-                                                                                             {}).get('count', 0),
-                                          summaries, 0),
+            'total_enrollment': total,
+            'current_enrollment': current,
+            'enrollment_change_7_days': week_change,
+            'verified_enrollment': verified,
+            'masters_enrollment': masters,
         }
 
         return summary
