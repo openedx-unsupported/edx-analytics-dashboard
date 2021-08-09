@@ -1,5 +1,6 @@
 from functools import reduce  # pylint: disable=redefined-builtin
 
+from analyticsclient.constants import enrollment_modes
 from django.conf import settings
 from django.core.cache import cache
 from waffle import switch_is_active
@@ -81,7 +82,10 @@ class CourseSummariesPresenter(BasePresenter):
             'total_enrollment': reduce(lambda x, y: x + y.get('cumulative_count', 0), summaries, 0),
             'current_enrollment': reduce(lambda x, y: x + y.get('count', 0), summaries, 0),
             'enrollment_change_7_days': reduce(lambda x, y: x + y.get('count_change_7_days', 0), summaries, 0),
-            'verified_enrollment': reduce(lambda x, y: x + y.get('enrollment_modes', {}).get('verified',
+            'verified_enrollment': reduce(lambda x, y: x + y.get('enrollment_modes', {}).get(enrollment_modes.VERIFIED,
+                                                                                             {}).get('count', 0),
+                                          summaries, 0),
+            'masters_enrollment': reduce(lambda x, y: x + y.get('enrollment_modes', {}).get(enrollment_modes.MASTERS,
                                                                                              {}).get('count', 0),
                                           summaries, 0),
         }
