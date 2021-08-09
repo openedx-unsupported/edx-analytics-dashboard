@@ -252,9 +252,6 @@ class CourseEnrollmentPresenter(CoursePresenter):
         if api_trends:
             # Get most-recent enrollment
             recent_enrollment = api_trends[-1]
-
-            # Get data for a month prior to most-recent data
-            days_in_week = 7
             last_enrollment_date = self.parse_api_datetime(recent_enrollment['created'])
 
             # Add the first values to the returned data dictionary using the most-recent enrollment data
@@ -270,12 +267,10 @@ class CourseEnrollmentPresenter(CoursePresenter):
                 'total_enrollment': recent_enrollment.get('cumulative_count', None),
             })
 
-            # Get difference in enrollment for last week
-            count = None
-            if len(api_trends) > days_in_week:
-                index = -days_in_week - 1
-                count = current_enrollment - api_trends[index]['count']
-            data['enrollment_change_last_%s_days' % days_in_week] = count
+            # Get difference in enrollment for last week if available
+            if len(api_trends) > 7:
+                count = current_enrollment - api_trends[-8]['count']
+                data['enrollment_change_last_7_days'] = count
 
         return data
 
