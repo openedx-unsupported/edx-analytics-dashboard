@@ -317,6 +317,7 @@ class CourseIndexTests(AnalyticsApiClientMixin, AnalyticsDashboardWebAppTestMixi
         i = 7
         count_change_i_days = course_summaries[0]['count_change_%s_days' % i]
         verified_enrollment = course_summaries[0]['enrollment_modes']['verified']['count']
+        masters_enrollment = course_summaries[0]['enrollment_modes']['masters']['count']
 
         tooltip = 'Current enrollments across all of your courses.'
         self.assertMetricTileValid('current_enrollment', current_enrollment, tooltip)
@@ -329,3 +330,6 @@ class CourseIndexTests(AnalyticsApiClientMixin, AnalyticsDashboardWebAppTestMixi
 
         tooltip = 'Verified enrollments across all of your courses.'
         self.assertMetricTileValid('verified_enrollment', verified_enrollment, tooltip)
+
+        tooltip = "Master's enrollments across all of your courses."
+        self.assertMetricTileValid('masters_enrollment', masters_enrollment, tooltip)
