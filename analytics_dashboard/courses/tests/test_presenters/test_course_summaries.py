@@ -103,6 +103,12 @@ class CourseSummariesPresenterTests(TestCase):
                     'cumulative_count': 4087,
                     'count_change_7_days': 0,
                     'passing_users': 100,
+                },
+                'masters': {
+                    'count': 1101,
+                    'cumulative_count': 1103,
+                    'count_change_7_days': 0,
+                    'passing_users': 0,
                 }
             },
             'created': utils.CREATED_DATETIME_STRING,
@@ -115,7 +121,7 @@ class CourseSummariesPresenterTests(TestCase):
             'end_date': None,
             'pacing_type': 'instructor_paced',
             'availability': None,
-            'count': None,
+            'count': 0,
             'cumulative_count': 1,
             'count_change_7_days': 0,
             'enrollment_modes': {
@@ -146,6 +152,12 @@ class CourseSummariesPresenterTests(TestCase):
                 'honor': {
                     'count': 1,
                     'cumulative_count': 1,
+                    'count_change_7_days': 0,
+                    'passing_users': 0,
+                },
+                'masters': {
+                    'count': 10,
+                    'cumulative_count': 10,
                     'count_change_7_days': 0,
                     'passing_users': 0,
                 }
@@ -233,3 +245,14 @@ class CourseSummariesPresenterTests(TestCase):
             summaries, last_updated = presenter.get_course_summaries()
             self.assertListEqual(summaries, [])
             self.assertIsNone(last_updated)
+
+    def test_get_course_summary_metrics(self):
+        metrics = CourseSummariesPresenter().get_course_summary_metrics(self._PRESENTER_SUMMARIES.values())
+        expected = {
+            'total_enrollment': 5111,
+            'current_enrollment': 3888,
+            'enrollment_change_7_days': 4,
+            'verified_enrollment': 13,
+            'masters_enrollment': 1111,
+        }
+        self.assertEqual(metrics, expected)
