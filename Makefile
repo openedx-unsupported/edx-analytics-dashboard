@@ -27,8 +27,11 @@ test.requirements:
 develop: requirements.js
 	pip3 install -q -r requirements/local.txt --exists-action w
 
-migrate: requirements.tox
-	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-migrate
+tox.migrate: requirements.tox
+ 	tox -e $(PYTHON_ENV)-$(DJANGO_VERSION)-migrate
+
+migrate:
+	python manage.py migrate
 
 clean: requirements.tox
 	find . -name '*.pyc' -delete
