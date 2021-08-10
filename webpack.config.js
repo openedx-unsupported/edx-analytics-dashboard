@@ -3,12 +3,13 @@
 var Merge = require('webpack-merge'),
     path = require('path'),
     commonConfig = require('./webpack.common.config.js'),
-    djangoDevServer = process.env.DJANGO_DEV_SERVER || 'http://localhost:8110';
+    djangoDevServer = process.env.DJANGO_DEV_SERVER || 'http://localhost:8110'
+    webpackPort = process.env.WEBPACK_PORT || 8080;
 
 module.exports = Merge.smart(commonConfig, {
     output: {
         // Tells clients to load bundles from the dev-server
-        publicPath: 'http://localhost:8080/static/bundles/',
+        publicPath: `http://localhost:${webpackPort}/static/bundles/`,
         // Bundle names will change every build. [hash] is faster than [chunkhash].
         filename: '[name]-[hash].js'
     },

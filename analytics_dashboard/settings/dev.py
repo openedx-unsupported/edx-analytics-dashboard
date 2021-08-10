@@ -90,6 +90,18 @@ REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = (
 DATA_API_AUTH_TOKEN = 'edx'
 ########## END DATA API CONFIGURATION
 
+ENABLE_AUTO_AUTH = True
+ENABLE_COURSE_PERMISSIONS = False
+SOCIAL_AUTH_EDX_OAUTH2_KEY = "insights-sso-key"
+SOCIAL_AUTH_EDX_OAUTH2_SECRET = "insights-sso-secret"
+SOCIAL_AUTH_EDX_OAUTH2_ISSUER = "http://localhost:18000"
+SOCIAL_AUTH_EDX_OAUTH2_URL_ROOT = "http://localhost:18000"
+SOCIAL_AUTH_EDX_OAUTH2_LOGOUT_URL = "http://localhost:18000/logout"
+
+BACKEND_SERVICE_EDX_OAUTH2_KEY = "insights-backend-service-key"
+BACKEND_SERVICE_EDX_OAUTH2_SECRET = "insights-backend-service-secret"
+BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL = "http://localhost:18000/oauth2"
+
 ########## SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 # Note: This key should only be used for development and testing.
