@@ -150,6 +150,8 @@ edx-opaque-keys==2.2.2
     #   edx-drf-extensions
 edx-rest-api-client==5.4.0
     # via -r requirements/base.txt
+edx-sphinx-theme==3.0.0
+    # via -r requirements/doc.in
 edx-toggles==4.2.0
     # via -r requirements/base.txt
 future==0.18.2
@@ -308,6 +310,7 @@ six==1.16.0
     #   edx-django-release-util
     #   edx-drf-extensions
     #   edx-i18n-tools
+    #   edx-sphinx-theme
     #   libsass
     #   pyjwkest
     #   python-dateutil
@@ -328,9 +331,7 @@ social-auth-core==3.2.0
 sphinx==4.1.2
     # via
     #   -r requirements/doc.in
-    #   sphinx-rtd-theme
-sphinx_rtd_theme==0.1.9
-    # via -r requirements/doc.in
+    #   edx-sphinx-theme
 sphinxcontrib-applehelp==1.0.2
     # via sphinx
 sphinxcontrib-devhelp==1.0.2
