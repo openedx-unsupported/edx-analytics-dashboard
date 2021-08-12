@@ -8,7 +8,7 @@ DJANGO_VERSION=django22
 
 DJANGO_SETTINGS_MODULE ?= "analytics_dashboard.settings.local"
 
-.PHONY: requirements clean
+.PHONY: requirements clean docs
 
 requirements: requirements.py requirements.js
 
@@ -158,3 +158,5 @@ upgrade: ## update the requirements/*.txt files with the latest packages satisfy
 	sed '/^[dD]jango==/d' requirements/test.txt > requirements/test.tmp
 	mv requirements/test.tmp requirements/test.txt
 
+docs:
+	tox -e docs

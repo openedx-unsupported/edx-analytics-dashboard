@@ -6,6 +6,7 @@
 
 # Sphinx docs:
 build
+_build
 
 # SQLite3 database files:
 *.db
@@ -48,8 +49,10 @@ analytics_dashboard/static/bundles/
 nosetests.xml
 reports/
 coverage/
+src/
 
 acceptance_tests.*.png
+
 
 ### Internationalization artifacts
 *.mo

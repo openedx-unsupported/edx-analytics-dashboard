@@ -4,12 +4,11 @@ import datetime
 import os
 import sys
 
+import edx_theme
 # on_rtd is whether we are on readthedocs.org, this line of code grabbed from docs.readthedocs.org
 html_theme = 'edx_theme'
 
-html_theme_path = ['../../_themes']
-
-html_favicon = '../../_themes/edx_theme/static/css/favicon.ico'
+html_theme_path = [edx_theme.get_html_theme_path()]
 
 sys.path.append(os.path.abspath('../../../'))
 sys.path.append(os.path.abspath('../../'))
@@ -28,6 +27,9 @@ master_doc = 'index'
 # so a file named "default.css" will overwrite the builtin "default.css".
 # html_static_path.append('source/_static')
 
+# Add any Sphinx extension module names here, as strings. They can be extensions
+# coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
+extensions = ['edx_theme']
 
 # General information about the project.
 project = 'Using edX Insights'
