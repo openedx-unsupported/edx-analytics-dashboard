@@ -92,6 +92,7 @@
   },
   "scripts": {
     "postinstall": "./npm-post-install.sh",
+    "test": "gulp test",
     "start": "node_modules/.bin/webpack-dev-server --hot --inline --progress --colors --port=$WEBPACK_PORT",
     "build": "node_modules/.bin/webpack --config webpack.prod.config.js",
     "lint": "node_modules/.bin/eslint analytics_dashboard/static/",
