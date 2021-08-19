@@ -149,6 +149,7 @@ validate_translations: extract_translations compile_translations detect_changed_
 	i18n_tool validate -
 
 static: ## generate static files
+	npm run build
 	$(TOX)python manage.py collectstatic --noinput
 
 pii_check: ## check for PII annotations on all Django models
