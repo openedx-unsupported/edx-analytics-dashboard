@@ -20,7 +20,7 @@ certifi==2021.5.30
     # via requests
 cffi==1.14.6
     # via cryptography
-charset-normalizer==2.0.3
+charset-normalizer==2.0.4
     # via requests
 click==8.0.1
     # via code-annotations
@@ -38,7 +38,7 @@ defusedxml==0.7.1
     # via
     #   python3-openid
     #   social-auth-core
-django==3.2.5
+django==3.2.6
     # via
     #   -r requirements/base.in
     #   django-appconf
@@ -98,7 +98,7 @@ drf-jwt==1.19.1
     # via edx-drf-extensions
 edx-analytics-data-api-client==0.17.0
     # via -r requirements/base.in
-edx-auth-backends==3.4.0
+edx-auth-backends==4.0.0
     # via -r requirements/base.in
 edx-ccx-keys==1.2.1
     # via -r requirements/base.in
@@ -110,7 +110,7 @@ edx-django-utils==4.2.0
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   edx-toggles
-edx-drf-extensions==6.6.0
+edx-drf-extensions==7.0.1
     # via -r requirements/base.in
 edx-i18n-tools==0.7.0
     # via -r requirements/base.in
@@ -125,19 +125,21 @@ edx-toggles==4.2.0
     # via -r requirements/base.in
 future==0.18.2
     # via pyjwkest
-greenlet==1.1.0
+greenlet==1.1.1
     # via bpython
 idna==3.2
     # via requests
 jinja2==3.0.1
     # via code-annotations
-libsass==0.11.1
+libsass==0.21.0
     # via -r requirements/base.in
 logutils==0.3.5
     # via -r requirements/base.in
 markupsafe==2.0.1
     # via jinja2
-newrelic==6.4.4.161
+mysqlclient==2.0.3
+    # via -r requirements/base.in
+newrelic==6.8.0.163
     # via edx-django-utils
 oauthlib==3.1.1
     # via
@@ -161,15 +163,15 @@ pycparser==2.20
     # via cffi
 pycryptodomex==3.10.1
     # via pyjwkest
-pygments==2.9.0
+pygments==2.10.0
     # via bpython
 pyjwkest==1.4.2
     # via edx-drf-extensions
-pyjwt[crypto]==1.7.1
+pyjwt[crypto]==2.1.0
     # via
-    #   -c requirements/constraints.txt
     #   drf-jwt
     #   edx-auth-backends
+    #   edx-drf-extensions
     #   edx-rest-api-client
     #   social-auth-core
 pymongo==3.12.0
@@ -189,7 +191,7 @@ pyyaml==5.4.1
     #   code-annotations
     #   edx-django-release-util
     #   edx-i18n-tools
-regex==2021.7.6
+regex==2021.8.3
     # via awesome-slugify
 requests==2.26.0
     # via
@@ -232,7 +234,7 @@ social-auth-core==3.2.0
     #   social-auth-app-django
 sqlparse==0.4.1
     # via django
-stevedore==3.3.0
+stevedore==3.4.0
     # via
     #   -r requirements/base.in
     #   code-annotations
