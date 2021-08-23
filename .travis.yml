@@ -30,6 +30,7 @@ script:
     - docker exec -t -e TRAVIS=1 insights_testing bash -c "
       cd /edx/app/insights/edx_analytics_dashboard/ &&
       PATH=\$PATH:/edx/app/insights/nodeenvs/insights/bin:/snap/bin &&
+      export TOXENV=django32 &&
       make $TARGETS "
 
 matrix:
@@ -47,7 +48,7 @@ matrix:
         TARGETS="validate_translations generate_fake_translations"
     - env:
         TESTNAME=test-python
-        TARGETS="requirements test_python"
+        TARGETS="requirements.js test_python"
       after_success:
         - docker exec insights_testing /edx/app/insights/edx_analytics_dashboard/.travis/run_coverage.sh
         - codecov --disable pycov
