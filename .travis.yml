@@ -48,7 +48,7 @@ matrix:
         TARGETS="validate_translations generate_fake_translations"
     - env:
         TESTNAME=test-python
-        TARGETS="requirements.js test_python"
+        TARGETS="requirements test_python"
       after_success:
         - docker exec insights_testing /edx/app/insights/edx_analytics_dashboard/.travis/run_coverage.sh
         - codecov --disable pycov
