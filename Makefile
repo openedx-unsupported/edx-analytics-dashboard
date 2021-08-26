@@ -4,7 +4,7 @@ ROOT = $(shell echo "$$PWD")
 COVERAGE_DIR = $(ROOT)/build/coverage
 NODE_BIN=./node_modules/.bin
 PYTHON_ENV=py38
-DJANGO_VERSION=django22
+DJANGO_VERSION=django32
 
 DJANGO_SETTINGS_MODULE ?= "analytics_dashboard.settings.local"
 
