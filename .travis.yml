@@ -28,6 +28,7 @@ install:
 
 script:
     - docker exec -t -e TRAVIS=1 insights_testing bash -c "
+      source /edx/app/insights/venvs/insights/bin/activate &&
       cd /edx/app/insights/edx_analytics_dashboard/ &&
       PATH=\$PATH:/edx/app/insights/nodeenvs/insights/bin:/snap/bin &&
       make $TARGETS "

@@ -10,6 +10,10 @@ RUN apt update && \
   python3.8 get-pip.py && python3.8 -m pip install --upgrade pip setuptools && \
   rm -rf /var/lib/apt/lists/*
 
+ENV VIRTUAL_ENV=/venv
+RUN python3.8 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
