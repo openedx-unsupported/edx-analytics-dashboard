@@ -28,7 +28,7 @@ cffi==1.14.6
     # via
     #   -r requirements/base.txt
     #   cryptography
-charset-normalizer==2.0.3
+charset-normalizer==2.0.4
     # via
     #   -r requirements/base.txt
     #   requests
@@ -40,7 +40,7 @@ code-annotations==1.2.0
     # via
     #   -r requirements/base.txt
     #   edx-toggles
-cryptography==3.4.7
+cryptography==3.4.8
     # via
     #   -r requirements/base.txt
     #   pyjwt
@@ -58,7 +58,7 @@ defusedxml==0.7.1
     #   -r requirements/base.txt
     #   python3-openid
     #   social-auth-core
-django==3.2.5
+django==3.2.6
     # via
     #   -r requirements/base.txt
     #   django-appconf
@@ -121,19 +121,19 @@ drf-jwt==1.19.1
     #   edx-drf-extensions
 edx-analytics-data-api-client==0.17.0
     # via -r requirements/base.txt
-edx-auth-backends==3.4.0
+edx-auth-backends==4.0.0
     # via -r requirements/base.txt
 edx-ccx-keys==1.2.1
     # via -r requirements/base.txt
 edx-django-release-util==1.1.0
     # via -r requirements/base.txt
-edx-django-utils==4.2.0
+edx-django-utils==4.3.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   edx-toggles
-edx-drf-extensions==6.6.0
+edx-drf-extensions==7.0.1
     # via -r requirements/base.txt
 edx-i18n-tools==0.7.0
     # via -r requirements/base.txt
@@ -150,7 +150,7 @@ future==0.18.2
     # via
     #   -r requirements/base.txt
     #   pyjwkest
-greenlet==1.1.0
+greenlet==1.1.1
     # via
     #   -r requirements/base.txt
     #   bpython
@@ -174,7 +174,7 @@ markupsafe==2.0.1
     #   jinja2
 mysqlclient==2.0.3
     # via -r requirements/production.in
-newrelic==6.4.4.161
+newrelic==6.8.1.164
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -214,7 +214,7 @@ pycryptodomex==3.10.1
     # via
     #   -r requirements/base.txt
     #   pyjwkest
-pygments==2.9.0
+pygments==2.10.0
     # via
     #   -r requirements/base.txt
     #   bpython
@@ -222,12 +222,12 @@ pyjwkest==1.4.2
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-pyjwt[crypto]==1.7.1
+pyjwt[crypto]==2.1.0
     # via
-    #   -c requirements/constraints.txt
     #   -r requirements/base.txt
     #   drf-jwt
     #   edx-auth-backends
+    #   edx-drf-extensions
     #   edx-rest-api-client
     #   social-auth-core
 pymongo==3.12.0
@@ -263,7 +263,7 @@ pyyaml==5.4.1
     #   code-annotations
     #   edx-django-release-util
     #   edx-i18n-tools
-regex==2021.7.6
+regex==2021.8.21
     # via
     #   -r requirements/base.txt
     #   awesome-slugify
@@ -321,7 +321,7 @@ sqlparse==0.4.1
     # via
     #   -r requirements/base.txt
     #   django
-stevedore==3.3.0
+stevedore==3.4.0
     # via
     #   -r requirements/base.txt
     #   code-annotations

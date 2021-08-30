@@ -38,7 +38,7 @@ cffi==1.14.6
     # via
     #   -r requirements/test.txt
     #   cryptography
-charset-normalizer==2.0.3
+charset-normalizer==2.0.4
     # via
     #   -r requirements/test.txt
     #   requests
@@ -56,7 +56,7 @@ coverage==5.5
     # via
     #   -r requirements/test.txt
     #   pytest-cov
-cryptography==3.4.7
+cryptography==3.4.8
     # via
     #   -r requirements/test.txt
     #   pyjwt
@@ -76,7 +76,7 @@ defusedxml==0.7.1
     #   -r requirements/test.txt
     #   python3-openid
     #   social-auth-core
-django==3.2.5
+django==3.2.6
     # via
     #   -r requirements/test.txt
     #   django-appconf
@@ -109,7 +109,7 @@ django-crum==0.7.9
     #   -r requirements/test.txt
     #   edx-django-utils
     #   edx-toggles
-django-debug-toolbar==3.2.1
+django-debug-toolbar==3.2.2
     # via -r requirements/local.in
 django-dynamic-fixture==3.1.1
     # via -r requirements/test.txt
@@ -144,19 +144,19 @@ drf-jwt==1.19.1
     #   edx-drf-extensions
 edx-analytics-data-api-client==0.17.0
     # via -r requirements/test.txt
-edx-auth-backends==3.4.0
+edx-auth-backends==4.0.0
     # via -r requirements/test.txt
 edx-ccx-keys==1.2.1
     # via -r requirements/test.txt
 edx-django-release-util==1.1.0
     # via -r requirements/test.txt
-edx-django-utils==4.2.0
+edx-django-utils==4.3.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   edx-toggles
-edx-drf-extensions==6.6.0
+edx-drf-extensions==7.0.1
     # via -r requirements/test.txt
 edx-i18n-tools==0.7.0
     # via -r requirements/test.txt
@@ -175,11 +175,11 @@ future==0.18.2
     # via
     #   -r requirements/test.txt
     #   pyjwkest
-greenlet==1.1.0
+greenlet==1.1.1
     # via
     #   -r requirements/test.txt
     #   bpython
-httpretty==1.1.3
+httpretty==1.1.4
     # via -r requirements/test.txt
 idna==3.2
     # via
@@ -217,7 +217,7 @@ more-itertools==8.8.0
     # via
     #   -r requirements/test.txt
     #   pytest
-newrelic==6.4.4.161
+newrelic==6.8.1.164
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -277,7 +277,7 @@ pycryptodomex==3.10.1
     #   pyjwkest
 pydocstyle==6.1.1
     # via -r requirements/test.txt
-pygments==2.9.0
+pygments==2.10.0
     # via
     #   -r requirements/test.txt
     #   bpython
@@ -285,12 +285,12 @@ pyjwkest==1.4.2
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-pyjwt[crypto]==1.7.1
+pyjwt[crypto]==2.1.0
     # via
-    #   -c requirements/constraints.txt
     #   -r requirements/test.txt
     #   drf-jwt
     #   edx-auth-backends
+    #   edx-drf-extensions
     #   edx-rest-api-client
     #   social-auth-core
 pylint==2.4.4
@@ -340,7 +340,7 @@ pyyaml==5.4.1
     #   code-annotations
     #   edx-django-release-util
     #   edx-i18n-tools
-regex==2021.7.6
+regex==2021.8.21
     # via
     #   -r requirements/test.txt
     #   awesome-slugify
@@ -410,13 +410,13 @@ sqlparse==0.4.1
     #   -r requirements/test.txt
     #   django
     #   django-debug-toolbar
-stevedore==3.3.0
+stevedore==3.4.0
     # via
     #   -r requirements/test.txt
     #   code-annotations
     #   edx-django-utils
     #   edx-opaque-keys
-testfixtures==6.18.0
+testfixtures==6.18.1
     # via -r requirements/test.txt
 text-unidecode==1.3
     # via
@@ -426,7 +426,7 @@ toml==0.10.2
     # via
     #   -r requirements/test.txt
     #   pytest-cov
-tomli==1.1.0
+tomli==1.2.1
     # via
     #   -r requirements/pip_tools.txt
     #   pep517
@@ -451,7 +451,7 @@ wcwidth==0.2.5
     # via
     #   -r requirements/test.txt
     #   pytest
-wheel==0.36.2
+wheel==0.37.0
     # via
     #   -r requirements/pip_tools.txt
     #   pip-tools
