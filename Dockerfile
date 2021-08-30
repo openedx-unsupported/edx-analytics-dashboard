@@ -1,13 +1,9 @@
-FROM ubuntu:xenial as openedx
+FROM ubuntu:focal as openedx
 
-RUN apt update && \
-  apt-get install -y software-properties-common && \
-  apt-add-repository -y ppa:deadsnakes/ppa && apt-get update && \
-  apt-get install -y curl && \
-  apt-get upgrade -qy && \
-  apt install -y git-core language-pack-en build-essential python3.8-dev python3.8-distutils libmysqlclient-dev && \
+RUN apt update && apt-get upgrade -qy
+RUN apt install -y git-core language-pack-en python3.8 python3-pip python3.8-distutils libmysqlclient-dev && \
   curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
-  python3.8 get-pip.py && python3.8 -m pip install --upgrade pip setuptools && \
+  pip install --upgrade pip setuptools && \
   rm -rf /var/lib/apt/lists/*
 
 ENV VIRTUAL_ENV=/venv
