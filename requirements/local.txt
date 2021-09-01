@@ -20,6 +20,10 @@ attrs==21.2.0
     # via
     #   -r requirements/test.txt
     #   pytest
+backports.entry-points-selectable==1.1.0
+    # via
+    #   -r requirements/tox.txt
+    #   virtualenv
 blessings==1.7
     # via
     #   -r requirements/test.txt
@@ -74,6 +78,10 @@ defusedxml==0.7.1
     #   -r requirements/test.txt
     #   python3-openid
     #   social-auth-core
+distlib==0.3.2
+    # via
+    #   -r requirements/tox.txt
+    #   virtualenv
 django==3.2.7
     # via
     #   -r requirements/test.txt
@@ -221,7 +229,7 @@ more-itertools==8.8.0
     #   -r requirements/test.txt
     #   pytest
 mysqlclient==2.0.3
-    # via -r requirements/test.txt
+    # via -r requirements/local.in
 newrelic==6.8.1.164
     # via
     #   -r requirements/test.txt
