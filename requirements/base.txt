@@ -10,8 +10,6 @@
     #   edx-auth-backends
 asgiref==3.4.1
     # via django
-awesome-slugify==1.6.5
-    # via -r requirements/base.in
 blessings==1.7
     # via curtsies
 bpython==0.21
@@ -38,7 +36,7 @@ defusedxml==0.7.1
     # via
     #   python3-openid
     #   social-auth-core
-django==3.2.6
+django==3.2.7
     # via
     #   -r requirements/base.in
     #   django-appconf
@@ -177,7 +175,9 @@ pymongo==3.12.0
 python-dateutil==2.8.2
     # via edx-drf-extensions
 python-slugify==5.0.2
-    # via code-annotations
+    # via
+    #   -r requirements/base.in
+    #   code-annotations
 python3-openid==3.2.0
     # via social-auth-core
 pytz==2021.1
@@ -189,8 +189,6 @@ pyyaml==5.4.1
     #   code-annotations
     #   edx-django-release-util
     #   edx-i18n-tools
-regex==2021.8.28
-    # via awesome-slugify
 requests==2.26.0
     # via
     #   -r requirements/base.in
@@ -242,7 +240,5 @@ text-unidecode==1.3
     # via python-slugify
 unicodecsv==0.14.1
     # via djangorestframework-csv
-unidecode==0.4.21
-    # via awesome-slugify
 urllib3==1.26.6
     # via requests
