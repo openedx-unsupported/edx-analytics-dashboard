@@ -119,7 +119,10 @@ class PerformanceGradedContentTemplateView(PerformanceTemplateView):
         the assignment type is unchanged.
         """
         for assignment_type in self.presenter.assignment_types():
-            if self.assignment_type['name'] and self.assignment_type['name'].lower() == slugify(assignment_type['name']):
+            if (
+                    self.assignment_type['name'] and
+                    self.assignment_type['name'].lower() == slugify(assignment_type['name'])
+            ):
                 self.assignment_type = assignment_type
                 break
 
