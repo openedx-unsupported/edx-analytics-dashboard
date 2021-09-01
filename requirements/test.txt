@@ -18,8 +18,6 @@ astroid==2.3.3
     #   pylint
 attrs==21.2.0
     # via pytest
-awesome-slugify==1.6.5
-    # via -r requirements/base.txt
 blessings==1.7
     # via
     #   -r requirements/base.txt
@@ -308,10 +306,6 @@ pyyaml==5.4.1
     #   code-annotations
     #   edx-django-release-util
     #   edx-i18n-tools
-regex==2021.8.28
-    # via
-    #   -r requirements/base.txt
-    #   awesome-slugify
 requests==2.26.0
     # via
     #   -r requirements/base.txt
@@ -392,10 +386,6 @@ unicodecsv==0.14.1
     # via
     #   -r requirements/base.txt
     #   djangorestframework-csv
-unidecode==0.4.21
-    # via
-    #   -r requirements/base.txt
-    #   awesome-slugify
 urllib3==1.26.6
     # via
     #   -r requirements/base.txt

@@ -20,8 +20,6 @@ attrs==21.2.0
     # via
     #   -r requirements/test.txt
     #   pytest
-awesome-slugify==1.6.5
-    # via -r requirements/test.txt
 blessings==1.7
     # via
     #   -r requirements/test.txt
@@ -76,7 +74,7 @@ defusedxml==0.7.1
     #   -r requirements/test.txt
     #   python3-openid
     #   social-auth-core
-django==3.2.6
+django==3.2.7
     # via
     #   -r requirements/test.txt
     #   django-appconf
@@ -340,10 +338,6 @@ pyyaml==5.4.1
     #   code-annotations
     #   edx-django-release-util
     #   edx-i18n-tools
-regex==2021.8.28
-    # via
-    #   -r requirements/test.txt
-    #   awesome-slugify
 requests==2.26.0
     # via
     #   -r requirements/test.txt
@@ -436,10 +430,6 @@ unicodecsv==0.14.1
     # via
     #   -r requirements/test.txt
     #   djangorestframework-csv
-unidecode==0.4.21
-    # via
-    #   -r requirements/test.txt
-    #   awesome-slugify
 urllib3==1.26.6
     # via
     #   -r requirements/test.txt
