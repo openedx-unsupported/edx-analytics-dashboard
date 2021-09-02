@@ -44,9 +44,9 @@ matrix:
       after_success:
         - codecov --disable pycov
     # TODO: Investigate a11y test failures
-    # - env:
-    #     TESTNAME=a11y
-    #     TARGETS="requirements.a11y migrate requirements.js static accept a11y"
+    - env:
+        TESTNAME=a11y
+        TARGETS="requirements.a11y migrate requirements.js static accept a11y"
     - env:
         TESTNAME=test-i18n
         TARGETS="validate_translations generate_fake_translations"
