@@ -36,3 +36,7 @@ COURSE_API_URL = 'http://edx.devstack.lms:18000/api/courses/v1/'
 GRADING_POLICY_API_URL = 'http://edx.devstack.lms:18000/api/grades/v1/'
 
 MODULE_PREVIEW_URL = 'http://edx.devstack.lms:18000/xblock'
+
+JWT_AUTH = {
+    'JWT_AUTH_HEADER_PREFIX': 'JWT',
+}
