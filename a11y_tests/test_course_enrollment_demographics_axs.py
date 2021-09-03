@@ -39,5 +39,4 @@ class CourseEnrollmentDemographicsAgeTests(CoursePageTestsMixin, WebAppTest):
         ).fulfill()
 
         # Check the page for accessibility errors
-        # import pdb; pdb.set_trace()
         report = self.page.a11y_audit.check_for_accessibility_errors()
