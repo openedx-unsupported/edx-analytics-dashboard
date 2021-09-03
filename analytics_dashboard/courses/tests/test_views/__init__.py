@@ -387,8 +387,7 @@ class CourseStructureViewMixin(NavAssertMixin, ViewTestMixin):
         # Retrieve the page. Validate the status code and context.
         response = self.client.get(self.path(course_id=course_id))
         self.assertEqual(response.status_code, 200)
-        # TODO: Need to debug why this is failing!!
-        # self.assertValidContext(response.context)
+        self.assertValidContext(response.context)
 
         self.assertPrimaryNav(response.context['primary_nav_item'], course_id)
         self.assertSecondaryNavs(response.context['secondary_nav_items'], course_id)
