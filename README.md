@@ -25,7 +25,7 @@ Getting Started With Devstack
 -----------------------------
 The best way to run this service is with edX Devstack: https://github.com/edx/devstack.
 
-See the [Devstack README](https://github.com/edx/devstack/blob/master/README.rst) for information on how to install and run Registrar.
+See the [Devstack README](https://github.com/edx/devstack/blob/master/README.rst) for information on how to install and run Insights. For the purposes of devstack this service will be referred to as `insights` and not `analytics-dashboard`.
 
 Getting Started Standalone
 --------------------------
