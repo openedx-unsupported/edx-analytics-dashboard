@@ -6,11 +6,10 @@ Dashboard to display course analytics to course teams
 
 Prerequisites
 -------------
-* Python 3.5.x
+* Python 3.8.x
 * [gettext](http://www.gnu.org/software/gettext/)
 * [node](https://nodejs.org) 12.11.1
 * [npm](https://www.npmjs.org/) 6.11.3
-* [JDK 7+](http://openjdk.java.net/)
 
 Warning: You must have NPM version 5.5.1. Using another version might result in
 a different `package-lock.json` file. Committing those changes might break our
@@ -19,12 +18,19 @@ install`. [nodeenv](https://github.com/ekalinin/nodeenv) or
 [n](https://github.com/tj/n) are tools that you can use to work on different
 Node.js and NPM versions than your system installed versions.
 
-We have a TODO to set-up the development environment with a Docker container so
+It's recommended you set up this service with devstack so
 that you will not have to manage Node and NPM versions yourself.
 
-Getting Started
----------------
+Getting Started With Devstack
+-----------------------------
+The best way to run this service is with edX Devstack: https://github.com/edx/devstack.
+
+See the [Devstack README](https://github.com/edx/devstack/blob/master/README.rst) for information on how to install and run Registrar.
+
+Getting Started Standalone
+--------------------------
 1. Get the code (e.g. clone the repository).
+2. Create a Python 3 virtual environment and activate it
 2. Install the Python/Node requirements:
 
         $ make develop
@@ -102,6 +108,8 @@ The following flags are available:
 
 Authentication & Authorization
 ------------------------------
+This section is only necessary if running I stand alone service OAuth2 is automatically configured by provisioning in devstack.
+
 By default, this application relies on an external OAuth2 provider
 (contained within the [LMS](https://github.com/edx/edx-platform)) for authentication and authorization. If you are a
 developer, and do not want to setup edx-platform, you can get around this requirement by doing the following:
