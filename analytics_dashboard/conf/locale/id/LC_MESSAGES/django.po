@@ -3,7 +3,9 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Aditya Rakhmat <dhitterrz@gmail.com>, 2021
 # Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2019
+# Bayu Satiyo <itsyuukunz@gmail.com>, 2020
 # cholif yulian <cholifyulian123@gmail.com>, 2015
 # Dicky Bagus <dicky.bagus@gmail.com>, 2016
 # Dicky Bagus <dicky.bagus@gmail.com>, 2014
@@ -20,8 +22,8 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-16 09:16-0400\n"
-"PO-Revision-Date: 2019-07-30 04:27+0000\n"
-"Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>\n"
+"PO-Revision-Date: 2021-06-10 07:20+0000\n"
+"Last-Translator: Aditya Rakhmat <dhitterrz@gmail.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/open-edx/edx-platform/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -95,7 +97,7 @@ msgstr "Bergabunglah dengan komunitas Open Source"
 msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr ""
+msgstr "Pipa data analitik edX dan edX Insights adalah sumber terbuka. %(link_start)sPelajari lebih lanjut%(link_end)s."
 
 #: core/templates/core/landing.html:75
 msgid "Research at edX"
@@ -243,7 +245,7 @@ msgstr "Bagian {part_number}"
 #: courses/templates/courses/_base_content_nav.html:25
 #, python-format
 msgid "%(all_sections_text)s"
-msgstr ""
+msgstr "%(all_sections_text)s"
 
 #: courses/templates/courses/_graded_content_nav.html:16
 msgid "Select Assignment Type"
@@ -376,11 +378,11 @@ msgstr "Peserta"
 msgid ""
 "The number of active learners, and the number of learners who engaged in "
 "specific activities, over time."
-msgstr ""
+msgstr "Jumlah pelajar aktif, dan jumlah pelajar yang terlibat dalam aktivitas tertentu, dari waktu ke waktu."
 
 #: courses/templates/courses/engagement_content.html:48
 msgid "Learner Activity Metrics"
-msgstr ""
+msgstr "Metrik Aktivitas Pelajar"
 
 #: courses/templates/courses/engagement_content.html:54
 msgid "Active Learners Last Week"
@@ -410,7 +412,7 @@ msgstr "Mengerjakan Permasalahan Minggu Lalu"
 msgid ""
 "Learners who submitted an answer for a standard problem. Not all problem "
 "types are included."
-msgstr ""
+msgstr "Pelajar yang mengirimkan jawaban untuk masalah standar. Tidak semua jenis masalah disertakan."
 
 #. Translators: This is a label indicating the number of learners who posted
 #. in a forum discussion.
@@ -421,7 +423,7 @@ msgstr "Ikut serta dalam Diskusi Minggu Lalu"
 #: courses/templates/courses/engagement_content.html:77
 msgid ""
 "Learners who added a post, response, or comment to any course discussion."
-msgstr ""
+msgstr "Pelajar yang menambahkan postingan, tanggapan, atau komentar ke diskusi kursus apapun."
 
 #: courses/templates/courses/engagement_content.html:89
 #: courses/templates/courses/engagement_content.html:97
@@ -454,12 +456,12 @@ msgstr "Bagaimana peserta berinteraksi dengan vidio dalam sub-bagian ini?"
 msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
 "Click to understand where learners drop off and which parts they replay."
-msgstr ""
+msgstr "Setiap bar menunjukkan jumlah penayangan lengkap dan tidak lengkap untuk video tersebut. Klik untuk memahami di mana pelajar berhenti dan bagian mana yang mereka putar ulang."
 
 #: courses/templates/courses/engagement_video_course.html:5
 #: courses/views/__init__.py:569
 msgid "How did learners interact with course videos?"
-msgstr ""
+msgstr "Bagaimana pelajar berinteraksi dengan video kursus?"
 
 #: courses/templates/courses/engagement_video_course.html:10
 msgid ""
@@ -481,7 +483,7 @@ msgstr ""
 msgid ""
 "The number of learners who watched each segment of the video, and the number"
 " of replays for each segment."
-msgstr ""
+msgstr "Jumlah pengguna yang menonton setiap segmen dari video, dan jumlah pemutaran ulang untuk setiap segmen"
 
 #: courses/templates/courses/engagement_video_timeline.html:37
 msgid "Collapse Preview"
@@ -501,7 +503,7 @@ msgstr "Tingkat Penyelesaian"
 
 #: courses/templates/courses/engagement_video_timeline.html:62
 msgid "Estimated percentage of learners who watched the entire video."
-msgstr ""
+msgstr "Estimasi persentase dari pengguna yang menonton keseluruhan video"
 
 #: courses/templates/courses/engagement_video_timeline.html:66
 msgid "Started Video"
@@ -509,7 +511,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html:67
 msgid "Learners who started watching the video."
-msgstr ""
+msgstr "Pengguna yang sudah memulai untuk menonton video"
 
 #: courses/templates/courses/engagement_video_timeline.html:71
 msgid "Finished Video"
@@ -517,7 +519,7 @@ msgstr ""
 
 #: courses/templates/courses/engagement_video_timeline.html:72
 msgid "Learners who watched the video to the end."
-msgstr ""
+msgstr "Pengguna yang sudah menonton video sampai selesai"
 
 #: courses/templates/courses/engagement_video_timeline.html:88
 msgid "Video Viewing Over Time"
@@ -525,7 +527,7 @@ msgstr ""
 
 #: courses/templates/courses/enrollment_activity.html:24
 msgid "Daily Learner Enrollment"
-msgstr ""
+msgstr "Pendaftaran pengguna harian"
 
 #: courses/templates/courses/enrollment_activity.html:25
 #: courses/views/__init__.py:497
@@ -572,7 +574,7 @@ msgstr "Jumlah Pendaftaran Saat Ini"
 #. a course.
 #: courses/templates/courses/enrollment_activity.html:70
 msgid "Learners currently enrolled in the course."
-msgstr ""
+msgstr "Pengguna yang saat ini terdaftar di dalam kursus"
 
 #. Translators: This is a label indicating the change in the number of
 #. learners enrolled in a course since the previous week.
@@ -602,7 +604,7 @@ msgstr "Pendaftaran terverifikasi"
 msgid ""
 "Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
-msgstr ""
+msgstr "Jumlah pengguna yang mendafatar untuk mendapatkan sertifikat prestasi terverifikasi"
 
 #. Translators: This is a label to identify enrollment of learners on the
 #. masters track.
@@ -617,7 +619,7 @@ msgstr ""
 #. a course on the masters track.
 #: courses/templates/courses/enrollment_activity.html:95
 msgid "Number of currently enrolled learners pursuing a Master's degree."
-msgstr ""
+msgstr "Jumlah Pengguna yang mendaftar untuk mendapatkan gelar Master"
 
 #: courses/templates/courses/enrollment_activity.html:109
 #: courses/templates/courses/enrollment_activity.html:117
@@ -630,7 +632,7 @@ msgstr "Pendaftaran Berdasar Waktu"
 #: courses/templates/courses/enrollment_demographics_age.html:26
 #: courses/views/__init__.py:507
 msgid "How old are my learners?"
-msgstr ""
+msgstr "Berapa umur dari para pengguna "
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -640,7 +642,7 @@ msgstr ""
 msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
 "learners who provided a year of birth."
-msgstr ""
+msgstr "histogram umum ini menyajikan data untuk 1%(value)s 2%% dari pengguna yang memberikan tahun kelahiran"
 
 #: courses/templates/courses/enrollment_demographics_age.html:56
 msgid "Age Metrics"
@@ -650,7 +652,7 @@ msgstr "Statistik Usia"
 #. learners.
 #: courses/templates/courses/enrollment_demographics_age.html:65
 msgid "Median Learner Age"
-msgstr ""
+msgstr "Rata-rata umur pengguna"
 
 #: courses/templates/courses/enrollment_demographics_age.html:66
 msgid ""
@@ -661,13 +663,13 @@ msgstr ""
 #. range.
 #: courses/templates/courses/enrollment_demographics_age.html:72
 msgid "Learners 25 and Under"
-msgstr ""
+msgstr "Pengguna berumur 25 tahun kebawah"
 
 #: courses/templates/courses/enrollment_demographics_age.html:73
 msgid ""
 "The percentage of learners aged 25 years or younger (of those who provided a"
 " year of birth)."
-msgstr ""
+msgstr "Persentase pengguna berumur 25 tahun kebawah ( dari yang mencantumkan tahun kelahiran)"
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
@@ -679,7 +681,7 @@ msgstr "Peserta usia 26 hingga 40 thn"
 msgid ""
 "The percentage of learners aged from 26 to 40 years (of those who provided a"
 " year of birth)."
-msgstr ""
+msgstr "Persentase pengguna berumur 26 sampai dengan 40 tahun( dari yang mencantumkan tahun kelahiran)"
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
@@ -691,7 +693,7 @@ msgstr "Peserta usia 41 thn keatas"
 msgid ""
 "The percentage of learners aged 41 years or older (of those who provided a "
 "year of birth)."
-msgstr ""
+msgstr "Persentase pengguna berumur 41 tahun keatas (dari yang mencantumkan tahun kelahiran)"
 
 #: courses/templates/courses/enrollment_demographics_age.html:101
 msgid "Age Breakdown"
@@ -700,7 +702,7 @@ msgstr "Rincian Usia"
 #: courses/templates/courses/enrollment_demographics_education.html:25
 #: courses/views/__init__.py:517
 msgid "What level of education do my learners have?"
-msgstr ""
+msgstr "Tingkat pendidikan dari para pengguna"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
