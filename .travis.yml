@@ -1,7 +1,9 @@
 language:
   - python
 python:
-  # Warn: this isn't doing much since the default python env in the docker image is not 3.8
+  # Warn: since most of the below commands are executing in a docker environment this version may
+  # not realistically reflect the python version. Currently, the docker image system python is
+  # 3.5 and the virtualenv we source is 3.8.
   - '3.8'
 sudo: required
 services:
@@ -43,7 +45,7 @@ matrix:
         TARGETS="requirements.js quality validate_js"
       after_success:
         - codecov --disable pycov
-    # TODO: Investigate a11y test failures, a11y should be the final target in this list
+    # a11y has been removed from this list while we investigate failures. MST-1051
     - env:
         TESTNAME=a11y
         TARGETS="requirements.a11y migrate requirements.js static accept"
