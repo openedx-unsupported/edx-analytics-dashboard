@@ -54,9 +54,6 @@ FULL_APPLICATION_NAME = f'{PLATFORM_NAME} {APPLICATION_NAME}'
 ########## END BRANDING
 
 
-########## AUTHENTICATION/AUTHORIZATION
-ENABLE_AUTO_AUTH = True
-
 # Uncomment the line below to avoid having to worry about course permissions
 ENABLE_COURSE_PERMISSIONS = False
 ########## END AUTHENTICATION/AUTHORIZATION
@@ -70,13 +67,8 @@ HELP_URL = '#'
 SEGMENT_IO_KEY = os.environ.get('SEGMENT_WRITE_KEY')
 ########## END SEGMENT.IO
 
-GRADING_POLICY_API_URL = 'http://127.0.0.1:18000/api/grades/v1/'
-COURSE_API_URL = 'http://127.0.0.1:18000/api/courses/v1/'
-
 LOGGING = get_logger_config(debug=DEBUG, dev_env=True, local_loglevel='DEBUG')
 
-########## MODULE_PREVIEW
-MODULE_PREVIEW_URL = 'http://127.0.0.1:18000/xblock'
 ########## END MODULE_PREVIEW
 
 ########## REST FRAMEWORK CONFIGURATION
