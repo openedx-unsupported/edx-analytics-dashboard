@@ -40,7 +40,7 @@ cffi==1.14.6
     # via
     #   -r requirements/test.txt
     #   cryptography
-charset-normalizer==2.0.4
+charset-normalizer==2.0.6
     # via
     #   -r requirements/test.txt
     #   requests
@@ -156,7 +156,7 @@ edx-ccx-keys==1.2.1
     # via -r requirements/test.txt
 edx-django-release-util==1.1.0
     # via -r requirements/test.txt
-edx-django-utils==4.3.0
+edx-django-utils==4.4.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
@@ -224,13 +224,13 @@ mccabe==0.6.1
     # via
     #   -r requirements/test.txt
     #   pylint
-more-itertools==8.8.0
+more-itertools==8.10.0
     # via
     #   -r requirements/test.txt
     #   pytest
 mysqlclient==2.0.3
     # via -r requirements/local.in
-newrelic==6.8.1.164
+newrelic==6.10.0.165
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -428,7 +428,7 @@ social-auth-core==3.2.0
     #   -r requirements/test.txt
     #   edx-auth-backends
     #   social-auth-app-django
-sqlparse==0.4.1
+sqlparse==0.4.2
     # via
     #   -r requirements/test.txt
     #   django
@@ -439,7 +439,7 @@ stevedore==3.4.0
     #   code-annotations
     #   edx-django-utils
     #   edx-opaque-keys
-testfixtures==6.18.1
+testfixtures==6.18.2
     # via -r requirements/test.txt
 text-unidecode==1.3
     # via
@@ -475,7 +475,7 @@ urllib3==1.26.6
     #   requests
     #   selenium
     #   transifex-client
-virtualenv==20.7.2
+virtualenv==20.8.0
     # via
     #   -r requirements/tox.txt
     #   tox

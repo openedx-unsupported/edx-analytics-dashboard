@@ -30,7 +30,7 @@ cffi==1.14.6
     # via
     #   -r requirements/base.txt
     #   cryptography
-charset-normalizer==2.0.4
+charset-normalizer==2.0.6
     # via
     #   -r requirements/base.txt
     #   requests
@@ -131,7 +131,7 @@ edx-ccx-keys==1.2.1
     # via -r requirements/base.txt
 edx-django-release-util==1.1.0
     # via -r requirements/base.txt
-edx-django-utils==4.3.0
+edx-django-utils==4.4.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
@@ -179,7 +179,7 @@ markupsafe==2.0.1
     # via
     #   -r requirements/base.txt
     #   jinja2
-newrelic==6.8.1.164
+newrelic==6.10.0.165
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -322,7 +322,7 @@ social-auth-core==3.2.0
     #   -r requirements/base.txt
     #   edx-auth-backends
     #   social-auth-app-django
-sphinx==4.1.2
+sphinx==4.2.0
     # via
     #   -r requirements/doc.in
     #   edx-sphinx-theme
@@ -338,7 +338,7 @@ sphinxcontrib-qthelp==1.0.3
     # via sphinx
 sphinxcontrib-serializinghtml==1.1.5
     # via sphinx
-sqlparse==0.4.1
+sqlparse==0.4.2
     # via
     #   -r requirements/base.txt
     #   django

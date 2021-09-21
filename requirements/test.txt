@@ -34,7 +34,7 @@ cffi==1.14.6
     # via
     #   -r requirements/base.txt
     #   cryptography
-charset-normalizer==2.0.4
+charset-normalizer==2.0.6
     # via
     #   -r requirements/base.txt
     #   requests
@@ -140,7 +140,7 @@ edx-ccx-keys==1.2.1
     # via -r requirements/base.txt
 edx-django-release-util==1.1.0
     # via -r requirements/base.txt
-edx-django-utils==4.3.0
+edx-django-utils==4.4.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
@@ -195,9 +195,9 @@ markupsafe==2.0.1
     #   jinja2
 mccabe==0.6.1
     # via pylint
-more-itertools==8.8.0
+more-itertools==8.10.0
     # via pytest
-newrelic==6.8.1.164
+newrelic==6.10.0.165
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -364,7 +364,7 @@ social-auth-core==3.2.0
     #   -r requirements/base.txt
     #   edx-auth-backends
     #   social-auth-app-django
-sqlparse==0.4.1
+sqlparse==0.4.2
     # via
     #   -r requirements/base.txt
     #   django
@@ -374,7 +374,7 @@ stevedore==3.4.0
     #   code-annotations
     #   edx-django-utils
     #   edx-opaque-keys
-testfixtures==6.18.1
+testfixtures==6.18.2
     # via -r requirements/test.in
 text-unidecode==1.3
     # via

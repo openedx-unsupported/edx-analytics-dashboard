@@ -18,7 +18,7 @@ certifi==2021.5.30
     # via requests
 cffi==1.14.6
     # via cryptography
-charset-normalizer==2.0.4
+charset-normalizer==2.0.6
     # via requests
 click==8.0.1
     # via code-annotations
@@ -102,7 +102,7 @@ edx-ccx-keys==1.2.1
     # via -r requirements/base.in
 edx-django-release-util==1.1.0
     # via -r requirements/base.in
-edx-django-utils==4.3.0
+edx-django-utils==4.4.0
     # via
     #   -r requirements/base.in
     #   edx-drf-extensions
@@ -135,7 +135,7 @@ logutils==0.3.5
     # via -r requirements/base.in
 markupsafe==2.0.1
     # via jinja2
-newrelic==6.8.1.164
+newrelic==6.10.0.165
     # via edx-django-utils
 oauthlib==3.1.1
     # via
@@ -228,7 +228,7 @@ social-auth-core==3.2.0
     #   -c requirements/constraints.txt
     #   edx-auth-backends
     #   social-auth-app-django
-sqlparse==0.4.1
+sqlparse==0.4.2
     # via django
 stevedore==3.4.0
     # via
