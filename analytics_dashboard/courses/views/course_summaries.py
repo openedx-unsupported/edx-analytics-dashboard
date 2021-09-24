@@ -46,7 +46,8 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
             # The user is probably not a course administrator and should not be using this application.
             raise PermissionDenied
 
-        summaries_presenter = CourseSummariesPresenter()
+        use_v1_api = self.request.GET.get('use_v1_api', False) in [True, 'true', 'True']
+        summaries_presenter = CourseSummariesPresenter(use_v1_api=use_v1_api)
         summaries, last_updated = summaries_presenter.get_course_summaries(courses)
 
         context.update({
@@ -100,7 +101,8 @@ class CourseIndexCSV(CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixi
 
         enable_course_filters = switch_is_active('enable_course_filters')
 
-        presenter = CourseSummariesPresenter()
+        use_v1_api = self.request.GET.get('use_v1_api', False) in [True, 'true', 'True']
+        presenter = CourseSummariesPresenter(use_v1_api=use_v1_api)
         summaries, _ = presenter.get_course_summaries(courses)
 
         if not summaries:

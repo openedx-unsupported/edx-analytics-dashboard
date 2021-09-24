@@ -16,8 +16,9 @@ logger = logging.getLogger(__name__)
 
 class BasePresenter:
 
-    def __init__(self, timeout=settings.ANALYTICS_API_DEFAULT_TIMEOUT):
-        self.client = Client(base_url=settings.DATA_API_URL,
+    def __init__(self, timeout=settings.ANALYTICS_API_DEFAULT_TIMEOUT, use_v1_api=False):
+        base_url = settings.DATA_API_URL_NEW if use_v1_api else settings.DATA_API_URL
+        self.client = Client(base_url=base_url,
                              auth_token=settings.DATA_API_AUTH_TOKEN,
                              timeout=timeout)
 
@@ -52,6 +53,7 @@ class CoursePresenter(BasePresenter):
         super().__init__(timeout)
         self.course_id = course_id
         self.course = self.client.courses(self.course_id)
+
 
 
 class CourseAPIPresenterMixin(metaclass=abc.ABCMeta):

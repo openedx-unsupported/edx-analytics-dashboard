@@ -440,6 +440,7 @@ class CourseView(LoginRequiredMixin, CourseValidMixin, CoursePermissionMixin, Te
         self.user = request.user
         self.course_id = request.course_id
         self.course_key = request.course_key
+        self.use_v1_api = request.GET.get('use_v1_api', False) in [True, 'true', 'True']
 
         # some views will catch the NotFoundError to set data to a state that
         # the template can rendering a loading error message for the section
@@ -454,7 +455,8 @@ class CourseView(LoginRequiredMixin, CourseValidMixin, CoursePermissionMixin, Te
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        self.client = Client(base_url=settings.DATA_API_URL,
+        base_url = settings.DATA_API_URL_NEW if self.use_v1_api else settings.DATA_API_URL
+        self.client = Client(base_url=base_url,
                              auth_token=settings.DATA_API_AUTH_TOKEN, timeout=settings.LMS_DEFAULT_TIMEOUT)
         self.course = self.client.courses(self.course_id)
         return context
