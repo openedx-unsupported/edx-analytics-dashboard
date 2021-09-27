@@ -40,7 +40,7 @@ cffi==1.14.6
     # via
     #   -r requirements/test.txt
     #   cryptography
-charset-normalizer==2.0.4
+charset-normalizer==2.0.6
     # via
     #   -r requirements/test.txt
     #   requests
@@ -62,7 +62,7 @@ cryptography==3.4.8
     # via
     #   -r requirements/test.txt
     #   pyjwt
-curtsies==0.3.5
+curtsies==0.3.7
     # via
     #   -r requirements/test.txt
     #   bpython
@@ -78,7 +78,7 @@ defusedxml==0.7.1
     #   -r requirements/test.txt
     #   python3-openid
     #   social-auth-core
-distlib==0.3.2
+distlib==0.3.3
     # via
     #   -r requirements/tox.txt
     #   virtualenv
@@ -102,13 +102,13 @@ django==3.2.7
     #   edx-toggles
     #   pinax-announcements
     #   rest-condition
-django-appconf==1.0.4
+django-appconf==1.0.5
     # via -r requirements/test.txt
 django-braces==1.14.0
     # via -r requirements/test.txt
 django-countries==7.2.1
     # via -r requirements/test.txt
-django-crispy-forms==1.12.0
+django-crispy-forms==1.13.0
     # via -r requirements/test.txt
 django-crum==0.7.9
     # via
@@ -156,7 +156,7 @@ edx-ccx-keys==1.2.1
     # via -r requirements/test.txt
 edx-django-release-util==1.1.0
     # via -r requirements/test.txt
-edx-django-utils==4.3.0
+edx-django-utils==4.4.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
@@ -177,7 +177,7 @@ edx-toggles==4.2.0
     # via -r requirements/test.txt
 elasticsearch==2.4.1
     # via -r requirements/test.txt
-filelock==3.0.12
+filelock==3.1.0
     # via
     #   -r requirements/tox.txt
     #   tox
@@ -224,13 +224,13 @@ mccabe==0.6.1
     # via
     #   -r requirements/test.txt
     #   pylint
-more-itertools==8.8.0
+more-itertools==8.10.0
     # via
     #   -r requirements/test.txt
     #   pytest
 mysqlclient==2.0.3
     # via -r requirements/local.in
-newrelic==6.8.1.164
+newrelic==7.0.0.166
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -262,9 +262,9 @@ pep517==0.11.0
     #   pip-tools
 pinax-announcements==4.0.0
     # via -r requirements/test.txt
-pip-tools==6.2.0
+pip-tools==6.3.0
     # via -r requirements/pip_tools.txt
-platformdirs==2.3.0
+platformdirs==2.4.0
     # via
     #   -r requirements/tox.txt
     #   virtualenv
@@ -294,7 +294,7 @@ pycparser==2.20
     # via
     #   -r requirements/test.txt
     #   cffi
-pycryptodomex==3.10.1
+pycryptodomex==3.10.4
     # via
     #   -r requirements/test.txt
     #   pyjwkest
@@ -428,7 +428,7 @@ social-auth-core==3.2.0
     #   -r requirements/test.txt
     #   edx-auth-backends
     #   social-auth-app-django
-sqlparse==0.4.1
+sqlparse==0.4.2
     # via
     #   -r requirements/test.txt
     #   django
@@ -439,7 +439,7 @@ stevedore==3.4.0
     #   code-annotations
     #   edx-django-utils
     #   edx-opaque-keys
-testfixtures==6.18.1
+testfixtures==6.18.2
     # via -r requirements/test.txt
 text-unidecode==1.3
     # via
@@ -468,14 +468,14 @@ unicodecsv==0.14.1
     # via
     #   -r requirements/test.txt
     #   djangorestframework-csv
-urllib3==1.26.6
+urllib3==1.26.7
     # via
     #   -r requirements/test.txt
     #   elasticsearch
     #   requests
     #   selenium
     #   transifex-client
-virtualenv==20.7.2
+virtualenv==20.8.1
     # via
     #   -r requirements/tox.txt
     #   tox
