@@ -1,0 +1,61 @@
+name: Default CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      DATA_API_VERSION: "latest"
+    steps:
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+          architecture: 'x64'
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: start container
+        run: docker-compose -f .github/docker-compose-github.yml up -d
+      - name: setup analytics-api
+        run: |
+          docker exec analytics_api bash -c "
+          source /edx/app/analytics_api/venvs/analytics_api/bin/activate &&
+          pip install setuptools==49.6.0 &&
+          make -C /edx/app/analytics_api/analytics_api travis"
+      - name: clean package-lock.json
+        run: rm package-lock.json
+      - name: install dependencies
+        run: pip install -r requirements/github.txt
+      - name: test quality
+        run: ./.github/scripts/testing.sh
+        shell: bash
+        env:
+          TESTNAME: quality
+          TARGETS: "quality"
+      - name: test js
+        run: ./.github/scripts/testing.sh
+        shell: bash
+        env:
+          TESTNAME: js
+          TARGETS: "requirements.js validate_js"
+#     - name: test i18n
+#       run: ./.github/scripts/testing.sh
+#       shell: bash
+#       env:
+#         TESTNAME: test-i18n
+#         TARGETS: "validate_translations generate_fake_translations"
+      - name: test acceptance
+        run: ./.github/scripts/testing.sh
+        shell: bash
+        env:
+          TESTNAME: acceptance
+          TARGETS: "requirements.a11y migrate requirements.js static accept"
+      - name: test python
+        run: ./.github/scripts/testing.sh
+        shell: bash
+        env:
+          TESTNAME: test-python
+          TARGETS: "requirements.js static test_python"
+      - name: code cov
+        run: codecov --disable pycov
