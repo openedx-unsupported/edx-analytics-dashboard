@@ -19,8 +19,6 @@ services:
     command: tail -f /dev/null
     environment:
       # Pull these from the host environment.
-      TRAVIS_BRANCH:
-      TRAVIS_PULL_REQUEST:
       DATADOG_API_KEY:
       # Rest of the environment variables for testing.
       API_SERVER_URL: http://analyticsapi/api/v0
