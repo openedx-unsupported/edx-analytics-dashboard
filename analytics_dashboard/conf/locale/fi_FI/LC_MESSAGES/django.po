@@ -3,14 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# asd asd <ekeimaja@gmail.com>, 2021
+# Eldemarkki <eldemarkkiyt@gmail.com>, 2021
 # Heikki Viitanen <heikki@memocate.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-16 09:16-0400\n"
-"PO-Revision-Date: 2019-04-16 19:45+0000\n"
-"Last-Translator: Ned Batchelder <ned@edx.org>\n"
+"PO-Revision-Date: 2021-09-01 19:01+0000\n"
+"Last-Translator: Eldemarkki <eldemarkkiyt@gmail.com>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/open-edx/edx-platform/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +22,7 @@ msgstr ""
 
 #: core/templates/core/landing.html:15 templates/_skip_link.html:3
 msgid "Skip to content"
-msgstr ""
+msgstr "Siirry sisältöön"
 
 #: core/templates/core/landing.html:23
 msgid "Login"
@@ -77,7 +79,7 @@ msgstr ""
 
 #: core/templates/core/landing.html:63
 msgid "Join the Open Source Community"
-msgstr ""
+msgstr "Liity avoimen lähdekoodin yhteisöön"
 
 #: core/templates/core/landing.html:68
 #, python-format
@@ -161,7 +163,7 @@ msgstr ""
 #. Translators: This describes the learner's education level.
 #: courses/presenters/enrollment.py:51
 msgid "Secondary"
-msgstr ""
+msgstr "Toissijainen"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
@@ -173,7 +175,7 @@ msgstr ""
 #. Degree).
 #: courses/presenters/enrollment.py:55
 msgid "Bachelor's"
-msgstr ""
+msgstr "Alempi korkeakoulu"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
@@ -191,7 +193,7 @@ msgstr "Tohtori"
 #. known geolocation.
 #: courses/presenters/enrollment.py:188
 msgid "Unknown Country"
-msgstr ""
+msgstr "Tuntematon maa"
 
 #. Translators: This describes the data displayed in the chart below.
 #: courses/presenters/performance.py:146
@@ -290,15 +292,15 @@ msgstr ""
 
 #: courses/templates/courses/_video_content_nav.html:28
 msgid "Select Video"
-msgstr ""
+msgstr "Valitse video"
 
 #: courses/templates/courses/_video_module_controls.html:8
 msgid "Previous Video"
-msgstr ""
+msgstr "Edellinen video"
 
 #: courses/templates/courses/_video_module_controls.html:15
 msgid "Next Video"
-msgstr ""
+msgstr "Seuraava video"
 
 #. Translators: This text describes a bar chart displayed.
 #: courses/templates/courses/base_performance_answer_distribution.html:60
@@ -335,7 +337,7 @@ msgstr ""
 #: courses/templates/courses/enrollment_demographics_gender.html:65
 #: courses/templates/courses/enrollment_geography.html:97
 msgid "Download CSV"
-msgstr ""
+msgstr "Lataa CSV"
 
 #: courses/templates/courses/base_performance_answer_distribution.html:117
 msgid "Learner Submission Counts"
@@ -836,19 +838,19 @@ msgstr ""
 #: courses/templates/courses/home.html:11 templates/base_dashboard.html:28
 #: templates/footer.html:5 templates/lens-navigation.html:9
 msgid "Application"
-msgstr ""
+msgstr "Sovellus"
 
 #. Translators: This refers to the homepage of a course.
 #: courses/templates/courses/home.html:15 courses/views/__init__.py:486
 #: templates/lens-navigation.html:20
 msgid "Course Home"
-msgstr ""
+msgstr "Kurssin kotisivu"
 
 #. Translators: This refers to the active tab/navigation item.
 #: courses/templates/courses/home.html:16 templates/lens-navigation.html:31
 #: templates/submenu_navigation.html:14
 msgid "Active"
-msgstr ""
+msgstr "Aktiivinen"
 
 #. Translators: This indicates that the adjacent link will trigger a CSV
 #. download. '{{download_icon}}' will be replaced with an icon.
@@ -858,17 +860,17 @@ msgid ""
 "\n"
 "                    (%(download_icon)s CSV Download)\n"
 "                  "
-msgstr ""
+msgstr "\n                    (%(download_icon)s Lataa CSV-muodossa)\n                  "
 
 #: courses/templates/courses/home.html:93
 msgid "Basic Course Information"
-msgstr ""
+msgstr "Kurssin perustiedot"
 
 #. Translators: This title describes a list of links to outside tools for this
 #. course.
 #: courses/templates/courses/home.html:106
 msgid "External Tools"
-msgstr ""
+msgstr "Ulkoiset työkalut"
 
 #: courses/templates/courses/index.html:10
 #: courses/views/course_summaries.py:32
@@ -1036,12 +1038,12 @@ msgstr ""
 
 #: courses/templates/courses/permissions-retrieval-failed.html:14
 msgid "Try Again"
-msgstr ""
+msgstr "Yritä uudelleen"
 
 #: courses/tests/test_views/__init__.py:236 courses/views/__init__.py:499
 #: courses/views/enrollment.py:23
 msgid "Activity"
-msgstr ""
+msgstr "Toiminta"
 
 #: courses/tests/test_views/__init__.py:246 courses/views/__init__.py:509
 #: courses/views/__init__.py:519 courses/views/__init__.py:529
@@ -1057,12 +1059,12 @@ msgstr ""
 #: courses/tests/test_views/__init__.py:294 courses/views/__init__.py:509
 #: courses/views/enrollment.py:61
 msgid "Age"
-msgstr ""
+msgstr "Ikä"
 
 #: courses/tests/test_views/__init__.py:304 courses/views/__init__.py:519
 #: courses/views/enrollment.py:70
 msgid "Education"
-msgstr ""
+msgstr "Koulutus"
 
 #: courses/tests/test_views/__init__.py:314 courses/views/__init__.py:529
 #: courses/views/enrollment.py:79
@@ -1078,7 +1080,7 @@ msgstr "Sisältö"
 #: courses/tests/test_views/test_engagement.py:73
 #: courses/views/__init__.py:571 courses/views/engagement.py:36
 msgid "Videos"
-msgstr ""
+msgstr "Videot"
 
 #: courses/tests/test_views/test_performance.py:65
 #: courses/views/__init__.py:585 courses/views/performance.py:38
@@ -1137,7 +1139,7 @@ msgstr ""
 #. identifies the course
 #: courses/views/__init__.py:694
 msgid "Course ID"
-msgstr "Kurssi ID"
+msgstr "Kurssin ID"
 
 #: courses/views/__init__.py:696
 msgid "Course Name"
@@ -1147,11 +1149,11 @@ msgstr "Kurssin nimi"
 #. actively using the course or it is over.
 #: courses/views/__init__.py:713
 msgid "In Progress"
-msgstr ""
+msgstr "Kesken"
 
 #: courses/views/__init__.py:713
 msgid "Ended"
-msgstr ""
+msgstr "Päättynyt"
 
 #. Translators: This refers to a course that has not yet begun.
 #: courses/views/__init__.py:716
@@ -1164,7 +1166,7 @@ msgstr "Aloituspäivä"
 
 #: courses/views/__init__.py:719
 msgid "End Date"
-msgstr ""
+msgstr "Lopetuspäivämäärä"
 
 #: courses/views/__init__.py:720
 msgid "Status"
@@ -1221,7 +1223,7 @@ msgstr ""
 
 #: courses/views/engagement.py:161
 msgid "Video Name"
-msgstr ""
+msgstr "Videon nimi"
 
 #. Translators: Do not translate UTC.
 #: courses/views/enrollment.py:90
@@ -1340,7 +1342,7 @@ msgstr ""
 
 #: templates/403.html:17
 msgid "Logout then Login"
-msgstr "Kirjaudu ulos ja sitten uudestan sisään"
+msgstr "Kirjaudu ulos ja sitten uudestaan sisään"
 
 #: templates/404.html:5 templates/404.html:8
 msgid "Page Not Found"
@@ -1403,7 +1405,7 @@ msgstr ""
 
 #: templates/header.html:13
 msgid "Toggle navigation"
-msgstr ""
+msgstr "Piilota navigaatio"
 
 #: templates/header.html:40
 msgid "Help"
@@ -1415,23 +1417,23 @@ msgstr ""
 
 #: templates/header.html:60
 msgid "Logout"
-msgstr ""
+msgstr "Kirjaudu ulos"
 
 #: templates/lens-navigation.html:27
 msgid "Navigation Menu."
-msgstr ""
+msgstr "Navigointivalikko."
 
 #: templates/loading.html:7
 msgid "Loading"
-msgstr "Lataa"
+msgstr "Ladataan"
 
 #: templates/section_error.html:10
 msgid "We are unable to load this chart."
-msgstr ""
+msgstr "Emme pysty lataamaan tätä kaaviota"
 
 #: templates/section_error.html:12
 msgid "We are unable to load this table."
-msgstr ""
+msgstr "Emme pysty lataamaan tätä taulukkoa"
 
 #: templates/section_error.html:14
 msgid "We are unable to load these metrics."
