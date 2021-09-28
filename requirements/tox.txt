@@ -6,15 +6,15 @@
 #
 backports.entry-points-selectable==1.1.0
     # via virtualenv
-distlib==0.3.2
+distlib==0.3.3
     # via virtualenv
-filelock==3.0.12
+filelock==3.1.0
     # via
     #   tox
     #   virtualenv
 packaging==21.0
     # via tox
-platformdirs==2.3.0
+platformdirs==2.4.0
     # via virtualenv
 pluggy==0.13.1
     # via tox
@@ -35,5 +35,5 @@ tox==3.14.6
     #   tox-battery
 tox-battery==0.6.1
     # via -r requirements/tox.in
-virtualenv==20.7.2
+virtualenv==20.8.1
     # via tox

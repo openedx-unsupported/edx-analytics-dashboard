@@ -25,8 +25,12 @@ jobs:
           make -C /edx/app/analytics_api/analytics_api travis"
       - name: clean package-lock.json
         run: rm package-lock.json
+      - name: install GNU gettext
+        run: sudo apt install gettext
       - name: install dependencies
         run: pip install -r requirements/github.txt
+      - name: test-i18n
+        run: make validate_translations
       - name: test quality
         run: ./.github/scripts/testing.sh
         shell: bash
@@ -39,12 +43,6 @@ jobs:
         env:
           TESTNAME: js
           TARGETS: "requirements.js validate_js"
-#     - name: test i18n
-#       run: ./.github/scripts/testing.sh
-#       shell: bash
-#       env:
-#         TESTNAME: test-i18n
-#         TARGETS: "validate_translations generate_fake_translations"
       - name: test acceptance
         run: ./.github/scripts/testing.sh
         shell: bash

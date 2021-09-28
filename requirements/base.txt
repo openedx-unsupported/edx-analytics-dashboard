@@ -18,7 +18,7 @@ certifi==2021.5.30
     # via requests
 cffi==1.14.6
     # via cryptography
-charset-normalizer==2.0.4
+charset-normalizer==2.0.6
     # via requests
 click==8.0.1
     # via code-annotations
@@ -26,7 +26,7 @@ code-annotations==1.2.0
     # via edx-toggles
 cryptography==3.4.8
     # via pyjwt
-curtsies==0.3.5
+curtsies==0.3.7
     # via bpython
 cwcwidth==0.1.4
     # via
@@ -55,13 +55,13 @@ django==3.2.7
     #   edx-toggles
     #   pinax-announcements
     #   rest-condition
-django-appconf==1.0.4
+django-appconf==1.0.5
     # via -r requirements/base.in
 django-braces==1.14.0
     # via -r requirements/base.in
 django-countries==7.2.1
     # via -r requirements/base.in
-django-crispy-forms==1.12.0
+django-crispy-forms==1.13.0
     # via -r requirements/base.in
 django-crum==0.7.9
     # via
@@ -102,7 +102,7 @@ edx-ccx-keys==1.2.1
     # via -r requirements/base.in
 edx-django-release-util==1.1.0
     # via -r requirements/base.in
-edx-django-utils==4.3.0
+edx-django-utils==4.4.0
     # via
     #   -r requirements/base.in
     #   edx-drf-extensions
@@ -123,7 +123,7 @@ edx-toggles==4.2.0
     # via -r requirements/base.in
 future==0.18.2
     # via pyjwkest
-greenlet==1.1.1
+greenlet==1.1.2
     # via bpython
 idna==3.2
     # via requests
@@ -135,7 +135,7 @@ logutils==0.3.5
     # via -r requirements/base.in
 markupsafe==2.0.1
     # via jinja2
-newrelic==6.8.1.164
+newrelic==7.0.0.166
     # via edx-django-utils
 oauthlib==3.1.1
     # via
@@ -157,7 +157,7 @@ psutil==5.8.0
     # via edx-django-utils
 pycparser==2.20
     # via cffi
-pycryptodomex==3.10.1
+pycryptodomex==3.10.4
     # via pyjwkest
 pygments==2.10.0
     # via bpython
@@ -228,7 +228,7 @@ social-auth-core==3.2.0
     #   -c requirements/constraints.txt
     #   edx-auth-backends
     #   social-auth-app-django
-sqlparse==0.4.1
+sqlparse==0.4.2
     # via django
 stevedore==3.4.0
     # via
@@ -240,5 +240,5 @@ text-unidecode==1.3
     # via python-slugify
 unicodecsv==0.14.1
     # via djangorestframework-csv
-urllib3==1.26.6
+urllib3==1.26.7
     # via requests
