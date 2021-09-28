@@ -72,7 +72,7 @@ test_python: clean ## run pyton tests and generate coverage report
 	$(TOX)pytest common analytics_dashboard --cov common --cov analytics_dashboard
 
 requirements.a11y:
-	./.travis/a11y_reqs.sh
+	./.github/a11y_reqs.sh
 
 runserver_a11y:
 	$(TOX)python manage.py runserver 0.0.0.0:9000 --noreload --traceback > dashboard.log 2>&1 &
@@ -184,7 +184,6 @@ upgrade: piptools ## update the requirements/*.txt files with the latest package
 	pip-compile --upgrade -o requirements/local.txt requirements/local.in
 	pip-compile --upgrade -o requirements/optional.txt requirements/optional.in
 	pip-compile --upgrade -o requirements/production.txt requirements/production.in
-	pip-compile --upgrade -o requirements/travis.txt requirements/travis.in
 	pip-compile --upgrade -o requirements/github.txt requirements/github.in
 	# Let tox control the Django version for tests
 	grep -e "^django==" requirements/base.txt > requirements/django.txt
