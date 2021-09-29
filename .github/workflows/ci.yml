@@ -39,12 +39,12 @@ jobs:
         env:
           TESTNAME: js
           TARGETS: "requirements.js validate_js"
-#     - name: test i18n
-#       run: ./.github/scripts/testing.sh
-#       shell: bash
-#       env:
-#         TESTNAME: test-i18n
-#         TARGETS: "validate_translations generate_fake_translations"
+      - name: test i18n
+        run: ./.github/scripts/testing.sh
+        shell: bash
+        env:
+          TESTNAME: test-i18n
+          TARGETS: "generate_fake_translations validate_translations"
       - name: test acceptance
         run: ./.github/scripts/testing.sh
         shell: bash
