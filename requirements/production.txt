@@ -26,7 +26,7 @@ cffi==1.14.6
     # via
     #   -r requirements/base.txt
     #   cryptography
-charset-normalizer==2.0.4
+charset-normalizer==2.0.6
     # via
     #   -r requirements/base.txt
     #   requests
@@ -42,7 +42,7 @@ cryptography==3.4.8
     # via
     #   -r requirements/base.txt
     #   pyjwt
-curtsies==0.3.5
+curtsies==0.3.7
     # via
     #   -r requirements/base.txt
     #   bpython
@@ -75,13 +75,13 @@ django==3.2.7
     #   edx-toggles
     #   pinax-announcements
     #   rest-condition
-django-appconf==1.0.4
+django-appconf==1.0.5
     # via -r requirements/base.txt
 django-braces==1.14.0
     # via -r requirements/base.txt
 django-countries==7.2.1
     # via -r requirements/base.txt
-django-crispy-forms==1.12.0
+django-crispy-forms==1.13.0
     # via -r requirements/base.txt
 django-crum==0.7.9
     # via
@@ -125,7 +125,7 @@ edx-ccx-keys==1.2.1
     # via -r requirements/base.txt
 edx-django-release-util==1.1.0
     # via -r requirements/base.txt
-edx-django-utils==4.3.0
+edx-django-utils==4.4.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
@@ -172,7 +172,7 @@ markupsafe==2.0.1
     #   jinja2
 mysqlclient==2.0.3
     # via -r requirements/production.in
-newrelic==6.8.1.164
+newrelic==7.0.0.166
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -208,7 +208,7 @@ pycparser==2.20
     # via
     #   -r requirements/base.txt
     #   cffi
-pycryptodomex==3.10.1
+pycryptodomex==3.10.4
     # via
     #   -r requirements/base.txt
     #   pyjwkest
@@ -311,7 +311,7 @@ social-auth-core==3.2.0
     #   -r requirements/base.txt
     #   edx-auth-backends
     #   social-auth-app-django
-sqlparse==0.4.1
+sqlparse==0.4.2
     # via
     #   -r requirements/base.txt
     #   django
@@ -329,7 +329,7 @@ unicodecsv==0.14.1
     # via
     #   -r requirements/base.txt
     #   djangorestframework-csv
-urllib3==1.26.6
+urllib3==1.26.7
     # via
     #   -r requirements/base.txt
     #   requests
