@@ -18,9 +18,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-16 09:16-0400\n"
-"PO-Revision-Date: 2021-04-06 11:12+0000\n"
-"Last-Translator: Sihoo Park <realpetertdm@gmail.com>\n"
+"POT-Creation-Date: 2021-09-29 20:42+0000\n"
+"PO-Revision-Date: 2021-10-03 18:26+0000\n"
+"Last-Translator: Gu Hong Min <placidmoon1@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/open-edx/edx-platform/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,817 +28,818 @@ msgstr ""
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: static/apps/components/download/views/download-data.js:25
+#: analytics_dashboard/static/apps/components/download/views/download-data.js:25
 msgid "Download CSV"
 msgstr "CSV 다운로드 "
 
-#: static/apps/components/download/views/download-data.js:26
+#: analytics_dashboard/static/apps/components/download/views/download-data.js:26
 msgid "Download search results to CSV"
 msgstr "CSV 검색 결과 다운로드"
 
 #. Translators: "All" refers to viewing all items (e.g. all courses).
-#: static/apps/components/filter/views/drop-down-filter.js:31
+#: analytics_dashboard/static/apps/components/filter/views/drop-down-filter.js:31
 msgid "All"
 msgstr "모두"
 
 #. Translators: 'name' here refers to the name of the filter, while 'count'
 #. refers to the number of items belonging to that filter.
-#: static/apps/components/filter/views/filter.js:90
+#: analytics_dashboard/static/apps/components/filter/views/filter.js:90
 msgid "<%= name %> (<%= count %>)"
 msgstr "<%=name %> (<%= count %>)"
 
 #. Translators: this is a label describing a filter selection that the user
 #. initiated.
-#: static/apps/components/generic-list/list/views/active-filters.js:62
+#: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:62
 msgid "<%= filterDisplayName %>: <%= filterVal %>"
 msgstr "<%= filterDisplayName %>: <%= filterVal %>"
 
-#: static/apps/components/generic-list/list/views/active-filters.js:87
+#: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:87
 msgid "Filters In Use:"
 msgstr "사용중인 검색 조건:"
 
-#: static/apps/components/generic-list/list/views/active-filters.js:88
+#: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:88
 msgid "Click to remove this filter"
 msgstr "검색 조건을 제거하려면 클릭하세요"
 
 #. Translators: "Clear" in this context means "remove all of the filters"
-#: static/apps/components/generic-list/list/views/active-filters.js:90
+#: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:90
 msgid "Clear"
 msgstr "지우기"
 
-#: static/apps/components/generic-list/list/views/active-filters.js:91
+#: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:91
 msgid "Click to remove all filters"
 msgstr "모든 검색 조건을 제거하려면 클릭하세요"
 
 #. Translators: "sort ascending" describes the current sort state to the user.
-#: static/apps/components/generic-list/list/views/base-header-cell.js:71
+#: analytics_dashboard/static/apps/components/generic-list/list/views/base-header-cell.js:71
 msgid "sort ascending"
 msgstr "오름차순 정렬"
 
 #. Translators: "sort descending" describes the current sort state to the
 #. user.
-#: static/apps/components/generic-list/list/views/base-header-cell.js:73
+#: analytics_dashboard/static/apps/components/generic-list/list/views/base-header-cell.js:73
 msgid "sort descending"
 msgstr "내림차순 정렬"
 
 #. Translators: "click to sort" tells the user that they can click this link
 #. to sort by the current field.
-#: static/apps/components/generic-list/list/views/base-header-cell.js:76
+#: analytics_dashboard/static/apps/components/generic-list/list/views/base-header-cell.js:76
 msgid "click to sort"
 msgstr "정렬하려면 클릭하세요"
 
-#: static/apps/components/generic-list/list/views/list.js:51
+#: analytics_dashboard/static/apps/components/generic-list/list/views/list.js:51
 msgid "Results"
 msgstr "결과"
 
 #. Translators: 'count' refers to the number of results contained in the
 #. table.
-#: static/apps/components/generic-list/list/views/num-results.js:30
+#: analytics_dashboard/static/apps/components/generic-list/list/views/num-results.js:30
 msgid "Number of results: <%= count %>"
 msgstr "결과 수: <%= count %>"
 
-#: static/apps/components/generic-list/list/views/paging-footer.js:70
+#: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:70
 msgid "first page"
 msgstr "첫 페이지"
 
-#: static/apps/components/generic-list/list/views/paging-footer.js:72
+#: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:72
 msgid "previous page"
 msgstr "이전 페이지"
 
-#: static/apps/components/generic-list/list/views/paging-footer.js:74
+#: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:74
 msgid "next page"
 msgstr "다음 페이지"
 
-#: static/apps/components/generic-list/list/views/paging-footer.js:76
+#: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:76
 msgid "last page"
 msgstr "마지막 페이지"
 
-#: static/apps/components/generic-list/list/views/paging-footer.js:78
+#: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:78
 msgid "page"
 msgstr "페이지"
 
 #. Translators: describes the state of a pagination button as not clickable
-#: static/apps/components/generic-list/list/views/paging-footer.js:88
+#: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:88
 msgid "disabled"
 msgstr "비활성화됨"
 
 #. Translators: describes a pagination button as representing the current page
-#: static/apps/components/generic-list/list/views/paging-footer.js:91
+#: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:91
 msgid "active"
 msgstr "활성화됨"
 
-#: static/apps/components/generic-list/list/views/table.js:27
+#: analytics_dashboard/static/apps/components/generic-list/list/views/table.js:27
 msgid "Generic List"
 msgstr "포괄적인 리스트"
 
 #. Translators: This message indicates content is loading in the page.
-#: static/apps/components/loading/views/loading-view.js:20
+#: analytics_dashboard/static/apps/components/loading/views/loading-view.js:20
 msgid "Loading..."
 msgstr "로딩중..."
 
 #. Translators: "504" is a number representing a server error, so please leave
 #. it as "504".
-#: static/apps/components/utils/utils.js:62
+#: analytics_dashboard/static/apps/components/utils/utils.js:62
 msgid "504: Server error"
 msgstr "504: 서버 오류"
 
-#: static/apps/components/utils/utils.js:64
+#: analytics_dashboard/static/apps/components/utils/utils.js:64
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
 msgstr "요청 처리 시간을 초과하였습니다. 새로고침을 클릭하세요."
 
-#: static/apps/components/utils/utils.js:68
+#: analytics_dashboard/static/apps/components/utils/utils.js:68
 msgid "Server error"
 msgstr "서버 오류"
 
-#: static/apps/components/utils/utils.js:69
-#: static/apps/components/utils/utils.js:81
+#: analytics_dashboard/static/apps/components/utils/utils.js:69
+#: analytics_dashboard/static/apps/components/utils/utils.js:81
 msgid "Your request could not be processed. Reload the page to try again."
 msgstr "요청을 처리할 수 없었습니다. 새로고침을 클릭해주세요."
 
-#: static/apps/components/utils/utils.js:80
+#: analytics_dashboard/static/apps/components/utils/utils.js:80
 msgid "Network error"
 msgstr "네트워크 오류"
 
-#: static/apps/course-list/app/app.js:38
+#: analytics_dashboard/static/apps/course-list/app/app.js:38
 msgid "Instructor-Paced"
 msgstr "고정 일정"
 
-#: static/apps/course-list/app/app.js:39
+#: analytics_dashboard/static/apps/course-list/app/app.js:39
 msgid "Self-Paced"
 msgstr "자율 일정"
 
-#: static/apps/course-list/app/app.js:42
+#: analytics_dashboard/static/apps/course-list/app/app.js:42
 msgid "Upcoming"
 msgstr "곧 생성됩니다"
 
-#: static/apps/course-list/app/app.js:43
+#: analytics_dashboard/static/apps/course-list/app/app.js:43
 msgid "Current"
 msgstr "현재"
 
-#: static/apps/course-list/app/app.js:44
+#: analytics_dashboard/static/apps/course-list/app/app.js:44
 msgid "Archived"
 msgstr "저장된"
 
-#: static/apps/course-list/app/app.js:45
+#: analytics_dashboard/static/apps/course-list/app/app.js:45
+#: analytics_dashboard/static/js/enrollment-demographics-age-main.js:17
 msgid "Unknown"
 msgstr "알 수 없음"
 
-#: static/apps/course-list/app/controller.js:44
-#: static/apps/course-list/app/controller.js:106
+#: analytics_dashboard/static/apps/course-list/app/controller.js:44
+#: analytics_dashboard/static/apps/course-list/app/controller.js:106
 msgid "Course List"
 msgstr "강좌 리스트"
 
-#: static/apps/course-list/app/controller.js:95
-#: static/apps/learners/app/controller.js:94
+#: analytics_dashboard/static/apps/course-list/app/controller.js:95
+#: analytics_dashboard/static/apps/learners/app/controller.js:94
 msgid "Invalid Parameters"
 msgstr "유효하지 않은 매개변수"
 
-#: static/apps/course-list/app/controller.js:96
+#: analytics_dashboard/static/apps/course-list/app/controller.js:96
 msgid "Sorry, we couldn't find any courses that matched that query."
 msgstr "죄송합니다, 해당 검색어에 관련된 강좌를 찾지 못했습니다."
 
-#: static/apps/course-list/app/controller.js:97
+#: analytics_dashboard/static/apps/course-list/app/controller.js:97
 msgid "Return to the Course List page."
 msgstr "강좌 리스트 페이지로 돌아가기."
 
-#: static/apps/course-list/app/controller.js:123
-#: static/apps/learners/app/controller.js:177
+#: analytics_dashboard/static/apps/course-list/app/controller.js:123
+#: analytics_dashboard/static/apps/learners/app/controller.js:177
 msgid "Sorry, we couldn't find the page you're looking for."
 msgstr "죄송합니다, 페이지를 찾을 수 없었습니다."
 
-#: static/apps/course-list/app/controller.js:125
-#: static/apps/learners/app/controller.js:180
+#: analytics_dashboard/static/apps/course-list/app/controller.js:125
+#: analytics_dashboard/static/apps/learners/app/controller.js:180
 msgid "Page Not Found"
 msgstr "페이지를 찾을 수 없습니다."
 
-#: static/apps/course-list/common/collections/course-list.js:77
+#: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:77
 msgid "Course Name"
 msgstr "강좌명"
 
-#: static/apps/course-list/common/collections/course-list.js:78
+#: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:78
 msgid "Start Date"
 msgstr "시작 일자"
 
-#: static/apps/course-list/common/collections/course-list.js:79
+#: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:79
 msgid "End Date"
 msgstr "종료 일자"
 
-#: static/apps/course-list/common/collections/course-list.js:80
+#: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:80
 msgid "Total Enrollment"
 msgstr "전체 등록생"
 
 #. Translators: The noun count (e.g. number of learners)
-#: static/apps/course-list/common/collections/course-list.js:81
-#: static/js/enrollment-activity-main.js:27
-#: static/js/enrollment-demographics-gender-main.js:32
-#: static/js/enrollment-geography-main.js:29
+#: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:81
+#: analytics_dashboard/static/js/enrollment-activity-main.js:27
+#: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:32
+#: analytics_dashboard/static/js/enrollment-geography-main.js:29
 msgid "Current Enrollment"
 msgstr "현재 수강신청"
 
-#: static/apps/course-list/common/collections/course-list.js:82
+#: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:82
 msgid "Change Last Week"
 msgstr "지난주 변동"
 
-#: static/apps/course-list/common/collections/course-list.js:83
+#: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:83
 msgid "Verified Enrollment"
 msgstr "인증된 등록"
 
-#: static/apps/course-list/common/collections/course-list.js:86
+#: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:86
 msgid "Passing Learners"
 msgstr "통과한 학습자들"
 
-#: static/apps/course-list/common/collections/course-list.js:89
+#: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:89
 msgid "Availability"
 msgstr "사용 가능"
 
-#: static/apps/course-list/common/collections/course-list.js:90
+#: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:90
 msgid "Pacing Type"
 msgstr "일정 유형"
 
-#: static/apps/course-list/common/collections/course-list.js:91
+#: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:91
 msgid "Programs"
 msgstr "프로그램"
 
-#: static/apps/course-list/list/views/base-header-cell.js:11
+#: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:11
 msgid "Course name advertised on edX site."
 msgstr "edX 사이트에 올라온 강의 이름"
 
-#: static/apps/course-list/list/views/base-header-cell.js:12
+#: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:12
 msgid "Start date advertised on edX site."
 msgstr "edX 사이트에 올라온 시작 날짜"
 
-#: static/apps/course-list/list/views/base-header-cell.js:13
+#: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:13
 msgid "End date set in edX Studio."
 msgstr "edX 스튜디오에서 설정된 종료일."
 
-#: static/apps/course-list/list/views/base-header-cell.js:14
+#: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:14
 msgid "Learners who ever enrolled in the course."
 msgstr "강좌를 등록한 내역이 있는 학습자."
 
-#: static/apps/course-list/list/views/base-header-cell.js:15
+#: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:15
 msgid "Learners currently enrolled in the course."
 msgstr "현재 강좌에 등록되어 있는 학습자."
 
-#: static/apps/course-list/list/views/base-header-cell.js:16
+#: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:16
 msgid "Net difference in current enrollment in the last week."
 msgstr "1주일 동안 등록자 변동."
 
-#: static/apps/course-list/list/views/base-header-cell.js:18
+#: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:18
 msgid ""
 "Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
 msgstr "인증 이수증 과정에 등록한 학습자 수."
 
-#: static/apps/course-list/list/views/base-header-cell.js:19
+#: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:19
 msgid "Learners who have earned a passing grade."
 msgstr "통과가능한 성적을 받은 학습자들"
 
-#: static/apps/course-list/list/views/controls.js:38
-#: static/apps/learners/roster/views/controls.js:39
+#: analytics_dashboard/static/apps/course-list/list/views/controls.js:38
+#: analytics_dashboard/static/apps/learners/roster/views/controls.js:39
 msgid "Skip to results"
 msgstr "결과로 바로가기"
 
-#: static/apps/course-list/list/views/controls.js:58
+#: analytics_dashboard/static/apps/course-list/list/views/controls.js:58
 msgid "Find a course"
 msgstr "강좌 찾기"
 
-#: static/apps/course-list/list/views/controls.js:68
+#: analytics_dashboard/static/apps/course-list/list/views/controls.js:68
 msgid "availability"
 msgstr "사용 가능"
 
-#: static/apps/course-list/list/views/controls.js:76
+#: analytics_dashboard/static/apps/course-list/list/views/controls.js:76
 msgid "pacing_type"
 msgstr "일정 종류"
 
-#: static/apps/course-list/list/views/controls.js:84
+#: analytics_dashboard/static/apps/course-list/list/views/controls.js:84
 msgid "program_ids"
 msgstr "프로그램 ID"
 
-#: static/apps/course-list/list/views/course-list.js:66
+#: analytics_dashboard/static/apps/course-list/list/views/course-list.js:66
 msgid "Download full course list to CSV"
 msgstr "전체 강좌 리스트 CSV형식으로 다운로드"
 
-#: static/apps/course-list/list/views/course-list.js:91
+#: analytics_dashboard/static/apps/course-list/list/views/course-list.js:91
 msgid "Course list controls"
 msgstr "강좌 리스트 편집"
 
-#: static/apps/course-list/list/views/results.js:47
+#: analytics_dashboard/static/apps/course-list/list/views/results.js:47
 msgid "No courses matched your criteria."
 msgstr "귀하의 검색에 부합하는 강좌가 없습니다."
 
-#: static/apps/course-list/list/views/results.js:49
-#: static/apps/learners/roster/views/results.js:49
+#: analytics_dashboard/static/apps/course-list/list/views/results.js:49
+#: analytics_dashboard/static/apps/learners/roster/views/results.js:49
 msgid "Try a different search."
 msgstr "다른 검색을 시도해보세요."
 
-#: static/apps/course-list/list/views/results.js:52
-#: static/apps/learners/roster/views/results.js:52
+#: analytics_dashboard/static/apps/course-list/list/views/results.js:52
+#: analytics_dashboard/static/apps/learners/roster/views/results.js:52
 msgid "Try clearing the filters."
 msgstr "검색 조건을 없애보세요."
 
-#: static/apps/course-list/list/views/results.js:55
+#: analytics_dashboard/static/apps/course-list/list/views/results.js:55
 msgid "No course data is currently available for your course."
 msgstr "귀하의 강좌에 대한 강좌 정보를 현재는 찾을 수 없습니다."
 
-#: static/apps/course-list/list/views/results.js:57
+#: analytics_dashboard/static/apps/course-list/list/views/results.js:57
 msgid ""
 "No courses are enrolled, or course activity data has not yet been processed."
 " Data is updated every day, so check back regularly for up-to-date metrics."
 msgstr "어떤 강의도 등록되지 않았거나, 강의 활동 정보가 아직 진행되지 않았습니다. 정보는 매일 업데이트 되므로, 규치적으로 새로운 정보가 업데이트되는 것을 확인해 주세요."
 
-#: static/apps/course-list/list/views/search.js:71
+#: analytics_dashboard/static/apps/course-list/list/views/search.js:71
 msgid "Search courses"
 msgstr "강좌 찾기"
 
-#: static/apps/course-list/list/views/search.js:72
-#: static/apps/learners/roster/views/search.js:56
+#: analytics_dashboard/static/apps/course-list/list/views/search.js:72
+#: analytics_dashboard/static/apps/learners/roster/views/search.js:56
 msgid "search"
 msgstr "검색"
 
-#: static/apps/course-list/list/views/search.js:73
-#: static/apps/learners/roster/views/search.js:57
+#: analytics_dashboard/static/apps/course-list/list/views/search.js:73
+#: analytics_dashboard/static/apps/learners/roster/views/search.js:57
 msgid "clear search"
 msgstr "검색 결과 지우기"
 
-#: static/apps/course-list/list/views/table.js:48
+#: analytics_dashboard/static/apps/course-list/list/views/table.js:48
 msgid "Date not available"
 msgstr "정보가 이용가능하지 않습니다."
 
-#: static/apps/learners/app/controller.js:59
+#: analytics_dashboard/static/apps/learners/app/controller.js:59
 msgid "Learner Roster"
 msgstr "학습자 목록"
 
-#: static/apps/learners/app/controller.js:95
+#: analytics_dashboard/static/apps/learners/app/controller.js:95
 msgid "Sorry, we couldn't find any learners who matched that query."
 msgstr "죄송합니다, 해당 문의에 대한 학습자를 찾지 못했습니다."
 
-#: static/apps/learners/app/controller.js:96
+#: analytics_dashboard/static/apps/learners/app/controller.js:96
 msgid "Return to the Learners page."
 msgstr "학습자 페이지로 돌아가기."
 
-#: static/apps/learners/app/controller.js:104
+#: analytics_dashboard/static/apps/learners/app/controller.js:104
 msgid "Learners"
 msgstr "학습자"
 
-#: static/apps/learners/app/controller.js:137
+#: analytics_dashboard/static/apps/learners/app/controller.js:137
 msgid "Learner Details"
 msgstr "학습자 정보"
 
-#: static/apps/learners/common/collections/learners.js:17
+#: analytics_dashboard/static/apps/learners/common/collections/learners.js:17
 msgid "Name (Username)"
 msgstr "이름 (사용자 이름)"
 
-#: static/apps/learners/common/collections/learners.js:18
+#: analytics_dashboard/static/apps/learners/common/collections/learners.js:18
 msgid "Problems Tried"
 msgstr "문제 시도"
 
-#: static/apps/learners/common/collections/learners.js:19
-#: static/apps/learners/detail/views/engagement-table.js:33
-#: static/apps/learners/detail/views/engagement-timeline.js:35
+#: analytics_dashboard/static/apps/learners/common/collections/learners.js:19
+#: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:33
+#: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:35
 msgid "Problems Correct"
 msgstr "정답"
 
-#: static/apps/learners/common/collections/learners.js:20
+#: analytics_dashboard/static/apps/learners/common/collections/learners.js:20
 msgid "Attempts per Problem Correct"
 msgstr "각 정답별 시도 횟수"
 
-#: static/apps/learners/common/collections/learners.js:21
-#: static/js/engagement-video-content-main.js:33
+#: analytics_dashboard/static/apps/learners/common/collections/learners.js:21
+#: analytics_dashboard/static/js/engagement-video-content-main.js:33
 msgid "Videos"
 msgstr "동영상"
 
-#: static/apps/learners/common/collections/learners.js:22
+#: analytics_dashboard/static/apps/learners/common/collections/learners.js:22
 msgid "Discussions"
 msgstr "토론"
 
-#: static/apps/learners/common/collections/learners.js:24
+#: analytics_dashboard/static/apps/learners/common/collections/learners.js:24
 msgid "Segments"
 msgstr "부분"
 
-#: static/apps/learners/common/collections/learners.js:25
+#: analytics_dashboard/static/apps/learners/common/collections/learners.js:25
 msgid "Segments to Ignore"
 msgstr "무시할 부분"
 
-#: static/apps/learners/common/collections/learners.js:26
-#: static/apps/learners/detail/views/learner-detail.js:101
+#: analytics_dashboard/static/apps/learners/common/collections/learners.js:26
+#: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:101
 msgid "Cohort"
 msgstr "학습 집단"
 
-#: static/apps/learners/common/collections/learners.js:27
+#: analytics_dashboard/static/apps/learners/common/collections/learners.js:27
 msgid "Enrollment Mode"
 msgstr "수강 등록 모드"
 
-#: static/apps/learners/detail/views/engagement-table.js:22
-#: static/apps/learners/detail/views/engagement-timeline.js:43
-#: static/js/enrollment-activity-main.js:22
-#: static/js/enrollment-demographics-gender-main.js:31
+#: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:22
+#: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:43
+#: analytics_dashboard/static/js/enrollment-activity-main.js:22
+#: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:31
 msgid "Date"
 msgstr "날짜"
 
-#: static/apps/learners/detail/views/engagement-table.js:27
-#: static/apps/learners/detail/views/engagement-timeline.js:31
+#: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:27
+#: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:31
 msgid "Discussion Contributions"
 msgstr "게시판 참여"
 
-#: static/apps/learners/detail/views/engagement-table.js:39
-#: static/apps/learners/detail/views/engagement-timeline.js:39
+#: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:39
+#: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:39
 msgid "Videos Viewed"
 msgstr "재생한 동영상"
 
-#: static/apps/learners/detail/views/engagement-timeline.js:47
+#: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:47
 msgid "Value"
 msgstr "값"
 
 #. Translators: e.g. Learner engagement activity
-#: static/apps/learners/detail/views/learner-detail.js:28
+#: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:28
 msgid "Engagement Activity"
 msgstr "참여 활동"
 
-#: static/apps/learners/detail/views/learner-detail.js:29
+#: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:29
 msgid "Daily Activity"
 msgstr "일간 활동"
 
-#: static/apps/learners/detail/views/learner-detail.js:30
+#: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:30
 msgid "Activity Over Time"
 msgstr "그동안의 활동"
 
-#: static/apps/learners/detail/views/learner-detail.js:95
+#: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:95
 msgid "Enrollment"
 msgstr "수강신청"
 
-#: static/apps/learners/detail/views/learner-detail.js:106
+#: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:106
 msgid "Last Accessed"
 msgstr "마지막 접속"
 
 #. Translators: 'n/a' means 'not available'
-#: static/apps/learners/detail/views/learner-detail.js:109
-#: static/apps/learners/detail/views/learner-summary-field.js:44
-#: static/apps/learners/roster/views/activity-date-range.js:16
+#: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:109
+#: analytics_dashboard/static/apps/learners/detail/views/learner-summary-field.js:44
+#: analytics_dashboard/static/apps/learners/roster/views/activity-date-range.js:16
 msgid "n/a"
 msgstr "n/a"
 
-#: static/apps/learners/detail/views/learner-detail.js:139
+#: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:139
 msgid "Check back daily for up-to-date data."
 msgstr "새로운 데이터가 있는지 매일 확인하세요."
 
-#: static/apps/learners/detail/views/learner-detail.js:149
+#: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:149
 msgid "No course activity data is available for this learner."
 msgstr "이 학습자에 대한 강좌 활동 정보가 없습니다"
 
-#: static/apps/learners/detail/views/learner-detail.js:156
+#: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:156
 msgid "No learner data is available."
 msgstr "학습자 정보가 없습니다."
 
-#: static/apps/learners/detail/views/learner-return.js:12
+#: analytics_dashboard/static/apps/learners/detail/views/learner-return.js:12
 msgid "Return to Learners"
 msgstr "학습자로 돌아가기"
 
 #. Translators: this is a label describing a selection that the user
 #. initiated.
-#: static/apps/learners/roster/views/active-filters.js:23
+#: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:23
 msgid "Cohort: <%= filterVal %>"
 msgstr "학습 집단: <%= filterVal %>"
 
 #. Translators: this is a label describing a selection that the user
 #. initiated.
-#: static/apps/learners/roster/views/active-filters.js:27
+#: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:27
 msgid "Enrollment Track: <%= filterVal %>"
 msgstr "등록 과정: <%= filterVal %>"
 
-#: static/apps/learners/roster/views/active-filters.js:32
-#: static/js/engagement-content-main.js:20
+#: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:32
+#: analytics_dashboard/static/js/engagement-content-main.js:20
 msgid "Active Learners"
 msgstr "활동중인 학습자"
 
-#: static/apps/learners/roster/views/activity-date-range.js:11
+#: analytics_dashboard/static/apps/learners/roster/views/activity-date-range.js:11
 msgid "Activity between <%- startDate %> - <%- endDate %>"
 msgstr "<%- startDate %> - <%- endDate %> 간의 활동"
 
-#: static/apps/learners/roster/views/base-header-cell.js:10
+#: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:10
 msgid "The name and username of this learner. Click to sort by username."
 msgstr "이 학습자의 이름과 사용자 이름입니다. 사용자 이름으로 정렬하려면 클릭하세요"
 
-#: static/apps/learners/roster/views/base-header-cell.js:11
+#: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:11
 msgid "Number of unique problems this learner attempted."
 msgstr "학습자가 푼 문제 숫자입니다."
 
-#: static/apps/learners/roster/views/base-header-cell.js:12
+#: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:12
 msgid "Number of unique problems the learner answered correctly."
 msgstr "학습자가 맞춘 문제 숫자입니다."
 
-#: static/apps/learners/roster/views/base-header-cell.js:13
+#: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:13
 msgid "Number of unique videos this learner played."
 msgstr "학습자가 재생한 동영상의 숫자입니다."
 
-#: static/apps/learners/roster/views/base-header-cell.js:15
+#: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:15
 msgid ""
 "Average number of attempts per correct problem. Learners with a relatively "
 "high value compared to their peers may be struggling."
 msgstr "정답별 평균 시도 횟수입니다. 상대적으로 이 값이 높은 학습자는 현재 어려움을 겪고 있을 수 있습니다."
 
-#: static/apps/learners/roster/views/base-header-cell.js:17
+#: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:17
 msgid ""
 "Number of contributions by this learner, including posts, responses, and "
 "comments."
 msgstr "글, 답변 및 댓글 등 이 학습자의 모든 게시판 활동입니다."
 
-#: static/apps/learners/roster/views/controls.js:62
+#: analytics_dashboard/static/apps/learners/roster/views/controls.js:62
 msgid "Find a learner"
 msgstr "학습자 찾기"
 
-#: static/apps/learners/roster/views/controls.js:75
+#: analytics_dashboard/static/apps/learners/roster/views/controls.js:75
 msgid "Cohort Groups"
 msgstr "학습 집단"
 
-#: static/apps/learners/roster/views/controls.js:73
+#: analytics_dashboard/static/apps/learners/roster/views/controls.js:73
 msgid "cohort"
 msgstr "학습 집단"
 
-#: static/apps/learners/roster/views/controls.js:87
+#: analytics_dashboard/static/apps/learners/roster/views/controls.js:87
 msgid "Enrollment Tracks"
 msgstr "등록 과정"
 
-#: static/apps/learners/roster/views/controls.js:85
+#: analytics_dashboard/static/apps/learners/roster/views/controls.js:85
 msgid "enrollment_mode"
 msgstr "강좌 등록 모드"
 
 #. Translators: inactive meaning that these learners have not interacted with
 #. the
 #. course recently.
-#: static/apps/learners/roster/views/controls.js:103
+#: analytics_dashboard/static/apps/learners/roster/views/controls.js:103
 msgid "Hide Inactive Learners"
 msgstr "비활성화 학습자 감추기"
 
-#: static/apps/learners/roster/views/controls.js:97
+#: analytics_dashboard/static/apps/learners/roster/views/controls.js:97
 msgid "ignore_segments"
 msgstr "무시할_영역"
 
-#: static/apps/learners/roster/views/results.js:47
+#: analytics_dashboard/static/apps/learners/roster/views/results.js:47
 msgid "No learners matched your criteria."
 msgstr "조건에 맞는 학습자가 없습니다."
 
-#: static/apps/learners/roster/views/results.js:55
+#: analytics_dashboard/static/apps/learners/roster/views/results.js:55
 msgid "No learner data is currently available for your course."
 msgstr "강좌에 대한 학습자 정보가 없습니다."
 
-#: static/apps/learners/roster/views/results.js:57
+#: analytics_dashboard/static/apps/learners/roster/views/results.js:57
 msgid ""
 "No learners are enrolled, or course activity data has not yet been "
 "processed. Data is updated every day, so check back regularly for up-to-date"
 " metrics."
 msgstr "등록한 학습자가 없거나 강좌 활동 자료가 업데이트되지 않았습니다. 매일 자료가 업데이트되며 주기적으로 확인하는 것이 좋습니다."
 
-#: static/apps/learners/roster/views/roster.js:110
+#: analytics_dashboard/static/apps/learners/roster/views/roster.js:110
 msgid "Learner roster controls"
 msgstr "학습자 목록 설정"
 
-#: static/apps/learners/roster/views/search.js:55
+#: analytics_dashboard/static/apps/learners/roster/views/search.js:55
 msgid "Search learners"
 msgstr "학습자 검색"
 
 #. Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate
 #. accordingly.
-#: static/apps/learners/roster/views/table.js:40
+#: analytics_dashboard/static/apps/learners/roster/views/table.js:40
 msgid "N/A"
 msgstr "N/A"
 
-#: static/js/engagement-content-main.js:15
+#: analytics_dashboard/static/js/engagement-content-main.js:15
 msgid "Week Ending"
 msgstr "주간"
 
-#: static/js/engagement-content-main.js:27
+#: analytics_dashboard/static/js/engagement-content-main.js:27
 msgid "Watched a Video"
 msgstr "동영상 시청"
 
-#: static/js/engagement-content-main.js:34
+#: analytics_dashboard/static/js/engagement-content-main.js:34
 msgid "Tried a Problem"
 msgstr "문제 풀기"
 
-#: static/js/engagement-content-main.js:41
+#: analytics_dashboard/static/js/engagement-content-main.js:41
 msgid "Participated in Discussions"
 msgstr "게시판에 참여하였습니다"
 
-#: static/js/engagement-content-main.js:48
+#: analytics_dashboard/static/js/engagement-content-main.js:48
 msgid "Percent of Current Learners"
 msgstr "현재 학습자 비율"
 
 #. Translators: <%=value%> will be replaced with a date.
-#: static/js/engagement-content-main.js:85
+#: analytics_dashboard/static/js/engagement-content-main.js:85
 msgid "Week Ending <%=value%>"
 msgstr "주간 <%=value%>"
 
-#: static/js/engagement-video-content-main.js:14
+#: analytics_dashboard/static/js/engagement-video-content-main.js:14
 msgid "Average Complete Views"
 msgstr "동영상을 끝까지 재생한 평균 횟수"
 
-#: static/js/engagement-video-content-main.js:23
+#: analytics_dashboard/static/js/engagement-video-content-main.js:23
 msgid "Average Incomplete Views"
 msgstr "동영상을 끝까지 재생하지 않은 평균 횟수"
 
-#: static/js/engagement-video-content-main.js:31
-#: static/js/engagement-videos-main.js:29
-#: static/js/performance-content-main.js:28
-#: static/js/performance-learning-outcomes-content-main.js:28
-#: static/js/performance-learning-outcomes-section-main.js:28
-#: static/js/performance-problems-main.js:26
+#: analytics_dashboard/static/js/engagement-video-content-main.js:31
+#: analytics_dashboard/static/js/engagement-videos-main.js:29
+#: analytics_dashboard/static/js/performance-content-main.js:28
+#: analytics_dashboard/static/js/performance-learning-outcomes-content-main.js:28
+#: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:28
+#: analytics_dashboard/static/js/performance-problems-main.js:26
 msgid "Order"
 msgstr "주문"
 
-#: static/js/engagement-video-content-main.js:41
-#: static/js/engagement-videos-main.js:38
+#: analytics_dashboard/static/js/engagement-video-content-main.js:41
+#: analytics_dashboard/static/js/engagement-videos-main.js:38
 msgid "Completion Percentage"
 msgstr "완료율"
 
-#: static/js/engagement-video-timeline-main.js:25
+#: analytics_dashboard/static/js/engagement-video-timeline-main.js:25
 msgid "Unique Viewers"
 msgstr "특징 있는 시청자"
 
-#: static/js/engagement-video-timeline-main.js:32
+#: analytics_dashboard/static/js/engagement-video-timeline-main.js:32
 msgid "Replays"
 msgstr "다시보기"
 
-#: static/js/engagement-video-timeline-main.js:39
+#: analytics_dashboard/static/js/engagement-video-timeline-main.js:39
 msgid "Time"
 msgstr "시간"
 
-#: static/js/engagement-videos-main.js:14
+#: analytics_dashboard/static/js/engagement-videos-main.js:14
 msgid "Complete Views"
 msgstr "시청 완료"
 
-#: static/js/engagement-videos-main.js:22
+#: analytics_dashboard/static/js/engagement-videos-main.js:22
 msgid "Incomplete Views"
 msgstr "시청 미완료"
 
 #. Translators: this describe the learner's enrollment track (e.g. Honor
 #. certificate)
-#: static/js/enrollment-activity-main.js:33
+#: analytics_dashboard/static/js/enrollment-activity-main.js:33
 msgid "Honor"
 msgstr "명예"
 
-#: static/js/enrollment-activity-main.js:38
+#: analytics_dashboard/static/js/enrollment-activity-main.js:38
 msgid "Audit"
 msgstr "청강"
 
-#: static/js/enrollment-activity-main.js:43
+#: analytics_dashboard/static/js/enrollment-activity-main.js:43
 msgid "Verified"
 msgstr "인증"
 
-#: static/js/enrollment-activity-main.js:48
+#: analytics_dashboard/static/js/enrollment-activity-main.js:48
 msgid "Professional"
 msgstr "전문과정"
 
 #. Translators: this label indicates the learner has registered for academic
 #. credit
-#: static/js/enrollment-activity-main.js:54
+#: analytics_dashboard/static/js/enrollment-activity-main.js:54
 msgid "Verified with Credit"
 msgstr "학점 인증"
 
-#: static/js/enrollment-demographics-age-main.js:19
-#: static/js/enrollment-demographics-age-main.js:34
-#: static/js/enrollment-demographics-education-main.js:32
+#: analytics_dashboard/static/js/enrollment-demographics-age-main.js:19
+#: analytics_dashboard/static/js/enrollment-demographics-age-main.js:34
+#: analytics_dashboard/static/js/enrollment-demographics-education-main.js:32
 msgid "Number of Learners"
 msgstr "학습자 숫자"
 
 #. Translators: <%=value%> will be replaced with an age.
-#: static/js/enrollment-demographics-age-main.js:26
+#: analytics_dashboard/static/js/enrollment-demographics-age-main.js:26
 msgid "Age: <%=value%>"
 msgstr "나이: <%=value%>"
 
-#: static/js/enrollment-demographics-age-main.js:33
+#: analytics_dashboard/static/js/enrollment-demographics-age-main.js:33
 msgid "Age"
 msgstr "나이"
 
-#: static/js/enrollment-demographics-age-main.js:35
+#: analytics_dashboard/static/js/enrollment-demographics-age-main.js:35
 msgid "Percent of Total"
 msgstr "총 비율"
 
-#: static/js/enrollment-demographics-education-main.js:18
-#: static/js/enrollment-demographics-gender-main.js:17
+#: analytics_dashboard/static/js/enrollment-demographics-education-main.js:18
+#: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:17
 msgid "Percentage"
 msgstr "퍼센트"
 
 #. Translators: <%=value%> will be replaced with a level of education (e.g.
 #. Doctorate).
-#: static/js/enrollment-demographics-education-main.js:24
+#: analytics_dashboard/static/js/enrollment-demographics-education-main.js:24
 msgid "Education: <%=value%>"
 msgstr "학력: <%=value%>"
 
-#: static/js/enrollment-demographics-education-main.js:31
+#: analytics_dashboard/static/js/enrollment-demographics-education-main.js:31
 msgid "Educational Background"
 msgstr "교육배경"
 
 #. Translators: <%=value%> will be replaced with a level of gender (e.g.
 #. Female).
-#: static/js/enrollment-demographics-gender-main.js:23
+#: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:23
 msgid "Gender: <%=value%>"
 msgstr "성별: <%=value%>"
 
-#: static/js/enrollment-demographics-gender-main.js:33
+#: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:33
 msgid "Female"
 msgstr "여자"
 
-#: static/js/enrollment-demographics-gender-main.js:34
+#: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:34
 msgid "Male"
 msgstr "남자"
 
-#: static/js/enrollment-demographics-gender-main.js:35
+#: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:35
 msgid "Other"
 msgstr "기타"
 
-#: static/js/enrollment-demographics-gender-main.js:36
+#: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:36
 msgid "Not Reported"
 msgstr "보고되지 않았습니다."
 
-#: static/js/enrollment-geography-main.js:18
+#: analytics_dashboard/static/js/enrollment-geography-main.js:18
 msgid ""
 "Learner location is determined from IP address. This map shows where "
 "learners most recently connected."
 msgstr "학습자 위치 정보를 IP주소를 통해 얻었습니다. 이 지도는 학습자가 가장 최근에 접속한 위치를 보여줍니다."
 
-#: static/js/enrollment-geography-main.js:26
+#: analytics_dashboard/static/js/enrollment-geography-main.js:26
 msgid "Country or Region"
 msgstr "국가"
 
-#: static/js/enrollment-geography-main.js:27
+#: analytics_dashboard/static/js/enrollment-geography-main.js:27
 msgid "Percent"
 msgstr "퍼센트"
 
-#: static/js/performance-answer-distribution-main.js:12
+#: analytics_dashboard/static/js/performance-answer-distribution-main.js:12
 msgid "Answer"
 msgstr "답"
 
 #. Translators: "Correct" is displayed in a table..
-#: static/js/performance-answer-distribution-main.js:15
-#: static/js/performance-answer-distribution-main.js:43
-#: static/js/performance-learning-outcomes-section-main.js:11
-#: static/js/performance-learning-outcomes-section-main.js:37
-#: static/js/performance-problems-main.js:11
-#: static/js/views/data-table-view.js:216
+#: analytics_dashboard/static/js/performance-answer-distribution-main.js:15
+#: analytics_dashboard/static/js/performance-answer-distribution-main.js:43
+#: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:11
+#: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:37
+#: analytics_dashboard/static/js/performance-problems-main.js:11
+#: analytics_dashboard/static/js/views/data-table-view.js:216
 msgid "Correct"
 msgstr "정답"
 
-#: static/js/performance-answer-distribution-main.js:16
+#: analytics_dashboard/static/js/performance-answer-distribution-main.js:16
 msgid "Submission Count"
 msgstr "제출 수"
 
-#: static/js/performance-answer-distribution-main.js:30
+#: analytics_dashboard/static/js/performance-answer-distribution-main.js:30
 msgid "Variant"
 msgstr "답변 버전"
 
-#: static/js/performance-answer-distribution-main.js:45
-#: static/js/performance-learning-outcomes-section-main.js:20
-#: static/js/performance-learning-outcomes-section-main.js:45
-#: static/js/performance-problems-main.js:19
+#: analytics_dashboard/static/js/performance-answer-distribution-main.js:45
+#: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:20
+#: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:45
+#: analytics_dashboard/static/js/performance-problems-main.js:19
 msgid "Incorrect"
 msgstr "오답"
 
 #. Translators: <%=value%> will be replaced by a learner response to a
 #. question asked in a course.
-#: static/js/performance-answer-distribution-main.js:60
+#: analytics_dashboard/static/js/performance-answer-distribution-main.js:60
 msgid "Answer: <%=value%>"
 msgstr "답: <%=value%>"
 
-#: static/js/performance-content-main.js:11
-#: static/js/performance-learning-outcomes-content-main.js:11
+#: analytics_dashboard/static/js/performance-content-main.js:11
+#: analytics_dashboard/static/js/performance-learning-outcomes-content-main.js:11
 msgid "Average Correct"
 msgstr "평균 정답"
 
-#: static/js/performance-content-main.js:20
-#: static/js/performance-learning-outcomes-content-main.js:20
+#: analytics_dashboard/static/js/performance-content-main.js:20
+#: analytics_dashboard/static/js/performance-learning-outcomes-content-main.js:20
 msgid "Average Incorrect"
 msgstr "평균 오답"
 
-#: static/js/performance-content-main.js:30
+#: analytics_dashboard/static/js/performance-content-main.js:30
 msgid "Problems"
 msgstr "문제"
 
-#: static/js/performance-content-main.js:39
+#: analytics_dashboard/static/js/performance-content-main.js:39
 msgid "Average Submissions Per Problem"
 msgstr "문제당 평균 답변 제출"
 
-#: static/js/performance-content-main.js:48
-#: static/js/performance-learning-outcomes-content-main.js:46
-#: static/js/performance-learning-outcomes-section-main.js:61
-#: static/js/performance-problems-main.js:43
+#: analytics_dashboard/static/js/performance-content-main.js:48
+#: analytics_dashboard/static/js/performance-learning-outcomes-content-main.js:46
+#: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:61
+#: analytics_dashboard/static/js/performance-problems-main.js:43
 msgid "Percentage Correct"
 msgstr "정답 비율"
 
-#: static/js/performance-learning-outcomes-content-main.js:38
+#: analytics_dashboard/static/js/performance-learning-outcomes-content-main.js:38
 msgid "Average Submissions per Problem"
 msgstr "문제별 평균 제출 수"
 
-#: static/js/performance-learning-outcomes-section-main.js:30
+#: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:30
 msgid "Difficulty"
 msgstr "난이도"
 
-#: static/js/performance-learning-outcomes-section-main.js:53
-#: static/js/performance-problems-main.js:35
+#: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:53
+#: analytics_dashboard/static/js/performance-problems-main.js:35
 msgid "Total"
 msgstr "합계"
 
-#: static/js/utils/utils.js:93
+#: analytics_dashboard/static/js/utils/utils.js:93
 msgid "..."
 msgstr "..."
 
@@ -846,14 +847,217 @@ msgstr "..."
 #. Keep text in the parenthesis or an equivalent symbol.
 #. Translators: (empty) is displayed as a label in a chart and indicates that
 #. no label was provided.
-#: static/js/views/data-table-view.js:199
-#: static/js/views/discrete-bar-view.js:21
+#: analytics_dashboard/static/js/views/data-table-view.js:199
+#: analytics_dashboard/static/js/views/discrete-bar-view.js:21
 msgid "(empty)"
 msgstr "(비어있음)"
 
 #. Translators: <%=value%> will be replaced by a number followed by a
 #. percentage.
 #. For example, "400 (29%)"
-#: static/js/views/stacked-bar-view.js:13
+#: analytics_dashboard/static/js/views/stacked-bar-view.js:13
 msgid "<%=value%> (<%=percent%>)"
 msgstr "<%=value%> (<%=percent%>)"
+
+#: node_modules/babel-polyfill/browser.js:1
+#: node_modules/babel-polyfill/dist/polyfill.min.js:1
+msgid "delete"
+msgstr ""
+
+#: node_modules/babel-polyfill/browser.js:1
+#: node_modules/babel-polyfill/dist/polyfill.min.js:1
+msgid "has"
+msgstr ""
+
+#: node_modules/babel-polyfill/browser.js:1
+#: node_modules/babel-polyfill/dist/polyfill.min.js:1
+msgid "get"
+msgstr ""
+
+#: node_modules/babel-polyfill/browser.js:2
+#: node_modules/babel-polyfill/dist/polyfill.min.js:2
+msgid "Wrong offset!"
+msgstr ""
+
+#: node_modules/babel-polyfill/browser.js:2
+#: node_modules/babel-polyfill/dist/polyfill.min.js:2
+msgid "Wrong length!"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:25
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid " "
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:25
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "."
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "*"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "import"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "{}"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid ", "
+msgstr ","
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "this"
+msgstr "이것"
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "super"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "null"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid ",\n"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid " = "
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "\n"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "debugger;"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid ":"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "empty"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "any"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "mixed"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "boolean"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "interface "
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid " & "
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "number"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "string"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "typeof "
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid " | "
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "void"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "using url"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "_receiveInfo"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "info"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid " enabled transports"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "attempt"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "waiting for body"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "using timeout"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "transport url"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "_transportTimeout"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "_transportMessage"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "heartbeat"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "bad json"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "message"
+msgstr "메세지"
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "empty payload"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "_transportClose"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "_open"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "connected"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "_close"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "disconnected"
+msgstr ""
