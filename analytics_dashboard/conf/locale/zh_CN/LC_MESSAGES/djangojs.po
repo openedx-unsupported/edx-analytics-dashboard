@@ -25,9 +25,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-16 09:16-0400\n"
-"PO-Revision-Date: 2019-01-15 08:01+0000\n"
-"Last-Translator: abby li <yc.li@eliteu.cn>\n"
+"POT-Creation-Date: 2021-09-29 20:42+0000\n"
+"PO-Revision-Date: 2021-10-03 18:26+0000\n"
+"Last-Translator: 百杰 陈 <bj.chen@eliteu.com.cn>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/open-edx/edx-platform/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,817 +35,818 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: static/apps/components/download/views/download-data.js:25
+#: analytics_dashboard/static/apps/components/download/views/download-data.js:25
 msgid "Download CSV"
 msgstr "下载CSV文档"
 
-#: static/apps/components/download/views/download-data.js:26
+#: analytics_dashboard/static/apps/components/download/views/download-data.js:26
 msgid "Download search results to CSV"
 msgstr "下载搜索结果到CSV"
 
 #. Translators: "All" refers to viewing all items (e.g. all courses).
-#: static/apps/components/filter/views/drop-down-filter.js:31
+#: analytics_dashboard/static/apps/components/filter/views/drop-down-filter.js:31
 msgid "All"
 msgstr "所有"
 
 #. Translators: 'name' here refers to the name of the filter, while 'count'
 #. refers to the number of items belonging to that filter.
-#: static/apps/components/filter/views/filter.js:90
+#: analytics_dashboard/static/apps/components/filter/views/filter.js:90
 msgid "<%= name %> (<%= count %>)"
 msgstr "<%= name %> (<%= count %>)"
 
 #. Translators: this is a label describing a filter selection that the user
 #. initiated.
-#: static/apps/components/generic-list/list/views/active-filters.js:62
+#: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:62
 msgid "<%= filterDisplayName %>: <%= filterVal %>"
 msgstr "<%= filterDisplayName %>: <%= filterVal %>"
 
-#: static/apps/components/generic-list/list/views/active-filters.js:87
+#: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:87
 msgid "Filters In Use:"
 msgstr "使用过滤器："
 
-#: static/apps/components/generic-list/list/views/active-filters.js:88
+#: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:88
 msgid "Click to remove this filter"
 msgstr "点击以移除这个过滤器。"
 
 #. Translators: "Clear" in this context means "remove all of the filters"
-#: static/apps/components/generic-list/list/views/active-filters.js:90
+#: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:90
 msgid "Clear"
 msgstr "清除"
 
-#: static/apps/components/generic-list/list/views/active-filters.js:91
+#: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:91
 msgid "Click to remove all filters"
 msgstr "点击以移除所有过滤器"
 
 #. Translators: "sort ascending" describes the current sort state to the user.
-#: static/apps/components/generic-list/list/views/base-header-cell.js:71
+#: analytics_dashboard/static/apps/components/generic-list/list/views/base-header-cell.js:71
 msgid "sort ascending"
 msgstr "升序排序"
 
 #. Translators: "sort descending" describes the current sort state to the
 #. user.
-#: static/apps/components/generic-list/list/views/base-header-cell.js:73
+#: analytics_dashboard/static/apps/components/generic-list/list/views/base-header-cell.js:73
 msgid "sort descending"
 msgstr "降序排序"
 
 #. Translators: "click to sort" tells the user that they can click this link
 #. to sort by the current field.
-#: static/apps/components/generic-list/list/views/base-header-cell.js:76
+#: analytics_dashboard/static/apps/components/generic-list/list/views/base-header-cell.js:76
 msgid "click to sort"
 msgstr "点击排序"
 
-#: static/apps/components/generic-list/list/views/list.js:51
+#: analytics_dashboard/static/apps/components/generic-list/list/views/list.js:51
 msgid "Results"
 msgstr "结果"
 
 #. Translators: 'count' refers to the number of results contained in the
 #. table.
-#: static/apps/components/generic-list/list/views/num-results.js:30
+#: analytics_dashboard/static/apps/components/generic-list/list/views/num-results.js:30
 msgid "Number of results: <%= count %>"
 msgstr "结果数量：<%= count %>"
 
-#: static/apps/components/generic-list/list/views/paging-footer.js:70
+#: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:70
 msgid "first page"
 msgstr "第一页"
 
-#: static/apps/components/generic-list/list/views/paging-footer.js:72
+#: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:72
 msgid "previous page"
 msgstr "上一页"
 
-#: static/apps/components/generic-list/list/views/paging-footer.js:74
+#: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:74
 msgid "next page"
 msgstr "下一页"
 
-#: static/apps/components/generic-list/list/views/paging-footer.js:76
+#: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:76
 msgid "last page"
 msgstr "最后一页"
 
-#: static/apps/components/generic-list/list/views/paging-footer.js:78
+#: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:78
 msgid "page"
 msgstr "页"
 
 #. Translators: describes the state of a pagination button as not clickable
-#: static/apps/components/generic-list/list/views/paging-footer.js:88
+#: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:88
 msgid "disabled"
 msgstr "禁用"
 
 #. Translators: describes a pagination button as representing the current page
-#: static/apps/components/generic-list/list/views/paging-footer.js:91
+#: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:91
 msgid "active"
 msgstr "激活"
 
-#: static/apps/components/generic-list/list/views/table.js:27
+#: analytics_dashboard/static/apps/components/generic-list/list/views/table.js:27
 msgid "Generic List"
 msgstr "通用列表"
 
 #. Translators: This message indicates content is loading in the page.
-#: static/apps/components/loading/views/loading-view.js:20
+#: analytics_dashboard/static/apps/components/loading/views/loading-view.js:20
 msgid "Loading..."
 msgstr "载入中..."
 
 #. Translators: "504" is a number representing a server error, so please leave
 #. it as "504".
-#: static/apps/components/utils/utils.js:62
+#: analytics_dashboard/static/apps/components/utils/utils.js:62
 msgid "504: Server error"
 msgstr "504：服务器错误（网关超时）"
 
-#: static/apps/components/utils/utils.js:64
+#: analytics_dashboard/static/apps/components/utils/utils.js:64
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
 msgstr "您的请求过程耗时过长，请刷新页面重试。"
 
-#: static/apps/components/utils/utils.js:68
+#: analytics_dashboard/static/apps/components/utils/utils.js:68
 msgid "Server error"
 msgstr "服务器错误"
 
-#: static/apps/components/utils/utils.js:69
-#: static/apps/components/utils/utils.js:81
+#: analytics_dashboard/static/apps/components/utils/utils.js:69
+#: analytics_dashboard/static/apps/components/utils/utils.js:81
 msgid "Your request could not be processed. Reload the page to try again."
 msgstr "您的请求无法处理。 重新加载页面以重试。"
 
-#: static/apps/components/utils/utils.js:80
+#: analytics_dashboard/static/apps/components/utils/utils.js:80
 msgid "Network error"
 msgstr "网络连接错误"
 
-#: static/apps/course-list/app/app.js:38
+#: analytics_dashboard/static/apps/course-list/app/app.js:38
 msgid "Instructor-Paced"
 msgstr "讲师进度"
 
-#: static/apps/course-list/app/app.js:39
+#: analytics_dashboard/static/apps/course-list/app/app.js:39
 msgid "Self-Paced"
 msgstr "自定进度"
 
-#: static/apps/course-list/app/app.js:42
+#: analytics_dashboard/static/apps/course-list/app/app.js:42
 msgid "Upcoming"
 msgstr "即将到来"
 
-#: static/apps/course-list/app/app.js:43
+#: analytics_dashboard/static/apps/course-list/app/app.js:43
 msgid "Current"
 msgstr "当前"
 
-#: static/apps/course-list/app/app.js:44
+#: analytics_dashboard/static/apps/course-list/app/app.js:44
 msgid "Archived"
 msgstr "存档"
 
-#: static/apps/course-list/app/app.js:45
+#: analytics_dashboard/static/apps/course-list/app/app.js:45
+#: analytics_dashboard/static/js/enrollment-demographics-age-main.js:17
 msgid "Unknown"
 msgstr "未知"
 
-#: static/apps/course-list/app/controller.js:44
-#: static/apps/course-list/app/controller.js:106
+#: analytics_dashboard/static/apps/course-list/app/controller.js:44
+#: analytics_dashboard/static/apps/course-list/app/controller.js:106
 msgid "Course List"
 msgstr "课程列表"
 
-#: static/apps/course-list/app/controller.js:95
-#: static/apps/learners/app/controller.js:94
+#: analytics_dashboard/static/apps/course-list/app/controller.js:95
+#: analytics_dashboard/static/apps/learners/app/controller.js:94
 msgid "Invalid Parameters"
 msgstr "无效参数"
 
-#: static/apps/course-list/app/controller.js:96
+#: analytics_dashboard/static/apps/course-list/app/controller.js:96
 msgid "Sorry, we couldn't find any courses that matched that query."
 msgstr "对不起，我们找不到任何与该查询相匹配的课程。"
 
-#: static/apps/course-list/app/controller.js:97
+#: analytics_dashboard/static/apps/course-list/app/controller.js:97
 msgid "Return to the Course List page."
 msgstr "返回课程列表页面。"
 
-#: static/apps/course-list/app/controller.js:123
-#: static/apps/learners/app/controller.js:177
+#: analytics_dashboard/static/apps/course-list/app/controller.js:123
+#: analytics_dashboard/static/apps/learners/app/controller.js:177
 msgid "Sorry, we couldn't find the page you're looking for."
 msgstr "抱歉，无法寻找您搜索的页面"
 
-#: static/apps/course-list/app/controller.js:125
-#: static/apps/learners/app/controller.js:180
+#: analytics_dashboard/static/apps/course-list/app/controller.js:125
+#: analytics_dashboard/static/apps/learners/app/controller.js:180
 msgid "Page Not Found"
 msgstr "页面未找到"
 
-#: static/apps/course-list/common/collections/course-list.js:77
+#: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:77
 msgid "Course Name"
 msgstr "课程名称"
 
-#: static/apps/course-list/common/collections/course-list.js:78
+#: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:78
 msgid "Start Date"
 msgstr "开始日期"
 
-#: static/apps/course-list/common/collections/course-list.js:79
+#: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:79
 msgid "End Date"
 msgstr "结束日期"
 
-#: static/apps/course-list/common/collections/course-list.js:80
+#: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:80
 msgid "Total Enrollment"
 msgstr "所有选修的学生"
 
 #. Translators: The noun count (e.g. number of learners)
-#: static/apps/course-list/common/collections/course-list.js:81
-#: static/js/enrollment-activity-main.js:27
-#: static/js/enrollment-demographics-gender-main.js:32
-#: static/js/enrollment-geography-main.js:29
+#: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:81
+#: analytics_dashboard/static/js/enrollment-activity-main.js:27
+#: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:32
+#: analytics_dashboard/static/js/enrollment-geography-main.js:29
 msgid "Current Enrollment"
 msgstr "当前注册"
 
-#: static/apps/course-list/common/collections/course-list.js:82
+#: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:82
 msgid "Change Last Week"
 msgstr "过去一周的变化"
 
-#: static/apps/course-list/common/collections/course-list.js:83
+#: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:83
 msgid "Verified Enrollment"
 msgstr "已经过身份认证的选修学生"
 
-#: static/apps/course-list/common/collections/course-list.js:86
+#: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:86
 msgid "Passing Learners"
 msgstr "通过的学员"
 
-#: static/apps/course-list/common/collections/course-list.js:89
+#: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:89
 msgid "Availability"
 msgstr "可用性"
 
-#: static/apps/course-list/common/collections/course-list.js:90
+#: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:90
 msgid "Pacing Type"
 msgstr "进度类型"
 
-#: static/apps/course-list/common/collections/course-list.js:91
+#: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:91
 msgid "Programs"
 msgstr "项目"
 
-#: static/apps/course-list/list/views/base-header-cell.js:11
+#: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:11
 msgid "Course name advertised on edX site."
 msgstr "在edX网站上公布的课程名称。"
 
-#: static/apps/course-list/list/views/base-header-cell.js:12
+#: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:12
 msgid "Start date advertised on edX site."
 msgstr "在edX网站上公布的开始日期。"
 
-#: static/apps/course-list/list/views/base-header-cell.js:13
+#: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:13
 msgid "End date set in edX Studio."
 msgstr "在edX Studio 内设定的结束日期"
 
-#: static/apps/course-list/list/views/base-header-cell.js:14
+#: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:14
 msgid "Learners who ever enrolled in the course."
 msgstr "曾选修过此课程的学员。"
 
-#: static/apps/course-list/list/views/base-header-cell.js:15
+#: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:15
 msgid "Learners currently enrolled in the course."
 msgstr "当前选修该课程的学员。"
 
-#: static/apps/course-list/list/views/base-header-cell.js:16
+#: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:16
 msgid "Net difference in current enrollment in the last week."
 msgstr "最近一周选课学生数没有变化。"
 
-#: static/apps/course-list/list/views/base-header-cell.js:18
+#: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:18
 msgid ""
 "Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
 msgstr "当前选课的学生当中申请成绩认证证书的人数。"
 
-#: static/apps/course-list/list/views/base-header-cell.js:19
+#: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:19
 msgid "Learners who have earned a passing grade."
 msgstr "已获得及格分数的学员。"
 
-#: static/apps/course-list/list/views/controls.js:38
-#: static/apps/learners/roster/views/controls.js:39
+#: analytics_dashboard/static/apps/course-list/list/views/controls.js:38
+#: analytics_dashboard/static/apps/learners/roster/views/controls.js:39
 msgid "Skip to results"
 msgstr "跳到结果"
 
-#: static/apps/course-list/list/views/controls.js:58
+#: analytics_dashboard/static/apps/course-list/list/views/controls.js:58
 msgid "Find a course"
 msgstr "查找一门课程"
 
-#: static/apps/course-list/list/views/controls.js:68
+#: analytics_dashboard/static/apps/course-list/list/views/controls.js:68
 msgid "availability"
 msgstr "可用性"
 
-#: static/apps/course-list/list/views/controls.js:76
+#: analytics_dashboard/static/apps/course-list/list/views/controls.js:76
 msgid "pacing_type"
 msgstr "pacing_type"
 
-#: static/apps/course-list/list/views/controls.js:84
+#: analytics_dashboard/static/apps/course-list/list/views/controls.js:84
 msgid "program_ids"
 msgstr "program_ids"
 
-#: static/apps/course-list/list/views/course-list.js:66
+#: analytics_dashboard/static/apps/course-list/list/views/course-list.js:66
 msgid "Download full course list to CSV"
 msgstr "将完整课程列表下载到CSV"
 
-#: static/apps/course-list/list/views/course-list.js:91
+#: analytics_dashboard/static/apps/course-list/list/views/course-list.js:91
 msgid "Course list controls"
 msgstr "课程列表控件"
 
-#: static/apps/course-list/list/views/results.js:47
+#: analytics_dashboard/static/apps/course-list/list/views/results.js:47
 msgid "No courses matched your criteria."
 msgstr "没有符合您条件的课程。"
 
-#: static/apps/course-list/list/views/results.js:49
-#: static/apps/learners/roster/views/results.js:49
+#: analytics_dashboard/static/apps/course-list/list/views/results.js:49
+#: analytics_dashboard/static/apps/learners/roster/views/results.js:49
 msgid "Try a different search."
 msgstr "尝试不同的搜索。"
 
-#: static/apps/course-list/list/views/results.js:52
-#: static/apps/learners/roster/views/results.js:52
+#: analytics_dashboard/static/apps/course-list/list/views/results.js:52
+#: analytics_dashboard/static/apps/learners/roster/views/results.js:52
 msgid "Try clearing the filters."
 msgstr "尝试清除过滤器。"
 
-#: static/apps/course-list/list/views/results.js:55
+#: analytics_dashboard/static/apps/course-list/list/views/results.js:55
 msgid "No course data is currently available for your course."
 msgstr "目前没有适合您课程的课程数据。"
 
-#: static/apps/course-list/list/views/results.js:57
+#: analytics_dashboard/static/apps/course-list/list/views/results.js:57
 msgid ""
 "No courses are enrolled, or course activity data has not yet been processed."
 " Data is updated every day, so check back regularly for up-to-date metrics."
 msgstr "没有注册课程，或者尚未处理课程活动数据。 数据每天都会更新，因此请定期查看最新指标。"
 
-#: static/apps/course-list/list/views/search.js:71
+#: analytics_dashboard/static/apps/course-list/list/views/search.js:71
 msgid "Search courses"
 msgstr "搜素课程"
 
-#: static/apps/course-list/list/views/search.js:72
-#: static/apps/learners/roster/views/search.js:56
+#: analytics_dashboard/static/apps/course-list/list/views/search.js:72
+#: analytics_dashboard/static/apps/learners/roster/views/search.js:56
 msgid "search"
 msgstr "搜索"
 
-#: static/apps/course-list/list/views/search.js:73
-#: static/apps/learners/roster/views/search.js:57
+#: analytics_dashboard/static/apps/course-list/list/views/search.js:73
+#: analytics_dashboard/static/apps/learners/roster/views/search.js:57
 msgid "clear search"
 msgstr "清空搜索"
 
-#: static/apps/course-list/list/views/table.js:48
+#: analytics_dashboard/static/apps/course-list/list/views/table.js:48
 msgid "Date not available"
 msgstr "日期不可用"
 
-#: static/apps/learners/app/controller.js:59
+#: analytics_dashboard/static/apps/learners/app/controller.js:59
 msgid "Learner Roster"
 msgstr "学生名单"
 
-#: static/apps/learners/app/controller.js:95
+#: analytics_dashboard/static/apps/learners/app/controller.js:95
 msgid "Sorry, we couldn't find any learners who matched that query."
 msgstr "对不起，我们找不到任何与该查询相匹配的学员。"
 
-#: static/apps/learners/app/controller.js:96
+#: analytics_dashboard/static/apps/learners/app/controller.js:96
 msgid "Return to the Learners page."
 msgstr "返回学习页面。"
 
-#: static/apps/learners/app/controller.js:104
+#: analytics_dashboard/static/apps/learners/app/controller.js:104
 msgid "Learners"
 msgstr "学员"
 
-#: static/apps/learners/app/controller.js:137
+#: analytics_dashboard/static/apps/learners/app/controller.js:137
 msgid "Learner Details"
 msgstr "学员详细信息"
 
-#: static/apps/learners/common/collections/learners.js:17
+#: analytics_dashboard/static/apps/learners/common/collections/learners.js:17
 msgid "Name (Username)"
 msgstr "名称 (用户名)"
 
-#: static/apps/learners/common/collections/learners.js:18
+#: analytics_dashboard/static/apps/learners/common/collections/learners.js:18
 msgid "Problems Tried"
 msgstr "尝试过的问题"
 
-#: static/apps/learners/common/collections/learners.js:19
-#: static/apps/learners/detail/views/engagement-table.js:33
-#: static/apps/learners/detail/views/engagement-timeline.js:35
+#: analytics_dashboard/static/apps/learners/common/collections/learners.js:19
+#: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:33
+#: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:35
 msgid "Problems Correct"
 msgstr "问题正确"
 
-#: static/apps/learners/common/collections/learners.js:20
+#: analytics_dashboard/static/apps/learners/common/collections/learners.js:20
 msgid "Attempts per Problem Correct"
 msgstr "每个问题的尝试都是正确的"
 
-#: static/apps/learners/common/collections/learners.js:21
-#: static/js/engagement-video-content-main.js:33
+#: analytics_dashboard/static/apps/learners/common/collections/learners.js:21
+#: analytics_dashboard/static/js/engagement-video-content-main.js:33
 msgid "Videos"
 msgstr "视频"
 
-#: static/apps/learners/common/collections/learners.js:22
+#: analytics_dashboard/static/apps/learners/common/collections/learners.js:22
 msgid "Discussions"
 msgstr "讨论"
 
-#: static/apps/learners/common/collections/learners.js:24
+#: analytics_dashboard/static/apps/learners/common/collections/learners.js:24
 msgid "Segments"
 msgstr "部分"
 
-#: static/apps/learners/common/collections/learners.js:25
+#: analytics_dashboard/static/apps/learners/common/collections/learners.js:25
 msgid "Segments to Ignore"
 msgstr "忽略的部分"
 
-#: static/apps/learners/common/collections/learners.js:26
-#: static/apps/learners/detail/views/learner-detail.js:101
+#: analytics_dashboard/static/apps/learners/common/collections/learners.js:26
+#: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:101
 msgid "Cohort"
 msgstr "队列"
 
-#: static/apps/learners/common/collections/learners.js:27
+#: analytics_dashboard/static/apps/learners/common/collections/learners.js:27
 msgid "Enrollment Mode"
 msgstr "选课模式"
 
-#: static/apps/learners/detail/views/engagement-table.js:22
-#: static/apps/learners/detail/views/engagement-timeline.js:43
-#: static/js/enrollment-activity-main.js:22
-#: static/js/enrollment-demographics-gender-main.js:31
+#: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:22
+#: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:43
+#: analytics_dashboard/static/js/enrollment-activity-main.js:22
+#: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:31
 msgid "Date"
 msgstr "日期"
 
-#: static/apps/learners/detail/views/engagement-table.js:27
-#: static/apps/learners/detail/views/engagement-timeline.js:31
+#: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:27
+#: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:31
 msgid "Discussion Contributions"
 msgstr "讨论贡献"
 
-#: static/apps/learners/detail/views/engagement-table.js:39
-#: static/apps/learners/detail/views/engagement-timeline.js:39
+#: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:39
+#: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:39
 msgid "Videos Viewed"
 msgstr "已观看的视频"
 
-#: static/apps/learners/detail/views/engagement-timeline.js:47
+#: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:47
 msgid "Value"
 msgstr "值"
 
 #. Translators: e.g. Learner engagement activity
-#: static/apps/learners/detail/views/learner-detail.js:28
+#: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:28
 msgid "Engagement Activity"
 msgstr "参与活动"
 
-#: static/apps/learners/detail/views/learner-detail.js:29
+#: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:29
 msgid "Daily Activity"
 msgstr "日常活动"
 
-#: static/apps/learners/detail/views/learner-detail.js:30
+#: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:30
 msgid "Activity Over Time"
 msgstr "操作超时"
 
-#: static/apps/learners/detail/views/learner-detail.js:95
+#: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:95
 msgid "Enrollment"
 msgstr "选课"
 
-#: static/apps/learners/detail/views/learner-detail.js:106
+#: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:106
 msgid "Last Accessed"
 msgstr "最后访问"
 
 #. Translators: 'n/a' means 'not available'
-#: static/apps/learners/detail/views/learner-detail.js:109
-#: static/apps/learners/detail/views/learner-summary-field.js:44
-#: static/apps/learners/roster/views/activity-date-range.js:16
+#: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:109
+#: analytics_dashboard/static/apps/learners/detail/views/learner-summary-field.js:44
+#: analytics_dashboard/static/apps/learners/roster/views/activity-date-range.js:16
 msgid "n/a"
 msgstr "不适用"
 
-#: static/apps/learners/detail/views/learner-detail.js:139
+#: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:139
 msgid "Check back daily for up-to-date data."
 msgstr "每天回来查看最新数据。"
 
-#: static/apps/learners/detail/views/learner-detail.js:149
+#: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:149
 msgid "No course activity data is available for this learner."
 msgstr "此学员不可使用课程活动数据。"
 
-#: static/apps/learners/detail/views/learner-detail.js:156
+#: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:156
 msgid "No learner data is available."
 msgstr "学员数据不可用。"
 
-#: static/apps/learners/detail/views/learner-return.js:12
+#: analytics_dashboard/static/apps/learners/detail/views/learner-return.js:12
 msgid "Return to Learners"
 msgstr "返回学习者"
 
 #. Translators: this is a label describing a selection that the user
 #. initiated.
-#: static/apps/learners/roster/views/active-filters.js:23
+#: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:23
 msgid "Cohort: <%= filterVal %>"
 msgstr "学生队列: <%= filterVal %>"
 
 #. Translators: this is a label describing a selection that the user
 #. initiated.
-#: static/apps/learners/roster/views/active-filters.js:27
+#: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:27
 msgid "Enrollment Track: <%= filterVal %>"
 msgstr "选课记录: <%= filterVal %>"
 
-#: static/apps/learners/roster/views/active-filters.js:32
-#: static/js/engagement-content-main.js:20
+#: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:32
+#: analytics_dashboard/static/js/engagement-content-main.js:20
 msgid "Active Learners"
 msgstr "活跃的学员"
 
-#: static/apps/learners/roster/views/activity-date-range.js:11
+#: analytics_dashboard/static/apps/learners/roster/views/activity-date-range.js:11
 msgid "Activity between <%- startDate %> - <%- endDate %>"
 msgstr "<%- startDate %> 至 <%- endDate %> 期间的活动"
 
-#: static/apps/learners/roster/views/base-header-cell.js:10
+#: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:10
 msgid "The name and username of this learner. Click to sort by username."
 msgstr "学员姓名以及课程用户名。点击，以用户名分类。"
 
-#: static/apps/learners/roster/views/base-header-cell.js:11
+#: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:11
 msgid "Number of unique problems this learner attempted."
 msgstr "此学员尝试的独特问题数量。"
 
-#: static/apps/learners/roster/views/base-header-cell.js:12
+#: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:12
 msgid "Number of unique problems the learner answered correctly."
 msgstr "该学员做出正确回答的问题数量。"
 
-#: static/apps/learners/roster/views/base-header-cell.js:13
+#: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:13
 msgid "Number of unique videos this learner played."
 msgstr "该学员播放过的视频个数"
 
-#: static/apps/learners/roster/views/base-header-cell.js:15
+#: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:15
 msgid ""
 "Average number of attempts per correct problem. Learners with a relatively "
 "high value compared to their peers may be struggling."
 msgstr "每个正确问题的平均尝试次数。 与同龄人相比具有较高价值的学员可能会陷入困境。"
 
-#: static/apps/learners/roster/views/base-header-cell.js:17
+#: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:17
 msgid ""
 "Number of contributions by this learner, including posts, responses, and "
 "comments."
 msgstr "此学员的贡献数量，包括帖子，回复和评论。"
 
-#: static/apps/learners/roster/views/controls.js:62
+#: analytics_dashboard/static/apps/learners/roster/views/controls.js:62
 msgid "Find a learner"
 msgstr "寻找一个学员"
 
-#: static/apps/learners/roster/views/controls.js:75
+#: analytics_dashboard/static/apps/learners/roster/views/controls.js:75
 msgid "Cohort Groups"
 msgstr "学习小组"
 
-#: static/apps/learners/roster/views/controls.js:73
+#: analytics_dashboard/static/apps/learners/roster/views/controls.js:73
 msgid "cohort"
 msgstr "队列"
 
-#: static/apps/learners/roster/views/controls.js:87
+#: analytics_dashboard/static/apps/learners/roster/views/controls.js:87
 msgid "Enrollment Tracks"
 msgstr "选课记录"
 
-#: static/apps/learners/roster/views/controls.js:85
+#: analytics_dashboard/static/apps/learners/roster/views/controls.js:85
 msgid "enrollment_mode"
 msgstr "选课模式"
 
 #. Translators: inactive meaning that these learners have not interacted with
 #. the
 #. course recently.
-#: static/apps/learners/roster/views/controls.js:103
+#: analytics_dashboard/static/apps/learners/roster/views/controls.js:103
 msgid "Hide Inactive Learners"
 msgstr "隐藏不活跃的学生"
 
-#: static/apps/learners/roster/views/controls.js:97
+#: analytics_dashboard/static/apps/learners/roster/views/controls.js:97
 msgid "ignore_segments"
 msgstr "ignore_segments"
 
-#: static/apps/learners/roster/views/results.js:47
+#: analytics_dashboard/static/apps/learners/roster/views/results.js:47
 msgid "No learners matched your criteria."
 msgstr "没有学员符合您的标准。"
 
-#: static/apps/learners/roster/views/results.js:55
+#: analytics_dashboard/static/apps/learners/roster/views/results.js:55
 msgid "No learner data is currently available for your course."
 msgstr "目前没有适合您课程的学员数据。"
 
-#: static/apps/learners/roster/views/results.js:57
+#: analytics_dashboard/static/apps/learners/roster/views/results.js:57
 msgid ""
 "No learners are enrolled, or course activity data has not yet been "
 "processed. Data is updated every day, so check back regularly for up-to-date"
 " metrics."
 msgstr "没有学员注册，或者课程活动数据尚未处理。 数据每天都会更新，因此请定期查看最新指标。"
 
-#: static/apps/learners/roster/views/roster.js:110
+#: analytics_dashboard/static/apps/learners/roster/views/roster.js:110
 msgid "Learner roster controls"
 msgstr "学员名单控制"
 
-#: static/apps/learners/roster/views/search.js:55
+#: analytics_dashboard/static/apps/learners/roster/views/search.js:55
 msgid "Search learners"
 msgstr "搜索学员"
 
 #. Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate
 #. accordingly.
-#: static/apps/learners/roster/views/table.js:40
+#: analytics_dashboard/static/apps/learners/roster/views/table.js:40
 msgid "N/A"
 msgstr "不适用"
 
-#: static/js/engagement-content-main.js:15
+#: analytics_dashboard/static/js/engagement-content-main.js:15
 msgid "Week Ending"
 msgstr "一周结束日"
 
-#: static/js/engagement-content-main.js:27
+#: analytics_dashboard/static/js/engagement-content-main.js:27
 msgid "Watched a Video"
 msgstr "看过视频"
 
-#: static/js/engagement-content-main.js:34
+#: analytics_dashboard/static/js/engagement-content-main.js:34
 msgid "Tried a Problem"
 msgstr "尝试过解决问题"
 
-#: static/js/engagement-content-main.js:41
+#: analytics_dashboard/static/js/engagement-content-main.js:41
 msgid "Participated in Discussions"
 msgstr "参与讨论"
 
-#: static/js/engagement-content-main.js:48
+#: analytics_dashboard/static/js/engagement-content-main.js:48
 msgid "Percent of Current Learners"
 msgstr "当前学生百分比"
 
 #. Translators: <%=value%> will be replaced with a date.
-#: static/js/engagement-content-main.js:85
+#: analytics_dashboard/static/js/engagement-content-main.js:85
 msgid "Week Ending <%=value%>"
 msgstr "一周结束日为<%=value%>"
 
-#: static/js/engagement-video-content-main.js:14
+#: analytics_dashboard/static/js/engagement-video-content-main.js:14
 msgid "Average Complete Views"
 msgstr "平均完成观看的次数"
 
-#: static/js/engagement-video-content-main.js:23
+#: analytics_dashboard/static/js/engagement-video-content-main.js:23
 msgid "Average Incomplete Views"
 msgstr "平均未完成观看的次数"
 
-#: static/js/engagement-video-content-main.js:31
-#: static/js/engagement-videos-main.js:29
-#: static/js/performance-content-main.js:28
-#: static/js/performance-learning-outcomes-content-main.js:28
-#: static/js/performance-learning-outcomes-section-main.js:28
-#: static/js/performance-problems-main.js:26
+#: analytics_dashboard/static/js/engagement-video-content-main.js:31
+#: analytics_dashboard/static/js/engagement-videos-main.js:29
+#: analytics_dashboard/static/js/performance-content-main.js:28
+#: analytics_dashboard/static/js/performance-learning-outcomes-content-main.js:28
+#: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:28
+#: analytics_dashboard/static/js/performance-problems-main.js:26
 msgid "Order"
 msgstr "顺序"
 
-#: static/js/engagement-video-content-main.js:41
-#: static/js/engagement-videos-main.js:38
+#: analytics_dashboard/static/js/engagement-video-content-main.js:41
+#: analytics_dashboard/static/js/engagement-videos-main.js:38
 msgid "Completion Percentage"
 msgstr "完成率"
 
-#: static/js/engagement-video-timeline-main.js:25
+#: analytics_dashboard/static/js/engagement-video-timeline-main.js:25
 msgid "Unique Viewers"
 msgstr "观看人数"
 
-#: static/js/engagement-video-timeline-main.js:32
+#: analytics_dashboard/static/js/engagement-video-timeline-main.js:32
 msgid "Replays"
 msgstr "重播次数"
 
-#: static/js/engagement-video-timeline-main.js:39
+#: analytics_dashboard/static/js/engagement-video-timeline-main.js:39
 msgid "Time"
 msgstr "时间"
 
-#: static/js/engagement-videos-main.js:14
+#: analytics_dashboard/static/js/engagement-videos-main.js:14
 msgid "Complete Views"
 msgstr "完成观看的次数"
 
-#: static/js/engagement-videos-main.js:22
+#: analytics_dashboard/static/js/engagement-videos-main.js:22
 msgid "Incomplete Views"
 msgstr "未完成观看的次数"
 
 #. Translators: this describe the learner's enrollment track (e.g. Honor
 #. certificate)
-#: static/js/enrollment-activity-main.js:33
+#: analytics_dashboard/static/js/enrollment-activity-main.js:33
 msgid "Honor"
 msgstr "荣誉"
 
-#: static/js/enrollment-activity-main.js:38
+#: analytics_dashboard/static/js/enrollment-activity-main.js:38
 msgid "Audit"
 msgstr "旁听"
 
-#: static/js/enrollment-activity-main.js:43
+#: analytics_dashboard/static/js/enrollment-activity-main.js:43
 msgid "Verified"
 msgstr "已认证的"
 
-#: static/js/enrollment-activity-main.js:48
+#: analytics_dashboard/static/js/enrollment-activity-main.js:48
 msgid "Professional"
 msgstr "专业"
 
 #. Translators: this label indicates the learner has registered for academic
 #. credit
-#: static/js/enrollment-activity-main.js:54
+#: analytics_dashboard/static/js/enrollment-activity-main.js:54
 msgid "Verified with Credit"
 msgstr "信用认证"
 
-#: static/js/enrollment-demographics-age-main.js:19
-#: static/js/enrollment-demographics-age-main.js:34
-#: static/js/enrollment-demographics-education-main.js:32
+#: analytics_dashboard/static/js/enrollment-demographics-age-main.js:19
+#: analytics_dashboard/static/js/enrollment-demographics-age-main.js:34
+#: analytics_dashboard/static/js/enrollment-demographics-education-main.js:32
 msgid "Number of Learners"
 msgstr "学员数量"
 
 #. Translators: <%=value%> will be replaced with an age.
-#: static/js/enrollment-demographics-age-main.js:26
+#: analytics_dashboard/static/js/enrollment-demographics-age-main.js:26
 msgid "Age: <%=value%>"
 msgstr "年龄：<%=value%>"
 
-#: static/js/enrollment-demographics-age-main.js:33
+#: analytics_dashboard/static/js/enrollment-demographics-age-main.js:33
 msgid "Age"
 msgstr "年龄"
 
-#: static/js/enrollment-demographics-age-main.js:35
+#: analytics_dashboard/static/js/enrollment-demographics-age-main.js:35
 msgid "Percent of Total"
 msgstr "占总数的百分比"
 
-#: static/js/enrollment-demographics-education-main.js:18
-#: static/js/enrollment-demographics-gender-main.js:17
+#: analytics_dashboard/static/js/enrollment-demographics-education-main.js:18
+#: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:17
 msgid "Percentage"
 msgstr "百分比"
 
 #. Translators: <%=value%> will be replaced with a level of education (e.g.
 #. Doctorate).
-#: static/js/enrollment-demographics-education-main.js:24
+#: analytics_dashboard/static/js/enrollment-demographics-education-main.js:24
 msgid "Education: <%=value%>"
 msgstr "受教育程度：<%=value%>"
 
-#: static/js/enrollment-demographics-education-main.js:31
+#: analytics_dashboard/static/js/enrollment-demographics-education-main.js:31
 msgid "Educational Background"
 msgstr "教育背景"
 
 #. Translators: <%=value%> will be replaced with a level of gender (e.g.
 #. Female).
-#: static/js/enrollment-demographics-gender-main.js:23
+#: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:23
 msgid "Gender: <%=value%>"
 msgstr "性别：<%=value%>"
 
-#: static/js/enrollment-demographics-gender-main.js:33
+#: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:33
 msgid "Female"
 msgstr "女"
 
-#: static/js/enrollment-demographics-gender-main.js:34
+#: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:34
 msgid "Male"
 msgstr "男"
 
-#: static/js/enrollment-demographics-gender-main.js:35
+#: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:35
 msgid "Other"
 msgstr "其他"
 
-#: static/js/enrollment-demographics-gender-main.js:36
+#: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:36
 msgid "Not Reported"
 msgstr "未报告"
 
-#: static/js/enrollment-geography-main.js:18
+#: analytics_dashboard/static/js/enrollment-geography-main.js:18
 msgid ""
 "Learner location is determined from IP address. This map shows where "
 "learners most recently connected."
 msgstr "学员位置由IP地址确定。 此地图显示学员最近连接的位置。"
 
-#: static/js/enrollment-geography-main.js:26
+#: analytics_dashboard/static/js/enrollment-geography-main.js:26
 msgid "Country or Region"
 msgstr "国家或地区"
 
-#: static/js/enrollment-geography-main.js:27
+#: analytics_dashboard/static/js/enrollment-geography-main.js:27
 msgid "Percent"
 msgstr "百分比"
 
-#: static/js/performance-answer-distribution-main.js:12
+#: analytics_dashboard/static/js/performance-answer-distribution-main.js:12
 msgid "Answer"
 msgstr "答案"
 
 #. Translators: "Correct" is displayed in a table..
-#: static/js/performance-answer-distribution-main.js:15
-#: static/js/performance-answer-distribution-main.js:43
-#: static/js/performance-learning-outcomes-section-main.js:11
-#: static/js/performance-learning-outcomes-section-main.js:37
-#: static/js/performance-problems-main.js:11
-#: static/js/views/data-table-view.js:216
+#: analytics_dashboard/static/js/performance-answer-distribution-main.js:15
+#: analytics_dashboard/static/js/performance-answer-distribution-main.js:43
+#: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:11
+#: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:37
+#: analytics_dashboard/static/js/performance-problems-main.js:11
+#: analytics_dashboard/static/js/views/data-table-view.js:216
 msgid "Correct"
 msgstr "正确"
 
-#: static/js/performance-answer-distribution-main.js:16
+#: analytics_dashboard/static/js/performance-answer-distribution-main.js:16
 msgid "Submission Count"
 msgstr "提交次数"
 
-#: static/js/performance-answer-distribution-main.js:30
+#: analytics_dashboard/static/js/performance-answer-distribution-main.js:30
 msgid "Variant"
 msgstr "变体"
 
-#: static/js/performance-answer-distribution-main.js:45
-#: static/js/performance-learning-outcomes-section-main.js:20
-#: static/js/performance-learning-outcomes-section-main.js:45
-#: static/js/performance-problems-main.js:19
+#: analytics_dashboard/static/js/performance-answer-distribution-main.js:45
+#: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:20
+#: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:45
+#: analytics_dashboard/static/js/performance-problems-main.js:19
 msgid "Incorrect"
 msgstr "不正确"
 
 #. Translators: <%=value%> will be replaced by a learner response to a
 #. question asked in a course.
-#: static/js/performance-answer-distribution-main.js:60
+#: analytics_dashboard/static/js/performance-answer-distribution-main.js:60
 msgid "Answer: <%=value%>"
 msgstr "答案：<%=value%>"
 
-#: static/js/performance-content-main.js:11
-#: static/js/performance-learning-outcomes-content-main.js:11
+#: analytics_dashboard/static/js/performance-content-main.js:11
+#: analytics_dashboard/static/js/performance-learning-outcomes-content-main.js:11
 msgid "Average Correct"
 msgstr "平均正确数"
 
-#: static/js/performance-content-main.js:20
-#: static/js/performance-learning-outcomes-content-main.js:20
+#: analytics_dashboard/static/js/performance-content-main.js:20
+#: analytics_dashboard/static/js/performance-learning-outcomes-content-main.js:20
 msgid "Average Incorrect"
 msgstr "平均错误数"
 
-#: static/js/performance-content-main.js:30
+#: analytics_dashboard/static/js/performance-content-main.js:30
 msgid "Problems"
 msgstr "问题数"
 
-#: static/js/performance-content-main.js:39
+#: analytics_dashboard/static/js/performance-content-main.js:39
 msgid "Average Submissions Per Problem"
 msgstr "每个问题的平均提交数"
 
-#: static/js/performance-content-main.js:48
-#: static/js/performance-learning-outcomes-content-main.js:46
-#: static/js/performance-learning-outcomes-section-main.js:61
-#: static/js/performance-problems-main.js:43
+#: analytics_dashboard/static/js/performance-content-main.js:48
+#: analytics_dashboard/static/js/performance-learning-outcomes-content-main.js:46
+#: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:61
+#: analytics_dashboard/static/js/performance-problems-main.js:43
 msgid "Percentage Correct"
 msgstr "正确的百分比"
 
-#: static/js/performance-learning-outcomes-content-main.js:38
+#: analytics_dashboard/static/js/performance-learning-outcomes-content-main.js:38
 msgid "Average Submissions per Problem"
 msgstr "每个问题的平均提交数"
 
-#: static/js/performance-learning-outcomes-section-main.js:30
+#: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:30
 msgid "Difficulty"
 msgstr "难度"
 
-#: static/js/performance-learning-outcomes-section-main.js:53
-#: static/js/performance-problems-main.js:35
+#: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:53
+#: analytics_dashboard/static/js/performance-problems-main.js:35
 msgid "Total"
 msgstr "总计"
 
-#: static/js/utils/utils.js:93
+#: analytics_dashboard/static/js/utils/utils.js:93
 msgid "..."
 msgstr "..."
 
@@ -853,14 +854,217 @@ msgstr "..."
 #. Keep text in the parenthesis or an equivalent symbol.
 #. Translators: (empty) is displayed as a label in a chart and indicates that
 #. no label was provided.
-#: static/js/views/data-table-view.js:199
-#: static/js/views/discrete-bar-view.js:21
+#: analytics_dashboard/static/js/views/data-table-view.js:199
+#: analytics_dashboard/static/js/views/discrete-bar-view.js:21
 msgid "(empty)"
 msgstr "(空)"
 
 #. Translators: <%=value%> will be replaced by a number followed by a
 #. percentage.
 #. For example, "400 (29%)"
-#: static/js/views/stacked-bar-view.js:13
+#: analytics_dashboard/static/js/views/stacked-bar-view.js:13
 msgid "<%=value%> (<%=percent%>)"
 msgstr "<%=value%> (<%=percent%>)"
+
+#: node_modules/babel-polyfill/browser.js:1
+#: node_modules/babel-polyfill/dist/polyfill.min.js:1
+msgid "delete"
+msgstr "删除"
+
+#: node_modules/babel-polyfill/browser.js:1
+#: node_modules/babel-polyfill/dist/polyfill.min.js:1
+msgid "has"
+msgstr "有"
+
+#: node_modules/babel-polyfill/browser.js:1
+#: node_modules/babel-polyfill/dist/polyfill.min.js:1
+msgid "get"
+msgstr "获得"
+
+#: node_modules/babel-polyfill/browser.js:2
+#: node_modules/babel-polyfill/dist/polyfill.min.js:2
+msgid "Wrong offset!"
+msgstr "错误的偏移!"
+
+#: node_modules/babel-polyfill/browser.js:2
+#: node_modules/babel-polyfill/dist/polyfill.min.js:2
+msgid "Wrong length!"
+msgstr "错误时长！"
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:25
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid " "
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:25
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "."
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "*"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "import"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "{}"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid ", "
+msgstr "，"
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "this"
+msgstr "这个"
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "super"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "null"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid ",\n"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid " = "
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "\n"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "debugger;"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid ":"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "empty"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "any"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "mixed"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "boolean"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "interface "
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid " & "
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "number"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "string"
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "typeof "
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid " | "
+msgstr ""
+
+#: node_modules/table/node_modules/ajv/dist/regenerator.min.js:26
+msgid "void"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "using url"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "_receiveInfo"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "info"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid " enabled transports"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "attempt"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "waiting for body"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "using timeout"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "transport url"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "_transportTimeout"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "_transportMessage"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "heartbeat"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "bad json"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "message"
+msgstr "message"
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "empty payload"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "_transportClose"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "_open"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "connected"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "_close"
+msgstr ""
+
+#: node_modules/webpack-dev-server/client/index.bundle.js:1
+msgid "disconnected"
+msgstr ""
