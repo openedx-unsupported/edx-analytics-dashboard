@@ -54,7 +54,7 @@ code-annotations==1.2.0
     # via
     #   -r requirements/test.txt
     #   edx-toggles
-coverage==5.5
+coverage[toml]==6.0
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -71,7 +71,7 @@ cwcwidth==0.1.4
     #   -r requirements/test.txt
     #   bpython
     #   curtsies
-ddt==1.4.2
+ddt==1.4.3
     # via -r requirements/test.txt
 defusedxml==0.7.1
     # via
@@ -117,7 +117,7 @@ django-crum==0.7.9
     #   edx-toggles
 django-debug-toolbar==3.2.2
     # via -r requirements/local.in
-django-dynamic-fixture==3.1.1
+django-dynamic-fixture==3.1.2
     # via -r requirements/test.txt
 django-lang-pref-middleware==1.1.0
     # via -r requirements/test.txt
@@ -177,7 +177,7 @@ edx-toggles==4.2.0
     # via -r requirements/test.txt
 elasticsearch==2.4.1
     # via -r requirements/test.txt
-filelock==3.1.0
+filelock==3.3.0
     # via
     #   -r requirements/tox.txt
     #   tox
@@ -186,7 +186,7 @@ future==0.18.2
     # via
     #   -r requirements/test.txt
     #   pyjwkest
-greenlet==1.1.1
+greenlet==1.1.2
     # via
     #   -r requirements/test.txt
     #   bpython
@@ -334,7 +334,7 @@ pytest==5.4.3
     #   -r requirements/test.txt
     #   pytest-cov
     #   pytest-django
-pytest-cov==2.12.1
+pytest-cov==3.0.0
     # via -r requirements/test.txt
 pytest-django==4.4.0
     # via -r requirements/test.txt
@@ -350,7 +350,7 @@ python3-openid==3.2.0
     # via
     #   -r requirements/test.txt
     #   social-auth-core
-pytz==2021.1
+pytz==2021.3
     # via
     #   -r requirements/test.txt
     #   django
@@ -439,7 +439,7 @@ stevedore==3.4.0
     #   code-annotations
     #   edx-django-utils
     #   edx-opaque-keys
-testfixtures==6.18.2
+testfixtures==6.18.3
     # via -r requirements/test.txt
 text-unidecode==1.3
     # via
@@ -447,13 +447,13 @@ text-unidecode==1.3
     #   python-slugify
 toml==0.10.2
     # via
-    #   -r requirements/test.txt
     #   -r requirements/tox.txt
-    #   pytest-cov
     #   tox
 tomli==1.2.1
     # via
     #   -r requirements/pip_tools.txt
+    #   -r requirements/test.txt
+    #   coverage
     #   pep517
 tox==3.14.6
     # via
