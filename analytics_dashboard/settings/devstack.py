@@ -13,8 +13,7 @@ DB_OVERRIDES = dict(
 for override, value in DB_OVERRIDES.items():
     DATABASES['default'][override] = value
 
-# TODO: This should get updated when data-api is addedd to devstack
-DATA_API_URL = os.environ.get("API_SERVER_URL", 'http://host.docker.internal:9001/api/v0')
+DATA_API_URL = os.environ.get("API_SERVER_URL", 'http://edx.devstack.analyticsapi:19001/api/v0')
 
 # Set these to the correct values for your OAuth2/OpenID Connect provider (e.g., devstack)
 SOCIAL_AUTH_EDX_OAUTH2_KEY = os.environ.get('SOCIAL_AUTH_EDX_OAUTH2_KEY', 'insights-sso-key')
