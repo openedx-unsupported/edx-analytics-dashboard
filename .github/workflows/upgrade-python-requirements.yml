@@ -5,8 +5,7 @@ on:
     branches:
     - '**'
   schedule:
-    # will start the job at 3:15 UTC on 15th and 30th of every month
-    - cron: "15 3 15,30 * *"
+    - cron: "15 3 15,29 * *"
   workflow_dispatch:
     inputs:
       branch:
