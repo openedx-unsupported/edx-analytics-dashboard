@@ -27,6 +27,12 @@ The best way to run this service is with edX Devstack: https://github.com/edx/de
 
 See the [Devstack README](https://github.com/edx/devstack/blob/master/README.rst) for information on how to install and run Insights. For the purposes of devstack this service will be referred to as `insights` and not `analytics-dashboard`.
 
+Provisioning for insights and the data api can be combined:
+
+.. code:: sh
+
+make dev.provision insights+analyticsapi
+
 Getting Started Standalone
 --------------------------
 1. Get the code (e.g. clone the repository).
