@@ -22,19 +22,19 @@ blessings==1.7
     #   curtsies
 bpython==0.21
     # via -r requirements/base.txt
-certifi==2021.5.30
+certifi==2021.10.8
     # via
     #   -r requirements/base.txt
     #   requests
-cffi==1.14.6
+cffi==1.15.0
     # via
     #   -r requirements/base.txt
     #   cryptography
-charset-normalizer==2.0.6
+charset-normalizer==2.0.7
     # via
     #   -r requirements/base.txt
     #   requests
-click==8.0.1
+click==8.0.3
     # via
     #   -r requirements/base.txt
     #   code-annotations
@@ -42,15 +42,15 @@ code-annotations==1.2.0
     # via
     #   -r requirements/base.txt
     #   edx-toggles
-cryptography==3.4.8
+cryptography==35.0.0
     # via
     #   -r requirements/base.txt
     #   pyjwt
-curtsies==0.3.7
+curtsies==0.3.10
     # via
     #   -r requirements/base.txt
     #   bpython
-cwcwidth==0.1.4
+cwcwidth==0.1.5
     # via
     #   -r requirements/base.txt
     #   bpython
@@ -60,7 +60,7 @@ defusedxml==0.7.1
     #   -r requirements/base.txt
     #   python3-openid
     #   social-auth-core
-django==3.2.7
+django==3.2.8
     # via
     #   -r requirements/base.txt
     #   django-appconf
@@ -78,7 +78,6 @@ django==3.2.7
     #   edx-i18n-tools
     #   edx-toggles
     #   pinax-announcements
-    #   rest-condition
 django-appconf==1.0.5
     # via -r requirements/base.txt
 django-braces==1.14.0
@@ -94,7 +93,7 @@ django-crum==0.7.9
     #   edx-toggles
 django-lang-pref-middleware==1.1.0
     # via -r requirements/base.txt
-django-model-utils==4.1.1
+django-model-utils==4.2.0
     # via -r requirements/base.txt
 django-soapbox==1.6.1
     # via -r requirements/base.txt
@@ -114,7 +113,6 @@ djangorestframework==3.12.4
     #   djangorestframework-csv
     #   drf-jwt
     #   edx-drf-extensions
-    #   rest-condition
 djangorestframework-csv==2.1.1
     # via -r requirements/base.txt
 docutils==0.17.1
@@ -137,9 +135,9 @@ edx-django-utils==4.4.0
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   edx-toggles
-edx-drf-extensions==7.0.1
+edx-drf-extensions==8.0.0
     # via -r requirements/base.txt
-edx-i18n-tools==0.7.0
+edx-i18n-tools==0.8.1
     # via -r requirements/base.txt
 edx-opaque-keys==2.2.2
     # via
@@ -160,13 +158,13 @@ greenlet==1.1.2
     # via
     #   -r requirements/base.txt
     #   bpython
-idna==3.2
+idna==3.3
     # via
     #   -r requirements/base.txt
     #   requests
 imagesize==1.2.0
     # via sphinx
-jinja2==3.0.1
+jinja2==3.0.2
     # via
     #   -r requirements/base.txt
     #   code-annotations
@@ -179,7 +177,7 @@ markupsafe==2.0.1
     # via
     #   -r requirements/base.txt
     #   jinja2
-newrelic==7.0.0.166
+newrelic==7.2.2.169
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -215,7 +213,7 @@ pycparser==2.20
     # via
     #   -r requirements/base.txt
     #   cffi
-pycryptodomex==3.10.4
+pycryptodomex==3.11.0
     # via
     #   -r requirements/base.txt
     #   pyjwkest
@@ -228,7 +226,7 @@ pyjwkest==1.4.2
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-pyjwt[crypto]==2.1.0
+pyjwt[crypto]==2.3.0
     # via
     #   -r requirements/base.txt
     #   drf-jwt
@@ -236,7 +234,7 @@ pyjwt[crypto]==2.1.0
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   social-auth-core
-pymongo==3.12.0
+pymongo==3.12.1
     # via
     #   -r requirements/base.txt
     #   edx-opaque-keys
@@ -263,7 +261,7 @@ pyxdg==0.27
     # via
     #   -r requirements/base.txt
     #   bpython
-pyyaml==5.4.1
+pyyaml==6.0
     # via
     #   -r requirements/base.txt
     #   code-annotations
@@ -285,10 +283,6 @@ requests-oauthlib==1.3.0
     # via
     #   -r requirements/base.txt
     #   social-auth-core
-rest-condition==1.0.3
-    # via
-    #   -r requirements/base.txt
-    #   edx-drf-extensions
 semantic-version==2.8.5
     # via
     #   -r requirements/base.txt
@@ -303,7 +297,6 @@ six==1.16.0
     #   edx-ccx-keys
     #   edx-django-release-util
     #   edx-drf-extensions
-    #   edx-i18n-tools
     #   edx-sphinx-theme
     #   libsass
     #   pyjwkest
@@ -342,7 +335,7 @@ sqlparse==0.4.2
     # via
     #   -r requirements/base.txt
     #   django
-stevedore==3.4.0
+stevedore==3.5.0
     # via
     #   -r requirements/base.txt
     #   code-annotations
