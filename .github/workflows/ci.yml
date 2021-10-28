@@ -22,7 +22,7 @@ jobs:
           docker exec analytics_api bash -c "
           source /edx/app/analytics_api/venvs/analytics_api/bin/activate &&
           pip install setuptools==49.6.0 &&
-          make -C /edx/app/analytics_api/analytics_api travis"
+          make -C /edx/app/analytics_api/analytics_api github_ci"
       - name: clean package-lock.json
         run: rm package-lock.json
       - name: install dependencies
