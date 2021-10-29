@@ -322,7 +322,7 @@ pymongo==3.12.1
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
-pyparsing==2.4.7
+pyparsing==3.0.3
     # via
     #   -r requirements/test.txt
     #   -r requirements/tox.txt
@@ -402,7 +402,6 @@ six==1.16.0
     #   libsass
     #   pyjwkest
     #   python-dateutil
-    #   social-auth-app-django
     #   social-auth-core
     #   tox
     #   transifex-client
@@ -420,7 +419,6 @@ social-auth-core==3.2.0
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
     #   edx-auth-backends
-    #   social-auth-app-django
 sqlparse==0.4.2
     # via
     #   -r requirements/test.txt
@@ -442,7 +440,7 @@ toml==0.10.2
     # via
     #   -r requirements/tox.txt
     #   tox
-tomli==1.2.1
+tomli==1.2.2
     # via
     #   -r requirements/pip_tools.txt
     #   -r requirements/test.txt
@@ -468,7 +466,7 @@ urllib3==1.26.7
     #   requests
     #   selenium
     #   transifex-client
-virtualenv==20.8.1
+virtualenv==20.9.0
     # via
     #   -r requirements/tox.txt
     #   tox
