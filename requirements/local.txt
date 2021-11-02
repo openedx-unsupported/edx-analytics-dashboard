@@ -54,7 +54,7 @@ code-annotations==1.2.0
     # via
     #   -r requirements/test.txt
     #   edx-toggles
-coverage[toml]==6.0.2
+coverage[toml]==6.1.1
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -82,7 +82,7 @@ distlib==0.3.3
     # via
     #   -r requirements/tox.txt
     #   virtualenv
-django==3.2.8
+django==3.2.9
     # via
     #   -r requirements/test.txt
     #   django-appconf
@@ -148,7 +148,7 @@ drf-jwt==1.19.1
     #   edx-drf-extensions
 edx-analytics-data-api-client==0.17.0
     # via -r requirements/test.txt
-edx-auth-backends==4.0.0
+edx-auth-backends==4.0.1
     # via -r requirements/test.txt
 edx-ccx-keys==1.2.1
     # via -r requirements/test.txt
@@ -160,7 +160,7 @@ edx-django-utils==4.4.0
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   edx-toggles
-edx-drf-extensions==8.0.0
+edx-drf-extensions==8.0.1
     # via -r requirements/test.txt
 edx-i18n-tools==0.8.1
     # via -r requirements/test.txt
@@ -175,7 +175,7 @@ edx-toggles==4.2.0
     # via -r requirements/test.txt
 elasticsearch==2.4.1
     # via -r requirements/test.txt
-filelock==3.3.1
+filelock==3.3.2
     # via
     #   -r requirements/tox.txt
     #   tox
@@ -237,7 +237,7 @@ oauthlib==3.1.1
     #   -r requirements/test.txt
     #   requests-oauthlib
     #   social-auth-core
-packaging==21.0
+packaging==21.2
     # via
     #   -r requirements/test.txt
     #   -r requirements/tox.txt
@@ -402,7 +402,6 @@ six==1.16.0
     #   libsass
     #   pyjwkest
     #   python-dateutil
-    #   social-auth-app-django
     #   social-auth-core
     #   tox
     #   transifex-client
@@ -420,7 +419,6 @@ social-auth-core==3.2.0
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
     #   edx-auth-backends
-    #   social-auth-app-django
 sqlparse==0.4.2
     # via
     #   -r requirements/test.txt
@@ -442,7 +440,7 @@ toml==0.10.2
     # via
     #   -r requirements/tox.txt
     #   tox
-tomli==1.2.1
+tomli==1.2.2
     # via
     #   -r requirements/pip_tools.txt
     #   -r requirements/test.txt
@@ -468,7 +466,7 @@ urllib3==1.26.7
     #   requests
     #   selenium
     #   transifex-client
-virtualenv==20.8.1
+virtualenv==20.10.0
     # via
     #   -r requirements/tox.txt
     #   tox

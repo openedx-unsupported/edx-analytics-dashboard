@@ -56,7 +56,7 @@ defusedxml==0.7.1
     #   -r requirements/base.txt
     #   python3-openid
     #   social-auth-core
-django==3.2.8
+django==3.2.9
     # via
     #   -r requirements/base.txt
     #   django-appconf
@@ -117,7 +117,7 @@ drf-jwt==1.19.1
     #   edx-drf-extensions
 edx-analytics-data-api-client==0.17.0
     # via -r requirements/base.txt
-edx-auth-backends==4.0.0
+edx-auth-backends==4.0.1
     # via -r requirements/base.txt
 edx-ccx-keys==1.2.1
     # via -r requirements/base.txt
@@ -129,7 +129,7 @@ edx-django-utils==4.4.0
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   edx-toggles
-edx-drf-extensions==8.0.0
+edx-drf-extensions==8.0.1
     # via -r requirements/base.txt
 edx-i18n-tools==0.8.1
     # via -r requirements/base.txt
@@ -292,7 +292,6 @@ six==1.16.0
     #   pyjwkest
     #   python-dateutil
     #   python-memcached
-    #   social-auth-app-django
     #   social-auth-core
 slumber==0.7.1
     # via
@@ -303,7 +302,6 @@ social-auth-core==3.2.0
     #   -c requirements/constraints.txt
     #   -r requirements/base.txt
     #   edx-auth-backends
-    #   social-auth-app-django
 sqlparse==0.4.2
     # via
     #   -r requirements/base.txt
