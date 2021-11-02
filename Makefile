@@ -145,7 +145,7 @@ compile_translations: # compiles djangojs and django .po and .mo files
 
 extract_translations: ## extract strings to be translated, outputting .mo files
 	$(TOX)python manage.py makemessages -l en -v1 --ignore="docs/*" --ignore="src/*" --ignore="i18n/*" --ignore="assets/*" --ignore="static/bundles/*" -d django
-	$(TOX)python manage.py makemessages -l en -v1 --ignore="docs/*" --ignore="src/*" --ignore="i18n/*" --ignore="assets/*" --ignore="static/bundles/*" -d djangojs
+	$(TOX)python manage.py makemessages -l en -v1 --ignore="docs/*" --ignore="node_modules/*" --ignore="src/*" --ignore="i18n/*" --ignore="assets/*" --ignore="static/bundles/*" -d djangojs
 
 dummy_translations: ## generate dummy translation (.po) files
 	cd analytics_dashboard && i18n_tool dummy
