@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-backports.entry-points-selectable==1.1.0
+backports.entry-points-selectable==1.1.1
     # via
     #   -r requirements/tox.txt
     #   virtualenv
@@ -14,20 +14,20 @@ charset-normalizer==2.0.7
     # via requests
 codecov==2.1.12
     # via -r requirements/github.in
-coverage==6.0.2
+coverage==6.1.1
     # via codecov
 distlib==0.3.3
     # via
     #   -r requirements/tox.txt
     #   virtualenv
-filelock==3.3.1
+filelock==3.3.2
     # via
     #   -r requirements/tox.txt
     #   tox
     #   virtualenv
 idna==3.3
     # via requests
-packaging==21.0
+packaging==21.2
     # via
     #   -r requirements/tox.txt
     #   tox
@@ -39,7 +39,7 @@ pluggy==0.13.1
     # via
     #   -r requirements/tox.txt
     #   tox
-py==1.10.0
+py==1.11.0
     # via
     #   -r requirements/tox.txt
     #   tox
@@ -67,7 +67,7 @@ tox-battery==0.6.1
     # via -r requirements/tox.txt
 urllib3==1.26.7
     # via requests
-virtualenv==20.8.1
+virtualenv==20.10.0
     # via
     #   -r requirements/tox.txt
     #   tox
