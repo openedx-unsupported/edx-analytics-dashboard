@@ -46,7 +46,14 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
             # The user is probably not a course administrator and should not be using this application.
             raise PermissionDenied
 
-        summaries_presenter = CourseSummariesPresenter()
+        try:
+            api_version = int(self.request.GET.get('v', 0))
+        except ValueError:
+            api_version = 0
+
+        use_v1_api = api_version == 1
+
+        summaries_presenter = CourseSummariesPresenter(use_v1_api=use_v1_api)
         summaries, last_updated = summaries_presenter.get_course_summaries(courses)
 
         context.update({
@@ -62,7 +69,7 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
         }
 
         if enable_course_filters:
-            programs_presenter = ProgramsPresenter()
+            programs_presenter = ProgramsPresenter(use_v1_api=use_v1_api)
             programs = programs_presenter.get_programs(course_ids=courses)
             data['programs_json'] = programs
 
@@ -100,7 +107,14 @@ class CourseIndexCSV(CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixi
 
         enable_course_filters = switch_is_active('enable_course_filters')
 
-        presenter = CourseSummariesPresenter()
+        try:
+            api_version = int(self.request.GET.get('v', 0))
+        except ValueError:
+            api_version = 0
+
+        use_v1_api = api_version == 1
+
+        presenter = CourseSummariesPresenter(use_v1_api=use_v1_api)
         summaries, _ = presenter.get_course_summaries(courses)
 
         if not summaries:
@@ -112,7 +126,7 @@ class CourseIndexCSV(CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixi
 
         if enable_course_filters:
             # Add list of associated program IDs to each summary entry
-            programs_presenter = ProgramsPresenter()
+            programs_presenter = ProgramsPresenter(use_v1_api=use_v1_api)
             programs = programs_presenter.get_programs(course_ids=courses)
             for summary in summaries:
                 summary_programs = [program for program in programs if summary['course_id'] in program['course_ids']]

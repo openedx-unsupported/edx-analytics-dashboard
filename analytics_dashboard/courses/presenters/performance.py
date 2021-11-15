@@ -41,9 +41,10 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, CoursePresenter):
     # minimum screen space a grading policy bar will take up (even if a policy is 0%, display some bar)
     MIN_POLICY_DISPLAY_PERCENT = 5
 
-    def __init__(self, access_token, course_id, timeout=settings.LMS_DEFAULT_TIMEOUT):
-        super().__init__(access_token, course_id, timeout)
+    def __init__(self, access_token, course_id, timeout=settings.LMS_DEFAULT_TIMEOUT, use_v1_api=False):
+        super().__init__(access_token, course_id, timeout, use_v1_api)
         self.grading_policy_client = CourseStructureApiClient(settings.GRADING_POLICY_API_URL, access_token)
+        self.use_v1_api = use_v1_api
 
     def course_module_data(self):
         try:

@@ -49,6 +49,7 @@ class BasePresenterTests(TestCase):
     def test_init(self):
         presenter = CoursePresenter('edX/DemoX/Demo_Course')
         self.assertEqual(presenter.client.timeout, settings.ANALYTICS_API_DEFAULT_TIMEOUT)
+        self.assertEqual(presenter.client.base_url, settings.DATA_API_URL)
 
         presenter = CoursePresenter('edX/DemoX/Demo_Course', timeout=15)
         self.assertEqual(presenter.client.timeout, 15)
@@ -67,6 +68,10 @@ class BasePresenterTests(TestCase):
         dt_format = '%Y-%m-%d'
         self.assertEqual(self.presenter.get_current_date(), datetime.datetime.utcnow().strftime(dt_format))
 
+    def test_use_v1_api(self):
+        presenter = CoursePresenter('edX/DemoX/Demo_Course', use_v1_api=True)
+        self.assertEqual(presenter.client.base_url, settings.DATA_API_URL_V1)
+
 
 class CourseEngagementActivityPresenterTests(TestCase):
 
@@ -74,6 +79,10 @@ class CourseEngagementActivityPresenterTests(TestCase):
         super().setUp()
         self.course_id = 'this/course/id'
         self.presenter = CourseEngagementActivityPresenter(self.course_id)
+
+    def test_use_v1_api(self):
+        presenter = CourseEngagementActivityPresenter(self.course_id, use_v1_api=True)
+        self.assertEqual(presenter.client.base_url, settings.DATA_API_URL_V1)
 
     def get_expected_trends(self, include_forum_data):
         trends = [
@@ -220,6 +229,12 @@ class CourseEngagementVideoPresenterTests(TestCase):
         super().setUp()
         self.course_id = 'this/course/id'
         self.presenter = CourseEngagementVideoPresenter(settings.COURSE_API_KEY, self.course_id)
+
+    def test_use_v1_api(self):
+        presenter = CourseEngagementVideoPresenter(
+            settings.COURSE_API_KEY, self.course_id, use_v1_api=True
+        )
+        self.assertEqual(presenter.client.base_url, settings.DATA_API_URL_V1)
 
     def test_default_block_data(self):
         self.assertDictEqual(self.presenter.default_block_data, {
@@ -650,6 +665,10 @@ class CourseEnrollmentPresenterTests(TestCase):
         self.course_id = 'edX/DemoX/Demo_Course'
         self.presenter = CourseEnrollmentPresenter(self.course_id)
 
+    def test_use_v1_api(self):
+        presenter = CourseEnrollmentPresenter(self.course_id, use_v1_api=True)
+        self.assertEqual(presenter.client.base_url, settings.DATA_API_URL_V1)
+
     @mock.patch('analyticsclient.course.Course.enrollment', mock.Mock(return_value=[]))
     def test_get_trend_summary_no_data(self):
         actual_summary, actual_trend = self.presenter.get_summary_and_trend_data()
@@ -758,6 +777,10 @@ class CourseEnrollmentDemographicsPresenterTests(TestCase):
         self.course_id = 'edX/DemoX/Demo_Course'
         self.presenter = CourseEnrollmentDemographicsPresenter(self.course_id)
 
+    def test_use_v1_api(self):
+        presenter = CourseEnrollmentDemographicsPresenter(self.course_id, use_v1_api=True)
+        self.assertEqual(presenter.client.base_url, settings.DATA_API_URL_V1)
+
     @mock.patch('analyticsclient.course.Course.enrollment')
     def test_get_gender(self, mock_gender):
         mock_data = utils.get_mock_api_enrollment_gender_data(self.course_id)
@@ -816,6 +839,12 @@ class CoursePerformancePresenterTests(TestCase):
         self.problem_id = 'i4x://edX/DemoX.1/problem/05d289c5ad3d47d48a77622c4a81ec36'
         self.presenter = CoursePerformancePresenter(settings.COURSE_API_KEY, self.course_id)
         self.factory = CoursePerformanceDataFactory()
+
+    def test_use_v1_api(self):
+        presenter = CoursePerformancePresenter(
+            settings.COURSE_API_KEY, self.course_id, use_v1_api=True
+        )
+        self.assertEqual(presenter.client.base_url, settings.DATA_API_URL_V1)
 
     # First and last response counts were added, insights can handle both types of API responses at the moment.
     @data(
@@ -1046,6 +1075,12 @@ class TagsDistributionPresenterTests(TestCase):
         self.course_id = PERFORMER_PRESENTER_COURSE_ID
         self.presenter = TagsDistributionPresenter(settings.COURSE_API_KEY, self.course_id)
 
+    def test_use_v1_api(self):
+        presenter = TagsDistributionPresenter(
+            settings.COURSE_API_KEY, self.course_id, use_v1_api=True
+        )
+        self.assertEqual(presenter.client.base_url, settings.DATA_API_URL_V1)
+
     @data(annotated([{"total_submissions": 21, "correct_submissions": 5,
                       "tags": {"difficulty": ["Hard"]}},
                      {"total_submissions": 11, "correct_submissions": 10,
@@ -1204,6 +1239,10 @@ class CourseReportDownloadPresenterTests(TestCase):
         cache.clear()
         self.course_id = PERFORMER_PRESENTER_COURSE_ID
         self.presenter = CourseReportDownloadPresenter(self.course_id)
+
+    def test_use_v1_api(self):
+        presenter = CourseReportDownloadPresenter(self.course_id, use_v1_api=True)
+        self.assertEqual(presenter.client.base_url, settings.DATA_API_URL_V1)
 
     @mock.patch('analyticsclient.course.Course.reports')
     def test_report_presenter(self, mock_reports):
