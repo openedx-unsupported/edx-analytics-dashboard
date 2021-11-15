@@ -54,7 +54,7 @@ code-annotations==1.2.0
     # via
     #   -r requirements/test.txt
     #   edx-toggles
-coverage[toml]==6.1.1
+coverage[toml]==6.1.2
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -198,7 +198,7 @@ isort==4.3.21
     # via
     #   -r requirements/test.txt
     #   pylint
-jinja2==3.0.2
+jinja2==3.0.3
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -222,13 +222,13 @@ mccabe==0.6.1
     # via
     #   -r requirements/test.txt
     #   pylint
-more-itertools==8.10.0
+more-itertools==8.11.0
     # via
     #   -r requirements/test.txt
     #   pytest
 mysqlclient==2.0.3
     # via -r requirements/local.in
-newrelic==7.2.3.170
+newrelic==7.2.4.171
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -454,7 +454,7 @@ tox-battery==0.6.1
     # via -r requirements/tox.txt
 transifex-client==0.12.4
     # via -r requirements/local.in
-typing-extensions==3.10.0.2
+typing-extensions==4.0.0
     # via
     #   -r requirements/test.txt
     #   bpython
