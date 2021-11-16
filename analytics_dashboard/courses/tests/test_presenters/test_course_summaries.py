@@ -256,3 +256,7 @@ class CourseSummariesPresenterTests(TestCase):
             'masters_enrollment': 1111,
         }
         self.assertEqual(metrics, expected)
+
+    def test_use_v1_api(self):
+        presenter = CourseSummariesPresenter(use_v1_api=True)
+        self.assertEqual(presenter.client.base_url, settings.DATA_API_URL_V1)

@@ -16,8 +16,9 @@ logger = logging.getLogger(__name__)
 
 class BasePresenter:
 
-    def __init__(self, timeout=settings.ANALYTICS_API_DEFAULT_TIMEOUT):
-        self.client = Client(base_url=settings.DATA_API_URL,
+    def __init__(self, timeout=settings.ANALYTICS_API_DEFAULT_TIMEOUT, use_v1_api=False):
+        base_url = settings.DATA_API_URL_V1 if use_v1_api else settings.DATA_API_URL
+        self.client = Client(base_url=base_url,
                              auth_token=settings.DATA_API_AUTH_TOKEN,
                              timeout=timeout)
 
@@ -48,8 +49,8 @@ class CoursePresenter(BasePresenter):
     This is the base class for the course pages and sets up the analytics client
     for the presenters to use to access the data API.
     """
-    def __init__(self, course_id, timeout=settings.ANALYTICS_API_DEFAULT_TIMEOUT):
-        super().__init__(timeout)
+    def __init__(self, course_id, timeout=settings.ANALYTICS_API_DEFAULT_TIMEOUT, use_v1_api=False):
+        super().__init__(timeout, use_v1_api)
         self.course_id = course_id
         self.course = self.client.courses(self.course_id)
 
@@ -62,8 +63,8 @@ class CourseAPIPresenterMixin(metaclass=abc.ABCMeta):
 
     _last_updated = None
 
-    def __init__(self, access_token, course_id, timeout=settings.LMS_DEFAULT_TIMEOUT):
-        super().__init__(course_id, timeout)
+    def __init__(self, access_token, course_id, timeout=settings.LMS_DEFAULT_TIMEOUT, use_v1_api=False):
+        super().__init__(course_id, timeout, use_v1_api)
         self.course_api_client = CourseStructureApiClient(settings.COURSE_API_URL, access_token)
 
     def _get_structure(self):
