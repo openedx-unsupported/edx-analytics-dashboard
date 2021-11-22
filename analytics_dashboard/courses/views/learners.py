@@ -8,13 +8,13 @@ from requests.exceptions import ConnectionError as RequestsConnectionError
 from requests.exceptions import Timeout
 from waffle import switch_is_active
 
-from analytics_dashboard.courses.views import CourseTemplateWithNavView
+from analytics_dashboard.courses.views import CourseTemplateWithNavView, AnalyticsV0Mixin
 from analytics_dashboard.learner_analytics_api.v0.clients import LearnerAPIClient
 
 logger = logging.getLogger(__name__)
 
 
-class LearnersView(CourseTemplateWithNavView):
+class LearnersView(AnalyticsV0Mixin, CourseTemplateWithNavView):
     template_name = 'courses/learners.html'
     active_primary_nav_item = 'learners'
     page_title = _('Learners')

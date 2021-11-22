@@ -16,6 +16,7 @@ from analytics_dashboard.courses.views import (
     CourseStructureExceptionMixin,
     CourseStructureMixin,
     CourseTemplateWithNavView,
+    AnalyticsV0Mixin,
 )
 
 logger = logging.getLogger(__name__)
@@ -52,7 +53,7 @@ class EngagementTemplateView(CourseTemplateWithNavView):
     presenter = None
 
 
-class EngagementContentView(EngagementTemplateView):
+class EngagementContentView(AnalyticsV0Mixin, EngagementTemplateView):
     template_name = 'courses/engagement_content.html'
     page_title = _('Engagement Content')
     page_name = {
@@ -68,7 +69,7 @@ class EngagementContentView(EngagementTemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        self.presenter = CourseEngagementActivityPresenter(self.course_id)
+        self.presenter = CourseEngagementActivityPresenter(self.course_id, self.analytics_client)
 
         summary = None
         trends = None
@@ -89,7 +90,8 @@ class EngagementContentView(EngagementTemplateView):
         return context
 
 
-class EngagementVideoContentTemplateView(CourseStructureMixin, CourseStructureExceptionMixin, EngagementTemplateView):
+class EngagementVideoContentTemplateView(AnalyticsV0Mixin, CourseStructureMixin, CourseStructureExceptionMixin,
+                                         EngagementTemplateView):
     page_title = _('Engagement Videos')
     active_secondary_nav_item = 'videos'
     section_id = None
@@ -99,7 +101,7 @@ class EngagementVideoContentTemplateView(CourseStructureMixin, CourseStructureEx
     no_data_message = _('Looks like no one has watched any videos in these sections.')
 
     def get_context_data(self, **kwargs):
-        self.presenter = CourseEngagementVideoPresenter(self.access_token, self.course_id)
+        self.presenter = CourseEngagementVideoPresenter(self.access_token, self.course_id, self.analytics_client)
         context = super().get_context_data(**kwargs)
         context.update({
             'sections': self.presenter.sections(),

@@ -18,14 +18,15 @@ from analytics_dashboard.courses.views import (
     LazyEncoderMixin,
     TemplateView,
     TrackedViewMixin,
+    AnalyticsV0Mixin,
 )
 from analytics_dashboard.courses.views.csv import DatetimeCSVResponseMixin
 
 logger = logging.getLogger(__name__)
 
 
-class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpdatedView, LazyEncoderMixin,
-                  TemplateView):
+class CourseIndex(AnalyticsV0Mixin, CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpdatedView,
+                  LazyEncoderMixin, TemplateView):
     template_name = 'courses/index.html'
     page_title = _('Courses')
     page_name = {
@@ -46,14 +47,7 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
             # The user is probably not a course administrator and should not be using this application.
             raise PermissionDenied
 
-        try:
-            api_version = int(self.request.GET.get('v', 0))
-        except ValueError:
-            api_version = 0
-
-        use_v1_api = api_version == 1
-
-        summaries_presenter = CourseSummariesPresenter(use_v1_api=use_v1_api)
+        summaries_presenter = CourseSummariesPresenter(analytics_client=self.analytics_client)
         summaries, last_updated = summaries_presenter.get_course_summaries(courses)
 
         context.update({
@@ -69,7 +63,7 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
         }
 
         if enable_course_filters:
-            programs_presenter = ProgramsPresenter(use_v1_api=use_v1_api)
+            programs_presenter = ProgramsPresenter(analytics_client=self.analytics_client)
             programs = programs_presenter.get_programs(course_ids=courses)
             data['programs_json'] = programs
 
@@ -80,7 +74,7 @@ class CourseIndex(CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpda
         return context
 
 
-class CourseIndexCSV(CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixin, TemplateView):
+class CourseIndexCSV(AnalyticsV0Mixin, CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixin, TemplateView):
 
     csv_filename_suffix = 'course-list'
     # Note: we are not using the DRF "renderer_classes" field here because this is a Django view, not a DRF view.
@@ -107,14 +101,7 @@ class CourseIndexCSV(CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixi
 
         enable_course_filters = switch_is_active('enable_course_filters')
 
-        try:
-            api_version = int(self.request.GET.get('v', 0))
-        except ValueError:
-            api_version = 0
-
-        use_v1_api = api_version == 1
-
-        presenter = CourseSummariesPresenter(use_v1_api=use_v1_api)
+        presenter = CourseSummariesPresenter(analytics_client=self.analytics_client)
         summaries, _ = presenter.get_course_summaries(courses)
 
         if not summaries:
@@ -126,7 +113,7 @@ class CourseIndexCSV(CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixi
 
         if enable_course_filters:
             # Add list of associated program IDs to each summary entry
-            programs_presenter = ProgramsPresenter(use_v1_api=use_v1_api)
+            programs_presenter = ProgramsPresenter(analytics_client=self.analytics_client)
             programs = programs_presenter.get_programs(course_ids=courses)
             for summary in summaries:
                 summary_programs = [program for program in programs if summary['course_id'] in program['course_ids']]

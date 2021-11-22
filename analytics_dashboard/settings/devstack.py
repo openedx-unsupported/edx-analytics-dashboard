@@ -14,6 +14,7 @@ for override, value in DB_OVERRIDES.items():
     DATABASES['default'][override] = value
 
 DATA_API_URL = os.environ.get("API_SERVER_URL", 'http://edx.devstack.analyticsapi:19001/api/v0')
+DATA_API_V1_ENABLED = True
 DATA_API_URL_V1 = os.environ.get("API_SERVER_URL", 'http://edx.devstack.analyticsapi:19001/api/v1')
 
 # Set these to the correct values for your OAuth2/OpenID Connect provider (e.g., devstack)
