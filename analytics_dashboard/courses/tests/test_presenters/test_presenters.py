@@ -48,13 +48,6 @@ class BasePresenterTests(TestCase):
     def setUp(self):
         self.presenter = CoursePresenter('edX/DemoX/Demo_Course', Client('base_url'))
 
-    def test_init(self):
-        presenter = CoursePresenter('edX/DemoX/Demo_Course', Client('base_url'))
-        self.assertEqual(presenter.client.timeout, settings.ANALYTICS_API_DEFAULT_TIMEOUT)
-
-        presenter = CoursePresenter('edX/DemoX/Demo_Course', Client('base_url'), timeout=15)
-        self.assertEqual(presenter.client.timeout, 15)
-
     def test_parse_api_date(self):
         self.assertEqual(self.presenter.parse_api_date('2014-01-01'), datetime.date(year=2014, month=1, day=1))
 

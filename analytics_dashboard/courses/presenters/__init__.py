@@ -16,9 +16,8 @@ logger = logging.getLogger(__name__)
 
 class BasePresenter:
 
-    def __init__(self, analytics_client, timeout=settings.ANALYTICS_API_DEFAULT_TIMEOUT):
+    def __init__(self, analytics_client):
         self.client = analytics_client
-        self.client.timeout = timeout
 
     def get_current_date(self):
         return datetime.datetime.utcnow().strftime(Client.DATE_FORMAT)
@@ -47,8 +46,8 @@ class CoursePresenter(BasePresenter):
     This is the base class for the course pages and sets up the analytics client
     for the presenters to use to access the data API.
     """
-    def __init__(self, course_id, analytics_client, timeout=settings.ANALYTICS_API_DEFAULT_TIMEOUT):
-        super().__init__(analytics_client, timeout)
+    def __init__(self, course_id, analytics_client):
+        super().__init__(analytics_client)
         self.course_id = course_id
         self.course = self.client.courses(self.course_id)
 
@@ -61,8 +60,8 @@ class CourseAPIPresenterMixin(metaclass=abc.ABCMeta):
 
     _last_updated = None
 
-    def __init__(self, access_token, course_id, analytics_client, timeout=settings.LMS_DEFAULT_TIMEOUT):
-        super().__init__(course_id, analytics_client, timeout)
+    def __init__(self, access_token, course_id, analytics_client):
+        super().__init__(course_id, analytics_client)
         self.course_api_client = CourseStructureApiClient(settings.COURSE_API_URL, access_token)
 
     def _get_structure(self):
