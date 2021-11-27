@@ -40,7 +40,7 @@ cffi==1.15.0
     # via
     #   -r requirements/test.txt
     #   cryptography
-charset-normalizer==2.0.7
+charset-normalizer==2.0.8
     # via
     #   -r requirements/test.txt
     #   requests
@@ -54,11 +54,11 @@ code-annotations==1.2.0
     # via
     #   -r requirements/test.txt
     #   edx-toggles
-coverage[toml]==6.1.1
+coverage[toml]==6.2
     # via
     #   -r requirements/test.txt
     #   pytest-cov
-cryptography==35.0.0
+cryptography==36.0.0
     # via
     #   -r requirements/test.txt
     #   pyjwt
@@ -175,7 +175,7 @@ edx-toggles==4.2.0
     # via -r requirements/test.txt
 elasticsearch==2.4.1
     # via -r requirements/test.txt
-filelock==3.3.2
+filelock==3.4.0
     # via
     #   -r requirements/tox.txt
     #   tox
@@ -198,7 +198,7 @@ isort==4.3.21
     # via
     #   -r requirements/test.txt
     #   pylint
-jinja2==3.0.2
+jinja2==3.0.3
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -222,13 +222,13 @@ mccabe==0.6.1
     # via
     #   -r requirements/test.txt
     #   pylint
-more-itertools==8.10.0
+more-itertools==8.12.0
     # via
     #   -r requirements/test.txt
     #   pytest
-mysqlclient==2.0.3
+mysqlclient==2.1.0
     # via -r requirements/local.in
-newrelic==7.2.3.170
+newrelic==7.2.4.171
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -237,7 +237,7 @@ oauthlib==3.1.1
     #   -r requirements/test.txt
     #   requests-oauthlib
     #   social-auth-core
-packaging==21.2
+packaging==21.3
     # via
     #   -r requirements/test.txt
     #   -r requirements/tox.txt
@@ -250,7 +250,7 @@ path==16.2.0
     #   path.py
 path.py==12.5.0
     # via -r requirements/test.txt
-pbr==5.7.0
+pbr==5.8.0
     # via
     #   -r requirements/test.txt
     #   stevedore
@@ -322,7 +322,7 @@ pymongo==3.12.1
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
-pyparsing==2.4.7
+pyparsing==3.0.6
     # via
     #   -r requirements/test.txt
     #   -r requirements/tox.txt
@@ -409,7 +409,7 @@ slumber==0.7.1
     # via
     #   -r requirements/test.txt
     #   edx-rest-api-client
-snowballstemmer==2.1.0
+snowballstemmer==2.2.0
     # via
     #   -r requirements/test.txt
     #   pydocstyle
@@ -454,7 +454,7 @@ tox-battery==0.6.1
     # via -r requirements/tox.txt
 transifex-client==0.12.4
     # via -r requirements/local.in
-typing-extensions==3.10.0.2
+typing-extensions==4.0.0
     # via
     #   -r requirements/test.txt
     #   bpython
