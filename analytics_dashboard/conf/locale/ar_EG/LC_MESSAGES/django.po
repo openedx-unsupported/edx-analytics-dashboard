@@ -4,6 +4,7 @@
 # 
 # Translators:
 # A D <qetuzcm@gmail.com>, 2020
+# Fady Selim, 2021
 # Tarek Abbas <tarek.abbas10@gmail.com>, 2021
 # Zimeng Chen, 2021
 msgid ""
@@ -11,8 +12,8 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-29 20:42+0000\n"
-"PO-Revision-Date: 2021-09-28 17:30+0000\n"
-"Last-Translator: Zimeng Chen\n"
+"PO-Revision-Date: 2021-11-22 11:52+0000\n"
+"Last-Translator: Fady Selim\n"
 "Language-Team: Arabic (Egypt) (http://www.transifex.com/open-edx/edx-platform/language/ar_EG/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +37,7 @@ msgstr "رؤى لمساعدة فرق الدورة التدريبية على تح
 #: analytics_dashboard/core/templates/core/landing.html:42
 #: analytics_dashboard/courses/views/__init__.py:507
 msgid "Who are my learners?"
-msgstr "من هم متعلمي؟"
+msgstr "من هم المتدربين؟"
 
 #: analytics_dashboard/core/templates/core/landing.html:43
 msgid "Target your course to fit the backgrounds of your learners."
@@ -232,7 +233,7 @@ msgstr "{part_description}"
 #: analytics_dashboard/courses/presenters/performance.py:156
 #, python-brace-format
 msgid "Submissions for Part {part_number}"
-msgstr ""
+msgstr "Submissions for Part {part_number}"
 
 #: analytics_dashboard/courses/presenters/performance.py:157
 #, python-brace-format
@@ -246,7 +247,7 @@ msgstr "%(all_sections_text)s"
 
 #: analytics_dashboard/courses/templates/courses/_graded_content_nav.html:16
 msgid "Select Assignment Type"
-msgstr ""
+msgstr "Select Assignment Type"
 
 #. Translators: This refers to all course assignment types (e.g. homework,
 #. exam, lab).
@@ -260,7 +261,7 @@ msgid ""
 "\n"
 "        Select %(level)s\n"
 "    "
-msgstr ""
+msgstr "\n        Select %(level)s\n    "
 
 #: analytics_dashboard/courses/templates/courses/_graded_content_nav.html:31
 #: analytics_dashboard/courses/templates/courses/_tags_content_nav.html:23
@@ -358,7 +359,7 @@ msgstr "الدارسين (تقرير ذاتي)"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:23
 msgid "Weekly Learner Engagement"
-msgstr ""
+msgstr "Weekly Learner Engagement"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:24
 #: analytics_dashboard/courses/views/__init__.py:569
@@ -411,23 +412,23 @@ msgstr "جربت مشكلة الاسبوع الماضي"
 msgid ""
 "Learners who submitted an answer for a standard problem. Not all problem "
 "types are included."
-msgstr ""
+msgstr "Learners who submitted an answer for a standard problem. Not all problem types are included."
 
 #. Translators: This is a label indicating the number of learners who posted
 #. in a forum discussion.
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:76
 msgid "Participated in Discussions Last Week"
-msgstr ""
+msgstr "Participated in Discussions Last Week"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:77
 msgid ""
 "Learners who added a post, response, or comment to any course discussion."
-msgstr ""
+msgstr "Learners who added a post, response, or comment to any course discussion."
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:89
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:97
 msgid "Content Engagement Breakdown"
-msgstr ""
+msgstr "Content Engagement Breakdown"
 
 #. Translators: This describes the data displayed in the chart below. E.g. how
 #. many learners viewed a video.
@@ -467,85 +468,85 @@ msgid ""
 "Each bar shows the average number of complete and incomplete views for "
 "videos in that section. Click on bars with low totals or a high incomplete "
 "rate to drill down and understand why."
-msgstr ""
+msgstr "Each bar shows the average number of complete and incomplete views for videos in that section. Click on bars with low totals or a high incomplete rate to drill down and understand why."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:17
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:21
 msgid "Total Video Views"
-msgstr ""
+msgstr "Total Video Views"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:26
 msgid "What were the viewing patterns for this video?"
-msgstr ""
+msgstr "What were the viewing patterns for this video?"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:31
 msgid ""
 "The number of learners who watched each segment of the video, and the number"
 " of replays for each segment."
-msgstr ""
+msgstr "The number of learners who watched each segment of the video, and the number of replays for each segment."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:37
 msgid "Collapse Preview"
-msgstr ""
+msgstr "Collapse Preview"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:38
 msgid "Expand Preview"
-msgstr ""
+msgstr "Expand Preview"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:55
 msgid "Video Metrics"
-msgstr ""
+msgstr "Video Metrics"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:61
 msgid "Completion Rate"
-msgstr ""
+msgstr "Completion Rate"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:62
 msgid "Estimated percentage of learners who watched the entire video."
-msgstr ""
+msgstr "Estimated percentage of learners who watched the entire video."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:66
 msgid "Started Video"
-msgstr ""
+msgstr "Started Video"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:67
 msgid "Learners who started watching the video."
-msgstr ""
+msgstr "Learners who started watching the video."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:71
 msgid "Finished Video"
-msgstr ""
+msgstr "Finished Video"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:72
 msgid "Learners who watched the video to the end."
-msgstr ""
+msgstr "Learners who watched the video to the end."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:88
 msgid "Video Viewing Over Time"
-msgstr ""
+msgstr "Video Viewing Over Time"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:24
 msgid "Daily Learner Enrollment"
-msgstr ""
+msgstr "Daily Learner Enrollment"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:25
 #: analytics_dashboard/courses/views/__init__.py:510
 msgid "How many learners are in my course?"
-msgstr ""
+msgstr "How many learners are in my course?"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:32
 msgid "Enrollments"
-msgstr ""
+msgstr "Enrollments"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:33
 msgid ""
 "This graph displays the current enrollment for the course as of the end of "
 "each day. This includes new enrollments as well as unenrollments."
-msgstr ""
+msgstr "This graph displays the current enrollment for the course as of the end of each day. This includes new enrollments as well as unenrollments."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:49
 msgid "Enrollment Metrics"
-msgstr ""
+msgstr "Enrollment Metrics"
 
 #. Translators: This is a label to identify the number of learners who ever
 #. enrolled in the course.
@@ -554,12 +555,12 @@ msgstr ""
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:59
 #: analytics_dashboard/courses/templates/courses/index.html:26
 msgid "Total Enrollment"
-msgstr ""
+msgstr "Total Enrollment"
 
 #. Translators: This is a label indicating the number of learners in a course.
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:61
 msgid "Learners who ever enrolled in the course."
-msgstr ""
+msgstr "Learners who ever enrolled in the course."
 
 #. Translators: This is a label to identify current learner enrollment.
 #. Translators: This is a label to identify the current number of learners in
@@ -567,13 +568,13 @@ msgstr ""
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:68
 #: analytics_dashboard/courses/templates/courses/index.html:33
 msgid "Current Enrollment"
-msgstr ""
+msgstr "Current Enrollment"
 
 #. Translators: This is a label indicating the number of learners enrolled in
 #. a course.
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:70
 msgid "Learners currently enrolled in the course."
-msgstr ""
+msgstr "Learners currently enrolled in the course."
 
 #. Translators: This is a label indicating the change in the number of
 #. learners enrolled in a course since the previous week.
@@ -582,11 +583,11 @@ msgstr ""
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:76
 #: analytics_dashboard/courses/templates/courses/index.html:40
 msgid "Change in Last Week"
-msgstr ""
+msgstr "Change in Last Week"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:77
 msgid "Net difference in current enrollment in the last week."
-msgstr ""
+msgstr "Net difference in current enrollment in the last week."
 
 #. Translators: This is a label to identify enrollment of learners on the
 #. verified track.
@@ -595,7 +596,7 @@ msgstr ""
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:84
 #: analytics_dashboard/courses/templates/courses/index.html:47
 msgid "Verified Enrollment"
-msgstr ""
+msgstr "Verified Enrollment"
 
 #. Translators: This is a label indicating the number of learners enrolled in
 #. a course on the verified track.
@@ -603,7 +604,7 @@ msgstr ""
 msgid ""
 "Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
-msgstr ""
+msgstr "Number of currently enrolled learners pursuing a verified certificate of achievement."
 
 #. Translators: This is a label to identify enrollment of learners on the
 #. masters track.
@@ -612,13 +613,13 @@ msgstr ""
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:93
 #: analytics_dashboard/courses/templates/courses/index.html:53
 msgid "Master's Enrollment"
-msgstr ""
+msgstr "Master's Enrollment"
 
 #. Translators: This is a label indicating the number of learners enrolled in
 #. a course on the masters track.
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:95
 msgid "Number of currently enrolled learners pursuing a Master's degree."
-msgstr ""
+msgstr "Number of currently enrolled learners pursuing a Master's degree."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:109
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:117
@@ -626,12 +627,12 @@ msgstr ""
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:101
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_gender.html:66
 msgid "Enrollment Over Time"
-msgstr ""
+msgstr "Enrollment Over Time"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:26
 #: analytics_dashboard/courses/views/__init__.py:520
 msgid "How old are my learners?"
-msgstr ""
+msgstr "How old are my learners?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -641,67 +642,67 @@ msgstr ""
 msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
 "learners who provided a year of birth."
-msgstr ""
+msgstr "This age histogram presents data computed for the %(value)s%% of enrolled learners who provided a year of birth."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:56
 msgid "Age Metrics"
-msgstr ""
+msgstr "Age Metrics"
 
 #. Translators: This is a label to identify the median age of enrolled
 #. learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:65
 msgid "Median Learner Age"
-msgstr ""
+msgstr "Median Learner Age"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:66
 msgid ""
 "The midpoint of the learner ages, computed from the provided year of birth."
-msgstr ""
+msgstr "The midpoint of the learner ages, computed from the provided year of birth."
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:72
 msgid "Learners 25 and Under"
-msgstr ""
+msgstr "Learners 25 and Under"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:73
 msgid ""
 "The percentage of learners aged 25 years or younger (of those who provided a"
 " year of birth)."
-msgstr ""
+msgstr "The percentage of learners aged 25 years or younger (of those who provided a year of birth)."
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:79
 msgid "Learners 26 to 40"
-msgstr ""
+msgstr "Learners 26 to 40"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:80
 msgid ""
 "The percentage of learners aged from 26 to 40 years (of those who provided a"
 " year of birth)."
-msgstr ""
+msgstr "The percentage of learners aged from 26 to 40 years (of those who provided a year of birth)."
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:86
 msgid "Learners 41 and Over"
-msgstr ""
+msgstr "Learners 41 and Over"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:87
 msgid ""
 "The percentage of learners aged 41 years or older (of those who provided a "
 "year of birth)."
-msgstr ""
+msgstr "The percentage of learners aged 41 years or older (of those who provided a year of birth)."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:101
 msgid "Age Breakdown"
-msgstr ""
+msgstr "Age Breakdown"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:25
 #: analytics_dashboard/courses/views/__init__.py:530
 msgid "What level of education do my learners have?"
-msgstr ""
+msgstr "What level of education do my learners have?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -711,54 +712,54 @@ msgstr ""
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled learners who "
 "provided a highest level of education completed."
-msgstr ""
+msgstr "This graph presents data for the %(value)s%% of enrolled learners who provided a highest level of education completed."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:56
 msgid "Education Metrics"
-msgstr ""
+msgstr "Education Metrics"
 
 #. Translators: This is a label to identify learner educational background.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:64
 msgid "High School Diploma or Less"
-msgstr ""
+msgstr "High School Diploma or Less"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:65
 msgid ""
 "The percentage of learners who selected Secondary/high school, Junior "
 "secondary/junior high/middle school, or Elementary/primary school as their "
 "highest level of education completed."
-msgstr ""
+msgstr "The percentage of learners who selected Secondary/high school, Junior secondary/junior high/middle school, or Elementary/primary school as their highest level of education completed."
 
 #. Translators: This is a label to identify learner educational background.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:71
 msgid "College Degree"
-msgstr ""
+msgstr "College Degree"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:72
 msgid ""
 "The percentage of learners who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
-msgstr ""
+msgstr "The percentage of learners who selected Bachelor's degree or Associate degree as their highest level of education completed."
 
 #. Translators: This is a label to identify learner educational background.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:78
 msgid "Advanced Degree"
-msgstr ""
+msgstr "Advanced Degree"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:79
 msgid ""
 "The percentage of learners who selected Doctorate or Master's or "
 "professional degree as their highest level of education completed."
-msgstr ""
+msgstr "The percentage of learners who selected Doctorate or Master's or professional degree as their highest level of education completed."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:91
 msgid "Educational Breakdown"
-msgstr ""
+msgstr "Educational Breakdown"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_gender.html:25
 #: analytics_dashboard/courses/views/__init__.py:540
 msgid "What is the learner gender breakdown?"
-msgstr ""
+msgstr "What is the learner gender breakdown?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -768,80 +769,80 @@ msgstr ""
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled learners who "
 "specified their gender."
-msgstr ""
+msgstr "This graph presents data for the %(value)s%% of enrolled learners who specified their gender."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_gender.html:56
 msgid "Gender Breakdown Over Time"
-msgstr ""
+msgstr "Gender Breakdown Over Time"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:21
 msgid "Geographic Distribution"
-msgstr ""
+msgstr "Geographic Distribution"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:22
 #: analytics_dashboard/courses/views/__init__.py:550
 msgid "Where are my learners?"
-msgstr ""
+msgstr "Where are my learners?"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:27
 msgid "Enrollment by Country"
-msgstr ""
+msgstr "Enrollment by Country"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:45
 msgid "Geography Metrics"
-msgstr ""
+msgstr "Geography Metrics"
 
 #. Translators: This string represents the number of countries where learners
 #. are enrolled.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:53
 msgid "Total Countries or Regions Represented"
-msgstr ""
+msgstr "Total Countries or Regions Represented"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:54
 msgid "Countries or regions with at least one learner."
-msgstr ""
+msgstr "Countries or regions with at least one learner."
 
 #. Translators: This string represents the country or region with the greatest
 #. number of enrolled learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:62
 msgid "Top Country or Region by Enrollment"
-msgstr ""
+msgstr "Top Country or Region by Enrollment"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:63
 msgid "Country or region with the largest number of learners."
-msgstr ""
+msgstr "Country or region with the largest number of learners."
 
 #. Translators: This string represents the country or region with the second-
 #. greatest number of enrolled learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:66
 msgid "Second Country or Region by Enrollment"
-msgstr ""
+msgstr "Second Country or Region by Enrollment"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:67
 msgid "Country or region with the second largest number of learners."
-msgstr ""
+msgstr "Country or region with the second largest number of learners."
 
 #. Translators: This string represents the country or region with the third-
 #. greatest number of enrolled learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:70
 msgid "Third Country or Region by Enrollment"
-msgstr ""
+msgstr "Third Country or Region by Enrollment"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:71
 msgid "Country or region with the third largest number of learners."
-msgstr ""
+msgstr "Country or region with the third largest number of learners."
 
 #. Translators: This string represents the percentage of learners in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:77
 #, python-format
 msgid "%(percent)s%% of learners"
-msgstr ""
+msgstr "%(percent)s%% of learners"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:91
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:98
 msgid "Geographic Breakdown"
-msgstr ""
+msgstr "Geographic Breakdown"
 
 #. Translators: Application here refers to the web site/application being used
 #. (e.g. the dashboard).
@@ -850,21 +851,21 @@ msgstr ""
 #: analytics_dashboard/templates/footer.html:5
 #: analytics_dashboard/templates/lens-navigation.html:9
 msgid "Application"
-msgstr ""
+msgstr "Application"
 
 #. Translators: This refers to the homepage of a course.
 #: analytics_dashboard/courses/templates/courses/home.html:15
 #: analytics_dashboard/courses/views/__init__.py:499
 #: analytics_dashboard/templates/lens-navigation.html:20
 msgid "Course Home"
-msgstr ""
+msgstr "Course Home"
 
 #. Translators: This refers to the active tab/navigation item.
 #: analytics_dashboard/courses/templates/courses/home.html:16
 #: analytics_dashboard/templates/lens-navigation.html:31
 #: analytics_dashboard/templates/submenu_navigation.html:14
 msgid "Active"
-msgstr ""
+msgstr "Active"
 
 #. Translators: This indicates that the adjacent link will trigger a CSV
 #. download. '{{download_icon}}' will be replaced with an icon.
@@ -874,79 +875,79 @@ msgid ""
 "\n"
 "                    (%(download_icon)s CSV Download)\n"
 "                  "
-msgstr ""
+msgstr "\n                    (%(download_icon)s CSV Download)\n                  "
 
 #: analytics_dashboard/courses/templates/courses/home.html:93
 msgid "Basic Course Information"
-msgstr ""
+msgstr "Basic Course Information"
 
 #. Translators: This title describes a list of links to outside tools for this
 #. course.
 #: analytics_dashboard/courses/templates/courses/home.html:106
 msgid "External Tools"
-msgstr ""
+msgstr "External Tools"
 
 #: analytics_dashboard/courses/templates/courses/index.html:10
 #: analytics_dashboard/courses/views/course_summaries.py:30
 msgid "Courses"
-msgstr ""
+msgstr "Courses"
 
 #: analytics_dashboard/courses/templates/courses/index.html:17
 msgid "Across all your courses:"
-msgstr ""
+msgstr "Across all your courses:"
 
 #: analytics_dashboard/courses/templates/courses/index.html:27
 msgid "Total enrollments across all of your courses."
-msgstr ""
+msgstr "Total enrollments across all of your courses."
 
 #: analytics_dashboard/courses/templates/courses/index.html:34
 msgid "Current enrollments across all of your courses."
-msgstr ""
+msgstr "Current enrollments across all of your courses."
 
 #: analytics_dashboard/courses/templates/courses/index.html:41
 msgid "Total change in enrollment last week across all of your courses."
-msgstr ""
+msgstr "Total change in enrollment last week across all of your courses."
 
 #: analytics_dashboard/courses/templates/courses/index.html:48
 msgid "Verified enrollments across all of your courses."
-msgstr ""
+msgstr "Verified enrollments across all of your courses."
 
 #: analytics_dashboard/courses/templates/courses/index.html:54
 msgid "Master's enrollments across all of your courses."
-msgstr ""
+msgstr "Master's enrollments across all of your courses."
 
 #: analytics_dashboard/courses/templates/courses/performance_answer_distribution.html:7
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_answer_distribution.html:5
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_answer_distribution.html:7
 msgid "How did learners answer this problem?"
-msgstr ""
+msgstr "How did learners answer this problem?"
 
 #: analytics_dashboard/courses/templates/courses/performance_assignment.html:10
 msgid "How are learners doing on this assignment?"
-msgstr ""
+msgstr "How are learners doing on this assignment?"
 
 #: analytics_dashboard/courses/templates/courses/performance_assignment.html:15
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_subsection.html:15
 msgid ""
 "These bars show the correct and incorrect submission counts for each "
 "problem. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "These bars show the correct and incorrect submission counts for each problem. Only the last submission from each learner is counted."
 
 #: analytics_dashboard/courses/templates/courses/performance_assignment.html:19
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_section.html:20
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_subsection.html:19
 msgid "Problem Submissions"
-msgstr ""
+msgstr "Problem Submissions"
 
 #: analytics_dashboard/courses/templates/courses/performance_graded_content.html:9
 msgid "Which assignment type do you want to investigate?"
-msgstr ""
+msgstr "Which assignment type do you want to investigate?"
 
 #: analytics_dashboard/courses/templates/courses/performance_graded_content.html:13
 msgid ""
 "Click an assignment type to view more detail information about the "
 "assignments."
-msgstr ""
+msgstr "Click an assignment type to view more detail information about the assignments."
 
 #. Translators: This describes the percent an assignment contributes to that
 #. of a learner's grade (e.g. Exam: 60% of the grading policy.).
@@ -956,13 +957,13 @@ msgid ""
 "\n"
 "                %(assignment_type)s: %(policy_ratio)s%% of the grading policy\n"
 "              "
-msgstr ""
+msgstr "\n                %(assignment_type)s: %(policy_ratio)s%% of the grading policy\n              "
 
 #. Translators: This describes the percent of a learner's grade (e.g. 60%).
 #: analytics_dashboard/courses/templates/courses/performance_graded_content.html:34
 #, python-format
 msgid "%(policy_ratio)s%%"
-msgstr ""
+msgstr "%(policy_ratio)s%%"
 
 #: analytics_dashboard/courses/templates/courses/performance_graded_content_by_type.html:7
 #, python-format
@@ -970,95 +971,95 @@ msgid ""
 "\n"
 "      How are learners doing on the %(type)s?\n"
 "    "
-msgstr ""
+msgstr "\n      How are learners doing on the %(type)s?\n    "
 
 #: analytics_dashboard/courses/templates/courses/performance_graded_content_by_type.html:15
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "problems in the assignment. Only the last submission from each learner is "
 "counted."
-msgstr ""
+msgstr "Each bar shows the average number of correct and incorrect submissions for problems in the assignment. Only the last submission from each learner is counted."
 
 #: analytics_dashboard/courses/templates/courses/performance_graded_content_by_type.html:19
 msgid "Assignment Submissions"
-msgstr ""
+msgstr "Assignment Submissions"
 
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_content.html:6
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_section.html:6
 msgid "Measured by learning outcome, how are learners performing?"
-msgstr ""
+msgstr "Measured by learning outcome, how are learners performing?"
 
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_content.html:16
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each outcome."
-msgstr ""
+msgstr "Each bar shows the average number of correct and incorrect submissions for each outcome."
 
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_content.html:20
 msgid "Outcome Submissions"
-msgstr ""
+msgstr "Outcome Submissions"
 
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_section.html:16
 msgid ""
 "Each bar shows the correct and incorrect number of submissions for each "
 "problem for the current outcome."
-msgstr ""
+msgstr "Each bar shows the correct and incorrect number of submissions for each problem for the current outcome."
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_section.html:5
 msgid "How are learners doing on this section?"
-msgstr ""
+msgstr "How are learners doing on this section?"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_section.html:10
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each subsection. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "Each bar shows the average number of correct and incorrect submissions for each subsection. Only the last submission from each learner is counted."
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_section.html:14
 msgid "Subsection Submissions"
-msgstr ""
+msgstr "Subsection Submissions"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_subsection.html:10
 msgid "How are learners doing on this subsection?"
-msgstr ""
+msgstr "How are learners doing on this subsection?"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_content.html:7
 #: analytics_dashboard/courses/views/__init__.py:605
 msgid "How are learners doing on ungraded exercises?"
-msgstr ""
+msgstr "How are learners doing on ungraded exercises?"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_content.html:12
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each section. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "Each bar shows the average number of correct and incorrect submissions for each section. Only the last submission from each learner is counted."
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_content.html:16
 msgid "Section Submissions"
-msgstr ""
+msgstr "Section Submissions"
 
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
 #: analytics_dashboard/courses/templates/courses/permissions-retrieval-failed.html:5
 #: analytics_dashboard/courses/templates/courses/permissions-retrieval-failed.html:7
 msgid "Permissions Retrieval Failed"
-msgstr ""
+msgstr "Permissions Retrieval Failed"
 
 #: analytics_dashboard/courses/templates/courses/permissions-retrieval-failed.html:9
 msgid ""
 "There was a problem retrieving course permissions for your account. Please "
 "try again. If you continue to experience issues, please let us know."
-msgstr ""
+msgstr "There was a problem retrieving course permissions for your account. Please try again. If you continue to experience issues, please let us know."
 
 #: analytics_dashboard/courses/templates/courses/permissions-retrieval-failed.html:14
 msgid "Try Again"
-msgstr ""
+msgstr "Try Again"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:244
 #: analytics_dashboard/courses/views/__init__.py:512
 #: analytics_dashboard/courses/views/enrollment.py:25
 msgid "Activity"
-msgstr ""
+msgstr "Activity"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:254
 #: analytics_dashboard/courses/views/__init__.py:522
@@ -1066,156 +1067,156 @@ msgstr ""
 #: analytics_dashboard/courses/views/__init__.py:542
 #: analytics_dashboard/courses/views/enrollment.py:34
 msgid "Demographics"
-msgstr ""
+msgstr "Demographics"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:264
 #: analytics_dashboard/courses/views/__init__.py:552
 #: analytics_dashboard/courses/views/enrollment.py:43
 msgid "Geography"
-msgstr ""
+msgstr "Geography"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:302
 #: analytics_dashboard/courses/views/__init__.py:522
 #: analytics_dashboard/courses/views/enrollment.py:63
 msgid "Age"
-msgstr ""
+msgstr "Age"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:312
 #: analytics_dashboard/courses/views/__init__.py:532
 #: analytics_dashboard/courses/views/enrollment.py:72
 msgid "Education"
-msgstr ""
+msgstr "Education"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:322
 #: analytics_dashboard/courses/views/__init__.py:542
 #: analytics_dashboard/courses/views/enrollment.py:81
 msgid "Gender"
-msgstr ""
+msgstr "Gender"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:58
 #: analytics_dashboard/courses/views/__init__.py:571
 #: analytics_dashboard/courses/views/engagement.py:32
 msgid "Content"
-msgstr ""
+msgstr "Content"
 
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:69
 #: analytics_dashboard/courses/views/__init__.py:584
 #: analytics_dashboard/courses/views/engagement.py:41
 msgid "Videos"
-msgstr ""
+msgstr "Videos"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:68
 #: analytics_dashboard/courses/views/__init__.py:598
 #: analytics_dashboard/courses/views/performance.py:41
 #: analytics_dashboard/courses/views/performance.py:104
 msgid "Graded Content"
-msgstr ""
+msgstr "Graded Content"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:79
 #: analytics_dashboard/courses/views/__init__.py:607
 #: analytics_dashboard/courses/views/performance.py:50
 #: analytics_dashboard/courses/views/performance.py:89
 msgid "Ungraded Problems"
-msgstr ""
+msgstr "Ungraded Problems"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:542
 #: analytics_dashboard/courses/views/__init__.py:619
 #: analytics_dashboard/courses/views/performance.py:68
 msgid "Learning Outcomes"
-msgstr ""
+msgstr "Learning Outcomes"
 
 #: analytics_dashboard/courses/views/__init__.py:566
 msgid "What are learners doing in my course?"
-msgstr ""
+msgstr "What are learners doing in my course?"
 
 #: analytics_dashboard/courses/views/__init__.py:596
 msgid "How are learners doing on graded course assignments?"
-msgstr ""
+msgstr "How are learners doing on graded course assignments?"
 
 #: analytics_dashboard/courses/views/__init__.py:617
 msgid "What is the breakdown for course learning outcomes?"
-msgstr ""
+msgstr "What is the breakdown for course learning outcomes?"
 
 #: analytics_dashboard/courses/views/__init__.py:637
 msgid "How are learners responding to questions?"
-msgstr ""
+msgstr "How are learners responding to questions?"
 
 #: analytics_dashboard/courses/views/__init__.py:639
 msgid "Problem Response Report"
-msgstr ""
+msgstr "Problem Response Report"
 
 #: analytics_dashboard/courses/views/__init__.py:646
 msgid "How are learners doing on course assignments?"
-msgstr ""
+msgstr "How are learners doing on course assignments?"
 
 #: analytics_dashboard/courses/views/__init__.py:654
 msgid "What are individual learners doing?"
-msgstr ""
+msgstr "What are individual learners doing?"
 
 #: analytics_dashboard/courses/views/__init__.py:657
 msgid "Who is engaged? Who isn't?"
-msgstr ""
+msgstr "Who is engaged? Who isn't?"
 
 #: analytics_dashboard/courses/views/__init__.py:659
 msgid "All Learners"
-msgstr ""
+msgstr "All Learners"
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: analytics_dashboard/courses/views/__init__.py:723
 msgid "Course ID"
-msgstr ""
+msgstr "Course ID"
 
 #: analytics_dashboard/courses/views/__init__.py:725
 msgid "Course Name"
-msgstr ""
+msgstr "Course Name"
 
 #. Translators: 'In Progress' and 'Ended' refer to whether learners are
 #. actively using the course or it is over.
 #: analytics_dashboard/courses/views/__init__.py:742
 msgid "In Progress"
-msgstr ""
+msgstr "In Progress"
 
 #: analytics_dashboard/courses/views/__init__.py:742
 msgid "Ended"
-msgstr ""
+msgstr "Ended"
 
 #. Translators: This refers to a course that has not yet begun.
 #: analytics_dashboard/courses/views/__init__.py:745
 msgid "Not Started Yet"
-msgstr ""
+msgstr "Not Started Yet"
 
 #: analytics_dashboard/courses/views/__init__.py:747
 msgid "Start Date"
-msgstr ""
+msgstr "Start Date"
 
 #: analytics_dashboard/courses/views/__init__.py:748
 msgid "End Date"
-msgstr ""
+msgstr "End Date"
 
 #: analytics_dashboard/courses/views/__init__.py:749
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: analytics_dashboard/courses/views/__init__.py:758
 msgid "Instructor Dashboard"
-msgstr ""
+msgstr "Instructor Dashboard"
 
 #: analytics_dashboard/courses/views/__init__.py:763
 msgid "Courseware"
-msgstr ""
+msgstr "Courseware"
 
 #. Translators: Do not translate UTC.
 #: analytics_dashboard/courses/views/course_summaries.py:39
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
+msgstr "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
 
 #: analytics_dashboard/courses/views/engagement.py:57
 msgid "Engagement Content"
-msgstr ""
+msgstr "Engagement Content"
 
 #. Translators: Do not translate UTC.
 #: analytics_dashboard/courses/views/engagement.py:67
@@ -1223,35 +1224,35 @@ msgstr ""
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Course engagement data was last updated %(update_date)s at %(update_time)s UTC."
 
 #: analytics_dashboard/courses/views/engagement.py:93
 msgid "Engagement Videos"
-msgstr ""
+msgstr "Engagement Videos"
 
 #. Translators: Do not translate UTC.
 #: analytics_dashboard/courses/views/engagement.py:98
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
+msgstr "Video data was last updated %(update_date)s at %(update_time)s UTC."
 
 #: analytics_dashboard/courses/views/engagement.py:99
 msgid "Looks like no one has watched any videos in these sections."
-msgstr ""
+msgstr "Looks like no one has watched any videos in these sections."
 
 #: analytics_dashboard/courses/views/engagement.py:125
 #: analytics_dashboard/courses/views/performance.py:306
 msgid "Section Name"
-msgstr ""
+msgstr "Section Name"
 
 #: analytics_dashboard/courses/views/engagement.py:145
 #: analytics_dashboard/courses/views/performance.py:328
 msgid "Subsection Name"
-msgstr ""
+msgstr "Subsection Name"
 
 #: analytics_dashboard/courses/views/engagement.py:166
 msgid "Video Name"
-msgstr ""
+msgstr "Video Name"
 
 #. Translators: Do not translate UTC.
 #: analytics_dashboard/courses/views/enrollment.py:92
@@ -1259,18 +1260,18 @@ msgstr ""
 msgid ""
 "Demographic learner data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "Demographic learner data was last updated %(update_date)s at %(update_time)s UTC."
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
 #: analytics_dashboard/courses/views/enrollment.py:96
 msgid ""
 "All above demographic data was self-reported at the time of registration."
-msgstr ""
+msgstr "All above demographic data was self-reported at the time of registration."
 
 #: analytics_dashboard/courses/views/enrollment.py:109
 msgid "Enrollment Activity"
-msgstr ""
+msgstr "Enrollment Activity"
 
 #. Translators: Do not translate UTC.
 #: analytics_dashboard/courses/views/enrollment.py:119
@@ -1278,23 +1279,23 @@ msgstr ""
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "Enrollment activity data was last updated %(update_date)s at %(update_time)s UTC."
 
 #: analytics_dashboard/courses/views/enrollment.py:150
 msgid "Enrollment Demographics by Age"
-msgstr ""
+msgstr "Enrollment Demographics by Age"
 
 #: analytics_dashboard/courses/views/enrollment.py:188
 msgid "Enrollment Demographics by Education"
-msgstr ""
+msgstr "Enrollment Demographics by Education"
 
 #: analytics_dashboard/courses/views/enrollment.py:226
 msgid "Enrollment Demographics by Gender"
-msgstr ""
+msgstr "Enrollment Demographics by Gender"
 
 #: analytics_dashboard/courses/views/enrollment.py:264
 msgid "Enrollment Geography"
-msgstr ""
+msgstr "Enrollment Geography"
 
 #. Translators: Do not translate UTC.
 #: analytics_dashboard/courses/views/enrollment.py:274
@@ -1302,7 +1303,7 @@ msgstr ""
 msgid ""
 "Geographic learner data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Geographic learner data was last updated %(update_date)s at %(update_time)s UTC."
 
 #. Translators: Do not translate UTC.
 #: analytics_dashboard/courses/views/performance.py:36
@@ -1310,111 +1311,111 @@ msgstr ""
 msgid ""
 "Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Problem submission data was last updated %(update_date)s at %(update_time)s UTC."
 
 #: analytics_dashboard/courses/views/performance.py:82
 msgid "Assignment Name"
-msgstr ""
+msgstr "Assignment Name"
 
 #: analytics_dashboard/courses/views/performance.py:93
 #: analytics_dashboard/courses/views/performance.py:376
 msgid "No submissions received for these exercises."
-msgstr ""
+msgstr "No submissions received for these exercises."
 
 #: analytics_dashboard/courses/views/performance.py:109
 msgid "No submissions received for these assignments."
-msgstr ""
+msgstr "No submissions received for these assignments."
 
 #: analytics_dashboard/courses/views/performance.py:201
 #: analytics_dashboard/courses/views/performance.py:368
 #: analytics_dashboard/courses/views/performance.py:466
 msgid "Performance: Problem Submissions"
-msgstr ""
+msgstr "Performance: Problem Submissions"
 
 #: analytics_dashboard/courses/views/performance.py:263
 #, python-format
 msgid "Graded Content: %(assignment_type)s"
-msgstr ""
+msgstr "Graded Content: %(assignment_type)s"
 
 #: analytics_dashboard/courses/views/performance.py:282
 #: analytics_dashboard/courses/views/performance.py:350
 msgid "Problem Name"
-msgstr ""
+msgstr "Problem Name"
 
 #: analytics_dashboard/courses/views/performance.py:375
 #, python-format
 msgid ""
 "Tags distribution data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Tags distribution data was last updated %(update_date)s at %(update_time)s UTC."
 
 #: analytics_dashboard/courses/views/performance.py:404
 #: analytics_dashboard/courses/views/performance.py:434
 msgid "Performance: Learning Outcomes"
-msgstr ""
+msgstr "Performance: Learning Outcomes"
 
 #: analytics_dashboard/settings/base.py:430
 msgid "Terms of Service"
-msgstr ""
+msgstr "Terms of Service"
 
 #: analytics_dashboard/settings/base.py:431
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Privacy Policy"
 
 #: analytics_dashboard/templates/403.html:5
 #: analytics_dashboard/templates/403.html:8
 msgid "Access Denied"
-msgstr ""
+msgstr "Access Denied"
 
 #: analytics_dashboard/templates/403.html:10
 msgid ""
 "You do not have permission to view this page. If you believe you should have"
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
-msgstr ""
+msgstr "You do not have permission to view this page. If you believe you should have access to this page, try logging out and logging in again to refresh your permissions."
 
 #: analytics_dashboard/templates/403.html:17
 msgid "Logout then Login"
-msgstr ""
+msgstr "Logout then Login"
 
 #: analytics_dashboard/templates/404.html:5
 #: analytics_dashboard/templates/404.html:8
 msgid "Page Not Found"
-msgstr ""
+msgstr "Page Not Found"
 
 #: analytics_dashboard/templates/404.html:10
 msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
-msgstr ""
+msgstr "We can't find the page you're looking for. Please make sure the URL is correct and if not try again."
 
 #: analytics_dashboard/templates/500.html:5
 #: analytics_dashboard/templates/500.html:8
 msgid "An Error Occurred"
-msgstr ""
+msgstr "An Error Occurred"
 
 #: analytics_dashboard/templates/500.html:10
 msgid ""
 "Our servers weren't able to complete your request. Please try again by "
 "refreshing this page or retracing your steps."
-msgstr ""
+msgstr "Our servers weren't able to complete your request. Please try again by refreshing this page or retracing your steps."
 
 #: analytics_dashboard/templates/503.html:5
 #: analytics_dashboard/templates/503.html:7
 msgid "We're having trouble loading this page. Please try again in a minute."
-msgstr ""
+msgstr "We're having trouble loading this page. Please try again in a minute."
 
 #: analytics_dashboard/templates/503.html:10
 msgid "(Technical details: 503 Service Unavailable.)"
-msgstr ""
+msgstr "(Technical details: 503 Service Unavailable.)"
 
 #: analytics_dashboard/templates/_announcement.html:28
 msgid "Close"
-msgstr ""
+msgstr "Close"
 
 #: analytics_dashboard/templates/base-error.html:42
 msgid "Use our support tool to ask questions or share feedback."
-msgstr ""
+msgstr "Use our support tool to ask questions or share feedback."
 
 #. Translators: This intention here is that a user clicks a button to contact
 #. a support group (e.g. edX Support, or MITx Support). Reorder the
@@ -1422,14 +1423,14 @@ msgstr ""
 #: analytics_dashboard/templates/base-error.html:47
 #, python-format
 msgid "Contact %(platform_name)s Support"
-msgstr ""
+msgstr "Contact %(platform_name)s Support"
 
 #: analytics_dashboard/templates/footer.html:16
 #, python-format
 msgid ""
 "We want this dashboard to work for you! Need help? "
 "%(support_link_start)sContact course team support%(support_link_end)s."
-msgstr ""
+msgstr "We want this dashboard to work for you! Need help? %(support_link_start)sContact course team support%(support_link_end)s."
 
 #. Translators: The © symbol appears directly before this line.
 #: analytics_dashboard/templates/footer.html:39
@@ -1437,40 +1438,40 @@ msgstr ""
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
 "            reserved. "
-msgstr ""
+msgstr " %(current_year)s %(platform_name)s, except where noted, all rights\n            reserved. "
 
 #: analytics_dashboard/templates/header.html:13
 msgid "Toggle navigation"
-msgstr ""
+msgstr "Toggle navigation"
 
 #: analytics_dashboard/templates/header.html:40
 msgid "Help"
-msgstr ""
+msgstr "Help"
 
 #: analytics_dashboard/templates/header.html:46
 msgid "Menu for"
-msgstr ""
+msgstr "Menu for"
 
 #: analytics_dashboard/templates/header.html:60
 msgid "Logout"
-msgstr ""
+msgstr "Logout"
 
 #: analytics_dashboard/templates/lens-navigation.html:27
 msgid "Navigation Menu."
-msgstr ""
+msgstr "Navigation Menu."
 
 #: analytics_dashboard/templates/loading.html:7
 msgid "Loading"
-msgstr ""
+msgstr "Loading"
 
 #: analytics_dashboard/templates/section_error.html:10
 msgid "We are unable to load this chart."
-msgstr ""
+msgstr "We are unable to load this chart."
 
 #: analytics_dashboard/templates/section_error.html:12
 msgid "We are unable to load this table."
-msgstr ""
+msgstr "We are unable to load this table."
 
 #: analytics_dashboard/templates/section_error.html:14
 msgid "We are unable to load these metrics."
-msgstr ""
+msgstr "We are unable to load these metrics."
