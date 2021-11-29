@@ -10,12 +10,12 @@ from analytics_dashboard.courses.presenters.enrollment import (
     CourseEnrollmentDemographicsPresenter,
     CourseEnrollmentPresenter,
 )
-from analytics_dashboard.courses.views import CourseTemplateWithNavView
+from analytics_dashboard.courses.views import CourseTemplateWithNavView, AnalyticsV0Mixin
 
 logger = logging.getLogger(__name__)
 
 
-class EnrollmentTemplateView(CourseTemplateWithNavView):
+class EnrollmentTemplateView(AnalyticsV0Mixin, CourseTemplateWithNavView):
     """
     Base view for course enrollment pages.
     """
@@ -122,7 +122,7 @@ class EnrollmentActivityView(EnrollmentTemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        presenter = CourseEnrollmentPresenter(self.course_id)
+        presenter = CourseEnrollmentPresenter(self.course_id, self.analytics_client)
 
         summary = None
         trend = None
@@ -158,7 +158,7 @@ class EnrollmentDemographicsAgeView(EnrollmentDemographicsTemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        presenter = CourseEnrollmentDemographicsPresenter(self.course_id)
+        presenter = CourseEnrollmentDemographicsPresenter(self.course_id, self.analytics_client)
         binned_ages = None
         summary = None
         known_enrollment_percent = None
@@ -196,7 +196,7 @@ class EnrollmentDemographicsEducationView(EnrollmentDemographicsTemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        presenter = CourseEnrollmentDemographicsPresenter(self.course_id)
+        presenter = CourseEnrollmentDemographicsPresenter(self.course_id, self.analytics_client)
         binned_education = None
         summary = None
         known_enrollment_percent = None
@@ -234,7 +234,7 @@ class EnrollmentDemographicsGenderView(EnrollmentDemographicsTemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        presenter = CourseEnrollmentDemographicsPresenter(self.course_id)
+        presenter = CourseEnrollmentDemographicsPresenter(self.course_id, self.analytics_client)
         gender_data = None
         trend = None
         known_enrollment_percent = None
@@ -276,7 +276,7 @@ class EnrollmentGeographyView(EnrollmentTemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        presenter = CourseEnrollmentPresenter(self.course_id)
+        presenter = CourseEnrollmentPresenter(self.course_id, self.analytics_client)
 
         data = None
         last_updated = None

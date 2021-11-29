@@ -8,7 +8,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.utils import timezone
 
 from analytics_dashboard.courses.presenters.performance import CourseReportDownloadPresenter
-from analytics_dashboard.courses.views import CourseView
+from analytics_dashboard.courses.views import CourseView, AnalyticsV0Mixin
 
 logger = logging.getLogger(__name__)
 
@@ -57,21 +57,21 @@ class DatetimeCSVResponseMixin(CSVResponseMixin):
         return timezone.now().replace(microsecond=0).isoformat()
 
 
-class CourseEnrollmentDemographicsAgeCSV(CourseCSVResponseMixin, CourseView):
+class CourseEnrollmentDemographicsAgeCSV(AnalyticsV0Mixin, CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = 'enrollment-by-birth-year'
 
     def get_data(self):
         return self.course.enrollment(demographics.BIRTH_YEAR, data_format=data_formats.CSV)
 
 
-class CourseEnrollmentDemographicsEducationCSV(CourseCSVResponseMixin, CourseView):
+class CourseEnrollmentDemographicsEducationCSV(AnalyticsV0Mixin, CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = 'enrollment-by-education'
 
     def get_data(self):
         return self.course.enrollment(demographics.EDUCATION, data_format=data_formats.CSV)
 
 
-class CourseEnrollmentDemographicsGenderCSV(CourseCSVResponseMixin, CourseView):
+class CourseEnrollmentDemographicsGenderCSV(AnalyticsV0Mixin, CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = 'enrollment-by-gender'
 
     def get_data(self):
@@ -79,14 +79,14 @@ class CourseEnrollmentDemographicsGenderCSV(CourseCSVResponseMixin, CourseView):
         return self.course.enrollment(demographics.GENDER, end_date=end_date, data_format=data_formats.CSV)
 
 
-class CourseEnrollmentByCountryCSV(CourseCSVResponseMixin, CourseView):
+class CourseEnrollmentByCountryCSV(AnalyticsV0Mixin, CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = 'enrollment-location'
 
     def get_data(self):
         return self.course.enrollment(demographics.LOCATION, data_format=data_formats.CSV)
 
 
-class CourseEnrollmentCSV(CourseCSVResponseMixin, CourseView):
+class CourseEnrollmentCSV(AnalyticsV0Mixin, CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = 'enrollment'
 
     def get_data(self):
@@ -94,7 +94,7 @@ class CourseEnrollmentCSV(CourseCSVResponseMixin, CourseView):
         return self.course.enrollment('mode', data_format=data_formats.CSV, end_date=end_date)
 
 
-class CourseEngagementActivityTrendCSV(CourseCSVResponseMixin, CourseView):
+class CourseEngagementActivityTrendCSV(AnalyticsV0Mixin, CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = 'engagement-activity'
 
     def get_data(self):
@@ -102,28 +102,28 @@ class CourseEngagementActivityTrendCSV(CourseCSVResponseMixin, CourseView):
         return self.course.activity(data_format=data_formats.CSV, end_date=end_date)
 
 
-class CourseEngagementVideoTimelineCSV(CourseCSVResponseMixin, CourseView):
+class CourseEngagementVideoTimelineCSV(AnalyticsV0Mixin, CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = 'engagement-video-timeline'
 
     def get_data(self):
-        modules = self.client.modules(self.course_id, self.kwargs['pipeline_video_id'])
+        modules = self.analytics_client.modules(self.course_id, self.kwargs['pipeline_video_id'])
         return modules.video_timeline(data_format=data_formats.CSV)
 
 
-class PerformanceAnswerDistributionCSV(CourseCSVResponseMixin, CourseView):
+class PerformanceAnswerDistributionCSV(AnalyticsV0Mixin, CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = 'performance-answer-distribution'
 
     def get_data(self):
-        modules = self.client.modules(self.course_id, self.kwargs['content_id'])
+        modules = self.analytics_client.modules(self.course_id, self.kwargs['content_id'])
         return modules.answer_distribution(data_format=data_formats.CSV)
 
 
-class PerformanceProblemResponseCSV(CourseView):
+class PerformanceProblemResponseCSV(AnalyticsV0Mixin, CourseView):
     """
     Query the Data API to get a temporary secure download URL, and redirect to that.
     """
     # pylint: disable=unused-argument
     def render_to_response(self, context, **response_kwargs):
-        presenter = CourseReportDownloadPresenter(self.course_id)
+        presenter = CourseReportDownloadPresenter(self.course_id, self.analytics_client)
         data = presenter.get_report_info(CourseReportDownloadPresenter.PROBLEM_RESPONSES)
         return HttpResponseRedirect(data['download_url'], **response_kwargs)

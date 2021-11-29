@@ -17,6 +17,7 @@ from django.utils import dateformat
 from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ugettext_noop
+from django.views import View
 from django.views.generic import TemplateView
 from edx_rest_api_client.client import EdxRestApiClient
 from edx_rest_api_client.exceptions import (
@@ -424,13 +425,49 @@ class CourseNavBarMixin:
         return context
 
 
+class AnalyticsV0Mixin(View):
+    """
+    put views on analytics v0 unless v1 is requested
+    this mixin will be removed when transition is complete
+    """
+    analytics_client = None
+
+    def setup(self, request, *args, **kwargs):
+        super().setup(request, *args, **kwargs)
+        api_version = request.GET.get('v', '0')
+        analytics_base_url = settings.DATA_API_URL_V1 if api_version == '1' else settings.DATA_API_URL
+        self.analytics_client = Client(base_url=analytics_base_url,
+                                       auth_token=settings.DATA_API_AUTH_TOKEN,
+                                       timeout=settings.ANALYTICS_API_DEFAULT_TIMEOUT)
+
+
+class AnalyticsV1Mixin(View):
+    """
+    put views on analytics v1 if it is available, otherwise v0
+    still preserves a v0 escape valve during transition
+    but that will be removed from this class when we're done
+    """
+    analytics_client = None
+
+    def setup(self, request, *args, **kwargs):
+        super().setup(request, *args, **kwargs)
+        v_default = '0'
+        if settings.DATA_API_V1_ENABLED:
+            v_default = '1'
+
+        api_version = request.GET.get('v', v_default)
+        analytics_base_url = settings.DATA_API_URL_V1 if api_version == '1' else settings.DATA_API_URL
+        self.analytics_client = Client(base_url=analytics_base_url,
+                                       auth_token=settings.DATA_API_AUTH_TOKEN,
+                                       timeout=settings.ANALYTICS_API_DEFAULT_TIMEOUT)
+
+
 class CourseView(LoginRequiredMixin, CourseValidMixin, CoursePermissionMixin, TemplateView):
     """
     Base course view.
 
     Adds conveniences such as course_id attribute, and handles 404s when retrieving data from the API.
     """
-    client = None
     course = None
     course_id = None
     course_key = None
@@ -441,11 +478,6 @@ class CourseView(LoginRequiredMixin, CourseValidMixin, CoursePermissionMixin, Te
         self.user = request.user
         self.course_id = request.course_id
         self.course_key = request.course_key
-
-        try:
-            self.api_version = int(request.GET.get('v', 0))
-        except ValueError:
-            self.api_version = 0
 
         # some views will catch the NotFoundError to set data to a state that
         # the template can rendering a loading error message for the section
@@ -460,10 +492,7 @@ class CourseView(LoginRequiredMixin, CourseValidMixin, CoursePermissionMixin, Te
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        base_url = settings.DATA_API_URL_V1 if self.api_version == 1 else settings.DATA_API_URL
-        self.client = Client(base_url=base_url,
-                             auth_token=settings.DATA_API_AUTH_TOKEN, timeout=settings.LMS_DEFAULT_TIMEOUT)
-        self.course = self.client.courses(self.course_id)
+        self.course = self.analytics_client.courses(self.course_id)
         return context
 
 
@@ -495,7 +524,7 @@ class CourseTemplateWithNavView(CourseNavBarMixin, CourseTemplateView):
     pass
 
 
-class CourseHome(CourseTemplateWithNavView):
+class CourseHome(AnalyticsV0Mixin, CourseTemplateWithNavView):
     template_name = 'courses/home.html'
     page_name = {
         'scope': 'course',
@@ -633,7 +662,7 @@ class CourseHome(CourseTemplateWithNavView):
 
             if switch_is_active('enable_problem_response_download'):
                 try:
-                    info = CourseReportDownloadPresenter(self.course_id).get_report_info(
+                    info = CourseReportDownloadPresenter(self.course_id, self.analytics_client).get_report_info(
                         report_name=CourseReportDownloadPresenter.PROBLEM_RESPONSES
                     )
                 except NotFoundError:
