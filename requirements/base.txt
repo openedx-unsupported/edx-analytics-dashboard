@@ -10,10 +10,6 @@
     #   edx-auth-backends
 asgiref==3.4.1
     # via django
-blessings==1.7
-    # via curtsies
-bpython==0.22.1
-    # via -r requirements/base.in
 certifi==2021.10.8
     # via requests
 cffi==1.15.0
@@ -26,12 +22,6 @@ code-annotations==1.2.0
     # via edx-toggles
 cryptography==36.0.0
     # via pyjwt
-curtsies==0.3.10
-    # via bpython
-cwcwidth==0.1.5
-    # via
-    #   bpython
-    #   curtsies
 defusedxml==0.7.1
     # via
     #   python3-openid
@@ -121,8 +111,6 @@ edx-toggles==4.2.0
     # via -r requirements/base.in
 future==0.18.2
     # via pyjwkest
-greenlet==1.1.2
-    # via bpython
 idna==3.3
     # via requests
 jinja2==3.0.3
@@ -157,8 +145,6 @@ pycparser==2.21
     # via cffi
 pycryptodomex==3.11.0
     # via pyjwkest
-pygments==2.10.0
-    # via bpython
 pyjwkest==1.4.2
     # via edx-drf-extensions
 pyjwt[crypto]==2.3.0
@@ -168,7 +154,7 @@ pyjwt[crypto]==2.3.0
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   social-auth-core
-pymongo==3.12.1
+pymongo==4.0
     # via edx-opaque-keys
 python-dateutil==2.8.2
     # via edx-drf-extensions
@@ -180,8 +166,6 @@ python3-openid==3.2.0
     # via social-auth-core
 pytz==2021.3
     # via django
-pyxdg==0.27
-    # via bpython
 pyyaml==6.0
     # via
     #   code-annotations
@@ -190,7 +174,6 @@ pyyaml==6.0
 requests==2.26.0
     # via
     #   -r requirements/base.in
-    #   bpython
     #   edx-analytics-data-api-client
     #   edx-drf-extensions
     #   edx-rest-api-client
@@ -204,7 +187,6 @@ semantic-version==2.8.5
     # via edx-drf-extensions
 six==1.16.0
     # via
-    #   blessings
     #   djangorestframework-csv
     #   edx-auth-backends
     #   edx-ccx-keys
@@ -230,8 +212,6 @@ stevedore==3.5.0
     #   edx-opaque-keys
 text-unidecode==1.3
     # via python-slugify
-typing-extensions==4.0.0
-    # via bpython
 unicodecsv==0.14.1
     # via djangorestframework-csv
 urllib3==1.26.7
