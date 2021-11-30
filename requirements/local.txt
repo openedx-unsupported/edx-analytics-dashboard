@@ -24,13 +24,7 @@ backports.entry-points-selectable==1.1.1
     # via
     #   -r requirements/tox.txt
     #   virtualenv
-blessings==1.7
-    # via
-    #   -r requirements/test.txt
-    #   curtsies
 bok-choy==1.1.1
-    # via -r requirements/test.txt
-bpython==0.22.1
     # via -r requirements/test.txt
 certifi==2021.10.8
     # via
@@ -62,15 +56,6 @@ cryptography==36.0.0
     # via
     #   -r requirements/test.txt
     #   pyjwt
-curtsies==0.3.10
-    # via
-    #   -r requirements/test.txt
-    #   bpython
-cwcwidth==0.1.5
-    # via
-    #   -r requirements/test.txt
-    #   bpython
-    #   curtsies
 ddt==1.4.4
     # via -r requirements/test.txt
 defusedxml==0.7.1
@@ -184,10 +169,6 @@ future==0.18.2
     # via
     #   -r requirements/test.txt
     #   pyjwkest
-greenlet==1.1.2
-    # via
-    #   -r requirements/test.txt
-    #   bpython
 httpretty==1.1.4
     # via -r requirements/test.txt
 idna==3.3
@@ -298,10 +279,6 @@ pycryptodomex==3.11.0
     #   pyjwkest
 pydocstyle==6.1.1
     # via -r requirements/test.txt
-pygments==2.10.0
-    # via
-    #   -r requirements/test.txt
-    #   bpython
 pyjwkest==1.4.2
     # via
     #   -r requirements/test.txt
@@ -318,7 +295,7 @@ pylint==2.4.4
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
-pymongo==3.12.1
+pymongo==4.0
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
@@ -352,10 +329,6 @@ pytz==2021.3
     # via
     #   -r requirements/test.txt
     #   django
-pyxdg==0.27
-    # via
-    #   -r requirements/test.txt
-    #   bpython
 pyyaml==6.0
     # via
     #   -r requirements/test.txt
@@ -365,7 +338,6 @@ pyyaml==6.0
 requests==2.26.0
     # via
     #   -r requirements/test.txt
-    #   bpython
     #   edx-analytics-data-api-client
     #   edx-drf-extensions
     #   edx-rest-api-client
@@ -390,7 +362,6 @@ six==1.16.0
     #   -r requirements/test.txt
     #   -r requirements/tox.txt
     #   astroid
-    #   blessings
     #   bok-choy
     #   django-dynamic-fixture
     #   djangorestframework-csv
@@ -454,10 +425,6 @@ tox-battery==0.6.1
     # via -r requirements/tox.txt
 transifex-client==0.12.4
     # via -r requirements/local.in
-typing-extensions==4.0.0
-    # via
-    #   -r requirements/test.txt
-    #   bpython
 unicodecsv==0.14.1
     # via
     #   -r requirements/test.txt
