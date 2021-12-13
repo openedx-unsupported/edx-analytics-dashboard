@@ -24,7 +24,7 @@ cffi==1.15.0
     # via
     #   -r requirements/base.txt
     #   cryptography
-charset-normalizer==2.0.8
+charset-normalizer==2.0.9
     # via
     #   -r requirements/base.txt
     #   requests
@@ -45,7 +45,7 @@ defusedxml==0.7.1
     #   -r requirements/base.txt
     #   python3-openid
     #   social-auth-core
-django==3.2.9
+django==3.2.10
     # via
     #   -r requirements/base.txt
     #   django-appconf
@@ -92,7 +92,7 @@ django-webpack-loader==0.7.0
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.txt
-djangorestframework==3.12.4
+djangorestframework==3.13.0
     # via
     #   -r requirements/base.txt
     #   djangorestframework-csv
@@ -194,7 +194,7 @@ pycparser==2.21
     # via
     #   -r requirements/base.txt
     #   cffi
-pycryptodomex==3.11.0
+pycryptodomex==3.12.0
     # via
     #   -r requirements/base.txt
     #   pyjwkest
@@ -212,7 +212,7 @@ pyjwt[crypto]==2.3.0
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   social-auth-core
-pymongo==4.0
+pymongo==4.0.1
     # via
     #   -r requirements/base.txt
     #   edx-opaque-keys
@@ -235,6 +235,7 @@ pytz==2021.3
     #   -r requirements/base.txt
     #   babel
     #   django
+    #   djangorestframework
 pyyaml==6.0
     # via
     #   -r requirements/base.txt
