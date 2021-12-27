@@ -20,7 +20,7 @@ click==8.0.3
     # via code-annotations
 code-annotations==1.2.0
     # via edx-toggles
-cryptography==36.0.0
+cryptography==36.0.1
     # via pyjwt
 defusedxml==0.7.1
     # via
@@ -72,7 +72,7 @@ django-webpack-loader==0.7.0
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
-djangorestframework==3.13.0
+djangorestframework==3.13.1
     # via
     #   -r requirements/base.in
     #   djangorestframework-csv
@@ -90,7 +90,7 @@ edx-ccx-keys==1.2.1
     # via -r requirements/base.in
 edx-django-release-util==1.1.0
     # via -r requirements/base.in
-edx-django-utils==4.4.0
+edx-django-utils==4.4.1
     # via
     #   -r requirements/base.in
     #   edx-drf-extensions
@@ -105,7 +105,7 @@ edx-opaque-keys==2.2.2
     #   -r requirements/base.in
     #   edx-ccx-keys
     #   edx-drf-extensions
-edx-rest-api-client==5.4.0
+edx-rest-api-client==5.4.1
     # via -r requirements/base.in
 edx-toggles==4.2.0
     # via -r requirements/base.in

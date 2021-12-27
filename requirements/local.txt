@@ -52,7 +52,7 @@ coverage[toml]==6.2
     # via
     #   -r requirements/test.txt
     #   pytest-cov
-cryptography==36.0.0
+cryptography==36.0.1
     # via
     #   -r requirements/test.txt
     #   pyjwt
@@ -99,7 +99,7 @@ django-crum==0.7.9
     #   -r requirements/test.txt
     #   edx-django-utils
     #   edx-toggles
-django-debug-toolbar==3.2.3
+django-debug-toolbar==3.2.4
     # via -r requirements/local.in
 django-dynamic-fixture==3.1.2
     # via -r requirements/test.txt
@@ -119,7 +119,7 @@ django-webpack-loader==0.7.0
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
-djangorestframework==3.13.0
+djangorestframework==3.13.1
     # via
     #   -r requirements/test.txt
     #   djangorestframework-csv
@@ -139,7 +139,7 @@ edx-ccx-keys==1.2.1
     # via -r requirements/test.txt
 edx-django-release-util==1.1.0
     # via -r requirements/test.txt
-edx-django-utils==4.4.0
+edx-django-utils==4.4.1
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
@@ -154,13 +154,13 @@ edx-opaque-keys==2.2.2
     #   -r requirements/test.txt
     #   edx-ccx-keys
     #   edx-drf-extensions
-edx-rest-api-client==5.4.0
+edx-rest-api-client==5.4.1
     # via -r requirements/test.txt
 edx-toggles==4.2.0
     # via -r requirements/test.txt
 elasticsearch==2.4.1
     # via -r requirements/test.txt
-filelock==3.4.0
+filelock==3.4.2
     # via
     #   -r requirements/tox.txt
     #   tox
@@ -243,7 +243,7 @@ pinax-announcements==4.0.0
     # via -r requirements/test.txt
 pip-tools==6.4.0
     # via -r requirements/pip_tools.txt
-platformdirs==2.4.0
+platformdirs==2.4.1
     # via
     #   -r requirements/tox.txt
     #   virtualenv
@@ -411,7 +411,7 @@ toml==0.10.2
     # via
     #   -r requirements/tox.txt
     #   tox
-tomli==1.2.2
+tomli==2.0.0
     # via
     #   -r requirements/pip_tools.txt
     #   -r requirements/test.txt
@@ -445,7 +445,7 @@ wcwidth==0.2.5
     # via
     #   -r requirements/test.txt
     #   pytest
-wheel==0.37.0
+wheel==0.37.1
     # via
     #   -r requirements/pip_tools.txt
     #   pip-tools
