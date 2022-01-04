@@ -10,12 +10,12 @@ from analytics_dashboard.courses.presenters.enrollment import (
     CourseEnrollmentDemographicsPresenter,
     CourseEnrollmentPresenter,
 )
-from analytics_dashboard.courses.views import CourseTemplateWithNavView, AnalyticsV0Mixin
+from analytics_dashboard.courses.views import CourseTemplateWithNavView, AnalyticsV0Mixin, AnalyticsV1Mixin
 
 logger = logging.getLogger(__name__)
 
 
-class EnrollmentTemplateView(AnalyticsV0Mixin, CourseTemplateWithNavView):
+class EnrollmentTemplateView(CourseTemplateWithNavView):
     """
     Base view for course enrollment pages.
     """
@@ -52,7 +52,7 @@ class EnrollmentTemplateView(AnalyticsV0Mixin, CourseTemplateWithNavView):
     active_primary_nav_item = 'enrollment'
 
 
-class EnrollmentDemographicsTemplateView(EnrollmentTemplateView):
+class EnrollmentDemographicsTemplateView(AnalyticsV0Mixin, EnrollmentTemplateView):
     """
     Base view for course enrollment demographics pages.
     """
@@ -104,7 +104,7 @@ class EnrollmentDemographicsTemplateView(EnrollmentTemplateView):
         return formatted_percent
 
 
-class EnrollmentActivityView(EnrollmentTemplateView):
+class EnrollmentActivityView(AnalyticsV0Mixin, EnrollmentTemplateView):
     template_name = 'courses/enrollment_activity.html'
     page_title = _('Enrollment Activity')
     page_name = {
@@ -259,7 +259,7 @@ class EnrollmentDemographicsGenderView(EnrollmentDemographicsTemplateView):
         return context
 
 
-class EnrollmentGeographyView(EnrollmentTemplateView):
+class EnrollmentGeographyView(AnalyticsV1Mixin, EnrollmentTemplateView):
     template_name = 'courses/enrollment_geography.html'
     page_title = _('Enrollment Geography')
     page_name = {
