@@ -36,7 +36,7 @@ code-annotations==1.2.0
     # via
     #   -r requirements/base.txt
     #   edx-toggles
-cryptography==36.0.0
+cryptography==36.0.1
     # via
     #   -r requirements/base.txt
     #   pyjwt
@@ -92,7 +92,7 @@ django-webpack-loader==0.7.0
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.txt
-djangorestframework==3.13.0
+djangorestframework==3.13.1
     # via
     #   -r requirements/base.txt
     #   djangorestframework-csv
@@ -114,7 +114,7 @@ edx-ccx-keys==1.2.1
     # via -r requirements/base.txt
 edx-django-release-util==1.1.0
     # via -r requirements/base.txt
-edx-django-utils==4.4.0
+edx-django-utils==4.4.1
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
@@ -129,7 +129,7 @@ edx-opaque-keys==2.2.2
     #   -r requirements/base.txt
     #   edx-ccx-keys
     #   edx-drf-extensions
-edx-rest-api-client==5.4.0
+edx-rest-api-client==5.4.1
     # via -r requirements/base.txt
 edx-sphinx-theme==3.0.0
     # via -r requirements/doc.in
@@ -285,7 +285,7 @@ social-auth-core==3.2.0
     #   -c requirements/constraints.txt
     #   -r requirements/base.txt
     #   edx-auth-backends
-sphinx==4.3.1
+sphinx==4.3.2
     # via
     #   -r requirements/doc.in
     #   edx-sphinx-theme
