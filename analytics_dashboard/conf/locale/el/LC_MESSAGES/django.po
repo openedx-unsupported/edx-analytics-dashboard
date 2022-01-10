@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-29 20:42+0000\n"
+"POT-Creation-Date: 2022-01-10 21:09+0000\n"
 "PO-Revision-Date: 2021-09-09 13:31+0000\n"
 "Last-Translator: Eirini Mageiropoulou <eirmageir@yahoo.com>\n"
 "Language-Team: Greek (http://www.transifex.com/open-edx/edx-platform/language/el/)\n"
@@ -46,7 +46,7 @@ msgid "Insights to help course teams improve courses."
 msgstr "Ιδέες που μπορούν να βοηθήσουν τις ομάδες μαθημάτων στη βελτίωση των μαθημάτων τους."
 
 #: analytics_dashboard/core/templates/core/landing.html:42
-#: analytics_dashboard/courses/views/__init__.py:507
+#: analytics_dashboard/courses/views/__init__.py:543
 msgid "Who are my learners?"
 msgstr "Ποιοι είναι οι μαθητές μου;"
 
@@ -57,8 +57,8 @@ msgstr "Στοχεύστε το μάθημά σας, ώστε να ταιριά�
 #: analytics_dashboard/core/templates/core/landing.html:44
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:28
 #: analytics_dashboard/courses/tests/test_views/__init__.py:228
-#: analytics_dashboard/courses/views/__init__.py:304
-#: analytics_dashboard/courses/views/__init__.py:505
+#: analytics_dashboard/courses/views/__init__.py:305
+#: analytics_dashboard/courses/views/__init__.py:541
 msgid "Enrollment"
 msgstr "Εγγραφή"
 
@@ -74,8 +74,8 @@ msgstr "Βελτιώστε το περιεχόμενο που έχει συχν�
 
 #: analytics_dashboard/core/templates/core/landing.html:49
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:40
-#: analytics_dashboard/courses/views/__init__.py:315
-#: analytics_dashboard/courses/views/__init__.py:564
+#: analytics_dashboard/courses/views/__init__.py:316
+#: analytics_dashboard/courses/views/__init__.py:600
 msgid "Engagement"
 msgstr "Ενασχόληση"
 
@@ -89,8 +89,8 @@ msgstr "Ρυθμίστε το μάθημά σας με βάση το πού δυ
 
 #: analytics_dashboard/core/templates/core/landing.html:54
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:51
-#: analytics_dashboard/courses/views/__init__.py:326
-#: analytics_dashboard/courses/views/__init__.py:644
+#: analytics_dashboard/courses/views/__init__.py:327
+#: analytics_dashboard/courses/views/__init__.py:680
 msgid "Performance"
 msgstr "Επίδοση"
 
@@ -373,14 +373,14 @@ msgid "Weekly Learner Engagement"
 msgstr ""
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:24
-#: analytics_dashboard/courses/views/__init__.py:569
+#: analytics_dashboard/courses/views/__init__.py:605
 msgid "How many learners are interacting with my course?"
 msgstr ""
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:31
-#: analytics_dashboard/courses/views/__init__.py:338
-#: analytics_dashboard/courses/views/__init__.py:652
-#: analytics_dashboard/courses/views/__init__.py:716
+#: analytics_dashboard/courses/views/__init__.py:339
+#: analytics_dashboard/courses/views/__init__.py:688
+#: analytics_dashboard/courses/views/__init__.py:752
 #: analytics_dashboard/courses/views/learners.py:20
 msgid "Learners"
 msgstr "Μαθητές"
@@ -470,7 +470,7 @@ msgid ""
 msgstr ""
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_course.html:5
-#: analytics_dashboard/courses/views/__init__.py:582
+#: analytics_dashboard/courses/views/__init__.py:618
 msgid "How did learners interact with course videos?"
 msgstr ""
 
@@ -541,7 +541,7 @@ msgid "Daily Learner Enrollment"
 msgstr ""
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:25
-#: analytics_dashboard/courses/views/__init__.py:510
+#: analytics_dashboard/courses/views/__init__.py:546
 msgid "How many learners are in my course?"
 msgstr ""
 
@@ -641,7 +641,7 @@ msgid "Enrollment Over Time"
 msgstr "Συμμετοχές σε βάθος χρόνου"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:26
-#: analytics_dashboard/courses/views/__init__.py:520
+#: analytics_dashboard/courses/views/__init__.py:556
 msgid "How old are my learners?"
 msgstr ""
 
@@ -711,7 +711,7 @@ msgid "Age Breakdown"
 msgstr "Ηλικιακή ανάλυση"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:25
-#: analytics_dashboard/courses/views/__init__.py:530
+#: analytics_dashboard/courses/views/__init__.py:566
 msgid "What level of education do my learners have?"
 msgstr ""
 
@@ -768,7 +768,7 @@ msgid "Educational Breakdown"
 msgstr "Ανάλυση μορφωτικού επιπέδου"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_gender.html:25
-#: analytics_dashboard/courses/views/__init__.py:540
+#: analytics_dashboard/courses/views/__init__.py:576
 msgid "What is the learner gender breakdown?"
 msgstr ""
 
@@ -791,7 +791,7 @@ msgid "Geographic Distribution"
 msgstr "Γεωγραφική κατανομή"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:22
-#: analytics_dashboard/courses/views/__init__.py:550
+#: analytics_dashboard/courses/views/__init__.py:586
 msgid "Where are my learners?"
 msgstr ""
 
@@ -866,7 +866,7 @@ msgstr "Εφαρμογή"
 
 #. Translators: This refers to the homepage of a course.
 #: analytics_dashboard/courses/templates/courses/home.html:15
-#: analytics_dashboard/courses/views/__init__.py:499
+#: analytics_dashboard/courses/views/__init__.py:535
 #: analytics_dashboard/templates/lens-navigation.html:20
 msgid "Course Home"
 msgstr "Αρχική σελίδα μαθήματος"
@@ -899,7 +899,7 @@ msgid "External Tools"
 msgstr "Εξωτερικά εργαλεία"
 
 #: analytics_dashboard/courses/templates/courses/index.html:10
-#: analytics_dashboard/courses/views/course_summaries.py:30
+#: analytics_dashboard/courses/views/course_summaries.py:31
 msgid "Courses"
 msgstr "Μαθήματα"
 
@@ -1035,7 +1035,7 @@ msgid "How are learners doing on this subsection?"
 msgstr ""
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_content.html:7
-#: analytics_dashboard/courses/views/__init__.py:605
+#: analytics_dashboard/courses/views/__init__.py:641
 msgid "How are learners doing on ungraded exercises?"
 msgstr ""
 
@@ -1067,201 +1067,201 @@ msgid "Try Again"
 msgstr "Προσπαθήστε ξανά"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:244
-#: analytics_dashboard/courses/views/__init__.py:512
+#: analytics_dashboard/courses/views/__init__.py:548
 #: analytics_dashboard/courses/views/enrollment.py:25
 msgid "Activity"
 msgstr "Δραστηριότητα"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:254
-#: analytics_dashboard/courses/views/__init__.py:522
-#: analytics_dashboard/courses/views/__init__.py:532
-#: analytics_dashboard/courses/views/__init__.py:542
+#: analytics_dashboard/courses/views/__init__.py:558
+#: analytics_dashboard/courses/views/__init__.py:568
+#: analytics_dashboard/courses/views/__init__.py:578
 #: analytics_dashboard/courses/views/enrollment.py:34
 msgid "Demographics"
 msgstr "Δημογραφικά στοιχεία"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:264
-#: analytics_dashboard/courses/views/__init__.py:552
+#: analytics_dashboard/courses/views/__init__.py:588
 #: analytics_dashboard/courses/views/enrollment.py:43
 msgid "Geography"
 msgstr "Τοποθεσία"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:302
-#: analytics_dashboard/courses/views/__init__.py:522
+#: analytics_dashboard/courses/views/__init__.py:558
 #: analytics_dashboard/courses/views/enrollment.py:63
 msgid "Age"
 msgstr "Ηλικία"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:312
-#: analytics_dashboard/courses/views/__init__.py:532
+#: analytics_dashboard/courses/views/__init__.py:568
 #: analytics_dashboard/courses/views/enrollment.py:72
 msgid "Education"
 msgstr "Εκπαίδευση"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:322
-#: analytics_dashboard/courses/views/__init__.py:542
+#: analytics_dashboard/courses/views/__init__.py:578
 #: analytics_dashboard/courses/views/enrollment.py:81
 msgid "Gender"
 msgstr "Φύλο"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:58
-#: analytics_dashboard/courses/views/__init__.py:571
-#: analytics_dashboard/courses/views/engagement.py:32
+#: analytics_dashboard/courses/views/__init__.py:607
+#: analytics_dashboard/courses/views/engagement.py:33
 msgid "Content"
 msgstr "Περιεχόμενο"
 
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:69
-#: analytics_dashboard/courses/views/__init__.py:584
-#: analytics_dashboard/courses/views/engagement.py:41
+#: analytics_dashboard/courses/views/__init__.py:620
+#: analytics_dashboard/courses/views/engagement.py:42
 msgid "Videos"
 msgstr "Βίντεο"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:68
-#: analytics_dashboard/courses/views/__init__.py:598
-#: analytics_dashboard/courses/views/performance.py:41
-#: analytics_dashboard/courses/views/performance.py:104
+#: analytics_dashboard/courses/views/__init__.py:634
+#: analytics_dashboard/courses/views/performance.py:43
+#: analytics_dashboard/courses/views/performance.py:106
 msgid "Graded Content"
 msgstr "Βαθμολογούμενο περιεχόμενο"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:79
-#: analytics_dashboard/courses/views/__init__.py:607
-#: analytics_dashboard/courses/views/performance.py:50
-#: analytics_dashboard/courses/views/performance.py:89
+#: analytics_dashboard/courses/views/__init__.py:643
+#: analytics_dashboard/courses/views/performance.py:52
+#: analytics_dashboard/courses/views/performance.py:91
 msgid "Ungraded Problems"
 msgstr "Αβαθμολόγητα προβλήματα"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:542
-#: analytics_dashboard/courses/views/__init__.py:619
-#: analytics_dashboard/courses/views/performance.py:68
+#: analytics_dashboard/courses/views/__init__.py:655
+#: analytics_dashboard/courses/views/performance.py:70
 msgid "Learning Outcomes"
 msgstr ""
 
-#: analytics_dashboard/courses/views/__init__.py:566
+#: analytics_dashboard/courses/views/__init__.py:602
 msgid "What are learners doing in my course?"
 msgstr ""
 
-#: analytics_dashboard/courses/views/__init__.py:596
+#: analytics_dashboard/courses/views/__init__.py:632
 msgid "How are learners doing on graded course assignments?"
 msgstr ""
 
-#: analytics_dashboard/courses/views/__init__.py:617
+#: analytics_dashboard/courses/views/__init__.py:653
 msgid "What is the breakdown for course learning outcomes?"
 msgstr ""
 
-#: analytics_dashboard/courses/views/__init__.py:637
+#: analytics_dashboard/courses/views/__init__.py:673
 msgid "How are learners responding to questions?"
 msgstr ""
 
-#: analytics_dashboard/courses/views/__init__.py:639
+#: analytics_dashboard/courses/views/__init__.py:675
 msgid "Problem Response Report"
 msgstr ""
 
-#: analytics_dashboard/courses/views/__init__.py:646
+#: analytics_dashboard/courses/views/__init__.py:682
 msgid "How are learners doing on course assignments?"
 msgstr ""
 
-#: analytics_dashboard/courses/views/__init__.py:654
+#: analytics_dashboard/courses/views/__init__.py:690
 msgid "What are individual learners doing?"
 msgstr "Με τι ασχολούνται οι ανεξάρτητοι μαθητές;"
 
-#: analytics_dashboard/courses/views/__init__.py:657
+#: analytics_dashboard/courses/views/__init__.py:693
 msgid "Who is engaged? Who isn't?"
 msgstr ""
 
-#: analytics_dashboard/courses/views/__init__.py:659
+#: analytics_dashboard/courses/views/__init__.py:695
 msgid "All Learners"
 msgstr "Όλοι οι μαθητές"
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
-#: analytics_dashboard/courses/views/__init__.py:723
+#: analytics_dashboard/courses/views/__init__.py:759
 msgid "Course ID"
 msgstr "Ταυτότητα μαθήματος"
 
-#: analytics_dashboard/courses/views/__init__.py:725
+#: analytics_dashboard/courses/views/__init__.py:761
 msgid "Course Name"
 msgstr "Τίτλος μαθήματος"
 
 #. Translators: 'In Progress' and 'Ended' refer to whether learners are
 #. actively using the course or it is over.
-#: analytics_dashboard/courses/views/__init__.py:742
+#: analytics_dashboard/courses/views/__init__.py:778
 msgid "In Progress"
 msgstr "Σε εξέλιξη"
 
-#: analytics_dashboard/courses/views/__init__.py:742
+#: analytics_dashboard/courses/views/__init__.py:778
 msgid "Ended"
 msgstr "Λήξη"
 
 #. Translators: This refers to a course that has not yet begun.
-#: analytics_dashboard/courses/views/__init__.py:745
+#: analytics_dashboard/courses/views/__init__.py:781
 msgid "Not Started Yet"
 msgstr "Δεν έχει ακόμη ξεκινήσει"
 
-#: analytics_dashboard/courses/views/__init__.py:747
+#: analytics_dashboard/courses/views/__init__.py:783
 msgid "Start Date"
 msgstr "Ημερομηνία Έναρξης"
 
-#: analytics_dashboard/courses/views/__init__.py:748
+#: analytics_dashboard/courses/views/__init__.py:784
 msgid "End Date"
 msgstr "Ημερομηνία λήξης"
 
-#: analytics_dashboard/courses/views/__init__.py:749
+#: analytics_dashboard/courses/views/__init__.py:785
 msgid "Status"
 msgstr "Κατάσταση"
 
-#: analytics_dashboard/courses/views/__init__.py:758
+#: analytics_dashboard/courses/views/__init__.py:794
 msgid "Instructor Dashboard"
 msgstr "Πίνακας διδάσκοντα"
 
-#: analytics_dashboard/courses/views/__init__.py:763
+#: analytics_dashboard/courses/views/__init__.py:799
 msgid "Courseware"
 msgstr "Υλικό Mαθήματος"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/course_summaries.py:39
+#: analytics_dashboard/courses/views/course_summaries.py:40
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr ""
 
-#: analytics_dashboard/courses/views/engagement.py:57
+#: analytics_dashboard/courses/views/engagement.py:58
 msgid "Engagement Content"
 msgstr "Περιεχόμενο προς ενασχόληση"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:67
+#: analytics_dashboard/courses/views/engagement.py:68
 #, python-format
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr "Τα δεδομένα των δραστηριοτήτων του μαθήματος ενημερώθηκαν την %(update_date)s στις %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/engagement.py:93
+#: analytics_dashboard/courses/views/engagement.py:95
 msgid "Engagement Videos"
 msgstr "Βίντεο ενασχολήσεων"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:98
+#: analytics_dashboard/courses/views/engagement.py:100
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr "Τα δεδομένα των βίντεο ενημερώθηκαν την %(update_date)s στις %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/engagement.py:99
+#: analytics_dashboard/courses/views/engagement.py:101
 msgid "Looks like no one has watched any videos in these sections."
 msgstr "Φαίνεται ότι κανείς δεν έχει παρακολουθήσει κανένα από τα βίντεο σε αυτές τις ενότητες."
 
-#: analytics_dashboard/courses/views/engagement.py:125
-#: analytics_dashboard/courses/views/performance.py:306
+#: analytics_dashboard/courses/views/engagement.py:127
+#: analytics_dashboard/courses/views/performance.py:308
 msgid "Section Name"
 msgstr "Όνομα ενότητας"
 
-#: analytics_dashboard/courses/views/engagement.py:145
-#: analytics_dashboard/courses/views/performance.py:328
+#: analytics_dashboard/courses/views/engagement.py:147
+#: analytics_dashboard/courses/views/performance.py:330
 msgid "Subsection Name"
 msgstr "Όνομα υποενότητας"
 
-#: analytics_dashboard/courses/views/engagement.py:166
+#: analytics_dashboard/courses/views/engagement.py:168
 msgid "Video Name"
 msgstr "Όνομα βίντεο"
 
@@ -1317,59 +1317,59 @@ msgid ""
 msgstr ""
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/performance.py:36
+#: analytics_dashboard/courses/views/performance.py:38
 #, python-format
 msgid ""
 "Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr "Τελευταία ενημέρωση στοιχείων υποβολής προβλημάτων την %(update_date)s στις %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/performance.py:82
+#: analytics_dashboard/courses/views/performance.py:84
 msgid "Assignment Name"
 msgstr "Όνομα εργασίας"
 
-#: analytics_dashboard/courses/views/performance.py:93
-#: analytics_dashboard/courses/views/performance.py:376
+#: analytics_dashboard/courses/views/performance.py:95
+#: analytics_dashboard/courses/views/performance.py:378
 msgid "No submissions received for these exercises."
 msgstr "Δεν παραλήφθησαν υποβολές γι' αυτές τις ασκήσεις."
 
-#: analytics_dashboard/courses/views/performance.py:109
+#: analytics_dashboard/courses/views/performance.py:111
 msgid "No submissions received for these assignments."
 msgstr "Δεν παραλήφθησαν υποβολές γι' αυτές τις εργασίες."
 
-#: analytics_dashboard/courses/views/performance.py:201
-#: analytics_dashboard/courses/views/performance.py:368
-#: analytics_dashboard/courses/views/performance.py:466
+#: analytics_dashboard/courses/views/performance.py:203
+#: analytics_dashboard/courses/views/performance.py:370
+#: analytics_dashboard/courses/views/performance.py:468
 msgid "Performance: Problem Submissions"
 msgstr "Απόδοση: υποβολές προβλημάτων"
 
-#: analytics_dashboard/courses/views/performance.py:263
+#: analytics_dashboard/courses/views/performance.py:265
 #, python-format
 msgid "Graded Content: %(assignment_type)s"
 msgstr "Βαθμολογούμενο περιεχόμενο: %(assignment_type)s"
 
-#: analytics_dashboard/courses/views/performance.py:282
-#: analytics_dashboard/courses/views/performance.py:350
+#: analytics_dashboard/courses/views/performance.py:284
+#: analytics_dashboard/courses/views/performance.py:352
 msgid "Problem Name"
 msgstr "Ονομασία προβλήματος"
 
-#: analytics_dashboard/courses/views/performance.py:375
+#: analytics_dashboard/courses/views/performance.py:377
 #, python-format
 msgid ""
 "Tags distribution data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr ""
 
-#: analytics_dashboard/courses/views/performance.py:404
-#: analytics_dashboard/courses/views/performance.py:434
+#: analytics_dashboard/courses/views/performance.py:406
+#: analytics_dashboard/courses/views/performance.py:436
 msgid "Performance: Learning Outcomes"
 msgstr ""
 
-#: analytics_dashboard/settings/base.py:430
+#: analytics_dashboard/settings/base.py:433
 msgid "Terms of Service"
 msgstr "Όροι χρήσης"
 
-#: analytics_dashboard/settings/base.py:431
+#: analytics_dashboard/settings/base.py:434
 msgid "Privacy Policy"
 msgstr "Πολιτική προστασίας δεδομένων"
 
