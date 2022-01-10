@@ -8,7 +8,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.utils import timezone
 
 from analytics_dashboard.courses.presenters.performance import CourseReportDownloadPresenter
-from analytics_dashboard.courses.views import CourseView, AnalyticsV0Mixin
+from analytics_dashboard.courses.views import CourseView, AnalyticsV0Mixin, AnalyticsV1Mixin
 
 logger = logging.getLogger(__name__)
 
@@ -79,7 +79,7 @@ class CourseEnrollmentDemographicsGenderCSV(AnalyticsV0Mixin, CourseCSVResponseM
         return self.course.enrollment(demographics.GENDER, end_date=end_date, data_format=data_formats.CSV)
 
 
-class CourseEnrollmentByCountryCSV(AnalyticsV0Mixin, CourseCSVResponseMixin, CourseView):
+class CourseEnrollmentByCountryCSV(AnalyticsV1Mixin, CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = 'enrollment-location'
 
     def get_data(self):
