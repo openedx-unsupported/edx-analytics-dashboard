@@ -1,7 +1,7 @@
 from unittest.mock import Mock, patch
 import analyticsclient.constants.activity_types as AT
 import httpretty
-from ddt import ddt
+from ddt import ddt, data
 from django.test import TestCase
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
@@ -87,6 +87,14 @@ class CourseEngagementContentViewTests(CourseViewTestMixin, CourseEngagementView
     presenter_method = \
         'analytics_dashboard.courses.presenters.engagement.CourseEngagementActivityPresenter.get_summary_and_trend_data'
     active_secondary_nav_label = 'Content'
+
+    @httpretty.activate
+    @data(CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
+    @override_switch('enable_course_api', active=True)
+    @override_switch('display_course_name_in_nav', active=True)
+    def test_valid_course(self, course_id):
+        self.mock_course_detail(course_id)
+        self.getAndValidateView(course_id)
 
     def get_expected_secondary_nav(self, course_id):
         expected = super().get_expected_secondary_nav(course_id)

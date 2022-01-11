@@ -18,7 +18,7 @@ class CourseEnrollmentActivityViewTests(CourseEnrollmentViewTestMixin, TestCase)
     presenter_method = \
         'analytics_dashboard.courses.presenters.enrollment.CourseEnrollmentPresenter.get_summary_and_trend_data'
 
-    def getAndValidateView(self, course_id):
+    def getAndValidateView(self, course_id, age_available):
         summary, enrollment_data = utils.get_mock_enrollment_summary_and_trend(course_id)
         rv = summary, enrollment_data
         with mock.patch(self.presenter_method, return_value=rv):
@@ -42,7 +42,7 @@ class CourseEnrollmentActivityViewTests(CourseEnrollmentViewTestMixin, TestCase)
         self.assertListEqual(trend_data, expected)
 
         self.assertPrimaryNav(context['primary_nav_item'], course_id)
-        self.assertSecondaryNavs(context['secondary_nav_items'], course_id)
+        self.assertSecondaryNavs(context['secondary_nav_items'], course_id, age_available)
         self.assertValidCourseName(course_id, response.context)
 
     def assertValidMissingDataContext(self, context):
@@ -60,7 +60,7 @@ class CourseEnrollmentGeographyViewTests(CourseEnrollmentViewTestMixin, TestCase
     def get_mock_data(self, course_id):
         return utils.get_mock_api_enrollment_geography_data(course_id)
 
-    def getAndValidateView(self, course_id):
+    def getAndValidateView(self, course_id, age_available):
         with mock.patch(self.presenter_method, return_value=utils.get_mock_presenter_enrollment_geography_data()):
             response = self.client.get(self.path(course_id=course_id))
             context = response.context
@@ -76,6 +76,8 @@ class CourseEnrollmentGeographyViewTests(CourseEnrollmentViewTestMixin, TestCase
             self.assertEqual(page_data['course']['enrollmentByCountry'], expected_data)
 
             self.assertValidCourseName(course_id, response.context)
+            self.assertPrimaryNav(context['primary_nav_item'], course_id)
+            self.assertSecondaryNavs(context['secondary_nav_items'], course_id, age_available)
 
     def assertValidMissingDataContext(self, context):
         self.assertIsNone(context['update_message'])
@@ -89,7 +91,7 @@ class CourseEnrollmentDemographicsAge(CourseEnrollmentDemographicsMixin, TestCas
     presenter_method = \
         'analytics_dashboard.courses.presenters.enrollment.CourseEnrollmentDemographicsPresenter.get_ages'
 
-    def getAndValidateView(self, course_id):
+    def getAndValidateView(self, course_id, age_available):
         last_updated, summary, binned_ages, known_percent = utils.get_presenter_ages()
         rv = last_updated, summary, binned_ages, known_percent
         with mock.patch(self.presenter_method, return_value=rv):
@@ -109,7 +111,7 @@ class CourseEnrollmentDemographicsAge(CourseEnrollmentDemographicsMixin, TestCas
         actual_ages = page_data['course']['ages']
         self.assertListEqual(actual_ages, binned_ages)
         self.assertDictEqual(context['summary'], summary)
-        self.assertAllNavs(context, course_id)
+        self.assertAllNavs(context, course_id, age_available)
 
         self.assertValidCourseName(course_id, response.context)
 
@@ -128,7 +130,7 @@ class CourseEnrollmentDemographicsEducation(CourseEnrollmentDemographicsMixin, T
     presenter_method = \
         'analytics_dashboard.courses.presenters.enrollment.CourseEnrollmentDemographicsPresenter.get_education'
 
-    def getAndValidateView(self, course_id):
+    def getAndValidateView(self, course_id, age_available):
         last_updated, summary, education_data, known_percent = utils.get_presenter_education()
         rv = last_updated, summary, education_data, known_percent
         with mock.patch(self.presenter_method, return_value=rv):
@@ -148,7 +150,7 @@ class CourseEnrollmentDemographicsEducation(CourseEnrollmentDemographicsMixin, T
         actual_education = page_data['course']['education']
         self.assertListEqual(actual_education, education_data)
         self.assertDictEqual(context['summary'], summary)
-        self.assertAllNavs(context, course_id)
+        self.assertAllNavs(context, course_id, age_available)
 
         self.assertValidCourseName(course_id, response.context)
 
@@ -167,7 +169,7 @@ class CourseEnrollmentDemographicsGender(CourseEnrollmentDemographicsMixin, Test
     presenter_method = \
         'analytics_dashboard.courses.presenters.enrollment.CourseEnrollmentDemographicsPresenter.get_gender'
 
-    def getAndValidateView(self, course_id):
+    def getAndValidateView(self, course_id, age_available):
         last_updated, gender_data, trend, known_percent = utils.get_presenter_gender(course_id)
         rv = last_updated, gender_data, trend, known_percent
         with mock.patch(self.presenter_method, return_value=rv):
@@ -190,7 +192,7 @@ class CourseEnrollmentDemographicsGender(CourseEnrollmentDemographicsMixin, Test
         actual_trends = page_data['course']['genderTrend']
         self.assertListEqual(actual_trends, trend)
 
-        self.assertAllNavs(context, course_id)
+        self.assertAllNavs(context, course_id, age_available)
         self.assertValidCourseName(course_id, response.context)
 
     def get_mock_data(self, course_id):

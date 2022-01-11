@@ -321,6 +321,9 @@ DATA_API_URL_V1 = 'http://127.0.0.1:9001/api/v1'
 DATA_API_AUTH_TOKEN = 'changeme'
 ########## END DATA API CONFIGURATION
 
+# can this installation collect and display age info
+ENROLLMENT_AGE_AVAILABLE = True
+
 # used to determine if a course ID is valid
 LMS_COURSE_VALIDATION_BASE_URL = None
 

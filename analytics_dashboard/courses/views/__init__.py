@@ -38,7 +38,7 @@ from analytics_dashboard.courses.presenters.performance import CourseReportDownl
 from analytics_dashboard.courses.serializers import LazyEncoder
 from analytics_dashboard.courses.utils import get_page_name, is_feature_enabled
 from analytics_dashboard.courses.waffle import (
-    DISPLAY_LEARNER_ANALYTICS,
+    DISPLAY_LEARNER_ANALYTICS, age_available,
 )
 from analytics_dashboard.help.views import ContextSensitiveHelpMixin
 
@@ -537,21 +537,19 @@ class CourseHome(AnalyticsV0Mixin, CourseTemplateWithNavView):
     def get_table_items(self):
         items = []
 
-        enrollment_items = {
-            'name': _('Enrollment'),
-            'icon': 'fa-child',
-            'heading': _('Who are my learners?'),
-            'items': [
-                {
-                    'title': ugettext_noop('How many learners are in my course?'),
-                    'view': 'courses:enrollment:activity',
-                    'breadcrumbs': [_('Activity')],
-                    'fragment': '',
-                    'scope': 'course',
-                    'lens': 'enrollment',
-                    'report': 'activity',
-                    'depth': ''
-                },
+        enrollment_subitems = [
+            {
+                'title': ugettext_noop('How many learners are in my course?'),
+                'view': 'courses:enrollment:activity',
+                'breadcrumbs': [_('Activity')],
+                'fragment': '',
+                'scope': 'course',
+                'lens': 'enrollment',
+                'report': 'activity',
+                'depth': ''
+            }]
+        if age_available():
+            enrollment_subitems = enrollment_subitems + [
                 {
                     'title': ugettext_noop('How old are my learners?'),
                     'view': 'courses:enrollment:demographics_age',
@@ -561,38 +559,45 @@ class CourseHome(AnalyticsV0Mixin, CourseTemplateWithNavView):
                     'lens': 'enrollment',
                     'report': 'demographics',
                     'depth': 'age'
-                },
-                {
-                    'title': ugettext_noop('What level of education do my learners have?'),
-                    'view': 'courses:enrollment:demographics_education',
-                    'breadcrumbs': [_('Demographics'), _('Education')],
-                    'fragment': '',
-                    'scope': 'course',
-                    'lens': 'enrollment',
-                    'report': 'demographics',
-                    'depth': 'education'
-                },
-                {
-                    'title': ugettext_noop('What is the learner gender breakdown?'),
-                    'view': 'courses:enrollment:demographics_gender',
-                    'breadcrumbs': [_('Demographics'), _('Gender')],
-                    'fragment': '',
-                    'scope': 'course',
-                    'lens': 'enrollment',
-                    'report': 'demographics',
-                    'depth': 'gender'
-                },
-                {
-                    'title': ugettext_noop('Where are my learners?'),
-                    'view': 'courses:enrollment:geography',
-                    'breadcrumbs': [_('Geography')],
-                    'fragment': '',
-                    'scope': 'course',
-                    'lens': 'enrollment',
-                    'report': 'geography',
-                    'depth': ''
-                },
-            ],
+                }]
+        enrollment_subitems = enrollment_subitems + [
+            {
+                'title': ugettext_noop('What level of education do my learners have?'),
+                'view': 'courses:enrollment:demographics_education',
+                'breadcrumbs': [_('Demographics'), _('Education')],
+                'fragment': '',
+                'scope': 'course',
+                'lens': 'enrollment',
+                'report': 'demographics',
+                'depth': 'education'
+            },
+            {
+                'title': ugettext_noop('What is the learner gender breakdown?'),
+                'view': 'courses:enrollment:demographics_gender',
+                'breadcrumbs': [_('Demographics'), _('Gender')],
+                'fragment': '',
+                'scope': 'course',
+                'lens': 'enrollment',
+                'report': 'demographics',
+                'depth': 'gender'
+            },
+            {
+                'title': ugettext_noop('Where are my learners?'),
+                'view': 'courses:enrollment:geography',
+                'breadcrumbs': [_('Geography')],
+                'fragment': '',
+                'scope': 'course',
+                'lens': 'enrollment',
+                'report': 'geography',
+                'depth': ''
+            },
+        ]
+
+        enrollment_items = {
+            'name': _('Enrollment'),
+            'icon': 'fa-child',
+            'heading': _('Who are my learners?'),
+            'items': enrollment_subitems,
         }
         items.append(enrollment_items)
 
