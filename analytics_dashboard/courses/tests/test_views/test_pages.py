@@ -14,7 +14,7 @@ from analytics_dashboard.courses.tests.utils import CourseSamples
 class CourseHomeViewTests(CourseViewTestMixin, TestCase):
     viewname = 'courses:home'
 
-    def assertViewIsValid(self, course_id):
+    def getAndValidateView(self, course_id):
         response = self.client.get(self.path(course_id=course_id))
         self.assertEqual(response.status_code, 200)
 

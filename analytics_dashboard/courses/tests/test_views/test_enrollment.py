@@ -18,7 +18,7 @@ class CourseEnrollmentActivityViewTests(CourseEnrollmentViewTestMixin, TestCase)
     presenter_method = \
         'analytics_dashboard.courses.presenters.enrollment.CourseEnrollmentPresenter.get_summary_and_trend_data'
 
-    def assertViewIsValid(self, course_id):
+    def getAndValidateView(self, course_id):
         summary, enrollment_data = utils.get_mock_enrollment_summary_and_trend(course_id)
         rv = summary, enrollment_data
         with mock.patch(self.presenter_method, return_value=rv):
@@ -60,7 +60,7 @@ class CourseEnrollmentGeographyViewTests(CourseEnrollmentViewTestMixin, TestCase
     def get_mock_data(self, course_id):
         return utils.get_mock_api_enrollment_geography_data(course_id)
 
-    def assertViewIsValid(self, course_id):
+    def getAndValidateView(self, course_id):
         with mock.patch(self.presenter_method, return_value=utils.get_mock_presenter_enrollment_geography_data()):
             response = self.client.get(self.path(course_id=course_id))
             context = response.context
@@ -89,7 +89,7 @@ class CourseEnrollmentDemographicsAge(CourseEnrollmentDemographicsMixin, TestCas
     presenter_method = \
         'analytics_dashboard.courses.presenters.enrollment.CourseEnrollmentDemographicsPresenter.get_ages'
 
-    def assertViewIsValid(self, course_id):
+    def getAndValidateView(self, course_id):
         last_updated, summary, binned_ages, known_percent = utils.get_presenter_ages()
         rv = last_updated, summary, binned_ages, known_percent
         with mock.patch(self.presenter_method, return_value=rv):
@@ -128,7 +128,7 @@ class CourseEnrollmentDemographicsEducation(CourseEnrollmentDemographicsMixin, T
     presenter_method = \
         'analytics_dashboard.courses.presenters.enrollment.CourseEnrollmentDemographicsPresenter.get_education'
 
-    def assertViewIsValid(self, course_id):
+    def getAndValidateView(self, course_id):
         last_updated, summary, education_data, known_percent = utils.get_presenter_education()
         rv = last_updated, summary, education_data, known_percent
         with mock.patch(self.presenter_method, return_value=rv):
@@ -167,7 +167,7 @@ class CourseEnrollmentDemographicsGender(CourseEnrollmentDemographicsMixin, Test
     presenter_method = \
         'analytics_dashboard.courses.presenters.enrollment.CourseEnrollmentDemographicsPresenter.get_gender'
 
-    def assertViewIsValid(self, course_id):
+    def getAndValidateView(self, course_id):
         last_updated, gender_data, trend, known_percent = utils.get_presenter_gender(course_id)
         rv = last_updated, gender_data, trend, known_percent
         with mock.patch(self.presenter_method, return_value=rv):

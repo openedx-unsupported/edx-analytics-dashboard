@@ -188,7 +188,7 @@ class CourseViewTestMixin(CourseAPIMixin, NavAssertMixin, ViewTestMixin):
         response = self.client.get(path, follow=True)
         self.assertEqual(response.status_code, 404)
 
-    def assertViewIsValid(self, course_id):
+    def getAndValidateView(self, course_id):
         raise NotImplementedError
 
     @httpretty.activate
@@ -197,7 +197,7 @@ class CourseViewTestMixin(CourseAPIMixin, NavAssertMixin, ViewTestMixin):
     @override_switch('display_course_name_in_nav', active=True)
     def test_valid_course(self, course_id):
         self.mock_course_detail(course_id)
-        self.assertViewIsValid(course_id)
+        self.getAndValidateView(course_id)
 
     def assertValidMissingDataContext(self, context):
         raise NotImplementedError

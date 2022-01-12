@@ -96,7 +96,7 @@ class CourseEngagementContentViewTests(CourseViewTestMixin, CourseEngagementView
         })
         return expected
 
-    def assertViewIsValid(self, course_id):
+    def getAndValidateView(self, course_id):
         rv = utils.mock_engagement_activity_summary_and_trend_data()
         with patch(self.presenter_method, Mock(return_value=rv)):
             response = self.client.get(self.path(course_id=course_id))
