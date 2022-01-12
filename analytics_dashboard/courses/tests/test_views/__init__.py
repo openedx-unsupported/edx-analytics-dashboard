@@ -157,9 +157,6 @@ class ViewTestMixin(AuthTestMixin):
 
 
 class NavAssertMixin:
-    def generate_course_name(self, course_id):
-        return 'Test ' + course_id
-
     def assertPrimaryNav(self, nav, course_id):
         raise NotImplementedError
 
@@ -209,6 +206,9 @@ class CourseViewTestMixin(CourseAPIMixin, NavAssertMixin, ViewTestMixin):
             context = response.context
 
         self.assertValidMissingDataContext(context)
+
+    def generate_course_name(self, course_id):
+        return 'Test ' + course_id
 
     def assertValidCourseName(self, course_id, context):
         course_name = self.generate_course_name(course_id)
