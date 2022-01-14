@@ -14,7 +14,15 @@ from analytics_dashboard.courses.tests.utils import CourseSamples
 class CourseHomeViewTests(CourseViewTestMixin, TestCase):
     viewname = 'courses:home'
 
-    def assertViewIsValid(self, course_id):
+    @httpretty.activate
+    @data(CourseSamples.DEMO_COURSE_ID, CourseSamples.DEPRECATED_DEMO_COURSE_ID)
+    @override_switch('enable_course_api', active=True)
+    @override_switch('display_course_name_in_nav', active=True)
+    def test_valid_course(self, course_id):
+        self.mock_course_detail(course_id)
+        self.getAndValidateView(course_id)
+
+    def getAndValidateView(self, course_id):
         response = self.client.get(self.path(course_id=course_id))
         self.assertEqual(response.status_code, 200)
 

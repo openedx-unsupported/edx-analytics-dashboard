@@ -112,6 +112,16 @@ The following flags are available:
 |--------------------------------|-------------------------------------------------------|
 | display_learner_analytics      | Display Learner Analytics links                       |
 
+
+Settings describe features which are not expected to be toggled on and off without significant system changes.
+
+The following setting is available:
+
+| Flag                           | Purpose                                               |
+|--------------------------------|-------------------------------------------------------|
+| ENROLLMENT_AGE_AVAILABLE      | Display age as part of enrollment demographics                       |
+
+
 Authentication & Authorization
 ------------------------------
 This section is only necessary if running I stand alone service OAuth2 is automatically configured by provisioning in devstack.

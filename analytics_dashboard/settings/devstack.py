@@ -17,6 +17,8 @@ DATA_API_URL = os.environ.get("API_SERVER_URL", 'http://edx.devstack.analyticsap
 DATA_API_V1_ENABLED = True
 DATA_API_URL_V1 = os.environ.get("API_SERVER_URL", 'http://edx.devstack.analyticsapi:19001/api/v1')
 
+ENROLLMENT_AGE_AVAILABLE = True
+
 # Set these to the correct values for your OAuth2/OpenID Connect provider (e.g., devstack)
 SOCIAL_AUTH_EDX_OAUTH2_KEY = os.environ.get('SOCIAL_AUTH_EDX_OAUTH2_KEY', 'insights-sso-key')
 SOCIAL_AUTH_EDX_OAUTH2_SECRET = os.environ.get('SOCIAL_AUTH_EDX_OAUTH2_SECRET', 'insights-sso-secret')

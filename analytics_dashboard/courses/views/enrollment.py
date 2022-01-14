@@ -11,14 +11,31 @@ from analytics_dashboard.courses.presenters.enrollment import (
     CourseEnrollmentPresenter,
 )
 from analytics_dashboard.courses.views import CourseTemplateWithNavView, AnalyticsV0Mixin, AnalyticsV1Mixin
+from analytics_dashboard.courses.waffle import age_available
 
 logger = logging.getLogger(__name__)
 
 
-class EnrollmentTemplateView(CourseTemplateWithNavView):
-    """
-    Base view for course enrollment pages.
-    """
+# separated from EnrollmentTemplateView so it can be rerun in test
+def _enrollment_secondary_nav():
+    demographics_landing_view = {
+        'name': 'demographics',
+        'text': ugettext_noop('Demographics'),
+        'view': 'courses:enrollment:demographics_age',
+        'scope': 'course',
+        'lens': 'enrollment',
+        'report': 'demographics',
+        'depth': 'age'
+    } if age_available() else {
+        'name': 'demographics',
+        'text': ugettext_noop('Demographics'),
+        'view': 'courses:enrollment:demographics_education',
+        'scope': 'course',
+        'lens': 'enrollment',
+        'report': 'demographics',
+        'depth': 'education'
+    }
+
     secondary_nav_items = [
         {
             'name': 'activity',
@@ -29,15 +46,7 @@ class EnrollmentTemplateView(CourseTemplateWithNavView):
             'report': 'activity',
             'depth': ''
         },
-        {
-            'name': 'demographics',
-            'text': ugettext_noop('Demographics'),
-            'view': 'courses:enrollment:demographics_age',
-            'scope': 'course',
-            'lens': 'enrollment',
-            'report': 'demographics',
-            'depth': 'age'
-        },
+        demographics_landing_view,
         {
             'name': 'geography',
             'text': ugettext_noop('Geography'),
@@ -49,15 +58,20 @@ class EnrollmentTemplateView(CourseTemplateWithNavView):
         },
     ]
     translate_dict_values(secondary_nav_items, ('text',))
+    return secondary_nav_items
+
+
+class EnrollmentTemplateView(CourseTemplateWithNavView):
+    """
+    Base view for course enrollment pages.
+    """
+    secondary_nav_items = _enrollment_secondary_nav()
     active_primary_nav_item = 'enrollment'
 
 
-class EnrollmentDemographicsTemplateView(AnalyticsV0Mixin, EnrollmentTemplateView):
-    """
-    Base view for course enrollment demographics pages.
-    """
-    active_secondary_nav_item = 'demographics'
-    tertiary_nav_items = [
+# separated from the class so it can be invoked in test with varying settings
+def _enrollment_tertiary_nav():
+    tertiary_age = [
         {
             'name': 'age',
             'text': ugettext_noop('Age'),
@@ -66,7 +80,9 @@ class EnrollmentDemographicsTemplateView(AnalyticsV0Mixin, EnrollmentTemplateVie
             'lens': 'enrollment',
             'report': 'demographics',
             'depth': 'age'
-        },
+        }
+    ] if age_available() else []
+    tertiary_nav_items = tertiary_age + [
         {
             'name': 'education',
             'text': ugettext_noop('Education'),
@@ -87,6 +103,16 @@ class EnrollmentDemographicsTemplateView(AnalyticsV0Mixin, EnrollmentTemplateVie
         }
     ]
     translate_dict_values(tertiary_nav_items, ('text',))
+    return tertiary_nav_items
+
+
+class EnrollmentDemographicsTemplateView(AnalyticsV0Mixin, EnrollmentTemplateView):
+    """
+    Base view for course enrollment demographics pages.
+    """
+    active_secondary_nav_item = 'demographics'
+
+    tertiary_nav_items = _enrollment_tertiary_nav()
 
     # Translators: Do not translate UTC.
     update_message = _('Demographic learner data was last updated %(update_date)s at %(update_time)s UTC.')
