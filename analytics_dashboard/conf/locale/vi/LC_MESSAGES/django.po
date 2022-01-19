@@ -25,7 +25,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-10 21:09+0000\n"
+"POT-Creation-Date: 2021-09-29 20:42+0000\n"
 "PO-Revision-Date: 2020-11-20 19:00+0000\n"
 "Last-Translator: Huy Nguyen <huy@steamforvietnam.org>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/open-edx/edx-platform/language/vi/)\n"
@@ -49,7 +49,7 @@ msgid "Insights to help course teams improve courses."
 msgstr "Thông tin giúp người làm khoá học nâng cao chất lượng nội dung"
 
 #: analytics_dashboard/core/templates/core/landing.html:42
-#: analytics_dashboard/courses/views/__init__.py:543
+#: analytics_dashboard/courses/views/__init__.py:507
 msgid "Who are my learners?"
 msgstr "Ai là học viên của tôi?"
 
@@ -60,8 +60,8 @@ msgstr "Định hướng khóa học của bạn phù hợp với kiến thức 
 #: analytics_dashboard/core/templates/core/landing.html:44
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:28
 #: analytics_dashboard/courses/tests/test_views/__init__.py:228
-#: analytics_dashboard/courses/views/__init__.py:305
-#: analytics_dashboard/courses/views/__init__.py:541
+#: analytics_dashboard/courses/views/__init__.py:304
+#: analytics_dashboard/courses/views/__init__.py:505
 msgid "Enrollment"
 msgstr "Đăng Ký"
 
@@ -77,8 +77,8 @@ msgstr "Cải thiện nội dung được truy cập thường xuyên, hoặc gi
 
 #: analytics_dashboard/core/templates/core/landing.html:49
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:40
-#: analytics_dashboard/courses/views/__init__.py:316
-#: analytics_dashboard/courses/views/__init__.py:600
+#: analytics_dashboard/courses/views/__init__.py:315
+#: analytics_dashboard/courses/views/__init__.py:564
 msgid "Engagement"
 msgstr "Tham gia"
 
@@ -92,8 +92,8 @@ msgstr "Điều chỉnh khóa học của bạn dựa trên những điểm họ
 
 #: analytics_dashboard/core/templates/core/landing.html:54
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:51
-#: analytics_dashboard/courses/views/__init__.py:327
-#: analytics_dashboard/courses/views/__init__.py:680
+#: analytics_dashboard/courses/views/__init__.py:326
+#: analytics_dashboard/courses/views/__init__.py:644
 msgid "Performance"
 msgstr "Thành quả học tập"
 
@@ -376,14 +376,14 @@ msgid "Weekly Learner Engagement"
 msgstr "Công Việc Hàng Tuần của Học Viên"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:24
-#: analytics_dashboard/courses/views/__init__.py:605
+#: analytics_dashboard/courses/views/__init__.py:569
 msgid "How many learners are interacting with my course?"
 msgstr "Có bao nhiêu học viên đang theo khóa học của tôi?"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:31
-#: analytics_dashboard/courses/views/__init__.py:339
-#: analytics_dashboard/courses/views/__init__.py:688
-#: analytics_dashboard/courses/views/__init__.py:752
+#: analytics_dashboard/courses/views/__init__.py:338
+#: analytics_dashboard/courses/views/__init__.py:652
+#: analytics_dashboard/courses/views/__init__.py:716
 #: analytics_dashboard/courses/views/learners.py:20
 msgid "Learners"
 msgstr "Học viên"
@@ -473,7 +473,7 @@ msgid ""
 msgstr "Mỗi cột biểu thị số lượng lượt xem hết hay chưa hết cho video đó. Ấn vào để biết học viên đã bỏ dở ở đầu và phần nào họ xem lại."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_course.html:5
-#: analytics_dashboard/courses/views/__init__.py:618
+#: analytics_dashboard/courses/views/__init__.py:582
 msgid "How did learners interact with course videos?"
 msgstr "Học viên tương tác với các video trong phần này như thế nào?"
 
@@ -544,7 +544,7 @@ msgid "Daily Learner Enrollment"
 msgstr "Học Viên Đăng ký Mỗi Ngày"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:25
-#: analytics_dashboard/courses/views/__init__.py:546
+#: analytics_dashboard/courses/views/__init__.py:510
 msgid "How many learners are in my course?"
 msgstr "Có bao nhiêu  học viên trong khóa học của tôi?"
 
@@ -644,7 +644,7 @@ msgid "Enrollment Over Time"
 msgstr "Số dăng ký trong một khoảng thời gian"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:26
-#: analytics_dashboard/courses/views/__init__.py:556
+#: analytics_dashboard/courses/views/__init__.py:520
 msgid "How old are my learners?"
 msgstr "Học viên của tôi bao nhiêu tuổi?"
 
@@ -714,7 +714,7 @@ msgid "Age Breakdown"
 msgstr "Phân loại tuổi"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:25
-#: analytics_dashboard/courses/views/__init__.py:566
+#: analytics_dashboard/courses/views/__init__.py:530
 msgid "What level of education do my learners have?"
 msgstr "Học viên của tôi có mức độ học vấn như thế nào ?"
 
@@ -771,7 +771,7 @@ msgid "Educational Breakdown"
 msgstr "Phân Loại Học Vấn"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_gender.html:25
-#: analytics_dashboard/courses/views/__init__.py:576
+#: analytics_dashboard/courses/views/__init__.py:540
 msgid "What is the learner gender breakdown?"
 msgstr "Phân loại giới tính học viên?"
 
@@ -794,7 +794,7 @@ msgid "Geographic Distribution"
 msgstr "Phân Bố Địa Lý"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:22
-#: analytics_dashboard/courses/views/__init__.py:586
+#: analytics_dashboard/courses/views/__init__.py:550
 msgid "Where are my learners?"
 msgstr "Những học viên của tôi ở đâu?"
 
@@ -869,7 +869,7 @@ msgstr "Ứng dụng"
 
 #. Translators: This refers to the homepage of a course.
 #: analytics_dashboard/courses/templates/courses/home.html:15
-#: analytics_dashboard/courses/views/__init__.py:535
+#: analytics_dashboard/courses/views/__init__.py:499
 #: analytics_dashboard/templates/lens-navigation.html:20
 msgid "Course Home"
 msgstr "Trang chủ khóa học"
@@ -902,7 +902,7 @@ msgid "External Tools"
 msgstr "Những công cụ bên ngoài"
 
 #: analytics_dashboard/courses/templates/courses/index.html:10
-#: analytics_dashboard/courses/views/course_summaries.py:31
+#: analytics_dashboard/courses/views/course_summaries.py:30
 msgid "Courses"
 msgstr "Khóa học"
 
@@ -1038,7 +1038,7 @@ msgid "How are learners doing on this subsection?"
 msgstr "Các học viên làm gì trong phần con này?"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_content.html:7
-#: analytics_dashboard/courses/views/__init__.py:641
+#: analytics_dashboard/courses/views/__init__.py:605
 msgid "How are learners doing on ungraded exercises?"
 msgstr "Các học viên làm gì với những bài tập chưa phân loại?"
 
@@ -1070,201 +1070,201 @@ msgid "Try Again"
 msgstr "Vui Lòng Thử Lại"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:244
-#: analytics_dashboard/courses/views/__init__.py:548
+#: analytics_dashboard/courses/views/__init__.py:512
 #: analytics_dashboard/courses/views/enrollment.py:25
 msgid "Activity"
 msgstr "Hoạt động"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:254
-#: analytics_dashboard/courses/views/__init__.py:558
-#: analytics_dashboard/courses/views/__init__.py:568
-#: analytics_dashboard/courses/views/__init__.py:578
+#: analytics_dashboard/courses/views/__init__.py:522
+#: analytics_dashboard/courses/views/__init__.py:532
+#: analytics_dashboard/courses/views/__init__.py:542
 #: analytics_dashboard/courses/views/enrollment.py:34
 msgid "Demographics"
 msgstr "Nhân khẩu học"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:264
-#: analytics_dashboard/courses/views/__init__.py:588
+#: analytics_dashboard/courses/views/__init__.py:552
 #: analytics_dashboard/courses/views/enrollment.py:43
 msgid "Geography"
 msgstr "Vị trí"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:302
-#: analytics_dashboard/courses/views/__init__.py:558
+#: analytics_dashboard/courses/views/__init__.py:522
 #: analytics_dashboard/courses/views/enrollment.py:63
 msgid "Age"
 msgstr "Tuổi"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:312
-#: analytics_dashboard/courses/views/__init__.py:568
+#: analytics_dashboard/courses/views/__init__.py:532
 #: analytics_dashboard/courses/views/enrollment.py:72
 msgid "Education"
 msgstr "Giáo dục"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:322
-#: analytics_dashboard/courses/views/__init__.py:578
+#: analytics_dashboard/courses/views/__init__.py:542
 #: analytics_dashboard/courses/views/enrollment.py:81
 msgid "Gender"
 msgstr "Giới tính"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:58
-#: analytics_dashboard/courses/views/__init__.py:607
-#: analytics_dashboard/courses/views/engagement.py:33
+#: analytics_dashboard/courses/views/__init__.py:571
+#: analytics_dashboard/courses/views/engagement.py:32
 msgid "Content"
 msgstr "Nội dung"
 
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:69
-#: analytics_dashboard/courses/views/__init__.py:620
-#: analytics_dashboard/courses/views/engagement.py:42
+#: analytics_dashboard/courses/views/__init__.py:584
+#: analytics_dashboard/courses/views/engagement.py:41
 msgid "Videos"
 msgstr "Videos"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:68
-#: analytics_dashboard/courses/views/__init__.py:634
-#: analytics_dashboard/courses/views/performance.py:43
-#: analytics_dashboard/courses/views/performance.py:106
+#: analytics_dashboard/courses/views/__init__.py:598
+#: analytics_dashboard/courses/views/performance.py:41
+#: analytics_dashboard/courses/views/performance.py:104
 msgid "Graded Content"
 msgstr "Nội dung đã chấm"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:79
-#: analytics_dashboard/courses/views/__init__.py:643
-#: analytics_dashboard/courses/views/performance.py:52
-#: analytics_dashboard/courses/views/performance.py:91
+#: analytics_dashboard/courses/views/__init__.py:607
+#: analytics_dashboard/courses/views/performance.py:50
+#: analytics_dashboard/courses/views/performance.py:89
 msgid "Ungraded Problems"
 msgstr "Các vấn đề chưa được chấm"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:542
-#: analytics_dashboard/courses/views/__init__.py:655
-#: analytics_dashboard/courses/views/performance.py:70
+#: analytics_dashboard/courses/views/__init__.py:619
+#: analytics_dashboard/courses/views/performance.py:68
 msgid "Learning Outcomes"
 msgstr "Kết quả Học tập"
 
-#: analytics_dashboard/courses/views/__init__.py:602
+#: analytics_dashboard/courses/views/__init__.py:566
 msgid "What are learners doing in my course?"
 msgstr "Học viên đang học như thế nào trong các khóa học của tôi?"
 
-#: analytics_dashboard/courses/views/__init__.py:632
+#: analytics_dashboard/courses/views/__init__.py:596
 msgid "How are learners doing on graded course assignments?"
 msgstr "Các học viên làm bài tập như thế nào?"
 
-#: analytics_dashboard/courses/views/__init__.py:653
+#: analytics_dashboard/courses/views/__init__.py:617
 msgid "What is the breakdown for course learning outcomes?"
 msgstr "Sự cố về kết quả học tập của khoá học là gì?"
 
-#: analytics_dashboard/courses/views/__init__.py:673
+#: analytics_dashboard/courses/views/__init__.py:637
 msgid "How are learners responding to questions?"
 msgstr "Học sinh trả lời các câu hỏi như thế nào?"
 
-#: analytics_dashboard/courses/views/__init__.py:675
+#: analytics_dashboard/courses/views/__init__.py:639
 msgid "Problem Response Report"
 msgstr "Báo cáo Phản hồi Sự cố"
 
-#: analytics_dashboard/courses/views/__init__.py:682
+#: analytics_dashboard/courses/views/__init__.py:646
 msgid "How are learners doing on course assignments?"
 msgstr "Các học viên làm bài tập như thế nào?"
 
-#: analytics_dashboard/courses/views/__init__.py:690
+#: analytics_dashboard/courses/views/__init__.py:654
 msgid "What are individual learners doing?"
 msgstr "Các học viên cá nhân đang làm gì?"
 
-#: analytics_dashboard/courses/views/__init__.py:693
+#: analytics_dashboard/courses/views/__init__.py:657
 msgid "Who is engaged? Who isn't?"
 msgstr "Ai tham gia, ai không tham gia?"
 
-#: analytics_dashboard/courses/views/__init__.py:695
+#: analytics_dashboard/courses/views/__init__.py:659
 msgid "All Learners"
 msgstr "Tất cả các học viên"
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
-#: analytics_dashboard/courses/views/__init__.py:759
+#: analytics_dashboard/courses/views/__init__.py:723
 msgid "Course ID"
 msgstr "Course ID"
 
-#: analytics_dashboard/courses/views/__init__.py:761
+#: analytics_dashboard/courses/views/__init__.py:725
 msgid "Course Name"
 msgstr "Tên khóa học"
 
 #. Translators: 'In Progress' and 'Ended' refer to whether learners are
 #. actively using the course or it is over.
-#: analytics_dashboard/courses/views/__init__.py:778
+#: analytics_dashboard/courses/views/__init__.py:742
 msgid "In Progress"
 msgstr "Trong tiến trình"
 
-#: analytics_dashboard/courses/views/__init__.py:778
+#: analytics_dashboard/courses/views/__init__.py:742
 msgid "Ended"
 msgstr "Kết thúc"
 
 #. Translators: This refers to a course that has not yet begun.
-#: analytics_dashboard/courses/views/__init__.py:781
+#: analytics_dashboard/courses/views/__init__.py:745
 msgid "Not Started Yet"
 msgstr "Chưa bắt đầu"
 
-#: analytics_dashboard/courses/views/__init__.py:783
+#: analytics_dashboard/courses/views/__init__.py:747
 msgid "Start Date"
 msgstr "Ngày bắt đầu"
 
-#: analytics_dashboard/courses/views/__init__.py:784
+#: analytics_dashboard/courses/views/__init__.py:748
 msgid "End Date"
 msgstr "Ngày kết thúc"
 
-#: analytics_dashboard/courses/views/__init__.py:785
+#: analytics_dashboard/courses/views/__init__.py:749
 msgid "Status"
 msgstr "Trạng Thái"
 
-#: analytics_dashboard/courses/views/__init__.py:794
+#: analytics_dashboard/courses/views/__init__.py:758
 msgid "Instructor Dashboard"
 msgstr "Bảng Điều Khiển của Giáo Viên Hướng Dẫn"
 
-#: analytics_dashboard/courses/views/__init__.py:799
+#: analytics_dashboard/courses/views/__init__.py:763
 msgid "Courseware"
 msgstr "Chương trình học"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/course_summaries.py:40
+#: analytics_dashboard/courses/views/course_summaries.py:39
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr "Dữ liệu tóm tắt khóa học cập nhật lần cuối vào %(update_date)s, %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/engagement.py:58
+#: analytics_dashboard/courses/views/engagement.py:57
 msgid "Engagement Content"
 msgstr "Nội Dung Tham Gia"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:68
+#: analytics_dashboard/courses/views/engagement.py:67
 #, python-format
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr "Dữ liệu về mức độ tham gia khóa học được cập nhật lần cuối vào %(update_date)s at %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/engagement.py:95
+#: analytics_dashboard/courses/views/engagement.py:93
 msgid "Engagement Videos"
 msgstr "Video tham gia"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:100
+#: analytics_dashboard/courses/views/engagement.py:98
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr "Thông tin video được cập nhật lần cuối vào ngày %(update_date)s lúc %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/engagement.py:101
+#: analytics_dashboard/courses/views/engagement.py:99
 msgid "Looks like no one has watched any videos in these sections."
 msgstr "Có vẻ như không ai xem video nào trong những mục này."
 
-#: analytics_dashboard/courses/views/engagement.py:127
-#: analytics_dashboard/courses/views/performance.py:308
+#: analytics_dashboard/courses/views/engagement.py:125
+#: analytics_dashboard/courses/views/performance.py:306
 msgid "Section Name"
 msgstr "Tên mục"
 
-#: analytics_dashboard/courses/views/engagement.py:147
-#: analytics_dashboard/courses/views/performance.py:330
+#: analytics_dashboard/courses/views/engagement.py:145
+#: analytics_dashboard/courses/views/performance.py:328
 msgid "Subsection Name"
 msgstr "Tên tiểu mục"
 
-#: analytics_dashboard/courses/views/engagement.py:168
+#: analytics_dashboard/courses/views/engagement.py:166
 msgid "Video Name"
 msgstr "Tên Video"
 
@@ -1320,59 +1320,59 @@ msgid ""
 msgstr "Dữ liệu về phân bổ địa lý của các học viên được cập nhật lần cuối vào %(update_date)s, %(update_time)s UTC."
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/performance.py:38
+#: analytics_dashboard/courses/views/performance.py:36
 #, python-format
 msgid ""
 "Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr "Thông tin của vấn đề được cập nhật lần cuối vào ngày %(update_date)s lúc %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/performance.py:84
+#: analytics_dashboard/courses/views/performance.py:82
 msgid "Assignment Name"
 msgstr "Tên bài tập"
 
-#: analytics_dashboard/courses/views/performance.py:95
-#: analytics_dashboard/courses/views/performance.py:378
+#: analytics_dashboard/courses/views/performance.py:93
+#: analytics_dashboard/courses/views/performance.py:376
 msgid "No submissions received for these exercises."
 msgstr "Không bài gửi nào được nhận cho những bài tập này."
 
-#: analytics_dashboard/courses/views/performance.py:111
+#: analytics_dashboard/courses/views/performance.py:109
 msgid "No submissions received for these assignments."
 msgstr "Không bài gửi nào được nhận cho những bài tập này."
 
-#: analytics_dashboard/courses/views/performance.py:203
-#: analytics_dashboard/courses/views/performance.py:370
-#: analytics_dashboard/courses/views/performance.py:468
+#: analytics_dashboard/courses/views/performance.py:201
+#: analytics_dashboard/courses/views/performance.py:368
+#: analytics_dashboard/courses/views/performance.py:466
 msgid "Performance: Problem Submissions"
 msgstr "Hoàn thành: Vấn đề được gửi"
 
-#: analytics_dashboard/courses/views/performance.py:265
+#: analytics_dashboard/courses/views/performance.py:263
 #, python-format
 msgid "Graded Content: %(assignment_type)s"
 msgstr "Nội dung đã chấm: %(assignment_type)s"
 
-#: analytics_dashboard/courses/views/performance.py:284
-#: analytics_dashboard/courses/views/performance.py:352
+#: analytics_dashboard/courses/views/performance.py:282
+#: analytics_dashboard/courses/views/performance.py:350
 msgid "Problem Name"
 msgstr "Tên câu hỏi"
 
-#: analytics_dashboard/courses/views/performance.py:377
+#: analytics_dashboard/courses/views/performance.py:375
 #, python-format
 msgid ""
 "Tags distribution data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr "Dữ liệu về Tags được cập nhật lần cuối vào %(update_date)s ,  %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/performance.py:406
-#: analytics_dashboard/courses/views/performance.py:436
+#: analytics_dashboard/courses/views/performance.py:404
+#: analytics_dashboard/courses/views/performance.py:434
 msgid "Performance: Learning Outcomes"
 msgstr "Hiệu suất: Kết quả Học tập"
 
-#: analytics_dashboard/settings/base.py:433
+#: analytics_dashboard/settings/base.py:430
 msgid "Terms of Service"
 msgstr "Điều khoản sử dụng"
 
-#: analytics_dashboard/settings/base.py:434
+#: analytics_dashboard/settings/base.py:431
 msgid "Privacy Policy"
 msgstr "Chính sách bảo mật"
 

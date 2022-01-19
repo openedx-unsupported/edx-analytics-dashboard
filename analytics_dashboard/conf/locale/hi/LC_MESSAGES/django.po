@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-10 21:09+0000\n"
+"POT-Creation-Date: 2021-09-29 20:42+0000\n"
 "PO-Revision-Date: 2021-01-14 09:29+0000\n"
 "Last-Translator: Manish Manish <manish@manprax.com>\n"
 "Language-Team: Hindi (http://www.transifex.com/open-edx/edx-platform/language/hi/)\n"
@@ -40,7 +40,7 @@ msgid "Insights to help course teams improve courses."
 msgstr "पाठ्यक्रम में सुधार के लिए पाठ्यक्रम टीमों की अंतर्दृष्टि मदद करने हेतु।"
 
 #: analytics_dashboard/core/templates/core/landing.html:42
-#: analytics_dashboard/courses/views/__init__.py:543
+#: analytics_dashboard/courses/views/__init__.py:507
 msgid "Who are my learners?"
 msgstr "मेरे शिष्य कौन हैं?"
 
@@ -51,8 +51,8 @@ msgstr "अपने शिक्षार्थियों की पृष्
 #: analytics_dashboard/core/templates/core/landing.html:44
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:28
 #: analytics_dashboard/courses/tests/test_views/__init__.py:228
-#: analytics_dashboard/courses/views/__init__.py:305
-#: analytics_dashboard/courses/views/__init__.py:541
+#: analytics_dashboard/courses/views/__init__.py:304
+#: analytics_dashboard/courses/views/__init__.py:505
 msgid "Enrollment"
 msgstr "नामांकन"
 
@@ -68,8 +68,8 @@ msgstr "अक्सर अभिगमित विष्य वस्तु �
 
 #: analytics_dashboard/core/templates/core/landing.html:49
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:40
-#: analytics_dashboard/courses/views/__init__.py:316
-#: analytics_dashboard/courses/views/__init__.py:600
+#: analytics_dashboard/courses/views/__init__.py:315
+#: analytics_dashboard/courses/views/__init__.py:564
 msgid "Engagement"
 msgstr "अनुबंध"
 
@@ -83,8 +83,8 @@ msgstr "अपने पाठ्यर्कम को इस आधार प�
 
 #: analytics_dashboard/core/templates/core/landing.html:54
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:51
-#: analytics_dashboard/courses/views/__init__.py:327
-#: analytics_dashboard/courses/views/__init__.py:680
+#: analytics_dashboard/courses/views/__init__.py:326
+#: analytics_dashboard/courses/views/__init__.py:644
 msgid "Performance"
 msgstr "प्रदर्शन"
 
@@ -367,14 +367,14 @@ msgid "Weekly Learner Engagement"
 msgstr "साप्ताहिक विद्यार्थी  अनुबंध "
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:24
-#: analytics_dashboard/courses/views/__init__.py:605
+#: analytics_dashboard/courses/views/__init__.py:569
 msgid "How many learners are interacting with my course?"
 msgstr "मेरे पाठ्यक्रम के साथ कितने शिक्षार्थी बातचीत कर रहे हैं?"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:31
-#: analytics_dashboard/courses/views/__init__.py:339
-#: analytics_dashboard/courses/views/__init__.py:688
-#: analytics_dashboard/courses/views/__init__.py:752
+#: analytics_dashboard/courses/views/__init__.py:338
+#: analytics_dashboard/courses/views/__init__.py:652
+#: analytics_dashboard/courses/views/__init__.py:716
 #: analytics_dashboard/courses/views/learners.py:20
 msgid "Learners"
 msgstr "छात्र"
@@ -464,7 +464,7 @@ msgid ""
 msgstr "प्रत्येक बार, उस वीडियो के पूर्ण और अपूर्ण दर्शन की गणना को दर्शाता है। कहां छात्रों ने छोड़ा और किस हिस्से को उन्होने फिर से चलाया, यह समझने के लिए क्लिक करें।"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_course.html:5
-#: analytics_dashboard/courses/views/__init__.py:618
+#: analytics_dashboard/courses/views/__init__.py:582
 msgid "How did learners interact with course videos?"
 msgstr "छात्रों ने इस कोर्स में वीडियो के साथ कैसे बातचीत की?"
 
@@ -535,7 +535,7 @@ msgid "Daily Learner Enrollment"
 msgstr "दैनिक छात्र नामाकंन"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:25
-#: analytics_dashboard/courses/views/__init__.py:546
+#: analytics_dashboard/courses/views/__init__.py:510
 msgid "How many learners are in my course?"
 msgstr "मेरे कोर्स मे कितने छात्र हैं?"
 
@@ -635,7 +635,7 @@ msgid "Enrollment Over Time"
 msgstr "समय की अवधि में नामांकन"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:26
-#: analytics_dashboard/courses/views/__init__.py:556
+#: analytics_dashboard/courses/views/__init__.py:520
 msgid "How old are my learners?"
 msgstr "मेरे छात्र कितने साल के हैं?"
 
@@ -705,7 +705,7 @@ msgid "Age Breakdown"
 msgstr "उम्र का टूटना"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:25
-#: analytics_dashboard/courses/views/__init__.py:566
+#: analytics_dashboard/courses/views/__init__.py:530
 msgid "What level of education do my learners have?"
 msgstr "मेरे शिक्षार्थियों के पास किस स्तर की शिक्षा है?"
 
@@ -762,7 +762,7 @@ msgid "Educational Breakdown"
 msgstr "शैक्षिक विश्लेषण "
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_gender.html:25
-#: analytics_dashboard/courses/views/__init__.py:576
+#: analytics_dashboard/courses/views/__init__.py:540
 msgid "What is the learner gender breakdown?"
 msgstr "शिक्षार्थी लिंग का टूटना क्या है?"
 
@@ -785,7 +785,7 @@ msgid "Geographic Distribution"
 msgstr "भौगोलिक वितरण"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:22
-#: analytics_dashboard/courses/views/__init__.py:586
+#: analytics_dashboard/courses/views/__init__.py:550
 msgid "Where are my learners?"
 msgstr "मेरे सीखने वाले कहां हैं?"
 
@@ -860,7 +860,7 @@ msgstr "आवेदन "
 
 #. Translators: This refers to the homepage of a course.
 #: analytics_dashboard/courses/templates/courses/home.html:15
-#: analytics_dashboard/courses/views/__init__.py:535
+#: analytics_dashboard/courses/views/__init__.py:499
 #: analytics_dashboard/templates/lens-navigation.html:20
 msgid "Course Home"
 msgstr "पाठ्यक्रम घर"
@@ -893,7 +893,7 @@ msgid "External Tools"
 msgstr "बाहरी उपकरण"
 
 #: analytics_dashboard/courses/templates/courses/index.html:10
-#: analytics_dashboard/courses/views/course_summaries.py:31
+#: analytics_dashboard/courses/views/course_summaries.py:30
 msgid "Courses"
 msgstr "पाठ्यक्रम"
 
@@ -1029,7 +1029,7 @@ msgid "How are learners doing on this subsection?"
 msgstr "इस उपधारा पर शिक्षार्थी कैसे काम कर रहे हैं?"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_content.html:7
-#: analytics_dashboard/courses/views/__init__.py:641
+#: analytics_dashboard/courses/views/__init__.py:605
 msgid "How are learners doing on ungraded exercises?"
 msgstr "अनियंत्रित अभ्यास पर शिक्षार्थी कैसे कर रहे हैं?"
 
@@ -1061,201 +1061,201 @@ msgid "Try Again"
 msgstr "पुनः प्रयास करें"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:244
-#: analytics_dashboard/courses/views/__init__.py:548
+#: analytics_dashboard/courses/views/__init__.py:512
 #: analytics_dashboard/courses/views/enrollment.py:25
 msgid "Activity"
 msgstr "पुनः प्रयास करें"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:254
-#: analytics_dashboard/courses/views/__init__.py:558
-#: analytics_dashboard/courses/views/__init__.py:568
-#: analytics_dashboard/courses/views/__init__.py:578
+#: analytics_dashboard/courses/views/__init__.py:522
+#: analytics_dashboard/courses/views/__init__.py:532
+#: analytics_dashboard/courses/views/__init__.py:542
 #: analytics_dashboard/courses/views/enrollment.py:34
 msgid "Demographics"
 msgstr "जनसांख्यिकी"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:264
-#: analytics_dashboard/courses/views/__init__.py:588
+#: analytics_dashboard/courses/views/__init__.py:552
 #: analytics_dashboard/courses/views/enrollment.py:43
 msgid "Geography"
 msgstr "भूगोल-शास्र"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:302
-#: analytics_dashboard/courses/views/__init__.py:558
+#: analytics_dashboard/courses/views/__init__.py:522
 #: analytics_dashboard/courses/views/enrollment.py:63
 msgid "Age"
 msgstr "आयु"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:312
-#: analytics_dashboard/courses/views/__init__.py:568
+#: analytics_dashboard/courses/views/__init__.py:532
 #: analytics_dashboard/courses/views/enrollment.py:72
 msgid "Education"
 msgstr "शिक्षा"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:322
-#: analytics_dashboard/courses/views/__init__.py:578
+#: analytics_dashboard/courses/views/__init__.py:542
 #: analytics_dashboard/courses/views/enrollment.py:81
 msgid "Gender"
 msgstr "लिंग"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:58
-#: analytics_dashboard/courses/views/__init__.py:607
-#: analytics_dashboard/courses/views/engagement.py:33
+#: analytics_dashboard/courses/views/__init__.py:571
+#: analytics_dashboard/courses/views/engagement.py:32
 msgid "Content"
 msgstr "विषय-वस्तु"
 
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:69
-#: analytics_dashboard/courses/views/__init__.py:620
-#: analytics_dashboard/courses/views/engagement.py:42
+#: analytics_dashboard/courses/views/__init__.py:584
+#: analytics_dashboard/courses/views/engagement.py:41
 msgid "Videos"
 msgstr "वीडियोस "
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:68
-#: analytics_dashboard/courses/views/__init__.py:634
-#: analytics_dashboard/courses/views/performance.py:43
-#: analytics_dashboard/courses/views/performance.py:106
+#: analytics_dashboard/courses/views/__init__.py:598
+#: analytics_dashboard/courses/views/performance.py:41
+#: analytics_dashboard/courses/views/performance.py:104
 msgid "Graded Content"
 msgstr "श्रेणीबद्ध की गई सामग्री"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:79
-#: analytics_dashboard/courses/views/__init__.py:643
-#: analytics_dashboard/courses/views/performance.py:52
-#: analytics_dashboard/courses/views/performance.py:91
+#: analytics_dashboard/courses/views/__init__.py:607
+#: analytics_dashboard/courses/views/performance.py:50
+#: analytics_dashboard/courses/views/performance.py:89
 msgid "Ungraded Problems"
 msgstr "अनियोजित समस्याएं"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:542
-#: analytics_dashboard/courses/views/__init__.py:655
-#: analytics_dashboard/courses/views/performance.py:70
+#: analytics_dashboard/courses/views/__init__.py:619
+#: analytics_dashboard/courses/views/performance.py:68
 msgid "Learning Outcomes"
 msgstr "सिखने का फल"
 
-#: analytics_dashboard/courses/views/__init__.py:602
+#: analytics_dashboard/courses/views/__init__.py:566
 msgid "What are learners doing in my course?"
 msgstr "मेरे पाठ्यक्रम में शिक्षार्थी क्या कर रहे हैं?"
 
-#: analytics_dashboard/courses/views/__init__.py:632
+#: analytics_dashboard/courses/views/__init__.py:596
 msgid "How are learners doing on graded course assignments?"
 msgstr "शिक्षार्थी श्रेणीबद्ध कार्यप्रणाली सौंपा गया काम पर कैसे कर रहे हैं?"
 
-#: analytics_dashboard/courses/views/__init__.py:653
+#: analytics_dashboard/courses/views/__init__.py:617
 msgid "What is the breakdown for course learning outcomes?"
 msgstr "सीखने के परिणामों के लिए टूट - फूट क्या है?"
 
-#: analytics_dashboard/courses/views/__init__.py:673
+#: analytics_dashboard/courses/views/__init__.py:637
 msgid "How are learners responding to questions?"
 msgstr "शिक्षार्थी प्रश्नों के उत्तर कैसे दे रहे हैं?"
 
-#: analytics_dashboard/courses/views/__init__.py:675
+#: analytics_dashboard/courses/views/__init__.py:639
 msgid "Problem Response Report"
 msgstr "समस्या प्रतिक्रिया रिपोर्ट"
 
-#: analytics_dashboard/courses/views/__init__.py:682
+#: analytics_dashboard/courses/views/__init__.py:646
 msgid "How are learners doing on course assignments?"
 msgstr "शिक्षार्थी पाठ्यक्रम के कार्य कैसे कर रहे हैं?"
 
-#: analytics_dashboard/courses/views/__init__.py:690
+#: analytics_dashboard/courses/views/__init__.py:654
 msgid "What are individual learners doing?"
 msgstr "व्यक्तिगत शिक्षार्थी क्या कर रहे हैं?"
 
-#: analytics_dashboard/courses/views/__init__.py:693
+#: analytics_dashboard/courses/views/__init__.py:657
 msgid "Who is engaged? Who isn't?"
 msgstr "कौन लगा हुआ है? कौन नहीं है"
 
-#: analytics_dashboard/courses/views/__init__.py:695
+#: analytics_dashboard/courses/views/__init__.py:659
 msgid "All Learners"
 msgstr "सभी शिक्षार्थियों"
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
-#: analytics_dashboard/courses/views/__init__.py:759
+#: analytics_dashboard/courses/views/__init__.py:723
 msgid "Course ID"
 msgstr "पाठ्यक्रम आईडी"
 
-#: analytics_dashboard/courses/views/__init__.py:761
+#: analytics_dashboard/courses/views/__init__.py:725
 msgid "Course Name"
 msgstr "पाठ्यक्रम का नाम"
 
 #. Translators: 'In Progress' and 'Ended' refer to whether learners are
 #. actively using the course or it is over.
-#: analytics_dashboard/courses/views/__init__.py:778
+#: analytics_dashboard/courses/views/__init__.py:742
 msgid "In Progress"
 msgstr "प्रगति पर है"
 
-#: analytics_dashboard/courses/views/__init__.py:778
+#: analytics_dashboard/courses/views/__init__.py:742
 msgid "Ended"
 msgstr "समाप्त"
 
 #. Translators: This refers to a course that has not yet begun.
-#: analytics_dashboard/courses/views/__init__.py:781
+#: analytics_dashboard/courses/views/__init__.py:745
 msgid "Not Started Yet"
 msgstr "अभी तक शुरू नहीं हुआ"
 
-#: analytics_dashboard/courses/views/__init__.py:783
+#: analytics_dashboard/courses/views/__init__.py:747
 msgid "Start Date"
 msgstr "आरंभिक तिथि"
 
-#: analytics_dashboard/courses/views/__init__.py:784
+#: analytics_dashboard/courses/views/__init__.py:748
 msgid "End Date"
 msgstr "अंतिम तिथि "
 
-#: analytics_dashboard/courses/views/__init__.py:785
+#: analytics_dashboard/courses/views/__init__.py:749
 msgid "Status"
 msgstr "स्थिति"
 
-#: analytics_dashboard/courses/views/__init__.py:794
+#: analytics_dashboard/courses/views/__init__.py:758
 msgid "Instructor Dashboard"
 msgstr "प्रशिक्षक डैशबोर्ड"
 
-#: analytics_dashboard/courses/views/__init__.py:799
+#: analytics_dashboard/courses/views/__init__.py:763
 msgid "Courseware"
 msgstr "पाठ्यक्रम"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/course_summaries.py:40
+#: analytics_dashboard/courses/views/course_summaries.py:39
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr "कोर्स सुममारी डाटा आखरी अपडेट किया गया था%(update_date)s अट%(update_time)s UTC |"
 
-#: analytics_dashboard/courses/views/engagement.py:58
+#: analytics_dashboard/courses/views/engagement.py:57
 msgid "Engagement Content"
 msgstr "सगाई की सामग्री"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:68
+#: analytics_dashboard/courses/views/engagement.py:67
 #, python-format
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr "कोर्स इंगेज्मेंत डाटा आखिरी अपडेट हुआ था %(update_date)sअट%(update_time)s UTC |"
 
-#: analytics_dashboard/courses/views/engagement.py:95
+#: analytics_dashboard/courses/views/engagement.py:93
 msgid "Engagement Videos"
 msgstr "सगाई के वीडियो"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:100
+#: analytics_dashboard/courses/views/engagement.py:98
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr "विडियो डाटा आखिरी अपडेट हुआ था %(update_date)sअट%(update_time)s UTC |"
 
-#: analytics_dashboard/courses/views/engagement.py:101
+#: analytics_dashboard/courses/views/engagement.py:99
 msgid "Looks like no one has watched any videos in these sections."
 msgstr "ऐसा लगता है कि इन खंडों में किसी ने कोई वीडियो नहीं देखा है।"
 
-#: analytics_dashboard/courses/views/engagement.py:127
-#: analytics_dashboard/courses/views/performance.py:308
+#: analytics_dashboard/courses/views/engagement.py:125
+#: analytics_dashboard/courses/views/performance.py:306
 msgid "Section Name"
 msgstr "भाग नाम"
 
-#: analytics_dashboard/courses/views/engagement.py:147
-#: analytics_dashboard/courses/views/performance.py:330
+#: analytics_dashboard/courses/views/engagement.py:145
+#: analytics_dashboard/courses/views/performance.py:328
 msgid "Subsection Name"
 msgstr "उपभाग नाम"
 
-#: analytics_dashboard/courses/views/engagement.py:168
+#: analytics_dashboard/courses/views/engagement.py:166
 msgid "Video Name"
 msgstr "वीडियो नाम"
 
@@ -1311,59 +1311,59 @@ msgid ""
 msgstr "जिओग्राफिक लेयर्नर आखिरी अपडेट हुआ था %(update_date)sअट %(update_time)sUTC |"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/performance.py:38
+#: analytics_dashboard/courses/views/performance.py:36
 #, python-format
 msgid ""
 "Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr "प्रॉबलम सबमिस्न डाटा आखिरी अपडेट हुआ था%(update_date)s अट%(update_time)s UTC | "
 
-#: analytics_dashboard/courses/views/performance.py:84
+#: analytics_dashboard/courses/views/performance.py:82
 msgid "Assignment Name"
 msgstr "सौंपा गया काम का नाम"
 
-#: analytics_dashboard/courses/views/performance.py:95
-#: analytics_dashboard/courses/views/performance.py:378
+#: analytics_dashboard/courses/views/performance.py:93
+#: analytics_dashboard/courses/views/performance.py:376
 msgid "No submissions received for these exercises."
 msgstr "इन अभ्यासों के लिए कोई प्रस्तुतियाँ नहीं मिला।"
 
-#: analytics_dashboard/courses/views/performance.py:111
+#: analytics_dashboard/courses/views/performance.py:109
 msgid "No submissions received for these assignments."
 msgstr "इन असाइनमेंट के लिए कोई प्रस्तुतियाँ  नहीं मिला है।"
 
-#: analytics_dashboard/courses/views/performance.py:203
-#: analytics_dashboard/courses/views/performance.py:370
-#: analytics_dashboard/courses/views/performance.py:468
+#: analytics_dashboard/courses/views/performance.py:201
+#: analytics_dashboard/courses/views/performance.py:368
+#: analytics_dashboard/courses/views/performance.py:466
 msgid "Performance: Problem Submissions"
 msgstr "प्रदर्शन: समस्या प्रस्तुतियाँ"
 
-#: analytics_dashboard/courses/views/performance.py:265
+#: analytics_dashboard/courses/views/performance.py:263
 #, python-format
 msgid "Graded Content: %(assignment_type)s"
 msgstr "ग्रदेड कंटैंट %(assignment_type)s"
 
-#: analytics_dashboard/courses/views/performance.py:284
-#: analytics_dashboard/courses/views/performance.py:352
+#: analytics_dashboard/courses/views/performance.py:282
+#: analytics_dashboard/courses/views/performance.py:350
 msgid "Problem Name"
 msgstr "समस्या का नाम"
 
-#: analytics_dashboard/courses/views/performance.py:377
+#: analytics_dashboard/courses/views/performance.py:375
 #, python-format
 msgid ""
 "Tags distribution data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr "तागस डिस्टिबुस्न डाटा आखिरी अपडेट हुआ था%(update_date)s अट%(update_time)s UTC |"
 
-#: analytics_dashboard/courses/views/performance.py:406
-#: analytics_dashboard/courses/views/performance.py:436
+#: analytics_dashboard/courses/views/performance.py:404
+#: analytics_dashboard/courses/views/performance.py:434
 msgid "Performance: Learning Outcomes"
 msgstr "प्रदर्शन: सीखना परिणाम"
 
-#: analytics_dashboard/settings/base.py:433
+#: analytics_dashboard/settings/base.py:430
 msgid "Terms of Service"
 msgstr "सेवा की शर्तें"
 
-#: analytics_dashboard/settings/base.py:434
+#: analytics_dashboard/settings/base.py:431
 msgid "Privacy Policy"
 msgstr "निजता नीति"
 
