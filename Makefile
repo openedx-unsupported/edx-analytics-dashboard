@@ -21,7 +21,7 @@ endef
 export BROWSER_PYSCRIPT
 BROWSER := python -c "$$BROWSER_PYSCRIPT"
 
-.PHONY: requirements coverage clean docs
+.PHONY: requirements coverage clean docs check_keywords
 
 # Generates a help message. Borrowed from https://github.com/pydanny/cookiecutter-djangopackage.
 help: ## display this help message
@@ -195,3 +195,6 @@ upgrade: piptools ## update the requirements/*.txt files with the latest package
 
 docs:
 	tox -e docs
+
+check_keywords: ## Scan the Django models in all installed apps in this project for restricted field names
+	python manage.py check_reserved_keywords --override_file db_keyword_overrides.yml
