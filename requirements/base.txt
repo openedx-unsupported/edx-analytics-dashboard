@@ -8,7 +8,7 @@
     # via
     #   -r requirements/base.in
     #   edx-auth-backends
-asgiref==3.4.1
+asgiref==3.5.0
     # via django
 certifi==2021.10.8
     # via requests
@@ -50,13 +50,13 @@ django-braces==1.15.0
     # via -r requirements/base.in
 django-countries==7.2.1
     # via -r requirements/base.in
-django-crispy-forms==1.13.0
+django-crispy-forms==1.14.0
     # via -r requirements/base.in
 django-crum==0.7.9
     # via
     #   edx-django-utils
     #   edx-toggles
-django-lang-pref-middleware==1.1.0
+django-lang-pref-middleware==1.2.0
     # via -r requirements/base.in
 django-model-utils==4.2.0
     # via -r requirements/base.in
@@ -90,7 +90,7 @@ edx-ccx-keys==1.2.1
     # via -r requirements/base.in
 edx-django-release-util==1.1.1
     # via -r requirements/base.in
-edx-django-utils==4.4.1
+edx-django-utils==4.4.2
     # via
     #   -r requirements/base.in
     #   edx-drf-extensions
@@ -105,7 +105,7 @@ edx-opaque-keys==2.2.2
     #   -r requirements/base.in
     #   edx-ccx-keys
     #   edx-drf-extensions
-edx-rest-api-client==5.4.1
+edx-rest-api-client==5.5.0
     # via -r requirements/base.in
 edx-toggles==4.2.0
     # via -r requirements/base.in
@@ -121,7 +121,7 @@ logutils==0.3.5
     # via -r requirements/base.in
 markupsafe==2.0.1
     # via jinja2
-newrelic==7.2.4.171
+newrelic==7.4.0.172
     # via edx-django-utils
 oauthlib==3.1.1
     # via
@@ -143,7 +143,7 @@ psutil==5.9.0
     # via edx-django-utils
 pycparser==2.21
     # via cffi
-pycryptodomex==3.12.0
+pycryptodomex==3.13.0
     # via pyjwkest
 pyjwkest==1.4.2
     # via edx-drf-extensions

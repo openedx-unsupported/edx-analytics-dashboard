@@ -8,7 +8,7 @@
     # via
     #   -r requirements/test.txt
     #   edx-auth-backends
-asgiref==3.4.1
+asgiref==3.5.0
     # via
     #   -r requirements/test.txt
     #   django
@@ -44,7 +44,7 @@ code-annotations==1.2.0
     # via
     #   -r requirements/test.txt
     #   edx-toggles
-coverage[toml]==6.2
+coverage[toml]==6.3
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -88,7 +88,7 @@ django-braces==1.15.0
     # via -r requirements/test.txt
 django-countries==7.2.1
     # via -r requirements/test.txt
-django-crispy-forms==1.13.0
+django-crispy-forms==1.14.0
     # via -r requirements/test.txt
 django-crum==0.7.9
     # via
@@ -99,7 +99,7 @@ django-debug-toolbar==3.2.4
     # via -r requirements/local.in
 django-dynamic-fixture==3.1.2
     # via -r requirements/test.txt
-django-lang-pref-middleware==1.1.0
+django-lang-pref-middleware==1.2.0
     # via -r requirements/test.txt
 django-model-utils==4.2.0
     # via -r requirements/test.txt
@@ -135,7 +135,7 @@ edx-ccx-keys==1.2.1
     # via -r requirements/test.txt
 edx-django-release-util==1.1.1
     # via -r requirements/test.txt
-edx-django-utils==4.4.1
+edx-django-utils==4.4.2
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
@@ -150,7 +150,7 @@ edx-opaque-keys==2.2.2
     #   -r requirements/test.txt
     #   edx-ccx-keys
     #   edx-drf-extensions
-edx-rest-api-client==5.4.1
+edx-rest-api-client==5.5.0
     # via -r requirements/test.txt
 edx-toggles==4.2.0
     # via -r requirements/test.txt
@@ -205,7 +205,7 @@ more-itertools==8.12.0
     #   pytest
 mysqlclient==2.1.0
     # via -r requirements/local.in
-newrelic==7.2.4.171
+newrelic==7.4.0.172
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -269,7 +269,7 @@ pycparser==2.21
     # via
     #   -r requirements/test.txt
     #   cffi
-pycryptodomex==3.12.0
+pycryptodomex==3.13.0
     # via
     #   -r requirements/test.txt
     #   pyjwkest
@@ -295,7 +295,7 @@ pymongo==4.0.1
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
-pyparsing==3.0.6
+pyparsing==3.0.7
     # via
     #   -r requirements/test.txt
     #   -r requirements/tox.txt

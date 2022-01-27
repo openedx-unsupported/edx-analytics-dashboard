@@ -8,7 +8,7 @@
     # via
     #   -r requirements/base.txt
     #   edx-auth-backends
-asgiref==3.4.1
+asgiref==3.5.0
     # via
     #   -r requirements/base.txt
     #   django
@@ -40,7 +40,7 @@ code-annotations==1.2.0
     # via
     #   -r requirements/base.txt
     #   edx-toggles
-coverage[toml]==6.2
+coverage[toml]==6.3
     # via
     #   -r requirements/test.in
     #   pytest-cov
@@ -78,7 +78,7 @@ django-braces==1.15.0
     # via -r requirements/base.txt
 django-countries==7.2.1
     # via -r requirements/base.txt
-django-crispy-forms==1.13.0
+django-crispy-forms==1.14.0
     # via -r requirements/base.txt
 django-crum==0.7.9
     # via
@@ -87,7 +87,7 @@ django-crum==0.7.9
     #   edx-toggles
 django-dynamic-fixture==3.1.2
     # via -r requirements/test.in
-django-lang-pref-middleware==1.1.0
+django-lang-pref-middleware==1.2.0
     # via -r requirements/base.txt
 django-model-utils==4.2.0
     # via -r requirements/base.txt
@@ -123,7 +123,7 @@ edx-ccx-keys==1.2.1
     # via -r requirements/base.txt
 edx-django-release-util==1.1.1
     # via -r requirements/base.txt
-edx-django-utils==4.4.1
+edx-django-utils==4.4.2
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
@@ -138,7 +138,7 @@ edx-opaque-keys==2.2.2
     #   -r requirements/base.txt
     #   edx-ccx-keys
     #   edx-drf-extensions
-edx-rest-api-client==5.4.1
+edx-rest-api-client==5.5.0
     # via -r requirements/base.txt
 edx-toggles==4.2.0
     # via -r requirements/base.txt
@@ -176,7 +176,7 @@ mccabe==0.6.1
     # via pylint
 more-itertools==8.12.0
     # via pytest
-newrelic==7.2.4.171
+newrelic==7.4.0.172
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -218,7 +218,7 @@ pycparser==2.21
     # via
     #   -r requirements/base.txt
     #   cffi
-pycryptodomex==3.12.0
+pycryptodomex==3.13.0
     # via
     #   -r requirements/base.txt
     #   pyjwkest
@@ -244,7 +244,7 @@ pymongo==4.0.1
     # via
     #   -r requirements/base.txt
     #   edx-opaque-keys
-pyparsing==3.0.6
+pyparsing==3.0.7
     # via packaging
 pytest==5.4.3
     # via
