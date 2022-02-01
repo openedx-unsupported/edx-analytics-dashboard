@@ -1,16 +1,25 @@
 name: Default CI
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        python-version: ["3.8"]
+        os: [ubuntu-20.04]
+        toxenv: [django32]
     env:
       DATA_API_VERSION: "latest"
     steps:
       - name: setup python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8'
-          architecture: 'x64'
+          python-version: ${{ matrix.python-version }}
       - name: Checkout
         uses: actions/checkout@v2
         with:
