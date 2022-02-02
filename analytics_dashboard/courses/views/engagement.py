@@ -17,6 +17,7 @@ from analytics_dashboard.courses.views import (
     CourseStructureMixin,
     CourseTemplateWithNavView,
     AnalyticsV0Mixin,
+    AnalyticsV1Mixin,
 )
 
 logger = logging.getLogger(__name__)
@@ -53,7 +54,7 @@ class EngagementTemplateView(CourseTemplateWithNavView):
     presenter = None
 
 
-class EngagementContentView(AnalyticsV0Mixin, EngagementTemplateView):
+class EngagementContentView(AnalyticsV1Mixin, EngagementTemplateView):
     template_name = 'courses/engagement_content.html'
     page_title = _('Engagement Content')
     page_name = {
