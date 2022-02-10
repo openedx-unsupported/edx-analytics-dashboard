@@ -120,7 +120,7 @@ class CourseIndexTests(AnalyticsApiClientMixin, AnalyticsDashboardWebAppTestMixi
         """
         # Filter is present
         filter_box = self.page.q(css='#' + filter_id)
-        self.assertTrue(filter_box.present)
+        self.assertTrue(filter_box.present, "missing filter '{display_name}'".format(display_name=display_name))
 
         if clear_existing_filters:
             # Clear any existing filter first

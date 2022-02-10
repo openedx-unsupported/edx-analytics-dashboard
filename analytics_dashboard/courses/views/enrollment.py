@@ -106,7 +106,7 @@ def _enrollment_tertiary_nav():
     return tertiary_nav_items
 
 
-class EnrollmentDemographicsTemplateView(AnalyticsV0Mixin, EnrollmentTemplateView):
+class EnrollmentDemographicsTemplateView(EnrollmentTemplateView):
     """
     Base view for course enrollment demographics pages.
     """
@@ -130,7 +130,7 @@ class EnrollmentDemographicsTemplateView(AnalyticsV0Mixin, EnrollmentTemplateVie
         return formatted_percent
 
 
-class EnrollmentActivityView(AnalyticsV0Mixin, EnrollmentTemplateView):
+class EnrollmentActivityView(AnalyticsV1Mixin, EnrollmentTemplateView):
     template_name = 'courses/enrollment_activity.html'
     page_title = _('Enrollment Activity')
     page_name = {
@@ -171,7 +171,7 @@ class EnrollmentActivityView(AnalyticsV0Mixin, EnrollmentTemplateView):
         return context
 
 
-class EnrollmentDemographicsAgeView(EnrollmentDemographicsTemplateView):
+class EnrollmentDemographicsAgeView(AnalyticsV0Mixin, EnrollmentDemographicsTemplateView):
     template_name = 'courses/enrollment_demographics_age.html'
     page_title = _('Enrollment Demographics by Age')
     page_name = {
@@ -209,7 +209,7 @@ class EnrollmentDemographicsAgeView(EnrollmentDemographicsTemplateView):
         return context
 
 
-class EnrollmentDemographicsEducationView(EnrollmentDemographicsTemplateView):
+class EnrollmentDemographicsEducationView(AnalyticsV1Mixin, EnrollmentDemographicsTemplateView):
     template_name = 'courses/enrollment_demographics_education.html'
     page_title = _('Enrollment Demographics by Education')
     page_name = {
@@ -247,7 +247,7 @@ class EnrollmentDemographicsEducationView(EnrollmentDemographicsTemplateView):
         return context
 
 
-class EnrollmentDemographicsGenderView(EnrollmentDemographicsTemplateView):
+class EnrollmentDemographicsGenderView(AnalyticsV1Mixin, EnrollmentDemographicsTemplateView):
     template_name = 'courses/enrollment_demographics_gender.html'
     page_title = _('Enrollment Demographics by Gender')
     page_name = {

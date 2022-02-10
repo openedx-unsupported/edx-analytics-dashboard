@@ -64,14 +64,14 @@ class CourseEnrollmentDemographicsAgeCSV(AnalyticsV0Mixin, CourseCSVResponseMixi
         return self.course.enrollment(demographics.BIRTH_YEAR, data_format=data_formats.CSV)
 
 
-class CourseEnrollmentDemographicsEducationCSV(AnalyticsV0Mixin, CourseCSVResponseMixin, CourseView):
+class CourseEnrollmentDemographicsEducationCSV(AnalyticsV1Mixin, CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = 'enrollment-by-education'
 
     def get_data(self):
         return self.course.enrollment(demographics.EDUCATION, data_format=data_formats.CSV)
 
 
-class CourseEnrollmentDemographicsGenderCSV(AnalyticsV0Mixin, CourseCSVResponseMixin, CourseView):
+class CourseEnrollmentDemographicsGenderCSV(AnalyticsV1Mixin, CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = 'enrollment-by-gender'
 
     def get_data(self):
@@ -86,7 +86,7 @@ class CourseEnrollmentByCountryCSV(AnalyticsV1Mixin, CourseCSVResponseMixin, Cou
         return self.course.enrollment(demographics.LOCATION, data_format=data_formats.CSV)
 
 
-class CourseEnrollmentCSV(AnalyticsV0Mixin, CourseCSVResponseMixin, CourseView):
+class CourseEnrollmentCSV(AnalyticsV1Mixin, CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = 'enrollment'
 
     def get_data(self):
@@ -94,7 +94,7 @@ class CourseEnrollmentCSV(AnalyticsV0Mixin, CourseCSVResponseMixin, CourseView):
         return self.course.enrollment('mode', data_format=data_formats.CSV, end_date=end_date)
 
 
-class CourseEngagementActivityTrendCSV(AnalyticsV0Mixin, CourseCSVResponseMixin, CourseView):
+class CourseEngagementActivityTrendCSV(AnalyticsV1Mixin, CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = 'engagement-activity'
 
     def get_data(self):

@@ -18,14 +18,14 @@ from analytics_dashboard.courses.views import (
     LazyEncoderMixin,
     TemplateView,
     TrackedViewMixin,
-    AnalyticsV0Mixin,
+    AnalyticsV1Mixin,
 )
 from analytics_dashboard.courses.views.csv import DatetimeCSVResponseMixin
 
 logger = logging.getLogger(__name__)
 
 
-class CourseIndex(AnalyticsV0Mixin, CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpdatedView,
+class CourseIndex(AnalyticsV1Mixin, CourseAPIMixin, LoginRequiredMixin, TrackedViewMixin, LastUpdatedView,
                   LazyEncoderMixin, TemplateView):
     template_name = 'courses/index.html'
     page_title = _('Courses')
@@ -74,7 +74,7 @@ class CourseIndex(AnalyticsV0Mixin, CourseAPIMixin, LoginRequiredMixin, TrackedV
         return context
 
 
-class CourseIndexCSV(AnalyticsV0Mixin, CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixin, TemplateView):
+class CourseIndexCSV(AnalyticsV1Mixin, CourseAPIMixin, LoginRequiredMixin, DatetimeCSVResponseMixin, TemplateView):
 
     csv_filename_suffix = 'course-list'
     # Note: we are not using the DRF "renderer_classes" field here because this is a Django view, not a DRF view.
