@@ -9,13 +9,14 @@
 # Leon Vazdzihan <contact@weblaan.be>, 2015
 # Lynn <lynn_girl@live.nl>, 2015
 # Mats Willemsen <mats.willemsen@gmail.com>, 2016
+# Meneer Wiltgeenspam, 2022
 # 8a87c18e7041b82b35649cb123fd994b_c3614af, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-29 20:42+0000\n"
-"PO-Revision-Date: 2022-02-13 18:25+0000\n"
+"PO-Revision-Date: 2022-02-20 18:25+0000\n"
 "Last-Translator: GlassParade <i.kazija@penta.nl>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/open-edx/edx-platform/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -41,7 +42,7 @@ msgstr "Alles"
 #. refers to the number of items belonging to that filter.
 #: analytics_dashboard/static/apps/components/filter/views/filter.js:90
 msgid "<%= name %> (<%= count %>)"
-msgstr ""
+msgstr "<%= Naam %> (<%= getal %>)"
 
 #. Translators: this is a label describing a filter selection that the user
 #. initiated.
@@ -51,11 +52,11 @@ msgstr ""
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:87
 msgid "Filters In Use:"
-msgstr ""
+msgstr "Filters in gebruik:"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:88
 msgid "Click to remove this filter"
-msgstr ""
+msgstr "Klik om de filter te verwijderen"
 
 #. Translators: "Clear" in this context means "remove all of the filters"
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:90
@@ -64,38 +65,38 @@ msgstr "Leegmaken"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:91
 msgid "Click to remove all filters"
-msgstr ""
+msgstr "Klik om alle filters te verwijderen"
 
 #. Translators: "sort ascending" describes the current sort state to the user.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/base-header-cell.js:71
 msgid "sort ascending"
-msgstr ""
+msgstr "Sorteren op oplopend"
 
 #. Translators: "sort descending" describes the current sort state to the
 #. user.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/base-header-cell.js:73
 msgid "sort descending"
-msgstr ""
+msgstr "Sorteren op aflopend"
 
 #. Translators: "click to sort" tells the user that they can click this link
 #. to sort by the current field.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/base-header-cell.js:76
 msgid "click to sort"
-msgstr ""
+msgstr "Klik om te soorteren"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/list.js:51
 msgid "Results"
-msgstr ""
+msgstr "Resultaten"
 
 #. Translators: 'count' refers to the number of results contained in the
 #. table.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/num-results.js:30
 msgid "Number of results: <%= count %>"
-msgstr ""
+msgstr "Aantal resultaten: <%= getal %>"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:70
 msgid "first page"
-msgstr ""
+msgstr "Eerste pagina"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:72
 msgid "previous page"
@@ -107,25 +108,25 @@ msgstr "volgende pagina"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:76
 msgid "last page"
-msgstr ""
+msgstr "Laatste pagina"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:78
 msgid "page"
-msgstr ""
+msgstr "Pagina"
 
 #. Translators: describes the state of a pagination button as not clickable
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:88
 msgid "disabled"
-msgstr ""
+msgstr "Uitgeschakeld"
 
 #. Translators: describes a pagination button as representing the current page
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:91
 msgid "active"
-msgstr ""
+msgstr "Ingeschakeld"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/table.js:27
 msgid "Generic List"
-msgstr ""
+msgstr "Algemene lijst"
 
 #. Translators: This message indicates content is loading in the page.
 #: analytics_dashboard/static/apps/components/loading/views/loading-view.js:20
@@ -142,11 +143,11 @@ msgstr "504: Serverfout"
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
-msgstr ""
+msgstr "Het verwerken van uw opdracht duurde te lang. Herlaad de pagina om het opnieuw te proberen."
 
 #: analytics_dashboard/static/apps/components/utils/utils.js:68
 msgid "Server error"
-msgstr ""
+msgstr "Server fout"
 
 #: analytics_dashboard/static/apps/components/utils/utils.js:69
 #: analytics_dashboard/static/apps/components/utils/utils.js:81
@@ -155,7 +156,7 @@ msgstr ""
 
 #: analytics_dashboard/static/apps/components/utils/utils.js:80
 msgid "Network error"
-msgstr ""
+msgstr "Netwerk fout"
 
 #: analytics_dashboard/static/apps/course-list/app/app.js:38
 msgid "Instructor-Paced"
@@ -180,7 +181,7 @@ msgstr "Gearchiveerd"
 #: analytics_dashboard/static/apps/course-list/app/app.js:45
 #: analytics_dashboard/static/js/enrollment-demographics-age-main.js:17
 msgid "Unknown"
-msgstr ""
+msgstr "Onbekend"
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:44
 #: analytics_dashboard/static/apps/course-list/app/controller.js:106
@@ -216,11 +217,11 @@ msgstr ""
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:78
 msgid "Start Date"
-msgstr ""
+msgstr "Startdatum"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:79
 msgid "End Date"
-msgstr ""
+msgstr "Einddatum "
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:80
 msgid "Total Enrollment"
@@ -236,7 +237,7 @@ msgstr "Huidige inschrijving"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:82
 msgid "Change Last Week"
-msgstr ""
+msgstr "Verandering vorige week"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:83
 msgid "Verified Enrollment"
@@ -248,7 +249,7 @@ msgstr ""
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:89
 msgid "Availability"
-msgstr ""
+msgstr "Beschikbaarheid"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:90
 msgid "Pacing Type"
