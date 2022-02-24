@@ -2,6 +2,7 @@ import logging
 
 from urllib.parse import urlencode
 from django.conf import settings
+from django.shortcuts import redirect
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from requests.exceptions import ConnectionError as RequestsConnectionError
@@ -9,6 +10,7 @@ from requests.exceptions import Timeout
 from waffle import switch_is_active
 
 from analytics_dashboard.courses.views import CourseTemplateWithNavView, AnalyticsV0Mixin
+from analytics_dashboard.courses.waffle import DISPLAY_LEARNER_ANALYTICS
 from analytics_dashboard.learner_analytics_api.v0.clients import LearnerAPIClient
 
 logger = logging.getLogger(__name__)
@@ -24,6 +26,12 @@ class LearnersView(AnalyticsV0Mixin, CourseTemplateWithNavView):
         'report': 'roster',
         'depth': ''
     }
+
+    def dispatch(self, request, *args, **kwargs):
+        if DISPLAY_LEARNER_ANALYTICS.is_enabled():
+            return super().dispatch(request, *args, **kwargs)
+        else:
+            return redirect('/courses')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

@@ -77,8 +77,12 @@ class LearnersViewTests(ViewTestMixin, TestCase):
         return response
 
     @override_waffle_flag(DISPLAY_LEARNER_ANALYTICS, active=False)
-    def test_success_if_hidden(self):
-        self.test_success()
+    def test_redirect_if_disabled(self):
+        learners_payload = {'arbitrary_learners_key': ['arbitrary_value_1', 'arbitrary_value_2']}
+        course_metadata_payload = {'arbitrary_metadata_value': {'arbitrary_value_1': 'arbitrary_value_2'}}
+        self._register_uris(200, learners_payload, 200, course_metadata_payload)
+        response = self._get()
+        self.assertRedirects(response, '/courses', target_status_code=301)
 
     @override_switch('enable_learner_download', active=False)
     def test_disable_learner_download_button(self):
