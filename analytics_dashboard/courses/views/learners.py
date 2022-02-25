@@ -30,8 +30,7 @@ class LearnersView(AnalyticsV0Mixin, CourseTemplateWithNavView):
     def dispatch(self, request, *args, **kwargs):
         if DISPLAY_LEARNER_ANALYTICS.is_enabled():
             return super().dispatch(request, *args, **kwargs)
-        else:
-            return redirect('/courses')
+        return redirect('/courses')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
