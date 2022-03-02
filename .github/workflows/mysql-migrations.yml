@@ -74,5 +74,4 @@ jobs:
       run: |
         echo "CREATE DATABASE IF NOT EXISTS analytics_dashboard;" | sudo mysql -u root
         echo "Running the migrations."
-#        python manage.py migrate --settings=analytics_dashboard.settings.test
         pytest --ds=analytics_dashboard.settings.test
