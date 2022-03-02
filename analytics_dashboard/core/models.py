@@ -13,7 +13,3 @@ class User(AbstractUser):
     class Meta:
         get_latest_by = 'date_joined'
         db_table = 'analytics_dashboard_user'   # Legacy table name
-
-
-class UserLearnerAssessmentDataTranslationAuditDepartmentUniversity(models.Model):
-    perms_user_id = models.PositiveIntegerField(blank=False, null=False, db_index=True)
