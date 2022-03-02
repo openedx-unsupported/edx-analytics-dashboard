@@ -4,8 +4,8 @@ from analytics_dashboard.settings.logger import get_logger_config
 ########## IN-MEMORY TEST DATABASE
 DATABASES = {
     'default': {
-        'ENGINE': os.environ.get('DB_MIGRATION_ENGINE', 'django.db.backends.sqlite3'),
-        'NAME': os.environ.get('DB_MIGRATION_NAME', ':memory:'),
+        'ENGINE': os.environ.get('DB_MIGRATION_ENGINE'),
+        'NAME': os.environ.get('DB_MIGRATION_NAME'),
         'USER': os.environ.get('DB_MIGRATION_USER', ''),
         'PASSWORD': os.environ.get('DB_MIGRATION_PASSWORD', ''),
         'HOST': os.environ.get('DB_MIGRATION_HOST', ''),
