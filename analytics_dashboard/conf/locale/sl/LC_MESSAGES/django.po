@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Črtomir Podlipnik, 2022
 # Dorjano Baruca <dorjanob@eglue.biz>, 2016
 # Rok Kepa <rokkepa@gmail.com>, 2014
 msgid ""
@@ -10,8 +11,8 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-29 20:42+0000\n"
-"PO-Revision-Date: 2019-04-16 19:45+0000\n"
-"Last-Translator: Ned Batchelder <ned@edx.org>\n"
+"PO-Revision-Date: 2014-08-25 20:09+0000\n"
+"Last-Translator: Črtomir Podlipnik, 2022\n"
 "Language-Team: Slovenian (http://www.transifex.com/open-edx/edx-platform/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +23,7 @@ msgstr ""
 #: analytics_dashboard/core/templates/core/landing.html:15
 #: analytics_dashboard/templates/_skip_link.html:3
 msgid "Skip to content"
-msgstr ""
+msgstr "Preskoči na vsebino"
 
 #: analytics_dashboard/core/templates/core/landing.html:23
 msgid "Login"
@@ -35,11 +36,11 @@ msgstr "Podorbnosti, ki pomagajo avtorjem tečajev izboljšati tečaje"
 #: analytics_dashboard/core/templates/core/landing.html:42
 #: analytics_dashboard/courses/views/__init__.py:507
 msgid "Who are my learners?"
-msgstr ""
+msgstr "Kdo so moji učenci?"
 
 #: analytics_dashboard/core/templates/core/landing.html:43
 msgid "Target your course to fit the backgrounds of your learners."
-msgstr ""
+msgstr "Usmerite svoj tečaj tako, da bo ustrezal ozadju vaših učencev."
 
 #: analytics_dashboard/core/templates/core/landing.html:44
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:28
@@ -51,13 +52,13 @@ msgstr "Vpis"
 
 #: analytics_dashboard/core/templates/core/landing.html:47
 msgid "What are learners engaging with in my course?"
-msgstr ""
+msgstr "S čim se učenci ukvarjajo na mojem tečaju?"
 
 #: analytics_dashboard/core/templates/core/landing.html:48
 msgid ""
 "Improve frequently accessed content, or point learners at underused "
 "resources."
-msgstr ""
+msgstr "Izboljšajte pogosto dostopno vsebino ali usmerite učence na premalo uporabljene vire."
 
 #: analytics_dashboard/core/templates/core/landing.html:49
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:40
@@ -68,11 +69,11 @@ msgstr "Aktivnost"
 
 #: analytics_dashboard/core/templates/core/landing.html:52
 msgid "How well is my content supporting learners?"
-msgstr ""
+msgstr "Kako dobro moja vsebina podpira učence?"
 
 #: analytics_dashboard/core/templates/core/landing.html:53
 msgid "Adjust your course based on where learners are struggling."
-msgstr ""
+msgstr "Prilagodite svoj tečaj glede na to, kje imajo učenci težave."
 
 #: analytics_dashboard/core/templates/core/landing.html:54
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:51
@@ -124,7 +125,7 @@ msgstr "{statistic}%"
 #: analytics_dashboard/courses/presenters/engagement.py:124
 #, python-brace-format
 msgid "{percentage} of current learners"
-msgstr ""
+msgstr "{percentage} trenutnih učencev"
 
 #: analytics_dashboard/courses/presenters/enrollment.py:23
 msgid "Female"
@@ -241,7 +242,7 @@ msgstr "Del {part_number}"
 #: analytics_dashboard/courses/templates/courses/_base_content_nav.html:25
 #, python-format
 msgid "%(all_sections_text)s"
-msgstr ""
+msgstr "%(all_sections_text)s"
 
 #: analytics_dashboard/courses/templates/courses/_graded_content_nav.html:16
 msgid "Select Assignment Type"
@@ -276,11 +277,11 @@ msgstr "Pogled v živo"
 
 #: analytics_dashboard/courses/templates/courses/_tags_content_nav.html:15
 msgid "Select Outcome"
-msgstr ""
+msgstr "Izberite izid"
 
 #: analytics_dashboard/courses/templates/courses/_tags_content_nav.html:19
 msgid "All Outcomes"
-msgstr ""
+msgstr "Vsi rezultati"
 
 #: analytics_dashboard/courses/templates/courses/_ungraded_content_nav.html:16
 #: analytics_dashboard/courses/templates/courses/_video_content_nav.html:16
@@ -314,7 +315,7 @@ msgstr "Naslednji video"
 msgid ""
 "This chart shows the most common answers submitted by learners, ordered by "
 "frequency."
-msgstr ""
+msgstr "Ta grafikon prikazuje najpogostejše odgovore, ki so jih predložili učenci, razvrščene po pogostosti."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: analytics_dashboard/courses/templates/courses/base_performance_answer_distribution.html:82
@@ -348,21 +349,21 @@ msgstr "Prenos CSV"
 
 #: analytics_dashboard/courses/templates/courses/base_performance_answer_distribution.html:117
 msgid "Learner Submission Counts"
-msgstr ""
+msgstr "Oddaja učencev šteje"
 
 #. Translators: This describes the data displayed in the chart below.
 #: analytics_dashboard/courses/templates/courses/demographics_chart_info.html:4
 msgid "Learners (Self-Reported)"
-msgstr ""
+msgstr "Učenci (samo-poročani)"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:23
 msgid "Weekly Learner Engagement"
-msgstr ""
+msgstr "Tedenska aktivnost učencev"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:24
 #: analytics_dashboard/courses/views/__init__.py:569
 msgid "How many learners are interacting with my course?"
-msgstr ""
+msgstr "Koliko učencev je udeleženih na mojem tečaju?"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:31
 #: analytics_dashboard/courses/views/__init__.py:338
@@ -370,25 +371,25 @@ msgstr ""
 #: analytics_dashboard/courses/views/__init__.py:716
 #: analytics_dashboard/courses/views/learners.py:20
 msgid "Learners"
-msgstr ""
+msgstr "Učenci"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:32
 msgid ""
 "The number of active learners, and the number of learners who engaged in "
 "specific activities, over time."
-msgstr ""
+msgstr "Število aktivnih učencev in število učencev, ki so se ukvarjali s posebnimi dejavnostmi skozi čas."
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:48
 msgid "Learner Activity Metrics"
-msgstr ""
+msgstr "Meritve dejavnosti učencev"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:54
 msgid "Active Learners Last Week"
-msgstr ""
+msgstr "Aktivni učenci prejšnji teden"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:55
 msgid "Learners who visited at least one page in the course content."
-msgstr ""
+msgstr "Učenci, ki so obiskali vsaj eno stran v vsebini tečaja."
 
 #. Translators: This is a label indicating the number of learners who watched
 #. a video.
@@ -398,7 +399,7 @@ msgstr "Ogledov videa v zadnjem tednu"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:62
 msgid "Learners who played one or more videos."
-msgstr ""
+msgstr "Učenci, ki so predvajali enega ali več videoposnetkov."
 
 #. Translators: This is a label indicating the number of learners who tried a
 #. problem.
@@ -410,18 +411,18 @@ msgstr "Poskusili problem prejšnji teden"
 msgid ""
 "Learners who submitted an answer for a standard problem. Not all problem "
 "types are included."
-msgstr ""
+msgstr "Učenci, ki so oddali odgovor za standardni problem. Vse vrste težav niso vključene."
 
 #. Translators: This is a label indicating the number of learners who posted
 #. in a forum discussion.
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:76
 msgid "Participated in Discussions Last Week"
-msgstr ""
+msgstr "Sodeloval v razpravah prejšnji teden"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:77
 msgid ""
 "Learners who added a post, response, or comment to any course discussion."
-msgstr ""
+msgstr "Učenci, ki so k kateri koli razpravi o tečaju dodali objavo, odgovor ali komentar."
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:89
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:97
@@ -437,7 +438,7 @@ msgstr "Število ogledov"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_by_section.html:5
 msgid "How did learners interact with videos in this section?"
-msgstr ""
+msgstr "Kako so učenci sodelovali z videoposnetki v tem razdelku?"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_by_section.html:10
 msgid ""
@@ -448,18 +449,18 @@ msgstr "Vsak stolpec predstavlja povprečje ogledanih ali delno ogledanih videov
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_by_subsection.html:10
 msgid "How did learners interact with videos in this subsection?"
-msgstr ""
+msgstr "Kako so učenci sodelovali z videoposnetki v tem pododdelku?"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_by_subsection.html:15
 msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
 "Click to understand where learners drop off and which parts they replay."
-msgstr ""
+msgstr "Vsaka vrstica prikazuje število popolnih in nepopolnih ogledov za ta videoposnetek. Kliknite, če želite razumeti, kje učenci odidejo in katere dele ponovijo."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_course.html:5
 #: analytics_dashboard/courses/views/__init__.py:582
 msgid "How did learners interact with course videos?"
-msgstr ""
+msgstr "Kako so učenci sodelovali z videoposnetki tečajev?"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_course.html:10
 msgid ""
@@ -481,7 +482,7 @@ msgstr "Kakšni so bili vzorci ogledov za ta video?"
 msgid ""
 "The number of learners who watched each segment of the video, and the number"
 " of replays for each segment."
-msgstr ""
+msgstr "Število učencev, ki so si ogledali vsak segment videoposnetka, in število ponovitev za vsak segment."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:37
 msgid "Collapse Preview"
@@ -501,7 +502,7 @@ msgstr "Stopnja ogledanosti"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:62
 msgid "Estimated percentage of learners who watched the entire video."
-msgstr ""
+msgstr "Ocenjen odstotek učencev, ki so si ogledali celoten videoposnetek."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:66
 msgid "Started Video"
@@ -509,7 +510,7 @@ msgstr "Začeti videi"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:67
 msgid "Learners who started watching the video."
-msgstr ""
+msgstr "Učenci, ki so začeli gledati videoposnetek."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:71
 msgid "Finished Video"
@@ -517,7 +518,7 @@ msgstr "Končani videi"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:72
 msgid "Learners who watched the video to the end."
-msgstr ""
+msgstr "Učenci, ki so si ogledali video do konca."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:88
 msgid "Video Viewing Over Time"
@@ -525,12 +526,12 @@ msgstr "Video ogledan preko časa"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:24
 msgid "Daily Learner Enrollment"
-msgstr ""
+msgstr "Dnevni vpis učencev"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:25
 #: analytics_dashboard/courses/views/__init__.py:510
 msgid "How many learners are in my course?"
-msgstr ""
+msgstr "Koliko učencev je v mojem tečaju?"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:32
 msgid "Enrollments"
@@ -558,7 +559,7 @@ msgstr "Vsi vpisi"
 #. Translators: This is a label indicating the number of learners in a course.
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:61
 msgid "Learners who ever enrolled in the course."
-msgstr ""
+msgstr "Učenci, ki so se kdaj vpisali na tečaj."
 
 #. Translators: This is a label to identify current learner enrollment.
 #. Translators: This is a label to identify the current number of learners in
@@ -572,7 +573,7 @@ msgstr "Trenutni vpisi"
 #. a course.
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:70
 msgid "Learners currently enrolled in the course."
-msgstr ""
+msgstr "Učenci, ki so trenutno vpisani v tečaj."
 
 #. Translators: This is a label indicating the change in the number of
 #. learners enrolled in a course since the previous week.
@@ -602,7 +603,7 @@ msgstr "Verificirani vpisi"
 msgid ""
 "Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
-msgstr ""
+msgstr "Število trenutno vpisanih učencev, ki si prizadevajo za potrjeno potrdilo o dosežkih."
 
 #. Translators: This is a label to identify enrollment of learners on the
 #. masters track.
@@ -611,13 +612,13 @@ msgstr ""
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:93
 #: analytics_dashboard/courses/templates/courses/index.html:53
 msgid "Master's Enrollment"
-msgstr ""
+msgstr "Vpis v magisterij"
 
 #. Translators: This is a label indicating the number of learners enrolled in
 #. a course on the masters track.
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:95
 msgid "Number of currently enrolled learners pursuing a Master's degree."
-msgstr ""
+msgstr "Število trenutno vpisanih študentov, ki opravljajo magisterij."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:109
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:117
@@ -630,7 +631,7 @@ msgstr "Vpis v časovnem obdobju"
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:26
 #: analytics_dashboard/courses/views/__init__.py:520
 msgid "How old are my learners?"
-msgstr ""
+msgstr "Koliko so stari moji učenci?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -640,7 +641,7 @@ msgstr ""
 msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
 "learners who provided a year of birth."
-msgstr ""
+msgstr "Ta starostni histogram predstavlja podatke, izračunane za %(value)s%% vpisanih učencev, ki so navedli leto rojstva."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:56
 msgid "Age Metrics"
@@ -650,48 +651,48 @@ msgstr "Meritve starosti"
 #. learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:65
 msgid "Median Learner Age"
-msgstr ""
+msgstr "Srednja učna starost"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:66
 msgid ""
 "The midpoint of the learner ages, computed from the provided year of birth."
-msgstr ""
+msgstr "Sredina starosti učenca, izračunana iz navedenega leta rojstva."
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:72
 msgid "Learners 25 and Under"
-msgstr ""
+msgstr "Učenci, stari 25 let in manj"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:73
 msgid ""
 "The percentage of learners aged 25 years or younger (of those who provided a"
 " year of birth)."
-msgstr ""
+msgstr "Odstotek učencev, starih 25 let ali manj (od tistih, ki so navedli leto rojstva)."
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:79
 msgid "Learners 26 to 40"
-msgstr ""
+msgstr "Učenci od 26 do 40 let"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:80
 msgid ""
 "The percentage of learners aged from 26 to 40 years (of those who provided a"
 " year of birth)."
-msgstr ""
+msgstr "Odstotek učencev, starih od 26 do 40 let (od tistih, ki so navedli leto rojstva)."
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:86
 msgid "Learners 41 and Over"
-msgstr ""
+msgstr "Učenci, stari 41 let in več"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:87
 msgid ""
 "The percentage of learners aged 41 years or older (of those who provided a "
 "year of birth)."
-msgstr ""
+msgstr "Odstotek učencev, starih 41 let ali več (od tistih, ki so navedli leto rojstva)."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:101
 msgid "Age Breakdown"
@@ -700,7 +701,7 @@ msgstr "Razčlenitev po letih"
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:25
 #: analytics_dashboard/courses/views/__init__.py:530
 msgid "What level of education do my learners have?"
-msgstr ""
+msgstr "Kakšno stopnjo izobrazbe imajo moji učenci?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -710,7 +711,7 @@ msgstr ""
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled learners who "
 "provided a highest level of education completed."
-msgstr ""
+msgstr "Ta graf prikazuje podatke za %(value)s%% vpisanih učencev, ki so zagotovili najvišjo stopnjo izobrazbe."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:56
 msgid "Education Metrics"
@@ -726,7 +727,7 @@ msgid ""
 "The percentage of learners who selected Secondary/high school, Junior "
 "secondary/junior high/middle school, or Elementary/primary school as their "
 "highest level of education completed."
-msgstr ""
+msgstr "Odstotek učencev, ki so izbrali srednjo/srednjo šolo, nižjo srednjo/srednjo/srednjo šolo ali osnovno/osnovno šolo kot svojo najvišjo končano izobrazbo."
 
 #. Translators: This is a label to identify learner educational background.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:71
@@ -737,7 +738,7 @@ msgstr "Univerzitetna izobrazba"
 msgid ""
 "The percentage of learners who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
-msgstr ""
+msgstr "Odstotek učencev, ki so za svojo najvišjo stopnjo izobrazbe izbrali diplomo ali izredni študij."
 
 #. Translators: This is a label to identify learner educational background.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:78
@@ -748,7 +749,7 @@ msgstr "Specialistična izobrazba"
 msgid ""
 "The percentage of learners who selected Doctorate or Master's or "
 "professional degree as their highest level of education completed."
-msgstr ""
+msgstr "Odstotek učencev, ki so za svojo najvišjo stopnjo izobrazbe izbrali doktorat, magisterij ali poklic."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:91
 msgid "Educational Breakdown"
@@ -757,7 +758,7 @@ msgstr "Razčlenitev po izobrazbi"
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_gender.html:25
 #: analytics_dashboard/courses/views/__init__.py:540
 msgid "What is the learner gender breakdown?"
-msgstr ""
+msgstr "Kakšna je razčlenitev po spolu učenca?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -767,7 +768,7 @@ msgstr ""
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled learners who "
 "specified their gender."
-msgstr ""
+msgstr "Ta graf prikazuje podatke za %(value)s%% vpisanih učencev, ki so navedli svoj spol."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_gender.html:56
 msgid "Gender Breakdown Over Time"
@@ -780,7 +781,7 @@ msgstr "Geografska porazdelitev"
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:22
 #: analytics_dashboard/courses/views/__init__.py:550
 msgid "Where are my learners?"
-msgstr ""
+msgstr "Kje so moji učenci?"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:27
 msgid "Enrollment by Country"
@@ -794,48 +795,48 @@ msgstr "Geografske meritve"
 #. are enrolled.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:53
 msgid "Total Countries or Regions Represented"
-msgstr ""
+msgstr "Skupno zastopane države ali regije"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:54
 msgid "Countries or regions with at least one learner."
-msgstr ""
+msgstr "Države ali regije z vsaj enim učencem."
 
 #. Translators: This string represents the country or region with the greatest
 #. number of enrolled learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:62
 msgid "Top Country or Region by Enrollment"
-msgstr ""
+msgstr "Najboljša država ali regija glede na vpis"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:63
 msgid "Country or region with the largest number of learners."
-msgstr ""
+msgstr "Država ali regija z največjim številom učencev."
 
 #. Translators: This string represents the country or region with the second-
 #. greatest number of enrolled learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:66
 msgid "Second Country or Region by Enrollment"
-msgstr ""
+msgstr "Druga država ali regija po vpisu"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:67
 msgid "Country or region with the second largest number of learners."
-msgstr ""
+msgstr "Država ali regija z drugim največjim številom učencev."
 
 #. Translators: This string represents the country or region with the third-
 #. greatest number of enrolled learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:70
 msgid "Third Country or Region by Enrollment"
-msgstr ""
+msgstr "Tretja država ali regija po vpisu"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:71
 msgid "Country or region with the third largest number of learners."
-msgstr ""
+msgstr "Država ali regija s tretjim največjim številom učencev."
 
 #. Translators: This string represents the percentage of learners in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:77
 #, python-format
 msgid "%(percent)s%% of learners"
-msgstr ""
+msgstr "%(percent)s%% učencev"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:91
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:98
@@ -892,44 +893,44 @@ msgstr "Tečaji"
 
 #: analytics_dashboard/courses/templates/courses/index.html:17
 msgid "Across all your courses:"
-msgstr ""
+msgstr "Na vseh vaših tečajih:"
 
 #: analytics_dashboard/courses/templates/courses/index.html:27
 msgid "Total enrollments across all of your courses."
-msgstr ""
+msgstr "Skupno število vpisov na vse vaše tečaje."
 
 #: analytics_dashboard/courses/templates/courses/index.html:34
 msgid "Current enrollments across all of your courses."
-msgstr ""
+msgstr "Trenutni vpisi na vse vaše tečaje."
 
 #: analytics_dashboard/courses/templates/courses/index.html:41
 msgid "Total change in enrollment last week across all of your courses."
-msgstr ""
+msgstr "Popolna sprememba vpisa prejšnji teden za vse vaše tečaje."
 
 #: analytics_dashboard/courses/templates/courses/index.html:48
 msgid "Verified enrollments across all of your courses."
-msgstr ""
+msgstr "Preverjene vpise na vse vaše tečaje."
 
 #: analytics_dashboard/courses/templates/courses/index.html:54
 msgid "Master's enrollments across all of your courses."
-msgstr ""
+msgstr "Vpisi v magistrski študij na vse vaše tečaje."
 
 #: analytics_dashboard/courses/templates/courses/performance_answer_distribution.html:7
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_answer_distribution.html:5
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_answer_distribution.html:7
 msgid "How did learners answer this problem?"
-msgstr ""
+msgstr "Kako so učenci odgovorili na to težavo?"
 
 #: analytics_dashboard/courses/templates/courses/performance_assignment.html:10
 msgid "How are learners doing on this assignment?"
-msgstr ""
+msgstr "Kako se učenci obnesejo pri tej nalogi?"
 
 #: analytics_dashboard/courses/templates/courses/performance_assignment.html:15
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_subsection.html:15
 msgid ""
 "These bars show the correct and incorrect submission counts for each "
 "problem. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "Te vrstice prikazujejo pravilno in napačno štetje oddaje za vsako težavo. Šteje se samo zadnja oddaja vsakega učenca."
 
 #: analytics_dashboard/courses/templates/courses/performance_assignment.html:19
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_section.html:20
@@ -976,7 +977,7 @@ msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "problems in the assignment. Only the last submission from each learner is "
 "counted."
-msgstr ""
+msgstr "Vsaka vrstica prikazuje povprečno število pravilnih in napačnih oddaj za težave v nalogi. Šteje se samo zadnja oddaja vsakega učenca."
 
 #: analytics_dashboard/courses/templates/courses/performance_graded_content_by_type.html:19
 msgid "Assignment Submissions"
@@ -985,33 +986,33 @@ msgstr "Oddaja nalog"
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_content.html:6
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_section.html:6
 msgid "Measured by learning outcome, how are learners performing?"
-msgstr ""
+msgstr "Kako se izvajajo učenci, merjeno z učnimi rezultati?"
 
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_content.html:16
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each outcome."
-msgstr ""
+msgstr "Vsaka vrstica prikazuje povprečno število pravilnih in napačnih oddaj za vsak rezultat."
 
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_content.html:20
 msgid "Outcome Submissions"
-msgstr ""
+msgstr "Oddaje rezultatov"
 
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_section.html:16
 msgid ""
 "Each bar shows the correct and incorrect number of submissions for each "
 "problem for the current outcome."
-msgstr ""
+msgstr "Vsaka vrstica prikazuje pravilno in napačno število oddaj za vsako težavo za trenutni izid."
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_section.html:5
 msgid "How are learners doing on this section?"
-msgstr ""
+msgstr "Kako so učenci na tem oddelku?"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_section.html:10
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each subsection. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "Vsaka vrstica prikazuje povprečno število pravilnih in napačnih oddaj za vsak podrazdelek. Šteje se samo zadnja oddaja vsakega učenca."
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_section.html:14
 msgid "Subsection Submissions"
@@ -1019,18 +1020,18 @@ msgstr "Oddaje v podpoglavju"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_subsection.html:10
 msgid "How are learners doing on this subsection?"
-msgstr ""
+msgstr "Kako so učenci v tem pododdelku?"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_content.html:7
 #: analytics_dashboard/courses/views/__init__.py:605
 msgid "How are learners doing on ungraded exercises?"
-msgstr ""
+msgstr "Kako so učenci pri neocenjenih vajah?"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_content.html:12
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each section. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "Vsaka vrstica prikazuje povprečno število pravilnih in napačnih oddaj za vsak odsek. Šteje se samo zadnja oddaja vsakega učenca."
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_content.html:16
 msgid "Section Submissions"
@@ -1122,43 +1123,43 @@ msgstr "Doplonjeni problemi"
 #: analytics_dashboard/courses/views/__init__.py:619
 #: analytics_dashboard/courses/views/performance.py:68
 msgid "Learning Outcomes"
-msgstr ""
+msgstr "Učni izidi"
 
 #: analytics_dashboard/courses/views/__init__.py:566
 msgid "What are learners doing in my course?"
-msgstr ""
+msgstr "Kaj učenci počnejo na mojem tečaju?"
 
 #: analytics_dashboard/courses/views/__init__.py:596
 msgid "How are learners doing on graded course assignments?"
-msgstr ""
+msgstr "Kako se učenci obnesejo pri ocenjenih predmetnih nalogah?"
 
 #: analytics_dashboard/courses/views/__init__.py:617
 msgid "What is the breakdown for course learning outcomes?"
-msgstr ""
+msgstr "Kakšna je razčlenitev učnih rezultatov predmeta?"
 
 #: analytics_dashboard/courses/views/__init__.py:637
 msgid "How are learners responding to questions?"
-msgstr ""
+msgstr "Kako se učenci odzivajo na vprašanja?"
 
 #: analytics_dashboard/courses/views/__init__.py:639
 msgid "Problem Response Report"
-msgstr ""
+msgstr "Poročilo o odzivu na težavo"
 
 #: analytics_dashboard/courses/views/__init__.py:646
 msgid "How are learners doing on course assignments?"
-msgstr ""
+msgstr "Kako se učenci obnesejo pri predmetnih nalogah?"
 
 #: analytics_dashboard/courses/views/__init__.py:654
 msgid "What are individual learners doing?"
-msgstr ""
+msgstr "Kaj počnejo posamezni učenci?"
 
 #: analytics_dashboard/courses/views/__init__.py:657
 msgid "Who is engaged? Who isn't?"
-msgstr ""
+msgstr "Kdo je udeležen? Kdo ni?"
 
 #: analytics_dashboard/courses/views/__init__.py:659
 msgid "All Learners"
-msgstr ""
+msgstr "Vsi učenci"
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
@@ -1210,7 +1211,7 @@ msgstr "Materiali za tečaj"
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
+msgstr "Podatki o povzetku tečaja so bili nazadnje posodobljeni %(update_date)s ob %(update_time)s UTC."
 
 #: analytics_dashboard/courses/views/engagement.py:57
 msgid "Engagement Content"
@@ -1258,7 +1259,7 @@ msgstr "Ime videa"
 msgid ""
 "Demographic learner data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "Demografski podatki o učencih so bili nazadnje posodobljeni %(update_date)s ob %(update_time)s UTC."
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
@@ -1301,7 +1302,7 @@ msgstr "Geografija vpisanih"
 msgid ""
 "Geographic learner data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Geografski podatki o učencu so bili nazadnje posodobljeni %(update_date)s ob %(update_time)s UTC."
 
 #. Translators: Do not translate UTC.
 #: analytics_dashboard/courses/views/performance.py:36
@@ -1345,12 +1346,12 @@ msgstr "Ime problema"
 msgid ""
 "Tags distribution data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Podatki o distribuciji oznak so bili nazadnje posodobljeni %(update_date)s ob %(update_time)s UTC."
 
 #: analytics_dashboard/courses/views/performance.py:404
 #: analytics_dashboard/courses/views/performance.py:434
 msgid "Performance: Learning Outcomes"
-msgstr ""
+msgstr "Uspešnost: učni rezultati"
 
 #: analytics_dashboard/settings/base.py:430
 msgid "Terms of Service"
@@ -1428,7 +1429,7 @@ msgstr "Kontakt %(platform_name)s Podpora"
 msgid ""
 "We want this dashboard to work for you! Need help? "
 "%(support_link_start)sContact course team support%(support_link_end)s."
-msgstr ""
+msgstr "Želimo, da ta nadzorna plošča deluje za vas! Rabim pomoč? %(support_link_start)sObrnite se na podporo ekipe%(support_link_end)s."
 
 #. Translators: The © symbol appears directly before this line.
 #: analytics_dashboard/templates/footer.html:39
@@ -1448,7 +1449,7 @@ msgstr "Pomoč"
 
 #: analytics_dashboard/templates/header.html:46
 msgid "Menu for"
-msgstr ""
+msgstr "Meni za"
 
 #: analytics_dashboard/templates/header.html:60
 msgid "Logout"
@@ -1456,7 +1457,7 @@ msgstr "Odjava"
 
 #: analytics_dashboard/templates/lens-navigation.html:27
 msgid "Navigation Menu."
-msgstr ""
+msgstr "Navigacijski meni."
 
 #: analytics_dashboard/templates/loading.html:7
 msgid "Loading"

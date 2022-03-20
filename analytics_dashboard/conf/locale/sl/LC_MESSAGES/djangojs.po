@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Črtomir Podlipnik, 2022
 # Dorjano Baruca <dorjanob@eglue.biz>, 2016
 # Rok Kepa <rokkepa@gmail.com>, 2014
 msgid ""
@@ -10,8 +11,8 @@ msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-29 20:42+0000\n"
-"PO-Revision-Date: 2022-03-13 18:26+0000\n"
-"Last-Translator: Rok Kepa <rokkepa@gmail.com>\n"
+"PO-Revision-Date: 2014-08-26 21:24+0000\n"
+"Last-Translator: Črtomir Podlipnik, 2022\n"
 "Language-Team: Slovenian (http://www.transifex.com/open-edx/edx-platform/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,32 +26,32 @@ msgstr "Prenos CSV"
 
 #: analytics_dashboard/static/apps/components/download/views/download-data.js:26
 msgid "Download search results to CSV"
-msgstr ""
+msgstr "Prenesite rezultate iskanja v CSV"
 
 #. Translators: "All" refers to viewing all items (e.g. all courses).
 #: analytics_dashboard/static/apps/components/filter/views/drop-down-filter.js:31
 msgid "All"
-msgstr ""
+msgstr "vse"
 
 #. Translators: 'name' here refers to the name of the filter, while 'count'
 #. refers to the number of items belonging to that filter.
 #: analytics_dashboard/static/apps/components/filter/views/filter.js:90
 msgid "<%= name %> (<%= count %>)"
-msgstr ""
+msgstr "&lt;%= ime %&gt; (&lt;%= število %&gt;)"
 
 #. Translators: this is a label describing a filter selection that the user
 #. initiated.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:62
 msgid "<%= filterDisplayName %>: <%= filterVal %>"
-msgstr ""
+msgstr "&lt;%= filterDisplayName %&gt;: &lt;%= filterVal %&gt;"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:87
 msgid "Filters In Use:"
-msgstr ""
+msgstr "Filtri v uporabi:"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:88
 msgid "Click to remove this filter"
-msgstr ""
+msgstr "Kliknite, da odstranite ta filter"
 
 #. Translators: "Clear" in this context means "remove all of the filters"
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:90
@@ -59,68 +60,68 @@ msgstr "počisti"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:91
 msgid "Click to remove all filters"
-msgstr ""
+msgstr "Kliknite, da odstranite vse filtre"
 
 #. Translators: "sort ascending" describes the current sort state to the user.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/base-header-cell.js:71
 msgid "sort ascending"
-msgstr ""
+msgstr "razvrsti naraščajoče"
 
 #. Translators: "sort descending" describes the current sort state to the
 #. user.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/base-header-cell.js:73
 msgid "sort descending"
-msgstr ""
+msgstr "razvrsti padajoče"
 
 #. Translators: "click to sort" tells the user that they can click this link
 #. to sort by the current field.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/base-header-cell.js:76
 msgid "click to sort"
-msgstr ""
+msgstr "kliknite za razvrščanje"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/list.js:51
 msgid "Results"
-msgstr ""
+msgstr "Rezultati"
 
 #. Translators: 'count' refers to the number of results contained in the
 #. table.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/num-results.js:30
 msgid "Number of results: <%= count %>"
-msgstr ""
+msgstr "Število rezultatov: &lt;%= count %&gt;"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:70
 msgid "first page"
-msgstr ""
+msgstr "prva stran"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:72
 msgid "previous page"
-msgstr ""
+msgstr "Prejšnja stran"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:74
 msgid "next page"
-msgstr ""
+msgstr "Naslednja stran"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:76
 msgid "last page"
-msgstr ""
+msgstr "zadnja stran"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:78
 msgid "page"
-msgstr ""
+msgstr "stran"
 
 #. Translators: describes the state of a pagination button as not clickable
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:88
 msgid "disabled"
-msgstr ""
+msgstr "onemogočeno"
 
 #. Translators: describes a pagination button as representing the current page
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:91
 msgid "active"
-msgstr ""
+msgstr "aktiven"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/table.js:27
 msgid "Generic List"
-msgstr ""
+msgstr "Splošni seznam"
 
 #. Translators: This message indicates content is loading in the page.
 #: analytics_dashboard/static/apps/components/loading/views/loading-view.js:20
@@ -131,74 +132,74 @@ msgstr "Nalagam..."
 #. it as "504".
 #: analytics_dashboard/static/apps/components/utils/utils.js:62
 msgid "504: Server error"
-msgstr ""
+msgstr "504: Napaka strežnika"
 
 #: analytics_dashboard/static/apps/components/utils/utils.js:64
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
-msgstr ""
+msgstr "Obdelava vaše zahteve je trajala predolgo. Ponovno naložite stran, da poskusite znova."
 
 #: analytics_dashboard/static/apps/components/utils/utils.js:68
 msgid "Server error"
-msgstr ""
+msgstr "Napaka strežnika"
 
 #: analytics_dashboard/static/apps/components/utils/utils.js:69
 #: analytics_dashboard/static/apps/components/utils/utils.js:81
 msgid "Your request could not be processed. Reload the page to try again."
-msgstr ""
+msgstr "Vaše zahteve ni bilo mogoče obdelati. Ponovno naložite stran, da poskusite znova."
 
 #: analytics_dashboard/static/apps/components/utils/utils.js:80
 msgid "Network error"
-msgstr ""
+msgstr "Omrežna napaka"
 
 #: analytics_dashboard/static/apps/course-list/app/app.js:38
 msgid "Instructor-Paced"
-msgstr ""
+msgstr "Inštruktorski tempo"
 
 #: analytics_dashboard/static/apps/course-list/app/app.js:39
 msgid "Self-Paced"
-msgstr ""
+msgstr "Samostojen"
 
 #: analytics_dashboard/static/apps/course-list/app/app.js:42
 msgid "Upcoming"
-msgstr ""
+msgstr "Prihajajo"
 
 #: analytics_dashboard/static/apps/course-list/app/app.js:43
 msgid "Current"
-msgstr ""
+msgstr "Trenutni"
 
 #: analytics_dashboard/static/apps/course-list/app/app.js:44
 msgid "Archived"
-msgstr ""
+msgstr "Arhivirano"
 
 #: analytics_dashboard/static/apps/course-list/app/app.js:45
 #: analytics_dashboard/static/js/enrollment-demographics-age-main.js:17
 msgid "Unknown"
-msgstr ""
+msgstr "neznano"
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:44
 #: analytics_dashboard/static/apps/course-list/app/controller.js:106
 msgid "Course List"
-msgstr ""
+msgstr "Seznam tečajev"
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:95
 #: analytics_dashboard/static/apps/learners/app/controller.js:94
 msgid "Invalid Parameters"
-msgstr ""
+msgstr "Neveljavni parametri"
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:96
 msgid "Sorry, we couldn't find any courses that matched that query."
-msgstr ""
+msgstr "Žal nismo našli nobenega tečaja, ki bi ustrezal tej poizvedbi."
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:97
 msgid "Return to the Course List page."
-msgstr ""
+msgstr "Vrnite se na stran s seznamom tečajev."
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:123
 #: analytics_dashboard/static/apps/learners/app/controller.js:177
 msgid "Sorry, we couldn't find the page you're looking for."
-msgstr ""
+msgstr "Žal nismo mogli najti strani, ki jo iščete."
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:125
 #: analytics_dashboard/static/apps/learners/app/controller.js:180
@@ -207,19 +208,19 @@ msgstr "Stran ni bila najdena"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:77
 msgid "Course Name"
-msgstr ""
+msgstr "Ime tečaja"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:78
 msgid "Start Date"
-msgstr ""
+msgstr "Začetni datum"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:79
 msgid "End Date"
-msgstr ""
+msgstr "Končni datum"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:80
 msgid "Total Enrollment"
-msgstr ""
+msgstr "Skupni vpis"
 
 #. Translators: The noun count (e.g. number of learners)
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:81
@@ -231,170 +232,170 @@ msgstr "Trenutni vpisi"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:82
 msgid "Change Last Week"
-msgstr ""
+msgstr "Spremeni prejšnji teden"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:83
 msgid "Verified Enrollment"
-msgstr ""
+msgstr "Preverjena prijava"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:86
 msgid "Passing Learners"
-msgstr ""
+msgstr "Minujoči učenci"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:89
 msgid "Availability"
-msgstr ""
+msgstr "Razpoložljivost"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:90
 msgid "Pacing Type"
-msgstr ""
+msgstr "Pacing Type"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:91
 msgid "Programs"
-msgstr ""
+msgstr "Programi"
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:11
 msgid "Course name advertised on edX site."
-msgstr ""
+msgstr "Ime tečaja je objavljeno na spletnem mestu edX."
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:12
 msgid "Start date advertised on edX site."
-msgstr ""
+msgstr "Datum začetka je objavljen na spletnem mestu edX."
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:13
 msgid "End date set in edX Studio."
-msgstr ""
+msgstr "Končni datum je nastavljen v edX Studio."
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:14
 msgid "Learners who ever enrolled in the course."
-msgstr ""
+msgstr "Učenci, ki so se kdaj vpisali na tečaj."
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:15
 msgid "Learners currently enrolled in the course."
-msgstr ""
+msgstr "Učenci, ki so trenutno vpisani v tečaj."
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:16
 msgid "Net difference in current enrollment in the last week."
-msgstr ""
+msgstr "Neto razlika v trenutnem vpisu v zadnjem tednu."
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:18
 msgid ""
 "Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
-msgstr ""
+msgstr "Število trenutno vpisanih učencev, ki si prizadevajo za potrjeno potrdilo o dosežkih."
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:19
 msgid "Learners who have earned a passing grade."
-msgstr ""
+msgstr "Učenci, ki so dosegli prehodno oceno."
 
 #: analytics_dashboard/static/apps/course-list/list/views/controls.js:38
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:39
 msgid "Skip to results"
-msgstr ""
+msgstr "Preskoči na rezultate"
 
 #: analytics_dashboard/static/apps/course-list/list/views/controls.js:58
 msgid "Find a course"
-msgstr ""
+msgstr "Poiščite tečaj"
 
 #: analytics_dashboard/static/apps/course-list/list/views/controls.js:68
 msgid "availability"
-msgstr ""
+msgstr "razpoložljivost"
 
 #: analytics_dashboard/static/apps/course-list/list/views/controls.js:76
 msgid "pacing_type"
-msgstr ""
+msgstr "pacing_type"
 
 #: analytics_dashboard/static/apps/course-list/list/views/controls.js:84
 msgid "program_ids"
-msgstr ""
+msgstr "programski_ids"
 
 #: analytics_dashboard/static/apps/course-list/list/views/course-list.js:66
 msgid "Download full course list to CSV"
-msgstr ""
+msgstr "Prenesite celoten seznam tečajev v CSV"
 
 #: analytics_dashboard/static/apps/course-list/list/views/course-list.js:91
 msgid "Course list controls"
-msgstr ""
+msgstr "Kontrole seznama tečajev"
 
 #: analytics_dashboard/static/apps/course-list/list/views/results.js:47
 msgid "No courses matched your criteria."
-msgstr ""
+msgstr "Noben tečaj ni ustrezal vašim kriterijem."
 
 #: analytics_dashboard/static/apps/course-list/list/views/results.js:49
 #: analytics_dashboard/static/apps/learners/roster/views/results.js:49
 msgid "Try a different search."
-msgstr ""
+msgstr "Poskusite z drugim iskanjem."
 
 #: analytics_dashboard/static/apps/course-list/list/views/results.js:52
 #: analytics_dashboard/static/apps/learners/roster/views/results.js:52
 msgid "Try clearing the filters."
-msgstr ""
+msgstr "Poskusite počistiti filtre."
 
 #: analytics_dashboard/static/apps/course-list/list/views/results.js:55
 msgid "No course data is currently available for your course."
-msgstr ""
+msgstr "Za vaš tečaj trenutno ni na voljo nobenih podatkov o tečaju."
 
 #: analytics_dashboard/static/apps/course-list/list/views/results.js:57
 msgid ""
 "No courses are enrolled, or course activity data has not yet been processed."
 " Data is updated every day, so check back regularly for up-to-date metrics."
-msgstr ""
+msgstr "Noben tečaj ni vpisan ali pa podatki o aktivnostih tečaja še niso obdelani. Podatki se posodabljajo vsak dan, zato redno preverjajte, ali so na voljo posodobljene meritve."
 
 #: analytics_dashboard/static/apps/course-list/list/views/search.js:71
 msgid "Search courses"
-msgstr ""
+msgstr "Iskanje tečajev"
 
 #: analytics_dashboard/static/apps/course-list/list/views/search.js:72
 #: analytics_dashboard/static/apps/learners/roster/views/search.js:56
 msgid "search"
-msgstr ""
+msgstr "Iskanje"
 
 #: analytics_dashboard/static/apps/course-list/list/views/search.js:73
 #: analytics_dashboard/static/apps/learners/roster/views/search.js:57
 msgid "clear search"
-msgstr ""
+msgstr "jasno iskanje"
 
 #: analytics_dashboard/static/apps/course-list/list/views/table.js:48
 msgid "Date not available"
-msgstr ""
+msgstr "Datum ni na voljo"
 
 #: analytics_dashboard/static/apps/learners/app/controller.js:59
 msgid "Learner Roster"
-msgstr ""
+msgstr "Seznam učencev"
 
 #: analytics_dashboard/static/apps/learners/app/controller.js:95
 msgid "Sorry, we couldn't find any learners who matched that query."
-msgstr ""
+msgstr "Žal nismo mogli najti nobenega učenca, ki bi ustrezal tej poizvedbi."
 
 #: analytics_dashboard/static/apps/learners/app/controller.js:96
 msgid "Return to the Learners page."
-msgstr ""
+msgstr "Vrnite se na stran Učenci."
 
 #: analytics_dashboard/static/apps/learners/app/controller.js:104
 msgid "Learners"
-msgstr ""
+msgstr "Učenci"
 
 #: analytics_dashboard/static/apps/learners/app/controller.js:137
 msgid "Learner Details"
-msgstr ""
+msgstr "Podrobnosti o učencu"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:17
 msgid "Name (Username)"
-msgstr ""
+msgstr "Ime (uporabniško ime)"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:18
 msgid "Problems Tried"
-msgstr ""
+msgstr "Preizkušene težave"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:19
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:33
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:35
 msgid "Problems Correct"
-msgstr ""
+msgstr "Težave Popravi"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:20
 msgid "Attempts per Problem Correct"
-msgstr ""
+msgstr "Poskusi na težavo Popravijo"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:21
 #: analytics_dashboard/static/js/engagement-video-content-main.js:33
@@ -403,24 +404,24 @@ msgstr "Videi"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:22
 msgid "Discussions"
-msgstr ""
+msgstr "Razprave"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:24
 msgid "Segments"
-msgstr ""
+msgstr "segmenti"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:25
 msgid "Segments to Ignore"
-msgstr ""
+msgstr "Segmenti, ki jih želite prezreti"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:26
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:101
 msgid "Cohort"
-msgstr ""
+msgstr "kohorta"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:27
 msgid "Enrollment Mode"
-msgstr ""
+msgstr "Način vpisa"
 
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:22
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:43
@@ -432,29 +433,29 @@ msgstr "Datum"
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:27
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:31
 msgid "Discussion Contributions"
-msgstr ""
+msgstr "Prispevki za razpravo"
 
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:39
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:39
 msgid "Videos Viewed"
-msgstr ""
+msgstr "Ogledani videoposnetki"
 
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:47
 msgid "Value"
-msgstr ""
+msgstr "vrednost"
 
 #. Translators: e.g. Learner engagement activity
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:28
 msgid "Engagement Activity"
-msgstr ""
+msgstr "Zaročna dejavnost"
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:29
 msgid "Daily Activity"
-msgstr ""
+msgstr "Dnevna aktivnost"
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:30
 msgid "Activity Over Time"
-msgstr ""
+msgstr "Aktivnost skozi čas"
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:95
 msgid "Enrollment"
@@ -462,139 +463,139 @@ msgstr "Vpis"
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:106
 msgid "Last Accessed"
-msgstr ""
+msgstr "Zadnji dostop"
 
 #. Translators: 'n/a' means 'not available'
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:109
 #: analytics_dashboard/static/apps/learners/detail/views/learner-summary-field.js:44
 #: analytics_dashboard/static/apps/learners/roster/views/activity-date-range.js:16
 msgid "n/a"
-msgstr ""
+msgstr "n/a"
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:139
 msgid "Check back daily for up-to-date data."
-msgstr ""
+msgstr "Vsak dan preverite posodobljene podatke."
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:149
 msgid "No course activity data is available for this learner."
-msgstr ""
+msgstr "Za tega udeleženca niso na voljo nobeni podatki o dejavnosti tečaja."
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:156
 msgid "No learner data is available."
-msgstr ""
+msgstr "Podatki o učencih niso na voljo."
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-return.js:12
 msgid "Return to Learners"
-msgstr ""
+msgstr "Nazaj na učence"
 
 #. Translators: this is a label describing a selection that the user
 #. initiated.
 #: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:23
 msgid "Cohort: <%= filterVal %>"
-msgstr ""
+msgstr "Kohorta: &lt;%= filterVal %&gt;"
 
 #. Translators: this is a label describing a selection that the user
 #. initiated.
 #: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:27
 msgid "Enrollment Track: <%= filterVal %>"
-msgstr ""
+msgstr "Sledenje vpisa: &lt;%= filterVal %&gt;"
 
 #: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:32
 #: analytics_dashboard/static/js/engagement-content-main.js:20
 msgid "Active Learners"
-msgstr ""
+msgstr "Aktivni učenci"
 
 #: analytics_dashboard/static/apps/learners/roster/views/activity-date-range.js:11
 msgid "Activity between <%- startDate %> - <%- endDate %>"
-msgstr ""
+msgstr "Dejavnost med &lt;%- startDate %&gt; - &lt;%- endDate %&gt;"
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:10
 msgid "The name and username of this learner. Click to sort by username."
-msgstr ""
+msgstr "Ime in uporabniško ime tega učenca. Kliknite za razvrščanje po uporabniškem imenu."
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:11
 msgid "Number of unique problems this learner attempted."
-msgstr ""
+msgstr "Število edinstvenih težav, ki jih je ta učenec poskušal."
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:12
 msgid "Number of unique problems the learner answered correctly."
-msgstr ""
+msgstr "Število edinstvenih težav, na katere je učenec pravilno odgovoril."
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:13
 msgid "Number of unique videos this learner played."
-msgstr ""
+msgstr "Število edinstvenih videoposnetkov, ki jih je ta učenec predvajal."
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:15
 msgid ""
 "Average number of attempts per correct problem. Learners with a relatively "
 "high value compared to their peers may be struggling."
-msgstr ""
+msgstr "Povprečno število poskusov na pravilno težavo. Učenci z relativno visoko vrednostjo v primerjavi s svojimi vrstniki se lahko soočajo s težavami."
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:17
 msgid ""
 "Number of contributions by this learner, including posts, responses, and "
 "comments."
-msgstr ""
+msgstr "Število prispevkov tega učenca, vključno z objavami, odgovori in komentarji."
 
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:62
 msgid "Find a learner"
-msgstr ""
+msgstr "Poiščite učenca"
 
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:75
 msgid "Cohort Groups"
-msgstr ""
+msgstr "Kohortne skupine"
 
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:73
 msgid "cohort"
-msgstr ""
+msgstr "kohorte"
 
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:87
 msgid "Enrollment Tracks"
-msgstr ""
+msgstr "Vpisne poti"
 
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:85
 msgid "enrollment_mode"
-msgstr ""
+msgstr "vpisni_način"
 
 #. Translators: inactive meaning that these learners have not interacted with
 #. the
 #. course recently.
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:103
 msgid "Hide Inactive Learners"
-msgstr ""
+msgstr "Skrij neaktivne učence"
 
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:97
 msgid "ignore_segments"
-msgstr ""
+msgstr "ignore_segments"
 
 #: analytics_dashboard/static/apps/learners/roster/views/results.js:47
 msgid "No learners matched your criteria."
-msgstr ""
+msgstr "Noben učenec ni ustrezal vašim kriterijem."
 
 #: analytics_dashboard/static/apps/learners/roster/views/results.js:55
 msgid "No learner data is currently available for your course."
-msgstr ""
+msgstr "Za vaš tečaj trenutno ni na voljo nobenih podatkov o učencih."
 
 #: analytics_dashboard/static/apps/learners/roster/views/results.js:57
 msgid ""
 "No learners are enrolled, or course activity data has not yet been "
 "processed. Data is updated every day, so check back regularly for up-to-date"
 " metrics."
-msgstr ""
+msgstr "Noben učenec ni vpisan ali pa podatki o dejavnosti tečaja še niso obdelani. Podatki se posodabljajo vsak dan, zato redno preverjajte, ali so na voljo posodobljene meritve."
 
 #: analytics_dashboard/static/apps/learners/roster/views/roster.js:110
 msgid "Learner roster controls"
-msgstr ""
+msgstr "Kontrole seznama učencev"
 
 #: analytics_dashboard/static/apps/learners/roster/views/search.js:55
 msgid "Search learners"
-msgstr ""
+msgstr "Išči učence"
 
 #. Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate
 #. accordingly.
 #: analytics_dashboard/static/apps/learners/roster/views/table.js:40
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: analytics_dashboard/static/js/engagement-content-main.js:15
 msgid "Week Ending"
@@ -610,11 +611,11 @@ msgstr "Preizkusil problem"
 
 #: analytics_dashboard/static/js/engagement-content-main.js:41
 msgid "Participated in Discussions"
-msgstr ""
+msgstr "Sodelovali v razpravah"
 
 #: analytics_dashboard/static/js/engagement-content-main.js:48
 msgid "Percent of Current Learners"
-msgstr ""
+msgstr "Odstotek trenutnih učencev"
 
 #. Translators: <%=value%> will be replaced with a date.
 #: analytics_dashboard/static/js/engagement-content-main.js:85
@@ -667,11 +668,11 @@ msgstr "Nedokončano"
 #. certificate)
 #: analytics_dashboard/static/js/enrollment-activity-main.js:33
 msgid "Honor"
-msgstr ""
+msgstr "čast"
 
 #: analytics_dashboard/static/js/enrollment-activity-main.js:38
 msgid "Audit"
-msgstr ""
+msgstr "revizija"
 
 #: analytics_dashboard/static/js/enrollment-activity-main.js:43
 msgid "Verified"
@@ -685,13 +686,13 @@ msgstr "Profesionalno"
 #. credit
 #: analytics_dashboard/static/js/enrollment-activity-main.js:54
 msgid "Verified with Credit"
-msgstr ""
+msgstr "Preverjeno s kreditom"
 
 #: analytics_dashboard/static/js/enrollment-demographics-age-main.js:19
 #: analytics_dashboard/static/js/enrollment-demographics-age-main.js:34
 #: analytics_dashboard/static/js/enrollment-demographics-education-main.js:32
 msgid "Number of Learners"
-msgstr ""
+msgstr "Število učencev"
 
 #. Translators: <%=value%> will be replaced with an age.
 #: analytics_dashboard/static/js/enrollment-demographics-age-main.js:26
@@ -747,11 +748,11 @@ msgstr "Ni podano"
 msgid ""
 "Learner location is determined from IP address. This map shows where "
 "learners most recently connected."
-msgstr ""
+msgstr "Lokacija učenca se določi iz naslova IP. Ta zemljevid prikazuje, kje so se učenci nazadnje povezali."
 
 #: analytics_dashboard/static/js/enrollment-geography-main.js:26
 msgid "Country or Region"
-msgstr ""
+msgstr "Država ali regija"
 
 #: analytics_dashboard/static/js/enrollment-geography-main.js:27
 msgid "Percent"
@@ -819,11 +820,11 @@ msgstr "Procent pravilnih"
 
 #: analytics_dashboard/static/js/performance-learning-outcomes-content-main.js:38
 msgid "Average Submissions per Problem"
-msgstr ""
+msgstr "Povprečno število oddaj na težavo"
 
 #: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:30
 msgid "Difficulty"
-msgstr ""
+msgstr "Težavnost"
 
 #: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:53
 #: analytics_dashboard/static/js/performance-problems-main.js:35
