@@ -6,17 +6,17 @@
 #
 certifi==2021.10.8
     # via requests
-charset-normalizer==2.0.10
+charset-normalizer==2.0.12
     # via requests
 codecov==2.1.12
     # via -r requirements/github.in
-coverage==6.2
+coverage==6.3.2
     # via codecov
 distlib==0.3.4
     # via
     #   -r requirements/tox.txt
     #   virtualenv
-filelock==3.4.2
+filelock==3.6.0
     # via
     #   -r requirements/tox.txt
     #   tox
@@ -27,7 +27,7 @@ packaging==21.3
     # via
     #   -r requirements/tox.txt
     #   tox
-platformdirs==2.4.1
+platformdirs==2.5.1
     # via
     #   -r requirements/tox.txt
     #   virtualenv
@@ -61,9 +61,9 @@ tox==3.14.6
     #   tox-battery
 tox-battery==0.6.1
     # via -r requirements/tox.txt
-urllib3==1.26.8
+urllib3==1.26.9
     # via requests
-virtualenv==20.13.0
+virtualenv==20.13.4
     # via
     #   -r requirements/tox.txt
     #   tox

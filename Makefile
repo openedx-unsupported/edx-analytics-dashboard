@@ -88,14 +88,14 @@ ifeq ("${ENABLE_COURSE_LIST_PASSING}", "True")
 	$(TOX)python ./manage.py waffle_switch enable_course_passing on --create
 endif
 	$(TOX)python manage.py create_acceptance_test_soapbox_messages
-	$(TOX)pytest -v acceptance_tests --ignore=acceptance_tests/course_validation
+	$(TOX)pytest -v acceptance_tests
 	$(TOX)python manage.py delete_acceptance_test_soapbox_messages
 
 # local acceptance tests are typically run with by passing in environment variables on the commandline
 # e.g. API_SERVER_URL="http://localhost:9001/api/v0" API_AUTH_TOKEN="edx" make accept_local
 accept_local:
 	./manage.py create_acceptance_test_soapbox_messages
-	pytest -v acceptance_tests --ignore=acceptance_tests/course_validation
+	pytest -v acceptance_tests
 	./manage.py delete_acceptance_test_soapbox_messages
 
 accept_devstack:
@@ -106,10 +106,7 @@ ifeq ("${DISPLAY_LEARNER_ANALYTICS}", "True")
 	$(TOX)python manage.py waffle_flag enable_learner_analytics --create --everyone
 endif
 	cat dashboard.log
-	$(TOX)pytest -v a11y_tests -k 'not NUM_PROCESSES==1' --ignore=acceptance_tests/course_validation
-
-course_validation:
-	python -m acceptance_tests.course_validation.generate_report
+	$(TOX)pytest -v a11y_tests -k 'not NUM_PROCESSES==1'
 
 isort_check: ## check that isort has been run
 	$(TOX)isort --check-only --recursive --diff acceptance_tests/ analytics_dashboard/ common/

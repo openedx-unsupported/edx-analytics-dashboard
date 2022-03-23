@@ -13,11 +13,11 @@
 # Pin to pylint version used in edx-lint
 pylint==2.4.4
 
-# 3.3.0 Generate incompatibilities with awesome-slugify.
-social-auth-core==3.2.0
-
 # Newer versions cause build failure on github with `ERROR: Cannot find command 'git' - do you have 'git' installed and in your PATH?`
 tox==3.14.6
 
 # Newer version of django-webpack-loader is not compatible with npm webpack-bundle-tracker > 0.4.3
 django-webpack-loader==0.7.0
+
+# Constraint Django to 3.2 LTS
+django<3.3
