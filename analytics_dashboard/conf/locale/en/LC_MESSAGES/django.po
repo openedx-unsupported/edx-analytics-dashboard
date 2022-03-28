@@ -1,30 +1,31 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# 
+# Translators:
+# Mustafa Demir <mustafademir3441@gmail.com>, 2020
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-29 20:42+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2014-08-25 20:09+0000\n"
+"Last-Translator: Mustafa Demir <mustafademir3441@gmail.com>, 2020\n"
+"Language-Team: English (http://www.transifex.com/open-edx/edx-platform/language/en/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: analytics_dashboard/core/templates/core/landing.html:15
 #: analytics_dashboard/templates/_skip_link.html:3
 msgid "Skip to content"
-msgstr ""
+msgstr "İçeriğe geç."
 
 #: analytics_dashboard/core/templates/core/landing.html:23
 msgid "Login"
-msgstr ""
+msgstr "Giriş yap."
 
 #: analytics_dashboard/core/templates/core/landing.html:33
 msgid "Insights to help course teams improve courses."
@@ -111,7 +112,8 @@ msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
 msgstr ""
 
-#. Translators: Simply move the percent symbol (%) to the correct location. Do NOT translate the word statistic.
+#. Translators: Simply move the percent symbol (%) to the correct location. Do
+#. NOT translate the word statistic.
 #: analytics_dashboard/core/templatetags/dashboard_extras.py:27
 #, python-brace-format
 msgid "{statistic}%"
@@ -151,13 +153,15 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#. Translators: This describes the learner's education level (e.g. Elementary School Degree).
+#. Translators: This describes the learner's education level (e.g. Elementary
+#. School Degree).
 #: analytics_dashboard/courses/presenters/enrollment.py:47
 #: analytics_dashboard/courses/tests/test_serializers.py:12
 msgid "Primary"
 msgstr ""
 
-#. Translators: This describes the learner's education level  (e.g. Middle School Degree).
+#. Translators: This describes the learner's education level  (e.g. Middle
+#. School Degree).
 #: analytics_dashboard/courses/presenters/enrollment.py:49
 msgid "Middle"
 msgstr ""
@@ -165,29 +169,34 @@ msgstr ""
 #. Translators: This describes the learner's education level.
 #: analytics_dashboard/courses/presenters/enrollment.py:51
 msgid "Secondary"
-msgstr ""
+msgstr "Secondary"
 
-#. Translators: This describes the learner's education level (e.g. Associate's Degree).
+#. Translators: This describes the learner's education level (e.g. Associate's
+#. Degree).
 #: analytics_dashboard/courses/presenters/enrollment.py:53
 msgid "Associate"
 msgstr ""
 
-#. Translators: This describes the learner's education level (e.g. Bachelor's Degree).
+#. Translators: This describes the learner's education level (e.g. Bachelor's
+#. Degree).
 #: analytics_dashboard/courses/presenters/enrollment.py:55
 msgid "Bachelor's"
 msgstr ""
 
-#. Translators: This describes the learner's education level (e.g. Master's Degree).
+#. Translators: This describes the learner's education level (e.g. Master's
+#. Degree).
 #: analytics_dashboard/courses/presenters/enrollment.py:57
 msgid "Master's"
 msgstr ""
 
-#. Translators: This describes the learner's education level (e.g. Doctorate Degree).
+#. Translators: This describes the learner's education level (e.g. Doctorate
+#. Degree).
 #: analytics_dashboard/courses/presenters/enrollment.py:59
 msgid "Doctorate"
 msgstr ""
 
-#. Translators: This is a placeholder for enrollment data collected without a known geolocation.
+#. Translators: This is a placeholder for enrollment data collected without a
+#. known geolocation.
 #: analytics_dashboard/courses/presenters/enrollment.py:188
 msgid "Unknown Country"
 msgstr ""
@@ -237,7 +246,8 @@ msgstr ""
 msgid "Select Assignment Type"
 msgstr ""
 
-#. Translators: This refers to all course assignment types (e.g. homework, exam, lab).
+#. Translators: This refers to all course assignment types (e.g. homework,
+#. exam, lab).
 #: analytics_dashboard/courses/templates/courses/_graded_content_nav.html:21
 msgid "All Assignments"
 msgstr ""
@@ -256,7 +266,8 @@ msgstr ""
 msgid "Select Problem"
 msgstr ""
 
-#. Translators: This text will be a direct link to the a specific module/problem.
+#. Translators: This text will be a direct link to the a specific
+#. module/problem.
 #: analytics_dashboard/courses/templates/courses/_module_description.html:14
 #: analytics_dashboard/courses/templates/courses/_video_preview.html:9
 msgid "View Live"
@@ -378,7 +389,8 @@ msgstr ""
 msgid "Learners who visited at least one page in the course content."
 msgstr ""
 
-#. Translators: This is a label indicating the number of learners who watched a video.
+#. Translators: This is a label indicating the number of learners who watched
+#. a video.
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:61
 msgid "Watched a Video Last Week"
 msgstr ""
@@ -387,7 +399,8 @@ msgstr ""
 msgid "Learners who played one or more videos."
 msgstr ""
 
-#. Translators: This is a label indicating the number of learners who tried a problem.
+#. Translators: This is a label indicating the number of learners who tried a
+#. problem.
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:68
 msgid "Tried a Problem Last Week"
 msgstr ""
@@ -398,7 +411,8 @@ msgid ""
 "types are included."
 msgstr ""
 
-#. Translators: This is a label indicating the number of learners who posted in a forum discussion.
+#. Translators: This is a label indicating the number of learners who posted
+#. in a forum discussion.
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:76
 msgid "Participated in Discussions Last Week"
 msgstr ""
@@ -413,7 +427,8 @@ msgstr ""
 msgid "Content Engagement Breakdown"
 msgstr ""
 
-#. Translators: This describes the data displayed in the chart below. E.g. how many learners viewed a video.
+#. Translators: This describes the data displayed in the chart below. E.g. how
+#. many learners viewed a video.
 #: analytics_dashboard/courses/templates/courses/engagement_grouped_content.html:17
 #: analytics_dashboard/courses/templates/courses/views_chart_info.html:4
 msgid "Video Views"
@@ -463,8 +478,8 @@ msgstr ""
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:31
 msgid ""
-"The number of learners who watched each segment of the video, and the number "
-"of replays for each segment."
+"The number of learners who watched each segment of the video, and the number"
+" of replays for each segment."
 msgstr ""
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:37
@@ -530,8 +545,10 @@ msgstr ""
 msgid "Enrollment Metrics"
 msgstr ""
 
-#. Translators: This is a label to identify the number of learners who ever enrolled in the course.
-#. Translators: This is a label to identify the maximum number of learners ever in all of the instructor's courses.
+#. Translators: This is a label to identify the number of learners who ever
+#. enrolled in the course.
+#. Translators: This is a label to identify the maximum number of learners
+#. ever in all of the instructor's courses.
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:59
 #: analytics_dashboard/courses/templates/courses/index.html:26
 msgid "Total Enrollment"
@@ -543,19 +560,23 @@ msgid "Learners who ever enrolled in the course."
 msgstr ""
 
 #. Translators: This is a label to identify current learner enrollment.
-#. Translators: This is a label to identify the current number of learners in all of the instructor's courses.
+#. Translators: This is a label to identify the current number of learners in
+#. all of the instructor's courses.
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:68
 #: analytics_dashboard/courses/templates/courses/index.html:33
 msgid "Current Enrollment"
 msgstr ""
 
-#. Translators: This is a label indicating the number of learners enrolled in a course.
+#. Translators: This is a label indicating the number of learners enrolled in
+#. a course.
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:70
 msgid "Learners currently enrolled in the course."
 msgstr ""
 
-#. Translators: This is a label indicating the change in the number of learners enrolled in a course since the previous week.
-#. Translators: This is a label to identify the change in the number of learners in all of the instructor's courses in the last week.
+#. Translators: This is a label indicating the change in the number of
+#. learners enrolled in a course since the previous week.
+#. Translators: This is a label to identify the change in the number of
+#. learners in all of the instructor's courses in the last week.
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:76
 #: analytics_dashboard/courses/templates/courses/index.html:40
 msgid "Change in Last Week"
@@ -565,28 +586,34 @@ msgstr ""
 msgid "Net difference in current enrollment in the last week."
 msgstr ""
 
-#. Translators: This is a label to identify enrollment of learners on the verified track.
-#. Translators: This is a label to identify the current number of verified learners in all of the instructor's courses.
+#. Translators: This is a label to identify enrollment of learners on the
+#. verified track.
+#. Translators: This is a label to identify the current number of verified
+#. learners in all of the instructor's courses.
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:84
 #: analytics_dashboard/courses/templates/courses/index.html:47
 msgid "Verified Enrollment"
 msgstr ""
 
-#. Translators: This is a label indicating the number of learners enrolled in a course on the verified track.
+#. Translators: This is a label indicating the number of learners enrolled in
+#. a course on the verified track.
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:86
 msgid ""
 "Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
 msgstr ""
 
-#. Translators: This is a label to identify enrollment of learners on the masters track.
-#. Translators: This is a label to identify the current number of masters learners in all of the instructor's courses.
+#. Translators: This is a label to identify enrollment of learners on the
+#. masters track.
+#. Translators: This is a label to identify the current number of masters
+#. learners in all of the instructor's courses.
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:93
 #: analytics_dashboard/courses/templates/courses/index.html:53
 msgid "Master's Enrollment"
 msgstr ""
 
-#. Translators: This is a label indicating the number of learners enrolled in a course on the masters track.
+#. Translators: This is a label indicating the number of learners enrolled in
+#. a course on the masters track.
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:95
 msgid "Number of currently enrolled learners pursuing a Master's degree."
 msgstr ""
@@ -604,7 +631,9 @@ msgstr ""
 msgid "How old are my learners?"
 msgstr ""
 
-#. Translators: Maintain the double percentage symbols (%%) but move them to the appropriate location (before/after the value placeholder) for your language.
+#. Translators: Maintain the double percentage symbols (%%) but move them to
+#. the appropriate location (before/after the value placeholder) for your
+#. language.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:39
 #, python-format
 msgid ""
@@ -616,7 +645,8 @@ msgstr ""
 msgid "Age Metrics"
 msgstr ""
 
-#. Translators: This is a label to identify the median age of enrolled learners.
+#. Translators: This is a label to identify the median age of enrolled
+#. learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:65
 msgid "Median Learner Age"
 msgstr ""
@@ -626,29 +656,32 @@ msgid ""
 "The midpoint of the learner ages, computed from the provided year of birth."
 msgstr ""
 
-#. Translators: This is a label to identify the number of learners in the age range.
+#. Translators: This is a label to identify the number of learners in the age
+#. range.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:72
 msgid "Learners 25 and Under"
 msgstr ""
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:73
 msgid ""
-"The percentage of learners aged 25 years or younger (of those who provided a "
-"year of birth)."
+"The percentage of learners aged 25 years or younger (of those who provided a"
+" year of birth)."
 msgstr ""
 
-#. Translators: This is a label to identify the number of learners in the age range.
+#. Translators: This is a label to identify the number of learners in the age
+#. range.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:79
 msgid "Learners 26 to 40"
 msgstr ""
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:80
 msgid ""
-"The percentage of learners aged from 26 to 40 years (of those who provided a "
-"year of birth)."
+"The percentage of learners aged from 26 to 40 years (of those who provided a"
+" year of birth)."
 msgstr ""
 
-#. Translators: This is a label to identify the number of learners in the age range.
+#. Translators: This is a label to identify the number of learners in the age
+#. range.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:86
 msgid "Learners 41 and Over"
 msgstr ""
@@ -668,7 +701,9 @@ msgstr ""
 msgid "What level of education do my learners have?"
 msgstr ""
 
-#. Translators: Maintain the double percentage symbols (%%) but move them to the appropriate location (before/after the value placeholder) for your language.
+#. Translators: Maintain the double percentage symbols (%%) but move them to
+#. the appropriate location (before/after the value placeholder) for your
+#. language.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:38
 #, python-format
 msgid ""
@@ -723,7 +758,9 @@ msgstr ""
 msgid "What is the learner gender breakdown?"
 msgstr ""
 
-#. Translators: Maintain the double percentage symbols (%%) but move them to the appropriate location (before/after the value placeholder) for your language.
+#. Translators: Maintain the double percentage symbols (%%) but move them to
+#. the appropriate location (before/after the value placeholder) for your
+#. language.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_gender.html:38
 #, python-format
 msgid ""
@@ -752,7 +789,8 @@ msgstr ""
 msgid "Geography Metrics"
 msgstr ""
 
-#. Translators: This string represents the number of countries where learners are enrolled.
+#. Translators: This string represents the number of countries where learners
+#. are enrolled.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:53
 msgid "Total Countries or Regions Represented"
 msgstr ""
@@ -761,7 +799,8 @@ msgstr ""
 msgid "Countries or regions with at least one learner."
 msgstr ""
 
-#. Translators: This string represents the country or region with the greatest number of enrolled learners.
+#. Translators: This string represents the country or region with the greatest
+#. number of enrolled learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:62
 msgid "Top Country or Region by Enrollment"
 msgstr ""
@@ -770,7 +809,8 @@ msgstr ""
 msgid "Country or region with the largest number of learners."
 msgstr ""
 
-#. Translators: This string represents the country or region with the second-greatest number of enrolled learners.
+#. Translators: This string represents the country or region with the second-
+#. greatest number of enrolled learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:66
 msgid "Second Country or Region by Enrollment"
 msgstr ""
@@ -779,7 +819,8 @@ msgstr ""
 msgid "Country or region with the second largest number of learners."
 msgstr ""
 
-#. Translators: This string represents the country or region with the third-greatest number of enrolled learners.
+#. Translators: This string represents the country or region with the third-
+#. greatest number of enrolled learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:70
 msgid "Third Country or Region by Enrollment"
 msgstr ""
@@ -788,7 +829,8 @@ msgstr ""
 msgid "Country or region with the third largest number of learners."
 msgstr ""
 
-#. Translators: This string represents the percentage of learners in a course. Move the % symbol, if necessary, but keep the percent variable/placeholder.
+#. Translators: This string represents the percentage of learners in a course.
+#. Move the % symbol, if necessary, but keep the percent variable/placeholder.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:77
 #, python-format
 msgid "%(percent)s%% of learners"
@@ -799,7 +841,8 @@ msgstr ""
 msgid "Geographic Breakdown"
 msgstr ""
 
-#. Translators: Application here refers to the web site/application being used (e.g. the dashboard).
+#. Translators: Application here refers to the web site/application being used
+#. (e.g. the dashboard).
 #: analytics_dashboard/courses/templates/courses/home.html:11
 #: analytics_dashboard/templates/base_dashboard.html:28
 #: analytics_dashboard/templates/footer.html:5
@@ -821,7 +864,8 @@ msgstr ""
 msgid "Active"
 msgstr ""
 
-#. Translators: This indicates that the adjacent link will trigger a CSV download. '{{download_icon}}' will be replaced with an icon.
+#. Translators: This indicates that the adjacent link will trigger a CSV
+#. download. '{{download_icon}}' will be replaced with an icon.
 #: analytics_dashboard/courses/templates/courses/home.html:73
 #, python-format
 msgid ""
@@ -834,7 +878,8 @@ msgstr ""
 msgid "Basic Course Information"
 msgstr ""
 
-#. Translators: This title describes a list of links to outside tools for this course.
+#. Translators: This title describes a list of links to outside tools for this
+#. course.
 #: analytics_dashboard/courses/templates/courses/home.html:106
 msgid "External Tools"
 msgstr ""
@@ -842,7 +887,7 @@ msgstr ""
 #: analytics_dashboard/courses/templates/courses/index.html:10
 #: analytics_dashboard/courses/views/course_summaries.py:30
 msgid "Courses"
-msgstr ""
+msgstr "courses"
 
 #: analytics_dashboard/courses/templates/courses/index.html:17
 msgid "Across all your courses:"
@@ -901,13 +946,13 @@ msgid ""
 "assignments."
 msgstr ""
 
-#. Translators: This describes the percent an assignment contributes to that of a learner's grade (e.g. Exam: 60% of the grading policy.).
+#. Translators: This describes the percent an assignment contributes to that
+#. of a learner's grade (e.g. Exam: 60% of the grading policy.).
 #: analytics_dashboard/courses/templates/courses/performance_graded_content.html:22
 #, python-format
 msgid ""
 "\n"
-"                %(assignment_type)s: %(policy_ratio)s%% of the grading "
-"policy\n"
+"                %(assignment_type)s: %(policy_ratio)s%% of the grading policy\n"
 "              "
 msgstr ""
 
@@ -990,7 +1035,8 @@ msgstr ""
 msgid "Section Submissions"
 msgstr ""
 
-#. Translators: This message is displayed when the website is unable to get the credentials for the user
+#. Translators: This message is displayed when the website is unable to get
+#. the credentials for the user
 #: analytics_dashboard/courses/templates/courses/permissions-retrieval-failed.html:5
 #: analytics_dashboard/courses/templates/courses/permissions-retrieval-failed.html:7
 msgid "Permissions Retrieval Failed"
@@ -1113,7 +1159,8 @@ msgstr ""
 msgid "All Learners"
 msgstr ""
 
-#. Translators: 'Course ID' is 'Course Identifier', the unique code that identifies the course
+#. Translators: 'Course ID' is 'Course Identifier', the unique code that
+#. identifies the course
 #: analytics_dashboard/courses/views/__init__.py:723
 msgid "Course ID"
 msgstr ""
@@ -1208,11 +1255,12 @@ msgstr ""
 #: analytics_dashboard/courses/views/enrollment.py:92
 #, python-format
 msgid ""
-"Demographic learner data was last updated %(update_date)s at %(update_time)s "
-"UTC."
+"Demographic learner data was last updated %(update_date)s at %(update_time)s"
+" UTC."
 msgstr ""
 
-#. Translators: This sentence is displayed at the bottom of the page and describe the demographics data displayed.
+#. Translators: This sentence is displayed at the bottom of the page and
+#. describe the demographics data displayed.
 #: analytics_dashboard/courses/views/enrollment.py:96
 msgid ""
 "All above demographic data was self-reported at the time of registration."
@@ -1226,8 +1274,8 @@ msgstr ""
 #: analytics_dashboard/courses/views/enrollment.py:119
 #, python-format
 msgid ""
-"Enrollment activity data was last updated %(update_date)s at %(update_time)s "
-"UTC."
+"Enrollment activity data was last updated %(update_date)s at %(update_time)s"
+" UTC."
 msgstr ""
 
 #: analytics_dashboard/courses/views/enrollment.py:150
@@ -1318,8 +1366,8 @@ msgstr ""
 
 #: analytics_dashboard/templates/403.html:10
 msgid ""
-"You do not have permission to view this page. If you believe you should have "
-"access to this page, try logging out and logging in again to refresh your "
+"You do not have permission to view this page. If you believe you should have"
+" access to this page, try logging out and logging in again to refresh your "
 "permissions."
 msgstr ""
 
@@ -1366,7 +1414,9 @@ msgstr ""
 msgid "Use our support tool to ask questions or share feedback."
 msgstr ""
 
-#. Translators: This intention here is that a user clicks a button to contact a support group (e.g. edX Support, or MITx Support). Reorder the placeholder as you see fit.
+#. Translators: This intention here is that a user clicks a button to contact
+#. a support group (e.g. edX Support, or MITx Support). Reorder the
+#. placeholder as you see fit.
 #: analytics_dashboard/templates/base-error.html:47
 #, python-format
 msgid "Contact %(platform_name)s Support"
@@ -1401,7 +1451,7 @@ msgstr ""
 
 #: analytics_dashboard/templates/header.html:60
 msgid "Logout"
-msgstr ""
+msgstr "Logout"
 
 #: analytics_dashboard/templates/lens-navigation.html:27
 msgid "Navigation Menu."
