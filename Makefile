@@ -153,7 +153,7 @@ dummy_translations: ## generate dummy translation (.po) files
 generate_fake_translations: extract_translations dummy_translations compile_translations ## generate and compile dummy translation files
 
 pull_translations: ## pull translations from Transifex
-	tx pull -af
+	tx pull -a -f
 
 push_translations: ## push translations from insights to Transifex for those created new
 	tx push -s
