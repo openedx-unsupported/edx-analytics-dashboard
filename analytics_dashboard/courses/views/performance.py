@@ -77,7 +77,7 @@ class PerformanceTemplateView(AnalyticsV0Mixin, CourseStructureExceptionMixin, C
                 translate_dict_values(self.secondary_nav_items, ('text',))
 
         context_data = super().get_context_data(**kwargs)
-        self.presenter = CoursePerformancePresenter(self.access_token, self.course_id, self.analytics_client)
+        self.presenter = CoursePerformancePresenter(self.course_id, self.analytics_client)
 
         context_data['no_data_message'] = self.no_data_message
         context_data['js_data']['course'].update({
@@ -381,7 +381,7 @@ class PerformanceLearningOutcomesMixin(PerformanceTemplateView):
         context = super().get_context_data(**kwargs)
 
         self.selected_tag_value = kwargs.get('tag_value', None)
-        self.tags_presenter = TagsDistributionPresenter(self.access_token, self.course_id, self.analytics_client)
+        self.tags_presenter = TagsDistributionPresenter(self.course_id, self.analytics_client)
 
         first_level_content_nav, first_selected_item = self.tags_presenter.get_tags_content_nav(
             'learning_outcome', self.selected_tag_value)

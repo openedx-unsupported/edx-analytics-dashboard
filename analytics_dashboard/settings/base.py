@@ -419,7 +419,7 @@ MODULE_PREVIEW_URL = 'http://127.0.0.1:8000/xblock'
 # before giving up.  These values should be overridden in
 # configuration.
 ANALYTICS_API_DEFAULT_TIMEOUT = 10
-LMS_DEFAULT_TIMEOUT = 5
+LMS_DEFAULT_TIMEOUT = (3.05, 5)
 ########## END EXTERNAL SERVICE TIMEOUTS
 
 _ = lambda s: s

@@ -1,12 +1,14 @@
 import logging
+from urllib.parse import urljoin
 
-from edx_rest_api_client.client import EdxRestApiClient
-from edx_rest_api_client.exceptions import HttpClientError
+from django.conf import settings
+from edx_rest_api_client.client import OAuthAPIClient
+from requests.exceptions import HTTPError
 
 logger = logging.getLogger(__name__)
 
 
-class CourseStructureApiClient(EdxRestApiClient):
+class CourseStructureApiClient(OAuthAPIClient):
     """
     This class is a sub-class of the edX Rest API Client
     (https://github.com/edx/edx-rest-api-client).
@@ -16,9 +18,6 @@ class CourseStructureApiClient(EdxRestApiClient):
     """
     DATETIME_FORMAT = "%Y-%m-%dT%H:%M:%SZ"
 
-    def __init__(self, url, access_token, timeout):
-        super().__init__(url, jwt=access_token, timeout=timeout)
-
     @property
     def all_courses(self):
         courses = []
@@ -27,19 +26,30 @@ class CourseStructureApiClient(EdxRestApiClient):
         while page:
             try:
                 logger.debug('Retrieving page %d of course info...', page)
-                response = self.courses.get(page=page, page_size=100)
+                response = self.get(
+                    urljoin(settings.COURSE_API_URL + '/', 'courses/'),
+                    params={
+                        'page': page,
+                        'page_size': 100
+                    }
+                ).json()
                 course_details = response['results']
 
                 courses += course_details
 
-                if response['next']:
+                if response['pagination']['next']:
                     page += 1
                 else:
                     page = None
                     logger.debug('Completed retrieval of course info. Retrieved info for %d courses.', len(courses))
-            except HttpClientError as e:
+            except (KeyError, HTTPError) as e:
                 logger.error("Unable to retrieve course data: %s", e)
                 page = None
                 break
 
         return courses
+
+    def request(self, method, url, **kwargs):  # pylint: disable=arguments-differ
+        response = super().request(method, url, **kwargs)
+        response.raise_for_status()
+        return response
