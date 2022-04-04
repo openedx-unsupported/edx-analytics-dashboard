@@ -22,13 +22,13 @@ module.exports = Merge.smart(commonConfig, {
                     loader: 'babel-loader',
                     options: {
                         presets: [
-                            ['env', {
+                            ['@babel/preset-env', {
                                 targets: {
                                     browsers: ['last 2 versions', 'ie >= 11']
                                 }
                             }]
                         ],
-                        plugins: ['transform-runtime', 'babel-plugin-syntax-dynamic-import']
+                        plugins: ['@babel/plugin-transform-runtime', '@babel/plugin-syntax-dynamic-import']
                     }
                 }
             },
