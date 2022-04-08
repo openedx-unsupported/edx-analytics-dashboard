@@ -2,6 +2,7 @@ import abc
 import datetime
 import logging
 from collections import OrderedDict
+from urllib.parse import urljoin
 
 from analyticsclient.client import Client
 from django.conf import settings
@@ -60,9 +61,13 @@ class CourseAPIPresenterMixin(metaclass=abc.ABCMeta):
 
     _last_updated = None
 
-    def __init__(self, access_token, course_id, analytics_client):
+    def __init__(self, course_id, analytics_client):
         super().__init__(course_id, analytics_client)
-        self.course_api_client = CourseStructureApiClient(settings.COURSE_API_URL, access_token)
+        self.course_api_client = CourseStructureApiClient(
+            settings.BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL,
+            settings.BACKEND_SERVICE_EDX_OAUTH2_KEY,
+            settings.BACKEND_SERVICE_EDX_OAUTH2_SECRET,
+        )
 
     def _get_structure(self):
         """ Retrieves course structure from the course API. """
@@ -76,7 +81,10 @@ class CourseAPIPresenterMixin(metaclass=abc.ABCMeta):
                 'all_blocks': 'true',
                 'requested_fields': 'children,format,graded',
             }
-            structure = self.course_api_client.blocks().get(**blocks_kwargs)
+            structure = self.course_api_client.get(
+                urljoin(settings.COURSE_API_URL + '/', 'blocks/'),
+                params=blocks_kwargs
+            ).json()
             cache.set(key, structure)
 
         return structure

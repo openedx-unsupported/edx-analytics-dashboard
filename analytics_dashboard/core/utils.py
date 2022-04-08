@@ -29,8 +29,8 @@ class CourseStructureApiClient(clients.CourseStructureApiClient):
     A very thin wrapper around `common.clients.CourseStructureApiClient`, which
     defaults the client timeout to `settings.LMS_DEFAULT_TIMEOUT`.
     """
-    def __init__(self, url, access_token, timeout=settings.LMS_DEFAULT_TIMEOUT):
-        super().__init__(url, access_token=access_token, timeout=timeout)
+    def __init__(self, base_url, client_id, client_secret, timeout=settings.LMS_DEFAULT_TIMEOUT):
+        super().__init__(base_url, client_id, client_secret, timeout=timeout)
 
 
 def translate_dict_values(items, keys):

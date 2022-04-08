@@ -158,11 +158,20 @@ class CourseStructureApiClientTests(TestCase):
     """
 
     def test_default_timeout(self):
-        client = CourseStructureApiClient('http://example.com/', 'arbitrary_access_token')
+        client = CourseStructureApiClient(
+            settings.BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL,
+            settings.BACKEND_SERVICE_EDX_OAUTH2_KEY,
+            settings.BACKEND_SERVICE_EDX_OAUTH2_SECRET,
+        )
         # pylint: disable=protected-access
-        self.assertEqual(client._store['session'].timeout, settings.LMS_DEFAULT_TIMEOUT)
+        self.assertEqual(client._timeout, settings.LMS_DEFAULT_TIMEOUT)
 
     def test_explicit_timeout(self):
-        client = CourseStructureApiClient('http://example.com/', 'arbitrary_access_token', timeout=2.5)
+        client = CourseStructureApiClient(
+            settings.BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL,
+            settings.BACKEND_SERVICE_EDX_OAUTH2_KEY,
+            settings.BACKEND_SERVICE_EDX_OAUTH2_SECRET,
+            timeout=(2.05, 4),
+        )
         # pylint: disable=protected-access
-        self.assertEqual(client._store['session'].timeout, 2.5)
+        self.assertEqual(client._timeout, (2.05, 4))

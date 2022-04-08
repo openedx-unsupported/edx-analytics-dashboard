@@ -3,6 +3,7 @@ import json
 import logging
 import re
 from datetime import datetime
+from urllib.parse import urljoin
 
 import requests
 from analyticsclient.client import Client
@@ -19,11 +20,8 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ugettext_noop
 from django.views import View
 from django.views.generic import TemplateView
-from edx_rest_api_client.client import EdxRestApiClient
-from edx_rest_api_client.exceptions import (
-    HttpClientError,
-    SlumberBaseException,
-)
+from requests.exceptions import HTTPError
+from requests.exceptions import RequestException
 from opaque_keys.edx.keys import CourseKey
 from waffle import switch_is_active
 
@@ -64,13 +62,11 @@ class CourseAPIMixin:
         self.course_api_enabled = switch_is_active('enable_course_api')
 
         if self.course_api_enabled and request.user.is_authenticated:
-            self.access_token = settings.COURSE_API_KEY or EdxRestApiClient.get_and_cache_jwt_oauth_access_token(
+            self.course_api = CourseStructureApiClient(
                 settings.BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL,
                 settings.BACKEND_SERVICE_EDX_OAUTH2_KEY,
                 settings.BACKEND_SERVICE_EDX_OAUTH2_SECRET,
-                timeout=(3.05, 55),
-            )[0]
-            self.course_api = CourseStructureApiClient(settings.COURSE_API_URL, self.access_token)
+            )
 
         return super().dispatch(request, *args, **kwargs)
 
@@ -92,9 +88,11 @@ class CourseAPIMixin:
         if not info:
             try:
                 logger.debug("Retrieving detail for course: %s", course_id)
-                info = self.course_api.courses(course_id).get()
+                info = self.course_api.get(
+                    urljoin(settings.COURSE_API_URL + '/', f'courses/{course_id}')
+                ).json()
                 cache.set(key, info)
-            except HttpClientError as e:
+            except HTTPError as e:
                 logger.error("Unable to retrieve course info for %s: %s", course_id, e)
                 info = {}
 
@@ -113,7 +111,13 @@ class CourseAPIMixin:
             while page:
                 try:
                     logger.debug('Retrieving page %d of course info...', page)
-                    response = self.course_api.courses.get(page=page, page_size=100)
+                    response = self.course_api.get(
+                        urljoin(settings.COURSE_API_URL + '/', 'courses/'),
+                        params={
+                            'page': page,
+                            'page_size': 100,
+                        }
+                    ).json()
                     course_details = response['results']
 
                     # Cache the information so that it doesn't need to be retrieved later.
@@ -129,7 +133,7 @@ class CourseAPIMixin:
                     else:
                         page = None
                         logger.debug('Completed retrieval of course info. Retrieved info for %d courses.', len(courses))
-                except HttpClientError as e:
+                except HTTPError as e:
                     logger.error("Unable to retrieve course data: %s", e)
                     page = None
                     break
@@ -828,7 +832,7 @@ class CourseStructureExceptionMixin:
     def dispatch(self, request, *args, **kwargs):
         try:
             return super().dispatch(request, *args, **kwargs)
-        except SlumberBaseException as e:
+        except RequestException as e:
             # Return the appropriate response if a 404 occurred.
             response = getattr(e, 'response')
             if response is not None:

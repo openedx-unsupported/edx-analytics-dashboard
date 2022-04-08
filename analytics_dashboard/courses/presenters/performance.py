@@ -1,12 +1,13 @@
 import logging
 from collections import OrderedDict, namedtuple
+from urllib.parse import urljoin
 
 from analyticsclient.exceptions import NotFoundError
 from django.conf import settings
 from django.core.cache import cache
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
-from edx_rest_api_client.exceptions import HttpClientError
+from requests.exceptions import HTTPError
 from slugify import slugify
 
 from common.course_structure import CourseStructure
@@ -41,9 +42,13 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, CoursePresenter):
     # minimum screen space a grading policy bar will take up (even if a policy is 0%, display some bar)
     MIN_POLICY_DISPLAY_PERCENT = 5
 
-    def __init__(self, access_token, course_id, analytics_client):
-        super().__init__(access_token, course_id, analytics_client)
-        self.grading_policy_client = CourseStructureApiClient(settings.GRADING_POLICY_API_URL, access_token)
+    def __init__(self, course_id, analytics_client):
+        super().__init__(course_id, analytics_client)
+        self.grading_policy_client = CourseStructureApiClient(
+            settings.BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL,
+            settings.BACKEND_SERVICE_EDX_OAUTH2_KEY,
+            settings.BACKEND_SERVICE_EDX_OAUTH2_SECRET,
+        )
 
     def course_module_data(self):
         try:
@@ -183,7 +188,9 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, CoursePresenter):
 
         if not grading_policy:
             logger.debug('Retrieving grading policy for course: %s', self.course_id)
-            grading_policy = self.grading_policy_client.policy.courses(self.course_id).get()
+            grading_policy = self.grading_policy_client.get(
+                urljoin(settings.GRADING_POLICY_API_URL + '/', f'policy/courses/{self.course_id}'),
+            ).json()
 
             # Remove empty assignment types as they are not useful and will cause issues downstream.
             grading_policy = [item for item in grading_policy if item['assignment_type']]
@@ -495,7 +502,7 @@ class TagsDistributionPresenter(CourseAPIPresenterMixin, CoursePresenter):
         try:
             logger.debug("Retrieving tags distribution for course: %s", self.course_id)
             return self._course_module_data()
-        except HttpClientError as e:
+        except HTTPError as e:
             logger.error("Unable to retrieve tags distribution info for %s: %s", self.course_id, e)
             return {}
 

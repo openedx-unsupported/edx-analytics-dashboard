@@ -102,7 +102,7 @@ class EngagementVideoContentTemplateView(AnalyticsV0Mixin, CourseStructureMixin,
     no_data_message = _('Looks like no one has watched any videos in these sections.')
 
     def get_context_data(self, **kwargs):
-        self.presenter = CourseEngagementVideoPresenter(self.access_token, self.course_id, self.analytics_client)
+        self.presenter = CourseEngagementVideoPresenter(self.course_id, self.analytics_client)
         context = super().get_context_data(**kwargs)
         context.update({
             'sections': self.presenter.sections(),
