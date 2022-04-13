@@ -24,7 +24,7 @@ charset-normalizer==2.0.12
     # via
     #   -r requirements/base.txt
     #   requests
-click==8.0.4
+click==8.1.2
     # via
     #   -r requirements/base.txt
     #   code-annotations
@@ -42,7 +42,7 @@ defusedxml==0.7.1
     #   -r requirements/base.txt
     #   python3-openid
     #   social-auth-core
-django==3.2.12
+django==3.2.13
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.txt
@@ -80,7 +80,7 @@ django-model-utils==4.2.0
     # via -r requirements/base.txt
 django-soapbox==1.6.1
     # via -r requirements/base.txt
-django-waffle==2.3.0
+django-waffle==2.4.1
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -158,7 +158,7 @@ markupsafe==2.1.1
     # via
     #   -r requirements/base.txt
     #   jinja2
-newrelic==7.6.0.173
+newrelic==7.10.0.175
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -216,7 +216,7 @@ pymongo==3.12.3
     # via
     #   -r requirements/base.txt
     #   edx-opaque-keys
-pyparsing==3.0.7
+pyparsing==3.0.8
     # via packaging
 python-dateutil==2.8.2
     # via
@@ -330,5 +330,5 @@ urllib3==1.26.9
     # via
     #   -r requirements/base.txt
     #   requests
-zipp==3.7.0
+zipp==3.8.0
     # via importlib-metadata

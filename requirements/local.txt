@@ -30,7 +30,7 @@ charset-normalizer==2.0.12
     # via
     #   -r requirements/test.txt
     #   requests
-click==8.0.4
+click==8.1.2
     # via
     #   -r requirements/pip_tools.txt
     #   -r requirements/test.txt
@@ -60,7 +60,7 @@ distlib==0.3.4
     # via
     #   -r requirements/tox.txt
     #   virtualenv
-django==3.2.12
+django==3.2.13
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
@@ -103,7 +103,7 @@ django-model-utils==4.2.0
     # via -r requirements/test.txt
 django-soapbox==1.6.1
     # via -r requirements/test.txt
-django-waffle==2.3.0
+django-waffle==2.4.1
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -201,7 +201,7 @@ more-itertools==8.12.0
     #   pytest
 mysqlclient==2.1.0
     # via -r requirements/local.in
-newrelic==7.6.0.173
+newrelic==7.10.0.175
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -233,7 +233,7 @@ pep517==0.12.0
     #   pip-tools
 pinax-announcements==4.0.0
     # via -r requirements/test.txt
-pip-tools==6.5.1
+pip-tools==6.6.0
     # via -r requirements/pip_tools.txt
 platformdirs==2.5.1
     # via
@@ -291,7 +291,7 @@ pymongo==3.12.3
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
-pyparsing==3.0.7
+pyparsing==3.0.8
     # via
     #   -r requirements/test.txt
     #   -r requirements/tox.txt
@@ -435,7 +435,7 @@ urllib3==1.26.9
     #   requests
     #   selenium
     #   transifex-client
-virtualenv==20.14.0
+virtualenv==20.14.1
     # via
     #   -r requirements/tox.txt
     #   tox

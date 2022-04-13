@@ -20,7 +20,7 @@ charset-normalizer==2.0.12
     # via
     #   -r requirements/base.txt
     #   requests
-click==8.0.4
+click==8.1.2
     # via
     #   -r requirements/base.txt
     #   code-annotations
@@ -38,7 +38,7 @@ defusedxml==0.7.1
     #   -r requirements/base.txt
     #   python3-openid
     #   social-auth-core
-django==3.2.12
+django==3.2.13
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.txt
@@ -76,7 +76,7 @@ django-model-utils==4.2.0
     # via -r requirements/base.txt
 django-soapbox==1.6.1
     # via -r requirements/base.txt
-django-waffle==2.3.0
+django-waffle==2.4.1
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -149,7 +149,7 @@ markupsafe==2.1.1
     #   jinja2
 mysqlclient==2.1.0
     # via -r requirements/production.in
-newrelic==7.6.0.173
+newrelic==7.10.0.175
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
