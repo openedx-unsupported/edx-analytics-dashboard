@@ -5,6 +5,7 @@
 # Translators:
 # Translators:
 # Translators:
+# Translators:
 # Andrew Lau <alau52@yahoo.com>, 2016-2017
 # 72fee0b9bce7ade7bd31e6d1c59e1ca0_a54641a <1fba743aef393f2e7e195539ef78e5b6_162150>, 2014
 # Chih-Ching Tsai <stringpiggy@gmail.com>, 2015
@@ -25,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-29 20:42+0000\n"
+"POT-Creation-Date: 2022-04-14 08:54+0000\n"
 "PO-Revision-Date: 2014-08-25 20:09+0000\n"
 "Last-Translator: Julia Oppenheimer <juliaoppenheimer2017@gmail.com>, 2019\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/open-edx/edx-platform/language/zh_TW/)\n"
@@ -49,7 +50,7 @@ msgid "Insights to help course teams improve courses."
 msgstr "Insights可以幫助課程團隊來改善課程。"
 
 #: analytics_dashboard/core/templates/core/landing.html:42
-#: analytics_dashboard/courses/views/__init__.py:507
+#: analytics_dashboard/courses/views/__init__.py:603
 msgid "Who are my learners?"
 msgstr "誰是我的學生？"
 
@@ -59,9 +60,9 @@ msgstr "訂定您的課程來配合學生的背景。"
 
 #: analytics_dashboard/core/templates/core/landing.html:44
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:28
-#: analytics_dashboard/courses/tests/test_views/__init__.py:228
-#: analytics_dashboard/courses/views/__init__.py:304
-#: analytics_dashboard/courses/views/__init__.py:505
+#: analytics_dashboard/courses/tests/test_views/__init__.py:255
+#: analytics_dashboard/courses/views/__init__.py:309
+#: analytics_dashboard/courses/views/__init__.py:601
 msgid "Enrollment"
 msgstr "註冊"
 
@@ -77,8 +78,8 @@ msgstr "改善常調閱的內容，或指出學生未充分利用的資源。"
 
 #: analytics_dashboard/core/templates/core/landing.html:49
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:40
-#: analytics_dashboard/courses/views/__init__.py:315
-#: analytics_dashboard/courses/views/__init__.py:564
+#: analytics_dashboard/courses/views/__init__.py:320
+#: analytics_dashboard/courses/views/__init__.py:609
 msgid "Engagement"
 msgstr "參與"
 
@@ -92,8 +93,8 @@ msgstr "基於目前學生掙扎的部分來調整課程。"
 
 #: analytics_dashboard/core/templates/core/landing.html:54
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:51
-#: analytics_dashboard/courses/views/__init__.py:326
-#: analytics_dashboard/courses/views/__init__.py:644
+#: analytics_dashboard/courses/views/__init__.py:331
+#: analytics_dashboard/courses/views/__init__.py:689
 msgid "Performance"
 msgstr "表現"
 
@@ -219,37 +220,37 @@ msgid "Unknown Country"
 msgstr "未知國籍"
 
 #. Translators: This describes the data displayed in the chart below.
-#: analytics_dashboard/courses/presenters/performance.py:145
+#: analytics_dashboard/courses/presenters/performance.py:150
 #: analytics_dashboard/courses/templates/courses/submissions_chart_info.html:4
 msgid "Submissions"
 msgstr "提交"
 
-#: analytics_dashboard/courses/presenters/performance.py:149
+#: analytics_dashboard/courses/presenters/performance.py:154
 #, python-brace-format
 msgid "Submissions for Part {part_number}: {part_description}"
 msgstr "為 {part_number}: {part_description} 部分提交"
 
-#: analytics_dashboard/courses/presenters/performance.py:150
+#: analytics_dashboard/courses/presenters/performance.py:155
 #, python-brace-format
 msgid "Part {part_number}: {part_description}"
 msgstr " {part_number}: {part_description} 部分"
 
-#: analytics_dashboard/courses/presenters/performance.py:152
+#: analytics_dashboard/courses/presenters/performance.py:157
 #, python-brace-format
 msgid "Submissions: {part_description}"
 msgstr "提交：  {part_description}"
 
-#: analytics_dashboard/courses/presenters/performance.py:153
+#: analytics_dashboard/courses/presenters/performance.py:158
 #, python-brace-format
 msgid "{part_description}"
 msgstr "{part_description}"
 
-#: analytics_dashboard/courses/presenters/performance.py:156
+#: analytics_dashboard/courses/presenters/performance.py:161
 #, python-brace-format
 msgid "Submissions for Part {part_number}"
 msgstr "為 {part_number} 部分提交 "
 
-#: analytics_dashboard/courses/presenters/performance.py:157
+#: analytics_dashboard/courses/presenters/performance.py:162
 #, python-brace-format
 msgid "Part {part_number}"
 msgstr "{part_number} 部分"
@@ -376,15 +377,15 @@ msgid "Weekly Learner Engagement"
 msgstr "每週學生的參與"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:24
-#: analytics_dashboard/courses/views/__init__.py:569
+#: analytics_dashboard/courses/views/__init__.py:614
 msgid "How many learners are interacting with my course?"
 msgstr "有多少學生與此課程互動？"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:31
-#: analytics_dashboard/courses/views/__init__.py:338
-#: analytics_dashboard/courses/views/__init__.py:652
-#: analytics_dashboard/courses/views/__init__.py:716
-#: analytics_dashboard/courses/views/learners.py:20
+#: analytics_dashboard/courses/views/__init__.py:343
+#: analytics_dashboard/courses/views/__init__.py:697
+#: analytics_dashboard/courses/views/__init__.py:761
+#: analytics_dashboard/courses/views/learners.py:22
 msgid "Learners"
 msgstr "學生"
 
@@ -473,7 +474,7 @@ msgid ""
 msgstr "每個條狀圖顯示該小節完成影片的觀看,和未完成影片的觀看的統計數。點擊去了解學生在哪裡放棄了或是哪一部份重新播放。"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_course.html:5
-#: analytics_dashboard/courses/views/__init__.py:582
+#: analytics_dashboard/courses/views/__init__.py:627
 msgid "How did learners interact with course videos?"
 msgstr "學生是如何跟此課程影片互動的？"
 
@@ -544,7 +545,7 @@ msgid "Daily Learner Enrollment"
 msgstr "每日註冊的學生"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:25
-#: analytics_dashboard/courses/views/__init__.py:510
+#: analytics_dashboard/courses/views/__init__.py:546
 msgid "How many learners are in my course?"
 msgstr "在我的課程裡有多少個學生呢？"
 
@@ -644,7 +645,7 @@ msgid "Enrollment Over Time"
 msgstr "在註冊時間"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:26
-#: analytics_dashboard/courses/views/__init__.py:520
+#: analytics_dashboard/courses/views/__init__.py:558
 msgid "How old are my learners?"
 msgstr "我的學生的年齡？"
 
@@ -714,7 +715,7 @@ msgid "Age Breakdown"
 msgstr "年齡分類"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:25
-#: analytics_dashboard/courses/views/__init__.py:530
+#: analytics_dashboard/courses/views/__init__.py:569
 msgid "What level of education do my learners have?"
 msgstr "我的學生的教育程度？"
 
@@ -771,7 +772,7 @@ msgid "Educational Breakdown"
 msgstr "教育程度"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_gender.html:25
-#: analytics_dashboard/courses/views/__init__.py:540
+#: analytics_dashboard/courses/views/__init__.py:579
 msgid "What is the learner gender breakdown?"
 msgstr "我的學生的性別分類？"
 
@@ -794,7 +795,7 @@ msgid "Geographic Distribution"
 msgstr " 地理分佈"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:22
-#: analytics_dashboard/courses/views/__init__.py:550
+#: analytics_dashboard/courses/views/__init__.py:589
 msgid "Where are my learners?"
 msgstr "誰是我的學生？"
 
@@ -869,7 +870,7 @@ msgstr "應用程式"
 
 #. Translators: This refers to the homepage of a course.
 #: analytics_dashboard/courses/templates/courses/home.html:15
-#: analytics_dashboard/courses/views/__init__.py:499
+#: analytics_dashboard/courses/views/__init__.py:539
 #: analytics_dashboard/templates/lens-navigation.html:20
 msgid "Course Home"
 msgstr "課程首頁"
@@ -902,9 +903,9 @@ msgid "External Tools"
 msgstr "外部工具"
 
 #: analytics_dashboard/courses/templates/courses/index.html:10
-#: analytics_dashboard/courses/views/course_summaries.py:30
+#: analytics_dashboard/courses/views/course_summaries.py:31
 msgid "Courses"
-msgstr "課程"
+msgstr ""
 
 #: analytics_dashboard/courses/templates/courses/index.html:17
 msgid "Across all your courses:"
@@ -1038,7 +1039,7 @@ msgid "How are learners doing on this subsection?"
 msgstr "學生在這一章節做的如何呢?"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_content.html:7
-#: analytics_dashboard/courses/views/__init__.py:605
+#: analytics_dashboard/courses/views/__init__.py:650
 msgid "How are learners doing on ungraded exercises?"
 msgstr "學生在尚未評分的練習表現如何呢？"
 
@@ -1069,207 +1070,209 @@ msgstr "在檢視您的帳號權限時發生錯誤，請再試一次。若您持
 msgid "Try Again"
 msgstr "重試"
 
-#: analytics_dashboard/courses/tests/test_views/__init__.py:244
-#: analytics_dashboard/courses/views/__init__.py:512
-#: analytics_dashboard/courses/views/enrollment.py:25
+#: analytics_dashboard/courses/tests/test_views/__init__.py:271
+#: analytics_dashboard/courses/views/__init__.py:548
+#: analytics_dashboard/courses/views/enrollment.py:42
 msgid "Activity"
 msgstr "活動"
 
-#: analytics_dashboard/courses/tests/test_views/__init__.py:254
-#: analytics_dashboard/courses/views/__init__.py:522
-#: analytics_dashboard/courses/views/__init__.py:532
-#: analytics_dashboard/courses/views/__init__.py:542
-#: analytics_dashboard/courses/views/enrollment.py:34
+#: analytics_dashboard/courses/tests/test_views/__init__.py:281
+#: analytics_dashboard/courses/tests/test_views/__init__.py:304
+#: analytics_dashboard/courses/views/__init__.py:560
+#: analytics_dashboard/courses/views/__init__.py:571
+#: analytics_dashboard/courses/views/__init__.py:581
+#: analytics_dashboard/courses/views/enrollment.py:23
+#: analytics_dashboard/courses/views/enrollment.py:31
 msgid "Demographics"
 msgstr "人口統計資訊"
 
-#: analytics_dashboard/courses/tests/test_views/__init__.py:264
-#: analytics_dashboard/courses/views/__init__.py:552
-#: analytics_dashboard/courses/views/enrollment.py:43
+#: analytics_dashboard/courses/tests/test_views/__init__.py:291
+#: analytics_dashboard/courses/views/__init__.py:591
+#: analytics_dashboard/courses/views/enrollment.py:52
 msgid "Geography"
 msgstr "地理"
 
-#: analytics_dashboard/courses/tests/test_views/__init__.py:302
-#: analytics_dashboard/courses/views/__init__.py:522
-#: analytics_dashboard/courses/views/enrollment.py:63
+#: analytics_dashboard/courses/tests/test_views/__init__.py:341
+#: analytics_dashboard/courses/views/__init__.py:560
+#: analytics_dashboard/courses/views/enrollment.py:77
 msgid "Age"
 msgstr "年齡"
 
-#: analytics_dashboard/courses/tests/test_views/__init__.py:312
-#: analytics_dashboard/courses/views/__init__.py:532
-#: analytics_dashboard/courses/views/enrollment.py:72
+#: analytics_dashboard/courses/tests/test_views/__init__.py:351
+#: analytics_dashboard/courses/views/__init__.py:571
+#: analytics_dashboard/courses/views/enrollment.py:88
 msgid "Education"
 msgstr "教育程度"
 
-#: analytics_dashboard/courses/tests/test_views/__init__.py:322
-#: analytics_dashboard/courses/views/__init__.py:542
-#: analytics_dashboard/courses/views/enrollment.py:81
+#: analytics_dashboard/courses/tests/test_views/__init__.py:361
+#: analytics_dashboard/courses/views/__init__.py:581
+#: analytics_dashboard/courses/views/enrollment.py:97
 msgid "Gender"
 msgstr "性別"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:58
-#: analytics_dashboard/courses/views/__init__.py:571
-#: analytics_dashboard/courses/views/engagement.py:32
+#: analytics_dashboard/courses/views/__init__.py:616
+#: analytics_dashboard/courses/views/engagement.py:34
 msgid "Content"
 msgstr "內容"
 
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:69
-#: analytics_dashboard/courses/views/__init__.py:584
-#: analytics_dashboard/courses/views/engagement.py:41
+#: analytics_dashboard/courses/views/__init__.py:629
+#: analytics_dashboard/courses/views/engagement.py:43
 msgid "Videos"
 msgstr "影片"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:68
-#: analytics_dashboard/courses/views/__init__.py:598
-#: analytics_dashboard/courses/views/performance.py:41
-#: analytics_dashboard/courses/views/performance.py:104
+#: analytics_dashboard/courses/views/__init__.py:643
+#: analytics_dashboard/courses/views/performance.py:43
+#: analytics_dashboard/courses/views/performance.py:106
 msgid "Graded Content"
 msgstr "評分內容"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:79
-#: analytics_dashboard/courses/views/__init__.py:607
-#: analytics_dashboard/courses/views/performance.py:50
-#: analytics_dashboard/courses/views/performance.py:89
+#: analytics_dashboard/courses/views/__init__.py:652
+#: analytics_dashboard/courses/views/performance.py:52
+#: analytics_dashboard/courses/views/performance.py:91
 msgid "Ungraded Problems"
 msgstr "未評分問題"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:542
-#: analytics_dashboard/courses/views/__init__.py:619
-#: analytics_dashboard/courses/views/performance.py:68
+#: analytics_dashboard/courses/views/__init__.py:664
+#: analytics_dashboard/courses/views/performance.py:70
 msgid "Learning Outcomes"
 msgstr "學習成果"
 
-#: analytics_dashboard/courses/views/__init__.py:566
+#: analytics_dashboard/courses/views/__init__.py:611
 msgid "What are learners doing in my course?"
 msgstr "學生在我的課程中做了什麼？"
 
-#: analytics_dashboard/courses/views/__init__.py:596
+#: analytics_dashboard/courses/views/__init__.py:641
 msgid "How are learners doing on graded course assignments?"
 msgstr "學生在評分的課程作業上做的如何？"
 
-#: analytics_dashboard/courses/views/__init__.py:617
+#: analytics_dashboard/courses/views/__init__.py:662
 msgid "What is the breakdown for course learning outcomes?"
 msgstr "課程學習成效的分析結果如何？"
 
-#: analytics_dashboard/courses/views/__init__.py:637
+#: analytics_dashboard/courses/views/__init__.py:682
 msgid "How are learners responding to questions?"
 msgstr "學生在問題的回應做的如何？"
 
-#: analytics_dashboard/courses/views/__init__.py:639
+#: analytics_dashboard/courses/views/__init__.py:684
 msgid "Problem Response Report"
 msgstr "問題應答反應報告"
 
-#: analytics_dashboard/courses/views/__init__.py:646
+#: analytics_dashboard/courses/views/__init__.py:691
 msgid "How are learners doing on course assignments?"
 msgstr "學生在評分的課程作業上做的如何？"
 
-#: analytics_dashboard/courses/views/__init__.py:654
+#: analytics_dashboard/courses/views/__init__.py:699
 msgid "What are individual learners doing?"
 msgstr "每位學生們在做什麼？"
 
-#: analytics_dashboard/courses/views/__init__.py:657
+#: analytics_dashboard/courses/views/__init__.py:702
 msgid "Who is engaged? Who isn't?"
 msgstr "誰有參與？誰沒有參與？"
 
-#: analytics_dashboard/courses/views/__init__.py:659
+#: analytics_dashboard/courses/views/__init__.py:704
 msgid "All Learners"
 msgstr "所有學生"
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
-#: analytics_dashboard/courses/views/__init__.py:723
+#: analytics_dashboard/courses/views/__init__.py:768
 msgid "Course ID"
 msgstr "課程ID"
 
-#: analytics_dashboard/courses/views/__init__.py:725
+#: analytics_dashboard/courses/views/__init__.py:770
 msgid "Course Name"
 msgstr "課程名稱"
 
 #. Translators: 'In Progress' and 'Ended' refer to whether learners are
 #. actively using the course or it is over.
-#: analytics_dashboard/courses/views/__init__.py:742
+#: analytics_dashboard/courses/views/__init__.py:787
 msgid "In Progress"
 msgstr "正在進行中"
 
-#: analytics_dashboard/courses/views/__init__.py:742
+#: analytics_dashboard/courses/views/__init__.py:787
 msgid "Ended"
 msgstr "已經結束"
 
 #. Translators: This refers to a course that has not yet begun.
-#: analytics_dashboard/courses/views/__init__.py:745
+#: analytics_dashboard/courses/views/__init__.py:790
 msgid "Not Started Yet"
 msgstr "尚未開始"
 
-#: analytics_dashboard/courses/views/__init__.py:747
+#: analytics_dashboard/courses/views/__init__.py:792
 msgid "Start Date"
 msgstr "開始日期"
 
-#: analytics_dashboard/courses/views/__init__.py:748
+#: analytics_dashboard/courses/views/__init__.py:793
 msgid "End Date"
 msgstr "結束日期"
 
-#: analytics_dashboard/courses/views/__init__.py:749
+#: analytics_dashboard/courses/views/__init__.py:794
 msgid "Status"
 msgstr "狀態"
 
-#: analytics_dashboard/courses/views/__init__.py:758
+#: analytics_dashboard/courses/views/__init__.py:803
 msgid "Instructor Dashboard"
 msgstr "教師控制台"
 
-#: analytics_dashboard/courses/views/__init__.py:763
+#: analytics_dashboard/courses/views/__init__.py:808
 msgid "Courseware"
 msgstr "課程教材"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/course_summaries.py:39
+#: analytics_dashboard/courses/views/course_summaries.py:40
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr "課程總結統計資料最後更新於%(update_date)s %(update_time)s。"
 
-#: analytics_dashboard/courses/views/engagement.py:57
+#: analytics_dashboard/courses/views/engagement.py:59
 msgid "Engagement Content"
 msgstr "參與內容"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:67
+#: analytics_dashboard/courses/views/engagement.py:69
 #, python-format
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr "課程參與資料最後更新於%(update_date)s %(update_time)s。"
 
-#: analytics_dashboard/courses/views/engagement.py:93
+#: analytics_dashboard/courses/views/engagement.py:96
 msgid "Engagement Videos"
 msgstr "參與影片"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:98
+#: analytics_dashboard/courses/views/engagement.py:101
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr "影片資料最新更新於%(update_date)s %(update_time)s。"
 
-#: analytics_dashboard/courses/views/engagement.py:99
+#: analytics_dashboard/courses/views/engagement.py:102
 msgid "Looks like no one has watched any videos in these sections."
 msgstr "看起來沒有人看過此章節的任何的影片。"
 
-#: analytics_dashboard/courses/views/engagement.py:125
-#: analytics_dashboard/courses/views/performance.py:306
+#: analytics_dashboard/courses/views/engagement.py:128
+#: analytics_dashboard/courses/views/performance.py:308
 msgid "Section Name"
 msgstr "章節名稱"
 
-#: analytics_dashboard/courses/views/engagement.py:145
-#: analytics_dashboard/courses/views/performance.py:328
+#: analytics_dashboard/courses/views/engagement.py:148
+#: analytics_dashboard/courses/views/performance.py:330
 msgid "Subsection Name"
 msgstr "小節名稱"
 
-#: analytics_dashboard/courses/views/engagement.py:166
+#: analytics_dashboard/courses/views/engagement.py:169
 msgid "Video Name"
 msgstr "影片名稱"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/enrollment.py:92
+#: analytics_dashboard/courses/views/enrollment.py:118
 #, python-format
 msgid ""
 "Demographic learner data was last updated %(update_date)s at %(update_time)s"
@@ -1278,41 +1281,41 @@ msgstr "學生人口統計資料最後更新於%(update_date)s %(update_time)s�
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
-#: analytics_dashboard/courses/views/enrollment.py:96
+#: analytics_dashboard/courses/views/enrollment.py:122
 msgid ""
 "All above demographic data was self-reported at the time of registration."
 msgstr "以上人口統計資訊都是在註冊時由使用者自行填寫。"
 
-#: analytics_dashboard/courses/views/enrollment.py:109
+#: analytics_dashboard/courses/views/enrollment.py:135
 msgid "Enrollment Activity"
 msgstr "註冊活動"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/enrollment.py:119
+#: analytics_dashboard/courses/views/enrollment.py:145
 #, python-format
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
 msgstr "註冊活動資料最後更新於%(update_date)s %(update_time)s。"
 
-#: analytics_dashboard/courses/views/enrollment.py:150
+#: analytics_dashboard/courses/views/enrollment.py:176
 msgid "Enrollment Demographics by Age"
 msgstr "依年齡區分的註冊人口統計資訊"
 
-#: analytics_dashboard/courses/views/enrollment.py:188
+#: analytics_dashboard/courses/views/enrollment.py:214
 msgid "Enrollment Demographics by Education"
 msgstr "依教育程度區分的註冊統計"
 
-#: analytics_dashboard/courses/views/enrollment.py:226
+#: analytics_dashboard/courses/views/enrollment.py:252
 msgid "Enrollment Demographics by Gender"
 msgstr "依性別區分的註冊統計"
 
-#: analytics_dashboard/courses/views/enrollment.py:264
+#: analytics_dashboard/courses/views/enrollment.py:290
 msgid "Enrollment Geography"
 msgstr "註冊地理位置"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/enrollment.py:274
+#: analytics_dashboard/courses/views/enrollment.py:300
 #, python-format
 msgid ""
 "Geographic learner data was last updated %(update_date)s at %(update_time)s "
@@ -1320,59 +1323,59 @@ msgid ""
 msgstr "學生地理資料最後更新於%(update_date)s %(update_time)s。"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/performance.py:36
+#: analytics_dashboard/courses/views/performance.py:38
 #, python-format
 msgid ""
 "Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr "問題提交資料最後更新於%(update_date)s %(update_time)s。"
 
-#: analytics_dashboard/courses/views/performance.py:82
+#: analytics_dashboard/courses/views/performance.py:84
 msgid "Assignment Name"
 msgstr "作業名稱"
 
-#: analytics_dashboard/courses/views/performance.py:93
-#: analytics_dashboard/courses/views/performance.py:376
+#: analytics_dashboard/courses/views/performance.py:95
+#: analytics_dashboard/courses/views/performance.py:378
 msgid "No submissions received for these exercises."
 msgstr "這些練習尚未收到任何提交。"
 
-#: analytics_dashboard/courses/views/performance.py:109
+#: analytics_dashboard/courses/views/performance.py:111
 msgid "No submissions received for these assignments."
 msgstr "這些作業尚未收到任何提交。"
 
-#: analytics_dashboard/courses/views/performance.py:201
-#: analytics_dashboard/courses/views/performance.py:368
-#: analytics_dashboard/courses/views/performance.py:466
+#: analytics_dashboard/courses/views/performance.py:203
+#: analytics_dashboard/courses/views/performance.py:370
+#: analytics_dashboard/courses/views/performance.py:468
 msgid "Performance: Problem Submissions"
 msgstr "效益：問題提交"
 
-#: analytics_dashboard/courses/views/performance.py:263
+#: analytics_dashboard/courses/views/performance.py:265
 #, python-format
 msgid "Graded Content: %(assignment_type)s"
 msgstr "評分內容： %(assignment_type)s"
 
-#: analytics_dashboard/courses/views/performance.py:282
-#: analytics_dashboard/courses/views/performance.py:350
+#: analytics_dashboard/courses/views/performance.py:284
+#: analytics_dashboard/courses/views/performance.py:352
 msgid "Problem Name"
 msgstr "問題名稱"
 
-#: analytics_dashboard/courses/views/performance.py:375
+#: analytics_dashboard/courses/views/performance.py:377
 #, python-format
 msgid ""
 "Tags distribution data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr "標籤分佈資料最後更新於%(update_date)s %(update_time)s。"
 
-#: analytics_dashboard/courses/views/performance.py:404
-#: analytics_dashboard/courses/views/performance.py:434
+#: analytics_dashboard/courses/views/performance.py:406
+#: analytics_dashboard/courses/views/performance.py:436
 msgid "Performance: Learning Outcomes"
 msgstr "效益：學習成果"
 
-#: analytics_dashboard/settings/base.py:430
+#: analytics_dashboard/settings/base.py:436
 msgid "Terms of Service"
 msgstr "服務條款"
 
-#: analytics_dashboard/settings/base.py:431
+#: analytics_dashboard/settings/base.py:437
 msgid "Privacy Policy"
 msgstr "隱私權政策"
 
