@@ -5,6 +5,7 @@
 # Translators:
 # Translators:
 # Translators:
+# Translators:
 # 김수연 <amelia9981@ajou.ac.kr>, 2020
 # kmooc <shevious@gmail.com>, 2015
 # shevious <shevious@yahoo.com>, 2015
@@ -26,7 +27,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-29 20:42+0000\n"
+"POT-Creation-Date: 2022-04-14 08:54+0000\n"
 "PO-Revision-Date: 2014-08-25 20:09+0000\n"
 "Last-Translator: Sihoo Park <realpetertdm@gmail.com>, 2021\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/open-edx/edx-platform/language/ko_KR/)\n"
@@ -50,7 +51,7 @@ msgid "Insights to help course teams improve courses."
 msgstr "강좌 개선에 도움이 되는 의견"
 
 #: analytics_dashboard/core/templates/core/landing.html:42
-#: analytics_dashboard/courses/views/__init__.py:507
+#: analytics_dashboard/courses/views/__init__.py:603
 msgid "Who are my learners?"
 msgstr "학습자 정보"
 
@@ -60,9 +61,9 @@ msgstr "강좌 제작 시 학습자의 분포를 고려하세요."
 
 #: analytics_dashboard/core/templates/core/landing.html:44
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:28
-#: analytics_dashboard/courses/tests/test_views/__init__.py:228
-#: analytics_dashboard/courses/views/__init__.py:304
-#: analytics_dashboard/courses/views/__init__.py:505
+#: analytics_dashboard/courses/tests/test_views/__init__.py:255
+#: analytics_dashboard/courses/views/__init__.py:309
+#: analytics_dashboard/courses/views/__init__.py:601
 msgid "Enrollment"
 msgstr "등록"
 
@@ -78,8 +79,8 @@ msgstr "자주 사용되는 콘텐츠를 개선하거나 사용되지 않는 자
 
 #: analytics_dashboard/core/templates/core/landing.html:49
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:40
-#: analytics_dashboard/courses/views/__init__.py:315
-#: analytics_dashboard/courses/views/__init__.py:564
+#: analytics_dashboard/courses/views/__init__.py:320
+#: analytics_dashboard/courses/views/__init__.py:609
 msgid "Engagement"
 msgstr "참여"
 
@@ -93,8 +94,8 @@ msgstr "학습자가 어려움을 겪는 부분에 대해 도움을 주세요."
 
 #: analytics_dashboard/core/templates/core/landing.html:54
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:51
-#: analytics_dashboard/courses/views/__init__.py:326
-#: analytics_dashboard/courses/views/__init__.py:644
+#: analytics_dashboard/courses/views/__init__.py:331
+#: analytics_dashboard/courses/views/__init__.py:689
 msgid "Performance"
 msgstr "수행"
 
@@ -220,37 +221,37 @@ msgid "Unknown Country"
 msgstr "알 수 없는 국가"
 
 #. Translators: This describes the data displayed in the chart below.
-#: analytics_dashboard/courses/presenters/performance.py:145
+#: analytics_dashboard/courses/presenters/performance.py:150
 #: analytics_dashboard/courses/templates/courses/submissions_chart_info.html:4
 msgid "Submissions"
 msgstr "제출"
 
-#: analytics_dashboard/courses/presenters/performance.py:149
+#: analytics_dashboard/courses/presenters/performance.py:154
 #, python-brace-format
 msgid "Submissions for Part {part_number}: {part_description}"
 msgstr "{part_number}영역을 위한 제출: {part_description}"
 
-#: analytics_dashboard/courses/presenters/performance.py:150
+#: analytics_dashboard/courses/presenters/performance.py:155
 #, python-brace-format
 msgid "Part {part_number}: {part_description}"
 msgstr "{part_number}영역: {part_description}"
 
-#: analytics_dashboard/courses/presenters/performance.py:152
+#: analytics_dashboard/courses/presenters/performance.py:157
 #, python-brace-format
 msgid "Submissions: {part_description}"
 msgstr "제출: {part_description}"
 
-#: analytics_dashboard/courses/presenters/performance.py:153
+#: analytics_dashboard/courses/presenters/performance.py:158
 #, python-brace-format
 msgid "{part_description}"
 msgstr "{part_description}"
 
-#: analytics_dashboard/courses/presenters/performance.py:156
+#: analytics_dashboard/courses/presenters/performance.py:161
 #, python-brace-format
 msgid "Submissions for Part {part_number}"
 msgstr "{part_number} 영역의 제출"
 
-#: analytics_dashboard/courses/presenters/performance.py:157
+#: analytics_dashboard/courses/presenters/performance.py:162
 #, python-brace-format
 msgid "Part {part_number}"
 msgstr "{part_number} 영역"
@@ -377,15 +378,15 @@ msgid "Weekly Learner Engagement"
 msgstr "주간 학습자 이용 내역"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:24
-#: analytics_dashboard/courses/views/__init__.py:569
+#: analytics_dashboard/courses/views/__init__.py:614
 msgid "How many learners are interacting with my course?"
 msgstr "현재 강좌를 수강중인 학습자 수"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:31
-#: analytics_dashboard/courses/views/__init__.py:338
-#: analytics_dashboard/courses/views/__init__.py:652
-#: analytics_dashboard/courses/views/__init__.py:716
-#: analytics_dashboard/courses/views/learners.py:20
+#: analytics_dashboard/courses/views/__init__.py:343
+#: analytics_dashboard/courses/views/__init__.py:697
+#: analytics_dashboard/courses/views/__init__.py:761
+#: analytics_dashboard/courses/views/learners.py:22
 msgid "Learners"
 msgstr "학습자"
 
@@ -474,7 +475,7 @@ msgid ""
 msgstr "각 바는 해당 소주제에 대해 동영상 평균 조회 숫자를 끝까지 재생한 숫자와 재생하지 않응 숫자를 구분하여 나타냅니다. 이 곳을 클릭하여 끝까지 재생하지 않은 이유에 대해 알아보세요."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_course.html:5
-#: analytics_dashboard/courses/views/__init__.py:582
+#: analytics_dashboard/courses/views/__init__.py:627
 msgid "How did learners interact with course videos?"
 msgstr "학습자 강좌 동영상 활용법"
 
@@ -545,7 +546,7 @@ msgid "Daily Learner Enrollment"
 msgstr "일간 학습자 등록"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:25
-#: analytics_dashboard/courses/views/__init__.py:510
+#: analytics_dashboard/courses/views/__init__.py:546
 msgid "How many learners are in my course?"
 msgstr "현재 강좌를 수강중인 학습자 수"
 
@@ -645,7 +646,7 @@ msgid "Enrollment Over Time"
 msgstr "시간별 등록 현황"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:26
-#: analytics_dashboard/courses/views/__init__.py:520
+#: analytics_dashboard/courses/views/__init__.py:558
 msgid "How old are my learners?"
 msgstr "학습자 연령 정보"
 
@@ -715,7 +716,7 @@ msgid "Age Breakdown"
 msgstr "나이 분포도 "
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:25
-#: analytics_dashboard/courses/views/__init__.py:530
+#: analytics_dashboard/courses/views/__init__.py:569
 msgid "What level of education do my learners have?"
 msgstr "학습자 학력 정보"
 
@@ -772,7 +773,7 @@ msgid "Educational Breakdown"
 msgstr "학력 별 학습자 분포"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_gender.html:25
-#: analytics_dashboard/courses/views/__init__.py:540
+#: analytics_dashboard/courses/views/__init__.py:579
 msgid "What is the learner gender breakdown?"
 msgstr "학습자 성별 정보"
 
@@ -795,7 +796,7 @@ msgid "Geographic Distribution"
 msgstr "지역 분포도 "
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:22
-#: analytics_dashboard/courses/views/__init__.py:550
+#: analytics_dashboard/courses/views/__init__.py:589
 msgid "Where are my learners?"
 msgstr "학습자 지역 정보"
 
@@ -870,7 +871,7 @@ msgstr "앱"
 
 #. Translators: This refers to the homepage of a course.
 #: analytics_dashboard/courses/templates/courses/home.html:15
-#: analytics_dashboard/courses/views/__init__.py:499
+#: analytics_dashboard/courses/views/__init__.py:539
 #: analytics_dashboard/templates/lens-navigation.html:20
 msgid "Course Home"
 msgstr "강좌 홈"
@@ -903,9 +904,9 @@ msgid "External Tools"
 msgstr "외부 도구"
 
 #: analytics_dashboard/courses/templates/courses/index.html:10
-#: analytics_dashboard/courses/views/course_summaries.py:30
+#: analytics_dashboard/courses/views/course_summaries.py:31
 msgid "Courses"
-msgstr "강좌"
+msgstr ""
 
 #: analytics_dashboard/courses/templates/courses/index.html:17
 msgid "Across all your courses:"
@@ -1039,7 +1040,7 @@ msgid "How are learners doing on this subsection?"
 msgstr "소주제에 대한 학습자 성과 정보"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_content.html:7
-#: analytics_dashboard/courses/views/__init__.py:605
+#: analytics_dashboard/courses/views/__init__.py:650
 msgid "How are learners doing on ungraded exercises?"
 msgstr "성적에 반영되지 않는 연습에 대한 학습자 성과 정보"
 
@@ -1070,207 +1071,209 @@ msgstr "귀하의 계정에서 강좌 권한을 찾는데 문제가 발생했습
 msgid "Try Again"
 msgstr "다시 시도하세요."
 
-#: analytics_dashboard/courses/tests/test_views/__init__.py:244
-#: analytics_dashboard/courses/views/__init__.py:512
-#: analytics_dashboard/courses/views/enrollment.py:25
+#: analytics_dashboard/courses/tests/test_views/__init__.py:271
+#: analytics_dashboard/courses/views/__init__.py:548
+#: analytics_dashboard/courses/views/enrollment.py:42
 msgid "Activity"
 msgstr "활동"
 
-#: analytics_dashboard/courses/tests/test_views/__init__.py:254
-#: analytics_dashboard/courses/views/__init__.py:522
-#: analytics_dashboard/courses/views/__init__.py:532
-#: analytics_dashboard/courses/views/__init__.py:542
-#: analytics_dashboard/courses/views/enrollment.py:34
+#: analytics_dashboard/courses/tests/test_views/__init__.py:281
+#: analytics_dashboard/courses/tests/test_views/__init__.py:304
+#: analytics_dashboard/courses/views/__init__.py:560
+#: analytics_dashboard/courses/views/__init__.py:571
+#: analytics_dashboard/courses/views/__init__.py:581
+#: analytics_dashboard/courses/views/enrollment.py:23
+#: analytics_dashboard/courses/views/enrollment.py:31
 msgid "Demographics"
 msgstr "학습자 통계"
 
-#: analytics_dashboard/courses/tests/test_views/__init__.py:264
-#: analytics_dashboard/courses/views/__init__.py:552
-#: analytics_dashboard/courses/views/enrollment.py:43
+#: analytics_dashboard/courses/tests/test_views/__init__.py:291
+#: analytics_dashboard/courses/views/__init__.py:591
+#: analytics_dashboard/courses/views/enrollment.py:52
 msgid "Geography"
 msgstr "위치"
 
-#: analytics_dashboard/courses/tests/test_views/__init__.py:302
-#: analytics_dashboard/courses/views/__init__.py:522
-#: analytics_dashboard/courses/views/enrollment.py:63
+#: analytics_dashboard/courses/tests/test_views/__init__.py:341
+#: analytics_dashboard/courses/views/__init__.py:560
+#: analytics_dashboard/courses/views/enrollment.py:77
 msgid "Age"
 msgstr "나이"
 
-#: analytics_dashboard/courses/tests/test_views/__init__.py:312
-#: analytics_dashboard/courses/views/__init__.py:532
-#: analytics_dashboard/courses/views/enrollment.py:72
+#: analytics_dashboard/courses/tests/test_views/__init__.py:351
+#: analytics_dashboard/courses/views/__init__.py:571
+#: analytics_dashboard/courses/views/enrollment.py:88
 msgid "Education"
 msgstr "교육"
 
-#: analytics_dashboard/courses/tests/test_views/__init__.py:322
-#: analytics_dashboard/courses/views/__init__.py:542
-#: analytics_dashboard/courses/views/enrollment.py:81
+#: analytics_dashboard/courses/tests/test_views/__init__.py:361
+#: analytics_dashboard/courses/views/__init__.py:581
+#: analytics_dashboard/courses/views/enrollment.py:97
 msgid "Gender"
 msgstr "성별"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:58
-#: analytics_dashboard/courses/views/__init__.py:571
-#: analytics_dashboard/courses/views/engagement.py:32
+#: analytics_dashboard/courses/views/__init__.py:616
+#: analytics_dashboard/courses/views/engagement.py:34
 msgid "Content"
 msgstr "콘텐츠"
 
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:69
-#: analytics_dashboard/courses/views/__init__.py:584
-#: analytics_dashboard/courses/views/engagement.py:41
+#: analytics_dashboard/courses/views/__init__.py:629
+#: analytics_dashboard/courses/views/engagement.py:43
 msgid "Videos"
 msgstr "동영상"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:68
-#: analytics_dashboard/courses/views/__init__.py:598
-#: analytics_dashboard/courses/views/performance.py:41
-#: analytics_dashboard/courses/views/performance.py:104
+#: analytics_dashboard/courses/views/__init__.py:643
+#: analytics_dashboard/courses/views/performance.py:43
+#: analytics_dashboard/courses/views/performance.py:106
 msgid "Graded Content"
 msgstr "채점된 콘텐츠"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:79
-#: analytics_dashboard/courses/views/__init__.py:607
-#: analytics_dashboard/courses/views/performance.py:50
-#: analytics_dashboard/courses/views/performance.py:89
+#: analytics_dashboard/courses/views/__init__.py:652
+#: analytics_dashboard/courses/views/performance.py:52
+#: analytics_dashboard/courses/views/performance.py:91
 msgid "Ungraded Problems"
 msgstr "채점되지 않은 문제"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:542
-#: analytics_dashboard/courses/views/__init__.py:619
-#: analytics_dashboard/courses/views/performance.py:68
+#: analytics_dashboard/courses/views/__init__.py:664
+#: analytics_dashboard/courses/views/performance.py:70
 msgid "Learning Outcomes"
 msgstr "학습 성과"
 
-#: analytics_dashboard/courses/views/__init__.py:566
+#: analytics_dashboard/courses/views/__init__.py:611
 msgid "What are learners doing in my course?"
 msgstr "나의 강좌에서 학습자들은 무엇을 하고 있습니까?"
 
-#: analytics_dashboard/courses/views/__init__.py:596
+#: analytics_dashboard/courses/views/__init__.py:641
 msgid "How are learners doing on graded course assignments?"
 msgstr "학습자는 채점 된 학습 과제를 어떻게 수행합니까?"
 
-#: analytics_dashboard/courses/views/__init__.py:617
+#: analytics_dashboard/courses/views/__init__.py:662
 msgid "What is the breakdown for course learning outcomes?"
 msgstr "학습 결과에 대한 분석은 무엇입니까?"
 
-#: analytics_dashboard/courses/views/__init__.py:637
+#: analytics_dashboard/courses/views/__init__.py:682
 msgid "How are learners responding to questions?"
 msgstr "학습자는 질문에 어떻게 반응합니까?"
 
-#: analytics_dashboard/courses/views/__init__.py:639
+#: analytics_dashboard/courses/views/__init__.py:684
 msgid "Problem Response Report"
 msgstr "문제 답변 보고서"
 
-#: analytics_dashboard/courses/views/__init__.py:646
+#: analytics_dashboard/courses/views/__init__.py:691
 msgid "How are learners doing on course assignments?"
 msgstr "학습자는 과정 과제에서 어떻게 하고 있습니까?"
 
-#: analytics_dashboard/courses/views/__init__.py:654
+#: analytics_dashboard/courses/views/__init__.py:699
 msgid "What are individual learners doing?"
 msgstr "개별 학습자는 무엇을하고 있습니까?"
 
-#: analytics_dashboard/courses/views/__init__.py:657
+#: analytics_dashboard/courses/views/__init__.py:702
 msgid "Who is engaged? Who isn't?"
 msgstr "참여를 많이 한 학습자는 누구고 그렇지 않은 사람은 누구입니까?"
 
-#: analytics_dashboard/courses/views/__init__.py:659
+#: analytics_dashboard/courses/views/__init__.py:704
 msgid "All Learners"
 msgstr "전체 학습자"
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
-#: analytics_dashboard/courses/views/__init__.py:723
+#: analytics_dashboard/courses/views/__init__.py:768
 msgid "Course ID"
 msgstr "강좌 ID"
 
-#: analytics_dashboard/courses/views/__init__.py:725
+#: analytics_dashboard/courses/views/__init__.py:770
 msgid "Course Name"
 msgstr "강좌 이름"
 
 #. Translators: 'In Progress' and 'Ended' refer to whether learners are
 #. actively using the course or it is over.
-#: analytics_dashboard/courses/views/__init__.py:742
+#: analytics_dashboard/courses/views/__init__.py:787
 msgid "In Progress"
 msgstr "진행중"
 
-#: analytics_dashboard/courses/views/__init__.py:742
+#: analytics_dashboard/courses/views/__init__.py:787
 msgid "Ended"
 msgstr "종료되어었습니다."
 
 #. Translators: This refers to a course that has not yet begun.
-#: analytics_dashboard/courses/views/__init__.py:745
+#: analytics_dashboard/courses/views/__init__.py:790
 msgid "Not Started Yet"
 msgstr "아직 시작되지 않았습니다."
 
-#: analytics_dashboard/courses/views/__init__.py:747
+#: analytics_dashboard/courses/views/__init__.py:792
 msgid "Start Date"
 msgstr "시작일"
 
-#: analytics_dashboard/courses/views/__init__.py:748
+#: analytics_dashboard/courses/views/__init__.py:793
 msgid "End Date"
 msgstr "종료 일자"
 
-#: analytics_dashboard/courses/views/__init__.py:749
+#: analytics_dashboard/courses/views/__init__.py:794
 msgid "Status"
 msgstr "상태"
 
-#: analytics_dashboard/courses/views/__init__.py:758
+#: analytics_dashboard/courses/views/__init__.py:803
 msgid "Instructor Dashboard"
 msgstr "교수자 대시보드"
 
-#: analytics_dashboard/courses/views/__init__.py:763
+#: analytics_dashboard/courses/views/__init__.py:808
 msgid "Courseware"
 msgstr "강좌 내용"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/course_summaries.py:39
+#: analytics_dashboard/courses/views/course_summaries.py:40
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr "강좌 요약 데이터가  %(update_date)s at %(update_time)s UTC에 마지막으로 업데이트됨"
 
-#: analytics_dashboard/courses/views/engagement.py:57
+#: analytics_dashboard/courses/views/engagement.py:59
 msgid "Engagement Content"
 msgstr "참여 내용"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:67
+#: analytics_dashboard/courses/views/engagement.py:69
 #, python-format
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr "학습자의 참여 자료는 %(update_date)s %(update_time)s UTC에 마지막으로 업데이트가 되었습니다."
 
-#: analytics_dashboard/courses/views/engagement.py:93
+#: analytics_dashboard/courses/views/engagement.py:96
 msgid "Engagement Videos"
 msgstr "참여 동영상"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:98
+#: analytics_dashboard/courses/views/engagement.py:101
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr "동영상 자료가  %(update_time)s UTC의 %(update_date)s에 업데이트 되었습니다."
 
-#: analytics_dashboard/courses/views/engagement.py:99
+#: analytics_dashboard/courses/views/engagement.py:102
 msgid "Looks like no one has watched any videos in these sections."
 msgstr "이 주제에서는 동영상을 아무도 시청하지 않은 것으로 보입니다. "
 
-#: analytics_dashboard/courses/views/engagement.py:125
-#: analytics_dashboard/courses/views/performance.py:306
+#: analytics_dashboard/courses/views/engagement.py:128
+#: analytics_dashboard/courses/views/performance.py:308
 msgid "Section Name"
 msgstr "주제명"
 
-#: analytics_dashboard/courses/views/engagement.py:145
-#: analytics_dashboard/courses/views/performance.py:328
+#: analytics_dashboard/courses/views/engagement.py:148
+#: analytics_dashboard/courses/views/performance.py:330
 msgid "Subsection Name"
 msgstr "소주제명"
 
-#: analytics_dashboard/courses/views/engagement.py:166
+#: analytics_dashboard/courses/views/engagement.py:169
 msgid "Video Name"
 msgstr "동영상 명"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/enrollment.py:92
+#: analytics_dashboard/courses/views/enrollment.py:118
 #, python-format
 msgid ""
 "Demographic learner data was last updated %(update_date)s at %(update_time)s"
@@ -1279,41 +1282,41 @@ msgstr "학습자의 배경 정보 통계는 마지막으로 %(update_date)s %(u
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
-#: analytics_dashboard/courses/views/enrollment.py:96
+#: analytics_dashboard/courses/views/enrollment.py:122
 msgid ""
 "All above demographic data was self-reported at the time of registration."
 msgstr "학습자의 배경 정보는 가입과정에서 학습자가 스스로 입력 하였습니다. "
 
-#: analytics_dashboard/courses/views/enrollment.py:109
+#: analytics_dashboard/courses/views/enrollment.py:135
 msgid "Enrollment Activity"
 msgstr "등록 활동"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/enrollment.py:119
+#: analytics_dashboard/courses/views/enrollment.py:145
 #, python-format
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
 msgstr "등록 활동 데이터는 %(update_date)s %(update_time)s UTC에 마지막으로 업데이트가 되었습니다."
 
-#: analytics_dashboard/courses/views/enrollment.py:150
+#: analytics_dashboard/courses/views/enrollment.py:176
 msgid "Enrollment Demographics by Age"
 msgstr "등록생들의 나이 통계 데이터"
 
-#: analytics_dashboard/courses/views/enrollment.py:188
+#: analytics_dashboard/courses/views/enrollment.py:214
 msgid "Enrollment Demographics by Education"
 msgstr "등록생들의 최고교육과정 통계 데이터"
 
-#: analytics_dashboard/courses/views/enrollment.py:226
+#: analytics_dashboard/courses/views/enrollment.py:252
 msgid "Enrollment Demographics by Gender"
 msgstr "등록생들의 성별 통계 데이터 "
 
-#: analytics_dashboard/courses/views/enrollment.py:264
+#: analytics_dashboard/courses/views/enrollment.py:290
 msgid "Enrollment Geography"
 msgstr "등록생들의 지리적 위치 "
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/enrollment.py:274
+#: analytics_dashboard/courses/views/enrollment.py:300
 #, python-format
 msgid ""
 "Geographic learner data was last updated %(update_date)s at %(update_time)s "
@@ -1321,59 +1324,59 @@ msgid ""
 msgstr "학습자 정보의 지리적 위치는 %(update_date)s %(update_time)s UTC에 마지막으로 업데이트 되었습니다."
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/performance.py:36
+#: analytics_dashboard/courses/views/performance.py:38
 #, python-format
 msgid ""
 "Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr "문제 제출 자료가 %(update_time)s UTC의 %(update_date)s에 업데이트 되었습니다."
 
-#: analytics_dashboard/courses/views/performance.py:82
+#: analytics_dashboard/courses/views/performance.py:84
 msgid "Assignment Name"
 msgstr "과제 명"
 
-#: analytics_dashboard/courses/views/performance.py:93
-#: analytics_dashboard/courses/views/performance.py:376
+#: analytics_dashboard/courses/views/performance.py:95
+#: analytics_dashboard/courses/views/performance.py:378
 msgid "No submissions received for these exercises."
 msgstr "연습과 관련된 제출이 없습니다."
 
-#: analytics_dashboard/courses/views/performance.py:109
+#: analytics_dashboard/courses/views/performance.py:111
 msgid "No submissions received for these assignments."
 msgstr "과제와 관련된 제출이 없습니다."
 
-#: analytics_dashboard/courses/views/performance.py:201
-#: analytics_dashboard/courses/views/performance.py:368
-#: analytics_dashboard/courses/views/performance.py:466
+#: analytics_dashboard/courses/views/performance.py:203
+#: analytics_dashboard/courses/views/performance.py:370
+#: analytics_dashboard/courses/views/performance.py:468
 msgid "Performance: Problem Submissions"
 msgstr "수행: 문제 제출"
 
-#: analytics_dashboard/courses/views/performance.py:263
+#: analytics_dashboard/courses/views/performance.py:265
 #, python-format
 msgid "Graded Content: %(assignment_type)s"
 msgstr "채점된 콘텐츠: %(assignment_type)s"
 
-#: analytics_dashboard/courses/views/performance.py:282
-#: analytics_dashboard/courses/views/performance.py:350
+#: analytics_dashboard/courses/views/performance.py:284
+#: analytics_dashboard/courses/views/performance.py:352
 msgid "Problem Name"
 msgstr "문제 이름"
 
-#: analytics_dashboard/courses/views/performance.py:375
+#: analytics_dashboard/courses/views/performance.py:377
 #, python-format
 msgid ""
 "Tags distribution data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr "식별 정보 분포는 마지막으로 %(update_date)s %(update_time)s UTC에 업데이트 되었습니다."
 
-#: analytics_dashboard/courses/views/performance.py:404
-#: analytics_dashboard/courses/views/performance.py:434
+#: analytics_dashboard/courses/views/performance.py:406
+#: analytics_dashboard/courses/views/performance.py:436
 msgid "Performance: Learning Outcomes"
 msgstr "성과 : 학습 결과"
 
-#: analytics_dashboard/settings/base.py:430
+#: analytics_dashboard/settings/base.py:436
 msgid "Terms of Service"
 msgstr "서비스 규정"
 
-#: analytics_dashboard/settings/base.py:431
+#: analytics_dashboard/settings/base.py:437
 msgid "Privacy Policy"
 msgstr "개인정보 보호 정책"
 

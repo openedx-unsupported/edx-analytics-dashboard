@@ -5,6 +5,7 @@
 # Translators:
 # Translators:
 # Translators:
+# Translators:
 # Anne <a.vangulick@hotmail.com>, 2014
 # Bas Scholte in 't Hoff <bas@fusely.nl>, 2020
 # Bert Carremans <bert.carremans@gmail.com>, 2016
@@ -25,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-29 20:42+0000\n"
+"POT-Creation-Date: 2022-04-14 08:54+0000\n"
 "PO-Revision-Date: 2014-08-25 20:09+0000\n"
 "Last-Translator: Mahmood Malik <ni9htw4lker@gmail.com>, 2021\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/open-edx/edx-platform/language/nl_NL/)\n"
@@ -49,7 +50,7 @@ msgid "Insights to help course teams improve courses."
 msgstr "Inzichten om de teams te helpen hun cursussen beter te maken."
 
 #: analytics_dashboard/core/templates/core/landing.html:42
-#: analytics_dashboard/courses/views/__init__.py:507
+#: analytics_dashboard/courses/views/__init__.py:603
 msgid "Who are my learners?"
 msgstr "Wie zijn mijn leerlingen?"
 
@@ -59,9 +60,9 @@ msgstr "Laat uw cursus aansluiten bij de achtergronden van uw leerlingen."
 
 #: analytics_dashboard/core/templates/core/landing.html:44
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:28
-#: analytics_dashboard/courses/tests/test_views/__init__.py:228
-#: analytics_dashboard/courses/views/__init__.py:304
-#: analytics_dashboard/courses/views/__init__.py:505
+#: analytics_dashboard/courses/tests/test_views/__init__.py:255
+#: analytics_dashboard/courses/views/__init__.py:309
+#: analytics_dashboard/courses/views/__init__.py:601
 msgid "Enrollment"
 msgstr "Inschrijving"
 
@@ -77,8 +78,8 @@ msgstr "Verbeter inhoud die vaak wordt opgevraagd, of wijs leerlingen op onderbe
 
 #: analytics_dashboard/core/templates/core/landing.html:49
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:40
-#: analytics_dashboard/courses/views/__init__.py:315
-#: analytics_dashboard/courses/views/__init__.py:564
+#: analytics_dashboard/courses/views/__init__.py:320
+#: analytics_dashboard/courses/views/__init__.py:609
 msgid "Engagement"
 msgstr "Betrokkenheid"
 
@@ -92,8 +93,8 @@ msgstr "Pas je cursus aan gebaseerd op waar studenten moeite mee hebben. "
 
 #: analytics_dashboard/core/templates/core/landing.html:54
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:51
-#: analytics_dashboard/courses/views/__init__.py:326
-#: analytics_dashboard/courses/views/__init__.py:644
+#: analytics_dashboard/courses/views/__init__.py:331
+#: analytics_dashboard/courses/views/__init__.py:689
 msgid "Performance"
 msgstr "Prestatie"
 
@@ -219,37 +220,37 @@ msgid "Unknown Country"
 msgstr "Land Onbekend"
 
 #. Translators: This describes the data displayed in the chart below.
-#: analytics_dashboard/courses/presenters/performance.py:145
+#: analytics_dashboard/courses/presenters/performance.py:150
 #: analytics_dashboard/courses/templates/courses/submissions_chart_info.html:4
 msgid "Submissions"
 msgstr "Inzendingen"
 
-#: analytics_dashboard/courses/presenters/performance.py:149
+#: analytics_dashboard/courses/presenters/performance.py:154
 #, python-brace-format
 msgid "Submissions for Part {part_number}: {part_description}"
 msgstr "Inzendingen voor Onderdeel {part_number}: {part_description}"
 
-#: analytics_dashboard/courses/presenters/performance.py:150
+#: analytics_dashboard/courses/presenters/performance.py:155
 #, python-brace-format
 msgid "Part {part_number}: {part_description}"
 msgstr "Onderdeel {part_number}: {part_description}"
 
-#: analytics_dashboard/courses/presenters/performance.py:152
+#: analytics_dashboard/courses/presenters/performance.py:157
 #, python-brace-format
 msgid "Submissions: {part_description}"
 msgstr "Inzendingen: {part_description}"
 
-#: analytics_dashboard/courses/presenters/performance.py:153
+#: analytics_dashboard/courses/presenters/performance.py:158
 #, python-brace-format
 msgid "{part_description}"
 msgstr "{part_description}"
 
-#: analytics_dashboard/courses/presenters/performance.py:156
+#: analytics_dashboard/courses/presenters/performance.py:161
 #, python-brace-format
 msgid "Submissions for Part {part_number}"
 msgstr "Inzendingen voor Onderdeel {part_number}"
 
-#: analytics_dashboard/courses/presenters/performance.py:157
+#: analytics_dashboard/courses/presenters/performance.py:162
 #, python-brace-format
 msgid "Part {part_number}"
 msgstr "Onderdeel {part_number}"
@@ -376,15 +377,15 @@ msgid "Weekly Learner Engagement"
 msgstr "Wekelijkse betrokkenheid van leerlingen"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:24
-#: analytics_dashboard/courses/views/__init__.py:569
+#: analytics_dashboard/courses/views/__init__.py:614
 msgid "How many learners are interacting with my course?"
 msgstr "Hoeveel leerlingen zijn actief bezig met mijn cursus?"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:31
-#: analytics_dashboard/courses/views/__init__.py:338
-#: analytics_dashboard/courses/views/__init__.py:652
-#: analytics_dashboard/courses/views/__init__.py:716
-#: analytics_dashboard/courses/views/learners.py:20
+#: analytics_dashboard/courses/views/__init__.py:343
+#: analytics_dashboard/courses/views/__init__.py:697
+#: analytics_dashboard/courses/views/__init__.py:761
+#: analytics_dashboard/courses/views/learners.py:22
 msgid "Learners"
 msgstr "Leerlingen"
 
@@ -473,7 +474,7 @@ msgid ""
 msgstr "Elke balk toont het aantal volledige en onvolledige bezichtigingen voor de betreffende video. Klik om te begrijpen waar studenten stoppen met kijken en welke onderdelen ze herbekijken."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_course.html:5
-#: analytics_dashboard/courses/views/__init__.py:582
+#: analytics_dashboard/courses/views/__init__.py:627
 msgid "How did learners interact with course videos?"
 msgstr "Hoe gingen leerlingen om met video's in deze cursus?"
 
@@ -544,7 +545,7 @@ msgid "Daily Learner Enrollment"
 msgstr "Dagelijkse inschrijvingen"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:25
-#: analytics_dashboard/courses/views/__init__.py:510
+#: analytics_dashboard/courses/views/__init__.py:546
 msgid "How many learners are in my course?"
 msgstr "Hoeveel leerlingen zitten er in mijn cursus?"
 
@@ -644,7 +645,7 @@ msgid "Enrollment Over Time"
 msgstr "Inschrijvingen in de loop der tijd"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:26
-#: analytics_dashboard/courses/views/__init__.py:520
+#: analytics_dashboard/courses/views/__init__.py:558
 msgid "How old are my learners?"
 msgstr "Wat is de leeftijd van mijn leerlingen?"
 
@@ -714,7 +715,7 @@ msgid "Age Breakdown"
 msgstr "Onderverdeling naar Leeftijd"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:25
-#: analytics_dashboard/courses/views/__init__.py:530
+#: analytics_dashboard/courses/views/__init__.py:569
 msgid "What level of education do my learners have?"
 msgstr "Welk niveau van onderwijs hebben mijn studenten genoten?"
 
@@ -771,7 +772,7 @@ msgid "Educational Breakdown"
 msgstr "Onderverdeling Naar Opleiding"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_gender.html:25
-#: analytics_dashboard/courses/views/__init__.py:540
+#: analytics_dashboard/courses/views/__init__.py:579
 msgid "What is the learner gender breakdown?"
 msgstr "Wat is de afsplitsing van studenten gebasseerd op hun geslacht?"
 
@@ -794,7 +795,7 @@ msgid "Geographic Distribution"
 msgstr "Geografische verdeling"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:22
-#: analytics_dashboard/courses/views/__init__.py:550
+#: analytics_dashboard/courses/views/__init__.py:589
 msgid "Where are my learners?"
 msgstr "Waar zijn mijn studenten?"
 
@@ -869,7 +870,7 @@ msgstr "Toepassing"
 
 #. Translators: This refers to the homepage of a course.
 #: analytics_dashboard/courses/templates/courses/home.html:15
-#: analytics_dashboard/courses/views/__init__.py:499
+#: analytics_dashboard/courses/views/__init__.py:539
 #: analytics_dashboard/templates/lens-navigation.html:20
 msgid "Course Home"
 msgstr "Cursus Homepagina"
@@ -902,9 +903,9 @@ msgid "External Tools"
 msgstr "Externe hulpmiddelen"
 
 #: analytics_dashboard/courses/templates/courses/index.html:10
-#: analytics_dashboard/courses/views/course_summaries.py:30
+#: analytics_dashboard/courses/views/course_summaries.py:31
 msgid "Courses"
-msgstr "Bekijk cursus"
+msgstr ""
 
 #: analytics_dashboard/courses/templates/courses/index.html:17
 msgid "Across all your courses:"
@@ -1038,7 +1039,7 @@ msgid "How are learners doing on this subsection?"
 msgstr "Hoe presteren de studenten op deze subsectie?"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_content.html:7
-#: analytics_dashboard/courses/views/__init__.py:605
+#: analytics_dashboard/courses/views/__init__.py:650
 msgid "How are learners doing on ungraded exercises?"
 msgstr "Hoe presteren de studenten op deze onbeoordeelde oefeningen?"
 
@@ -1069,207 +1070,209 @@ msgstr "Er was een probleem om uw cursus permissies van uw account op te halen. 
 msgid "Try Again"
 msgstr "Opnieuw proberen"
 
-#: analytics_dashboard/courses/tests/test_views/__init__.py:244
-#: analytics_dashboard/courses/views/__init__.py:512
-#: analytics_dashboard/courses/views/enrollment.py:25
+#: analytics_dashboard/courses/tests/test_views/__init__.py:271
+#: analytics_dashboard/courses/views/__init__.py:548
+#: analytics_dashboard/courses/views/enrollment.py:42
 msgid "Activity"
 msgstr "Activiteit"
 
-#: analytics_dashboard/courses/tests/test_views/__init__.py:254
-#: analytics_dashboard/courses/views/__init__.py:522
-#: analytics_dashboard/courses/views/__init__.py:532
-#: analytics_dashboard/courses/views/__init__.py:542
-#: analytics_dashboard/courses/views/enrollment.py:34
+#: analytics_dashboard/courses/tests/test_views/__init__.py:281
+#: analytics_dashboard/courses/tests/test_views/__init__.py:304
+#: analytics_dashboard/courses/views/__init__.py:560
+#: analytics_dashboard/courses/views/__init__.py:571
+#: analytics_dashboard/courses/views/__init__.py:581
+#: analytics_dashboard/courses/views/enrollment.py:23
+#: analytics_dashboard/courses/views/enrollment.py:31
 msgid "Demographics"
 msgstr "Demografie"
 
-#: analytics_dashboard/courses/tests/test_views/__init__.py:264
-#: analytics_dashboard/courses/views/__init__.py:552
-#: analytics_dashboard/courses/views/enrollment.py:43
+#: analytics_dashboard/courses/tests/test_views/__init__.py:291
+#: analytics_dashboard/courses/views/__init__.py:591
+#: analytics_dashboard/courses/views/enrollment.py:52
 msgid "Geography"
 msgstr "Geografie"
 
-#: analytics_dashboard/courses/tests/test_views/__init__.py:302
-#: analytics_dashboard/courses/views/__init__.py:522
-#: analytics_dashboard/courses/views/enrollment.py:63
+#: analytics_dashboard/courses/tests/test_views/__init__.py:341
+#: analytics_dashboard/courses/views/__init__.py:560
+#: analytics_dashboard/courses/views/enrollment.py:77
 msgid "Age"
 msgstr "Leeftijd"
 
-#: analytics_dashboard/courses/tests/test_views/__init__.py:312
-#: analytics_dashboard/courses/views/__init__.py:532
-#: analytics_dashboard/courses/views/enrollment.py:72
+#: analytics_dashboard/courses/tests/test_views/__init__.py:351
+#: analytics_dashboard/courses/views/__init__.py:571
+#: analytics_dashboard/courses/views/enrollment.py:88
 msgid "Education"
 msgstr "Opleiding"
 
-#: analytics_dashboard/courses/tests/test_views/__init__.py:322
-#: analytics_dashboard/courses/views/__init__.py:542
-#: analytics_dashboard/courses/views/enrollment.py:81
+#: analytics_dashboard/courses/tests/test_views/__init__.py:361
+#: analytics_dashboard/courses/views/__init__.py:581
+#: analytics_dashboard/courses/views/enrollment.py:97
 msgid "Gender"
 msgstr "Geslacht"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:58
-#: analytics_dashboard/courses/views/__init__.py:571
-#: analytics_dashboard/courses/views/engagement.py:32
+#: analytics_dashboard/courses/views/__init__.py:616
+#: analytics_dashboard/courses/views/engagement.py:34
 msgid "Content"
 msgstr "Inhoud"
 
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:69
-#: analytics_dashboard/courses/views/__init__.py:584
-#: analytics_dashboard/courses/views/engagement.py:41
+#: analytics_dashboard/courses/views/__init__.py:629
+#: analytics_dashboard/courses/views/engagement.py:43
 msgid "Videos"
 msgstr "Video's"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:68
-#: analytics_dashboard/courses/views/__init__.py:598
-#: analytics_dashboard/courses/views/performance.py:41
-#: analytics_dashboard/courses/views/performance.py:104
+#: analytics_dashboard/courses/views/__init__.py:643
+#: analytics_dashboard/courses/views/performance.py:43
+#: analytics_dashboard/courses/views/performance.py:106
 msgid "Graded Content"
 msgstr "Gekwoteerde oefening"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:79
-#: analytics_dashboard/courses/views/__init__.py:607
-#: analytics_dashboard/courses/views/performance.py:50
-#: analytics_dashboard/courses/views/performance.py:89
+#: analytics_dashboard/courses/views/__init__.py:652
+#: analytics_dashboard/courses/views/performance.py:52
+#: analytics_dashboard/courses/views/performance.py:91
 msgid "Ungraded Problems"
 msgstr "Niet gekwoteerde oefening"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:542
-#: analytics_dashboard/courses/views/__init__.py:619
-#: analytics_dashboard/courses/views/performance.py:68
+#: analytics_dashboard/courses/views/__init__.py:664
+#: analytics_dashboard/courses/views/performance.py:70
 msgid "Learning Outcomes"
 msgstr "Leerresultaten"
 
-#: analytics_dashboard/courses/views/__init__.py:566
+#: analytics_dashboard/courses/views/__init__.py:611
 msgid "What are learners doing in my course?"
 msgstr "Wat zijn studenten aan het doen in mijn cursus?"
 
-#: analytics_dashboard/courses/views/__init__.py:596
+#: analytics_dashboard/courses/views/__init__.py:641
 msgid "How are learners doing on graded course assignments?"
 msgstr "Hoe zijn studenten presterend op de beoordeelde cursus taken?"
 
-#: analytics_dashboard/courses/views/__init__.py:617
+#: analytics_dashboard/courses/views/__init__.py:662
 msgid "What is the breakdown for course learning outcomes?"
 msgstr "Wat is de onderverdeling van de uitkomsten van de cursus?"
 
-#: analytics_dashboard/courses/views/__init__.py:637
+#: analytics_dashboard/courses/views/__init__.py:682
 msgid "How are learners responding to questions?"
 msgstr "Hoe reageren studenten op de vragen?"
 
-#: analytics_dashboard/courses/views/__init__.py:639
+#: analytics_dashboard/courses/views/__init__.py:684
 msgid "Problem Response Report"
 msgstr "Probleem reactie rapportage"
 
-#: analytics_dashboard/courses/views/__init__.py:646
+#: analytics_dashboard/courses/views/__init__.py:691
 msgid "How are learners doing on course assignments?"
 msgstr "Hoe zijn studenten presterend op de taken van de cursus?"
 
-#: analytics_dashboard/courses/views/__init__.py:654
+#: analytics_dashboard/courses/views/__init__.py:699
 msgid "What are individual learners doing?"
 msgstr "Wat zijn individuele leerlingen aan het doen?"
 
-#: analytics_dashboard/courses/views/__init__.py:657
+#: analytics_dashboard/courses/views/__init__.py:702
 msgid "Who is engaged? Who isn't?"
 msgstr "Wie is betrokken? Wie niet?"
 
-#: analytics_dashboard/courses/views/__init__.py:659
+#: analytics_dashboard/courses/views/__init__.py:704
 msgid "All Learners"
 msgstr "Alle leerlingen"
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
-#: analytics_dashboard/courses/views/__init__.py:723
+#: analytics_dashboard/courses/views/__init__.py:768
 msgid "Course ID"
 msgstr "Cursus ID"
 
-#: analytics_dashboard/courses/views/__init__.py:725
+#: analytics_dashboard/courses/views/__init__.py:770
 msgid "Course Name"
 msgstr "Naam cursus"
 
 #. Translators: 'In Progress' and 'Ended' refer to whether learners are
 #. actively using the course or it is over.
-#: analytics_dashboard/courses/views/__init__.py:742
+#: analytics_dashboard/courses/views/__init__.py:787
 msgid "In Progress"
 msgstr "In Behandeling"
 
-#: analytics_dashboard/courses/views/__init__.py:742
+#: analytics_dashboard/courses/views/__init__.py:787
 msgid "Ended"
 msgstr "Beëindigd"
 
 #. Translators: This refers to a course that has not yet begun.
-#: analytics_dashboard/courses/views/__init__.py:745
+#: analytics_dashboard/courses/views/__init__.py:790
 msgid "Not Started Yet"
 msgstr "Nog niet gestart"
 
-#: analytics_dashboard/courses/views/__init__.py:747
+#: analytics_dashboard/courses/views/__init__.py:792
 msgid "Start Date"
 msgstr "Start Datum"
 
-#: analytics_dashboard/courses/views/__init__.py:748
+#: analytics_dashboard/courses/views/__init__.py:793
 msgid "End Date"
 msgstr "Einddatum"
 
-#: analytics_dashboard/courses/views/__init__.py:749
+#: analytics_dashboard/courses/views/__init__.py:794
 msgid "Status"
 msgstr "Status"
 
-#: analytics_dashboard/courses/views/__init__.py:758
+#: analytics_dashboard/courses/views/__init__.py:803
 msgid "Instructor Dashboard"
 msgstr "Instructeur Dashboard"
 
-#: analytics_dashboard/courses/views/__init__.py:763
+#: analytics_dashboard/courses/views/__init__.py:808
 msgid "Courseware"
 msgstr "Cursusmateriaal"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/course_summaries.py:39
+#: analytics_dashboard/courses/views/course_summaries.py:40
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr "De laatste samenvatting van de data van de cursus was op %(update_date)som %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/engagement.py:57
+#: analytics_dashboard/courses/views/engagement.py:59
 msgid "Engagement Content"
 msgstr "Betrokkenheid bij de inhoud"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:67
+#: analytics_dashboard/courses/views/engagement.py:69
 #, python-format
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr "Cursus deelname-activiteit gegevens zijn het laatst bijgewerkt op %(update_date)s om %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/engagement.py:93
+#: analytics_dashboard/courses/views/engagement.py:96
 msgid "Engagement Videos"
 msgstr "Betrokkenheid Videos"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:98
+#: analytics_dashboard/courses/views/engagement.py:101
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr "Deze video is laatst bijgewerkt op %(update_date)s om %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/engagement.py:99
+#: analytics_dashboard/courses/views/engagement.py:102
 msgid "Looks like no one has watched any videos in these sections."
 msgstr "Het lijkt erop dat niemand de video's heeft bekeken van deze secties."
 
-#: analytics_dashboard/courses/views/engagement.py:125
-#: analytics_dashboard/courses/views/performance.py:306
+#: analytics_dashboard/courses/views/engagement.py:128
+#: analytics_dashboard/courses/views/performance.py:308
 msgid "Section Name"
 msgstr "Sectie naam"
 
-#: analytics_dashboard/courses/views/engagement.py:145
-#: analytics_dashboard/courses/views/performance.py:328
+#: analytics_dashboard/courses/views/engagement.py:148
+#: analytics_dashboard/courses/views/performance.py:330
 msgid "Subsection Name"
 msgstr "Naam subsectie"
 
-#: analytics_dashboard/courses/views/engagement.py:166
+#: analytics_dashboard/courses/views/engagement.py:169
 msgid "Video Name"
 msgstr "Video naam"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/enrollment.py:92
+#: analytics_dashboard/courses/views/enrollment.py:118
 #, python-format
 msgid ""
 "Demographic learner data was last updated %(update_date)s at %(update_time)s"
@@ -1278,41 +1281,41 @@ msgstr "De demografie van de studenten data was het laatst geupdate op %(update_
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
-#: analytics_dashboard/courses/views/enrollment.py:96
+#: analytics_dashboard/courses/views/enrollment.py:122
 msgid ""
 "All above demographic data was self-reported at the time of registration."
 msgstr "Alle bovenstaande demografische gegevens zijn zelf-gerapporteerd tijdens registratie."
 
-#: analytics_dashboard/courses/views/enrollment.py:109
+#: analytics_dashboard/courses/views/enrollment.py:135
 msgid "Enrollment Activity"
 msgstr "Inschrijvingsactiviteit"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/enrollment.py:119
+#: analytics_dashboard/courses/views/enrollment.py:145
 #, python-format
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
 msgstr "Inschrijving activiteit gegevens zijn het laatst bijgewerkt op %(update_date)s om %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/enrollment.py:150
+#: analytics_dashboard/courses/views/enrollment.py:176
 msgid "Enrollment Demographics by Age"
 msgstr "Inschrijving Demografie naar Leeftijd"
 
-#: analytics_dashboard/courses/views/enrollment.py:188
+#: analytics_dashboard/courses/views/enrollment.py:214
 msgid "Enrollment Demographics by Education"
 msgstr "Inschrijving Demografie naar Opleiding"
 
-#: analytics_dashboard/courses/views/enrollment.py:226
+#: analytics_dashboard/courses/views/enrollment.py:252
 msgid "Enrollment Demographics by Gender"
 msgstr "Inschrijving Demografie naar Geslacht"
 
-#: analytics_dashboard/courses/views/enrollment.py:264
+#: analytics_dashboard/courses/views/enrollment.py:290
 msgid "Enrollment Geography"
 msgstr "Inschrijving volgens geografie"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/enrollment.py:274
+#: analytics_dashboard/courses/views/enrollment.py:300
 #, python-format
 msgid ""
 "Geographic learner data was last updated %(update_date)s at %(update_time)s "
@@ -1320,59 +1323,59 @@ msgid ""
 msgstr "De geografie van de studenten data was het laatst geupdate op %(update_date)s om %(update_time)s UTC."
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/performance.py:36
+#: analytics_dashboard/courses/views/performance.py:38
 #, python-format
 msgid ""
 "Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr "Inzendingsdata voor probleem is laatst aangepast op %(update_date)s om %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/performance.py:82
+#: analytics_dashboard/courses/views/performance.py:84
 msgid "Assignment Name"
 msgstr "Toegewezen Naam"
 
-#: analytics_dashboard/courses/views/performance.py:93
-#: analytics_dashboard/courses/views/performance.py:376
+#: analytics_dashboard/courses/views/performance.py:95
+#: analytics_dashboard/courses/views/performance.py:378
 msgid "No submissions received for these exercises."
 msgstr "Geen inzendingen ontvangen voor deze oefeningen."
 
-#: analytics_dashboard/courses/views/performance.py:109
+#: analytics_dashboard/courses/views/performance.py:111
 msgid "No submissions received for these assignments."
 msgstr "Geen inzendingen ontvangen voor deze opdrachten."
 
-#: analytics_dashboard/courses/views/performance.py:201
-#: analytics_dashboard/courses/views/performance.py:368
-#: analytics_dashboard/courses/views/performance.py:466
+#: analytics_dashboard/courses/views/performance.py:203
+#: analytics_dashboard/courses/views/performance.py:370
+#: analytics_dashboard/courses/views/performance.py:468
 msgid "Performance: Problem Submissions"
 msgstr "Prestatie: Probleem Inzendingen"
 
-#: analytics_dashboard/courses/views/performance.py:263
+#: analytics_dashboard/courses/views/performance.py:265
 #, python-format
 msgid "Graded Content: %(assignment_type)s"
 msgstr "Gekwoteerde inhoud: %(assignment_type)s"
 
-#: analytics_dashboard/courses/views/performance.py:282
-#: analytics_dashboard/courses/views/performance.py:350
+#: analytics_dashboard/courses/views/performance.py:284
+#: analytics_dashboard/courses/views/performance.py:352
 msgid "Problem Name"
 msgstr "Probleem Naam"
 
-#: analytics_dashboard/courses/views/performance.py:375
+#: analytics_dashboard/courses/views/performance.py:377
 #, python-format
 msgid ""
 "Tags distribution data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr "De data van de tags distributie van de studenten was het laatst geupdate op %(update_date)s om %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/performance.py:404
-#: analytics_dashboard/courses/views/performance.py:434
+#: analytics_dashboard/courses/views/performance.py:406
+#: analytics_dashboard/courses/views/performance.py:436
 msgid "Performance: Learning Outcomes"
 msgstr "Prestatie: Resulaten van Cursisten"
 
-#: analytics_dashboard/settings/base.py:430
+#: analytics_dashboard/settings/base.py:436
 msgid "Terms of Service"
 msgstr "Gebruiksvoorwaarden"
 
-#: analytics_dashboard/settings/base.py:431
+#: analytics_dashboard/settings/base.py:437
 msgid "Privacy Policy"
 msgstr "Privacybeleid"
 
