@@ -11,6 +11,7 @@ jobs:
     strategy:
       matrix:
         python-version: ["3.8"]
+        node: [12, 16]
         os: [ubuntu-20.04]
         toxenv: [django32]
     env:
@@ -47,6 +48,7 @@ jobs:
         shell: bash
         env:
           TESTNAME: js
+          NODE: ${{ matrix.node }}
           TARGETS: "requirements.js validate_js"
       - name: test i18n
         run: ./.github/scripts/testing.sh
@@ -59,12 +61,14 @@ jobs:
         shell: bash
         env:
           TESTNAME: acceptance
+          NODE: ${{ matrix.node }}
           TARGETS: "requirements.a11y migrate requirements.js static accept"
       - name: test python
         run: ./.github/scripts/testing.sh
         shell: bash
         env:
           TESTNAME: test-python
+          NODE: ${{ matrix.node }}
           TARGETS: "requirements.js static test_python"
       - name: code cov
         run: codecov --disable pycov
