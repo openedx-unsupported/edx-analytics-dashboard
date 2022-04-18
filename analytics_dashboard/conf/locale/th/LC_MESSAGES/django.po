@@ -6,6 +6,7 @@
 # Translators:
 # Translators:
 # Translators:
+# Translators:
 # Jirayu Chamamahattana <mman2x@gmail.com>, 2015
 # Kamthorn Krairaksa <kamthorn@gmail.com>, 2014
 # Kanchanabhadra Sai-sook <kanchanabhadra@gmail.com>, 2020
@@ -20,13 +21,14 @@
 # Sitdhibong Laokok <sitdhibong@gmail.com>, 2015
 # Supphachoke Suntiwichaya <mrchoke@gmail.com>, 2017
 # Theeranuch Sirikojakorn <totallyp3@gmail.com>, 2015
+# Trisorn Triboon <trisornlive@gmail.com>, 2022
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-14 08:54+0000\n"
 "PO-Revision-Date: 2014-08-25 20:09+0000\n"
-"Last-Translator: Kanchanabhadra Sai-sook <kanchanabhadra@gmail.com>, 2020\n"
+"Last-Translator: Trisorn Triboon <trisornlive@gmail.com>, 2022\n"
 "Language-Team: Thai (http://www.transifex.com/open-edx/edx-platform/language/th/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -819,7 +821,7 @@ msgstr ""
 #. number of enrolled learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:62
 msgid "Top Country or Region by Enrollment"
-msgstr ""
+msgstr "ประเทศหรือภูมิภาคอันดับสูงสุดโดยการลงทะเบียน"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:63
 msgid "Country or region with the largest number of learners."
@@ -829,7 +831,7 @@ msgstr ""
 #. greatest number of enrolled learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:66
 msgid "Second Country or Region by Enrollment"
-msgstr ""
+msgstr "ประเทศหรือภูมิภาคลำดับที่สองโดยการลงทะเบียน"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:67
 msgid "Country or region with the second largest number of learners."
@@ -839,11 +841,11 @@ msgstr ""
 #. greatest number of enrolled learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:70
 msgid "Third Country or Region by Enrollment"
-msgstr ""
+msgstr "ประเทศหรือภูมิภาคลำดับที่สามโดยการลงทะเบียน"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:71
 msgid "Country or region with the third largest number of learners."
-msgstr ""
+msgstr "ประเทศหรือภูมิภาคที่มีจำนวนผู้เรียนมากเป็นอันดับสาม"
 
 #. Translators: This string represents the percentage of learners in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
@@ -903,11 +905,11 @@ msgstr "เครื่องมือภายนอก"
 #: analytics_dashboard/courses/templates/courses/index.html:10
 #: analytics_dashboard/courses/views/course_summaries.py:31
 msgid "Courses"
-msgstr ""
+msgstr "Courses"
 
 #: analytics_dashboard/courses/templates/courses/index.html:17
 msgid "Across all your courses:"
-msgstr ""
+msgstr "ในทุกหลักสูตรของคุณ"
 
 #: analytics_dashboard/courses/templates/courses/index.html:27
 msgid "Total enrollments across all of your courses."
@@ -927,17 +929,17 @@ msgstr "จำนวนการลงทะเบียนที่ผ่าน
 
 #: analytics_dashboard/courses/templates/courses/index.html:54
 msgid "Master's enrollments across all of your courses."
-msgstr ""
+msgstr "การลงทะเบียนระดับปริญญาโทในทุกหลักสูตรของคุณ"
 
 #: analytics_dashboard/courses/templates/courses/performance_answer_distribution.html:7
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_answer_distribution.html:5
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_answer_distribution.html:7
 msgid "How did learners answer this problem?"
-msgstr ""
+msgstr "ผู้เรียนตอบคำถามนี้อย่างไร?"
 
 #: analytics_dashboard/courses/templates/courses/performance_assignment.html:10
 msgid "How are learners doing on this assignment?"
-msgstr ""
+msgstr "ผู้เรียนเป็นอย่างไรบ้างกับงานที่มอบหมายให้นี้?"
 
 #: analytics_dashboard/courses/templates/courses/performance_assignment.html:15
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_subsection.html:15
@@ -1000,7 +1002,7 @@ msgstr "การส่งการบ้าน"
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_content.html:6
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_section.html:6
 msgid "Measured by learning outcome, how are learners performing?"
-msgstr ""
+msgstr "วัดจากผลการเรียนรู้ ผู้เรียนดำเนินการอย่างไร?"
 
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_content.html:16
 msgid ""
@@ -1020,7 +1022,7 @@ msgstr "แผนภูมิแท่งเหล่านี้แสดงจ
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_section.html:5
 msgid "How are learners doing on this section?"
-msgstr ""
+msgstr "ผู้เรียนเป็นอย่างไรบ้างในส่วนนี้"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_section.html:10
 msgid ""
@@ -1034,12 +1036,12 @@ msgstr "การส่งหัวข้อย่อย"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_subsection.html:10
 msgid "How are learners doing on this subsection?"
-msgstr ""
+msgstr "ผู้เรียนเป็นอย่างไรบ้างในส่วนย่อยนี้"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_content.html:7
 #: analytics_dashboard/courses/views/__init__.py:650
 msgid "How are learners doing on ungraded exercises?"
-msgstr ""
+msgstr "ผู้เรียนทำแบบฝึกหัดที่ไม่ได้ให้คะแนนอย่างไร"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_content.html:12
 msgid ""
@@ -1159,7 +1161,7 @@ msgstr ""
 
 #: analytics_dashboard/courses/views/__init__.py:684
 msgid "Problem Response Report"
-msgstr ""
+msgstr "รายงานการตอบสนองปัญหา"
 
 #: analytics_dashboard/courses/views/__init__.py:691
 msgid "How are learners doing on course assignments?"
@@ -1367,7 +1369,7 @@ msgstr ""
 #: analytics_dashboard/courses/views/performance.py:406
 #: analytics_dashboard/courses/views/performance.py:436
 msgid "Performance: Learning Outcomes"
-msgstr ""
+msgstr "ประสิทธิภาพ: ผลการเรียนรู้"
 
 #: analytics_dashboard/settings/base.py:436
 msgid "Terms of Service"
@@ -1465,7 +1467,7 @@ msgstr "ช่วยเหลือ"
 
 #: analytics_dashboard/templates/header.html:46
 msgid "Menu for"
-msgstr ""
+msgstr "เมนูสำหรับ"
 
 #: analytics_dashboard/templates/header.html:60
 msgid "Logout"
@@ -1473,7 +1475,7 @@ msgstr "ลงชื่อออก"
 
 #: analytics_dashboard/templates/lens-navigation.html:27
 msgid "Navigation Menu."
-msgstr ""
+msgstr "เมนูการนำทาง"
 
 #: analytics_dashboard/templates/loading.html:7
 msgid "Loading"
