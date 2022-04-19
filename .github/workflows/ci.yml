@@ -53,7 +53,7 @@ jobs:
         shell: bash
         env:
           TESTNAME: test-i18n
-          TARGETS: "generate_fake_translations validate_translations"
+          TARGETS: "generate_fake_translations"
       - name: test acceptance
         run: ./.github/scripts/testing.sh
         shell: bash
