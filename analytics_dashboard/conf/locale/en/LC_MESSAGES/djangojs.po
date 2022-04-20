@@ -1,7 +1,9 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
+# Translators:
+# Translators:
 # Translators:
 # Translators:
 # Translators:
@@ -9,14 +11,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-29 20:42+0000\n"
+"POT-Creation-Date: 2022-04-14 18:37+0000\n"
 "PO-Revision-Date: 2014-08-26 21:24+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: English (http://www.transifex.com/open-edx/edx-platform/language/en/)\n"
+"Language-Team: English (http://www.transifex.com/open-edx/edx-platform/"
+"language/en/)\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: analytics_dashboard/static/apps/components/download/views/download-data.js:25
@@ -32,14 +35,12 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-#. Translators: 'name' here refers to the name of the filter, while 'count'
-#. refers to the number of items belonging to that filter.
+#. Translators: 'name' here refers to the name of the filter, while 'count' refers to the number of items belonging to that filter.
 #: analytics_dashboard/static/apps/components/filter/views/filter.js:90
 msgid "<%= name %> (<%= count %>)"
 msgstr ""
 
-#. Translators: this is a label describing a filter selection that the user
-#. initiated.
+#. Translators: this is a label describing a filter selection that the user initiated.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:62
 msgid "<%= filterDisplayName %>: <%= filterVal %>"
 msgstr ""
@@ -66,14 +67,12 @@ msgstr ""
 msgid "sort ascending"
 msgstr ""
 
-#. Translators: "sort descending" describes the current sort state to the
-#. user.
+#. Translators: "sort descending" describes the current sort state to the user.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/base-header-cell.js:73
 msgid "sort descending"
 msgstr ""
 
-#. Translators: "click to sort" tells the user that they can click this link
-#. to sort by the current field.
+#. Translators: "click to sort" tells the user that they can click this link to sort by the current field.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/base-header-cell.js:76
 msgid "click to sort"
 msgstr ""
@@ -82,8 +81,7 @@ msgstr ""
 msgid "Results"
 msgstr ""
 
-#. Translators: 'count' refers to the number of results contained in the
-#. table.
+#. Translators: 'count' refers to the number of results contained in the table.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/num-results.js:30
 msgid "Number of results: <%= count %>"
 msgstr ""
@@ -127,8 +125,7 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
-#. Translators: "504" is a number representing a server error, so please leave
-#. it as "504".
+#. Translators: "504" is a number representing a server error, so please leave it as "504".
 #: analytics_dashboard/static/apps/components/utils/utils.js:62
 msgid "504: Server error"
 msgstr ""
@@ -336,8 +333,8 @@ msgstr ""
 
 #: analytics_dashboard/static/apps/course-list/list/views/results.js:57
 msgid ""
-"No courses are enrolled, or course activity data has not yet been processed."
-" Data is updated every day, so check back regularly for up-to-date metrics."
+"No courses are enrolled, or course activity data has not yet been processed. "
+"Data is updated every day, so check back regularly for up-to-date metrics."
 msgstr ""
 
 #: analytics_dashboard/static/apps/course-list/list/views/search.js:71
@@ -487,14 +484,12 @@ msgstr ""
 msgid "Return to Learners"
 msgstr ""
 
-#. Translators: this is a label describing a selection that the user
-#. initiated.
+#. Translators: this is a label describing a selection that the user initiated.
 #: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:23
 msgid "Cohort: <%= filterVal %>"
 msgstr ""
 
-#. Translators: this is a label describing a selection that the user
-#. initiated.
+#. Translators: this is a label describing a selection that the user initiated.
 #: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:27
 msgid "Enrollment Track: <%= filterVal %>"
 msgstr ""
@@ -556,8 +551,7 @@ msgstr ""
 msgid "enrollment_mode"
 msgstr ""
 
-#. Translators: inactive meaning that these learners have not interacted with
-#. the
+#. Translators: inactive meaning that these learners have not interacted with the
 #. course recently.
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:103
 msgid "Hide Inactive Learners"
@@ -578,8 +572,8 @@ msgstr ""
 #: analytics_dashboard/static/apps/learners/roster/views/results.js:57
 msgid ""
 "No learners are enrolled, or course activity data has not yet been "
-"processed. Data is updated every day, so check back regularly for up-to-date"
-" metrics."
+"processed. Data is updated every day, so check back regularly for up-to-date "
+"metrics."
 msgstr ""
 
 #: analytics_dashboard/static/apps/learners/roster/views/roster.js:110
@@ -590,8 +584,7 @@ msgstr ""
 msgid "Search learners"
 msgstr ""
 
-#. Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate
-#. accordingly.
+#. Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate accordingly.
 #: analytics_dashboard/static/apps/learners/roster/views/table.js:40
 msgid "N/A"
 msgstr ""
@@ -663,8 +656,7 @@ msgstr ""
 msgid "Incomplete Views"
 msgstr ""
 
-#. Translators: this describe the learner's enrollment track (e.g. Honor
-#. certificate)
+#. Translators: this describe the learner's enrollment track (e.g. Honor certificate)
 #: analytics_dashboard/static/js/enrollment-activity-main.js:33
 msgid "Honor"
 msgstr ""
@@ -681,8 +673,7 @@ msgstr ""
 msgid "Professional"
 msgstr ""
 
-#. Translators: this label indicates the learner has registered for academic
-#. credit
+#. Translators: this label indicates the learner has registered for academic credit
 #: analytics_dashboard/static/js/enrollment-activity-main.js:54
 msgid "Verified with Credit"
 msgstr ""
@@ -711,8 +702,7 @@ msgstr ""
 msgid "Percentage"
 msgstr ""
 
-#. Translators: <%=value%> will be replaced with a level of education (e.g.
-#. Doctorate).
+#. Translators: <%=value%> will be replaced with a level of education (e.g. Doctorate).
 #: analytics_dashboard/static/js/enrollment-demographics-education-main.js:24
 msgid "Education: <%=value%>"
 msgstr ""
@@ -721,8 +711,7 @@ msgstr ""
 msgid "Educational Background"
 msgstr ""
 
-#. Translators: <%=value%> will be replaced with a level of gender (e.g.
-#. Female).
+#. Translators: <%=value%> will be replaced with a level of gender (e.g. Female).
 #: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:23
 msgid "Gender: <%=value%>"
 msgstr ""
@@ -786,8 +775,7 @@ msgstr ""
 msgid "Incorrect"
 msgstr ""
 
-#. Translators: <%=value%> will be replaced by a learner response to a
-#. question asked in a course.
+#. Translators: <%=value%> will be replaced by a learner response to a question asked in a course.
 #: analytics_dashboard/static/js/performance-answer-distribution-main.js:60
 msgid "Answer: <%=value%>"
 msgstr ""
@@ -836,15 +824,14 @@ msgstr ""
 
 #. Translators: (empty) is displayed in a table and indicates no label/value.
 #. Keep text in the parenthesis or an equivalent symbol.
-#. Translators: (empty) is displayed as a label in a chart and indicates that
-#. no label was provided.
+#.
+#. Translators: (empty) is displayed as a label in a chart and indicates that no label was provided.
 #: analytics_dashboard/static/js/views/data-table-view.js:199
 #: analytics_dashboard/static/js/views/discrete-bar-view.js:21
 msgid "(empty)"
 msgstr ""
 
-#. Translators: <%=value%> will be replaced by a number followed by a
-#. percentage.
+#. Translators: <%=value%> will be replaced by a number followed by a percentage.
 #. For example, "400 (29%)"
 #: analytics_dashboard/static/js/views/stacked-bar-view.js:13
 msgid "<%=value%> (<%=percent%>)"
