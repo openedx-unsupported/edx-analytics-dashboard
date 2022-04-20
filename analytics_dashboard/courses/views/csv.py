@@ -102,7 +102,7 @@ class CourseEngagementActivityTrendCSV(AnalyticsV1Mixin, CourseCSVResponseMixin,
         return self.course.activity(data_format=data_formats.CSV, end_date=end_date)
 
 
-class CourseEngagementVideoTimelineCSV(AnalyticsV0Mixin, CourseCSVResponseMixin, CourseView):
+class CourseEngagementVideoTimelineCSV(AnalyticsV1Mixin, CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = 'engagement-video-timeline'
 
     def get_data(self):

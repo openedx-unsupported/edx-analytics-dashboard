@@ -16,7 +16,6 @@ from analytics_dashboard.courses.views import (
     CourseStructureExceptionMixin,
     CourseStructureMixin,
     CourseTemplateWithNavView,
-    AnalyticsV0Mixin,
     AnalyticsV1Mixin,
 )
 
@@ -91,7 +90,7 @@ class EngagementContentView(AnalyticsV1Mixin, EngagementTemplateView):
         return context
 
 
-class EngagementVideoContentTemplateView(AnalyticsV0Mixin, CourseStructureMixin, CourseStructureExceptionMixin,
+class EngagementVideoContentTemplateView(AnalyticsV1Mixin, CourseStructureMixin, CourseStructureExceptionMixin,
                                          EngagementTemplateView):
     page_title = _('Engagement Videos')
     active_secondary_nav_item = 'videos'
