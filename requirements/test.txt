@@ -13,7 +13,9 @@ astroid==2.3.3
     #   -r requirements/test.in
     #   pylint
 attrs==21.4.0
-    # via pytest
+    # via
+    #   outcome
+    #   pytest
 bok-choy==1.1.1
     # via -r requirements/test.in
 certifi==2021.10.8
@@ -150,6 +152,8 @@ idna==3.3
     # via
     #   -r requirements/base.txt
     #   requests
+iniconfig==1.1.1
+    # via pytest
 isort==4.3.21
     # via pylint
 jinja2==3.1.1
@@ -170,8 +174,6 @@ markupsafe==2.1.1
     #   jinja2
 mccabe==0.6.1
     # via pylint
-more-itertools==8.12.0
-    # via pytest
 newrelic==7.10.0.175
     # via
     #   -r requirements/base.txt
@@ -196,7 +198,7 @@ pbr==5.8.1
     #   stevedore
 pinax-announcements==4.0.0
     # via -r requirements/base.txt
-pluggy==0.13.1
+pluggy==1.0.0
     # via pytest
 polib==1.1.1
     # via
@@ -242,7 +244,7 @@ pymongo==3.12.3
     #   edx-opaque-keys
 pyparsing==3.0.8
     # via packaging
-pytest==5.4.3
+pytest==7.1.1
     # via
     #   -r requirements/test.in
     #   pytest-cov
@@ -342,7 +344,9 @@ text-unidecode==1.3
     #   -r requirements/base.txt
     #   python-slugify
 tomli==2.0.1
-    # via coverage
+    # via
+    #   coverage
+    #   pytest
 typing-extensions==4.2.0
     # via
     #   -r requirements/base.txt
@@ -356,7 +360,5 @@ urllib3==1.26.9
     #   -r requirements/base.txt
     #   requests
     #   selenium
-wcwidth==0.2.5
-    # via pytest
 wrapt==1.11.2
     # via astroid

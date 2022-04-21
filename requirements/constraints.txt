@@ -8,13 +8,8 @@
 # pin when possible.  Writing an issue against the offending project and
 # linking to it here is good.
  
-# TODO: Many pinned dependencies should be unpinned and/or moved to this constraints file.
-
-# Pin to pylint version used in edx-lint
+# Pin to older pylint, newer versions will require significant code cleanup
 pylint==2.4.4
-
-# Newer versions cause build failure on github with `ERROR: Cannot find command 'git' - do you have 'git' installed and in your PATH?`
-tox==3.14.6
 
 # Newer version of django-webpack-loader is not compatible with npm webpack-bundle-tracker > 0.4.3
 django-webpack-loader==0.7.0
