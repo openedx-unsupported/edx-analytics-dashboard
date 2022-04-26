@@ -167,6 +167,10 @@ idna==3.3
     # via
     #   -r requirements/test.txt
     #   requests
+iniconfig==1.1.1
+    # via
+    #   -r requirements/test.txt
+    #   pytest
 isort==4.3.21
     # via
     #   -r requirements/test.txt
@@ -195,10 +199,6 @@ mccabe==0.6.1
     # via
     #   -r requirements/test.txt
     #   pylint
-more-itertools==8.12.0
-    # via
-    #   -r requirements/test.txt
-    #   pytest
 mysqlclient==2.1.0
     # via -r requirements/local.in
 newrelic==7.10.0.175
@@ -235,11 +235,11 @@ pinax-announcements==4.0.0
     # via -r requirements/test.txt
 pip-tools==6.6.0
     # via -r requirements/pip_tools.txt
-platformdirs==2.5.1
+platformdirs==2.5.2
     # via
     #   -r requirements/tox.txt
     #   virtualenv
-pluggy==0.13.1
+pluggy==1.0.0
     # via
     #   -r requirements/test.txt
     #   -r requirements/tox.txt
@@ -296,7 +296,7 @@ pyparsing==3.0.8
     #   -r requirements/test.txt
     #   -r requirements/tox.txt
     #   packaging
-pytest==5.4.3
+pytest==7.1.1
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -412,16 +412,16 @@ tomli==2.0.1
     #   -r requirements/test.txt
     #   coverage
     #   pep517
-tox==3.14.6
+    #   pytest
+tox==3.25.0
     # via
-    #   -c requirements/constraints.txt
     #   -r requirements/tox.txt
     #   tox-battery
 tox-battery==0.6.1
     # via -r requirements/tox.txt
 transifex-client==0.12.4
     # via -r requirements/local.in
-typing-extensions==4.1.1
+typing-extensions==4.2.0
     # via
     #   -r requirements/test.txt
     #   django-countries
@@ -439,10 +439,6 @@ virtualenv==20.14.1
     # via
     #   -r requirements/tox.txt
     #   tox
-wcwidth==0.2.5
-    # via
-    #   -r requirements/test.txt
-    #   pytest
 wheel==0.37.1
     # via
     #   -r requirements/pip_tools.txt
