@@ -42,7 +42,7 @@ coverage[toml]==6.3.2
     # via
     #   -r requirements/test.in
     #   pytest-cov
-cryptography==36.0.2
+cryptography==37.0.0
     # via
     #   -r requirements/base.txt
     #   pyjwt
@@ -244,7 +244,7 @@ pymongo==3.12.3
     #   edx-opaque-keys
 pyparsing==3.0.8
     # via packaging
-pytest==7.1.1
+pytest==7.1.2
     # via
     #   -r requirements/test.in
     #   pytest-cov
@@ -257,7 +257,7 @@ python-dateutil==2.8.2
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-python-slugify==6.1.1
+python-slugify==6.1.2
     # via
     #   -r requirements/base.txt
     #   code-annotations
