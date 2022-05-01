@@ -7,7 +7,9 @@
 # Translators:
 # Translators:
 # Translators:
+# Translators:
 # Jiří Šedý <jsedy7@gmail.com>, 2015
+# trendspotter <jirka.p@volny.cz>, 2022
 # Kristýna Kučerová <kristyna.kucerova@gmail.com>, 2020
 # Kristyna Matejkova <Kristy.Matejkova@gmail.com>, 2018
 # Tomáš Batelka <tomas.batelka@email.cz>, 2021
@@ -16,9 +18,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-14 08:54+0000\n"
+"POT-Creation-Date: 2022-04-14 18:37+0000\n"
 "PO-Revision-Date: 2014-08-25 20:09+0000\n"
-"Last-Translator: Zimeng Chen, 2021\n"
+"Last-Translator: trendspotter <jirka.p@volny.cz>, 2022\n"
 "Language-Team: Czech (http://www.transifex.com/open-edx/edx-platform/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -97,7 +99,7 @@ msgstr "Přidejte se k Open Source komunitě"
 msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr ""
+msgstr "Analytický datový kanál edX a edX Insights jsou open source. %(link_start)sDalší informace%(link_end)s."
 
 #: analytics_dashboard/core/templates/core/landing.html:75
 msgid "Research at edX"
@@ -433,7 +435,7 @@ msgstr "Studenti, kteří přidali příspěvek, odpověď nebo komentář v jak
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:89
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:97
 msgid "Content Engagement Breakdown"
-msgstr ""
+msgstr "Rozdělení zapojení obsahu"
 
 #. Translators: This describes the data displayed in the chart below. E.g. how
 #. many learners viewed a video.
@@ -632,7 +634,7 @@ msgstr "Počet současně zapsaných studentů usilujících o magisterský titu
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:101
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_gender.html:66
 msgid "Enrollment Over Time"
-msgstr ""
+msgstr "Zápis v průběhu času"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:26
 #: analytics_dashboard/courses/views/__init__.py:558
@@ -702,7 +704,7 @@ msgstr ""
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:101
 msgid "Age Breakdown"
-msgstr ""
+msgstr "Věkové členění"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:25
 #: analytics_dashboard/courses/views/__init__.py:569
@@ -749,7 +751,7 @@ msgstr ""
 #. Translators: This is a label to identify learner educational background.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:78
 msgid "Advanced Degree"
-msgstr ""
+msgstr "Pokročilý stupeň"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:79
 msgid ""
@@ -759,7 +761,7 @@ msgstr ""
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:91
 msgid "Educational Breakdown"
-msgstr ""
+msgstr "Vzdělávací členění"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_gender.html:25
 #: analytics_dashboard/courses/views/__init__.py:579
@@ -778,11 +780,11 @@ msgstr ""
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_gender.html:56
 msgid "Gender Breakdown Over Time"
-msgstr ""
+msgstr "Rozdělení podle pohlaví v průběhu času"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:21
 msgid "Geographic Distribution"
-msgstr ""
+msgstr "Geografické rozšíření"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:22
 #: analytics_dashboard/courses/views/__init__.py:589
@@ -791,11 +793,11 @@ msgstr "Kde se nachází moji studenti?"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:27
 msgid "Enrollment by Country"
-msgstr ""
+msgstr "Zápisy podle země"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:45
 msgid "Geography Metrics"
-msgstr ""
+msgstr "Geografické metriky"
 
 #. Translators: This string represents the number of countries where learners
 #. are enrolled.
@@ -847,7 +849,7 @@ msgstr ""
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:91
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:98
 msgid "Geographic Breakdown"
-msgstr ""
+msgstr "Geografické členění"
 
 #. Translators: Application here refers to the web site/application being used
 #. (e.g. the dashboard).
@@ -1048,13 +1050,13 @@ msgstr "Odevzdané úlohy sekce"
 #: analytics_dashboard/courses/templates/courses/permissions-retrieval-failed.html:5
 #: analytics_dashboard/courses/templates/courses/permissions-retrieval-failed.html:7
 msgid "Permissions Retrieval Failed"
-msgstr ""
+msgstr "Načtení oprávnění se nezdařilo"
 
 #: analytics_dashboard/courses/templates/courses/permissions-retrieval-failed.html:9
 msgid ""
 "There was a problem retrieving course permissions for your account. Please "
 "try again. If you continue to experience issues, please let us know."
-msgstr ""
+msgstr "Při načítání oprávnění ke kurzu pro váš účet došlo k problému. Prosím zkuste to znovu. Pokud problémy přetrvávají, dejte nám prosím vědět."
 
 #: analytics_dashboard/courses/templates/courses/permissions-retrieval-failed.html:14
 msgid "Try Again"
@@ -1347,7 +1349,7 @@ msgstr "Klasifikovaný obsah: %(assignment_type)s"
 #: analytics_dashboard/courses/views/performance.py:284
 #: analytics_dashboard/courses/views/performance.py:352
 msgid "Problem Name"
-msgstr ""
+msgstr "Název problému"
 
 #: analytics_dashboard/courses/views/performance.py:377
 #, python-format
@@ -1372,18 +1374,18 @@ msgstr "Pravidla ochrany osobních údajů"
 #: analytics_dashboard/templates/403.html:5
 #: analytics_dashboard/templates/403.html:8
 msgid "Access Denied"
-msgstr ""
+msgstr "Přístup odepřen"
 
 #: analytics_dashboard/templates/403.html:10
 msgid ""
 "You do not have permission to view this page. If you believe you should have"
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
-msgstr ""
+msgstr "K zobrazení této stránky nemáte oprávnění. Pokud se domníváte, že byste měli mít přístup na tuto stránku, zkuste se odhlásit a znovu přihlásit, abyste obnovili svá oprávnění."
 
 #: analytics_dashboard/templates/403.html:17
 msgid "Logout then Login"
-msgstr ""
+msgstr "Odhlaste se a poté se přihlaste"
 
 #: analytics_dashboard/templates/404.html:5
 #: analytics_dashboard/templates/404.html:8
@@ -1394,18 +1396,18 @@ msgstr "Stránka nebyla nalezena"
 msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
-msgstr ""
+msgstr "Nemůžeme najít stránku, kterou hledáte. Ujistěte se, že je adresa URL správná, a pokud ne, zkuste to znovu."
 
 #: analytics_dashboard/templates/500.html:5
 #: analytics_dashboard/templates/500.html:8
 msgid "An Error Occurred"
-msgstr ""
+msgstr "Vyskytla se chyba"
 
 #: analytics_dashboard/templates/500.html:10
 msgid ""
 "Our servers weren't able to complete your request. Please try again by "
 "refreshing this page or retracing your steps."
-msgstr ""
+msgstr "Naše servery nemohly dokončit váš požadavek. Zkuste to prosím znovu obnovením této stránky nebo zopakováním svých kroků."
 
 #: analytics_dashboard/templates/503.html:5
 #: analytics_dashboard/templates/503.html:7
@@ -1422,7 +1424,7 @@ msgstr "Zavřít"
 
 #: analytics_dashboard/templates/base-error.html:42
 msgid "Use our support tool to ask questions or share feedback."
-msgstr ""
+msgstr "Pomocí našeho nástroje podpory můžete klást otázky nebo sdílet zpětnou vazbu."
 
 #. Translators: This intention here is that a user clicks a button to contact
 #. a support group (e.g. edX Support, or MITx Support). Reorder the
@@ -1430,7 +1432,7 @@ msgstr ""
 #: analytics_dashboard/templates/base-error.html:47
 #, python-format
 msgid "Contact %(platform_name)s Support"
-msgstr ""
+msgstr "Kontaktujte podporu %(platform_name)s"
 
 #: analytics_dashboard/templates/footer.html:16
 #, python-format
@@ -1445,11 +1447,11 @@ msgstr ""
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
 "            reserved. "
-msgstr ""
+msgstr "%(current_year)s %(platform_name)s, pokud není uvedeno jinak, všechna práva vyhrazena."
 
 #: analytics_dashboard/templates/header.html:13
 msgid "Toggle navigation"
-msgstr ""
+msgstr "Přepnout navigaci"
 
 #: analytics_dashboard/templates/header.html:40
 msgid "Help"
@@ -1473,12 +1475,12 @@ msgstr "Nahrávání"
 
 #: analytics_dashboard/templates/section_error.html:10
 msgid "We are unable to load this chart."
-msgstr ""
+msgstr "Tento graf nelze načíst."
 
 #: analytics_dashboard/templates/section_error.html:12
 msgid "We are unable to load this table."
-msgstr ""
+msgstr "Tuto tabulku nelze načíst."
 
 #: analytics_dashboard/templates/section_error.html:14
 msgid "We are unable to load these metrics."
-msgstr ""
+msgstr "Tyto metriky nelze načíst."
