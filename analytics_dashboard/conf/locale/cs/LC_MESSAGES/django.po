@@ -8,6 +8,7 @@
 # Translators:
 # Translators:
 # Translators:
+# Translators:
 # Jiří Šedý <jsedy7@gmail.com>, 2015
 # trendspotter <jirka.p@volny.cz>, 2022
 # Kristýna Kučerová <kristyna.kucerova@gmail.com>, 2020
@@ -127,7 +128,7 @@ msgstr "%(link_start)sNaše centrum podpory%(link_end)s Vám může pomoci nalé
 #: analytics_dashboard/core/templatetags/dashboard_extras.py:27
 #, python-brace-format
 msgid "{statistic}%"
-msgstr ""
+msgstr "{statistic}%"
 
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: analytics_dashboard/courses/presenters/engagement.py:124
@@ -250,7 +251,7 @@ msgstr "Část {part_number}"
 #: analytics_dashboard/courses/templates/courses/_base_content_nav.html:25
 #, python-format
 msgid "%(all_sections_text)s"
-msgstr ""
+msgstr "%(all_sections_text)s"
 
 #: analytics_dashboard/courses/templates/courses/_graded_content_nav.html:16
 msgid "Select Assignment Type"
@@ -453,7 +454,7 @@ msgid ""
 "Each bar shows the average number of complete and incomplete views for "
 "videos in that subsection. Click on bars with low totals or a high "
 "incomplete rate to drill down and understand why."
-msgstr ""
+msgstr "Každý pruh zobrazuje průměrný počet úplných a neúplných zhlédnutí videí v dané podsekci. Kliknutím na sloupce s nízkými součty nebo vysokou mírou neúplnosti zobrazíte podrobnější informace a pochopíte proč."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_by_subsection.html:10
 msgid "How did learners interact with videos in this subsection?"
@@ -463,7 +464,7 @@ msgstr "Jak studenti interagovali s videi v této podsekci?"
 msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
 "Click to understand where learners drop off and which parts they replay."
-msgstr ""
+msgstr "Každý pruh zobrazuje počty úplných a neúplných zhlédnutí daného videa. Kliknutím zjistíte, kde studenti odejdou a které části si přehrají."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_course.html:5
 #: analytics_dashboard/courses/views/__init__.py:627
@@ -484,7 +485,7 @@ msgstr "Celkový počet zhlédnutí videa"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:26
 msgid "What were the viewing patterns for this video?"
-msgstr ""
+msgstr "Jaké byly vzorce sledování tohoto videa?"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:31
 msgid ""
@@ -620,7 +621,7 @@ msgstr "Počet současně zapsaných studentů usilující o verifikovaný certi
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:93
 #: analytics_dashboard/courses/templates/courses/index.html:53
 msgid "Master's Enrollment"
-msgstr ""
+msgstr "Zápis magistra"
 
 #. Translators: This is a label indicating the number of learners enrolled in
 #. a course on the masters track.
@@ -844,7 +845,7 @@ msgstr ""
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:77
 #, python-format
 msgid "%(percent)s%% of learners"
-msgstr ""
+msgstr "%(percent)s%% studentů"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:91
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:98
@@ -921,7 +922,7 @@ msgstr "Ověřené zápisy napříč všemi kurzy."
 
 #: analytics_dashboard/courses/templates/courses/index.html:54
 msgid "Master's enrollments across all of your courses."
-msgstr ""
+msgstr "Magisterské zápisy do všech vašich kurzů."
 
 #: analytics_dashboard/courses/templates/courses/performance_answer_distribution.html:7
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_answer_distribution.html:5
@@ -948,13 +949,13 @@ msgstr "Odevzdané úlohy"
 
 #: analytics_dashboard/courses/templates/courses/performance_graded_content.html:9
 msgid "Which assignment type do you want to investigate?"
-msgstr ""
+msgstr "Jaký typ úkolu chcete prozkoumat?"
 
 #: analytics_dashboard/courses/templates/courses/performance_graded_content.html:13
 msgid ""
 "Click an assignment type to view more detail information about the "
 "assignments."
-msgstr ""
+msgstr "Kliknutím na typ úkolu zobrazíte podrobnější informace o úkolech."
 
 #. Translators: This describes the percent an assignment contributes to that
 #. of a learner's grade (e.g. Exam: 60% of the grading policy.).
@@ -964,13 +965,13 @@ msgid ""
 "\n"
 "                %(assignment_type)s: %(policy_ratio)s%% of the grading policy\n"
 "              "
-msgstr ""
+msgstr "\n%(assignment_type)s: %(policy_ratio)s%% zásad hodnocení"
 
 #. Translators: This describes the percent of a learner's grade (e.g. 60%).
 #: analytics_dashboard/courses/templates/courses/performance_graded_content.html:34
 #, python-format
 msgid "%(policy_ratio)s%%"
-msgstr ""
+msgstr "%(policy_ratio)s%%"
 
 #: analytics_dashboard/courses/templates/courses/performance_graded_content_by_type.html:7
 #, python-format
@@ -1014,13 +1015,13 @@ msgstr ""
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_section.html:5
 msgid "How are learners doing on this section?"
-msgstr ""
+msgstr "Jak jsou na tom studenti v této sekci?"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_section.html:10
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each subsection. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "Každý sloupec zobrazuje průměrný počet správných a nesprávných příspěvků pro každou podsekci. Počítá se pouze poslední příspěvek od každého studenta."
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_section.html:14
 msgid "Subsection Submissions"
@@ -1033,13 +1034,13 @@ msgstr "Jak se studentům v této podsekci daří?"
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_content.html:7
 #: analytics_dashboard/courses/views/__init__.py:650
 msgid "How are learners doing on ungraded exercises?"
-msgstr ""
+msgstr "Jak si studenti vedou na neklasifikovaných cvičeních?"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_content.html:12
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each section. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "Každý sloupec zobrazuje průměrný počet správných a nesprávných příspěvků pro každou sekci. Počítá se pouze poslední příspěvek od každého studenta."
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_content.html:16
 msgid "Section Submissions"
@@ -1076,13 +1077,13 @@ msgstr "Aktivita"
 #: analytics_dashboard/courses/views/enrollment.py:23
 #: analytics_dashboard/courses/views/enrollment.py:31
 msgid "Demographics"
-msgstr ""
+msgstr "Demografie"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:291
 #: analytics_dashboard/courses/views/__init__.py:591
 #: analytics_dashboard/courses/views/enrollment.py:52
 msgid "Geography"
-msgstr ""
+msgstr "Zeměpis"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:341
 #: analytics_dashboard/courses/views/__init__.py:560
@@ -1120,20 +1121,20 @@ msgstr "Videa"
 #: analytics_dashboard/courses/views/performance.py:43
 #: analytics_dashboard/courses/views/performance.py:106
 msgid "Graded Content"
-msgstr ""
+msgstr "KLasifikovaný obsah"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:79
 #: analytics_dashboard/courses/views/__init__.py:652
 #: analytics_dashboard/courses/views/performance.py:52
 #: analytics_dashboard/courses/views/performance.py:91
 msgid "Ungraded Problems"
-msgstr ""
+msgstr "Neklasifikované problémy"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:542
 #: analytics_dashboard/courses/views/__init__.py:664
 #: analytics_dashboard/courses/views/performance.py:70
 msgid "Learning Outcomes"
-msgstr ""
+msgstr "Výsledky učení"
 
 #: analytics_dashboard/courses/views/__init__.py:611
 msgid "What are learners doing in my course?"
@@ -1165,7 +1166,7 @@ msgstr ""
 
 #: analytics_dashboard/courses/views/__init__.py:702
 msgid "Who is engaged? Who isn't?"
-msgstr ""
+msgstr "kdo je zapojený? kdo ne?"
 
 #: analytics_dashboard/courses/views/__init__.py:704
 msgid "All Learners"
@@ -1189,12 +1190,12 @@ msgstr "Ve zpracování"
 
 #: analytics_dashboard/courses/views/__init__.py:787
 msgid "Ended"
-msgstr ""
+msgstr "Skončilo"
 
 #. Translators: This refers to a course that has not yet begun.
 #: analytics_dashboard/courses/views/__init__.py:790
 msgid "Not Started Yet"
-msgstr ""
+msgstr "Ještě nezahájeno"
 
 #: analytics_dashboard/courses/views/__init__.py:792
 msgid "Start Date"
@@ -1202,7 +1203,7 @@ msgstr "Počáteční datum"
 
 #: analytics_dashboard/courses/views/__init__.py:793
 msgid "End Date"
-msgstr ""
+msgstr "Datum ukončení"
 
 #: analytics_dashboard/courses/views/__init__.py:794
 msgid "Status"
@@ -1221,11 +1222,11 @@ msgstr "Výukový software"
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
+msgstr "Souhrnná data kurzu byla naposledy aktualizována %(update_date)s v %(update_time)s UTC."
 
 #: analytics_dashboard/courses/views/engagement.py:59
 msgid "Engagement Content"
-msgstr ""
+msgstr "Obsah zapojení"
 
 #. Translators: Do not translate UTC.
 #: analytics_dashboard/courses/views/engagement.py:69
@@ -1237,7 +1238,7 @@ msgstr ""
 
 #: analytics_dashboard/courses/views/engagement.py:96
 msgid "Engagement Videos"
-msgstr ""
+msgstr "Interaktivní videa"
 
 #. Translators: Do not translate UTC.
 #: analytics_dashboard/courses/views/engagement.py:101
@@ -1412,11 +1413,11 @@ msgstr "Naše servery nemohly dokončit váš požadavek. Zkuste to prosím znov
 #: analytics_dashboard/templates/503.html:5
 #: analytics_dashboard/templates/503.html:7
 msgid "We're having trouble loading this page. Please try again in a minute."
-msgstr ""
+msgstr "Máme potíže s načítáním této stránky. Zkuste to prosím znovu za minutu."
 
 #: analytics_dashboard/templates/503.html:10
 msgid "(Technical details: 503 Service Unavailable.)"
-msgstr ""
+msgstr "(Technické podrobnosti: Služba 503 není k dispozici.)"
 
 #: analytics_dashboard/templates/_announcement.html:28
 msgid "Close"
