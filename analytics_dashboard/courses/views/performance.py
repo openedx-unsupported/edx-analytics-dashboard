@@ -18,13 +18,13 @@ from analytics_dashboard.courses.views import (
     CourseStructureExceptionMixin,
     CourseStructureMixin,
     CourseTemplateWithNavView,
-    AnalyticsV1Mixin,
+    AnalyticsV0Mixin,
 )
 
 logger = logging.getLogger(__name__)
 
 
-class PerformanceTemplateView(AnalyticsV1Mixin, CourseStructureExceptionMixin, CourseTemplateWithNavView,
+class PerformanceTemplateView(AnalyticsV0Mixin, CourseStructureExceptionMixin, CourseTemplateWithNavView,
                               CourseAPIMixin):
     """
     Base view for course performance pages.
@@ -159,7 +159,7 @@ class PerformanceGradedContentTemplateView(PerformanceTemplateView):
         return context
 
 
-class PerformanceAnswerDistributionMixin(AnalyticsV1Mixin):
+class PerformanceAnswerDistributionMixin:
     presenter = None
     course_id = None
     problem_id = None
