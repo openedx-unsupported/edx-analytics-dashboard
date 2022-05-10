@@ -110,7 +110,7 @@ class CourseEngagementVideoTimelineCSV(AnalyticsV1Mixin, CourseCSVResponseMixin,
         return modules.video_timeline(data_format=data_formats.CSV)
 
 
-class PerformanceAnswerDistributionCSV(AnalyticsV1Mixin, CourseCSVResponseMixin, CourseView):
+class PerformanceAnswerDistributionCSV(AnalyticsV0Mixin, CourseCSVResponseMixin, CourseView):
     csv_filename_suffix = 'performance-answer-distribution'
 
     def get_data(self):
@@ -118,7 +118,7 @@ class PerformanceAnswerDistributionCSV(AnalyticsV1Mixin, CourseCSVResponseMixin,
         return modules.answer_distribution(data_format=data_formats.CSV)
 
 
-class PerformanceProblemResponseCSV(AnalyticsV1Mixin, CourseView):
+class PerformanceProblemResponseCSV(AnalyticsV0Mixin, CourseView):
     """
     Query the Data API to get a temporary secure download URL, and redirect to that.
     """
