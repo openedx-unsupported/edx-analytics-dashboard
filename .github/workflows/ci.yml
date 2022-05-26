@@ -72,3 +72,9 @@ jobs:
           TARGETS: "requirements.js static test_python"
       - name: code cov
         run: codecov --disable pycov
+      - name: check reserved keywords
+        run: ./.github/scripts/testing.sh
+        shell: bash
+        env:
+          TESTNAME: check_keywords
+          TARGETS: "check_keywords"
