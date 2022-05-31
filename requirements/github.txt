@@ -4,19 +4,19 @@
 #
 #    make upgrade
 #
-certifi==2021.10.8
+certifi==2022.5.18.1
     # via requests
 charset-normalizer==2.0.12
     # via requests
 codecov==2.1.12
     # via -r requirements/github.in
-coverage==6.3.2
+coverage==6.4
     # via codecov
 distlib==0.3.4
     # via
     #   -r requirements/tox.txt
     #   virtualenv
-filelock==3.6.0
+filelock==3.7.0
     # via
     #   -r requirements/tox.txt
     #   tox
@@ -39,7 +39,7 @@ py==1.11.0
     # via
     #   -r requirements/tox.txt
     #   tox
-pyparsing==3.0.8
+pyparsing==3.0.9
     # via
     #   -r requirements/tox.txt
     #   packaging
