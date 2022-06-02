@@ -21,7 +21,7 @@ endef
 export BROWSER_PYSCRIPT
 BROWSER := python -c "$$BROWSER_PYSCRIPT"
 
-.PHONY: requirements coverage clean docs
+.PHONY: requirements coverage clean docs install_transifex_client
 
 # Generates a help message. Borrowed from https://github.com/pydanny/cookiecutter-djangopackage.
 help: ## display this help message
@@ -192,3 +192,7 @@ upgrade: piptools ## update the requirements/*.txt files with the latest package
 
 docs:
 	tox -e docs
+	
+install_transifex_client: ## Install the Transifex client
+	curl -o- https://raw.githubusercontent.com/transifex/cli/master/install.sh | bash
+	git checkout -- LICENSE README.md
