@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['12']
+        node-version: ['8']
     env:
       DATA_API_VERSION: "latest"
     steps:
