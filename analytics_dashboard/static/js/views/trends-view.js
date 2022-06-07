@@ -25,7 +25,9 @@ define(
           .useInteractiveGuideline(true);
 
         if (_(self.options).has('interactiveTooltipHeaderTemplate')) {
-          self.chart.interactiveLayer.tooltip.headerFormatter((d) => self.options.interactiveTooltipHeaderTemplate({ value: self.formatXTick(d) }));
+          self.chart.interactiveLayer.tooltip.headerFormatter(
+            (d) => self.options.interactiveTooltipHeaderTemplate({ value: self.formatXTick(d) }),
+          );
         }
       },
 

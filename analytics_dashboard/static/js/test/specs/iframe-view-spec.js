@@ -4,10 +4,9 @@ define(['jquery', 'views/iframe-view'], ($, IFrameView) => {
   describe('IFrameView', () => {
     it('should set src', () => {
       const el = document.createElement('div');
-      let iframe;
 
       el.dataset.src = 'http://example.com';
-      iframe = new IFrameView({
+      const iframe = new IFrameView({
         el,
       });
       iframe.render();
@@ -16,8 +15,7 @@ define(['jquery', 'views/iframe-view'], ($, IFrameView) => {
 
     it('should hide the loading selector', () => {
       const el = document.createElement('div');
-      let iframe;
-      iframe = new IFrameView({
+      const iframe = new IFrameView({
         el,
         loadingSelector: document.createElement('div').setAttribute('id', 'loading'),
       });

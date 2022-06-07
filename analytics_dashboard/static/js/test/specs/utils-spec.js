@@ -4,10 +4,9 @@ define(['utils/utils'], (Utils) => {
   describe('Utils', () => {
     it('should return node attributes', () => {
       let actualAttributes;
-      let element;
 
       // create your node with attributes
-      element = document.createElement('div');
+      const element = document.createElement('div');
       element.setAttribute('attribute', 'myAttribute');
       element.setAttribute('data-type', 'my-data-type');
       element.setAttribute('data-category', 'my-data-category');

@@ -74,9 +74,7 @@ define((require) => {
       // 'displayName' is the user-facing representation of the filter
       // which combines the filter with the number of users belonging to
       // it.
-      let filterValues;
-
-      filterValues = _.chain(this.options.filterValues)
+      const filterValues = _.chain(this.options.filterValues)
         .map((options) => {
           const templateOptions = {
             name: options.name,

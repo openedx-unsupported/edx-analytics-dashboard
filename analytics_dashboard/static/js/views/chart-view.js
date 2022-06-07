@@ -71,7 +71,6 @@ define(
         const self = this;
         let data = self.model.get(self.options.modelAttribute);
         const trendOptions = self.options.trends;
-        let combinedTrends;
 
         if (self.options.excludeData.length > 0) {
           // exclude specific rows of data (e.g. 'Unknown') from display
@@ -79,7 +78,7 @@ define(
         }
 
         // parse and format the data for nvd3
-        combinedTrends = _(trendOptions).map((trendOption) => {
+        const combinedTrends = _(trendOptions).map((trendOption) => {
           const values = _(data).map((datum) => {
             const keyedValue = _(datum).clone();
             const yKey = trendOption.key || self.options.y.key;
@@ -124,8 +123,6 @@ define(
         // ex. translate(200, 200) or translate(200 200)
         const translateRegex = /translate\((\d+)[,\s]\s*(\d+)\)/g;
         const { xAxisMargin } = self.options;
-        let axisEl;
-        let matches;
 
         // Add background to X-axis
         canvas.select('.nv-x.nv-axis')
@@ -144,8 +141,8 @@ define(
         canvas.selectAll('.nvd3 .nv-axis line').remove();
 
         // Get the existing X-axis translation and shift it down a few more pixels.
-        axisEl = canvas.select('.nvd3 .nv-axis.nv-x');
-        matches = translateRegex.exec(axisEl.attr('transform'));
+        const axisEl = canvas.select('.nvd3 .nv-axis.nv-x');
+        const matches = translateRegex.exec(axisEl.attr('transform'));
         axisEl.attr('transform', `translate(${matches[1]},${
           parseInt(matches[2], 10) + xAxisMargin})`);
 
@@ -192,10 +189,9 @@ define(
 
       getExplicitXTicks(assembledData) {
         const self = this;
-        let xTicks;
 
         // get dates for the explicit ticks -- assuming data isn't sparse
-        xTicks = _(assembledData[0].values).map((data) => self.parseXData(data));
+        const xTicks = _(assembledData[0].values).map((data) => self.parseXData(data));
 
         return xTicks;
       },
@@ -207,13 +203,8 @@ define(
         chart.margin({ top: self.options.xAxisMargin, right: 60 })
           .height(300) // This should be the same as the height set on the chart container in CSS.
           .forceY(0)
-          .x((d) =>
-            // Parse dates to integers
-            self.parseXData(d))
-          .y((d) =>
-            // Simply return the count
-            d[self.options.y.key])
-          .legend.maxKeyLength(25);
+          .x((d) => self.parseXData(d)) // Parse dates to integers
+          .y((d) => d[self.options.y.key]).legend.maxKeyLength(25); // Simply return the count
       },
 
       getYAxisFormat() {
@@ -268,12 +259,10 @@ define(
 
       render() {
         const self = this;
-        let canvas; let assembledData; let
-          xLabelMapping;
         AttributeListenerView.prototype.render.call(this);
-        canvas = d3.select(self.el);
-        assembledData = self.assembleTrendData();
-        xLabelMapping = self.buildXLabelMapping();
+        const canvas = d3.select(self.el);
+        const assembledData = self.assembleTrendData();
+        const xLabelMapping = self.buildXLabelMapping();
 
         self.xLabelMapping = xLabelMapping;
         self.chart = self.getChart();

@@ -21,7 +21,7 @@ define((require) => {
       const { collection } = this.options;
       const templateOptions = Filter.prototype.templateHelpers.call(this);
 
-      _(templateOptions.filterValues).each(function (templateOption) {
+      _(templateOptions.filterValues).each((templateOption) => {
         const filterValues = collection.getFilterFieldValue(this.options.filterKey);
         _(templateOption).extend({
           isChecked: !_(filterValues).isNull() && filterValues.indexOf(templateOption.name) > -1,

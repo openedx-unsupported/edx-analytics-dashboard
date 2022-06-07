@@ -1,4 +1,4 @@
-module.exports = function (text) {
+module.exports = (text) => {
   'use strict';
 
   return text;

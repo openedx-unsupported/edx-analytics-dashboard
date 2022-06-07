@@ -51,10 +51,9 @@ define(['views/announcement-view', 'jquery', 'underscore'], (AnnouncementView, $
       });
 
       it('should POST to the dismiss URL', () => {
-        let request;
         view.dismiss();
 
-        request = server.requests[0];
+        const [request] = server.requests;
         expect(request.method).toEqual('POST');
         expect(request.url).toEqual(url);
       });

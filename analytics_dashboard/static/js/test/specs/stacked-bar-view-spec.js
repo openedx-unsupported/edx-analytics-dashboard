@@ -38,8 +38,6 @@ define(['underscore', 'models/course-model', 'views/stacked-bar-view'], (_, Cour
           incorrect_submissions: 10,
         },
       ];
-      let assembledData;
-      let xLabelMapping;
 
       view.render = jasmine.createSpy('render');
       view.renderIfDataAvailable();
@@ -62,7 +60,7 @@ define(['underscore', 'models/course-model', 'views/stacked-bar-view'], (_, Cour
       expect(view.options.barSelector).toBe('.nv-bar');
       expect(view.getChart).toHaveBeenCalled();
 
-      xLabelMapping = view.buildXLabelMapping();
+      const xLabelMapping = view.buildXLabelMapping();
       expect(view.parseXData(data[0])).toBe(123);
       expect(view.formatXTick(123)).toBe('sameName');
       expect(xLabelMapping[123]).toBe('sameName');
@@ -71,7 +69,7 @@ define(['underscore', 'models/course-model', 'views/stacked-bar-view'], (_, Cour
       expect(view.formatXTick(456)).toBe('sameName');
       expect(xLabelMapping[456]).toBe('sameName');
 
-      assembledData = view.assembleTrendData();
+      const assembledData = view.assembleTrendData();
       expect(assembledData.length).toBe(2);
       expect(assembledData[0].color).toBe('#4BB4FB');
       expect(assembledData[1].color).toBe('#CA0061');

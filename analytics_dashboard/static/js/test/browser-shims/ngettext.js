@@ -1,4 +1,4 @@
-module.exports = function (singularString, pluralString, count) {
+module.exports = (singularString, pluralString, count) => {
   'use strict';
 
   if (count === 1) {

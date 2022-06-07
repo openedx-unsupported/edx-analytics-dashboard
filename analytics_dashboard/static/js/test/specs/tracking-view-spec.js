@@ -13,9 +13,7 @@ define(
       };
 
       it('should call segment with application key', () => {
-        let view;
-
-        view = new TrackingView({
+        const view = new TrackingView({
           model: new TrackingModel(),
         });
         view.applicationIdSet();
@@ -52,12 +50,11 @@ define(
       });
 
       it('should call applicationIdSet() when segmentApplicationId is set', () => {
-        let view;
         const courseModel = new CourseModel();
         const trackingModel = new TrackingModel();
         const userModel = new TrackingModel();
 
-        view = new TrackingView({
+        const view = new TrackingView({
           model: trackingModel,
           courseModel,
           userModel,
@@ -106,12 +103,11 @@ define(
       });
 
       it('should only attach listeners if application ID set', () => {
-        let view;
         const courseModel = new CourseModel();
         const trackingModel = new TrackingModel();
         const userModel = new TrackingModel();
 
-        view = new TrackingView({
+        const view = new TrackingView({
           model: trackingModel,
           courseModel,
           userModel,
@@ -136,7 +132,6 @@ define(
       });
 
       it('should call segment::track() when segment events are triggers', () => {
-        let view;
         const courseModel = new CourseModel({
           courseId: 'my/course/id',
           org: 'org',
@@ -152,7 +147,7 @@ define(
         });
         const userModel = new TrackingModel();
 
-        view = new TrackingView({
+        const view = new TrackingView({
           model: trackingModel,
           courseModel,
           userModel,
@@ -193,7 +188,6 @@ define(
       });
 
       it('should call segment::page()', () => {
-        let view;
         const courseModel = new CourseModel({
           courseId: 'my/course/id',
           org: 'org',
@@ -209,7 +203,7 @@ define(
         });
         const userModel = new TrackingModel();
 
-        view = new TrackingView({
+        const view = new TrackingView({
           model: trackingModel,
           courseModel,
           userModel,
@@ -260,7 +254,6 @@ define(
       });
 
       function setupTest() {
-        let view;
         const courseModel = new CourseModel({
           courseId: 'my/course/id',
           org: 'org',
@@ -278,7 +271,7 @@ define(
         const userModel = new TrackingModel();
         const $sandbox = $('#sandbox');
 
-        view = new TrackingView({
+        const view = new TrackingView({
           el: document,
           model: trackingModel,
           courseModel,

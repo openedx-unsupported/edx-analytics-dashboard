@@ -7,10 +7,9 @@ define(['d3', 'models/course-model', 'views/world-map-view'], (d3, CourseModel, 
       const view = new WorldMapView({
         model,
       });
-      let actual;
 
       view.renderIfDataAvailable();
-      actual = view.popupTemplate({
+      const actual = view.popupTemplate({
         name: 'My Map',
         value: 100,
         percent: '100%',
@@ -27,12 +26,10 @@ define(['d3', 'models/course-model', 'views/world-map-view'], (d3, CourseModel, 
         model,
         modelAttribute: 'mapData',
       });
-      let actual;
-      let expected;
 
       view.renderIfDataAvailable();
-      actual = view.formatData();
-      expected = {
+      const actual = view.formatData();
+      const expected = {
         USA: {
           value: 100, fillKey: 'USA', percent: 0.3333, name: undefined,
         },
@@ -56,15 +53,13 @@ define(['d3', 'models/course-model', 'views/world-map-view'], (d3, CourseModel, 
         lowColor,
         highColor,
       });
-      let actual;
-      let expected;
       const colorMap = d3.scale.sqrt()
         .domain([0, 200])
         .range([lowColor, highColor]);
 
       view.renderIfDataAvailable();
-      actual = view.getFills(countryData, 200);
-      expected = {
+      const actual = view.getFills(countryData, 200);
+      const expected = {
         defaultFill: '#000000',
         USA: '#000000',
         BLV: colorMap(100),
@@ -83,10 +78,9 @@ define(['d3', 'models/course-model', 'views/world-map-view'], (d3, CourseModel, 
         model: new CourseModel(),
         modelAttribute: 'mapData',
       });
-      let actual;
 
       view.renderIfDataAvailable();
-      actual = view.getCountryMax(countryData);
+      const actual = view.getCountryMax(countryData);
       expect(actual).toEqual(200);
     });
   });

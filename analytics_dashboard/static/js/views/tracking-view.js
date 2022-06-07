@@ -178,8 +178,7 @@ define(
       track(eventType, properties) {
         const self = this;
         const course = self.buildCourseProperties();
-        let transformedProps;
-        transformedProps = self.transformPropertiesFromHTMLAttributes(properties);
+        const transformedProps = self.transformPropertiesFromHTMLAttributes(properties);
         // send event to segment including the course ID
         self.segment.track(eventType, _.extend(course, transformedProps));
       },

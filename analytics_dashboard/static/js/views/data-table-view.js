@@ -20,12 +20,8 @@ define(
              * Adds natural sort to the data table sorting.
              */
       addNaturalSort() {
-        $.fn.dataTableExt.oSort['natural-asc'] = function (a, b) { // eslint-disable-line no-param-reassign
-          return naturalSort(a, b);
-        };
-        $.fn.dataTableExt.oSort['natural-desc'] = function (a, b) { // eslint-disable-line no-param-reassign
-          return -naturalSort(a, b);
-        };
+        $.fn.dataTableExt.oSort['natural-asc'] = (a, b) => naturalSort(a, b); // eslint-disable-line no-param-reassign
+        $.fn.dataTableExt.oSort['natural-desc'] = (a, b) => -naturalSort(a, b); // eslint-disable-line no-param-reassign
       },
 
       buildSorting() {
@@ -95,7 +91,7 @@ define(
       },
 
       createFormatTimeFunc(columnKey) {
-        return function (row, type) {
+        return (row, type) => {
           const value = row[columnKey];
           let display = value;
           if (type === 'display') {
@@ -111,7 +107,7 @@ define(
              */
       createFormatNumberFunc(columnKey, fractionDigits) {
         const self = this;
-        return function (row, type) {
+        return (row, type) => {
           const value = row[columnKey];
           let display = value;
           if (type === 'display') {
@@ -130,7 +126,7 @@ define(
              * dates.
              */
       createFormatDateFunc(columnKey) {
-        return function (row, type) {
+        return (row, type) => {
           const value = row[columnKey];
           let display = value;
           if (type === 'display') {
@@ -146,7 +142,7 @@ define(
              * to display a '+' after the maximum number.
              */
       createFormatMaxNumberFunc(columnKey, maxNumber) {
-        return function (row, type) {
+        return (row, type) => {
           const value = row[columnKey];
           let display = value;
           // isNaN() return true for strings -- e.g. 'Unknown'
@@ -166,7 +162,7 @@ define(
              */
       createFormatPercentFunc(columnKey) {
         const self = this;
-        return function (row, type) {
+        return (row, type) => {
           const value = row[columnKey];
           let display = value;
           if (type === 'display') {
@@ -187,7 +183,7 @@ define(
              * "(empty)".
              */
       createFormatHasNullFunc(columnKey) {
-        return function (row, type) {
+        return (row, type) => {
           const value = row[columnKey];
           let display = value;
           if (type === 'display' && _(display).isNull()) {
@@ -206,7 +202,7 @@ define(
              * booleans (Correct vs -).
              */
       createFormatBoolFunc(columnKey) {
-        return function (row, type) {
+        return (row, type) => {
           const value = row[columnKey];
           let display = value;
           if (type === 'display') {
@@ -223,13 +219,11 @@ define(
 
       render() {
         const self = this;
-        let $parent; let $table; let dtConfig; let
-          dtSorting;
         AttributeListenerView.prototype.render.call(this);
 
-        $parent = $('<div/>', { class: 'table-responsive' }).appendTo(self.$el);
-        $table = $('<table/>', { class: 'table table-striped' }).appendTo($parent);
-        dtConfig = {
+        const $parent = $('<div/>', { class: 'table-responsive' }).appendTo(self.$el);
+        const $table = $('<table/>', { class: 'table table-striped' }).appendTo($parent);
+        const dtConfig = {
           paging: true,
           info: false,
           filter: false,
@@ -247,7 +241,7 @@ define(
           autoWidth: false,
         };
 
-        dtSorting = self.buildSorting();
+        const dtSorting = self.buildSorting();
 
         if (dtSorting.length) {
           dtConfig.order = dtSorting;

@@ -7,9 +7,8 @@ define((require) => {
 
   const Utils = require('utils/utils');
   const downloadDataTemplate = require('components/download/templates/download-data.underscore');
-  let DownloadDataView;
 
-  DownloadDataView = Marionette.ItemView.extend({
+  const DownloadDataView = Marionette.ItemView.extend({
     template: _.template(downloadDataTemplate),
 
     ui: {
@@ -34,7 +33,7 @@ define((require) => {
       // Parse the downloadUrl, if given, into URL and query params
       if (this.options.collection && !_.isEmpty(this.options.collection.downloadUrl)) {
         splitUrl = this.options.collection.downloadUrl.split('?', 2);
-        this.downloadBaseUrl = splitUrl[0];
+        [this.downloadBaseUrl] = splitUrl;
 
         // Store an ordered list of download query string parameters, ready to feed to Util.toQueryString
         splitParams = Utils.parseQueryString(splitUrl[1]);

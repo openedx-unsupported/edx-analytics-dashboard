@@ -9,9 +9,7 @@ define((require) => {
 
   const alertTemplate = require('components/alert/templates/alert.underscore');
 
-  let AlertView;
-
-  AlertView = Marionette.ItemView.extend({
+  const AlertView = Marionette.ItemView.extend({
 
     template: _.template(alertTemplate),
 
@@ -53,11 +51,9 @@ define((require) => {
     },
 
     initialize(options) {
-      let alertType;
-
       this.options = _.extend({}, this.defaults, options);
 
-      alertType = this.options.alertType;
+      const { alertType } = this.options;
       this.validateAlertType(alertType)
         .updateTemplateSetings(alertType);
     },

@@ -30,9 +30,6 @@ define(['d3', 'models/course-model', 'views/chart-view'], (d3, CourseModel, Char
           key: 'yData',
         },
       });
-      let assembledData;
-      let actualTrend;
-      let explicitXTicks;
 
       view.render = jasmine.createSpy('render');
       view.renderIfDataAvailable();
@@ -67,33 +64,32 @@ define(['d3', 'models/course-model', 'views/chart-view'], (d3, CourseModel, Char
       expect(view.parseXData({ date: '2014-01-01' })).toBe('2014-01-01');
 
       // check the data passed to nvd3
-      assembledData = view.assembleTrendData();
+      const assembledData = view.assembleTrendData();
       expect(assembledData.length).toBe(2);
 
-      actualTrend = assembledData[0];
+      const [actualTrendA, actualTrendB] = assembledData;
       // 'key' is the title/label of the of the trend
-      expect(actualTrend.key).toBe('A Label');
-      expect(actualTrend.values.length).toBe(2);
-      expect(actualTrend.values).toContain({
+      expect(actualTrendA.key).toBe('A Label');
+      expect(actualTrendA.values.length).toBe(2);
+      expect(actualTrendA.values).toContain({
         date: '2014-01-01', yData: 10, trendA: 10, trendB: 0,
       });
-      expect(actualTrend.values).toContain({
+      expect(actualTrendA.values).toContain({
         date: '2014-01-02', yData: 20, trendA: 20, trendB: 1000,
       });
-      expect(actualTrend.color).toBe('#8DA0CB');
+      expect(actualTrendA.color).toBe('#8DA0CB');
 
-      actualTrend = assembledData[1];
-      expect(actualTrend.key).toBe('B Label');
-      expect(actualTrend.values.length).toBe(2);
-      expect(actualTrend.values).toContain({
+      expect(actualTrendB.key).toBe('B Label');
+      expect(actualTrendB.values.length).toBe(2);
+      expect(actualTrendB.values).toContain({
         date: '2014-01-01', yData: 0, trendA: 10, trendB: 0,
       });
-      expect(actualTrend.values).toContain({
+      expect(actualTrendB.values).toContain({
         date: '2014-01-02', yData: 1000, trendA: 20, trendB: 1000,
       });
-      expect(actualTrend.color).toBeUndefined();
+      expect(actualTrendB.color).toBeUndefined();
 
-      explicitXTicks = view.getExplicitXTicks(assembledData);
+      const explicitXTicks = view.getExplicitXTicks(assembledData);
       expect(explicitXTicks.length).toBe(2);
       expect(explicitXTicks[0]).toBe('2014-01-01');
       expect(explicitXTicks[1]).toBe('2014-01-02');
@@ -122,7 +118,6 @@ define(['d3', 'models/course-model', 'views/chart-view'], (d3, CourseModel, Char
         x: { key: 'id', displayKey: 'name' },
         y: { key: 'count' },
       });
-      let mapping;
 
       view.render = jasmine.createSpy('render');
       view.renderIfDataAvailable();
@@ -156,7 +151,7 @@ define(['d3', 'models/course-model', 'views/chart-view'], (d3, CourseModel, Char
       }
 
       // check the data passed to nvd3
-      mapping = view.buildXLabelMapping();
+      const mapping = view.buildXLabelMapping();
 
       expect(mapping.assignment_1).toBe('Assignment 1');
       expect(view.formatXTick('assignment_1')).toBe('Assignment 1');

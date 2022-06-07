@@ -27,7 +27,6 @@ define(['models/course-model', 'views/discrete-bar-view'], (CourseModel, Discret
           count: 50,
         },
       ];
-      let assembledData;
 
       view.render = jasmine.createSpy('render');
       view.renderIfDataAvailable();
@@ -58,7 +57,7 @@ define(['models/course-model', 'views/discrete-bar-view'], (CourseModel, Discret
 
       expect(view.getYAxisFormat()(0.5)).toBe('50.0%');
 
-      assembledData = view.assembleTrendData();
+      const assembledData = view.assembleTrendData();
       expect(assembledData.length).toBe(1);
       expect(assembledData[0].color({}, 0)).toBe('#ffffff');
       expect(assembledData[0].color({}, 1)).toBe('#000000');

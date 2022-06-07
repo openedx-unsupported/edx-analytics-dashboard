@@ -7,11 +7,11 @@ define((require) => {
   const LearnerCollection = require('learners/common/collections/learners');
 
   describe('DownloadDataView', () => {
-    beforeEach(function () {
+    beforeEach(() => {
       this.user = {};
     });
 
-    it('has default options', function () {
+    it('has default options', () => {
       const downloadDataView = new DownloadDataView({
         collection: new LearnerCollection(
           [this.user],
@@ -26,7 +26,7 @@ define((require) => {
       expect(templateVars.downloadUrl).toBe('');
     });
 
-    it('accepts options overrides', function () {
+    it('accepts options overrides', () => {
       const downloadDataView = new DownloadDataView({
         collection: new LearnerCollection(
           [this.user],
@@ -45,7 +45,7 @@ define((require) => {
       expect(templateVars.downloadUrl).toBe('');
     });
 
-    it('must have a downloadUrl to display the download button', function () {
+    it('must have a downloadUrl to display the download button', () => {
       // Collections without downloadUrl get no download button
       let downloadDataView = new DownloadDataView({
         collection: new LearnerCollection(
@@ -74,7 +74,7 @@ define((require) => {
       expect(templateVars.downloadUrl).toBe('/list.csv?page=1&course_id=undefined');
     });
 
-    it('changes the downloadUrl query string based on search filters', function () {
+    it('changes the downloadUrl query string based on search filters', () => {
       // course_id but no active filters
       const collection = new LearnerCollection(
         [this.user],
@@ -122,7 +122,7 @@ define((require) => {
       );
     });
 
-    it('allows query parameters to be in the downloadUrl', function () {
+    it('allows query parameters to be in the downloadUrl', () => {
       const collection = new LearnerCollection(
         [this.user],
         {

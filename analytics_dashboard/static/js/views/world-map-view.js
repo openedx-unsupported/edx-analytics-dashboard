@@ -55,9 +55,8 @@ define(
       getFills(countryData, max) {
         const self = this;
         const fills = {};
-        let colorMap;
 
-        colorMap = d3.scale.sqrt()
+        const colorMap = d3.scale.sqrt()
           .domain([0, max])
           .range([self.options.lowColor, self.options.highColor]);
 
@@ -90,20 +89,17 @@ define(
         const swatch = { height: 5, width: 10 };
         const margins = { bottom: 10 };
         const suggestedTicks = 11;
-        let legend;
-        let colorMap;
-        let ranges;
 
-        colorMap = d3.scale.linear()
+        const colorMap = d3.scale.linear()
           .range([options.lowColor, options.highColor])
           .domain([0, options.max]);
 
         // the rounded evenly spaced intervals
-        ranges = colorMap.ticks(suggestedTicks);
+        const ranges = colorMap.ticks(suggestedTicks);
 
         // set up the data (color bands) to display and locations given
         // the provided data
-        legend = d3.select(el)
+        const legend = d3.select(el)
           .select('.datamap')
           .append('svg')
           .attr('class', 'datamaps-legend')
@@ -128,9 +124,7 @@ define(
 
         // display the high and low ranges on the legend
         legend.append('text')
-          .filter((d, i) =>
-            // only show labels for the bounds
-            _([0, ranges.length - 1]).contains(i))
+          .filter((d, i) => _([0, ranges.length - 1]).contains(i)) // only show labels for the bounds
           .attr('x', swatch.width + 3)
           .attr('y', swatch.height * 0.75)
           .attr('dy', '.35em')
@@ -164,14 +158,13 @@ define(
 
       render() {
         const self = this;
-        let mapData; let max; let fills; let borderColor; let map; let
-          $tooltip;
+        let $tooltip;
 
         AttributeListenerView.prototype.render.call(this);
-        mapData = self.formatData();
-        max = self.getCountryMax(mapData);
-        fills = self.getFills(mapData, max);
-        borderColor = self.options.borderColor;
+        const mapData = self.formatData();
+        const max = self.getCountryMax(mapData);
+        const fills = self.getFills(mapData, max);
+        const { borderColor } = self.options;
 
         // Add the tooltip
         if (_(self.options).has('tooltip')) {
@@ -180,7 +173,7 @@ define(
           $tooltip.tooltip();
         }
 
-        map = new Datamap({
+        const map = new Datamap({
           element: self.el,
           height: $('.section-data-viz').height(),
           responsive: true,

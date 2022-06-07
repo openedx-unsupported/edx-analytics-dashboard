@@ -6,9 +6,7 @@ define((require) => {
   const Utils = require('utils/utils');
   const _ = require('underscore');
 
-  let ListCollection;
-
-  ListCollection = PagingCollection.extend({
+  const ListCollection = PagingCollection.extend({
 
     initialize(models, options) {
       PagingCollection.prototype.initialize.call(this, options);
@@ -83,7 +81,7 @@ define((require) => {
       let page; let
         sortKey;
 
-      _.mapObject(params, function (val, key) {
+      _.mapObject(params, (val, key) => {
         if (key === 'page') {
           page = parseInt(val, 10);
           if (page !== this.state.currentPage) {

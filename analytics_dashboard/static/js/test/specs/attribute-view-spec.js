@@ -27,9 +27,8 @@ define(['models/course-model', 'views/attribute-view'], (CourseModel, AttributeV
         modelAttribute: 'attributeData',
         el: document.createElement('div'),
       });
-      let actual;
 
-      actual = view.$el.text();
+      const actual = view.$el.text();
       expect(actual).toEqual('Another Attribute');
     });
   });
