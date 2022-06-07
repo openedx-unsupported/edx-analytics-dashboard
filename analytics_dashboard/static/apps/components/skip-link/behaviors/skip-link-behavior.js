@@ -4,27 +4,27 @@
  *
  * It is expected that "skipLink" is defined in the ui hash.
  */
-define(function(require) {
-    'use strict';
+define((require) => {
+  'use strict';
 
-    var Marionette = require('marionette'),
-        registerBehavior = require('components/utils/register-behavior'),
+  const Marionette = require('marionette');
+  const registerBehavior = require('components/utils/register-behavior');
 
-        SkipLinkBehavior;
+  let SkipLinkBehavior;
 
-    SkipLinkBehavior = Marionette.Behavior.extend({
+  SkipLinkBehavior = Marionette.Behavior.extend({
 
-        events: {
-            'click @ui.skipLink': 'clicked'
-        },
+    events: {
+      'click @ui.skipLink': 'clicked',
+    },
 
-        clicked: function(e) {
-            e.preventDefault();
-            this.ui.skipLink.trigger('skipLinkClicked', e);
-        }
-    });
+    clicked(e) {
+      e.preventDefault();
+      this.ui.skipLink.trigger('skipLinkClicked', e);
+    },
+  });
 
-    registerBehavior(SkipLinkBehavior, 'SkipLinkBehavior');
+  registerBehavior(SkipLinkBehavior, 'SkipLinkBehavior');
 
-    return SkipLinkBehavior;
+  return SkipLinkBehavior;
 });

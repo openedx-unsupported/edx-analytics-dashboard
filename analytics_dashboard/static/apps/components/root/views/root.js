@@ -5,66 +5,66 @@
  *  - pageModel: PageModel object
  *  - appClass: CSS class to prepend in root template HTML
  */
-define(function(require) {
-    'use strict';
+define((require) => {
+  'use strict';
 
-    var _ = require('underscore'),
-        Marionette = require('marionette'),
+  const _ = require('underscore');
+  const Marionette = require('marionette');
 
-        AlertView = require('components/alert/views/alert-view'),
-        HeaderView = require('components/header/views/header'),
-        rootTemplate = require('components/root/templates/root.underscore'),
+  const AlertView = require('components/alert/views/alert-view');
+  const HeaderView = require('components/header/views/header');
+  const rootTemplate = require('components/root/templates/root.underscore');
 
-        RootView;
+  let RootView;
 
-    RootView = Marionette.LayoutView.extend({
-        template: _.template(rootTemplate),
+  RootView = Marionette.LayoutView.extend({
+    template: _.template(rootTemplate),
 
-        templateHelpers: function() {
-            return this.options;
-        },
+    templateHelpers() {
+      return this.options;
+    },
 
-        regions: function(options) {
-            return {
-                alert: _.template('.<%= appClass %>-alert-region')(options),
-                header: _.template('.<%= appClass %>-header-region')(options),
-                main: _.template('.<%= appClass %>-main-region')(options),
-                navigation: _.template('.<%= appClass %>-navigation-region')(options)
-            };
-        },
+    regions(options) {
+      return {
+        alert: _.template('.<%= appClass %>-alert-region')(options),
+        header: _.template('.<%= appClass %>-header-region')(options),
+        main: _.template('.<%= appClass %>-main-region')(options),
+        navigation: _.template('.<%= appClass %>-navigation-region')(options),
+      };
+    },
 
-        childEvents: {
-            appError: 'onAppError',
-            appWarning: 'onAppWarning',
-            clearError: 'onClearError',
-            setFocusToTop: 'onSetFocusToTop'
-        },
+    childEvents: {
+      appError: 'onAppError',
+      appWarning: 'onAppWarning',
+      clearError: 'onClearError',
+      setFocusToTop: 'onSetFocusToTop',
+    },
 
-        initialize: function(options) {
-            this.options = _.defaults({displayHeader: true}, options);
-        },
+    initialize(options) {
+      this.options = _.defaults({ displayHeader: true }, options);
+    },
 
-        onRender: function() {
-            if (this.options.displayHeader) {
-                this.showChildView('header', new HeaderView({
-                    model: this.options.pageModel
-                }));
-            }
-        },
+    onRender() {
+      if (this.options.displayHeader) {
+        this.showChildView('header', new HeaderView({
+          model: this.options.pageModel,
+        }));
+      }
+    },
 
-        onAppError: function(childView, options) {
-            this.showAlert('error', options.title, options.description);
-        },
+    onAppError(childView, options) {
+      this.showAlert('error', options.title, options.description);
+    },
 
-        onAppWarning: function(childView, options) {
-            this.showAlert('info', options.title, options.description);
-        },
+    onAppWarning(childView, options) {
+      this.showAlert('info', options.title, options.description);
+    },
 
-        onClearError: function() {
-            this.hideAlert();
-        },
+    onClearError() {
+      this.hideAlert();
+    },
 
-        /**
+    /**
          * Renders an alert view.
          *
          * @param {string} type - the type of alert that should be shown.  Alert
@@ -74,22 +74,22 @@ define(function(require) {
          * @param {object} link - the link for the alert. Has key "url"
          * (the href) and key "text" (the display text for the link).
          */
-        showAlert: function(type, title, description, link) {
-            this.showChildView('alert', new AlertView({
-                alertType: type,
-                title: title,
-                body: description,
-                link: link
-            }));
-        },
+    showAlert(type, title, description, link) {
+      this.showChildView('alert', new AlertView({
+        alertType: type,
+        title,
+        body: description,
+        link,
+      }));
+    },
 
-        /**
+    /**
          * Hides the alert view, if active.
          */
-        hideAlert: function() {
-            this.getRegion('alert').empty();
-        }
-    });
+    hideAlert() {
+      this.getRegion('alert').empty();
+    },
+  });
 
-    return RootView;
+  return RootView;
 });

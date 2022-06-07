@@ -1,31 +1,31 @@
 /**
  * Renders a section title and last updated date for the learner.
  */
-define(function(require) {
-    'use strict';
+define((require) => {
+  'use strict';
 
-    var _ = require('underscore'),
-        Marionette = require('marionette'),
+  const _ = require('underscore');
+  const Marionette = require('marionette');
 
-        headerTemplate = require('components/header/templates/header.underscore'),
+  const headerTemplate = require('components/header/templates/header.underscore');
 
-        HeaderView;
+  let HeaderView;
 
-    HeaderView = Marionette.ItemView.extend({
+  HeaderView = Marionette.ItemView.extend({
 
-        template: _.template(headerTemplate),
+    template: _.template(headerTemplate),
 
-        modelEvents: {
-            change: 'render'
-        },
+    modelEvents: {
+      change: 'render',
+    },
 
-        templateHelpers: function() {
-            return {
-                title: this.model.get('title')
-            };
-        }
+    templateHelpers() {
+      return {
+        title: this.model.get('title'),
+      };
+    },
 
-    });
+  });
 
-    return HeaderView;
+  return HeaderView;
 });

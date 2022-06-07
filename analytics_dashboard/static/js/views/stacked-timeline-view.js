@@ -1,20 +1,21 @@
-define(['moment', 'nvd3', 'underscore', 'views/stacked-trends-view', 'utils/utils'],
-    function(moment, nvd3, _, StackedTrendsView, Utils) {
-        'use strict';
+define(
+  ['moment', 'nvd3', 'underscore', 'views/stacked-trends-view', 'utils/utils'],
+  (moment, nvd3, _, StackedTrendsView, Utils) => {
+    'use strict';
 
-        var StackedTimelineView = StackedTrendsView.extend({
+    const StackedTimelineView = StackedTrendsView.extend({
 
-            formatXTick: function(d) {
-                return Utils.formatTime(d);
-            },
+      formatXTick(d) {
+        return Utils.formatTime(d);
+      },
 
-            parseXData: function(d) {
-                var self = this;
-                return d[self.options.x.key];
-            }
+      parseXData(d) {
+        const self = this;
+        return d[self.options.x.key];
+      },
 
-        });
+    });
 
-        return StackedTimelineView;
-    }
+    return StackedTimelineView;
+  },
 );

@@ -1,21 +1,21 @@
 /**
  * Returns results that match the field and value.
  */
-define(function() {
-    'use strict';
+define(() => {
+  'use strict';
 
-    var FieldFilter;
+  let FieldFilter;
 
-    FieldFilter = function(field, value) {
-        this.field = field;
-        this.value = value;
-    };
+  FieldFilter = function (field, value) {
+    this.field = field;
+    this.value = value;
+  };
 
-    FieldFilter.prototype.filter = function(collection) {
-        var filterOptions = {};
-        filterOptions[this.field] = this.value;
-        return collection.where(filterOptions);
-    };
+  FieldFilter.prototype.filter = function (collection) {
+    const filterOptions = {};
+    filterOptions[this.field] = this.value;
+    return collection.where(filterOptions);
+  };
 
-    return FieldFilter;
+  return FieldFilter;
 });

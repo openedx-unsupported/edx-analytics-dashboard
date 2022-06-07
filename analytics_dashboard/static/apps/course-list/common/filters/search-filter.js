@@ -2,18 +2,18 @@
  * Wrapper around a regex matcher.  Returned results are those that match
  * the regex.
  */
-define(function() {
-    'use strict';
+define(() => {
+  'use strict';
 
-    var SearchFilter;
+  let SearchFilter;
 
-    SearchFilter = function(matcher) {
-        this.matcher = matcher;
-    };
+  SearchFilter = function (matcher) {
+    this.matcher = matcher;
+  };
 
-    SearchFilter.prototype.filter = function(collection) {
-        return collection.filter(this.matcher);
-    };
+  SearchFilter.prototype.filter = function (collection) {
+    return collection.filter(this.matcher);
+  };
 
-    return SearchFilter;
+  return SearchFilter;
 });

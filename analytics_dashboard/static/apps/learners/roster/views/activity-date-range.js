@@ -1,24 +1,24 @@
-define(function(require) {
-    'use strict';
+define((require) => {
+  'use strict';
 
-    var _ = require('underscore'),
-        Marionette = require('marionette'),
+  const _ = require('underscore');
+  const Marionette = require('marionette');
 
-        Utils = require('utils/utils');
+  const Utils = require('utils/utils');
 
-    return Marionette.ItemView.extend({
+  return Marionette.ItemView.extend({
 
-        template: _.template(gettext('Activity between <%- startDate %> - <%- endDate %>')),
+    template: _.template(gettext('Activity between <%- startDate %> - <%- endDate %>')),
 
-        templateHelpers: function() {
-            var dateRange = this.model.get('engagement_ranges').date_range,
-                // Translators: 'n/a' means 'not available'
-                naText = gettext('n/a');
+    templateHelpers() {
+      const dateRange = this.model.get('engagement_ranges').date_range;
+      // Translators: 'n/a' means 'not available'
+      const naText = gettext('n/a');
 
-            return {
-                startDate: _(dateRange).has('start') ? Utils.formatDate(dateRange.start) : naText,
-                endDate: _(dateRange).has('end') ? Utils.formatDate(dateRange.end) : naText
-            };
-        }
-    });
+      return {
+        startDate: _(dateRange).has('start') ? Utils.formatDate(dateRange.start) : naText,
+        endDate: _(dateRange).has('end') ? Utils.formatDate(dateRange.end) : naText,
+      };
+    },
+  });
 });

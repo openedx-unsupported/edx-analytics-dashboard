@@ -1,68 +1,72 @@
-require(['load/init-page'], function(page) {
-    'use strict';
+require(['load/init-page'], (page) => {
+  'use strict';
 
-    require(['d3', 'underscore', 'views/data-table-view', 'views/stacked-bar-view'],
-        function(d3, _, DataTableView, StackedBarView) {
-            var model = page.models.courseModel,
-                graphSubmissionColumns = [
-                    {
-                        key: 'correct_submissions',
-                        percent_key: 'correct_percent',
-                        title: gettext('Correct'),
-                        className: 'text-right',
-                        type: 'number',
-                        color: '#4BB4FB'
-                    },
-                    {
-                        key: 'incorrect_submissions',
-                        percent_key: 'incorrect_percent',
-                        title: gettext('Incorrect'),
-                        className: 'text-right',
-                        type: 'number',
-                        color: '#CA0061'
-                    }
-                ],
-                tableColumns = [
-                    {key: 'index', title: gettext('Order'), type: 'number', className: 'text-right'},
-                    {key: 'name', title: model.get('contentTableHeading'), type: 'hasNull'}],
-                performanceProblemsChart,
-                performanceProblemsTable;
+  require(
+    ['d3', 'underscore', 'views/data-table-view', 'views/stacked-bar-view'],
+    (d3, _, DataTableView, StackedBarView) => {
+      const model = page.models.courseModel;
+      const graphSubmissionColumns = [
+        {
+          key: 'correct_submissions',
+          percent_key: 'correct_percent',
+          title: gettext('Correct'),
+          className: 'text-right',
+          type: 'number',
+          color: '#4BB4FB',
+        },
+        {
+          key: 'incorrect_submissions',
+          percent_key: 'incorrect_percent',
+          title: gettext('Incorrect'),
+          className: 'text-right',
+          type: 'number',
+          color: '#CA0061',
+        },
+      ];
+      let tableColumns = [
+        {
+          key: 'index', title: gettext('Order'), type: 'number', className: 'text-right',
+        },
+        { key: 'name', title: model.get('contentTableHeading'), type: 'hasNull' }];
+      let performanceProblemsChart;
+      let performanceProblemsTable;
 
-            tableColumns = tableColumns.concat(graphSubmissionColumns);
+      tableColumns = tableColumns.concat(graphSubmissionColumns);
 
-            tableColumns.push({
-                key: 'total_submissions',
-                title: gettext('Total'),
-                className: 'text-right',
-                type: 'number',
-                color: '#4BB4FB'
-            });
+      tableColumns.push({
+        key: 'total_submissions',
+        title: gettext('Total'),
+        className: 'text-right',
+        type: 'number',
+        color: '#4BB4FB',
+      });
 
-            tableColumns.push({
-                key: 'correct_percent',
-                title: gettext('Percentage Correct'),
-                className: 'text-right',
-                type: 'percent'
-            });
+      tableColumns.push({
+        key: 'correct_percent',
+        title: gettext('Percentage Correct'),
+        className: 'text-right',
+        type: 'percent',
+      });
 
-            if (model.get('hasData')) {
-                performanceProblemsChart = new StackedBarView({
-                    el: '#chart-view',
-                    model: model,
-                    modelAttribute: 'primaryContent',
-                    trends: graphSubmissionColumns
-                });
-                performanceProblemsChart.renderIfDataAvailable();
-            }
-
-            performanceProblemsTable = new DataTableView({
-                el: '[data-role=data-table]',
-                model: model,
-                modelAttribute: 'primaryContent',
-                columns: tableColumns,
-                sorting: ['index'],
-                replaceZero: '-'
-            });
-            performanceProblemsTable.renderIfDataAvailable();
+      if (model.get('hasData')) {
+        performanceProblemsChart = new StackedBarView({
+          el: '#chart-view',
+          model,
+          modelAttribute: 'primaryContent',
+          trends: graphSubmissionColumns,
         });
+        performanceProblemsChart.renderIfDataAvailable();
+      }
+
+      performanceProblemsTable = new DataTableView({
+        el: '[data-role=data-table]',
+        model,
+        modelAttribute: 'primaryContent',
+        columns: tableColumns,
+        sorting: ['index'],
+        replaceZero: '-',
+      });
+      performanceProblemsTable.renderIfDataAvailable();
+    },
+  );
 });

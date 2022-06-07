@@ -17,30 +17,30 @@
  *
  * Before the parent view is shown, each of the regions of the view will be filled with the appropriate childView.
  */
-define(function(require) {
-    'use strict';
+define((require) => {
+  'use strict';
 
-    var _ = require('underscore'),
-        Marionette = require('marionette'),
+  const _ = require('underscore');
+  const Marionette = require('marionette');
 
-        ParentView;
+  let ParentView;
 
-    ParentView = Marionette.LayoutView.extend({
+  ParentView = Marionette.LayoutView.extend({
 
-        initialize: function(options) {
-            this.options = options || {};
-        },
+    initialize(options) {
+      this.options = options || {};
+    },
 
-        onBeforeShow: function() {
-            this.showChildren();
-        },
+    onBeforeShow() {
+      this.showChildren();
+    },
 
-        showChildren: function() {
-            _.each(this.childViews, _.bind(function(child) {
-                this.showChildView(child.region, new child.class(child.options));
-            }, this));
-        }
-    });
+    showChildren() {
+      _.each(this.childViews, _.bind(function (child) {
+        this.showChildView(child.region, new child.class(child.options));
+      }, this));
+    },
+  });
 
-    return ParentView;
+  return ParentView;
 });

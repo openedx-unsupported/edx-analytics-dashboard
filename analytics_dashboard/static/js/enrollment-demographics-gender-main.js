@@ -3,42 +3,54 @@
  * the libraries and kicks off the application.
  */
 
-require(['load/init-page'], function(page) {
-    'use strict';
+require(['load/init-page'], (page) => {
+  'use strict';
 
-    require(['underscore', 'views/data-table-view', 'views/discrete-bar-view'],
-        function(_, DataTableView, DiscreteBarView) {
-            var genderChart = new DiscreteBarView({
-                    el: '#enrollment-chart-view',
-                    model: page.models.courseModel,
-                    modelAttribute: 'genders',
-                    dataType: 'percent',
-                    trends: [{
-                        title: gettext('Percentage'),
-                        color: 'rgb(58, 162, 224)'
-                    }],
-                    x: {key: 'gender'},
-                    y: {key: 'percent'},
-                    // Translators: <%=value%> will be replaced with a level of gender (e.g. Female).
-                    interactiveTooltipHeaderTemplate: _.template(gettext('Gender: <%=value%>'))
-                }),
-                // Daily enrollment table
-                genderTable = new DataTableView({
-                    el: '[data-role=enrollment-table]',
-                    model: page.models.courseModel,
-                    modelAttribute: 'genderTrend',
-                    columns: [
-                        {key: 'date', title: gettext('Date'), type: 'date'},
-                        {key: 'total', title: gettext('Current Enrollment'), type: 'number', className: 'text-right'},
-                        {key: 'female', title: gettext('Female'), type: 'number', className: 'text-right'},
-                        {key: 'male', title: gettext('Male'), type: 'number', className: 'text-right'},
-                        {key: 'other', title: gettext('Other'), type: 'number', className: 'text-right'},
-                        {key: 'unknown', title: gettext('Not Reported'), type: 'number', className: 'text-right'}
-                    ],
-                    sorting: ['-date']
-                });
+  require(
+    ['underscore', 'views/data-table-view', 'views/discrete-bar-view'],
+    (_, DataTableView, DiscreteBarView) => {
+      const genderChart = new DiscreteBarView({
+        el: '#enrollment-chart-view',
+        model: page.models.courseModel,
+        modelAttribute: 'genders',
+        dataType: 'percent',
+        trends: [{
+          title: gettext('Percentage'),
+          color: 'rgb(58, 162, 224)',
+        }],
+        x: { key: 'gender' },
+        y: { key: 'percent' },
+        // Translators: <%=value%> will be replaced with a level of gender (e.g. Female).
+        interactiveTooltipHeaderTemplate: _.template(gettext('Gender: <%=value%>')),
+      });
+      // Daily enrollment table
+      const genderTable = new DataTableView({
+        el: '[data-role=enrollment-table]',
+        model: page.models.courseModel,
+        modelAttribute: 'genderTrend',
+        columns: [
+          { key: 'date', title: gettext('Date'), type: 'date' },
+          {
+            key: 'total', title: gettext('Current Enrollment'), type: 'number', className: 'text-right',
+          },
+          {
+            key: 'female', title: gettext('Female'), type: 'number', className: 'text-right',
+          },
+          {
+            key: 'male', title: gettext('Male'), type: 'number', className: 'text-right',
+          },
+          {
+            key: 'other', title: gettext('Other'), type: 'number', className: 'text-right',
+          },
+          {
+            key: 'unknown', title: gettext('Not Reported'), type: 'number', className: 'text-right',
+          },
+        ],
+        sorting: ['-date'],
+      });
 
-            genderChart.renderIfDataAvailable();
-            genderTable.renderIfDataAvailable();
-        });
+      genderChart.renderIfDataAvailable();
+      genderTable.renderIfDataAvailable();
+    },
+  );
 });

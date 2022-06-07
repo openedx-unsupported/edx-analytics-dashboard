@@ -1,12 +1,12 @@
-define(['models/user-model'], function(UserModel) {
-    'use strict';
+define(['models/user-model'], (UserModel) => {
+  'use strict';
 
-    describe('user model', function() {
-        describe('ignoreInReporting', function() {
-            it('should default to false', function() {
-                var model = new UserModel();
-                expect(model.get('ignoreInReporting')).toBe(false);
-            });
-        });
+  describe('user model', () => {
+    describe('ignoreInReporting', () => {
+      it('should default to false', () => {
+        const model = new UserModel();
+        expect(model.get('ignoreInReporting')).toBe(false);
+      });
     });
+  });
 });

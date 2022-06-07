@@ -1,46 +1,46 @@
-define(['backbone', 'jquery'], function(Backbone, $) {
-    'use strict';
+define(['backbone', 'jquery'], (Backbone, $) => {
+  'use strict';
 
-    var AnnouncementView = Backbone.View.extend({
-        events: {
-            'click .dismiss': 'dismiss'
+  const AnnouncementView = Backbone.View.extend({
+    events: {
+      'click .dismiss': 'dismiss',
+    },
+
+    initialize() {
+      this.csrftoken = $('input[name=csrfmiddlewaretoken]', this.$el).val();
+    },
+
+    render() {
+      this.delegateEvents();
+      return this;
+    },
+
+    dismiss() {
+      const self = this;
+      const url = this.$el.data('dismiss-url');
+
+      $.ajaxSetup({
+        beforeSend(xhr) {
+          xhr.setRequestHeader('X-CSRFToken', self.csrftoken);
         },
-
-        initialize: function() {
-            this.csrftoken = $('input[name=csrfmiddlewaretoken]', this.$el).val();
+        // Prevent XSS attack in jQuery 2.X:
+        // https://github.com/jquery/jquery/issues/2432#issuecomment-140038536
+        contents: {
+          javascript: false,
         },
+      });
 
-        render: function() {
-            this.delegateEvents();
-            return this;
-        },
+      // Record the dismissal on the server.
+      if (url) {
+        $.post(url);
+      }
 
-        dismiss: function() {
-            var self = this,
-                url = this.$el.data('dismiss-url');
+      // Remove the DOM elements
+      self.remove();
 
-            $.ajaxSetup({
-                beforeSend: function(xhr) {
-                    xhr.setRequestHeader('X-CSRFToken', self.csrftoken);
-                },
-                // Prevent XSS attack in jQuery 2.X:
-                // https://github.com/jquery/jquery/issues/2432#issuecomment-140038536
-                contents: {
-                    javascript: false
-                }
-            });
+      return true;
+    },
+  });
 
-            // Record the dismissal on the server.
-            if (url) {
-                $.post(url);
-            }
-
-            // Remove the DOM elements
-            self.remove();
-
-            return true;
-        }
-    });
-
-    return AnnouncementView;
+  return AnnouncementView;
 });

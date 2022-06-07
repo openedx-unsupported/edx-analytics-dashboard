@@ -7,32 +7,32 @@
  * skip link and the main content in it's scope and will most likely be the
  * body element.
  */
-define(function(require) {
-    'use strict';
+define((require) => {
+  'use strict';
 
-    var Marionette = require('marionette');
+  const Marionette = require('marionette');
 
-    require('components/skip-link/behaviors/skip-link-behavior');
-    require('components/skip-link/behaviors/skip-target-behavior');
+  require('components/skip-link/behaviors/skip-link-behavior');
+  require('components/skip-link/behaviors/skip-target-behavior');
 
-    return Marionette.ItemView.extend({
+  return Marionette.ItemView.extend({
 
-        template: false,
+    template: false,
 
-        ui: {
-            skipLink: '#skip.skip-link',
-            skipTarget: '#content'
-        },
+    ui: {
+      skipLink: '#skip.skip-link',
+      skipTarget: '#content',
+    },
 
-        behaviors: {
-            SkipTargetBehavior: {},
-            SkipLinkBehavior: {}
-        },
+    behaviors: {
+      SkipTargetBehavior: {},
+      SkipLinkBehavior: {},
+    },
 
-        onRender: function() {
-            // enables content to be focusable
-            this.ui.skipTarget.attr('tabindex', -1);
-        }
+    onRender() {
+      // enables content to be focusable
+      this.ui.skipTarget.attr('tabindex', -1);
+    },
 
-    });
+  });
 });

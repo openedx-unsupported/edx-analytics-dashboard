@@ -1,20 +1,20 @@
-define(['backbone', 'underscore'], function(Backbone, _) {
-    'use strict';
+define(['backbone', 'underscore'], (Backbone, _) => {
+  'use strict';
 
-    /**
+  /**
      * Stores our tracking logic and information.
      */
-    var TrackingModel = Backbone.Model.extend({
+  const TrackingModel = Backbone.Model.extend({
 
-        /**
+    /**
          * Determine if the application is tracked.
          */
-        isTracking: function() {
-            var self = this,
-                trackId = self.get('segmentApplicationId');
-            return !_(trackId).isUndefined() && !_(trackId).isNull();
-        }
-    });
+    isTracking() {
+      const self = this;
+      const trackId = self.get('segmentApplicationId');
+      return !_(trackId).isUndefined() && !_(trackId).isNull();
+    },
+  });
 
-    return TrackingModel;
+  return TrackingModel;
 });

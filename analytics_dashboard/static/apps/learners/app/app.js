@@ -1,26 +1,26 @@
-define(function(require) {
-    'use strict';
+define((require) => {
+  'use strict';
 
-    var $ = require('jquery'),
-        Backbone = require('backbone'),
-        Marionette = require('marionette'),
-        NProgress = require('nprogress'),
-        _ = require('underscore'),
+  const $ = require('jquery');
+  const Backbone = require('backbone');
+  const Marionette = require('marionette');
+  const NProgress = require('nprogress');
+  const _ = require('underscore');
 
-        initModels = require('load/init-page'),
+  const initModels = require('load/init-page');
 
-        CourseMetadataModel = require('learners/common/models/course-metadata'),
-        LearnerCollection = require('learners/common/collections/learners'),
-        LearnersController = require('learners/app/controller'),
-        LearnersRootView = require('components/root/views/root'),
-        LearnersRouter = require('learners/app/router'),
-        PageModel = require('components/generic-list/common/models/page'),
-        SkipLinkView = require('components/skip-link/views/skip-link-view'),
+  const CourseMetadataModel = require('learners/common/models/course-metadata');
+  const LearnerCollection = require('learners/common/collections/learners');
+  const LearnersController = require('learners/app/controller');
+  const LearnersRootView = require('components/root/views/root');
+  const LearnersRouter = require('learners/app/router');
+  const PageModel = require('components/generic-list/common/models/page');
+  const SkipLinkView = require('components/skip-link/views/skip-link-view');
 
-        LearnersApp;
+  let LearnersApp;
 
-    LearnersApp = Marionette.Application.extend({
-        /**
+  LearnersApp = Marionette.Application.extend({
+    /**
          * Initializes the learner analytics app.
          *
          * @param options specifies the following values:
@@ -46,69 +46,69 @@ define(function(require) {
          * - learnerEngagementTimelineUrl (String) required - the URL for the
          *   Learner Engagement Timeline API endpoint.
          */
-        initialize: function(options) {
-            this.options = options || {};
-        },
+    initialize(options) {
+      this.options = options || {};
+    },
 
-        onStart: function() {
-            var pageModel = new PageModel(),
-                courseMetadata,
-                learnerCollection,
-                rootView;
+    onStart() {
+      const pageModel = new PageModel();
+      let courseMetadata;
+      let learnerCollection;
+      let rootView;
 
-            new SkipLinkView({
-                el: 'body'
-            }).render();
+      new SkipLinkView({
+        el: 'body',
+      }).render();
 
-            learnerCollection = new LearnerCollection(this.options.learnerListJson, {
-                url: this.options.learnerListUrl,
-                downloadUrl: this.options.learnerListDownloadUrl,
-                courseId: this.options.courseId,
-                parse: this.options.learnerListJson
-            });
+      learnerCollection = new LearnerCollection(this.options.learnerListJson, {
+        url: this.options.learnerListUrl,
+        downloadUrl: this.options.learnerListDownloadUrl,
+        courseId: this.options.courseId,
+        parse: this.options.learnerListJson,
+      });
 
-            courseMetadata = new CourseMetadataModel(this.options.courseLearnerMetadataJson, {
-                url: this.options.courseLearnerMetadataUrl,
-                parse: true
-            });
+      courseMetadata = new CourseMetadataModel(this.options.courseLearnerMetadataJson, {
+        url: this.options.courseLearnerMetadataUrl,
+        parse: true,
+      });
 
-            rootView = new LearnersRootView({
-                el: $(this.options.containerSelector),
-                pageModel: pageModel,
-                appClass: 'learners'
-            }).render();
+      rootView = new LearnersRootView({
+        el: $(this.options.containerSelector),
+        pageModel,
+        appClass: 'learners',
+      }).render();
 
-            new LearnersRouter({ // eslint-disable-line no-new
-                controller: new LearnersController({
-                    courseId: this.options.courseId,
-                    learnerCollection: learnerCollection,
-                    courseMetadata: courseMetadata,
-                    hasData: _.isObject(this.options.learnerListJson),
-                    pageModel: pageModel,
-                    rootView: rootView,
-                    learnerEngagementTimelineUrl: this.options.learnerEngagementTimelineUrl,
-                    learnerListUrl: this.options.learnerListUrl,
-                    trackingModel: initModels.models.trackingModel
-                })
-            });
+      new LearnersRouter({ // eslint-disable-line no-new
+        controller: new LearnersController({
+          courseId: this.options.courseId,
+          learnerCollection,
+          courseMetadata,
+          hasData: _.isObject(this.options.learnerListJson),
+          pageModel,
+          rootView,
+          learnerEngagementTimelineUrl: this.options.learnerEngagementTimelineUrl,
+          learnerListUrl: this.options.learnerListUrl,
+          trackingModel: initModels.models.trackingModel,
+        }),
+      });
 
-            // If we haven't been provided with any data, fetch it now
-            // from the server.
-            if (!this.options.learnerListJson) {
-                learnerCollection.setPage(1);
-            }
-            if (!this.options.courseLearnerMetadataJson) {
-                courseMetadata.fetch();
-            }
+      // If we haven't been provided with any data, fetch it now
+      // from the server.
+      if (!this.options.learnerListJson) {
+        learnerCollection.setPage(1);
+      }
+      if (!this.options.courseLearnerMetadataJson) {
+        courseMetadata.fetch();
+      }
 
-            Backbone.history.start();
+      Backbone.history.start();
 
-            // Loading progress bar via nprogress
-            NProgress.configure({showSpinner: false});
-            $(document).ajaxStart(function() { NProgress.start(); });
-            $(document).ajaxStop(function() { NProgress.done(); });
-        }
-    });
+      // Loading progress bar via nprogress
+      NProgress.configure({ showSpinner: false });
+      $(document).ajaxStart(() => { NProgress.start(); });
+      $(document).ajaxStop(() => { NProgress.done(); });
+    },
+  });
 
-    return LearnersApp;
+  return LearnersApp;
 });

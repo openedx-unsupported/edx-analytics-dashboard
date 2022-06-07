@@ -1,23 +1,23 @@
 /**
  * Returns results that have the value in the field array.
  */
-define(function() {
-    'use strict';
+define(() => {
+  'use strict';
 
-    var _ = require('underscore'),
+  const _ = require('underscore');
 
-        ArrayFieldFilter;
+  let ArrayFieldFilter;
 
-    ArrayFieldFilter = function(field, value) {
-        this.field = field;
-        this.value = value;
-    };
+  ArrayFieldFilter = function (field, value) {
+    this.field = field;
+    this.value = value;
+  };
 
-    ArrayFieldFilter.prototype.filter = function(collection) {
-        return collection.filter(_.bind(function(item) {
-            return _.contains(item.get(this.field), this.value);
-        }, this));
-    };
+  ArrayFieldFilter.prototype.filter = function (collection) {
+    return collection.filter(_.bind(function (item) {
+      return _.contains(item.get(this.field), this.value);
+    }, this));
+  };
 
-    return ArrayFieldFilter;
+  return ArrayFieldFilter;
 });

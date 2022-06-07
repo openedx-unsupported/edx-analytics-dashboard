@@ -1,14 +1,14 @@
-define(['backbone'], function(Backbone) {
-    'use strict';
+define(['backbone'], (Backbone) => {
+  'use strict';
 
-    /**
+  /**
      * Stores our user logic and information.
      */
-    var UserModel = Backbone.Model.extend({
-        defaults: {
-            ignoreInReporting: false
-        }
-    });
+  const UserModel = Backbone.Model.extend({
+    defaults: {
+      ignoreInReporting: false,
+    },
+  });
 
-    return UserModel;
+  return UserModel;
 });
