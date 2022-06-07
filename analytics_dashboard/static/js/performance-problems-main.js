@@ -29,7 +29,6 @@ require(['load/init-page'], (page) => {
         },
         { key: 'name', title: model.get('contentTableHeading'), type: 'hasNull' }];
       let performanceProblemsChart;
-      let performanceProblemsTable;
 
       tableColumns = tableColumns.concat(graphSubmissionColumns);
 
@@ -58,7 +57,7 @@ require(['load/init-page'], (page) => {
         performanceProblemsChart.renderIfDataAvailable();
       }
 
-      performanceProblemsTable = new DataTableView({
+      const performanceProblemsTable = new DataTableView({
         el: '[data-role=data-table]',
         model,
         modelAttribute: 'primaryContent',

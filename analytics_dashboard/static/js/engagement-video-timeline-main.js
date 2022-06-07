@@ -38,9 +38,6 @@ require(['load/init-page'], (page) => {
     let tableColumns = [
       { key: 'start_time', title: gettext('Time'), type: 'time' },
     ];
-    let iframe;
-    let videoTimelineChart;
-    let videoTimelineTable;
 
     tableColumns = tableColumns.concat(timelineSettings);
 
@@ -49,13 +46,13 @@ require(['load/init-page'], (page) => {
     });
 
     // loading the iframe blocks content, so load it after the rest of the page loads
-    iframe = new IFrameView({
+    const iframe = new IFrameView({
       el: '#module-preview',
       loadingSelector: '#module-loading',
     });
     iframe.render();
 
-    videoTimelineChart = new StackedTimelineView({
+    const videoTimelineChart = new StackedTimelineView({
       el: '#chart-view',
       model: courseModel,
       modelAttribute: 'videoTimeline',
@@ -65,7 +62,7 @@ require(['load/init-page'], (page) => {
     });
     videoTimelineChart.renderIfDataAvailable();
 
-    videoTimelineTable = new DataTableView({
+    const videoTimelineTable = new DataTableView({
       el: '[data-role=data-table]',
       model: courseModel,
       modelAttribute: 'videoTimeline',

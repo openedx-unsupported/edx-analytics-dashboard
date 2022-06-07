@@ -32,7 +32,6 @@ require(['load/init-page'], (page) => {
         { key: 'name', title: model.get('contentTableHeading'), type: 'hasNull' },
       ];
       let performanceLoContentChart;
-      let performanceLoContentTable;
 
       tableColumns = tableColumns.concat(graphSubmissionColumns);
 
@@ -61,7 +60,7 @@ require(['load/init-page'], (page) => {
         performanceLoContentChart.renderIfDataAvailable();
       }
 
-      performanceLoContentTable = new DataTableView({
+      const performanceLoContentTable = new DataTableView({
         el: '[data-role=data-table]',
         model,
         modelAttribute: 'tagsDistribution',

@@ -13,15 +13,11 @@ define((require) => {
   const Utils = require('utils/utils');
   const learnerTableTemplate = require('learners/roster/templates/table.underscore');
 
-  let createEngagementCell;
-  let EngagementHeaderCell;
-  let LearnerTableView;
-
   /**
      * Factory for creating a Backgrid cell class that renders a key
      * from the learner model's engagement attribute.
      */
-  createEngagementCell = function (key, options) {
+   const createEngagementCell = (key, options) => {
     return Backgrid.Cell.extend({
 
       className: `learner-engagement-cell ${key}`,
@@ -69,11 +65,11 @@ define((require) => {
      * Cell class for engagement headers, which need to be right
      * aligned.
      */
-  EngagementHeaderCell = BaseHeaderCell.extend({
+   const EngagementHeaderCell = BaseHeaderCell.extend({
     className: 'learner-engagement-cell',
   });
 
-  LearnerTableView = ListTableView.extend({
+  const LearnerTableView = ListTableView.extend({
     template: _.template(learnerTableTemplate),
     regions: {
       table: '.learners-table',
@@ -81,7 +77,7 @@ define((require) => {
     },
     buildColumns() {
       let { options } = this;
-      return _.map(this.options.collection.sortableFields, function (val, key) {
+      return _.map(this.options.collection.sortableFields, (val, key) => {
         const column = this.createDefaultColumn(val.displayName, key);
         if (key === 'username') {
           column.cell = NameAndUsernameCell;

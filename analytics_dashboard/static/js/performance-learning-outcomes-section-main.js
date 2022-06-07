@@ -33,7 +33,6 @@ require(['load/init-page'], (page) => {
         { key: 'difficulty', title: gettext('Difficulty'), type: 'hasNull' },
       ];
       let performanceLoSectionChart;
-      let performanceLoSectionTable;
 
       tableColumns.push({
         key: 'correct_submissions',
@@ -76,7 +75,7 @@ require(['load/init-page'], (page) => {
         performanceLoSectionChart.renderIfDataAvailable();
       }
 
-      performanceLoSectionTable = new DataTableView({
+      const performanceLoSectionTable = new DataTableView({
         el: '[data-role=data-table]',
         model,
         modelAttribute: 'tagsDistribution',

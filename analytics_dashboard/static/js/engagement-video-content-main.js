@@ -38,7 +38,6 @@ require(['load/init-page'], (page) => {
         },
       ];
       let videoContentChart;
-      let videoContentTable;
 
       tableColumns = tableColumns.concat(graphVideoColumns);
       tableColumns.push({
@@ -59,7 +58,7 @@ require(['load/init-page'], (page) => {
         videoContentChart.renderIfDataAvailable();
       }
 
-      videoContentTable = new DataTableView({
+      const videoContentTable = new DataTableView({
         el: '[data-role=data-table]',
         model,
         modelAttribute: 'primaryContent',

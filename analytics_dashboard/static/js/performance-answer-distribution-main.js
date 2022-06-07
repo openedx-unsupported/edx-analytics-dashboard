@@ -18,8 +18,6 @@ require(['load/init-page'], (page) => {
           key: 'count', title: gettext('Submission Count'), type: 'number', className: 'text-right',
         },
       ];
-      let performanceAnswerChart;
-      let performanceAnswerTable;
 
       // answers are stored either the numeric or string fields
       if (courseModel.get('answerType') === 'numeric') {
@@ -34,7 +32,7 @@ require(['load/init-page'], (page) => {
         });
       }
 
-      performanceAnswerChart = new DiscreteBarView({
+      const performanceAnswerChart = new DiscreteBarView({
         el: '#performance-chart-view',
         model: courseModel,
         modelAttribute: 'answerDistributionLimited',
@@ -62,7 +60,7 @@ require(['load/init-page'], (page) => {
       });
       performanceAnswerChart.renderIfDataAvailable();
 
-      performanceAnswerTable = new DataTableView({
+      const performanceAnswerTable = new DataTableView({
         el: '[data-role=performance-table]',
         model: courseModel,
         modelAttribute: 'answerDistribution',

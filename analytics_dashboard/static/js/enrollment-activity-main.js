@@ -57,9 +57,6 @@ require(['load/init-page'], (page) => {
         }),
       ];
       let trendSettings;
-      let enrollmentTrackTrendSettings;
-      let enrollmentChart;
-      let enrollmentTable;
 
       // Remove settings for which there is no data (e.g. don't attempt to display verified if there is no data).
       settings = _(settings).filter((setting) => page.models.courseModel.hasTrend('enrollmentTrends', setting.key));
@@ -67,14 +64,14 @@ require(['load/init-page'], (page) => {
       trendSettings = _(settings).filter((setting) => setting.key !== 'date');
 
       // Do not display total enrollment on the chart if track data exists
-      enrollmentTrackTrendSettings = _(trendSettings).filter((setting) => setting.key !== 'count');
+      const enrollmentTrackTrendSettings = _(trendSettings).filter((setting) => setting.key !== 'count');
 
       if (enrollmentTrackTrendSettings.length) {
         trendSettings = enrollmentTrackTrendSettings;
       }
 
       // Daily enrollment graph
-      enrollmentChart = new StackedTrendsView({
+      const enrollmentChart = new StackedTrendsView({
         el: '#enrollment-trend-view',
         model: page.models.courseModel,
         modelAttribute: 'enrollmentTrends',
@@ -85,7 +82,7 @@ require(['load/init-page'], (page) => {
       enrollmentChart.renderIfDataAvailable();
 
       // Daily enrollment table
-      enrollmentTable = new DataTableView({
+      const enrollmentTable = new DataTableView({
         el: '[data-role=enrollment-table]',
         model: page.models.courseModel,
         modelAttribute: 'enrollmentTrends',

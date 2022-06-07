@@ -51,18 +51,15 @@ require(['load/init-page'], (page) => {
         type: 'percent',
       },
     ];
-    let trendSettings;
-    let engagementChart;
-    let engagementTable;
 
     // remove settings for data that doesn't exist (ex. forums)
     settings = _(settings).filter((setting) => page.models.courseModel.hasTrend('engagementTrends', setting.key));
 
     // trend settings don't need weekEnding
-    trendSettings = _(settings).filter((setting) => setting.key !== 'weekEnding' && setting.key !== 'active_percent');
+    const trendSettings = _(settings).filter((setting) => setting.key !== 'weekEnding' && setting.key !== 'active_percent');
 
     // weekly engagement activities graph
-    engagementChart = new TrendsView({
+    const engagementChart = new TrendsView({
       el: '#engagement-trend-view',
       model: page.models.courseModel,
       modelAttribute: 'engagementTrends',
@@ -83,7 +80,7 @@ require(['load/init-page'], (page) => {
     engagementChart.renderIfDataAvailable();
 
     // weekly engagement activities table
-    engagementTable = new DataTableView({
+    const engagementTable = new DataTableView({
       el: '[data-role=engagement-table]',
       model: page.models.courseModel,
       modelAttribute: 'engagementTrends',

@@ -10,17 +10,16 @@ define(
   ($, _, ClickableView, HoverableView, TrackingView, Utils) => {
     'use strict';
 
-    const instrumentEvents = function (eventType, trackingViewClass, models) {
+    const instrumentEvents = (eventType, TrackingViewClass, models) => {
       _($(`[data-track-type="${eventType}"]`)).each((track) => {
         // get the properties that we want to send back for with
         // the tracking events
-        let trackingView;
         const properties = Utils.getNodeProperties(
           track.attributes,
           'data-track-',
           ['data-track-event', 'data-track-triggered'],
         );
-        trackingView = new trackingViewClass({
+        const trackingView = new TrackingViewClass({
           model: models.trackingModel,
           trackEventType: $(track).attr('data-track-event'),
           trackProperties: properties,
@@ -30,12 +29,10 @@ define(
       });
     };
 
-    return function (models) {
-      let trackingView;
-
+    return models => {
       if (models.trackingModel.isTracking()) {
         // this is only activated when tracking ID is set
-        trackingView = new TrackingView({
+        const trackingView = new TrackingView({
           el: document,
           model: models.trackingModel,
           userModel: models.userModel,

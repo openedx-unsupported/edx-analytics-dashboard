@@ -35,7 +35,6 @@ require(['load/init-page'], (page) => {
         },
       ];
       let performanceChart;
-      let performanceTable;
 
       tableColumns = tableColumns.concat(graphSubmissionColumns);
 
@@ -66,7 +65,7 @@ require(['load/init-page'], (page) => {
         performanceChart.renderIfDataAvailable();
       }
 
-      performanceTable = new DataTableView({
+      const performanceTable = new DataTableView({
         el: '[data-role=data-table]',
         model,
         modelAttribute: 'primaryContent',
