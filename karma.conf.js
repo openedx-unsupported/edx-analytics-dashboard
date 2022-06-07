@@ -58,6 +58,7 @@ module.exports = function (config) {
       'karma-chrome-launcher',
       'karma-webpack',
       'karma-sourcemap-loader',
+      'karma-coverage-istanbul-reporter'
     ],
 
     webpack: {
@@ -188,9 +189,9 @@ module.exports = function (config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage'],
+    reporters: ['progress', 'coverage-istanbul'],
 
-    coverageReporter: {
+    coverageIstanbulReporter: {
       dir: 'build',
       subdir: 'coverage-js',
       reporters: [
@@ -198,6 +199,7 @@ module.exports = function (config) {
         { type: 'cobertura', file: 'coverage.xml' },
         { type: 'text-summary' },
       ],
+      fixWebpackSourcePaths: true
     },
 
     // web server port
