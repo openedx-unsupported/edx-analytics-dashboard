@@ -4,6 +4,9 @@
 Individual Learners
 ######################
 
+.. warning::
+   **DEPRECATED: This feature has been deprecated and will removed in the Olive release**
+
 To access information about what individual learners are doing in your course,
 and how frequently, select **Learners** on the **Course Home** page for the
 course. A report of the key activity metrics for all enrolled learners appears,

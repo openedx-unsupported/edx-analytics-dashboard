@@ -4,6 +4,9 @@
 Learner Activity
 ################
 
+.. warning::
+   **DEPRECATED: This feature has been deprecated and will removed in the Olive release**
+
 Which learners, specifically, are engaging with my course? Who is struggling,
 and who is doing well? Investigating and comparing the activities of individual
 learners helps you focus on those who are most likely to benefit from
