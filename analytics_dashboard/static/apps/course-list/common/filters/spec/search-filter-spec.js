@@ -27,12 +27,10 @@ define((require) => {
         const regex = new RegExp('^Partly', 'i');
         return regex.test(model.get('weather'));
       };
-      let filter;
-      let results;
 
-      filter = new SearchFilter(matcher);
+      const filter = new SearchFilter(matcher);
       expect(collection.models.length).toEqual(3);
-      results = filter.filter(collection);
+      const results = filter.filter(collection);
       expect(results.length).toEqual(2);
       expect(results[0].get('weather')).toEqual('Partly Sunny');
       expect(results[1].get('weather')).toEqual('Partly cloudy');

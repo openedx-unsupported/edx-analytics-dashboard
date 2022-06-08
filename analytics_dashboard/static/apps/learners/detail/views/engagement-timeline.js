@@ -7,9 +7,7 @@ define((require) => {
   const TrendsView = require('views/trends-view');
   const engagementTimelineTemplate = require('learners/detail/templates/engagement-timeline.underscore');
 
-  let LearnerEngagementTimelineView;
-
-  LearnerEngagementTimelineView = Marionette.LayoutView.extend({
+  const LearnerEngagementTimelineView = Marionette.LayoutView.extend({
     template: _.template(engagementTimelineTemplate),
     regions: {
       main: '.learner-engagement-timeline.analytics-chart',

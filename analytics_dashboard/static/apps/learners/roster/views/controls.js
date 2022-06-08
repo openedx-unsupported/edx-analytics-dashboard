@@ -12,11 +12,9 @@ define((require) => {
   const LearnerSearch = require('learners/roster/views/search');
   const rosterControlsTemplate = require('learners/roster/templates/controls.underscore');
 
-  let RosterControlsView;
-
   require('components/skip-link/behaviors/skip-link-behavior');
 
-  RosterControlsView = ParentView.extend({
+  const RosterControlsView = ParentView.extend({
     template: _.template(rosterControlsTemplate),
 
     regions: {
@@ -40,12 +38,10 @@ define((require) => {
     },
 
     initialize(options) {
-      let defaultFilterOptions;
-      let courseMetadata;
       this.options = options || {};
-      courseMetadata = this.options.courseMetadata;
+      const { courseMetadata } = this.options;
 
-      defaultFilterOptions = {
+      const defaultFilterOptions = {
         collection: this.options.collection,
         trackingModel: this.options.trackingModel,
         trackSubject: this.options.trackSubject,

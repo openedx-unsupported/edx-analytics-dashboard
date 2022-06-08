@@ -3,9 +3,7 @@ define((require) => {
 
   const BaseHeaderCell = require('components/generic-list/list/views/base-header-cell');
 
-  let CourseListBaseHeaderCell;
-
-  CourseListBaseHeaderCell = BaseHeaderCell.extend({
+  const CourseListBaseHeaderCell = BaseHeaderCell.extend({
     container: '.course-list-table',
     tooltips: {
       catalog_course_title: gettext('Course name advertised on edX site.'),

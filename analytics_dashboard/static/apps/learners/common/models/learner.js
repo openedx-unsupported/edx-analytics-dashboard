@@ -6,9 +6,7 @@ define((require) => {
 
   const ListUtils = require('components/utils/utils');
 
-  let LearnerModel;
-
-  LearnerModel = Backbone.Model.extend({
+  const LearnerModel = Backbone.Model.extend({
     defaults() {
       return {
         name: '',
@@ -54,9 +52,9 @@ define((require) => {
       return _.extend({}, response, {
         enrollment_date: response.enrollment_date ? new Date(response.enrollment_date) : null,
         last_updated: response.last_updated ? new Date(response.last_updated) : null,
-        engagements: _.extend({}, this.defaults().engagements, _.pick(response.engagements, (metricValue) =>
-        // metrics with null values should defer to defaults
-          !_.isNull(metricValue) && !_.isUndefined(metricValue))),
+        engagements: _.extend({}, this.defaults().engagements, _.pick(response.engagements,
+          // metrics with null values should defer to defaults
+          (metricValue) => !_.isNull(metricValue) && !_.isUndefined(metricValue))),
       });
     },
 

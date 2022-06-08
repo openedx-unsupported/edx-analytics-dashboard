@@ -5,9 +5,8 @@ define((require) => {
   'use strict';
 
   const _ = require('underscore');
-  let FilterSet;
 
-  FilterSet = function (mode, filters) {
+  const FilterSet = function (mode, filters) {
     const validModes = ['AND', 'OR'];
     if (!_(validModes).contains(mode)) {
       throw new Error(`Only valid modes are: ${validModes.join(', ')}`);

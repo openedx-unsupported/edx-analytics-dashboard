@@ -6,9 +6,7 @@ define((require) => {
 
   const ListUtils = require('components/utils/utils');
 
-  let CourseMetadataModel;
-
-  CourseMetadataModel = Backbone.Model.extend({
+  const CourseMetadataModel = Backbone.Model.extend({
     defaults() {
       return {
         cohorts: {},

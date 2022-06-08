@@ -20,9 +20,8 @@ define((require) => {
   const ShadowCourseListCollection = Backbone.Collection.extend({
     model: CourseModel,
   });
-  let CourseListCollection;
 
-  CourseListCollection = ListCollection.extend({
+  const CourseListCollection = ListCollection.extend({
 
     mode: 'client',
 
@@ -109,8 +108,7 @@ define((require) => {
       }
 
       _(activeFilterFields).each(function (value, key) {
-        let activeFilters;
-        activeFilters = _(value.split(',')).map(function (field) {
+        const activeFilters = _(value.split(',')).map(function (field) {
           if ('fieldType' in this.filterableFields[key]
                             && this.filterableFields[key].fieldType === 'array') {
             return new ArrayFieldFilter(key, field);

@@ -36,9 +36,8 @@ define((require) => {
       const filterDog = new FieldFilter('animal', 'dog');
       const orangeFilter = new FieldFilter('color', 'orange');
       const filterSet = new FilterSet('AND', [filterDog, orangeFilter]);
-      let results;
       expect(collection.models.length).toEqual(4);
-      results = filterSet.filter(collection);
+      const results = filterSet.filter(collection);
       expect(results.length).toEqual(1);
       expect(results[0].get('animal')).toEqual('dog');
       expect(results[0].get('color')).toEqual('orange');
@@ -48,9 +47,8 @@ define((require) => {
       const filterDog = new FieldFilter('animal', 'dog');
       const orangeFilter = new FieldFilter('color', 'orange');
       const filterSet = new FilterSet('OR', [filterDog, orangeFilter]);
-      let results;
       expect(collection.models.length).toEqual(4);
-      results = filterSet.filter(collection);
+      const results = filterSet.filter(collection);
       expect(results.length).toEqual(3);
 
       // this OR will get everything but the zebra

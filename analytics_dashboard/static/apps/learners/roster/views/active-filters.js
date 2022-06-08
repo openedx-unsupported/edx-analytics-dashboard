@@ -7,9 +7,7 @@ define((require) => {
 
   const learnersActiveFiltersTemplate = require('learners/roster/templates/active-filters.underscore');
 
-  let LearnersActiveFiltersView;
-
-  LearnersActiveFiltersView = ActiveFiltersView.extend({
+  const LearnersActiveFiltersView = ActiveFiltersView.extend({
     template: _.template(learnersActiveFiltersTemplate),
 
     // This function is re-implemented from ActiveFiltersView because the filter display names here are

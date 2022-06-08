@@ -4,9 +4,7 @@ define((require) => {
   const ListCollection = require('components/generic-list/common/collections/collection');
   const LearnerModel = require('learners/common/models/learner');
 
-  let LearnerCollection;
-
-  LearnerCollection = ListCollection.extend({
+  const LearnerCollection = ListCollection.extend({
     model: LearnerModel,
 
     initialize(models, options) {

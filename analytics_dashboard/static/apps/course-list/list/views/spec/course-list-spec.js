@@ -18,16 +18,11 @@ define((require) => {
 
   describe('CourseListView', () => {
     const fixtureClass = 'course-list-view-fixture';
-    let clickPagingControl;
-    let getCourseListView;
 
-    getCourseListView = function (options, pageSize) {
-      let collection;
-      let programsCollection;
-      let view;
+    const getCourseListView = function (options, pageSize) {
       const defaultOptions = _.defaults({}, options, { filteringEnabled: true });
 
-      programsCollection = defaultOptions.programsCollection || new ProgramsCollection(
+      const programsCollection = defaultOptions.programsCollection || new ProgramsCollection(
         [
           new ProgramModel({
             program_id: '123',
@@ -56,7 +51,7 @@ define((require) => {
       }
       defaultOptions.collectionOptions.programsCollection = programsCollection;
 
-      collection = defaultOptions.collection || new CourseList(
+      const collection = defaultOptions.collection || new CourseList(
         [
         // default course data
           new CourseModel({
@@ -88,7 +83,7 @@ define((require) => {
         collection.setPageSize(pageSize);
       }
 
-      view = new CourseListView({
+      const view = new CourseListView({
         collection,
         el: `.${fixtureClass}`,
         trackSubject: 'course_list',
@@ -102,7 +97,7 @@ define((require) => {
       return view;
     };
 
-    clickPagingControl = function (titleSelector) {
+    const clickPagingControl = function (titleSelector) {
       $(`a[title="${titleSelector}"]`).click();
     };
 
@@ -145,10 +140,7 @@ define((require) => {
     });
 
     it('renders concise and a11y text when no date is provided', () => {
-      let collection;
-      let view;
-
-      collection = new CourseList(
+      const collection = new CourseList(
         [
           new CourseModel({
             catalog_course_title: 'Alpaca',
@@ -160,7 +152,7 @@ define((require) => {
           })],
         { programsCollection: new ProgramsCollection([]) },
       );
-      view = getCourseListView({ collection });
+      const view = getCourseListView({ collection });
 
       _(['td.start_date', 'td.end_date']).each((selector) => {
         const $date = view.$el.find(selector);
@@ -236,20 +228,17 @@ define((require) => {
     });
 
     describe('sorting', () => {
-      let clickSortingHeader;
-      let executeSortTest;
       let expectSortCalled;
-      let getSortingHeaderLink;
 
-      getSortingHeaderLink = function (headerClass) {
+      const getSortingHeaderLink = function (headerClass) {
         return $(`th.${headerClass} button`);
       };
 
-      clickSortingHeader = function (headerClass) {
+      const clickSortingHeader = function (headerClass) {
         getSortingHeaderLink(headerClass).click();
       };
 
-      executeSortTest = function (field, isInitial) {
+      const executeSortTest = function (field, isInitial) {
         expect(getSortingHeaderLink(field).find('span.fa')).toHaveClass(isInitial ? 'fa-sort-asc' : 'fa-sort');
         clickSortingHeader(field);
         expectSortCalled(field, isInitial ? 'desc' : 'asc');
@@ -321,15 +310,12 @@ define((require) => {
     });
 
     describe('paging', () => {
-      let createTwoPageView;
-      let expectLinkStates;
-
-      createTwoPageView = function () {
+      const createTwoPageView = function () {
         const view = getCourseListView({}, 1);
         return view;
       };
 
-      expectLinkStates = function (view, activeLinkTitle, disabledLinkTitles) {
+      const expectLinkStates = function (view, activeLinkTitle, disabledLinkTitles) {
         view.$('li > a').each((_index, link) => {
           const $link = $(link);
           const $parentLi = $link.parent('li');

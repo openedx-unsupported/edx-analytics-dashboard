@@ -15,25 +15,17 @@ define((require) => {
   describe('LearnerRosterView', () => {
     const fixtureClass = 'roster-view-fixture';
     const perPage = 25;
-    let clickPagingControl;
-    let executeSearch;
-    let getLastRequest;
-    let getLastRequestParams;
-    let getResponseBody;
-    let getRosterView;
     let server;
-    let testTimeout;
-    let verifyErrorHandling;
 
-    getLastRequest = function () {
+    const getLastRequest = function () {
       return server.requests[server.requests.length - 1];
     };
 
-    getLastRequestParams = function () {
+    const getLastRequestParams = function () {
       return (new URI(getLastRequest().url)).query(true);
     };
 
-    getResponseBody = function (numPages, pageNum) {
+    const getResponseBody = function (numPages, pageNum) {
       let results;
       const page = pageNum || 1;
       if (numPages) {
@@ -48,15 +40,13 @@ define((require) => {
       };
     };
 
-    getRosterView = function (options) {
-      let collection;
-      let rosterView;
+    const getRosterView = function (options) {
       const defaultOptions = _.defaults({}, options);
-      collection = defaultOptions.collection || new LearnerCollection(
+      const collection = defaultOptions.collection || new LearnerCollection(
         defaultOptions.collectionResponse,
         _.extend({ url: 'test-url' }, defaultOptions.collectionOptions),
       );
-      rosterView = new LearnerRosterView({
+      const rosterView = new LearnerRosterView({
         collection,
         courseMetadata: defaultOptions.courseMetadataModel
                     || new CourseMetadataModel(defaultOptions.courseMetadata, { parse: true }),
@@ -70,10 +60,9 @@ define((require) => {
       return rosterView;
     };
 
-    testTimeout = function (rosterView, actionFunction) {
-      let ajaxSetup;
+    const testTimeout = function (rosterView, actionFunction) {
       jasmine.clock().install();
-      ajaxSetup = $.ajaxSetup();
+      const ajaxSetup = $.ajaxSetup();
       $.ajaxSetup({ timeout: 1 });
       spyOn(rosterView, 'trigger');
       actionFunction();
@@ -89,18 +78,18 @@ define((require) => {
       $.ajaxSetup(ajaxSetup);
     };
 
-    verifyErrorHandling = function (rosterView, status) {
+    const verifyErrorHandling = function (rosterView, status) {
       getLastRequest().respond(status, {}, '');
       expect(rosterView.trigger).toHaveBeenCalledWith('appError', jasmine.any(Object));
     };
 
-    executeSearch = function (searchString) {
+    const executeSearch = function (searchString) {
       $('#search-learners').val(searchString);
       $('#search-learners').keyup(); // Triggers rendering of the clear search control
       $('#search-learners').submit();
     };
 
-    clickPagingControl = function (titleSelector) {
+    const clickPagingControl = function (titleSelector) {
       $(`a[title="${titleSelector}"]`).click();
     };
 
@@ -289,43 +278,39 @@ define((require) => {
 
         _(headerClasses).each((headerClass) => {
           const $heading = $(`th.${headerClass}`).focusin();
-          let $tooltip;
 
           // aria tag is added when tooltip is displayed (e.g. on focus)
           expect($heading).toHaveAttr('aria-describedby');
-          $tooltip = $(`#${$heading.attr('aria-describedby')}`);
+          const $tooltip = $(`#${$heading.attr('aria-describedby')}`);
           expect($tooltip.text().length).toBeGreaterThan(0);
         });
       });
     });
 
     describe('sorting', () => {
-      let clickSortingHeader; let executeSortTest; let expectSortCalled; let
-        getSortingHeaderLink;
-
-      getSortingHeaderLink = function (headerClass) {
+      const getSortingHeaderLink = function (headerClass) {
         return $(`th.${headerClass} button`);
       };
 
-      clickSortingHeader = function (headerClass) {
+      const clickSortingHeader = function (headerClass) {
         getSortingHeaderLink(headerClass).click();
       };
 
-      executeSortTest = function (field) {
-        expect(getSortingHeaderLink(field).find('span.fa')).toHaveClass('fa-sort');
-        clickSortingHeader(field);
-        expectSortCalled(field, 'asc');
-        clickSortingHeader(field);
-        expectSortCalled(field, 'desc');
-      };
-
-      expectSortCalled = function (sortField, sortValue) {
+      const expectSortCalled = function (sortField, sortValue) {
         expect(getLastRequestParams()).toEqual(jasmine.objectContaining({
           order_by: sortField,
           sort_order: sortValue,
         }));
         getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(1, 1)));
         expect(getSortingHeaderLink(sortField).find('span')).toHaveClass(`fa-sort-${sortValue}`);
+      };
+
+      const executeSortTest = function (field) {
+        expect(getSortingHeaderLink(field).find('span.fa')).toHaveClass('fa-sort');
+        clickSortingHeader(field);
+        expectSortCalled(field, 'asc');
+        clickSortingHeader(field);
+        expectSortCalled(field, 'desc');
       };
 
       beforeEach(function () {
@@ -410,18 +395,14 @@ define((require) => {
     });
 
     describe('paging', () => {
-      let createTwoPageRoster;
-      let expectLinkStates;
-      let expectRequestedPage;
-
-      createTwoPageRoster = function () {
+      const createTwoPageRoster = function () {
         return getRosterView({
           collectionResponse: getResponseBody(2, 1),
           collectionOptions: { parse: true },
         });
       };
 
-      expectLinkStates = function (rosterView, activeLinkTitle, disabledLinkTitles) {
+      const expectLinkStates = function (rosterView, activeLinkTitle, disabledLinkTitles) {
         rosterView.$('li > a').each((_index, link) => {
           const $link = $(link);
           const $parentLi = $link.parent('li');
@@ -438,7 +419,7 @@ define((require) => {
         });
       };
 
-      expectRequestedPage = function (pageNum) {
+      const expectRequestedPage = function (pageNum) {
         expect(getLastRequestParams()).toEqual(jasmine.objectContaining({
           page: pageNum.toString(),
         }));
@@ -514,22 +495,17 @@ define((require) => {
     });
 
     describe('search', () => {
-      let expectSearchedFor;
-
-      expectSearchedFor = function (searchString) {
+      const expectSearchedFor = function (searchString) {
         expect(getLastRequestParams()).toEqual(jasmine.objectContaining({
           text_search: searchString,
         }));
       };
 
       it('renders the current search string', () => {
-        let collection;
-        let rosterView;
-        let searchString;
-        searchString = 'search string';
-        collection = new LearnerCollection();
+        const searchString = 'search string';
+        const collection = new LearnerCollection();
         collection.setSearchString(searchString);
-        rosterView = getRosterView({ collection });
+        const rosterView = getRosterView({ collection });
         expect(rosterView.$('#search-learners')).toHaveValue(searchString);
       });
 
@@ -567,10 +543,8 @@ define((require) => {
       });
 
       it('can clear the search by searching the empty string', () => {
-        let rosterView;
-        let searchString;
-        searchString = 'search string';
-        rosterView = getRosterView();
+        const searchString = 'search string';
+        const rosterView = getRosterView();
         executeSearch(searchString);
         expectSearchedFor(searchString);
         getLastRequest().respond(200, {}, JSON.stringify(getResponseBody(1, 1)));
@@ -626,9 +600,7 @@ define((require) => {
       };
 
       it('renders filters in alphabetical order', () => {
-        let options;
-        let rosterView;
-        rosterView = getRosterView({
+        const rosterView = getRosterView({
           courseMetadata: {
             cohorts: {
               zebra: 1,
@@ -636,7 +608,7 @@ define((require) => {
             },
           },
         });
-        options = rosterView.$('.learners-filter option');
+        const options = rosterView.$('.learners-filter option');
         expect(options[1]).toHaveText('antelope (2)');
         expect(options[2]).toHaveText('zebra (1)');
       });
@@ -658,16 +630,13 @@ define((require) => {
         this.courseMetadata = new CourseMetadataModel(courseMetadataAttributes);
         this.filterFieldName = filterFieldName;
         this.filterOptions = filterOptions;
-        this.firstFilterOption = _.keys(this.filterOptions)[0];
+        [this.firstFilterOption] = _.keys(this.filterOptions);
       }, () => {
         it('renders the filter which is currently applied', function () {
-          let collection;
-          let firstFilterOption;
-          let rosterView;
-          firstFilterOption = this.firstFilterOption;
-          collection = new LearnerCollection();
+          const { firstFilterOption } = this;
+          const collection = new LearnerCollection();
           collection.setFilterField(this.filterFieldName, firstFilterOption);
-          rosterView = getRosterView({
+          const rosterView = getRosterView({
             courseMetadataModel: this.courseMetadata,
             collection,
           });
@@ -676,8 +645,6 @@ define((require) => {
 
         it('only renders when filter options are provided', function () {
           let rosterView;
-          let selectOptions;
-          let defaultSelectOption;
 
           // Doesn't render when no filter options are provided.
           rosterView = getRosterView({ courseMetadata: {} });
@@ -685,8 +652,8 @@ define((require) => {
 
           // Does render when filter options are provided.
           rosterView = getRosterView({ courseMetadataModel: this.courseMetadata });
-          selectOptions = rosterView.$('.learners-filter option').get();
-          defaultSelectOption = selectOptions[0];
+          const selectOptions = rosterView.$('.learners-filter option').get();
+          const defaultSelectOption = selectOptions[0];
 
           expect(defaultSelectOption).toBeSelected();
           expect(defaultSelectOption).toHaveValue('');
@@ -783,15 +750,12 @@ define((require) => {
     });
 
     describe('active filters', () => {
-      let expectActiveFilters;
-      let expectNoActiveFilters;
-
-      expectNoActiveFilters = function (rosterView) {
+      const expectNoActiveFilters = function (rosterView) {
         expect(rosterView.$('#active-filters-title')).not.toExist();
         expect(rosterView.$('.action-clear-all-filters')).not.toExist();
       };
 
-      expectActiveFilters = function (rosterView, options) {
+      const expectActiveFilters = function (rosterView, options) {
         const activeFiltersTitle = rosterView.$('#active-filters-title');
         const clearAllButton = rosterView.$('.action-clear-all-filters');
         const activeFilters = rosterView.$('.active-filters');

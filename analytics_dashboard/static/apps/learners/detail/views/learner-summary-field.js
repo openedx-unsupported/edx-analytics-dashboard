@@ -6,12 +6,10 @@ define((require) => {
 
   const template = require('learners/detail/templates/learner-summary-field.underscore');
 
-  let LearnerSummaryFieldView;
-
   /**
      * Displays a field name followed by a value upon model update.
      */
-  LearnerSummaryFieldView = Marionette.LayoutView.extend({
+  const LearnerSummaryFieldView = Marionette.LayoutView.extend({
 
     template: _.template(template),
 

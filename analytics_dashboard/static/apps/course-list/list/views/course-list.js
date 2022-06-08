@@ -18,9 +18,7 @@ define((require) => {
 
   const listTemplate = require('course-list/list/templates/list.underscore');
 
-  let CourseListView;
-
-  CourseListView = ListView.extend({
+  const CourseListView = ListView.extend({
     className: 'course-list',
 
     template: _.template(listTemplate),

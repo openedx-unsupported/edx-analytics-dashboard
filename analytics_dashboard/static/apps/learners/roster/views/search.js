@@ -16,11 +16,9 @@ define((require) => {
 
   const listSearchTemplate = require('components/generic-list/list/templates/search.underscore');
 
-  let LearnerSearch;
-
   require('backgrid-filter');
 
-  LearnerSearch = Backgrid.Extension.ServerSideFilter.extend({
+  const LearnerSearch = Backgrid.Extension.ServerSideFilter.extend({
     className() {
       return [Backgrid.Extension.ServerSideFilter.prototype.className, 'learners-search'].join(' ');
     },

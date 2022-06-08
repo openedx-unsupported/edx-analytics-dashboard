@@ -5,9 +5,7 @@
 define(() => {
   'use strict';
 
-  let SearchFilter;
-
-  SearchFilter = function (matcher) {
+  const SearchFilter = function (matcher) {
     this.matcher = matcher;
   };
 

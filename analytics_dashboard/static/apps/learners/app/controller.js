@@ -23,9 +23,7 @@ define((require) => {
 
   const rosterLoadingTemplate = require('components/loading/templates/plain-loading.underscore');
 
-  let LearnersController;
-
-  LearnersController = Marionette.Object.extend({
+  const LearnersController = Marionette.Object.extend({
     initialize(options) {
       this.options = options || {};
       this.listenTo(this.options.learnerCollection, 'sync', this.onLearnerCollectionUpdated);
@@ -130,7 +128,6 @@ define((require) => {
         courseId: this.options.courseId,
       });
       const learnerModel = this.options.learnerCollection.get(username) || new LearnerModel();
-      let detailView;
 
       this.options.rootView.showChildView('navigation', new ReturnLinkView({
         queryString: this.options.learnerCollection.getQueryString(),
@@ -140,7 +137,7 @@ define((require) => {
         title: gettext('Learner Details'),
       });
 
-      detailView = new LearnerDetailView({
+      const detailView = new LearnerDetailView({
         learnerModel,
         engagementTimelineModel,
         trackingModel: this.options.trackingModel,
@@ -178,11 +175,10 @@ define((require) => {
     showNotFoundPage() {
       // TODO: Implement this page in https://openedx.atlassian.net/browse/AN-6697
       const message = gettext("Sorry, we couldn't find the page you're looking for.");
-      let notFoundView;
 
       this.options.pageModel.set('title', gettext('Page Not Found'));
 
-      notFoundView = new (Backbone.View.extend({
+      const notFoundView = new (Backbone.View.extend({
         render() {
           this.$el.text(message);
           return this;

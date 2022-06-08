@@ -10,9 +10,7 @@ define((require) => {
   const RowHeaderCell = require('components/generic-list/list/views/row-header-cell');
   const nameUsernameCellTemplate = require('learners/roster/templates/name-username-cell.underscore');
 
-  let NameAndUsernameCell;
-
-  NameAndUsernameCell = RowHeaderCell.extend({
+  const NameAndUsernameCell = RowHeaderCell.extend({
     className: 'learner-name-username-cell',
     template: _.template(nameUsernameCellTemplate),
   });

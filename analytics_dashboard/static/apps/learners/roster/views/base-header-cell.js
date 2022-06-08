@@ -3,9 +3,7 @@ define((require) => {
 
   const BaseHeaderCell = require('components/generic-list/list/views/base-header-cell');
 
-  let LearnersBaseHeaderCell;
-
-  LearnersBaseHeaderCell = BaseHeaderCell.extend({
+  const LearnersBaseHeaderCell = BaseHeaderCell.extend({
     tooltips: {
       username: gettext('The name and username of this learner. Click to sort by username.'),
       problems_attempted: gettext('Number of unique problems this learner attempted.'),

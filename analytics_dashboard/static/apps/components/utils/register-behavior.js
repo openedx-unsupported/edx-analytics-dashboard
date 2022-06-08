@@ -6,8 +6,8 @@ define((require) => {
 
   const Marionette = require('marionette');
 
-  return function (behavior, behaviorName) {
-    Marionette.Behaviors.behaviorsLookup = function () {
+  return (behavior, behaviorName) => {
+    Marionette.Behaviors.behaviorsLookup = () => {
       return window.Behaviors;
     };
 

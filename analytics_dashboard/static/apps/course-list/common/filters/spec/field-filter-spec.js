@@ -24,9 +24,8 @@ define((require) => {
 
     it('filters by attribute', () => {
       const filter = new FieldFilter('animal', 'dog');
-      let results;
       expect(collection.models.length).toEqual(2);
-      results = filter.filter(collection);
+      const results = filter.filter(collection);
       expect(results.length).toEqual(1);
       expect(results[0].get('animal')).toEqual('dog');
     });

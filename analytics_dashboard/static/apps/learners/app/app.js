@@ -17,9 +17,7 @@ define((require) => {
   const PageModel = require('components/generic-list/common/models/page');
   const SkipLinkView = require('components/skip-link/views/skip-link-view');
 
-  let LearnersApp;
-
-  LearnersApp = Marionette.Application.extend({
+  const LearnersApp = Marionette.Application.extend({
     /**
          * Initializes the learner analytics app.
          *
@@ -52,27 +50,24 @@ define((require) => {
 
     onStart() {
       const pageModel = new PageModel();
-      let courseMetadata;
-      let learnerCollection;
-      let rootView;
 
       new SkipLinkView({
         el: 'body',
       }).render();
 
-      learnerCollection = new LearnerCollection(this.options.learnerListJson, {
+      const learnerCollection = new LearnerCollection(this.options.learnerListJson, {
         url: this.options.learnerListUrl,
         downloadUrl: this.options.learnerListDownloadUrl,
         courseId: this.options.courseId,
         parse: this.options.learnerListJson,
       });
 
-      courseMetadata = new CourseMetadataModel(this.options.courseLearnerMetadataJson, {
+      const courseMetadata = new CourseMetadataModel(this.options.courseLearnerMetadataJson, {
         url: this.options.courseLearnerMetadataUrl,
         parse: true,
       });
 
-      rootView = new LearnersRootView({
+      const rootView = new LearnersRootView({
         el: $(this.options.containerSelector),
         pageModel,
         appClass: 'learners',

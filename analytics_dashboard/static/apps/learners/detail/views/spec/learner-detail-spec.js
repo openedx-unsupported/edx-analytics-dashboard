@@ -46,10 +46,7 @@ define((require) => {
       });
 
       it('renders a timeline', () => {
-        let engagementTimelineModel;
-        let detailView;
-
-        engagementTimelineModel = new EngagementTimelineModel({
+        const engagementTimelineModel = new EngagementTimelineModel({
           days: [{
             date: '2016-01-01',
             discussion_contributions: 1,
@@ -58,7 +55,7 @@ define((require) => {
             videos_viewed: 1,
           }],
         });
-        detailView = new LearnerDetailView({
+        const detailView = new LearnerDetailView({
           learnerModel: new LearnerModel(),
           engagementTimelineModel,
           el: fixtureClass,
@@ -72,10 +69,7 @@ define((require) => {
       });
 
       it('renders a table', () => {
-        let engagementTimelineModel;
-        let detailView;
-
-        engagementTimelineModel = new EngagementTimelineModel({
+        const engagementTimelineModel = new EngagementTimelineModel({
           days: [{
             date: '2016-01-01',
             discussion_contributions: 1,
@@ -84,7 +78,7 @@ define((require) => {
             videos_viewed: 1,
           }],
         });
-        detailView = new LearnerDetailView({
+        const detailView = new LearnerDetailView({
           learnerModel: new LearnerModel(),
           engagementTimelineModel,
           el: fixtureClass,
@@ -95,10 +89,8 @@ define((require) => {
       });
 
       it('handles 404s from the timeline endpoint', () => {
-        let engagementTimelineModel;
-        let detailView;
-        engagementTimelineModel = new EngagementTimelineModel();
-        detailView = new LearnerDetailView({
+        const engagementTimelineModel = new EngagementTimelineModel();
+        const detailView = new LearnerDetailView({
           learnerModel: new LearnerModel(),
           engagementTimelineModel,
           el: fixtureClass,
@@ -153,9 +145,7 @@ define((require) => {
       });
 
       it('handles 404s from the learner endpoint', () => {
-        let detailView;
-
-        detailView = new LearnerDetailView({
+        const detailView = new LearnerDetailView({
           learnerModel,
           engagementTimelineModel: new EngagementTimelineModel(),
           el: fixtureClass,

@@ -4,9 +4,7 @@ define((require) => {
   const _ = require('underscore');
   const Backbone = require('backbone');
 
-  let CourseModel;
-
-  CourseModel = Backbone.Model.extend({
+  const CourseModel = Backbone.Model.extend({
     defaults() {
       return {
         created: '',

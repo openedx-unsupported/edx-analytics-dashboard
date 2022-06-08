@@ -17,55 +17,52 @@ define((require) => {
      * Factory for creating a Backgrid cell class that renders a key
      * from the learner model's engagement attribute.
      */
-   const createEngagementCell = (key, options) => {
-    return Backgrid.Cell.extend({
+  const createEngagementCell = (key, options) => Backgrid.Cell.extend({
+    className: `learner-engagement-cell ${key}`,
 
-      className: `learner-engagement-cell ${key}`,
+    options,
 
-      options,
-
-      formatter: {
-        fromRaw(rawData, model) {
-          const value = model.get('engagements')[key];
-          // Engagement values are always numerical, but we may get
-          // "Infinity" for ratio metrics (e.g.
-          // problem_attempts_per_completed), which should just be
-          // rendered to the user as 'N/A'.
-          if (value === Infinity) {
-            // Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate accordingly.
-            return gettext('N/A');
-          }
-          return Utils.localizeNumber(value, options.significantDigits);
-        },
-      },
-
-      enagementCategoryToClass: {
-        classRankBottom: 'learner-cell-rank-bottom',
-        classRankMiddle: 'learner-cell-rank-middle',
-        classRankTop: 'learner-cell-rank-top',
-      },
-
-      render() {
-        const value = this.model.get('engagements')[key];
-        const engagementCategory = this.options.courseMetadata.getEngagementCategory(key, value);
-        if (engagementCategory) {
-          this.$el.addClass(this.enagementCategoryToClass[engagementCategory]);
-          if (engagementCategory === 'classRankTop') {
-            this.$el.attr('aria-label', `${value} high`);
-          } else if (engagementCategory === 'classRankBottom') {
-            this.$el.attr('aria-label', `${value} low`);
-          }
+    formatter: {
+      fromRaw(rawData, model) {
+        const value = model.get('engagements')[key];
+        // Engagement values are always numerical, but we may get
+        // "Infinity" for ratio metrics (e.g.
+        // problem_attempts_per_completed), which should just be
+        // rendered to the user as 'N/A'.
+        if (value === Infinity) {
+          // Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate accordingly.
+          return gettext('N/A');
         }
-        return Backgrid.Cell.prototype.render.apply(this, arguments);
+        return Utils.localizeNumber(value, options.significantDigits);
       },
-    });
-  };
+    },
+
+    enagementCategoryToClass: {
+      classRankBottom: 'learner-cell-rank-bottom',
+      classRankMiddle: 'learner-cell-rank-middle',
+      classRankTop: 'learner-cell-rank-top',
+    },
+
+    render() {
+      const value = this.model.get('engagements')[key];
+      const engagementCategory = this.options.courseMetadata.getEngagementCategory(key, value);
+      if (engagementCategory) {
+        this.$el.addClass(this.enagementCategoryToClass[engagementCategory]);
+        if (engagementCategory === 'classRankTop') {
+          this.$el.attr('aria-label', `${value} high`);
+        } else if (engagementCategory === 'classRankBottom') {
+          this.$el.attr('aria-label', `${value} low`);
+        }
+      }
+      return Backgrid.Cell.prototype.render.apply(this, arguments);
+    },
+  });
 
   /**
      * Cell class for engagement headers, which need to be right
      * aligned.
      */
-   const EngagementHeaderCell = BaseHeaderCell.extend({
+  const EngagementHeaderCell = BaseHeaderCell.extend({
     className: 'learner-engagement-cell',
   });
 

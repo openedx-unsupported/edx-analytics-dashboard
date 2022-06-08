@@ -4,9 +4,8 @@ define((require) => {
   const _ = require('underscore');
   const Marionette = require('marionette');
   const DataTableView = require('views/data-table-view');
-  let LearnerEngagementTableView;
 
-  LearnerEngagementTableView = Marionette.LayoutView.extend({
+  const LearnerEngagementTableView = Marionette.LayoutView.extend({
     template: _.template(require('learners/detail/templates/engagement-table.underscore')),
     regions: {
       main: '.learner-engagement-table.analytics-table',

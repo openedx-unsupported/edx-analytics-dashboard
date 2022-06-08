@@ -11,11 +11,9 @@ define((require) => {
   const CourseListSearch = require('course-list/list/views/search');
   const courseListControlsTemplate = require('course-list/list/templates/controls.underscore');
 
-  let CourseListControlsView;
-
   require('components/skip-link/behaviors/skip-link-behavior');
 
-  CourseListControlsView = ParentView.extend({
+  const CourseListControlsView = ParentView.extend({
     template: _.template(courseListControlsTemplate),
 
     regions: {
@@ -39,10 +37,9 @@ define((require) => {
     },
 
     initialize(options) {
-      let defaultFilterOptions;
       this.options = options || {};
 
-      defaultFilterOptions = {
+      const defaultFilterOptions = {
         collection: this.options.collection,
         trackingModel: this.options.trackingModel,
         trackSubject: this.options.trackSubject,

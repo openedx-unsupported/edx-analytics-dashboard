@@ -11,9 +11,7 @@ define((require) => {
   const AlertView = require('components/alert/views/alert-view');
   const LearnerTableView = require('learners/roster/views/table');
 
-  let LearnerResultsView;
-
-  LearnerResultsView = Marionette.LayoutView.extend({
+  const LearnerResultsView = Marionette.LayoutView.extend({
     template: _.template('<div class="roster-main"></div>'),
     regions: {
       main: '.roster-main',

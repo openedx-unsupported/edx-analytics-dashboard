@@ -9,37 +9,27 @@ define((require) => {
   const EngagementTimelineView = require('learners/detail/views/engagement-timeline');
 
   describe('EngagementTimelineView', () => {
-    let expectLegendRendered;
-    let expectTimelineRendered;
-    let expectXAxisRendered;
-    let fixtureClass;
-    let getTimelineModel;
-
-    expectLegendRendered = function (view) {
-      let labels;
-      let legendItems;
-      labels = ['Discussion Contributions', 'Problems Correct', 'Videos Viewed'];
-      legendItems = view.$('.nv-legend-text');
+    const expectLegendRendered = function (view) {
+      const labels = ['Discussion Contributions', 'Problems Correct', 'Videos Viewed'];
+      const legendItems = view.$('.nv-legend-text');
       expect(labels.length).toEqual(legendItems.length);
       _.each(labels, (label, index) => {
         expect(legendItems[index]).toHaveText(label);
       });
     };
 
-    expectXAxisRendered = function (view) {
-      let dates;
-      let xLabels;
-      dates = _.map(view.model.get('days'), (day) => moment.utc(Date.parse(day.date)).format('D MMM YYYY'));
+    const expectXAxisRendered = function (view) {
+      const dates = _.map(view.model.get('days'), (day) => moment.utc(Date.parse(day.date)).format('D MMM YYYY'));
       // Note that NVD3 unfortunately doesn't semantically order the
       // x-axis labels in the DOM, so we can't verify each label in order.
-      xLabels = _.chain(view.$('.nv-x.nv-axis text'))
+      const xLabels = _.chain(view.$('.nv-x.nv-axis text'))
         .filter((el) => $(el).text() !== '')
         .map((el) => $(el).text())
         .value();
       expect(dates.sort()).toEqual(xLabels.sort());
     };
 
-    expectTimelineRendered = function (view) {
+    const expectTimelineRendered = function (view) {
       // We can't verify the rendering of the actual svg paths, since they
       // don't semantically encode which data they represent; instead NVD3
       // encodes pixel/location values of the points along the paths.
@@ -50,9 +40,9 @@ define((require) => {
       expectXAxisRendered(view);
     };
 
-    fixtureClass = '.engagement-timeline-fixture';
+    const fixtureClass = '.engagement-timeline-fixture';
 
-    getTimelineModel = function () {
+    const getTimelineModel = function () {
       return new EngagementTimelineModel({
         days: [{
           date: '2016-01-01',
@@ -81,10 +71,8 @@ define((require) => {
     });
 
     it('can render an engagement timeline', () => {
-      let model;
-      let view;
-      model = getTimelineModel();
-      view = new EngagementTimelineView({
+      const model = getTimelineModel();
+      const view = new EngagementTimelineView({
         model,
         el: fixtureClass,
       });

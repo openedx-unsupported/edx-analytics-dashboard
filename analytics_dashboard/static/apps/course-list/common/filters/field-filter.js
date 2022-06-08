@@ -4,9 +4,7 @@
 define(() => {
   'use strict';
 
-  let FieldFilter;
-
-  FieldFilter = function (field, value) {
+  const FieldFilter = function (field, value) {
     this.field = field;
     this.value = value;
   };

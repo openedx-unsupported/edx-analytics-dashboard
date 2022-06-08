@@ -5,9 +5,7 @@ define((require) => {
 
   const ListUtils = require('components/utils/utils');
 
-  let EngagementTimelineModel;
-
-  EngagementTimelineModel = Backbone.Model.extend({
+  const EngagementTimelineModel = Backbone.Model.extend({
     /* Days is an array of objects, with each object containing the
          * following keys:
          *      - date (string) ISO 8601 date

@@ -9,15 +9,12 @@ define((require) => {
   const TrackingModel = require('models/tracking-model');
 
   describe('LearnersController', () => {
-    let courseId;
-    let expectDetailPage;
-    let expectRosterPage;
     let server;
 
-    courseId = 'test/course/id';
+    const courseId = 'test/course/id';
 
     // convenience method for asserting that we are on the learner detail page
-    expectDetailPage = function (controller) {
+    const expectDetailPage = function (controller) {
       const date = new Date(2016, 1, 28);
       expect(controller.options.rootView.$('.learners-navigation-region').html())
         .toContainText('Return to Learners');
@@ -30,7 +27,7 @@ define((require) => {
     };
 
     // convenience method for asserting that we are on the roster page
-    expectRosterPage = function (controller) {
+    const expectRosterPage = function (controller) {
       expect(controller.options.rootView.$('.learners-navigation-region').html())
         .not.toContainText('Return to Learners');
       expect(controller.options.rootView.$('.learner-roster')).toBeInDOM();
@@ -109,11 +106,10 @@ define((require) => {
 
     describe('navigating to the Learner Detail page', () => {
       it('should show the learner detail page', function () {
-        let engagementTimelineResponse;
         this.controller.showLearnerDetailPage('learner');
         // Showing the learner detail page triggers a request for the
         // learner engagement timeline data.
-        engagementTimelineResponse = JSON.stringify({
+        const engagementTimelineResponse = JSON.stringify({
           days: [{
             date: '2016-01-01',
             discussion_contributions: 1,

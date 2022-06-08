@@ -17,12 +17,11 @@ define((require) => {
 
   const INTEGER_COLUMNS = ['count', 'cumulative_count', 'count_change_7_days', 'verified_enrollment', 'passing_users'];
   const DATE_COLUMNS = ['start_date', 'end_date'];
-  let CourseListTableView;
 
   // This attached to Backgrid.Extensions.MomentCell
   require('backgrid-moment-cell');
 
-  CourseListTableView = ListTableView.extend({
+  const CourseListTableView = ListTableView.extend({
     template: _.template(courseListTableTemplate),
     regions: {
       table: '.course-list-table',

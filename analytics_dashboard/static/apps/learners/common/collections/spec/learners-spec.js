@@ -10,14 +10,12 @@ define((require) => {
     let learners;
     let server;
     let url;
-    let lastRequest;
-    let getUriForLastRequest;
 
-    lastRequest = function () {
+    const lastRequest = function () {
       return server.requests[server.requests.length - 1];
     };
 
-    getUriForLastRequest = function () {
+    const getUriForLastRequest = function () {
       return new URI(lastRequest().url);
     };
 
@@ -212,13 +210,11 @@ define((require) => {
         expect(learners.getQueryString()).toBe('?text_search=foo&page=1');
       });
       it('encodes the filters', () => {
-        let qstring; let
-          pageAfterFilters;
         learners.setFilterField('enrollment_mode', 'audit');
         learners.setFilterField('cohort', 'group1');
         // order of filter fields in query string is not defined
-        qstring = learners.getQueryString();
-        pageAfterFilters = (qstring === '?enrollment_mode=audit&cohort=group1&page=1'
+        const qstring = learners.getQueryString();
+        const pageAfterFilters = (qstring === '?enrollment_mode=audit&cohort=group1&page=1'
                                     || qstring === '?cohort=group1&enrollment_mode=audit&page=1');
         expect(pageAfterFilters).toBe(true);
       });

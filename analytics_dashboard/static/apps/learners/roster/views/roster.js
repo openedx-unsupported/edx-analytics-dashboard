@@ -20,9 +20,7 @@ define((require) => {
   const NumResultsView = require('components/generic-list/list/views/num-results');
   const rosterTemplate = require('learners/roster/templates/roster.underscore');
 
-  let LearnerRosterView;
-
-  LearnerRosterView = ListView.extend({
+  const LearnerRosterView = ListView.extend({
     className: 'learner-roster',
 
     template: _.template(rosterTemplate),
@@ -37,11 +35,9 @@ define((require) => {
     },
 
     initialize(options) {
-      let eventTransformers;
-
       ListView.prototype.initialize.call(this, options);
 
-      eventTransformers = {
+      const eventTransformers = {
         serverError: ListUtils.EventTransformers.serverErrorToAppError,
         networkError: ListUtils.EventTransformers.networkErrorToAppError,
         sync: ListUtils.EventTransformers.syncToClearError,

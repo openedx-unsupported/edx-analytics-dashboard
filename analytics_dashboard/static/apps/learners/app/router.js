@@ -3,9 +3,7 @@ define((require) => {
 
   const Marionette = require('marionette');
 
-  let LearnersRouter;
-
-  LearnersRouter = Marionette.AppRouter.extend({
+  const LearnersRouter = Marionette.AppRouter.extend({
     // Routes intended to show a page in the app should map to method names
     // beginning with "show", e.g. 'showLearnerRosterPage'.
     appRoutes: {
