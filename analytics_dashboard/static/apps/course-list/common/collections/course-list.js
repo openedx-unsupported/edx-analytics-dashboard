@@ -52,9 +52,9 @@ define((require) => {
 
       this.programsCollection = options.programsCollection || new ProgramsCollection([]);
       // add program_ids to programs array on every course
-      this.programsCollection.each(_.bind(function (program) {
+      this.programsCollection.each(_.bind(program => {
         const courseIds = program.get('course_ids');
-        _.each(courseIds, function (courseId) {
+        _.each(courseIds, courseId => {
           const course = this.shadowCollection.get(courseId);
           if (course !== undefined) {
             course.set({
@@ -107,8 +107,8 @@ define((require) => {
         filters.push(new SearchFilter(this.searchMatcher));
       }
 
-      _(activeFilterFields).each(function (value, key) {
-        const activeFilters = _(value.split(',')).map(function (field) {
+      _(activeFilterFields).each((value, key) => {
+        const activeFilters = _(value.split(',')).map(field => {
           if ('fieldType' in this.filterableFields[key]
                             && this.filterableFields[key].fieldType === 'array') {
             return new ArrayFieldFilter(key, field);

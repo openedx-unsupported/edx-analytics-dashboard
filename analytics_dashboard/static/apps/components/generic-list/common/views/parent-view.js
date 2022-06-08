@@ -35,7 +35,8 @@ define((require) => {
 
     showChildren() {
       _.each(this.childViews, _.bind(child => {
-        this.showChildView(child.region, new child.class(child.options));
+        const ChildClass = child.class;
+        this.showChildView(child.region, new ChildClass(child.options));
       }, this));
     },
   });

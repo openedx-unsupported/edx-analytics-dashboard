@@ -7,16 +7,14 @@ define(() => {
 
   const _ = require('underscore');
 
-  const ArrayFieldFilter = function (field, value) {
+  const ArrayFieldFilter = (field, value) => {
     this.field = field;
     this.value = value;
   };
 
-  ArrayFieldFilter.prototype.filter = function (collection) {
-    return collection.filter(_.bind(function (item) {
-      return _.contains(item.get(this.field), this.value);
-    }, this));
-  };
+  ArrayFieldFilter.prototype.filter = collection => collection.filter(
+    _.bind(item => _.contains(item.get(this.field), this.value), this),
+  );
 
   return ArrayFieldFilter;
 });

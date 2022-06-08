@@ -5,13 +5,15 @@
 define(() => {
   'use strict';
 
-  const SearchFilter = function (matcher) {
-    this.matcher = matcher;
-  };
+  class SearchFilter {
+    constructor(matcher) {
+      this.matcher = matcher;
+    }
 
-  SearchFilter.prototype.filter = function (collection) {
-    return collection.filter(this.matcher);
-  };
+    filter(collection) {
+      return collection.filter(this.matcher);
+    }
+  }
 
   return SearchFilter;
 });

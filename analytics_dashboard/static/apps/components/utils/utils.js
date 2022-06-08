@@ -41,7 +41,7 @@ define((require) => {
         forwarder.listenTo(originator, eventName, function () {
           const transformFunc = transformFunctions[eventName];
           const newEventArguments = transformFunc.apply(forwarder, arguments);
-          forwarder.triggerMethod.apply(forwarder, newEventArguments);
+          forwarder.triggerMethod(...newEventArguments);
         });
       });
     },

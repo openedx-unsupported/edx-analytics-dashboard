@@ -19,7 +19,7 @@ define((require) => {
   describe('CourseListView', () => {
     const fixtureClass = 'course-list-view-fixture';
 
-    const getCourseListView = function (options, pageSize) {
+    const getCourseListView = (options, pageSize) => {
       const defaultOptions = _.defaults({}, options, { filteringEnabled: true });
 
       const programsCollection = defaultOptions.programsCollection || new ProgramsCollection(
@@ -97,9 +97,7 @@ define((require) => {
       return view;
     };
 
-    const clickPagingControl = function (titleSelector) {
-      $(`a[title="${titleSelector}"]`).click();
-    };
+    const clickPagingControl = titleSelector => $(`a[title="${titleSelector}"]`).click();
 
     beforeEach(() => {
       setFixtures(`<div class="${fixtureClass}"></div>`);
@@ -230,15 +228,11 @@ define((require) => {
     describe('sorting', () => {
       let expectSortCalled;
 
-      const getSortingHeaderLink = function (headerClass) {
-        return $(`th.${headerClass} button`);
-      };
+      const getSortingHeaderLink = headerClass => $(`th.${headerClass} button`);
 
-      const clickSortingHeader = function (headerClass) {
-        getSortingHeaderLink(headerClass).click();
-      };
+      const clickSortingHeader = headerClass => getSortingHeaderLink(headerClass).click();
 
-      const executeSortTest = function (field, isInitial) {
+      const executeSortTest = (field, isInitial) => {
         expect(getSortingHeaderLink(field).find('span.fa')).toHaveClass(isInitial ? 'fa-sort-asc' : 'fa-sort');
         clickSortingHeader(field);
         expectSortCalled(field, isInitial ? 'desc' : 'asc');
@@ -246,9 +240,9 @@ define((require) => {
         expectSortCalled(field, isInitial ? 'asc' : 'desc');
       };
 
-      expectSortCalled = function (sortField, sortValue) {
-        expect(getSortingHeaderLink(sortField).find('span')).toHaveClass(`fa-sort-${sortValue}`);
-      };
+      expectSortCalled = (sortField, sortValue) => expect(
+        getSortingHeaderLink(sortField).find('span'),
+      ).toHaveClass(`fa-sort-${sortValue}`)
 
       beforeEach(function () {
         this.view = getCourseListView();
@@ -271,7 +265,7 @@ define((require) => {
         });
       });
 
-      it('goes to the first page after applying a sort', function () {
+      it('goes to the first page after applying a sort', () => {
         this.view = getCourseListView({}, 1);
         clickPagingControl('Page 2');
         expect(this.view.$('a[title="Page 2"]').parent('li')).toHaveClass('active');
@@ -310,12 +304,12 @@ define((require) => {
     });
 
     describe('paging', () => {
-      const createTwoPageView = function () {
+      const createTwoPageView = () => {
         const view = getCourseListView({}, 1);
         return view;
       };
 
-      const expectLinkStates = function (view, activeLinkTitle, disabledLinkTitles) {
+      const expectLinkStates = (view, activeLinkTitle, disabledLinkTitles) => {
         view.$('li > a').each((_index, link) => {
           const $link = $(link);
           const $parentLi = $link.parent('li');
